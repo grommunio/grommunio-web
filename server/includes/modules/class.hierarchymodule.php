@@ -429,7 +429,7 @@
 		*/
 		function getFolderProps($store, $folder)
 		{
-			$data = $GLOBALS["operations"]->getProps($store, $folder, $this->properties);
+			$data = $GLOBALS["operations"]->getProps($folder, $this->properties);
 
 			// adding container_class if missing
 			if (!isset($data["props"]["container_class"])){

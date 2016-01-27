@@ -429,7 +429,7 @@
 					if($sendItemToClient) {
 						// only get primitive properties, no need to get body, attachments or recipient information
 						$message = $GLOBALS["operations"]->openMessage($store, $props[PR_ENTRYID]);
-						array_push($listData, $GLOBALS["operations"]->getProps($store, $message, $this->properties));
+						array_push($listData, $GLOBALS["operations"]->getProps($message, $this->properties));
 
 						// store entryid => last_modification_time mapping
 						$searchResults[bin2hex($props[PR_ENTRYID])] = $props[PR_LAST_MODIFICATION_TIME];

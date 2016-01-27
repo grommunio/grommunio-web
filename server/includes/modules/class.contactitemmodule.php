@@ -172,10 +172,7 @@
 					}
 
 					if (!empty($members) && !empty($oneoff_members)) {
-						// At the moment server is expecting oneoff entryids in members property
-						// @TODO: Re-enable this when ZCP-12047 is fixed
-						//$props[$this->properties['members']] = $members;
-						$props[$this->properties['members']] = $oneoff_members;
+						$props[$this->properties['members']] = $members;
 						$props[$this->properties['oneoff_members']] = $oneoff_members;
 					} else {
 						$properiesToDelete[] = $this->properties['members'];
