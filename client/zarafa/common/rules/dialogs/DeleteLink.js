@@ -43,7 +43,11 @@ Zarafa.common.rules.dialogs.DeleteLink = Ext.extend(Zarafa.common.rules.dialogs.
 		this.actionFlag = Zarafa.common.rules.data.ActionFlags.MOVE;
 		this.action = action;
 		this.isModified = !Ext.isDefined(action);
-		this.folder = container.getHierarchyStore().getDefaultFolder('wastebasket');
+
+		var hierarchyStore = container.getHierarchyStore();
+		var index = hierarchyStore.findExact('store_entryid', this.storeEntryId);
+
+		this.folder = hierarchyStore.getAt(index).getDefaultFolder('wastebasket');
 	},
 
 	/**

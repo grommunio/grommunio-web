@@ -20,6 +20,7 @@ $serverConfig = array(
 	'webapp_title'					=> WEBAPP_TITLE,
 	'using_sso'						=> WebAppAuthentication::isUsingSingleSignOn() ? true : false,
 	'disable_full_gab'				=> DISABLE_FULL_GAB,
+	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,

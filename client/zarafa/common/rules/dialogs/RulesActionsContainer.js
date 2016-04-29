@@ -132,7 +132,8 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 			id : baseId + '-folder'
 		},{
 			xtype : 'zarafa.deletelink',
-			id : baseId + '-delete'
+			id : baseId + '-delete',
+			storeEntryId: this.storeEntryId
 		},{
 			xtype : 'zarafa.userselectionlink',
 			id : baseId + '-to'

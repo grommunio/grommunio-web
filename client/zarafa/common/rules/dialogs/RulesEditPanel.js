@@ -24,7 +24,7 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 			xtype : 'zarafa.ruleseditpanel',
 			layout : 'anchor',
 			autoScroll : true,
-			items : this.createPanelItems()
+			items : this.createPanelItems(config)
 		});
 
 		Zarafa.common.rules.dialogs.RulesEditPanel.superclass.constructor.call(this, config);
@@ -32,10 +32,11 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Function will create panel items for {@link Zarafa.common.rules.dialogs.RulesEditPanel RulesEditPanel}
+	 * @param {Object} config the Configuration structure from the constructor.
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
-	createPanelItems : function()
+	createPanelItems : function(config)
 	{
 		return [{
 			xtype : 'displayfield',
@@ -68,7 +69,8 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 			height : 20
 		}, {
 			xtype : 'zarafa.rulesactionscontainer',
-			anchor : '100%'
+			anchor : '100%',
+			storeEntryId : config.storeEntryId
 		}, {
 			xtype : 'spacer',
 			height : 15

@@ -12,6 +12,16 @@ if(!defined('STATE_FILE_MAX_LIFETIME')) define('STATE_FILE_MAX_LIFETIME', 28*60*
 if(!defined('UPLOADED_ATTACHMENT_MAX_LIFETIME')) define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
 if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
 
+
+/**
+ * Set to true to give users the possiblity to edit and create mail filters on the store
+ * of other users. The user needs owner permissions on the store and folder permissions on
+ * the inbox of the other user.
+ * SECURITY NOTE: This makes it possible for a user to create a filter on a folder for which
+ * he does not have read permissions to forward e-mail to his own mailbox and read it anyway.
+ */
+if(!defined('ENABLE_SHARED_RULES')) define('ENABLE_SHARED_RULES', false);
+
 /**
  * When set to true, we enable GZIP
  */
