@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>quickitems</name>
+		<title>Quick Items</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>Special widgets for easily creating new Mails, Appointments, Contacts, Tasks and Notes.</description>
+	</info>
+	<components>
+		<component>
+			<files>
+				<client>
+					<clientfile load="release">js/quickitems.js</clientfile>
+					<clientfile load="debug">js/quickitems-debug.js</clientfile>
+					<clientfile load="source">js/AbstractQuickItemWidget.js</clientfile>
+					<clientfile load="source">js/QuickAppointmentWidget.js</clientfile>
+					<clientfile load="source">js/QuickContactWidget.js</clientfile>
+					<clientfile load="source">js/QuickMailWidget.js</clientfile>
+					<clientfile load="source">js/QuickNoteWidget.js</clientfile>
+					<clientfile load="source">js/QuickTaskWidget.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

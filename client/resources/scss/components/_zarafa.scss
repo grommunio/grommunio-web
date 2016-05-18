@@ -1,0 +1,24 @@
+/* home tab */
+
+/* Widget icons */
+#zarafa-mainpanel-contentpanel-today,
+.zarafa-widgetpanel > .x-panel-bwrap {
+	.x-tool.x-tool-gear {
+		background-image: sprite-url($icons) !important;
+		background-repeat: no-repeat;
+		background-position: sprite-position($icons, 'icon_cogwheel', $offset_y: 2px, $offset_x: 0px);
+	}
+
+	.x-tool.x-tool-toggle {
+		background-image: sprite-url($iconsmap) !important;
+		background-repeat: no-repeat;
+		background-position: sprite-position($iconsmap, 'arrow_down_l', $offset_y: 8px, $offset_x: 4px);
+	}
+
+	.x-tool.x-tool-close {
+		background-image: sprite-url($icons) !important;
+		background-repeat: no-repeat;
+		@extend .icon_cross;
+		background-position: sprite-position($icons, 'icon_cross_large', $offset-y: 5px, $offset-x: 4px);
+	}
+}

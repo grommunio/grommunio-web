@@ -1,0 +1,35 @@
+<project name="tools" default="all">
+
+	<property name="root-folder" value="${basedir}/.."/>
+	<property name="tools-folder" value="${root-folder}/tools/"/>
+
+	<import file="antutil.xml"/>
+
+	<property name="outputdir" value="${basedir}/build"/>
+	<property name="outputfile" value="${basedir}/tools.jar"/>
+
+	<!-- Meta target -->
+	<target name="all" depends="jsconcat, package"/>
+	
+	<!-- Clean -->
+	<target name="clean">
+		<delete file="${outputfile}"/>
+		<delete dir="${outputdir}"/>
+		<build-tool name="jsconcat" target="clean"/>
+	</target>
+
+	<!-- Creates required output dirs -->
+	<target name="init"><mkdir dir="${outputdir}"/></target>
+	
+	<!-- JsConcat build target -->
+	<target name="jsconcat" depends="init"><build-tool name="jsconcat" target="all"/></target>
+	
+	<!-- Packages all the tools and required libs together into a single jar file. -->
+	<target name="package">
+		<jar destfile="${outputfile}">
+			<!-- Custom build tools -->
+			<zipfileset src="build/jsconcat.jar" excludes="META-INF/*"/>
+		</jar>
+	</target>
+
+</project>

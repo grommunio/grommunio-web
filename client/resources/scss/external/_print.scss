@@ -1,0 +1,58 @@
+/* setting the margin to 0 makes some browsers use the full paper, and disabling their header and footers */
+@page 
+{
+    size: auto;   /* auto is the initial value */
+    margin-top: 0.5in;
+    margin-bottom: 0.5in;
+    margin-left: 0.5in;
+    margin-right: 0.5in;
+}
+
+@media print {
+	thead {
+		display: table-header-group;
+	}
+
+	#pagemargin {
+		min-height: 100%;
+		margin: 0;
+	}
+}
+
+/* common css to make some tags clear on paper */
+html,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+img,body,html {
+	border:0;
+}
+address,caption,cite,code,dfn,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+}
+q:before,q:after{
+	content:'';
+}
+
+/* common util classes */
+.nowrap {
+	white-space: nowrap;
+}
+.wrap {
+	white-space: normal;
+}
+.fullwidth {
+	width: 100%;
+}
+
+/* used to see if all css is loaded before we start printing */
+#csscheck {
+	display: none;
+}

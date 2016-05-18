@@ -1,0 +1,521 @@
+/* column headers */
+.x-grid3-header {
+	background: $background-color-main;
+	border-bottom: 1px solid $grey;
+	padding: 0;
+}
+
+td.x-grid3-hd-over .x-grid3-hd-inner,
+td.sort-desc .x-grid3-hd-inner,
+td.sort-asc .x-grid3-hd-inner,
+td.x-grid3-hd-menu-open .x-grid3-hd-inner {
+	background: $background-color-main;
+}
+
+.x-grid3-hd-row {
+	td {
+		padding: ($grid-header-height - $button-small-height)/2 0;
+		border-color: $background-color-main;
+		position: relative;
+
+		.x-grid3-hd-inner {
+			line-height: $font-default-line-height;
+			display: inline-block;
+			border: 1px solid $background-color-main;
+			border-radius: 2px;
+			padding: ($button-small-height - $font-default-line-height - 2px)/2 $padding-medium; /* substract 2px for the borders */
+			font-weight: bold;
+			overflow: visible; /* needed for the .x-grid3-hd-btn to be visible when we place it outside of the button */
+			background: $background-color-main;
+			max-width: 100%;
+			box-sizing: border-box;
+			
+			.zarafa-x-grid3-hd-title {
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				.x-grid3-hd-checker {
+					width: 15px;
+				}
+			}
+						
+			.x-grid3-hd-btn {
+				border: 1px solid $grey;
+				border-radius: 2px;
+				background-color: $background-color-main;
+				width: 16px;
+				height: $button-small-height - 2px !important; /* overwriting the inline styled height that extjs gives this element */
+				right: -20px;
+				top: -1px; /* needed because the parent has a border */
+				@extend .icon_cogwheel_s;
+      			background-position: sprite-position($iconsmap, icon_cogwheel_s, $offset-y: 6, $offset-x: 3);
+			}
+		}
+	}
+	td:hover .x-grid3-hd-inner,
+	td:hover .x-grid3-hd-inner .x-grid3-hd-btn{
+		border-color: $grey2;
+	}
+	td:active .x-grid3-hd-inner,
+	td:active .x-grid3-hd-inner .x-grid3-hd-btn{
+		background-color: $grey3;
+	}
+
+	td.sort-desc .x-grid3-hd-inner,
+	td.sort-asc .x-grid3-hd-inner {
+		padding-right: 9px + 2*$padding-medium; /* some extra padding to place the sort icon */
+	}
+	
+	td.sort-desc .x-grid3-sort-icon,
+	td.sort-asc .x-grid3-sort-icon{
+		width: 9px;
+		height: 5px;
+		position: absolute;
+		right: $padding-medium;
+		top: (($button-small-height - 5px)/2 - 1px);
+	}
+	
+	td.sort-desc .x-grid3-sort-icon{
+		@extend .arrow_down_l;
+      	background-position: sprite-position($iconsmap, arrow_down_l, $offset-y: 0, $offset-x: 0);
+	}
+	td.sort-asc .x-grid3-sort-icon{
+		@extend .arrow_up_l;
+      	background-position: sprite-position($iconsmap, arrow_up_l, $offset-y: 0, $offset-x: 0);
+	}
+
+	td.sort-desc .x-grid3-hd-inner,
+	td.sort-asc .x-grid3-hd-inner,
+	td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn,
+	td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn {
+		border-color: $grey;
+		background-color: $grey3;
+	}
+	td.sort-desc:active .x-grid3-hd-inner,
+	td.sort-asc:active .x-grid3-hd-inner,
+	td.sort-desc:active .x-grid3-hd-inner .x-grid3-hd-btn,
+	td.sort-asc:active .x-grid3-hd-inner .x-grid3-hd-btn {
+		background-color: $grey4;
+	}
+
+	/* Icon only columns */
+	td.zarafa-icon-column {
+		.x-grid3-hd-inner {
+			height: 24px;
+			width: 22px;
+			padding: 0;
+			text-align: center;
+			spadding: ($button-small-height - $font-default-line-height - 2px)/2 ($padding-small - 2); /* substract 2px for the borders */
+
+			/* reposition the icon headers */
+			p {
+				position: relative;
+				display: inline-block;
+				min-width: 12px;
+				
+				.title {
+					display: none;
+				}
+			}
+		}
+	}
+
+	td.zarafa-icon-column.sort-asc,
+	td.zarafa-icon-column.sort-desc {
+		p {
+			display: none;
+		}
+		
+		.x-grid3-sort-icon {
+			margin: 0;
+		}
+	}
+	
+	
+	
+	/****************************************************************************
+	 * Icons
+	 ****************************************************************************/
+	
+	td.zarafa-icon-column .x-grid3-hd-inner{
+		p.icon_importance {
+			background-position: sprite-position($iconsmap, icon_importance, $offset-y: 5px, $offset-x: 4px);
+		}
+		p.icon_index {
+			background-position: sprite-position($iconsmap, icon_index, $offset-y: 4px, $offset-x: 1px);
+		}
+		p.icon_attachment {
+			@extend .icon_paperclip;
+			background-position: sprite-position($icons, icon_paperclip, $offset-y: 2px, $offset-x: -4px);
+		}
+		p.icon_mail_flag {
+			@extend .icon_flag;
+			background-position: sprite-position($iconsmap, icon_flag, $offset-y: 3px, $offset-x: 0px);
+		}
+
+		/* note icon complete */
+		p.icon_complete,
+		/* calendar grid */
+		p.icon_allday {
+			@extend .icon_task2;
+			background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3px, $offset-x: 0px);
+			width: 14px;
+		}
+		p.icon_recurring {
+			@extend .icon_recurrence;
+			background-position: sprite-position($icons, icon_recurrence, $offset-y: 3px, $offset-x: 0px);
+			width: 14px;
+		}
+		p.icon_reminder {
+			background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 5px, $offset-x: 0px);
+			width: 18px;
+		}
+	}
+}
+
+	/****************************************************************************
+	 * Icons in the 'Show columns' menu
+	 ****************************************************************************/
+	.x-menu{
+		.x-menu-check-item {
+			/* check/uncheck images are 14 px wide */
+			padding-left: $padding-small + 14px + $padding-medium;
+			
+			.x-menu-item-text {
+				p {
+					padding-left: 10px;
+				}
+				
+				/* mail grid */
+				p.icon_importance {
+					background-position: sprite-position($iconsmap, icon_importance, $offset-y: 4px, $offset-x: 4px);
+				}
+				p.icon_index {
+					background-position: sprite-position($iconsmap, icon_index, $offset-y: 3px, $offset-x: 1px);
+				}
+				p.icon_attachment {
+					@extend .icon_paperclip;
+					background-position: sprite-position($icons, icon_paperclip, $offset-y: 1px, $offset-x: -5px);
+				}
+				p.icon_mail_flag {
+					@extend .icon_flag;
+					background-position: sprite-position($iconsmap, icon_flag, $offset-y: 2px, $offset-x: 0px);
+				}
+				
+				/* calendar grid */
+				p.icon_allday {
+					@extend .icon_task2;
+					background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3px, $offset-x: 0pxpx);
+					margin-left: -2px;
+					padding-left: 12px;
+				}
+				p.icon_recurring {
+					@extend .icon_recurrence;
+					background-position: sprite-position($icons, icon_recurrence, $offset-y: 3px, $offset-x: 0pxpx);
+					margin-left: -2px;
+					padding-left: 12px;
+				}
+				p.icon_reminder {
+					background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 3px, $offset-x: 0px);
+					margin-left: -6px;
+					padding-left: 16px;
+				}
+			}
+		}
+	}
+
+
+/******************************************************************************
+ * Grid columns
+ ******************************************************************************/
+.x-grid3-row {
+	border-top: none;
+	border-color: $grey;
+	.x-grid3-cell-inner {
+		line-height: 100%;
+		padding: $padding-large ($padding-medium + 1px);
+	}
+	
+	.x-grid3-row-body-tr {
+		table td {
+			overflow: hidden;
+			word-wrap: break-word;
+
+			.grid_compact {
+				line-height: 100%;
+				min-height: $font-default-size; /* we need this for when there is no title set */
+				max-height: $font-default-size + 1px; /* added 1px because letters get cut off at the bottom otherwise */
+				padding-bottom: 0px;
+				padding-top: 4px;
+			}
+
+			.grid_compact_left {
+				padding-left: 30px;
+			}
+
+			.grid_compact_subject_cell {
+				color : $grid-subject-color;
+				max-height: 2 * $font-default-size + 1px;
+			}
+		}
+	}
+
+	/* reposition checkboxes (size of checkbox is 15x15) */
+	.x-grid3-check-col-td,
+	.x-grid3-td-checker {
+		background: transparent;
+		
+		.x-grid3-cell-inner {
+			padding-top: ($font-default-size + 2*$padding-large - 15) / 2 !important; /* important is needed because Ext also added it */
+		}
+	}
+}
+	
+.x-grid3-row.x-grid3-row-expanded {
+	.x-grid3-cell-inner {
+		padding-bottom: $padding-large - 4px;
+	}
+
+	.x-grid3-row-body {
+		padding-bottom: $padding-large;
+	}
+}
+
+
+.x-grid3-row-over {
+	background: $grid-hover-color;
+	border-color: $grey; /* Ext wants to make the hovered border darker, we don't */
+}
+.x-grid3-row-selected {
+	background: $grid-active-color !important; /* Ext uses important, so we also must do that */
+}
+
+.x-grid3-row.x-grid3-row-selected {
+	border: 1px solid $grid-active-color;
+	border-top: 0px;
+}
+
+/* Mail grid */
+#mail-grid,
+#calendar_grid,
+#contact-gridview,
+#task-grid,
+#note-gridview,
+#unread-mail-widget {
+	.x-grid3-row {
+		border-left-color: white;
+	}
+	
+	.mail_unread {
+		div {
+			font-weight: bold;
+		}
+	}
+}
+
+	/*********************************
+	 * Icons in the grid colums
+	 ********************************/
+	.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3{
+		.x-grid3-row {
+			
+			/* Icon column */
+			.icon_message,
+			.icon_mail.icon_message_read {
+				@extend .icon_mail_read;
+	        	background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail.icon_message_unread {
+				@extend .icon_mail_unread;
+	        	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: $padding-medium + 5, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_replied {
+	        	background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_single {
+				@extend .icon_calendar_mr;
+	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: $padding-medium + 1, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail_stubbed {
+	        	background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_forwarded {
+	        	background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail_oof {
+	        	background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 3);
+			}
+			.icon_contact_user {
+				@extend .icon_contact_card;
+	        	background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_distlist {
+				@extend .icon_distlist;
+	        	background-position: sprite-position($iconsmap, icon_distlist, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_equipment {
+	        	background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_gab_user {
+				@extend .icon_contact_smtp;
+	        	background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_room {
+	        	background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: $padding-medium + 2, $offset-x: $padding-medium + 1);
+			}
+			.icon_contact_company {
+	        	background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 3);
+			}
+			.icon_appt_appointment {
+				@extend .icon_calendar_blue;
+	        	background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_recurring,
+			.icon_appt_recurring {
+				@extend .icon_calendar_appt_recurring;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_single {
+				@extend .icon_calendar_mr;
+	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_accept {
+				@extend .icon_calendar_appt_accept;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_decline {
+				@extend .icon_appt_meeting_cancel;
+	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_tentative {
+				@extend .icon_calendar_appt_tentative;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_newtime {
+				@extend .icon_calendar_appt_newtime;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_cancel {
+	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+	
+			.icon_appt_meeting_outofdate {
+				@extend .icon_calendar_appt_outofdate;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_task_normal,
+			.icon_task_recurring {
+				@extend .icon_task2;
+	        	background-position: sprite-position($iconsmap, icon_task2, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			/* notes */
+			.icon_note_blue {
+				@extend .icon_note_blue;
+	        	background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_yellow {
+				@extend .icon_note_yellow;
+	        	background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_white {
+				@extend .icon_note_white;
+	        	background-position: sprite-position($iconsmap, icon_note_white, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_pink {
+				@extend .icon_note_pink;
+	        	background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_green {
+				@extend .icon_note_green;
+	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+	
+			.icon_mail_nondelivery_receipt {
+				@extend .icon_mail_report_ndr;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
+			}
+			.icon_mail_read_receipt {
+				@extend .icon_mail_report_accept;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
+			}
+			.icon_mail_nonread_receipt {
+				@extend .icon_mail_report_decline;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
+			}
+	
+			/* attachment column */
+			.icon_attachment {
+				@extend .icon_paperclip;
+	        	background-position: sprite-position($icons, icon_paperclip, $offset-y: $padding-medium + 1, $offset-x: $padding-medium - 4);
+			}
+			.grid_compact.icon_attachment {
+	        	background-position: sprite-position($icons, icon_paperclip, $offset-y: 0, $offset-x: $padding-medium - 4);
+			}
+	
+			/* importance column */
+			.icon_importance_urgent {
+				@extend .icon_priority_high;
+	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 3);
+			}
+			.icon_importance_nonurgent {
+				@extend .icon_priority_low;
+	        	background-position: sprite-position($icons, icon_priority_low, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 1);
+			}
+			.grid_compact.icon_importance_urgent {
+	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: 3, $offset-x: $padding-medium + 4);
+			}
+			.grid_compact.icon_importance_nonurgent {
+	        	background-position: sprite-position($icons, icon_priority_low, $offset-y: 3, $offset-x: $padding-medium + 2);
+			}
+	
+			/* flags column */
+			.icon_mail_flag {
+				@extend .icon_flag;
+	        	background-position: sprite-position($iconsmap, icon_flag, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_red {
+				@extend .icons-icon_flag_red;
+	        	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_blue {
+				@extend .icon_flag_blue;
+	        	background-position: sprite-position($iconsmap, icon_flag_blue, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_yellow {
+				@extend .icon_flag_yellow;
+	        	background-position: sprite-position($iconsmap, icon_flag_yellow, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_green {
+				@extend .icon_flag_green;
+	        	background-position: sprite-position($iconsmap, icon_flag_green, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_orange {
+				@extend .icon_flag_orange;
+	        	background-position: sprite-position($iconsmap, icon_flag_orange, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_flag_purple {
+				@extend .icon_flag_purple;
+	        	background-position: sprite-position($iconsmap, icon_flag_purple, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_completed {
+				@extend .icon_flag_complete;
+	        	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: $padding-medium, $offset-x: $padding-medium - 1);
+			}
+		}
+	}	
+	
+	/* Override ExtJS selected grid */
+	.x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
+		background-image: none;
+	}
+
+	/* Add some left padding for calendar */
+	.x-grid3-row .x-grid3-check-col-on {
+		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 3, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+	.x-grid3-row .x-grid3-check-col {
+		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 3, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}

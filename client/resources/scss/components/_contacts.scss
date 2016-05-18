@@ -1,0 +1,69 @@
+
+/* Business card view */
+div.zarafa-contact-cardview-selected {
+	 background-color : $light-blue;
+}
+
+.zarafa-contact-cardview {
+	height: 100%;
+	width: 100%;
+}
+
+.zarafa-card-body table {
+	border-collapse: collapse;
+}
+
+.zarafa-card-body table tr td.contact-card-label {
+	font-style: italic;
+	padding-right:3px;
+}
+
+.zarafa-contact-cardview-card {
+	border: 1px solid transparent;
+	padding: 5px;
+	width: 300px;
+	float: left;
+	background-color : transparent;
+	}
+
+.zarafa-contact-cardview-card .x-panel {
+	box-shadow:0px 1px 4px rgba(0,0,0,0.4);
+	overflow:hidden;
+}
+
+.zarafa-contact-cardview-card .x-panel .x-panel-tl {
+	background-color:#f0f0f0;
+}
+
+.zarafa-contact-cardview-contact-card {
+	width : 45px;
+	height : 125px;
+	float : left;
+}
+
+.zarafa-contact-cardview-card .x-panel-header {
+	background-color: none;
+	border-color: none;
+}
+
+.zarafa-contact-cardview-card .x-panel-header-text {
+	font-size:1.1em;
+}
+
+.zarafa-contact-cardview-card-title
+{
+	padding:5px;
+}
+
+.zarafa-contact-cardview-distlist-card {
+	width : 80px;
+	height : 125px;
+	float : left;
+}
+
+/* Body of contact cardview */
+.zarafa-card-body {
+	background-color: white !important;
+	border:none;
+	font-weight:normal;
+}

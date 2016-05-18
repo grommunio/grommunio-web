@@ -1,0 +1,62 @@
+/* 
+ * Contains all the colors that are used in the new design.
+ * This file should only contain sass definitions, no actual css rules
+ */
+
+/* First we define some colors */
+
+$kopano-blue              : #0f70bd;
+$kopano-blue-hover        : #065fa5;
+$kopano-blue-active       : #065fa5;
+
+$grey                     : #e6e6e6;
+$grey2                    : #dadada;
+$grey3                    : #f8f8f8;
+$grey4                    : #f2f2f2;
+$grey5                    : #b6b6b6;
+$grey6                    : #777777;
+
+$dark-grey                : #333333;
+$dark-grey2				  : #444545;
+
+$green                    : #5ebb4b;
+$green-hover              : #59b147;
+
+$green-bright			  : #23cb02;
+
+$white                    : #ffffff;
+$red                      : #FF0000;
+
+
+$light-blue               : #d5e8f7;
+$seperator-color	  : #aca889;
+
+/* Now we define which color we use for different elements */
+
+$background-color-main    : $white;
+
+$background-color-header  : $grey;
+$background-color-button  : $grey;
+
+/* toolbars */
+$background-color-toolbar : $white;
+$seperator-color-toolbar  : $seperator-color;
+
+/* tabs */
+$background-color-tab                 : $grey;
+$background-color-tab-active          : $white;
+$background-color-tab-hover           : $grey;
+
+/* menus */
+$background-color-menu    : $white;
+$border-color-menu        : $grey5;
+
+/* grids */
+$grid-hover-color         : $grey4;
+$grid-active-color        : $light-blue;
+$grid-subject-color       : $grey6;
+
+/* fonts */
+$font-color-light         : $white;
+$font-color-dark          : black;
+

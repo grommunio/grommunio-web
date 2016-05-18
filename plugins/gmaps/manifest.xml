@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>gmaps</name>
+		<title>Google Maps Plugin</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>Shows contact address on google maps.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<info>
+				<name>MDHash</name>
+				<title>MDHash</title>
+				<description>MD5 hashing library</description>
+			</info>
+			<files>
+				<client>
+					<clientfile load="release">md5/Ext.ux.MDHash.js</clientfile>
+				</client>
+			</files>
+		</component>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.gmaps.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/gmaps.js</clientfile>
+					<clientfile load="debug">js/gmaps-debug.js</clientfile>
+					<clientfile load="source">js/GmapsPlugin.js</clientfile>
+					<clientfile load="source">js/GmapsTab.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

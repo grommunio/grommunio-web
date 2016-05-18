@@ -1,0 +1,262 @@
+.x-date-picker {
+	border: none;
+	border-bottom: 1px solid $grey;
+	
+	.x-date-left {
+		width: auto;
+		text-align: right;
+		
+		a {
+			display: inline-block;
+			background-image: sprite-url($icons);
+			background-position: sprite-position($icons, arrow_left_l, $offset-y: 3px, $offset-x: 11px);
+			opacity: inherit;
+		}
+	}
+	.x-date-right {
+		width: auto;
+		text-align: left;
+		
+		a {
+			display: inline-block;
+			background-image: sprite-url($icons);
+			background-position: sprite-position($icons, arrow_right_l, $offset-y: 3px, $offset-x: 0);
+			opacity: inherit;
+		}
+	}
+
+	/* the month selector dropdown */
+	.x-date-middle {
+		padding: ($header-height - $button-small-height)/2 $padding-medium ($header-height - $button-small-height)/2 $padding-medium;
+		
+		.x-btn-small {
+			background-color: white;
+			box-shadow: none;
+			
+			em {
+				background-color: $grey3 !important;
+				border: 1px solid $grey;
+				
+				button {
+					background-color: white;
+					color: $font-color-dark;
+					border-right: 1px solid $grey;
+					height: $button-small-height - 2px;
+				}
+			}
+			em:hover {
+				background-color: $grey4 !important;
+			}
+		}
+		
+		.x-btn-small:active {
+			background-color: white !important;
+			box-shadow: none;
+		}
+	}
+	
+	.x-date-inner {
+		cursor: default;
+		width: 100%;
+		
+		th {
+			background: white;
+			font-weight: bold;
+			color: $font-color-dark;
+			border-bottom: 1px solid $grey;
+			border-top: 1px solid $grey;
+			height: $button-small-height;
+			vertical-align: middle;
+		}
+		
+		td {
+			height: $button-small-height;
+		}
+		
+		td.x-date-weeknumber {
+			border-right: 1px solid $grey;
+			
+			a {
+				color: $green;
+			}
+		}
+		
+		td:not(.x-date-weeknumber) {
+			cursor: default;
+
+			a {
+				cursor: pointer;
+				color: $font-color-dark;
+				text-align: center;
+				
+				em {
+					display: inline-block;
+					width: 16px;
+					text-align: right;
+					
+					span {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		
+		td.x-date-prevday, td.x-date-nextday {
+			a {
+				color: $grey5;
+			}
+		}
+		
+		td.x-date-selected a {
+			background-color: $light-blue;
+			background-image: none;
+			border-color: $light-blue;
+			color: $font-color-dark;
+			cursor: default;
+			
+			span {
+				font-weight: normal;
+			}
+		}
+
+		a:hover {
+			background-color: $grey4;
+		}
+		td.x-date-selected:not(.x-date-today) a:hover {
+			background-color: $light-blue;
+		}
+		td.x-date-weeknumber {
+			a:hover {
+				background-color: transparent;
+			}
+		}
+		
+		td.x-date-today a {
+			background-color: $green;
+			border-color: $green;
+			border-width: 1px;
+			color: $font-color-light;
+		}
+		td.x-date-today:not(.x-date-selected) a:hover {
+			background-color: $grey4;
+			color: $font-color-dark;
+		}
+		
+		td.x-date-busy {
+			span {
+				font-weight: bold;
+			}
+		}
+	}
+	
+	.x-date-bottom {
+		background: transparent;
+		border: none;
+		border-top: 1px solid $grey;
+		padding: ($header-height - $button-small-height)/2 0;
+	}
+	
+	/* the month picker */
+	.x-date-mp {
+		background: white;
+		
+		table {
+			td {
+				a {
+					color: $font-color-dark;
+				}
+				
+				a:hover {
+					background: $grey4;
+				}
+			}
+			
+			td.x-date-mp-ybtn {
+				a.x-date-mp-prev {
+					background: sprite-url($icons);
+					background-repeat: no-repeat;
+					background-position: sprite-position($icons, arrow_left_l, $offset-y: 3px, $offset-x: 5px);
+				}
+				a.x-date-mp-next {
+					background: sprite-url($icons);
+					background-repeat: no-repeat;
+					background-position: sprite-position($icons, arrow_right_l, $offset-y: 3px, $offset-x: 5px);
+				}
+				a.x-date-mp-prev:hover,
+				a.x-date-mp-next:hover {
+					background-color: $grey4;
+				}
+			}
+			
+			td.x-date-mp-sel {
+				a {
+					background: $green;
+					color: $font-color-light;
+					border-color: $green;
+				}
+			}
+			
+			td.x-date-mp-sep {
+				border-right: 1px solid $grey;
+			}
+			
+			tr.x-date-mp-btns {
+				background: transparent;
+				
+				td {
+					height: $button-small-height;
+					border-top: 1px solid $grey;
+					border-bottom: 1px solid $grey;
+					padding: ($header-height - $button-small-height)/2 $padding-small;
+					
+					button {
+						border: none;
+						border-radius: 0;
+						box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+						background: $normal-button-bgcolor;
+						box-sizing: border-box;
+						height: $button-small-height;
+						color: $font-color-dark;
+						min-width: $button-small-text-min-width;
+						margin-right: $padding-medium;
+					}
+					button.x-date-mp-ok {
+						background: $action-bgcolor;
+						color: $action-fontcolor;
+					}
+					button:hover {
+						background: $normal-button-bgcolor-hover;
+					}
+					button.x-date-mp-ok:hover {
+						background: $action-bgcolor-hover;
+					}
+				}
+			}
+		}
+	}
+}
+
+.ext-webkit table.x-date-inner {
+	width:100%;
+}
+
+#zarafa-navigationpanel {
+	.x-date-picker {
+		.x-date-inner {
+			th:first-child {
+				border-right: 1px solid $grey;
+	
+				span {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/* Override blue of ExtJS */
+.x-date-picker .x-date-left,
+.x-date-picker .x-date-middle,
+.x-date-picker .x-date-right {
+	background: #ffffff;
+}

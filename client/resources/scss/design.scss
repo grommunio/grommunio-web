@@ -1,0 +1,74 @@
+/* import the base */
+@import 'base/_colors';
+
+@import 'base/_sizes';
+
+@import 'base/_fonts';
+
+@import 'base/_icons';
+
+@import 'base/_layout';
+
+/* import the components general styles */ 
+
+@import 'components/_buttons';
+
+@import 'components/_panels';
+
+@import 'components/_formelements';
+
+@import 'components/_grids';
+
+@import 'components/_toolbars';
+
+@import 'components/_menus';
+
+/* import the component specific styles */
+
+@import 'components/_mainmenubar';
+
+@import 'components/_maintoolbar';
+
+@import 'components/_tabs';
+
+@import 'components/_boxfields';
+
+@import 'components/_hierarchy';
+
+@import 'components/_preview_panel';
+
+@import 'components/_createitempanels';
+
+@import 'components/_calendar';
+
+@import 'components/_contacts';
+
+@import 'components/_popups';
+
+@import 'components/_scheduling';
+
+@import 'components/_search';
+
+@import 'components/_notes';
+
+@import 'components/_settings';
+
+@import 'components/_datepickers';
+
+@import 'components/_welcome';
+
+@import 'components/_zarafa';
+
+@import 'components/_rules';
+
+@import 'components/_notifications';
+
+@import 'components/_widgets';
+
+@import 'components/_loading_mask';
+
+@import 'components/_tooltip';
+
+@import 'components/_tinymce';
+
+@import 'components/_presence';

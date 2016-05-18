@@ -1,0 +1,252 @@
+.x-form-field-trigger-wrap,
+.x-form-field-wrap {
+
+	.x-form-trigger.icon_search {
+		background-color: transparent;
+		width: $button-small-height;
+		height: $button-small-height !important;
+		box-sizing: border-box;
+		border: 1px solid transparent;
+		border-top-right-radius: 2px;
+		border-bottom-right-radius: 2px;
+		border-left: none;
+
+		background-image: sprite-url($icons) !important;
+		background-repeat: no-repeat;
+		background-position: sprite-position($icons, icon_magnifier, $offset-x: 3px, $offset-y: 3px) !important;
+	}
+	.x-form-trigger.icon_search.x-form-trigger-over {
+		border-color: $grey2;
+	}
+	.x-form-trigger.icon_search.x-form-trigger-over.x-form-trigger-click {
+		border-color: $grey2;
+		background-color: $grey3;
+	}
+}
+
+/* The search results grid */
+.zarafa-searchgrid {
+	.x-grid3-row {
+		border-left: none;
+		border-right: none;
+		
+		.x-grid3-cell-inner {
+			padding: ($header-height - $font-default-line-height)/2 $padding-medium;
+		}
+		
+		td {
+			line-height: $font-default-line-height;
+		}
+		
+		/* let css take care of fields that are too long */
+		table.messageclass-data {
+			td,
+			td div.padding{
+				overflow: hidden;
+			}
+
+			td.icon{
+				width: 28px;
+			}
+			td.name{
+				width: 120px;
+				/* some padding to have some space between the fields */
+				padding-right: $padding-extra-large;
+			}
+			.subject{
+				/* some padding to have some space between the fields */
+				padding-right: $padding-extra-large;
+			}
+
+			td.subject-body {
+				padding-right: $padding-small;
+				
+				span.body{
+					opacity: 0.5;
+				}
+			}
+			
+			/* the icons */
+			.icon_message,
+			.icon_mail.icon_message_read {
+				@extend .icon_mail_read;
+	        	background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail.icon_message_unread {
+				@extend .icon_mail_unread;
+	        	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 5, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_replied {
+	        	background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_single {
+				@extend .icon_calendar_mr;
+	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 1, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail_stubbed {
+	        	background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: 2, $offset-x: $padding-medium - 1);
+			}
+			.icon_mail_forwarded {
+	        	background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_mail_oof {
+	        	background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: 2, $offset-x: $padding-medium - 3);
+			}
+			.icon_contact_user {
+				@extend .icon_contact_card;
+	        	background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_distlist {
+				@extend .icon_distlist;
+	        	background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_equipment {
+	        	background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: 4, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_gab_user {
+				@extend .icon_contact_smtp;
+	        	background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: 4, $offset-x: $padding-medium - 2);
+			}
+			.icon_contact_room {
+	        	background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: 2, $offset-x: $padding-medium + 1);
+			}
+			.icon_contact_company {
+	        	background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: 2, $offset-x: $padding-medium - 3);
+			}
+			.icon_appt_appointment {
+				@extend .icon_calendar_blue;
+	        	background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_recurring,
+			.icon_appt_recurring {
+				@extend .icon_calendar_appt_recurring;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_single {
+				@extend .icon_calendar_mr;
+	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_accept {
+				@extend .icon_calendar_appt_accept;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_decline {
+				@extend .icon_appt_meeting_cancel;
+	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_tentative {
+				@extend .icon_calendar_appt_tentative;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_newtime {
+				@extend .icon_calendar_appt_newtime;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_appt_meeting_cancel {
+	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+	
+			.icon_appt_meeting_outofdate {
+				@extend .icon_calendar_appt_outofdate;
+	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: 2, $offset-x: $padding-medium - 2);
+			}
+			.icon_task_normal,
+			.icon_task_recurring {
+				@extend .icon_task2;
+	        	background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+			/* notes */
+			.icon_note_blue {
+				@extend .icon_note_blue;
+	        	background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_yellow {
+				@extend .icon_note_yellow;
+	        	background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_white {
+				@extend .icon_note_white;
+	        	background-position: sprite-position($iconsmap, icon_note_white, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_pink {
+				@extend .icon_note_pink;
+	        	background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+			.icon_note_green {
+				@extend .icon_note_green;
+	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: 3, $offset-x: $padding-medium - 1);
+			}
+	
+			.icon_mail_nondelivery_receipt {
+				@extend .icon_mail_report_ndr;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 4, $offset-x: $padding-medium - 4);
+			}
+			.icon_mail_read_receipt {
+				@extend .icon_mail_report_accept;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: 4, $offset-x: $padding-medium - 4);
+			}
+			.icon_mail_nonread_receipt {
+				@extend .icon_mail_report_decline;
+	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 4, $offset-x: $padding-medium - 4);
+			}
+	
+			
+		}
+	}
+	
+	.x-grid3-row.mail_unread {
+		td {
+			font-weight: bold;
+		}
+	}
+}
+
+/* The toolbox */
+.zarafa-search-toolbox {
+	border-top: 1px solid $grey;
+	border-right: 1px solid $grey;
+	padding: 0 $padding-large $padding-large;
+	background-color: $background-color-main;
+	
+	.x-plain-header {
+		line-height: $font-default-line-height;
+		box-sizing: border-box;
+		height: $header-height - 1px; /* subtract the border */
+		padding-top: ($header-height - $font-default-line-height)/2;
+		
+		img.x-panel-inline-icon.advance_search {
+			@extend .icon_magnifier;
+			width: 16px;
+			height: 16px;
+			vertical-align: middle;
+			margin-right: $padding-medium;
+			margin-top: -1px;
+			margin-bottom: -1px;
+		}
+	}
+	
+	.x-fieldset {
+		border: none;
+		border: none;
+		padding: 0 0 $padding-large;
+		
+		legend {
+			padding-bottom: $padding-medium;
+			font-weight: bold;
+		}
+	}
+}
+
+/* Input field loading mask */
+.zarafa-searchfield.zarafa-tbar-loading {
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/* FIXME: fix in ExtJS JavaScript */
+.zarafa-dateperiodfield-itemsCls .x-form-element
+{
+	padding-left: 10px !important;
+}
+

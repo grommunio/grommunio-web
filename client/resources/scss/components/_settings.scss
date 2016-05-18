@@ -1,0 +1,247 @@
+#zarafa-mainpanel-contentpanel-settings {
+	
+	/* The categories panel */
+	.zarafa-settings-category-panel {
+		border-right: 1px solid $grey;
+		padding-top: $padding-medium;
+		
+		.zarafa-settings-category-tab {
+			padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
+			padding-left: $settings-category-tab-icon-strip-width;
+			line-height: $font-default-line-height;
+			cursor:pointer;
+		}
+		.zarafa-settings-category-tab-over {
+			background-color: $grey2;
+		}
+		.zarafa-settings-category-tab-active {
+			background-color: $light-blue;
+		}
+	}
+	
+	/* The main settings panel that contains all settings widgets */
+	.zarafa-settings-category-widget-panel {
+		padding: $padding-medium $padding-small;
+		
+		.zarafa-settings-widget {
+			margin-bottom: $padding-medium;
+			
+			.x-panel-header {
+				padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
+				line-height: $font-default-line-height;
+				border-top: none;
+				border-bottom: none;
+			}
+			
+			.x-panel-body {
+				padding: $padding-medium;
+			}
+			
+			.zarafa-quotabar {
+				border: 1px solid $grey2;
+				overflow: hidden;
+				height: $button-small-height - 2px; /* subtract 2 for the border */
+				
+				.zarafa-quotabar-normal {
+					display: inline-block;
+					background: $light-blue;
+					height: $button-small-height - 2px; /* subtract 2 for the border */
+				}
+				.zarafa-quotabar-warn {
+					display: inline-block;
+					background: #EEE92B;
+					height: $button-small-height - 2px; /* subtract 2 for the border */
+				}
+				.zarafa-quotabar-soft {
+					display: inline-block;
+					background: #FFAA66;
+					height: $button-small-height - 2px; /* subtract 2 for the border */
+				}
+				.zarafa-quotabar-hard {
+					display: inline-block;
+					background: #FF6666;
+					height: $button-small-height - 2px; /* subtract 2 for the border */
+				}
+			}
+			
+			.zarafa-quota-string {
+				font-weight: bold;
+			}
+			
+		}
+		
+		/* Inbox navigation */
+		.zarafa-settings-category-general-liveScroll {
+			opacity: 0.5;
+			margin-left: 3px;
+		}
+		
+		/* Keyboard shortcuts */
+		.zarafa-settings-keyboard-shortcut-row {
+			background-color: $grey3;
+			padding: $padding-small;
+			border: 1px solid $grey;
+		}
+		
+		/* About Category */
+		.zarafa-settings-about-text {
+			p {
+				padding-bottom: 1em;
+			}
+
+			h1 {
+				margin-bottom: 0.5em;
+				margin-top: 0.5em;
+				font-size: 1.2em !important;
+			}
+			
+			a {
+				background: $kopano-blue;
+				color: white;
+				padding: $padding-small;
+				text-decoration: none;
+			}
+			a:hover {
+				background: $kopano-blue-hover;
+			}
+		}
+	
+	}
+}
+
+/* Loading of "address book -> select default folder" */
+.x-mask-loading-combo, .x-mask-loading-combo div {
+	background-color: transparent !important;
+	border: none !important;
+}
+
+/* Settings icons in the settingstab */
+.zarafa-settings-category-tab, .zarafa-settings-favorite-tab
+{
+	background-position: 2px center;
+	background-repeat: no-repeat;
+}
+
+.zarafa-settings-category-general
+{
+	background-position: sprite-position($icons, icon_cogwheel, $offset-x: 4, $offset-y: 5);
+	background-image: sprite-url($icons);
+}
+
+.zarafa-settings-category-mail
+{
+	background-position: sprite-position($icons, icon_unread_mail, $offset-x: 6, $offset-y: 9);
+	background-image: sprite-url($icons)
+}
+
+.zarafa-settings-category-oof
+{
+	background-position: sprite-position($iconsmap, icon_oof, $offset-x: 2, $offset-y: 3);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-rules
+{
+	background-position: sprite-position($iconsmap, icon_funnel, $offset-x: 3, $offset-y: 5);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-calendar
+{
+	background-position: sprite-position($iconsmap, icon_calendar, $offset-x: 6, $offset-y: 8);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-delegate
+{
+	background-position: sprite-position($iconsmap, delegates_s, $offset-x: 3, $offset-y: 5);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-sendas {
+	background-position: sprite-position($iconsmap, icon_sendas, $offset-x: 3, $offset-y: 6);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-plugins {
+	background-position: sprite-position($iconsmap, icon_plug, $offset-x: 3, $offset-y: 4);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-keyshortcut {
+	background-position: sprite-position($iconsmap, icon_shortcuts, $offset-x: 3, $offset-y: 5);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-advanced {
+	background-position: sprite-position($iconsmap, icon_spanner, $offset-x: 3, $offset-y: 4);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-category-copyright {
+	background-position: sprite-position($iconsmap, icon_seal, $offset-x: 3, $offset-y: 6);
+	background-image: sprite-url($iconsmap)
+}
+
+/* OOF and Signature icon in Mail settings and OOF setting tab */
+.zarafa-settings-favorite-oof
+{
+	background-position: sprite-position($iconsmap, icon_oof, $offset-x: 0, $offset-y: -2);
+	background-image: sprite-url($iconsmap)
+}
+
+.zarafa-settings-favorite-signatures
+{
+	background-position: sprite-position($icons, icon_signature, $offset-x: 0, $offset-y: -4);
+	background-image: sprite-url($icons)
+}
+
+.x-panel-inline-icon.zarafa-settings-favorite-oof, .x-panel-inline-icon.zarafa-settings-favorite-signatures
+{
+	width: 20px;
+	height: 20px;
+}
+
+.zarafa-settings-signatures {
+	margin-right: $padding-large;
+
+ 	.x-grid3-row {
+ 		border-top: 1px solid $grey;
+ 		margin-bottom: -1px;
+	 }
+ }
+
+.keyboard-type {
+	margin-left: 40px;
+	padding-left: $padding-medium;
+	padding-right: $padding-medium;
+	line-height: $font-line-height-large;
+	border: solid 1px $grey;
+	border-radius: 2px;
+	background-color: white;
+	display: inline-block;
+}
+
+.keyboard-desc {
+	display: inline-block;
+}
+
+/* Out of office Category */
+.zarafa-settings-oof-invalid
+{
+	color: $red ;
+}
+.zarafa-settings-oof-table-cellalign {
+	text-align: right;
+}
+.zarafa-settings-oof-table-cellpadding {
+	padding: $padding-medium $padding-medium $padding-medium 0;
+}
+.zarafa-settings-oof-subject .label-subject{
+	line-height: $button-small-height;
+	padding-right: $padding-medium;
+}
+
+.zarafa-settings-oof-autoreplay {
+	padding: $padding-large 0 $padding-medium 0;
+}

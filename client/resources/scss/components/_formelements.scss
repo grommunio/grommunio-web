@@ -1,0 +1,86 @@
+/* Safari hack for radio buttons that get cut off */
+body.Safari input[type="radio"] {
+	margin-left: 1px;
+}
+
+.x-form-item {
+	margin-bottom: $padding-small;
+}
+
+/* inputs and textareas */
+.x-form-text, textarea.x-form-field {
+	background: white;
+	border: 1px solid $grey;
+	padding: $padding-medium;
+}
+.x-form-text {
+	padding: 0 $padding-medium;
+}
+
+.x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-strict .ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input)
+{
+	line-height: $button-small-height;
+	height: $button-small-height - 2 !important; /* subtract 2 for the border-width */
+}
+
+/* combobox and spinner field */
+.x-form-field-trigger-wrap,
+.x-form-field-wrap {
+	.x-form-text {
+		line-height: $button-small-height - 2px;
+		height: $button-small-height - 2px;
+	}
+	
+	.x-form-trigger,
+	.x-form-spinner-trigger {
+		height : $button-small-height - 2px !important;
+		width: $trigger-width;
+		border: 1px solid $grey;
+		border-left: none;
+		background-color: $grey3;
+        background-image: 		sprite-url($iconsmap);
+        background-repeat: 		no-repeat;
+        background-position: 	sprite-position($iconsmap, arrow_down_s, $offset-y: ($button-small-height - 2 - 3)/2, $offset-x: ($trigger-width - 5)/2) !important;
+	}
+	.x-form-trigger-over,
+	.x-form-spinner-trigger-over {
+		background-color: $grey4;
+	}
+	
+	.x-form-spinner-trigger {
+        background-image: 		sprite-url($iconsmap),
+        						sprite-url($iconsmap);
+        background-repeat: 		no-repeat,
+        						no-repeat;
+        background-position: 	sprite-position($iconsmap, arrow_up_s, $offset-y: (($button-small-height - 2)/2 - 3)/2, $offset-x: ($trigger-width - 5)/2),
+        						sprite-position($iconsmap, arrow_down_s, $offset-y: (3*($button-small-height - 2)/2 - 3)/2, $offset-x: ($trigger-width - 5)/2) !important;
+	}
+	.x-form-spinner-splitter {
+		display: none !important;
+	}
+}
+
+/* fieldsets */
+.x-fieldset {
+	border-radius: 0;
+	border: 1px solid $grey;
+	padding: $padding-large $padding-medium;
+	margin: 0;
+	
+	legend {
+		font-weight: normal;
+		color: $font-color-dark;
+	}
+}
+
+/* checkbox */
+.x-form-check-wrap input{
+	vertical-align: text-bottom;
+}
+.x-form-item .x-form-cb-label {
+	top: 0;
+	margin-left: $padding-small;
+}

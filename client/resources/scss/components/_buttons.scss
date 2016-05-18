@@ -1,0 +1,374 @@
+/* TODO: move colors to base/_color.scss for easy maintenance/theming */
+
+/* Action buttons: 'send' and 'save' */
+$action-bgcolor					: $green;
+$action-bgcolor-hover			: $green-hover;
+$action-fontcolor				: $font-color-light;
+
+/* Normal standard button */
+$normal-button-bgcolor			: $grey;
+$normal-button-bgcolor-hover	: $grey2;
+
+/**************************************
+ * Code to create the sprite
+ *************************************/
+    @import "compass/utilities/sprites";
+    
+    $disable-magic-sprite-selectors: true;
+    $iconmap-spacing : 30px;
+
+    $icons: sprite-map(
+    	"buttons/*.png", 
+    	$layout: vertical,
+    	$inline: false,
+    	$spacing: $iconmap-spacing, 
+    	$position: 0%,
+
+	    $buttons-arrow_menubar-position: 50%,
+	    $buttons-arrow_down_s_btn-position: 100%,
+	    $buttons-arrow_down_s_white_btn-position: 100%,
+	    
+	    $buttons-icon_mail_large_white-position: 50%,
+	    $buttons-icon_calendar_large_white-position: 50%,
+	    $buttons-icon_contact_large_white-position: 50%,
+	    $buttons-icon_note_large_white-position: 50%,
+	    $buttons-icon_task_large_white-position: 50%
+    );
+
+/*
+    @import "buttons/*.png";
+    
+    @include all-buttons-sprites;
+*/ 
+    @each $img in sprite-names($icons) {
+      .buttons-#{$img},
+      .#{$img} {
+      	/* need to use !important because Ext also uses it here and there! */
+        background-image: sprite-url($icons) !important;
+        background-repeat: no-repeat;
+        background-position: sprite-position($icons, $img, $offset-y: 0, $offset-x: 0);
+      }
+    }
+
+/**************************************
+ * End of code to create the sprite
+ *************************************/
+
+     
+/**************************************
+ * Specific icons
+ *************************************/
+.icon_attachment {
+	@extend .icon_paperclip;
+}
+
+
+
+/* Mixin for special button, usually with a different background and font color */
+@mixin action-button() {
+	background-color: $action-bgcolor;
+	color: $action-fontcolor;
+	min-width: 84px;
+	height: 24px; /* Overriden from style.css */
+	font-size: 13px;
+}
+
+@mixin action-button-hover() {
+	background-color: $action-bgcolor-hover;
+}
+
+@mixin action-button-active() {
+	background-color: $action-bgcolor;
+	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+}
+
+/**************************************
+ * General buttons
+ *************************************/
+	/* fix for stupid firefox padding on buttons */
+	button::-moz-focus-inner {
+		padding: 0;
+		border: 0
+	}
+
+	/* normal button */
+	.x-btn {
+		display: inline-block;
+		
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			display: inline-block;
+			border: none;
+			height: auto;
+			border-radius: 0;
+			box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+			background: $normal-button-bgcolor;
+			
+			em {
+				display: inline-block;
+			}
+			
+			button{
+				background-color: transparent;
+				box-sizing: border-box;
+				/* override .x-btn button from ExtJs */
+				color: $font-color-dark;
+			}
+		}
+	}
+	
+	/* hovered button */
+	.x-btn.x-btn-over {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			border: none;
+			border-radius: 0;
+			background: $normal-button-bgcolor-hover;
+			box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+		}
+	}
+	
+	/* active button */
+	.x-btn.x-btn-over.x-btn-click, .x-btn.x-btn-click {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			border: none;
+			border-radius: 0;
+			background: $normal-button-bgcolor !important;
+			box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+			
+			button {
+				color: #333333;
+			}
+		}
+	}
+	
+	/* small button */
+	.x-btn {
+		.x-btn-small {
+			button.x-btn-text {
+				height: $button-small-height;
+			}
+		}
+	}
+	
+	/* small button with text */
+	.x-btn.x-btn-noicon, .x-btn.x-btn-text-icon {
+		.x-btn-small {
+			button {
+				min-width: $button-small-text-min-width;
+				padding: 0 $padding-medium;
+			}
+		}
+	}
+	/* small button with icon and text */
+	/* standard icon size is 12x12px */
+	.x-btn.x-btn-text-icon {
+		.x-btn-small {
+			button {
+				padding-left: $padding-medium + 12px + $padding-medium;
+			}
+		}
+	}
+
+	/* small button with only icon */
+	/* standard icon size is 12x12px */
+	.x-btn.x-btn-icon {
+		.x-btn-small {
+			button {
+				width: $button-small-icon-width;
+			}
+		}
+	}
+
+	/* large button with only icon */
+	.x-btn.x-btn-icon {
+		.x-btn-large {
+			button {
+				height: $button-large-icon-height;
+				width: $button-large-icon-width;
+			}
+		}
+	}
+
+	/* split button and arrow button */
+	.x-btn {
+		em.x-btn-split, em.x-btn-arrow {
+			background-color: transparent !important;
+        	background-image: sprite-url($icons) !important;
+        	background-repeat: no-repeat;
+			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 17px, $offset_x: 100%);
+			padding-right: 12px;
+			
+			button {
+				border-right: 1px solid white;
+			}
+		}
+	}
+	.x-btn .x-btn-small{
+		em.x-btn-split, em.x-btn-arrow {
+			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 11px, $offset_x: 100%);
+			padding-right: 12px;
+			
+			button {
+				border: none;
+				border-right: 1px solid white;
+			}
+		}
+	}
+	
+/**************************************
+ * Action buttons
+ *************************************/
+
+	/* normal button */
+	.x-btn.zarafa-action {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			background: $action-bgcolor !important;
+			
+			button {
+				color: $action-fontcolor;
+			}
+		}
+	}
+
+	/* hovered button */
+	.x-btn.zarafa-action.x-btn-over {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			background: $action-bgcolor-hover !important;
+		}
+	}
+
+	/* active button */
+	.x-btn.zarafa-action.x-btn-over.x-btn-click, .x-btn.zarafa-action.x-btn-click {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			background: $action-bgcolor !important;
+			
+			button {
+				color: $font-color-light;
+			}
+		}
+	}
+
+	/* split button and arrow button */
+	.x-btn.zarafa-action .x-btn-large {
+		em.x-btn-split, em.x-btn-arrow {
+			background-position: sprite-position($icons, arrow_down_s_white_btn, $offset_y: 17px, $offset_x: 100%);
+		}
+	}
+
+
+    /* For popup or windows, the first button is styled green */
+    /* Extra class .xpanel-footer necessary for "Create Mail => Insert Item" pagination buttons */
+    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:active {
+    	@include action-button-active();
+    }
+    
+    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:hover {
+    	@include action-button-hover();
+    }
+    
+    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button {
+    	@include action-button();
+    }
+    
+	/* Special case: Messageboxes */
+	.x-window-dlg {
+		.x-toolbar-left {
+			.x-toolbar-cell:not(.x-hide-offsets) {
+				button {
+			    	@include action-button();
+				}
+				button:hover {
+			    	@include action-button-hover();
+				}
+				button:active {
+			    	@include action-button-active();
+				}
+			}
+			.x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) {
+				button {
+					background-color: transparent;
+					color: $font-default-color;
+				}
+			}
+		}
+	}
+
+	/* Drag & Drop icon override, select mail drag to folder hiearchy. */
+	.x-tree-drop-ok-append .x-dd-drop-icon {
+		background-position: sprite-position($iconsmap, drop-yes, $offset-y: 0, $offset-x: 0);
+		background-image: sprite-url($iconsmap)
+	}
+
+	.x-tree-drop-ok-append-add .x-dd-drop-icon {
+		background-position: sprite-position($iconsmap, drop-add, $offset-y: 0, $offset-x: 0);
+		background-image: sprite-url($iconsmap)
+	}
+
+	.x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon {
+		background-position: sprite-position($iconsmap, drop-no, $offset-y: 0, $offset-x: 0);
+		background-image: sprite-url($iconsmap)
+	}
+
+	/* Override ExtJS group icon sprite */
+	.x-btn-group-ml, .x-btn-group-mr {
+		background-image: none !important;
+	}
+
+	/* */
+	.x-grid3-check-col-on {
+		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 0, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+	.x-grid3-check-col {
+		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 0, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+	/* Grid menu's */
+	.x-menu-item-checked .x-menu-item.x-menu-check-item .x-menu-item-icon {
+		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 0, $offset-y: 3);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+	.x-menu-item.x-menu-check-item .x-menu-item-icon {
+		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 0, $offset-y: 3);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+	/* settings grid */
+	.x-grid3-row .x-grid3-row-checker {
+		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 2, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}
+	.x-grid3-row-selected.x-grid3-row .x-grid3-row-checker {
+		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 2, $offset-y: 0);
+		background-image: sprite-url($iconsmap) !important;
+	}
+
+/*******************************************************
+ * Button groups, used in previewpanel meeting requests
+ *******************************************************/
+
+	div.x-btn-group-tl {
+		background-image: none;
+	}
+
+	div.x-btn-group-tr {
+		background-image: none;
+	}
+
+	div.x-btn-group-notitle .x-btn-group-tc {
+		background-image: none;
+	}
+
+	div.x-btn-group-bl {
+		background-image: none;
+	}
+
+	div.x-btn-group-br {
+		background-image: none;
+	}
+
+	div.x-btn-group-bc {
+		background-image: none;
+	}

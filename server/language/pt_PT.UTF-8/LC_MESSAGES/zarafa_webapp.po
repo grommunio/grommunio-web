@@ -1,0 +1,2448 @@
+# foo <foo@bar.foobar>, 2005.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHP-Langadmin 1.0\n"
+"POT-Creation-Date: 2008-12-16 16:18:06+0100\n"
+"PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
+"Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
+"Language-Team: pt_PT <pt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid " attendee accepted, "
+msgstr "participante aceito,"
+
+msgid " declined."
+msgstr "recusado."
+
+msgid " tentatively accepted, "
+msgstr "aceito como tentativa,"
+
+msgid "%d days"
+msgstr "%d dias"
+
+msgid "%d hours"
+msgstr "%d horas"
+
+msgid "%d minutes"
+msgstr "%d minutos"
+
+msgid "%d reminders are selected"
+msgstr "%d lembretes selecionados"
+
+msgid "%d weeks"
+msgstr "%d semanas"
+
+msgid "%d-%m-%Y"
+msgstr "%d/%m/%Y"
+
+msgid "%d-%m-%Y %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "%H:%M"
+msgstr "%H:%M"
+
+msgid "%m-%d-%Y %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "%s overdue"
+msgstr "%s atrasado"
+
+msgid "(none)"
+msgstr "(nenhum)"
+
+msgid "(Shift-)Click or drag to change value"
+msgstr "(Shift-)Clique ou arraste para mudar o valor"
+
+msgid "1 day"
+msgstr "dia"
+
+msgid "1 hour"
+msgstr "1 hora"
+
+msgid "1 week"
+msgstr "1 semana"
+
+msgid "7 Days"
+msgstr "7 Dias"
+
+msgid "Accept"
+msgstr "Aceitar"
+
+msgid "Accepted"
+msgstr "Aceito"
+
+msgid "Actual Work"
+msgstr "Trabalho Atual"
+
+msgid "Add a name"
+msgstr "Adicione um nome"
+
+msgid "Add new user"
+msgstr "Adicione novo usu�rio"
+
+msgid "Add to Contacts"
+msgstr "Adicione como Contato"
+
+msgid "Add to favorite folder"
+msgstr "Adicionar para a pasta Favoritos"
+
+msgid "Add User"
+msgstr "Adicionar usu�rio"
+
+msgid "Address Cards"
+msgstr "Cart�es de Endere�o"
+
+msgid "All Attendees"
+msgstr "Todos os participantes"
+
+msgid "All day event"
+msgstr "Evento diurno"
+
+msgid "All folders"
+msgstr "Todas as pastas"
+
+msgid "All text fields"
+msgstr "Todos os campos de texto"
+
+msgid "and"
+msgstr "e"
+
+msgid "Appointment"
+msgstr "Compromisso"
+
+msgid "Apr"
+msgstr "Abr"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "Are you sure that you want to permanently delete the selected item(s)?"
+msgstr "Voc� tem certeza de que quer excluir o(s) iten(s) selecionados permanentemente?"
+
+msgid "Are you sure you want to delete"
+msgstr "Voc� tem certeza que quer excluir o(s) item(s) selecionados"
+
+msgid "Are you sure you want to empty %s?"
+msgstr "Voc� tem certeza de que voc� quer esvaziar %s?"
+
+msgid "Attachments"
+msgstr "Anexos"
+
+msgid "Attendance"
+msgstr "Comparecimento"
+
+msgid "attendee proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "participante prop�s uma nova data para a reuni�o. Por favor clique em 'Agendamento' para detalhes."
+
+msgid "attendees proposed a new time for this meeting. Click the Scheduling tab for details."
+msgstr "participantes propuseram uma nova data para a reuni�o. Por favor clique em 'Agendamento' para detalhes."
+
+msgid "Aug"
+msgstr "Ago"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "B"
+msgstr "B"
+
+msgid "BCC"
+msgstr "BCC"
+
+msgid "Billing information"
+msgstr "Informa��o de cobran�a"
+
+msgid "Body"
+msgstr "Corpo da mensagem"
+
+msgid "Business"
+msgstr "Trabalho"
+
+msgid "Business Address"
+msgstr "Endere�o comercial"
+
+msgid "Business Fax"
+msgstr "Fax comercial"
+
+msgid "Calendar"
+msgstr "Calend�rio"
+
+msgid "Cards"
+msgstr "Cart�es"
+
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "CC"
+msgstr "CC"
+
+msgid "Click here to add a new item"
+msgstr "Adicionar novo �tem"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Close store"
+msgstr "Fechar caixa"
+
+msgid "Comment"
+msgstr "Coment�rio"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Complete"
+msgstr "Completo"
+
+msgid "Conflicts"
+msgstr "Conflitos"
+
+msgid "Contact"
+msgstr "Contato"
+
+msgid "Copy/Move"
+msgstr "Copiar/Mover"
+
+msgid "Copy/Move Folder"
+msgstr "Copiar/Mover pasta"
+
+msgid "Copy/Move Message"
+msgstr "Copiar/Mover mensagem"
+
+msgid "Could not find Contact '%s'. It may have been deleted or moved from its original location. Would you like to remove it from this list?"
+msgstr "N�o foi poss�vel encontrar o contato '%s'. Ele pode ter sido deletado ou movido de seu local de origem. Voc� gostaria de remov�-lo dessa lista?"
+
+msgid "Create E-Mail"
+msgstr "Criar E-Mail"
+
+msgid "Creation Time"
+msgstr "Hora de cria��o"
+
+msgid "Current Meeting Time"
+msgstr "Hora atual da reuni�o"
+
+msgid "Date completed"
+msgstr "Data completa"
+
+msgid "Date picker"
+msgstr "Escolha de data"
+
+msgid "Day"
+msgstr "Dia"
+
+msgid "day"
+msgstr "dia"
+
+msgid "days"
+msgstr "dias"
+
+msgid "Dec"
+msgstr "Dez"
+
+msgid "December"
+msgstr "Dezembro"
+
+msgid "Decline"
+msgstr "Recusar"
+
+msgid "Declined"
+msgstr "Recusado"
+
+msgid "Delete"
+msgstr "Excluir"
+
+msgid "Delete Flag"
+msgstr "Excluir bandeira"
+
+msgid "Delete Folder"
+msgstr "Excluir pasta"
+
+msgid "Delete this column"
+msgstr "Excluir esta coluna"
+
+msgid "Deleted on"
+msgstr "Deletado em"
+
+msgid "Display %s first"
+msgstr "Mostrar %s primeiro"
+
+msgid "Display Name"
+msgstr "Nome para exibi��o"
+
+msgid "Distributionlist"
+msgstr "Lista de distribui��o"
+
+msgid "Do you wish to notify the sender?"
+msgstr "Voc� gostaria de notificar o remetente?"
+
+msgid "Drag to move"
+msgstr "Arraste para mover"
+
+msgid "Duration"
+msgstr "Dura��o"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Edit e-mail rules"
+msgstr "Editar regras para e-mails"
+
+msgid "effective"
+msgstr "efetivo"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email Message"
+msgstr "Mensagem de E-Mail"
+
+msgid "Empty folder"
+msgstr "Esvaziar pastas"
+
+msgid "End Date"
+msgstr "Data Final"
+
+msgid "End time"
+msgstr "Hora final"
+
+msgid "Enddate"
+msgstr "Sem Data Final"
+
+msgid "Enter a group name"
+msgstr "Digite o nome do grupo"
+
+msgid "Expelled"
+msgstr "Expulso"
+
+msgid "Feb"
+msgstr "Feb"
+
+msgid "February"
+msgstr "Fevereiro"
+
+msgid "Field Chooser"
+msgstr "Escolha de campo"
+
+msgid "Fill in the Subject"
+msgstr "Adicione o subjeto"
+
+msgid "First Name"
+msgstr "Primeiro Nome"
+
+msgid "First page"
+msgstr "Primeira p�gina"
+
+msgid "Flag Complete"
+msgstr "Marcar completo"
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "Folder containing"
+msgstr "Pasta contendo"
+
+msgid "Folder list"
+msgstr "Pastas"
+
+msgid "for"
+msgstr "por"
+
+msgid "for %d occurrences"
+msgstr "para %d ocorr�ncias"
+
+msgid "for 1 occurrence"
+msgstr "para 1 ocorr�ncia"
+
+msgid "Forward"
+msgstr "Encaminhar"
+
+msgid "Fri"
+msgstr "Sex"
+
+msgid "Friday"
+msgstr "Sexta-feira"
+
+msgid "From"
+msgstr "De"
+
+msgid "from"
+msgstr "de"
+
+msgid "Full control"
+msgstr "Controle total"
+
+msgid "Full Name"
+msgstr "Nome completo"
+
+msgid "FW"
+msgstr "ENC"
+
+msgid "Go to the next page"
+msgstr "Ir para a pr�ximo p�gina"
+
+msgid "Go to the previous page"
+msgstr "Ir para a p�gina anterior"
+
+msgid "Go Today"
+msgstr "Ir para Hoje"
+
+msgid "has accepted"
+msgstr "aceitou"
+
+msgid "has declined"
+msgstr "rejeitou"
+
+msgid "has tentatively accepted"
+msgstr "aceitou como tentativa"
+
+msgid "High"
+msgstr "Alta"
+
+msgid "High priority"
+msgstr "Prioridade alta"
+
+msgid "hold for menu"
+msgstr "aguarde para ver o menu"
+
+msgid "Home"
+msgstr "Casa"
+
+msgid "Home address"
+msgstr "Endere�o de casa"
+
+msgid "hour"
+msgstr "hora"
+
+msgid "hours"
+msgstr "horas"
+
+msgid "HTTP Error"
+msgstr "Erro HTTP"
+
+msgid "Icon"
+msgstr "�cone"
+
+msgid "Icon View"
+msgstr "Vizualiza��o em �cones"
+
+msgid "IM Address"
+msgstr "Endere�o IM (MSN, ICQ, Yahoo!Messenger)"
+
+msgid "In Progress"
+msgstr "Em progresso"
+
+msgid "Items"
+msgstr "Itens"
+
+msgid "items"
+msgstr "itens"
+
+msgid "Jan"
+msgstr "Jan"
+
+msgid "January"
+msgstr "Janeiro"
+
+msgid "Job Title"
+msgstr "Fun��o"
+
+msgid "Journal"
+msgstr "Di�rio"
+
+msgid "Jul"
+msgstr "Jul"
+
+msgid "July"
+msgstr "Julho"
+
+msgid "Jun"
+msgstr "Jun"
+
+msgid "June"
+msgstr "Junho"
+
+msgid "kb"
+msgstr "kb"
+
+msgid "Last Name"
+msgstr "Sobrenome"
+
+msgid "Last page"
+msgstr "�ltima p�gina"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "List View"
+msgstr "Visualiza��o em lista"
+
+msgid "Load Group"
+msgstr "Carregar Grupo"
+
+msgid "Load group"
+msgstr "Carregar grupo"
+
+msgid "Load previous day"
+msgstr "Carregar dia anterior"
+
+msgid "Load previous period"
+msgstr "Carregar per�odo anterior"
+
+msgid "Loading"
+msgstr "Carregando"
+
+msgid "Location"
+msgstr "Local"
+
+msgid "log out"
+msgstr "encerrar"
+
+msgid "Low"
+msgstr "Baixa"
+
+msgid "Low priority"
+msgstr "Prioridade baixa"
+
+msgid "Mail and Post"
+msgstr "Mensagem e Correio"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "March"
+msgstr "Mar�o"
+
+msgid "Mark All Messages Read"
+msgstr "Marcar todas as mensagens como lidas"
+
+msgid "Mark Read"
+msgstr "Marcar lida"
+
+msgid "Mark Unread"
+msgstr "Marcar n�o lida"
+
+msgid "May"
+msgstr "Maio"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Meeting"
+msgstr "Reuni�o"
+
+msgid "Meeting was not scheduled."
+msgstr "A reuni�o n�o foi agendada."
+
+msgid "Meetingrequest"
+msgstr "Pedido de reuni�o"
+
+msgid "Middle Name"
+msgstr "Segundo nome"
+
+msgid "Mileage"
+msgstr "Quil�metros usados"
+
+msgid "minute"
+msgstr "minuto"
+
+msgid "minutes"
+msgstr "minutos"
+
+msgid "Mobile"
+msgstr "Celular"
+
+msgid "Modified"
+msgstr "Modificado"
+
+msgid "Mon"
+msgstr "Seg"
+
+msgid "Monday"
+msgstr "Segunda-feira"
+
+msgid "Month"
+msgstr "M�s"
+
+msgid "month"
+msgstr "m�s"
+
+msgid "months"
+msgstr "meses"
+
+msgid "Move to Junk Folder"
+msgstr "Mover para Spam"
+
+msgid "Multi User Calendar"
+msgstr "Calend�rio multi-usu�rio"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New"
+msgstr "Novo"
+
+msgid "new"
+msgstr "novo"
+
+msgid "New Folder"
+msgstr "Nova pasta"
+
+msgid "Next Day"
+msgstr "Pr�ximo dia"
+
+msgid "Next day"
+msgstr "Pr�ximo dia"
+
+msgid "Next month"
+msgstr "Pr�ximo m�s"
+
+msgid "Next Period"
+msgstr "Pr�ximo Per�odo"
+
+msgid "Next week"
+msgstr "Pr�xima semana"
+
+msgid "Next year"
+msgstr "Pr�ximo ano"
+
+msgid "No Response"
+msgstr "Sem resposta"
+
+msgid "No rights"
+msgstr "Sem direitos"
+
+msgid "No signature"
+msgstr "Sem assinatura"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "none"
+msgstr "nenhum"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Normal priority"
+msgstr "Prioridade normal"
+
+msgid "Not logged on"
+msgstr "N�o logado"
+
+msgid "Not Responded"
+msgstr "N�o respondeu"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Nov"
+msgstr "Nov"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "now"
+msgstr "agora"
+
+msgid "Occurs every"
+msgstr "Ocorre a cada"
+
+msgid "Oct"
+msgstr "Out"
+
+msgid "October"
+msgstr "Outubro"
+
+msgid "of"
+msgstr "de"
+
+msgid "on behalf of"
+msgstr "em nome e interesse de"
+
+msgid "Only read"
+msgstr "Somente lido"
+
+msgid "Open"
+msgstr "Abrir"
+
+msgid "Open Multi User Calendar"
+msgstr "Abrir calend�rio multi-usu�rio"
+
+msgid "Open shared folders"
+msgstr "Abrir pastas compartilhadas"
+
+msgid "Optional"
+msgstr "Optional"
+
+msgid "Optional Attendee"
+msgstr "Participante opcional"
+
+msgid "Options"
+msgstr "Op��es"
+
+msgid "Organizer"
+msgstr "Organizador"
+
+msgid "Original message"
+msgstr "Mensagem original"
+
+msgid "Other"
+msgstr "Outro"
+
+msgid "Owner"
+msgstr "Dono"
+
+msgid "Page"
+msgstr "P�gina"
+
+msgid "Percent Complete"
+msgstr "Porcentagem completa"
+
+msgid "Phone"
+msgstr "Telefone"
+
+msgid "Please input a valid email address!"
+msgstr "Por favor preencha um endere�o de email v�lido!"
+
+msgid "Please select a folder to copy the item to"
+msgstr "Por favor selecione uma pasta para onde o item ser� copiado"
+
+msgid "Please select a folder to move the item to"
+msgstr "Por favor selecione uma pasta para onde o item ser� movido"
+
+msgid "Please select a row first to delete"
+msgstr "Por favor selecione uma linha para ser deletado primeiramente"
+
+msgid "Please select a row first to restore"
+msgstr "Por favor selecione uma linha para ser restaurado primeiramente"
+
+msgid "Please select an appropriate action for this rule"
+msgstr "Por favor selecione uma a��o para essa regra"
+
+msgid "Please specify a forwarding address"
+msgstr "Por favor especifique um endere�o para encaminhamento"
+
+msgid "Please treat this as Confidential"
+msgstr "Por favor trate isso como Confidencial"
+
+msgid "Please treat this as Personal"
+msgstr "Por favor trate isso como Pessoal"
+
+msgid "Please treat this as Private"
+msgstr "Por favor trate isso como Privado"
+
+msgid "Prev month"
+msgstr "M�s anterior"
+
+msgid "Prev year"
+msgstr "Ano anterior"
+
+msgid "Previewpane bottom"
+msgstr "Painel de leitura na parte inferior"
+
+msgid "Previewpane off"
+msgstr "Painel de leitura desligado"
+
+msgid "Previewpane right"
+msgstr "Painel de leitura � direita"
+
+msgid "Previous Day"
+msgstr "Dia anterior"
+
+msgid "Previous day"
+msgstr "Dia anterior"
+
+msgid "Previous Period"
+msgstr "Per�odo anterior"
+
+msgid "Previous week"
+msgstr "Semana anterior"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "Properties"
+msgstr "Propriedades"
+
+msgid "Propose New Time"
+msgstr "Propor nova hora"
+
+msgid "Propose new time"
+msgstr "Propor nova hora"
+
+msgid "proposed a new time for this meeting"
+msgstr "prop�s uma nova hora para essa reuni�o"
+
+msgid "Proposed by"
+msgstr "Proposto por"
+
+msgid "Proposed end date and time"
+msgstr "Data e hora final propostas"
+
+msgid "Proposed start date and time"
+msgstr "Data e hora inicial propostas"
+
+msgid "Quick Search"
+msgstr "Pesquisa r�pida"
+
+msgid "Quota"
+msgstr "Quota"
+
+msgid "RE"
+msgstr "RES"
+
+msgid "Recurrence Pattern"
+msgstr "Padr�o de reincid�ncia"
+
+msgid "Red"
+msgstr "Vermelho"
+
+msgid "Red Flag"
+msgstr "Bandeira vermelha"
+
+msgid "Reload"
+msgstr "Atualizar"
+
+msgid "Remove from calendar"
+msgstr "Remover do calend�rio"
+
+msgid "Remove user"
+msgstr "Remover usu�rio"
+
+msgid "Rename Folder"
+msgstr "Renomear pasta"
+
+msgid "Reply"
+msgstr "Responder"
+
+msgid "Reply All"
+msgstr "Responder a todos"
+
+msgid "Required"
+msgstr "Necess�rio"
+
+msgid "Required Attendee"
+msgstr "Participante obrigat�rio"
+
+msgid "Resource"
+msgstr "Recurso"
+
+msgid "Resource (Room or Equipment)"
+msgstr "Recurso (sala ou equipamento)"
+
+msgid "Resources have been planned."
+msgstr "Os recursos foram planejados."
+
+msgid "Response"
+msgstr "Rea��o"
+
+msgid "Restore deleted Items"
+msgstr "Restaurar itens deletados"
+
+msgid "Restore Items"
+msgstr "Restaurar Itens"
+
+msgid "Rules"
+msgstr "Regras"
+
+msgid "Sat"
+msgstr "S�b"
+
+msgid "Saturday"
+msgstr "S�bado"
+
+msgid "Search"
+msgstr "Pesquisar"
+
+msgid "Secretary"
+msgstr "Secret�rio(a)"
+
+msgid "Select"
+msgstr "Selecionar"
+
+msgid "Select date"
+msgstr "Selecionar data"
+
+msgid "Send mail (%s)"
+msgstr "Enviar e-mail (%s)"
+
+msgid "Sender"
+msgstr "Remetente"
+
+msgid "Sent"
+msgstr "Enviado"
+
+msgid "Sent only to me"
+msgstr "Envie somente para mim"
+
+msgid "Sent to"
+msgstr "Envie para"
+
+msgid "Sep"
+msgstr "Set"
+
+msgid "September"
+msgstr "Setembro"
+
+msgid "settings"
+msgstr "prefer�ncias"
+
+msgid "Size"
+msgstr "Tamanho"
+
+msgid "Sort Ascending"
+msgstr "Organizar por ascend�ncia"
+
+msgid "Sort Descending"
+msgstr "Organizar por descend�ncia"
+
+msgid "Start Date"
+msgstr "Data de in�cio"
+
+msgid "Start time"
+msgstr "Hora de in�cio"
+
+msgid "Startdate"
+msgstr "Data de in�cio"
+
+msgid "Startdate: %s"
+msgstr "Data de in�cio: %s"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Subfolders"
+msgstr "Sub-pastas"
+
+msgid "Subject"
+msgstr "Assunto"
+
+msgid "Subject or Sender"
+msgstr "Assunto ou Remetente"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "Task"
+msgstr "Tarefa"
+
+msgid "Tentative"
+msgstr "Tentativa"
+
+msgid "The operation is completed, but not all items could be copied, deleted or moved."
+msgstr "Opera��o completa, mas nem todos os itens puderam ser copiados, deletados ou movidos."
+
+msgid "The sender of this message has asked to be notified when you read this message."
+msgstr "O remetente pediu para ser notificado sobre o recebimento desta mensagem"
+
+msgid "There are %s more items"
+msgstr "Existem %s mais itens"
+
+msgid "There are %s unread messages in your inbox"
+msgstr "Existem %s mensagens n�o lidas na sua caixa de entrada"
+
+msgid "There are no contacts to be shown in this view. Click in the right of this screen to view the contacts by letter."
+msgstr "N�o h� contatos para serem mostrados nesta visualiza��o. Clique na �rea direita da tela para ver os contatos em ordem alfab�tica."
+
+msgid "There is one more item"
+msgstr "Existe um mais um item"
+
+msgid "This message was sent with High importance"
+msgstr "Essa mensagem foi enviada com Alta import�ncia"
+
+msgid "This message was sent with Low importance"
+msgstr "Essa mensagem foi enviada com Baixa import�ncia"
+
+msgid "This shared folder is already open."
+msgstr "Esta pasta compartilhada j� est� aberta"
+
+msgid "This shared folder is your own folder."
+msgstr "Esta pasta compartilhada � a sua pr�pria pasta"
+
+msgid "Thu"
+msgstr "Qui"
+
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "To"
+msgstr "Para"
+
+msgid "to"
+msgstr "at�"
+
+msgid "To or cc"
+msgstr "Para ou cc"
+
+msgid "Today"
+msgstr "Hoje"
+
+msgid "today"
+msgstr "hoje"
+
+msgid "Total %s recoverable items"
+msgstr "%s itens recuper�veis"
+
+msgid "Total Work"
+msgstr "Trabalho Total"
+
+msgid "Tue"
+msgstr "Ter"
+
+msgid "Tuesday"
+msgstr "Ter�a-feira"
+
+msgid "Unable to directly book a resource for this meeting."
+msgstr "N�o foi poss�vel agendar diretamente o recurso para essa reuni�o."
+
+msgid "Unable to load a rule condition"
+msgstr "N�o foi poss�vel carregar a condi��o da regra"
+
+msgid "Unable to show a rule with more than one action"
+msgstr "N�o � poss�vel mostrar regras com mais de uma a��o"
+
+msgid "Unable to show the rule action"
+msgstr "N�o � poss�vel mostrar a a��o da regra"
+
+msgid "Unable to show the rule condition"
+msgstr "N�o � poss�vel mostrar a condi��o da regra"
+
+msgid "unknown"
+msgstr "desconhecido"
+
+msgid "Unknown Error"
+msgstr "Erro desconhecido"
+
+msgid "Unknown user/group"
+msgstr "Usu�rio/Grupo Desconhecido"
+
+msgid "until"
+msgstr "at�"
+
+msgid "Untitled Attachment"
+msgstr "Anexo Sem-Nome"
+
+msgid "Update"
+msgstr "Atualiza��o"
+
+msgid "User already exists"
+msgstr "Usu�rio j� existe"
+
+msgid "Wait for other person"
+msgstr "Aguarde por outra pessoa"
+
+msgid "Web Page"
+msgstr "P�gina da Internet"
+
+msgid "Wed"
+msgstr "Qua"
+
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+msgid "Week"
+msgstr "Semana"
+
+msgid "week"
+msgstr "Semana"
+
+msgid "weeks"
+msgstr "semanas"
+
+msgid "wk"
+msgstr "sem"
+
+msgid "workday"
+msgstr "dia �til"
+
+msgid "Workweek"
+msgstr "Semana de Trabalho"
+
+msgid "Would you like to delete all items permanently, after that you will not be able to restore them anyway?"
+msgstr "Voc� gostaria de deletar todos os itens permanentemente? Ap�s isso voc� nao ser� capaz de restaur�-los de nenhuma maneira."
+
+msgid "Would you like to delete selected items permanently, after that you will not be able to restore them anyway?"
+msgstr "Voc� gostaria de deletar os itens selecionados permanentemente? Ap�s isso voc� nao ser� capaz de restaur�-los de nenhuma maneira."
+
+msgid "Would you like to restore all items?"
+msgstr "Voc� gostaria de restaurar todos os itens?"
+
+msgid "Would you like to restore selected items?"
+msgstr "Voc� gostaria de restaurar os itens selecionados?"
+
+msgid "Would you like to send an update to the attendees regarding changes to this meeting?"
+msgstr "Voc� gostaria de mandar um update sobre as mudan�as nessa reuni�o aos seus participantes?"
+
+msgid "year"
+msgstr "ano"
+
+msgid "years"
+msgstr "anos"
+
+msgid "you are logged on as"
+msgstr "voc� est� registrado como"
+
+msgid "You are using a pop-up blocker. You must disable the pop-up blocker before you can use this function of the WebAccess"
+msgstr "Voc� est� usando um bloqueador de pop-up. Voc� tem que desativar o bloqueador para usar essa fun��o do WebAccess."
+
+msgid "You don't have permission to create an entry in this folder."
+msgstr "Voc� n�o tem direitos suficientes para criar um item nessa pasta."
+
+msgid "You don't have permission to view this user's calendar."
+msgstr "Voc� n�o tem permiss�o para ver o calend�rio desse usu�rio."
+
+msgid "You forwarded this message"
+msgstr "Voc� encaminhou essa mensagem"
+
+msgid "You forwarded this message on %s"
+msgstr "Voc� encaminhou essa mensagem em %s"
+
+msgid "You forwarded this message on {time}"
+msgstr "Voc� encaminhou essa mensagem em {time}"
+
+msgid "You have a new message in your inbox"
+msgstr "Voc� tem novas mensagens na sua caixa de entrada"
+
+msgid "You must specify a username!"
+msgstr "Voc� deve especificar um usu�rio!"
+
+msgid "You must specify a valid date and/or time. Check your entries in this dialog box to make sure they represent a valid date and/or time."
+msgstr "Voc� precisa especificar uma data e/ou hor�rio v�lido(s). Reveja os dados desta caixa de di�logo para ter certeza de que eles representam uma data e/ou hor�rios v�lido(s)."
+
+msgid "You replied this message"
+msgstr "Voc� respondeu essa mensagem"
+
+msgid "You replied this message on %s"
+msgstr "Voc� respondeu essa mensagem em %s"
+
+msgid "You replied this message on {time}"
+msgstr "Voc� respondeu essa mensagem em {time}"
+
+msgid "You replied this message to all"
+msgstr "Voc� respondeu essa mensagem a todos"
+
+msgid "You replied this message to all on %s"
+msgstr "Voc� respondeu essa mensagem a todos em %s"
+
+msgid "You replied this message to all on {time}"
+msgstr "Voc� respondeu essa mensagem a todos em {time}"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "You marked \\\"%s\\\" as a resource. You cannot schedule a meeting with \\\"%s\\\" because you do not have the appropiate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \\\"%s\\\"."
+msgstr "Voc� marcou \\\"%s\\\" como recurso. Voc� n�o pode agendar uma reuni�o com \\\"%s\\\" porque voc� n�o disp�e de permiss�o apropriada para essa conta. Entre com o nome como participante obrigat�rio ou opcional ou fale com seu administrador para te conceder permiss�o para agendar uma reuni�o com \\\"%s\\\"."
+
+msgid "\\\"%s\\\" has declined your meeting because \\\"%s\\\" does not automatically accept meeting requests. "
+msgstr "\\\"%s\\\" negou seu pedido de reuni�o porque \\\"%s\\\" n�o recebe pedidos automaticamente."
+
+msgid "\\\"%s\\\" has declined your meeting because it is recurring. You must book each meeting separetly with this recurrence."
+msgstr "\\\"%s\\\" negou seu pedido de reuni�o porque ele � reincidente. Voc� precisa agendar cada reuni�o separadamente com essa reincid�ncia."
+
+msgid "\\\"%s\\\" is already booked for this specified time. You must use another time or find another resource."
+msgstr "\\\"%s\\\" j� tem reuni�es marcadas na hora especificada. Voc� tem que mudar a hora ou encontrar outro recurso."
+
+msgid "Please logon"
+msgstr "Por favor registre-se"
+
+msgid "Logon failed, please check your name/password."
+msgstr "Falha ao registrar, por favor verifique o seu nome/senha"
+
+msgid "Can't connect to the Kopano server."
+msgstr "N�o foi poss�vel conectar com o servidor Kopano."
+
+msgid "You have been automatically logged out"
+msgstr "A sess�o foi automaticamente terminada"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Language"
+msgstr "L�ngua"
+
+msgid "Last used language"
+msgstr "L�ngua utilizada na ultima sess�o"
+
+msgid "Logon"
+msgstr "Logar"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Not implemented"
+msgstr "N�o foi implementado"
+
+msgid "This type of message is not yet implemented."
+msgstr "Este tipo de mensagem ainda n�o foi implementada"
+
+msgid "Close window"
+msgstr "Fechar janela"
+
+msgid "General"
+msgstr "Geral"
+
+msgid "Details"
+msgstr "Detalhes"
+
+msgid "Function"
+msgstr "Fun��o"
+
+msgid "File as"
+msgstr "Salvar como"
+
+msgid "Phone numbers"
+msgstr "N�meros de Telefone"
+
+msgid "Addresses"
+msgstr "Endere�os"
+
+msgid "Use this address for mailing"
+msgstr "Utilize este endere�o para correio"
+
+msgid "Webpage"
+msgstr "P�gina web"
+
+msgid "IM - Address"
+msgstr "Endere�o IM (MSN, ICQ, Yahoo!Messenger)"
+
+msgid "Additional Information"
+msgstr "Informa��o adicional"
+
+msgid "Contacts"
+msgstr "Contatos"
+
+msgid "Private"
+msgstr "Privado"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "Manager Name"
+msgstr "Nome do diretor"
+
+msgid "Office"
+msgstr "Escrit�rio"
+
+msgid "Assistant Name"
+msgstr "Nome do assistente"
+
+msgid "Profession"
+msgstr "Profiss�o"
+
+msgid "Nickname"
+msgstr "Nome"
+
+msgid "Partner Name"
+msgstr "Nome do parceiro"
+
+msgid "Title"
+msgstr "T�tulo"
+
+msgid "Birthday"
+msgstr "Anivers�rio"
+
+msgid "Suffix"
+msgstr "Sufixo"
+
+msgid "Special Date"
+msgstr "Data Especial"
+
+msgid "Add Attachments"
+msgstr "Adicionar anexos"
+
+msgid "New Message for Contact"
+msgstr "Nova Mensagem para o Contato"
+
+msgid "Permissions"
+msgstr "Permiss�es"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Description"
+msgstr "Descri��o"
+
+msgid "Unread"
+msgstr "N�o Lido"
+
+msgid "Folder Size"
+msgstr "Tamanho da pasta"
+
+msgid "Add"
+msgstr "Adicionar"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Create items"
+msgstr "Criar itens"
+
+msgid "Folder permissions"
+msgstr "Permiss�es da pasta"
+
+msgid "Read items"
+msgstr "Ler itens"
+
+msgid "Folder visible"
+msgstr "Pasta vis�vel"
+
+msgid "Create subfolders"
+msgstr "Criar sub-pastas"
+
+msgid "Edit items"
+msgstr "Editar itens"
+
+msgid "Own"
+msgstr "Pr�prio"
+
+msgid "All"
+msgstr "Todas"
+
+msgid "Delete items"
+msgstr "Excluir itens"
+
+msgid "Recurring appointment"
+msgstr "Compromisso reincidente"
+
+msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
+msgstr "Essa � uma reuni�o reincidente. Voc� deseja abrir somente essa occor�ncia ou a s�rie completa?"
+
+msgid "Open this occurrence"
+msgstr "Abrir essa occor�ncia"
+
+msgid "Open the series"
+msgstr "Abrir toda a s�rie"
+
+msgid "Due Date"
+msgstr "Prazo final"
+
+msgid "Not Started"
+msgstr "N�o Iniciado"
+
+msgid "Priority"
+msgstr "Prioridade"
+
+msgid "Reminder"
+msgstr "Lembrete"
+
+msgid "Keep copy of task in task list"
+msgstr "Manter c�pia da tarefa na lista de tarefas"
+
+msgid "Send me a status rapport when task is completed"
+msgstr "Me mande um relat�rio de status quando a tarefa for completa"
+
+msgid "Total work"
+msgstr "Trabalho total"
+
+msgid "Actual work"
+msgstr "Trabalho atual"
+
+msgid "Companies"
+msgstr "Empresas"
+
+msgid "Mark Complete"
+msgstr "Marcar completo"
+
+msgid "Reminders"
+msgstr "Lembretes"
+
+msgid "Dismiss All"
+msgstr "Ignorar todos"
+
+msgid "Open Item"
+msgstr "Abrir item"
+
+msgid "Dismiss"
+msgstr "Ignorar"
+
+msgid "Click Snooze to be reminded again in:"
+msgstr "Aperte Soneca para ser lembrado novamente em:"
+
+msgid "Snooze"
+msgstr "Soneca"
+
+msgid "Scheduling"
+msgstr "Agendamento"
+
+msgid "Tracking"
+msgstr "Acompanhando"
+
+msgid "Organiser"
+msgstr "Organizador"
+
+msgid "Label"
+msgstr "Caracter�stica"
+
+msgid "Important"
+msgstr "Importante"
+
+msgid "Work"
+msgstr "Trabalho"
+
+msgid "Personal"
+msgstr "Pessoal"
+
+msgid "Holiday"
+msgstr "Feriado"
+
+msgid "Travel Required"
+msgstr "Viajar � Necess�rio"
+
+msgid "Prepare Required"
+msgstr "Prepara��o Necess�ria"
+
+msgid "Phone Interview"
+msgstr "Entrevista telef�nica"
+
+msgid "All Day Event"
+msgstr "Evento diurno"
+
+msgid "Recurrence"
+msgstr "Reincid�ncia"
+
+msgid "Busy Status"
+msgstr "Status"
+
+msgid "Free"
+msgstr "Livre"
+
+msgid "Busy"
+msgstr "Ocupado"
+
+msgid "Out of Office"
+msgstr "Ausente"
+
+msgid "The following responses to this meeting have been received:"
+msgstr "As seguintes respostas a esta reuni�o foram recebidas:"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Invite Attendees"
+msgstr "Convidar Participantes"
+
+msgid "Cancel Invitation"
+msgstr "Cancelar Convite"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Restore the selected items"
+msgstr "Restaurar os itens selecionados"
+
+msgid "Restore All"
+msgstr ""
+
+msgid "Restore all"
+msgstr "Restaurar todos"
+
+msgid "Permanent Delete"
+msgstr ""
+
+msgid "Permanent delete selected items"
+msgstr "Deletar os itens selecionados permanentemente"
+
+msgid "Delete All"
+msgstr ""
+
+msgid "Permanent delete All"
+msgstr "Deletar todos os itens permanentemente"
+
+msgid "Color"
+msgstr "Cor"
+
+msgid "Blue"
+msgstr "Azul"
+
+msgid "Green"
+msgstr "Verde"
+
+msgid "Pink"
+msgstr "Rosa"
+
+msgid "Yellow"
+msgstr "Amarelo"
+
+msgid "White"
+msgstr "Branco"
+
+msgid "You can lose changes when you continue."
+msgstr "Voc� pode perder as mudan�as se continuar"
+
+msgid "Send new Mail"
+msgstr "Enviar nova mensagem"
+
+msgid "Add Signature"
+msgstr "Adicionar assinatura"
+
+msgid "Check Names"
+msgstr "Confere nomes"
+
+msgid "Priority: High"
+msgstr "Prioridade: Alta"
+
+msgid "Priority: Low"
+msgstr "Prioridade: Baixa"
+
+msgid "Read Mail"
+msgstr "Ler mensagens"
+
+msgid "When"
+msgstr "Quando"
+
+msgid "Proposed"
+msgstr "Proposto"
+
+msgid "Not Current"
+msgstr ""
+
+msgid "Flag"
+msgstr "Bandeira"
+
+msgid "Distribution List"
+msgstr "Lista de Distribui��o"
+
+msgid "Members"
+msgstr "Membros"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Select Members"
+msgstr "Selecionar membros"
+
+msgid "Add new"
+msgstr "Adicionar novo(a)"
+
+msgid "AutoPick"
+msgstr "AutoEscolha"
+
+msgid "Out of office"
+msgstr "Fora do escrit�rio - Ausente"
+
+msgid "No Information"
+msgstr "Nenhuma Informa��o"
+
+msgid "Settings"
+msgstr "Prefer�ncias"
+
+msgid "Save settings"
+msgstr "Salvar prefer�ncias"
+
+msgid "Don't save settings"
+msgstr "N�o salvar prefer�ncias"
+
+msgid "Compose mail"
+msgstr "Compor mensagem"
+
+msgid "Reply-to address"
+msgstr "Endere�o de resposta"
+
+msgid "Compose mail in this format"
+msgstr "Compor mensagem no formato"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain text"
+msgstr "Plain text"
+
+msgid "Close original message on reply or forward"
+msgstr "Fechar mensagem original ao responder ou encaminhar"
+
+msgid "Always request a read receipt"
+msgstr ""
+
+msgid "AutoSave unsent every:"
+msgstr "Salvar automaticamente os n�o-enviados a cada:"
+
+msgid "Cursor position when replying"
+msgstr "Posi��o do cursor ao responder"
+
+msgid "Start of body"
+msgstr "In�cio do corpo da mensagem"
+
+msgid "End of body"
+msgstr "Fim do corpo da mensagem"
+
+msgid "From Email Addresses"
+msgstr "Dos endere�os de e-mail"
+
+msgid "Set FROM email addresses"
+msgstr "Definier endere�os de e-mail do remetente"
+
+msgid "Add address"
+msgstr "Adicionar endere�o"
+
+msgid "Remove address"
+msgstr "Remover endere�o"
+
+msgid "Signature"
+msgstr "Assinatura"
+
+msgid "Edit signatures"
+msgstr ""
+
+msgid "Addressbook"
+msgstr "Livro de endere�os"
+
+msgid "Default selected folder/addressbook"
+msgstr "Padronizar a pasta/livro de endere�os selecionada(o)"
+
+msgid "Out of Office Assistant"
+msgstr "Assistente de aus�ncia do escrit�rio"
+
+msgid "I am currently In the Office"
+msgstr "Eu estou presente no escrit�rio nesse momento"
+
+msgid "I am currently Out of the Office"
+msgstr "Eu estou ausente no momento"
+
+msgid "AutoReply only once to each sender with the following text"
+msgstr "AutoResponder somente uma vez para cada remetente com o seguinte texto"
+
+msgid "Preferences"
+msgstr "Prefer�ncias"
+
+msgid "Color theme"
+msgstr "Cor da visualiza��o"
+
+msgid "Automatic logout"
+msgstr "Encerrar automaticamente"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "After %s minutes"
+msgstr "Depois de %s minutos"
+
+msgid "Folder Options"
+msgstr "Op��es da pasta"
+
+msgid "Startup folder"
+msgstr "Pasta inicial"
+
+msgid "Inbox"
+msgstr "Caixa de Entrada"
+
+msgid "Last opened folder"
+msgstr "�ltima pasta aberta"
+
+msgid "Number of items to display per page"
+msgstr "N�mero de itens para visualizar por p�gina"
+
+msgid "Reading pane visible"
+msgstr "Painel de leitura vis�vel"
+
+msgid "Right"
+msgstr "� direita"
+
+msgid "Bottom"
+msgstr "Na parte inferior"
+
+msgid "Off"
+msgstr "desligado"
+
+msgid "Incoming Mail"
+msgstr "Entrada de correspond�ncia"
+
+msgid "New mail check timeout"
+msgstr "Tempo de expira��o para recebimento de nova correspond�ncia"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "Server default"
+msgstr "Servidor padr�o"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Como responder � requisitos de recibo de leitura"
+
+msgid "Always send a response"
+msgstr "Sempre mandar uma resposta"
+
+msgid "Never send a response"
+msgstr "Nunca mandar uma resposta"
+
+msgid "Ask me before sending a response"
+msgstr "Me avise antes de mandar uma resposta"
+
+msgid "Calendar View"
+msgstr "Visualiza��o do Calend�rio"
+
+msgid "Start of workday"
+msgstr "Come�o do dia de trabalho"
+
+msgid "End of workday"
+msgstr "Fim do dia de trabalho"
+
+msgid "Vertical size"
+msgstr "Tamanho vertical"
+
+msgid "Small"
+msgstr "Pequeno"
+
+msgid "Medium"
+msgstr "M�dio"
+
+msgid "Large"
+msgstr "Grande"
+
+msgid "Multi User Calendar View"
+msgstr "Janela do calend�rio multi-usu�rio"
+
+msgid "Number of days displayed"
+msgstr "N�mero de dias mostrados"
+
+msgid "Number of days loaded"
+msgstr "N�mero de dias carregados"
+
+msgid "Input"
+msgstr "Input"
+
+msgid "Item belongs to these categories"
+msgstr "Item pertence �s seguintes categorias"
+
+msgid "Available categories"
+msgstr "Categorias dispon�veis"
+
+msgid "Competition"
+msgstr "Completo"
+
+msgid "Favorites"
+msgstr "Favoritos"
+
+msgid "Gifts"
+msgstr "Presentes"
+
+msgid "Goals/Objectives"
+msgstr "Alvos/Objetivos"
+
+msgid "Holiday Cards"
+msgstr "Cart�es de feriado"
+
+msgid "Hot Contacts"
+msgstr "Contatos importantes"
+
+msgid "Ideas"
+msgstr "Id�ias"
+
+msgid "International"
+msgstr "Internacional"
+
+msgid "Key Customer"
+msgstr "Cliente chave"
+
+msgid "Miscellaneous"
+msgstr "V�rios"
+
+msgid "Phone Calls"
+msgstr "Liga��es telef�nicas"
+
+msgid "Strategies"
+msgstr "Estrat�gias"
+
+msgid "Suppliers"
+msgstr "Fornecedores"
+
+msgid "Time & Expenses"
+msgstr "Tempo & Despesas"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Em espera"
+
+msgid "Add selected categories"
+msgstr "Adicionar categorias selecionadas"
+
+msgid "Mail Options"
+msgstr "Opc�es de e-mail"
+
+msgid "Message Settings"
+msgstr "Prefer�ncias da mensagem"
+
+msgid "Importance"
+msgstr "Import�ncia"
+
+msgid "Sensitivity"
+msgstr "Sensibilidade"
+
+msgid "Confidential"
+msgstr "Confidencial"
+
+msgid "Tracking Options"
+msgstr "Op��es de tracking"
+
+msgid "Request a read receipt for this message"
+msgstr "Pedir confirma��o de recebimento para esta mensagem"
+
+msgid "New folder"
+msgstr "Nova pasta"
+
+msgid "New foldername"
+msgstr "Novo nome da pasta"
+
+msgid "Folder contains"
+msgstr "Conte�do da pasta"
+
+msgid "E-Mail"
+msgstr "E-Mail"
+
+msgid "Select where to place the new folder"
+msgstr "Selecione onde voc� quer armazenar a nova pasta"
+
+msgid "Copy/Move folder"
+msgstr "Copiar/Mover pasta"
+
+msgid "Destination folder"
+msgstr "Pasta destino"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Print preview"
+msgstr "Imprimir visualiza��o"
+
+msgid "Close preview"
+msgstr "Fechar visualiza��o"
+
+msgid "Address Book"
+msgstr "Endere�os"
+
+msgid "Type Name"
+msgstr "Buscar nome"
+
+msgid "Show names from the"
+msgstr "Exibir nomes do"
+
+msgid "Open Shared Folders"
+msgstr "Abrir pastas compartilhadas"
+
+msgid "Folder type"
+msgstr "Tipo de pasta"
+
+msgid "Tasks"
+msgstr "Tarefas"
+
+msgid "Add/Edit rule"
+msgstr "Adicionar/Editar regra"
+
+msgid "Rule"
+msgstr "Regra"
+
+msgid "Rule name"
+msgstr "Nome da regra"
+
+msgid "With the following properties"
+msgstr "Com as seguintes propriedades"
+
+msgid "From field contains"
+msgstr "Campo 'De' cont�m"
+
+msgid "Subject contains"
+msgstr "'Assunto' cont�m"
+
+msgid "Contact or distributionlist"
+msgstr "Contato ou lista de distribui��o"
+
+msgid "Perform the following action"
+msgstr "Executar seguinte a��o"
+
+msgid "Move to "
+msgstr "Mover para"
+
+msgid "folder"
+msgstr "pasta"
+
+msgid "Copy to "
+msgstr "Copiar para"
+
+msgid "Delete the message"
+msgstr "Excluir mensagem"
+
+msgid "Forward to"
+msgstr "Encaminhar para"
+
+msgid "Message Options"
+msgstr "Op��es da mensagem"
+
+msgid "Internet headers"
+msgstr "Cabe�alho da internet"
+
+msgid "Color of Flag"
+msgstr "Cor da bandeira"
+
+msgid "Orange"
+msgstr "Laranja"
+
+msgid "Purple"
+msgstr "Roxo"
+
+msgid "Add attachments"
+msgstr "Adicionar anexos"
+
+msgid "Filename"
+msgstr "Nome do arquivo"
+
+msgid "max filesize"
+msgstr "tamanho m�ximo de arquivo"
+
+msgid "Files currently attached"
+msgstr "Anexos"
+
+msgid "Delete selected file"
+msgstr "Excluir arquivo selecionado"
+
+msgid "Download"
+msgstr "Baixar"
+
+msgid "Download selected file"
+msgstr "Baixar arquivo selecionado"
+
+msgid "The following rules have been defined:"
+msgstr "As seguintes regras foram definidas:"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Up"
+msgstr "Subir"
+
+msgid "Down"
+msgstr "Abaixar"
+
+msgid "Select folder"
+msgstr "Selecionar pasta"
+
+msgid "Please select a folder"
+msgstr "Por favor selecione pasta"
+
+msgid "Copy/Move messages"
+msgstr "Copiar/Mover mensagem"
+
+msgid "There are %s messages selected"
+msgstr "Existem %s mensagens selecionadas"
+
+msgid "There is one message selected"
+msgstr "Existe uma mensagem selecionada"
+
+msgid "Copy/move selected messages to"
+msgstr "Copiar/Mover mensagens selecionadas para"
+
+msgid "Available fields"
+msgstr "Campos dispon�veis"
+
+msgid "Selected fields"
+msgstr "Selecionar campos"
+
+msgid "Signatures"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Signature for new messages"
+msgstr ""
+
+msgid "Signature for replies and forwards"
+msgstr ""
+
+msgid "Confirm Delete"
+msgstr "Corfirmar exclus�o"
+
+msgid "Do you want to delete all occurrences of this recurring appointment or just this one?"
+msgstr "Voc� gostaria de excluir todas as ocorr�ncias deste compromisso reincidente, ou somente esta ocorr�ncia?"
+
+msgid "Delete this occurrence"
+msgstr "Deletar essa occor�ncia"
+
+msgid "Delete the series"
+msgstr "Excluir a s�rie"
+
+msgid "Modify folder"
+msgstr "Modificar Pasta"
+
+msgid "Appointment Recurrence"
+msgstr "Reincid�ncia do Compromisso"
+
+msgid "Start"
+msgstr "In�cio"
+
+msgid "End By"
+msgstr "Fim"
+
+msgid "Appointment time"
+msgstr "Hor�rio do compromisso"
+
+msgid "Recurrence pattern"
+msgstr "Padr�o de reincid�ncia"
+
+msgid "Daily"
+msgstr "Di�ria"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "Monthly"
+msgstr "Mensal"
+
+msgid "Yearly"
+msgstr "Anual"
+
+msgid "Every"
+msgstr "Cada"
+
+msgid "day(s)"
+msgstr "dia(s)"
+
+msgid "weekday"
+msgstr "dia da semana"
+
+msgid "week(s) on"
+msgstr "semana(s) na"
+
+msgid "of every "
+msgstr "em cada"
+
+msgid "month(s)"
+msgstr "m�s(es)"
+
+msgid "The"
+msgstr "O/A"
+
+msgid "1st"
+msgstr "1�"
+
+msgid "2nd"
+msgstr "2�"
+
+msgid "3rd"
+msgstr "3�"
+
+msgid "4th"
+msgstr "4�"
+
+msgid "last"
+msgstr "�ltimo"
+
+msgid "Weekday"
+msgstr "Dia da semana"
+
+msgid "Weekend day"
+msgstr "Dia do fim-de-semana"
+
+msgid "of every"
+msgstr "de cada"
+
+msgid "Month(s)"
+msgstr "M�s(es)"
+
+msgid "Range of recurrence"
+msgstr "Escala de reincid�ncia"
+
+msgid "No end date"
+msgstr "Sem data final"
+
+msgid "End after"
+msgstr "Finalizar ap�s"
+
+msgid "occurrences"
+msgstr "incid�ncias"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Remove Recurrence"
+msgstr "Remover reincid�ncia"
+
+msgid "Folder Name"
+msgstr "Nome da pasta"
+
+msgid "Size (without subfolders)"
+msgstr "Tamanho (sem subpastas)"
+
+msgid "Total size (including subfolders)"
+msgstr "Tamanho total (incluindo subpastas)"
+
+msgid "User group"
+msgstr "Grupo de usu�rios"
+
+msgid "Groups"
+msgstr "Grupos"
+
+msgid "Add Group"
+msgstr "Adicionar grupo"
+
+msgid "Remove Group"
+msgstr "Remover grupo"
+
+msgid "Users"
+msgstr "Usu�rios"
+
+msgid "Remove User"
+msgstr "Remover usu�rio"
+
+msgid "The Webaccess"
+msgstr "O Webaccess"
+
+msgid "found more than one"
+msgstr "mais de um foi encontrado"
+
+msgid "Select the address to use"
+msgstr "Selecione o endere�o a ser usado"
+
+msgid "New e-mail address"
+msgstr "Novo endere�o de e-mail"
+
+msgid "Email Address"
+msgstr "Endere�o de E-mail"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Button"
+msgstr "Bot�o"
+
+msgid "Organizor"
+msgstr "Organizador"
+
+msgid "Updated:"
+msgstr ""
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Sua mensagem n�o atingiu alguns ou todos os destinat�rios"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Os seguintes destinat�rios n�o puderam ser localizados"
+
+msgid "Untitled rule"
+msgstr "Regra sem nome"
+
+msgid "Canceled: "
+msgstr "Cancelado:"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Sort On Priority"
+msgstr "Organizar Por Prioridade"
+
+msgid "Sort On Icon"
+msgstr "Organizar Por �cone"
+
+msgid "Sort On Attachments"
+msgstr "Organizar Por Anexos"
+
+msgid "Sort On Subject"
+msgstr "Organizar Por Assunto"
+
+msgid "Sort On Size"
+msgstr "Organizar Por Tamanho"
+
+msgid "Flag Status"
+msgstr "Status da bandeira"
+
+msgid "Sort On Flag Status"
+msgstr "Organizar Por Status da bandeira"
+
+msgid "Sort On Categories"
+msgstr "Organizar Por Categorias"
+
+msgid "Sort On Sender"
+msgstr "Organizar Por Remetente"
+
+msgid "Received"
+msgstr "Recebido"
+
+msgid "Sort On Received Date"
+msgstr "Organizar Por Data de Recebimento"
+
+msgid "Sort On Recipient"
+msgstr "Organizar Por Recipiente"
+
+msgid "Sort On Sent Date"
+msgstr "Organizar Por Data de Envio"
+
+msgid "Unable to display the store. Access denied"
+msgstr "N�o foi poss�vel mostrar o perfil. Acesso negado"
+
+msgid "Icon Index"
+msgstr "�ndice de �cones"
+
+msgid "Sort on Icon Index"
+msgstr "Organizar por �ndice de �cones"
+
+msgid "Sort on Subject"
+msgstr "Organizar por Assunto"
+
+msgid "Sort on Startdate"
+msgstr "Organizar por Data de In�cio"
+
+msgid "Sort on Enddate"
+msgstr "Organizar por Data Final"
+
+msgid "Recurring"
+msgstr "Reincidente"
+
+msgid "Sort on Recurring"
+msgstr "Organizar por Reincid�ncia"
+
+msgid "Sort on Busy Status"
+msgstr "Organizar por Status Ocupado"
+
+msgid "Private Appointment"
+msgstr "Compromisso Privado"
+
+msgid "Sort on rule name"
+msgstr "Organizar por nome da regra"
+
+msgid "Rule enabled"
+msgstr "Regra ativada"
+
+msgid "Sort on rule enabled"
+msgstr "Organizar por regra ativada"
+
+msgid "Id"
+msgstr "N�"
+
+msgid "Sort on Id"
+msgstr "Organizar por N�"
+
+msgid "Sort on Enabled"
+msgstr "Organizar por ativado"
+
+msgid "Sort on Name"
+msgstr "Organizar por nome"
+
+msgid "Unable to set the permission on folder."
+msgstr ""
+
+msgid "Modification"
+msgstr "Modifica��o"
+
+msgid "Sort On Modification Date"
+msgstr "Organizar Por Data de Modifica��o"
+
+msgid "In Folder"
+msgstr "Na pasta"
+
+msgid "Sort Folder"
+msgstr "Organizar pasta"
+
+msgid "File As"
+msgstr "Arquivar Como"
+
+msgid "Sort On File As"
+msgstr "Organizar Por Arquivado Como"
+
+msgid "Sort On Display Name"
+msgstr "Organizar Por Nome"
+
+msgid "Email Address 1"
+msgstr "Endere�o de E-mail 1"
+
+msgid "Sort On Email Address 1"
+msgstr "Organizar Por Endere�o de E-mail 1"
+
+msgid "Email Address 2"
+msgstr "Endere�o de E-mail 2"
+
+msgid "Sort On Email Address 2"
+msgstr "Organizar Por Endere�o de E-mail 2"
+
+msgid "Email Address 3"
+msgstr "Endere�o de E-mail 3"
+
+msgid "Sort On Email Address 3"
+msgstr "Organizar Por Endere�o de E-mail 3"
+
+msgid "Home Telephonenumber"
+msgstr "Telefone Residencial"
+
+msgid "Sort On Home Telephonenumber"
+msgstr "Organizar Por Telefone Residencial"
+
+msgid "Cellular Telephonenumber"
+msgstr "Telefone Celular"
+
+msgid "Sort On Cellular Telephonenumber"
+msgstr "Organizar Por Telefone Celular"
+
+msgid "Sort on Icon"
+msgstr "Organizar Por �cone"
+
+msgid "Sort on File As"
+msgstr "Organizar Por Arquivo Como"
+
+msgid "Sort on Display Name"
+msgstr "Organizar Por Nome"
+
+msgid "Sort on Email Address"
+msgstr "Organizar Por Endere�o de E-mail"
+
+msgid "Sort On Body"
+msgstr "Organizar Por Corpo"
+
+msgid "Created"
+msgstr "Criado"
+
+msgid "Sort On Created"
+msgstr "Organizar Por Cria��o"
+
+msgid "Multi-user calendar is not available with your license"
+msgstr ""
+
+msgid "Sort on subject"
+msgstr "Organizar Por Subjeto"
+
+msgid "Due in"
+msgstr "Limite em"
+
+msgid "Sort on Due in"
+msgstr "Organizar Por Limite"
+
+msgid "Sort On Complete"
+msgstr "Organizar por completo"
+
+msgid "Sort On Due Date"
+msgstr "Organizar Por Data Limite"
+
+msgid "Sort On Owner"
+msgstr "Organizar Por Dono"
+
+msgid "% Completed"
+msgstr "% Completo"
+
+msgid "Sort On Percent Completed"
+msgstr "Organizar Por Porcentagem Completa"
+
+msgid "0%"
+msgstr "0%"
+
+msgid "Please search for a name"
+msgstr "Por favor procure por um nome"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Precent complete must be a number between 0 and 100"
+msgstr ""
+
+msgid "No signatures"
+msgstr "Sem assinaturas"
+
+msgid "Please fill in field \"%s\""
+msgstr "Por favor preencha o campo \"%s\""
+
+msgid "Subfolder"
+msgstr "Subpasta"
+
+msgid "Total Size"
+msgstr "Tamanho total"
+
+msgid "Please select a contact"
+msgstr "Favor selecionar um contato"
+
+msgid "The signature has been changed. Do you want to save the changes?"
+msgstr ""
+
+msgid "Enter the signature name"
+msgstr ""
+
+msgid "Enter new signature name"
+msgstr ""
+
+msgid "Default Signature"
+msgstr ""
+
+msgid "Start date and End date for range of recurrence can not be same."
+msgstr "Data de in�cio e data final do intervalo de repeti��o n�o podem ser iguais."
+
+msgid "%a %x %X"
+msgstr "%a %x %X"
+
+msgid "%a %x"
+msgstr ""
+
+msgid "%a %d %h"
+msgstr "%a %d %h"
+
+msgid "%d %B %Y"
+msgstr "%d %B %Y"
+
+msgid "%A"
+msgstr "%A"
+
+msgid "%H%M%S"
+msgstr ""
+
+msgid "More items..."
+msgstr "Mais itens..."
+
+msgid "%A %d %B"
+msgstr "%A %d %B"
+
+msgid "All Day"
+msgstr "Dia inteiro"
+
+msgid "%d %B"
+msgstr "%d %B"
+
+msgid "%B %Y"
+msgstr "%B %Y"
+
+msgid "%d/%m/%Y %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "You marked \"%s\" as a resource. You cannot schedule a meeting with \"%s\" because you do not have the appropiate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule \"%s\"."
+msgstr "Voc� marcou \"%s\" como recurso. Voc� n�o pode agendar uma reuni�o com \"%s\" porque voc� n�o disp�e de permiss�o apropriada para essa conta. Entre com o nome como participante obrigat�rio ou opcional ou fale com seu administrador para te conceder permiss�o para agendar uma reuni�o com \"%s\"."
+
+msgid "\"%s\" has declined your meeting because \"%s\" does not automatically accept meeting requests. "
+msgstr "\"%s\" rejeitou sua reuni�o porque \"%s\" n�o aceita pedidos para reuni�o automaticamente."
+
+msgid "\"%s\" has declined your meeting because it is recurring. You must book each meeting separetly with this recurrence."
+msgstr "\"%s\" rejeitou sua reuni�o porque ela � reincidente. Voc� tem que agendar cada reuni�o separadamente com essa reincid�ncia."
+
+msgid "\"%s\" is already booked for this specified time. You must use another time or find another resource."
+msgstr "\"%s\" n�o est� dispon�vel na hora especificada. Tente mudar a hora ou procure outro recurso."
+
+msgid "This meeting request was updated after this message was sent. You Should open a later update or open the item on the calendar."
+msgstr ""
+
+msgid "GMT"
+msgstr "GMT"
+
+msgid "You will lose the modified data. Do you want to continue?"
+msgstr ""
+
+msgid "This meeting request is out-of-date and will now be deleted."
+msgstr ""
+
+msgid "Add to favorites folder"
+msgstr ""
+
+	

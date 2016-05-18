@@ -1,0 +1,362 @@
+.ext-el-mask {
+	background-color: #ffffff;
+}
+
+/* Override EXtJS's CSS when dragging an popup */
+.x-panel-ghost > ul {
+	border-color: transparent;
+}
+.x-panel-ghost {
+	background-color: #f2f2f2;
+	border-color: transparent;
+}
+.x-panel-ghost .x-window-tl {
+	border-color:transparent;
+}
+
+
+// FIXME: generalize case for x-panel-ghost so that we do not generate a gazzillion CSS rules
+.x-window,
+.x-panel-ghost {
+	border: 1px solid $grey5;
+	box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 5px 0;
+	
+	/* header */
+	.x-window-tl {
+		padding-left: $padding-large;
+		background: $grey;
+
+		.x-window-tr {
+			padding-right: 0;
+			background: none;
+
+			.x-window-tc {
+				background: none;
+				
+				.x-window-header {
+					padding: 0;
+					height: $header-height;
+
+					.x-tool {
+						position: relative;
+						z-index: 10;
+					}
+					
+					.x-tool-close {
+						@extend .icon_cross;
+						background-position: sprite-position($icons, 'icon_cross_large', $offset_y: ($header-height - 10px)/2, $offset_x: $padding-medium);
+						width: 2 * $padding-large + 7px;
+						height: $header-height;
+					}
+
+					.x-tool-minimize {
+						@extend .minimize_button;
+						background-position: sprite-position($icons, 'minimize_button', $offset_y: ($header-height - 3px)/2, $offset_x: $padding-medium);
+						width: 2 * $padding-large + 7px;
+						height: $header-height;
+					}
+
+					.x-window-header-text {
+						color: $font-default-color;
+						font-weight: normal;
+						line-height: $header-height;
+						display: block;
+						left: $padding-large;
+						height: $header-height;
+						position: absolute;
+						overflow: hidden;
+					}
+					
+					/* this element is used to fade out the text when the window is too short */
+					.fade {
+						display: block;
+						width: 70px;
+						height: $header-height;
+						top: 0;
+						right: 0px;
+						position: absolute;
+						background: linear-gradient( to right, rgba($grey, 0) 0%, rgba($grey, 1.0) 50%, rgba($grey, 1.0) 100%);
+					}
+				}
+				.x-window-header.x-window-draggable {
+					.fade {
+						cursor: move;
+					}
+				}
+			}
+		}
+	}
+	
+	/* body */
+	.x-window-bwrap {
+		background: $background-color-main;
+		
+		.x-window-ml {
+			padding-left: 0;
+			background: none;
+			
+			.x-window-mr {
+				padding-right: 0;
+				background: none;
+				
+				.x-window-mc {
+					border: none;
+					background: none;
+				}
+			}
+		}
+		
+		.x-window-body {
+			> div {
+				> .x-panel {
+					/* panel header */
+					> .x-panel-header {
+						background: $background-color-main;
+						line-height: $font-default-line-height;
+						padding: 1px $padding-large 2px;
+						border-bottom: 1px solid $grey;
+						color: $font-default-color;
+						font-weight: normal;
+					}
+					
+					> .x-panel-bwrap {
+						> .x-panel-body {
+							padding: $padding-large $padding-large 0;
+						}
+						> .x-panel-footer {
+							padding: $padding-large;
+						}
+						/* buttons in the footer toolbar */ 
+						> .x-panel-footer.x-panel-btns {
+							td.x-toolbar-cell {
+								padding: 0 $padding-small;
+							}
+							.x-toolbar-left-row {
+								td.x-toolbar-cell:first-child {
+									padding-left: 0;
+								}
+							}
+							.x-toolbar-right-row {
+								td.x-toolbar-cell:last-child {
+									padding-right: 0;
+								}
+							}
+						}
+					}
+				}
+				
+				/* tabpanels need to stretch to the whole panel width to have the border-bottom stretch to the full width */
+				> .x-panel.tabpanel-container {
+					> .x-panel-bwrap {
+						> .x-panel-body {
+							padding: 0;
+							
+							> .x-tab-panel {
+								> .x-tab-panel-bwrap {
+									> .x-tab-panel-body {
+										padding: $padding-large $padding-large;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/* footer */
+	.x-window-bl {
+		background: none;
+		
+		.x-window-br {
+			background: none;
+			
+			.x-window-bc {
+				background: none;
+			}
+		}
+	}
+	
+	/***************************************
+	 *  Specific popups 
+	 * ************************************/
+	/* Copy/move dialog */
+	.copymove-panel {
+		.copymove-tree-panel {
+			.x-form-item {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.x-form-display-field.tree-header {
+		line-height: $font-default-line-height;
+		padding: 2px 0 2px;
+	}
+	
+	.x-tree-node.zarafa-tree-root-container .x-tree-node-el {
+		padding-left: $padding-medium;
+	}
+	
+
+	/* Folder properties dialog */
+	.x-window-bwrap {
+		.x-window-body {
+			> div {
+				.zarafa-folderproperties.x-panel.tabpanel-container {
+					> .x-panel-bwrap {
+						> .x-panel-body {
+							padding: 0;
+							
+							> .x-tab-panel {
+								> .x-tab-panel-bwrap {
+									> .x-tab-panel-body {
+										/* Set the padding not on this panel because it contains lines
+										 * that need to span the full width of the window */
+										padding-left: 0;
+										padding-right: 0;
+										padding: 0;
+									}
+								}
+							}
+						}
+					}
+					
+					/* General tab */
+					.tab-general {
+						form {
+							> .x-panel > .x-panel-bwrap > .x-panel-body {
+								padding: 0 $padding-large;
+							}
+							
+							.x-form-item-label {
+								padding: 0 ($padding-medium - 1) 0 0;
+							}
+							
+							.x-form-item {
+								margin: 0;
+								padding: 0;
+								line-height: $font-default-line-height;
+							}
+						}
+						
+						.display-name {
+							padding-top: ($header-height - 1 - $font-default-line-height) / 2;
+							padding-bottom: ($header-height - 1 - $font-default-line-height) / 2;
+							padding-left: (16 + $padding-medium);
+							line-height: $font-default-line-height;
+							background-position: 0 ($header-height - 1 - 13)/2;
+							background-repeat: no-repeat;
+							font-weight: bold;
+							font-size: $font-size-large !important;
+						}
+
+					    @each $img in sprite-names($iconsmap) {
+					    	.display-name.#{$img} {
+						        background-image: sprite-url($iconsmap);
+						        background-repeat: no-repeat;
+					    		background-position: sprite-position($iconsmap, $img, $offset-y: ($header-height - 1 - 15)/2, $offset-x: 0);
+					    	}
+					    }
+					    
+					    .description-panel {
+					    	> .x-panel-bwrap > .x-panel-body {
+					    		padding-top: $padding-extra-large !important;
+					    		padding-bottom: $padding-large !important;
+					    	}
+					    }
+					    .content-info-panel {
+					    	> .x-panel-bwrap > .x-panel-body {
+					    		padding-top: $padding-extra-large !important;
+					    		padding-bottom: $padding-extra-large - $padding-medium !important;
+					    	}
+					    }
+					}
+					
+					/* Permissions tab */
+					.tab-permissions {
+						.userlist-panel {
+							border-bottom: 1px solid $grey;
+							
+							> .x-panel-bwrap {
+								.x-panel-body {
+									padding: $padding-large $padding-large 0;
+								}
+								
+								.x-panel-footer {
+									.x-toolbar-right-row .x-toolbar-cell:first-child button {
+										/* this button should not be green! */
+										background-color: transparent;
+										color: $font-default-color;
+									}
+								}
+							}
+						}
+						
+						.profile-panel {
+							padding: $padding-medium $padding-large;
+						}
+						.permissions-panel {
+							padding: 0 $padding-large;
+							
+							fieldset {
+								padding-bottom: $padding-medium;
+								
+								.x-column .x-column {
+									padding-bottom: $padding-extra-extra-large;
+								}
+								
+								fieldset {
+									position: relative;
+									margin-top: $font-default-line-height + $padding-small;
+									margin-right: $padding-small;
+									padding-bottom: $padding-small;
+									overflow: visible;
+									
+									legend {
+										position: absolute;
+										top: - ($font-default-line-height + $padding-small);
+										left: $padding-medium;
+									}
+
+									.x-column {
+										padding-bottom: 0 !important;
+										
+										.x-form-item {
+											margin-bottom: 0;
+											
+											.x-form-item .x-form-item {
+												padding-bottom: $padding-small;
+											}
+										}
+									}
+								}
+								fieldset:nth-last-child(0n+2) {
+									margin-right: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+		
+}
+
+/* Reminder dialog */
+.zarafa-reminder-dialog-active-reminder-icon {
+	width: 24px;
+	height: 15px;
+	float: left;
+}
+
+.zarafa-reminder-dialog-active-reminder-subject
+{
+	font-weight: bold;
+}
+.zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder
+{
+	padding:8px;
+}

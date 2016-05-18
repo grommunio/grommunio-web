@@ -1,0 +1,81 @@
+@import '_print';
+
+table {
+  width: 100%;
+  text-align: left;
+  font-size: 11px;
+  font-family: arial;
+  border-collapse: collapse;
+}
+
+table th {
+  font-weight: bold;
+  padding: 2px 3px 2px 0px;
+}
+
+table td {
+  padding: 2px 3px 2px 0px;
+}
+
+/* date picker css */
+.x-date-prevday a {
+	color: transparent;
+}
+.x-date-nextday a {
+	color: transparent;
+}
+.x-date-active a {
+	color: black;
+	text-decoration: none;
+}
+.x-date-active {
+	text-align: right;
+}
+.x-date-left {
+	display: none;
+}
+.x-date-right {
+	display: none;
+}
+.x-btn button {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+}
+
+th.date-header {
+	text-align: right;
+    background-color: lightgrey;
+	width: 50%;
+}
+th.date-header-center {
+	text-align: center;
+    background-color: lightgrey;
+}
+
+table.print-calendar {
+	border: 1px solid black;
+	border-collapse: collapse;
+    height: 95%;
+}
+.print-calendar th {
+	border: 1px solid black;
+}
+
+#top th {
+	border: none;
+}
+table.inner {
+	border: none;
+}
+
+.calendar-allday td {
+	text-align: center;
+	border: 1px solid black;
+}
+.calendar-normal td {
+	text-align: left;
+}
+td.calendar-item {
+	width: 100%;
+}
+

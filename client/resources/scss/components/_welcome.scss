@@ -1,0 +1,55 @@
+.zarafa-welcome-body {
+	width: 450px;
+	
+	> .x-panel-bwrap {
+		> .x-panel-body {
+			> div {
+				border-left: 1px solid $grey;
+				border-right: 1px solid $grey;
+			}
+			
+			div.zarafa-welcome-title {
+				background: $kopano-blue;
+				color: $font-color-light;
+				@include basefont($font-size-large);
+				line-height: $font-line-height-large;
+				padding: ($header-height - $font-line-height-large)/2 $padding-large;
+				border-left: 1px solid $kopano-blue;
+				border-right: 1px solid $kopano-blue;
+			}
+			
+			div.zarafa-welcome-message {
+				padding: $padding-large;
+			}
+	
+			.zarafa-settings-widget-welcome {
+				.x-panel-header {
+					padding-left: $padding-large;
+					border: none;
+				}
+				
+				> .x-panel-bwrap {
+					> .x-panel-body {
+						padding: $padding-large;
+						border: none;
+					}
+				}
+			}
+		}
+		
+		.x-panel-footer {
+			padding: $padding-extra-large $padding-large;
+			border-left: 1px solid $grey;
+			border-right: 1px solid $grey;
+			border-bottom: 1px solid $grey;
+		}
+	}
+
+	/* Hide warning messages regarding reloading WebApp */
+	.zarafa-settings-widget-welcome .zarafa-settings-reload-warning {
+		position: absolute !important;
+		left: -10000px;
+		top: -10000px;
+		visibility: hidden;
+	}
+}

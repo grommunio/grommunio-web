@@ -1,0 +1,129 @@
+/* The styling of the main menu bar */
+
+/* constants */
+$mainmenubar-background-color 			: $kopano-blue;
+$mainmenubar-background-color-hover 	: $kopano-blue-hover;
+$mainmenubar-background-color-active 	: $kopano-blue-active;
+$mainmenubar-font-color 				: $font-color-light;
+$mainmenubar-font-color-hover 			: $font-color-light;
+$mainmenubar-font-color-active 			: $font-color-light;
+
+$mainmenubar-button-opacity : 70;
+$mainmenubar-button-hover-opacity : 70;
+$mainmenubar-button-active-opacity : 100;
+
+$mainmenubar-button-padding-left: $padding-extra-large;
+$mainmenubar-button-padding-right: $padding-extra-large;
+$mainmenubar-button-padding-top: 11px;
+$mainmenubar-button-padding-bottom: 10px;
+
+#zarafa-mainmenu {
+	padding: 0;
+	border-width: 0;
+}
+
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
+	background: $mainmenubar-background-color;
+	color: $font-color-light;
+	padding: 0;
+	
+	* {
+		font-size: 15px !important;
+	}
+  
+	.x-btn {
+  		padding: 0;
+  		margin: 0;
+		display: block;
+  		
+  		.x-btn-small{
+			height: auto;
+			background-color: transparent !important;
+			box-shadow: none;
+			border: none;
+			margin: 0;
+		}
+		
+		button.x-btn-text {
+			font-size: 15px !important;
+			line-height: 100% !important;
+			color : $mainmenubar-font-color;
+			text-transform: uppercase;
+			text-shadow: none;
+			padding: $mainmenubar-button-padding-top $mainmenubar-button-padding-right $mainmenubar-button-padding-bottom $mainmenubar-button-padding-left;
+			height: auto;
+			opacity: $mainmenubar-button-opacity / 100;
+			width: auto;
+			min-width: 0;
+			border: none;
+		}
+	}
+  
+	.x-btn.x-btn-over, .x-btn.x-btn-over.x-btn-click {
+		background-color: $mainmenubar-background-color-hover !important;
+		
+		.x-btn-small{
+			border: none;
+		}
+		
+		button.x-btn-text {
+			border: none;
+			color: $mainmenubar-font-color-hover;
+			opacity: $mainmenubar-button-hover-opacity / 100;
+			background-color: transparent;
+		}
+	}
+  
+	.zarafa-maintabbar-maintab-active,
+	.zarafa-maintabbar-maintab-active.x-btn-over,
+	.zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
+		background-color: $mainmenubar-background-color-active !important;
+		
+		.x-btn-small{
+			border: none;
+		}
+		
+		button.x-btn-text {
+			border: none;
+			color: $mainmenubar-font-color-active;
+			opacity: $mainmenubar-button-active-opacity / 100;
+			font-weight: normal;
+
+        	background-image: sprite-url($icons) !important;
+        	background-repeat: no-repeat;
+			background-position: sprite-position($icons, arrow_menubar, $offset_y: 30px, $offset_x: 50%);
+		}
+	}
+	
+	.x-toolbar-right {
+		button.x-btn-text {
+			text-transform: none;
+		}
+	}
+	
+	#mainmenu-button-settings em{
+        background-image: sprite-url($icons) !important;
+        background-repeat: no-repeat;
+		background-position: sprite-position($icons, icon_settings, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
+		
+		button.x-btn-text {
+			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
+		}
+	}
+	
+	#mainmenu-button-logout em {
+        background-image: sprite-url($icons) !important;
+        background-repeat: no-repeat;
+		background-position: sprite-position($icons, icon_logout, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
+		
+		button.x-btn-text {
+			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
+			text-transform: none;
+		}
+	}
+	
+	#mainmenu-logintext {
+		opacity: $mainmenubar-button-opacity / 100;
+		padding-right: $mainmenubar-button-padding-right;
+	}
+}

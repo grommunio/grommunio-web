@@ -1,0 +1,20 @@
+.zarafa-mailcreatepanel-field-editor  {
+	/* Remove skin creator's dark grey border-color */
+	.mce-btn.mce-active,.mce-btn.mce-active:hover {
+		border-color: #ebebeb;
+	}
+
+	/* Remove skin creator's dark grey border-color */
+	.mce-btn:hover,.mce-btn:focus {
+		border-color: #ebebeb;
+	}
+
+	.mce-toolbar-grp {
+		padding-bottom: 0px;
+	}
+
+	/* Override inline style of tinymce */
+	.mce-panel.mce-tinymce {
+		border-width: 1px 0px 0px !important;
+	}
+}

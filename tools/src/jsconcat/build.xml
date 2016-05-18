@@ -1,0 +1,24 @@
+<project name="JsConcat" default="all">
+
+	<property name="outputdir" value="${basedir}"/>
+	<property name="jarfile" value="${outputdir}/jsconcat.jar"/>
+
+	<target name="all" depends="compile, package"/>
+
+	<target name="compile">
+		<mkdir dir="build"/>
+		<javac srcdir="src" destdir="build" classpath="lib" debug="true" includeantruntime="true"/>
+	</target>
+
+	<target name="package" depends="compile">
+		<jar destfile="${jarfile}">
+			<fileset dir="build"/>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="build"/>
+		<delete file="${jarfile}"/>
+	</target>
+
+</project>

@@ -1,0 +1,108 @@
+<project default="all">
+
+	<property environment="env"/>
+	<property name="root-folder" value="${basedir}/.."/>
+	<property name="target-folder" value="${root-folder}/deploy/server/"/>
+	<property name="language-folder" value="${basedir}/language"/>
+	<property name="tools-folder" value="${root-folder}/tools/"/>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+	<!-- Meta target -->
+	<target name="all" depends="validate, language"/>
+
+	<!-- Clean -->
+	<target name="clean">
+		<delete failonerror="false">
+			<!-- Delete the .mo files -->
+			<fileset dir="${language-folder}">
+				<include name="**/LC_MESSAGES/*.mo"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- syntax check all PHP files -->
+	<target name="validate">
+		<if>
+			<available file="php" filepath="${env.PATH}" />
+			<then>
+				<for param="file" parallel="true">
+					<dirset dir=".">
+						<include name="**/*.php"/>
+					</dirset>
+					<sequential>
+						<antcall target="syntax-check">
+							<param name="file" value="@{file}"/>
+						</antcall>
+					</sequential>
+				</for>
+			</then>
+			<else>
+				<echo message="WARNING: PHP not available, not performing syntax-check on php files"/>
+			</else>
+		</if>
+	</target>
+
+	<target name="syntax-check">
+		<echo message="validating ${file}"/>
+		<exec executable="php" failonerror="true">
+			<arg value="-l"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Generate language files -->
+	<target name="language">
+		<if>
+			<available file="msgfmt" filepath="${env.PATH}" />
+			<then>
+				<for param="file" parallel="true">
+					<fileset dir="${language-folder}">
+						<include name="**/LC_MESSAGES/*.po"/>
+					</fileset>
+					<sequential>
+						<antcall target="msgfmt">
+							<param name="file" value="@{file}"/>
+						</antcall>
+					</sequential>
+				</for>
+			</then>
+			<else>
+				<echo message="WARNING: msgfmt not available, not generating *.mo files for translations"/>
+			</else>
+		</if>
+	</target>
+
+	<target name="msgfmt">
+		<propertyregex property="outfile" input="${file}" regexp=".*\/(language\/.*)\.po" replace="${target-folder}\1\.mo"/>
+		<echo message="Converting ${file} to ${outfile}"/>
+		<dirname property="outdir" file="${outfile}"/>
+		<mkdir dir="${outdir}"/>
+		<exec executable="msgfmt" failonerror="true">
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="${outfile}"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Install all files into the target folder -->
+	<target name="deploy" depends="validate, language">
+		<mkdir dir="${target-folder}"/>
+
+		<!-- copy files -->
+		<copy todir="${target-folder}">
+			<fileset dir=".">
+				<include name="**/*.*"/>
+				<include name="*.php"/>
+				<exclude name="build.xml"/>
+				<exclude name="**/LC_MESSAGES/*.po"/>
+			</fileset>
+		</copy>
+	</target>
+
+</project>

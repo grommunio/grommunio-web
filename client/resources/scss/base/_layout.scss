@@ -1,0 +1,57 @@
+/* Set the background color to the body and make all other panels transparent when needed */
+
+body {
+	/* TODO: The important is only needed because it was added in our original stylesheet. It should be removed from there and then here */
+	background-color: $background-color-main !important;
+}
+
+.zarafa-panel-body,
+.zarafa-panel,
+.zarafa-widgetpanel,
+.x-layout-collapsed
+{
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
+}
+
+.x-panel-body {
+	background-color: white !important;
+}
+
+#zarafa-navigationpanel > div {
+	border-right: 1px solid $grey;
+}
+.zarafa-widgetpanel > div {
+	border-left: 1px solid $grey;
+}
+
+/* For some reason Ext gives the tab strip a padding-top of 1px. This makes the panels look unaligned, so fix this */
+ul.x-tab-strip-top {
+	padding-top: 0;
+}
+
+/* set the width (and height) of the splitters, i.e. the space between panels */
+.x-layout-split {
+	width: $padding-small;
+	height: $padding-small;
+}
+
+/* Common emptytext for example empty task list */
+.emptytext {
+	text-align: center;
+}
+
+/* TODO: move to general scss file */
+.x-combo-list {
+	border-color: #918F90;
+}
+.x-combo-list .x-combo-selected {
+	border-color: #d3d2d2 !important;
+	background-color: #ebeaeb;
+}
+
+/* Make the background color of the new mail action and GAB panel transparent */
+.x-border-layout-ct {
+	background-color:transparent;
+}

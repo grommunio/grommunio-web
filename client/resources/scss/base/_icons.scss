@@ -1,0 +1,238 @@
+/**************************************
+ * Code to create the icons sprite
+ *************************************/
+    @import "compass/utilities/sprites";
+    
+    $disable-magic-sprite-selectors: true;
+    $icons-inline: false;
+    $icons-layout: vertical;
+    $iconmap-spacing : 20px;
+
+    $iconsmap: sprite-map(
+      "icons/*.png", 
+      $spacing                      : $iconmap-spacing,
+      $icons-menu_arrow_right_l-position: 100%
+    );
+    $icons-spacing: $iconmap-spacing;
+
+    $icons-position: 0%;
+    
+/*
+    @import "icons/*.png"; 
+    
+    @include all-icons-sprites; 
+*/
+ 
+    .icons-sprite {
+        background-image: sprite-url($iconsmap);
+        background-repeat: no-repeat;
+    }
+    
+    @each $img in sprite-names($iconsmap) {
+      .icons-#{$img},
+      .#{$img} {
+        /* need to use !important because Ext also uses it here and there! */
+        background-image: sprite-url($iconsmap) !important;
+        background-repeat: no-repeat;
+        background-position: sprite-position($iconsmap, $img, $offset-y: 0, $offset-x: 0);
+      }
+    }
+     
+/**************************************
+ * End of code to create the icons sprite
+ *************************************/
+
+/**************************************
+ * Folder icons
+ *************************************/
+
+    @each $img in sprite-names($iconsmap) {
+      .#{$img} {
+        @extend .icons-sprite;
+        background-position: sprite-position($iconsmap, $img, $offset-y: 1, $offset-x: 0);
+      }
+    }
+
+    /* some extra classes that use the same icon as others */
+
+    .icon_folder_appointment ,
+    .icon_folder_default_calendar ,
+    .icon_folder_shared_calendar {
+        @extend .icons-sprite;
+    }
+
+    .icon_folder_default_task ,
+    .icon_folder_shared_task {
+        @extend .icon_task2;
+    }
+
+    .icon_folder_default_contact ,
+    .icon_folder_shared_contact {
+        @extend .icon_folder_contact;
+    }
+
+    .icon_folder_stickynote ,
+    .icon_folder_default_note ,
+    .icon_folder_shared_note {
+        @extend .icon_note_yellow;
+    }
+
+    .icon_folder ,
+    .icon_folder_note , /* This is not for StickyNote folders, but for normal message folders. */
+    .icon_folder_folder ,
+    .icon_folder_default_publicfolders ,
+    .icon_folder_default_syncissues ,
+    .icon_folder_default_conflicts ,
+    .icon_folder_default_localfailures ,
+    .icon_folder_default_serverfailures ,
+    .icon_open {
+        @extend .folder;
+    }
+
+    .icon_folder_shared_store ,
+    .icon_folder_public_store ,
+    .icon_folder_shared_undefined {
+        @extend .icons-sprite;
+    }
+
+    .icon_folder_shared_inbox {
+        @extend .icons-sprite;
+    }
+
+    .icon_junk {
+      @extend .icon_folder_default_junk;
+    }
+
+    .icon_folder_default_wastebasket,
+    .icon_folder_delete,
+    .icon_empty_trash {
+      @extend .trash;
+    }
+
+    .icon_folder_journal{
+        @extend .icons-sprite;
+    }
+
+	/* other icon names */
+	.icon_message,
+	.icon_message_read {
+		@extend .icon_mail_read;
+	}
+	.icon_message_unread {
+		@extend .icon_mail_unread;
+	}
+	.icon_appt_meeting_single {
+		@extend .icon_calendar_mr;
+	}
+	.icon_contact_user {
+		@extend .icon_contact_card;
+	}
+	.icon_contact_distlist {
+		@extend .icon_distlist;
+	}
+	.icon_contact_gab_user {
+		@extend .icon_contact_smtp;
+	}
+	.icon_appt_appointment {
+		@extend .icon_calendar_blue;
+	}
+	.icon_appt_meeting_recurring,
+	.icon_appt_recurring {
+		@extend .icon_calendar_appt_recurring;
+	}
+	.icon_appt_meeting_single {
+		@extend .icon_calendar_mr;
+	}
+	/* FIXME duplicate */
+	.icon_appt_meeting_accept {
+		@extend .icon_calendar_appt_accept;
+	}
+	.icon_appt_meeting_decline {
+		@extend .icon_calendar_appt_cancelled;
+	}
+	.icon_appt_meeting_tentative {
+		@extend .icon_calendar_appt_tentative;
+	}
+	.icon_appt_meeting_newtime {
+		@extend .icon_calendar_appt_newtime;
+	}
+
+	.icon_appt_meeting_outofdate {
+		@extend .icon_calendar_appt_outofdate;
+	}
+	.icon_task_normal,
+	.icon_task_recurring {
+		@extend .icon_task2;
+	}
+
+	.icon_mail_nondelivery_receipt {
+		@extend .icon_mail_report_ndr;
+	}
+	.icon_mail_read_receipt {
+		@extend .icon_mail_report_accept;
+	}
+	.icon_mail_nonread_receipt {
+		@extend .icon_mail_report_decline;
+	}
+
+	/* attachment column */
+	.icon_attachment {
+		@extend .icon_paperclip;
+	}
+
+	/* importance column */
+	.icon_importance_urgent {
+		@extend .icon_priority_high;
+	}
+	.icon_importance_nonurgent {
+		@extend .icon_priority_low;
+	}
+
+	/* flags column */
+	.icon_mail_flag {
+		@extend .icon_flag;
+	}
+	.icon_mail_flag_red {
+		@extend .icons-icon_flag_red;
+	}
+	.icon_mail_flag_blue {
+		@extend .icon_flag_blue;
+	}
+	.icon_mail_flag_yellow {
+		@extend .icon_flag_yellow;
+	}
+	.icon_mail_flag_green {
+		@extend .icon_flag_green;
+	}
+	.icon_mail_flag_orange {
+		@extend .icon_flag_orange;
+	}
+	.icon_mail_flag_purple {
+		@extend .icon_flag_purple;
+	}
+	.icon_mail_completed {
+		@extend .icon_flag_complete;
+	}
+
+	.x-menu-item.xg-hmenu-sort-desc .x-menu-item-icon {
+		background-image: sprite-url($iconsmap);
+		background-repeat: no-repeat;
+		background-position: sprite-position($iconsmap, icon_sort_ascending, $offset-x: 0, $offset-y: 4);
+	}
+
+	.x-menu-item.xg-hmenu-sort-asc .x-menu-item-icon {
+		background-image: sprite-url($iconsmap);
+		background-repeat: no-repeat;
+		background-position: sprite-position($iconsmap, icon_sort_descending, $offset-x: 0, $offset-y: 4);
+	}
+
+	.x-menu-item .x-cols-icon.x-menu-item-icon {
+		background-image: sprite-url($iconsmap);
+		background-repeat: no-repeat;
+		background-position: sprite-position($iconsmap, icon_columns, $offset-x: 0, $offset-y: 3);
+	}
+
+
+	.col-move-bottom, .col-move-top {
+		background-image: none !important;
+	}

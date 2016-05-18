@@ -1,0 +1,350 @@
+.zarafa-freebusy-panel {
+	.zarafa-freebusy-datetime-toolbar {
+		max-height: $toolbar-height + 2 * $padding-large;
+		
+		.x-panel-body {
+			padding: $padding-large $padding-small;
+		}
+		
+		.x-form-item {
+			margin-bottom: 0;
+		}
+		
+		.x-form-item label {
+			padding: 0;
+			line-height: $button-small-height;
+		}
+		
+		.x-form-check-wrap {
+			padding: 0 $padding-extra-extra-large;
+			margin-bottom: 0;
+			line-height: $button-small-height;
+		}
+	}
+
+	.x-freebusy-userlist,
+	.zarafa-freebusy-suggestionlist {
+		.x-panel-header {
+			padding: (30px - $font-default-line-height)/2 $padding-large;
+			border: none;
+			font-weight: normal;
+		}
+	}
+	
+	.x-freebusy-userlist {
+		> .x-panel-bwrap {
+			> .x-panel-body {
+				padding: $header-height 0 0;
+				border-left: none;
+			}
+		}
+	}
+	
+	.zarafa-freebusy-suggestionlist {
+		> .x-panel-bwrap {
+			> .x-panel-body {
+				border-right: none;
+			}
+		}
+	}
+	
+	.x-freebusy-userlist-container {
+		padding: 0 $padding-medium;
+		border: none;
+		box-sizing: border-box;
+		width: 100% !important;
+		position: relative;
+		
+		ul {
+			position: relative;
+			width: 100%;
+			
+			li span.x-freebusy-userrow-remove:after {
+				content: " ";
+				display: table;
+				clear: both;
+			}
+			
+			li {
+				margin: $padding-small 0;
+				line-height: $font-default-line-height;
+				padding: ($button-small-height - $font-default-line-height - 2px)/2 $padding-medium;
+				padding-right: 2 * $padding-medium + 10px;
+				box-sizing: border-box;
+				width: 100% !important;
+				max-height: $button-small-height;
+				display: block;
+				position: relative;
+				overflow: hidden;
+				
+				.x-zarafa-boxfield-item-text {
+					line-height: $font-default-line-height;
+					width: auto !important;
+					max-width: 90%;
+					float: none;
+				}
+				
+				.x-freebusy-userrow-remove {
+			        background-image: sprite-url($icons);
+			        background-repeat: no-repeat;
+			        background-position: sprite-position($icons, icon_cross, $offset-y: 0, $offset-x: 0);
+			        width: 7px;
+			        height: 7px;
+			        display: block;
+			        position: absolute;
+			        top: ($button-small-height - 7px - 2px)/2;
+			        right: $padding-medium;
+			        cursor: pointer;
+				}
+				
+				/* the icons */
+				.x-zarafa-boxfield-item-icon {
+					width: 11px;
+					height: 11px;
+					margin-top: ($font-default-line-height - 2px - 11px)/2;
+			        background-image: sprite-url($iconsmap);
+			        background-repeat: no-repeat;
+				}
+				.x-freebusy-userlist-recipienttype-originator {
+			        background-position: sprite-position($iconsmap, icon_meetingrequest_organizer, $offset-y: 0, $offset-x: 0);
+				}
+				.x-freebusy-userlist-recipienttype-required {
+			        background-position: sprite-position($iconsmap, icon_meetingrequest_requiredattendee, $offset-y: 0, $offset-x: 0);
+				}
+				.x-freebusy-userlist-recipienttype-optional {
+			        background-position: sprite-position($iconsmap, icon_meetingrequest_optionalattendee, $offset-y: 0, $offset-x: 0);
+				}
+				.x-freebusy-userlist-recipienttype-resource {
+			        background-position: sprite-position($iconsmap, icon_meetingrequest_resource, $offset-y: 0, $offset-x: 0);
+				}
+			}
+
+			.x-zarafa-boxfield-recipient-item-invalid {
+				.x-zarafa-boxfield-item-text {
+					line-height: 16px;
+				}
+			}
+
+			li.x-zarafa-boxfield-input-item {
+				padding: 0;
+				max-height: $button-small-height;
+				
+				input {
+					box-sizing: border-box;
+					width: 100% !important;
+					height: $button-small-height !important;
+				}
+			}
+		}
+	}
+	
+	/* Timeline */
+	.x-freebusy-timeline-container {
+		table {
+			border-spacing: 0px;
+			border-width: 0px;
+		}
+		
+		.x-freebusy-header {
+			.x-freebusy-header-body {
+				height: 100%;
+				
+				div.x-freebusy-timeline-day {
+					height: 100%;
+					border-right: 1px solid $grey;
+	
+					table {
+						
+						tr.x-freebusy-timeline-day {
+							td {
+								padding: 0 $padding-large;
+								font-weight: normal;
+								background: $background-color-header;
+								box-sizing: border-box;
+							}
+						}
+						
+						tr.x-freebusy-timeline-hour {
+							td {
+								padding: 0 $padding-small;
+								border-left: 1px solid $grey;
+								border-bottom: 1px solid $grey;
+								box-sizing: border-box;
+							}
+							
+						}
+					}
+					
+					table.x-freebusy-timeline-day-sum {
+						tr.x-freebusy-timeline-hour {
+							td {
+								border-bottom: none;
+							}
+						}
+					}
+				}
+				
+				.x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+					border-right-color: $green;
+					
+					table {
+						border-color: $green;
+						
+						tr.x-freebusy-timeline-day {
+							td {
+								background: $green;
+								color: $font-color-light;
+							}
+						}
+						tr.x-freebusy-timeline-hour {
+							td:first-child {
+								border-left-color: $green;
+							}
+						}
+					}
+					
+					table.x-freebusy-timeline-day-sum {
+						border-top-color: $grey;
+					}
+				}
+			}
+		}
+		
+		.x-freebusy-body {
+		
+			.x-freebusy-timeline-day {
+				table {
+					height: 100%;
+				}
+			}
+			
+			.x-freebusy-background {
+				.x-freebusy-timeline-day {
+					border-right: 1px solid $grey;
+					background: url('data:image/gif;base64,R0lGODlhAQABAIABAObm5v///yH+EUNyZWF0ZWQgd2l0aCBHSU1QACwAAAAAAQABAAACAkQBADs=') repeat-x left top,
+								url('data:image/gif;base64,R0lGODlhAQABAIABAObm5v///yH+EUNyZWF0ZWQgd2l0aCBHSU1QACwAAAAAAQABAAACAkQBADs=') repeat-x left 30px;
+								
+					td {
+						border-left: 1px solid $grey;
+						box-sizing: border-box;
+					}
+				}
+				
+				.x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+					border-right-color: $green;
+					
+					td:first-child {
+						border-left-color: $green;
+					}
+				}
+			}
+		}
+		
+		.x-freebusy-timeline-block-free {
+			background-color: #EEE;
+		}
+		.x-freebusy-timeline-block-tentative {
+			background: repeating-linear-gradient(-45deg, #0f70bd 0px, #0f70bd 2.8284px, white 2.8284px, white 5.65685px);
+		}
+		.x-freebusy-timeline-block-busy {
+			background-color: #0f70bd;
+		}
+		.x-freebusy-timeline-block-outofoffice {
+			background-color: #912787;
+		}
+		.x-freebusy-timeline-block-blur {
+			background: repeating-linear-gradient(45deg, #e6e6e6 0px, #e6e6e6 2.8284px, white 2.8284px, white 5.65685px)		}
+	}
+	
+	/* Suggestion panel */
+	.x-panel.suggestionlist {
+		padding: $padding-medium;
+
+		.x-btn.zarafa-freebusy-suggestionrow:last-of-type {
+			margin-bottom: 0px;
+		}
+		.x-btn.zarafa-freebusy-suggestionrow {
+			margin-bottom: $padding-medium;
+			margin-right: $padding-medium;
+			display: block;
+			.x-btn-small {
+				padding: 0;
+				background: $grey3;
+				border: 1px solid $grey;
+				border-radius: 2px;
+				box-shadow: none;
+				width: 100%;
+				em {
+					display: block;
+					button {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	
+	/* timeline legenda */
+	.x-freebusy-legenda {
+		padding: $padding-medium $padding-large;
+		border: none;
+		
+		.x-form-display-field {
+			padding: 0 $padding-extra-extra-large 0 $padding-large;
+			line-height: $button-small-height;
+		}
+	}
+}
+
+.x-freebusy-timeline-container .x-freebusy-header {
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	/* Set the background to white so the space between different days is white and not grey */
+	background-color: #FFF;
+}
+.x-freebusy-timeline-container .x-freebusy-header-body {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.x-freebusy-timeline-container .x-freebusy-body {
+	position: absolute;
+	overflow: scroll;
+	width: 100%;
+	/* Set the background to white so the space between different days is white and not grey */
+	background-color: #FFF;
+}
+
+/** Selector **/
+.x-freebusy-timeline-container .x-freebusy-selectorcontainer .x-freebusy-selector {
+	position: absolute;
+	border-left: 3px solid #8CBC76;
+	border-right: 3px solid #E17575;
+	height: 100%;
+	background: rgba(195, 195, 195, 0.2);
+}
+
+/* TODO: Investigate what's required */
+.x-freebusy-timeline-container .x-freebusy-header .x-freebusy-sumblockcontainer, 
+.x-freebusy-timeline-container .x-freebusy-body .x-freebusy-selectorcontainer, 
+.x-freebusy-timeline-container .x-freebusy-body .x-freebusy-blockcontainer, 
+.x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background {
+	position: absolute;
+}
+
+.x-freebusy-timeline-container div.x-freebusy-timeline-day {
+	position: absolute;
+	top: 0px;
+	height: 100%;
+}
+
+.x-freebusy-timeline-container div.x-freebusy-blockcontainer .x-freebusy-timeline-block {
+	position: absolute;
+}
+.x-freebusy-timeline-container div.x-freebusy-sumblockcontainer .x-freebusy-timeline-sumblock {
+	position: absolute;
+}

@@ -1,0 +1,139 @@
+.x-panel {
+	border-color: $grey;
+	
+	/* header */
+	.x-panel-header{
+		color: $font-default-color;
+		font-weight: normal;
+		border-color: $grey;
+		background: $grey;
+		line-height: $font-default-line-height;
+		padding: ($header-height - $font-default-line-height)/2 $padding-large ($header-height - $font-default-line-height)/2 $padding-extra-large;
+	}
+	
+	.x-panel-header .x-tool,
+	.x-layout-collapsed .x-tool {
+		width: $font-default-line-height;
+		height: $font-default-line-height;
+		margin: 0;
+		background-image: sprite-url($icons) !important;
+		background-repeat: no-repeat;
+	}
+
+	.x-panel-ml,
+	.x-panel-mr,
+	.x-panel-mc {
+		background-color: transparent;
+	}
+	
+	.x-panel-body {
+		border-color: $grey;
+	}
+}
+
+/* panel collapse button */
+.x-tool.x-tool-toggle.x-tool-collapse-west,
+.x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-east,
+.x-panel-header .x-tool.x-tool-collapse-west,
+.x-layout-collapsed .x-tool.x-tool-expand-east {
+	width: 5px + $padding-large;
+	background-image: sprite-url($icons) !important;
+	background-repeat: no-repeat;
+	background-position: sprite-position($icons, 'arrow_left_l', $offset_y: ($font-default-line-height - 9)/2, $offset_x: $padding-large/2);
+}
+.x-layout-collapsed .x-tool.x-tool-expand-east {
+	margin-left: $padding-large/2;
+}
+
+/* panel expand button */
+.x-tool.x-tool-toggle.x-tool-collapse-east,
+.x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west,
+.x-panel-header .x-tool.x-tool-collapse-east,
+.x-layout-collapsed .x-tool.x-tool-expand-west {
+	width: 5px + $padding-large;
+	background-image: sprite-url($icons) !important;
+	background-repeat: no-repeat;
+	background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($font-default-line-height - 9)/2, $offset_x: $padding-large/2);
+}
+.x-layout-collapsed .x-tool.x-tool-expand-west {
+	margin-left: $padding-large/2;
+}
+
+/* panel plus button */
+.x-panel-header .x-tool.x-tool-plus {
+	width: 11px + $padding-large;
+	background-position: sprite-position($icons, 'plus', $offset_y: ($font-default-line-height - 11)/2, $offset_x: $padding-large/2);
+}
+
+.x-panel-header .x-tool:last-of-type {
+	margin-left: $padding-large;
+}
+.x-panel-header .x-tool:first-of-type {
+	margin-right: -$padding-large/2;
+}
+
+.x-panel-noborder .x-panel-header-noborder {
+	border: none;
+}
+
+.x-layout-collapsed {
+	padding-top: ($header-height - $font-default-line-height)/2; /* same padding as .x-panel-header */
+}
+
+/* panel footer */
+.x-panel-footer {
+	background: $background-color-main;
+}	
+.x-panel-footer.x-panel-btns {
+	padding: $padding-medium $padding-large;
+	
+	 td.x-toolbar-cell {
+	 	padding: 0 $padding-small;
+	 }
+	 .x-toolbar-left-row {
+	 	td.x-toolbar-cell:first-child {
+	 		padding-left: 0;
+	 	}
+	 }
+	 .x-toolbar-right-row {
+	 	td.x-toolbar-cell:last-child {
+	 		padding-right: 0;
+	 	}
+	 }
+}
+
+/* tab panels */
+.x-tab-panel-body {
+	border-color: $grey;
+}
+
+/* remove and add some borders for specific panels so we don't get double borders */
+#zarafa-mainpanel-contentpanel-mail{
+	.zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
+		border: none;
+	}
+	
+	#zarafa-main-content-mail-preview {
+		border: none;
+	}
+}
+
+#zarafa-mainpanel-contentpanel-mail.zarafa-preview-right {
+	.zarafa-context-mainpanel {
+		border-right: 1px solid $grey;
+	}
+	
+	#zarafa-main-content-mail-preview {
+		border-left: 1px solid $grey;
+	}
+}
+
+#zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom {
+	.zarafa-context-mainpanel {
+		border-bottom: 1px solid $grey;
+	}
+	
+	#zarafa-main-content-mail-preview {
+		border-top: 1px solid $grey;
+	}
+}

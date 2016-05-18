@@ -1,0 +1,238 @@
+/* hierarchy toolbar (Show all folders panel) */
+#zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar {
+	.x-toolbar{
+		/* Bottom has -1 pixel since we have a bottom-border of 1px */
+		padding: ($toolbar-height - $font-default-line-height)/2 $padding-extra-large (($toolbar-height - $font-default-line-height)/2 - 1) $padding-extra-large;
+
+		.x-form-check-wrap{
+			
+			input, label{
+				line-height: $font-default-line-height;
+				vertical-align: middle;
+			}
+		}
+				
+		.x-form-item {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.zarafa-tree-ipm-subtree-container {
+	padding: $padding-extra-large 0 $padding-medium;
+}
+.zarafa-tree-ipm-subtree-container:last-child {
+	padding-bottom: $padding-extra-large;
+}
+
+/* Fix for the background-color when the titles are longer than the width of the box */
+.zarafa-hierarchy-treepanel .x-tree-root-ct{
+	display: inline-block;
+	min-width: 100%;
+}
+
+/* Override -- lines in hierarchytree */
+.x-tree-lines .x-tree-elbow,
+.x-tree-lines .x-tree-elbow-line,
+.x-tree-lines .x-tree-elbow-end {
+	background-image: none;
+}
+
+/* Hierarchy tree arrow down */
+.x-tree-lines .x-tree-elbow-end-minus,
+.x-tree-lines .x-tree-elbow-minus {
+	background-image: sprite-url($iconsmap) !important;
+	background-repeat: no-repeat;
+	background-position: sprite-position($iconsmap, 'arrow_down_l', $offset_y: 7px, $offset_x: 3px);
+}
+
+/* Hierarchy tree arrow right */
+.x-tree-lines .x-tree-elbow-end-plus,
+.x-tree-lines .x-tree-elbow-plus {
+	background-image: sprite-url($icons) !important;
+	background-repeat: no-repeat;
+	background-position: sprite-position($icons, 'arrow_right_l', $offset_y: 5px, $offset_x: 6px);
+}
+
+#zarafa-navigationpanel .zarafa-context-navigation-block:not(.fixed-bottombar) .zarafa-hierarchy-treepanel-body{
+	height: auto !important;
+}
+
+.zarafa-hierarchy-treepanel-bottombar{
+	border-top: 1px solid #e6e6e6;
+	padding: 10px 0;
+	
+	table {
+		padding-left: 12px;
+		width: 100%;
+		padding-right: 9px;
+		
+		.x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder {
+			display: block;
+			
+			.x-btn-small {
+				display: block;
+
+				em, button {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.x-tree-node-el {
+	line-height: 20px;
+	
+	a {
+		margin-left: $padding-medium;
+	}
+}
+
+.x-tree-node a span, .x-dd-drag-ghost a span{
+	padding-left: 0;
+}
+
+.x-tree-node.zarafa-tree-root-container .x-tree-node-el{
+	padding-left: $padding-extra-large - 3px;
+}
+
+/* adjust the width of the icon */
+.x-tree-node-collapsed .x-tree-node-icon,
+.x-tree-node-expanded .x-tree-node-icon,
+.x-tree-node-leaf .x-tree-node-icon {
+	width: 15px;
+}
+
+/* Selection in tree */
+.x-tree-node .zarafa-hierarchy-node.x-tree-selected {
+	background-color: $grid-active-color;
+}
+
+.x-tree-node .x-tree-node-over {
+	background-color: $grid-hover-color;
+}
+
+.zarafa-hierarchy-treepanel-tbar .x-form-display-field.x-form-item,
+.x-form-field.zarafa-hierarchy-treepanel-showallfolders {
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+/* counters */
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
+.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+	color: $green;
+}
+
+.zarafa-tree-node.zarafa-hierarchy-node-withcounter {
+	font-weight: bold;
+}
+
+/********************************************************
+ * Icons
+ *******************************************************/
+
+    .x-tree-node-el .x-tree-node-icon {
+      @extend .icons-sprite;
+    }
+
+    @each $img in sprite-names($iconsmap) {
+      .x-tree-node-el .x-tree-node-icon.#{$img} {
+        background-position: sprite-position($iconsmap, $img, $offset-y: 1, $offset-x: 0);
+      }
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_store {
+      @extend .icon_inbox;
+      background-position: sprite-position($iconsmap, icon_inbox, $offset-y: 2, $offset-x: 0);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_appointment ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_calendar ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_calendar {
+      @extend .icon_folder_calendar;
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_task ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_task ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_task {
+/*      @extend .icon_folder_task; */
+      @extend .icon_task2;
+      background-position: sprite-position($iconsmap, icon_task2, $offset-y: 2px, $offset-x: 1px);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_contact ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_contact {
+      @extend .icon_folder_contact;
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_stickynote ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_note ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_note {
+      @extend .icon_note_yellow;
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_note , /* This is not for StickyNote folders, but for normal message folders. */
+    .x-tree-node-el .x-tree-node-icon.icon_folder_folder ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_publicfolders ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_syncissues ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_conflicts ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_localfailures ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_serverfailures ,
+    .x-tree-node-el .x-tree-node-icon.icon_open {
+		@extend .folder;
+        background-position: sprite-position($iconsmap, folder, $offset-y: 2, $offset-x: 0);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_drafts {
+        background-position: sprite-position($iconsmap, icon_folder_default_drafts, $offset-y: 2, $offset-x: 0);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_store ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_public_store ,
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_undefined {
+      @extend .folder_public;
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_inbox {
+      background-position: sprite-position($iconsmap, icon_folder_default_inbox, $offset-y: 3, $offset-x: 0);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_shared_inbox {
+      @extend .icon_folder_default_inbox;
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_wastebasket,
+    .icon_folder_delete,
+    .icon_empty_trash {
+      @extend .trash;
+    }
+
+/*
+    .x-tree-node-el .x-tree-node-icon.icon_folder_default_wastebasket{
+      @extend .trash;
+    }
+*/
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_journal{
+      @extend .icon_folder_default_journal;
+    }
+
+/* make the whole hierarchy tree entry's clickable */
+.x-tree-node-el {
+	span, img, a {
+		cursor: pointer;
+	}
+  svg {
+    rect, path, g {
+      cursor: pointer;
+    }
+  }
+}
+
+/* Margin for checkbox next to calendar icon  */
+.zarafa-hierarchy-node-cb {
+	margin-right: 6px;
+}

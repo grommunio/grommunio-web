@@ -1,0 +1,272 @@
+/**********************************************************************
+ * Mail create panel
+ *********************************************************************/
+
+.zarafa-mailcreatepanel {
+	> .x-panel-bwrap {
+		> .x-panel-body {
+			padding: $padding-medium 0;
+			
+			.zarafa-mailcreatepanel-field-from,
+			.zarafa-mailcreatepanel-field-to,
+			.zarafa-mailcreatepanel-field-cc,
+			.zarafa-mailcreatepanel-field-bcc,
+			.zarafa-mailcreatepanel-field-attachments,
+			.zarafa-mailcreatepanel-field-editor {
+				padding: 0 $padding-medium $padding-medium;
+				min-height: $button-small-height;
+				
+				button {
+					text-align: left;
+				}
+			}
+
+			/* Override min-width to take account for the drop down entry */
+			.zarafa-mailcreatepanel-field-from { 
+				button {
+					min-width: 72px;
+				}
+			}
+
+			.zarafa-mailcreatepanel-field-subject {
+				padding: $padding-medium $padding-medium $padding-medium 2*$padding-medium;
+				border-top: 1px solid $grey; 
+				border-bottom: 1px solid $grey;
+				border-left: none;
+				border-right: none;
+				font-size: $font-size-large !important;
+			}
+
+			.zarafa-mailcreatepanel-field-attachments {
+				padding-top: $padding-medium;
+			}
+			
+			.zarafa-mailcreatepanel-field-editor {
+				/* Prevent a double padding on the bottom of the panel */
+				padding-bottom: 0;
+				padding-left: 0;
+				padding-right: 0;
+			}			
+		}
+	}
+}
+
+/**********************************************************************
+ * Appointment create panel
+ *********************************************************************/
+.zarafa-appointmentcreatetab {
+	.x-form-item {
+		margin-bottom: 0;
+	}
+			
+	.zarafa-calendar-appointment-extrainfo {
+		padding: $padding-medium $padding-medium 0;
+		
+		div {
+			padding: $padding-medium;
+			background: $light-blue;
+			border: 1px solid $grey5;
+		}
+	}
+	
+	.field-to {
+		padding: $padding-medium;
+		min-height: $button-small-height;
+		border-bottom: 1px solid $grey;
+		
+		button {
+			text-align: left;
+		}
+	}
+	
+	.subject-panel,
+	.location-panel {
+		padding: $padding-medium;
+		border-bottom: 1px solid $grey;
+
+		label {
+			text-align: left;
+			padding: 0 $padding-medium;
+			line-height: $font-default-line-height;
+			padding-top: ($button-small-height - $font-default-line-height)/2;
+			width: $button-small-text-min-width - 2 * $padding-medium !important;
+		}
+	}
+	
+	.datetime-panel {
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			white-space: nowrap;
+			
+			tr:nth-child(2) {
+				border-bottom: 1px solid $grey;
+			}
+
+			td:first-child {
+				width: 100px;
+				
+				td:first-child {
+					width: auto;
+				}
+			}
+		}
+	}
+	
+	.date-panel {
+		padding: $padding-medium;
+		padding-right: 2 * $padding-extra-extra-large;
+		
+		.from-field {
+			label {
+				padding: 0 $padding-medium;
+				line-height: $font-default-line-height;
+				padding-top: ($button-small-height - $font-default-line-height)/2;
+			}
+		}
+		
+		.to-field {
+			label {
+				padding: 0 $padding-large;
+				line-height: $font-default-line-height;
+				padding-top: ($button-small-height - $font-default-line-height)/2;
+				text-align: right;
+			}
+		}
+	}
+	
+	.busystatus-panel {
+		padding: $padding-medium;
+		padding-left: $padding-extra-large;
+		border-left: 1px solid $grey;
+	}
+	
+	.reminder-panel {
+		padding: $padding-medium;
+		padding-left: 2 * $padding-medium;
+		
+		.x-form-check-wrap {
+			line-height: $font-default-line-height;
+			padding-top: ($button-small-height - $font-default-line-height)/2;
+		}
+	}
+	
+	.label-panel {
+		padding: $padding-medium;
+		padding-left: $padding-extra-large;
+		border-left: 1px solid $grey;
+	}
+	
+	.zarafa-appointmentcreatepanel-field-attachments {
+		padding: $padding-medium;
+		border-bottom: 1px solid $grey;
+	}
+	
+	.body-panel{
+		textarea {
+			border: none;
+		}
+	}
+}
+
+/**********************************************************************
+ * Contact create panel
+ *********************************************************************/
+.zarafa-contactcreatepanel {
+	/* the general tab */
+	.zarafa-contactgeneraltab,
+	.zarafa-contactdetailtab {
+		> .x-panel-bwrap {
+			> .x-panel-body {
+				padding: $padding-medium;
+
+				fieldset {
+					border: none;
+
+					legend {
+						font-weight: bold;
+					}
+
+					.x-form-item {
+						margin-bottom: $padding-medium;
+					}
+
+					.zarafa-compositefield.x-box-layout-ct {
+						overflow: visible;
+					}
+
+					.zarafa-contactcreatepanel-field-attachments {
+						padding: 0 $padding-medium $padding-medium;
+						min-height: $button-small-height;
+
+						button {
+							text-align: left;
+						}
+					}
+
+					.x-btn {
+
+						.x-btn-small {
+							width: 100%;
+
+							em {
+								display: block;
+
+								button {
+									text-align: left;
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+
+				.zarafa-clear {
+					padding-bottom: $padding-extra-extra-large;
+				}
+			}
+		}
+	}
+
+	.zarafa-contactgeneraltab {
+		.contact_photo_box {
+			width: 94px;
+			height: 94px;
+			padding: $padding-small;
+			cursor: pointer;
+			border: 1px solid $grey;
+		}
+		.contact_photo_box:hover {
+			border-color: $grey2;
+		}
+		
+		.default_contact_photo {
+			background: url(../images/default_contact_profile.png) no-repeat center center;
+		}
+	}
+	
+}
+
+/**********************************************************************
+ * Distlist create panel
+ *********************************************************************/
+.zarafa-distlist-createpanel-memberstab {
+	.buttons {
+		td {
+			padding-bottom: 3px; /*needed to show the shadow of the buttons*/
+		}
+	}
+}
+
+
+/* textarea duplicate border */
+.zarafa-mailcreatepanel-field-editor.x-form-textarea {
+	border-width: 1px 0px 0px;
+}
+
+/**********************************************************************
+ * Task create panel
+ *********************************************************************/
+.zarafa-taskcreatepanel-field-attachments {
+	padding-top: $padding-medium;
+}

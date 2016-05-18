@@ -1,0 +1,14 @@
+/* tooltip  for example Addrss book button large */
+.x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
+	background-image: none;
+	background-color: #f1f1f1;
+}
+.x-tip {
+	border: solid 1px #a7a7a7;
+	border-radius: 2px;
+}
+
+/* Seemingly unused icon, removed so we do not load the ExtJS image */
+.x-tip-anchor.x-tip-anchor-top {
+	background-image: none;
+}

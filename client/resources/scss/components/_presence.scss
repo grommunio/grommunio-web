@@ -1,0 +1,26 @@
+.zarafa-presence-status-icon {
+	display: inline-block;
+	background-color: transparent;
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	margin-right: $padding-medium;
+	margin-bottom: -1px;
+}
+.zarafa-presence-status-online .zarafa-presence-status-icon {
+	background-color: $green-bright;
+}
+.zarafa-presence-status-offline .zarafa-presence-status-icon {
+	background-color: $grey2;
+}
+.zarafa-presence-status-unknown .zarafa-presence-status-icon {
+	display: none;
+}
+
+/* some extra styling for the message header in the (pre)view panel */
+.zarafa-sentinfo-on-behalf .zarafa-presence-status-icon {
+	margin-left: $padding-medium;
+}
+.preview-recipient-data .zarafa-recipient-link:not(:first-child) .zarafa-presence-status-icon {
+	margin-left: $padding-small;
+}

@@ -1,0 +1,234 @@
+/*********************************************************************************************
+ *                                                                                           *
+ * This is the css for the Lime theme for the Kopano WebApp.                                 *
+ *                                                                                           *
+ * (c) 2016 Kopano                                                                       *
+ *                                                                                           *
+ *********************************************************************************************/
+
+/*********************************************************************************************
+ * The Login screen and the Welcome screen
+ * =======================================
+ ********************************************************************************************/
+/* Background image of the login screen */
+body.login, 
+#loading-mask, 
+#bg,
+/* Background image of the Welcome screen */
+body.zarafa-welcome {
+    background: url(../img/background.jpg) no-repeat center center;
+    background-size: cover;
+}
+/* The Sign in button of the login screen */
+body.login #form-container #submitbutton,
+#loading-mask #form-container #submitbutton {
+    background: #6da208;
+}
+/* Hover state and active state of the Sign in button */
+body.login #form-container #submitbutton:hover,
+#loading-mask #form-container #submitbutton:hover,
+body.login #form-container #submitbutton:active,
+#loading-mask #form-container #submitbutton:active {
+    background: #5d8907;
+}
+/* The top bar of the Welcome dialog */
+.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
+    border-left: 1px solid #82ba00;
+    border-right: 1px solid #82ba00;
+    background: #82ba00;
+}
+
+/*********************************************************************************************
+ * The top menu bar
+ * ================================
+ * We will define the background color of the bar and hover and active colors of the buttons
+ * in the bar.
+ ********************************************************************************************/
+/* The border line under the top menu bar */
+body #zarafa-mainmenu {
+    border-color: #82ba00;
+}
+/* The background color of the top menu bar */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
+    background-color: #82ba00;
+}
+/* Background color of the hover state of the buttons in the top menu bar */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over, 
+/* Background color of the active state of the buttons (i.e. when the buttons get clicked) */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over.x-btn-click,
+/* Background color of the selected button */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active, 
+/* Background color of the hover state of selected button */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over, 
+/* Background color of the active state of selected button */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
+    background-color: #6da208 !important;
+}
+
+/****************************************************************************
+ *  Action color
+ * =============== 
+ * Some elements have a different color than the default color of these elements
+ * to get extra attention, e.g. 'call-to-action' buttons, the current day
+ * in the calendar, etc.
+ ****************************************************************************/
+/* normal state */
+.x-btn.zarafa-action .x-btn-small, 
+.x-btn.zarafa-action .x-btn-medium, 
+.x-btn.zarafa-action .x-btn-large,
+/* active state */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small, 
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium, 
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large, 
+.x-btn.zarafa-action.x-btn-click .x-btn-small, 
+.x-btn.zarafa-action.x-btn-click .x-btn-medium, 
+.x-btn.zarafa-action.x-btn-click .x-btn-large,
+/* Special case: Messageboxes */
+.x-window-dlg .x-toolbar-left .x-toolbar-cell:not(.x-hide-offsets) button,
+.x-window-dlg .x-toolbar-left .x-toolbar-cell:not(.x-hide-offsets) button:active,
+/* Current day in the calendar */
+.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
+.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day,
+/* Current day in the calendar */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
+/* The date pickers */
+.x-date-picker .x-date-inner td.x-date-today a,
+.x-date-picker .x-date-mp table td.x-date-mp-sel a,
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok {
+	background: #6da208 !important;
+}
+/* For popup or windows, the first button is styled as active */
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:active {
+	background: #6da208;
+}
+.x-window-dlg .x-toolbar-left .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) button {
+	background-color: transparent !important;
+}
+
+/* hover state */
+.x-btn.zarafa-action.x-btn-over .x-btn-small, 
+.x-btn.zarafa-action.x-btn-over .x-btn-medium, 
+.x-btn.zarafa-action.x-btn-over .x-btn-large,
+/* Special case: Messageboxes */
+.x-window-dlg .x-toolbar-left .x-toolbar-cell:not(.x-hide-offsets) button:hover,
+/* The date pickers */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
+	background: #5d8907 !important;
+}
+/* For popup or windows, the first button is styled as active */
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:hover {
+	background: #5d8907;
+}
+
+/* The borders of the current day in the scheduling panel of metting requests */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
+ border-left-color: #6da208;
+}
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+  border-right-color: #6da208;
+}
+
+/* Counters in the hierarchy */
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
+.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter,
+/* Font color of the week numbers in the date pickers */
+.x-date-picker .x-date-inner td.x-date-weeknumber a {
+  color: #6da208;
+}
+
+/* border colors of the current day and month in the date pickers */
+.x-date-picker .x-date-inner td.x-date-today a,
+.x-date-picker .x-date-mp table td.x-date-mp-sel a {
+  border-color: #6da208;
+}
+
+/*********************************************************************
+ * Side panels
+ * ================
+ *********************************************************************/
+#zarafa-navigationpanel .x-panel-header,
+.zarafa-widgetpanel .x-panel-header {
+	background-color: #c5e875;
+	border-color: 1px solid #c5e875;
+}
+
+/*********************************************************************
+ * Tabs
+ * ====
+ * The background color of the inactive tabs of the main panel can be
+ * changed to better suit the theme.
+ *********************************************************************/
+/* The border of an inactive tab */
+#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active) {
+	border-color: #c5e875 !important;
+}
+/* The background of an inactive tab */
+#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active) .x-tab-right {
+	background: #c5e875;
+}
+/* The hover state of the border of an inactive tab */
+#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active):hover {
+	border-color: #b3e048 !important;
+}
+/* The hover state of the background of an inactive tab */
+#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
+	background: #b3e048;
+}
+
+/*********************************************************************
+ * Selected items in grids and trees
+ * =================================
+ * The background color of the selected items in grids and trees can
+ * be changed to better suit the theme.
+ *********************************************************************/
+/* selected item in grids */
+.x-grid3-row.x-grid3-row-selected,
+/* selected item in tree hierarchies */
+.x-tree-node .zarafa-hierarchy-node.x-tree-selected,
+/* selected items in boxfields (e.g. the recipient fields) */
+.x-zarafa-boxfield ul .x-zarafa-boxfield-item-focus,
+.x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,
+/* selected items in card view of Contacts context */
+div.zarafa-contact-cardview-selected,
+/* selected items in icon view of Notes context */
+.zarafa-note-iconview-selected,
+/* selected category in the Settings context */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,
+/* selected date in date pickers */
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a,
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
+	background-color: #e1f5b2 !important;
+	border-color: #e1f5b2;
+}
+
+/*********************************************************************
+ * Extra information about items
+ * =================================
+ * Sometimes extra information is shown in opened items. (e.g. 'You replied
+ * to this message etc'). This can be styled with the following rules.
+ *********************************************************************/
+.preview-header-extrainfobox,
+.preview-header-extrainfobox-item,
+.zarafa-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div {
+  background: #c5e875;
+  color: #222222;
+}
+.preview-header-extrainfobox{
+  border: 1px solid #82ba00;
+}
+
+/*********************************************************************
+ * Settings
+ * =================================
+ *********************************************************************/
+/* Links in the About text in Settings */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
+	background-color: #82ba00;
+}
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
+	background-color: #6da208;
+}

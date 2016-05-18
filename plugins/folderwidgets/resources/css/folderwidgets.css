@@ -1,0 +1,42 @@
+.today-item {
+    padding: 3px;
+    margin: 2px;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+.today-free {
+    background-color: white !important;
+    border-color: #ddd;
+}
+
+.today-tentative {
+    background: url(../images/today_tentative.png) repeat !important;
+    border-color: #ddd;
+}
+
+.today-busy {
+    background-color: #ccf !important;
+    border-color: #bbd;
+}
+
+.today-outofoffice {
+    background-color: #ecf !important;
+    border-color: #dbe;
+}
+
+.today-unknown {
+    background-color: #ddd !important;
+    border-color: #ccc;
+}
+
+.x-grid3-row.today-item.x-grid3-row-over {
+    background-image: none !important;
+}
+.x-grid3-row.today-item.x-grid3-row-over.today-tentative {
+    background: url(../images/today_tentative.png) repeat !important;
+}
+
+.today-item .x-grid3-cell-first .x-grid3-cell-inner {
+    padding-left: 0;
+}

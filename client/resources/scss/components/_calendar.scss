@@ -1,0 +1,475 @@
+#zarafa-mainpanel-contentpanel-calendar {
+	> .x-panel-bwrap > .x-panel-body {
+		padding: $padding-large 0;
+	}
+}
+
+$calendar-tab-height: 30px;
+
+.zarafa-calendar-container {
+	position: absolute;
+}
+
+.zarafa-calendar-verticalline
+{
+	position: absolute;
+	overfow: hidden;
+	background-color: black;
+}
+
+.zarafa-calendar-column
+{
+	position: absolute;
+}
+
+/* Calendar borders */
+.zarafa-calendar-border-left
+{
+	position: absolute;
+	overflow: hidden;
+	border-left: 1px solid;
+}
+
+.zarafa-calendar-border-right
+{
+	position: absolute;
+	overflow: hidden;
+	border-right: 1px solid;
+}
+
+.zarafa-calendar-border-top
+{
+	position: absolute;
+	overflow: hidden;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-top: 1px solid;
+}
+
+.zarafa-calendar-border-bottom
+{
+	position: absolute;
+	overflow: hidden;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+}
+
+/* Quick appointment CSS, drag and type */
+.zarafa-calendar-textedit-body,
+.zarafa-calendar-textedit-header
+{
+	border: 1px solid #000000;
+	position : absolute;
+	z-index : 999;
+	overflow: hidden;
+	resize: none;
+}
+
+/* the tabs of the calendars */
+.zarafa-calendar-container-tabarea {
+	position: absolute;
+
+	.zarafa-calendar-tab-contents {
+		cursor: pointer;
+		height: $calendar-tab-height;
+		line-height: $calendar-tab-height;
+		float: left;
+		margin-right: $padding-medium;
+		padding: 0 $padding-large;
+		position: relative;
+		min-width: 84px;
+		
+		.zarafa-calendar-tab-title {
+			position: relative;
+			overflow : hidden;
+			white-space:nowrap;
+			display: inline-block;
+			color: white;
+			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
+			float: left; 
+		}
+		
+		/* cross icon is 7x7 px */
+		.zarafa-calendar-tab-icon-close {
+			position: relative;
+			display: inline-block;
+			padding-left: $padding-medium;
+			padding-right: $padding-medium;
+			@extend .icon_cross;
+			background-position: sprite-position($icons, 'icon_cross_white', $offset_y: ($calendar-tab-height - 7px)/2, $offset_x: $padding-medium);
+			width: 7px;
+			height: $calendar-tab-height;
+			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
+			float: left;
+		}
+		
+		/* arrow_left_l icon is 5x9 px */
+		.zarafa-calendar-tab-icon-merge {
+			position: relative;
+			display: inline-block;
+			padding-left: $padding-medium;
+			padding-right: $padding-medium;
+			@extend .arrow_left_l;
+			background-position: sprite-position($icons, 'arrow_left_l_white', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
+			width: 5px;
+			height: $calendar-tab-height;
+			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
+			float: left;
+		}
+		
+		/* arrow_right_l icon is 5x9 px */
+		.zarafa-calendar-tab-icon-separate {
+			position: relative;
+			display: inline-block;
+			padding-left: $padding-medium;
+			padding-right: $padding-medium;
+			@extend .arrow_right_l;
+			background-position: sprite-position($icons, 'arrow_right_l_white', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
+			width: 5px;
+			height: $calendar-tab-height;
+			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
+			float: left;
+		}
+	}
+	.zarafa-calendar-tab-contents.zarafa-with-merge-icon {
+		padding-left: $padding-large - $padding-medium;
+	}
+	.zarafa-calendar-tab-contents.zarafa-with-close-icon,
+	.zarafa-calendar-tab-contents.zarafa-with-separate-icon {
+		padding-right: $padding-large - $padding-medium;
+	}
+	.zarafa-calendar-tab-contents.zarafa-with-close-icon.zarafa-with-separate-icon {
+		.zarafa-calendar-tab-icon-close {
+			padding-right: $padding-medium/2;
+		}
+		.zarafa-calendar-tab-icon-separate {
+			padding-left: $padding-medium/2;
+			background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium/2);
+		}
+	}
+	
+	.zarafa-calendar-tab-contents.light-background {
+		.zarafa-calendar-tab-title {
+			color: black;
+		}
+		.zarafa-calendar-tab-icon-close {
+			background-position: sprite-position($icons, 'icon_cross', $offset_y: ($calendar-tab-height - 7px)/2, $offset_x: $padding-medium);
+		}
+		.zarafa-calendar-tab-icon-merge {
+			background-position: sprite-position($icons, 'arrow_left_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
+		}
+		.zarafa-calendar-tab-icon-separate {
+			background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
+		}
+	}
+}
+
+/* We use elements inside canvas elements to pass some styling from the css files to the canvas*/
+.zarafa-styling-element {
+	position: absolute;
+	top: -10000px;
+	left: -10000px;
+	visibility: hidden;
+}
+
+/* The headers of the calendars */
+.zarafa-calendar-container-header {
+	.zarafa-canvas-header-background {
+		/* a styling element that we can use to set some styles of the header */
+		.zarafa-styling-element {
+			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value 
+			 * and use it for the text it draws on the canvas
+			 */
+			color: white;
+			/* the height value defines the height of the header */
+			height: 30px;
+			/* this is the padding that the js will use for the days in the header */
+			padding-left: $padding-large;
+			padding-right: $padding-medium;
+		}
+		.zarafa-styling-element.light-background {
+			color: black;
+		}
+
+		/* a styling element that we can use to set some styles of the active header (current day) */
+		.zarafa-styling-element-active,
+		.zarafa-styling-element-current-day {
+			position: absolute;
+			top: -10000px;
+			left: -10000px;
+			visibility: hidden;
+			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value 
+			 * and use it for the text it draws on the canvas
+			 */
+			color: white;
+			/* This is the color that the js will use as the background and border color of the current day */
+			background-color: $green;
+		}
+	}
+}
+
+/* Timestrip */
+.zarafa-calendar-timestrip-element div {
+	color: $dark-grey;
+	padding-right: 22px;
+}
+
+/* The tooltip */
+.zarafa-canvas-quicktip {
+	background-color: white;
+	border: 1px solid $grey;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.60);
+	z-index: 10000;
+
+	/* we create a styling element inside the canvas
+	 * From this element it will take the font, colors, padding */
+	.zarafa-styling-element {
+		color: black;
+		padding: $padding-medium;
+		
+		h2 {
+			line-height: 20px;
+			font-weight: bold;
+			margin-bottom: $padding-small;
+		}
+		
+		p {
+			margin-bottom: $padding-small;
+			line-height: 20px;
+		}
+	}
+	
+}
+
+/* Margin between checkbox and calendar icon in hieracy */
+.zarafa-hierachy-node-cb {
+	margin-right: 6px;
+}
+
+/* Icon showed in popup when moving an item in a calendar where you do not have permission */
+.zarafa-calendar-delegate-permission {
+        background-image: sprite-url($iconsmap);
+	background-position: sprite-position($iconsmap, 'delegates_l');
+}
+
+/*
+ * Appointment Dialog (HTML & Canvas)
+*/
+.zarafa-calendar-appointment-label-none
+{
+	background-color: transparent;
+}
+
+.zarafa-calendar-appointment-label-important
+{
+	background-color: #E98784;
+}
+
+.zarafa-calendar-appointment-label-work
+{
+	background-color: #8CA9D9;
+}
+
+.zarafa-calendar-appointment-label-personal
+{
+	background-color: #C0D98C;
+}
+
+.zarafa-calendar-appointment-label-holiday
+{
+	background-color: #DFCB47;
+}
+
+.zarafa-calendar-appointment-label-required
+{
+	background-color: #D9C18C;
+}
+
+.zarafa-calendar-appointment-label-travel-required
+{
+	background-color: #8CC6D9;
+}
+
+.zarafa-calendar-appointment-label-prepare-required
+{
+	background-color: #8C8CD9;
+}
+
+.zarafa-calendar-appointment-label-birthday
+{
+	background-color: #C48CD9;
+}
+
+.zarafa-calendar-appointment-label-special-date
+{
+	background-color: #D9928C;
+}
+
+.zarafa-calendar-appointment-label-phone-interview
+{
+	background-color: #9BD98C;
+}
+
+/*
+ * Calendar timestrip (HTML & Canvas)
+ */
+.zarafa-calendar-timestrip
+{
+	position: absolute;
+	background-color : #9fbf00;
+	background-color: #f7f3f7;
+	overflow : hidden;
+	border-left: 1px solid black;
+}
+
+.zarafa-calendar-timestrip-element
+{
+	position: absolute;
+	color: #393839;
+	text-align:right;
+}
+
+.zarafa-calendar-timestrip-element div
+{
+	padding-top:4px;
+	padding-right:6px;
+}
+
+.zarafa-calendar-timestrip-line
+{
+	overflow: hidden;
+	position: absolute;
+	background-color: #adaead;
+}
+
+/*
+ * Canvas Calendar
+ */
+.zarafa-canvas
+{
+	position : absolute;
+}
+
+/* Currently selected tab */
+.zarafa-calendar-tabarea .zarafa-calendar-tab-selected .zarafa-calendar-tab-title
+{
+	font-weight:bold;
+}
+
+.zarafa-calendar-scrollable
+{
+    position: absolute;
+    overflow-y : scroll;
+    overflow-x : hidden;
+}
+
+.zarafa-calendar-header
+{
+	position: absolute;
+}
+
+.zarafa-calendar-bottomarea
+{
+	position: absolute;
+}
+
+/* Drag & Drop */
+
+/* Calendar drag selection (selecting an new appointment) */
+.zarafa-calendar-selection-dragging
+{
+	background-color : #7f7f7f;
+}
+
+.zarafa-calendar-selection
+{
+	overflow : hidden;
+	position : absolute;
+	cursor : move;
+	z-index : 999;
+	opacity:.5;
+}
+
+.zarafa-calendar-dragproxy-time {
+	padding: $padding-small + 2px 0 0 $padding-small;
+}
+
+/* Unused CSS, but unsure if it's really unused */
+/*
+.zarafa-calendar-dragproxy-time
+{
+	overflow : hidden;
+	position : absolute;
+	color : #000000;
+	font-weight : bold;
+	font-size : 11px;
+}
+
+.zarafa-calendar-dragproxy-header
+{
+	color : #ffffff;
+	
+	overflow : hidden;
+	position : absolute;
+	display : none;
+	cursor : move ! important;
+	z-index : 999;
+	
+	opacity:.5;
+	background-color : #9f9faf;
+}
+
+.zarafa-calendar-dragproxy-outside
+{
+	overflow : hidden;
+	display : none;
+	position : absolute;
+	cursor : move;
+	z-index : 999;
+	padding : 4px;
+	
+	font-weight : bold;
+	font-size : 11px;
+	padding : 4px;
+    
+	border : 1px solid #a0a0a0;
+	color : #000000;
+	background-color : #e7e7e7;
+	
+}
+
+.zarafa-calendar-dragproxy
+{
+	padding : 2px;
+	opacity:.5;
+	background-color : #7f7f7f;
+	overflow: hidden;
+	position: absolute;
+}
+
+.zarafa-calendar-dragproxy-single
+{
+	border: 1px solid #3f3f3f;
+}
+
+.zarafa-calendar-dragproxy-first
+{
+	border-top: 1px solid #3f3f3f;
+	border-left: 1px solid #3f3f3f;
+	border-right: 1px solid #3f3f3f;
+}
+
+.zarafa-calendar-dragproxy-middle
+{
+	border-left: 1px solid #3f3f3f;
+	border-right: 1px solid #3f3f3f;
+}
+
+.zarafa-calendar-dragproxy-last
+{
+	border-bottom: 1px solid #3f3f3f;
+	border-left: 1px solid #3f3f3f;
+	border-right: 1px solid #3f3f3f;
+}
+*/

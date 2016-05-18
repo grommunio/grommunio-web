@@ -1,0 +1,4 @@
+# The files in this directory and below should not be accessible to the outer world
+# because that could introduce security vulnerabilities
+# TODO: It would even be safer to move this directory above the web root
+Deny from all

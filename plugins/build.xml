@@ -1,0 +1,86 @@
+<project default="all">
+
+	<property name="root-folder" value="${basedir}/.."/>
+	<property name="target-folder" value="${root-folder}/deploy/plugins/"/>
+	<property name="tools-folder" value="${root-folder}/tools/"/>
+
+	<import file="${tools-folder}/antutil.xml"/>
+
+	<typedef file="${tools-folder}/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/tools.jar"/>
+		</classpath>
+	</typedef>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+	<!-- The Plugins distribution files -->
+	<property name="plugins-folder" value=""/>
+
+	<!-- Meta target -->
+	<target name="all">
+		<antcall target="execute">
+			<param name="action" value="all"/>
+		</antcall>
+	</target>
+
+	<!-- Clean -->
+	<target name="clean">
+		<antcall target="execute">
+			<param name="action" value="clean"/>
+		</antcall>
+	</target>
+
+	<!-- Concatenates JavaScript files with automatic dependency generation -->
+	<target name="concat">
+		<antcall target="execute">
+			<param name="action" value="concat"/>
+		</antcall>
+	</target>
+
+	<!-- Preformat the Concatenated Javascript files to improve compilation -->
+	<target name="preformat">
+		<antcall target="execute">
+			<param name="action" value="preformat"/>
+		</antcall>
+	</target>
+
+	<!-- Compress JavaScript -->
+	<target name="compress">
+		<antcall target="execute">
+			<param name="action" value="compress"/>
+		</antcall>
+	</target>
+
+	<!-- Install all files into the target folder -->
+	<target name="deploy">
+		<antcall target="execute">
+			<param name="action" value="deploy"/>
+		</antcall>
+	</target>
+
+	<!-- Execute the given action on all plugins -->
+	<target name="execute">
+		<for param="plugin" parallel="true">
+			<dirset dir="${plugins-folder}">
+				<include name="*"/>
+			</dirset>
+			<sequential>
+				<antcall target="execute-plugin">
+					<param name="action" value="deploy"/>
+					<param name="plugin" value="@{plugin}"/>
+				</antcall>
+			</sequential>
+		</for>
+	</target>
+
+	<!-- Execute the given action on the given plugin -->
+	<target name="execute-plugin">
+		<echo message="Executing ${action} on ${plugin}"/>
+		<ant dir="${plugin}" target="${action}"/>
+	</target>
+</project>

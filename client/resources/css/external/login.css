@@ -1,0 +1,220 @@
+/* import the base */
+/* 
+ * Contains all the colors that are used in the new design.
+ * This file should only contain sass definitions, no actual css rules
+ */
+/* First we define some colors */
+/* Now we define which color we use for different elements */
+/* toolbars */
+/* tabs */
+/* menus */
+/* grids */
+/* fonts */
+/* different padding sizes (and margins) used in the WebApp */
+/* sizes of the buttons */
+/* triggers of comboboxes and up-down inputs */
+/* settings */
+/* The animation for the spinner */
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* line 13, ../../scss/external/login.scss */
+html, body {
+  height: 100%;
+  font-family: arial, tahoma, helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* line 18, ../../scss/external/login.scss */
+body.login,
+#loading-mask,
+#bg,
+body.zarafa-welcome {
+  margin: 0;
+  padding: 0;
+  background: url(../../images/loginbg_daybreak.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+/* line 28, ../../scss/external/login.scss */
+#loading-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /** ExtJS uses 20001 as z-index for its loading mask, so we need to use values higher then this **/
+  z-index: 20002;
+}
+
+/* line 40, ../../scss/external/login.scss */
+body.login #form-container,
+#loading-mask #form-container {
+  display: inline-block;
+  visibility: hidden;
+  top: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 20010;
+  color: #444545;
+  /* clearfix */
+}
+/* line 49, ../../scss/external/login.scss */
+body.login #form-container #bg,
+#loading-mask #form-container #bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+/* line 57, ../../scss/external/login.scss */
+body.login #form-container #content,
+#loading-mask #form-container #content {
+  width: 560px;
+  padding: 50px 60px 60px;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+/* line 64, ../../scss/external/login.scss */
+body.login #form-container #content:after,
+#loading-mask #form-container #content:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 70, ../../scss/external/login.scss */
+body.login #form-container .left,
+#loading-mask #form-container .left {
+  float: left;
+  width: 220px;
+  height: 220px;
+  padding-right: 60px;
+}
+/* line 76, ../../scss/external/login.scss */
+body.login #form-container .right,
+#loading-mask #form-container .right {
+  float: left;
+  width: 245px;
+  padding-left: 35px;
+  min-height: 220px;
+  position: relative;
+}
+/* line 84, ../../scss/external/login.scss */
+body.login #form-container h1,
+#loading-mask #form-container h1 {
+  font-size: 36px !important;
+  line-height: 36px;
+  font-weight: normal;
+  margin: 0 0 30px;
+}
+/* line 90, ../../scss/external/login.scss */
+body.login #form-container h2,
+#loading-mask #form-container h2 {
+  font-size: 13px;
+  font-weight: normal;
+  text-align: right;
+}
+/* line 95, ../../scss/external/login.scss */
+body.login #form-container h2.zcp-version,
+#loading-mask #form-container h2.zcp-version {
+  color: transparent;
+}
+/* line 99, ../../scss/external/login.scss */
+body.login #form-container #logo,
+#loading-mask #form-container #logo {
+  background: url(../../images/kopano-logo_220x52.png) no-repeat right center;
+  width: 100%;
+  height: 61px;
+  margin: 71px 0 15px;
+}
+/* line 106, ../../scss/external/login.scss */
+body.login #form-container label,
+#loading-mask #form-container label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+/* line 110, ../../scss/external/login.scss */
+body.login #form-container input[type="text"],
+body.login #form-container input[type="password"],
+#loading-mask #form-container input[type="text"],
+#loading-mask #form-container input[type="password"] {
+  display: block;
+  width: 231px;
+  background: white !important;
+  border: 1px solid #e6e6e6;
+  padding: 0 6px;
+  margin-bottom: 15px;
+  height: 24px;
+}
+/* line 120, ../../scss/external/login.scss */
+body.login #form-container input:-webkit-autofill,
+#loading-mask #form-container input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+/* line 124, ../../scss/external/login.scss */
+body.login #form-container #password,
+#loading-mask #form-container #password {
+  margin-bottom: 8px;
+}
+/* line 128, ../../scss/external/login.scss */
+body.login #form-container #error,
+#loading-mask #form-container #error {
+  color: #e40023;
+}
+/* line 132, ../../scss/external/login.scss */
+body.login #form-container #submitbutton,
+#loading-mask #form-container #submitbutton {
+  background: #0f70bd;
+  color: white;
+  height: 24px;
+  line-height: 24px;
+  border: none;
+  padding: 0 9px;
+  min-width: 84px;
+  margin: 12px 0 0;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+}
+/* line 143, ../../scss/external/login.scss */
+body.login #form-container #submitbutton:hover,
+#loading-mask #form-container #submitbutton:hover {
+  background-color: #065fa5;
+}
+/* line 146, ../../scss/external/login.scss */
+body.login #form-container #submitbutton:click,
+#loading-mask #form-container #submitbutton:click {
+  background-color: #065fa5;
+}
+/* line 152, ../../scss/external/login.scss */
+body.login #form-container.loading,
+#loading-mask #form-container.loading {
+  visibility: visible;
+}
+/* line 154, ../../scss/external/login.scss */
+body.login #form-container.loading .right,
+#loading-mask #form-container.loading .right {
+  background: url(../../images/loading_m.png) no-repeat center center;
+  animation: rotate 1.3s 0s infinite ease;
+}
+/* line 155, ../../scss/external/login.scss */
+body.login #form-container.loading .right h1, body.login #form-container.loading .right form,
+#loading-mask #form-container.loading .right h1,
+#loading-mask #form-container.loading .right form {
+  display: none;
+}
+
+/* IE9 supports blur filter in a different way */
+/* line 168, ../../scss/external/login.scss */
+body.login.MSIE9 #bg {
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
+}
+
+/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image 
+ * and use that  */
+/* line 173, ../../scss/external/login.scss */
+body.login.MSIE10 #bg,
+body.login.MSIE11 #bg {
+  background-image: url(../../images/loginbg_daybreak_blurred.jpg);
+}

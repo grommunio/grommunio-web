@@ -1,0 +1,5387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-01 00:02+0100\n"
+"PO-Revision-Date: 2011-03-08 15:51+0200\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.1.5\n"
+
+#: webapp/client/zarafa/note/data/SearchFields.js:9
+#: webapp/client/zarafa/task/data/SearchFields.js:9
+#: webapp/client/zarafa/calendar/data/SearchFields.js:10
+#: webapp/client/zarafa/mail/data/SearchFields.js:10
+#: webapp/client/zarafa/contact/data/SearchFields.js:9
+msgid "All text fields"
+msgstr ""
+
+#: webapp/client/zarafa/note/data/SearchFields.js:12
+#: webapp/client/zarafa/note/ui/NoteContextMenu.js:76
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:103
+#: webapp/client/zarafa/task/data/SearchFields.js:15
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:118
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:107
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:202
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:204
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:94
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:102
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:214
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:216
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:105
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:149
+#: webapp/client/zarafa/mail/dialogs/MailOptionsMiscPanel.js:35
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:87
+#: webapp/client/zarafa/contact/ui/ContactContextMenu.js:75
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:98
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:100
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:114
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:116
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesDialog.js:34
+msgid "Categories"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteIconView.js:46
+msgid "Loading notes ..."
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteIconView.js:48
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:57
+#: webapp/client/zarafa/common/ui/grid/GridView.js:28
+msgid "There are no items to show in this view"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteContextMenu.js:60
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:53
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:78
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:73
+#: webapp/client/zarafa/contact/ui/ContactContextMenu.js:54
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:62
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderGridContextMenu.js:51
+msgid "Open"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteContextMenu.js:68
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:111
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:112
+#: webapp/client/zarafa/core/ui/MainToolbar.js:299
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:64
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:112
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:114
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:82
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:136
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:138
+#: webapp/client/zarafa/contact/ui/ContactContextMenu.js:62
+msgid "Print"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteContextMenu.js:84
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:63
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:64
+#: webapp/client/zarafa/core/ui/MainToolbar.js:255
+#: webapp/client/zarafa/core/ui/MainToolbar.js:256
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:115
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:110
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:112
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:85
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:83
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:85
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:170
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:100
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:94
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:96
+#: webapp/client/zarafa/contact/ui/ContactContextMenu.js:83
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:71
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:85
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:105
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:106
+msgid "Delete"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridView.js:113
+msgid "Loading Notes ..."
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:42
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:47
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:27
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:27
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:48
+#: webapp/client/zarafa/contact/dialogs/DistlistMemberColumnModel.js:46
+msgid "Sort On Icon"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:50
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:85
+msgid "Sort On Subject"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:55
+msgid "Sort On Created"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:62
+msgid "Sort On Body"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:69
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:119
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:88
+msgid "Sort On Categories"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:73
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:78
+msgid "Color"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteGridColumnModel.js:75
+msgid "Sort On Color"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteMainPanel.js:41
+#: webapp/client/zarafa/note/NoteContext.js:149
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:175
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:144
+#: webapp/client/zarafa/contact/dialogs/DistlistNotesTab.js:25
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:103
+msgid "Notes"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteToolbar.js:64
+#: webapp/client/zarafa/note/ui/NoteToolbar.js:65
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:167
+#: webapp/client/zarafa/calendar/CalendarContext.js:254
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:73
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:74
+msgid "List"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteToolbar.js:76
+#: webapp/client/zarafa/note/ui/NoteToolbar.js:77
+msgid "Icon"
+msgstr ""
+
+#: webapp/client/zarafa/note/ui/NoteToolbar.js:125
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:80
+msgid "Note"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:153
+msgid "My Notes"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:164
+msgid "Icons"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:170
+#: webapp/client/zarafa/mail/MailContext.js:237
+msgid "List view"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:176
+msgid "Last Seven Days"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:184
+#: webapp/client/zarafa/contact/ContactContext.js:207
+msgid "By Category"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:192
+msgid "By Color"
+msgstr ""
+
+#: webapp/client/zarafa/note/NoteContext.js:202
+msgid "Open Shared Notes..."
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:55
+msgid "Save Note"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:56
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:75
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:63
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:63
+msgid "Save"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:74
+msgid "Color :"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:84
+#: webapp/client/zarafa/note/NoteRecord.js:21
+#: webapp/client/zarafa/mail/data/MailFlags.js:17
+msgid "Blue"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:84
+#: webapp/client/zarafa/note/NoteRecord.js:21
+#: webapp/client/zarafa/mail/data/MailFlags.js:27
+msgid "Green"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:84
+#: webapp/client/zarafa/note/NoteRecord.js:21
+msgid "Pink"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:84
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:89
+#: webapp/client/zarafa/note/NoteRecord.js:21
+#: webapp/client/zarafa/mail/data/MailFlags.js:22
+msgid "Yellow"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:84
+#: webapp/client/zarafa/note/NoteRecord.js:21
+msgid "White"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditToolbar.js:102
+msgid "Set Category"
+msgstr ""
+
+#: webapp/client/zarafa/note/dialogs/NoteEditDialog.js:27
+msgid "Make a New Note"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:11
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:125
+msgid "Sunday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:126
+msgid "Monday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:127
+msgid "Tuesday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:128
+msgid "Wednesday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:129
+msgid "Thursday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:130
+msgid "Friday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:131
+msgid "Saturday"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:135
+msgid "January"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:136
+msgid "February"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:137
+msgid "March"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:138
+msgid "April"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:139
+msgid "May"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:140
+msgid "June"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:141
+msgid "July"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:142
+msgid "August"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:143
+msgid "September"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:144
+msgid "October"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:145
+msgid "November"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:146
+msgid "December"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:150
+msgid "Page {A} of {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:152
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:153
+msgid "No messages to display"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:156
+msgid "First Page"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:157
+msgid "Previous Page"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:158
+msgid "Next Page"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:159
+msgid "Last Page"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:160
+#: webapp/client/zarafa/core/ui/MainToolbar.js:338
+#: webapp/client/zarafa/core/ui/MainToolbar.js:339
+msgid "Refresh"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:165
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:123
+#: webapp/client/zarafa/today/TodayContext.js:65
+msgid "Today"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:166
+msgid "&#160;OK&#160;"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:167
+#: webapp/client/zarafa/Translations.js:268
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimeDialog.js:38
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationDialog.js:45
+#: webapp/client/zarafa/addressbook/ui/ABUserSelectionPanel.js:40
+#: webapp/client/zarafa/addressbook/dialogs/RecipientSelectionDialog.js:62
+#: webapp/client/zarafa/mail/dialogs/MailFlagsDialog.js:44
+#: webapp/client/zarafa/mail/dialogs/MailViewOptionsDialog.js:36
+#: webapp/client/zarafa/mail/dialogs/MailCreateOptionsDialog.js:36
+#: webapp/client/zarafa/contact/dialogs/ContactPhoneDialog.js:52
+#: webapp/client/zarafa/contact/dialogs/ContactNameDialog.js:52
+#: webapp/client/zarafa/contact/dialogs/ContactAddressDialog.js:55
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberDialog.js:36
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPanel.js:53
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:43
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderDialog.js:50
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesDialog.js:44
+#: webapp/client/zarafa/common/recipientfield/ui/ViewRecipientDialog.js:59
+#: webapp/client/zarafa/common/recipientfield/ui/EditRecipientDialog.js:57
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:38
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:36
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:38
+#: webapp/client/zarafa/common/ui/htmleditor/SpecialCharacters.js:27
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:69
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:26
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:67
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:35
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesDialog.js:42
+msgid "Cancel"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:168
+msgid "{0} (Spacebar)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:169
+msgid "This date is before the minimum date"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:170
+msgid "This date is after the maximum date"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:171
+msgid "m/d/y"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:172
+#: webapp/client/zarafa/Translations.js:173
+#: webapp/client/zarafa/Translations.js:298
+#: webapp/client/zarafa/Translations.js:299
+msgid "Disabled"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:174
+msgid "Next Month (Control+Right)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:175
+msgid "Previous Month (Control+Left)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:176
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:180
+msgid "Please enter the URL for the link"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:183
+msgid "Bold (Ctrl+B) text"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:184
+msgid "Make the selected text bold."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:188
+msgid "Italic (Ctrl+I)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:189
+msgid "Make the selected text italic."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:193
+msgid "Underline (Ctrl+U)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:194
+msgid "Underline the selected text."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:198
+msgid "Grow Text"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:199
+msgid "Increase the font size."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:203
+msgid "Shrink Text"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:204
+msgid "Decrease the font size."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:208
+msgid "Text Highlight Color"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:209
+msgid "Change the background color of the selected text."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:213
+msgid "Font Color"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:214
+msgid "Change the color of the selected text."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:218
+msgid "Align Text Left"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:219
+msgid "Align text to the left."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:223
+msgid "Center Text"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:224
+msgid "Center text in the editor."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:228
+msgid "Align Text Right"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:229
+msgid "Align text to the right."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:233
+msgid "Bullet List"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:234
+msgid "Start a bulleted list."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:238
+msgid "Numbered List"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:239
+msgid "Start a numbered list."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:243
+msgid "Hyperlink"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:244
+msgid "Make the selected text a hyperlink."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:248
+msgid "Source Edit"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:249
+msgid "Switch to source editing mode."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:256
+#: webapp/client/zarafa/Translations.js:321
+msgid "Sort Ascending"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:257
+#: webapp/client/zarafa/Translations.js:322
+msgid "Sort Descending"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:258
+#: webapp/client/zarafa/Translations.js:323
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:48
+msgid "Columns"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:262
+#: webapp/client/zarafa/Translations.js:335
+msgid "Group By This Field"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:263
+#: webapp/client/zarafa/Translations.js:336
+msgid "Show in Groups"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:264
+#: webapp/client/zarafa/Translations.js:337
+msgid "(None)"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:267
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimeDialog.js:34
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationDialog.js:41
+#: webapp/client/zarafa/addressbook/ui/ABUserSelectionPanel.js:36
+#: webapp/client/zarafa/addressbook/dialogs/RecipientSelectionDialog.js:58
+#: webapp/client/zarafa/mail/dialogs/MailFlagsDialog.js:40
+#: webapp/client/zarafa/mail/dialogs/MailViewOptionsDialog.js:32
+#: webapp/client/zarafa/mail/dialogs/MailCreateOptionsDialog.js:32
+#: webapp/client/zarafa/contact/dialogs/ContactPhoneDialog.js:48
+#: webapp/client/zarafa/contact/dialogs/ContactNameDialog.js:48
+#: webapp/client/zarafa/contact/dialogs/ContactAddressDialog.js:51
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberDialog.js:32
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPanel.js:50
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:39
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderDialog.js:46
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesDialog.js:40
+#: webapp/client/zarafa/common/recipientfield/ui/ViewRecipientDialog.js:55
+#: webapp/client/zarafa/common/recipientfield/ui/EditRecipientDialog.js:53
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:31
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesDialog.js:38
+msgid "Ok"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:269
+msgid "Yes"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:270
+msgid "No"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:273
+#: webapp/client/zarafa/Translations.js:277
+#: webapp/client/zarafa/core/ui/RecordDialog.js:203
+#: webapp/client/zarafa/core/ui/PreviewPanel.js:207
+#: webapp/client/zarafa/calendar/ui/CalendarPanel.js:35
+msgid "Loading..."
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:281
+msgid "The value in this field is invalid"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:285
+msgid "The minimum length for this field is {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:286
+msgid "The maximum length for this field is {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:287
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberPanel.js:42
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberPanel.js:50
+msgid "This field is required"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:291
+msgid "The minimum value for this field is {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:292
+msgid "The maximum value for this field is {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:293
+msgid "{0} is not a valid number"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:297
+msgid "m/d/Y"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:300
+msgid "The date in this field must be equal to or after {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:301
+msgid "The date in this field must be equal to or before {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:302
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:306
+msgid "You must select at least one item in this group"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:310
+msgid "You must select one item in this group"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:314
+msgid "The time in this field must be equal to or after {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:315
+msgid "The time in this field must be equal to or before {0}"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:316
+msgid "{0} is not a valid time"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:317
+msgid "g:i A"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:327
+#: webapp/client/zarafa/calendar/dialogs/TrackingTab.js:53
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:51
+#: webapp/client/zarafa/contact/data/SearchFields.js:12
+#: webapp/client/zarafa/contact/dialogs/DistlistMemberColumnModel.js:52
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:57
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberPanel.js:40
+#: webapp/client/zarafa/contact/dialogs/DistlistMembersTab.js:65
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:75
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderPanel.js:63
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:166
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:24
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:62
+#: webapp/client/login.php:63
+msgid "Name"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:328
+#: webapp/client/zarafa/common/settings/dialogs/SettingsTreePanel.js:49
+msgid "Value"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:329
+msgid "m/j/Y"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:330
+msgid "true"
+msgstr ""
+
+#: webapp/client/zarafa/Translations.js:331
+msgid "false"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:62
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:69
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:178
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:365
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:398
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:510
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:611
+msgid "Business"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:63
+msgid "Competition"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:64
+msgid "Favorites"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:65
+msgid "Gifts"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:66
+msgid "Goals/Objectives"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:67
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:118
+msgid "Holiday"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:68
+msgid "Holiday Cards"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:69
+msgid "Hot Contacts"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:70
+msgid "Ideas"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:71
+msgid "International"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:72
+msgid "Key Customer"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:73
+msgid "Miscellaneous"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:74
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:116
+#: webapp/client/zarafa/core/mapi/Sensitivity.js:49
+msgid "Personal"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:75
+msgid "Phone Calls"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:76
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:161
+#: webapp/client/zarafa/xmpp/XmppWidget.js:35
+msgid "Status"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:77
+msgid "Strategies"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:78
+msgid "Suppliers"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:79
+msgid "Time & Expenses"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:80
+msgid "VIP"
+msgstr ""
+
+#: webapp/client/zarafa/core/SettingsDefaultValues.js:81
+msgid "Waiting"
+msgstr ""
+
+#: webapp/client/zarafa/core/data/MAPIStore.js:220
+#: webapp/client/zarafa/core/ResponseRouter.js:287
+msgid "{0} Error"
+msgstr ""
+
+#: webapp/client/zarafa/core/Util.js:466
+msgid "hours"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/RecordDialog.js:59
+msgid "Kopano Dialog"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/RecordDialog.js:93
+msgid "Saving..."
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/RecordDialog.js:99
+msgid "Saved"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/RecordDialog.js:99
+msgid "Saved succesfully"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/DialogToolbar.js:132
+msgid "Pop in"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/DialogToolbar.js:132
+msgid "Pop out"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:20
+msgid "Sending..."
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:27
+#: webapp/client/zarafa/mail/data/Templates.js:32
+#: webapp/client/zarafa/mail/data/Templates.js:62
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:118
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:182
+#: webapp/server/core/class.operations.php:2825
+msgid "Sent"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:27
+msgid "Sent succesfully"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:176
+msgid "Please specify a recipient"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:185
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:364
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:384
+#: webapp/client/zarafa/calendar/ui/CalendarPanel.js:302
+#: webapp/client/zarafa/calendar/ui/CalendarPanel.js:368
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:168
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:245
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:278
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:343
+#: webapp/client/zarafa/addressbook/ui/ABUserSelectionPanel.js:99
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:234
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:261
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:185
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:205
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderDialog.js:81
+#: webapp/client/zarafa/common/Actions.js:450
+#: webapp/client/zarafa/common/Actions.js:509
+#: webapp/client/zarafa/common/settings/dialogs/SettingsTreePanel.js:188
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:110
+msgid "Kopano WebApp"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:186
+msgid "Send this message without a subject?"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MessageDialog.js:216
+#: webapp/client/zarafa/core/ui/MessageDialog.js:240
+msgid "Not all recipients could be resolved"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:128
+#: webapp/client/zarafa/calendar/ui/CalendarGridView.js:72
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:98
+msgid "Items"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:129
+msgid "Actions"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:130
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:178
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:122
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:123
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:125
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:158
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:159
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:161
+msgid "Options"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:131
+msgid "Search options"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:132
+msgid "View Options"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:208
+msgid "Folder"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:227
+msgid "New"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:241
+#: webapp/client/zarafa/core/ui/MainToolbar.js:242
+msgid "Copy/Move"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:312
+#: webapp/client/zarafa/addressbook/dialogs/RecipientSelectionDialog.js:47
+#: webapp/client/zarafa/addressbook/dialogs/ABUserSelectionDialog.js:25
+#: webapp/client/zarafa/addressbook/dialogs/AddressBookDialog.js:21
+msgid "Address Book"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:326
+msgid "Restore items"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:381
+#: webapp/client/zarafa/core/ui/MainToolbar.js:382
+msgid "Search"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainToolbar.js:402
+#: webapp/client/zarafa/core/ui/MainToolbar.js:403
+msgid "Advanced find"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainViewport.js:156
+msgid "You are logged on as {0}"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainViewport.js:162
+msgid "settings"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/MainViewport.js:167
+msgid "log out"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:94
+msgid "Folders List"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:96
+msgid "All Folders"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:143
+#: webapp/client/zarafa/hierarchy/ui/OpenSharedFolderPanel.js:15
+msgid "Open Shared Folders..."
+msgstr ""
+
+#. TRANSLATORS: This is the text on the buttons on the left side of the WA below the hierarchy.
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:159
+msgctxt "hierarchy.navigationpanel"
+msgid "Inbox"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:163
+#: webapp/client/zarafa/calendar/ui/CalendarMainPanel.js:40
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:344
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:346
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:347
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:74
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:99
+msgid "Calendar"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:167
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:133
+#: webapp/client/zarafa/contact/ContactContext.js:167
+#: webapp/client/zarafa/contact/ui/ContactMainPanel.js:42
+msgid "Contacts"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:171
+#: webapp/client/zarafa/task/ui/TaskMainPanel.js:43
+#: webapp/client/zarafa/task/TaskContext.js:162
+msgid "Tasks"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/NavigationPanel.js:179
+msgid "Folder List"
+msgstr ""
+
+#: webapp/client/zarafa/core/ui/ContextSelectView.js:43
+msgid "Current View"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/BusyStatus.js:57
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:277
+msgid "Unknown"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/BusyStatus.js:59
+msgid "Free"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/BusyStatus.js:61
+#: webapp/client/zarafa/core/mapi/ResponseStatus.js:65
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:237
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:239
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:265
+msgid "Tentative"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/BusyStatus.js:63
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:257
+msgid "Busy"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/BusyStatus.js:65
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:273
+msgid "Out of Office"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/Importance.js:40
+#: webapp/client/zarafa/common/ui/grid/GridEditors.js:45
+msgid "Low"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/Importance.js:42
+#: webapp/client/zarafa/common/ui/grid/GridEditors.js:46
+msgid "Normal"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/Importance.js:44
+#: webapp/client/zarafa/common/ui/grid/GridEditors.js:47
+msgid "High"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/TaskStatus.js:54
+msgid "Not Started"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/TaskStatus.js:56
+msgid "In Progress"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/TaskStatus.js:58
+#: webapp/client/zarafa/mail/data/MailFlags.js:44
+#: webapp/client/zarafa/mail/dialogs/MailFlagsPanel.js:156
+msgid "Complete"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/TaskStatus.js:60
+msgid "Wait for other person"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/TaskStatus.js:62
+msgid "deferred"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:110
+#: webapp/client/zarafa/core/mapi/Sensitivity.js:47
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:96
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:106
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:913
+#: webapp/client/zarafa/mail/data/MailFlags.js:49
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:142
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:153
+#: webapp/client/zarafa/common/ui/DatePeriodField.js:35
+#: webapp/client/zarafa/common/ui/DatePeriodField.js:49
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:210
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:65
+msgid "None"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:112
+msgid "Important"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:114
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:166
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:167
+msgid "Work"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:120
+#: webapp/client/zarafa/calendar/Actions.js:206
+msgid "Required"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:122
+msgid "Travel Required"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:124
+msgid "Preparation Required"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:126
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:156
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:169
+msgid "Birthday"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:128
+msgid "Special Date"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/AppointmentLabels.js:130
+msgid "Phone Interview"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/Sensitivity.js:51
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:212
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:214
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:224
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:226
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:106
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:108
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:122
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:124
+msgid "Private"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/Sensitivity.js:53
+msgid "Confidential"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/ResponseStatus.js:60
+msgid "This user doesn't need to respond."
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/ResponseStatus.js:63
+msgid "No Response"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/ResponseStatus.js:67
+msgid "Accepted"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/ResponseStatus.js:69
+msgid "Declined"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/MeetingStatus.js:55
+msgid "Meeting"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/MeetingStatus.js:57
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:112
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:176
+msgid "Received"
+msgstr ""
+
+#: webapp/client/zarafa/core/mapi/MeetingStatus.js:60
+msgid "Canceled"
+msgstr ""
+
+#: webapp/client/zarafa/core/DateRange.js:433
+#: webapp/client/zarafa/core/DateRange.js:450
+msgid "j F Y"
+msgstr ""
+
+#: webapp/client/zarafa/core/DateRange.js:439
+msgid "j F"
+msgstr ""
+
+#: webapp/client/zarafa/core/DateRange.js:439
+msgid "Y"
+msgstr ""
+
+#: webapp/client/zarafa/core/DateRange.js:445
+#: webapp/client/zarafa/calendar/ui/AbstractCalendarDaysView.js:37
+msgid "j"
+msgstr ""
+
+#: webapp/client/zarafa/core/DateRange.js:445
+#: webapp/client/zarafa/calendar/CalendarContextModel.js:374
+msgid "F Y"
+msgstr ""
+
+#: webapp/client/zarafa/app.js:94
+msgid "The server reported an unknown error on your request."
+msgstr ""
+
+#: webapp/client/zarafa/app.js:98
+msgid "The server reported an unspecified error on your request."
+msgstr ""
+
+#: webapp/client/zarafa/app.js:101 webapp/client/zarafa/app.js:123
+#: webapp/client/zarafa/app.js:130 webapp/client/zarafa/app.js:196
+#: webapp/client/zarafa/calendar/Actions.js:250
+#: webapp/client/zarafa/calendar/Actions.js:258
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:382
+#: webapp/client/zarafa/common/ui/SearchBar.js:336
+#: webapp/client/zarafa/common/ui/SearchBar.js:526
+#: webapp/client/zarafa/common/ui/SearchField.js:128
+msgid "Error"
+msgstr ""
+
+#: webapp/client/zarafa/app.js:124
+msgid "The connection was interupted."
+msgstr ""
+
+#. TRANSLATORS: Example: HTTP 404
+#: webapp/client/zarafa/app.js:127
+msgid "HTTP {0}"
+msgstr ""
+
+#: webapp/client/zarafa/app.js:131
+msgid "Invalid data received from the server"
+msgstr ""
+
+#: webapp/client/zarafa/app.js:196
+msgid "Loading model from server failed"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:12
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:84
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:91
+#: webapp/client/zarafa/calendar/data/SearchFields.js:13
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:58
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:203
+#: webapp/client/zarafa/mail/data/Templates.js:40
+#: webapp/client/zarafa/mail/data/Templates.js:70
+#: webapp/client/zarafa/mail/data/SearchFields.js:13
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:99
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderGrid.js:53
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:40
+#: webapp/server/core/class.operations.php:2824
+msgid "Subject"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:18
+#: webapp/client/zarafa/calendar/data/SearchFields.js:19
+#: webapp/client/zarafa/mail/data/SearchFields.js:19
+msgid "Body"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:21
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:110
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:262
+msgid "Owner"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:24
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:147
+msgid "Companies"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:27
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:102
+msgid "Due Date"
+msgstr ""
+
+#: webapp/client/zarafa/task/data/SearchFields.js:30
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:92
+msgid "Start Date"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:63
+msgid "Sort On Priority"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:93
+msgid "Sort On Start Date"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:103
+msgid "Sort On Due Date"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:111
+msgid "Sort On Owner"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:134
+msgid "% Completed"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridColumnModel.js:136
+msgid "Sort On Percent Completed"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskToolbar.js:77
+#: webapp/client/zarafa/task/TaskContext.js:151
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:25
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:82
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:105
+msgid "Task"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridView.js:39
+msgid "Sort On Complete"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridView.js:71
+msgid "Add Task"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskGridView.js:113
+msgid "Loading tasks ..."
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:83
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:127
+msgid "Mark Read"
+msgstr ""
+
+#: webapp/client/zarafa/task/ui/TaskContextMenu.js:95
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:138
+msgid "Mark Unread"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:155
+msgid "My Task"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:170
+msgid "Simple Tasks"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:176
+msgid "Active Tasks"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:182
+msgid "Next Seven Days"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:188
+msgid "OverDue Tasks"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:194
+msgid "Completed Tasks"
+msgstr ""
+
+#: webapp/client/zarafa/task/TaskContext.js:204
+msgid "Open Shared Tasks..."
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:59
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:62
+msgid "Send task to assignee"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:61
+msgid "Send assignment"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:70
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:72
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:73
+msgid "Save task"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:84
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:69
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:71
+msgid "Add Attachment"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:86
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:94
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:96
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:105
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:107
+msgid "Add attachment"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:87
+msgid "Add attachments to this task"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:97
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:99
+msgid "Mark as Complete"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:100
+msgid "Mark this task as complete"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:113
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:97
+msgid "Delete this item"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:128
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:130
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:124
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:126
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:119
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:121
+msgid "Check names"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:131
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:127
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:122
+msgid "Check all recipient names"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:161
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:162
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:164
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:331
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:152
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:153
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:155
+msgid "Recurrence"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:165
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:156
+msgid "Open the recurrence dialog"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:175
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:176
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:178
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:179
+msgid "Assign Task"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:187
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:189
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:192
+msgid "Cancel Assignment"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:190
+msgid "Cancel assigned attendee for this task"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:205
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:217
+msgid "Open the categories dialog"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskToolbar.js:215
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:227
+msgid "Mark this appointment as private"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskEditDialog.js:28
+msgid "Create Task"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:25
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:24
+msgid "Details"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:58
+msgid "Date Complete"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:92
+msgid "Total Work"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:101
+msgid "Actual Work"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:116
+msgid "Mileage"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:124
+msgid "Billing Information"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:172
+msgid "Update List"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskDetailTab.js:180
+msgid "Create Unassigned Copy"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:67
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:171
+#: webapp/client/zarafa/mail/data/Templates.js:35
+#: webapp/client/zarafa/mail/data/Templates.js:65
+#: webapp/client/zarafa/mail/Actions.js:180
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:93
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:170
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:110
+msgid "To"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:133
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:292
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimePanel.js:68
+#: webapp/client/zarafa/calendar/dialogs/FreebusyTab.js:116
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:35
+#: webapp/client/zarafa/common/ui/TimePeriodField.js:42
+msgid "Start time"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:142
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:296
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimePanel.js:77
+#: webapp/client/zarafa/calendar/dialogs/FreebusyTab.js:121
+#: webapp/client/zarafa/common/ui/TimePeriodField.js:61
+msgid "End time"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:186
+msgid "Priority"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:207
+msgid "% Complete"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:243
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:157
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:371
+msgid "Reminder"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:290
+msgid "Keep copy of task in task list"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:298
+msgid "Send me a status report when task is completed"
+msgstr ""
+
+#: webapp/client/zarafa/task/dialogs/TaskGeneralTab.js:325
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:437
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:194
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:420
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:432
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsDialog.js:31
+msgid "Attachments"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/data/SearchFields.js:16
+#: webapp/client/zarafa/mail/data/SearchFields.js:16
+msgid "Sender"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/data/SearchFields.js:22
+#: webapp/client/zarafa/mail/data/SearchFields.js:22
+msgid "Subject or Sender"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/data/SearchFields.js:25
+#: webapp/client/zarafa/mail/data/SearchFields.js:25
+msgid "To or cc"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/Actions.js:209
+msgid "Optional"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/Actions.js:212
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:128
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:73
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:351
+msgid "Resource"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/Actions.js:250
+msgid "Could not open store."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/Actions.js:258
+msgid "Could not open default calendar folder."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:41
+msgid "All Day"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:63
+msgid "Startdate"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:68
+#: webapp/client/zarafa/mail/dialogs/MailFlagsPanel.js:126
+msgid "Enddate"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:73
+#: webapp/client/zarafa/calendar/ui/html/AppointmentView.js:42
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:219
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:77
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:77
+msgid "Location"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:78
+#: webapp/client/zarafa/calendar/dialogs/CounterProposalGrid.js:54
+msgid "Duration"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:83
+msgid "Meeting Status"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:88
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:401
+msgid "Busy Status"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:100
+msgid "Created On"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:106
+msgid "Due By"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:112
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:118
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:234
+msgid "Label"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:118
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:57
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:346
+msgid "Required Attendee"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:123
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:65
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:349
+msgid "Optional Attendee"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:139
+msgid "Recurring Startdate"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:145
+msgid "Recurring Enddate"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:151
+msgid "Recurring Pattern"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:164
+#: webapp/client/zarafa/mail/dialogs/MailOptionsSettingsPanel.js:87
+msgid "Sensitivity"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridColumnModel.js:170
+msgid "Parent folder"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:153
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:155
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:156
+msgid "Remove From Calendar"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:174
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:176
+msgid "Not Current"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:177
+msgid "Meeting Request is out of date"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:194
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:196
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:197
+msgid "No Response Required"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:215
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:217
+msgid "Accept"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:218
+msgid "Accept Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:240
+msgid "Tentatively Accept Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:259
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:261
+msgid "Decline"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:262
+msgid "Decline Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:281
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:283
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimeDialog.js:28
+msgid "Propose New Time"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:284
+msgid "Propose New Time for Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:302
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:304
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:305
+msgid "View All Proposals"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:323
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:325
+msgid "Accept Proposal"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:326
+msgid "Accept Proposed Time"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:365
+msgid "This meeting request is out-of-date and will now be deleted."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingRequestButtons.js:385
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/AbstractCalendarBoxView.js:69
+#: webapp/client/zarafa/calendar/ui/AbstractCalendarBoxView.js:79
+msgid "D"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:80
+msgid "Multicalendar view"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:82
+msgid "Merge all"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:90
+msgid "Separate all"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:99
+msgid "Keep merged"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:131
+#: webapp/client/zarafa/calendar/CalendarContext.js:230
+#: webapp/client/zarafa/common/recurrence/data/DayData.js:8
+msgid "Day"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:140
+#: webapp/client/zarafa/calendar/CalendarContext.js:236
+msgid "Workweek"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:149
+#: webapp/client/zarafa/calendar/CalendarContext.js:242
+msgid "Week"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:158
+#: webapp/client/zarafa/calendar/CalendarContext.js:248
+msgid "Month"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:180
+msgid "Zoom"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:198
+msgid "1 hour"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:203
+msgid "30 minutes"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:208
+msgid "15 minutes"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:213
+msgid "10 minutes"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:218
+msgid "6 minutes"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:223
+msgid "5 minutes"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:393
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:51
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:77
+#: webapp/client/zarafa/calendar/dialogs/AppointmentPanel.js:83
+msgid "Appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarToolbar.js:420
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:79
+msgid "Meeting request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarPanel.js:303
+#: webapp/client/zarafa/calendar/ui/CalendarPanel.js:369
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:279
+#: webapp/client/zarafa/common/Actions.js:451
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridView.js:72
+msgid "Item"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarGridView.js:94
+msgid "Loading appointments..."
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:31
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:34
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:38
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:53
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:57
+msgid "D j F Y H:i"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:46
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
+#: webapp/client/zarafa/calendar/ui/MeetingInfo.js:66
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:62
+msgid "New Appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:70
+msgid "New Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/CalendarContextMenu.js:109
+msgid "Show as"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/AppointmentView.js:15
+#: webapp/client/zarafa/calendar/ui/html/AppointmentView.js:39
+#: webapp/client/zarafa/common/freebusy/ui/SuggestionListView.js:74
+msgid "H:i"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/AbstractCalendarDaysView.js:47
+msgid "D j M"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/ui/html/AppointmentView.js:39
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:52
+msgid "Time"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:16
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:22
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:28
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:34
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:40
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:46
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:53
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:59
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:65
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:143
+msgid "Organizer"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:309
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:96
+msgid "All Day Event"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentTab.js:913
+msgid "j F Y g:i A"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/CounterProposalGrid.js:49
+msgid "Proposed Date and Time"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/CounterProposalGrid.js:59
+msgid "Proposed By"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/CounterProposalGrid.js:65
+msgid "Attendees"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/CounterProposalGrid.js:132
+msgid "Current Meeting Time"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/ProposeNewTimePanel.js:92
+msgid "Comment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/TrackingTab.js:34
+msgid "The following Responses to this meeting have been recieved"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/TrackingTab.js:58
+msgid "Attendance"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/TrackingTab.js:63
+msgid "Response"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:169
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:245
+msgctxt "calendar.dialog"
+msgid "Resources have been planned."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentDialog.js:344
+msgid ""
+"One or more attendees you have invited are busy. Are you sure to invite?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationDialog.js:33
+msgid "Send Meeting Request Confirmation"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:61
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:63
+msgid "Send invitation"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:64
+msgid "Send invitition to recipients"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:72
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:74
+msgid "Save & Close"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:75
+msgid "Save appointment and close dialog"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:86
+msgid "Delete this appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:97
+msgid "Add attachments to this appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:115
+msgid "Print this appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:164
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:165
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:167
+msgid "Invite attendees"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:168
+msgid "Invite attendees for this appointment"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:176
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:178
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:181
+msgid "Cancel invitation"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:179
+msgid "Cancel to invitation"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:188
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:190
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:179
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:181
+msgid "High priority"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:191
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:182
+msgid "Mark this appointment as high priority"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:201
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:203
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:192
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:194
+msgid "Low priority"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentToolbar.js:204
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:195
+msgid "Mark this appointment as low priority"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:19
+msgid ""
+"This meeting has been accepted and will be moved to your Calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:26
+msgid ""
+"This meeting has been tentatively accepted and will be moved to your "
+"Calendar. Do you want to include comments with your response?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:33
+msgid ""
+"This meeting has been declined and will be moved to the Deleted Items "
+"folder. Do you want to include comments with your response?"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:60
+msgid "Edit the response before Sending."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:75
+msgid "Send the response now."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationPanel.js:81
+msgid "Don't send a response."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentPanel.js:86
+msgid "Scheduling"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentPanel.js:89
+msgid "Tracking"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/AppointmentPanel.js:150
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/dialogs/FreebusyTab.js:137
+msgid "Show only working hours"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/CalendarContext.js:214
+msgid "Calendars"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/CalendarContext.js:218
+msgid "My Calendars"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/CalendarContext.js:264
+msgid "Open Shared Calendars..."
+msgstr ""
+
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:140
+msgid "When"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:145
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:146
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:245
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:246
+msgid "l, F j, Y H:i"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:149
+msgid "Where"
+msgstr ""
+
+#: webapp/client/zarafa/calendar/AppointmentRecord.js:244
+msgid "New Meeting Time Proposed"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:34
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:34
+#: webapp/client/zarafa/addressbook/dialogs/ABItemGrid.js:33
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:57
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:54
+msgid "Display Name"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:36
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:36
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:55
+msgid "Sort On Display Name"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:40
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:40
+#: webapp/client/zarafa/contact/data/SearchFields.js:15
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:110
+msgid "File as"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:42
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:42
+msgid "Sort On File As"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:46
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:46
+#: webapp/client/zarafa/addressbook/dialogs/ABItemGrid.js:38
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberPanel.js:47
+msgid "Email Address"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABPersonalColumnModel.js:49
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:49
+#: webapp/client/zarafa/contact/dialogs/DistlistMemberColumnModel.js:57
+msgid "Sort On Email Address"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/ABUserSelectionPanel.js:100
+msgid "You must select a user."
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/AddressBookContextMenu.js:52
+msgid "Select"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/AddressBookContextMenu.js:59
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:51
+#: webapp/client/zarafa/common/recipientfield/ui/RecipientContextMenu.js:48
+msgid "Show Details"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/AddressBookContextMenu.js:66
+#: webapp/client/zarafa/common/recipientfield/ui/RecipientContextMenu.js:54
+msgid "Email Message"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/AddressBookMainPanel.js:131
+msgid "Type Name"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/AddressBookMainPanel.js:156
+msgid "Show Names from the"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:54
+msgid "SMTP Address"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:57
+msgid "Sort On SMTP Address"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:62
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:199
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:57
+msgid "Department"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:65
+msgid "Sort On Department"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:70
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:97
+msgid "Office Phone"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:72
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:99
+msgid "Sort On Office Phone"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:79
+msgid "Sort On Location"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:85
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:87
+msgid "Fax"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/ui/GABColumnModel.js:87
+msgid "Sort On Fax"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:25
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:208
+msgid "Phone"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:50
+msgid "Phone numbers"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:74
+msgid "Business2"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:91
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:205
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:138
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:506
+msgid "Assistant"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:107
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:170
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:200
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:534
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:607
+msgid "Home"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:112
+msgid "Home2"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:124
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:169
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:244
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:550
+msgid "Mobile"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:128
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:252
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:562
+msgid "Pager"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupDetailDialog.js:24
+msgid "Group details"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserOrganizationTab.js:28
+msgid "Organization"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserOrganizationTab.js:54
+msgid "Manager"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserOrganizationTab.js:86
+msgid "Direct reports"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserDetailDialog.js:22
+msgid "User details"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABItemGrid.js:43
+msgid "Account"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABMemberOfTab.js:27
+msgid "Member Of"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABMemberOfTab.js:35
+msgid "Group Membership"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABEmailAddressTab.js:24
+msgid "E-mail Addresses"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABEmailAddressTab.js:33
+msgid "E-mail addresses"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:29
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:25
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:27
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPanel.js:41
+msgid "General"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:64
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:128
+msgid "Alias"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:71
+msgid "Owner:"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:83
+msgid "Notes:"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:107
+#: webapp/client/zarafa/contact/Actions.js:210
+#: webapp/client/zarafa/contact/dialogs/DistlistMembersTab.js:27
+msgid "Members"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:74
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:71
+msgid "First"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:85
+msgid "Initial"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:100
+msgid "Display"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:124
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:81
+msgid "Last"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:155
+#: webapp/client/zarafa/contact/data/SearchFields.js:27
+msgid "Address"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:159
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:62
+msgid "City"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:162
+msgid "State"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:165
+msgid "Zip Code"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:168
+msgid "Country"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:193
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:49
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:131
+msgid "Title"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:196
+#: webapp/client/zarafa/contact/data/SearchFields.js:18
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:90
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:530
+msgid "Company"
+msgstr ""
+
+#: webapp/client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:202
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:64
+msgid "Office"
+msgstr ""
+
+#: webapp/client/zarafa/xmpp/ui/XmppRosterPanel.js:67
+msgid "Show"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/Templates.js:24
+#: webapp/client/zarafa/mail/data/Templates.js:54
+msgid "Original message"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/Templates.js:26
+#: webapp/client/zarafa/mail/data/Templates.js:56
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:87
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:164
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:37
+msgid "From"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/Templates.js:38
+#: webapp/client/zarafa/mail/data/Templates.js:68
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:131
+msgid "Cc"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/MailFlags.js:12
+msgid "Red"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/MailFlags.js:32
+msgid "Orange"
+msgstr ""
+
+#: webapp/client/zarafa/mail/data/MailFlags.js:37
+msgid "Purple"
+msgstr ""
+
+#: webapp/client/zarafa/mail/Actions.js:183
+msgid "CC"
+msgstr ""
+
+#: webapp/client/zarafa/mail/Actions.js:186
+msgid "BCC"
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContext.js:221
+#: webapp/client/zarafa/mail/ui/MailPanel.js:20
+msgid "Mail"
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContext.js:225
+msgid "My Mail"
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContext.js:247
+msgid "Open Shared Mails..."
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGrid.js:109
+msgid "Loading mail..."
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:70
+msgid "Sort by: Importance"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:78
+msgid "Sort by: Icon"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:85
+msgid "Sort by: Attachment"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:91
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:168
+msgid "Sort by: From"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:97
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:174
+msgid "Sort by: To"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:103
+msgid "Sort by: Subject"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:110
+msgid "Sort by: Categories"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:116
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:180
+msgid "Sort by: Received"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:122
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:186
+msgid "Sort by: Sent"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:124
+msgid "Modification"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:129
+msgid "Sort by: Modification"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:131
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:106
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:170
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:46
+msgid "Size"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:135
+msgid "Sort by: Size"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:143
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:193
+msgid "Sort by: Flag Status"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridColumnModel.js:162
+msgid "Sort by: Icon Index"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:90
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:108
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:109
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:75
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:76
+msgid "Reply"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:99
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:117
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:118
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:83
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:84
+msgid "Reply All"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:108
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:126
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:127
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:91
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:92
+msgid "Forward"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailGridContextMenu.js:164
+msgid "Move to Junk Folder"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:83
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:84
+msgid "Rules"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:102
+msgid "Email options"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:153
+msgid "No preview"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:161
+msgid "Right preview"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:169
+msgid "Bottom preview"
+msgstr ""
+
+#: webapp/client/zarafa/mail/ui/MailToolbar.js:220
+#: webapp/client/zarafa/contact/ui/ContactContextMenu.js:70
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:77
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:79
+msgid "Email message"
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContextModel.js:15
+msgid "This message was sent using Kopano WebApp."
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContextModel.js:115
+#: webapp/client/zarafa/mail/MailContextModel.js:122
+msgid "RE"
+msgstr ""
+
+#: webapp/client/zarafa/mail/MailContextModel.js:118
+msgid "FW"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailFlagsPanel.js:87
+msgid "Color of Flag"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailFlagsMenu.js:47
+#: webapp/client/zarafa/mail/dialogs/MailFlagsMenu.js:48
+msgid "Set Flag"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailFlagsDialog.js:51
+msgid "E-Mail Flags"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsMiscPanel.js:26
+msgid "Miscellaneous Options"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsMiscPanel.js:50
+msgid "Internet Headers"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:75
+msgid "From:"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:153
+msgid "Bcc"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreatePanel.js:173
+msgid "Subject:"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateDialog.js:24
+msgid "Create E-Mail"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateDialog.js:29
+msgid "Mail Saved"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateDialog.js:29
+msgid "Mail has been saved in draft."
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateDialog.js:30
+msgid "Mail Sent"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateDialog.js:30
+msgid "Mail has been sent."
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailViewOptionsDialog.js:25
+#: webapp/client/zarafa/mail/dialogs/MailCreateOptionsDialog.js:25
+msgid "Message Options"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:99
+msgid "Delete this item."
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:126
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:162
+msgid "Open options dialog"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:139
+msgid "Print this email"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:145
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:147
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:169
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:171
+msgid "Set flag"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/ShowMailToolbar.js:148
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:172
+msgid "Set flag on this email"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsTrackingPanel.js:33
+msgid "Tracking Options"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsTrackingPanel.js:39
+msgid "Request a read receipt for this message."
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:71
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:74
+msgid "Send email"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:75
+msgid "Send email to recipients"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:83
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:85
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:86
+msgid "Save email"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:108
+msgid "Add attachments to this email"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:132
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:134
+msgid "Add signature"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:135
+msgid "Add signature to this appointment"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:205
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:207
+msgid "Set read receipt"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:208
+msgid "Request read receipt from recipients"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:220
+msgid "Show bcc"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:222
+msgid "Show Bcc"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailCreateToolbar.js:223
+msgid ""
+"Show Bcc field in which you can specify the people who will recieve this "
+"message"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsSettingsPanel.js:65
+msgid "Message Settings"
+msgstr ""
+
+#: webapp/client/zarafa/mail/dialogs/MailOptionsSettingsPanel.js:69
+msgid "Importance"
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:14
+msgid "Dr."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:15
+msgid "Miss"
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:16
+msgid "Mr."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:17
+msgid "Mrs."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:18
+msgid "Ms."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:19
+msgid "Prof."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:31
+msgid "Jr."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/ContactConfig.js:32
+msgid "Sr."
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/SearchFields.js:21
+msgid "Email address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/data/SearchFields.js:24
+msgid "Phone number"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:171
+msgid "My Contacts"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:183
+msgid "Business Cards"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:189
+msgid "Address Cards"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:195
+msgid "Detailed Address Cards"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:201
+msgid "Phone List"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:213
+msgid "By Company"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:219
+msgid "By Location"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:225
+msgid "All Contacts"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ContactContext.js:235
+msgid "Open Shared Contacts..."
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:59
+msgid "Email Address 1"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:61
+msgid "Sort On Email Address 1"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:65
+msgid "Email Address 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:67
+msgid "Sort On Email Address 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:71
+msgid "Email Address 3"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:73
+msgid "Sort On Email Address 3"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:77
+msgid "Home Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:78
+msgid "Sort On Home Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:82
+msgid "Mobile Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:83
+msgid "Sort On Mobile Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:92
+msgid "Business Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:93
+msgid "Sort On Business Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:103
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:222
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:518
+msgid "Business Fax"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:104
+msgid "Sort On Business Fax"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:108
+msgid "Company Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:109
+msgid "Sort On Company Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:114
+msgid "Department Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:116
+msgid "Sort On Department Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:120
+msgid "Office Location"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:122
+msgid "Sort On Office Location"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:126
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:71
+msgid "Profession"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:128
+msgid "Sort On Profession"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:132
+msgid "Manager Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:134
+msgid "Sort On Manager Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:140
+msgid "Sort On Assistant"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:144
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:124
+msgid "Nickname"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:146
+msgid "Sort On Nickname"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:150
+msgid "Spouse Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:152
+msgid "Sort On Spouse Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:158
+msgid "Sort On Birthday"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:162
+msgid "Business Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:164
+msgid "Sort On Business Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:168
+msgid "Home Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:170
+msgid "Sort On Home Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:174
+msgid "Office Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:176
+msgid "Sort On Office Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:180
+msgid "Mailing Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:182
+msgid "Sort On Mailing Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:186
+msgid "IM"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:188
+msgid "Sort On IM"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:192
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:324
+msgid "Webpage"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:194
+msgid "Sort On Webpage"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:198
+msgid "Assistant's Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:200
+msgid "Sort On Assistant's Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:204
+msgid "Business Phone 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:206
+msgid "Sort On Business Phone 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:210
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:522
+msgid "Callback"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:212
+msgid "Sort On Callback"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:216
+msgid "Car Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:218
+msgid "Sort On Car Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:222
+msgid "Company Main Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:224
+msgid "Sort On Company Main Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:228
+msgid "Home Phone 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:230
+msgid "Sort On Home Phone 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:234
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:542
+msgid "Home Fax"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:236
+msgid "Sort On Home Fax"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:240
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:546
+msgid "ISDN"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:242
+msgid "Sort On ISDN"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:246
+msgid "Other Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:248
+msgid "Sort On Other Phone"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactGridColumnModel.js:254
+msgid "Sort On Pager"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:55
+#: webapp/client/zarafa/contact/ui/ContactGridView.js:86
+msgid "Loading contacts ..."
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:162
+msgid "Group"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactCardView.js:168
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:566
+msgid "Primary"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:76
+msgid "List View"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:77
+msgid "Show contacts in list view."
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:87
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:88
+msgid "Card"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:90
+msgid "Card View"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:91
+msgid "Show contacts in card view."
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:140
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:76
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:101
+msgid "Contact"
+msgstr ""
+
+#: webapp/client/zarafa/contact/ui/ContactToolbar.js:170
+msgid "Distribution list"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactPhoneDialog.js:37
+msgid "Check phone number"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:61
+msgid "Save Distributionlist"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:64
+msgid "Save this Distribution list."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:69
+msgid "Delete Distributionlist"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:72
+msgid "Delete the Distribution list."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:101
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:117
+msgid "Open the categories dialog."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistDialogToolbar.js:109
+msgid "Mark this Distribution list as private."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:76
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:81
+msgid "Middle"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:85
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:138
+msgid "Suffix"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactNamePanel.js:106
+msgid "Show this again when name is incomplete or unclear."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistEditDialog.js:23
+msgid "Create Distribution List"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:94
+msgid "Manager name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:101
+msgid "Assistant name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:161
+msgid "Partner name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactDetailTab.js:177
+msgid "Special date"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistMemberColumnModel.js:53
+msgid "Sort On Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistMemberColumnModel.js:56
+msgid "E-mail Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactPhonePanel.js:53
+msgid "Country/Region code"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactPhonePanel.js:58
+msgid "City/Area code"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactPhonePanel.js:63
+msgid "Local number"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactPhonePanel.js:68
+msgid "Extension"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactNameDialog.js:38
+msgid "Check full name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:67
+msgid "Full Name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:100
+msgid "Job Title"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:140
+msgid "Photo"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:153
+msgid "Add Contact Photo"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:168
+msgid "Phone Numbers"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:274
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:289
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:293
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:66
+msgid "Email"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:293
+msgid "Email 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:293
+msgid "Email 3"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:315
+#: webapp/client/zarafa/common/recipientfield/ui/ViewRecipientDialog.js:43
+#: webapp/client/zarafa/common/recipientfield/ui/EditRecipientDialog.js:43
+msgid "Display name"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:333
+msgid "IM - Address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:352
+msgid "Addresses"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:376
+msgid ""
+"This is the \n"
+" mailing address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:462
+msgid "Additional information"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:514
+msgid "Business 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:526
+msgid "Car"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:538
+msgid "Home 2"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:554
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:615
+msgid "Other"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:558
+msgid "Other Fax"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:570
+msgid "Radio"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:574
+msgid "Telex"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactGeneralTab.js:578
+msgid "TTY/TDD"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberPanel.js:52
+msgid "Please input a valid email address!"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:61
+msgid "Save Contact"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:64
+msgid "Save this contact."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:72
+msgid "Add attachments to this contact."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:80
+msgid "Create a new email message addressed to this contact."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:87
+msgid "Delete contact"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:88
+msgid "Delete this contact."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactToolbar.js:125
+msgid "Mark this contact as private."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactDialog.js:23
+msgid "Create Contact"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressDialog.js:40
+msgid "Check address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistExternalMemberDialog.js:25
+msgid "New e-mail address"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistMembersTab.js:80
+msgid "Select Members..."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistMembersTab.js:91
+msgid "Add New..."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/DistlistMembersTab.js:98
+msgid "Remove..."
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:57
+msgid "Street"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:67
+msgid "State/Province"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:72
+msgid "Zip/Postal code"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:77
+msgid "Country/Region"
+msgstr ""
+
+#: webapp/client/zarafa/contact/dialogs/ContactAddressPanel.js:81
+msgid "Show this again when address is incomplete or unclear."
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/data/HierarchyStore.js:421
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/hierarchy/data/HierarchyStore.js:423
+msgid "New Mail"
+msgstr ""
+
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME in STORENAME". */
+#: webapp/client/zarafa/hierarchy/ui/Tree.js:394
+msgctxt "hierarchy.tree"
+msgid "{0} in {1}"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:68
+#: webapp/client/zarafa/common/dialogs/CopyMoveDialog.js:37
+msgid "Copy/Move Folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:78
+msgid "Rename Folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:88
+msgid "New Folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:94
+msgid "Mark All Messages Read"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:106
+msgid "Delete Folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:116
+msgid "Empty folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:130
+msgid "Add to favorites folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:144
+msgid "Close store"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:157
+msgid "Reload"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:170
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesDialog.js:24
+msgid "Properties"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:229
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:231
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/ui/ContextMenu.js:262
+msgid "Are you sure you want to empty {0}?"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderDialog.js:31
+msgid "Create New Folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:73
+msgid "Type"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:81
+msgid "Description"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:102
+msgid "Unread"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:114
+msgid "Folder size"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:147
+msgid "Folder containing {0} Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:68
+msgid "Add"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:71
+msgid "Remove"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:84
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPanel.js:44
+msgid "Permissions"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:87
+msgid "Profile"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:109
+msgid "Create items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:112
+msgid "Read items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:115
+msgid "Create subfolders"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:120
+msgid "Folder permissions"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:123
+msgid "Folder visible"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:138
+msgid "Edit items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:143
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:154
+msgid "Own"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:144
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:155
+msgid "All"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:149
+msgid "Delete items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:86
+msgid "Folder contains"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:94
+msgid "Calendar Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:95
+msgid "Mail and Post Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:96
+msgid "Contacts Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:97
+msgid "Note Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:98
+msgid "Task Items"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:107
+msgid "Select where to place the folder"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:186
+msgid "You must specify a name."
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/CreateFolderPanel.js:206
+msgid "You must select a destination folder."
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderDialog.js:39
+msgid "Open Shared Folders"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderDialog.js:82
+msgid "This shared folder is already open."
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderPanel.js:88
+msgid "Folder type"
+msgstr ""
+
+#: webapp/client/zarafa/hierarchy/dialogs/SharedFolderPanel.js:123
+msgid "Show subfolders"
+msgstr ""
+
+#: webapp/client/zarafa/plugins/FolderStatus.js:30
+msgid "{0} item"
+msgid_plural "{0} items"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/plugins/FolderStatus.js:30
+msgid "{1} unread"
+msgid_plural "{1} unread"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:72
+msgid "Mail and Post"
+msgstr ""
+
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:78
+msgid "Journal"
+msgstr ""
+
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:97
+msgid "Inbox"
+msgstr ""
+
+#: webapp/client/zarafa/common/data/FolderContentTypes.js:107
+msgid "Entire Inbox"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsDialog.js:26
+msgid "Close"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:101
+msgid "Select a file"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:103
+msgid "Browse"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:130
+msgid "Maximum number of attachments:"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:133
+msgid "Maximum attachment size:"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:136
+msgid "Maximum total attachment size:"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:161
+msgid "No files to display"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:195
+msgid "Download selected file"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:203
+msgid "Delete selected file"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:229
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:245
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:254
+msgid "Attachment error"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:230
+msgid "Cannot upload attachment, total attachment count has been exceeded"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:246
+msgid "Cannot upload attachment, attachment size is too big"
+msgstr ""
+
+#: webapp/client/zarafa/common/attachment/dialogs/AttachmentsPanel.js:255
+msgid "Cannot upload attachment, total attachment size is too big"
+msgstr ""
+
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesPanel.js:65
+msgid "Item belongs to these categories"
+msgstr ""
+
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesPanel.js:91
+msgid "Available categories"
+msgstr ""
+
+#: webapp/client/zarafa/common/categories/dialogs/CategoriesPanel.js:129
+msgid "Category"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/TimelineView.js:1019
+#: webapp/client/zarafa/common/ui/DateTimePeriodField.js:26
+#: webapp/client/zarafa/common/ui/DateTimeField.js:40
+#: webapp/client/zarafa/common/ui/TimeSpinner.js:16
+#: webapp/client/zarafa/common/ui/TimePeriodField.js:16
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:210
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:213
+msgid "G:i"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/TimelineView.js:1050
+msgid "l j F Y"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:143
+msgid "Select attendees"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:180
+msgid "Suggested Times"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyPanel.js:281
+msgid "No Information"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/SuggestionListPanel.js:43
+#: webapp/client/zarafa/common/freebusy/ui/SuggestionListPanel.js:45
+msgid "No freebusy information available for this date"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:45
+#: webapp/client/zarafa/common/recipientfield/ui/EditRecipientDialog.js:33
+msgid "Edit recipient"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyTimelineHeaderContextMenu.js:32
+msgid "Show non-working hours"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/FreebusyTimelineHeaderContextMenu.js:39
+msgid "Hide non-working hours"
+msgstr ""
+
+#: webapp/client/zarafa/common/freebusy/ui/SuggestionListView.js:27
+#: webapp/client/zarafa/common/recipientfield/ui/RecipientField.js:46
+msgid "No suggestions available"
+msgstr ""
+
+#: webapp/client/zarafa/common/recipientfield/ui/ViewRecipientDialog.js:33
+msgid "View recipient"
+msgstr ""
+
+#: webapp/client/zarafa/common/recipientfield/ui/ViewRecipientDialog.js:49
+#: webapp/client/zarafa/common/recipientfield/ui/EditRecipientDialog.js:48
+msgid "E-mail address"
+msgstr ""
+
+#: webapp/client/zarafa/common/recipientfield/ui/RecipientContextMenu.js:42
+msgid "Edit Recipient"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:296
+#: webapp/client/zarafa/common/Actions.js:342
+msgid "Recurring Message"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:297
+#: webapp/client/zarafa/common/Actions.js:343
+msgid "This is a recurring message. "
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:302
+#: webapp/client/zarafa/common/Actions.js:348
+msgid "Recurring Appointment"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:303
+#: webapp/client/zarafa/common/Actions.js:349
+msgid "This is a recurring appointment. "
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:306
+#: webapp/client/zarafa/common/Actions.js:352
+msgid "Recurring Meeting Request"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:307
+#: webapp/client/zarafa/common/Actions.js:353
+msgid "This is a recurring meeting request. "
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:311
+#: webapp/client/zarafa/common/Actions.js:357
+msgid "Recurring Task Request"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:312
+#: webapp/client/zarafa/common/Actions.js:358
+msgid "This is a recurring task request. "
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:318
+msgid "Open this occurence"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:323
+msgid "Open the series"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:364
+msgid "Delete this occurence"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:369
+msgid "Delete the series"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:388
+msgid "Confirm Delete"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:389
+msgid "This \"{0}\" meeting was already accepted."
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:390
+msgid "You have not responsed to the meeting request \"{0}\"."
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:400
+msgid "Delete and send a response to the meeting organizer"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:405
+msgid "Delete without sending"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:510
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+
+#: webapp/client/zarafa/common/Actions.js:613
+msgid ""
+"The sender of this message has asked to be notified when you read this "
+"message. Do you wish to notify the sender?"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/data/ReminderRecord.js:94
+msgid "Info"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/data/ReminderRecord.js:94
+msgid "Not supported at the moment."
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:32
+msgid "Due"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:32
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:35
+msgid "l, F d, Y g:i A"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:130
+msgid "Dismiss All"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:135
+msgid "Open Item"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:140
+msgid "Dismiss"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:173
+msgid "Click Snooze to be reminded again in"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:202
+msgid "Snooze"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderPanel.js:258
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderGrid.js:58
+msgid "Due In"
+msgstr ""
+
+#: webapp/client/zarafa/common/reminder/dialogs/ReminderDialog.js:27
+#: webapp/server/modules/class.reminderlistmodule.php:174
+msgid "Reminders"
+msgstr ""
+
+#: webapp/client/zarafa/common/CommonContext.js:197
+msgid "Default context"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/DatePeriodField.js:16
+#: webapp/client/zarafa/common/ui/DateTimePeriodField.js:21
+#: webapp/client/zarafa/common/ui/DateTimeField.js:35
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:214
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:312
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:215
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:216
+msgid "d-m-Y"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/DatePeriodField.js:33
+#: webapp/client/zarafa/common/ui/DateTimePeriodField.js:43
+msgid "Start date"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/DatePeriodField.js:47
+#: webapp/client/zarafa/common/ui/DateTimePeriodField.js:53
+msgid "End date"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:210
+msgid "D d-m-Y H:i"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:231
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:408
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:358
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:241
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:410
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:353
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:251
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:412
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:348
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:260
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:414
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:344
+msgid "Meeting Organizer"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:406
+msgid "Now"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/grid/Renderers.js:418
+msgid "{0} overdue"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SuperScript.js:17
+msgid "Superscript"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SuperScript.js:18
+msgid "Converts selected text into superscript"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:28
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:87
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:91
+msgid "Insert Table"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:33
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:33
+#: webapp/client/zarafa/common/ui/htmleditor/SpecialCharacters.js:21
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:64
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:21
+msgid "Insert"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:43
+msgid "Rows"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:53
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:44
+msgid "Border"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:58
+msgid "Label Cells"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:66
+msgid "Sold Thin"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:67
+msgid "Solid Thick"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:68
+msgid "Dashed"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:69
+msgid "Dotted"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Table.js:88
+msgid "Insert Table at the current cursor position"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:16
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:42
+msgid "Find/Replace"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:21
+msgid "Find"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:26
+msgid "Replace With"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:31
+msgid "Replace"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/FindAndReplace.js:43
+msgid "Find and/or replace text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Redo.js:17
+#: webapp/client/zarafa/common/ui/htmleditor/Redo.js:18
+msgid "Redo"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:16
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:44
+msgid "Horizontal Rule"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:21
+msgid "Enter the width of the Rule in percentage "
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:28
+msgid "Width"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/HR.js:45
+msgid "Insert Horizontal Rule at the current cursor position"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Indent.js:28
+#: webapp/client/zarafa/common/ui/htmleditor/Indent.js:32
+msgid "Indent Text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Indent.js:29
+msgid "Indent the text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SpecialCharacters.js:16
+#: webapp/client/zarafa/common/ui/htmleditor/SpecialCharacters.js:33
+msgid "Insert Special Character"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SpecialCharacters.js:34
+msgid "Insert Special Character at the current cursor position"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Word.js:17
+msgid "Word Paste"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Word.js:18
+msgid "Cleanse text pasted from Word or other Rich Text applications"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Outdent.js:28
+#: webapp/client/zarafa/common/ui/htmleditor/Outdent.js:32
+msgid "Outdent Text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Outdent.js:29
+msgid "Outdent the text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/RemoveFormat.js:17
+msgid "Remove Formatting"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/RemoveFormat.js:18
+msgid "Remove all HTML formatting on the selected text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Undo.js:17
+#: webapp/client/zarafa/common/ui/htmleditor/Undo.js:18
+msgid "Undo"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:19
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:91
+msgid "Insert Image"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:29
+msgid "Alternative"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:34
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:36
+msgid "URL"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:39
+msgid "Dimensions"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:49
+msgid "VSpace"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:54
+msgid "HSpace"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:59
+msgid "Align"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:77
+msgid "Center"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:78
+msgid "Left"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:79
+msgid "Right"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:80
+msgid "Bottom"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:82
+msgid "Text top"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:83
+msgid "Text bottom"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:84
+msgid "Baseline"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Image.js:92
+msgid "Insert Image at the current cursor position"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:16
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:58
+msgid "Insert Link"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:31
+msgid "Target"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:41
+msgid "Text"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:48
+msgid "Default"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:49
+msgid "New Window"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:50
+msgid "Parent Window"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:51
+msgid "Entire Window"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/Link.js:59
+msgid "Insert new link, or convert selected text to link"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SubScript.js:17
+msgid "Subscript"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/htmleditor/SubScript.js:18
+msgid "Converts selected text into subscript"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchBar.js:61
+msgid "Please select search option from combobox."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchBar.js:95
+msgid "Search in"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchBar.js:113
+msgid "subfolders"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchBar.js:252
+msgid "Search in folder"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchBar.js:254
+msgid "Search in '{0}'"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoContextMenu.js:32
+msgid "Download Pictures"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoContextMenu.js:39
+msgid "Add Sender to Safe Senders List"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoContextMenu.js:44
+msgid "Add Domain to Safe Senders List"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message */
+#: webapp/client/zarafa/common/ui/messagepanel/AttachmentLinks.js:37
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr ""
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:26
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr ""
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:37
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:43
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:49
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:55
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:61
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:67
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:73
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:79
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:85
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:91
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:97
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:103
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:110
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent. */
+#: webapp/client/zarafa/common/ui/messagepanel/RecipientLinks.js:61
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/messagepanel/RecipientLinks.js:63
+msgid "H:i d M Y"
+msgstr ""
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet). */
+#: webapp/client/zarafa/common/ui/messagepanel/RecipientLinks.js:67
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
+#: webapp/client/zarafa/common/ui/messagepanel/RecipientLinks.js:82
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
+#: webapp/client/zarafa/common/ui/messagepanel/RecipientLinks.js:105
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/SearchField.js:25
+msgid "Please enter text to start search."
+msgstr ""
+
+#: webapp/client/zarafa/common/ui/TreeGrid.js:57
+msgid "Root"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/ui/SettingsContextMenu.js:37
+msgid "Edit setting"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/ui/SettingsContextMenu.js:43
+msgid "Restore defaults"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/ui/SettingsContextMenu.js:49
+msgid "Delete settings"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/dialogs/SettingsDialog.js:22
+#: webapp/client/zarafa/common/settings/dialogs/SettingsTreePanel.js:36
+msgid "Settings"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/dialogs/SettingsTreePanel.js:44
+msgid "Setting"
+msgstr ""
+
+#: webapp/client/zarafa/common/settings/dialogs/SettingsTreePanel.js:189
+msgid "The setting '{0}' can not be edited"
+msgstr ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMoveDialog.js:41
+msgid "Copy/Move Messages"
+msgstr ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:55
+msgid "Copy"
+msgstr ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:61
+msgid "Move"
+msgstr ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:97
+msgid "Destination folder:"
+msgstr ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:125
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/dialogs/CopyMovePanel.js:127
+msgid "Folder '{0}' selected."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayRankData.js:8
+msgid "1st"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayRankData.js:9
+msgid "2nd"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayRankData.js:10
+msgid "3rd"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayRankData.js:11
+msgid "4th"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayRankData.js:12
+msgid "last"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayData.js:9
+msgid "Weekday"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/data/DayData.js:10
+msgid "Weekend Day"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/YearlyPanel.js:67
+msgid "Every {A} {B}"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/YearlyPanel.js:138
+msgid "The {A} {B} of {C}"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/YearlyPanel.js:242
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:123
+msgid "Recurrence pattern"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:133
+msgid "Daily"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:140
+msgid "Weekly"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:147
+msgid "Monthly"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:154
+msgid "Yearly"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:201
+msgid "Range of recurrence"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:213
+msgid "Start"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:252
+msgid "No end date"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:271
+msgid "End after {A} occurrences"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:304
+msgid "End by {A}"
+msgstr ""
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:346
+msgid "Occurence duration: {D} {H} {M}"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/WeeklyPanel.js:66
+msgid "Every {A} week(s) on"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/WeeklyPanel.js:210
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/MonthlyPanel.js:67
+msgid "Day {A} of every {B} month(s)"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/MonthlyPanel.js:127
+msgid "The {A} {B} of every {C} month(s)"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/MonthlyPanel.js:221
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:24
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:288
+msgid "Appointment Recurrence"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:39
+msgid "Remove Recurrence"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:111
+msgid ""
+"This will discard any exceptions which might have been made for this "
+"recurring series. Do you wish to continue?"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:165
+msgid "workday"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:168
+msgid "day"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:172
+msgid "days"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:178
+msgid "week"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:181
+msgid "weeks"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:187
+msgid "month"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:190
+msgid "months"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:197
+msgid "year"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:201
+msgid "years"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:228
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:230
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:234
+msgid "Occurs every {0} effective {1}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:236
+msgid "Occurs every {0} {1} effective {2}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:242
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:245
+msgid "Occurs every {0} effective {1} for {2} occurence from {2} to {3}."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:250
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:253
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:260
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:262
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:266
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:268
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/RecurrenceDialog.js:286
+msgid "Task Recurrence"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/DailyPanel.js:67
+msgid "Every {A} day(s)"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/DailyPanel.js:112
+msgid "Every weekday"
+msgstr ""
+
+#: webapp/client/zarafa/common/recurrence/dialogs/DailyPanel.js:144
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr ""
+
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesDialog.js:33
+msgid "Check Names"
+msgstr ""
+
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:51
+msgid "Select an address to use"
+msgstr ""
+
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:95
+msgid "More than one \"{0}\" found."
+msgstr ""
+
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:121
+msgid "Alert"
+msgstr ""
+
+#: webapp/client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:121
+msgid "Please select a recipient"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:26
+msgid "Restore Item"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:43
+msgid "Deleted On"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:22
+msgid "Restore Deleted Items"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:74
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:75
+msgid "Restore"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:83
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:84
+msgid "Restore All"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:95
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:96
+msgid "Permanent Delete"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:118
+msgid "message"
+msgstr ""
+
+#: webapp/client/zarafa/common/restoreitem/dialogs/RestoreItemDialog.js:119
+#: webapp/server/modules/class.hierarchymodule.php:290
+msgid "folder"
+msgstr ""
+
+#: webapp/client/webclient.php:41
+msgid "Loading Kopano WebApp ..."
+msgstr ""
+
+#: webapp/client/login.php:39
+msgid "Please logon"
+msgstr ""
+
+#: webapp/client/login.php:46
+msgid "Logon failed, please check your name/password."
+msgstr ""
+
+#: webapp/client/login.php:49
+msgid "Cannot connect to the Kopano server."
+msgstr ""
+
+#: webapp/client/login.php:56
+msgid "You have been automatically logged out"
+msgstr ""
+
+#: webapp/client/login.php:67
+msgid "Password"
+msgstr ""
+
+#: webapp/client/login.php:71
+msgid "Language"
+msgstr ""
+
+#: webapp/client/login.php:74
+msgid "Last used language"
+msgstr ""
+
+#: webapp/client/login.php:87
+msgid "Logon"
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:197
+msgid "Could not load hierarchy."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:201
+msgid "Could not load folder properties."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:206
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:208
+msgid "Could not delete folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:218
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:220
+msgid "Could not copy folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:225
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:227
+msgid "Could not move folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:232
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:234
+msgid "Could not empty folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:238
+msgid "Could not perform action correctly."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:242
+msgid "Could not add folder to favorites."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:249
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:251
+msgid "Could not set folder permissions."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:256
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:259
+#: webapp/server/modules/class.hierarchymodule.php:274
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:262
+msgid "Could not rename folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:271
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:277
+msgid "Could not create folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:283
+msgid "Could not close shared folder."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:288
+msgid "User could not be resolved."
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:290
+msgid "You have insufficient privileges to open this "
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:290
+msgid "store"
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:368
+#: webapp/server/modules/class.hierarchymodule.php:381
+#: webapp/server/modules/class.propertiesmodule.php:111
+#: webapp/server/modules/class.propertiesmodule.php:140
+msgid "kb"
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:537
+#: webapp/server/modules/class.propertiesmodule.php:308
+#: webapp/server/modules/class.delegatesmodule.php:386
+msgid "Unknown user/group"
+msgstr ""
+
+#: webapp/server/modules/class.hierarchymodule.php:538
+#: webapp/server/modules/class.propertiesmodule.php:309
+msgid "unknown"
+msgstr ""
+
+#: webapp/server/modules/class.multiusercalendarmodule.php:36
+msgid "Multi-user calendar is not available with your license"
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:127
+msgid "You have insufficient privileges to see list of messages."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:129
+msgid "Could not load list of messages."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:134
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:136
+#: webapp/server/modules/class.listmodule.php:177
+#: webapp/server/modules/class.listmodule.php:189
+msgid "Error in search, please try again"
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:140
+msgid "Could not update search results."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:144
+msgid "Could not stop search operation."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:149
+msgid "You have insufficient privileges to convert this message into meeting."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:151
+msgid "Could not convert this message into Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:156
+msgid "You have insufficient privileges to convert this message into Task."
+msgstr ""
+
+#: webapp/server/modules/class.maillistmodule.php:158
+msgid "Could not convert this message into Task."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:90
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:92
+msgid "Could not save message."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:97
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:99
+msgid "Could not delete message."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:104
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:106
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:111
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:113
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:118
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:120
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:125
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:127
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:132
+#: webapp/server/modules/class.itemmodule.php:312
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:134
+#: webapp/server/modules/class.itemmodule.php:314
+msgid "Could not perform action."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:450
+msgid "Could not process request data properly."
+msgstr ""
+
+#: webapp/server/modules/class.module.php:451
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:145
+msgid ""
+"Cannot set a reminder to appear before the previous occurence. Reset "
+"reminder to save the change"
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:147
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:151
+#, php-format
+msgid ""
+"You marked \"%s\" as a resource. You cannot schedule a meeting with \"%s\" "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule \"%s\"."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:154
+#, php-format
+msgid ""
+"\"%s\" has declined your meeting because \"%s\" does not automatically "
+"accept meeting requests."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:157
+#, php-format
+msgid ""
+"\"%s\" has declined your meeting because it is recurring. You must book each "
+"meeting separetly with this recurrence."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:160
+#, php-format
+msgid ""
+"\"%s\" is already booked for this specified time. You must use another time "
+"or find another resource."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:163
+msgid "Meeting was not scheduled."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:175
+msgid "Meeting could not be sent."
+msgstr ""
+
+#: webapp/server/modules/class.appointmentitemmodule.php:177
+msgid "Meeting could not be saved."
+msgstr ""
+
+#: webapp/server/modules/class.listmodule.php:217
+msgid "Error in search, please try again."
+msgstr ""
+
+#: webapp/server/modules/class.listmodule.php:298
+msgid "Error in search"
+msgstr ""
+
+#: webapp/server/modules/class.printlistmodule.php:191
+#: webapp/server/modules/class.todayappointmentlistmodule.php:178
+#: webapp/server/modules/class.appointmentlistmodule.php:264
+msgid "Private Appointment"
+msgstr ""
+
+#: webapp/server/modules/class.addressbookitemmodule.php:127
+msgid "Could not handle this type of object."
+msgstr ""
+
+#: webapp/server/modules/class.addressbookitemmodule.php:135
+msgid "Could not open this object."
+msgstr ""
+
+#: webapp/server/modules/class.propertiesmodule.php:65
+msgid "You have insufficient permissions to set permissions."
+msgstr ""
+
+#: webapp/server/modules/class.propertiesmodule.php:67
+msgid ""
+"Unable to set some permissions. Permissions are only allowed on users and "
+"security groups."
+msgstr ""
+
+#: webapp/server/modules/class.propertiesmodule.php:69
+msgid "Unable to set all permissions."
+msgstr ""
+
+#: webapp/server/modules/class.contactitemmodule.php:225
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#: webapp/server/modules/class.contactitemmodule.php:249
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:37
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:38
+#: webapp/server/modules/class.itemmodule.php:41
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, and permanently (SHIFT + DEL) delete them."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:40
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:159
+msgid "You have insufficient privileges to save items in this folder"
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:265
+#: webapp/server/core/class.operations.php:2624
+msgid "Task Accepted:"
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:267
+#: webapp/server/core/class.operations.php:2627
+#: webapp/server/core/class.operations.php:2683
+msgid "Task Declined:"
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:303
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:305
+msgid "Could not open message."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:319
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:321
+msgid "Could not remove item from the calendar."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:325
+msgid "Could not resolve conflict."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:330
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:332
+msgid "Could not attach item as an attachment."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:337
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:339
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:344
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:346
+msgid "Could not accept Task Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:351
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:353
+msgid "Could not decline Task Request."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:594
+msgid "Conflicts with another appointment on your Calendar."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:596
+#, php-format
+msgid ""
+"%s occurrences of this recurring appointment conflict with other "
+"appointments on your Calendar."
+msgstr ""
+
+#: webapp/server/modules/class.itemmodule.php:597
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment "
+"on your Calendar."
+msgstr ""
+
+#: webapp/server/core/class.settings.php:239
+msgid "Error opening settings property"
+msgstr ""
+
+#: webapp/server/core/class.settings.php:258
+msgid "Error retrieving existing settings"
+msgstr ""
+
+#: webapp/server/core/class.json.php:49
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+#: webapp/server/core/class.json.php:52
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+#: webapp/server/core/class.json.php:55
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+#: webapp/server/core/class.json.php:58
+msgid "Syntax error"
+msgstr ""
+
+#: webapp/server/core/class.json.php:66
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+#: webapp/server/core/class.json.php:66 webapp/server/core/class.json.php:74
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""
+
+#: webapp/server/core/class.json.php:74
+msgid "JSON Error: - Unknown Error"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:257
+msgid "of"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:1431
+msgid "Updated: "
+msgstr ""
+
+#: webapp/server/core/class.operations.php:2630
+msgid "Task Request:"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:2640
+#: webapp/server/core/class.operations.php:2684
+msgid "Task Updated:"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:2640
+#: webapp/server/core/class.operations.php:2684
+msgid "Task Completed:"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:2823
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:2826
+msgid "The following recipient(s) could not be reached"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:3181
+msgid "Untitled rule"
+msgstr ""
+
+#: webapp/server/core/class.operations.php:3304
+#: webapp/server/core/class.operations.php:3328
+msgid "Canceled: "
+msgstr ""
+
+#: webapp/server/core/class.operations.php:3694
+#: webapp/server/core/class.operations.php:3710
+msgid "Untitled"
+msgstr ""
+
+#: webapp/server/core/class.bus.php:233
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+#: webapp/server/core/class.bus.php:254
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#: webapp/server/core/class.bus.php:293
+msgid "Error occured in loading module."
+msgstr ""
+
+#: webapp/server/core/class.bus.php:293
+msgid "Possibly bus has registered two different modules with same module id."
+msgstr ""
+
+#: webapp/server/core/class.dispatcher.php:44
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+#: webapp/server/core/class.dispatcher.php:44
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#: webapp/server/core/htmlfilter.php:1141
+msgid "sec_remove_eng.png"
+msgstr ""
+
+#: webapp/server/core/htmlfilter.php:1239
+msgid "This external link will open in a new window"
+msgstr ""
+
+#: webapp/server/upload_attachment.php:173
+msgid "Could not upload attachment."
+msgstr ""
+
+#: webapp/server/util.php:271
+msgid "GB"
+msgstr ""
+
+#: webapp/server/util.php:273
+msgid "MB"
+msgstr ""
+
+#: webapp/server/util.php:275
+msgid "KB"
+msgstr ""
+
+#: webapp/server/util.php:277
+msgid "B"
+msgstr ""
+
+#: webapp/server/exceptions/class.ZarafaErrorException.php:31
+msgid "Action is not performed correctly."
+msgstr ""
+
+#: webapp/kopano.php:202
+msgid "Logon failed"
+msgstr ""
+
+#: webapp/plugins/statslogging/class.pluginstatsloggingmodule.php:78
+msgctxt "plugin_statslogging"
+msgid ""
+"Cannot create directory for log file for user interface statistics logging "
+"plugin."
+msgstr ""
+
+#: webapp/plugins/statslogging/class.pluginstatsloggingmodule.php:86
+msgctxt "plugin_statslogging"
+msgid "Cannot create log file for user interface statistics logging plugin."
+msgstr ""

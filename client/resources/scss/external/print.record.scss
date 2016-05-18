@@ -1,0 +1,19 @@
+@import '_print';
+
+table {
+  width: 100%;
+  text-align: left;
+  font-size: 11px;
+  font-family: arial;
+  border-collapse: collapse;
+}
+
+table th {
+  width: 25%;
+  font-weight: bold;
+  padding: 2px 3px 2px 0px;
+}
+
+table td {
+  padding: 2px 3px 2px 0px;
+}

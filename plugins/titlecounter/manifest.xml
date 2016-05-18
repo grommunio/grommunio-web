@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.3</version>
+		<name>titlecounter</name>
+		<title>Title Counter Plugin</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>Update the title of browser tab or window as per the unread count of Inbox folder of hierarchy</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.titlecounter.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/titlecounter.js</clientfile>
+					<clientfile load="debug">js/titlecounter-debug.js</clientfile>
+					<clientfile load="source">js/TitleCounter.js</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

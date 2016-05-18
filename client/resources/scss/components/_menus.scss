@@ -1,0 +1,421 @@
+$menu-item-height : 30px;
+
+.x-menu {
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.60);
+	
+	.x-menu-item-active {
+		border-color: $grey;
+	}
+	
+	.x-menu-scroller.x-menu-item-active {
+		background-color: $grey4;
+	}
+	.x-menu-scroller.x-menu-item-active:active {
+		background-color: $grey;
+	}
+	
+	background: $background-color-menu;
+	border: 1px solid $border-color-menu;
+	
+	.x-menu-list {
+		padding: $padding-small 0;
+		
+		li.x-menu-list-item {
+			padding: 0px $padding-small 0 $padding-small;
+			border: none;
+			border-radius: 0;
+			
+			a.x-menu-item {
+				line-height: $font-default-line-height;
+				padding: ($menu-item-height - $font-default-line-height)/2 $padding-large ($menu-item-height - $font-default-line-height)/2 (20px + 2 * $padding-medium - $padding-small);
+				
+				/* icon size is 20px x 20px, icon images are centered in that box */
+				.x-menu-item-icon {
+					left: $padding-medium - $padding-small;
+				}
+			}
+			
+			a.x-menu-item-arrow {
+				@extend .menu_arrow_right_l;
+		      		background-position: sprite-position($iconsmap, menu_arrow_right_l, $offset-y: 10, $offset-x: 100%);
+			}
+		}
+
+		li.x-menu-list-item.x-menu-item-active {
+			box-shadow: none;
+
+			a {
+				background-color: $grey4;
+			}
+		}
+		li.x-menu-list-item.x-menu-item-active:active {
+			a {
+				background-color: $grey;
+			}
+		}
+		
+		li.x-menu-sep-li {
+			padding: 0;
+			margin: $padding-small 0;
+
+			.x-menu-sep {
+				background-color: $grey;
+				padding: 0;
+				margin: 0;
+				border: none;
+			}
+		}
+	}
+
+
+	/***************************************************************************
+	 * Menu icons
+	 **************************************************************************/
+
+	.icon_createEmailMessage {
+		@extend .icon_new_email;
+      	background-position: sprite-position($iconsmap, icon_new_email, $offset-y: -1, $offset-x: 0);
+	}		
+
+	.icon_create_appointment {
+		@extend .icon_new_appointment;
+	}		
+
+	.icon_create_meeting_request {
+		@extend .icon_new_meeting_request;
+	}		
+
+	.icon_createContact {
+		@extend .icon_new_contact;
+	}		
+
+	.icon_createDistributionList {
+		@extend .icon_new_distlist;
+	}		
+
+	.icon_createTask {
+		@extend .icon_new_task;
+	}		
+
+	.icon_createNote {
+		@extend .icon_new_note;
+	}		
+
+	.icon_open {
+		@extend .folder_bw;
+      	background-position: sprite-position($iconsmap, folder_bw, $offset-y: 3, $offset-x: 2);
+	}		
+
+	.icon_copy {
+      	background-position: sprite-position($icons, icon_copy, $offset-y: 3, $offset-x: 3);
+	}		
+
+	.icon_folder_rename {
+      	background-position: sprite-position($iconsmap, icon_folder_rename_bw, $offset-y: 3, $offset-x: 3);
+	}		
+
+	.icon_createFolderColor {
+		@extend .icon_folder_create;
+      	background-position: sprite-position($iconsmap, icon_folder_create, $offset-y: 3, $offset-x: 4);
+	}		
+
+	.icon_mark_all_read {
+		@extend .icon_mail_read;
+      	background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 3, $offset-x: 3);
+	}		
+
+	.icon_folder_delete {
+      	background-position: sprite-position($iconsmap, trash, $offset-y: 3, $offset-x: 2);
+	}		
+
+	.icon_restore {
+      	background-position: sprite-position($iconsmap, icon_restore, $offset-y: 3, $offset-x: 5);
+	}		
+
+	.icon_openMessageOptions {
+		@extend .icon_cogwheel;
+      	background-position: sprite-position($icons, icon_cogwheel, $offset-y: 2, $offset-x: 0);
+	}		
+
+	.icon_saveaseml {
+		@extend .icon_download;
+      	background-position: sprite-position($iconsmap, icon_download, $offset-y: 4, $offset-x: 3);
+	}		
+
+	.icon_saveemlaszip {
+		@extend .icon_download_zip;
+      	background-position: sprite-position($iconsmap, icon_download_zip, $offset-y: 4, $offset-x: 5);
+	}		
+
+	.icon_print {
+      	background-position: sprite-position($icons, icon_print, $offset-y: 1, $offset-x: 0);
+	}		
+
+	.icon_replyEmail {
+		@extend .icon_reply;
+      	background-position: sprite-position($icons, icon_reply, $offset-y: 1, $offset-x: 0);
+	}		
+
+	.icon_replyAllEmail {
+		@extend .icon_reply_all;
+      	background-position: sprite-position($icons, icon_reply_all, $offset-y: 1, $offset-x: 0);
+	}		
+
+	.icon_forwardEmail {
+		@extend .icon_forward;
+      	background-position: sprite-position($icons, icon_forward, $offset-y: 1, $offset-x: 0);
+	}		
+
+	.icon_editAsNewEmail {
+		@extend .icon_edit_as_new_mail;
+      	background-position: sprite-position($icons, icon_edit_as_new_mail, $offset-y: 6, $offset-x: 0);
+	}		
+
+	.icon_embedded_attachment {
+		@extend .icon_embed_attachment;
+      	background-position: sprite-position($icons, icon_embed_attachment, $offset-y: 2, $offset-x: 2);
+	}		
+
+	.icon_message_unread {
+		@extend .icon_mail_unread;
+      	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 7, $offset-x: 3);
+	}		
+
+	.icon_categories {
+		@extend .icon_categories_bw;
+      	background-position: sprite-position($iconsmap, icon_categories_bw, $offset-y: 4, $offset-x: 2);
+	}		
+				
+	/* check names button */
+	.icon_checkNames {
+		@extend .icon_checknames;
+		background-position: sprite-position($icons, icon_checknames, $offset-y: 2px, $offset-x: 1px);
+	}
+
+	/* save button */
+	.icon_saveEmail {
+		@extend .icon_floppy;
+		background-position: sprite-position($icons, icon_floppy, $offset-y: 3px, $offset-x: 0px);
+	}
+
+	/* add signature  */
+	.icon_addSignature {
+		@extend .icon_signature;
+		background-position: sprite-position($icons, icon_signature, $offset-y: 1px, $offset-x: 1px);
+	}
+
+	/* high priority */
+	.icon_setHighPriority {
+		@extend .icon_priority_high;
+      	background-position: sprite-position($icons, icon_priority_high, $offset-y: 5, $offset-x: 9);
+	}
+
+	/* low priority */
+	.icon_setLowPriority {
+		@extend .icon_priority_low;
+		background-position: sprite-position($icons, icon_priority_low, $offset-y: 5px, $offset-x: 7px);
+	}
+
+	/* read receipt */
+	.icon_setReadReceipt {
+		@extend .icon_read_receipt;
+		background-position: sprite-position($icons, icon_read_receipt, $offset-y: 5px, $offset-x: 5px);
+	}
+	
+	/* show bcc */
+	.icon_showbcc {
+		background-position: sprite-position($icons, icon_showbcc, $offset-y: 4px, $offset-x: 4px);
+	}
+	
+	/* show from */
+	.icon_showfrom {
+		background-position: sprite-position($icons, icon_showfrom, $offset-y: 4px, $offset-x: 4px);
+	}
+
+	/* private button */
+	.icon_private {
+		background-position: sprite-position($icons, icon_private, $offset-y: 7px, $offset-x: 5px);
+	}
+
+	.icon_cancel_meeting_request {
+		@extend .icon_calendar_appt_cancelled;
+		background-position: sprite-position($iconsmap, icon_calendar_appt_cancelled, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_flag_red {
+      	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_flag_complete {
+      	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: 6, $offset-x: 0);
+	}		
+
+	.icon_mail_flag {
+		@extend .icon_flag;
+      	background-position: sprite-position($iconsmap, icon_flag, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_mail_flag_blue {
+		@extend .icon_flag_blue;
+      	background-position: sprite-position($iconsmap, icon_flag_blue, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_mail_flag_yellow {
+		@extend .icon_flag_yellow;
+      	background-position: sprite-position($iconsmap, icon_flag_yellow, $offset-y: 6, $offset-x: 1);
+	}
+
+	.icon_mail_flag_green {
+		@extend .icon_flag_green;
+      	background-position: sprite-position($iconsmap, icon_flag_green, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_mail_flag_orange {
+		@extend .icon_flag_orange;
+      	background-position: sprite-position($iconsmap, icon_flag_orange, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_mail_flag_purple {
+		@extend .icon_flag_purple;
+      	background-position: sprite-position($iconsmap, icon_flag_purple, $offset-y: 6, $offset-x: 1);
+	}		
+
+	.icon_junk {
+      	background-position: sprite-position($iconsmap, icon_folder_default_junk, $offset-y: 4, $offset-x: 3);
+	}
+
+	.icon_delete {
+		@extend .trash;
+      	background-position: sprite-position($iconsmap, trash, $offset-y: 3, $offset-x: 2);
+	}
+
+	.icon_calendar_appt_accept {
+		@extend .icon_calendar_appt_accept;
+      	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_calendar_appt_tentative {
+		@extend .icon_calendar_appt_tentative;
+      	background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_calendar_appt_cancelled {
+		@extend .icon_calendar_appt_cancelled;
+      	background-position: sprite-position($iconsmap, icon_calendar_appt_cancelled, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_calendar_appt_newtime {
+		@extend .icon_calendar_appt_newtime;
+      	background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_calendar {
+		@extend .icon_calendar_blue;
+	background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_print_single,
+	.icon_print_single_appt,
+	.icon_print_view,
+	.icon_print_single_task,
+	.icon_print_task_list,
+	.icon_print_single_note,
+	.icon_print_single_contact {
+		@extend .icon_print;
+      	background-position: sprite-position($icons, icon_print, $offset-y: 2, $offset-x: 0);
+	}
+
+	.icon_busystatus {
+      	background-position: sprite-position($iconsmap, icon_busystatus, $offset-y: 2, $offset-x: 2);
+	}
+
+	/* Unused???? */
+	.icon_busystatus_free {
+      	background-position: sprite-position($iconsmap, icon_busystatus_free, $offset-y: 3, $offset-x: 2);
+	}
+
+	.icon_busystatus_tentative {
+      	background-position: sprite-position($iconsmap, icon_busystatus_tentative, $offset-y: 3, $offset-x: 2);
+	}
+
+	.icon_busystatus_busy {
+      	background-position: sprite-position($iconsmap, icon_busystatus_busy, $offset-y: 3, $offset-x: 2);
+	}
+
+	.icon_busystatus_outofoffice {
+      	background-position: sprite-position($iconsmap, icon_busystatus_outofoffice, $offset-y: 3, $offset-x: 2);
+	}
+
+	.icon_send_email_to_recipient {
+		@extend .icon_new_email;
+	}
+
+	.x-freebusy-userlist-recipienttype-required {
+		@extend .icon_meetingrequest_requiredattendee;
+		background-position: sprite-position($iconsmap, icon_meetingrequest_requiredattendee, $offset-y: 6, $offset-x: 1);
+	}
+
+	.x-freebusy-userlist-recipienttype-optional {
+		@extend .icon_meetingrequest_optionalattendee;
+      	background-position: sprite-position($iconsmap, icon_meetingrequest_optionalattendee, $offset-y: 6, $offset-x: 1);
+	}
+
+	.x-freebusy-userlist-recipienttype-resource {
+		@extend .icon_meetingrequest_resource;
+      	background-position: sprite-position($iconsmap, icon_meetingrequest_resource, $offset-y: 6, $offset-x: 1);
+	}
+
+	.icon_contact_card_view {
+      	background-position: sprite-position($iconsmap, icon_contact_card_view, $offset-y: 6, $offset-x: 1);
+	}
+
+	.icon_contact_list {
+      	background-position: sprite-position($iconsmap, icon_contact_list, $offset-y: 5, $offset-x: 1);
+	}
+
+	.icon_note_icon_view {
+      	background-position: sprite-position($iconsmap, icon_note_icon_view, $offset-y: 4, $offset-x: 2);
+	}
+	
+	/* the white icons must be replaced by black ones in the (overflow) menu */
+	.buttons-icon_send_white {
+      	background-position: sprite-position($icons, icon_send, $offset-y: 6, $offset-x: 1);
+	}
+
+	/* the white icons must be replaced by black ones in the (overflow) menu */
+	.buttons-icon_save_white {
+		@extend .icon_floppy;
+		background-position: sprite-position($icons, icon_floppy, $offset-y: 1px, $offset-x: 0px);
+	}
+
+	.icon_task_complete {
+      	background-position: sprite-position($icons, icon_task_complete, $offset-y: 3, $offset-x: 3);
+	}		
+
+	.icon_attachment {
+      	background-position: sprite-position($icons, icon_paperclip, $offset-y: 2, $offset-x: -1);
+	}		
+}
+
+.x-shadow {
+	display: none !important;
+}
+
+/* menu item icon default width / height */
+.x-menu-item-icon {
+	height: 20px;
+	width: 20px;
+}
+
+/* Override ExtJS's ugly blue border of an menu item */
+li.x-menu-item a.x-menu-item {
+	border: none;
+}
+li.x-menu-item-active a.x-menu-item {
+	border: none;
+}
+li.x-menu-item-active{
+	background-image: none;
+	background-color: transparent;
+}
+

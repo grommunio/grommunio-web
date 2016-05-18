@@ -1,0 +1,101 @@
+<project name="utils">
+	<!-- Macro for building a single tool in the src/ dir -->
+	<macrodef name="build-tool">
+		<attribute name="name"/>
+		<attribute name="target"/>
+		<sequential>
+			<ant dir="${tools-folder}/src/@{name}" target="@{target}"/>
+		</sequential>
+	</macrodef>
+
+	<!-- Macro for concatenating Javascript files into a single file -->
+	<macrodef name="zConcat">
+		<attribute name="outputFolder"/>
+		<attribute name="outputFile"/>
+		<attribute name="prioritize" default=""/>
+		<element name="concatfiles"/>
+
+		<sequential>
+			<!-- Run JsConcat to concatenate the files -->
+			<jsconcat verbose="false" destfile="@{outputFolder}/@{outputFile}" prioritize="@{prioritize}">
+				<concatfiles/>
+			</jsconcat>
+			<fail message="@{outputFile} could not be concatenated.">
+				<condition>
+					<not>
+						<resourcecount count="1">
+							<fileset dir="@{outputFolder}" includes="@{outputFile}"/>
+						</resourcecount>
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+
+	<!-- Macro for compiling a Javascript file using the Closure Compiler -->
+	<macrodef name="zCompile">
+		<attribute name="inputFolder"/>
+		<attribute name="inputFile"/>
+		<attribute name="outputFolder"/>
+		<attribute name="outputFile"/>
+		<attribute name="tmpFile" default="externs.js"/>
+		<attribute name="compilation" default="SIMPLE_OPTIMIZATIONS"/>
+		<attribute name="warningLevel" default="VERBOSE"/>
+		<attribute name="accessControls" default="warning"/>
+		<attribute name="checkRegExp" default="warning"/>
+		<attribute name="checkVars" default="warning"/>
+		<attribute name="deprecated" default="warning"/>
+		<attribute name="fileoverviewTags" default="warning"/>
+		<attribute name="strictModuleDepCheck" default="warning"/>
+		<attribute name="undefinedVars" default="warning"/>
+		<attribute name="unknownDefines" default="warning"/>
+		<attribute name="visibility" default="warning"/>
+		<attribute name="checkTypes" default="off"/>
+		<attribute name="invalidCasts" default="off"/>
+		<attribute name="missingProperties" default="off"/>
+		<attribute name="nonStandardJsDocs" default="off"/>
+		<element name="externs" optional="true"/>
+
+		<sequential>
+			<!-- Create a externs javascript file needed for the compilation -->
+			<touch file="@{tmpFile}"/>
+			<echo file="@{tmpFile}">
+				<externs />
+			</echo>
+
+			<exec executable="java" failonerror="true">
+				<arg line="-jar ${tools-folder}/lib/compiler.jar" />
+				<arg line="--js @{inputFolder}/@{inputFile}" />
+				<arg line="--js_output_file @{outputFolder}/@{outputFile}" />
+				<arg line="--compilation_level @{compilation}" />
+				<arg line="--warning_level @{warningLevel}" />
+				<arg line="--externs @{tmpFile}" />
+				<arg line="--jscomp_@{accessControls}=accessControls" />
+				<arg line="--jscomp_@{checkRegExp}=checkRegExp" />
+				<arg line="--jscomp_@{checkVars}=checkVars" />
+				<arg line="--jscomp_@{deprecated}=deprecated" />
+				<arg line="--jscomp_@{fileoverviewTags}=fileoverviewTags" />
+				<arg line="--jscomp_@{strictModuleDepCheck}=strictModuleDepCheck" />
+				<arg line="--jscomp_@{undefinedVars}=undefinedVars" />
+				<arg line="--jscomp_@{unknownDefines}=unknownDefines" />
+				<arg line="--jscomp_@{visibility}=visibility" />
+				<arg line="--jscomp_@{checkTypes}=checkTypes" />
+				<arg line="--jscomp_@{invalidCasts}=invalidCasts" />
+				<arg line="--jscomp_@{missingProperties}=missingProperties" />
+				<arg line="--jscomp_@{nonStandardJsDocs}=nonStandardJsDocs" />
+			</exec>
+
+			<delete file="@{tmpFile}"/>
+			<fail message="@{inputFile} could not be compiled.">
+				<condition>
+					<not>
+						<resourcecount count="1">
+							<fileset dir="@{outputFolder}" includes="@{outputFile}"/>
+						</resourcecount>
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+
+</project>
