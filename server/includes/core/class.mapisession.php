@@ -88,18 +88,10 @@
 			$password = (string) $password;
 
 			try {
-				// Add the SVN revision number to the version
-				$mapi_version = str_replace('-', '.', phpversion('mapi'));
-
-				// phpmapi function mapi_logon_zarafa expects extra parameters from version 7.2.0 SVN revision 46424
-				if (version_compare($mapi_version, '7.2.0.46424', '>=')) {
-					$webapp_version = 'WebApp-'.trim(file_get_contents(BASE_PATH . 'version'));
-					$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
-					$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file, $sslcert_pass,1,$webapp_version,$browser_version);
-				}
-				else {
-					$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file, $sslcert_pass);
-				}
+				$webapp_version = 'WebApp-'.trim(file_get_contents(BASE_PATH . 'version'));
+				$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+				$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file,
+								   $sslcert_pass, 1, $webapp_version, $browser_version);
 
 				if ($this->session !== false){
 					$this->session_info["username"] = $username;
