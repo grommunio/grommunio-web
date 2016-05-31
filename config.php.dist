@@ -22,7 +22,7 @@
 	// Examples: define("DEFAULT_SERVER", "default:");
 	//           define("DEFAULT_SERVER", "http://localhost:236/kopano");
 	//           define("DEFAULT_SERVER", "https://localhost:237/kopano");
-	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock";
+	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock");
 	define("DEFAULT_SERVER", "default:");
 
 	// When using a single-signon system on your webserver, but Kopano Core is on another server
