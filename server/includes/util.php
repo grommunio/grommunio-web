@@ -65,11 +65,6 @@
 		return is_array($data) && !empty($data) && !preg_match('/^\d+$/', implode('', array_keys($data)));
 	}
 
-	function microtime_float() {
-		list($usec, $sec) = explode(" ", microtime());
-		return ((float)$usec + (float)$sec);
-	}
-
 	/**
 	 * gets maximum upload size of attachment from php ini settings
 	 * important settings are upload_max_filesize and post_max_size
