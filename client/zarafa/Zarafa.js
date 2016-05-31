@@ -96,6 +96,7 @@ Ext.apply(Zarafa, {
 		};
 
 		// Create global container object
+		/*jshint -W020 */
 		container = new Zarafa.core.Container();
 
 		// Load all settings

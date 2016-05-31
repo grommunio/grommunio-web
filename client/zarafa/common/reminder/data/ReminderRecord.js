@@ -69,10 +69,7 @@ Zarafa.common.reminder.data.ReminderRecord = Ext.extend(Zarafa.core.data.MAPIRec
 				startdate : this.get('task_startdate'),
 				duedate : this.get('task_duedate')
 			};
-		} else if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Note', true)) {
-			// @TODO set extra properties of mail
 		} else {
-			// have you gone mad?
 			Ext.MessageBox.alert(_('Info'), _('Not supported at the moment.'));
 			return;
 		}

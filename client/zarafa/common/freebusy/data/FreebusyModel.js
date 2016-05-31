@@ -869,9 +869,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		// Always start with a clean store
 		this.sumBlockStore.removeAll();
 
-		if (this.getUserStore().getCount() === 0) {
-			// No users, easy, we're done!
-		} else if (this.getUserStore().getCount() == 1) {
+		if (this.getUserStore().getCount() == 1) {
 			// One user, still easy, sumBlockStore is the same as blockStore
 			this.blockStore.each(function(record) {
 				//  We are not generating sumBlocks for the free status.
@@ -1017,6 +1015,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 				if (sumEnd < start || sumStart > end) {
 					// The entire block falls before the requested range,
 					// just keep looping until we find the desired range.
+					return;
 				} else if (sumStart > end) {
 					// The entire block falls after the requested range
 					// we don't need to do anything anymore.

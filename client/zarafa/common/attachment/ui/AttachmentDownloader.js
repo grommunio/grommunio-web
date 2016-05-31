@@ -142,12 +142,12 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	checkForEmbeddedAttachments : function(record, allAsZip)
 	{
 		var containsEmbedded = false;
+		var attachmentStore = record.store;
 
 		// We need all this additional checking only when we are going to download attachments as ZIP, skip otherwise.
 		if(allAsZip) {
 			// If user already made his/her decision to not show this warning again then it is there is state setting, just act accordingly.
 			var dontShowWarning = container.getSettingsModel().get('zarafa/v1/state/dialogs/mixattachitemcontentpanel/dontshowagain');
-			var attachmentStore = record.store;
 
 			// Check if there is any embedded attachments only when user want this warning to be raised
 			// and there is more than one attachments.

@@ -394,16 +394,16 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 		var dueDate = this.dateRange.getDueDate();
 		var duration = this.dateRange.getDuration(Date.MINUTE);
 
-		if(Ext.isDate(overDate)){
+		var snapMode;
+		// Determine what snapMode we should use to determine what changes
+		// need to be made to the start and due date.
+		if (this.state === DragStates.DRAGGING){
+			snapMode = this.draggingSnapMode;
+		} else {
+			snapMode = this.selectingSnapMode;
+		}
 
-			var snapMode;
-			// Determine what snapMode we should use to determine what changes 
-			// need to be made to the start and due date. 
-			if (this.state === DragStates.DRAGGING){
-				snapMode = this.draggingSnapMode;
-			} else {
-				snapMode = this.selectingSnapMode;
-			}
+		if(Ext.isDate(overDate)){
 
 			if (snapMode === Zarafa.calendar.data.SnapModes.DAY ) {
 				// We must snap the appointment to an entire day
