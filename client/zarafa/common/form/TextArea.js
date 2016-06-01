@@ -37,22 +37,14 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 	 * @param {String} text The text value which you want to add in text area
 	 */
 	insertAtCursor : function(text) {
-		if (Ext.isIE) {
-			this.el.focus();
-			var sel = document.selection.createRange();
-			sel.text = text;
-			sel.moveEnd('character',text.length);
-			sel.moveStart('character',text.length);
-		}else{
-			var startPos = this.el.dom.selectionStart;
-			var endPos = this.el.dom.selectionEnd;
-			this.el.dom.value = this.el.dom.value.substring(0, startPos)
-				+ text
-				+ this.el.dom.value.substring(endPos, this.el.dom.value.length);
+		var startPos = this.el.dom.selectionStart;
+		var endPos = this.el.dom.selectionEnd;
+		this.el.dom.value = this.el.dom.value.substring(0, startPos)
+			+ text
+			+ this.el.dom.value.substring(endPos, this.el.dom.value.length);
 
-			this.el.focus();
-			this.el.dom.setSelectionRange(endPos + text.length, endPos + text.length);
-		}
+		this.el.focus();
+		this.el.dom.setSelectionRange(endPos + text.length, endPos + text.length);
 	},
 
 	/**
@@ -65,7 +57,7 @@ Zarafa.common.form.TextArea = Ext.extend(Ext.form.TextArea, {
 		// When a user replies to an email and the textarea contains text then by default 
 		// the cursor is set to the end of the text. The following code sets the cursor position to
 		// the start of the text.
-		var textLen = Ext.isIE ? textAreaDom.innerText.length : textAreaDom.textLength;
+		var textLen = textAreaDom.textLength;
 		var startPos = textAreaDom.selectionStart;
 		var endPos = textAreaDom.selectionEnd;
 

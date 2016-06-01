@@ -56,8 +56,7 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 		}
 
 		this.resizeEl = (this.wrap || this.el).wrap({
-			cls: 'x-form-element',
-			style: (Ext.isIE9m && !Ext.isIE9 || Ext.isOpera) ? 'position:absolute;top:0;left:0;overflow:visible' : ''
+			cls: 'x-form-element'
 		});
 		this.positionEl = this.itemCt = this.resizeEl.wrap({
 			cls: 'x-form-item '
