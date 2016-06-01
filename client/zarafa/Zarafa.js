@@ -96,11 +96,11 @@ Ext.apply(Zarafa, {
 		};
 
 		// Create global container object
-		/*jshint -W020 */
+		/*jshint -W020 */ /* Ignore global read-only warning. */
 		container = new Zarafa.core.Container();
 
 		// Load all settings
-		/*jshint -W051 */
+		/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
 		container.getSettingsModel().initialize(settings);
 		delete settings;
 
