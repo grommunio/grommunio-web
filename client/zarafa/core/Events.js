@@ -122,20 +122,10 @@ Zarafa.core.Events = {
 
 			// Register the event handler for paste events. This will ensure
 			// the input element will be resized when pasting.
-			// Opera doesn't support the paste event, and thus we need to listen
-			// to the 'keyup' event to check if a 'Ctrl-V' is pressed.
-			if (Ext.isOpera) {
-				if (noOn) {
-					el.addEventListener('keyup', this.onPasteKeyUp.createDelegate(observable));
-				} else {
-					field.mon(el, 'keyup', this.onPasteKeyUp, observable);
-				}
+			if (noOn) {
+				el.addEventListener('paste', this.onPaste.createDelegate(observable));
 			} else {
-				if (noOn) {
-					el.addEventListener('paste', this.onPaste.createDelegate(observable));
-				} else {
-					field.mon(el, 'paste', this.onPaste, observable);
-				}
+				field.mon(el, 'paste', this.onPaste, observable);
 			}
 
 			// A special kind of pasting is dragging & dropping text into
