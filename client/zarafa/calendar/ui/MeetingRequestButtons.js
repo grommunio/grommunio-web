@@ -352,10 +352,10 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 		return  {
 			xtype : 'button',
 			ref : 'calendarButton',
-			text : _('Calendar'),
+			text : _('View in calendar'),
 			tooltip: {
-				title: _('Calendar'),
-				text: _('Calendar')
+				title: _('View in calendar'),
+				text: _('View in calendar')
 			},
 			cls: 'tb-calendar-btn-calendar',
 			iconCls : 'icon_calendar',
