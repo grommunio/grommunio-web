@@ -115,8 +115,6 @@ class State {
 	function write($name, $object, $flush = true)
 	{
 		if($this->fp !== false) {
-			$contents = "";
-
 			// If the file has already been read, then we don't
 			// need to read the entire file again.
 			if ($this->sessioncache === false) {

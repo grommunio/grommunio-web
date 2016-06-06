@@ -328,7 +328,6 @@ class PluginManager
 				// The dependencies for this plugin have been met, we can push
 				// the plugin into the tree.
 				$ordered[] = $pluginname;
-				$updated = true;
 
 				// Reset the $failedCount property, this ensures that we can keep
 				// looping because other plugins with previously unresolved dependencies
@@ -390,7 +389,6 @@ class PluginManager
 				$this->plugins[$plugName]->init();
 			}
 		}
-		unset($plugData);
 
 		$this->modules = $files['modules'];
 		$this->notifiers = $files['notifiers'];

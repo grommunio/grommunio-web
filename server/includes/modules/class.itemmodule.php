@@ -562,7 +562,6 @@
 		function save($store, $parententryid, $entryid, $action)
 		{
 			$result = false;
-			$resultFlags = false;
 
 			if(isset($action["props"])) {
 				if(!$store) {

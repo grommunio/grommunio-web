@@ -349,7 +349,7 @@
 	{
 		$result = addslashes($value);
 		if($regex) {
-			$match = preg_match_all($regex, $result, $matches);
+			$match = preg_match_all($regex, $result);
 			if(!$match) {
 				$result = $default;
 			}

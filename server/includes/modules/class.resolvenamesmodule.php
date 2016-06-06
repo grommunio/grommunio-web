@@ -277,7 +277,6 @@
 			$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, array(PR_DISPLAY_NAME, PR_AB_PROVIDER_ID, PR_ENTRYID));
 
 			// Look for the 'Kopano Contacts Folders'
-			$contactFolderContainerEntryid = false;
 			for($i=0,$len=count($abHierarchyRows);$i<$len;$i++){
 				// Check if the folder matches the Contact Provider GUID
 				if($abHierarchyRows[$i][PR_AB_PROVIDER_ID] == MUIDZCSAB){
