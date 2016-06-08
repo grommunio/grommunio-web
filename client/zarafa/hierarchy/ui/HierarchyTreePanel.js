@@ -520,8 +520,11 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	{
 		if (this.stateful === true && !node.isRoot) {
 			var folder = node.getFolder();
+			var state = container.getHierarchyStore().getState(folder, 'tree');
 
-			container.getHierarchyStore().applyState(folder, 'tree', { is_open : node.expanded });
+			if (state.is_open !== node.expanded) {
+				container.getHierarchyStore().applyState(folder, 'tree', { is_open : node.expanded });
+			}
 		}
 	},
 
