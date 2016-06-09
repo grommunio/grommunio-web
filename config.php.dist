@@ -84,11 +84,6 @@
 	// false will show public contact folders in address-book folder list.
 	define("DISABLE_PUBLIC_CONTACT_FOLDERS", true);
 
-	// Set the threshold for the addressnook to only show a full contactlist when the number of rows
-	// do not exeed this threshold. Otherwise the user can only use the search. Enter any number above
-	// zero to set the threshold or -1 to always show the list or 0 to always hide the full list.
-	define("DISABLE_FULL_CONTACTLIST_THRESHOLD", -1);
-
 	// Set true to show public folders in hierarchy, false will disable public folders in hierarchy.
 	define('ENABLE_PUBLIC_FOLDERS', true);
 

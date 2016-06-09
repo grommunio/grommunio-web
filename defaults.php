@@ -10,7 +10,6 @@ if(!defined('CONFIG_CHECK_COOKIES_SSL')) define('CONFIG_CHECK_COOKIES_SSL', FALS
 
 if(!defined('STATE_FILE_MAX_LIFETIME')) define('STATE_FILE_MAX_LIFETIME', 28*60*60);
 if(!defined('UPLOADED_ATTACHMENT_MAX_LIFETIME')) define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
-if(!defined('DISABLE_FULL_CONTACTLIST_THRESHOLD')) define('DISABLE_FULL_CONTACTLIST_THRESHOLD', -1);
 if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
 
 /**
@@ -85,11 +84,6 @@ if(!defined('FREEBUSY_LOAD_END_OFFSET')) define('FREEBUSY_LOAD_END_OFFSET', 90);
 
 // Maximum eml files to be included in a single ZIP archive
 if(!defined('MAX_EML_FILES_IN_ZIP')) define('MAX_EML_FILES_IN_ZIP', 50);
-
-// Standard password key for session password. We recommend to change the default value for security reasons 
-// and a length of 16 characters. Passwords are only encrypted when the openssl module is installed
-if(!defined('PASSWORD_KEY')) define('PASSWORD_KEY','a75356b0d1b81b7');
-if(!defined('PASSWORD_IV')) define('PASSWORD_IV','b3f5a483');
 
 // CONTACT_PREFIX used for contact name
 if (!defined('CONTACT_PREFIX')) define('CONTACT_PREFIX', false);
