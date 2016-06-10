@@ -690,7 +690,6 @@ Ext.apply(Zarafa, {
 
 		// Load the folder hierarchy
 		hierarchyStore.load();
-
 		// When a client timeout has been defined, we will start keeping track
 		// of idle time.
 		var server = container.getServerConfig();
