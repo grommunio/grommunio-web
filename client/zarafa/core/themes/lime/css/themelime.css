@@ -90,8 +90,6 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day,
 /* Current day in the calendar */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
 /* The date pickers */
 .x-date-picker .x-date-inner td.x-date-today a,
@@ -140,6 +138,8 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
   color: #6da208;
 }
 
+/* Current day in the calendar */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
 /* border colors of the current day and month in the date pickers */
 .x-date-picker .x-date-inner td.x-date-today a,
 .x-date-picker .x-date-mp table td.x-date-mp-sel a {
