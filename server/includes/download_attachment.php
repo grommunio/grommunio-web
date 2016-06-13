@@ -77,7 +77,7 @@ class DownloadAttachment
 	/**
 	 * Constructor
 	 */
-	public function DownloadAttachment()
+	public function __construct()
 	{
 		$this->storeId = false;
 		$this->entryId = false;

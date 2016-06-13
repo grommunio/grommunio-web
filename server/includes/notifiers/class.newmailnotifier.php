@@ -21,12 +21,9 @@
 		 */
 		private $lastUnread;
 
-		/**
-		 * Constructor
-		 */
-		public function NewMailNotifier()
+		public function __construct()
 		{
-			parent::Notifier();
+			parent::__construct();
 			$this->lastUnread = false;
 		}
 

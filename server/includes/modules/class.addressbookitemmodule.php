@@ -10,13 +10,13 @@
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function AddressbookItemModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->userDetailProperties = $GLOBALS["properties"]->getAddressBookItemMailuserProperties();
 			$this->abObjectDetailProperties = $GLOBALS["properties"]->getAddressBookItemABObjectProperties();
 			$this->groupDetailProperties = $GLOBALS["properties"]->getAddressBookItemDistlistProperties();
 			
-			parent::ItemModule($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

@@ -7,10 +7,7 @@
  */
 class Pluginzdeveloper extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Pluginzdeveloper() {}
+	function __construct(){}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks

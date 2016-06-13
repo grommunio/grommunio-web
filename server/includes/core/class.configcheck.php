@@ -8,7 +8,7 @@ class ConfigCheck
 {
 	public $result;
 
-	function ConfigCheck($haltOnError = true)
+	function __construct($haltOnError = true)
 	{
 		$this->haltOnError = $haltOnError;
 

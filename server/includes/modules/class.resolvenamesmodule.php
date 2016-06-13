@@ -7,9 +7,9 @@
 		/**
 		 * Constructor
 		 */
-		function ResolveNamesModule($id, $data)
+		function __construct($id, $data)
 		{
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

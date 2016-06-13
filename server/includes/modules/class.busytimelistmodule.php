@@ -3,7 +3,7 @@
 	 * BusyTime Module
 	*/
 	
-	require_once(BASE_PATH . 'server/includes/mapi/class.recurrence.php');
+	require_once(BASE_PATH . 'server/includes/mapi/class.recurrence.php'); // FIXME: included by appointmentlistmodule
 	require_once(BASE_PATH . 'server/includes/modules/class.appointmentlistmodule.php');
 	
 	class BusyTimeListModule extends AppointmentListModule
@@ -11,15 +11,16 @@
 		/**
 		 * @var array the properties sent back to the client - a minimal set of data
 		 */
-		var $minproperties;
+		private $minproperties;
+
 		/**
 		 * Constructor
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function BusyTimeListModule($id, $data)
+		function __construct($id, $data)
 		{
-			parent::AppointmentListModule($id, $data);
+			parent::__construct($id, $data);
 			$this->minproperties = $GLOBALS["properties"]->getBusyTimeProperties();
 		}
 

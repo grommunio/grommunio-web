@@ -8,7 +8,7 @@
 		 */
 		var $tz = false;
 
-		function TaskRecurrence($store, $message)
+		function __construct($store, $message)
 		{
 			$this->store = $store;
 			$this->message = $message;
@@ -57,7 +57,7 @@
 
 			$this->proptags = getPropIdsFromStrings($store, $properties);
 
-			parent::BaseRecurrence($store, $message, $properties);
+			parent::__construct($store, $message, $properties);
 		}
 
 		/**

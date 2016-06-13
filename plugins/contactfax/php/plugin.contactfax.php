@@ -8,10 +8,7 @@
  */
 class Plugincontactfax extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Plugincontactfax() {}
+	function __construct(){}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks

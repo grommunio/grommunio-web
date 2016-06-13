@@ -9,11 +9,7 @@
 
 class Plugingmaps extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Plugingmaps() {
-	}
+	function __construct(){}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks

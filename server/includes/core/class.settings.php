@@ -18,52 +18,49 @@
 	class Settings
 	{
 		/**
-		 * @var MAPIStore User's default message store where we will be storing all the settings in a property
+		 * User's default message store where we will be storing all the settings in a property
 		 */
-		var $store;
+		private $store;
 
 		/**
-		 * @var Array Associative Array that will store all the settings of webapp, this will be filled by retreiveAllSettings
+		 * Associative Array that will store all the settings of webapp, this will be filled by retreiveAllSettings
 		 * and will be used when we call saveSettings
 		 */
-		var $settings;
+		private $settings;
 
 		/**
-		 * @var Array External settings which are stored outside of settings property and are managed differently,
+		 *  Array External settings which are stored outside of settings property and are managed differently,
 		 * Out of office settings are one of them
 		 */
-		var $externalSettings;
+		private $externalSettings;
 
 		/**
-		 * @var Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
+		 *  Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
 		 * add/update new settings, if this is false then it will indicate that there was some problem
 		 * initializing $this->settings object and we shouldn't continue saving new settings as that will
 		 * lose all existing settings of the user
 		 */
-		var $init;
+		private $init;
 
 		/**
-		 * @var Array Settings that are defined by system admin
+		 *  Array Settings that are defined by system admin
 		 */
-		var $sysAdminDefaults;
+		private $sysAdminDefaults;
 
 		/**
-		 * @var String Json encoded string which represents existing set of settings, this can be compared with json encoded
+		 * Json encoded string which represents existing set of settings, this can be compared with json encoded
 		 * string of $this->settings to check if there was a change in settings and we need to save the changes
 		 * to mapi
 		 */
-		var $settings_string;
+		private $settings_string;
 
 		/**
-		 * @var Array modified keeps track of all modifications on settings which are not saved yet.
+		 * Keeps track of all modifications on settings which are not saved yet.
 		 * The array is reset in saveSettings() after a succesful save.
 		 */
-		var $modified;
+		private $modified;
 			
-		/**
-		 * Constructor
-		 */
-		function Settings()
+		function __construct()
 		{
 			$this->settings = array();
 			$this->sysAdminDefaults = array();

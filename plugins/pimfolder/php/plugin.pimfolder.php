@@ -6,10 +6,7 @@
  */
 class PluginPimFolder extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Pluginspreed() {}
+	function __constructor(){}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks

@@ -15,10 +15,7 @@
 		 */
 		private $notifyCount;
 
-		/**
-		 * Constructor
-		 */
-		public function Notifier()
+		public function __construct()
 		{
 			$this->notifyCount = 0;
 			$this->responseNotificationData = array();

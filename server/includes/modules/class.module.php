@@ -47,7 +47,7 @@
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function Module($id, $data)
+		function __construct($id, $data)
 		{
 			$this->id = $id;
 			$this->data = $data;

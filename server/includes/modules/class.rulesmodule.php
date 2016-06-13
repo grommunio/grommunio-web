@@ -8,26 +8,26 @@
 		/**
 		 * @var MAPITable contains resource of rules table.
 		 */
-		var $rulesTable;
+		private $rulesTable;
 
 		/**
 		 * @var MAPITable contains resource of rules modify table.
 		 */
-		var $rulesModifyTable;
+		private $rulesModifyTable;
 
 		/**
 		 * Constructor
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function RulesModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS['properties']->getRulesProperties();
 
 			$this->rulesTable = null;
 			$this->rulesModifyTable = null;
 
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

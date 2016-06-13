@@ -59,29 +59,29 @@
 	class Bus
 	{
 		/**
-		 * @var array data which is sent back to the client.
+		 * data which is sent back to the client.
 		 */
-		var $responseData;
+		private $responseData;
 
 		/**
-		 * @var array all registered notifiers.
+		 * all registered notifiers.
 		 */
-		var $registeredNotifiers;
+		private $registeredNotifiers;
 
 		/**
-		 * @var array all registered store notifiers.
+		 * all registered store notifiers.
 		 */
-		var $registeredStoreNotifiers;
+		private $registeredStoreNotifiers;
 
 		/**
-		 * @var array all notifier objects
+		 * all notifier objects
 		 */
-		var $notifiers;
+		private $notifiers;
 
 		/**
 		 * Constructor
 		 */
-		function Bus()
+		function __construct()
 		{
 			$this->responseData = array();
 

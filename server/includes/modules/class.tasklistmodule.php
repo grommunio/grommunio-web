@@ -11,11 +11,11 @@
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function TaskListModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getTaskListProperties();
 
-			parent::ListModule($id, $data);
+			parent::__construct($id, $data);
 
 			$this->start = 0;
 		}

@@ -24,10 +24,7 @@
 		/* Hardcoded ID used for generating entryid of global addresslists container */
 		const ZARAFA_UID_GLOBAL_ADDRESS_LISTS = '02000000';
 
-		/**
-		 * Default constructor
-		 */
-		public function EntryId()
+		public function __construct()
 		{
 		}
 

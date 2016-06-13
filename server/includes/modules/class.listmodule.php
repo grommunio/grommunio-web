@@ -60,7 +60,7 @@
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function ListModule($id, $data, $events = false)
+		function __construct($id, $data, $events = false)
 		{
 			$this->start = 0;
 			
@@ -71,7 +71,7 @@
 
 			$this->sort = array();
 
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 		
 		/**

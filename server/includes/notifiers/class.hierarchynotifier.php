@@ -10,18 +10,15 @@
 		/**
 		 * Flag to indicate that we need to reopen store object to get updated message size
 		 */
-		 var $reopenStore;
+		 private $reopenStore;
 
 		/**
 		 * previous store size of the default store of user, this is updated whenever
 		 * notification is sent to client to update quota details
 		 */
-		 var $storeSize;
+		 private $storeSize;
 
-		/**
-		 * Constructor
-		 */
-		function HierarchyNotifier()
+		function __construct()
 		{
 			/*
 			 * Initialize hierarchy store's size, so in future on change events of 
@@ -30,7 +27,7 @@
 			 */
 			$this->storeSize = -1;
 
-			parent::Notifier();
+			parent::__construct();
 		}
 
 		/**

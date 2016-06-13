@@ -7,10 +7,7 @@
  */
 class Pluginwebappmanual extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Pluginwebappmanual() {}
+	function __construct() {}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks
