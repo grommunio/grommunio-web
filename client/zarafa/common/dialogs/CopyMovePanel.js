@@ -20,10 +20,6 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * to determine if we are copy/moving folders or messages.
 	 */
 	objectType : undefined,
-	/**
-	 * @constructor
-	 * @param {Object} config Configuration structure
-	 */
 	
 	/**
 	 * {Zarafa.mail.MailStore} store or {Zarafa.hierarchy.data.IPFSubStore} store 
@@ -33,6 +29,10 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 */
 	store : undefined,
 
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration structure
+	 */
 	constructor : function(config)
 	{
 		config = config || {};
@@ -64,6 +64,19 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			],
 			buttonAlign: 'left',
 			buttons: [{
+				text: _('Move'),
+				handler: this.onMove,
+				scope: this,
+				ref: '../moveButton',
+				cls: 'zarafa-action',
+				disabled: true
+			},{
+				text: _('Copy'),
+				handler: this.onCopy,
+				scope: this,
+				ref: '../copyButton',
+				disabled: true
+			},{
 				text: _('New folder'),
 				handler: this.onCreateFolder,
 				scope: this,
@@ -72,27 +85,41 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			},
 			'->',
 			{
-				text: _('Copy'),
-				handler: this.onCopy,
-				scope: this,
-				ref: '../copyButton',
-				cls: 'zarafa-action',
-				disabled: true
-			},{
-				text: _('Move'),
-				handler: this.onMove,
-				scope: this,
-				ref: '../moveButton',
-				cls: 'zarafa-action',
-				disabled: true
-			},{
 				text: _('Cancel'),
 				handler: this.onCancel,
+				cls: 'zarafa-normal',
 				scope: this
-			}]
+			}],
+			listeners : {
+				render: function() {
+					// Add a listener for the focus event of the dialog window
+					// to move the focus back to the selected node of the tree.
+					var win = this.findParentByType('window');
+					if (win && win.focusEl) {
+						win.focusEl.on('focus', this.onDialogFocussed, this);
+					}
+					
+					// Add the keymap
+					Zarafa.core.KeyMapMgr.activate(this, 'Zarafa.common.dialogs.CopyMovePanel');
+				}
+			}
 		});
 
 		Zarafa.common.dialogs.CopyMovePanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler for the focus event of the dialog window. Will put the focus
+	 * on the selected folder.
+	 */
+	onDialogFocussed : function(){
+		var folder = this.dialog.getSelectedFolder();
+		var treeNode = this.hierarchyTree.ensureFolderVisible(folder);
+
+		if (treeNode) {
+			// Move the focus to the selected folder by simply selecting it again
+			treeNode.select();
+		}
 	},
 
 	/**
