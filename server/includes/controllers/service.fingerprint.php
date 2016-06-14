@@ -35,6 +35,21 @@
 	// Make sure the session is started
 	$phpSession = WebAppSession::getInstance();
 	
+	// If we get a keep-alive request from the fingerprint script
+	// and the user is not authenticated (i.e. user is at login page)
+	// we will respond with the php session expiration time
+	// The fingerprint script will then send another keep-alive request
+	// after half the expiration time has been passed.
+	if ( isset($_GET['type']) && $_GET['type']==='keepalive' ) {
+		if ( !WebAppAuthentication::isAuthenticated() ){
+			echo ini_get('session.gc_maxlifetime');
+		}
+		die();
+	}
+
+
+	// Store the fingerprint in the session when the user is not yet
+	// authenticated. (i.e. when the login page is loaded)
 	if ( !WebAppAuthentication::isAuthenticated() ){
 		$_SESSION['frontend-fingerprint'] = $_POST['fingerprint'];
 		die();
