@@ -3377,7 +3377,9 @@
 						try {
 							$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $recipientRow[PR_ENTRYID]);
 							$userprops = mapi_getprops($mailuser, array(PR_DISPLAY_TYPE_EX));
-							$props['display_type_ex'] = $userprops[PR_DISPLAY_TYPE_EX];
+							if (isset($userprops[PR_DISPLAY_TYPE_EX])) {
+								$props['display_type_ex'] = $userprops[PR_DISPLAY_TYPE_EX];
+							}
 						} catch (MAPIException $e) {
 							// if any invalid entryid is passed in this function then it should silently ignore it
 							// and continue with execution
