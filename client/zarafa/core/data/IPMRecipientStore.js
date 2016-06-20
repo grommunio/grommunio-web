@@ -38,15 +38,15 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT,
 
 	/**
-	 * @cfg {Boolean} allowResolvingToLocalContacts True to allow recipients to resolve to local 
-	 * contacts as well. If set to false it can only be resolved to GAB users. This information is 
+	 * @cfg {Boolean} allowResolvingToLocalContacts True to allow recipients to resolve to local
+	 * contacts as well. If set to false it can only be resolved to GAB users. This information is
 	 * send to the server with every resolve request done from this store. Defaults to true.
 	 */
 	allowResolvingToLocalContacts: true,
 
 	/**
-	 * @cfg {Boolean} allowResolvingToGABGroups True to allow recipients to resolve to GAB groups 
-	 * as well. If set to false it can cannot resolve to groups like "Everyone". This information is 
+	 * @cfg {Boolean} allowResolvingToGABGroups True to allow recipients to resolve to GAB groups
+	 * as well. If set to false it can cannot resolve to groups like "Everyone". This information is
 	 * send to the server with every resolve request done from this store. Defaults to true.
 	 */
 	allowResolvingToGABGroups: true,
@@ -220,7 +220,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 		return unresolved;
 	},
-	
+
 	/**
 	 * Obtain the list of currently {@link Zarafa.core.data.IPMRecipientRecord which are invalid}
 	 * {@link Zarafa.core.data.IPMRecipientRecord recipients}.reciepitns which do not have valid
@@ -303,10 +303,10 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		}
 
 		// Setup the parameters that will make up the resolve request to the server
-		var parameters = { 
-			resolverequests: resolveRequests, 
-			exclude_local_contacts: !this.allowResolvingToLocalContacts, 
-			exclude_gab_groups: !this.allowResolvingToGABGroups 
+		var parameters = {
+			resolverequests: resolveRequests,
+			exclude_local_contacts: !this.allowResolvingToLocalContacts,
+			exclude_gab_groups: !this.allowResolvingToGABGroups
 		};
 
 		// The arguments that can be used in the callback function
@@ -324,11 +324,11 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 	/**
 	 * Callback function from the {@link Zarafa.core.data.IPMRecipientResolveResponseHandler CheckNamesResponseHandler},
-	 * which will be called when the response has been read. Each returned resolve response will be 
-	 * handled separately. If for a resolve request one result is returned the data is applied to 
-	 * the recipient directly. If multiple results are returned a dialog is opened where the user can 
+	 * which will be called when the response has been read. Each returned resolve response will be
+	 * handled separately. If for a resolve request one result is returned the data is applied to
+	 * the recipient directly. If multiple results are returned a dialog is opened where the user can
 	 * select the correct one.
-	 * {@link Zarafa.common.Actions.openCheckNamesContent openCheckNamesContent} will be called to 
+	 * {@link Zarafa.common.Actions.openCheckNamesContent openCheckNamesContent} will be called to
 	 * open a content panel to let the user choose to what entry the recipient should be resolved. If there
 	 * are no results returned the user is notified of that fact.
 	 * @param {Ext.data.Record/Array} records The record or records which have been received from the server.
@@ -366,7 +366,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 					Zarafa.common.Actions.openCheckNamesContent(resolveResult.result.records, recipientRecord);
 				}
 
-				// Set the resolveAttempted property 
+				// Set the resolveAttempted property
 				recipientRecord.resolveAttempted = true;
 			}
 		}
@@ -383,7 +383,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	expand : function(record, recurse, options)
 	{
 		// Setup the parameters that will make up the expand request to the server
-		var parameters = { 
+		var parameters = {
 			entryid: record.get('entryid'),
 			recurse: recurse || false
 		};
@@ -401,7 +401,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 	/**
 	 * Callback function from the {@link Zarafa.core.data.IPMExpandDistlistResponseHandler ExpandDistlistResponseHandler},
-	 * which will be called when the response has been read. Each returned expand response will be 
+	 * which will be called when the response has been read. Each returned expand response will be
 	 * handled separately. Resulted member record(s) are converted to the recipient record and added to the recipient store.
 	 * @param {Ext.data.Record/Array} records The record or records which have been received from the server.
 	 * @param {Object} options The options object used for the request
@@ -451,7 +451,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 
 	/**
 	 * Event handler which is fired when a recipient is updated inside this store, when {@link #autoResolve}
-	 * is enabled, the records will be re-resolved. 
+	 * is enabled, the records will be re-resolved.
 	 * @param {Zarafa.core.data.IPMRecipientStore} store The store which fired the event
 	 * @param {Zarafa.core.data.IPMRecipientRecord[]} records The records which were updated
 	 * @private
@@ -459,14 +459,27 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	onRecipientUpdate : function(store, records)
 	{
 		if (this.autoResolve) {
-			this.resolve(records);
+			// The PresenceManager can also fire the 'update' event for records
+			// in a IPMRecipientStore. Because records are not modified then, we
+			// do not have to resolve them.
+			var modifiedRecords = [];
+			if ( !Ext.isArray(records) ){
+				records = [records];
+			}
+			Ext.each( records, function(record){
+				if ( record.isModified() ){
+					modifiedRecords.push(record);
+				}
+			});
+
+			this.resolve(modifiedRecords);
 		}
 	},
 
 	/**
 	 * Called when an error occurred on the server-side.
 	 * @param {Zarafa.core.data.IPMRecipientResolveProxy} proxy The proxy which fired the event.
-	 * @param {String} type The value of this parameter will be either 'response' or 'remote'. 
+	 * @param {String} type The value of this parameter will be either 'response' or 'remote'.
 	 * @param {String} action Name of the action (see {@link Ext.data.Api#actions}).
 	 * @param {Object} options The object containing the object which was send to the PHP-side.
 	 * @param {Object} response The response object as received from the PHP-side
