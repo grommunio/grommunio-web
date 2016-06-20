@@ -793,10 +793,12 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		//notify user about new mail
 		if(!Ext.isEmpty(data)){
 			Ext.each(data.item, function(folder){
-				var notificationMessage = String.format(
-					ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
-					folder.content_unread, folder.display_name);
-				container.getNotifier().notify('info.newmail', _('New Mail'),notificationMessage);			
+				if (folder.content_unread !== 0) {
+					var notificationMessage = String.format(
+						ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
+						folder.content_unread, folder.display_name);
+					container.getNotifier().notify('info.newmail', _('New Mail'),notificationMessage);
+				}
 				var folderStore = this.getFolder(folder.entryid);
 				if (folderStore) {
 					folderStore.set('content_unread', folder.content_unread);

@@ -520,4 +520,34 @@
 
 		return $data;
 	}
+
+	/**
+	 * Fetches the full hierarchy and returns an array with a cache of the state
+	 * of the folders in the hierarchy.
+	 *
+	 * @return {Array} folderStatCache a cache of the hierarchy folders.
+	 */
+	function update_hierarchy_counters()
+	{
+		$props = array(PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID);
+
+		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
+		$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
+		$hierarchy =  mapi_folder_gethierarchytable($ipmsubtree, CONVENIENT_DEPTH);
+		$rows = mapi_table_queryallrows($hierarchy, $props);
+
+		$folderStatCache = array();
+		foreach($rows as $folder) {
+			$folderStatCache[$folder[PR_DISPLAY_NAME]] = array(
+				'commit_time' => isset($folder[PR_LOCAL_COMMIT_TIME_MAX]) ? $folder[PR_LOCAL_COMMIT_TIME_MAX] : "0000000000",
+				'entryid' => bin2hex($folder[PR_ENTRYID]),
+				'store_entryid' => bin2hex($folder[PR_STORE_ENTRYID]),
+				'content_count' => isset($folder[PR_CONTENT_COUNT]) ? $folder[PR_CONTENT_COUNT] : -1,
+				'content_unread' => isset($folder[PR_CONTENT_UNREAD]) ? $folder[PR_CONTENT_UNREAD] : -1,
+			);
+		}
+
+		return $folderStatCache;
+	}
 ?>
