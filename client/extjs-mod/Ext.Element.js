@@ -217,6 +217,331 @@
 			if (evt) {
 				this.dom.dispatchEvent(evt);
 			}
+		},
+
+		/**
+		 * Gets the x,y coordinates to align this element with another element. See {@link #alignTo} for more info on the
+		 * supported position values.
+		 * @param {Mixed} element The element to align to.
+		 * @param {String} position (optional, defaults to "tl-bl?") The position to align to.
+		 * @param {Array} offsets (optional) Offset the positioning by [x, y]
+		 * @return {Array} [x, y]
+		 */
+		getAlignToXY : function(el, p, o){
+			el = Ext.get(el);
+
+			if(!el || !el.dom){
+				throw "Element.alignToXY with an element that doesn't exist";
+			}
+
+			o = o || [0,0];
+			p = (!p || p == "?" ? "tl-bl?" : (!(/-/).test(p) && p !== "" ? "tl-" + p : p || "tl-bl")).toLowerCase();
+			// Get document belongs to respective browser window to calculate positions of menu to prevent the overflow
+			var browserWindow = Zarafa.core.BrowserWindowMgr.getOwnerWindow(el);
+			var me = this,
+					d = me.dom,
+					a1,
+					a2,
+					x,
+					y,
+			//constrain the aligned el to viewport if necessary
+					w,
+					h,
+					r,
+					dw = browserWindow.innerWidth -10, // 10px of margin for ie
+					dh = browserWindow.innerHeight - 10, // 10px of margin for ie
+					p1y,
+					p1x,
+					p2y,
+					p2x,
+					swapY,
+					swapX,
+					doc = browserWindow.document,
+					docElement = doc.documentElement,
+					docBody = doc.body,
+					scrollX = (docElement.scrollLeft || docBody.scrollLeft || 0)+5,
+					scrollY = (docElement.scrollTop || docBody.scrollTop || 0)+5,
+					c = false, //constrain to viewport
+					p1 = "",
+					p2 = "",
+					m = p.match(/^([a-z]+)-([a-z]+)(\?)?$/);
+
+			if(!m){
+				throw "Element.alignTo with an invalid alignment " + p;
+			}
+
+			p1 = m[1];
+			p2 = m[2];
+			c = !!m[3];
+
+			//Subtract the aligned el's internal xy from the target's offset xy
+			//plus custom offset to get the aligned el's new offset xy
+			a1 = me.getAnchorXY(p1, true);
+			a2 = el.getAnchorXY(p2, false);
+
+			x = a2[0] - a1[0] + o[0];
+			y = a2[1] - a1[1] + o[1];
+
+			if(c){
+				w = me.getWidth();
+				h = me.getHeight();
+				r = el.getRegion();
+				//If we are at a viewport boundary and the aligned el is anchored on a target border that is
+				//perpendicular to the vp border, allow the aligned el to slide on that border,
+				//otherwise swap the aligned el to the opposite border of the target.
+				p1y = p1.charAt(0);
+				p1x = p1.charAt(p1.length-1);
+				p2y = p2.charAt(0);
+				p2x = p2.charAt(p2.length-1);
+				swapY = ((p1y=="t" && p2y=="b") || (p1y=="b" && p2y=="t"));
+				swapX = ((p1x=="r" && p2x=="l") || (p1x=="l" && p2x=="r"));
+
+
+				if (x + w > dw + scrollX) {
+					x = swapX ? r.left-w : dw+scrollX-w;
+				}
+				if (x < scrollX) {
+					x = swapX ? r.right : scrollX;
+				}
+				if (y + h > dh + scrollY) {
+					y = swapY ? r.top-h : dh+scrollY-h;
+				}
+				if (y < scrollY){
+					y = swapY ? r.bottom : scrollY;
+				}
+			}
+			return [x,y];
+		},
+
+		// private ==>  used outside of core
+		adjustForConstraints : function(xy, parent, offsets){
+			// Using currently active browser window in case if parent is undefined
+			var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			return this.getConstrainToXY(parent || browserWindow.document, false, offsets, xy) ||  xy;
+		},
+
+		// private ==>  used outside of core
+		getConstrainToXY : function(el, local, offsets, proposedXY){
+			var os = {top:0, left:0, bottom:0, right: 0};
+
+			return function(el, local, offsets, proposedXY){
+				// Using currently active browser window for size and position related calculations
+				var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+				el = Ext.get(el);
+				offsets = offsets ? Ext.applyIf(offsets, os) : os;
+
+				var vw, vh, vx = 0, vy = 0;
+				if(el.dom == browserWindow.document.body || el.dom == browserWindow.document){
+					vw = browserWindow.innerWidth;
+					vh = browserWindow.innerHeight;
+				}else{
+					vw = el.dom.clientWidth;
+					vh = el.dom.clientHeight;
+					if(!local){
+						var vxy = el.getXY();
+						vx = vxy[0];
+						vy = vxy[1];
+					}
+				}
+
+				var s = el.getScroll();
+
+				vx += offsets.left + s.left ? s.left : 0;
+				vy += offsets.top + s.top ? s.top : 0 ;
+
+				vw -= offsets.right ? offsets.right : 0;
+				vh -= offsets.bottom ? offsets.bottom : 0;
+
+				var vr = vx + vw,
+						vb = vy + vh,
+						xy = proposedXY || (!local ? this.getXY() : [this.getLeft(true), this.getTop(true)]),
+						x = xy[0], y = xy[1],
+						offset = this.getConstrainOffset(),
+						w = this.dom.offsetWidth + offset,
+						h = this.dom.offsetHeight + offset;
+
+				// only move it if it needs it
+				var moved = false;
+
+				// first validate right/bottom
+				if((x + w) > vr){
+					x = vr - w;
+					moved = true;
+				}
+				if((y + h) > vb){
+					y = vb - h;
+					moved = true;
+				}
+				// then make sure top/left isn't negative
+				if(x < vx){
+					x = vx;
+					moved = true;
+				}
+				if(y < vy){
+					y = vy;
+					moved = true;
+				}
+				return moved ? [x, y] : false;
+			};
+		}()
+	});
+
+	var orig_get = Ext.Element.get;
+
+	Ext.override(Ext.Element, {
+		/**
+		 * Override get to consider the active browser window while retrieving {@link Ext.Element} objects from the given HTMLElement.
+		 * @param {HTMLElement} el The HTMLElement which needs to be wrapped into {@link Ext.Element}
+		 * @return {Ext.Element} The Element object (or null if no matching element was found)
+		 */
+		get : function(el) {
+			var getResult = null;
+			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+
+			// First, find the element in active browser window if the active window is not the main webapp window
+			if (Ext.isDefined(activeBrowserWindow) && activeBrowserWindow.name !== 'mainBrowserWindow' && typeof el === "string") {
+				getResult = new Ext.Element(activeBrowserWindow.document.getElementById(el));
+			}
+
+			// Find the element in webapp main window
+			if(getResult === null) {
+				getResult = orig_get.apply(this, arguments);
+			}
+
+			// If the element is still not found, Try to find the same in all the available browser windows
+			if (getResult === null && typeof el === "string") {
+				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
+				browserWindows.each(function(browserWindow){
+					if(Ext.isDefined(browserWindow) && browserWindow.name !== 'mainBrowserWindow' && browserWindow !== activeBrowserWindow) {
+						getResult = new Ext.Element(browserWindow.document.getElementById(el));
+						return;
+					}
+				});
+			} else {
+				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
+				if(Ext.isDefined(browserWindows)) {
+					browserWindows.each(function(browserWindow) {
+						if(browserWindow.document === el) {
+							// create a bogus element object representing the document object
+							var f = function(){};
+							f.prototype = Ext.Element.prototype;
+							getResult = new f();
+							getResult.dom = browserWindow.document;
+							return;
+						}
+					});
+				}
+			}
+
+			return getResult;
 		}
 	});
+
+	// Expose overridden method to Ext global object
+	Ext.get = Ext.Element.prototype.get;
+
+
+	// Overriding this method because 
+	// While mousedown event handler call it will get XY posstion of clickable area 
+	// and then it will get style of particular posstion.
+	// So, getStyle method will use active browser window instead of main window.
+	Ext.Element.addMethods(function() {
+		// local style camelizing for speed
+		var supports = Ext.supports,
+			propCache = {},
+			camelRe = /(-[a-z])/gi,
+			view = document.defaultView,
+			opacityRe = /alpha\(opacity=(.*)\)/i;
+
+		// private
+		function camelFn(m, a) {
+			return a.charAt(1).toUpperCase();
+		}
+
+		function chkCache(prop) {
+			return propCache[prop] || (propCache[prop] = prop == 'float' ? (supports.cssFloat ? 'cssFloat' : 'styleFloat') : prop.replace(camelRe, camelFn));
+		}
+
+		return {
+			/**
+			 * Normalizes currentStyle and computedStyle.
+			 * @param {String} property The style property whose value is returned.
+			 * @return {String} The current value of the style property for this element.
+			 */
+			getStyle: function () {
+				return view && view.getComputedStyle ?
+						function (prop) {
+							var el = this.dom,
+									v,
+									cs,
+									out,
+									display;
+
+							if (el == Zarafa.core.BrowserWindowMgr.getActive().document) {
+								return null;
+							}
+							prop = chkCache(prop);
+							out = (v = el.style[prop]) ? v :
+									(cs = view.getComputedStyle(el, "")) ? cs[prop] : null;
+
+							// Ignore cases when the margin is correctly reported as 0, the bug only shows
+							// numbers larger.
+							if (prop == 'marginRight' && out != '0px' && !supports.correctRightMargin) {
+								display = el.style.display;
+								el.style.display = 'inline-block';
+								out = view.getComputedStyle(el, '').marginRight;
+								el.style.display = display;
+							}
+
+							if (prop == 'backgroundColor' && out == 'rgba(0, 0, 0, 0)' && !supports.correctTransparentColor) {
+								out = 'transparent';
+							}
+							return out;
+						} :
+						function (prop) {
+							var el = this.dom,
+									m,
+									cs;
+
+							if (el == document) return null;
+							if (prop == 'opacity') {
+								if (el.style.filter.match) {
+									if (m = el.style.filter.match(opacityRe)) {
+										var fv = parseFloat(m[1]);
+										if (!isNaN(fv)) {
+											return fv ? fv / 100 : 0;
+										}
+									}
+								}
+								return 1;
+							}
+							prop = chkCache(prop);
+							return el.style[prop] || ((cs = el.currentStyle) ? cs[prop] : null);
+						};
+			}(),
+
+			/**
+			 * Wrapper for setting style properties, also takes single object parameter of multiple styles.
+			 * @param {String/Object} property The style property to be set, or an object of multiple styles.
+			 * @param {String} value (optional) The value to apply to the given property, or null if an object was passed.
+			 * @return {Ext.Element} this
+			 */
+			setStyle: function (prop, value) {
+				var tmp, style;
+
+				if (typeof prop != 'object') {
+					tmp = {};
+					tmp[prop] = value;
+					prop = tmp;
+				}
+				for (style in prop) {
+					value = prop[style];
+					style == 'opacity' ?
+							this.setOpacity(value) :
+							this.dom.style[chkCache(style)] = value;
+				}
+				return this;
+			}
+		}
+	}());
 })();

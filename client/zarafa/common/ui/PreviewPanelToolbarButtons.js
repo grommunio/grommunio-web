@@ -38,7 +38,8 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			model = options.model;
 		}
 
-		return [{
+		var toolbarButtons = [];
+		toolbarButtons = [{
 			xtype: 'zarafa.toolbarbutton',
 			tooltip: _('Delete') + ' (DELETE)',
 			overflowText: _('Delete'),
@@ -59,6 +60,21 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				this.showMenu();
 			}
 		}];
+
+		// Display the popout button only if supported.
+		if (Zarafa.supportsPopOut()) {
+			toolbarButtons.push({
+				xtype: 'zarafa.toolbarbutton',
+				tooltip: _('Open in new browser window'),
+				overflowText: _('Pop-Out'),
+				iconCls: 'icon_popout',
+				nonEmptySelectOnly: true,
+				handler: this.onPopout,
+				model: model
+			});
+		}
+
+		return toolbarButtons;
 	},
 
 	/**
@@ -106,6 +122,15 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	onDelete : function()
 	{
 		Zarafa.common.Actions.deleteRecords(this.model.getSelectedRecords());
+	},
+
+	/**
+	 * Open the selected record in separate browser window by supplying layer type as "separateWindows".
+	 * @private
+	 */
+	onPopout : function()
+	{
+		Zarafa.mail.Actions.openMailContent(this.model.getPreviewRecord(), {layerType : 'separateWindows'});
 	},
 
 	/**

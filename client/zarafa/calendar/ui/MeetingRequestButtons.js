@@ -515,6 +515,12 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	 */
 	acceptProposal : function(button, eventObject)
 	{
+		// When the button belongs to one of the currently opened popout windows then
+		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
+			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
+		}
+
 		Zarafa.calendar.Actions.openAppointmentContentToAcceptProposal(this.record);
 	},
 
@@ -526,6 +532,12 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	 */
 	showMeetingInCalendar : function(button, eventObject)
 	{
+		// When the button belongs to one of the currently opened popout windows then
+		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
+			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
+		}
+
 		Zarafa.calendar.Actions.showMeetingInCalendar(this.record);
 	},
 
@@ -537,6 +549,11 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	 */
 	viewAllProposals : function(button, eventObject)
 	{
+		// When the button belongs to one of the currently opened popout windows then
+		// it is required to bring the main webapp window to front prior to switching to the calender context.
+		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
+			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow();
+		}
 		Zarafa.calendar.Actions.openAppointmentContentToViewAllProposals(this.record);
 	}
 });

@@ -99,6 +99,13 @@ Zarafa.contact.Actions = {
 	 * @private
 	 */
 	openRecipientContactContent: function(button, event) {
+
+		// When the button belongs to one of the currently opened popout windows then
+		// it is required to bring the main webapp window to front prior to switching to the contact context.
+		if (!Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button)) {
+			Zarafa.core.BrowserWindowMgr.switchFocusToMainWindow(button);
+		}
+
 		var contactRecord = this.getModel().createRecord();
 		var record = button.getRecords();
 

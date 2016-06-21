@@ -154,6 +154,11 @@
 				button.icon_delete {
 					background-position: sprite-position($icons, icon_delete, $offset-y: 3px, $offset-x: 2px);
 				}
+
+				/* popout button */
+				button.icon_popout {
+					background-position: sprite-position($icons, icon_popout, $offset-y: 5px, $offset-x: 4px);
+				}
 				
 				/* reply button */
 				button.icon_replyEmail {

@@ -92,6 +92,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	disableEditor : false,
 
 	/**
+	 * This property holds the window object which is the owner of the selector element.
+	 * @property
+	 * @type HTMLElement
+	 */
+	editorOwnerWindow : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config The configuration options.
 	 */
@@ -111,6 +118,25 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		});
 
 		Ext.ux.form.TinyMCETextArea.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Helper function provides the owner window object.
+	 * @return {HTMLElement} the window object which contains the selector element.
+	 * @private
+	 */
+	getEditorOwnerWindow : function()
+	{
+		if(Ext.isDefined(this.editorOwnerWindow)) {
+			return this.editorOwnerWindow;
+		} else {
+			// There might be more than one browser window, and we are using tinymce environment loaded saperatly
+			// in respective browser window. So it is mendatory to use global object of currently active window to
+			// initialize and render the editor instance into respective browser window.
+			var selectorElement = Ext.getDom(this.getInputId());
+			var browserWindow = selectorElement ? selectorElement.ownerDocument.defaultView : undefined;
+			return this.editorOwnerWindow = browserWindow;
+		}
 	},
 
 	/**
@@ -178,7 +204,10 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			return;
 		}
 
-		var ed = tinymce.get(me.getInputId());
+		// There is multiple tinymce editors loaded in multiple browser windows, Use global object of currently
+		// active window to get the editor instance.
+		var browserWindow = me.getEditorOwnerWindow();
+		var ed = browserWindow.tinymce.get(me.getInputId());
 
 		// if the editor is not available at all than simply return.
 		if(!ed){
@@ -191,8 +220,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			return;
 		}
 
-		var edIframe = Ext.get(me.getInputId() + "_ifr");
-
+		var edIframe = Ext.get(ed.iframeElement);
 		var parent = edIframe.up(".mce-edit-area");
 		parent = parent.up(".mce-container-body");
 
@@ -310,14 +338,16 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 				me.editor = ed;
 			}
 			
+			var editorWindow = me.getEditorOwnerWindow();
 			// Themes will dynamically load their stylesheets into the DOM.
 			// We will overwrite the loadCSS function to add listeners for 
 			// the loading. This way we make sure that all css has been loaded
 			// before we resize the editor.
-			var origTinymceDOMloadCSS = tinymce.DOM.loadCSS;
+			var origTinymceDOMloadCSS = editorWindow.tinymce.DOM.loadCSS;
 			// We will store the urls of all stylesheets that are loading in this array
 			var cssFilesLoading = [];
-			tinymce.DOM.loadCSS = function(url){
+			
+			editorWindow.tinymce.DOM.loadCSS = function(url){
 				if (!url) {
 					url = '';
 				}
@@ -359,7 +389,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			
 			ed.on('init', function(e) {
 				// Restore the original loadCSS function
-				tinymce.DOM.loadCSS = origTinymceDOMloadCSS;
+				editorWindow.tinymce.DOM.loadCSS = origTinymceDOMloadCSS;
 
 				me.wysiwygIntialized = true;
 				me.intializationInProgress = false;
@@ -392,7 +422,8 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			}
 		};
 
-		tinymce.init(me.tinyMCEConfig);
+		var editorWindow = me.getEditorOwnerWindow();
+		editorWindow.tinymce.init(me.tinyMCEConfig);
 
 		me.intializationInProgress = false;
 		me.wysiwygIntialized = true;
@@ -404,7 +435,10 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	 */
 	getEditor: function()
 	{
-		return tinymce.get(this.getInputId());
+		// There is multiple tinymce editors loaded in multiple browser windows, Use global object of currently
+		// active window to get the editor instance.
+		var editorWindow = this.getEditorOwnerWindow();
+		return editorWindow ? editorWindow.tinymce.get(this.getInputId()) : undefined;
 	},
 
 	/**
@@ -578,7 +612,10 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 				if (this.rendered) {
 					var ed = me.getEditor();
 					if(!ed){
-						tinyMCE.EditorManager.on("AddEditor", function() {
+						// There is multiple tinymce editors loaded in multiple browser windows,
+						// Use global object of currently active window to register AddEditor event.
+						var editorGlobalInstance = me.getEditorOwnerWindow().tinymce;
+						editorGlobalInstance.EditorManager.on("AddEditor", function() {
 							me.withEd(function(){
 								var ed = me.getEditor();
 								// if selected editor is dirty then dont call setContent function.
@@ -769,7 +806,10 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		if(ed){
 			ed.hide();
 		} else {
-			tinyMCE.EditorManager.on("AddEditor", function() {
+			// There are multiple tinymce editors loaded in multiple browser windows,
+			// Use global object of currently active window to register AddEditor event.
+			var editorGlobalInstance = me.getEditorOwnerWindow().tinymce;
+			editorGlobalInstance.EditorManager.on("AddEditor", function() {
 				me.withEd(function() {
 					var ed = me.getEditor();
 					ed.hide();

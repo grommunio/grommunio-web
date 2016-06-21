@@ -298,6 +298,10 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, trash, $offset-y: 3, $offset-x: 2);
 	}
 
+	.icon_popout {
+		background-position: sprite-position($icons, icon_popout, $offset-y: 3, $offset-x: 3);
+	}
+
 	.icon_calendar_appt_accept {
 		@extend .icon_calendar_appt_accept;
       	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 3, $offset-x: 1);

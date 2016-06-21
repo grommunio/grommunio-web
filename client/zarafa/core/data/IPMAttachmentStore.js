@@ -394,7 +394,11 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	{
 		var attachments = [];
 		var uploadFiles = [];
-		var isFileList = files instanceof FileList;
+
+		// For a proper instance check demanded by some of the browser, we must have to
+		// use relevant FileList object which belongs to respective browser window.
+		var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive() || window;
+		var isFileList = Zarafa.supportsFilesAPI() && files instanceof activeBrowserWindow.FileList;
 
 		// fire the 'attachmentstorebeforeupload' event.
 		// the eventhandler can not directly remove the handled files from the "files" FileList as this property is read

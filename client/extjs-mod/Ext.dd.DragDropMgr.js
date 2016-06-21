@@ -82,6 +82,85 @@
 			// to fix drag and drop between overlapping elements
 			// we are removing use of this function as previous version of extjs was not having this function
 			return -1;
+		},
+
+		/**
+		 * Drag and drop initialization.Setting up the global event handlers on browser window
+		 * @param {Object} browserWindowObject The newly created window object
+         */
+		initEvents : function(browserWindowObject)
+		{
+			// Initialize mouse event handlers which are use to handle drag and drop in separate browser window.
+			Ext.EventManager.on(browserWindowObject.document, "mousemove", this.handleMouseMove, this, true);
+			Ext.EventManager.on(browserWindowObject.document, "mouseup", this.handleMouseUp, this, true);
+		},
+
+		/**
+		 * Checks the cursor location to see if it over the target
+		 * @method isOverTarget
+		 * @param {Ext.lib.Point} pt The point to evaluate
+		 * @param {DragDrop} oTarget the DragDrop object we are inspecting
+		 * @return {boolean} true if the mouse is over the target
+		 * @private
+		 */
+		isOverTarget: function(pt, oTarget, intersect) {
+			// use cache if available
+			var loc = this.locationCache[oTarget.id];
+			if (!loc || !this.useCache) {
+				loc = this.getLocation(oTarget);
+				this.locationCache[oTarget.id] = loc;
+
+			}
+
+			if (!loc) {
+				return false;
+			}
+
+			oTarget.cursorIsOver = loc.contains( pt );
+
+			// DragDrop is using this as a sanity check for the initial mousedown
+			// in this case we are done.  In POINT mode, if the drag obj has no
+			// contraints, we are also done. Otherwise we need to evaluate the
+			// location of the target as related to the actual location of the
+			// dragged element.
+			var dc = this.dragCurrent;
+			if (!dc || !dc.getTargetCoord || (!intersect && !dc.constrainX && !dc.constrainY)) {
+
+				// verified is cursor is over the target by location and position.
+				// But now we have multiple windows that's way it's require to check that
+				// the target element is belongs to active window or not?
+
+				if (oTarget.cursorIsOver) {
+					var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+					var targetOwnerWindow = Zarafa.core.BrowserWindowMgr.getOwnerWindow(oTarget);
+					return activeWindow === targetOwnerWindow;
+				} else {
+					return false
+				}
+			}
+
+			oTarget.overlap = null;
+
+			// Get the current location of the drag element, this is the
+			// location of the mouse event less the delta that represents
+			// where the original mousedown happened on the element.  We
+			// need to consider constraints and ticks as well.
+			var pos = dc.getTargetCoord(pt.x, pt.y);
+
+			var el = dc.getDragEl();
+			var curRegion = new Ext.lib.Region( pos.y,
+					pos.x + el.offsetWidth,
+					pos.y + el.offsetHeight,
+					pos.x );
+
+			var overlap = curRegion.intersect(loc);
+
+			if (overlap) {
+				oTarget.overlap = overlap;
+				return (intersect) ? true : oTarget.cursorIsOver;
+			} else {
+				return false;
+			}
 		}
 	});
 })();

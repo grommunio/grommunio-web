@@ -29,6 +29,11 @@ Zarafa.core.ui.ContentPanelToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 */
 	optionItems: [],
 	/**
+	 * @cfg {Array} rightAlignedItems The array of {@link Ext.Component} elements which should be added to the options {@link Ext.Button buttons} of the
+	 * {@link Zarafa.core.ui.Toolbar}. These elements can be extended by the main.dialog.[dialog].toolbar.options.right insertion point.
+	 */
+	rightAlignedItems : [],
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -66,6 +71,12 @@ Zarafa.core.ui.ContentPanelToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		// Initialize the items list with all buttons which were registered through insertion points.
 		this.addItems(this.actionItems, namespace + '.actions');
 		this.addItems(this.optionItems, namespace + '.options');
+
+		// It will render all rightAlignedItems to the Right side in toolbar
+		if(!Ext.isEmpty(this.rightAlignedItems)) {
+			this.rightAlignedItems = ["->"].concat(this.rightAlignedItems);
+			this.addItems(this.rightAlignedItems, namespace + '.options.right');
+		}
 	}
 });
 

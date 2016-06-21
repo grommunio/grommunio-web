@@ -284,7 +284,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 
 				// Overwrite newVlaue of editor only if it is not being same as well as not worked on currently.
 				if (body !== newValue && !this.editorField.getEditor().hasFocus || (newValue === this.editorField.getEditor().originalValue)) {
-					this.editorField.setValue(newValue);
+					this.editorField.setValue(body);
 				}
 			}
 		}

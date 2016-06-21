@@ -70,6 +70,36 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			}]
 		});
 
+		// Display the popout settings only if supported.
+		if (Zarafa.supportsPopOut()) {
+			config.items.splice(1, 0, {
+				xtype : 'displayfield',
+				hideLabel : true,
+				value : _('Open or compose a mail item in a') + ':'
+			},{
+				xtype : 'radiogroup',
+				name : 'zarafa/v1/main/base_content_layer',
+				ref : 'openingMailField',
+				columns : 1,
+				hideLabel : true,
+				items : [{
+					xtype : 'radio',
+					name : 'openingMail',
+					inputValue : 'tabs',
+					boxLabel : _('WebApp tab')
+				},{
+					xtype : 'radio',
+					name : 'openingMail',
+					inputValue : 'separateWindows',
+					boxLabel : _('Browser window')
+				}],
+				listeners : {
+					change : this.onRadioChange,
+					scope : this
+				}
+			});
+		}
+
 		Zarafa.mail.settings.SettingsMailWidget.superclass.constructor.call(this, config);
 	},
 
@@ -90,6 +120,11 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		}
 		this.previewCombo.setValue(previewLocation);
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
+
+		// There is popout settings only if supported.
+		if (Zarafa.supportsPopOut()) {
+			this.openingMailField.setValue(settingsModel.get(this.openingMailField.name));
+		}
 	},
 
 	/**
@@ -102,6 +137,11 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	{
 		settingsModel.set(this.previewCombo.name, this.previewCombo.getValue());
 		settingsModel.set(this.closeCheck.name, this.closeCheck.getValue());
+
+		// There is popout settings only if supported.
+		if (Zarafa.supportsPopOut()) {
+			settingsModel.set(this.openingMailField.name, this.openingMailField.getValue().inputValue);
+		}
 	},
 
 	/**
@@ -138,6 +178,21 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			if (this.model.get(checkbox.name) !== checked) {
 				this.model.set(checkbox.name, checked);
 			}
+		}
+	},
+
+	/**
+	 * Event handler which is fired when a {@link Ext.form.Radio} in the
+	 * {@link Ext.form.RadioGroup} has been changed. This will set the value
+	 * selected by user in settingsModel.
+	 * @param {Ext.form.RadioGroup} group The radio group which fired the event
+	 * @param {Ext.form.Radio} radio The radio which was enabled
+	 * @private
+	 */
+	onRadioChange : function(group, radio)
+	{
+		if (this.model && (this.model.get(group.name) !== radio.inputValue)) {
+			this.model.set(group.name, radio.inputValue);
 		}
 	}
 });
