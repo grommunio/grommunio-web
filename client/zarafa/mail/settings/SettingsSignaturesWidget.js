@@ -60,7 +60,6 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		Ext.applyIf(config, {
 			title : _('Signatures'),
-			favorite : true,
 			iconCls : 'zarafa-settings-favorite-signatures',
 			items : [{
 				xtype : 'container',

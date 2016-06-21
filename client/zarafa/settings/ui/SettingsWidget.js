@@ -17,20 +17,6 @@ Zarafa.settings.ui.SettingsWidget = Ext.extend(Ext.Panel, {
 	settingsContext : undefined,
 
 	/**
-	 * @cfg {Boolean} favorite Register this widget as shortcut
-	 * for the {@link Zarafa.settings.ui.SettingsFavoritePanel Favorite Panel}.
-	 * IMPORTANT: See the note at {@link Zarafa.settings.ui.SettingsFavoritePanel Favorite Panel}
-	 * regarding favorites registration.
-	 */
-	favorite : false,
-
-	/**
-	 * @cfg {String} iconCls The Icon which should be shown for this widget
-	 * when used in the {@link Zarafa.settings.ui.SettingsFavoritePanel favorites panel}.
-	 */
-	iconCls : undefined,
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
