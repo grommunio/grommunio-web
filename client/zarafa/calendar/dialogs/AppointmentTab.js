@@ -868,8 +868,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		var meetingLocation = this.record.get('location');
 
 		// If suggested location and current location is same then no need to set/suggest.
-		if(meetingLocation == locationSuggestion)
+		if(meetingLocation == locationSuggestion) {
 			return;
+		}
 
 		if(this.hasUserSetLocation === false || Ext.isEmpty(meetingLocation) || meetingLocation.toUpperCase() == locationSuggestion.toUpperCase()) {
 			// If user haven't changed location by himself or record's location is empty or

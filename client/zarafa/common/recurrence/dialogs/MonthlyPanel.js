@@ -363,8 +363,9 @@ Zarafa.common.recurrence.dialogs.MonthlyPanel = Ext.extend(Zarafa.common.recurre
 			layout = true;
 		}
 
-		if (layout)
+		if (layout) {
 			this.doLayout();
+		}
 	},
 
 	/**

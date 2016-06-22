@@ -190,10 +190,11 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 			getIcon : function(message_class)
 			{
 				// TODO: Create new Icons for Distlist and contacts for cardview.
-				if(message_class == "IPM.DistList")
+				if(message_class == "IPM.DistList") {
 					return '<div class="zarafa-contact-cardview-distlist-card"></div>';
-				else
+				} else {
 					return '<div class="zarafa-contact-cardview-contact-card"></div>';
+				}
 			}
 		});
 	}

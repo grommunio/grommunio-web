@@ -115,8 +115,9 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	 */
 	resolve : function()
 	{
-		if (this.store)
+		if (this.store) {
 			this.store.resolve(this);
+		}
 	},
 
 	/**
@@ -215,8 +216,9 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 			equalStrB = record.get('display_name') || '';
 		}
 
-		if (equalStrA.toUpperCase() == equalStrB.toUpperCase())
+		if (equalStrA.toUpperCase() == equalStrB.toUpperCase()) {
 			return true;
+		}
 
 		// TODO: Compare on entryid?
 
@@ -353,8 +355,9 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 
 		this.endEdit();
 
-		if(!Ext.isDefined(silent) || silent === false)
+		if(!Ext.isDefined(silent) || silent === false) {
 			this.store.fireEvent('resolved', this.store, [ this ]);
+		}
 	},
 
 	/**

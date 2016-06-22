@@ -148,8 +148,9 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 
 		Ext.each(record.getIdProps(), function(idProp) {
 			var id = record.get(idProp);
-			if (allowEmpty || Ext.isDefined(id))
+			if (allowEmpty || Ext.isDefined(id)) {
 				hash[idProp] = id;
+			}
 		}, this);
 
 		this.addMessageActionsHash(hash, record);
@@ -208,9 +209,10 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 */
 	removeIdHashFromProps : function(hash, record)
 	{
-		Ext.each(record.getIdProps(), function(idProp) {
-			if(Ext.isDefined(hash.props) && Ext.isDefined(hash.props[idProp]))
-				delete hash.props[idProp];
+		Ext.each(record.getIdProps(), function(idProp) { 
+			if (Ext.isDefined(hash.props) && Ext.isDefined(hash.props[idProp])) {
+				delete hash.props[idProp]; 
+			}
 		}, this);
 	},
 
@@ -230,8 +232,9 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 		var message_action = {};
 
 		// No Message actions defined
-		if (!Ext.isDefined(actions))
+		if (!Ext.isDefined(actions)) {
 			return;
+		}
 
 		for (var key in actions) {
 			if (Ext.isDefined(actions[key])) {

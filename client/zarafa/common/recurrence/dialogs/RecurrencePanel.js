@@ -489,8 +489,9 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			layout = true;
 		}
 
-		if (layout)
+		if (layout) {
 			this.doLayout();
+		}
 	},
 
 	/**

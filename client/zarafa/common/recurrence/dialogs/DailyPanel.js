@@ -240,8 +240,9 @@ Zarafa.common.recurrence.dialogs.DailyPanel = Ext.extend(Zarafa.common.recurrenc
 			layout = true;
 		}
 
-		if (layout)
+		if (layout) {
 			this.doLayout();
+		}
 	},
 
 	/**

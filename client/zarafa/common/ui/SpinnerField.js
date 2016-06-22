@@ -47,8 +47,9 @@ Zarafa.common.ui.SpinnerField = Ext.extend(Ext.form.TextField, {
 			// check whether any plugin is added to the field if so validate the value according to plugin
 			if(Ext.isDefined(this.plugins)){
 				Ext.each(this.plugins, function(comp){
-					if(Ext.isFunction(comp.validate))
-					comp.validate();
+					if (Ext.isFunction(comp.validate)) {
+						comp.validate();
+					}
 				},this);
 			}else{
 				this.validate();

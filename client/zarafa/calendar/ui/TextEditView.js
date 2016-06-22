@@ -229,8 +229,9 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onLayout : function()
 	{
-		if (!this.rendered)
+		if (!this.rendered) {
 			return;
+		}
 
 		if (this.visible) {
 			if (this.parentView.isHeaderRange(this.getDateRange())) {

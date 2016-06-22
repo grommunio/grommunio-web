@@ -100,8 +100,9 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 	 */
 	eventOverHeaderStartHandle: function(event)
 	{
-		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0)
+		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0) {
 			return false;
+		}
 
 		var position = this.getEventHeaderPosition(event);
 		var element = {
@@ -122,8 +123,9 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 	 */
 	eventOverHeaderDueHandle : function(event)
 	{
-		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0)
+		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0) {
 			return false;
+		}
 
 		var position = this.getEventHeaderPosition(event);
 		var element = {
@@ -144,8 +146,9 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 	 */
 	eventOverHeader : function(event)
 	{
-		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0)
+		if (!this.isHeaderRange() || !this.bounds || this.bounds.length === 0) {
 			return false;
+		}
 
 		var position = this.getEventHeaderPosition(event);
 

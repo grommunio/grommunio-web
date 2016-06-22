@@ -22,8 +22,9 @@ Zarafa.common.plugins.SpinnerPlugin = Ext.extend(Ext.ux.Spinner, {
 		Zarafa.common.plugins.SpinnerPlugin.superclass.doRender.call(this, ct, position);
 		this.field.trigger = this.trigger;
 
-		if (!Ext.isDefined(this.field.getTriggerWidth))
+		if (!Ext.isDefined(this.field.getTriggerWidth)) {
 			this.field.getTriggerWidth = Ext.form.TriggerField.prototype.getTriggerWidth;
+		}
 	},
 
 	/**

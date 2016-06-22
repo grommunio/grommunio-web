@@ -148,8 +148,9 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		var mailEnd = str.indexOf('>');
 
 		if ((mailStart != -1 && mailEnd == -1) ||
-			(mailStart == -1 && mailEnd != -1))
+			(mailStart == -1 && mailEnd != -1)) {
 				return null;
+		}
 
 		recipient.beginEdit();
 		if (mailStart != -1) {

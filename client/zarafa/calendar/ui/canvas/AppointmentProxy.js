@@ -179,8 +179,9 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	clearTimeText : function()
 	{
-		if (this.body.length>0)
+		if (this.body.length > 0) {
 			this.getFirstBodyElement().dom.innerHTML = '';
+		}
 	},
 
 	/**

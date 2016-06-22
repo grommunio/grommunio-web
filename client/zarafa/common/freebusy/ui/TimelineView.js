@@ -667,12 +667,15 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	afterRender : function(){
 		Zarafa.common.freebusy.ui.TimelineView.superclass.afterRender.apply(this, arguments);
 
-		if (this.model.getBlockStore())
-			this.bindBlockStore(this.model.getBlockStore(), true);
-		if (this.model.getSumBlockStore())
+		if (this.model.getBlockStore()) {
+			this.bindBlockStore(this.model.getBlockStore(), true); 
+		}
+		if (this.model.getSumBlockStore()) {
 			this.bindSumBlockStore(this.model.getSumBlockStore(), true);
-		if (this.model.getUserStore())
+		}
+		if (this.model.getUserStore()) {
 			this.bindUserStore(this.model.getUserStore(), true);
+		}
 	},
 
 	/**
@@ -1540,19 +1543,21 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 	 * @private
 	 */
 	findDayIndexByTimestamp: function(timestamp, inclusive){
-		if(!Ext.isDefined(inclusive)) inclusive = true;
+		if (!Ext.isDefined(inclusive)) {
+			inclusive = true;
+		}
 
 		/**
 		 * If date takes place before the start of te first day in the daysMap the selector will
 		 * select from the first day in the daysMap.
 		 */
 		var dayIndex = 0;
-		for(var i=0;i<this.daysMap.length;i++){
-			if(inclusive && this.daysMap[i].timestamp <= timestamp){
+		for (var i = 0; i < this.daysMap.length; i++){
+			if (inclusive && this.daysMap[i].timestamp <= timestamp) {
 				dayIndex = i;
-			}else if(!inclusive && this.daysMap[i].timestamp < timestamp){
+			} else if (!inclusive && this.daysMap[i].timestamp < timestamp) {
 				dayIndex = i;
-			}else{
+			} else {
 				break;
 			}
 		}

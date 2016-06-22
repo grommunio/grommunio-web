@@ -165,14 +165,17 @@ Zarafa.core.mapi.StoreSupportMask = Zarafa.core.Enum.create({
 	 */
 	hasSearchSupport : function(storeSupportMask)
 	{
-		if(!Ext.isNumber(storeSupportMask))
+		if (!Ext.isNumber(storeSupportMask)) {
 			storeSupportMask = parseInt(storeSupportMask, 10);
+		}
 
-		if(!Ext.isNumber(storeSupportMask))
+		if (!Ext.isNumber(storeSupportMask)) {
 			return false;
+		}
 
-		if(storeSupportMask & this.STORE_SEARCH_OK)
+		if (storeSupportMask & this.STORE_SEARCH_OK) {
 			return true;
+		}
 
 		return false;
 	}

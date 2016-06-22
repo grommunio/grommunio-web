@@ -193,8 +193,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	 */
 	createFreeBlockStore : function()
 	{
-		if (!this.freeBlockStore)
+		if (!this.freeBlockStore) {
 			this.freeBlockStore = new Zarafa.common.freebusy.data.FreebusyBlockStore({ remoteSort: false});
+		}
 		return this.freeBlockStore;
 	},
 
@@ -231,8 +232,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	{
 		var oldNonWorkingHoursHidden = this.nonWorkingHoursHidden;
 		this.nonWorkingHoursHidden = hide;
-		if (oldNonWorkingHoursHidden != this.nonWorkingHoursHidden)
+		if (oldNonWorkingHoursHidden != this.nonWorkingHoursHidden) {
 			this.fireEvent('showworkinghourschange', this.nonWorkingHoursHidden);
+		}
 		return this.nonWorkingHoursHidden;
 	},
 
@@ -281,8 +283,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		}
 
 		this.fireEvent('userstorechange', this.userStore, oldUserStore);
-		if (this.userStore !== oldUserStore && oldUserStore && oldUserStore.autoDestroy)
+		if (this.userStore !== oldUserStore && oldUserStore && oldUserStore.autoDestroy) {
 			oldUserStore.destroy();
+		}
 
 		return this.userStore;
 	},
@@ -325,8 +328,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		}
 
 		this.fireEvent('blockstorechange', this.blockStore, oldBlockStore);
-		if (this.blockStore !== oldBlockStore && oldBlockStore && oldBlockStore.autoDestroy)
+		if (this.blockStore !== oldBlockStore && oldBlockStore && oldBlockStore.autoDestroy) {
 			oldBlockStore.destroy();
+		}
 
 		return this.blockStore;
 	},
@@ -367,8 +371,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		}
 
 		this.fireEvent('sumblockstorechange', this.sumBlockStore, oldSumBlockStore);
-		if (this.sumBlockStore !== oldSumBlockStore && oldSumBlockStore && oldSumBlockStore.autoDestroy)
+		if (this.sumBlockStore !== oldSumBlockStore && oldSumBlockStore && oldSumBlockStore.autoDestroy) {
 			oldSumBlockStore.destroy();
+		}
 
 		return this.sumBlockStore;
 	},
@@ -401,8 +406,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		this.suggestionBlockStore = Ext.StoreMgr.lookup(store);
 
 		this.fireEvent('suggestionblockstorechange', this.suggestionBlockStore, oldSuggestionBlockStore);
-		if (this.suggestionBlockStore !== oldSuggestionBlockStore && oldSuggestionBlockStore && oldSuggestionBlockStore.autoDestroy)
+		if (this.suggestionBlockStore !== oldSuggestionBlockStore && oldSuggestionBlockStore && oldSuggestionBlockStore.autoDestroy) {
 			oldSuggestionBlockStore.destroy();
+		}
 
 		return this.suggestionBlockStore;
 	},
@@ -556,10 +562,11 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		// the duration has been set, we must assume a forced update
 		// must be performed. So just fire the update event manually.
 		//
-		if (this.suggestionRange.getStartTime() !== start.getTime())
+		if (this.suggestionRange.getStartTime() !== start.getTime()) {
 			this.suggestionRange.set(start, due);
-		else if (Ext.isDefined(duration))
+		} else if (Ext.isDefined(duration)) {
 			this.suggestionRange.fireEvent('update', this.suggestionRange);
+		}
 	},
 
 	/**
@@ -725,8 +732,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 	mergeRecordIntoSumBlock : function(record, sumRecord)
 	{
 		// Status is different, we can't merge the record into sumRecord
-		if (record.get('status') !== sumRecord.get('status'))
+		if (record.get('status') !== sumRecord.get('status')) {
 			return false;
+		}
 
 		// Obtain the start & end timestamps for each record
 		var start = record.get('start');
@@ -736,13 +744,15 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 
 		// If the block is completely outside the sumBlock,
 		// we can't do merge the record.
-		if (end < sumStart || sumEnd < start)
+		if (end < sumStart || sumEnd < start) {
 			return false;
+		}
 
 		// If the sumblock completely encapsulates the block,
 		// we don't need to do anything, except marking the record as merged.
-		if (sumStart <= start && end <= sumEnd)
+		if (sumStart <= start && end <= sumEnd) {
 			return true;
+		}
 
 		// If the block completely encapsulates the sumblock,
 		// we need to replace the sumblock with the new block.
@@ -797,11 +807,13 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 		Ext.each(records, function(record) {
 			//  We are not generating sumBlocks for the free status.
 			var busyStatus = record.get('status');
-			if (busyStatus === Zarafa.core.mapi.BusyStatus.UNKNOWN || busyStatus === Zarafa.core.mapi.BusyStatus.FREE)
+			if (busyStatus === Zarafa.core.mapi.BusyStatus.UNKNOWN || busyStatus === Zarafa.core.mapi.BusyStatus.FREE) {
 				return true;
+			}
 
-			if (splitBusyStatus === false)
+			if (splitBusyStatus === false) {
 				busyStatus = Zarafa.core.mapi.BusyStatus.BUSY;
+			}
 
 			// The first item can be inserted directly
 			if (sumBlockStore.getCount() === 0) {
@@ -1111,8 +1123,9 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			// remove appointments occuring extremely before our selected time
 			if (record.get('end') > periodStartTime) {
 				// check if we are really interested in this block
-				if (record.get('status') === Zarafa.core.mapi.BusyStatus.FREE || record.get('status') === Zarafa.core.mapi.BusyStatus.UNKNOWN)
+				if (record.get('status') === Zarafa.core.mapi.BusyStatus.FREE || record.get('status') === Zarafa.core.mapi.BusyStatus.UNKNOWN) {
 					continue;
+				}
 
 				// before we have sorted the records based on start time so we will be having a record which either
 				// overlaps current selected time or doesn't overlap it

@@ -221,10 +221,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	{
 		// get height / width of header's parent as that container is scrollable and
 		// will give proper viewable height / width for comparison
-		if (Zarafa.core.Util.inside(this.header.parent().getBox(), x, y))
+		if (Zarafa.core.Util.inside(this.header.parent().getBox(), x, y)) {
 			return this.locationToDate(x - this.header.getX(), 0);
-		else
+		} else {
 			return this.locationToDate(x - this.body.getX(), y - this.body.getY());
+		}
 	},
 
 	/**
@@ -332,8 +333,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 
 		// if dueDate>=startDate, return false. We don't swap the dates here to force a valid
 		// bounds array because that should be handled in the caller
-		if (dueDate.getTime() <= startDate.getTime())
+		if (dueDate.getTime() <= startDate.getTime()) {
 			return [];
+		}
 
 		var startDay = this.getDayColumn(startDate);
 		var dueDay = this.getDayColumn(dueDate);
@@ -582,7 +584,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 				clusterDueDate = dueDate;
 			}
 		}
-		if (cluster.length>0) clusters.push(cluster);
+		if (cluster.length > 0) {
+			clusters.push(cluster);
+		}
 
 		return clusters;
 	},
@@ -604,8 +608,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 		// Make a list of appointments that are displayed on the calendar body
 		var bodyAppointments = [];
 		Ext.each(this.appointments, function(appointment) {
-			if (!this.isHeaderRange(appointment.getDateRange()))
+			if (!this.isHeaderRange(appointment.getDateRange())) {
 				bodyAppointments.push(appointment);
+			}
 		}, this);
 
 		var clusters = this.getAppointmentClusters(bodyAppointments);
@@ -624,8 +629,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 		// Make a list of appointments that are displayed in the calendar header area
 		var headerAppointments = [];
 		Ext.each(this.appointments, function(appointment) {
-			if (this.isHeaderRange(appointment.getDateRange()))
+			if (this.isHeaderRange(appointment.getDateRange())) {
 				headerAppointments.push(appointment);
+			}
 		}, this);
 
 		this.doGreedyColoring(headerAppointments, true);

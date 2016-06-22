@@ -78,8 +78,9 @@ Zarafa.contact.dialogs.ContactPhonePanel = Ext.extend(Ext.form.FormPanel, {
 	 */
 	update : function(record, contentReset)
 	{
-		if (!Ext.isDefined(record))
+		if (!Ext.isDefined(record)) {
 			return;
+		}
 
 		if (Ext.isEmpty(this.parsedData) && !Ext.isEmpty(record.get(this.property))) {
 			var newParsedData = this.parser.parseInfo('phone', record.get(this.property));
