@@ -81,12 +81,11 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 					xtype : 'container',
 					flex : 1,
 					layout : {
-						type : 'hbox',
+						type : 'fit',
 						align : 'stretch'
 					},
 					items : [{
 						xtype : 'zarafa.settingscategorywidgetpanel',
-						flex : 0.8,
 						context : config.context,
 						items : items
 					}]
@@ -97,7 +96,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 					xtype : 'container',
 					height : 50,
 					layout : {
-						type : 'hbox',
+						type : 'fit',
 						align : 'stretch'
 					},
 					items : [{
@@ -108,20 +107,11 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 						// similar to a Ext.Panel#buttons toolbar
 						xtype : 'container',
 						cls : 'x-panel-btns',
-						flex : 0.8,
 						layout : 'fit',
 						items : [{
 							xtype : 'toolbar',
-							enableOverflow : false,
 							toolbarCls : 'x-panel-footer',
-							cls : 'x-panel-fbar',
-							flex : 0.8,
 							buttonAlign : 'right',
-							defaults : {
-								// Bit hackish, but just obtain the default
-								// button width
-								minWidth : Ext.Panel.prototype.minButtonWidth
-							},
 							items : [{
 								xtype : 'button',
 								cls : 'zarafa-action',
@@ -130,7 +120,6 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 								scope : this
 							},{
 								xtype : 'button',
-								// # TRANSLATORS: Used for the button in the settings context to revert to whatever the user had set before he started editing the settings.
 								text : _('Discard'),
 								handler : this.onDiscard,
 								scope : this
