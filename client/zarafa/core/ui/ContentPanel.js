@@ -62,6 +62,12 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	 * @cfg {String} iconCls Icon class for the tab
 	 */
 	iconCls : undefined,
+	
+	/**
+	 * @cfg {Boolean} useInputAutoFocusPlugin True to use the inputautofocusplugin for
+	 * this panel
+	 */
+	useInputAutoFocusPlugin : true,
 
 	/**
 	 * @constructor
@@ -71,10 +77,12 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	{
 		config = config || {};
 
-		config.plugins = Ext.value(config.plugins, []);
-		config.plugins.push({
-			ptype : 'zarafa.inputautofocusplugin'
-		});
+		if ( config.useInputAutoFocusPlugin !== false ) {
+			config.plugins = Ext.value(config.plugins, []);
+			config.plugins.push({
+				ptype : 'zarafa.inputautofocusplugin'
+			});
+		}
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.contentpanel',
