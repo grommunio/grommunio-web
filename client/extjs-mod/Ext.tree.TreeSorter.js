@@ -10,7 +10,12 @@
 			// Check if the node has children which
 			// can be sorted.
 			if (node.childNodes) {
+				var activeElement = document.activeElement;
 				node.sort(this.sortFn);
+				// If the former active element still exist, give it the focus again
+				if ( activeElement ){
+					activeElement.focus();
+				}
 			}
 		}
 	});
