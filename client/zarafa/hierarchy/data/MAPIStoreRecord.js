@@ -13,6 +13,7 @@ Ext.namespace('Zarafa.hierarchy.data');
  */
 Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'store_entryid'},
+	{name: 'common_view_entryid'},
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_STORE},
 	{name: 'display_name'},
 	{name: 'mdb_provider'},
@@ -55,6 +56,7 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_STORE, Zarafa.hierarchy.data.MAPIStoreRecordFields);
 Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_STORE, 'folders', Zarafa.hierarchy.data.IPFSubStore);
+Zarafa.core.data.RecordFactory.setSubStoreToObjectType(Zarafa.core.mapi.ObjectType.MAPI_STORE, 'favorites', Zarafa.common.favorites.data.MAPIFavoritesSubStore);
 
 Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectType.MAPI_STORE, 'createphantom', function(record) {
 	// Phantom records must always be marked as opened (they contain the full set of data)
@@ -211,6 +213,19 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	},
 
 	/**
+	 * Function is used to get the favorites root folder.
+	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} favorites root folder.
+	 */
+	getFavoritesRootFolder : function ()
+	{
+		var defaultStore = container.getHierarchyStore().getDefaultStore();
+		if(defaultStore) {
+			return defaultStore.getFolder(this.get('common_view_entryid'));
+		}
+		return false;
+	},
+
+	/**
 	 * Not to be implemented by {@link Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord}
 	 * Get the Message Action list for the {@link Zarafa.core.data.MAPIRecord record}.
 	 * @return {Mixed} The Message Action list.
@@ -292,6 +307,19 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	getFolderStore : function()
 	{
 		return this.getSubStore('folders');
+	},
+
+	/**
+	 * Get the favorites store for the {@link Zarafa.core.data.IPFRecord IPFRecord}.
+	 * @returns {Zarafa.hierarchy.data.IPFSubStore} The Favorites store.
+	 */
+	getFavoritesStore : function ()
+	{
+		var defaultStore = container.getHierarchyStore().getDefaultStore();
+		if(defaultStore) {
+			return defaultStore.getSubStore('favorites');
+		}
+		return false;
 	}
 });
 

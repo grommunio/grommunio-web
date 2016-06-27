@@ -221,7 +221,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
-					
+
 					// Store the color of the chosen color scheme, so we can use it later 
 					// to build a icon (more precisely just a div with a background color)
 					// in the context menu
@@ -230,7 +230,31 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				}
 			},
 			menu : this.createSelectColorSubmenu(config)
-		}, {
+		},{
+			text : _('Add to Favorites'),
+			iconCls : 'icon_folder_favorites',
+			hidden : true,
+			beforeShow : function(item, record) {
+				if(!record.isInDeletedItems()) {
+					var isVisible = record.existsInFavorites();
+					if(!isVisible && record.isIPMSubTree()) {
+						isVisible = !record.isOwnRoot();
+					}
+					item.setDisabled(isVisible);
+				}
+			},
+			handler : this.onContextItemFavorites
+		},{
+			text : _('Remove From Favorites'),
+			hidden : true,
+			iconCls : 'icon_remove_favorites',
+			beforeShow : function(item, record) {
+				if(record.existsInFavorites()) {
+					item.setDisabled(false);
+				}
+			},
+			handler : this.onContextItemFavoritesRemove
+		},{
 			text : _('Properties'),
 			handler : this.onContextItemProperties,
 			iconCls : 'icon_openMessageOptions',
@@ -344,15 +368,25 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			msg,
 			function (buttonClicked) {
 				if (buttonClicked == 'yes') {
-					var store = this.records.getStore();
+					var record = this.records;
 
-					if (isFolderDeleted) {
-						store.remove(this.records);
-					} else {
-						this.records.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+					/**
+					 * If folder is exist in favorites list then remove favorites folder from favorites store.
+					 */
+					if (record.existsInFavorites()) {
+						var favoriteRecord = record.getFavoritesFolder();
+						favoriteRecord.getStore().remove(favoriteRecord);
 					}
 
-					store.save(this.records);
+					var store = record.getStore();
+
+					if (isFolderDeleted) {
+						store.remove(record);
+					} else {
+						record.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+					}
+
+					store.save(record);
 				}
 			},
 			this);
@@ -479,6 +513,39 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	onContextItemRestore : function()
 	{
 		Zarafa.common.Actions.openRestoreContent(this.records);
+	},
+
+	/**
+	 * Event handler triggers when 'Add to Favorites' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
+	 * Add to Favorites mark as Favorites to selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
+	 */
+	onContextItemFavorites : function()
+	{
+		// Fixme : Rather to create copy of record, create phantom link message and use it.
+		var copyRecord = this.records.copy();
+		var shadowStore = container.getShadowStore();
+		copyRecord.phantom = true;
+		shadowStore.add(copyRecord);
+		copyRecord.addToFavorites();
+		shadowStore.save(copyRecord);
+		copyRecord.phantom = false;
+		shadowStore.remove(copyRecord, true);
+	},
+
+	/**
+	 * Event handler triggers when 'Remove From Favorites' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
+	 * Remove From Favorites menu option unmark selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} from Favorite list .
+	 */
+	onContextItemFavoritesRemove : function()
+	{
+		var record = this.records;
+		if(record.existsInFavorites()) {
+			record = record.getFavoritesFolder();
+			var store = record.getStore();
+			store.remove(record);
+			record.removeFromFavorites();
+			store.save(record);
+		}
 	}
 });
 

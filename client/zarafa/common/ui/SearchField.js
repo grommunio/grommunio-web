@@ -183,7 +183,7 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 	getEmptySearchText : function(folder)
 	{
 		if(folder) {
-			var folderName = folder.get('display_name');
+			var folderName = folder.getDisplayName();
 			var userName = folder.getMAPIStore().get('mailbox_owner_name');
 			var emptyText = String.format(_('Search in "{0} - {1}"'), folderName, userName);
 			return emptyText;

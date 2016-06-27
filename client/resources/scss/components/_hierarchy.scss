@@ -18,10 +18,11 @@
 	}
 }
 
-.zarafa-tree-ipm-subtree-container {
-	padding: $padding-extra-large 0 $padding-medium;
+.zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
+  padding: $padding-extra-large 0 $padding-medium;
 }
-.zarafa-tree-ipm-subtree-container:last-child {
+
+.zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child{
 	padding-bottom: $padding-extra-large;
 }
 
@@ -124,6 +125,10 @@
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
 	color: $green;
 }
+.zarafa-hierarchy-node-owner {
+  font-weight: normal;
+  color: $grey6 !important;
+}
 
 .zarafa-tree-node.zarafa-hierarchy-node-withcounter {
 	font-weight: bold;
@@ -146,6 +151,11 @@
     .x-tree-node-el .x-tree-node-icon.icon_folder_store {
       @extend .icon_inbox;
       background-position: sprite-position($iconsmap, icon_inbox, $offset-y: 2, $offset-x: 0);
+    }
+
+    .x-tree-node-el .x-tree-node-icon.icon_folder_favorites {
+      @extend .icon_favorites;
+      background-position: sprite-position($iconsmap, icon_favorites, $offset-y: 2, $offset-x: -2);
     }
 
     .x-tree-node-el .x-tree-node-icon.icon_folder_appointment ,

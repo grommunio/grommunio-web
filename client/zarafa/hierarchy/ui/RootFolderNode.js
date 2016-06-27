@@ -26,8 +26,12 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 		var nodeCls = 'zarafa-tree-root-node';
 
 		// Format IPM subtree container differently
-		if (config.folder && config.folder.isIPMSubTree()) {
-			containerCls += ' zarafa-tree-ipm-subtree-container';
+		if (config.folder) {
+			if (config.folder.isIPMSubTree()) {
+				containerCls += ' zarafa-tree-ipm-subtree-container';
+			} else if (config.folder.isFavoritesRootFolder()) {
+				containerCls += ' zarafa-tree-ipm-subtree-favorites-container';
+			}
 			nodeCls += ' zarafa-tree-ipm-subtree-node';
 		}
 
@@ -48,9 +52,10 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 	 * be called just before the event handlers will run to allow the default action to be cancelled.
 	 *
 	 * When the folder is the {@link Zarafa.hierarchy.data.MAPIFolderRecord#isIPMSubtree subtree} of
-	 * a non-{@link Zarafa.hierarchy.data.MAPIStoreRecord#isDefaultStore default} store then the click
+	 * a non-{@link Zarafa.hierarchy.data.MAPIStoreRecord#isDefaultStore default} store or 
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord#isFavoritesRootFolder FavoritesRootFolder} then click
 	 * action will be cancelled. The reason is that by default there are no actions possible on
-	 * a IPM_SUBTREE folder.
+	 * a IPM_SUBTREE or Favorites(IPM_COMMON_VIEWS) folder.
 	 *
 	 * Another case for which we will allow the click action is if the folder has the 'is_unavailable'
 	 * property set. This indicates that the folder is fake, and by allowing the user to interact
@@ -62,7 +67,9 @@ Zarafa.hierarchy.ui.RootFolderNode = Ext.extend(Zarafa.hierarchy.ui.FolderNode, 
 	onBeforeClick : function(node)
 	{
 		var folder = node.getFolder();
-		if (folder && folder.isIPMSubTree()) {
+		if (folder.isFavoritesRootFolder()) {
+			return false;
+		} else if (folder && folder.isIPMSubTree()) {
 			return folder.getMAPIStore().isDefaultStore() || folder.get('is_unavailable') === true;
 		}
 	},

@@ -109,7 +109,7 @@ Zarafa.hierarchy.ui.FolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 			this.setContainerCls(this.attributes.containerCls);
 		}
 
-		if (!folder.get('has_subfolder')) {
+		if (!folder.get('has_subfolder') && !folder.isFavoritesRootFolder()) {
 			this.removeAll(true);
 		}
 	},

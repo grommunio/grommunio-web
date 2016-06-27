@@ -113,12 +113,23 @@ Zarafa.core.data.IPFStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 				records = [ records ];
 			}
 
+			var isFavoritesStoreInstance = this instanceof Zarafa.common.favorites.data.MAPIFavoritesSubStore;
+
 			if (action === Ext.data.Api.actions.create) {
 				for (var i = 0, len = records.length; i < len; i++) {
 					var rec = records[i];
 					var storeRec = this.containsStoreInLastLoad(rec.get('store_entryid'));
 
-					if (rec.store !== this && storeRec) {
+					// Notify Zarafa.hierarchy.data.MAPIFavoritesSubStore when record/folder is Favorites folder.
+					if (rec.isFavoritesFolder()) {
+						// Requires separate check here because there are many cases
+						// where record was favorites marked but store is not favorites store in that case don't do
+						// anything.
+						if (isFavoritesStoreInstance) {
+							results.records.push(rec.copy());
+							results.updatedRecords.push(rec);
+						}
+					} else if (rec.store !== this && storeRec && !isFavoritesStoreInstance) {
 						results.records.push(rec.copy());
 						results.updatedRecords.push(rec);
 					}
@@ -128,7 +139,7 @@ Zarafa.core.data.IPFStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 					var rec = records[i];
 					var storeRec = this.getById(rec.get('entryid'));
 
-					if (storeRec !== this && storeRec) {
+					if (storeRec !== this && storeRec && !rec.isFavoritesFolder() && !isFavoritesStoreInstance) {
 						results.records.push(storeRec);
 						results.updatedRecords.push(rec);
 					}
@@ -201,7 +212,7 @@ Zarafa.core.data.IPFStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 * which came from the server.
 	 */
 	onExternalWrite : function(store, action, data, res, record)
-	{   
+	{
 		if (store === this) {
 			return;
 		}

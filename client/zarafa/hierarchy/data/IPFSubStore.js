@@ -243,9 +243,13 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			data = [ data ];
 		}
 
+		var isFavoritesStoreInstance = this instanceof Zarafa.common.favorites.data.MAPIFavoritesSubStore;
+
 		if (data[0] instanceof Ext.data.Record) {
 			this.loadRecords({ records : data }, { add : true });
-		} else {
+		} else if(!isFavoritesStoreInstance) {
+			// Don't go for loadData if store is MAPIFavoritesSubStore because we are never
+			// send non Ext.data.Record in server side notification.
 			this.loadData({ item : data }, true);
 		}
 	},
@@ -276,7 +280,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			for (var i = 0, len = this.removed.length; i < len; i++) {
 				var item = this.removed[i];
 
-				if (item.isSharedFolder()) {
+				if (item.isSharedFolder() && !item.isFavoritesFolder()) {
 					sharedfolders.push(item);
 				} else {
 					removed.push(item);
@@ -338,7 +342,6 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				// only the user_name and folder_type.
 				sharedfolder.addIdProp('user_name');
 				sharedfolder.addIdProp('folder_type');
-				sharedfolder.removeIdProp('entryid');
 				sharedfolder.removeIdProp('parent_entryid');
 				sharedfolder.removeIdProp('store_entryid');
 
