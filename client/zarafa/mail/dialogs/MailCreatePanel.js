@@ -149,6 +149,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				scope: this
 			},{
 				xtype: 'zarafa.recipientfield',
+				ref: '../toRecipientField',
 				enableKeyEvents : true,
 				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 				flex: 1,
