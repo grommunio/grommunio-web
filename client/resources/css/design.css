@@ -7845,18 +7845,40 @@ span.zarafa-emailaddress-link:hover {
   padding-bottom: 18px;
 }
 /* line 232, ../scss/components/_createitempanels.scss */
+.zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box_ct {
+  width: 94px !important;
+  height: 94px !important;
+  background: #222222;
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+  border: 1px solid #e6e6e6;
+  padding: 3px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently not supported by any browser */
+}
+/* line 245, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box {
+  margin: 3px 0 0 3px;
   width: 94px;
   height: 94px;
-  padding: 3px;
   cursor: pointer;
-  border: 1px solid #e6e6e6;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-color: #ffffff;
 }
-/* line 239, ../scss/components/_createitempanels.scss */
+/* line 255, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box:hover {
-  border-color: #dadada;
+  border-color: #222222;
 }
-/* line 243, ../scss/components/_createitempanels.scss */
+/* line 258, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .default_contact_photo {
   background: url(../images/default_contact_profile.png) no-repeat center center;
 }
@@ -7864,14 +7886,14 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Distlist create panel
  *********************************************************************/
-/* line 255, ../scss/components/_createitempanels.scss */
+/* line 270, ../scss/components/_createitempanels.scss */
 .zarafa-distlist-createpanel-memberstab .buttons td {
   padding-bottom: 3px;
   /*needed to show the shadow of the buttons*/
 }
 
 /* textarea duplicate border */
-/* line 263, ../scss/components/_createitempanels.scss */
+/* line 278, ../scss/components/_createitempanels.scss */
 .zarafa-mailcreatepanel-field-editor.x-form-textarea {
   border-width: 1px 0px 0px;
 }
@@ -7879,7 +7901,7 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Task create panel
  *********************************************************************/
-/* line 270, ../scss/components/_createitempanels.scss */
+/* line 285, ../scss/components/_createitempanels.scss */
 .zarafa-taskcreatepanel-field-attachments {
   padding-top: 6px;
 }

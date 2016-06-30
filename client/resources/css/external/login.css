@@ -58,7 +58,7 @@ body.login #form-container,
   position: relative;
   overflow: hidden;
   z-index: 20010;
-  color: #444545;
+  color: #222222;
   /* clearfix */
 }
 /* line 49, ../../scss/external/login.scss */

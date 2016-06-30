@@ -175,6 +175,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			items : {
 				xtype : 'box',
 				cls : 'contact_photo_box default_contact_photo',
+				ctCls: 'contact_photo_box_ct',
 				autoEl : {
 					tag : 'img',
 					src : Ext.BLANK_IMAGE_URL
@@ -776,17 +777,67 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var attachmentStore = this.record.getAttachmentStore();
 		var imageField = this.contactPhotoBox.getEl();
 
+		// Set an event handler for the load event of the image
+		imgEl = new Ext.Element(Ext.getDoc().dom.createElement('img'));
+		imgEl.on('load', this.onLoadContactPhoto, this, {single: true});
+		
 		// update the new contact photo in contact picture field.
 		if(imageField && attachmentStore.getCount() > 0) {
 			attachmentStore.each(function(attach) {
 				if(attach.isContactPhoto()) {
-					Ext.getDom(imageField).src = attach.getInlineImageUrl();
+					imgEl.set({'src': attach.getInlineImageUrl()});
+					imageField.setStyle({'background-image': 'url(' + encodeURI(attach.getInlineImageUrl()) + ')'});
 					this.hasContactPhoto = true;
 					this.record.set('has_picture', true);
 					this.contactPhotoBox.removeClass('default_contact_photo');
+					
+					return false;
 				}
 			}, this);
 		}
+	},
+	
+	/**
+	 * Event handler for the load event of the contact photo. It resizes the image
+	 * if necessary and places it on the right position. 
+	 * @param {Ext.EventObject} event The load event
+	 * @param {HtmlElement} The img element that fired the load event
+	 */
+	onLoadContactPhoto : function(event, img)
+	{
+		var imageField = this.contactPhotoBox.getEl();
+		var imgEl = Ext.get(img);
+		var ct = imageField.up('.contact_photo_box_ct');
+		var ctPadding = ct.getPadding('lr');
+		var maxWidth = ct.getWidth() - ctPadding - 2; // Subtract two for border
+		var imageWidth = imgEl.dom.naturalWidth;
+		var imageHeight = imgEl.dom.naturalHeight;
+		var width, height, backgroundSize;
+		if ( imageWidth < maxWidth && imageHeight < maxWidth ) {
+			// The image is smaller than the area we reserved for it
+			// so we don't resize it.
+			width = imageWidth;
+			height = imageHeight;
+			backgroundSize = 'auto';
+		} else {
+			// The image is bigger than the area we reserved for it,
+			// so we will have resize it
+			if ( imageWidth > imageHeight ){
+				width = maxWidth;
+				height = maxWidth*imageHeight/imageWidth;
+			} else {
+				width = maxWidth*imageWidth/imageHeight;
+				height = maxWidth;
+			}
+		}
+
+		imageField.setWidth(width);
+		imageField.setHeight(height);
+		imageField.setStyle({
+			'background-size': width + 'px ' + height + 'px',
+			left: ((maxWidth - width) / 2) + 'px',
+			top: ((maxWidth - height) / 2) + 'px'
+		});
 	},
 
 	/**
@@ -799,8 +850,8 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	onAfterRender : function(contactPhotoBox)
 	{
-		var imageField = contactPhotoBox.getEl();
-		this.mon(imageField, {
+		var imageFieldCt = contactPhotoBox.getEl().up('div');
+		this.mon(imageFieldCt, {
 			'click' : this.onSingleClick, 
 			'dblclick' : this.onDoubleClick,
 			'contextmenu' : this.onContextMenuClick,
@@ -889,9 +940,19 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		store.remove(attachmentRecord);
 		var imageField = this.contactPhotoBox.getEl();
-		Ext.getDom(imageField).src = Ext.BLANK_IMAGE_URL;
 		this.hasContactPhoto = false;
 		this.record.set('has_picture', false);
+		var ct = this.contactPhotoBox.el.up('.contact_photo_box_ct');
+		var maxWidth = ct.getWidth() - ct.getPadding('lr') - 2; //subtracting 2px for the border
+		imageField.set({src: Ext.BLANK_IMAGE_URL});
+		imageField.setStyle({
+			width: maxWidth + 'px', // The image is a square, so we can use the width also for the height
+			height: maxWidth + 'px',
+			left: 0,
+			top: 0,
+			'background-image' : '',
+			'background-size' : 'auto'
+		});
 		this.contactPhotoBox.addClass('default_contact_photo');
 	},
 
