@@ -499,6 +499,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		context.save();
 
 		// Create a clip on the appointment, so the text will never be drawn outside of it
+		context.beginPath();
 		context.rect(x, 0, width - x, height);
 		context.clip();
 		context.lineWidth = 1;
