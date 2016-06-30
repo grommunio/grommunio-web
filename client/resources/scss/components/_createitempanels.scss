@@ -229,17 +229,32 @@
 	}
 
 	.zarafa-contactgeneraltab {
+		.contact_photo_box_ct {
+			width: 94px !important;
+			height: 94px !important;
+			background: $dark-grey2;
+			box-shadow: inset 0px 0px 0px $padding-small $white;
+			border : 1px solid $grey;
+			padding: $padding-small;
+			-webkit-touch-callout: none; /* iOS Safari */
+			-webkit-user-select: none;   /* Chrome/Safari/Opera */
+			-moz-user-select: none;      /* Firefox */
+			-ms-user-select: none;       /* IE/Edge */
+			user-select: none;           /* non-prefixed version, currently not supported by any browser */
+		}
 		.contact_photo_box {
+			margin: $padding-small 0 0 $padding-small;
 			width: 94px;
 			height: 94px;
-			padding: $padding-small;
 			cursor: pointer;
-			border: 1px solid $grey;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: left top;
+			background-color: $white;
 		}
 		.contact_photo_box:hover {
-			border-color: $grey2;
+			border-color: $dark-grey2;
 		}
-		
 		.default_contact_photo {
 			background: url(../images/default_contact_profile.png) no-repeat center center;
 		}
