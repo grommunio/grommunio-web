@@ -220,7 +220,7 @@ $calendar-tab-height: 30px;
 	background-color: white;
 	border: 1px solid $grey;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.60);
-	z-index: 10000;
+	z-index: 9000;
 
 	/* we create a styling element inside the canvas
 	 * From this element it will take the font, colors, padding */
