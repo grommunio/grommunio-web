@@ -73,8 +73,24 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 			windowCfg[panel.closeAction] = panel[panel.closeAction].createDelegate(panel);
 		}
 
+		// Get active focus element before opening the window,
+		// So we will set focus on that element after the window close
+		var activeElement = document.activeElement;
 		var window = new Ext.Window(windowCfg);
+		window.on('close', this.onWindowClose.createDelegate(this, [activeElement]));
 		window.show();
+	},
+
+	/**
+	 * Event handler for the close event of the {@link Ext.Window}
+	 * It will set the focus on element which was previously focused before window open
+	 * @param {Ext.Element} activeElement which was previously focused
+     */
+	onWindowClose : function(activeElement)
+	{
+		if (activeElement) {
+			activeElement.focus();
+		}
 	}
 });
 
