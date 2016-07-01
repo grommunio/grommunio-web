@@ -23,6 +23,7 @@ Zarafa.common.dialogs.CopyMovePanelKeyMapping = Ext.extend(Object, {
 			shift: false,
 			stopEvent: true,
 			handler: this.onMoveItems,
+			enableGlobally: true,
 			scope: this,
 			basic: true
 		}];
