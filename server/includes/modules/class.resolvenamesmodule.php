@@ -235,7 +235,8 @@
 					if (isset($user_data[PR_SEARCH_KEY])) {
 						$item['search_key'] = bin2hex($user_data[PR_SEARCH_KEY]);
 					} else {
-						$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $item['smtp_address'])) . '00';
+						$emailAddress = isset($item['smtp_address']) ? $item['smtp_address'] : $item['email_address'];
+						$item['search_key'] = bin2hex(strtoupper($item['address_type'] . ':' . $emailAddress)) . '00';
 					}
 
 					array_push($items, $item);

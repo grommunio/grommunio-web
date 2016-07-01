@@ -709,17 +709,18 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		{
 			case 'email_address_1':
 				this.record.set('email_address_1', emailAddress);
-				this.record.set('email_address_type_1', addressType, true);
+				// local contact must have SMTP as address type
+				this.record.set('email_address_type_1', 'SMTP', true);
 				this.record.set('email_address_display_name_1', record.get('display_name'));
 				break;
 			case 'email_address_2':
 				this.record.set('email_address_2', emailAddress);
-				this.record.set('email_address_type_2', addressType, true);
+				this.record.set('email_address_type_2', 'SMTP', true);
 				this.record.set('email_address_display_name_2', record.get('display_name'));
 				break;
 			case 'email_address_3':
 				this.record.set('email_address_3', emailAddress);
-				this.record.set('email_address_type_3', addressType, true);
+				this.record.set('email_address_type_3', 'SMTP', true);
 				this.record.set('email_address_display_name_3', record.get('display_name'));
 				break;
 		}

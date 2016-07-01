@@ -9,6 +9,7 @@
 		 */
 		function ExpandDistlistModule($id, $data)
 		{
+			$this->properties = $GLOBALS["properties"]->getRecipientProperties();
 			parent::Module($id, $data);
 		}
 
@@ -47,15 +48,10 @@
 		 */
 		function expandDist($entryid, $data = Array(), $isRecurse = false)
 		{
-			// Check the given entryid is shared folder distlist
-			$isExternalDistList = false;
-			if($GLOBALS['entryid']->hasContactProviderGUID(bin2hex($entryid))){
-				$isExternalDistList = $GLOBALS["operations"]->isExternalDistList($entryid);
-			}
-			if (!$isExternalDistList) {
+			if($GLOBALS['entryid']->hasAddressBookGUID(bin2hex($entryid))) {
 				$abentry = mapi_ab_openentry($this->addrbook, $entryid);
 				$table = mapi_folder_getcontentstable($abentry, MAPI_DEFERRED_ERRORS);
-				$rows = mapi_table_queryrows($table, $this->recipientProperties, 0, (ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS > 0) ? ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS : 0x7fffffff);
+				$rows = mapi_table_queryrows($table, $this->properties, 0, (ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS > 0) ? ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS : 0x7fffffff);
 				/*
 				 * To prevent loading a huge list that the browser cannot handle, it is possible to
 				 * limit the maximum number of shown items. Note that when the table doesn't
@@ -65,20 +61,23 @@
 				 * to indicate we want to have all rows from the table.
 				 */
 				for ($i = 0, $len = count($rows); $i < $len; $i++) {
-					$memberProps = Conversion::mapMAPI2XML($this->recipientProperties, $rows[$i]);
-					if ($memberProps['props']['object_type'] == MAPI_DISTLIST && $isRecurse == True) {
-						$data = array_merge($data, $this->expandDist(hex2bin($memberProps['entryid']), $data, $isRecurse, false));
+					$memberProps = Conversion::mapMAPI2XML($this->properties, $rows[$i]);
+					$isDistlist = $memberProps['props']['object_type'] == MAPI_DISTLIST;
+					if ($isDistlist && $isRecurse == True) {
+						$data = array_merge($data, $this->expandDist(hex2bin($memberProps['entryid']), array(), $isRecurse));
 					} else {
 						$data[] = $memberProps;
 					}
 				}
 			} else {
-
-				// Expand shared folder distlist
-				$members = $GLOBALS['operations']->expandExternalDistList(bin2hex($entryid));
+				/**
+				 * If distribution list was belongs to local/shared folder then
+				 * it will expand all members of distribution list.
+				 */
+				$distlistMembers = $GLOBALS['operations']->expandDistList(bin2hex($entryid), $isRecurse);
 				$recipients = array();
-				foreach ($members as $recipient) {
-					$recipients['props'] = $recipient;
+				foreach($distlistMembers as $distlistMember) {
+					$recipients['props'] = $distlistMember;
 					array_push($data, $recipients);
 				}
 			}
@@ -97,7 +96,6 @@
 			// Get the distribution list entryid from request
 			$entryid = hex2bin($action["entryid"]);
 			$this->addrbook = $GLOBALS["mapisession"]->getAddressbook();
-			$this->recipientProperties = $GLOBALS["properties"]->getRecipientProperties();
 
 			if($entryid) {
 				$data["results"] = $this->expandDist($entryid, array(), $action['recurse']);

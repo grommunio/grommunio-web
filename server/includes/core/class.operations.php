@@ -1436,13 +1436,12 @@
 		/**
 		 * Get and convert properties of a message into an XML array structure
 		 *
-		 * @param object $store MAPI Message Store Object
 		 * @param object $item The MAPI Object
 		 * @param array $properties Mapping of properties that should be read
 		 * @return array XML array structure
 		 * @todo Function name is misleading, especially compared to getMessageProps()
 		 */
-		function getProps($store, $item, $properties)
+		function getProps($item, $properties)
 		{
 			$props = array();
 
@@ -1786,6 +1785,15 @@
 							} else {
 								$exception_recips = array();
 								if (isset($recips['add'])) {
+									$savedUnsavedRecipients = array();
+									foreach ($recips["add"] as $recip) {
+										$savedUnsavedRecipients["unsaved"][] = $recip;
+									}
+									// convert all local distribution list members to ideal recipient.
+									$members = $this->convertLocalDistlistMembersToRecipients
+									($savedUnsavedRecipients);
+
+									$recips['add'] = $members['add'];
 									$exception_recips['add'] = $this->createRecipientList($recips['add'], 'add', true, true);
 								}
 								if (isset($recips['remove'])) {
@@ -1930,6 +1938,27 @@
 			$result = false;
 			// Check to see if it should be sent as a meeting request
 			if($send === true && $isExceptionAllowed){
+				if(!isset($action['basedate'])) {
+					// retrieve recipients from saved message
+					$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($store, $message);
+					foreach ($savedRecipients as $recipient) {
+						$savedUnsavedRecipients["saved"][] = $recipient['props'];
+					}
+
+					//retrieve removed recipients.
+					$remove = array();
+					if (!empty($recips) && !empty($recips["remove"])) {
+						$remove = $recips["remove"];
+					}
+
+					// convert all local distribution list members to ideal recipient.
+					$members = $this->convertLocalDistlistMembersToRecipients($savedUnsavedRecipients, $remove);
+
+					// Before sending meeting request we set the recipient to message
+					// which are converted from local distribution list members.
+					$this->setRecipients($message, $members);
+				}
+
 				$request = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession(), $directBookingMeetingRequest);
 
 				/**
@@ -2052,6 +2081,77 @@
 			}
 
 			return $result;
+		}
+
+		/**
+		 * Function is used to identify the local distribution list from all recipients and 
+		 * convert all local distribution list members to recipients.
+		 * @param array $recipients array of recipients either saved or add
+		 * @param array $remove array of recipients that was removed
+		 * @return array $newRecipients a list of recipients as XML array structure
+		 */
+		function convertLocalDistlistMembersToRecipients($recipients, $remove =array())
+		{
+			$addRecipients = array();
+			$removeRecipients = array();
+
+			foreach($recipients as $key => $recipient) {
+
+				foreach ($recipient as $recipientItem) {
+					$recipientEntryid = $recipientItem["entryid"];
+					$isExistInRemove = $this->isExistInRemove($recipientEntryid, $remove);
+
+					/**
+					 * Condition is only gets true, if recipient is distribution list and it`s belongs
+					 * to shared/internal(belongs in contact folder) folder.
+					 */
+					if ($recipientItem['address_type'] == 'MAPIPDL')  {
+						if (!$isExistInRemove) {
+							$recipientItems = $GLOBALS["operations"]->expandDistList($recipientEntryid, true);
+							foreach ($recipientItems as $recipient) {
+								// set recipient type of each members as per the distribution list recipient type
+								$recipient['recipient_type'] = $recipientItem['recipient_type'];
+								array_push($addRecipients, $recipient);
+							}
+
+							if ($key === "saved") {
+								array_push($removeRecipients, $recipientItem);
+							}
+						}
+					} else {
+						/**
+						 * Only Add those recipients which are not saved earlier in message and
+						 * not present in remove array.
+						 */
+						if(!$isExistInRemove && $key === "unsaved") {
+							array_push($addRecipients, $recipientItem);
+						}
+					}
+				}
+			}
+			$newRecipients["add"] = $addRecipients;
+			$newRecipients["remove"] = $removeRecipients;
+			return $newRecipients;
+		}
+
+		/**
+		 * Function used to identify given recipient was already available in remove array of recipients array or not.
+		 * which was sent from client side.
+		 *
+		 * @param String $recipientEntryid recipient entryid
+		 * @param Array $remove removed recipients array.
+		 * @return Boolean return false if recipient not exist in remove array else return true
+		 */
+		function isExistInRemove($recipientEntryid, $remove)
+		{
+			if (!empty($remove)) {
+				foreach ($remove as $removeItem) {
+					if (array_search($recipientEntryid, $removeItem, true)) {
+						return true;
+					}
+				}
+			}
+			return false;
 		}
 
 		/**
@@ -3273,10 +3373,9 @@
 		{
 			try {
 				if (!$GLOBALS['entryid']->hasContactProviderGUID(bin2hex($entryid))) {
-					$entryid = $GLOBALS['entryid']->wrapABEntryIdObj(bin2hex($entryid), MAPI_DISTLIST);
-					$entryid = hex2bin($entryid);
+					$entryid = hex2bin($GLOBALS['entryid']->wrapABEntryIdObj(bin2hex($entryid), MAPI_DISTLIST));
 				}
-				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
+				mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
 			} catch (MAPIException $e) {
 				return true;
 			}
@@ -3286,53 +3385,140 @@
 		/**
 		 * Get object type from distlist type of member of distribution list.
 		 * @param integer $distlistType distlist type of distribution list
-		 * @return integer $objectType object type of distribution list
+		 * @return integer object type of distribution list
 		 */
 		function getObjectTypeFromDistlistType($distlistType)
 		{
-			$objectType = '';
 			switch ($distlistType) {
 				case DL_DIST :
 				case DL_DIST_AB :
-					$objectType = MAPI_DISTLIST;
+					return MAPI_DISTLIST;
 				case DL_USER :
 				case DL_USER2 :
 				case DL_USER3 :
 				case DL_USER_AB :
 				default:
-					$objectType = MAPI_MAILUSER;
+					return MAPI_MAILUSER;
 			}
-			return $objectType;
 		}
 
 		/**
-		 * Function which fetches all members of an external folder's distribution list.
+		 * Function which fetches all members of shared/internal(Local Contact Folder)
+		 * folder's distribution list.
 		 *
-		 * @param $distlistEntryid entryid of distribution list
+		 * @param String $distlistEntryid entryid of distribution list.
+		 * @param Boolean $isRecursive  if there is/are distribution list(s) inside the distlist
+		 * to expand all the members, pass true to expand distlist recursively, false to not expand.
 		 * @return array $members all members of a distribution list.
 		 */
-		function expandExternalDistList($distlistEntryid)
+		function expandDistList($distlistEntryid, $isRecursive = false)
 		{
 			$properties = $GLOBALS['properties']->getDistListProperties();
 
-			// Get store of distribution list
-			$sharedStore = $this->getOtherStoreFromEntryid($distlistEntryid);
-			if ($GLOBALS['entryid']->hasContactProviderGUID($distlistEntryid)) {
-				$distlistEntryid = hex2bin($GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid));
-			}
-			$distlist = $this->openMessage($sharedStore, $distlistEntryid);
+			$isExternalDistList = $this->isExternalDistList(hex2bin($distlistEntryid));
 
-			// Expand distribution list
-			$distlistMembers = $this->getMembersFromDistributionList($sharedStore, $distlist, $properties);
-			$members = array();
+			if($isExternalDistList) {
+				$store = $this->getOtherStoreFromEntryid($distlistEntryid);
+			} else {
+				$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			}
+
+			if ($GLOBALS['entryid']->hasContactProviderGUID($distlistEntryid)) {
+				$distlistEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj($distlistEntryid);
+			}
+
+			try {
+				$distlist = $this->openMessage($store, hex2bin($distlistEntryid));
+			} catch(Exception $e) {
+				$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($distlistEntryid));
+			}
+
+			// Retrive the members from distribution list.
+			$distlistMembers = $this->getMembersFromDistributionList($store, $distlist, $properties, $isRecursive);
+			$recipients = array();
+
+			foreach ($distlistMembers as $member) {
+				$props = $this->convertDistlistMemberToRecipient($store, $member);
+				array_push($recipients, $props);
+			}
+
+			return $recipients;
+		}
+
+		/**
+		 * Function Which convert the shared/internal(local contact folder distlist)
+		 * folder's distlist members to recipient type.
+		 *
+		 * @param mapistore $store MAPI store of the message.
+		 * @param array $member of distribution list contacts.
+		 * @return array members properties converted in to recipient.
+		 */
+		function convertDistlistMemberToRecipient($store, $member)
+		{
+			$entryid = $member["props"]["entryid"];
+			$memberProps = $member["props"];
+			$props = array();
+
+			$distlistType = $memberProps["distlist_type"];
+			$addressType = $memberProps["address_type"];
+
+			$isGABDistlList = $distlistType == DL_DIST_AB && $addressType === "ZARAFA";
+			$isLocalDistlist = $distlistType == DL_DIST && $addressType === "MAPIPDL";
+
+			$isGABContact = $memberProps["address_type"] === 'ZARAFA';
+			// If distlist_type is 0 then it means distlist member is external contact.
+			// For mare please read server/core/constants.php
+			$isLocalContact = !$isGABContact && $distlistType !== 0;
+
+			/**
+			 * If distribution list belongs to the local contact folder then open that contact and
+			 * retrieve all properties which requires to prepare ideal recipient to send mail.
+			 */
+			if($isLocalDistlist) {
+				try{
+					$distlist = $this->openMessage($store, hex2bin($entryid));
+				} catch(Exception $e) {
+					$distlist = $this->openMessage($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($entryid));
+				}
+
+				$abProps = $this->getProps($distlist, $GLOBALS['properties']->getRecipientProperties());
+				$props = $abProps["props"];
+
+				$props["entryid"] = $GLOBALS["entryid"]->wrapABEntryIdObj($abProps["entryid"], MAPI_DISTLIST);
+				$props["display_type"] = DT_DISTLIST;
+				$props["display_type_ex"] = DT_DISTLIST;
+				$props["address_type"] = $memberProps["address_type"];
+				$emailAddress = !empty($memberProps["email_address"]) ? $memberProps["email_address"] : "";
+				$props["smtp_address"] = $emailAddress;
+				$props["email_address"] = $emailAddress;
+
+			} else if($isGABContact || $isGABDistlList) {
+				/**
+				 * If contact or distribution list belongs to GAB then open that contact and
+				 * retrieve all properties which requires to prepare ideal recipient to send mail.
+				 */
+				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), hex2bin($entryid));
+				$abProps = $this->getProps($abentry, $GLOBALS['properties']->getRecipientProperties());
+				$props = $abProps["props"];
+				$props["entryid"] = $abProps["entryid"];
+
+			} else {
+				/**
+				 * If contact is belongs to local/shared folder then prepare ideal recipient to send mail
+				 * as per the contact type.
+				 */
+				$props["entryid"] = $isLocalContact ? $GLOBALS["entryid"]->wrapABEntryIdObj($entryid, MAPI_MAILUSER) : $memberProps["entryid"];
+				$props["display_type"] = DT_MAILUSER;
+				$props["display_type_ex"] = $isLocalContact ? DT_MAILUSER : DT_REMOTE_MAILUSER;
+				$props["display_name"] = $memberProps["display_name"];
+				$props["smtp_address"] = $memberProps["email_address"];
+				$props["email_address"] = $memberProps["email_address"];
+				$props["address_type"] = !empty($memberProps["address_type"]) ? $memberProps["address_type"] : 'SMTP';
+			}
 
 			// Set object type property into each member of distribution list
-			foreach ($distlistMembers as $recip) {
-				$distlistType = $recip["props"]["distlist_type"];
-				$recip["props"]['object_type'] = $this->getObjectTypeFromDistlistType($distlistType);
-				array_push($members, $recip['props']);
-			}
-			return $members;
+			$props["object_type"] = $this->getObjectTypeFromDistlistType($memberProps["distlist_type"]);
+			return $props;
 		}
 
 		/**
@@ -4186,7 +4372,19 @@
 			}
 
 			foreach($members as $key=>$item){
-				$parts = unpack('Vnull/A16guid/Ctype/A*entryid', $item);
+				/**
+				 * PHP 5.5.0 and greater has made the unpack function incompatible with previous versions by changing:
+				 * - a = code now retains trailing NULL bytes.
+				 * - A = code now strips all trailing ASCII whitespace (spaces, tabs, newlines, carriage 
+				 * returns, and NULL bytes).
+				 * for more http://php.net/manual/en/function.unpack.php
+				 */
+				if(version_compare(PHP_VERSION, '5.5.0', '>=')) {
+					$parts = unpack('Vnull/A16guid/Ctype/a*entryid', $item);
+				} else {
+					$parts = unpack('Vnull/A16guid/Ctype/A*entryid', $item);
+				}
+
 				$memberItem = array();
 				$memberItem['props'] = array();
 				$memberItem['props']['distlist_type'] = $parts['type'];
