@@ -717,6 +717,10 @@ Zarafa.core.HTMLParser = (function() {
 		 */
 		inlineImgZarafaToOutlook : function(body)
 		{
+			if(!Ext.isDefined(body)){
+				return;
+			}
+
 			var urlToCid = function(match, srcStart, imgCid, srcEnd, offset, str) {
 				if(imgCid) {
 					// return img src with just cid: tag

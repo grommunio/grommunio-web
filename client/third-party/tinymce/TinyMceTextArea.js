@@ -103,6 +103,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			hideMode: 'offsets'
 		});
 
+		// Apply some required tinymce config
+		Ext.applyIf(config.tinyMCEConfig, {
+			hideMode: 'offsets',
+			mode : 'exact',
+			resize : false
+		});
+
 		Ext.ux.form.TinyMCETextArea.superclass.constructor.call(this, config);
 	},
 
@@ -115,6 +122,9 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		var me = this;
 
 		Ext.ux.form.TinyMCETextArea.superclass.afterRender.call(this, arguments);
+
+		// Rendering is completed, now the target textarea element is available which is required to create TinyMce editor.
+		this.initEditor();
 
 		me.on('blur', function(elm, ev, eOpts) {
 			var ctrl = document.getElementById(me.getInputId());
@@ -144,12 +154,9 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			}
 		}, me);
 
+		// Synchronize the tinymce editor height whenever base-textarea gets resized.
 		me.on('resize', function(elm, width, height, oldWidth, oldHeight, eOpts) {
-			if (!me.noWysiwyg && !me.wysiwygIntialized) {
-				me.initEditor();
-			} else {
-				me.syncEditorHeight(height);
-			}
+			me.syncEditorHeight(height);
 		}, me);
 	},
 
@@ -278,22 +285,6 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		}
 
 		me.intializationInProgress = true;
-
-		if (!me.tinyMCEConfig) {
-			me.tinyMCEConfig = {};
-		} else {
-			// We need clone, not reference.
-			// The configuration of the wysiwyg might be passed as an object to
-			// many editor instances. Through cloning, we prevent
-			// side effects on other editors upon internal modifications
-			// of the tinyMCEConfig
-			var tmp_cfg = me.tinyMCEConfig;
-			me.tinyMCEConfig = {};
-			me.tinyMCEConfig = Ext.clone(tmp_cfg);
-		}
-
-		me.tinyMCEConfig.mode = "exact";
-		me.tinyMCEConfig.resize = false;
 
 		me.tinyMCEConfig.selector = 'textarea#' + me.getInputId();
 
