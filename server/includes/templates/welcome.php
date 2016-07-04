@@ -144,7 +144,7 @@ $serverConfig = array(
 		</script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $GLOBALS["language"]->getSelected()?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
 
 		<!-- ExtJS & Thirdparty extensions-->
 		<?php
@@ -166,7 +166,7 @@ $serverConfig = array(
 
 		<script type="text/javascript">
 			settings 		= <?php echo json_encode($GLOBALS["settings"]->getJSON()); ?>;
-			languages 		= <?php echo json_encode($GLOBALS["language"]->getJSON()); ?>;
+			languages 		= <?php echo json_encode($Language->getJSON()); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 	= <?php echo json_encode($serverConfig); ?>;

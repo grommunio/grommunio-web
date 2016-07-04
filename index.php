@@ -118,23 +118,22 @@
 	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
 	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
 	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+
+	$Language = new Language();
 	
 	// Create globals settings object (btw: globals suck)
-	$GLOBALS["settings"] = new Settings();
-
-	// Create global language object (did I already mention that globals suck?)
-	$GLOBALS["language"] = new Language();
+	$GLOBALS["settings"] = new Settings($Language);
 
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();
 
 	// Set session settings (language & style)
-	foreach($GLOBALS["settings"]->getSessionSettings() as $key=>$value){
+	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value){
 		$_SESSION[$key] = $value;
 	}
 
 	// Get language from the request, or the session, or the user settings, or the config
-	if (isset($_REQUEST["language"]) && $GLOBALS["language"]->is_language($_REQUEST["language"])) {
+	if (isset($_REQUEST["language"]) && $Language->is_language($_REQUEST["language"])) {
 		$lang = $_REQUEST["language"];
 		$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
 	} else if(isset($_SESSION["lang"])) {
@@ -148,7 +147,7 @@
 		}
 	}
 
-	$GLOBALS["language"]->setLanguage($lang);
+	$Language->setLanguage($lang);
 
 	// add extra header
 	header("X-Zarafa: " . trim(file_get_contents('version')));
