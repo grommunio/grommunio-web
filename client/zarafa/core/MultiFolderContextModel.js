@@ -555,10 +555,12 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if ( Ext.isDefined(state.groupings) ){
 			// Check the active folders in the groups
 			for ( var groupId in state.groupings ) {
-				if ( state.groupings[groupId].folders.indexOf(state.groupings[groupId].active) < 0 ){
-					// If the active folder was not found in the folders of the group, then we will
-					// change the active folder to the first folder in the group
-					state.groupings[groupId].active = state.groupings[groupId].folders[0];
+				if ( state.groupings.hasOwnProperty(groupId) ){
+					if ( state.groupings[groupId].folders.indexOf(state.groupings[groupId].active) < 0 ){
+						// If the active folder was not found in the folders of the group, then we will
+						// change the active folder to the first folder in the group
+						state.groupings[groupId].active = state.groupings[groupId].folders[0];
+					}
 				}
 			}
 		}
