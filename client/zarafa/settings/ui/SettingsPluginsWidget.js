@@ -42,10 +42,10 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 		for (var i = 0, len = plugins.length; i < len; i++) {
 			var plugin = plugins[i];
 			if (!plugin.isPrivate()) {
-				if(pluginsVersion[plugin.getName()] === null) {
+				if( Ext.isEmpty(pluginsVersion[plugin.getName()]) ) {
 					versionInfo = _('Unknown');
 				} else {
-					versionInfo = pluginsVersion[plugin.getName()].toFixed(1);
+					versionInfo = pluginsVersion[plugin.getName()];
 				}
 
 				store.add(new Ext.data.Record({

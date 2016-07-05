@@ -860,7 +860,7 @@ class PluginManager
 
 		// Parse the <info> element
 		if (isset($data->info->version)) {
-			$plugindata['version'] = (double) $data->info->version;
+			$plugindata['version'] = (string) $data->info->version;
 		} else {
 			dump("[PLUGIN WARNING] Plugin $dirname has not specified version information in manifest.xml");
 		}
