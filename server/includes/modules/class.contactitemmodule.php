@@ -367,22 +367,18 @@
 			$startDate = $recur->fromGMT($actionProps, $startDateUTC);
 			$dueDate = $recur->fromGMT($actionProps, $dueDateUTC);
 
-			// Find the number of minute since the starting of the year to the given month
-			// This is hardcoded here, but should also consider leap years
-			switch(strftime('%m', $startDate)){
-				case 1:	$month = '0'; break;
-				case 2:	$month = '44640'; break;	// 31 (no of days in jan) * 24 (hours in a day) * 60 (minutes in an hour)
-				case 3:	$month = '84960'; break;	// 44640 (value of previous month) + 28 (no of days in feb) * 24 (hours in a day) * 60 (minutes in an hour)
-				case 4:	$month = '129600'; break;
-				case 5:	$month = '172800'; break;
-				case 6:	$month = '217440'; break;
-				case 7:	$month = '260640'; break;
-				case 8:	$month = '305280'; break;
-				case 9:	$month = '348480'; break;
-				case 10: $month = '393120'; break;
-				case 11: $month = '437760'; break;
-				case 12: $month = '480960'; break;
-			}
+			// Find the number of minutes since the start of the year to the given month,
+			// taking leap years into account.
+			$month =  strftime('%m', $startDate);
+			$year =  strftime('%y', $startDate);
+
+			$d1 = new DateTime();
+			$d1->setDate($year, 1, 1);
+			$d2 = new DateTime();
+			$d2->setDate($year, $month, 1);
+
+			$diff = $d2->diff($d1);
+			$month = $diff->days * 24 * 60;
 
 			$props = array (
 				'message_class' => 'IPM.Appointment',
