@@ -202,8 +202,11 @@
 	* Debugging                            *
 	\**************************************/
 
+	// Do not log errors into stdout, since this generates faulty JSON responses.
 	ini_set("display_errors", false);
-	error_reporting(0);
+
+	ini_set("log_errors", true);
+	error_reporting(E_ERROR);
 
 	if (file_exists('debug.php')){
 		include_once('debug.php');
