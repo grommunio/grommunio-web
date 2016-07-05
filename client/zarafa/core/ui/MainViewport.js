@@ -41,7 +41,6 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	constructor : function(config)
 	{
 		config = config || {};
-
 		config = Ext.applyIf(config, {
 			layout : 'fit',
 			items : [{

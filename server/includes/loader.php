@@ -215,11 +215,18 @@ class FileLoader {
 	 * @param String $template The template used to print each file, the string {file} will
 	 * be replaced with the filename
 	 * @param Boolean $base True if only the basename of the file must be printed
+	 * @param Boolean $concatVersion True if concatenate unique webapp version
+	 * with file name to avoid the caching issue.
 	 */
-	public function printFiles($files, $template = '{file}', $base = false)
+	public function printFiles($files, $template = '{file}', $base = false, $concatVersion = true)
 	{
+		$version = trim(file_get_contents('version'));
 		foreach($files as $file) {
-			echo str_replace('{file}', $base === true ? basename($file) : $file, $template) . PHP_EOL;
+			$file = $base === true ? basename($file) : $file;
+			if($concatVersion) {
+				$file = $file."?version=".$version;
+			}
+			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
 	}
 
