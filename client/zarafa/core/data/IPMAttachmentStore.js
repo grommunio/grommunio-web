@@ -394,7 +394,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	{
 		var attachments = [];
 		var uploadFiles = [];
-		var isFileList = Zarafa.supportsFilesAPI() && files instanceof FileList;
+		var isFileList = files instanceof FileList;
 
 		// fire the 'attachmentstorebeforeupload' event.
 		// the eventhandler can not directly remove the handled files from the "files" FileList as this property is read

@@ -45,7 +45,6 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.mixattachitem');
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.attachitem.columnmodel');
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.attachitem.textrenderer');
-		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.legacyfileselection');
 		Zarafa.core.data.SharedComponentType.addProperty('common.sendas.dialog.sendaseditcontentpanel');
 	},
 
@@ -68,7 +67,6 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.dialog.copymoverecords']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.recurrence']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.categories']:
-			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.legacyfileselection']:
 			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem']:
 			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.mixattachitem']:
 			case Zarafa.core.data.SharedComponentType['common.dialog.widgets']:
@@ -133,9 +131,6 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.dialog.categories']:
 				component = Zarafa.common.categories.dialogs.CategoriesContentPanel;
-				break;
-			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.legacyfileselection']:
-				component = Zarafa.common.attachment.dialogs.LegacyFileSelectionContentPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem']:
 				component = Zarafa.common.attachment.dialogs.AttachItemContentPanel;

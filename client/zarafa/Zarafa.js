@@ -864,21 +864,6 @@ Ext.apply(Zarafa, {
 	//
 
 	/**
-	 * Determine if the browser is a modern browser which is capable of working with FormData instances,
-	 * and has support for the Files JS API. All modern browsers have support for this, unfortunately
-	 * WebApp also has to support some broken browsers as Internet Explorer 9.
-	 * @return {Boolean} True if Files API is supported
-	 */
-	supportsFilesAPI : function()
-	{
-		if (!container.getSettingsModel().get('zarafa/v1/main/use_files_api')) {
-			return false;
-		}
-
-		return Ext.isDefined(window.File) && Ext.isDefined(window.FileList);
-	},
-
-	/**
 	 * Determine if Canvas rendering is supported. Support is based on two different factors,
 	 * first the canvas rendering can be disabled using a configuration option, secondly
 	 * the browser might be limited in its support for canvas.

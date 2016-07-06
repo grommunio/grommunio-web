@@ -76,24 +76,6 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Opens a {@link Zarafa.common.attachment.dialogs.LegacyFileSelectionContentPanel File Selection Content Panel}
-	 * which is needed for Browsers which do not support the {@link Zarafa#supportsFilesAPI Files API} and need
-	 * a valid {@link Ext.form.FormPanel form} with a {@link Ext.ux.form.FileUploadField Upload field} in order
-	 * to be able to upload the files to the server.
-	 *
-	 * @param {Object} config (optional) Configuration object for creating the ContentPanel
-	 */
-	openLegacyFileSelectionContent : function(config)
-	{
-		config = Ext.applyIf(config || {}, {
-			modal : true
-		});
-		
-		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.legacyfileselection'];
-		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
-	},
-
-	/**
 	 * Opens a {@link Zarafa.common.attachment.dialogs.AttachItemContentPanel Attach Item Content Panel} which is used
 	 * to attach an item as embedded attachment to a message.
 	 *
