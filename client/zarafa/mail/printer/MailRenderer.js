@@ -35,7 +35,8 @@ Zarafa.mail.printer.MailRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 		html += this.optionalRow(_('Attachments'), 'attachment_names', '{attachment_names:htmlEncode}');
 		html += '</table><br><p>\n';
 		// Strip tags such as {foo.bar}, otherwise they will be interpreted as XTemplate tag.
-		html += record.getBody(true).replace(/{/g, '&#123;').replace(/}/g, '&#125;');
+		// Strip line separator and paragraph separator, since they break JavaScript strings which breaks XTemplate's eval().
+		html += record.getBody(true).replace(/{/g, '&#123;').replace(/}/g, '&#125;').replace(/\u2028/g, '').replace(/\u2029/g, '');
 		html += '</p>\n';
 		return html;
 	}
