@@ -2515,6 +2515,16 @@
 			if (empty($ignoreProps) && empty($props)) {
 				if ($moveMessages) {
 					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder, MESSAGE_MOVE);
+					$error = mapi_last_hresult();
+
+					/*
+					 * If you delete a message from a folder where you only have
+					 * read permissions, the result is a partial success. Therefore
+					 * throw an exception.
+					 */
+					if ($error == MAPI_W_PARTIAL_COMPLETION) {
+						throw new MAPIException();
+					}
 				} else {
 					mapi_folder_copymessages($sourcefolder, $entryids, $destfolder);
 				}
@@ -4311,8 +4321,13 @@
 					$freeBusyRange = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/free_busy_range', 2);
 					$localFreeBusyEntryids = mapi_getprops($rootFolder, array(PR_FREEBUSY_ENTRYIDS));
 					$localFreeBusyMessage = mapi_msgstore_openentry($store, $localFreeBusyEntryids[PR_FREEBUSY_ENTRYIDS][1]);
-					mapi_setprops($localFreeBusyMessage, array(PR_FREEBUSY_COUNT_MONTHS => $freeBusyRange));
-					mapi_savechanges($localFreeBusyMessage);
+
+					$freeBusyFolderAccess = mapi_getprops($localFreeBusyMessage, array(PR_ACCESS));
+					// If Free/busy folder have Modification access then update PR_FREEBUSY_COUNT_MONTHS.
+					if (($freeBusyFolderAccess[PR_ACCESS] & MAPI_ACCESS_MODIFY) === MAPI_ACCESS_MODIFY) {
+						mapi_setprops($localFreeBusyMessage, array(PR_FREEBUSY_COUNT_MONTHS => $freeBusyRange));
+						mapi_savechanges($localFreeBusyMessage);
+					}
 
 					$start = time()-7 * 24 * 60 * 60;
 					$range = strtotime("+". $freeBusyRange." month");

@@ -353,7 +353,7 @@
 						}
 
 						if(empty($e->displayMessage)) {
-							$e->setDisplayMessage(_("You have insufficient privileges to save items in this folder") . ".");
+							$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder") . ".");
 						}
 						break;
 
