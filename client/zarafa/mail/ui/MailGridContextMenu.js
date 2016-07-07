@@ -83,7 +83,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
-			text : _('Download as files'),
+			text : _('Download'),
 			iconCls : 'icon_saveaseml',
 			handler: this.onContextItemEml,
 			scope: this
