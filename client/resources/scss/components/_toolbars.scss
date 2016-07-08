@@ -92,6 +92,17 @@
 			opacity: 0.4;
 		}
 
+		.x-btn.zarafa-more-options-btn {
+			.x-btn-split {
+				padding-right: 0px;
+				background-image: none !important;
+			}
+
+			.icon_more.x-btn-text {
+				border-right: none !important;
+			}
+		}
+
 
 		/**************************************
 		 * Exceptions for specific buttons
@@ -266,6 +277,12 @@
 				button.icon_send_email_to_recipient {
 					@extend .icon_new_email;
 					background-position: sprite-position($iconsmap, icon_new_email, $offset-y: 2px, $offset-x: 2px);
+				}
+
+				/* more button */
+				button.icon_more {
+					@extend .icon_more;
+					background-position: sprite-position($icons, icon_more, $offset-y: 10px, $offset-x: 3px);
 				}
 			}
 		}

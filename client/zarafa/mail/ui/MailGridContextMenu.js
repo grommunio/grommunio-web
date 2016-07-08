@@ -154,8 +154,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			text : _('Edit as New Message'),
 			iconCls : 'icon_editAsNewEmail',
 			singleSelectOnly: true,
-			hidden: true,
-			beforeShow : this.onEditAsNewItemBeforeShow,
+			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 			handler: this.onContextItemResponse,
 			scope: this
@@ -327,27 +326,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		}, this);
 	},
 	
-	/**
-	 * Event handler which determines if the 'Edit as New Message' menu item should be visible or not.
-	 * It will check if we are showing the context menu in the Sent Items folder.
-	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
-	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
-	 * to see if the item must be enabled or disabled.
-	 * @private
-	 */
-	onEditAsNewItemBeforeShow : function(item, records)
-	{
-		if ( this.model ){
-			var defaultFolder = this.model.getDefaultFolder();
-			if (defaultFolder.getDefaultFolderKey() === 'sent'){
-				item.setVisible(true);
-			}
-		}
-				
-		return this.onMenuItemBeforeShow(item, records);
-	},
-
 	/**
 	 * Event handler which determines if the 'Move to Junk Folder' menu item should be visible or not.
 	 * If context menu is opened in the "Junk Items" folder, it will not show the menu item.
