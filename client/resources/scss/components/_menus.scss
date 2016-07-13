@@ -126,13 +126,22 @@ $menu-item-height : 30px;
 
 	.icon_folder_delete {
       	background-position: sprite-position($iconsmap, trash, $offset-y: 3, $offset-x: 2);
-	}		
+	}
 
-	.icon_restore {
-      	background-position: sprite-position($iconsmap, icon_restore, $offset-y: 3, $offset-x: 5);
-	}		
+  .icon_restore {
+    background-position: sprite-position($iconsmap, icon_restore, $offset-y: 3, $offset-x: 5);
+  }
 
-	.icon_openMessageOptions {
+  .icon_folder_favorites {
+    @extend .icon_favorites;
+    background-position: sprite-position($iconsmap, icon_favorites, $offset-y: 2, $offset-x: 1);
+  }
+
+  .icon_remove_favorites {
+    background-position: sprite-position($iconsmap, icon_remove_favorites, $offset-y: 2, $offset-x: 1);
+  }
+
+  .icon_openMessageOptions {
 		@extend .icon_cogwheel;
       	background-position: sprite-position($icons, icon_cogwheel, $offset-y: 2, $offset-x: 0);
 	}		

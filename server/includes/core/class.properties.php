@@ -1121,11 +1121,31 @@
 		function getFolderListProperties()
 		{
 			$properties = $this->getFolderProperties();
+			$properties["assoc_content_count"] = PR_ASSOC_CONTENT_COUNT;
 
 			unset($properties['comment']);
 			unset($properties['message_size']);
 			unset($properties['deleted_on']);
 			unset($properties['creation_time']);
+
+			return $properties;
+		}
+
+		/**
+		 * Returns the properties used by the hierarchy to show the favorites folders.
+		 * @return array
+		 */
+		function getFavoritesFolderProperties()
+		{
+			$properties = $this->getFolderListProperties();
+			$properties["message_class"] = PR_MESSAGE_CLASS;
+			$properties["subject"] = PR_SUBJECT;
+			$properties["favorites_folder_entryid"] = PR_WLINK_ENTRYID;
+			$properties["favorites_folder_flags"] = PR_WLINK_FLAGS;
+			$properties["favorites_folder_ordinal"] = PR_WLINK_ORDINAL;
+			$properties["favorites_store_entryid"] = PR_WLINK_STORE_ENTRYID;
+			$properties["favorites_link_type"] = PR_WLINK_TYPE;
+			unset($properties['subfolders']);
 
 			return $properties;
 		}

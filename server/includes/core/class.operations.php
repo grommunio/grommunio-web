@@ -82,7 +82,7 @@
 
 			foreach($storelist as $store)
 			{
-				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE));
+				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE, PR_COMMON_VIEWS_ENTRYID));
 
 				$inboxProps = array();
 				$storeType = $msgstore_props[PR_MDB_PROVIDER];
@@ -115,7 +115,8 @@
 						"store_size" => round($msgstore_props[PR_MESSAGE_SIZE_EXTENDED]/1024),
 						"quota_warning" => isset($msgstore_props[PR_QUOTA_WARNING_THRESHOLD]) ? $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] : 0,
 						"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
-						"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0
+						"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0,
+						"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
 					)
 				);
 
@@ -277,6 +278,21 @@
 									// note that we don't care if we have access to the folder or not.
 									$storeData["props"]["shared_folder_all"] = bin2hex($subtreeFolderEntryID);
 									$this->getSubFolders($subtreeFolder, $store, $properties, $storeData);
+
+									if($storeType == ZARAFA_SERVICE_GUID) {
+										// If store type ZARAFA_SERVICE_GUID (own store) then get the
+										// IPM_COMMON_VIEWS folder and set it to folders array.
+										$storeData["favorites"] = array( "item" => array());
+										$commonViewFolderEntryid = $msgstore_props[PR_COMMON_VIEWS_ENTRYID];
+
+										$this->setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData);
+
+										$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
+										$this->getFavoritesFolders($commonViewFolder, $storeData);
+
+										$commonViewFolderProps = mapi_getprops($commonViewFolder);
+										array_push($storeData["folders"]["item"], $this->setFolder($commonViewFolderProps));
+									}
 								} else {
 									// Recursively add all subfolders
 									$this->getSubFoldersPublic($subtreeFolder, $store, $properties, $storeData);
@@ -643,12 +659,207 @@
 					"has_subfolder" => isset($folderProps[PR_SUBFOLDERS])? $folderProps[PR_SUBFOLDERS] : false,
 					"container_class" => isset($folderProps[PR_CONTAINER_CLASS]) ? $folderProps[PR_CONTAINER_CLASS] : "IPF.Note",
 					"access" => $folderProps[PR_ACCESS],
-					"rights" => isset($folderProps[PR_RIGHTS]) ? $folderProps[PR_RIGHTS] : ecRightsNone
+					"rights" => isset($folderProps[PR_RIGHTS]) ? $folderProps[PR_RIGHTS] : ecRightsNone,
+					"assoc_content_count" => isset($folderProps[PR_ASSOC_CONTENT_COUNT]) ? $folderProps[PR_ASSOC_CONTENT_COUNT] : 0
 				)
 			);
 
 			$this->setExtendedFolderFlags($folderProps, $props);
 
+			return $props;
+		}
+
+		/**
+		 * Function is used to retrieve favorites link messages from associated contains table of
+		 * IPM_COMMON_VIEWS folder.
+		 *
+		 * @access private
+		 * @param Object $commonViewFolder MAPI Folder Object in which the favorites link messages lives
+		 * @param array $storeData Reference to an array. The favorites folder properties are added to this array.
+		 */
+		function getFavoritesFolders($commonViewFolder, &$storeData)
+		{
+			$table = mapi_folder_getcontentstable($commonViewFolder, MAPI_ASSOCIATED);
+
+			$restriction = array(RES_PROPERTY,
+				array(
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_MESSAGE_CLASS,
+					VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+				)
+			);
+			$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
+
+			foreach ($rows as $row) {
+				try {
+					// In webapp we use IPM_SUBTREE as root folder for the Hierarchy but OL is use IMsgStore as a
+					// Root folder. OL never mark favorites to IPM_SUBTREE. so to make favorites compatible with OL
+					// we need this check.
+					// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. which same only in one case
+					// where some user has mark favorites to root(Inbox-<user name>) folder from OL. so here if condition
+					// gets true we get the IPM_SUBTREE and send it to response as favorites folder to webapp.
+					if($GLOBALS['entryid']->compareEntryIds($row[PR_WLINK_STORE_ENTRYID], $row[PR_WLINK_ENTRYID])) {
+						$storeObj = $GLOBALS["mapisession"]->openMessageStore($row[PR_WLINK_STORE_ENTRYID]);
+						$subTreeEntryid = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
+						$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
+					} else {
+						$storeObj = $GLOBALS["mapisession"]->openMessageStore($row[PR_WLINK_STORE_ENTRYID]);
+						$folderObj = mapi_msgstore_openentry($storeObj, $row[PR_WLINK_ENTRYID]);
+					}
+					$props = mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
+					array_push($storeData['favorites']['item'], $this->setFavoritesFolder($props));
+				} catch (MAPIException $e) {
+					continue;
+				}
+			}
+		}
+
+		/**
+		 * Create link messages for default favorites(Inbox and Sent Items) folders in associated contains table of IPM_COMMON_VIEWS folder
+		 * and remove all other link message from the same.
+		 *
+		 * @param string $commonViewFolderEntryid IPM_COMMON_VIEWS folder entryid.
+		 * @param object $store Message Store Object
+		 * @param array $storeData The store data which use to create restriction.
+		 */
+		function setDefaultFavoritesFolder($commonViewFolderEntryid, $store, $storeData)
+		{
+			if ($GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/show_default_favorites") !== false) {
+				$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
+
+				$inboxFolderEntryid = hex2bin($storeData["props"]["default_folder_inbox"]);
+				$sentFolderEntryid = hex2bin($storeData["props"]["default_folder_sent"]);
+
+				$table = mapi_folder_getcontentstable($commonViewFolder, MAPI_ASSOCIATED);
+
+				// Restriction for get all link message(IPM.Microsoft.WunderBar.Link) from
+				// Associated contains table of IPM_COMMON_VIEWS folder.
+				$findLinkMsgRestriction = array(RES_PROPERTY,
+					array(
+						RELOP => RELOP_EQ,
+						ULPROPTAG => PR_MESSAGE_CLASS,
+						VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+					)
+				);
+
+				// Restriction for find Inbox and/or Sent folder link message from
+				// Associated contains table of IPM_COMMON_VIEWS folder.
+				$findInboxOrSentLinkMessage = Array(RES_OR,
+					Array(
+						array(RES_PROPERTY,
+							array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_WLINK_ENTRYID,
+								VALUE => array(PR_WLINK_ENTRYID => $inboxFolderEntryid)
+							)
+						),
+						array(RES_PROPERTY,
+							array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_WLINK_ENTRYID,
+								VALUE => array(PR_WLINK_ENTRYID => $sentFolderEntryid)
+							)
+						)
+					)
+				);
+
+				// Restriction to get all link messages except Inbox and Sent folder's link messages from
+				// Associated contains table of IPM_COMMON_VIEWS folder, if exist in it.
+				$restriction = Array(RES_AND,
+					Array(
+						$findLinkMsgRestriction,
+						array(RES_NOT,
+							array(
+								$findInboxOrSentLinkMessage
+							)
+						)
+					)
+				);
+
+				$rows = mapi_table_queryallrows($table, array(PR_ENTRYID), $restriction);
+				if (!empty($rows)) {
+					$deleteMessages = array();
+					foreach ($rows as $row) {
+						array_push($deleteMessages, $row[PR_ENTRYID]);
+					}
+					mapi_folder_deletemessages($commonViewFolder, $deleteMessages);
+				}
+
+				// Restriction used to find only Inbox and Sent folder's link messages from
+				// Associated contains table of IPM_COMMON_VIEWS folder, if exist in it.
+				$restriction = Array(RES_AND,
+						Array(
+							$findLinkMsgRestriction,
+							$findInboxOrSentLinkMessage
+						)
+					);
+
+				$rows = mapi_table_queryallrows($table, array(PR_WLINK_ENTRYID), $restriction);
+
+				// If Inbox and Sent folder's link messages are not exist then create the
+				// link message for those in associated contains table of IPM_COMMON_VIEWS folder.
+				if (empty($rows)) {
+					$defaultFavFoldersKeys = array("inbox", "sent");
+					foreach ($defaultFavFoldersKeys as $folderKey) {
+						$folderObj = $GLOBALS["mapisession"]->openMessage(hex2bin($storeData["props"]["default_folder_" . $folderKey]));
+						$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID));
+						$this->createFavoritesLink($commonViewFolder, $props);
+					}
+				} else if (count($rows) < 2) {
+					// If rows count is less than 2 it means associated contains table of IPM_COMMON_VIEWS folder
+					// can have either Inbox or Sent folder link message in it. So we have to create link message
+					// for Inbox or Sent folder which ever not exist in associated contains table of IPM_COMMON_VIEWS folder
+					// to maintain default favorites folder.
+					$row = $rows[0];
+					$wlinkEntryid = $row[PR_WLINK_ENTRYID];
+
+					$isInboxFolder = $GLOBALS['entryid']->compareEntryIds($wlinkEntryid, $inboxFolderEntryid);
+
+					if (!$isInboxFolder) {
+						$folderObj = $GLOBALS["mapisession"]->openMessage($inboxFolderEntryid);
+					} else {
+						$folderObj = $GLOBALS["mapisession"]->openMessage($sentFolderEntryid);
+					}
+
+					$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID));
+					$this->createFavoritesLink($commonViewFolder, $props);
+				}
+				$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/show_default_favorites", false, true);
+			}
+		}
+
+		/**
+		 * Create favorites link message (IPM.Microsoft.WunderBar.Link) in associated contains table of
+		 * IPM_COMMON_VIEWS folder.
+		 *
+		 * @param object $commonViewFolder MAPI Message Folder Object
+		 * @param Array $folderProps Properties of a folder
+		 */
+		function createFavoritesLink($commonViewFolder, $folderProps)
+		{
+			$props = Array(
+				PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link",
+				PR_WLINK_ENTRYID => $folderProps[PR_ENTRYID],
+				PR_WLINK_STORE_ENTRYID  => $folderProps[PR_STORE_ENTRYID]
+			);
+
+			$favoritesLinkMsg = mapi_folder_createmessage($commonViewFolder, MAPI_ASSOCIATED);
+			mapi_setprops($favoritesLinkMsg, $props);
+			mapi_savechanges($favoritesLinkMsg);
+		}
+
+		/**
+		 * Convert MAPI properties into useful and human readable string for favorites folder.
+		 *
+		 * @param array $folderProps Properties of a folder
+		 * @return array List of properties of a folder
+		 */
+		function setFavoritesFolder($folderProps)
+		{
+			$props = $this->setFolder($folderProps);
+			 // Add and Make isFavorites to true, this allows the client to properly
+			 // indicate to the user that this is a favorites item/folder.
+			$props["props"]["isFavorites"] = true;
 			return $props;
 		}
 

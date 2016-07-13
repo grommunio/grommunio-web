@@ -124,8 +124,14 @@
 								break;
 
 							case "delete":
-								if($store && $parententryid && $entryid) {
-									$this->deleteFolder($store, $parententryid, $entryid, $action);
+								if ($store && $parententryid && $entryid) {
+									if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])
+										&& $action["message_action"]["action_type"] === "removefavorites" ) {
+										$this->removeFromFavorite($entryid);
+									} else {
+										$this->deleteFolder($store, $parententryid, $entryid, $action);
+									}
+
 								}
 								break;
 
@@ -166,11 +172,7 @@
 												break;
 
 												case "addtofavorites":
-													if (isset($action["message_action"]["favorite_name"]) && isset($action["message_action"]["favorite_flags"])) {
-														$favoritename = $action["message_action"]["favorite_name"];
-														$flags = $action["message_action"]["favorite_flags"];
-														$this->addToFavorite($store, $entryid, $favoritename, $flags);
-													}
+													$this->addToFavorite($store, $entryid);
 												break;
 											}
 										} else {
@@ -198,10 +200,12 @@
 										$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 									} else {
 										$entryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($action["user_name"]);
+										$this->removeFromFavorite(hex2bin($action["entryid"]), PR_WLINK_ENTRYID, false);
 									}
 								} else {
 									// We're closing a Shared Store, simply remove it from the session.
 									$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
+									$this->removeFromFavorite(hex2bin($action["store_entryid"]), PR_WLINK_STORE_ENTRYID, false);
 								}
 
 								$data = array();
@@ -272,12 +276,17 @@
 						break;
 
 					case "delete":
-						if($e->getCode() == MAPI_E_NO_ACCESS)
-							$e->setDisplayMessage(_("You have insufficient privileges to delete folder."));
-						else
-							$e->setDisplayMessage(_("Could not delete folder."));
-						break;
-
+						if (isset($action["message_action"])
+							&& isset($action["message_action"]["action_type"])
+							&& $action["message_action"]["action_type"] === "removefavorites") {
+								$e->setDisplayMessage(_("Could not remove folder from favorites."));
+						} else {
+							if($e->getCode() == MAPI_E_NO_ACCESS)
+								$e->setDisplayMessage(_("You have insufficient privileges to delete folder."));
+							else
+								$e->setDisplayMessage(_("Could not delete folder."));
+							break;
+						}
 					case "save":
 						if($entryid) {
 							if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])) {
@@ -688,24 +697,81 @@
 			return $result;
 		}
 
-		function addToFavorite($store, $entryid, $favoritename, $flags)
+		/**
+		 * Function is used to get the IPM_COMMON_VIEWS folder from defaults store.
+		 * @return object MAPI folder object.
+		 */
+		function getCommonViewsFolder()
 		{
+			$defaultStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			$commonViewsFolderEntryid = mapi_getprops($defaultStore, array(PR_COMMON_VIEWS_ENTRYID));
+			$commonViewsFolder = mapi_msgstore_openentry($defaultStore, $commonViewsFolderEntryid[PR_COMMON_VIEWS_ENTRYID]);
+			return $commonViewsFolder;
+		}
+
+		/**
+		 * Remove favorites link message from associated contains table of IPM_COMMON_VIEWS.
+		 *
+		 * @param String $entryid entryid of the folder.
+		 * @param String $prop property which is used to find record from associated contains table of
+		 * IPM_COMMON_VIEWS folder.
+		 * @param Boolean $doNotify true to notify the IPM_COMMO_VIEWS folder on client side.
+		 */
+		function removeFromFavorite($entryid, $prop = PR_WLINK_ENTRYID, $doNotify = true)
+		{
+			$commonViewsFolder = $this->getCommonViewsFolder();
+			$associatedTable = mapi_folder_getcontentstable($commonViewsFolder, MAPI_ASSOCIATED);
+
+			$restriction = array(RES_PROPERTY,
+				array(
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_MESSAGE_CLASS,
+					VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+				),
+			);
+
+			$messages = mapi_table_queryallrows($associatedTable, array(PR_ENTRYID, PR_WLINK_ENTRYID, PR_WLINK_STORE_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID), $restriction);
+
+			if (!empty($messages)) {
+				foreach ($messages as $message) {
+					if ($GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
+						mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
+						if($doNotify) {
+							$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
+						}
+					} else {
+						// 
+						$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
+						$storeProps = mapi_getprops($storeObj, array(PR_ENTRYID));
+						if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])){
+							mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
+							$this->sendFeedback(true);
+						}
+					}
+				}
+			}
+		}
+		/**
+		 * Function is used to create link message for the selected folder
+		 * in associated contains of IPM_COMMON_VIEWS folder.
+		 *
+		 * @param String $store $store entryid of the store
+		 * @param String $entryid $entryid entryid of the MAPI folder.
+		 */
+		function addToFavorite($store, $entryid)
+		{
+			$commonViewsFolder = $this->getCommonViewsFolder();
+
+			// In Favorites list all folders are must be sibling of other folders.
+			// whether it is sub folder of any other folders.
+			// So unset "subfolders" property as we don't required to show sub folders in favorites list.
+			unset($this->properties["subfolders"]);
 			$folder = mapi_msgstore_openentry($store, $entryid);
-			if($folder)
-				mapi_favorite_add($GLOBALS["mapisession"]->getSession(), $folder, $favoritename, $flags);
+			$folderProps = mapi_getprops($folder, $this->properties);
+			$GLOBALS["operations"]->createFavoritesLink($commonViewsFolder, $folderProps);
 
-			/**
-			 * folders of public store can only be added in favorites folder
-			 * so $store passed here will be always public store
-			 */
-			// open public store and find favorites folder entryid
-			$storeProps = mapi_getprops($store, array(PR_IPM_FAVORITES_ENTRYID));
-			$favoritesFolder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_FAVORITES_ENTRYID]);
-
-			$favoritesFolderProps = mapi_getprops($favoritesFolder, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
-
-			// notify favorites folder that folder has been added
-			$GLOBALS["bus"]->notify(bin2hex($favoritesFolderProps[PR_ENTRYID]), OBJECT_SAVE, $favoritesFolderProps);
+			$this->addActionData("update", $GLOBALS["operations"]->setFavoritesFolder($folderProps));
+			$GLOBALS["bus"]->addData($this->getResponseData());
 		}
 		
 		/**
@@ -759,6 +825,8 @@
 				$props[PR_PARENT_ENTRYID] = $parententryid;
 
 				if($result) {
+					$this->removeFromFavorite($props[PR_ENTRYID]);
+
 					$storeprops = mapi_getprops($store, array(PR_ENTRYID, PR_IPM_FAVORITES_ENTRYID));
 					$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
 
@@ -815,6 +883,14 @@
 			if($result) {
 				if($moveFolder) {
 					try {
+						// If destination folder is wastebasket then remove source folder from favorites list if
+						// it is present in it.
+						$defaultStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
+						$wastebasketFolderEntryid = mapi_folder_getprops($defaultStore, array(PR_IPM_WASTEBASKET_ENTRYID));
+						if($GLOBALS["entryid"]->compareEntryIds($wastebasketFolderEntryid[PR_IPM_WASTEBASKET_ENTRYID], $destfolderentryid)) {
+							$this->removeFromFavorite($sourcefolderentryid);
+						}
+
 						/*
 						 * Normally it works well within same store,
 						 * but entryid gets changed when different stores so we can't use old entryid anymore.

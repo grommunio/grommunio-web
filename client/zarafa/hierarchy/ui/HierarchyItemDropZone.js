@@ -133,7 +133,7 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 	isValidDropPoint : function(n, pt, dd, e, data)
 	{
 		var ret = false;
-		if (n.node && !Ext.isEmpty(data.selections)) {
+		if (n.node && !Ext.isEmpty(data.selections) && !n.node.getFolder().isFavoritesRootFolder()) {
 			var folder = n.node.getFolder();
 			var record = data.selections[0];
 

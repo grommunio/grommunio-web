@@ -108,5 +108,29 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 		} else {
 			return 'append';
 		}
+	},
+
+	/**
+	 * Function which return false when the dragged record is hovering over
+	 * the {@link Zarafa.hierarchy.data.MAPIFolderRecord#getFavoritesRootFolder Favorites} root folder or
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord#isFavoritesFolder favorite} marked folder.
+	 *
+	 * @param {Object} n The object which describes the node over which
+	 * the item is being hovered
+	 * @param {String} pt The DropPoint (see {@link #getDropPoint}).
+	 * @param {Ext.tree.TreeDragZone} dd The DragZone which is used
+	 * for dragging the current item
+	 * @param {Ext.EventObject} e The Event Object used for dropping the item
+	 * @param {Object} data The data object describing the {@link Zarafa.hierarchy.ui.FolderNode folder} node Item which
+	 * are being dragged
+	 * @private
+	 */
+	isValidDropPoint : function(n, pt, dd, e, data)
+	{
+		var folder = n.node.getFolder();
+		if(folder.isFavoritesFolder() || folder.isFavoritesRootFolder()) {
+			return false;
+		}
+		return Zarafa.hierarchy.ui.HierarchyFolderDropZone.superclass.isValidDropPoint.apply(this, arguments);
 	}
 });

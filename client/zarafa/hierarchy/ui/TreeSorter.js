@@ -97,6 +97,18 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		var dsc = this.dir && this.dir.toLowerCase() == "desc";
 		var cs = this.caseSensitive === true;
 
+		// If folder 1 is the favorites root node (IPM_COMMON_VIEWS)
+		// we directly return a value to sort it to the top of the tree.
+		if (folder1.isFavoritesRootFolder()) {
+			return dsc ? +1 : -1;
+		}
+
+		// If folder 2 is the favorites root node (IPM_COMMON_VIEWS)
+		// we directly return a value to sort it to the top of the tree.
+		if (folder2.isFavoritesRootFolder()) {
+			return dsc ? -1 : +1;
+		}
+
 		// If folder 1 is the root node (IPM_SUBTREE) for the
 		// default store we directly return a value to sort it
 		// to the top of the tree. For the public store we return

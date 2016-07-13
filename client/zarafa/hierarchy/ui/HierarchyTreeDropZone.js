@@ -93,7 +93,13 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 				ret = 'x-tree-drop-ok-below-add';
 			}
 		}
-		
+
+		// TODO : After implementing functionality mark folder to favorite using
+		// drag and drop, This check is get's remove.
+		if(n.node.getFolder().isFavoritesRootFolder()) {
+			ret = undefined;
+		}
+
 		return ret;
 	},
 

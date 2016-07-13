@@ -32,7 +32,9 @@ Zarafa.hierarchy.data.MAPIFolderRecordFields = [
 	{name: 'rights', type: 'int'},
 	{name: 'access', type: 'int'},
 	{name: 'extended_flags', type: 'int', defaultValue: 0},
-	{name: 'is_unavailable', type: 'boolean', defaultValue: false}
+	{name: 'assoc_content_count', type: 'int', defaultValue: 0},
+	{name: 'is_unavailable', type: 'boolean', defaultValue: false},
+	{name: 'isFavorites', type: 'boolean', defaultValue: false}
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToObjectType(Zarafa.core.mapi.ObjectType.MAPI_FOLDER, Zarafa.hierarchy.data.MAPIFolderRecordFields);
@@ -170,6 +172,26 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
+	 * @return {Boolean} true if the folder is the subtree folder of its store else false.
+	 */
+	isFavoritesRootFolder : function()
+	{
+		var MAPIStore = container.getHierarchyStore().getDefaultStore();
+		if (MAPIStore) {
+			return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), MAPIStore.get('common_view_entryid'));
+		}
+		return false;
+	},
+
+	/**
+	 * @returns {Boolean} true if the folder is the favorites folder else false.
+	 */
+	isFavoritesFolder : function()
+	{
+		return this.get('isFavorites');
+	},
+
+	/**
 	 * @return {Boolean} true if the folder is the RSS feeds folder else false.
 	 */
 	isRSSFolder : function()
@@ -187,6 +209,8 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	{
 		if (this.isIPMSubTree()) {
 			return this.getMAPIStore().get('display_name');
+		}else if (this.isFavoritesRootFolder()){
+			return _('Favorites');
 		} else {
 			return this.get('display_name');
 		}
@@ -305,15 +329,53 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
-	 * Add current {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} to Favorites
-	 * @param {String} favoriteName new folder name
-	 * @param {Number} flags flags for adding folder to Favorites
+	 * Function is use to identify selected folder marks favorites.
+	 *
+	 * @return {Boolean} returns true if given record exists in {@link Zarafa.common.favorites.data.MAPIFavoritesSubStore favorites} store
+	 * else return false;
 	 */
-	addToFavorites : function(favoriteName, flags)
+	existsInFavorites : function()
+	{
+		var favoritesStore = this.getMAPIStore().getFavoritesStore();
+		if(Ext.isDefined(favoritesStore)) {
+			var recordIndex = favoritesStore.find('entryid', this.get('entryid'));
+			return recordIndex !== -1;
+		}
+		return false;
+	},
+
+	/**
+	 * Function is used to retrieve {@link Zarafa.common.favorites.data.FavoritesFolderRecord favorites} record
+	 * from {@link Zarafa.common.favorites.data.MAPIFavoritesSubStore favorites} store.
+	 * @return {Zarafa.common.favorites.data.FavoritesFolderRecord} return favorites folder record
+	 */
+	getFavoritesFolder : function()
+	{
+		return this.getMAPIStore().getFavoritesStore().getById(this.get('entryid'));
+	},
+
+	/**
+	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} IPM_COMMON_VIEWS folder which is used as favorites root folder.
+	 */
+	getFavoritesRootFolder : function()
+	{
+		return this.getMAPIStore().getFavoritesRootFolder();
+	},
+
+	/**
+	 * Add current {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} to Favorites list
+	 */
+	addToFavorites : function()
 	{
 		this.addMessageAction('action_type', 'addtofavorites');
-		this.addMessageAction('favorite_name', favoriteName);
-		this.addMessageAction('favorite_flags', flags);
+	},
+
+	/**
+	 * Remove current {@link Zarafa.hierarchy.data.FavoritesFolderRecord folder} to Favorites list
+	 */
+	removeFromFavorites : function()
+	{
+		this.addMessageAction('action_type', 'removefavorites');
 	},
 
 	/**

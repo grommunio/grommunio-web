@@ -1198,4 +1198,13 @@ define('PR_EC_IMAP_EMAIL'                     ,mapi_prop_tag(PT_BINARY,  PR_EC_B
 define('PR_EC_IMAP_EMAIL_SIZE'                ,mapi_prop_tag(PT_LONG,    PR_EC_BASE+0x8D));
 define('PR_EC_IMAP_BODY'                      ,mapi_prop_tag(PT_STRING8, PR_EC_BASE+0x8E)); //simplified bodystructure (mostly unused by clients)
 define('PR_EC_IMAP_BODYSTRUCTURE'             ,mapi_prop_tag(PT_STRING8, PR_EC_BASE+0x8F)); //extended bodystructure (often used by clients)
+
+/* Favorites folder properties*/
+define('PR_WLINK_ENTRYID'                    ,mapi_prop_tag(PT_BINARY,     0x684C));
+define('PR_WLINK_FLAGS'                      ,mapi_prop_tag(PT_LONG,       0x684A));
+define('PR_WLINK_ORDINAL'                    ,mapi_prop_tag(PT_BINARY,     0x684B));
+define('PR_WLINK_STORE_ENTRYID'              ,mapi_prop_tag(PT_BINARY,     0x684E));
+define('PR_WLINK_TYPE'                       ,mapi_prop_tag(PT_LONG,       0x6849));
+define('PR_WLINK_SECTION'                    ,mapi_prop_tag(PT_LONG,       0x6852));
+define('PR_WLINK_RECKEY'                     ,mapi_prop_tag(PT_BINARY,     0x684D));
 ?>

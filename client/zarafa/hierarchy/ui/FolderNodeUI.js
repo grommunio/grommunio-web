@@ -103,6 +103,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 							'<span unselectable="on">' + (n.tpl ? n.tpl.apply(a) : n.text) + '</span>' +
 							// counter node (this.counterNode)
 							'<span class="zarafa-hierarchy-node-counter" unselectable="on"></span>' +
+							'<span class="zarafa-hierarchy-node-owner" unselectable="on"></span>'+
 					"</a>" +
 				"</div>" +
 				'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
@@ -139,7 +140,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		this.textNode = cs[index].firstChild;
 
 		this.counterNode = cs[index].firstChild.nextSibling;
-
+		this.folderOwnerNode = this.counterNode.nextSibling;
 		// Apply some optional CSS classes
 		var elNode = Ext.get(this.elNode);
 		var iconNode = Ext.get(this.iconNode);
@@ -165,8 +166,33 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		}
 
 		this.updateCounter(n);
+		this.showFolderOwner(n);
 	},
 
+	/**
+	 * Function is used to show folder owner name along with {@link Zarafa.hierarchy.data.FavoritesFolderRecord favorites} folder name.
+	 * @param {Zarafa.hierarchy.ui.FolderNode} node which has to show folder owner name.
+	 */
+	showFolderOwner : function (node)
+	{
+		var folder = node.getFolder();
+
+		if (!Ext.isDefined(folder) || !folder.isFavoritesFolder() || folder.isIPMSubTree() || folder.isFavoritesRootFolder()) {
+			return;
+		}
+
+		var ownerNode = Ext.get(this.folderOwnerNode);
+		var store = container.getHierarchyStore().getById(folder.get('store_entryid'));
+		var ownerName = '';
+		if(store.isPublicStore()) {
+			ownerName = ' - ' + store.get('display_name');
+		} else if(store.get('mailbox_owner_name') !== container.getUser().getDisplayName()) {
+			ownerName = ' - ' + store.get('mailbox_owner_name');
+		}
+		ownerNode.update(ownerName);
+		ownerNode.repaint();
+	},
+	
 	/**
 	 * Update the {@link #counterNode counter} with the correct value.
 	 * @param {Zarafa.hierarchy.ui.FolderNode} node The node which is being updated

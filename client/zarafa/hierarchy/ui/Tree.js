@@ -352,6 +352,24 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			this.treeSorter = false;
 		}
 		Zarafa.hierarchy.ui.Tree.superclass.beforeDestroy.call(this);
+	},
+
+	/**
+	 * Function is used to find the {@link Zarafa.hierarchy.ui.FolderNode} based on the folder.
+	 * If selected folder is {@link Zarafa.common.favorites.data.FavoritesFolderRecord favorites} folder then
+	 * we append "favorites-" keyword with folder entryid to uniquely identify and get the favorites marked folder node.
+	 * 
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord | Zarafa.common.favorites.data.FavoritesFolderRecord} folder the folder
+	 * can be favorites folder or any noramal folder.
+	 * @returns {Zarafa.hierarchy.ui.FolderNode} folder node object
+	 */
+	getTreeNode: function (folder)
+	{
+		var id = folder.get('entryid');
+		if (folder.isFavoritesFolder()) {
+			id = "favorites-"+id;
+		}
+		return this.getNodeById(id);
 	}
 });
 

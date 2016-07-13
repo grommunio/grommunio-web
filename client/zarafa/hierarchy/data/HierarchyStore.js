@@ -159,6 +159,13 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 		// Only allow Shared Stores to be removed
 		if (record.isSharedStore()) {
+			// Remove all favorites marked folders which are
+			// belongs to shared user because we are going to
+			// close the shared user hierarchy store.
+			var favoritesStore = record.getFavoritesStore();
+			var records = favoritesStore.query('store_entryid',record.get('store_entryid'));
+			favoritesStore.remove(records.getRange());
+
 			Zarafa.hierarchy.data.HierarchyStore.superclass.remove.call(this, record);
 		}
 	},
@@ -277,6 +284,16 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				'update' : this.onFolderUpdate,
 				scope : this
 			});
+
+			var favorites = records[i].getSubStore('favorites');
+			if(Ext.isDefined(favorites)) {
+				favorites.on({
+					'add' : this.onFolderAdd,
+					'remove' : this.onFolderRemove,
+					'update' : this.onFolderUpdate,
+					scope : this
+				});
+			}
 		}
 	},
 
@@ -291,6 +308,13 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		folders.un('add', this.onFolderAdd, this);
 		folders.un('remove', this.onFolderRemove, this);
 		folders.un('update', this.onFolderUpdate, this);
+
+		var favorites = record.getSubStore('favorites');
+		if(Ext.isDefined(favorites)) {
+			favorites.un('add', this.onFolderAdd, this);
+			favorites.un('remove', this.onFolderRemove, this);
+			favorites.un('update', this.onFolderUpdate, this);
+		}
 	},
 
 	/**
@@ -431,10 +455,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				// for the user rather then only the 'all' folder type.
 				settings.remove('zarafa/v1/contexts/hierarchy/shared_stores/' + username);
 
-				// The server doesn't need the store_entryid to be sent,
-				// only the user_name should be indicated.
 				sharedstore.addIdProp('user_name');
-				sharedstore.removeIdProp('store_entryid');
 			}
 
 			settings.endEdit();
@@ -496,10 +517,10 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onFolderRemove : function(store, record, index)
 	{
-		// If the removed folder is a shared folder, we have to check
+		// If the removed folder is a shared folder and not favorites marked then we have to check
 		// if this is the last shared folder for the store. Because
 		// that means we have to remove the entire store.
-		if (record.isSharedFolder()) {
+		if (record.isSharedFolder() && !record.isFavoritesFolder()) {
 			var isEmpty = true;
 
 			// Check if there are any shared folders left in the hierarchy...
@@ -780,6 +801,12 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				if (folderStore) {
 					folderStore.set('content_unread', folder.content_unread);
 					folderStore.set('content_count', folder.content_count);
+
+					if (folderStore.existsInFavorites()) {
+						var favoritesFolder = folderStore.getFavoritesFolder();
+						favoritesFolder.set('content_unread', folder.content_unread);
+						favoritesFolder.set('content_count', folder.content_count);
+					}
 				}
 			}, this);
 		}
