@@ -58,7 +58,8 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		// plain text mails can not have external content
 		if(!this.get('isHTML')) {
-			return this.externalContent = false;
+			this.externalContent = false;
+			return this.externalContent;
 		}
 
 		if(!this.externalContent || this.isModifiedSinceLastUpdate('html_body')) {
