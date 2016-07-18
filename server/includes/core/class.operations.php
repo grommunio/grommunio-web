@@ -4094,47 +4094,6 @@
 		}
 
 		/**
-		* Create a flat entrylist (used for PR_REPLY_RECIPIENT_ENTRIES) from a list of recipients
-		*
-		* These flatentrylists are used in PR_REPLY_RECIPIENT_ENTRIES, remember to
-		* keep this property synchronized with PR_REPLY_RECIPIENT_NAMES.
-		*
-		* @param String $recipientArray The array with recipients to convert
-		* @return boolean Returns the resulting flatentrylist
-		*/
-		function writeFlatEntryList($recipientArray)
-		{
-			$oneOffs = Array();
-			foreach ($recipientArray as $recipient)
-			{
-				// Add display name if it doesn't exist
-				if (!array_key_exists(PR_DISPLAY_NAME, $recipient)||empty($recipient[PR_DISPLAY_NAME]))
-					$recipient[PR_DISPLAY_NAME] = $recipient[PR_EMAIL_ADDRESS];
-				$oneOffs[] = mapi_createoneoff($recipient[PR_DISPLAY_NAME], $recipient[PR_ADDRTYPE], $recipient[PR_EMAIL_ADDRESS]);
-			}
-
-			// Construct string from array with (padded) One-Off entry identifiers
-			//
-			// Remember, if you want to take the createOneOff part above out: that code
-			// produces a padded OneOff and we add the right amount of null characters
-			// below.
-			//
-			// So below is a wrong method for composing a flatentrylist from oneoffs and
-			// above is a wrong method form composing a oneoff.
-			$flatEntryString = "";
-			for ($i = 0, $len = count($oneOffs); $i < $len; $i++)
-			{
-				$flatEntryString .= pack("Va*", strlen($oneOffs[$i]), $oneOffs[$i]);
-				// Fill to 4-byte boundary
-				$rest = strlen($oneOffs[$i])%4;
-				for ($j=0;$j<$rest;$j++)
-					$flatEntryString .= "\0";
-			}
-			// Pack the string with the number of flatentries and the stringlength
-			return pack("V2a*", count($oneOffs), strlen($flatEntryString), $flatEntryString);
-		}
-
-		/**
 		* Get a text body for a Non-Delivery report
 		*
 		* This function reads the necessary properties from the passed message and constructs
@@ -4328,26 +4287,6 @@
 				mapi_stream_commit($stream);
 				mapi_savechanges($store);
 			}
-		}
-
-		/**
-		* Extract all email addresses from a list of recipients
-		*
-		* @param string $p_sRecipients String containing e-mail addresses, as typed by user (eg. '<john doe> john@doe.org; jane@doe.org')
-		* @return array Array of e-mail address parts (eg. 'john@doe.org', 'jane@doe.org')
-		*
-		* this function is currently unused
-		*/
-		function extractEmailAddresses($p_sRecipients){
-			$l_aRecipients = explode(';', $p_sRecipients);
-			$l_aReturn = Array();
-			for($i = 0, $len = count($l_aRecipients); $i < $len; $i++){
-				$l_aRecipients[$i] = trim($l_aRecipients[$i]);
-				$l_sRegex = '/^([^<]*<){0,1}(([a-z0-9=_\+\.\-\'\/])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,5})+)>{0,1}$/';
-				preg_match($l_sRegex, $l_aRecipients[$i], $l_aMatches);
-				$l_aReturn[] = $l_aMatches[0];
-			}
-			return $l_aReturn;
 		}
 
 		/**

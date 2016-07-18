@@ -40,31 +40,6 @@
 		}
 
 		/**
-		 * Convert HTML to text
-		 *
-		 * @param string $str the html which should be converted to text
-		 * @return string plain text version of the given $str
-		 */
-		function html2text($str)
-		{
-			return $this->unhtmlentities(preg_replace(
-					Array("'<(HEAD|SCRIPT|STYLE|TITLE)[^>]*?>.*?</(HEAD|SCRIPT|STYLE|TITLE)[^>]*?>'si",
-						"'(\r|\n)'",
-						"'<BR[^>]*?>'i",
-						"'<P[^>]*?>'i",
-						"'<\/?\w+[^>]*>'e",
-						"'<![^>]*>'s"
-						),
-					Array("",
-						"",
-						"\r\n",
-						"\r\n\r\n",
-						"",
-						""),
-					$str));
-		}
-
-		/**
 		 * Remove HTML entities and convert them to single characters where possible
 		 *
 		 * @access private
