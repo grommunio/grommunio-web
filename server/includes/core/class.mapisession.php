@@ -81,7 +81,7 @@
 		 * @param string $sslcert_pass the optional ssl certificate password
 		 * @result int 0 on no error, otherwise a MAPI error code
 		 */
-		function logon($username = NULL, $password = NULL, $server = DEFAULT_SERVER, $sslcert_file = NULL, $sslcert_pass = NULL)
+		function logon($username = NULL, $password = NULL, $server = DEFAULT_SERVER, $sslcert_file = NULL, $sslcert_pass = NULL, $notifications = 1)
 		{
 			$result = NOERROR;
 			$username = (string) $username;
@@ -92,7 +92,6 @@
 				$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 				$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file,
 								   $sslcert_pass, 1, $webapp_version, $browser_version);
-
 				if ($this->session !== false){
 					$this->session_info["username"] = $username;
 
