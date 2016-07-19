@@ -285,9 +285,6 @@ class FileLoader {
 			return $files;
 		}
 
-		$typeExt = '.' . $ext;
-		$typeSize = strlen($typeExt);
-
 		while(($file = readdir($dir)) !== false)
 		{
 			$filepath = $path.'/'.$file;
@@ -579,7 +576,7 @@ class FileLoader {
 		if(count($fileDepths) < count($fileData)){
 			$errorMsg = '[LOADER] Could not compute all dependecies. The following files cannot be resolved properly: ';
 			$errorMsg .= implode(', ', array_diff(array_keys($fileData), array_keys($fileDepths)));
-			trigger_error($trigger_error);
+			trigger_error($errorMsg);
 		}
 
 		$fileWeights = Array();

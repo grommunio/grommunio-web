@@ -236,7 +236,6 @@ function getCalendarItems($store, $calendar, $viewstart, $viewend, $propsrequest
 	// Get requested properties, plus whatever we need
 	$proplist = array(PR_ENTRYID, $properties["recurring"], $properties["recurring_data"], $properties["timezone_data"]);
 	$proplist = array_merge($proplist, $propsrequested);
-	$propslist = array_unique($proplist);
 	
 	$rows = mapi_table_queryallrows($table, $proplist, $restriction);
 	

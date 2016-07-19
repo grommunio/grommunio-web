@@ -24,7 +24,6 @@
  * @return           Nothing, modifies a reference value.
  */
 function sq_defang(&$attvalue){
-    $me = 'sq_defang';
     /**
      * Skip this if there aren't ampersands or backslashes.
      */
@@ -51,7 +50,6 @@ function sq_defang(&$attvalue){
  * @return attvalue  Nothing, modifies a reference value.
  */
 function sq_unspace(&$attvalue){
-    $me = 'sq_unspace';
     if (strcspn($attvalue, "\t\r\n\0 ") != strlen($attvalue)){
         $attvalue = str_replace(Array("\t", "\r", "\n", "\0", " "),
                                 Array('',   '',   '',   '',   ''), $attvalue);
@@ -153,7 +151,6 @@ function sq_fixIE_idiocy(&$attvalue) {
  * @return           a string with the final tag representation.
  */
 function sq_tagprint($tagname, $attary, $tagtype){
-    $me = 'sq_tagprint';
 
     if ($tagtype == 2){
         $fulltag = '</' . $tagname . '>';
@@ -196,7 +193,6 @@ function sq_casenormalize(&$val){
  *                 non-whitespace char is located.
  */
 function sq_skipspace($body, $offset){
-    $me = 'sq_skipspace';
     while(1) {
         $matches = Array();
         preg_match('/^(\s*)/s', substr($body, $offset, 256), $matches);
@@ -222,7 +218,6 @@ function sq_skipspace($body, $offset){
  *                 strlen($body) if needle wasn't found.
  */
 function sq_findnxstr($body, $offset, $needle){
-    $me  = 'sq_findnxstr';
     $pos = strpos($body, $needle, $offset);
     if ($pos === FALSE){
         $pos = strlen($body);
@@ -244,7 +239,6 @@ function sq_findnxstr($body, $offset, $needle){
  *                 - string with whatever it is we matched
  */
 function sq_findnxreg($body, $offset, $reg){
-    $me = 'sq_findnxreg';
     $matches = Array();
     $retarr = Array();
     preg_match("%(.*?)($reg)%si", $body, $matches, 0, $offset);
@@ -273,7 +267,6 @@ function sq_findnxreg($body, $offset, $reg){
  *                 first three members will be false, if the tag is invalid.
  */
 function sq_getnxtag($body, $offset){
-    $me = 'sq_getnxtag';
     if ($offset > strlen($body)){
         return false;
     }
@@ -331,7 +324,6 @@ function sq_getnxtag($body, $offset){
             break;
     }
 
-    $tag_start = $pos;
     $tagname = '';
     /**
      * Look for next [\W-_], which will indicate the end of the tag name.
@@ -391,7 +383,6 @@ function sq_getnxtag($body, $offset){
      * At this point we loop in order to find all attributes.
      */
     $attname = '';
-    $atttype = false;
     $attary = Array();
 
     while ($pos <= strlen($body)){
@@ -557,8 +548,6 @@ function sq_getnxtag($body, $offset){
  * @return          True or False depending on whether there were matches.
  */
 function sq_deent(&$attvalue, $regex, $hex=false){
-    $me = 'sq_deent';
-    $ret_match = false;
     preg_match_all($regex, $attvalue, $matches);
     if (is_array($matches) && sizeof($matches[0]) > 0){
         $repl = Array();
@@ -604,7 +593,6 @@ function sq_fixatts($tagname,
                     $id,
                     $mailbox
                     ){
-    $me = 'sq_fixatts';
     while (list($attname, $attvalue) = each($attary)){
         /**
          * See if this attribute should be removed.
@@ -735,10 +723,8 @@ function sq_fix_url($attname, &$attvalue, $message, $id, $mailbox,$sQuote = '"')
  * @return           a string with edited content.
  */
 function sq_fixstyle($body, $pos, $message, $id, $mailbox){
-    $me = 'sq_fixstyle';
 
     // workaround for </style> in between comments
-    $iCurrentPos = $pos;
     $content = '';
     $sToken = '';
     $bSucces = false;
@@ -802,7 +788,6 @@ function sq_fixstyle($body, $pos, $message, $id, $mailbox){
      * and change it to .bodyclass so we can just assign it to a <div>
      */
     $content = preg_replace("|body(\s*\{.*?\})|si", ".bodyclass\\1", $content);
-    $secremoveimg = BASE_URL . "/client/resources/images/sec_remove.png";
 
     // first check for 8bit sequences and disallowed control characters
     if (preg_match('/[\16-\37\200-\377]+/',$content)) {
@@ -875,10 +860,7 @@ function sq_fixstyle($body, $pos, $message, $id, $mailbox){
  * @return           a modified array of attributes to be set for <div>
  */
 function sq_body2div($attary, $mailbox, $message, $id){
-    $me = 'sq_body2div';
     $divattary = Array('class' => "'bodyclass'");
-    $bgcolor = '#ffffff';
-    $text = '#000000';
     $styledef = '';
     if (is_array($attary) && sizeof($attary) > 0){
         foreach ($attary as $attname=>$attvalue){
@@ -939,7 +921,6 @@ function sq_sanitize($body,
                      $id,
                      $mailbox
                      ){
-    $me = 'sq_sanitize';
     $rm_tags = array_shift($tag_list);
     /**
      * Normalize rm_tags and rm_tags_with_content.

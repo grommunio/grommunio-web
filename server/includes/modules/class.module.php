@@ -199,7 +199,7 @@
 			}
 
 			// if hard quota limit doesn't restrict the operation then check for soft qouta limit
-			if($quotaDetails['quota_soft'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_soft'] && empty($result)) {
+			if($quotaDetails['quota_soft'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_soft']) {
 				return _('The message store has exceeded its soft quota limit.') . '<br/> '.
 						_('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
 			}

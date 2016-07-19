@@ -153,7 +153,6 @@
 
 			$this->modified[$path] = $value;
 			$path = explode('/', $path);
-			$pathCount = count($path);
 
 			// Save the last key seperately
 			$lastKey = array_pop($path);
