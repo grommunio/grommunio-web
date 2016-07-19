@@ -80,14 +80,14 @@
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();
 	
-	// Create global settings object
-	$GLOBALS["settings"] = new Settings();
-
 	// Create global language object
-	$GLOBALS["language"] = new Language();
+	$Language = new Language();
 	
+	// Create global settings object
+	$GLOBALS["settings"] = new Settings($Language);
+
 	// Set the correct language
-	$GLOBALS["language"]->setLanguage($session_lang);
+	$Language->setLanguage($session_lang);
 
 	// Get the state information for this subsystem
 	$subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);

@@ -12,7 +12,7 @@
 	// compress output
 	ob_start("ob_gzhandler");
 
-	$translations = $GLOBALS['language']->getTranslations();
+	$translations = $Language->getTranslations();
 
 /**
  * Convert the charset to UTF-8. If it is an array it will loop through all it's

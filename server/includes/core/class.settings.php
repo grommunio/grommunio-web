@@ -510,13 +510,14 @@
 		 *
 		 * @return array Associative array with 'lang' entry.
 		 */
-		function getSessionSettings()
+		function getSessionSettings($Language)
 		{
 			if (!$this->init) {
 				throw new SettingsException(_('Settings object is not initialized'));
 			}
+
 			$lang = $this->get('zarafa/v1/main/language', LANG);
-			$lang = $GLOBALS["language"]->resolveLanguage($lang);
+			$lang = $Language->resolveLanguage($lang);
 
 			return array(
 				'lang' => $lang

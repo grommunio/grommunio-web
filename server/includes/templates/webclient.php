@@ -163,7 +163,7 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 		</script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&amp;load=translations.js&amp;lang=<?php echo $GLOBALS["language"]->getSelected() ?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&amp;load=translations.js&amp;lang=<?php echo $Language->getSelected() ?>"></script>
 
 		<!-- ExtJS & Thirdparty extensions-->
 		<?php
@@ -185,7 +185,7 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 
 		<script type="text/javascript">
 			settings 		= <?php echo json_encode($GLOBALS["settings"]->getJSON()); ?>;
-			languages 		= <?php echo json_encode($GLOBALS["language"]->getJSON()); ?>;
+			languages 		= <?php echo json_encode($Language->getJSON()); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 	= <?php echo json_encode($serverConfig); ?>;
