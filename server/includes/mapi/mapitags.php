@@ -892,6 +892,7 @@ define('PR_WLINK_STORE_ENTRYID'              ,mapi_prop_tag(PT_BINARY,     0x684
 define('PR_WLINK_TYPE'                       ,mapi_prop_tag(PT_LONG,       0x6849));
 define('PR_WLINK_SECTION'                    ,mapi_prop_tag(PT_LONG,       0x6852));
 define('PR_WLINK_RECKEY'                     ,mapi_prop_tag(PT_BINARY,     0x684D));
+define('PR_WB_SF_ID'                         ,mapi_prop_tag(PT_BINARY,     0x6842));
 
 /* Search folder properties */
 define('PR_EC_SUGGESTION'					,mapi_prop_tag(PT_TSTRING, 0x6707));

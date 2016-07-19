@@ -24,6 +24,9 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var searchContext = container.getContextByName('advancesearch');
 		if (!Ext.isDefined(config.model) && Ext.isDefined(searchContext)) {
 			config.model = searchContext.getModel();
+			if(Ext.isDefined(config.searchFolder)) {
+				config.model.store.searchFolder[config.searchTabId] = config.searchFolder;
+			}
 			var parentModel = container.getCurrentContext().getModel();
 			searchContext.enable(parentModel.getDefaultFolder(), true);
 		}
@@ -35,6 +38,8 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			items : [{
 				xtype : 'zarafa.searchtoolboxpanel',
 				searchContext : searchContext,
+				searchTabId : config.searchTabId,
+				collapsed : Ext.isDefined(config.searchFolder),
 				region :'west',
 				scope : this
 			},{
@@ -106,6 +111,8 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		// Events registered on Advance Search field.
 		this.searchToolbar.mon(this.searchToolbar.getAdvanceSearchField(),{
 			render : this.onRenderSearchTextField,
+			valid : this.onValidSearchTextField,
+			change : this.onChangeSearchTextField,
 			start : this.onSearchStart,
 			stop : this.onSearchStop,
 			scope : this
@@ -122,6 +129,81 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			 'aftercontextswitch' : this.onAfterContextSwitch,
 			 scope : this
 		});
+
+		this.mon(container.getHierarchyStore(), 'addFolder', this.onHierarchyAddFolder, this);
+	},
+
+	/**
+	 * Event handler triggers when folder was added in hierarchy. function was
+	 * responsible to save the search criteria in settings.
+	 *
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The store which fired the event
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} mapiStore mapi store in which new folders are added.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord/Zarafa.hierarchy.data.MAPIFolderRecord[]} record folder record(s) which are added in hierarchy.
+	 * @private
+	 */
+	onHierarchyAddFolder : function(store, mapiStore, record)
+	{
+		if (Ext.isArray(record)) {
+			record.forEach(function (record) {
+				this.onHierarchyAddFolder(store, mapiStore, record);
+			},this);
+			return;
+		}
+		var searchStore = this.model.getActiveStore();
+		var searchStoreUniqueId = searchStore.searchStoreUniqueId;
+		var searchToolBox = this.searchToolBox;
+		if (record.isSearchFolder() && searchStoreUniqueId === searchToolBox.searchTabId) {
+			searchStore.searchFolder[searchStore.searchStoreUniqueId] = record;
+
+			this.suspendEvents();
+			var obj = {};
+			var searchInCheckBoxGroup = searchToolBox.searchInCheckboxGroup.getValue();
+			var messageTypeCheckBoxGroup = searchToolBox.messageTypeCheckboxGroup.getValue();
+			var filterCheckBoxGroup = searchToolBox.filterCheckBoxGroup.getValue();
+			var dateRangeDropdown = searchToolBox.dateRangeCombo;
+
+			obj['searchInCheckBoxGroup'] = {};
+			obj['messageTypeCheckBoxGroup'] = {};
+			obj['filterCheckBoxGroup'] = {};
+			obj["search_text"] = this.searchText;
+			obj["search_folder_combo"] = {};
+
+			searchInCheckBoxGroup.forEach(function(item){
+				obj['searchInCheckBoxGroup'][item.itemId] = true;
+			}, this);
+
+			messageTypeCheckBoxGroup.forEach(function(item){
+				obj['messageTypeCheckBoxGroup'][item.name] = true;
+			}, this);
+
+			filterCheckBoxGroup.forEach(function(item){
+				obj['filterCheckBoxGroup'][item.name] = true;
+			}, this);
+
+			if (dateRangeDropdown.getValue() === 'custom_date') {
+				obj["date_range"] = {};
+				Ext.apply(obj["date_range"], {
+					start : searchToolBox.dateField.getValue().getStartDate().getTime(),
+					due  : searchToolBox.dateField.getValue().getDueDate().getTime()
+				});
+			} else {
+				obj["date_range"] = dateRangeDropdown.getValue();
+			}
+
+			var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
+			var folder = searchFolderCombo.getStore().getAt(searchFolderCombo.getStore().find('value',searchFolderCombo.getValue()));
+			if(folder.get('flag') === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
+				obj["search_folder_combo"]["folder_type"] = folder.get('flag');
+			} else {
+				obj["search_folder_combo"]["folder_entryid"] = folder.get('value');
+				obj["search_folder_combo"]["folder_name"] = folder.get('name');
+				obj["search_folder_combo"]["folder_type"] = folder.get('flag');
+				obj["search_folder_combo"]["include_subfolder"] = folder.get('include_subfolder');
+			}
+			container.getSettingsModel().set('zarafa/v1/contexts/search/search_criteria/'+record.get('entryid'), obj);
+			this.resumeEvents();
+		}
 	},
 
 	/**
@@ -258,6 +340,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	onSearchStart : function(advanceSearchField)
 	{
 		var searchText = advanceSearchField.getValue();
+		this.searchContentPanel.searchText = searchText;
 		var searchField = this.searchToolbar.getAdvanceSearchField();
 
 		this.searchContentPanel.setTitle(searchText);
@@ -287,8 +370,14 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 */
 	onSearchStop : function()
 	{
-		this.model.stopSearch();
-		if (Ext.isDefined(this.searchToolbar)) {
+		var store = this.model.getActiveStore();
+		if (!Ext.isDefined(store.searchFolder[store.searchStoreUniqueId])) {
+			this.model.stopSearch();
+		} else {
+			 delete store.searchFolder[store.searchStoreUniqueId];
+		}
+
+		if(Ext.isDefined(this.searchToolbar)) {
 			this.searchToolbar.getAdvanceSearchField().focus();
 		}
 	},
@@ -303,8 +392,21 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var searchField = this.searchToolbar.getAdvanceSearchField();
 		searchField.searchPanelRendered = this.rendered;
 
-		// Trigger search operation.
-		searchField.onTriggerClick();
+		var store = this.model.getActiveStore();
+		if (Ext.isDefined(store.searchFolder[store.searchStoreUniqueId])) {
+			var folder = store.searchFolder[store.searchStoreUniqueId];
+
+			// Load a new set of folders from the store.
+			var data = Ext.applyIf({}, {
+				'folder' : folder
+			});
+
+			store.load(data);
+			store.hasSearchResults = true;
+		} else {
+			// Trigger search operation.
+			searchField.onTriggerClick();
+		}
 	},
 
 	/**
@@ -325,7 +427,36 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 */
 	onRenderSearchTextField : function(searchTextField)
 	{
-		searchTextField.setValue(this.searchText);
+		var searchFolderSettingObj = this.searchToolBox.getSearchFolderSettings();
+		if (searchFolderSettingObj) {
+			searchTextField.setValue(searchFolderSettingObj.search_text);
+		} else {
+			searchTextField.setValue(this.searchText);
+		}
+	},
+
+	/**
+	 * Event handler triggered when value of {@link Zarafa.common.searchfield.ui.SearchTextField Search text field}
+	 * was validated.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField search text field which contains
+	 * search text.
+	 */
+	onValidSearchTextField : function(searchTextField)
+	{
+		this.searchText = searchTextField.getValue();
+	},
+
+	/**
+	 * Event handler triggered when value of search text field has been changed.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField search text field which contains
+	 * @param {String} newValue new value of search text field.
+	 * @param {String} oldValue old value of search text field.
+	 */
+	onChangeSearchTextField : function(searchTextField, newValue, oldValue)
+	{
+		this.searchText = newValue;
 	},
 
 	/**
@@ -338,13 +469,43 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 */
 	onRenderSearchFolderCombo : function(searchFolderCombo)
 	{
-		searchFolderCombo.store.clearData();
-		var parentSearchFolderCombo = this.searchContentPanel.getParentSearchFolderCombo();
-		parentSearchFolderCombo.store.getRange().forEach(function (record) {
-			searchFolderCombo.store.add(record.copy());
-		});
+		var searchFolderSettingObj = this.searchToolBox.getSearchFolderSettings();
+		if (searchFolderSettingObj) {
+			var searchComboSettingObj = searchFolderSettingObj['search_folder_combo'];
+			var store = searchFolderCombo.getStore();
+			var value;
 
-		searchFolderCombo.setValue(parentSearchFolderCombo.getValue());
+			if (searchComboSettingObj['folder_type'] === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
+				var folder = store.getAt(store.find('flag', searchComboSettingObj['folder_type']));
+				value = folder.get('value');
+			} else {
+				var index = 0;
+				if (searchComboSettingObj['folder_type'] === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER) {
+					index = 1;
+					store.removeAt(index);
+				} else if (store.getAt(0).get('flag') === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.IMPORTED_FOLDER) {
+					store.removeAt(index);
+				}
+				var folder = new Ext.data.Record({
+					'name' : searchComboSettingObj['folder_name'],
+					'value' : searchComboSettingObj['folder_entryid'],
+					'flag' : searchComboSettingObj['folder_type'],
+					'include_subfolder': searchComboSettingObj['include_subfolder']
+				});
+				store.insert(index, folder);
+				value = searchComboSettingObj['folder_entryid'];
+			}
+			searchFolderCombo.setValue(value);
+		} else {
+			searchFolderCombo.store.clearData();
+			var parentSearchFolderCombo = this.searchContentPanel.getParentSearchFolderCombo();
+			parentSearchFolderCombo.store.getRange().forEach(function (record) {
+				searchFolderCombo.store.add(record.copy());
+			});
+			var value = parentSearchFolderCombo.getValue();
+			searchFolderCombo.setValue(value);
+		}
+
 	},
 
 	/**

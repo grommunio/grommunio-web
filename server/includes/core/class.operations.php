@@ -78,7 +78,7 @@
 
 			foreach($storelist as $store)
 			{
-				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE, PR_COMMON_VIEWS_ENTRYID));
+				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID));
 
 				$inboxProps = array();
 				$storeType = $msgstore_props[PR_MDB_PROVIDER];
@@ -114,6 +114,7 @@
 						"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
 						"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0,
 						"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
+						"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex($msgstore_props[PR_FINDER_ENTRYID]) : ""
 					)
 				);
 
@@ -667,8 +668,9 @@
 		}
 
 		/**
-		 * Function is used to retrieve favorites link messages from associated contains table of
-		 * IPM_COMMON_VIEWS folder.
+		 * Function is used to retrieve the favorites and search folders from
+		 * respective favorites(IPM.Microsoft.WunderBar.Link) and search (IPM.Microsoft.WunderBar.SFInfo)
+		 * link messages which belongs to associated contains table of IPM_COMMON_VIEWS folder.
 		 *
 		 * @access private
 		 * @param Object $commonViewFolder MAPI Folder Object in which the favorites link messages lives
@@ -678,35 +680,121 @@
 		{
 			$table = mapi_folder_getcontentstable($commonViewFolder, MAPI_ASSOCIATED);
 
-			$restriction = array(RES_PROPERTY,
-				array(
-					RELOP => RELOP_EQ,
-					ULPROPTAG => PR_MESSAGE_CLASS,
-					VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+			$restriction = Array(RES_OR,
+				Array(
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+						)
+					),
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo")
+						)
+					)
 				)
 			);
-			$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
 
+			// Get hierarchy table from all FINDERS_ROOT folders of
+			// all message stores.
+			$stores = $GLOBALS["mapisession"]->getAllMessageStores();
+			$finderHierarchyTables = [];
+			foreach ($stores as $entryid => $store) {
+				$props = mapi_getprops($store, array(PR_FINDER_ENTRYID));
+				$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
+				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+			}
+
+			$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
+			$faultyLinkMsg = [];
 			foreach ($rows as $row) {
 				try {
-					// In webapp we use IPM_SUBTREE as root folder for the Hierarchy but OL is use IMsgStore as a
-					// Root folder. OL never mark favorites to IPM_SUBTREE. so to make favorites compatible with OL
-					// we need this check.
-					// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. which same only in one case
-					// where some user has mark favorites to root(Inbox-<user name>) folder from OL. so here if condition
-					// gets true we get the IPM_SUBTREE and send it to response as favorites folder to webapp.
-					if($GLOBALS['entryid']->compareEntryIds($row[PR_WLINK_STORE_ENTRYID], $row[PR_WLINK_ENTRYID])) {
-						$storeObj = $GLOBALS["mapisession"]->openMessageStore($row[PR_WLINK_STORE_ENTRYID]);
-						$subTreeEntryid = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
-						$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
-					} else {
-						$storeObj = $GLOBALS["mapisession"]->openMessageStore($row[PR_WLINK_STORE_ENTRYID]);
-						$folderObj = mapi_msgstore_openentry($storeObj, $row[PR_WLINK_ENTRYID]);
+					if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
+						// Find faulty link messages which does not linked to any message. if link message
+						// does not contains store entryid in which actual message is located then it consider as
+						// faulty link message.
+						if(isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID])) {
+							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
+							continue;
+						}
+						$props = $this->getFavoriteLinkedFolderProps($row);
+					} else if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo") {
+						$props = $this->getFavoritesLinkedSearchFolderProps($row[PR_WB_SF_ID], $finderHierarchyTables);
+						if(empty($props)) {
+							continue;
+						}
 					}
-					$props = mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
-					array_push($storeData['favorites']['item'], $this->setFavoritesFolder($props));
-				} catch (MAPIException $e) {
+				} catch(MAPIException $e) {
 					continue;
+				}
+
+				array_push($storeData['favorites']['item'], $this->setFavoritesFolder($props));
+			}
+
+			if(!empty($faultyLinkMsg)) {
+				// remove faulty link messages from common view folder.
+				mapi_folder_deletemessages($commonViewFolder, $faultyLinkMsg);
+			}
+		}
+
+		/**
+		 * Function which get the favorites marked folders from favorites link message
+		 * which belongs to associated contains table of IPM_COMMON_VIEWS folder.
+		 *
+		 * @param Array $linkMessageProps properties of link message which belongs to
+		 * associated contains table of IPM_COMMON_VIEWS folder.
+		 * @return Array List of properties of a folder
+		 */
+		function getFavoriteLinkedFolderProps($linkMessageProps)
+		{
+			// In webapp we use IPM_SUBTREE as root folder for the Hierarchy but OL is use IMsgStore as a
+			// Root folder. OL never mark favorites to IPM_SUBTREE. so to make favorites compatible with OL
+			// we need this check.
+			// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. which same only in one case
+			// where some user has mark favorites to root(Inbox-<user name>) folder from OL. so here if condition
+			// gets true we get the IPM_SUBTREE and send it to response as favorites folder to webapp.
+			if($GLOBALS['entryid']->compareEntryIds($linkMessageProps[PR_WLINK_STORE_ENTRYID], $linkMessageProps[PR_WLINK_ENTRYID])) {
+				$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
+				$subTreeEntryid = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
+				$folderObj = mapi_msgstore_openentry($storeObj, $subTreeEntryid[PR_IPM_SUBTREE_ENTRYID]);
+			} else {
+				$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
+				$folderObj = mapi_msgstore_openentry($storeObj, $linkMessageProps[PR_WLINK_ENTRYID]);
+			}
+
+			return mapi_getprops($folderObj, $GLOBALS["properties"]->getFavoritesFolderProperties());
+		}
+
+		/**
+		 * Function which retrieve the search folder from FINDERS_ROOT folder of all open
+		 * message store.
+		 *
+		 * @param Binary $searchFolderId contains a GUID that identifies the search folder.
+		 * The value of this property MUST NOT change.
+		 * @param array $finderHierarchyTables hierarchy tables which belongs to FINDERS_ROOT
+		 * folder of message stores.
+		 * @return array List of search folder properties.
+		 */
+		function getFavoritesLinkedSearchFolderProps($searchFolderId, $finderHierarchyTables)
+		{
+			$restriction = array(RES_EXIST,
+				array(
+					ULPROPTAG => PR_EXTENDED_FOLDER_FLAGS
+				)
+			);
+
+			foreach ($finderHierarchyTables as $finderEntryid => $hierarchyTable) {
+				$rows = mapi_table_queryallrows($hierarchyTable, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
+				foreach ($rows as $row) {
+					$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", $row[PR_EXTENDED_FOLDER_FLAGS]);
+					if ($flags["SearchFolderId-Data"] === bin2hex($searchFolderId)) {
+						return $row;
+					}
 				}
 			}
 		}
@@ -729,13 +817,25 @@
 
 				$table = mapi_folder_getcontentstable($commonViewFolder, MAPI_ASSOCIATED);
 
-				// Restriction for get all link message(IPM.Microsoft.WunderBar.Link) from
+				// Restriction for get all link message(IPM.Microsoft.WunderBar.Link)
+				// and search link message (IPM.Microsoft.WunderBar.SFInfo) from
 				// Associated contains table of IPM_COMMON_VIEWS folder.
-				$findLinkMsgRestriction = array(RES_PROPERTY,
-					array(
-						RELOP => RELOP_EQ,
-						ULPROPTAG => PR_MESSAGE_CLASS,
-						VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+				$findLinkMsgRestriction = Array(RES_OR,
+					Array(
+						array(RES_PROPERTY,
+							array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_MESSAGE_CLASS,
+								VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+							)
+						),
+						array(RES_PROPERTY,
+							array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_MESSAGE_CLASS,
+								VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo")
+							)
+						)
 					)
 				);
 
@@ -782,6 +882,17 @@
 					mapi_folder_deletemessages($commonViewFolder, $deleteMessages);
 				}
 
+				// We need to remove all search folder from FIND_ROOT(search root folder)
+				// when reset setting was triggered because on reset setting we remove all
+				// link messages from common view folder which are linked with either
+				// favorites or search folder.
+				$finderFolderEntryid = hex2bin($storeData["props"]["finder_entryid"]);
+				$finderFolder = mapi_msgstore_openentry($store, $finderFolderEntryid);
+				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+				$folders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
+				foreach($folders as $folder) {
+					mapi_folder_deletefolder($finderFolder, $folder[PR_ENTRYID]);
+				}
 				// Restriction used to find only Inbox and Sent folder's link messages from
 				// Associated contains table of IPM_COMMON_VIEWS folder, if exist in it.
 				$restriction = Array(RES_AND,
@@ -826,19 +937,29 @@
 		}
 
 		/**
-		 * Create favorites link message (IPM.Microsoft.WunderBar.Link) in associated contains table of
-		 * IPM_COMMON_VIEWS folder.
+		 * Create favorites link message (IPM.Microsoft.WunderBar.Link) or
+		 * search link message ("IPM.Microsoft.WunderBar.SFInfo") in associated
+		 * contains table of IPM_COMMON_VIEWS folder.
 		 *
 		 * @param object $commonViewFolder MAPI Message Folder Object
 		 * @param Array $folderProps Properties of a folder
+		 * @param String|boolean $searchFolderId search folder id which is used to identify the
+		 * linked search folder from search link message. by default it is false.
 		 */
-		function createFavoritesLink($commonViewFolder, $folderProps)
+		function createFavoritesLink($commonViewFolder, $folderProps, $searchFolderId = false)
 		{
-			$props = Array(
-				PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link",
-				PR_WLINK_ENTRYID => $folderProps[PR_ENTRYID],
-				PR_WLINK_STORE_ENTRYID  => $folderProps[PR_STORE_ENTRYID]
-			);
+			if ($searchFolderId) {
+				$props = Array(
+					PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo",
+					PR_WB_SF_ID => $searchFolderId,
+				);
+			} else {
+				$props = Array(
+					PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link",
+					PR_WLINK_ENTRYID => $folderProps[PR_ENTRYID],
+					PR_WLINK_STORE_ENTRYID  => $folderProps[PR_STORE_ENTRYID]
+				);
+			}
 
 			$favoritesLinkMsg = mapi_folder_createmessage($commonViewFolder, MAPI_ASSOCIATED);
 			mapi_setprops($favoritesLinkMsg, $props);
@@ -857,6 +978,7 @@
 			 // Add and Make isFavorites to true, this allows the client to properly
 			 // indicate to the user that this is a favorites item/folder.
 			$props["props"]["isFavorites"] = true;
+			$props["props"]["folder_type"] = $folderProps[PR_FOLDER_TYPE];
 			return $props;
 		}
 

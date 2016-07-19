@@ -92,6 +92,18 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['search.dialog.selectfolder']:
 				bid = 1;
 				break;
+			case Zarafa.core.data.SharedComponentType['common.create']:
+				if(record.get('folder_type') === Zarafa.core.mapi.MAPIFolderType.FOLDER_SEARCH) {
+					bid = 1;
+				}
+				break;
+			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
+				if (record instanceof Zarafa.core.data.MAPIRecord) {
+					if (record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_FOLDER && record.isSearchFolder()) {
+						bid = 1;
+					}
+				}
+				break;
 		}
 		return bid;
 	},
@@ -112,6 +124,18 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['search.dialog.selectfolder']:
 				component = Zarafa.advancesearch.dialogs.SelectFolderContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['common.create']:
+				if(record.get('folder_type') === Zarafa.core.mapi.MAPIFolderType.FOLDER_SEARCH) {
+					component = Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel ;
+				}
+				break;
+			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
+				if (record instanceof Zarafa.core.data.MAPIRecord) {
+					if (record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_FOLDER && record.isSearchFolder()) {
+						component = Zarafa.advancesearch.ui.SearchFolderContextMenu;
+					}
+				}
 				break;
 		}
 		return component;

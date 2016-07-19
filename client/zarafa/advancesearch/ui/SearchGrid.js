@@ -48,6 +48,12 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 		config.store = Ext.StoreMgr.lookup(config.store);
 
+		var searchFolder = config.searchCenterPanel.searchPanel.searchFolder;
+		if(Ext.isDefined(searchFolder)) {
+			config.store.setSearchStoreEntryId(searchFolder.get('store_entryid'));
+			config.store.setSearchEntryId(searchFolder.get('entryid'));
+		}
+
 		Ext.applyIf(config, {
 			xtype: 'zarafa.searchgrid',
 			cls: 'zarafa-searchgrid',

@@ -29,6 +29,16 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			config.model = config.searchContext.getModel();
 		}
 
+		var messageType = {};
+		var filterSetting = {};
+		var searchInCheckBoxSetting = {};
+		var searchCriteria = this.getSearchFolderSettings(config.model, config.searchTabId);
+		if (searchCriteria) {
+			messageType = searchCriteria.messageTypeCheckBoxGroup || {};
+			filterSetting = searchCriteria.filterCheckBoxGroup || {};
+			searchInCheckBoxSetting = searchCriteria.searchInCheckBoxGroup || {};
+		}
+
 		/**
 		 * messageClasses contains all message classes which used in advance search.
 		 */
@@ -64,9 +74,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype : 'zarafa.searchtoolboxpanel',
 			title: _('Search tools'),
-			width: 175,
-			boxMaxWidth : 175,
-			boxMinWidth : 175,
+			width: 200,
+			boxMaxWidth : 200,
+			boxMinWidth : 200,
 			iconCls : 'advance_search',
 			cls : 'zarafa-search-toolbox',
 			split : true,
@@ -81,20 +91,21 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			ref : 'searchToolBox',
 			items : [{
 				xtype : 'container',
-				layout : 'vbox',
+				autoScroll : true,
 				items : [
 					this.createFoldersFieldset(),
-					this.createMessageTypeFieldset(),
-					this.createFilterFieldset(),
+					this.createMessageTypeFieldset(messageType),
+					this.createFilterFieldset(filterSetting),
 					this.createDateRangeFieldset(dateRangeStore),
-					this.createSearchInFieldset()
+					this.createSearchInFieldset(searchInCheckBoxSetting),
+					this.createFavoritesContainer(config)
 				]
 			}]
 		});
 
 		this.addEvents(
 			/**
-			 * @event afterupdaterestriction fired after the {@link #searchCriteria} gets updated by the 
+			 * @event afterupdaterestriction fired after the {@link #searchCriteria} gets updated by the
 			 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel searchToolBox}.
 			 * @param {Zarafa.advancesearch.dialogs.SearchToolBoxPanel} searchToolBox which used to triggers/update the search restriction.
 			 */
@@ -129,10 +140,14 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Creates the message type fieldset for search tool box of form panel.
+	 *
+	 * @param {Object} messageType setting object which used to pre-select the check box when
+	 * user tring to open saved search folder.
+	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createMessageTypeFieldset : function()
+	createMessageTypeFieldset : function(messageType)
 	{
 		return {
 			layout: 'form',
@@ -144,6 +159,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				xtype : 'checkboxgroup',
 				ref : '../../messageTypeCheckboxGroup',
 				columns : 1,
+				name : 'messageTypeCheckboxGroup',
 				hideLabel : true,
 				listeners : {
 					change : this.onMessageTypeCheckboxChange,
@@ -151,19 +167,24 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				},
 				items : [{
 					name : 'mail',
-					boxLabel : _('Mails')
+					boxLabel : _('Mails'),
+					checked : Ext.isDefined(messageType['mail'])
 				},{
 					name : 'calendar',
-					boxLabel : _('Calendar items')
+					boxLabel : _('Calendar items'),
+					checked : Ext.isDefined(messageType['calendar'])
 				},{
 					name : 'contact',
-					boxLabel : _('Contact items')
+					boxLabel : _('Contact items'),
+					checked : Ext.isDefined(messageType['contact'])
 				},{
 					name : 'task',
-					boxLabel : _('Task items')
+					boxLabel : _('Task items'),
+					checked : Ext.isDefined(messageType['task'])
 				},{
 					name : 'note',
-					boxLabel : _('Note items')
+					boxLabel : _('Note items'),
+					checked : Ext.isDefined(messageType['note'])
 				}]
 			}]
 		};
@@ -171,10 +192,14 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Creates the filter fieldset for search tool box of form panel.
+	 *
+	 * @param {Object} filterSetting setting object which used to pre-select the check box when
+	 * user tring to open saved search folder.
+	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createFilterFieldset : function()
+	createFilterFieldset : function(filterSetting)
 	{
 		return {
 			layout: 'form',
@@ -185,17 +210,22 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			items : [{
 				xtype : 'checkboxgroup',
 				columns : 1,
+				ref : '../../filterCheckBoxGroup',
 				hideLabel : true,
+				name : 'filterCheckBoxGroup',
 				listeners : {
 					change : this.onFilterCheckBoxGroup,
+					render : this.onRenderCheckboxGroup,
 					scope : this
 				},
 				items : [{
 					name : 'message_flags',
-					boxLabel : _('Unread items')
+					boxLabel : _('Unread items'),
+					checked : Ext.isDefined(filterSetting['message_flags'])
 				},{
 					name : 'hasattach',
-					boxLabel : _('With attachments')
+					boxLabel : _('With attachments'),
+					checked : Ext.isDefined(filterSetting['hasattach'])
 				}]
 			}]
 		};
@@ -203,6 +233,10 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Creates the date range fieldset for search tool box of form panel.
+	 *
+	 * @param {Ext.data.JsonStore} dateRangeStore store which contains different date range for
+	 * date range combo box.
+	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
@@ -227,6 +261,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				width: 146,
 				listeners: {
 					select : this.onSelectCombo,
+					beforerender : this.onBeforeRenderDateRangeCombo,
 					scope : this
 				}
 			},{
@@ -262,10 +297,14 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Create the "Search in" {@link Ext.form.CheckboxGroup checkboxgroup} which specifies
 	 * which fields search has to look in.
+	 *
+	 * @param {Object} searchInCheckBoxSetting setting object which used to pre-select the check box when
+	 * user tring to open saved search folder.
+	 *
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createSearchInFieldset: function()
+	createSearchInFieldset: function(searchInCheckBoxSetting)
 	{
 		return {
 			layout: 'form',
@@ -277,24 +316,60 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				xtype : 'checkboxgroup',
 				columns : 1,
 				ref : '../../searchInCheckboxGroup',
+				name : 'searchInCheckboxGroup',
 				hideLabel : true,
 				listeners : {
 					change : this.onSearchInCheckboxChange,
+					render : this.onRenderCheckboxGroup,
 					scope : this
 				},
 				items : [{
 					name : ['sender_name', 'sender_email_address'],
-					boxLabel : _('Sender')
+					itemId: 'sender',
+					boxLabel : _('Sender'),
+					checked : Ext.isDefined(searchInCheckBoxSetting['sender'])
 				},{
 					name : ['display_to', 'display_cc', 'display_bcc'],
-					boxLabel : _('Recipients')
+					itemId: 'recipients',
+					boxLabel : _('Recipients'),
+					checked : Ext.isDefined(searchInCheckBoxSetting['recipients'])
 				},{
 					name : 'subject',
-					boxLabel : _('Subject')
+					itemId : 'subject',
+					boxLabel : _('Subject'),
+					checked : Ext.isDefined(searchInCheckBoxSetting['subject'])
 				},{
 					name : 'body',
-					boxLabel : _('Body & Attachments')
+					itemId : 'body',
+					boxLabel : _('Body & Attachments'),
+					checked : Ext.isDefined(searchInCheckBoxSetting['body'])
 				}]
+			}]
+		};
+	},
+
+	/**
+	 * Create the "Search in" {@link Ext.form.CheckboxGroup checkboxgroup} which specifies
+	 * which fields search has to look in.
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createFavoritesContainer : function ()
+	{
+		return {
+			xtype : 'container',
+			cls: 'zarafa-search-toolbox-favoritesbutton-container',
+			layout:'fit',
+			items: [{
+				cls: 'search-toolbox-favorites-button',
+				xtype:'button',
+				text: '<span>' + _('Favorites') + '</span>',
+				handler : this.onClickFavorites,
+				tooltip : {
+					text : _('Add a folder to favorites based on this search query'),
+					width : 350
+				},
+				scope : this
 			}]
 		};
 	},
@@ -306,7 +381,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	initEvents : function()
 	{
 		this.mon(this.messageTypeCheckboxGroup, {
-			render : this.onAfterRenderCheckboxGroup,
+			render : this.onRenderCheckboxGroup,
 			scope : this
 		});
 
@@ -325,13 +400,64 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Event handler which is raised just before the {@link Ext.form.ComboBox ComboBox}
+	 * is being rendered. it will call {@link #getSearchFolderSettings} which
+	 * provide saved search folder related setting objects which used to pre-select
+	 * date range combo box.
+	 *
+	 * @param {Ext.form.ComboBox} combo the combo box component.
+	 */
+	onBeforeRenderDateRangeCombo : function(combo)
+	{
+		var searchCriteria = this.getSearchFolderSettings();
+		if (searchCriteria) {
+			var dateRange = searchCriteria.date_range;
+			var record = combo.findRecord(combo.valueField, dateRange);
+			this.setDateRangeRestriction(combo, record);
+			if (!Ext.isObject(dateRange)) {
+				combo.setValue(dateRange);
+			}else {
+				combo.setValue('custom_date');
+				this.dateField.hidden = false;
+				var startDate = new Date(dateRange.start);
+				var dueDate = new Date(dateRange.due);
+
+				this.dateField.startField.setValue(startDate);
+				this.dateField.endField.setValue(dueDate);
+			}
+		}
+	},
+
+	/**
+	 * Function which used to retrieve the saved search folder related settings object
+	 * if we are trying to open it.
+	 *
+	 * @param {Zarafa.advancesearch.AdvanceSearchContextModel} contextModel (optional) the advance search context model
+	 * @param {String} searchStoreUniqueId (optional) searchStoreUniqueId is represent the unique id of
+	 * {@link Zarafa.advancesearch.AdvanceSearchStore  AdvanceSearchStore}.
+	 *
+	 * @returns {Object|Boolean} return settings object of saved search folder else false.
+	 */
+	getSearchFolderSettings : function(contextModel, searchStoreUniqueId)
+	{
+		var model = Ext.isDefined(contextModel) ? contextModel : this.model;
+		var store = model.store;
+		searchStoreUniqueId = Ext.isDefined(searchStoreUniqueId) ? searchStoreUniqueId : store.searchStoreUniqueId;
+		if (Ext.isDefined(store.searchFolder[searchStoreUniqueId])) {
+			var folder = store.searchFolder[searchStoreUniqueId];
+			return container.getSettingsModel().getSettingsObject('zarafa/v1/contexts/search/search_criteria/'+folder.get('entryid'));
+		}
+		return false;
+	},
+
+	/**
 	 * Event handler is fired for each special key, but it only handles the {@link Ext.EventObjectImp#ENTER} key.
-	 * it was call the triggerBlur function of updated date field. which internally fire the 
-	 * blur event and blur event fire the change event, which handled by 
+	 * it was call the triggerBlur function of updated date field. which internally fire the
+	 * blur event and blur event fire the change event, which handled by
 	 * {@link Zarafa.common.ui.DatePeriodField#onStartChange} or {@link Zarafa.common.ui.DatePeriodField#onEndChange}
 	 * which fire the {@link Zarafa.common.ui.DateRangeField#change} event of {@link Zarafa.common.ui.DateRangeField date rage field}
 	 * and it was handled by the {@link #onChangeDateField}.
-	 * 
+	 *
 	 * @param {Ext.form.Field} field The field which fired the event
 	 * @param {Ext.EventObject} eventObj The event object for this event
 	 */
@@ -343,20 +469,21 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is called when a selection has been made in the
-	 * {@link Ext.form.ComboBox combobox}.
+	 * Function which is used to set the date range related restriction
+	 * in {@link #searchCriteria} object.
+	 *
 	 * @param {Ext.form.ComboBox} combo The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 * @private
 	 */
-	onSelectCombo : function(combo, record)
+	setDateRangeRestriction : function(combo, record)
 	{
 		var value = record.get('value');
 		var today = new Date();
 		// Add a day to implement until
 		this.searchCriteria['date_range']['end'] = today.add(Date.DAY, 1).getTime() / 1000;
 
-		if (value !== 'custom_date') {
+		if (value !== 'custom_date' && this.dateField.isVisible()) {
 			this.dateField.hide();
 			this.doLayout();
 		}
@@ -385,11 +512,21 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				this.searchCriteria['date_range']['end'] = this.dateField.endField.getValue().add(Date.DAY, 1).getTime() / 1000;
 				break;
 			default :
-				this.searchCriteria['date_range']['start'] = 0; 
-				this.searchCriteria['date_range']['end'] = 0; 
+				this.searchCriteria['date_range']['start'] = 0;
+				this.searchCriteria['date_range']['end'] = 0;
 		}
+	},
 
-
+	/**
+	 * Event handler which is called when a selection has been made in the
+	 * {@link Ext.form.ComboBox combobox}.
+	 * @param {Ext.form.ComboBox} combo The field which fired the event
+	 * @param {Ext.data.Record} record The selected record
+	 * @private
+	 */
+	onSelectCombo : function(combo, record)
+	{
+		this.setDateRangeRestriction(combo, record);
 		this.afterUpdateRestriction();
 	},
 
@@ -429,6 +566,18 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 */
 	onSearchInCheckboxChange: function(group, checked)
 	{
+		this.setSearchInRestriction(group, checked);
+		this.afterUpdateRestriction();
+	},
+
+	/**
+	 * Sets the search restriction for Search filtering fields.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the checkboxgroup
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	setSearchInRestriction : function (group, checked)
+	{
 		if (Ext.isEmpty(checked)) {
 			// Set the search_fields restriction based the current selected messageClasses.
 			this.setMessageClassRestriction(this.messageTypeCheckboxGroup, this.messageTypeCheckboxGroup.getValue());
@@ -439,8 +588,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			});
 			this.searchCriteria['search_fields'] = searchFields;
 		}
-
-		this.afterUpdateRestriction();
 	},
 
 	/**
@@ -454,13 +601,22 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler was fire after the message type check box group gets rendered.
+	 * Event handler was fire when message type/ filter/ search check box group gets rendered.
 	 * @param {Ext.form.CheckboxGroup} group the group is {@link Ext.form.CheckboxGroup checkbox}
 	 * @private
 	 */
-	onAfterRenderCheckboxGroup : function(group)
+	onRenderCheckboxGroup : function(group)
 	{
-		this.setMessageClassRestriction(group, []);
+		switch(group.name) {
+			case 'filterCheckBoxGroup':
+				this.setFilterRestriction(group, group.getValue());
+				break;
+			case 'searchInCheckboxGroup':
+				this.setSearchInRestriction(group, group.getValue());
+				break;
+			default:
+				this.setMessageClassRestriction(group, group.getValue());
+		}
 	},
 
 	/**
@@ -521,7 +677,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function is use to retive the message class based on the selected 
+	 * Function is use to retive the message class based on the selected
 	 * {@link #createMessageTypeFieldset}.
 	 * @param {String} checkBoxName The checkBoxName of the selected check box from check box list
 	 * @return {Array} return and array of message classes.
@@ -567,9 +723,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Event handler triggers after the date range combo box gets enabled.
-	 * also it will update the {@link #searchCriteria} based on the selected 
+	 * also it will update the {@link #searchCriteria} based on the selected
 	 * value of the combo box.
-	 * 
+	 *
 	 * @param {Ext.form.ComboBox} combo which gets enabled.
 	 * @private
 	 */
@@ -581,9 +737,24 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Event handler triggered when "Favorites" button was pressed. it will open
+	 * {@link Zarafa.advancesearch.dialogs.CreateSearchFolderPanel CreateSearchFolderPanel}.
+	 */
+	onClickFavorites : function ()
+	{
+		var config = {
+			searchText : this.dialog.searchText,
+			searchStoreEntryId : this.model.getStore().searchStoreEntryId,
+			includeSubFolder : this.includeSubFolder.getValue(),
+			searchFolderEntryId : this.model.store.searchFolderEntryId
+		};
+		Zarafa.advancesearch.Actions.openCreateSearchFolderContentPanel(this.model, config);
+	},
+
+	/**
 	 * Function will be used to create search restriction based on value entered in
 	 * search textfield and {@link Zarafa.common.search.dialogs.SearchToolBoxPanel SearchToolBox}.
-	 *  
+	 *
 	 * In words: all terms must occur at least once, but it doesn't matter in which of the fields they occur.
 	 *
 	 * @param {String} textFieldValue value of search text field.
@@ -640,7 +811,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				});
 			}
 
-			// Date Range restriction 
+			// Date Range restriction
 			if(key === 'date_range') {
 				if(values.start !== 0 && values.end !== 0) {
 					andResDate.push(
@@ -659,7 +830,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					);
 				}
 			}
-			// message class restriction 
+			// message class restriction
 			if(key === 'message_class' && !Ext.isEmpty(values)) {
 				Ext.each(values, function(value, index, values){
 					orResMessageClass.push(
@@ -679,7 +850,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		 * AND
 		 * 		AND
 		 * 			AND
-		 * 				start date 
+		 * 				start date
 		 * 				end date
 		 * 			OR
 		 * 				searchFields
@@ -725,4 +896,3 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 });
 
 Ext.reg('zarafa.searchtoolboxpanel', Zarafa.advancesearch.dialogs.SearchToolBoxPanel);
-

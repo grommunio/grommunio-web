@@ -158,6 +158,11 @@
       background-position: sprite-position($iconsmap, icon_favorites, $offset-y: 2, $offset-x: -2);
     }
 
+    .x-tree-node-el .x-tree-node-icon.icon_magnifier {
+      @extend .icon_magnifier;
+      background-position: sprite-position($icons, icon_magnifier, $offset-y: 2px, $offset-x: 0px);
+    }
+
     .x-tree-node-el .x-tree-node-icon.icon_folder_appointment ,
     .x-tree-node-el .x-tree-node-icon.icon_folder_default_calendar ,
     .x-tree-node-el .x-tree-node-icon.icon_folder_shared_calendar {

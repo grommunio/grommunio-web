@@ -11,7 +11,7 @@ Zarafa.common.delegates.dialogs.DelegatePermissionPanel = Ext.extend(Ext.form.Fo
 
 	/**
 	 * @cfg {Array} folderTypes array of folder type that will be used
-	 * generate permissions combo box filed
+	 * generate permissions combo box field
 	 */
 	folderTypes : ['calendar','tasks', 'inbox', 'contacts', 'notes','journal'],
 

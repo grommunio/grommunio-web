@@ -2,32 +2,27 @@
  * Code to create the icons sprite
  *************************************/
     @import "compass/utilities/sprites";
-    
+
     $disable-magic-sprite-selectors: true;
     $icons-inline: false;
     $icons-layout: vertical;
     $iconmap-spacing : 20px;
 
     $iconsmap: sprite-map(
-      "icons/*.png", 
+      "icons/*.png",
       $spacing                      : $iconmap-spacing,
-      $icons-menu_arrow_right_l-position: 100%
+      $icons-menu_arrow_right_l-position: 100%,
+	  $icons-icon_favorites-position: 100%
     );
     $icons-spacing: $iconmap-spacing;
 
     $icons-position: 0%;
-    
-/*
-    @import "icons/*.png"; 
-    
-    @include all-icons-sprites; 
-*/
- 
+
     .icons-sprite {
         background-image: sprite-url($iconsmap);
         background-repeat: no-repeat;
     }
-    
+
     @each $img in sprite-names($iconsmap) {
       .icons-#{$img},
       .#{$img} {
@@ -37,7 +32,7 @@
         background-position: sprite-position($iconsmap, $img, $offset-y: 0, $offset-x: 0);
       }
     }
-     
+
 /**************************************
  * End of code to create the icons sprite
  *************************************/

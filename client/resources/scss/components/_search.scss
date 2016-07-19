@@ -90,85 +90,85 @@
 			.icon_message,
 			.icon_mail.icon_message_read {
 				@extend .icon_mail_read;
-	        	background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_mail.icon_message_unread {
 				@extend .icon_mail_unread;
-	        	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 5, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 5, $offset-x: $padding-medium - 1);
 			}
 			.icon_mail_replied {
-	        	background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_single {
 				@extend .icon_calendar_mr;
-	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 1, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 1, $offset-x: $padding-medium - 2);
 			}
 			.icon_mail_stubbed {
-	        	background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: 2, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: 2, $offset-x: $padding-medium - 1);
 			}
 			.icon_mail_forwarded {
-	        	background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_mail_oof {
-	        	background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: 2, $offset-x: $padding-medium - 3);
+				background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: 2, $offset-x: $padding-medium - 3);
 			}
 			.icon_contact_user {
 				@extend .icon_contact_card;
-	        	background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_contact_distlist {
 				@extend .icon_distlist;
-	        	background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_contact_equipment {
-	        	background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: 4, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: 4, $offset-x: $padding-medium - 2);
 			}
 			.icon_contact_gab_user {
 				@extend .icon_contact_smtp;
-	        	background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: 4, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: 4, $offset-x: $padding-medium - 2);
 			}
 			.icon_contact_room {
-	        	background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: 2, $offset-x: $padding-medium + 1);
+				background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: 2, $offset-x: $padding-medium + 1);
 			}
 			.icon_contact_company {
-	        	background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: 2, $offset-x: $padding-medium - 3);
+				background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: 2, $offset-x: $padding-medium - 3);
 			}
 			.icon_appt_appointment {
 				@extend .icon_calendar_blue;
-	        	background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_recurring,
 			.icon_appt_recurring {
 				@extend .icon_calendar_appt_recurring;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_single {
 				@extend .icon_calendar_mr;
-	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_accept {
 				@extend .icon_calendar_appt_accept;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_decline {
 				@extend .icon_appt_meeting_cancel;
-	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_tentative {
 				@extend .icon_calendar_appt_tentative;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_newtime {
 				@extend .icon_calendar_appt_newtime;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_appt_meeting_cancel {
-	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 
 			.icon_appt_meeting_outofdate {
 				@extend .icon_calendar_appt_outofdate;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: 2, $offset-x: $padding-medium - 2);
+				background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
 			.icon_task_normal,
 			.icon_task_recurring {
@@ -195,36 +195,36 @@
 			/* notes */
 			.icon_note_blue {
 				@extend .icon_note_blue;
-	        	background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: 3, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
 			.icon_note_yellow {
 				@extend .icon_note_yellow;
-	        	background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 3, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
 			.icon_note_white {
 				@extend .icon_note_white;
-	        	background-position: sprite-position($iconsmap, icon_note_white, $offset-y: 3, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_note_white, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
 			.icon_note_pink {
 				@extend .icon_note_pink;
-	        	background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: 3, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
 			.icon_note_green {
 				@extend .icon_note_green;
-	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: 3, $offset-x: $padding-medium - 1);
+				background-position: sprite-position($iconsmap, icon_note_green, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
 
 			.icon_mail_nondelivery_receipt {
 				@extend .icon_mail_report_ndr;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 4, $offset-x: $padding-medium - 4);
+				background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 4, $offset-x: $padding-medium - 4);
 			}
 			.icon_mail_read_receipt {
 				@extend .icon_mail_report_accept;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: 4, $offset-x: $padding-medium - 4);
+				background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: 4, $offset-x: $padding-medium - 4);
 			}
 			.icon_mail_nonread_receipt {
 				@extend .icon_mail_report_decline;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 4, $offset-x: $padding-medium - 4);
+				background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 4, $offset-x: $padding-medium - 4);
 			}
 
 
@@ -242,9 +242,34 @@
 .zarafa-search-toolbox {
 	border-top: 1px solid $grey;
 	border-right: 1px solid $grey;
-	padding: 0 $padding-large $padding-large;
+	padding: 0 0 $padding-large $padding-large;
 	background-color: $background-color-main;
 
+	.zarafa-search-toolbox-favoritesbutton-container {
+		padding-right: 9px;
+    	.x-btn.search-toolbox-favorites-button {
+			display: block;
+			.x-btn-small {
+				em,button{
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.x-btn.x-btn-noicon, .x-btn.x-btn-text-icon {
+		.x-btn-small {
+			width: 100% !important;
+			button {
+				span {
+					display: inline-block;
+					padding-right: 25px;
+					@extend .icon_favorites;
+					background-position: sprite-position($iconsmap, icon_favorites, $offset_y: -1px, $offset_x: 100%);
+				}
+			}
+		}
+	}
 	.x-plain-header {
 		line-height: $font-default-line-height;
 		box-sizing: border-box;
@@ -311,4 +336,10 @@
 .k-search-node-owner {
 	font-weight: normal;
 	color: $grey6 !important;
+}
+
+.k-create-search-folder-panel {
+	.x-form-item-label {
+		font-weight: bold;
+	}
 }

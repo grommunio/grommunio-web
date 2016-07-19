@@ -447,7 +447,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			positionEventObj = [nodePosition.left, nodePosition.top];
 		}
 		var folder = treeNode.getFolder();
-		if(folder.isFavoritesFolder()) {
+		if(folder.isFavoritesFolder() && !folder.isSearchFolder()) {
 			folder = folder.getOriginalRecordFromFavoritesRecord();
 		}
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(folder, { position : positionEventObj, contextNode : treeNode });
@@ -461,6 +461,9 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	onFolderClicked : function(treeNode)
 	{
 		var folder = treeNode.getFolder();
+		if(folder.isFavoritesFolder() && !folder.isSearchFolder()) {
+			folder = folder.getOriginalRecordFromFavoritesRecord();
+		}
 		Zarafa.hierarchy.Actions.openFolder(folder);
 	},
 

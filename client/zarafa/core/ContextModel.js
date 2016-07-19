@@ -1056,10 +1056,18 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 				}, this, {single : true});
 			}
 
+			var store = this.getActiveStore();
+			var forceCreateSearchFolder = false;
+			if (Ext.isDefined(store.searchFolder[store.searchStoreUniqueId])) {
+				var searchFolderEntryid = store.searchFolder[store.searchStoreUniqueId].get('entryid');
+				forceCreateSearchFolder = Zarafa.core.EntryId.compareEntryIds(searchFolderEntryid, store.searchFolderEntryId);
+			}
+
 			// send request to store to start search
 			this.store.search({
 				// search in multiple folders not supported at the moment
 				folder : options.folder,
+				forceCreateSearchFolder : forceCreateSearchFolder,
 				useSearchFolder : useSearchFolder,
 				subfolders : subfolders,
 				searchRestriction : restriction

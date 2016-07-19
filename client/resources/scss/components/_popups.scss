@@ -83,6 +83,11 @@
 						cursor: move;
 					}
 				}
+
+				.icon_favorites {
+					@extend .icon_favorites;
+					background-position: sprite-position($iconsmap, icon_favorites, $offset_y: 10 , $offset_x: 96);
+				}
 			}
 		}
 	}

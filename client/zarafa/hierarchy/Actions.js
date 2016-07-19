@@ -19,7 +19,15 @@ Zarafa.hierarchy.Actions = {
 		// FIXME: We should determine which accessflag we exactly need
 		// and check for that flag.
 		if (folder.get('access') !== 0) {
-			container.selectFolder(folder);
+			if (folder.isSearchFolder()) {
+				var componentType = Zarafa.core.data.SharedComponentType['common.search'];
+				Zarafa.core.data.UIFactory.openLayerComponent(componentType, [], {
+					'searchFolder' : folder,
+					'title' : folder.get("display_name")
+				});
+			} else {
+				container.selectFolder(folder);
+			}
 		} else if (folder.isIPMSubTree() || folder.isSharedFolder()) {
 			Ext.MessageBox.show({
 				title: _('Kopano WebApp'),

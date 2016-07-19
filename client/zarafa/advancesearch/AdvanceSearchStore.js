@@ -19,6 +19,13 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	searchFolderEntryId : undefined,
 
 	/**
+	 * Read-only. store entryId where search folder is belongs.
+	 * @property
+	 * @type HexString
+	 */
+	searchStoreEntryId : undefined,
+
+	/**
 	 * searchStoreUniqueId is represent the unique id of {@link Zarafa.advancesearch.AdvanceSearchStore  AdvanceSearchStore}.
 	 * searchStoreUniqueId and {@link Zarafa.advancesearch.dialogs.SearchContentPanel SearchContentPanel} name
 	 * are similar, so we can easily map or manage the {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}.
@@ -43,6 +50,11 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @type String
 	 */
 	suggestion: '',
+
+	/**
+	 *
+	 */
+	searchFolder : {},
 
 	/**
 	 * @constructor
@@ -146,6 +158,16 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	setSearchEntryId : function(searchFolderEntryId)
 	{
 		this.searchFolderEntryId = searchFolderEntryId;
+	},
+
+	/**
+	 * Function will set store entryid where search folder is belongs.
+	 *
+	 * @param {HexString} searchStoreEntryId entryId of store where search folder is belongs.
+	 */
+	setSearchStoreEntryId : function(searchStoreEntryId)
+	{
+		this.searchStoreEntryId = searchStoreEntryId;
 	},
 
 	/**
