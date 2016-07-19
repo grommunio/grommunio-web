@@ -28,11 +28,8 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 		var items = container.populateInsertionPoint('context.settings.categories', this, config.context);
 
 		// Create all content, extract the titles to generate
-		// the list of tabs for the category panel. Also detect which
-		// widgets placed inside the categories are marked as favorite
-		// so we can generate a favorites panel.
+		// the list of tabs for the category panel.
 		var tabs = [];
-		var favorites = [];
 		for (var i = 0, len = items.length; i < len; i++) {
 			// Create the item to ensure we will have
 			// all desired information in our object.
@@ -50,36 +47,12 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 				category : category
 			});
 
-			// If the category is not hidden, we can search for
-			// widgets which are marked as favorites.
-			if (category.hidden !== true) {
-				for (var j = 0, lenJ = category.items.length; j < lenJ; j++) {
-					var widget = category.items.get(j);
-
-					// If the widget is marked as favorite,
-					// create a favorite tab which can be put
-					// on the favorites panel.
-					if (widget.favorite === true) {
-						favorites.push({
-							xtype : 'zarafa.settingsfavoritetab',
-							title : widget.title,
-							favoriteIndex : category.categoryIndex * (j + 1),
-							iconCls : widget.iconCls,
-							context : config.context,
-							category : category,
-							widget : widget
-						});
-					}
-				}
-			}
-
 			// Make sure our created item is saved
 			// back into our main array.
 			items[i] = category;
 		}
 
 		tabs = Zarafa.core.Util.sortArray(tabs, 'ASC', 'categoryIndex');
-		favorites = Zarafa.core.Util.sortArray(favorites, 'ASC', 'favoriteIndex');
 		items = Zarafa.core.Util.sortArray(items, 'ASC', 'categoryIndex');
 
 		Ext.applyIf(config, {
@@ -104,26 +77,17 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 				items : [{
 					// Render the main contents component, we have
 					// a widget content panel containing the widgets
-					// for the categories, and the panel for the
-					// favorites.
+					// for the categories.
 					xtype : 'container',
 					flex : 1,
 					layout : {
-						type : 'hbox',
+						type : 'fit',
 						align : 'stretch'
 					},
 					items : [{
 						xtype : 'zarafa.settingscategorywidgetpanel',
-						flex : 0.8,
 						context : config.context,
 						items : items
-					},{
-						// Favorite panel is disabled temporary.
-						xtype : 'zarafa.settingsfavoritepanel',
-						flex : 0.2,
-						hidden : true,
-						context : config.context,
-						items : favorites
 					}]
 				},{
 					// Render the toolbar component, the sizes of the
@@ -132,7 +96,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 					xtype : 'container',
 					height : 50,
 					layout : {
-						type : 'hbox',
+						type : 'fit',
 						align : 'stretch'
 					},
 					items : [{
@@ -143,20 +107,11 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 						// similar to a Ext.Panel#buttons toolbar
 						xtype : 'container',
 						cls : 'x-panel-btns',
-						flex : 0.8,
 						layout : 'fit',
 						items : [{
 							xtype : 'toolbar',
-							enableOverflow : false,
 							toolbarCls : 'x-panel-footer',
-							cls : 'x-panel-fbar',
-							flex : 0.8,
 							buttonAlign : 'right',
-							defaults : {
-								// Bit hackish, but just obtain the default
-								// button width
-								minWidth : Ext.Panel.prototype.minButtonWidth
-							},
 							items : [{
 								xtype : 'button',
 								cls : 'zarafa-action',
@@ -165,17 +120,11 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 								scope : this
 							},{
 								xtype : 'button',
-								// # TRANSLATORS: Used for the button in the settings context to revert to whatever the user had set before he started editing the settings.
 								text : _('Discard'),
 								handler : this.onDiscard,
 								scope : this
 							}]
 						}]
-					},{
-						// hide to render Apply & Discard button properly as favorite panel is disabled temporary.
-						xtype : 'container',
-						hidden : true,
-						flex : 0.2
 					}]
 				}]
 			}]

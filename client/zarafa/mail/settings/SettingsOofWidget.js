@@ -20,7 +20,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		
 		Ext.applyIf(config, {
 			title : _('Out of Office'),
-			favorite : true,
 			iconCls : 'zarafa-settings-favorite-oof'
 		});
 		
