@@ -130,6 +130,8 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			south : southComponents,
 
 			items : items,
+			collapseQuickTip: _('Collapse hierarchy'),
+			expandQuickTip: _('Expand hierarchy'),
 
 			headerCfg : { cls : 'zarafa-main-header x-panel-header' }
 		});
