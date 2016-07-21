@@ -779,7 +779,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var imageField = this.contactPhotoBox.getEl();
 
 		// Set an event handler for the load event of the image
-		imgEl = new Ext.Element(Ext.getDoc().dom.createElement('img'));
+		var imgEl = new Ext.Element(Ext.getDoc().dom.createElement('img'));
 		imgEl.on('load', this.onLoadContactPhoto, this, {single: true});
 		
 		// update the new contact photo in contact picture field.

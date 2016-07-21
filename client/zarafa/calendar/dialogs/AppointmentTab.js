@@ -1205,8 +1205,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				if(recipient.get('proposednewtime')) {
 					numProposingAttendees++;
 				}
-			}
-		, this);
+			}, this);
 
 		if(accepted !== 0 || tentative !== 0 || declined !== 0) {
 			// set response string
