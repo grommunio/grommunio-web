@@ -40,8 +40,9 @@ Zarafa.common.ui.ImportanceButton = Ext.extend(Zarafa.core.ui.menu.ConditionalIt
 	 */
 	applyFlag : function(records)
 	{
-		if (Ext.isEmpty(records))
+		if (Ext.isEmpty(records)) {
 			return;
+		}
 
 		var store;
 

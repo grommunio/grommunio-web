@@ -74,8 +74,9 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		// is given, the getSuccess function will still be implemented after which
 		// the function will often fail due to the lack of the success property within
 		// the response data.
-		if (!hasSuccessProperty)
+		if (!hasSuccessProperty) {
 			this.getSuccess = function(o) { return true; };
+		}
 	},
 
 	/**
@@ -162,8 +163,9 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		if (this.dynamicRecord === true)
 		{
 			var recordType = Zarafa.core.data.RecordFactory.getRecordClassByRecordData(data);
-			if (!Ext.isDefined(recordType))
+			if (!Ext.isDefined(recordType)) {
 				recordType = this.recordType;
+			}
 
 			items = recordType.prototype.fields.items;
 			len = recordType.prototype.fields.length;
@@ -178,8 +180,9 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		for (var j = 0; j < len; j++) {
 			var f = items[j];
 			var v = this.ef[j](data);
-			if (Ext.isDefined(v))
+			if (Ext.isDefined(v)) {
 				values[f.name] = f.convert(v, data);
+			}
 		}
 
 		return values;
@@ -418,8 +421,9 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		}
 
 		// It can happen that the data is wrapped in a array of length 1.
-		if (Ext.isArray(data))
+		if (Ext.isArray(data)) {
 			data = data.shift();
+		}
 
 		if (this.isData(data)) {
 			// move primitive properties and identification properties at same level

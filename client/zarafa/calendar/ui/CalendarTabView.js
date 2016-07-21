@@ -184,8 +184,9 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	getDesiredWidth : function()
 	{
 		// textMetrics has not been set up if not rendered. 
-		if (!this.rendered)
+		if (!this.rendered) {
 			return 0;
+		}
 
 		// Desired width is the minimum width (due to the icons), plus the width of the tab text.
 		// We use the TextMetrics to calculate the width and height for the
@@ -217,8 +218,9 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	getMinimumWidth : function()
 	{
-		if (!this.rendered)
+		if (!this.rendered) {
 			return 0;
+		}
 
 		var width = this.tabContents.getPadding('lr');
 

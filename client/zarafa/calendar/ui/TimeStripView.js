@@ -165,8 +165,9 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	generateText : function()
 	{
-		if (!this.rendered)
+		if (!this.rendered) {
 			return;
+		}
 		
 		// resize each of the hour divs
 		for (var i = 0, len = this.bodyElements.length; i < len; i++) {
@@ -184,8 +185,9 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onLayout : function()
 	{
-		if (!this.rendered)
+		if (!this.rendered) {
 			return;
+		}
 		
 		this.body.setLeftTop(this.leftOffset, 0);
 		this.body.setSize(this.width, this.parentView.getHourHeight() * this.parentView.numHours);

@@ -336,13 +336,13 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	removeTimeStrip : function(name)
 	{
-		for (var i=0, strip; strip=this.timeStrips[i]; i++)
-			if (strip.name==name)
-			{
+		for (var i=0, strip; strip=this.timeStrips[i]; i++) {
+			if (strip.name==name) {
 				this.timeStrips.splice(i, 1);
 				this.removeChildView(strip, true);
 				break;
 			}
+		}
 
 		// do layout
 		this.layout();
@@ -814,8 +814,9 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		}
 
 		// Destroy the store if autoDestroy is set to true.
-		if (store && store.autoDestroy)
+		if (store && store.autoDestroy) {
 			store.destroy();
+		}
 
 		this.store = undefined;
 	},
@@ -946,9 +947,11 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	getCalendarViewByFolder : function(folder)
 	{
-		for (var i=0, calendar; calendar = this.calendars[i]; i++)
-			if (calendar.containsFolder(folder))
+		for (var i=0, calendar; calendar = this.calendars[i]; i++) {
+			if (calendar.containsFolder(folder)) {
 				return calendar;
+			}
+		}
 
 		return undefined;
 	},

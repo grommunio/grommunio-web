@@ -211,10 +211,11 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 */
 	onSwitchView : function(container, newView, oldView)
 	{
-		if (this == newView)
+		if (this == newView) {
 			this.getCalendarPanel().bindStore(this.model.getStore());
-		else if (this == oldView)
+		} else if (this == oldView) {
 			this.getCalendarPanel().releaseStore(this.model.getStore());
+		}
 	}
 });
 

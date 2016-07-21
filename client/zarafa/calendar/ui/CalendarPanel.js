@@ -345,9 +345,9 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 		});
 
 		// If a store was provided, bind it.
-		if (this.store)
+		if (this.store) {
 			this.bindStore(this.store);
-
+		}
 	},
 
 	/**
@@ -761,8 +761,9 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	{
 		Zarafa.calendar.ui.CalendarPanel.superclass.onResize.apply(this, arguments);
 
-		if (this.rendered)
+		if (this.rendered) {
 			this.view.layout();
+		}
 	},
 
 	/**
@@ -857,8 +858,9 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 */
 	onBeforeLoad : function()
 	{
-		if (this.loadMask)
+		if (this.loadMask) {
 			this.loadMask.show();
+		}
 	},
 
 	/**
@@ -868,8 +870,9 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 */
 	onLoad : function()
 	{
-		if (this.loadMask)
+		if (this.loadMask) {
 			this.loadMask.hide();
+		}
 	},
 
 	/**
@@ -879,8 +882,9 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 */
 	onLoadException : function()
 	{
-		if (this.loadMask)
+		if (this.loadMask) {
 			this.loadMask.hide();
+		}
 	},
 
 	/**

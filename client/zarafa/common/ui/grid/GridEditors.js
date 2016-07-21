@@ -100,13 +100,15 @@ Ext.extend(Zarafa.common.ui.grid.CompleteSpinner, Ext.ux.form.SpinnerField, {
 	listeners : {
 		'spinup' : function () {
 			var value = this.incrementValue + (parseInt(this.getEl().dom.value.trim('%'), 10) - 1);
-			if (this.maxValue >= value)
+			if (this.maxValue >= value) {
 				this.setValue(value);
+			}
 		},
 		'spindown' : function () {
 			var value = (parseInt(this.getEl().dom.value.trim('%'), 10) + 1) - this.incrementValue;
-			if (this.minValue <= value)
+			if (this.minValue <= value) {
 				this.setValue(value);
+			}
 		},
 		'render' : function () {
 			this.getEl().dom.value = parseInt(this.value) * 100;

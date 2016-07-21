@@ -127,8 +127,9 @@ Zarafa.core.plugins.RecordComponentUpdaterPlugin = Ext.extend(Object, {
 
 		while (!(root.recordComponentPlugin instanceof Zarafa.core.plugins.RecordComponentPlugin)) {
 			root = root.ownerCt;
-			if (!Ext.isDefined(root))
+			if (!Ext.isDefined(root)) {
 				break;
+			}
 		}
 
 		if (root) {

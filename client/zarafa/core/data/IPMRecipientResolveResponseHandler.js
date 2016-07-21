@@ -38,8 +38,9 @@ Zarafa.core.data.IPMRecipientResolveResponseHandler = Ext.extend(Zarafa.core.dat
 	readRecordsFromResponse : function(response, field)
 	{
 		var items = response[field] || [];
-		if (!Ext.isArray(items))
+		if (!Ext.isArray(items)) {
 			items = [ items ];
+		}
 
 		var o = {};
 		// Add 'field' property to response data, this will fix this.getRoot(o) in JSONReader

@@ -120,8 +120,9 @@ Zarafa.contact.dialogs.DistlistMembersTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	update : function(record, contentReset)
 	{
-		if(Ext.isEmpty(record))
+		if(Ext.isEmpty(record)) {
 			return;
+		}
 
 		this.record = record;
 

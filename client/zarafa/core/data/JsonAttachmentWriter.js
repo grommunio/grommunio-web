@@ -23,8 +23,9 @@ Zarafa.core.data.JsonAttachmentWriter = Ext.extend(Zarafa.core.data.JsonWriter, 
 		var attachmentStore = record.getAttachmentStore();
 		var hash = {};
 
-		if (!Ext.isDefined(attachmentStore))
+		if (!Ext.isDefined(attachmentStore)) {
 			return hash;
+		}
 
 		// @FIXME currently only inline attachments are handled,
 		// normal attachments will be handled seperately

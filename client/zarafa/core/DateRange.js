@@ -121,8 +121,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// No update event when new value equals old value
 		ignoreUpdate = ignoreUpdate || (Ext.isDate(this.startDate) && Ext.isDate(startDate) && this.getStartTime() == startDate.getTime());
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		this.startDate = startDate;
 
@@ -157,8 +158,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// No update event when new value equals old value
 		ignoreUpdate = ignoreUpdate || (Ext.isDate(this.dueDate) && Ext.isDate(dueDate) && this.getDueTime() == dueDate.getTime());
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		this.dueDate = dueDate;
 
@@ -200,8 +202,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		ignoreUpdate = ignoreUpdate || (Ext.isDate(startDate) && Ext.isDate(dueDate) && (startDate.getTime() == this.getStartTime()) && (dueDate.getTime() == this.getDueTime()));
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		// don't fire update event from these functions
 		this.setStartDate(startDate, true, true);
@@ -251,8 +254,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// No update event when new value equals old value
 		ignoreUpdate = ignoreUpdate || (this.getStartTime() == startTime);
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		if (!Ext.isEmpty(startTime)) {
 			this.startDate = new Date(startTime);
@@ -288,8 +292,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// No update event when new value equals old value
 		ignoreUpdate = ignoreUpdate || (this.getDueTime() == dueTime);
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		if (!Ext.isEmpty(dueTime)) {
 			this.dueDate = new Date(dueTime);
@@ -331,8 +336,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 
 		ignoreUpdate = ignoreUpdate || ((startTime == this.getStartTime()) && (dueTime == this.getDueTime()));
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		this.setStartTime(startTime, true, true);
 		this.setDueTime(dueTime, true, true);
@@ -374,8 +380,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// No update event when new value equals old value
 		ignoreUpdate = ignoreUpdate || (this.getDuration() == duration);
 
-		if (!ignoreUpdate)
+		if (!ignoreUpdate) {
 			original = this.clone();
+		}
 
 		this.dueDate = new Date(this.getStartTime() + duration);
 
@@ -490,15 +497,17 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		var aStartTime = this.getStartTime() || 0;
 		var bStartTime = otherRange.getStartTime() || 0;
 
-		if (aStartTime !== bStartTime)
+		if (aStartTime !== bStartTime) {
 			return aStartTime > bStartTime ? 1 : -1;
+		}
 
 		// If start times are equal, compare due times.
 		var aDueTime = this.getDueTime() || 0;
 		var bDueTime = otherRange.getDueTime() || 0;
 
-		if (aDueTime !== bDueTime)
+		if (aDueTime !== bDueTime) {
 			return aDueTime > bDueTime ? 1 : -1;
+		}
 		
 		// If ranges are equal, return 0.
 		return 0;
@@ -593,8 +602,9 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 			dueDate.setHours(12);
 			dueDate = dueDate.add(Date.DAY, -1);
 
-			if (dueDate.getTime() < startDate.getTime())
+			if (dueDate.getTime() < startDate.getTime()) {
 				dueDate = startDate;
+			}
 		}
 
 		// The startDate and duedate are in completely different years.

@@ -62,12 +62,15 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 
 		Ext.apply(this, config);
 	
-		if (Ext.isDefined(this.defaultValue) && !Ext.isDate(this.defaultValue))
+		if (Ext.isDefined(this.defaultValue) && !Ext.isDate(this.defaultValue)) {
 			this.defaultValue = Date.parseDate(this.defaultValue, this.dateFormat + ' ' + this.timeFormat);
-		if (Ext.isDefined(this.minValue) && !Ext.isDate(this.minValue))
+		}
+		if (Ext.isDefined(this.minValue) && !Ext.isDate(this.minValue)) {
 			this.minValue = Date.parseDate(this.minValue, this.dateFormat + ' ' + this.timeFormat);
-		if (Ext.isDefined(this.maxValue) && !Ext.isDate(this.maxValue))
+		}
+		if (Ext.isDefined(this.maxValue) && !Ext.isDate(this.maxValue)) {
 			this.maxValue = Date.parseDate(this.maxValue, this.dateFormat + ' ' + this.timeFormat);
+		}
 
 		// Hide the labels, as we will draw them ourself to have more control over them
 		config.hideLabels = true;
@@ -263,8 +266,9 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	setValue : function(value)
 	{
 		this.dateField.setValue(value);
-		if (this.enableTimeSelection)
+		if (this.enableTimeSelection) {
 			this.timeField.setValue(value);
+		}
 	},
 
 	/**
@@ -274,8 +278,9 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	setRawValue : function(value)
 	{
 		this.dateField.setRawValue(value);
-		if (this.enableTimeSelection)
+		if (this.enableTimeSelection) {
 			this.timeField.setRawValue(value);
+		}
 	},
 
 	/**
@@ -285,10 +290,11 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 */
 	getValue : function()
 	{
-		if (this.enableTimeSelection)
+		if (this.enableTimeSelection) {
 			return this.timeField.getValue();
-		else
+		} else {
 			return this.dateField.getValue();
+		}
 	},
 
 	/**
@@ -298,10 +304,11 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 */
 	getRawValue : function()
 	{
-		if (this.enableTimeSelection)
+		if (this.enableTimeSelection) {
 			return this.timeField.getRawValue();
-		else
+		} else {
 			return this.dateField.getRawValue();
+		}
 	},
 
 	/**
@@ -318,10 +325,12 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 		// but to add the time information we must convert it
 		// to a string, append the time, and convert it into
 		// a Date object again.
-		if (Ext.isDate(dateObject))
+		if (Ext.isDate(dateObject)) {
 			dateObject = dateObject.format(this.dateFormat);
-		if (Ext.isDate(timeObject))
+		}
+		if (Ext.isDate(timeObject)) {
 			timeObject = timeObject.format(this.timeFormat);
+		}
 
 		if(Ext.isDefined(dateObject) && Ext.isDefined(timeObject)) {
 			return Date.parseDate(dateObject + ' ' + timeObject, this.dateFormat + ' ' + this.timeFormat);

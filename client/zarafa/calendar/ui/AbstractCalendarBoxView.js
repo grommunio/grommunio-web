@@ -258,7 +258,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 				var top = startdayBoxConfigurations.top + this.dayHeaderHeight + this.appointmentHeight * slot - 3*slot;
 				var bottom = fill ? startdayBoxConfigurations.bottom : top + this.appointmentHeight;
 				
-				if (fill || bottom < startdayBoxConfigurations.bottom - this.expandThreshold)
+				if (fill || bottom < startdayBoxConfigurations.bottom - this.expandThreshold) {
 					ret.push({
 						left : startdayBoxConfigurations.left + leftMargin + 1,
 						right : duedayBoxConfigurations.right - rightMargin - 1,
@@ -267,6 +267,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 						firstBox : true,
 						lastBox : true
 					});
+				}
 			}
 
 			weekStart = weekDue;

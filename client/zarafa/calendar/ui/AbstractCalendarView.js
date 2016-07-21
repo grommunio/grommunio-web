@@ -1192,8 +1192,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	onTextEntered : function(view, text)
 	{
 		// Don't fire event on empty text
-		if (Ext.isEmpty(text.trim()))
+		if (Ext.isEmpty(text.trim())) {
 			return;
+		}
 
 		this.fireEvent('appointmentcreate', this, view.getDateRange(), text);
 	},
@@ -1415,10 +1416,11 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		this.tabArea.setLeftTop(this.leftOffset, 0);
 		this.tabArea.setSize(this.width, this.parentView.getTabAreaHeight());
 
-		if (this.parentView.showBorder)
+		if (this.parentView.showBorder) {
 			this.tabArea.show();
-		else
+		} else {
 			this.tabArea.hide();
+		}
 
 		// Determine the color scheme of the appointments
 		for (var i=0, appointment; appointment=this.appointments[i]; i++) {
@@ -1470,8 +1472,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 		// Create an appointment for each record.
 		Ext.each(records, function(record) {
-			if (this.containsFolderId(record.get('parent_entryid')) && record.isValid())
+			if (this.containsFolderId(record.get('parent_entryid')) && record.isValid()) {
 				this.addAppointment(record, false);
+			}
 		}, this);
 	},
 
@@ -1625,8 +1628,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	onRangeSelectionChange : function(selectionModel, dateRange, calendarView, active)
 	{
 		// Make sure the selection view has been created.
-		if (!this.selectionView)
+		if (!this.selectionView) {
 			return;
+		}
 
 		// If the text edit view is still visible, hide it.
 		if (this.textEditView.isVisible()) {
@@ -1776,10 +1780,11 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			var record = appointment.getRecord();
 
 			if (event.ctrlKey) {
-				if (this.selectionModel.isSelected(record))
+				if (this.selectionModel.isSelected(record)) {
 					this.selectionModel.deselectRecord(record);
-				else
+				} else {
 					this.selectionModel.selectRecord(record, true);
+				}
 			} else {
 				this.selectionModel.selectRecord(record, false);
 			}

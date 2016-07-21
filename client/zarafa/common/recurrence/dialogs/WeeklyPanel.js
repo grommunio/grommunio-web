@@ -343,8 +343,9 @@ Zarafa.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Zarafa.common.recurren
 			layout = true;
 		}
 
-		if (layout)
+		if (layout) {
 			this.doLayout();
+		}
 	},
 
 	/**
