@@ -112,63 +112,8 @@
 			} catch (MAPIException $e) {
 				if ($e->getCode() == MAPI_E_AMBIGUOUS_RECIP) {
 					// Ambiguous, show possiblities:
-						$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
-
-					// only return users from who the displayName or the username starts with $name
-					// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
-					$resAnd = array(
-						array(RES_OR, 
-							array(
-								array(RES_CONTENT,
-									array(
-										FUZZYLEVEL => FL_PREFIX | FL_IGNORECASE,
-										ULPROPTAG => PR_DISPLAY_NAME,
-										VALUE => $searchstr
-									)
-								),
-								array(RES_CONTENT,
-									array(
-										FUZZYLEVEL => FL_PREFIX | FL_IGNORECASE,
-										ULPROPTAG => PR_ACCOUNT,
-										VALUE => $searchstr
-									)
-								)
-							) // RES_OR
-						)
-					);
-
-					// create restrictions based on excludeGABGroups flag
-					if($excludeGABGroups) {
-						array_push($resAnd, array(
-							RES_PROPERTY,
-							array(
-								RELOP => RELOP_EQ,
-								ULPROPTAG => PR_OBJECT_TYPE,
-								VALUE => MAPI_MAILUSER
-							)
-						));
-					} else {
-						array_push($resAnd, array(RES_OR,
-							array(
-								array(RES_PROPERTY,
-									array(
-										RELOP => RELOP_EQ,
-										ULPROPTAG => PR_OBJECT_TYPE,
-										VALUE => MAPI_MAILUSER
-									)
-								),
-								array(RES_PROPERTY,
-									array(
-										RELOP => RELOP_EQ,
-										ULPROPTAG => PR_OBJECT_TYPE,
-										VALUE => MAPI_DISTLIST
-									)
-								)
-							)
-						));
-					}
-
-					$restriction = array(RES_AND, $resAnd);
+					$table = mapi_folder_getcontentstable($ab_dir, MAPI_DEFERRED_ERRORS);
+					$restriction = $this->getAmbigiousContactRestriction($searchstr, $excludeGABGroups, PR_ACCOUNT);
 
 					mapi_table_restrict($table, $restriction, TBL_BATCH);
 					mapi_table_sort($table, array(PR_DISPLAY_NAME => TABLE_SORT_ASCEND), TBL_BATCH);
@@ -268,7 +213,7 @@
 			 **/
 
 			$rows = Array();
-			$contactFolderRestriction = $this->getContactFolderRestriction($query, $excludeGABGroups);
+			$contactFolderRestriction = $this->getAmbigiousContactRestriction($query, $excludeGABGroups, PR_EMAIL_ADDRESS);
 			// Open the AB Root Container by not supplying an entryid
 			$abRootContainer = mapi_ab_openentry($ab);
 
@@ -311,14 +256,15 @@
 		}
 
 		/**
-		 * Setup the restriction used for resolving in the Contact folders.
+		 * Setup the restriction used for resolving in the Contact folders or GAB.
 		 * @param {String} $query The search query, case is ignored
 		 * @param {Boolean} $excludeGABGroups flag to exclude groups from resolving
+		 * @param {Number} $content the PROPTAG to search in.
 		 */
-		function getContactFolderRestriction($query, $excludeGABGroups)
+		function getAmbigiousContactRestriction($query, $excludeGABGroups, $content)
 		{
 			// only return users from who the displayName or the username starts with $name
-			// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
+			// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and $content.
 			$resAnd = array(
 				array(RES_OR, 
 					array(
@@ -332,7 +278,7 @@
 						array(RES_CONTENT,
 							array(
 								FUZZYLEVEL => FL_PREFIX | FL_IGNORECASE,
-								ULPROPTAG => PR_EMAIL_ADDRESS,
+								ULPROPTAG => $content,
 								VALUE => $query
 							)
 						)
