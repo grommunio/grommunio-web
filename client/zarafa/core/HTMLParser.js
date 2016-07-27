@@ -88,15 +88,6 @@ Zarafa.core.HTMLParser = (function() {
 			// text indentation/spacing when we convert it to HTML.
 			content = '<div><pre wrap style=\"white-space: pre-wrap; word-wrap: break-word;\">' + content + '</pre></div>';
 
-			// simple text markup *bold* and _underlined_ text
-			content = content.replace(XRegExp("(?<prefix>^|[^\\p{L}])(?<word>\\*+[\\p{L},\ ,\t,0-9]+\\*+)(?<postfix>[^\\p{L}]|$)", "gi"), function(match) {
-				return match.prefix + '<strong>' + match.word + '</strong>' + match.postfix;
-			});
-
-			content = content.replace(XRegExp("(?<prefix>^|[^\\p{L}])(?<word>_+[\\p{L},\ ,\t,0-9]+_+)(?<postfix>[^\\p{L}]|$)", "gi"), function(match) {
-				return match.prefix + '<span style="text-decoration: underline">' + match.word + '</span>' + match.postfix;
-			});
-
 			// convert all breaklines
 			content = Zarafa.core.HTMLParser.nl2br(content);
 
