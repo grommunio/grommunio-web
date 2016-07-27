@@ -45,6 +45,10 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 
 		// When the component is destroyed, we have to destroy the store
 		this.on('destroy', this.store.destroy, this.store);
+
+		// Set timer to change highlighted date in date picker
+		// after date change during the session
+		this.setNextDayTimer();
 	},
 
 	/**
@@ -153,17 +157,6 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	 */
 	update: function(date, forceRefresh)
 	{
-		// While user change the system date and time and then click on "Today" button
-		// at that time update the high lighted date with the updated system date by refreshing Date Picker
-		var today = new Date().clearTime().getTime();
-		if (date.getTime() === today && this.activeDate && today !== this.activeDate.getTime()) {
-			forceRefresh = true;
-			var model = container.getCurrentContext().getModel();
-			if (model) {
-				model.reload();
-			}
-		}
-			
 		Zarafa.calendar.ui.DatePicker.superclass.update.call(this, date, forceRefresh);
 		if (!this.hidden && this.dateIsChanged(date)) {
 			this.reloadStore(this.cells.first().dom.firstChild.dateValue, this.cells.last().dom.firstChild.dateValue);
@@ -201,6 +194,25 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 		this.cells.each(function(c){
 			c.removeClass('x-date-busy');
 		});
+	},
+
+	/**
+	 * Function which is Sets a timer to update the highlighted date in the datepicker
+	 * after the date has been changed to a new day during a session.
+	 */
+	setNextDayTimer: function ()
+	{
+		var diff = Date.diff(Date.MILLISECONDS, new Date().clearTime().add(Date.DAY, 1), new Date());
+		Ext.defer(function () {
+			if (this.activeDate.getTime() !== new Date().clearTime().getTime()) {
+				this.activeDate = undefined;
+				var model = this.navigationContext.model;
+				model.setDate(new Date());
+				model.load();
+			}
+			// Reset timer to referesh date picker
+			this.setNextDayTimer();
+		}, diff, this);
 	}
 });
 
