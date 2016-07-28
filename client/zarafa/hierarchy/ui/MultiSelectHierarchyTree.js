@@ -96,6 +96,18 @@ Zarafa.hierarchy.ui.MultiSelectHierarchyTree = Ext.extend(Zarafa.hierarchy.ui.Hi
 	onFolderChange : function(model, folders)
 	{
 		this.updateAll();
+
+		// It is possible to choose color from simple HierarchyTree as well.
+		// MultiSelectHierarchyTree should sync the color chosen from other tree, so let us do that.
+		for (var i = 0; i < folders.length; i++) {
+			// traverse through all the available folders, and set the color if changed in other tree.
+			var folderEntryid = folders[i].get('entryid');
+			var node = this.getNodeById(folderEntryid);
+			if (Ext.isDefined(node)) {
+				var colorScheme = model.getColorScheme(folderEntryid);
+				Ext.get(node.getUI().iconNode).setStyle('color', colorScheme.base);
+			}
+		}
 	},
 
 	/**

@@ -156,6 +156,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			xtype : 'zarafa.contextnavigation',
 			ownerTitle: _('Folders List'),
 			cls: 'zarafa-navigationpanel-centerpanel-allfolders',
+			ref : 'allFoldersPanel',
 			items : [{
 				layout: 'fit',
 				cls: 'zarafa-context-navigation-block',
@@ -172,6 +173,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 		return {
 			xtype : 'zarafa.hierarchytreepanel',
 			enableDD : true,
+			ref : '../allFoldersHierarchyTree',
 			enableItemDrop : true,
 			showAllFoldersDefaultValue : true,
 			deferredLoading : true
