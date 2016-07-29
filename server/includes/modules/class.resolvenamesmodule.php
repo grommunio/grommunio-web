@@ -164,6 +164,7 @@
 							$item['address_type'] = 'MAPIPDL';
 							// The email_address is empty for DistList, using display name for resolving
 							$item['email_address'] = $item['display_name'];
+							$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address']: '';
 						}else{
 							$item['address_type'] = 'ZARAFA';
 							$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
