@@ -153,6 +153,17 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 	 */
 	update: function(date, forceRefresh)
 	{
+		// While user change the system date and time and then click on "Today" button
+		// at that time update the high lighted date with the updated system date by refreshing Date Picker
+		var today = new Date().clearTime().getTime();
+		if (date.getTime() === today && this.activeDate && today !== this.activeDate.getTime()) {
+			forceRefresh = true;
+			var model = container.getCurrentContext().getModel();
+			if (model) {
+				model.reload();
+			}
+		}
+			
 		Zarafa.calendar.ui.DatePicker.superclass.update.call(this, date, forceRefresh);
 		if (!this.hidden && this.dateIsChanged(date)) {
 			this.reloadStore(this.cells.first().dom.firstChild.dateValue, this.cells.last().dom.firstChild.dateValue);
