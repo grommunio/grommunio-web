@@ -570,7 +570,8 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	setFolders : function(folders)
 	{
 		var saveState = true;
-		if (this.folders == folders) {
+		// Skip saving state when initial folders are set
+		if (this.folders == folders || this.folders === undefined) {
 			saveState = false;
 		}
 
