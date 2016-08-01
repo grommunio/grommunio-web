@@ -1580,7 +1580,7 @@ msgstr "Quando"
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:104
 #: client/zarafa/task/printer/TaskListViewRenderer.js:56
 msgid "l jS F Y G:i"
-msgstr "l, j \\de F \\de Y \\às G:i"
+msgstr "l, j \\de F \\de Y \\à\\s G:i"
 
 #: client/zarafa/calendar/AppointmentRecord.js:330
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:20
@@ -2048,7 +2048,7 @@ msgstr ""
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
 #: client/zarafa/calendar/printer/DaysViewRenderer.js:85
 msgid "jS F Y G:i"
-msgstr "j \\de F \\de Y \\às G:i"
+msgstr "j \\de F \\de Y \\à\\s G:i"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
 #: client/zarafa/common/delegates/data/DelegatePermissionProfiles.js:21
@@ -2849,7 +2849,7 @@ msgstr "Carregando compromissos"
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/CalendarPanel.js:130
 msgid "jS F G:i"
-msgstr "j \\de F \\de Y \\às G:i"
+msgstr "j \\de F \\de Y \\à\\s G:i"
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
