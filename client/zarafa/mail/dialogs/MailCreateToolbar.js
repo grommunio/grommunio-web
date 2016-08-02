@@ -205,7 +205,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			ref : 'highPriority',
 			toggleGroup : 'priorityGroup',
 			importance : Zarafa.core.mapi.Importance.URGENT,
-			handler : this.onPriorityGroupToggle,
+			enableToggle : true,
+			toggleHandler : this.onPriorityGroupToggle,
 			scope : this
 		},{
 			xtype : 'button',
@@ -218,7 +219,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			ref : 'lowPriority',
 			toggleGroup : 'priorityGroup',
 			importance : Zarafa.core.mapi.Importance.NONURGENT,
-			handler : this.onPriorityGroupToggle,
+			enableToggle : true,
+			toggleHandler : this.onPriorityGroupToggle,
 			scope : this
 		},{
 			xtype : 'button',
@@ -421,11 +423,12 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * importance which belongs to the button is applied.
 	 *
 	 * @param {Ext.Button} button The button from the PriorityGroup which was pressed
+	 * @param {Boolean} pressed true if the button pressed, false otherwise.
 	 * @private
 	 */
-	onPriorityGroupToggle : function (button)
+	onPriorityGroupToggle : function (button,pressed)
 	{
-		if (button.pressed) {
+		if (pressed) {
 			this.record.set('importance', button.importance);
 		} else {
 			this.record.set('importance', Zarafa.core.mapi.Importance.NORMAL);

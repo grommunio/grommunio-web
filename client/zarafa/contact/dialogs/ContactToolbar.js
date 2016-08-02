@@ -147,8 +147,8 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			},
 			iconCls : 'icon_private',
 			ref : 'setPrivate',
-			toggleGroup : 'privateGroup',
-			handler : this.onPrivateGroupToggle,
+			enableToggle : true,
+			toggleHandler : this.onPrivateGroupToggle,
 			scope : this
 		}];
 	},
