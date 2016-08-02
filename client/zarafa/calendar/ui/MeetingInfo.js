@@ -32,12 +32,12 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'<td>'+
 								'<tpl if="!Ext.isEmpty(values.proposed_start_date)">' +
 									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-									'{proposed_start_date:date("' + _('l jS F Y G:i') + '")}' +
+									'{proposed_start_date:date(_("l jS F Y G:i"))}' +
 									'<span>&nbsp;-&nbsp;</span>' +
 								'</tpl>'+
 								'<tpl if="!Ext.isEmpty(values.proposed_end_date)">' +
 									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-									'{proposed_end_date:date("' + _('l jS F Y G:i') + '")}' +
+									'{proposed_end_date:date(_("l jS F Y G:i"))}' +
 								'</tpl>'+
 							'</td>'+
 						'</tr>'+
@@ -53,12 +53,12 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'<tpl if="values.appointment_recurring !== true">' +
 								'<tpl if="!Ext.isEmpty(values.appointment_startdate)">' +
 									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-									'{appointment_startdate:date("' + _('l jS F Y G:i') + '")}' +
+									'{appointment_startdate:date(_("l jS F Y G:i"))}' +
 									'<span>&nbsp;-&nbsp;</span>' +
 								'</tpl>' +
 								'<tpl if="!Ext.isEmpty(values.appointment_duedate)">' +
 									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-									'{appointment_duedate:date("' + _('l jS F Y G:i') + '")}' +
+									'{appointment_duedate:date(_("l jS F Y G:i"))}' +
 								'</tpl>' +
 							'</tpl>' +
 						'</td>'+
