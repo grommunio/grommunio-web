@@ -83,16 +83,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			scope: this
 		},{
 			xtype: 'button',
-			text: _('Edit as New Message'),
-			tooltip: _('Edit as New Message') + ' (Ctrl + E)',
-			overflowText: _('Edit as New Message'),
-			iconCls: 'icon_editAsNewEmail',
-			ref: 'editAsNewBtn',
-			actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
-			handler: this.onMailResponseButton,
-			scope: this
-		},{
-			xtype: 'button',
 			ref: 'deleteBtn',
 			overflowText: _('Delete this item.'),
 			tooltip: {
@@ -127,16 +117,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			scope: this
 		},{
 			xtype: 'button',
-			iconCls: 'icon_print',
-			overflowText: _('Print'),
-			tooltip: {
-				title: _('Print'),
-				text: _('Print this email')
-			},
-			handler: this.onPrintButton,
-			scope: this
-		},{
-			xtype: 'button',
 			ref: 'flagsBtn',
 			overflowText: _('Set flag'),
 			tooltip: {
@@ -146,6 +126,16 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			iconCls: 'icon_flag_red',
 			handler: this.onSetFlagButton,
 			scope: this
+		},{
+			xtype: 'splitbutton',
+			cls: 'zarafa-more-options-btn',
+			tooltip: _('More options'),
+			overflowText: _('More options'),
+			iconCls: 'icon_more',
+			menu : this.moreMenuButtons(this),
+			handler: function() {
+				this.showMenu();
+			}
 		}];
 	},
 
@@ -175,12 +165,33 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		this.replyBtn.setVisible(!isFaultyMessage);
 		this.replyAllBtn.setVisible(!isFaultyMessage);
 		this.forwardBtn.setVisible(!isFaultyMessage);
+	},
 
-		// We only show the "Edit as New Message" button for items in the Sent folder.
-		var parentEntryid = this.record.get('parent_entryid');
-		var sentFolder = container.getHierarchyStore().getDefaultFolder('sent');
-		var isSentFolder = Ext.isDefined(sentFolder) ? Zarafa.core.EntryId.compareEntryIds(parentEntryid, sentFolder.get('entryid')) : false;
-		this.editAsNewBtn.setVisible(isSentFolder && !isFaultyMessage);
+	/**
+	 * The menu items of the more button.
+	 *
+	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} scope The scope for the menu items
+	 * @return {Ext.menu.Menu} the dropdown menu for the more button
+	 */
+	moreMenuButtons : function(scope)
+	{
+		return {
+			xtype: 'menu',
+			items: [{
+				tooltip: _('Print this email'),
+				text: _('Print'),
+				iconCls: 'icon_print',
+				handler: this.onPrintButton,
+				scope: this
+			},{
+				tooltip: _('Edit as New Message') + ' (Ctrl + E)',
+				text: _('Edit as New Message'),
+				iconCls: 'icon_editAsNewEmail',
+				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
+				handler: this.onMailResponseButton,
+				scope: scope
+			}]
+		};
 	},
 
 	/**

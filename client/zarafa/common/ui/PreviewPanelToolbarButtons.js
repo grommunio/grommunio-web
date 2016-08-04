@@ -33,33 +33,63 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	getToolbarButtons : function(insertionPoint, options)
 	{
 		// Use model that is passed as arguments for these buttons, if any.
-		var modelPassedAsArgument = false;
+		var model = this.model;
 		if(Ext.isDefined(options.model) && options.model instanceof Zarafa.core.ContextModel) {
-			modelPassedAsArgument = options.model;
+			model = options.model;
 		}
 
 		return [{
-			xtype: 'zarafa.toolbarbutton',
-			tooltip: _('Copy/Move') + ' (Ctrl + M)',
-			overflowText: _('Copy/Move'),
-			iconCls: 'icon_copy',
-			nonEmptySelectOnly: true,
-			handler: this.onCopyMove,
-			model: modelPassedAsArgument || this.model
-		},{
 			xtype: 'zarafa.toolbarbutton',
 			tooltip: _('Delete') + ' (DELETE)',
 			overflowText: _('Delete'),
 			iconCls: 'icon_delete',
 			nonEmptySelectOnly: true,
 			handler: this.onDelete,
-			model: modelPassedAsArgument || this.model
+			model: model
+		},{
+			xtype: 'splitbutton',
+			cls: 'zarafa-more-options-btn',
+			tooltip: _('More options'),
+			overflowText: _('More options'),
+			iconCls: 'icon_more',
+			nonEmptySelectOnly: true,
+			model: model,
+			menu : this.moreMenuButtons(model),
+			handler: function() {
+				this.showMenu();
+			}
 		}];
 	},
 
 	/**
+	 * The menu items of the more button.
+	 *
+	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} scope The scope for the menu items
+	 * @return {Ext.menu.Menu} the dropdown menu for the more button
+	 */
+	moreMenuButtons : function(model)
+	{
+		return {
+			xtype: 'menu',
+			items: [{
+				tooltip: _('Copy/Move') + ' (Ctrl + M)',
+				text: _('Copy/Move'),
+				iconCls: 'icon_copy',
+				model: model,
+				handler: this.onCopyMove
+			},{
+				tooltip: _('Edit asNew Message') + ' (Ctrl + E)',
+				text: _('Edit as New Message'),
+				iconCls: 'icon_editAsNewEmail',
+				model: model,
+				handler: this.onEditAsNewMessage
+			}]
+	        };
+	},
+
+	/**
 	 * Open the {@link Zarafa.common.dialogs.CopyMoveContent CopyMoveContent} for copying
-	 * or moving the currently selected folders.
+	 * or moving the currently selected records.
 	 * @private
 	 */
 	onCopyMove : function()
@@ -79,11 +109,11 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	},
 
 	/**
-	 * Open the Print dialog
+	 * "Edit as New Message" menuitem of more button handler
 	 * @private
 	 */
-	onPrint : function()
+	onEditAsNewMessage : function()
 	{
-		Zarafa.common.Actions.openPrintDialog(this.model.getSelectedRecords());
+		Zarafa.mail.Actions.openCreateMailResponseContent(this.model.getSelectedRecords(), this.model, Zarafa.mail.data.ActionTypes.EDIT_AS_NEW);
 	}
 });
