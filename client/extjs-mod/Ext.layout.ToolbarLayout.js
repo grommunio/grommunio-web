@@ -119,13 +119,81 @@
 		 * state should be ignored because the toolbar has hidden the item.
 		 * However the items below are added regardless of their 'hidden' status.
 		 * This fix will not only check for xtbHidden, but also for the normal
-		 * 'hidden' flag before deciding to render the item into the menu. 
+		 * 'hidden' flag before deciding to render the item into the menu.
+		 * And It will check if the toolbar item has menu and splitOnMoreMenu is set then extract all items of menu and
+		 * add those items into more menu.
 		 */
 		addComponentToMenu : function(menu, component)
 		{
 			if (component.xtbHidden === true || component.hidden !== true) {
-				orig_addComponentToMenu.apply(this, arguments);
+
+				// Check if component has menu then extract all items of menu and add into more menu
+				if(Ext.isDefined(component.menu) && component.splitOnMoreMenu){
+					var items = component.menu.items.items;
+					Ext.each(items,function (item) {
+						menu.add(this.createMenuConfig(item));
+					},this);
+				} else {
+					orig_addComponentToMenu.apply(this, arguments);
+				}
 			}
+		},
+
+		/**
+		 * Override initMore to replace {@link Ext.Button More button} with our own button
+		 * @private
+		 * Creates the expand trigger and menu, adding them to the <tr> at the extreme right of the
+		 * Toolbar table
+		 */
+		initMore : function ()
+		{
+			if (!this.more) {
+				/**
+				 * @private
+				 * @property moreMenu
+				 * @type Ext.menu.Menu
+				 * The expand menu - holds items for every Toolbar item that cannot be shown
+				 * because the Toolbar is currently not wide enough.
+				 */
+				this.moreMenu = new Ext.menu.Menu({
+					ownerCt : this.container,
+					listeners: {
+						beforeshow: this.beforeMoreShow,
+						scope: this
+					}
+				});
+
+				/**
+				 * @private
+				 * @property more
+				 * @type Ext.Button
+				 * The expand button which triggers the overflow menu to be shown
+				 */
+				this.more = new Ext.Button({
+					iconCls: 'icon_more',
+					ownerCt: this.container,
+					tooltip: _('More options'),
+					overflowText: _('More options'),
+					listeners : {
+						afterrender : this.afterMoreButtonRender,
+						scope : this
+					}
+				});
+
+				var td = this.insertCell(this.more, this.extrasTr, 100);
+				this.more.render(td);
+			}
+		},
+
+		/**
+		 * Handler which is use to add menu in more button after the {@link Ext.Button} rendered
+		 * @param button
+         */
+		afterMoreButtonRender : function (button)
+		{
+			// Ext will add down arrow button on render time if the button has menu
+			// So, set the menu after the more button rendered successfully
+			button.menu = this.moreMenu
 		}
 	});
 })();
