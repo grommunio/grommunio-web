@@ -46,9 +46,10 @@ Zarafa.core.data.UIFactory = {
 	 * Method to determine the {@link Zarafa.core.data.UIFactoryLayer layer} to use
 	 * 
 	 * @param {Object} config Configuration object
+	 * @param {Zarafa.core.data.MAPIRecord} record The record(s) loaded in the component
 	 * @return {Zarafa.core.data.UIFactoryLayer} The Layer in which to place a component
 	 */
-	getPreferredLayer : function(config)
+	getPreferredLayer : function(config, record)
 	{
 		var layers = this.layers;
 
@@ -56,21 +57,7 @@ Zarafa.core.data.UIFactory = {
 		// this might be overridden from the settings.
 		var layerIndex = 0;
 
-		// The settings might have a different idea on the default layer in which
-		// the component must be placed. Request the 'type' which should be the default
-		// layer in which components should be placed.
-		var settingsType = container.getSettingsModel().get('zarafa/v1/main/base_content_layer');
-		if (!Ext.isEmpty(settingsType)) {
-			for (var i = 0, len = layers.length; i < len; i++) {
-				if (layers[i].type === settingsType) {
-					layerIndex = i;
-					break;
-				}
-			}
-		}
-
-		// Now we have determined the minimum layer in which we should place
-		// the component, we must check the special situations which are provided
+		// First, we must check the special situations which are provided
 		// by the configuration object.
 		if (config) {
 			// The first case checks if a manager was configured, if so the layer
@@ -98,6 +85,30 @@ Zarafa.core.data.UIFactory = {
 			}
 		}
 
+		// The settings might have a different idea on the layer in which
+		// the component must be placed. Request the 'type' which should be the
+		// layer in which components should be placed.
+		var baseContentLayer;
+		if(config && config.layerType) {
+			baseContentLayer = config.layerType;
+		} else {
+			// Currently the support of popout feature is restricted to mail context only.
+			// So, honor the configured value of base_content_layer settings for mail context only.
+			if (Ext.isDefined(record) && Ext.isFunction(record.isMessageClass) && record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
+				baseContentLayer = container.getSettingsModel().get('zarafa/v1/main/base_content_layer');
+			}
+		}
+
+		// Go for popout only if supported.
+		if (Zarafa.supportsPopOut() && !Ext.isEmpty(baseContentLayer) && layerIndex === 0 && !(config && config.searchText)) {
+			for (var i = 0, len = layers.length; i < len; i++) {
+				if (layers[i].type === baseContentLayer) {
+					layerIndex = i;
+					break;
+				}
+			}
+		}
+
 		return layers[layerIndex];
 	},
 
@@ -113,7 +124,7 @@ Zarafa.core.data.UIFactory = {
 		var ComponentConstructor = container.getSharedComponent(componentType, records);
 		if (ComponentConstructor) {
 			if (ComponentConstructor.prototype instanceof Ext.Component) {
-				var layer = this.getPreferredLayer(config);
+				var layer = this.getPreferredLayer(config, records);
 
 				// FIXME: This shouldn't be here, the caller should have
 				// applied the record and closable information.

@@ -36,6 +36,12 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'use_canvas_rendering' : true,
 							/**
+							 * zarafa/v1/main/base_content_layer
+							 * @property
+							 * @type String
+							 */
+							'base_content_layer' : 'tabs',
+							/**
 							 * zarafa/v1/main/use_files_api
 							 * @property
 							 * @type Boolean

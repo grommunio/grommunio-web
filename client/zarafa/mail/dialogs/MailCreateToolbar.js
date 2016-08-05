@@ -17,6 +17,11 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * Insertion point for the Options buttons in the Create Mail Toolbar
 	 * @param {Zarafa.mail.dialogs.MailCreateToolbar} toolbar This toolbar
 	 */
+	/**
+	 * @insert context.mail.showmailcontentpanel.toolbar.options.right
+	 * Insertion point for the Options Right buttons which will show at right last in Mail Toolbar
+	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} toolbar This toolbar
+	 */
 
 	/**
 	 * @constructor
@@ -34,7 +39,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			insertionPointBase : 'context.mail.mailcreatecontentpanel',
 
 			actionItems : this.createActionButtons(),
-			optionItems : this.createOptionButtons()
+			optionItems : this.createOptionButtons(),
+			rightAlignedItems : this.createRightAlignedOptionButtons()
 		});
 
 		Zarafa.mail.dialogs.MailCreateToolbar.superclass.constructor.call(this, config);
@@ -173,7 +179,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 * @return {Array} The {@link Ext.Button Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createOptionButtons : function () {
+	createOptionButtons : function ()
+	{
 		return [{
 			xtype : 'button',
 			overflowText : _('Options'),
@@ -259,6 +266,28 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			toggleHandler : this.onFromMenuToggle,
 			scope : this
 		}];
+	},
+
+	/**
+	 * Create buttons which needs to be rendered on the right side of the toolbar.
+	 * This contains the popout button if main webapp window is active.
+	 *
+	 * @return {Array} The {@link Ext.Button} elements which should be added in the Right Options section of the {@link Ext.Toolbar}.
+	 */
+	createRightAlignedOptionButtons : function()
+	{
+		// Display the popout button if supported.
+		if (Zarafa.supportsPopOut() && Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+			return [{
+				xtype: 'zarafa.toolbarbutton',
+				tooltip: _('Open in new browser window'),
+				overflowText: _('Pop-Out'),
+				iconCls: 'icon_popout',
+				ref: 'popOutBtn',
+				handler: this.onPopoutButton,
+				scope: this
+			}];
+		}
 	},
 
 	/**
@@ -532,6 +561,19 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		if (contentReset === true || record.isModifiedSinceLastUpdate('read_receipt_requested')) {
 			this.readReceiptField.toggle(this.record.get('read_receipt_requested'), true);
 		}
+	},
+
+	/**
+	 * Event handler called when the "PopOut" button has been pressed.
+	 * This will call the {@link Zarafa.mail.Actions#openMailContent}
+	 * with record and its containing {@link Zarafa.core.ui.MessageContentPanel dialog}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @private
+	 */
+	onPopoutButton : function(button)
+	{
+		Zarafa.mail.Actions.popoutMailContent(this.record, this.dialog);
 	}
 });
 Ext.reg('zarafa.mailcreatetoolbar', Zarafa.mail.dialogs.MailCreateToolbar);

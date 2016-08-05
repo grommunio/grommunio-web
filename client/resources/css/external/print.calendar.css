@@ -7,6 +7,7 @@
   margin-left: 0.5in;
   margin-right: 0.5in;
 }
+
 @media print {
   /* line 12, ../../scss/external/_print.scss */
   thead {

@@ -38,7 +38,6 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 	create : function(component, config)
 	{
 		var panel = new component(config);
-
 		var windowCfg = {
 			modal : panel.modal,
 			manager : panel.manager,

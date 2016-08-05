@@ -355,9 +355,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 						// no need to create an element to apply default formatting for the case
 						// where no signature is there in editor at the time of initialization
 						if (tinymceEditor.getContent() !== ''){
-							// Signature is there so clone an element before signature to apply default formatting
-							clonedNode = firstNode.cloneNode();
-							firstNode = tinymceEditor.getBody().insertBefore(clonedNode, firstNode);
+							// In case if there is some content but first line is empty then there is no need to create additional
+							// P tag to apply default formatting, we can use that empty node it self.
+							if (!tinymceEditor.dom.isEmpty(firstNode)) {
+								// Signature is there so clone an element before signature to apply default formatting
+								clonedNode = firstNode.cloneNode();
+								firstNode = tinymceEditor.getBody().insertBefore(clonedNode, firstNode);
+							}
 						}
 					//For reply, replyall and forward we must add a new element to the top for which we must set the default formatting.
 					//For "edit as new email" this should not be done!

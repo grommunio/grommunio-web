@@ -17,6 +17,11 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * Insertion point for the Options buttons in the Show Mail Toolbar
 	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} toolbar This toolbar
 	 */
+	/**
+	 * @insert context.mail.showmailcontentpanel.toolbar.options.right
+	 * Insertion point for the Options Right buttons which will show at right last in Mail Toolbar
+	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} toolbar This toolbar
+	 */
 
 	/**
 	 * @constructor
@@ -34,7 +39,8 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			insertionPointBase: 'context.mail.showmailcontentpanel',
 
 			actionItems: this.createActionButtons(),
-			optionItems: this.createOptionButtons()
+			optionItems: this.createOptionButtons(),
+			rightAlignedItems : this.createRightAlignedOptionButtons()
 		});
 
 		Zarafa.mail.dialogs.ShowMailToolbar.superclass.constructor.call(this, config);
@@ -137,6 +143,28 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				this.showMenu();
 			}
 		}];
+	},
+
+	/**
+	 * Create buttons which needs to be rendered on the right side of the toolbar.
+	 * This contains the popout button if main webapp window is active.
+	 *
+	 * @return {Array} The {@link Ext.Button} elements which should be added in the Right Options section of the {@link Ext.Toolbar}.
+     */
+	createRightAlignedOptionButtons: function ()
+	{
+		// Display the popout button only if supported.
+		if (Zarafa.supportsPopOut() && Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+			return [{
+				xtype: 'zarafa.toolbarbutton',
+				tooltip: _('Open in new browser window'),
+				overflowText: _('Pop-Out'),
+				iconCls: 'icon_popout',
+				ref: 'popOutBtn',
+				handler: this.onPopoutButton,
+				scope: this
+			}];
+		}
 	},
 
 	/**
@@ -247,6 +275,19 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
+	 * Event handler called when the "PopOut" button has been pressed.
+	 * This will call the {@link Zarafa.mail.Actions#openMailContent}
+	 * with record and its containing {@link Zarafa.core.ui.MessageContentPanel dialog}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @private
+	 */
+	onPopoutButton : function(button)
+	{
+		Zarafa.mail.Actions.popoutMailContent(this.record, this.dialog);
+	},
+
+	/**
 	 * Event handler when the "Reply/ Reply All/ Forward/ Edit as New Message" button has been pressed.
 	 * This will call the {@link Zarafa.mail.Actions#openCreateMailResponseContent}.
 	 *
@@ -256,8 +297,10 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	onMailResponseButton : function(button)
 	{
 		var model = this.dialog.getContextModel();
+		var isOwnedByMainWindow = Zarafa.core.BrowserWindowMgr.isOwnedByMainWindow(button);
+		var configObject = !isOwnedByMainWindow ? {layerType : 'separateWindows'} : undefined;
 
-		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, model, button.actionType);
+		Zarafa.mail.Actions.openCreateMailResponseContent(this.record, model, button.actionType, configObject);
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/close_on_respond') === true) {
 			this.dialog.close();
 		}

@@ -14,6 +14,21 @@
 				this.tpl = '<tpl for="."><div class="x-combo-list-item">{' + this.displayField + ':htmlEncode}</div></tpl>';
 			}
 			orig_initList.apply(this, arguments);
+		},
+
+		/*
+		 * Override getListParent to return the body element of the owner document which owns the list element.
+		 * @return {HTMLElement} The body of owner document of list element.
+		 */
+		getListParent : function()
+		{
+			var elOwnerDocument = this.getEl() ? this.getEl().dom.ownerDocument : undefined;
+
+			if(elOwnerDocument){
+				return elOwnerDocument.body;
+			} else {
+				return document.body;
+			}
 		}
 	});
 })();

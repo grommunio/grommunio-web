@@ -127,7 +127,9 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	{
 		type = Ext.util.Format.capitalize(type);
 
-		var body = window['inner' + type];
+		// Convert a 'width' or 'height' percentage into a real size depending on the size of active browser window body.
+		var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+		var body = browserWindow['inner' + type];
 		var minSize = component['min' + type];
 		var maxSize = component['max' + type];
 

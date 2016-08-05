@@ -49,6 +49,11 @@
 			include(BASE_PATH . 'server/includes/download_message.php');
 			$GLOBALS['PluginManager']->triggerHook("server.index.load.download_message.after");
 			break;
+		case "separate_window":
+			$GLOBALS['PluginManager']->triggerHook("server.index.load.separate_window.before");
+			include(BASE_PATH .'server/includes/templates/webclient_separatewindow.php');
+			$GLOBALS['PluginManager']->triggerHook("server.index.load.separate_window.after");
+			break;
 		default:
 			// The session expired, or the user is otherwise not logged on.
 			// Return a HTTP 401 error so the client can act upon this event correctly.

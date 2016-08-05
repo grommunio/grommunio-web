@@ -270,5 +270,44 @@ Zarafa.mail.Actions = {
 				flex : 1
 			}]
 		});
+	},
+
+	/**
+	 * Open a Panel in which the {@link Zarafa.core.data.IPMRecord record}
+	 * can be viewed, or further edited with pre-choosen layer as separateWindows..
+	 * Prepare record instance based on original record.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The records to open
+	 * @param {Zarafa.core.ui.MessageContentPanel} dialog which contains the record.
+	 */
+	popoutMailContent : function(record, dialog) {
+		var copy;
+
+		// First create the exact same copy of record avoiding cheap copy.
+		copy = Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(record.data, record.id);
+		copy.idProperties = record.idProperties.clone();
+		copy.phantom = record.phantom;
+		copy.dirty = record.dirty;
+		copy.applyData(record, false);
+
+		// We must have to retain "id" of attachment-substore of original record to access attachments.
+		var attachmentStoreId = record.getAttachmentStore().getId();
+		copy.getAttachmentStore().setId(attachmentStoreId);
+
+		if(!record.phantom){
+			// Add the copied record into the shadow store as the old record will be removed from the same,
+			// when the tab gets closed, and store is required to attach necessary events for some functionality like markAsRead etc.
+			container.getShadowStore().add(copy);
+		}
+
+		// Close the existing tab for which a new separate browser window is created
+		dialog.fireEvent('close', dialog);
+		Zarafa.core.data.ContentPanelMgr.unregister(dialog);
+
+		// Use newly created copy of original record to load into separate browser window
+		Zarafa.mail.Actions.openMailContent(copy, {
+			layerType : 'separateWindows',
+			isRecordChangeByUser : dialog.recordComponentPlugin.isChangedByUser
+		});
 	}
 };

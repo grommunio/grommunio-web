@@ -90,8 +90,12 @@ Ext.apply(Zarafa, {
 		//show confirm dialog before user leave the page.
 		Zarafa.core.Util.enableLeaveRequester();
 
-		// When the browser is unloading, all active requests will be aborted.
+		// When the browser is unloading, all active requests will be aborted and
+		// If more than one browser windows are open then close all browser windows.
 		window.onunload = function () {
+			if(Zarafa.core.BrowserWindowMgr.browserWindows.length > 1){
+				Zarafa.core.BrowserWindowMgr.closeAllBrowserWindow();
+			}
 			container.getRequest().paralyze(Zarafa.core.data.ParalyzeReason.BROWSER_RELOADING);
 		};
 
@@ -699,7 +703,7 @@ Ext.apply(Zarafa, {
 			this.startIdleTimeChecker(clientTimeout);
 		}
 	},
-	
+
 	/**
 	 * Starts the checking of idle time.
 	 * This function uses original javascript events because we cannot set 
@@ -932,5 +936,17 @@ Ext.apply(Zarafa, {
 		}
 
 		return text;
+	},
+
+	/**
+	 * Determine if separate window popout is supported.
+	 * Support is based on browser's ability to render any element into another browser window.
+	 *
+	 * @return {Boolean} True if popout is supported, false otherwise
+	 */
+	supportsPopOut : function()
+	{
+		// Currently, we do not support the popout in case of IE/Edge.
+		return (!(Ext.isIE || Ext.isEdge));
 	}
 });
