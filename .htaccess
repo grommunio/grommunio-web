@@ -21,5 +21,13 @@ php_value error_log errors.txt
 # because they could become a security vulnerability when accessible
 # Better safe then sorry
 <FilesMatch "^(config|debug|defaults|init)\.php">
-    Deny from all
+	<IfVersion < 2.4>
+		    Deny from all
+	</IfVersion>
+
+	<IfVersion >= 2.4>
+		   <RequireAll>
+		       Require all denied
+		   </RequireAll>
+	</IfVersion>
 </FilesMatch>
