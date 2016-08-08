@@ -94,7 +94,7 @@ Zarafa.core.data.UIFactory = {
 		} else {
 			// Currently the support of popout feature is restricted to mail context only.
 			// So, honor the configured value of base_content_layer settings for mail context only.
-			if (Ext.isDefined(record) && Ext.isFunction(record.isMessageClass) && record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
+			if (Ext.isDefined(record) && record !== null && Ext.isFunction(record.isMessageClass) && record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
 				baseContentLayer = container.getSettingsModel().get('zarafa/v1/main/base_content_layer');
 			}
 		}
