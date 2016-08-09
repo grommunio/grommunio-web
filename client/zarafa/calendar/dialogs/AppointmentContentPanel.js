@@ -306,11 +306,10 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 
 		if (record.isMeetingSent() && !record.isAppointmentInPast() && record.getMessageAction('send') !== true) {
 
-			// Inform the user about the update must be send to only the added and removed attendees or to everybody.
-			// so,that send is only done when there is any change in attendees only.
-			if (this.isRecipientChanged && !this.isPropertyChanged) {
-				this.sendRecord();
-			} else {
+			 if (!this.isOnlyOrganizerPropertiesChanged(record)) {
+
+				// Determine if organizer related properties were only changed
+				// then no need to send message to all attendees
 				Ext.MessageBox.show({
 					title : _('Kopano WebApp'),
 					msg : _('An update message will be sent to all recipients, do you wish to continue?'),
@@ -319,10 +318,16 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 					scope : this,
 					buttons : Ext.MessageBox.YESNO
 				});
+				// The user is confronted with a messagebox, lets not yet
+				// save the appointment be wait for his answer.
+				return;
+			} else if(this.isRecipientChanged){
+				// Inform the user about the update must be send to only the added and removed attendees or to everybody.
+				// so,that send is only done when there is any change in attendees only.
+
+				this.sendRecord();
+				return;
 			}
-			// The user is confronted with a messagebox, lets not yet
-			// save the appointment be wait for his answer.
-			return;
 		}
 
 		return Zarafa.calendar.dialogs.AppointmentContentPanel.superclass.saveRecord.apply(this, arguments);
@@ -345,6 +350,8 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	/**
 	 * Callback function from {@link Ext.MessageBox#show} which checks if the
 	 * organizer wants to send an update to the attendees regarding the changes in meeting item
+	 * If yes then send update to the attendees regarding the changes and
+	 * If No then save changes without sending update to attendees.
 	 * @param {String} button button text which was pressed.
 	 * @private
 	 */
@@ -435,6 +442,33 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 			// lets not make this block sending the meeting request.
 			callback(true);
 		}
+	},
+
+	/**
+	 * Function which is use to determine that only organizer related properties of record were changed.
+	 * Some set of properties like label,body,categories,etc.
+	 * if those properties were only changed then no need to send message to all attendees
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
+	 * @returns {boolean} true if only organizer related properties changed, false otherwise
+     */
+	isOnlyOrganizerPropertiesChanged: function (record)
+	{
+		var isOrganizerPropertiesChanged = true;
+		var organizerProperties = ['body' ,'html_body' , 'categories' , 'label' , 'busystatus', 'private', 'reminder', 'isHTML', 'sensitivity','importance','hasattach','attach_num','flagdueby','reminder_minutes'];
+		Ext.iterate(record.modified, function (property) {
+			if (organizerProperties.indexOf(property) < 0 && record.data[property] != record.modified[property]) {
+				isOrganizerPropertiesChanged = false;
+				return false;
+			}
+		});
+		if(isOrganizerPropertiesChanged){
+			// we need this for validateSendUpdateToRecipients() which
+			// needs to differentiate between changes made to only organizer related properties
+
+			this.isPropertyChanged = false;
+		}
+		return isOrganizerPropertiesChanged;
 	}
 });
 

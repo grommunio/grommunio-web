@@ -113,22 +113,6 @@ Zarafa.core.data.MAPISubStore = Ext.extend(Zarafa.core.data.NoSyncStore, {
 	},
 
 	/**
-	 * Destroys a record or records. Should not be used directly.
-	 * It's called by Store#remove automatically
-	 * @param {Store} store
-	 * @param {Ext.data.Record/Ext.data.Record[]} record
-	 * @param {Number} index
-	 * @private
-	 */
-	destroyRecord : function(store, record, index)
-	{
-		if(this.getParentRecord()){
-			this.getParentRecord().markDirty();
-		}
-		Zarafa.core.data.MAPISubStore.superclass.destroyRecord.call(this, store, record, index);
-	},
-
-	/**
 	 * Get the {@link Zarafa.core.data.MAPIRecord IPMRecord} that is the parent of this store.
 	 * @return {Zarafa.core.data.MAPIRecord} The parent IPMRecord.
 	 */
