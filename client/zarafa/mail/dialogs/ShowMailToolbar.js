@@ -136,6 +136,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			xtype: 'splitbutton',
 			cls: 'zarafa-more-options-btn',
 			tooltip: _('More options'),
+			splitOnMoreMenu : true,
 			overflowText: _('More options'),
 			iconCls: 'icon_more',
 			menu : this.moreMenuButtons(this),

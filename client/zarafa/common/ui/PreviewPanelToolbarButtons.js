@@ -55,6 +55,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			iconCls: 'icon_more',
 			nonEmptySelectOnly: true,
 			model: model,
+			splitOnMoreMenu : true,
 			menu : this.moreMenuButtons(model),
 			handler: function() {
 				this.showMenu();
@@ -93,14 +94,14 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				iconCls: 'icon_copy',
 				model: model,
 				handler: this.onCopyMove
-			},{
+			}, {
 				tooltip: _('Edit asNew Message') + ' (Ctrl + E)',
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
 				model: model,
 				handler: this.onEditAsNewMessage
 			}]
-	        };
+		};
 	},
 
 	/**
