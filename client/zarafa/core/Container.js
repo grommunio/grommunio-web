@@ -324,7 +324,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	getWelcomePanel : function()
 	{
-		return this.welcomePanel = (this.welcomePanel = new Zarafa.core.ui.WelcomeViewport());
+		return this.welcomePanel || (this.welcomePanel = new Zarafa.core.ui.WelcomeViewport());
 	},
 
 	/**
