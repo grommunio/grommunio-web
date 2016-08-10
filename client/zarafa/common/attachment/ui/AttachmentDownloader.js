@@ -85,20 +85,8 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 				Ext.DomHelper.append(form, {tag : 'input', type : 'hidden', name : 'entryids[]', value : records[i].get('entryid')});
 			}
 
-			// In IE10 and IE9 beforeunload will be called while submitting form.
-			// So prevent this situation by disable leave requester which prevent the requester dialog to appear.
-			if(Ext.isIE10 || Ext.isIE9) {
-				Zarafa.core.Util.disableLeaveRequester();
-			}
-
 			// Submit the form to send a POST request
 			form.dom.submit();
-
-			// Enable leave requester back if user browser is IE10 or IE9.
-			if(Ext.isIE10 || Ext.isIE9) {
-				Zarafa.core.Util.enableLeaveRequester();
-			}
-
 		} else {
 			container.getNotifier().notify(
 				'error.attachment',

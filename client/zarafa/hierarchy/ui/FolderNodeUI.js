@@ -132,8 +132,6 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			var rectNode = groupNode.childNodes[0];
 			var pathNode = groupContainerNode.childNodes[1];
 			this.calendarSVGIconChilds = [rectNode, pathNode];
-			// fix for IE6
-			this.checkbox.defaultChecked = this.checkbox.checked;
 			index++;
 		}
 		this.anchor = cs[index];

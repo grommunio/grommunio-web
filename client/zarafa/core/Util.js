@@ -470,33 +470,6 @@ Zarafa.core.Util =
 	},
 
 	/**
-	 * Function will get the index of the position of the cursor in the textfield.
-	 * @param {Ext.Element/HTMLElement} obj Reference to the textfield
-	 * @return {Number} Index of position, -1 if object is invalid
-	 */
-	getCaretPosition: function(obj)
-	{
-		obj = obj.dom || obj;
-
-		// MSIE has to use selection object in document, FF does not have this object
-		if(document.selection) { // MSIE
-			/**
-			 * In MSIE the position is calculated by first creating a selection
-			 * from the cursors position to the start of the string and
-			 * calculating the length of this selection string. This number is
-			 * the actual position of cursor.
-			 */
-			obj.focus();
-			var range = document.selection.createRange().duplicate();
-			range.moveStart("character", -obj.value.length);
-			return range.text.length;
-		}else if (obj.selectionStart || (obj.selectionStart == "0")) { // Mozilla/Netscape
-			// Just use the kickass selectionStart property in FF.
-			return obj.selectionStart;
-		}
-	},
-
-	/**
 	 * Function will get the index of the start and end position of the current selection.
 	 * @param {Ext.Element/HTMLElement} obj Reference to the textfield
 	 * @return {Object} An object containing a 'start' and 'end' field which indicate
@@ -507,20 +480,7 @@ Zarafa.core.Util =
 	{
 		obj = obj.dom || obj;
 
-		// MSIE has to use selection object in document, FF does not have this object
-		if (document.selection) { // MSIE
-			obj.focus();
-			var range = document.selection.createRange().duplicate();
-
-			// Temporarily save the currently selected text.
-			var text = range.text;
-
-			// Move the selection to the beginning, so we can determine what the start offset is.
-			range.moveStart("character", -obj.value.length);
-
-			// Now we now the start and end of the seleciton.
-			return { start : range.text.length, end : range.text.length + text.length };
-		} else if (obj.selectionStart || (obj.selectionStart == "0")) { // Mozilla/Netscape
+		if (obj.selectionStart || (obj.selectionStart == "0")) {
 			return { start : obj.selectionStart, end : obj.selectionEnd };
 		}
 	},
@@ -545,37 +505,9 @@ Zarafa.core.Util =
 	{
 		obj = obj.dom || obj;
 
-		if (obj && typeof obj == "object" && obj.setSelectionRange) {	// Mozilla/Netscape
+		if (obj && typeof obj == "object" && obj.setSelectionRange) {
 			obj.focus();
 			obj.setSelectionRange(selectionStart, selectionEnd);
-		}else if (obj.createTextRange) {	// MSIE
-			var range = obj.createTextRange();
-			range.collapse(true);
-			range.moveEnd('character', selectionEnd);
-			range.moveStart('character', selectionStart);
-			range.select();
-		}
-	},
-
-	/**
-	 * Function replaces selection in the textfield
-	 * @param {HTMLElement} obj Reference to the textfield or the id of the textfield
-	 * @param {String} sText Text that should replace selection
-	 */
-	textboxReplaceSelection: function(obj, sText)
-	{
-		if(obj && typeof obj == "object") {
-			if(document.selection) { // MSIE
-				var oRange = document.selection.createRange();
-				oRange.text = sText;
-				oRange.collapse(true);
-				oRange.select();
-			} else if (obj.selectionStart || (obj.selectionStart == "0")) { // Mozilla/Netscape
-				var iStart = obj.selectionStart;
-				obj.value = obj.value.substring(0, iStart) + sText + obj.value.substring(obj.selectionEnd, obj.value.length);
-				obj.setSelectionRange(iStart + sText.length, iStart + sText.length);
-			}
-			obj.focus();
 		}
 	},
 
