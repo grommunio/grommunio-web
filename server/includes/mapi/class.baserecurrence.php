@@ -42,7 +42,7 @@
 		 * @param resource $message the MAPI (appointment) message
 		 * @param array $properties the list of MAPI properties the message has.
 		 */
-		function BaseRecurrence($store, $message)
+		function __construct($store, $message)
 		{
 			$this->store = $store;
 

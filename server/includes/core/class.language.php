@@ -5,10 +5,11 @@
 	 * @package core
 	 */
 	class Language {
-		var $languages;
-		var $languagetable;
-		var $lang;
-		var $loaded;
+
+		private $languages =array("en_GB"=>"English");
+		private $languagetable = array("en_GB"=>"eng_ENG");
+		private $lang;
+		private $loaded = false;
 			
 		/**
 		 * Default constructor
@@ -17,11 +18,8 @@
 		 * must call loadLanguages().
 		 *
 		 */
-		function Language()
+		function __construct()
 		{
-			$this->languages = array("en_GB"=>"English");
-			$this->languagetable = array("en_GB"=>"eng_ENG");
-			$this->loaded = false;
 		}
 		
 		/**

@@ -101,7 +101,7 @@ class PluginManager
 	/**
 	 * Constructor
 	 */
-	function PluginManager($enable = ENABLE_PLUGINS)
+	function __construct($enable = ENABLE_PLUGINS)
 	{
 		$this->enabled = $enable && defined('PATH_PLUGIN_DIR');
 		$this->plugindata = Array();

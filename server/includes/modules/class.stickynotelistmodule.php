@@ -9,11 +9,11 @@
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function StickyNoteListModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getStickyNoteListProperties();
 
-			parent::ListModule($id, $data);
+			parent::__construct($id, $data);
 
 			$this->start = 0;
 		}

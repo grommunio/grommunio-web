@@ -9,12 +9,8 @@
 	*/
 	class JSONRequest
 	{
-		/**
-		 * Constructor
-		 */
-		function JSONRequest()
+		function __construct()
 		{
-			
 		}
 
 		/**

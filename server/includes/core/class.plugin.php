@@ -1,12 +1,11 @@
 <?php
 class Plugin {
 	// Identifying name of the plugin.
-	var $pluginname = false;
+	private $pluginname = false;
 	// holds session data of the plugin
-	var $sessionData = false;
+	private $sessionData = false;
 
-	// Constructor
-	function Plugin(){}
+	function __construct(){}
 
 	/**
 	 * setPluginName

@@ -12,11 +12,11 @@
 		* @param int $id unique id.
 		* @param array $data list of all actions.
 		*/
-		function ReminderListModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getReminderProperties();
 
-			parent::ListModule($id, $data);
+			parent::__construct($id, $data);
 
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			$this->reminderEntryId = $this->getReminderFolderEntryId($store);

@@ -12,10 +12,7 @@
 	*/
 	class Dispatcher
 	{
-		function Dispatcher()
-		{
-			
-		} 
+		function __construct(){}
 		
 		/**
 		 * Load a module with a specific name

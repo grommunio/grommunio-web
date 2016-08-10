@@ -45,7 +45,7 @@ class DownloadMessage
 	/**
 	 * Constructor
 	 */
-	public function DownloadMessage()
+	public function __construct()
 	{
 		$this->storeId = false;
 		$this->entryId = false;

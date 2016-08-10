@@ -14,49 +14,46 @@
 		/**
 		 * @var resource This holds the MAPI Session
 		 */
-		var $session;
+		private $session;
 
 		/**
 		 * @var resource This can hold the addressbook resource
 		 */
-		var $ab;
+		private $ab;
 
 		/**
 		 * @var array List with all the currently opened stores
 		 */
-		var $stores;
+		private $stores;
 
 		/**
 		 * @var string The entryid (binary) of the default store
+		 * FIXME:  public since class.hierarchynotifier re-opens the store which needs to be fixed.
 		 */
-		var $defaultstore;
+		public $defaultstore;
 
 		/**
 		 * @var string The entryid (binary) of the public store
 		 */
-		var $publicStore;
+		private $publicStore;
 
 		/**
 		 * @var array Information about the current session (username/email/password/etc)
 		 */
-		var $session_info;
+		private $session_info;
 
 		/**
 		 * @var array Mapping username -> entryid for other stores
 		 */
-
-		var $userstores;
+		private $userstores;
 
 
 		/**
 		 * @var int Makes sure retrieveUserData is called only once
 		 */
-		var $userDataRetrieved;
+		private $userDataRetrieved;
 
-		/**
-		 * Default constructor
-		 */
-		function MAPISession()
+		function __construct()
 		{
 			$this->session_info = array("auth"=>false);
 			$this->stores = array();

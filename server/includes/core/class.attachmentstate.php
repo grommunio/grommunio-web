@@ -41,7 +41,7 @@ class AttachmentState {
 	/**
 	 * Constructor
 	 */
-	public function AttachmentState()
+	public function __construct()
 	{
 		$this->basedir = TMP_PATH . DIRECTORY_SEPARATOR . $this->attachmentdir;
 		$this->sessiondir = $this->basedir . DIRECTORY_SEPARATOR . session_id();

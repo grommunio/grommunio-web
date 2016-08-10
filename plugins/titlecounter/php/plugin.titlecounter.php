@@ -7,11 +7,7 @@
  */
 class Plugintitlecounter extends Plugin {
 
-	/**
-	 * Constructor
-	 */
-	function Plugintitlecounter() {
-	}
+	function __construct(){}
 
 	/**
 	 * Function initializes the Plugin and registers all hooks

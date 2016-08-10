@@ -9,34 +9,34 @@
 		/**
 		 * @var array contains entryid's of all default folders.
 		 */
-		var $defaultFolders;
+		private $defaultFolders;
 
 		/**
 		 * @var array contains delegate properties from special message (LocalFreebusy).
 		 */
-		var $delegateProps;
+		private $delegateProps;
 
 		/**
 		 * @var Resource of LocalFreeBusy Message. This contains $delegateProps for delegates.
 		 */
-		var $localFreeBusyMessage;
+		private $localFreeBusyMessage;
 
 		/**
 		 * @var Resource of FreeBusy Folder in IPM_SUBTREE. This permissions for freebusy folder used in calendar.
 		 */
-		var $freeBusyFolder;
+		private $freeBusyFolder;
 
 		/**
 		 * @var Resource of default store of the current user.
 		 */
-		var $defaultStore;
+		private $defaultStore;
 
 		/**
 		 * Constructor
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function DelegatesModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->defaultFolders = array();
 			$this->delegateProps = array();
@@ -44,7 +44,7 @@
 			$this->freeBusyFolder = false;
 			$this->defaultStore = false;
 
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

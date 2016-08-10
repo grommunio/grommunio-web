@@ -33,33 +33,28 @@
 	class Properties
 	{
 		/**
-		 * @var object MAPI Message Store object
+		 * MAPI Message Store object
 		 */
-		var $store = false;
+		private $store = false;
 
 		/**
-		 * @var string The PR_MAPPING_SIGNATURE for the current store
+		 * The PR_MAPPING_SIGNATURE for the current store
 		 */
-		var $storeMapping = false;
+		private $storeMapping = false;
 
 		/**
-		 * @var TRUE if we have init'ed, FALSE if not
+		 * true if we have init'ed, false if not
 		 */
-		var $init = false;
+		private $init = false;
 
 		/**
-		 * @var Object The mappings where for each unique
+		 * The mappings where for each unique
 		 * PR_MAPPING_SIGNATURE on the server the properties
 		 * are stored.
 		 */
-		var $mapping = array();
+		private $mapping = array();
 
-		/**
-		 * Constructor
-		 */
-		function Properties()
-		{
-		}
+		function __construct(){}
 
 		/**
 		 * Initialize the class by opening the default message store. This is done only once.

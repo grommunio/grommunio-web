@@ -7,10 +7,10 @@
 		/**
 		 * Constructor
 		 */
-		function ExpandDistlistModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getRecipientProperties();
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

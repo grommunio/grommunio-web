@@ -9,9 +9,9 @@
 		* @param int $id unique id.
 		* @param array $data list of all actions.
 		*/
-		function SettingsModule($id, $data)
+		function __construct($id, $data)
 		{
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

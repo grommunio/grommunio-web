@@ -13,12 +13,12 @@
 		 * @param string $folderentryid Entryid of the folder. Data will be selected from this folder.
 		 * @param array $data list of all actions.
 		 */
-		function HierarchyModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getFolderProperties();
 			$this->list_properties = $GLOBALS["properties"]->getFolderListProperties();
 
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**
@@ -376,7 +376,7 @@
 				}
 			}
 
-			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
+			parent::__construct($e, $actionType, $store, $parententryid, $entryid, $action);
 		}
 		
 		/**

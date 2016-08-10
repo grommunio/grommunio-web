@@ -9,30 +9,30 @@
 		/**
 		 * The setting whether Meeting Requests should be booked directly or not.
 		 */
-		var $directBookingMeetingRequest;
+		public $directBookingMeetingRequest;
 
 		/**
 		 * The array of properties which should not be copied during the copy() action.
 		 */
-		var $skipCopyProperties;
+		public $skipCopyProperties;
 
 		/**
 		 * Indicates that we are supporting only plain text body in the message props
 		 */
-		var $plaintext;
+		public $plaintext;
 
 		/**
 		 * Constructor
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function ItemModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->directBookingMeetingRequest = ENABLE_DIRECT_BOOKING;
 			$this->skipCopyProperties = array();
 			$this->plaintext = false;
 
-			parent::Module($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

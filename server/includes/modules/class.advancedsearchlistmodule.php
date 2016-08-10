@@ -6,7 +6,7 @@
 		 * @param		int		$id			unique id.
 		 * @param		array		$data		list of all actions.
 		 */
-		function AdvancedSearchListModule($id, $data)
+		function __construct($id, $data)
 		{
 			// TODO: create a new method in Properties class that will return only the properties we
 			// need for search list (and perhaps for preview???)
@@ -24,7 +24,7 @@
 					"task_duedate" => "PT_SYSTIME:PSETID_Task:0x8105"));
 			$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 
-			parent::ListModule($id, $data);
+			parent::__construct($id, $data);
 		}
 
 		/**

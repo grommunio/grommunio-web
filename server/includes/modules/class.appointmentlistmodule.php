@@ -9,33 +9,33 @@
 		/**
 		 * @var object Recurrence class object.
 		 */
-		var $recurrence;
+		private $recurrence;
 		
 		/**
 		 * @var object MeetingRequest class object.
 		 */
-		var $meetingrequest;
+		private $meetingrequest;
 		
 		/**
 		 * @var date start interval of view visible
 		 */
-		var $startdate;
+		private $startdate;
 		
 		/**
 		 * @var date end interval of view visible
 		 */
-		var $enddate;
+		private $enddate;
 		
 		/**
 		 * Constructor
 		 * @param int $id unique id.
 		 * @param array $data list of all actions.
 		 */
-		function AppointmentListModule($id, $data)
+		function __construct($id, $data)
 		{
 			$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
 
-			parent::ListModule($id, $data);
+			parent::__construct($id, $data);
 
 			$this->startdate = false;
 			$this->enddate = false;
