@@ -420,6 +420,44 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		}
 
 		this.endEdit();
+	},
+
+	/**
+	 * Called by the store after the record was opened successfully.
+	 * When an contact has been attached as a mail item and the user
+	 * opens the contact we want to give the user the option to store
+	 * the contact in the default contact folder.
+	 *
+	 * @private
+	 */
+	afterOpen : function()
+	{
+		if (this.isSubMessage()) {
+			this.beginEdit();
+			this.set('attach_num', []);
+			this.set('message_flags', Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
+			this.set('entryid', '');
+			this.endEdit();
+			this.phantom = true;
+
+			var messageClass = this.get('message_class');
+			if (Ext.isEmpty(messageClass)) {
+				return;
+			}
+
+			var folder = container.getHierarchyStore().getDefaultFolderFromMessageClass(messageClass);
+			if (Ext.isEmpty(folder)) {
+				return;
+			}
+
+			// Set store/parent entryid, to create the record in the correct store and folder.
+			this.beginEdit();
+			this.set('store_entryid', folder.get('store_entryid'));
+			this.set('parent_entryid', folder.get('entryid'));
+			this.endEdit();
+
+		}
+		return Zarafa.contact.ContactRecord.superclass.afterOpen.call(this, arguments);
 	}
 });
 
