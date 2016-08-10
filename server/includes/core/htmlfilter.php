@@ -6,11 +6,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @version $Id: mime.php 13899 2010-01-30 16:14:53Z pdontthink $
  *
- * The sq_fix_urls() function has been modified so that it passes through URLs directly;
- * the output from magicHTML is therefore only an XSS-safe version of the same input.
- *
- * Fixed bug in sq_fixstyle to not remove styles from html comments as they are useful
- *
  * Fixed bug in sq_sanitize to not add extra \n at start and end of the body as they are treated as
  * new line by tinymce editor
  */
@@ -50,7 +45,7 @@ function sq_defang(&$attvalue){
  * @return attvalue  Nothing, modifies a reference value.
  */
 function sq_unspace(&$attvalue){
-    if (strcspn($attvalue, "\t\r\n\0 ") != strlen($attvalue)){
+    if (strcspn($attvalue, "\t\r\n\0 ") !== strlen($attvalue)){
         $attvalue = str_replace(Array("\t", "\r", "\n", "\0", " "),
                                 Array('',   '',   '',   '',   ''), $attvalue);
     }
@@ -122,12 +117,12 @@ $aDangerousCharsReplacementTable = array(
           'E','e','X','x','P','p','R','r','S','s','I','i','O','o','N','n','L','l','U','u','n','l','r','n'));
 
 function sq_fixIE_idiocy(&$attvalue) {
-    global $aDangerousCharsReplacementTable;
-
     // Shortcut if the value contains only 'normal' characters
     if(preg_match("/^[a-zA-Z0-9\";:.,\\s-]*\$/s", $attvalue)) {
         return;
     }
+
+    global $aDangerousCharsReplacementTable;
 
     // remove NUL
     $attvalue = str_replace("\0", "", $attvalue);
@@ -153,33 +148,21 @@ function sq_fixIE_idiocy(&$attvalue) {
 function sq_tagprint($tagname, $attary, $tagtype){
 
     if ($tagtype == 2){
-        $fulltag = '</' . $tagname . '>';
+        return '</' . $tagname . '>';
     } else {
         $fulltag = '<' . $tagname;
         if (is_array($attary) && sizeof($attary)){
-            $atts = Array();
             while (list($attname, $attvalue) = each($attary)){
-                array_push($atts, "$attname=$attvalue");
+                $fulltag .= " $attname=$attvalue";
             }
-            $fulltag .= ' ' . join(" ", $atts);
-        }
+	}
         if ($tagtype == 3){
             $fulltag .= ' /';
         }
         $fulltag .= '>';
-    }
-    return $fulltag;
-}
 
-/**
- * A small helper function to use with array_walk. Modifies a by-ref
- * value and makes it lowercase.
- *
- * @param  $val a value passed by-ref.
- * @return      void since it modifies a by-ref value.
- */
-function sq_casenormalize(&$val){
-    $val = strtolower($val);
+	return $fulltag;
+    }
 }
 
 /**
@@ -192,18 +175,24 @@ function sq_casenormalize(&$val){
  * @return         the location within the $body where the next
  *                 non-whitespace char is located.
  */
-function sq_skipspace($body, $offset){
-    while(1) {
-        $matches = Array();
-        preg_match('/^(\s*)/s', substr($body, $offset, 256), $matches);
-        if (sizeof($matches{1})){
-            $count = strlen($matches{1});
-            if ($count == 0)
-                break;
-            $offset += $count;
-        } else break;
-    }
-    return $offset;
+function sq_skipspace($text, $offset) {
+	while (true) {
+		$tmp = substr($text, $offset, 128);
+		$ltrim = ltrim($tmp);
+
+		// If the first 128 characters are whitespace.
+		if (strlen($ltrim) === 0) {
+			$offset = 128;
+			continue;
+		}
+
+		$pos = strpos($tmp, $ltrim);
+		if ($pos === 0) {
+			return $offset;
+		} else {
+			return $offset + $pos;
+		}
+	}
 }
 
 /**
@@ -240,16 +229,12 @@ function sq_findnxstr($body, $offset, $needle){
  */
 function sq_findnxreg($body, $offset, $reg){
     $matches = Array();
-    $retarr = Array();
     preg_match("%(.*?)($reg)%si", $body, $matches, 0, $offset);
     if (!isset($matches{0}) || !$matches{0}){
-        $retarr = false;
+        return False;
     } else {
-        $retarr{0} = $offset + strlen($matches{1});
-        $retarr{1} = $matches{1};
-        $retarr{2} = $matches{2};
+    	return array(($offset + strlen($matches{1})), $matches{1}, $matches{2});
     }
-    return $retarr;
 }
 
 /**
@@ -267,11 +252,12 @@ function sq_findnxreg($body, $offset, $reg){
  *                 first three members will be false, if the tag is invalid.
  */
 function sq_getnxtag($body, $offset){
-    if ($offset > strlen($body)){
+    $body_len = strlen($body);
+    if ($offset > $body_len) {
         return false;
     }
     $lt = sq_findnxstr($body, $offset, "<");
-    if ($lt == strlen($body)){
+    if ($lt == $body_len) {
         return false;
     }
     /**
@@ -280,8 +266,8 @@ function sq_getnxtag($body, $offset){
      * \---------^
      */
     $pos = sq_skipspace($body, $lt+1);
-    if ($pos >= strlen($body)){
-        return Array(false, false, false, $lt, strlen($body));
+    if ($pos >= $body_len) {
+        return Array(false, false, false, $lt, $body_len);
     }
     /**
      * There are 3 kinds of tags:
@@ -385,9 +371,9 @@ function sq_getnxtag($body, $offset){
     $attname = '';
     $attary = Array();
 
-    while ($pos <= strlen($body)){
+    while ($pos <= $body_len) {
         $pos = sq_skipspace($body, $pos);
-        if ($pos == strlen($body)){
+        if ($pos == $body_len) {
             /**
              * Non-closed tag.
              */
@@ -431,7 +417,7 @@ function sq_getnxtag($body, $offset){
             /**
              * Looks like body ended before the end of tag.
              */
-            return Array(false, false, false, $lt, strlen($body));
+            return Array(false, false, false, $lt, $body_len);
         }
         list($pos, $attname, $match) = $regary;
         $attname = strtolower($attname);
@@ -489,17 +475,17 @@ function sq_getnxtag($body, $offset){
                     if ($quot == "'"){
                         $regary = sq_findnxreg($body, $pos+1, "\'");
                         if ($regary == false){
-                            return Array(false, false, false, $lt, strlen($body));
+                            return Array(false, false, false, $lt, $body_len);
                         }
-                        list($pos, $attval, $match) = $regary;
+                        list($pos, $attval, ) = $regary;
                         $pos++;
                         $attary{$attname} = "'" . $attval . "'";
                     } else if ($quot == '"'){
                         $regary = sq_findnxreg($body, $pos+1, '\"');
                         if ($regary == false){
-                            return Array(false, false, false, $lt, strlen($body));
+                            return Array(false, false, false, $lt, $body_len);
                         }
-                        list($pos, $attval, $match) = $regary;
+                        list($pos, $attval,) = $regary;
                         $pos++;
                         $attary{$attname} = '"' . $attval . '"';
                     } else {
@@ -508,9 +494,9 @@ function sq_getnxtag($body, $offset){
                          */
                         $regary = sq_findnxreg($body, $pos, "[\s>]");
                         if ($regary == false){
-                            return Array(false, false, false, $lt, strlen($body));
+                            return Array(false, false, false, $lt, $body_len);
                         }
-                        list($pos, $attval, $match) = $regary;
+                        list($pos, $attval,) = $regary;
                         /**
                          * If it's ">" it will be caught at the top.
                          */
@@ -536,7 +522,7 @@ function sq_getnxtag($body, $offset){
      * The fact that we got here indicates that the tag end was never
      * found. Return invalid tag indication so it gets stripped.
      */
-    return Array(false, false, false, $lt, strlen($body));
+    return Array(false, false, false, $lt, $body_len);
 }
 
 /**
@@ -579,19 +565,13 @@ function sq_deent(&$attvalue, $regex, $hex=false){
  * @param  $rm_attnames     See description for sq_sanitize
  * @param  $bad_attvals     See description for sq_sanitize
  * @param  $add_attr_to_tag See description for sq_sanitize
- * @param  $message         message object
- * @param  $id              message id
- * @param  $mailbox         mailbox
  * @return                  Array with modified attributes.
  */
 function sq_fixatts($tagname,
                     $attary,
                     $rm_attnames,
                     $bad_attvals,
-                    $add_attr_to_tag,
-                    $message,
-                    $id,
-                    $mailbox
+                    $add_attr_to_tag
                     ){
     while (list($attname, $attvalue) = each($attary)){
         /**
@@ -608,7 +588,6 @@ function sq_fixatts($tagname,
             }
         }
 
-        // @FIXME move this to sq_fix_url
         if ($attname == 'href' || $attname == 'src' || $attname == 'background') {
             # If you type \\server\share into Outlook, then it will put
             # file:/// in front of it, making it file:///\\server\share.
@@ -676,7 +655,6 @@ function sq_fixatts($tagname,
                 foreach($aMatch[1] as $sMatch) {
                     // url value
                     $urlvalue = $sMatch;
-                    sq_fix_url($attname, $urlvalue, $message, $id, $mailbox,"'");
                     $attary{$attname} = str_replace($sMatch,$urlvalue,$attvalue);
                 }
             }
@@ -685,7 +663,6 @@ function sq_fixatts($tagname,
          * Use white list based filtering on attributes which can contain url's
          */
         else if ($attname == 'href' || $attname == 'src' || $attname == 'background') {
-            sq_fix_url($attname, $attvalue, $message, $id, $mailbox);
             $attary{$attname} = $attvalue;
         }
     }
@@ -701,28 +678,14 @@ function sq_fixatts($tagname,
 }
 
 /**
- * This function filters url's
- *
- * @param  $attvalue        String with attribute value to filter
- * @param  $message         message object
- * @param  $id               message id
- * @param  $mailbox         mailbox
- * @param  $sQuote          quoting characters around url's
- */
-function sq_fix_url($attname, &$attvalue, $message, $id, $mailbox,$sQuote = '"') {
-}
-
-/**
  * This function edits the style definition to make them friendly and
  * usable in SquirrelMail.
  *
- * @param  $message  the message object
- * @param  $id       the message id
- * @param  $content  a string with whatever is between <style> and </style>
- * @param  $mailbox  the message mailbox
+ * @param  $body     the message body
+ * @param  $pos	     the position
  * @return           a string with edited content.
  */
-function sq_fixstyle($body, $pos, $message, $id, $mailbox){
+function sq_fixstyle($body, $pos){
 
     // workaround for </style> in between comments
     $content = '';
@@ -813,7 +776,6 @@ function sq_fixstyle($body, $pos, $message, $id, $mailbox){
         foreach($aMatch[1] as $sMatch) {
             // url value
             $urlvalue = $sMatch;
-            sq_fix_url('style',$urlvalue, $message, $id, $mailbox,"'");
             $aValue[] = $sMatch;
             $aReplace[] = $urlvalue;
         }
@@ -854,12 +816,9 @@ function sq_fixstyle($body, $pos, $message, $id, $mailbox){
  * can't really have a body-within-body.
  *
  * @param  $attary   an array of attributes and values of <body>
- * @param  $mailbox  mailbox we're currently reading (for cid2http)
- * @param  $message  current message (for cid2http)
- * @param  $id       current message id (for cid2http)
  * @return           a modified array of attributes to be set for <div>
  */
-function sq_body2div($attary, $mailbox, $message, $id){
+function sq_body2div($attary){
     $divattary = Array('class' => "'bodyclass'");
     $styledef = '';
     if (is_array($attary) && sizeof($attary) > 0){
@@ -901,33 +860,20 @@ function sq_body2div($attary, $mailbox, $message, $id){
  * @param $tag_list             see description above
  * @param $rm_tags_with_content see description above
  * @param $self_closing_tags    see description above
- * @param $force_tag_closing    see description above
  * @param $rm_attnames          see description above
  * @param $bad_attvals          see description above
  * @param $add_attr_to_tag      see description above
- * @param $message              message object
- * @param $id                   message id
  * @return                      sanitized html safe to show on your pages.
  */
 function sq_sanitize($body,
                      $tag_list,
                      $rm_tags_with_content,
                      $self_closing_tags,
-                     $force_tag_closing,
                      $rm_attnames,
                      $bad_attvals,
-                     $add_attr_to_tag,
-                     $message,
-                     $id,
-                     $mailbox
+                     $add_attr_to_tag
                      ){
     $rm_tags = array_shift($tag_list);
-    /**
-     * Normalize rm_tags and rm_tags_with_content.
-     */
-    @array_walk($tag_list, 'sq_casenormalize');
-    @array_walk($rm_tags_with_content, 'sq_casenormalize');
-    @array_walk($self_closing_tags, 'sq_casenormalize');
     /**
      * See if tag_list is of tags to remove or tags to allow.
      * false  means remove these tags
@@ -937,11 +883,6 @@ function sq_sanitize($body,
     $open_tags = Array();
     $trusted = "<!-- begin sanitized html -->";
     $skip_content = false;
-    /**
-     * Take care of netscape's stupid javascript entities like
-     * &{alert('boo')};
-     */
-    $body = preg_replace("/&(\{.*?\};)/si", "&amp;\\1", $body);
 
     while (($curtag = sq_getnxtag($body, $curpos)) != FALSE){
         list($tagname, $attary, $tagtype, $lt, $gt) = $curtag;
@@ -961,7 +902,7 @@ function sq_sanitize($body,
 				}
 
 			list($style_content, $curpos) =
-                sq_fixstyle($body, $gt+1, $message, $id, $mailbox);
+                sq_fixstyle($body, $gt+1);
 
             if ($style_content != FALSE){
                 $trusted .= sq_tagprint($tagname, $attary, $tagtype);
@@ -1026,8 +967,7 @@ function sq_sanitize($body,
                              */
                             if ($tagname == "body"){
                                 $tagname = "div";
-                                $attary = sq_body2div($attary, $mailbox,
-                                        $message, $id);
+				$attary = sq_body2div($attary);
                             }
                             if ($tagtype == 1){
                                 if (isset($open_tags{$tagname})){
@@ -1044,10 +984,7 @@ function sq_sanitize($body,
                                                      $attary,
                                                      $rm_attnames,
                                                      $bad_attvals,
-                                                     $add_attr_to_tag,
-                                                     $message,
-                                                     $id,
-                                                     $mailbox
+                                                     $add_attr_to_tag
                                                      );
                             }
                         }
@@ -1061,16 +998,14 @@ function sq_sanitize($body,
         $curpos = $gt+1;
     }
     $trusted .= substr($body, $curpos, strlen($body)-$curpos);
-    if ($force_tag_closing == true){
-        foreach ($open_tags as $tagname=>$opentimes){
-            while ($opentimes > 0){
-                $trusted .= '</' . $tagname . '>';
-                $opentimes--;
-            }
-        }
-        $trusted .= "\n";
+    foreach ($open_tags as $tagname=>$opentimes){
+         while ($opentimes > 0){
+             $trusted .= '</' . $tagname . '>';
+             $opentimes--;
+         }
     }
-    $trusted .= "<!-- end sanitized html -->";
+
+    $trusted .= "\n<!-- end sanitized html -->";
     return $trusted;
 }
 
@@ -1078,11 +1013,9 @@ function sq_sanitize($body,
  * This is a wrapper function to call html sanitizing routines.
  *
  * @param  $body  the body of the message
- * @param  $id    the id of the message
  * @return        a string with html safe to display in the browser.
  */
-function magicHTML($body, $id) {
-    $mailbox = '';
+function magicHTML($body) {
     $tag_list = Array(
             false,
             "object",
@@ -1115,8 +1048,6 @@ function magicHTML($body, $id) {
             "base"
             );
 
-    $force_tag_closing = true;
-
     $rm_attnames = Array(
             "/.*/" =>
             Array(
@@ -1128,9 +1059,6 @@ function magicHTML($body, $id) {
                 )
             );
 
-    // image that will be replaced and shown to user, to indicate we have removed this image because of
-    // security reasons
-    $secremoveimg = BASE_URL . "/client/resources/images/sec_remove.png";
     $bad_attvals = Array(
             "/.*/" =>
             Array(
@@ -1142,9 +1070,9 @@ function magicHTML($body, $id) {
                         "/^([\'\"])\s*about\s*:.*([\'\"])/si"
                         ),
                     Array(
-                        "\\1$secremoveimg\\2",
-                        "\\1$secremoveimg\\2",
-                        "\\1$secremoveimg\\2"
+                        '""',
+                        '""',
+                        '""'
                         )
                     ),
                 "/^href|action/i" =>
@@ -1230,13 +1158,9 @@ function magicHTML($body, $id) {
                            $tag_list,
                            $rm_tags_with_content,
                            $self_closing_tags,
-                           $force_tag_closing,
                            $rm_attnames,
                            $bad_attvals,
-                           $add_attr_to_tag,
-                           0,
-                           $id,
-                           $mailbox
+                           $add_attr_to_tag
                            );
 
     // IE has problem with base tags which are part of body, it doesn't consider it valid
