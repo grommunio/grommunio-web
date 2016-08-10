@@ -12,7 +12,7 @@
 	$pingTag = array(
 		'info' => array(
 			'hresult' => WebAppAuthentication::getErrorCode(),
-			'hresult_name' => get_mapi_error_name($hresult)
+			'hresult_name' => get_mapi_error_name(WebAppAuthentication::getErrorCode())
 		)
 	);
 
