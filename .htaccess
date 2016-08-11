@@ -5,11 +5,6 @@ Options -Indexes
 php_value post_max_size 31M
 php_value upload_max_filesize 30M
 
-# For debugging only
-# make sure apache/php can write this file, or else no errors are logged!
-php_flag  log_errors on
-php_value error_log errors.txt
-
 # Deny access to config.php, config.php.dist, debug.php, debug.php.dist, defaults.php
 # because they could become a security vulnerability when accessible
 # Better safe then sorry
