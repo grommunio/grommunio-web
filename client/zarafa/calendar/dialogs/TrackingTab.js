@@ -40,14 +40,7 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 				viewConfig : {
 					forceFit : true
 				},
-				columns: [
-				//@TODO:there is no iconclass of such items,so need to handle proper rendering class. 		
-				/*{
-					header : '<p class="icon_index">&nbsp;</p>',
-					renderer : Zarafa.common.ui.grid.Renderers.icon,
-					width: 24,
-					fixed: true
-				},*/{
+				columns: [{
 					dataIndex: 'display_name',
 					header: _('Name'),
 					renderer : Ext.util.Format.htmlEncode,

@@ -322,12 +322,12 @@ Zarafa.calendar.ui.canvas.ToolTip = Ext.extend(Ext.util.Observable, {
 		this.height = this.stylingEl.styling.paddingTop + this.stylingEl.styling.paddingBottom;
 		
 		if (!Ext.isEmpty(tipTitle)) {
-			context.setFont(this.stylingElTitle.styling.font);
+			context.font = this.stylingElTitle.styling.font;
 			this.height += context.textHeight(tipTitle, this.width - this.stylingEl.styling.paddingLeft - this.stylingEl.styling.paddingRight, this.stylingElTitle.styling.lineHeight);
 			this.height += this.stylingElTitle.styling.marginBottom;
 		}
 		if (!Ext.isEmpty(tipText)) {
-			context.setFont(this.stylingElText.styling.font);
+			context.font = this.stylingElText.styling.font;
 			this.height += context.textHeight(tipText, this.width - this.stylingEl.styling.paddingLeft - this.stylingEl.styling.paddingRight, this.stylingElText.styling.lineHeight);
 		}
 
@@ -379,7 +379,7 @@ Zarafa.calendar.ui.canvas.ToolTip = Ext.extend(Ext.util.Observable, {
 		var offset = this.stylingEl.styling.paddingTop;
 		
 		if (!Ext.isEmpty(tipTitle)) {
-			context.setFont(this.stylingElTitle.styling.font);
+			context.font = this.stylingElTitle.styling.font;
 			offset +=  this.stylingElTitle.styling.lineHeight - parseInt((this.stylingElTitle.styling.lineHeight-this.stylingElTitle.styling.fontSize)/2, 10);
 			offset += context.drawWrappedText(
 				tipTitle, 
@@ -404,7 +404,7 @@ Zarafa.calendar.ui.canvas.ToolTip = Ext.extend(Ext.util.Observable, {
 		context.fillStyle = gradientText;
 
 		if (!Ext.isEmpty(tipText)) {
-			context.setFont(this.stylingElText.styling.font);
+			context.font = this.stylingElText.styling.font;
 			context.drawWrappedText(
 				tipText, 
 				this.stylingEl.styling.paddingLeft,

@@ -22,22 +22,6 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 	bounds : undefined,
 
 	/**
-	 * {@cfg {Number} appointmentRadius The radius which must be applied to the appointment body
-	 * to generate a nicely rounded rectangular.
-	 */
-//	appointmentRadius : 5,
-
-	/**
-	 * @cfg {Number} leftPadding Left padding in pixels of the appointment text within the appointment body
-	 */
-//	leftPadding : 4,
-
-	/**
-	 * @cfg {Number} lineHeight The textheight for the text which will be rendered
-	 */
-//	lineHeight : 13,
-
-	/**
 	 * The main text which will be rendered into the body of the appointment. This field
 	 * is initialized using the {@link #mainTextRenderer}.
 	 * @property
@@ -333,7 +317,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 
 		context.lineWidth = 1;
 
-		context.setFont(font);
+		context.font = font;
 		context.fillStyle = fontColor;
 
 		// create an object which is used to show text on appointment.
@@ -399,7 +383,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 		var titleText = this.mainRenderedText + ' '+ this.subRenderedText;
 		var endTimeWidth = context.textWidth(obj.endTimeText);
 		var startTimeWidth = context.textWidth(obj.startTimeText + ' ');
-		var rightFlot = obj.width - (endTimeWidth + this.leftPadding + this.getStripWidth());
+		var rightFlot = obj.width - (endTimeWidth + this.getStripWidth());
 
 		var perTextSize, size;
 		// draw the end time and appointment title.

@@ -111,12 +111,6 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		this.default_zoom_level = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level');
 
 		Zarafa.calendar.CalendarContext.superclass.enable.apply(this, arguments);
-
-		// If canvas is not supported, we must force the view and model to use the list view as default.
-		if (!Zarafa.supportsCanvas() && this.current_view === Zarafa.calendar.data.Views.BLOCKS) {
-			this.switchView(Zarafa.calendar.data.Views.LIST, Zarafa.calendar.data.ViewModes.LIST);
-			this.getModel().setDataMode(Zarafa.calendar.data.DataModes.ALL);
-		}
 	},
 
 	/**
@@ -438,56 +432,47 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	getMainToolbarViewButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.maintoolbar.view.calendar', this) || [];
-		var defaultItems = [];
-
-		// The following views are only supported when Canvas is supported/enabled
-		// by the client. If that is not the case, then we only have the listview,
-		// and whatever views were provided from the insertion point.
-		if (Zarafa.supportsCanvas()) {
-			defaultItems = defaultItems.concat([{
-				id: 'zarafa-maintoolbar-view-calendar-day',
-				text : _('Day'),
-				iconCls : 'icon-calendar-day',
-				ref : 'calendarDay',
-				valueView : Zarafa.calendar.data.Views.BLOCKS,
-				valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
-				valueDataMode : Zarafa.calendar.data.DataModes.DAY,
-				handler : this.onContextSelectView,
-				scope : this
-			},{
-				id: 'zarafa-maintoolbar-view-calendar-workweek',
-				text : _('Workweek'),
-				iconCls : 'icon-calendar-workweek',
-				ref : 'calendarWorkweek',
-				valueView : Zarafa.calendar.data.Views.BLOCKS,
-				valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
-				valueDataMode : Zarafa.calendar.data.DataModes.WORKWEEK,
-				handler : this.onContextSelectView,
-				scope : this
-			},{
-				id: 'zarafa-maintoolbar-view-calendar-week',
-				text : _('Week'),
-				iconCls : 'icon-calendar-week',
-				ref : 'calendarWeek',
-				valueView : Zarafa.calendar.data.Views.BLOCKS,
-				valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
-				valueDataMode : Zarafa.calendar.data.DataModes.WEEK,
-				handler : this.onContextSelectView,
-				scope : this
-			},{
-				id: 'zarafa-maintoolbar-view-calendar-month',
-				text : _('Month'),
-				iconCls : 'icon-calendar-month',
-				ref : 'calendarMonth',
-				valueView : Zarafa.calendar.data.Views.BLOCKS,
-				valueViewMode : Zarafa.calendar.data.ViewModes.BOX,
-				valueDataMode : Zarafa.calendar.data.DataModes.MONTH,
-				handler : this.onContextSelectView,
-				scope : this
-			}]);
-		}
-
-		defaultItems.push({
+		var defaultItems = [{
+			id: 'zarafa-maintoolbar-view-calendar-day',
+			text : _('Day'),
+			iconCls : 'icon-calendar-day',
+			ref : 'calendarDay',
+			valueView : Zarafa.calendar.data.Views.BLOCKS,
+			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
+			valueDataMode : Zarafa.calendar.data.DataModes.DAY,
+			handler : this.onContextSelectView,
+			scope : this
+		},{
+			id: 'zarafa-maintoolbar-view-calendar-workweek',
+			text : _('Workweek'),
+			iconCls : 'icon-calendar-workweek',
+			ref : 'calendarWorkweek',
+			valueView : Zarafa.calendar.data.Views.BLOCKS,
+			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
+			valueDataMode : Zarafa.calendar.data.DataModes.WORKWEEK,
+			handler : this.onContextSelectView,
+			scope : this
+		},{
+			id: 'zarafa-maintoolbar-view-calendar-week',
+			text : _('Week'),
+			iconCls : 'icon-calendar-week',
+			ref : 'calendarWeek',
+			valueView : Zarafa.calendar.data.Views.BLOCKS,
+			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
+			valueDataMode : Zarafa.calendar.data.DataModes.WEEK,
+			handler : this.onContextSelectView,
+			scope : this
+		},{
+			id: 'zarafa-maintoolbar-view-calendar-month',
+			text : _('Month'),
+			iconCls : 'icon-calendar-month',
+			ref : 'calendarMonth',
+			valueView : Zarafa.calendar.data.Views.BLOCKS,
+			valueViewMode : Zarafa.calendar.data.ViewModes.BOX,
+			valueDataMode : Zarafa.calendar.data.DataModes.MONTH,
+			handler : this.onContextSelectView,
+			scope : this
+		},{
 			id: 'zarafa-maintoolbar-view-calendar-list',
 			text : _('List'),
 			iconCls : 'icon-calendar-grid',
@@ -497,7 +482,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			valueDataMode : Zarafa.calendar.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope: this
-		});
+		}];
 
 		return defaultItems.concat(items);
 	},

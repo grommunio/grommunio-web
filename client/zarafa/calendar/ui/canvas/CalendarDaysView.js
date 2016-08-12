@@ -300,7 +300,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 		// Let's get some styling from the css styling of the canvas
 		context.fillStyle = this.headerBackgroundCanvasStylingElement.getStyle('color');
-		context.setFont(this.headerBackgroundCanvasStylingElement.getStyle('font'));
+		context.font = this.headerBackgroundCanvasStylingElement.getStyle('font');
 		
 		for (var i = 0, len = dayPositions.length; i < len; i++) {
 			var pos = dayPositions[i];
@@ -321,7 +321,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 			if ( pos.today ) {
 				context.save();
 				context.fillStyle = this.headerBackgroundCanvasStylingElementActive.getStyle('color');
-				context.setFont(this.headerBackgroundCanvasStylingElementActive.getStyle('font'));
+				context.font = this.headerBackgroundCanvasStylingElementActive.getStyle('font');
 			}
 
 			// draw the text from the left of the column using the padding provided by the css

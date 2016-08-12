@@ -262,7 +262,7 @@ Zarafa.calendar.ui.canvas.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstra
 		// box in the colorscheme's border color and draw text in the center that tells us
 		// what day of the week that column represents.
 		context.fillStyle = this.headerBackgroundCanvasStylingElement.getStyle('color');
-		context.setFont(this.headerBackgroundCanvasStylingElement.getStyle('font'));
+		context.font = this.headerBackgroundCanvasStylingElement.getStyle('font');
 
 		var dayWidth = width / this.numDaysInWeek;
 		var startDate = this.getVisibleDateRange().getStartDate().clone();
@@ -350,17 +350,16 @@ Zarafa.calendar.ui.canvas.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstra
 		context.translate(dayBox.left, dayBox.top);
 
 		// Draw Header background.
-//		var backgroundColor = this.calendarColorScheme.borderInner;
 		var backgroundColor = context.convertHexRgbToDecRgba(this.calendarColorScheme.base, 0.2);
 		var color;
 		if (dayBox.today) {
 			backgroundColor = this.headerBackgroundCanvasStylingElementCurrentDay.getStyle('background-color');
 			color = this.headerBackgroundCanvasStylingElementCurrentDay.getStyle('color');
-			context.setFont(this.headerBackgroundCanvasStylingElementCurrentDay.getStyle('font'));
+			context.font = this.headerBackgroundCanvasStylingElementCurrentDay.getStyle('font');
 		} else {
 			color = this.headerBackgroundCanvasStylingElement.getStyle('color');
 			color = 'black';
-			context.setFont(this.headerBackgroundCanvasStylingElement.getStyle('font'));
+			context.font = this.headerBackgroundCanvasStylingElement.getStyle('font');
 		}
 
 		context.fillStyle = backgroundColor;

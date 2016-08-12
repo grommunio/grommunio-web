@@ -2,66 +2,11 @@
  * @class CanvasRenderingContext2D
  * @extends Object
  * 
- * Some convenience methods for the default canvas 2D context. These allow of drawing rounded rectangles,
+ * Some convenience methods for the default canvas 2D context. These allow of drawing
  * circles, lines, text with auto-wrapping, etc. 
- * <p>
- * It also provides a thin layer on top of the FF3.0 canvas implementation to support drawing text on browsers
- * that implement the full Canvas spec for text and fonts, and FF3.0 which has its own deprecated stuff.
- * #core
  */
 if (!!document.createElement('canvas').getContext)
 {
-
-	/**
-	 * Creates a rounded rectangle path on the context.
-	 * @param {Number} x horizontal position. 
-	 * @param {Number} y vertical position.
-	 * @param {Number} width width.
-	 * @param {Number} height height.
-	 * @param {Number} radius rounded corner radius.
-	 */
-	CanvasRenderingContext2D.prototype.roundedRect = function(x, y, width, height, radius)
-	{
-		this.beginPath();
-		this.moveTo(x, y + radius);
-		this.arc(x + radius, y + radius, radius, Math.PI, 3*Math.PI/2, false);
-		this.lineTo(x + width - radius, y);
-		this.arc(x + width - radius, y + radius, radius, 3*Math.PI/2, 0, false);
-		this.lineTo(x + width, y + height - radius);
-		this.arc(x + width - radius, y + height - radius, radius, 0, Math.PI/2, false);
-		this.lineTo(x + radius, y + height);
-		this.arc(x + radius, y + height - radius, radius, Math.PI/2, Math.PI, false);
-		this.lineTo(x, y + radius);
-		this.closePath();
-		
-	};
-
-	/**
-	 * Creates a rounded rectangle path on the context. The radius of each corner can be set 
-	 * individually.
-	 * @param {Number} x horizontal position. 
-	 * @param {Number} y vertical position.
-	 * @param {Number} width width.
-	 * @param {Number} height height.
-	 * @param {Number} r1 corner radius of the top left corner.
-	 * @param {Number} r2 corner radius of the top right corner.
-	 * @param {Number} r3 corner radius of the bottom right corner.
-	 * @param {Number} r4 corner radius of the bottom left corner.
-	 */
-	CanvasRenderingContext2D.prototype.roundedRect2 = function(x, y, width, height, r1, r2, r3, r4)
-	{
-		this.beginPath();
-		this.arc(x + r1, y + r1, r1, Math.PI, 3*Math.PI/2, false);
-		this.lineTo(x + width - r2, y);
-		this.arc(x + width - r2, y + r2, r2, 3*Math.PI/2, 0, false);
-		this.lineTo(x + width, y + height - r3);
-		this.arc(x + width - r3, y + height - r3, r3, 0, Math.PI/2, false);
-		this.lineTo(x + r4, y + height);
-		this.arc(x + r4, y + height - r4, r4, Math.PI/2, Math.PI, false);
-		this.lineTo(x, y + r1);
-		this.closePath();
-	};
-
 	/**
 	 * Creates a circular path on the canvas.
 	 * @param {Number} x center horizontal position.
@@ -73,34 +18,6 @@ if (!!document.createElement('canvas').getContext)
 		this.beginPath();
 		this.arc(x, y, radius, 0, Math.PI*2, true); 
 		this.closePath();
-	};
-	
-	/**
-	 * Creates a rounded rectangle path on the context and fills it.
-	 * @param {Number} x horizontal position. 
-	 * @param {Number} y vertical position.
-	 * @param {Number} width width.
-	 * @param {Number} height height.
-	 * @param {Number} radius rounded corner radius.
-	 */
-	CanvasRenderingContext2D.prototype.fillRoundedRect = function(x, y, width, height, radius)
-	{
-		this.roundedRect(x, y, width, height, radius);
-		this.fill();
-	};
-	
-	/**
-	 * Creates a rounded rectangle path on the context and strokes it.
-	 * @param {Number} x horizontal position. 
-	 * @param {Number} y vertical position.
-	 * @param {Number} width width.
-	 * @param {Number} height height.
-	 * @param {Number} radius rounded corner radius.
-	 */
-	CanvasRenderingContext2D.prototype.strokeRoundedRect = function(x, y, width, height, radius)
-	{
-		this.roundedRect(x, y, width, height, radius);
-		this.stroke();
 	};
 	
 	/**
@@ -116,21 +33,6 @@ if (!!document.createElement('canvas').getContext)
 		this.moveTo(x1, y1);
 		this.lineTo(x2, y2);
 		this.stroke();
-	};
-
-	/**
-	 * Sets the font to use. The font string is a CSS font specifier, but it seems some browsers (FF especially)
-	 * are very particular about the exact formatting. For example: '20pt Arial', '10px sans-serif'.  
-	 * @param {String} fontString font to use.
-	 */
-	CanvasRenderingContext2D.prototype.setFont = function(fontString)
-	{
-		// Detect whether this canvas implementation support text rendering
-		if (this.fillText) {
-			this.font = fontString;
-		} else {
-			this.mozTextStyle = fontString;
-		}
 	};
 
 	/**
@@ -152,21 +54,10 @@ if (!!document.createElement('canvas').getContext)
 	 */
 	CanvasRenderingContext2D.prototype.drawText = function(text, x, y, maxWidth)
 	{
-		if (this.fillText) {
-			if (maxWidth) {
-				this.fillText(text, x, y, maxWidth);
-			} else {
-				this.fillText(text, x, y);
-			}
+		if (maxWidth) {
+			this.fillText(text, x, y, maxWidth);
 		} else {
-			if (this.mozDrawText)
-			{
-				this.save();
-				this.translate(x, y);
-				// TODO set clipping rect here?
-				this.mozDrawText(text);
-				this.restore();
-			}
+			this.fillText(text, x, y);
 		}
 	};
 
@@ -333,15 +224,8 @@ if (!!document.createElement('canvas').getContext)
 	 */
 	CanvasRenderingContext2D.prototype.textWidth = function(text)
 	{
-		if (this.measureText) {
-			return this.measureText(text).width;
-		}
-		if (this.mozMeasureText) {
-			return this.mozMeasureText(text);
-		}
-		return 0;
+		return this.measureText(text).width;
 	};
-	
 	
 	/**
 	 * Converts the hexidecimal RGB notation (#FFAA00) to a decimal notation using the rgba 
@@ -373,4 +257,3 @@ if (!!document.createElement('canvas').getContext)
 		return 'rgba(0,0,0,0)';
 	};
 }
-
