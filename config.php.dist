@@ -30,6 +30,9 @@
 	define("SSLCERT_FILE", NULL);
 	define("SSLCERT_PASS", NULL);
 
+	// Set to true to disable login with Single Sign-On (SSO) on SSO environments.
+	define('DISABLE_REMOTE_USER_LOGIN', false);
+
 	// set to 'true' to strip domain from login name found from Single Sign-On webservers
 	define("LOGINNAME_STRIP_DOMAIN", false);
 
