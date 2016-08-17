@@ -86,7 +86,7 @@ class WebAppAuthentication
 			case MAPI_E_INVALID_WORKSTATION_ACCOUNT:
 				return _('Logon failed, another session already exists.');
 			case MAPI_E_END_OF_SESSION:
-				return _('');
+				return '';
 			default:
 				return _('Unknown MAPI Error') . ': ' . get_mapi_error_name(WebAppAuthentication::getErrorCode());
 		}
