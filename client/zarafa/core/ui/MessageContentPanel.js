@@ -258,10 +258,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 */
 	onExceptionRecord : function(proxy, type, action, options, response, args)
 	{
+		Zarafa.core.ui.MessageContentPanel.superclass.onExceptionRecord.apply(this, arguments);
+
 		if (type !== "open") {
 			this.isSending = false;
 		}
-		Zarafa.core.ui.MessageContentPanel.superclass.onExceptionRecord.apply(this, arguments);
 	},
 
 	/**
