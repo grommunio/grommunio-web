@@ -89,17 +89,20 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 		return {
 			xtype: 'menu',
 			items: [{
-				tooltip: _('Copy/Move') + ' (Ctrl + M)',
 				text: _('Copy/Move'),
 				iconCls: 'icon_copy',
 				model: model,
 				handler: this.onCopyMove
 			}, {
-				tooltip: _('Edit asNew Message') + ' (Ctrl + E)',
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
 				model: model,
 				handler: this.onEditAsNewMessage
+			}, {
+				text: _('Download'),
+				iconCls: 'icon_saveaseml',
+				model: model,
+				handler: this.onDownloadMail
 			}]
 		};
 	},
@@ -141,5 +144,14 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	onEditAsNewMessage : function()
 	{
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.model.getSelectedRecords(), this.model, Zarafa.mail.data.ActionTypes.EDIT_AS_NEW);
+	},
+
+	/**
+	 * Click handler for the "Download" menu item of the more button
+	 * @private
+	 */
+	onDownloadMail : function()
+	{
+		Zarafa.common.Actions.openSaveEmlDialog(this.model.getPreviewRecord());
 	}
 });
