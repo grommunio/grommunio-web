@@ -69,7 +69,6 @@
 		function GABUsers($action, $actionType)
 		{
 			$searchstring = '';
-			$paginationCharacter = '';
 			$hide_users = false;
 			$hide_groups = false;
 			$hide_companies = false;
@@ -78,9 +77,6 @@
 				if(isset($action['restriction']['searchstring'])) {
 					// Get search string for searching in AB.
 					$searchstring = $action['restriction']['searchstring'];
-				} else if (isset($action['restriction']['pagination_character'])) {
-					// Get pagination character for AB.
-					$paginationCharacter = $action['restriction']['pagination_character'];
 				}
 
 				if(isset($action['restriction']['hide_users'])) {
@@ -111,10 +107,7 @@
 			// Parse incoming sort order
 			$this->parseSortOrder($action, $map, true);
 
-			if($paginationCharacter == '...')
-				$paginationCharacter = '';
-
-			if(!DISABLE_FULL_GAB || !empty($searchstring) || !empty($paginationCharacter)) {
+			if (!DISABLE_FULL_GAB || !empty($searchstring)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 
 				if (!empty($action['entryid'])) {
@@ -215,9 +208,6 @@
 												)
 										)
 									);
-				} else if(!empty($paginationCharacter)) {
-					// create restriction for alphabet bar
-					$tempRestriction = $this->getPaginationRestriction($action, $actionType);
  				}
 
 				if($tempRestriction && $userGroupRestriction) {
@@ -748,130 +738,5 @@
 
 			return true;
 		}
-
-		/**
-		 * Function will return restriction used in GAB pagination.
-		 * @FIXME this function needs to be updated according to new changes
-		 * @param array $action the action data, sent by the client
-		 * @param string $actionType the action type, sent by the client
-		 * @return array paginationRestriction returns restriction used in pagination.
-		 */
-		function getPaginationRestriction($action, $actionType)
-		{
-			if(isset($action["restriction"]["pagination_character"])) {
-				// Get sorting column to provide pagination on it.
-				if(isset($action["sort"]) && isset($action["sort"]["column"]))
-					$sortColumn = $action["sort"]["column"][0]["_content"];
-
-				$paginationColumnProperties = array();
-				// Get Pagination column Properties.
-				/*if($actionType == "contacts") {
-					array_push($paginationColumnProperties, $this->properties["fileas"]);
-					array_push($paginationColumnProperties, $this->properties["display_name"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_1"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_display_name_1"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_2"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_display_name_2"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_3"]);
-					array_push($paginationColumnProperties, $this->properties["email_address_display_name_3"]);
-				} else if ($actionType == "globaladdressbook") {*/
-					array_push($paginationColumnProperties, $this->properties["account"]);
-					array_push($paginationColumnProperties, $this->properties["display_name"]);
-					array_push($paginationColumnProperties, $this->properties["smtp_address"]);
-					array_push($paginationColumnProperties, $this->properties["department_name"]);
-					array_push($paginationColumnProperties, $this->properties["office_location"]);
-				//}
-
-				// Get Pagination character.
-				$paginationCharacter = $action['restriction']['pagination_character'];
-				
-				// Create restriction according to paginationColumn
-				$restrictions = array();
-				foreach ($paginationColumnProperties as $paginationColumnProperty)
-				{
-					switch ($paginationCharacter){
-						case '123':
-							array_push($restrictions,
-												array(
-														RES_AND,
-														array(
-															array(
-																RES_PROPERTY,
-																array(
-																	RELOP => RELOP_GE,
-																	ULPROPTAG => $paginationColumnProperty,
-																	VALUE => array(
-																		$paginationColumnProperty => '0'
-																	)
-																)
-															),
-															array(
-																RES_PROPERTY,
-																array(
-																	RELOP => RELOP_LE,
-																	ULPROPTAG => $paginationColumnProperty,
-																	VALUE => array(
-																		$paginationColumnProperty => '9'
-																	)
-																)
-															)
-														)
-													)
-												);
-						break;
-
-						case 'z':
-							array_push($restrictions,
-											array(
-												RES_PROPERTY,
-												array(RELOP => RELOP_GE,
-													ULPROPTAG => $paginationColumnProperty,
-													VALUE => array(
-														$paginationColumnProperty => 'z' 
-														)
-													)
-												)
-											);
-						break;
-
-						default:
-							array_push($restrictions,
-													array(
-															RES_AND,
-															array(
-																array(
-																	RES_PROPERTY,
-																	array(
-																		RELOP => RELOP_GE,
-																		ULPROPTAG => $paginationColumnProperty,
-																		VALUE => array(
-																			$paginationColumnProperty => $paginationCharacter
-																		)
-																	)
-																),
-																array(
-																	RES_PROPERTY,
-																	array(
-																		RELOP => RELOP_LT,
-																		ULPROPTAG => $paginationColumnProperty,
-																		VALUE => array(
-																			$paginationColumnProperty => chr(ord($paginationCharacter) + 1)
-																		)
-																	)
-																)
-															)
-														)
-													);
-					}
-				}
-				$paginationRestriction = array(RES_OR, $restrictions);
-			}
-
-			if($paginationRestriction)
-				return $paginationRestriction;
-			else
-				return false;
-		}
 	}
-
 ?>
