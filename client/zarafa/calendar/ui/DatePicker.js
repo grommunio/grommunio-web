@@ -207,6 +207,8 @@ Zarafa.calendar.ui.DatePicker = Ext.extend(Ext.DatePicker, {
 			if (this.activeDate.getTime() !== new Date().clearTime().getTime()) {
 				this.activeDate = undefined;
 				var model = this.navigationContext.model;
+				var today = (new Date()).dateFormat(this.format);
+				this.todayBtn.setTooltip(String.format(this.todayTip, today));
 				model.setDate(new Date());
 				model.load();
 			}
