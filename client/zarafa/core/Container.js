@@ -180,7 +180,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	{
 		this.userRecord = new Zarafa.core.data.User(userData);
 	},
-	
+
 	/**
 	 * Obtain the versioning data for the WebApp environment
 	 * @return {Zarafa.core.data.Version} The version data of the WebApp environment
@@ -551,6 +551,12 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	registerPlugin : function(info)
 	{
+		// Get the list of plugins that cannot be disable by the user
+		var userDisableDisabledPlugins = this.getServerConfig().getDisablingDisallowedPluginsList().split(';');
+		if ( userDisableDisabledPlugins.indexOf(info.name)>=0 ){
+			info.allowUserDisable = false;
+		}
+
 		this.getPluginsMetaData().push(info);
 		if (info.isEnabled()) {
 			this.getPlugins().push(info.getInstance());

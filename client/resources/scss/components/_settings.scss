@@ -1,10 +1,10 @@
 #zarafa-mainpanel-contentpanel-settings {
-	
+
 	/* The categories panel */
 	.zarafa-settings-category-panel {
 		border-right: 1px solid $grey;
 		padding-top: $padding-medium;
-		
+
 		.zarafa-settings-category-tab {
 			padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
 			padding-left: $settings-category-tab-icon-strip-width;
@@ -18,30 +18,30 @@
 			background-color: $light-blue;
 		}
 	}
-	
+
 	/* The main settings panel that contains all settings widgets */
 	.zarafa-settings-category-widget-panel {
 		padding: $padding-medium $padding-small;
-		
+
 		.zarafa-settings-widget {
 			margin-bottom: $padding-medium;
-			
+
 			.x-panel-header {
 				padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
 				line-height: $font-default-line-height;
 				border-top: none;
 				border-bottom: none;
 			}
-			
+
 			.x-panel-body {
 				padding: $padding-medium;
 			}
-			
+
 			.zarafa-quotabar {
 				border: 1px solid $grey2;
 				overflow: hidden;
 				height: $button-small-height - 2px; /* subtract 2 for the border */
-				
+
 				.zarafa-quotabar-normal {
 					display: inline-block;
 					background: $light-blue;
@@ -63,26 +63,26 @@
 					height: $button-small-height - 2px; /* subtract 2 for the border */
 				}
 			}
-			
+
 			.zarafa-quota-string {
 				font-weight: bold;
 			}
-			
+
 		}
-		
+
 		/* Inbox navigation */
 		.zarafa-settings-category-general-liveScroll {
 			opacity: 0.5;
 			margin-left: 3px;
 		}
-		
+
 		/* Keyboard shortcuts */
 		.zarafa-settings-keyboard-shortcut-row {
 			background-color: $grey3;
 			padding: $padding-small;
 			border: 1px solid $grey;
 		}
-		
+
 		/* About Category */
 		.zarafa-settings-about-text {
 			p {
@@ -94,7 +94,7 @@
 				margin-top: 0.5em;
 				font-size: 1.2em !important;
 			}
-			
+
 			a {
 				background: $kopano-blue;
 				color: white;
@@ -105,7 +105,7 @@
 				background: $kopano-blue-hover;
 			}
 		}
-	
+
 	}
 }
 
@@ -244,4 +244,16 @@
 
 .zarafa-settings-oof-autoreplay {
 	padding: $padding-large 0 $padding-medium 0;
+}
+
+/* Plugin list */
+.zarafa-settings-pluginavailable {
+	.zarafa-settings-pluginavailable-fixed {
+		.x-grid3-col-display_name {
+			span {
+				font-style: italic;
+				color: $grey6;
+			}
+		}
+	}
 }

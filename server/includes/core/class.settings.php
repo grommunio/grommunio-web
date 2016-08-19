@@ -6,7 +6,7 @@
 	 *
 	 * This class allows access to various user settings which are normally
 	 * configured by the user. Settings can be set and retrieved
-	 * via this class. Default values must be provided at retrieval time.	
+	 * via this class. Default values must be provided at retrieval time.
 	 *
 	 * Settings have a path-like structure, for example:
 	 * <code>
@@ -59,7 +59,7 @@
 		 * The array is reset in saveSettings() after a succesful save.
 		 */
 		private $modified;
-			
+
 		function __construct()
 		{
 			$this->settings = array();
@@ -70,7 +70,7 @@
 
 			// Initialize the settings object
 			$this->init();
-		} 
+		}
 
 		/**
 		 * Initialise the settings class
@@ -96,7 +96,7 @@
 				$e->setHandled();
 			}
 		}
-	
+
 		/**
 		 * Get a setting from the settings repository
 		 *
@@ -116,7 +116,7 @@
 			if ($path==null) {
 				return $this->settings;
 			}
-	
+
 			$path = explode('/', $path);
 
 			$tmp = $this->settings;
@@ -131,7 +131,7 @@
 
 			return $tmp;
 		}
-	
+
 		/**
 		 * Store a setting
 		 *
@@ -183,7 +183,7 @@
 		 * @param string $path Path to the setting you want to delete
 		 * @param boolean $autoSave True to directly save the settings to the MAPI Store,
 		 * this defaults to false as the settings will be saved at the end of the request.
-		 */	
+		 */
 		function delete($path, $autoSave = false)
 		{
 			if (!$this->init) {
@@ -208,8 +208,8 @@
 			}
 
 			/**
-			 * If we do unset($tmp) the reference is removed and not the value 
-			 * it points to. If we do $prevEntry[$pointer] we change a value 
+			 * If we do unset($tmp) the reference is removed and not the value
+			 * it points to. If we do $prevEntry[$pointer] we change a value
 			 * inside the reference. In that case it will work.
 			 */
 			unset($prevEntry[$pointer]);
@@ -219,7 +219,7 @@
 				$this->saveSettings();
 			}
 		}
-	
+
 		/**
 		 * Get all settings as a Javascript script
 		 *
@@ -234,18 +234,18 @@
 
 			return $this->settings;
 		}
-	
+
 		/**
 		 * Get settings from store
 		 *
 		 * This function retrieves the actual settings from the store.
 		 * Settings are stored in two different properties as we wanted to ship new webaccess and older webaccess
 		 * simultenously so both webaccess uses different settings and doesn't interfere with each other.
-		 * 
+		 *
 		 * new webaccess uses string property PR_EC_WEBACCESS_SETTINGS_JSON which contains settings in JSON format,
 		 * and old webaccess uses string property PR_EC_WEBACCESS_SETTINGS which contains settings in
 		 * the format of PHP's serialized data.
-		 * 
+		 *
 		 * Additionally, there are also settings in PR_EC_OUTOFOFFICE_* which are retrieved in this function also.
 		 *
 		 * This function returns nothing, but populates the 'settings' property of the class.
@@ -298,6 +298,21 @@
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
 				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
 			}
+
+			// Check if the admin has disallowed users to enable/disable plugins
+			$toggleDisallowedPlugins = $GLOBALS['PluginManager']->expandPluginList(DISABLING_DISALLOWED_PLUGINS_LIST);
+			$toggleDisallowedPlugins = explode(';', $toggleDisallowedPlugins);
+			if ( count($toggleDisallowedPlugins)>0 ) {
+				foreach ( $toggleDisallowedPlugins as $pluginName ){
+					// If a user is not allowed to enable or disable a plugin, we will take the 'enable' setting
+					// from the sysadmin settings.
+					if ( isset($this->settings['zarafa']['v1']['plugins'][$pluginName]) ){
+						$this->settings['zarafa']['v1']['plugins'][$pluginName]['enable'] =
+							isset($sysadminSettings['zarafa']['v1']['plugins'][$pluginName]['enable']) ?
+								$sysadminSettings['zarafa']['v1']['plugins'][$pluginName]['enable'] : true;
+					}
+				}
+			}
 		}
 
 		/**
@@ -335,7 +350,7 @@
 		/**
 		 * Applies the default settigns defined by the System Administrator to the sysAdminDefaults
 		 * property.
-		 * @param Array $settings The default settings 
+		 * @param Array $settings The default settings
 		 */
 		function addSysAdminDefaults($settings)
 		{
@@ -343,8 +358,8 @@
 		}
 
 		/**
-		 * Takes two arrays, one settings and one defaults and removes the items from the settings 
-		 * array that have the same value as the defaults array. What is left is the settings that 
+		 * Takes two arrays, one settings and one defaults and removes the items from the settings
+		 * array that have the same value as the defaults array. What is left is the settings that
 		 * are not in the defaults array and the changed values of the ones that their keys do match
 		 * in the defaults. It calls itself recursively to check the full array.
 		 * @param Array $settings The array containing the unfiltered settings
@@ -365,7 +380,7 @@
 
 			return $settings;
 		}
-	
+
 		/**
 		 * Save settings to store
 		 *
@@ -395,7 +410,7 @@
 				mapi_stream_setsize($stream, strlen($settings));
 				mapi_stream_write($stream, $settings);
 				mapi_stream_commit($stream);
-	
+
 				mapi_savechanges($this->store);
 
 				// Settings saved, update settings_string and modified array
@@ -403,8 +418,8 @@
 				$this->modified = array();
 			}
 		}
-	
-	
+
+
 		/**
 		 * Read 'external' settings from PR_EC_OUTOFOFFICE_*
 		 *
@@ -440,7 +455,7 @@
 			// Save the properties
 			$this->externalSettings = $props;
 		}
-		
+
 		/**
 		 * Internal function to save the 'external' settings to the correct properties on the store
 		 *
@@ -493,11 +508,11 @@
 				mapi_setprops($this->store, $props);
 				mapi_savechanges($this->store);
 			}
-			
+
 			// remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
 			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
 		}
-	
+
 		/**
 		 * Get session-wide settings
 		 *
