@@ -22,7 +22,7 @@ if(!defined('ENABLE_RESPONSE_COMPRESSION')) define('ENABLE_RESPONSE_COMPRESSION'
  */
 if(!defined('DISABLE_HTMLBODY_FILTER')) define('DISABLE_HTMLBODY_FILTER', false);
 /**
- * When set to true this disables the login with the REMOTE_USER set by apache.
+ * Set to true to disable login with Single Sign-On (SSO) on SSO environments.
  */
 if(!defined('DISABLE_REMOTE_USER_LOGIN')) define('DISABLE_REMOTE_USER_LOGIN', false);
 
