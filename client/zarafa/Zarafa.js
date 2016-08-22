@@ -869,29 +869,6 @@ Ext.apply(Zarafa, {
 	//
 
 	/**
-	 * Determine if Canvas rendering is supported. Support is based on two different factors,
-	 * first the canvas rendering can be disabled using a configuration option, secondly
-	 * the browser might be limited in its support for canvas.
-	 *
-	 * @return {Boolean} True if canvas rendering is supported
-	 */
-	supportsCanvas : function()
-	{
-		if (!container.getSettingsModel().get('zarafa/v1/main/use_canvas_rendering')) {
-			return false;
-		}
-
-		// Small performance tweak, we don't expect the canvas support in a browser
-		// to be changed dynamically. So we only need to check the document.createElement
-		// call once.
-		if (!Ext.isDefined(this.browserSupportsCanvas)) {
-			this.browserSupportsCanvas = !!document.createElement('canvas').getContext;
-		}
-
-		return this.browserSupportsCanvas;
-	},
-
-	/**
 	 * This will resize a canvas {@link Ext.Element element}.
 	 * Canvas resizing is more tricky then one would expect. For canvas 2 settings are
 	 * important: the CSS and attribute dimensions.

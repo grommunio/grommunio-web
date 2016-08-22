@@ -173,14 +173,6 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	borderRight : undefined,
 
 	/**
-	 * The top border of the {@link #body}. This is positioned between the {@link #body}
-	 * and the {@link #tabArea}. This field is created using {@link #createDiv} during {@link #render}.
-	 * @property
-	 * @type Ext.Element
-	 */
-//	borderTop : undefined,
-
-	/**
 	 * The bottom border of the {@link #body}.
 	 * This field is created using {@link #createDiv} during {@link #render}.
 	 * @property
@@ -1210,18 +1202,6 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (this.parentView.showBorder) {
 			var borderWidth = this.getBorderWidth();
 
-/*
-			// border div in the tab area
-			this.borderTop.dom.className = this.getClassName('border', 'top');
-			this.borderTop.setLeftTop(this.leftOffset, this.parentView.tab.getHeight() - borderWidth);
-			this.borderTop.setSize(this.width, borderWidth);
-			this.borderTop.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
-			this.borderTop.show();
-*/
-
 			// border divs in the header area
 			var headerHeight = this.parentView.getHeaderAreaHeight();
 
@@ -1274,7 +1254,6 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			});
 			this.borderBottom.show();
 		} else {
-//			this.borderTop.hide();
 			this.headerBorderLeft.hide();
 			this.headerBorderRight.hide();
 			this.borderLeft.hide();

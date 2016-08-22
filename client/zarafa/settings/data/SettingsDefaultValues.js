@@ -30,12 +30,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'language' : 'en_GB',
 							/**
-							 * zarafa/v1/main/use_canvas_rendering
-							 * @property
-							 * @type Boolean
-							 */
-							'use_canvas_rendering' : true,
-							/**
 							 * zarafa/v1/main/base_content_layer
 							 * @property
 							 * @type String
