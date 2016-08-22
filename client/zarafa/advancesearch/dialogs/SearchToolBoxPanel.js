@@ -309,7 +309,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					scope : this
 				},
 				items : [{
-					name : 'sender_name',
+					name : ['sender_name', 'sender_email_address'],
 					boxLabel : _('Sender')
 				},{
 					name : ['display_to', 'display_cc', 'display_bcc'],
