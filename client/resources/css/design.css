@@ -4263,6 +4263,18 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-image: url('../images/icons-sb1808dffac.png') !important;
 }
 
+/* Task grid Due tasks row */
+/* line 524, ../scss/components/_grids.scss */
+.zarafa-task-overdue {
+  color: #e30022;
+}
+
+/* Task grid Completed tasks row */
+/* line 529, ../scss/components/_grids.scss */
+.zarafa-task-complete {
+  color: #777777;
+}
+
 /* line 1, ../scss/components/_toolbars.scss */
 .x-toolbar {
   background-image: none;

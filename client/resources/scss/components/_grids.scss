@@ -519,3 +519,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 3, $offset-y: 0);
 		background-image: sprite-url($iconsmap) !important;
 	}
+
+/* Task grid Due tasks row */
+.zarafa-task-overdue {
+	color: $red1;
+}
+
+/* Task grid Completed tasks row */
+.zarafa-task-complete {
+	color: $grey6;
+}
