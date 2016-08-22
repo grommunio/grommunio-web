@@ -462,21 +462,23 @@
 	}
 
 	/**
-	 * Function to retrieve the HTML body (PR_HTML) of a message.
+	 * Helper to stream a MAPI property.
 	 *
-	 * @param MAPIMessage $message message
-	 * @return String $body the HTML body of a message
+	 * @param MAPIObject $mapiobj mapi message or store
+	 * @return String $datastring the streamed data
 	 */
-	function getMessageHTMLBody($message)
+	function streamProperty($mapiobj, $proptag)
 	{
-		$body = '';
-		$stream = mapi_openproperty($message, PR_HTML, IID_IStream, 0, 0);
+		$stream = mapi_openproperty($mapiobj, $proptag, IID_IStream, 0, 0);
 		$stat = mapi_stream_stat($stream);
 		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-			$body .= mapi_stream_read($stream, BLOCK_SIZE);
+
+		$datastring = '';
+		for($i = 0; $i < $stat['cb']; $i+= BLOCK_SIZE){
+			$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
 		}
-		return $body;
+
+		return $datastring;
 	}
 
 	/**

@@ -30,14 +30,7 @@ class suggestEmailAddressModule extends Module
 			$recipient_history = false;
 
 			if(isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-				$stream = mapi_openproperty($GLOBALS["mapisession"]->getDefaultMessageStore(), PR_EC_RECIPIENT_HISTORY_JSON, IID_IStream, 0, 0);
-
-				$stat = mapi_stream_stat($stream);
-				mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-				$datastring = '';
-				for($i=0;$i<$stat['cb'];$i+=1024){
-					$datastring .= mapi_stream_read($stream, 1024);
-				}
+				$datastring = streamProperty($GLOBALS["mapisession"]->getDefaultMessageStore(), PR_EC_RECIPIENT_HISTORY_JSON);
 
 				if($datastring !== "") {
 					$recipient_history = json_decode_data($datastring, true);

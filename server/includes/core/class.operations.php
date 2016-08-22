@@ -2192,14 +2192,7 @@
 
 						$bodyProps = mapi_getprops($message, array(PR_BODY));
 						if(isset($bodyProps[PR_BODY]) || propIsError(PR_BODY, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-							$stream = mapi_openproperty($message, PR_BODY, IID_IStream, 0, 0);
-							$stat = mapi_stream_stat($stream);
-							mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-							$body = '';
-							for($i=0;$i<$stat['cb'];$i+=1024){
-								$body .= mapi_stream_read($stream, 1024);
-							}
-							$bodyProps[PR_BODY] = $body;
+							$bodyProps[PR_BODY] = streamProperty($message, PR_BODY);
 						}
 
 						if(isset($action['message_action']['meetingTimeInfo']) && isset($bodyProps[PR_BODY])){
@@ -3149,7 +3142,7 @@
 					if($isInlineAttachment) {
 						// Cache body, so we stream it once
 						if($body === false) {
-							$body = getMessageHTMLBody($message);
+							$body = streamProperty($message, PR_HTML);
 						}
 
 						$contentID = $props[PR_ATTACH_CONTENT_ID];
@@ -4176,14 +4169,7 @@
 				$recipient_history = false;
 
 				if(isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-					$stream = mapi_openproperty($store, PR_EC_RECIPIENT_HISTORY_JSON, IID_IStream, 0, 0);
-
-					$stat = mapi_stream_stat($stream);
-					mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-					$datastring = '';
-					for($i=0;$i<$stat['cb'];$i+=1024){
-						$datastring .= mapi_stream_read($stream, 1024);
-					}
+					$datastring = streamProperty($store, PR_EC_RECIPIENT_HISTORY_JSON);
 
 					if(!empty($datastring)) {
 						$recipient_history = json_decode_data($datastring, true);
@@ -4600,7 +4586,7 @@
 		 */
 		function convertInlineImage($message)
 		{
-			$body = getMessageHTMLBody($message);
+			$body = streamProperty($message, PR_HTML);
 
 			// Only load the DOM if the HTML contains a data:image.
 			if (strpos($body, "data:image") !== false) {

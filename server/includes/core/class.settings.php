@@ -262,17 +262,7 @@
 			$settings = array("settings"=> array());
 			// Check if property exists, if it doesn not exist then we can continue with empty set of settings
 			if (isset($storeProps[PR_EC_WEBACCESS_SETTINGS_JSON]) || propIsError(PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-				// read the settings property
-				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, 0, 0);
-				if ($stream == false) {
-					throw new SettingsException(_('Error opening settings property'));
-				}
-
-				$stat = mapi_stream_stat($stream);
-				mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-				for ($i = 0; $i < $stat['cb']; $i += 1024) {
-					$this->settings_string .= mapi_stream_read($stream, 1024);
-				}
+				$this->settings_string = streamProperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON);
 
 				if(!empty($this->settings_string)) {
 					$settings = json_decode_data($this->settings_string, true);
