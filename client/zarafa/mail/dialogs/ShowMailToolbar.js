@@ -207,17 +207,21 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		return {
 			xtype: 'menu',
 			items: [{
-				tooltip: _('Print this email'),
 				text: _('Print'),
 				iconCls: 'icon_print',
 				handler: this.onPrintButton,
 				scope: this
 			},{
-				tooltip: _('Edit as New Message') + ' (Ctrl + E)',
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onMailResponseButton,
+				scope: scope
+			},{
+				text: _('Download'),
+				iconCls: 'icon_saveaseml',
+				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
+				handler: this.onDownloadMailButton,
 				scope: scope
 			}]
 		};
@@ -305,6 +309,18 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/close_on_respond') === true) {
 			this.dialog.close();
 		}
+	},
+
+	/**
+	 * Event handler when the "Download" button has been pressed.
+	 * This will call the {@link Zarafa.common.Actions#openSaveEmlDialog} function.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @private
+	 */
+	onDownloadMailButton : function(button)
+	{
+		Zarafa.common.Actions.openSaveEmlDialog(this.record);
 	}
 });
 Ext.reg('zarafa.showmailtoolbar', Zarafa.mail.dialogs.ShowMailToolbar);
