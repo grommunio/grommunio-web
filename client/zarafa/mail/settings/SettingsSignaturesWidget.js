@@ -154,7 +154,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				ref : 'nameField',
 				anchor : '100%',
 				listeners : {
-					change : this.onFieldChange,
+					change : this.onNameFieldChange,
 					 scope : this
 				}
 			},{
@@ -167,7 +167,8 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				height: 300,
 				disableEditor: true,
 				listeners : {
-					change : this.onFieldChange,
+					change : this.onEditorFieldChange,
+					valuecorrection : this.onValueCorrection,
 					scope : this
 				}
 			}],
@@ -699,7 +700,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		 * The other issues is that we are not using defaultValue config for editor field.
 		 * So to avoid this situation we are setting initial editor's value in to record.
 		 */
-		record.set('content', this.contentField.getRawValue());
+		record.set('content', this.contentField.getValue());
 	},
 
 	/**
@@ -746,7 +747,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		var record = this.selectedSignature;
 		if (record) {
 			record.set(this.nameField.name, this.nameField.getValue());
-			record.set(this.contentField.name, this.contentField.getRawValue());
+			record.set(this.contentField.name, this.contentField.getValue());
 			record.set('isHTML', this.contentField.isHtmlEditor(), true);
 			record.commit();
 
@@ -778,16 +779,32 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 
 	/**
-	 * Event handler which is called when one of the textfields has been changed.
+	 * Event handler which is called when one of the {@link #nameField} has been changed.
 	 * This will apply the new value to the settings.
 	 * @param {Ext.form.Field} field The field which has fired the event
 	 * @param {String} value The new value
 	 * @private
 	 */
-	onFieldChange : function(field, value)
+	onNameFieldChange : function(field, value)
 	{
 		if (this.selectedSignature) {
 			if (this.selectedSignature.get(field.name) !== value) {
+				this.dirtySelectedSignature = true;
+			}
+		}
+	},
+
+	/**
+	 * Event handler which is called when the {@link #contentField} has been changed.
+	 * This will apply the new value to the settings.
+	 * @param {Ext.form.Field} field The field which has fired the event
+	 * @param {String} value The new value
+	 * @private
+	 */
+	onEditorFieldChange : function(field, value)
+	{
+		if (this.selectedSignature) {
+			if (this.selectedSignature.get(field.name) !== this.contentField.getValue()) {
 				this.dirtySelectedSignature = true;
 			}
 		}
@@ -805,16 +822,29 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 			// need to check for modifications. Otherwise check
 			// all fields.
 			if (this.dirtySelectedSignature !== true) {
-				this.onFieldChange(this.nameField, this.nameField.getValue());
-				// It is required to detect the changes by comparing Raw value as tinyMCE changes some code
-				// automatically to achieve cross browser compatibility for similar content formatting.
-				this.onFieldChange(this.contentField, this.contentField.getRawValue());
+				this.onNameFieldChange(this.nameField, this.nameField.getValue());
+				this.onEditorFieldChange(this.contentField, this.contentField.getValue());
 			}
 
 			return this.dirtySelectedSignature;
 		} else {
 			return false;
 		}
+	},
+
+	/**
+	 * Event handler for the {@link Zarafa.common.ui.HtmlEditor#valuecorrection valuecorrection}
+	 * event which is fired when the HTML content gets adjusted automatically by tinyMCE quirks logic
+	 * after it has been set into the {@link Zarafa.common.ui.HtmlEditor}.
+	 * This will apply the corrected value silently into the {@link #selectedSignature} to prevent considering this as a change.
+	 * @param {Zarafa.common.ui.HtmlEditor} field The field which fired the event
+	 * @param {String} value The corrected value
+	 * @param {String} oldValue the original value which was applied.
+	 * @private
+	 */
+	onValueCorrection : function(field, value, oldValue)
+	{
+		this.selectedSignature.data.content = value;
 	}
 });
 
