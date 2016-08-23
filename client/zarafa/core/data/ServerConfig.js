@@ -40,7 +40,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 */
 	getDisablingDisallowedPluginsList : function()
 	{
-		return this.meta.disabling_disallowed_plugins;
+		return this.meta.disabling_disallowed_plugins || '';
 	},
 
 	/**
