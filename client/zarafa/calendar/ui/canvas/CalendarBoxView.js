@@ -233,7 +233,6 @@ Zarafa.calendar.ui.canvas.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstra
 	getDesiredHeaderHeight : function()
 	{
 		return this.rendered ? parseInt(this.headerBackgroundCanvasStylingElement.getStyle('height'), 10) : 0;
-//		return this.headerHeight;
 	},
 
 	/**
@@ -305,13 +304,6 @@ Zarafa.calendar.ui.canvas.CalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstra
 		// Determine the centre of the button
 		var x = boxWidth - this.expandButtonRadius - this.expandButtonMargin;
 		var y = boxHeight - this.expandButtonRadius - this.expandButtonMargin;
-
-		// Draw a white circle with a black border.
-//		context.circle(x, y, this.expandButtonRadius);
-//		context.fillStyle = 'white';
-//		context.fill();
-//		context.strokeStyle = 'black';
-//		context.stroke();
 
 		// Draw a triangle pointing down
 		context.beginPath();

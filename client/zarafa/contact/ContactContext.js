@@ -370,29 +370,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			valueDataMode : Zarafa.contact.data.DataModes.CHARACTER_RESTRICT,
 			handler : this.onContextSelectView,
 			scope : this
-		}, /*{
-			// TODO: implement these views, they are now the same as the BUSINESS_CARDS view
-			id: 'zarafa-maintoolbar-view-contacts-addresscards',
-			text: _('Address Cards'),
-			overflowText: _('Address Cards'),
-			iconCls: 'contact_card_view',
-			valueView : Zarafa.contact.data.Views.ICON,
-			valueViewMode : Zarafa.contact.data.ViewModes.ADDRESS,
-			valueDataMode : Zarafa.contact.data.DataModes.CHARACTER_RESTRICT,
-			handler : this.onContextSelectView,
-			scope : this
-		}, {
-			id: 'zarafa-maintoolbar-view-contacts-detailedaddresscards',
-			text: _('Detailed Address Cards'),
-			overflowText: _('Detailed Address Cards'),
-			iconCls: 'contact_card_view',
-			boxLabel: _('Detailed Address Cards'),
-			valueView : Zarafa.contact.data.Views.ICON,
-			valueViewMode : Zarafa.contact.data.ViewModes.DETAILED,
-			valueDataMode : Zarafa.contact.data.DataModes.CHARACTER_RESTRICT,
-			handler : this.onContextSelectView,
-			scope : this
-		}, */{
+		},{
 			id: 'zarafa-maintoolbar-view-contacts-phonlist',
 			text: _('Phone List'),
 			overflowText: _('Phone List'),
@@ -402,51 +380,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			valueDataMode : Zarafa.contact.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
-		}/*, {
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-contacts-listbycategory',
-			text: _('List By Category'),
-			overflowText: _('List By Category'),
-			iconCls: 'contact_list_view',
-			valueView : Zarafa.contact.data.Views.LIST,
-			valueViewMode : Zarafa.contact.data.ViewModes.GROUP_CATEGORY,
-			valueDataMode : Zarafa.contact.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		}, {
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-contacts-listbycompany',
-			text: _('List By Company'),
-			overflowText: _('List By Company'),
-			iconCls: 'contact_list_view',
-			valueView : Zarafa.contact.data.Views.LIST,
-			valueViewMode : Zarafa.contact.data.ViewModes.GROUP_COMPANY,
-			valueDataMode : Zarafa.contact.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		}, {
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-contacts-listbylocation',
-			text: _('List By Location'),
-			overflowText: _('List By Location'),
-			iconCls: 'contact_list_view',
-			valueView : Zarafa.contact.data.Views.LIST,
-			valueViewMode : Zarafa.contact.data.ViewModes.GROUP_LOCATION,
-			valueDataMode : Zarafa.contact.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		}, {
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-contacts-listallcontacts',
-			text: _('List All Contacts'),
-			overflowText: _('List All Contacts'),
-			iconCls: 'contact_list_view',
-			valueView : Zarafa.contact.data.Views.LIST,
-			valueViewMode : Zarafa.contact.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.contact.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		}*/];
+		}];
 
 		return defaultItems.concat(items);
 	},

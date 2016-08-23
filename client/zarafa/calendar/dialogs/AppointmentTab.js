@@ -136,8 +136,6 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				this.createSubjectPanel(),
 				this.createLocationPanel(),
 				this.createDateTimePanel(),
-//				this.createRecurrencePanel(),
-//				this.createReminderPanel(),
 				this.createAttachmentsPanel(),
 				this.createBodyPanel()
 			]

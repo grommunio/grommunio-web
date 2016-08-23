@@ -149,20 +149,6 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text : _('Add to favorites folder'),
-			iconCls : 'icon_folder_add_favorite',
-			beforeShow : function(item, record) {
-				// hide add to favorites button, as functionality still not implemented 
-				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
-				if (false && access && record.getMAPIStore().isPublicStore() && !record.isFavoriteFolder() && !Zarafa.core.EntryId.isFavoriteFolder(record.get('entryid'))) {
-					item.setDisabled(false);
-				} else { 
-					item.setDisabled(true);
-				}
-			}
-		}, {
-			xtype: 'menuseparator'
-		}, {
 			text : _('Close store'),
 			iconCls : 'icon_store_close',
 			handler : this.onContextItemCloseStore,

@@ -123,7 +123,6 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 	 */
 	resizeSearchField : function()
 	{
-//		var containerWidth = this.getWidth();
 		// Get the width of the container without the padding
 		var containerWidth = this.el.getStyleSize().width;
 		var pageNavToolbarWidth = 0;
