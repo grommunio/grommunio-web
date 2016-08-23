@@ -82,7 +82,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			text : _('Send'),
 			overflowText : _('Send email'),
-			ref : 'sendButton',
+			ref : 'sendButton', // For delayed delivery plugin
 			tooltip : {
 				title : _('Send email'),
 				text : _('Send email to recipients') + ' (Ctrl + ENTER)'
