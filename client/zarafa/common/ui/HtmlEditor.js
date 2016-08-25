@@ -556,6 +556,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					}
 					this.applyFormattingForcefully = true;
 					this.applyDefaultFormatting(editor);
+
+					// Applying default formatting after delete keypress event will go for value correction,
+					// where the record is silently gets updated with corrected value causing no-change situation.
+					// And while pressing save button, it detects with no-change and doesn't make the save call at all.
+					// Finally, project the change situation for this special case.
+					var afterDeleteValue = this.record.get('html_body');
+					this.record.set('html_body', content);
+					this.record.set('html_body', afterDeleteValue);
+					this.record.set('isHTML', true, true);
 				} else {
 					node = editor.selection.getNode();
 					if (node.hasChildNodes()) {
