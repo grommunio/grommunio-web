@@ -75,7 +75,7 @@
 	// Define a list of plugins that cannot be disabled by users.
 	// Plugins should be seperated by a semicolon (;). A wildcard (*)
 	// can be used to identify multiple plugins.
-	define("DISABLING_DISALLOWED_PLUGINS_LIST", '');
+	define("ALWAYS_ENABLED_PLUGINS_LIST", '');
 	
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)

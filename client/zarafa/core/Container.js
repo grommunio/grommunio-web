@@ -551,10 +551,11 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	registerPlugin : function(info)
 	{
-		// Get the list of plugins that cannot be disable by the user
-		var userDisableDisabledPlugins = this.getServerConfig().getDisablingDisallowedPluginsList().split(';');
-		if ( userDisableDisabledPlugins.indexOf(info.name)>=0 ){
+		// Get the list of plugins that are always enabled
+		var alwaysEnabledPlugins = this.getServerConfig().getAlwaysEnabledPluginsList().split(';');
+		if ( alwaysEnabledPlugins.indexOf(info.name)>=0 ){
 			info.allowUserDisable = false;
+			info.enable = true;
 		}
 
 		this.getPluginsMetaData().push(info);

@@ -298,21 +298,6 @@
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
 				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
 			}
-
-			// Check if the admin has disallowed users to enable/disable plugins
-			$toggleDisallowedPlugins = $GLOBALS['PluginManager']->expandPluginList(DISABLING_DISALLOWED_PLUGINS_LIST);
-			$toggleDisallowedPlugins = explode(';', $toggleDisallowedPlugins);
-			if ( count($toggleDisallowedPlugins)>0 ) {
-				foreach ( $toggleDisallowedPlugins as $pluginName ){
-					// If a user is not allowed to enable or disable a plugin, we will take the 'enable' setting
-					// from the sysadmin settings.
-					if ( isset($this->settings['zarafa']['v1']['plugins'][$pluginName]) ){
-						$this->settings['zarafa']['v1']['plugins'][$pluginName]['enable'] =
-							isset($sysadminSettings['zarafa']['v1']['plugins'][$pluginName]['enable']) ?
-								$sysadminSettings['zarafa']['v1']['plugins'][$pluginName]['enable'] : true;
-					}
-				}
-			}
 		}
 
 		/**
