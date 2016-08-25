@@ -82,7 +82,8 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_share
 .x-tree-node-el .x-tree-node-icon.icon_folder_shared_note, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow, .icon_note_yellow_large, .icon_notification_error, .icon_notification_info, .icon_notification_warning, .icon_oof, .icon_plug, .icon_plus, .x-zarafa-boxfield ul .x-zarafa-boxfield-item-expand, .icon_previewpanel_bottom, .icon_previewpanel_off, .icon_previewpanel_right, .icon_refresh, .icon_reminder, .icon_remove_favorites, .icon_restore, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore, .icon_seal, .icon_sendas, .icon_shortcuts, .icon_sort_ascending, .icon_sort_descending, .icon_spanner, .icon_task, .icon_task2, .icon_folder_default_task,
 .icon_folder_shared_task, .icon_task_normal,
 .icon_task_recurring, .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_complete,
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text p.icon_complete,
+.x-menu .x-menu-check-item .x-menu-item-text p.icon_allday, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal, .x-tree-node-el .x-tree-node-icon.icon_folder_task,
@@ -1470,6 +1471,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_share
 .icon_task_recurring,
 .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_complete,
 .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday,
+.x-menu .x-menu-check-item .x-menu-item-text p.icon_complete,
 .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring,
@@ -2276,7 +2278,8 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_share
 .icon_task2, .icon_folder_default_task,
 .icon_folder_shared_task, .icon_task_normal,
 .icon_task_recurring, .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_complete,
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text p.icon_complete,
+.x-menu .x-menu-check-item .x-menu-item-text p.icon_allday, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal, .x-tree-node-el .x-tree-node-icon.icon_folder_task,
@@ -3908,7 +3911,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* line 184, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item .x-menu-item-text {
   /* mail grid */
-  /* calendar grid */
+  /* task icon complete */
 }
 /* line 185, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item .x-menu-item-text p {
@@ -3930,19 +3933,20 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .x-menu-check-item .x-menu-item-text p.icon_mail_flag {
   background-position: 0 -3811px;
 }
-/* line 206, ../scss/components/_grids.scss */
+/* line 208, ../scss/components/_grids.scss */
+.x-menu .x-menu-check-item .x-menu-item-text p.icon_complete,
 .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday {
   background-position: 0 -1792px;
   margin-left: -2px;
   padding-left: 12px;
 }
-/* line 212, ../scss/components/_grids.scss */
+/* line 214, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item .x-menu-item-text p.icon_recurring {
   background-position: 0 -2124px;
   margin-left: -2px;
   padding-left: 12px;
 }
-/* line 218, ../scss/components/_grids.scss */
+/* line 220, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item .x-menu-item-text p.icon_reminder {
   background-position: 0 -4376px;
   margin-left: -6px;
@@ -3952,23 +3956,23 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid columns
  ******************************************************************************/
-/* line 231, ../scss/components/_grids.scss */
+/* line 233, ../scss/components/_grids.scss */
 .x-grid3-row {
   border-top: none;
   border-color: #e6e6e6;
   /* reposition checkboxes (size of checkbox is 15x15) */
 }
-/* line 234, ../scss/components/_grids.scss */
+/* line 236, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-cell-inner {
   line-height: 100%;
   padding: 9px 7px;
 }
-/* line 240, ../scss/components/_grids.scss */
+/* line 242, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr table td {
   overflow: hidden;
   word-wrap: break-word;
 }
-/* line 244, ../scss/components/_grids.scss */
+/* line 246, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr table td .grid_compact {
   line-height: 100%;
   min-height: 13px;
@@ -3978,57 +3982,57 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   padding-bottom: 0px;
   padding-top: 4px;
 }
-/* line 252, ../scss/components/_grids.scss */
+/* line 254, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr table td .grid_compact_left {
   padding-left: 30px;
 }
-/* line 256, ../scss/components/_grids.scss */
+/* line 258, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr table td .grid_compact_subject_cell {
   color: #777777;
   max-height: 27px;
 }
-/* line 265, ../scss/components/_grids.scss */
+/* line 267, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-td,
 .x-grid3-row .x-grid3-td-checker {
   background: transparent;
 }
-/* line 268, ../scss/components/_grids.scss */
+/* line 270, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-td .x-grid3-cell-inner,
 .x-grid3-row .x-grid3-td-checker .x-grid3-cell-inner {
   padding-top: 8px !important;
   /* important is needed because Ext also added it */
 }
 
-/* line 275, ../scss/components/_grids.scss */
+/* line 277, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-expanded .x-grid3-cell-inner {
   padding-bottom: 5px;
 }
-/* line 279, ../scss/components/_grids.scss */
+/* line 281, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-expanded .x-grid3-row-body {
   padding-bottom: 9px;
 }
 
-/* line 285, ../scss/components/_grids.scss */
+/* line 287, ../scss/components/_grids.scss */
 .x-grid3-row-over {
   background: #f2f2f2;
   border-color: #e6e6e6;
   /* Ext wants to make the hovered border darker, we don't */
 }
 
-/* line 289, ../scss/components/_grids.scss */
+/* line 291, ../scss/components/_grids.scss */
 .x-grid3-row-selected {
   background: #d5e8f7 !important;
   /* Ext uses important, so we also must do that */
 }
 
-/* line 293, ../scss/components/_grids.scss */
+/* line 295, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-selected {
   border: 1px solid #d5e8f7;
   border-top: 0px;
 }
 
 /* Mail grid */
-/* line 305, ../scss/components/_grids.scss */
+/* line 307, ../scss/components/_grids.scss */
 #mail-grid .x-grid3-row,
 #calendar_grid .x-grid3-row,
 #contact-gridview .x-grid3-row,
@@ -4037,7 +4041,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 #unread-mail-widget .x-grid3-row {
   border-left-color: white;
 }
-/* line 310, ../scss/components/_grids.scss */
+/* line 312, ../scss/components/_grids.scss */
 #mail-grid .mail_unread div,
 #calendar_grid .mail_unread div,
 #contact-gridview .mail_unread div,
@@ -4050,7 +4054,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /*********************************
  * Icons in the grid colums
  ********************************/
-/* line 320, ../scss/components/_grids.scss */
+/* line 322, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row {
   /* Icon column */
   /* notes */
@@ -4058,219 +4062,219 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* importance column */
   /* flags column */
 }
-/* line 324, ../scss/components/_grids.scss */
+/* line 326, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_message,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail.icon_message_read {
   background-position: 4px -2800px;
 }
-/* line 328, ../scss/components/_grids.scss */
+/* line 330, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail.icon_message_unread {
   background-position: 5px -1998px;
 }
-/* line 332, ../scss/components/_grids.scss */
+/* line 334, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_replied {
   background-position: 4px -410px;
 }
-/* line 335, ../scss/components/_grids.scss */
+/* line 337, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_single {
   background-position: 4px -1384px;
 }
-/* line 339, ../scss/components/_grids.scss */
+/* line 341, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_stubbed {
   background-position: 5px -2993px;
 }
-/* line 342, ../scss/components/_grids.scss */
+/* line 344, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_forwarded {
   background-position: 4px -688px;
 }
-/* line 345, ../scss/components/_grids.scss */
+/* line 347, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_oof {
   background-position: 3px -1122px;
 }
-/* line 348, ../scss/components/_grids.scss */
+/* line 350, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_user {
   background-position: 4px -4076px;
 }
-/* line 352, ../scss/components/_grids.scss */
+/* line 354, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_distlist {
   background-position: 4px -1966px;
 }
-/* line 356, ../scss/components/_grids.scss */
+/* line 358, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_equipment {
   background-position: 4px -2469px;
 }
-/* line 359, ../scss/components/_grids.scss */
+/* line 361, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_gab_user {
   background-position: 4px -489px;
 }
-/* line 363, ../scss/components/_grids.scss */
+/* line 365, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_room {
   background-position: 7px -3771px;
 }
-/* line 366, ../scss/components/_grids.scss */
+/* line 368, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_company {
   background-position: 3px -3375px;
 }
-/* line 369, ../scss/components/_grids.scss */
+/* line 371, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_appointment {
   background-position: 4px -2436px;
 }
-/* line 374, ../scss/components/_grids.scss */
+/* line 376, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_recurring,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_recurring {
   background-position: 4px -723px;
 }
-/* line 378, ../scss/components/_grids.scss */
+/* line 380, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_single {
   background-position: 4px -1383px;
 }
-/* line 382, ../scss/components/_grids.scss */
+/* line 384, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_accept {
   background-position: 4px -3659px;
 }
-/* line 386, ../scss/components/_grids.scss */
+/* line 388, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_decline {
   background-position: 4px -1752px;
 }
-/* line 390, ../scss/components/_grids.scss */
+/* line 392, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_tentative {
   background-position: 4px -3258px;
 }
-/* line 394, ../scss/components/_grids.scss */
+/* line 396, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_calendar_appt_newtime {
   background-position: 4px -3298px;
 }
-/* line 398, ../scss/components/_grids.scss */
+/* line 400, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_cancel, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_decline {
   background-position: 4px -1752px;
 }
-/* line 402, ../scss/components/_grids.scss */
+/* line 404, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_outofdate {
   background-position: 4px -607px;
 }
-/* line 407, ../scss/components/_grids.scss */
+/* line 409, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring {
   background-position: 5px -1786px;
 }
-/* line 412, ../scss/components/_grids.scss */
+/* line 414, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_blue {
   background-position: 5px -2029px;
 }
-/* line 416, ../scss/components/_grids.scss */
+/* line 418, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_stickynote,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_default_note,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_shared_note, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_yellow {
   background-position: 5px -2365px;
 }
-/* line 420, ../scss/components/_grids.scss */
+/* line 422, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_white {
   background-position: 5px -2724px;
 }
-/* line 424, ../scss/components/_grids.scss */
+/* line 426, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_pink {
   background-position: 5px -2290px;
 }
-/* line 428, ../scss/components/_grids.scss */
+/* line 430, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_green {
   background-position: 5px -2215px;
 }
-/* line 433, ../scss/components/_grids.scss */
+/* line 435, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_nondelivery_receipt {
   background-position: 2px -1634px;
 }
-/* line 437, ../scss/components/_grids.scss */
+/* line 439, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_read_receipt {
   background-position: 2px -1527px;
 }
-/* line 441, ../scss/components/_grids.scss */
+/* line 443, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_nonread_receipt {
   background-position: 2px -1601px;
 }
-/* line 447, ../scss/components/_grids.scss */
+/* line 449, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_attachment {
   background-position: 2px -2070px;
 }
-/* line 451, ../scss/components/_grids.scss */
+/* line 453, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_attachment {
   background-position: 2px -2077px;
 }
-/* line 456, ../scss/components/_grids.scss */
+/* line 458, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_importance_urgent {
   background-position: 9px -2837px;
 }
-/* line 460, ../scss/components/_grids.scss */
+/* line 462, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_importance_nonurgent {
   background-position: 7px -2795px;
 }
-/* line 464, ../scss/components/_grids.scss */
+/* line 466, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_importance_urgent {
   background-position: 10px -2844px;
 }
-/* line 467, ../scss/components/_grids.scss */
+/* line 469, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_importance_nonurgent {
   background-position: 8px -2802px;
 }
-/* line 472, ../scss/components/_grids.scss */
+/* line 474, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag {
   background-position: 5px -3804px;
 }
-/* line 476, ../scss/components/_grids.scss */
+/* line 478, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_red {
   background-position: 5px -4614px;
 }
-/* line 480, ../scss/components/_grids.scss */
+/* line 482, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_blue {
   background-position: 5px -279px;
 }
-/* line 484, ../scss/components/_grids.scss */
+/* line 486, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_yellow {
   background-position: 5px -4850px;
 }
-/* line 488, ../scss/components/_grids.scss */
+/* line 490, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_green {
   background-position: 5px -4754px;
 }
-/* line 492, ../scss/components/_grids.scss */
+/* line 494, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_orange {
   background-position: 5px -4786px;
 }
-/* line 496, ../scss/components/_grids.scss */
+/* line 498, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_purple {
   background-position: 5px -4818px;
 }
-/* line 500, ../scss/components/_grids.scss */
+/* line 502, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_completed {
   background-position: 5px -251px;
 }
 
 /* Override ExtJS selected grid */
-/* line 508, ../scss/components/_grids.scss */
+/* line 510, ../scss/components/_grids.scss */
 .x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
   background-image: none;
 }
 
 /* Add some left padding for calendar */
-/* line 513, ../scss/components/_grids.scss */
+/* line 515, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-on {
   background-position: 3px -3036px;
   background-image: url('../images/icons-sb1808dffac.png') !important;
 }
 
-/* line 518, ../scss/components/_grids.scss */
+/* line 520, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col {
   background-position: 3px -3631px;
   background-image: url('../images/icons-sb1808dffac.png') !important;
 }
 
 /* Task grid Due tasks row */
-/* line 524, ../scss/components/_grids.scss */
+/* line 526, ../scss/components/_grids.scss */
 .zarafa-task-overdue {
   color: #e30022;
 }
 
 /* Task grid Completed tasks row */
-/* line 529, ../scss/components/_grids.scss */
+/* line 531, ../scss/components/_grids.scss */
 .zarafa-task-complete {
   color: #777777;
 }
@@ -6072,7 +6076,9 @@ ul.x-tab-strip li .x-tab-strip-inner .icon_task2, ul.x-tab-strip li .x-tab-strip
 ul.x-tab-strip li .x-tab-strip-inner .icon_folder_shared_task, ul.x-tab-strip li .x-tab-strip-inner .icon_task_normal,
 ul.x-tab-strip li .x-tab-strip-inner .icon_task_recurring, ul.x-tab-strip li .x-tab-strip-inner .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_complete, .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner ul.x-tab-strip li .x-tab-strip-inner p.icon_complete,
 ul.x-tab-strip li .x-tab-strip-inner .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_allday,
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner ul.x-tab-strip li .x-tab-strip-inner p.icon_allday, ul.x-tab-strip li .x-tab-strip-inner .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text ul.x-tab-strip li .x-tab-strip-inner p.icon_allday, ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_normal,
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner ul.x-tab-strip li .x-tab-strip-inner p.icon_allday, ul.x-tab-strip li .x-tab-strip-inner .x-menu .x-menu-check-item .x-menu-item-text p.icon_complete, .x-menu .x-menu-check-item .x-menu-item-text ul.x-tab-strip li .x-tab-strip-inner p.icon_complete,
+ul.x-tab-strip li .x-tab-strip-inner .x-menu .x-menu-check-item .x-menu-item-text p.icon_allday,
+.x-menu .x-menu-check-item .x-menu-item-text ul.x-tab-strip li .x-tab-strip-inner p.icon_allday, ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_normal,
 ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_recurring, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_task,
@@ -7374,7 +7380,9 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x
 .x-tree-node-el .x-tree-node-icon.icon_task2, .x-tree-node-el .x-tree-node-icon.icon_task_normal,
 .x-tree-node-el .x-tree-node-icon.icon_task_recurring, .x-tree-node-el .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.x-tree-node-icon.icon_complete, .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-tree-node-el p.x-tree-node-icon.icon_complete,
 .x-tree-node-el .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.x-tree-node-icon.icon_allday,
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-tree-node-el p.x-tree-node-icon.icon_allday, .x-tree-node-el .x-menu .x-menu-check-item .x-menu-item-text p.x-tree-node-icon.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text .x-tree-node-el p.x-tree-node-icon.icon_allday, .x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_normal, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_normal,
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-tree-node-el p.x-tree-node-icon.icon_allday, .x-tree-node-el .x-menu .x-menu-check-item .x-menu-item-text p.x-tree-node-icon.icon_complete, .x-menu .x-menu-check-item .x-menu-item-text .x-tree-node-el p.x-tree-node-icon.icon_complete,
+.x-tree-node-el .x-menu .x-menu-check-item .x-menu-item-text p.x-tree-node-icon.icon_allday,
+.x-menu .x-menu-check-item .x-menu-item-text .x-tree-node-el p.x-tree-node-icon.icon_allday, .x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_normal, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_normal,
 .x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_recurring,
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_recurring, .x-tree-node-el ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-icon.icon_folder_default_task, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x-tree-node-icon.icon_folder_default_task,
 .x-tree-node-el ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-icon.icon_folder_task,
@@ -9923,7 +9931,9 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_folder_shared_task, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_normal,
 .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_recurring, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.display-name.icon_complete, .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_complete,
 .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.display-name.icon_allday,
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-menu .x-menu-check-item .x-menu-item-text p.display-name.icon_allday, .x-menu .x-menu-check-item .x-menu-item-text .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday,
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-menu .x-menu-check-item .x-menu-item-text p.display-name.icon_complete, .x-menu .x-menu-check-item .x-menu-item-text .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_complete,
+.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-menu .x-menu-check-item .x-menu-item-text p.display-name.icon_allday,
+.x-menu .x-menu-check-item .x-menu-item-text .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday,
 .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .display-name.icon_folder_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_folder_task, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-tree-node-el .display-name.x-tree-node-icon.icon_folder_task, .x-tree-node-el .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.x-tree-node-icon.icon_folder_task,
 .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task2,
@@ -9935,6 +9945,8 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-window .x-windo
 .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_complete,
 .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.display-name.icon_allday,
 .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday,
+.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-menu .x-menu-check-item .x-menu-item-text p.display-name.icon_complete,
+.x-menu .x-menu-check-item .x-menu-item-text .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_complete,
 .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-menu .x-menu-check-item .x-menu-item-text p.display-name.icon_allday,
 .x-menu .x-menu-check-item .x-menu-item-text .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general p.display-name.icon_allday,
 .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .display-name.icon_folder_task,

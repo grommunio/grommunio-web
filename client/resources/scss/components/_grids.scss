@@ -201,7 +201,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 					@extend .icon_flag;
 					background-position: sprite-position($iconsmap, icon_flag, $offset-y: 2px, $offset-x: 0px);
 				}
-				
+
+				/* task icon complete */
+				p.icon_complete,
 				/* calendar grid */
 				p.icon_allday {
 					@extend .icon_task2;
