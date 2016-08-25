@@ -53,7 +53,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			header : _('Display Name'),
 			sortable : true,
 			tooltip : _('Sort by: Display Name'),
-			renderer : Ext.util.Format.htmlEncode
+			renderer : Zarafa.common.ui.grid.Renderers.displayName
 		},{
 			dataIndex : 'fileas',
 			header : _('File as'),
@@ -147,7 +147,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			items.forEach(function(item) {
 				if (Ext.isObject(items[0])) {
 					defaultItems.splice(pos, 0, item);
-					pos += 1;					
+					pos += 1;
 				}
 			});
 		}

@@ -49,6 +49,20 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 	 */
 	update : function(record, contentReset)
 	{
+		if ( this.record && this.record !== record && this.record.store && this.record.store !== record.store ){
+			Zarafa.core.PresenceManager.unregisterStore(this.record.store);
+		}
+		if ( record && record.store ){
+			Zarafa.core.PresenceManager.registerStore(record.store, 'sender');
+		}
+
+		if ( this.record && this.record.subStores && this.record.subStores.recipients ){
+			Zarafa.core.PresenceManager.unregisterStore(this.record.subStores.recipients);
+		}
+		if ( record && record.subStores && record.subStores.recipients ){
+			Zarafa.core.PresenceManager.registerStore(record.subStores.recipients);
+		}
+
 		Zarafa.mail.ui.MailPreviewPanel.superclass.update.apply(this, arguments);
 
 		if(record) {
@@ -80,7 +94,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 			scope : this
 		};
 	},
-	
+
 	/**
 	 * Function returns config for the replyall button in previewpanel's toolbar
 	 *
@@ -100,7 +114,7 @@ Zarafa.mail.ui.MailPreviewPanel = Ext.extend(Zarafa.core.ui.PreviewPanel, {
 			scope : this
 		};
 	},
-	
+
 	/**
 	 * Function returns config for the forward button in previewpanel's toolbar
 	 *

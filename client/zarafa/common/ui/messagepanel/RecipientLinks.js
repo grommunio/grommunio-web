@@ -238,7 +238,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 			Zarafa.common.ui.messagepanel.RecipientLinks.superclass.update.apply(this, arguments);
 		}
 	},
-	
+
 	/**
 	 * Function that is called to refresh a single node of this DataView. Overwritten
 	 * because all {@link Zarafa.common.ui.messagepanel.RecipientLinks RecipientLinks} (To,
@@ -255,7 +255,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 			// We didn't render a node for this record, so we cannot update it
 			return;
 		}
-		
+
         var index = this.store.indexOf(record);
 
         // Get the index when regarding only records with our recipientType
@@ -269,7 +269,7 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
         		filteredIndex++;
         	}
         }, this);
-        
+
         if(index > -1){
             var sel = this.isSelected(filteredIndex),
                 original = this.all.elements[filteredIndex],
@@ -304,6 +304,10 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 			this.setVisible(false);
 		}else{
 			var filteredRecords = this.collectData(records, 0);
+			Ext.each(filteredRecords, function(filteredRecord, index){
+				var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(new Ext.data.Record(filteredRecord));
+				filteredRecords[index].presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+			});
 			this.tpl.overwrite(el, filteredRecords);
 			this.all.fill(Ext.query(this.itemSelector, el.dom));
 			this.updateIndexes(0);

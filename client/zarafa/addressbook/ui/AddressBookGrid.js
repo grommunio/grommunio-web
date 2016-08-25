@@ -40,6 +40,15 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		Zarafa.addressbook.ui.AddressBookGrid.superclass.constructor.call(this, config);
 
 		this.mon(this.getStore(), 'load', this.onStoreLoad, this);
+
+		this.mon(this, 'beforerender', function(){
+			// Register the store to the PresenceManager to have it fetch the presence
+			// status for all entries.
+			Zarafa.core.PresenceManager.registerStore(this.getStore());
+		}, this);
+		this.mon(this, 'beforedestroy', function(){
+			Zarafa.core.PresenceManager.unregisterStore(this.getStore());
+		}, this);
 	},
 
 	/**
