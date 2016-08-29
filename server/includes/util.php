@@ -245,7 +245,7 @@
 											), TBL_BATCH
 		);
 
-		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_LAST_MODIFICATION_TIME));
+		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID));
 		foreach($folders as $folder){
 			mapi_folder_deletefolder($finderfolder, $folder[PR_ENTRYID]);
 		}
