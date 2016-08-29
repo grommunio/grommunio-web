@@ -83,7 +83,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				xtype : 'container',
 				layout : 'vbox',
 				items : [
-					this.createFoldersFieldset(config.model.getDefaultFolder()),
+					this.createFoldersFieldset(),
 					this.createMessageTypeFieldset(),
 					this.createFilterFieldset(),
 					this.createDateRangeFieldset(dateRangeStore),
@@ -106,50 +106,22 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Creates the folders fieldset for search tool box of form panel.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} defaultFolder The default folder
 	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
 	 * @private
 	 */
-	createFoldersFieldset : function(defaultFolder)
+	createFoldersFieldset : function()
 	{
-		// Enable 'all folder' radio only if the default folder is personal folder, disable otherwise
-		// in case if the default folder is either shared or public.
-		var defaultStore = defaultFolder.getMAPIStore();
-		var isPersonalFolder = !(defaultStore.isPublicStore() || defaultStore.isSharedStore());
-		var uniqueComponentName = 'folders' + (++Ext.Component.AUTO_ID);
 		return {
 			layout: 'form',
 			xtype:'fieldset',
-			border : false,
 			width : 156,
+			border : false,
 			title: _('Folders'),
 			items : [{
-				xtype : 'radiogroup',
-				columns : 1,
-				ref : '../../folderRadioGroup',
+				xtype : "checkbox",
 				hideLabel : true,
-				items : [{
-					name : uniqueComponentName,
-					checked : isPersonalFolder,
-					disabled : !isPersonalFolder,
-					inputValue : 'all_folders',
-					ref : '../allFoldersRadio',
-					boxLabel : _('All My folders'),
-					listeners : {
-						check : this.onRadioCheck,
-						scope : this
-					}
-				},{
-					name : uniqueComponentName,
-					checked : !isPersonalFolder,
-					ref : '../currentFolderRadio',
-					inputValue : 'current_folder',
-					boxLabel : _('Current folder') + ' ('+defaultFolder.getDisplayName()+')',
-					listeners : {
-						check : this.onRadioCheck,
-						scope : this
-					}
-				}]
+				ref : '../../includeSubFolder',
+				boxLabel : _('Include subfolders')
 			}]
 		};
 	},
@@ -332,11 +304,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 */
 	initEvents : function()
 	{
-		this.mon(this.folderRadioGroup, {
-			render : this.onAfterRenderFolderRadioGroup,
-			scope : this
-		});
-
 		this.mon(this.messageTypeCheckboxGroup, {
 			render : this.onAfterRenderCheckboxGroup,
 			scope : this
@@ -354,8 +321,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 		this.dateField.mon(this.dateField.startField, 'specialkey', this.onSpecialKey, this);
 		this.dateField.mon(this.dateField.endField, 'specialkey', this.onSpecialKey, this);
-
-		this.mon(this.model, 'folderchange', this.onFolderChange, this);
 	},
 
 	/**
@@ -612,101 +577,6 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		var index = combo.getStore().find('value', combo.getValue());
 		var record = combo.getStore().getAt(index);
 		this.onSelectCombo(combo, record);
-	},
-
-	//-------------Folder radio Group------------------//
-	/**
-	 * Event handler triggers when parent context folder gets change.
-	 * It updates the folder on which search is being performed.
-	 * Enable/Disable 'all folders' radio button based on that particular folder if it is public/shared/personal.
-	 * @param {Zarafa.core.ContextModel} model this context model.
-	 * @param {Array} folders selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
-	 * @private
-	 */
-	onFolderChange : function(model, folders)
-	{
-		var defaultStore = folders[0].getMAPIStore();
-		var currentFolderRadio = this.folderRadioGroup.panel.currentFolderRadio;
-		var allFoldersRadio = this.folderRadioGroup.panel.allFoldersRadio;
-		
-		// Change the label of the current folder radio button to show the name of the current folder
-		currentFolderRadio.boxLabel = _('Current folder') + ' ('+model.getDefaultFolder().getDisplayName()+')';
-		if(currentFolderRadio.rendered){
-			currentFolderRadio.wrap.child('.x-form-cb-label').update(currentFolderRadio.boxLabel);
-		}
-
-		if( Ext.isDefined(defaultStore) && ( defaultStore.isSharedStore() || defaultStore.isPublicStore()) ) {
-			allFoldersRadio.disable();
-
-			// Need to prevent firing 'check' event of 'current folder' radio button to
-			// avoid making search request as it is not needed in this particular situation
-			currentFolderRadio.suspendEvents();
-			currentFolderRadio.setValue(true);
-			currentFolderRadio.resumeEvents();
-		} else {
-			allFoldersRadio.enable();
-		}
-
-		var selectedRadio = this.folderRadioGroup.getValue();
-		if(selectedRadio.inputValue === 'current_folder') {
-			this.setFolder(selectedRadio);
-		}
-	},
-
-	/**
-	 * Event handler triggers on folders field set gets rendered.
-	 * here by default All My Folder radio button is selected so
-	 * it will select {@link Zarafa.common.data.FolderContentTypes.ipmsubtree IPM_SUBTREE}
-	 * as default folder on which search gets perform.
-	 * @param {Ext.form.RadioGroup} radioGroup The radio group which fired the event
-	 */
-	onAfterRenderFolderRadioGroup : function(radioGroup)
-	{
-		var selectedRedio = radioGroup.getValue();
-		this.setFolder(selectedRedio);
-	},
-
-	/**
-	 * Function is used to set the folder on which search performed.
-	 * here All My folders indicates {@link Zarafa.common.data.FolderContentTypes.ipmsubtree IPM_SUBTREE}
-	 * and Current folder which user currently has selected.
-	 * 
-	 * @param {Ext.Form.Radio} radio The selected radio button.
-	 */
-	setFolder : function(radio)
-	{
-		var defaultFolder = this.model.getDefaultFolder();
-		if(radio.inputValue === 'all_folders') {
-			this.folder = defaultFolder.getMAPIStore().getSubtreeFolder();
-		} else if(radio.inputValue === 'current_folder'){
-			this.folder = defaultFolder;
-		}
-	},
-
-
-	/**
-	 * Function is used to get the selected folder on which search perform.
-	 * 
-	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} The selected folder
-	 */
-	getFolder : function()
-	{
-		return this.folder;
-	},
-
-	/**
-	 * Event handler is triggered when {@link Ext.form.Radio radio} button 
-	 * gets select.
-	 * 
-	 * @param {Ext.Form.Radio} radio The selected radio button.
-	 * @param {Boolean} checked True when radio button is checked
-	 */
-	onRadioCheck : function(radio, checked)
-	{
-		if(checked) {
-			this.setFolder(radio);
-			this.afterUpdateRestriction();
-		}
 	},
 
 	/**

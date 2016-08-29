@@ -25,6 +25,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 			xtype : 'zarafa.searchtoolbarpanel',
 			layout: 'hbox',
 			ref : 'searchToolbar',
+			cls : 'k-search-toolbar-panel',
 			border : false,
 			plugins : [{
 				ptype : 'zarafa.recordcomponentplugin',
@@ -33,7 +34,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 			},{
 				ptype : 'zarafa.recordcomponentupdaterplugin'
 			}],
-			height : 38,
+			height : 35,
 			items : [{
 				xtype: 'zarafa.searchpaneltoolbar',
 				style: 'border-style : none',
@@ -93,12 +94,31 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function is used to retrieve the {@link Zarafa.common.ui.SearchField AdvanceSearchField}.
-	 * @return {Zarafa.common.ui.SearchField} return the advance search field.
+	 * Function is used to retrieve {@link Zarafa.common.searchfield.ui.SearchFieldContainer SearchFieldContainer}
+	 *
+	 * @return {Zarafa.common.searchfield.ui.SearchFieldContainer} Search field container.
+	 */
+	getSearchFieldContainer : function()
+	{
+		return this.contextMainPanelToolbar.searchFieldContainer;
+	},
+
+	/**
+	 * Function is used to retrieve the {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}.
+	 * @return {Zarafa.common.searchfield.ui.SearchTextField} Search text field.
 	 */
 	getAdvanceSearchField : function()
 	{
-		return this.contextMainPanelToolbar.searchTextfield;
+		return this.getSearchFieldContainer().searchTextField;
+	},
+
+	/**
+	 * Function is used to retrieve the {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}.
+	 * @return {Zarafa.common.searchfield.ui.SearchFolderCombo} Search folder combo
+	 */
+	getSearchFolderCombo : function()
+	{
+		return this.getSearchFieldContainer().searchFolderCombo;
 	},
 
 	/**

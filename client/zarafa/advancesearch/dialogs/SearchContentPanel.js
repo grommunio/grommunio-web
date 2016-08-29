@@ -27,6 +27,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 			iconCls: 'advance_search',
 			border: false,
 			parentSearchField : config.parentSearchField,
+			parentSearchFolderCombo : config.parentSearchFolderCombo,
 			items: [{
 				xtype: 'zarafa.searchpanel',
 				ref : 'searchPanel',
@@ -97,10 +98,9 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 		}
 	},
 
-
 	/**
-	 * Function which used to set the parent search field.
-	 * @param {Zarafa.common.ui.SearchField} searchField the parent advance serach field.
+	 * Function which used to set the parent {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}.
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchField the parent search field.
 	 */
 	setParentSearchField : function(searchField)
 	{
@@ -108,12 +108,21 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	},
 
 	/**
-	 * Function is used to get the parent search field.
-	 * @return {Zarafa.common.ui.SearchField} parent search field.
+	 * Function is used to get the parent {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}.
+	 * @return {Zarafa.common.searchfield.ui.SearchTextField} parent search field.
 	 */
 	getParentSearchField : function()
 	{
 		return this.parentSearchField;
+	},
+
+	/**
+	 * Function is used to get the parent {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}.
+	 * @return {Zarafa.common.searchfield.ui.SearchFolderCombo} parent search folder combo.
+	 */
+	getParentSearchFolderCombo : function()
+	{
+		return this.parentSearchFolderCombo;
 	}
 });
 

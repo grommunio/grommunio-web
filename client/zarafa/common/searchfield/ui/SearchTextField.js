@@ -1,15 +1,15 @@
-Ext.ns('Zarafa.common.ui');
+Ext.ns('Zarafa.common.searchfield.ui');
 
 /**
- * @class Zarafa.common.ui.SearchField
- * @extends Ext.form.TriggerField
- * @xtype zarafa.searchfield
+ * @class Zarafa.common.searchfield.ui.SearchTextField
+ * @extends Ext.form.TextField
+ * @xtype zarafa.searchtextfield
  *
  * This class can be used to construct a search field with start and stop buttons and we can listen
  * for events to do search specific processing. this search can be local or remote so it is abstracted
  * away from this component.
  */
-Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
+Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 
 	/**
 	 * @cfg {String} searchIndicatorClass The CSS class which must be applied to the {@link #el}
@@ -18,17 +18,12 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 	searchIndicatorClass : 'zarafa-tbar-loading',
 
 	/**
-	 * @cfg {Boolean} renderedSearchPanel The renderedSearchPanel indicates that 
-	 * {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel} 
-	 * was rendered or not. it will gets true if {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel} 
+	 * @cfg {Boolean} searchPanelRendered The searchPanelRendered indicates that
+	 * {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel}
+	 * was rendered or not. it will gets true if {@link Zarafa.advancesearch.dialogs.SearchContentPanel search content panel}
 	 * renders else false.
 	 */
-	renderedSearchPanel : false,
-
-	/**
-	 * @cfg {String} errorMsgEmpty The error text to display if the search query is empty.
-	 */
-	errorMsgEmpty : _('Please enter text to start search.'),
+	searchPanelRendered : false,
 
 	/**
 	 * @constructor
@@ -40,16 +35,25 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 			validationEvent : false,
 			validateOnBlur : false,
 			cls: 'zarafa-searchfield',
-			triggerClass : 'icon_search'
+			boxMaxWidth: 450,
+			ref : 'searchTextField',
+			listeners: {
+				afterrender: function(searchField){
+					searchField.getEl().set({
+						placeholder: _('Search in..')
+					});
+				},
+				scope: this
+			}
 		});
 
 		this.addEvents(
 			/**
 			 * @event beforestart
-			 * Handler will be called when user has clicked on start trigger (trigger2),
+			 * Handler will be called when user has clicked on start trigger,
 			 * and function is about to begin its execution.
 			 * event handler can return false to abort further execution.
-			 * @param {Zarafa.common.ui.SearchField} SearchField object of search field component.
+			 * @param {Zarafa.common.searchfield.ui.SearchTextField} SearchField object of search field component.
 			 * @return {Boolean} false to prevent the search from starting
 			 */
 			'beforestart',
@@ -58,30 +62,28 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 			 * Handler will be called when user has clicked on start trigger (trigger2),
 			 * and function has already been executed. This event can be used to actually
 			 * start search operation on a {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
-			 * @param {Zarafa.common.ui.SearchField} SearchField object of search field component.
+			 * @param {Zarafa.common.searchfield.ui.SearchTextField} SearchField object of search field component.
 			 */
 			'start',
 			/**
-			 * @event beforereset
-			 * Handler will be called when user has clicked on stop trigger (trigger1),
-			 * and function is about to begin its execution.
+			 * @event beforestop
+			 * Handler will be called when user has close the search tab.
 			 * event handler can return false to abort further execution.
-			 * @param {Zarafa.common.ui.SearchField} SearchField object of search field component.
+			 * @param {Zarafa.common.searchfield.ui.SearchTextField} SearchField object of search field component.
 			 * @return {Boolean} false to prevent the search from stopping
 			 */
 			'beforestop',
 			/**
-			 * @event reset
-			 * Handler will be called when user has clicked on stop trigger (trigger1),
-			 * and function has already been executed. This event can be used to stop
-			 * search process on {@link Zarafa.core.data.ListModuleStore ListModuleStore}
-			 * and reload with normal data.
-			 * @param {Zarafa.common.ui.SearchField} SearchField object of search field component.
+			 * @event stop
+			 * Handler will be called when user has close the search tab.
+			 * This event can be used to stop search process on
+			 * {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
+			 * @param {Zarafa.common.searchfield.ui.SearchTextField} SearchField object of search field component.
 			 */
 			'stop'
 		);
 
-		Zarafa.common.ui.SearchField.superclass.constructor.call(this, config);
+		Zarafa.common.searchfield.ui.SearchTextField.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -91,7 +93,7 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 	 */
 	initComponent : function()
 	{
-		Zarafa.common.ui.SearchField.superclass.initComponent.call(this);
+		Zarafa.common.searchfield.ui.SearchTextField.superclass.initComponent.call(this);
 
 		this.on('specialkey', this.onTriggerSpecialKey, this);
 	},
@@ -127,7 +129,7 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 	stopSearch : function()
 	{
 		if (this.fireEvent('beforestop', this) !== false) {
-			this.doStop();
+			this.hideMask();
 			this.fireEvent('stop', this);
 		}
 	},
@@ -143,79 +145,31 @@ Zarafa.common.ui.SearchField = Ext.extend(Ext.form.TriggerField, {
 	{
 		if (this.fireEvent('beforestart', this) !== false) {
 			if(Ext.isEmpty(this.getValue())) {
-				container.getNotifier().notify('error.search', _('Error'), this.errorMsgEmpty);
+				this.focus();
 				return false;
 			}
 
-			if(!this.isRenderedSearchPanel()) {
+			if(!this.searchPanelRendered) {
 				var componentType = Zarafa.core.data.SharedComponentType['common.search'];
 				Zarafa.core.data.UIFactory.openLayerComponent(componentType, [], {
 					'searchText' : this.getValue(),
-					'parentSearchField' : this
+					'parentSearchField' : this,
+					'parentSearchFolderCombo' : this.searchContainer.searchFolderCombo
 				});
 			}
 
-			this.doStart();
+			this.el.addClass(this.searchIndicatorClass);
 			this.fireEvent('start', this);
 		}
 	},
 
 	/**
-	 * Apply a {@link #emptyText} onto this component
-	 * @param {String} text The emptyText which should be applied
+	 * Function is used to hide the spinner field from search text field.
 	 */
-	setEmptyText : function(text)
-	{
-		if (Ext.isEmpty(this.getRawValue())) {
-			this.setRawValue(text);
-		}
-		this.emptyText = text;
-	},
-
-	/**
-	 * Obtain the {@link Zarafa.common.ui.SearchField#emptyText emptyText} string
-	 * which must be applied to {@link #this.searchTextfield}.
-	 * 
-	 * @param {Zarafa.core.data.MAPIFolder} folder The folder which will be searched through.
-	 * @return {String} The emptyText string to be applied
-	 * @private
-	 */
-	getEmptySearchText : function(folder)
-	{
-		if(folder) {
-			var folderName = folder.getDisplayName();
-			var userName = folder.getMAPIStore().get('mailbox_owner_name');
-			var emptyText = String.format(_('Search in "{0} - {1}"'), folderName, userName);
-			return emptyText;
-		}
-	},
-
-	/**
-	 * Update this component to display that this component is
-	 * currently busy searching.
-	 */
-	doStart : function()
-	{
-		this.el.addClass([this.searchIndicatorClass]);
-	},
-
-	/**
-	 * Update this component to display that this component is currently
-	 * no longer searching.
-	 */
-	doStop : function()
+	hideMask : function()
 	{
 		this.el.removeClass([this.searchIndicatorClass]);
-	},
-
-	/**
-	 * Function was used to identify that search panel was rendered or not.
-	 * @return {Boolean} return true when search panel was rendered else false.
-	 */
-	isRenderedSearchPanel : function()
-	{
-		return this.renderedSearchPanel;
 	}
 });
 
-Ext.reg('zarafa.searchfield', Zarafa.common.ui.SearchField);
+Ext.reg('zarafa.searchtextfield', Zarafa.common.searchfield.ui.SearchTextField);
