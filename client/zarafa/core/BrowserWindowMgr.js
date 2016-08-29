@@ -207,7 +207,11 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	 */
 	getActive: function()
 	{
-		return this.browserWindows.get(this.activeBrowserWindow);
+		// Some time while child window not available any more and main window focus not set
+		// at that time activeBrowser window will not available.
+		// So handle this type of situation by returning main browser window while active browser window not available
+
+		return this.browserWindows.get(this.activeBrowserWindow) || this.browserWindows.get('mainBrowserWindow');
 	},
 
 	/**
@@ -273,7 +277,8 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 
 		var componentDom = component.dom ? component.dom : component;
 		var ownerDocument = componentDom ? componentDom.ownerDocument : undefined;
-		return ownerDocument ? ownerDocument.defaultView : undefined;
+		var defaultView = ownerDocument ? ownerDocument.defaultView : undefined;
+		return defaultView ? defaultView :  this.browserWindows.get('mainBrowserWindow');
 	},
 
 	/**
