@@ -28,7 +28,6 @@
 		 */
 		function save($store, $parententryid, $entryid, $action)
 		{
-			global $state;
 			$result = false;
 			$send = false;
 

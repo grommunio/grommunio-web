@@ -90,8 +90,6 @@
 		function save($store, $parententryid, $entryid, $action)
 		{
 			if(isset($action["props"])) {
-				$props = $action["props"];
-				
 				if(!$store && !$parententryid) {
 					if(isset($action["props"]["message_class"])) {
 						$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
@@ -131,8 +129,6 @@
 		 */
 		function delete($store, $parententryid, $entryids, $action)
 		{
-			$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
-
 			if($store && $parententryid) {
 				$props = array();
 				$props[PR_PARENT_ENTRYID] = $parententryid;

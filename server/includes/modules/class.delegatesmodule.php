@@ -363,9 +363,6 @@
 			foreach($this->getDefaultFolders($store) as $folderName => $folderEntryId) {
 				$folder = mapi_msgstore_openentry($store, $folderEntryId);
 
-				// check if folder is rootFolder, then we need the permissions from the store
-				$folderProps = mapi_getprops($folder, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID));
-
 				// Get all users who has permissions
 				$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 
@@ -464,7 +461,7 @@
 				$this->setDelegateProps($delegate, $delegateIndex);
 
 				// set permissions on user's default folders
-				$this->setFolderPermissions($delegate, $delegateIndex);
+				$this->setFolderPermissions($delegate);
 
 				array_push($responseData, array('entryid' => $delegate['entryid']));
 			}
@@ -515,9 +512,8 @@
 		/**
 		 * Function will set folder permissions for a delegate user.
 		 * @param {Array} $delegate delegate information sent from client.
-		 * @param {Number} $delegateIndex index of the delegate that should be updated in delegate properties.
 		 */
-		function setFolderPermissions($delegate, $delegateIndex)
+		function setFolderPermissions($delegate)
 		{
 			$store = $this->getDefaultStore();
 
@@ -837,7 +833,6 @@
 			// Get all default folders and set permissions.
 			foreach($this->getDefaultFolders($store) as $folderName => $folderEntryID) {
 				$folder = mapi_msgstore_openentry($store, $folderEntryID);
-				$folderProps = mapi_getprops($folder, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID, PR_ENTRYID));
 
 				// delete current acl's
 				$acls = array(

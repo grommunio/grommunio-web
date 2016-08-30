@@ -394,7 +394,7 @@ class DownloadAttachment
 			// This situation arise while user upload attachments in draft.
 			$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
 			if($attachmentFiles){
-				$this->addUnsavedAttachmentsToZipArchive($randomZipName, $attachment_state, $zip);
+				$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
 			}
 		}
 	}
@@ -436,11 +436,10 @@ class DownloadAttachment
 	/**
 	 * Function will send all the attachments to client side wrapped in a ZIP file.
 	 * This should only be used to download all the attachments that are recently uploaded and not saved in MAPIMessage.
-	 * @param String $randomZipName A random zip archive name.
 	 * @param AttachmentState $attachment_state Object of AttachmentState class.
 	 * @param ZipArchive $zip ZipArchive object.
 	 */
-	public function addUnsavedAttachmentsToZipArchive($randomZipName, $attachment_state, $zip)
+	public function addUnsavedAttachmentsToZipArchive($attachment_state, $zip)
 	{
 		//Get recently uploaded attachment files
 		$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
@@ -491,7 +490,7 @@ class DownloadAttachment
 					}
 					$this->addAttachmentsToZipArchive($randomZipName, $attachment_state, $zip);
 				} else {
-					$this->addUnsavedAttachmentsToZipArchive($randomZipName, $attachment_state, $zip);
+					$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
 				}
 			} else {
 				// Throw exception if ZIP is not created successfully
