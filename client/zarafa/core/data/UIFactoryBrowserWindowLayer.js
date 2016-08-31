@@ -77,6 +77,13 @@ Zarafa.core.data.UIFactoryBrowserWindowLayer = Ext.extend(Zarafa.core.data.UIFac
 		} else {
 			// Seems popup is blocked, just remember that it is blocked
 			Zarafa.core.BrowserWindowMgr.isPopupsBlocked = true;
+
+			// Keep the inner components and config details of blocked popouts,
+			// So that, this can be rendered in case if user manually allows blocked popup windows.
+			Zarafa.core.BrowserWindowMgr.blockedPopupsContent.push({
+				component: component,
+				config: config
+			});
 		}
 	},
 
