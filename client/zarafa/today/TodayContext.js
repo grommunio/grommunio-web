@@ -107,7 +107,7 @@ Zarafa.today.TodayContext = Ext.extend(Zarafa.core.Context, {
 Zarafa.onReady(function() {
 	container.registerContext(new Zarafa.core.ContextMetaData({
 		name : 'today',
-		displayName : _('Home'),
+		displayName : _('Today'),
 		allowUserVisible : false,
 		pluginConstructor : Zarafa.today.TodayContext
 	}));
