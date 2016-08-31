@@ -318,6 +318,13 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 
 		var treeNode = this.tree.getTreeNode(record);
 		if (!treeNode) {
+			// Don't add new node in hierarchy if its parent node is
+			// not expanded yet. As Extjs follow the lazy rendering so when we expand the
+			// parent node, tree automatically creates respective child nodes
+			var parentNode = this.getFilteredParentNode(record);
+			if (parentNode === false || !parentNode.isExpanded()) {
+				return;
+			}
 			// treeNode not found, so apparently the folder change might
 			// have made this folder visible in the current hierarchy.
 			// Let the 'addFolder' event handler handle this case.
