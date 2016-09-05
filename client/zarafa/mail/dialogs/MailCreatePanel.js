@@ -273,20 +273,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				this.editorField.setHtmlEditor(this.use_html_editor, false);
 				this.editorField.bindRecord(record);
 				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
-			} else {
-				// Normally the body is only modified from within this dialog, and
-				// we shouldn't write the new value into the Editor (as this might cause
-				// the cursor of the user to jump to a different location). However, when
-				// the body has changed from outside this dialog, we must write the newValue of body
-				// into the editorField.
-				var body = record.getBody(this.editorField.isHtmlEditor());
-				var newValue = this.editorField.getValue();
-
-				// Overwrite newVlaue of editor only if it is not being same as well as not worked on currently.
-				if (body !== newValue && !this.editorField.getEditor().hasFocus || (newValue === this.editorField.getEditor().originalValue)) {
-					this.editorField.setValue(body);
-				}
-			}
+			} 
 		}
 	},
 
