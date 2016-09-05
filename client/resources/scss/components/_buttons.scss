@@ -268,7 +268,19 @@ $normal-button-bgcolor-hover	: $grey2;
     .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button {
     	@include action-button();
     }
-    
+
+    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:active {
+        @include action-button-active();
+    }
+
+    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:hover {
+        @include action-button-hover();
+    }
+
+    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button {
+        @include action-button();
+    }
+
 	/* Special case: Messageboxes */
 	.x-window-dlg {
 		.x-toolbar-left {
