@@ -349,6 +349,17 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				newParentNode.appendChild(treeNode);
 			} else {
 				treeNode.updateUI(record);
+				// Update favorites folder tree node in hierarchy if selected folder is not favorites folder but
+				// it exists in favorites store(record was marked as favorites).
+				if(!record.isFavoriteFolder() && record.existsInFavorites()) {
+					treeNode = this.tree.getTreeNode(record.getFavoritesFolder());
+					// treeNode is undefined in case where webapp was reloaded recently and
+					// favorites tree was in collapsible mode. Extjs is follow the lazy rendering
+					// so tree node was only created when tree is in expanded mode or user expand it.
+					if (Ext.isDefined(treeNode)) {
+						treeNode.updateUI(record);
+					}
+				}
 			}
 		}
 	},
