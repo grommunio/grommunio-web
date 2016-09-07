@@ -91,8 +91,6 @@
 		{
 			$this->init = false;
 			$this->store = false;
-			$this->storeMapping = false;
-			$this->mapping = array();
 		}
 
 		/**
