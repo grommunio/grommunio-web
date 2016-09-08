@@ -19,7 +19,7 @@ Zarafa.common.favorites.data.FavoritesFolderRecord = Ext.extend(Zarafa.hierarchy
 	{
 		var rs = Zarafa.common.favorites.data.FavoritesFolderRecord.superclass.getChildren.apply(this, arguments);
 
-		if (this.get('assoc_content_count') > 0 && this.isFavoritesRootFolder()) {
+		if (this.isFavoritesRootFolder()) {
 			var favoritesStore = this.getMAPIStore().getFavoritesStore();
 			favoritesStore.each(function(record) {
 				if (record.isFavoritesFolder()) {
