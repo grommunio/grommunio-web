@@ -3149,19 +3149,6 @@ msgstr "Přiložit položku"
 msgid "No message selected"
 msgstr "Nebyla vybrána žádná zpráva"
 
-<<<<<<< HEAD
-=======
-# 84%
-# 100%
-#: client/zarafa/common/attachment/dialogs/LegacyFileSelectionContentPanel.js:31
-msgid "Select file"
-msgstr "Vybrat soubor"
-
-#: client/zarafa/common/attachment/dialogs/LegacyFileSelectionContentPanel.js:42
-msgid "Browse"
-msgstr "Prohlížet"
-
->>>>>>> translation/master
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:23
 #: client/zarafa/mail/ui/MailGridContextMenu.js:92
 msgid "Download as ZIP"

@@ -6547,12 +6547,7 @@ msgstr "Tallózás"
 msgid "I am currently in the office"
 msgstr "Jelenleg házon belül tartózkodom"
 
-<<<<<<< HEAD
-#: client/zarafa/mail/settings/SettingsOofWidget.js:69
-#, fuzzy
-=======
 #: client/zarafa/mail/settings/SettingsOofWidget.js:70
->>>>>>> translation/master
 msgid "I am out of the office from"
 msgstr "Jelenleg házon kívül tartózkodom"
 
@@ -8157,12 +8152,7 @@ msgid "Could not remove folder from favorites."
 msgstr "A mappát nem sikerült hozzáadni a kedvencekhez."
 
 # 88%
-<<<<<<< HEAD
-#: server/includes/modules/class.hierarchymodule.php:285
-#, fuzzy
-=======
 #: server/includes/modules/class.hierarchymodule.php:276
->>>>>>> translation/master
 msgid "You have insufficient privileges to delete folder."
 msgstr "Nincs elég jogosultsága a mappa törléséhez."
 
@@ -8258,12 +8248,7 @@ msgstr ""
 "mappára > Tulajdonságok > Engedélyek)."
 
 # 85%
-<<<<<<< HEAD
-#: server/includes/modules/class.hierarchymodule.php:679
-#, fuzzy
-=======
 #: server/includes/modules/class.hierarchymodule.php:670
->>>>>>> translation/master
 msgid "unknown"
 msgstr "ismeretlen"
 
@@ -8360,23 +8345,13 @@ msgid "You have insufficient privileges to accept this Task Request."
 msgstr "Nincs elég jogosultsága az üzenet megnyitásához."
 
 # 78%
-<<<<<<< HEAD
-#: server/includes/modules/class.itemmodule.php:382
-#, fuzzy
-=======
 #: server/includes/modules/class.itemmodule.php:379
->>>>>>> translation/master
 msgid "Could not accept Task Request."
 msgstr "Nem tudja elfogadni a feladatot."
 
 # 75%
 # 90%
-<<<<<<< HEAD
-#: server/includes/modules/class.itemmodule.php:387
-#, fuzzy
-=======
 #: server/includes/modules/class.itemmodule.php:384
->>>>>>> translation/master
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr "Nincs elég jogosultsága a feladat lemondásához."
 
@@ -8544,12 +8519,7 @@ msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Nem lehet kikapcsolni az emlékeztetőt. Később kaphat emlékeztetőt."
 
 # 78%
-<<<<<<< HEAD
-#: server/includes/modules/class.resolvenamesmodule.php:344
-#, fuzzy
-=======
 #: server/includes/modules/class.resolvenamesmodule.php:397
->>>>>>> translation/master
 msgid "You have insufficient privileges to perform this action."
 msgstr "Nincs elég jogosultsága a feladat végrehajtásához."
 
