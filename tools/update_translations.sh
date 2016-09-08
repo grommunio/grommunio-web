@@ -9,6 +9,9 @@ update_translations () {
 
 POT_FILE=webapp.pot
 
+# Clean up pot file if script aborted.
+[ -e "$POT_FILE" ] && rm $POT_FILE
+
 # Otherwise xgettext complains
 touch $POT_FILE
 
@@ -25,3 +28,5 @@ for lang in server/language/*.UTF-8/LC_MESSAGES/zarafa_webapp.po; do
   echo $lang
   msgmerge -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
 done
+
+rm $POT_FILE
