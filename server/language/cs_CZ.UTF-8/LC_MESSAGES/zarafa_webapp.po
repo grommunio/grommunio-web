@@ -7350,12 +7350,6 @@ msgid "Sent Items"
 msgstr ""
 
 # 92%
-<<<<<<< HEAD
-#: client/zarafa/Zarafa.js:515
-#, fuzzy
-=======
-#: client/zarafa/Zarafa.js:510
->>>>>>> translation/master
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Odstraněné položky"
