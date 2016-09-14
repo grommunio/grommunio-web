@@ -320,6 +320,7 @@ Ext.MessageBox = Ext.extend(Object, {
 		} else {
 			this.textboxEl.enableDisplayMode();
 			this.textareaEl.enableDisplayMode();
+			this.browserWindowsMessageBox.replace(this.activeWindowName, Ext.copyTo({}, this, this.browserWindowsMessageBoxProps));
 		}
 		return this.dlg;
 	},
