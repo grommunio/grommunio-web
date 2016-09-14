@@ -376,7 +376,7 @@
 				}
 			}
 
-			parent::__construct($e, $actionType, $store, $parententryid, $entryid, $action);
+			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
 		}
 		
 		/**
