@@ -45,6 +45,16 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	isPopupsBlocked : false,
 
 	/**
+	 * An array which contain, component The constructor of the component which has to be created in the container layer and
+	 * config which must be passed to the constructor when creating the component,
+	 * for the popup window which was blocked by the browser.
+	 * @property
+	 * @type Array
+	 * @private
+	 */
+	blockedPopupsContent : [],
+
+	/**
 	 * @constructor
 	 */
 	constructor : function()
@@ -161,7 +171,20 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 		var separateWindowId = separateWindowInstance.name;
 
 		//The constructor of the component which has to be created in the container layer.
-		var browserWindowComponent = this.browserWindowComponents.get(separateWindowId);
+		var browserWindowComponent;
+
+		if (this.browserWindowComponents.containsKey(separateWindowId)) {
+			browserWindowComponent = this.browserWindowComponents.get(separateWindowId);
+		} else if (!Ext.isEmpty(this.blockedPopupsContent)) {
+			// No inner components found for this particular popup window.
+			// This is the situation where some popups were blocked by browser and
+			// user manually allows to load the same.
+			var blockedPopup = this.blockedPopupsContent.pop();
+			this.register(separateWindowInstance, blockedPopup.component, blockedPopup.config);
+			browserWindowComponent = this.browserWindowComponents.get(separateWindowId);
+			this.isPopupsBlocked = false;
+		}
+
 		var component = browserWindowComponent.component;
 
 		//The configuration object
