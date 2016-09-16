@@ -801,12 +801,6 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				if (folderStore) {
 					folderStore.set('content_unread', folder.content_unread);
 					folderStore.set('content_count', folder.content_count);
-
-					if (folderStore.existsInFavorites()) {
-						var favoritesFolder = folderStore.getFavoritesFolder();
-						favoritesFolder.set('content_unread', folder.content_unread);
-						favoritesFolder.set('content_count', folder.content_count);
-					}
 				}
 			}, this);
 		}
