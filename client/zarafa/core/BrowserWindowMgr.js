@@ -168,6 +168,9 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	 */
 	createUI : function(separateWindowInstance)
 	{
+		// Enable tooltips
+		Ext.QuickTips.init();
+
 		var separateWindowId = separateWindowInstance.name;
 
 		//The constructor of the component which has to be created in the container layer.
