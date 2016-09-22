@@ -275,8 +275,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 */
 	ensureFolderVisible : function(folder)
 	{
-		var entryid = folder.get('entryid');
-		var treeNode = this.getNodeById(entryid);
+		var treeNode = this.getTreeNode(folder);
 
 		// If the tree has not been found, take the parent folder.
 		if (!treeNode) {
@@ -295,7 +294,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			parentNode.expand();
 
 			// With luck, the node has now been created.
-			treeNode = this.getNodeById(entryid);
+			treeNode = this.getTreeNode(folder);
 		}
 
 		if (treeNode) {
@@ -305,7 +304,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			treeNode.ensureVisible();
 
 			// Obtain the new treeNode reference, update the UI and return it.
-			treeNode = this.getNodeById(entryid);
+			treeNode = this.getTreeNode(folder);
 			treeNode.update(true);
 			return treeNode;
 		}

@@ -1078,10 +1078,10 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		var grouping = this.model.getGroupings();
 
-		// If we find grouping as an empty object/array, then we need to generate grouping variable again
+		// If we find grouping as an empty object, then we need to generate grouping variable again
 		// As without grouping variable it won't load the calendar views, and sometime groupings are
 		// malformed in settings which will rise this situation
-		if(Ext.isEmpty(grouping)) {
+		if(!Ext.isDefined(grouping) || Object.keys(grouping).length === 0) {
 			this.model.resetGroupings();
 			this.model.applyGrouping();
 			grouping = this.model.getGroupings();
