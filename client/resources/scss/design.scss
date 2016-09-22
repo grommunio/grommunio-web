@@ -9,7 +9,7 @@
 
 @import 'base/_layout';
 
-/* import the components general styles */ 
+/* import the components general styles */
 
 @import 'components/_buttons';
 
@@ -72,3 +72,12 @@
 @import 'components/_tinymce';
 
 @import 'components/_presence';
+
+/*
+ * To make sure that the tinymce skin styling is loaded before the editor
+ * is rendered, we import it ourself so we don't have to wait for the
+ * dynamic loading of it.
+ * This way the toolbar will have the correct height when the editor is
+ * initialized, and the editor will be sized to the correct height.
+ */
+@import '../../tinymce/skins/white/skin.min.css';
