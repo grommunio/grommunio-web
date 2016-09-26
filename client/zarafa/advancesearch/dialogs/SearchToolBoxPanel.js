@@ -303,6 +303,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			items : [{
 				xtype : 'checkboxgroup',
 				columns : 1,
+				ref : '../../searchInCheckboxGroup',
 				hideLabel : true,
 				listeners : {
 					change : this.onSearchInCheckboxChange,
@@ -528,10 +529,26 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			checked = group.items.items;
 		}
 
+		var searchInCheckBox = this.searchInCheckboxGroup.getValue();
+		var searchInCheckBoxFields = [];
+		if (!Ext.isEmpty(searchInCheckBox)) {
+			searchInCheckBox.forEach(function (checkBox) {
+				searchInCheckBoxFields = searchInCheckBoxFields.concat(checkBox.name);
+			}, this);
+		}
+
 		checked.forEach(function(checkBox) {
-				messageClasses = messageClasses.concat(this.getMessageClass(checkBox.name));
+			messageClasses = messageClasses.concat(this.getMessageClass(checkBox.name));
+			// searchInCheckBox has high priority, If any of the checkBox selected from that
+			// then don't add/contact default search fields in searchFields array.
+			if (Ext.isEmpty(searchInCheckBoxFields)) {
 				searchFields = searchFields.concat(Zarafa[checkBox.name].data.SearchFields[0].value.split(' '));
+			}
 		}, this);
+
+		if (!Ext.isEmpty(searchInCheckBoxFields)) {
+			searchFields = searchInCheckBoxFields;
+		}
 
 		this.searchCriteria['message_class'] = messageClasses.filter(onlyUnique);
 		this.searchCriteria['search_fields'] = searchFields.filter(onlyUnique);
