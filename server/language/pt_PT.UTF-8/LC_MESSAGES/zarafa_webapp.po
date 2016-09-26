@@ -1597,7 +1597,7 @@ msgstr "Quando"
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:104
 #: client/zarafa/task/printer/TaskListViewRenderer.js:56
 msgid "l jS F Y G:i"
-msgstr ""
+msgstr "l, j \\de F \\de Y \\à\\s G:i"
 
 #: client/zarafa/calendar/AppointmentRecord.js:330
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:20
@@ -2065,7 +2065,7 @@ msgstr ""
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
 #: client/zarafa/calendar/printer/DaysViewRenderer.js:85
 msgid "jS F Y G:i"
-msgstr ""
+msgstr "j \\de F \\de Y \\à\\s G:i"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
 #: client/zarafa/common/delegates/data/DelegatePermissionProfiles.js:21
@@ -2525,7 +2525,7 @@ msgstr ""
 #: client/zarafa/common/reminder/dialogs/ReminderPanel.js:41
 #: client/zarafa/task/printer/TaskListViewRenderer.js:45
 msgid "l jS F Y"
-msgstr ""
+msgstr "l, j &#100;e F &#100;e Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/printer/WeekViewRenderer.js:78
@@ -2542,7 +2542,7 @@ msgstr ""
 #: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:104
 #: client/zarafa/calendar/ui/AbstractCalendarDaysView.js:49
 msgid "l jS F"
-msgstr ""
+msgstr "l, j \\de F"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:60
 msgid "General calendar settings"
@@ -2669,7 +2669,7 @@ msgstr ""
 #: client/zarafa/calendar/ui/canvas/CalendarBoxView.js:371
 #: client/zarafa/core/DateRange.js:628
 msgid "jS"
-msgstr ""
+msgstr "j"
 
 #: client/zarafa/calendar/ui/AbstractCalendarView.js:1684
 #: client/zarafa/common/ui/DraggableDataView.js:149
@@ -2887,7 +2887,7 @@ msgstr "Compromisso reincidente"
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/CalendarPanel.js:130
 msgid "jS F G:i"
-msgstr ""
+msgstr "j \\de F \\de Y \\à\\s G:i"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/CalendarPanel.js:140
@@ -2896,7 +2896,7 @@ msgstr ""
 #: client/zarafa/contact/printer/ContactRenderer.js:56
 #: client/zarafa/core/DateRange.js:614 client/zarafa/core/DateRange.js:634
 msgid "jS F Y"
-msgstr ""
+msgstr "j F Y"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:591
 msgid "The time of the meeting has changed. Choose one of the following:"
@@ -5614,7 +5614,7 @@ msgstr "em nome e interesse de"
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/core/DateRange.js:621
 msgid "jS F"
-msgstr ""
+msgstr "j F"
 
 #: client/zarafa/core/DateRange.js:621
 msgid "Y"
