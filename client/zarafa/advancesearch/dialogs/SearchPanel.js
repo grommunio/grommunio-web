@@ -361,6 +361,15 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			rightToolbar.replyAllBtn.setVisible(!isFaultyMessage && isMessageReplyable);
 			rightToolbar.forwardBtn.setVisible(!isFaultyMessage && isMessageReplyable);
 
+			// Currently pop-out functionality is not available for
+			// contact, sticky note, distribution list, appointment and task
+			// So disable showing popout button in search results preview panel for those context item
+			// TODO Remove when we support popout for all context
+			if (Zarafa.supportsPopOut()) {
+				var isSupportPopout = Zarafa.core.MessageClass.isClass(record.get('message_class'), ['IPM.NOTE', 'REPORT.IPM.Note', 'IPM.Schedule.Meeting'], true);
+				rightToolbar.popoutBtn.setVisible(isSupportPopout);
+			}
+
 			// Only show the "Edit as New Message" button in the toolbar when the item is in the Sent folder
 			var defaultFolder = SearchResultPreviewPanel.model.getDefaultFolder();
 			rightToolbar.editAsNewBtn.setVisible(defaultFolder.getDefaultFolderKey() === 'sent' && !isFaultyMessage && isMessageReplyable);

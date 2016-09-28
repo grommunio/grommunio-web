@@ -69,6 +69,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				tooltip: _('Open in new browser window'),
 				overflowText: _('Pop-Out'),
 				iconCls: 'icon_popout',
+				ref: 'popoutBtn',
 				nonEmptySelectOnly: true,
 				handler: this.onPopout,
 				model: model
