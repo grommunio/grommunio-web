@@ -47,10 +47,13 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		};
 
 		var fontSizes = Zarafa.common.ui.htmleditor.Fonts.getFonts();
+		// To understand the sorting of the keys, please read the
+		// comment in Zarafa.common.ui.htmleditor.Fonts.getFonts
+		var fontSizesKeys = Object.keys(fontSizes).sort();
 		var fontSizeData = [];
-		for (var key in fontSizes) {
+		Ext.each(fontSizesKeys, function(key){
 			fontSizeData.push({'name' : fontSizes[key] + 'pt', 'value' : key });
-		}
+		});
 
 		var fontSizeStore = {
 			xtype : 'jsonstore',
