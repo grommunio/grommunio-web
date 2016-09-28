@@ -93,6 +93,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				skin: 'white',
 				// Set our own class on anchor's to override TinyMCE's default anchor class.
 				visual_anchor_class : 'zarafa_tinymce_anchor',
+				relative_urls : false,
+				remove_script_host : false,
 				/*
 				 * Using capital latter because value of forced_root_block config option used to compare
 				 * node name at many places in tinymce library(specially in createNewTextBlock function
