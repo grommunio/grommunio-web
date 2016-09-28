@@ -37,4 +37,7 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 },{
 	name : _('has my name in the To or Cc field'),
 	value : Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC
+},{
+	name : _('has sensitivity'),
+	value : Zarafa.common.rules.data.ConditionFlags.SENSITIVITY
 }];

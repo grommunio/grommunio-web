@@ -157,6 +157,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.nametocclink',
 			id : baseId + '-name-to-cc'
+		},{
+			xtype : 'zarafa.sensitivitylink',
+			id : baseId + '-sensitivity'
 		}];
 	},
 
@@ -374,6 +377,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.IMPORTANCE:
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM:
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
+			case Zarafa.common.rules.data.ConditionFlags.SENSITIVITY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
@@ -421,6 +425,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 						return Zarafa.common.rules.data.ConditionFlags.ATTACHMENT;
 					case 'PR_MESSAGE_RECIP_ME':
 						return Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC;
+					case 'PR_SENSITIVITY':
+						return Zarafa.common.rules.data.ConditionFlags.SENSITIVITY;
 					default:
 						return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 				}
@@ -509,6 +515,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.ATTACHMENT:
 				layout.setActiveItem(panel.id + '-attachment');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.SENSITIVITY:
+				layout.setActiveItem(panel.id + '-sensitivity');
 				layout.activeItem.setCondition(value);
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
