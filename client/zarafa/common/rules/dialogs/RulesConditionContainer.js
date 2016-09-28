@@ -147,6 +147,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			id : baseId + '-to'
 		},{
 			xtype : 'zarafa.senttomelink',
+			id : baseId + '-to-me-only'
+		},{
+			xtype : 'zarafa.senttolink',
 			id : baseId + '-to-me'
 		},{
 			xtype : 'zarafa.attachmentlink',
@@ -324,8 +327,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			// condition or not.
 			for (var i = 0, len = conditions[1].length; i < len; i++) {
 				var sub = conditions[1][i];
-				if (sub && sub[0] === Zarafa.core.mapi.Restrictions.RES_PROPERTY &&
-					sub[1][Zarafa.core.mapi.Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME') {
+				if (sub && sub[1].length === 3 && 
+				sub[1][Zarafa.core.mapi.Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME') {
 					single = true;
 					break;
 				}
@@ -387,6 +390,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.SENSITIVITY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
+			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
 				layout.activeItem.setCondition(conditionFlag, condition);
@@ -427,6 +431,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 						return Zarafa.common.rules.data.ConditionFlags.IMPORTANCE;
 					case 'PR_MESSAGE_RECIPIENTS':
 						return Zarafa.common.rules.data.ConditionFlags.SENT_TO;
+					case 'PR_MESSAGE_TO_ME':
+						return Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME;
 					case 'PR_SENDER_SEARCH_KEY':
 						return Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS;
 					case 'PR_MESSAGE_FLAGS':
@@ -525,6 +531,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				layout.activeItem.setCondition(value);
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
+				layout.setActiveItem(panel.id + '-to-me-only');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME:
 				layout.setActiveItem(panel.id + '-to-me');
 				layout.activeItem.setCondition(value);
 				break;

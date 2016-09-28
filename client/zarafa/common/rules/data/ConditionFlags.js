@@ -84,6 +84,13 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	SENSITIVITY : 10,
 
 	/**
+	 * Indicates that the condition checks if the user is in the To field
+	 * @property
+	 * @type Number
+	 */
+	SENT_TO_ME : 11,
+
+	/**
 	 * Indicates that the condition checks if the message has my name in the Cc field
 	 * @property
 	 * @type Number
