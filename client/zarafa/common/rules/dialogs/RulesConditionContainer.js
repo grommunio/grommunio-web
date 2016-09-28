@@ -151,6 +151,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.attachmentlink',
 			id : baseId + '-attachment'
+		},{
+			xtype : 'zarafa.sentccmelink',
+			id : baseId + '-cc-me'
 		}];
 	},
 
@@ -370,6 +373,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
+			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
 				layout.activeItem.setCondition(conditionFlag, condition);
 				break;
 		}
@@ -420,6 +424,11 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				for (var i = 0, len = condition[1].length; i < len; i++) {
 					var sub = condition[1][i];
 
+					// PR_MESSAGE_CC_ME is only used in the SENT_CC_ME restriction for now
+					if (sub[0] === Restrictions.RES_PROPERTY &&
+					    sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_CC_ME') {
+						return Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME;
+					}
 					// Check if the RES_AND contains the restriction for PR_MESSAGE_TO_ME,
 					// this indicates that this restriction is the SENT_TO_ME_ONLY condition
 					if (sub[0] === Restrictions.RES_PROPERTY &&
@@ -495,6 +504,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.ATTACHMENT:
 				layout.setActiveItem(panel.id + '-attachment');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
+				layout.setActiveItem(panel.id + '-cc-me');
 				layout.activeItem.setCondition(value);
 				break;
 		}

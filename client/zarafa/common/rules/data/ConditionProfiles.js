@@ -31,4 +31,7 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 },{
 	name : _('is sent only to me'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY
+},{
+	name : _('has my name in the Cc field'),
+	value : Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME
 }];
