@@ -148,6 +148,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.senttomelink',
 			id : baseId + '-to-me'
+		},{
+			xtype : 'zarafa.attachmentlink',
+			id : baseId + '-attachment'
 		}];
 	},
 
@@ -395,6 +398,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Restrictions.RES_CONTENT:
 			case Restrictions.RES_PROPERTY:
 			case Restrictions.RES_SUBRESTRICTION:
+			case Restrictions.RES_BITMASK:
 				switch (condition[1][Restrictions.ULPROPTAG]) {
 					case 'PR_BODY':
 						return Zarafa.common.rules.data.ConditionFlags.BODY_WORDS;
@@ -406,6 +410,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 						return Zarafa.common.rules.data.ConditionFlags.SENT_TO;
 					case 'PR_SENDER_SEARCH_KEY':
 						return Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS;
+					case 'PR_MESSAGE_FLAGS':
+						return Zarafa.common.rules.data.ConditionFlags.ATTACHMENT;
 					default:
 						return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 				}
@@ -485,6 +491,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
 				layout.setActiveItem(panel.id + '-to-me');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.ATTACHMENT:
+				layout.setActiveItem(panel.id + '-attachment');
 				layout.activeItem.setCondition(value);
 				break;
 		}

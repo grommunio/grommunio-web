@@ -67,5 +67,12 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	SENT_TO_ME_ONLY : 8
+	SENT_TO_ME_ONLY : 8,
+
+	/**
+	 * Indicates that the condition checks if the message has an attachment
+	 * @property
+	 * @type Number
+	 */
+	ATTACHMENT : 9
 });

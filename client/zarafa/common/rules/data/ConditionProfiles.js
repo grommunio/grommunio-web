@@ -23,6 +23,9 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 	name : _('has importance ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.IMPORTANCE
 },{
+	name : _('has an attachment'),
+	value : Zarafa.common.rules.data.ConditionFlags.ATTACHMENT
+},{
 	name : _('is sent to ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENT_TO
 },{
