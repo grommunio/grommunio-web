@@ -154,6 +154,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.sentccmelink',
 			id : baseId + '-cc-me'
+		},{
+			xtype : 'zarafa.nametocclink',
+			id : baseId + '-name-to-cc'
 		}];
 	},
 
@@ -416,6 +419,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 						return Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS;
 					case 'PR_MESSAGE_FLAGS':
 						return Zarafa.common.rules.data.ConditionFlags.ATTACHMENT;
+					case 'PR_MESSAGE_RECIP_ME':
+						return Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC;
 					default:
 						return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 				}
@@ -508,6 +513,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
 				layout.setActiveItem(panel.id + '-cc-me');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC:
+				layout.setActiveItem(panel.id + '-name-to-cc');
 				layout.activeItem.setCondition(value);
 				break;
 		}
