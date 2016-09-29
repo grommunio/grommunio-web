@@ -27,6 +27,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} the base url of the WebApp
+	 */
+	getBaseUrl : function()
+	{
+		return this.meta.base_url;
+	},
+
+	/**
 	 * @return {Boolean} True if Plugins are enabled
 	 */
 	isPluginsEnabled : function()

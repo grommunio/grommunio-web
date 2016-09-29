@@ -47,6 +47,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	{
 		config = config || {};
 
+		var baseUrl = container.getServerConfig().getBaseUrl();
+		var lang = container.getSettingsModel().get('zarafa/v1/main/language', true);
+		var tinyLanguageCode = Zarafa.common.ui.htmleditor.LanguageMap.getTinyLanguageCode(lang);
+
 		// Get supported font families and sizes
 		var fontSizes = Zarafa.common.ui.htmleditor.Fonts.getFontSizeString();
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
@@ -80,6 +84,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				valid_children : '+body[style]',
 				font_formats : fontFamilies,
 				fontsize_formats: fontSizes,
+				language: tinyLanguageCode,
+				language_url: baseUrl + 'client/tinymce-languages/'+tinyLanguageCode+'.js',
 				browser_spellcheck : true,
 				menubar : false,
 				statusbar : false,
