@@ -22,9 +22,9 @@
 		var $start;
 		
 		/**
-		 * @var array contains (when needed) a restriction used when searching
+		 * @var array contains (when needed) a restriction used when searching and filtering the records
 		 */
-		var $searchRestriction;
+		var $restriction;
 
 		/**
 		 * @var bool contains check whether a search result is listed or just the contents of a normal folder
@@ -64,7 +64,7 @@
 		{
 			$this->start = 0;
 			
-			$this->searchRestriction = false;
+			$this->restriction = false;
 			$this->searchFolderList = false;
 			$this->localFreeBusyFolder = false;
 			$this->storeProviderGuid = false;
@@ -149,7 +149,7 @@
 
 			if($store && $entryid) {
 				// Restriction
-				$this->parseSearchRestriction($action);
+				$this->parseRestriction($action);
 
 				// Sort
 				$this->parseSortOrder($action, null, true);
@@ -163,7 +163,7 @@
 				$entryid = $isSearchFolder ? hex2bin($action['search_folder_entryid']) : $entryid;
 
 				// Get the table and merge the arrays
-				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->searchRestriction);
+				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
 
 
 				// If the request come from search folder then no need to send folder information
@@ -231,11 +231,11 @@
 			}
 
 			$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
-			$this->searchRestriction = false;
+			$this->restriction = false;
 
 			// Parse Restriction
-			$this->parseSearchRestriction($action);
-			if($this->searchRestriction == false) {
+			$this->parseRestriction($action);
+			if($this->restriction == false) {
 				// if error in creating restriction then send error to client
 				$errorInfo = array();
 				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
@@ -274,7 +274,7 @@
 			$searchFolderEntryId = $this->sessionData['searchFolderEntryId'];
 
 			// check if searchcriteria has changed
-			$restrictionCheck = md5(serialize($this->searchRestriction) . $searchFolderEntryId . $subfolder_flag);
+			$restrictionCheck = md5(serialize($this->restriction) . $searchFolderEntryId . $subfolder_flag);
 
 			// check if there is need to set searchcriteria again
 			if(!isset($this->sessionData['searchCriteriaCheck']) || $restrictionCheck != $this->sessionData['searchCriteriaCheck']) {
@@ -292,7 +292,7 @@
 					}
 				}
 
-				mapi_folder_setsearchcriteria($searchFolder, $this->searchRestriction, $entryids, $subfolder_flag);
+				mapi_folder_setsearchcriteria($searchFolder, $this->restriction, $entryids, $subfolder_flag);
 				$this->sessionData['searchCriteriaCheck'] = $restrictionCheck;
 			}
 
@@ -300,7 +300,7 @@
 				$folderEntryid = bin2hex($entryid);
 				if($this->sessionData['searchOriginalEntryids'][0] !== $folderEntryid) {
 					$this->sessionData['searchOriginalEntryids'][0] = $folderEntryid;
-					mapi_folder_setsearchcriteria($searchFolder, $this->searchRestriction, array($entryid), $subfolder_flag);
+					mapi_folder_setsearchcriteria($searchFolder, $this->restriction, array($entryid), $subfolder_flag);
 				}
 			}
 
@@ -671,22 +671,28 @@
 		}
 
 		/**
-		 *	Function will create search restriction based on restriction array.
-		 *	@param		object		$action		the action data, sent by the client
+		 *	Function will create restriction based on restriction array.
+		 *	@param	object		$action		the action data, sent by the client
 		 */
-		function parseSearchRestriction($action)
+		function parseRestriction($action)
 		{
 			if(isset($action["restriction"])) {
 				if(isset($action["restriction"]["start"])) {
 					// Set start variable
 					$this->start = $action["restriction"]["start"];
 				}
-
-				if(!empty($action["restriction"]["search"])) {
-					$props = array_merge($this->properties, array('body' => PR_BODY));
-					$this->searchRestriction = Conversion::json2restriction($props, $action["restriction"]["search"]);
-				} else {
-					$this->searchRestriction = false;
+				foreach ($action["restriction"] as $key => $value) {
+					$props = $this->properties;
+					if (!empty($value)) {
+						switch ($key) {
+							case "search":
+								$props = array_merge($this->properties, array('body' => PR_BODY));
+							case "task":
+							case "note":
+								$this->restriction = Conversion::json2restriction($props, $value);
+								break;
+						}
+					}
 				}
 			}
 		}

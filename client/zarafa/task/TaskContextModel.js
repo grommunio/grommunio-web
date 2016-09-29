@@ -79,6 +79,7 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if (newMode !== oldMode && oldMode === Zarafa.task.data.DataModes.SEARCH) {
 			this.stopSearch();
 		}
+		var restriction = [];
 
 		// also reload the store
 		switch (newMode) {
@@ -87,39 +88,49 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				break;
 			case Zarafa.task.data.DataModes.ALL:
 				this.store.clearFilter();
-				this.load();
 				break;
 			case Zarafa.task.data.DataModes.ACTIVE:
-				this.store.filterBy(function (record) {
-					return (record.get('status') != Zarafa.core.mapi.TaskStatus.COMPLETE);
-				}, this);
-				this.load();
+				restriction = this.prepareRestriction('complete','RELOP_EQ',false);
 				break;
 			case Zarafa.task.data.DataModes.NEXT_7_DAYS:
 				var currentDay = new Date().clearTime();
-				var next7Day = currentDay.clone().add(Date.DAY, 7);
-
-				this.store.filterBy(function (record) {
-					var dueDate = record.get('duedate');
-					return (dueDate > currentDay && dueDate < next7Day);
-				}, this);
-				this.load();
+				var nextSevenDay = currentDay.clone().add(Date.DAY, 7);
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_GT',currentDay.getTime() / 1000),
+					this.prepareRestriction('duedate','RELOP_LT',nextSevenDay.getTime() / 1000)
+				]);
 				break;
 			case Zarafa.task.data.DataModes.OVERDUE:
 				var currentDay = new Date().clearTime();
-
-				this.store.filterBy(function (record) {
-					return (record.get('duedate') < currentDay && !record.get('complete'));
-				}, this);
-				this.load();
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_LT',currentDay.getTime() / 1000),
+					this.prepareRestriction('complete','RELOP_EQ',false)
+				]);
 				break;
 			case Zarafa.task.data.DataModes.COMPLETED:
-				this.store.filterBy(function (record) {
-					return record.get('complete');
-				}, this);
-				this.load();
+				restriction = this.prepareRestriction('complete','RELOP_EQ',true);
 				break;
 		}
+		this.load({
+			params : {
+				restriction : {
+					task : restriction
+				}
+			}
+		});
+	},
+
+	/**
+	 * Function is use to prepare data restriction which is used to check value of properties using logical operators
+	 *
+	 * @param {String} property whose value should be checked.
+	 * @param {Number} operator relational operator that will be used for comparison.
+	 * @param {Mixed} value that should be used for checking.
+	 * @returns {Array} restriction.
+     */
+	prepareRestriction : function (property,operator,value)
+	{
+		return  Zarafa.core.data.RestrictionFactory.dataResProperty(property, Zarafa.core.mapi.Restrictions[operator], value);
 	},
 
 	/**

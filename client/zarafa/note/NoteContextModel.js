@@ -89,12 +89,19 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				// calling Date.add(Date.DAY, ...) when the DST
 				// switch is at 00:00 like in Brasil.
 				now.setHours(12);
-				var last7Day = now.add(Date.DAY, -7).clearTime();
+				var lastSevenDay = (now.add(Date.DAY, -7).clearTime()).getTime() / 1000;
 
-				this.store.filterBy(function (record) {
-					return (record.get('last_modification_time') > last7Day);
-				}, this);
-				this.load();
+				this.load({
+					params : {
+						restriction : {
+							note : Zarafa.core.data.RestrictionFactory.dataResProperty(
+								'last_modification_time',
+								Zarafa.core.mapi.Restrictions.RELOP_GT,
+								lastSevenDay
+							)
+						}
+					}
+				});
 				break;
 		}
 	},
