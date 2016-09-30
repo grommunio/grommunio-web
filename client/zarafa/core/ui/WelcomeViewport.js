@@ -95,10 +95,19 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 		var model = container.getSettingsModel();
 
 		model.beginEdit();
+
 		// Load settings from UI
 		this.settingsCategory.updateSettings(model);
+
 		// Disable the welcome message for next logon
 		model.set('zarafa/v1/main/show_welcome', false);
+
+		// set the default keyboard controls to 'basic'
+		// We must do this explicitly because there is some logic
+		// for backward compatibility that will assume 'disabled'
+		// when no keycontrols are set.
+		model.set('zarafa/v1/main/keycontrols', 'basic');
+
 		model.endEdit();
 
 		// Register event listener, so we can redirect the user
