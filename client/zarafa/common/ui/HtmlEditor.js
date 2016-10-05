@@ -48,13 +48,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		config = config || {};
 
 		// Get supported font families and sizes
-		var fontSizes = Zarafa.common.ui.htmleditor.Fonts.getFonts();
+		var fontSizes = Zarafa.common.ui.htmleditor.Fonts.getFontSizeString();
 		var fontFamilies = Zarafa.common.ui.htmleditor.Fonts.getFontFamilies();
-
-		var fontSizesAsString = "";
-		for(var key in fontSizes) {
-			fontSizesAsString += fontSizes[key] + "pt,";
-		}
 
 		var powerpasteConfig = container.getServerConfig().getPowerpasteConfig();
 
@@ -84,8 +79,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				remove_trailing_brs: false,
 				valid_children : '+body[style]',
 				font_formats : fontFamilies,
-				theme_advanced_font_sizes: fontSizesAsString,
-				font_size_style_values: fontSizesAsString,
+				fontsize_formats: fontSizes,
 				browser_spellcheck : true,
 				menubar : false,
 				statusbar : false,
