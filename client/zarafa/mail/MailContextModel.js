@@ -173,8 +173,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 					sourceMessageAction = "0601000068000000";
 				break;
 		}
-		var sourceMessageInfo = "01000E000C000000" + sourceMessageAction + "0200000030000000" + record.get('entryid');
-		responseRecord.set('source_message_info', sourceMessageInfo);
+		if (sourceMessageAction) {
+			var sourceMessageInfo = "01000E000C000000" + sourceMessageAction + "0200000030000000" + record.get('entryid');
+			responseRecord.set('source_message_info', sourceMessageInfo);
+		}
 	},
 
 	/**
