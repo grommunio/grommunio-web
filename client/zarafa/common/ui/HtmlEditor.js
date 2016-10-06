@@ -618,7 +618,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		 * HACK: Prevent the tab event to stop moving focus out of the editor.
 		 * Instead of that, Insert four spaces while user presses TAB key.
 		 */
-		if (event.keyCode === Ext.EventObject.TAB) {
+		if ( event.keyCode === Ext.EventObject.TAB && !event.shiftKey ) {
 			var listElement = editor.dom.getParent(editor.selection.getStart(), 'LI,DT,DD');
 
 			// check if cursor is not pointing to any list element to allow increase/decrease
