@@ -96,7 +96,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type String
 							 */
-							'keycontrols': Zarafa.settings.data.KeyboardSettings.NO_KEYBOARD_SHORTCUTS,
+							'keycontrols': Zarafa.settings.data.KeyboardSettings.BASIC_KEYBOARD_SHORTCUTS,
 
 							/**
 							 * zarafa/v1/main/page_size
