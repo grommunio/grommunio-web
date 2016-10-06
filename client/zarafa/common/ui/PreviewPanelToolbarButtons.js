@@ -97,15 +97,42 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			}, {
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
+				ref: 'editAsNew',
 				model: model,
 				handler: this.onEditAsNewMessage
 			}, {
 				text: _('Download'),
 				iconCls: 'icon_saveaseml',
+				ref: 'download',
 				model: model,
 				handler: this.onDownloadMail
-			}]
+			}],
+			listeners: {
+				beforeshow: this.onBeforeShowMoreMenu,
+				scope: this
+			}
 		};
+	},
+
+	/**
+	 * Handler for the beforeshow event of the {#moreMenuButtons more menu}. Will
+	 * hide the Download and Edit-As-New buttons for any item that isn't a mail
+	 * item.
+	 */
+	onBeforeShowMoreMenu : function(menu)
+	{
+		// A bit of a cumbersome way to get the record in the
+		// search preview panel, but we will get it from the
+		// zarafa.searchtoolbarpanel that has the preview
+		// menubar that shows the menu.
+		// Note that this menu is used for both the mail preview
+		// panel as the advanced search preview panel.
+		var record = menu.ownerCt.ownerCt.ownerCt.record;
+
+		// Show the editAsNew and download buttons only for mail items
+		var defaultFolderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class'));
+		menu.editAsNew.setVisible(defaultFolderType === 'inbox');
+		menu.download.setVisible(defaultFolderType === 'inbox');
 	},
 
 	/**
