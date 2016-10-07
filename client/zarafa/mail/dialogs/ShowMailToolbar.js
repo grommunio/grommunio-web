@@ -207,6 +207,11 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		return {
 			xtype: 'menu',
 			items: [{
+				text: _('Copy/Move'),
+				iconCls: 'icon_copy',
+				handler: this.onCopyMove,
+				scope: scope
+			}, {
 				text: _('Print'),
 				iconCls: 'icon_print',
 				handler: this.onPrintButton,
@@ -265,6 +270,16 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	onDeleteButton : function(button)
 	{
 		this.dialog.deleteRecord();
+	},
+
+	/**
+	 * Open the {@link Zarafa.common.dialogs.CopyMoveContent CopyMoveContent} for copying
+	 * or moving the given record.
+	 * @private
+	 */
+	onCopyMove : function()
+	{
+		Zarafa.common.Actions.openCopyMoveContent(this.record);
 	},
 
 	/**
