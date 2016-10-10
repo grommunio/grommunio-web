@@ -95,6 +95,11 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				model: model,
 				handler: this.onCopyMove
 			}, {
+				text : _('Print'),
+				iconCls : 'icon_print',
+				model: model,
+				handler : this.onPrintButton
+			}, {
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
 				ref: 'editAsNew',
@@ -181,5 +186,16 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	onDownloadMail : function()
 	{
 		Zarafa.common.Actions.openSaveEmlDialog(this.model.getPreviewRecord());
+	},
+
+	/**
+	 * Event handler when the "Print" button has been pressed.
+	 * This will call the {@link Zarafa.common.Actions#openPrintDialog}.
+	 *
+	 * @private
+	 */
+	onPrintButton : function()
+	{
+		Zarafa.common.Actions.openPrintDialog(this.model.getPreviewRecord());
 	}
 });
