@@ -368,9 +368,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 */
 	addActionItems : function()
 	{
-		var menuItems = [];
-
-		menuItems.push({
+		var menuItems = [{
 			xtype: 'button',
 			id: 'zarafa-maintoolbar-addressbook',
 			scale: 'large',
@@ -379,9 +377,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			iconCls: 'icon_addressbook',
 			handler : this.onAddressBook,
 			scope: this
-		});
-
-		menuItems.push({
+		},{
 			xtype: 'button',
 			id: 'zarafa-maintoolbar-refresh',
 			scale: 'large',
@@ -396,17 +392,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 				render: this.onRenderRefreshButton,
 				scope: this
 			}
-		});
-
-		menuItems.push({
-			//advanced find button, hide this as this functionality is still not implemented, so hide this button
-			hidden: true,
-			xtype: 'button',
-			scale: this.enableSearchButton ? 'small' : 'large',
-			text: _('Advanced find'),
-			overflowText: _('Advanced find'),
-			iconCls: 'icon_advanced_find'
-		});
+		}];
 
 		this.addItems(menuItems, 'main.toolbar.actions');
 	},

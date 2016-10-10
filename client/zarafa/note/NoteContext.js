@@ -363,29 +363,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			valueDataMode : Zarafa.note.data.DataModes.LAST_7_DAYS,
 			handler : this.onContextSelectView,
 			scope : this
-		}/*,{
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-notes-listbycategory',
-			text: _('List By Category'),
-			overflowText: _('List By Category'),
-			iconCls: 'note_list_view',
-			valueView : Zarafa.note.data.Views.LIST,
-			valueViewMode : Zarafa.note.data.ViewModes.GROUP_CATEGORY,
-			valueDataMode : Zarafa.note.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		},{
-			// TODO: functionality is not completely implemented
-			id: 'zarafa-maintoolbar-view-notes-listbycolor',
-			text: _('List By Color'),
-			overflowText: _('List By Color'),
-			iconCls: 'note_list_view',
-			valueView : Zarafa.note.data.Views.LIST,
-			valueViewMode : Zarafa.note.data.ViewModes.GROUP_COLOR,
-			valueDataMode : Zarafa.note.data.DataModes.ALL,
-			handler : this.onContextSelectView,
-			scope : this
-		}*/];
+		}];
 
 		return defaultItems.concat(items);
 	},

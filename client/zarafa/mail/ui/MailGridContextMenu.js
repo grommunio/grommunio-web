@@ -103,8 +103,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			handler: this.onCopyMove,
 			scope: this
 		},{
-			//Print button, hide this as this functionality is still not implemented, so hide this button
-			hidden: false,
 			xtype: 'zarafa.conditionalitem',
 			text : _('Print'),
 			iconCls : 'icon_print',

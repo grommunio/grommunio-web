@@ -57,16 +57,6 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 				Zarafa.task.Actions.openTaskContent(this.records);
 			},
 			scope: this
-		},{
-			//Print button, hide this as this functionality is still not implemented, so hide this button
-			hidden: true,
-			xtype: 'zarafa.conditionalitem',
-			text : _('Print'),
-			iconCls : 'icon_print',
-			handler: function() {
-				Zarafa.common.Actions.openPrintDialog(this.records);
-			},
-			scope: this
 		}];
 	},
 

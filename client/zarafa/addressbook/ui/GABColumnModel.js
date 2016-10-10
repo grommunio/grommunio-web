@@ -72,7 +72,6 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			dataIndex : 'smtp_address',
 			header : _('Email Address'),
 			sortable : true,
-			hidden: false,
 			tooltip: _('Sort by: Email Address'),
 			renderer : Ext.util.Format.htmlEncode,
 			width: 150

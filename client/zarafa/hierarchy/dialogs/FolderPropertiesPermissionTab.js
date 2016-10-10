@@ -179,7 +179,6 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			ref : 'permissionsForm',
 			items : [{
 				xtype : 'fieldset',
-//				title : _('Permissions'),
 				autoHeight : true,
 				autoWidth : true,
 				cls : 'zarafa-fieldset',
