@@ -13,20 +13,20 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @cfg {Ext.Template/String} activeReminderTemplate The template or template string which
-	 * must be applied to the {@link Zarafa.common.reminder.dialogs.ReminderPanel #activeReminder} to build selected reminder info when the 
-	 * {@link Zarafa.common.reminder.data.ReminderRecord record} has been {@link #update updated}. 
+	 * must be applied to the {@link Zarafa.common.reminder.dialogs.ReminderPanel #activeReminder} to build selected reminder info when the
+	 * {@link Zarafa.common.reminder.data.ReminderRecord record} has been {@link #update updated}.
 	 * The arguments of this template will be the {@link Zarafa.common.reminder.data.ReminderRecord#data record.data} field.
 	 */
-	activeReminderTemplate : 
+	activeReminderTemplate :
 		'<tpl>' +
 			'<div>'+
 				'<span class="zarafa-reminder-dialog-active-reminder-icon {[Zarafa.common.ui.IconClass.getIconClassFromMessageClass(false, values.message_class)]}"></span>'+
 				'<span class="zarafa-reminder-dialog-active-reminder-subject">' +
-					'<tpl if="!Ext.isEmpty(values.subject)">' + 
+					'<tpl if="!Ext.isEmpty(values.subject)">' +
 						// @FIXME this should be changed to truncate strings based on dialog width
 						'{values.subject:htmlEncodeEllipsis(60)}'+
 					'</tpl>' +
-					'<tpl if="Ext.isEmpty(values.subject)">' + 
+					'<tpl if="Ext.isEmpty(values.subject)">' +
 						'&nbsp;'+
 					'</tpl>' +
 				'</span>'+
@@ -95,7 +95,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 			});
 		}
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel panel} containing the information about active/selected reminder
 	 * and some extra information about it.
@@ -112,7 +112,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 			height : 40
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Zarafa.common.reminder.dialogs.ReminderGrid ReminderGrid} object.
 	 * @param {Zarafa.common.reminder.ReminderStore} store reminder store.
@@ -129,7 +129,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 			flex : 2
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel Panel} containing the form button fields
 	 * which performs different action on selected reminders
@@ -162,7 +162,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 			}]
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel Panel} containing the form snooze button fields
 	 * which will set the snoozing time for selected reminders
@@ -174,7 +174,9 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 		var reminderStore = {
 			xtype: 'jsonstore',
 			fields: ['name', 'value'],
-			data : Zarafa.calendar.data.ReminderPeriods
+			// Remove the first value of the ReminderPeriods array because
+			// we don't need to snooze with a period of 0 minutes.
+			data : Zarafa.calendar.data.ReminderPeriods.slice(1)
 		};
 
 		return{
@@ -234,7 +236,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 	initEvents : function()
 	{
 		Zarafa.common.reminder.dialogs.ReminderPanel.superclass.initEvents.call(this);
-	
+
 		this.mon(this.reminderGridView, 'viewready', this.onViewReady, this);
 		this.mon(this.reminderGridView.getSelectionModel(), 'selectionchange', this.onSelectionChange, this);
 		this.mon(this.reminderGridView.getSelectionModel(), 'selectionchange', this.toggleFields, this);
@@ -286,7 +288,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler which is triggered when the {@link Zarafa.common.reminder.dialogs.ReminderGrid grid}
 	 * {@link Zarafa.core.data.IPMRecord record} selection is changed.
-	 * 
+	 *
 	 * Function will disable buttons if there isn't any reminder selected.
 	 * @private
 	 */
@@ -310,7 +312,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 		// @FIXME this should be done on store events instead of here
 		this.dismissAllButton.setDisabled(reminderCount <= 0);
 	},
-	
+
 	/**
 	 * Function will send request to dismiss all reminder present at the given time.
 	 * @param {Ext.Button} button button object.
@@ -359,7 +361,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 			this.dialog.close();
 		}
 	},
-	
+
 	/**
 	 * Function will set the snooze timing for selected reminders
 	 * @param {Ext.Button} button button object.
