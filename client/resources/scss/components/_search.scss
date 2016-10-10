@@ -254,6 +254,10 @@
 	}
 }
 
+.zarafa-search-previewpanel-toolbar {
+	margin-left: $padding-small + 2;
+}
+
 /* Input field loading mask */
 .zarafa-searchfield.zarafa-tbar-loading {
 	background-image: url(../images/loading.gif);
