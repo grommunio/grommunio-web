@@ -220,7 +220,7 @@
 
 			// Get the 'Kopano Contact Folders'
 			$hierarchyTable = mapi_folder_gethierarchytable($abRootContainer, MAPI_DEFERRED_ERRORS);
-			$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, array(PR_DISPLAY_NAME, PR_AB_PROVIDER_ID, PR_ENTRYID));
+			$abHierarchyRows = mapi_table_queryallrows($hierarchyTable, array(PR_AB_PROVIDER_ID, PR_ENTRYID));
 
 			// Look for the 'Kopano Contacts Folders'
 			for($i=0,$len=count($abHierarchyRows);$i<$len;$i++){
