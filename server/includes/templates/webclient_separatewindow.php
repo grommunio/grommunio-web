@@ -12,7 +12,7 @@ $version = trim(file_get_contents('version'));
 <html>
 
 	<head>
-		<meta name="Generator" content="Zarafa WebApp v<?php echo $version?>">
+		<meta name="Generator" content="Kopano WebApp v<?php echo $version?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Kopano WebApp</title>
