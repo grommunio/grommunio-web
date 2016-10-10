@@ -82,7 +82,6 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			}],
 			buttons : [{
 				text : _('Add'),
-				ref : '../../addUserBtn',
 				handler : this.onUserAdd,
 				scope : this,
 				autoWidth : false
@@ -124,15 +123,13 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 						columns : 2
 					},
 					border : false,
-					ref : '../profileForm',
 					items : [{
 						xtype : 'label',
 						autoWidth : true,
 						autoHeight : true,
 						forId : 'profile-combo',
 						hideLabel : false,
-						text : _('Profile') + ':',
-						ref : '../../profileLabel'
+						text : _('Profile') + ':'
 					},{
 						xtype : 'combo',
 						ref : '../../../profileCombo',

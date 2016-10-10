@@ -78,7 +78,6 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 					}, {
 						xtype : 'button',
 						text : _('Cancel'),
-						ref : '../../cancelButton',
 						handler : this.onCancel,
 						scope : this
 					}, {
