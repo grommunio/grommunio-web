@@ -102,6 +102,12 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 
 		componentInstance.on('close', this.onSeparateWindowClose.createDelegate(this, [ browserWindowObject ]));
 
+		// Check the record has unsaved user changes before popout
+		// If true then update the record component plugin value
+		if(componentInstance.isRecordChangeByUser){
+			componentInstance.on('userupdaterecord', this.onComponentUserupdateRecord.createDelegate(this, [ componentInstance ], true));
+		}
+
 		Ext.EventManager.on(
 			browserWindowObject,
 			"resize",
@@ -125,6 +131,22 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 		if (Ext.isFunction(componentInstance.onBeforeUnload)) {
 			browserWindowObject.onbeforeunload = componentInstance.onBeforeUnload.createDelegate(componentInstance);
 		}
+	},
+
+	/**
+	 * Event handler for the {@link Zarafa.core.plugins.RecordComponentPlugin#userupdaterecord userupdaterecord} event
+	 * on the {@link #field}. This will relay the value of {@link Zarafa.core.plugins.RecordComponentPlugin#isChangedByUser} config option.
+	 * to the newly created content panel into popout window.
+	 * It is required to persist the user change state into RecordComponentPlugin for this particular field.
+	 * @param {Ext.Component} field The component which fired the event
+	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
+	 * @param {Boolean} isChangedByUser Indicates if the record has been changed by the user since it has been loaded.
+	 * @param {Ext.Component} componentInstance component which gets rendered into the separate browser window.
+	 * @private
+	 */
+	onComponentUserupdateRecord : function(field, record, isChangedByUser, componentInstance)
+	{
+		field.recordComponentPlugin.isChangedByUser = componentInstance.isRecordChangeByUser;
 	},
 
 	/**
@@ -355,6 +377,10 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 				var config = this.browserWindowComponents.get(win.name).config,
 					model = container.getCurrentContext().getModel(),
 					newRecord;
+
+				if (Ext.isDefined(config.recordComponentPluginConfig) && Ext.isDefined(config.recordComponentPluginConfig.useShadowStore)) {
+					config.recordComponentPluginConfig.useShadowStore = true;
+				}
 
 				// on window refresh we have to discard all unsaved user changes
 				// If record is not phantom then get new record from respective store using oldRecord id properties.

@@ -288,16 +288,26 @@ Zarafa.mail.Actions = {
 		copy.idProperties = record.idProperties.clone();
 		copy.phantom = record.phantom;
 		copy.dirty = record.dirty;
+		copy.modified = record.modified;
 		copy.applyData(record, false);
 
 		// We must have to retain "id" of attachment-substore of original record to access attachments.
 		var attachmentStoreId = record.getAttachmentStore().getId();
 		copy.getAttachmentStore().setId(attachmentStoreId);
 
+		var configObj = {
+			layerType : 'separateWindows',
+			isRecordChangeByUser : dialog.recordComponentPlugin.isChangedByUser
+		};
+
 		if(!record.phantom){
 			// Add the copied record into the shadow store as the old record will be removed from the same,
 			// when the tab gets closed, and store is required to attach necessary events for some functionality like markAsRead etc.
 			container.getShadowStore().add(copy);
+
+			// Prevent that RecordComponentPlugin's setRecord adds the record into the shadow store again
+			// as we already add the record into shadow store in the line above.
+			configObj.recordComponentPluginConfig = { useShadowStore : false };
 		}
 
 		// Close the existing tab for which a new separate browser window is created
@@ -305,9 +315,6 @@ Zarafa.mail.Actions = {
 		Zarafa.core.data.ContentPanelMgr.unregister(dialog);
 
 		// Use newly created copy of original record to load into separate browser window
-		Zarafa.mail.Actions.openMailContent(copy, {
-			layerType : 'separateWindows',
-			isRecordChangeByUser : dialog.recordComponentPlugin.isChangedByUser
-		});
+		Zarafa.mail.Actions.openMailContent(copy, configObj);
 	}
 };
