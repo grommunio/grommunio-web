@@ -25,11 +25,14 @@
 	<property name="ux-all-debugfile" value="ux-all-debug.js"/>
 	<property name="ux-all-file" value="ux-all.js"/>
 
-    	<!-- The TinyMCE distribution files -->
-    	<property name="tinymce-folder" value="tinymce"/>
+	<!-- The TinyMCE distribution files -->
+	<property name="tinymce-folder" value="tinymce"/>
 
-    	<!-- The TinyMCE external plugins files -->
-    	<property name="tinymce-plugins-folder" value="tinymce-plugins"/>
+	<!-- The TinyMCE external plugins files -->
+	<property name="tinymce-plugins-folder" value="tinymce-plugins"/>
+
+	<!-- The TinyMCE language files -->
+	<property name="tinymce-languages-folder" value="tinymce-languages"/>
 
 	<!-- The Ext-Mod distribution files -->
 	<property name="extjs-mod-folder" value="extjs-mod"/>
@@ -58,7 +61,7 @@
 	<!-- The Kopano CSS files -->
 	<property name="kopano-css-folder" value="resources/css"/>
 	<property name="kopano-css-file" value="kopano.css"/>
-	
+
 	<!-- The Kopano images -->
 	<property name="kopano-images-folder" value="resources/images"/>
 
@@ -97,6 +100,11 @@
                 <include name="**/*.*"/>
             </fileset>
 
+            <!-- Delete the TinyMCE language files -->
+            <fileset dir="${target-folder}/${tinymce-languages-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
             <!-- Delete the fingerprint script -->
             <fileset dir="${target-folder}/${fingerprint-folder}">
                 <include name="${fingerprint-file}"/>
@@ -118,7 +126,7 @@
 				<include name="${kopano-debugfile}"/>
 			</fileset>
 		</delete>
-		
+
 		<!-- Delete the Kopano themes -->
 		<delete dir="${target-folder}/${kopano-themes-target-folder}"/>
 	</target>
@@ -149,6 +157,11 @@
         </copy>
         <copy todir="${target-folder}/${tinymce-plugins-folder}">
             <fileset dir="${tinymce-plugins-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${target-folder}/${tinymce-languages-folder}">
+            <fileset dir="${tinymce-languages-folder}">
                 <include name="**/*.*"/>
             </fileset>
         </copy>
@@ -191,7 +204,7 @@
 				<fileset dir="zarafa" includes="**/*.js" />
 			</concatfiles>
 		</zConcat>
-		
+
 		<!-- Compile SASS files -->
 		<!-- FIXME: throw error when compass is not found
 		<echo message="Compiling: ${kopano-css-folder}"/>
@@ -316,7 +329,7 @@
 				<exclude name="third-party/resources/css/*.*"/>
 			</fileset>
 		</copy>
-		
+
 		<!-- copy files -->
 		<copy todir="${target-folder}">
 			<fileset dir=".">
@@ -324,7 +337,7 @@
 				<include name="resources/images/*" />
 			</fileset>
 		</copy>
-		
+
 		<!-- Copy the images of the new design to the images folder -->
 		<echo message="Copying ${kopano-images-folder}"/>
 		<copy todir="${target-folder}/${kopano-images-folder}">
@@ -333,7 +346,7 @@
 				<include name="*.gif"/>
 			</fileset>
 		</copy>
-		
+
 		<!-- Copy the themes -->
 		<echo message="Copying ${kopano-themes-folder} to ${target-folder}/${kopano-themes-target-folder}"/>
 		<copy todir="${target-folder}/${kopano-themes-target-folder}" includeEmptyDirs="false">

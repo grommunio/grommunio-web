@@ -16,6 +16,7 @@ $versionInfo = array(
 );
 
 $serverConfig = array(
+	'base_url'						=> BASE_URL,
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
 	'max_attachment_size'			=> getMaxUploadSize(),
@@ -54,10 +55,10 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/x-icon">
-		
+
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		
+
 		<script type="text/javascript">
 			navigator.sayswho = (function(){
 				var ua= navigator.userAgent, tem,
@@ -81,16 +82,16 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 			var cntEl;
 			var bgEl;
 			var logoEl;
-			
+
 			// Our designer doesn't want the box in the center of the screen, instead
 			// he wants the center of the box at 7/16 of the height of the window :-)
 			var centerlinePos = 7/16;
 
 			function onResize() {
 				if ( !bodyEl ) return;
-				
+
 				var top = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
-				
+
 				cntEl.style.top = top + 'px';
 				cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
 				bgEl.style.width = maskEl.clientWidth + 'px';
@@ -100,9 +101,9 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 			};
 			window.addEventListener('resize', onResize);
 		</script>
-		
+
 		<script type="text/javascript" src="client/fingerprint.js" ></script>
-		
+
 		<?php
 			$extjsFiles = $loader->getExtjsCSSFiles(DEBUG_LOADER);
 			$loader->printFiles($extjsFiles, $cssTemplate);
@@ -141,7 +142,7 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 			</div>
 		</div>
 
-		<script type="text/javascript">			
+		<script type="text/javascript">
 			bodyEl = document.getElementsByTagName('body')[0];
 			maskEl = document.getElementById('loading-mask');
 			cntEl = document.getElementById('form-container');
