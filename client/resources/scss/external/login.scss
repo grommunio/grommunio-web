@@ -15,8 +15,8 @@ html, body {
 	font-family: arial, tahoma, helvetica, sans-serif;
 	font-size: 13px;
 }
-body.login, 
-#loading-mask, 
+body.login,
+#loading-mask,
 #bg,
 body.zarafa-welcome {
 	margin: 0;
@@ -45,7 +45,7 @@ body.login,
 		overflow: hidden;
 		z-index: 20010;
 		color: $dark-grey2;
-		
+
 		#bg {
 			position: absolute;
 			left: 0;
@@ -53,7 +53,7 @@ body.login,
 			-webkit-filter: blur(10px);
 			filter: blur(10px);
 		}
-		
+
 		#content {
 			width: 560px;
 			padding: 50px 60px 60px;
@@ -66,7 +66,7 @@ body.login,
     		display: block;
 			clear: both;
 		}
-		
+
 		.left {
 			float: left;
 			width: 220px;
@@ -80,7 +80,7 @@ body.login,
 			min-height: 220px;
 			position: relative;
 		}
-		
+
 		h1 {
 			font-size: 36px !important;
 			line-height: 36px;
@@ -95,14 +95,14 @@ body.login,
 		h2.zcp-version {
 			color: transparent;
 		}
-		
+
 		#logo {
 			background: url(../../images/kopano-logo_220x52.png) no-repeat right center;
 			width: 100%;
 			height: 61px;
 			margin: 71px 0 15px;
 		}
-		
+
 		label {
 			display: block;
 			margin-bottom: 0.5em;
@@ -120,15 +120,15 @@ body.login,
 		input:-webkit-autofill {
 			-webkit-box-shadow: 0 0 0px 1000px white inset;
 		}
-		
+
 		#password {
 			margin-bottom: 8px;
 		}
-		
+
 		#error {
 			color: #e40023;
 		}
-		
+
 		#submitbutton {
 			background: $kopano-blue;
 			color: white;
@@ -159,16 +159,16 @@ body.login,
 			background: url(../../images/loading_m.png) no-repeat center center;
 			animation: rotate 1.3s 0s infinite ease;
 		}
-		
-		
+
+
 	}
 }
 
 /* IE9 supports blur filter in a different way */
 body.login.MSIE9 #bg{
-	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');	
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
 }
-/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image 
+/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
 body.login.MSIE10 #bg,
 body.login.MSIE11 #bg{
