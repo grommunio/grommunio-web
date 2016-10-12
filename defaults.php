@@ -62,6 +62,11 @@ if(!defined('ENABLE_PLUGINS')) define('ENABLE_PLUGINS', true);
 if(!defined('PATH_PLUGIN_CONFIG_DIR')) define('PATH_PLUGIN_CONFIG_DIR', PATH_PLUGIN_DIR);
 
 /**
+ * Defines a list of plugins that cannot be disabled by users.
+ */
+if(!defined('ALWAYS_ENABLED_PLUGINS_LIST')) define('ALWAYS_ENABLED_PLUGINS_LIST', '');
+
+/**
  * A theme. When this is not defined or empty or 'default', the default Kopano theme will be loaded.
  * The theme should the (directory)name of a installed theme plugin.
  */

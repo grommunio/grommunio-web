@@ -555,9 +555,9 @@ class PluginManager
 
 	/**
 	 * getPluginVersion
-	 * 
+	 *
 	 * Function is used to prepare version information array from plugindata.
-	 * 
+	 *
 	 * @return Array The array of plugins version information.
 	 */
 	function getPluginsVersion()
@@ -870,7 +870,7 @@ class PluginManager
 				LOAD_DEBUG => Array(),
 				LOAD_RELEASE => Array(),
 			);
-			foreach($data->config->configfile as $filename) { 
+			foreach($data->config->configfile as $filename) {
 				$files[LOAD_RELEASE][] = Array(
 					'file' => (string) $filename,
 					'type' => TYPE_CONFIG,
@@ -1037,6 +1037,58 @@ class PluginManager
 			return false;
 		}
 		return $plugindata;
+	}
+
+	/**
+	 * Expands a string that contains a semicolon separated list of plugins.
+	 * All wildcards (*) will be resolved.
+	 */
+	function expandPluginList($pluginList)
+	{
+		$pluginNames = explode(';', $pluginList);
+		$pluginList = array();
+		foreach ( $pluginNames as $pluginName ){
+			$pluginName = trim($pluginName);
+			if ( array_key_exists($pluginName, $this->plugindata) ){
+				$pluginList[] = $pluginName;
+			} else {
+				// Check if it contains a wildcard
+				if ( strpos($pluginName, '*')!==false ){
+					$expandedPluginList = $this->_expandPluginNameWithWildcard($pluginName);
+					$pluginList = array_merge($pluginList, $expandedPluginList);
+				}
+			}
+		}
+
+		// Remove duplicates
+		$pluginList = array_unique($pluginList);
+
+		return implode(';', $pluginList);
+	}
+
+	/**
+	 * Finds all plugins that match the given string name (that contains one or
+	 * more wildcards)
+	 *
+	 * @param String $pluginNameWithWildcard A plugin identifying string that
+	 * contains a wildcard character (*)
+	 * @return Array An array with the names of the plugins that are identified by
+	 * $pluginNameWithWildcard
+	 */
+	private function _expandPluginNameWithWildcard($pluginNameWithWildcard)
+	{
+		$retVal = array();
+		$pluginNames = array_keys($this->plugindata);
+		$regExp = '/^' . str_replace('*', '.*?', $pluginNameWithWildcard) . '$/';
+		dump('rexexp = '.$regExp);
+		foreach ( $pluginNames as $pluginName ){
+			dump('checking plugin: '.$pluginName);
+			if ( preg_match($regExp, $pluginName) ){
+				$retVal[] = $pluginName;
+			}
+		}
+
+		return $retVal;
 	}
 }
 ?>

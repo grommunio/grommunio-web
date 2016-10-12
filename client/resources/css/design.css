@@ -11096,6 +11096,13 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   padding: 9px 0 6px 0;
 }
 
+/* Plugin list */
+/* line 253, ../scss/components/_settings.scss */
+.zarafa-settings-pluginavailable .zarafa-settings-pluginavailable-fixed .x-grid3-col-display_name span {
+  font-style: italic;
+  color: #777777;
+}
+
 /* line 1, ../scss/components/_datepickers.scss */
 .x-date-picker {
   border: none;

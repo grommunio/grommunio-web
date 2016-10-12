@@ -43,6 +43,15 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} A semicolon separated list of plugins that cannot be
+	 * disabled by the user.
+	 */
+	getAlwaysEnabledPluginsList : function()
+	{
+		return this.meta.always_enabled_plugins || '';
+	},
+
+	/**
 	 * @return {Boolean} True if Advanced Settings are enabled
 	 */
 	isAdvancedSettingsEnabled : function()

@@ -66,7 +66,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			header : '&#160;',
 			renderer : this.onEnabledRenderer,
 			// Disable grid traversal using key events because we are using grid selection to
-			// indicate plugin's enable/disable state, so that shouldn't be modified 
+			// indicate plugin's enable/disable state, so that shouldn't be modified
 			// when traversing using up/down arrow keys
 			onKeyPress : Ext.emptyFn,
 			listeners: {
@@ -128,8 +128,8 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler is called when user clicks on row of grid. 
-	 * Function toggles plugin selection. 
+	 * Event handler is called when user clicks on row of grid.
+	 * Function toggles plugin selection.
 	 * @param {Ext.grid.GridPanel} grid grid panel object.
 	 * @param {Number} rowIndex The index of the row which was double clicked
 	 * @param {Ext.EventObject} eventObj object of the event.
@@ -232,7 +232,11 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			// Add CSS class that this plugin cannot be disabled
 			p.css += ' zarafa-settings-pluginavailable-fixed';
 			// Add message that this plugin cannot be disabled
-			value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
+			if ( record.get('enabled') === true ){
+				value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
+			} else {
+				value += ' <span>' + _('This plugin cannot be enabled') + '</span>';
+			}
 		}
 
 		return value;

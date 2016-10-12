@@ -101,7 +101,11 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 */
 	isEnabled : function()
 	{
-		return !this.allowUserDisable || container.getSettingsModel().get(this.getSettingsBase() + '/enable') === true;
+		if ( !this.allowUserDisable ){
+			return true;
+		} else {
+			return container.getSettingsModel().get(this.getSettingsBase() + '/enable') === true;
+		}
 	},
 
 	/**
