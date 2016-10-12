@@ -2391,34 +2391,6 @@
 		}
 
 		/**
-		 * Get sender structure of the MAPI Message.
-		 *
-		 * @param mapimessage $mapiMessage  MAPI Message resource from which we need to get the sender.
-		 * @return array with properties
-		 */
-		function getSenderAddress($mapiMessage)
-		{
-			$messageProps  = mapi_getprops($mapiMessage, array(PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID));
-			$senderEntryID = isset($messageProps[PR_SENT_REPRESENTING_ENTRYID])? $messageProps[PR_SENT_REPRESENTING_ENTRYID] : $messageProps[PR_SENDER_ENTRYID];
-			$senderUser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $senderEntryID);
-			if($senderUser) {
-				$userprops = mapi_getprops($senderUser, array(PR_ADDRTYPE, PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_OBJECT_TYPE,PR_RECIPIENT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_ENTRYID));
-
-				$senderStructure = array();
-				$senderStructure["props"]['entryid']         = bin2hex($userprops[PR_ENTRYID]);
-				$senderStructure["props"]['display_name']    = isset($userprops[PR_DISPLAY_NAME]) ? $userprops[PR_DISPLAY_NAME] : '';
-				$senderStructure["props"]['email_address']   = isset($userprops[PR_EMAIL_ADDRESS]) ? $userprops[PR_EMAIL_ADDRESS] : '';
-				$senderStructure["props"]['smtp_address']    = isset($userprops[PR_SMTP_ADDRESS]) ? $userprops[PR_SMTP_ADDRESS] : '';
-				$senderStructure["props"]['address_type']    = isset($userprops[PR_ADDRTYPE]) ? $userprops[PR_ADDRTYPE] : '';
-				$senderStructure["props"]['object_type']     = $userprops[PR_OBJECT_TYPE];
-				$senderStructure["props"]['recipient_type']  = MAPI_TO;
-				$senderStructure["props"]['display_type']    = isset($userprops[PR_DISPLAY_TYPE])    ? $userprops[PR_DISPLAY_TYPE]    : MAPI_MAILUSER;
-				$senderStructure["props"]['display_type_ex'] = isset($userprops[PR_DISPLAY_TYPE_EX]) ? $userprops[PR_DISPLAY_TYPE_EX] : MAPI_MAILUSER;
-			}
-			return $senderStructure;
-		}
-
-		/**
 		 * Submit a message for sending
 		 *
 		 * This function is an extension of the saveMessage() function, with the extra functionality
@@ -2895,22 +2867,6 @@
 			if(!empty($messageRecipients)) {
 				mapi_message_modifyrecipients($message, MODRECIP_ADD, $messageRecipients);
 			}
-		}
-
-		/**
-		 * Delete properties in a message
-		 *
-		 * @todo Why does this function call savechange while most other functions
-		 *       here do not? (for example setRecipients)
-		 * @param object $store MAPI Message Store Object
-		 * @param string $entryid Entryid of the message in which to delete the properties
-		 * @param array $props array of property tags which to be deleted
-		 */
-		function deleteProps($store, $entryid, $props)
-		{
-			$message = $this->openMessage($store, $entryid);
-			mapi_deleteprops($message, $props);
-			mapi_savechanges($message);
 		}
 
 		/**
