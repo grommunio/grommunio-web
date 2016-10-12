@@ -156,7 +156,9 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 	onRecipientAdd : function(store, records)
 	{
 		var record = records[0];
-		if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST) {
+		// Only force expanding the distlist when it's a local distlist.
+		if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST &&
+			record.get('address_type') === 'MAPIPDL') {
 			Ext.MessageBox.show({
 				title: _('Kopano WebApp'), 
 				msg: _('Distribution lists are not supported in rules, would you like to replace the distribution list with its members?'), 
