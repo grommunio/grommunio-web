@@ -16,12 +16,10 @@
 /* settings */
 /* The animation for the spinner */
 @keyframes rotate {
-  /* line 8, ../../scss/external/login.scss */
   to {
     transform: rotate(360deg);
   }
 }
-
 /* line 13, ../../scss/external/login.scss */
 html, body {
   height: 100%;
@@ -29,7 +27,7 @@ html, body {
   font-size: 13px;
 }
 
-/* line 21, ../../scss/external/login.scss */
+/* line 18, ../../scss/external/login.scss */
 body.login,
 #loading-mask,
 #bg,
@@ -138,7 +136,7 @@ body.login #form-container label,
   display: block;
   margin-bottom: 0.5em;
 }
-/* line 111, ../../scss/external/login.scss */
+/* line 110, ../../scss/external/login.scss */
 body.login #form-container input[type="text"],
 body.login #form-container input[type="password"],
 #loading-mask #form-container input[type="text"],
@@ -213,9 +211,9 @@ body.login.MSIE9 #bg {
   filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
 }
 
-/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image 
+/* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
-/* line 174, ../../scss/external/login.scss */
+/* line 173, ../../scss/external/login.scss */
 body.login.MSIE10 #bg,
 body.login.MSIE11 #bg {
   background-image: url(../../images/loginbg_daybreak_blurred.jpg);
