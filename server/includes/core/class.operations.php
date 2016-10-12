@@ -1309,31 +1309,6 @@
 		}
 
 		/**
-		 * Set the readflags of all messages in a folder to 'read'
-		 *
-		 * @param object $store MAPI Message Store Object
-		 * @param string $entryid The entryid of the folder
-		 * @param array $folderProps reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the folder
-		 * @return boolean true if action succeeded, false if not
-		 * @todo This function is message a 'set unread' option
-		 */
-		function setReadFlags($store, $entryid, &$folderProps)
-		{
-			$result = false;
-			$folder = mapi_msgstore_openentry($store, $entryid);
-
-			if($folder) {
-				if(mapi_folder_setreadflags($folder, array(), SUPPRESS_RECEIPT)) {
-					$result = true;
-
-					$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
-				}
-			}
-
-			return $result;
-		}
-
-		/**
 		 * Read MAPI table
 		 *
 		 * This function performs various operations to open, setup, and read all rows from a MAPI table.
