@@ -195,9 +195,11 @@
 		 *
 		 * @param string $fresh (optional) When set to true it will return an addressbook resource
 		 * without any Contact Provider set on it, defaults to false.
+		 * @param boolean $loadSharedContactsProvider When set to true it denotes that shared folders are
+		 * required to be configured to load the contacts from.
 		 * @return mapiaddressbook An addressbook object to be used with mapi_ab_*
 		 */
-		function getAddressbook($providerless = false)
+		function getAddressbook($providerless = false, $loadSharedContactsProvider = false)
 		{
 			if($providerless){
 				try {
@@ -210,7 +212,7 @@
 			$result = NOERROR;
 
 			if($this->ab === false){
-				$this->setupContactProviderAddressbook();
+				$this->setupContactProviderAddressbook($loadSharedContactsProvider);
 			}
 
 			try {
@@ -498,36 +500,7 @@
 			$this->getArchivedStores($this->getUserEntryID());
 			// The cache now contains all the stores in our profile. Next, add the stores
 			// for other users.
-			$otherusers = $this->retrieveOtherUsersFromSettings();
-			if(is_array($otherusers)) {
-				foreach($otherusers as $username=>$folder) {
-					if(is_array($folder) && !empty($folder)) {
-						try {
-							$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
-
-							$this->openMessageStore($user_entryid);
-							$this->userstores[$username] = $user_entryid;
-
-							// Check if an entire store will be loaded, if so load the archive store as well
-							if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
-								$this->getArchivedStores($this->resolveStrictUserName($username));
-							}
-						} catch (MAPIException $e) {
-							if ($e->getCode() == MAPI_E_NOT_FOUND) {
-								// The user or the corresponding store couldn't be found,
-								// print an error to the log, and remove the user from the settings.
-								dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
-								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username);
-							} else {
-								// That is odd, something else went wrong. Lets not be hasty and preserve
-								// the user in the settings, but do print something to the log to indicate
-								// something happened...
-								dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
-							}
-						}
-					}
-				}
-			}
+			$this->getOtherUserStore();
 
 			// Just return all the stores in our cache, even if we have some error in mapi
 			return $this->stores;
@@ -601,6 +574,45 @@
 				}
 			}
 			return $archiveStores;
+		}
+
+		/**
+		 * Get all the available shared stores
+		 *
+		 * The store is opened only once, subsequent calls will return the previous store object
+		 */
+		function getOtherUserStore()
+		{
+			$otherusers = $this->retrieveOtherUsersFromSettings();
+			if(is_array($otherusers)) {
+				foreach($otherusers as $username=>$folder) {
+					if(is_array($folder) && !empty($folder)) {
+						try {
+							$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+
+							$this->openMessageStore($user_entryid);
+							$this->userstores[$username] = $user_entryid;
+
+							// Check if an entire store will be loaded, if so load the archive store as well
+							if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
+								$this->getArchivedStores($this->resolveStrictUserName($username));
+							}
+						} catch (MAPIException $e) {
+							if ($e->getCode() == MAPI_E_NOT_FOUND) {
+								// The user or the corresponding store couldn't be found,
+								// print an error to the log, and remove the user from the settings.
+								dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
+								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username);
+							} else {
+								// That is odd, something else went wrong. Lets not be hasty and preserve
+								// the user in the settings, but do print something to the log to indicate
+								// something happened...
+								dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
+							}
+						}
+					}
+				}
+			}
 		}
 
 		/**
@@ -739,8 +751,10 @@
 		/**
 		 * Setup the contact provider for the addressbook. It asks getContactFoldersForABContactProvider
 		 * for the entryids and display names for the contact folders in the user's store.
+		 * @param boolean $loadSharedContactsProvider When set to true it denotes that shared folders are
+		 * required to be configured to load the contacts from.
 		 */
-		function setupContactProviderAddressbook()
+		function setupContactProviderAddressbook($loadSharedContactsProvider)
 		{
 			$profsect = mapi_openprofilesection($GLOBALS['mapisession']->getSession(), pbGlobalProfileSectionGuid);
 			if ($profsect){
@@ -748,8 +762,61 @@
 				$defaultStore = $this->getDefaultMessageStore();
 				$contactFolders = $this->getContactFoldersForABContactProvider($defaultStore);
 
-				// include contact folders in addressbook if public folders are enabled, and Public contact folders is also disabled 
-				if(!DISABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+				// include shared contact folders in addressbook if shared contact folders are not disabled
+				if (!DISABLE_SHARED_CONTACT_FOLDERS && $loadSharedContactsProvider) {
+					if (empty($this->userstores)) {
+						$this->getOtherUserStore();
+					}
+
+					// Find available contact folders from all user stores, one by one.
+					foreach($this->userstores as $username => $storeEntryID) {
+						$userContactFolders = array();
+						$openedUserStore = $this->openMessageStore($storeEntryID);
+
+						// Get settings of respective shared folder of given user
+						$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", null);
+						$sharedUserSetting = $sharedSetting[$username];
+
+						// Only add opened shared folders into addressbook contacts provider.
+						// If entire inbox is opened then add each and every contact folders of that particular user.
+						if (isset($sharedUserSetting['all'])) {
+							$userContactFolders = $this->getContactFoldersForABContactProvider($openedUserStore);
+						} else if (isset($sharedUserSetting['contact'])) {
+							// Add respective default contact folder which is opened.
+							// Get entryid of default contact folder from root.
+							$root = mapi_msgstore_openentry($openedUserStore, null);
+							$rootProps = mapi_getprops($root, array(PR_IPM_CONTACT_ENTRYID));
+
+							// Just add the default contact folder only.
+							$defaultContactFolder = array(
+								PR_STORE_ENTRYID => $storeEntryID,
+								PR_ENTRYID       => $rootProps[PR_IPM_CONTACT_ENTRYID],
+								PR_DISPLAY_NAME  => dgettext("zarafa", "Contacts")
+							);
+							array_push($userContactFolders, $defaultContactFolder);
+
+							// Go for sub folders only if configured in settings
+							if ($sharedUserSetting['contact']['show_subfolders'] == true) {
+								$subContactFolders =  $this->getContactFolders($openedUserStore, $rootProps[PR_IPM_CONTACT_ENTRYID], true);
+								if(is_array($subContactFolders)){
+									$userContactFolders = array_merge($userContactFolders, $subContactFolders);
+								}
+							}
+						}
+
+						// Postfix display name of every contact folder with respective owner name
+						// it is mandatory to keep display-name different
+						$userStoreProps = mapi_getprops($openedUserStore, array(PR_MAILBOX_OWNER_NAME));
+						for($i=0,$len=count($userContactFolders);$i<$len;$i++){
+							$userContactFolders[$i][PR_DISPLAY_NAME] = $userContactFolders[$i][PR_DISPLAY_NAME] . " - " . $userStoreProps[PR_MAILBOX_OWNER_NAME];
+						}
+
+						$contactFolders = array_merge($contactFolders, $userContactFolders);
+					}
+				}
+
+				// include public contact folders in addressbook if public folders are enabled, and Public contact folders is not disabled 
+				if (!DISABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
 					$publicStore = $this->getPublicMessageStore();
 					if($publicStore !== false) {
 						$contactFolders = array_merge($contactFolders, $this->getContactFoldersForABContactProvider($publicStore));

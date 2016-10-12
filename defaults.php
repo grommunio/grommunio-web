@@ -44,6 +44,12 @@ if(!defined('DISABLE_FULL_GAB')) define('DISABLE_FULL_GAB', false);
 if(!defined('DISABLE_PUBLIC_CONTACT_FOLDERS')) define('DISABLE_PUBLIC_CONTACT_FOLDERS', true);
 
 /**
+ * By default we disable the shared contact folders, as it is a performance option
+ * which, when enabled, may cause delay in loading of address-book
+ */
+if(!defined('DISABLE_SHARED_CONTACT_FOLDERS')) define('DISABLE_SHARED_CONTACT_FOLDERS', true);
+
+/**
  * Limit the amount of members shown in the addressbook details dialog for a distlist. If the list
  * is too great the browser will hang loading and rendereing all the items. By default set to 0
  * which means it loads all members.

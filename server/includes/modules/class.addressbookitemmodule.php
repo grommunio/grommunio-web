@@ -31,7 +31,43 @@
 			if($entryid) {
 				$data = array();
 
-				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
+				try {
+					$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(false, true), $entryid);
+				} catch (MAPIException $e) {
+					// If the item not found in addressbook, it might be possible that
+					// this particular item was added by setup-contact-provider mechanism.
+					// Let us try to get that particular contact item in respective user store.
+					// @Fixme: After implementation of KC-350 this extra handling can be removed.
+					if ($e->getCode() == MAPI_E_NOT_FOUND) {
+						$e->setHandled();
+						// Remove Address-Book-Provider prefix from the entryid
+						$externalEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj(bin2hex($entryid));
+
+						// Retrieve user store entryid to which this external item belongs
+						$userStore = $GLOBALS['operations']->getOtherStoreFromEntryid($externalEntryid);
+						$contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
+
+						if ($contactItem != false) {
+							// Get necessary property from respective contact item
+							$contactItemProps = mapi_getprops($contactItem, Array(PR_GIVEN_NAME_W, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME));
+
+							// Use the data retrieved from contact item to prepare response
+							// as similar as it seems like an addressbook item.
+							$data['props'] = array (
+								'object_type' => MAPI_MAILUSER,
+								'given_name' => $contactItemProps[PR_GIVEN_NAME],
+								'display_name' => $contactItemProps[PR_DISPLAY_NAME],
+								'title' => $contactItemProps[PR_TITLE],
+								'company_name' => $contactItemProps[PR_COMPANY_NAME]
+							);
+							$data['entryid'] = bin2hex($entryid);
+
+							$this->addActionData("item", $data);
+							$GLOBALS["bus"]->addData($this->getResponseData());
+							return;
+						}
+					}
+				}
 
 				if(mapi_last_hresult() == NOERROR && $abentry){
 					$objecttypeprop = mapi_getprops($abentry, Array(PR_OBJECT_TYPE));

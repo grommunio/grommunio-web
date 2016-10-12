@@ -95,6 +95,10 @@
 	// Set true to show public folders in hierarchy, false will disable public folders in hierarchy.
 	define('ENABLE_PUBLIC_FOLDERS', true);
 
+	// Set true to hide shared contact folders in address-book folder list,
+	// false will show shared contact folders in address-book folder list.
+	define("DISABLE_SHARED_CONTACT_FOLDERS", true);
+
 	// Booking method (true = direct booking, false = send meeting request)
 	define('ENABLE_DIRECT_BOOKING', true);
 

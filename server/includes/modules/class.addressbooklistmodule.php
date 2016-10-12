@@ -108,7 +108,7 @@
 			$this->parseSortOrder($action, $map, true);
 
 			if (!DISABLE_FULL_GAB || !empty($searchstring)) {
-				$ab = $GLOBALS['mapisession']->getAddressbook();
+				$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 
 				if (!empty($action['entryid'])) {
 					$entryid = hex2bin($action['entryid']);
