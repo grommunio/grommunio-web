@@ -4372,67 +4372,6 @@
 		}
 
 		/**
-		* Get addressbook hierarchy
-		*
-		* This function returns the entire hierarchy of the addressbook, with global addressbooks, and contacts
-		* folders.
-		*
-		* The output array contains an associative array for each found contact folder. Each entry contains
-		* "display_name" => Name of the folder, "entryid" => entryid of the folder, "parent_entryid" => parent entryid
-		* "storeid" => store entryid, "type" => gab | contacts
-		*
-		* @param array Associative array with store information
-		* @return array Array of associative arrays with addressbook container information
-		* @todo Fix bizarre input parameter format
-		*/
-		function getAddressbookHierarchy($hideContacts = false)
-		{
-			$ab = $GLOBALS["mapisession"]->getAddressbook();
-			$dir = mapi_ab_openentry($ab);
-			$table = mapi_folder_gethierarchytable($dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
-
-			if($hideContacts){
-				// Restrict on the addressbook provider GUID if the contact folders need to be hidden
-				$restriction = array(RES_PROPERTY,
-					array(
-						RELOP => RELOP_EQ,
-						ULPROPTAG => PR_AB_PROVIDER_ID,
-						VALUE => array(
-							PR_AB_PROVIDER_ID => MUIDECSAB
-						)
-					)
-				);
-				mapi_table_restrict($table, $restriction);
-			}
-
-			$items = mapi_table_queryallrows($table, array(PR_DISPLAY_NAME, PR_ENTRYID, PR_PARENT_ENTRYID, PR_DEPTH, PR_AB_PROVIDER_ID));
-
-			$folders = array();
-
-			$parent = false;
-			foreach($items as $item){
-				// TODO: fix for missing PR_PARENT_ENTRYID, see #2190
-				if ($item[PR_DEPTH]==0)
-					$parent = $item[PR_ENTRYID];
-
-				$item[PR_PARENT_ENTRYID] = $parent;
-
-				$folders[] = array(
-					"props" => array(
-						"display_name"	=> $item[PR_DISPLAY_NAME],
-						"entryid"		=> bin2hex($item[PR_ENTRYID]),
-						"parent_entryid"=> bin2hex($item[PR_PARENT_ENTRYID]),
-						"depth"			=> $item[PR_DEPTH],
-						"type"			=> $item[PR_AB_PROVIDER_ID] == MUIDECSAB ? "gab" : 'contacts',
-						"object_type"	=> MAPI_ABCONT
-					)
-				);
-			}
-
-			return $folders;
-		}
-
-		/**
 		 * Publishing the FreeBusy information of the default calendar. The
 		 * folderentryid argument is used to check if the default calendar
 		 * should be updated or not.
