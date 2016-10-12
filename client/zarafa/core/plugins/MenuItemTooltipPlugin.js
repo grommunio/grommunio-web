@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.core.plugins');
  * This plugin is use to set the tooltip on {@link Ext.menu.Item menuitem}
  * of {@link Ext.splitButton SplitButton}.
  */
-Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Object,{
+Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Zarafa.core.plugins.ComponentTooltipPlugin,{
 
 	/**
 	 * @constructor
@@ -18,6 +18,8 @@ Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Object,{
 	{
 		config = config || {};
 		Ext.apply(this, config);
+
+		Zarafa.core.plugins.MenuItemTooltipPlugin.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -26,8 +28,7 @@ Zarafa.core.plugins.MenuItemTooltipPlugin = Ext.extend(Object,{
 	 */
 	init : function(field)
 	{
-		this.field = field;
-		field.menuItemTooltipPlugin = this;
+		Zarafa.core.plugins.MenuItemTooltipPlugin.superclass.init.apply(this, arguments);
 		// Add event listener for the 'activate' event, if we are move the cursor on menu item then the
 		// tooltip is display for particular menu item.
 		this.field.on('activate', this.applyTooltip, this);

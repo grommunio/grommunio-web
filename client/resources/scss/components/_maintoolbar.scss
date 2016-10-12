@@ -25,7 +25,12 @@
 
 		button.icon_createTask {
         	background-image: sprite-url($icons) !important;
-			background-position: sprite-position($icons, icon_task_large_white, $offset_y: 6px, $offset_x: 5px);
+			background-position: sprite-position($icons, icon_task_large_white, $offset_y: 5px, $offset_x: 9px);
+		}
+
+		button.icon_createTaskRequest {
+			background-image: sprite-url($icons) !important;
+			background-position: sprite-position($icons, icon_task_request_large_white, $offset_y: 6px, $offset_x: 6px);
 		}
 
 		button.icon_createNote {

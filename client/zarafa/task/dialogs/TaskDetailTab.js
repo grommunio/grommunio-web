@@ -31,6 +31,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 				xtype : 'panel'
 			},
 			items : [
+				this.createTaskInfoPanel(),
 				this.createDatePanel(),
 				this.createWorkPanel(),
 				this.createCompanyPanel(),
@@ -43,6 +44,22 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
+	 * Create the {@link Ext.DataView DataView} containing the information about assigned task request
+	 * from assigner/assignee.
+	 *
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createTaskInfoPanel : function ()
+	{
+		return {
+			xtype: 'zarafa.taskinfo',
+			ref : 'taskInfoPanel',
+			hidden : true
+		};
+	},
+
+	/**
 	 * Create the {@link Ext.Panel panel} containing the form elements
 	 * to set the date complete for this Task
 	 * @return {Object} Configuration object for the panel containing the fields
@@ -52,6 +69,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return{
 			layout : 'form',
+			ref : 'datePanel',
 			items : [{
 				xtype : 'datefield',
 				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -77,6 +95,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return{
 			layout : 'column',
+			ref: 'workPanel',
 			defaults:{
 					layout:'form',
 					bodyStyle: 'background-color: inherit',
@@ -142,6 +161,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return{
 			layout : 'form',
+			ref: 'companyPanel',
 			items : [{
 				xtype : 'textfield',
 				fieldLabel:_('Companies'),
@@ -170,6 +190,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 			items : [{
 				xtype : 'textfield',
 				fieldLabel:_('Update List'),
+				ref : '../updateList',
 				anchor : '100%',
 				readOnly : true,
 				name : 'updatelist'
@@ -177,8 +198,10 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 				xtype : 'button',
 				width: 150,
 				ref : '../createUnassignedCopy',
+				handler : this.onCreateUnassignedCopy,
 				text : _('Create Unassigned Copy'),
-				name : 'create_unassigned_copy'
+				name : 'create_unassigned_copy',
+				scope : this
 			}]
 		};
 	},
@@ -191,14 +214,26 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	updateUI : function(record, contentReset)
 	{
+		var isTaskAssignerCopy = (record.get('taskhistory') === Zarafa.core.mapi.TaskHistory.DECLINED || record.isTaskAssigned() || record.isTaskOrganized());
+
+		this.taskInfoPanel.setVisible(isTaskAssignerCopy);
+
+		this.datePanel.setVisible(!isTaskAssignerCopy);
+		this.workPanel.setVisible(!isTaskAssignerCopy);
+		this.companyPanel.setVisible(!isTaskAssignerCopy);
+		this.updateList.setVisible(!isTaskAssignerCopy);
+
 		if (contentReset === true || record.isModified('taskstate')) {
 			switch (record.get('taskstate')) {
-			case Zarafa.core.mapi.TaskState.ACCEPT:
-				this.createUnassignedCopy.setDisabled(false);
-				break;
-			default:
-				this.createUnassignedCopy.setDisabled(true);
-				break;
+				case Zarafa.core.mapi.TaskState.ACCEPT:
+					// If task have taskupdates property to false or user(as assignee) decline the task
+					// then disable "Create unassigned copy" button. because in this case we don't have
+					// associated task in task folder so we can't able to create unassigned copy of task.
+					this.createUnassignedCopy.setDisabled(!record.get('taskupdates') || record.isTaskDeclined());
+					break;
+				default:
+					this.createUnassignedCopy.setDisabled(true);
+					break;
 			}
 			this.doLayout();
 		}
@@ -229,7 +264,47 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
-	 * Event handler which is triggereed when the Completion Date has been
+	 * Event handler triggered when 'Create unassigned copy' button has been
+	 * pressed. it will create new unassigned task copy from selected assigned task.
+	 *
+	 * @param {Ext.button} button The button which has been pressed
+	 */
+	onCreateUnassignedCopy : function (button)
+	{
+		var hierarchyStore = container.getHierarchyStore();
+		var folder = hierarchyStore.getFolder(this.record.get('parent_entryid'));
+		var record = this.record.convertToTask(folder);
+		record.setUpdateModificationsTracking(true);
+		record.beginEdit();
+		record.set('subject', this.record.get('conversation_topic') +" ("+ _("copy") +")");
+		record.set('taskstate', Zarafa.core.mapi.TaskState.OWNER_NEW);
+		record.set('taskmode', Zarafa.core.mapi.TaskMode.NOTHING);
+		record.set('taskhistory', Zarafa.core.mapi.TaskHistory.NONE);
+		record.set('ownership', Zarafa.core.mapi.TaskOwnership.NEWTASK);
+		record.set('task_acceptance_state', Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED);
+		record.set('date_completed', null);
+		record.set('updatecount', 1);
+		record.set('icon_index', Zarafa.core.mapi.IconIndex['task_normal']);
+		record.set('taskfcreator', true);
+		record.set('tasklastdelegate', '');
+		record.set('task_goid', '');
+		record.set('entryid', '');
+		var store = container.getHierarchyStore().getById(record.get('store_entryid'));
+		if(store) {
+			record.set('owner', store.get('display_name'));
+		}
+		Zarafa.core.data.UIFactory.openCreateRecord(record);
+		// We need to record endEdit after creating tab panel because
+		// it will remove the updateModifications object
+		// and because of that record is not trite as dirty so it will
+		// not ask for the "Save change..." message box when user
+		// trying to close that tab.
+		record.endEdit();
+		this.dialog.close();
+	},
+
+	/**
+	 * Event handler which is triggered when the Completion Date has been
 	 * changed. This will check the value and will either mark the task
 	 * as {@link Zarafa.core.mapi.TaskStatus#COMPLETE complete} or
 	 * {@link Zarafa.core.mapi.TaskStatus#NOT_STARTED not started}.

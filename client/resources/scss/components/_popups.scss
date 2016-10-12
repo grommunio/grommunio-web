@@ -340,7 +340,7 @@
 /* Reminder dialog */
 .zarafa-reminder-dialog-active-reminder-icon {
 	width: 24px;
-	height: 15px;
+	height: 25px;
 	float: left;
 }
 
@@ -393,5 +393,12 @@
 	.zarafa-addressbook-dialog-compositefield {
 		padding-left: $padding-large;
 		padding-right: $padding-large;
+	}
+}
+
+/* Task send conformation dialog */
+.k-send-taskrequest-confirmation-panel {
+	.x-form-display-field {
+		padding-bottom: 10px;
 	}
 }

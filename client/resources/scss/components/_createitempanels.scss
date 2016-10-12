@@ -287,6 +287,16 @@
 /**********************************************************************
  * Task create panel
  *********************************************************************/
-.zarafa-taskcreatepanel-field-attachments {
-	padding-top: $padding-medium;
+.zarafa-taskgeneraltab {
+	.field-to {
+		min-height: $button-small-height;
+		border-bottom: 1px solid $grey;
+
+		button {
+			text-align: left;
+		}
+	}
+	.zarafa-taskcreatepanel-field-attachments {
+		padding-top: $padding-medium;
+	}
 }

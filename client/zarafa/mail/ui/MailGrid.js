@@ -466,7 +466,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowDblClick : function(grid, rowIndex, e)
 	{
-		Zarafa.mail.Actions.openMailContent(this.getSelectionModel().getSelected());
+		Zarafa.common.Actions.openMessageContent(this.getSelectionModel().getSelected());
 	},
 
 	/**

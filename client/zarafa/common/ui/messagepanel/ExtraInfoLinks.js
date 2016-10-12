@@ -171,7 +171,66 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * means that the user has forwarded this email.
 	 */
 	forwardString : pgettext('mail.previewpanel', 'You forwarded this message on {0}.'),
-	
+
+	/**
+	 * @cfg {String} receivedTaskRequest string which must be displayed in the dialog if the
+	 * {@link Zarafa.core.data.IPMRecord record} taskhistory property is {@link Zarafa.core.mapi.TaskHistory#ASSIGNED}
+	 * and {@link Zarafa.task.TaskRecord#isTaskReceived task is received}. Which
+	 * means that user has received task request from assigner.
+	 */
+	receivedTaskRequest : _('Assigned by {0} on {1}.'),
+
+	/**
+	 * @cfg {String} sentTaskRequest string which must be displayed in the dialog if the
+	 * {@link Zarafa.core.data.IPMRecord record} taskhistory property is {@link Zarafa.core.mapi.TaskHistory#ASSIGNED}
+	 * and {@link Zarafa.task.TaskRecord#isTaskReceived task is not received}. Which
+	 * means that user has assigned task to assignee.
+	 */
+	sentTaskRequest : _('Waiting for response from recipient'),
+
+	/**
+	 * @cfg {String} acceptedTaskRequest string which must be displayed in the dialog if the
+	 * {@link Zarafa.core.data.IPMRecord record} taskhistory property is {@link Zarafa.core.mapi.TaskHistory#ACCEPTED}
+	 * Which means that task is accepted by assignee.
+	 */
+	acceptedTaskRequest : _('Accepted by {0} on {1}.'),
+
+	/**
+	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
+	 * if delegate has accepted the task request on behalf of delegator.
+	 */
+	acceptDelegateTaskRequestInfoString : _('{0} has accepted on behalf of {1} {2}.'),
+
+	/**
+	 * @cfg {String} declineTaskRequest string which must be displayed in the
+	 * dialog if the {@link Zarafa.core.data.IPMRecord record} taskhistory property is
+	 * {@link Zarafa.core.mapi.TaskHistory#DECLINED}, and taskstate property is not
+	 * {@link Zarafa.core.mapi.TaskState#ACCEPT}. Which means task is assigner received decline
+	 * task request response from assignee.
+	 */
+	declineAssignerTaskRequest : _('Declined by {0} on {1}.'),
+
+	/**
+	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
+	 * if delegate has declined the task request on behalf of delegator.
+	 */
+	declineDelegateTaskRequestInfoString : _('{0} has declined on behalf of {1} {2}.'),
+
+	/**
+	 * @cfg {String} declineTaskRequest string which must be displayed in the
+	 * dialog if the {@link Zarafa.core.data.IPMRecord record} taskhistory property is
+	 * {@link Zarafa.core.mapi.TaskHistory#UPDATED}, and
+	 * {@link Zarafa.task.TaskRecord#isTaskRequest record} is not task request record.
+	 * Which means task is assigner received update task request response from assignee.
+	 */
+	updateTaskRequest : _('Last update sent on {0}.'),
+
+	/**
+	 * @cfg {String} acceptDelegateTaskRequestInfoString string which must be displayed in the {@link #header}
+	 * if delegate has updated the task request on behalf of delegator.
+	 */
+	updateDelegateTaskRequestInfoString : _('{0} has updated on behalf of {1} {2}.'),
+
 	/**
 	 * @cfg {String} itemCls css class that will be added to every item of this component.
 	 */
@@ -234,17 +293,15 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 			isVisible = true;
 		}
 
-		if(Ext.isDefined(sensitivity) && sensitivity != Zarafa.core.mapi.Sensitivity.NONE){
+		if(Ext.isDefined(sensitivity) && sensitivity != Zarafa.core.mapi.Sensitivity.NONE && this.isShowExtraInfo()){
 			var text = String.format(this.sensitivityInfoString, Zarafa.core.mapi.Sensitivity.getDisplayName(sensitivity));
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
-
 			isVisible = true;
 		}
 
-		if(Ext.isDefined(importance) && importance != Zarafa.core.mapi.Importance.NORMAL){
+		if(Ext.isDefined(importance) && importance != Zarafa.core.mapi.Importance.NORMAL && this.isShowExtraInfo()){
 			var text = String.format(this.importantInfoString, Zarafa.core.mapi.Importance.getDisplayName(importance));
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
-
 			isVisible = true;
 		}
 
@@ -276,6 +333,8 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 			// extra info for meeting items
 			if(this.record instanceof Zarafa.calendar.MeetingRequestRecord) {
 				isVisible = (this.setMeetingInfo(el) === true ? true : isVisible);
+			} else if(this.record instanceof Zarafa.task.TaskRecord) {
+				isVisible = (this.setTaskRequestInfo(el) === true ? true : isVisible);
 			}
 		}
 
@@ -283,6 +342,23 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		// Only re-layout when the component is visible.
 		if (isVisible) {
 			this.doLayout();
+		}
+	},
+
+	/**
+	 * Function will be used to determine that {@link Zarafa.core.mapi.Sensitivity Sensitivity} or
+	 * {@link Zarafa.core.mapi.Importance importance} related extra info link on header of the record.
+	 *
+	 * @return {boolean}
+	 */
+	isShowExtraInfo : function ()
+	{
+		if (this.record.isMessageClass('IPM.Task')) {
+			// Only show the extra info link if record is task and user is task organizer/assigner
+			// or task is received task and still not Accepted/Updated.
+			return this.record.isTaskOrganized() || (this.record.isTaskReceived() && !this.record.isTaskAccepted() && !this.record.isTaskUpdated());
+		} else {
+			return true;
 		}
 	},
 
@@ -333,6 +409,75 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 			this.record.fixFaultyMessage();
 		}
+	},
+
+	/**
+	 * Set task request information from {@link Zarafa.core.data.IPMRecord record} data.
+	 *
+	 * @param {Ext.Element/HTMLElement} el The target element which is being layed out
+	 * @return {Boolean} true if function added any info to {@link Zarafa.common.ui.messagepanel.ExtraInfoLinks ExtraInfoLinks}
+	 * and it should be made visible else false.
+	 * @private
+	 */
+	setTaskRequestInfo : function (el)
+	{
+		var isVisible;
+		var taskHistory = this.record.get('taskhistory');
+		var infoMsg = '';
+		var taskLastUser = this.record.get('tasklastuser');
+		var delegateResponse  = false;
+		// check if delegate has responded
+		var delegateEntryid = this.record.get('sender_entryid');
+		var delegatorEntryid = this.record.get('sent_representing_entryid');
+		var assigneeName = '';
+		// check if sender and sent representing entryids are different
+		if(delegatorEntryid && !Zarafa.core.EntryId.compareABEntryIds(delegateEntryid, delegatorEntryid)) {
+			delegateResponse  = true;
+			// get assignee information
+			assigneeName = this.record.get('sent_representing_name') || this.record.get('sent_representing_email_address');
+		}
+		switch (taskHistory) {
+			case Zarafa.core.mapi.TaskHistory.ASSIGNED:
+				if (this.record.isTaskReceived()) {
+					infoMsg = String.format(this.receivedTaskRequest, this.record.get('tasklastuser'), this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				} else {
+					infoMsg = this.sentTaskRequest;
+				}
+				isVisible = true;
+				break;
+			case Zarafa.core.mapi.TaskHistory.ACCEPTED:
+				if (delegateResponse ) {
+					infoMsg = String.format(this.acceptDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				} else {
+					infoMsg = String.format(this.acceptedTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				}
+				isVisible = true;
+				break;
+			case Zarafa.core.mapi.TaskHistory.DECLINED:
+				if (delegateResponse ) {
+					infoMsg = String.format(this.declineDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				} else {
+					infoMsg = String.format(this.declineAssignerTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				}
+				isVisible = true;
+				break;
+			case Zarafa.core.mapi.TaskHistory.UPDATED:
+				if (delegateResponse ) {
+					infoMsg = String.format(this.updateDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				} else {
+					infoMsg = String.format(this.updateTaskRequest, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+				}
+				isVisible = true;
+				break;
+		}
+
+		if (isVisible) {
+			if (this.record.get('task_not_found')) {
+				el.createChild({tag: 'div', html: _('The matching task was not found in your task list.'), cls: this.itemCls});
+			}
+			el.createChild({tag: 'div', html: infoMsg, cls: this.itemCls});
+		}
+		return isVisible;
 	},
 
 	/**

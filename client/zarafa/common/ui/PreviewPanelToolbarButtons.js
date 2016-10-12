@@ -167,7 +167,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 */
 	onPopout : function()
 	{
-		Zarafa.mail.Actions.openMailContent(this.model.getPreviewRecord(), {layerType : 'separateWindows'});
+		Zarafa.common.Actions.openMessageContent(this.model.getPreviewRecord(), {layerType : 'separateWindows'});
 	},
 
 	/**

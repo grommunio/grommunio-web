@@ -68,6 +68,16 @@ Zarafa.core.HTMLParser = (function() {
 		},
 
 		/**
+		 * Converts newline(\r\n, \r) characters to \n
+		 * @param {String} The string value to format.
+		 * @return {String} The string with embedded \n in place of \r\n or \r.
+		 */
+		rlnl2nl : function(v)
+		{
+			return Ext.isEmpty(v) ? '' : v.replace(/\r\n|\r/gim, '\n');
+		},
+
+		/**
 		 * Format string with plain-text contents into a HTML formatted string.
 		 *
 		 * This will convert new-line characters into <br /> elements.

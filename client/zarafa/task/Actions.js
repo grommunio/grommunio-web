@@ -38,6 +38,22 @@ Zarafa.task.Actions = {
 	},
 
 	/**
+	 * Open a Panel in which a new {@link Zarafa.core.data.IPMRecord record} can be
+	 * further edited.
+	 *
+	 * @param {Zarafa.task.TaskContextModel} model Context Model object that will be used
+	 * to {@link Zarafa.task.TaskContextModel#createRecord create} the Task.
+	 * @param {Object} config (optional) Configuration object used to create
+	 * the Content Panel.
+	 */
+	openCreateTaskRequestContent : function(model, config)
+	{
+		var record = model.createRecord();
+		record.convertToTaskRequest();
+		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+	},
+
+	/**
 	 * Converts record to an task and calls {@link Zarafa.core.data.UIFactory.openCreateRecord}
 	 * to open the newly created task as editable record. The original record isn't removed.
 	 *
@@ -76,5 +92,60 @@ Zarafa.task.Actions = {
 	{
 		var newTaskRecord = record.convertToTask(model.getDefaultFolder());		
 		Zarafa.core.data.UIFactory.openCreateRecord(newTaskRecord);
+	},
+
+	/**
+	 * Opens a {@link Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel}.
+	 *
+	 * @param {Zarafa.task.TaskRecord} record The record, or records, for which the task conformation will be send.
+	 * @param {Object} config (optional) Configuration object used to create the ContentPanel
+	 */
+	openSendConfirmationContent : function(record, config)
+	{
+		config = Ext.applyIf(config || {}, {
+			record : record,
+			modal : true
+		});
+		var componentType = Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestconfirmation'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
+	},
+
+	/**
+	 * Opens a {@link Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel ABMultiUserSelectionContentPanel}
+	 * for configuring the recipient of the given {@link Zarafa.core.data.IPMRecord records}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the recipient
+	 * must be configured
+	 * @param {Object} config (optional) Configuration object used to create
+	 * the Content Panel.
+	 */
+	openRecipientSelectionContent : function(records, config)
+	{
+		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+			records = records[0];
+		}
+
+		// Create a copy of the record, we don't want the changes
+		// to be activated until the user presses the Ok button.
+		var copy = records.copy();
+		var store = copy.getSubStore('recipients');
+
+		Zarafa.common.Actions.openABUserMultiSelectionContent({
+			callback : function() {
+				records.applyData(copy);
+			},
+			convert : function(user, field) {
+				return user.convertToRecipient(field ? field.defaultRecipientType : config.defaultRecipientType);
+			},
+			store : store,
+			selectionCfg : [{
+				xtype : 'zarafa.recipientfield',
+				fieldLabel : _('To') + ':',
+				boxStore : store,
+				filterRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
+				defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO,
+				flex : 1
+			}]
+		});
 	}
 };

@@ -68,32 +68,7 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 			headerCfg : {
 				cls : 'preview-header-title'
 			},
-			items: [{
-				xtype : 'zarafa.extrainfolinks'
-			},{
-				xtype : 'zarafa.sentinfolinks'
-			},{
-				xtype : 'zarafa.recipientlinks',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-				fieldLabel    : pgettext('mail.previewpanel', 'To'),
-				recipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
-			},{
-				xtype : 'zarafa.recipientlinks',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-				fieldLabel    : pgettext('mail.previewpanel', 'Cc'),
-				recipientType : Zarafa.core.mapi.RecipientType.MAPI_CC
-			},{
-				xtype : 'zarafa.recipientlinks',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-				fieldLabel    : pgettext('mail.previewpanel', 'Bcc'),
-				recipientType : Zarafa.core.mapi.RecipientType.MAPI_BCC
-			},{
-				xtype : 'zarafa.attachmentlinks',
-				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-				fieldLabel    : pgettext('mail.previewpanel', 'Attachments')
-			},
-			container.populateInsertionPoint('previewpanel.toolbar.detaillinks', this)
-			]
+			items : this.createHeaderInfo(config)
 		});
 
 		Zarafa.common.ui.messagepanel.MessageHeader.superclass.constructor.call(this, config);
@@ -106,6 +81,52 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 				compiled: true
 			});
 		}
+	},
+
+	/**
+	 * Create header information for preview panel.
+	 *
+	 * @param {Object} config configuration object.
+	 * @return {Array} an array of configuration objects.
+	 */
+	createHeaderInfo : function (config)
+	{
+		var items = [{
+			xtype : 'zarafa.extrainfolinks'
+		}];
+
+		// if owner component is "zarafa.taskpreviewpanel", which indicate that we have to
+		// load the task request record in preview panel so prepare header accordingly.
+		if (config.ownerCt.isXType('zarafa.taskpreviewpanel')) {
+			items.push({
+				xtype : 'zarafa.taskinfo'
+			});
+		} else {
+			items.push({
+					xtype : 'zarafa.sentinfolinks'
+				},{
+					xtype : 'zarafa.recipientlinks',
+					plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+					fieldLabel    : pgettext('mail.previewpanel', 'To'),
+					recipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+				},{
+					xtype : 'zarafa.recipientlinks',
+					plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+					fieldLabel    : pgettext('mail.previewpanel', 'Cc'),
+					recipientType : Zarafa.core.mapi.RecipientType.MAPI_CC
+				},{
+					xtype : 'zarafa.recipientlinks',
+					plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+					fieldLabel    : pgettext('mail.previewpanel', 'Bcc'),
+					recipientType : Zarafa.core.mapi.RecipientType.MAPI_BCC
+				});
+		}
+		items.push({
+			xtype : 'zarafa.attachmentlinks',
+			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+			fieldLabel    : pgettext('mail.previewpanel', 'Attachments')
+		}, container.populateInsertionPoint('previewpanel.toolbar.detaillinks', this));
+		return items;
 	},
 
 	/**

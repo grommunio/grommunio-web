@@ -155,12 +155,22 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	compareResponseDataToRecord : function(data, record)
 	{
 		// special handling if attach_num is present and we are processing response of embedded message
-		if(!record.phantom && !Ext.isEmpty(record.get('attach_num'))) {
-			// FIXME: probably first we should check type of entryid and then use appropriate compare functions
-			if(Zarafa.core.EntryId.compareEntryIds(data.entryid, record.get('entryid'))) {
-				// for embedded messages we need to compare attach_num additionally also
-				if(record.get('attach_num').equals(data.props.attach_num)) {
-					return true;
+		if(!record.phantom) {
+			if(!Ext.isEmpty(record.get('attach_num'))) {
+				if(Zarafa.core.EntryId.compareEntryIds(data.entryid, record.get('entryid'))) {
+					// for embedded messages we need to compare attach_num additionally also
+					if(record.get('attach_num').equals(data.props.attach_num)) {
+						return true;
+					}
+				}
+			} else if(Ext.isDefined(data.props['task_goid'])) {
+				// Condition gets true only if open request sent by IPM.TaskRequest record and in response we got the
+				// associated task data. when user try to open IPM.TaskRequest record in dialog.
+				// we have to open associated task(IPM.Task) in dialog
+				if(!Zarafa.core.EntryId.compareEntryIds(data.entryid, record.get('entryid'))) {
+					if(record.get('task_goid') === data.props['task_goid'] ) {
+						return true;
+					}
 				}
 			}
 		}

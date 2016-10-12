@@ -353,12 +353,17 @@ ul.x-tab-strip {
 					.icon_folder_default_task,
 					.icon_folder_task,
 					.icon_task_normal {
-						@extend .icon_task2;
-						background-position: sprite-position($iconsmap, icon_task2, $offset-y: 10, $offset-x: 0);
+						@extend .icon_task;
+						background-position: sprite-position($iconsmap, icon_task, $offset-y: 10, $offset-x: 0);
 						/* icon width is 14px */
 						padding-left: $padding-medium + 14px;
 					}
-				
+
+					.icon_task_assignee,
+                    .icon_task_assigner{
+						background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: 10, $offset-x: -1);
+					}
+
 					.zarafa-settings-category-general {
 						@extend .icon_cogwheel;
 						background-position: sprite-position($icons, icon_cogwheel, $offset-y: 8px, $offset-x: -3px);

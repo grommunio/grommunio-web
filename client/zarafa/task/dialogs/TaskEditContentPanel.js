@@ -20,6 +20,7 @@ Zarafa.task.dialogs.TaskEditContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 			layout : 'fit',
 			xtype : 'zarafa.taskeditcontentpanel',
 			closeOnSave : true,
+			closeOnSend : true,
 			title : _('Task'),
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true
@@ -37,6 +38,68 @@ Zarafa.task.dialogs.TaskEditContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	},
 
 	/**
+	 * Create and initialize the {@link #sendValidationQueue}. This will add various
+	 * validation steps which must be executed to determine if the message can be send.
+	 * @protected
+	 */
+	createSendValidationQueue : function()
+	{
+		Zarafa.task.dialogs.TaskEditContentPanel.superclass.createSendValidationQueue.apply(this, arguments);
+		// Add a validation step to determine sender is not assigned task
+		// to him self or assigned single task to multiple assignee.
+		this.sendValidationQueue.add(this.validateSenderIsNotRecipient, this);
+	},
+
+	/**
+	 * Validation function for the {@link #sendValidationQueue} to check if the Message
+	 * can be send to the recipients.
+	 *
+	 * This validates if the user is in recipients list, if yes then the warning message
+	 * throw to user as user can to assigned task to yourself. Also shows the warning message if
+	 * user is trying to assigned single task to multiple user.
+	 *
+	 * @param {Function} callback The callback to call to continue in the queue
+	 * @private
+	 */
+	validateSenderIsNotRecipient : function (callback)
+	{
+		if(!this.record.isMessageClass('IPM.Task')) {
+			callback(true);
+			return;
+		}
+
+		var recipientStore = this.record.getRecipientStore();
+		var recipients = recipientStore.getRange();
+		var isSenderIsRecipient = false;
+		var isDistlist = false;
+		var recipientCount = 0;
+		Ext.each(recipients, function (recipient) {
+			if (Zarafa.core.EntryId.compareEntryIds(container.getUser().getEntryId(), recipient.get('entryid')) && !isSenderIsRecipient) {
+				isSenderIsRecipient = true;
+			}
+
+			if (recipient.get('recipient_type') === Zarafa.core.mapi.RecipientType.MAPI_TO) {
+				recipientCount++;
+			}
+
+			if (recipient.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST) {
+				isDistlist = true;
+				return false;
+			}
+		},this);
+
+		if (isSenderIsRecipient) {
+			container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('You cannot send a task request to yourself.'));
+			callback(false);
+		} else if ((recipientCount > 1 || isDistlist) && this.record.get('taskupdates')) {
+			container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('A task request can only have one recipient.'));
+			callback(false);
+		} else {
+			callback(true);
+		}
+	},
+
+	/**
 	 * Update the components with the given record.
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record to update in this component
@@ -44,9 +107,16 @@ Zarafa.task.dialogs.TaskEditContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 */
 	update : function(record, contentReset)
 	{
-		if(contentReset){
-			this.updateIconFromRecord(record);
+		if (record.isOpened()) {
+			if (record.isTaskRequest() ||
+				(!contentReset && record.isModifiedSinceLastUpdate('taskhistory')
+				&& record.get('taskhistory') === Zarafa.core.mapi.TaskHistory.NONE)) {
+				this.closeOnSave = false;
+			} else {
+				this.closeOnSave = true;
+			}
 		}
+		this.updateIconFromRecord(record);
 		this.updateTitleFromRecord(record);
 	},
 
@@ -86,8 +156,12 @@ Zarafa.task.dialogs.TaskEditContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 */
 	sendRecord : function()
 	{
-		// we don't support sending task requests yet
-		return;
+		if(!this.record.isTaskRequest()) {
+			// can not send a non task request record
+			return;
+		}
+
+		return Zarafa.task.dialogs.TaskEditContentPanel.superclass.sendRecord.apply(this, arguments);
 	}
 });
 

@@ -260,7 +260,13 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 				this.set('html_body', body);
 			}
 		} else {
-			if (this.get('body') !== body) {
+			// Sometimes record body contains \r\n and editor value always
+			// contains \n bue to different line breaking earlier, condition
+			// is satisfied and we again set the body in record which mark
+			// the record dirty and because of that we get "Unsaved changes..." message box.
+			var recordBody = Zarafa.core.HTMLParser.rlnl2nl(this.get('body'));
+
+			if (recordBody !== body) {
 				this.set('isHTML', false, true);
 				this.set('body', body);
 			}

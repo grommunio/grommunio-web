@@ -49,35 +49,39 @@
 				$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
 
 				$tr = new TaskRequest($store, $message, $GLOBALS['mapisession']->getSession());
-
-				if($tr->isTaskRequest()) {
-					$tr->processTaskRequest();
+				if ($tr->isTaskRequest() || $tr->isTaskRequestResponse()) {
+					$tr->isTaskRequest() ? $tr->processTaskRequest() : $tr->processTaskResponse();
 					$task = $tr->getAssociatedTask(false);
-
-					$taskprops = mapi_getprops($task, array(PR_ENTRYID));
-					$entryid = $taskprops[PR_ENTRYID];
-				}
-
-				if($tr->isTaskRequestResponse()) {
-					$tr->processTaskResponse();
-					$task = $tr->getAssociatedTask(false);
-
-					$taskprops = mapi_getprops($task, array(PR_ENTRYID));
-					$entryid = $taskprops[PR_ENTRYID];
-				}
-
-				// Get the recurrence information
-				$recur = new Taskrecurrence($store, $message);
-				$recurpattern = $recur->getRecurrence();
-
-				// Add the recurrence pattern to the data
-				if(isset($recurpattern) && is_array($recurpattern)) {
-					$data['item'] += $recurpattern;
+					$data = $this->getMessageProps($store, $entryid, $action, $task);
+					$data['item']['props']['task_not_found'] = ($task === false);;
 				}
 			}
 
 			$this->addActionData('item', $data);
 			$GLOBALS['bus']->addData($this->getResponseData());
+		}
+
+		/**
+		 * Function which used to open and get the all properties of the message. if message_action
+		 * "open_task" is true then it will open the associated task of task request and return its data item
+		 * else return the task request data item.
+		 *
+		 * @param object $store MAPI Message Store Object
+		 * @param string $entryid entryid of the message
+		 * @param object $task associated task of task request
+		 *
+		 * @return array $data item properties of given message.
+		 */
+		function getMessageProps($store, $entryid, $action, $task)
+		{
+			if(isset($action["message_action"]["open_task"]) && $action["message_action"]["open_task"] && $task !== false) {
+				$taskProps = mapi_getprops($task, array(PR_ENTRYID, PR_PARENT_ENTRYID,PR_STORE_ENTRYID));
+				$message = $GLOBALS['operations']->openMessage($store, $taskProps[PR_ENTRYID]);
+			} else {
+				$message = $GLOBALS['operations']->openMessage($store, $entryid);
+			}
+			$data['item'] = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+			return $data;
 		}
 
 		/**
@@ -106,14 +110,24 @@
 					$messageProps = $this->saveTask($store, $parententryid, $entryid, $action);
 
 					if($messageProps) {
-						$data = array();
-						$data["entryid"] = bin2hex($messageProps[PR_ENTRYID]);
-						$data["parent_entryid"] = bin2hex($messageProps[PR_PARENT_ENTRYID]);
-						$data["store_entryid"] = bin2hex($messageProps[PR_STORE_ENTRYID]);
+						$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
+						$message = $GLOBALS['operations']->openMessage($store, $messageProps[PR_ENTRYID]);
+						$data = $GLOBALS['operations']->getMessageProps($store, $message, $this->properties, $this->plaintext);
+
+						// taskupdates property true if assigner as checked "Keep copy of task in task list" checkbox.
+						// if it is not checked then it means user don't want assigned task copy in his task list.
+						if($send && isset($data["props"]['taskupdates']) && $data["props"]['taskupdates'] === false) {
+							// Hard delete the task if taskupdates property is not true.
+							$folder = mapi_msgstore_openentry($store, $parententryid);
+							mapi_folder_deletemessages($folder, array($messageProps[PR_ENTRYID]), DELETE_HARD_DELETE);
+
+							$data = Conversion::mapMAPI2XML($this->properties , $messageProps);
+							$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $messageProps);
+						} else {
+							$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
+						}
 						$this->addActionData("update", array("item" => $data));
 						$GLOBALS["bus"]->addData($this->getResponseData());
-
-						$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
 					}
 				}
 			}
@@ -164,26 +178,40 @@
 		function deleteTask($store, $parententryid, $entryids, $action)
 		{
 			$result = false;
-
+			$message = mapi_msgstore_openentry($store, $entryids);
+			$messageAction = isset($action["message_action"]["action_type"]) ? $action["message_action"]["action_type"] : false;
 			// If user wants to delete only occurrence then delete this occurrence
-			if (!is_array($entryids) && isset($action['deleteFlag'])) {
-				$message = mapi_msgstore_openentry($store, $entryids);
-
+			if (!is_array($entryids) && $messageAction) {
 				if ($message) {
-					if ($action['deleteFlag'] == 'occurrence') {
+					if ($messageAction == 'occurrence') {
 						$recur = new TaskRecurrence($store, $message);
 						$occurrenceDeleted = $recur->deleteOccurrence($action);
-					} else if ($action['deleteFlag'] == 'decline' || $action['deleteFlag'] == 'complete') {
+					} else if ($messageAction == 'declineAndDelete' || $messageAction == 'completeAndDelete') {
 						$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-
-						if ($action['deleteFlag'] == 'decline') $taskReq->doDecline(_("Task Declined:") . " ");
-						else if ($action['deleteFlag'] == 'complete') $taskReq->sendCompleteUpdate(_("Task Updated:") . " ", $action, _("Task Completed:") . " ");
+						if ($messageAction == 'declineAndDelete') {
+							$taskReq->doDecline();
+						} else if ($messageAction == 'completeAndDelete') {
+							$taskReq->sendCompleteUpdate();
+						}
 					}
 				}
 			}
 
 			// Deleting occurrence failed, maybe that was its last occurrence, so now we delete whole series.
 			if (!isset($occurrenceDeleted) || !$occurrenceDeleted) {
+				$properties = $GLOBALS["properties"]->getTaskProperties();
+				$goid = mapi_getprops($message, array($properties["task_goid"]));
+				// If task is assigned task to assignee and user is trying to delete the task.
+				// then we have to remove respective task request(IPM.TaskRequest.Accept/Decline/Update)
+				// notification mail from inbox.
+				if(isset($goid[$properties["task_goid"]]) && !empty($goid[$properties["task_goid"]])) {
+					$taskReq = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
+					$result = $taskReq->deleteReceivedTR();
+					if($result) {
+						$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+					}
+				}
+
 				// If softdelete is set then set it in softDelete variable and pass it for deleteing message.
 				$softDelete = isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false;
 				$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryids, $softDelete);
@@ -208,84 +236,25 @@
 		 */
 		function saveTask($store, $parententryid, $entryid, $action)
 		{
-			$properties = $GLOBALS["properties"]->getTaskProperties();
-			$send = isset($action["send"]) ? $action["send"] : false;
+			$properties = $this->properties;
+			$send = isset($action["message_action"]["send"]) ? $action["message_action"]["send"] : false;
 
 			if($store && $parententryid) {
 				if(isset($action["props"])) {
 
-					$props = $action["props"];
-
-					if (!isset($action["props"]["entryid"])) {
-
-						// Fetch message store properties of a current store.
-						$msgstoreProps = mapi_getprops($store, array(PR_USER_ENTRYID, PR_MDB_PROVIDER, PR_MAILBOX_OWNER_ENTRYID));
-
-						// Get current session and open addressbook
-						$addrbook = $GLOBALS["mapisession"]->getAddressbook();
-
-						// Store PR_SENT_REPRESENTING_* properties for task according to store type.
-						switch ($msgstoreProps[PR_MDB_PROVIDER])
-						{
-							case ZARAFA_STORE_PUBLIC_GUID:
-								try {
-									// Open addressbook entry for current user.
-									$userObject = mapi_ab_openentry($addrbook, $msgstoreProps[PR_USER_ENTRYID]);
-									$userProps = mapi_getprops($userObject);
-									// Store PR_SENDER_* properties for task in props variable.
-									$props["sender_email_address"] = $userProps[PR_EMAIL_ADDRESS];
-									$props["sender_name"] = $userProps[PR_DISPLAY_NAME];
-									$props["sender_address_type"] = $userProps[PR_ADDRTYPE];
-									$props["sender_entryid"] = bin2hex($userProps[PR_ENTRYID]);
-									$props["sender_search_key"] = bin2hex($userProps[PR_SEARCH_KEY]);
-
-									/**
-									 * store type is "public"
-									 * Store PR_SENT_REPRESENTING_* properties for task in props variable.
-									 */
-									$props["sent_representing_entryid"] = bin2hex($userProps[PR_ENTRYID]);
-									$props["sent_representing_name"] = $userProps[PR_DISPLAY_NAME];
-									$props["sent_representing_address_type"] = $userProps[PR_ADDRTYPE];
-									$props["sent_representing_email_address"] = $userProps[PR_EMAIL_ADDRESS];
-									$props["sent_representing_search_key"] = bin2hex($userProps[PR_SEARCH_KEY]);
-								} catch (MAPIException $e) {
-									$e->setHandled();
-								}
-								break;
-							case ZARAFA_SERVICE_GUID:
-								// store type is "default"
-							case ZARAFA_STORE_DELEGATE_GUID:
-								/**
-								 * store type is "delegate"
-								 * Open addressbook entry for mailbox owner.
-								 */
-								try {
-									$ownerObject = mapi_ab_openentry($addrbook, $msgstoreProps[PR_MAILBOX_OWNER_ENTRYID]);
-									$ownerProps = mapi_getprops($ownerObject);
-										// Store PR_SENT_REPRESENTING_* properties for task in props variable.
-										$props["sent_representing_entryid"] = bin2hex($ownerProps[PR_ENTRYID]);
-										$props["sent_representing_name"] = $ownerProps[PR_DISPLAY_NAME];
-										$props["sent_representing_address_type"] = $ownerProps[PR_ADDRTYPE];
-										$props["sent_representing_email_address"] = $ownerProps[PR_EMAIL_ADDRESS];
-										$props["sent_representing_search_key"] = bin2hex($ownerProps[PR_SEARCH_KEY]);
-								} catch (MAPIException $e) {
-									$e->setHandled();
-								}
-								break;
-						}
+					if (isset($action["entryid"]) && empty($action["entryid"])) {
+						$GLOBALS["operations"]->setSenderAddress($store, $action);
 					}
 
+					$props = $action["props"];
 					$messageProps = array();
 					$recips = array();
 					if(isset($action["recipients"]) && is_array($action["recipients"])) {
 						$recips = $action["recipients"];
-					} else {
-						$recips = false;
 					}
 
-					if (isset($action["props"]["entryid"]) && !empty($action["props"]["entryid"])) {
-						$message = mapi_msgstore_openentry($store, hex2bin($action["props"]["entryid"]));
-
+					if (isset($action["entryid"]) && !empty($action["entryid"])) {
+						$message = mapi_msgstore_openentry($store, hex2bin($action["entryid"]));
 						if ($message) {
 							$messageProps = mapi_getprops($message, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID, $properties['recurring']));
 
@@ -303,7 +272,7 @@
 
 							$messageProps = Conversion::mapXML2MAPI($properties, $props);
 
-							$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips ? $recips : array(), isset($action['attachments']) ? $action['attachments'] : array(), array());
+							$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : array(), array());
 
 							if (isset($msgProps) && $msgProps) {
 								$messageProps = $msgProps;
@@ -327,7 +296,7 @@
 							$copyFromMessage = $GLOBALS['operations']->openMessage($copyFromStore, $copyFromMessage);
 						}
 
-						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips ? $recips : array(), isset($action['attachments']) ? $action['attachments'] : array(), array(), $copyFromMessage, $copyAttachments);
+						$message = $GLOBALS["operations"]->saveMessage($store, $entryid, $parententryid, $messageProps, $messageProps, $recips, isset($action['attachments']) ? $action['attachments'] : array(), array(), $copyFromMessage, $copyAttachments);
 
 						// Set recurrence
 						if (isset($action['props']['recurring']) && $action['props']['recurring'] == 1) {
@@ -337,35 +306,17 @@
 					}
 
 					if ($message) {
-						// The task may be a delegated task, do an update if needed (will fail for non-delegated tasks)
 						$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-
-						// @TODO: check whether task is request and not a normal task
-						switch($send)
-						{
-							case "accept":
-								$result = $tr->doAccept(_("Task Accepted:") . " ");
-								break;
-							case "decline":
-								$result = $tr->doDecline(_("Task Declined:") . " ");
-								break;
-							case "request":
-								$tr->sendTaskRequest(_("Task Request:") . " ");
-								break;
-							case "unassign":
-								$tr->createUnassignedCopy();
-								break;
-							case "reclaim":
-								$tr->reclaimownership();
-								break;
-							default:
-								if (isset($props["messagechanged"]) && $props["messagechanged"])
-									$tr->doUpdate(_("Task Updated:") . " ", _("Task Completed:") . " ");
+						if ($send) {
+							$tr->sendTaskRequest(_("Task Request:") . " ");
+						} else if (isset($action["message_action"]["response_type"]) && $action["message_action"]["response_type"] === tdmtTaskUpd) {
+							$tr->doUpdate();
+						} else if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] === "restoreToTaskList") {
+							$deleteTRProps = $tr->deleteReceivedTR();
+							if ($deleteTRProps) {
+								$GLOBALS["bus"]->notify(bin2hex($deleteTRProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $deleteTRProps);
+							}
 						}
-
-						// Notify Inbox that task request has been deleted
-						if (isset($result) && is_array($result))
-							$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
 					}
 				}
 			}

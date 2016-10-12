@@ -33,7 +33,7 @@ Zarafa.core.mapi.TaskState = Zarafa.core.Enum.create({
 	 */
 	'ACCEPT' : 3,
 	/**
-	 * Denotes that the task is the assignee copy of a rejected task.
+	 * Denotes that the task is Assigner version, but assignee has declined.
 	 * @property
 	 * @type Number
 	 */
