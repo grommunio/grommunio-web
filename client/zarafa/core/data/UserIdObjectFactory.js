@@ -97,6 +97,10 @@ Zarafa.core.data.UserIdObjectFactory = {
 	 */
 	createFromStore : function(store, fieldRoots)
 	{
+		if ( !store.data ) {
+			return [];
+		}
+
 		var userIdObjects = [];
 		var records = store.getRange();
 
