@@ -98,9 +98,9 @@ Zarafa.calendar.ui.CalendarGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Co
 			width: 160,
 			renderer: Zarafa.common.ui.grid.Renderers.meetingstatus
 		},{
-			header: _('Busy Status'),
+			header: _('Show as'),
 			dataIndex: 'busystatus',
-			tooltip : _('Sort by: Busy Status'),
+			tooltip : _('Sort by: Show as'),
 			width: 160,
 			renderer: Zarafa.common.ui.grid.Renderers.busystatus,
 			hidden: true

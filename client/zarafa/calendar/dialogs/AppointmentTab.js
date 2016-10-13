@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.calendar.dialogs');
  * @class Zarafa.calendar.dialogs.AppointmentTab
  * @extends Ext.form.FormPanel
  * @xtype zarafa.appointmenttab
- * 
+ *
  * Main tab in the {@link Zarafa.calendar.dialogs.AppointmentPanel}
  * that is used to create Appointments and Meeting Requests.
  */
@@ -130,8 +130,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			border: false,
 			labelPad: 0,
 			items: [
-				this.createExtraInfoPanel(),	
-				this.createMeetingOrganizerPanel(),	
+				this.createExtraInfoPanel(),
+				this.createMeetingOrganizerPanel(),
 				this.createRecipientPanel(),
 				this.createSubjectPanel(),
 				this.createLocationPanel(),
@@ -151,7 +151,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * @private
 	 */
 	createExtraInfoPanel : function()
-	{	
+	{
 		return {
 			xtype: 'container',
 			cls: 'zarafa-calendar-appointment-extrainfo',
@@ -167,7 +167,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * @private
 	 */
 	createMeetingOrganizerPanel : function()
-	{	
+	{
 		return {
 			xtype: 'panel',
 			ref: 'meetingOrganizerPanel',
@@ -237,7 +237,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				listeners: {
 					change: this.onFieldChange,
 					scope: this
-				}	
+				}
 			}]
 		};
 	},
@@ -268,11 +268,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					change: this.onFieldChange,
 					keypress: this.onLocationKeyPress,
 					scope: this
-				}	
+				}
 			}]
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel panel} containing the following elements
 	 * in a table layout: the date panel, recurrence panel, busy status panel,
@@ -301,7 +301,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					]
 				},
 				this.createBusyStatusPanel(),
-				
+
 				this.createReminderPanel(),
 				this.createLabelPanel()
 			]
@@ -343,7 +343,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				startFieldConfig: {
 					fieldLabel: _('Time'),
 					labelWidth: 83,
-					
+
 					cls: 'from-field'
 				},
 				endFieldConfig: {
@@ -442,7 +442,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			}]
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel Panel} containing the form fields
 	 * for setting the busy status.
@@ -468,7 +468,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'combo',
 				ref: '../../comboBusyStatus',
 				name: 'busystatus',
-				fieldLabel: _('Busy Status'),
+				fieldLabel: _('Show as'),
 				store: busyStore,
 				mode: 'local',
 				triggerAction: 'all',
@@ -484,7 +484,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			}]
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel Panel} containing the form fields
 	 * for setting a label on the appointment.
@@ -661,8 +661,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					break;
 				case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED:
 				case Zarafa.core.mapi.MeetingStatus.MEETING_CANCELED:
-				case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED_AND_CANCELED: 
-					// here we ensure that response status,is nither none nor organizer 
+				case Zarafa.core.mapi.MeetingStatus.MEETING_RECEIVED_AND_CANCELED:
+					// here we ensure that response status,is nither none nor organizer
 					if(record.get('responsestatus') != Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE || record.get('responsestatus') != Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED) {
 						this.meetingOrganizerPanel.setVisible(true);
 						this.recipientPanel.setVisible(false);
@@ -786,7 +786,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		this.updateExtraInfoPanel();
-		
+
 		if (contentReset === true || record.isModifiedSinceLastUpdate('recurring_pattern')) {
 			this.recurrencePatternField.setValue(record.get('recurring_pattern'));
 		}
@@ -819,7 +819,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		if(record.isOpened() && record.isSubStoreModifiedSincelastUpdate('recipients')) {
 			var recipients = record.updateSubStoreModifications.recipients;
-			
+
 			// Check if changes (Added/Removed/Updated) are room resource
 			if(recipients && recipients.changes) {
 				var changedRecipients = recipients.changes;
@@ -843,7 +843,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * Function updates the location in the {@link Zarafa.core.data.IPMRecord record}
 	 * It uses {@link Zarafa.core.mapi.DisplayTypeEx.DT_ROOM room} resources to
 	 * generate location from the recipient table.
-	 * 
+	 *
 	 * @private
 	 */
 	updateLocation : function()
@@ -890,11 +890,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Function sets location that is suggested to the user if user confirms.
-	 * 
+	 *
 	 * @param {String} buttonId The ID of the button pressed, here 'yes' or 'no'
 	 * @param {String} text String Value of the input field if either prompt
 	 * @param {Object} opt The config object passed to the messagebox.
-	 * 
+	 *
 	 * @private
 	 */
 	setLocation : function(button, text, opt)
@@ -910,7 +910,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * user changed location with our generated location string so from next time this
 	 * should not be considered as user change
 	 * @param {String} locationString String value of the location.
-	 * 
+	 *
 	 * @private
 	 */
 	doSetLocation : function(locationString)
@@ -1107,7 +1107,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.endEdit();
 		}
 	},
-	
+
 	/**
 	 * Function will open AddressBook dialog to add attendees
 	 * @private
@@ -1118,7 +1118,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
-	 * Function will update the {@link #extraInfoPanel} with extra information that should be shown 
+	 * Function will update the {@link #extraInfoPanel} with extra information that should be shown
 	 * for the meeting item.
 	 * @private
 	 */
@@ -1221,7 +1221,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		return true;
 	},
-	
+
 	/**
 	 * Function will display message regarding request accepted time for an attendee
 	 * @param {Zarafa.core.mapi.ResponseStatus} responseStatus for the meeting
@@ -1239,7 +1239,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		if(responseStatus !== Zarafa.core.mapi.ResponseStatus.RESPONSE_NOT_RESPONDED) {
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 			replyTime = Ext.isDate(replyTime) ? replyTime.format(_('jS F Y G:i')) : _('None');
-		
+
 			if(this.record.get('counter_proposal')) {
 				if(!Ext.isEmpty(replyName)) {
 					responseString = String.format(this.proposeNewTimeDelegateInfoString, replyName, replyTime);
@@ -1270,12 +1270,12 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				responseString = this.responseRequiredString;
 			}
 		}
-		
+
 		if(!Ext.isEmpty(responseString)) {
 			el.createChild({tag: 'div', html: responseString});
 			return true;
 		}
-		
+
 		return false;
 	},
 
