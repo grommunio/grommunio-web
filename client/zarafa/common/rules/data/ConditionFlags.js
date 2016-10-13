@@ -74,5 +74,12 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	ATTACHMENT : 9
+	ATTACHMENT : 9,
+
+	/**
+	 * Indicates that the condition checks if the message has my name in the Cc field
+	 * @property
+	 * @type Number
+	 */
+	SENT_CC_ME : 12
 });
