@@ -77,6 +77,13 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	ATTACHMENT : 9,
 
 	/**
+	 * Indicates that the condition checks if the message was sent with a certain sensitivity
+	 * @property
+	 * @type Number
+	 */
+	SENSITIVITY : 10,
+
+	/**
 	 * Indicates that the condition checks if the message has my name in the Cc field
 	 * @property
 	 * @type Number
