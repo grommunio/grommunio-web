@@ -52,6 +52,7 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Panel, {
 			},
 			items : [{
 				xtype : 'zarafa.rulesgrid',
+				ref : '../rulesGrid',
 				flex : 1,
 				store : config.store
 			}]
