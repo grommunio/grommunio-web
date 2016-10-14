@@ -210,7 +210,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		var ed = browserWindow.tinymce.get(me.getInputId());
 
 		// if the editor is not available at all than simply return.
-		if(!ed){
+		if(!ed || !ed.iframeElement){
 			return;
 		}
 
@@ -736,11 +736,15 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 
 		var ed = me.getEditor();
 
-		if (ed && !ed.isHidden()) {
+		if (ed && !ed.isHidden() && ed.initialized) {
 			Ext.ux.form.TinyMCETextArea.superclass.focus.call(this, arguments);
 
 			ed.focus();
 		} else {
+			this.withEd(function () {
+				ed.focus();
+			});
+
 			return Ext.ux.form.TinyMCETextArea.superclass.focus.call(this, arguments);
 		}
 
@@ -803,18 +807,13 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		Ext.ux.form.TinyMCETextArea.superclass.hide.call(this, arguments);
 
 		var ed = me.getEditor();
-		if(ed){
+		if (ed && ed.iframeElement) {
 			ed.hide();
 		} else {
-			// There are multiple tinymce editors loaded in multiple browser windows,
-			// Use global object of currently active window to register AddEditor event.
-			var editorGlobalInstance = me.getEditorOwnerWindow().tinymce;
-			editorGlobalInstance.EditorManager.on("AddEditor", function() {
-				me.withEd(function() {
-					var ed = me.getEditor();
-					ed.hide();
-				});
-			}, this);
+			me.withEd(function () {
+				var ed = me.getEditor();
+				ed.hide();
+			});
 		}
 
 		return me;

@@ -16,12 +16,18 @@
  *
  * @class tinymce.dom.EventUtils
  */
-define("tinymce/dom/EventUtils", [], function() {
+define("tinymce/dom/EventUtils", [
+	"tinymce/util/Delay",
+	"tinymce/Env"
+], function(Delay, Env) {
 	"use strict";
 
 	var eventExpandoPrefix = "mce-data-";
 	var mouseEventRe = /^(?:mouse|contextmenu)|click/;
-	var deprecated = {keyLocation: 1, layerX: 1, layerY: 1, returnValue: 1, webkitMovementX: 1, webkitMovementY: 1};
+	var deprecated = {
+		keyLocation: 1, layerX: 1, layerY: 1, returnValue: 1,
+		webkitMovementX: 1, webkitMovementY: 1, keyIdentifier: 1
+	};
 
 	/**
 	 * Binds a native event to a callback on the speified target.
@@ -43,6 +49,32 @@ define("tinymce/dom/EventUtils", [], function() {
 		} else if (target.detachEvent) {
 			target.detachEvent('on' + name, callback);
 		}
+	}
+
+	/**
+	 * Gets the event target based on shadow dom properties like path and deepPath.
+	 */
+	function getTargetFromShadowDom(event, defaultTarget) {
+		var path, target = defaultTarget;
+
+		// When target element is inside Shadow DOM we need to take first element from path
+		// otherwise we'll get Shadow Root parent, not actual target element
+
+		// Normalize target for WebComponents v0 implementation (in Chrome)
+		path = event.path;
+		if (path && path.length > 0) {
+			target = path[0];
+		}
+
+		// Normalize target for WebComponents v1 implementation (standard)
+		if (event.deepPath) {
+			path = event.deepPath();
+			if (path && path.length > 0) {
+				target = path[0];
+			}
+		}
+
+		return target;
 	}
 
 	/**
@@ -72,6 +104,11 @@ define("tinymce/dom/EventUtils", [], function() {
 		// Normalize target IE uses srcElement
 		if (!event.target) {
 			event.target = event.srcElement || document;
+		}
+
+		// Experimental shadow dom support
+		if (Env.experimentalShadowDom) {
+			event.target = getTargetFromShadowDom(originalEvent, event.target);
 		}
 
 		// Calculate pageX/Y if missing and clientX/Y available
@@ -171,7 +208,7 @@ define("tinymce/dom/EventUtils", [], function() {
 				// http://javascript.nwbox.com/IEContentLoaded/
 				doc.documentElement.doScroll("left");
 			} catch (ex) {
-				setTimeout(tryScroll, 0);
+				Delay.setTimeout(tryScroll);
 				return;
 			}
 
@@ -330,7 +367,7 @@ define("tinymce/dom/EventUtils", [], function() {
 					}
 				}
 
-				// Fake bubbeling of focusin/focusout
+				// Fake bubbling of focusin/focusout
 				if (!hasFocusIn && (name === "focusin" || name === "focusout")) {
 					capture = true;
 					fakeName = name === "focusin" ? "focus" : "blur";
@@ -515,7 +552,7 @@ define("tinymce/dom/EventUtils", [], function() {
 				return self;
 			}
 
-			// Unbind any element on the specificed target
+			// Unbind any element on the specified target
 			if (target[expando]) {
 				unbind(target);
 			}

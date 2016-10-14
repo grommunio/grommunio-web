@@ -47,6 +47,18 @@ define("tinymce/WindowManager", [
 			}
 		}
 
+		function fireOpenEvent(win) {
+			editor.fire('OpenWindow', {
+				win: win
+			});
+		}
+
+		function fireCloseEvent(win) {
+			editor.fire('CloseWindow', {
+				win: win
+			});
+		}
+
 		self.windows = windows;
 
 		editor.on('remove', function() {
@@ -62,6 +74,7 @@ define("tinymce/WindowManager", [
 		 *
 		 * @method open
 		 * @param {Object} args Optional name/value settings collection contains things like width/height/url etc.
+		 * @param {Object} params Options like title, file, width, height etc.
 		 * @option {String} title Window title.
 		 * @option {String} file URL of the file to open in the window.
 		 * @option {Number} width Width in pixels.
@@ -88,7 +101,9 @@ define("tinymce/WindowManager", [
 				args.items = {
 					defaults: args.defaults,
 					type: args.bodyType || 'form',
-					items: args.body
+					items: args.body,
+					data: args.data,
+					callbacks: args.commands
 				};
 			}
 
@@ -119,6 +134,8 @@ define("tinymce/WindowManager", [
 				if (!windows.length) {
 					editor.focus();
 				}
+
+				fireCloseEvent(win);
 			});
 
 			// Handle data
@@ -143,7 +160,11 @@ define("tinymce/WindowManager", [
 				editor.nodeChanged();
 			}
 
-			return win.renderTo().reflow();
+			win = win.renderTo().reflow();
+
+			fireOpenEvent(win);
+
+			return win;
 		};
 
 		/**
@@ -159,13 +180,21 @@ define("tinymce/WindowManager", [
 		 * tinymce.activeEditor.windowManager.alert('Hello world!');
 		 */
 		self.alert = function(message, callback, scope) {
-			MessageBox.alert(message, function() {
+			var win;
+
+			win = MessageBox.alert(message, function() {
 				if (callback) {
 					callback.call(scope || this);
 				} else {
 					editor.focus();
 				}
 			});
+
+			win.on('close', function() {
+				fireCloseEvent(win);
+			});
+
+			fireOpenEvent(win);
 		};
 
 		/**
@@ -173,7 +202,7 @@ define("tinymce/WindowManager", [
 		 * native version use the callback method instead then it can be extended.
 		 *
 		 * @method confirm
-		 * @param {String} messageText to display in the new confirm dialog.
+		 * @param {String} message Text to display in the new confirm dialog.
 		 * @param {function} callback Callback function to be executed after the user has selected ok or cancel.
 		 * @param {Object} scope Optional scope to execute the callback in.
 		 * @example
@@ -186,9 +215,17 @@ define("tinymce/WindowManager", [
 		 * });
 		 */
 		self.confirm = function(message, callback, scope) {
-			MessageBox.confirm(message, function(state) {
+			var win;
+
+			win = MessageBox.confirm(message, function(state) {
 				callback.call(scope || this, state);
 			});
+
+			win.on('close', function() {
+				fireCloseEvent(win);
+			});
+
+			fireOpenEvent(win);
 		};
 
 		/**

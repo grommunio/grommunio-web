@@ -15,63 +15,27 @@
  */
 define("tinymce/UndoManager", [
 	"tinymce/util/VK",
-	"tinymce/Env",
 	"tinymce/util/Tools",
-	"tinymce/html/SaxParser"
-], function(VK, Env, Tools, SaxParser) {
-	var trim = Tools.trim, trimContentRegExp;
-
-	trimContentRegExp = new RegExp([
-		'<span[^>]+data-mce-bogus[^>]+>[\u200B\uFEFF]+<\\/span>', // Trim bogus spans like caret containers
-		'\\s?data-mce-selected="[^"]+"' // Trim temporaty data-mce prefixed attributes like data-mce-selected
-	].join('|'), 'gi');
-
+	"tinymce/undo/Levels",
+	"tinymce/Env"
+], function(VK, Tools, Levels, Env) {
 	return function(editor) {
 		var self = this, index = 0, data = [], beforeBookmark, isFirstTypedCharacter, locks = 0;
 
-		/**
-		 * Returns a trimmed version of the editor contents to be used for the undo level. This
-		 * will remove any data-mce-bogus="all" marked elements since these are used for UI it will also
-		 * remove the data-mce-selected attributes used for selection of objects and caret containers.
-		 * It will keep all data-mce-bogus="1" elements since these can be used to place the caret etc and will
-		 * be removed by the serialization logic when you save.
-		 *
-		 * @private
-		 * @return {String} HTML contents of the editor excluding some internal bogus elements.
-		 */
-		function getContent() {
-			var content = editor.getContent({format: 'raw', no_events: 1});
-			var bogusAllRegExp = /<(\w+) [^>]*data-mce-bogus="all"[^>]*>/g;
-			var endTagIndex, index, matchLength, matches, shortEndedElements, schema = editor.schema;
-
-			content = content.replace(trimContentRegExp, '');
-			shortEndedElements = schema.getShortEndedElements();
-
-			// Remove all bogus elements marked with "all"
-			while ((matches = bogusAllRegExp.exec(content))) {
-				index = bogusAllRegExp.lastIndex;
-				matchLength = matches[0].length;
-
-				if (shortEndedElements[matches[1]]) {
-					endTagIndex = index;
-				} else {
-					endTagIndex = SaxParser.findEndTag(schema, content, index);
-				}
-
-				content = content.substring(0, index - matchLength) + content.substring(endTagIndex);
-				bogusAllRegExp.lastIndex = index - matchLength;
-			}
-
-			return trim(content);
-		}
-
 		function setDirty(state) {
-			editor.isNotDirty = !state;
+			editor.setDirty(state);
 		}
 
 		function addNonTypingUndoLevel(e) {
 			self.typing = false;
 			self.add({}, e);
+		}
+
+		function endTyping() {
+			if (self.typing) {
+				self.typing = false;
+				self.add();
+			}
 		}
 
 		// Add initial undo level when the editor is initialized
@@ -83,7 +47,8 @@ define("tinymce/UndoManager", [
 		editor.on('BeforeExecCommand', function(e) {
 			var cmd = e.command;
 
-			if (cmd != 'Undo' && cmd != 'Redo' && cmd != 'mceRepaint') {
+			if (cmd !== 'Undo' && cmd !== 'Redo' && cmd !== 'mceRepaint') {
+				endTyping();
 				self.beforeChange();
 			}
 		});
@@ -92,7 +57,7 @@ define("tinymce/UndoManager", [
 		editor.on('ExecCommand', function(e) {
 			var cmd = e.command;
 
-			if (cmd != 'Undo' && cmd != 'Redo' && cmd != 'mceRepaint') {
+			if (cmd !== 'Undo' && cmd !== 'Redo' && cmd !== 'mceRepaint') {
 				addNonTypingUndoLevel(e);
 			}
 		});
@@ -113,12 +78,12 @@ define("tinymce/UndoManager", [
 				return;
 			}
 
-			if ((keyCode >= 33 && keyCode <= 36) || (keyCode >= 37 && keyCode <= 40) || keyCode == 45 || keyCode == 13 || e.ctrlKey) {
+			if ((keyCode >= 33 && keyCode <= 36) || (keyCode >= 37 && keyCode <= 40) || keyCode === 45 || e.ctrlKey) {
 				addNonTypingUndoLevel();
 				editor.nodeChanged();
 			}
 
-			if (keyCode == 46 || keyCode == 8 || (Env.mac && (keyCode == 91 || keyCode == 93))) {
+			if (keyCode === 46 || keyCode === 8 || (Env.mac && (keyCode === 91 || keyCode === 93))) {
 				editor.nodeChanged();
 			}
 
@@ -126,10 +91,10 @@ define("tinymce/UndoManager", [
 			if (isFirstTypedCharacter && self.typing) {
 				// Make it dirty if the content was changed after typing the first character
 				if (!editor.isDirty()) {
-					setDirty(data[0] && getContent() != data[0].content);
+					setDirty(data[0] && !Levels.isEq(Levels.createFromEditor(editor), data[0]));
 
 					// Fire initial change event
-					if (!editor.isNotDirty) {
+					if (editor.isDirty()) {
 						editor.fire('change', {level: data[0], lastLevel: null});
 					}
 				}
@@ -149,8 +114,8 @@ define("tinymce/UndoManager", [
 				return;
 			}
 
-			// Is caracter positon keys left,right,up,down,home,end,pgdown,pgup,enter
-			if ((keyCode >= 33 && keyCode <= 36) || (keyCode >= 37 && keyCode <= 40) || keyCode == 45) {
+			// Is character position keys left,right,up,down,home,end,pgdown,pgup,enter
+			if ((keyCode >= 33 && keyCode <= 36) || (keyCode >= 37 && keyCode <= 40) || keyCode === 45) {
 				if (self.typing) {
 					addNonTypingUndoLevel(e);
 				}
@@ -160,7 +125,7 @@ define("tinymce/UndoManager", [
 
 			// If key isn't Ctrl+Alt/AltGr
 			var modKey = (e.ctrlKey && !e.altKey) || e.metaKey;
-			if ((keyCode < 16 || keyCode > 20) && keyCode != 224 && keyCode != 91 && !self.typing && !modKey) {
+			if ((keyCode < 16 || keyCode > 20) && keyCode !== 224 && keyCode !== 91 && !self.typing && !modKey) {
 				self.beforeChange();
 				self.typing = true;
 				self.add({}, e);
@@ -186,7 +151,7 @@ define("tinymce/UndoManager", [
 
 		/*eslint consistent-this:0 */
 		self = {
-			// Explose for debugging reasons
+			// Explode for debugging reasons
 			data: data,
 
 			/**
@@ -214,14 +179,15 @@ define("tinymce/UndoManager", [
 			 *
 			 * @method add
 			 * @param {Object} level Optional undo level object to add.
-			 * @param {DOMEvent} Event Optional event responsible for the creation of the undo level.
+			 * @param {DOMEvent} event Optional event responsible for the creation of the undo level.
 			 * @return {Object} Undo level that got added or null it a level wasn't needed.
 			 */
 			add: function(level, event) {
-				var i, settings = editor.settings, lastLevel;
+				var i, settings = editor.settings, lastLevel, currentLevel;
 
+				currentLevel = Levels.createFromEditor(editor);
 				level = level || {};
-				level.content = getContent();
+				level = Tools.extend(level, currentLevel);
 
 				if (locks || editor.removed) {
 					return null;
@@ -233,7 +199,7 @@ define("tinymce/UndoManager", [
 				}
 
 				// Add undo level if needed
-				if (lastLevel && lastLevel.content == level.content) {
+				if (lastLevel && Levels.isEq(lastLevel, level)) {
 					return null;
 				}
 
@@ -293,15 +259,8 @@ define("tinymce/UndoManager", [
 
 				if (index > 0) {
 					level = data[--index];
-
-					// Undo to first index then set dirty state to false
-					if (index === 0) {
-						setDirty(false);
-					}
-
-					editor.setContent(level.content, {format: 'raw'});
-					editor.selection.moveToBookmark(level.beforeBookmark);
-
+					Levels.applyToEditor(editor, level, true);
+					setDirty(true);
 					editor.fire('undo', {level: level});
 				}
 
@@ -319,11 +278,8 @@ define("tinymce/UndoManager", [
 
 				if (index < data.length - 1) {
 					level = data[++index];
-
-					editor.setContent(level.content, {format: 'raw'});
-					editor.selection.moveToBookmark(level.bookmark);
+					Levels.applyToEditor(editor, level, false);
 					setDirty(true);
-
 					editor.fire('redo', {level: level});
 				}
 
@@ -339,6 +295,7 @@ define("tinymce/UndoManager", [
 				data = [];
 				index = 0;
 				self.typing = false;
+				self.data = data;
 				editor.fire('ClearUndos');
 			},
 
@@ -350,7 +307,7 @@ define("tinymce/UndoManager", [
 			 */
 			hasUndo: function() {
 				// Has undo levels or typing and content isn't the same as the initial level
-				return index > 0 || (self.typing && data[0] && getContent() != data[0].content);
+				return index > 0 || (self.typing && data[0] && !Levels.isEq(Levels.createFromEditor(editor), data[0]));
 			},
 
 			/**
@@ -360,19 +317,21 @@ define("tinymce/UndoManager", [
 			 * @return {Boolean} true/false if the undo manager has any redo levels.
 			 */
 			hasRedo: function() {
-				return index < data.length - 1 && !this.typing;
+				return index < data.length - 1 && !self.typing;
 			},
 
 			/**
-			 * Executes the specified function in an undo transation. The selection
+			 * Executes the specified mutator function as an undo transaction. The selection
 			 * before the modification will be stored to the undo stack and if the DOM changes
-			 * it will add a new undo level. Any methods within the transation that adds undo levels will
-			 * be ignored. So a transation can include calls to execCommand or editor.insertContent.
+			 * it will add a new undo level. Any methods within the translation that adds undo levels will
+			 * be ignored. So a translation can include calls to execCommand or editor.insertContent.
 			 *
 			 * @method transact
-			 * @param {function} callback Function to execute dom manipulation logic in.
+			 * @param {function} callback Function that gets executed and has dom manipulation logic in it.
+			 * @return {Object} Undo level that got added or null it a level wasn't needed.
 			 */
 			transact: function(callback) {
+				endTyping();
 				self.beforeChange();
 
 				try {
@@ -382,7 +341,30 @@ define("tinymce/UndoManager", [
 					locks--;
 				}
 
-				self.add();
+				return self.add();
+			},
+
+			/**
+			 * Adds an extra "hidden" undo level by first applying the first mutation and store that to the undo stack
+			 * then roll back that change and do the second mutation on top of the stack. This will produce an extra
+			 * undo level that the user doesn't see until they undo.
+			 *
+			 * @method extra
+			 * @param {function} callback1 Function that does mutation but gets stored as a "hidden" extra undo level.
+			 * @param {function} callback2 Function that does mutation but gets displayed to the user.
+			 */
+			extra: function (callback1, callback2) {
+				var lastLevel, bookmark;
+
+				if (self.transact(callback1)) {
+					bookmark = data[index].bookmark;
+					lastLevel = data[index - 1];
+					Levels.applyToEditor(editor, lastLevel, true);
+
+					if (self.transact(callback2)) {
+						data[index - 1].beforeBookmark = bookmark;
+					}
+				}
 			}
 		};
 

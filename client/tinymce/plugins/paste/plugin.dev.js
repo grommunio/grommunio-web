@@ -131,6 +131,7 @@
 	expose(["tinymce/pasteplugin/Utils"]);
 
 	load('classes/Utils.js');
+	load('classes/SmartPaste.js');
 	load('classes/Clipboard.js');
 	load('classes/WordFilter.js');
 	load('classes/Quirks.js');
@@ -139,4 +140,4 @@
 	writeScripts();
 })(this);
 
-// $hash: 38a5b4859702ab0a5d6417575a5f95fe
+// $hash: f991045b4dd37405c0ee4fc0d6f2269c
