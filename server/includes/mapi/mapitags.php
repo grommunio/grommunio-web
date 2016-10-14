@@ -230,7 +230,7 @@ define('PR_CONTENTS_SYNCHRONIZER'                     ,mapi_prop_tag(PT_OBJECT, 
 define('PR_COLLECTOR'                                 ,mapi_prop_tag(PT_OBJECT, 	 0x6618+0x16));
 
 define('PR_SMTP_ADDRESS'                              ,mapi_prop_tag(PT_TSTRING,     0x39FE));
- 
+
 
 /*
  *  Message content properties
@@ -1003,20 +1003,20 @@ define('PR_INITIAL_DETAILS_PANE'                      ,mapi_prop_tag(PT_LONG,   
 define('PROP_ID_SECURE_MIN'                           ,0x67F0);
 define('PROP_ID_SECURE_MAX'                           ,0x67FF);
 
-/*      
- * Extra properties     
- */     
-      
-define('PR_IPM_APPOINTMENT_ENTRYID'                   ,mapi_prop_tag(PT_BINARY,      0x36D0));     
-define('PR_IPM_CONTACT_ENTRYID'                       ,mapi_prop_tag(PT_BINARY,      0x36D1));     
-define('PR_IPM_JOURNAL_ENTRYID'                       ,mapi_prop_tag(PT_BINARY,      0x36D2));     
-define('PR_IPM_NOTE_ENTRYID'                          ,mapi_prop_tag(PT_BINARY,      0x36D3));     
-define('PR_IPM_TASK_ENTRYID'                          ,mapi_prop_tag(PT_BINARY,      0x36D4));     
+/*
+ * Extra properties
+ */
+
+define('PR_IPM_APPOINTMENT_ENTRYID'                   ,mapi_prop_tag(PT_BINARY,      0x36D0));
+define('PR_IPM_CONTACT_ENTRYID'                       ,mapi_prop_tag(PT_BINARY,      0x36D1));
+define('PR_IPM_JOURNAL_ENTRYID'                       ,mapi_prop_tag(PT_BINARY,      0x36D2));
+define('PR_IPM_NOTE_ENTRYID'                          ,mapi_prop_tag(PT_BINARY,      0x36D3));
+define('PR_IPM_TASK_ENTRYID'                          ,mapi_prop_tag(PT_BINARY,      0x36D4));
 define('PR_IPM_DRAFTS_ENTRYID'                        ,mapi_prop_tag(PT_BINARY,      0x36D7));
 /*
 PR_ADDITIONAL_REN_ENTRYIDS:
-	This is a multivalued property which contains entry IDs for certain special folders. 
-	The first 5 (0-4) entries in this multivalued property are as follows: 
+	This is a multivalued property which contains entry IDs for certain special folders.
+	The first 5 (0-4) entries in this multivalued property are as follows:
 		0 - Conflicts folder
 		1 - Sync Issues folder
 		2 - Local Failures folder
@@ -1153,7 +1153,7 @@ define('PR_DELETED_ON', mapi_prop_tag(PT_SYSTIME, 0x668F));
 
 define('PR_PROCESSED', mapi_prop_tag(PT_BOOLEAN, 0x7D01));
 
-// Delegates properties 
+// Delegates properties
 define('PR_DELEGATES_SEE_PRIVATE', mapi_prop_tag(PT_MV_LONG, 0x686B));
 define('PR_SCHDINFO_DELEGATE_ENTRYIDS', mapi_prop_tag(PT_MV_BINARY, 0x6845));
 define('PR_SCHDINFO_DELEGATE_NAMES', mapi_prop_tag(PT_MV_STRING8, 0x6844));
@@ -1207,4 +1207,8 @@ define('PR_WLINK_STORE_ENTRYID'              ,mapi_prop_tag(PT_BINARY,     0x684
 define('PR_WLINK_TYPE'                       ,mapi_prop_tag(PT_LONG,       0x6849));
 define('PR_WLINK_SECTION'                    ,mapi_prop_tag(PT_LONG,       0x6852));
 define('PR_WLINK_RECKEY'                     ,mapi_prop_tag(PT_BINARY,     0x684D));
+
+/* Search folder properties */
+define('PR_EC_SUGGESTION'					,mapi_prop_tag(PT_TSTRING, 0x6707));
+
 ?>

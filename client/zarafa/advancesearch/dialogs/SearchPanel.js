@@ -42,6 +42,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				searchContext : searchContext,
 				searchTabId : config.searchTabId,
 				region : 'center',
+				searchPanel: this,
 				scope : this
 			},{
 				xtype : 'zarafa.searchtoolbarpanel',
@@ -110,7 +111,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * It was set the parent search field because after the switching context
 	 * search field of parent context gets destroy so we need to update the parent
 	 * search field object and also required to {#reinitializeEvents}
-	 * 
+	 *
 	 * @param {Object} folders contains folder details
 	 * @param {Context} oldParentContext previously selected context
 	 * @param {Context} newParentContext selected context
@@ -157,7 +158,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		this.onSearchStop();
 
 		/**
-		 * Model has hold the selected record in Zarafa.core.ContextModel.selectedRecords config 
+		 * Model has hold the selected record in Zarafa.core.ContextModel.selectedRecords config
 		 * so when close the search panel we have to clear the selection manually.
 		 */
 		if(Ext.isDefined(model.getSelectedRecords())) {
@@ -193,8 +194,8 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Function was reset the parent context search field if parent context has.
-	 * @return {Zarafa.common.ui.SearchField | Boolean} return {@link Zarafa.common.ui.SearchField search field} if 
-	 * parent context has search field else return false. 
+	 * @return {Zarafa.common.ui.SearchField | Boolean} return {@link Zarafa.common.ui.SearchField search field} if
+	 * parent context has search field else return false.
 	 */
 	resetParentSearchField : function()
 	{
@@ -234,7 +235,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * Function will be used to start actual search on {@link Zarafa.core.data.ListModuleStore ListModuleStore},
 	 * and also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
 	 * updated status of search.
-	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which 
+	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which
 	 * performs the search.
 	 * @private
 	 */
@@ -252,7 +253,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var folder = this.searchToolBox.getFolder();
 		this.model.startSearch(restriction , folder.isIPMSubTree(), {'folder' : folder});
 
-		// if search is performed from the parent search field then, it will set the search tab 
+		// if search is performed from the parent search field then, it will set the search tab
 		// to active tab.
 		var tabPanel = container.getTabPanel();
 		tabPanel.setActiveTab(this.searchContentPanel);
@@ -295,9 +296,9 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler triggers when {@link Zarafa.common.ui.SearchField searchField} 
+	 * Event handler triggers when {@link Zarafa.common.ui.SearchField searchField}
 	 * gets render and also it will set the search text in search field.
-	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which 
+	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which
 	 * performs the search.
 	 */
 	onRenderAdvanceSearchTextField : function(advanceSearchField)

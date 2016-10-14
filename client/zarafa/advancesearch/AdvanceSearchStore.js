@@ -4,8 +4,8 @@ Ext.namespace('Zarafa.advancesearch');
  * @class Zarafa.advancesearch.AdvanceSearchStore
  * @extends Zarafa.core.data.ListModuleStore
  * @xtype zarafa.advancesearchstore
- * 
- * The AdvabceSearchStore class provides a way to connect the 'advancedsearchlistmodule' in the server back-end to an 
+ *
+ * The AdvabceSearchStore class provides a way to connect the 'advancedsearchlistmodule' in the server back-end to an
  * Ext.grid.GridPanel object. It provides a means to retrieve search returl list asynchronously.
  * The advance search store object, once instantiated, will be able to retrieve and list search result from a
  * search folder only.
@@ -36,6 +36,13 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	 * @private
 	 */
 	isBusySearching : false,
+
+	/**
+	 * The search suggestion if one was given by the search engine.
+	 * @property
+	 * @type String
+	 */
+	suggestion: '',
 
 	/**
 	 * @constructor
@@ -69,6 +76,28 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 	getSearchStoreUniqueId : function()
 	{
 		return this.searchStoreUniqueId;
+	},
+
+	/**
+	 * Function is used as a callback for 'read' action. It is overridden to be able to
+	 * store the search suggestion in the AdvanceSearchStore if one is given.
+	 * @param {Object} options options that are passed through {@link #load} event.
+	 * @param {Boolean} success success status of request.
+	 * @param {Object} metaData extra information that is received with response data.
+	 */
+	loadRecords : function(data, options, success, metaData)
+	{
+		// Only update the suggestion for the search action, not for the updatesearch action
+		// because the suggestion is not send with that response
+		if ( options.actionType === 'search' ){
+			if ( success!==false && Ext.isObject(metaData) && Ext.isObject(metaData.search_meta) ) {
+				this.suggestion = metaData.search_meta.suggestion;
+			} else {
+				this.suggestion = '';
+			}
+		}
+
+		Zarafa.advancesearch.AdvanceSearchStore.superclass.loadRecords.apply(this, arguments);
 	},
 
 	/**
@@ -133,7 +162,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 		this.remoteSort = true;
 		// Also remove the sortInfo because the backend will do sorting on relevance and not on a field
 		delete this.sortInfo;
-		
+
 		if (this.isExecuting(Zarafa.core.Actions['updatesearch']) || this.isExecuting(Zarafa.core.Actions['search'])) {
 			this.proxy.cancelRequests(Zarafa.core.Actions['updatesearch']);
 			this.proxy.cancelRequests(Zarafa.core.Actions['search']);
