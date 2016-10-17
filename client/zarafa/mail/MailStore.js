@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.mail');
  * @extends Zarafa.core.data.ListModuleStore
  * @xtype zarafa.mailstore
  *
- * The MailStore class provides a way to connect the 'maillistmodule' in the server back-end to an 
+ * The MailStore class provides a way to connect the 'maillistmodule' in the server back-end to an
  * Ext.grid.GridPanel object. It provides a means to retrieve mail listings asynchronously.
  * The MailStore object, once instantiated, will be able to retrieve and list mails from a
  * single specific folder only.
@@ -29,8 +29,11 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		});
 
 		Zarafa.mail.MailStore.superclass.constructor.call(this, config);
-	
-		Zarafa.core.PresenceManager.registerStore(this, ['sender', 'received_by', 'sent_representing']);	
+
+		// Don't register standalone stores (used in modal dialogs) with the PresenceManager
+		if ( !this.standalone ){
+			Zarafa.core.PresenceManager.registerStore(this, ['sender', 'received_by', 'sent_representing']);
+		}
 	},
 
 	/**
@@ -48,7 +51,7 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @param {Zarafa.core.data.IPMRecord|Array} records The record or records to filter
 	 * @param {Ext.data.Api.actions} action The API action for which the updates are looked for.
 	 * @return {Object} Object containing the key 'records' containing the array of records inside
-	 * this store, and the key 'updatedRecords' containing the array of records which should be 
+	 * this store, and the key 'updatedRecords' containing the array of records which should be
 	 * applied to those records.
 	 * @private
 	 */
