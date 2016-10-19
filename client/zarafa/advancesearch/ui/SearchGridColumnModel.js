@@ -9,7 +9,6 @@ Ext.namespace('Zarafa.advancesearch.ui');
  *
  */
 Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnModel, {
-
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -35,11 +34,8 @@ Zarafa.advancesearch.ui.SearchGridColumnModel = Ext.extend(Zarafa.common.ui.grid
 	createColumns : function(config)
 	{
 		var grid = config.grid;
-		var ownerName = config.folder.getMAPIStore().get('mailbox_owner_name');
-		var headerTitle = String.format(_('Search results - "{0}"'), ownerName);
 		return [{
 			id : grid.getId()+'-col0',
-			header : headerTitle,
 			sortable: false,
 			hideable: false,
 			renderer : Zarafa.common.ui.grid.Renderers.dataColumn

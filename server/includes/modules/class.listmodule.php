@@ -1,7 +1,7 @@
 <?php
 	/**
 	 * ListModule
-	 * Superclass of every module, which retreives a MAPI message list. It 
+	 * Superclass of every module, which retreives a MAPI message list. It
 	 * extends the Module class.
 	 */
 	class ListModule extends Module
@@ -10,17 +10,17 @@
 		 * @var array list of columns which are selected in the previous request.
 		 */
 		var $properties;
-		
+
 		/**
 		 * @var array sort.
 		 */
 		var $sort;
-		
+
 		/**
 		 * @var int startrow in the table.
 		 */
 		var $start;
-		
+
 		/**
 		 * @var array contains (when needed) a restriction used when searching and filtering the records
 		 */
@@ -37,7 +37,7 @@
 		var $searchCriteriaCheck;
 
 		/**
-		 * @var array stores entryids and last modification time of 
+		 * @var array stores entryids and last modification time of
 		 * messages that are already sent to the server
 		 */
 		var $searchResults;
@@ -63,7 +63,7 @@
 		function __construct($id, $data, $events = false)
 		{
 			$this->start = 0;
-			
+
 			$this->restriction = false;
 			$this->searchFolderList = false;
 			$this->localFreeBusyFolder = false;
@@ -73,7 +73,7 @@
 
 			parent::__construct($id, $data);
 		}
-		
+
 		/**
 		 * Executes all the actions in the $data variable.
 		 * @return boolean true on success of false on fialure.
@@ -110,7 +110,7 @@
 		 * Function does customization of MAPIException based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
-		 * 
+		 *
 		 * @param object $e Exception object
 		 * @param string $actionType the action type, sent by the client
 		 * @param MAPIobject $store Store object of the current user.
@@ -316,9 +316,9 @@
 			$start = time();
 			$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
 
-			// Sleep for 0.2 seconds initially, since it usually takes ~  0.2 seconds to fill the search folder. 
+			// Sleep for 0.2 seconds initially, since it usually takes ~  0.2 seconds to fill the search folder.
 			sleep(0.2);
-			
+
 			while(time() - $start < 10) {
 				$count = mapi_table_getrowcount($table);
 				$result = mapi_folder_getsearchcriteria($searchFolder);
@@ -326,10 +326,10 @@
 				// Stop looping if we have data or the search is finished
 				if($count > 0)
 					break;
-					
+
 				if(($result["searchstate"] & SEARCH_REBUILD) == 0)
 					break; // Search is done
-				
+
 				sleep(0.1);
 			}
 
@@ -356,6 +356,14 @@
 			$data["search_meta"]["searchfolder_entryid"] = $searchFolderEntryId;
 			$data["search_meta"]["searchstate"] = $result["searchstate"];
 			$data["search_meta"]["results"] = count($searchResults);
+
+			// Reopen the search folder, because otherwise the suggestion property will
+			// not have been updated
+			$searchFolder = $this->createSearchFolder($store, true);
+			$storeProps = mapi_getprops($searchFolder, array(PR_EC_SUGGESTION));
+			if ( isset($storeProps[PR_EC_SUGGESTION]) ){
+				$data["search_meta"]["suggestion"] = $storeProps[PR_EC_SUGGESTION];
+			}
 
 			$this->addActionData("search", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());
@@ -439,7 +447,7 @@
 					// we only need to update the counters from this point
 					$numberOfResults = count($searchResults);
 					if($numberOfResults >= $rowCount) {
-						break; 
+						break;
 					}
 				}
 			}
@@ -549,7 +557,7 @@
 
 				mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
 
-				// entryids are unique so there would be only one matching row, 
+				// entryids are unique so there would be only one matching row,
 				// so only fetch first row
 				$folders = mapi_table_queryrows($hierarchyTable, array(PR_ENTRYID), 0, 1);
 
@@ -701,7 +709,7 @@
 		 * Parses the incoming sort request and builds a MAPI sort order. Normally
 		 * properties are mapped from the XML to MAPI by the standard $this->properties mapping. However,
 		 * if you want other mappings, you can specify them in the optional $map mapping.
-		 * 
+		 *
 		 * $allow_multi_instance is used for creating multiple instance of MV property related items.
 		 * $properties is used for using a custom set of properties instead of properties stored in module
 		 */
@@ -718,7 +726,7 @@
 				// Otherwise the server would generate multiple rows for one item (categories).
 				foreach($properties as $id => $property)
 				{
-					switch(mapi_prop_type($property)) 
+					switch(mapi_prop_type($property))
 					{
 						case (PT_MV_STRING8 | MVI_FLAG):
 						case (PT_MV_LONG | MVI_FLAG):
@@ -732,13 +740,13 @@
 				{
 					if(isset($column["direction"])) {
 						if(isset($properties[$column["field"]]) || ($map && isset($map[$column["field"]]))) {
-							if($map && isset($map[$column["field"]])) 
+							if($map && isset($map[$column["field"]]))
 								$property = $map[$column["field"]];
 							else
 								$property = $properties[$column["field"]];
-							
+
 							// Check if column is a MV property
-							switch(mapi_prop_type($property)) 
+							switch(mapi_prop_type($property))
 							{
 								case PT_MV_STRING8:
 								case PT_MV_LONG:
@@ -856,7 +864,7 @@
 							$localFreeBusyFolderProps = mapi_getprops($this->localFreeBusyFolder, array(PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATES_SEE_PRIVATE));
 
 							if(isset($localFreeBusyFolderProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]) && isset($localFreeBusyFolderProps[PR_DELEGATES_SEE_PRIVATE])) {
-								// if more then one delegates info is stored then find index of 
+								// if more then one delegates info is stored then find index of
 								// current user
 								$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
 

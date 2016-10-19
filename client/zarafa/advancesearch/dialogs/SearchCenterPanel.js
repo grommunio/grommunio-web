@@ -49,7 +49,8 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 							searchTabId : config.searchTabId,
 							anchor : '100%',
 							searchContext : config.searchContext,
-							ref : '../../searchGrid'
+							ref : '../../searchGrid',
+							searchCenterPanel : this
 						}]
 					}]
 				},{

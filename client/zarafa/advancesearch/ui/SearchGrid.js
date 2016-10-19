@@ -87,6 +87,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		Zarafa.advancesearch.ui.SearchGrid.superclass.initEvents.call(this);
 
 		this.on({
+			'headerclick': this.onHeaderClick,
 			'cellclick': this.onCellClick,
 			'rowcontextmenu': this.onRowContextMenu,
 			'rowdblclick': this.onRowDblClick,
@@ -107,6 +108,8 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		this.mon(this.model, 'searchstop', this.onSearchStop, this);
 
 		this.mon(this.searchContext, 'viewchange', this.onContextViewChange, this);
+
+		this.store.on('beforeupdatesearch', this.onBeforeUpdateSearch, this);
 	},
 
 	/**
@@ -154,7 +157,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 	/**
 	 * Apply custom style and content for the row body. This will always
-	 * apply the Read/Unread style to the entire row. 
+	 * apply the Read/Unread style to the entire row.
 	 *
 	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
 	 * @param {Number} rowIndex The row index
@@ -191,10 +194,31 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	},
 
 	/**
+	 * Event handler for a click on a column header. If a search suggestion is shown
+	 * it will trigger a new search with the suggestion.
+	 * @param {Zarafa.advancesearch.ui.SearchGrid} grid The search grid
+	 * @param {Number} columnIndex The index of the column of which the header was clicked
+	 * @param {Event} event The click event
+	 */
+	onHeaderClick: function(grid, columnIndex, event)
+	{
+		var suggestion = this.store.suggestion;
+		// Don't do anything if there is no suggestion or if the click was not on the suggestion text
+		if ( Ext.isEmpty(suggestion) || (event.target.className!=='zarafa-search-suggestion' && event.target.className!=='zarafa-x-grid3-hd-title') ){
+			return;
+		}
+
+		var searchToolbarPanel = this.searchCenterPanel.searchPanel.searchToolbar;
+		var searchField = searchToolbarPanel.getAdvanceSearchField();
+		searchField.setValue(suggestion);
+		searchField.onTriggerClick();
+	},
+
+	/**
 	 * Raw click event handler for the entire grid.
 	 * Toggles the unread/read status when a user clicks on the
 	 * mail icon of a message.
-	 * 
+	 *
 	 * @param {Zarafa.advancesearch.ui.SearchGrid} grid the grid
 	 * @param {Number} rowIndex The index of the clicked row
 	 * @param {Number} columnIndex The column index of the clicked row
@@ -206,7 +230,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		if (!Ext.isDefined(record) || record.get('message_class') != 'IPM.Note'){
 			return;
 		}
-		
+
 		// Because we render a cell with lots of data, we must calculate ourself
 		// if the click was on the icon cell.
 		var clickX = e.xy[0];
@@ -219,7 +243,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		}
 		var iconCellX = iconCell.getBoundingClientRect().left;
 		var iconCellWidth = iconCell.getBoundingClientRect().width;
-		
+
 		if ( clickX >= iconCellX && clickX <= iconCellX+iconCellWidth ){
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
 		}
@@ -258,7 +282,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			// select row on which context menu was invoked
 			sm.selectRow(rowIndex);
 		}
-		
+
 		var records = sm.getSelections();
 
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position : event.getXY(), context : this.searchContext });
@@ -339,7 +363,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	 * it will be used to start live scroll on {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
 	 * also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
 	 * updated batch of search result status.
-	 * 
+	 *
 	 * @param {Number} cursor the cursor contains the last index of record in grid.
 	 * @private
 	 */
@@ -350,7 +374,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 	/**
 	 * Event handler which triggered when header of grid was clicked to apply the sorting
-	 * on {@link Zarafa.advancesearch.ui.SearchGrid search grid}. it will first stop the 
+	 * on {@link Zarafa.advancesearch.ui.SearchGrid search grid}. it will first stop the
 	 * {@link Zarafa.core.ContextModel#stopLiveScroll live scroll} and then apply the sorting.
 	 * @param {Ext.grid.GridView} gridView The GridView of the grid panel
 	 * @private
@@ -365,7 +389,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			var recordTotalCount = store.getTotalCount();
 			if ( recordTotalCount >= this.sortableRecordsMax ){
 				Zarafa.common.dialogs.MessageBox.alert(
-					_('Sorting not possible'), 
+					_('Sorting not possible'),
 					String.format(_('The search results could not be sorted because the number of items is higher than {0}. Narrow down your results by specifying your input.'), this.sortableRecordsMax));
 				return false;
 			}
@@ -376,16 +400,16 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			// Because we are sorting on the searchdate property and this property is added in the frontend
 			// we cannot do remote sorting and will change to local sorting
 			store.remoteSort = false;
-			
+
 			// Reset the page size so the pagination toolbar (if shown) will show all results in one page.
 			var pagesToolbar = this.dialog.findByType('zarafa.paging')[0];
 			pagesToolbar.pageSize = this.sortableRecordsMax;
-			
+
 			var loadedRecordCount = store.getCount();
 
 			// If necessary we must first load all records from the store before we can do the sorting
 			if (loadedRecordCount < recordTotalCount){
-				
+
 				// cancel pending load request when sorting is started.
 				// NOTE: 'updatelist' is already handled when we stop infinite scroll
 				if (store.isExecuting('list')) {
@@ -421,7 +445,31 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	onSearchStop : function(model)
 	{
 		this.loadMask.hide();
+	},
+
+	/**
+	 * Handler for the beforeupdatesearch event of the search store of the grid
+	 * @param {Zarafa.advancesearch.AdvanceSearchStore} store The store that holds the data
+	 * of this grid.
+	 * @param {Object} searchMeta The returned meta data of the search that was performed
+	 */
+	onBeforeUpdateSearch: function(store, searchMeta)
+	{
+		// Don't update for the updatesearch action because the suggestion is not send
+		// with the response
+		if ( Ext.isDefined(store.lastOptions) && store.lastOptions.originalActionType!==Zarafa.core.Actions.updatesearch ){
+			var cm = this.getColumnModel();
+			if ( Ext.isEmpty(store.suggestion) ){
+				cm.setColumnHeader(0, '');
+				cm.setColumnTooltip(0, '');
+			} else {
+				var encodedSuggestion = Ext.util.Format.htmlEncode(store.suggestion);
+				cm.setColumnHeader(0, _('Did you mean') +' <span class="zarafa-search-suggestion">' + encodedSuggestion + '</span> ?');
+				cm.setColumnTooltip(0, _('Did you mean') + ' ' + encodedSuggestion);
+			}
+		}
 	}
+
 });
 
 Ext.reg('zarafa.searchgrid', Zarafa.advancesearch.ui.SearchGrid);

@@ -540,7 +540,7 @@ myStore.reload(lastOptions);
 			this.proxy.cancelRequests('updatelist');
 		}
 
-		// reset the action type in the last options, because 
+		// reset the action type in the last options, because
 		// consecutive requests should use list action type
 		Ext.apply(this.lastOptions, {
 			actionType : Zarafa.core.Actions['list']
@@ -631,7 +631,9 @@ myStore.reload(lastOptions);
 		// reset the action type in the last options, because updatesearch is not persistent action type
 		// and consecutive requests should use search action type, if its not specifically done using updateSearch method
 		Ext.apply(this.lastOptions, {
-			actionType : Zarafa.core.Actions['search']
+			actionType : Zarafa.core.Actions['search'],
+			// Add a property to see that this was originally an updatesearch action
+			originalActionType: Zarafa.core.Actions.updatesearch
 		});
 	},
 

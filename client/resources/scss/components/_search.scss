@@ -26,18 +26,35 @@
 
 /* The search results grid */
 .zarafa-searchgrid {
+	.x-grid3-hd-row {
+		td:first-child:active .x-grid3-hd-inner {
+			background: inherit;
+		}
+
+		td:first-child:hover .x-grid3-hd-inner {
+			border-color: #ffffff;
+		}
+
+		.zarafa-search-suggestion {
+			font-style: italic;
+			text-decoration: underline;
+			color: $kopano-blue;
+			cursor: pointer;
+		}
+	}
+
 	.x-grid3-row {
 		border-left: none;
 		border-right: none;
-		
+
 		.x-grid3-cell-inner {
 			padding: ($header-height - $font-default-line-height)/2 $padding-medium;
 		}
-		
+
 		td {
 			line-height: $font-default-line-height;
 		}
-		
+
 		/* let css take care of fields that are too long */
 		table.messageclass-data {
 			td,
@@ -60,12 +77,12 @@
 
 			td.subject-body {
 				padding-right: $padding-small;
-				
+
 				span.body{
 					opacity: 0.5;
 				}
 			}
-			
+
 			/* the icons */
 			.icon_message,
 			.icon_mail.icon_message_read {
@@ -145,7 +162,7 @@
 			.icon_appt_meeting_cancel {
 	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
 			}
-	
+
 			.icon_appt_meeting_outofdate {
 				@extend .icon_calendar_appt_outofdate;
 	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: 2, $offset-x: $padding-medium - 2);
@@ -176,7 +193,7 @@
 				@extend .icon_note_green;
 	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: 3, $offset-x: $padding-medium - 1);
 			}
-	
+
 			.icon_mail_nondelivery_receipt {
 				@extend .icon_mail_report_ndr;
 	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 4, $offset-x: $padding-medium - 4);
@@ -189,11 +206,11 @@
 				@extend .icon_mail_report_decline;
 	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 4, $offset-x: $padding-medium - 4);
 			}
-	
-			
+
+
 		}
 	}
-	
+
 	.x-grid3-row.mail_unread {
 		td {
 			font-weight: bold;
@@ -207,13 +224,13 @@
 	border-right: 1px solid $grey;
 	padding: 0 $padding-large $padding-large;
 	background-color: $background-color-main;
-	
+
 	.x-plain-header {
 		line-height: $font-default-line-height;
 		box-sizing: border-box;
 		height: $header-height - 1px; /* subtract the border */
 		padding-top: ($header-height - $font-default-line-height)/2;
-		
+
 		img.x-panel-inline-icon.advance_search {
 			@extend .icon_magnifier;
 			width: 16px;
@@ -224,12 +241,12 @@
 			margin-bottom: -1px;
 		}
 	}
-	
+
 	.x-fieldset {
 		border: none;
 		border: none;
 		padding: 0 0 $padding-large;
-		
+
 		legend {
 			padding-bottom: $padding-medium;
 			font-weight: bold;
