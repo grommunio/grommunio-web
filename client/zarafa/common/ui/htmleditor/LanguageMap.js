@@ -13,7 +13,7 @@ Zarafa.common.ui.htmleditor.LanguageMap = {
 		de_DE: 'de',
 		el_GR: 'el',
 		en_GB: 'en_GB',
-		en_US: 'en_US',
+		en_US: '', // Special case, as this is the default language of tinymce
 		es_CA: 'ca',
 		et_EE: 'et',
 		fa_IR: 'fa_IR',
