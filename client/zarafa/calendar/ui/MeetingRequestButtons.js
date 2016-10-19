@@ -31,6 +31,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 		Ext.applyIf(config, {
 			hidden : true,
 			forceLayout : true,
+			cls: 'zarafa-mr-buttons',
 			items: [
 				this.getRemoveFromCalendarButton(),
 				this.getNotCurrentButton(),
@@ -134,7 +135,22 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 
 		// Only meeting requests will need a button to the calendar
 		this.calendarButton.setVisible((isMeetingRequest || isMeetingResponse) && !isSubMessage && !apptNotFound);
-		
+
+		// Determine the action button
+		this.acceptButton.getEl().removeClass('zarafa-action');
+		this.nonCurrentButton.getEl().removeClass('zarafa-action');
+		this.calendarButton.getEl().removeClass('zarafa-action');
+		this.removeFromCalendarButton.getEl().removeClass('zarafa-action');
+		if ( this.acceptButton.isVisible() ){
+			this.acceptButton.getEl().addClass('zarafa-action');
+		} else if ( this.nonCurrentButton.isVisible() ){
+			this.nonCurrentButton.getEl().addClass('zarafa-action');
+		} else if ( this.calendarButton.isVisible() ){
+			this.calendarButton.getEl().addClass('zarafa-action');
+		} else if ( this.removeFromCalendarButton.isVisible() ){
+			this.removeFromCalendarButton.getEl().addClass('zarafa-action');
+		}
+
 		// Determine if there are any visible buttons, if that is not the case,
 		// lets hide the entire button group.
 		var visible = false;
@@ -164,7 +180,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				text: _('Remove From Calendar')
 			},
 			cls: 'tb-calendar-btn-remove',
-			iconCls : 'icon_remove_from_calendar',
 			handler : this.onRemoveFromCalendar,
 			scope: this
 		};
@@ -186,7 +201,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				text: _('Meeting Request is out of date')
 			},
 			cls: 'tb-calendar-btn-not-current',
-			iconCls : 'icon_notcurrent_meeting_request',
 			handler : this.onNotCurrent,
 			scope: this
 		};
@@ -228,13 +242,14 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				title: _('Accept'),
 				text: _('Accept Meeting Request')
 			},
+			cls: 'zarafa-action',
 			iconCls: 'icon_calendar_appt_accept',
 			responseStatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_ACCEPTED,
 			handler: this.openSendConfirmationContent,
 			scope: this
 		};
 	},
-	
+
 	/**
 	 * @return {Ext.Button} element config which should be
 	 * added in the {@link Ext.Toolbar Toolbar}.
@@ -256,7 +271,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			scope: this
 		};
 	},
-	
+
 	/**
 	 * @return {Ext.Button} element config which should be
 	 * added in the {@link Ext.Toolbar Toolbar}.
@@ -264,7 +279,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	 */
 	getDeclineButton : function()
 	{
-		return { 
+		return {
 			xtype : 'button',
 			ref : 'declineButton',
 			text : _('Decline'),
@@ -286,7 +301,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	 */
 	getProposeNewTimeButton : function()
 	{
-		return { 
+		return {
 			xtype : 'button',
 			ref : 'proposeNewTimeButton',
 			text : _('Propose New Time'),
@@ -320,7 +335,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			scope : this
 		};
 	},
-	
+
 	/**
 	 * @return {Ext.Button} element config which should be
 	 * added in the {@link Ext.Toolbar Toolbar}.
@@ -358,7 +373,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				text: _('View in calendar')
 			},
 			cls: 'tb-calendar-btn-calendar',
-			iconCls : 'icon_calendar',
+			iconCls : 'icon_calendar_view',
 			handler : this.showMeetingInCalendar,
 			scope: this
 		};
@@ -382,7 +397,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			buttons: Ext.MessageBox.OKCANCEL
 		});
 	},
-	
+
 	/**
 	 * Function sends request to remove Meeting Request mails which invites
 	 * the organizer himself in the Meeting Request.
@@ -417,7 +432,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			store.save(this.record);
 		}
 	},
-	
+
 	/**
 	 * Organizer has declined the Meeting Request, so now remove its instance
 	 * from your calendar and remove the mail as well.
@@ -428,7 +443,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	onRemoveFromCalendar : function(button, eventObject)
 	{
 		this.record.addMessageAction('action_type', 'removeFromCalendar');
-	
+
 		var store = this.record.getStore();
 		store.remove(this.record);
 		store.save(this.record);

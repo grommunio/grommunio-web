@@ -41,13 +41,15 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 				context: config.searchContext
 			},{
 				xtype : 'zarafa.toolbar',
-				style : 'border-style : none; padding : 0px',
-				cls: 'zarafa-previewpanel-toolbar zarafa-context-mainpanel', // change the css class name
+				style : 'border-style : none; margin-left:5px;',
+				cls: 'zarafa-previewpanel-toolbar zarafa-search-previewpanel-toolbar zarafa-context-mainpanel', // change the css class name
 				ref : 'rightSearchToolbar',
 				hidden : true,
 				items : [{
 					xtype: 'tbfill'
-				},{
+				},
+				container.populateInsertionPoint('previewpanel.toolbar.right.first', {scope : this, model : config.model}),
+				{
 					xtype: 'button',
 					tooltip: _('Reply') + ' (Ctrl + R)',
 					overflowText: _('Reply'),

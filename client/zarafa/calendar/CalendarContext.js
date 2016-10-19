@@ -76,12 +76,12 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		// Register the calendar category for the settings
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategories, this);
 
-		this.registerInsertionPoint('previewpanel.toolbar.right', this.getMeetingRequestToolbarButtons, this);
+		this.registerInsertionPoint('previewpanel.toolbar.right.first', this.getMeetingRequestToolbarButtons, this);
 		this.registerInsertionPoint('previewpanel.toolbar.detaillinks', this.getMeetingRequestDetailLinks, this);
 
 		// Add meeting request related button in the showmeeting ContentPanel
-		this.registerInsertionPoint('context.mail.showmailcontentpanel.toolbar.actions', this.getMeetingRequestToolbarButtons, this);
-		
+		this.registerInsertionPoint('context.mail.showmailcontentpanel.toolbar.actions.first', this.getMeetingRequestToolbarButtons, this);
+
 		this.addEvents([
 			/**
 			 * @event zoomchange
@@ -400,7 +400,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	/**
 	 * @param {Ext.Component} component The component to which the panel will be added
 	 * @return {Object} Configuration object containing the details which should be
-	 * added into the {@link Zarafa.core.ui.PreviewPanel}. 
+	 * added into the {@link Zarafa.core.ui.PreviewPanel}.
 	 * @private
 	 */
 	getMeetingRequestDetailLinks : function(component)
@@ -424,9 +424,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.calendar insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarViewButtons : function()
@@ -501,8 +501,8 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Determines whether the passed button has to be shown or not based on what 
-	 * {@link Zarafa.core.Context Context} is active. If no Context is supplied as an argument it 
+	 * Determines whether the passed button has to be shown or not based on what
+	 * {@link Zarafa.core.Context Context} is active. If no Context is supplied as an argument it
 	 * will get that from the {@link Zarafa.core.Container container}.
 	 * @param {Ext.Button} btn The button
 	 * @param {Zarafa.core.Context} activeContext (Optionial} The active Context
@@ -565,7 +565,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			newMenuIndex: 2
 		};
 	},
-	
+
 	/**
 	 * Populates the View button in the main.toolbar.print.calendar insertion point
 	 * @return {Object[]} items The configuration objects of the menu items available for printing in this context
@@ -658,7 +658,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Adds a button to the top tab bar for this context.
-	 * @return {Object} The button for the top tabbar 
+	 * @return {Object} The button for the top tabbar
 	 * @private
 	 */
 	createMainTab: function()

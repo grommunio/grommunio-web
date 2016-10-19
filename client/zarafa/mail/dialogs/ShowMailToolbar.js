@@ -34,11 +34,13 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
 
+		var insertionPointBase = 'context.mail.showmailcontentpanel';
+
 		Ext.applyIf(config, {
 			xtype: 'mail.showmailtoolbar',
-			insertionPointBase: 'context.mail.showmailcontentpanel',
+			insertionPointBase: insertionPointBase,
 
-			actionItems: this.createActionButtons(),
+			actionItems: this.createActionButtons(insertionPointBase),
 			optionItems: this.createOptionButtons(),
 			rightAlignedItems : this.createRightAlignedOptionButtons()
 		});
@@ -53,9 +55,11 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Action section of the {@link Ext.Toolbar}.
 	 * @private
 	 */
-	createActionButtons : function()
+	createActionButtons : function(insertionPointBase)
 	{
-		return [{
+		var preActionButtonsInsert = container.populateInsertionPoint(insertionPointBase + '.toolbar.actions.first');
+
+		return preActionButtonsInsert.concat([{
 			xtype: 'button',
 			rowspan: 2,
 			text: _('Reply'),
@@ -66,7 +70,11 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'replyBtn',
 			actionType: Zarafa.mail.data.ActionTypes.REPLY,
 			handler: this.onMailResponseButton,
-			scope: this
+			scope: this,
+			listeners: {
+				beforeshow: this.onBeforeShowReplyButton,
+				scope: this
+			}
 		},{
 			xtype: 'button',
 			text: _('Reply All'),
@@ -98,7 +106,23 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			iconCls: 'icon_delete',
 			handler: this.onDeleteButton,
 			scope: this
-		}];
+		}]);
+	},
+
+	/**
+	 * Handler for the onbeforeshow event of the reply button. It will make
+	 * sure that it is not an 'action' button when the record is a meeting
+	 * request.
+	 * @param {Ext.Button} btn The reply button
+	 */
+	onBeforeShowReplyButton : function(btn)
+	{
+		var messageClass = this.record.get('message_class');
+		if ( messageClass.substring(0, 20) === 'IPM.Schedule.Meeting' ){
+			btn.getEl().removeClass('zarafa-action');
+		} else {
+			btn.getEl().addClass('zarafa-action');
+		}
 	},
 
 	/**

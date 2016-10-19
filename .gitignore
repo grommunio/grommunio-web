@@ -18,5 +18,6 @@ tools/tools.jar
 *.mo
 # Eclipse files
 .project
+.settings
 # Closed tests
 test/
