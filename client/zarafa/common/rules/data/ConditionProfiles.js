@@ -40,4 +40,10 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 },{
 	name : _('has sensitivity'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENSITIVITY
+},{
+	name : _('is received after'),
+	value : Zarafa.common.rules.data.ConditionFlags.RECEIVED_AFTER
+},{
+	name : _('is received before'),
+	value : Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE
 }];

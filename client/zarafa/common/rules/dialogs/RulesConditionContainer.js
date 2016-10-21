@@ -160,6 +160,12 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.sensitivitylink',
 			id : baseId + '-sensitivity'
+		},{
+			xtype : 'zarafa.receivedafterlink',
+			id : baseId + '-received-after'
+		},{
+			xtype : 'zarafa.receivedbeforelink',
+			id : baseId + '-received-before'
 		}];
 	},
 
@@ -375,6 +381,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.SUBJECT_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.BODY_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.IMPORTANCE:
+			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_AFTER:
+			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE:
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM:
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.SENSITIVITY:
@@ -427,6 +435,13 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 						return Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC;
 					case 'PR_SENSITIVITY':
 						return Zarafa.common.rules.data.ConditionFlags.SENSITIVITY;
+					case 'PR_MESSAGE_DELIVERY_TIME':
+						if (condition[1][1] === Restrictions.RELOP_LT) {
+							return Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE;
+						} else if (condition[1][1] === Restrictions.RELOP_GT) {
+							return Zarafa.common.rules.data.ConditionFlags.RECEIVED_AFTER;
+						}
+						/* falls through*/
 					default:
 						return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 				}
@@ -527,6 +542,14 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC:
 				layout.setActiveItem(panel.id + '-name-to-cc');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_AFTER:
+				layout.setActiveItem(panel.id + '-received-after');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE:
+				layout.setActiveItem(panel.id + '-received-before');
 				layout.activeItem.setCondition(value);
 				break;
 		}
