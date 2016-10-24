@@ -249,6 +249,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 
 		// Draw the border as rounder rectangular.
 		context.save();
+		context.beginPath();
 		context.lineWidth = borderWidth;
 		context.strokeStyle = 'black';
 		context.rect(x, y, width, height);
@@ -284,6 +285,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		// Draw a border on each of the bounds which indicate that the
 		// appointment is selected.
 		context.save();
+		context.beginPath();
 		context.lineWidth = borderWidth;
 		context.strokeStyle = 'black';
 
@@ -445,7 +447,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 				// The busybox is already white, so do nothing here
 				break;
 			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
-				// First 
+				// First
 				context.fillStyle = colorScheme.startcolorappointment;
 				context.fillRect(busyBoxLeft, busyBoxTop, busyBoxWidth, busyBoxHeight);
 				// Then use a striped image to cover part of the background with white.
@@ -538,11 +540,11 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		context.fillStyle = colorScheme.startcolorappointment;
 
 		var stripWidth = this.getStripWidth();
-		
+
 		// The outer strip is the attached bar that shows the duration of the appointment when it is
 		// shorter than the resolution of the calendar view.
 		var showOuterStrip = (realHeight + 1) < height;
-		
+
 		// The inner strip is the bar that shows duration of the appointment when the resolution is
 		// small enough to show it inside the body of the appointment.
 		var showInnerStrip = !showOuterStrip && stripWidth > 0;
@@ -556,7 +558,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		var busyBoxTop = 1;
 		var busyBoxWidth = stripWidth;
 		var busyBoxHeight = height -1;
-		
+
 		if ( showInnerStrip ) {
 			// Draw a white line around the appointment for inner strips
 			context.strokeStyle = 'white';
@@ -613,7 +615,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 			width - textLeft - this.leftPadding,
 			height - this.bodyTextTopOffset - this.bodyTextBottomOffset
 		);
-		
+
 		context.restore();
 	},
 
