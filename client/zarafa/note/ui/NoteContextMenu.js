@@ -19,6 +19,11 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 */
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -34,7 +39,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 
 		Ext.applyIf(config, {
 			items : [
-				this.createContextActionItems(),
+				this.createContextActionItems(config.records),
 				{ xtype : 'menuseparator' },
 				container.populateInsertionPoint('context.note.contextmenu.actions', this),
 				{ xtype : 'menuseparator' },
@@ -45,16 +50,17 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 				hideOnDisabled : false
 			}
 		});
-	
+
 		Zarafa.note.ui.NoteContextMenu.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Create the Action context menu items
+	 * @param {Zarafa.core.data.IPMRecord{}} The records on which this menu acts
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
 	 * @private
 	 */
-	createContextActionItems : function()
+	createContextActionItems : function(records)
 	{
 		return [{
 			text : _('Open'),
@@ -72,10 +78,13 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			xtype: 'menuseparator'
 		}, {
 			text : _('Categories'),
+			cls: 'k-unclickable',
 			iconCls : 'icon_categories',
-			scope : this,
-			handler : this.onContextItemCategories,
-			singleSelectOnly : true
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			}
 		}, {
 			xtype: 'menuseparator'
 		}, {
@@ -115,7 +124,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	{
 		Zarafa.common.Actions.openCategoriesContent(this.records);
 	},
-	
+
 	/**
 	 * Event handler which is called when the user selects the 'Categories'
 	 * item in the context menu. This will open {@link Zarafa.common.dialogs.CategoriesContentPanel CategoriesContentPanel}.

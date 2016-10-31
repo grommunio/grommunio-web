@@ -220,6 +220,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
  *********************************************************************/
 /* selected item in grids */
 .x-grid3-row.x-grid3-row-selected,
+.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container,
 /* selected item in tree hierarchies */
 .x-tree-node .zarafa-hierarchy-node.x-tree-selected,
 /* selected items in boxfields (e.g. the recipient fields) */

@@ -283,8 +283,7 @@
 
 				/* categories button */
 				button.icon_categories {
-					@extend .icon_categories_bw;
-					background-position: sprite-position($iconsmap, icon_categories_bw, $offset-y: 5px, $offset-x: 5px);
+					background-position: sprite-position($iconsmap, icon_categories, $offset-y: 6px, $offset-x: 5px);
 				}
 
 				/* private button */

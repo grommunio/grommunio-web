@@ -96,36 +96,18 @@ Zarafa.common.ui.grid.Renderers = {
 	},
 
 	/**
-	 * Render the cell as Flag
+	 * Renders the cell as categories view
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 * @return {String} The formatted string
 	 */
-	flag : function(value, p, record)
+	categories : function(value, p, record)
 	{
-		var flagStatus = Zarafa.core.mapi.FlagStatus.get(record.get('flag_status'));
-
-		// If the record is not a mail, don't show a flag
-		if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note', 'IPM.TaskRequest'], true)) {
-			return '';
-		}
-
-		switch (flagStatus)
-		{
-			case Zarafa.core.mapi.FlagStatus.completed:
-				p.css = 'icon_mail_completed';
-				break;
-			case Zarafa.core.mapi.FlagStatus.flagged:
-				p.css = 'icon_mail_flag_' + Zarafa.core.mapi.FlagIcon.getName(record.get('flag_icon'));
-				break;
-			default:
-				p.css = 'icon_mail_flag';
-				break;
-		}
-
-		return '';
+		// Render the categories
+		var categories = Zarafa.common.categories.Util.getCategories(record);
+		return Zarafa.common.categories.Util.getCategoriesHtml(categories);
 	},
 
 	/**

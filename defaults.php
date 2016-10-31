@@ -166,9 +166,9 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 		'base' => '#88d8c0'
 	),
 	array(
-		'name' => 'skyblue',
-		'displayName' => _('Sky blue'),
-		'base' => '#00ccff'
+		'name' => 'kopanoblue',
+		'displayName' => _('Kopano blue'),
+		'base' => '#00b3f0'
 	),
 	array(
 		'name' => 'babyblue',
@@ -176,9 +176,9 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 		'base' => '#7bd0f0'
 	),
 	array(
-		'name' => 'kopanoblue',
-		'displayName' => _('Kopano blue'),
-		'base' => '#3d97a6'
+		'name' => 'blue',
+		'displayName' => _('Blue'),
+		'base' => '#0f70bd'
 	),
 	array(
 		'name' => 'mauve',
@@ -194,6 +194,173 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 		'name' => 'silversand',
 		'displayName' => _('Silver sand'),
 		'base' => '#bdc3c7'
+	)
+)));
+
+/*
+ * Predefined categories. Categories should have at least a name and a color. The
+ * quickAccess property can be set to true to 'pin' the category to the menu. (i.e. it
+ * will be shown in the categories menu). The sortIndex property can be used to support
+ * the categories in the menu and 'Manage categories' dialog.
+ *
+ * The first six categories have the additional fields standardIndex. This field maps
+ * these categories to the colored flag that could have been set on an item. These
+ * flags will be shown as categories in the WebApp.
+ */
+if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(array(
+	array(
+		'name' => _('Red'),
+		'color' => '#e40023',
+		'standardIndex' => 6,
+		'quickAccess' => true,
+		'sortIndex' => 0
+	),
+	array(
+		'name' => _('Orange'),
+		'color' => '#f99406',
+		'standardIndex' => 2,
+		'quickAccess' => true,
+		'sortIndex' => 1
+	),
+	array(
+		'name' => _('Yellow'),
+		'color' => '#f7ca17',
+		'standardIndex' => 4,
+		'quickAccess' => true,
+		'sortIndex' => 2
+	),
+	array(
+		'name' => _('Green'),
+		'color' => '#5ab556',
+		'standardIndex' => 3,
+		'quickAccess' => true,
+		'sortIndex' => 3
+	),
+	array(
+		'name' => _('Blue'),
+		'color' => '#0f70bd',
+		'standardIndex' => 5,
+		'quickAccess' => true,
+		'sortIndex' => 4
+	),
+	array(
+		'name' => _('Purple'),
+		'color' => '#912887',
+		'standardIndex' => 1,
+		'quickAccess' => true,
+		'sortIndex' => 5
+	),
+	array(
+		'name' => _('Important'),
+		'color' => '#F4B7B5'
+	),
+	array(
+		'name' => _('Work'),
+		'color' => '#B6CAE9'
+	),
+	array(
+		'name' => _('Personal'),
+		'color' => '#D9E9B6'
+	),
+	array(
+		'name' => _('Holiday'),
+		'color' => '#EBDA6C'
+	),
+	array(
+		'name' => _('Required'),
+		'color' => '#E9DAB6'
+	),
+	array(
+		'name' => _('Travel Required'),
+		'color' => '#B6DDE9'
+	),
+	array(
+		'name' => _('Preparation Required'),
+		'color' => '#B6B6E9'
+	),
+	array(
+		'name' => _('Birthday'),
+		'color' => '#DCB6E9'
+	),
+	array(
+		'name' => _('Special Date'),
+		'color' => '#E9BBB6'
+	),
+	array(
+		'name' => _('Phone Interview'),
+		'color' => '#C1E9B6'
+	),
+	array(
+		'name' => _('Business'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Competition'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Favorites'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Gifts'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Goals/Objectives'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Holiday Cards'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Hot Contacts'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Ideas'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('International'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Key Customer'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Miscellaneous'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Phone Calls'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Status'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Strategies'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Suppliers'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Time & Expenses'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('VIP'),
+		'color' => '#BDC3C7'
+	),
+	array(
+		'name' => _('Waiting'),
+		'color' => '#BDC3C7'
 	)
 )));
 

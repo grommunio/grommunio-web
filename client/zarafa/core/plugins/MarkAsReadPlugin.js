@@ -93,6 +93,12 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	 */
 	onSetRecord : function(field, record, oldrecord)
 	{
+		// If the record is the same, the data of the record was just updated. No need to mark it as
+		// read/unread then.
+		if ( record && oldrecord && record.equals(oldrecord) ){
+			return;
+		}
+
 		this.resetReadFlagTimer();
 
 		// here, parameter named 'record' is the instance of shadowstore record.
@@ -152,8 +158,8 @@ Zarafa.core.plugins.MarkAsReadPlugin = Ext.extend(Object, {
 	/**
 	 * Event handler which is fired when the {@link Zarafa.mail.ui.MailGrid#store store} fires the
 	 * remove event. This will {@link Zarafa.core.plugins.MarkAsReadPlugin#resetReadFlagTimer reset}
-	 * the {@link Zarafa.core.plugins.MarkAsReadPlugin#readFlagTimer} if 
-	 * {@link Zarafa.core.plugins.MarkAsReadPlugin#record record} is removed 
+	 * the {@link Zarafa.core.plugins.MarkAsReadPlugin#readFlagTimer} if
+	 * {@link Zarafa.core.plugins.MarkAsReadPlugin#record record} is removed
 	 * from {@link Zarafa.mail.ui.MailGrid#store store}
 	 *
 	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The store which fired the event

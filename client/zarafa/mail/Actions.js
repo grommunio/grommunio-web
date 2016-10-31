@@ -50,8 +50,8 @@ Zarafa.mail.Actions = {
 				// The contact is not opened yet, register a task to open the contact once
 				// the panel has been opened.
 				tasks.push({
-					/* By encapsulating the task function it is possible to get the contact object 
-					* into the scope of the task function. When you add more tasks the contact 
+					/* By encapsulating the task function it is possible to get the contact object
+					* into the scope of the task function. When you add more tasks the contact
 					* reference changes and without this encapsulation it will change the contact in
 					* all the previously added task functions as well.
 					*/
@@ -167,36 +167,6 @@ Zarafa.mail.Actions = {
 		});
 
 		var componentType = Zarafa.core.data.SharedComponentType['mail.dialog.options'];
-		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
-	},
-
-	/**
-	 * Opens a {@link Zarafa.mail.ui.MailFlagsPanel MailFlagsPanel}. For setting
-	 * flag options for the given {@link Zarafa.core.data.IPMRecord records}.
-	 *
-	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the flags are requested
-	 * @param {Object} config (optional) Configuration object used to create
-	 * the Content Panel.
-	 */
-	openMailFlagsContent : function(records, config)
-	{
-		if (Array.isArray(records) && !Ext.isEmpty(records)) {
-			records = records[0];
-		}
-
-		config = Ext.applyIf(config || {}, {
-			modal : true
-		});
-
-		// for new mail some components are disabled
-		if(!config.autoSave) {
-			Ext.apply(config, {
-				disableFlagColor : true,
-				disableCompleted : true
-			});
-		}
-
-		var componentType = Zarafa.core.data.SharedComponentType['mail.dialog.flags'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
 	},
 

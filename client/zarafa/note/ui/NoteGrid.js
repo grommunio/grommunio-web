@@ -124,28 +124,9 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		Zarafa.note.ui.NoteGrid.superclass.initEvents.call(this);
 
 		this.on({
-			'rowcontextmenu': this.onNoteRowContextMenu,
 			'rowdblclick': this.onNoteRowDblClick,
 			scope : this
 		});
-	},
-
-	/**
-	 * Event handler which is triggered when user opens context menu
-	 * @param {Ext.grid.GridPanel} grid grid panel object
-	 * @param {Number} rowIndex	index of row
-	 * @param {Ext.event} eventObj eventObj object of the event
-	 * @private
-	 */
-	onNoteRowContextMenu: function(grid,rowIndex,eventObj)
-	{
-		// check row is already selected or not, if its not selected then select it first
-		var selectionModel = this.getSelectionModel();
-		if (!selectionModel.isSelected(rowIndex)) {
-			selectionModel.selectRow(rowIndex);
-		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), { position : eventObj.getXY() });
 	},
 
 	/**

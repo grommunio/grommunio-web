@@ -124,6 +124,8 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 			Ext.each(record, function(r){
 				this.remove(r, silent);
 			}, this);
+
+			return;
 		}
 
 		var index = this.data.indexOf(record);

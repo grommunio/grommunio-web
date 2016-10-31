@@ -125,6 +125,10 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 			xtype : 'zarafa.attachmentlinks',
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 			fieldLabel    : pgettext('mail.previewpanel', 'Attachments')
+		},{
+			xtype : 'zarafa.categorylinks',
+			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+			fieldLabel    : pgettext('mail.previewpanel', 'Categories')
 		}, container.populateInsertionPoint('previewpanel.toolbar.detaillinks', this));
 		return items;
 	},

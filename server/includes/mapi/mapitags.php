@@ -781,6 +781,9 @@ define('PR_EC_RECIPIENT_HISTORY'                      ,mapi_prop_tag(PT_STRING8,
 define('PR_EC_WEBACCESS_SETTINGS_JSON'                ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x72));
 define('PR_EC_RECIPIENT_HISTORY_JSON'                 ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x73));
 
+/* The peristent settings are settings that will not be touched when the settings are reset */
+define('PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON'        ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x74));
+
 /* statistics properties */
 define('PR_EC_STATSTABLE_SYSTEM'		, mapi_prop_tag(PT_OBJECT,		PR_EC_BASE+0x30));
 define('PR_EC_STATSTABLE_SESSIONS'		, mapi_prop_tag(PT_OBJECT,		PR_EC_BASE+0x31));

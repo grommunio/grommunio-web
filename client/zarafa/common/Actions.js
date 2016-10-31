@@ -54,6 +54,21 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Opens the {@link Zarafa.common.categories.ui.CategoriesContextMenu CategoriesContextMenu} for
+	 * the given {@link Zarafa.core.data.IPMRecord records}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the categories
+	 * menu will be shown.
+	 * @param {Array} position An array with the [x, y] position where the menu will be shown.
+	 */
+	openCategoriesMenu : function(records, position)
+	{
+		Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.categories'], records, {
+			position : position
+		});
+	},
+
+	/**
 	 * Opens a {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel} for configuring
 	 * the categories of the given {@link Zarafa.core.data.IPMRecord records}.
 	 *
@@ -73,6 +88,21 @@ Zarafa.common.Actions = {
 		});
 		var componentType = Zarafa.core.data.SharedComponentType['common.dialog.categories'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
+	},
+
+	/**
+	 * Opens a {@link Zarafa.common.categories.dialogs.NewCategoryPanel NewCategoryPanel} for creating
+	 * a new category.
+	 *
+	 * @param {Object} config (optional) Configuration object for creating the NewCategoryPanel
+	 */
+	openNewCategoryContent : function(config)
+	{
+		config = Ext.applyIf(config || {}, {
+			modal : true
+		});
+		var componentType = Zarafa.core.data.SharedComponentType['common.categories.dialogs.newcategory'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
 	},
 
 	/**

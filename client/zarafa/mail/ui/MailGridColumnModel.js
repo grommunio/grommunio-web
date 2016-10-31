@@ -39,6 +39,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		// Insertion point to allow more columns
 		var insertColumns = container.populateInsertionPoint('context.mail.griddefaultcolumn', this) || [];
 		this.defaultColumns = this.defaultColumns.concat(insertColumns);
+		this.compactColumns = this.compactColumns.concat(insertColumns);
 
 		Ext.applyIf(config, {
 			columns: this.defaultColumns,
@@ -112,8 +113,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			header : _('Categories'),
 			dataIndex : 'categories',
 			width : 160,
-			renderer : Zarafa.common.ui.grid.Renderers.text,
-			hidden: true,
+			renderer: Zarafa.common.ui.grid.Renderers.categories,
 			tooltip : _('Sort by: Categories')
 		},{
 			header : _('Received'),
@@ -146,16 +146,6 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width : 80,
 			renderer : Zarafa.common.ui.grid.Renderers.size,
 			tooltip : _('Sort by: Size')
-		},{
-			id : 'column_flag',
-			header : '<p class="icon_mail_flag">&nbsp;<span class="title">' + _('Flag Status') + '</span></p>',
-			headerCls: 'zarafa-icon-column icon',
-			dataIndex : 'flag_status',
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
-			fixed : true,
-			tooltip : _('Sort by: Flag Status'),
-			preventRowSelection : true
 		}];
 	},
 
@@ -222,14 +212,21 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer : Zarafa.common.ui.grid.Renderers.size,
 			tooltip : _('Sort by: Size')
 		},{
-			header : '<p class="icon_mail_flag">&nbsp;<span class="title">' + _('Flag Status') + '</span></p>',
-			headerCls: 'zarafa-icon-column icon',
-			dataIndex : 'flag_status',
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.flag,
+			header : '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
+			headerCls: 'zarafa-icon-column importance',
+			dataIndex : 'importance',
+			width: 24,
+			renderer : Zarafa.common.ui.grid.Renderers.importance,
 			fixed : true,
-			tooltip : _('Sort by: Flag Status'),
-			preventRowSelection : true
+			tooltip : _('Sort by: Importance')
+		},{
+			header : '<p class="icon_attachment">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
+			headerCls: 'zarafa-icon-column attachment',
+			dataIndex : 'hasattach',
+			width: 24,
+			renderer : Zarafa.common.ui.grid.Renderers.attachment,
+			fixed : true,
+			tooltip : _('Sort by: Attachment')
 		}];
 	},
 

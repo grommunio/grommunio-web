@@ -180,6 +180,13 @@
 		padding-bottom: 0;
 	}
 
+	.filler {
+		padding: $padding-medium;
+		padding-left: $padding-extra-large;
+		border-left: 1px solid $grey;
+		height: $button-small-height;
+	}
+
 	.k-field-attachments {
 		padding: $padding-medium;
 	}

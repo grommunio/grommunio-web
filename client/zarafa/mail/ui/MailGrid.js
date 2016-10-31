@@ -91,8 +91,8 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		Zarafa.mail.ui.MailGrid.superclass.initEvents.call(this);
 
 		this.on({
-			'cellcontextmenu': this.onCellContextMenu,
 			'cellclick': this.onCellClick,
+			'rowclick': this.onRowClick,
 			'rowbodycontextmenu': this.onRowBodyContextMenu,
 			'rowdblclick': this.onRowDblClick,
 			scope : this
@@ -157,8 +157,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	/**
 	 * Apply custom style and content for the row body. This will always
 	 * apply the Read/Unread style to the entire row. Optionally it will
-	 * enable the row body containing the subject and icons for attachment
-	 * and priority.
+	 * enable the row body containing the subject.
 	 *
 	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
 	 * @param {Number} rowIndex The row index
@@ -177,31 +176,21 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		if (this.enableRowBody) {
 			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
 			var value = ''; // The value which must be rendered
-			rowParams.body = '<table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">';
-			rowParams.body += '<tr>';
+			rowParams.body = '<div class="zarafa-grid-body-container">';
+
+			// Render the categories
+			cssClass += ' with-categories';
+			var categories = Zarafa.common.categories.Util.getCategories(record);
+			var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+			rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
 
 			// Render the subject
 			meta = {};
 			value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
-			rowParams.body += String.format('<td style="width: 100%"><div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div></td>', meta.css, value);
+			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
 
-			// Render the attachment icon (always aligned to the right)
-			meta = {};
-			value = Zarafa.common.ui.grid.Renderers.attachment(record.get('hasattach'), meta, record);
-			rowParams.body += String.format('<td style="width: 24px"><div class="grid_compact {0}" style="width: 24px;">{1}</div></td>', meta.css, value);
+			rowParams.body += '</div>';
 
-			// Render the importance icon (always aligned to the right)
-			meta = {};
-			value = Zarafa.common.ui.grid.Renderers.importance(record.get('importance'), meta, record);
-			rowParams.body += String.format('<td style="width: 24px"><div class="grid_compact {0}" style="width: 24px;">{1}</div></td>', meta.css, value);
-
-			// Insertion point for extra icon(s) in the row
-			var insertions = container.populateInsertionPoint('context.mail.gridrow', record);
-			for (var i = 0; i < insertions.length; i++) {
-				rowParams.body += insertions[i];
-			}
-
-			rowParams.body += '</tr></table>';
 			return 'x-grid3-row-expanded ' + cssClass;
 		}
 
@@ -335,69 +324,15 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
-	 * Event handler which is triggered when the user opems the context menu.
+	 * Event handler for the cellclick event of the grid. Will mark/unmark a mail
+	 * as read when the user clicked on the icon column
 	 *
-	 * There are some selection rules regarding the context menu. If no rows where
-	 * selected, the row on which the context menu was requested will be marked
-	 * as selected. If there have been rows selected, but the context menu was
-	 * requested on a different row, then the old selection is lost, and the new
-	 * row will be selected. If the row on which the context menu was selected is
-	 * part of the previously selected rows, then the context menu will be applied
-	 * to all selected rows.
-	 *
-	 * @param {Zarafa.mail.ui.MailGrid} grid The grid which was right clicked
-	 * @param {Number} rowIndex The index number of the row which was right clicked
-	 * @param {Number} cellIndex The index number of the column which was right clicked
-	 * @param {Ext.EventObject} event The event structure
+	 * @param {Zarafa.mail.ui.MailGrid} grid The mail grid
+	 * @param {Number} rowIndex The index number of the row that was clicked
+	 * @param {Number} columnIndex The index number of the column that was clicked
+	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onCellContextMenu : function(grid, rowIndex, cellIndex, event)
-	{
-		var sm = this.getSelectionModel();
-		var cm = this.getColumnModel();
-
-		if (sm.hasSelection()) {
-			// Some records were selected...
-			if (!sm.isSelected(rowIndex)) {
-				// But none of them was the record on which the
-				// context menu was invoked. Reset selection.
-				sm.clearSelections();
-				sm.selectRow(rowIndex);
-			}
-		} else {
-			// No records were selected,
-			// select row on which context menu was invoked
-			sm.selectRow(rowIndex);
-		}
-
-		// Take into account that the function onRowBodyContextMenu passes -1 as the column index.
-		var dataIndex = (cellIndex >= 0) ? cm.getDataIndex(cellIndex) : undefined;
-		var records = sm.getSelections();
-
-		switch (dataIndex) {
-		case 'importance':
-			Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['common.contextmenu.importance'], records, { position : event.getXY() });
-			break;
-		case 'flag_status':
-			// Only open flags context menu if all the selected records are mail record.
-			var allMails = true;
-			Ext.each(records, function(record) {
-				if(record.isFaultyMessage() || !record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'IPM.TaskRequest', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
-					allMails = false;
-				}
-			}, this);
-
-			if(allMails) {
-				Zarafa.core.data.UIFactory.openContextMenu(Zarafa.core.data.SharedComponentType['mail.contextmenu.flags'], records, { position : event.getXY() });
-				break;
-			}
-			/* falls through */
-		default:
-			Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position : event.getXY(), context : this.context });
-			break;
-		}
-	},
-
 	onCellClick : function(grid, rowIndex, columnIndex, e)
 	{
 		var record = this.store.getAt(rowIndex);
@@ -407,31 +342,27 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		var cm = this.getColumnModel();
 		var column = cm.config[columnIndex];
-		switch (column.dataIndex) {
-			case 'flag_status':
-				// If the record is not a mail, ignore click event
-				if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note', 'IPM.TaskRequest'], true)) {
-					break;
-				}
-				if (record.get('flag_status') == Zarafa.core.mapi.FlagStatus.flagged) {
-					record.set('flag_status', Zarafa.core.mapi.FlagStatus.completed);
-					record.set('flag_icon', Zarafa.core.mapi.FlagIcon.clear);
-				} else {
-					record.set('flag_status', Zarafa.core.mapi.FlagStatus.flagged);
-					record.set('flag_icon', Zarafa.core.mapi.FlagIcon.red);
-				}
+		if (column.dataIndex === 'icon_index' ){
+			Zarafa.common.Actions.markAsRead(record, !record.isRead());
+		}
+	},
 
-				// Save 'flag_status' related changes in record for this case only.
-				// Changes related to 'icon_index' will be saved by markAsRead method.
-				if (record.dirty) {
-					record.save();
-				}
+	/**
+	 * Event handler that opens the categories dialog when the user clicks on the
+	 * add category icon.
+	 *
+	 * @param {Zarafa.mail.ui.MailGrid} grid The grid which was right clicked
+	 * @param {Number} rowIndex The index number of the row which was right clicked
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onRowClick : function(grid, rowIndex, event)
+	{
+		if ( Ext.get(event.target).hasClass('k-category-add') ){
+			// Get the record from the rowIndex
+			var record = this.store.getAt(rowIndex);
 
-				break;
-
-			case 'icon_index':
-				Zarafa.common.Actions.markAsRead(record, !record.isRead());
-				break;
+			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
 		}
 	},
 
@@ -511,7 +442,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 * it will be used to start live scroll on {@link Zarafa.core.data.ListModuleStore ListModuleStore}.
 	 * also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
 	 * updated batch of mails status.
-	 * 
+	 *
 	 * @param {Number} cursor the cursor contains the last index of record in grid.
 	 * @private
 	 */
@@ -522,7 +453,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 	/**
 	 * Event handler which triggered when header of grid was clicked to apply the sorting
-	 * on {@link Zarafa.mail.ui.MailGrid mailgrid}. it will first stop the 
+	 * on {@link Zarafa.mail.ui.MailGrid mailgrid}. it will first stop the
 	 * {@link Zarafa.core.ContextModel#stopLiveScroll live scroll} and then apply the sorting.
 	 * @private
 	 */

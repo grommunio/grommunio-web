@@ -11,8 +11,8 @@
  * =======================================
  ********************************************************************************************/
 /* Background image of the login screen */
-body.login, 
-#loading-mask, 
+body.login,
+#loading-mask,
 #bg,
 /* Background image of the Welcome screen */
 body.zarafa-welcome {
@@ -61,6 +61,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-logintext {
  * be changed to better suit the theme.
  *********************************************************************/
 /* selected item in grids */
+.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container,
 .x-grid3-row.x-grid3-row-selected,
 /* selected item in tree hierarchies */
 .x-tree-node .zarafa-hierarchy-node.x-tree-selected,
@@ -205,8 +206,8 @@ ul.x-tab-strip li.x-tab-strip-active,
 }
 
 /* Buttons */
-.x-btn .x-btn-small, 
-.x-btn .x-btn-medium, 
+.x-btn .x-btn-small,
+.x-btn .x-btn-medium,
 .x-btn .x-btn-large,
 /* Panels general */
 .x-panel .x-panel-header,
@@ -226,11 +227,11 @@ ul.x-tab-strip li .x-tab-right,
   background-color: #cfd2dc;
 }
 /* Buttons */
-.x-btn.x-btn-over.x-btn-click .x-btn-small, 
-.x-btn.x-btn-over.x-btn-click .x-btn-medium, 
-.x-btn.x-btn-over.x-btn-click .x-btn-large, 
-.x-btn.x-btn-click .x-btn-small, 
-.x-btn.x-btn-click .x-btn-medium, 
+.x-btn.x-btn-over.x-btn-click .x-btn-small,
+.x-btn.x-btn-over.x-btn-click .x-btn-medium,
+.x-btn.x-btn-over.x-btn-click .x-btn-large,
+.x-btn.x-btn-click .x-btn-small,
+.x-btn.x-btn-click .x-btn-medium,
 .x-btn.x-btn-click .x-btn-large {
   background-color: #cfd2dc !important;
 }

@@ -35,6 +35,11 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	model : undefined,
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -49,7 +54,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				config.model = container.getContextByName('mail').getModel();
 			}
 		}
-		
+
 
 		Ext.applyIf(config, {
 			items: [
@@ -57,7 +62,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.mail.contextmenu.actions', this),
 				{ xtype: 'menuseparator' },
-				this.createContextOptionsItems(),
+				this.createContextOptionsItems(config.records),
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.mail.contextmenu.options', this)
 			]
@@ -161,10 +166,11 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 
 	/**
 	 * Create the Option context menu items
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this context menu acts.
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
 	 * @private
 	 */
-	createContextOptionsItems : function()
+	createContextOptionsItems : function(records)
 	{
 		return [{
 			xtype: 'zarafa.conditionalitem',
@@ -191,17 +197,14 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Categories'),
+			cls: 'k-unclickable',
 			iconCls : 'icon_categories',
-			handler : function() {
-				Zarafa.common.Actions.openCategoriesContent(this.records);
-			},
-			scope: this
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			}
 		},{
-			xtype: 'menuseparator'
-		},
-		Zarafa.mail.dialogs.MailFlagsMenu.createMailFlagSubmenu(true),
-		Zarafa.mail.dialogs.MailFlagsMenu.createStateMailFlagButtons(),
-		{
 			xtype: 'menuseparator'
 		},{
 			xtype: 'zarafa.conditionalitem',
@@ -302,7 +305,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	{
 		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, this.model, button.responseMode);
 	},
-			
+
 	/**
 	 * Event handler which determines if menu items should be visible or not.
 	 * It will check if record is faulty then hide menu items which are not supported.
@@ -323,7 +326,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			}
 		}, this);
 	},
-	
+
 	/**
 	 * Event handler which determines if the 'Move to Junk Folder' menu item should be visible or not.
 	 * If context menu is opened in the "Junk Items" folder, it will not show the menu item.

@@ -109,7 +109,7 @@ Zarafa.calendar.ui.CalendarGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Co
 			dataIndex: 'categories',
 			tooltip : _('Sort by: Categories'),
 			width: 160,
-			renderer: Zarafa.common.ui.grid.Renderers.text,
+			renderer: Zarafa.common.ui.grid.Renderers.categories,
 			hidden: true
 		},{
 			header: _('Created On'),

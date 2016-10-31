@@ -1,0 +1,64 @@
+.k-colorpicker-box,
+.k-colorpicker-box:hover::after {
+	cursor: pointer;
+	width: $button-small-height - 7;
+	height: $button-small-height - 7;
+	background-image: sprite-url($iconsmap) !important;
+	background-position: sprite-position($iconsmap, arrow_down_l_white, $offset-x: 4, $offset-y: 6);
+	position: relative;
+}
+.k-colorpicker.zarafa-border .k-colorpicker-box,
+.k-colorpicker.zarafa-border .k-colorpicker-box:hover::after {
+	border: 1px solid $grey;
+	width: $button-small-height - 9;
+	height: $button-small-height - 9;
+	background-position: sprite-position($iconsmap, arrow_down_l_white, $offset-x: 3, $offset-y: 5);
+}
+.k-colorpicker .k-colorpicker-box:hover::after {
+	display: block;
+    background-color: black;
+    content: " ";
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+}
+.k-colorpicker.zarafa-border .k-colorpicker-box:hover::after {
+    top: -1px;
+    left: -1px;
+}
+
+.x-form-element .k-colorpicker {
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+
+.x-color-palette.k-colorpicker-menu {
+	width: 92px;
+}
+
+.x-color-palette{
+	a {
+		padding: $padding-small;
+		border: none;
+	}
+
+	a:hover,
+	a.x-color-palette-sel {
+		border: none;
+	}
+	a:hover {
+		background-color: $grid-hover-color;
+	}
+	a.x-color-palette-sel {
+		background-color: $grid-active-color;
+	}
+
+	em{
+		border: none;
+
+		span {
+			width: $button-small-height - 7;
+			height: $button-small-height - 7;
+		}
+	}
+}

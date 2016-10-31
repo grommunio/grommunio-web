@@ -349,11 +349,10 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 			return;
 		}
 
-		var colorScheme = this.getAppointmentColorScheme();
+		var color = this.getAppointmentColor();
 
 		// Check if we have a light or dark color
-		// We use the startcolorappointment property because colorschemes of labeled appointments don't have the base property!
-		var isDarkColor = Zarafa.core.ColorSchemes.getLuma(colorScheme.startcolorappointment) < 155;
+		var isDarkColor = Zarafa.core.ColorSchemes.getLuma(color) < 155;
 		var fontColor = this.isActive() && isDarkColor ? 'white' : 'black';
 
 		// First start drawing all icons
@@ -378,7 +377,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		var stop = Math.min(1, Math.max(0.1, (width - 12) / width));
 		gradient.addColorStop(0, fontColor);
 		gradient.addColorStop(stop, fontColor);
-		gradient.addColorStop(1, colorScheme.startcolorappointment);
+		gradient.addColorStop(1, color);
 		context.fillStyle = gradient;
 
 		context.lineWidth = 1;
@@ -403,11 +402,10 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 	 */
 	layoutInHeader : function()
 	{
-		var colorScheme = this.getAppointmentColorScheme();
+		var color = this.getAppointmentColor();
 
 		// Check if we have a light or dark color
-		// We use the startcolorappointment property because colorschemes of labeled appointments don't have the base property!
-		var isDarkColor = Zarafa.core.ColorSchemes.getLuma(colorScheme.startcolorappointment) < 155;
+		var isDarkColor = Zarafa.core.ColorSchemes.getLuma(color) < 155;
 		var fontColor = this.isActive() && isDarkColor ? 'white' : 'black';
 
 		// Get the bounds of the header from the parent calendar.
@@ -430,7 +428,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		context.fillRect(0,0, width, height-1);
 
 		var stripWidth = this.getStripWidth();
-		context.fillStyle = colorScheme.startcolorappointment;
+		context.fillStyle = color;
 		context.globalAlpha = appointmentOpacity;
 		context.fillRect(stripWidth+1, 1, width-2-stripWidth, height-3);
 
@@ -448,7 +446,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 				break;
 			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
 				// First
-				context.fillStyle = colorScheme.startcolorappointment;
+				context.fillStyle = color;
 				context.fillRect(busyBoxLeft, busyBoxTop, busyBoxWidth, busyBoxHeight);
 				// Then use a striped image to cover part of the background with white.
 				context.globalAlpha = 1;
@@ -530,14 +528,14 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 
 		context.lineWidth = 1;
 
-		var colorScheme = this.getAppointmentColorScheme();
+		var color = this.getAppointmentColor();
 		var appointmentOpacity = 0.8;
 		if(!this.isActive()){
 			appointmentOpacity = this.opacityNonActiveAppointment;
 		}
 
 		context.globalAlpha = appointmentOpacity;
-		context.fillStyle = colorScheme.startcolorappointment;
+		context.fillStyle = color;
 
 		var stripWidth = this.getStripWidth();
 
@@ -573,7 +571,7 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 		switch (busyStatus) {
 			case Zarafa.core.mapi.BusyStatus.FREE:
 				// First draw the outline of the busystatus box in the same color as the appointment
-				context.strokeStyle = context.convertHexRgbToDecRgba(colorScheme.startcolorappointment);
+				context.strokeStyle = context.convertHexRgbToDecRgba(color);
 				context.strokeRect(busyBoxLeft + 0.5, busyBoxTop + 0.5, busyBoxWidth-1, busyBoxHeight-1);
 				// Then fill the box with white in the same opacity as the appointment
 				context.fillStyle = 'white';

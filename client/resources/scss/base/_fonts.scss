@@ -11,6 +11,7 @@ $font-size-extra-large			: 18px;
 $font-line-height-extra-large	: 25px;
 
 $font-line-height-small			: 15px;
+$font-line-height-mail-grid-compact : $font-default-size + 2px;
 
 /*
  * Remember, !important is very fugly! But in this case it is used because we want to force only one font accross the WebApp

@@ -23,6 +23,17 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 */
 
 	/**
+	 * @cfg {Zarafa.calendar.ui.CalendarPanel} The calendar panel for which this context
+	 * menu is shown
+	 */
+	calendarPanel: null,
+
+	/**
+	 * @cfg {Zarafa.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -32,7 +43,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 
 		if (Ext.isDefined(config.records) && !Array.isArray(config.records)) {
 			config.records = [ config.records ];
-		}							
+		}
 
 		config = Ext.applyIf(config, {
 			items: [
@@ -40,10 +51,14 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.calendar.contextmenu.actions', this),
 				{ xtype: 'menuseparator' },
-				this.createContextOptionsItems(),
+				this.createContextOptionsItems(config.records),
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.calendar.contextmenu.options', this)
-			]
+			],
+			listeners: {
+				scope: this,
+				mouseover: this.onMouseover
+			}
 		});
 
 		Zarafa.calendar.ui.CalendarContextMenu.superclass.constructor.call(this, config);
@@ -87,7 +102,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			handler : this.onDelete,
 			scope: this
 		},{
-			xtype: 'menuseparator' 
+			xtype: 'menuseparator'
 		},{
 			xtype : 'zarafa.conditionalitem',
 			ref : 'acceptButton',
@@ -129,18 +144,23 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 
 	/**
 	 * Create the Option context menu items
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this menu acts
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
 	 * @private
 	 */
-	createContextOptionsItems : function()
+	createContextOptionsItems : function(records)
 	{
 		return [{
 			xtype : 'zarafa.conditionalitem',
+			cls: 'k-unclickable',
 			iconCls : 'icon_categories',
 			text : _('Categories'),
+			hideOnClick: false,
 			beforeShow : this.beforeShowNonPhantom,
-			handler : this.onCategories,
-			scope: this
+			menu: {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			}
 		},{
 			xtype : 'zarafa.conditionalitem',
 			iconCls : 'icon_busystatus',
@@ -149,15 +169,6 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			menu : {
 				xtype: 'zarafa.conditionalmenu',
 				items: this.createBusyStatusItems()
-			}
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'icon_appointmentlabel',
-			text : _('Label'),
-			beforeShow : this.beforeShowNonPhantom,
-			menu : {
-				xtype: 'zarafa.conditionalmenu',
-				items: this.createLabelItems()
 			}
 		}];
 	},
@@ -197,93 +208,6 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			busyStatus: Zarafa.core.mapi.BusyStatus.OUTOFOFFICE,
 			handler : this.onSetBusyStatus,
 			scope: this
-		}];
-	},
-
-	/**
-	 * Create the Label context submenu items
-	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Label context submenu items
-	 * @private
-	 */
-	createLabelItems : function()
-	{
-		return [{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-none',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.NONE),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.NONE,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-important',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.IMPORTANT),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.IMPORTANT,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-work',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.WORK),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.WORK,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-personal',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.PERSONAL),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.PERSONAL,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-holiday',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.HOLIDAY),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.HOLIDAY,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-required',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.REQUIRED),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.REQUIRED,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			 iconCls : 'zarafa-calendar-appointment-label-travel-required',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-prepare-required',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.PREPARE_REQUIRED),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.PREPARE_REQUIRED,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-birthday',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.BIRTHDAY),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.BIRTHDAY,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-special-date',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.SPECIAL_DATE),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.SPECIAL_DATE,
-			handler : this.onSetLabel,
-			scope : this
-		},{
-			xtype : 'zarafa.conditionalitem',
-			iconCls : 'zarafa-calendar-appointment-label-phone-interview',
-			text : Zarafa.core.mapi.AppointmentLabels.getDisplayName(Zarafa.core.mapi.AppointmentLabels.PHONE_INTERVIEW),
-			labelValue: Zarafa.core.mapi.AppointmentLabels.PHONE_INTERVIEW,
-			handler : this.onSetLabel,
-			scope : this
 		}];
 	},
 
@@ -357,7 +281,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		if(record.isMeetingReceived() && (record.isRecurringOccurence() || record.get('recurring'))) {
 			// Add sub menu item while selected received meeting request is recurring.
 			// it will show the two sub menu items which provide facility to user to accept, tentatively accept,
-			// decline recurring series or occurrence and allow user to propose new time for single occurrence 
+			// decline recurring series or occurrence and allow user to propose new time for single occurrence
 			// of recurring meeting request.
 			item.menu = new Ext.menu.Menu({
 				items: [{
@@ -389,6 +313,18 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				}],
 				scope : this
 			});
+		}
+	},
+
+	/**
+	 * Event handler for the mouseover event of this menu. Will make sure that any
+	 * open tooltip is closed.
+	 */
+	onMouseover : function()
+	{
+		// In the list view there is no calendarPanel (and no tooltip)
+		if ( this.calendarPanel ){
+			this.calendarPanel.getView().getTooltipInstance().hide(0);
 		}
 	},
 
@@ -461,7 +397,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				buttons: Ext.MessageBox.YESNO
 			});
 		} else {
-			Zarafa.calendar.Actions.openSendConfirmationContent(record, { 
+			Zarafa.calendar.Actions.openSendConfirmationContent(record, {
 					responseType : button.responseStatus,
 					buttonName : button.name
 			});
@@ -504,23 +440,6 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		Ext.each(records, function(record) {
 			store = record.getStore();
 			record.set('busystatus', button.busyStatus);
-		}, this);
-
-		store.save(records);
-	},
-
-	/**
-	 * Set the label for all selected records
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} button The selected menuitem
-	 */
-	onSetLabel : function(button)
-	{
-		var store;
-		var records = this.records;
-
-		Ext.each(this.records, function(record) {
-			store = record.getStore();
-			record.set('label', button.labelValue);
 		}, this);
 
 		store.save(records);

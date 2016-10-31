@@ -1,5 +1,8 @@
 $menu-item-height : 30px;
 
+.x-menu-plain {
+	background: $background-color-menu !important;
+}
 .x-menu {
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.60);
 
@@ -34,6 +37,9 @@ $menu-item-height : 30px;
 					left: $padding-medium - $padding-small;
 				}
 			}
+			a.zarafa-no-icon {
+				padding-left: $padding-large;
+			}
 
 			a.x-menu-item-arrow {
 				@extend .menu_arrow_right_l;
@@ -49,7 +55,7 @@ $menu-item-height : 30px;
 			}
 		}
 		li.x-menu-list-item.x-menu-item-active:active {
-			a {
+			a:not(.k-unclickable) {
 				background-color: $grey;
 			}
 		}
@@ -114,6 +120,11 @@ $menu-item-height : 30px;
 
 	.icon_copy {
       	background-position: sprite-position($icons, icon_copy, $offset-y: 3, $offset-x: 3);
+	}
+
+	.icon_remove {
+		@extend .icon_cross;
+      	background-position: sprite-position($icons, icon_cross, $offset-y: 8, $offset-x: 5);
 	}
 
 	.icon_folder_rename {
@@ -197,8 +208,8 @@ $menu-item-height : 30px;
 	}
 
 	.icon_categories {
-		@extend .icon_categories_bw;
-      	background-position: sprite-position($iconsmap, icon_categories_bw, $offset-y: 4, $offset-x: 2);
+		@extend .icon_categories;
+      	background-position: sprite-position($iconsmap, icon_categories, $offset-y: 5, $offset-x: 2);
 	}
 
 	/* check names button */
@@ -431,6 +442,10 @@ $menu-item-height : 30px;
 	.icon_attachment {
       	background-position: sprite-position($icons, icon_paperclip, $offset-y: 2, $offset-x: -1);
 	}
+
+	.icon_allcategories {
+      	background-position: sprite-position($iconsmap, icon_allcategories, $offset-y: 6, $offset-x: 0);
+	}
 }
 
 .x-shadow {
@@ -461,3 +476,29 @@ li.x-menu-item-active{
 	background-color: transparent;
 }
 
+/* Categorie menu */
+.x-menu.k-categories{
+	.x-menu-list {
+		.x-menu-item {
+			svg {
+				position: absolute;
+				left: $padding-small;
+				top: 8px;
+			}
+		}
+
+		.x-menu-item.k-manage-categories {
+			padding-left: $padding-medium;
+		}
+	}
+}
+
+.x-menu-item-selected {
+	background-color: $light-blue;
+	border-bottom: 1px solid $background-color-menu !important;
+}
+
+/* Color picker */
+.x-color-palette.k-colorpicker-menu {
+	width: 108px;
+}

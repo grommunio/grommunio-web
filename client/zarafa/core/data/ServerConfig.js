@@ -197,6 +197,22 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Array} returns the categories defined in config.php/default.php.
+	 */
+	getDefaultCategories : function()
+	{
+		return this.meta.default_categories;
+	},
+
+	/**
+	 * @return {Array} returns the additional categories defined in config.php/default.php.
+	 */
+	getAdditionalDefaultCategories : function()
+	{
+		return this.meta.additional_default_categories;
+	},
+
+	/**
 	 * @return {Array} returns the contact prefix defined in config.php.
 	 */
 	getContactPrefix: function ()

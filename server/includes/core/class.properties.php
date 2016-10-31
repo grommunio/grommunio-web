@@ -153,6 +153,8 @@
 				$properties["recurrence_data"] = "PT_BINARY:PSETID_Appointment:0x8216";
 				$properties["reminderminutes"] = "PT_LONG:PSETID_Common:0x8501";
 				$properties["reminderset"] = "PT_BOOLEAN:PSETID_Common:0x8503";
+				$properties["flag_request"] = "PT_STRING8:PSETID_Common:0x8530";
+				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
 				$properties["sendasical"] = "PT_BOOLEAN:PSETID_Appointment:0x8200";
 				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:0x8201";                                     // AppointmentSequenceNumber
 				$properties["last_updatecounter"] = "PT_LONG:PSETID_Appointment:0x8203";                        // AppointmentLastSequence

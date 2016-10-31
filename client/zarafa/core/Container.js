@@ -292,6 +292,16 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
+	 * Returns the global {@link Zarafa.settings.PersistentSettingsModel PersistentSettingsModel} instance.
+	 * @return {Zarafa.settings.PersistentSettingsModel} the global
+	 * {@link Zarafa.settings.PersistentSettingsModel PersistentSettingsModel} instance.
+	 */
+	getPersistentSettingsModel : function()
+	{
+		return this.persistentSettingsModel || (this.persistentSettingsModel = new Zarafa.settings.PersistentSettingsModel());
+	},
+
+	/**
 	 * Returns the {@link Zarafa.core.data.ShadowStore ShadowStore} instance.
 	 * @return {Zarafa.core.data.ShadowStore} the {@link Zarafa.core.data.ShadowStore ShadowStore} instance.
 	 */
