@@ -16,11 +16,13 @@ Zarafa.mail.data.Templates =
 	 * @type String
 	 */
 	plaintextQuotedTemplate	: 
-			'\n' +
-			'\n' +
+			'<tpl if="Ext.isEmpty(values.signatureData)">' +
+			'\n\n' +
+			'</tpl>' +
+			'<tpl if="!Ext.isEmpty(values.signatureData)">' +
 			'{signatureData}' +
-			' \n' +
-			' \n' +
+			'\n\n\n' +
+			'</tpl>' +
 			'-----' + _('Original message') + '-----\n' +
 			'<tpl if="!Ext.isEmpty(values.sent_representing_name)">' +
 				'> ' + _('From') + ':{sent_representing_name:htmlEncode} ' +
