@@ -49,7 +49,7 @@
 
 						// validate the FILE object to see if the size doesn't exceed
 						// the configured MAX_FILE_SIZE
-						if (!empty($FILE['size']) && !(isset($_POST['MAX_FILE_SIZE']) && $FILE['size'] > $_POST['MAX_FILE_SIZE'])) {
+						if (isset($FILE['size']) && !(isset($_POST['MAX_FILE_SIZE']) && $FILE['size'] > $_POST['MAX_FILE_SIZE'])) {
 							$FILES[] = $FILE;
 						}
 					}
