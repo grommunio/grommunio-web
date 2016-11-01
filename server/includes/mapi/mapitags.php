@@ -1199,6 +1199,9 @@ define('PR_EC_IMAP_EMAIL_SIZE'                ,mapi_prop_tag(PT_LONG,    PR_EC_B
 define('PR_EC_IMAP_BODY'                      ,mapi_prop_tag(PT_STRING8, PR_EC_BASE+0x8E)); //simplified bodystructure (mostly unused by clients)
 define('PR_EC_IMAP_BODYSTRUCTURE'             ,mapi_prop_tag(PT_STRING8, PR_EC_BASE+0x8F)); //extended bodystructure (often used by clients)
 
+/* Folder properties for unread counters */
+define('PR_LOCAL_COMMIT_TIME_MAX'             ,mapi_prop_tag(PT_SYSTIME,     0x670A));
+
 /* Favorites folder properties*/
 define('PR_WLINK_ENTRYID'                    ,mapi_prop_tag(PT_BINARY,     0x684C));
 define('PR_WLINK_FLAGS'                      ,mapi_prop_tag(PT_LONG,       0x684A));

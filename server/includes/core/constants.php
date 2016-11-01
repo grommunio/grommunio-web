@@ -10,6 +10,7 @@
 	define("TABLE_DELETE",				0x0008);
 	define("REQUEST_START",				0x0010);
 	define("REQUEST_END",				0x0020);
+	define("HIERARCHY_UPDATE",			0x0022);
 
 	// dummy entryid, used for the REQUEST events
 	define("REQUEST_ENTRYID",			"dummy_value");

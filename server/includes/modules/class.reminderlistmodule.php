@@ -313,6 +313,9 @@
 			$this->addActionData("list", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());
 
+			// Trigger the newmailnotifier
+			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE);
+
 			return true;
 		}
 
