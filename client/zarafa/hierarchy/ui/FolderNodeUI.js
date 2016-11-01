@@ -60,14 +60,31 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	{
 		// add some indent caching, this helps performance when rendering a large tree
 		this.indentMarkup = n.parentNode ? n.parentNode.ui.getChildIndent() : '';
-		var scheme ;
-		if (n.getOwnerTree().colored) {
-					scheme = n.getOwnerTree().model.getColorScheme(a.folder.get('entryid'));
-		}
-			var cb = Ext.isBoolean(a.checked),
-			isCalenderNode = cb,
-			calendarSVGIcon ;
-			if(isCalenderNode) {
+
+		var scheme;
+		var cb = Ext.isBoolean(a.checked);
+		var isCalenderNode = a.folder.isCalendarFolder();
+		var calendarSVGIcon = '';
+
+		if (isCalenderNode) {
+			var calendarContextModel = n.getOwnerTree().model;
+
+			// We started providing color choosing facility to all the calendar tree-nodes.
+			// CalendarContextModel is responsible for this facility.
+			// There is no CalendarContextModel available in the case where that particular
+			// calendar-tree-node doesn't belongs to MultiSelectHierarchyTree.
+			// So, simply made that ContextModel available to current HierarchyTree.
+			if (!calendarContextModel) {
+				var calendarContext = container.getContextByName('calendar');
+				calendarContextModel = calendarContext.getModel();
+				n.getOwnerTree().model = calendarContextModel;
+			}
+
+			scheme = calendarContextModel.getColorScheme(a.folder.get('entryid'));
+
+			// Get the scheme base only if we are able to get scheme successfully,
+			// otherwise let it be undefined instead of a JS fatal error.
+			if(scheme && scheme.base) {
 				calendarSVGIcon = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" style="color:'+scheme.base+'; position:relative; top:2px;">' + 
 									'<g>' + 
 										'<g class="icbg" style="fill:currentColor;stroke:none">' + 
@@ -79,13 +96,13 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 										'<path class="icgr" d="M 2.5,6.5 h 10 v 4 h -10 v -4.5 M 4.5,6.5 v 4 M 6.5,6.5 v 4 M 8.5,6.5 v 4 M 10.5,6.5 v 4 M 2.5,8.5 h 9.5" style="fill:currentColor;stroke:#ffffff;stroke-width:1;stroke-linejoin=miter" />' + 
 									'</g>' + 
 								'</svg>' ;
-			} else {
-				calendarSVGIcon = '' ;
 			}
-			var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
-			nel,
-			href = a.href ? a.href : Ext.isGecko ? "" : "#",
-			buf = '<li class="x-tree-node">' +
+		}
+
+		var icon = '<img src="' + (a.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" />',
+		nel,
+		href = a.href ? a.href : Ext.isGecko ? "" : "#",
+		buf = '<li class="x-tree-node">' +
 				'<div ext:tree-node-id="' + n.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
 					// indent space
 					'<span class="x-tree-node-indent">' + this.indentMarkup + "</span>" +
@@ -109,7 +126,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
 			"</li>";
 
-		if(bulkRender !== true && n.nextSibling && (nel = n.nextSibling.ui.getEl())){
+		if (bulkRender !== true && n.nextSibling && (nel = n.nextSibling.ui.getEl())) {
 			this.wrap = Ext.DomHelper.insertHtml("beforeBegin", nel, buf);
 		}else{
 			this.wrap = Ext.DomHelper.insertHtml("beforeEnd", targetNode, buf);
@@ -122,7 +139,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		this.ecNode = cs[1];
 		this.iconNode = cs[2];
 		var index = 3;
-		if(cb){
+		if (cb) {
 			this.checkbox = cs[2];
 			this.iconNode = cs[3];
 
@@ -144,7 +161,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		var iconNode = Ext.get(this.iconNode);
 		var containerNode = Ext.get(this.wrap);
 		var textNode = Ext.get(this.textNode);
-		if (cb) {
+		if (isCalenderNode) {
 			textNode.addClass('zarafa-hierarchy-node-color');
 		}
 		if (!Ext.isEmpty(a.cls)) {

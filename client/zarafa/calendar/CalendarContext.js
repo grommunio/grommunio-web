@@ -343,6 +343,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 				items : [{
 					xtype : 'zarafa.multiselecthierarchytree',
 					id: 'zarafa-navigationpanel-calendar-navigation-tree',
+					ref : '../../multiSelectHierarchyTree',
 					model: this.getModel(),
 					IPMFilter: 'IPF.Appointment',
 					hideDeletedFolders : true,

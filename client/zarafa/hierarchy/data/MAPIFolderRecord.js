@@ -200,6 +200,14 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
+	 * @return {Boolean} true if the folder is the calendar folder else false.
+	 */
+	isCalendarFolder : function()
+	{
+		return Zarafa.core.ContainerClass.isClass(this.get('container_class'), 'IPF.Appointment', true);
+	},
+
+	/**
 	 * Helper function to get display name of {@link Zarafa.hierachy.data.MAPIFolderRecord MAPIFolderRecord},
 	 * For a subtree folder it will get name of {@link Zarafa.hierachy.data.MAPIStoreRecord MAPIStoreRecord},
 	 * and for normal folders it will get it from display_name property.
