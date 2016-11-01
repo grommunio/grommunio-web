@@ -15,7 +15,7 @@ $version = trim(file_get_contents('version'));
 		<meta name="Generator" content="Kopano WebApp v<?php echo $version?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>Kopano WebApp</title>
+		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 
