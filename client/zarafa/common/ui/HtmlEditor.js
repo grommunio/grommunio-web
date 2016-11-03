@@ -329,6 +329,24 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
+	 * Adds an empty line with default formatting before the content in the editor
+	 */
+	addEmptyLineBeforeContent : function()
+	{
+		var editor = this.getEditor();
+
+		// Add a P tag to apply default formatting, we can use that empty node it self.
+		var firstNode = editor.getBody().firstChild;
+		var bogusHtml = '<br data-mce-bogus="1" />';
+		var newNode = editor.dom.create('p', editor.settings.forced_root_block_attrs, bogusHtml);
+		editor.getBody().insertBefore(newNode, firstNode);
+
+		// Apply default formatting to the new node by selecting it and calling composeDefaultFormatting
+		editor.selection.setCursorLocation(editor.getBody().firstChild, 0);
+		this.composeDefaultFormatting(editor);
+	},
+
+	/**
 	 * Function to set formatting with default font family and font size.
 	 * It uses {@link tinymce.Editor.execCommand execCommand} method of tinymce to dynamically
 	 * select values from the fontsize and fontname {@link tinymce.ui.ComboBox comboboxes}.
@@ -337,6 +355,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	applyDefaultFormatting : function(tinymceEditor)
 	{
+		var firstNodeHasFormatting = false;
+
 		if(!this.isDisabled() && this.record && this.record.phantom || this.applyFormattingForcefully) {
 
 			if(Ext.isDefined(this.defaultFontSize) && Ext.isDefined(this.defaultFontFamily)) {
@@ -344,58 +364,48 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				// for more information about Firefox Range class: https://developer.mozilla.org/en-US/docs/Web/API/Range.Range
 				tinymceEditor.fire('focusin', {});
 
-				/*
-				 * Tinymce will insert the necessary style tags while we dynamically select the default font size/family
-				 * at the current cursor position. The current cursor position is handled by tinymce.dom.Selection class,
-				 * so we need to first check if selection object is initialized or not.
-				 */
+				// Tinymce will insert the necessary style tags while we dynamically select the default font size/family
+				// at the current cursor position. The current cursor position is handled by tinymce.dom.Selection class,
+				// so we need to first check if selection object is initialized or not.
 				if(tinymceEditor.selection) {
 					var firstNode = tinymceEditor.getBody().firstChild;
-					var clonedNode;
+
 					// When using the html editor without a MAPIRecord (e.g. for the signature editor), the getMessageAction
 					// is not defined, so check for it.
 					var actionType = Ext.isDefined(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : false;
+
 					// We might have different scenarios with regards to content like with-signature, without-signature, response-content etc.
 					// if first node is 'p' than we assume that there is no response-content.
 					if (firstNode.nodeName === 'P' && actionType!==Zarafa.mail.data.ActionTypes.EDIT_AS_NEW) {
+
 						// Check if no content is there in editor body.
 						// no need to create an element to apply default formatting for the case
 						// where no signature is there in editor at the time of initialization
 						if (tinymceEditor.getContent() !== ''){
-							// In case if there is some content but first line is empty then there is no need to create additional
-							// P tag to apply default formatting, we can use that empty node it self.
-							if (!tinymceEditor.dom.isEmpty(firstNode)) {
-								// Signature is there so clone an element before signature to apply default formatting
-								clonedNode = firstNode.cloneNode();
-								firstNode = tinymceEditor.getBody().insertBefore(clonedNode, firstNode);
-							}
+							this.addEmptyLineBeforeContent();
+							firstNodeHasFormatting = true;
 						}
-					//For reply, replyall and forward we must add a new element to the top for which we must set the default formatting.
+
+					//For reply, replyall and forward we must add two empty lines to the top for with default formatting.
 					//For "edit as new email" this should not be done!
 					} else if (Zarafa.mail.data.ActionTypes.isSendOrForward(actionType)) {
-						// Response-content is there so create an element before Response-content to apply default formatting
-						var bogusHtml = '<br data-mce-bogus="1" />';
-						clonedNode = tinymceEditor.dom.create('p', tinymceEditor.settings.forced_root_block_attrs, bogusHtml);
-						firstNode = tinymceEditor.getBody().insertBefore(clonedNode, firstNode);
+						this.addEmptyLineBeforeContent();
+						this.addEmptyLineBeforeContent();
+						firstNodeHasFormatting = true;
 					}
 
-					//For "Edit as New" messages we don't apply default formatting but go with the formatting in the original message
-					if ( !Ext.isDefined(actionType) || (actionType !== false || actionType !== Zarafa.mail.data.ActionTypes.EDIT_AS_NEW)){
+					// Apply default formatting to the first node for anything but "Edit as New" if this has not already been done
+					if ( !firstNodeHasFormatting && actionType !== Zarafa.mail.data.ActionTypes.EDIT_AS_NEW ){
+
 						// The cursor must have to point to the very first element of the current content to apply the default formatting.
-						tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
+						tinymceEditor.selection.setCursorLocation(firstNode, 0);
 						this.composeDefaultFormatting(tinymceEditor);
-					}else{
-						// Set the cursor to the caret position
-						// This will set the correct font and size in the dropdowns of the editor
-						tinymceEditor.selection.setCursorLocation();
 					}
 
-					// It is expected that there will be two empty lines needs to be inserted before the actual response text
-					// while Reply, Reply All, and Forward. So, we need to add another line and apply default formatting to it.
-					if (Zarafa.mail.data.ActionTypes.isSendOrForward(actionType)) {
-						tinymceEditor.getBody().insertBefore(firstNode.cloneNode(), firstNode);
-						tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
-						this.composeDefaultFormatting(tinymceEditor);
+					// For "Edit as New" messages we must set the cursor to the caret position
+					// This will set the correct font and size in the dropdowns of the editor
+					if ( actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW ) {
+						tinymceEditor.selection.setCursorLocation();
 					}
 
 					// HTML styles will be applied while selecting default values from comboboxes.
