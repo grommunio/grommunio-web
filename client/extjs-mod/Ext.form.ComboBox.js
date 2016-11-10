@@ -8,6 +8,9 @@
 	var orig_initList = Ext.form.ComboBox.prototype.initList;
 
 	Ext.override(Ext.form.ComboBox, {
+	    // private
+	    defaultAutoCreate : {tag: "input", type: "text", size: "24", autocomplete: "off", spellcheck: 'true'},
+
 		initList : function()
 		{
 			if (!this.tpl) {

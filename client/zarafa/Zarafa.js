@@ -25,11 +25,11 @@ Ext.apply(Zarafa, {
 	 * @private
 	 */
 	readyEvent : new Ext.util.Event(),
-	
+
 	/**
-	 * The time that the user has not done any action 
+	 * The time that the user has not done any action
 	 * (like mousemove, click, or keypress) in the WebApp.
-	 * 
+	 *
 	 * @property
 	 * @type Integer
 	 * @private
@@ -115,7 +115,7 @@ Ext.apply(Zarafa, {
 		// Set the user object
 		container.setUser(user);
 		delete user;
-		
+
 		// Set the version object
 		container.setVersion(version);
 		delete version;
@@ -159,18 +159,35 @@ Ext.apply(Zarafa, {
 	/**
 	 * Event handler which is fired when the {@link Ext#getBody &lt;body&gt;} elements fires
 	 * the 'contextmenu' event. If the element which fired the event doesn't have the
-	 * 'zarafa-contextmenu-enabled' class then the Browser contextmenu will be disabled.
+	 * 'zarafa-contextmenu-enabled' class and isn't a regular text input then the
+	 * Browser contextmenu will be disabled.
 	 * @param {Ext.EventObject} event The event object
 	 * @param {Ext.Element} el The element on which the contextmenu was requested
 	 * @private
 	 */
 	onBodyContextMenu : function(event, el)
 	{
-		// Disable contextmenu globally, only when the 'zarafa-contextmenu-enabled'
-		// CSS class is applied on the element will we allow the contextmenu to be shown.
-		if (!Ext.get(el).hasClass('zarafa-contextmenu-enabled')) {
-			event.preventDefault();
+		el = Ext.get(el);
+
+		// Don't disable the browser contextmenu when the
+		// 'zarafa-contextmenu-enabled' CSS class is applied
+		// on the element.
+		if ( el.hasClass('zarafa-contextmenu-enabled') ){
+			return;
 		}
+
+		// Don't disable the browser contextmenu for regular
+		// text inputs.
+		if ( el.dom.tagName.toUpperCase()==='INPUT' ){
+			var type = el.getAttribute('type') || '';
+			var readonly = !Ext.isEmpty(el.dom.attributes.readonly);
+			if ( type.toUpperCase() === 'TEXT' && !readonly ) {
+				return;
+			}
+		}
+
+		// Disable contextmenu.
+		event.preventDefault();
 	},
 
 	/**
@@ -625,7 +642,7 @@ Ext.apply(Zarafa, {
 			store.startKeepAlive();
 
 			// Post logon succesful to parent.
-			if (window.location !== window.parent.location){ 
+			if (window.location !== window.parent.location){
 				window.parent.postMessage('logonSuccesful', '*');
 			}
 		} else {
@@ -706,10 +723,10 @@ Ext.apply(Zarafa, {
 
 	/**
 	 * Starts the checking of idle time.
-	 * This function uses original javascript events because we cannot set 
+	 * This function uses original javascript events because we cannot set
 	 * the useCapture property with ExtJS events.
 	 * See https://developer.mozilla.org/en/docs/Web/API/EventTarget.addEventListener
-	 * 
+	 *
 	 * @param {Number} clientTimeout The timout time in seconds.
 	 * @private
 	 */
@@ -721,7 +738,7 @@ Ext.apply(Zarafa, {
 			// However there is no reason to create errors for IE<9
 			// Client timeout will still be handled by the backend though,
 			// but the message will only be shown to the user when he tries to
-			// connect to the backend after the session has timed out. 
+			// connect to the backend after the session has timed out.
 			return;
 		}
 		var me = this;
@@ -735,7 +752,7 @@ Ext.apply(Zarafa, {
 		document.addEventListener('keydown', function(){
 			me.idleTime = 0;
 		}, true);
-		
+
 		var hierarchyStore = container.getHierarchyStore();
 
 		// Start an interval for increasing the idle time
@@ -750,7 +767,7 @@ Ext.apply(Zarafa, {
 			scope : this,
 			interval : 5000 //Run every 5 seconds
 		}]).defer(5000); // Start after 5 seconds
-		
+
 		// Start an interval for sending keepalive requests
 		// We need this keepalive to keep the connection alive if the user has made an
 		// action in the WebApp without connecting to the server. (like mousemove, click, keydown)
@@ -763,7 +780,7 @@ Ext.apply(Zarafa, {
 			// Anyone who sets a timeout this low deserves to be logged out! (and punished severly)
 			interval = 5000;
 		}
-		
+
 		Ext.TaskMgr.start.createDelegate(this, [{
 			run : function(){
 				hierarchyStore.sendKeepAlive();
@@ -800,7 +817,7 @@ Ext.apply(Zarafa, {
 	checkOof : function()
 	{
 		var oof = false;
-		
+
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/set') === true) {
 			var oofFrom = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/from');
 			var oofUntil = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/until');

@@ -23,7 +23,7 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 		'<div class="preview-header-titlebox">' +
 			'<img src="' + Ext.BLANK_IMAGE_URL + '" class="preview-header-collapse preview-header-collapse-minus"/>' +
 			'<tpl if="!Ext.isEmpty(values.subject)">' +
-				'<span class="preview-title">{subject:htmlEncode}</span>' +
+				'<span class="preview-title zarafa-contextmenu-enabled">{subject:htmlEncode}</span>' +
 			'</tpl>' +
 		'</div>',
 
