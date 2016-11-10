@@ -35,6 +35,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} the title of the WebApp
+	 */
+	getWebappTitle : function()
+	{
+		return this.meta.webapp_title;
+	},
+
+	/**
 	 * @return {Boolean} True if Plugins are enabled
 	 */
 	isPluginsEnabled : function()
