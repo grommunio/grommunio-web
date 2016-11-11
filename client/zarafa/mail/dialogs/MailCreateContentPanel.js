@@ -156,6 +156,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	update : function(record, contentReset)
 	{
 		var hasFrom = false;
+		var hasBcc = false;
 		/**
 		 * Bcc field is shown when either of condition if true:
 		 * 1) When user has selected Bcc Field to be shown always OR
@@ -193,8 +194,8 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 				delegatorFieldStore.removeAll();
 				delegatorFieldStore.add(delegatorRecord);
 			}
-
-			this.fireEvent('bcctoggle', this, this.showbcc, false);
+			hasBcc = record.getSubStore('recipients').hasBccRecipients();
+			this.fireEvent('bcctoggle', this, this.showbcc || hasBcc, false);
 			this.fireEvent('fromtoggle', this, this.showfrom || hasFrom, false);
 
 			if (this.inputAutoFocusPlugin) {
@@ -216,18 +217,8 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 			}
 		} else {
 			if (record.isSubStoreModifiedSincelastUpdate('recipients')) {
-				var recipients = record.getSubStoreChangesSinceLastUpdate('recipients');
-				var hasBcc = false;
-
-				for (var i = 0, len = recipients.length; i < len; i++) {
-					var recipient = recipients[i];
-					if (recipient.get('recipient_type') === Zarafa.core.mapi.RecipientType.MAPI_BCC) {
-						hasBcc = true;
-						break;
-					}
-				}
-
-				this.fireEvent('bcctoggle', this, (this.showbcc || hasBcc), false);
+				hasBcc = record.getSubStore('recipients').hasBccRecipients();
+				this.fireEvent('bcctoggle', this, this.showbcc || hasBcc, false);
 			}
 
 			if (record.isModifiedSinceLastUpdate('sent_representing_email_address')) {

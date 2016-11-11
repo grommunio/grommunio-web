@@ -487,5 +487,30 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	onResolveException: function(proxy, type, action, options, response)
 	{
 		this.fireEvent('resolved', this, options.pendingRecords);
+	},
+
+	/**
+	 * Function which is use to verified that any recipient from the list of {@link Zarafa.core.data.IPMRecipientRecord}
+	 * has recipient type {@link Zarafa.core.mapi.RecipientType.MAPI_BCC}.
+	 * @param {Array} recipients (optional) The list of {@link Zarafa.core.data.IPMRecipientRecord}.
+	 * If not provided, {@link #getRange} is assumed.
+	 * @return {Boolean} True if any recipient from the given recipients list has recipient type
+	 * {@link Zarafa.core.mapi.RecipientType.MAPI_BCC}.
+	 */
+	hasBccRecipients : function(recipients)
+	{
+		var hasBcc = false;
+		
+		recipients = recipients || this.data.items;
+
+		for (var i = 0, len = recipients.length; i < len; i++) {
+			var recipient = recipients[i];
+			if (recipient.get('recipient_type') === Zarafa.core.mapi.RecipientType.MAPI_BCC) {
+				hasBcc = true;
+				break;
+			}
+		}
+
+		return hasBcc;
 	}
 });
