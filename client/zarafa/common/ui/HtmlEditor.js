@@ -53,6 +53,23 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		var powerpasteConfig = container.getServerConfig().getPowerpasteConfig();
 
+		var baseUrl = container.getServerConfig().getBaseUrl();
+
+		var webdingsStyle = '';
+		if ( (Ext.isGecko && !Ext.isIE && !Ext.isEdge) || !Zarafa.wingdingsInstalled ){
+			webdingsStyle =
+				"@font-face {" +
+					"font-family: 'Wingdings';" +
+					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot');" +
+					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot?#iefix') format('embedded-opentype')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff2') format('woff2')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff') format('woff')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.ttf') format('truetype');" +
+					"font-weight: normal;" +
+					"font-style: normal;" +
+				"}";
+		}
+
 		config = Ext.applyIf(config, {
 			xtype: 'zarafa.tinymcetextarea',
 			hideLabel: true,
@@ -100,6 +117,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					'style' : 'padding: 0; margin: 0;'
 				},
 				content_style :
+					webdingsStyle +
 					'body{ '+
 						'word-wrap: break-word;' +
 					'}'
@@ -109,7 +127,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		});
 
 		// Set the correct language for tinymce
-		var baseUrl = container.getServerConfig().getBaseUrl();
 		var lang = container.getSettingsModel().get('zarafa/v1/main/language', true);
 		var tinyLanguageCode = Zarafa.common.ui.htmleditor.LanguageMap.getTinyLanguageCode(lang);
 		if ( !Ext.isEmpty(tinyLanguageCode) ){

@@ -57,11 +57,10 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				compiled: true
 			});
 		}
-		
 	},
 
 	/**
-	 * Set event listeners on the iframe that will relay the 
+	 * Set event listeners on the iframe that will relay the
 	 * event when the user performs click within iframe.
 	 * @private
 	 */
@@ -84,7 +83,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * Set event listeners on the iframe that will reset the 
+	 * Set event listeners on the iframe that will reset the
 	 * {@link Zarafa#idleTime idle time} when the user performs
 	 * an action in the iframe (i.e. click, mousemove, keydown)
 	 * @private
@@ -100,7 +99,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// However there is no reason to create errors for IE<9
 			// Client timeout will still be handled by the backend though,
 			// but the message will only be shown to the user when he tries to
-			// connect to the backend after the session has timed out. 
+			// connect to the backend after the session has timed out.
 			return;
 		}
 
@@ -114,7 +113,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			Zarafa.idleTime = 0;
 		}, true);
 	},
-		
+
 	/**
 	 * Updates the container by loading data from the record data into the {@link #template}
 	 *
@@ -175,7 +174,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * Funtion recursively scans dom to get text nodes which contain email addresses or URLs so we can 
+	 * Funtion recursively scans dom to get text nodes which contain email addresses or URLs so we can
 	 * replace them with an anchor tag.
 	 * @param {HTMLElement} node The parent node that will be examined to find the child text nodes
 	 * @private
@@ -316,6 +315,27 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make text in pre tags wrapped if too long for a line
 			'pre { white-space: pre-wrap; }'
 		));
+
+		// Add a wingdings compatible font (only the smilies)
+		// for systems that don't have wingdings installed, and
+		// always for firefox because that browser doesn't support
+		// rendering with system installed symbol fonts.
+		if ( (Ext.isGecko && !Ext.isIE && !Ext.isEdge) || !Zarafa.wingdingsInstalled ){
+			var baseUrl = container.getServerConfig().getBaseUrl();
+			css.appendChild(document.createTextNode(
+				"@font-face {" +
+					"font-family: 'Wingdings';" +
+					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot');" +
+					"src: url('"+baseUrl+"client/resources/fonts/kopanowebappdings.eot?#iefix') format('embedded-opentype')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff2') format('woff2')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.woff') format('woff')," +
+						"url('"+baseUrl+"client/resources/fonts/kopanowebappdings.ttf') format('truetype');" +
+					"font-weight: normal;" +
+					"font-style: normal;" +
+				"}"
+			));
+		}
+
 		head.appendChild(css);
 	},
 
@@ -324,7 +344,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	 * This will create a {@link #wrap} element around the iframe for
 	 * better organize the scrolling.
 	 * It will also check if a client timeout has been set, and if so call
-	 * {@link #setIdleTimeEventListeners} once the iframe has been loaded. 
+	 * {@link #setIdleTimeEventListeners} once the iframe has been loaded.
 	 *
 	 * @param {Ext.Container} ct The container into which this component is being rendered
 	 * @param {Number} position The position inside the container where this component is being rendered
