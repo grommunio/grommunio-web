@@ -26,12 +26,12 @@
 
 		return $favicon;
 	}
-	
+
 	// If the user wants to logout (and is not using single-signon)
-	// then destroy the session and redirect to this page, so the login page 
+	// then destroy the session and redirect to this page, so the login page
 	// will be shown
 	if ( isset($_GET['logout']) && !WebAppAuthentication::isUsingSingleSignOn() ){
-		
+
 		// GET variable user will be set when the user was logged out because of session timeout
 		// or because he logged out in another window.
 		$username = sanitizeGetValue('user', '', USERNAME_REGEX);
@@ -39,7 +39,7 @@
 		header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/' . ($username?'?user='.rawurlencode($username):''), true, 303);
 		die();
 	}
-	
+
 	// Check if an action GET-parameter was sent with the request.
 	// This parameter is set when the webapp was opened by clicking on
 	// a mailto: link in the browser.
@@ -47,21 +47,26 @@
 	if ( isset($_GET['action']) && !empty($_GET['action']) ) {
 		storeURLDataToSession();
 	}
-	
+
 	// Try to authenticate the user
 	WebAppAuthentication::authenticate();
 
 	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'Kopano WebApp';
-	
+
 	// If we could not authenticate the user, we will show the login page
 	if ( !WebAppAuthentication::isAuthenticated() ){
-	
+
+		// Get language from the cookie, or from the language that is set by the admin
+		$Language = new Language();
+		$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : LANG;
+		$Language->setLanguage($lang);
+
 		// If GET parameter 'load' is defined, we defer handling to the load.php script
 		if ( isset($_GET['load']) && $_GET['load']!=='logon' ) {
 			include(BASE_PATH . 'server/includes/load.php');
 			die();
 		}
-	
+
 		// Set some template variables for the login page
 		$branch = DEBUG_LOADER===LOAD_SOURCE ? gitversion() : '';
 		$server = DEBUG_SHOW_SERVER ? DEBUG_SERVER_ADDRESS : '';
@@ -71,7 +76,7 @@
 		}
 		$zcpversion = 'Kopano Core' . ' ' . phpversion('mapi');
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
-	
+
 		$url = '?logon';
 
 		if ( isset($_GET["logout"]) && $_GET["logout"]=="auto" ){
@@ -79,16 +84,16 @@
 		} else {
 			$error = WebAppAuthentication::getErrorMessage();
 		}
-		
+
 		// If a username was passed as GET parameter we will prefill the username input
 		// of the login form with it.
 		$user = isset($_GET['user']) ? htmlentities($_GET['user']) : '';
-		
+
 		// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
 		if ( WebAppAuthentication::getErrorCode() !== NOERROR ){
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
-		
+
 		// Set a template variable for the favicon of the login, welcome, and webclient page
 		$theme = Theming::getActiveTheme();
 		$favicon = getFavicon(Theming::getActiveTheme());
@@ -97,19 +102,19 @@
 		include(BASE_PATH . 'server/includes/templates/login.php');
 		die();
 	}
-	
+
 	// The user is authenticated! Let's get ready to start the webapp.
-	
+
 	// If the user just logged in or if url data was stored in the session,
-	// we will redirect to make sure that a browser refresh will not post 
+	// we will redirect to make sure that a browser refresh will not post
 	// the credentials again, and that the url data is taken away from the
 	// url in the address bar (so a browser refresh will not pass them again)
 	if ( WebAppAuthentication::isUsingLoginForm() || isset($_GET['action']) && !empty($_GET['action']) ){
 		header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/', true, 303);
 		die();
 	}
-	
-	// TODO: we could replace all references to $GLOBALS['mapisession'] 
+
+	// TODO: we could replace all references to $GLOBALS['mapisession']
 	// with WebAppAuthentication::getMapiSession(), that way we would
 	// lose at least one GLOBAL (because globals suck)
 	$GLOBALS['mapisession'] = WebAppAuthentication::getMapiSession();
@@ -120,7 +125,7 @@
 	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
 
 	$Language = new Language();
-	
+
 	// Create globals settings object (btw: globals suck)
 	$GLOBALS["settings"] = new Settings($Language);
 
@@ -148,10 +153,11 @@
 	}
 
 	$Language->setLanguage($lang);
+	setcookie('lang', $lang, 0, '/', '', isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] ? true : false);
 
 	// add extra header
 	header("X-Zarafa: " . trim(file_get_contents('version')));
-	
+
 	// Set a template variable for the favicon of the login, welcome, and webclient page
 	$theme = Theming::getActiveTheme();
 	$favicon = getFavicon(Theming::getActiveTheme());
@@ -161,15 +167,15 @@
 		include(BASE_PATH . 'server/includes/load.php');
 		die();
 	}
-	
+
 	if (!DISABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
-		
+
 		// These hooks are defined twice (also when there is a "load" argument supplied)
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.before");
 		include(BASE_PATH . 'server/includes/templates/welcome.php');
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.after");
 	} else {
-		
+
 		// Set the show_welcome to true, so that when the admin is changing the
 		// DISABLE_WELCOME_SCREEN option to false after some time, the users who are already
 		// using the WebApp are not bothered with the Welcome Screen.
@@ -194,7 +200,7 @@
 
 		// These hooks are defined twice (also when there is a "load" argument supplied)
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.main.before");
-		
+
 		// Include webclient
 		include(BASE_PATH . 'server/includes/templates/webclient.php');
 		$GLOBALS['PluginManager']->triggerHook("server.index.load.main.after");

@@ -50,16 +50,16 @@
 			var bodyEl;
 			var cntEl;
 			var bgEl;
-			
+
 			// Our designer doesn't want the box in the center of the screen, instead
 			// he wants the center of the box at 7/16 of the height of the window :-)
 			var centerlinePos = 7/16;
 
 			function onResize() {
 				if ( !bodyEl ) return;
-				
+
 				var top = centerlinePos * bodyEl.clientHeight - cntEl.clientHeight / 2;
-				
+
 				cntEl.style.top = top + 'px';
 				cntEl.style.left = (bodyEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
 				bgEl.style.width = bodyEl.clientWidth + 'px';
@@ -80,7 +80,7 @@
 			}
 			window.onload = onLoad;
 		</script>
-		
+
 		<script type="text/javascript" src="client/fingerprint.js" ></script>
 	</head>
 
@@ -97,19 +97,19 @@
 					<h2 class="zcp-version"><?php echo $zcpversion; ?></h2>
 				</div>
 				<div class="right">
-					<h1>Welcome</h1>
+					<h1><?php echo _("Welcome"); ?></h1>
 					<form action="<?php echo $url ?>" method="post">
-						<label for="username">Username</label>
+						<label for="username"><?php echo _("Username"); ?></label>
 						<input type="text" name="username" id="username" value="<?php echo $user; ?>" autofocus="autofocus">
-						
-						<label for="password">Password</label>
+
+						<label for="password"><?php echo _("Password"); ?></label>
 						<input type="password" name="password" id="password">
-						
+
 						<?php if ( isset($error) ) { ?>
 						<div id="error"><?php echo $error; ?></div>
 						<?php } ?>
 
-						<input id="submitbutton" class="button" type="submit" value="Sign in">
+						<input id="submitbutton" class="button" type="submit" value="<?php echo _("Sign in"); ?>">
 					</form>
 				</div>
 			</div>
@@ -123,7 +123,7 @@
 			// Add some classes to the body tag, so we can change styles (for IE)
 			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
 			bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
-			
+
 			// Show the login box when the background image has loaded
 			var img = document.createElement('img');
 			img.onload = function(){
@@ -145,7 +145,7 @@
 				}
 				// Adding this class will show the loader
 				cntEl.className += ' loading';
-				// Call onResize, because an error message might have enlarged the login box, 
+				// Call onResize, because an error message might have enlarged the login box,
 				// so it is out of position.
 				onResize();
 				firstSubmit = false;
