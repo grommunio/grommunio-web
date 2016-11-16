@@ -182,7 +182,7 @@ function sq_skipspace($text, $offset) {
 
 		// If the first 128 characters are whitespace.
 		if (strlen($ltrim) === 0) {
-			$offset = 128;
+			$offset += 128;
 			continue;
 		}
 
