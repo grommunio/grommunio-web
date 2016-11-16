@@ -792,23 +792,27 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 		// Exclude these folders for notifications.
 		var folder_keys = ['wastebasket', 'sent', 'drafts', 'outbox', 'junk', 'journal'];
-		var store = container.getHierarchyStore().getDefaultStore();
 
 		//notify user about new mail
 		if(!Ext.isEmpty(data)){
 			Ext.each(data.item, function(folder){
-				var folderKey = store.getDefaultFolderKey(folder.entryid);
-				if (folder.content_unread !== 0 && folder_keys.indexOf(folderKey) === -1) {
+				var folderStore = this.getFolder(folder.entryid);
+				if (!folderStore) {
+					return;
+				}
+
+				var folderKey = folderStore.getDefaultFolderKey();
+
+				if (folder.content_unread !== 0 && folder_keys.indexOf(folderKey) === -1
+						&& folderStore.isContainerClass('IPF.Note')) {
 					var notificationMessage = String.format(
 						ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
 						folder.content_unread, folder.display_name);
 					container.getNotifier().notify('info.newmail', _('New Mail'),notificationMessage);
 				}
-				var folderStore = this.getFolder(folder.entryid);
-				if (folderStore) {
-					folderStore.set('content_unread', folder.content_unread);
-					folderStore.set('content_count', folder.content_count);
-				}
+
+				folderStore.set('content_unread', folder.content_unread);
+				folderStore.set('content_count', folder.content_count);
 			}, this);
 		}
 	},
