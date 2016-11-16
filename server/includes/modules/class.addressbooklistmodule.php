@@ -158,68 +158,67 @@
 					// create restriction for search
 					// only return users from who the displayName or the username starts with $searchstring
 					// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
-					$tempRestriction = 	array(RES_OR,
-										array(
-											// Display name of user from GAB and contacts.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_DISPLAY_NAME,
-														VALUE => $searchstring
-													)
-												),
-											// fileas value of user from GAB.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_ACCOUNT,
-														VALUE => $searchstring
-													)
-												),
-											// smtp_address of user from GAB.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_SMTP_ADDRESS,
-														VALUE => $searchstring
-													)
-												),
-											// email_address of user from GAB and contacts.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_EMAIL_ADDRESS,
-														VALUE => $searchstring
-													)
-												),
-											// department of user from GAB.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_DEPARTMENT_NAME,
-														VALUE => $searchstring
-													)
-												),
-											// fileas of user from Contacts.
-											array(
-												RES_CONTENT,
-													array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
-														ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
-														VALUE => $searchstring
-													)
-												)
+					$tempRestriction = array(RES_OR,
+								array(
+									// Display name of user from GAB and contacts.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_DISPLAY_NAME,
+												VALUE => $searchstring
+											)
+										),
+									// fileas value of user from GAB.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_ACCOUNT,
+												VALUE => $searchstring
+											)
+										),
+									// smtp_address of user from GAB.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_SMTP_ADDRESS,
+												VALUE => $searchstring
+											)
+										),
+									// email_address of user from GAB and contacts.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_EMAIL_ADDRESS,
+												VALUE => $searchstring
+											)
+										),
+									// department of user from GAB.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_DEPARTMENT_NAME,
+												VALUE => $searchstring
+											)
+										),
+									// fileas of user from Contacts.
+									array(
+										RES_CONTENT,
+											array(FUZZYLEVEL => FL_SUBSTRING|FL_IGNORECASE,
+												ULPROPTAG => PR_ORIGINAL_DISPLAY_NAME,
+												VALUE => $searchstring
+											)
 										)
-									);
+								)
+							);
  				}
 
 				if($tempRestriction && $userGroupRestriction) {
 					$restriction = Array(
-										RES_AND,
-											Array(
-												$tempRestriction,				// restriction for search/alphabet bar
-												$userGroupRestriction			// restriction for hiding users/groups
-											)
-									);
+								RES_AND,
+								Array(
+									$tempRestriction, // restriction for search/alphabet bar
+									$userGroupRestriction // restriction for hiding users/groups
+					));
 				} else if($tempRestriction) {
 					$restriction = $tempRestriction;							// restriction for search/alphabet bar
 				} else {
@@ -355,30 +354,30 @@
 			// is being filtered out.
 			if ($hide_users === true) {
 				$usersRestriction = Array(
-										RES_AND,
+							RES_AND,
+								Array(
+									Array(
+										RES_PROPERTY,
 											Array(
-												Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_NE,
-															ULPROPTAG => PR_DISPLAY_TYPE,
-															VALUE => Array(
-																PR_DISPLAY_TYPE => DT_MAILUSER
-															)
-														)
-												),
-												Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_NE,
-															ULPROPTAG => PR_DISPLAY_TYPE,
-															VALUE => Array(
-																PR_DISPLAY_TYPE => DT_REMOTE_MAILUSER
-															)
-														)
+												RELOP => RELOP_NE,
+												ULPROPTAG => PR_DISPLAY_TYPE,
+												VALUE => Array(
+													PR_DISPLAY_TYPE => DT_MAILUSER
 												)
 											)
-									);
+									),
+									Array(
+										RES_PROPERTY,
+											Array(
+												RELOP => RELOP_NE,
+												ULPROPTAG => PR_DISPLAY_TYPE,
+												VALUE => Array(
+													PR_DISPLAY_TYPE => DT_REMOTE_MAILUSER
+												)
+											)
+									)
+								)
+				);
 			} else if ($hide_users) {
 				$tempRestrictions = Array();
 
@@ -389,140 +388,140 @@
 
 				if(in_array('non_security', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_BITMASK,
-														Array(
-															ULTYPE => BMR_EQZ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															ULMASK => DTE_FLAG_ACL_CAPABLE
-														)
-													)
+									RES_BITMASK,
+										Array(
+											ULTYPE => BMR_EQZ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											ULMASK => DTE_FLAG_ACL_CAPABLE
+										)
+									)
 							);
 				}
 
 				if(in_array('room', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_ROOM
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_ROOM
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('equipment', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_EQUIPMENT
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_EQUIPMENT
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('active', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DTE_FLAG_ACL_CAPABLE
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DTE_FLAG_ACL_CAPABLE
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('non_active', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_MAILUSER
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_MAILUSER
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('contact', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_REMOTE_MAILUSER
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('system', $hide_users)) {
 					array_push($tempRestrictions, Array(
-													RES_CONTENT,
-														Array(
-															FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-															ULPROPTAG => PR_ACCOUNT,
-															VALUE => Array(
-																PR_ACCOUNT => 'SYSTEM'
-															)
-														)
-												)
+									RES_CONTENT,
+										Array(
+											FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
+											ULPROPTAG => PR_ACCOUNT,
+											VALUE => Array(
+												PR_ACCOUNT => 'SYSTEM'
+											)
+										)
+								)
 							);
 				}
 
 				if(!empty($tempRestrictions)) {
 					$usersRestriction = Array(
-											RES_NOT,
+								RES_NOT,
+								Array(
+									Array(
+										RES_AND,
 											Array(
 												Array(
-													RES_AND,
+													RES_OR,
 														Array(
 															Array(
-																RES_OR,
+																RES_PROPERTY,
 																	Array(
-																		Array(
-																			RES_PROPERTY,
-																				Array(
-																					RELOP => RELOP_EQ,
-																					ULPROPTAG => PR_DISPLAY_TYPE,
-																					VALUE => Array(
-																						PR_DISPLAY_TYPE => DT_MAILUSER
-																					)
-																				)
-																		),
-																		Array(
-																			RES_PROPERTY,
-																				Array(
-																					RELOP => RELOP_EQ,
-																					ULPROPTAG => PR_DISPLAY_TYPE,
-																					VALUE => Array(
-																						PR_DISPLAY_TYPE => DT_REMOTE_MAILUSER
-																					)
-																				)
+																		RELOP => RELOP_EQ,
+																		ULPROPTAG => PR_DISPLAY_TYPE,
+																		VALUE => Array(
+																			PR_DISPLAY_TYPE => DT_MAILUSER
 																		)
 																	)
 															),
 															Array(
-																RES_OR,
-																$tempRestrictions					// all user restrictions
+																RES_PROPERTY,
+																	Array(
+																		RELOP => RELOP_EQ,
+																		ULPROPTAG => PR_DISPLAY_TYPE,
+																		VALUE => Array(
+																			PR_DISPLAY_TYPE => DT_REMOTE_MAILUSER
+																		)
+																	)
 															)
 														)
+												),
+												Array(
+													RES_OR,
+													$tempRestrictions // all user restrictions
 												)
 											)
-										);
+									)
+								)
+							);
 				}
 			}
 
@@ -543,30 +542,30 @@
 			// is being filtered out.
 			if ($hide_groups === true) {
 				$groupsRestriction = Array(
-										RES_AND,
+							RES_AND,
+								Array(
+									Array(
+										RES_PROPERTY,
 											Array(
-												Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_NE,
-															ULPROPTAG => PR_DISPLAY_TYPE,
-															VALUE => Array(
-																PR_DISPLAY_TYPE => DT_DISTLIST
-															)
-														)
-												),
-												Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_NE,
-															ULPROPTAG => PR_DISPLAY_TYPE,
-															VALUE => Array(
-																PR_DISPLAY_TYPE => DT_PRIVATE_DISTLIST
-															)
-														)
+												RELOP => RELOP_NE,
+												ULPROPTAG => PR_DISPLAY_TYPE,
+												VALUE => Array(
+													PR_DISPLAY_TYPE => DT_DISTLIST
 												)
 											)
-									);
+									),
+									Array(
+										RES_PROPERTY,
+											Array(
+												RELOP => RELOP_NE,
+												ULPROPTAG => PR_DISPLAY_TYPE,
+												VALUE => Array(
+													PR_DISPLAY_TYPE => DT_PRIVATE_DISTLIST
+												)
+											)
+									)
+								)
+						);
 			} else if($hide_groups) {
 				$tempRestrictions = Array();
 
@@ -577,61 +576,108 @@
 
 				if(in_array('non_security', $hide_groups)) {
 					array_push($tempRestrictions, Array(
-													RES_BITMASK,
-														Array(
-															ULTYPE => BMR_EQZ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															ULMASK => DTE_FLAG_ACL_CAPABLE
-														)
-													)
+									RES_BITMASK,
+										Array(
+											ULTYPE => BMR_EQZ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											ULMASK => DTE_FLAG_ACL_CAPABLE
+										)
+									)
 							);
 				}
 
 				if(in_array('normal', $hide_groups)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_DISTLIST
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_DISTLIST
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('security', $hide_groups)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => (DT_SEC_DISTLIST | DTE_FLAG_ACL_CAPABLE)
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => (DT_SEC_DISTLIST | DTE_FLAG_ACL_CAPABLE)
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('dynamic', $hide_groups)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
-														Array(
-															RELOP => RELOP_EQ,
-															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															VALUE => Array(
-																PR_DISPLAY_TYPE_EX => DT_AGENT
-															)
-														)
-													)
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE_EX,
+											VALUE => Array(
+												PR_DISPLAY_TYPE_EX => DT_AGENT
+											)
+										)
+									)
 							);
 				}
 
 				if(in_array('distribution_list', $hide_groups)) {
 					array_push($tempRestrictions, Array(
-													RES_PROPERTY,
+									RES_PROPERTY,
+										Array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_DISPLAY_TYPE,
+											VALUE => Array(
+												PR_DISPLAY_TYPE => DT_PRIVATE_DISTLIST
+											)
+										)
+									)
+							);
+				}
+
+				if(in_array('everyone', $hide_groups)) {
+					array_push($tempRestrictions, Array(
+									RES_CONTENT,
+										Array(
+											FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
+											ULPROPTAG => PR_ACCOUNT,
+											VALUE => Array(
+												PR_ACCOUNT => 'Everyone'
+											)
+										)
+									)
+							);
+				}
+
+				if(!empty($tempRestrictions)) {
+					$groupsRestriction = Array(
+								RES_NOT,
+								Array(
+									Array(
+										RES_AND,
+										Array(
+											Array(
+												RES_OR,
+												Array(
+													Array(
+														RES_PROPERTY,
+														Array(
+															RELOP => RELOP_EQ,
+															ULPROPTAG => PR_DISPLAY_TYPE,
+															VALUE => Array(
+																PR_DISPLAY_TYPE => DT_DISTLIST
+															)
+														)
+													),
+													Array(
+														RES_PROPERTY,
 														Array(
 															RELOP => RELOP_EQ,
 															ULPROPTAG => PR_DISPLAY_TYPE,
@@ -640,63 +686,16 @@
 															)
 														)
 													)
-							);
-				}
-
-				if(in_array('everyone', $hide_groups)) {
-					array_push($tempRestrictions, Array(
-													RES_CONTENT,
-														Array(
-															FUZZYLEVEL => FL_FULLSTRING | FL_IGNORECASE,
-															ULPROPTAG => PR_ACCOUNT,
-															VALUE => Array(
-																PR_ACCOUNT => 'Everyone'
-															)
-														)
-													)
-							);
-				}
-
-				if(!empty($tempRestrictions)) {
-					$groupsRestriction = Array(
-											RES_NOT,
-											Array(
-												Array(
-													RES_AND,
-													Array(
-														Array(
-															RES_OR,
-															Array(
-																Array(
-																	RES_PROPERTY,
-																	Array(
-																		RELOP => RELOP_EQ,
-																		ULPROPTAG => PR_DISPLAY_TYPE,
-																		VALUE => Array(
-																			PR_DISPLAY_TYPE => DT_DISTLIST
-																		)
-																	)
-																),
-																Array(
-																	RES_PROPERTY,
-																	Array(
-																		RELOP => RELOP_EQ,
-																		ULPROPTAG => PR_DISPLAY_TYPE,
-																		VALUE => Array(
-																			PR_DISPLAY_TYPE => DT_PRIVATE_DISTLIST
-																		)
-																	)
-																)
-															)
-														),
-														Array(
-															RES_OR,
-															$tempRestrictions     // all group restrictions
-														)
-													)
 												)
+											),
+											Array(
+												RES_OR,
+												$tempRestrictions     // all group restrictions
 											)
-										);
+										)
+									)
+								)
+					);
 				}
 			}
 
@@ -706,22 +705,22 @@
 		/**
 		 *	Function will create a restriction to get company information
 		 *	@param		Boolean				$hide_companies	true/false
-		 *	@return		restrictionObject					restriction for getting company info
+		 *	@return		restrictionObject		restriction for getting company info
 		 */
 		function createCompanyRestriction($hide_companies) {
 			$companyRestriction = false;
 
 			if($hide_companies) {
 				$companyRestriction = Array(
-											RES_PROPERTY,
-												Array(
-													RELOP => RELOP_NE,
-													ULPROPTAG => PR_DISPLAY_TYPE,
-													VALUE => Array(
-															PR_DISPLAY_TYPE => DT_ORGANIZATION
-													)
-												)
-										);
+							RES_PROPERTY,
+								Array(
+									RELOP => RELOP_NE,
+									ULPROPTAG => PR_DISPLAY_TYPE,
+									VALUE => Array(
+											PR_DISPLAY_TYPE => DT_ORGANIZATION
+									)
+								)
+				);
 			}
 
 			return $companyRestriction;
