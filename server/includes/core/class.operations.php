@@ -102,7 +102,8 @@
 				$storeData = array(
 					"store_entryid" => bin2hex($msgstore_props[PR_ENTRYID]),
 					"props" => array(
-						"display_name" => $msgstore_props[PR_DISPLAY_NAME],
+						// Showing the store as 'Inbox - Name' is confusing, so we strip the 'Inbox - ' part.
+						"display_name" => str_replace('Inbox - ', '', $msgstore_props[PR_DISPLAY_NAME]),
 						"subtree_entryid" => bin2hex($msgstore_props[PR_IPM_SUBTREE_ENTRYID]),
 						"mdb_provider" => bin2hex($msgstore_props[PR_MDB_PROVIDER]),
 						"mapping_signature" => bin2hex($msgstore_props[PR_MAPPING_SIGNATURE]),
@@ -1452,7 +1453,7 @@
 				// When the server returned a different number of rows then was requested,
 				// we have reached the end of the table and we should exit the loop.
 				} while (count($rows) == $batchcount && $batchposition !== $end);
-				
+
 				// Update the page information
 				$data["page"] = array();
 				$data["page"]["start"] = $start;
@@ -2085,11 +2086,11 @@
 								}
 
 								/**
-								 * Check if any recurrence property is missing, if yes then prepare 
-								 * the set of properties required to update the recurrence. For more info 
-								 * please refer detailed description of parseRecurrence function of 
-								 * BaseRecurrence class". 
-								 * 
+								 * Check if any recurrence property is missing, if yes then prepare
+								 * the set of properties required to update the recurrence. For more info
+								 * please refer detailed description of parseRecurrence function of
+								 * BaseRecurrence class".
+								 *
 								 * Note : this is a special case of changing the time of
 								 * recurrence meeting from scheduling tab.
 								 */
@@ -2112,7 +2113,7 @@
 						// occurrences of the item to the client
 						$messageProps = mapi_getprops($message, array(PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
 
-						// if opened appointment is exception then it will add 
+						// if opened appointment is exception then it will add
 						// the attach_num and basedate in messageProps.
 						if(isset($attach_num)) {
 							$messageProps[PR_ATTACH_NUM] = array($attach_num);
@@ -2218,7 +2219,7 @@
 							$modifiedRecipients = array_merge($modifiedRecipients, $this->createRecipientList($recips['modify'], 'modify'));
 						}
 					}
-					
+
 					// lastUpdateCounter is represent that how many times this message is updated(send)
 					$lastUpdateCounter = $request->getLastUpdateCounter();
 					if($lastUpdateCounter !== false && $lastUpdateCounter > 0) {
@@ -2286,7 +2287,7 @@
 		}
 
 		/**
-		 * Function is used to identify the local distribution list from all recipients and 
+		 * Function is used to identify the local distribution list from all recipients and
 		 * convert all local distribution list members to recipients.
 		 * @param array $recipients array of recipients either saved or add
 		 * @param array $remove array of recipients that was removed
@@ -2590,7 +2591,7 @@
 
 				if ($message) {
 					$this->convertInlineImage($message);
-			
+
 					// Allowing to hook in just before the data sent away to be sent to the client
 					$GLOBALS['PluginManager']->triggerHook('server.core.operations.submitmessage', array(
 						'moduleObject' => $this,
@@ -3014,17 +3015,17 @@
 							if(isset($addedInlineAttachmentCidMapping[ $tmpname ])){
 								$cid = $addedInlineAttachmentCidMapping[ $tmpname ];
 							}
-							
+
 							// If a .p7m file was manually uploaded by the user, we must change the mime type because
 							// otherwise mail applications will think the containing email is an encrypted email.
 							// That will make Outlook crash, and it will make WebApp show the original mail as encrypted
-							// without showing the attachment 
+							// without showing the attachment
 							$mimeType = $fileinfo["type"];
 							$smimeTags = array('multipart/signed', 'application/pkcs7-mime', 'application/x-pkcs7-mime');
 							if ( in_array($mimeType, $smimeTags) ) {
 								$mimeType = "application/octet-stream";
 							}
-							
+
 							// Set attachment properties
 							$props = Array(
 								PR_ATTACH_LONG_FILENAME => $fileinfo["name"],
@@ -3121,7 +3122,7 @@
 					 */
 					if($copyInlineAttachmentsOnly) {
 						/**
-						 * if message is reply/reply all and format is plain text than ignore inline attachments 
+						 * if message is reply/reply all and format is plain text than ignore inline attachments
 						 * and normal attachments to copy from original mail.
 						 */
 						if($plainText || !$isInlineAttachment) {
@@ -3129,7 +3130,7 @@
 						}
 					} else if($plainText && $isInlineAttachment) {
 						/**
-						 * If message is forward and format of message is plain text then ignore only inline attachments from the 
+						 * If message is forward and format of message is plain text then ignore only inline attachments from the
 						 * original mail.
 						 */
 						continue;
@@ -3152,12 +3153,12 @@
 					}
 
 					/**
-					 * if message is reply/reply all or forward and format of message is HTML but 
-					 * - inline attachments are not downloaded from external source 
-					 * - sender of original message is not safe sender 
+					 * if message is reply/reply all or forward and format of message is HTML but
+					 * - inline attachments are not downloaded from external source
+					 * - sender of original message is not safe sender
 					 * - domain of sender is not part of safe sender list
 					 * then ignore inline attachments from original message.
-					 * 
+					 *
 					 * NOTE : blockStatus is only generated when user has download inline image from external source.
 					 * it should remains empty if user add the sender in to safe sender list.
 					 */
@@ -3183,7 +3184,7 @@
 			$safeSenderList = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/safe_senders_list');
 			$senderEntryid = mapi_getprops($copyFromMessage, array(PR_SENT_REPRESENTING_ENTRYID));
 			$senderEntryid = $senderEntryid[PR_SENT_REPRESENTING_ENTRYID];
-			
+
 			//If sender is user himself (which happens in case of "Send as New message") consider sender as safe
 			if ( $GLOBALS['entryid']->compareEntryIds($senderEntryid, $GLOBALS["mapisession"]->getUserEntryID()) ){
 				return true;
@@ -3199,7 +3200,7 @@
 
 			$addressType = mapi_getprops($mailuser,array(PR_ADDRTYPE));
 
-			// Here it will check that sender of original mail was address book user. 
+			// Here it will check that sender of original mail was address book user.
 			// If PR_ADDRTYPE is ZARAFA, it means sender of original mail was address book contact.
 			if($addressType[PR_ADDRTYPE] === 'ZARAFA'){
 				$address = mapi_getprops($mailuser,array(PR_SMTP_ADDRESS));
@@ -4472,7 +4473,7 @@
 					// Lets share!
 					$pub = new FreeBusyPublish($GLOBALS["mapisession"]->getSession(), $store, $calendar, $storeProps[PR_MAILBOX_OWNER_ENTRYID]);
 					$pub->publishFB($start, $range);
-					
+
 				}
 			}
 		}
@@ -4526,7 +4527,7 @@
 				/**
 				 * PHP 5.5.0 and greater has made the unpack function incompatible with previous versions by changing:
 				 * - a = code now retains trailing NULL bytes.
-				 * - A = code now strips all trailing ASCII whitespace (spaces, tabs, newlines, carriage 
+				 * - A = code now strips all trailing ASCII whitespace (spaces, tabs, newlines, carriage
 				 * returns, and NULL bytes).
 				 * for more http://php.net/manual/en/function.unpack.php
 				 */
@@ -4572,7 +4573,7 @@
 
 			return $items;
 		}
-		
+
 		/**
 		 * Convert inline image <img src="data:image/mimetype;.date> links in HTML email
 		 * to CID embedded images. Which are supported in major mail clients or
