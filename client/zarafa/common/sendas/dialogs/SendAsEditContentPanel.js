@@ -24,7 +24,7 @@ Zarafa.common.sendas.dialogs.SendAsEditContentPanel = Ext.extend(Zarafa.common.r
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.sendaseditcontentpanel',
-			title : _('Add/Edit recipient')
+			title : _('Add/Edit sender')
 		});
 
 		Zarafa.common.sendas.dialogs.SendAsEditContentPanel.superclass.constructor.call(this, config);
