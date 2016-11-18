@@ -278,7 +278,9 @@
 								$item['email_address'] = $user_data[$this->properties['account']];
 								// FIXME: shouldn't be needed, but atm this gives us an undefined offset error which makes the unittests fail.
 								if($item['email_address'] !== 'Everyone') {
-									$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
+									if (isset($user_data[$this->properties['smtp_address']])) {
+										$item['smtp_address'] = $user_data[$this->properties['smtp_address']];
+									}
 								}
 								$item['address_type'] = 'ZARAFA';
 								break;
