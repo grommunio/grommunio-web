@@ -176,23 +176,7 @@ function sq_tagprint($tagname, $attary, $tagtype){
  *                 non-whitespace char is located.
  */
 function sq_skipspace($text, $offset) {
-	while (true) {
-		$tmp = substr($text, $offset, 128);
-		$ltrim = ltrim($tmp);
-
-		// If the first 128 characters are whitespace.
-		if (strlen($ltrim) === 0) {
-			$offset += 128;
-			continue;
-		}
-
-		$pos = strpos($tmp, $ltrim);
-		if ($pos === 0) {
-			return $offset;
-		} else {
-			return $offset + $pos;
-		}
-	}
+	return strspn($text, "\0\r\v\n\t ", $offset) + $offset;
 }
 
 /**
