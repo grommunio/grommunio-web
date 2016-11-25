@@ -171,7 +171,6 @@
 	define("LANGUAGE_DIR", "server/language/");
 
 	// Defines the default interface language. This can be overriden by the user.
-	// This language is also used on the login page
 	if (isset($_ENV['LANG']) && $_ENV['LANG']!="C"){
 		define('LANG', $_ENV["LANG"]); // This means the server environment language determines the web client language.
 	}else{
