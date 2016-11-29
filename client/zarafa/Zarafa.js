@@ -25,16 +25,25 @@ Ext.apply(Zarafa, {
 	 * @private
 	 */
 	readyEvent : new Ext.util.Event(),
-	
+
 	/**
-	 * The time that the user has not done any action 
+	 * The time that the user has not done any action
 	 * (like mousemove, click, or keypress) in the WebApp.
-	 * 
+	 *
 	 * @property
 	 * @type Integer
 	 * @private
 	 */
 	idleTime : 0,
+
+	/**
+	 * True if the Wingdings font is installed on the system of the user, false
+	 * otherwise
+
+	 * @property
+	 * @type {Boolean}
+	 */
+	wingdingsInstalled : false,
 
 	/**
 	 * Adds a listener to be notified when WebApp is ready. This will be somewhere during {@link Ext.onReady}, when
@@ -115,7 +124,7 @@ Ext.apply(Zarafa, {
 		// Set the user object
 		container.setUser(user);
 		delete user;
-		
+
 		// Set the version object
 		container.setVersion(version);
 		delete version;
@@ -625,7 +634,7 @@ Ext.apply(Zarafa, {
 			store.startKeepAlive();
 
 			// Post logon succesful to parent.
-			if (window.location !== window.parent.location){ 
+			if (window.location !== window.parent.location){
 				window.parent.postMessage('logonSuccesful', '*');
 			}
 		} else {
@@ -702,14 +711,17 @@ Ext.apply(Zarafa, {
 		if (clientTimeout){
 			this.startIdleTimeChecker(clientTimeout);
 		}
+
+		// Check if the Wingdings font is installed
+		this.wingdingsInstalled = window.checkfont('Wingdings');
 	},
 
 	/**
 	 * Starts the checking of idle time.
-	 * This function uses original javascript events because we cannot set 
+	 * This function uses original javascript events because we cannot set
 	 * the useCapture property with ExtJS events.
 	 * See https://developer.mozilla.org/en/docs/Web/API/EventTarget.addEventListener
-	 * 
+	 *
 	 * @param {Number} clientTimeout The timout time in seconds.
 	 * @private
 	 */
@@ -721,7 +733,7 @@ Ext.apply(Zarafa, {
 			// However there is no reason to create errors for IE<9
 			// Client timeout will still be handled by the backend though,
 			// but the message will only be shown to the user when he tries to
-			// connect to the backend after the session has timed out. 
+			// connect to the backend after the session has timed out.
 			return;
 		}
 		var me = this;
@@ -735,7 +747,7 @@ Ext.apply(Zarafa, {
 		document.addEventListener('keydown', function(){
 			me.idleTime = 0;
 		}, true);
-		
+
 		var hierarchyStore = container.getHierarchyStore();
 
 		// Start an interval for increasing the idle time
@@ -750,7 +762,7 @@ Ext.apply(Zarafa, {
 			scope : this,
 			interval : 5000 //Run every 5 seconds
 		}]).defer(5000); // Start after 5 seconds
-		
+
 		// Start an interval for sending keepalive requests
 		// We need this keepalive to keep the connection alive if the user has made an
 		// action in the WebApp without connecting to the server. (like mousemove, click, keydown)
@@ -763,7 +775,7 @@ Ext.apply(Zarafa, {
 			// Anyone who sets a timeout this low deserves to be logged out! (and punished severly)
 			interval = 5000;
 		}
-		
+
 		Ext.TaskMgr.start.createDelegate(this, [{
 			run : function(){
 				hierarchyStore.sendKeepAlive();
@@ -800,7 +812,7 @@ Ext.apply(Zarafa, {
 	checkOof : function()
 	{
 		var oof = false;
-		
+
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/set') === true) {
 			var oofFrom = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/from');
 			var oofUntil = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/until');
