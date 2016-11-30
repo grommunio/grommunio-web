@@ -5,7 +5,8 @@ Ext.namespace('Zarafa.calendar.printer');
  * @class Zarafa.calendar.printer.DaysViewRenderer
  * @extends Zarafa.common.printer.renderers.BaseRenderer
  *
- * Baseclass to be used to print calendar appointments.
+ * Prints single day calendar overview.
+ * Also it serves as baseclass to be used to print other calendar appointments.
  */
 Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
 	/**
@@ -159,8 +160,15 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 				showToday: false
 			});
 
-			printDOM.getElementById('datepicker_left').innerHTML = leftDP.el.dom.innerHTML;
-			printDOM.getElementById('datepicker_right').innerHTML = rightDP.el.dom.innerHTML;
+			var leftPrintDomDP = printDOM.getElementById('datepicker_left');
+			if (leftPrintDomDP) {
+				leftPrintDomDP.innerHTML = leftDP.el.dom.innerHTML;
+			}
+
+			var rightPrintDomDP = printDOM.getElementById('datepicker_right');
+			if (rightPrintDomDP) {
+				rightPrintDomDP.innerHTML = rightDP.el.dom.innerHTML;
+			}
 
 			// Destroys date picker component with its element from the DOM.
 			leftDP.destroy();
@@ -178,5 +186,75 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 				showToday: false
 			});
 		}
+	},
+
+	/**
+	 * Returns the HTML that will be placed into the <body> part of the print window.
+	 * @return {String} The HTML fragment to place inside the print window's <body> element
+	 */
+	generateBodyTemplate : function()
+	{
+		var html = '';
+
+		/* +--------------------------------------------+
+		 * | Kopano WebApp     |                        |
+		 * | Calendar : [name] |      date pick         |
+		 * | start time        |      this month        |
+		 * |                   |                        |
+		 * +--------------------------------------------+
+		 *
+		 * +--------------------------------------------+
+		 * |                     day                    |
+		 * +--------------------------------------------+
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * |                                            |
+		 * +--------------------------------------------+
+		 *
+		 * +--------------------------------------------+
+		 * |                                            |
+		 * | [name]         [page nr]      [print date] |
+		 * |                                            |
+		 * +--------------------------------------------+
+		 */
+		html += '<table class="print-calendar" cellpadding=0 cellspacing=0>\n';
+
+		html += '<tr style="height:10%;"><td><table id="top">\n';
+
+		html += '<tr><td align="left">' + container.getServerConfig().getWebappTitle() + '</td>'
+			 + '<td align="center" valign="top" width="20%" rowspan=3><div id="datepicker_left"></div></td></tr>'
+			 + '<tr><td align="left">' + _('Calendar') + ' : ' + '{fullname:htmlEncode} </td></tr>\n';
+
+		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		html += '<tr><td align="left" width="80%">{startdate:date("' + _("l jS F Y") + '")}</td></tr>\n';
+		html += '</table></td></tr>\n';
+
+		// date format l jS F == Monday 1st January
+		html += ''
+			+ '<tr style="height:30px;">'
+			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			+ '  <th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
+			+ '</tr>'
+			+ '<tr style="height:90%;">'
+			+ '  <td valign="top"><table id="date1">{date1_table_data}</table></td>'
+			+ '</tr>'
+			+ '</table>\n';
+
+		// skipping page nr for now
+		html += '<table id="bottom">'
+			+ '<tr>'
+			+ '<td class="nowrap" align="left">{fullname:htmlEncode}</td>'
+			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '</tr>'
+			+ '</table>\n';
+
+		return html;
 	}
 });
