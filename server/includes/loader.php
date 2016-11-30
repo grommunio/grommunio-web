@@ -350,7 +350,6 @@ class FileLoader {
 
 			preg_match_all('(@extends\W([^\n\r]*))', $content, $extends);
 			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
-			preg_match_all('(#depends\W([^\n\r\*]+))', $content, $depends);
 			preg_match_all('(#dependsFile\W([^\n\r\*]+))', $content, $dependsFile);
 			$core = (strpos($content, '#core') !== false)? true : false;
 
@@ -364,7 +363,6 @@ class FileLoader {
 			$fileDataLookup[ $filename ] = Array(
 				'class' => $class[1],
 				'extends' => $extends[1],
-				'depends' => $depends[1],	//TODO: implement
 				'dependsFile' => $dependsFile[1]
 			);
 			$fileDependencies[ $filename ] = Array(
@@ -397,26 +395,6 @@ class FileLoader {
 						}
 					}else{
 						trigger_error('Unable to find @extends dependency "'.$fileData['extends'][$i].'" for file "'.$filename.'"');
-					}
-				}
-			}
-			// Next use the #depends class dependencies. We also have to convert them into files names using the $classFileLookup.
-			for ($i = 0, $len = count($fileData['depends']); $i < $len; $i++){
-				// The check if it extends the Zarafa namespace is needed because we do not index other namespaces.
-				if(substr($fileData['depends'][$i], 0, strlen('Zarafa')) == 'Zarafa'){
-					if (isset($libFileLookup[ $fileData['extends'][$i] ])) {
-						// The #depends is found in the library file.
-						// No need to update the depdencies
-					} else if(isset($classFileLookup[ $fileData['depends'][$i] ])){
-						// The #depends is found as @class in another file
-						// Convert the class dependency into a filename
-						$dependencyFilename = $classFileLookup[ $fileData['depends'][$i] ];
-						// Make sure the file does not depend on itself
-						if($dependencyFilename != $filename){
-							$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
-						}
-					}else{
-						trigger_error('Unable to find #depends dependency "'.$fileData['depends'][$i].'" for file "'.$filename.'"');
 					}
 				}
 			}
