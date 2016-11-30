@@ -125,9 +125,7 @@ class FileLoader {
 		} else {
 			$cssLoadingSequence = array_merge(
 				$cssLoadingSequence,
-				$this->buildCSSLoadingSequence(
-					$this->getListOfFiles('css', 'client/resources/css', false)
-				)
+				$this->getListOfFiles('css', 'client/resources/css', false)
 			);
 		}
 
@@ -164,11 +162,7 @@ class FileLoader {
 	 */
 	public function getPluginCSSFiles($load)
 	{
-		if ($load === LOAD_SOURCE) {
-			return $this->buildCSSLoadingSequence($GLOBALS['PluginManager']->getResourceFiles($load));
-		} else {
-			return $GLOBALS['PluginManager']->getResourceFiles($load);
-		}
+		return $GLOBALS['PluginManager']->getResourceFiles($load);
 	}
 
 	/**
@@ -303,62 +297,6 @@ class FileLoader {
 		$files = array_merge($files, $subDirFiles);
 
 		return $files;
-	}
-
-	/**
-	 * buildCSSLoadingSequence
-	 *
-	 * Will built the correct loading sequence for the CSS files in application based on the depends
-	 * statements in the files itself. It will first extract the depends statements.
-	 * It will put that information in a list that holds the dependencies for each file.
-	 * With that list the proper sequence of loading can be constructed.
-	 * @param $files Array List of files that have to be included.
-	 * @return Array List of files that are sorted in the correct sequence
-	 */
-	public function buildCSSLoadingSequence($files)
-	{
-		// Create a lookup table to easily get the name of the file the class is defined in
-		$fileDataLookup = Array();
-		$fileDependencies = Array();
-
-		for ($i = 0, $len = count($files); $i < $len; $i++){
-			$filename = $files[$i];
-			$content = $this->getFileContents($filename);
-
-			$dependsFile = Array();
-
-			preg_match_all('(#dependsFile\W([^\n\r\*]+))', $content, $dependsFile);
-
-			$fileDataLookup[ $filename ] = Array(
-				'dependsFile' => $dependsFile[1]
-			);
-			$fileDependencies[ $filename ] = Array(
-				'depends' => Array(),
-				'core' => false
-			);
-		}
-
-		// Convert dependencies found by searching for @extends to a filename.
-		foreach($fileDataLookup as $filename => &$fileData){
-			// Add the file dependencies that have beed added by using #dependsFile in the file.
-			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; $i++){
-				$dependencyFilename = $fileData['dependsFile'][$i];
-				// Check if the file exists to prevent non-existant dependencies
-				if(isset($fileDataLookup[ $dependencyFilename ])){
-					// Make sure the file does not depend on itself
-					if($dependencyFilename != $filename){
-						$fileDependencies[ $filename ]['depends'][] = $dependencyFilename;
-					}
-				}else{
-					trigger_error('Unable to find file #dependsFile dependency "'.$fileData['dependsFile'][$i].'" for file "'.$filename.'"');
-				}
-			}
-		}
-		unset($fileData);
-
-		$fileSequence = $this->generateDependencyBasedFileSeq($fileDependencies);
-
-		return $fileSequence;
 	}
 
 	/**
