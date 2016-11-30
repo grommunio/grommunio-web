@@ -204,7 +204,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 	{
 		var suggestion = this.store.suggestion;
 		// Don't do anything if there is no suggestion or if the click was not on the suggestion text
-		if ( Ext.isEmpty(suggestion) || (event.target.className!=='zarafa-search-suggestion' && event.target.className!=='zarafa-x-grid3-hd-title') ){
+		if ( Ext.isEmpty(suggestion) || event.target.className!=='zarafa-search-suggestion' ){
 			return;
 		}
 
