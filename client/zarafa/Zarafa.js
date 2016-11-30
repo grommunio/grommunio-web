@@ -168,18 +168,35 @@ Ext.apply(Zarafa, {
 	/**
 	 * Event handler which is fired when the {@link Ext#getBody &lt;body&gt;} elements fires
 	 * the 'contextmenu' event. If the element which fired the event doesn't have the
-	 * 'zarafa-contextmenu-enabled' class then the Browser contextmenu will be disabled.
+	 * 'zarafa-contextmenu-enabled' class and isn't a regular text input then the
+	 * Browser contextmenu will be disabled.
 	 * @param {Ext.EventObject} event The event object
 	 * @param {Ext.Element} el The element on which the contextmenu was requested
 	 * @private
 	 */
 	onBodyContextMenu : function(event, el)
 	{
-		// Disable contextmenu globally, only when the 'zarafa-contextmenu-enabled'
-		// CSS class is applied on the element will we allow the contextmenu to be shown.
-		if (!Ext.get(el).hasClass('zarafa-contextmenu-enabled')) {
-			event.preventDefault();
+		el = Ext.get(el);
+
+		// Don't disable the browser contextmenu when the
+		// 'zarafa-contextmenu-enabled' CSS class is applied
+		// on the element.
+		if ( el.hasClass('zarafa-contextmenu-enabled') ){
+			return;
 		}
+
+		// Don't disable the browser contextmenu for regular
+		// text inputs.
+		if ( el.dom.tagName.toUpperCase()==='INPUT' ){
+			var type = el.getAttribute('type') || '';
+			var readonly = !Ext.isEmpty(el.dom.attributes.readonly);
+			if ( type.toUpperCase() === 'TEXT' && !readonly ) {
+				return;
+			}
+		}
+
+		// Disable contextmenu.
+		event.preventDefault();
 	},
 
 	/**
