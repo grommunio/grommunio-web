@@ -802,8 +802,10 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				}
 
 				var folderKey = folderStore.getDefaultFolderKey();
+				var newmail = folder.content_unread !== 0
+					&& folder.content_unread > folderStore.get('content_unread');
 
-				if (folder.content_unread !== 0 && folder_keys.indexOf(folderKey) === -1
+				if (newmail && folder_keys.indexOf(folderKey) === -1
 						&& folderStore.isContainerClass('IPF.Note')) {
 					var notificationMessage = String.format(
 						ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
