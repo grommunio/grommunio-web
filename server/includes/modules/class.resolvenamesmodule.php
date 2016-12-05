@@ -167,7 +167,12 @@
 							$item['smtp_address'] = isset($item['smtp_address']) ? $item['smtp_address']: '';
 						}else{
 							$item['address_type'] = 'ZARAFA';
-							$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							if (isset($user_data['address_type']) && $user_data['address_type'] === 'ZARAFA') {
+								$item['email_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							} else {
+								// Fake being an ZARAFA account, since it's actually an SMTP addrtype the email address is in a different property.
+								$item['smtp_address'] = isset($user_data[PR_EMAIL_ADDRESS]) ? $user_data[PR_EMAIL_ADDRESS] : '';
+							}
 						}
 					// It can be considered a GAB entry
 					} else {
