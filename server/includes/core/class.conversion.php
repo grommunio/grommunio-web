@@ -277,11 +277,9 @@ class Conversion {
 	public static function property2json($property)
 	{
 		if (is_integer($property)) {
-			// get_defined_constants(true) is preferred, but crashes PHP
-			// https://bugs.php.net/bug.php?id=61156
-			$constants = get_defined_constants();
-
-			foreach ($constants as $key => $value) {
+			// Retrieve constants categories, mapi error names are defined
+			// in the 'user' category, since the WebApp code defines it in mapitags.php.
+			foreach (get_defined_constants(true)['user'] as $key => $value) {
 				if ($property == $value) {
 					$prefix = substr($key, 0, 3);
 					if ($prefix == 'PR_') {
