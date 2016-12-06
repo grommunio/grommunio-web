@@ -22,23 +22,23 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 		Ext.applyIf(config, {
 			title : _('Version information'),
 			layout : 'form',
+			defaults : {
+				xtype : 'displayfield',
+				htmlEncode : true
+			},
 			items : [{
-				xtype : 'displayfield',
 				fieldLabel : _('WebApp'),
-				value : version.getWebApp() + (!Ext.isEmpty(version.getGit()) ? ('-' + version.getGit()) : ''),
-				htmlEncode : true
+				value : version.getWebApp() + (!Ext.isEmpty(version.getGit()) ? ('-' + version.getGit()) : '')
 			},{
-				xtype : 'displayfield',
 				fieldLabel : _('Kopano Core'),
-				value : version.getZCP(),
-				htmlEncode : true
+				value : version.getZCP()
 			},{
-				xtype : 'displayfield',
 				fieldLabel : _('Server'),
 				value : version.getServer(),
-				hidden : Ext.isEmpty(version.getServer()),
-				htmlEncode : true
-			}]
+				hidden : Ext.isEmpty(version.getServer())
+			},
+				container.populateInsertionPoint('settings.versioninformation')
+			]
 		});
 
 		Zarafa.settings.ui.SettingsVersionWidget.superclass.constructor.call(this, config);
