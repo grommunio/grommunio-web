@@ -11,7 +11,6 @@
 		
 		function execute()
 		{
-			//add user
 			foreach($this->data as $actionType => $selUser)
 			{
 				if(isset($actionType)) {
