@@ -3730,16 +3730,16 @@
 		}
 
 		/**
-		 * Build full-page HTML from the FCK Editor fragment
+		 * Build full-page HTML from the TinyMCE HTML
 		 *
-		 * This function basically takes the generated HTML from FCK editor and embeds it in
+		 * This function basically takes the generated HTML from TinyMCE and embeds it in
 		 * a standonline HTML page (including header and CSS) to form.
 		 *
-		 * @param string $fck_html This is the HTML created by the FCK Editor
+		 * @param string $body This is the HTML created by the TinyMCE
 		 * @param string $title  Optional, this string is placed in the <title>
 		 * @return string full HTML message
 		 */
-		function generateBodyHTML($fck_html, $title = "Kopano WebApp"){
+		function generateBodyHTML($body, $title = "Kopano WebApp"){
 			$html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
 					."<html>\n"
 					."<head>\n"
@@ -3749,7 +3749,7 @@
 
 			$html .= "</head>\n"
 					."<body>\n"
-					. $fck_html . "\n"
+					. $body . "\n"
 					."</body>\n"
 					."</html>";
 
