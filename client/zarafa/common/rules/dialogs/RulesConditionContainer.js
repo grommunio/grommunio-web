@@ -322,15 +322,38 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		// if this represents a single condition or a list of conditions.
 		if (conditions[0] === Zarafa.core.mapi.Restrictions.RES_AND) {
 			var single = false;
+			var totalConditions = conditions[1].length;
 
-			// Check if this AND/OR restriction represents a single
-			// condition or not.
-			for (var i = 0, len = conditions[1].length; i < len; i++) {
-				var sub = conditions[1][i];
-				if (sub && sub[1].length === 3 && 
-				sub[1][Zarafa.core.mapi.Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME') {
-					single = true;
-					break;
+			// As of now, there are three property restrictions at most in single condition.
+			if (totalConditions >= 3) {
+				var conditionCounter = 0;
+				// Check if this AND/OR restriction represents a single
+				// condition or not.
+				for (var i = 0; i < totalConditions; i++) {
+					var innerCondition = conditions[1][i];
+					if (innerCondition) {
+						if (innerCondition[0] === Zarafa.core.mapi.Restrictions.RES_PROPERTY) {
+							var ulPropTagValue = innerCondition[1][Zarafa.core.mapi.Restrictions.ULPROPTAG];
+							var isPrMessageToMe = (ulPropTagValue === 'PR_MESSAGE_TO_ME');
+							var isPrMessageCcMe = (ulPropTagValue === 'PR_MESSAGE_CC_ME');
+							var isPrMessageRecipMe = (ulPropTagValue === 'PR_MESSAGE_RECIP_ME');
+							var isPrDisplayCc = (ulPropTagValue === 'PR_DISPLAY_CC');
+
+							if (isPrMessageToMe || isPrMessageCcMe || isPrMessageRecipMe || isPrDisplayCc) {
+								conditionCounter++;
+							}
+						} else if (innerCondition[0] === Zarafa.core.mapi.Restrictions.RES_NOT) {
+							innerCondition = innerCondition[1];
+							if ('PR_DISPLAY_TO' === innerCondition[1][Zarafa.core.mapi.Restrictions.ULPROPTAG]) {
+								conditionCounter++;
+							}
+						}
+
+						if (conditionCounter === 3) {
+							single = true;
+							break;
+						}
+					}
 				}
 			}
 
