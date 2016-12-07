@@ -977,9 +977,19 @@
 		function setReadFlags($store, $entryid)
 		{
 			$props = array();
-			$result = $GLOBALS["operations"]->setReadFlags($store, $entryid, $props);
+			$folder = mapi_msgstore_openentry($store, $entryid);
 
-			if($result && isset($props[PR_ENTRYID])) {
+			if (!$folder) {
+				return;
+			}
+
+			if (mapi_folder_setreadflags($folder, array(), SUPPRESS_RECEIPT)) {
+				$props = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
+
+				if (!isset($props[PR_ENTRYID])) {
+					return;
+				}
+
 				$this->addFolderToResponseData($store, $props[PR_ENTRYID], "folders");
 
 				// Add all response data to Bus
