@@ -17,21 +17,6 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	{
 		config = config || {};
 
-		var pageSizeStore = {
-			xtype : 'jsonstore',
-			autoDestroy : true,
-			fields : ['size'],
-			data : [{
-				'size' : 50
-			},{
-				'size' : 100
-			},{
-				'size' : 150
-			},{
-				'size' : 200
-			}]
-		};
-
 		Ext.applyIf(config, {
 			xtype : 'zarafa.settingsinboxnavigationwidget',
 			title : _('Inbox navigation'),
@@ -62,15 +47,48 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 					change : this.onRadioChange,
 					scope : this
 				}
+			},
+			this.createPageSizeField()]
+		});
+
+		Zarafa.settings.ui.SettingsInboxNavigationWidget.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Creates a composite field for the page size. Uses a different label depending
+	 * on whether the user has set to use infinite scroll or pagination.
+	 * @return {Zarafa.common.ui.CompositeField}
+	 */
+	createPageSizeField : function()
+	{
+		var enableScroll = Ext.isDefined(this.liveScroll) ? this.liveScroll.getValue().getRawValue() === 'true' : true;
+		var fieldLabel = enableScroll ?	_('Load items in blocks of {A}') : _('Load {A} items per page.');
+
+		var pageSizeStore = {
+			xtype : 'jsonstore',
+			autoDestroy : true,
+			fields : ['size'],
+			data : [{
+				'size' : 50
 			},{
+				'size' : 100
+			},{
+				'size' : 150
+			},{
+				'size' : 200
+			}]
+		};
+
+		return new Zarafa.common.ui.CompositeField({
 				xtype : 'zarafa.compositefield',
 				plugins : ['zarafa.splitfieldlabeler'],
-				fieldLabel : _('Load {A} items per page.'),
+				ref: 'pageSizeContainer',
+				fieldLabel : fieldLabel,
 				items : [{
 					labelSplitter : '{A}',
 					xtype : 'combo',
 					name : 'zarafa/v1/main/page_size',
-					ref : '../pageSize',
+					ref : 'pageSize',
 					width : 55,
 					hideLabel : true,
 					store : pageSizeStore,
@@ -87,10 +105,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 						scope : this
 					}
 				}]
-			}]
-		});
-
-		Zarafa.settings.ui.SettingsInboxNavigationWidget.superclass.constructor.call(this, config);
+			});
 	},
 
 	/**
@@ -104,7 +119,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	{
 		this.model = settingsModel;
 		this.liveScroll.setValue(settingsModel.get(this.liveScroll.name));
-		this.pageSize.setValue(settingsModel.get(this.pageSize.name));
+		this.pageSizeContainer.pageSize.setValue(settingsModel.get(this.pageSizeContainer.pageSize.name));
 	},
 
 	/**
@@ -120,7 +135,7 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 
 		settingsModel.beginEdit();
 		settingsModel.set(this.liveScroll.name, enableScroll);
-		settingsModel.set(this.pageSize.name, this.pageSize.getValue());
+		settingsModel.set(this.pageSizeContainer.pageSize.name, this.pageSizeContainer.pageSize.getValue());
 		settingsModel.endEdit();
 	},
 
@@ -133,6 +148,17 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 	onRadioChange : function (field, radio)
 	{
 		var enableScroll = radio.inputValue === 'true';
+
+		// Let's change the label of the pageSize component
+		// We cannot simply change it and call doLayout, because the compositeField
+		// has created a few child components to display the field. So we must
+		// destroy the existing component and create brand new one.
+		var pageSize = this.pageSizeContainer.pageSize.getValue();
+		this.pageSizeContainer.destroy();
+		this.pageSizeContainer = this.createPageSizeField();
+		this.pageSizeContainer.pageSize.setValue(pageSize);
+		this.add(this.pageSizeContainer);
+		this.doLayout();
 
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
