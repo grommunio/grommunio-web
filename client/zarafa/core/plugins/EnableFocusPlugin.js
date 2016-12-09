@@ -62,7 +62,25 @@ Zarafa.core.plugins.EnableFocusPlugin = Ext.extend(Object, {
 	{
 		if(this.field.rendered && !this.field.isDestroyed) {
 			if(this.focusEl) {
+				// Creating a selection will also be seen as a click (because it is), but
+				// Firefox will drop the current selection when we set the focus to the focusEl.
+				// Fortunately FireFox has implemented most of the Selection api. So we can get
+				// the current selection and put it back after we focus the focusEl.
+				var selection = this.field.getEl().dom.ownerDocument.getSelection();
+				var ranges = [];
+				// Get all selection ranges
+				if ( selection && selection.isCollapsed===false && selection.getRangeAt && selection.addRange ){
+					for ( var i=0; i<selection.rangeCount; i++ ){
+						ranges.push(selection.getRangeAt(i));
+					}
+				}
+
 				this.focusEl.focus();
+
+				// Add all ranges to the selection again
+				Ext.each(ranges, function(range){
+					selection.addRange(range);
+				});
 
 				// we have handled focus here so don't allow intercepted function to do its handling
 				return false;

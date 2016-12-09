@@ -68,6 +68,10 @@ $preview-header-collapse-icon-height	: 5;
 	height: $preview-header-collapse-button-height;
 	margin: (-$padding-large) (-$padding-large) 0 $padding-large; /* pulling it to the top and the right to be able to create a larger click area */
 	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .preview-header-collapse-minus {
 	@extend .arrow_up_l;
@@ -84,7 +88,7 @@ $preview-header-collapse-icon-height	: 5;
 .preview-header-title .preview-title {
 	font-size: $font-size-large !important;
 	line-height: $font-line-height-large;
-	min-height: $font-line-height-large; /* set a min-height, so mails without a subject will not look strange) */ 
+	min-height: $font-line-height-large; /* set a min-height, so mails without a subject will not look strange) */
 	margin-right: 5px;
 }
 
@@ -103,7 +107,7 @@ $preview-header-collapse-icon-height	: 5;
 .preview-header-recipients, .preview-header-meeting, .preview-header-attachments {
 	display: block;
 	margin-top: $padding-medium;
-	
+
 }
 
 .preview-header-recipients .preview-recipient-title,
@@ -113,11 +117,11 @@ $preview-header-collapse-icon-height	: 5;
 }
 
 
-.preview-header-sentinfo .preview-timestamp-title, 
-.preview-header-recipients .preview-recipient-title, 
-.preview-header-attachments .preview-attachment-title, 
-.preview-header-meeting .preview-when .preview-when-title, 
-.preview-header-meeting .preview-proposed .preview-proposed-title, 
+.preview-header-sentinfo .preview-timestamp-title,
+.preview-header-recipients .preview-recipient-title,
+.preview-header-attachments .preview-attachment-title,
+.preview-header-meeting .preview-when .preview-when-title,
+.preview-header-meeting .preview-proposed .preview-proposed-title,
 .preview-header-meeting .preview-location .preview-location-title {
 	display: inline-block;
 	min-width: 36px;
