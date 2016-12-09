@@ -105,7 +105,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 			xtype: 'zarafa.datetimefield',
 			anchor : '100%',
 			ref: 'datetimeField',
-			fieldLabel : _('Enddate'),
+			fieldLabel : _('End date'),
 			listeners :{
 				'change' : this.onDateChange,
 				scope : this
@@ -176,7 +176,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 			this.completeCheckbox.setValue(completed);
 		}
 	},
-	
+
 	/**
 	 * Update the {@link Zarafa.core.data.IPMRecord IPMRecord} with the data from the {@link Ext.Panel Panel}.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has to be updated
@@ -185,7 +185,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 	{
 		var flagIcon = this.flagColorCombo.getValue();
 		var completed = this.completeCheckbox.getValue();
-		
+
 		record.beginEdit();
 		// Set the icon
 		record.set('flag_icon', flagIcon);
@@ -196,7 +196,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 		} else {
 			record.set('flag_due_by', time);
 		}
-		
+
 		// Update the flag status depending on the selected color,
 		// but also the completion checkbox.
 		if (completed){
@@ -249,7 +249,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 			this.record.set('flag_status', Zarafa.core.mapi.FlagStatus.flagged);
 		}
 	},
-	
+
 	/**
 	 * Event handler which is triggered when complete fields
 	 * has been changed by the user. It will validate the new value,
