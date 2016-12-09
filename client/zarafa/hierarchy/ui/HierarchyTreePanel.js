@@ -403,15 +403,17 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 */
 	onHierarchyLoaderLoad : function()
 	{
-		if (this.model) {
-			var folders = this.model.getFolders();
+		// Use respective model considering the case the current model doesn't belongs to current context
+		var currentContextModel = container.getCurrentContext().getModel();
+		if (currentContextModel) {
+			var folders = currentContextModel.getFolders();
 			for (var i = 0, len = folders.length; i < len; i++) {
 				this.selectFolderInTree(folders[i]);
 			}
 
 			// If we have multi selected folder then select previously selected node in tree.
-			if (folders.length > 1 && this.model) {
-				this.selectFolderInTree(this.model.getDefaultFolder());
+			if (folders.length > 1 && currentContextModel) {
+				this.selectFolderInTree(currentContextModel.getDefaultFolder());
 			}
 		}
 	},
