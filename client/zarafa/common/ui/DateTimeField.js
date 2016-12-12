@@ -61,7 +61,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 		config = config || {};
 
 		Ext.apply(this, config);
-	
+
 		if (Ext.isDefined(this.defaultValue) && !Ext.isDate(this.defaultValue)) {
 			this.defaultValue = Date.parseDate(this.defaultValue, this.dateFormat + ' ' + this.timeFormat);
 		}
@@ -74,10 +74,10 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 
 		// Hide the labels, as we will draw them ourself to have more control over them
 		config.hideLabels = true;
-		
+
 		var items = [];
-		
-		if ( !config.hideLabel && config.fieldLabel ){
+
+		if ( !config.hideLabel && config.fieldLabel && this.ownerCt.layout!=='form' ){
 			var labelConfig = config.labelConfig || {};
 			labelConfig = Ext.applyIf(labelConfig, {
 				xtype : 'label',
@@ -91,7 +91,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 
 			items.push(labelConfig);
 		}
-		
+
 		items = items.concat([
 			Ext.apply({
 				xtype: 'datefield',
