@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.hierarchy.dialogs');
  * @class Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab
  * @extends Ext.form.FormPanel
  * @xtype zarafa.folderpropertiesgeneraltab
- * 
+ *
  * General tab in the {@link Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel}
  * that is used to show/change folder properties.
  */
@@ -129,6 +129,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 			buttonAlign : 'left',
 			buttons : [{
 				xtype : 'button',
+				cls: 'zarafa-normal',
 				text : _('Folder size') + '...',
 				handler : this.onFolderSize,
 				scope : this
