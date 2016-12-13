@@ -187,15 +187,6 @@
 			</concatfiles>
 		</zConcat>
 
-		<!-- Concatenate third-party CSS files -->
-		<mkdir dir="${target-folder}/${thirdparty-css-folder}"/>
-		<echo message="Concatenating: ${thirdparty-css-file}"/>
-		<zConcat outputFolder="${target-folder}/${thirdparty-css-folder}" outputFile="${thirdparty-css-file}">
-			<concatfiles>
-				<fileset dir="${thirdparty-css-folder}" includes="**/*.css" />
-			</concatfiles>
-		</zConcat>
-
 		<!-- Concatenate zarafa file -->
 		<mkdir dir="${target-folder}/${kopano-folder}"/>
 		<echo message="Concatenating: ${kopano-debugfile}"/>

@@ -66,20 +66,12 @@ class FileLoader {
 		if ($load == LOAD_RELEASE) {
 			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
 			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-			$cssLoadingSequence[] = "client/third-party/resources/css/ux-thirdparty.css";
 		} else if ($load == LOAD_DEBUG) {
 			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
 			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-			$cssLoadingSequence[] = "client/third-party/resources/css/ux-thirdparty.css";
 		} else {
 			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
 			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-			$cssLoadingSequence = array_merge(
-				$cssLoadingSequence,
-				$this->buildCSSLoadingSequence(
-					$this->getListOfFiles('css', 'client/third-party')
-				)
-			);
 		}
 
 		return $cssLoadingSequence;

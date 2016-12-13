@@ -39,15 +39,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			tooltip : _('Sort by: Icon'),
 			fixed : true,
 			hideable : false,
-			renderer : Zarafa.common.ui.grid.Renderers.icon,
-			editor : {
-					xtype : 'displayfield',
-					style : 'height: 17px;',
-					//overwriting this to customize the value to be displayed in editor
-					setValue : function(value){
-						this.addClass(Zarafa.core.mapi.IconIndex.getClassName(value));
-					}
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.icon
 		},{
 			dataIndex : 'importance',
 			headerCls: 'zarafa-icon-column importance',
@@ -55,20 +47,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width : 24,
 			tooltip : _('Sort by: Priority'),
 			fixed : true,
-			renderer : Zarafa.common.ui.grid.Renderers.importance,
-			editor: {
-				xtype :'iconcombo',
-				store : {
-						xtype: 'jsonstore',
-						fields: ['iconCls','name', 'value'],
-						data : Zarafa.common.data.ImportanceFlags.flags
-					},
-				triggerAction : 'all',
-				mode : 'local',
-				valueField : 'value',
-				displayField : 'name',
-				iconClsField: 'iconCls'
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.importance
 		},{
 			headerCls: 'zarafa-icon-column',
 			header : '<p class="icon_attachment">&nbsp;</p>',
@@ -109,10 +88,6 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// override renderer so we can hide strikethough line displayed in empty cell, when task is complete
 			renderer : this.completeColumnRenderer.createDelegate(this),
 			tooltip : _('Sort by: Complete'),
-			editor: {
-				xtype : 'checkbox',
-				style : 'margin-left: 10px;'
-			},
 			// override processEvent so we can save the change in the record
 			processEvent : Ext.ux.grid.CheckColumn.prototype.processEvent.createSequence(this.onCompleteColumnProcessEvent)
 		}, {
@@ -120,69 +95,33 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'subject',
 			header : _('Subject'),
 			tooltip : _('Sort by: Subject'),
-			renderer : Zarafa.common.ui.grid.Renderers.subject,
-			editor: {
-				xtype: 'textfield'
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.subject
 		},{
 			dataIndex : 'startdate',
 			header : _('Start Date'),
 			tooltip : _('Sort by: Start Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate,
-			editor: {
-				xtype : 'datefield',
-				emptyText : _('None')
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.utcdate
 		},{
 			dataIndex : 'duedate',
 			header : _('Due Date'),
 			tooltip : _('Sort by: Due Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate,
-			editor: {
-				xtype : 'datefield',
-				emptyText : _('None')
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.utcdate
 		},{
 			dataIndex : 'owner',
 			header : _('Owner'),
 			tooltip : _('Sort by: Owner'),
-			renderer : Zarafa.common.ui.grid.Renderers.text,
-			editor: {
-				xtype: 'textfield',
-				disabled : true
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.text
 		},{
 			dataIndex : 'categories',
 			header : _('Categories'),
 			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.text,
-			editor: {
-				allowBlank : true,
-				xtype : 'lovcombo',
-				separator : ';',
-				hideOnSelect : false,
-				store : {
-					xtype : 'zarafa.categoriesstore'
-				},
-				mode : 'local',
-				triggerAction :'all',
-				displayField : 'category',
-				valueField : 'category'
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.text
 		},{
 			dataIndex : 'percent_complete',
 			header : _('% Completed'),
 			width : 75,
 			tooltip : _('Sort by: Percent Completed'),
-			renderer : Zarafa.common.ui.grid.Renderers.percentage,
-			editor: {
-				xtype : 'zarafa.spinnerfield',
-				minValue: 0,
-				defaultValue:0,
-				incrementValue : 0.25,
-				maxValue: 1,
-				plugins: ['zarafa.percentspinner']
-			}
+			renderer : Zarafa.common.ui.grid.Renderers.percentage
 		},{
 			header: _('Sensitivity'),
 			dataIndex: 'sensitivity',
