@@ -140,7 +140,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					labelWidth: 100
 				},
 				endFieldConfig: {
-					fieldLabel: _('End date'),
+					fieldLabel: _('Due date'),
 					labelWidth: 100
 				}
 			},{
@@ -334,7 +334,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			}]
 		};
 	},
-	
+
 	/**
 	 * Create the {@link Ext.Panel Panel} containing the
 	 * {@link Zarafa.common.ui.htmleditor.HtmlEditor HtmlEditor} form field.
