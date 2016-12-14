@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-08 11:56+0200\n"
+"POT-Creation-Date: 2016-12-14 13:34+0100\n"
 "PO-Revision-Date: 2016-10-11 20:43+0000\n"
 "Last-Translator: Viktor <viktor.bale@anodyne.cz>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -40,8 +40,8 @@ msgstr "Číslice musí být vyšší než nula"
 #: client/extjs-mod/Ext.layout.ToolbarLayout.js:176
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:53
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:164
 #, fuzzy
 msgid "More options"
 msgstr "Možnosti zpráv"
@@ -225,9 +225,9 @@ msgid "Last Page"
 msgstr "Poslední strana"
 
 #: client/extjs-mod/Translations.js:170 client/zarafa/common/KeyMapping.js:81
-#: client/zarafa/core/ui/MainToolbar.js:388
-#: client/zarafa/core/ui/MainToolbar.js:389
-#: client/zarafa/core/ui/MainToolbar.js:390
+#: client/zarafa/core/ui/MainToolbar.js:398
+#: client/zarafa/core/ui/MainToolbar.js:399
+#: client/zarafa/core/ui/MainToolbar.js:400
 msgid "Refresh"
 msgstr "Obnovit"
 
@@ -566,7 +566,7 @@ msgstr "{0} není platný čas"
 #: client/extjs-mod/Translations.js:334
 #: client/zarafa/calendar/AppointmentRecord.js:238
 #: client/zarafa/calendar/AppointmentRecord.js:242
-#: client/zarafa/calendar/printer/DaysViewRenderer.js:88
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:89
 #: client/zarafa/calendar/ui/AppointmentView.js:16
 #: client/zarafa/calendar/ui/CalendarPanel.js:127
 #: client/zarafa/calendar/ui/canvas/AppointmentProxy.js:168
@@ -678,7 +678,7 @@ msgstr "Přezdívka"
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:264
 #: client/zarafa/task/printer/TaskListViewRenderer.js:33
 #: client/zarafa/task/printer/TaskRenderer.js:40
-#: client/zarafa/task/ui/TaskGridColumnModel.js:147
+#: client/zarafa/task/ui/TaskGridColumnModel.js:111
 #: plugins/folderwidgets/js/TasksWidget.js:53
 #: server/includes/mapi/class.taskrequest.php:906
 msgid "Owner"
@@ -688,9 +688,9 @@ msgstr "Vlastník"
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:142
 #: client/zarafa/common/data/FolderContentTypes.js:103
 #: client/zarafa/contact/dialogs/DistlistNotesTab.js:25
-#: client/zarafa/note/NoteContext.js:454
+#: client/zarafa/note/NoteContext.js:432
 #: client/zarafa/note/ui/NoteMainPanel.js:65
-#: server/includes/core/class.operations.php:913
+#: server/includes/core/class.operations.php:912
 msgid "Notes"
 msgstr "Poznámky"
 
@@ -725,8 +725,8 @@ msgstr "Členství ve skupině"
 #: client/zarafa/addressbook/dialogs/ABUserSelectionContentPanel.js:50
 #: client/zarafa/addressbook/dialogs/AddressBookContentPanel.js:35
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:68
-#: client/zarafa/core/ui/MainToolbar.js:377
-#: client/zarafa/core/ui/MainToolbar.js:378
+#: client/zarafa/core/ui/MainToolbar.js:389
+#: client/zarafa/core/ui/MainToolbar.js:390
 #: client/zarafa/settings/ui/SettingsAddressBookWidget.js:42
 msgid "Address Book"
 msgstr "Adresář"
@@ -789,13 +789,13 @@ msgstr "Titul"
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:123
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:498
 #: client/zarafa/contact/printer/ContactRenderer.js:27
-#: client/zarafa/task/ui/TaskGridColumnModel.js:193
+#: client/zarafa/task/ui/TaskGridColumnModel.js:132
 #: plugins/quickitems/js/QuickContactWidget.js:169
 msgid "Company"
 msgstr "Firma"
 
 #: client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:198
-#: client/zarafa/addressbook/ui/GABColumnModel.js:89
+#: client/zarafa/addressbook/ui/GABColumnModel.js:88
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:60
 #: client/zarafa/contact/printer/ContactRenderer.js:26
 msgid "Department"
@@ -851,7 +851,7 @@ msgid "Business2"
 msgstr "Firemní2"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:86
-#: client/zarafa/addressbook/ui/GABColumnModel.js:136
+#: client/zarafa/addressbook/ui/GABColumnModel.js:135
 msgid "Fax"
 msgstr "Fax"
 
@@ -871,7 +871,7 @@ msgid "Home2"
 msgstr "Domů2"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:122
-#: client/zarafa/addressbook/ui/GABColumnModel.js:104
+#: client/zarafa/addressbook/ui/GABColumnModel.js:103
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:78
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:35
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:262
@@ -884,7 +884,7 @@ msgid "Mobile"
 msgstr "Mobil"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:126
-#: client/zarafa/addressbook/ui/GABColumnModel.js:120
+#: client/zarafa/addressbook/ui/GABColumnModel.js:119
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:38
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:546
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:281
@@ -894,23 +894,23 @@ msgstr "Pager"
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:208
 #: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:139
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:253
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:315
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:425
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:882
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:314
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:432
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:880
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:410
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:453
 #: client/zarafa/calendar/ui/CalendarPanel.js:590
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:376
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:396
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:447
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:483
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:391
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:411
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:462
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:498
 #: client/zarafa/common/Actions.js:547 client/zarafa/common/Actions.js:731
 #: client/zarafa/common/attachment/ui/AttachmentDownloader.js:192
 #: client/zarafa/common/recipientfield/ui/RecipientBox.js:143
 #: client/zarafa/common/recurrence/dialogs/RecurrenceContentPanel.js:151
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:214
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:272
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:161
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:163
 #: client/zarafa/common/ui/ContextMainPanelToolbar.js:34
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:309
 #: client/zarafa/core/ui/MessageContentPanel.js:335
@@ -927,8 +927,8 @@ msgstr "Pager"
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:105
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:121
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:131
-#: client/zarafa/hierarchy/ui/ContextMenu.js:367
-#: client/zarafa/hierarchy/ui/ContextMenu.js:404
+#: client/zarafa/hierarchy/ui/ContextMenu.js:356
+#: client/zarafa/hierarchy/ui/ContextMenu.js:393
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:509
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:626
 #: client/zarafa/settings/SettingsContext.js:65
@@ -936,7 +936,7 @@ msgstr "Pager"
 #: client/zarafa/settings/SettingsContext.js:330
 #: client/zarafa/settings/ui/SettingsCopyrightWidget.js:27
 #: client/zarafa/settings/ui/SettingsTreePanel.js:234
-#: client/zarafa/Zarafa.js:274 client/zarafa/Zarafa.js:823
+#: client/zarafa/Zarafa.js:300 client/zarafa/Zarafa.js:852
 msgid "Kopano WebApp"
 msgstr "Kopano WebbApp"
 
@@ -1015,6 +1015,7 @@ msgid "Sort by: File As"
 msgstr "Třídit podle: Soubor jako"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:65
+#: server/includes/templates/login.php:50
 msgid "Username"
 msgstr "Uživatelské jméno"
 
@@ -1024,60 +1025,60 @@ msgstr "Uživatelské jméno"
 msgid "Sort by: Username"
 msgstr "Třídit podle: Uživatelské jméno"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:76
+#: client/zarafa/addressbook/ui/GABColumnModel.js:75
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
 #: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:57
 msgid "Sort by: Email Address"
 msgstr "Třídit podle: E-mailová adresa"
 
 # 77%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:81
+#: client/zarafa/addressbook/ui/GABColumnModel.js:80
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:20
 #: client/zarafa/contact/printer/ContactRenderer.js:23
 msgid "Last Name"
 msgstr "Příjmení"
 
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:84
+#: client/zarafa/addressbook/ui/GABColumnModel.js:83
 msgid "Sort by: Last Name"
 msgstr "Třídit podle: Příjmení"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:92
+#: client/zarafa/addressbook/ui/GABColumnModel.js:91
 msgid "Sort by: Department"
 msgstr "Třídit podle: Oddělení"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:97
+#: client/zarafa/addressbook/ui/GABColumnModel.js:96
 msgid "Office Phone"
 msgstr "Firemní telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:99
+#: client/zarafa/addressbook/ui/GABColumnModel.js:98
 msgid "Sort by: Office Phone"
 msgstr "Třídit podle: Firemní telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:107
+#: client/zarafa/addressbook/ui/GABColumnModel.js:106
 msgid "Sort by: Mobile"
 msgstr "Třídit podle: Mobil"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:112
+#: client/zarafa/addressbook/ui/GABColumnModel.js:111
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:82
 msgid "Home Phone"
 msgstr "Soukromý telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:115
+#: client/zarafa/addressbook/ui/GABColumnModel.js:114
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:83
 msgid "Sort by: Home Phone"
 msgstr "Třídit podle: Soukromý telefon"
 
 # 78%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:123
+#: client/zarafa/addressbook/ui/GABColumnModel.js:122
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:283
 msgid "Sort by: Pager"
 msgstr "Třídit podle: Pager"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:128
+#: client/zarafa/addressbook/ui/GABColumnModel.js:127
 #: client/zarafa/calendar/data/SearchFields.js:28
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:266
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:264
 #: client/zarafa/calendar/printer/MeetingRenderer.js:24
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:83
 #: client/zarafa/calendar/ui/CalendarPanel.js:105
@@ -1086,12 +1087,12 @@ msgstr "Třídit podle: Pager"
 msgid "Location"
 msgstr "Místo"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:130
+#: client/zarafa/addressbook/ui/GABColumnModel.js:129
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:85
 msgid "Sort by: Location"
 msgstr "Třídit podle: Místo"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:138
+#: client/zarafa/addressbook/ui/GABColumnModel.js:137
 msgid "Sort by: Fax"
 msgstr "Třídit podle: Fax"
 
@@ -1123,55 +1124,55 @@ msgstr "Minulý rok"
 msgid "Custom date"
 msgstr "Výbrat datumy"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:52
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:53
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:54
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:55
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:40
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:41
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:61
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:62
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:63
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:65
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:66
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:67
 #: client/zarafa/mail/KeyMapping.js:43
-#: client/zarafa/mail/ui/MailGridContextMenu.js:118
+#: client/zarafa/mail/ui/MailGridContextMenu.js:116
 #: client/zarafa/mail/ui/MailPreviewPanel.js:88
 #: client/zarafa/mail/ui/MailPreviewPanel.js:89
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:61
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:62
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:63
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:64
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:49
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:50
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:72
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:73
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:74
-#: client/zarafa/mail/ui/MailGridContextMenu.js:127
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:80
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:81
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:82
+#: client/zarafa/mail/ui/MailGridContextMenu.js:125
 #: client/zarafa/mail/ui/MailPreviewPanel.js:108
 #: client/zarafa/mail/ui/MailPreviewPanel.js:109
 msgid "Reply All"
 msgstr "Odpovědět všem"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:70
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:71
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:72
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:73
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:58
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:59
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:82
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:83
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:84
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:90
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:91
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:92
 #: client/zarafa/mail/KeyMapping.js:68
-#: client/zarafa/mail/ui/MailGridContextMenu.js:136
+#: client/zarafa/mail/ui/MailGridContextMenu.js:134
 #: client/zarafa/mail/ui/MailPreviewPanel.js:128
 #: client/zarafa/mail/ui/MailPreviewPanel.js:129
 msgid "Forward"
 msgstr "Přeposlat"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:79
-#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:80
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:81
+#: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:82
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:67
 #: client/zarafa/advancesearch/ui/SearchResultPreviewPanel.js:68
-#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:97
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:215
+#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:103
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:244
 #: client/zarafa/mail/KeyMapping.js:80
-#: client/zarafa/mail/ui/MailGridContextMenu.js:154
+#: client/zarafa/mail/ui/MailGridContextMenu.js:152
 msgid "Edit as New Message"
 msgstr "Upravit jako novou zprávu"
 
@@ -1191,7 +1192,7 @@ msgid "All My folders"
 msgstr "Všechny moje složky"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:147
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:616
+#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:633
 msgid "Current folder"
 msgstr "Aktuální složka"
 
@@ -1232,7 +1233,7 @@ msgid "With attachments"
 msgstr "S přílohami"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:242
-#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:49
+#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:45
 #: client/zarafa/calendar/ui/CalendarPanel.js:102
 msgid "Date"
 msgstr "Datum"
@@ -1240,10 +1241,10 @@ msgstr "Datum"
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:271
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:45
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:432
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:201
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:203
 #: client/zarafa/mail/attachitem/AttachMailColumnModel.js:67
-#: client/zarafa/mail/data/Templates.js:26
-#: client/zarafa/mail/data/Templates.js:57
+#: client/zarafa/mail/data/Templates.js:28
+#: client/zarafa/mail/data/Templates.js:59
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:110
 #: client/zarafa/mail/printer/MailRenderer.js:22
 #: client/zarafa/mail/ui/MailGridColumnModel.js:94
@@ -1253,13 +1254,13 @@ msgid "From"
 msgstr "Od"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:279
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:207
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:205
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:42
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:203
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:205
 #: client/zarafa/mail/Actions.js:252
 #: client/zarafa/mail/attachitem/AttachMailColumnModel.js:73
-#: client/zarafa/mail/data/Templates.js:36
-#: client/zarafa/mail/data/Templates.js:69
+#: client/zarafa/mail/data/Templates.js:38
+#: client/zarafa/mail/data/Templates.js:71
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:142
 #: client/zarafa/mail/printer/MailRenderer.js:25
 #: client/zarafa/mail/ui/MailGridColumnModel.js:100
@@ -1273,20 +1274,20 @@ msgstr "Komu"
 msgid "Search.."
 msgstr "Hledat v.."
 
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:313
+#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:314
 #: client/zarafa/calendar/data/SearchFields.js:16
 #: client/zarafa/mail/data/SearchFields.js:16
 msgid "Sender"
 msgstr "Odesílatel"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:316
+#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:317
 msgid "Recipients"
 msgstr "Příjemci"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:319
+#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:320
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:67
 #: client/zarafa/calendar/data/SearchFields.js:13
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:237
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:235
 #: client/zarafa/calendar/printer/MeetingRenderer.js:23
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:65
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:41
@@ -1296,8 +1297,8 @@ msgstr "Příjemci"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:50
 #: client/zarafa/mail/attachitem/AttachMailColumnModel.js:79
 #: client/zarafa/mail/data/SearchFields.js:13
-#: client/zarafa/mail/data/Templates.js:41
-#: client/zarafa/mail/data/Templates.js:76
+#: client/zarafa/mail/data/Templates.js:43
+#: client/zarafa/mail/data/Templates.js:78
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:218
 #: client/zarafa/mail/printer/MailRenderer.js:28
 #: client/zarafa/mail/settings/SettingsOofWidget.js:152
@@ -1309,44 +1310,45 @@ msgstr "Příjemci"
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:91
 #: client/zarafa/task/printer/TaskListViewRenderer.js:32
 #: client/zarafa/task/printer/TaskRenderer.js:24
-#: client/zarafa/task/ui/TaskGridColumnModel.js:121
+#: client/zarafa/task/ui/TaskGridColumnModel.js:96
 #: plugins/folderwidgets/js/AppointmentsWidget.js:57
 #: plugins/folderwidgets/js/TasksWidget.js:58
 #: plugins/quickitems/js/QuickAppointmentWidget.js:47
 #: plugins/quickitems/js/QuickMailWidget.js:68
 #: plugins/quickitems/js/QuickTaskWidget.js:47
-#: server/includes/core/class.operations.php:4117
 #: server/includes/mapi/class.taskrequest.php:880
+#: server/includes/modules/class.itemmodule.php:875
 msgid "Subject"
 msgstr "Předmět"
 
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:322
+#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:323
 msgid "Body & Attachments"
 msgstr "Obsah zprávy & přílohy"
 
-#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:39
-msgid "Search results - \"{0}\""
-msgstr "Výsledky vyhledávání - \"{0}\""
-
-#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:54
+#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:50
 msgid "Sort by: Date"
 msgstr ""
 
-#: client/zarafa/advancesearch/ui/SearchGrid.js:121
+#: client/zarafa/advancesearch/ui/SearchGrid.js:124
 msgid "Loading Search results"
 msgstr "Nahrávání výsledků vyhledávání"
 
-#: client/zarafa/advancesearch/ui/SearchGrid.js:368
+#: client/zarafa/advancesearch/ui/SearchGrid.js:392
 msgid "Sorting not possible"
 msgstr "Nelze seřadit"
 
-#: client/zarafa/advancesearch/ui/SearchGrid.js:369
+#: client/zarafa/advancesearch/ui/SearchGrid.js:393
 msgid ""
 "The search results could not be sorted because the number of items is higher "
 "than {0}. Narrow down your results by specifying your input."
 msgstr ""
 "Výsledky hledání nelze seřadit, protože počet položek je vyšší než {0}. "
 "Upřesněte vyhledávací parametry."
+
+#: client/zarafa/advancesearch/ui/SearchGrid.js:467
+#: client/zarafa/advancesearch/ui/SearchGrid.js:468
+msgid "Did you mean"
+msgstr ""
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -1357,10 +1359,10 @@ msgstr ""
 #: client/zarafa/common/rules/ui/RulesGrid.js:349
 #: client/zarafa/common/rules/ui/RulesGrid.js:354
 #: client/zarafa/common/ui/SearchField.js:146
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:344
-#: client/zarafa/Zarafa.js:232 client/zarafa/Zarafa.js:234
-#: client/zarafa/Zarafa.js:271 client/zarafa/Zarafa.js:428
-#: client/zarafa/Zarafa.js:632
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:343
+#: client/zarafa/Zarafa.js:258 client/zarafa/Zarafa.js:260
+#: client/zarafa/Zarafa.js:297 client/zarafa/Zarafa.js:454
+#: client/zarafa/Zarafa.js:658
 msgid "Error"
 msgstr "Chyba"
 
@@ -1534,6 +1536,7 @@ msgstr "Kdy"
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:103
 #: client/zarafa/calendar/MeetingRequestRecord.js:161
 #: client/zarafa/calendar/MeetingRequestRecord.js:163
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:254
 #: client/zarafa/calendar/printer/MeetingRenderer.js:27
 #: client/zarafa/calendar/printer/MeetingRenderer.js:29
 #: client/zarafa/calendar/printer/WeekViewRenderer.js:121
@@ -1580,7 +1583,7 @@ msgstr "a "
 #: client/zarafa/mail/attachitem/AttachMailColumnModel.js:65
 #: client/zarafa/mail/ui/MailGridColumnModel.js:92
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:65
-#: client/zarafa/task/ui/TaskGridColumnModel.js:79
+#: client/zarafa/task/ui/TaskGridColumnModel.js:58
 msgid "Sort by: Attachment"
 msgstr "Třídit podle: Příloha"
 
@@ -1597,7 +1600,7 @@ msgstr "Třídit podle: Opakující se"
 #: client/zarafa/note/attachitem/AttachNoteColumnModel.js:53
 #: client/zarafa/note/ui/NoteGridColumnModel.js:49
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:69
-#: client/zarafa/task/ui/TaskGridColumnModel.js:122
+#: client/zarafa/task/ui/TaskGridColumnModel.js:97
 msgid "Sort by: Subject"
 msgstr "Třídit podle: Předmět"
 
@@ -1614,7 +1617,6 @@ msgstr "Třídit podle: Počáteční datum"
 
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:78
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:77
-#: client/zarafa/mail/dialogs/MailFlagsPanel.js:108
 msgid "Enddate"
 msgstr "Konečné datum"
 
@@ -1624,10 +1626,10 @@ msgid "Sort by: Enddate"
 msgstr "Třídit podle: Konečné datum"
 
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:19
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:182
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:180
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:136
 #: client/zarafa/calendar/ui/CalendarPanel.js:96
-#: client/zarafa/task/ui/TaskGridColumnModel.js:234
+#: client/zarafa/task/ui/TaskGridColumnModel.js:173
 msgid "Organizer"
 msgstr "Organizátor"
 
@@ -1654,7 +1656,7 @@ msgstr "Ukázat čas jako"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:53
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:19
 #: client/zarafa/task/data/SearchFields.js:30
-#: client/zarafa/task/ui/TaskGridColumnModel.js:129
+#: client/zarafa/task/ui/TaskGridColumnModel.js:101
 #: server/includes/mapi/class.taskrequest.php:881
 msgid "Start Date"
 msgstr "Počáteční datum"
@@ -1674,7 +1676,7 @@ msgid "Recurrence pattern"
 msgstr "Pravidla opakování"
 
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:28
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:365
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:363
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:94
 #: client/zarafa/common/ui/appointmentpanel/AppointmentBody.js:65
 #: plugins/quickitems/js/QuickAppointmentWidget.js:90
@@ -1683,33 +1685,33 @@ msgstr "Celodenní akce"
 
 # 76%
 # 100%
-#: client/zarafa/calendar/CalendarContext.js:356
+#: client/zarafa/calendar/CalendarContext.js:360
 msgid "Add Shared Calendar"
 msgstr "Otevřít sdílený kalendář"
 
-#: client/zarafa/calendar/CalendarContext.js:437
+#: client/zarafa/calendar/CalendarContext.js:441
 #: client/zarafa/common/recurrence/data/DayData.js:8
 msgid "Day"
 msgstr "Den"
 
-#: client/zarafa/calendar/CalendarContext.js:447
+#: client/zarafa/calendar/CalendarContext.js:451
 msgid "Workweek"
 msgstr "Pracovní týden"
 
-#: client/zarafa/calendar/CalendarContext.js:457
+#: client/zarafa/calendar/CalendarContext.js:461
 msgid "Week"
 msgstr "Týden"
 
-#: client/zarafa/calendar/CalendarContext.js:467
+#: client/zarafa/calendar/CalendarContext.js:471
 msgid "Month"
 msgstr "Měsíc"
 
-#: client/zarafa/calendar/CalendarContext.js:477
+#: client/zarafa/calendar/CalendarContext.js:481
 msgid "List"
 msgstr "Seznam"
 
-#: client/zarafa/calendar/CalendarContext.js:532
-#: client/zarafa/calendar/CalendarContext.js:534
+#: client/zarafa/calendar/CalendarContext.js:536
+#: client/zarafa/calendar/CalendarContext.js:538
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:65
 #: client/zarafa/calendar/dialogs/AppointmentPanel.js:79
 #: client/zarafa/common/ui/appointmentpanel/AppointmentBody.js:45
@@ -1717,37 +1719,38 @@ msgstr "Seznam"
 msgid "Appointment"
 msgstr "Termín"
 
-#: client/zarafa/calendar/CalendarContext.js:556
-#: client/zarafa/calendar/CalendarContext.js:558
+#: client/zarafa/calendar/CalendarContext.js:560
+#: client/zarafa/calendar/CalendarContext.js:562
 msgid "Meeting request"
 msgstr "Žádost o schůzku"
 
-#: client/zarafa/calendar/CalendarContext.js:580
-#: client/zarafa/calendar/CalendarContext.js:582
 #: client/zarafa/calendar/CalendarContext.js:584
+#: client/zarafa/calendar/CalendarContext.js:586
+#: client/zarafa/calendar/CalendarContext.js:588
 msgid "Print selected appointment"
 msgstr "Tisknout vybraný termín"
 
-#: client/zarafa/calendar/CalendarContext.js:592
-#: client/zarafa/calendar/CalendarContext.js:594
-#: client/zarafa/calendar/CalendarContext.js:595
+#: client/zarafa/calendar/CalendarContext.js:596
+#: client/zarafa/calendar/CalendarContext.js:598
+#: client/zarafa/calendar/CalendarContext.js:599
 msgid "Print overview"
 msgstr "Náhled tisku"
 
-#: client/zarafa/calendar/CalendarContext.js:623
+#: client/zarafa/calendar/CalendarContext.js:627
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:143
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:145
 #: client/zarafa/common/Actions.js:248 client/zarafa/common/Actions.js:271
 #: client/zarafa/common/Actions.js:273
-#: client/zarafa/contact/ContactContext.js:549
+#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:98
+#: client/zarafa/contact/ContactContext.js:483
 #: client/zarafa/contact/dialogs/ContactToolbar.js:93
 #: client/zarafa/contact/dialogs/ContactToolbar.js:95
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:77
 #: client/zarafa/contact/ui/ContactContextMenu.js:60
-#: client/zarafa/core/ui/MainToolbar.js:317
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:210
+#: client/zarafa/core/ui/MainToolbar.js:331
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:239
 #: client/zarafa/mail/MailContext.js:616
-#: client/zarafa/mail/ui/MailGridContextMenu.js:109
+#: client/zarafa/mail/ui/MailGridContextMenu.js:107
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:91
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:93
 #: client/zarafa/note/NoteContext.js:320
@@ -1755,21 +1758,21 @@ msgstr "Náhled tisku"
 #: client/zarafa/task/dialogs/TaskToolbar.js:118
 #: client/zarafa/task/dialogs/TaskToolbar.js:120
 #: client/zarafa/task/TaskContext.js:423
-#: client/zarafa/task/ui/TaskContextMenu.js:64
 msgid "Print"
 msgstr "Tisk"
 
-#: client/zarafa/calendar/CalendarContext.js:623
+#: client/zarafa/calendar/CalendarContext.js:627
 msgid "No appointment selected"
 msgstr "Nebyl vybrán termín"
 
-#: client/zarafa/calendar/CalendarContext.js:678
+#: client/zarafa/calendar/CalendarContext.js:682
 #: client/zarafa/calendar/KeyMapping.js:53
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:232
 #: client/zarafa/calendar/settings/SettingsCalendarCategory.js:30
 #: client/zarafa/calendar/ui/CalendarMainPanel.js:65
 #: client/zarafa/common/data/FolderContentTypes.js:74
 #: client/zarafa/common/data/FolderContentTypes.js:99
-#: server/includes/core/class.operations.php:901
+#: server/includes/core/class.operations.php:900
 msgid "Calendar"
 msgstr "Kalendář"
 
@@ -1812,29 +1815,29 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned."
 msgstr "Zdroje byly naplánovány."
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:316
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:315
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "Aktualizace bude odeslána všem příjemcům, přejete si pokračovat?"
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:373
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:380
 msgid "Send update to attendees"
 msgstr "Odeslat aktualizace účastníkům"
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:374
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:381
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
 msgstr "Změněn seznam účastníků, vyberte jednoho z následujících"
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:388
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:395
 msgid "Send updates to only added or deleted attendees."
 msgstr "Odeslat aktualizace pouze přidaným nebo odebraným účastníkům."
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:393
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:400
 msgid "Send updates to all attendees."
 msgstr "Odeslat aktualizace všem účastníkům."
 
-#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:426
+#: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:433
 msgid ""
 "One or more attendees you have invited are busy. Are you sure to invite?"
 msgstr ""
@@ -1932,19 +1935,19 @@ msgstr ""
 "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
 "organizatorem v případě aktualizace této žádosti o schůzku"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:346
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:344
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:115
 #: client/zarafa/calendar/ui/CalendarPanel.js:99
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:49
 msgid "Time"
 msgstr "Čas"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:352
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:350
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:121
 msgid "until"
 msgstr ""
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:391
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:389
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:198
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:199
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:201
@@ -1955,26 +1958,27 @@ msgstr ""
 msgid "Recurrence"
 msgstr "Opakování"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:422
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:420
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:181
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:240
 msgid "Reminder"
 msgstr "Připomínka"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:473
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:471
+#: client/zarafa/calendar/ui/CalendarContextMenu.js:147
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:101
-msgid "Busy Status"
-msgstr "Dostupnost"
+msgid "Show as"
+msgstr "Ukázat jako"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:514
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:512
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:156
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:129
 #: client/zarafa/common/ui/appointmentpanel/AppointmentBody.js:56
 msgid "Label"
 msgstr "Označení"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:564
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:578
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:562
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:576
 #: client/zarafa/calendar/printer/MeetingRenderer.js:50
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:49
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:417
@@ -1988,33 +1992,33 @@ msgstr "Označení"
 msgid "Attachments"
 msgstr "Přílohy"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:568
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:566
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:135
 msgid "Warning"
 msgstr "Varování"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:569
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:567
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:129
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:136
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Přílohy nemohou být modifikovány pro jedno opakování"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:619
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:617
 msgid "Type your message here..."
 msgstr "Zde napište svou zprávu..."
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:883
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:881
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Přejete si aktualizovat místo\"{0}\" novým místem \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
-#: client/zarafa/calendar/printer/DaysViewRenderer.js:85
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:1241
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:86
 msgid "jS F Y G:i"
 msgstr "j. F Y G:i"
 
-#: client/zarafa/calendar/dialogs/AppointmentTab.js:1243
+#: client/zarafa/calendar/dialogs/AppointmentTab.js:1241
 #: client/zarafa/common/delegates/data/DelegatePermissionProfiles.js:21
 #: client/zarafa/common/ui/DatePeriodField.js:42
 #: client/zarafa/common/ui/DatePeriodField.js:57
@@ -2023,11 +2027,9 @@ msgstr "j. F Y G:i"
 #: client/zarafa/common/ui/grid/Renderers.js:364
 #: client/zarafa/core/mapi/AppointmentLabels.js:110
 #: client/zarafa/core/mapi/Sensitivity.js:47
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:246
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:276
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:245
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:275
 #: client/zarafa/mail/data/MailFlags.js:49
-#: client/zarafa/task/ui/TaskGridColumnModel.js:134
-#: client/zarafa/task/ui/TaskGridColumnModel.js:143
 #: plugins/quickitems/js/QuickTaskWidget.js:69
 msgid "None"
 msgstr "Žádný"
@@ -2100,12 +2102,12 @@ msgstr "Uložit bez odeslání pozvánek příjemcům"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:109
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:111
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:100
-#: client/zarafa/mail/ui/MailGridContextMenu.js:217
+#: client/zarafa/mail/ui/MailGridContextMenu.js:215
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:70
 #: client/zarafa/note/ui/NoteContextMenu.js:82
 #: client/zarafa/task/dialogs/TaskToolbar.js:81
 #: client/zarafa/task/dialogs/TaskToolbar.js:83
-#: client/zarafa/task/ui/TaskContextMenu.js:91
+#: client/zarafa/task/ui/TaskContextMenu.js:81
 msgid "Delete"
 msgstr "Smazat"
 
@@ -2214,7 +2216,7 @@ msgstr "Označit tuto schůzku jako méně prioritní"
 #: client/zarafa/mail/attachitem/AttachMailColumnModel.js:90
 #: client/zarafa/mail/dialogs/MailOptionsMiscPanel.js:35
 #: client/zarafa/mail/ui/MailGridColumnModel.js:112
-#: client/zarafa/mail/ui/MailGridContextMenu.js:195
+#: client/zarafa/mail/ui/MailGridContextMenu.js:193
 #: client/zarafa/note/data/SearchFields.js:12
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:82
 #: client/zarafa/note/printer/NoteRenderer.js:24
@@ -2225,8 +2227,8 @@ msgstr "Označit tuto schůzku jako méně prioritní"
 #: client/zarafa/task/dialogs/TaskToolbar.js:212
 #: client/zarafa/task/dialogs/TaskToolbar.js:214
 #: client/zarafa/task/printer/TaskRenderer.js:42
-#: client/zarafa/task/ui/TaskContextMenu.js:83
-#: client/zarafa/task/ui/TaskGridColumnModel.js:156
+#: client/zarafa/task/ui/TaskContextMenu.js:73
+#: client/zarafa/task/ui/TaskGridColumnModel.js:116
 msgid "Categories"
 msgstr "Kategorie"
 
@@ -2282,8 +2284,8 @@ msgstr "Ukázat pouze pracovní dobu"
 
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:28
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:121
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:292
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:294
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:307
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:309
 msgid "Propose New Time"
 msgstr "Navrhnout nový čas"
 
@@ -2400,6 +2402,35 @@ msgid "Switch calendar range back and forth"
 msgstr "Přepnout rozsah kalendáře"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:235
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:71
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:65
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:69
+#: client/zarafa/common/freebusy/ui/TimelineView.js:1066
+#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:41
+#: client/zarafa/task/printer/TaskListViewRenderer.js:45
+msgid "l jS F Y"
+msgstr "l j. F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#: client/zarafa/calendar/printer/DaysViewRenderer.js:242
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:78
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:80
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:88
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:90
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:98
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:100
+#: client/zarafa/calendar/printer/WeekViewRenderer.js:108
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:76
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:83
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:90
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:97
+#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:104
+#: client/zarafa/calendar/ui/AbstractCalendarDaysView.js:49
+msgid "l jS F"
+msgstr "l j. F"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/printer/MeetingRenderer.js:27
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:206
 #: client/zarafa/task/printer/TaskRenderer.js:26
@@ -2442,7 +2473,7 @@ msgstr "Zdroje"
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:47
 #: client/zarafa/mail/dialogs/MailOptionsSettingsPanel.js:87
 #: client/zarafa/mail/printer/MailRenderer.js:30
-#: client/zarafa/task/ui/TaskGridColumnModel.js:187
+#: client/zarafa/task/ui/TaskGridColumnModel.js:126
 msgid "Sensitivity"
 msgstr "Důvěrnost"
 
@@ -2463,33 +2494,6 @@ msgstr "Důležitost"
 #: client/zarafa/task/printer/TaskRenderer.js:28
 msgid "l d/m/Y"
 msgstr "l d. m. Y"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:71
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:65
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:69
-#: client/zarafa/common/freebusy/ui/TimelineView.js:1066
-#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:41
-#: client/zarafa/task/printer/TaskListViewRenderer.js:45
-msgid "l jS F Y"
-msgstr "l j. F Y"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:78
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:80
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:88
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:90
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:98
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:100
-#: client/zarafa/calendar/printer/WeekViewRenderer.js:108
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:76
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:83
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:90
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:97
-#: client/zarafa/calendar/printer/WorkWeekViewRenderer.js:104
-#: client/zarafa/calendar/ui/AbstractCalendarDaysView.js:49
-msgid "l jS F"
-msgstr "l j. F"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:60
 msgid "General calendar settings"
@@ -2609,7 +2613,7 @@ msgstr "l"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/AbstractCalendarDaysView.js:38
-#: client/zarafa/calendar/ui/canvas/CalendarBoxView.js:371
+#: client/zarafa/calendar/ui/canvas/CalendarBoxView.js:363
 #: client/zarafa/core/DateRange.js:628
 msgid "jS"
 msgstr "j."
@@ -2641,14 +2645,14 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:94
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:226
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:228
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:240
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:242
 msgid "Accept"
 msgstr "Přijmout"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:103
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:248
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:250
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:263
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:265
 #: client/zarafa/common/freebusy/ui/FreebusyPanel.js:263
 #: client/zarafa/core/mapi/BusyStatus.js:61
 #: client/zarafa/core/mapi/ResponseStatus.js:66
@@ -2656,14 +2660,10 @@ msgid "Tentative"
 msgstr "Předběžně"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:112
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:270
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:272
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:285
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:287
 msgid "Decline"
 msgstr "Odmítnout"
-
-#: client/zarafa/calendar/ui/CalendarContextMenu.js:147
-msgid "Show as"
-msgstr "Ukázat jako"
 
 # 80%
 # 100%
@@ -2678,8 +2678,8 @@ msgstr "série"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:411
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:454
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:448
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:484
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:463
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:499
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
 
@@ -2715,11 +2715,9 @@ msgstr "Status schůzky"
 msgid "Sort by: Meeting Status"
 msgstr "Třídit podle: Stav schůzky"
 
-# 75%
-# 80%
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
-msgid "Sort by: Busy Status"
-msgstr "Třídit podle: Status dostupnosti"
+msgid "Sort by: Show as"
+msgstr ""
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:93
@@ -2727,7 +2725,7 @@ msgstr "Třídit podle: Status dostupnosti"
 #: client/zarafa/mail/ui/MailGridColumnModel.js:117
 #: client/zarafa/note/ui/NoteGridColumnModel.js:61
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:91
-#: client/zarafa/task/ui/TaskGridColumnModel.js:157
+#: client/zarafa/task/ui/TaskGridColumnModel.js:117
 msgid "Sort by: Categories"
 msgstr "Třídit podle: Kategorie"
 
@@ -2756,7 +2754,7 @@ msgid "Sort by: Label"
 msgstr "Třídit podle: Označení"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:138
-#: client/zarafa/task/ui/TaskGridColumnModel.js:239
+#: client/zarafa/task/ui/TaskGridColumnModel.js:178
 msgid "Sort by: Organizer"
 msgstr "Třídit podle: Organizátor"
 
@@ -2879,70 +2877,70 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Místo"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:161
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:163
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:164
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:177
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:179
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:180
 msgid "Remove From Calendar"
 msgstr "Odstranit z kalendáře"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:183
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:185
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:198
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:200
 msgid "Not Current"
 msgstr "Neaktuální"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:186
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:201
 msgid "Meeting Request is out of date"
 msgstr "Žádost o schůzku je již neaktuální"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:204
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:206
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:207
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:218
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:220
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:221
 msgid "No Response Required"
 msgstr "Odpověď není nutná"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:229
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:243
 msgid "Accept Meeting Request"
 msgstr "Přijmout žádost o schůzku"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:251
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:266
 msgid "Tentatively Accept Meeting Request"
 msgstr "Předběžně přijmout žádost o schůzku"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:273
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:288
 msgid "Decline Meeting Request"
 msgstr "Odmítnout žádost o schůzku"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:295
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:310
 msgid "Propose New Time for Meeting Request"
 msgstr "Navrhnout nový termín pro schůzku"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:313
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:315
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:316
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:328
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:330
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:331
 msgid "View All Proposals"
 msgstr "Přehled všech návrhů"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:334
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:336
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:349
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:351
 msgid "Accept Proposal"
 msgstr "Přijmout návrh"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:337
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:352
 msgid "Accept Proposed Time"
 msgstr "Přijmout navrhovaný čas"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:370
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:372
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:373
 #, fuzzy
 msgid "View in calendar"
 msgstr "Zobrazit více kalendářů"
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:392
 msgid "This meeting request is out-of-date and will now be deleted."
 msgstr "Tato žádost o schůzku není aktuální a nyní bude odstraněna."
 
-#: client/zarafa/calendar/ui/MeetingRequestButtons.js:397
+#: client/zarafa/calendar/ui/MeetingRequestButtons.js:412
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
@@ -3100,8 +3098,8 @@ msgstr ""
 
 # 100%
 #: client/zarafa/common/attachment/dialogs/AttachItemBaseRenderer.js:43
-#: client/zarafa/mail/data/Templates.js:39
-#: client/zarafa/mail/data/Templates.js:73
+#: client/zarafa/mail/data/Templates.js:41
+#: client/zarafa/mail/data/Templates.js:75
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:169
 #: client/zarafa/mail/printer/MailRenderer.js:26
 msgid "Cc"
@@ -3190,8 +3188,8 @@ msgid "Preview"
 msgstr "Náhled"
 
 #: client/zarafa/common/attachment/ui/AttachmentContextMenu.js:62
-#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:102
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:221
+#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:109
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:250
 #: client/zarafa/mail/ui/MailGridContextMenu.js:86
 msgid "Download"
 msgstr "Stáhnout"
@@ -3285,8 +3283,8 @@ msgstr "Pošta"
 
 #: client/zarafa/common/data/FolderContentTypes.js:76
 #: client/zarafa/common/data/FolderContentTypes.js:101
-#: client/zarafa/contact/ContactContext.js:481
-#: client/zarafa/contact/ContactContext.js:482
+#: client/zarafa/contact/ContactContext.js:415
+#: client/zarafa/contact/ContactContext.js:416
 #: client/zarafa/contact/dialogs/ContactContentPanel.js:29
 #: server/includes/download_message.php:304
 msgid "Contact"
@@ -3312,7 +3310,7 @@ msgid "Task"
 msgstr "Úkol"
 
 #: client/zarafa/common/data/FolderContentTypes.js:97
-#: server/includes/core/class.operations.php:909
+#: server/includes/core/class.operations.php:908
 msgid "Inbox"
 msgstr "Doručená pošta"
 
@@ -3799,15 +3797,15 @@ msgstr "Otevřít Položku"
 msgid "Dismiss"
 msgstr "Zavřít"
 
-#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:192
+#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:194
 msgid "Click Snooze to be reminded again in"
 msgstr "Klikněte na Odložit pro opakované připomenutí za"
 
-#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:221
+#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:223
 msgid "Snooze"
 msgstr "Odložit"
 
-#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:277
+#: client/zarafa/common/reminder/dialogs/ReminderPanel.js:279
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
@@ -3920,14 +3918,14 @@ msgstr "Třídit podle: Přijaté"
 #: client/zarafa/hierarchy/dialogs/FolderSizePanel.js:103
 #: client/zarafa/mail/ui/MailGridColumnModel.js:144
 #: client/zarafa/mail/ui/MailGridColumnModel.js:218
-#: client/zarafa/task/ui/TaskGridColumnModel.js:262
+#: client/zarafa/task/ui/TaskGridColumnModel.js:201
 msgid "Size"
 msgstr "Velikost"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:457
 #: client/zarafa/mail/ui/MailGridColumnModel.js:148
 #: client/zarafa/mail/ui/MailGridColumnModel.js:223
-#: client/zarafa/task/ui/TaskGridColumnModel.js:267
+#: client/zarafa/task/ui/TaskGridColumnModel.js:206
 msgid "Sort by: Size"
 msgstr "Třídit podle: Velikost"
 
@@ -3978,12 +3976,40 @@ msgid "has importance ..."
 msgstr "má důležitost ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
+msgid "has an attachment"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
 msgstr "je poslán ..."
 
-#: client/zarafa/common/rules/data/ConditionProfiles.js:29
+#: client/zarafa/common/rules/data/ConditionProfiles.js:32
 msgid "is sent only to me"
 msgstr "je poslán pouze mně"
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:35
+msgid "has my name in the Cc field"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:38
+msgid "has my name in the To or Cc field"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:41
+msgid "has sensitivity"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:44
+msgid "is received after"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:47
+msgid "is received before"
+msgstr ""
+
+#: client/zarafa/common/rules/data/ConditionProfiles.js:50
+msgid "has my name in the To field"
+msgstr ""
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4021,11 +4047,11 @@ msgstr "Přidat podmínku"
 msgid "Remove condition"
 msgstr "Odstranit podmínku"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:352
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:373
 msgid "Unknown condition"
 msgstr "Neznámá podmínka"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:353
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:374
 msgid "This condition for the current rule is unknown"
 msgstr "Tato podmínka pro aktuální pravidlo je neznámá"
 
@@ -4060,11 +4086,11 @@ msgid "Edit"
 msgstr "Upravit"
 
 #: client/zarafa/common/rules/dialogs/UserSelectionLink.js:19
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:443
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:445
 msgid "and"
 msgstr "a"
 
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:162
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:164
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
@@ -4072,7 +4098,7 @@ msgstr ""
 "Distribuční seznamy nejsou podporovány v pravidlech, chtěli byste nahradit "
 "distribuční seznam s jeho členy?"
 
-#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:302
+#: client/zarafa/common/rules/dialogs/UserSelectionLink.js:304
 #: client/zarafa/common/rules/dialogs/WordSelectionLink.js:19
 msgid "or"
 msgstr "nebo"
@@ -4116,11 +4142,9 @@ msgstr "Pravidlo již má nejvyšší prioritu."
 msgid "Rule already has lowest priority."
 msgstr "Pravidlo již má nejnižší prioritu."
 
-# 77%
-# 100%
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
-msgid "Add/Edit recipient"
-msgstr "Přidat/Upravit příjemce"
+msgid "Add/Edit sender"
+msgstr ""
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
 msgid "No send as address configured"
@@ -4230,7 +4254,8 @@ msgstr "IM adresa"
 
 #: client/zarafa/common/ui/ContextMainPanelToolbar.js:82
 #: client/zarafa/common/ui/ContextMainPanelToolbar.js:83
-#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:92
+#: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:93
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:234
 #: client/zarafa/mail/ui/MailGridContextMenu.js:100
 msgid "Copy/Move"
 msgstr "Kopírovat/Přesunout"
@@ -4243,25 +4268,10 @@ msgstr "Počáteční datum"
 
 #: client/zarafa/common/ui/DatePeriodField.js:55
 #: client/zarafa/common/ui/DateTimePeriodField.js:54
-#: client/zarafa/task/dialogs/TaskGeneralTab.js:143
+#: client/zarafa/mail/dialogs/MailFlagsPanel.js:108
 #: plugins/quickitems/js/QuickTaskWidget.js:65
 msgid "End date"
 msgstr "Konečné datum"
-
-#: client/zarafa/common/ui/grid/GridEditors.js:45
-#: client/zarafa/core/mapi/Importance.js:40
-msgid "Low"
-msgstr "Nízký"
-
-#: client/zarafa/common/ui/grid/GridEditors.js:46
-#: client/zarafa/core/mapi/Importance.js:42
-msgid "Normal"
-msgstr "Normální"
-
-#: client/zarafa/common/ui/grid/GridEditors.js:47
-#: client/zarafa/core/mapi/Importance.js:44
-msgid "High"
-msgstr "Vysoký"
 
 # 76%
 #: client/zarafa/common/ui/grid/GridPanel.js:352
@@ -4520,15 +4530,15 @@ msgid "None"
 msgstr "Žádný"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:69
-#: client/zarafa/core/BrowserWindowMgr.js:539
+#: client/zarafa/core/BrowserWindowMgr.js:596
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:161
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:185
 msgid "Open in new browser window"
 msgstr "Otevřit v novém okně prohlížeče"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:186
 msgid "Pop-Out"
 msgstr "Pop-out"
 
@@ -4545,7 +4555,7 @@ msgstr "Vyhledat v \"{0} - {1}\""
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:72
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:158
 #: client/zarafa/task/printer/TaskRenderer.js:31
-#: client/zarafa/task/ui/TaskGridColumnModel.js:213
+#: client/zarafa/task/ui/TaskGridColumnModel.js:152
 #: server/includes/mapi/class.taskrequest.php:886
 msgid "Status"
 msgstr "Stav"
@@ -4576,7 +4586,7 @@ msgstr "Datum dokončení"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:83
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:23
 #: client/zarafa/task/dialogs/TaskDetailTab.js:93
-#: client/zarafa/task/ui/TaskGridColumnModel.js:220
+#: client/zarafa/task/ui/TaskGridColumnModel.js:159
 #: server/includes/mapi/class.taskrequest.php:902
 msgid "Total Work"
 msgstr "Úhrn práce"
@@ -4584,7 +4594,7 @@ msgstr "Úhrn práce"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:86
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:24
 #: client/zarafa/task/dialogs/TaskDetailTab.js:101
-#: client/zarafa/task/ui/TaskGridColumnModel.js:227
+#: client/zarafa/task/ui/TaskGridColumnModel.js:166
 #: server/includes/mapi/class.taskrequest.php:903
 msgid "Actual Work"
 msgstr "Skutečná práce"
@@ -4592,7 +4602,7 @@ msgstr "Skutečná práce"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:89
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:28
 #: client/zarafa/task/dialogs/TaskDetailTab.js:116
-#: client/zarafa/task/ui/TaskGridColumnModel.js:248
+#: client/zarafa/task/ui/TaskGridColumnModel.js:187
 #: server/includes/mapi/class.taskrequest.php:912
 msgid "Mileage"
 msgstr "Vzdálenost"
@@ -4600,7 +4610,7 @@ msgstr "Vzdálenost"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:92
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:27
 #: client/zarafa/task/dialogs/TaskDetailTab.js:124
-#: client/zarafa/task/ui/TaskGridColumnModel.js:255
+#: client/zarafa/task/ui/TaskGridColumnModel.js:194
 #: server/includes/mapi/class.taskrequest.php:911
 msgid "Billing Information"
 msgstr "Fakturační informace"
@@ -4832,35 +4842,36 @@ msgstr "Otevřít sdílené kontakty"
 msgid "Business Cards"
 msgstr "Vizitky"
 
-#: client/zarafa/contact/ContactContext.js:397
-#: client/zarafa/contact/ContactContext.js:398
+#: client/zarafa/contact/ContactContext.js:375
+#: client/zarafa/contact/ContactContext.js:376
 msgid "Phone List"
 msgstr "Telefonní seznam"
 
-#: client/zarafa/contact/ContactContext.js:508
+#: client/zarafa/contact/ContactContext.js:442
 msgid "Add to contacts"
 msgstr "Přidat do kontaktů"
 
 # 77%
-#: client/zarafa/contact/ContactContext.js:526
-#: client/zarafa/contact/ContactContext.js:528
-#: client/zarafa/contact/ContactContext.js:530
+#: client/zarafa/contact/ContactContext.js:460
+#: client/zarafa/contact/ContactContext.js:462
+#: client/zarafa/contact/ContactContext.js:464
 msgid "Print selected contact"
 msgstr "Tisknout vybraný kontakt"
 
-#: client/zarafa/contact/ContactContext.js:549
+#: client/zarafa/contact/ContactContext.js:483
 msgid "No contact selected"
 msgstr "Nevybrán žádný kontakt"
 
-#: client/zarafa/contact/ContactContext.js:570
-#: client/zarafa/contact/ContactContext.js:572
+#: client/zarafa/contact/ContactContext.js:504
+#: client/zarafa/contact/ContactContext.js:506
 #: server/includes/download_message.php:307
 msgid "Distribution list"
 msgstr "Distribuční seznam"
 
-#: client/zarafa/contact/ContactContext.js:635
+#: client/zarafa/contact/ContactContext.js:569
 #: client/zarafa/contact/ui/ContactMainPanel.js:66
-#: server/includes/core/class.operations.php:905
+#: server/includes/core/class.mapisession.php:794
+#: server/includes/core/class.operations.php:904
 msgid "Contacts"
 msgstr "Kontakty"
 
@@ -5357,7 +5368,7 @@ msgstr "Změnit obrázek"
 msgid "Remove Picture"
 msgstr "Odstranit obrázek"
 
-#: client/zarafa/core/BrowserWindowMgr.js:540
+#: client/zarafa/core/BrowserWindowMgr.js:597
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -5366,7 +5377,7 @@ msgstr ""
 "okna z tohoto WebAppu."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
-#: server/includes/core/class.operations.php:3001
+#: server/includes/core/class.operations.php:2924
 #: server/includes/download_message.php:178
 #: server/includes/download_message.php:243
 #: server/includes/modules/class.contactitemmodule.php:358
@@ -5457,6 +5468,18 @@ msgstr "Telefonní pohovor"
 msgid "Free"
 msgstr "Volný"
 
+#: client/zarafa/core/mapi/Importance.js:40
+msgid "Low"
+msgstr "Nízký"
+
+#: client/zarafa/core/mapi/Importance.js:42
+msgid "Normal"
+msgstr "Normální"
+
+#: client/zarafa/core/mapi/Importance.js:44
+msgid "High"
+msgstr "Vysoký"
+
 #: client/zarafa/core/mapi/MeetingStatus.js:60
 #: server/includes/mapi/class.meetingrequest.php:1278
 #: server/includes/mapi/class.meetingrequest.php:1286
@@ -5472,12 +5495,12 @@ msgstr "Modrá"
 
 #: client/zarafa/core/mapi/NoteColor.js:36
 #: client/zarafa/mail/data/MailFlags.js:27
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:133
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:144
 msgid "Green"
 msgstr "Zelená"
 
 #: client/zarafa/core/mapi/NoteColor.js:39
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:98
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:109
 msgid "Pink"
 msgstr "Růžová"
 
@@ -5488,7 +5511,7 @@ msgstr "Bílá"
 
 #: client/zarafa/core/mapi/NoteColor.js:47
 #: client/zarafa/mail/data/MailFlags.js:22
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:123
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:134
 msgid "Yellow"
 msgstr "Žlutá"
 
@@ -5569,7 +5592,7 @@ msgid "Orange"
 msgstr "Oranžová"
 
 #: client/zarafa/core/themes/purple/js/ThemePurple.js:13
-#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:168
+#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:179
 msgid "Purple"
 msgstr "Fialová"
 
@@ -5580,11 +5603,6 @@ msgstr "Odhlásit"
 #: client/zarafa/core/ui/MainToolbar.js:248
 msgid "Switch view"
 msgstr "Přepnout náhled"
-
-#: client/zarafa/core/ui/MainToolbar.js:406
-#: client/zarafa/core/ui/MainToolbar.js:407
-msgid "Advanced find"
-msgstr "Pokročilé hledání"
 
 #: client/zarafa/core/ui/MainViewport.js:106
 msgid "Kopano"
@@ -5597,12 +5615,12 @@ msgstr "Odesílání"
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/core/ui/MessageContentPanel.js:38
 #: client/zarafa/mail/attachitem/AttachMailRenderer.js:19
-#: client/zarafa/mail/data/Templates.js:33
-#: client/zarafa/mail/data/Templates.js:65
+#: client/zarafa/mail/data/Templates.js:35
+#: client/zarafa/mail/data/Templates.js:67
 #: client/zarafa/mail/printer/MailRenderer.js:24
 #: client/zarafa/mail/ui/MailGridColumnModel.js:127
 #: client/zarafa/mail/ui/MailGridColumnModel.js:201
-#: server/includes/core/class.operations.php:4118
+#: server/includes/modules/class.itemmodule.php:876
 msgid "Sent"
 msgstr "Odesláno"
 
@@ -5649,12 +5667,12 @@ msgid "Expand hierarchy"
 msgstr ""
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
-#: client/zarafa/core/ui/NavigationPanel.js:196
+#: client/zarafa/core/ui/NavigationPanel.js:198
 msgid "Folders List"
 msgstr "Seznam složek"
 
 #: client/zarafa/core/ui/RecordContentPanel.js:79
-#: client/zarafa/core/ui/WelcomeViewport.js:110
+#: client/zarafa/core/ui/WelcomeViewport.js:119
 #: client/zarafa/settings/ui/SettingsCategory.js:191
 msgid "Saving"
 msgstr "Ukládání"
@@ -5735,31 +5753,31 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Není k dispozici oprávnění otevřít tuto složku."
 
-#: client/zarafa/hierarchy/data/HierarchyStore.js:797
+#: client/zarafa/hierarchy/data/HierarchyStore.js:811
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
 msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
 msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
 
-#: client/zarafa/hierarchy/data/HierarchyStore.js:799
+#: client/zarafa/hierarchy/data/HierarchyStore.js:813
 msgid "New Mail"
 msgstr "Nová zpráva"
 
-#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:213
+#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:221
 #: client/zarafa/settings/data/SettingsDefaultValues.js:117
 msgid "Favorites"
 msgstr "Oblíbené"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
-#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:234
+#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:242
 msgid "{0} in {1}"
 msgstr "{0} v {1}"
 
 # 100%
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
-#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:237
+#: client/zarafa/hierarchy/data/MAPIFolderRecord.js:245
 msgid "{0} of {1}"
 msgstr "{0} z {1}"
 
@@ -5812,7 +5830,7 @@ msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesContentPanel.js:24
-#: client/zarafa/hierarchy/ui/ContextMenu.js:258
+#: client/zarafa/hierarchy/ui/ContextMenu.js:247
 msgid "Properties"
 msgstr "Vlastnosti"
 
@@ -5828,11 +5846,11 @@ msgstr "Popis"
 msgid "Unread"
 msgstr "Nepřečtené"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:132
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:133
 msgid "Folder size"
 msgstr "Velikost složky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:165
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:166
 msgid "Folder containing {0} Items"
 msgstr "Složka obsahuje {0} položek"
 
@@ -5849,49 +5867,49 @@ msgstr "Není poskytnuto oprávnění"
 msgid "Profile"
 msgstr "Profil"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:197
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:196
 msgid "Create items"
 msgstr "Vytvořit položky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:201
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:200
 msgid "Read items"
 msgstr "Číst položky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:205
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:204
 msgid "Create subfolders"
 msgstr "Vytvořit podsložky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:220
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:219
 msgid "Folder permissions"
 msgstr "Oprávnění pro složky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:224
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:223
 msgid "Folder visible"
 msgstr "Viditelná složka"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:239
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:238
 msgid "Edit items"
 msgstr "Upravit položky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:251
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:281
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:250
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:280
 msgid "Own"
 msgstr "Vlastní"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:256
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:286
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:255
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:285
 msgid "All"
 msgstr "Všechny"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:269
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:268
 msgid "Delete items"
 msgstr "Odstranit položky"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:340
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
 msgid "User already exists"
 msgstr "Uživatel již existuje"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:342
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:341
 msgid "Group already exists"
 msgstr "Skupina již existuje"
 
@@ -6005,51 +6023,47 @@ msgid "Empty folder"
 msgstr "Vyprázdnit složku"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:152
-msgid "Add to favorites folder"
-msgstr "Přidat do složky Oblíbené"
-
-#: client/zarafa/hierarchy/ui/ContextMenu.js:166
 msgid "Close store"
 msgstr "Zavřít úložiště"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:178
+#: client/zarafa/hierarchy/ui/ContextMenu.js:164
 msgid "Close folder"
 msgstr "Zavřít složku"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:192
+#: client/zarafa/hierarchy/ui/ContextMenu.js:178
 #: client/zarafa/settings/SettingsContext.js:165
 msgid "Reload"
 msgstr "Znovu načíst"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:204
+#: client/zarafa/hierarchy/ui/ContextMenu.js:190
 msgid "Restore items"
 msgstr "Obnovit položky"
 
 # 76%
 # 100%
-#: client/zarafa/hierarchy/ui/ContextMenu.js:215
+#: client/zarafa/hierarchy/ui/ContextMenu.js:201
 #, fuzzy
 msgid "Select color"
 msgstr "Vybrat složku"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:234
+#: client/zarafa/hierarchy/ui/ContextMenu.js:223
 #, fuzzy
 msgid "Add to Favorites"
 msgstr "Přidat do složky Oblíbené"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:248
+#: client/zarafa/hierarchy/ui/ContextMenu.js:237
 #, fuzzy
 msgid "Remove From Favorites"
 msgstr "Odstranit z kalendáře"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:361
+#: client/zarafa/hierarchy/ui/ContextMenu.js:350
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
 msgstr ""
 "Určitě chcete navždy odstranit všechny položky a podsložky ve složce \"{0}\"?"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:363
+#: client/zarafa/hierarchy/ui/ContextMenu.js:352
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
@@ -6057,7 +6071,7 @@ msgstr ""
 "Určitě chcete odstranit složku \"{0}\" a přesunout její obsah do složky "
 "Odstraněné položky?"
 
-#: client/zarafa/hierarchy/ui/ContextMenu.js:405
+#: client/zarafa/hierarchy/ui/ContextMenu.js:394
 msgid "Are you sure you want to empty {0}?"
 msgstr "Opravdu chcete vyprázdnit {0}?"
 
@@ -6089,8 +6103,8 @@ msgstr "Třídit podle: Komu"
 msgid "Red"
 msgstr "Červená"
 
-#: client/zarafa/mail/data/Templates.js:24
-#: client/zarafa/mail/data/Templates.js:54
+#: client/zarafa/mail/data/Templates.js:26
+#: client/zarafa/mail/data/Templates.js:56
 msgid "Original message"
 msgstr "Původní zpráva"
 
@@ -6164,26 +6178,26 @@ msgstr "Přidat podpis k této zprávě"
 # 75%
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:186
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:188
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:116
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:118
-#: client/zarafa/mail/ui/MailGridContextMenu.js:225
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:142
+#: client/zarafa/mail/ui/MailGridContextMenu.js:223
 msgid "Options"
 msgstr "Možnosti"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:189
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:119
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:143
 msgid "Open options dialog"
 msgstr "Otevřít dialog možností"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:196
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:198
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:127
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:129
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:151
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:153
 msgid "Set flag"
 msgstr "Nastavit štítek"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:199
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:130
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:154
 msgid "Set flag on this email"
 msgstr "Nastavit štítek na tuto zprávu"
 
@@ -6278,18 +6292,18 @@ msgid "no subject"
 msgstr "žádný předmět"
 
 # 94%
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:93
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:101
 msgid "Delete this item."
 msgstr "Smazat tuto položku."
 
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:95
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:103
 msgid "Delete mail"
 msgstr ""
 
 # 94%
 # 76%
 # 100%
-#: client/zarafa/mail/dialogs/ShowMailToolbar.js:96
+#: client/zarafa/mail/dialogs/ShowMailToolbar.js:104
 #, fuzzy
 msgid "Delete this mail."
 msgstr "Smazat tuto položku."
@@ -6349,12 +6363,12 @@ msgid "Print single e-mail"
 msgstr "Tisknout jedinou zprávu"
 
 #: client/zarafa/mail/MailContextModel.js:135
-#: client/zarafa/mail/MailContextModel.js:204
+#: client/zarafa/mail/MailContextModel.js:206
 msgid "FW"
 msgstr "FW"
 
-#: client/zarafa/mail/MailContextModel.js:200
-#: client/zarafa/mail/MailContextModel.js:211
+#: client/zarafa/mail/MailContextModel.js:202
+#: client/zarafa/mail/MailContextModel.js:213
 msgid "RE"
 msgstr "RE"
 
@@ -6366,29 +6380,29 @@ msgstr "HTML"
 msgid "Plain Text"
 msgstr "Běžný text"
 
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:63
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:66
 msgid "Compose mail settings"
 msgstr "Vytvořit nastavení pošty"
 
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:69
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:72
 msgid "Compose mail in this format"
 msgstr "Vytvořit poštu v tomto formátu"
 
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:88
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:91
 msgid "Default font"
 msgstr ""
 
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:108
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:111
 msgid "Default font size"
 msgstr ""
 
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:128
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:131
 msgid "Always request a read receipt"
 msgstr "Vždy vyžádat potvrzení o přečtení"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
-#: client/zarafa/mail/settings/SettingsComposeWidget.js:139
+#: client/zarafa/mail/settings/SettingsComposeWidget.js:142
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr ""
 
@@ -6520,13 +6534,13 @@ msgstr "Třídit podle: Odeslané"
 #: client/zarafa/mail/ui/MailGridColumnModel.js:135
 #: client/zarafa/mail/ui/MailGridColumnModel.js:209
 #: client/zarafa/note/printer/NoteRenderer.js:23
-#: client/zarafa/task/ui/TaskGridColumnModel.js:199
+#: client/zarafa/task/ui/TaskGridColumnModel.js:138
 msgid "Modified"
 msgstr ""
 
 #: client/zarafa/mail/ui/MailGridColumnModel.js:142
 #: client/zarafa/mail/ui/MailGridColumnModel.js:216
-#: client/zarafa/task/ui/TaskGridColumnModel.js:204
+#: client/zarafa/task/ui/TaskGridColumnModel.js:143
 msgid "Sort by: Modified"
 msgstr ""
 
@@ -6543,23 +6557,23 @@ msgstr "Třídit podle: Štítku"
 msgid "Sort by: Flag Status"
 msgstr "Třídit podle: Štítku"
 
-#: client/zarafa/mail/ui/MailGridContextMenu.js:145
+#: client/zarafa/mail/ui/MailGridContextMenu.js:143
 msgid "Forward as Attachment"
 msgstr ""
 
-#: client/zarafa/mail/ui/MailGridContextMenu.js:173
+#: client/zarafa/mail/ui/MailGridContextMenu.js:171
 msgid "Mark Read"
 msgstr "Označit jako přečtené"
 
-#: client/zarafa/mail/ui/MailGridContextMenu.js:184
+#: client/zarafa/mail/ui/MailGridContextMenu.js:182
 msgid "Mark Unread"
 msgstr "Označit jako nepřečtené"
 
-#: client/zarafa/mail/ui/MailGridContextMenu.js:210
+#: client/zarafa/mail/ui/MailGridContextMenu.js:208
 msgid "Move to Junk Folder"
 msgstr "Přesunout do složky Nevyžádané"
 
-#: client/zarafa/mail/ui/MailGridContextMenu.js:283
+#: client/zarafa/mail/ui/MailGridContextMenu.js:281
 msgid "max. "
 msgstr ""
 
@@ -6797,34 +6811,38 @@ msgstr "Odstranit nastavení"
 msgid "About"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:37
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:22
 msgid "Inbox navigation"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:42
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:27
 msgid "I want to navigate through my items by using."
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:39
 msgid "Infinite Scroll"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:39
 msgid "WebApp automatically loads additional items when you scroll down"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:44
 #, fuzzy
 msgid "Pagination"
 msgstr "Organizace"
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:44
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:68
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
+msgid "Load items in blocks of {A}"
+msgstr ""
+
+#: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load {A} items per page."
 msgstr ""
 
@@ -6886,8 +6904,12 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: client/zarafa/settings/ui/SettingsPluginsWidget.js:235
+#: client/zarafa/settings/ui/SettingsPluginsWidget.js:236
 msgid "This plugin cannot be disabled"
+msgstr ""
+
+#: client/zarafa/settings/ui/SettingsPluginsWidget.js:238
+msgid "This plugin cannot be enabled"
 msgstr ""
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
@@ -6967,50 +6989,50 @@ msgstr "Nastavení '{0}' nelze upravovat"
 msgid "Version information"
 msgstr "Informace o verzi"
 
-#: client/zarafa/settings/ui/SettingsVersionWidget.js:27
+#: client/zarafa/settings/ui/SettingsVersionWidget.js:30
 msgid "WebApp"
 msgstr "WebApp"
 
-#: client/zarafa/settings/ui/SettingsVersionWidget.js:32
+#: client/zarafa/settings/ui/SettingsVersionWidget.js:33
 #, fuzzy
 msgid "Kopano Core"
 msgstr "Kopano"
 
-#: client/zarafa/settings/ui/SettingsVersionWidget.js:37 index.php:70
+#: client/zarafa/settings/ui/SettingsVersionWidget.js:36 index.php:75
 msgid "Server"
 msgstr "Server"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:56
-#: client/zarafa/task/ui/TaskGridColumnModel.js:56
+#: client/zarafa/task/ui/TaskGridColumnModel.js:48
 msgid "Sort by: Priority"
 msgstr "Třídit podle: Priority"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:76
-#: client/zarafa/task/ui/TaskGridColumnModel.js:218
+#: client/zarafa/task/ui/TaskGridColumnModel.js:157
 msgid "Sort by: Status"
 msgstr "Třídit podle: Stavu"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:79
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:20
 #: client/zarafa/task/data/SearchFields.js:27
-#: client/zarafa/task/ui/TaskGridColumnModel.js:138
+#: client/zarafa/task/ui/TaskGridColumnModel.js:106
 #: server/includes/mapi/class.taskrequest.php:882
 msgid "Due Date"
 msgstr "Datum dokončení"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:80
-#: client/zarafa/task/ui/TaskGridColumnModel.js:139
+#: client/zarafa/task/ui/TaskGridColumnModel.js:107
 msgid "Sort by: Due Date"
 msgstr "Třídit podle: Datum dokončení"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:84
 #: client/zarafa/task/printer/TaskListViewRenderer.js:31
-#: client/zarafa/task/ui/TaskGridColumnModel.js:174
+#: client/zarafa/task/ui/TaskGridColumnModel.js:121
 msgid "% Completed"
 msgstr "% Dokončeno"
 
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:86
-#: client/zarafa/task/ui/TaskGridColumnModel.js:176
+#: client/zarafa/task/ui/TaskGridColumnModel.js:123
 msgid "Sort by: Percent Completed"
 msgstr "Třídit podle: Dokončeno procent"
 
@@ -7031,6 +7053,11 @@ msgstr "Aktualizovat seznam"
 #: client/zarafa/task/dialogs/TaskDetailTab.js:180
 msgid "Create Unassigned Copy"
 msgstr "Vytvořit nepřidělenou kopii"
+
+#: client/zarafa/task/dialogs/TaskGeneralTab.js:143
+#: client/zarafa/task/printer/TaskListViewRenderer.js:34
+msgid "Due date"
+msgstr "Datum dokončení"
 
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:291
 msgid "Keep copy of task in task list"
@@ -7118,10 +7145,6 @@ msgstr "Označit tento kontakt jako soukromý."
 msgid "New task"
 msgstr ""
 
-#: client/zarafa/task/printer/TaskListViewRenderer.js:34
-msgid "Due date"
-msgstr "Datum dokončení"
-
 #: client/zarafa/task/printer/TaskRenderer.js:32
 msgid "Percent complete"
 msgstr "Dokončeno procent"
@@ -7193,64 +7216,64 @@ msgstr ""
 #: client/zarafa/task/TaskContext.js:490
 #: client/zarafa/task/ui/TaskMainPanel.js:67
 #: plugins/folderwidgets/js/TasksWidget.js:130
-#: server/includes/core/class.operations.php:917
+#: server/includes/core/class.operations.php:916
 msgid "Tasks"
 msgstr "Úkoly"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:96
+#: client/zarafa/task/ui/TaskGridColumnModel.js:75
 msgid "Reminder Time"
 msgstr "Čas připomínky"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:100
+#: client/zarafa/task/ui/TaskGridColumnModel.js:79
 msgid "Sort by: Reminder Time"
 msgstr "Třídit podle: Čas připomínky"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:111
+#: client/zarafa/task/ui/TaskGridColumnModel.js:90
 msgid "Sort by: Complete"
 msgstr "Třídit podle: Dokončené"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:130
+#: client/zarafa/task/ui/TaskGridColumnModel.js:102
 msgid "Sort by: Start Date"
 msgstr "Třídit podle: Počáteční datum"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:148
+#: client/zarafa/task/ui/TaskGridColumnModel.js:112
 msgid "Sort by: Owner"
 msgstr "Třídit podle: Vlastník"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:194
+#: client/zarafa/task/ui/TaskGridColumnModel.js:133
 msgid "Sort by: Company"
 msgstr "Třídit podle: Firma"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:206
+#: client/zarafa/task/ui/TaskGridColumnModel.js:145
 #: server/includes/mapi/class.taskrequest.php:898
 msgid "Date Completed"
 msgstr "Datum dokončení"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:211
+#: client/zarafa/task/ui/TaskGridColumnModel.js:150
 msgid "Sort by: Date Completed"
 msgstr "Třídit podle: Data dokončení"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:225
+#: client/zarafa/task/ui/TaskGridColumnModel.js:164
 msgid "Sort by: Total Work"
 msgstr "Třídit podle: Úhrn zakázek"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:232
+#: client/zarafa/task/ui/TaskGridColumnModel.js:171
 msgid "Sort by: Actual Work"
 msgstr "Třídit podle: Aktuální práce"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:241
+#: client/zarafa/task/ui/TaskGridColumnModel.js:180
 msgid "Assigned To"
 msgstr "Příděleno"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:246
+#: client/zarafa/task/ui/TaskGridColumnModel.js:185
 msgid "Sort by: Assignee"
 msgstr "Třídit podle: Přidělení"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:253
+#: client/zarafa/task/ui/TaskGridColumnModel.js:192
 msgid "Sort by: Mileage"
 msgstr "Třídit podle: Vzdálenosti"
 
-#: client/zarafa/task/ui/TaskGridColumnModel.js:260
+#: client/zarafa/task/ui/TaskGridColumnModel.js:199
 msgid "Sort by: Billing Information"
 msgstr "Třídit podle: Fakturační informace"
 
@@ -7259,163 +7282,163 @@ msgstr "Třídit podle: Fakturační informace"
 msgid "Loading tasks"
 msgstr "Načítání úkolů"
 
-#: client/zarafa/Zarafa.js:224
+#: client/zarafa/Zarafa.js:250
 msgid "The server reported an unknown error on your request."
 msgstr "Server na váš dotaz hlásí neznámou chybu."
 
-#: client/zarafa/Zarafa.js:228
+#: client/zarafa/Zarafa.js:254
 msgid "The server reported an unspecified error on your request."
 msgstr "Server na váš dotaz hlásí nespecifikovanou chybu."
 
-#: client/zarafa/Zarafa.js:258
+#: client/zarafa/Zarafa.js:284
 msgid "The session has expired, reauthentication is required."
 msgstr ""
 
-#: client/zarafa/Zarafa.js:263
+#: client/zarafa/Zarafa.js:289
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
 msgstr ""
 
-#: client/zarafa/Zarafa.js:275
+#: client/zarafa/Zarafa.js:301
 msgid "Do you wish to be redirected to the logon page?"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:300
+#: client/zarafa/Zarafa.js:326
 msgid "Session expired"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:300
+#: client/zarafa/Zarafa.js:326
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
 
-#: client/zarafa/Zarafa.js:332
+#: client/zarafa/Zarafa.js:358
 msgid "Connection problem"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:333
+#: client/zarafa/Zarafa.js:359
 msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:333
+#: client/zarafa/Zarafa.js:359
 msgid "Click to retry now"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:403
+#: client/zarafa/Zarafa.js:429
 msgid "Connection restored"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:403
+#: client/zarafa/Zarafa.js:429
 msgid "Connection with server has been restored"
 msgstr ""
 
 #. TRANSLATORS: Example: HTTP 404
-#: client/zarafa/Zarafa.js:425
+#: client/zarafa/Zarafa.js:451
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#: client/zarafa/Zarafa.js:429
+#: client/zarafa/Zarafa.js:455
 msgid "Invalid data received from the server"
 msgstr "Ze serveru přicházejí neplatné údaje"
 
-#: client/zarafa/Zarafa.js:487
+#: client/zarafa/Zarafa.js:513
 msgid "Missing store"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:488
+#: client/zarafa/Zarafa.js:514
 msgid "The default store is missing from the hierarchy."
 msgstr ""
 
-#: client/zarafa/Zarafa.js:490 client/zarafa/Zarafa.js:563
+#: client/zarafa/Zarafa.js:516 client/zarafa/Zarafa.js:589
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr ""
 
 # 100%
-#: client/zarafa/Zarafa.js:506
+#: client/zarafa/Zarafa.js:532
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Doručená pošta"
 
-#: client/zarafa/Zarafa.js:509
+#: client/zarafa/Zarafa.js:535
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:512
+#: client/zarafa/Zarafa.js:538
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:510
+#: client/zarafa/Zarafa.js:541
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Odstraněné položky"
 
 # 100%
-#: client/zarafa/Zarafa.js:518
+#: client/zarafa/Zarafa.js:544
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Kalendář"
 
 # 100%
-#: client/zarafa/Zarafa.js:521
+#: client/zarafa/Zarafa.js:547
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: client/zarafa/Zarafa.js:524
+#: client/zarafa/Zarafa.js:550
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr ""
 
 # 100%
-#: client/zarafa/Zarafa.js:527
+#: client/zarafa/Zarafa.js:553
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Žurnál"
 
 # 100%
-#: client/zarafa/Zarafa.js:530
+#: client/zarafa/Zarafa.js:556
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Poznámky"
 
 # 100%
-#: client/zarafa/Zarafa.js:533
+#: client/zarafa/Zarafa.js:559
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Úkoly"
 
-#: client/zarafa/Zarafa.js:536
+#: client/zarafa/Zarafa.js:562
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:559
+#: client/zarafa/Zarafa.js:585
 msgid "Missing folders"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:561
+#: client/zarafa/Zarafa.js:587
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: client/zarafa/Zarafa.js:632
+#: client/zarafa/Zarafa.js:658
 msgid "Loading model from server failed"
 msgstr "Selhalo načítání ze serveru"
 
-#: client/zarafa/Zarafa.js:824
+#: client/zarafa/Zarafa.js:853
 msgid "Out of Office currently on. Would you like to turn it off?"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:841
+#: client/zarafa/Zarafa.js:870
 msgid "Out of office off"
 msgstr ""
 
-#: client/zarafa/Zarafa.js:841
+#: client/zarafa/Zarafa.js:870
 msgid "Out of office has been turned off"
 msgstr ""
 
@@ -7554,55 +7577,55 @@ msgstr ""
 msgid "ZDeveloper"
 msgstr ""
 
-#: defaults.php:103
+#: defaults.php:114
 msgid "Charm pink"
 msgstr ""
 
-#: defaults.php:108
+#: defaults.php:119
 msgid "Cadmium red"
 msgstr ""
 
-#: defaults.php:113
+#: defaults.php:124
 msgid "Apricot"
 msgstr ""
 
-#: defaults.php:118
+#: defaults.php:129
 msgid "California"
 msgstr ""
 
-#: defaults.php:128
+#: defaults.php:139
 msgid "Soft green"
 msgstr ""
 
-#: defaults.php:138
+#: defaults.php:149
 msgid "Mint"
 msgstr ""
 
-#: defaults.php:143
+#: defaults.php:154
 msgid "Pearl aqua"
 msgstr ""
 
-#: defaults.php:148
+#: defaults.php:159
 msgid "Sky blue"
 msgstr ""
 
-#: defaults.php:153
+#: defaults.php:164
 msgid "Baby blue"
 msgstr ""
 
-#: defaults.php:158
+#: defaults.php:169
 msgid "Kopano blue"
 msgstr ""
 
-#: defaults.php:163
+#: defaults.php:174
 msgid "Mauve"
 msgstr ""
 
-#: defaults.php:173
+#: defaults.php:184
 msgid "Silver sand"
 msgstr ""
 
-#: index.php:78
+#: index.php:83
 msgid "You have been automatically logged out"
 msgstr "Byli jste automaticky odhlášeni"
 
@@ -7640,58 +7663,21 @@ msgstr ""
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
 #.
-#: server/includes/core/class.operations.php:946
+#: server/includes/core/class.operations.php:945
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s z %2$s"
-
-#: server/includes/core/class.operations.php:4021
-#: server/includes/modules/class.itemmodule.php:265
-msgid "Task Accepted:"
-msgstr "Úkol přijal:"
-
-#: server/includes/core/class.operations.php:4024
-#: server/includes/core/class.operations.php:4078
-#: server/includes/modules/class.itemmodule.php:267
-msgid "Task Declined:"
-msgstr "Úkol odmítl:"
-
-#: server/includes/core/class.operations.php:4027
-msgid "Task Request:"
-msgstr "Zadání úkolu:"
-
-#: server/includes/core/class.operations.php:4037
-#: server/includes/core/class.operations.php:4079
-msgid "Task Updated:"
-msgstr "Úkol aktualizován:"
-
-#: server/includes/core/class.operations.php:4037
-#: server/includes/core/class.operations.php:4079
-msgid "Task Completed:"
-msgstr "Úkol dokončen:"
-
-#: server/includes/core/class.operations.php:4116
-msgid "Your message did not reach some or all of the intended recipients"
-msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příjemcům"
-
-#: server/includes/core/class.operations.php:4119
-msgid "The following recipient(s) could not be reached"
-msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
 
 #: server/includes/core/class.settings.php:113
 #: server/includes/core/class.settings.php:148
 #: server/includes/core/class.settings.php:190
 #: server/includes/core/class.settings.php:232
-#: server/includes/core/class.settings.php:378
-#: server/includes/core/class.settings.php:513
+#: server/includes/core/class.settings.php:368
+#: server/includes/core/class.settings.php:503
 msgid "Settings object is not initialized"
 msgstr ""
 
-#: server/includes/core/class.settings.php:268
-msgid "Error opening settings property"
-msgstr "Chyba při otevírání nastavení vlastností"
-
-#: server/includes/core/class.settings.php:280
+#: server/includes/core/class.settings.php:270
 msgid "Error retrieving existing settings"
 msgstr "Chyba načítání současného nastavení"
 
@@ -7714,10 +7700,10 @@ msgstr ""
 msgid "Unknown MAPI Error"
 msgstr "Neznámá MAPI chyba: %s"
 
-#: server/includes/core/htmlfilter.php:1142
-#: server/includes/core/htmlfilter.php:1146
-#: server/includes/core/htmlfilter.php:1150
-#: server/includes/core/htmlfilter.php:1154
+#: server/includes/core/htmlfilter.php:1126
+#: server/includes/core/htmlfilter.php:1130
+#: server/includes/core/htmlfilter.php:1134
+#: server/includes/core/htmlfilter.php:1138
 msgid "This external link will open in a new window"
 msgstr "Tento externí odkaz se otevře v novém okně"
 
@@ -7924,11 +7910,11 @@ msgstr "Odloženo"
 msgid "hours"
 msgstr "hodin"
 
-#: server/includes/modules/class.addressbookitemmodule.php:144
+#: server/includes/modules/class.addressbookitemmodule.php:180
 msgid "Could not handle this type of object."
 msgstr "Nelze zpracovat tento typ objektu."
 
-#: server/includes/modules/class.addressbookitemmodule.php:152
+#: server/includes/modules/class.addressbookitemmodule.php:188
 msgid "Could not open this object."
 msgstr "Nelze otevřít tento objekt."
 
@@ -8157,6 +8143,17 @@ msgstr "Nelze přesunout složku"
 msgid "Could not copy folder"
 msgstr "Nelze zkopírovat složku"
 
+#: server/includes/modules/class.itemmodule.php:265
+#: server/includes/modules/class.taskitemmodule.php:351
+msgid "Task Accepted:"
+msgstr "Úkol přijal:"
+
+#: server/includes/modules/class.itemmodule.php:267
+#: server/includes/modules/class.taskitemmodule.php:183
+#: server/includes/modules/class.taskitemmodule.php:354
+msgid "Task Declined:"
+msgstr "Úkol odmítl:"
+
 #: server/includes/modules/class.itemmodule.php:305
 msgid "You have insufficient privileges to open this message."
 msgstr "Nemáte oprávnění otevřít tuto zprávu."
@@ -8262,6 +8259,14 @@ msgid_plural ""
 msgstr[0] "%s opakování této schůzky je v rozporu s jinou schůzkou."
 msgstr[1] "%s opakování této schůzky je v rozporu s jinou schůzkou."
 msgstr[2] "%s opakování této schůzky je v rozporu s jinou schůzkou."
+
+#: server/includes/modules/class.itemmodule.php:874
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příjemcům"
+
+#: server/includes/modules/class.itemmodule.php:877
+msgid "The following recipient(s) could not be reached"
+msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
 
 #: server/includes/modules/class.listmodule.php:127
 #: server/includes/modules/class.maillistmodule.php:94
@@ -8392,11 +8397,11 @@ msgstr "Nelze odložit připomínku. Můžete být upomenuti znovu."
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Nelze zrušit připomínku. Můžete být upomenuti znovu."
 
-#: server/includes/modules/class.resolvenamesmodule.php:344
+#: server/includes/modules/class.resolvenamesmodule.php:351
 msgid "You have insufficient privileges to perform this action."
 msgstr "Nemáte oprávnění provést tuto akci."
 
-#: server/includes/modules/class.resolvenamesmodule.php:346
+#: server/includes/modules/class.resolvenamesmodule.php:353
 msgid "Could not resolve user."
 msgstr ""
 
@@ -8421,6 +8426,32 @@ msgstr "Nelze nahrát pravidla."
 msgid "Could not save rules."
 msgstr "Nelze uložit pravidla."
 
+#: server/includes/modules/class.taskitemmodule.php:184
+#: server/includes/modules/class.taskitemmodule.php:367
+msgid "Task Updated:"
+msgstr "Úkol aktualizován:"
+
+#: server/includes/modules/class.taskitemmodule.php:184
+#: server/includes/modules/class.taskitemmodule.php:367
+msgid "Task Completed:"
+msgstr "Úkol dokončen:"
+
+#: server/includes/modules/class.taskitemmodule.php:357
+msgid "Task Request:"
+msgstr "Zadání úkolu:"
+
+#: server/includes/templates/login.php:48
+msgid "Welcome"
+msgstr ""
+
+#: server/includes/templates/login.php:53
+msgid "Password"
+msgstr ""
+
+#: server/includes/templates/login.php:60
+msgid "Sign in"
+msgstr ""
+
 #: server/includes/upload_attachment.php:225
 msgid "Could not upload attachment."
 msgstr "Nelze nahrát přílohu."
@@ -8441,32 +8472,32 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#: server/includes/util.php:499
+#: server/includes/util.php:501
 msgid "The maximum stack depth has been exceeded"
 msgstr "Maximální rozsah zásobníku byl překročen"
 
-#: server/includes/util.php:502
+#: server/includes/util.php:504
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Chyba kontrolního znaku, možné nesprávné kódování"
 
-#: server/includes/util.php:505
+#: server/includes/util.php:507
 msgid "Invalid or malformed JSON"
 msgstr "Neplatné nebo poškozené JSON"
 
-#: server/includes/util.php:508
+#: server/includes/util.php:510
 msgid "Syntax error"
 msgstr "Syntaktická chyba"
 
-#: server/includes/util.php:511
+#: server/includes/util.php:513
 #, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Chyba kontrolního znaku, možné nesprávné kódování"
 
-#: server/includes/util.php:516
+#: server/includes/util.php:518
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Chyba: - %s"
 
-#: server/includes/util.php:516
+#: server/includes/util.php:518
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Došlo k problému při kódování/dekódování JSON údajů."
