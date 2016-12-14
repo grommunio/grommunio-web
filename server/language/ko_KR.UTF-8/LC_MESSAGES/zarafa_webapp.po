@@ -7,25 +7,26 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-08 13:28+0200\n"
-"PO-Revision-Date: 2012-03-20 13:23+0200\n"
-"Last-Translator: Anonymous Pootle User\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ko\n"
+"PO-Revision-Date: 2016-10-06 21:36+0000\n"
+"Last-Translator: Nobuyoshi <nobuyoshi.kumada@actplex.com>\n"
+"Language-Team: Korean <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/ko/>\n"
+"Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.1.5\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
 msgid "Wk"
-msgstr ""
+msgstr "주"
 
 #: client/extjs-mod/Ext.form.DateField.js:81
 #: client/zarafa/common/ui/grid/Renderers.js:540
 msgid "Now"
-msgstr ""
+msgstr "지금"
 
 #: client/extjs-mod/Ext.form.VTypes.js:26
 msgid "Value must be between 0% to 100%"

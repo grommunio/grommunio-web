@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-08 11:56+0200\n"
-"PO-Revision-Date: 2016-09-07 08:19+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2016-12-07 11:02+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: English (United States) "
 "<http://translate.kopano.io/projects/kopano/kopano-webapp/en_US/>\n"
 "Language: en_US\n"
@@ -2016,7 +2016,7 @@ msgstr ""
 #: plugins/quickitems/js/QuickNoteWidget.js:49
 #: plugins/quickitems/js/QuickTaskWidget.js:98
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:71
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:73
@@ -5449,7 +5449,7 @@ msgstr ""
 #: client/zarafa/core/ui/RecordContentPanel.js:86
 #: client/zarafa/settings/ui/SettingsCategory.js:229
 msgid "Saved"
-msgstr ""
+msgstr "Saved"
 
 #: client/zarafa/core/ui/RecordContentPanel.js:86
 #: client/zarafa/settings/ui/SettingsCategory.js:229

@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-08 13:28+0200\n"
-"PO-Revision-Date: 2015-11-25 08:14+0200\n"
+"PO-Revision-Date: 2016-10-23 19:11+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nb\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
@@ -41,9 +42,8 @@ msgstr "Tallet må være høyere enn null"
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
-#, fuzzy
 msgid "More options"
-msgstr "Meldingsalternativer"
+msgstr "Flere valg"
 
 #: client/extjs-mod/Ext.util.Format.js:20
 msgid "{0} byte"
@@ -217,7 +217,7 @@ msgstr "Siste side"
 #: client/zarafa/core/ui/MainToolbar.js:389
 #: client/zarafa/core/ui/MainToolbar.js:390
 msgid "Refresh"
-msgstr "Oppdater"
+msgstr "Oppdatere"
 
 #: client/extjs-mod/Translations.js:175 client/zarafa/today/TodayContext.js:110
 msgid "Today"
@@ -474,7 +474,7 @@ msgstr "(Ingen)"
 #: client/zarafa/mail/dialogs/MailFlagsContentPanel.js:42
 #: client/zarafa/mail/dialogs/MailViewOptionsContentPanel.js:34
 msgid "Ok"
-msgstr "Greit"
+msgstr "Ok"
 
 #: client/extjs-mod/Translations.js:284
 msgid "Yes"
@@ -941,7 +941,7 @@ msgstr "Du må velge en bruker."
 
 #: client/zarafa/addressbook/ui/AddressBookContextMenu.js:52
 msgid "Select"
-msgstr "Merk"
+msgstr "Velg"
 
 #: client/zarafa/addressbook/ui/AddressBookContextMenu.js:59
 #: client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:51
@@ -1012,9 +1012,8 @@ msgstr "Brukernavn"
 
 # 82%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:68
-#, fuzzy
 msgid "Sort by: Username"
-msgstr "Sorter på: filnavn"
+msgstr "Sorter på: brukernavn"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:76
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
@@ -1030,9 +1029,8 @@ msgid "Last Name"
 msgstr "Etternavn"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:84
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Sorter på: navn"
+msgstr "Sorter på: Etternavn"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:92
 msgid "Sort by: Department"
@@ -1047,9 +1045,8 @@ msgid "Sort by: Office Phone"
 msgstr "Sorter på: kontortelefon"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:107
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Sorter på: stilling"
+msgstr "Sorter på: Mobilnummer"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:112
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
@@ -1091,9 +1088,8 @@ msgstr "Sorter på: faks"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:9
-#, fuzzy
 msgid "Any date"
-msgstr "Sluttdato"
+msgstr "Alle datoer"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:12
 msgid "Past week"
@@ -1120,9 +1116,8 @@ msgstr "Forrige år"
 # 87%
 # 100%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:27
-#, fuzzy
 msgid "Custom date"
-msgstr "Forfallssdato"
+msgstr "Selvvalgt dato"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:52
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:53
@@ -1196,48 +1191,40 @@ msgid "Current folder"
 msgstr "Gjeldende mappe"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:169
-#, fuzzy
 msgid "Show.."
-msgstr "Vis"
+msgstr "Vis..."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:181
-#, fuzzy
 msgid "Mails"
 msgstr "E-post"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:184
-#, fuzzy
 msgid "Calendar items"
 msgstr "Kalenderelementer"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:187
-#, fuzzy
 msgid "Contact items"
 msgstr "Kontaktelementer"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:190
-#, fuzzy
 msgid "Task items"
 msgstr "Oppgaveelementer"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:193
-#, fuzzy
 msgid "Note items"
 msgstr "Notatelementer"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:211
 msgid "Filter.."
-msgstr ""
+msgstr "Filter.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:222
-#, fuzzy
 msgid "Unread items"
-msgstr "Lese elementer"
+msgstr "Uleste elementer"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:225
-#, fuzzy
 msgid "With attachments"
-msgstr "Lagre vedlegg"
+msgstr "Med vedlegg"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:242
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:49
@@ -1279,9 +1266,8 @@ msgid "To"
 msgstr "Til"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:302
-#, fuzzy
 msgid "Search.."
-msgstr "Mars"
+msgstr "Søk.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:313
 #: client/zarafa/calendar/data/SearchFields.js:16
@@ -1290,7 +1276,6 @@ msgid "Sender"
 msgstr "Avsender"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:316
-#, fuzzy
 msgid "Recipients"
 msgstr "Mottakere"
 
@@ -1333,9 +1318,8 @@ msgstr "Emne"
 
 # 100%
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:322
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "Vedlegg"
+msgstr "Tekst & Vedlegg"
 
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:39
 msgid "Search results - \"{0}\""
@@ -1945,6 +1929,8 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Vennligst merk at alle endringer du gjør vil bli overskrevet når denne "
+"møteinnkallelsen blir oppdatert av møtearrangøren"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:346
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:115
@@ -1956,7 +1942,7 @@ msgstr "Tidspunkt"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:352
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:121
 msgid "until"
-msgstr ""
+msgstr "til"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:391
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:198
@@ -2017,7 +2003,7 @@ msgstr "Vedlegg kan ikke endres for en enkelt gjentakelse"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:619
 msgid "Type your message here..."
-msgstr ""
+msgstr "Skiv din melding her..."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:883
 msgid ""
@@ -2273,9 +2259,8 @@ msgid "Mark this appointment as private"
 msgstr "Marker denne avtalen som privat"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:439
-#, fuzzy
 msgid "Save meeting request and close dialog"
-msgstr "Lagre oppgave og lukk dialogboksen"
+msgstr "Lagre møteinnkallelse og lukk dialogboksen"
 
 #: client/zarafa/calendar/dialogs/CounterProposalGrid.js:49
 msgid "Proposed Date and Time"
@@ -2407,7 +2392,7 @@ msgstr "Ny avtale"
 #: client/zarafa/hierarchy/KeyMapping.js:29 client/zarafa/mail/KeyMapping.js:29
 #: client/zarafa/note/KeyMapping.js:29 client/zarafa/task/KeyMapping.js:29
 msgid "Creating an item"
-msgstr "Lager et element"
+msgstr "Oppretting av element"
 
 #: client/zarafa/calendar/KeyMapping.js:40
 msgid "New meeting request"
@@ -2703,7 +2688,6 @@ msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:41
-#, fuzzy
 msgid "All Day"
 msgstr "Heldagshendelse"
 
@@ -2715,12 +2699,10 @@ msgstr "Sorter på: heldags"
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:46
 #: client/zarafa/mail/ui/MailGridColumnModel.js:77
 #: client/zarafa/mail/ui/MailGridColumnModel.js:172
-#, fuzzy
 msgid "Icon"
 msgstr "Ikoner"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:57
-#, fuzzy
 msgid "Recurring"
 msgstr "Regelmessighet"
 
@@ -2955,9 +2937,8 @@ msgstr "Godta foreslått tidspunkt"
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
-#, fuzzy
 msgid "View in calendar"
-msgstr "Vis flere kalendere som"
+msgstr "Vis i kalender"
 
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
 msgid "This meeting request is out-of-date and will now be deleted."
@@ -4476,7 +4457,7 @@ msgstr "Du svarte på denne meldingen {0}."
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:173
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr "Du videresendte denne meldingen på {0}."
+msgstr "Du videresendte denne meldingen {0}."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:310
 msgid ""
@@ -4528,13 +4509,13 @@ msgstr "Ingen"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:161
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Åpne i nytt nettleservindu"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
 msgid "Pop-Out"
-msgstr ""
+msgstr "Sprett-ut"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
@@ -5117,7 +5098,7 @@ msgstr "Legg til ny"
 
 #: client/zarafa/contact/dialogs/DistlistNotesTab.js:36
 msgid "Type your note here..."
-msgstr ""
+msgstr "Skriv ditt notat her..."
 
 #: client/zarafa/contact/KeyMapping.js:28
 msgid "New contact"
@@ -5378,6 +5359,8 @@ msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
+"Din nettleser ser ut til å ha blokkert en eller flere pop-ups. Vennligst "
+"endre din nettlesers innstillinger slik at pop-ups tillates fra WebApp."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
 #: server/includes/core/class.operations.php:3001
@@ -5570,17 +5553,16 @@ msgstr "Lukk"
 
 #: client/zarafa/core/themes/dark/js/ThemeDark.js:12
 msgid "Dark"
-msgstr ""
+msgstr "Mørk"
 
 # 75%
 #: client/zarafa/core/themes/highcontrast/js/ThemeHighContrast.js:12
-#, fuzzy
 msgid "High Contrast"
-msgstr "Ofte brukte kontakter"
+msgstr "Høykontrast"
 
 #: client/zarafa/core/themes/lime/js/ThemeLime.js:15
 msgid "Lime"
-msgstr ""
+msgstr "Limegrønn"
 
 #: client/zarafa/core/themes/orange/js/ThemeOrange.js:13
 #: client/zarafa/mail/data/MailFlags.js:32
@@ -5661,13 +5643,12 @@ msgid "Not all recipients could be resolved"
 msgstr "Ikke alle mottakere kunne løses"
 
 #: client/zarafa/core/ui/NavigationPanel.js:133
-#, fuzzy
 msgid "Collapse hierarchy"
-msgstr "Kunne ikke laste hierarkiet."
+msgstr "Minimer hierarki"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Utvid hierarki"
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
 #: client/zarafa/core/ui/NavigationPanel.js:196
@@ -5729,11 +5710,11 @@ msgstr "Ingen miniprogram er installert."
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:77
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Minimer miniprogrampanel"
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:78
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Utvid miniprogrampanel"
 
 #: client/zarafa/core/Util.js:697
 msgid "Your changes will be lost if you leave this page now."
@@ -5841,7 +5822,7 @@ msgstr "Egenskaper"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:83
 msgid "Type"
-msgstr "Mappen inneholder:"
+msgstr "Type"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesGeneralTab.js:93
 msgid "Description"
@@ -5911,7 +5892,7 @@ msgstr "Alle"
 # 92%
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:269
 msgid "Delete items"
-msgstr "Slett elementer"
+msgstr "Slette elementer"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:340
 msgid "User already exists"
@@ -6044,7 +6025,7 @@ msgstr "Lukk mappe"
 #: client/zarafa/hierarchy/ui/ContextMenu.js:192
 #: client/zarafa/settings/SettingsContext.js:165
 msgid "Reload"
-msgstr "Last pånytt"
+msgstr "Last inn på nytt"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:204
 msgid "Restore items"
@@ -6055,14 +6036,12 @@ msgid "Select color"
 msgstr "Velg farge"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:234
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Legg til favoritt-mapper"
+msgstr "Legg til i favoritt-mapper"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:248
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Fjern fra kalender"
+msgstr "Fjern fra favoritter"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:361
 msgid ""
@@ -6134,7 +6113,7 @@ msgstr "Melding lot seg ikke lagre."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
 msgid "Message Saved at {0}."
-msgstr "Melding lagret klokken {0}"
+msgstr "Melding lagret klokken {0}."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
 msgid "g:i A"
@@ -6450,34 +6429,31 @@ msgstr "Plassering av forhåndsvisningsrute"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:63
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "Lukk original melding etter at du har svart eller videresendt den"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:78
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Åpne eller rediger en e-post"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:89
-#, fuzzy
 msgid "WebApp tab"
-msgstr "WebApp"
+msgstr "WebApp fane"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:94
-#, fuzzy
 msgid "Browser window"
-msgstr "Bla gjennom"
+msgstr "Nettleservindu"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:48
 msgid "I am currently in the office"
 msgstr "Jeg er på kontoret"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:69
-#, fuzzy
 msgid "I am out of the office from"
 msgstr "Jeg er fraværende"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:106
 msgid "I will be back on"
-msgstr ""
+msgstr "Jeg er tilbake på"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:170
 msgid "AutoReply only once to each sender with the following text"
@@ -6491,6 +6467,8 @@ msgstr "Jeg er ikke på kontoret."
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
+"Tidspunktet du har oppgitt er før starten på ditt fravær. Vennligst oppgi "
+"nytt tidspunkt."
 
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:62
 msgid "Signatures"
@@ -6538,9 +6516,8 @@ msgstr "Sorter på: endret"
 
 #: client/zarafa/mail/ui/MailGridColumnModel.js:151
 #: client/zarafa/mail/ui/MailGridColumnModel.js:225
-#, fuzzy
 msgid "Flag Status"
-msgstr "Statusrapport"
+msgstr "Flaggstatus"
 
 # 75%
 #: client/zarafa/mail/ui/MailGridColumnModel.js:157
@@ -6748,7 +6725,7 @@ msgstr "Innstillinger"
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:25
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:140
 msgid "Basic"
-msgstr ""
+msgstr "Standard"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:73
 msgid "Account information - {0}"
@@ -6764,7 +6741,7 @@ msgstr "Oppstartsmappe"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:143
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:174
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:163
@@ -6810,27 +6787,22 @@ msgid "I want to navigate through my items by using."
 msgstr "Jeg vil navigerer i mine elementer ved å bruke."
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
-#, fuzzy
 msgid "Infinite Scroll"
-msgstr "Ubegrenset rulling "
+msgstr "Ubegrenset rulling"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
-#, fuzzy
 msgid "WebApp automatically loads additional items when you scroll down"
-msgstr "(WebApp laster automatisk ytterligere elementer når du ruller nedover)"
+msgstr "WebApp laster automatisk ytterligere elementer når du ruller nedover"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
-#, fuzzy
 msgid "Pagination"
-msgstr "Paginering "
+msgstr "Paginering"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
-#, fuzzy
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
-msgstr ""
-"(WebApp viser elementer på enkeltsider og du kan bla deg gjennom disse)"
+msgstr "WebApp viser elementer på enkeltsider og du kan bla deg gjennom disse"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:68
 msgid "Load {A} items per page."
@@ -6842,24 +6814,20 @@ msgid "Keyboard Shortcuts"
 msgstr "Hurtigtaster"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:140
-#, fuzzy
 msgid "Part of basic keyboard shortcuts"
-msgstr "Skru på hurtigtaster"
+msgstr "En del av standard-hurtigtast oppsettet"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:36
-#, fuzzy
 msgid "Keyboard shortcuts off"
-msgstr "Hurtigtaster"
+msgstr "Hurtigtaster skrudd av"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:41
-#, fuzzy
 msgid "Basic keyboard shortcuts on"
-msgstr "Hurtigtaster"
+msgstr "Standard-hurtigtaster skrudd på"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:46
-#, fuzzy
 msgid "All keyboard shortcuts on"
-msgstr "Hurtigtaster"
+msgstr "Alle hurtigtaster skrudd på"
 
 #: client/zarafa/settings/ui/SettingsMainPanel.js:118
 msgid "Apply"
@@ -6992,9 +6960,8 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:32
-#, fuzzy
 msgid "Kopano Core"
-msgstr "Kopanoblå"
+msgstr "Kopano Core"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:37 index.php:70
 msgid "Server"
@@ -7016,7 +6983,7 @@ msgstr "Sorter på: status"
 #: client/zarafa/task/ui/TaskGridColumnModel.js:138
 #: server/includes/mapi/class.taskrequest.php:882
 msgid "Due Date"
-msgstr "Forfallssdato"
+msgstr "Forfallsdato"
 
 # 84%
 # 76%
@@ -7710,24 +7677,21 @@ msgid "Error retrieving existing settings"
 msgstr "Feil ved henting av eksisterende innstillinger"
 
 #: server/includes/core/class.webappauthentication.php:83
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
 #: server/includes/core/class.webappauthentication.php:85
-#, fuzzy
 msgid "Cannot connect to Kopano Core."
-msgstr "Kunne ikke koble til Kopano server."
+msgstr "Kunne ikke koble til Kopano Core."
 
 #: server/includes/core/class.webappauthentication.php:87
 msgid "Logon failed, another session already exists."
 msgstr "Pålogging mislyktes, en annen økt finnes allerede."
 
 #: server/includes/core/class.webappauthentication.php:91
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Ukjent MAPI feil: %s"
+msgstr "Ukjent MAPI feil"
 
 #: server/includes/core/htmlfilter.php:1142
 #: server/includes/core/htmlfilter.php:1146
@@ -7789,9 +7753,8 @@ msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
 #: server/includes/mapi/class.mapiexception.php:29
-#, fuzzy
 msgid "Can not connect to Kopano Core."
-msgstr "Kunne ikke koble til Kopano server."
+msgstr "Kunne ikke koble til Kopano Core."
 
 #: server/includes/mapi/class.mapiexception.php:31
 msgid "Can not open object with provided id."
@@ -8032,9 +7995,8 @@ msgid "Could not load folder properties."
 msgstr "Kunne ikke laste inn mappeegenskaper."
 
 #: server/includes/modules/class.hierarchymodule.php:282
-#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "Kunne ikke legge mappen til dine Favoritter."
+msgstr "Kunne ikke fjerne mappen fra Favoritter."
 
 # 75%
 # 88%
@@ -8155,13 +8117,12 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Du har ikke tilstrekkelige rettigheter til å åpne denne meldingen."
 
 #: server/includes/modules/class.itemmodule.php:307
-#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
-"Kunne ikke finne meldingen, enten så har den blitt flyttet er så har den "
-"blitt slettet."
+"Kunne ikke finne meldingen, enten så har den blitt flyttet eller slettet, "
+"eller så har du ikke tillatelse til å åpne meldingen."
 
 #: server/includes/modules/class.itemmodule.php:309
 msgid "Could not open message."
@@ -8202,10 +8163,9 @@ msgstr ""
 "Du har ikke tilstrekkelige rettigheter til å fjerne elementer fra kalenderen."
 
 #: server/includes/modules/class.itemmodule.php:356
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å lagre elementer i denne mappen"
+"Du har ikke tilstrekkelige rettigheter til å slette elementer i denne mappen"
 
 #: server/includes/modules/class.itemmodule.php:361
 msgid "Could not resolve conflict."
@@ -8480,9 +8440,8 @@ msgid "Syntax error"
 msgstr "Syntax feil"
 
 #: server/includes/util.php:511
-#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Kontrolltegnfeil, trolig feil omkoding"
+msgstr "Feilformatert UTF-8 tegn, muligens feilkodet"
 
 #: server/includes/util.php:516
 #, php-format

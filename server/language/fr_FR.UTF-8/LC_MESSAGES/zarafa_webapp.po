@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-08 13:28+0200\n"
-"PO-Revision-Date: 2012-08-11 14:11+0200\n"
-"Last-Translator: Pierrick <pierrick@Kopano.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fr\n"
+"PO-Revision-Date: 2016-10-14 07:30+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/fr/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
@@ -593,7 +594,7 @@ msgstr "G:i"
 #: client/zarafa/hierarchy/dialogs/SharedFolderPanel.js:62
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:153
 msgid "Name"
-msgstr "Nom"
+msgstr "Prénom"
 
 #: client/extjs-mod/Translations.js:345
 #: client/zarafa/settings/ui/SettingsTreePanel.js:63
@@ -3913,7 +3914,7 @@ msgstr[1] ""
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:386
 #: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:52
 msgid "Sort by: Name"
-msgstr "Trier par : Nom"
+msgstr "Trier par: Prénom"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:391
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:444

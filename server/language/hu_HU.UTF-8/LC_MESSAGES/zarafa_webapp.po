@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-08 11:56+0200\n"
-"PO-Revision-Date: 2016-08-15 20:58+0000\n"
+"PO-Revision-Date: 2016-11-09 07:54+0000\n"
 "Last-Translator: Zoltan <zoltan.kiss@serverside.hu>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: hu\n"
+"Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/hu/>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
@@ -41,39 +42,38 @@ msgstr "Az értéknek nagyobbnak kell lennie, mint nulla"
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
-#, fuzzy
 msgid "More options"
-msgstr "Üzenet beállítások"
+msgstr "További lehetőségek"
 
 #: client/extjs-mod/Ext.util.Format.js:20
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} bájt"
+msgstr[1] "{0} bájt"
 
 #: client/extjs-mod/Ext.util.Format.js:25
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
 
 #: client/extjs-mod/Ext.util.Format.js:30
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
 
 #: client/extjs-mod/Ext.util.Format.js:35
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
 
 #: client/extjs-mod/Ext.util.Format.js:39
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
 
 #: client/extjs-mod/Ext.util.Format.js:68
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:354
@@ -89,7 +89,7 @@ msgstr[1] "{0} perc"
 msgid "{0} hour"
 msgid_plural "{0} hours"
 msgstr[0] "{0} óra"
-msgstr[1] "{0} órák"
+msgstr[1] "{0} óra"
 
 #: client/extjs-mod/Ext.util.Format.js:82
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:344
@@ -101,8 +101,8 @@ msgstr[1] "{0} nap"
 #: client/extjs-mod/Ext.util.Format.js:88
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} hét"
+msgstr[1] "{0} hét"
 
 #: client/extjs-mod/Translations.js:14
 msgid "The quick brown fox jumps over the lazy dog"
@@ -110,31 +110,31 @@ msgstr "Árvíztűrő tükörfúrógép"
 
 #: client/extjs-mod/Translations.js:135
 msgid "Sunday"
-msgstr "Vasárnap"
+msgstr "vasárnap"
 
 #: client/extjs-mod/Translations.js:136
 msgid "Monday"
-msgstr "Hétfő"
+msgstr "hétfő"
 
 #: client/extjs-mod/Translations.js:137
 msgid "Tuesday"
-msgstr "Kedd"
+msgstr "kedd"
 
 #: client/extjs-mod/Translations.js:138
 msgid "Wednesday"
-msgstr "Szerda"
+msgstr "szerda"
 
 #: client/extjs-mod/Translations.js:139
 msgid "Thursday"
-msgstr "Csütörtök"
+msgstr "csütörtök"
 
 #: client/extjs-mod/Translations.js:140
 msgid "Friday"
-msgstr "Péntek"
+msgstr "péntek"
 
 #: client/extjs-mod/Translations.js:141
 msgid "Saturday"
-msgstr "Szombat"
+msgstr "szombat"
 
 #: client/extjs-mod/Translations.js:145
 msgid "January"
@@ -1021,7 +1021,6 @@ msgstr "Felhasználónév"
 # 82%
 # 100%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:68
-#, fuzzy
 msgid "Sort by: Username"
 msgstr "Rendezés: Felhasználónév"
 
@@ -1056,7 +1055,6 @@ msgid "Sort by: Office Phone"
 msgstr "Rendezés: Irodai telefon"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:107
-#, fuzzy
 msgid "Sort by: Mobile"
 msgstr "Rendezés: Mobil"
 
@@ -1102,9 +1100,8 @@ msgstr "Rendezés: Fax"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:9
-#, fuzzy
 msgid "Any date"
-msgstr "Befejezés dátuma"
+msgstr "Bármelyik dátum"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:12
 msgid "Past week"
@@ -1127,9 +1124,8 @@ msgid "Past year"
 msgstr "Tavaly"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:27
-#, fuzzy
 msgid "Custom date"
-msgstr "Határidő"
+msgstr "Egyéni dátum"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:52
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:53
@@ -1212,12 +1208,10 @@ msgid "Mails"
 msgstr "Levelek"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:184
-#, fuzzy
 msgid "Calendar items"
-msgstr "Naptárelemek"
+msgstr "Naptár elemei"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:187
-#, fuzzy
 msgid "Contact items"
 msgstr "Kapcsolatok elemei"
 
@@ -1234,12 +1228,10 @@ msgid "Filter.."
 msgstr "Szűrés.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:222
-#, fuzzy
 msgid "Unread items"
-msgstr "Elemek olvasása"
+msgstr "Olvasatlan elemek"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:225
-#, fuzzy
 msgid "With attachments"
 msgstr "Melléklettel"
 
@@ -1282,9 +1274,8 @@ msgid "To"
 msgstr "Címzett"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:302
-#, fuzzy
 msgid "Search.."
-msgstr "Keresés -ban/ben"
+msgstr "Keresés.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:313
 #: client/zarafa/calendar/data/SearchFields.js:16
@@ -1293,7 +1284,6 @@ msgid "Sender"
 msgstr "Feladó"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:316
-#, fuzzy
 msgid "Recipients"
 msgstr "Címzettek"
 
@@ -1335,7 +1325,6 @@ msgid "Subject"
 msgstr "Tárgy"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:322
-#, fuzzy
 msgid "Body & Attachments"
 msgstr "Üzenettörzs és mellékletek"
 
@@ -1347,7 +1336,6 @@ msgstr "Keresési eredmények - \"{0}\""
 # 84%
 # 100%
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:54
-#, fuzzy
 msgid "Sort by: Date"
 msgstr "Rendezés: Név"
 
@@ -1610,9 +1598,8 @@ msgstr "Új felajánlott értekezlet időpont"
 # 75%
 # 100%
 #: client/zarafa/calendar/AppointmentRecord.js:940
-#, fuzzy
 msgid "and "
-msgstr "és"
+msgstr "és "
 
 # Mellékletek szerinti rendezés?
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:57
@@ -1725,7 +1712,6 @@ msgstr "Egész napos esemény"
 # 76%
 # 100%
 #: client/zarafa/calendar/CalendarContext.js:356
-#, fuzzy
 msgid "Add Shared Calendar"
 msgstr "Megosztott naptárak megnyitása"
 
@@ -1932,7 +1918,7 @@ msgstr "Elfogadva: {0}"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:48
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr "Feltételes elfogadva {0} által {1} időpontban"
+msgstr "Elfogadva {0} által ekkor: {1}"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:54
 msgctxt "calendar.dialog"
@@ -1989,9 +1975,8 @@ msgstr "Idő"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:352
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:121
-#, fuzzy
 msgid "until"
-msgstr "-ig"
+msgstr "Vége"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:391
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:198
@@ -2008,7 +1993,7 @@ msgstr "Ismétlődés"
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:181
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:240
 msgid "Reminder"
-msgstr "Emlékeztető"
+msgstr "Jelzés"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:473
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:101
@@ -2329,7 +2314,7 @@ msgstr "Értekezlet jelenlegi időpontja"
 
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:129
 msgid "Show only working hours"
-msgstr "Csak a munkaórák megjelenítése"
+msgstr "Csak a munkaidő megjelenítése"
 
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:28
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:121
@@ -2343,13 +2328,13 @@ msgstr "Új időpont javaslat"
 #: client/zarafa/common/ui/TimePeriodField.js:50
 #: plugins/quickitems/js/QuickAppointmentWidget.js:69
 msgid "Start time"
-msgstr "Kezdő időpont"
+msgstr "Kezdés"
 
 #: client/zarafa/calendar/dialogs/ProposeNewTimePanel.js:75
 #: client/zarafa/common/ui/TimePeriodField.js:73
 #: plugins/quickitems/js/QuickAppointmentWidget.js:74
 msgid "End time"
-msgstr "Befejező időpont"
+msgstr "Befejezés"
 
 #: client/zarafa/calendar/dialogs/ProposeNewTimePanel.js:90
 msgid "Comment"
@@ -2576,7 +2561,7 @@ msgstr "Hét"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:138
 msgid "Tue"
-msgstr "Kedd"
+msgstr "kedd"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:142
 msgid "Wed"
@@ -2990,9 +2975,8 @@ msgstr "Javasolt időpont elfogadása"
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
-#, fuzzy
 msgid "View in calendar"
-msgstr "Több naptár áttekintése"
+msgstr "Megtekintés a naptárban"
 
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
 msgid "This meeting request is out-of-date and will now be deleted."
@@ -3793,7 +3777,7 @@ msgstr "Érjen véget {A} ismétlődés után"
 
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:298
 msgid "End by {A}"
-msgstr "Vége {A} által"
+msgstr "Vége {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
@@ -4596,20 +4580,19 @@ msgstr "Nincs"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:161
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Megnyitás új ablakban"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-Out"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
 msgstr "Kérem adjon meg szöveget a keresés megkezdéséhez."
 
 #: client/zarafa/common/ui/SearchField.js:188
-#, fuzzy
 msgid "Search in \"{0} - {1}\""
 msgstr "Keresés \"{1} - {0}\" elemei között"
 
@@ -6116,14 +6099,12 @@ msgid "Select color"
 msgstr "Válasszon színt"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:234
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Kedvenc mappához adás"
+msgstr "Hozzáadás a kedvencekhez"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:248
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Eltávolítás a naptárból"
+msgstr "Eltávolítás a kedvencekből"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:361
 msgid ""
@@ -6534,14 +6515,12 @@ msgid "Open or compose a mail item in a"
 msgstr ""
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:89
-#, fuzzy
 msgid "WebApp tab"
-msgstr "WebApp"
+msgstr "WebApp fül"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:94
-#, fuzzy
 msgid "Browser window"
-msgstr "Tallózás"
+msgstr "Böngésző ablak"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:48
 msgid "I am currently in the office"
@@ -6635,11 +6614,11 @@ msgstr "Továbbítás csatolmányként"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:173
 msgid "Mark Read"
-msgstr "Olvasottnak jelöl"
+msgstr "Megjelölés olvasottként"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:184
 msgid "Mark Unread"
-msgstr "Nem olvasottnak jelöl"
+msgstr "Megjelölés olvasatlanként"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:210
 msgid "Move to Junk Folder"
@@ -6814,7 +6793,7 @@ msgstr "Várakozás"
 #: client/zarafa/settings/SettingsContext.js:66
 #: client/zarafa/settings/SettingsContext.js:331
 msgid "Do you wish to apply the changes?"
-msgstr "El kívánja menteni a változásokat?"
+msgstr "Kívánja alkalmazni a változásokat?"
 
 #: client/zarafa/settings/SettingsContext.js:157
 msgid "In order for the changes to take effect, please reload WebApp."
@@ -7558,7 +7537,7 @@ msgstr "Nincs olvasatlan email."
 
 #: plugins/folderwidgets/js/MailWidget.js:187
 msgid "Unread Mail"
-msgstr "Nem olvasott üzenet"
+msgstr "Olvasatlan üzenet"
 
 #: plugins/folderwidgets/js/TasksWidget.js:48
 msgid "No tasks."
@@ -7832,9 +7811,9 @@ msgid "Operation failed"
 msgstr "Művelet sikertelen"
 
 #: server/includes/download_message.php:162
-#, fuzzy, php-format
+#, php-format
 msgid "Eml creation of '%s' is not supported"
-msgstr "'%s' Eml létrehozása nem támogatott"
+msgstr "Eml fájl létrehozása nem támogatott ('%s')"
 
 # 90%
 # 100%
@@ -7941,7 +7920,7 @@ msgstr "Előfordulás minden %s %s érvényes %s."
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
+msgstr[0] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig."
 msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
 
 # Have to look at it in action.
@@ -8147,9 +8126,8 @@ msgid "Could not load folder properties."
 msgstr "A mappák tulajdonságainak betöltése sikertelen."
 
 #: server/includes/modules/class.hierarchymodule.php:282
-#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "A mappát nem sikerült hozzáadni a kedvencekhez."
+msgstr "A mappa eltávolítása a kedvencekből sikertelen."
 
 # 88%
 #: server/includes/modules/class.hierarchymodule.php:276
@@ -8267,11 +8245,12 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Nincs elég jogosultsága az üzenet megnyitásához."
 
 #: server/includes/modules/class.itemmodule.php:307
-#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
-msgstr "Nem található az üzenet, azt vagy áthelyezték, vagy törölték."
+msgstr ""
+"Az elem nem található, vagy áthelyezték, vagy törölték, vagy nincsen joga "
+"megnyitni."
 
 #: server/includes/modules/class.itemmodule.php:309
 msgid "Could not open message."
@@ -8312,9 +8291,8 @@ msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nincs elég jogosultsága az elem eltávolításához a naptárból."
 
 #: server/includes/modules/class.itemmodule.php:356
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Nincs elégséges a jogosultsága elemek mentéséhez ebbe a mappába"
+msgstr "Nincsen jogosultsága az elemek eltávolításához ebben a mappában"
 
 # Verification needed that translating conflict to the hungarian version "konfliktus" is good enough and don't have to use "more hungarian" word "ellentmondás" is not better.
 #: server/includes/modules/class.itemmodule.php:361

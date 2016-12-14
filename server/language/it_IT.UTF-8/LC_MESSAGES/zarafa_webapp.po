@@ -7,33 +7,34 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-08 13:28+0200\n"
-"PO-Revision-Date: 2015-09-24 09:58+0200\n"
-"Last-Translator: Michele <m.brodoloni@casalicomputers.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: it\n"
+"PO-Revision-Date: 2016-12-08 10:13+0000\n"
+"Last-Translator: Roberto <r.waha@mastsolutions.it>\n"
+"Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
 msgid "Wk"
-msgstr ""
+msgstr "Sett"
 
 #: client/extjs-mod/Ext.form.DateField.js:81
 #: client/zarafa/common/ui/grid/Renderers.js:540
 msgid "Now"
-msgstr "Ora"
+msgstr "Adesso"
 
 #: client/extjs-mod/Ext.form.VTypes.js:26
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "Il valore deve essere compreso tra 0% e 100%"
 
 #: client/extjs-mod/Ext.form.VTypes.js:40
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "Il numero deve essere maggiore di zero"
 
 #: client/extjs-mod/Ext.layout.ToolbarLayout.js:175
 #: client/extjs-mod/Ext.layout.ToolbarLayout.js:176
@@ -41,39 +42,38 @@ msgstr ""
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
-#, fuzzy
 msgid "More options"
-msgstr "Opzioni Messaggio"
+msgstr "Altre opzioni"
 
 #: client/extjs-mod/Ext.util.Format.js:20
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
 
 #: client/extjs-mod/Ext.util.Format.js:25
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
 
 #: client/extjs-mod/Ext.util.Format.js:30
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
 
 #: client/extjs-mod/Ext.util.Format.js:35
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
 
 #: client/extjs-mod/Ext.util.Format.js:39
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
 
 # 81%
 # 90%
@@ -104,11 +104,10 @@ msgstr[1] "{0} giorni"
 
 # 88%
 #: client/extjs-mod/Ext.util.Format.js:88
-#, fuzzy
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] "{0} settimane"
-msgstr[1] ""
+msgstr[0] "{0} settimana"
+msgstr[1] "{0} settimane"
 
 # intraducibile
 #: client/extjs-mod/Translations.js:14
@@ -484,7 +483,7 @@ msgstr "Ok"
 
 #: client/extjs-mod/Translations.js:284
 msgid "Yes"
-msgstr "Sì"
+msgstr "Si"
 
 #: client/extjs-mod/Translations.js:285
 msgid "No"
@@ -1012,14 +1011,13 @@ msgstr "Ordina per: Archivia come"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:65
 msgid "Username"
-msgstr ""
+msgstr "Nome utente"
 
 # 82%
 # 100%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:68
-#, fuzzy
 msgid "Sort by: Username"
-msgstr "Ordina per: Chilometraggio"
+msgstr "Ordina per: Nome utente"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:76
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
@@ -1036,9 +1034,8 @@ msgstr "Cognome"
 
 # 76%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:84
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Ordina per: Nome"
+msgstr "Ordina per: Cognome"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:92
 msgid "Sort by: Department"
@@ -1053,9 +1050,8 @@ msgid "Sort by: Office Phone"
 msgstr "Ordina per: Telefono ufficio"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:107
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Ordina per: Qualifica"
+msgstr "Ordina per: Numero di cellulare"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:112
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
@@ -1099,35 +1095,33 @@ msgstr "Ordina per: Fax"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:9
-#, fuzzy
 msgid "Any date"
-msgstr "Data fine"
+msgstr "Qualunque data"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:12
 msgid "Past week"
-msgstr ""
+msgstr "Settimana scorsa"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:15
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Ultime due settimane"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:18
 msgid "Past month"
-msgstr ""
+msgstr "Ultimo mese"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:21
 msgid "Past 6 month"
-msgstr ""
+msgstr "Ultimi sei mesi"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:24
 msgid "Past year"
-msgstr ""
+msgstr "Ultimo anno"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:27
-#, fuzzy
 msgid "Custom date"
-msgstr "Data scadenza"
+msgstr "Data personalizzata"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:52
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:53
@@ -1179,11 +1173,11 @@ msgstr "Inoltra"
 #: client/zarafa/mail/KeyMapping.js:80
 #: client/zarafa/mail/ui/MailGridContextMenu.js:154
 msgid "Edit as New Message"
-msgstr ""
+msgstr "Modifica come nuovo messaggio"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:66
 msgid "Search tools"
-msgstr ""
+msgstr "Tool di ricerca"
 
 # 85%
 # 100%
@@ -1194,56 +1188,48 @@ msgstr "Cartelle"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:137
 msgid "All My folders"
-msgstr ""
+msgstr "La mia cassetta postale"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:147
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:616
 msgid "Current folder"
-msgstr ""
+msgstr "Cartella corrente"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:169
-#, fuzzy
 msgid "Show.."
-msgstr "Mostra come"
+msgstr "Mostra come..."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:181
-#, fuzzy
 msgid "Mails"
 msgstr "Posta"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:184
-#, fuzzy
 msgid "Calendar items"
-msgstr "elementi di calendario"
+msgstr "Elementi di calendario"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:187
-#, fuzzy
 msgid "Contact items"
-msgstr "contatti"
+msgstr "Contatti"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:190
-#, fuzzy
 msgid "Task items"
-msgstr "attività"
+msgstr "Attività"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:193
-#, fuzzy
 msgid "Note items"
-msgstr "note"
+msgstr "Note"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:211
 msgid "Filter.."
-msgstr ""
+msgstr "Filtra..."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:222
-#, fuzzy
 msgid "Unread items"
-msgstr "Leggi elementi"
+msgstr "elementi non letti"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:225
-#, fuzzy
 msgid "With attachments"
-msgstr "Allegati"
+msgstr "con Allegati"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:242
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:49
@@ -1284,9 +1270,8 @@ msgid "To"
 msgstr "A"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:302
-#, fuzzy
 msgid "Search.."
-msgstr "Ricerca"
+msgstr "Ricerca in..."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:313
 #: client/zarafa/calendar/data/SearchFields.js:16
@@ -1295,7 +1280,6 @@ msgid "Sender"
 msgstr "Mittente"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:316
-#, fuzzy
 msgid "Recipients"
 msgstr "Destinatari"
 
@@ -1337,35 +1321,35 @@ msgid "Subject"
 msgstr "Oggetto"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:322
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "Allegati"
+msgstr "Corpo ed Allegati"
 
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:39
 msgid "Search results - \"{0}\""
-msgstr ""
+msgstr "Risultati della ricerca - \"{0}\""
 
 # 76%
 # 84%
 # 100%
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:54
-#, fuzzy
 msgid "Sort by: Date"
-msgstr "Ordina per: Nome"
+msgstr "Ordina per: Data"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:121
 msgid "Loading Search results"
-msgstr ""
+msgstr "Carico risultati di ricerca"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:368
 msgid "Sorting not possible"
-msgstr ""
+msgstr "Ordinamento non possibile"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:369
 msgid ""
 "The search results could not be sorted because the number of items is higher "
 "than {0}. Narrow down your results by specifying your input."
 msgstr ""
+"I risultati della ricerca non possono essere ordinati poiché il numero degli "
+"elementi è maggiore di {0}. Affina la ricerca per ordinare i risultati."
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -1396,6 +1380,8 @@ msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
+"Impossibile visualizzare la proposta poiché questo meeting non è disponibile "
+"nel calendario; potrebbe essere stato spostato o cancellato."
 
 #: client/zarafa/calendar/Actions.js:207
 #: client/zarafa/core/mapi/AppointmentLabels.js:120
@@ -1453,7 +1439,7 @@ msgstr "settimane"
 
 #: client/zarafa/calendar/AppointmentRecord.js:210
 msgid " on "
-msgstr ""
+msgstr " su "
 
 # 80%
 #: client/zarafa/calendar/AppointmentRecord.js:214
@@ -1590,9 +1576,8 @@ msgstr "Proposto nuovo orario riunione"
 # 75%
 # 100%
 #: client/zarafa/calendar/AppointmentRecord.js:940
-#, fuzzy
 msgid "and "
-msgstr "e"
+msgstr "e "
 
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:57
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:425
@@ -1684,7 +1669,6 @@ msgstr "Data inizio"
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:26
 #: client/zarafa/common/ui/appointmentpanel/AppointmentBody.js:62
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:56
-#, fuzzy
 msgid "End Date"
 msgstr "Data fine"
 
@@ -1708,7 +1692,6 @@ msgstr "Evento giornata intera"
 # 76%
 # 100%
 #: client/zarafa/calendar/CalendarContext.js:356
-#, fuzzy
 msgid "Add Shared Calendar"
 msgstr "Apri calendari condivisi"
 
@@ -1846,20 +1829,20 @@ msgstr ""
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:373
 msgid "Send update to attendees"
-msgstr ""
+msgstr "Invia aggiornamento ai partecipanti"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:374
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
-msgstr ""
+msgstr "Hai modificato la lista dei partecipanti. Seleziona uno dei seguenti"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:388
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "Invia aggiornamenti solamente ai partecipanti aggiunti o eliminati."
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:393
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Invia aggiornamenti a tutti i partecipanti."
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:426
 msgid ""
@@ -1877,7 +1860,7 @@ msgstr "Tracciatura"
 #: client/zarafa/calendar/dialogs/AppointmentPanel.js:151
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "Non tutti i partecipanti possono essere risolti"
+msgstr "Non tutti i partecipanti possono essere risolti."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:16
 msgctxt "calendar.dialog"
@@ -1958,6 +1941,8 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Qualsiasi modifica effettuata verrà sovrascritta quando questa richiesta di "
+"appuntamento verrà aggiornata dall'organizzatore"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:346
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:115
@@ -1969,7 +1954,7 @@ msgstr "Orario"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:352
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:121
 msgid "until"
-msgstr ""
+msgstr "fino"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:391
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:198
@@ -2024,11 +2009,11 @@ msgstr "Attenzione"
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:129
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:136
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Gli allegati non possono essere modificati singolarmente"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:619
 msgid "Type your message here..."
-msgstr ""
+msgstr "Scrivi qui il tuo messaggio…"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:883
 msgid ""
@@ -2146,7 +2131,7 @@ msgstr "Elimina questo appuntamento"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:122
 #: client/zarafa/task/dialogs/TaskToolbar.js:94
 msgid "Add attachment"
-msgstr "Inserisci allegato"
+msgstr "Aggiungi allegato"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:112
 msgid "Add attachments to this appointment"
@@ -2155,7 +2140,7 @@ msgstr "Aggiungi allegato a questo appuntamento"
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:126
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:128
 msgid "Cannot add attachment"
-msgstr ""
+msgstr "Impossibile inserire l'allegato"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:146
 msgid "Print this appointment"
@@ -2200,6 +2185,8 @@ msgstr "Annulla invito"
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:227
 msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
+"Convertire questa richiesta di appuntamento in appuntamento rimuovendo i "
+"partecipanti"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:237
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:239
@@ -2282,9 +2269,8 @@ msgstr "Contrassegna questo appuntamento come privato"
 # 82%
 # 100%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:439
-#, fuzzy
 msgid "Save meeting request and close dialog"
-msgstr "Salva attività e chiudi"
+msgstr "Salva richiesta di appuntamento e chiudi"
 
 #: client/zarafa/calendar/dialogs/CounterProposalGrid.js:49
 msgid "Proposed Date and Time"
@@ -2408,7 +2394,6 @@ msgstr "Risposta"
 # 93%
 # 100%
 #: client/zarafa/calendar/KeyMapping.js:28
-#, fuzzy
 msgid "New appointment"
 msgstr "Nuovo appuntamento"
 
@@ -2424,13 +2409,12 @@ msgstr "Crea elemento"
 # 89%
 # 100%
 #: client/zarafa/calendar/KeyMapping.js:40
-#, fuzzy
 msgid "New meeting request"
 msgstr "Nuova richiesta appuntamento"
 
 #: client/zarafa/calendar/KeyMapping.js:52
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Inverti calendario"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/printer/MeetingRenderer.js:27
@@ -2545,35 +2529,35 @@ msgstr "Risoluzione calendario"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:128
 msgid "Working days"
-msgstr ""
+msgstr "Giorni lavorativi"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:134
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:138
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:142
 msgid "Wed"
-msgstr ""
+msgstr "Mer"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:146
 msgid "Thu"
-msgstr ""
+msgstr "Gio"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:150
 msgid "Fri"
-msgstr ""
+msgstr "Ven"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:154
 msgid "Sat"
-msgstr ""
+msgstr "Sab"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:158
 msgid "Sun"
-msgstr ""
+msgstr "Dom"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:165
 msgid "Show busy dates as bold in the date picker"
@@ -2582,22 +2566,26 @@ msgstr "Mostra date impegnate in grassetto nel selezionatore date"
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:21
 msgid "Free/busy information is used by people sending meeting requests, "
 msgstr ""
+"Le informazioni free/busy vengono utilizzate dagli utenti per inviare "
+"richieste di appuntamento "
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:22
 msgid "to determine when you are available for meetings."
-msgstr ""
+msgstr "per determinare la tua disponibilità per gli appuntamenti."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:25
 msgid "Free/Busy permission"
-msgstr ""
+msgstr "Permessi free/busy"
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:33
 msgid "Publish {A} month(s) of Calendar free/busy information on the server."
 msgstr ""
+"Pubblica {A} mese/i di calendario come informazioni free/busy sul server."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:53
 msgid "You can only publish a free/busy period from 1 to 36 months."
 msgstr ""
+"Puoi pubblicare solamente un periodo free/busy compreso tra 1 e 36 mesi."
 
 #: client/zarafa/calendar/settings/SettingsOverlayWidget.js:25
 msgid "Side-by-side mode"
@@ -2699,20 +2687,19 @@ msgstr "Mostra come"
 # 80%
 # 100%
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:365
-#, fuzzy
 msgid "Occurrence"
 msgstr "Ricorrenza"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:377
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:411
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:454
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:448
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:484
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "Questo appuntamento è stato rimosso o spostato, vuoi continuare?"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:41
 msgid "All Day"
@@ -2730,7 +2717,6 @@ msgid "Icon"
 msgstr "Icona"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:57
-#, fuzzy
 msgid "Recurring"
 msgstr "Ricorrenza"
 
@@ -2835,7 +2821,6 @@ msgid "Sort by: Reminder"
 msgstr "Ordina per: Promemoria"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:192
-#, fuzzy
 msgid "Sort by: Sensitivity"
 msgstr "Ordina per: Sensibilità"
 
@@ -2847,7 +2832,6 @@ msgstr "Caricamento appuntamenti"
 # 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/CalendarPanel.js:130
-#, fuzzy
 msgid "jS F G:i"
 msgstr "jS F Y G:i"
 
@@ -2863,38 +2847,38 @@ msgstr "jS F Y"
 #: client/zarafa/calendar/ui/CalendarPanel.js:591
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
+"L'orario di questo appuntamento è stato modificato. Seleziona uno dei "
+"seguenti:"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:636
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Salva le modifiche e invia un aggiornamento a tutti i destinatari"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:641
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "Apri richiesta di appuntamento modificata"
 
 # 89%
 # 100%
 # 84%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:353
-#, fuzzy
 msgid "a meeting request"
-msgstr "Nuova richiesta appuntamento"
+msgstr "una richiesta di appuntamento"
 
 # 93%
 # 100%
 # 80%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:353
-#, fuzzy
 msgid "an appointment"
-msgstr "Nuovo appuntamento"
+msgstr "un appuntamento"
 
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:355
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "Permessi insufficienti"
 
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:356
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Non disponi di permessi sufficienti per spostare "
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 #: client/zarafa/calendar/ui/MeetingInfo.js:31
@@ -2972,9 +2956,8 @@ msgstr "Accetta orario proposto"
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
-#, fuzzy
 msgid "View in calendar"
-msgstr "Visualizza calendari multipli in"
+msgstr "Visualizza nel calendario"
 
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
 msgid "This meeting request is out-of-date and will now be deleted."
@@ -3003,7 +2986,7 @@ msgstr "La stampa di questo elemento non è ancora disponibile"
 
 #: client/zarafa/common/Actions.js:271
 msgid "Item type: "
-msgstr "Tipo elemento:"
+msgstr "Tipo elemento: "
 
 #: client/zarafa/common/Actions.js:273
 msgid "Printing of this view is not yet available"
@@ -3156,36 +3139,34 @@ msgstr "Ccn"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemContentPanel.js:56
 msgid "Insert item"
-msgstr ""
+msgstr "Inserisci elemento"
 
 # 83%
 #: client/zarafa/common/attachment/dialogs/AttachItemGrid.js:30
-#, fuzzy
 msgid "Items:"
-msgstr "Elementi"
+msgstr "Elementi:"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:36
 msgid "Look in:"
-msgstr ""
+msgstr "Guarda in:"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:86
 msgid "Insert as"
-msgstr ""
+msgstr "Inserisci come"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:103
 msgid "Text only"
-msgstr ""
+msgstr "Solo testo"
 
 # 90%
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:108
 #: client/zarafa/mail/ui/MailGridColumnModel.js:86
-#, fuzzy
 msgid "Attachment"
-msgstr "Allegati"
+msgstr "Allegato"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
 msgid "Attach Item"
-msgstr ""
+msgstr "Allega elemento"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
 #: client/zarafa/mail/MailContext.js:616
@@ -3195,7 +3176,7 @@ msgstr "Nessun messaggio selezionato"
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:23
 #: client/zarafa/mail/ui/MailGridContextMenu.js:92
 msgid "Download as ZIP"
-msgstr ""
+msgstr "Scarica come file ZIP"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:31
 #: client/zarafa/core/ui/WelcomeViewport.js:64
@@ -3207,15 +3188,19 @@ msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Questi allegati hanno un tipo di file non supportato e non possono essere "
+"aggiunti al file ZIP:"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:66
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Vuoi proseguire il download senza aggiungere questi files?"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:72
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"Continua il download dei file ZIP senza aggiungere tipi di files non "
+"supportati."
 
 #: client/zarafa/common/attachment/ui/AttachmentButton.js:39
 msgid "File upload"
@@ -3223,7 +3208,7 @@ msgstr "Carica file"
 
 #: client/zarafa/common/attachment/ui/AttachmentButton.js:44
 msgid "Attach item"
-msgstr ""
+msgstr "Allega elemento"
 
 #: client/zarafa/common/attachment/ui/AttachmentContextMenu.js:56
 msgid "Preview"
@@ -3234,11 +3219,11 @@ msgstr "Anteprima"
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:221
 #: client/zarafa/mail/ui/MailGridContextMenu.js:86
 msgid "Download"
-msgstr "Download"
+msgstr "Scarica"
 
 #: client/zarafa/common/attachment/ui/AttachmentContextMenu.js:68
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Scarica tutti come file ZIP"
 
 #: client/zarafa/common/attachment/ui/AttachmentDownloader.js:93
 #: client/zarafa/core/data/IPMAttachmentStore.js:291
@@ -3252,19 +3237,19 @@ msgstr "Errore allegato"
 #: client/zarafa/common/attachment/ui/AttachmentDownloader.js:94
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
+"Impossibile creare il file ZIP. La dimensione massima permessa è di 30 MB."
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:126
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "Formato immagine non supportato. "
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:127
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "I formati supportati per le immagini dei contatti sono"
 
 # 93%
 # 100%
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:131
-#, fuzzy
 msgid "Attachment Error"
 msgstr "Errore allegato"
 
@@ -3303,7 +3288,7 @@ msgstr "Email"
 
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:93
 msgid "More than one '{0}' found."
-msgstr "Trovati risultati multipli per '{0}'"
+msgstr "Trovati risultati multipli per '{0}'."
 
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:119
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:129
@@ -3312,7 +3297,7 @@ msgstr "Trovati risultati multipli per '{0}'"
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
 msgid "Alert"
-msgstr "Allarme"
+msgstr "Avviso"
 
 # 80%
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:119
@@ -3387,7 +3372,7 @@ msgstr "I delegati possono visualizzare i miei elementi privati."
 #: client/zarafa/common/delegates/dialogs/DelegatePermissionPanel.js:81
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr ""
-"I delegati ricevono copie dei messaggi relativi alle riunioni destinati a me"
+"I delegati ricevono copie dei messaggi relativi alle riunioni destinati a me."
 
 #: client/zarafa/common/delegates/dialogs/DelegatePermissionPanel.js:125
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:534
@@ -3408,7 +3393,7 @@ msgstr "Caricamento delegati"
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:129
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:153
 msgid "Please select a delegate."
-msgstr "Selezionare un delegato"
+msgstr "Selezionare un delegato."
 
 #: client/zarafa/common/delegates/ui/DelegatesPanel.js:60
 msgid ""
@@ -3534,7 +3519,7 @@ msgstr "Nessun suggerimento disponibile"
 #: client/zarafa/common/KeyMapping.js:43
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
-"Alterna tra contesti differenti (es. posta in arrivo, calendario, ecc.)"
+"Alterna tra contesti differenti (es. posta in arrivo, calendario, ecc.)."
 
 #: client/zarafa/common/KeyMapping.js:44 client/zarafa/common/KeyMapping.js:58
 #: client/zarafa/common/KeyMapping.js:97
@@ -3580,11 +3565,11 @@ msgstr "Elementi"
 
 #: client/zarafa/common/KeyMapping.js:127
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Salva un elemento (es. email, contatto, ecc.)"
+msgstr "Salva un elemento (es. email, contatto, ecc.)."
 
 #: client/zarafa/common/KeyMapping.js:142
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Invia un elemento (es. email, richiesta appuntamento, ecc.)"
+msgstr "Invia un elemento (es. email, richiesta appuntamento, ecc.)."
 
 #: client/zarafa/common/KeyMapping.js:161
 msgid "Select all items"
@@ -3704,8 +3689,7 @@ msgstr "Ogni giorno settimanale"
 #: client/zarafa/common/recurrence/dialogs/DailyPanel.js:145
 msgid "Regenerate new task {A} day(s) after each task is completed"
 msgstr ""
-"Genera una nuova attività {A} giorno/i dopo il completamento di ogni "
-"attività."
+"Genera una nuova attività {A} giorno/i dopo il completamento di ogni attività"
 
 #: client/zarafa/common/recurrence/dialogs/MonthlyPanel.js:67
 msgid "Day {A} of every {B} month(s)"
@@ -3762,7 +3746,6 @@ msgid "Range of recurrence"
 msgstr "Intervallo ricorrenza"
 
 #: client/zarafa/common/recurrence/dialogs/RecurrencePanel.js:246
-#, fuzzy
 msgid "No end date"
 msgstr "Nessuna data di fine"
 
@@ -3788,7 +3771,7 @@ msgstr "Ogni {A} settimana/e da"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr ""
 "Genera una nuova attività {A} settimana/e dopo il completamento di ogni "
-"attività."
+"attività"
 
 #: client/zarafa/common/recurrence/dialogs/YearlyPanel.js:67
 msgid "Every {A} {B}"
@@ -3801,7 +3784,7 @@ msgstr "Il {A} {B} di {C}"
 #: client/zarafa/common/recurrence/dialogs/YearlyPanel.js:242
 msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr ""
-"Genera una nuova attività {A} anno/i dopo il completamento di ogni attività."
+"Genera una nuova attività {A} anno/i dopo il completamento di ogni attività"
 
 #: client/zarafa/common/reminder/data/ReminderRecord.js:73
 msgid "Info"
@@ -4238,7 +4221,6 @@ msgstr "Anteprima in basso"
 # 88%
 # 100%
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:50
-#, fuzzy
 msgid "Full name"
 msgstr "Nome completo"
 
@@ -4379,7 +4361,7 @@ msgstr "Aggiungi dominio alla lista mittenti attendibili"
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:26
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr "Questo messaggio ha priorità {0}"
+msgstr "Questo messaggio ha priorità {0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -4406,6 +4388,8 @@ msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
+"Questo messaggio è corrotto e non verrá visualizzato correttamente. Clicca "
+"qui per correggerlo."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:56
 msgctxt "mail.previewpanel"
@@ -4522,17 +4506,19 @@ msgstr "Ricevuto per {0}."
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:166
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "Hai risposto a questo messaggio il {0}."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:173
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "Hai inoltrato questo messaggio il {0}."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:310
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
+"Verrà eseguito un tentativo di correzione di un messaggio corrotto. "
+"Continuare?"
 
 # 100%
 #: client/zarafa/common/ui/messagepanel/MessageHeader.js:78
@@ -4583,13 +4569,13 @@ msgstr "Nessuno"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:161
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Apri in una nuova finestra del browser"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
 msgid "Pop-Out"
-msgstr ""
+msgstr "Dividi"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
@@ -4597,7 +4583,7 @@ msgstr "Inserire il testo per iniziare la ricerca."
 
 #: client/zarafa/common/ui/SearchField.js:188
 msgid "Search in \"{0} - {1}\""
-msgstr ""
+msgstr "Ricerca su  \"{0} - {1}\""
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:59
 #: client/zarafa/settings/data/SettingsDefaultValues.js:129
@@ -4744,13 +4730,11 @@ msgstr "Telefono lavoro"
 
 # 87%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:30
-#, fuzzy
 msgid "Business 2 Phone"
-msgstr "Telefono lavoro"
+msgstr "Telefono lavoro 2"
 
 # 88%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:31
-#, fuzzy
 msgid "Assistant Phone"
 msgstr "Telefono assistente"
 
@@ -4760,9 +4744,8 @@ msgstr "Telefono aziendale principale"
 
 # 83%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:34
-#, fuzzy
 msgid "Home 2 Phone"
-msgstr "Telefono abitazione"
+msgstr "Telefono abitazione 2"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:36
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:227
@@ -4786,7 +4769,7 @@ msgstr "Altro telefono"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:41
 msgid "Primary Phone"
-msgstr ""
+msgstr "Telefono principale"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:42
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:564
@@ -4820,7 +4803,7 @@ msgstr "Fax abitazione"
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:49
 #, fuzzy
 msgid "Email Display As"
-msgstr "E-mail Visualizza come "
+msgstr "E-mail Visualizza come"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:50
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:640
@@ -4857,7 +4840,7 @@ msgstr "Compleanno"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:55
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "Anniversario matrimonio"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:56
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:194
@@ -4882,9 +4865,8 @@ msgstr "Telefono assistente"
 # 94%
 # 77%
 #: client/zarafa/contact/attachitem/AttachDistlistRenderer.js:19
-#, fuzzy
 msgid "Distribution List Name"
-msgstr "Lista di distribuzione"
+msgstr "Nome lista di distribuzione"
 
 # 86%
 # 78%
@@ -5011,7 +4993,7 @@ msgstr "Telefono assistente"
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:129
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:149
 msgid "Nickname"
-msgstr "Nickname"
+msgstr "Soprannome"
 
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:158
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:81
@@ -5071,9 +5053,8 @@ msgid "Check full name"
 msgstr "Verifica nome completo"
 
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:72
-#, fuzzy
 msgid "Middle"
-msgstr "Intermedio"
+msgstr "Altri nomi"
 
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:98
 msgid "Show this again when name is incomplete or unclear."
@@ -5101,7 +5082,6 @@ msgstr "Estensione"
 
 # 85%
 #: client/zarafa/contact/dialogs/ContactToolbar.js:58
-#, fuzzy
 msgid "Save contact and close dialog"
 msgstr "Salva questo contatto e chiudi"
 
@@ -5147,9 +5127,8 @@ msgstr "Lista di distribuzione"
 
 # 86%
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:57
-#, fuzzy
 msgid "Save distribution list and close dialog"
-msgstr "Salva la lista di distribuzione e chiudi"
+msgstr "Salva lista di distribuzione e chiudi"
 
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:67
 msgid "Delete Distributionlist"
@@ -5157,7 +5136,7 @@ msgstr "Elimina lista di distribuzione"
 
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:70
 msgid "Delete the Distribution list."
-msgstr "Elimina la lista di distribuzione"
+msgstr "Elimina la lista di distribuzione."
 
 # 75%
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:79
@@ -5167,7 +5146,7 @@ msgstr "Stampa lista di distribuzione"
 # 79%
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:80
 msgid "Print this distribution list."
-msgstr "Stampa questa lista di distribuzione"
+msgstr "Stampa questa lista di distribuzione."
 
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:113
 msgid "Mark this Distribution list as private."
@@ -5195,19 +5174,18 @@ msgstr "Aggiungi nuovo"
 
 #: client/zarafa/contact/dialogs/DistlistNotesTab.js:36
 msgid "Type your note here..."
-msgstr ""
+msgstr "Scrivi qui la tua nota…"
 
 #: client/zarafa/contact/KeyMapping.js:28
 msgid "New contact"
-msgstr ""
+msgstr "Nuovo contatto"
 
 # 75%
 # 78%
 # 100%
 #: client/zarafa/contact/KeyMapping.js:40
-#, fuzzy
 msgid "New distribution list"
-msgstr "Stampa lista di distribuzione"
+msgstr "Nuova lista di distribuzione"
 
 # 83%
 #: client/zarafa/contact/printer/ContactRenderer.js:46
@@ -5217,7 +5195,7 @@ msgstr "E-mail"
 
 #: client/zarafa/contact/printer/ContactRenderer.js:47
 msgid "E-mail Display As"
-msgstr "E-mail Visualizza come "
+msgstr "E-mail Visualizza come"
 
 # 87%
 #: client/zarafa/contact/printer/ContactRenderer.js:48
@@ -5433,17 +5411,19 @@ msgstr "Ordina per: Telefono Telex"
 
 #: client/zarafa/contact/ui/ContactPhotoContextMenu.js:20
 msgid "Change Picture"
-msgstr ""
+msgstr "Modifica immagine"
 
 #: client/zarafa/contact/ui/ContactPhotoContextMenu.js:25
 msgid "Remove Picture"
-msgstr ""
+msgstr "Rimuovi immagine"
 
 #: client/zarafa/core/BrowserWindowMgr.js:540
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
+"Il tuo browser sembra bloccare i popup. Modifica le impostazioni per "
+"permettere sempre i popup dalla WebApp."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
 #: server/includes/core/class.operations.php:3001
@@ -5451,36 +5431,46 @@ msgstr ""
 #: server/includes/download_message.php:243
 #: server/includes/modules/class.contactitemmodule.php:358
 msgid "Untitled"
-msgstr ""
+msgstr "Senza titolo"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:292
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr ""
+"Impossibile caricare l'allegato. È possibile allegare solo {0} elementi al "
+"messaggio"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:321
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr ""
+"Impossibile caricare l'allegato. Il file è {0} mentre il massimo permesso è "
+"{1}."
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:333
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
+"Impossibile caricare l'allegato. La dimensione totale degli allegati è {0} "
+"mentre il massimo permesso è {1}"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:360
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
+"Impossibile caricare l'allegato. Il numero totale degli allegati è {0} "
+"mentre il massimo permesso per singola richiesta è {1}."
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:372
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
+"Impossibile caricare l'allegato. Il numero totale degli allegati è {0} "
+"mentre il massimo permesso per singola richiesta è {1}."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 #: client/zarafa/core/data/IPMRecord.js:193
@@ -5529,7 +5519,7 @@ msgstr "Intervista telefonica"
 
 #: client/zarafa/core/mapi/BusyStatus.js:59
 msgid "Free"
-msgstr "Libero"
+msgstr "Disponibile"
 
 #: client/zarafa/core/mapi/MeetingStatus.js:60
 #: server/includes/mapi/class.meetingrequest.php:1278
@@ -5627,16 +5617,15 @@ msgstr "Chiudi"
 
 #: client/zarafa/core/themes/dark/js/ThemeDark.js:12
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 #: client/zarafa/core/themes/highcontrast/js/ThemeHighContrast.js:12
-#, fuzzy
 msgid "High Contrast"
-msgstr "Contatti importanti"
+msgstr "Alto contrasto"
 
 #: client/zarafa/core/themes/lime/js/ThemeLime.js:15
 msgid "Lime"
-msgstr ""
+msgstr "Lime"
 
 #: client/zarafa/core/themes/orange/js/ThemeOrange.js:13
 #: client/zarafa/mail/data/MailFlags.js:32
@@ -5654,7 +5643,7 @@ msgstr "Esci"
 
 #: client/zarafa/core/ui/MainToolbar.js:248
 msgid "Switch view"
-msgstr "Cambia vista"
+msgstr "Scambia viste"
 
 #: client/zarafa/core/ui/MainToolbar.js:406
 #: client/zarafa/core/ui/MainToolbar.js:407
@@ -5693,19 +5682,19 @@ msgstr "Specificare un destinatario"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:386
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "I file allegati non sono ancora stati caricati."
 
 #: client/zarafa/core/ui/MessageContentPanel.js:388
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "Vuoi inviare questo messaggio senza allegati?"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:398
 msgid "Don't Send"
-msgstr ""
+msgstr "Non inviare"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:401
 msgid "Send Anyway"
-msgstr ""
+msgstr "Invia comunque"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:426
 msgid "Send this message without a subject?"
@@ -5717,11 +5706,11 @@ msgstr "Non tutti i destinatari possono essere risolti"
 
 #: client/zarafa/core/ui/NavigationPanel.js:133
 msgid "Collapse hierarchy"
-msgstr ""
+msgstr "Chiudi"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Espandi"
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
 #: client/zarafa/core/ui/NavigationPanel.js:196
@@ -5755,13 +5744,12 @@ msgstr ""
 "questa finestra?"
 
 #: client/zarafa/core/ui/RecordContentPanel.js:163
-#, fuzzy
 msgid "Kopano Content Panel"
 msgstr "Pannello contenuto Kopano"
 
 #: client/zarafa/core/ui/RecordContentPanel.js:473
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "Questo elemento è stato modificato. Sei sicuro di volerlo eliminare?"
 
 #: client/zarafa/core/ui/WelcomeViewport.js:52
 msgid "Welcome to Kopano WebApp"
@@ -5772,6 +5760,8 @@ msgid ""
 "This is the first time you are using WebApp. <br />Please check the "
 "following settings before continuing."
 msgstr ""
+"Questa è la prima volta che utilizzi la WebApp.<br />Verifica le seguenti "
+"impostazioni prima di continuare."
 
 #: client/zarafa/core/ui/widget/WidgetContentPanel.js:58
 msgid "Add widgets"
@@ -5783,15 +5773,15 @@ msgstr "Nessun widget installato."
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:77
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Chiudi pannello widget"
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:78
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Espandi pannello widget"
 
 #: client/zarafa/core/Util.js:697
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "Lasciando questa pagina, tutte le modifiche effettuate andranno perse."
 
 #: client/zarafa/hierarchy/Actions.js:27
 msgid ""
@@ -6038,7 +6028,7 @@ msgstr "'{0}' non è un utente valido."
 
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:106
 msgid "It is not possible to open your own store twice"
-msgstr "Non è possibile aprire la propria cassetta postale due volte."
+msgstr "Non è possibile aprire la propria cassetta postale due volte"
 
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:122
 msgid "This shared folder is already open."
@@ -6059,7 +6049,7 @@ msgstr "Mostra sottocartelle"
 
 #: client/zarafa/hierarchy/KeyMapping.js:40
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "Apri cartella condivisa"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:84
 msgid "Rename Folder"
@@ -6105,19 +6095,16 @@ msgstr "Ripristina elementi"
 # 76%
 # 100%
 #: client/zarafa/hierarchy/ui/ContextMenu.js:215
-#, fuzzy
 msgid "Select color"
-msgstr "Seleziona cartella"
+msgstr "Seleziona colore"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:234
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Aggiungi alla cartella Preferiti"
+msgstr "Aggiungi ai Preferiti"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:248
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Rimuovi dal calendario"
+msgstr "Rimuovi dai Preferiti"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:361
 msgid ""
@@ -6174,7 +6161,6 @@ msgstr "Messaggio originale"
 
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
-#, fuzzy
 msgid "E-Mail"
 msgstr "E-mail"
 
@@ -6184,15 +6170,15 @@ msgstr "Salvataggio in corso..."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:137
 msgid "Message saving failed."
-msgstr ""
+msgstr "Salvataggio messaggio fallito."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
 msgid "Message Saved at {0}."
-msgstr ""
+msgstr "Messaggio salvato il {0}."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
 msgid "g:i A"
-msgstr ""
+msgstr "g:i A"
 
 #: client/zarafa/mail/dialogs/MailCreateOptionsContentPanel.js:24
 #: client/zarafa/mail/dialogs/MailViewOptionsContentPanel.js:24
@@ -6201,7 +6187,7 @@ msgstr "Opzioni Messaggio"
 
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:73
 msgid "No send as address configured!"
-msgstr ""
+msgstr "Nessun indirizzo send as configurato!"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:84
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:87
@@ -6222,9 +6208,8 @@ msgstr "Salva email"
 # 76%
 # 100%
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:112
-#, fuzzy
 msgid "Delete this mail"
-msgstr "Elimina questo elemento."
+msgstr "Elimina questo messaggio"
 
 # 86%
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:123
@@ -6267,11 +6252,11 @@ msgstr "Imposta bandierina su questa email"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:209
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "Contrassegna messaggio con priorità alta"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:223
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "Contrassegna questo messaggio con priorità bassa"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:234
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:236
@@ -6308,9 +6293,9 @@ msgid ""
 "you can send e-mail that looks like that came from them by entering their "
 "name into the From field"
 msgstr ""
-"Mostra campo From. Se hai accesso come delegato ad una cassetta di altre "
-"persone, puoi inviare email che sembri provenire dal loro indirizzo "
-"semplicemente inserendo il loro nome nel campo From."
+"Mostra il campo \"Da\". Se hai accesso come delegato alla cassetta postale "
+"di altri utenti, puoi inviare email che sembri provenire dal loro indirizzo "
+"semplicemente inserendo il loro nome nel campo \"Da\""
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:331
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:79
@@ -6361,15 +6346,14 @@ msgstr "Elimina questo elemento."
 
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:95
 msgid "Delete mail"
-msgstr ""
+msgstr "Elimina messaggio"
 
 # 94%
 # 76%
 # 100%
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:96
-#, fuzzy
 msgid "Delete this mail."
-msgstr "Elimina questo elemento."
+msgstr "Elimina questo messaggio."
 
 # 87%
 # 100%
@@ -6396,11 +6380,11 @@ msgstr "Rispondi a tutti"
 
 #: client/zarafa/mail/KeyMapping.js:94
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "Segna come letto/non letto"
 
 #: client/zarafa/mail/KeyMapping.js:106
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "Attiva/Disattiva bandierina rossa/completato"
 
 # 86%
 # 78%
@@ -6457,11 +6441,11 @@ msgstr "Scrivi email in questo formato"
 
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:88
 msgid "Default font"
-msgstr ""
+msgstr "Carattere predefinito"
 
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:108
 msgid "Default font size"
-msgstr ""
+msgstr "Dimensione carattere predefinito"
 
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:128
 msgid "Always request a read receipt"
@@ -6471,7 +6455,7 @@ msgstr "Richiedi sempre una conferma di lettura"
 #. The '{B}' represents the number of minutes which the user will type in.
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:139
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr ""
+msgstr "{A} salva automaticamente i messaggi non inviati ogni {B} minuto/i"
 
 #: client/zarafa/mail/settings/SettingsIncomingMailWidget.js:22
 msgid "Incoming mail"
@@ -6519,40 +6503,36 @@ msgstr "Impostazioni e-mail generali"
 # 83%
 # 100%
 #: client/zarafa/mail/settings/SettingsMailWidget.js:44
-#, fuzzy
 msgid "Location of preview pane"
 msgstr "Posizione pannello anteprima"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:63
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "Chiudi messaggio originale alla risposta o inoltro"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:78
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Apri o crea un messaggio su una nuova"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:89
-#, fuzzy
 msgid "WebApp tab"
-msgstr "WebApp"
+msgstr "scheda della WebApp"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:94
-#, fuzzy
 msgid "Browser window"
-msgstr "Sfoglia"
+msgstr "Finestra del browser"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:48
 msgid "I am currently in the office"
 msgstr "In sede"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:69
-#, fuzzy
 msgid "I am out of the office from"
-msgstr "Fuori sede"
+msgstr "Sarò fuori ufficio dal"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:106
 msgid "I will be back on"
-msgstr ""
+msgstr "Rientrerò il"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:170
 msgid "AutoReply only once to each sender with the following text"
@@ -6567,6 +6547,8 @@ msgstr "Sono fuori ufficio."
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
+"Le data che hai inserito è antecedente alla data inserita come fuori "
+"ufficio. Seleziona una nuova data."
 
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:62
 msgid "Signatures"
@@ -6614,7 +6596,6 @@ msgstr "Ordina per: Data modifica"
 
 #: client/zarafa/mail/ui/MailGridColumnModel.js:151
 #: client/zarafa/mail/ui/MailGridColumnModel.js:225
-#, fuzzy
 msgid "Flag Status"
 msgstr "Stato attività"
 
@@ -6625,7 +6606,7 @@ msgstr "Ordina per: Flag di stato"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:145
 msgid "Forward as Attachment"
-msgstr ""
+msgstr "Inoltra come allegato"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:173
 msgid "Mark Read"
@@ -6641,7 +6622,7 @@ msgstr "Sposta nella cartella Posta Indesiderata"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:283
 msgid "max. "
-msgstr ""
+msgstr "max. "
 
 #: client/zarafa/mail/ui/MailGrid.js:127
 #: plugins/folderwidgets/js/MailWidget.js:46
@@ -6652,9 +6633,8 @@ msgstr "Caricamento posta"
 # 100%
 # 76%
 #: client/zarafa/mail/ui/MailPanelToolbar.js:19
-#, fuzzy
 msgid "Loaded {0} of {1}"
-msgstr "Pagina {A} di {0}"
+msgstr "Elementi {0} di {1}"
 
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:55
 msgid "Save Note"
@@ -6667,14 +6647,13 @@ msgstr "Salva nota"
 
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:68
 msgid "Delete Note"
-msgstr ""
+msgstr "Elimina nota"
 
 # 81%
 # 100%
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:71
-#, fuzzy
 msgid "Delete this note"
-msgstr "Elimina questo elemento"
+msgstr "Elimina questa nota"
 
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:80
 msgid "Set Category"
@@ -6692,7 +6671,7 @@ msgstr "Colore"
 
 #: client/zarafa/note/KeyMapping.js:28
 msgid "New note"
-msgstr ""
+msgstr "Nuova nota"
 
 # 86%
 # 78%
@@ -6709,16 +6688,14 @@ msgstr "Nota"
 # 100%
 #: client/zarafa/note/NoteContext.js:297 client/zarafa/note/NoteContext.js:299
 #: client/zarafa/note/NoteContext.js:301
-#, fuzzy
 msgid "Print selected note"
-msgstr "Stampa attività selezionata"
+msgstr "Stampa nota selezionata"
 
 # 75%
 # 100%
 #: client/zarafa/note/NoteContext.js:320
-#, fuzzy
 msgid "No note selected"
-msgstr "Nessuna attività selezionata"
+msgstr "Nessuna nota selezionata"
 
 #: client/zarafa/note/NoteContext.js:338 client/zarafa/note/NoteContext.js:339
 msgid "Icons"
@@ -6734,7 +6711,7 @@ msgstr "Lista ultimi 7 giorni"
 
 #: client/zarafa/note/ui/NoteGridColumnModel.js:53
 msgid "Created"
-msgstr ""
+msgstr "Creato"
 
 #: client/zarafa/note/ui/NoteGridColumnModel.js:54
 msgid "Sort by: Created"
@@ -6819,11 +6796,11 @@ msgstr "Vuoi applicare le modifiche?"
 
 #: client/zarafa/settings/SettingsContext.js:157
 msgid "In order for the changes to take effect, please reload WebApp."
-msgstr ""
+msgstr "Per applicare le modifiche è necessario ricaricare la WebApp."
 
 #: client/zarafa/settings/SettingsContext.js:157
 msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+msgstr "NOTA: tutte le modifiche non salvate andranno perse."
 
 #: client/zarafa/settings/SettingsContext.js:404
 #: client/zarafa/settings/ui/SettingsTreePanel.js:47
@@ -6833,7 +6810,7 @@ msgstr "Impostazioni"
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:25
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:140
 msgid "Basic"
-msgstr ""
+msgstr "Base"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:73
 msgid "Account information - {0}"
@@ -6849,7 +6826,7 @@ msgstr "Cartella di avvio"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:143
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:174
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:163
@@ -6858,7 +6835,7 @@ msgstr "Questa modifica richiede il reload di Kopano WebApp"
 
 #: client/zarafa/settings/ui/SettingsAddressBookWidget.js:46
 msgid "Select Default Folder"
-msgstr ""
+msgstr "Seleziona cartella predefinita"
 
 #: client/zarafa/settings/ui/SettingsAdvancedCategory.js:23
 msgid "Advanced"
@@ -6882,59 +6859,60 @@ msgstr "Elimina impostazioni"
 
 #: client/zarafa/settings/ui/SettingsCopyrightCategory.js:31
 msgid "About"
-msgstr ""
+msgstr "Informazioni"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:37
 msgid "Inbox navigation"
-msgstr ""
+msgstr "Navigazione inbox"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:42
 msgid "I want to navigate through my items by using."
-msgstr ""
+msgstr "Modalità navigazione messaggi."
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "Scorrimento continuo"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
 msgid "WebApp automatically loads additional items when you scroll down"
-msgstr ""
+msgstr "La WebApp carica continuamente i nuovi elementi durante lo scorrimento"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
-#, fuzzy
 msgid "Pagination"
-msgstr "Organizzazione"
+msgstr "Paginazione"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
+"La WebApp mostra gli elementi a pagine sfogliabili tramite i controlli di "
+"navigazione"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:68
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "Carica {A} elementi per pagina."
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:22
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:21
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Scorciatoie da tastiera"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:140
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "Contenuto nelle scorciatoie da tastiera di base"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:36
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "Scorciatoie da tastiera disabilitate"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:41
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "Scorciatoie da tastiera base abilitate"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutWidget.js:46
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "Tutte le scorciatoie da tastiera abilitate"
 
 #: client/zarafa/settings/ui/SettingsMainPanel.js:118
 msgid "Apply"
@@ -6947,7 +6925,7 @@ msgstr "Applica"
 #: plugins/quickitems/js/QuickNoteWidget.js:53
 #: plugins/quickitems/js/QuickTaskWidget.js:102
 msgid "Discard"
-msgstr "Annulla"
+msgstr "Scarta"
 
 #: client/zarafa/settings/ui/SettingsPluginsCategory.js:33
 msgid "Plugins"
@@ -6955,7 +6933,7 @@ msgstr "Plugins"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:80
 msgid "Available plugins"
-msgstr ""
+msgstr "Plugins disponibili"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:94
 msgid ""
@@ -6964,18 +6942,21 @@ msgid ""
 "enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
 "in order for the changes to take effect."
 msgstr ""
+"Questa è la lista dei plugins disponibili. È possibile abilitare o "
+"disabilitare i singoli elementi. Per applicare le modifiche sarà necessario "
+"ricaricare la WebApp."
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:106
 msgid "No plugins available"
-msgstr ""
+msgstr "Non sono presenti plugins"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:117
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:235
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "Questo plugin non può essere disabilitato"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
 msgid "Mailbox Usage"
@@ -6987,7 +6968,6 @@ msgstr ""
 "Non ci sono limiti di archiviazione impostati per questa cassetta postale."
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:64
-#, fuzzy
 msgid "{0} of mailbox space is used."
 msgstr "{0} di spazio utilizzato."
 
@@ -7023,30 +7003,32 @@ msgstr ""
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:37
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:62
 msgid "Reset WebApp settings"
-msgstr ""
+msgstr "Ripristina impostazioni"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:34
 msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
+msgstr "Ripristina le impostazioni della WebApp ai valori predefiniti"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:56
 msgid ""
 "Your WebApp settings will be restored to their default condition. Are you "
 "sure you want to reset all WebApp settings?"
 msgstr ""
+"Le impostazioni della WebApp verranno ripristinate ai valori predefiniti. "
+"Sei sicuro di voler continuare?"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:58
 msgid ""
 "WebApp will automatically restart in order for these changes to take effect"
-msgstr ""
+msgstr "La WebApp verrà riavviata per applicare le modifiche,"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:67
 msgid "Reset"
-msgstr ""
+msgstr "Reinizializza"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:94
 msgid "Webapp is reloading, Please wait."
-msgstr ""
+msgstr "La WebApp si sta ricaricando, attendere prego."
 
 #: client/zarafa/settings/ui/SettingsTreePanel.js:58
 msgid "Setting"
@@ -7065,9 +7047,8 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:32
-#, fuzzy
 msgid "Kopano Core"
-msgstr "Kopano"
+msgstr "Kopano Core"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:37 index.php:70
 msgid "Server"
@@ -7432,7 +7413,7 @@ msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr ""
 "Per questo motivo, alcune funzionalità di WebApp potrebbero non funzionare "
-"correttamente"
+"correttamente."
 
 # 100%
 #: client/zarafa/Zarafa.js:506
@@ -7526,11 +7507,11 @@ msgstr "Il risponditore automatico fuori sede è stato disattivato"
 
 #: plugins/contactfax/js/ContactFax.js:131
 msgid "Send Fax"
-msgstr ""
+msgstr "Invia fax"
 
 #: plugins/contactfax/js/ContactFax.js:157
 msgid "Contact Fax"
-msgstr ""
+msgstr "Contatto fax"
 
 #: plugins/folderwidgets/js/AbstractFolderWidget.js:154
 msgid "Configure widget"
@@ -7580,7 +7561,7 @@ msgstr "Nessuna attività."
 
 #: plugins/gmaps/js/GmapsPlugin.js:50
 msgid "Google Maps"
-msgstr ""
+msgstr "Google Maps"
 
 #. TRANSLATORS: The map of earth
 #: plugins/gmaps/js/GmapsTab.js:58
@@ -7589,155 +7570,161 @@ msgstr "Mappa"
 
 #: plugins/pimfolder/js/PimPlugin.js:50
 msgid "Move currently selected message(s) to {0}"
-msgstr ""
+msgstr "Sposta i messaggi selezionati in {0}"
 
 #: plugins/pimfolder/js/PimPlugin.js:51 plugins/pimfolder/js/PimPlugin.js:78
 msgid "Move to {0}"
-msgstr ""
+msgstr "Sposta in {0}"
 
 #: plugins/pimfolder/js/PimPlugin.js:77
 msgid "Move current message to {0}"
-msgstr ""
+msgstr "Sposta il messaggio corrente in {0}"
 
 #: plugins/pimfolder/js/PimPlugin.js:176
 msgid "Personal Inbox Manager"
-msgstr ""
+msgstr "Gestore casella personale"
 
 #: plugins/pimfolder/js/PimPluginSettingsWidget.js:39
 msgid "Personal Inbox Management Settings"
-msgstr ""
+msgstr "Impostazioni gestore posta"
 
 #: plugins/pimfolder/js/PimPluginSettingsWidget.js:50
 msgid "Select another folder"
-msgstr ""
+msgstr "Seleziona cartella differente"
 
 #: plugins/pimfolder/js/PimPluginSettingsWidget.js:106
 msgid "E-mails are moved to {0}"
-msgstr ""
+msgstr "I messaggi verranno spostati in {0}"
 
 #: plugins/quickitems/js/QuickAppointmentWidget.js:341
 msgid "Quick Appointment"
-msgstr ""
+msgstr "Appuntamento veloce"
 
 #: plugins/quickitems/js/QuickContactWidget.js:396
 msgid "Quick Contact"
-msgstr ""
+msgstr "Contatto veloce"
 
 #: plugins/quickitems/js/QuickMailWidget.js:208
 msgid "Quick Mail"
-msgstr ""
+msgstr "E-Mail veloce"
 
 #: plugins/quickitems/js/QuickNoteWidget.js:165
 msgid "Quick Note"
-msgstr ""
+msgstr "Nota veloce"
 
 #: plugins/quickitems/js/QuickTaskWidget.js:231
 msgid "Quick Task"
-msgstr ""
+msgstr "Attività veloce"
 
 #: plugins/titlecounter/js/TitleCounter.js:49
 msgid "Title Counter Plugin"
-msgstr ""
+msgstr "Plugin titolo con contatore"
 
 #: plugins/webappmanual/js/ManualPlugin.js:46
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #: plugins/webappmanual/js/ManualPlugin.js:77
 msgid "WebApp Manual"
-msgstr ""
+msgstr "Manuale WebApp"
 
 #: plugins/zdeveloper/js/ZDeveloper.js:38
 msgid "INSERT"
-msgstr ""
+msgstr "INSERT"
 
 #: plugins/zdeveloper/js/ZDeveloper.js:96
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Ordina per: context.mail.griddefaultcolumn"
 
 #: plugins/zdeveloper/js/ZDeveloper.js:116
+#, fuzzy
 msgid "ZDeveloper"
-msgstr ""
+msgstr "Strumenti di sviluppo"
 
 #: defaults.php:103
 msgid "Charm pink"
-msgstr ""
+msgstr "Fascino rosa"
 
 #: defaults.php:108
 msgid "Cadmium red"
-msgstr ""
+msgstr "Rosso cadmio"
 
 #: defaults.php:113
 msgid "Apricot"
-msgstr ""
+msgstr "Albicocca"
 
 #: defaults.php:118
+#, fuzzy
 msgid "California"
-msgstr ""
+msgstr "California"
 
 #: defaults.php:128
 msgid "Soft green"
-msgstr ""
+msgstr "Verde chiaro"
 
 #: defaults.php:138
 msgid "Mint"
-msgstr ""
+msgstr "Menta"
 
 #: defaults.php:143
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Azzurro chiaro"
 
 #: defaults.php:148
 msgid "Sky blue"
-msgstr ""
+msgstr "Blu cielo"
 
 #: defaults.php:153
 msgid "Baby blue"
-msgstr ""
+msgstr "Blu bimbo"
 
 #: defaults.php:158
 msgid "Kopano blue"
-msgstr ""
+msgstr "Blu Kopano"
 
 #: defaults.php:163
 msgid "Mauve"
-msgstr ""
+msgstr "Lilla"
 
 #: defaults.php:173
 msgid "Silver sand"
-msgstr ""
+msgstr "Sabbia d'argento"
 
 #: index.php:78
 msgid "You have been automatically logged out"
-msgstr ""
+msgstr "Sei stato disconnesso automaticamente"
 
 #: server/includes/core/class.bus.php:272
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
+"Impossibile aggiungere dati al bus perché la tipologia di azione è già "
+"presente"
 
 #: server/includes/core/class.bus.php:293
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Risposta richiesta, ma nel bus non sono presenti dati."
 
 #: server/includes/core/class.dispatcher.php:45
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Modulo sconosciuto '%s' con id '%s'"
 
 #: server/includes/core/class.dispatcher.php:45
 #: server/includes/core/class.dispatcher.php:75
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"Il server ha riscontrato un problema e non è stato possibile gestire la "
+"richiesta."
 
 #: server/includes/core/class.dispatcher.php:75
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Notificatore sconosciuto '%s'"
 
 #: server/includes/core/class.jsonrequest.php:110
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Si è verificato un errore inatteso"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7746,40 +7733,40 @@ msgstr ""
 #: server/includes/core/class.operations.php:946
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s di %2$s"
 
 #: server/includes/core/class.operations.php:4021
 #: server/includes/modules/class.itemmodule.php:265
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Attività accettata:"
 
 #: server/includes/core/class.operations.php:4024
 #: server/includes/core/class.operations.php:4078
 #: server/includes/modules/class.itemmodule.php:267
 msgid "Task Declined:"
-msgstr ""
+msgstr "Attività rifiutata:"
 
 #: server/includes/core/class.operations.php:4027
 msgid "Task Request:"
-msgstr ""
+msgstr "Richiesta attività:"
 
 #: server/includes/core/class.operations.php:4037
 #: server/includes/core/class.operations.php:4079
 msgid "Task Updated:"
-msgstr ""
+msgstr "Attività aggiornata:"
 
 #: server/includes/core/class.operations.php:4037
 #: server/includes/core/class.operations.php:4079
 msgid "Task Completed:"
-msgstr ""
+msgstr "Attività completata:"
 
 #: server/includes/core/class.operations.php:4116
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
+msgstr "Non è stato possibile recapitare il messaggio a tutti i destinatari"
 
 #: server/includes/core/class.operations.php:4119
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "Impossibile contattare i seguenti destinatari"
 
 #: server/includes/core/class.settings.php:113
 #: server/includes/core/class.settings.php:148
@@ -7788,121 +7775,122 @@ msgstr ""
 #: server/includes/core/class.settings.php:378
 #: server/includes/core/class.settings.php:513
 msgid "Settings object is not initialized"
-msgstr ""
+msgstr "L'oggetto \"Impostazioni\" non è inizializzato"
 
 #: server/includes/core/class.settings.php:268
+#, fuzzy
 msgid "Error opening settings property"
-msgstr ""
+msgstr "Errore durante l'apertura della proprietà impostazioni"
 
 #: server/includes/core/class.settings.php:280
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Errore durante il recupero delle impostazioni esistenti"
 
 #: server/includes/core/class.webappauthentication.php:83
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
+msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
 #: server/includes/core/class.webappauthentication.php:85
 msgid "Cannot connect to Kopano Core."
-msgstr ""
+msgstr "Impossibile stabilire la connessione al sistema Kopano."
 
 #: server/includes/core/class.webappauthentication.php:87
 msgid "Logon failed, another session already exists."
-msgstr ""
+msgstr "Accesso non riuscito. Sessione già esistente."
 
 #: server/includes/core/class.webappauthentication.php:91
 msgid "Unknown MAPI Error"
-msgstr ""
+msgstr "Errore MAPI sconosciuto"
 
 #: server/includes/core/htmlfilter.php:1142
 #: server/includes/core/htmlfilter.php:1146
 #: server/includes/core/htmlfilter.php:1150
 #: server/includes/core/htmlfilter.php:1154
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Questo collegamento esterno verrà aperto in una nuova finestra"
 
 #: server/includes/download_attachment.php:498
 #: server/includes/download_message.php:257
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "Il file ZIP non è stato creato correttamente"
 
 #: server/includes/download_attachment.php:536
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Impossibile scaricare gli allegati"
 
 #: server/includes/download_attachment.php:553
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Impossibile recuperare l'allegato."
 
 #: server/includes/download_attachment.php:616
 #: server/includes/download_message.php:412
 msgid "Operation failed"
-msgstr ""
+msgstr "Operazione fallita"
 
 #: server/includes/download_message.php:162
 #, php-format
 msgid "Eml creation of '%s' is not supported"
-msgstr ""
+msgstr "Creazione file EML di '%s' non supportata"
 
 # 90%
 # 100%
 #: server/includes/download_message.php:301
-#, fuzzy
 msgid "Sticky Note"
 msgstr "Nota"
 
 #: server/includes/download_message.php:313
 msgid "Task Request"
-msgstr ""
+msgstr "Richiesta attività"
 
 #: server/includes/download_message.php:349
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
+"Impossibile trovare il messaggio. Potrebbe essere stato spostato o rimosso."
 
 #: server/includes/exceptions/class.ZarafaErrorException.php:32
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "L'azione non è stata eseguita correttamente."
 
 #: server/includes/mapi/class.mapiexception.php:24
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Non hai permessi sufficienti per aprire questo elemento."
 
 #: server/includes/mapi/class.mapiexception.php:27
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
 #: server/includes/mapi/class.mapiexception.php:29
 msgid "Can not connect to Kopano Core."
-msgstr ""
+msgstr "Impossibile connettersi al sistema Kopano."
 
 #: server/includes/mapi/class.mapiexception.php:31
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Impossibile aprire l'oggetto utilizzando l'identificativo fornito."
 
 #: server/includes/mapi/class.mapiexception.php:33
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Non sono stati specificati i destinatari del messaggio."
 
 #: server/includes/mapi/class.mapiexception.php:35
 msgid "Can not find object."
-msgstr ""
+msgstr "Impossibile trovare l'oggetto."
 
 #: server/includes/mapi/class.mapiexception.php:37
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Operazione fallita: memoria server insufficiente."
 
 #: server/includes/mapi/class.mapiexception.php:49
 #, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr ""
+msgstr "Errore MAPI sconosciuto: %s"
 
 #: server/includes/mapi/class.meetingrequest.php:1923
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Accettato provvisoriamente"
 
 #: server/includes/mapi/class.meetingrequest.php:1929
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Nuovo orario proposto"
 
 #: server/includes/mapi/class.recurrence.php:576
 #: server/includes/mapi/class.recurrence.php:577
@@ -7912,60 +7900,62 @@ msgstr "d-m-Y"
 # 78%
 # 76%
 #: server/includes/mapi/class.recurrence.php:592
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Ogni {0} dal giorno {1} fino al {2}."
+msgstr "Si verifica ogni %s dal giorno %s dalle %s al %s."
 
 # 77%
 #: server/includes/mapi/class.recurrence.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Ogni {0} dal giorno {1} per {2} occorrenza."
+msgstr "Si verifica ogni %s %s dal giorno %s dalle %s alle %s."
 
 # 80%
 #: server/includes/mapi/class.recurrence.php:598
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s."
-msgstr "Ogni {0} dal giorno {1}."
+msgstr "Si verifica ogni %s dal giorno %s."
 
 # 75%
 #: server/includes/mapi/class.recurrence.php:600
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "Ogni {0} dal giorno {1}."
+msgstr "Si verifica ogni %s %s dal giorno %s."
 
 # 76%
 #: server/includes/mapi/class.recurrence.php:607
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "Ogni {0} dal giorno {1} per {2} occorrenza dalle ore {3} alle {4}."
-msgstr[1] "Ogni {0} dal giorno {1} per {2} occorrenze dalle ore {3} alle {4}."
+msgstr[0] "Si verifica ogni %s dal giorno %s per %s occorrenza dalle %s alle %s."
+msgstr[1] "Si verifica ogni %s dal giorno %s per %s occorrenze dalle %s alle %s."
 
 # 76%
 # 95%
 #: server/includes/mapi/class.recurrence.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Ogni {0} dal giorno {1} per {2} occorrenza dalle ore {3} alle {4}."
-msgstr[1] "Ogni {0} dal giorno {1} per {2} occorrenze dalle ore {3} alle {4}."
+msgstr[0] ""
+"Si verifica ogni %s %s dal giorno %s per %s occorrenza dalle %s alle %s."
+msgstr[1] ""
+"Si verifica ogni %s %s dal giorno %s per %s occorrenze dalle %s alle %s."
 
 # 81%
 #: server/includes/mapi/class.recurrence.php:615
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Ogni {0} dal giorno {1} per {2} occorrenza."
-msgstr[1] "Ogni {0} dal giorno {1} per {2} occorrenze."
+msgstr[0] "Si verifica ogni %s dal giorno %s per %s occorrenza."
+msgstr[1] "Si verifica ogni %s dal giorno %s per %s occorrenze."
 
 # 77%
 #: server/includes/mapi/class.recurrence.php:618
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "Ogni {0} dal giorno {1} per {2} occorrenza."
-msgstr[1] "Ogni {0} dal giorno {1} per {2} occorrenze."
+msgstr[0] "Si verifica ogni %s %s dal giorno %s per %s occorrenza."
+msgstr[1] "Si verifica ogni %s %s dal giorno %s per %s occorrenze."
 
 # 76%
 # 75%
@@ -7997,14 +7987,14 @@ msgstr "Ogni {0} dal giorno {1} fino al {2}."
 
 #: server/includes/mapi/class.taskrequest.php:881
 #: server/includes/mapi/class.taskrequest.php:882
+#, fuzzy
 msgid "%A, %B %d, %Y"
-msgstr ""
+msgstr "%A, %B %d, %Y"
 
 # 87%
 #: server/includes/mapi/class.taskrequest.php:891
-#, fuzzy
 msgid "Deferred"
-msgstr "Differito"
+msgstr "Posticipato"
 
 #: server/includes/mapi/class.taskrequest.php:902
 #: server/includes/mapi/class.taskrequest.php:903
@@ -8013,29 +8003,35 @@ msgstr "ore"
 
 #: server/includes/modules/class.addressbookitemmodule.php:144
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Impossibile gestire questo tipo di oggetto."
 
 #: server/includes/modules/class.addressbookitemmodule.php:152
 msgid "Could not open this object."
-msgstr ""
+msgstr "Impossibile aprire questo oggetto."
 
 #: server/includes/modules/class.appointmentitemmodule.php:132
+#, fuzzy
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Impossibile aprire questa occorrenza."
 
 #: server/includes/modules/class.appointmentitemmodule.php:133
+#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
+msgstr "Impossibile aprire questa occorrenza: probabilmente è stata eliminata."
 
 #: server/includes/modules/class.appointmentitemmodule.php:200
+#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Impossibile visualizzare un promemoria prima della precedente occorrenza. "
+"Ripristinare il promemoria per salvare la modifica"
 
 #: server/includes/modules/class.appointmentitemmodule.php:202
+#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Due occorrenze non possono capitare nello stesso giorno."
 
 #: server/includes/modules/class.appointmentitemmodule.php:206
 #, php-format
@@ -8045,6 +8041,11 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Hai selezionato '%s' come risorsa. Non puoi fissare un appuntamento con '%s' "
+"poichè non disponi di sufficienti permessi per quell'account. Aggiungi "
+"l'utente come partecipante richiesto/facoltativo oppure contatta "
+"l'amministratore di sistema per richiedere i permessi per fissare un "
+"appuntamento con '%s'."
 
 #: server/includes/modules/class.appointmentitemmodule.php:209
 #, php-format
@@ -8052,6 +8053,8 @@ msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' ha rifiutato la tua richiesta di appuntamento perché '%s' non accetta "
+"automaticamente le richieste di appuntamento."
 
 #: server/includes/modules/class.appointmentitemmodule.php:212
 #, php-format
@@ -8059,6 +8062,8 @@ msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' ha rifiutato la tua richiesta di appuntamento perché è ricorrente. "
+"Dovrai richiedere singolarmente ogni appuntamento."
 
 #: server/includes/modules/class.appointmentitemmodule.php:215
 #, php-format
@@ -8066,60 +8071,62 @@ msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' è già stato prenotato per il periodo selezionato. Modifica l'orario o "
+"seleziona una risorsa differente."
 
 #: server/includes/modules/class.appointmentitemmodule.php:218
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "L'appuntamento non è stato fissato."
 
 #: server/includes/modules/class.appointmentitemmodule.php:244
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Impossibile inviare la richiesta di appuntamento."
 
 #: server/includes/modules/class.appointmentitemmodule.php:246
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Impossibile salvare l'appuntamento."
 
 #: server/includes/modules/class.appointmentlistmodule.php:304
 msgid "Private Appointment"
-msgstr ""
+msgstr "Appuntamento privato"
 
 #: server/includes/modules/class.contactitemmodule.php:359
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "Compleanno di %s"
 
 #: server/includes/modules/class.contactitemmodule.php:359
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "Anniversario di %s"
 
 #: server/includes/modules/class.delegatesmodule.php:263
 #: server/includes/modules/class.hierarchymodule.php:678
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Utente o gruppo sconosciuto"
 
 #: server/includes/modules/class.delegatesmodule.php:930
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Impossibile salvare le informazioni relative ai delegati."
 
 # 78%
 # 80%
 #: server/includes/modules/class.delegatesmodule.php:933
-#, fuzzy
 msgid "Could not delete delegate."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile eliminare il delegato."
 
 #: server/includes/modules/class.delegatesmodule.php:936
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Impossibile ottenere la lista dei delegati."
 
 #: server/includes/modules/class.hierarchymodule.php:271
+#, fuzzy
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Impossibile caricare la gerarchia."
 
 #: server/includes/modules/class.hierarchymodule.php:275
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Impossibile caricare le proprietà della cartella."
 
 # 78%
 # 80%
@@ -8127,26 +8134,24 @@ msgstr ""
 # 83%
 # 79%
 #: server/includes/modules/class.hierarchymodule.php:282
-#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile rimuovere la cartella dai Preferiti."
 
 #: server/includes/modules/class.hierarchymodule.php:285
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Non hai i permessi sufficienti per eliminare la cartella."
 
 # 78%
 # 80%
 # 76%
 # 83%
 #: server/includes/modules/class.hierarchymodule.php:287
-#, fuzzy
 msgid "Could not delete folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile eliminare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:297
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Non hai i permessi sufficienti per copiare la cartella."
 
 # 78%
 # 80%
@@ -8154,13 +8159,12 @@ msgstr ""
 # 83%
 # 75%
 #: server/includes/modules/class.hierarchymodule.php:299
-#, fuzzy
 msgid "Could not copy folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile copiare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:304
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Non hai i permessi sufficienti per spostare la cartella."
 
 # 78%
 # 80%
@@ -8168,77 +8172,74 @@ msgstr ""
 # 83%
 # 79%
 #: server/includes/modules/class.hierarchymodule.php:306
-#, fuzzy
 msgid "Could not move folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile spostare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:311
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Non hai i permessi sufficienti per eliminare gli elementi."
 
 # 78%
 # 80%
 # 76%
 # 83%
 #: server/includes/modules/class.hierarchymodule.php:313
-#, fuzzy
 msgid "Could not empty folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile svuotare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:317
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Impossibile completare l'operazione."
 
 #: server/includes/modules/class.hierarchymodule.php:321
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Impossibile aggiungere la cartella ai Preferiti."
 
 #: server/includes/modules/class.hierarchymodule.php:328
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
+"Non hai privilegi sufficienti per impostare permessi su questa cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:330
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Impossibile impostare permessi su questa cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:335
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Non hai permessi sufficienti per rinominare questa cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:338
 #: server/includes/modules/class.hierarchymodule.php:353
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Esiste già una cartella con lo stesso nome. Utilizza un altro nome."
 
 # 78%
 # 80%
 # 76%
 # 83%
 #: server/includes/modules/class.hierarchymodule.php:341
-#, fuzzy
 msgid "Could not rename folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile rinominare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:350
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Non hai permessi sufficiente per creare la cartella."
 
 # 78%
 # 80%
 # 76%
 # 83%
 #: server/includes/modules/class.hierarchymodule.php:356
-#, fuzzy
 msgid "Could not create folder."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile creare la cartella."
 
 #: server/includes/modules/class.hierarchymodule.php:362
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Impossibile chiudere la cartella condivisa."
 
 #: server/includes/modules/class.hierarchymodule.php:367
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Impossibile trovare l'utente."
 
 #: server/includes/modules/class.hierarchymodule.php:373
 #, php-format
@@ -8247,6 +8248,9 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Non hai permessi sufficienti per aprire la cartella %1$s. Il proprietario "
+"può impostarli utilizzando la scheda Permessi nella finestra proprietà di "
+"questa cartella (tasto destro sulla cartella %1$s > Proprietà > Permessi)."
 
 # 85%
 #: server/includes/modules/class.hierarchymodule.php:679
@@ -8260,9 +8264,8 @@ msgstr "Sconosciuto"
 # 83%
 # 75%
 #: server/includes/modules/class.hierarchymodule.php:964
-#, fuzzy
 msgid "Could not move folder"
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile spostare la cartella"
 
 # 78%
 # 80%
@@ -8271,110 +8274,113 @@ msgstr "Impossibile aprire la cassetta postale."
 # 75%
 # 95%
 #: server/includes/modules/class.hierarchymodule.php:966
-#, fuzzy
 msgid "Could not copy folder"
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile copiare la cartella"
 
 #: server/includes/modules/class.itemmodule.php:305
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Non hai permessi sufficienti per aprire questo messaggio."
 
 #: server/includes/modules/class.itemmodule.php:307
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Impossibile trovare il messaggio. È possibile che sia stato spostato, "
+"rimosso oppure non hai i permessi per aprirlo."
 
 # 78%
 #: server/includes/modules/class.itemmodule.php:309
-#, fuzzy
 msgid "Could not open message."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile aprire questo messaggio."
 
 #: server/includes/modules/class.itemmodule.php:319
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr ""
+"Non hai permessi sufficienti per rifiutare questa richiesta di appuntamento"
 
 #: server/includes/modules/class.itemmodule.php:322
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr ""
+"Non hai permessi sufficienti per accettare questa richiesta di appuntamento"
 
 # 78%
 # 82%
 #: server/includes/modules/class.itemmodule.php:325
-#, fuzzy
 msgid "Could not copy message"
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile copiare il messaggio"
 
 # 78%
 # 82%
 # 86%
 #: server/includes/modules/class.itemmodule.php:328
-#, fuzzy
 msgid "Could not move message"
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile spostare il messaggio"
 
 #: server/includes/modules/class.itemmodule.php:334
 msgid "You have insufficient privileges to save items in this folder"
-msgstr ""
+msgstr "Non hai permessi sufficienti per salvare elementi in questa cartella"
 
 # 78%
 # 82%
 # 95%
 #: server/includes/modules/class.itemmodule.php:339
-#, fuzzy
 msgid "Could not save message"
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile salvare il messaggio"
 
 #: server/includes/modules/class.itemmodule.php:349
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr ""
+msgstr "Non hai permessi sufficienti per rimuovere l'elemento dal calendario."
 
 #: server/includes/modules/class.itemmodule.php:356
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr ""
+msgstr "Non hai permessi sufficienti per eliminare elementi da questa cartella"
 
 #: server/includes/modules/class.itemmodule.php:361
 msgid "Could not resolve conflict."
-msgstr ""
+msgstr "Impossibile risolvere il conflitto."
 
 #: server/includes/modules/class.itemmodule.php:366
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr ""
+msgstr "Non hai i permessi sufficienti per allegare l'elemento."
 
 #: server/includes/modules/class.itemmodule.php:368
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "Impossibile allegare l'elemento."
 
 #: server/includes/modules/class.itemmodule.php:373
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
 msgstr ""
+"Non hai i permessi sufficienti per reclamare la proprietà di questa "
+"richiesta di attività."
 
 #: server/includes/modules/class.itemmodule.php:375
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "Impossibile reclamare la proprietà di questa richiesta di attività."
 
 #: server/includes/modules/class.itemmodule.php:380
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
+"Non hai i permessi sufficienti per accettare questa richiests di attività."
 
 #: server/includes/modules/class.itemmodule.php:382
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "Impossibile accettare questa richiesta di attività."
 
 #: server/includes/modules/class.itemmodule.php:387
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
+"Non hai i permessi sufficienti per rifiutare questa richiesta di attività."
 
 #: server/includes/modules/class.itemmodule.php:389
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "Impossibile rifiutare questa richiesta di attività."
 
 #: server/includes/modules/class.itemmodule.php:485
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Va in conflitto con un altro appuntamento."
 
 #: server/includes/modules/class.itemmodule.php:487
 #, php-format

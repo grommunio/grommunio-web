@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-08 11:56+0200\n"
-"PO-Revision-Date: 2016-09-06 14:14+0000\n"
-"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"PO-Revision-Date: 2016-12-01 13:41+0000\n"
+"Last-Translator: Sean <s.vanderspek@zarafa.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -42,9 +42,8 @@ msgstr "Zahl muss größer als Null sein"
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
-#, fuzzy
 msgid "More options"
-msgstr "Nachrichtenoptionen"
+msgstr "Weitere Optionen"
 
 #: client/extjs-mod/Ext.util.Format.js:20
 msgid "{0} byte"
@@ -2987,9 +2986,8 @@ msgstr "Vorgeschlagene Zeit akzeptieren"
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
-#, fuzzy
 msgid "View in calendar"
-msgstr "Mehrere Kalender anzeigen in"
+msgstr "Im Kalender anzeigen"
 
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
 msgid "This meeting request is out-of-date and will now be deleted."
@@ -4358,7 +4356,7 @@ msgstr "Hoch"
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} ausgewählte Zeile"
-msgstr[1] "{1} ausgewählte Zeilen"
+msgstr[1] "{0} ausgewählte Zeilen"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/common/ui/grid/Renderers.js:364
@@ -4618,13 +4616,13 @@ msgstr "Diese Nachricht wurde noch nicht gesendet"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:161
 msgid "Open in new browser window"
-msgstr ""
+msgstr "In einem eigenen Fenster öffnen"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:162
 msgid "Pop-Out"
-msgstr ""
+msgstr "Abkoppeln"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
@@ -5486,6 +5484,8 @@ msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
+"Ihr Browser scheint ein oder mehrere Pop-Up-Fenster blockiert zu haben. "
+"Bitte überprüfen Sie die Einstellungen Ihres Browsers."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
 #: server/includes/core/class.operations.php:3001
@@ -5771,13 +5771,12 @@ msgstr "Nicht alle Empfänger konnten aufgelöst werden"
 
 # 86%
 #: client/zarafa/core/ui/NavigationPanel.js:133
-#, fuzzy
 msgid "Collapse hierarchy"
-msgstr "Ordnerhierarchie konnte nicht geladen werden."
+msgstr "Hierarchieknoten zuklappen"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Ordnerhierarchie anzeigen"
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
 #: client/zarafa/core/ui/NavigationPanel.js:196
@@ -5842,11 +5841,11 @@ msgstr "Es sind keine Widgets installiert."
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:77
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Widgets verstecken"
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:78
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Widgets anzeigen"
 
 #: client/zarafa/core/Util.js:697
 msgid "Your changes will be lost if you leave this page now."
@@ -6171,14 +6170,12 @@ msgid "Select color"
 msgstr "Farbe auswählen"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:234
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Dem Favoritenordner hinzufügen"
+msgstr "Den Favoriten hinzufügen"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:248
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Aus dem Kalender entfernen"
+msgstr "Aus den Favoriten entfernen"
 
 #: client/zarafa/hierarchy/ui/ContextMenu.js:361
 msgid ""
@@ -6590,17 +6587,15 @@ msgstr ""
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:78
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Zum Öffnen oder Erstellen von E-Mails"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:89
-#, fuzzy
 msgid "WebApp tab"
-msgstr "WebApp"
+msgstr "WebApp Reiter"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:94
-#, fuzzy
 msgid "Browser window"
-msgstr "Durchsuchen"
+msgstr "Browserfenster"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:48
 msgid "I am currently in the office"
@@ -6954,11 +6949,11 @@ msgstr "Navigation im Posteingang"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:42
 msgid "I want to navigate through my items by using."
-msgstr "Meine Elemente möchte ich ..."
+msgstr "Meine Elemente möchte ich:"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:54
 msgid "Infinite Scroll"
-msgstr "... in einer kompletten Liste sehen"
+msgstr "in einer kompletten Liste sehen"
 
 # 98%
 # 100%
@@ -6970,7 +6965,7 @@ msgstr ""
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
 msgid "Pagination"
-msgstr "... in einer Seitenansicht sehen"
+msgstr "in einer Seitenansicht sehen"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:59
 msgid ""
@@ -8249,9 +8244,8 @@ msgid "Could not load folder properties."
 msgstr "Die Ordnereigenschaften konnten nicht geladen werden."
 
 #: server/includes/modules/class.hierarchymodule.php:282
-#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "Der Ordner konnte den Favoriten nicht hinzugefügt werden."
+msgstr "Der Ordner konnte nicht aus den Favoriten entfernt werden."
 
 #: server/includes/modules/class.hierarchymodule.php:285
 msgid "You have insufficient privileges to delete folder."
@@ -8367,13 +8361,12 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Sie haben nicht genügend Berechtigungen um die Nachricht zu öffnen."
 
 #: server/includes/modules/class.itemmodule.php:307
-#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
-"Nachricht konnte nicht gefunden wurden, Sie wurde zwischenzeitlich entweder "
-"verschoben oder gelöscht."
+"Nachricht konnte nicht gefunden werden. Sie wurde zwischenzeitlich entweder "
+"verschoben, gelöscht, oder Sie haben keine Zugriffsrechte mehr."
 
 # 78%
 #: server/includes/modules/class.itemmodule.php:309
@@ -8430,11 +8423,10 @@ msgstr ""
 
 # 81%
 #: server/includes/modules/class.itemmodule.php:356
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
-"Sie haben nicht genügend Berechtigungen um Elemente in dem Ordner zu "
-"speichern"
+"Sie haben keine ausreichenden Berechtigungen um Elemente in diesem Ordner zu "
+"löschen"
 
 #: server/includes/modules/class.itemmodule.php:361
 msgid "Could not resolve conflict."

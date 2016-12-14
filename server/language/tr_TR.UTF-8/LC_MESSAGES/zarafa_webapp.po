@@ -7,20 +7,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-08 13:28+0200\n"
-"PO-Revision-Date: 2012-12-03 15:45+0200\n"
-"Last-Translator: Haci <h.cicek@Kopano.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2016-12-09 11:22+0000\n"
+"Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
+"Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/tr/>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
+#, fuzzy
 msgid "Wk"
-msgstr ""
+msgstr "h"
 
 #: client/extjs-mod/Ext.form.DateField.js:81
 #: client/zarafa/common/ui/grid/Renderers.js:540
@@ -29,11 +31,11 @@ msgstr "Şimdi"
 
 #: client/extjs-mod/Ext.form.VTypes.js:26
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "Değer %0 ile %100 arasında olmalıdır"
 
 #: client/extjs-mod/Ext.form.VTypes.js:40
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "Rakam sıfırdan büyük olmalıdır"
 
 #: client/extjs-mod/Ext.layout.ToolbarLayout.js:175
 #: client/extjs-mod/Ext.layout.ToolbarLayout.js:176
@@ -41,9 +43,8 @@ msgstr ""
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:54
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:138
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
-#, fuzzy
 msgid "More options"
-msgstr "Mesaj ayarları"
+msgstr "Daha fazla seçenek"
 
 #: client/extjs-mod/Ext.util.Format.js:20
 msgid "{0} byte"
@@ -1005,15 +1006,14 @@ msgstr "Sıralama: Dosya Olarak"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:65
 msgid "Username"
-msgstr ""
+msgstr "kullanıcı adı"
 
 # 75%
 # 82%
 # 100%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:68
-#, fuzzy
 msgid "Sort by: Username"
-msgstr "Sıralama: İlerleme"
+msgstr "Sıralama: kullanıcı adı"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:76
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
@@ -1030,9 +1030,8 @@ msgstr "Soyadı"
 
 # 76%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:84
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Sıralama: Ad"
+msgstr "Sıralama: Soyad"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:92
 msgid "Sort by: Department"
@@ -1047,9 +1046,8 @@ msgid "Sort by: Office Phone"
 msgstr "Sıralama:İş Telefonu"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:107
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Sıralama: İş unvanı"
+msgstr "Sıralama: cep telefonu"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:112
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
@@ -1095,35 +1093,34 @@ msgstr "Sıralama: Faks"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:9
-#, fuzzy
 msgid "Any date"
-msgstr "Bitiş tarihi"
+msgstr "herhangi bir tarih"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:12
 msgid "Past week"
-msgstr ""
+msgstr "geçen hafta"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:15
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "son 2 hafta"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:18
 msgid "Past month"
-msgstr ""
+msgstr "geçen ay"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:21
 msgid "Past 6 month"
-msgstr ""
+msgstr "son 6 ay"
 
 #: client/zarafa/advancesearch/data/DateRangeFields.js:24
 msgid "Past year"
-msgstr ""
+msgstr "geçen sene"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:27
 #, fuzzy
 msgid "Custom date"
-msgstr "Bitiş tarihi"
+msgstr "özel tarih"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:52
 #: client/zarafa/advancesearch/dialogs/SearchToolbarPanel.js:53
@@ -1175,72 +1172,67 @@ msgstr "İlet"
 #: client/zarafa/mail/KeyMapping.js:80
 #: client/zarafa/mail/ui/MailGridContextMenu.js:154
 msgid "Edit as New Message"
-msgstr ""
+msgstr "Yeni mesaj olarak düzenle"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:66
 msgid "Search tools"
-msgstr ""
+msgstr "arama araçları"
 
 # 85%
 # 100%
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:125
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:156
-#, fuzzy
 msgid "Folders"
-msgstr "Klasör"
+msgstr "klasörler"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:137
+#, fuzzy
 msgid "All My folders"
-msgstr ""
+msgstr "bütün klasörlerim"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:147
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:616
+#, fuzzy
 msgid "Current folder"
-msgstr ""
+msgstr "mevcut klasör"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:169
-#, fuzzy
 msgid "Show.."
-msgstr "Göster"
+msgstr "göster.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:181
-#, fuzzy
 msgid "Mails"
 msgstr "E-posta"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:184
-#, fuzzy
 msgid "Calendar items"
-msgstr "Takvim öğeleri"
+msgstr "takvim öğeleri"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:187
-#, fuzzy
 msgid "Contact items"
-msgstr "Kişi Öğeler"
+msgstr "kişi öğeleri"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:190
-#, fuzzy
 msgid "Task items"
-msgstr "Görev Öğeler"
+msgstr "görev öğeleri"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:193
-#, fuzzy
 msgid "Note items"
-msgstr "Not Öğeler"
+msgstr "not öğeleri"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:211
+#, fuzzy
 msgid "Filter.."
-msgstr ""
+msgstr "filtrele.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:222
-#, fuzzy
 msgid "Unread items"
-msgstr "Öğeleri oku"
+msgstr "okunmamış öğeler"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:225
 #, fuzzy
 msgid "With attachments"
-msgstr "Eklenti"
+msgstr "eklerle"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:242
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:49
@@ -1283,7 +1275,7 @@ msgstr "Kime"
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:302
 #, fuzzy
 msgid "Search.."
-msgstr "Mart"
+msgstr "ara.."
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:313
 #: client/zarafa/calendar/data/SearchFields.js:16
@@ -1292,9 +1284,8 @@ msgid "Sender"
 msgstr "Gönderen"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:316
-#, fuzzy
 msgid "Recipients"
-msgstr "Alıcılar"
+msgstr "alıcılar"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:319
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:67
@@ -1336,29 +1327,33 @@ msgstr "Konu"
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:322
 #, fuzzy
 msgid "Body & Attachments"
-msgstr "Eklenti"
+msgstr "esas kısım ve ekleri"
 
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:39
 msgid "Search results - \"{0}\""
-msgstr ""
+msgstr "arama sonuçları - ''{0}''"
 
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:54
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Sıralama: tarih"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:121
 msgid "Loading Search results"
-msgstr ""
+msgstr "ara sonuçları yükleniyor"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:368
+#, fuzzy
 msgid "Sorting not possible"
-msgstr ""
+msgstr "sıralama yapılamıyor"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:369
+#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
 "than {0}. Narrow down your results by specifying your input."
 msgstr ""
+"Öğe sayısı {0}'dan büyük olduğu için arama sonuçları sıralanamamıştır. "
+"Belirleyici giriş yaparak sonuçlarınızı sınırlandırın."
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -1385,10 +1380,13 @@ msgstr ""
 "veya silinmiş olunabilir"
 
 #: client/zarafa/calendar/Actions.js:148
+#, fuzzy
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
+"Bu toplantı takvim'de yer almadığı için öneriyi göremedim; taşınmış veya "
+"silinmiş olabilir."
 
 #: client/zarafa/calendar/Actions.js:207
 #: client/zarafa/core/mapi/AppointmentLabels.js:120
@@ -1680,9 +1678,8 @@ msgstr "Başlangıç ​​Tarihi"
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:26
 #: client/zarafa/common/ui/appointmentpanel/AppointmentBody.js:62
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:56
-#, fuzzy
 msgid "End Date"
-msgstr "Bitiş tarihi"
+msgstr "bitiş tarihi"
 
 #: client/zarafa/calendar/attachitem/AttachCalendarRenderer.js:27
 #: client/zarafa/calendar/printer/MeetingRenderer.js:33
@@ -1703,9 +1700,8 @@ msgstr "Tüm gün etkinlik"
 # 76%
 # 100%
 #: client/zarafa/calendar/CalendarContext.js:356
-#, fuzzy
 msgid "Add Shared Calendar"
-msgstr "Paylastığım Takvimleri Aç"
+msgstr "paylaşılan takvim ekle"
 
 #: client/zarafa/calendar/CalendarContext.js:437
 #: client/zarafa/common/recurrence/data/DayData.js:8
@@ -1841,21 +1837,25 @@ msgstr ""
 "musunuz?"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:373
+#, fuzzy
 msgid "Send update to attendees"
-msgstr ""
+msgstr "katılımcılara güncelleme gönder"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:374
+#, fuzzy
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
 msgstr ""
+"Katılımcı listesinde değişiklik yaptınız, aşağıdakiler arasından seçiniz"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:388
+#, fuzzy
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:393
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Güncellemeleri tüm katılımcılara gönder."
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:426
 msgid ""
@@ -1950,11 +1950,14 @@ msgid "Invitations have not been sent for this meeting."
 msgstr "Bu toplantı için davetiyeler gönderilmemiştir."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:99
+#, fuzzy
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Bu toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
+"değişikliklerin üzerine yazılacaktır."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:346
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:115
@@ -1966,7 +1969,7 @@ msgstr "Zaman"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:352
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:121
 msgid "until"
-msgstr ""
+msgstr "kadar"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:391
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:198
@@ -2020,12 +2023,13 @@ msgstr "Uyarı"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:569
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:129
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:136
+#, fuzzy
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Ekler tek bir olay için modifiye edilemez"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:619
 msgid "Type your message here..."
-msgstr ""
+msgstr "Mesajınızı buraya yazın..."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:883
 msgid ""
@@ -2157,7 +2161,7 @@ msgstr "Bu randevuya eklentiler ekleyin"
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:126
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:128
 msgid "Cannot add attachment"
-msgstr ""
+msgstr "ek eklenemiyor"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:146
 msgid "Print this appointment"
@@ -2200,8 +2204,9 @@ msgid "Cancel invitation"
 msgstr "Davetiyeyi iptal et"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:227
+#, fuzzy
 msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
+msgstr "katılımcıları silerek toplantı isteğini randevuya çevir"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:237
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:239
@@ -2287,7 +2292,7 @@ msgstr "Bu randevuyu özel olarak işaretle "
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:439
 #, fuzzy
 msgid "Save meeting request and close dialog"
-msgstr "Kişiyi kaydet ve pencereyi kapat"
+msgstr "Toplantı isteğini kaydet ve iletişimi sonlandır"
 
 #: client/zarafa/calendar/dialogs/CounterProposalGrid.js:49
 msgid "Proposed Date and Time"
@@ -2409,7 +2414,6 @@ msgstr "Yanıt ver"
 # 93%
 # 100%
 #: client/zarafa/calendar/KeyMapping.js:28
-#, fuzzy
 msgid "New appointment"
 msgstr "Yeni randevu"
 
@@ -2420,18 +2424,18 @@ msgstr "Yeni randevu"
 #: client/zarafa/hierarchy/KeyMapping.js:29 client/zarafa/mail/KeyMapping.js:29
 #: client/zarafa/note/KeyMapping.js:29 client/zarafa/task/KeyMapping.js:29
 msgid "Creating an item"
-msgstr ""
+msgstr "öğe oluşturma"
 
 # 89%
 # 100%
 #: client/zarafa/calendar/KeyMapping.js:40
-#, fuzzy
 msgid "New meeting request"
-msgstr "Yeni toplanti isteği"
+msgstr "Yeni toplantı isteği"
 
 #: client/zarafa/calendar/KeyMapping.js:52
+#, fuzzy
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Takvim aralığını ileri geri değiştir"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/printer/MeetingRenderer.js:27
@@ -2550,59 +2554,64 @@ msgstr "Takvim çözünürlük"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:128
 msgid "Working days"
-msgstr ""
+msgstr "iş günü"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:134
 msgid "Mon"
-msgstr ""
+msgstr "Pzt"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:138
 msgid "Tue"
-msgstr ""
+msgstr "Sal"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:142
 msgid "Wed"
-msgstr ""
+msgstr "Çar"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:146
 msgid "Thu"
-msgstr ""
+msgstr "Per"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:150
 msgid "Fri"
-msgstr ""
+msgstr "Cum"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:154
 msgid "Sat"
-msgstr ""
+msgstr "Cmt"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:158
 msgid "Sun"
-msgstr ""
+msgstr "Paz"
 
 #: client/zarafa/calendar/settings/SettingsCalendarWidget.js:165
 msgid "Show busy dates as bold in the date picker"
 msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:21
+#, fuzzy
 msgid "Free/busy information is used by people sending meeting requests, "
 msgstr ""
+"serbest / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
+"kullanılıyor, "
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:22
 msgid "to determine when you are available for meetings."
-msgstr ""
+msgstr "ne zaman toplantılar için müsait olduğunu belirlemek."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:25
+#, fuzzy
 msgid "Free/Busy permission"
-msgstr ""
+msgstr "serbest / meşgul izin"
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:33
 msgid "Publish {A} month(s) of Calendar free/busy information on the server."
-msgstr ""
+msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:53
+#, fuzzy
 msgid "You can only publish a free/busy period from 1 to 36 months."
-msgstr ""
+msgstr "sadece 1 ila 36 aylık serbest / meşgul periodu yayımlayabilirsin."
 
 #: client/zarafa/calendar/settings/SettingsOverlayWidget.js:25
 msgid "Side-by-side mode"
@@ -2710,20 +2719,21 @@ msgid "Occurrence"
 msgstr "Tekrarlama"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:377
+#, fuzzy
 msgid "Series"
-msgstr ""
+msgstr "seri"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:411
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:454
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:448
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:484
+#, fuzzy
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:41
-#, fuzzy
 msgid "All Day"
-msgstr "Tüm gün etkinlik"
+msgstr "tüm gün"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:43
 msgid "Sort by: All Day"
@@ -2733,14 +2743,13 @@ msgstr "Sıralama: Tüm Gün"
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:46
 #: client/zarafa/mail/ui/MailGridColumnModel.js:77
 #: client/zarafa/mail/ui/MailGridColumnModel.js:172
-#, fuzzy
 msgid "Icon"
-msgstr "Simgeler"
+msgstr "simge"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:57
 #, fuzzy
 msgid "Recurring"
-msgstr "Tekrarlama"
+msgstr "tekrar eden"
 
 # 80%
 # 76%
@@ -2872,42 +2881,42 @@ msgstr "j F Y"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:591
 msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr ""
+msgstr "Toplantı saati değişti. Aşağıdakiler arasından seç:"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:636
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:641
+#, fuzzy
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "değişiklik yapılan toplantı isteğini aç"
 
 # 89%
 # 100%
 # 84%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:353
-#, fuzzy
 msgid "a meeting request"
-msgstr "Yeni toplanti isteği"
+msgstr "bir toplantı isteği"
 
 # 93%
 # 100%
 # 80%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:353
-#, fuzzy
 msgid "an appointment"
-msgstr "Yeni randevu"
+msgstr "bir randevu"
 
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:355
+#, fuzzy
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "yetersiz ayrıcalıklar"
 
 # 79%
 # 100%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:356
 #, fuzzy
 msgid "You have insufficient privileges to move "
-msgstr "Bu klasöre kopyalamak için yeterli ayrıcalıklara sahip deyilsiniz"
+msgstr "taşımak için yeterli ayrıcalıklara sahip değilsiniz "
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 #: client/zarafa/calendar/ui/MeetingInfo.js:31
@@ -2982,9 +2991,8 @@ msgstr "Önerilmiş yeni zamanı kabul et"
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:355
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:357
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:358
-#, fuzzy
 msgid "View in calendar"
-msgstr "Birden fazla takvim görüntüle"
+msgstr "takvim'de görüntüle"
 
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:377
 msgid "This meeting request is out-of-date and will now be deleted."
@@ -3162,36 +3170,34 @@ msgstr "Bcc"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemContentPanel.js:56
 msgid "Insert item"
-msgstr ""
+msgstr "öğe ekle"
 
 # 83%
 #: client/zarafa/common/attachment/dialogs/AttachItemGrid.js:30
-#, fuzzy
 msgid "Items:"
-msgstr "Öğeler"
+msgstr "öğeler:"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:36
 msgid "Look in:"
-msgstr ""
+msgstr "bak:"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:86
 msgid "Insert as"
-msgstr ""
+msgstr "olarak ekle"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:103
 msgid "Text only"
-msgstr ""
+msgstr "yalnızca metin"
 
 # 90%
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:108
 #: client/zarafa/mail/ui/MailGridColumnModel.js:86
-#, fuzzy
 msgid "Attachment"
-msgstr "Eklenti"
+msgstr "ek"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
 msgid "Attach Item"
-msgstr ""
+msgstr "öğe ekle"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
 #: client/zarafa/mail/MailContext.js:616
@@ -3201,7 +3207,7 @@ msgstr "Hiçbir mesaj seçilmedi"
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:23
 #: client/zarafa/mail/ui/MailGridContextMenu.js:92
 msgid "Download as ZIP"
-msgstr ""
+msgstr "ZIP olarak indir"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:31
 #: client/zarafa/core/ui/WelcomeViewport.js:64
@@ -3209,19 +3215,24 @@ msgid "Continue"
 msgstr "Devam et "
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:51
+#, fuzzy
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
-msgstr ""
+msgstr "Bu eklerin dosya tipi desteklenmemekte ve ZIP dosyasına eklenememekte:"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:66
+#, fuzzy
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Bu dosyaları eklemeden indirmeye devam etmek istiyor musun?"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:72
+#, fuzzy
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"ZIP dosyalarının indirmesine her zaman desteklenmeyen dosya türlerini "
+"eklemeden devam et."
 
 #: client/zarafa/common/attachment/ui/AttachmentButton.js:39
 msgid "File upload"
@@ -3229,7 +3240,7 @@ msgstr "Dosya ekle"
 
 #: client/zarafa/common/attachment/ui/AttachmentButton.js:44
 msgid "Attach item"
-msgstr ""
+msgstr "öğe ekle"
 
 #: client/zarafa/common/attachment/ui/AttachmentContextMenu.js:56
 msgid "Preview"
@@ -3244,7 +3255,7 @@ msgstr "Indir"
 
 #: client/zarafa/common/attachment/ui/AttachmentContextMenu.js:68
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "tümünü ZIP olarak indir"
 
 #: client/zarafa/common/attachment/ui/AttachmentDownloader.js:93
 #: client/zarafa/core/data/IPMAttachmentStore.js:291
@@ -3257,20 +3268,19 @@ msgstr "Eklenti hatası"
 
 #: client/zarafa/common/attachment/ui/AttachmentDownloader.js:94
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "ZIP oluşturulamıyor, izin verilen maksimum boyut 30 MB."
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:126
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "resim formatı desteklenmiyor. "
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:127
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "Kişi resimleri için desteklenen format"
 
 # 93%
 # 100%
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:131
-#, fuzzy
 msgid "Attachment Error"
 msgstr "Eklenti hatası"
 
