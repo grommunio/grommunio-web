@@ -15,18 +15,18 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	 */
 	/**
 	 * @insert main.maintoolbar.new.folder
-	 * Insertion point for populating the "New item" menu. It will be placed in the folder part of 
+	 * Insertion point for populating the "New item" menu. It will be placed in the folder part of
 	 * the list. Each item inserted to this list is accessible from all contexts.
 	 * @param {Zarafa.core.ui.MainToolbar} toolbar This toolbar
 	 */
 	/**
 	 * @insert main.toolbar.actions
-	 * Insertion point for populating the main toolbar with buttons. It will be added after the 
+	 * Insertion point for populating the main toolbar with buttons. It will be added after the
 	 * NEW-button and before the VIEW-buttons.
 	 */
 	/**
 	 * @insert main.toolbar.actions.last
-	 * Insertion point for populating the main toolbar with buttons. It will be added after the 
+	 * Insertion point for populating the main toolbar with buttons. It will be added after the
 	 * VIEW-buttons.
 	 */
 
@@ -66,19 +66,19 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	},
 
 	/**
-	 * Creates the "New" {@link Ext.Button}. The NEW-button menu consists of three parts. The first 
-	 * part is the button that will be considered the default button for the active context. The 
-	 * second part contains items that deal with folders and the last part will deal with the 
+	 * Creates the "New" {@link Ext.Button}. The NEW-button menu consists of three parts. The first
+	 * part is the button that will be considered the default button for the active context. The
+	 * second part contains items that deal with folders and the last part will deal with the
 	 * creation of items.
-	 * The menu will be populated by using the main.maintoolbar.new.folder and 
-	 * main.maintoolbar.new.item insertion points. The first one is for adding items to the second 
+	 * The menu will be populated by using the main.maintoolbar.new.folder and
+	 * main.maintoolbar.new.item insertion points. The first one is for adding items to the second
 	 * (folder) part and the latter one is for adding items to the third (item) part of the menu.
-	 * 
-	 * Based on the newMenuIndex property of each button the items are sorted. Based on the text 
-	 * property, double items are filtered out of the list. When the list contains items a dummy 
-	 * button and a separator is added at the top of the list. The dummy button will "replace" the 
-	 * item of the active context. The other item will not be removed, but it will be hidden and 
-	 * properties like the icon and the handler are also set on the dummy button. This switch is 
+	 *
+	 * Based on the newMenuIndex property of each button the items are sorted. Based on the text
+	 * property, double items are filtered out of the list. When the list contains items a dummy
+	 * button and a separator is added at the top of the list. The dummy button will "replace" the
+	 * item of the active context. The other item will not be removed, but it will be hidden and
+	 * properties like the icon and the handler are also set on the dummy button. This switch is
 	 * done when the contexts are switched by the {@link Zarafa.core.Container Container}.
 	 * @private
 	 */
@@ -90,7 +90,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		// Make sure the items are properly sorted by priority.
 		itemMenu = Zarafa.core.Util.sortArray(itemMenu, 'ASC', 'newMenuIndex');
 
-		// Remove doubles 
+		// Remove doubles
 		itemMenu = Zarafa.core.Util.uniqueArray(itemMenu, 'text');
 
 		// menu.length should practically always be non-zero, but
@@ -113,7 +113,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			},
 			'-');
 		}
-		
+
 		// Add the item list to to the menu
 		if (itemMenu.length !== 0) {
 			menu = menu.concat(itemMenu);
@@ -131,7 +131,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 				render: this.onRenderNewButton,
 				scope: this
 			},
-			// The following config properties set the first item (that is now item number 
+			// The following config properties set the first item (that is now item number
 			// three in the menu) as the button in the toolbar.
 			iconCls: itemMenu[0] ? itemMenu[0].iconCls : undefined,
 			handler : itemMenu[0] ? itemMenu[0].handler : undefined,
@@ -140,16 +140,16 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	},
 
 	/**
-	 * Adds an event handler to the NEW-button that is registered to the contextswitch event of the 
-	 * {@link Zarafa.core.Container Container}. This event handler will set the correct icon and 
+	 * Adds an event handler to the NEW-button that is registered to the contextswitch event of the
+	 * {@link Zarafa.core.Container Container}. This event handler will set the correct icon and
 	 * handler for the {@link Ext.SplitButton SplitButton} in the toolbar. It will also add the icon,
-	 * handler and text for the first item: the dummy button that holds the default action for the 
+	 * handler and text for the first item: the dummy button that holds the default action for the
 	 * active context. This event handler is called within the scope of the SplitButton.
-	 * It will loop through all the menu items in the last part of the menu and based on the 
-	 * activate context it will hide or show the menu items. If the button is marked to belong to 
-	 * the active context it will be hidden and the dummy button  will be changed so it will look 
+	 * It will loop through all the menu items in the last part of the menu and based on the
+	 * activate context it will hide or show the menu items. If the button is marked to belong to
+	 * the active context it will be hidden and the dummy button  will be changed so it will look
 	 * like the button has moved to the top. All other buttons will  remain visible.
-	 * If no button is marked to belong to the active context the first button in the list, after 
+	 * If no button is marked to belong to the active context the first button in the list, after
 	 * the dummy button and the separator, will become the new default button.
 	 * @param {Ext.Component} cmp The SplitButton
 	 */
@@ -171,10 +171,10 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	{
 		var menu = this.newButton.menu;
 
-		// The dummy button is the first button in the context menu that shows the button first 
+		// The dummy button is the first button in the context menu that shows the button first
 		// button registered by the active context.
 		var dummyButton = menu.items.itemAt(0);
-		// The default button is the button that will be set as the SplitButton if the active 
+		// The default button is the button that will be set as the SplitButton if the active
 		// context has not registered any buttons. The first button in the item-list will become
 		// the default button.
 		var defaultButton = menu.defaultButton;
@@ -226,8 +226,8 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 
 	/**
 	 * Creates the "View" {@link Ext.Button buttons}.
-	 * For each context a "View" button will be created which will be populated with the 
-	 * main.maintoolbar.view.[context]. The first item from that list will also be used to set the 
+	 * For each context a "View" button will be created which will be populated with the
+	 * main.maintoolbar.view.[context]. The first item from that list will also be used to set the
 	 * properties like iconCls and handler to the {@link Ext.SplitButton SplitButton}.
 	 * @private
 	 */
@@ -241,7 +241,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 			if (Ext.isArray(menu) && menu.length) {
 				if (context.groupViewBtns) {
 					menuItems.push({
-						xtype: 'button',
+						xtype: 'splitbutton',
 						id: 'zarafa-maintoolbar-view-'+context.getName(),
 						scale: 'large',
 						iconCls: 'view_icon',
@@ -281,11 +281,11 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	},
 
 	/**
-	 * Adds an event handler to the VIEW-button that is registered to the contextswitch event of the 
-	 * {@link Zarafa.core.Container Container}. This event handler will enable or disable the 
-	 * VIEW-button based on whether this button belong to the active context. This event handler is 
-	 * called within the scope of the SplitButton.
-	 * @param {Ext.Component} cmp The SplitButton
+	 * Adds an event handler to the VIEW-button that is registered to the contextswitch event of the
+	 * {@link Zarafa.core.Container Container}. This event handler will enable or disable the
+	 * VIEW-button based on whether this button belong to the active context. This event handler is
+	 * called within the scope of the SplitButton/Button.
+	 * @param {Ext.Component} cmp The SplitButton/Button
 	 */
 	onRenderViewButton: function(cmp)
 	{
@@ -294,12 +294,26 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		}, cmp);
 		//we need this line in order to set the visibility correctly as the contextswitch event will not have fired yet
 		cmp.setVisible(cmp.contextName === container.getCurrentContext().getName());
+
+		// We want the menu to be toggled when the splitbutton is clicked. We cannot use the regular btn handler
+		// for this, since an opened menu will already be closed before the handler is executed and there is
+		// no way of knowing anymore if we should open it or not. So we will add a handler for an ordinary
+		// mousedown event that gets called when the menu is still open.
+		if ( cmp.xtype === 'splitbutton' ){
+			cmp.btnEl.on('mousedown', function(){
+				if ( cmp.hasVisibleMenu() ){
+					cmp.hideMenu();
+				} else {
+					cmp.showMenu();
+				}
+			});
+		}
 	},
-	
+
 	/**
 	 * Creates the Print {@link Ext.Button buttons}.
 	 * This differs for each context, and is populated with
-	 * main.toolbar.view.[context]. 
+	 * main.toolbar.view.[context].
 	 */
 	 addPrintButton : function()
 	 {
@@ -343,11 +357,11 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 
 		this.addItems(menuItems);
 	 },
-	 
+
 	/**
-	 * Adds an event handler to the Print button that is registered to the contextswitch event of the 
-	 * {@link Zarafa.core.Container Container}. This event handler will enable or disable the 
-	 * VIEW-button based on whether this button belong to the active context. This event handler is 
+	 * Adds an event handler to the Print button that is registered to the contextswitch event of the
+	 * {@link Zarafa.core.Container Container}. This event handler will enable or disable the
+	 * VIEW-button based on whether this button belong to the active context. This event handler is
 	 * called within the scope of the SplitButton.
 	 * @param {Ext.Component} cmp The SplitButton
 	 */
@@ -359,10 +373,10 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		//we need this line in order to set the visibility correctly as the contextswitch event will not have fired yet
 		cmp.setVisible(cmp.contextName === container.getCurrentContext().getName());
 	},
-	
+
 	/**
-	 * Adds the action buttons to the main toolbar. It adds a couple of default buttons by default 
-	 * and allows to populate the toolbar with more buttons by using the main.maintoolbar.actions 
+	 * Adds the action buttons to the main toolbar. It adds a couple of default buttons by default
+	 * and allows to populate the toolbar with more buttons by using the main.maintoolbar.actions
 	 * insertion point.
 	 * @private
 	 */
@@ -408,7 +422,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	},
 
 	/**
-	 * This will Refresh the view and fire {@link Zarafa.core.data.ListModuleStore#reload} 
+	 * This will Refresh the view and fire {@link Zarafa.core.data.ListModuleStore#reload}
 	 * @private
 	 */
 	onRefresh : function()
@@ -432,9 +446,9 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	},
 
 	/**
-	 * Adds an event handler to the Refresh button that will register the contextswitch event of the 
-	 * {@link Zarafa.core.Container Container}. This event handler will hide or unhide the 
-	 * Refresh button based on whether the active context have store or not. This event handler is 
+	 * Adds an event handler to the Refresh button that will register the contextswitch event of the
+	 * {@link Zarafa.core.Container Container}. This event handler will hide or unhide the
+	 * Refresh button based on whether the active context have store or not. This event handler is
 	 * called within the scope of the Refresh Button.
 	 * @param {Ext.Component} cmp The {@link #refreshButton}
 	 */
