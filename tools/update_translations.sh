@@ -26,7 +26,7 @@ update_translations $POT_FILE php /tmp/PHPFILES
 # Merge PO files and remove obsolete strings
 for lang in server/language/*.UTF-8/LC_MESSAGES/zarafa_webapp.po; do
   echo $lang
-  msgmerge -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
+  msgmerge -N -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
 done
 
 rm $POT_FILE
