@@ -400,7 +400,9 @@
 
 			// First, find the element in active browser window if the active window is not the main webapp window
 			if (Ext.isDefined(activeBrowserWindow) && activeBrowserWindow.name !== 'mainBrowserWindow' && typeof el === "string") {
-				getResult = new Ext.Element(activeBrowserWindow.document.getElementById(el));
+				var respectiveElement = activeBrowserWindow.document.getElementById(el);
+				// Wrap the element only if it is found
+				getResult = respectiveElement ? new Ext.Element(respectiveElement) : respectiveElement;
 			}
 
 			// Find the element in webapp main window
