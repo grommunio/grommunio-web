@@ -87,6 +87,16 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 			 */
 			'folderselect',
 			/**
+			 * Fires when the webapp has loaded and the loading mask has been removed.
+			 * @event webapploaded
+			 */
+			'webapploaded',
+			/**
+			 * Fires when the webapp will reload. Return false from an event handler to cancel the reload.
+			 * @event beforewebappreload
+			 */
+			'beforewebappreload',
+			/**
 			 * Fires before the user logs out from the webapp. Return false from an event handler to stop the show.
 			 * @event beforelogout
 			 */
