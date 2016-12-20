@@ -306,7 +306,7 @@ Zarafa.core.Util =
 
 	/**
 	 * Function will return object which has all keys in lowercase
-	 * 
+	 *
 	 * @param {Object} obj The object.
 	 * @return {Object} The object with all keys as lowercase
 	 */
@@ -321,9 +321,9 @@ Zarafa.core.Util =
 		return newObject;
 	},
 
-	/** 
-	 * Split a string in pieces based on whether each piece matches the passed 
-	 * pattern. It returns both the pieces that match and that do not match the 
+	/**
+	 * Split a string in pieces based on whether each piece matches the passed
+	 * pattern. It returns both the pieces that match and that do not match the
 	 * pattern.
 	 * @param {String} str The input string to be split up
 	 * @param {RegExp} pattern The regex pattern used to be split the string
@@ -612,7 +612,7 @@ Zarafa.core.Util =
 	encode_utf16 : function(str)
 	{
 		var num1, num2;
-		var result = ''; 
+		var result = '';
 
 		if(!Ext.isString(str)) {
 		    str = String(str);
@@ -665,8 +665,10 @@ Zarafa.core.Util =
 	 */
 	reloadWebapp : function()
 	{
-		this.disableLeaveRequester();
-		window.location.reload();
+		if ( container.fireEvent('beforewebappreload') !== false ){
+			this.disableLeaveRequester();
+			window.location.reload();
+		}
 	},
 
 	/**
