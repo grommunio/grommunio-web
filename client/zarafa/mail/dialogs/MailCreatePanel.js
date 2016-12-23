@@ -12,7 +12,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	 * @cfg {Boolean} use_html_editor True to enable the HTML editor in this panel.
 	 */
 	use_html_editor : false,
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
@@ -273,7 +273,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				this.editorField.setHtmlEditor(this.use_html_editor, false);
 				this.editorField.bindRecord(record);
 				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
-			} 
+			}
 		}
 	},
 
@@ -424,12 +424,16 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		var recipientRecord = store.getAt(0);
 
 		if(recipientRecord) {
+			this.getTopToolbar().showFrom.disable();
+
 			record.set('sent_representing_name', recipientRecord.get('display_name'));
 			record.set('sent_representing_email_address', recipientRecord.get('email_address'));
 			record.set('sent_representing_address_type', recipientRecord.get('address_type'));
 			record.set('sent_representing_entryid', recipientRecord.get('entryid'));
 			record.set('sent_representing_search_key', recipientRecord.get('search_key'));
 		} else {
+			this.getTopToolbar().showFrom.enable();
+
 			record.set('sent_representing_name', '');
 			record.set('sent_representing_email_address', '');
 			record.set('sent_representing_address_type', '');
