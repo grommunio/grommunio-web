@@ -21,10 +21,15 @@ if(!defined('ENABLE_RESPONSE_COMPRESSION')) define('ENABLE_RESPONSE_COMPRESSION'
  * When set to true this disables the fitlering of the HTML body.
  */
 if(!defined('DISABLE_HTMLBODY_FILTER')) define('DISABLE_HTMLBODY_FILTER', false);
+
 /**
  * Set to true to disable login with Single Sign-On (SSO) on SSO environments.
  */
 if(!defined('DISABLE_REMOTE_USER_LOGIN')) define('DISABLE_REMOTE_USER_LOGIN', false);
+/**
+ * Set to true to hide the Logout button when using Single Sign-On.
+ */
+if(!defined('HIDE_LOGOUT_BUTTON')) define('HIDE_LOGOUT_BUTTON', false);
 
 /**
  * When set to true this disables the welcome screen to be shown for first time users.
