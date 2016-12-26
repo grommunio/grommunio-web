@@ -92,9 +92,7 @@ Zarafa.mail.dialogs.ShowMailContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 	 */
 	update : function(record, contentReset)
 	{
-		if(contentReset){
-			this.updateIconFromRecord(record);
-		}
+		this.updateIconFromRecord(record);
 		this.updateTitleFromRecord(record);
 	},
 

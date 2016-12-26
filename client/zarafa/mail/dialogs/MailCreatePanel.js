@@ -269,11 +269,9 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		this.getForm().loadRecord(record);
 		// record will contain body only when its already opened
 		if(record.isOpened()) {
-			if(contentReset) {
-				this.editorField.setHtmlEditor(this.use_html_editor, false);
-				this.editorField.bindRecord(record);
-				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
-			}
+			this.editorField.setHtmlEditor(this.use_html_editor, false);
+			this.editorField.bindRecord(record);
+			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 		}
 	},
 

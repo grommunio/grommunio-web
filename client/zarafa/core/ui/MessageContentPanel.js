@@ -67,12 +67,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
-		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/readflag_time_enable') === true) {
-			config.plugins.push({
-				ptype : 'zarafa.markasreadplugin',
-				ignoreReadFlagTimer : true
-			});
-		}
+		config.plugins.push({
+			ptype : 'zarafa.markasreadplugin',
+			ignoreReadFlagTimer : true
+		});
+
 		
 		this.addEvents(
 			/**
@@ -116,6 +115,47 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}
 		if (Ext.isString(this.sendingDoneText)) {
 			this.sendingDoneText = { title : '', msg : this.sendingDoneText };
+		}
+
+		if(this.record) {
+			var store = this.record.getStore();
+			if (store) {
+				store.on('update', this.syncUpdatesToShadowStore, this);
+			}
+		}
+	},
+
+	/**
+	 * Event handler which is triggered when a {@link Zarafa.core.data.IPMRecord record} has been
+	 * updated from the server.
+	 * When any record which belongs to {@link Zarafa.core.data.IPMStore} gets updated, respective
+	 * {@link Zarafa.core.data.ShadowStore ShadowStore} record needs to be updated, if any.
+	 *
+	 * @param {Zarafa.core.data.IPMStore} store The store which performs the update
+	 * @param {Zarafa.core.data.IPMRecord} record The Record which has been updated
+	 * @param {String} operation  The update operation being performed. 
+	 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
+	 * @private
+	 */
+	syncUpdatesToShadowStore : function(store, record, operation)
+	{
+		var shadowRecords = container.getShadowStore().getRange();
+		var isResponseRecord = record.modified === null ? true : false;
+
+		// Only process the record which came from server.
+		// To identify such situation, Make sure that the operation was commit-operation
+		// and there is no modification.
+		if (isResponseRecord && operation === Ext.data.Record.COMMIT) {
+			Ext.each(shadowRecords, function(shadowRecord){
+				if (Zarafa.core.EntryId.compareEntryIds(shadowRecord.get('entryid'), record.get('entryid'))) {
+					// Stop modification-tracking to prevent dirty mark
+					record.setUpdateModificationsTracking(false);
+					shadowRecord.applyData(record);
+
+					// Start modification-tracking back for future user changes
+					shadowRecord.setUpdateModificationsTracking(true);
+				}
+			}, this);
 		}
 	},
 
