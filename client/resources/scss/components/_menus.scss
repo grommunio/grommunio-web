@@ -410,6 +410,10 @@ $menu-item-height : 30px;
       	background-position: sprite-position($icons, icon_task_complete, $offset-y: 3, $offset-x: 3);
 	}
 
+	.icon_task_incomplete {
+		background-position: sprite-position($icons, icon_task_incomplete, $offset-y: 3, $offset-x: 3);
+	}
+
 	.icon_attachment {
       	background-position: sprite-position($icons, icon_paperclip, $offset-y: 2, $offset-x: -1);
 	}
