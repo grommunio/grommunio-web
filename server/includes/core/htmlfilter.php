@@ -1123,19 +1123,23 @@ function magicHTML($body) {
     $add_attr_to_tag = Array(
             "/^a$/i" =>
             Array('target'=>'"_blank"',
-                'title'=>'"'._("This external link will open in a new window").'"'
+                'title'=>'"'._("This external link will open in a new window").'"',
+                'rel'=>'"noreferrer noopener"'
                 ),
             "/^base$/i" =>
             Array('target'=>'"_blank"',
-                'title'=>'"'._("This external link will open in a new window").'"'
+                'title'=>'"'._("This external link will open in a new window").'"',
+                'rel'=>'"noreferrer noopener"'
                 ),
             "/^area$/i" =>
             Array('target'=>'"_blank"',
-                'title'=>'"'._("This external link will open in a new window").'"'
+                'title'=>'"'._("This external link will open in a new window").'"',
+                'rel'=>'"noreferrer noopener"'
                 ),
             "/^form$/i" =>
             Array('target'=>'"_blank"',
-                'title'=>'"'._("This external link will open in a new window").'"'
+                'title'=>'"'._("This external link will open in a new window").'"',
+                'rel'=>'"noreferrer noopener"'
                 )
             );
     $trusted = sq_sanitize($body,
