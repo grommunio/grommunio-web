@@ -172,12 +172,6 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 				record.setDelegatorInfo(delegator);
 			}
 
-			// When a 'send as' has been configured, enable the from field.
-			var sendAs = container.getSettingsModel().get('zarafa/v1/contexts/mail/sendas', true);
-			if(!Ext.isEmpty(sendAs)) {
-				hasFrom = true;
-			}
-
 			if(record.get('sent_representing_email_address')) {
 				hasFrom = true;
 				var delegatorFieldStore = this.mainPanel.fromRecipientField.getBoxStore();
