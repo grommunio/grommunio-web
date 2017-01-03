@@ -49,7 +49,7 @@
 
 						if ($contactItem != false) {
 							// Get necessary property from respective contact item
-							$contactItemProps = mapi_getprops($contactItem, Array(PR_GIVEN_NAME_W, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME));
+							$contactItemProps = mapi_getprops($contactItem, Array(PR_GIVEN_NAME, PR_DISPLAY_NAME, PR_TITLE, PR_COMPANY_NAME));
 
 							// Use the data retrieved from contact item to prepare response
 							// as similar as it seems like an addressbook item.

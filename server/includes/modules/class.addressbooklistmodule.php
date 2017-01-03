@@ -757,7 +757,7 @@
 		*/
 		function getAddressbookHierarchy($hideContacts = false)
 		{
-			$ab = $GLOBALS["mapisession"]->getAddressbook();
+			$ab = $GLOBALS["mapisession"]->getAddressbook(false, true);
 			$dir = mapi_ab_openentry($ab);
 			$table = mapi_folder_gethierarchytable($dir, MAPI_DEFERRED_ERRORS | CONVENIENT_DEPTH);
 
