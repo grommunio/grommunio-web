@@ -1192,8 +1192,6 @@ msgid "All My folders"
 msgstr "bütün klasörlerim"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:147
-#: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:633
-#, fuzzy
 msgid "Current folder"
 msgstr "mevcut klasör"
 
@@ -1330,6 +1328,10 @@ msgstr "Konu"
 msgid "Body & Attachments"
 msgstr "esas kısım ve ekleri"
 
+#: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:39
+msgid "Search results - \"{0}\""
+msgstr "arama sonuçları - ''{0}''"
+
 #: client/zarafa/advancesearch/ui/SearchGridColumnModel.js:50
 msgid "Sort by: Date"
 msgstr "Sıralama: tarih"
@@ -1339,12 +1341,10 @@ msgid "Loading Search results"
 msgstr "ara sonuçları yükleniyor"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:392
-#, fuzzy
 msgid "Sorting not possible"
 msgstr "sıralama yapılamıyor"
 
 #: client/zarafa/advancesearch/ui/SearchGrid.js:393
-#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
 "than {0}. Narrow down your results by specifying your input."
@@ -1840,19 +1840,16 @@ msgstr ""
 "musunuz?"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:380
-#, fuzzy
 msgid "Send update to attendees"
 msgstr "katılımcılara güncelleme gönder"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:381
-#, fuzzy
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
 msgstr ""
 "Katılımcı listesinde değişiklik yaptınız, aşağıdakiler arasından seçiniz"
 
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:395
-#, fuzzy
 msgid "Send updates to only added or deleted attendees."
 msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
 
@@ -2727,7 +2724,6 @@ msgstr "seri"
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:454
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:463
 #: client/zarafa/calendar/ui/MeetingRequestButtons.js:499
-#, fuzzy
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 

@@ -7678,7 +7678,6 @@ msgid "Apricot"
 msgstr "Albicocca"
 
 #: defaults.php:129
-#, fuzzy
 msgid "California"
 msgstr "California"
 
