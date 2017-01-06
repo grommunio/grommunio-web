@@ -75,6 +75,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.options');
 		Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.flags');
 		Zarafa.core.data.SharedComponentType.addProperty('mail.contextmenu.flags');
+        Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.delayeddelivery');
 	},
 
 	/**
@@ -236,6 +237,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			// Bid for mail specific dialog
 			case Zarafa.core.data.SharedComponentType['mail.dialog.options']:
 			case Zarafa.core.data.SharedComponentType['mail.dialog.flags']:
+            case Zarafa.core.data.SharedComponentType['mail.dialog.delayeddelivery']:
 				bid = 1;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
@@ -331,6 +333,8 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem.textrenderer']:
 				component = Zarafa.mail.attachitem.AttachMailRenderer;
 				break;
+            case Zarafa.core.data.SharedComponentType['mail.dialog.delayeddelivery']:
+                component = Zarafa.mail.dialogs.DelayedDeliveryContentPanel;
 		}
 		return component;
 	},
