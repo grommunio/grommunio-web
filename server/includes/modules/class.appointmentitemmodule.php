@@ -228,7 +228,7 @@
 					// according to the latest recipient related changes only if changes requested from client.
 					$savedAppointment = $GLOBALS['operations']->openMessage($store, $messageProps[PR_ENTRYID]);
 					if(!empty($action['recipients'])) {
-						$recipients = $GLOBALS["operations"]->getRecipientsInfo($store, $savedAppointment);
+						$recipients = $GLOBALS["operations"]->getRecipientsInfo($savedAppointment);
 						if(!empty($recipients)) {
 							$data["recipients"] = array(
 								"item" => $recipients

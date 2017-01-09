@@ -1477,8 +1477,7 @@
 			$props = array();
 
 			if($message) {
-				$messageprops = mapi_getprops($message, $properties);
-				$props = Conversion::mapMAPI2XML($properties, $messageprops);
+				$props = $this->getProps($message, $properties);
 
 				// Get actual SMTP address for sent_representing_email_address and received_by_email_address
 				$smtpprops = mapi_getprops($message, array(PR_SENT_REPRESENTING_ENTRYID, PR_RECEIVED_BY_ENTRYID, PR_SENDER_ENTRYID));
@@ -1510,20 +1509,18 @@
 
 				$htmlcontent = '';
 				$plaincontent = '';
-				if (!$plaintext){
+				if (!$plaintext) {
 					$cpprops = mapi_message_getprops($message, array(PR_INTERNET_CPID));
 					$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 1252;
 					if(isset($tmpProps[PR_HTML]) || propIsError(PR_HTML, $tmpProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-						// only open proeprty if it exists
+						// only open property if it exists
 						$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, mapi_message_openproperty($message, PR_HTML));
 					}
 
 					if(!empty($htmlcontent)) {
-						$filter = new filter();
 
 						if(!$html2text) {
-							$msgstore_props = mapi_getprops($store, array(PR_ENTRYID));
-
+							$filter = new filter();
 							$htmlcontent = $filter->safeHTML($htmlcontent);
 							$props["props"]["isHTML"] = true;
 						} else {
@@ -1535,7 +1532,7 @@
 				}
 
 				if(isset($tmpProps[PR_BODY]) || propIsError(PR_BODY, $tmpProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-					// only open proeprty if it exists
+					// only open property if it exists
 					$plaincontent = mapi_message_openproperty($message, PR_BODY);
 					$plaincontent = trim($plaincontent, "\0");
 				}
@@ -1582,7 +1579,7 @@
 				}
 
 				// Get recipients
-				$recipients = $GLOBALS["operations"]->getRecipientsInfo($store, $message);
+				$recipients = $GLOBALS["operations"]->getRecipientsInfo($message);
 				if(!empty($recipients)) {
 					$props["recipients"] = array(
 						"item" => $recipients
@@ -1590,7 +1587,7 @@
 				}
 
 				// Get attachments
-				$attachments = $GLOBALS["operations"]->getAttachmentsInfo($store, $message);
+				$attachments = $GLOBALS["operations"]->getAttachmentsInfo($message);
 				if(!empty($attachments)) {
 					$props["attachments"] = array(
 						"item" => $attachments
@@ -1921,7 +1918,6 @@
 		 */
 		function saveAppointment($store, $entryid, $parententryid, $action, $actionType = 'save', $directBookingMeetingRequest=true)
 		{
-			$exception = false;
 			$messageProps = array();
 			// It stores the values that is exception allowed or not false -> not allowed
 			$isExceptionAllowed = true;
@@ -1994,10 +1990,6 @@
 								if($isReminderTimeAllowed){
 									if($recurrence->isException($basedate)){
 										$oldProps = $recurrence->getExceptionProperties($recurrence->getChangeException($basedate));
-										//to get the old exceptions properties
-										if(isset($action['drag']) && $action['drag']){
-											$previousExceptionProps = $recurrence->getChangeException($basedate);
-										}
 
 										$isExceptionAllowed = $recurrence->modifyException(Conversion::mapXML2MAPI($properties, $action['props']), $basedate, $exception_recips);
 									} else {
@@ -2123,7 +2115,7 @@
 			if($send === true && $isExceptionAllowed){
 				if(!isset($action['basedate'])) {
 					// retrieve recipients from saved message
-					$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($store, $message);
+					$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
 					foreach ($savedRecipients as $recipient) {
 						$savedUnsavedRecipients["saved"][] = $recipient['props'];
 					}
@@ -3157,11 +3149,10 @@
 		/**
 		 * get attachments information of a particular message
 		 *
-		 * @param MapiStore $store MAPI Store Object
 		 * @param MapiMessage $message MAPI Message Object
 		 * @param Boolean $excludeHidden exclude hidden attachments
 		 */
-		function getAttachmentsInfo($store, $message, $excludeHidden = false)
+		function getAttachmentsInfo($message, $excludeHidden = false)
 		{
 			$attachmentsInfo = array();
 
@@ -3263,11 +3254,10 @@
 		/**
 		 * get recipients information of a particular message
 		 *
-		 * @param MapiStore $store MAPI Store Object
 		 * @param MapiMessage $message MAPI Message Object
 		 * @param Boolean $excludeDeleted exclude deleted recipients
 		 */
-		function getRecipientsInfo($store, $message, $excludeDeleted = true)
+		function getRecipientsInfo($message, $excludeDeleted = true)
 		{
 			$recipientsInfo = array();
 

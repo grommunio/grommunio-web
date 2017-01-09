@@ -799,7 +799,7 @@ If it is the first time this attendee has proposed a new date/time, increment th
 							// Find basedate of occurrence item
 							$basedate = $this->getBasedateFromGlobalID($occurrenceItemProps[$this->proptags['goid']]);
 							if ($basedate && $occurrenceItemProps[$this->proptags['recurring']] != true) {
-								$this->mergeException($calendarItem, $occurrenceItem, $basedate, $store, $isDelegate);
+								$this->mergeException($calendarItem, $occurrenceItem, $basedate, $store);
 							}
 						}
 					}
@@ -858,8 +858,6 @@ If it is the first time this attendee has proposed a new date/time, increment th
 						$old_entryid = mapi_getprops($this->message, Array(PR_ENTRYID));
 						$calmsg = mapi_folder_createmessage($calFolder);
 						mapi_copyto($this->message, array(), array(), $calmsg); /* includes attachments and recipients */
-						/* release old message */
-						$message = null;
 
 						$calItemProps = Array();
 						$calItemProps[PR_MESSAGE_CLASS] = 'IPM.Appointment';
@@ -1511,10 +1509,6 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		} else {
 			// we are checking with meeting request / response / cancellation mail
 			// get calendar items
-
-			// get the basedate to check for exception
-			$basedate = $this->getBasedateFromGlobalID($props[$this->proptags['goid']]);
-
 			$calendarItem = $this->getCorrespondentCalendarItem(true);
 		}
 
@@ -1745,8 +1739,6 @@ If it is the first time this attendee has proposed a new date/time, increment th
 	 */
 	function checkCalendarWriteAccess($store = false)
 	{
-		$calFolder = false;
-
 		if($store === false) {
 			// If this meeting request is received by a delegate then open delegator's store.
 			$messageProps = mapi_getprops($this->message, array(PR_RCVD_REPRESENTING_NAME));
@@ -2108,7 +2100,6 @@ If it is the first time this attendee has proposed a new date/time, increment th
 	{
 		$storestable = mapi_getmsgstorestable($this->session);
 		$rows = mapi_table_queryallrows($storestable, array(PR_ENTRYID, PR_DEFAULT_STORE));
-		$entry = false;
 		
 		foreach($rows as $row) {
 			if(isset($row[PR_DEFAULT_STORE]) && $row[PR_DEFAULT_STORE]) {
@@ -2764,9 +2755,8 @@ If it is the first time this attendee has proposed a new date/time, increment th
 	 * @param resource $occurrenceItem reference to MAPI_message of occurrence
 	 * @param string $basedate basedate of occurrence
 	 * @param resource $store user store
-	 * @param boolean $isDelegate true if delegate is processing this meeting request
 	 */
-	function mergeException(&$recurringItem, &$occurrenceItem, $basedate, $store, $isDelegate = false)
+	function mergeException(&$recurringItem, &$occurrenceItem, $basedate, $store)
 	{
 		$recurr = new Recurrence($store, $recurringItem);
 

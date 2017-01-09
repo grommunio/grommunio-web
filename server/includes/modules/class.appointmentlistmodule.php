@@ -7,16 +7,6 @@
 	class AppointmentListModule extends ListModule
 	{
 		/**
-		 * @var object Recurrence class object.
-		 */
-		private $recurrence;
-		
-		/**
-		 * @var object MeetingRequest class object.
-		 */
-		private $meetingrequest;
-		
-		/**
 		 * @var date start interval of view visible
 		 */
 		private $startdate;
@@ -62,7 +52,6 @@
 				if(isset($actionType)) {
 					try {
 						$store = $this->getActionStore($action);
-						$parententryid = $this->getActionParentEntryID($action);
 						$entryid = $this->getActionEntryID($action);
 
 						switch($actionType)
@@ -101,7 +90,6 @@
 		function messageList($store, $entryid, $action, $actionType)
 		{
 			if($store && $entryid) {
-				$type = false;
 				// initialize start and due date with false value so it will not take values from previous request
 				$this->startdate = false;
 				$this->enddate = false;

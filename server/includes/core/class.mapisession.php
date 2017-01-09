@@ -264,7 +264,7 @@
 		 */
 		function getUserEntryID()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("userentryid",$this->session_info)?$this->session_info["userentryid"]:false;
 		}
@@ -275,7 +275,7 @@
 		 */
 		function getUserName()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("username",$this->session_info)?$this->session_info["username"]:false;
 		}
@@ -286,7 +286,7 @@
 		 */
 		function getFullName()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("fullname",$this->session_info)?$this->session_info["fullname"]:false;
 		}
@@ -297,7 +297,7 @@
 		 */
 		function getSMTPAddress()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("smtpaddress",$this->session_info)?$this->session_info["smtpaddress"]:false;
 		}
@@ -308,7 +308,7 @@
 		 */
 		function getEmailAddress()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("emailaddress",$this->session_info)?$this->session_info["emailaddress"]:false;
 		}
@@ -319,7 +319,7 @@
 		 */
 		function getUserImage()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("userimage",$this->session_info)? $this->session_info["userimage"]:false;
 		}
@@ -396,7 +396,7 @@
 		 */
 		function getSearchKey()
 		{
-			$result = $this->retrieveUserData();
+			$this->retrieveUserData();
 
 			return array_key_exists("searchkey",$this->session_info)?$this->session_info["searchkey"]:false;
 		}

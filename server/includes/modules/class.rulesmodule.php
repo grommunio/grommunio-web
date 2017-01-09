@@ -58,7 +58,7 @@
 							$this->deleteRules($store);
 
 							// Now can save all rules
-							$this->saveRules($store, $action);
+							$this->saveRules($action);
 
 							// delete (outlook) client rules
 							$this->deleteOLClientRules($store);
@@ -202,13 +202,10 @@
 		 * This function only usee ROW_MODIFY flag to save rules data, Which is correct when modifying existing rules
 		 * but for adding new rules Kopano Core automatically checks existence of rule id and if it si not then
 		 * use ROW_ADD flag.
-		 * @param {MAPIStore} $store current user's store.
 		 * @param {Array} $rulesData rules data that should be deleted.
 		 */
-		function saveRules($store, $rulesData)
+		function saveRules($rulesData)
 		{
-			$responseData = array();
-
 			if (is_assoc_array($rulesData)) {
 				// wrap single rule in an array
 				$rulesData = array($rulesData);

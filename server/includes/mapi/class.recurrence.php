@@ -209,7 +209,6 @@
             }
 		        
 			$baseday = $this->dayStartOf($base_date);
-			$basetime = $baseday + $this->recur["startocc"] * 60;
 			$extomodify = false;
 
 			for($i = 0, $len = count($this->recur["changed_occurences"]); $i < $len; $i++) {
@@ -356,8 +355,6 @@
 		 */
 		function isValidReminderTime($basedate, $reminderminutes, $startdate)
 		{
-			$isreminderrangeset = false;
-			
 			// get all occurence items before the seleceted items occurence starttime
 			$occitems = $this->getItems($this->messageprops[$this->proptags["startdate"]], $this->toGMT($this->tz, $basedate));
 			

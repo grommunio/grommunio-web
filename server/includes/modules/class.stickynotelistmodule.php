@@ -39,7 +39,6 @@
 				if(isset($actionType)) {
 					try {
 						$store = $this->getActionStore($action);
-						$parententryid = $this->getActionParentEntryID($action);
 						$entryid = $this->getActionEntryID($action);
 
 						switch($actionType)
