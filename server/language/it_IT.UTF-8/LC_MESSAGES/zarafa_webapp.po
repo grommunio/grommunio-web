@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2016-12-08 10:13+0000\n"
+"PO-Revision-Date: 2017-01-09 11:51+0000\n"
 "Last-Translator: Roberto <r.waha@mastsolutions.it>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/it/>\n"
@@ -112,7 +112,8 @@ msgstr[1] "{0} settimane"
 # intraducibile
 #: client/extjs-mod/Translations.js:14
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr "The quick brown fox jumps over the lazy dog"
+msgstr ""
+"Quel vituperabile xenofobo zelante assaggia il whisky ed esclama: alleluja"
 
 #: client/extjs-mod/Translations.js:135
 msgid "Sunday"
@@ -1351,7 +1352,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "Intendevi"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -2736,7 +2737,7 @@ msgstr "Ordina per: Stato appuntamento"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Ordina per: Mostra come"
 
 # 84%
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
@@ -4010,7 +4011,7 @@ msgstr "ha importanza ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "ha un allegato"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
@@ -4022,27 +4023,27 @@ msgstr "inviato solo a me"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "ha il mio nome nel campo Cc"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "ha il mion nome nel campo A o Cc"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "ha sensibilità"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "è ricevuto dopo"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "è ricevuto prima"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "ha il mio nome nel campo A"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4177,7 +4178,7 @@ msgstr "La regola ha già la minima priorità."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Aggiungi/modifica mittente"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
 msgid "No send as address configured"
@@ -4812,7 +4813,6 @@ msgstr "Fax abitazione"
 
 # 94%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:49
-#, fuzzy
 msgid "Email Display As"
 msgstr "E-mail Visualizza come"
 
@@ -5039,7 +5039,7 @@ msgstr "Lavoro 2"
 
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:486
 msgid "Callback"
-msgstr "Callback"
+msgstr "Richiamata"
 
 # 75%
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:492
@@ -6389,7 +6389,6 @@ msgstr "Posta"
 # 88%
 # 100%
 #: client/zarafa/mail/KeyMapping.js:56
-#, fuzzy
 msgid "Reply all"
 msgstr "Rispondi a tutti"
 
@@ -6906,7 +6905,7 @@ msgstr ""
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Carica oggetti in blocchi da {A}"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load {A} items per page."
@@ -6979,7 +6978,7 @@ msgstr "Questo plugin non può essere disabilitato"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:238
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Questo plugin non può essere abilitato"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
 msgid "Mailbox Usage"
@@ -7947,30 +7946,30 @@ msgstr[1] "Si verifica ogni %s %s dal giorno %s per %s occorrenze."
 # 76%
 # 75%
 #: server/includes/mapi/class.recurrence.php:626
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Ogni {0} dal giorno {1} per {2} occorrenza dalle ore {3} alle {4}."
+msgstr "Si verifica ogni %s dal giorno %s al giorno %s, dalle ore %s alle %s."
 
 # 76%
 # 75%
 # 94%
 #: server/includes/mapi/class.recurrence.php:628
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Ogni {0} dal giorno {1} per {2} occorrenza dalle ore {3} alle {4}."
+msgstr "Si verifica ogni %s %s dal %s al %s occorrenza dalle ore %s alle %s."
 
 # 78%
 #: server/includes/mapi/class.recurrence.php:632
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "Ogni {0} dal giorno {1} fino al {2}."
+msgstr "Si verifica ogni %s dal giorno %s fino al %s."
 
 # 78%
 # 92%
 #: server/includes/mapi/class.recurrence.php:634
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr "Ogni {0} dal giorno {1} fino al {2}."
+msgstr "Si verifica ogni %s %s, dal %s fino al %s."
 
 #: server/includes/mapi/class.taskrequest.php:881
 #: server/includes/mapi/class.taskrequest.php:882
@@ -7997,7 +7996,6 @@ msgid "Could not open this object."
 msgstr "Impossibile aprire questo oggetto."
 
 #: server/includes/modules/class.appointmentitemmodule.php:132
-#, fuzzy
 msgid "Could not open occurrence."
 msgstr "Impossibile aprire questa occorrenza."
 
@@ -8007,18 +8005,16 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Impossibile aprire questa occorrenza: probabilmente è stata eliminata."
 
 #: server/includes/modules/class.appointmentitemmodule.php:200
-#, fuzzy
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
-"Impossibile visualizzare un promemoria prima della precedente occorrenza. "
+"Impossibile impostare un promemoria prima della precedente occorrenza. "
 "Ripristinare il promemoria per salvare la modifica"
 
 #: server/includes/modules/class.appointmentitemmodule.php:202
-#, fuzzy
 msgid "Two occurrences cannot occur on the same day"
-msgstr "Due occorrenze non possono capitare nello stesso giorno."
+msgstr "Due occorrenze non possono capitare nello stesso giorno"
 
 #: server/includes/modules/class.appointmentitemmodule.php:206
 #, php-format
@@ -8107,7 +8103,6 @@ msgid "Can not get list of delegates."
 msgstr "Impossibile ottenere la lista dei delegati."
 
 #: server/includes/modules/class.hierarchymodule.php:271
-#, fuzzy
 msgid "Could not load the hierarchy."
 msgstr "Impossibile caricare la gerarchia."
 
@@ -8241,7 +8236,6 @@ msgstr ""
 
 # 85%
 #: server/includes/modules/class.hierarchymodule.php:679
-#, fuzzy
 msgid "unknown"
 msgstr "Sconosciuto"
 
@@ -8388,7 +8382,11 @@ msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
+"%s occorrenze di questo appuntamento ricorrente sono in conflitto con un "
+"altro appuntamento."
 msgstr[1] ""
+"%s occorrenze di questo appuntamento ricorrente sono in conflitto con altri "
+"appuntamenti."
 
 #: server/includes/modules/class.itemmodule.php:874
 msgid "Your message did not reach some or all of the intended recipients"
@@ -8402,100 +8400,104 @@ msgstr "Impossibile contattare i seguenti destinatari"
 #: server/includes/modules/class.maillistmodule.php:94
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""
+"Non hai privilegi sufficienti per vedere il contenuto di questa cartella."
 
 #: server/includes/modules/class.listmodule.php:129
 #: server/includes/modules/class.maillistmodule.php:96
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Impossibile caricare il contenuto di questa cartella."
 
 #: server/includes/modules/class.listmodule.php:241
 #: server/includes/modules/class.listmodule.php:257
 #: server/includes/modules/class.maillistmodule.php:103
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Errore nella ricerca, per favore riprova"
 
 #: server/includes/modules/class.maillistmodule.php:101
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
+"Non hai privilegi sufficienti per eseguire una ricerca in questa cartella."
 
 #: server/includes/modules/class.maillistmodule.php:107
 msgid "Could not update search results."
-msgstr ""
+msgstr "Impossibile aggiornare i risultati della ricerca."
 
 #: server/includes/modules/class.maillistmodule.php:111
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Impossibile fermare l'operazione di ricerca."
 
 #: server/includes/modules/class.module.php:115
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Non hai privilegi sufficienti per salvare il messaggio."
 
 # 78%
 # 82%
 #: server/includes/modules/class.module.php:117
-#, fuzzy
 msgid "Could not save message."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile salvare il messaggio."
 
 #: server/includes/modules/class.module.php:122
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Non hai privilegi sufficienti per cancellare il messaggio."
 
 # 78%
 # 80%
 #: server/includes/modules/class.module.php:124
-#, fuzzy
 msgid "Could not delete message."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile cancellare il messaggio."
 
 #: server/includes/modules/class.module.php:129
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
+"Non hai privilegi sufficienti per cancellare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:131
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Impossibile cancellare la richiesta di incontro."
 
 #: server/includes/modules/class.module.php:136
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
+"Non hai sufficienti privilegi per rifiutare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:138
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Impossibile rifiutare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:143
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
+"Non hai sufficienti privilegi per accettare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:145
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Impossibile accettare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:150
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Non hai sufficienti privilegi per annullare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:152
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Impossibile annullare questa richiesta di incontro."
 
 #: server/includes/modules/class.module.php:159
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Non puoi continuare l'operazione di ricerca in questa cartella."
 
 #: server/includes/modules/class.module.php:161
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Errore nella ricerca, riprova."
 
 #: server/includes/modules/class.module.php:165
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Errore nell'espansione della lista di distribuzione."
 
 #: server/includes/modules/class.module.php:197
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "La casella ha superato il limite massimo."
 
 #: server/includes/modules/class.module.php:198
 #: server/includes/modules/class.module.php:204
@@ -8503,50 +8505,51 @@ msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Per ridurre la quantità di dati in questa casella, seleziona alcuni elementi "
+"che non servono più, eliminali e ripulisci la cartella Posta eliminata."
 
 #: server/includes/modules/class.module.php:203
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "La casella ha superato la soft quota."
 
 #: server/includes/modules/class.module.php:427
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Impossibile elaborare correttamente la richiesta di dati."
 
 #: server/includes/modules/class.module.php:428
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Tipo di azione sconosciuto - %s"
 
 #: server/includes/modules/class.reminderlistmodule.php:90
 #: server/includes/modules/class.reminderlistmodule.php:92
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Impossibile rimandare il promemoria. Potrebbe ricomparire."
 
 #: server/includes/modules/class.reminderlistmodule.php:97
 #: server/includes/modules/class.reminderlistmodule.php:99
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Impossibile cancellare il promemoria. Potrebbe ricomparire."
 
 #: server/includes/modules/class.resolvenamesmodule.php:351
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Non hai privilegi sufficienti per eseguire questa azione."
 
 #: server/includes/modules/class.resolvenamesmodule.php:353
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Impossibile risolvere l'utente."
 
 #: server/includes/modules/class.rulesmodule.php:252
 msgid "Untitled rule"
-msgstr ""
+msgstr "Regola senza titolo"
 
 # 78%
 # 80%
 # 76%
 # 77%
 #: server/includes/modules/class.rulesmodule.php:331
-#, fuzzy
 msgid "Could not load rules."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile caricare le regole."
 
 # 78%
 # 80%
@@ -8554,9 +8557,8 @@ msgstr "Impossibile aprire la cassetta postale."
 # 77%
 # 95%
 #: server/includes/modules/class.rulesmodule.php:334
-#, fuzzy
 msgid "Could not save rules."
-msgstr "Impossibile aprire la cassetta postale."
+msgstr "Impossibile salvare le regole."
 
 #: server/includes/modules/class.taskitemmodule.php:184
 #: server/includes/modules/class.taskitemmodule.php:367
@@ -8574,61 +8576,61 @@ msgstr "Richiesta attività:"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
-msgstr ""
+msgstr "Benvenuto"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: server/includes/templates/login.php:60
 msgid "Sign in"
-msgstr ""
+msgstr "Entra"
 
 #: server/includes/upload_attachment.php:225
 msgid "Could not upload attachment."
-msgstr ""
+msgstr "Impossibile caricare l'allegato."
 
 #: server/includes/util.php:106
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: server/includes/util.php:108
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: server/includes/util.php:110
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: server/includes/util.php:112
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: server/includes/util.php:501
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "La massima profondità di stack è stata superata"
 
 #: server/includes/util.php:504
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Errore di carattere di controllo, probabile encoding errato"
 
 #: server/includes/util.php:507
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON non valido o corrotto"
 
 #: server/includes/util.php:510
 msgid "Syntax error"
-msgstr ""
+msgstr "Errore di sintassi"
 
 #: server/includes/util.php:513
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Carattere UTF-8 malformato, probabile encoding errato"
 
 #: server/includes/util.php:518
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "Errore JSON: - %s"
 
 #: server/includes/util.php:518
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Rilevati errori di encoding/decoding dati JSON."

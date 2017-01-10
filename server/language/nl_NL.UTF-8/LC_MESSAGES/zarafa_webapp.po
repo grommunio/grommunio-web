@@ -2090,7 +2090,7 @@ msgstr "Verstuur uitnodiging"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:83
 #: plugins/quickitems/js/QuickMailWidget.js:96
 msgid "Send"
-msgstr "Verstuur"
+msgstr "Verzenden"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:61
 msgid "Send invitation to recipients"
@@ -2222,7 +2222,7 @@ msgstr "Annuleer uitnodiging"
 msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
 "Converteer dit vergaderverzoek naar een afspraak door genodigden te "
-"verwijderen."
+"verwijderen"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:237
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:239
@@ -2520,7 +2520,7 @@ msgstr "Optionele Deelnemers"
 #: client/zarafa/calendar/printer/MeetingRenderer.js:43
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:154
 msgid "Resources"
-msgstr "Resources"
+msgstr "Middelen"
 
 #: client/zarafa/calendar/printer/MeetingRenderer.js:45
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:190
@@ -2609,7 +2609,7 @@ msgstr "Geef dagen met afspraken vet weer in het datumkeuzeveld"
 msgid "Free/busy information is used by people sending meeting requests, "
 msgstr ""
 "Beschikbaarheids informatie wordt gebruikt door de verzender van "
-"vergaderverzoeken"
+"vergaderverzoeken, "
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:22
 msgid "to determine when you are available for meetings."
@@ -3023,7 +3023,7 @@ msgstr "G"
 
 #: client/zarafa/common/Actions.js:248
 msgid "Printing of multiple items has not been implemented."
-msgstr "Meerdere items afdrukken is niet geïmplementeerd"
+msgstr "Meerdere items afdrukken is niet geïmplementeerd."
 
 #: client/zarafa/common/Actions.js:271
 msgid "Printing of this item is not yet available"
@@ -3031,7 +3031,7 @@ msgstr "Dit item afdrukken is nog niet mogelijk"
 
 #: client/zarafa/common/Actions.js:271
 msgid "Item type: "
-msgstr "Itemtype:"
+msgstr "Item type: "
 
 # 92%
 #: client/zarafa/common/Actions.js:273
@@ -3290,7 +3290,7 @@ msgstr "Kan geen ZIP-bestand aanmaken, de maximum toegestane grootte is 30MB."
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:126
 msgid "Picture format is not supported. "
-msgstr "Formaat van de afbeelding wordt niet ondersteund."
+msgstr "Formaat van de afbeelding wordt niet ondersteund. "
 
 #: client/zarafa/common/attachment/ui/UploadAttachmentComponent.js:127
 msgid "Supported format for contact pictures are"

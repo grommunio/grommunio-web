@@ -5438,6 +5438,8 @@ msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
+"A böngésző blokkolt egy vagy több felugró ablakot. Kérem engedélyezze a "
+"felugró ablakokat a WebApp számára a böngésző beállításaiban."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
 #: server/includes/core/class.operations.php:2924
@@ -5730,11 +5732,12 @@ msgstr "Nem minden címzett található meg"
 #: client/zarafa/core/ui/NavigationPanel.js:133
 #, fuzzy
 msgid "Collapse hierarchy"
-msgstr "A hierarchiát betöltése sikertelen."
+msgstr "Hierarchia összecsukása"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
+#, fuzzy
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Hierarchia kinyitása"
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
 #: client/zarafa/core/ui/NavigationPanel.js:198
