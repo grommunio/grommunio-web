@@ -18,6 +18,7 @@ $versionInfo = array(
 $serverConfig = array(
 	'base_url'						=> BASE_URL,
 	'webapp_title'					=> WEBAPP_TITLE,
+	'hide_logout_button'			=> (WebAppAuthentication::isUsingSingleSignOn() && HIDE_LOGOUT_BUTTON==true) ? true : false,
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,

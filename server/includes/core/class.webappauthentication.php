@@ -14,54 +14,54 @@ require_once( BASE_PATH . 'server/includes/core/class.browserfingerprint.php');
 class WebAppAuthentication
 {
 	/**
-	 * @var self|null A reference to the only instance of this class 
+	 * @var self|null A reference to the only instance of this class
 	 */
 	private static $_instance = null;
-	
+
 	/**
 	 * @var boolean|false True if the user is authenticated, false otherwise
 	 */
 	private static $_authenticated = false;
-	
+
 	/**
 	 * @var WebAppSession|null A reference to the php session object
 	 */
 	private static $_phpSession = null;
-	
+
 	/**
 	 * @var MapiSession|null A reference to the MapiSession object
 	 */
 	private static $_mapiSession = null;
-	
+
 	/**
 	 * @var integer|0 An code that reflects the latest error
 	 * @see server/includes/mapi/mapicodes.php
 	 */
 	private static $_errorCode = NOERROR;
-	
+
 	/**
 	 * Returns the only instance of the WebAppAuthentication class.
 	 * If it does not exist yet, it will create an instance, and
 	 * also an MapiSession object, and it will start a php session
-	 * by instantiating a WebAppSession. 
+	 * by instantiating a WebAppSession.
 	 * @return self
 	 */
 	public static function getInstance() {
 		if ( is_null(WebAppAuthentication::$_instance) ) {
-			
+
 			// Make sure a php session is started
 			WebAppAuthentication::$_phpSession = WebAppSession::getInstance();
-			
+
 			// Instantiate this class
 			WebAppAuthentication::$_instance = new WebAppAuthentication();
-			
+
 			// Instantiate the mapiSession
 			WebAppAuthentication::$_mapiSession = new MapiSession();
 		}
-		
+
 		return WebAppAuthentication::$_instance;
 	}
-	
+
 	/**
 	 * Returns the error code of the last logon attempt
 	 * @return integer
@@ -90,8 +90,8 @@ class WebAppAuthentication
 			default:
 				return _('Unknown MAPI Error') . ': ' . get_mapi_error_name(WebAppAuthentication::getErrorCode());
 		}
-	} 
-	
+	}
+
 	/**
 	 * Returns the MapiSession instance
 	 * @see server/includes/core/class.mapisession.php
@@ -100,31 +100,31 @@ class WebAppAuthentication
 	public static function getMapiSession() {
 		return WebAppAuthentication::$_mapiSession;
 	}
-	
+
 	/**
 	 * Tries to authenticate the user. First it will check if the user
 	 * should be authenticated using single-sign-on. If not it will
 	 * check if the user is using the login-form. And finally if not of
-	 * above methods apply, it will try to find credentials in the 
+	 * above methods apply, it will try to find credentials in the
 	 * php session.
 	 */
 	public static function authenticate() {
-		
+
 		// First check if the user is authenticating using SSO
 		if ( WebAppAuthentication::isUsingSingleSignOn() ){
 			WebAppAuthentication::_authenticateWithSingleSignOn();
-			
+
 		// Then check if login credentials were posted
 		} elseif ( WebAppAuthentication::isUsingLoginForm() ){
 			WebAppAuthentication::authenticateWithPostedCredentials();
-			
+
 		// At last check if we have credentials in the session
 		// and if found, try to login with those
 		} else {
 			WebAppAuthentication::_authenticateWithSession();
 		}
 	}
-	
+
 	/**
 	 * Returns true if a user is authenticated, or false otherwise
 	 * @return boolean
@@ -132,7 +132,7 @@ class WebAppAuthentication
 	public static function isAuthenticated() {
 		return WebAppAuthentication::$_authenticated;
 	}
-	
+
 	/**
 	 * Tries to logon to Kopano Core with the given username and password. Returns
 	 * the error code that was given back.
@@ -146,23 +146,23 @@ class WebAppAuthentication
 
 		// TODO: move logon from MapiSession to here
 		WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
-			$username, 
-			$password, 
-			DEFAULT_SERVER, 
-			$sslcert_file, 
+			$username,
+			$password,
+			DEFAULT_SERVER,
+			$sslcert_file,
 			$sslcert_pass
 		);
-		
+
 		if ( WebAppAuthentication::$_errorCode == NOERROR ) {
 			WebAppAuthentication::$_authenticated = true;
 		} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
 			// Print error message to error_log of webserver
 			error_log('Kopano WebApp user: ' . $username . ': authentication failure at MAPI');
 		}
-		
+
 		return WebAppAuthentication::$_errorCode;
 	}
-	
+
 	/**
 	 * Stores the given username and password in the session using the encryptionstore
 	 * @param string The username
@@ -173,7 +173,7 @@ class WebAppAuthentication
 		$encryptionStore->add('username', $username);
 		$encryptionStore->add('password', $password);
 	}
-	
+
 	/**
 	 * Checks if a user should be logged in using Single Sign-On.
 	 * @return boolean
@@ -183,12 +183,12 @@ class WebAppAuthentication
 		if ( DISABLE_REMOTE_USER_LOGIN ){
 			return false;
 		}
-		
-		// REMOTE_USER is set when apache has authenticated the user, 
+
+		// REMOTE_USER is set when apache has authenticated the user,
 		// meaning Single Sign-on environment is in effect.
 		return isset($_SERVER['REMOTE_USER']);
 	}
-	
+
 	/**
 	 * Tries to authenticate the user by using Single Sign-On. Returns
 	 * the error code from the logon attempt.
@@ -215,7 +215,7 @@ class WebAppAuthentication
 		}
 
 		WebAppAuthentication::login($username, '');
-		
+
 		// Store the username in the session if logging in was succesful
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
 			WebAppAuthentication::_storeCredentialsInSession($username, '');
@@ -223,7 +223,7 @@ class WebAppAuthentication
 
 		return WebAppAuthentication::getErrorCode();
 	}
-	
+
 	/**
 	 * Checks if a user tries to log in by submitting the login form.
 	 * @return boolean
@@ -235,38 +235,38 @@ class WebAppAuthentication
 		if ( basename($_SERVER['SCRIPT_NAME']) !== 'index.php' ){
 			return false;
 		}
-		
+
 		return isset($_POST) && isset($_POST['username']) && isset($_POST['password']);
 	}
-	
+
 	/**
 	 * Tries to authenticate the user with credentials that were posted.
 	 * Returns the error code from the logon attempt.
 	 * @return integer
 	 */
 	public static function authenticateWithPostedCredentials() {
-		
+
 		// Check if a session is already running and if the credentials match
 		$encryptionStore = EncryptionStore::getInstance();
 		$username = $encryptionStore->get('username');
 		$password = $encryptionStore->get('password');
-		
+
 		if ( !is_null($username) && !is_null($password) ){
 			if ( $username!=$_POST['username'] || $password!=$_POST['password'] ){
 				WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
 				return WebAppAuthentication::getErrorCode();
 			}
 		} else {
-			// If no session is currently running, then store a fingerprint of the requester 
+			// If no session is currently running, then store a fingerprint of the requester
 			// in the session.
 			$_SESSION['fingerprint'] = BrowserFingerprint::getFingerprint();
 		}
 
 		// Give the session a new id
 		session_regenerate_id();
-		
+
 		WebAppAuthentication::login($_POST['username'], $_POST['password']);
-		
+
 		// Store the credentials in the session if logging in was succesfull
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
 			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['password']);
@@ -274,12 +274,12 @@ class WebAppAuthentication
 
 		return WebAppAuthentication::getErrorCode();
 	}
-	
+
 	/**
 	 * Tries to authenticate the user with credentials from the session. When credentials
 	 * are found in the session it will return the error code from the logon attempt with
 	 * those credentials, otherwise it will return void.
-	 * 
+	 *
 	 * Before trying to logon, it will compare the requesters fingerprint with the
 	 * fingerprint stored in the session. If they are not the same, the session will be
 	 * destroyed and the script will be killed.
@@ -302,7 +302,7 @@ class WebAppAuthentication
 		if ( is_null($username) || is_null($password) ){
 			return;
 		}
-		
+
 		// Check if the browser fingerprint is the same as that of the browser that was
 		// used to login in the first place.
 		if ( $_SESSION['fingerprint'] !== BrowserFingerprint::getFingerprint() ){
@@ -311,10 +311,10 @@ class WebAppAuthentication
 			WebAppAuthentication::$_phpSession->destroy();
 			die();
 		}
-		
+
 		return WebAppAuthentication::login($username, $password);
 	}
-	
+
 	/**
 	 * Returns the username that is stored in the session
 	 * @return string
