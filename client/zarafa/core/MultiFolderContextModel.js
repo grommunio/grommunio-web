@@ -15,7 +15,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * define the colors applied to it.
 	 */
 	colorScheme : undefined,
-	
+
 	/**
 	 * A flag that denotes if colors are being assigned, thereby letting
 	 * the setColor function know that it shouldn't fire the 'colormapchanged'
@@ -53,7 +53,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @type Object
 	 */
 	colorMap : undefined,
-	
+
 	/**
 	 * The currently active group out of all groupings in this context model
 	 * Outlook has a single selected folder at any time, regardless of how folders are grouped
@@ -440,7 +440,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * A color scheme is assigned for each folder entry id
 	 * Note: This functionality has changed after colors became persistent
 	 * Now assigning colors will only be done once for existing users that had
-	 * calendars open. And it will assign a color for the default calendar 
+	 * calendars open. And it will assign a color for the default calendar
 	 * folder for every new user.
 	 * @private
 	 */
@@ -488,12 +488,12 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	setColorScheme : function(folderId, scheme)
 	{
 		this.colorMap[folderId] = scheme.name;
-		
+
 		if ( !this.assigningColors ){
 			this.fireEvent('colormapchanged', this, this.colorMap);
 		}
 	},
-	
+
 	/**
 	 * Obtain the currently active group out of this.groupings
 	 */
@@ -546,7 +546,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			colorMap : this.colorMap
 		});
 	},
-	
+
 	/**
 	 * Apply the given state to this object activating the properties which were previously
 	 * saved in {@link Ext.state.Manager}.
@@ -556,6 +556,11 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	applyState : function(state)
 	{
 		if ( Ext.isDefined(state.groupings) ){
+			if ( Ext.isArray(state.groupings) ){
+				// PHP has probably converted an empty object to an empty array since it doesn't know
+				// the difference. But we need an object or things will go wrong!
+				state.groupings = {};
+			}
 			// Check the active folders in the groups
 			for ( var groupId in state.groupings ) {
 				if ( state.groupings.hasOwnProperty(groupId) ){
@@ -567,7 +572,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				}
 			}
 		}
-		
+
 		Zarafa.core.MultiFolderContextModel.superclass.applyState.call(this, state);
 	},
 
