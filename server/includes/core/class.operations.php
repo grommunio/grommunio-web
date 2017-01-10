@@ -1477,7 +1477,14 @@
 			$props = array();
 
 			if($message) {
-				$props = $this->getProps($message, $properties);
+				$itemprops = mapi_getprops($message, $properties);
+
+				/* If necessary stream the property, if it's > 8KB */
+				if (isset($itemprops[PR_TRANSPORT_MESSAGE_HEADERS]) || propIsError(PR_TRANSPORT_MESSAGE_HEADERS, $itemprops) == MAPI_E_NOT_ENOUGH_MEMORY) {
+					$itemprops[PR_TRANSPORT_MESSAGE_HEADERS] = mapi_openproperty($message, PR_TRANSPORT_MESSAGE_HEADERS);
+				}
+
+				$props = Conversion::mapMAPI2XML($properties, $itemprops);
 
 				// Get actual SMTP address for sent_representing_email_address and received_by_email_address
 				$smtpprops = mapi_getprops($message, array(PR_SENT_REPRESENTING_ENTRYID, PR_RECEIVED_BY_ENTRYID, PR_SENDER_ENTRYID));
