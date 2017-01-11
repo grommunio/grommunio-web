@@ -46,6 +46,14 @@ Ext.apply(Zarafa, {
 	wingdingsInstalled : false,
 
 	/**
+	 * True if the user is running DeskApp to view WebApp, false otherwise.
+	 *
+	 * @property
+	 * @type {Boolean}
+	 */
+	isDeskApp : Ext.isDefined(window.nw),
+
+	/**
 	 * Adds a listener to be notified when WebApp is ready. This will be somewhere during {@link Ext.onReady}, when
 	 * WebApp has initialized the bare essentials. When the event is fired, the {@link Zarafa.core.Container} will
 	 * be available, and plugins are allowed to register.
