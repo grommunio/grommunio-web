@@ -3,7 +3,7 @@
 	 * Addressbook Module
 	 */
 	class AddressbookListModule extends ListModule
-	{	
+	{
 		/**
 		 * Constructor
 		 * @param int $id unique id.
@@ -15,7 +15,7 @@
 
 			parent::__construct($id, $data);
 		}
-		
+
 		/**
 		 * Executes all the actions in the $data variable.
 		 * @return boolean true on success of false on fialure.
@@ -58,13 +58,13 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Function which retrieves the list of system users in Zarafa.
 		 * @param object $store MAPI Message Store Object
 		 * @param array $action the action data, sent by the client
 		 * @param string $actionType the action type, sent by the client
-		 * @return boolean true on success or false on failure		 		 
+		 * @return boolean true on success or false on failure
 		 */
 		function GABUsers($action, $actionType)
 		{
@@ -107,7 +107,9 @@
 			// Parse incoming sort order
 			$this->parseSortOrder($action, $map, true);
 
-			if (!DISABLE_FULL_GAB || !empty($searchstring)) {
+			$folderType = $action['folderType'];
+
+			if (($folderType!=='gab' || !DISABLE_FULL_GAB) || !empty($searchstring)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook(false, true);
 
 				if (!empty($action['entryid'])) {
@@ -156,7 +158,7 @@
 					// create restriction for search
 					// only return users from who the displayName or the username starts with $searchstring
 					// TODO: use PR_ANR for this restriction instead of PR_DISPLAY_NAME and PR_ACCOUNT
-					$tempRestriction = 	array(RES_OR, 
+					$tempRestriction = 	array(RES_OR,
 										array(
 											// Display name of user from GAB and contacts.
 											array(
@@ -391,7 +393,7 @@
 														Array(
 															ULTYPE => BMR_EQZ,
 															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															ULMASK => DTE_FLAG_ACL_CAPABLE 
+															ULMASK => DTE_FLAG_ACL_CAPABLE
 														)
 													)
 							);
@@ -579,7 +581,7 @@
 														Array(
 															ULTYPE => BMR_EQZ,
 															ULPROPTAG => PR_DISPLAY_TYPE_EX,
-															ULMASK => DTE_FLAG_ACL_CAPABLE 
+															ULMASK => DTE_FLAG_ACL_CAPABLE
 														)
 													)
 							);
