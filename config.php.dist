@@ -36,9 +36,6 @@
 	// set to 'true' to strip domain from login name found from Single Sign-On webservers
 	define("LOGINNAME_STRIP_DOMAIN", false);
 	
-	// Set to true to hide the Logout button when using Single Sign-On.
-	define('HIDE_LOGOUT_BUTTON', false);
-
 	// Name of the cookie that is used for the session
 	define("COOKIE_NAME", "KOPANO_WEBAPP");
 

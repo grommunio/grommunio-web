@@ -77,7 +77,8 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 
 		this.add(leftItems, {xtype: 'tbfill'}, loginText, rightItems);
 
-		if ( !container.getServerConfig().logoutButtonShouldBeHidden() ){
+		// Don't show the logout button when using SSO, but always show it in DeskApp
+		if ( !container.getServerConfig().usingSSO() || Zarafa.isDeskApp ){
 			var logoutButton = {
 				text: _('Logout'),
 				handler : this.onLogoutButton,

@@ -43,12 +43,11 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if WebApp should hide the logout button
-	 * Note: can only be true in Single Sign-On environements
+	 * @return {Boolean} True if WebApp is using Single Sign-On to login
 	 */
-	logoutButtonShouldBeHidden : function()
+	usingSSO : function()
 	{
-		return this.meta.hide_logout_button;
+		return this.meta.using_sso;
 	},
 
 	/**
