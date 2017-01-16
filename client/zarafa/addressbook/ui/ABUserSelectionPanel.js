@@ -31,6 +31,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.abuserselectionpanel',
+			cls : 'k-abuserselectionpanel',
 			buttons: [{
 				text: _('Ok'),
 				handler: this.onSubmit,
@@ -43,6 +44,8 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 		});
 
 		Zarafa.addressbook.ui.ABUserSelectionPanel.superclass.constructor.call(this, config);
+
+		this.on('afterlayout', this.onAfterLayout, this, { single: true });
 	},
 
 	/**
@@ -72,17 +75,15 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 	 */
 	onAfterLayout : function()
 	{
-		Zarafa.addressbook.ui.ABUserSelectionPanel.superclass.onAfterLayout.apply(this, arguments);
-
 		this.mon(this.getGridPanel(), 'rowdblclick', this.onAddressBookRowDblClick, this);
 		this.mon(this.getGridPanel(), 'rowcontextmenu', this.onAddressBookRowContextMenu, this);
-	},		
+	},
 
 	/**
 	 * Event handler which is triggered when the user doubleclicks on a
 	 * row within the {@link Ext.grid.GridPanel gridpanel}. This will add
 	 * the selected user or group to the {@link Zarafa.core.ui.RecipientField recipientfield}
-	 * @private 
+	 * @private
 	 */
 	onAddressBookRowDblClick : function()
 	{
@@ -118,7 +119,7 @@ Zarafa.addressbook.ui.ABUserSelectionPanel = Ext.extend(Zarafa.addressbook.ui.Ad
 			// select row on which context menu was invoked
 			sm.selectRow(rowIndex);
 		}
-		
+
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(sm.getSelections(), {
 			position : event.getXY(),
 			dialog : this.dialog

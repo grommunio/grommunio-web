@@ -17,7 +17,8 @@ Zarafa.addressbook.AddressBookHierchyRecordFields = [
 	{name: 'type'},
 	{name: 'store_entryid'},
 	{name: 'parent_entryid'},
-	{name: 'depth', type: 'int', defaultValue: 0}
+	{name: 'depth', type: 'int', defaultValue: 0},
+	{name: 'group_header', type: 'boolean', defaultValue: false}
 ];
 
 Zarafa.core.data.RecordFactory.setBaseClassToObjectType(Zarafa.core.mapi.ObjectType.MAPI_ABCONT, Zarafa.core.data.MAPIRecord);

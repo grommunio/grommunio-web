@@ -22,11 +22,10 @@ Zarafa.addressbook.dialogs.ABUserSelectionContentPanel = Ext.extend(Zarafa.core.
 	scope : undefined,
 
 	/**
-	 * @cfg {Object} hierarchyRestriction The default restriction
-	 * which must be applied on the hierarchy to limit the type of
-	 * containers which will be shown in the hierarchy.
+	 * @cfg (Boolean) Set to true to hide contacts folders in the address book
+	 * hierarchy dropdown.
 	 */
-	hierarchyRestriction : undefined,
+	hideContactsFolders : false,
 
 	/**
 	 * @cfg {Object} listRestriction The default restriction which
@@ -48,9 +47,10 @@ Zarafa.addressbook.dialogs.ABUserSelectionContentPanel = Ext.extend(Zarafa.core.
 			xtype : 'zarafa.abuserselectioncontentpanel',
 			layout : 'fit',
 			title : _('Address Book'),
+			width : 1000,
 			items: [{
 				xtype: 'zarafa.abuserselectionpanel',
-				hierarchyRestriction : config.hierarchyRestriction,
+				hideContactsFolders : config.hideContactsFolders,
 				listRestriction : config.listRestriction,
 				callback : config.callback,
 				singleSelect : Ext.isDefined(config.singleSelect) ? config.singleSelect : this.singleSelect,

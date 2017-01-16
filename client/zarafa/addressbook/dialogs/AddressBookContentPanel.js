@@ -7,11 +7,10 @@ Ext.namespace('Zarafa.addressbook.dialogs');
  */
 Zarafa.addressbook.dialogs.AddressBookContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	/**
-	 * @cfg {Object} hierarchyRestriction The default restriction
-	 * which must be applied on the hierarchy to limit the type of
-	 * containers which will be shown in the hierarchy.
+	 * @cfg (Boolean) Set to true to hide contacts folders in the address book
+	 * hierarchy dropdown.
 	 */
-	hierarchyRestriction : undefined,
+	hideContactsFolders : false,
 
 	/**
 	 * @cfg {Object} listRestriction The default restriction which
@@ -32,11 +31,13 @@ Zarafa.addressbook.dialogs.AddressBookContentPanel = Ext.extend(Zarafa.core.ui.C
 		Ext.applyIf(config, {
 			xtype : 'zarafa.addressbookcontentpanel',
 			layout : 'fit',
+			cls: 'k-addressbookcontentpanel',
 			title : _('Address Book'),
+			width : 1000,
 			items: [{
 				xtype: 'zarafa.addressbookpanel',
-				listRestriction : config.listRestriction,
-				hierarchyRestriction : config.hierarchyRestriction
+				hideContactsFolders : config.hideContactsFolders,
+				listRestriction : config.listRestriction
 			}]
 		});
 

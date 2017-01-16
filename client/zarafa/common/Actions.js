@@ -13,7 +13,7 @@ Zarafa.common.Actions = {
 	 * @property
 	 * @type Ext.Element
 	 */
-	downloadFrame : undefined,	
+	downloadFrame : undefined,
 	/**
 	 * Open a {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for
 	 * copying or moving {@link Zarafa.core.data.IPMRecord records} to the
@@ -36,7 +36,7 @@ Zarafa.common.Actions = {
 	 * the recurrence of the given {@link Zarafa.core.data.IPMRecord record}.
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} records The record for which the recurrence must be configured.
-	 * @param {Object} config Configuration object 
+	 * @param {Object} config Configuration object
 	 */
 	openRecurrenceContent : function(records, config)
 	{
@@ -87,7 +87,7 @@ Zarafa.common.Actions = {
 		config = Ext.applyIf(config || {}, {
 			modal : true
 		});
-		
+
 		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.attachitem'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
 	},
@@ -102,7 +102,7 @@ Zarafa.common.Actions = {
 		var componentType = Zarafa.core.data.SharedComponentType['common.dialog.widgets'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
 	},
-	
+
 	/**
 	 * Will open the View ContentPanel for a recipient, before opening the recipient it will
 	 * first check the exact type of the recipient to see if it is an AddressBook item
@@ -136,7 +136,7 @@ Zarafa.common.Actions = {
 				// find a point where we can remove it again.
 				container.getShadowStore().add(recipient);
 			}
-			
+
 			config = Ext.applyIf(config || {}, { manager : Ext.WindowMgr });
 			Zarafa.core.data.UIFactory.openViewRecord(recipient, config);
 		}
@@ -314,7 +314,7 @@ Zarafa.common.Actions = {
 			modal : false,
 			manager : Ext.WindowMgr
 		});
-		
+
 		// check if panel is already open
 		var contentPanelInstances = Zarafa.core.data.ContentPanelMgr.getContentPanelInstances(component);
 
@@ -469,7 +469,7 @@ Zarafa.common.Actions = {
 		var title = _('Confirm Delete');
 		var acceptedText = _('This "{0}" meeting was already accepted.');
 		var noResponsedText = _('You have not responded to the meeting request "{0}".');
-		
+
 		var text;
 		if(record.get('responsestatus') == Zarafa.core.mapi.ResponseStatus.RESPONSE_NOT_RESPONDED){
 			text = String.format(noResponsedText, record.get('subject'));
@@ -528,7 +528,7 @@ Zarafa.common.Actions = {
 			// if the occurence or series must be deleted
 			var deleteRecurring = Ext.isFunction(record.isRecurringOccurence) && record.isRecurringOccurence() && askOcc !== false;
 
-			// Meeting and task requests are always deleted as normal, 
+			// Meeting and task requests are always deleted as normal,
 			// we don't care for the recurring state of the record.
 			var messageClass = record.get('message_class');
 			if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Schedule.Meeting', true) ||
@@ -579,9 +579,9 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Function which prompt user with deleting for recurring Meeting or normal recurring 
+	 * Function which prompt user with deleting for recurring Meeting or normal recurring
 	 * appointment and also manages sending response to meeting organizer.
-	 * 
+	 *
 	 * @param {Ext.data.Record} record that must be deleted
 	 * @private
 	 */
@@ -604,7 +604,7 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Function cancels Meeting invitation and sends Meeting Cancellation message.
-	 * 
+	 *
 	 * @param {String} buttonClicked The ID of the button pressed,
 	 * @param {String} text Value of the input field, not useful here
 	 * @private
@@ -619,7 +619,7 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Function declines a Meeting invitation and sends Meeting Decline message.
-	 * 
+	 *
 	 * @param {String} buttonClicked The ID of the button pressed,
 	 * here, one of: ok cancel.
 	 * @param {Ext.form.Radio} radio The Radio which was selected by the user.
@@ -654,7 +654,7 @@ Zarafa.common.Actions = {
 	 *
 	 * @param {Object} config Configuration object. For AB this normally includes:
 	 * 	callback - Callback function to be called with the user selected in the ContentPanel
-	 * 	hierarchyRestriction - Restriction that has to be applied on the hierarchy of the Addressbook
+	 * 	hideContactsFolders - Restriction that has to be applied on the hierarchy of the Addressbook
 	 * 	listRestriction - Restriction that has to be applied on the contents of the Addressbook
 	 */
 	openABUserSelectionContent : function(config)
@@ -737,7 +737,7 @@ Zarafa.common.Actions = {
 									this.save();
 								}, record);
 							break;
-						
+
 					}
 				} else {
 					record.setReadFlags(read);
@@ -753,7 +753,7 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Will start the download by setting the dialogFrame's location to the download URL of the file.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} records The record of the file to be downloaded
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 */

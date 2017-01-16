@@ -161,9 +161,7 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 		Zarafa.common.Actions.openABUserSelectionContent({
 			callback : this.abCallBack,
 			scope : this,
-			hierarchyRestriction : {
-				hide_contacts : true
-			},
+			hideContactsFolders: true,
 			listRestriction : {
 				hide_users : ['contact', 'system', 'non_security', 'room', 'equipment', 'non_active'],
 				hide_groups : ['non_security'],

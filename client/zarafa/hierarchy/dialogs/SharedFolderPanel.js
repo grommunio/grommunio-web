@@ -148,9 +148,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 		Zarafa.common.Actions.openABUserSelectionContent({
 			callback : this.abCallBack,
 			scope : this,
-			hierarchyRestriction : {
-				hide_contacts : true
-			},
+			hideContactsFolders : true,
 			listRestriction : {
 				hide_users : [ 'contact', 'system' ],
 				hide_groups : true,

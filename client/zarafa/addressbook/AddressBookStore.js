@@ -22,7 +22,7 @@ Zarafa.addressbook.AddressBookStore = Ext.extend(Zarafa.core.data.ListModuleStor
 			preferredMessageClass : 'addressbook',
 			standalone:  true,
 			sortInfo : {
-				field : 'fileas',
+				field : 'full_name',
 				direction : 'asc'
 			},
 			reader : new Zarafa.core.data.JsonReader({}, recordType)

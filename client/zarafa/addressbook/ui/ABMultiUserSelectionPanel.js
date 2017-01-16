@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.addressbook.ui');
  * @extends Ext.Panel
  * @xtype zarafa.abmultiuserselectionpanel
  */
-Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.form.FormPanel, {
+Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Function} callback the callback function to return to after selecting user from AdressBook.
 	 */
@@ -50,7 +50,7 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.form.FormPanel,
 			xtype : 'zarafa.addressbookmainpanel',
 			ref : 'abPanel',
 			flex : 1,
-			hierarchyRestriction : config.hierarchyRestriction,
+			hideContactsFolders : config.hideContactsFolders,
 			listRestriction : config.listRestriction
 		}];
 
@@ -76,11 +76,11 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.form.FormPanel,
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.abmultiuserselectionpanel',
+			cls : 'k-abmultiuserselectionpanel',
 			layout : {
 				type : 'vbox',
 				align: 'stretch'
 			},
-			bodyStyle: 'padding: 5px;',
 			items : items,
 			buttons: [{
 				text: _('Ok'),

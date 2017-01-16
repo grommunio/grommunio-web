@@ -20,7 +20,7 @@
 .x-panel-ghost {
 	border: 1px solid $grey5;
 	box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 5px 0;
-	
+
 	/* header */
 	.x-window-tl {
 		padding-left: $padding-large;
@@ -32,7 +32,7 @@
 
 			.x-window-tc {
 				background: none;
-				
+
 				.x-window-header {
 					padding: 0;
 					height: $header-height;
@@ -41,7 +41,7 @@
 						position: relative;
 						z-index: 10;
 					}
-					
+
 					.x-tool-close {
 						@extend .icon_cross;
 						background-position: sprite-position($icons, 'icon_cross_large', $offset_y: ($header-height - 10px)/2, $offset_x: $padding-medium);
@@ -66,7 +66,7 @@
 						position: absolute;
 						overflow: hidden;
 					}
-					
+
 					/* this element is used to fade out the text when the window is too short */
 					.fade {
 						display: block;
@@ -86,26 +86,26 @@
 			}
 		}
 	}
-	
+
 	/* body */
 	.x-window-bwrap {
 		background: $background-color-main;
-		
+
 		.x-window-ml {
 			padding-left: 0;
 			background: none;
-			
+
 			.x-window-mr {
 				padding-right: 0;
 				background: none;
-				
+
 				.x-window-mc {
 					border: none;
 					background: none;
 				}
 			}
 		}
-		
+
 		.x-window-body {
 			> div {
 				> .x-panel {
@@ -118,7 +118,7 @@
 						color: $font-default-color;
 						font-weight: normal;
 					}
-					
+
 					> .x-panel-bwrap {
 						> .x-panel-body {
 							padding: $padding-large $padding-large 0;
@@ -126,7 +126,7 @@
 						> .x-panel-footer {
 							padding: $padding-large;
 						}
-						/* buttons in the footer toolbar */ 
+						/* buttons in the footer toolbar */
 						> .x-panel-footer.x-panel-btns {
 							td.x-toolbar-cell {
 								padding: 0 $padding-small;
@@ -144,13 +144,13 @@
 						}
 					}
 				}
-				
+
 				/* tabpanels need to stretch to the whole panel width to have the border-bottom stretch to the full width */
 				> .x-panel.tabpanel-container {
 					> .x-panel-bwrap {
 						> .x-panel-body {
 							padding: 0;
-							
+
 							> .x-tab-panel {
 								> .x-tab-panel-bwrap {
 									> .x-tab-panel-body {
@@ -164,22 +164,22 @@
 			}
 		}
 	}
-	
+
 	/* footer */
 	.x-window-bl {
 		background: none;
-		
+
 		.x-window-br {
 			background: none;
-			
+
 			.x-window-bc {
 				background: none;
 			}
 		}
 	}
-	
+
 	/***************************************
-	 *  Specific popups 
+	 *  Specific popups
 	 * ************************************/
 	/* Copy/move dialog */
 	.copymove-panel {
@@ -194,11 +194,11 @@
 		line-height: $font-default-line-height;
 		padding: 2px 0 2px;
 	}
-	
+
 	.x-tree-node.zarafa-tree-root-container .x-tree-node-el {
 		padding-left: $padding-medium;
 	}
-	
+
 
 	/* Folder properties dialog */
 	.x-window-bwrap {
@@ -208,7 +208,7 @@
 					> .x-panel-bwrap {
 						> .x-panel-body {
 							padding: 0;
-							
+
 							> .x-tab-panel {
 								> .x-tab-panel-bwrap {
 									> .x-tab-panel-body {
@@ -222,25 +222,25 @@
 							}
 						}
 					}
-					
+
 					/* General tab */
 					.tab-general {
 						form {
 							> .x-panel > .x-panel-bwrap > .x-panel-body {
 								padding: 0 $padding-large;
 							}
-							
+
 							.x-form-item-label {
 								padding: 0 ($padding-medium - 1) 0 0;
 							}
-							
+
 							.x-form-item {
 								margin: 0;
 								padding: 0;
 								line-height: $font-default-line-height;
 							}
 						}
-						
+
 						.display-name {
 							padding-top: ($header-height - 1 - $font-default-line-height) / 2;
 							padding-bottom: ($header-height - 1 - $font-default-line-height) / 2;
@@ -259,7 +259,7 @@
 					    		background-position: sprite-position($iconsmap, $img, $offset-y: ($header-height - 1 - 15)/2, $offset-x: 0);
 					    	}
 					    }
-					    
+
 					    .description-panel {
 					    	> .x-panel-bwrap > .x-panel-body {
 					    		padding-top: $padding-extra-large !important;
@@ -273,17 +273,17 @@
 					    	}
 					    }
 					}
-					
+
 					/* Permissions tab */
 					.tab-permissions {
 						.userlist-panel {
 							border-bottom: 1px solid $grey;
-							
+
 							> .x-panel-bwrap {
 								.x-panel-body {
 									padding: $padding-large $padding-large 0;
 								}
-								
+
 								.x-panel-footer {
 									.x-toolbar-right-row .x-toolbar-cell:first-child button {
 										/* this button should not be green! */
@@ -293,27 +293,27 @@
 								}
 							}
 						}
-						
+
 						.profile-panel {
 							padding: $padding-medium $padding-large;
 						}
 						.permissions-panel {
 							padding: 0 $padding-large;
-							
+
 							fieldset {
 								padding-bottom: $padding-medium;
-								
+
 								.x-column .x-column {
 									padding-bottom: $padding-extra-extra-large;
 								}
-								
+
 								fieldset {
 									position: relative;
 									margin-top: $font-default-line-height + $padding-small;
 									margin-right: $padding-small;
 									padding-bottom: $padding-small;
 									overflow: visible;
-									
+
 									legend {
 										position: absolute;
 										top: - ($font-default-line-height + $padding-small);
@@ -322,10 +322,10 @@
 
 									.x-column {
 										padding-bottom: 0 !important;
-										
+
 										.x-form-item {
 											margin-bottom: 0;
-											
+
 											.x-form-item .x-form-item {
 												padding-bottom: $padding-small;
 											}
@@ -342,7 +342,7 @@
 			}
 		}
 	}
-		
+
 }
 
 /* Reminder dialog */
@@ -359,4 +359,47 @@
 .zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder
 {
 	padding:8px;
+}
+
+/* Address book dialog */
+.k-abuserselectionpanel,
+.k-abmultiuserselectionpanel,
+.k-addressbookpanel {
+	> .x-panel-bwrap > .x-panel-body {
+		padding-top: $padding-medium !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	.k-addressbookmainpanel-header,
+	.k-addressbookmainpanel-grid {
+		padding-left: $padding-large !important;
+		padding-right: $padding-large !important;
+	}
+
+	.k-addressbookmainpanel-header {
+		padding-bottom: $padding-small;
+		border-bottom: 1px solid $grey;
+
+		label.x-form-item-label {
+			text-align: right;
+		}
+	}
+}
+
+.k-addressbookpanel {
+	padding-bottom: $padding-small;
+}
+
+.k-abmultiuserselectionpanel {
+	> .x-panel-bwrap > .x-panel-body {
+		padding-bottom: $padding-small !important;
+	}
+
+	.k-addressbookmainpanel {
+		padding-bottom: $padding-large;
+	}
+	.zarafa-addressbook-dialog-compositefield {
+		padding-left: $padding-large;
+		padding-right: $padding-large;
+	}
 }

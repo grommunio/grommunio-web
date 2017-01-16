@@ -3761,27 +3761,48 @@ body.Safari input[type="radio"] {
   display: none !important;
 }
 
+/* line 66, ../scss/components/_formelements.scss */
+.x-combo-list-item {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* line 72, ../scss/components/_formelements.scss */
+.x-combo-list-item.k-combo-list-item-header {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* line 76, ../scss/components/_formelements.scss */
+.x-combo-list-item.x-combo-selected.k-combo-list-item-header {
+  background: transparent;
+  border-color: transparent !important;
+  cursor: default;
+}
+
 /* fieldsets */
-/* line 67, ../scss/components/_formelements.scss */
+/* line 83, ../scss/components/_formelements.scss */
 .x-fieldset {
   border-radius: 0;
   border: 1px solid #e6e6e6;
   padding: 9px 6px;
   margin: 0;
 }
-/* line 73, ../scss/components/_formelements.scss */
+/* line 89, ../scss/components/_formelements.scss */
 .x-fieldset legend {
   font-weight: normal;
   color: black;
 }
 
 /* checkbox */
-/* line 80, ../scss/components/_formelements.scss */
+/* line 96, ../scss/components/_formelements.scss */
 .x-form-check-wrap input {
   vertical-align: text-bottom;
 }
 
-/* line 83, ../scss/components/_formelements.scss */
+/* line 99, ../scss/components/_formelements.scss */
 .x-form-item .x-form-cb-label {
   top: 0;
   margin-left: 3px;
@@ -8756,7 +8777,7 @@ div.zarafa-contact-cardview-selected {
   /* body */
   /* footer */
   /***************************************
-   *  Specific popups 
+   *  Specific popups
    * ************************************/
   /* Copy/move dialog */
   /* Folder properties dialog */
@@ -10287,6 +10308,58 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 /* line 359, ../scss/components/_popups.scss */
 .zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder {
   padding: 8px;
+}
+
+/* Address book dialog */
+/* line 368, ../scss/components/_popups.scss */
+.k-abuserselectionpanel > .x-panel-bwrap > .x-panel-body,
+.k-abmultiuserselectionpanel > .x-panel-bwrap > .x-panel-body,
+.k-addressbookpanel > .x-panel-bwrap > .x-panel-body {
+  padding-top: 6px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* line 373, ../scss/components/_popups.scss */
+.k-abuserselectionpanel .k-addressbookmainpanel-header,
+.k-abuserselectionpanel .k-addressbookmainpanel-grid,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-header,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-grid,
+.k-addressbookpanel .k-addressbookmainpanel-header,
+.k-addressbookpanel .k-addressbookmainpanel-grid {
+  padding-left: 9px !important;
+  padding-right: 9px !important;
+}
+/* line 379, ../scss/components/_popups.scss */
+.k-abuserselectionpanel .k-addressbookmainpanel-header,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-header,
+.k-addressbookpanel .k-addressbookmainpanel-header {
+  padding-bottom: 3px;
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 383, ../scss/components/_popups.scss */
+.k-abuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
+.k-addressbookpanel .k-addressbookmainpanel-header label.x-form-item-label {
+  text-align: right;
+}
+
+/* line 389, ../scss/components/_popups.scss */
+.k-addressbookpanel {
+  padding-bottom: 3px;
+}
+
+/* line 394, ../scss/components/_popups.scss */
+.k-abmultiuserselectionpanel > .x-panel-bwrap > .x-panel-body {
+  padding-bottom: 3px !important;
+}
+/* line 398, ../scss/components/_popups.scss */
+.k-abmultiuserselectionpanel .k-addressbookmainpanel {
+  padding-bottom: 9px;
+}
+/* line 401, ../scss/components/_popups.scss */
+.k-abmultiuserselectionpanel .zarafa-addressbook-dialog-compositefield {
+  padding-left: 9px;
+  padding-right: 9px;
 }
 
 /* line 1, ../scss/components/_scheduling.scss */

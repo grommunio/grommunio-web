@@ -48,3 +48,43 @@ Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListM
 });
 
 Ext.reg('zarafa.addressbookhierarchystore', Zarafa.addressbook.AddressBookHierarchyStore);
+
+Zarafa.onReady(function(){
+	// Make a singleton of the address book store and load it immediately
+	// Note: The typeof check is necessary for the js tests
+	if ( typeof Zarafa.addressbook.AddressBookHierarchyStore === 'function' ){
+		Zarafa.addressbook.AddressBookHierarchyStore = new Zarafa.addressbook.AddressBookHierarchyStore ();
+		Zarafa.addressbook.AddressBookHierarchyStore.on('load', function(){
+			// Add a property to identify group headers and remove group headers that don't
+			// have any group members (e.g. All Address Lists)
+			var removeRecords = [];
+			Zarafa.addressbook.AddressBookHierarchyStore.each(function(record, index){
+				// The GAB has index 0
+				if ( index>0 && record.get('depth')===0 ){
+					if (
+						index === Zarafa.addressbook.AddressBookHierarchyStore.getCount() ||
+						Zarafa.addressbook.AddressBookHierarchyStore.getAt(index+1).get('depth') === 0
+					){
+						removeRecords.push(record);
+					} else {
+						record.set('group_header', true);
+					}
+				} else {
+					record.set('group_header', false);
+				}
+			});
+
+			Ext.each(removeRecords, function(record){
+				Zarafa.addressbook.AddressBookHierarchyStore.remove(record);
+			});
+		});
+
+		Zarafa.addressbook.AddressBookHierarchyStore.load({
+			actionType : Zarafa.core.Actions.list,
+			params : {
+				subActionType : Zarafa.core.Actions.hierarchy,
+				gab : 'all'
+			}
+		});
+	}
+});
