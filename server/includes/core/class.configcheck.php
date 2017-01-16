@@ -16,18 +16,15 @@ class ConfigCheck
 
 		// here we check our settings, changes to the config and
 		// additonal checks must be added/changed here
-		$this->checkPHP("5.1", "You must upgrade PHP");
+		$this->checkPHP("5.4", "You must upgrade PHP");
 		$this->checkExtension("mapi", "7.0.0-27530", "If you have upgraded Kopano Core, please restart Apache");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
-		$this->checkPHPsetting("register_globals", "off", "Modify this setting in '%s'");
-		$this->checkPHPsetting("magic_quotes_gpc", "off", "Modify this setting in '%s'");
-		$this->checkPHPsetting("magic_quotes_runtime", "off", "Modify this setting in '%s'");
 		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the Kopano WebApp will work correctly");
 		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the Kopano WebApp will work correctly");
 		$this->checkPHPsetting("zlib.output_compression", "off", "With this option set, it could occure that XMLHTTP-requests will fail");
 
-		if (CONFIG_CHECK_COOKIES_HTTP && version_compare(phpversion(), "5.2") > -1) {
+		if (CONFIG_CHECK_COOKIES_HTTP) {
 			$this->checkPHPsecurity("session.cookie_httponly", "on", "Modify this setting in '%s'");
 		}
 		if (CONFIG_CHECK_COOKIES_SSL) {
@@ -37,7 +34,6 @@ class ConfigCheck
 		$this->checkDirectory(TMP_PATH, "rw", "Please make sure this directory exists and is writable for PHP/Apache");
 		$this->checkFunction("iconv", "Install the 'iconv' module for PHP, or else you don't have euro-sign support.");
 		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"http://php.net/manual/en/ref.zlib.php#zlib.installation\">http://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
-		$this->checkJSON("Your PHP version contains the encoding bug: <a href=\"https://bugs.php.net/bug.php?id=40360\">https://bugs.php.net/bug.php?id=40360</a>, please upgrade to the latest PHP version of your distribution");
 		$this->checkLoader(DEBUG_LOADER, "Your 'DEBUG_LOADER' configuration isn't valid for the current folder");
 
 		// check if there were *any* errors and we need to stop the WebApp
@@ -51,7 +47,6 @@ class ConfigCheck
 		}
 
 	}
-		
 
 	/**
 	 * This function throws all the errors, make sure that the check-function 
@@ -170,7 +165,7 @@ class ConfigCheck
 	{
 		$result = true;
 		if (version_compare(phpversion(), $version) == -1){
-			$this->error_version("PHP",phpversion(), $version, $help_msg);
+			$this->error_version("PHP",$version, phpversion(), $help_msg);
 			$result = false;
 		}
 		return $result;
@@ -301,21 +296,6 @@ class ConfigCheck
 			}
 		}else{
 			$this->error_directory($dir, "doesn't exist", $help_msg);
-			$result = false;
-		}
-		return $result;
-	}
-
-	/**
-	 * Check if PHP is affected by bug https://bugs.php.net/bug.php?id=40360
-	 * which causes json_encode() to return invalid JSON strings.
-	 */
-	function checkJSON($help_msg="")
-	{
-		$result = true;
-		$json = json_encode(array('element' => 12345.789));
-		if ($json !== '{"element":12345.789}') {
-			$this->error("<strong>Invalid JSON conversion:</strong>", $help_msg);
 			$result = false;
 		}
 		return $result;
