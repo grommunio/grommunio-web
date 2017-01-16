@@ -663,10 +663,6 @@ Ext.apply(Zarafa, {
 			// the keepalive is also used to get notifications back to the client.
 			store.startKeepAlive();
 
-			// Post logon succesful to parent.
-			if (window.location !== window.parent.location){
-				window.parent.postMessage('logonSuccesful', '*');
-			}
 		} else {
 			this.setErrorLoadingMask(_('Error'), _('Loading model from server failed'));
 		}
@@ -900,10 +896,6 @@ Ext.apply(Zarafa, {
 		// Load the welcome view
 		container.getWelcomePanel();
 		this.hideLoadingMask();
-		// Post logon succesful to parent.
-		if (window.location !== window.parent.location) {
-			window.parent.postMessage('firstLogon', '*');
-		}
 	},
 
 	//
