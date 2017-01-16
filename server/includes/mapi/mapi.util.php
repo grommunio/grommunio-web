@@ -33,11 +33,9 @@ function get_mapi_error_name($errcode=null)
 	}
 	
 	if ($errcode !== 0) {
-		// get_defined_constants(true) is preferred, but crashes PHP
-		// https://bugs.php.net/bug.php?id=61156
-		$allConstants = get_defined_constants();
-
-		foreach ($allConstants as $key => $value) {
+		// Retrieve constants categories, MAPI error names are defined
+		// in the 'user' category, since the WebApp code defines it in mapicode.php.
+		foreach (get_defined_constants(true)['user'] as $key => $value) {
 			/**
 			 * If PHP encounters a number beyond the bounds of the integer type,
 			 * it will be interpreted as a float instead, so when comparing these error codes
