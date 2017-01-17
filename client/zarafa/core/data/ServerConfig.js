@@ -43,6 +43,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if the GAB list should only be enabled when searching
+	 */
+	isFullGabDisabled : function()
+	{
+		return this.meta.disable_full_gab === true;
+	},
+
+	/**
 	 * @return {Boolean} True if WebApp is using Single Sign-On to login
 	 */
 	usingSSO : function()

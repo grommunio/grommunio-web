@@ -52,6 +52,21 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	loadMask : undefined,
 
 	/**
+	 * The text that will be shown in the grid when the user has to do a search before
+	 * results are shown. (for the GAB when the admin has set DISABLE_FULL_GAB to true)
+	 * @property
+	 * @type {String}
+	 */
+	emptyGridText : _('Use the search bar to get results'),
+
+	/**
+	 * The text that will be shown in the grid when a search gave no results.
+	 * @property
+	 * @type {String}
+	 */
+	noResultsGridText : _('There are no items to show in this view'),
+
+	/**
  	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
@@ -130,7 +145,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 				ref : '../searchText',
 				flex: 0.45,
 				plugins: [ 'zarafa.fieldlabeler' ],
-				fieldLabel : _('Type Name'),
+				fieldLabel : _('Search for'),
 				enableKeyEvents : true,
 				triggerClass : 'icon_search',
 				triggerScope: this,
@@ -184,6 +199,9 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 			xtype: 'zarafa.addressbookgrid',
 			hideLabel: true,
 			name: 'viewpanel',
+			viewConfig : {
+				emptyText: this.emptyGridText
+			},
 			store : addressBookStore,
 			border : false,
 			ref : 'viewPanel',
@@ -212,18 +230,8 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	 */
 	onAddressBookChange : function(field, record, index)
 	{
-		var actionTypeParameters = {
-			actionType : Zarafa.core.Actions['list'],
-			params: {
-				subActionType : Zarafa.core.Actions['globaladdressbook'],
-				entryid : record.get('entryid'),
-				store_entryid : record.get('store_entryid'),
-				restriction : Ext.applyIf({}, this.listRestriction),
-				folderType: record.get('type')
-			}
-		};
-
-		this.addressBookStore.load(actionTypeParameters);
+		// Trigger a search
+		this.onSearchButtonClick();
 	},
 
 	/**
@@ -279,23 +287,15 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 		// Hiding the load mask of dialog box, and Grid loadMask will be shown.
 		this.hideLoadMask();
 
-		this.addressBookStore.load({
-			actionType : Zarafa.core.Actions['list'],
-			params: {
-				subActionType : Zarafa.core.Actions['globaladdressbook'],
-				entryid : record.get('entryid'),
-				store_entryid : record.get('store_entryid'),
-				restriction : Ext.applyIf({}, this.listRestriction),
-				folderType: record.get('type')
-			}
-		});
-
 		var entryid = record.get('entryid');
 		if (!Ext.isDefined(entryid)) {
 			return;
 		}
 
 		this.addressBookSelectionCB.setValue(entryid);
+
+		// Trigger a search
+		this.onSearchButtonClick();
 	},
 
 	/**
@@ -306,15 +306,48 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	 */
 	onSearchButtonClick : function()
 	{
+		var selectedFolder = this.getSelectedFolderRecord();
+		if ( !Ext.isDefined(selectedFolder) ){
+			return;
+		}
+
+		var folderType = selectedFolder.get('type');
+		var fullGabDisabled = container.getServerConfig().isFullGabDisabled();
 		var searchText = this.searchText.getValue().trim();
+
+		// Do not load when we are doing a GAB load without a search text
+		// and the admin has configured to not load the GAB in that case
+		if ( folderType === 'gab' && fullGabDisabled && Ext.isEmpty(searchText) ){
+			this.viewPanel.getView().emptyText = '<div class="emptytext">' + this.emptyGridText + '</div>';
+			this.addressBookStore.removeAll();
+			return;
+		}
+
+		this.viewPanel.getView().emptyText = '<div class="emptytext">' + this.noResultsGridText + '</div>';
+
 		this.addressBookStore.load({
 			actionType : Zarafa.core.Actions['list'],
 			params: {
 				subActionType : Zarafa.core.Actions['globaladdressbook'],
+				entryid : selectedFolder.get('entryid'),
+				store_entryid : selectedFolder.get('store_entryid'),
 				restriction : Ext.applyIf({searchstring : searchText}, this.listRestriction),
-				folderType: this.addressBookStore.lastOptions.params.folderType
+				folderType: folderType
 			}
 		});
+	},
+
+	/**
+	 * Returns the currently selected folder in the hierarchy combobox
+	 *
+	 *@return {Zarafa.core.data.IPMRecord IPMRecord} The selected record from the
+	 * {#hierarchyStore}
+	 */
+	getSelectedFolderRecord : function()
+	{
+		var entryid = this.addressBookSelectionCB.getValue();
+		var index = this.hierarchyStore.find('entryid', entryid);
+		return this.hierarchyStore.getAt(index);
 	},
 
 	/**
