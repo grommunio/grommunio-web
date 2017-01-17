@@ -34,7 +34,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * @private
 	 */
 	selectedSignature : undefined,
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -159,6 +159,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				}
 			},{
 				xtype : 'zarafa.editorfield',
+				cls : 'k-signature-editor',
 				name : 'content',
 				htmlName : 'content',
 				plaintextName : 'content',
@@ -412,7 +413,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 			};
 		}
 
-		// If all signatures are removed, remove the full setting path. Otherwise the empty JavaScript object {} 
+		// If all signatures are removed, remove the full setting path. Otherwise the empty JavaScript object {}
 		// will be interperted by PHP as an object and cause 4 empty signatures
 		if (signatures.length !== 0) {
 			settingsModel.set(this.signaturesGrid.name, signaturesData);
@@ -613,7 +614,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 * the user if he wishes to save the changes (this will be handled by {@link #onAddSignatureConfirm}).
 	 *
 	 * If nothing needs to be saved, {@link #doAddSignature} will be called.
-	 * @private 
+	 * @private
 	 */
 	onAddSignature : function()
 	{
