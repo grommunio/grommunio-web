@@ -109,5 +109,12 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	RECEIVED_AFTER: 14
+	RECEIVED_AFTER: 14,
+
+	/**
+	 * Indicates that no condition will be applied. The rule always matches.
+	 * @property
+	 * @type Number
+	 */
+	NONE: 15
 });
