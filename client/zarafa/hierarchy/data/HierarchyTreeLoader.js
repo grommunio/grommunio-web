@@ -211,16 +211,23 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 
 		for (var i = 0, len = data.length; i < len; i++) {
 			var item = data[i];
-
+			var folder = item.folder;
 			// Check if the node already exists or not.
-			var treeNode = rootNode.findChildByEntryId(item.folder.get('entryid'));
+			var treeNode = rootNode.findChildByEntryId(folder.get('entryid'));
 			if (!treeNode) {
 				var node = this.createNode(item);
 				rootNode.appendChild(node);
-			} else if (treeNode.attributes.folder !== item.folder) {
-				treeNode.attributes.folder = item.folder;
+			} else if (treeNode.attributes.folder !== folder) {
+				treeNode.attributes.folder = folder;
 				treeNode.reload();
-			}
+			} else if (folder.isFavoritesRootFolder()) {
+                // Check if favorite node and favorite folder doesn't have same number of children
+                // then reload the favorite node.
+                var favoritesStore = folder.getMAPIStore().getFavoritesStore();
+                if (treeNode.childNodes.length !== favoritesStore.getCount()) {
+                    treeNode.reload();
+                }
+            }
 		}
 
 		this.fireEvent('load', this, rootNode, response);
