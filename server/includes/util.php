@@ -226,24 +226,23 @@
 
 		$hierarchytable = mapi_folder_gethierarchytable($finderfolder, MAPI_DEFERRED_ERRORS);
 		mapi_table_restrict($hierarchytable, array(RES_AND,
-												array(
-													array(RES_CONTENT,
-														array(
-															FUZZYLEVEL	=> FL_PREFIX,
-															ULPROPTAG	=> PR_DISPLAY_NAME,
-															VALUE		=> array(PR_DISPLAY_NAME=>"WebApp Search Folder")
-														)
-													),
-													array(RES_PROPERTY,
-														array(
-															RELOP		=> RELOP_LT,
-															ULPROPTAG	=> PR_LAST_MODIFICATION_TIME,
-															VALUE		=> array(PR_LAST_MODIFICATION_TIME=>(time()-ini_get("session.gc_maxlifetime")))
-														)
-													)
-												)
-											), TBL_BATCH
-		);
+				array(
+					array(RES_CONTENT,
+						array(
+							FUZZYLEVEL	=> FL_PREFIX,
+							ULPROPTAG	=> PR_DISPLAY_NAME,
+							VALUE		=> array(PR_DISPLAY_NAME=>"WebApp Search Folder")
+						)
+					),
+					array(RES_PROPERTY,
+						array(
+							RELOP		=> RELOP_LT,
+							ULPROPTAG	=> PR_LAST_MODIFICATION_TIME,
+							VALUE		=> array(PR_LAST_MODIFICATION_TIME=>(time()-ini_get("session.gc_maxlifetime")))
+						)
+					)
+				)
+		), TBL_BATCH);
 
 		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID));
 		foreach($folders as $folder){

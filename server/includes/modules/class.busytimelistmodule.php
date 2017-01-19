@@ -47,7 +47,6 @@
 			$items = Array();
 			foreach($calendaritems as $calendaritem)
 			{
-				$item = null;
 				if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
 					$recurrence = new Recurrence($store, $calendaritem);
 					$recuritems = $recurrence->getItems($start, $end);

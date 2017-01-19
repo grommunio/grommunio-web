@@ -11,7 +11,6 @@
 		
 		function execute()
 		{
-			//add user
 			foreach($this->data as $actionType => $selUser)
 			{
 				if(isset($actionType)) {
@@ -112,9 +111,7 @@
 				} catch (MAPIException $e) {
 					if($e->getCode() == MAPI_E_NOT_FOUND) {
 						$e->setHandled();
-						if(function_exists("dump")) {
-							dump("Error in opening freebusysupport object.");
-						}
+						dump("Error in opening freebusysupport object.");
 					}
 				}
 

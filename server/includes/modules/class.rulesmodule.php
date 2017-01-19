@@ -285,15 +285,15 @@
 			$associatedTable = mapi_folder_getcontentstable($inbox, MAPI_ASSOCIATED);
 
 			mapi_table_restrict($associatedTable,
-									array(RES_CONTENT,
-										array(
-											FUZZYLEVEL	=>	FL_FULLSTRING | FL_IGNORECASE,
-											ULPROPTAG	=>	PR_MESSAGE_CLASS,
-											VALUE		=>	array(
-												PR_MESSAGE_CLASS	=>	"IPM.RuleOrganizer"
-											)
-										)
-									)
+						array(RES_CONTENT,
+							array(
+								FUZZYLEVEL	=>	FL_FULLSTRING | FL_IGNORECASE,
+								ULPROPTAG	=>	PR_MESSAGE_CLASS,
+								VALUE		=>	array(
+									PR_MESSAGE_CLASS	=>	"IPM.RuleOrganizer"
+								)
+							)
+						)
 								);
 			$messages = mapi_table_queryallrows($associatedTable, array(PR_ENTRYID));
 
