@@ -169,6 +169,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 		},{
 			xtype : 'zarafa.receivedbeforelink',
 			id : baseId + '-received-before'
+		},{
+			xtype : 'zarafa.nonelink',
+			id : baseId + '-no-condition'
 		}];
 	},
 
@@ -416,6 +419,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
+			case Zarafa.common.rules.data.ConditionFlags.NONE:
 				layout.activeItem.setCondition(conditionFlag, condition);
 				break;
 		}
@@ -501,6 +505,8 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 					}
 				}
 				return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
+			case Restrictions.RES_EXIST:
+				return Zarafa.common.rules.data.ConditionFlags.NONE;
 			default:
 				return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 		}
@@ -583,6 +589,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE:
 				layout.setActiveItem(panel.id + '-received-before');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.NONE:
+				layout.setActiveItem(panel.id + '-no-condition');
 				layout.activeItem.setCondition(value);
 				break;
 		}

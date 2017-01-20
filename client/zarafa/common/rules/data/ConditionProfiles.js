@@ -49,4 +49,7 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 },{
 	name : _('has my name in the To field'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME
+},{
+	name : _('is received (all messages)'),
+	value : Zarafa.common.rules.data.ConditionFlags.NONE
 }];
