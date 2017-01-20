@@ -11369,7 +11369,15 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 }
 
 /* Plugin list */
-/* line 257, ../scss/components/_settings.scss */
+/* line 255, ../scss/components/_settings.scss */
+.zarafa-settings-pluginavailable .zarafa-settings-widget-extrainfo {
+  margin: 0;
+}
+/* line 258, ../scss/components/_settings.scss */
+.zarafa-settings-pluginavailable .k-settings-plugingrid {
+  padding-top: 12px;
+}
+/* line 264, ../scss/components/_settings.scss */
 .zarafa-settings-pluginavailable .zarafa-settings-pluginavailable-fixed .x-grid3-col-display_name span {
   font-style: italic;
   color: #777777;

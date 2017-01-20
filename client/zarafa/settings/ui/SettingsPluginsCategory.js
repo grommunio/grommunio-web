@@ -33,10 +33,19 @@ Zarafa.settings.ui.SettingsPluginsCategory = Ext.extend(Zarafa.settings.ui.Setti
 			title : _('Plugins'),
 			categoryIndex : 9998,
 			iconCls : 'zarafa-settings-category-plugins',
-			items : [{
-				xtype : 'zarafa.settingspluginswidget',
-				settingsContext : config.settingsContext
-			}, container.populateInsertionPoint('context.settings.category.plugins', this)
+			autoScroll: false,
+			layout: {
+				type: 'vbox',
+				align: 'stretch',
+				pack  : 'start'
+			},
+			items : [
+				{
+					xtype : 'zarafa.settingspluginswidget',
+					settingsContext : config.settingsContext,
+					flex : 1
+				},
+				container.populateInsertionPoint('context.settings.category.plugins', this)
 			]
 		});
 
