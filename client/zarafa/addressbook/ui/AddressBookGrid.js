@@ -32,7 +32,8 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 			view : new Ext.ux.grid.BufferView({
 				// render rows as they come into viewable area.
 				scrollDelay : false,
-				rowHeight : 31
+				rowHeight : 31,
+				borderHeight : 1
 			})
 		});
 
@@ -48,6 +49,21 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		this.mon(this, 'beforedestroy', function(){
 			Zarafa.core.PresenceManager.unregisterStore(this.getStore());
 		}, this);
+	},
+
+	/**
+	 * Event handler for the render event of the grid panel. Will calculate the correct border
+	 * size and update the value in the view. This is necessary because Chrome sometimes
+	 * renders with incorrect width, i.e. we style it with 1px and chrome renders 0.667px The
+	 * bufferedView however needs the correct size to calculate which record to render.
+	 */
+	onRender : function()
+	{
+		Zarafa.addressbook.ui.AddressBookGrid.superclass.onRender.apply(this, arguments);
+
+		var headerEl = this.view.el.down('div').down('div');
+		var borderHeight = window.getComputedStyle(headerEl.dom)['border-bottom-width'];
+		this.view.borderHeight = parseFloat(borderHeight);
 	},
 
 	/**
