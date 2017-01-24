@@ -210,6 +210,10 @@
  		margin-bottom: -1px;
 	 }
  }
+ .k-signature-editor textarea {
+	padding: $padding-extra-large;
+	font-family: monospace !important;
+ }
 
 .keyboard-type {
 	margin-left: 40px;

@@ -6,7 +6,7 @@
 	> .x-panel-bwrap {
 		> .x-panel-body {
 			padding: $padding-medium 0;
-			
+
 			.zarafa-mailcreatepanel-field-from,
 			.zarafa-mailcreatepanel-field-to,
 			.zarafa-mailcreatepanel-field-cc,
@@ -15,14 +15,14 @@
 			.zarafa-mailcreatepanel-field-editor {
 				padding: 0 $padding-medium $padding-medium;
 				min-height: $button-small-height;
-				
+
 				button {
 					text-align: left;
 				}
 			}
 
 			/* Override min-width to take account for the drop down entry */
-			.zarafa-mailcreatepanel-field-from { 
+			.zarafa-mailcreatepanel-field-from {
 				button {
 					min-width: 72px;
 				}
@@ -30,7 +30,7 @@
 
 			.zarafa-mailcreatepanel-field-subject {
 				padding: $padding-medium $padding-medium $padding-medium 2*$padding-medium;
-				border-top: 1px solid $grey; 
+				border-top: 1px solid $grey;
 				border-bottom: 1px solid $grey;
 				border-left: none;
 				border-right: none;
@@ -40,13 +40,18 @@
 			.zarafa-mailcreatepanel-field-attachments {
 				padding-top: $padding-medium;
 			}
-			
+
 			.zarafa-mailcreatepanel-field-editor {
 				/* Prevent a double padding on the bottom of the panel */
 				padding-bottom: 0;
 				padding-left: 0;
 				padding-right: 0;
-			}			
+
+				textarea {
+					padding: $padding-extra-large;
+					font-family: monospace !important;
+				}
+			}
 		}
 	}
 }
@@ -58,27 +63,27 @@
 	.x-form-item {
 		margin-bottom: 0;
 	}
-			
+
 	.zarafa-calendar-appointment-extrainfo {
 		padding: $padding-medium $padding-medium 0;
-		
+
 		div {
 			padding: $padding-medium;
 			background: $light-blue;
 			border: 1px solid $grey5;
 		}
 	}
-	
+
 	.field-to {
 		padding: $padding-medium;
 		min-height: $button-small-height;
 		border-bottom: 1px solid $grey;
-		
+
 		button {
 			text-align: left;
 		}
 	}
-	
+
 	.subject-panel,
 	.location-panel {
 		padding: $padding-medium;
@@ -92,31 +97,31 @@
 			width: $button-small-text-min-width - 2 * $padding-medium !important;
 		}
 	}
-	
+
 	.datetime-panel {
 		table {
 			width: 100%;
 			border-collapse: collapse;
 			white-space: nowrap;
-			
+
 			tr:nth-child(2) {
 				border-bottom: 1px solid $grey;
 			}
 
 			td:first-child {
 				width: 100px;
-				
+
 				td:first-child {
 					width: auto;
 				}
 			}
 		}
 	}
-	
+
 	.date-panel {
 		padding: $padding-medium;
 		padding-right: 2 * $padding-extra-extra-large;
-		
+
 		.from-field {
 			label {
 				padding: 0 $padding-medium;
@@ -124,7 +129,7 @@
 				padding-top: ($button-small-height - $font-default-line-height)/2;
 			}
 		}
-		
+
 		.to-field {
 			label {
 				padding: 0 $padding-large;
@@ -134,34 +139,34 @@
 			}
 		}
 	}
-	
+
 	.busystatus-panel {
 		padding: $padding-medium;
 		padding-left: $padding-extra-large;
 		border-left: 1px solid $grey;
 	}
-	
+
 	.reminder-panel {
 		padding: $padding-medium;
 		padding-left: 2 * $padding-medium;
-		
+
 		.x-form-check-wrap {
 			line-height: $font-default-line-height;
 			padding-top: ($button-small-height - $font-default-line-height)/2;
 		}
 	}
-	
+
 	.label-panel {
 		padding: $padding-medium;
 		padding-left: $padding-extra-large;
 		border-left: 1px solid $grey;
 	}
-	
+
 	.zarafa-appointmentcreatepanel-field-attachments {
 		padding: $padding-medium;
 		border-bottom: 1px solid $grey;
 	}
-	
+
 	.body-panel{
 		textarea {
 			border: none;
@@ -259,7 +264,7 @@
 			background: url(../images/default_contact_profile.png) no-repeat center center;
 		}
 	}
-	
+
 }
 
 /**********************************************************************
