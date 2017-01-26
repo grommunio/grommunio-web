@@ -454,9 +454,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		Zarafa.common.Actions.openABUserSelectionContent({
 			callback : this.abCallBack,
 			scope : this,
-			hierarchyRestriction : {
-				hide_contacts : true
-			},
+			hideContactsFolders : true,
 			listRestriction : {
 				hide_users : ['system', 'everyone'],
 				hide_companies : true

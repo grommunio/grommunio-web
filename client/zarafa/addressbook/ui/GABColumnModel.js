@@ -47,32 +47,34 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			fixed : true,
 			renderer : Zarafa.common.ui.grid.Renderers.icon
 		},{
-			dataIndex : 'display_name',
+			dataIndex : 'full_name',
 			// gridPanel.autoExpandColumn config will reference to this id
-			id : 'displayname',
+			id : 'full_name',
+			header : _('Name'),
+			sortable : true,
+			tooltip : _('Sort by: Name'),
+			renderer : Ext.util.Format.htmlEncode
+		},{
+			dataIndex : 'display_name',
 			header : _('Display Name'),
 			sortable : true,
 			tooltip : _('Sort by: Display Name'),
-			renderer : Zarafa.common.ui.grid.Renderers.displayName
+			renderer : Zarafa.common.ui.grid.Renderers.displayName,
+			width: 250
 		},{
 			dataIndex : 'fileas',
 			header : _('File as'),
+			hidden : true,
 			sortable : true,
 			tooltip : _('Sort by: File As'),
-			renderer : Ext.util.Format.htmlEncode
-		},{
-			dataIndex : 'email_address',
-			header : _('Username'),
-			sortable : true,
-			hidden : false,
-			tooltip : _('Sort by: Username'),
 			renderer : Ext.util.Format.htmlEncode,
-			width : 150
+			width: 250
 		},{
-			dataIndex : 'smtp_address',
-			header : _('Email Address'),
+			dataIndex : 'given_name',
+			header : _('First Name'),
 			sortable : true,
-			tooltip: _('Sort by: Email Address'),
+			hidden: true,
+			tooltip: _('Sort by: First Name'),
 			renderer : Ext.util.Format.htmlEncode,
 			width: 150
 		},{
@@ -84,10 +86,17 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			renderer : Ext.util.Format.htmlEncode,
 			width: 150
 		},{
+			dataIndex : 'smtp_address',
+			header : _('Email Address'),
+			sortable : true,
+			tooltip: _('Sort by: Email Address'),
+			renderer : Ext.util.Format.htmlEncode,
+			width: 250
+		},{
 			dataIndex : 'department_name',
 			header : _('Department'),
 			sortable : true,
-			hidden : false,
+			hidden : true,
 			tooltip : _('Sort by: Department'),
 			renderer : Ext.util.Format.htmlEncode,
 			width : 150
@@ -126,14 +135,15 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			dataIndex : 'office_location',
 			header : _('Location'),
 			sortable : true,
+			hidden : true,
 			tooltip : _('Sort by: Location'),
 			renderer : Ext.util.Format.htmlEncode,
-			width : 150,
-			hidden : true
+			width : 150
 		},{
 			dataIndex : 'primary_fax_number',
 			header : _('Fax'),
 			sortable : true,
+			hidden : true,
 			tooltip : _('Sort by: Fax'),
 			renderer : Ext.util.Format.htmlEncode,
 			width : 150

@@ -104,6 +104,29 @@
 			$map = array();
 			$map['fileas'] = $this->properties['account'];
 
+			// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
+			if ( isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"])===1 && $action["sort"][0]["field"]==="full_name" ) {
+				$dir = $action["sort"][0]["direction"];
+				$action["sort"] = array(
+					array(
+						"field" 	=> "surname",
+						"direction" => $dir
+					),
+					array(
+						"field" 	=> "given_name",
+						"direction" => $dir
+					),
+					array(
+						"field" 	=> "middle_name",
+						"direction" => $dir
+					),
+					array(
+						"field" 	=> "display_name",
+						"direction" => $dir
+					),
+				);
+			}
+
 			// Parse incoming sort order
 			$this->parseSortOrder($action, $map, true);
 
@@ -264,6 +287,8 @@
 						$item['home_telephone_number'] = isset($user_data[PR_HOME_TELEPHONE_NUMBER])? $user_data[PR_HOME_TELEPHONE_NUMBER] : '';
 						$item['pager_telephone_number'] = isset($user_data[PR_PAGER_TELEPHONE_NUMBER])? $user_data[PR_PAGER_TELEPHONE_NUMBER] : '';
 						$item['surname'] = isset($user_data[PR_SURNAME])? $user_data[PR_SURNAME] : '';
+						$item['given_name'] = isset($user_data[$this->properties['given_name']])? $user_data[$this->properties['given_name']] : '';
+
 						switch($user_data[PR_DISPLAY_TYPE]){
 							case DT_ORGANIZATION:
 								$item['email_address'] = $user_data[$this->properties['account']];
@@ -301,6 +326,25 @@
 								$item['primary_fax_number'] = isset($user_data[$this->properties['primary_fax_number']]) ? $user_data[$this->properties['primary_fax_number']] : '';
 							break;
 						}
+					}
+
+					// Create a nice full_name prop ("Lastname, Firstname Middlename")
+					if ( isset($user_data[$this->properties['surname']]) ){
+						$item['full_name'] = $user_data[$this->properties['surname']];
+					} else {
+						$item['full_name'] = '';
+					}
+					if ( (isset($user_data[$this->properties['given_name']]) || isset($user_data[$this->properties['middle_name']])) && !empty($item['full_name']) ){
+						$item['full_name'] .= ', ';
+					}
+					if ( isset($user_data[$this->properties['given_name']]) ){
+						$item['full_name'] .= $user_data[$this->properties['given_name']];
+					}
+					if ( isset($user_data[$this->properties['middle_name']]) ){
+						$item['full_name'] .= ' ' . $user_data[$this->properties['middle_name']];
+					}
+					if ( empty($item['full_name']) ){
+						$item['full_name'] = $item['display_name'];
 					}
 
 					if(!empty($user_data[$this->properties['search_key']])) {

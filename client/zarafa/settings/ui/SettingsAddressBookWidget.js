@@ -10,11 +10,6 @@ Ext.namespace('Zarafa.settings.ui');
 Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 
 	/**
-	 * @cfg {Zarafa.addressbook.AddressBookHierarchyStore} store which can be used to store all available addressbooks.
-	 */
-	store : undefined,
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -24,7 +19,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 
 		var hierarchyTpl = new Ext.XTemplate(
 			'<tpl for=".">',
-				'<div class="x-combo-list-item">',
+				'<div class="x-combo-list-item<tpl if="group_header"> k-combo-list-item-header</tpl>">',
 					'{depth:indent}{display_name:htmlEncode}',
 				'</div>',
 			'</tpl>',
@@ -32,10 +27,6 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 				compiled : true
 			}
 		);
-
-		if (Ext.isEmpty(config.store)) {
-			config.store = new Zarafa.addressbook.AddressBookHierarchyStore();
-		}
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.settingsaddressbookwidget',
@@ -47,7 +38,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 				name : 'zarafa/v1/main/default_addressbook',
 				ref : 'defaultABCombo',
 				width : 200,
-				store : config.store,
+				store : Zarafa.addressbook.AddressBookHierarchyStore,
 				mode: 'local',
 				triggerAction: 'all',
 				displayField : 'display_name',
@@ -57,8 +48,8 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 				forceSelection: true,
 				editable: false,
 				listeners : {
+					beforeselect: this.onBeforeDefaultABSelect,
 					select : this.onDefaultABSelect,
-					render : this.onABComboRender,
 					scope : this
 				}
 			}]
@@ -68,62 +59,16 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	},
 
 	/**
-	 * Event handler which is called when the {@link #store} has been loaded.
-	 * If the is no settings than by default the 'Global Address Book' will be selected.
-	 * @param {Ext.data.Store} store The store which was loaded
-	 * @param {Ext.data.Record[]} records The records which were loaded from the store
-	 * @param {Object} options The options which were used to load the data
-	 * @private
+	 * Event handler for the onbeforeselect event of the Address Book combo. Will
+	 * make sure group headers cannot be selected.
+	 *
+	 * @param {Ext.form.ComboBox} combo The Address Book combobox
+	 * @param (Zarafa.core.data.IPMRecord IPMRecord) record The selected Address Book record
+	 * @param {Number} index The index of the selected record in the combo
 	 */
-	onHierarchyStoreLoad : function( store, records, options )
+	onBeforeDefaultABSelect : function(combo, record, index)
 	{
-		if (store.getCount() === 0) {
-			// there aren't any records in the store
-			// we can not select any value
-			return;
-		}
-
-		var combo = this.defaultABCombo;
-
-		var entryid = this.model.get(combo.name);
-		var record;
-
-		// get corresponding record from combo store as we want to use id comparison functions
-		if (!Ext.isEmpty(entryid)) {
-			record = store.getById(entryid);
-		}
-
-		if (Ext.isEmpty(record)){
-			record = store.getAt(0);
-		}
-
-		combo.setValue(record.get(combo.valueField));
-	},
-
-	/**
-	 * Function called after the {@link #render rendering} of {@link #defaultABCombo}.
-	 * This will show the {@link Zarafa.common.ui.LoadMask loadMask} till the
-	 * {@link Zarafa.addressbook.AddressBookHierarchyStore} will be loaded.
-	 * This will send load request to get the available addressbook list.
-	 * @param {Ext.Container} cmp The container in which the combobox is being rendered.
-	 * @private.
-	 */
-	onABComboRender : function(cmp)
-	{
-		/*jslint unused: false*/
-		var loadMask = new Zarafa.common.ui.LoadMask(cmp.wrap, {
-			store : this.store,
-			msgCls : 'x-mask-loading x-mask-loading-combo',
-			removeMask : true
-		});
-
-		// send request to get addressbook hierarchy data
-		this.store.load({
-			actionType : Zarafa.core.Actions['list'],
-			params : {
-				subActionType : Zarafa.core.Actions['hierarchy']
-			}
-		});
+		return !record.get('group_header');
 	},
 
 	/**
@@ -153,12 +98,27 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 		Zarafa.settings.ui.SettingsAddressBookWidget.superclass.update.apply(this, arguments);
 		this.model = settingsModel;
 
-		var hierarchyStore = this.store;
-		if (hierarchyStore.getCount() === 0) {
-			this.mon(hierarchyStore, 'load', this.onHierarchyStoreLoad, this, { single: true });
-		} else {
-			this.onHierarchyStoreLoad(hierarchyStore);
+		if (Zarafa.addressbook.AddressBookHierarchyStore.getCount() === 0) {
+			// there aren't any records in the store
+			// we can not select any value
+			return;
 		}
+
+		var combo = this.defaultABCombo;
+
+		var entryid = this.model.get(combo.name);
+		var record;
+
+		// get corresponding record from combo store as we want to use id comparison functions
+		if (!Ext.isEmpty(entryid)) {
+			record = Zarafa.addressbook.AddressBookHierarchyStore.getById(entryid);
+		}
+
+		if (Ext.isEmpty(record)){
+			record = Zarafa.addressbook.AddressBookHierarchyStore.getAt(0);
+		}
+
+		combo.setValue(record.get(combo.valueField));
 	},
 
 	/**

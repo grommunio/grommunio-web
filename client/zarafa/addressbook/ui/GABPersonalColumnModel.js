@@ -33,19 +33,28 @@ Zarafa.addressbook.ui.GABPersonalColumnModel = Ext.extend(Zarafa.common.ui.grid.
 				fixed : true,
 				renderer : Zarafa.common.ui.grid.Renderers.icon
 			},{
-				dataIndex : 'display_name',
+				dataIndex : 'full_name',
 				// gridPanel.autoExpandColumn config will reference to this id
-				id : 'displayname',
+				id : 'full_name',
+				header : _('Name'),
+				sortable : true,
+				tooltip : _('Sort by: Name'),
+				renderer : Ext.util.Format.htmlEncode
+			},{
+				dataIndex : 'display_name',
 				header : _('Display Name'),
 				sortable : true,
 				tooltip : _('Sort by: Display Name'),
-				renderer : Ext.util.Format.htmlEncode
+				renderer : Ext.util.Format.htmlEncode,
+				width : 250
 			},{
 				dataIndex : 'fileas',
 				header : _('File as'),
 				sortable : true,
+				hidden : true,
 				tooltip : _('Sort by: File As'),
-				renderer : Ext.util.Format.htmlEncode
+				renderer : Ext.util.Format.htmlEncode,
+				width : 250
 			},{
 				dataIndex : 'email_address',
 				header : _('Email Address'),
@@ -53,7 +62,7 @@ Zarafa.addressbook.ui.GABPersonalColumnModel = Ext.extend(Zarafa.common.ui.grid.
 				hidden : false,
 				tooltip : _('Sort by: Email Address'),
 				renderer : Ext.util.Format.htmlEncode,
-				width : 150
+				width : 400
 			}]
 		});
 

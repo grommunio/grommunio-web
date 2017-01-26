@@ -33,7 +33,7 @@ body.Safari input[type="radio"] {
 		line-height: $button-small-height - 2px;
 		height: $button-small-height - 2px;
 	}
-	
+
 	.x-form-trigger,
 	.x-form-spinner-trigger {
 		height : $button-small-height - 2px !important;
@@ -49,7 +49,7 @@ body.Safari input[type="radio"] {
 	.x-form-spinner-trigger-over {
 		background-color: $grey4;
 	}
-	
+
 	.x-form-spinner-trigger {
         background-image: 		sprite-url($iconsmap),
         						sprite-url($iconsmap);
@@ -63,13 +63,29 @@ body.Safari input[type="radio"] {
 	}
 }
 
+.x-combo-list-item{
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.x-combo-list-item.k-combo-list-item-header {
+	font-weight: bold;
+	font-style: italic;
+}
+.x-combo-list-item.x-combo-selected.k-combo-list-item-header {
+	background: transparent;
+	border-color: transparent !important;
+	cursor: default;
+}
+
 /* fieldsets */
 .x-fieldset {
 	border-radius: 0;
 	border: 1px solid $grey;
 	padding: $padding-large $padding-medium;
 	margin: 0;
-	
+
 	legend {
 		font-weight: normal;
 		color: $font-color-dark;

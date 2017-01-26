@@ -637,6 +637,8 @@
 				$properties["smtp_address"] = PR_SMTP_ADDRESS;
 				$properties["email_address"] = PR_EMAIL_ADDRESS;
 				$properties["display_name"] = PR_DISPLAY_NAME;
+				$properties["given_name"] = PR_GIVEN_NAME;
+				$properties["middle_name"] = PR_MIDDLE_NAME;
 				$properties["surname"] = PR_SURNAME;
 				$properties["display_type"] = PR_DISPLAY_TYPE;
 				$properties["display_type_ex"] = PR_DISPLAY_TYPE_EX;

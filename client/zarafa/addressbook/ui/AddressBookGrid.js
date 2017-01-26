@@ -22,7 +22,7 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		config = config || {};
 
 		Ext.applyIf(config, {
-			autoExpandColumn : 'displayname',
+			autoExpandColumn : 'full_name',
 			autoExpandMin : 100,
 			loadMask : true,
 			stateful : true,

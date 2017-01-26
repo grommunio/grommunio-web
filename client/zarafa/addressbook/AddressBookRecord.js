@@ -18,6 +18,7 @@ Ext.namespace('Zarafa.addressbook');
 Zarafa.addressbook.AddressBookRecordFields = [
 	{name: 'entryid'},
 	{name: 'search_key'},
+	{name: 'full_name'},
 	{name: 'fileas'},
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MAILUSER },
 	{name: 'display_type', type: 'int', defaultValue: Zarafa.core.mapi.DisplayType.DT_MAILUSER },
@@ -82,7 +83,7 @@ Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectTy
 /**
  * @class Zarafa.addressbook.AddressBookRecord
  * @extends Zarafa.core.data.MAPIRecord
- * 
+ *
  * An extension to the {@link Zarafa.core.data.MAPIRecord Record} specific for Addressbook items
  */
 Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
@@ -281,7 +282,7 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 
 	/**
 	 * Compare this {@link Zarafa.core.data.MAPIRecord record} instance with another one to see
-	 * if they are same 
+	 * if they are same
 	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The Record to compare with
 	 * @return {Boolean} True if the records are the same.
