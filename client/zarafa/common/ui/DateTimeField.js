@@ -351,7 +351,27 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 			this.timeField.setVisible(enabled);
 			this.doLayout();
 		}
-	}
+	},
+
+    /**
+     * Function add css class to the  {@link Zarafa.common.ui.DateTimeField dateTimeField}
+     * @param {String} cls CSS class name
+     */
+    addClass: function (cls)
+    {
+        this.timeField.addClass(cls);
+        this.dateField.addClass(cls);
+    },
+
+    /**
+     * Function remove css class to the  {@link Zarafa.common.ui.DateTimeField dateTimeField}
+     * @param {String} cls CSS class name
+     */
+    removeClass: function (cls)
+    {
+        this.timeField.removeClass(cls);
+        this.dateField.removeClass(cls);
+    }
 });
 
 Ext.reg('zarafa.datetimefield', Zarafa.common.ui.DateTimeField);

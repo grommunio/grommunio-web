@@ -316,5 +316,23 @@ Zarafa.mail.Actions = {
 
 		// Use newly created copy of original record to load into separate browser window
 		Zarafa.mail.Actions.openMailContent(copy, configObj);
-	}
+	},
+
+    /**
+     * Open a {@link Zarafa.mail.dialogs.DelayDeliveryContentPanel DelayDeliveryContentPanel} for
+     * set DEFERRED_SEND_TIME property  in new created mail base on enter Date and Time
+     *
+     * @param {Zarafa.core.data.IPMRecord} record mail record
+     * @param {Zarafa.core.ui.MessageContentPanel} dialog which contains the record.
+     */
+    openDelayedDeliveryContent: function (record, dialog)
+	{
+        Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['mail.dialog.delayeddelivery'], record, {
+            manager: Ext.WindowMgr,
+            modal: true,
+            mailPanel: dialog,
+            resizable: false,
+            scope: this
+        });
+    }
 };

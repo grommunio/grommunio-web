@@ -91,9 +91,17 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			iconCls : 'buttons-icon_send_white',
 			handler : this.onSendButton,
 			scope : this
-		},
-			container.populateInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.aftersendbutton', this),
-		{
+		}, {
+            xtype: 'button',
+            text: _('Send Later'),
+            tooltip: {
+                title: _('Send Later'),
+                text: _('Schedule your mail to be sent on a specific time.')
+            },
+            iconCls: 'buttons_icon_send_later_black',
+            handler: this.onSendLaterButton,
+            scope: this
+        }, {
 			xtype : 'button',
 			overflowText : _('Save email'),
 			tooltip : {
@@ -377,8 +385,23 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	 */
 	onSendButton : function (button)
 	{
+        if (this.record.get('deferred_send_time') !== null) {
+            // If the mail is scheduled mail(in outbox) and user try to directly send it this will not send
+            // Because of it has 'deferred_send_time' ,So by setting null into 'deferred_send_time' we can send the mail
+            this.record.set('deferred_send_time', null);
+        }
 		this.dialog.sendRecord();
 	},
+
+    /**
+     * Event handler when the "Send Later" button has been pressed.
+     * This will call the {@link Zarafa.mail.Actions#openDelayedDeliveryContent}.
+     * @param {Ext.Button} button The button which was clicked
+     */
+    onSendLaterButton: function (button)
+	{
+        Zarafa.mail.Actions.openDelayedDeliveryContent(this.record, this.dialog);
+    },
 
 	/**
 	 * Event handler when the "Save" button has been pressed.

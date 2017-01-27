@@ -453,6 +453,11 @@
 					background-position: sprite-position($iconsmap, icon_restore, $offset-y: 4px, $offset-x: $padding-medium);
 					padding-left: 2 * $padding-medium + 15px;
 				}
+
+				button.buttons_icon_send_later_black {
+					@extend .buttons-icon_send_white;
+					background-position: sprite-position($icons, icon_send_later_black, $offset-x: $padding-medium, $offset-y: $padding-medium+1px);
+				}
 			}
 		}
 
