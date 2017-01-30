@@ -50,6 +50,8 @@ Zarafa.task.Actions = {
 
 		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
 			record = records[0];
+		} else {
+			return;
 		}
 
 		if (record.isOpened()) {
