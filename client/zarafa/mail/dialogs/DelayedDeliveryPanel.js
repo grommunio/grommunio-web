@@ -85,7 +85,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
      * Event handler which is called when the {@link Zarafa.common.ui.RadioDateTimeField radioDateTimeField} or
      * {@link Zarafa.common.ui.RadioSpinnerField radioSpinnerField} field receives input focus,
      * this will call {@link #createMessage} for updating the delayInfoMessage value
-     * @param {Zarafa.common.ui.RadioSpinnerField / RadioDateTimeField} field The field which fired the event
+     * @param {Zarafa.common.ui.RadioSpinnerField|Zarafa.common.ui.RadioDateTimeField} field The field which fired the event
      */
     onFieldFocus: function (field)
     {
@@ -96,7 +96,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
      * Event handler which is called when the {@link Zarafa.common.ui.RadioDateTimeField radioDateTimeField} or
      * {@link Zarafa.common.ui.RadioSpinnerField radioSpinnerField} value has changed,
      * this will call {@link #createMessage} for updating the delayInfoMessage value
-     * @param {Zarafa.common.ui.RadioSpinnerField / RadioDateTimeField} field The field which fired the event
+     * @param {Zarafa.common.ui.RadioSpinnerField|Zarafa.common.ui.RadioDateTimeField} field The field which fired the event
      * @param {Date} dateTime The date and time which is specified by user.
      */
     onFieldChange: function (field, dateTime)
