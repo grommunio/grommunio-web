@@ -79,7 +79,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 	createActionButtons : function ()
 	{
 		return [{
-			xtype : 'button',
+			xtype : 'splitbutton',
 			text : _('Send'),
 			overflowText : _('Send email'),
 			ref : 'sendButton',
@@ -87,21 +87,24 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 				title : _('Send email'),
 				text : _('Send email to recipients') + ' (Ctrl + ENTER)'
 			},
-			cls : 'zarafa-action', 
+			menu: {
+				items: [{
+					text: _('Send'),
+					iconCls: 'icon_send_black',
+					handler: this.onSendButton,
+					scope: this
+				}, {
+					text: _('Send Later'),
+					iconCls: 'icon_send_later_black',
+					handler: this.onSendLaterButton,
+					scope: this
+				}]
+			},
+			cls : 'zarafa-action',
 			iconCls : 'buttons-icon_send_white',
 			handler : this.onSendButton,
 			scope : this
 		}, {
-            xtype: 'button',
-            text: _('Send Later'),
-            tooltip: {
-                title: _('Send Later'),
-                text: _('Schedule your mail to be sent on a specific time.')
-            },
-            iconCls: 'buttons_icon_send_later_black',
-            handler: this.onSendLaterButton,
-            scope: this
-        }, {
 			xtype : 'button',
 			overflowText : _('Save email'),
 			tooltip : {

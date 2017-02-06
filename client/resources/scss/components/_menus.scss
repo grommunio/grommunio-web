@@ -400,6 +400,14 @@ $menu-item-height : 30px;
       	background-position: sprite-position($icons, icon_send, $offset-y: 6, $offset-x: 1);
 	}
 
+	.icon_send_black {
+		background-position: sprite-position($icons, icon_send_black, $offset-y: 3, $offset-x: 1);
+	}
+
+	.icon_send_later_black {
+		background-position: sprite-position($icons, icon_send_later_black, $offset-y: 6, $offset-x: 1);
+	}
+
 	/* the white icons must be replaced by black ones in the (overflow) menu */
 	.buttons-icon_save_white {
 		@extend .icon_floppy;

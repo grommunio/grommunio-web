@@ -213,6 +213,18 @@ $normal-button-bgcolor-hover	: $grey2;
 			}
 		}
 	}
+
+	.x-btn.zarafa-action .x-btn-small {
+		em.x-btn-split, em.x-btn-arrow {
+			background-position: sprite-position($icons, arrow_down_s_white_btn, $offset_y: 11px, $offset_x: 100%);
+			padding-right: 12px;
+
+			button {
+				border: none;
+				border-right: 1px solid white;
+			}
+		}
+	}
 	
 /**************************************
  * Action buttons
