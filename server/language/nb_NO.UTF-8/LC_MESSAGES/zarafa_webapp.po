@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2016-10-23 19:11+0000\n"
+"PO-Revision-Date: 2017-01-11 21:03+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1346,7 +1346,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "Mente du"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -2723,7 +2723,7 @@ msgstr "Sorter på: møtestatus"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Sorter på: vis som"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:93
@@ -3973,7 +3973,7 @@ msgstr "har viktighet ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "har et vedlegg"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
@@ -3985,27 +3985,27 @@ msgstr "er sendt bare til meg"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "har mitt navn i Cc-feltet"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "har mitt navn i Til eller Cc-feltet"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "har fortrolighet"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "er mottatt etter"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "er mottatt før"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "har mitt navn i Til-feltet"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4139,7 +4139,7 @@ msgstr "Regelen har allerede laveste prioritet."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Legg til/Rediger avsender"
 
 # 96%
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
@@ -6556,7 +6556,7 @@ msgstr "Marker som ulest"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:208
 msgid "Move to Junk Folder"
-msgstr "Flytt til søppelmappe"
+msgstr "Flytt til Søppel E-post"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:281
 msgid "max. "
@@ -6823,7 +6823,7 @@ msgstr "WebApp viser elementer på enkeltsider og du kan bla deg gjennom disse"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Last inn elementer i bolker på {A}"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load {A} items per page."
@@ -6896,7 +6896,7 @@ msgstr "Denne pluginen kan ikke skrus av"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:238
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Denne pluginen kan ikke aktiveres"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
 msgid "Mailbox Usage"
@@ -8426,15 +8426,15 @@ msgstr "Oppgaveforespørsel:"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
-msgstr ""
+msgstr "Velkommen"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 #: server/includes/templates/login.php:60
 msgid "Sign in"
-msgstr ""
+msgstr "Logg inn"
 
 # 82%
 #: server/includes/upload_attachment.php:225

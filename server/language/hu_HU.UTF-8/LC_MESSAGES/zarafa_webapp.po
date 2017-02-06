@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2016-11-09 07:54+0000\n"
+"PO-Revision-Date: 2017-01-12 18:37+0000\n"
 "Last-Translator: Zoltan <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/hu/>\n"
@@ -1357,7 +1357,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "Arra gondolt, hogy"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -2761,7 +2761,7 @@ msgstr "Rendezés: Értekezlet állapota szerint"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Rendezés: Mutasd mint"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:93
@@ -4015,31 +4015,31 @@ msgstr "Üzenet továbbítása mellékletként ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:11
 msgid "is received from ..."
-msgstr "a levél küldője..."
+msgstr "küldője..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:14
 msgid "includes these words in the sender's address ..."
-msgstr "a küldő címe tartalmazza ezeket a szavakat..."
+msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:17
 msgid "includes these words in the subject ..."
-msgstr "a levél tárgya tartalmazza ezeket a szavakat..."
+msgstr "tárgya tartalmazza ezeket a szavakat ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:20
 msgid "includes these words in the body ..."
-msgstr "a levéltörzs tartalmazza ezeket a szavakat..."
+msgstr "levéltörzse tartalmazza ezeket a szavakat..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:23
 msgid "has importance ..."
-msgstr "a levél prioritása..."
+msgstr "prioritása ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "mellékletet tartalmaz"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
-msgstr "a levél címzettje (To:, Cc:) a következő cím..."
+msgstr "címzettje (To:, Cc:) a következő cím..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:32
 msgid "is sent only to me"
@@ -4047,27 +4047,27 @@ msgstr "kizárólag nekem van címezve"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "másolata érkezett nekem címezve"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "címzettjei (To: Cc:) között szerepelek"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "információinak érzékenysége"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "később érkezett mint"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "korábban érkezett mint"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "nekem lett címezve"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4201,7 +4201,7 @@ msgstr "A szabály már a legalacsonyabb prioritású."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Küldő hozzáadása/módosítása"
 
 # 96%
 # 100%
@@ -5730,14 +5730,12 @@ msgid "Not all recipients could be resolved"
 msgstr "Nem minden címzett található meg"
 
 #: client/zarafa/core/ui/NavigationPanel.js:133
-#, fuzzy
 msgid "Collapse hierarchy"
-msgstr "Hierarchia összecsukása"
+msgstr "Hierarchia bezárása"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
-#, fuzzy
 msgid "Expand hierarchy"
-msgstr "Hierarchia kinyitása"
+msgstr "Hierarchia megnyitása"
 
 #: client/zarafa/core/ui/NavigationPanel.js:157
 #: client/zarafa/core/ui/NavigationPanel.js:198
@@ -6533,7 +6531,7 @@ msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás ut�
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:78
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Levél megnyitásának és írásának módja"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:89
 msgid "WebApp tab"
@@ -6912,7 +6910,7 @@ msgstr ""
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Elemek betöltése {A} darabos blokkokban"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load {A} items per page."

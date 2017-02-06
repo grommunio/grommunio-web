@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2016-11-11 15:29+0000\n"
+"PO-Revision-Date: 2017-01-31 12:27+0000\n"
 "Last-Translator: Bob <b.huisman@kopano.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -638,7 +638,7 @@ msgstr "Dit veld mag alleen letters, cijfers en _ bevatten"
 # 87%
 #: client/zarafa/addressbook/dialogs/ABEmailAddressTab.js:24
 msgid "E-mail Addresses"
-msgstr "E-mailadressen"
+msgstr "Email adressen"
 
 # 81%
 #: client/zarafa/addressbook/dialogs/ABEmailAddressTab.js:32
@@ -1376,7 +1376,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "Bedoelde u"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -2774,7 +2774,7 @@ msgstr "Sorteer op: Status"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Sorteren op: Tonen als"
 
 # 84%
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
@@ -3403,7 +3403,7 @@ msgstr "Secretaresse"
 #: client/zarafa/common/delegates/data/DelegatePermissionProfiles.js:18
 #: client/zarafa/hierarchy/data/PermissionProfiles.js:21
 msgid "Only read"
-msgstr "Alleen-lezen"
+msgstr "Alleen lezen"
 
 #: client/zarafa/common/delegates/dialogs/DelegatePermissionContentPanel.js:34
 msgid "Delegate Permissions"
@@ -3616,11 +3616,11 @@ msgstr "Items"
 
 #: client/zarafa/common/KeyMapping.js:127
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Bewaar een item (bericht, contactpersoon, ...)"
+msgstr "Bewaar een item (bericht, contactpersoon, etc.)."
 
 #: client/zarafa/common/KeyMapping.js:142
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Een item (bericht, vergaderverzoek,...) versturen"
+msgstr "Een item (bericht, vergaderverzoek, etc.) versturen."
 
 #: client/zarafa/common/KeyMapping.js:161
 msgid "Select all items"
@@ -3909,7 +3909,7 @@ msgstr "Terughalen van {0}"
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:106
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:107
 msgid "Restore"
-msgstr "Herstel"
+msgstr "Herstellen"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:115
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:116
@@ -4048,7 +4048,7 @@ msgstr "is ontvangen van ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:14
 msgid "includes these words in the sender's address ..."
-msgstr "Gebruik deze woorden in het adres van de afzender"
+msgstr "Gebruik deze woorden in het adres van de afzender ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:17
 msgid "includes these words in the subject ..."
@@ -4066,7 +4066,7 @@ msgstr "heeft belangrijkheid ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "bevat bijlage"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
@@ -4078,27 +4078,27 @@ msgstr "is alleen naar mij verzonden"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "bevat mijn naam in het CC veld"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "bevat mijn naam in het Aan of CC veld"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "heeft gevoeligheid"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "is ontvangen na"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "is ontvangen voor"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "bevat mijn naam in het Aan veld"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4233,7 +4233,7 @@ msgstr "Regel heeft al laagste prioriteit."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Verzender toevoegen/wijzigen"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
 msgid "No send as address configured"
@@ -4245,7 +4245,7 @@ msgstr "Verzenden als adressen worden geladen"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
 msgid "Please select a send as record."
-msgstr "Selecteer SVP een verzenden als item"
+msgstr "Selecteer een 'verzenden als' item."
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:43
 msgid "Here you can setup your alias email addresses."
@@ -4257,7 +4257,7 @@ msgstr "Bekijken"
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
 msgid "Please select a sendas record."
-msgstr "Selecteer een \"verzenden als\" adres"
+msgstr "Selecteer een 'verzenden als' adres."
 
 #: client/zarafa/common/settings/SettingsDelegateCategory.js:29
 msgid "Delegates"
@@ -4400,7 +4400,7 @@ msgstr "{0} geleden verlopen"
 
 #: client/zarafa/common/ui/LoadMask.js:15
 msgid "Loading..."
-msgstr "Bezig met laden..."
+msgstr "Laden..."
 
 #: client/zarafa/common/ui/LoadMask.js:27
 msgid "Failed"
@@ -4562,7 +4562,7 @@ msgstr "Dit is een update van een eerder verstuurd vergaderverzoek."
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:159
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "Ontvangen voor {0}"
+msgstr "Ontvangen voor {0}."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:166
 msgctxt "mail.previewpanel"
@@ -4687,7 +4687,7 @@ msgstr "Datum Voltooid"
 #: client/zarafa/task/ui/TaskGridColumnModel.js:159
 #: server/includes/mapi/class.taskrequest.php:902
 msgid "Total Work"
-msgstr "Totale Tijd"
+msgstr "Totale hoeveelheid werk"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:86
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:24
@@ -4703,7 +4703,7 @@ msgstr "Werkelijk Verricht"
 #: client/zarafa/task/ui/TaskGridColumnModel.js:187
 #: server/includes/mapi/class.taskrequest.php:912
 msgid "Mileage"
-msgstr "Voortgang"
+msgstr "Reisafstand"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:92
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:27
@@ -5724,12 +5724,12 @@ msgstr "Vertrouwelijk"
 #: client/zarafa/core/mapi/TaskStatus.js:54
 #: server/includes/mapi/class.taskrequest.php:887
 msgid "Not Started"
-msgstr "Niet Begonnen"
+msgstr "Niet Gestart"
 
 #: client/zarafa/core/mapi/TaskStatus.js:56
 #: server/includes/mapi/class.taskrequest.php:888
 msgid "In Progress"
-msgstr "In Uitvoering"
+msgstr "Word uitgevoerd"
 
 #: client/zarafa/core/mapi/TaskStatus.js:58
 #: client/zarafa/mail/data/MailFlags.js:44
@@ -6042,7 +6042,7 @@ msgstr "Map met {0} Items"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPanel.js:44
 msgid "Permissions"
-msgstr "Permissies"
+msgstr "Machtigingen"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:64
 msgid "No permissions granted"
@@ -6348,7 +6348,7 @@ msgstr "Sla e-mail op"
 # 100%
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:112
 msgid "Delete this mail"
-msgstr "Verwijder deze e-mail."
+msgstr "Verwijder deze e-mail"
 
 # 86%
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:123
@@ -6432,8 +6432,8 @@ msgid ""
 "name into the From field"
 msgstr ""
 "Toon het veld Van. Wanneer je gemachtigde rechten hebt op iemand anders zijn "
-"account, kan je een e-mail sturen die van deze persoon lijkt te komen als je "
-"zijn naam in het Van veld selecteert."
+"account, kun je een e-mail sturen die van deze persoon lijkt te komen als je "
+"zijn naam in het Van veld selecteert"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:331
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:79
@@ -6758,7 +6758,7 @@ msgstr "Verplaats naar Junk Folder"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:281
 msgid "max. "
-msgstr "max."
+msgstr "max. "
 
 # 80%
 #: client/zarafa/mail/ui/MailGrid.js:127
@@ -7036,7 +7036,7 @@ msgstr ""
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Items laden in blokken van {A}"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load {A} items per page."
@@ -7110,7 +7110,7 @@ msgstr "Deze plugin kan niet uitgeschakeld worden"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:238
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Deze plugin kan niet worden ingeschakeld"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
 msgid "Mailbox Usage"
@@ -7226,7 +7226,7 @@ msgstr "Sorteer op: Status"
 #: client/zarafa/task/ui/TaskGridColumnModel.js:106
 #: server/includes/mapi/class.taskrequest.php:882
 msgid "Due Date"
-msgstr "Vervaldatum"
+msgstr "Einddatum"
 
 # 82%
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:80
@@ -7345,7 +7345,7 @@ msgstr "Annuleer toegewezen deelnemer voor deze taak"
 # 100%
 #: client/zarafa/task/dialogs/TaskToolbar.js:225
 msgid "Mark this task as private"
-msgstr "Markeer deze taak als privé."
+msgstr "Markeer deze taak als privé"
 
 #: client/zarafa/task/KeyMapping.js:28
 msgid "New task"
@@ -7665,7 +7665,7 @@ msgstr "Het laden van het model van de server is mislukt"
 
 #: client/zarafa/Zarafa.js:853
 msgid "Out of Office currently on. Would you like to turn it off?"
-msgstr "U bent nu Niet Aanwezig. Wilt u het uitzetten?"
+msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
 #: client/zarafa/Zarafa.js:870
 msgid "Out of office off"
@@ -7890,7 +7890,7 @@ msgstr "Onbekende notificatie '%s'"
 
 #: server/includes/core/class.jsonrequest.php:110
 msgid "An unexpected error has occurred"
-msgstr "Een onverwachte fout is opgetreden."
+msgstr "Een onverwachte fout is opgetreden"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -7908,7 +7908,7 @@ msgstr "%1$s van %2$s"
 #: server/includes/core/class.settings.php:368
 #: server/includes/core/class.settings.php:503
 msgid "Settings object is not initialized"
-msgstr "Instellingen object niet geïnitialiseerd."
+msgstr "Instellingen object niet geïnitialiseerd"
 
 #: server/includes/core/class.settings.php:270
 msgid "Error retrieving existing settings"
@@ -7975,7 +7975,7 @@ msgstr "Post-it"
 # 100%
 #: server/includes/download_message.php:313
 msgid "Task Request"
-msgstr "Taakverzoek: "
+msgstr "Taakverzoek"
 
 #: server/includes/download_message.php:349
 msgid "Could not find message, either it has been moved or deleted."
@@ -7989,7 +7989,7 @@ msgstr "Handeling is verkeerd uitgevoerd."
 # 90%
 #: server/includes/mapi/class.mapiexception.php:24
 msgid "You have insufficient privileges to open this object."
-msgstr "U heeft niet voldoende permissies om dit object te openen."
+msgstr "U heeft onvoldoende rechten om dit object te openen."
 
 # 93%
 #: server/includes/mapi/class.mapiexception.php:27
@@ -8004,7 +8004,7 @@ msgstr "Kan geen verbinding maken met de Kopano server."
 
 #: server/includes/mapi/class.mapiexception.php:31
 msgid "Can not open object with provided id."
-msgstr "Kan object met het opgegeven id niet openen."
+msgstr "Kan object met opgegeven id niet openen."
 
 #: server/includes/mapi/class.mapiexception.php:33
 msgid "There are no recipients in the message."
@@ -8021,7 +8021,7 @@ msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
 #: server/includes/mapi/class.mapiexception.php:49
 #, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr "Onbekende MAPI-Fout: %s"
+msgstr "Onbekende MAPI fout: %s"
 
 #: server/includes/mapi/class.meetingrequest.php:1923
 msgid "Tentatively accepted"
@@ -8029,7 +8029,7 @@ msgstr "Voorlopig geaccepteerd"
 
 #: server/includes/mapi/class.meetingrequest.php:1929
 msgid "New Time Proposed"
-msgstr "Nieuwe Tijd Voorgesteld"
+msgstr "Nieuw tijd voor gesteld"
 
 #: server/includes/mapi/class.recurrence.php:576
 #: server/includes/mapi/class.recurrence.php:577
@@ -8041,25 +8041,25 @@ msgstr "d-m-Y"
 #: server/includes/mapi/class.recurrence.php:592
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Elke %s met ingang van %s van %s tot %s."
+msgstr "Vind plaats elke %s vanaf %s van %s tot %s."
 
 # 77%
 #: server/includes/mapi/class.recurrence.php:594
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Elke %s %s met ingang van %s van %s tot %s."
+msgstr "Vind plaats elke %s %s vanaf %s van %s tot %s."
 
 # 80%
 #: server/includes/mapi/class.recurrence.php:598
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr "Elke %s met ingang van %s."
+msgstr "Vind plaats elke %s vanaf %s."
 
 # 75%
 #: server/includes/mapi/class.recurrence.php:600
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "Elike %s %s met ingang van %s."
+msgstr "Vind plaats elke %s %s vanaf %s."
 
 # 96%
 # 76%
@@ -8067,8 +8067,8 @@ msgstr "Elike %s %s met ingang van %s."
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "Elke %s met ingang van %s met %s herhaling van %s tot %s."
-msgstr[1] "Elke %s met ingang van %s met %s herhalingen van %s tot %s."
+msgstr[0] "Vind elke %s plaats vanaf %s voor %s herhaling van %s tot %s."
+msgstr[1] "Vind elke %s plaats vanaf %s voor %s herhalingen van %s tot %s."
 
 # 96%
 # 76%
@@ -8077,24 +8077,24 @@ msgstr[1] "Elke %s met ingang van %s met %s herhalingen van %s tot %s."
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Elke %s %s met ingang van %s met %s herhaling van %s tot %s."
-msgstr[1] "Elke %s %s met ingang van %s met %s herhalingen van %s tot %s."
+msgstr[0] "Vind elke %s %s plaats vanaf %s voor %s herhaling van %s tot %s."
+msgstr[1] "Vind elke %s %s plaats vanaf %s voor %s herhalingen van %s tot %s."
 
 # 81%
 #: server/includes/mapi/class.recurrence.php:615
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Elke %s met ingang van %s met %s herhaling."
-msgstr[1] "Elke %s met ingang van %s met %s herhalingen."
+msgstr[0] "Vind elke %s %s plaats vanaf %s voor %s herhaling."
+msgstr[1] "Vind elke %s %s plaats vanaf %s voor %s herhalingen."
 
 # 77%
 #: server/includes/mapi/class.recurrence.php:618
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "Elke %s %s met ingang van %s met %s herhaling."
-msgstr[1] "Elke %s %s met ingang van %s met %s herhalingen."
+msgstr[0] "Vind elke %s %s plaats vanaf %s voor %s herhaling."
+msgstr[1] "Vind elke %s %s plaats vanaf %s voor %s herhalingen."
 
 # 96%
 # 76%
@@ -8102,7 +8102,7 @@ msgstr[1] "Elke %s %s met ingang van %s met %s herhalingen."
 #: server/includes/mapi/class.recurrence.php:626
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Elke %s met ingang van %s tot %s van %s tot %s."
+msgstr "Vind elke %s plaats vanaf %s tot %s van %s tot %s."
 
 # 96%
 # 76%
@@ -8111,13 +8111,13 @@ msgstr "Elke %s met ingang van %s tot %s van %s tot %s."
 #: server/includes/mapi/class.recurrence.php:628
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Elke %s %s met ingang van %s tot %s van %s tot %s."
+msgstr "Vind elke %s %s plaats vanaf %s tot %s van %s tot %s."
 
 # 78%
 #: server/includes/mapi/class.recurrence.php:632
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "Elke %s met ingang van %s tot %s."
+msgstr "Vind elke %s plaats vanaf %s tot %s."
 
 # 78%
 # 92%
@@ -8355,7 +8355,7 @@ msgstr "Kon gedeelde map niet sluiten."
 
 #: server/includes/modules/class.hierarchymodule.php:367
 msgid "User could not be resolved."
-msgstr "Gebruiker kon niet opgelost worden."
+msgstr "Gebruiker kon niet gevonden worden."
 
 #: server/includes/modules/class.hierarchymodule.php:373
 #, php-format
@@ -8364,7 +8364,7 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"U heeft onvoldoende rechten om de map %1Ss te openen. De eigenaar van de map "
+"U heeft onvoldoende rechten om de map %1$s te openen. De eigenaar van de map "
 "kan deze rechten instellen via het tabblad 'permissies' van de map-"
 "eigenschappen (klik rechts op map %1$s > eigenschappen > permissies)."
 
@@ -8701,15 +8701,15 @@ msgstr "Taakverzoek:"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
-msgstr ""
+msgstr "Welkom"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: server/includes/templates/login.php:60
 msgid "Sign in"
-msgstr ""
+msgstr "Inloggen"
 
 #: server/includes/upload_attachment.php:225
 msgid "Could not upload attachment."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2017-01-09 11:51+0000\n"
+"PO-Revision-Date: 2017-01-11 10:09+0000\n"
 "Last-Translator: Roberto <r.waha@mastsolutions.it>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/it/>\n"
@@ -4824,7 +4824,6 @@ msgstr "Email 2"
 
 # 89%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:51
-#, fuzzy
 msgid "Email2 Display As"
 msgstr "E-mail 2 Visualizza come"
 
@@ -4836,7 +4835,6 @@ msgstr "Email 3"
 
 # 89%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:53
-#, fuzzy
 msgid "Email3 Display As"
 msgstr "E-mail 3 Visualizza come"
 
@@ -6373,7 +6371,6 @@ msgstr "Elimina questo messaggio."
 # 87%
 # 100%
 #: client/zarafa/mail/KeyMapping.js:28
-#, fuzzy
 msgid "New mail"
 msgstr "Nuovo messaggio"
 
@@ -7259,7 +7256,6 @@ msgstr "Prossimi 7 giorni"
 
 # 92%
 #: client/zarafa/task/TaskContext.js:315
-#, fuzzy
 msgid "Overdue Tasks"
 msgstr "Attività scadute"
 
@@ -7973,7 +7969,6 @@ msgstr "Si verifica ogni %s %s, dal %s fino al %s."
 
 #: server/includes/mapi/class.taskrequest.php:881
 #: server/includes/mapi/class.taskrequest.php:882
-#, fuzzy
 msgid "%A, %B %d, %Y"
 msgstr "%A, %B %d, %Y"
 
@@ -8000,7 +7995,6 @@ msgid "Could not open occurrence."
 msgstr "Impossibile aprire questa occorrenza."
 
 #: server/includes/modules/class.appointmentitemmodule.php:133
-#, fuzzy
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Impossibile aprire questa occorrenza: probabilmente è stata eliminata."
 
@@ -8025,7 +8019,7 @@ msgid ""
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
 "Hai selezionato '%s' come risorsa. Non puoi fissare un appuntamento con '%s' "
-"poichè non disponi di sufficienti permessi per quell'account. Aggiungi "
+"poiché non disponi di sufficienti permessi per quell'account. Aggiungi "
 "l'utente come partecipante richiesto/facoltativo oppure contatta "
 "l'amministratore di sistema per richiedere i permessi per fissare un "
 "appuntamento con '%s'."

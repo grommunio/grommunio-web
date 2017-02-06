@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2016-11-08 09:43+0000\n"
+"PO-Revision-Date: 2017-02-01 21:26+0000\n"
 "Last-Translator: Bo <bo@geekworld.dk>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/da/>\n"
@@ -1338,7 +1338,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "Mente du"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -2630,6 +2630,10 @@ msgstr "Foreløbig "
 msgid "Decline"
 msgstr "Afvis"
 
+#: client/zarafa/calendar/ui/CalendarContextMenu.js:147
+msgid "Show as"
+msgstr "Vis som"
+
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:365
 msgid "Occurrence"
 msgstr "Hændelse"
@@ -3744,7 +3748,7 @@ msgstr[1] "{0} påmindelser er valgt"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemContentPanel.js:31
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "Genopret alle elementer som er \"soft deleted\""
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemContentPanel.js:36
 msgid "Restore From {0}"
@@ -3897,7 +3901,7 @@ msgstr "har vigtighed ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "har en vedhæftning"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
@@ -3909,27 +3913,27 @@ msgstr "er kun sendt til mig"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "har mit navn i Cc-feltet"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "har mit navn i Til eller Cc-feltet"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "har fortrolighed"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "er modtaget efter"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "er modtaget før"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "har mit navn i Til-feltet"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
@@ -4015,6 +4019,8 @@ msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
+"Distributionslister er ikke understøttet i regler, vil du skifte "
+"distributionslisten ud med dens medlemmer?"
 
 #: client/zarafa/common/rules/dialogs/UserSelectionLink.js:304
 #: client/zarafa/common/rules/dialogs/WordSelectionLink.js:19
@@ -4023,7 +4029,7 @@ msgstr "eller"
 
 #: client/zarafa/common/rules/ui/RulesGrid.js:26
 msgid "No rule exists"
-msgstr "Ingen regel eksistere"
+msgstr "Ingen regel eksisterer"
 
 #: client/zarafa/common/rules/ui/RulesGrid.js:64
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:95
@@ -4059,23 +4065,23 @@ msgstr "Reglen har allerede den laveste prioritet."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Tilføj/Rediger afsender"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
 msgid "No send as address configured"
-msgstr "No send-som adresse er konfigureret"
+msgstr "Ingen \"Send som\" adresse er konfigureret"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:29
 msgid "Loading send as addresses"
-msgstr "Henter send-som adresser"
+msgstr "Henter \"Send som\" adresser"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
 msgid "Please select a send as record."
-msgstr ""
+msgstr "Vælg venligst en \"Send som\" række."
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:43
 msgid "Here you can setup your alias email addresses."
-msgstr ""
+msgstr "Har kan du sætte e-mail aliasser op."
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:94
 msgid "View"
@@ -4083,15 +4089,15 @@ msgstr "Vis"
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "Vælg venligst en \"Send som\" række."
 
 #: client/zarafa/common/settings/SettingsDelegateCategory.js:29
 msgid "Delegates"
-msgstr ""
+msgstr "Repræsentanter"
 
 #: client/zarafa/common/settings/SettingsDelegateWidget.js:23
 msgid "Delegate settings"
-msgstr ""
+msgstr "Repræsentant indstillinger"
 
 #: client/zarafa/common/settings/SettingsRuleCategory.js:29
 #: client/zarafa/common/settings/SettingsRuleWidget.js:23
@@ -4104,7 +4110,7 @@ msgstr "Send som"
 
 #: client/zarafa/common/settings/SettingsSendAsWidget.js:28
 msgid "Send As settings"
-msgstr "Send-som indstillinger"
+msgstr "\"Send som\" indstillinger"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:38
 #: client/zarafa/common/ui/CommonViewButtons.js:40
@@ -4246,7 +4252,7 @@ msgstr "Tilføj domæne til \"sikre afsendere\" listen"
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:26
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr ""
+msgstr "Meddelelsen var sendt med vigtighed {0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -4256,7 +4262,7 @@ msgstr ""
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:37
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
-msgstr ""
+msgstr "Behandl dette som {0}."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:43
 msgctxt "mail.previewpanel"
@@ -4342,6 +4348,8 @@ msgid ""
 "This meeting request was updated after this message was sent. You should "
 "open the latest update or open the item from the calendar."
 msgstr ""
+"Mødeinvitationen er blevet opdateret efter at denne meddelelse blev sendt. "
+"Du bør åbne den sidste opdatering, eller åbne den direkte fra kalenderen."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:128
 msgctxt "mail.previewpanel"
@@ -4386,7 +4394,7 @@ msgstr "Du videresendte denne meddelelse d. {0}"
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:310
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
+msgstr "Vi vil forsøge at reparere en ødelagt meddelelse, vil du fortsætte?"
 
 #: client/zarafa/common/ui/messagepanel/MessageHeader.js:78
 msgctxt "mail.previewpanel"
@@ -4438,7 +4446,7 @@ msgstr "Åbn i nyt browser vindue"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:186
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-ud"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
@@ -4456,7 +4464,7 @@ msgstr "Søg i \"{0} - {1}\""
 #: client/zarafa/task/ui/TaskGridColumnModel.js:152
 #: server/includes/mapi/class.taskrequest.php:886
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:63
 #: client/zarafa/task/dialogs/TaskGeneralTab.js:183
@@ -4479,7 +4487,7 @@ msgstr "Detaljer"
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:80
 #: client/zarafa/task/dialogs/TaskDetailTab.js:59
 msgid "Date Complete"
-msgstr ""
+msgstr "Dato fuldført"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:83
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:23
@@ -4487,7 +4495,7 @@ msgstr ""
 #: client/zarafa/task/ui/TaskGridColumnModel.js:159
 #: server/includes/mapi/class.taskrequest.php:902
 msgid "Total Work"
-msgstr ""
+msgstr "Total tid"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:86
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:24
@@ -4495,7 +4503,7 @@ msgstr ""
 #: client/zarafa/task/ui/TaskGridColumnModel.js:166
 #: server/includes/mapi/class.taskrequest.php:903
 msgid "Actual Work"
-msgstr ""
+msgstr "Forbrugt tid"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:89
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:28
@@ -4503,7 +4511,7 @@ msgstr ""
 #: client/zarafa/task/ui/TaskGridColumnModel.js:187
 #: server/includes/mapi/class.taskrequest.php:912
 msgid "Mileage"
-msgstr ""
+msgstr "Rejsekilometer"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:92
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:27
@@ -4511,7 +4519,7 @@ msgstr ""
 #: client/zarafa/task/ui/TaskGridColumnModel.js:194
 #: server/includes/mapi/class.taskrequest.php:911
 msgid "Billing Information"
-msgstr ""
+msgstr "Fakturainformation"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:95
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:26
@@ -4599,35 +4607,35 @@ msgstr "Assistents telefon"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:32
 msgid "Company Main Phone"
-msgstr ""
+msgstr "Hovedtelefon for firma"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:34
 msgid "Home 2 Phone"
-msgstr ""
+msgstr "Hjemmetelefon 2"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:36
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:227
 msgid "Car Phone"
-msgstr ""
+msgstr "Biltelefon"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:37
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:558
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:39
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:221
 msgid "Callback Phone"
-msgstr ""
+msgstr "Call-back telefon"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:40
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:257
 msgid "Other Phone"
-msgstr ""
+msgstr "Andre telefoner"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:41
 msgid "Primary Phone"
-msgstr ""
+msgstr "Hovedtelefon"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:42
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:564
@@ -4638,48 +4646,48 @@ msgstr ""
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:43
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:269
 msgid "TTY/TDD Phone"
-msgstr ""
+msgstr "TTY/TDD telefon"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:44
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:522
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:251
 msgid "ISDN"
-msgstr ""
+msgstr "ISDN"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:45
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:540
 msgid "Other Fax"
-msgstr ""
+msgstr "Anden fax"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:47
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:516
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:245
 msgid "Home Fax"
-msgstr ""
+msgstr "Privat fax"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:49
 msgid "Email Display As"
-msgstr ""
+msgstr "E- mail vis som"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:50
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:640
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:70
 msgid "Email 2"
-msgstr ""
+msgstr "E-mail 2"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:51
 msgid "Email2 Display As"
-msgstr ""
+msgstr "Vis e-mail 2 som"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:52
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:644
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:76
 msgid "Email 3"
-msgstr ""
+msgstr "E-mail 3"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:53
 msgid "Email3 Display As"
-msgstr ""
+msgstr "Vis e-mail 3 som"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:54
@@ -4706,25 +4714,25 @@ msgstr "Ægtefælle/partner"
 #: client/zarafa/contact/printer/ContactRenderer.js:58
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:131
 msgid "Profession"
-msgstr ""
+msgstr "Erhverv"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:58
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:143
 msgid "Assistant's Name"
-msgstr ""
+msgstr "Assistentens navn"
 
 #: client/zarafa/contact/attachitem/AttachDistlistRenderer.js:19
 msgid "Distribution List Name"
-msgstr ""
+msgstr "Navn på distributionsliste"
 
 #: client/zarafa/contact/ContactContext.js:315
 msgid "Open Shared Contacts"
-msgstr ""
+msgstr "Åbn delt kalender"
 
 #: client/zarafa/contact/ContactContext.js:365
 #: client/zarafa/contact/ContactContext.js:366
 msgid "Business Cards"
-msgstr ""
+msgstr "Visitkort"
 
 #: client/zarafa/contact/ContactContext.js:375
 #: client/zarafa/contact/ContactContext.js:376
@@ -4760,7 +4768,7 @@ msgstr "Kontakter"
 
 #: client/zarafa/contact/data/ContactConfig.js:14
 msgid "Dr."
-msgstr ""
+msgstr "Dr."
 
 #: client/zarafa/contact/data/ContactConfig.js:15
 msgid "Miss"
@@ -4784,11 +4792,11 @@ msgstr ""
 
 #: client/zarafa/contact/data/ContactConfig.js:31
 msgid "Jr."
-msgstr ""
+msgstr "Jr."
 
 #: client/zarafa/contact/data/ContactConfig.js:32
 msgid "Sr."
-msgstr ""
+msgstr "Sr."
 
 #: client/zarafa/contact/data/SearchFields.js:21
 msgid "Email address"
@@ -4842,14 +4850,14 @@ msgstr "Kaldenavn"
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:158
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:81
 msgid "Suffix"
-msgstr "Endelse"
+msgstr "Suffiks"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:213
 #: client/zarafa/contact/printer/ContactRenderer.js:56
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:167
 msgid "Anniversary"
-msgstr "Jubilæum"
+msgstr "Mærkedag"
 
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:171
 msgid "Photo"
@@ -4890,7 +4898,7 @@ msgstr ""
 
 #: client/zarafa/contact/dialogs/ContactNameContentPanel.js:38
 msgid "Check full name"
-msgstr "Check fulde navn"
+msgstr "Kontroller fulde navn"
 
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:72
 msgid "Middle"
@@ -4898,11 +4906,11 @@ msgstr "Mellem"
 
 #: client/zarafa/contact/dialogs/ContactNamePanel.js:98
 msgid "Show this again when name is incomplete or unclear."
-msgstr "Vis dette igen når navnet er ukomplet eller uklart."
+msgstr "Vis denne dialog igen når navnet er ufuldstændigt eller uklart."
 
 #: client/zarafa/contact/dialogs/ContactPhoneContentPanel.js:37
 msgid "Check phone number"
-msgstr "Check telefonnummer"
+msgstr "Kontroller telefonnummer"
 
 #: client/zarafa/contact/dialogs/ContactPhonePanel.js:53
 msgid "Country/Region code"
@@ -4918,11 +4926,11 @@ msgstr "Lokalnummer"
 
 #: client/zarafa/contact/dialogs/ContactPhonePanel.js:68
 msgid "Extension"
-msgstr ""
+msgstr "Direktenr."
 
 #: client/zarafa/contact/dialogs/ContactToolbar.js:58
 msgid "Save contact and close dialog"
-msgstr ""
+msgstr "Gem kontakten og luk dialogboksen"
 
 #: client/zarafa/contact/dialogs/ContactToolbar.js:69
 msgid "Delete contact"
@@ -4950,7 +4958,7 @@ msgstr "Udskriv denne kontakt"
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:103
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:83
 msgid "Open the categories dialog."
-msgstr ""
+msgstr "Åbn dialogboksen \"Kategori\"."
 
 #: client/zarafa/contact/dialogs/ContactToolbar.js:146
 msgid "Mark this contact as private."
@@ -8174,7 +8182,7 @@ msgstr ""
 
 #: server/includes/util.php:510
 msgid "Syntax error"
-msgstr ""
+msgstr "Syntaks fejl"
 
 #: server/includes/util.php:513
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2017-01-09 13:06+0000\n"
+"PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/tr/>\n"
@@ -20,7 +20,6 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 #: client/extjs-mod/Ext.DatePicker.js:103
-#, fuzzy
 msgid "Wk"
 msgstr "h"
 
@@ -222,11 +221,11 @@ msgstr "Yenileme"
 
 #: client/extjs-mod/Translations.js:175 client/zarafa/today/TodayContext.js:110
 msgid "Today"
-msgstr "Bugün "
+msgstr "Bugün"
 
 #: client/extjs-mod/Translations.js:176
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 #: client/extjs-mod/Translations.js:177 client/extjs-mod/Translations.js:283
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:90
@@ -271,7 +270,7 @@ msgstr "Seçilen tarih başlangic tarihten öncedir"
 
 #: client/extjs-mod/Translations.js:180
 msgid "This date is after the maximum date"
-msgstr "Bu tarih maksimum tarihten sonradir "
+msgstr "Bu tarih maksimum tarihten sonradır"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/extjs-mod/Translations.js:182 client/extjs-mod/Translations.js:313
@@ -523,7 +522,7 @@ msgstr "{0} geçerli bir sayı değil"
 
 #: client/extjs-mod/Translations.js:316
 msgid "The date in this field must be equal to or after {0}"
-msgstr "Bu alandaki tarih {0} eşit veya daha sonra olmalıdır "
+msgstr "Bu alandaki tarih {0} eşit veya daha sonra olmalıdır"
 
 #: client/extjs-mod/Translations.js:317
 msgid "The date in this field must be equal to or before {0}"
@@ -962,7 +961,7 @@ msgstr "Isim türü"
 
 #: client/zarafa/addressbook/ui/AddressBookMainPanel.js:151
 msgid "Show Names from the"
-msgstr "İsimleri göster "
+msgstr "İsimleri göster"
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:45
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:31
@@ -1119,7 +1118,6 @@ msgstr "geçen sene"
 
 # 87%
 #: client/zarafa/advancesearch/data/DateRangeFields.js:27
-#, fuzzy
 msgid "Custom date"
 msgstr "özel tarih"
 
@@ -1187,9 +1185,8 @@ msgid "Folders"
 msgstr "klasörler"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:137
-#, fuzzy
 msgid "All My folders"
-msgstr "bütün klasörlerim"
+msgstr "tüm klasörlerim"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:147
 msgid "Current folder"
@@ -1220,7 +1217,6 @@ msgid "Note items"
 msgstr "not öğeleri"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:211
-#, fuzzy
 msgid "Filter.."
 msgstr "filtrele.."
 
@@ -1229,7 +1225,6 @@ msgid "Unread items"
 msgstr "okunmamış öğeler"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:225
-#, fuzzy
 msgid "With attachments"
 msgstr "eklerle"
 
@@ -1272,7 +1267,6 @@ msgid "To"
 msgstr "Kime"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:302
-#, fuzzy
 msgid "Search.."
 msgstr "ara.."
 
@@ -1324,7 +1318,6 @@ msgid "Subject"
 msgstr "Konu"
 
 #: client/zarafa/advancesearch/dialogs/SearchToolBoxPanel.js:323
-#, fuzzy
 msgid "Body & Attachments"
 msgstr "esas kısım ve ekleri"
 
@@ -1355,7 +1348,7 @@ msgstr ""
 #: client/zarafa/advancesearch/ui/SearchGrid.js:467
 #: client/zarafa/advancesearch/ui/SearchGrid.js:468
 msgid "Did you mean"
-msgstr ""
+msgstr "ne demek istediniz"
 
 #: client/zarafa/calendar/Actions.js:102 client/zarafa/calendar/Actions.js:148
 #: client/zarafa/calendar/Actions.js:294 client/zarafa/calendar/Actions.js:310
@@ -1382,12 +1375,11 @@ msgstr ""
 "veya silinmiş olunabilir"
 
 #: client/zarafa/calendar/Actions.js:148
-#, fuzzy
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
-"Bu toplantı takvim'de yer almadığı için öneriyi göremedim; taşınmış veya "
+"Toplantı takvim'de yer almadığı için öneri görüntülenemedi; taşınmış veya "
 "silinmiş olabilir."
 
 #: client/zarafa/calendar/Actions.js:207
@@ -1599,7 +1591,7 @@ msgstr ""
 #: client/zarafa/task/attachitem/AttachTaskColumnModel.js:65
 #: client/zarafa/task/ui/TaskGridColumnModel.js:58
 msgid "Sort by: Attachment"
-msgstr "Sıralama: Ek "
+msgstr "Sıralama: Ek"
 
 #: client/zarafa/calendar/attachitem/AttachCalendarColumnModel.js:62
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:60
@@ -1780,7 +1772,7 @@ msgstr "Yazdır"
 
 #: client/zarafa/calendar/CalendarContext.js:627
 msgid "No appointment selected"
-msgstr "Seçilmiş randevu yok "
+msgstr "Seçilmiş randevu yok"
 
 #: client/zarafa/calendar/CalendarContext.js:682
 #: client/zarafa/calendar/KeyMapping.js:53
@@ -1950,14 +1942,13 @@ msgid "Invitations have not been sent for this meeting."
 msgstr "Bu toplantı için davetiyeler gönderilmemiştir."
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:99
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
-"Bu toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
-"değişikliklerin üzerine yazılacaktır."
+"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
+"değişikliklerin üzerine yazılacaktır"
 
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:344
 #: client/zarafa/calendar/dialogs/FreebusyTab.js:115
@@ -2024,7 +2015,6 @@ msgstr "Uyarı"
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:567
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:129
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:136
-#, fuzzy
 msgid "Attachments cannot be modified for a single occurence"
 msgstr "Ekler tek bir olay için modifiye edilemez"
 
@@ -2141,7 +2131,7 @@ msgstr "Sil"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:98
 msgid "Delete this appointment"
-msgstr "Randevuyu sil "
+msgstr "Randevuyu sil"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:109
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:111
@@ -2203,7 +2193,6 @@ msgid "Cancel invitation"
 msgstr "Davetiyeyi iptal et"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:227
-#, fuzzy
 msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr "katılımcıları silerek toplantı isteğini randevuya çevir"
 
@@ -2217,7 +2206,7 @@ msgstr "Yüksek öncelik"
 # 76%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:240
 msgid "Mark this appointment as high priority"
-msgstr "Bu randevuyu yüksek öncelik olarak işaretle "
+msgstr "Bu randevuyu 'öncelik: yüksek' olarak işaretle"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:252
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:254
@@ -2229,7 +2218,7 @@ msgstr "Düşük öncelik"
 # 78%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:255
 msgid "Mark this appointment as low priority"
-msgstr "Bu randevuyu düşük öncelik özel olarak işaretle "
+msgstr "Bu randevuyu 'öncelik: düşük' olarak işaretle"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:267
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:269
@@ -2283,15 +2272,14 @@ msgstr "Özel"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:281
 msgid "Mark this appointment as private"
-msgstr "Bu randevuyu özel olarak işaretle "
+msgstr "Bu randevuyu özel olarak işaretle"
 
 # 85%
 # 82%
 # 100%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:439
-#, fuzzy
 msgid "Save meeting request and close dialog"
-msgstr "Toplantı isteğini kaydet ve iletişimi sonlandır"
+msgstr "Toplantı isteğini kaydet ve pencereyi kapat"
 
 #: client/zarafa/calendar/dialogs/CounterProposalGrid.js:49
 msgid "Proposed Date and Time"
@@ -2432,9 +2420,8 @@ msgid "New meeting request"
 msgstr "Yeni toplantı isteği"
 
 #: client/zarafa/calendar/KeyMapping.js:52
-#, fuzzy
 msgid "Switch calendar range back and forth"
-msgstr "Takvim aralığını ileri geri değiştir"
+msgstr "takvim aralığını ileri geri değiştir"
 
 # 87%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -2590,10 +2577,9 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:21
-#, fuzzy
 msgid "Free/busy information is used by people sending meeting requests, "
 msgstr ""
-"serbest / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
+"müsait / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
 "kullanılıyor, "
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:22
@@ -2601,18 +2587,16 @@ msgid "to determine when you are available for meetings."
 msgstr "ne zaman toplantılar için müsait olduğunu belirlemek."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:25
-#, fuzzy
 msgid "Free/Busy permission"
-msgstr "serbest / meşgul izin"
+msgstr "müsait / meşgul izni"
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:33
 msgid "Publish {A} month(s) of Calendar free/busy information on the server."
 msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
 
 #: client/zarafa/calendar/settings/SettingsFreeBusyWidget.js:53
-#, fuzzy
 msgid "You can only publish a free/busy period from 1 to 36 months."
-msgstr "sadece 1 ila 36 aylık serbest / meşgul periodu yayımlayabilirsin."
+msgstr "sadece 1 ila 36 aylık müsait / meşgul periodu yayımlayabilirsin."
 
 #: client/zarafa/calendar/settings/SettingsOverlayWidget.js:25
 msgid "Side-by-side mode"
@@ -2711,12 +2695,10 @@ msgstr "Reddedildi"
 # 80%
 # 100%
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:365
-#, fuzzy
 msgid "Occurrence"
 msgstr "Tekrarlama"
 
 #: client/zarafa/calendar/ui/CalendarContextMenu.js:377
-#, fuzzy
 msgid "Series"
 msgstr "seri"
 
@@ -2743,7 +2725,6 @@ msgid "Icon"
 msgstr "simge"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:57
-#, fuzzy
 msgid "Recurring"
 msgstr "tekrar eden"
 
@@ -2764,7 +2745,7 @@ msgstr "Sıralama: Toplantı Durumu"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:103
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Sıralama: gösteriş türü"
 
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:110
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:93
@@ -2859,7 +2840,6 @@ msgstr "Randevular yükleniyor"
 # 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/calendar/ui/CalendarPanel.js:130
-#, fuzzy
 msgid "jS F G:i"
 msgstr "F j, Y, g:i"
 
@@ -2882,7 +2862,6 @@ msgid "Save changes and send an update to all recipients"
 msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 
 #: client/zarafa/calendar/ui/CalendarPanel.js:641
-#, fuzzy
 msgid "Open meeting request with changes"
 msgstr "değişiklik yapılan toplantı isteğini aç"
 
@@ -2901,16 +2880,14 @@ msgid "an appointment"
 msgstr "bir randevu"
 
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:355
-#, fuzzy
 msgid "Insufficient privileges"
-msgstr "yetersiz ayrıcalıklar"
+msgstr "yetersiz yetki"
 
 # 79%
 # 100%
 #: client/zarafa/calendar/ui/CalendarViewDropZone.js:356
-#, fuzzy
 msgid "You have insufficient privileges to move "
-msgstr "taşımak için yeterli ayrıcalıklara sahip değilsiniz "
+msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 #: client/zarafa/calendar/ui/MeetingInfo.js:31
@@ -3014,11 +2991,11 @@ msgstr "Bu öğe basımı henüz mevcut değil"
 
 #: client/zarafa/common/Actions.js:271
 msgid "Item type: "
-msgstr "Öğe türü"
+msgstr "Öğe türü: "
 
 #: client/zarafa/common/Actions.js:273
 msgid "Printing of this view is not yet available"
-msgstr "Bu görüşü yazdırmak henüz mümkün değildir "
+msgstr "Bu görüşü yazdırmak henüz mümkün değildir"
 
 #: client/zarafa/common/Actions.js:385 client/zarafa/common/Actions.js:427
 msgid "Recurring Message"
@@ -3111,11 +3088,11 @@ msgstr "Bu oluşumu sil"
 
 #: client/zarafa/common/Actions.js:450
 msgid "Delete the series"
-msgstr "Bu seriyi sil "
+msgstr "Bu seriyi sil"
 
 #: client/zarafa/common/Actions.js:469
 msgid "Confirm Delete"
-msgstr "Silinsin "
+msgstr "Silmeyi onayla"
 
 #: client/zarafa/common/Actions.js:470
 msgid "This \"{0}\" meeting was already accepted."
@@ -3206,22 +3183,19 @@ msgstr "ZIP olarak indir"
 #: client/zarafa/common/attachment/dialogs/MixAttachItemContentPanel.js:31
 #: client/zarafa/core/ui/WelcomeViewport.js:64
 msgid "Continue"
-msgstr "Devam et "
+msgstr "Devam et"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:51
-#, fuzzy
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
-msgstr "Bu eklerin dosya tipi desteklenmemekte ve ZIP dosyasına eklenememekte:"
+msgstr "Bu eklerin dosya tipi desteklenmiyor ve ZIP dosyasına eklenememekte:"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:66
-#, fuzzy
 msgid "Would you like to continue downloading without adding these files?"
-msgstr "Bu dosyaları eklemeden indirmeye devam etmek istiyor musun?"
+msgstr "Bu dosyaları eklemeden indirmeye devam etmek istiyor musunuz?"
 
 #: client/zarafa/common/attachment/dialogs/MixAttachItemPanel.js:72
-#, fuzzy
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
@@ -3418,7 +3392,6 @@ msgid "Please select a delegate."
 msgstr "Lütfen delege seҫiniz."
 
 #: client/zarafa/common/delegates/ui/DelegatesPanel.js:60
-#, fuzzy
 msgid ""
 "Delegates can send items on your behalf. To grant permission to others to "
 "access your folders without also giving them send-on-behalf-of privileges, "
@@ -3473,7 +3446,6 @@ msgstr "Kopyala"
 # 100%
 #: client/zarafa/common/dialogs/CopyMovePanel.js:80
 #: client/zarafa/hierarchy/KeyMapping.js:28
-#, fuzzy
 msgid "New folder"
 msgstr "Yeni klasör"
 
@@ -3494,7 +3466,7 @@ msgstr "Klasör '{0}' seçildi."
 #: client/zarafa/common/freebusy/ui/FreebusyContextMenu.js:45
 #: client/zarafa/common/recipientfield/ui/EditRecipientContentPanel.js:33
 msgid "Edit recipient"
-msgstr "Alıcı düzenle "
+msgstr "Alıcı düzenle"
 
 #: client/zarafa/common/freebusy/ui/FreebusyPanel.js:143
 msgid "Select attendees"
@@ -3543,14 +3515,12 @@ msgid "No suggestions available"
 msgstr "Öneri yok"
 
 #: client/zarafa/common/KeyMapping.js:43
-#, fuzzy
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr "Farklı içerikler arasında geçiş yap, örn. gelen kutusu, takvim, vb."
 
 #: client/zarafa/common/KeyMapping.js:44 client/zarafa/common/KeyMapping.js:58
 #: client/zarafa/common/KeyMapping.js:97
 #: client/zarafa/hierarchy/KeyMapping.js:41
-#, fuzzy
 msgid "Basic navigation"
 msgstr "temel navigasyon"
 
@@ -3603,12 +3573,10 @@ msgid "Select all items"
 msgstr "Tüm öğeleri seç"
 
 #: client/zarafa/common/KeyMapping.js:173
-#, fuzzy
 msgid "Extend the selection to the first item in the list"
 msgstr "seçimi listedeki ilk öğeye yapılandır"
 
 #: client/zarafa/common/KeyMapping.js:184
-#, fuzzy
 msgid "Extend the selection to the last item in the list"
 msgstr "seçimi listedeki son öğeye yapılandır"
 
@@ -3618,7 +3586,6 @@ msgid "Open selected item"
 msgstr "seçili öğeyi aç"
 
 #: client/zarafa/common/KeyMapping.js:212
-#, fuzzy
 msgid "Open dialog to categorize selected item"
 msgstr "seçili öğeyi kategorilemek için pencere aç"
 
@@ -3658,17 +3625,17 @@ msgid "E-mail address"
 msgstr "E-posta adresi"
 
 #: client/zarafa/common/recipientfield/ui/RecipientBox.js:144
-#, fuzzy
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
-"dağıtım listesi üyeleri ile değiştirilecektir. Tekrar daraltamayacaksınız."
+"dağıtım listesi üyeleri ile değiştirilecektir. Listeyi tekrar "
+"daraltamayacaksınız."
 
 # 92%
 #: client/zarafa/common/recipientfield/ui/RecipientContextMenu.js:42
 msgid "Edit Recipient"
-msgstr "Alıcı düzenle "
+msgstr "Alıcı düzenle"
 
 # 90%
 #: client/zarafa/common/recipientfield/ui/RecipientContextMenu.js:56
@@ -3710,7 +3677,7 @@ msgstr "Sonuncu"
 
 #: client/zarafa/common/recurrence/dialogs/DailyPanel.js:67
 msgid "Every {A} day(s)"
-msgstr "Her {A} gün "
+msgstr "Her {A} gün"
 
 #: client/zarafa/common/recurrence/dialogs/DailyPanel.js:112
 msgid "Every weekday"
@@ -3793,7 +3760,7 @@ msgstr "Oluşum süresi: {D} {H} {M}"
 
 #: client/zarafa/common/recurrence/dialogs/WeeklyPanel.js:66
 msgid "Every {A} week(s) on"
-msgstr "Her {A} haftada bu zaman "
+msgstr "Her {A} haftada bu zaman"
 
 #: client/zarafa/common/recurrence/dialogs/WeeklyPanel.js:210
 msgid "Regenerate new task {A} week(s) after each task is completed"
@@ -3876,12 +3843,10 @@ msgstr[0] "{0} hatırlatma seçildi"
 msgstr[1] "{0} hatırlatmalar seçildi"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemContentPanel.js:31
-#, fuzzy
 msgid "Restore Softdeleted Items"
 msgstr "geçici silinmiş öğeleri geri yükle"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemContentPanel.js:36
-#, fuzzy
 msgid "Restore From {0}"
 msgstr "{0} 'den itibaren geri yükle"
 
@@ -3944,12 +3909,10 @@ msgid "Sort by: Deleted On"
 msgstr "Sıralama: Silinme tarihi"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:397
-#, fuzzy
 msgid "Item Count"
 msgstr "öğe sayımı"
 
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:398
-#, fuzzy
 msgid "Sort by: Item Count"
 msgstr "Sıralama: Öğe sayımı"
 
@@ -4008,17 +3971,14 @@ msgid "Delete the message"
 msgstr "Mesajı sil"
 
 #: client/zarafa/common/rules/data/ActionProfiles.js:20
-#, fuzzy
 msgid "Redirect the message to ..."
 msgstr "mesajı yönlendir ..."
 
 #: client/zarafa/common/rules/data/ActionProfiles.js:23
-#, fuzzy
 msgid "Forward the message to ..."
 msgstr "mesajı ilet ..."
 
 #: client/zarafa/common/rules/data/ActionProfiles.js:26
-#, fuzzy
 msgid "Forward the message as attachment to ..."
 msgstr "mesajı ek olarak ilet ..."
 
@@ -4027,7 +3987,6 @@ msgid "is received from ..."
 msgstr "alındığı kişi ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:14
-#, fuzzy
 msgid "includes these words in the sender's address ..."
 msgstr "gönderen adresi bu kelimeleri içeren ..."
 
@@ -4038,7 +3997,6 @@ msgstr "konu bu kelimeleri içeren ..."
 # 84%
 # 100%
 #: client/zarafa/common/rules/data/ConditionProfiles.js:20
-#, fuzzy
 msgid "includes these words in the body ..."
 msgstr "esas kısım bu kelimeleri içeren ..."
 
@@ -4048,7 +4006,7 @@ msgstr "öneme sahiptir ..."
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:26
 msgid "has an attachment"
-msgstr ""
+msgstr "ek var"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:29
 msgid "is sent to ..."
@@ -4060,34 +4018,33 @@ msgstr "yalnızca bana gönderilen"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:35
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "CC alanında adım olan"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:38
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "alıcı veya CC alanında adım olan"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:41
 msgid "has sensitivity"
-msgstr ""
+msgstr "Hassaslığı var"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:44
 msgid "is received after"
-msgstr ""
+msgstr "sonra alınır"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:47
 msgid "is received before"
-msgstr ""
+msgstr "önce alınır"
 
 #: client/zarafa/common/rules/data/ConditionProfiles.js:50
 msgid "has my name in the To field"
-msgstr ""
+msgstr "alıcı alanında adım olan"
 
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
 #: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:99
 #: client/zarafa/common/rules/dialogs/UserSelectionLink.js:13
 #: client/zarafa/common/rules/dialogs/WordSelectionLink.js:13
-#, fuzzy
 msgid "Select one..."
 msgstr "birini seç ..."
 
@@ -4096,12 +4053,10 @@ msgid "Unnamed folder"
 msgstr "isimsiz klasör"
 
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:42
-#, fuzzy
 msgid "Add action"
 msgstr "eylem ekle"
 
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:48
-#, fuzzy
 msgid "Remove action"
 msgstr "eylem sil"
 
@@ -4110,17 +4065,14 @@ msgid "Unknown action"
 msgstr "bilinmeyen eylem"
 
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:291
-#, fuzzy
 msgid "This action for the current rule is unknown"
 msgstr "güncel kuralın bu eylemi bilinmiyor"
 
 #: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:42
-#, fuzzy
 msgid "Add condition"
 msgstr "koşul ekle"
 
 #: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:48
-#, fuzzy
 msgid "Remove condition"
 msgstr "koşul sil"
 
@@ -4133,7 +4085,6 @@ msgid "This condition for the current rule is unknown"
 msgstr "güncel kuralın bu koşulu bilinmiyor"
 
 #: client/zarafa/common/rules/dialogs/RulesEditContentPanel.js:33
-#, fuzzy
 msgid "Inbox Rule"
 msgstr "'gelen kutusu' kuralı"
 
@@ -4143,15 +4094,13 @@ msgstr "kural adı"
 
 #: client/zarafa/common/rules/dialogs/RulesEditPanel.js:57
 msgid "When the message"
-msgstr ""
+msgstr "mesaj"
 
 #: client/zarafa/common/rules/dialogs/RulesEditPanel.js:67
-#, fuzzy
 msgid "Do the following"
 msgstr "aşağıdakileri yapın"
 
 #: client/zarafa/common/rules/dialogs/RulesEditPanel.js:78
-#, fuzzy
 msgid "Stop processing more rules"
 msgstr "Daha fazla kural işlemeyi durdur"
 
@@ -4224,35 +4173,29 @@ msgstr "Kural halihazırda en düşük önceliğe sahiptir."
 
 #: client/zarafa/common/sendas/dialogs/SendAsEditContentPanel.js:27
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Gönderen ekle / düzenle"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:26
-#, fuzzy
 msgid "No send as address configured"
 msgstr "'farklı gönder' adresi tanımlanmadı"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:29
-#, fuzzy
 msgid "Loading send as addresses"
 msgstr "'farklı gönder' adresleri yükleniyor"
 
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
-#, fuzzy
 msgid "Please select a send as record."
 msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:43
-#, fuzzy
 msgid "Here you can setup your alias email addresses."
 msgstr "burada diğer e-posta adreslerinizi ayarlayabilirsiniz."
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:94
-#, fuzzy
 msgid "View"
 msgstr "görünüm"
 
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
-#, fuzzy
 msgid "Please select a sendas record."
 msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
 
@@ -4294,7 +4237,7 @@ msgstr "Sağ önizleme"
 #: client/zarafa/common/ui/CommonViewButtons.js:60
 #: client/zarafa/mail/MailContext.js:555 client/zarafa/mail/MailContext.js:557
 msgid "Bottom preview"
-msgstr "Alt önizleme "
+msgstr "Alt önizleme"
 
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:50
 msgid "Full name"
@@ -4450,12 +4393,12 @@ msgstr ""
 "yüklenmesini engelledi ."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:50
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
-msgstr "Bu mesaj bozuk ve doğru görüntülenemiyor, düzeltmek için buraya tıkla."
+msgstr ""
+"Bu mesaj bozuk ve doğru görüntülenemiyor, düzeltmek için buraya tıklayınız."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:56
 msgctxt "mail.previewpanel"
@@ -4558,23 +4501,20 @@ msgid "Received for {0}."
 msgstr "{0} için alınan"
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:166
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Bu mesajı {0} cevapladınız."
+msgstr "Bu mesajı {0}'dan cevapladınız."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:173
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Bu mesajı {0} ilettiniz."
 
 #: client/zarafa/common/ui/messagepanel/ExtraInfoLinks.js:310
-#, fuzzy
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
-"Bozuk bir e-posta mesajını düzeltmete çalışacağız, devam etmek istiyor "
+"Bozuk bir e-posta mesajını düzeltmeye çalışacağız, devam etmek istiyor "
 "musunuz?"
 
 # 100%
@@ -4632,16 +4572,15 @@ msgstr "Yeni tarayıcı penceresinde aç"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:186
 msgid "Pop-Out"
-msgstr ""
+msgstr "açılır pencere"
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
 msgstr "Aramayı başlatmak için metni girin."
 
 #: client/zarafa/common/ui/SearchField.js:188
-#, fuzzy
 msgid "Search in \"{0} - {1}\""
-msgstr "\"{0} - {1}\" da ara"
+msgstr "\"{0} - {1}\" içinde ara"
 
 #: client/zarafa/common/ui/taskpanel/TaskBody.js:59
 #: client/zarafa/settings/data/SettingsDefaultValues.js:129
@@ -4770,7 +4709,7 @@ msgstr "Bölüm Adı"
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:179
 #: plugins/gmaps/js/GmapsTab.js:121
 msgid "Home Address"
-msgstr "Ev adresi "
+msgstr "Ev adresi"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:27
 #: client/zarafa/contact/printer/ContactRenderer.js:29
@@ -4801,7 +4740,6 @@ msgid "Assistant Phone"
 msgstr "Asistan telefonu"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:32
-#, fuzzy
 msgid "Company Main Phone"
 msgstr "şirket ana telefon"
 
@@ -4864,9 +4802,8 @@ msgstr "Ev faks"
 
 # 94%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:49
-#, fuzzy
 msgid "Email Display As"
-msgstr "E-posta olarak göster"
+msgstr "E-posta görüntüleme biçimi"
 
 # 75%
 # 87%
@@ -4878,9 +4815,8 @@ msgstr "E-posta 2"
 
 # 89%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:51
-#, fuzzy
 msgid "Email2 Display As"
-msgstr "E-posta 2 olarak göster"
+msgstr "E-posta 2 görüntüleme biçimi"
 
 # 75%
 # 87%
@@ -4892,9 +4828,8 @@ msgstr "E-posta 3"
 
 # 89%
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:53
-#, fuzzy
 msgid "Email3 Display As"
-msgstr "E-posta 3 olarak göster"
+msgstr "E-posta 3 görüntüleme biçimi"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:54
@@ -4947,7 +4882,7 @@ msgstr "Kartvizitler"
 #: client/zarafa/contact/ContactContext.js:375
 #: client/zarafa/contact/ContactContext.js:376
 msgid "Phone List"
-msgstr "Telefon listesi "
+msgstr "Telefon listesi"
 
 #: client/zarafa/contact/ContactContext.js:442
 msgid "Add to contacts"
@@ -5147,7 +5082,6 @@ msgstr "Uzantı"
 
 # 85%
 #: client/zarafa/contact/dialogs/ContactToolbar.js:58
-#, fuzzy
 msgid "Save contact and close dialog"
 msgstr "Kişiyi kaydet ve pencereyi kapat"
 
@@ -5157,7 +5091,7 @@ msgstr "Kişiyi sil"
 
 #: client/zarafa/contact/dialogs/ContactToolbar.js:70
 msgid "Delete this contact."
-msgstr "Bu kişiyi sil "
+msgstr "Bu kişiyi sil."
 
 #: client/zarafa/contact/dialogs/ContactToolbar.js:79
 #: client/zarafa/contact/dialogs/ContactToolbar.js:81
@@ -5183,7 +5117,7 @@ msgstr "Kategoriler iletişimi açın."
 # 75%
 #: client/zarafa/contact/dialogs/ContactToolbar.js:146
 msgid "Mark this contact as private."
-msgstr "Bu kişiyi özel olarak işaretle "
+msgstr "Bu kişiyi özel olarak işaretle."
 
 # 94%
 #: client/zarafa/contact/dialogs/DistlistContentPanel.js:22
@@ -5192,7 +5126,6 @@ msgstr "Dağıtım listesi"
 
 # 86%
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:57
-#, fuzzy
 msgid "Save distribution list and close dialog"
 msgstr "Dağıtım listesini kaydet ve pencereyi kapat"
 
@@ -5387,7 +5320,7 @@ msgstr "Sıralama: Iş Adresi"
 # 80%
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:181
 msgid "Sort by: Home Address"
-msgstr "Sıralama: Ev Adresi "
+msgstr "Sıralama: Ev adresi"
 
 # 78%
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:187
@@ -5509,42 +5442,37 @@ msgid "Untitled"
 msgstr "Başlıksız"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:292
-#, fuzzy
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr "Ek yüklenemiyor, mesaja sadece {0} ek eklenebiliyor"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:321
-#, fuzzy
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
-msgstr "Ek yüklenemiyor, ek {0} izin verilen maksimum ise {1}"
+msgstr "Ek yüklenemiyor. Ek {0}, izin verilen maksimum ise {1}."
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:333
-#, fuzzy
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
-msgstr "Ek yüklenemiyor, toplam ek boyutu {0} izin verilen maksimum ise {1}"
+msgstr "Ek yüklenemiyor. Toplam ek boyutu {0}, izin verilen maksimum ise {1}"
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:360
-#, fuzzy
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
-"Ek yüklenemiyor, toplam ek {0} tekil isteklerde izin verilen maksimum ek ise "
-"{1}."
+"Ek yüklenemiyor. Toplam ek {0}, tekil isteklerde izin verilen maksimum ek "
+"ise {1}."
 
 #: client/zarafa/core/data/IPMAttachmentStore.js:372
-#, fuzzy
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
-"Ek yüklenemiyor, toplam ekler {0} dosya. İzin verilen maksimum {1} dosya "
-"tekil istekle kabul ediliyor."
+"Ek yüklenemiyor. Toplam ek sayısı {0}. tekil istekle izin verilen maksimum "
+"sayı {1}."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 #: client/zarafa/core/data/IPMRecord.js:193
@@ -5650,7 +5578,7 @@ msgstr "Toplantı düzenleyen"
 
 #: client/zarafa/core/mapi/ResponseStatus.js:62
 msgid "No response"
-msgstr "Cevap yok "
+msgstr "Cevap yok"
 
 #: client/zarafa/core/mapi/ResponseStatus.js:64
 msgid "Not responded"
@@ -5704,7 +5632,6 @@ msgid "Close"
 msgstr "Kapat"
 
 #: client/zarafa/core/themes/dark/js/ThemeDark.js:12
-#, fuzzy
 msgid "Dark"
 msgstr "koyu"
 
@@ -5713,7 +5640,6 @@ msgid "High Contrast"
 msgstr "yüksek kontrast"
 
 #: client/zarafa/core/themes/lime/js/ThemeLime.js:15
-#, fuzzy
 msgid "Lime"
 msgstr "kireç"
 
@@ -5729,7 +5655,7 @@ msgstr "Mor"
 
 #: client/zarafa/core/ui/MainTabbar.js:79
 msgid "Logout"
-msgstr "Oturumu kapat "
+msgstr "Oturumu kapat"
 
 #: client/zarafa/core/ui/MainToolbar.js:248
 msgid "Switch view"
@@ -5766,12 +5692,10 @@ msgid "Please specify a recipient"
 msgstr "Bir alıcı belirtin"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:386
-#, fuzzy
 msgid "The attached files are not uploaded yet."
-msgstr "Ekli dosyalar henüz yüklenmedi."
+msgstr "Eklenen dosyalar henüz yüklenmedi."
 
 #: client/zarafa/core/ui/MessageContentPanel.js:388
-#, fuzzy
 msgid "Do you want to send this message without attachments?"
 msgstr "Bu mesajı eksiz göndermek istiyor musunuz?"
 
@@ -5780,7 +5704,6 @@ msgid "Don't Send"
 msgstr "gönderme"
 
 #: client/zarafa/core/ui/MessageContentPanel.js:401
-#, fuzzy
 msgid "Send Anyway"
 msgstr "her neyse gönder"
 
@@ -5793,12 +5716,10 @@ msgid "Not all recipients could be resolved"
 msgstr "Bütün alıcılar eşleştirilmedi"
 
 #: client/zarafa/core/ui/NavigationPanel.js:133
-#, fuzzy
 msgid "Collapse hierarchy"
 msgstr "Hiyerarşi daralt"
 
 #: client/zarafa/core/ui/NavigationPanel.js:134
-#, fuzzy
 msgid "Expand hierarchy"
 msgstr "Hiyerarşi genişlet"
 
@@ -5837,7 +5758,6 @@ msgid "Kopano Content Panel"
 msgstr "Kopano Content Panel"
 
 #: client/zarafa/core/ui/RecordContentPanel.js:473
-#, fuzzy
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 
@@ -5846,13 +5766,12 @@ msgid "Welcome to Kopano WebApp"
 msgstr "Kopano WebApp'e hoşgeldiniz"
 
 #: client/zarafa/core/ui/WelcomeViewport.js:56
-#, fuzzy
 msgid ""
 "This is the first time you are using WebApp. <br />Please check the "
 "following settings before continuing."
 msgstr ""
-"WebApp uygulamasını ilk defa kullanıyorsunuz. <br /> Devam etmeden önce "
-"lütfen aşağıdaki ayarları kontrol edin."
+"WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
+"aşağıdaki ayarları kontrol edin."
 
 #: client/zarafa/core/ui/widget/WidgetContentPanel.js:58
 msgid "Add widgets"
@@ -5863,17 +5782,14 @@ msgid "No widgets installed."
 msgstr "Widget kurulmamış"
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:77
-#, fuzzy
 msgid "Collapse widget panel"
 msgstr "widget panosunu daralt"
 
 #: client/zarafa/core/ui/widget/WidgetPanel.js:78
-#, fuzzy
 msgid "Expand widget panel"
 msgstr "widget panosunu genişlet"
 
 #: client/zarafa/core/Util.js:697
-#, fuzzy
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Bu sayfadan şimdi çıkarsanız değişiklikleriniz kaybolacaktır."
 
@@ -6045,7 +5961,7 @@ msgstr "Hepsi"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:268
 msgid "Delete items"
-msgstr "Öğeleri sil "
+msgstr "Öğeleri sil"
 
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
 msgid "User already exists"
@@ -6259,14 +6175,12 @@ msgid "Saving..."
 msgstr "kaydediliyor..."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:137
-#, fuzzy
 msgid "Message saving failed."
 msgstr "Mesaj kaydetme başarısız."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
-#, fuzzy
 msgid "Message Saved at {0}."
-msgstr "mesaj {0}'a kaydedildi."
+msgstr "mesaj {0}'da kaydedildi."
 
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:139
 msgid "g:i A"
@@ -6278,7 +6192,6 @@ msgid "Message Options"
 msgstr "Mesaj ayarları"
 
 #: client/zarafa/mail/dialogs/MailCreatePanel.js:73
-#, fuzzy
 msgid "No send as address configured!"
 msgstr "'Farklı kaydet' adresi tanımlanmadı!"
 
@@ -6345,14 +6258,12 @@ msgid "Set flag on this email"
 msgstr "Bu mesaja bayrak koy"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:209
-#, fuzzy
 msgid "Mark this mail as high priority"
-msgstr "Bu e-posta'yı öncelik: yüksek olarak işaretle"
+msgstr "e-posta'yı 'öncelik: yüksek' olarak işaretle"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:223
-#, fuzzy
 msgid "Mark this mail as low priority"
-msgstr "Bu e-posta'yı öncelik: düşük olarak işaretle"
+msgstr "e-posta'yı 'öncelik: düşük' olarak işaretle"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:234
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:236
@@ -6468,19 +6379,16 @@ msgstr "E-posta"
 # 88%
 # 100%
 #: client/zarafa/mail/KeyMapping.js:56
-#, fuzzy
 msgid "Reply all"
 msgstr "Hepsini yanıtla"
 
 #: client/zarafa/mail/KeyMapping.js:94
-#, fuzzy
 msgid "Toggle read/unread"
 msgstr "okundu/okunmadı arasında geçiş yap"
 
 #: client/zarafa/mail/KeyMapping.js:106
-#, fuzzy
 msgid "Toggle red/complete flag"
-msgstr "kırmızı/işaretleme arasında geçiş yap"
+msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
 
 # 76%
 #: client/zarafa/mail/MailContext.js:380
@@ -6534,12 +6442,10 @@ msgid "Compose mail in this format"
 msgstr "Bu biçimde posta oluştur"
 
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:91
-#, fuzzy
 msgid "Default font"
 msgstr "Varsayılan yazı tipi"
 
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:111
-#, fuzzy
 msgid "Default font size"
 msgstr "Varsayılan yazı boyutu"
 
@@ -6550,7 +6456,6 @@ msgstr "Her zaman okundu bilgisi istemek"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 #: client/zarafa/mail/settings/SettingsComposeWidget.js:142
-#, fuzzy
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "gönderilemeyen e-postaları her {B} dakika {A}otomatik kaydet"
 
@@ -6599,12 +6504,10 @@ msgstr "Genel mesaj ayarları"
 # 83%
 # 100%
 #: client/zarafa/mail/settings/SettingsMailWidget.js:44
-#, fuzzy
 msgid "Location of preview pane"
 msgstr "önizleme paneli konumu"
 
 #: client/zarafa/mail/settings/SettingsMailWidget.js:63
-#, fuzzy
 msgid "Close original message on reply or forward"
 msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
 
@@ -6623,15 +6526,13 @@ msgstr "tarayıcı penceresi"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:48
 msgid "I am currently in the office"
-msgstr "Ben şu anda ofisteyim "
+msgstr "Şu anda ofisteyim"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:69
-#, fuzzy
 msgid "I am out of the office from"
 msgstr "...itibariyle ofis dışındayım"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:106
-#, fuzzy
 msgid "I will be back on"
 msgstr "...geri döneceğim"
 
@@ -6644,7 +6545,6 @@ msgid "User is currently out of office."
 msgstr "Kullanıcı şu anda ofis dışında"
 
 #: client/zarafa/mail/settings/SettingsOofWidget.js:417
-#, fuzzy
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
@@ -6699,7 +6599,6 @@ msgstr "Sıralama: Değiştirilmiş"
 # 75%
 #: client/zarafa/mail/ui/MailGridColumnModel.js:151
 #: client/zarafa/mail/ui/MailGridColumnModel.js:225
-#, fuzzy
 msgid "Flag Status"
 msgstr "Sıralama: İşaretleme Durumu"
 
@@ -6710,7 +6609,6 @@ msgid "Sort by: Flag Status"
 msgstr "Sıralama:Bayrak Durumu"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:143
-#, fuzzy
 msgid "Forward as Attachment"
 msgstr "ek olarak ilet"
 
@@ -6727,7 +6625,6 @@ msgid "Move to Junk Folder"
 msgstr "Önemsiz klasöre taşı"
 
 #: client/zarafa/mail/ui/MailGridContextMenu.js:281
-#, fuzzy
 msgid "max. "
 msgstr "en çok "
 
@@ -6737,7 +6634,6 @@ msgid "Loading mail"
 msgstr "Mesaj yükleniyor"
 
 #: client/zarafa/mail/ui/MailPanelToolbar.js:19
-#, fuzzy
 msgid "Loaded {0} of {1}"
 msgstr "{1} den {0} yüklendi"
 
@@ -6812,7 +6708,6 @@ msgid "List Last Seven Days"
 msgstr "Son yedi günü listele"
 
 #: client/zarafa/note/ui/NoteGridColumnModel.js:53
-#, fuzzy
 msgid "Created"
 msgstr "oluşturuldu"
 
@@ -6898,14 +6793,12 @@ msgid "Do you wish to apply the changes?"
 msgstr "Değişiklikleri uygulamak istiyor musunuz?"
 
 #: client/zarafa/settings/SettingsContext.js:157
-#, fuzzy
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyin."
 
 #: client/zarafa/settings/SettingsContext.js:157
-#, fuzzy
 msgid "NOTE: Any unsaved changes will be lost."
-msgstr "NOT: Kaydedilmemiş değişiklikler kaybolacak."
+msgstr "NOT: Kaydedilmemiş tüm değişiklikler kaybolacak."
 
 #: client/zarafa/settings/SettingsContext.js:404
 #: client/zarafa/settings/ui/SettingsTreePanel.js:47
@@ -6967,12 +6860,10 @@ msgid "About"
 msgstr "hakkında"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:22
-#, fuzzy
 msgid "Inbox navigation"
 msgstr "gelen kutusu navigasyonu"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:27
-#, fuzzy
 msgid "I want to navigate through my items by using."
 msgstr "...kullanarak öğelerim arasında gezinmek istiyorum."
 
@@ -6981,17 +6872,14 @@ msgid "Infinite Scroll"
 msgstr "sonsuz kaydırma"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:39
-#, fuzzy
 msgid "WebApp automatically loads additional items when you scroll down"
 msgstr "WebApp, aşağı kaydırdığınızda ek öğeleri otomatik olarak yükler"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:44
-#, fuzzy
 msgid "Pagination"
 msgstr "sayfalandırma"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:44
-#, fuzzy
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
@@ -7001,10 +6889,9 @@ msgstr ""
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "öğeleri {A}'lı bloklarla yükle"
 
 #: client/zarafa/settings/ui/SettingsInboxNavigationWidget.js:65
-#, fuzzy
 msgid "Load {A} items per page."
 msgstr "sayfa başına {A} öğe yükle."
 
@@ -7014,7 +6901,6 @@ msgid "Keyboard Shortcuts"
 msgstr "Klavye kısayolları"
 
 #: client/zarafa/settings/ui/SettingsKeyShortcutCategory.js:140
-#, fuzzy
 msgid "Part of basic keyboard shortcuts"
 msgstr "Temel klavye kısayolları parçası"
 
@@ -7048,12 +6934,10 @@ msgid "Plugins"
 msgstr "Eklentiler"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:80
-#, fuzzy
 msgid "Available plugins"
 msgstr "mevcut eklentiler"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:94
-#, fuzzy
 msgid ""
 "The following plugins are available in the WebApp. It is possible to select "
 "and/or deselect different plugins to indicate which plugins should be "
@@ -7075,17 +6959,16 @@ msgid "Version"
 msgstr "versiyon"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:236
-#, fuzzy
 msgid "This plugin cannot be disabled"
 msgstr "Bu eklenti görüntülenemiyor"
 
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:238
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "eklenti etkinleştirilemiyor"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:21
 msgid "Mailbox Usage"
-msgstr "Posta Kutusu Kullanımı "
+msgstr "Posta kutusu kullanımı"
 
 #: client/zarafa/settings/ui/SettingsQuotaInfoWidget.js:35
 msgid "Quota information is not set on the user's store."
@@ -7126,7 +7009,6 @@ msgid "Reset WebApp settings"
 msgstr "WebApp ayarlarını sıfırla"
 
 #: client/zarafa/settings/ui/SettingsResetSettingsWidget.js:34
-#, fuzzy
 msgid "Resets WebApp's settings to their original defaults"
 msgstr "WebApp ayarlarını varsayılan değerlerine sıfırlar"
 
@@ -7170,9 +7052,8 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:33
-#, fuzzy
 msgid "Kopano Core"
-msgstr "Kopano Core"
+msgstr "Kopano sunucusu"
 
 #: client/zarafa/settings/ui/SettingsVersionWidget.js:36 index.php:75
 msgid "Server"
@@ -7213,14 +7094,12 @@ msgid "Sort by: Percent Completed"
 msgstr "Sıralama: Yüzde Tamamlandı"
 
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:21
-#, fuzzy
 msgid "Task Status"
 msgstr "görev durumu"
 
 # 93%
 #: client/zarafa/task/attachitem/AttachTaskRenderer.js:22
 #: server/includes/mapi/class.taskrequest.php:895
-#, fuzzy
 msgid "Percent Complete"
 msgstr "tamamlanma yüzdesi"
 
@@ -7263,7 +7142,6 @@ msgstr "Görevi kaydet"
 # 82%
 # 100%
 #: client/zarafa/task/dialogs/TaskToolbar.js:72
-#, fuzzy
 msgid "Save task and close dialog"
 msgstr "Görevi kaydet ve pencereyi kapat"
 
@@ -7476,7 +7354,6 @@ msgid "The session has expired, reauthentication is required."
 msgstr "Oturum sona erdi, yeniden kimlik doğrulama gerekiyor."
 
 #: client/zarafa/Zarafa.js:289
-#, fuzzy
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
@@ -7485,7 +7362,6 @@ msgstr ""
 "sekmesinden kapatıldı."
 
 #: client/zarafa/Zarafa.js:301
-#, fuzzy
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
 
@@ -7494,7 +7370,6 @@ msgid "Session expired"
 msgstr "oturum süresi doldu"
 
 #: client/zarafa/Zarafa.js:326
-#, fuzzy
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
 "Yeniden doğrulama gerekli, oturum açma sayfasına dönmek için buraya tıklayın."
@@ -7504,22 +7379,18 @@ msgid "Connection problem"
 msgstr "bağlantı problemi"
 
 #: client/zarafa/Zarafa.js:359
-#, fuzzy
 msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr "sunucuya bağlanılamadı, {0} saniye içinde tekrar deneniyor"
 
 #: client/zarafa/Zarafa.js:359
-#, fuzzy
 msgid "Click to retry now"
 msgstr "şimdi yeniden denemek için tıklayın"
 
 #: client/zarafa/Zarafa.js:429
-#, fuzzy
 msgid "Connection restored"
 msgstr "bağlantı yeniden sağlandı"
 
 #: client/zarafa/Zarafa.js:429
-#, fuzzy
 msgid "Connection with server has been restored"
 msgstr "Sunucu ile bağlantı yeniden sağlandı"
 
@@ -7530,7 +7401,7 @@ msgstr "HTTP {0}"
 
 #: client/zarafa/Zarafa.js:455
 msgid "Invalid data received from the server"
-msgstr "Sunucudan geçersiz bilgi alındı "
+msgstr "Sunucudan geçersiz bilgi alındı"
 
 #: client/zarafa/Zarafa.js:513
 #, fuzzy
@@ -7543,7 +7414,6 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Varsayılan mağaza hiyerarşide bulunmuyor."
 
 #: client/zarafa/Zarafa.js:516 client/zarafa/Zarafa.js:589
-#, fuzzy
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr "WebApp'in bazı işlevleri bu nedenle düzgün çalışmayabilir."
@@ -7606,7 +7476,6 @@ msgid "Tasks"
 msgstr "Görevler"
 
 #: client/zarafa/Zarafa.js:562
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
 msgstr "istenmeyen e-posta"
@@ -7616,22 +7485,19 @@ msgid "Missing folders"
 msgstr "eksik klasörler"
 
 #: client/zarafa/Zarafa.js:587
-#, fuzzy
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "aşağıdaki gerekli klasör Hiyerarşide eksik: {0}"
+msgstr[0] "aşağıdaki gerekli klasör hiyerarşide eksik: {0}"
 
 #: client/zarafa/Zarafa.js:658
 msgid "Loading model from server failed"
 msgstr "Sunucudan model yüklenmesi başarısız"
 
 #: client/zarafa/Zarafa.js:853
-#, fuzzy
 msgid "Out of Office currently on. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
 #: client/zarafa/Zarafa.js:870
-#, fuzzy
 msgid "Out of office off"
 msgstr "ofis dışı bildirimi kapalı"
 
@@ -7653,7 +7519,7 @@ msgstr "Widget yapılandır"
 
 #: plugins/folderwidgets/js/AbstractFolderWidget.js:166
 msgid "Reload interval (ms)"
-msgstr "Güncelle aralığı (ms) "
+msgstr "yeniden yükleme aralığı (ms)"
 
 #: plugins/folderwidgets/js/AbstractFolderWidget.js:176
 msgid "Refresh interval (ms)"
@@ -7691,7 +7557,7 @@ msgstr "okunmamış e-posta"
 
 #: plugins/folderwidgets/js/TasksWidget.js:48
 msgid "No tasks."
-msgstr "Görev yok "
+msgstr "Görev yok."
 
 #: plugins/gmaps/js/GmapsPlugin.js:50
 msgid "Google Maps"
@@ -7703,27 +7569,22 @@ msgid "Map"
 msgstr "harita"
 
 #: plugins/pimfolder/js/PimPlugin.js:50
-#, fuzzy
 msgid "Move currently selected message(s) to {0}"
-msgstr "Seçili olan mesajları {0}'a taşı"
+msgstr "Seçili olan mesajları {0} taşı"
 
 #: plugins/pimfolder/js/PimPlugin.js:51 plugins/pimfolder/js/PimPlugin.js:78
-#, fuzzy
 msgid "Move to {0}"
 msgstr "{0}'a taşı"
 
 #: plugins/pimfolder/js/PimPlugin.js:77
-#, fuzzy
 msgid "Move current message to {0}"
 msgstr "Seçili olan mesajı {0}'a taşı"
 
 #: plugins/pimfolder/js/PimPlugin.js:176
-#, fuzzy
 msgid "Personal Inbox Manager"
 msgstr "kişisel 'gelen kutusu' yöneticisi"
 
 #: plugins/pimfolder/js/PimPluginSettingsWidget.js:39
-#, fuzzy
 msgid "Personal Inbox Management Settings"
 msgstr "kişisel 'gelen kutusu' yönetim ayarları"
 
@@ -7732,7 +7593,6 @@ msgid "Select another folder"
 msgstr "Başka bir klasör seçin"
 
 #: plugins/pimfolder/js/PimPluginSettingsWidget.js:106
-#, fuzzy
 msgid "E-mails are moved to {0}"
 msgstr "E-postalar {0}'a taşınıyor"
 
@@ -7754,10 +7614,9 @@ msgstr "Hızlı Not"
 
 #: plugins/quickitems/js/QuickTaskWidget.js:231
 msgid "Quick Task"
-msgstr "Hızlı Görev "
+msgstr "Hızlı görev"
 
 #: plugins/titlecounter/js/TitleCounter.js:49
-#, fuzzy
 msgid "Title Counter Plugin"
 msgstr "başlık sayaç eklentisi"
 
@@ -7774,7 +7633,6 @@ msgid "INSERT"
 msgstr "ekle"
 
 #: plugins/zdeveloper/js/ZDeveloper.js:96
-#, fuzzy
 msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr "Sıralama: context.mail.griddefaultcolumn"
 
@@ -7783,12 +7641,10 @@ msgid "ZDeveloper"
 msgstr "zdeveloper"
 
 #: defaults.php:114
-#, fuzzy
 msgid "Charm pink"
 msgstr "Cazibeli pembe"
 
 #: defaults.php:119
-#, fuzzy
 msgid "Cadmium red"
 msgstr "Kadmiyum kırmızı"
 
@@ -7801,42 +7657,34 @@ msgid "California"
 msgstr "Kaliforniya"
 
 #: defaults.php:139
-#, fuzzy
 msgid "Soft green"
 msgstr "hafif yeşil"
 
 #: defaults.php:149
-#, fuzzy
 msgid "Mint"
 msgstr "Nane"
 
 #: defaults.php:154
-#, fuzzy
 msgid "Pearl aqua"
 msgstr "inci su"
 
 #: defaults.php:159
-#, fuzzy
 msgid "Sky blue"
 msgstr "Gökyüzü mavisi"
 
 #: defaults.php:164
-#, fuzzy
 msgid "Baby blue"
 msgstr "bebek mavisi"
 
 #: defaults.php:169
-#, fuzzy
 msgid "Kopano blue"
 msgstr "kopano mavisi"
 
 #: defaults.php:174
-#, fuzzy
 msgid "Mauve"
 msgstr "leylak"
 
 #: defaults.php:184
-#, fuzzy
 msgid "Silver sand"
 msgstr "gümüş kum"
 
@@ -7865,9 +7713,9 @@ msgstr ""
 "Sunucu bazı sorunla karşılaştı, bu nedenle isteği işlemek mümkün değildi."
 
 #: server/includes/core/class.dispatcher.php:75
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown notifier '%s'"
-msgstr "Bilinmeyen bildirici '% s'"
+msgstr "Bilinmeyen bildirici '%s'"
 
 #: server/includes/core/class.jsonrequest.php:110
 msgid "An unexpected error has occurred"
@@ -7888,35 +7736,29 @@ msgstr "%1$s of %2$s"
 #: server/includes/core/class.settings.php:232
 #: server/includes/core/class.settings.php:368
 #: server/includes/core/class.settings.php:503
-#, fuzzy
 msgid "Settings object is not initialized"
 msgstr "Ayarlar nesnesi başlatılmadı"
 
 #: server/includes/core/class.settings.php:270
 msgid "Error retrieving existing settings"
-msgstr "Varolan ayaları alarken hata "
+msgstr "Varolan ayarları alırken hata"
 
 # 93%
 #: server/includes/core/class.webappauthentication.php:83
-#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
-"Oturum açma başarısız oldu. Lütfen kimlik bilgilerinizi doğrulayıp tekrar "
-"deneyin."
+"Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar deneyin."
 
 # 83%
 #: server/includes/core/class.webappauthentication.php:85
-#, fuzzy
 msgid "Cannot connect to Kopano Core."
 msgstr "Kopano sunucuya bağlanamıyor."
 
 #: server/includes/core/class.webappauthentication.php:87
-#, fuzzy
 msgid "Logon failed, another session already exists."
 msgstr "Oturum açma başarısız, halihazırda başka bir oturum bulunuyor."
 
 #: server/includes/core/class.webappauthentication.php:91
-#, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
 
@@ -7929,7 +7771,6 @@ msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
 
 #: server/includes/download_attachment.php:498
 #: server/includes/download_message.php:257
-#, fuzzy
 msgid "ZIP is not created successfully"
 msgstr "ZIP oluşturma başarısız"
 
@@ -7949,26 +7790,23 @@ msgid "Operation failed"
 msgstr "işlem başarısız"
 
 #: server/includes/download_message.php:162
-#, fuzzy, php-format
+#, php-format
 msgid "Eml creation of '%s' is not supported"
-msgstr "'% s'dan Eml oluşturulması desteklenmiyor"
+msgstr "'%s' Eml oluşturulması desteklenmiyor"
 
 # 90%
 # 100%
 #: server/includes/download_message.php:301
-#, fuzzy
 msgid "Sticky Note"
 msgstr "Not kağıtı"
 
 # 92%
 # 100%
 #: server/includes/download_message.php:313
-#, fuzzy
 msgid "Task Request"
 msgstr "Görev isteği"
 
 #: server/includes/download_message.php:349
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "İleti bulunamadı, taşındı veya silindi."
 
@@ -7978,54 +7816,45 @@ msgstr "Eylem doğru yapılmaz."
 
 # 90%
 #: server/includes/mapi/class.mapiexception.php:24
-#, fuzzy
 msgid "You have insufficient privileges to open this object."
 msgstr "Bu nesneyi açmak için yeterli yetkiye sahip değilsiniz."
 
 # 93%
 #: server/includes/mapi/class.mapiexception.php:27
-#, fuzzy
 msgid "Logon Failed. Please check your name/password."
 msgstr "Oturum açma başarısız. Lütfen adınızı / şifrenizi kontrol edin."
 
 # 83%
 #: server/includes/mapi/class.mapiexception.php:29
-#, fuzzy
 msgid "Can not connect to Kopano Core."
 msgstr "Kopano sunucuya bağlanamıyor."
 
 #: server/includes/mapi/class.mapiexception.php:31
-#, fuzzy
 msgid "Can not open object with provided id."
 msgstr "nesne paylaşılan id ile açılamıyor."
 
 #: server/includes/mapi/class.mapiexception.php:33
-#, fuzzy
 msgid "There are no recipients in the message."
 msgstr "Mesajda alıcı yok."
 
 #: server/includes/mapi/class.mapiexception.php:35
-#, fuzzy
 msgid "Can not find object."
 msgstr "Nesne bulunamıyor."
 
 #: server/includes/mapi/class.mapiexception.php:37
-#, fuzzy
 msgid "Operation failed: Server does not have enough memory."
 msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
 
 #: server/includes/mapi/class.mapiexception.php:49
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr "Bilinmeyen MAPI hatası:% s"
+msgstr "Bilinmeyen MAPI hatası: %s"
 
 #: server/includes/mapi/class.meetingrequest.php:1923
-#, fuzzy
 msgid "Tentatively accepted"
 msgstr "Geçici olarak kabul edildi"
 
 #: server/includes/mapi/class.meetingrequest.php:1929
-#, fuzzy
 msgid "New Time Proposed"
 msgstr "yeni zaman önerildi"
 
@@ -8039,25 +7868,25 @@ msgstr "d-m-Y"
 #: server/includes/mapi/class.recurrence.php:592
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
+msgstr "Her %s gerçekleşir, efektif %s, başlangıç: %s, bitiş: %s."
 
 # 77%
 #: server/includes/mapi/class.recurrence.php:594
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+msgstr "Her %s %s gerçekleşir, efektif %s, başlangıç: %s, bitiş: %s."
 
 # 80%
 #: server/includes/mapi/class.recurrence.php:598
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s effective %s."
-msgstr "Her {0} gerçekleşir, başlangıç: {1}"
+msgstr "Her %s gerçekleşir, efektif %s."
 
 # 75%
 #: server/includes/mapi/class.recurrence.php:600
-#, fuzzy, php-format
+#, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "Her {0} gerçekleşir, başlangıç: {1}"
+msgstr "Her %s %s gerçekleşir, efektif %s."
 
 # 78%
 # 76%
@@ -8066,8 +7895,6 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}"
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
 msgstr[0] ""
-"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
-msgstr[1] ""
 "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
 
 # 78%
@@ -8078,8 +7905,6 @@ msgstr[1] ""
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
 msgstr[0] ""
-"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
-msgstr[1] ""
 "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
 
 # 77%
@@ -8133,7 +7958,6 @@ msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
 
 #: server/includes/mapi/class.taskrequest.php:881
 #: server/includes/mapi/class.taskrequest.php:882
-#, fuzzy
 msgid "%A, %B %d, %Y"
 msgstr "%A, %B %d, %Y"
 
@@ -8195,7 +8019,7 @@ msgid ""
 "meeting requests."
 msgstr ""
 "'% s' toplantı isteklerini kabul etmedi, çünkü '% s' otomatik toplantı "
-"isteğini kabul etmiyor. "
+"isteğini kabul etmiyor."
 
 #: server/includes/modules/class.appointmentitemmodule.php:212
 #, php-format
@@ -8247,19 +8071,16 @@ msgid "Unknown user/group"
 msgstr "Bilinmeyen kullanıcı / grup"
 
 #: server/includes/modules/class.delegatesmodule.php:930
-#, fuzzy
 msgid "Could not save delegate information."
 msgstr "Temsilci bilgileri kaydedilemedi."
 
 # 78%
 # 80%
 #: server/includes/modules/class.delegatesmodule.php:933
-#, fuzzy
 msgid "Could not delete delegate."
-msgstr "temsilci silinemedi"
+msgstr "temsilci silinemedi."
 
 #: server/includes/modules/class.delegatesmodule.php:936
-#, fuzzy
 msgid "Can not get list of delegates."
 msgstr "Temsilci listesi alınamadı."
 
@@ -8272,7 +8093,6 @@ msgid "Could not load folder properties."
 msgstr "Klasör özellikleri yüklenemedi."
 
 #: server/includes/modules/class.hierarchymodule.php:282
-#, fuzzy
 msgid "Could not remove folder from favorites."
 msgstr "Klasör favorilerden silinemiyor."
 
@@ -8356,7 +8176,7 @@ msgid "User could not be resolved."
 msgstr "Kullanıcı çözülemedi."
 
 #: server/includes/modules/class.hierarchymodule.php:373
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
@@ -8373,13 +8193,11 @@ msgstr "Bilinmeyen"
 
 # 95%
 #: server/includes/modules/class.hierarchymodule.php:964
-#, fuzzy
 msgid "Could not move folder"
 msgstr "Klasör taşınamıyor"
 
 # 95%
 #: server/includes/modules/class.hierarchymodule.php:966
-#, fuzzy
 msgid "Could not copy folder"
 msgstr "Klasör kopyalanamadı"
 
@@ -8400,7 +8218,6 @@ msgid "You have insufficient privileges to open this message."
 msgstr "Bu mesaji açmak için yeterli ayrıcalıklara sahip deyilsiniz."
 
 #: server/includes/modules/class.itemmodule.php:307
-#, fuzzy
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
@@ -8414,15 +8231,13 @@ msgstr "Mesaj açılınamıyor."
 
 # 98%
 #: server/includes/modules/class.itemmodule.php:319
-#, fuzzy
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr "Bu toplantı isteğini reddetmek için yeterli yetkiye sahip değilsiniz"
 
 # 98%
 #: server/includes/modules/class.itemmodule.php:322
-#, fuzzy
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Bu toplantı İsteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
+msgstr "Bu toplantı isteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
 
 # 78%
 # 82%
@@ -8444,21 +8259,20 @@ msgstr "Bu klasöre öğe kaydetmek için yeterli ayrıcalıklara sahip deyilsin
 # 78%
 #: server/includes/modules/class.itemmodule.php:339
 msgid "Could not save message"
-msgstr "Mesaj kaydedilmedi "
+msgstr "Mesaj kaydedilmedi"
 
 #: server/includes/modules/class.itemmodule.php:349
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr "Bu takvimden öğeyi silmek için yeterli ayrıcalıklara sahip deyilsiniz "
+msgstr "Bu takvimden öğeyi silmek için yeterli yetkiye sahip değilsiniz."
 
 # 81%
 #: server/includes/modules/class.itemmodule.php:356
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Bu klasörde öğe silmek için yeterli yetkiye sahip değilsiniz"
 
 #: server/includes/modules/class.itemmodule.php:361
 msgid "Could not resolve conflict."
-msgstr "Çatışma çözülemedi "
+msgstr "Çelişki çözülemedi."
 
 #: server/includes/modules/class.itemmodule.php:366
 msgid "You have insufficient privileges to attach item as an attachment."
@@ -8466,7 +8280,7 @@ msgstr "Eklenti eklemek için yeterli ayrıcalıklara sahip deyilsiniz"
 
 #: server/includes/modules/class.itemmodule.php:368
 msgid "Could not attach item as an attachment."
-msgstr "Öğe eklenti olarak eklenemedi "
+msgstr "Öğe eklenti olarak eklenemedi"
 
 #: server/includes/modules/class.itemmodule.php:373
 msgid ""
@@ -8503,12 +8317,11 @@ msgid "Could not decline Task Request."
 msgstr "Toplantı isteği reddettilmiyor"
 
 #: server/includes/modules/class.itemmodule.php:485
-#, fuzzy
 msgid "Conflicts with another appointment."
 msgstr "bir diğer toplantı ile çelişiyor."
 
 #: server/includes/modules/class.itemmodule.php:487
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural ""
@@ -8564,7 +8377,7 @@ msgstr "Bu iletiyi kaydetmek için yeterli ayrıcalıklara sahip deyilsiniz."
 # 82%
 #: server/includes/modules/class.module.php:117
 msgid "Could not save message."
-msgstr "Mesaj kaydedilmiyor "
+msgstr "Mesaj kaydedilmiyor."
 
 #: server/includes/modules/class.module.php:122
 msgid "You have insufficient privileges to delete this message."
@@ -8623,7 +8436,6 @@ msgid "Error in search, please try again."
 msgstr "Arama hatası, lütfen tekrar deneyin"
 
 #: server/includes/modules/class.module.php:165
-#, fuzzy
 msgid "Error in distribution list expansion."
 msgstr "Dağıtım listesi genişletme hatası."
 
@@ -8633,7 +8445,6 @@ msgstr "İleti deposu sabit kota sınırını aştı."
 
 #: server/includes/modules/class.module.php:198
 #: server/includes/modules/class.module.php:204
-#, fuzzy
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
@@ -8657,13 +8468,11 @@ msgstr "Bilinmeyen eylem tipi -% s"
 
 #: server/includes/modules/class.reminderlistmodule.php:90
 #: server/includes/modules/class.reminderlistmodule.php:92
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr "Hatırlatıcıyı erteleyemezsiniz. Yeniden hatırlatılabilirsiniz."
 
 #: server/includes/modules/class.reminderlistmodule.php:97
 #: server/includes/modules/class.reminderlistmodule.php:99
-#, fuzzy
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Hatırlatıcıyı kapatamazsınız. Yeniden hatırlatılabilirsiniz."
 
@@ -8673,7 +8482,6 @@ msgid "You have insufficient privileges to perform this action."
 msgstr "Bu mağazayı açmak için yeterli ayrıcalıklara sahip deyilsiniz."
 
 #: server/includes/modules/class.resolvenamesmodule.php:353
-#, fuzzy
 msgid "Could not resolve user."
 msgstr "Kullanıcı çözümlenemedi."
 
@@ -8685,7 +8493,6 @@ msgstr "Başlıksız kural"
 # 77%
 # 76%
 #: server/includes/modules/class.rulesmodule.php:331
-#, fuzzy
 msgid "Could not load rules."
 msgstr "kurallar yüklenemedi."
 
@@ -8693,7 +8500,6 @@ msgstr "kurallar yüklenemedi."
 # 77%
 # 95%
 #: server/includes/modules/class.rulesmodule.php:334
-#, fuzzy
 msgid "Could not save rules."
 msgstr "kurallar kaydedilemedi."
 
@@ -8713,15 +8519,15 @@ msgstr "Görev isteği"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
-msgstr ""
+msgstr "Hoşgeldiniz"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
-msgstr ""
+msgstr "Şifre"
 
 #: server/includes/templates/login.php:60
 msgid "Sign in"
-msgstr ""
+msgstr "oturum aç"
 
 #: server/includes/upload_attachment.php:225
 msgid "Could not upload attachment."
@@ -8760,7 +8566,6 @@ msgid "Syntax error"
 msgstr "Sözdizimi hatası"
 
 #: server/includes/util.php:513
-#, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
 
