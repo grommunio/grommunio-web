@@ -229,7 +229,7 @@ msgstr "OK"
 
 #: client/extjs-mod/Translations.js:177 client/extjs-mod/Translations.js:283
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:90
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:39
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:40
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:44
 #: client/zarafa/calendar/dialogs/SendMeetingRequestCancellationContentPanel.js:41
 #: client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationContentPanel.js:46
@@ -252,6 +252,7 @@ msgstr "OK"
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesContentPanel.js:39
 #: client/zarafa/hierarchy/dialogs/FolderSelectionContentPanel.js:51
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:55
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:52
 #: client/zarafa/mail/dialogs/MailCreateOptionsContentPanel.js:38
 #: client/zarafa/mail/dialogs/MailFlagsContentPanel.js:46
 #: client/zarafa/mail/dialogs/MailViewOptionsContentPanel.js:38
@@ -450,7 +451,7 @@ msgstr "(Semmi)"
 
 #: client/extjs-mod/Translations.js:282
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:86
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:35
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:36
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:40
 #: client/zarafa/calendar/dialogs/SendMeetingRequestCancellationContentPanel.js:37
 #: client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationContentPanel.js:42
@@ -573,13 +574,15 @@ msgstr "{0} nem érvényes idő"
 #: client/zarafa/mail/settings/SettingsOofWidget.js:130
 #: plugins/folderwidgets/js/AppointmentsWidget.js:130
 #: plugins/folderwidgets/js/AppointmentsWidget.js:132
-#: server/includes/mapi/class.recurrence.php:578
-#: server/includes/mapi/class.recurrence.php:579
+#: server/includes/mapi/class.recurrence.php:575
+#: server/includes/mapi/class.recurrence.php:576
 msgid "G:i"
 msgstr "G:i"
 
 #: client/extjs-mod/Translations.js:344
 #: client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:50
+#: client/zarafa/addressbook/ui/GABColumnModel.js:53
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:39
 #: client/zarafa/calendar/dialogs/TrackingTab.js:45
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:61
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:66
@@ -654,8 +657,8 @@ msgstr "Általános"
 
 #: client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:52
 #: client/zarafa/addressbook/dialogs/ABItemGrid.js:35
-#: client/zarafa/addressbook/ui/GABColumnModel.js:53
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:39
+#: client/zarafa/addressbook/ui/GABColumnModel.js:59
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:45
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:77
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:111
 msgid "Display Name"
@@ -701,8 +704,8 @@ msgid "Members"
 msgstr "Tagok"
 
 #: client/zarafa/addressbook/dialogs/ABItemGrid.js:40
-#: client/zarafa/addressbook/ui/GABColumnModel.js:73
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:51
+#: client/zarafa/addressbook/ui/GABColumnModel.js:90
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:60
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:65
 msgid "Email Address"
 msgstr "Email cím"
@@ -719,13 +722,13 @@ msgstr "Tagja a"
 msgid "Group Membership"
 msgstr "Csoporttagság"
 
-#: client/zarafa/addressbook/dialogs/ABMultiUserSelectionContentPanel.js:67
-#: client/zarafa/addressbook/dialogs/ABUserSelectionContentPanel.js:50
+#: client/zarafa/addressbook/dialogs/ABMultiUserSelectionContentPanel.js:66
+#: client/zarafa/addressbook/dialogs/ABUserSelectionContentPanel.js:49
 #: client/zarafa/addressbook/dialogs/AddressBookContentPanel.js:35
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:68
 #: client/zarafa/core/ui/MainToolbar.js:389
 #: client/zarafa/core/ui/MainToolbar.js:390
-#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:42
+#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:33
 msgid "Address Book"
 msgstr "Címjegyzék"
 
@@ -795,7 +798,7 @@ msgid "Company"
 msgstr "Cég"
 
 #: client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:198
-#: client/zarafa/addressbook/ui/GABColumnModel.js:88
+#: client/zarafa/addressbook/ui/GABColumnModel.js:97
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:60
 #: client/zarafa/contact/printer/ContactRenderer.js:26
 msgid "Department"
@@ -851,7 +854,7 @@ msgid "Business2"
 msgstr "Üzleti 2"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:86
-#: client/zarafa/addressbook/ui/GABColumnModel.js:135
+#: client/zarafa/addressbook/ui/GABColumnModel.js:144
 msgid "Fax"
 msgstr "Fax"
 
@@ -871,7 +874,7 @@ msgid "Home2"
 msgstr "Otthon 2"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:122
-#: client/zarafa/addressbook/ui/GABColumnModel.js:103
+#: client/zarafa/addressbook/ui/GABColumnModel.js:112
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:78
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:35
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:262
@@ -884,7 +887,7 @@ msgid "Mobile"
 msgstr "Mobil"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:126
-#: client/zarafa/addressbook/ui/GABColumnModel.js:119
+#: client/zarafa/addressbook/ui/GABColumnModel.js:128
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:38
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:546
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:281
@@ -892,7 +895,7 @@ msgid "Pager"
 msgstr "Személyhívó"
 
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:208
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:139
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:140
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:253
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:314
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:432
@@ -929,14 +932,14 @@ msgstr "Személyhívó"
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:131
 #: client/zarafa/hierarchy/ui/ContextMenu.js:356
 #: client/zarafa/hierarchy/ui/ContextMenu.js:393
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:509
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:626
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:510
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:627
 #: client/zarafa/settings/SettingsContext.js:65
 #: client/zarafa/settings/SettingsContext.js:160
 #: client/zarafa/settings/SettingsContext.js:330
 #: client/zarafa/settings/ui/SettingsCopyrightWidget.js:27
 #: client/zarafa/settings/ui/SettingsTreePanel.js:234
-#: client/zarafa/Zarafa.js:300 client/zarafa/Zarafa.js:852
+#: client/zarafa/Zarafa.js:308 client/zarafa/Zarafa.js:861
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -944,7 +947,7 @@ msgstr "Kopano WebApp"
 msgid "You must select one or more users."
 msgstr "Ki kell választania egy vagy több felhasználót."
 
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:140
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:141
 msgid "You must select a user."
 msgstr "Választania kell egy felhasználót."
 
@@ -958,7 +961,11 @@ msgstr "Választ"
 msgid "Show Details"
 msgstr "Részletek megjelenítése"
 
-#: client/zarafa/addressbook/ui/AddressBookGrid.js:33
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:42
+msgid "Use the search bar to get results"
+msgstr ""
+
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:49
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:47
 #: client/zarafa/common/ui/grid/GridView.js:39
 #: client/zarafa/contact/ui/ContactCardView.js:57
@@ -966,14 +973,14 @@ msgstr "Részletek megjelenítése"
 msgid "There are no items to show in this view"
 msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
 
-#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:133
-msgid "Type Name"
-msgstr "Írja be a nevet"
-
 # -ból -ből?
-#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:151
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:154
 msgid "Show Names from the"
 msgstr "Nevek megjelenítése következőből"
+
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:220
+msgid "Search..."
+msgstr ""
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:45
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:31
@@ -997,11 +1004,19 @@ msgstr "Rendezés ikon szerint"
 # 76%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:55
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:41
+#: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:386
+#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:52
+msgid "Sort by: Name"
+msgstr "Rendezés: Név"
+
+# 76%
+#: client/zarafa/addressbook/ui/GABColumnModel.js:61
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:47
 msgid "Sort by: Display Name"
 msgstr "Rendezés: Megjelenő név"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:59
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:45
+#: client/zarafa/addressbook/ui/GABColumnModel.js:66
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:52
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:59
 #: client/zarafa/contact/data/SearchFields.js:15
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:141
@@ -1009,76 +1024,76 @@ msgid "File as"
 msgstr "Mappába rendetés mint"
 
 # 75%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:61
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:47
+#: client/zarafa/addressbook/ui/GABColumnModel.js:69
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:55
 #: client/zarafa/contact/attachitem/AttachContactColumnModel.js:61
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:55
 msgid "Sort by: File As"
 msgstr "Rendezés: Fájl"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:65
-#: server/includes/templates/login.php:50
-msgid "Username"
-msgstr "Felhasználónév"
+# 80%
+#: client/zarafa/addressbook/ui/GABColumnModel.js:74
+#: client/zarafa/contact/attachitem/AttachContactRenderer.js:21
+#: client/zarafa/contact/printer/ContactRenderer.js:24
+msgid "First Name"
+msgstr "Vezetéknév"
 
-# 82%
-# 100%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:68
-msgid "Sort by: Username"
-msgstr "Rendezés: Felhasználónév"
-
-#: client/zarafa/addressbook/ui/GABColumnModel.js:75
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
-#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:57
-msgid "Sort by: Email Address"
-msgstr "Rendezés: Email cím"
+#: client/zarafa/addressbook/ui/GABColumnModel.js:77
+msgid "Sort by: First Name"
+msgstr ""
 
 # 77%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:80
+#: client/zarafa/addressbook/ui/GABColumnModel.js:82
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:20
 #: client/zarafa/contact/printer/ContactRenderer.js:23
 msgid "Last Name"
 msgstr "Keresztnév"
 
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:83
+#: client/zarafa/addressbook/ui/GABColumnModel.js:85
 msgid "Sort by: Last Name"
 msgstr "Rendezés: Vezetéknév"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:91
+#: client/zarafa/addressbook/ui/GABColumnModel.js:92
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:63
+#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:57
+msgid "Sort by: Email Address"
+msgstr "Rendezés: Email cím"
+
+#: client/zarafa/addressbook/ui/GABColumnModel.js:100
 msgid "Sort by: Department"
 msgstr "Rendezés: Osztály"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:96
+#: client/zarafa/addressbook/ui/GABColumnModel.js:105
 msgid "Office Phone"
 msgstr "Irodai telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:98
+#: client/zarafa/addressbook/ui/GABColumnModel.js:107
 msgid "Sort by: Office Phone"
 msgstr "Rendezés: Irodai telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:106
+#: client/zarafa/addressbook/ui/GABColumnModel.js:115
 msgid "Sort by: Mobile"
 msgstr "Rendezés: Mobil"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:111
+#: client/zarafa/addressbook/ui/GABColumnModel.js:120
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:82
 msgid "Home Phone"
 msgstr "Otthoni telefon"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:114
+#: client/zarafa/addressbook/ui/GABColumnModel.js:123
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:83
 msgid "Sort by: Home Phone"
 msgstr "Rendezés: Otthoni telefon"
 
 # 78%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:122
+#: client/zarafa/addressbook/ui/GABColumnModel.js:131
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:283
 msgid "Sort by: Pager"
 msgstr "Rendezés: Személyhívó"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:127
+#: client/zarafa/addressbook/ui/GABColumnModel.js:136
 #: client/zarafa/calendar/data/SearchFields.js:28
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:264
 #: client/zarafa/calendar/printer/MeetingRenderer.js:24
@@ -1091,13 +1106,13 @@ msgstr "Helyszín"
 
 # 80%
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:129
+#: client/zarafa/addressbook/ui/GABColumnModel.js:139
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:85
 msgid "Sort by: Location"
 msgstr "Rendezés: Helyszín"
 
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:137
+#: client/zarafa/addressbook/ui/GABColumnModel.js:147
 msgid "Sort by: Fax"
 msgstr "Rendezés: Fax"
 
@@ -1368,10 +1383,10 @@ msgstr "Arra gondolt, hogy"
 #: client/zarafa/common/rules/ui/RulesGrid.js:349
 #: client/zarafa/common/rules/ui/RulesGrid.js:354
 #: client/zarafa/common/ui/SearchField.js:146
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:343
-#: client/zarafa/Zarafa.js:258 client/zarafa/Zarafa.js:260
-#: client/zarafa/Zarafa.js:297 client/zarafa/Zarafa.js:454
-#: client/zarafa/Zarafa.js:658
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:341
+#: client/zarafa/Zarafa.js:266 client/zarafa/Zarafa.js:268
+#: client/zarafa/Zarafa.js:305 client/zarafa/Zarafa.js:462
+#: client/zarafa/Zarafa.js:667
 msgid "Error"
 msgstr "Hiba"
 
@@ -1416,30 +1431,30 @@ msgid "Could not open default calendar folder."
 msgstr "Nem lehet megnyitni az alapértelmezett naptárt."
 
 #: client/zarafa/calendar/AppointmentRecord.js:189
-#: server/includes/mapi/class.recurrence.php:527
+#: server/includes/mapi/class.recurrence.php:524
 msgid "workday"
 msgstr "munkanap"
 
 #: client/zarafa/calendar/AppointmentRecord.js:192
-#: server/includes/mapi/class.recurrence.php:530
+#: server/includes/mapi/class.recurrence.php:527
 msgid "day"
 msgstr "nap"
 
 #: client/zarafa/calendar/AppointmentRecord.js:196
-#: server/includes/mapi/class.recurrence.php:534
+#: server/includes/mapi/class.recurrence.php:531
 msgid "days"
 msgstr "napok"
 
 # 75%
 #: client/zarafa/calendar/AppointmentRecord.js:202
-#: server/includes/mapi/class.recurrence.php:541
+#: server/includes/mapi/class.recurrence.php:538
 msgid "week"
 msgstr "hét"
 
 # 75%
 # 80%
 #: client/zarafa/calendar/AppointmentRecord.js:205
-#: server/includes/mapi/class.recurrence.php:544
+#: server/includes/mapi/class.recurrence.php:541
 msgid "weeks"
 msgstr "hét"
 
@@ -1449,24 +1464,24 @@ msgstr "  "
 
 # 80%
 #: client/zarafa/calendar/AppointmentRecord.js:214
-#: server/includes/mapi/class.recurrence.php:551
+#: server/includes/mapi/class.recurrence.php:548
 msgid "month"
 msgstr "hónap"
 
 # 80%
 # 83%
 #: client/zarafa/calendar/AppointmentRecord.js:217
-#: server/includes/mapi/class.recurrence.php:554
+#: server/includes/mapi/class.recurrence.php:551
 msgid "months"
 msgstr "hónap"
 
 #: client/zarafa/calendar/AppointmentRecord.js:224
-#: server/includes/mapi/class.recurrence.php:562
+#: server/includes/mapi/class.recurrence.php:559
 msgid "year"
 msgstr "év"
 
 #: client/zarafa/calendar/AppointmentRecord.js:228
-#: server/includes/mapi/class.recurrence.php:566
+#: server/includes/mapi/class.recurrence.php:563
 msgid "years"
 msgstr "év"
 
@@ -1781,7 +1796,7 @@ msgstr "Nyomtatási áttekintés"
 #: client/zarafa/contact/ui/ContactContextMenu.js:60
 #: client/zarafa/core/ui/MainToolbar.js:331
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:239
-#: client/zarafa/mail/MailContext.js:616
+#: client/zarafa/mail/MailContext.js:620
 #: client/zarafa/mail/ui/MailGridContextMenu.js:107
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:91
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:93
@@ -2081,6 +2096,7 @@ msgstr "Meghívó küldése"
 
 # 75%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:58
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:42
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:83
 #: plugins/quickitems/js/QuickMailWidget.js:96
 msgid "Send"
@@ -2096,7 +2112,7 @@ msgstr "Meghívók elküldése a résztvevőknek"
 #: client/zarafa/common/rules/dialogs/RulesEditContentPanel.js:37
 #: client/zarafa/contact/dialogs/ContactToolbar.js:54
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:53
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:176
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:177
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:54
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:57
 #: client/zarafa/task/dialogs/TaskToolbar.js:68
@@ -2138,15 +2154,15 @@ msgstr "Mentés a résztvevők meghívóinak kiküldése nélkül"
 #: client/zarafa/contact/dialogs/ContactToolbar.js:67
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:69
 #: client/zarafa/contact/ui/ContactContextMenu.js:76
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:109
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:111
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:117
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:119
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:100
 #: client/zarafa/mail/ui/MailGridContextMenu.js:215
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:70
 #: client/zarafa/note/ui/NoteContextMenu.js:82
 #: client/zarafa/task/dialogs/TaskToolbar.js:81
 #: client/zarafa/task/dialogs/TaskToolbar.js:83
-#: client/zarafa/task/ui/TaskContextMenu.js:81
+#: client/zarafa/task/ui/TaskContextMenu.js:97
 msgid "Delete"
 msgstr "Törlés"
 
@@ -2156,8 +2172,8 @@ msgstr "Találkozó törlése"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:109
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:111
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:120
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:122
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:128
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:130
 #: client/zarafa/task/dialogs/TaskToolbar.js:94
 msgid "Add attachment"
 msgstr "Melléklet hozzáadása"
@@ -2179,15 +2195,15 @@ msgstr "Találkozó nyomtatása"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:156
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:158
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:137
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:139
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:145
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:147
 #: client/zarafa/task/dialogs/TaskToolbar.js:130
 #: client/zarafa/task/dialogs/TaskToolbar.js:132
 msgid "Check names"
 msgstr "Nevek ellenőrzése"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:159
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:140
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:148
 #: client/zarafa/task/dialogs/TaskToolbar.js:133
 msgid "Check all recipient names"
 msgstr "Minden címzett nevének ellenőrzése"
@@ -2219,8 +2235,8 @@ msgstr "A résztvevők törlésével átalakíthatja ezt az értekezletet talál
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:237
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:239
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:206
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:208
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:214
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:216
 msgid "High priority"
 msgstr "Sürgős"
 
@@ -2231,8 +2247,8 @@ msgstr "Találkozó sürgősnek jelölése"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:252
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:254
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:220
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:222
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:228
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:230
 msgid "Low priority"
 msgstr "Nem sürgős"
 
@@ -2268,7 +2284,7 @@ msgstr "Találkozó nem sürgősnek jelölése"
 #: client/zarafa/task/dialogs/TaskToolbar.js:212
 #: client/zarafa/task/dialogs/TaskToolbar.js:214
 #: client/zarafa/task/printer/TaskRenderer.js:42
-#: client/zarafa/task/ui/TaskContextMenu.js:73
+#: client/zarafa/task/ui/TaskContextMenu.js:89
 #: client/zarafa/task/ui/TaskGridColumnModel.js:116
 msgid "Categories"
 msgstr "Kategóriák"
@@ -3193,7 +3209,7 @@ msgid "Attach Item"
 msgstr "Elem csatolása"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
-#: client/zarafa/mail/MailContext.js:616
+#: client/zarafa/mail/MailContext.js:620
 msgid "No message selected"
 msgstr "Nincs kiválasztott üzenet"
 
@@ -3317,7 +3333,7 @@ msgstr "Több, mint egy '{0}' találat."
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:119
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:129
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:153
-#: client/zarafa/common/delegates/ui/DelegatesPanel.js:185
+#: client/zarafa/common/delegates/ui/DelegatesPanel.js:183
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
 msgid "Alert"
@@ -3449,7 +3465,7 @@ msgstr "Eltávolítás"
 msgid "Permission"
 msgstr "Hozzáférés"
 
-#: client/zarafa/common/delegates/ui/DelegatesPanel.js:185
+#: client/zarafa/common/delegates/ui/DelegatesPanel.js:183
 msgid "Delegate already exists in the list."
 msgstr "A meghatalmazott már szerepel a listán."
 
@@ -3923,12 +3939,6 @@ msgid_plural "Total {0} recoverable items"
 msgstr[0] "Összesen {0} helyreállítható elem"
 msgstr[1] "Összesen {0} helyreállítható elem"
 
-# 76%
-#: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:386
-#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:52
-msgid "Sort by: Name"
-msgstr "Rendezés: Név"
-
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:391
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:444
 msgid "Deleted On"
@@ -4069,6 +4079,10 @@ msgstr "korábban érkezett mint"
 msgid "has my name in the To field"
 msgstr "nekem lett címezve"
 
+#: client/zarafa/common/rules/data/ConditionProfiles.js:53
+msgid "is received (all messages)"
+msgstr ""
+
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
 #: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:99
@@ -4105,11 +4119,11 @@ msgstr "Feltétel hozzáadása"
 msgid "Remove condition"
 msgstr "Feltétel eltávolítása"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:373
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:399
 msgid "Unknown condition"
 msgstr "Ismeretlen feltétel"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:374
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:400
 msgid "This condition for the current rule is unknown"
 msgstr "Ebben a szabályban ez a feltétel ismeretlen"
 
@@ -4257,19 +4271,19 @@ msgstr "Küldés mint beállítások"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:38
 #: client/zarafa/common/ui/CommonViewButtons.js:40
-#: client/zarafa/mail/MailContext.js:535 client/zarafa/mail/MailContext.js:537
+#: client/zarafa/mail/MailContext.js:539 client/zarafa/mail/MailContext.js:541
 msgid "No preview"
 msgstr "Nincs előnézet"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:48
 #: client/zarafa/common/ui/CommonViewButtons.js:50
-#: client/zarafa/mail/MailContext.js:545 client/zarafa/mail/MailContext.js:547
+#: client/zarafa/mail/MailContext.js:549 client/zarafa/mail/MailContext.js:551
 msgid "Right preview"
 msgstr "Jobb oldali előnézet"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:58
 #: client/zarafa/common/ui/CommonViewButtons.js:60
-#: client/zarafa/mail/MailContext.js:555 client/zarafa/mail/MailContext.js:557
+#: client/zarafa/mail/MailContext.js:559 client/zarafa/mail/MailContext.js:561
 msgid "Bottom preview"
 msgstr "Alsó előnézet"
 
@@ -4591,16 +4605,20 @@ msgstr "Nincs"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:69
 #: client/zarafa/core/BrowserWindowMgr.js:596
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:291
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:185
 msgid "Open in new browser window"
 msgstr "Megnyitás új ablakban"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:292
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:186
 msgid "Pop-Out"
 msgstr "Pop-Out"
+
+#: client/zarafa/common/ui/RadioSpinnerField.js:34
+msgid "in"
+msgstr ""
 
 #: client/zarafa/common/ui/SearchField.js:31
 msgid "Please enter text to start search."
@@ -4718,12 +4736,6 @@ msgstr "Rendezés: Beosztás"
 #: plugins/quickitems/js/QuickContactWidget.js:62
 msgid "Full Name"
 msgstr "Teljes név"
-
-# 80%
-#: client/zarafa/contact/attachitem/AttachContactRenderer.js:21
-#: client/zarafa/contact/printer/ContactRenderer.js:24
-msgid "First Name"
-msgstr "Vezetéknév"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:23
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:119
@@ -5442,7 +5454,7 @@ msgstr ""
 "felugró ablakokat a WebApp számára a böngésző beállításaiban."
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
-#: server/includes/core/class.operations.php:2924
+#: server/includes/core/class.operations.php:2923
 #: server/includes/download_message.php:178
 #: server/includes/download_message.php:243
 #: server/includes/modules/class.contactitemmodule.php:358
@@ -5489,7 +5501,7 @@ msgstr ""
 "maximálisan egedélyezett {1}."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
-#: client/zarafa/core/data/IPMRecord.js:193
+#: client/zarafa/core/data/IPMRecord.js:194
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} nevében"
 
@@ -5553,9 +5565,9 @@ msgstr "Magas"
 # 75%
 # 80%
 #: client/zarafa/core/mapi/MeetingStatus.js:60
-#: server/includes/mapi/class.meetingrequest.php:1278
-#: server/includes/mapi/class.meetingrequest.php:1286
-#: server/includes/mapi/class.meetingrequest.php:3051
+#: server/includes/mapi/class.meetingrequest.php:1276
+#: server/includes/mapi/class.meetingrequest.php:1284
+#: server/includes/mapi/class.meetingrequest.php:3041
 msgid "Canceled"
 msgstr "Törölt"
 
@@ -5567,12 +5579,12 @@ msgstr "Kék"
 
 #: client/zarafa/core/mapi/NoteColor.js:36
 #: client/zarafa/mail/data/MailFlags.js:27
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:144
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:145
 msgid "Green"
 msgstr "Zöld"
 
 #: client/zarafa/core/mapi/NoteColor.js:39
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:109
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:110
 msgid "Pink"
 msgstr "Rózsaszín"
 
@@ -5583,7 +5595,7 @@ msgstr "Fehér"
 
 #: client/zarafa/core/mapi/NoteColor.js:47
 #: client/zarafa/mail/data/MailFlags.js:22
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:134
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:135
 msgid "Yellow"
 msgstr "Sárga"
 
@@ -5600,12 +5612,12 @@ msgid "Not responded"
 msgstr "Nem válaszolt"
 
 #: client/zarafa/core/mapi/ResponseStatus.js:68
-#: server/includes/mapi/class.meetingrequest.php:1915
+#: server/includes/mapi/class.meetingrequest.php:1907
 msgid "Accepted"
 msgstr "Elfogadott"
 
 #: client/zarafa/core/mapi/ResponseStatus.js:70
-#: server/includes/mapi/class.meetingrequest.php:1919
+#: server/includes/mapi/class.meetingrequest.php:1911
 msgid "Declined"
 msgstr "Elutasított"
 
@@ -5664,11 +5676,11 @@ msgid "Orange"
 msgstr "Narancs"
 
 #: client/zarafa/core/themes/purple/js/ThemePurple.js:13
-#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:179
+#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:180
 msgid "Purple"
 msgstr "Bíbor"
 
-#: client/zarafa/core/ui/MainTabbar.js:79
+#: client/zarafa/core/ui/MainTabbar.js:83
 msgid "Logout"
 msgstr "Kijelentkezés"
 
@@ -5804,7 +5816,7 @@ msgstr ""
 msgid "Expand widget panel"
 msgstr ""
 
-#: client/zarafa/core/Util.js:697
+#: client/zarafa/core/Util.js:699
 msgid "Your changes will be lost if you leave this page now."
 msgstr "A változtatásai elvesznek, ha most elhagyja ezt az oldalt."
 
@@ -5980,11 +5992,11 @@ msgstr "Mind"
 msgid "Delete items"
 msgstr "Elemek törlése"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:337
 msgid "User already exists"
 msgstr "A felhasználó már létezik"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:341
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
 msgid "Group already exists"
 msgstr "A csoport már létezik"
 
@@ -6179,6 +6191,58 @@ msgstr "Vörös"
 msgid "Original message"
 msgstr "Eredeti üzenet"
 
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:35
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:164
+msgid "Your message will be sent at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:165
+msgid "Go to your <b>Outbox</b> to edit your email."
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:37
+msgid "hour(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:46
+msgid "day(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:55
+msgid "month(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:63
+msgid "at a specific time"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:135
+msgid "Sorry, the time you entered is in past. Please reschedule your mail"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:153
+msgid "today  at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:155
+msgid "tomorrow  at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:157
+msgid "{0} at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:159
+msgid "at {0}"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:161
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
 msgid "E-Mail"
@@ -6221,85 +6285,94 @@ msgstr "Email küldése"
 msgid "Send email to recipients"
 msgstr "Email küldése a címzetteknek"
 
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:96
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:98
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:100
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:101
+msgid "Send Later"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:99
+msgid "Schedule your mail to be sent on a specific time."
+msgstr ""
+
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:106
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:108
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:109
 msgid "Save email"
 msgstr "Email mentése"
 
 # 94%
 # 76%
 # 100%
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:112
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:120
 msgid "Delete this mail"
 msgstr "Levél törlése"
 
 # 86%
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:123
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:131
 msgid "Add attachments to this email"
 msgstr "Mellékletek hozzáadása az emailhez"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:147
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:149
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:155
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:157
 msgid "Add signature"
 msgstr "Aláírás hozzáadása"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:150
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:158
 msgid "Add signature to this mail"
 msgstr "Aláírás hozzáadása az emailhez"
 
 # 75%
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:186
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:188
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:194
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:196
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:142
 #: client/zarafa/mail/ui/MailGridContextMenu.js:223
 msgid "Options"
 msgstr "Lehetőségek"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:189
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:197
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:143
 msgid "Open options dialog"
 msgstr "Beállítások párbeszédpanel megnyitása"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:196
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:198
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:204
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:206
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:151
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:153
 msgid "Set flag"
 msgstr "Jelölés beállítása"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:199
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:207
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:154
 msgid "Set flag on this email"
 msgstr "Email megjelölése"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:209
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:217
 msgid "Mark this mail as high priority"
 msgstr "Levél megjelölése magas prioritásúként"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:223
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:231
 msgid "Mark this mail as low priority"
 msgstr "Levél megjelölése alacsony prioritásúként"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:234
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:236
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:242
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:244
 msgid "Set read receipt"
 msgstr "Olvasási visszaigazolás beállítása"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:237
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:245
 msgid "Request read receipt from recipients"
 msgstr "Olvasási visszaigazolás kérése a címzettektől"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:246
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:254
 msgid "Show bcc"
 msgstr "Titkos címzettek megjelenítése"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:248
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:256
 msgid "Show Bcc"
 msgstr "Titkos címzettek megjelenítése"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:249
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:257
 msgid ""
 "Show Bcc field in which you can specify the people who will recieve this "
 "message"
@@ -6307,12 +6380,12 @@ msgstr ""
 "Titkos másolat mező megjelenítése, ahol beállíthatja, hogy kik kapják meg a "
 "levelet"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:258
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:260
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:266
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:268
 msgid "Show From"
 msgstr "Feladó megjelenítése"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:261
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:269
 msgid ""
 "Show From field, If you have delegate access to another person's account, "
 "you can send e-mail that looks like that came from them by entering their "
@@ -6322,7 +6395,7 @@ msgstr ""
 "fiókjához, küldheti a levelet az ő nevében is, ezen személy nevének "
 "beírásával a feladó mezőbe"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:331
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:339
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:79
 msgid "No signatures configured"
 msgstr "Nincs aláírás beállítva"
@@ -6389,7 +6462,7 @@ msgstr "Új levél"
 #: client/zarafa/mail/KeyMapping.js:44 client/zarafa/mail/KeyMapping.js:57
 #: client/zarafa/mail/KeyMapping.js:69 client/zarafa/mail/KeyMapping.js:81
 #: client/zarafa/mail/KeyMapping.js:95 client/zarafa/mail/KeyMapping.js:107
-#: client/zarafa/mail/MailContext.js:651
+#: client/zarafa/mail/MailContext.js:655
 #: client/zarafa/mail/settings/SettingsMailCategory.js:44
 #: client/zarafa/mail/ui/MailPanel.js:91
 msgid "Mail"
@@ -6410,26 +6483,26 @@ msgid "Toggle red/complete flag"
 msgstr "Megjelölés piros/elvégzett zászlóval"
 
 # 82%
-#: client/zarafa/mail/MailContext.js:380
+#: client/zarafa/mail/MailContext.js:384
 msgid "Open Shared Mails"
 msgstr "Megosztott levelezés megnyitása"
 
-#: client/zarafa/mail/MailContext.js:400 client/zarafa/mail/MailContext.js:402
+#: client/zarafa/mail/MailContext.js:404 client/zarafa/mail/MailContext.js:406
 msgid "Email message"
 msgstr "Email üzenet"
 
 # 90%
-#: client/zarafa/mail/MailContext.js:422 client/zarafa/mail/MailContext.js:454
-#: client/zarafa/mail/MailContext.js:456
+#: client/zarafa/mail/MailContext.js:426 client/zarafa/mail/MailContext.js:458
+#: client/zarafa/mail/MailContext.js:460
 msgid "Send E-mail"
 msgstr "Email küldése"
 
-#: client/zarafa/mail/MailContext.js:457
+#: client/zarafa/mail/MailContext.js:461
 msgid "Create a new email message addressed to this recipient."
 msgstr "Új email üzenet létrehozása a címzettnek."
 
-#: client/zarafa/mail/MailContext.js:594 client/zarafa/mail/MailContext.js:596
-#: client/zarafa/mail/MailContext.js:598
+#: client/zarafa/mail/MailContext.js:598 client/zarafa/mail/MailContext.js:600
+#: client/zarafa/mail/MailContext.js:602
 msgid "Print single e-mail"
 msgstr "Email nyomtatása"
 
@@ -6581,17 +6654,17 @@ msgstr "Új üzenetek aláírása"
 msgid "Signature for replies and forwards"
 msgstr "Aláírás válaszoknál, és továbbításoknál"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:354
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:355
 msgid "<None>"
 msgstr "<Nincs>"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:510
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:627
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:511
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:628
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
 "Nem mentett változásokkal rendelkezik. El akarja menteni a változásokat?"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:676
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:677
 msgid "New signature"
 msgstr "Új aláírás"
 
@@ -6853,7 +6926,7 @@ msgstr "Téma"
 msgid "This change requires a reload of the WebApp"
 msgstr "A változtatásokhoz a WebApp újratöltése szükséges"
 
-#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:46
+#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:37
 msgid "Select Default Folder"
 msgstr "Alapértelmezett mappa kiválasztása"
 
@@ -7292,6 +7365,14 @@ msgstr "Feladat létrehozása"
 msgid "Tasks"
 msgstr "Feladatok"
 
+#: client/zarafa/task/ui/TaskContextMenu.js:62
+msgid "Mark Complete"
+msgstr ""
+
+#: client/zarafa/task/ui/TaskContextMenu.js:70
+msgid "Mark Incomplete"
+msgstr ""
+
 #: client/zarafa/task/ui/TaskGridColumnModel.js:75
 msgid "Reminder Time"
 msgstr "Emlékeztető időpontja"
@@ -7354,19 +7435,19 @@ msgstr "Rendezés: Számlázási információ szerint"
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
 
-#: client/zarafa/Zarafa.js:250
+#: client/zarafa/Zarafa.js:258
 msgid "The server reported an unknown error on your request."
 msgstr "A kiszolgáló ismeretlen hibával válaszolt a kérésre."
 
-#: client/zarafa/Zarafa.js:254
+#: client/zarafa/Zarafa.js:262
 msgid "The server reported an unspecified error on your request."
 msgstr "A kiszolgáló nem meghatározható hibával válaszolt a kérésre."
 
-#: client/zarafa/Zarafa.js:284
+#: client/zarafa/Zarafa.js:292
 msgid "The session has expired, reauthentication is required."
 msgstr "A munkamenet lejárt, újra be kell jelentkeznie."
 
-#: client/zarafa/Zarafa.js:289
+#: client/zarafa/Zarafa.js:297
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
@@ -7374,146 +7455,146 @@ msgstr ""
 "Az ebben a böngészőablakban található munkamenet be lett zárva egy másik "
 "böngésző ablak, vagy lap miatt."
 
-#: client/zarafa/Zarafa.js:301
+#: client/zarafa/Zarafa.js:309
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "Kívánja, hogy át legyen irányítva a bejelentkező oldalra?"
 
-#: client/zarafa/Zarafa.js:326
+#: client/zarafa/Zarafa.js:334
 msgid "Session expired"
 msgstr "Munkamenet lejárt"
 
-#: client/zarafa/Zarafa.js:326
+#: client/zarafa/Zarafa.js:334
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
 "Ismételt hitelesítés szükséges, kattintson ide a bejelentkezőablakra való "
 "visszatéréshez."
 
-#: client/zarafa/Zarafa.js:358
+#: client/zarafa/Zarafa.js:366
 msgid "Connection problem"
 msgstr "Kapcsolódási hiba"
 
-#: client/zarafa/Zarafa.js:359
+#: client/zarafa/Zarafa.js:367
 msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr ""
 "Nem lehetett kapcsolódni a szerverhez, újrapróbálkozás {0} másodperc múlva"
 
-#: client/zarafa/Zarafa.js:359
+#: client/zarafa/Zarafa.js:367
 msgid "Click to retry now"
 msgstr "Kattintson az újrapróbálkozáshoz most"
 
-#: client/zarafa/Zarafa.js:429
+#: client/zarafa/Zarafa.js:437
 msgid "Connection restored"
 msgstr "Kapcsolat helyreállítva"
 
-#: client/zarafa/Zarafa.js:429
+#: client/zarafa/Zarafa.js:437
 msgid "Connection with server has been restored"
 msgstr "A kapcsolat a szerverrel helyreállt"
 
 #. TRANSLATORS: Example: HTTP 404
-#: client/zarafa/Zarafa.js:451
+#: client/zarafa/Zarafa.js:459
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#: client/zarafa/Zarafa.js:455
+#: client/zarafa/Zarafa.js:463
 msgid "Invalid data received from the server"
 msgstr "A kiszolgálótól érvénytelen adat érkezett"
 
-#: client/zarafa/Zarafa.js:513
+#: client/zarafa/Zarafa.js:524
 msgid "Missing store"
 msgstr "Hiányzó tároló"
 
-#: client/zarafa/Zarafa.js:514
+#: client/zarafa/Zarafa.js:525
 msgid "The default store is missing from the hierarchy."
 msgstr "Az alapértelmezett tároló hiányzik a hierarchiából."
 
-#: client/zarafa/Zarafa.js:516 client/zarafa/Zarafa.js:589
+#: client/zarafa/Zarafa.js:527 client/zarafa/Zarafa.js:600
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr "Emiatt nem garantálható a WebApp minden funkciójának működése."
 
-#: client/zarafa/Zarafa.js:532
+#: client/zarafa/Zarafa.js:543
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Beérkezett üzenetek"
 
-#: client/zarafa/Zarafa.js:535
+#: client/zarafa/Zarafa.js:546
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
 msgstr "Kimenő üzenetek"
 
-#: client/zarafa/Zarafa.js:538
+#: client/zarafa/Zarafa.js:549
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Elküldött üzenetek"
 
-#: client/zarafa/Zarafa.js:541
+#: client/zarafa/Zarafa.js:552
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Törölt elemek"
 
 # 88%
 # 100%
-#: client/zarafa/Zarafa.js:544
+#: client/zarafa/Zarafa.js:555
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "Naptár"
 
-#: client/zarafa/Zarafa.js:547
+#: client/zarafa/Zarafa.js:558
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kapcsolatok"
 
-#: client/zarafa/Zarafa.js:550
+#: client/zarafa/Zarafa.js:561
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Vázlatok"
 
-#: client/zarafa/Zarafa.js:553
+#: client/zarafa/Zarafa.js:564
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "Napló"
 
 # 80%
 # 100%
-#: client/zarafa/Zarafa.js:556
+#: client/zarafa/Zarafa.js:567
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Jegyzet"
 
 # 100%
-#: client/zarafa/Zarafa.js:559
+#: client/zarafa/Zarafa.js:570
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Feladatok"
 
-#: client/zarafa/Zarafa.js:562
+#: client/zarafa/Zarafa.js:573
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
 msgstr "Levélszemét"
 
-#: client/zarafa/Zarafa.js:585
+#: client/zarafa/Zarafa.js:596
 msgid "Missing folders"
 msgstr "Hiányzó mappák"
 
-#: client/zarafa/Zarafa.js:587
+#: client/zarafa/Zarafa.js:598
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "A következő szükséges mappa hiányzik a hierarchiából: {0}"
 msgstr[1] "A következő szükséges mappák hiányoznak a hierarchiából: {0}"
 
-#: client/zarafa/Zarafa.js:658
+#: client/zarafa/Zarafa.js:667
 msgid "Loading model from server failed"
 msgstr "A modell betöltése a szerverről sikertelen"
 
-#: client/zarafa/Zarafa.js:853
+#: client/zarafa/Zarafa.js:862
 msgid "Out of Office currently on. Would you like to turn it off?"
 msgstr "A házon kívüli üzenet be van kapcsolva. Szeretné kikapcsolni?"
 
-#: client/zarafa/Zarafa.js:870
+#: client/zarafa/Zarafa.js:879
 msgid "Out of office off"
 msgstr "Házon kívül kikapcsolva"
 
-#: client/zarafa/Zarafa.js:870
+#: client/zarafa/Zarafa.js:879
 msgid "Out of office has been turned off"
 msgstr "Házon kívüli üzenet ki lett kapcsolva"
 
@@ -7652,51 +7733,51 @@ msgstr "Rendezés: tartalom.levél.rácsalapértelmezettoszlop"
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
-#: defaults.php:114
+#: defaults.php:115
 msgid "Charm pink"
 msgstr "Rózsaszín"
 
-#: defaults.php:119
+#: defaults.php:120
 msgid "Cadmium red"
 msgstr "Vörös"
 
-#: defaults.php:124
+#: defaults.php:125
 msgid "Apricot"
 msgstr "Barack"
 
-#: defaults.php:129
+#: defaults.php:130
 msgid "California"
 msgstr "Kalifornia"
 
-#: defaults.php:139
+#: defaults.php:140
 msgid "Soft green"
 msgstr "Világoszöld"
 
-#: defaults.php:149
+#: defaults.php:150
 msgid "Mint"
 msgstr "Menta"
 
-#: defaults.php:154
+#: defaults.php:155
 msgid "Pearl aqua"
 msgstr "Világoskék"
 
-#: defaults.php:159
+#: defaults.php:160
 msgid "Sky blue"
 msgstr "Égszínkék"
 
-#: defaults.php:164
+#: defaults.php:165
 msgid "Baby blue"
 msgstr "Babakék"
 
-#: defaults.php:169
+#: defaults.php:170
 msgid "Kopano blue"
 msgstr "Kopano kék"
 
-#: defaults.php:174
+#: defaults.php:175
 msgid "Mauve"
 msgstr "Mályva"
 
-#: defaults.php:184
+#: defaults.php:185
 msgid "Silver sand"
 msgstr "Homok"
 
@@ -7775,28 +7856,28 @@ msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
 
 #: server/includes/core/htmlfilter.php:1126
-#: server/includes/core/htmlfilter.php:1130
-#: server/includes/core/htmlfilter.php:1134
-#: server/includes/core/htmlfilter.php:1138
+#: server/includes/core/htmlfilter.php:1131
+#: server/includes/core/htmlfilter.php:1136
+#: server/includes/core/htmlfilter.php:1141
 msgid "This external link will open in a new window"
 msgstr "Ez a külső link egy új ablakban fog megnyílni"
 
-#: server/includes/download_attachment.php:498
+#: server/includes/download_attachment.php:497
 #: server/includes/download_message.php:257
 msgid "ZIP is not created successfully"
 msgstr "A ZIP fájl nem lett sikeresen létrehozva"
 
-#: server/includes/download_attachment.php:536
+#: server/includes/download_attachment.php:535
 msgid "Attachments can not be downloaded"
 msgstr "A csatolmányok nem letölthetőek"
 
 # 82%
 # 100%
-#: server/includes/download_attachment.php:553
+#: server/includes/download_attachment.php:552
 msgid "Could not find attachment."
 msgstr "A melléklet nem található."
 
-#: server/includes/download_attachment.php:616
+#: server/includes/download_attachment.php:615
 #: server/includes/download_message.php:412
 msgid "Operation failed"
 msgstr "Művelet sikertelen"
@@ -7864,16 +7945,16 @@ msgstr "Művelet sikertelen: A kiszolgáló nem rendelkezik elegendő memóriáv
 msgid "Unknown MAPI Error: %s"
 msgstr "Ismeretlen MAPI hiba: %s"
 
-#: server/includes/mapi/class.meetingrequest.php:1923
+#: server/includes/mapi/class.meetingrequest.php:1915
 msgid "Tentatively accepted"
 msgstr "Feltételesen elfogadott"
 
-#: server/includes/mapi/class.meetingrequest.php:1929
+#: server/includes/mapi/class.meetingrequest.php:1921
 msgid "New Time Proposed"
 msgstr "Új időpontjavaslat"
 
-#: server/includes/mapi/class.recurrence.php:576
-#: server/includes/mapi/class.recurrence.php:577
+#: server/includes/mapi/class.recurrence.php:573
+#: server/includes/mapi/class.recurrence.php:574
 msgid "d-m-Y"
 msgstr "n-h-É"
 
@@ -7881,33 +7962,33 @@ msgstr "n-h-É"
 # 86%
 # 76%
 # 78%
-#: server/includes/mapi/class.recurrence.php:592
+#: server/includes/mapi/class.recurrence.php:589
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig."
 
 # Have to look at it in action.
 # 77%
-#: server/includes/mapi/class.recurrence.php:594
+#: server/includes/mapi/class.recurrence.php:591
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
 # 80%
-#: server/includes/mapi/class.recurrence.php:598
+#: server/includes/mapi/class.recurrence.php:595
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "Előfordulás minden %s érvényes %s."
 
 # 75%
-#: server/includes/mapi/class.recurrence.php:600
+#: server/includes/mapi/class.recurrence.php:597
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "Előfordulás minden %s %s érvényes %s."
 
 # Have to look at it in action.
 # 76%
-#: server/includes/mapi/class.recurrence.php:607
+#: server/includes/mapi/class.recurrence.php:604
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
@@ -7917,7 +7998,7 @@ msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
 # Have to look at it in action.
 # 76%
 # 95%
-#: server/includes/mapi/class.recurrence.php:610
+#: server/includes/mapi/class.recurrence.php:607
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
@@ -7927,7 +8008,7 @@ msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
 # Have to look at it in action.
 # 77%
 # 81%
-#: server/includes/mapi/class.recurrence.php:615
+#: server/includes/mapi/class.recurrence.php:612
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
@@ -7936,7 +8017,7 @@ msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 
 # Have to look at it in action.
 # 77%
-#: server/includes/mapi/class.recurrence.php:618
+#: server/includes/mapi/class.recurrence.php:615
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
@@ -7946,7 +8027,7 @@ msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 # Have to look at it in action.
 # 76%
 # 75%
-#: server/includes/mapi/class.recurrence.php:626
+#: server/includes/mapi/class.recurrence.php:623
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
@@ -7955,7 +8036,7 @@ msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 # 76%
 # 75%
 # 94%
-#: server/includes/mapi/class.recurrence.php:628
+#: server/includes/mapi/class.recurrence.php:625
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
@@ -7964,7 +8045,7 @@ msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 # 86%
 # 76%
 # 78%
-#: server/includes/mapi/class.recurrence.php:632
+#: server/includes/mapi/class.recurrence.php:629
 #, fuzzy, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
@@ -7974,7 +8055,7 @@ msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
 # 76%
 # 78%
 # 92%
-#: server/includes/mapi/class.recurrence.php:634
+#: server/includes/mapi/class.recurrence.php:631
 #, fuzzy, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
@@ -8076,7 +8157,7 @@ msgstr "Az értekezlet meghívó nem küldhető el."
 msgid "Meeting could not be saved."
 msgstr "Az értekezlet nem menthető."
 
-#: server/includes/modules/class.appointmentlistmodule.php:304
+#: server/includes/modules/class.appointmentlistmodule.php:292
 msgid "Private Appointment"
 msgstr "Magán találkozó"
 
@@ -8095,16 +8176,16 @@ msgstr "%s évfordulója"
 msgid "Unknown user/group"
 msgstr "Ismeretlen felhasználó/csoport"
 
-#: server/includes/modules/class.delegatesmodule.php:930
+#: server/includes/modules/class.delegatesmodule.php:925
 msgid "Could not save delegate information."
 msgstr "Nem lehetett elmenteni a meghatalmazott információit."
 
 # 80%
-#: server/includes/modules/class.delegatesmodule.php:933
+#: server/includes/modules/class.delegatesmodule.php:928
 msgid "Could not delete delegate."
 msgstr "A meghatalmazottat nem sikerült törölni."
 
-#: server/includes/modules/class.delegatesmodule.php:936
+#: server/includes/modules/class.delegatesmodule.php:931
 msgid "Can not get list of delegates."
 msgstr "A meghatalmazottak listája nem kérdezhető le."
 
@@ -8232,13 +8313,13 @@ msgid "Could not copy folder"
 msgstr "A mappa nem másolható"
 
 #: server/includes/modules/class.itemmodule.php:265
-#: server/includes/modules/class.taskitemmodule.php:351
+#: server/includes/modules/class.taskitemmodule.php:347
 msgid "Task Accepted:"
 msgstr "Feladat elfogadva:"
 
 #: server/includes/modules/class.itemmodule.php:267
-#: server/includes/modules/class.taskitemmodule.php:183
-#: server/includes/modules/class.taskitemmodule.php:354
+#: server/includes/modules/class.taskitemmodule.php:179
+#: server/includes/modules/class.taskitemmodule.php:350
 msgid "Task Declined:"
 msgstr "Feladat elutasítva:"
 
@@ -8364,32 +8445,32 @@ msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
 
 # 80%
 #: server/includes/modules/class.listmodule.php:127
-#: server/includes/modules/class.maillistmodule.php:94
+#: server/includes/modules/class.maillistmodule.php:93
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Nincs megfelelő a jogosultsága a mappa elemeinek megtekintéséhez."
 
 #: server/includes/modules/class.listmodule.php:129
-#: server/includes/modules/class.maillistmodule.php:96
+#: server/includes/modules/class.maillistmodule.php:95
 msgid "Could not load the contents of this folder."
 msgstr "A mappa elemeit nem lehetett betölteni."
 
 #: server/includes/modules/class.listmodule.php:241
 #: server/includes/modules/class.listmodule.php:257
-#: server/includes/modules/class.maillistmodule.php:103
+#: server/includes/modules/class.maillistmodule.php:102
 msgid "Error in search, please try again"
 msgstr "Hiba a keresésben, próbálja újra"
 
-#: server/includes/modules/class.maillistmodule.php:101
+#: server/includes/modules/class.maillistmodule.php:100
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr ""
 "Nincs megfelelő jogosultsága ahhoz, hogy ebben a mappában keresést futtasson."
 
-#: server/includes/modules/class.maillistmodule.php:107
+#: server/includes/modules/class.maillistmodule.php:106
 msgid "Could not update search results."
 msgstr "Nem sikerült frissíteni a keresési eredményeket."
 
-#: server/includes/modules/class.maillistmodule.php:111
+#: server/includes/modules/class.maillistmodule.php:110
 msgid "Could not stop search operation."
 msgstr "Nem sikerült félbeszakítani a keresést."
 
@@ -8515,41 +8596,45 @@ msgstr "Nincs elég jogosultsága a feladat végrehajtásához."
 msgid "Could not resolve user."
 msgstr "A felhasználó nem feloldható."
 
-#: server/includes/modules/class.rulesmodule.php:252
+#: server/includes/modules/class.rulesmodule.php:249
 msgid "Untitled rule"
 msgstr "Névtelen szabály"
 
 # 83%
 # 77%
 # 76%
-#: server/includes/modules/class.rulesmodule.php:331
+#: server/includes/modules/class.rulesmodule.php:328
 msgid "Could not load rules."
 msgstr "Nem sikerült betölteni a szabályokat."
 
 # 83%
 # 77%
 # 95%
-#: server/includes/modules/class.rulesmodule.php:334
+#: server/includes/modules/class.rulesmodule.php:331
 msgid "Could not save rules."
 msgstr "Nem sikerült elmenteni a szabályokat."
 
-#: server/includes/modules/class.taskitemmodule.php:184
-#: server/includes/modules/class.taskitemmodule.php:367
+#: server/includes/modules/class.taskitemmodule.php:180
+#: server/includes/modules/class.taskitemmodule.php:363
 msgid "Task Updated:"
 msgstr "Feladat frissítve:"
 
-#: server/includes/modules/class.taskitemmodule.php:184
-#: server/includes/modules/class.taskitemmodule.php:367
+#: server/includes/modules/class.taskitemmodule.php:180
+#: server/includes/modules/class.taskitemmodule.php:363
 msgid "Task Completed:"
 msgstr "Feladat befejezve:"
 
-#: server/includes/modules/class.taskitemmodule.php:357
+#: server/includes/modules/class.taskitemmodule.php:353
 msgid "Task Request:"
 msgstr "Feladat kérés:"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
 msgstr ""
+
+#: server/includes/templates/login.php:50
+msgid "Username"
+msgstr "Felhasználónév"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
@@ -8579,32 +8664,32 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#: server/includes/util.php:501
+#: server/includes/util.php:500
 msgid "The maximum stack depth has been exceeded"
 msgstr "Túllépte a maximális csomagtartalmat"
 
-#: server/includes/util.php:504
+#: server/includes/util.php:503
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Kontrollkarakter hiba, valószínűleg rosszul lett kódolva"
 
-#: server/includes/util.php:507
+#: server/includes/util.php:506
 msgid "Invalid or malformed JSON"
 msgstr "Rossz JSON"
 
-#: server/includes/util.php:510
+#: server/includes/util.php:509
 msgid "Syntax error"
 msgstr "Szintaxishiba"
 
-#: server/includes/util.php:513
+#: server/includes/util.php:512
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Rossz UTF-8 karakterek, valószínűleg rosszul lettek kódolva"
 
-#: server/includes/util.php:518
+#: server/includes/util.php:517
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON hiba: - %s"
 
-#: server/includes/util.php:518
+#: server/includes/util.php:517
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Néhány probléma merült fel a JSON adatainak kódolása/dekódolása közben."

@@ -227,7 +227,7 @@ msgstr "OK"
 
 #: client/extjs-mod/Translations.js:177 client/extjs-mod/Translations.js:283
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:90
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:39
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:40
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:44
 #: client/zarafa/calendar/dialogs/SendMeetingRequestCancellationContentPanel.js:41
 #: client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationContentPanel.js:46
@@ -250,6 +250,7 @@ msgstr "OK"
 #: client/zarafa/hierarchy/dialogs/FolderPropertiesContentPanel.js:39
 #: client/zarafa/hierarchy/dialogs/FolderSelectionContentPanel.js:51
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:55
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:52
 #: client/zarafa/mail/dialogs/MailCreateOptionsContentPanel.js:38
 #: client/zarafa/mail/dialogs/MailFlagsContentPanel.js:46
 #: client/zarafa/mail/dialogs/MailViewOptionsContentPanel.js:38
@@ -449,7 +450,7 @@ msgstr "(None)"
 
 #: client/extjs-mod/Translations.js:282
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:86
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:35
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:36
 #: client/zarafa/calendar/dialogs/ProposeNewTimeContentPanel.js:40
 #: client/zarafa/calendar/dialogs/SendMeetingRequestCancellationContentPanel.js:37
 #: client/zarafa/calendar/dialogs/SendMeetingRequestConfirmationContentPanel.js:42
@@ -568,13 +569,15 @@ msgstr "{0}は有効な時間ではありません。"
 #: client/zarafa/mail/settings/SettingsOofWidget.js:130
 #: plugins/folderwidgets/js/AppointmentsWidget.js:130
 #: plugins/folderwidgets/js/AppointmentsWidget.js:132
-#: server/includes/mapi/class.recurrence.php:578
-#: server/includes/mapi/class.recurrence.php:579
+#: server/includes/mapi/class.recurrence.php:575
+#: server/includes/mapi/class.recurrence.php:576
 msgid "G:i"
 msgstr "G:i"
 
 #: client/extjs-mod/Translations.js:344
 #: client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:50
+#: client/zarafa/addressbook/ui/GABColumnModel.js:53
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:39
 #: client/zarafa/calendar/dialogs/TrackingTab.js:45
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:61
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:66
@@ -646,8 +649,8 @@ msgstr "一般"
 
 #: client/zarafa/addressbook/dialogs/ABGroupGeneralTab.js:52
 #: client/zarafa/addressbook/dialogs/ABItemGrid.js:35
-#: client/zarafa/addressbook/ui/GABColumnModel.js:53
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:39
+#: client/zarafa/addressbook/ui/GABColumnModel.js:59
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:45
 #: client/zarafa/settings/ui/SettingsAccountWidget.js:77
 #: client/zarafa/settings/ui/SettingsPluginsWidget.js:111
 msgid "Display Name"
@@ -692,8 +695,8 @@ msgid "Members"
 msgstr "メンバー"
 
 #: client/zarafa/addressbook/dialogs/ABItemGrid.js:40
-#: client/zarafa/addressbook/ui/GABColumnModel.js:73
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:51
+#: client/zarafa/addressbook/ui/GABColumnModel.js:90
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:60
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:65
 msgid "Email Address"
 msgstr "Emailアドレス"
@@ -710,13 +713,13 @@ msgstr "メンバー"
 msgid "Group Membership"
 msgstr "グループメンバー"
 
-#: client/zarafa/addressbook/dialogs/ABMultiUserSelectionContentPanel.js:67
-#: client/zarafa/addressbook/dialogs/ABUserSelectionContentPanel.js:50
+#: client/zarafa/addressbook/dialogs/ABMultiUserSelectionContentPanel.js:66
+#: client/zarafa/addressbook/dialogs/ABUserSelectionContentPanel.js:49
 #: client/zarafa/addressbook/dialogs/AddressBookContentPanel.js:35
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:68
 #: client/zarafa/core/ui/MainToolbar.js:389
 #: client/zarafa/core/ui/MainToolbar.js:390
-#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:42
+#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:33
 msgid "Address Book"
 msgstr "アドレス帳"
 
@@ -784,7 +787,7 @@ msgid "Company"
 msgstr "会社"
 
 #: client/zarafa/addressbook/dialogs/ABUserGeneralTab.js:198
-#: client/zarafa/addressbook/ui/GABColumnModel.js:88
+#: client/zarafa/addressbook/ui/GABColumnModel.js:97
 #: client/zarafa/contact/dialogs/ContactDetailTab.js:60
 #: client/zarafa/contact/printer/ContactRenderer.js:26
 msgid "Department"
@@ -840,7 +843,7 @@ msgid "Business2"
 msgstr "ビジネス"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:86
-#: client/zarafa/addressbook/ui/GABColumnModel.js:135
+#: client/zarafa/addressbook/ui/GABColumnModel.js:144
 msgid "Fax"
 msgstr "Fax"
 
@@ -861,7 +864,7 @@ msgid "Home2"
 msgstr "ホーム2"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:122
-#: client/zarafa/addressbook/ui/GABColumnModel.js:103
+#: client/zarafa/addressbook/ui/GABColumnModel.js:112
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:78
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:35
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:262
@@ -874,7 +877,7 @@ msgid "Mobile"
 msgstr "モバイル"
 
 #: client/zarafa/addressbook/dialogs/ABUserPhoneTab.js:126
-#: client/zarafa/addressbook/ui/GABColumnModel.js:119
+#: client/zarafa/addressbook/ui/GABColumnModel.js:128
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:38
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:546
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:281
@@ -882,7 +885,7 @@ msgid "Pager"
 msgstr "ポケベル"
 
 #: client/zarafa/addressbook/ui/ABMultiUserSelectionPanel.js:208
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:139
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:140
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:253
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:314
 #: client/zarafa/calendar/dialogs/AppointmentContentPanel.js:432
@@ -919,14 +922,14 @@ msgstr "ポケベル"
 #: client/zarafa/hierarchy/dialogs/SharedFolderContentPanel.js:131
 #: client/zarafa/hierarchy/ui/ContextMenu.js:356
 #: client/zarafa/hierarchy/ui/ContextMenu.js:393
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:509
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:626
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:510
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:627
 #: client/zarafa/settings/SettingsContext.js:65
 #: client/zarafa/settings/SettingsContext.js:160
 #: client/zarafa/settings/SettingsContext.js:330
 #: client/zarafa/settings/ui/SettingsCopyrightWidget.js:27
 #: client/zarafa/settings/ui/SettingsTreePanel.js:234
-#: client/zarafa/Zarafa.js:300 client/zarafa/Zarafa.js:852
+#: client/zarafa/Zarafa.js:308 client/zarafa/Zarafa.js:861
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -934,7 +937,7 @@ msgstr "Kopano WebApp"
 msgid "You must select one or more users."
 msgstr "１つもしくは複数のユーザーを選択して下さい。"
 
-#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:140
+#: client/zarafa/addressbook/ui/ABUserSelectionPanel.js:141
 msgid "You must select a user."
 msgstr "ユーザーを選択して下さい。"
 
@@ -948,7 +951,11 @@ msgstr "選択"
 msgid "Show Details"
 msgstr "詳細を表示"
 
-#: client/zarafa/addressbook/ui/AddressBookGrid.js:33
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:42
+msgid "Use the search bar to get results"
+msgstr ""
+
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:49
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:47
 #: client/zarafa/common/ui/grid/GridView.js:39
 #: client/zarafa/contact/ui/ContactCardView.js:57
@@ -956,13 +963,13 @@ msgstr "詳細を表示"
 msgid "There are no items to show in this view"
 msgstr "このビューで表示するアイテムがありません"
 
-#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:133
-msgid "Type Name"
-msgstr "連絡先の検索"
-
-#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:151
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:154
 msgid "Show Names from the"
 msgstr "連絡先の取得元"
+
+#: client/zarafa/addressbook/ui/AddressBookMainPanel.js:220
+msgid "Search..."
+msgstr ""
 
 #: client/zarafa/addressbook/ui/GABColumnModel.js:45
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:31
@@ -983,13 +990,21 @@ msgstr "連絡先の取得元"
 msgid "Sort by: Icon"
 msgstr "並べ替え：アイコン"
 
+# 76%
 #: client/zarafa/addressbook/ui/GABColumnModel.js:55
 #: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:41
+#: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:386
+#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:52
+msgid "Sort by: Name"
+msgstr "並べ替え順 : 名前"
+
+#: client/zarafa/addressbook/ui/GABColumnModel.js:61
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:47
 msgid "Sort by: Display Name"
 msgstr "並べ替え：表示名"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:59
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:45
+#: client/zarafa/addressbook/ui/GABColumnModel.js:66
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:52
 #: client/zarafa/common/ui/contactpanel/ContactBody.js:59
 #: client/zarafa/contact/data/SearchFields.js:15
 #: client/zarafa/contact/dialogs/ContactGeneralTab.js:141
@@ -997,78 +1012,77 @@ msgid "File as"
 msgstr "ファイル"
 
 # 75%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:61
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:47
+#: client/zarafa/addressbook/ui/GABColumnModel.js:69
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:55
 #: client/zarafa/contact/attachitem/AttachContactColumnModel.js:61
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:55
 msgid "Sort by: File As"
 msgstr "並べ替え：ファイル"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:65
-#: server/includes/templates/login.php:50
-msgid "Username"
-msgstr "ユーザ名"
+# 80%
+#: client/zarafa/addressbook/ui/GABColumnModel.js:74
+#: client/zarafa/contact/attachitem/AttachContactRenderer.js:21
+#: client/zarafa/contact/printer/ContactRenderer.js:24
+msgid "First Name"
+msgstr "最初のページ"
 
-# 75%
-# 82%
-# 100%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:68
-msgid "Sort by: Username"
-msgstr "並べ替え：ユーザ名"
-
-#: client/zarafa/addressbook/ui/GABColumnModel.js:75
-#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:54
-#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:57
-msgid "Sort by: Email Address"
-msgstr "並べ替え：Emailアドレス"
+#: client/zarafa/addressbook/ui/GABColumnModel.js:77
+msgid "Sort by: First Name"
+msgstr ""
 
 # 77%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:80
+#: client/zarafa/addressbook/ui/GABColumnModel.js:82
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:20
 #: client/zarafa/contact/printer/ContactRenderer.js:23
 msgid "Last Name"
 msgstr "最後のページ"
 
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:83
+#: client/zarafa/addressbook/ui/GABColumnModel.js:85
 msgid "Sort by: Last Name"
 msgstr "並べ替え：名前（性）"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:91
+#: client/zarafa/addressbook/ui/GABColumnModel.js:92
+#: client/zarafa/addressbook/ui/GABPersonalColumnModel.js:63
+#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:57
+msgid "Sort by: Email Address"
+msgstr "並べ替え：Emailアドレス"
+
+#: client/zarafa/addressbook/ui/GABColumnModel.js:100
 msgid "Sort by: Department"
 msgstr "並べ替え：部署"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:96
+#: client/zarafa/addressbook/ui/GABColumnModel.js:105
 msgid "Office Phone"
 msgstr "職場の電話番号"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:98
+#: client/zarafa/addressbook/ui/GABColumnModel.js:107
 msgid "Sort by: Office Phone"
 msgstr "並べ替え：職場の電話番号"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:106
+#: client/zarafa/addressbook/ui/GABColumnModel.js:115
 msgid "Sort by: Mobile"
 msgstr "並べ替え：携帯電話番号"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:111
+#: client/zarafa/addressbook/ui/GABColumnModel.js:120
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:33
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:82
 msgid "Home Phone"
 msgstr "自宅の電話番号"
 
 # 76%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:114
+#: client/zarafa/addressbook/ui/GABColumnModel.js:123
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:83
 msgid "Sort by: Home Phone"
 msgstr "並べ替え：自宅の電話番号"
 
 # 78%
-#: client/zarafa/addressbook/ui/GABColumnModel.js:122
+#: client/zarafa/addressbook/ui/GABColumnModel.js:131
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:283
 msgid "Sort by: Pager"
 msgstr "並べ替え：ポケベル"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:127
+#: client/zarafa/addressbook/ui/GABColumnModel.js:136
 #: client/zarafa/calendar/data/SearchFields.js:28
 #: client/zarafa/calendar/dialogs/AppointmentTab.js:264
 #: client/zarafa/calendar/printer/MeetingRenderer.js:24
@@ -1079,12 +1093,12 @@ msgstr "並べ替え：ポケベル"
 msgid "Location"
 msgstr "場所"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:129
+#: client/zarafa/addressbook/ui/GABColumnModel.js:139
 #: client/zarafa/calendar/ui/CalendarGridColumnModel.js:85
 msgid "Sort by: Location"
 msgstr "並べ替え：場所"
 
-#: client/zarafa/addressbook/ui/GABColumnModel.js:137
+#: client/zarafa/addressbook/ui/GABColumnModel.js:147
 msgid "Sort by: Fax"
 msgstr "並べ替え：Fax"
 
@@ -1349,10 +1363,10 @@ msgstr ""
 #: client/zarafa/common/rules/ui/RulesGrid.js:349
 #: client/zarafa/common/rules/ui/RulesGrid.js:354
 #: client/zarafa/common/ui/SearchField.js:146
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:343
-#: client/zarafa/Zarafa.js:258 client/zarafa/Zarafa.js:260
-#: client/zarafa/Zarafa.js:297 client/zarafa/Zarafa.js:454
-#: client/zarafa/Zarafa.js:658
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:341
+#: client/zarafa/Zarafa.js:266 client/zarafa/Zarafa.js:268
+#: client/zarafa/Zarafa.js:305 client/zarafa/Zarafa.js:462
+#: client/zarafa/Zarafa.js:667
 msgid "Error"
 msgstr "エラー"
 
@@ -1397,27 +1411,27 @@ msgid "Could not open default calendar folder."
 msgstr "初期カレンダーフォルダーを開くことができません"
 
 #: client/zarafa/calendar/AppointmentRecord.js:189
-#: server/includes/mapi/class.recurrence.php:527
+#: server/includes/mapi/class.recurrence.php:524
 msgid "workday"
 msgstr "平日"
 
 #: client/zarafa/calendar/AppointmentRecord.js:192
-#: server/includes/mapi/class.recurrence.php:530
+#: server/includes/mapi/class.recurrence.php:527
 msgid "day"
 msgstr "日"
 
 #: client/zarafa/calendar/AppointmentRecord.js:196
-#: server/includes/mapi/class.recurrence.php:534
+#: server/includes/mapi/class.recurrence.php:531
 msgid "days"
 msgstr "日"
 
 #: client/zarafa/calendar/AppointmentRecord.js:202
-#: server/includes/mapi/class.recurrence.php:541
+#: server/includes/mapi/class.recurrence.php:538
 msgid "week"
 msgstr "週"
 
 #: client/zarafa/calendar/AppointmentRecord.js:205
-#: server/includes/mapi/class.recurrence.php:544
+#: server/includes/mapi/class.recurrence.php:541
 msgid "weeks"
 msgstr "週"
 
@@ -1426,22 +1440,22 @@ msgid " on "
 msgstr ""
 
 #: client/zarafa/calendar/AppointmentRecord.js:214
-#: server/includes/mapi/class.recurrence.php:551
+#: server/includes/mapi/class.recurrence.php:548
 msgid "month"
 msgstr "月"
 
 #: client/zarafa/calendar/AppointmentRecord.js:217
-#: server/includes/mapi/class.recurrence.php:554
+#: server/includes/mapi/class.recurrence.php:551
 msgid "months"
 msgstr "月"
 
 #: client/zarafa/calendar/AppointmentRecord.js:224
-#: server/includes/mapi/class.recurrence.php:562
+#: server/includes/mapi/class.recurrence.php:559
 msgid "year"
 msgstr "年"
 
 #: client/zarafa/calendar/AppointmentRecord.js:228
-#: server/includes/mapi/class.recurrence.php:566
+#: server/includes/mapi/class.recurrence.php:563
 msgid "years"
 msgstr "年"
 
@@ -1738,7 +1752,7 @@ msgstr "概要を印刷"
 #: client/zarafa/contact/ui/ContactContextMenu.js:60
 #: client/zarafa/core/ui/MainToolbar.js:331
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:239
-#: client/zarafa/mail/MailContext.js:616
+#: client/zarafa/mail/MailContext.js:620
 #: client/zarafa/mail/ui/MailGridContextMenu.js:107
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:91
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:93
@@ -2028,6 +2042,7 @@ msgstr "会議出席依頼を送信"
 
 # 75%
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:58
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:42
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:83
 #: plugins/quickitems/js/QuickMailWidget.js:96
 msgid "Send"
@@ -2044,7 +2059,7 @@ msgstr "会議出席依頼を宛先に送信します。"
 #: client/zarafa/common/rules/dialogs/RulesEditContentPanel.js:37
 #: client/zarafa/contact/dialogs/ContactToolbar.js:54
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:53
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:176
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:177
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:54
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:57
 #: client/zarafa/task/dialogs/TaskToolbar.js:68
@@ -2086,15 +2101,15 @@ msgstr "変更内容を保存するが会議出席依頼を送信しない。"
 #: client/zarafa/contact/dialogs/ContactToolbar.js:67
 #: client/zarafa/contact/dialogs/DistlistContentPanelToolbar.js:69
 #: client/zarafa/contact/ui/ContactContextMenu.js:76
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:109
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:111
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:117
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:119
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:100
 #: client/zarafa/mail/ui/MailGridContextMenu.js:215
 #: client/zarafa/note/dialogs/NoteEditToolbar.js:70
 #: client/zarafa/note/ui/NoteContextMenu.js:82
 #: client/zarafa/task/dialogs/TaskToolbar.js:81
 #: client/zarafa/task/dialogs/TaskToolbar.js:83
-#: client/zarafa/task/ui/TaskContextMenu.js:81
+#: client/zarafa/task/ui/TaskContextMenu.js:97
 msgid "Delete"
 msgstr "削除"
 
@@ -2104,8 +2119,8 @@ msgstr "この予定を削除する"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:109
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:111
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:120
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:122
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:128
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:130
 #: client/zarafa/task/dialogs/TaskToolbar.js:94
 msgid "Add attachment"
 msgstr "添付ファイルを追加"
@@ -2125,15 +2140,15 @@ msgstr "この予定を印刷"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:156
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:158
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:137
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:139
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:145
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:147
 #: client/zarafa/task/dialogs/TaskToolbar.js:130
 #: client/zarafa/task/dialogs/TaskToolbar.js:132
 msgid "Check names"
 msgstr "名前の確認"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:159
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:140
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:148
 #: client/zarafa/task/dialogs/TaskToolbar.js:133
 msgid "Check all recipient names"
 msgstr "全受信者の名前を確認する"
@@ -2165,8 +2180,8 @@ msgstr ""
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:237
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:239
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:206
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:208
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:214
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:216
 msgid "High priority"
 msgstr "高優先度"
 
@@ -2177,8 +2192,8 @@ msgstr "この予定を高優先にする"
 
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:252
 #: client/zarafa/calendar/dialogs/AppointmentToolbar.js:254
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:220
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:222
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:228
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:230
 msgid "Low priority"
 msgstr "低優先度"
 
@@ -2214,7 +2229,7 @@ msgstr "この予定を低優先にする"
 #: client/zarafa/task/dialogs/TaskToolbar.js:212
 #: client/zarafa/task/dialogs/TaskToolbar.js:214
 #: client/zarafa/task/printer/TaskRenderer.js:42
-#: client/zarafa/task/ui/TaskContextMenu.js:73
+#: client/zarafa/task/ui/TaskContextMenu.js:89
 #: client/zarafa/task/ui/TaskGridColumnModel.js:116
 msgid "Categories"
 msgstr "カテゴリー"
@@ -3121,7 +3136,7 @@ msgid "Attach Item"
 msgstr "アイテムを添付する"
 
 #: client/zarafa/common/attachment/dialogs/AttachItemPanel.js:257
-#: client/zarafa/mail/MailContext.js:616
+#: client/zarafa/mail/MailContext.js:620
 msgid "No message selected"
 msgstr "メッセージが選択されていません"
 
@@ -3241,7 +3256,7 @@ msgstr "複数の{0}が見つかりました。"
 #: client/zarafa/common/checknames/dialogs/CheckNamesPanel.js:119
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:129
 #: client/zarafa/common/delegates/ui/DelegatesGrid.js:153
-#: client/zarafa/common/delegates/ui/DelegatesPanel.js:185
+#: client/zarafa/common/delegates/ui/DelegatesPanel.js:183
 #: client/zarafa/common/sendas/ui/SendAsGrid.js:91
 #: client/zarafa/common/sendas/ui/SendAsPanel.js:197
 msgid "Alert"
@@ -3367,7 +3382,7 @@ msgstr "削除"
 msgid "Permission"
 msgstr "許可"
 
-#: client/zarafa/common/delegates/ui/DelegatesPanel.js:185
+#: client/zarafa/common/delegates/ui/DelegatesPanel.js:183
 msgid "Delegate already exists in the list."
 msgstr "代理人は既に設定されています。"
 
@@ -3827,12 +3842,6 @@ msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
 msgstr[0] "トータルで{0}個復旧可能なアイテムがあります。"
 
-# 76%
-#: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:386
-#: client/zarafa/contact/dialogs/DistlistMemberGridColumnModel.js:52
-msgid "Sort by: Name"
-msgstr "並べ替え順 : 名前"
-
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:391
 #: client/zarafa/common/restoreitem/dialogs/RestoreItemPanel.js:444
 msgid "Deleted On"
@@ -3975,6 +3984,10 @@ msgstr ""
 msgid "has my name in the To field"
 msgstr ""
 
+#: client/zarafa/common/rules/data/ConditionProfiles.js:53
+msgid "is received (all messages)"
+msgstr ""
+
 #: client/zarafa/common/rules/dialogs/FolderSelectionLink.js:18
 #: client/zarafa/common/rules/dialogs/RulesActionsContainer.js:99
 #: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:99
@@ -4011,11 +4024,11 @@ msgstr "条件を追加"
 msgid "Remove condition"
 msgstr "条件を外す"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:373
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:399
 msgid "Unknown condition"
 msgstr "不明な条件"
 
-#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:374
+#: client/zarafa/common/rules/dialogs/RulesConditionContainer.js:400
 msgid "This condition for the current rule is unknown"
 msgstr "現在の仕訳ルールのこの条件は不明です。"
 
@@ -4156,19 +4169,19 @@ msgstr ""
 
 #: client/zarafa/common/ui/CommonViewButtons.js:38
 #: client/zarafa/common/ui/CommonViewButtons.js:40
-#: client/zarafa/mail/MailContext.js:535 client/zarafa/mail/MailContext.js:537
+#: client/zarafa/mail/MailContext.js:539 client/zarafa/mail/MailContext.js:541
 msgid "No preview"
 msgstr "プレビュー無し"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:48
 #: client/zarafa/common/ui/CommonViewButtons.js:50
-#: client/zarafa/mail/MailContext.js:545 client/zarafa/mail/MailContext.js:547
+#: client/zarafa/mail/MailContext.js:549 client/zarafa/mail/MailContext.js:551
 msgid "Right preview"
 msgstr "右側プレビュー"
 
 #: client/zarafa/common/ui/CommonViewButtons.js:58
 #: client/zarafa/common/ui/CommonViewButtons.js:60
-#: client/zarafa/mail/MailContext.js:555 client/zarafa/mail/MailContext.js:557
+#: client/zarafa/mail/MailContext.js:559 client/zarafa/mail/MailContext.js:561
 msgid "Bottom preview"
 msgstr "下側プレビュー"
 
@@ -4490,15 +4503,19 @@ msgstr "メモ"
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:69
 #: client/zarafa/core/BrowserWindowMgr.js:596
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:283
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:291
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:185
 msgid "Open in new browser window"
 msgstr ""
 
 #: client/zarafa/common/ui/PreviewPanelToolbarButtons.js:70
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:284
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:292
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:186
 msgid "Pop-Out"
+msgstr ""
+
+#: client/zarafa/common/ui/RadioSpinnerField.js:34
+msgid "in"
 msgstr ""
 
 #: client/zarafa/common/ui/SearchField.js:31
@@ -4617,12 +4634,6 @@ msgstr "並べ替え：役職"
 #: plugins/quickitems/js/QuickContactWidget.js:62
 msgid "Full Name"
 msgstr "氏名"
-
-# 80%
-#: client/zarafa/contact/attachitem/AttachContactRenderer.js:21
-#: client/zarafa/contact/printer/ContactRenderer.js:24
-msgid "First Name"
-msgstr "最初のページ"
 
 #: client/zarafa/contact/attachitem/AttachContactRenderer.js:23
 #: client/zarafa/contact/ui/ContactGridColumnModel.js:119
@@ -5350,7 +5361,7 @@ msgid ""
 msgstr ""
 
 #: client/zarafa/core/data/IPMAttachmentRecord.js:27
-#: server/includes/core/class.operations.php:2924
+#: server/includes/core/class.operations.php:2923
 #: server/includes/download_message.php:178
 #: server/includes/download_message.php:243
 #: server/includes/modules/class.contactitemmodule.php:358
@@ -5389,7 +5400,7 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
-#: client/zarafa/core/data/IPMRecord.js:193
+#: client/zarafa/core/data/IPMRecord.js:194
 msgid "{0} on behalf of {1}"
 msgstr "{1}の代わりとして{0}"
 
@@ -5451,9 +5462,9 @@ msgstr "高"
 
 # 75%
 #: client/zarafa/core/mapi/MeetingStatus.js:60
-#: server/includes/mapi/class.meetingrequest.php:1278
-#: server/includes/mapi/class.meetingrequest.php:1286
-#: server/includes/mapi/class.meetingrequest.php:3051
+#: server/includes/mapi/class.meetingrequest.php:1276
+#: server/includes/mapi/class.meetingrequest.php:1284
+#: server/includes/mapi/class.meetingrequest.php:3041
 msgid "Canceled"
 msgstr "キャンセル"
 
@@ -5465,12 +5476,12 @@ msgstr "青"
 
 #: client/zarafa/core/mapi/NoteColor.js:36
 #: client/zarafa/mail/data/MailFlags.js:27
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:144
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:145
 msgid "Green"
 msgstr "緑"
 
 #: client/zarafa/core/mapi/NoteColor.js:39
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:109
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:110
 msgid "Pink"
 msgstr "ピンク"
 
@@ -5481,7 +5492,7 @@ msgstr "白"
 
 #: client/zarafa/core/mapi/NoteColor.js:47
 #: client/zarafa/mail/data/MailFlags.js:22
-#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:134
+#: client/zarafa/note/dialogs/NoteEditToolbar.js:110 defaults.php:135
 msgid "Yellow"
 msgstr "黄"
 
@@ -5499,12 +5510,12 @@ msgstr "未回答"
 
 # 75%
 #: client/zarafa/core/mapi/ResponseStatus.js:68
-#: server/includes/mapi/class.meetingrequest.php:1915
+#: server/includes/mapi/class.meetingrequest.php:1907
 msgid "Accepted"
 msgstr "承諾"
 
 #: client/zarafa/core/mapi/ResponseStatus.js:70
-#: server/includes/mapi/class.meetingrequest.php:1919
+#: server/includes/mapi/class.meetingrequest.php:1911
 msgid "Declined"
 msgstr "拒否"
 
@@ -5563,11 +5574,11 @@ msgid "Orange"
 msgstr "オレンジ"
 
 #: client/zarafa/core/themes/purple/js/ThemePurple.js:13
-#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:179
+#: client/zarafa/mail/data/MailFlags.js:37 defaults.php:180
 msgid "Purple"
 msgstr "紫"
 
-#: client/zarafa/core/ui/MainTabbar.js:79
+#: client/zarafa/core/ui/MainTabbar.js:83
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -5699,7 +5710,7 @@ msgstr ""
 msgid "Expand widget panel"
 msgstr ""
 
-#: client/zarafa/core/Util.js:697
+#: client/zarafa/core/Util.js:699
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
@@ -5871,11 +5882,11 @@ msgstr "全て"
 msgid "Delete items"
 msgstr "アイテム削除"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:337
 msgid "User already exists"
 msgstr "ユーザーは既に登録されています。"
 
-#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:341
+#: client/zarafa/hierarchy/dialogs/FolderPropertiesPermissionTab.js:339
 msgid "Group already exists"
 msgstr "グループは既に登録されています。"
 
@@ -6067,6 +6078,58 @@ msgstr "赤"
 msgid "Original message"
 msgstr "オリジナル本文"
 
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:35
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:164
+msgid "Your message will be sent at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:165
+msgid "Go to your <b>Outbox</b> to edit your email."
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:37
+msgid "hour(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:46
+msgid "day(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:55
+msgid "month(s)"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:63
+msgid "at a specific time"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:135
+msgid "Sorry, the time you entered is in past. Please reschedule your mail"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:153
+msgid "today  at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:155
+msgid "tomorrow  at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:157
+msgid "{0} at "
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:159
+msgid "at {0}"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:161
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
 msgid "E-Mail"
@@ -6107,85 +6170,94 @@ msgstr "送信メール"
 msgid "Send email to recipients"
 msgstr "電子メールを宛先に送信します。"
 
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:96
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:98
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:100
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:101
+msgid "Send Later"
+msgstr ""
+
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:99
+msgid "Schedule your mail to be sent on a specific time."
+msgstr ""
+
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:106
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:108
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:109
 msgid "Save email"
 msgstr "メールの保存"
 
 # 94%
 # 76%
 # 100%
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:112
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:120
 msgid "Delete this mail"
 msgstr "このアイテムを削除"
 
 # 86%
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:123
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:131
 msgid "Add attachments to this email"
 msgstr "このメールに添付ファイルを追加する"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:147
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:149
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:155
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:157
 msgid "Add signature"
 msgstr "署名を追加する"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:150
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:158
 msgid "Add signature to this mail"
 msgstr "このメールに署名を追加する"
 
 # オプション
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:186
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:188
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:194
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:196
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:140
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:142
 #: client/zarafa/mail/ui/MailGridContextMenu.js:223
 msgid "Options"
 msgstr "オプション"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:189
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:197
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:143
 msgid "Open options dialog"
 msgstr "オプションダイアログを開く"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:196
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:198
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:204
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:206
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:151
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:153
 msgid "Set flag"
 msgstr "フラグ設定"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:199
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:207
 #: client/zarafa/mail/dialogs/ShowMailToolbar.js:154
 msgid "Set flag on this email"
 msgstr "このメールにフラグを設定する"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:209
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:217
 msgid "Mark this mail as high priority"
 msgstr ""
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:223
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:231
 msgid "Mark this mail as low priority"
 msgstr ""
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:234
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:236
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:242
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:244
 msgid "Set read receipt"
 msgstr "開封通知を設定する"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:237
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:245
 msgid "Request read receipt from recipients"
 msgstr "受信者に開封通知を要求する"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:246
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:254
 msgid "Show bcc"
 msgstr "Bccを表示"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:248
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:256
 msgid "Show Bcc"
 msgstr "Bccを表示"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:249
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:257
 msgid ""
 "Show Bcc field in which you can specify the people who will recieve this "
 "message"
@@ -6193,12 +6265,12 @@ msgstr ""
 "[Bcc]ボックスを表示します。このボックスには他の受信者には秘密でメッセージを送"
 "る宛先を指定します。"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:258
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:260
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:266
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:268
 msgid "Show From"
 msgstr "送信者を表示"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:261
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:269
 msgid ""
 "Show From field, If you have delegate access to another person's account, "
 "you can send e-mail that looks like that came from them by entering their "
@@ -6208,7 +6280,7 @@ msgstr ""
 "ている場合[差出人]ボックスにその人の名前を入力すると、その人からのメッセージ"
 "として電子メールを送信できます。"
 
-#: client/zarafa/mail/dialogs/MailCreateToolbar.js:331
+#: client/zarafa/mail/dialogs/MailCreateToolbar.js:339
 #: client/zarafa/mail/settings/SettingsSignaturesWidget.js:79
 msgid "No signatures configured"
 msgstr "署名が設定されていません。"
@@ -6275,7 +6347,7 @@ msgstr "新規メール"
 #: client/zarafa/mail/KeyMapping.js:44 client/zarafa/mail/KeyMapping.js:57
 #: client/zarafa/mail/KeyMapping.js:69 client/zarafa/mail/KeyMapping.js:81
 #: client/zarafa/mail/KeyMapping.js:95 client/zarafa/mail/KeyMapping.js:107
-#: client/zarafa/mail/MailContext.js:651
+#: client/zarafa/mail/MailContext.js:655
 #: client/zarafa/mail/settings/SettingsMailCategory.js:44
 #: client/zarafa/mail/ui/MailPanel.js:91
 msgid "Mail"
@@ -6296,25 +6368,25 @@ msgid "Toggle red/complete flag"
 msgstr ""
 
 # 82%
-#: client/zarafa/mail/MailContext.js:380
+#: client/zarafa/mail/MailContext.js:384
 msgid "Open Shared Mails"
 msgstr "共有メールを開く"
 
-#: client/zarafa/mail/MailContext.js:400 client/zarafa/mail/MailContext.js:402
+#: client/zarafa/mail/MailContext.js:404 client/zarafa/mail/MailContext.js:406
 msgid "Email message"
 msgstr "メールメッセージ"
 
-#: client/zarafa/mail/MailContext.js:422 client/zarafa/mail/MailContext.js:454
-#: client/zarafa/mail/MailContext.js:456
+#: client/zarafa/mail/MailContext.js:426 client/zarafa/mail/MailContext.js:458
+#: client/zarafa/mail/MailContext.js:460
 msgid "Send E-mail"
 msgstr "メール送信"
 
-#: client/zarafa/mail/MailContext.js:457
+#: client/zarafa/mail/MailContext.js:461
 msgid "Create a new email message addressed to this recipient."
 msgstr "この受信者のアドレスに新たにメールを作成する。"
 
-#: client/zarafa/mail/MailContext.js:594 client/zarafa/mail/MailContext.js:596
-#: client/zarafa/mail/MailContext.js:598
+#: client/zarafa/mail/MailContext.js:598 client/zarafa/mail/MailContext.js:600
+#: client/zarafa/mail/MailContext.js:602
 msgid "Print single e-mail"
 msgstr "メールを印刷する"
 
@@ -6464,16 +6536,16 @@ msgstr "新しいメッセージの署名"
 msgid "Signature for replies and forwards"
 msgstr "返信と転送の署名"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:354
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:355
 msgid "<None>"
 msgstr "<None>"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:510
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:627
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:511
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:628
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "保存されていない変更があります。変更を保存しますか？"
 
-#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:676
+#: client/zarafa/mail/settings/SettingsSignaturesWidget.js:677
 msgid "New signature"
 msgstr "新しい署名"
 
@@ -6732,7 +6804,7 @@ msgstr ""
 msgid "This change requires a reload of the WebApp"
 msgstr "この変更を反映するにはWebAppの再表示が必要となります。"
 
-#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:46
+#: client/zarafa/settings/ui/SettingsAddressBookWidget.js:37
 msgid "Select Default Folder"
 msgstr ""
 
@@ -7169,6 +7241,14 @@ msgstr ""
 msgid "Tasks"
 msgstr "タスク"
 
+#: client/zarafa/task/ui/TaskContextMenu.js:62
+msgid "Mark Complete"
+msgstr ""
+
+#: client/zarafa/task/ui/TaskContextMenu.js:70
+msgid "Mark Incomplete"
+msgstr ""
+
 #: client/zarafa/task/ui/TaskGridColumnModel.js:75
 msgid "Reminder Time"
 msgstr "リマインダー　時間"
@@ -7233,165 +7313,165 @@ msgstr "並べ替え：請求書情報"
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
 
-#: client/zarafa/Zarafa.js:250
+#: client/zarafa/Zarafa.js:258
 msgid "The server reported an unknown error on your request."
 msgstr "サーバーがあなたのリクエストに対して不明なエラーを検知しました。"
 
-#: client/zarafa/Zarafa.js:254
+#: client/zarafa/Zarafa.js:262
 msgid "The server reported an unspecified error on your request."
 msgstr "サーバーがあなたのリクエストに対して詳細不明のエラーを報告しました。"
 
-#: client/zarafa/Zarafa.js:284
+#: client/zarafa/Zarafa.js:292
 msgid "The session has expired, reauthentication is required."
 msgstr "セッションが切れました。再認証が必要です。"
 
-#: client/zarafa/Zarafa.js:289
+#: client/zarafa/Zarafa.js:297
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
 msgstr ""
 "この画面のセッションは他のブラウザの画面もしくはタブにより切断されました。"
 
-#: client/zarafa/Zarafa.js:301
+#: client/zarafa/Zarafa.js:309
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "ログオンページへリダイレクトしますか？"
 
-#: client/zarafa/Zarafa.js:326
+#: client/zarafa/Zarafa.js:334
 msgid "Session expired"
 msgstr "セッション期限切れ"
 
-#: client/zarafa/Zarafa.js:326
+#: client/zarafa/Zarafa.js:334
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
 "再度、ユーザー認証が必要です。ログオンページに戻るにはここをクリックして下さ"
 "い。"
 
-#: client/zarafa/Zarafa.js:358
+#: client/zarafa/Zarafa.js:366
 msgid "Connection problem"
 msgstr "接続の問題"
 
 # 75%
-#: client/zarafa/Zarafa.js:359
+#: client/zarafa/Zarafa.js:367
 msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr "サーバーに接続することができませんでした。{0}秒後に再試行します。"
 
-#: client/zarafa/Zarafa.js:359
+#: client/zarafa/Zarafa.js:367
 msgid "Click to retry now"
 msgstr "今すぐ再実行ボタンをクリック"
 
-#: client/zarafa/Zarafa.js:429
+#: client/zarafa/Zarafa.js:437
 msgid "Connection restored"
 msgstr "接続が回復しました。"
 
-#: client/zarafa/Zarafa.js:429
+#: client/zarafa/Zarafa.js:437
 msgid "Connection with server has been restored"
 msgstr "サーバーとの接続が回復しました。"
 
 #. TRANSLATORS: Example: HTTP 404
-#: client/zarafa/Zarafa.js:451
+#: client/zarafa/Zarafa.js:459
 msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
-#: client/zarafa/Zarafa.js:455
+#: client/zarafa/Zarafa.js:463
 msgid "Invalid data received from the server"
 msgstr "サーバーから無効な日付を受け取りました。"
 
-#: client/zarafa/Zarafa.js:513
+#: client/zarafa/Zarafa.js:524
 msgid "Missing store"
 msgstr "データストアがありません。"
 
-#: client/zarafa/Zarafa.js:514
+#: client/zarafa/Zarafa.js:525
 msgid "The default store is missing from the hierarchy."
 msgstr "デフォルトのデータストアがヒエラルキーにありません。"
 
-#: client/zarafa/Zarafa.js:516 client/zarafa/Zarafa.js:589
+#: client/zarafa/Zarafa.js:527 client/zarafa/Zarafa.js:600
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr "このため、WebAppの全ての機能が正常に動かないかもしれません。"
 
 # 100%
-#: client/zarafa/Zarafa.js:532
+#: client/zarafa/Zarafa.js:543
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "受信箱"
 
-#: client/zarafa/Zarafa.js:535
+#: client/zarafa/Zarafa.js:546
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
 msgstr "送信済み"
 
-#: client/zarafa/Zarafa.js:538
+#: client/zarafa/Zarafa.js:549
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "送信済みアイテム"
 
 # 92%
-#: client/zarafa/Zarafa.js:541
+#: client/zarafa/Zarafa.js:552
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "削除済みアイテム"
 
 # 100%
-#: client/zarafa/Zarafa.js:544
+#: client/zarafa/Zarafa.js:555
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
 msgstr "カレンダー"
 
 # 100%
-#: client/zarafa/Zarafa.js:547
+#: client/zarafa/Zarafa.js:558
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "コンタクト"
 
-#: client/zarafa/Zarafa.js:550
+#: client/zarafa/Zarafa.js:561
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "下書き"
 
-#: client/zarafa/Zarafa.js:553
+#: client/zarafa/Zarafa.js:564
 msgctxt "hierarchy.foldername"
 msgid "Journal"
 msgstr "ジャーナル"
 
 # 100%
-#: client/zarafa/Zarafa.js:556
+#: client/zarafa/Zarafa.js:567
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "メモ"
 
 # 100%
-#: client/zarafa/Zarafa.js:559
+#: client/zarafa/Zarafa.js:570
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "タスク"
 
-#: client/zarafa/Zarafa.js:562
+#: client/zarafa/Zarafa.js:573
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
 msgstr "迷惑メール"
 
-#: client/zarafa/Zarafa.js:585
+#: client/zarafa/Zarafa.js:596
 msgid "Missing folders"
 msgstr "見当たらないフォルダ"
 
-#: client/zarafa/Zarafa.js:587
+#: client/zarafa/Zarafa.js:598
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "次のフォルダが見つかりません。：{0}"
 
-#: client/zarafa/Zarafa.js:658
+#: client/zarafa/Zarafa.js:667
 msgid "Loading model from server failed"
 msgstr "Loading model from server failed"
 
-#: client/zarafa/Zarafa.js:853
+#: client/zarafa/Zarafa.js:862
 msgid "Out of Office currently on. Would you like to turn it off?"
 msgstr "離籍モードです。解除しますか？"
 
-#: client/zarafa/Zarafa.js:870
+#: client/zarafa/Zarafa.js:879
 msgid "Out of office off"
 msgstr "離籍モード解除"
 
-#: client/zarafa/Zarafa.js:870
+#: client/zarafa/Zarafa.js:879
 msgid "Out of office has been turned off"
 msgstr "離籍モードが解除されました。"
 
@@ -7530,51 +7610,51 @@ msgstr ""
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
-#: defaults.php:114
+#: defaults.php:115
 msgid "Charm pink"
 msgstr ""
 
-#: defaults.php:119
+#: defaults.php:120
 msgid "Cadmium red"
 msgstr ""
 
-#: defaults.php:124
+#: defaults.php:125
 msgid "Apricot"
 msgstr ""
 
-#: defaults.php:129
+#: defaults.php:130
 msgid "California"
 msgstr ""
 
-#: defaults.php:139
+#: defaults.php:140
 msgid "Soft green"
 msgstr ""
 
-#: defaults.php:149
+#: defaults.php:150
 msgid "Mint"
 msgstr ""
 
-#: defaults.php:154
+#: defaults.php:155
 msgid "Pearl aqua"
 msgstr ""
 
-#: defaults.php:159
+#: defaults.php:160
 msgid "Sky blue"
 msgstr ""
 
-#: defaults.php:164
+#: defaults.php:165
 msgid "Baby blue"
 msgstr ""
 
-#: defaults.php:169
+#: defaults.php:170
 msgid "Kopano blue"
 msgstr ""
 
-#: defaults.php:174
+#: defaults.php:175
 msgid "Mauve"
 msgstr ""
 
-#: defaults.php:184
+#: defaults.php:185
 msgid "Silver sand"
 msgstr ""
 
@@ -7658,29 +7738,29 @@ msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー:%s"
 
 #: server/includes/core/htmlfilter.php:1126
-#: server/includes/core/htmlfilter.php:1130
-#: server/includes/core/htmlfilter.php:1134
-#: server/includes/core/htmlfilter.php:1138
+#: server/includes/core/htmlfilter.php:1131
+#: server/includes/core/htmlfilter.php:1136
+#: server/includes/core/htmlfilter.php:1141
 msgid "This external link will open in a new window"
 msgstr "この外部リンクは新しいウィンドウで開きます。"
 
-#: server/includes/download_attachment.php:498
+#: server/includes/download_attachment.php:497
 #: server/includes/download_message.php:257
 msgid "ZIP is not created successfully"
 msgstr ""
 
-#: server/includes/download_attachment.php:536
+#: server/includes/download_attachment.php:535
 msgid "Attachments can not be downloaded"
 msgstr ""
 
 # 82%
 # 100%
-#: server/includes/download_attachment.php:553
+#: server/includes/download_attachment.php:552
 #, fuzzy
 msgid "Could not find attachment."
 msgstr "添付ファイルをアップロードできませんでした。"
 
-#: server/includes/download_attachment.php:616
+#: server/includes/download_attachment.php:615
 #: server/includes/download_message.php:412
 msgid "Operation failed"
 msgstr ""
@@ -7750,48 +7830,48 @@ msgstr ""
 msgid "Unknown MAPI Error: %s"
 msgstr "不明なMAPIエラー:%s"
 
-#: server/includes/mapi/class.meetingrequest.php:1923
+#: server/includes/mapi/class.meetingrequest.php:1915
 msgid "Tentatively accepted"
 msgstr "仮承諾"
 
-#: server/includes/mapi/class.meetingrequest.php:1929
+#: server/includes/mapi/class.meetingrequest.php:1921
 msgid "New Time Proposed"
 msgstr "新しい日時の提示"
 
-#: server/includes/mapi/class.recurrence.php:576
-#: server/includes/mapi/class.recurrence.php:577
+#: server/includes/mapi/class.recurrence.php:573
+#: server/includes/mapi/class.recurrence.php:574
 msgid "d-m-Y"
 msgstr "Y/m/d"
 
 # 75%
 # 78%
 # 76%
-#: server/includes/mapi/class.recurrence.php:592
+#: server/includes/mapi/class.recurrence.php:589
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
 msgstr "毎{%s}実施（期間：%sから%s）"
 
 # 75%
 # 78%
-#: server/includes/mapi/class.recurrence.php:594
+#: server/includes/mapi/class.recurrence.php:591
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
 msgstr "毎{%s}実施（期間：%sから%sまで）"
 
 # 80%
-#: server/includes/mapi/class.recurrence.php:598
+#: server/includes/mapi/class.recurrence.php:595
 #, php-format
 msgid "Occurs every %s effective %s."
 msgstr "毎{%s}実施　"
 
 # 75%
-#: server/includes/mapi/class.recurrence.php:600
+#: server/includes/mapi/class.recurrence.php:597
 #, php-format
 msgid "Occurs every %s %s effective %s."
 msgstr "毎{%s}実施"
 
 # 76%
-#: server/includes/mapi/class.recurrence.php:607
+#: server/includes/mapi/class.recurrence.php:604
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
@@ -7799,7 +7879,7 @@ msgstr[0] "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
 
 # 76%
 # 95%
-#: server/includes/mapi/class.recurrence.php:610
+#: server/includes/mapi/class.recurrence.php:607
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
@@ -7807,14 +7887,14 @@ msgstr[0] "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
 
 # 77%
 # 81%
-#: server/includes/mapi/class.recurrence.php:615
+#: server/includes/mapi/class.recurrence.php:612
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
 msgstr[0] "毎{0}実施 {1}から{2}まで有効"
 
 # 77%
-#: server/includes/mapi/class.recurrence.php:618
+#: server/includes/mapi/class.recurrence.php:615
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
@@ -7822,7 +7902,7 @@ msgstr[0] "毎{0}実施 {1}から{2}まで有効"
 
 # 76%
 # 75%
-#: server/includes/mapi/class.recurrence.php:626
+#: server/includes/mapi/class.recurrence.php:623
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
 msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
@@ -7830,21 +7910,21 @@ msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
 # 76%
 # 75%
 # 94%
-#: server/includes/mapi/class.recurrence.php:628
+#: server/includes/mapi/class.recurrence.php:625
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
 msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
 
 # 75%
 # 78%
-#: server/includes/mapi/class.recurrence.php:632
+#: server/includes/mapi/class.recurrence.php:629
 #, php-format
 msgid "Occurs every %s effective %s until %s."
 msgstr "毎{0}実施　有効{1}"
 
 # 75%
 # 78%
-#: server/includes/mapi/class.recurrence.php:634
+#: server/includes/mapi/class.recurrence.php:631
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
 msgstr "毎{0}実施　有効{1}"
@@ -7942,7 +8022,7 @@ msgstr "会議出席依頼は送信できませんでした。"
 msgid "Meeting could not be saved."
 msgstr "会議出席依頼は保存できませんでした。"
 
-#: server/includes/modules/class.appointmentlistmodule.php:304
+#: server/includes/modules/class.appointmentlistmodule.php:292
 msgid "Private Appointment"
 msgstr "個人的な予定"
 
@@ -7961,17 +8041,17 @@ msgstr "%sの記念日"
 msgid "Unknown user/group"
 msgstr "不明なユーザ/グループ"
 
-#: server/includes/modules/class.delegatesmodule.php:930
+#: server/includes/modules/class.delegatesmodule.php:925
 msgid "Could not save delegate information."
 msgstr "デリゲート（委譲）に関する情報を保存することができませんでした。"
 
 # 78%
 # 80%
-#: server/includes/modules/class.delegatesmodule.php:933
+#: server/includes/modules/class.delegatesmodule.php:928
 msgid "Could not delete delegate."
 msgstr "デリゲート（委譲）の設定を削除できません"
 
-#: server/includes/modules/class.delegatesmodule.php:936
+#: server/includes/modules/class.delegatesmodule.php:931
 msgid "Can not get list of delegates."
 msgstr "デリゲートの一覧を得られませんでした。"
 
@@ -8087,13 +8167,13 @@ msgid "Could not copy folder"
 msgstr "フォルダのコピーができませんでした。"
 
 #: server/includes/modules/class.itemmodule.php:265
-#: server/includes/modules/class.taskitemmodule.php:351
+#: server/includes/modules/class.taskitemmodule.php:347
 msgid "Task Accepted:"
 msgstr "タスクの承諾:"
 
 #: server/includes/modules/class.itemmodule.php:267
-#: server/includes/modules/class.taskitemmodule.php:183
-#: server/includes/modules/class.taskitemmodule.php:354
+#: server/includes/modules/class.taskitemmodule.php:179
+#: server/includes/modules/class.taskitemmodule.php:350
 msgid "Task Declined:"
 msgstr "タスクの辞退:"
 
@@ -8220,31 +8300,31 @@ msgid "The following recipient(s) could not be reached"
 msgstr "次の受信者に送信することができませんでした。"
 
 #: server/includes/modules/class.listmodule.php:127
-#: server/includes/modules/class.maillistmodule.php:94
+#: server/includes/modules/class.maillistmodule.php:93
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "このフォルダ内の内容を表示するための十分な権限がありません。"
 
 #: server/includes/modules/class.listmodule.php:129
-#: server/includes/modules/class.maillistmodule.php:96
+#: server/includes/modules/class.maillistmodule.php:95
 msgid "Could not load the contents of this folder."
 msgstr "このフォルダ内の内容を読み込めませんでした。"
 
 #: server/includes/modules/class.listmodule.php:241
 #: server/includes/modules/class.listmodule.php:257
-#: server/includes/modules/class.maillistmodule.php:103
+#: server/includes/modules/class.maillistmodule.php:102
 msgid "Error in search, please try again"
 msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
 
-#: server/includes/modules/class.maillistmodule.php:101
+#: server/includes/modules/class.maillistmodule.php:100
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr "このフォルダを検索するための十分な権限がありません。"
 
-#: server/includes/modules/class.maillistmodule.php:107
+#: server/includes/modules/class.maillistmodule.php:106
 msgid "Could not update search results."
 msgstr "検索結果をアップロードできませんでした。"
 
-#: server/includes/modules/class.maillistmodule.php:111
+#: server/includes/modules/class.maillistmodule.php:110
 msgid "Could not stop search operation."
 msgstr "検索を中止することができませんでした。"
 
@@ -8361,35 +8441,39 @@ msgstr "これを実行するための十分な権限がありません。"
 msgid "Could not resolve user."
 msgstr "Could not resolve user."
 
-#: server/includes/modules/class.rulesmodule.php:252
+#: server/includes/modules/class.rulesmodule.php:249
 msgid "Untitled rule"
 msgstr "タイトルなしの仕訳ルール"
 
-#: server/includes/modules/class.rulesmodule.php:331
+#: server/includes/modules/class.rulesmodule.php:328
 msgid "Could not load rules."
 msgstr "仕訳ルールを読み込めませんでした。"
 
-#: server/includes/modules/class.rulesmodule.php:334
+#: server/includes/modules/class.rulesmodule.php:331
 msgid "Could not save rules."
 msgstr "仕訳ルールを保存できませんでした。"
 
-#: server/includes/modules/class.taskitemmodule.php:184
-#: server/includes/modules/class.taskitemmodule.php:367
+#: server/includes/modules/class.taskitemmodule.php:180
+#: server/includes/modules/class.taskitemmodule.php:363
 msgid "Task Updated:"
 msgstr "更新タスク:"
 
-#: server/includes/modules/class.taskitemmodule.php:184
-#: server/includes/modules/class.taskitemmodule.php:367
+#: server/includes/modules/class.taskitemmodule.php:180
+#: server/includes/modules/class.taskitemmodule.php:363
 msgid "Task Completed:"
 msgstr "完了したタスク:"
 
-#: server/includes/modules/class.taskitemmodule.php:357
+#: server/includes/modules/class.taskitemmodule.php:353
 msgid "Task Request:"
 msgstr "タスク依頼:"
 
 #: server/includes/templates/login.php:48
 msgid "Welcome"
 msgstr ""
+
+#: server/includes/templates/login.php:50
+msgid "Username"
+msgstr "ユーザ名"
 
 #: server/includes/templates/login.php:53
 msgid "Password"
@@ -8419,32 +8503,32 @@ msgstr "KB"
 msgid "B"
 msgstr "B"
 
-#: server/includes/util.php:501
+#: server/includes/util.php:500
 msgid "The maximum stack depth has been exceeded"
 msgstr "maximum stack depthが制限を超えました。"
 
-#: server/includes/util.php:504
+#: server/includes/util.php:503
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
 
-#: server/includes/util.php:507
+#: server/includes/util.php:506
 msgid "Invalid or malformed JSON"
 msgstr "無効か不正なJSON"
 
-#: server/includes/util.php:510
+#: server/includes/util.php:509
 msgid "Syntax error"
 msgstr "構文エラー"
 
-#: server/includes/util.php:513
+#: server/includes/util.php:512
 #, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
 
-#: server/includes/util.php:518
+#: server/includes/util.php:517
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSONエラー: - %s"
 
-#: server/includes/util.php:518
+#: server/includes/util.php:517
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "JSONデータのエンコード/デコードによるいくつかの問題が起こっている。"
