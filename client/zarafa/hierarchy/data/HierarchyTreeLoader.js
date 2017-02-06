@@ -397,7 +397,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		}
 
 		if (record.existsInFavorites()) {
-			var treeNode = this.tree.getTreeNode(record.getFavoritesFolder());
+			treeNode = this.tree.getTreeNode(record.getFavoritesFolder());
 			if (treeNode) {
 				treeNode.remove(true);
 			}
