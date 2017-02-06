@@ -6193,31 +6193,31 @@ msgstr "Eredeti üzenet"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:35
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Küldendő levelek ütemezése"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:164
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "A levél a következő időpontban lesz elküldve "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:165
 msgid "Go to your <b>Outbox</b> to edit your email."
-msgstr ""
+msgstr "A levél szerkesztéséhez nyisd meg a <b>Kimenő elemek</b> mappát."
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:37
 msgid "hour(s)"
-msgstr ""
+msgstr "óra"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:46
 msgid "day(s)"
-msgstr ""
+msgstr "nap"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:55
 msgid "month(s)"
-msgstr ""
+msgstr "hónap"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:63
 msgid "at a specific time"
-msgstr ""
+msgstr "a megadott időben"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:135
 msgid "Sorry, the time you entered is in past. Please reschedule your mail"
@@ -6225,11 +6225,11 @@ msgstr ""
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:153
 msgid "today  at "
-msgstr ""
+msgstr "ma "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:155
 msgid "tomorrow  at "
-msgstr ""
+msgstr "holnap "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:157
 msgid "{0} at "
@@ -6241,7 +6241,7 @@ msgstr ""
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:161
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "A levél kiküldésének időpontja: {0}{1}"
 
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
@@ -6288,11 +6288,11 @@ msgstr "Email küldése a címzetteknek"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:96
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:98
 msgid "Send Later"
-msgstr ""
+msgstr "Küldés később"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:99
 msgid "Schedule your mail to be sent on a specific time."
-msgstr ""
+msgstr "Levél küldésének ütemezése megadott időpontra."
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:106
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:108

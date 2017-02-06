@@ -6080,31 +6080,31 @@ msgstr "オリジナル本文"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:35
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "送信される予定されたメール"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:164
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "メッセージは次の時間に送信されます "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:165
 msgid "Go to your <b>Outbox</b> to edit your email."
-msgstr ""
+msgstr "<b>送信済みフォルダ</b> を開き、メールを編集してください。"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:37
 msgid "hour(s)"
-msgstr ""
+msgstr "時間"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:46
 msgid "day(s)"
-msgstr ""
+msgstr "日"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:55
 msgid "month(s)"
-msgstr ""
+msgstr "月"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:63
 msgid "at a specific time"
-msgstr ""
+msgstr "次に指定されています"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:135
 msgid "Sorry, the time you entered is in past. Please reschedule your mail"
@@ -6112,23 +6112,23 @@ msgstr ""
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:153
 msgid "today  at "
-msgstr ""
+msgstr "本日の "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:155
 msgid "tomorrow  at "
-msgstr ""
+msgstr "明日の "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:157
 msgid "{0} at "
-msgstr ""
+msgstr "{0} の "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:159
 msgid "at {0}"
-msgstr ""
+msgstr "の {0}"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:161
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "あなたのメールは {0}{1} に送信されます"
 
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
@@ -6173,11 +6173,11 @@ msgstr "電子メールを宛先に送信します。"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:96
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:98
 msgid "Send Later"
-msgstr ""
+msgstr "後で送信"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:99
 msgid "Schedule your mail to be sent on a specific time."
-msgstr ""
+msgstr "スケジュールされたメールは指定の時間に送信されます。"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:106
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:108

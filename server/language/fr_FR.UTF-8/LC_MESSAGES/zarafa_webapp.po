@@ -6206,31 +6206,31 @@ msgstr "Message initial"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:35
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Mail planifié pour envoi"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:164
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "Votre message sera envoyé à "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryContentPanel.js:165
 msgid "Go to your <b>Outbox</b> to edit your email."
-msgstr ""
+msgstr "Allez à votre <b>Boîte d'envoi</b> pour éditer votre email."
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:37
 msgid "hour(s)"
-msgstr ""
+msgstr "Heure(s)"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:46
 msgid "day(s)"
-msgstr ""
+msgstr "Jour(s)"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:55
 msgid "month(s)"
-msgstr ""
+msgstr "mois"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:63
 msgid "at a specific time"
-msgstr ""
+msgstr "A une heure spécifique"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:135
 msgid "Sorry, the time you entered is in past. Please reschedule your mail"
@@ -6238,23 +6238,23 @@ msgstr ""
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:153
 msgid "today  at "
-msgstr ""
+msgstr "aujourd'hui à "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:155
 msgid "tomorrow  at "
-msgstr ""
+msgstr "demain à "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:157
 msgid "{0} at "
-msgstr ""
+msgstr "{0} à "
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:159
 msgid "at {0}"
-msgstr ""
+msgstr "à {0}"
 
 #: client/zarafa/mail/dialogs/DelayedDeliveryPanel.js:161
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "Votre email sera envoyé {0}{1}"
 
 # 83%
 #: client/zarafa/mail/dialogs/MailCreateContentPanel.js:62
@@ -6298,11 +6298,11 @@ msgstr "Envoyer le courriel aux destinataires"
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:96
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:98
 msgid "Send Later"
-msgstr ""
+msgstr "Envoyer plus tard"
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:99
 msgid "Schedule your mail to be sent on a specific time."
-msgstr ""
+msgstr "Planifier votre email pour être envoyé à une heure spécifique."
 
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:106
 #: client/zarafa/mail/dialogs/MailCreateToolbar.js:108
