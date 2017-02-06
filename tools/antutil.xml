@@ -43,7 +43,7 @@
 		<attribute name="warningLevel" default="VERBOSE"/>
 		<attribute name="accessControls" default="warning"/>
 		<attribute name="checkRegExp" default="warning"/>
-		<attribute name="checkVars" default="warning"/>
+		<attribute name="checkVars" default="error"/>
 		<attribute name="deprecated" default="warning"/>
 		<attribute name="fileoverviewTags" default="warning"/>
 		<attribute name="strictModuleDepCheck" default="warning"/>
@@ -54,6 +54,9 @@
 		<attribute name="invalidCasts" default="off"/>
 		<attribute name="missingProperties" default="off"/>
 		<attribute name="nonStandardJsDocs" default="off"/>
+		<attribute name="misplacedTypeAnnotation" default="off"/>
+		<attribute name="globalThis" default="off"/>
+		<attribute name="es5Strict" default="off"/>
 		<element name="externs" optional="true"/>
 
 		<sequential>
@@ -83,6 +86,9 @@
 				<arg line="--jscomp_@{invalidCasts}=invalidCasts" />
 				<arg line="--jscomp_@{missingProperties}=missingProperties" />
 				<arg line="--jscomp_@{nonStandardJsDocs}=nonStandardJsDocs" />
+				<arg line="--jscomp_@{misplacedTypeAnnotation}=misplacedTypeAnnotation" />
+				<arg line="--jscomp_@{globalThis}=globalThis" />
+				<arg line="--jscomp_@{es5Strict}=es5Strict" />
 			</exec>
 
 			<delete file="@{tmpFile}"/>
