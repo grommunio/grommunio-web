@@ -132,7 +132,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
         else if (this.isPastDate(dateTime)) {
 
             //If user select past time then return sorry delayInfoMessage and disable send button.
-            delayInfoMessage = _('Sorry,the time you entered is in past. Please reschedule your mail');
+            delayInfoMessage = _('Sorry, the time you entered is in past. Please reschedule your mail');
             this.delayedDeliveryDateTimeField.addClass('zarafa-delayeddelivery-invalid-date');
             return delayInfoMessage;
         } else {
