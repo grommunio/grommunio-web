@@ -61,11 +61,11 @@
 				return new Date(item.getTime());
 			}
 
-			var i, clone, key;
+			var clone;
 
 			// Array
 			if (type === '[object Array]') {
-				i = item.length;
+				var i = item.length;
 
 				clone = [];
 
@@ -77,7 +77,7 @@
 			else if (type === '[object Object]' && item.constructor === Object) {
 				clone = {};
 
-				for (key in item) {
+				for (var key in item) {
 					clone[key] = Ext.clone(item[key]);
 				}
 			}
