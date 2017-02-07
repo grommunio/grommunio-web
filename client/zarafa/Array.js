@@ -37,13 +37,5 @@ Ext.apply(Array.prototype, {
 			}
 		}
 		return true;
-	},
-
-	/**
-	 * Removes all elements from the array.
-	 */
-	clear : function()
-	{
-		this.splice(0, this.length);
 	}
 });
