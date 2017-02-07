@@ -105,6 +105,16 @@
 			return clone || item;
 		},
 
+		/**
+		 * Override isArray, to use the native browser function
+		 *
+	 	 * @param {Mixed} value The value to test
+		 * @return {Boolean}
+		 */
+		isArray: function(v) {
+			return Array.isArray(v);
+		},
+
 		/*
 		 * Override getDom to consider separate window as well while getting HTMLElement of provided id.
 		 * 
