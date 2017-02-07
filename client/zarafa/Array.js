@@ -31,11 +31,8 @@ Ext.apply(Array.prototype, {
 		}
 
 		// Compare each element for equality.
-		for (var i = 0, len = arr.length; i < len; i++) {
-			if (this[i] !== arr[i]) {
-				return false;
-			}
-		}
-		return true;
+		return this.every(function(element, index) {
+			return element === arr[index];
+		});
 	}
 });
