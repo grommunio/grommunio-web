@@ -48,7 +48,7 @@ Ext.QuickTips = Ext.extend(Object, {
 	init : function(autoRender) {
 		if(!Ext.isReady){
 			Ext.onReady(function(){
-				Ext.QuickTip.init(autoRender);
+				Ext.QuickTips.init(autoRender);
 			});
 			return;
 		}
