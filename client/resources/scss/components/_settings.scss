@@ -252,6 +252,13 @@
 
 /* Plugin list */
 .zarafa-settings-pluginavailable {
+	.zarafa-settings-widget-extrainfo {
+		margin: 0;
+	}
+	.k-settings-plugingrid {
+		padding-top: $padding-extra-large;
+	}
+
 	.zarafa-settings-pluginavailable-fixed {
 		.x-grid3-col-display_name {
 			span {
