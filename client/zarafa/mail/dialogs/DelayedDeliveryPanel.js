@@ -211,9 +211,8 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
     {
         var currentDateTime = new Date();
         var first = currentDateTime.getDate() - currentDateTime.getDay();
-        var last = first + 7;
         var firstDayOfWeek = new Date(currentDateTime.setDate(first));
-        var lastDayOfWeek = new Date(currentDateTime.setDate(last));
+        var lastDayOfWeek = firstDayOfWeek.add(Date.DAY,6);
         var mailDate = new Date(mailDateTime).clearTime(true);
         return mailDate.between(firstDayOfWeek, lastDayOfWeek);
     },
