@@ -54,7 +54,7 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 			border : false,
 			loadingText : _('Loading contacts') + '...',
 			deferEmptyText: false,
-			emptyText: '<div class="emptytext">'+_('There are no items to show in this view')+'</div>',
+			emptyText: '<div class="emptytext">'+_('There are no items to show in this list')+'</div>',
 			tpl : this.initTemplate(),
 
 			/*

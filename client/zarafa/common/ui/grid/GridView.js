@@ -36,7 +36,7 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 			groupTextTpl : '{text:htmlEncode} ({values.rs.length} {[ngettext("Item","Items", values.rs.length)]})',
 			disableScrollToTop : false,
 			deferEmptyText : true,
-			emptyText : '<div class="emptytext">' + _('There are no items to show in this view') + '</div>',
+			emptyText : '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
 			forceFit : true
 		});
 

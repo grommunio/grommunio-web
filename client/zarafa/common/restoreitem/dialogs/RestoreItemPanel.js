@@ -44,7 +44,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 			loadMask: true,
 			viewConfig: {
 				forceFit: true,
-				emptyText : '<div class="emptytext">' + _('There are no items to show in this view') + '</div>',
+				emptyText : '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
 				getRowClass : this.viewConfigGetRowClass
 			},
 			tbar: {

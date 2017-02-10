@@ -46,7 +46,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	 * @property
 	 * @type {String}
 	 */
-	noResultsGridText : _('There are no items to show in this view'),
+	noResultsGridText : _('There are no items to show in this list'),
 
 	/**
  	 * @constructor
