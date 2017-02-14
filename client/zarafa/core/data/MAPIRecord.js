@@ -124,6 +124,16 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	actions : undefined,
 
 	/**
+	 * True if record is used for modal dialog. This is required because modal dialog will be the second dialog,
+	 * with the same record (even though they are copies the entryid will be the same for both)
+	 *
+	 * @property
+	 * @type Boolean
+	 * @private
+	 */
+	isModalDialogRecord : false,
+
+	/**
 	 * @constructor
 	 * @param {Object} data The data which must be applied to this record
 	 * @param {Object} id The unique id for this record
@@ -183,7 +193,9 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 		// it inside our own dataset. This ensures that the 'modified' and
 		// 'updateModifications' fields will automatically be updated to contain
 		// the correct set of data.
-		for (var key in record.data) {
+		// if record is modal dialog record then instead of all merge only those properties which was changed
+		var data = record.isModalDialogRecord ? record.modified : record.data;
+		for (var key in data) {
 			if(key === 'message_class') {
 				// Don't update record's message_class while updating the record
 				// As it is it's identity of record type and fields assigned to it.
@@ -740,23 +752,22 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 				// Go over the current store, and start searching for the corresponding
 				// record in the remote store.
 				store.each(function(record) {
-					var newRecord = remoteStore.getById(remoteStore.data.getKey(record));
-					if (!newRecord) {
+					var remoteRecordIndex = remoteStore.findBy(function (remoteRecord) {
+						return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), remoteRecord.get('entryid'));
+					}, record);
+					if (remoteRecordIndex < 0) {
 						// The other store doesn't contain this record,
 						// remove it from the current store.
 						store.remove(record);
-					} else {
-						// The record is present in the other store,
-						// and might have been modified.
-						// Apply it to the current record.
-						record.applyData(newRecord);
-					}
+					} 
 				});
 
 				// Go over the remote store to search for any new records which were added
 				remoteStore.each(function(record) {
-					var origRecord = store.getById(store.data.getKey(record));
-					if (!origRecord) {
+					var origRecordIndex = store.findBy(function (storeRecord) {
+						return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), storeRecord.get('entryid'));
+					}, record);
+					if (origRecordIndex < 0) {
 						// New record, add it to the current store.
 						store.add(record.copy());
 					}

@@ -387,6 +387,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 					this.modalRecord = record;
 					record = record.copy('modal-' + record.id);
+					record.isModalDialogRecord = true;
 
 					// We already copied the record, don't copy it again.
 					cheapCopy = true;

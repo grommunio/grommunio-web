@@ -219,7 +219,7 @@ Zarafa.mail.Actions = {
 		// to be activated until the user presses the Ok button.
 		var copy = records.copy();
 		var store = copy.getSubStore('recipients');
-
+		copy.isModalDialogRecord = true;
 		Zarafa.common.Actions.openABUserMultiSelectionContent({
 			callback : function() {
 				records.applyData(copy);
