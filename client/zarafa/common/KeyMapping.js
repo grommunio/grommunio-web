@@ -265,6 +265,20 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 				category : _('All views')
 			},
 			basic: true
+		},{
+			key: Ext.EventObject.DELETE,
+			ctrl: false,
+			alt: false,
+			shift: true,
+			stopEvent: true,
+			enableGlobally : true,
+			handler: this.onSoftDeleteItem,
+			scope: this,
+			settingsCfg : {
+				description : _('Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored.'),
+				category : _('All views')
+			},
+			basic: true
 		}];
 
 		var reminderKeys = [{
@@ -510,6 +524,22 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 
 		if(!Ext.isEmpty(records)) {
 			Zarafa.common.Actions.deleteRecords(records);
+		}
+	},
+
+	/**
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap}
+	 * when the user wants to soft delete an item.
+	 * @param {Number} key Key code
+	 * @param {Ext.EventObject} event The event
+	 * @param {Ext.Component} component The component on which key event is fired.
+	 */
+	onSoftDeleteItem: function(key, event, component)
+	{
+		var records = this.getSelectedRecords(component);
+
+		if(!Ext.isEmpty(records)) {
+			Zarafa.common.Actions.deleteRecords(records, false, true);
 		}
 	},
 

@@ -617,7 +617,7 @@
 				$storeprops = mapi_getprops($store, array(PR_ENTRYID));
 				$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
 
-				$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryid, isset($action['soft_delete']) ? $action['soft_delete'] : false);
+				$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryid, isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false);
 
 				if($result) {
 					$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);

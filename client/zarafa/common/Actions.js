@@ -502,12 +502,14 @@ Zarafa.common.Actions = {
 	 * @param {Array} records The array of records which must be deleted.
 	 * @param {Boolean} askOcc (private) False to prevent a dialog to appear to ask if the occurence or series must
 	 * be deleted
+	 * @param {Boolean} softDelete (optional) true to directly soft delete record(s) skipping deleted-items
+	 * folder, false otherwise
 	 *
 	 * FIXME: This introduces Calendar-specific actions into the Common Context, but there is no clean solution
 	 * for this at this time. But we need to split this up into context-specific actions while maintaining this
 	 * single-entrypoint for deleting records.
 	 */
-	deleteRecords : function(records, askOcc)
+	deleteRecords : function(records, askOcc, softDelete)
 	{
 		var store;
 		var saveRecords = [];
@@ -567,6 +569,12 @@ Zarafa.common.Actions = {
 		}
 
 		if(!Ext.isEmpty(saveRecords)) {
+			// Check if records are required to be soft deleted
+			if (softDelete === true) {
+				Ext.each(saveRecords, function(saveRecord) {
+					saveRecord.addMessageAction('soft_delete', true);
+				}, this);
+			}
 			store.save(saveRecords);
 		}
 

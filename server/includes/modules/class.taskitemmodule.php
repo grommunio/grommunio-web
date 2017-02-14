@@ -185,7 +185,7 @@
 			// Deleting occurrence failed, maybe that was its last occurrence, so now we delete whole series.
 			if (!isset($occurrenceDeleted) || !$occurrenceDeleted) {
 				// If softdelete is set then set it in softDelete variable and pass it for deleteing message.
-				$softDelete = isset($action["softdelete"]) ? $action["softdelete"] : false;
+				$softDelete = isset($action['message_action']['soft_delete']) ? $action['message_action']['soft_delete'] : false;
 				$result = $GLOBALS["operations"]->deleteMessages($store, $parententryid, $entryids, $softDelete);
 			} else {
 				$result = array('occurrenceDeleted' => true);
