@@ -8,18 +8,6 @@
 	var isIE = !Ext.isOpera && (((/msie/).test(userAgentString)) || ((/trident/).test(userAgentString)));
 	var orig_getDom = Ext.getDom;
 
-	// The following code is there to handle the JScript DontEnum Bug (appears in IE<9)
-	// See https://developer.mozilla.org/en/docs/ECMAScript_DontEnum_attribute for more information
-	var enumerables = true;
-	var enumerablesTest = {toString: 1};
-	for (var i in enumerablesTest) {
-		enumerables = null;
-	}
-	if (enumerables) {
-		enumerables = ['hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable',
-						'toLocaleString', 'toString', 'constructor'];
-	}
-
 	Ext.apply(Ext, {
 		/**
 		 * True if the detected browser is Internet Explorer.
@@ -73,11 +61,11 @@
 				return new Date(item.getTime());
 			}
 
-			var i, j, k, clone, key;
+			var clone;
 
 			// Array
 			if (type === '[object Array]') {
-				i = item.length;
+				var i = item.length;
 
 				clone = [];
 
@@ -89,17 +77,8 @@
 			else if (type === '[object Object]' && item.constructor === Object) {
 				clone = {};
 
-				for (key in item) {
+				for (var key in item) {
 					clone[key] = Ext.clone(item[key]);
-				}
-
-				if (enumerables) {
-					for (j = enumerables.length; j--;) {
-						k = enumerables[j];
-						if (item.hasOwnProperty(k)) {
-							clone[k] = item[k];
-						}
-					}
 				}
 			}
 			return clone || item;
