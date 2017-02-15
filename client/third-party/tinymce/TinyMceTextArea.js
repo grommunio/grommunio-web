@@ -337,16 +337,16 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			if(!Ext.isDefined(me.editor)) {
 				me.editor = ed;
 			}
-			
+
 			var editorWindow = me.getEditorOwnerWindow();
 			// Themes will dynamically load their stylesheets into the DOM.
-			// We will overwrite the loadCSS function to add listeners for 
+			// We will overwrite the loadCSS function to add listeners for
 			// the loading. This way we make sure that all css has been loaded
 			// before we resize the editor.
 			var origTinymceDOMloadCSS = editorWindow.tinymce.DOM.loadCSS;
 			// We will store the urls of all stylesheets that are loading in this array
 			var cssFilesLoading = [];
-			
+
 			editorWindow.tinymce.DOM.loadCSS = function(url){
 				if (!url) {
 					url = '';
@@ -360,16 +360,16 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 					// loading css files
 					cssFilesLoading.push(url);
 					// Create an element to load the stylesheet
-					var el = document.createElement('link');
+					var el = editorWindow.document.createElement('link');
 					// Add the element to the DOM, or it will not fire events
-					document.head.appendChild(el);
+					editorWindow.document.head.appendChild(el);
 					// Add a handler for the load event
 					el.addEventListener('load', function(){
 						// Remove the url from the array
 						cssFilesLoading.splice(cssFilesLoading.indexOf(url), 1);
 						// Remove the element from the DOM because tiny will have added it also
 						// and we don't need it twice
-						document.head.removeChild(el);
+						editorWindow.document.head.removeChild(el);
 						me.fireEvent('stylesheetloaded', url);
 					});
 					// Add a handler for the error event
@@ -381,12 +381,12 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 					el.setAttribute('rel', 'stylesheet');
 					el.setAttribute('type', 'text/css');
 					el.setAttribute('href', url);
-					
+
 				});
 
 				return origTinymceDOMloadCSS.apply(this, arguments);
 			};
-			
+
 			ed.on('init', function(e) {
 				// Restore the original loadCSS function
 				editorWindow.tinymce.DOM.loadCSS = origTinymceDOMloadCSS;
@@ -399,7 +399,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 				}
 
 				me.fireEvent('initialized', me, ed, {});
-				
+
 				// A wrapper function for syncEditorHeight(). It will check
 				// if all css has been loaded before calling syncEditorHeight()
 				function setEditorHeight(){
@@ -411,7 +411,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 						me.syncEditorHeight(me.lastHeight || me.height);
 					}
 				}
-				
+
 				if (me.lastHeight || me.height) {
 					setEditorHeight();
 				}
@@ -632,7 +632,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 		}
 		return this.value;
 	},
-	
+
 	/**
 	 * Function is used to set the content in HTML Editor.
 	 * @param {Object} editor the HTML Editor Object
@@ -641,7 +641,7 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	setContent : function(editor, value)
 	{
 		editor.setContent(value === null || value === undefined ? '' : value, { format: 'raw' });
-		editor.startContent = editor.getContent({ format: 'raw' }); 
+		editor.startContent = editor.getContent({ format: 'raw' });
 	},
 
 	/**
