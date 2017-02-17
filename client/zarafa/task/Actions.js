@@ -48,7 +48,7 @@ Zarafa.task.Actions = {
 	{
 		var record;
 
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			record = records[0];
 		}
 

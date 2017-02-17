@@ -132,7 +132,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 		this.receivedTime = timestamp;
 
 		// Force sendRecords to be an array
-		if (!Ext.isEmpty(this.sendRecords) && !Ext.isArray(this.sendRecords)) {
+		if (!Ext.isEmpty(this.sendRecords) && !Array.isArray(this.sendRecords)) {
 			this.sendRecords = [ this.sendRecords ];
 		}
 
@@ -261,7 +261,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	readRecordsFromResponse : function(response, field)
 	{
 		var items = response[field] || [];
-		if (!Ext.isArray(items)) {
+		if (!Array.isArray(items)) {
 			items = [ items ];
 		}
 

@@ -1704,7 +1704,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 */
 	onBoxStoreAdd: function(store, records, index)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 

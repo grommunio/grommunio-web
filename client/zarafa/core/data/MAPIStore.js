@@ -181,7 +181,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 			return Zarafa.core.data.MAPIStore.superclass.save.call(this);
 		}
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -299,7 +299,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 */
 	onWrite : function(store, action, result, res, records)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -321,7 +321,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 */
 	setRecordsStore : function(store, records)
 	{
-		records = Ext.isArray(records) ? records : [ records ];
+		records = Array.isArray(records) ? records : [ records ];
 		Ext.each(records, function(record) { record.join(store); }, this);
 	},
 
@@ -363,7 +363,7 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 				this.fireEvent('open', this, record, oldRecord);
 			} catch (e) {
 				this.handleException(e);
-				if (Ext.isArray(record)) {
+				if (Array.isArray(record)) {
 					// Recurse to run back into the try {}.  DataReader#update splices-off the rs until empty.
 					this.onOpenRecords(success, record, data);
 				}

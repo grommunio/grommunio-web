@@ -113,7 +113,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onException : function(proxy, type, action, options, response, args)
 	{
-		if (Ext.isDefined(args) && Ext.isArray(args.sendRecords)) {
+		if (Ext.isDefined(args) && Array.isArray(args.sendRecords)) {
 			Ext.each(args.sendRecords, function(record) {
 				// Clear all previous message actions
 				record.clearMessageActions();
@@ -131,7 +131,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	containsStoreInLastLoad: function(entryidList)
 	{
-		if (!Ext.isArray(entryidList)) {
+		if (!Array.isArray(entryidList)) {
 			entryidList = [ entryidList ];
 		}
 
@@ -165,7 +165,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onNotifyObjectdeleted : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -196,7 +196,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onNotifyObjectmodified : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -205,7 +205,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		// bouncing events around.
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
-			var singleData =  (Ext.isArray(data)) ? data[i] : data;
+			var singleData =  (Array.isArray(data)) ? data[i] : data;
 
 			record.setEventPropagation(false);
 
@@ -239,7 +239,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onNotifyObjectcreated : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(data)) {
+		if (!Array.isArray(data)) {
 			data = [ data ];
 		}
 

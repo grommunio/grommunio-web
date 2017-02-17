@@ -29,7 +29,7 @@ Zarafa.settings.ui.SettingsContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		var isRoot = false;
 		var isEditable = false;
 		if (config.records) {
-			if (Ext.isArray(config.records)) {
+			if (Array.isArray(config.records)) {
 				config.records = config.records[0];
 			}
 

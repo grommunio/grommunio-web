@@ -71,7 +71,7 @@ Zarafa.core.data.IPMProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		}
 
 		// Sorting must be an array
-		if (Ext.isDefined(parameters.sort) && !Ext.isArray(parameters.sort)) {
+		if (Ext.isDefined(parameters.sort) && !Array.isArray(parameters.sort)) {
 			parameters.sort = [{
 				field : parameters.sort,
 				direction : parameters.dir

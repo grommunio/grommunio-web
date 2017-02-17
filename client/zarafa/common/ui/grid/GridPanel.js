@@ -278,7 +278,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var storeEntryId;
 
 		if (!Ext.isEmpty(folder)) {
-			if (Ext.isArray(folder)) {
+			if (Array.isArray(folder)) {
 				entryId = folder[0].get('entryid');
 				storeEntryId = folder[0].get('store_entryid');
 			} else {
@@ -367,7 +367,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		if (options && options.folder) {
 			folder = options.folder;
 
-			if (Ext.isArray(folder)) {
+			if (Array.isArray(folder)) {
 				folder = folder[0];
 			}
 		}

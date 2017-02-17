@@ -556,7 +556,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	applyState : function(state)
 	{
 		if ( Ext.isDefined(state.groupings) ){
-			if ( Ext.isArray(state.groupings) ){
+			if ( Array.isArray(state.groupings) ){
 				// PHP has probably converted an empty object to an empty array since it doesn't know
 				// the difference. But we need an object or things will go wrong!
 				state.groupings = {};

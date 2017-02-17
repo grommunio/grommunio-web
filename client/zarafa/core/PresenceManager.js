@@ -85,7 +85,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	getPresenceStatusForUsers : function(users)
 	{
-		if ( !Ext.isArray(users) ){
+		if ( !Array.isArray(users) ){
 			users = [users];
 		}
 		if ( users.length === 0 ){
@@ -266,7 +266,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 		if ( !Ext.isDefined(fieldRoots) ){
 			fieldRoots = '';
 		}
-		if ( !Ext.isArray(fieldRoots) ){
+		if ( !Array.isArray(fieldRoots) ){
 			fieldRoots = [fieldRoots];
 		}
 		this.registeredStores.push({
@@ -333,7 +333,7 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	updateStatuses : function(pluginName, updates) {
 		// Make sure we have an array
-		if ( !Ext.isArray(updates) ){
+		if ( !Array.isArray(updates) ){
 			updates = [updates];
 		}
 

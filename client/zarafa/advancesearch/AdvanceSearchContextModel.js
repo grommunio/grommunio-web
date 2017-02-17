@@ -130,7 +130,7 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 	onFolderSelect : function(folders)
 	{
 		var folder;
-		if(Ext.isArray(folders)) {
+		if(Array.isArray(folders)) {
 			folder = folders[0];
 		} else{
 			folder = folders;

@@ -40,7 +40,7 @@ Zarafa.common.Actions = {
 	 */
 	openRecurrenceContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 
@@ -63,7 +63,7 @@ Zarafa.common.Actions = {
 	 */
 	openCategoriesContent : function(records, config)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -243,7 +243,7 @@ Zarafa.common.Actions = {
 	{
 		if (Ext.isEmpty(records)) {
 			return;
-		} else if (Ext.isArray(records)) {
+		} else if (Array.isArray(records)) {
 			if (records.length > 1) {
 				Ext.MessageBox.alert(_('Print'), _('Printing of multiple items has not been implemented.'));
 				return;
@@ -351,7 +351,7 @@ Zarafa.common.Actions = {
 	{
 		config = config || {};
 
-		if(Ext.isArray(record)){
+		if(Array.isArray(record)){
 			Ext.each(record, this.openReminderRecord, this);
 			return;
 		}
@@ -518,7 +518,7 @@ Zarafa.common.Actions = {
 			return;
 		}
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -705,7 +705,7 @@ Zarafa.common.Actions = {
 	 */
 	markAsRead : function(records, read)
 	{
-		records = !Ext.isArray(records) ? [ records ] : records;
+		records = !Array.isArray(records) ? [ records ] : records;
 		read = !Ext.isDefined(read) ? true : read;
 
 		var saveRecords = [];

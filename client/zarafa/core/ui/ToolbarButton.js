@@ -73,25 +73,25 @@ Zarafa.core.ui.ToolbarButton = Ext.extend(Ext.Button, {
 	onRecordSelectionChange : function(model, records)
 	{
 		if (this.emptySelectOnly) {
-			if (Ext.isDefined(records) && (!Ext.isArray(records) || records.length > 0)) {
+			if (Ext.isDefined(records) && (!Array.isArray(records) || records.length > 0)) {
 				this.setDisabled(true);
 			} else {
 				this.setDisabled(false);
 			}
 		} else if (this.nonEmptySelectOnly) {
-			if (!Ext.isDefined(records) || (Ext.isArray(records) && records.length === 0)) {
+			if (!Ext.isDefined(records) || (Array.isArray(records) && records.length === 0)) {
 				this.setDisabled(true);
 			} else {
 				this.setDisabled(false);
 			}
 		} else if (this.singleSelectOnly) {
-			if (!Ext.isDefined(records) || (Ext.isArray(records) && records.length !== 1)) {
+			if (!Ext.isDefined(records) || (Array.isArray(records) && records.length !== 1)) {
 				this.setDisabled(true);
 			} else {
 				this.setDisabled(false);
 			}
 		} else if (this.multiSelectOnly) {
-			if (!Ext.isDefined(records) || (!Ext.isArray(records) || records.length === 1)) {
+			if (!Ext.isDefined(records) || (!Array.isArray(records) || records.length === 1)) {
 				this.setDisabled(true);
 			} else {
 				this.setDisabled(false);

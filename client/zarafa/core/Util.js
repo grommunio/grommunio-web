@@ -133,7 +133,7 @@ Zarafa.core.Util =
 		arrayToTrim = [];				// reset array
 
 		for(var index = 0, len = tmpArray.length; index < len; index++) {
-			if(Ext.isArray(tmpArray[index])) {
+			if(Array.isArray(tmpArray[index])) {
 				// recursively call the same function
 				arrayToTrim.push(Zarafa.core.Util.trimStringArray(tmpArray[index]));
 			} else {
@@ -157,7 +157,7 @@ Zarafa.core.Util =
 	inArray : function(multiDimArray, tokenToSearch, caseInSensitive, matchPartial)
 	{
 		for(var index = 0, len = multiDimArray.length; index < len; index++) {
-			if(Ext.isArray(multiDimArray[index])) {
+			if(Array.isArray(multiDimArray[index])) {
 				// recursively call the same function
 				if(Zarafa.core.Util.inArray(multiDimArray[index], tokenToSearch, caseInSensitive, matchPartial)) {
 					return true;
@@ -207,7 +207,7 @@ Zarafa.core.Util =
 			obj = Zarafa.core.Util.applyRecursive(obj, defaults);
 		}
 
-		if(obj && config && (Ext.isObject(config) || Ext.isArray(config))) {
+		if(obj && config && (Ext.isObject(config) || Array.isArray(config))) {
 			for(var key in config) {
 				if (Ext.isDefined(obj[key]) && Ext.isObject(obj[key])) {
 					// object with child elements, so call this function recursively
@@ -239,7 +239,7 @@ Zarafa.core.Util =
 			obj = Zarafa.core.Util.applyIfRecursive(obj, defaults);
 		}
 
-		if(obj && config && (Ext.isObject(config) || Ext.isArray(config))) {
+		if(obj && config && (Ext.isObject(config) || Array.isArray(config))) {
 			for(var key in config) {
 				if(Ext.isDefined(obj[key]) && Ext.isObject(obj[key])) {
 					// object with child elements, so call this function recursively
@@ -539,7 +539,7 @@ Zarafa.core.Util =
 	{
 		var ret = [];
 
-		if(Ext.isArray(obj)) {
+		if(Array.isArray(obj)) {
 			// we already have an array
 			return obj;
 		}

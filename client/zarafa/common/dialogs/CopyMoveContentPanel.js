@@ -35,7 +35,7 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 		var title;
 		var objectType;
 		if (config.record) {
-			if (!Ext.isArray(config.record)) {
+			if (!Array.isArray(config.record)) {
 				config.record = [ config.record ];
 			}
 

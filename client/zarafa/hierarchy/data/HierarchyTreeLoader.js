@@ -273,7 +273,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 			return;
 		}
 
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
 				this.onHierarchyAddFolder(store, mapiStore, record[i]);
 			}

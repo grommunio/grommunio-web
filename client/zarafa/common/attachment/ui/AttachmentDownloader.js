@@ -167,7 +167,7 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	 */
 	openMixAttachmentsDialog : function(records, config)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 

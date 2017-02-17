@@ -732,7 +732,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 		 * the MAPIRecord class.
 		 */
 		var record = args.sendRecords;
-		if(Ext.isArray(record) && record.length == 1){
+		if(Array.isArray(record) && record.length == 1){
 			record = record[0];
 		}
 		// If it is not a record or if the record is not the record in the Container we should skip it

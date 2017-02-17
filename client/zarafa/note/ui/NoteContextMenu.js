@@ -27,7 +27,7 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 		config = config || {};
 
 		if (config.records) {
-			if (!Ext.isArray(config.records)) {
+			if (!Array.isArray(config.records)) {
 				config.records = [ config.records ];
 			}
 		}

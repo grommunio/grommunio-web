@@ -40,7 +40,7 @@ Zarafa.core.data.Record = {
 	addFields : function(proto, fields)
 	{
 		for(var i = 0, len = fields.length; i < len; i++) {
-			if (Ext.isArray(fields[i])) {
+			if (Array.isArray(fields[i])) {
 				this.addFields(proto, fields[i]);
 			} else {
 				proto.fields.add(new Ext.data.Field(fields[i]));

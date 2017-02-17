@@ -575,7 +575,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			saveState = false;
 		}
 
-		if (Ext.isArray(folders)) {
+		if (Array.isArray(folders)) {
 			this.folders = folders.clone();
 		} else if (Ext.isDefined(folders)) {
 			this.folders = [ folders ];

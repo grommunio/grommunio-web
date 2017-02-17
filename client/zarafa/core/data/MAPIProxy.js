@@ -87,7 +87,7 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	deleteRequestId : function(requestId)
 	{
 		for (var key in this.activeRequestMapping) {
-			if (Ext.isArray(this.activeRequestMapping[key])) {
+			if (Array.isArray(this.activeRequestMapping[key])) {
 				this.activeRequestMapping[key].remove(requestId);
 				if (Ext.isEmpty(this.activeRequestMapping[key])) {
 					delete this.activeRequestMapping[key];
@@ -305,12 +305,12 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 			var items = parameters.jsonData[reader.meta.root];
 
 			// Force the records object to be an array
-			if (!Ext.isArray(records)) {
+			if (!Array.isArray(records)) {
 				records = [ records ];
 			}
 
 			// Force the serialized data to be an array
-			if (!Ext.isArray(items)) {
+			if (!Array.isArray(items)) {
 				items = [ items ];
 			}
 

@@ -197,7 +197,7 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 	 */
 	afterDelegateAdd : function(store, record, index)
 	{
-		if(Ext.isArray(record)) {
+		if(Array.isArray(record)) {
 			for(var i = 0, j = record.length; i < j; i++) {
 				this.afterDelegateAdd(store, record[i], i);
 			}

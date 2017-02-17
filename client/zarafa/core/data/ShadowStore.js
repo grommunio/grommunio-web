@@ -101,7 +101,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 */
 	reMap : function(record)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
 				this.reMap(record[i]);
 			}
@@ -120,7 +120,7 @@ Zarafa.core.data.ShadowStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		// FIXME: This function is completely copied from
 		// Ext.data.store.remove(). Is there a nicer way we can
 		// add the 'silent' argument without blunt code copying?
-		if(Ext.isArray(record)){
+		if(Array.isArray(record)){
 			Ext.each(record, function(r){
 				this.remove(r, silent);
 			}, this);

@@ -104,7 +104,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 		var userIdObjects = [];
 		var records = store.getRange();
 
-		if ( !Ext.isArray(fieldRoots) ){
+		if ( !Array.isArray(fieldRoots) ){
 			fieldRoots = [fieldRoots];
 		}
 		Ext.each(records, function(record){

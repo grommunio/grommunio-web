@@ -172,7 +172,7 @@ Zarafa.settings.ui.SettingsKeyShortcutCategory = Ext.extend(Zarafa.settings.ui.S
 		var key = keyConfig.key;
 		if(!Ext.isEmpty(key)) {
 			// if any special key is there in configuration, then we need to prepare the combination accordingly
-			if (Ext.isArray(key)) {
+			if (Array.isArray(key)) {
 				if (key[0] === Ext.EventObject.LEFT && key[1] === Ext.EventObject.RIGHT){
 					keyCombination.push('ARROW KEYS');
 				} else {

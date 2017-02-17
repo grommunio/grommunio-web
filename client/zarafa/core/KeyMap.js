@@ -58,7 +58,7 @@ settingsCfg        Object      Object containing two keys:
 	 */
 	addBinding : function(config)
 	{
-		if(Ext.isArray(config)){
+		if(Array.isArray(config)){
 			Ext.each(config, function(c){
 				this.addBinding(c);
 			}, this);
@@ -81,7 +81,7 @@ settingsCfg        Object      Object containing two keys:
 			}
 			keyCode = ks;
 		}
-		var keyArray = Ext.isArray(keyCode);
+		var keyArray = Array.isArray(keyCode);
 		
 		var handler = function(e){
 			if(this.checkModifiers(config, e)){

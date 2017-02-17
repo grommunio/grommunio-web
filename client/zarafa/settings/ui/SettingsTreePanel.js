@@ -131,7 +131,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 */
 	onSettingsChange : function(model, settings)
 	{
-		if (!Ext.isArray(settings)) {
+		if (!Array.isArray(settings)) {
 			settings = [ settings ];
 		}
 
@@ -172,7 +172,7 @@ Zarafa.settings.ui.SettingsTreePanel = Ext.extend(Zarafa.common.ui.EditorTreeGri
 	 */
 	onSettingsRemove : function(model, settings)
 	{
-		if (!Ext.isArray(settings)) {
+		if (!Array.isArray(settings)) {
 			settings = [ settings ];
 		}
 

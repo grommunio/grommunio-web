@@ -109,7 +109,7 @@ Zarafa.core.data.IPFStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		var results = { records: [],  updatedRecords : [] };
 
 		if (Ext.isDefined(records)) {
-			if (!Ext.isArray(records)) {
+			if (!Array.isArray(records)) {
 				records = [ records ];
 			}
 
@@ -218,7 +218,7 @@ Zarafa.core.data.IPFStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		}
 
 		var obj = {};
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			obj[action] = record;
 		} else {
 			obj[action] = [ record ];

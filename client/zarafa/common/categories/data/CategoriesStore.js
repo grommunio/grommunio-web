@@ -27,7 +27,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 		
 		for (var i = 0; i < categories.length; i++) {
-			if (!Ext.isArray(categories[i])) {
+			if (!Array.isArray(categories[i])) {
 				categories[i] = [ categories[i] ];
 			}
 		}

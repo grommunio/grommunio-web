@@ -588,7 +588,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			}
 		};
 
-		if (!Ext.isArray(userRecords)) {
+		if (!Array.isArray(userRecords)) {
 			userRecords = [ userRecords ];
 		}
 

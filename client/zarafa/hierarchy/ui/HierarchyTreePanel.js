@@ -304,7 +304,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		if (!Ext.isEmpty(dropEvent.dropItem)) {
 			var targetNode = dropEvent.target;
 
-			var sourceNodes = Ext.isArray(dropEvent.dropItem) ? dropEvent.dropItem : [ dropEvent.dropItem ];
+			var sourceNodes = Array.isArray(dropEvent.dropItem) ? dropEvent.dropItem : [ dropEvent.dropItem ];
 			var targetFolder = targetNode.getFolder();
 			var store = sourceNodes[0].getStore();
 
@@ -379,7 +379,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 */
 	onFolderSelect : function(folder)
 	{
-		if (Ext.isArray(folder)) {
+		if (Array.isArray(folder)) {
 
 			// If we have multi selected folder then select previously selected node in tree.
 			if (folder.length > 1 && this.model) {

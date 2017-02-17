@@ -165,7 +165,7 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 			this.initializeChildComponent(c);
 		};
 
-		if (Ext.isArray(component)) {
+		if (Array.isArray(component)) {
 			Ext.each(component, recursive, this);
 			return;
 		} else if (component instanceof Ext.util.MixedCollection) {

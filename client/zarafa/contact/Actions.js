@@ -20,7 +20,7 @@ Zarafa.contact.Actions = {
 	 */
 	openDialog : function(record, config)
 	{
-		if(Ext.isArray(record)) {
+		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
 				Zarafa.contact.Actions.openDialog(record[index], config);
 			}
@@ -43,7 +43,7 @@ Zarafa.contact.Actions = {
 	 */
 	openContactContent : function(record, config)
 	{
-		if(Ext.isArray(record)) {
+		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
 				Zarafa.contact.Actions.openContactContent(record[index], config);
 			}
@@ -78,7 +78,7 @@ Zarafa.contact.Actions = {
 	 */
 	openDistlistContent : function(record, config)
 	{
-		if(Ext.isArray(record)) {
+		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
 				Zarafa.contact.Actions.openDistlistContent(record[index], config);
 			}
@@ -217,7 +217,7 @@ Zarafa.contact.Actions = {
 	 */
 	openMembersSelectionContent : function(record, config)
 	{
-		if(Ext.isArray(record)) {
+		if(Array.isArray(record)) {
 			for(var index = 0, len = record.length; index < len; index++) {
 				Zarafa.contact.Actions.openMembersSelectionContent(record[index], config);
 			}

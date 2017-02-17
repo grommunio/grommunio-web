@@ -211,7 +211,7 @@ Zarafa.core.data.NoSyncStore = Ext.extend(Ext.util.Observable, {
 	 */
 	remove : function(record, silent)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			Ext.each(record, function(r){
 				this.remove(r, silent);
 			}, this);

@@ -113,7 +113,7 @@ Zarafa.core.data.AbstractNotificationResponseHandler = Ext.extend(Zarafa.core.da
 		var notification = { records: records, data : data };
 
 		if (Ext.isDefined(this.notifications[action])) {
-			if (Ext.isArray(this.notifications[action])) {
+			if (Array.isArray(this.notifications[action])) {
 				this.notifications[action].push(notification);
 			} else {
 				this.notifications[action] = [ this.notifications[action], notification ];

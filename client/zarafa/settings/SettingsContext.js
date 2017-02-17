@@ -198,7 +198,7 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	{
 		var bid = -1;
 
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			record = record[0];  
 		}
 
