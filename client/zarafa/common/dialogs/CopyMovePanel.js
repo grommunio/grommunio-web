@@ -20,11 +20,11 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * to determine if we are copy/moving folders or messages.
 	 */
 	objectType : undefined,
-	
+
 	/**
-	 * {Zarafa.mail.MailStore} store or {Zarafa.hierarchy.data.IPFSubStore} store 
+	 * {Zarafa.mail.MailStore} store or {Zarafa.hierarchy.data.IPFSubStore} store
 	 * depending on the objectType.
-	 * This store is cached in the panel, because the store of a record is removed 
+	 * This store is cached in the panel, because the store of a record is removed
 	 * when a user receives new email.
 	 */
 	store : undefined,
@@ -68,7 +68,6 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				handler: this.onMove,
 				scope: this,
 				ref: '../moveButton',
-				cls: 'zarafa-action',
 				disabled: true
 			},{
 				text: _('Copy'),
@@ -98,7 +97,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 					if (win && win.focusEl) {
 						win.focusEl.on('focus', this.onDialogFocussed, this);
 					}
-					
+
 					// Add the keymap
 					Zarafa.core.KeyMapMgr.activate(this, 'Zarafa.common.dialogs.CopyMovePanel');
 				}
@@ -164,8 +163,8 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			}],
 			listeners : {
 				// autoheight does not work well for the vbox, so we set the height of the container manually
-				// This way we can use css to determine the height 
-				'afterlayout': function(){ 
+				// This way we can use css to determine the height
+				'afterlayout': function(){
 					this.displayfieldContainer.setHeight(this.displayfield.getHeight());
 				}
 			}
@@ -249,7 +248,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler which is triggered when the user presses the Create new folder {@link Ext.Button button}. 
+	 * Event handler which is triggered when the user presses the Create new folder {@link Ext.Button button}.
 	 * This will call {@link Zarafa.hierachy.actions.openCreateFolderContent} with the selected {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}.
 	 * @private
 	 */
@@ -272,10 +271,10 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		// Sometimes the 'append' is fired but the node is not rendered yet,so add a delay of 10 ms.
 		if (!node.parentNode) {
 			// The node is probably removed and appended again, so let's find the
-			// correct node in the tree again 
-			node = tree.getNodeById(node.id); 
-		} 
-		tree.selectPath(node.getPath()); 
+			// correct node in the tree again
+			node = tree.getNodeById(node.id);
+		}
+		tree.selectPath(node.getPath());
 		this.mun(this.hierarchyTree, 'append', this.onTreeAppend, this);
 	},
 

@@ -13,21 +13,21 @@ $normal-button-bgcolor-hover	: $grey2;
  * Code to create the sprite
  *************************************/
     @import "compass/utilities/sprites";
-    
+
     $disable-magic-sprite-selectors: true;
     $iconmap-spacing : 30px;
 
     $icons: sprite-map(
-    	"buttons/*.png", 
+    	"buttons/*.png",
     	$layout: vertical,
     	$inline: false,
-    	$spacing: $iconmap-spacing, 
+    	$spacing: $iconmap-spacing,
     	$position: 0%,
 
 	    $buttons-arrow_menubar-position: 50%,
 	    $buttons-arrow_down_s_btn-position: 100%,
 	    $buttons-arrow_down_s_white_btn-position: 100%,
-	    
+
 	    $buttons-icon_mail_large_white-position: 50%,
 	    $buttons-icon_calendar_large_white-position: 50%,
 	    $buttons-icon_contact_large_white-position: 50%,
@@ -37,9 +37,9 @@ $normal-button-bgcolor-hover	: $grey2;
 
 /*
     @import "buttons/*.png";
-    
+
     @include all-buttons-sprites;
-*/ 
+*/
     @each $img in sprite-names($icons) {
       .buttons-#{$img},
       .#{$img} {
@@ -54,7 +54,7 @@ $normal-button-bgcolor-hover	: $grey2;
  * End of code to create the sprite
  *************************************/
 
-     
+
 /**************************************
  * Specific icons
  *************************************/
@@ -94,7 +94,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	/* normal button */
 	.x-btn {
 		display: inline-block;
-		
+
 		.x-btn-small, .x-btn-medium, .x-btn-large {
 			display: inline-block;
 			border: none;
@@ -102,11 +102,11 @@ $normal-button-bgcolor-hover	: $grey2;
 			border-radius: 0;
 			box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
 			background: $normal-button-bgcolor;
-			
+
 			em {
 				display: inline-block;
 			}
-			
+
 			button{
 				background-color: transparent;
 				box-sizing: border-box;
@@ -115,7 +115,7 @@ $normal-button-bgcolor-hover	: $grey2;
 			}
 		}
 	}
-	
+
 	/* hovered button */
 	.x-btn.x-btn-over {
 		.x-btn-small, .x-btn-medium, .x-btn-large {
@@ -125,7 +125,7 @@ $normal-button-bgcolor-hover	: $grey2;
 			box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
 		}
 	}
-	
+
 	/* active button */
 	.x-btn.x-btn-over.x-btn-click, .x-btn.x-btn-click {
 		.x-btn-small, .x-btn-medium, .x-btn-large {
@@ -133,13 +133,13 @@ $normal-button-bgcolor-hover	: $grey2;
 			border-radius: 0;
 			background: $normal-button-bgcolor !important;
 			box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
-			
+
 			button {
 				color: #333333;
 			}
 		}
 	}
-	
+
 	/* small button */
 	.x-btn {
 		.x-btn-small {
@@ -148,7 +148,7 @@ $normal-button-bgcolor-hover	: $grey2;
 			}
 		}
 	}
-	
+
 	/* small button with text */
 	.x-btn.x-btn-noicon, .x-btn.x-btn-text-icon {
 		.x-btn-small {
@@ -196,7 +196,7 @@ $normal-button-bgcolor-hover	: $grey2;
         	background-repeat: no-repeat;
 			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 17px, $offset_x: 100%);
 			padding-right: 12px;
-			
+
 			button {
 				border-right: 1px solid white;
 			}
@@ -206,7 +206,7 @@ $normal-button-bgcolor-hover	: $grey2;
 		em.x-btn-split, em.x-btn-arrow {
 			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 11px, $offset_x: 100%);
 			padding-right: 12px;
-			
+
 			button {
 				border: none;
 				border-right: 1px solid white;
@@ -225,7 +225,7 @@ $normal-button-bgcolor-hover	: $grey2;
 			}
 		}
 	}
-	
+
 /**************************************
  * Action buttons
  *************************************/
@@ -234,7 +234,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	.x-btn.zarafa-action {
 		.x-btn-small, .x-btn-medium, .x-btn-large {
 			background: $action-bgcolor !important;
-			
+
 			button {
 				color: $action-fontcolor;
 			}
@@ -252,7 +252,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	.x-btn.zarafa-action.x-btn-over.x-btn-click, .x-btn.zarafa-action.x-btn-click {
 		.x-btn-small, .x-btn-medium, .x-btn-large {
 			background: $action-bgcolor !important;
-			
+
 			button {
 				color: $font-color-light;
 			}
@@ -267,54 +267,72 @@ $normal-button-bgcolor-hover	: $grey2;
 	}
 
 
-    /* For popup or windows, the first button is styled green */
+    /* For popup or windows or MessageBox, the first button is styled green */
     /* Extra class .xpanel-footer necessary for "Create Mail => Insert Item" pagination buttons */
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:active {
-    	@include action-button-active();
-    }
-    
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:hover {
-    	@include action-button-hover();
-    }
-    
-    .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button {
-    	@include action-button();
-    }
+    .x-window {
+    	.x-panel-footer,
+    	.x-window-footer {
+    		.x-toolbar-left-row,
+    		.x-toolbar-right-row {
+				.x-toolbar-cell:not(.x-hide-offsets) {
 
-    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:active {
-        @include action-button-active();
-    }
+					/* Normal button */
+    				.x-btn:not(.zarafa-normal) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background: $action-bgcolor !important;
 
-    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button:hover {
-        @include action-button-hover();
-    }
+							button {
+								color: $action-fontcolor;
+							}
+						}
+					}
 
-    .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:first-child .x-btn:not(.zarafa-normal) button {
-        @include action-button();
-    }
+					/* hovered button */
+					.x-btn.x-btn-over:not(.zarafa-normal) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background: $action-bgcolor-hover !important;
+						}
+					}
 
-	/* Special case: Messageboxes */
-	.x-window-dlg {
-		.x-toolbar-left {
-			.x-toolbar-cell:not(.x-hide-offsets) {
-				button {
-			    	@include action-button();
+					/* active button */
+					.x-btn.x-btn-over.x-btn-click:not(.zarafa-normal),
+					.x-btn.x-btn-click:not(.zarafa-normal) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background: $action-bgcolor !important;
+						}
+					}
 				}
-				button:hover {
-			    	@include action-button-hover();
-				}
-				button:active {
-			    	@include action-button-active();
-				}
-			}
-			.x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) {
-				button {
-					background-color: transparent;
-					color: $font-default-color;
+
+				.x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) {
+					/* Normal button */
+    				.x-btn:not(.zarafa-action) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background-color: $normal-button-bgcolor !important;
+
+							button {
+								color: $font-default-color;
+							}
+						}
+					}
+
+					/* hovered button */
+					.x-btn.x-btn-over:not(.zarafa-action) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background: $normal-button-bgcolor-hover !important;
+						}
+					}
+
+					/* active button */
+					.x-btn.x-btn-over.x-btn-click:not(.zarafa-action),
+					.x-btn.x-btn-click:not(.zarafa-action) {
+						.x-btn-small, .x-btn-medium, .x-btn-large {
+							background: $normal-button-bgcolor !important;
+						}
+					}
 				}
 			}
 		}
-	}
+    }
 
 	/* Drag & Drop icon override, select mail drag to folder hiearchy. */
 	.x-tree-drop-ok-append .x-dd-drop-icon {
