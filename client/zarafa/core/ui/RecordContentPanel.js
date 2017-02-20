@@ -300,6 +300,16 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			return;
 		}
 
+		// Don't display save notification while system is marking the record as unread
+		// which 'belongs to ShadowStore' and 'only message_flags gets modified'.
+		// This happens when unread mail gets popped out.
+		var modifications = this.record.modified;
+		var isModifiedOnlyFlags = (modifications && Object.keys(modifications).length === 1 && Ext.isDefined(modifications.message_flags));
+		var isShadowStore = (this.record.getStore() === container.getShadowStore());
+		if (isModifiedOnlyFlags && isShadowStore) {
+			return;
+		}
+
 		this.savingEl = container.getNotifier().notify('info.saving', this.savingText.title, this.savingText.msg, {
 			container : this.getEl(),
 			persistent : true

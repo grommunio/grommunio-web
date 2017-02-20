@@ -225,9 +225,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 		}
 
 		this.updateTitleFromRecord(record);
-		if(contentReset){
-			this.updateIconFromRecord(record);
-		}
+		this.updateIconFromRecord(record);
 	},
 
 	/**
