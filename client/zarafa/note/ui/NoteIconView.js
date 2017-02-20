@@ -46,7 +46,7 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 			cls : 'zarafa-note-iconview',
 			loadingText : _('Loading notes') + '...',
 			deferEmptyText: false,
-			emptyText	: '<div class="emptytext">' + _('There are no items to show in this view') + '</div>',
+			emptyText	: '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
 			overClass	:'zarafa-note-iconview-over',
 			tpl			: this.initTemplate(),
 			multiSelect	: true,

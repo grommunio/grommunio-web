@@ -226,6 +226,14 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		}
 	}
 
+/******************************************************************************
+ * Empty text
+ ******************************************************************************/
+.k-addressbookmainpanel-grid .emptytext {
+	font-size: $font-size-large !important;
+	color: $grey6;
+	margin-top: 150px;
+}
 
 /******************************************************************************
  * Grid columns
