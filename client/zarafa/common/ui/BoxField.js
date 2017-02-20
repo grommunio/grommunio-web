@@ -182,6 +182,13 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	boxLimit : undefined,
 
 	/**
+	 * @cfg {String}
+	 * A simple CSS selector (e.g. div.some-class or span:first-child) that will be used to
+	 * determine what extra nodes are required to be added into each of the dropdown-list item.
+	 */
+	extraItemSelector : undefined,
+
+	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
@@ -338,6 +345,22 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		this.on('select', this.onSelect, this);
 
 		Zarafa.common.ui.BoxField.superclass.initEvents.call(this);
+	},
+
+	/**
+	 * Overridden to relay the value of {@link #extraItemSelector} to respective {@link Ext.DataView#extraItemSelector}
+	 * and start listening to the {@link Ext.DataView#extraitemclick}, {@link Ext.DataView#mouseenter}
+	 * and {@link Ext.DataView#mouseleave} event.
+	 */
+	initList : function()
+	{
+		Zarafa.common.ui.BoxField.superclass.initList.call(this);
+
+		if(Ext.isDefined(this.extraItemSelector)) {
+			this.view.extraItemSelector = this.extraItemSelector;
+
+			this.view.on('extraitemclick', this.onExtraItemClick, this);
+		}
 	},
 
 	/**
@@ -1638,7 +1661,6 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 * @param {Ext.EventObject} e The event object which fired the event
 	 * @private
 	 */
-
 	onListKeyDelete : function(key, e)
 	{
 		var store = this.getStore();
@@ -1657,6 +1679,21 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			}
 			this.restrictHeight();
 		}
+	},
+
+	/**
+	 * Event handler for the {@link Ext.DataView#extraitemclick} event.
+	 * This is fired when {@link #extraItemSelector} node from dropdown-list is clicked.
+	 * Just remove selected node by calling {@link #onListKeyDelete} function.
+	 * @param {Ext.DataView} The underlying {@link Ext.DataView} instance responsible to create dropdown-list.
+	 * @param {Number} index The index of the target node
+	 * @param {HTMLElement} extraItem The target node
+	 * @param {Ext.EventObject} e The raw event object
+	 * @private
+	 */
+	onExtraItemClick : function(dataView, index, extraItem, e)
+	{
+		this.onListKeyDelete(false, e);
 	},
 
 	/**

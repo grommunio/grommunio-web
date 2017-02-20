@@ -99,7 +99,7 @@
 		.x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus {
 			background-color: $light-blue;
 		}
-		
+
 		/* the icon for recipient fields */
 		.x-zarafa-boxfield-item.x-zarafa-boxfield-recipient-item .x-zarafa-boxfield-item-icon {
 			display: none;
@@ -168,6 +168,19 @@
 		cursor: text;
 	}
 
+}
+
+.x-zarafa-boxfield-suggestion-cross {
+	cursor: pointer;
+	float:right;
+	height: 7px;
+	margin-top: 5px;
+	padding:0 6px;
+	visibility: hidden;
+	@extend .icon_cross;
+}
+.x-zarafa-boxfield-suggestion-item:hover .x-zarafa-boxfield-suggestion-cross {
+	visibility : visible !important;
 }
 
 .zarafa-compositefield > .x-box-inner {

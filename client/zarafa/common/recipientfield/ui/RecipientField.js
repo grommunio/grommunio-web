@@ -83,6 +83,7 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 		Ext.applyIf(config, {
 			boxType : 'zarafa.recipientbox',
 			itemSelector: 'div.x-zarafa-boxfield-suggestion-item',
+			extraItemSelector: 'a.x-zarafa-boxfield-suggestion-cross',
 			border: false,
 			minChars: 1,
 			listEmptyText : _('No suggestions available'),
@@ -92,6 +93,7 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 			tpl: new Ext.XTemplate(
 				'<tpl for=".">',
 					'<div class="x-zarafa-boxfield-suggestion-item x-combo-list-item">',
+						'<a class="x-zarafa-boxfield-suggestion-cross" ext:qtip="'+ _('Delete recipient from suggestion list') +'" ext:qwidth="100%"></a>',
 						'{values.display_name:htmlEncode} &lt;',
 							'<tpl if="!Ext.isEmpty(values.smtp_address)">{values.smtp_address:htmlEncode}</tpl>',
 							'<tpl if="Ext.isEmpty(values.smtp_address)">{values.email_address:htmlEncode}</tpl>',
@@ -100,7 +102,6 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 				'</tpl>'
 			)
 		});
-
 
 		Zarafa.common.recipientfield.ui.RecipientField.superclass.constructor.call(this, config);
 
