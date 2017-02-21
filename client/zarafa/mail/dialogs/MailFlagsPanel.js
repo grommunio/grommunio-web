@@ -35,7 +35,7 @@ Zarafa.mail.dialogs.MailFlagsPanel = Ext.extend(Ext.Panel, {
 			config.disableFlagColor = this.disableFlagColor;
 		}
 
-		if(!Ext.isBoolean(config.disableFlagColor)) {
+		if(!Ext.isBoolean(config.disableCompleted)) {
 			config.disableCompleted = this.disableCompleted;
 		}
 

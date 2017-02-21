@@ -446,6 +446,8 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		var record;
 		if(Ext.isArray(this.records)) {
 			record = this.records[0];
+		} else {
+			return;
 		}
 
 		if (record.get('appointment_not_found')) {
