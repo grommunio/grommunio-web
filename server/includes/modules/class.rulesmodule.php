@@ -36,11 +36,21 @@
 		 */
 		function execute()
 		{
-			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
-
 			foreach($this->data as $actionType => $action)
 			{
+				$storeGuid = $action['store'];
+
+				$ownStoreEntryId = bin2hex($GLOBALS['mapisession']->defaultstore);
+
 				try {
+					if ( ENABLE_SHARED_RULES !== true && !$GLOBALS['entryid']->compareEntryIds($storeGuid, $ownStoreEntryId) ){
+						// When the admin does not allow a user to set rules on the store of other users, but somehow
+						// the user still tries this (probably hacking) we will not allow this
+						throw new MAPIException(_('Setting mail filters on the stores of other users is not allowed.'));
+					} else {
+						$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeGuid));
+					}
+
 					switch($actionType) {
 						case 'list':
 							$rules = $this->getRules($store);
@@ -259,7 +269,7 @@
 			}
 
 			if (!empty($saveRules)) {
-				mapi_rules_modifytable($this->getRulesModifyTable(), $saveRules);
+				mapi_rules_modifytable($this->getRulesModifyTable($store), $saveRules);
 			}
 		}
 
@@ -270,7 +280,7 @@
 		 * it will ask user to preserve whether client or server side rules, so everytime
 		 * we save rules we need to remove this outlook generated client rule to remove
 		 * ambigiuty.
-		 * 
+		 *
 		 * @param {MAPIStore} $store (optional) current user's store.
 		 */
 		function deleteOLClientRules($store = false)
@@ -311,7 +321,7 @@
 		 * Function does customization of MAPIException based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
-		 * 
+		 *
 		 * @param object $e Exception object.
 		 * @param string $actionType the action type, sent by the client.
 		 * @param MAPIobject $store Store object of the message.

@@ -33,6 +33,7 @@ Zarafa.common.rules.dialogs.RulesEditContentPanel = Ext.extend(Zarafa.core.ui.Re
 			title : _('Inbox Rule'),
 			items : [{
 				xtype : 'zarafa.ruleseditpanel',
+				storeEntryId: config.record.getStore().storeEntryId,
 				buttons : [{
 					text : _('Save'),
 					handler : this.onOk,

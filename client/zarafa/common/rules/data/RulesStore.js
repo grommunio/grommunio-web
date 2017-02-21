@@ -14,6 +14,11 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	actionType : undefined,
 
 	/**
+	 * {String} storeEntryId the store to be used for reading and writing the rules.
+	 */
+	storeEntryId : undefined,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -70,7 +75,7 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 					}
 				}, this);
 
-				record.data.rule_sequence = (seq + 1); 
+				record.data.rule_sequence = (seq + 1);
 			}
 		}
 
@@ -111,19 +116,20 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		// deleted, we don't need to save anything as there are
 		// no changes.
 		if (rs.length === 0 && this.removed.length === 0) {
+			this.baseParams.store = this.storeEntryId;
 			return;
 		}
 
 		// We are going to save all rules in a single batch,
 		// the server will handle all updates/deletes automatically
-		rs = [].concat(this.getRange());
-		if (rs.length) {
-			for (i = rs.length - 1; i >= 0; i--) {
-				if (!rs[i].isValid()) { // <-- while we're here, splice-off any !isValid real records
-					rs.splice(i,1);
-				}
-			}
-		}
+		rs = this.getRange().filter(function(record) {
+			return record.isValid();
+		});
+
+		// Add the store entryid to the request.
+		rs.forEach(function(record) {
+			record.addMessageAction("store", this.storeEntryId);
+		}, this);
 
 		// Put all records in the update batch, note that we don't care if this is empty,
 		// as that will resolve on the server to a "Delete everything" action.
@@ -184,8 +190,13 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 			options = {};
 		}
 
+		// Add the entryid of the store for which we want the rules
+		this.baseParams.store = this.storeEntryId;
+
 		if (!Ext.isObject(options.params)) {
-			options.params = {};
+			options.params = {'store': this.storeEntryId};
+		} else {
+			options.params['store'] = this.storeEntryId;
 		}
 
 		// By default 'load' must cancel the previous request.
