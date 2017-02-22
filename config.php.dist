@@ -99,11 +99,8 @@
 	// false will show shared contact folders in address-book folder list.
 	define("DISABLE_SHARED_CONTACT_FOLDERS", true);
 
-	// Set to true to give users the possiblity to edit and create mail filters on the store
-	// of other users. The user needs owner permissions on the store and folder permissions on
-	// the inbox of the other user.
-	// SECURITY NOTE: This makes it possible for a user to create a filter on a folder for which
-	// he does not have read permissions to forward e-mail to his own mailbox and read it anyway.
+	// Set to true to give users the possiblity to edit, create, and delete mail filters on the store
+	// of other users. The user needs owner permissions on the store of the other user.
 	define('ENABLE_SHARED_RULES', false);
 
 	// Booking method (true = direct booking, false = send meeting request)
