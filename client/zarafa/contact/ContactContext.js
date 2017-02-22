@@ -75,13 +75,13 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 
 		// If additional prefix added by user in config.php file than append it into existing prefix's list
 		var prefix = container.getServerConfig().getContactPrefix();
-		if (Ext.isDefined(prefix) && Ext.isArray(prefix)) {
+		if (Ext.isDefined(prefix) && Array.isArray(prefix)) {
 			Zarafa.contact.data.config.Prefix = Zarafa.contact.data.config.Prefix.concat(prefix);
 		}
 
 		// If additional suffix added by user in config.php file than append it into existing suffix's list
 		var suffix = container.getServerConfig().getContactSuffix();
-		if (Ext.isDefined(suffix) && Ext.isArray(suffix)) {
+		if (Ext.isDefined(suffix) && Array.isArray(suffix)) {
 			Zarafa.contact.data.config.Suffix = Zarafa.contact.data.config.Suffix.concat(suffix);
 		}
 	},
@@ -142,7 +142,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 	{
 		var bid = -1;
 
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			record = record[0];
 		}
 

@@ -151,7 +151,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		{
 			var propagateRecords = [];
 
-			if (!Ext.isArray(records)) {
+			if (!Array.isArray(records)) {
 				records = [ records ];
 			}
 	
@@ -321,7 +321,7 @@ Zarafa.core.data.IPFStoreMgr = Ext.extend(Ext.util.Observable, {
 		{
 			var stores = [];
 
-			if (!Ext.isArray(folders)) {
+			if (!Array.isArray(folders)) {
 				folders = [ folders ];
 			}
 

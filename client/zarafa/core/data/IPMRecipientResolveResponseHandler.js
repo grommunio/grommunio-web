@@ -38,7 +38,7 @@ Zarafa.core.data.IPMRecipientResolveResponseHandler = Ext.extend(Zarafa.core.dat
 	readRecordsFromResponse : function(response, field)
 	{
 		var items = response[field] || [];
-		if (!Ext.isArray(items)) {
+		if (!Array.isArray(items)) {
 			items = [ items ];
 		}
 

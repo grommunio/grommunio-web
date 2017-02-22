@@ -253,7 +253,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 */
 	resolve : function(records, options)
 	{
-		if (Ext.isDefined(records) && !Ext.isArray(records)) {
+		if (Ext.isDefined(records) && !Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -338,7 +338,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	 */
 	onCheckNamesResult: function(records, options, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [records];
 		}
 
@@ -411,7 +411,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	onExpandResult: function(records, options, success)
 	{
 		if (success) {
-			if (!Ext.isArray(records)) {
+			if (!Array.isArray(records)) {
 				records = [records];
 			}
 
@@ -463,7 +463,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 			// in a IPMRecipientStore. Because records are not modified then, we
 			// do not have to resolve them.
 			var modifiedRecords = [];
-			if ( !Ext.isArray(records) ){
+			if ( !Array.isArray(records) ){
 				records = [records];
 			}
 			Ext.each( records, function(record){

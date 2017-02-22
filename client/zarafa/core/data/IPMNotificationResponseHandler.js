@@ -44,7 +44,7 @@ Zarafa.core.data.IPMNotificationResponseHandler = Ext.extend(Zarafa.core.data.Ab
 	{
 		var items = response.item;
 
-		if (!Ext.isArray(items)) {
+		if (!Array.isArray(items)) {
 			items = [ items ];
 		}
 

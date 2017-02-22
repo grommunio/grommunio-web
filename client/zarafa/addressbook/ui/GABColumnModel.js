@@ -150,7 +150,7 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 		}];
 
 		// FIXME: find an alternative way to add columns from insertion point
-		if(Ext.isArray(items))
+		if(Array.isArray(items))
 		{
 			var pos = 1;
 			items.forEach(function(item) {

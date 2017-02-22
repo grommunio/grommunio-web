@@ -36,7 +36,7 @@ Zarafa.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
 	 */
 	renderData : function(data)
 	{
-		if (Ext.isArray(data)) {
+		if (Array.isArray(data)) {
 			for (var i = 0, len = data.length; i < len; i++) {
 				this.renderData(data[i]);
 			}

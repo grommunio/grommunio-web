@@ -54,7 +54,7 @@ Zarafa.core.ColorSchemes = {
 	{
 		var i;
 		
-		if ( Ext.isArray(field) ){
+		if ( Array.isArray(field) ){
 			for ( i=0; i<field.length; i++ ){
 				this.addField(field[i]);
 			}
@@ -193,7 +193,7 @@ Zarafa.core.ColorSchemes = {
 	{
 		var i;
 		
-		if ( Ext.isArray(name) ){
+		if ( Array.isArray(name) ){
 			for ( i=0; i<name.length; i++ ){
 				this.createColorScheme(name[i]);
 			}
@@ -264,13 +264,13 @@ Zarafa.core.ColorSchemes = {
 	{
 		var i;
 		var colorSchemes = container.getServerConfig().getColorSchemes();
-		if ( colorSchemes && Ext.isArray(colorSchemes) ){
+		if ( colorSchemes && Array.isArray(colorSchemes) ){
 			for ( i=0; i<colorSchemes.length; i++ ){
 				this.addColorScheme(colorSchemes[i]);
 			}
 		}
 		var additionalColorSchemes = container.getServerConfig().getAdditionalColorSchemes();
-		if ( additionalColorSchemes && Ext.isArray(additionalColorSchemes) ){
+		if ( additionalColorSchemes && Array.isArray(additionalColorSchemes) ){
 			for ( i=0; i<additionalColorSchemes.length; i++ ){
 				this.addColorScheme(additionalColorSchemes[i]);
 			}

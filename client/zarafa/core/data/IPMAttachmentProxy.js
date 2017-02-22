@@ -88,7 +88,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		var request = container.getRequest();
 
 		var record = records;
-		if (Ext.isArray(records)) {
+		if (Array.isArray(records)) {
 			record = records[0];
 		}
 
@@ -101,7 +101,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		// Convert the parameters into FormData
 		for (var key in parameters) {
 			var value = parameters[key];
-			if (Ext.isArray(value) || value instanceof FileList) {
+			if (Array.isArray(value) || value instanceof FileList) {
 				for (var i = 0, len = value.length; i < len; i++) {
 					data.append(key + '[]', value[i]);
 				}

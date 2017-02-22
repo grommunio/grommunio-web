@@ -49,7 +49,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 */
 	encodeValue : function(value, name, component)
 	{
-		if (Ext.isArray(value)) {
+		if (Array.isArray(value)) {
 			for (var i = 0, len = value.length; i < len; i++) {
 				value[i] = this.encodeValue(value[i], name, component);
 			}
@@ -73,7 +73,7 @@ Zarafa.core.data.SettingsStateProvider = Ext.extend(Ext.state.Provider, {
 	 */
 	decodeValue : function(value, name, component)
 	{
-		if (Ext.isArray(value)) {
+		if (Array.isArray(value)) {
 			for (var i = 0, len = value.length; i < len; i++) {
 				value[i] = this.decodeValue(value[i], name, component);
 			}

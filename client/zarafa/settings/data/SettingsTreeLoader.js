@@ -80,7 +80,7 @@ Zarafa.settings.data.SettingsTreeLoader = Ext.extend(Ext.ux.tree.TreeGridLoader,
 		var data = [];
 
 		for (var key in settings) {
-			var leaf = !Ext.isObject(settings[key]) || Ext.isArray(settings[key]);
+			var leaf = !Ext.isObject(settings[key]) || Array.isArray(settings[key]);
 			var nodePath = (!Ext.isEmpty(path) ? path + '/' : '') + key;
 			var expanded = false;
 

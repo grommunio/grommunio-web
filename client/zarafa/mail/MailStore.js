@@ -63,7 +63,7 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 
 		var results = { records: [],  updatedRecords : [] };
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 

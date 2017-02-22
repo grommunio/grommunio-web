@@ -62,7 +62,7 @@ Zarafa.common.plugins.SplitFieldLabeler = Ext.extend(Ext.util.Observable, {
 
 		// Overwrite the items, be careful not to change the type
 		// of the items object (it could be an array or MixedCollection).
-		if (Ext.isArray(field.items)) {
+		if (Array.isArray(field.items)) {
 			field.items = labeledItems;
 		} else {
 			field.items.clear();
@@ -100,7 +100,7 @@ Zarafa.common.plugins.SplitFieldLabeler = Ext.extend(Ext.util.Observable, {
 		// Items can be an Array or MixedCollection, depending
 		// on the current state of the field for which we are generating
 		// the labels.
-		if (Ext.isArray(items)) {
+		if (Array.isArray(items)) {
 			Ext.each(items, generateSplitters, this);
 		} else {
 			items.each(generateSplitters, this);
@@ -138,7 +138,7 @@ Zarafa.common.plugins.SplitFieldLabeler = Ext.extend(Ext.util.Observable, {
 			// Items can be an Array or MixedCollection, depending
 			// on the current state of the field for which we are generating
 			// the labels.
-			if (Ext.isArray(items)) {
+			if (Array.isArray(items)) {
 				Ext.each(items, findItem, this);
 			} else {
 				items.each(findItem, this);

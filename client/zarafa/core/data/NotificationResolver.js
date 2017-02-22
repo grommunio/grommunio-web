@@ -52,7 +52,7 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 			handlers = this.getHandlersForIPMResponse(response);
 		}
 
-		if (Ext.isArray(handlers)) {
+		if (Array.isArray(handlers)) {
 			if (handlers.length > 1) {
 				return new Zarafa.core.data.CompositeResponseHandler({
 					handlers: handlers
@@ -93,7 +93,7 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 				folderStores.push(container.getHierarchyStore());
 			}
 
-			if (Ext.isArray(folderStores)) {
+			if (Array.isArray(folderStores)) {
 				var responseHandlers = [];
 				for (var i = 0, len = folderStores.length; i < len; i++) {
 					responseHandlers.push(new Zarafa.hierarchy.data.HierarchyNotificationResponseHandler({
@@ -137,23 +137,23 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 		var messageStores;
 
 		var creates = response['newobject'];
-		if (Ext.isDefined(creates) && Ext.isArray(creates.item)) {
+		if (Ext.isDefined(creates) && Array.isArray(creates.item)) {
 			messageParents = messageParents.concat(Ext.pluck(creates.item, 'entryid'));
 		}
 
 		var updates = response['update'];
-		if (Ext.isDefined(updates) && Ext.isArray(updates.item)) {
+		if (Ext.isDefined(updates) && Array.isArray(updates.item)) {
 			messageParents = messageParents.concat(Ext.pluck(updates.item, 'parent_entryid'));
 		}
 
 		var deletes = response['delete'];
-		if (Ext.isDefined(deletes) && Ext.isArray(deletes.item)) {
+		if (Ext.isDefined(deletes) && Array.isArray(deletes.item)) {
 			messageParents = messageParents.concat(Ext.pluck(deletes.item, 'parent_entryid'));
 		}
 
 		messageStores = Zarafa.core.data.IPMStoreMgr.getStoresForFolders(messageParents);
 
-		if (Ext.isArray(messageStores)) {
+		if (Array.isArray(messageStores)) {
 			var responseHandlers = [];
 			for (var i = 0, len = messageStores.length; i < len; i++) {
 				responseHandlers.push(new Zarafa.core.data.IPMNotificationResponseHandler({

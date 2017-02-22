@@ -38,7 +38,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 
 		if (config.record) {
-			if (!Ext.isArray(config.record)) {
+			if (!Array.isArray(config.record)) {
 				config.record = [ config.record ];
 				this.store = config.record.getStore();
 			} else {

@@ -30,7 +30,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	{
 		config = config || {};
 
-		if (Ext.isDefined(config.records) && !Ext.isArray(config.records)) {
+		if (Ext.isDefined(config.records) && !Array.isArray(config.records)) {
 			config.records = [ config.records ];
 		}							
 
@@ -401,7 +401,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	openProposeNewTimeContent : function(button, eventObject)
 	{
 		var record;
-		if(Ext.isArray(this.records)) {
+		if(Array.isArray(this.records)) {
 			record = this.records[0];
 		}
 
@@ -444,7 +444,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	openSendConfirmationContent : function(button, eventObject)
 	{
 		var record;
-		if(Ext.isArray(this.records)) {
+		if(Array.isArray(this.records)) {
 			record = this.records[0];
 		} else {
 			return;

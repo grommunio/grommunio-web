@@ -139,7 +139,7 @@ Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			 * Here we are setting two widgets for the first load of webapp
 			 * so that it doesn't show empty screen for today view on first load.
 			 */
-			if(Ext.isArray(this.showDefaultWidgets)) {
+			if(Array.isArray(this.showDefaultWidgets)) {
 				for (var i = 0; i < this.showDefaultWidgets.length; i++) {
 					this.createWidget(this.showDefaultWidgets[i], i % 3);
 				}

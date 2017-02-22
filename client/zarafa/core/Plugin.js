@@ -155,7 +155,7 @@ Zarafa.core.Plugin = Ext.extend(Zarafa.core.data.StatefulObservable, {
 					components = [];
 				}
 
-				if (!Ext.isArray(components)) {
+				if (!Array.isArray(components)) {
 					components = [ components ];
 				}
 

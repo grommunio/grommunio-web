@@ -29,7 +29,7 @@ Zarafa.addressbook.Actions = {
 	 */
 	openDetailsContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 

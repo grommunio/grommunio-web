@@ -218,7 +218,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -263,7 +263,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -302,7 +302,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		var d1 = this.newMessageCombo.getStore();
 		var d2 = this.replyMessageCombo.getStore();
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -451,7 +451,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 */
 	onSettingsSet : function(settingsModel, settings)
 	{
-		if (!Ext.isArray(settings)) {
+		if (!Array.isArray(settings)) {
 			settings = [ settings ];
 		}
 

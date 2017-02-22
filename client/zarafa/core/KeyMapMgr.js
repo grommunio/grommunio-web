@@ -46,7 +46,7 @@ Zarafa.core.KeyMapMgr = Ext.extend(Object, {
 			this.keys[mapId] = [];
 		}
 
-		if(!Ext.isArray(keyConfig)) {
+		if(!Array.isArray(keyConfig)) {
 			keyConfig = [keyConfig];
 		}
 

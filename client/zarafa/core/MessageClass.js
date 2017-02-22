@@ -33,7 +33,7 @@ Zarafa.core.MessageClass = {
 
 		// If the expectedClass is an array, we check if the className
 		// is either one of the names in expectedClas
-		if (Ext.isArray(expectedClass)) {
+		if (Array.isArray(expectedClass)) {
 			for (var i = 0, len = expectedClass.length; i < len; i++) {
 				if (this.isClass(className, expectedClass[i], baseOnly)) {
 					return true;

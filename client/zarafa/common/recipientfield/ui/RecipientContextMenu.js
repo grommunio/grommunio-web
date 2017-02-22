@@ -29,7 +29,7 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 		var editable = Ext.isDefined(config.editable) ? config.editable : this.editable;
 		var resolved = false;
 		if (config.records) {
-			if (Ext.isArray(config.records)) {
+			if (Array.isArray(config.records)) {
 				config.records = config.records[0];
 			}
 

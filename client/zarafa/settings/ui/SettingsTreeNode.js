@@ -40,7 +40,7 @@ Zarafa.settings.ui.SettingsTreeNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	 */
 	isEditable : function()
 	{
-		return this.leaf && !Ext.isArray(this.attributes.value);
+		return this.leaf && !Array.isArray(this.attributes.value);
 	},
 
 	/**

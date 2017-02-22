@@ -214,7 +214,7 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 	{
 		var title, iconCls, folder;
 		if(folders){
-			if(Ext.isArray(folders)){
+			if(Array.isArray(folders)){
 				folder = folders[0];
 			} else {
 				folder = folders;

@@ -24,7 +24,7 @@ Zarafa.hierarchy.data.HierarchyNotificationResponseHandler = Ext.extend(Zarafa.c
 			return;
 		}
 
-		if (!Ext.isArray(folders)) {
+		if (!Array.isArray(folders)) {
 			folders = [ folders ];
 		}
 

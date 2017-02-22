@@ -152,7 +152,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	remove : function(record)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			Ext.each(record, this.remove, this);
 			return;
 		}
@@ -764,7 +764,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onNotifyNewmail : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -958,7 +958,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	onNotifyObjectmodified : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -967,7 +967,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		// bouncing events around.
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
-			var singleData = (Ext.isArray(data)) ? data[i] : data;
+			var singleData = (Array.isArray(data)) ? data[i] : data;
 
 			record.setEventPropagation(false);
 

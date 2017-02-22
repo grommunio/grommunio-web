@@ -21,7 +21,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 		config = config || {};
 
 		if (config.records) {
-			if (Ext.isArray(config.records)) {
+			if (Array.isArray(config.records)) {
 				config.records = config.records[0];
 			}
 		}

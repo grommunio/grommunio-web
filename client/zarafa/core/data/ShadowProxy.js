@@ -52,7 +52,7 @@ Zarafa.core.data.ShadowProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		var objectType;
 		var ResponseHandler;
 
-		if (Ext.isArray(records)) {
+		if (Array.isArray(records)) {
 			objectType = records[0].get('object_type');
 		} else {
 			objectType = records.get('object_type');

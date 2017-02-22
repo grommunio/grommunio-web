@@ -116,7 +116,7 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		var results = { records: [],  updatedRecords : [] };
 
 		if (Ext.isDefined(records)) {
-			if (!Ext.isArray(records)) {
+			if (!Array.isArray(records)) {
 				records = [ records ];
 			}
 
@@ -224,7 +224,7 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		}
 
 		var obj = {};
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			obj[action] = record;
 		} else {
 			obj[action] = [ record ];
@@ -245,13 +245,13 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 			return false;
 		}
 
-		if (!Ext.isArray(entryidList)) {
+		if (!Array.isArray(entryidList)) {
 			entryidList = [ entryidList ];
 		}
 
 		var folderList = this.lastOptions.folder;
 		if (Ext.isDefined(folderList)) {
-			if (!Ext.isArray(folderList)) {
+			if (!Array.isArray(folderList)) {
 				folderList = [ folderList ];
 			}
 
@@ -315,7 +315,7 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	 */
 	onNotifyObjectdeleted : function(action, records, data, timestamp, success)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -348,7 +348,7 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 	{
 		var reloadStore = false;
 
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [ records ];
 		}
 
@@ -357,7 +357,7 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 		// bouncing events around.
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
-			var singleData =  (Ext.isArray(data)) ? data[i] : data;
+			var singleData =  (Array.isArray(data)) ? data[i] : data;
 
 			record.setEventPropagation(false);
 

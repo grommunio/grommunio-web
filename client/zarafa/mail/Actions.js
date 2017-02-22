@@ -57,7 +57,7 @@ Zarafa.mail.Actions = {
 		var recipientStore = mailRecord.getRecipientStore();
 		var tasks = [];
 
-		contacts = Ext.isArray(contacts) ? contacts : [ contacts ];
+		contacts = Array.isArray(contacts) ? contacts : [ contacts ];
 		for (var i = 0, len = contacts.length; i < len; i++) {
 			var contact = contacts[i];
 
@@ -119,7 +119,7 @@ Zarafa.mail.Actions = {
 	 */
 	openCreateMailResponseContent : function(records, model, actionType, config)
 	{
-		if (!Ext.isArray(records)) {
+		if (!Array.isArray(records)) {
 			records = [records];
 		}
 
@@ -177,7 +177,7 @@ Zarafa.mail.Actions = {
 	 */
 	openMailOptionsContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 
@@ -199,7 +199,7 @@ Zarafa.mail.Actions = {
 	 */
 	openMailFlagsContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 
@@ -230,7 +230,7 @@ Zarafa.mail.Actions = {
 	 */
 	openRecipientSelectionContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 

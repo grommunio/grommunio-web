@@ -168,7 +168,7 @@ Zarafa.core.ui.View = Ext.extend(Ext.util.Observable, {
 
 		className += ' ' + baseCls + '-' + name;
 
-		if (Ext.isDefined(postfix) && !Ext.isArray(postfix)) {
+		if (Ext.isDefined(postfix) && !Array.isArray(postfix)) {
 			postfix = [ postfix ];
 		}
 
@@ -178,7 +178,7 @@ Zarafa.core.ui.View = Ext.extend(Ext.util.Observable, {
 			}
 		}
 
-		if (Ext.isDefined(extraCls) && !Ext.isArray(extraCls)) {
+		if (Ext.isDefined(extraCls) && !Array.isArray(extraCls)) {
 			extraCls = [ extraCls ];
 		}
 
@@ -233,7 +233,7 @@ Zarafa.core.ui.View = Ext.extend(Ext.util.Observable, {
 		// add the element as a property to this
 		if (!this[name]) {
 			this[name] = element;
-		} else if (Ext.isArray(this[name])) {
+		} else if (Array.isArray(this[name])) {
 			this[name].push(element);
 		} else {
 			this[name] = [ this[name], element ];

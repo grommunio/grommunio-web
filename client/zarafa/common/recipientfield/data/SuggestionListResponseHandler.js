@@ -21,7 +21,7 @@ Zarafa.common.recipientfield.data.SuggestionListResponseHandler = Ext.extend(Zar
 		var results = response.results || [];
 
 		// Force results to be an array.
-		if (!Ext.isArray(results)) {
+		if (!Array.isArray(results)) {
 			results = [ results ];
 		}
 

@@ -965,7 +965,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	createCalendarView : function(groupId, folders)
 	{
-		if (!Ext.isEmpty(folders) && !Ext.isArray(folders)) {
+		if (!Ext.isEmpty(folders) && !Array.isArray(folders)) {
 			folders = [ folders ];
 		}
 
@@ -1251,7 +1251,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onAdd : function(store, record, operation)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
 				this.onAdd(store, record[i], operation);
 			}
@@ -1277,7 +1277,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onRemove : function(store, record, operation)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
 				this.onRemove(store, record[i], operation);
 			}
@@ -1303,7 +1303,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onUpdate : function(store, record, operation)
 	{
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0, len = record.length; i < len; i++) {
 				this.onUpdate(store, record[i], operation);
 			}

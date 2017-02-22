@@ -232,7 +232,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 				this.entryId = [];
 			}
 
-			if(!Ext.isEmpty(this.entryId) && !Ext.isArray(this.entryId)) {
+			if(!Ext.isEmpty(this.entryId) && !Array.isArray(this.entryId)) {
 				this.entryId = [ this.entryId ];
 			}
 
@@ -265,7 +265,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 				this.storeEntryId = [];
 			}
 
-			if(!Ext.isEmpty(this.storeEntryId) && !Ext.isArray(this.storeEntryId)) {
+			if(!Ext.isEmpty(this.storeEntryId) && !Array.isArray(this.storeEntryId)) {
 				this.storeEntryId = [ this.storeEntryId ];
 			}
 
@@ -435,7 +435,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 		/**
 		 * We don't required search restriction while navigate using page navigation tool bar in search result grid.
  		 */
-		if(options.actionType == Zarafa.core.Actions['list'] && Ext.isArray(options.params.restriction.search) && Ext.isDefined(options.params.search_folder_entryid)) {
+		if(options.actionType == Zarafa.core.Actions['list'] && Array.isArray(options.params.restriction.search) && Ext.isDefined(options.params.search_folder_entryid)) {
 			delete options.params.restriction.search;
 		}
 
@@ -447,7 +447,7 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 
 		// remove search restriction when we already have a search folder entryid, otherwise the Operation::getTable() function
 		// will restrict the search folder which removes some search results.
-		if (options.actionType == Zarafa.core.Actions['list'] && Ext.isArray(options.params.restriction.search) && Ext.isDefined(this.searchFolderEntryId) && this.useSearchFolder) {
+		if (options.actionType == Zarafa.core.Actions['list'] && Array.isArray(options.params.restriction.search) && Ext.isDefined(this.searchFolderEntryId) && this.useSearchFolder) {
 			delete options.params.restriction.search;
 		}
 

@@ -296,7 +296,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	removeSettings : function(path)
 	{
-		if (!Ext.isArray(path)) {
+		if (!Array.isArray(path)) {
 			path = [ path ];
 		}
 
@@ -322,7 +322,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	restoreSettings : function(settings)
 	{
-		if (!Ext.isArray(settings)) {
+		if (!Array.isArray(settings)) {
 			settings = [ settings ];
 		}
 
@@ -349,7 +349,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	setSettings : function(settings)
 	{
-		if (!Ext.isArray(settings)) {
+		if (!Array.isArray(settings)) {
 			settings = [ settings ];
 		}
 
@@ -492,7 +492,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		if (obj) {
 			var setting = obj[settingName];
 
-			if (Ext.isObject(setting) && !Ext.isDate(setting) && !Ext.isArray(setting)) {
+			if (Ext.isObject(setting) && !Ext.isDate(setting) && !Array.isArray(setting)) {
 				for (var key in setting) {
 					var removed = this.removeSettingsObject(path + this.pathSeparator + key, settings);
 					flatSettings = flatSettings.concat(removed);
@@ -551,7 +551,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 				}
 			}
 
-			if (Ext.isArray(obj) || Ext.isDate(obj)) {
+			if (Array.isArray(obj) || Ext.isDate(obj)) {
 				pos[settingName] = obj.clone();
 			} else {
 				pos[settingName] = obj;
@@ -640,7 +640,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 */
 	reset : function(path)
 	{
-		if (!Ext.isArray(path)) {
+		if (!Array.isArray(path)) {
 			path = [ path ];
 		}
 
@@ -696,7 +696,7 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 			if (raw === true) {
 				return Zarafa.core.Util.applyRecursive({}, value);
 			}
-		} else if (Ext.isArray(value) || Ext.isDate(value)) {
+		} else if (Array.isArray(value) || Ext.isDate(value)) {
 			return value.clone();
 		} else {
 			return value;

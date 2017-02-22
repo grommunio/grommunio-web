@@ -238,7 +238,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		for(var i = 0,len = contexts.length; i < len; i++){
 			var context = contexts[i];
 			menu = context.getMainToolbarViewButtons();
-			if (Ext.isArray(menu) && menu.length) {
+			if (Array.isArray(menu) && menu.length) {
 				if (context.groupViewBtns) {
 					menuItems.push({
 						xtype: 'splitbutton',
@@ -322,7 +322,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		 for(var i=0,len=contexts.length;i<len;i++){
 			var context = contexts[i];
 			menu = context.getMainToolbarPrintButtons();
-			if(Ext.isArray(menu) && menu.length){
+			if(Array.isArray(menu) && menu.length){
 				menuItems.push({
 					xtype: 'splitbutton',
 					id: 'zarafa-maintoolbar-print-'+context.getName(),

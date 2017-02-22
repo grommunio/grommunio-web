@@ -338,10 +338,10 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	{
 		// This function is copy & pasted from Ext.js Ext.data.JsonReader#realize.
 		// Our only difference is the assignment of the record.data field.
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = record.length - 1; i >= 0; i--) {
 				// recurse
-				if (Ext.isArray(data)) {
+				if (Array.isArray(data)) {
 					this.realize(record.splice(i,1).shift(), data.splice(i,1).shift());
 				} else {
 					// weird...record is an array but data isn't??  recurse but just send in the whole invalid data object.
@@ -351,7 +351,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 			}
 		} else {
 			// If records is NOT an array but data IS, see if data contains just 1 record.  If so extract it and carry on.
-			if (Ext.isArray(data)) {
+			if (Array.isArray(data)) {
 				data = data.shift();
 			}
 			if (!this.isData(data)) {
@@ -409,9 +409,9 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 	update : function(record, data)
 	{
 		// Recursively call into update to update each record individually.
-		if (Ext.isArray(record)) {
+		if (Array.isArray(record)) {
 			for (var i = 0; i < record.length; i++) {
-				if(Ext.isArray(data)) {
+				if(Array.isArray(data)) {
 					this.update(record[i], data[i]);
 				} else {
 					this.update(record[i], data);
@@ -421,7 +421,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 		}
 
 		// It can happen that the data is wrapped in a array of length 1.
-		if (Ext.isArray(data)) {
+		if (Array.isArray(data)) {
 			data = data.shift();
 		}
 
@@ -446,7 +446,7 @@ Zarafa.core.data.JsonReader = Ext.extend(Ext.data.JsonReader, {
 			// serialize those data into its consecutive stores and then we can continue
 			// with normal processing
 			Ext.iterate(data, function(key, value) {
-				if (Ext.isArray(value) || Ext.isObject(value)) {
+				if (Array.isArray(value) || Ext.isObject(value)) {
 					var store;
 
 					if (record.supportsSubStore(key)) {

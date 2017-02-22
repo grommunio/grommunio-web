@@ -308,7 +308,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 				if(!Ext.isEmpty(categoryString, false)){
 					categories = categoryString.split(this.categorySeparator);
 					categories = categories.concat(newCategories);
-				} else if (Ext.isArray(newCategories)) {
+				} else if (Array.isArray(newCategories)) {
 					categories = newCategories;
 				} else {
 					categories = [ newCategories ];

@@ -276,7 +276,7 @@ Zarafa.core.data.RecordDefinition = Ext.extend(Ext.util.Observable, {
 	{
 		this.cfg.fields = Ext.value(this.cfg.fields, []);
 
-		if (!Ext.isArray(field)) {
+		if (!Array.isArray(field)) {
 			this.cfg.fields.push(field);
 		} else {
 			this.cfg.fields = this.cfg.fields.concat(field);

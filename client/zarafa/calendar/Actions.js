@@ -92,7 +92,7 @@ Zarafa.calendar.Actions = {
 	 */
 	openAppointmentContentToAcceptProposal : function(records, config)
 	{
-		if (Ext.isArray(records)) {
+		if (Array.isArray(records)) {
 			records = records[0];
 		}
 
@@ -137,7 +137,7 @@ Zarafa.calendar.Actions = {
 	 */
 	openAppointmentContentToViewAllProposals : function(records, config)
 	{
-		if (Ext.isArray(records)) {
+		if (Array.isArray(records)) {
 			records = records[0];
 		}
 
@@ -185,7 +185,7 @@ Zarafa.calendar.Actions = {
 	 */
 	openRecipientSelectionContent : function(records, config)
 	{
-		if (Ext.isArray(records) && !Ext.isEmpty(records)) {
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
 			records = records[0];
 		}
 
