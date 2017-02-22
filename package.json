@@ -1,0 +1,19 @@
+{
+	"name": "kopano-webapp",
+	"version": "3.1.0",
+	"description": "Main Kopano web client",
+	"license": "AGPL-3.0",
+	"repository": "https://stash.kopano.io/scm/kw/kopano-webapp.git",
+	"scripts": {
+		"lint": "jshint client/zarafa",
+		"jlint": "jshint client/zarafa --reporter=checkstyle > result.xml"
+	},
+	"pre-commit": {
+		"run": ["lint"]
+	},
+	"devDependencies": {
+		"pre-commit": "*",
+		"jshint": "*",
+		"jshint-junit-reporter": "*"
+	}
+}
