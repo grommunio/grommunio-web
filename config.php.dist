@@ -191,7 +191,7 @@
 	// semicolon.  A list of available languages can be found in
 	// the manual or by looking at the list of directories in
 	// /usr/share/kopano-webapp/server/language .
-	define("ENABLED_LANGUAGES", "de_DE;en_GB;en_US;fr_FR;he_IL;it_IT;nl_NL;ru_RU;zh_CN;nb_NO;hu_HU");
+	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;es_CA;es_ES;en_US;fi_FI;fr_FR;it_IT;hu_HU;ja_JP;nb_NO;nl_NL;pt_BR;ru_RU;sl_SI;tr_TR;zh_TW");
 
 	// Defines the default time zone, change e.g. to "Europe/London" when needed
 	if(!ini_get('date.timezone')) {
