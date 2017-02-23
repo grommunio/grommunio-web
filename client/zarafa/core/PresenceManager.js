@@ -233,6 +233,10 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	registerStore : function(store, fieldRoots)
 	{
+		if (this.getPresencePlugins().length === 0) {
+			return;
+		}
+
 		var storeRegistered = Ext.each(this.registeredStores, function(registeredStore){
 			if ( registeredStore.store === store ){
 				return false;
