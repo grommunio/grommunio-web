@@ -105,24 +105,26 @@
 			$map['fileas'] = $this->properties['account'];
 
 			// Rewrite the sort info when sorting on full name as this is a combination of multiple fields
+			$sortingOnName = false;
 			if ( isset($action["sort"]) && is_array($action["sort"]) && count($action["sort"])===1 && $action["sort"][0]["field"]==="full_name" ) {
-				$dir = $action["sort"][0]["direction"];
+				$sortingOnName = true;
+				$sortingDir = $action["sort"][0]["direction"];
 				$action["sort"] = array(
 					array(
 						"field" 	=> "surname",
-						"direction" => $dir
+						"direction" => $sortingDir
 					),
 					array(
 						"field" 	=> "given_name",
-						"direction" => $dir
+						"direction" => $sortingDir
 					),
 					array(
 						"field" 	=> "middle_name",
-						"direction" => $dir
+						"direction" => $sortingDir
 					),
 					array(
 						"field" 	=> "display_name",
-						"direction" => $dir
+						"direction" => $sortingDir
 					),
 				);
 			}
@@ -366,6 +368,20 @@
 					}
 
 					array_push($items, array('props' => $item));
+				}
+
+				if ( $sortingOnName ){
+					// Sort the items here, because full_name is not a real property, so we can not use the regular sorting
+					// Note: This hack only works becaue the GAB does not work with paging!
+					function cmpAsc($a, $b){
+						return strcasecmp($b['props']['full_name'], $a['props']['full_name']);
+					}
+					function cmpDesc($a, $b){
+						return strcasecmp($a['props']['full_name'], $b['props']['full_name']);
+					}
+
+					$cmpFn = $sortingDir === 'DESC' ? 'cmpDesc' : 'cmpAsc';
+					usort($items, $cmpFn);
 				}
 
 				// todo: fix paging stuff
