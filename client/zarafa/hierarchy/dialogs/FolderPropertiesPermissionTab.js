@@ -28,7 +28,6 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 				align: 'stretch'
 			},
 			border : false,
-			bodyStyle : 'background-color: inherit;',
 			items: [
 				this.createUserListPanel(),
 				this.createProfilePanel(),
@@ -81,6 +80,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 				}
 			}],
 			buttons : [{
+				cls : 'zarafa-normal',
 				text : _('Add'),
 				ref : '../../addUserBtn',
 				handler : this.onUserAdd,

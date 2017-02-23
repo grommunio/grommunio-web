@@ -283,14 +283,6 @@
 								.x-panel-body {
 									padding: $padding-large $padding-large 0;
 								}
-
-								.x-panel-footer {
-									.x-toolbar-right-row .x-toolbar-cell:first-child button {
-										/* this button should not be green! */
-										background-color: transparent;
-										color: $font-default-color;
-									}
-								}
 							}
 						}
 
