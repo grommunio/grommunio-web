@@ -25,14 +25,10 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
         config = Ext.applyIf(config, {
             xtype: 'zarafa.delayeddeliverypanel',
             border: false,
-            bodyStyle: 'padding: 15px; background-color: inherit;',
-            defaults: {
-                style: {
-                    margin: '0px 0px 10px 5px'
-                }
-            },
+			cls : 'zarafa-delayeddeliverypanel',
             items: [{
                 xtype: 'zarafa.radiospinnerfield',
+				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 type: 'hours',
                 value: _('hour(s)'),
                 listeners: {
@@ -43,6 +39,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'zarafa.radiospinnerfield',
                 type: 'days',
+				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 value: _('day(s)'),
                 listeners: {
                     focus: this.onFieldFocus,
@@ -52,6 +49,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'zarafa.radiospinnerfield',
                 type: 'months',
+				cls : 'zarafa-delayeddeliverypanel-radiospinnerfield',
                 value: _('month(s)'),
                 listeners: {
                     focus: this.onFieldFocus,
@@ -61,10 +59,11 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             }, {
                 xtype: 'displayfield',
                 value: _('at a specific time'),
-                style: 'marginLeft : 10%;'
+				cls:'zarafa-delayeddeliverypanel-displayfield'
             }, {
                 xtype: 'zarafa.radiodatetimefield',
                 ref: 'delayedDeliveryDateTimeField',
+				cls :'zarafa-delayeddeliverypanel-radiodatetimefield',
                 listeners: {
                     focus: this.onFieldFocus,
                     change: this.onFieldChange,
@@ -72,6 +71,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
                 }
             }, {
                 xtype: 'displayfield',
+				cls : 'zarafa-delayeddeliverypanel-fields',
                 ref: 'timeInfofield'
             }],
             listeners: {
@@ -132,7 +132,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
         else if (this.isPastDate(dateTime)) {
 
             //If user select past time then return sorry delayInfoMessage and disable send button.
-            delayInfoMessage = _('Sorry, the time you entered is in past. Please reschedule your mail');
+            delayInfoMessage = _('The time you entered is in the past. Please reschedule your mail.');
             this.delayedDeliveryDateTimeField.addClass('zarafa-delayeddelivery-invalid-date');
             return delayInfoMessage;
         } else {
@@ -156,7 +156,7 @@ Zarafa.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             } else if (this.isDayInCurrentWeek(dateTime)) {
                 date = String.format(_('{0} at '), dateTime.format('l '));
             } else {
-                date = String.format(_('at {0}'), dateTime.format('F jS Y ,'));
+                date = String.format(_('at {0}'), dateTime.format('F jS Y, '));
             }
             delayInfoMessage = String.format(_('Your email will be sent {0}{1}'), date, time);
             this.ownerCt.setDisabled(false);

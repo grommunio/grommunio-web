@@ -121,3 +121,49 @@ body.Safari input[type="radio"] {
 .zarafa-delayeddelivery-invalid-date {
 	color: $red;
 }
+
+.zarafa-radiodatetime-datetimefield {
+	background-position-y: 24px;
+}
+
+.zarafa-delayeddeliverypanel {
+	.x-panel-body {
+		padding: 15px !important;
+	}
+}
+
+.zarafa-delayeddeliverypanel-fields {
+	margin: 0 0 10px 5px !important;
+}
+
+.zarafa-delayeddeliverypanel-radiospinnerfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	.x-form-display-field {
+		top: 2px !important;
+	}
+	.x-form-check-wrap {
+		top: 3px !important;
+		-webkit-padding-before: 1px !important;
+		label {
+			margin-left: 10px !important;
+		}
+	}
+}
+
+.zarafa-delayeddeliverypanel-radiodatetimefield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	.x-form-check-wrap {
+		top: 3px !important;
+		-webkit-padding-before: 3px !important;
+	}
+}
+
+.zarafa-delayeddeliverypanel-displayfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	margin-left: 28px !important;
+}
+
+.ext-gecko3.ext-linux .zarafa-delayeddeliverypanel-displayfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	margin-left: 32px !important;
+}
