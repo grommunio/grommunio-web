@@ -21,6 +21,14 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	{
 		config = config || {};
 
+		var viewConfig = config.viewConfig || {};
+		Ext.applyIf(viewConfig, {
+			// render rows as they come into viewable area.
+			scrollDelay : false,
+			rowHeight : 31,
+			borderHeight : 1
+		});
+
 		Ext.applyIf(config, {
 			autoExpandColumn : 'full_name',
 			autoExpandMin : 100,
@@ -29,12 +37,7 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 			statefulRelativeDimensions : false,
 			sm : this.createSelectionModel(config),
 			cm : new Zarafa.addressbook.ui.GABColumnModel(),
-			view : new Ext.ux.grid.BufferView({
-				// render rows as they come into viewable area.
-				scrollDelay : false,
-				rowHeight : 31,
-				borderHeight : 1
-			})
+			view : new Ext.ux.grid.BufferView(viewConfig)
 		});
 
 		Zarafa.addressbook.ui.AddressBookGrid.superclass.constructor.call(this, config);

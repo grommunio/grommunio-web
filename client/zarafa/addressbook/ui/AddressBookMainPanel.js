@@ -192,7 +192,8 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 			name: 'viewpanel',
 			cls: 'k-addressbookmainpanel-grid',
 			viewConfig : {
-				emptyText: this.emptyGridText
+				emptyText: this.emptyGridText,
+				deferEmptyText: false
 			},
 			store : addressBookStore,
 			border : false,
@@ -303,8 +304,14 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 
 		this.addressBookSelectionCB.setValue(entryid);
 
-		// Trigger a search
-		this.onSearchButtonClick();
+		// Trigger a search when the grid has been rendered. We do this
+		// because Ext 'forgets' to add the scrollOfset to an empty grid
+		// when the store fires the load event, but it does do this when
+		// rendering an empty grid on start. Since we don't want the
+		// emptyText to jump because of this we will make sure the store
+		// fires the load event when the grid is rendered and not before
+		// it is rendered.
+		this.viewPanel.on('render', this.onSearchButtonClick, this);
 	},
 
 	/**
@@ -371,11 +378,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 	{
 		if (e.getKey() === e.ENTER) {
 			this.onSearchButtonClick();
-		}/* @TODO: Auto select and set focus to addressbook entry which
-			partially matches to the entered search text.
-		else {
-			this.addressBookStore.filter('display_name', field.getValue(), true);
-		}*/
+		}
 	}
 });
 
