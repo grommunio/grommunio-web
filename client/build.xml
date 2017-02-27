@@ -1,8 +1,8 @@
 <project default="all">
 
 	<property name="root-folder" value="${basedir}/.."/>
-	<property name="target-folder" value="${root-folder}/deploy/client/"/>
-	<property name="tools-folder" value="${root-folder}/tools/"/>
+	<property name="target-folder" value="${root-folder}/deploy/client"/>
+	<property name="tools-folder" value="${root-folder}/tools"/>
 	<property name="doc-folder" value="${root-folder}/doc/client"/>
 
 	<import file="${tools-folder}/antutil.xml"/>
