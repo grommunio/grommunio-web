@@ -47,7 +47,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			var images = win.document.getElementsByTagName('img');
 			for (var i = 0, len = images.length; i < len; i++) {
 				var image = images[i];
-				if (image.complete !== true || (image.width + image.height) === 0) {
+				if (image.complete !== true || image.src && image.width + image.height === 0 ) {
 					this.doPrintOnStylesheetLoad.defer(10, this, [win]);
 					return;
 				}
