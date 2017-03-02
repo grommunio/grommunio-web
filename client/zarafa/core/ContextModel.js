@@ -150,7 +150,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			 * @event folderchange
 			 * Fires when the list of selected folders has changed.
 			 * @param {Zarafa.core.ContextModel} model this context model.
-			 * @param {Array} folders selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects. 
+			 * @param {Array} folders selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
 			 */
 			'folderchange',
 			/**
@@ -248,7 +248,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			 */
 			'searchexception'
 		);
-		
+
 		Zarafa.core.ContextModel.superclass.constructor.call(this, config);
 
 		if (this.statefulRecordSelection === true) {
@@ -453,10 +453,10 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * {@link Zarafa.core.data.IPFRecord record} does affect on the current context model i.e.
 	 * {@link Zarafa.core.Actions.emptyFolder}, {@link Zarafa.core.Actions.readAllMsgs}, if it
 	 * affects then we should reload current context model.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPFStore} IPFStore
 	 * @param {Zarafa.core.data.IPFRecord} record The Record which has been updated
-	 * @param {String} operation  The update operation being performed. 
+	 * @param {String} operation  The update operation being performed.
 	 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 	 * @private
 	 */
@@ -498,7 +498,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * reload its contents. This method triggers the
 	 * {@link #folderchange} event if the folder was not already in the
 	 * selected folder list.
-	 * 
+	 *
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to add.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} the folder if it was added,
 	 * or undefined otherwise (i.e. it was already in the folder list).
@@ -619,13 +619,13 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			if (sort) {
 				this.store.setDefaultSort(sort.field, sort.direction);
 			}
-		}	
+		}
 	},
 
 	/**
 	 * Returns a list of currently selected folders.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord[]} selected folders as an array of
-	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects. 
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects.
 	 */
 	getFolders : function()
 	{
@@ -660,7 +660,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * Gets a folder from the selected folder list.
 	 * @param {String} id folder MAPI Id.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} a folder object if found, undefined otherwise.
-	 * @private 
+	 * @private
 	 */
 	getFolder : function(id)
 	{
@@ -704,7 +704,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * selected within the {@link Zarafa.core.Context context}. Raise the
 	 * {@link #recordselectionchange} to inform any listeners about the update.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records 
+	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records
 	 * @param {Boolean} stateful (optinal) false to prevent the selected records to be saved
 	 * in the {@link #lastSelectedRecords}.
 	 */
@@ -797,7 +797,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 	/**
 	 * Reload the store using the previous configured options/folders.
-	 * but it check that action type is {@link Zarafa.core.Actions#updatelist 'updatelist'} then 
+	 * but it check that action type is {@link Zarafa.core.Actions#updatelist 'updatelist'} then
 	 * call {@link #stopLiveScroll}
 	 */
 	reload : function()
@@ -851,7 +851,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 	/**
 	 * Sets the current mode from the available data modes.
-	 * 
+	 *
 	 * Fires the {@link #datamodechange} event.
 	 * @param {Number} mode view mode (context should define modes and its numeric values).
 	 * @param {Boolean} init (optional) True when this function is called during initialization
@@ -1100,7 +1100,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 		this.fireEvent('searchupdate', this, store, searchInfo);
 
 		if (!Zarafa.core.mapi.Search.isSearchRunning(searchInfo['searchState'])) {
-			
+
 			store.un('exception', this.onSearchException, this);
 			store.un('beforeupdatesearch', this.onSearchUpdate, this);
 
@@ -1138,7 +1138,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 	 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 	 * a custom name.
-	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
 	getStateName : function()
 	{
@@ -1228,5 +1228,30 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			current_data_mode : this.current_data_mode,
 			last_used_folders : this.last_used_folders
 		});
+	},
+
+	/**
+	 * Apply the given state to this object activating the properties which were previously saved in
+	 * {@link Ext.state.Manager}. Overridden to check if the state is valid. When this ContextModel
+	 * is not a {@link Zarafa.core.MultiFolderContextModel MultiFolderContextModel} it can never
+	 * have more than 1 folder set as 'last used folder', so when this is the case we will remove
+	 * this property from the state.
+	 *
+	 * @param {Object} state The state object
+	 */
+	applyState : function(state)
+	{
+		if ( !(this instanceof Zarafa.core.MultiFolderContextModel) ){
+			// Check if the state is valid
+			if ( Ext.isDefined(state.last_used_folders) ){
+				Ext.iterate(state.last_used_folders, function(storeEntryid, folders, lastUsedFoldersObj){
+					if ( Array.isArray(folders) && folders.length>1 ){
+						delete lastUsedFoldersObj[storeEntryid];
+					}
+				}, this);
+			}
+		}
+
+		Zarafa.core.ContextModel.superclass.applyState.call(this, state);
 	}
 });
