@@ -108,9 +108,33 @@ Zarafa.contact.ui.ContactMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPane
 	{
 		if (Ext.isDefined(this.context)) {
 			this.mon(this.context, 'viewchange', this.onViewChange, this);
+			this.topToolbar.mon(this.topToolbar.pagesToolbar, 'beforechange', this.onBeforeChange, this);
 
 			this.onViewChange(this.context, this.context.getCurrentView());
 		}
+	},
+
+	/**
+	 * Event handler triggered when navigational buttons of {@link Zarafa.common.ui.PagingToolbar PagingToolbar}
+	 * was clicked. function is used to append the search restriction in params object if it was
+	 * added during the last load.
+	 *
+	 * @param {Zarafa.common.ui.PagingToolbar} pagesToolbar which trigger this event.
+	 * @param {Object} params The params contains restriction related information also it may
+	 * contains search restriction which used to retrieve next batch of records from server.
+	 * @return {boolean} return true
+	 */
+	onBeforeChange : function (pagesToolbar, params)
+	{
+		var store = pagesToolbar.store;
+		var restriction = store.lastOptions.params.restriction;
+
+		if(restriction.search) {
+			Ext.applyIf(params.restriction, {
+				search : restriction.search
+			});
+		}
+		return true;
 	},
 
 	/**
