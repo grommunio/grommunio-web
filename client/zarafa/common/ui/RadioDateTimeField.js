@@ -54,8 +54,10 @@ Zarafa.common.ui.RadioDateTimeField = Ext.extend(Zarafa.common.ui.CompositeField
         var keyCode = Ext.EventObject.keyCode;
         if ((keyCode >= Ext.EventObject.ZERO && keyCode <= Ext.EventObject.NINE) || (keyCode >= Ext.EventObject.NUM_ZERO && keyCode <= Ext.EventObject.NUM_NINE)) {
             var oldValue = field.startValue;
-            var newValue = field.getValue();
-            this.dateTimeField.doDateChange(newValue, oldValue);
+	        if (Ext.isDefined(field.isValidTimeString) && field.isValidTimeString()) {
+	            var newValue = field.getValue();
+	            this.dateTimeField.doDateChange(newValue, oldValue);
+            }
         }
     },
 

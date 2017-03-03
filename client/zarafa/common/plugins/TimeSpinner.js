@@ -67,6 +67,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 		this.getStringValue = field.getValue.createDelegate(field);
 		field.setValue = this.setValue.createDelegate(this);
 		field.getValue = this.getValue.createDelegate(this);
+		field.isValidTimeString = this.isValidTimeString.createDelegate(this);
 	},
 
 	/**
@@ -128,7 +129,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 */
 	getValue : function()
 	{
-		var stringValue = this.getStringValue();
+		var stringValue = this.isValidTimeString() ? this.getStringValue() : this.field.value;
 		if (Ext.isEmpty(stringValue) || Ext.isEmpty(this.dateValue)) {
 			return null;
 		}
@@ -196,6 +197,17 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	fixPrecision : function(value)
 	{
 		return value;
+	},
+
+	/**
+	 * Function which is used to validate time string.
+	 * It will return true if the value of the field is in a HH:MM format.
+	 * @returns {boolean} True if time string value is valid, false otherwise
+	 */
+	isValidTimeString : function ()
+	{
+		var regEx = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/;
+		return regEx.test(this.getStringValue());
 	}
 });
 
