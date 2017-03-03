@@ -38,7 +38,14 @@
 		{
 			foreach($this->data as $actionType => $action)
 			{
-				$storeGuid = $action['store'];
+				// Determine if the request contains items or not. We couldn't add the storeEntryId to
+				// the action data if it contained items because it was an array, so the storeEntryId
+				// was added to all the items. We will pick it from the first item.
+				if (isset($action[0])) {
+					$storeGuid = $action[0]['message_action']['store'];
+				} else {
+					$storeGuid = $action['store'];
+				}
 
 				$ownStoreEntryId = bin2hex($GLOBALS['mapisession']->defaultstore);
 
@@ -68,7 +75,7 @@
 							$this->deleteRules($store);
 
 							// Now can save all rules
-							$this->saveRules($action);
+							$this->saveRules($store, $action);
 
 							// delete (outlook) client rules
 							$this->deleteOLClientRules($store);
@@ -181,7 +188,7 @@
 
 		/**
 		 * Function used to delete all the rules the user currently has.
-		 * @param {MAPIStore} $store current user's store.
+		 * @param {MAPIStore} $store in which we want to delete the rules.
 		 */
 		function deleteRules($store)
 		{
@@ -212,9 +219,10 @@
 		 * This function only usee ROW_MODIFY flag to save rules data, Which is correct when modifying existing rules
 		 * but for adding new rules Kopano Core automatically checks existence of rule id and if it si not then
 		 * use ROW_ADD flag.
+		 * @param {MAPIStore} $store The store into which the rules must be saved.
 		 * @param {Array} $rulesData rules data that should be deleted.
 		 */
-		function saveRules($rulesData)
+		function saveRules($store, $rulesData)
 		{
 			if (is_assoc_array($rulesData)) {
 				// wrap single rule in an array
