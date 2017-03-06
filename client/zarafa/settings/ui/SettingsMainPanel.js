@@ -22,7 +22,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	{
 		config = config || {};
 		Ext.apply(config, {iconCls : 'zarafa-settings-category-general'});
-		
+
 		// Load all category categories which we will
 		// display in the content panel.
 		var items = container.populateInsertionPoint('context.settings.categories', this, config.context);
@@ -66,6 +66,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 				xtype : 'zarafa.settingscategorypanel',
 				width : 200,
 				context : config.context,
+				autoScroll: true,
 				items : tabs
 			},{
 				xtype : 'container',
