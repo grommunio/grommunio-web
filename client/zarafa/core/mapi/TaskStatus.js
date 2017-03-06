@@ -59,7 +59,7 @@ Zarafa.core.mapi.TaskStatus = Zarafa.core.Enum.create({
 			case Zarafa.core.mapi.TaskStatus.WAIT_FOR_OTHER_PERSON:
 				return _('Wait for other person');
 			case Zarafa.core.mapi.TaskStatus.DEFERRED:
-				return _('deferred');
+				return _('Deferred');
 		}
 		return '';
 	}
