@@ -2,13 +2,13 @@ Ext.namespace('Zarafa.core');
 
 /**
  * @class Zarafa.core.BrowserWindowMgr
- * @extends Object
- * 
+ * @extends Ext.util.Observable
+ *
  * The global Browser-window manager that will keep track of all the available browser windows with
  * a unique key assigned to each of the browser window as its name.
  * @singleton
  */
-Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
+Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	/**
 	 * The list of registered browser window. It contains the list with the window DOM object bound to a
 	 * unique key.
@@ -69,6 +69,8 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 			Zarafa.core.BrowserWindowMgr.setActive('mainBrowserWindow');
 		}, false);
 		this.browserWindowComponents = new Ext.util.MixedCollection();
+
+		this.addEvents('separatewindowresize');
 	},
 
 	/**
@@ -296,7 +298,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	 * Helper function which allows to know which browser window object is the owner of any particular component
 	 * passed as argument.
 	 * @param {Ext.Component} component of which we want to get the owning browser window.
-	 * 
+	 *
 	 * @return {Boolean} true if the owner is main webapp window, false otherwise
 	 */
 	isOwnedByMainWindow : function(component)
@@ -321,7 +323,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 		// Incase we receive Ext.Component as parameter then we have to get underlying Ext.Element
 		if(Ext.isFunction(component.getEl)){
 			component = component.getEl();
-		} 
+		}
 
 		var componentDom = component.dom ? component.dom : component;
 		var ownerDocument = componentDom ? componentDom.ownerDocument : undefined;
@@ -454,7 +456,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	},
 
 	/**
-	 * A {@link Ext.util.DelayedTask DelayedTask} which will set size of main container according to the browser window 
+	 * A {@link Ext.util.DelayedTask DelayedTask} which will set size of main container according to the browser window
 	 * when it gets resized.
 	 *
 	 * @param {Object} browserWindowObject The browser window which gets resized.
@@ -466,6 +468,8 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 		var width = browserWindowObject.innerWidth || Ext.lib.Dom.getViewWidth();
 		var height = browserWindowObject.innerHeight || Ext.lib.Dom.getViewHeight();
 		mainContainer.setSize(width, height);
+
+		this.fireEvent('separatewindowresize', browserWindowObject, width. height);
 	},
 
 	/**
@@ -508,10 +512,12 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 	 */
 	initExtCss: function (browserWindowObject) {
 		// find the body element
-		var bd = browserWindowObject.document.body || browserWindowObject.document.getElementsByTagName('body')[0];
-		if (!bd) {
+		var body = browserWindowObject.document.body || browserWindowObject.document.getElementsByTagName('body')[0];
+		if (!body) {
 			return false;
 		}
+
+		Ext.fly(body.parentElement).addClass('x-viewport');
 
 		var cls = [];
 
@@ -564,7 +570,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 
 		// add to the parent to allow for selectors like ".ext-strict .ext-ie"
 		if (Ext.isStrict || Ext.isBorderBox) {
-			var p = bd.parentNode;
+			var p = body.parentNode;
 			if (p) {
 				if (!Ext.isStrict) {
 					Ext.fly(p, '_internal').addClass('x-quirks');
@@ -582,7 +588,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 			cls.push("ext-forced-border-box");
 		}
 
-		Ext.fly(bd, '_internal').addClass(cls);
+		Ext.fly(body, '_internal').addClass(cls);
 		return true;
 	},
 
@@ -602,7 +608,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Object, {
 			Zarafa.core.BrowserWindowMgr.isPopupsBlocked = false;
 		}
 	},
-	
+
 	/**
 	 * Helper function which will bring the main webapp window to front
 	 * @param {Ext.Component/Ext.Element} component/element of which will use to get the owning browser window.
