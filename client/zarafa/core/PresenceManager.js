@@ -10,14 +10,6 @@ Ext.namespace('Zarafa.core');
  */
 Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	/**
-	 * An array that contains all registered
-	 * {@link Zarafa.core.PresencePlugin Zarafa.core.PresencePlugins}
-	 * @property
-	 * @private
-	 */
-	presencePlugins : undefined,
-
-	/**
 	 * The stores that have been registered with the {@link Zarafa.core.PresenceManager PresenceManager}
 	 * @property
 	 * @private
@@ -62,17 +54,9 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	getPresencePlugins : function()
 	{
-		if ( !Ext.isDefined(this.presencePlugins) ){
-			this.presencePlugins = [];
-			var plugins = container.getPlugins();
-			Ext.each(plugins, function(plugin){
-				if ( plugin instanceof Zarafa.core.PresencePlugin ){
-					this.presencePlugins.push(plugin);
-				}
-			}, this);
-		}
-
-		return this.presencePlugins;
+		return container.getPlugins().filter(function(plugin){
+			return plugin instanceof Zarafa.core.PresencePlugin;
+		});
 	},
 
 	/**
@@ -249,6 +233,10 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	registerStore : function(store, fieldRoots)
 	{
+		if (this.getPresencePlugins().length === 0) {
+			return;
+		}
+
 		var storeRegistered = Ext.each(this.registeredStores, function(registeredStore){
 			if ( registeredStore.store === store ){
 				return false;
