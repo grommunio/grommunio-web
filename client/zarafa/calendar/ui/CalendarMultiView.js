@@ -1262,10 +1262,6 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		for (var i = 0, len = this.calendars.length; i < len; i++) {
 			this.calendars[i].onAppointmentAdd(store, record, operation);
 		}
-
-		if (Date.diff(Date.DAY, record.get('duedate'), record.get('startdate')) >= 1) {
-			this.resizeAreas();
-		}
 	},
 
 	/**
@@ -1287,10 +1283,6 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		// forward the event to the individual calendar views
 		for (var i = 0, len = this.calendars.length; i < len; i++) {
 			this.calendars[i].onAppointmentRemove(store, record, operation);
-		}
-
-		if (Date.diff(Date.DAY, record.get('duedate'), record.get('startdate')) >= 1) {
-			this.resizeAreas();
 		}
 	},
 
@@ -1323,10 +1315,6 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			} else {
 				this.calendars[i].onAppointmentUpdate(store, record, operation);
 			}
-		}
-
-		if (record.isModifiedSinceLastUpdate('startdate') || record.isModifiedSinceLastUpdate('duedate')) {
-			this.resizeAreas();
 		}
 	},
 
