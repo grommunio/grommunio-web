@@ -156,10 +156,16 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'dblclick', this.onDoubleClick, this);
 				this.senderElem.innerHTML = '';
 			} else {
-				var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record, 'sender');
-				record.data.sender_presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
-				user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record, 'sent_representing');
-				record.data.sent_representing_presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+				var user;
+				if (Ext.isFunction(record.getSender)) {
+					user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record.getSender());
+					record.data.sender_presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+				}
+
+				if (Ext.isFunction(record.getSentRepresenting)) {
+					user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record.getSentRepresenting());
+					record.data.sent_representing_presence_status = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+				}
 
 				this.senderTemplate.overwrite(senderElem, record.data);
 				//bind click events after template has been populated

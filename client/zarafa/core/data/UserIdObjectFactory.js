@@ -22,7 +22,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 	createFromRecord : function(record, fieldRoot)
 	{
 		// Return null for distlists
-		if ( !Ext.isEmpty(record.get('object_type')) && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST ) {
+		if ( !Ext.isFunction(record.get) || !Ext.isEmpty(record.get('object_type')) && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST ) {
 			return null;
 		}
 
@@ -73,6 +73,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 			// Add the field for non-ZARAFA users to the object
 			// Try to be smart to find the email address
 			user.email_address = record.get(fieldRoot + 'email_address') || record.get(fieldRoot + 'smtp_address');
+			user.entryid = record.get(fieldRoot + 'entryid');
 		} else {
 			return null;
 		}
