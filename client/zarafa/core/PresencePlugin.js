@@ -24,12 +24,8 @@ Zarafa.core.PresencePlugin = Ext.extend(Zarafa.core.Plugin, {
 	getPresenceStatuses : function(users) {
 		// This function should be overwritten, but just in case we will return a
 		// status unknown for all users
-		var statuses = [];
-
-		for ( var i=0; i<users.length; i++ ){
-			statuses.push(Zarafa.core.data.PresenceStatus.UNKNOWN);
-		}
-
-		return statuses;
+		return users.map(function() {
+			return Zarafa.core.data.PresenceStatus.UNKNOWN;
+		});
 	}
 });
