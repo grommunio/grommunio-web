@@ -137,6 +137,11 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		);
 
 		Zarafa.hierarchy.ui.HierarchyTreePanel.superclass.constructor.call(this, config);
+
+		// We cannot wait for render time to set these listeners (as in initEvents()) because
+		// then the listeners would not be set when 'Show all folders' is checked.
+		this.mon(this.store, 'remove', this.onStoreRemove, this);
+		this.mon(this.store, 'removeFolder', this.onFolderRemove, this);
 	},
 
 
@@ -161,12 +166,10 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			this.on('remove', this.checkTreeHeight, this);
 			this.on('resize', this.checkTreeHeight, this);
 		}, this, {single: true});
-		
+
 		// Add listeners to Zarafa.hierarchy.ui.Tree events
 		this.on('contextmenu', this.onTreeNodeContextMenu, this);
 		this.on('click', this.onFolderClicked, this);
-		this.mon(this.store, 'remove', this.onStoreRemove, this);
-		this.mon(this.store, 'removeFolder', this.onFolderRemove, this);
 		this.mon(container, 'folderselect', this.onFolderSelect, this);
 
 		this.mon(container, 'contextswitch', this.reviseCheckboxDisablity, this);
@@ -223,7 +226,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		Zarafa.hierarchy.ui.HierarchyTreePanel.superclass.initStateEvents.call(this);
 		this.mon(this.showAllFoldersCheckbox, 'check', this.saveState, this, {delay: 100});
 	},
-	
+
 	/**
 	 * Checks the height of the hierarchy tree. When it is smaller then the height of the containing box
 	 * it will add a class so the the css can handle the position of the bottombar.
@@ -588,7 +591,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
 	 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 	 * a custom name.
-	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved. 
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
 	 */
 	getStateName : function()
 	{
