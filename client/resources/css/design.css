@@ -2616,6 +2616,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-settings-c
 .icon_cross,
 ul.x-tab-strip li.x-tab-strip-closable a.x-tab-strip-close,
 .x-zarafa-boxfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-close,
+.x-zarafa-boxfield-suggestion-cross,
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-icon-close,
 .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close,
@@ -6782,12 +6783,27 @@ ul.x-tab-strip-top {
 }
 
 /* line 173, ../scss/components/_boxfields.scss */
+.x-zarafa-boxfield-suggestion-cross {
+  cursor: pointer;
+  float: right;
+  height: 7px;
+  margin-top: 5px;
+  padding: 0 6px;
+  visibility: hidden;
+}
+
+/* line 182, ../scss/components/_boxfields.scss */
+.x-zarafa-boxfield-suggestion-item:hover .x-zarafa-boxfield-suggestion-cross {
+  visibility: visible !important;
+}
+
+/* line 186, ../scss/components/_boxfields.scss */
 .zarafa-compositefield > .x-box-inner {
   /* this is necessary because otherwise the shadows of the buttons in the new design (2015) will be cut off */
   overflow: visible;
 }
 
-/* line 177, ../scss/components/_boxfields.scss */
+/* line 190, ../scss/components/_boxfields.scss */
 .zarafa-resizable-compositefield {
   padding-bottom: 6px;
 }
@@ -6795,44 +6811,44 @@ ul.x-tab-strip-top {
 /*****************************************************************************
  * Attachment boxfield
  ****************************************************************************/
-/* line 185, ../scss/components/_boxfields.scss */
+/* line 198, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield {
   border: none;
 }
-/* line 188, ../scss/components/_boxfields.scss */
+/* line 201, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul {
   padding: 0;
   /* increase the minimum height because this boxfield has no border */
   min-height: 24px;
   /*xmargin-bottom: -1px;*/
 }
-/* line 194, ../scss/components/_boxfields.scss */
+/* line 207, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul li {
   margin-top: 0;
   margin-bottom: 1px;
 }
-/* line 201, ../scss/components/_boxfields.scss */
+/* line 214, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul .x-zarafa-boxfield-item .icon_attachment {
   background-position: -6px -1790px;
   width: 8px;
   height: 17px;
 }
-/* line 207, ../scss/components/_boxfields.scss */
+/* line 220, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-text {
   line-height: 22px;
 }
-/* line 211, ../scss/components/_boxfields.scss */
+/* line 224, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul .x-zarafa-boxfield-item .x-zarafa-boxfield-item-close {
   margin-top: 7.5px;
 }
-/* line 216, ../scss/components/_boxfields.scss */
+/* line 229, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul .x-zarafa-boxfield-item.x-zarafa-boxfield-attachment-item-uploading {
   background-color: #d5e8f7;
   background-image: linear-gradient(45deg, transparent, transparent 25%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.7) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.7) 75%, rgba(255, 255, 255, 0.7) 100%, transparent);
   background-size: 40px 40px;
   animation: progress 1.75s linear infinite;
 }
-/* line 223, ../scss/components/_boxfields.scss */
+/* line 236, ../scss/components/_boxfields.scss */
 .x-zarafa-boxfield.zarafa-attachmentfield ul .x-zarafa-boxfield-item.x-zarafa-boxfield-attachment-item-invalid {
   background-color: #F3D6D6;
   border-color: #D7B7B7;
