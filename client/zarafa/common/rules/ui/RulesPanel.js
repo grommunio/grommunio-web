@@ -2,11 +2,11 @@ Ext.namespace('Zarafa.common.rules.ui');
 
 /**
  * @class Zarafa.common.rules.ui.RulesPanel
- * @extends Ext.Panel
+ * @extends Ext.Container
  * @xtype zarafa.rulespanel
  * Will generate UI for the {@link Zarafa.common.settings.SettingsRuleWidget SettingsRuleWidget}.
  */
-Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Panel, {
+Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	/**
 	 * @cfg {Zarafa.common.rules.data.RulesStore} store store to use for loading rules
 	 */
@@ -92,15 +92,16 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Panel, {
 		var items = [];
 		if ( container.getServerConfig().isSharedRulesEnabled() ){
 			items.push({
-				xtype: 'panel',
+				xtype: 'container',
+				cls: 'k-store-picker',
 				border: false,
 				layout: 'form',
+				labelWidth: '-', // Anything but a number to make sure Ext does not set a width
 				items: {
 					xtype: 'combo',
 					mode: 'local',
 					store: comboStore,
-					fieldLabel: _('Update mail filter settings for'),
-					labelStyle: 'width: 220px;',
+					fieldLabel: _('Update rules for'),
 					triggerAction: 'all',
 					displayField: 'name',
 					valueField: 'value',

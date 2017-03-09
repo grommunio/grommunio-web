@@ -54,23 +54,28 @@
  * Toolbar buttons
  *********************************************************/
 	.x-toolbar {
-		.x-btn:not(.zarafa-action) {
+		.x-btn {
+			.x-btn-small {
+				margin-right: $padding-small;
+				border-radius: 2px;
+			}
+		}
+
+		.x-btn:not(.zarafa-action):not(.x-btn-noicon) {
 			background-color: transparent !important;
 
 			.x-btn-small {
 				background-color: transparent;
 				box-shadow: none;
-				margin-right: $padding-small;
 				border: 1px solid transparent;
-				border-radius: 2px;
 			}
 		}
 
-		.x-btn.x-btn-over:not(.zarafa-action) .x-btn-small,
-		.x-btn.x-btn-pressed:not(.zarafa-action) .x-btn-small{
+		.x-btn.x-btn-over:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small,
+		.x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
 			border: 1px solid $grey2;
 		}
-		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small{
+		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
 			background-color: $grey3;
 		}
 

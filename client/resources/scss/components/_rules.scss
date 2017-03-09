@@ -1,4 +1,33 @@
 /* Rules settings category */
+#zarafa-mainpanel-contentpanel-settings .k-rules-widget {
+	> .x-panel-bwrap > .x-panel-body {
+		padding: $padding-medium 0;
+	}
+
+	.k-store-picker {
+		padding: 0 $padding-medium $padding-medium;
+		border-bottom: 1px solid $grey;
+
+		.x-form-item {
+			margin-bottom: 0;
+		}
+
+		label {
+			width: auto;
+			border: 1px solid transparent; /* to align the text with the text in the combo */
+		}
+	}
+}
+
+.k-rulesgrid {
+	.x-panel-tbar .x-toolbar {
+		padding: $padding-medium;
+	}
+
+	.x-btn-noicon .x-btn-small {
+		margin-right: $padding-medium;
+	}
+}
 
 /* Specify word or phrases */
 .x-btn-text.zarafa-rules-add {
