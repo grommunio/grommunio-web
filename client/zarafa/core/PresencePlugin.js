@@ -19,7 +19,7 @@ Zarafa.core.PresencePlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * @param {Zarafa.core.data.UserIdObject[]} users An array of users
 	 * for whom a {@link Zarafa.core.data.PresenceStatus presence status} is
 	 * requested,
-	 * @return {Zarafa.core.data.PresenceStatus[]}
+	 * @return {Array} Array of {@link Zarafa.core.data.PresenceStatus}
 	 */
 	getPresenceStatuses : function(users) {
 		// This function should be overwritten, but just in case we will return a

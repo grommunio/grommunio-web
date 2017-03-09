@@ -177,10 +177,10 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	sender : function(value, p, record)
 	{
-		var userRecord;
-		var presenceStatus;
+		var userRecord = false;
+		var presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
 		// Check which of the 2 properties must be used
-		// XXX: sent representing seems to be always set...
+		// FIXME: sent representing seems to be always set...
 		value = record.get('sent_representing_name');
 		if ( Ext.isEmpty(value) && Ext.isFunction(Ext.isFunction(record.getSender))) {
 			value = record.get('sender_name');
@@ -189,9 +189,7 @@ Zarafa.common.ui.grid.Renderers = {
 			userRecord = record.getSentRepresenting();
 		}
 
-		if (userRecord === false) {
-			presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
-		} else {
+		if (userRecord !== false) {
 			var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(userRecord);
 			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
 		}
