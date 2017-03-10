@@ -139,23 +139,14 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 */
 	syncUpdatesToShadowStore : function(store, record, operation)
 	{
-		var shadowRecords = container.getShadowStore().getRange();
-		var isResponseRecord = record.modified === null ? true : false;
-
-		// Only process the record which came from server.
-		// To identify such situation, Make sure that the operation was commit-operation
-		// and there is no modification.
-		if (isResponseRecord && operation === Ext.data.Record.COMMIT) {
-			Ext.each(shadowRecords, function(shadowRecord){
-				if (Zarafa.core.EntryId.compareEntryIds(shadowRecord.get('entryid'), record.get('entryid'))) {
-					// Stop modification-tracking to prevent dirty mark
-					record.setUpdateModificationsTracking(false);
-					shadowRecord.applyData(record);
-
-					// Start modification-tracking back for future user changes
-					shadowRecord.setUpdateModificationsTracking(true);
-				}
-			}, this);
+		if (Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), this.record.get('entryid'))) {
+			if(operation === Ext.data.Record.COMMIT){
+				// As of now, message_flags property is being processed only because some properties seems
+				// to be missing in MailStore-record as compare to ShadowStore-record result into some weired
+				// behavior with mail-formatting and meeting-request-accept functionalities.
+				this.record.set('message_flags',record.get('message_flags'));
+				this.record.commit(true);
+			}
 		}
 	},
 
