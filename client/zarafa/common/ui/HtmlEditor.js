@@ -633,20 +633,33 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				return false;
 			}
 
-
-			/*
-			 * After press enter if newly created P tag was empty then apply the default formatting.
-			 */
+			// We will do this in a deferred function to make sure that tiny first adds the bogus BR element to empty paragraphs
 			(function(){
 				var node = editor.selection.getNode();
+
+				// When we created an empty P tag by pressing ENTER we must apply default formatting to it.
+				// When we already have an empty SPAN with formatting in the P tag tiny adds a BR node with the attribute
+				// 'data-mce-bogus' because otherwise it is not possible to move the cursor there. Tiny will remove those
+				// bogus nodes when we get the content value. But we have removed the padding and margin of P-tags,
+				// resulting in empty P nodes not being visible to the user. That's why we will remove the attribute
+				// 'data-mce-bogus' of the BR nodes, so tiny will not remove them.
 				if(node.nodeName === 'P') {
 					if(!node.hasChildNodes() || node.firstChild.nodeName === 'BR') {
 						this.composeDefaultFormatting(editor);
 					}
 				} else if(node.nodeName === 'SPAN' && node.hasChildNodes() &&  node.firstChild.nodeName === 'BR') {
-					// To avoid removal of default formatting within SPAN, we must have to stop removal
-					// of BR tag which is marked as 'bogus', so we are removing bogus attribute to keep the default formatting.
+					// This one is for when we created an empty paragraph by pressing ENTER while on the cursor was on end of a line
 					node.firstChild.removeAttribute('data-mce-bogus');
+				} else {
+					// This one is for when we created an empty paragraph by pressing ENTER while the cursor was on the begin of a
+					// line that already contained text
+					var parentPNode = editor.dom.getParent(node, 'p');
+					var prevPNode = editor.dom.getPrev(parentPNode, 'p');
+					if ( prevPNode ){
+						if ( prevPNode.hasChildNodes() && prevPNode.firstChild.nodeName === 'SPAN' && prevPNode.firstChild.hasChildNodes() && prevPNode.firstChild.firstChild.nodeName === 'BR' ){
+							prevPNode.firstChild.firstChild.removeAttribute('data-mce-bogus');
+						}
+					}
 				}
 			}.createDelegate(this)).defer(1);
 		}
