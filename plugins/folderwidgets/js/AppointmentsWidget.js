@@ -8,13 +8,11 @@ Ext.namespace('Zarafa.widgets.folderwidgets');
  * calendar.  It only displays appointments that occur on or after the
  * current time, so outdated information is never shown.
  *
- * Refresh and reload times are configurable per instance of the
- * widget (keys: 'refreshinterval', default 10 seconds and
- * 'reloadinterval', default 5 minutes).  These values are in
- * miliseconds.  The refresh interval is when the view is updated.
- * This way, no stale appointments appear in the list.  The reload
+ * Reload time is configurable per instance of the
+ * widget (keys: 'reloadinterval', default 5 minutes).  These values are in
+ * saved in miliseconds but displayed in seconds. The reload
  * interval is how often the calendar is fully reloaded from the
- * server, to show appointments that were added to the calendar
+ * server, to show records that were added to the folder
  * outside of WebApp.
  */
 Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.folderwidgets.AbstractFolderWidget, {
@@ -94,7 +92,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 					}
 				}
 			});
-		}		
+		}
 	},
 
 	/**
@@ -109,7 +107,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 			var duedate = record.get('duedate') || now;
 			return (startdate >= now || duedate >= now) && startdate < now.clearTime().add(Date.DAY, 1);
 		}, this);
-	},			
+	},
 
 	/**
 	 * Render the subject, which is the time span + the subject of
@@ -121,7 +119,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
 	 * @param {Number} rowIndex The index of the rendered row
 	 * @param {Number} colIndex The index of the rendered column
-	 * @param {Ext.data.Store} store The store to which the record belongs 
+	 * @param {Ext.data.Store} store The store to which the record belongs
 	 * @private
 	 */
 	subjectRenderer : function(value, metaData, record, rowIndex, colIndex, store) {
