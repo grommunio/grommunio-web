@@ -303,7 +303,7 @@ Ext.MessageBox = Ext.extend(Object, {
 						this.handleButton("yes");
 					}
 				}
-			});
+			}, this);
 			this.textareaEl = Ext.get(contentEl.childNodes[2].childNodes[1]);
 			this.textareaEl.enableDisplayMode();
 			this.progressBar = new Ext.ProgressBar({
