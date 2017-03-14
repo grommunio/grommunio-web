@@ -614,11 +614,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		}
 
 		if(event.keyCode === Ext.EventObject.ENTER) {
-			/* When want to submit an email, TinyMCE interperts the Ctrl + Enter key as an enter
-			 * thus adding an extra unwanted enter. So we tell the browser to stop processing the
-			 * event and return false prevents this behaviour.
-			 */
-			if (event.ctrlKey) {
+			// Ctrl + ENTER (and CMD + ENTER on a Mac) is the shortcut for sending an item. Because
+			// we do not want to add the ENTER to the content then, we stop processing the event.
+			if (event.ctrlKey || ( Ext.isMac && event.metaKey) ) {
 				event.preventDefault();
 				return false;
 			}
