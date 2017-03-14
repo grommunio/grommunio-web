@@ -3747,12 +3747,14 @@ div.x-btn-group-bc {
 }
 
 /* line 1, ../scss/components/_panels.scss */
-.x-panel {
+.x-panel,
+.x-panel-ghost {
   border-color: #e6e6e6;
   /* header */
 }
-/* line 5, ../scss/components/_panels.scss */
-.x-panel .x-panel-header {
+/* line 6, ../scss/components/_panels.scss */
+.x-panel .x-panel-header,
+.x-panel-ghost .x-panel-header {
   color: #000000;
   font-weight: normal;
   border-color: #e6e6e6;
@@ -3760,28 +3762,39 @@ div.x-btn-group-bc {
   line-height: 20px;
   padding: 8px 9px 8px 12px;
 }
-/* line 14, ../scss/components/_panels.scss */
+/* line 15, ../scss/components/_panels.scss */
 .x-panel .x-panel-header .x-tool,
-.x-panel .x-layout-collapsed .x-tool {
+.x-panel .x-layout-collapsed .x-tool,
+.x-panel-ghost .x-panel-header .x-tool,
+.x-panel-ghost .x-layout-collapsed .x-tool {
   width: 20px;
   height: 20px;
   margin: 0;
   background-image: url('../images/buttons-sf9958b5399.png') !important;
   background-repeat: no-repeat;
 }
-/* line 23, ../scss/components/_panels.scss */
+/* line 24, ../scss/components/_panels.scss */
 .x-panel .x-panel-ml,
 .x-panel .x-panel-mr,
-.x-panel .x-panel-mc {
+.x-panel .x-panel-mc,
+.x-panel-ghost .x-panel-ml,
+.x-panel-ghost .x-panel-mr,
+.x-panel-ghost .x-panel-mc {
   background-color: transparent;
 }
-/* line 29, ../scss/components/_panels.scss */
-.x-panel .x-panel-body {
+/* line 30, ../scss/components/_panels.scss */
+.x-panel .x-panel-body,
+.x-panel-ghost .x-panel-body {
   border-color: #e6e6e6;
 }
 
+/* line 34, ../scss/components/_panels.scss */
+.x-panel-ghost .x-tool {
+  display: none;
+}
+
 /* panel collapse button */
-/* line 35, ../scss/components/_panels.scss */
+/* line 39, ../scss/components/_panels.scss */
 .x-tool.x-tool-toggle.x-tool-collapse-west,
 .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-east,
 .x-panel-header .x-tool.x-tool-collapse-west,
@@ -3792,13 +3805,13 @@ div.x-btn-group-bc {
   background-position: 4.5px -60.5px;
 }
 
-/* line 44, ../scss/components/_panels.scss */
+/* line 48, ../scss/components/_panels.scss */
 .x-layout-collapsed .x-tool.x-tool-expand-east {
   margin-left: 4.5px;
 }
 
 /* panel expand button */
-/* line 49, ../scss/components/_panels.scss */
+/* line 53, ../scss/components/_panels.scss */
 .x-tool.x-tool-toggle.x-tool-collapse-east,
 .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west,
 .x-panel-header .x-tool.x-tool-collapse-east,
@@ -3809,98 +3822,104 @@ div.x-btn-group-bc {
   background-position: 4.5px -174.5px;
 }
 
-/* line 58, ../scss/components/_panels.scss */
+/* line 62, ../scss/components/_panels.scss */
 .x-layout-collapsed .x-tool.x-tool-expand-west {
   margin-left: 4.5px;
 }
 
 /* panel plus button */
-/* line 63, ../scss/components/_panels.scss */
+/* line 67, ../scss/components/_panels.scss */
 .x-panel-header .x-tool.x-tool-plus {
   width: 20px;
   background-position: 4.5px -2999.5px;
 }
 
-/* line 68, ../scss/components/_panels.scss */
+/* line 72, ../scss/components/_panels.scss */
 .x-panel-header .x-tool:last-of-type {
   margin-left: 9px;
 }
 
-/* line 71, ../scss/components/_panels.scss */
+/* line 75, ../scss/components/_panels.scss */
 .x-panel-header .x-tool:first-of-type {
   margin-right: -4.5px;
 }
 
-/* line 75, ../scss/components/_panels.scss */
+/* line 79, ../scss/components/_panels.scss */
 .x-panel-noborder .x-panel-header-noborder {
   border: none;
 }
 
-/* line 79, ../scss/components/_panels.scss */
+/* line 83, ../scss/components/_panels.scss */
 .x-layout-collapsed {
   padding-top: 8px;
   /* same padding as .x-panel-header */
 }
 
 /* panel footer */
-/* line 84, ../scss/components/_panels.scss */
+/* line 88, ../scss/components/_panels.scss */
 .x-panel-footer {
   background: #ffffff;
 }
 
-/* line 87, ../scss/components/_panels.scss */
+/* line 91, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns {
   padding: 6px 9px;
 }
-/* line 90, ../scss/components/_panels.scss */
+/* line 94, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns td.x-toolbar-cell {
   padding: 0 3px;
 }
-/* line 94, ../scss/components/_panels.scss */
+/* line 98, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns .x-toolbar-left-row td.x-toolbar-cell:first-child {
   padding-left: 0;
 }
-/* line 99, ../scss/components/_panels.scss */
+/* line 103, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white {
   background-position: 6px -2463px;
 }
-/* line 107, ../scss/components/_panels.scss */
+/* line 111, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns .x-toolbar-right-row td.x-toolbar-cell:last-child {
   padding-right: 0;
 }
 
 /* tab panels */
-/* line 114, ../scss/components/_panels.scss */
+/* line 118, ../scss/components/_panels.scss */
 .x-tab-panel-body {
   border-color: #e6e6e6;
 }
 
 /* remove and add some borders for specific panels so we don't get double borders */
-/* line 120, ../scss/components/_panels.scss */
+/* line 124, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail .zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
   border: none;
 }
-/* line 124, ../scss/components/_panels.scss */
+/* line 128, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail #zarafa-main-content-mail-preview {
   border: none;
 }
 
-/* line 130, ../scss/components/_panels.scss */
+/* line 134, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right .zarafa-context-mainpanel {
   border-right: 1px solid #e6e6e6;
 }
-/* line 134, ../scss/components/_panels.scss */
+/* line 138, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right #zarafa-main-content-mail-preview {
   border-left: 1px solid #e6e6e6;
 }
 
-/* line 140, ../scss/components/_panels.scss */
+/* line 144, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom .zarafa-context-mainpanel {
   border-bottom: 1px solid #e6e6e6;
 }
-/* line 144, ../scss/components/_panels.scss */
+/* line 148, ../scss/components/_panels.scss */
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom #zarafa-main-content-mail-preview {
   border-top: 1px solid #e6e6e6;
+}
+
+/* Drag and drop (mainly visible in widgets) */
+/* line 155, ../scss/components/_panels.scss */
+.x-panel-dd-spacer {
+  border-color: #e6e6e6;
 }
 
 /* Safari hack for radio buttons that get cut off */
@@ -12356,12 +12375,12 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 .x-panel-tl, .x-panel-tc, .x-panel-tr {
   background-image: none;
   background-color: transparent;
+  padding: 0;
 }
 
-/* line 49, ../scss/components/_widgets.scss */
+/* line 50, ../scss/components/_widgets.scss */
 .x-panel-tl {
-  border-bottom-color: transparent;
-  border-top: 1px solid white;
+  border: none;
 }
 
 /* line 53, ../scss/components/_widgets.scss */
@@ -12377,8 +12396,18 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 
 /* line 60, ../scss/components/_widgets.scss */
 .x-panel.x-portlet {
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+  border: 1px solid #e6e6e6;
   margin-bottom: 10px;
+  background-color: transparent !important;
+}
+/* line 65, ../scss/components/_widgets.scss */
+.x-panel.x-portlet .x-panel-ml,
+.x-panel.x-portlet .x-panel-mr {
+  padding: 0;
+}
+/* line 70, ../scss/components/_widgets.scss */
+.x-panel.x-portlet .x-panel-bl.x-panel-nofooter {
+  display: none;
 }
 
 /* loading mask  */

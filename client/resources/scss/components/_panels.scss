@@ -1,6 +1,7 @@
-.x-panel {
+.x-panel,
+.x-panel-ghost {
 	border-color: $grey;
-	
+
 	/* header */
 	.x-panel-header{
 		color: $font-default-color;
@@ -10,7 +11,7 @@
 		line-height: $font-default-line-height;
 		padding: ($header-height - $font-default-line-height)/2 $padding-large ($header-height - $font-default-line-height)/2 $padding-extra-large;
 	}
-	
+
 	.x-panel-header .x-tool,
 	.x-layout-collapsed .x-tool {
 		width: $font-default-line-height;
@@ -25,10 +26,13 @@
 	.x-panel-mc {
 		background-color: transparent;
 	}
-	
+
 	.x-panel-body {
 		border-color: $grey;
 	}
+}
+.x-panel-ghost .x-tool {
+	display: none;
 }
 
 /* panel collapse button */
@@ -83,10 +87,10 @@
 /* panel footer */
 .x-panel-footer {
 	background: $background-color-main;
-}	
+}
 .x-panel-footer.x-panel-btns {
 	padding: $padding-medium $padding-large;
-	
+
 	 td.x-toolbar-cell {
 	 	padding: 0 $padding-small;
 	 }
@@ -120,7 +124,7 @@
 	.zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
 		border: none;
 	}
-	
+
 	#zarafa-main-content-mail-preview {
 		border: none;
 	}
@@ -130,7 +134,7 @@
 	.zarafa-context-mainpanel {
 		border-right: 1px solid $grey;
 	}
-	
+
 	#zarafa-main-content-mail-preview {
 		border-left: 1px solid $grey;
 	}
@@ -140,8 +144,14 @@
 	.zarafa-context-mainpanel {
 		border-bottom: 1px solid $grey;
 	}
-	
+
 	#zarafa-main-content-mail-preview {
 		border-top: 1px solid $grey;
 	}
+}
+
+
+/* Drag and drop (mainly visible in widgets) */
+.x-panel-dd-spacer {
+	border-color: $grey;
 }
