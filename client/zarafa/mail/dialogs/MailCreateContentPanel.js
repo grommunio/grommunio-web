@@ -33,6 +33,15 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	 */
 	showfrom : false,
 
+	/**
+	 * The queue containing callback functions which can be used to validate the
+	 * {@link Zarafa.core.data.IPMRecord} before opening send later dialog. If the queue
+	 * completes successfully, the dialog will open, otherwise it will be cancelled.
+	 * @property
+	 * @type Zarafa.core.data.CallbackQueue
+	 * @protected
+	 */
+	sendLaterValidationQueue : undefined,
 
 	/**
 	 * @constructor
@@ -94,6 +103,10 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 
 		// Call parent constructor
 		Zarafa.mail.dialogs.MailCreateContentPanel.superclass.constructor.call(this, config);
+
+		// Initialize the Send Later Validation queue
+		// which is used for validating the message before opening send later dialog
+		this.createSendLaterValidationQueue();
 	},
 
 	/**
@@ -342,6 +355,42 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 		}
 
 		return this.model;
+	},
+
+	/**
+	 * Helper function which is used to validate {@link #record} and open the send later dialog
+	 */
+	sendLaterRecord: function ()
+	{
+		this.sendLaterValidationQueue.run(this.onCompleteValidateSendLaterRecord, this);
+	},
+
+	/**
+	 * Create and initialize the {@link #sendLaterValidationQueue}. This will add two validations steps
+	 * which must be executed to determine if the message has valid recipients.
+	 * @protected
+	 */
+	createSendLaterValidationQueue : function ()
+	{
+		this.sendLaterValidationQueue = new Zarafa.core.data.CallbackQueue();
+
+		// Add a validation step to determine if there are recipients
+		this.sendLaterValidationQueue.add(this.validateEmptyRecipients, this);
+		// Add a validation step to determine if all recipients are resolved
+		this.sendLaterValidationQueue.add(this.validateResolvedRecipients, this);
+	},
+
+	/**
+	 * Callback function for the {@link #sendLaterValidationQueue} which is called when the queue has been
+	 * completed. If the queue ended successfully then it will call the {@link Zarafa.mail.Actions#openDelayedDeliveryContent}.
+	 * @param {Boolean} success True if the queue ended successfully
+	 * @private
+	 */
+	onCompleteValidateSendLaterRecord: function (success)
+	{
+		if (success) {
+			Zarafa.mail.Actions.openDelayedDeliveryContent(this.record, this);
+		}
 	}
 });
 

@@ -407,15 +407,15 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		this.dialog.sendRecord();
 	},
 
-    /**
-     * Event handler when the "Send Later" button has been pressed.
-     * This will call the {@link Zarafa.mail.Actions#openDelayedDeliveryContent}.
-     * @param {Ext.Button} button The button which was clicked
-     */
-    onSendLaterButton: function (button)
+	/**
+	 * Event handler when the "Send Later" button has been pressed.
+	 * This will call the {@link Zarafa.mail.Actions#openDelayedDeliveryContent}.
+	 * @param {Ext.Button} button The button which was clicked
+	 */
+	onSendLaterButton: function (button)
 	{
-        Zarafa.mail.Actions.openDelayedDeliveryContent(this.record, this.dialog);
-    },
+		this.dialog.sendLaterRecord();
+	},
 
 	/**
 	 * Event handler when the "Save" button has been pressed.
