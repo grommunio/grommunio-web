@@ -15,3 +15,10 @@ $ ./tools/update_translations.sh
 The exisiting po files in server/language will be updated with the new
 translation strings from the JavaScript and PHP code. Obsolete strings are
 automatically removed.
+
+Adding a new language
+---------------------
+
+A new language can be added as following.
+
+$ ./tools/update_translations.sh nl_NL
