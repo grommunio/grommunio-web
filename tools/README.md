@@ -7,10 +7,10 @@ Updating translations
 ---------------------
 
 The WebApp PHP and JavaScript translations can be updated using the
-update_translations.sh script. Execute the scripts in the root directory of
+update_translations script. Execute the scripts in the root directory of
 WebApp
 
-$ ./tools/update_translations.sh
+$ ./tools/update_translations
 
 The exisiting po files in server/language will be updated with the new
 translation strings from the JavaScript and PHP code. Obsolete strings are
@@ -21,4 +21,4 @@ Adding a new language
 
 A new language can be added as following.
 
-$ ./tools/update_translations.sh nl_NL
+$ ./tools/update_translations nl_NL
