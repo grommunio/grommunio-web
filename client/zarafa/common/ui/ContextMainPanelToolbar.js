@@ -49,15 +49,10 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		var items = [];
 
 		items = items.concat({
-			xtype : 'zarafa.searchfield',
+			xtype : 'zarafa.searchfieldcontainer',
 			boxMinWidth: 100,
-			ref : 'searchTextfield',
-			listeners: {
-				render : function(field){
-					this.onModelFolderChange(this.model);
-				},
-				scope : this
-			}
+			ref : 'searchFieldContainer',
+			model : config.model
 		});
 
 		if (!Ext.isEmpty(config.paging)) {
@@ -126,26 +121,6 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	initEvent : function()
 	{
 		this.on('afterlayout', this.onAfterLayout, this, {delay : 2});
-
-		this.mon(this.model, {
-			folderchange : this.onModelFolderChange,
-			scope : this
-		});
-	},
-
-	/**
-	 * Event handler which will be called when the {@link #model} fires the
-	 * {@link Zarafa.core.ContextModel#folderchange} event. This will determine
-	 * if the selected folders support 'search folders' and update the UI accordingly.
-	 * @param {Zarafa.core.ContextModel} model this context model.
-	 * @param {Array} folders selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
-	 * @private
-	 */
-	onModelFolderChange : function(model, folders)
-	{
-		var folder = model.getDefaultFolder();
-		var emptyText = this.searchTextfield.getEmptySearchText(folder);
-		this.searchTextfield.setEmptyText(emptyText);
 	},
 
 	/**
@@ -160,7 +135,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 
 		var itemWidth = 0;
 		Ext.each(toolbar.items.items, function(item, index, array){
-			if(!item.isXType('zarafa.searchfield') && item.rendered) {
+			if(!item.isXType('zarafa.searchfieldcontainer') && item.rendered) {
 				if(item.isVisible()) {
 					itemWidth += item.getWidth();
 				} else if(Ext.isDefined(item.xtbHidden) && item.xtbHidden) {
@@ -177,7 +152,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			}, this);
 		}
 
-		toolbar.searchTextfield.setWidth(width - (itemWidth));
+		toolbar.searchFieldContainer.searchTextField.setWidth(width - (itemWidth));
 	},
 
 	/**

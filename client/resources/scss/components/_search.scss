@@ -1,26 +1,29 @@
-.x-form-field-trigger-wrap,
-.x-form-field-wrap {
-
-	.x-form-trigger.icon_search {
+.search_container {
+	display: inline-block;
+	.x-form-field-trigger-wrap,
+	.x-form-field-wrap {
+		display: inline-block;
+	}
+	.x-form-field-trigger-wrap input {
+		padding-top: 0 !important;
+	}
+	.x-btn-icon {
+		.x-btn-icon-small-left {
+			position: relative;
+			top: 2px;
+			left: -1px;
+			border-left: none;
+			height: 22px;
+		}
+	}
+	/* search button */
+	button.icon_search {
 		background-color: transparent;
 		width: $button-small-height;
 		height: $button-small-height !important;
-		box-sizing: border-box;
-		border: 1px solid transparent;
-		border-top-right-radius: 2px;
-		border-bottom-right-radius: 2px;
-		border-left: none;
-
 		background-image: sprite-url($icons) !important;
 		background-repeat: no-repeat;
 		background-position: sprite-position($icons, icon_magnifier, $offset-x: 3px, $offset-y: 3px) !important;
-	}
-	.x-form-trigger.icon_search.x-form-trigger-over {
-		border-color: $grey2;
-	}
-	.x-form-trigger.icon_search.x-form-trigger-over.x-form-trigger-click {
-		border-color: $grey2;
-		background-color: $grey3;
 	}
 }
 
@@ -271,3 +274,8 @@
 	padding-left: 10px !important;
 }
 
+.zarafa-searchfield-folders {
+	width : 80px;
+	padding-top: 0px !important;
+	border-left : none;
+}

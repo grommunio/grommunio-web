@@ -92,11 +92,24 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			scope : this
 		});
 
+		this.mon(this.searchToolBox.includeSubFolder, {
+			check : this.onCheckIncludeSubFolder,
+			render : this.onRenderSubFolderCheckbox,
+			scope : this
+		});
+
 		// Events registered on Advance Search field.
 		this.searchToolbar.mon(this.searchToolbar.getAdvanceSearchField(),{
-			render : this.onRenderAdvanceSearchTextField,
+			render : this.onRenderSearchTextField,
 			start : this.onSearchStart,
 			stop : this.onSearchStop,
+			scope : this
+		});
+
+		this.searchToolbar.mon(this.searchToolbar.getSearchFolderCombo(),{
+			render : this.onRenderSearchFolderCombo,
+			select : this.onSelectSearchFolderComboValue,
+			beforeselect : this.onBeforeSelectSearchFolder,
 			scope : this
 		});
 
@@ -122,9 +135,9 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var topToolbar = activeItem.getTopToolbar();
 		var parentSearchField;
 
-		if(Ext.isDefined(topToolbar) && Ext.isDefined(parentSearchField = topToolbar.searchTextfield)) {
+		if (Ext.isDefined(topToolbar) && Ext.isDefined(parentSearchField = topToolbar.searchTextfield)) {
 			this.searchContentPanel.setParentSearchField(parentSearchField);
-		}else {
+		} else {
 			this.searchContentPanel.setParentSearchField(undefined);
 		}
 	},
@@ -136,9 +149,10 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 */
 	onBeforeCloseContentPanel : function(contentPanel)
 	{
-		var parentSearchField = this.resetParentSearchField();
-		if(parentSearchField) {
-			parentSearchField.renderedSearchPanel = false;
+		this.resetParentSearchField();
+		var parentSearchField = this.searchContentPanel.getParentSearchField();
+		if (parentSearchField) {
+			parentSearchField.searchPanelRendered = false;
 		}
 
 		/**
@@ -149,7 +163,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		 */
 		var currentSearchStore = false;
 		var model = this.model;
-		if(model.getActiveStore().getSearchStoreUniqueId() !== contentPanel.name){
+		if (model.getActiveStore().getSearchStoreUniqueId() !== contentPanel.name){
 			currentSearchStore = this.model.store;
 			var store = model.stores[contentPanel.name];
 			model.setActiveStore(store);
@@ -161,7 +175,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		 * Model has hold the selected record in Zarafa.core.ContextModel.selectedRecords config
 		 * so when close the search panel we have to clear the selection manually.
 		 */
-		if(Ext.isDefined(model.getSelectedRecords())) {
+		if (Ext.isDefined(model.getSelectedRecords())) {
 			model.setSelectedRecords(undefined);
 		}
 
@@ -189,23 +203,20 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	onModelSearchFinished : function(model)
 	{
 		this.resetParentSearchField();
-		this.searchToolbar.getAdvanceSearchField().doStop(true);
+		this.searchToolbar.getAdvanceSearchField().hideMask();
 	},
 
 	/**
-	 * Function was reset the parent context search field if parent context has.
-	 * @return {Zarafa.common.ui.SearchField | Boolean} return {@link Zarafa.common.ui.SearchField search field} if
-	 * parent context has search field else return false.
+	 * Function is reset the {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}
+	 * if parent context has.
 	 */
 	resetParentSearchField : function()
 	{
 		var parentSearchField = this.searchContentPanel.getParentSearchField();
-		if(Ext.isDefined(parentSearchField)) {
+		if (Ext.isDefined(parentSearchField)) {
 			parentSearchField.reset();
-			parentSearchField.doStop(false);
-			return parentSearchField;
+			parentSearchField.hideMask();
 		}
-		return false;
 	},
 
 	/**
@@ -227,7 +238,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	onModelSearchException : function(model, proxy, type, action, options, response, args)
 	{
 		var searchTextfield = this.searchToolbar.getAdvanceSearchField();
-		searchTextfield.doStop(false);
+		searchTextfield.hideMask();
 		searchTextfield.focus();
 	},
 
@@ -235,7 +246,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	 * Function will be used to start actual search on {@link Zarafa.core.data.ListModuleStore ListModuleStore},
 	 * and also it will register event on {@link Zarafa.core.data.ListModuleStore ListModuleStore} to get
 	 * updated status of search.
-	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} advanceSearchField the advance search field which
 	 * performs the search.
 	 * @private
 	 */
@@ -250,8 +261,13 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		}
 
 		var restriction = this.searchToolBox.createRestriction(searchText);
-		var folder = this.searchToolBox.getFolder();
-		this.model.startSearch(restriction , folder.isIPMSubTree(), {'folder' : folder});
+		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
+		var folder = container.getHierarchyStore().getFolder(searchFolderCombo.getValue());
+
+		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
+		var includeSubFolders = record.get('include_subfolder');
+
+		this.model.startSearch(restriction , includeSubFolders, {'folder' : folder});
 
 		// if search is performed from the parent search field then, it will set the search tab
 		// to active tab.
@@ -267,7 +283,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	onSearchStop : function()
 	{
 		this.model.stopSearch();
-		if(Ext.isDefined(this.searchToolbar)) {
+		if (Ext.isDefined(this.searchToolbar)) {
 			this.searchToolbar.getAdvanceSearchField().focus();
 		}
 	},
@@ -280,7 +296,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	onAfterRenderSearchToolBox : function()
 	{
 		var searchField = this.searchToolbar.getAdvanceSearchField();
-		searchField.renderedSearchPanel = this.rendered;
+		searchField.searchPanelRendered = this.rendered;
 
 		// Trigger search operation.
 		searchField.onTriggerClick();
@@ -296,14 +312,126 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler triggers when {@link Zarafa.common.ui.SearchField searchField}
+	 * Event handler triggers when {@link Zarafa.common.searchfield.ui.SearchTextField SearchTextField}
 	 * gets render and also it will set the search text in search field.
-	 * @param {Zarafa.common.ui.SearchField} advanceSearchField the advance search field which
-	 * performs the search.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField the search text field which
+	 * contains the search string.
 	 */
-	onRenderAdvanceSearchTextField : function(advanceSearchField)
+	onRenderSearchTextField : function(searchTextField)
 	{
-		advanceSearchField.setValue(this.searchText);
+		searchTextField.setValue(this.searchText);
+	},
+
+	/**
+	 * Event handler triggers when {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * is render. it will update the {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * store with parent search folder
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField the search text field which
+	 * contains the search string.
+	 */
+	onRenderSearchFolderCombo : function(searchFolderCombo)
+	{
+		searchFolderCombo.store.clearData();
+		var parentSearchFolderCombo = this.searchContentPanel.getParentSearchFolderCombo();
+		parentSearchFolderCombo.store.getRange().forEach(function (record) {
+			searchFolderCombo.store.add(record.copy());
+		});
+
+		searchFolderCombo.setValue(parentSearchFolderCombo.getValue());
+	},
+
+	/**
+	 * Event handler triggered when selection was performed on
+	 * {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}.
+	 * function was used to check/un-check "Include sub folder" checkbox which belongs to
+	 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox}.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchFolderCombo} combo The combo box which fired the event.
+	 * @param {Ext.data.Record} record The data record returned from the underlying store
+	 * @param {number} index The index of the selected item in the drop down list
+	 */
+	onSelectSearchFolderComboValue : function(combo, record, index)
+	{
+		var subFolderCheckBox = this.searchToolBox.includeSubFolder;
+		subFolderCheckBox.setValue(record.get('include_subfolder'));
+		this.onRenderSubFolderCheckbox(subFolderCheckBox);
+	},
+
+	/**
+	 * Event handler triggered when "Include sub folder" checkbox which belongs to
+	 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox}
+	 *  was checked/un-checked. it will also update the "include_subfolder" property of
+	 * {@link Ext.data.Record searchFolder} record of search folder combo box.
+	 *
+	 * @param {Ext.form.Checkbox} checkbox The checkbox which fired the event
+	 * @param {Boolean} check True if the checkbox is currently checked
+	 * @private
+	 */
+	onCheckIncludeSubFolder : function (checkBox, checked)
+	{
+		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
+		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
+
+		if (checked !== record.get('include_subfolder')) {
+			record.set('include_subfolder', checked);
+			record.commit();
+			this.searchToolBox.afterUpdateRestriction();
+		}
+	},
+
+	/**
+	 * Event handle triggered when "Include sub folder" checkbox which belongs to
+	 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox} was rendered
+	 * also it will call when search folder change in {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}.
+	 * Also function is responsible to disable "Include sub folder" check box
+	 * and apply the tooltip when "All folders" option in {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * is selected else enable checkbox and remove the tooltip from "Include Sub folder" checkbox.
+	 *
+	 * @param {Ext.form.Checkbox} checkBox The checkbox which was rendered.
+	 */
+	onRenderSubFolderCheckbox : function (checkBox)
+	{
+		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
+		var record = searchFolderCombo.findRecord('value', searchFolderCombo.getValue());
+		var isAllFolderSelected = record.get('flag') === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS;
+		checkBox.setDisabled(isAllFolderSelected);
+		checkBox.setValue(record.get('include_subfolder'));
+
+		if(checkBox.rendered) {
+			// Add tooltip on "include sub folder" check box when "All folders"
+			// was selected in search folder combo box else remove tooltip from
+			// "include sub folder" check box
+			if (isAllFolderSelected) {
+				checkBox.wrap.dom.qtip = _("All folders are selected");
+			} else {
+				delete(checkBox.wrap.dom.qtip);
+			}
+		}
+	},
+
+	/**
+	 * Event handler triggered before selection performs in {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * Will open {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}, if
+	 * "Other.." option was selected.
+	 *
+	 * @param {Zarafa.common.searchfield.ui.SearchFolderCombo} combo The combo which fired the event.
+	 * @param {Ext.data.Record} record The data record returned from the underlying store
+	 * @param {number} index The index of the selected item in the dropdown list
+	 * @return {boolean} true if selected record is not 'Other...' else false.
+	 */
+	onBeforeSelectSearchFolder : function (combo, record, index)
+	{
+		if(record.get('value') === 'other') {
+			combo.collapse();
+			Zarafa.advancesearch.Actions.openSelectSearchFolderDialog({
+				searchFolderCombo : combo,
+				searchToolBoxIncludeSubFolder : this.searchToolBox.includeSubFolder
+			});
+			return false;
+		}
+		return true;
 	},
 
 	/**
@@ -346,13 +474,13 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		var rightToolbar = this.searchToolbar.getRightSearchToolbar();
 		rightToolbar.setVisible(!!record);
 
-		if(record) {
+		if (record) {
 			var isFaultyMessage = record.isFaultyMessage();
 			var isMessageReplyable = Zarafa.core.MessageClass.isClass(record.get('message_class'), ['IPM.NOTE', 'REPORT.IPM', 'IPM.SCHEDULE', 'IPM.APPOINTMENT']);
 
 			// Additional check when the message is IPM.Appointment and not a meeting request
 			// but a simple appointment which can not be replied as there is no reply-to recipients available.
-			if(isMessageReplyable && Zarafa.core.MessageClass.isClass(record.get('message_class'), ['IPM.APPOINTMENT'])) {
+			if (isMessageReplyable && Zarafa.core.MessageClass.isClass(record.get('message_class'), ['IPM.APPOINTMENT'])) {
 				if(!record.isMeeting()){
 					isMessageReplyable = false;
 				}

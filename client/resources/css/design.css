@@ -4560,7 +4560,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 }
 
 /* line 17, ../scss/components/_toolbars.scss */
-.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar {
+.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
   padding: 4.5px 6px;
   /* we need to substract 2px extra to account for the borders around the buttons */
   border: none;
@@ -4570,28 +4570,30 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* global search input field */
 /* line 24, ../scss/components/_toolbars.scss */
 .zarafa-searchfield {
-  max-width: 450px;
+  padding-top: 0px !important;
+  max-width: 350px;
+  border-right: none;
 }
 
 /* seperator In ExtJS it's tbseperator, used in for example create new mail dialog*/
-/* line 29, ../scss/components/_toolbars.scss */
+/* line 31, ../scss/components/_toolbars.scss */
 .x-toolbar .xtb-sep {
   background-image: none;
   border-left: 1px solid #aca889;
 }
 
 /* exception for the (hacked) search toolbar which has a toolbar in a toobar */
-/* line 36, ../scss/components/_toolbars.scss */
+/* line 38, ../scss/components/_toolbars.scss */
 .x-toolbar .x-toolbar {
   padding: 0;
 }
-/* line 40, ../scss/components/_toolbars.scss */
+/* line 42, ../scss/components/_toolbars.scss */
 .x-toolbar .x-toolbar.zarafa-paging-toolbar,
 .x-toolbar .zarafa-loaded-mail-info {
   padding: 0 18px;
 }
 
-/* line 46, ../scss/components/_toolbars.scss */
+/* line 48, ../scss/components/_toolbars.scss */
 .x-panel-tbar .x-toolbar .x-toolbar-cell .x-form-field {
   padding: 0 6px !important;
   height: 22px !important;
@@ -4600,7 +4602,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /**********************************************************
  * Toolbar buttons
  *********************************************************/
-/* line 54, ../scss/components/_toolbars.scss */
+/* line 56, ../scss/components/_toolbars.scss */
 .x-toolbar {
   /* split button */
   /* Meeting request buttongroup */
@@ -4611,11 +4613,11 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* disabled buttons */
   /* small buttons with icon and text */
 }
-/* line 55, ../scss/components/_toolbars.scss */
+/* line 57, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn:not(.zarafa-action) {
   background-color: transparent !important;
 }
-/* line 58, ../scss/components/_toolbars.scss */
+/* line 60, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn:not(.zarafa-action) .x-btn-small {
   background-color: transparent;
   box-shadow: none;
@@ -4623,56 +4625,56 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   border: 1px solid transparent;
   border-radius: 2px;
 }
-/* line 67, ../scss/components/_toolbars.scss */
+/* line 69, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-over:not(.zarafa-action) .x-btn-small,
 .x-toolbar .x-btn.x-btn-pressed:not(.zarafa-action) .x-btn-small {
   border: 1px solid #dadada;
 }
-/* line 71, ../scss/components/_toolbars.scss */
+/* line 73, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small {
   background-color: #f8f8f8;
 }
-/* line 76, ../scss/components/_toolbars.scss */
+/* line 78, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn .x-btn-small .x-btn-split button.x-btn-text {
   border: none;
   border-right: 1px solid #e6e6e6;
 }
-/* line 82, ../scss/components/_toolbars.scss */
+/* line 84, ../scss/components/_toolbars.scss */
 .x-toolbar .x-toolbar-right-row td:last-child .x-btn:not(.zarafa-action) .x-btn-small {
   margin-right: 0;
 }
-/* line 87, ../scss/components/_toolbars.scss */
+/* line 89, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.zarafa-action {
   margin-right: 3px;
 }
-/* line 91, ../scss/components/_toolbars.scss */
+/* line 93, ../scss/components/_toolbars.scss */
 .x-toolbar .x-item-disabled {
   opacity: 0.4;
 }
-/* line 96, ../scss/components/_toolbars.scss */
+/* line 98, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.zarafa-more-options-btn .x-btn-split {
   padding-right: 0px;
   background-image: none !important;
 }
-/* line 101, ../scss/components/_toolbars.scss */
+/* line 103, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.zarafa-more-options-btn .icon_more.x-btn-text, .x-toolbar .x-btn.zarafa-more-options-btn .x-btn.x-btn-icon .x-btn-small button.x-btn-text.icon_more, .x-toolbar .x-btn.x-btn-icon .x-btn-small .x-btn.zarafa-more-options-btn button.x-btn-text.icon_more {
   border-right: none !important;
 }
-/* line 108, ../scss/components/_toolbars.scss */
+/* line 110, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn-group.zarafa-mr-buttons .x-btn-group-tl,
 .x-toolbar .x-btn-group.zarafa-mr-buttons .x-btn-group-bl {
   display: none;
 }
-/* line 113, ../scss/components/_toolbars.scss */
+/* line 115, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn-group.zarafa-mr-buttons .x-btn-group-mc {
   padding: 0;
 }
-/* line 126, ../scss/components/_toolbars.scss */
+/* line 128, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons-icon_send_white, .x-toolbar .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black {
   padding-left: 29px;
   background-position: 6px -2505px;
 }
-/* line 134, ../scss/components/_toolbars.scss */
+/* line 136, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small {
   /* first page button */
   /* previous page button */
@@ -4705,95 +4707,95 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* complete task button */
   /* more button */
 }
-/* line 137, ../scss/components/_toolbars.scss */
+/* line 139, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.x-tbar-page-first {
   background-position: -2px -3096px;
 }
-/* line 143, ../scss/components/_toolbars.scss */
+/* line 145, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.x-tbar-page-prev {
   background-position: -2px -2996px;
 }
-/* line 149, ../scss/components/_toolbars.scss */
+/* line 151, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.x-tbar-page-last {
   background-position: -2px -3296px;
 }
-/* line 155, ../scss/components/_toolbars.scss */
+/* line 157, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.x-tbar-page-next {
   background-position: -1px -3196px;
 }
-/* line 161, ../scss/components/_toolbars.scss */
+/* line 163, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_copy {
   background-position: 5px -505px;
 }
-/* line 166, ../scss/components/_toolbars.scss */
+/* line 168, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_delete {
   background-position: 2px -666px;
 }
-/* line 171, ../scss/components/_toolbars.scss */
+/* line 173, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_popout {
   background-position: 4px -1835px;
 }
-/* line 176, ../scss/components/_toolbars.scss */
+/* line 178, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_replyEmail {
   background-position: 1px -2151px;
 }
-/* line 182, ../scss/components/_toolbars.scss */
+/* line 184, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_replyAllEmail {
   background-position: 1px -2200px;
 }
-/* line 188, ../scss/components/_toolbars.scss */
+/* line 190, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_forwardEmail {
   background-position: 1px -856px;
 }
-/* line 194, ../scss/components/_toolbars.scss */
+/* line 196, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_editAsNewEmail {
   background-position: 3px -712px;
 }
-/* line 200, ../scss/components/_toolbars.scss */
+/* line 202, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_saveEmail {
   background-position: 2px -804px;
 }
-/* line 206, ../scss/components/_toolbars.scss */
+/* line 208, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_attachment {
   background-position: 1px -1786px;
 }
-/* line 212, ../scss/components/_toolbars.scss */
+/* line 214, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_checkNames {
   background-position: 1px -355px;
 }
-/* line 218, ../scss/components/_toolbars.scss */
+/* line 220, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_addSignature {
   background-position: 1px -2690px;
 }
-/* line 224, ../scss/components/_toolbars.scss */
+/* line 226, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_openMessageOptions {
   background-position: 2px -404px;
 }
-/* line 230, ../scss/components/_toolbars.scss */
+/* line 232, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_flag_red {
   background-position: 4px -1962px;
 }
-/* line 235, ../scss/components/_toolbars.scss */
+/* line 237, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_setHighPriority {
   background-position: 9px -1929px;
 }
-/* line 241, ../scss/components/_toolbars.scss */
+/* line 243, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_setLowPriority {
   background-position: 7px -1971px;
 }
-/* line 247, ../scss/components/_toolbars.scss */
+/* line 249, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_setReadReceipt {
   background-position: 5px -2056px;
 }
-/* line 253, ../scss/components/_toolbars.scss */
+/* line 255, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_showbcc {
   background-position: 4px -2595px;
 }
-/* line 258, ../scss/components/_toolbars.scss */
+/* line 260, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_showfrom {
   background-position: 4px -2641px;
 }
-/* line 263, ../scss/components/_toolbars.scss */
+/* line 265, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print, .x-toolbar .x-btn.x-btn-icon .x-btn-small .x-menu button.icon_print_single, .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single,
 .x-toolbar .x-btn.x-btn-icon .x-btn-small .x-menu button.icon_print_single_appt,
 .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single_appt,
@@ -4809,7 +4811,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single_contact {
   background-position: 2px -1883px;
 }
-/* line 268, ../scss/components/_toolbars.scss */
+/* line 270, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print, .x-toolbar .x-btn.x-btn-icon .x-btn-small .x-menu button.icon_print_single, .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single,
 .x-toolbar .x-btn.x-btn-icon .x-btn-small .x-menu button.icon_print_single_appt,
 .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single_appt,
@@ -4825,54 +4827,54 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_print_single_contact {
   background-position: 2px -1882px;
 }
-/* line 273, ../scss/components/_toolbars.scss */
+/* line 275, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_recurrence {
   background-position: 2px -2104px;
 }
-/* line 278, ../scss/components/_toolbars.scss */
+/* line 280, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_categories {
   background-position: 5px -1143px;
 }
-/* line 284, ../scss/components/_toolbars.scss */
+/* line 286, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_private {
   background-position: 5px -2013px;
 }
-/* line 289, ../scss/components/_toolbars.scss */
+/* line 291, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_task_complete {
   background-position: 5px -2737px;
 }
-/* line 294, ../scss/components/_toolbars.scss */
+/* line 296, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_send_email_to_recipient {
   background-position: 2px -3282px;
 }
-/* line 300, ../scss/components/_toolbars.scss */
+/* line 302, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon .x-btn-small button.icon_more {
   background-position: 3px -1645px;
 }
-/* line 309, ../scss/components/_toolbars.scss */
+/* line 311, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon.x-item-disabled .x-btn-small {
   /* first page button */
   /* previous page button */
   /* last page button */
   /* next page button */
 }
-/* line 311, ../scss/components/_toolbars.scss */
+/* line 313, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon.x-item-disabled .x-btn-small button.x-tbar-page-first {
   background-position: -2px -3146px;
 }
-/* line 317, ../scss/components/_toolbars.scss */
+/* line 319, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon.x-item-disabled .x-btn-small button.x-tbar-page-prev {
   background-position: -2px -3046px;
 }
-/* line 323, ../scss/components/_toolbars.scss */
+/* line 325, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon.x-item-disabled .x-btn-small button.x-tbar-page-last {
   background-position: -2px -3346px;
 }
-/* line 329, ../scss/components/_toolbars.scss */
+/* line 331, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-icon.x-item-disabled .x-btn-small button.x-tbar-page-next {
   background-position: -1px -3246px;
 }
-/* line 338, ../scss/components/_toolbars.scss */
+/* line 340, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small {
   /* Restored items restore item */
   /* Restored items delete button */
@@ -4893,134 +4895,134 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   /* View all Proposals button */
   /* Restore delelted items button */
 }
-/* line 340, ../scss/components/_toolbars.scss */
+/* line 342, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore {
   background-position: 2px -4385px;
 }
-/* line 346, ../scss/components/_toolbars.scss */
+/* line 348, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_delete {
   background-position: 2px -667px;
 }
-/* line 352, ../scss/components/_toolbars.scss */
+/* line 354, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_replyEmail {
   background-position: 6px -2151px;
   padding-left: 32px;
 }
-/* line 359, ../scss/components/_toolbars.scss */
+/* line 361, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_replyAllEmail {
   background-position: 6px -2199px;
   padding-left: 32px;
 }
-/* line 366, ../scss/components/_toolbars.scss */
+/* line 368, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_forwardEmail {
   background-position: 6px -856px;
   padding-left: 32px;
 }
-/* line 373, ../scss/components/_toolbars.scss */
+/* line 375, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_editAsNewEmail {
   background-position: 6px -712px;
   padding-left: 32px;
 }
-/* line 380, ../scss/components/_toolbars.scss */
+/* line 382, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_recurrence {
   background-position: 6px -2102px;
 }
-/* line 385, ../scss/components/_toolbars.scss */
+/* line 387, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_invite_attendees {
   background-position: 6px -903px;
 }
-/* line 390, ../scss/components/_toolbars.scss */
+/* line 392, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_cancel_meeting_request {
   background-position: 6px -820px;
 }
-/* line 396, ../scss/components/_toolbars.scss */
+/* line 398, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_no_response_required {
   background-position: 5px -1686px;
   padding-left: 26px;
 }
-/* line 403, ../scss/components/_toolbars.scss */
+/* line 405, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_view {
   background-position: 6px -1041px;
   padding-left: 27px;
 }
-/* line 410, ../scss/components/_toolbars.scss */
+/* line 412, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_accept, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_appt_meeting_accept, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_accept, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_accept {
   background-position: 6px -756px;
   padding-left: 27px;
 }
-/* line 417, ../scss/components/_toolbars.scss */
+/* line 419, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_tentative, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_appt_meeting_tentative, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_tentative, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_tentative {
   background-position: 6px -1001px;
   padding-left: 27px;
 }
-/* line 424, ../scss/components/_toolbars.scss */
+/* line 426, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_decline, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_cancel_meeting_request, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_cancelled {
   background-position: 6px -820px;
   padding-left: 27px;
 }
-/* line 431, ../scss/components/_toolbars.scss */
+/* line 433, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_view {
   background-position: 6px -722px;
   padding-left: 27px;
 }
-/* line 438, ../scss/components/_toolbars.scss */
+/* line 440, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner button.icon_appt_meeting_newtime, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_newtime, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner button.icon_calendar_appt_newtime {
   background-position: 6px -856px;
   padding-left: 27px;
 }
-/* line 445, ../scss/components/_toolbars.scss */
+/* line 447, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_proposals {
   background-position: 6px -928px;
   padding-left: 27px;
 }
-/* line 452, ../scss/components/_toolbars.scss */
+/* line 454, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore {
   background-position: 6px -4383px;
   padding-left: 27px;
 }
-/* line 457, ../scss/components/_toolbars.scss */
+/* line 459, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black {
   background-position: 6px -2419px;
 }
-/* line 465, ../scss/components/_toolbars.scss */
+/* line 467, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small {
   /* reply button */
   /* save button */
   /* save button */
   /* View in calendar button */
 }
-/* line 468, ../scss/components/_toolbars.scss */
+/* line 470, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.icon_replyEmail {
   background-position: 6px -2246px;
 }
-/* line 474, ../scss/components/_toolbars.scss */
+/* line 476, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.buttons-icon_save_white {
   background-position: 6px -2287px;
 }
-/* line 480, ../scss/components/_toolbars.scss */
+/* line 482, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.icon_appt_meeting_accept, .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_appt_meeting_accept, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.icon_appt_meeting_accept, .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.icon_calendar_appt_accept {
   background-position: 6px -786px;
 }
-/* line 486, ../scss/components/_toolbars.scss */
+/* line 488, ../scss/components/_toolbars.scss */
 .x-toolbar .x-btn.x-btn-text-icon.zarafa-action .x-btn-small button.icon_calendar_view {
   background-position: 6px -1110px;
   padding-left: 27px;
 }
 
 /* Paging toolbar */
-/* line 498, ../scss/components/_toolbars.scss */
+/* line 500, ../scss/components/_toolbars.scss */
 .x-toolbar.zarafa-paging-toolbar .x-btn .x-btn-small {
   background-color: transparent !important;
 }
-/* line 501, ../scss/components/_toolbars.scss */
+/* line 503, ../scss/components/_toolbars.scss */
 .x-toolbar.zarafa-paging-toolbar .x-btn .x-btn-small button.x-btn-text {
   width: 18px;
 }
-/* line 508, ../scss/components/_toolbars.scss */
+/* line 510, ../scss/components/_toolbars.scss */
 .x-toolbar.zarafa-paging-toolbar .x-btn.x-btn-over.x-btn-click .x-btn-small button.x-btn-text {
   background-color: #f8f8f8;
 }
-/* line 514, ../scss/components/_toolbars.scss */
+/* line 516, ../scss/components/_toolbars.scss */
 .x-toolbar.zarafa-paging-toolbar .x-btn-page-next {
   margin-left: 3px;
 }
@@ -10890,196 +10892,201 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   position: absolute;
 }
 
-/* line 4, ../scss/components/_search.scss */
-.x-form-field-trigger-wrap .x-form-trigger.icon_search,
-.x-form-field-wrap .x-form-trigger.icon_search {
+/* line 1, ../scss/components/_search.scss */
+.search_container {
+  display: inline-block;
+  /* search button */
+}
+/* line 3, ../scss/components/_search.scss */
+.search_container .x-form-field-trigger-wrap,
+.search_container .x-form-field-wrap {
+  display: inline-block;
+}
+/* line 7, ../scss/components/_search.scss */
+.search_container .x-form-field-trigger-wrap input {
+  padding-top: 0 !important;
+}
+/* line 11, ../scss/components/_search.scss */
+.search_container .x-btn-icon .x-btn-icon-small-left {
+  position: relative;
+  top: 2px;
+  left: -1px;
+  border-left: none;
+  height: 22px;
+}
+/* line 20, ../scss/components/_search.scss */
+.search_container button.icon_search {
   background-color: transparent;
   width: 24px;
   height: 24px !important;
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-left: none;
   background-image: url('../images/buttons-s1d04291537.png') !important;
   background-repeat: no-repeat;
   background-position: 3px -1553px !important;
 }
-/* line 18, ../scss/components/_search.scss */
-.x-form-field-trigger-wrap .x-form-trigger.icon_search.x-form-trigger-over,
-.x-form-field-wrap .x-form-trigger.icon_search.x-form-trigger-over {
-  border-color: #dadada;
-}
-/* line 21, ../scss/components/_search.scss */
-.x-form-field-trigger-wrap .x-form-trigger.icon_search.x-form-trigger-over.x-form-trigger-click,
-.x-form-field-wrap .x-form-trigger.icon_search.x-form-trigger-over.x-form-trigger-click {
-  border-color: #dadada;
-  background-color: #f8f8f8;
-}
 
 /* The search results grid */
-/* line 30, ../scss/components/_search.scss */
+/* line 33, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:active .x-grid3-hd-inner {
   background: inherit;
 }
-/* line 34, ../scss/components/_search.scss */
+/* line 37, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:hover .x-grid3-hd-inner {
   border-color: #ffffff;
 }
-/* line 38, ../scss/components/_search.scss */
+/* line 41, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row .zarafa-search-suggestion {
   font-style: italic;
   text-decoration: underline;
   color: #0f70bd;
   cursor: pointer;
 }
-/* line 46, ../scss/components/_search.scss */
+/* line 49, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row {
   border-left: none;
   border-right: none;
   /* let css take care of fields that are too long */
 }
-/* line 50, ../scss/components/_search.scss */
+/* line 53, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row .x-grid3-cell-inner {
   padding: 8px 6px;
 }
-/* line 54, ../scss/components/_search.scss */
+/* line 57, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row td {
   line-height: 20px;
 }
-/* line 59, ../scss/components/_search.scss */
+/* line 62, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data {
   /* the icons */
   /* notes */
 }
-/* line 60, ../scss/components/_search.scss */
+/* line 63, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td div.padding {
   overflow: hidden;
 }
-/* line 65, ../scss/components/_search.scss */
+/* line 68, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.icon {
   width: 28px;
 }
-/* line 68, ../scss/components/_search.scss */
+/* line 71, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.name {
   width: 120px;
   /* some padding to have some space between the fields */
   padding-right: 12px;
 }
-/* line 73, ../scss/components/_search.scss */
+/* line 76, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .subject {
   /* some padding to have some space between the fields */
   padding-right: 12px;
 }
-/* line 78, ../scss/components/_search.scss */
+/* line 81, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.subject-body {
   padding-right: 3px;
 }
-/* line 81, ../scss/components/_search.scss */
+/* line 84, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.subject-body span.body {
   opacity: 0.5;
 }
-/* line 87, ../scss/components/_search.scss */
+/* line 90, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_message,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail.icon_message_read {
   background-position: 4px -2763px;
 }
-/* line 92, ../scss/components/_search.scss */
+/* line 95, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail.icon_message_unread {
   background-position: 5px -3006px;
 }
-/* line 96, ../scss/components/_search.scss */
+/* line 99, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_replied {
   background-position: 4px -2798px;
 }
-/* line 99, ../scss/components/_search.scss */
+/* line 102, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_single {
   background-position: 4px -1079px;
 }
-/* line 103, ../scss/components/_search.scss */
+/* line 106, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_stubbed {
   background-position: 5px -2974px;
 }
-/* line 106, ../scss/components/_search.scss */
+/* line 109, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_forwarded {
   background-position: 4px -2692px;
 }
-/* line 109, ../scss/components/_search.scss */
+/* line 112, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_oof {
   background-position: 3px -2727px;
 }
-/* line 112, ../scss/components/_search.scss */
+/* line 115, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_user {
   background-position: 4px -1363px;
 }
-/* line 116, ../scss/components/_search.scss */
+/* line 119, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_distlist {
   background-position: 4px -1599px;
 }
-/* line 120, ../scss/components/_search.scss */
+/* line 123, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_equipment {
   background-position: 4px -1462px;
 }
-/* line 123, ../scss/components/_search.scss */
+/* line 126, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_gab_user {
   background-position: 4px -1562px;
 }
-/* line 127, ../scss/components/_search.scss */
+/* line 130, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_room {
   background-position: 7px -1530px;
 }
-/* line 130, ../scss/components/_search.scss */
+/* line 133, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_company {
   background-position: 3px -1428px;
 }
-/* line 133, ../scss/components/_search.scss */
+/* line 136, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_appointment {
   background-position: 4px -1043px;
 }
-/* line 137, ../scss/components/_search.scss */
+/* line 140, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_recurring,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_recurring {
   background-position: 4px -968px;
 }
-/* line 142, ../scss/components/_search.scss */
+/* line 145, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_single {
   background-position: 4px -1078px;
 }
-/* line 146, ../scss/components/_search.scss */
+/* line 149, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_accept {
   background-position: 4px -758px;
 }
-/* line 150, ../scss/components/_search.scss */
+/* line 153, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline {
   background-position: 4px -434px;
 }
-/* line 154, ../scss/components/_search.scss */
+/* line 157, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_tentative {
   background-position: 4px -1003px;
 }
-/* line 158, ../scss/components/_search.scss */
+/* line 161, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_newtime, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .zarafa-searchgrid .x-grid3-row table.messageclass-data button.icon_calendar_appt_newtime, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .zarafa-searchgrid .x-grid3-row table.messageclass-data button.icon_appt_meeting_newtime, .zarafa-searchgrid .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data button.icon_appt_meeting_newtime, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small table.messageclass-data button.icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small table.messageclass-data button.icon_appt_meeting_newtime {
   background-position: 4px -858px;
 }
-/* line 162, ../scss/components/_search.scss */
+/* line 165, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_cancel, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_appt_meeting_decline, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline {
   background-position: 4px -434px;
 }
-/* line 166, ../scss/components/_search.scss */
+/* line 169, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_outofdate {
   background-position: 4px -895px;
 }
-/* line 170, ../scss/components/_search.scss */
+/* line 173, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_normal,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_recurring {
   background-position: 5px -4683px;
 }
-/* line 176, ../scss/components/_search.scss */
+/* line 179, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_blue, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_blue, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_blue {
   background-position: 5px -3477px;
 }
-/* line 180, ../scss/components/_search.scss */
+/* line 183, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_stickynote,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_default_note,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_shared_note, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_yellow, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow, .zarafa-searchgrid .x-grid3-row table.messageclass-data ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_note_yellow, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow,
@@ -11091,44 +11098,44 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_shared_note, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow {
   background-position: 5px -3836px;
 }
-/* line 184, ../scss/components/_search.scss */
+/* line 187, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_white, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_white, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_white {
   background-position: 5px -3755px;
 }
-/* line 188, ../scss/components/_search.scss */
+/* line 191, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_pink, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_pink, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_pink {
   background-position: 5px -3674px;
 }
-/* line 192, ../scss/components/_search.scss */
+/* line 195, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_green, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_green, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_green {
   background-position: 5px -3558px;
 }
-/* line 197, ../scss/components/_search.scss */
+/* line 200, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_nondelivery_receipt {
   background-position: 2px -2898px;
 }
-/* line 201, ../scss/components/_search.scss */
+/* line 204, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_read_receipt {
   background-position: 2px -2831px;
 }
-/* line 205, ../scss/components/_search.scss */
+/* line 208, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_nonread_receipt {
   background-position: 2px -2865px;
 }
-/* line 215, ../scss/components/_search.scss */
+/* line 218, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row.mail_unread td {
   font-weight: bold;
 }
 
 /* The toolbox */
-/* line 222, ../scss/components/_search.scss */
+/* line 225, ../scss/components/_search.scss */
 .zarafa-search-toolbox {
   border-top: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
   padding: 0 9px 9px;
   background-color: #ffffff;
 }
-/* line 228, ../scss/components/_search.scss */
+/* line 231, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-plain-header {
   line-height: 20px;
   box-sizing: border-box;
@@ -11136,7 +11143,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   /* subtract the border */
   padding-top: 8px;
 }
-/* line 234, ../scss/components/_search.scss */
+/* line 237, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-plain-header img.x-panel-inline-icon.advance_search {
   width: 16px;
   height: 16px;
@@ -11145,25 +11152,25 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   margin-top: -1px;
   margin-bottom: -1px;
 }
-/* line 245, ../scss/components/_search.scss */
+/* line 248, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-fieldset {
   border: none;
   border: none;
   padding: 0 0 9px;
 }
-/* line 250, ../scss/components/_search.scss */
+/* line 253, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-fieldset legend {
   padding-bottom: 6px;
   font-weight: bold;
 }
 
-/* line 257, ../scss/components/_search.scss */
+/* line 260, ../scss/components/_search.scss */
 .zarafa-search-previewpanel-toolbar {
   margin-left: 5px;
 }
 
 /* Input field loading mask */
-/* line 262, ../scss/components/_search.scss */
+/* line 265, ../scss/components/_search.scss */
 .zarafa-searchfield.zarafa-tbar-loading {
   background-image: url(../images/loading.gif);
   background-repeat: no-repeat;
@@ -11171,9 +11178,16 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 }
 
 /* FIXME: fix in ExtJS JavaScript */
-/* line 269, ../scss/components/_search.scss */
+/* line 272, ../scss/components/_search.scss */
 .zarafa-dateperiodfield-itemsCls .x-form-element {
   padding-left: 10px !important;
+}
+
+/* line 277, ../scss/components/_search.scss */
+.zarafa-searchfield-folders {
+  width: 80px;
+  padding-top: 0px !important;
+  border-left: none;
 }
 
 /* Sticky note colors */

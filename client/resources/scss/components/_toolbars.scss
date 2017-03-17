@@ -14,7 +14,7 @@
 	border-width: 0;
 }
 
-.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar {
+.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
 	padding: ($toolbar-height - $button-small-height - 2px - 1px)/2 $padding-medium; /* we need to substract 2px extra to account for the borders around the buttons */
 	border: none;
 	border-bottom: 1px solid $grey;
@@ -22,7 +22,9 @@
 
 /* global search input field */
 .zarafa-searchfield {
-	max-width: 450px;
+	padding-top: 0px !important;
+	max-width: 350px;
+	border-right: none;
 }
 
 /* seperator In ExtJS it's tbseperator, used in for example create new mail dialog*/

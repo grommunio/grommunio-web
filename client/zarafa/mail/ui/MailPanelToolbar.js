@@ -141,13 +141,13 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 			pageNavToolbarWidth = this.pagesToolbar.getWidth();
 		} else if(this.loadedMailInfo.xtbHidden) {
 			pageNavToolbarWidth = this.loadedMailInfo.xtbWidth;
-			if (containerWidth > this.searchTextfield.getWidth() + pageNavToolbarWidth) {
+			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth) {
 				this.layout.unhideItem(this.loadedMailInfo);
 				this.doLayout();
 			}
 		} else if(this.pagesToolbar.xtbHidden) {
 			pageNavToolbarWidth = this.pagesToolbar.xtbWidth;
-			if (containerWidth > this.searchTextfield.getWidth() + pageNavToolbarWidth) {
+			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth) {
 				this.layout.unhideItem(this.pagesToolbar);
 				this.doLayout();
 			}
@@ -160,7 +160,7 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 		 */
 		if(this.copyButton.xtbHidden) {
 			copyButtonWidth = this.copyButton.xtbWidth;
-			if (containerWidth > this.searchTextfield.getWidth() + pageNavToolbarWidth + copyButtonWidth) {
+			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth + copyButtonWidth) {
 				this.layout.unhideItem(this.copyButton);
 				this.doLayout();
 			}
@@ -175,7 +175,7 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 		 */
 		if(this.deleteButton.xtbHidden) {
 			deleteButtonWidth = this.deleteButton.xtbWidth;
-			if (containerWidth > this.searchTextfield.getWidth() + pageNavToolbarWidth + copyButtonWidth + deleteButtonWidth) {
+			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth + copyButtonWidth + deleteButtonWidth) {
 				this.layout.unhideItem(this.deleteButton);
 				this.doLayout();
 			}
@@ -185,7 +185,15 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 
 		var extraMargin = 0;
 		var adjWidth = containerWidth - pageNavToolbarWidth - copyButtonWidth - deleteButtonWidth - extraMargin;
-		this.searchTextfield.setWidth(adjWidth);
+
+		var searchFieldContainer = this.searchFieldContainer;
+		var searchField = searchFieldContainer.searchTextField;
+		var searchFolderCombo = searchFieldContainer.searchFolderCombo;
+		var searchFolderComboWidth = searchFolderCombo.getWidth();
+		var searchFolderComboTriggeredWidth = searchFolderCombo.getTriggerWidth();
+		var serchBtnWidth = searchFieldContainer.searchBtn.getWidth();
+
+		searchField.setWidth(adjWidth-(searchFolderComboWidth + serchBtnWidth + searchFolderComboTriggeredWidth));
 	}
 });
 

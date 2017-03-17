@@ -23,6 +23,8 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.advancesearch.AdvanceSearchContext.superclass.constructor.call(this, config);
 
 		this.registerInsertionPoint('main.toolbar.actions.last', this.createMainToolbarSearchViewButton, this);
+
+		Zarafa.core.data.SharedComponentType.addProperty('search.dialog.selectfolder');
 	},
 
 	/**
@@ -87,6 +89,9 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.search']:
 				bid = 1;
 				break;
+			case Zarafa.core.data.SharedComponentType['search.dialog.selectfolder']:
+				bid = 1;
+				break;
 		}
 		return bid;
 	},
@@ -103,7 +108,10 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 		var component;
 		switch (type) {
 			case Zarafa.core.data.SharedComponentType['common.search']:
-				component = Zarafa.advancesearch.dialogs.SearchContentPanel ;
+				component = Zarafa.advancesearch.dialogs.SearchContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['search.dialog.selectfolder']:
+				component = Zarafa.advancesearch.dialogs.SelectFolderContentPanel;
 				break;
 		}
 		return component;

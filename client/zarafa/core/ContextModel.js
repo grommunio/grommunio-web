@@ -1034,7 +1034,7 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 */
 	startSearch : function(restriction, subfolders, options)
 	{
-		var useSearchFolder = this.supportsSearchFolder();
+		var useSearchFolder = this.supportsSearchFolder(options.folder);
 
 		// We don't support subfolders when searchfolders are disabled
 		if (!useSearchFolder) {
