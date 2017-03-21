@@ -30,6 +30,11 @@ Zarafa.widgets.folderwidgets.MailWidget = Ext.extend(Zarafa.widgets.folderwidget
 				Zarafa.core.mapi.MessageFlags.MSGFLAG_READ
 			)
 		});
+		// If we want to use a search restriction we must say that this store is an advanceSearchStore
+		// or it will be removed.
+		store.isAdvanceSearchStore = function(){
+			return true;
+		};
 
 		Ext.applyIf(config, {
 			height : 200,

@@ -9,12 +9,10 @@ Ext.namespace('Zarafa.widgets.folderwidgets');
  * using a particular restriction (during {@link #store}{@link Ext.data.Store#load})
  * or a filter (using {@link #store}{@link Ext.data.Store#applyFilter}).
  *
- * Refresh and reload times are configurable per instance of the
- * widget (keys: 'refreshinterval', default 10 seconds and
- * 'reloadinterval', default 5 minutes).  These values are in
- * miliseconds.  The refresh interval is when the view is updated.
- * This way, no stale records appear in the list.  The reload
- * interval is how often the calendar is fully reloaded from the
+ * Reload time is configurable per instance of the
+ * widget (keys: 'reloadinterval', default 5 minutes).  These values are in
+ * saved in miliseconds but displayed in seconds. The reload
+ * interval is how often the folder is fully reloaded from the
  * server, to show records that were added to the folder
  * outside of WebApp.
  */
@@ -65,7 +63,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 		// Wait for the hierarchy store to be loaded.
 		var hierarchyStore = container.getHierarchyStore();
 		this.mon(hierarchyStore, 'load', this.onHierarchyLoad, this);
-		// needed when adding the widget after hierarchy load 
+		// needed when adding the widget after hierarchy load
 		this.onHierarchyLoad(hierarchyStore);
 
 		// Wait for the store to be loaded, so we can activate
@@ -96,14 +94,6 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 */
 	onStoreLoad : function()
 	{
-		// Periodically apply filter to remove outdated records from the view
-		var interval = this.get('refreshinterval') || 10000;
-		Ext.TaskMgr.start({
-			run: this.updateFilter,
-			interval: interval,
-			scope: this
-		});
-
 		// Periodically reload data from the server to remove stale
 		// data from the store.  But only do this when the store has
 		// finished loading for the first time.
@@ -133,7 +123,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	{
 		if (this.folder) {
 			this.store.load({ folder : this.folder });
-		}		
+		}
 	},
 
 	/**
@@ -154,7 +144,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 			title: _('Configure widget'),
 			layout: 'fit',
 			width: 320,
-			height: 200,
+			height: 130,
 
 			items: [{
 				xtype: 'form',
@@ -163,22 +153,13 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 
 				items: [{
 					xtype: 'zarafa.spinnerfield',
-					fieldLabel: _('Reload interval (ms)'),
+					fieldLabel: _('Reload interval (s)'),
 					name: 'reloadinterval',
-					minValue: 0,
-					maxValue: 1800000,
-					incrementValue: 1000,
-					defaultValue: this.get('reloadinterval') || 300000,
-					listeners: { 'change': this.onFieldChange, scope: this },
-					plugins: ['zarafa.numberspinner']
-				}, {
-					xtype: 'zarafa.spinnerfield',
-					fieldLabel: _('Refresh interval (ms)'),
-					name: 'refreshinterval',
-					minValue: 0,
-					maxValue: 1800000,
-					incrementValue: 1000,
-					defaultValue: this.get('refreshinterval') || 10000,
+					width: 60,
+					minValue: 30, // 30 seconds
+					maxValue: 1800, // 30 minutes
+					incrementValue: 30, // 30 seconds
+					defaultValue: this.get('reloadinterval')/1000 || 300, // Note: The reloadinterval is stored in ms but displayed in s!
 					listeners: { 'change': this.onFieldChange, scope: this },
 					plugins: ['zarafa.numberspinner']
 				}],
@@ -205,6 +186,6 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 */
 	onFieldChange : function(field, newValue, oldValue)
 	{
-		this.set(field.getName(), newValue);
+		this.set(field.getName(), newValue * 1000);
 	}
 });

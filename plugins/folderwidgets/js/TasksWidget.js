@@ -26,6 +26,11 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 				Zarafa.core.mapi.TaskStatus.COMPLETE
 			)
 		});
+		// If we want to use a search restriction we must say that this store is an advanceSearchStore
+		// or it will be removed.
+		store.isAdvanceSearchStore = function(){
+			return true;
+		};
 
 		Ext.applyIf(config, {
 			height : 200,
