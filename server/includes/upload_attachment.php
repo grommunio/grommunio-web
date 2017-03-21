@@ -78,7 +78,6 @@
 
 					// Allow hooking in to handle uploads in plugins
 					$GLOBALS['PluginManager']->triggerHook('server.upload_attachment.upload', array(
-						'moduleObject' =>& $this,
 						'tmpname'  => $attachment_state->getAttachmentPath($attachid),
 						'name' => $filename,
 						'size' => $FILE['size'],
