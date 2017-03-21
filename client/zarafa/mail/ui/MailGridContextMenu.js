@@ -236,7 +236,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 */
 	onContextItemOpen : function()
 	{
-		Zarafa.mail.Actions.openMailContent(this.records);
+		Zarafa.common.Actions.openMessageContent(this.records);
 	},
 
 	/**

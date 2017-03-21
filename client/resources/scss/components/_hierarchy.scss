@@ -167,9 +167,8 @@
     .x-tree-node-el .x-tree-node-icon.icon_folder_task ,
     .x-tree-node-el .x-tree-node-icon.icon_folder_default_task ,
     .x-tree-node-el .x-tree-node-icon.icon_folder_shared_task {
-/*      @extend .icon_folder_task; */
-      @extend .icon_task2;
-      background-position: sprite-position($iconsmap, icon_task2, $offset-y: 2px, $offset-x: 1px);
+      @extend .icon_folder_task;
+      background-position: sprite-position($iconsmap, icon_folder_task, $offset-y: 2px, $offset-x: 1px);
     }
 
     .x-tree-node-el .x-tree-node-icon.icon_folder_default_contact ,

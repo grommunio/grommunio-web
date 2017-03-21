@@ -215,3 +215,35 @@ span.zarafa-emailaddress-link:hover {
 	// FIXME: sassify
 	background-color: #ddd;
 }
+
+.preview-header-task .preview-from {
+	td {
+		min-width: 80px;
+		&.minwidth50{
+			min-width: 50px;
+		}
+		&.minwidth120{
+			min-width: 120px;
+		}
+		&.table-label{
+			color: #7F7F7F;
+		}
+	}
+
+	input {
+		&.zarafa-task-date-completed {
+			border: 1px solid #dadada;
+			width: 150px;
+			padding: 3px;
+		}
+	}
+}
+
+.task-attachment-info-panel {
+	.preview-attachment-title {
+		color: #7F7F7F;
+	}
+	.preview-header-attachments {
+		margin-top: 0px;
+	}
+}

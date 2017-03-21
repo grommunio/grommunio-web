@@ -55,6 +55,10 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 		// The "New task" button which is available in all contexts
 		this.registerInsertionPoint('main.maintoolbar.new.item', this.createToolbarNewTaskButton, this);
+		// The "New task request" button which is available in all contexts
+		this.registerInsertionPoint('main.maintoolbar.new.item', this.createToolbarNewTaskRequestButton, this);
+
+		this.registerInsertionPoint('previewpanel.toolbar.left', this.createTaskRequestToolbarButtons, this);
 
 		Zarafa.task.TaskContext.superclass.constructor.call(this, config);
 
@@ -64,6 +68,10 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 		// Adds convert mail to task contextmenu item in the mail contextmenu.
 		this.registerInsertionPoint('context.mail.contextmenu.actions', this.convertToTask, this);
+
+		// Register task specific dialog types
+		Zarafa.core.data.SharedComponentType.addProperty('task.dialogs.sendtaskrequestconfirmation');
+		Zarafa.core.data.SharedComponentType.addProperty('task.dialogs.sendtaskrequestcancellation');
 	},
 
 	/**
@@ -152,6 +160,14 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 					bid = 1;
 				}
 				break;
+			case Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestconfirmation']:
+			case Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestcancellation']:
+				if (record instanceof Zarafa.core.data.IPMRecord && record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+					if (record.isMessageClass('IPM.Task', true)) {
+						bid = 1;
+					}
+				}
+				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']: 
 				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass('IPM.Task', true)) {
 					bid = 1;
@@ -201,6 +217,10 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.preview']:
 				component = Zarafa.task.ui.TaskPreviewPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestconfirmation']:
+			case Zarafa.core.data.SharedComponentType['task.dialogs.sendtaskrequestcancellation']:
+				component = Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 		  		component = Zarafa.task.ui.TaskContextMenu;
@@ -354,7 +374,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	 * This button should be shown in all {@link Zarafa.core.Context contexts} and
 	 * is used to create a new task. 
 	 *
-	 * @return {Object} The menu item for creating a new contact item
+	 * @return {Object} The menu item for creating a new task item
 	 * @static
 	 */
 	createToolbarNewTaskButton : function()
@@ -371,6 +391,33 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.task.Actions.openCreateTaskContent(this.getModel());
 			},
 			iconCls		: 'icon_createTask',
+			newMenuIndex: 4,
+			context: 'task',
+			scope : this
+		};
+	},
+
+	/**
+	 * Create "New Task Request" {@link Ext.menu.MenuItem item} for the "New item"
+	 * {@link Ext.menu.Menu menu} in the {@link Zarafa.core.ui.MainToolbar MainToolbar}.
+	 * This button should be shown in all {@link Zarafa.core.Context contexts} and
+	 * is used to create a new task request.
+	 *
+	 * @return {Object} The menu item for creating a new task request item
+	 * @static
+	 */
+	createToolbarNewTaskRequestButton : function()
+	{
+		return {
+			xtype : 'menuitem',
+			id : 'zarafa-maintoolbar-newitem-task-request',
+			tooltip : _('Task request'),
+			plugins : 'zarafa.menuitemtooltipplugin',
+			text : _('Task request'),
+			handler : function(){
+				Zarafa.task.Actions.openCreateTaskRequestContent(this.getModel());
+			},
+			iconCls : 'icon_createTaskRequest',
 			newMenuIndex: 4,
 			context: 'task',
 			scope : this
@@ -466,6 +513,19 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			hidden: true,
 			handler: this.onContextItemCreateTask,
 			scope: this
+		};
+	},
+
+	/**
+	 * @param {Ext.Component} component The component to which the buttons will be added
+	 * @return {Object} Configuration object containing a ButtonGroup which should be
+	 * added in the {@link Ext.Toolbar Toolbar}.
+	 * @private
+	 */
+	createTaskRequestToolbarButtons : function(component)
+	{
+		return {
+			xtype : 'zarafa.taskrequestbuttons'
 		};
 	},
 

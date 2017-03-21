@@ -157,8 +157,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		p.icon_complete,
 		/* calendar grid */
 		p.icon_allday {
-			@extend .icon_task2;
-			background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3px, $offset-x: 0px);
+			@extend .icon_all_day;
+			background-position: sprite-position($iconsmap, icon_all_day, $offset-y: 3px, $offset-x: 0px);
 			width: 14px;
 		}
 		p.icon_recurring {
@@ -206,8 +206,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				p.icon_complete,
 				/* calendar grid */
 				p.icon_allday {
-					@extend .icon_task2;
-					background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3px, $offset-x: 0pxpx);
+					@extend .icon_all_day;
+					background-position: sprite-position($iconsmap, icon_all_day, $offset-y: 3px, $offset-x: 0pxpx);
 					margin-left: -2px;
 					padding-left: 12px;
 				}
@@ -415,9 +415,28 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			}
 			.icon_task_normal,
 			.icon_task_recurring {
-				@extend .icon_task2;
-	        	background-position: sprite-position($iconsmap, icon_task2, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+				@extend .icon_task;
+	        	background-position: sprite-position($iconsmap, icon_task, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
+
+			.icon_task_assignee,
+            .icon_task_assigner{
+				@extend .icon_task_assigned;
+				background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+
+			.icon_task_request {
+				background-position: sprite-position($iconsmap, icon_task_request, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+
+			.icon_task_declined {
+				background-position: sprite-position($iconsmap, icon_task_declined, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+
+			.icon_task_accepted {
+				background-position: sprite-position($iconsmap, icon_task_accepted, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
+
 			/* notes */
 			.icon_note_blue {
 				@extend .icon_note_blue;

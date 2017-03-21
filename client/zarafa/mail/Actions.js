@@ -8,25 +8,6 @@ Ext.namespace('Zarafa.mail');
  */
 Zarafa.mail.Actions = {
 	/**
-	 * Open a Panel in which the {@link Zarafa.core.data.IPMRecord record}
-	 * can be viewed, or further edited.
-	 *
-	 * @param {Zarafa.core.data.IPMRecord} records The records to open
-	 * @param {Object} config (optional) Configuration object used to create
-	 * the Content Panel.
-	 */
-	openMailContent : function(records, config)
-	{
-		Ext.each(records, function(record) {
-			if (record.isUnsent() && !record.isFaultyMessage()) {
-				Zarafa.core.data.UIFactory.openCreateRecord(record, config);
-			} else {
-				Zarafa.core.data.UIFactory.openViewRecord(record, config);
-			}
-		});
-	},
-
-	/**
 	 * Open a Panel in which a new {@link Zarafa.core.data.IPMRecord record} can be
 	 * further edited.
 	 *
@@ -315,7 +296,7 @@ Zarafa.mail.Actions = {
 		Zarafa.core.data.ContentPanelMgr.unregister(dialog);
 
 		// Use newly created copy of original record to load into separate browser window
-		Zarafa.mail.Actions.openMailContent(copy, configObj);
+		Zarafa.common.Actions.openMessageContent(copy, configObj);
 	},
 
     /**

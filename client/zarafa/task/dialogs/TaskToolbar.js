@@ -51,16 +51,27 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	{
 		return [{
 			xtype: 'button',
-			// Hide, this functionality is not yet implemented
-			hidden : true,
-			overflowText: _('Send task to assignee'),
+			text : _('Send'),
+			overflowText: _('Send task to assignees'),
 			tooltip: {
 				title: _('Send assignment'),
-				text: _('Send task to assignee')
+				text: _('Send task to assignees') + ' (Ctrl + ENTER)'
 			},
-			iconCls: 'icon_sendEmail',
+			cls : 'zarafa-action',
+			iconCls : 'buttons-icon_send_white',
 			ref: 'sendBtn',
 			handler: this.onSendTask,
+			scope: this
+		},{
+			xtype: 'button',
+			overflowText: _('Save'),
+			tooltip: {
+				title: _('Save'),
+				text: _('Save without sending a task request to assignees') + ' (Ctrl + S)'
+			},
+			iconCls: 'icon_saveEmail',
+			ref : 'saveTaskRequest',
+			handler: this.onSave,
 			scope: this
 		},{
 			xtype : 'button',
@@ -75,7 +86,19 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			iconCls : 'buttons-icon_save_white',
 			handler: this.onSave,
 			scope : this
-		}, {
+		},{
+			xtype: 'button',
+			ref : 'restoreToTaskList',
+			text: _('Restore to Task List'),
+			overflowText: _('Restore to Task List'),
+			hidden : true,
+			handler : this.onRestoreToTaskList,
+			tooltip: {
+				title: _('Restore to Task List'),
+				text: _('Restore this item to your task list')
+			},
+			scope: this
+		},{
 			xtype : 'button',
 			ref : 'deleteBtn',
 			overflowText : _('Delete'),
@@ -102,7 +125,10 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 				added : this.onAttachmentButtonAdded,
 				scope : this
 			}
-		}, {
+		},{
+			// Task Accept/Decline buttons.
+			xtype : 'zarafa.taskrequestbuttons'
+		},{
 			xtype : 'button',
 			ref: 'markCompleteBtn',
 			overflowText : _('Mark as Complete'),
@@ -116,6 +142,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		}, {
 			xtype : 'button',
 			overflowText : _('Print'),
+			ref: 'printBtn',
 			tooltip : {
 				title : _('Print'),
 				text : _('Print this task')
@@ -125,8 +152,6 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			scope : this
 		},{
 			xtype: 'button',
-			// Hide, this functionality is not yet implemented
-			hidden : true,
 			overflowText: _('Check names'),
 			tooltip: {
 				title: _('Check names'),
@@ -168,39 +193,22 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	{
 		return [{
 			xtype: 'button',
-			// Hide, this functionality is not yet implemented
-			hidden : true,
-			text: _('Recurrence'),
-			overflowText: _('Recurrence'),
-			tooltip: {
-				title: _('Recurrence'),
-				text: _('Open the recurrence dialog')
-			},
-			iconCls: 'icon_recurrence',
-			handler : this.onRecurrence,
-			scope: this
-		},{
-			xtype: 'button',
-			// Hide, this functionality is not yet implemented
-			hidden : true,
 			text: _('Assign Task'),
 			overflowText: _('Assign Task'),
 			tooltip: {
 				title: _('Assign Task'),
-				text: _('Assign Task')
+				text: _('Assign this task to someone else.')
 			},
-			iconCls: 'icon_create_task_request',
+			iconCls: 'icon_invite_attendees',
 			ref: 'assignTask',
 			handler: this.onAssignment,
 			scope: this
 		},{
 			xtype: 'button',
-			// Hide, this functionality is not yet implemented
-			hidden : true,
 			text: _('Cancel Assignment'),
 			tooltip: {
 				title: _('Cancel Assignment'),
-				text: _('Cancel assigned attendee for this task')
+				text: _('Convert this task request to a regular task by removing assignees.')
 			},
 			overflowText: _('Cancel Assignment'),
 			iconCls: 'icon_cancel_meeting_request',
@@ -214,6 +222,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 				title: _('Categories'),
 				text: _('Open the categories dialog')
 			},
+			ref: 'categoriesBtn',
 			iconCls: 'icon_categories',
 			handler: this.onCategories,
 			scope: this
@@ -320,6 +329,37 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	},
 
 	/**
+	 * Event handler which is called when the user pressed the 'Restore to task List' button.
+	 * this will convert the assigned task to {@link Zarafa.core.mapi.TaskState#OWNER_NEW Normal task}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @private
+	 */
+	onRestoreToTaskList : function (button)
+	{
+		var record = this.record;
+		record.beginEdit();
+		record.addMessageAction("action_type", "restoreToTaskList");
+		record.set('taskstate', Zarafa.core.mapi.TaskState.OWNER_NEW);
+		record.set('taskmode', Zarafa.core.mapi.TaskMode.NOTHING);
+		record.set('taskhistory', Zarafa.core.mapi.TaskHistory.NONE);
+		record.set('ownership', Zarafa.core.mapi.TaskOwnership.NEWTASK);
+		record.set('icon_index', Zarafa.core.mapi.IconIndex['task_normal']);
+		record.set('updatecount', 2);
+		record.set('taskfcreator', true);
+		record.set('tasklastdelegate', '');
+		record.set('tasklastuser', '');
+		record.set('subject', record.get('conversation_topic'));
+		var store = container.getHierarchyStore().getById(record.get('store_entryid'));
+		if (store) {
+			record.set('owner', store.get('display_name'));
+		}
+		record.getRecipientStore().removeAll();
+		record.endEdit();
+		record.save();
+	},
+
+	/**
 	 * Event handler which is called when the user pressed the 'Categories' button.
 	 * This will open the {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel}.
 	 * @param {Ext.Button} button The button which has been pressed
@@ -385,21 +425,53 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		if(record.isSubMessage()) {
 			this.deleteBtn.setVisible(false);
 			this.sendBtn.setVisible(false);
+			this.saveTaskRequest.setVisible(false);
 			this.saveBtn.setVisible(false);
 			this.checkNamesBtn.setVisible(false);
+			this.restoreToTaskList.setVisible(false);
+			this.assignTask.setVisible(false);
 			this.cancelAssignmetBtn.setVisible(false);
 			this.markCompleteBtn.setVisible(false);
 			this.setPrivate.setVisible(false);
 
 			layout = true;
 		} else {
-			this.saveBtn.setVisible(true);
-			this.deleteBtn.setVisible(true);
-			this.markCompleteBtn.setVisible(true);
-			this.setPrivate.setVisible(true);
+			// Task which received by assignee and currently not accepted or decline the task.
+			var isReceivedTask = record.isTaskReceived() && record.isTaskOwner() && !record.isTaskAccepted() && !record.isTaskUpdated();
+			// isTaskDecline gets true if task state is Zarafa.core.mapi.TaskState.DECLINE;
+			var isTaskDecline = record.get('taskstate') === Zarafa.core.mapi.TaskState.DECLINE;
+			var isDelegatedTask = record.isTaskDelegated();
+			var isModifiedTaskMode = record.isModified('taskmode');
 
-			// Only enable Disabled button when it is not a phantom
-			this.deleteBtn.setDisabled(record.phantom === true);
+			this.saveBtn.setVisible(!isDelegatedTask && !isTaskDecline && !isReceivedTask && !record.isTaskRequest());
+			if(!isModifiedTaskMode) {
+				var visible = false;
+				if (record.isTaskReceived()) {
+					if (record.get('task_not_found')) {
+						visible = false;
+					} else if(record.isTaskAccepted() || record.isTaskUpdated()) {
+						visible = true;
+					}
+				} else if (record.isDraftAssignedTask() || record.isNormalTask()) {
+					visible = true;
+				}
+
+				this.categoriesBtn.setVisible(visible);
+				this.markCompleteBtn.setVisible(visible);
+				this.setPrivate.setVisible(visible);
+				this.attachmentButton.setVisible(visible);
+				this.printBtn.setVisible(!isReceivedTask);
+			}
+			this.restoreToTaskList.setVisible(record.isTaskOrganized() && isTaskDecline);
+			if ( this.restoreToTaskList.isVisible() ) {
+				this.restoreToTaskList.getEl().addClass('zarafa-action');
+			}
+			if (isReceivedTask) {
+				this.deleteBtn.setVisible(isDelegatedTask);
+			} else {
+				// Only enable Disabled button when it is not a phantom
+				this.deleteBtn.setDisabled(record.phantom === true);
+			}
 
 			if (contentReset === true || record.isModifiedSinceLastUpdate('complete')) {
 				this.markCompleteBtn.setDisabled(record.get('complete'));
@@ -409,29 +481,41 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 				this.setPrivate.toggle(record.get('private'), true);
 			}
 
-			if (contentReset === true || record.isModified('taskmode')) {
+			if (contentReset === true || isModifiedTaskMode) {
 				switch (record.get('taskmode')) {
-				/*
-				 * Disabled, this functionality is not yet implemented
 				case Zarafa.core.mapi.TaskMode.REQUEST:
-					this.send.setVisible(true);
-					this.checkNames.setVisible(true);
+					var isTaskRequestInstance = record instanceof Zarafa.task.TaskRequestRecord;
+					var isVisible = (!record.isTaskDelegated() && !isTaskRequestInstance) || record.get('taskstate') === Zarafa.core.mapi.TaskState.OWNER_NEW;
+
+					this.sendBtn.setVisible(isVisible);
+					this.saveTaskRequest.setVisible(isVisible);
+					this.saveBtn.setVisible(false);
+					this.checkNamesBtn.setVisible(isVisible);
 					this.assignTask.setVisible(false);
-					this.cancelAssignmetBtn.setVisible(true);
+					this.cancelAssignmetBtn.setVisible(isVisible);
 					break;
-				*/
 				case Zarafa.core.mapi.TaskMode.NOTHING:
 				/* falls through */
 				default:
 					this.sendBtn.setVisible(false);
+					this.saveTaskRequest.setVisible(false);
 					this.checkNamesBtn.setVisible(false);
-					// Disabled, this functionality is not yet implemented
-					//this.assignTask.setVisible(true);
+					this.assignTask.setVisible(record.isNormalTask());
 					this.cancelAssignmetBtn.setVisible(false);
 					break;
 				}
 
 				layout = true;
+			}
+
+			if (!contentReset && record.isModifiedSinceLastUpdate('taskmode')) {
+				layout = true;
+			}
+
+			if(!contentReset
+				&& record.isModifiedSinceLastUpdate('taskhistory')
+				&& record.get('taskhistory') === Zarafa.core.mapi.TaskHistory.NONE) {
+				this.assignTask.setVisible(record.isNormalTask());
 			}
 		}
 

@@ -19,12 +19,11 @@ Zarafa.task.ui.TaskPreviewPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype: 'zarafa.taskpreviewpanel',
 			border : false,
-			bodyCfg: {
-				cls : 'preview-body'
-			},
-			layout : 'fit',
+			layout: 'zarafa.collapsible',
 			items : [{
-				xtype: 'zarafa.taskbody'
+				xtype: 'zarafa.messageheader'
+			},{
+				xtype : 'zarafa.messagebody'
 			}]
 		});
 

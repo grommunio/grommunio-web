@@ -49,6 +49,16 @@ Zarafa.core.ModuleNames =
 	},
 
 	/**
+	 * Module information for IPM.TaskRequest
+	 * @property
+	 * @type Mixed
+	 */
+	'IPM.TASKREQUEST' : {
+		list : 'tasklistmodule',
+		item : 'taskitemmodule'
+	},
+
+	/**
 	 * contact list module.  
 	 * @property
 	 * @type Mixed

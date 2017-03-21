@@ -240,6 +240,41 @@
 											ULPROPTAG	=>	$this->properties["reminder"],
 											VALUE		=>	true
 										)
+									),
+									array(RES_PROPERTY,
+										array(
+											RELOP		=>	RELOP_NE,
+											ULPROPTAG	=>	$this->properties["message_class"],
+											VALUE		=>	"IPM.TaskRequest"
+										)
+									),
+									array(RES_PROPERTY,
+										array(
+											RELOP		=>	RELOP_NE,
+											ULPROPTAG	=>	$this->properties["message_class"],
+											VALUE		=>	"IPM.TaskRequest.Cancel"
+										)
+									),
+									array(RES_PROPERTY,
+										array(
+											RELOP		=>	RELOP_NE,
+											ULPROPTAG	=>	$this->properties["message_class"],
+											VALUE		=>	"IPM.TaskRequest.Accept"
+										)
+									),
+									array(RES_PROPERTY,
+										array(
+											RELOP		=>	RELOP_NE,
+											ULPROPTAG	=>	$this->properties["message_class"],
+											VALUE		=>	"IPM.TaskRequest.Update"
+										)
+									),
+									array(RES_PROPERTY,
+										array(
+											RELOP		=>	RELOP_NE,
+											ULPROPTAG	=>	$this->properties["message_class"],
+											VALUE		=>	"IPM.TaskRequest.Complete"
+										)
 									)
 								)
 			);

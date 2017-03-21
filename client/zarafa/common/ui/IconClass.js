@@ -32,8 +32,8 @@ Zarafa.common.ui.IconClass = {
 		// do need to read the message class.
 		if(!Ext.isEmpty(iconIndex)) {
 			if ((iconIndex !== Zarafa.core.mapi.IconIndex['appt_recurring'] &&
-				 iconIndex !== Zarafa.core.mapi.IconIndex['appt_appointment']) ||
-				!Zarafa.core.MessageClass.isClass(record.get('message_class'), 'IPM.Schedule.Meeting', true)) {
+				 iconIndex !== Zarafa.core.mapi.IconIndex['appt_appointment']  ) ||
+				!Zarafa.core.MessageClass.isClass(record.get('message_class'), ['IPM.Schedule.Meeting'], true)) {
 				iconCls = Zarafa.core.mapi.IconIndex.getClassName(iconIndex, 'icon');
 			}
 		}
@@ -154,9 +154,11 @@ Zarafa.common.ui.IconClass = {
 	 * @param {Zarafa.core.data.IPMRecord} message The mapi message record.
 	 * @param {String} messageClass (optional) The message class for the message,
 	 * if not provided, the message_class property from the record will be used.
+	 * @param {Object} options (optional) The options which contains optional information
+	 * about given record.
 	 * @return {String} icon class.
 	 */
-	getIconClassFromMessageClass : function(record, messageClass)
+	getIconClassFromMessageClass : function(record, messageClass, options)
 	{
 		var recurring = false;
 		var counter_proposal = false;
@@ -173,6 +175,14 @@ Zarafa.common.ui.IconClass = {
 			// Check if the message class was provided,
 			// use the message_class property otherwise.
 			messageClass = messageClass || record.get('message_class');
+		} else if (Ext.isObject(options)) {
+			messageClass = messageClass.toUpperCase();
+			if (messageClass === 'IPM.TASK') {
+				var iconCls = Zarafa.core.mapi.IconIndex.getClassName(options.icon_index);
+				if (!Ext.isEmpty(iconCls)) {
+					return iconCls;
+				}
+			}
 		}
 
 		if (messageClass) {
@@ -181,10 +191,9 @@ Zarafa.common.ui.IconClass = {
 
 			var mapping = {
 				'IPM.APPOINTMENT'			: 'icon_appt_appointment',
-				'IPM.TASK'				: 'icon_task_normal',
-				'IPM.TASKREQUEST'			: 'icon_taskrequest',
-				'IPM.TASKREQUEST.DECLINE'		: 'icon_taskrequest_decline',
-				'IPM.TASKREQUEST.ACCEPT'		: 'icon_taskrequest_accepted',
+				'IPM.TASKREQUEST'			: 'icon_task_request',
+				'IPM.TASKREQUEST.DECLINE'	: 'icon_task_declined',
+				'IPM.TASKREQUEST.ACCEPT'	: 'icon_task_accepted',
 				'IPM.STICKYNOTE'			: 'icon_note_yellow',
 				'IPM.CONTACT'				: 'icon_contact_user',
 				'IPM.DISTLIST'				: 'icon_contact_distlist',

@@ -95,6 +95,12 @@ $menu-item-height : 30px;
 
 	.icon_createTask {
 		@extend .icon_new_task;
+		background-position: sprite-position($iconsmap, icon_new_task, $offset-y: 2, $offset-x: 3);
+	}
+
+	.icon_createTaskRequest {
+		@extend .icon_new-task_request;
+		background-position: sprite-position($iconsmap, icon_new-task_request, $offset-y: 2, $offset-x: 3);
 	}
 
 	.icon_createNote {

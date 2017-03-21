@@ -155,7 +155,38 @@
 												}
 
 											break;
+											case "acceptTaskRequest":
+											case "declineTaskRequest":
+												$message = $GLOBALS["operations"]->openMessage($store, $entryid);
 
+												if (isset($action["props"]) && !empty($action["props"])) {
+													$properties = $GLOBALS["properties"]->getTaskProperties();
+													mapi_setprops($message, Conversion::mapXML2MAPI($properties, $action["props"]));
+													mapi_savechanges($message);
+												}
+												// The task may be a delegated task, do an update if needed (will fail for non-delegated tasks)
+												$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
+												$isAccept = $action["message_action"]["action_type"] == "acceptTaskRequest";
+												if (isset($action["message_action"]["task_comments_info"]) && !empty($action["message_action"]["task_comments_info"])) {
+													$tr->setTaskCommentsInfo($action["message_action"]["task_comments_info"]);
+												}
+												if ($isAccept) {
+													$result = $tr->doAccept();
+												} else {
+													$result = $tr->doDecline();
+												}
+
+												$this->sendFeedback(true);
+												if($result) {
+													$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+												}
+
+												$props = mapi_getprops($message, array(PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID));
+												if(!$tr->isTaskRequest()) {
+													unset($props[PR_MESSAGE_CLASS]);
+													$GLOBALS["bus"]->notify(bin2hex($props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
+												}
+											break;
 											case "copy":
 											case "move":
 												$this->copy($store, $parententryid, $entryid, $action);
@@ -231,7 +262,6 @@
 										$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
 
 										break;
-
 									default:
 										// Deleting an occurence means that we have to save the message to
 										// generate an exception. So when the basedate is provided, we actually
@@ -248,30 +278,6 @@
 
 							case "resolveConflict":
 								$this->resolveConflict($store, $parententryid, $entryid, $action);
-								break;
-
-							case "reclaimownership":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
-								$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-								$tr->reclaimownership();
-								break;
-
-							case "acceptTaskRequest":
-							case "declineTaskRequest":
-								$message = $GLOBALS["operations"]->openMessage($store, $entryid);
-								// The task may be a delegated task, do an update if needed (will fail for non-delegated tasks)
-								$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-								if ($action["attributes"]["type"] == "acceptTaskRequest") {
-									$result = $tr->doAccept(_("Task Accepted:") . " ");
-								} else {
-									$result = $tr->doDecline(_("Task Declined:") . " ");
-								}
-
-								// Notify Inbox that task request has been deleted
-								if (is_array($result))
-									$GLOBALS["bus"]->notify(bin2hex($result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
-
-								mapi_savechanges($message);
 								break;
 							default:
 								$this->handleUnknownActionType($actionType);
@@ -506,30 +512,6 @@
 							// re-throw the exception if it is not one of quota/calendar permission.
 							throw $e;
 						}
-					}
-				} else if (stripos($messageClass, 'IPM.TaskRequest') !== false) {
-					$tr = new TaskRequest($store, $message, $GLOBALS['mapisession']->getSession());
-					$properties = $GLOBALS['properties']->getTaskProperties();
-
-					if($tr->isTaskRequest()) {
-						$tr->processTaskRequest();
-						$task = $tr->getAssociatedTask(false);
-						$taskProps = $GLOBALS['operations']->getMessageProps($store, $task, $properties, true);
-						$data['item'] = $taskProps;
-
-						// notify task folder that new task has been created
-						$GLOBALS['bus']->notify($taskProps['parent_entryid'], TABLE_SAVE, array(
-							PR_ENTRYID => hex2bin($taskProps['entryid']),
-							PR_PARENT_ENTRYID => hex2bin($taskProps['parent_entryid']),
-							PR_STORE_ENTRYID => hex2bin($taskProps['store_entryid'])
-						));
-					}
-
-					if($tr->isTaskRequestResponse()) {
-						$tr->processTaskResponse();
-						$task = $tr->getAssociatedTask(false);
-
-						$data['item'] = $GLOBALS['operations']->getMessageProps($store, $task, $properties, true);
 					}
 				} else if(stripos($messageClass, 'REPORT.IPM.NOTE.NDR') !== false) {
 					// check if this message is a NDR (mail)message, if so, generate a new body message

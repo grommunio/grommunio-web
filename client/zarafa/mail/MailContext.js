@@ -244,7 +244,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['mail.contextmenu.flags']:
 				if (record instanceof Zarafa.core.data.IPMRecord) {
 					if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
-						if (record.isMessageClass([ 'IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM','REPORT.IPM.Note' ], true)) {
+						if (record.isMessageClass([ 'IPM.Note', 'IPM.TaskRequest', 'IPM.Schedule.Meeting', 'REPORT.IPM','REPORT.IPM.Note' ], true)) {
 							bid = 1;
 						} else {
 							bid = 0;

@@ -555,9 +555,20 @@ Zarafa.common.Actions = {
 					});
 				} else if (record.isMeetingResponseRequired()) {
 					// We are the attendee of the meeting, lets ask if we should inform the organizer
-					Zarafa.common.Actions.deleteMeetingRequestConfirmationContent(record, this.declineInvitation, record);
+					this.deleteMeetingRequestConfirmationContent(record, this.declineInvitation, record);
 				} else {
 					// We are neither, we don't care, just delete the thing
+					store.remove(record);
+					saveRecords.push(record);
+				}
+			} else if (record.isMessageClass('IPM.TaskRequest') || (Ext.isFunction(record.isTaskReceived) && record.isTaskReceived())) {
+				// If task is assigned task by assigner and it is not completed then
+				// ask for the user conformation like "Delete", "Mark complete and delete"
+				// or "Mark decline and delete" and if task is already completed then we dont
+				// require any confirmation from user.
+				if (!record.get('complete')) {
+					this.deleteAssignedTaskConfirmationContent(record, this.declineTask, record);
+				} else {
 					store.remove(record);
 					saveRecords.push(record);
 				}
@@ -584,6 +595,60 @@ Zarafa.common.Actions = {
 				store.showLoadMask();
 			}
 		}
+	},
+
+	/**
+	 * Function delete an assigned task and sends decline/complete task response message to assigner.
+	 * function was triggered in scope of the {@link Zarafa.task.TaskRecord TaskRecord}.
+	 *
+	 * @param {String} buttonClicked The ID of the button pressed,
+	 * here, one of: ok cancel.
+	 * @param {Ext.form.Radio} radio The Radio which was selected by the user.
+	 * @private
+	 */
+	declineTask : function (buttonClicked, radio)
+	{
+		if (buttonClicked === 'ok') {
+			this.deleteIncompleteTask(radio.id);
+		}
+	},
+
+	/**
+	 * Opens a {@link Zarafa.common.dialogs.MessageBox.select MessageBox} for
+	 * selecting if decline and delete, complete and delete task response
+	 * need to be sent to task assigner or silently deleted items.
+	 *
+	 * @param {Function} handler The handler which is invoked with the selected value
+	 * from the dialog. This function only takes one argument and is either 'declineAndDelete'
+	 * when the delete task and send decline response to assignor , 'completeAndDelete'
+	 * when the delete task and send complete task response to assigner or 'delete'
+	 * when the delete task without sending any response to assigner.
+	 *
+	 * @param {Object} scope (optional) The scope on which the handler must be invoked.
+	 */
+	deleteAssignedTaskConfirmationContent : function (record, handler, scope)
+	{
+		var title = _('Delete Incomplete Task');
+		var text = _('The task "{0}" has not been completed. What do you want to do?');
+
+		text = String.format(text, record.get('subject'));
+
+		Zarafa.common.dialogs.MessageBox.select(
+			title, text, handler, scope, [{
+				boxLabel: _('Decline and delete'),
+				id : 'declineAndDelete',
+				name: 'select',
+				checked: true
+			},{
+				boxLabel: _('Mark complete and delete'),
+				id : 'completeAndDelete',
+				name: 'select'
+			},{
+				boxLabel: _('Delete'),
+				id : 'delete',
+				name: 'select'
+			}]
+		);
 	},
 
 	/**
@@ -818,6 +883,15 @@ Zarafa.common.Actions = {
 			if (record.isUnsent() && !record.isFaultyMessage()) {
 				Zarafa.core.data.UIFactory.openCreateRecord(record, config);
 			} else {
+				if(record.isMessageClass('IPM.TaskRequest', true)) {
+					record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {
+						entryid : record.get('entryid'),
+						store_entryid : record.get('store_entryid'),
+						parent_entryid : record.get('parent_entryid'),
+						task_goid : record.get('task_goid')
+					}, record.get('entryid'));
+					record.addMessageAction('open_task', true);
+				}
 				Zarafa.core.data.UIFactory.openViewRecord(record, config);
 			}
 		});

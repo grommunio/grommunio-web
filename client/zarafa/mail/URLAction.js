@@ -84,7 +84,7 @@ Zarafa.mail.URLAction = Ext.extend(Object, {
 		recipientStore.add(recipientRecords);
 
 		// Open record in contentpanel
-		Zarafa.mail.Actions.openMailContent(record);
+		Zarafa.common.Actions.openMessageContent(record);
 	}
 });
 

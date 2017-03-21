@@ -172,8 +172,25 @@
 			}
 			.icon_task_normal,
 			.icon_task_recurring {
-				@extend .icon_task2;
-	        	background-position: sprite-position($iconsmap, icon_task2, $offset-y: 3, $offset-x: $padding-medium - 1);
+				@extend .icon_task;
+				background-position: sprite-position($iconsmap, icon_task, $offset-y: 2, $offset-x: $padding-medium - 1);
+			}
+
+			.icon_task_assignee,
+			.icon_task_assigner{
+				background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: 2, $offset-x: $padding-medium - 1);
+			}
+
+            .icon_task_request {
+              background-position: sprite-position($iconsmap, icon_task_request, $offset-y: 2, $offset-x: $padding-medium - 1);
+            }
+
+			.icon_task_declined {
+				background-position: sprite-position($iconsmap, icon_task_declined, $offset-y: 2, $offset-x: $padding-medium - 1);
+			}
+
+			.icon_task_accepted {
+				background-position: sprite-position($iconsmap, icon_task_accepted, $offset-y: 2, $offset-x: $padding-medium - 1);
 			}
 			/* notes */
 			.icon_note_blue {

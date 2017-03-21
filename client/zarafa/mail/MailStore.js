@@ -105,6 +105,11 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 					// no global object id found, we can't do anything
 					return Zarafa.mail.MailStore.superclass.getRecordsForUpdateData.apply(this, arguments);
 				}
+			} else if(record.isMessageClass('IPM.TaskRequest', true)) {
+				// Don't update MailStore-record when it is an IPM.TaskRequest/Accept/Decline/Update
+				// because when user tried to open that particular task request, we actually open
+				// the associated task.
+				continue;
 			} else {
 				// for other type of mails, just invoke parent class
 				return Zarafa.mail.MailStore.superclass.getRecordsForUpdateData.apply(this, arguments);

@@ -63,7 +63,7 @@
 
     .icon_folder_default_task ,
     .icon_folder_shared_task {
-        @extend .icon_task2;
+        @extend .icon_task;
     }
 
     .icon_folder_default_contact ,
@@ -162,7 +162,12 @@
 	}
 	.icon_task_normal,
 	.icon_task_recurring {
-		@extend .icon_task2;
+		@extend .icon_task;
+	}
+
+	.icon_task_assignee,
+	.icon_task_assigner {
+		@extend .icon_task_assigned;
 	}
 
 	.icon_mail_nondelivery_receipt {

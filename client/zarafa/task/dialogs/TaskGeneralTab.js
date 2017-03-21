@@ -22,6 +22,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.taskgeneraltab',
+			cls: 'zarafa-taskgeneraltab',
 			title : _('Task'),
 			layout: {
 				type: 'vbox',
@@ -34,6 +35,9 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				bodyStyle: 'background-color: inherit; padding: 3px 0px 3px 0px; border-style: none none solid none;'
 			},
 			items : [
+				this.createExtraInfoPanel(),
+				this.createTaskInfoPanel(),
+				this.createAttachmentInfoPanel(),
 				this.createRecipientPanel(),
 				this.createSubjectPanel(),
 				this.createInfoPanel(),
@@ -48,6 +52,69 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
+	 * Create the {@link Ext.DataView DataView} containing the information about assigned task request
+	 * from assigner/assignee.
+	 *
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createTaskInfoPanel : function ()
+	{
+		return {
+			xtype: 'zarafa.taskinfo',
+			ref : 'taskInfoPanel',
+			hidden : true
+		};
+	},
+
+	/**
+	 * Create the {@link Ext.Panel panel} containing the information about request/response from assigner/assignee
+	 * and some extra information regarding assigned task item.
+	 *
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createExtraInfoPanel : function()
+	{
+		return {
+			xtype : 'panel',
+			autoScroll:true,
+			anchor : '100%',
+			border : false,
+			hidden : true,
+			ref : 'taskExtraInfo',
+			autoHeight: true,
+			items : [{
+				xtype :'zarafa.extrainfolinks'
+			}]
+		};
+	},
+
+	/**
+	 * Create the {@link Ext.Panel panel} containing the information about attachments
+	 * which contains by the {@link Zarafa.task.TaskRecord record}.
+	 *
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createAttachmentInfoPanel : function ()
+	{
+		return {
+			xtype : 'panel',
+			autoScroll : true,
+			cls : 'task-attachment-info-panel',
+			anchor : '100%',
+			border : false,
+			hidden : true,
+			autoHeight : true,
+			ref : 'taskAttachInfo',
+			items : [{
+				xtype : 'zarafa.attachmentlinks'
+			}]
+		};
+	},
+
+	/**
 	 * Create the {@link Zarafa.common.ui.RecipientField RecipientField}
 	 * where the recipients for the Meeting requests can be selected
 	 * @return {Object} Configuration object for the panel containing the composite field
@@ -56,22 +123,28 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	createRecipientPanel : function()
 	{
 		return {
-			xtype: 'panel',
-			layout: 'fit',
+			xtype : 'zarafa.resizablecompositefield',
+			cls : 'field-to',
 			ref: 'recipientPanel',
+			anchor : '100%',
+			autoHeight: false,
 			items: [{
-				xtype : 'zarafa.compositefield',
-				anchor : '100%',
-				items: [{
-					xtype: 'button',
-					text: _('To'),
-					width: 100
-				},{
-					xtype: 'zarafa.recipientfield',
-					plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-					flex: 1
-				}]
+				xtype: 'button',
+				autoHeight: true,
+				text: _('To') + ':',
+				width: 100,
+				handler: function() {
+					Zarafa.task.Actions.openRecipientSelectionContent(this.record, {
+						defaultRecipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+					});
+				},
+				scope: this
+			},{
+				xtype: 'zarafa.recipientfield',
+				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
+				flex: 1
 			}]
+
 		};
 	},
 
@@ -86,6 +159,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			layout: 'form',
+			ref : 'subjectPanel',
 			items : [{
 				xtype: 'textfield',
 				fieldLabel : _('Subject'),
@@ -287,23 +361,16 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			layout : 'form',
 			ref : 'taskRequestSettingPanel',
 			items : [{
-					xtype : 'checkbox',
-					boxLabel : _('Keep copy of task in task list'),
-					name : 'taskupdates',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
-					}
-				},{
-					xtype : 'checkbox',
-					boxLabel : _('Send me a status report when task is completed'),
-					name : 'tasksoc',
-					listeners :{
-						'change' : this.onPropertyChange,
-						scope : this
-					}
-
-				}]
+				xtype : 'checkbox',
+				boxLabel : _('Track progress'),
+				tooltip : _('Keep updated copy of task and receive automated status reports'),
+				plugins : 'zarafa.formfieldtooltipplugin',
+				name : 'taskupdates',
+				listeners :{
+					'change' : this.onPropertyChange,
+					scope : this
+				}
+			}]
 		};
 	},
 
@@ -320,6 +387,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			anchor: '100%',
 			cls: 'zarafa-taskcreatepanel-field-attachments',
 			autoHeight: true,
+			ref : 'attachmentPanel',
 			items: [{
 				xtype: 'zarafa.attachmentbutton',
 				plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
@@ -371,58 +439,99 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	updateUI : function(record, contentReset)
 	{
-		var startDate = record.get('startdate');
-		var startDateUpdate = false;
-		if (Ext.isDate(startDate)) {
-			startDate = startDate.toUTC(); // The startdate is an UTC representation
-			startDateUpdate = contentReset || record.isModifiedSinceLastUpdate('startdate');
-		}
+		var taskHistory = record.get('taskhistory');
+		var taskState = record.get('taskstate');
+		var taskMode = record.get('taskmode');
+		var layout = false;
+		// Don't show extra info link if task is normal task.
+		this.taskExtraInfo.setVisible(taskHistory !== Zarafa.core.mapi.TaskHistory.NONE);
 
-		var dueDate = record.get('duedate');
-		var dueDateUpdate = false;
-		if (Ext.isDate(dueDate)) {
-			dueDate = dueDate.toUTC(); // The duedate is an UTC representation
-			dueDateUpdate = contentReset || record.isModifiedSinceLastUpdate('duedate');
-		}
+		if ((taskHistory === Zarafa.core.mapi.TaskHistory.ASSIGNED ||
+			taskHistory === Zarafa.core.mapi.TaskHistory.DECLINED ||
+			taskMode === Zarafa.core.mapi.TaskMode.DECLINE ||
+			record.isTaskOrganized()) && contentReset && record.isOpened()) {
 
-		if (startDateUpdate || dueDateUpdate) {
-			this.dateField.getValue().set(startDate, dueDate);
-		}
+			this.taskInfoPanel.setVisible(true);
+			this.taskAttachInfo.setVisible(record.get('hasattach'));
 
-		if (contentReset === true || record.isModified('taskmode')) {
-			switch (record.get('taskmode')) {
-			case Zarafa.core.mapi.TaskMode.REQUEST:
-				this.recipientPanel.setVisible(true);
-				this.taskRequestSettingPanel.setVisible(true);
-				this.reminderPanel.setVisible(false);
-				break;
-
-			case Zarafa.core.mapi.TaskMode.NOTHING:
-			/* falls through */
-			default:
-				this.recipientPanel.setVisible(false);
+			this.editorField.getEditor().setReadOnly(taskMode !== Zarafa.core.mapi.TaskMode.DECLINE);
+			this.recipientPanel.setVisible(false);
+			this.taskRequestSettingPanel.setVisible(false);
+			this.attachmentPanel.setVisible(false);
+			this.reminderPanel.setVisible(false);
+			this.datePanel.setVisible(false);
+			this.subjectPanel.setVisible(false);
+			layout = true;
+		} else {
+			if (taskState === Zarafa.core.mapi.TaskState.OWNER_NEW && !record.isTaskRequest()) {
+				this.taskExtraInfo.setVisible(false);
+				this.taskInfoPanel.setVisible(false);
+				this.taskAttachInfo.setVisible(false);
 				this.taskRequestSettingPanel.setVisible(false);
+				this.recipientPanel.setVisible(false);
+				this.editorField.getEditor().setReadOnly(false);
 				this.reminderPanel.setVisible(true);
-				break;
+				this.attachmentPanel.setVisible(true);
+				this.datePanel.setVisible(true);
+				this.subjectPanel.setVisible(true);
+				layout = true;
 			}
+			var startDate = record.get('startdate');
+			var startDateUpdate = false;
+			if (Ext.isDate(startDate)) {
+				startDate = startDate.toUTC(); // The startdate is an UTC representation
+				startDateUpdate = contentReset || record.isModifiedSinceLastUpdate('startdate') || record.isModifiedSinceLastUpdate('taskhistor');
+			}
+
+			var dueDate = record.get('duedate');
+			var dueDateUpdate = false;
+			if (Ext.isDate(dueDate)) {
+				dueDate = dueDate.toUTC(); // The duedate is an UTC representation
+				dueDateUpdate = contentReset || record.isModifiedSinceLastUpdate('duedate') || record.isModifiedSinceLastUpdate('taskhistory');
+			}
+
+			if (startDateUpdate || dueDateUpdate) {
+				this.dateField.getValue().set(startDate, dueDate);
+			}
+
+			if (contentReset === true || record.isModified('taskmode')) {
+				switch (record.get('taskmode')) {
+					case Zarafa.core.mapi.TaskMode.REQUEST:
+						this.recipientPanel.setVisible(true);
+						this.taskRequestSettingPanel.setVisible(true);
+						this.reminderPanel.setVisible(false);
+						break;
+					case Zarafa.core.mapi.TaskMode.NOTHING:
+					/* falls through */
+					default:
+						this.recipientPanel.setVisible(false);
+						this.taskRequestSettingPanel.setVisible(false);
+						this.reminderPanel.setVisible(true);
+						break;
+				}
+				layout = true;
+			}
+
+			if (contentReset === true || record.isModifiedSinceLastUpdate('reminder')) {
+				if (record.get('reminder')) {
+					this.reminderDate.enable();
+				} else {
+					this.reminderDate.disable();
+				}
+			}
+
+			if (contentReset === true) {
+				// Check if the store in which the record is located is the public store
+				// if it is, then the owner field should be made editable.
+				var store = container.getHierarchyStore().getById(record.get('store_entryid'));
+				if (store) {
+					this.ownerField.setReadOnly(!store.isPublicStore());
+				}
+			}
+		}
+
+		if(layout) {
 			this.doLayout();
-		}
-
-		if (contentReset === true || record.isModifiedSinceLastUpdate('reminder')) {
-			if (record.get('reminder')) {
-				this.reminderDate.enable();
-			} else {
-				this.reminderDate.disable();
-			}
-		}
-
-		if (contentReset === true) {
-			// Check if the store in which the record is located is the public store
-			// if it is, then the owner field should be made editable.
-			var store = container.getHierarchyStore().getById(record.get('store_entryid'));
-			if (store) {
-				this.ownerField.setReadOnly(!store.isPublicStore());
-			}
 		}
 	},
 
@@ -456,6 +565,13 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	updateRecord : function(record)
 	{
+		var taskHistory = record.get('taskhistory');
+		if (taskHistory === Zarafa.core.mapi.TaskHistory.ASSIGNED ||
+			taskHistory === Zarafa.core.mapi.TaskHistory.DECLINED ||
+			record.isTaskOrganized()) {
+			return;
+		}
+
 		record.beginEdit();
 
 		this.getForm().updateRecord(record);
@@ -466,6 +582,15 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		// Update the body
 		this.onBodyChange(this.editorField.getEditor(), this.editorField.getValue());
 
+		// If user is task owner and task is accepted or updated then
+		// set the message action for sending task update notification to assigner.
+		if (record.dirty && record.isTaskOwner() && (record.isTaskAccepted() || record.isTaskUpdated())) {
+			record.addMessageAction('response_type', Zarafa.core.mapi.TaskMode.UPDATE);
+		}
+
+		if (!record.phantom && record.isModifiedSinceLastUpdate('subject')) {
+			record.set('conversation_topic', record.get('subject'));
+		}
 		record.endEdit();
 	},
 

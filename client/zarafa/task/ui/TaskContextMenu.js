@@ -109,38 +109,48 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 */
 	onContextItemDelete : function()
 	{
-		var store;
-
-		Ext.each(this.records, function(record) {
-			store = record.store;
-			store.remove(record);
-		}, this);
-
-		store.save(this.records);
+		Zarafa.common.Actions.deleteRecords(this.records);
 	},
 
-    /**
-     * Event handler which is called when the user select "Mark Complete / Mark InComplete" item in the context menu.
-     * This will mark the all selected records as "complete/IncComplete".
-     * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to Mark Complete/Mark InComplete
-     * @private
-     */
-    onMarkCompleteItemClick: function (item)
+	/**
+	 * Event handler which is called when the user select "Mark Complete / Mark InComplete" item in the context menu.
+	 * This will mark the all selected records as "complete/IncComplete".
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to Mark Complete/Mark InComplete
+	 * @private
+	 */
+	onMarkCompleteItemClick: function (item)
 	{
-        var complete = item.isMarkComplete;
-        Ext.each(this.records, function (record) {
-            record.beginEdit();
-            record.set('complete', complete);
-            record.set('percent_complete', complete);
-            record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
-            record.set('date_completed', complete ? new Date() : null);
-            record.endEdit();
-        }, this);
+		var complete = item.isMarkComplete;
+		var showWarning = false;
+		Ext.each(this.records, function (record) {
+			record.beginEdit();
+			record.set('complete', complete);
+			record.set('percent_complete', complete);
+			record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
+			record.set('date_completed', complete ? new Date() : null);
+			record.endEdit();
 
-        if (!Ext.isEmpty(this.records) && Ext.isDefined(this.records[0])) {
-            this.records[0].getStore().save();
-        }
-    },
+			if (!record.isNormalTask()) {
+				if (!record.isTaskOwner() && !record.isTaskRequest()) {
+					showWarning = true;
+				} else {
+					record.addMessageAction('response_type', Zarafa.core.mapi.TaskMode.UPDATE);
+				}
+			}
+		}, this);
+
+		if (showWarning) {
+			Ext.MessageBox.show({
+				title: _('Kopano WebApp'),
+				msg :_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
+				icon: Ext.MessageBox.WARNING,
+				buttons: Ext.MessageBox.OK
+			});
+		}
+		if (!Ext.isEmpty(this.records) && Ext.isDefined(this.records[0])) {
+			this.records[0].getStore().save();
+		}
+	},
 
     /**
      * Function will loop through all given {@link Zarafa.core.data.IPMRecord records}
