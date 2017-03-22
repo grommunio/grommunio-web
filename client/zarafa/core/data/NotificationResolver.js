@@ -46,7 +46,7 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 			return null;
 		}
 
-		if (moduleName == 'hierarchynotifier' || moduleName == 'newmailnotifier') {
+		if (moduleName == 'hierarchynotifier' || moduleName == 'newmailnotifier' || moduleName =='addressbooknotifier') {
 			handlers = this.getHandlersForIPFResponse(response);
 		} else {
 			handlers = this.getHandlersForIPMResponse(response);
@@ -118,6 +118,12 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 				store : hierarchyStore,
 				reader : hierarchyStore.reader,
 				notifyObject : hierarchyStore
+			});
+		} else if(response['addressbook']) {
+			var addressBookStore = Zarafa.addressbook.AddressBookHierarchyStore;
+			return new Zarafa.addressbook.AddressBookHierarchyNotificationResponseHandler({
+				store: addressBookStore,
+				notifyObject: addressBookStore
 			});
 		}
 	},

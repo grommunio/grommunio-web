@@ -44,6 +44,40 @@ Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListM
 	idComparison : function(a, b)
 	{
 		return Zarafa.core.EntryId.compareABEntryIds(a, b);
+	},
+
+	/**
+	 * Function which is use to load {@link Zarafa.addressbook.AddressBookHierarchyStore store}
+	 */
+	loadAddressBookHierarchy: function ()
+	{
+		Zarafa.addressbook.AddressBookHierarchyStore.load({
+			actionType: Zarafa.core.Actions.list,
+			params: {
+				subActionType: Zarafa.core.Actions.hierarchy,
+				gab: 'all'
+			}
+		});
+	},
+
+	/**
+	 * Notification handler called by {@link #onNotify} when
+	 * a {@link Zarafa.core.data.Notifications#objectModified objectModified}
+	 * notification has been recieved.
+	 *
+	 * This will update the address book hierarchy store
+	 *
+	 * @param {Zarafa.core.data.Notifications} action The notification action
+	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
+	 * @param {Object} data The data which has been recieved from the PHP-side which must be applied
+	 * to the given records.
+	 * @param {Number} timestamp The {@link Date#getTime timestamp} on which the notification was received
+	 * @param {Boolean} success The success status, True if the notification was successfully recieved.
+	 * @private
+	 */
+	onNotifyObjectmodified : function(action, records, data, timestamp, success)
+	{
+		this.loadAddressBookHierarchy();
 	}
 });
 
@@ -79,12 +113,6 @@ Zarafa.onReady(function(){
 			});
 		});
 
-		Zarafa.addressbook.AddressBookHierarchyStore.load({
-			actionType : Zarafa.core.Actions.list,
-			params : {
-				subActionType : Zarafa.core.Actions.hierarchy,
-				gab : 'all'
-			}
-		});
+		Zarafa.addressbook.AddressBookHierarchyStore.loadAddressBookHierarchy();
 	}
 });

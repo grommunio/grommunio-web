@@ -15,6 +15,9 @@
 	// dummy entryid, used for the REQUEST events
 	define("REQUEST_ENTRYID",			"dummy_value");
 
+	// dummy entryid, used for the Update addressbook
+	define("ADDRESSBOOK_ENTRYID", "dummy_addressbook_value");
+
 	// used in operations->getHierarchyList
 	define("HIERARCHY_GET_ALL",			0);
 	define("HIERARCHY_GET_DEFAULT",		1);
