@@ -113,10 +113,12 @@
 		 * @param {String} value The string to truncate
 		 * @param {Number} startLength The maximum length to allow before truncation
 		 * @param {Number} endLength The maximum length to allow after truncation
+		 * @param {Boolean} doubleDots True to add ellipsis ('..') otherwise add ellipsis ('...') after truncation
 		 * @return {String} The converted/truncated text
 		 */
-		elide : function(value, startLength, endLength)
+		elide : function(value, startLength, endLength, doubleDots)
 		{
+			var ellipsis = doubleDots ? '..' : '...';
 			startLength = startLength || 0;
 			endLength = Ext.isDefined(endLength) ? endLength : startLength;
 
@@ -125,7 +127,7 @@
 			}
 
 			if (value && value.length > startLength + endLength) {
-				return value.substr(0, startLength) + '...' + value.substr(value.length - endLength);
+				return value.substr(0, startLength) + ellipsis + value.substr(value.length - endLength);
 			}
 			return value;
 		},
@@ -156,9 +158,10 @@
 		 * @param {String} value The string to truncate
 		 * @param {Number} startLength The maximum length to allow before truncation
 		 * @param {Number} endLength The maximum length to allow after truncation
+		 * @param {Boolean} doubleDots True to add ellipsis ('..') otherwise add ellipsis ('...') after truncation
 		 * @return {String} The htmlEncoded and truncated text
 		 */
-		htmlEncodeElide : function(value, startLength, endLength)
+		htmlEncodeElide : function(value, startLength, endLength, doubleDots)
 		{
 			return this.htmlEncode(this.elide.apply(this, arguments));
 		},

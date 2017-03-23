@@ -21,6 +21,18 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 	model : undefined,
 
 	/**
+	 * @cfg {Number} minListWidth The minimum width of the dropdown list in pixels (defaults to <tt>70</tt>, will
+	 * be ignored if <tt>{@link #listWidth}</tt> has a higher value)
+	 */
+	minListWidth : 150,
+
+	/**
+	 * @cfg {Number} ellipsisStringStartLength maximum length of text allowed before truncations,
+	 * truncation will be replaced with ellipsis ('...').
+	 */
+	ellipsisStringStartLength : 15,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -44,6 +56,63 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 					index = 1;
 				}
 			}
+		}
+
+		if (!this.tpl) {
+			var tplString =
+				'<tpl for=".">' +
+					'<tpl if="Ext.isEmpty(values.flag)">' +
+						'<span class="x-menu-sep zarafa-search-combobox-menu-sep"></span>' +
+					'</tpl>' +
+					'<div class="x-combo-list-item zarafa-search-combobox-item" ext:qtip="{[this.getQtip(values)]}" ext:qwidth="100%">' +
+					'<tpl if="this.isOtherStoreFolder(values.value)">' +
+						'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
+							'<span class="zarafa-search-node-owner">' +
+								' - {this.ownerName:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}' +
+							'</span>' +
+					'</tpl>' +
+					'<tpl if="!this.isOtherStoreFolder(values.value)">' +
+						'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
+					'</tpl>' +
+					'</div>' +
+				'</tpl>';
+			this.tpl = new Ext.XTemplate(tplString, {
+				ownerName: '',
+				compiled: true,
+				ellipsisStringLength: this.ellipsisStringStartLength,
+				isOtherStoreFolder: function (entryid) {
+					var hierarchyStore = container.getHierarchyStore();
+					var folder = hierarchyStore.getFolder(entryid);
+					if (folder) {
+						var store = hierarchyStore.getById(folder.get('store_entryid'));
+						if (store.isSharedStore()) {
+							this.ownerName = store.get('mailbox_owner_name');
+							return true;
+						}
+					}
+					return false;
+				},
+				getQtip: function (values) {
+					var folderNameQtip, ownerNameQtip;
+					if (values.name.length > this.ellipsisStringLength) {
+						folderNameQtip = values.name;
+					}
+					if (this.isOtherStoreFolder(values.value)) {
+						if (this.ownerName.length > this.ellipsisStringLength) {
+							ownerNameQtip = this.ownerName;
+						}
+					}
+					if (folderNameQtip || ownerNameQtip) {
+						if (folderNameQtip && ownerNameQtip) {
+							return folderNameQtip + " - " + ownerNameQtip;
+						} else {
+							return folderNameQtip ? folderNameQtip : ownerNameQtip;
+						}
+					} else {
+						return '';
+					}
+				}
+			});
 		}
 
 		var searchFolderStore = new Ext.data.JsonStore({
@@ -78,7 +147,11 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			value: searchFolderStore.getAt(index).get('value'),
 			editable: false,
 			width: 100,
-			listWidth : 150
+			listWidth : 150,
+			listeners : {
+				expand : this.onExpandComboBox,
+				scope : this
+			}
 		});
 
 		Zarafa.common.searchfield.ui.SearchFolderCombo.superclass.constructor.call(this, config);
@@ -208,6 +281,44 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 		currentFolder.id = folder.get('entryid');
 		currentFolder.endEdit();
 		currentFolder.commit();
+	},
+
+	/**
+	 * Helper function which is use to resize the search combobox list according to the widest list item content
+	 * @private
+	 */
+	onExpandComboBox: function ()
+	{
+		var store = this.store;
+		var listWidth = 0;
+		var textMetrics = Ext.util.TextMetrics.createInstance(this.view.el);
+
+		// Get the width of the maximum text in list.
+		store.each(function (record) {
+			// Get the folder name and append the ellipsis if require
+			var name = Ext.util.Format.htmlEncodeElide(record.get('name'), this.ellipsisStringStartLength, 0, true);
+			var hierarchyStore = container.getHierarchyStore();
+			var folder = hierarchyStore.getFolder(record.get('value'));
+			if (folder) {
+				var store = hierarchyStore.getById(folder.get('store_entryid'));
+				// In case of shared folder, post-fix the owning store name.
+				if (store.isSharedStore()) {
+					name += " - " + Ext.util.Format.htmlEncodeElide(store.get('mailbox_owner_name'), this.ellipsisStringStartLength, 0, true);
+				}
+			}
+			var curWidth = textMetrics.getWidth(name);
+			if (curWidth > listWidth) {
+				listWidth = curWidth;
+			}
+		}, this);
+		if (listWidth > 0) {
+
+			// Set maximum width in between minimum list width and text width,
+			// Where as text width also have actual list width with padding.
+			listWidth = Math.max(this.minListWidth, listWidth + 25);
+			this.list.setWidth(listWidth);
+			this.innerList.setWidth(listWidth - this.list.getFrameWidth('lr'));
+		}
 	}
 });
 
