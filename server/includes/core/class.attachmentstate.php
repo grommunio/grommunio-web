@@ -152,7 +152,9 @@ class AttachmentState {
 	{
 		$props = mapi_attach_getprops($attachment, array(PR_ATTACH_CONTENT_ID, PR_ATTACHMENT_HIDDEN, PR_ATTACH_FLAGS));
 		$isContentIdSet = isset($props[PR_ATTACH_CONTENT_ID]);
-		$isHidden = $props[PR_ATTACHMENT_HIDDEN];
+
+		// PR_ATTACHMENT_HIDDEN property will not be available in case of embedded attachment.
+		$isHidden = isset($props[PR_ATTACHMENT_HIDDEN]) ? $props[PR_ATTACHMENT_HIDDEN] : false;
 		$isInlineAttachmentFlag = (isset($props[PR_ATTACH_FLAGS]) && $props[PR_ATTACH_FLAGS] & 4) ? true : false;
 
 		if($isContentIdSet && $isHidden && $isInlineAttachmentFlag) {
