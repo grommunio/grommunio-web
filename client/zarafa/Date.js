@@ -224,7 +224,7 @@ Ext.apply(Date.prototype, {
 	 * This should be called if the Date() was obtained using {@link #toUTC}, and we want
 	 * to convert the date back to the local representation.
 	 *
-	 * 00:00 GMT+0100 (23:00 UTC) with be converted to 00:00 UTC (01:00 GMT+0100) 
+	 * 00:00 GMT+0100 (23:00 UTC) with be converted to 00:00 UTC (01:00 GMT+0100)
 	 *
 	 * @return {Date} The local-time date
 	 */
@@ -277,13 +277,17 @@ Ext.apply(Date.prototype, {
 	 * Get the next given working weekday starting from the date passed as argument or
 	 * current date in case no argument was provided.
 	 * @param {Date} currentDate (Optional) The date for which next working day should be returned
-	 * @return {Date} Date fall on the next working day
+	 * @return {Date} Date fall on the next working day or false if no working days are defined
 	 */
 	getNextWorkWeekDay : function(currentDate)
 	{
 		currentDate = currentDate || new Date();
 		var nextDate = currentDate.getNextWeekDay();
 		var workingDaysList = container.getSettingsModel().get('zarafa/v1/main/working_days');
+		if ( Ext.isEmpty(workingDaysList) ){
+			return false;
+		}
+
 		if (workingDaysList.indexOf(nextDate.getDay()) !== -1 ) {
 			return nextDate;
 		} else {
@@ -297,7 +301,7 @@ Ext.apply(Date.prototype, {
 	 * @param {Boolean} clone true to create a clone of this date, clear the time and return it (defaults to false).
 	 * @return {Date} this or the clone.
 	 */
-	clearSeconds : function(clone) 
+	clearSeconds : function(clone)
 	{
 		if (clone) {
 			return this.clone().clearSeconds();
@@ -382,7 +386,7 @@ Ext.apply(Date.prototype, {
 	 *			30min		ceil-9.30
 	 *			1hr/60min	ceil-10.00
 	 *
-	 */ 
+	 */
 	ceil : function(field, ceilTimeValue)
 	{
 		// For each field we have a slightly different approach.
@@ -441,7 +445,7 @@ Ext.apply(Date.prototype, {
 	 *			30min		floor-9.00
 	 *			1hr/60min	floor-9.00
 	 *
-	 */ 
+	 */
 	floor : function(field, floorTimeValue)
 	{
 		// For each field we have a slightly different approach.
@@ -498,7 +502,7 @@ Ext.apply(Date.prototype, {
 		var monthStartDate = this.add(Date.DAY, -(this.getDate() - 1));
 		var monthStartWeek = monthStartDate.getWeekOfYear();
 
-		return currentWeek - monthStartWeek + 1; 
+		return currentWeek - monthStartWeek + 1;
 	}
 });
 
@@ -573,12 +577,12 @@ Ext.apply(Date, {
 	/**
 	 * Function to getTimezone and all dst props
 	 * This is a hard one. To create a recurring appointment, we need to save
-	 * the start and end time of the appointment in local time. So if I'm in 
+	 * the start and end time of the appointment in local time. So if I'm in
 	 * GMT+8, and I want the appointment at 9:00, I will simply save 9*60 = 540
 	 * in the startDate. To make this usable for other users in other timezones,
 	 * we have to tell the server in which timezone this is. The timezone is normally
 	 * defined as a startdate and enddate for DST, the offset in minutes (so GMT+2 is 120)
-	 * plus the extra DST offset when DST is in effect. 
+	 * plus the extra DST offset when DST is in effect.
 	 *
 	 * We can't retrieve this directly from the browser, so we assume that the DST change
 	 * will occure on a Sunday at 2:00 or 3:00 AM, and simply scan all the sundays in a
@@ -589,8 +593,8 @@ Ext.apply(Date, {
 	 * Unfortunately we can't detect the difference between 'the last week of october' and
 	 * 'the fourth week of october'. This can cause subtle problems, so we assume 'last week'
 	 * because this is most prevalent.
-	 * 
-	 * Note that this doesn't work for many strange DST changes, see 
+	 *
+	 * Note that this doesn't work for many strange DST changes, see
 	 * http://webexhibits.org/daylightsaving/g.html
 	 * @static
 	 */
@@ -631,14 +635,14 @@ Ext.apply(Date, {
 				if(switchCount == 2) {
 					break;
 				}
-					
+
 				lastoffset = testDate.getTimezoneOffset();
 			}
-			
+
 			// advance one week
 			testDate = testDate.add(Date.DAY, 7);
 		}
-		
+
 		if(switchCount === 0) {
 			// No DST in this timezone
 			tzStruct = {
@@ -676,7 +680,7 @@ Ext.apply(Date, {
 				};
 
 				return tzStruct;
-				
+
 			} else {
 				// Southern hemisphere, eg DST is during Oct-Mar
 				tzStruct = {
@@ -691,7 +695,7 @@ Ext.apply(Date, {
 					dstendmonth : tzswitch[0].switchmonth + 1,
 					dstendhour : 3
 				};
-				
+
 				return tzStruct;
 			}
 		} else {
