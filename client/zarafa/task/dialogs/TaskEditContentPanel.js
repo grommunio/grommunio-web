@@ -91,7 +91,7 @@ Zarafa.task.dialogs.TaskEditContentPanel = Ext.extend(Zarafa.core.ui.MessageCont
 		if (isSenderIsRecipient) {
 			container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('You cannot send a task request to yourself.'));
 			callback(false);
-		} else if ((recipientCount > 1 || isDistlist) && this.record.get('taskupdates')) {
+		} else if (recipientCount > 1 || isDistlist) {
 			container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('A task request can only have one recipient.'));
 			callback(false);
 		} else {
