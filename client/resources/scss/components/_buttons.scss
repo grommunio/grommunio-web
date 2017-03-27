@@ -231,7 +231,7 @@ $normal-button-bgcolor-hover	: $grey2;
  *************************************/
 
 	/* Normal and Disable button */
-	.x-btn.zarafa-action, .x-btn.zarafa-action.x-item-disabled {
+	.x-btn.zarafa-action {
 		.x-btn-small, .x-btn-medium, .x-btn-large {
 			background: $action-bgcolor !important;
 
@@ -283,17 +283,6 @@ $normal-button-bgcolor-hover	: $grey2;
 
 							button {
 								color: $action-fontcolor;
-							}
-						}
-					}
-
-					/* Disable action button */
-					.x-btn.zarafa-action.x-item-disabled {
-						.x-btn-small, .x-btn-medium, .x-btn-large {
-							background: $action-bgcolor !important;
-
-							button {
-								color: $action-fontcolor !important;
 							}
 						}
 					}

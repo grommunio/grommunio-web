@@ -3470,11 +3470,11 @@ button::-moz-focus-inner {
  *************************************/
 /* Normal and Disable button */
 /* line 235, ../scss/components/_buttons.scss */
-.x-btn.zarafa-action .x-btn-small, .x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-large, .x-btn.zarafa-action.x-item-disabled .x-btn-small, .x-btn.zarafa-action.x-item-disabled .x-btn-medium, .x-btn.zarafa-action.x-item-disabled .x-btn-large {
+.x-btn.zarafa-action .x-btn-small, .x-btn.zarafa-action .x-btn-medium, .x-btn.zarafa-action .x-btn-large {
   background: #5ebb4b !important;
 }
 /* line 238, ../scss/components/_buttons.scss */
-.x-btn.zarafa-action .x-btn-small button, .x-btn.zarafa-action .x-btn-medium button, .x-btn.zarafa-action .x-btn-large button, .x-btn.zarafa-action.x-item-disabled .x-btn-small button, .x-btn.zarafa-action.x-item-disabled .x-btn-medium button, .x-btn.zarafa-action.x-item-disabled .x-btn-large button {
+.x-btn.zarafa-action .x-btn-small button, .x-btn.zarafa-action .x-btn-medium button, .x-btn.zarafa-action .x-btn-large button {
   color: #ffffff !important;
 }
 
@@ -3508,7 +3508,6 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets),
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) {
   /* Normal button */
-  /* Disable action button */
   /* hovered button */
   /* active button */
 }
@@ -3539,32 +3538,6 @@ button::-moz-focus-inner {
   color: #ffffff;
 }
 /* line 292, ../scss/components/_buttons.scss */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large {
-  background: #5ebb4b !important;
-}
-/* line 295, ../scss/components/_buttons.scss */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large button,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small button,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium button,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large button,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small button,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium button,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large button,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-small button,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-medium button,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.zarafa-action.x-item-disabled .x-btn-large button {
-  color: #ffffff !important;
-}
-/* line 303, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
@@ -3577,7 +3550,7 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large {
   background: #59b147 !important;
 }
-/* line 311, ../scss/components/_buttons.scss */
+/* line 300, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
@@ -3602,7 +3575,7 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large {
   background: #5ebb4b !important;
 }
-/* line 317, ../scss/components/_buttons.scss */
+/* line 306, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
 .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets),
@@ -3611,7 +3584,7 @@ button::-moz-focus-inner {
   /* hovered button */
   /* active button */
 }
-/* line 320, ../scss/components/_buttons.scss */
+/* line 309, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-large,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-small,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-medium,
@@ -3624,7 +3597,7 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-large {
   background-color: #e6e6e6 !important;
 }
-/* line 323, ../scss/components/_buttons.scss */
+/* line 312, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-small button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-medium button, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-large button,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-small button,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-medium button,
@@ -3637,7 +3610,7 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action) .x-btn-large button {
   color: #000000;
 }
-/* line 331, ../scss/components/_buttons.scss */
+/* line 320, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-large,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-small,
 .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-medium,
@@ -3650,7 +3623,7 @@ button::-moz-focus-inner {
 .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-action) .x-btn-large {
   background: #dadada !important;
 }
-/* line 339, ../scss/components/_buttons.scss */
+/* line 328, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-action) .x-btn-large,
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-small,
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-action) .x-btn-medium,
@@ -3677,64 +3650,64 @@ button::-moz-focus-inner {
 }
 
 /* Drag & Drop icon override, select mail drag to folder hiearchy. */
-/* line 349, ../scss/components/_buttons.scss */
+/* line 338, ../scss/components/_buttons.scss */
 .x-tree-drop-ok-append .x-dd-drop-icon {
   background-position: 0 -260px;
   background-image: url('../images/icons-s5e994f76c8.png');
 }
 
-/* line 354, ../scss/components/_buttons.scss */
+/* line 343, ../scss/components/_buttons.scss */
 .x-tree-drop-ok-append-add .x-dd-drop-icon {
   background-position: 0 -188px;
   background-image: url('../images/icons-s5e994f76c8.png');
 }
 
-/* line 359, ../scss/components/_buttons.scss */
+/* line 348, ../scss/components/_buttons.scss */
 .x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon {
   background-position: 0 -224px;
   background-image: url('../images/icons-s5e994f76c8.png');
 }
 
 /* Override ExtJS group icon sprite */
-/* line 365, ../scss/components/_buttons.scss */
+/* line 354, ../scss/components/_buttons.scss */
 .x-btn-group-ml, .x-btn-group-mr {
   background-image: none !important;
 }
 
 /* */
-/* line 370, ../scss/components/_buttons.scss */
+/* line 359, ../scss/components/_buttons.scss */
 .x-grid3-check-col-on {
   background-position: 0 -1257px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
 }
 
-/* line 375, ../scss/components/_buttons.scss */
+/* line 364, ../scss/components/_buttons.scss */
 .x-grid3-check-col {
   background-position: 0 -5103px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
 }
 
 /* Grid menu's */
-/* line 381, ../scss/components/_buttons.scss */
+/* line 370, ../scss/components/_buttons.scss */
 .x-menu-item-checked .x-menu-item.x-menu-check-item .x-menu-item-icon {
   background-position: 0 -1254px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
 }
 
-/* line 386, ../scss/components/_buttons.scss */
+/* line 375, ../scss/components/_buttons.scss */
 .x-menu-item.x-menu-check-item .x-menu-item-icon {
   background-position: 0 -5100px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
 }
 
 /* settings grid */
-/* line 392, ../scss/components/_buttons.scss */
+/* line 381, ../scss/components/_buttons.scss */
 .x-grid3-row .x-grid3-row-checker {
   background-position: 2px -5103px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
 }
 
-/* line 396, ../scss/components/_buttons.scss */
+/* line 385, ../scss/components/_buttons.scss */
 .x-grid3-row-selected.x-grid3-row .x-grid3-row-checker {
   background-position: 2px -1257px;
   background-image: url('../images/icons-s5e994f76c8.png') !important;
@@ -3743,32 +3716,32 @@ button::-moz-focus-inner {
 /*******************************************************
  * Button groups, used in previewpanel meeting requests
  *******************************************************/
-/* line 405, ../scss/components/_buttons.scss */
+/* line 394, ../scss/components/_buttons.scss */
 div.x-btn-group-tl {
   background-image: none;
 }
 
-/* line 409, ../scss/components/_buttons.scss */
+/* line 398, ../scss/components/_buttons.scss */
 div.x-btn-group-tr {
   background-image: none;
 }
 
-/* line 413, ../scss/components/_buttons.scss */
+/* line 402, ../scss/components/_buttons.scss */
 div.x-btn-group-notitle .x-btn-group-tc {
   background-image: none;
 }
 
-/* line 417, ../scss/components/_buttons.scss */
+/* line 406, ../scss/components/_buttons.scss */
 div.x-btn-group-bl {
   background-image: none;
 }
 
-/* line 421, ../scss/components/_buttons.scss */
+/* line 410, ../scss/components/_buttons.scss */
 div.x-btn-group-br {
   background-image: none;
 }
 
-/* line 425, ../scss/components/_buttons.scss */
+/* line 414, ../scss/components/_buttons.scss */
 div.x-btn-group-bc {
   background-image: none;
 }
