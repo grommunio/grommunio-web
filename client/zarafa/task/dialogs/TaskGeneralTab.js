@@ -588,7 +588,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			record.addMessageAction('response_type', Zarafa.core.mapi.TaskMode.UPDATE);
 		}
 
-		if (!record.phantom && record.isModifiedSinceLastUpdate('subject')) {
+		if (!record.phantom && record.isModified('subject')) {
 			record.set('conversation_topic', record.get('subject'));
 		}
 		record.endEdit();
