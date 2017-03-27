@@ -375,6 +375,15 @@
 		label.x-form-item-label {
 			text-align: right;
 		}
+
+		/* search button */
+		.icon_search {
+			background-color: transparent;
+			width: $button-small-height;
+			background-image: sprite-url($icons) !important;
+			background-repeat: no-repeat;
+			background-position: sprite-position($icons, icon_magnifier, $offset-x: 4px, $offset-y: 4px) !important;
+		}
 	}
 }
 

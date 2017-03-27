@@ -10813,6 +10813,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 .k-addressbookpanel .k-addressbookmainpanel-header {
   padding-bottom: 3px;
   border-bottom: 1px solid #e6e6e6;
+  /* search button */
 }
 /* line 375, ../scss/components/_popups.scss */
 .k-abuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
@@ -10820,28 +10821,38 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 .k-addressbookpanel .k-addressbookmainpanel-header label.x-form-item-label {
   text-align: right;
 }
+/* line 380, ../scss/components/_popups.scss */
+.k-abuserselectionpanel .k-addressbookmainpanel-header .icon_search,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-header .icon_search,
+.k-addressbookpanel .k-addressbookmainpanel-header .icon_search {
+  background-color: transparent;
+  width: 24px;
+  background-image: url('../images/buttons-sf9958b5399.png') !important;
+  background-repeat: no-repeat;
+  background-position: 4px -1552px !important;
+}
 
-/* line 381, ../scss/components/_popups.scss */
+/* line 390, ../scss/components/_popups.scss */
 .k-addressbookpanel {
   padding-bottom: 3px;
 }
 
-/* line 386, ../scss/components/_popups.scss */
+/* line 395, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel > .x-panel-bwrap > .x-panel-body {
   padding-bottom: 3px !important;
 }
-/* line 390, ../scss/components/_popups.scss */
+/* line 399, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel .k-addressbookmainpanel {
   padding-bottom: 9px;
 }
-/* line 393, ../scss/components/_popups.scss */
+/* line 402, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel .zarafa-addressbook-dialog-compositefield {
   padding-left: 9px;
   padding-right: 9px;
 }
 
 /* Task send conformation dialog */
-/* line 401, ../scss/components/_popups.scss */
+/* line 410, ../scss/components/_popups.scss */
 .k-send-taskrequest-confirmation-panel .x-form-display-field {
   padding-bottom: 10px;
 }
