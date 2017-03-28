@@ -2,7 +2,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>0.2</version>
+		<version>0.3</version>
 		<name>gmaps</name>
 		<title>Google Maps Plugin</title>
 		<author>Kopano</author>
