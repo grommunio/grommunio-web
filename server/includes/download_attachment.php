@@ -259,7 +259,7 @@ class DownloadAttachment
 		// Check if the attachment is opened
 		if($attachment) {
 			// Get the props of the attachment
-			$props = mapi_attach_getprops($attachment, array(PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG, PR_DISPLAY_NAME, PR_ATTACH_METHOD, PR_ATTACH_CONTENT_ID));
+			$props = mapi_attach_getprops($attachment, array(PR_ATTACH_FILENAME, PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG, PR_DISPLAY_NAME, PR_ATTACH_METHOD, PR_ATTACH_CONTENT_ID));
 			// Content Type
 			$contentType = 'application/octet-stream';
 			// Filename
