@@ -57,7 +57,11 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 			// #TRANSLATORS: The map of earth
 			title     : _('Map'),
 			//proper body style for rendering gmaps
-			bodyStyle : 'width: 100%; height: 500px'
+			bodyStyle : 'width: 100%; height: 500px',
+			listeners : {
+				resize: this.resizeMap,
+				scope: this
+			}
 		});
 
 		Zarafa.plugins.gmaps.GmapsTab.superclass.constructor.call(this, config);
@@ -91,6 +95,16 @@ Zarafa.plugins.gmaps.GmapsTab=Ext.extend(Ext.Panel, {
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		return new google.maps.Map(this.body.dom, myOptions);
+	},
+
+	/**
+	 * Event handler for the resize event of the tab. Will make sure the map is also resized correctly.
+	 */
+	resizeMap : function()
+	{
+		if ( this.gmap ){
+			google.maps.event.trigger(this.gmap, "resize");
+		}
 	},
 
 	/**

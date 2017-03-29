@@ -48,7 +48,7 @@ class Plugingmaps extends Plugin {
 		// make sure to load remote files only when plugin is enabled
 		if($GLOBALS['settings']->get('zarafa/v1/plugins/gmaps/enable') == true) {
 			//removing https: provides protocols compatibility, especially in IE9
-			$data['files'][] = '//maps.google.com/maps/api/js?libraries=geometry?v=3&sensor=false';
+			$data['files'][] = '//maps.googleapis.com/maps/api/js?key='.PLUGIN_GMAPS_GOOGLE_API_KEY.'&libraries=geometry';
 		}
 	}
 
@@ -69,7 +69,6 @@ class Plugingmaps extends Plugin {
 							'md5'				=> null,
 							'lat'				=> null,
 							'lng'				=> null,
-
 						)
 
 					)
