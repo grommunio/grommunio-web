@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.mail.settings');
  * the Out of Office settings in the {@link Zarafa.mail.settings.SettingsMailCategory mail category}.
  */
 Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
-	
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -17,12 +17,12 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	constructor : function(config)
 	{
 		config = config || {};
-		
+
 		Ext.applyIf(config, {
 			title : _('Out of Office'),
 			iconCls : 'zarafa-settings-favorite-oof'
 		});
-		
+
 		Ext.applyIf(config, this.getNewConfig());
 
 		Zarafa.mail.settings.SettingsOofWidget.superclass.constructor.call(this, config);
@@ -31,7 +31,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		this.outOfOfficeDateTimeField.dateField.on('selectnow', this.onOutOfOfficeSelectNow, this);
 		this.backDateTimeField.dateField.on('selectnow', this.onBackSelectNow, this);
 	},
-	
+
 	/**
 	 * The configuration object for the new oof that allows the user to enter
 	 * a time span for when he is out.
@@ -39,6 +39,9 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 */
 	getNewConfig : function()
 	{
+		var backDate = new Date().getNextWorkWeekDay() || new Date().add(Date.DAY, 1);
+		backDate = backDate.clearTime().add(Date.MINUTE, container.getSettingsModel().get('zarafa/v1/main/start_working_hour'));
+
 		return {
 			items : [{
 				xtype : 'radio',
@@ -129,7 +132,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					dateFormat : _('d/m/Y'),
 					timeFormat : _('G:i'),
 					minValue : new Date(),
-					defaultValue : new Date().getNextWorkWeekDay().clearTime().add(Date.MINUTE, container.getSettingsModel().get('zarafa/v1/main/start_working_hour')),
+					defaultValue : backDate,
 					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
 					listeners : {
 						change : this.backDateTimeChange,
@@ -245,7 +248,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 
 		settingsModel.set(this.subjectField.name, subject);
 		settingsModel.set(this.bodyField.name, body);
-		
+
 		settingsModel.set(this.outOfOfficeRadio.name, this.outOfOfficeRadio.getValue());
 
 		if(this.outOfOfficeRadio.getValue()){
@@ -392,7 +395,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 * Event handler which is triggered when {@link #backDateTimeField} field
 	 * has been changed by the user. It calls {@link #reviseWarningStatus} to
 	 * show/hide warning according to the latest date related changes.
-	 * 
+	 *
 	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was changed.
 	 * @param {Mixed} newValue The new value
 	 * @param {Mixed} oldValue The old value
@@ -407,7 +410,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	},
 
 	/**
-	 * Helper function to show or hide warning according to the latest date related changes by 
+	 * Helper function to show or hide warning according to the latest date related changes by
 	 * calling {@link Ext.form.DisplayField#set set} or {@link Ext.form.DisplayField#reset reset} methods respectively.
 	 * @private
 	 */
