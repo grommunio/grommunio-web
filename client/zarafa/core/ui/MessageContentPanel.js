@@ -117,6 +117,8 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			this.sendingDoneText = { title : '', msg : this.sendingDoneText };
 		}
 
+		this.on('beforesaverecord', this.onBeforeRecordSave, this);
+
 		if(this.record) {
 			var store = this.record.getStore();
 			if (store) {
@@ -141,13 +143,40 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	{
 		if (Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), this.record.get('entryid'))) {
 			if(operation === Ext.data.Record.COMMIT){
+				// Stop modification-tracking to prevent dirty mark
+				this.record.setUpdateModificationsTracking(false);
+
 				// As of now, message_flags property is being processed only because some properties seems
 				// to be missing in MailStore-record as compare to ShadowStore-record result into some weired
 				// behavior with mail-formatting and meeting-request-accept functionalities.
-				this.record.set('message_flags',record.get('message_flags'));
+				this.record.set('message_flags', record.get('message_flags'));
 				this.record.commit(true);
+
+				// Start modification-tracking back for future user changes
+				this.record.setUpdateModificationsTracking(true);
 			}
 		}
+	},
+
+	/**
+	 * Fires when the record of this {@link Zarafa.core.ui.RecordContentPanel contentpanel} is about to
+	 * be saved to the server.
+	 * Check if the record has modified properties and is marked as dirty because saving nothing
+	 * doesn't make any sense.
+	 *
+	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel to which the record belongs
+	 * @param {Zarafa.core.data.MAPIRecord} record The record which is being saved
+	 * @return {Boolean} false to cancel the save action
+	 * @private
+	 */
+	onBeforeRecordSave : function(contentpanel, record)
+	{
+		if (record.phantom === false && record.modified === null && record.dirty === false) {
+			// There is nothing to save, abort the save request at all.
+			return false;
+		}
+
+		return true;
 	},
 
 	/**
