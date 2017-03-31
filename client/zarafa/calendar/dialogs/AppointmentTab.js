@@ -122,7 +122,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.appointmenttab',
-			cls: 'zarafa-appointmentcreatetab',
+			cls: 'k-appointmentcreatetab',
 			layout: {
 				type: 'vbox',
 				align: 'stretch'
@@ -195,7 +195,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype : 'zarafa.resizablecompositefield',
-			cls : 'field-to',
+			cls : 'k-field-to',
 			ref: 'recipientPanel',
 			anchor : '100%',
 			autoHeight: false,
@@ -223,9 +223,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'subject-panel',
+			cls: 'k-subject-panel',
 			layout: 'form',
-			labelWidth: 84,
+			labelWidth: 85,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
@@ -252,9 +252,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'location-panel',
+			cls: 'k-location-panel',
 			layout: 'form',
-			labelWidth: 84,
+			labelWidth: 85,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
@@ -284,7 +284,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'datetime-panel',
+			cls: 'k-datetime-panel',
 			border: false,
 			autoHeight: true,
 			layout: {
@@ -318,7 +318,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'date-panel',
+			cls: 'k-date-panel',
 			layout: {
 				type: 'table',
 				columns: 3
@@ -342,7 +342,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				},
 				startFieldConfig: {
 					fieldLabel: _('Time'),
-					labelWidth: 83,
+					labelWidth: 84,
 
 					cls: 'from-field'
 				},
@@ -378,7 +378,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'recurrence-panel',
+			cls: 'k-recurrence-panel',
 			ref: '../../recurrencePanel',
 			layout: 'form',
 			autoHeight: true,
@@ -408,7 +408,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		return {
 			xtype: 'panel',
-			cls: 'reminder-panel',
+			cls: 'k-reminder-panel',
 			autoHeight: true,
 			border: false,
 			items: [{
@@ -418,7 +418,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					xtype: 'checkbox',
 					name: 'reminder',
 					boxLabel: _('Reminder') + ':',
-					width: 78,
+					width: 79,
 					handler: this.onToggleReminder,
 					scope: this
 				},{
@@ -433,7 +433,6 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					lazyInit: false,
 					forceSelection: true,
 					editable: false,
-					swidth: 150,
 					listeners: {
 						select: this.onFieldSelect,
 						scope: this
@@ -459,7 +458,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		return {
 			xtype: 'panel',
-			cls: 'busystatus-panel',
+			cls: 'k-busystatus-panel',
 			layout: 'form',
 			autoHeight: true,
 			border: false,
@@ -501,7 +500,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		return {
 			xtype: 'panel',
-			cls: 'label-panel',
+			cls: 'k-label-panel',
 			layout: 'form',
 			autoHeight: true,
 			border: false,
@@ -553,7 +552,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'zarafa.resizablecompositefield',
 			hideLabel: true,
 			anchor: '100%',
-			cls: 'zarafa-appointmentcreatepanel-field-attachments',
+			cls: 'k-field-attachments',
 			autoHeight: true,
 			items: [{
 				// FIXME: Remove after WA-4880 is implemented
@@ -599,7 +598,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		return {
 			xtype: 'panel',
-			cls: 'body-panel',
+			cls: 'k-body-panel',
 			layout: 'fit',
 			border: false,
 			flex: 1,
@@ -611,8 +610,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				flex: 1,
 				useHtml: false,
 				listeners: {
-					// Use the afterlayout event to place the placeholder attribute
-					afterlayout: function(){
+					// Use the afterrender event to place the placeholder attribute
+					afterrender: function(){
 						this.editorField.getEditor().getEl().set({
 							placeholder: _('Type your message here...')
 						});

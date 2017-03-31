@@ -57,9 +57,10 @@
 }
 
 /**********************************************************************
- * Appointment create panel
+ * Appointment create panel & Task create panel
  *********************************************************************/
-.zarafa-appointmentcreatetab {
+.k-appointmentcreatetab,
+.k-taskgeneraltab {
 	.x-form-item {
 		margin-bottom: 0;
 	}
@@ -74,7 +75,7 @@
 		}
 	}
 
-	.field-to {
+	.k-field-to {
 		padding: $padding-medium;
 		min-height: $button-small-height;
 		border-bottom: 1px solid $grey;
@@ -84,8 +85,8 @@
 		}
 	}
 
-	.subject-panel,
-	.location-panel {
+	.k-subject-panel,
+	.k-location-panel {
 		padding: $padding-medium;
 		border-bottom: 1px solid $grey;
 
@@ -98,7 +99,7 @@
 		}
 	}
 
-	.datetime-panel {
+	.k-datetime-panel {
 		table {
 			width: 100%;
 			border-collapse: collapse;
@@ -118,11 +119,11 @@
 		}
 	}
 
-	.date-panel {
+	.k-date-panel {
 		padding: $padding-medium;
 		padding-right: 2 * $padding-extra-extra-large;
 
-		.from-field {
+		.x-form-item:first-child {
 			label {
 				padding: 0 $padding-medium;
 				line-height: $font-default-line-height;
@@ -130,7 +131,7 @@
 			}
 		}
 
-		.to-field {
+		.x-form-item:last-child {
 			label {
 				padding: 0 $padding-large;
 				line-height: $font-default-line-height;
@@ -140,13 +141,17 @@
 		}
 	}
 
-	.busystatus-panel {
+	.k-busystatus-panel,
+	.k-label-panel,
+	.k-status-panel,
+	.k-priority-complete-panel {
 		padding: $padding-medium;
 		padding-left: $padding-extra-large;
 		border-left: 1px solid $grey;
 	}
 
-	.reminder-panel {
+	.k-reminder-panel,
+	.k-taskrequestsettings {
 		padding: $padding-medium;
 		padding-left: 2 * $padding-medium;
 
@@ -156,21 +161,56 @@
 		}
 	}
 
-	.label-panel {
-		padding: $padding-medium;
-		padding-left: $padding-extra-large;
-		border-left: 1px solid $grey;
-	}
-
-	.zarafa-appointmentcreatepanel-field-attachments {
-		padding: $padding-medium;
+	.k-taskrequestsettings {
 		border-bottom: 1px solid $grey;
+
+		.x-form-check-wrap {
+			label {
+				padding-right: $padding-extra-extra-large;
+			}
+		}
 	}
 
-	.body-panel{
+	.k-taskinfopanel {
+		padding: $padding-medium;
+	}
+
+	.k-extrainfopanel {
+		padding: $padding-medium;
+		padding-bottom: 0;
+	}
+
+	.k-field-attachments {
+		padding: $padding-medium;
+	}
+
+	.k-body-panel{
 		textarea {
 			border: none;
+			border-top: 1px solid $grey;
 		}
+	}
+}
+
+.k-taskdetailtab {
+	> .x-panel-bwrap {
+		padding: $padding-medium;
+	}
+
+	.k-datepanel,
+	.k-workpanel,
+	.k-companypanel {
+		padding: $padding-medium;
+	}
+
+	.k-workpanel {
+		.k-col1 {
+			padding-left: $padding-extra-extra-large;
+		}
+	}
+
+	.k-updatelistpanel .x-form-item {
+		padding: $padding-medium;
 	}
 }
 
