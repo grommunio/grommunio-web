@@ -19,9 +19,9 @@ Zarafa.common.settings.SettingsRuleWidget = Ext.extend(Zarafa.settings.ui.Settin
 		config = config || {};
 
 		Ext.applyIf(config, {
-			height : 400,
-			title : _('Mail filters'),
+			title : _('Rules'),
 			xtype : 'zarafa.settingsrulewidget',
+			cls: 'zarafa-settings-widget k-rules-widget',
 			layout : {
 				// override from SettingsWidget
 				type : 'fit'

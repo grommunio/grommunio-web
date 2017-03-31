@@ -26,10 +26,11 @@ Zarafa.common.settings.SettingsRuleCategory = Ext.extend(Zarafa.settings.ui.Sett
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Mail filters'),
+			title : _('Rules'),
 			categoryIndex : 3,
 			xtype : 'zarafa.settingsrulecategory',
 			iconCls : 'zarafa-settings-category-rules',
+			layout: 'fit',
 			items : [{
 					xtype : 'zarafa.settingsrulewidget',
 					settingsContext : config.settingsContext

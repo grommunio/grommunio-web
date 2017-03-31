@@ -19,7 +19,8 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.rulesgrid',
-			border : true,
+			cls : 'k-rulesgrid',
+			border : false,
 			enableHdMenu : false,
 			viewConfig : {
 				forceFit : true,
@@ -64,55 +65,35 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			text : _('New'),
 			handler : this.onRuleAdd,
 			ref : '../addButton',
-			scope : this,
-			width : 70
-		}, {
-			xtype : 'spacer',
-			width : 10
+			scope : this
 		}, {
 			xtype : 'button',
 			text : _('Delete'),
 			disabled : true,
 			ref : '../removeButton',
 			handler : this.onRuleRemove,
-			scope : this,
-			width : 75
-		}, {
-			xtype : 'spacer',
-			width : 10
+			scope : this
 		}, {
 			xtype : 'button',
 			text : _('Edit'),
 			disabled : true,
 			ref : '../editButton',
 			handler : this.onRuleEdit,
-			scope : this,
-			width : 70
-		}, {
-			xtype : 'spacer',
-			width : 10
+			scope : this
 		}, {
 			xtype : 'button',
-			// add a space in text so correct css classes will be applied for border
-			// text : ' ',
 			iconCls : 'zarafa-rules-sequence-up',
 			disabled : true,
 			ref : '../upButton',
 			handler : this.onRuleSequenceUp,
-			scope : this,
-			width : 20
-		}, {
-			xtype : 'spacer',
-			width : 10
+			scope : this
 		}, {
 			xtype : 'button',
-			// text : ' ',
 			iconCls : 'zarafa-rules-sequence-down',
 			disabled : true,
 			ref : '../downButton',
 			handler : this.onRuleSequenceDown,
-			scope : this,
-			width : 20
+			scope : this
 		}];
 	},
 
