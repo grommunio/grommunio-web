@@ -7,6 +7,19 @@ body.Safari input[type="radio"] {
 	margin-bottom: $padding-small;
 }
 
+.x-form-invalid, textarea.x-form-invalid,
+.x-form-text.x-form-invalid, textarea.x-form-field.x-form-invalid,
+.x-form-invalid.x-form-composite .x-form-invalid {
+	border-color: $red1;
+	background: $red2;
+}
+.x-form-invalid.x-form-text + .x-form-trigger {
+	border-color: $red1;
+}
+.x-form-invalid.x-form-composite {
+	background: transparent !important;
+}
+
 /* inputs and textareas */
 .x-form-text, textarea.x-form-field {
 	background: white;

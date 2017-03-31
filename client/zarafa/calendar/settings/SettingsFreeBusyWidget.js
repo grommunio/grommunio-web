@@ -33,7 +33,8 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 				fieldLabel: _('Publish {A} month(s) of Calendar free/busy information on the server.'),
 				items: [{
 					xtype: 'numberfield',
-					width : 25,
+					cls: 'k-centeredtext',
+					width : 30,
 					name : 'zarafa/v1/contexts/calendar/free_busy_range',
 					labelSplitter: '{A}',
 					ref : '../freeBusyMonth',

@@ -1,5 +1,5 @@
 /* import the base */
-/* 
+/*
  * Contains all the colors that are used in the new design.
  * This file should only contain sass definitions, no actual css rules
  */
@@ -2560,6 +2560,11 @@ ul.x-tab-strip-top {
   background-color: transparent;
 }
 
+/* line 59, ../scss/base/_layout.scss */
+.k-centeredtext {
+  text-align: center;
+}
+
 /* import the components general styles */
 /* TODO: move colors to base/_color.scss for easy maintenance/theming */
 /* Action buttons: 'send' and 'save' */
@@ -3933,20 +3938,38 @@ body.Safari input[type="radio"] {
   margin-bottom: 3px;
 }
 
+/* line 10, ../scss/components/_formelements.scss */
+.x-form-invalid, textarea.x-form-invalid,
+.x-form-text.x-form-invalid, textarea.x-form-field.x-form-invalid,
+.x-form-invalid.x-form-composite .x-form-invalid {
+  border-color: #e30022;
+  background: #fbdde1;
+}
+
+/* line 16, ../scss/components/_formelements.scss */
+.x-form-invalid.x-form-text + .x-form-trigger {
+  border-color: #e30022;
+}
+
+/* line 19, ../scss/components/_formelements.scss */
+.x-form-invalid.x-form-composite {
+  background: transparent !important;
+}
+
 /* inputs and textareas */
-/* line 11, ../scss/components/_formelements.scss */
+/* line 24, ../scss/components/_formelements.scss */
 .x-form-text, textarea.x-form-field {
   background: white;
   border: 1px solid #e6e6e6;
   padding: 6px;
 }
 
-/* line 16, ../scss/components/_formelements.scss */
+/* line 29, ../scss/components/_formelements.scss */
 .x-form-text {
   padding: 0 6px;
 }
 
-/* line 20, ../scss/components/_formelements.scss */
+/* line 33, ../scss/components/_formelements.scss */
 .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
@@ -3957,13 +3980,13 @@ body.Safari input[type="radio"] {
 }
 
 /* combobox and spinner field */
-/* line 32, ../scss/components/_formelements.scss */
+/* line 45, ../scss/components/_formelements.scss */
 .x-form-field-trigger-wrap .x-form-text,
 .x-form-field-wrap .x-form-text {
   line-height: 22px;
   height: 22px;
 }
-/* line 37, ../scss/components/_formelements.scss */
+/* line 50, ../scss/components/_formelements.scss */
 .x-form-field-trigger-wrap .x-form-trigger,
 .x-form-field-trigger-wrap .x-form-spinner-trigger,
 .x-form-field-wrap .x-form-trigger,
@@ -3977,33 +4000,33 @@ body.Safari input[type="radio"] {
   background-repeat: no-repeat;
   background-position: 4.5px -15.5px !important;
 }
-/* line 48, ../scss/components/_formelements.scss */
+/* line 61, ../scss/components/_formelements.scss */
 .x-form-field-trigger-wrap .x-form-trigger-over,
 .x-form-field-trigger-wrap .x-form-spinner-trigger-over,
 .x-form-field-wrap .x-form-trigger-over,
 .x-form-field-wrap .x-form-spinner-trigger-over {
   background-color: #f2f2f2;
 }
-/* line 53, ../scss/components/_formelements.scss */
+/* line 66, ../scss/components/_formelements.scss */
 .x-form-field-trigger-wrap .x-form-spinner-trigger,
 .x-form-field-wrap .x-form-spinner-trigger {
   background-image: url('../images/icons-s5e994f76c8.png'), url('../images/icons-s5e994f76c8.png');
   background-repeat: no-repeat, no-repeat;
   background-position: 4.5px -69px, 4.5px -10px !important;
 }
-/* line 61, ../scss/components/_formelements.scss */
+/* line 74, ../scss/components/_formelements.scss */
 .x-form-field-trigger-wrap .x-form-spinner-splitter,
 .x-form-field-wrap .x-form-spinner-splitter {
   display: none !important;
 }
 
-/* line 66, ../scss/components/_formelements.scss */
+/* line 79, ../scss/components/_formelements.scss */
 .x-combo-list {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.6);
   border-color: #b6b6b6;
 }
 
-/* line 70, ../scss/components/_formelements.scss */
+/* line 83, ../scss/components/_formelements.scss */
 .x-combo-list-item {
   user-select: none;
   -webkit-user-select: none;
@@ -4011,13 +4034,13 @@ body.Safari input[type="radio"] {
   -ms-user-select: none;
 }
 
-/* line 76, ../scss/components/_formelements.scss */
+/* line 89, ../scss/components/_formelements.scss */
 .x-combo-list-item.k-combo-list-item-header {
   font-weight: bold;
   font-style: italic;
 }
 
-/* line 80, ../scss/components/_formelements.scss */
+/* line 93, ../scss/components/_formelements.scss */
 .x-combo-list-item.x-combo-selected.k-combo-list-item-header {
   background: transparent;
   border-color: transparent !important;
@@ -4025,32 +4048,32 @@ body.Safari input[type="radio"] {
 }
 
 /* fieldsets */
-/* line 87, ../scss/components/_formelements.scss */
+/* line 100, ../scss/components/_formelements.scss */
 .x-fieldset {
   border-radius: 0;
   border: 1px solid #e6e6e6;
   padding: 9px 6px;
   margin: 0;
 }
-/* line 93, ../scss/components/_formelements.scss */
+/* line 106, ../scss/components/_formelements.scss */
 .x-fieldset legend {
   font-weight: normal;
   color: black;
 }
 
 /* checkbox */
-/* line 100, ../scss/components/_formelements.scss */
+/* line 113, ../scss/components/_formelements.scss */
 .x-form-check-wrap input {
   vertical-align: text-bottom;
 }
 
-/* line 103, ../scss/components/_formelements.scss */
+/* line 116, ../scss/components/_formelements.scss */
 .x-form-item .x-form-cb-label {
   top: 0;
   margin-left: 3px;
 }
 
-/* line 108, ../scss/components/_formelements.scss */
+/* line 121, ../scss/components/_formelements.scss */
 .zarafa-delayeddelivery-invalid-date {
   color: #FF0000;
 }
