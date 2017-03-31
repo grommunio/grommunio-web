@@ -1244,11 +1244,15 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 		if ( !(this instanceof Zarafa.core.MultiFolderContextModel) ){
 			// Check if the state is valid
 			if ( Ext.isDefined(state.last_used_folders) ){
-				Ext.iterate(state.last_used_folders, function(storeEntryid, folders, lastUsedFoldersObj){
-					if ( Array.isArray(folders) && folders.length>1 ){
-						delete lastUsedFoldersObj[storeEntryid];
-					}
-				}, this);
+				if ( Object.keys(state.last_used_folders).length > 1 ){
+						delete state.last_used_folders;
+				} else {
+					Ext.iterate(state.last_used_folders, function(storeEntryid, folders, lastUsedFoldersObj){
+						if ( Array.isArray(folders) && folders.length>1 ){
+							delete lastUsedFoldersObj[storeEntryid];
+						}
+					}, this);
+				}
 			}
 		}
 
