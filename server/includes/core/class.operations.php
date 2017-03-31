@@ -2311,17 +2311,20 @@
 
 		/**
 		 * Function used to identify given recipient was already available in remove array of recipients array or not.
-		 * which was sent from client side.
+		 * which was sent from client side. If it is found the entry in the $remove array will be deleted, since
+		 * we do not want to find it again for other recipients. (if a user removes and adds an user again it
+		 * should be added once!)
 		 *
 		 * @param String $recipientEntryid recipient entryid
 		 * @param Array $remove removed recipients array.
 		 * @return Boolean return false if recipient not exist in remove array else return true
 		 */
-		function isExistInRemove($recipientEntryid, $remove)
+		function isExistInRemove($recipientEntryid, &$remove)
 		{
 			if (!empty($remove)) {
-				foreach ($remove as $removeItem) {
+				foreach ($remove as $index => $removeItem) {
 					if (array_search($recipientEntryid, $removeItem, true)) {
+						unset($remove[$index]);
 						return true;
 					}
 				}
