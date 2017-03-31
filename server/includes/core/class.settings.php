@@ -370,9 +370,12 @@
 
 			$this->saveExternalSettings();
 
-			// Temporarily remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
-			$externalSetting = $this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'];
-			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
+			$externalSetting = false;
+			if (isset($this->settings['zarafa']['v1'])) {
+				// Temporarily remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
+				$externalSetting = $this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'];
+				unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
+			}
 
 			// Filter out the unchanged default sysadmin settings
 			$settings = $this->filterOutSettings($this->settings, $this->getDefaultSysAdminSettings());
@@ -398,7 +401,9 @@
 			}
 
 			// Put the external settings back
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'] = $externalSetting;
+			if ($externalSetting) {
+				$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'] = $externalSetting;
+			}
 		}
 
 		/**
