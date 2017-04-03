@@ -108,7 +108,7 @@ Zarafa.common.ui.grid.Renderers = {
 		var flagStatus = Zarafa.core.mapi.FlagStatus.get(record.get('flag_status'));
 
 		// If the record is not a mail, don't show a flag
-		if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
+		if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note', 'IPM.TaskRequest'], true)) {
 			return '';
 		}
 
