@@ -384,7 +384,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			// Only open flags context menu if all the selected records are mail record.
 			var allMails = true;
 			Ext.each(records, function(record) {
-				if(record.isFaultyMessage() || !record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
+				if(record.isFaultyMessage() || !record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'IPM.TaskRequest', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
 					allMails = false;
 				}
 			}, this);
@@ -412,7 +412,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		switch (column.dataIndex) {
 			case 'flag_status':
 				// If the record is not a mail, ignore click event
-				if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note'], true)) {
+				if(!record.isMessageClass(['IPM.Note', 'IPM.Schedule.Meeting', 'REPORT.IPM', 'REPORT.IPM.Note', 'IPM.TaskRequest'], true)) {
 					break;
 				}
 				if (record.get('flag_status') == Zarafa.core.mapi.FlagStatus.flagged) {

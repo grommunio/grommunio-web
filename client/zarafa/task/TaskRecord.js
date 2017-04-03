@@ -48,6 +48,8 @@ Zarafa.task.TaskRecordFields = [
 	{name: 'taskhistory', type: 'int', defaultValue:Zarafa.core.mapi.TaskHistory.NONE},
 	{name: 'task_goid'},
 	{name: 'tasklastuser'},
+	{name: 'flag_status'},
+	{name: 'flag_icon'},
 	{name: 'task_acceptance_state', type : 'int', defaultValue:Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED},
 	{name: 'updatecount', type : 'int'},
 	{name: 'task_not_found', type : 'boolean'}
