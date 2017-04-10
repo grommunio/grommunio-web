@@ -26,6 +26,7 @@ Zarafa.advancesearch.dialogs.SelectFolderContentPanel = Ext.extend(Zarafa.core.u
 			height: 350,
 			items: [{
 				xtype: 'zarafa.selectfolderpanel',
+				model : config.model,
 				searchFolderCombo : config.searchFolderCombo,
 				searchToolBoxIncludeSubFolder : config.searchToolBoxIncludeSubFolder
 			}]

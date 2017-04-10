@@ -92,6 +92,11 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			scope : this
 		});
 
+		this.mon(this.searchToolBox.includeSubFolderFieldSet, {
+			beforerender : this.onBeforeRenderSubFolderFieldSet,
+			scope : this
+		});
+
 		this.mon(this.searchToolBox.includeSubFolder, {
 			check : this.onCheckIncludeSubFolder,
 			render : this.onRenderSubFolderCheckbox,
@@ -360,6 +365,20 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Event handler which is raised just before the {@link Ext.form.FieldSet IncludeSubFolderFieldSet}
+	 * is being rendered. it will hide the {@link Ext.form.FieldSet IncludeSubFolderFieldSet} if
+	 * selected folder is does not support the search folder.
+	 *
+	 * @param {Ext.form.FieldSet} fieldSet field set which fire this event.
+	 */
+	onBeforeRenderSubFolderFieldSet : function (fieldSet)
+	{
+		var searchFolderCombo = this.searchToolbar.getSearchFolderCombo();
+		var folder = container.getHierarchyStore().getFolder(searchFolderCombo.getValue());
+		fieldSet.hidden = !this.model.supportsSearchFolder(folder);
+	},
+
+	/**
 	 * Event handler triggered when "Include sub folder" checkbox which belongs to
 	 * {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox}
 	 *  was checked/un-checked. it will also update the "include_subfolder" property of
@@ -414,7 +433,8 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler triggered before selection performs in {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
 	 * Will open {@link Zarafa.advancesearch.dialogs.SelectFolderContentPanel SelectFolderContentPanel}, if
-	 * "Other.." option was selected.
+	 * "Other.." option was selected. also it will check select folder from {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * is supports search folder if not we hide the {@link Ext.form.FieldSet IncludeSubFolderFieldSet}.
 	 *
 	 * @param {Zarafa.common.searchfield.ui.SearchFolderCombo} combo The combo which fired the event.
 	 * @param {Ext.data.Record} record The data record returned from the underlying store
@@ -427,9 +447,14 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			combo.collapse();
 			Zarafa.advancesearch.Actions.openSelectSearchFolderDialog({
 				searchFolderCombo : combo,
-				searchToolBoxIncludeSubFolder : this.searchToolBox.includeSubFolder
+				searchToolBoxIncludeSubFolder : this.searchToolBox.includeSubFolder,
+				model : this.model
 			});
 			return false;
+		} else {
+			var folder = container.getHierarchyStore().getFolder(record.get('value'));
+			this.searchToolBox.includeSubFolderFieldSet.setVisible(this.model.supportsSearchFolder(folder));
+			this.doLayout();
 		}
 		return true;
 	},
