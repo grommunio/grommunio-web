@@ -270,7 +270,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 		var start = this.getDateRange().getStartDate();
 
 		// We use the Ext clearTime() extension of Date() to account for
-		// differences in DST. We pass true to get a clone of the passed 
+		// differences in DST. We pass true to get a clone of the passed
 		// date, so we don't overwrite the original date.
 		start = start.clearTime(true);
 		date = date.clearTime(true);
@@ -663,15 +663,22 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 	 * or {@link #calculateHeaderOverlaps header overlaps} will be recalculated.
 	 * @param {Ext.data.Record} record a record with the appointment data
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
+	 * @return {Boolean} True if an appointment was added, false otherwise.
 	 */
 	addAppointment : function(record, layout)
 	{
-		Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.addAppointment.apply(this, arguments);
+		var added = Zarafa.calendar.ui.AbstractCalendarDaysView.superclass.addAppointment.apply(this, arguments);
+		if ( !added ){
+			return false;
+		}
+
 		if (record.get('alldayevent')) {
 			this.calculateHeaderOverlaps();
 		} else {
 			this.calculateBodyOverlaps();
 		}
+
+		return true;
 	},
 
 	/**
