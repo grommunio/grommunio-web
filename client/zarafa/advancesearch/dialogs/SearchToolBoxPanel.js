@@ -74,12 +74,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype : 'zarafa.searchtoolboxpanel',
 			title: _('Search tools'),
-			width: 200,
-			boxMaxWidth : 200,
-			boxMinWidth : 200,
+			width: 175,
 			iconCls : 'advance_search',
 			cls : 'zarafa-search-toolbox',
-			split : true,
 			plugins : [{
 				ptype : 'zarafa.recordcomponentplugin'
 			},{
