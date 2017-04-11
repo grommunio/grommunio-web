@@ -614,7 +614,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			// Set the first folder in the list as the selected one
 			this.setSelectedFolder(this.folders[0]);
 		}
-		
+
 		return this.selectedFolder;
 	},
 
@@ -757,9 +757,15 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 * Adds a new appointment to the view.
 	 * @param {Ext.data.Record} record a record with the appointment data
 	 * @param {Boolean} layout (optional) if true layout() will be called after the appointment was added. Defaults to true.
+	 * @return {Boolean} True if an appointment was added, false otherwise.
 	 */
 	addAppointment : function(record, layout)
 	{
+		// Don't add anything that is not an appointment
+		if ( Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class')) !== 'calendar' ){
+			return false;
+		}
+
 		var appointment = this.createAppointment(record);
 
 		appointment.render(this.container);
@@ -768,6 +774,8 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (layout !== false) {
 			this.layout();
 		}
+
+		return true;
 	},
 
 	/**
@@ -1283,7 +1291,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			tab.setShowMergeIcon(this.canMerge);
 			tab.setShowSeparateIcon(this.folders.length > 1);
 			tab.setShowCloseIcon(this.canClose);
-			
+
 			tabs.push(tab);
 			tab.desiredWidth = tab.getDesiredWidth();
 			tab.lrmargins = tab.tabContents.getMargins('lr');
@@ -1301,7 +1309,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 					tabsThatNeedResizing.push(tabs[i]);
 				}
 			}
-			
+
 			var totalAvailableWidthForTabsThatNeedResizing = this.width;
 			var totalWidthOfTabsThatNeedResizing = 0;
 			for ( i=0; i<tabsThatNeedNoResizing.length; i++ ){
@@ -1310,7 +1318,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			for ( i=0; i<tabsThatNeedResizing.length; i++ ){
 				totalWidthOfTabsThatNeedResizing += tabsThatNeedResizing[i].desiredWidth + tabsThatNeedResizing[i].lrmargins;
 			}
-			
+
 			if ( tabsThatNeedResizing.length === 1 ){
 				tabsThatNeedResizing[0].desiredWidth = totalAvailableWidthForTabsThatNeedResizing - tabsThatNeedResizing[0].lrmargins;
 			} else {
@@ -1325,7 +1333,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 							tab1 = tabs[i];
 						}
 					}
-					
+
 					if ( tab0.desiredWidth - tab1.desiredWidth > totalWidthOfTabsThatNeedResizing - totalAvailableWidthForTabsThatNeedResizing ){
 						// Easy one: just shrink the biggest tab and we're good to go.
 						tab0.desiredWidth -= totalWidthOfTabsThatNeedResizing - totalAvailableWidthForTabsThatNeedResizing + tab0.lrmargins;
@@ -1344,11 +1352,11 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			var tab = this.tabs[folder.get('entryid')];
 
 			var width = tab.desiredWidth;
-			
+
 			// Check if we don't get conflicts with a possible min-width set in the css-files
 			tab.tabContents.dom.style.removeProperty('min-width');
 			var cssMinWidth = parseInt(tab.tabContents.getStyle('min-width')) + tab.tabContents.getPadding('lr');
-			
+
 			if ( cssMinWidth > width ){
 				tab.tabContents.setStyle('min-width', 0);
 				if ( totalDesiredWidth <= this.width ){
