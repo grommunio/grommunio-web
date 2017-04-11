@@ -28,6 +28,7 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		Ext.applyIf(config, {
+			statefulRecordSelection: true,
 			current_data_mode : Zarafa.task.data.DataModes.ALL
 		});
 

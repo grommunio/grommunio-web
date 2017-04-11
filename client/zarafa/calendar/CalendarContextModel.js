@@ -75,6 +75,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		}
 
 		Ext.applyIf(config, {
+			statefulRecordSelection : true,
 			colorScheme: Zarafa.core.ColorSchemes.getColorSchemes(),
 			current_data_mode : Zarafa.calendar.data.DataModes.WORKWEEK
 		});

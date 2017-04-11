@@ -104,7 +104,6 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		this.mon(this.getSelectionModel(), 'rowselect', this.onRowSelect, this, { buffer : 1 });
 		this.mon(this.getSelectionModel(), 'selectionchange', this.onSelectionChange, this, { buffer : 1 });
 
-		this.mon(this.model, 'recordselectionchange', this.onRecordSelectionChange, this);
 		this.mon(this.model, 'searchstop', this.onSearchStop, this);
 
 		this.mon(this.searchContext, 'viewchange', this.onContextViewChange, this);
@@ -338,23 +337,6 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		this.model.setSelectedRecords(selections);
 		if (Ext.isEmpty(selections)) {
 			this.model.setPreviewRecord(undefined);
-		}
-	},
-
-	/**
-	 * Event handler which is fired when the recordselection in the {@link #model} has been changed.
-	 * If no selection is currently active, this will automatically select the given records in the grid.
-	 *
-	 * @param {Zarafa.core.ContextModel} model this model.
-	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records
-	 * @private
-	 */
-	onRecordSelectionChange : function(model, records)
-	{
-		if (!this.getSelectionModel().hasSelection() && !Ext.isEmpty(records)) {
-			var index = model.getStore().indexOf(records[0]);
-			this.getSelectionModel().selectRecords(records);
-			this.getView().focusRow(index);
 		}
 	},
 
