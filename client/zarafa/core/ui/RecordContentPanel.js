@@ -311,8 +311,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		}
 
 		this.savingEl = container.getNotifier().notify('info.saving', this.savingText.title, this.savingText.msg, {
-			container : this.getEl(),
-			persistent : true
+			container : this.getEl()
 		});
 	},
 

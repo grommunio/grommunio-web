@@ -153,12 +153,37 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 		} else {
 			var lifetime = config.persistent ? false : this.msgLifetime;
 			var reference = slider.createMessage(html, lifetime);
+			// Register the click event on notifier if notification
+			// is not persistent and does not have already registered click event,
+			// which discard notification when user click on it.
+			if (lifetime !== false && !(Ext.isDefined(config.listeners) && Ext.isDefined(config.listeners.click))) {
+				config.listeners = {
+					click: this.onNotifierClick.createDelegate(this,[category], 1),
+					scope: this
+				};
+			}
 			if (config.listeners) {
 				this.addMessageListeners(reference, config.listeners);
 			}
 
 			return reference;
 		}
+	},
+
+	/**
+	 * Event handler which triggers when user click on notification.
+	 * Where function is used to discard the existing notification.
+	 *
+	 * @param {Zarafa.core.ui.notifier.SliderContainer} notification The slider container of notification.
+	 * @param {String} category The category which applies to the notification.
+	 * @param {Ext.EventObject} event The event object
+	 */
+	onNotifierClick : function (notification, category, event) {
+		container.getNotifier().notify(category, null, null, {
+			container : notification.slider.parentContainer,
+			destroy : true,
+			reference : notification
+		});
 	},
 
 	/**
