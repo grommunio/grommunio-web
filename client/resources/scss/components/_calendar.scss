@@ -343,6 +343,26 @@ $calendar-tab-height: 30px;
 	background-color: #adaead;
 }
 
+.k-calendar-timestrip-indicator-icon
+{
+	height: 12px;
+	width: 12px;
+	left: 6px;
+	background-image: sprite-url($iconsmap);
+	background-repeat: no-repeat;
+	background-position: sprite-position($iconsmap, 'icon_indicator_calendar', $offset_y: 0, $offset_x: 0);
+	position: absolute;
+}
+
+.k-calendar-timestrip-indicator-line
+{
+	height:1px;
+	position:absolute;
+	background-color: #e40023;
+	overflow: hidden;
+	left: 24px;
+}
+
 /*
  * Canvas Calendar
  */
