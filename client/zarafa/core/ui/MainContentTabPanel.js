@@ -3,6 +3,7 @@ Ext.namespace('Zarafa.core.ui');
 /**
  * @class Zarafa.core.ui.MainContentTabPanel
  * @extends Ext.TabPanel
+ * @xtype zarafa.maincontenttabpanel
  * This subclass is used in the main content area, and contains the ContextContainer and dialogs that the user opens
  * Initialized in MainViewport.CreateContentContainer
  */
@@ -218,3 +219,5 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 		return this.edge.getOffsetsTo(this.stripWrap)[0] + this.getScrollPos() + this.edge.getWidth();
 	}
 });
+
+Ext.reg('zarafa.maincontenttabpanel', Zarafa.core.ui.MainContentTabPanel);
