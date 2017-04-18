@@ -117,6 +117,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			width : 156,
 			border : false,
 			title: _('Folders'),
+			ref : '../includeSubFolderFieldSet',
 			items : [{
 				xtype : "checkbox",
 				hideLabel : true,

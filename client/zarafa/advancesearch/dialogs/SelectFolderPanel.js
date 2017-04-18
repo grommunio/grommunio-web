@@ -148,25 +148,29 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	 */
 	updateIncludeSubFolderCheckBox : function(node)
 	{
-		var record = this.searchFolderCombo.findRecord('value', node.getFolder().get('entryid'));
-		var isChecked = false;
-		var isDisabled = false;
-		if(Ext.isDefined(record)) {
-			isChecked = record.get('include_subfolder');
-			isDisabled = record.get('flag') === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS;
-		}
-		var subFolderCheckBox = this.includeSubFolder;
-		subFolderCheckBox.setValue(isChecked);
-		subFolderCheckBox.setDisabled(isDisabled);
+		var supportSearchFolder = this.model.supportsSearchFolder(node.getFolder());
+		this.includeSubFolder.setVisible(supportSearchFolder);
+		if (supportSearchFolder) {
+			var record = this.searchFolderCombo.findRecord('value', node.getFolder().get('entryid'));
+			var isChecked = false;
+			var isDisabled = false;
+			if(Ext.isDefined(record)) {
+				isChecked = record.get('include_subfolder');
+				isDisabled = record.get('flag') === Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS;
+			}
+			var subFolderCheckBox = this.includeSubFolder;
+			subFolderCheckBox.setValue(isChecked);
+			subFolderCheckBox.setDisabled(isDisabled);
 
-		if(subFolderCheckBox.rendered) {
-			// Add tooltip on "include subfolder" check box when "All folders"
-			// was selected in search folder combo box else remove tooltip from
-			// "include subfolder" check box
-			if (isDisabled) {
-				subFolderCheckBox.wrap.dom.qtip = _("All folders are selected");
-			} else {
-				delete(subFolderCheckBox.wrap.dom.qtip);
+			if(subFolderCheckBox.rendered) {
+				// Add tooltip on "include subfolder" check box when "All folders"
+				// was selected in search folder combo box else remove tooltip from
+				// "include subfolder" check box
+				if (isDisabled) {
+					subFolderCheckBox.wrap.dom.qtip = _("All folders are selected");
+				} else {
+					delete(subFolderCheckBox.wrap.dom.qtip);
+				}
 			}
 		}
 	},
@@ -207,7 +211,7 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 		if (!Ext.isDefined(folder)) {
 			return;
 		}
-
+		var supportSearchFolder = this.model.supportsSearchFolder(folder);
 		var includeSubFolder = this.includeSubFolder.checked;
 		var store = this.searchFolderCombo.getStore();
 		var record = store.getAt(store.findExact("value", folder.get('entryid')));
@@ -229,9 +233,18 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 
 		this.searchFolderCombo.setValue(record.get('value'));
 		if (Ext.isDefined(this.searchToolBoxIncludeSubFolder)) {
-			this.searchToolBoxIncludeSubFolder.setValue(includeSubFolder);
-			if(this.searchToolBoxIncludeSubFolder.disabled && record.get('flag') !== Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
-				this.searchToolBoxIncludeSubFolder.setDisabled(false);
+			if (supportSearchFolder) {
+				if (!this.searchToolBoxIncludeSubFolder.ownerCt.isVisible()) {
+					this.searchToolBoxIncludeSubFolder.ownerCt.setVisible(true);
+					this.searchToolBoxIncludeSubFolder.refOwner.doLayout();
+				}
+				this.searchToolBoxIncludeSubFolder.setValue(includeSubFolder);
+				if(this.searchToolBoxIncludeSubFolder.disabled && record.get('flag') !== Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
+					this.searchToolBoxIncludeSubFolder.setDisabled(false);
+				}
+			} else {
+				this.searchToolBoxIncludeSubFolder.ownerCt.setVisible(false);
+				this.searchToolBoxIncludeSubFolder.refOwner.doLayout();
 			}
 		}
 

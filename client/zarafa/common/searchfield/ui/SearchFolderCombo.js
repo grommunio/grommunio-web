@@ -186,7 +186,8 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 		if(record.get('value') === 'other') {
 			combo.collapse();
 			Zarafa.advancesearch.Actions.openSelectSearchFolderDialog({
-				searchFolderCombo : combo
+				searchFolderCombo : combo,
+				model : this.model
 			});
 			return false;
 		}
