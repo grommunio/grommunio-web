@@ -22,11 +22,11 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.taskdetailtab',
+			cls: 'k-taskdetailtab',
 			title : _('Details'),
 			border : false,
-			bodyStyle: 'background-color: inherit;',
+			labelAlign: 'left',
 			defaults : {
-				bodyStyle: 'background-color: inherit;',
 				border : false,
 				xtype : 'panel'
 			},
@@ -70,6 +70,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return{
 			layout : 'form',
 			ref : 'datePanel',
+			cls : 'k-datepanel',
 			items : [{
 				xtype : 'datefield',
 				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -96,14 +97,15 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return{
 			layout : 'column',
 			ref: 'workPanel',
+			cls: 'k-workpanel',
 			defaults:{
 					layout:'form',
-					bodyStyle: 'background-color: inherit',
 					border:false,
 					xtype:'panel'
 			},
 			items : [{//1 col
 				columnWidth : 0.35,
+				cls: 'k-col0',
 				defaults:{
 					anchor:'100%'
 				},
@@ -126,7 +128,8 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 				}]
 			},{//2 col
 				columnWidth : 0.65,
-				style : 'padding-left : 10px;',
+				cls: 'k-col1',
+				labelWidth: 150,
 				defaults:{
 					anchor:'100%'
 				},
@@ -162,6 +165,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 		return{
 			layout : 'form',
 			ref: 'companyPanel',
+			cls: 'k-companypanel',
 			items : [{
 				xtype : 'textfield',
 				fieldLabel:_('Companies'),
@@ -184,12 +188,13 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	createUpdateListPanel : function()
 	{
 		return{
-			bodyStyle: 'background-color: inherit;padding: 3px 0px 3px 0px; border-style: solid none none none;',
-			border : true,
 			layout : 'form',
+			cls: 'k-updatelistpanel',
+			border : false,
 			items : [{
 				xtype : 'textfield',
 				fieldLabel:_('Update List'),
+				labelAlign: 'left',
 				ref : '../updateList',
 				anchor : '100%',
 				readOnly : true,
