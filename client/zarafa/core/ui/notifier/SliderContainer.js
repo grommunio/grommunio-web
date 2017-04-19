@@ -159,6 +159,7 @@ Zarafa.core.ui.notifier.SliderContainer = Ext.extend(Object, {
 		if (this.stackedMessages.indexOf(element) >= 0) {
 			element.ghost(this.slideoutDirection, {
 				remove : true,
+				stopFx : true,
 				callback : this.onRemoveComplete.createDelegate(this, [ element ]),
 				scope : this
 			});

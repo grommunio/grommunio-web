@@ -45,15 +45,6 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	isSending : false,
 
 	/**
-	 * The reference as returned by {@link Zarafa.core.ui.notifier.Notifier#notify} to reference the
-	 * message in order to remove the message as soon as the send was completed.
-	 * @property
-	 * @type Ext.Element
-	 * @private
-	 */
-	sendingEl : undefined,
-
-	/**
 	 * @cfg {Boolean} closeOnSend Config option to close the panel when client recieves confirmation of message is sent.
 	 */
 	closeOnSend : false,
@@ -211,9 +202,8 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}
 
 		if (this.record.hasMessageAction('send') || this.record.getMessageAction('sendResponse')) {
-			this.sendingEl = container.getNotifier().notify('info.sending', this.sendingText.title, this.sendingText.msg, {
-				container : this.getEl(),
-				persistent : true
+			container.getNotifier().notify('info.sending', this.sendingText.title, this.sendingText.msg, {
+				container : this.getEl()
 			});
 		} else {
 			Zarafa.core.ui.MessageContentPanel.superclass.displayInfoMask.apply(this, arguments);
@@ -236,13 +226,6 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}
 
 		if (this.record.hasMessageAction('send') || this.record.getMessageAction('sendResponse')) {
-			if (this.sendingEl) {
-				container.getNotifier().notify('info.sending', null, null, {
-					container : this.getEl(),
-					destroy : true,
-					reference : this.sendingEl
-				});
-			}
 			if (success !== false) {
 				container.getNotifier().notify('info.sent', this.sendingDoneText.title, this.sendingDoneText.msg);
 			}

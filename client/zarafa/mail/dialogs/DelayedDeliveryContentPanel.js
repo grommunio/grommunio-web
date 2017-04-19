@@ -115,7 +115,7 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
 
     /**
      * Event handler set deferred_send_time in Zarafa.core.data.IPMRecord} record and
-     * Call {@link Zarafa.mail.dialogs.DelayedDeliveryContentPanel#showNotification} for display notification
+     * display notification.
      * @param {Zarafa.core.ui.MessageContentPanel} dialog which contains the mail record.
      * @param {Zarafa.core.data.IPMRecord} record The record which is going to be send
      */
@@ -124,32 +124,8 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
         if (dialog.isSending === true && dialog.showInfoMask === true) {
             dialog.record.set('deferred_send_time', this.deferredSendTime);
             dialog.showInfoMask = false;
-            this.showNotification();
+            container.getNotifier().notify('info.saved', _('Scheduled Items'), this.sendLaterMessage());
             dialog.un('saverecord', this.onSaveRecord, this);
-        }
-    },
-
-    /**
-     * Function is use to show {@link Zarafa.core.ui.notifier.Notifier notification} and
-     * Set {@link Ext.util.DelayedTask notificationTimer} for remove notification.
-     */
-    showNotification: function ()
-    {
-        var category = 'info.saved';
-        var title = 'Scheduled Items';
-        var isMainBrowserWindow = Zarafa.core.BrowserWindowMgr.isMainWindowActive();
-
-        var notification = container.getNotifier().notify(category, title, this.sendLaterMessage(), {
-            persistent: isMainBrowserWindow,
-            listeners: {
-                click: this.onNotifierClick,
-                scope: this
-            }
-        });
-
-        if (isMainBrowserWindow) {
-            this.notificationTimer = new Ext.util.DelayedTask(this.clearNotification.createDelegate(this, [notification], this));
-            this.notificationTimer.delay(5000);
         }
     },
 
@@ -166,31 +142,6 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
 
         // return html string which show message and close button
         return String.format("{0}<b>{1}.</b> <br>{2}", upperMessage, messageDateTime, lowerMessage);
-    },
-
-    /**
-     * Function is use to Remove {@link Zarafa.core.ui.notifier.Notifier notification}
-     * @param {Zarafa.core.ui.notifier.Notifier} notification
-     */
-    clearNotification: function (notification)
-    {
-        var category = 'info.saved';
-        container.getNotifier().notify(category, null, null, {
-            reference: notification,
-            destroy: true
-        });
-        this.notificationTimer.cancel();
-    },
-
-    /**
-     * Event handler which is fired when the user clicked on the {@link Zarafa.core.ui.notifier.Notifier notification}.
-     * This will remove the notification.
-     * @param {Zarafa.core.ui.notifier.Notifier} notification
-     * @private
-     */
-    onNotifierClick: function (notification)
-    {
-        this.clearNotification(notification);
     }
 });
 
