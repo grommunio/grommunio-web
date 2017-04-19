@@ -68,7 +68,7 @@ Zarafa.common.ui.appointmentpanel.AppointmentBody = Ext.extend(Ext.form.FormPane
 			}]
 		});
 
-		Zarafa.common.ui.taskpanel.TaskBody.superclass.constructor.call(this, config);
+		Zarafa.common.ui.appointmentpanel.AppointmentBody.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.headerTemplate)) {
 			this.headerTemplate = new Ext.XTemplate(this.headerTemplate, {
