@@ -98,19 +98,19 @@
 	 	td.x-toolbar-cell:first-child {
 	 		padding-left: 0;
 	 	}
-		 .x-btn.x-btn-text-icon {
-			 .x-btn-small {
-				 button.buttons_icon_send_later_white {
-					 @extend .buttons-icon_send_white;
-					 background-position: sprite-position($icons, icon_send_later_white, $offset-x: $padding-medium, $offset-y: $padding-medium);
-				 }
-			 }
-		 }
 	 }
 	 .x-toolbar-right-row {
 	 	td.x-toolbar-cell:last-child {
 	 		padding-right: 0;
 	 	}
+		 .x-btn.x-btn-text-icon {
+			 .x-btn-small {
+				 button.buttons_icon_send_later_white {
+					 @extend .buttons-icon_send_white;
+					 background-position: sprite-position($icons, icon_send_later_white, $offset-x: $padding-medium, $offset-y: $padding-small+1);
+				 }
+			 }
+		 }
 	 }
 }
 

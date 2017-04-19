@@ -32,6 +32,7 @@ Zarafa.common.ui.RadioDateTimeField = Ext.extend(Zarafa.common.ui.CompositeField
             }, {
                 xtype: 'zarafa.datetimefield',
                 ref: 'dateTimeField',
+				cls:'zarafa-radiodatetime-datetimefield',
                 minValue: new Date(),
                 width: 200,
                 listeners: {

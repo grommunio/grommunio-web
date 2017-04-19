@@ -88,13 +88,24 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 				text : _('Send email to recipients') + ' (Ctrl + ENTER)'
 			},
 			menu: {
+				defaults : {
+					plugins : 'zarafa.menuitemtooltipplugin'
+				},
 				items: [{
 					text: _('Send'),
 					iconCls: 'icon_send_black',
 					handler: this.onSendButton,
+					tooltip : {
+						title : _('Send email'),
+						text : _('Send email to recipients') + ' (Ctrl + ENTER)'
+					},
 					scope: this
 				}, {
 					text: _('Send Later'),
+					tooltip: {
+						title: _('Send Later'),
+						text: _('Schedule your mail to be sent on a specific date and time.')
+					},
 					iconCls: 'icon_send_later_black',
 					handler: this.onSendLaterButton,
 					scope: this

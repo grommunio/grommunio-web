@@ -31,13 +31,12 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
         config = Ext.apply(config, {
             xtype: 'zarafa.delayeddeliverycontentpanel',
             width: 350,
-            height: 250,
+            height: 260,
             title: _('Schedule mail to be sent out') + '...',
             layout: 'fit',
             items: [{
                 xtype: 'zarafa.delayeddeliverypanel',
                 ref: 'delayedDeliveryPanel',
-                buttonAlign: 'left',
                 buttons: [{
                     text: _('Send'),
                     cls: 'zarafa-action',
@@ -46,9 +45,7 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
                     disabled: true,
                     handler: this.onSend,
                     scope: this
-                }, '->', {
-                    xtype: 'spacer'
-                }, {
+                },{
                     text: _('Cancel'),
                     handler: this.onCancel,
                     scope: this

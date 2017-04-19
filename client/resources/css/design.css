@@ -3144,7 +3144,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .advance_search,
 }
 
 /* line 45, ../scss/components/_buttons.scss */
-.buttons-icon_send_white, .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black,
+.buttons-icon_send_white, .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black,
 .icon_send_white {
   /* need to use !important because Ext also uses it here and there! */
   background-image: url('../images/buttons-sfbd97adab1.png') !important;
@@ -3879,12 +3879,12 @@ div.x-btn-group-bc {
   padding-left: 0;
 }
 /* line 103, ../scss/components/_panels.scss */
-.x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white {
-  background-position: 6px -2548px;
-}
-/* line 111, ../scss/components/_panels.scss */
 .x-panel-footer.x-panel-btns .x-toolbar-right-row td.x-toolbar-cell:last-child {
   padding-right: 0;
+}
+/* line 108, ../scss/components/_panels.scss */
+.x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white {
+  background-position: 6px -2550px;
 }
 
 /* tab panels */
@@ -4076,6 +4076,51 @@ body.Safari input[type="radio"] {
 /* line 121, ../scss/components/_formelements.scss */
 .zarafa-delayeddelivery-invalid-date {
   color: red;
+}
+
+/* line 125, ../scss/components/_formelements.scss */
+.zarafa-radiodatetime-datetimefield {
+  background-position-y: 24px;
+}
+
+/* line 130, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel .x-panel-body {
+  padding: 15px !important;
+}
+
+/* line 135, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-fields, .zarafa-delayeddeliverypanel-radiospinnerfield, .zarafa-delayeddeliverypanel-radiodatetimefield, .zarafa-delayeddeliverypanel-displayfield, .ext-gecko3.ext-linux .zarafa-delayeddeliverypanel-displayfield {
+  margin: 0 0 10px 5px !important;
+}
+
+/* line 141, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-radiospinnerfield .x-form-display-field {
+  top: 2px !important;
+}
+/* line 144, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-radiospinnerfield .x-form-check-wrap {
+  top: 3px !important;
+  -webkit-padding-before: 1px !important;
+}
+/* line 147, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-radiospinnerfield .x-form-check-wrap label {
+  margin-left: 10px !important;
+}
+
+/* line 155, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-radiodatetimefield .x-form-check-wrap {
+  top: 3px !important;
+  -webkit-padding-before: 3px !important;
+}
+
+/* line 161, ../scss/components/_formelements.scss */
+.zarafa-delayeddeliverypanel-displayfield {
+  margin-left: 28px !important;
+}
+
+/* line 166, ../scss/components/_formelements.scss */
+.ext-gecko3.ext-linux .zarafa-delayeddeliverypanel-displayfield {
+  margin-left: 32px !important;
 }
 
 /* column headers */
@@ -4800,7 +4845,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   padding: 0;
 }
 /* line 133, ../scss/components/_toolbars.scss */
-.x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons-icon_send_white, .x-toolbar .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black {
+.x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons-icon_send_white, .x-toolbar .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black {
   padding-left: 29px;
   background-position: 6px -622px;
 }
@@ -5499,7 +5544,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-position: 2px -4070px;
 }
 /* line 405, ../scss/components/_menus.scss */
-.x-menu .buttons-icon_send_white, .x-menu .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-left-row .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_white, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_black {
+.x-menu .buttons-icon_send_white, .x-menu .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_white, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_black {
   background-position: 1px -582px;
 }
 /* line 409, ../scss/components/_menus.scss */
