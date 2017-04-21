@@ -27,6 +27,25 @@ Ext.apply(Zarafa, {
 	readyEvent : new Ext.util.Event(),
 
 	/**
+	 * Ready flag which indicates that Webapp UI has been loaded.
+	 * (See {@link #onUIReady}).
+	 * @property
+	 * @type Boolean
+	 */
+	uiReady : false,
+
+	/**
+	 * Registration object for {@link #uiReady} onto which all event
+	 * handlers are being registered which want to be notified when
+	 * WebApp has drawn the main UI and has loaded the hierarchy panel.
+	 *
+	 * @property
+	 * @type Ext.util.Event
+	 * @private
+	 */
+	uiReadyEvent : new Ext.util.Event(),
+
+	/**
 	 * The time that the user has not done any action
 	 * (like mousemove, click, or keypress) in the WebApp.
 	 *
@@ -87,6 +106,42 @@ Ext.apply(Zarafa, {
 		this.isReady = true;
 		this.readyEvent.fire();
 		this.readyEvent.clearListeners();
+	},
+
+	/**
+	 * Adds a listener to be notified when WebApp UI is drawn and the hierarchy is loaded.
+	 * @param {Function} fn The method the event invokes.
+	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
+	 * @param {Boolean} options (optional) Options object as passed to {@link Ext.Element#addListener}. It is recommended that the options
+	 * <code>{single: true}</code> be used so that the handler is removed on first invocation.
+	 */
+	onUIReady : function(fn, scope, options)
+	{
+		// Force single is true for events.
+		options = options || {};
+		options.single = true;
+
+		this.uiReadyEvent.addListener(fn, scope, options);
+
+		// If the environment is already ready, call fireUIReady again
+		// to fire the just registered event.
+		if (this.uiReady) {
+			this.fireUIReady();
+		}
+	},
+
+	/**
+	 * Called when WebApp's UI has been loaded and the hiearchy is loaded.
+	 * All handlers registered through {@link #onUIReady} will now be fired and {@link #uiReady}
+	 * will be set.
+	 *
+	 * @private
+	 */
+	fireUIReady : function()
+	{
+		this.uiReady = true;
+		this.uiReadyEvent.fire();
+		this.uiReadyEvent.clearListeners();
 	},
 
 	/**
@@ -646,6 +701,9 @@ Ext.apply(Zarafa, {
 			// The user is at least allowed to see the Hierarchy and press buttons.
 			this.hideLoadingMask(function(){
 				container.fireEvent('webapploaded');
+
+				// Notify that the WebApp UI is loaded.
+				Zarafa.fireUIReady();
 			});
 
 			// Remove resize event listener of loading page
@@ -662,7 +720,6 @@ Ext.apply(Zarafa, {
 			// Start the keepalive to make sure we stay logged into the zarafa-server,
 			// the keepalive is also used to get notifications back to the client.
 			store.startKeepAlive();
-
 		} else {
 			this.setErrorLoadingMask(_('Error'), _('Loading model from server failed'));
 		}
