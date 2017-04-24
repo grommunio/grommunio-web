@@ -300,8 +300,8 @@ Zarafa.core.EntryId = (function()
 		objType = objType.toString(16);
 
 		// add padding for the type, which is of 4 bytes (8 characters)
-		objType = String.leftPad(objType, 2, '0');
-		objType = String.rightPad(objType, 8, '0');
+		objType = objType.padStart(2, '0');
+		objType = objType.padEnd(8, '0');
 
 		return '00000000' + MUIDZCSAB + objType + '00000000' + entryId;
 	};
