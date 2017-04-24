@@ -62,18 +62,20 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			var tplString =
 				'<tpl for=".">' +
 					'<tpl if="Ext.isEmpty(values.flag)">' +
-						'<span class="x-menu-sep zarafa-search-combobox-menu-sep"></span>' +
+						'<div class="k-search-combobox-menu-sep-parent">'+
+							'<span class="x-menu-sep k-search-combobox-menu-sep"></span>' +
+						'</div>'+
 					'</tpl>' +
-					'<div class="x-combo-list-item zarafa-search-combobox-item" ext:qtip="{[this.getQtip(values)]}" ext:qwidth="100%">' +
-					'<tpl if="this.isOtherStoreFolder(values.value)">' +
-						'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
-							'<span class="zarafa-search-node-owner">' +
-								' - {this.ownerName:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}' +
-							'</span>' +
-					'</tpl>' +
-					'<tpl if="!this.isOtherStoreFolder(values.value)">' +
-						'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
-					'</tpl>' +
+					'<div class="x-combo-list-item" ext:qtip="{[this.getQtip(values)]}" ext:qwidth="100%">' +
+						'<tpl if="this.isOtherStoreFolder(values.value)">' +
+							'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
+								'<span class="k-search-node-owner">' +
+									' - {this.ownerName:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}' +
+								'</span>' +
+						'</tpl>' +
+						'<tpl if="!this.isOtherStoreFolder(values.value)">' +
+							'<span>{name:htmlEncodeElide(' + this.ellipsisStringStartLength + ', 0, true)}</span>' +
+						'</tpl>' +
 					'</div>' +
 				'</tpl>';
 			this.tpl = new Ext.XTemplate(tplString, {

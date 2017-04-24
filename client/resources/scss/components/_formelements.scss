@@ -80,12 +80,26 @@ body.Safari input[type="radio"] {
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.6);
 	border-color: #b6b6b6;
 }
-.x-combo-list-item{
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
+
+.x-combo-list-inner{
+	padding: $padding-small 0;
+
+	.x-combo-list-item {
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		line-height: $padding-extra-extra-large;
+		padding: $padding-medium $padding-large;
+		margin: 0 $padding-small;
+		border: none !important;
+	}
+
+	.x-combo-list-item:hover{
+		background-color: $grey4;
+	}
 }
+
 .x-combo-list-item.k-combo-list-item-header {
 	font-weight: bold;
 	font-style: italic;
