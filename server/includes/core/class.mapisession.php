@@ -546,12 +546,12 @@
 			$abitem = mapi_ab_openentry($ab, $userEntryid);
 			$userData = mapi_getprops($abitem, Array(PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS));
 
-			// Get the store of the user, need this for the call to mapi_msgstore_getarchiveentryid()
-			$userStoreEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $userData[PR_ACCOUNT]);
-			$userStore = mapi_openmsgstore($GLOBALS['mapisession']->getSession(), $userStoreEntryid);
-
 			$archiveStores = Array();
 			if(isset($userData[PR_EC_ARCHIVE_SERVERS]) && count($userData[PR_EC_ARCHIVE_SERVERS]) > 0){
+				// Get the store of the user, need this for the call to mapi_msgstore_getarchiveentryid()
+				$userStoreEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $userData[PR_ACCOUNT]);
+				$userStore = mapi_openmsgstore($GLOBALS['mapisession']->getSession(), $userStoreEntryid);
+
 				for($i=0;$i<count($userData[PR_EC_ARCHIVE_SERVERS]);$i++){
 					try{
 						// Check if the store exists. It can be that the store archiving has been enabled, but no 
