@@ -1302,6 +1302,20 @@ If it is the first time this attendee has proposed a new date/time, increment th
 	}
 
 	/**
+	 * Convert epoch to MAPI FileTime, number of 100-nanosecond units since
+	 * the start of January 1, 1601.
+	 * https://msdn.microsoft.com/en-us/library/office/cc765906.aspx
+	 *
+	 * @param integer the current epoch
+	 * @return the MAPI FileTime equalevent to the given epoch time
+	 */
+	function epochToMapiFileTime($epoch)
+	{
+		$nanoseconds_between_epoch = 116444736000000000;
+		return ($epoch * 10000000) + $nanoseconds_between_epoch;
+	}
+
+	/**
 	 * Sets the properties in the message so that is can be sent
 	 * as a meeting request. The caller has to submit the message. This
 	 * is only used for new MeetingRequests. Pass the appointment item as $message
@@ -1312,8 +1326,19 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		$props = mapi_getprops($this->message, Array($this->proptags['updatecounter']));
 
 		// Create a new global id for this item
+		// https://msdn.microsoft.com/en-us/library/ee160198(v=exchg.80).aspx
 		$goid = pack('H*', '040000008200E00074C5B7101A82E00800000000');
-		for ($i=0; $i<36; $i++)
+		// Creation Time
+		$time = $this->epochToMapiFileTime(time());
+		$highdatetime = $time >> 32;
+		$lowdatetime = $time & 0xffffffff;
+		$goid .= pack('II', $lowdatetime, $highdatetime);
+		// 8 Zeros
+		$goid .= pack('P', 0);
+		// Length of the random data
+		$goid .= pack('V', 16);
+		// Random data.
+		for ($i=0; $i<16; $i++)
 			$goid .= chr(rand(0, 255));
 
 		// Create a new appointment id for this item
