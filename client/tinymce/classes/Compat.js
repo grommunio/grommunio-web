@@ -40,9 +40,12 @@ define("tinymce/Compat", [
 	tinymce.dom = tinymce.dom || {};
 	tinymce.dom.Event = EventUtils.Event;
 
-	Tools.each(Tools, function(func, key) {
-		tinymce[key] = func;
-	});
+	Tools.each(
+		'trim isArray is toArray makeMap each map grep inArray extend create walk createNS resolve explode _addCacheSuffix'.split(' '),
+		function(key) {
+			tinymce[key] = Tools[key];
+		}
+	);
 
 	Tools.each('isOpera isWebKit isIE isGecko isMac'.split(' '), function(name) {
 		tinymce[name] = Env[name.substr(2).toLowerCase()];
@@ -54,7 +57,7 @@ define("tinymce/Compat", [
 // Describe the different namespaces
 
 /**
- * Root level namespace this contains classes directly releated to the TinyMCE editor.
+ * Root level namespace this contains classes directly related to the TinyMCE editor.
  *
  * @namespace tinymce
  */

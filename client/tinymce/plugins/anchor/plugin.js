@@ -11,21 +11,52 @@
 /*global tinymce:true */
 
 tinymce.PluginManager.add('anchor', function(editor) {
-	function showDialog() {
-		var selectedNode = editor.selection.getNode(), name = '';
+	var isAnchorNode = function (node) {
+		return !node.attr('href') && (node.attr('id') || node.attr('name')) && !node.firstChild;
+	};
 
-		if (selectedNode.tagName == 'A') {
-			name = selectedNode.name || selectedNode.id || '';
+	var setContentEditable = function (state) {
+		return function (nodes) {
+			for (var i = 0; i < nodes.length; i++) {
+				if (isAnchorNode(nodes[i])) {
+					nodes[i].attr('contenteditable', state);
+				}
+			}
+		};
+	};
+
+	var showDialog = function () {
+		var selectedNode = editor.selection.getNode();
+		var isAnchor = selectedNode.tagName == 'A' && editor.dom.getAttrib(selectedNode, 'href') === '';
+		var value = '';
+
+		if (isAnchor) {
+			value = selectedNode.id || selectedNode.name || '';
 		}
 
 		editor.windowManager.open({
 			title: 'Anchor',
-			body: {type: 'textbox', name: 'name', size: 40, label: 'Name', value: name},
+			body: {type: 'textbox', name: 'id', size: 40, label: 'Id', value: value},
 			onsubmit: function(e) {
-				editor.execCommand('mceInsertContent', false, editor.dom.createHTML('a', {
-					id: e.data.name
-				}));
+				var id = e.data.id;
+
+				if (isAnchor) {
+					selectedNode.removeAttribute('name');
+					selectedNode.id = id;
+				} else {
+					editor.selection.collapse(true);
+					editor.execCommand('mceInsertContent', false, editor.dom.createHTML('a', {
+						id: id
+					}));
+				}
 			}
+		});
+	};
+
+	if (tinymce.Env.ceFalse) {
+		editor.on('PreInit', function () {
+			editor.parser.addNodeFilter('a', setContentEditable('false'));
+			editor.serializer.addNodeFilter('a', setContentEditable(null));
 		});
 	}
 

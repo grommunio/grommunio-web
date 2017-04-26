@@ -174,6 +174,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on('paste', this.onPaste.createDelegate(this), this);
 		tinymceEditor.on('mousedown', this.onMouseDown.createDelegate(this), this);
 
+		if (Ext.isGecko) {
+			tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
+			var contentPanel = container.getTabPanel();
+			this.mon(contentPanel, 'tabchange', this.onTabChange, this);
+		}
+
 		var listeners = {
 			'blur' : this.onBlur,
 			'focus' : this.onFocus,
@@ -480,27 +486,28 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * of {@link #checkValueCorrection}.
 	 * @param {String} value The value which was being set on the editor
 	 */
-	setValue: function(value) {
-		var setValue = value;
-
-		var editor = this.getEditor();
-		if ( editor ){
-			var currentValue = editor.getContent();
-			if ( currentValue === value ){
-				// No changes, so we don't need to update
-				return;
+	setValue : function (value)
+	{
+		var self = this;
+		this.withEd(function () {
+			var setValue = value;
+			var editor = self.getEditor();
+			if (editor) {
+				var currentValue = editor.getContent();
+				if (currentValue === value) {
+					// No changes, so we don't need to update
+					return;
+				}
 			}
-		}
 
-		Zarafa.common.ui.HtmlEditor.superclass.setValue.call(this, setValue);
+			Zarafa.common.ui.HtmlEditor.superclass.setValue.call(this, setValue);
 
-		if (this.rendered) {
-			// checkValueCorrection function will be only called when editor is created and
-			//  initialized. Otherwise, it will it wait for that.
-			this.withEd(function() {
-				this.checkValueCorrection(this, value);
-			});
-		}
+			if (self.rendered) {
+				// checkValueCorrection function will be only called when editor is created and
+				//  initialized. Otherwise, it will it wait for that.
+				self.checkValueCorrection(this, value);
+			}
+		});
 	},
 
 	/**
@@ -548,6 +555,25 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	},
 
 	/**
+	 * Function is called when double clicked in the editor.
+	 * While body is empty and double click in editor then firefox consider current selection on P tag instead of Span
+	 * and P tag doesn't have formatting that's way default formatting will remove.
+	 * Handle above situation by setting up selection on Span tag then after fire nodechange event of editor.
+	 */
+	onDBLClick : function ()
+	{
+		var editor = this.getEditor();
+		var element = editor.selection.getStart();
+		// tinymce used zero width space characters as character container in empty line,
+		// So needs to verify body is empty or not.
+		var isEmptyBody = editor.selection.getContent({ format: 'text' }) === '\uFEFF';
+		if (element === editor.getBody().firstChild && isEmptyBody) {
+			editor.selection.setCursorLocation(element.firstChild.firstChild);
+			editor.fire('NodeChange');
+		}
+	},
+
+	/**
 	 * Function is called when mouse is clicked in the editor.
 	 * Editor mousedown event needs to be relayed for the document element of WebApp page,
 	 * to hide the context-menu.
@@ -575,6 +601,22 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		 * handlers which clears the content of editor.
 		 */
 		if (event.keyCode === Ext.EventObject.BACKSPACE || event.keyCode === Ext.EventObject.DELETE) {
+
+			/*
+			 * Specifically in IE while selecting all of the editor content,
+			 * Somehow tinymce selection range not selecting whole body.
+			 * Selecting whole body content manually before deleting all content.
+			 */
+			if (Ext.isIE11 || Ext.isEdge) {
+				var oldRange = editor.selection.getRng();
+				var editorBodyElement = editor.getBody();
+				if (oldRange.startContainer === editorBodyElement) {
+					var newRange = editor.dom.createRng();
+					newRange.selectNodeContents(editorBodyElement);
+					editor.selection.setRng(newRange);
+				}
+			}
+
 			(function(){
 				var content = editor.getContent();
 				var node;
@@ -586,6 +628,11 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					node = editor.dom.get('_mce_caret');
 					if (node) {
 						editor.dom.remove(node);
+					}
+
+					// If body doesn't have any child then add empty line before applying default formatting.
+					if (!editor.getBody().hasChildNodes()) {
+						this.addEmptyLineBeforeContent();
 					}
 					this.applyFormattingForcefully = true;
 					this.applyDefaultFormatting(editor);
@@ -942,6 +989,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.originalValue = this.getRawValue();
 		this.hasFocus = true;
 		this.fireEvent('focus', this);
+		// While body is empty and switching a focus in editor after tab change then
+		// some how firefox consider current selection on P tag instead of span and
+		// P tag doesn't have formatting that's way default formatting will remove.
+		if (this.isTabChanged) {
+			this.getEditor().selection.setCursorLocation();
+			this.isTabChanged = false;
+		}
 	},
 
 	/**
@@ -1002,6 +1056,14 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	bindRecord : function(record)
 	{
 		this.record = record;
+	},
+
+	/**
+	 * Event handler triggers when content tab panel is changed
+	 */
+	onTabChange : function ()
+	{
+		this.isTabChanged = true;
 	}
 });
 

@@ -218,7 +218,15 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 					/* falls through */
 					default:
 						// Simply focus on the To input field.
-						this.inputAutoFocusPlugin.setAutoFocus(this.mainPanel.toRecipientField);
+						// Tinymce set delay on setting range selection therefor in IE11 webapp will set focus on
+						// To field before tinymce complete the initialization and formatting stuff.
+						if (Ext.isIE11) {
+							Ext.defer(function () {
+								this.inputAutoFocusPlugin.setAutoFocus(this.mainPanel.toRecipientField);
+							}, 1, this);
+						} else {
+							this.inputAutoFocusPlugin.setAutoFocus(this.mainPanel.toRecipientField);
+						}
 						break;
 				}
 			}

@@ -15,9 +15,19 @@
  */
 define("tinymce/dom/RangeUtils", [
 	"tinymce/util/Tools",
-	"tinymce/dom/TreeWalker"
-], function(Tools, TreeWalker) {
-	var each = Tools.each;
+	"tinymce/dom/TreeWalker",
+	"tinymce/dom/NodeType",
+	"tinymce/dom/Range",
+	"tinymce/caret/CaretContainer"
+], function(Tools, TreeWalker, NodeType, Range, CaretContainer) {
+	var each = Tools.each,
+		isContentEditableTrue = NodeType.isContentEditableTrue,
+		isContentEditableFalse = NodeType.isContentEditableFalse,
+		isCaretContainer = CaretContainer.isCaretContainer;
+
+	function hasCeProperty(node) {
+		return isContentEditableTrue(node) || isContentEditableFalse(node);
+	}
 
 	function getEndChild(container, index) {
 		var childNodes = container.childNodes;
@@ -31,6 +41,30 @@ define("tinymce/dom/RangeUtils", [
 		}
 
 		return childNodes[index] || container;
+	}
+
+	function findParent(node, rootNode, predicate) {
+		while (node && node !== rootNode) {
+			if (predicate(node)) {
+				return node;
+			}
+
+			node = node.parentNode;
+		}
+
+		return null;
+	}
+
+	function hasParent(node, rootNode, predicate) {
+		return findParent(node, rootNode, predicate) !== null;
+	}
+
+	function isFormatterCaret(node) {
+		return node.id === '_mce_caret';
+	}
+
+	function isCeFalseCaretContainer(node, rootNode) {
+		return isCaretContainer(node) && hasParent(node, rootNode, isFormatterCaret) === false;
 	}
 
 	function RangeUtils(dom) {
@@ -52,7 +86,7 @@ define("tinymce/dom/RangeUtils", [
 
 			// Handle table cell selection the table plugin enables
 			// you to fake select table cells and perform formatting actions on them
-			nodes = dom.select('td.mce-item-selected,th.mce-item-selected');
+			nodes = dom.select('td[data-mce-selected],th[data-mce-selected]');
 			if (nodes.length > 0) {
 				each(nodes, function(node) {
 					callback([node]);
@@ -92,6 +126,7 @@ define("tinymce/dom/RangeUtils", [
 			 * @private
 			 * @param {Node} node Node to collect siblings from.
 			 * @param {String} name Name of the sibling to check for.
+			 * @param {Node} end_node
 			 * @return {Array} Array of collected siblings.
 			 */
 			function collectSiblings(node, name, end_node) {
@@ -269,6 +304,10 @@ define("tinymce/dom/RangeUtils", [
 				var container, offset, walker, body = dom.getRoot(), node, nonEmptyElementsMap;
 				var directionLeft, isAfterNode;
 
+				function isTableCell(node) {
+					return node && /^(TD|TH|CAPTION)$/.test(node.nodeName);
+				}
+
 				function hasBrBeforeAfter(node, left) {
 					var walker = new TreeWalker(node, dom.getParent(node.parentNode, dom.isBlock) || body);
 
@@ -277,6 +316,18 @@ define("tinymce/dom/RangeUtils", [
 							return true;
 						}
 					}
+				}
+
+				function hasContentEditableFalseParent(node) {
+					while (node && node != body) {
+						if (isContentEditableFalse(node)) {
+							return true;
+						}
+
+						node = node.parentNode;
+					}
+
+					return false;
 				}
 
 				function isPrevNode(node, name) {
@@ -304,7 +355,7 @@ define("tinymce/dom/RangeUtils", [
 					walker = new TreeWalker(startNode, parentBlockContainer);
 					while ((node = walker[left ? 'prev' : 'next']())) {
 						// Break if we hit a non content editable node
-						if (dom.getContentEditableParent(node) === "false") {
+						if (dom.getContentEditableParent(node) === "false" || isCeFalseCaretContainer(node, dom.getRoot())) {
 							return;
 						}
 
@@ -338,6 +389,10 @@ define("tinymce/dom/RangeUtils", [
 				nonEmptyElementsMap = dom.schema.getNonEmptyElements();
 				directionLeft = start;
 
+				if (isCaretContainer(container)) {
+					return;
+				}
+
 				if (container.nodeType == 1 && offset > container.childNodes.length - 1) {
 					directionLeft = false;
 				}
@@ -354,6 +409,10 @@ define("tinymce/dom/RangeUtils", [
 					if (directionLeft) {
 						node = container.childNodes[offset > 0 ? offset - 1 : 0];
 						if (node) {
+							if (isCaretContainer(node)) {
+								return;
+							}
+
 							if (nonEmptyElementsMap[node.nodeName] || node.nodeName == "TABLE") {
 								return;
 							}
@@ -366,6 +425,15 @@ define("tinymce/dom/RangeUtils", [
 						container = container.childNodes[offset];
 						offset = 0;
 
+						// Don't normalize non collapsed selections like <p>[a</p><table></table>]
+						if (!collapsed && container === body.lastChild && container.nodeName === 'TABLE') {
+							return;
+						}
+
+						if (hasContentEditableFalseParent(container) || isCaretContainer(container)) {
+							return;
+						}
+
 						// Don't walk into elements that doesn't have any child nodes like a IMG
 						if (container.hasChildNodes() && !/TABLE/.test(container.nodeName)) {
 							// Walk the DOM to find a text node to place the caret at or a BR
@@ -373,6 +441,11 @@ define("tinymce/dom/RangeUtils", [
 							walker = new TreeWalker(container, body);
 
 							do {
+								if (isContentEditableFalse(node) || isCaretContainer(node)) {
+									normalized = false;
+									break;
+								}
+
 								// Found a text node use that position
 								if (node.nodeType === 3 && node.nodeValue.length > 0) {
 									offset = directionLeft ? 0 : node.nodeValue.length;
@@ -382,7 +455,7 @@ define("tinymce/dom/RangeUtils", [
 								}
 
 								// Found a BR/IMG element that we can place the caret before
-								if (nonEmptyElementsMap[node.nodeName.toLowerCase()]) {
+								if (nonEmptyElementsMap[node.nodeName.toLowerCase()] && !isTableCell(node)) {
 									offset = dom.nodeIndex(node);
 									container = node.parentNode;
 
@@ -491,38 +564,94 @@ define("tinymce/dom/RangeUtils", [
 	};
 
 	/**
+	 * Finds the closest selection rect tries to get the range from that.
+	 */
+	function findClosestIeRange(clientX, clientY, doc) {
+		var element, rng, rects;
+
+		element = doc.elementFromPoint(clientX, clientY);
+		rng = doc.body.createTextRange();
+
+		if (!element || element.tagName == 'HTML') {
+			element = doc.body;
+		}
+
+		rng.moveToElementText(element);
+		rects = Tools.toArray(rng.getClientRects());
+
+		rects = rects.sort(function(a, b) {
+			a = Math.abs(Math.max(a.top - clientY, a.bottom - clientY));
+			b = Math.abs(Math.max(b.top - clientY, b.bottom - clientY));
+
+			return a - b;
+		});
+
+		if (rects.length > 0) {
+			clientY = (rects[0].bottom + rects[0].top) / 2;
+
+			try {
+				rng.moveToPoint(clientX, clientY);
+				rng.collapse(true);
+
+				return rng;
+			} catch (ex) {
+				// At least we tried
+			}
+		}
+
+		return null;
+	}
+
+	function moveOutOfContentEditableFalse(rng, rootNode) {
+		var parentElement = rng && rng.parentElement ? rng.parentElement() : null;
+		return isContentEditableFalse(findParent(parentElement, rootNode, hasCeProperty)) ? null : rng;
+	}
+
+	/**
 	 * Gets the caret range for the given x/y location.
 	 *
 	 * @static
 	 * @method getCaretRangeFromPoint
-	 * @param {Number} x X coordinate for range
-	 * @param {Number} y Y coordinate for range
+	 * @param {Number} clientX X coordinate for range
+	 * @param {Number} clientY Y coordinate for range
 	 * @param {Document} doc Document that x/y are relative to
 	 * @returns {Range} caret range
 	 */
-	RangeUtils.getCaretRangeFromPoint = function(x, y, doc) {
+	RangeUtils.getCaretRangeFromPoint = function(clientX, clientY, doc) {
 		var rng, point;
 
 		if (doc.caretPositionFromPoint) {
-			point = doc.caretPositionFromPoint(x, y);
+			point = doc.caretPositionFromPoint(clientX, clientY);
 			rng = doc.createRange();
 			rng.setStart(point.offsetNode, point.offset);
 			rng.collapse(true);
 		} else if (doc.caretRangeFromPoint) {
-			rng = doc.caretRangeFromPoint(x, y);
+			rng = doc.caretRangeFromPoint(clientX, clientY);
 		} else if (doc.body.createTextRange) {
 			rng = doc.body.createTextRange();
 
 			try {
-				rng.moveToPoint(x, y);
+				rng.moveToPoint(clientX, clientY);
 				rng.collapse(true);
 			} catch (ex) {
-				// Append to top or bottom depending on drop location
-				rng.collapse(y < doc.body.clientHeight);
+				rng = findClosestIeRange(clientX, clientY, doc);
 			}
+
+			return moveOutOfContentEditableFalse(rng, doc.body);
 		}
 
 		return rng;
+	};
+
+	RangeUtils.getSelectedNode = function(range) {
+		var startContainer = range.startContainer,
+			startOffset = range.startOffset;
+
+		if (startContainer.hasChildNodes() && range.endOffset == startOffset + 1) {
+			return startContainer.childNodes[startOffset];
+		}
+
+		return null;
 	};
 
 	RangeUtils.getNode = function(container, offset) {
