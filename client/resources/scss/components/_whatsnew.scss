@@ -1,0 +1,48 @@
+#k-whatsnew-window {
+	.k-whatsnew-feature-number {
+		padding: 1px $padding-large 0;
+	}
+
+	.k-whatsnew-feature-text {
+		padding: $padding-extra-large $padding-extra-large 0;
+
+		.k-whatsnew-feature-icon {
+			margin-bottom: $padding-extra-large;
+			max-height: 100px;
+			max-width: 200px;
+		}
+
+		h2.k-whatsnew-text-title {
+			font-size: $font-size-extra-large !important;
+			margin-bottom: $padding-large;
+		}
+
+		.k-whatsnew-text-description {
+			line-height: $font-default-line-height - 2px;
+		}
+	}
+	.k-whatsnew-feature-image {
+		padding: $padding-extra-large 0 0;
+		text-align: center;
+
+		img {
+			max-width: 420px;
+			max-height: 275px;
+		}
+	}
+
+	.k-whatsnew-navbar {
+		border: none;
+
+		.x-item-disabled {
+			visibility: hidden;
+		}
+	}
+
+	.k-whatsnew-checkbox {
+		label {
+			line-height: 100%;
+			margin-left: $padding-large;
+		}
+	}
+}

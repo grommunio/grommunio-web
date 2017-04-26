@@ -768,6 +768,8 @@ Ext.apply(Zarafa, {
 		// Start loading all plugins
 		Zarafa.fireReady();
 
+		Zarafa.whatsnew.Actions.openWhatsNewDialog();
+
 		// Check if user is out of office and ask them if they want to switch it off
 		this.checkOof();
 

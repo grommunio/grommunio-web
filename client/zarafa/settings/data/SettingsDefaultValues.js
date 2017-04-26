@@ -319,6 +319,26 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Number
 								 */
 								'default_snooze_time' : 5
+							},
+
+							'new_features_dialog' : {
+								/**
+								 * zarafa/v1/main/new_features_dialog/show
+								 * Whether or not the dialog with new feature info should be shown
+								 * @property
+								 * @type Boolean
+								 */
+								'show' : true,
+
+								'last_version' : {
+									/**
+									 * zarafa/v1/main/last_version/webapp
+									 * The version of WebApp for which the What's new dialog was shown last time
+									 * @property
+									 * @type String
+									 */
+									'webapp' : '0'
+								}
 							}
 						},
 

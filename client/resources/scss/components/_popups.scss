@@ -168,6 +168,7 @@
 	/* footer */
 	.x-window-bl {
 		background: none;
+		padding-left: 0;
 
 		.x-window-br {
 			background: none;
@@ -175,6 +176,16 @@
 			.x-window-bc {
 				background: none;
 			}
+		}
+	}
+
+	 .x-panel-nofooter .x-window-bc {
+	 	display: none;
+	 }
+
+	.x-window-bbar {
+		.x-toolbar {
+			border-top-color: $grey;
 		}
 	}
 

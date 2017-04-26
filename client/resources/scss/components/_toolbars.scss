@@ -72,10 +72,10 @@
 		}
 
 		.x-btn.x-btn-over:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small,
-		.x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
+		.x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
 			border: 1px solid $grey2;
 		}
-		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
+		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
 			background-color: $grey3;
 		}
 
@@ -307,6 +307,18 @@
 				button.icon_more {
 					@extend .icon_more;
 					background-position: sprite-position($icons, icon_more, $offset-y: 10px, $offset-x: 3px);
+				}
+
+				/* arrow left button */
+				button.arrow_left_l {
+					@extend .arrow_left_l;
+					background-position: sprite-position($icons, arrow_left_l, $offset-y: 8px, $offset-x: 9px);
+				}
+
+				/* arrow right button */
+				button.arrow_right_l {
+					@extend .arrow_right_l;
+					background-position: sprite-position($icons, arrow_right_l, $offset-y: 8px, $offset-x: 11px);
 				}
 			}
 		}
