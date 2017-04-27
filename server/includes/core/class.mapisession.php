@@ -1,7 +1,7 @@
 <?php
 
 	require_once( BASE_PATH . 'server/includes/core/class.properties.php' );
-	
+
 	/**
 	 * MAPI session handling
 	 *
@@ -135,7 +135,7 @@
 				$user_props = array(PR_DISPLAY_NAME, PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS, PR_SEARCH_KEY, 0x8C9E0102, PR_ASSISTANT_TELEPHONE_NUMBER);
 				$properties = new properties();
 				$user_props = array_merge($user_props, $properties->getAddressBookItemMailuserProperties());
-				
+
 				$user_props = mapi_getprops($user, $user_props);
 
 				if (is_array($user_props) && isset($user_props[PR_DISPLAY_NAME]) && isset($user_props[PR_SMTP_ADDRESS])){
@@ -249,7 +249,7 @@
 		 * @deprecated 2.2.0 This function only exists for backward compatibility with
 		 * 		 older plugins that want to send the session id as a GET parameter with
 		 * 		 requests that they make to kopano.php. The script kopano.php does not
-		 * 		 expect this parameter anymore, but plugins that are not updated might 
+		 * 		 expect this parameter anymore, but plugins that are not updated might
 		 * 		 still call this function.
 		 * @return string Always empty
 		 */
@@ -331,7 +331,7 @@
 		  * getSomeUserProperty() will look return a property called some_user_property if it exists and
 		  * throw an exception otherwise.
 		  * @param string $methodName The name of the method that was called
-		  * @param array $arguments The arguments that were passed in the call 
+		  * @param array $arguments The arguments that were passed in the call
 		  * @return String The requested property if it exists
 		  * @throws Exception
 		  */
@@ -412,14 +412,17 @@
 				$storestables = mapi_getmsgstorestable($this->session);
 				$rows = mapi_table_queryallrows($storestables, array(PR_ENTRYID, PR_DEFAULT_STORE, PR_MDB_PROVIDER));
 				foreach($rows as $row) {
+					$name = '';
 					if($row[PR_ENTRYID]){
 						if(isset($row[PR_DEFAULT_STORE]) && $row[PR_DEFAULT_STORE] == true) {
 							$this->defaultstore = $row[PR_ENTRYID];
+							$name = 'Default store';
 						}elseif($row[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID){
 							$this->publicStore = $row[PR_ENTRYID];
+							$name = 'Public store';
 						}
 					}
-					$this->openMessageStore($row[PR_ENTRYID]);
+					$this->openMessageStore($row[PR_ENTRYID], $name);
 				}
 			}
 		}
@@ -444,7 +447,7 @@
 
 		/**
 		 * Get single store and it's archive store aswell if we are openig full store.
-		 * 
+		 *
 		 * @param $store object the store of the user
 		 * @param array $storeOptions contains folder_type of which folder to open
 		 * It is mapped to username, If folder_type is 'all' (i.e. Open Entire Inbox)
@@ -509,9 +512,12 @@
 		/**
 		 * Open the message store with entryid $entryid
 		 *
+		 * @param String $entryid String representation of the binary entryid of the store.
+		 * @param String $name The name of the store. Will be logged when opening fails.
+		 *
 		 * @return mapistore The opened store on success, false otherwise
 		 */
-		function openMessageStore($entryid)
+		function openMessageStore($entryid, $name='')
 		{
 			// Check the cache before opening
 			foreach($this->stores as $storeEntryId => $storeObj) {
@@ -526,6 +532,14 @@
 				// Cache the store for later use
 				$this->stores[$entryid] = $store;
 			} catch (MAPIException $e) {
+				error_log('Failed to open store with entryid ' . $entryid . ($name ? " ($name)":''));
+				error_log($e);
+				return $e->getCode();
+			} catch (Exception $e ) {
+				// mapi_openmsgstore seems to throw another exception than MAPIException
+				// sometimes, so we add a safety net.
+				error_log('Failed to open store with entryid ' . $entryid . ($name ? " ($name)":''));
+				error_log($e);
 				return $e->getCode();
 			}
 
@@ -533,9 +547,9 @@
 		}
 
 		/**
-		 * Searches for the PR_EC_ARCHIVE_SERVERS property of the user of the passed entryid in the 
+		 * Searches for the PR_EC_ARCHIVE_SERVERS property of the user of the passed entryid in the
 		 * Addressbook. It will get all his archive store objects and add those to the $this->stores
-		 * list. It will return an array with the list of archive stores where the key is the 
+		 * list. It will return an array with the list of archive stores where the key is the
 		 * entryid of the store and the value the store resource.
 		 * @param String $userEntryid Binary entryid of the user
 		 * @return MAPIStore[] List of store resources with the key being the entryid of the store
@@ -554,7 +568,7 @@
 			if(isset($userData[PR_EC_ARCHIVE_SERVERS]) && count($userData[PR_EC_ARCHIVE_SERVERS]) > 0){
 				for($i=0;$i<count($userData[PR_EC_ARCHIVE_SERVERS]);$i++){
 					try{
-						// Check if the store exists. It can be that the store archiving has been enabled, but no 
+						// Check if the store exists. It can be that the store archiving has been enabled, but no
 						// archived store has been created an none can be found in the PR_EC_ARCHIVE_SERVERS property.
 						$archiveStoreEntryid = mapi_msgstore_getarchiveentryid($userStore, $userData[PR_ACCOUNT], $userData[PR_EC_ARCHIVE_SERVERS][$i]);
 						$archiveStores[$archiveStoreEntryid] = mapi_openmsgstore($GLOBALS['mapisession']->getSession(), $archiveStoreEntryid);
@@ -590,7 +604,7 @@
 						try {
 							$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-							$this->openMessageStore($user_entryid);
+							$this->openMessageStore($user_entryid, $username);
 							$this->userstores[$username] = $user_entryid;
 
 							// Check if an entire store will be loaded, if so load the archive store as well
@@ -616,8 +630,8 @@
 		}
 
 		/**
-		 * Resolve the username strictly by opening that user's store and returning the 
-		 * PR_MAILBOX_OWNER_ENTRYID. This can be used for resolving an username without the risk of 
+		 * Resolve the username strictly by opening that user's store and returning the
+		 * PR_MAILBOX_OWNER_ENTRYID. This can be used for resolving an username without the risk of
 		 * ambiguity since mapi_ab_resolve() does not strictly resolve on the username.
 		 * @param String $username The username
 		 * @return Binary|Integer Entryid of the user on success otherwise the hresult error code
@@ -683,7 +697,7 @@
 			if($user_entryid) {
 				$this->userstores[$username] = $user_entryid;
 
-				return $this->openMessageStore($user_entryid);
+				return $this->openMessageStore($user_entryid, $username);
 			}
 		}
 
@@ -771,7 +785,7 @@
 					// Find available contact folders from all user stores, one by one.
 					foreach($this->userstores as $username => $storeEntryID) {
 						$userContactFolders = array();
-						$openedUserStore = $this->openMessageStore($storeEntryID);
+						$openedUserStore = $this->openMessageStore($storeEntryID, $username);
 
 						// Get settings of respective shared folder of given user
 						$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", null);
@@ -815,7 +829,7 @@
 					}
 				}
 
-				// include public contact folders in addressbook if public folders are enabled, and Public contact folders is not disabled 
+				// include public contact folders in addressbook if public folders are enabled, and Public contact folders is not disabled
 				if (!DISABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
 					$publicStore = $this->getPublicMessageStore();
 					if($publicStore !== false) {
