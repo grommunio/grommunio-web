@@ -592,6 +592,11 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	{
 		path = this.getPath(path);
 
+		// Compare the value with the current saved setting.
+		if (JSON.stringify(this.get(path, true)) === JSON.stringify(value)) {
+			return;
+		}
+
 		var deleteSettings = this.removeSettingsObject(path, this.settings);
 		var newSettings = this.applySettingsObject(path, value, this.settings);
 
