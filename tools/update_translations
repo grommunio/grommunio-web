@@ -6,7 +6,7 @@ update_translations () {
   potfile=$1
   lang=$2
   files=$3
-  xgettext --omit-header --keyword=_ --keyword=_W --keyword=_TT -j -L $lang --keyword=dgettext:2 --keyword=ngettext:1,2 --keyword=dngettext:2,3 --keyword=pgettext:1c,2 --keyword=dpgettext:2c,3 --keyword=npgettext:1c,2,3 --keyword=dnpgettext:2c,3,4 --add-comments=TRANSLATORS --from-code utf-8 --files-from $files -o $potfile
+  xgettext --no-location --omit-header --keyword=_ --keyword=_W --keyword=_TT -j -L $lang --keyword=dgettext:2 --keyword=ngettext:1,2 --keyword=dngettext:2,3 --keyword=pgettext:1c,2 --keyword=dpgettext:2c,3 --keyword=npgettext:1c,2,3 --keyword=dnpgettext:2c,3,4 --add-comments=TRANSLATORS --from-code utf-8 --files-from $files -o $potfile
 }
 
 update_potfile() {
