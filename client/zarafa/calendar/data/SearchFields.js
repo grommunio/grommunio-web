@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.calendar.data');
  */
 Zarafa.calendar.data.SearchFields = [{
 	name : _('All text fields'),
-	value : 'subject sender_name sender_email_address sent_representing_name sent_representing_email_address body display_to display_cc location'
+	value : 'subject sender_name categories sender_email_address sent_representing_name sent_representing_email_address body display_to display_cc location'
 }, {
 	name : _('Subject'),
 	value : 'subject'
