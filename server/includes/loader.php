@@ -17,8 +17,7 @@ class FileLoader {
 		$jsLoadingSequence = array();
 
 		if ($load == LOAD_RELEASE) {
-			$jsLoadingSequence[] = "client/extjs/ext-base.js";
-			$jsLoadingSequence[] = "client/extjs/ext-all.js";
+			$jsLoadingSequence[] = "client/extjs/ext-base-all.js";
 			$jsLoadingSequence[] = "client/extjs/ux/ux-all.js";
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.min.js";
