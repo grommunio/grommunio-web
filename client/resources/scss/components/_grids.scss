@@ -530,6 +530,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				@extend .icon_flag_complete;
 	        	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: $padding-medium, $offset-x: $padding-medium - 1);
 			}
+
+			.icon_folder_note {
+				background-position: sprite-position($iconsmap, folder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			}
 		}
 	}	
 	
