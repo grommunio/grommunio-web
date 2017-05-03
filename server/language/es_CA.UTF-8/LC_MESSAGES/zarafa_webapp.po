@@ -5114,9 +5114,6 @@ msgstr ""
 msgid "Map"
 msgstr "Mapa"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr ""
 

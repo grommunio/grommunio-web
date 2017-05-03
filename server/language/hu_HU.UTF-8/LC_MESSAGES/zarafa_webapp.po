@@ -5102,9 +5102,6 @@ msgstr "Google Térkép"
 msgid "Map"
 msgstr "Térkép"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Kiválasztott üzenet(ek) mozgatása {0} mappába"
 

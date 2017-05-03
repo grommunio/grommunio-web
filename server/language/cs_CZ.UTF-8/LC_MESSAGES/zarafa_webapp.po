@@ -5023,9 +5023,6 @@ msgstr ""
 msgid "Map"
 msgstr "Mapa světa"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Přesunout aktuálně vybranou zprávu(y) k {0}"
 
