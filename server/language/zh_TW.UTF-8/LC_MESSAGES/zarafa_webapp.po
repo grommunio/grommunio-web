@@ -4899,9 +4899,6 @@ msgstr "Google地圖"
 msgid "Map"
 msgstr "地圖"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "搬移選擇的郵件到{0}"
 

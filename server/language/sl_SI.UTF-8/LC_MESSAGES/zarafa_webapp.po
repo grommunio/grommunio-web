@@ -5145,9 +5145,6 @@ msgstr "Google Maps"
 msgid "Map"
 msgstr "Zemljevid"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Premakni trenutno izbrano-a sporočilo-a v {0}"
 

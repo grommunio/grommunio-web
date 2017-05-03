@@ -5047,9 +5047,6 @@ msgstr "Google Maps"
 msgid "Map"
 msgstr "Kartta"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Siirrä valitut viestit kohteeseen {0}"
 

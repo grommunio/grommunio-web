@@ -5272,9 +5272,6 @@ msgstr ""
 msgid "Map"
 msgstr "Mar"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 #, fuzzy
 msgid "Move currently selected message(s) to {0}"
 msgstr "Copiar/Mover mensagens selecionadas para"

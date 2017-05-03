@@ -5182,9 +5182,6 @@ msgstr "Google Maps"
 msgid "Map"
 msgstr "Karte"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Derzeit ausgewählte Nachrichten nach {0} verschieben"
 

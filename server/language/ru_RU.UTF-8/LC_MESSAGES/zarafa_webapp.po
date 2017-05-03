@@ -5044,9 +5044,6 @@ msgstr "Карты Google"
 msgid "Map"
 msgstr "Карта"
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr "Переместить выбранные письма в {0}"
 

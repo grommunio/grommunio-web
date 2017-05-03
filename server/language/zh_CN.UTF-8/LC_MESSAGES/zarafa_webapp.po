@@ -4823,9 +4823,6 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
-msgid "UserTracking Plugin"
-msgstr ""
-
 msgid "Move currently selected message(s) to {0}"
 msgstr ""
 
