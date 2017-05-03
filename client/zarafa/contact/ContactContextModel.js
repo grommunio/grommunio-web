@@ -308,5 +308,21 @@ Zarafa.contact.ContactContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			this.setDataMode(this.oldDataMode);
 		}
 		delete this.oldDataMode;
+	},
+
+	/**
+	 * Sets the selected folder list directly.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders selected folders as an array of
+	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord MAPIFolder} objects.
+	 */
+	setFolders : function(folders)
+	{
+		// Suspend loading, so we can safely change the restriction character
+		this.suspendLoading(true);
+		Zarafa.contact.ContactContextModel.superclass.setFolders.call(this,folders);
+		this.setRestrictionCharacter(this.getRestrictionCharacter(), true);
+
+		// Resume loading after applying restriction
+		this.resumeLoading();
 	}
 });
