@@ -273,12 +273,6 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				this.editorField.setHtmlEditor(this.use_html_editor, false);
 				this.editorField.bindRecord(record);
 				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
-			} else if (this.use_html_editor) {
-				// While IPMStore update gets relayed to ShadowStore, there is no need to load record-body
-				// to editor, But assign corrected value to record instead to avoid editor-incurred
-				// changes being considered as user-changes.
-				var editor = this.editorField.getEditor();
-				editor.checkValueCorrection(editor, record.get('html_body'));
 			}
 		}
 	},
