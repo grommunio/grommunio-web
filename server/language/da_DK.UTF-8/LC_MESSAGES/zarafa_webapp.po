@@ -1350,6 +1350,7 @@ msgstr "Foreløbig "
 msgid "Decline"
 msgstr "Afvis"
 
+#: client/zarafa/calendar/ui/CalendarContextMenu.js:365
 msgid "Occurrence"
 msgstr "Hændelse"
 

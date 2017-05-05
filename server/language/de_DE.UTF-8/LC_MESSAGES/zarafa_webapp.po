@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-04-18 14:56+0000\n"
+"PO-Revision-Date: 2017-05-02 13:54+0000\n"
 "Last-Translator: Andreas <a.roesler@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -716,7 +716,7 @@ msgid "weeks"
 msgstr "Wochen"
 
 msgid " on "
-msgstr " an "
+msgstr " am "
 
 # 80%
 msgid "month"
@@ -3962,7 +3962,7 @@ msgid "Schedule mail to be sent out"
 msgstr "E-Mail für den Versand einplanen"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Geplante E-Mails"
 
 msgid "Your message will be sent at "
 msgstr "Ihre Nachricht wird versandt um "
@@ -3984,6 +3984,8 @@ msgstr "zu einer definierten Zeit"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
+"Die eingegebene Zeit ist bereits vergangen. Bitte planen Sie eine andere "
+"Zeit für den Versand."
 
 msgid "today  at "
 msgstr "heute um "
@@ -4035,6 +4037,8 @@ msgstr "Später verschicken"
 
 msgid "Schedule your mail to be sent on a specific date and time."
 msgstr ""
+"Planen Sie den Versand Ihrer E-Mail zu einer festgelegten Zeit an einem "
+"festgelegten Datum."
 
 msgid "Save email"
 msgstr "E-Mail speichern"
