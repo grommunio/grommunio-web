@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-03-08 13:23+0000\n"
-"Last-Translator: Gabor MARTON <marton@mik.uni-pannon.hu>\n"
+"PO-Revision-Date: 2017-04-28 09:45+0000\n"
+"Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/hu/>\n"
 "Language: hu_HU\n"
@@ -456,7 +456,6 @@ msgstr "Részletek megjelenítése"
 msgid "Use the search bar to get results"
 msgstr "Használja a keresőt, hogy találatokat kapjon"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "Nincsenek megjeleníthető elemek ebben a nézetben"
 
@@ -559,9 +558,8 @@ msgstr "Tavaly"
 msgid "Custom date"
 msgstr "Egyéni dátum"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "'{0}' mappa kiválasztva."
+msgstr "Minden mappa kiválasztva"
 
 msgid "Reply"
 msgstr "Válasz"
@@ -583,9 +581,8 @@ msgstr "Keresőeszközök"
 msgid "Folders"
 msgstr "Mappák"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Almappák létrehozása"
+msgstr "Almappákban is"
 
 msgid "Show.."
 msgstr "Mutasd.."
@@ -1755,9 +1752,8 @@ msgid ""
 msgstr ""
 "A lemondó üzenet minden címzettnek el lesz küldve, biztosan folytatni akarja?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Befejezett feladatok"
+msgstr "Befejezetlen feladat törlése"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
 msgstr ""
@@ -2502,23 +2498,20 @@ msgid "Rule already has lowest priority."
 msgstr "A szabály már a legalacsonyabb prioritású."
 
 msgid "myself"
-msgstr ""
+msgstr "saját magam"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Szabályok kezelése a következő felhasználó számára"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Kívánja alkalmazni a változásokat?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "Összes mappám"
+msgstr "Összes mappa"
 
-#, fuzzy
 msgid "Other..."
-msgstr "Egyéb"
+msgstr "Egyéb..."
 
-#, fuzzy
 msgid "Search in.."
 msgstr "Keresés.."
 
@@ -2556,10 +2549,8 @@ msgstr "Megbízottak"
 msgid "Delegate settings"
 msgstr "Meghatalmazottak beállításai"
 
-# 80%
-#, fuzzy
 msgid "Rules"
-msgstr "Szabály"
+msgstr "Szabályok"
 
 msgid "Send As"
 msgstr "Küldés mint"
@@ -2771,32 +2762,27 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Ezt az üzenetet a következő időpontban továbbította: {0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Elfogadva {0} által ekkor: {1}"
+msgstr "Beosztva {0} által ekkor: {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Olvasási visszaigazolás kérése a címzettektől"
+msgstr "Várakozás a címzett válaszára"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Elfogadva {0} által ekkor: {1}"
+msgstr "Elfogadva {0} által ekkor: {1}."
 
 #, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0} elfogadta {1} nevében."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Elfogadva {0} által ekkor: {1}"
+msgstr "Elutasítva {0} által ekkor: {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} elutasította {1} nevében."
+msgstr "{0} elutasította {2} {1} nevében."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Utolsó frissítés kiküldve: {0}."
 
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
@@ -4657,13 +4643,12 @@ msgstr "Aktív feladatok"
 msgid "Declining Task"
 msgstr ""
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved into the Tasks folder. Do you want to "
 "edit the response before sending it?"
 msgstr ""
-"Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván "
-"megjegyzést fűzni a válaszához?"
+"Ez a feladat elfogadásra került és a feladatok mappába lett helyezve. "
+"Kívánja szerkeszteni a válaszát az elküldés előtt?"
 
 #, fuzzy
 msgid ""
@@ -4673,9 +4658,8 @@ msgstr ""
 "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
 "megjegyzést fűzni a válaszához?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Válasz elküldése azonnal."
+msgstr "Válasz elküldése azonnal"
 
 msgid "Date Complete"
 msgstr "Befejezés dátuma"
@@ -4687,7 +4671,7 @@ msgid "Create Unassigned Copy"
 msgstr "Nem hozzárendelt másolat készítése"
 
 msgid "copy"
-msgstr ""
+msgstr "másolás"
 
 msgid "You cannot send a task request to yourself."
 msgstr ""
@@ -4910,7 +4894,6 @@ msgstr "óra"
 msgid "Billing information"
 msgstr "Számlázási Adatok"
 
-#, fuzzy
 msgid "Update list"
 msgstr "Lista frissítése"
 

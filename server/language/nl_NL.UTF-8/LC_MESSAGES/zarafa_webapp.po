@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-04-26 15:26+0000\n"
+"PO-Revision-Date: 2017-05-04 13:30+0000\n"
 "Last-Translator: Sean <s.vanderspek@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -4003,43 +4003,43 @@ msgid "Schedule mail to be sent out"
 msgstr "Plan het versturen van een bericht"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Ingeplande Items"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "Uw bericht wordt verstuurd op "
 
 msgid "Go to your <b>Outbox</b> to edit your email."
-msgstr ""
+msgstr "Ga naar uw <b>Outbox</b> om uw e-mail te bewerken."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "uur"
 
 msgid "day(s)"
-msgstr ""
+msgstr "dag(en)"
 
 msgid "month(s)"
-msgstr ""
+msgstr "maand(en)"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "op een specifieke datum"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "De opgegeven tijd is al gepasseerd. Plan uw e-mail opnieuw in."
 
 msgid "today  at "
-msgstr ""
+msgstr "vandaag  om "
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "morgen  om "
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0} om "
 
 msgid "at {0}"
-msgstr ""
+msgstr "op {0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "Uw e-mail wordt {0}{1} verstuurd"
 
 # 83%
 msgid "E-Mail"
@@ -4072,10 +4072,12 @@ msgid "Send email to recipients"
 msgstr "Verzend e-mail naar ontvangers"
 
 msgid "Send Later"
-msgstr ""
+msgstr "Verzend Later"
 
 msgid "Schedule your mail to be sent on a specific date and time."
 msgstr ""
+"Plan uw bericht in om verstuurd te worden op een specifieke datum en "
+"tijdstip."
 
 msgid "Save email"
 msgstr "Sla e-mail op"
@@ -4778,9 +4780,8 @@ msgstr ""
 "Deze taak wordt afgewezen en verplaatst naar de Taken map. Wilt u het "
 "antwoord bewerken voor het versturen?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Antwoord nu verzenden."
+msgstr "Antwoord nu verzenden"
 
 msgid "Date Complete"
 msgstr "Datum Voltooid"
@@ -4792,14 +4793,13 @@ msgid "Create Unassigned Copy"
 msgstr "Maak Nieuwe Niet-toegewezen Kopie"
 
 msgid "copy"
-msgstr ""
+msgstr "kopie"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "U kunt geen taakverzoek naar uzelf sturen."
 
-#, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "Vraag altijd om een leesbevestiging"
+msgstr "Een taakverzoek mag maar één geadresseerde hebben."
 
 msgid "Due date"
 msgstr "Verloopdatum"
@@ -4811,23 +4811,22 @@ msgstr "Prioriteit"
 msgid "% Complete"
 msgstr "% Voltooid"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "Word uitgevoerd"
+msgstr "Voortgang bijhouden"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"Bewaar een bijgewerkte kopie van de taak en ontvang geautomatiseerde "
+"statusrapporten"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Taak naar toegewezene verzenden"
+msgstr "Stuur taak naar geadresseerden"
 
 msgid "Send assignment"
 msgstr "Taakverzoek verzenden"
 
-#, fuzzy
 msgid "Save without sending a task request to assignees"
-msgstr "Sla op zonder een uitnodiging te sturen"
+msgstr "Sla op zonder een taakverzoek naar geadresseerden te sturen"
 
 msgid "Save task"
 msgstr "Bewaar taak"
@@ -4839,12 +4838,11 @@ msgid "Save task and close dialog"
 msgstr "Bewaar deze taak en sluit het venster"
 
 # 84%
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Standaard herstellen"
+msgstr "Herstellen naar Takenlijst"
 
 msgid "Restore this item to your task list"
-msgstr ""
+msgstr "Herstel dit item naar uw takenlijst"
 
 # 94%
 # 76%
@@ -4870,16 +4868,15 @@ msgid "Assign Task"
 msgstr "Wijs Taak Toe"
 
 msgid "Assign this task to someone else."
-msgstr ""
+msgstr "Wijs deze taak toe aan iemand anders."
 
 msgid "Cancel Assignment"
 msgstr "Annuleer Toewijzing"
 
-#, fuzzy
 msgid "Convert this task request to a regular task by removing assignees."
 msgstr ""
-"Converteer dit vergaderverzoek naar een afspraak door genodigden te "
-"verwijderen"
+"Converteer deze toegewezen taak naar een reguliere taak door geadresseerden "
+"te verwijderen."
 
 # 75%
 # 79%
@@ -4934,9 +4931,8 @@ msgstr "Voltooide Taken"
 
 # 92%
 # 100%
-#, fuzzy
 msgid "Task request"
-msgstr "Taakverzoek"
+msgstr "Toegewezen taak"
 
 msgid "Print selected task"
 msgstr "Druk geselecteerde taak af"
@@ -4954,18 +4950,17 @@ msgid "Tasks"
 msgstr "Taken"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Markeer als Voltooid"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Markeer als Onvoltooid"
 
-#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
-"Alle gemaakte wijzigingen zullen worden overschreven wanneer dit "
-"vergaderverzoek wordt bijgewerkt door de organisator"
+"Let op: alle gemaakte wijzigingen zullen worden overschreven wanneer de "
+"toegewezen taak wordt bijgewerkt door de geadresseerde."
 
 msgid "Reminder Time"
 msgstr "Herinneringstijd"
@@ -5029,24 +5024,20 @@ msgid "Loading tasks"
 msgstr "Taken laden"
 
 # 92%
-#, fuzzy
 msgid "Date completed"
-msgstr "Datum Voltooid"
+msgstr "Datum voltooid"
 
 msgid "hours"
 msgstr "uren"
 
-#, fuzzy
 msgid "Billing information"
 msgstr "Factuurinformatie"
 
-#, fuzzy
 msgid "Update list"
-msgstr "Lijst Bijwerken"
+msgstr "Lijst bijwerken"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "d-m-Y"
+msgstr "D d-m-Y"
 
 # 78%
 #, fuzzy
@@ -5198,9 +5189,8 @@ msgstr "Contact Fax"
 msgid "Configure widget"
 msgstr "Configureer widget"
 
-#, fuzzy
 msgid "Reload interval (s)"
-msgstr "Herlaadinterval (ms)"
+msgstr "Herlaad interval (s)"
 
 msgid "No appointments for today."
 msgstr "Geen afspraken vandaag."
@@ -5959,6 +5949,8 @@ msgstr "Kon gebruiker niet vinden."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Het bewerken van regels van de stores van andere gebruikers is niet "
+"toegestaan."
 
 msgid "Untitled rule"
 msgstr "Naamloze regel"

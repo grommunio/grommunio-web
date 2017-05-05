@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-04-18 12:55+0000\n"
-"Last-Translator: Sean <s.vanderspek@zarafa.com>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"PO-Revision-Date: 2017-05-03 05:21+0000\n"
+"Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -447,7 +447,6 @@ msgstr "Vis detaljer"
 msgid "Use the search bar to get results"
 msgstr "Bruk søkefeltet for resultater"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "Det finnes ingen elementer å vise i denne visningstypen"
 
@@ -549,9 +548,8 @@ msgstr "Forrige år"
 msgid "Custom date"
 msgstr "Selvvalgt dato"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Mappe '{0}' valgt."
+msgstr "Alle mapper er valgt"
 
 msgid "Reply"
 msgstr "Svar"
@@ -572,9 +570,8 @@ msgstr "Søkeverktøy"
 msgid "Folders"
 msgstr "Mapper"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Lage undermapper"
+msgstr "Inkluder undermapper"
 
 msgid "Show.."
 msgstr "Vis..."
@@ -1710,20 +1707,17 @@ msgid ""
 msgstr ""
 "En avbruddsmelding vil bli sendt til alle mottakerer, vil du fortsette?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Utførte oppgaver"
+msgstr "Slett ufullstendige oppgave"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "Oppgaven \"{0}\" er ikke ferdig. Hva vil du gjøre?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Avslå møteinvitasjon"
+msgstr "Avslå og slett"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Merk som ikke fullført"
+msgstr "Merk som fullført og slett"
 
 msgid ""
 "The sender of this message has asked to be notified when you read this "
@@ -2049,6 +2043,8 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
+"slettede elementene kan allikevel bli gjenopprettet."
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -2071,9 +2067,8 @@ msgstr "Rediger mottaker"
 msgid "Send e-mail"
 msgstr "Send e-post"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "Slett denne distribusjonslisten."
+msgstr "Slett mottakeren fra forslagslisten"
 
 msgid "View recipient"
 msgstr "Vis mottakere"
@@ -2437,25 +2432,22 @@ msgid "Rule already has lowest priority."
 msgstr "Regelen har allerede laveste prioritet."
 
 msgid "myself"
-msgstr ""
+msgstr "meg selv"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Oppdater regler for"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Ønsker du å bruke disse endringene?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "Alle mine mapper"
+msgstr "Alle mapper"
 
-#, fuzzy
 msgid "Other..."
-msgstr "Andre"
+msgstr "Andre..."
 
-#, fuzzy
 msgid "Search in.."
-msgstr "Søk.."
+msgstr "Søk i.."
 
 msgid "Add/Edit sender"
 msgstr "Legg til/Rediger avsender"
@@ -2485,9 +2477,8 @@ msgstr "Representanter"
 msgid "Delegate settings"
 msgstr "Representant innstillinger"
 
-#, fuzzy
 msgid "Rules"
-msgstr "Regel"
+msgstr "Regler"
 
 msgid "Send As"
 msgstr "Send som"
@@ -2697,47 +2688,39 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Du videresendte denne meldingen {0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Godtatt av {0} på {1}"
+msgstr "Tilordnet av {0} på {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Be om lesebekreftelse fra mottaker"
+msgstr "Venter på svar fra mottaker"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Godtatt av {0} på {1}"
+msgstr "Godtatt av {0} på {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} har blitt godtatt på vegne av {1}."
+msgstr "{0} har godtatt på vegne av {1} {2}."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Godtatt av {0} på {1}"
+msgstr "Avslått av {0} på {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} har avslått på vegne av {1}."
+msgstr "{0} har avslått på vegne av {1} {2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Siste oppdatering send på {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} har blitt godtatt på vegne av {1}."
+msgstr "{0} har blitt godtatt på vegne av {1} {2}."
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Vi vil forsøke å reparere en ødelagt melding, vil du fortsette?"
 
-#, fuzzy
 msgid "d-m-Y g:i a"
-msgstr "d.m.Y"
+msgstr "d.m.Y G:i"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "Finner ikke tilsvarende oppgave i oppgavelisten."
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3841,7 +3824,7 @@ msgid "Schedule mail to be sent out"
 msgstr "Planlegg å sende e-post"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Planlagte e-poster"
 
 msgid "Your message will be sent at "
 msgstr "Din melding vil bli sendt "
@@ -3862,7 +3845,7 @@ msgid "at a specific time"
 msgstr "på oppgitt tidspunkt"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "Starttidspunktet du angav, er i fortiden. Angi et nytt starttidspunkt."
 
 msgid "today  at "
 msgstr "i dag "
@@ -3914,7 +3897,7 @@ msgid "Send Later"
 msgstr "Send senere"
 
 msgid "Schedule your mail to be sent on a specific date and time."
-msgstr ""
+msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt."
 
 msgid "Save email"
 msgstr "Lagre e-post"
@@ -4561,32 +4544,28 @@ msgstr "Fakturainformasjon"
 msgid "Mileage"
 msgstr "Reisekilometer"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Aktive oppgaver"
+msgstr "Godtar oppgave"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Avslår oppgave"
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved into the Tasks folder. Do you want to "
 "edit the response before sending it?"
 msgstr ""
-"Denne møteinvitasjonen har blitt godtatt og vil bli flyttet til din "
-"kalender. Vil du inkludere en kommentar i ditt svar?"
+"Denne oppgaven har blitt godtatt og vil bli flyttet til din Oppgave mappe. "
+"Vil du inkludere en kommentar i ditt svar?"
 
-#, fuzzy
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Denne møteinvitasjonen har blitt avslått og vil bli flyttet til din mappe "
-"med slettede elementer. Vil du inkludere en kommentar i ditt svar?"
+"Denne oppgaven har blitt avslått og vil bli flyttet til din mappe med "
+"slettede elementer. Vil du inkludere en kommentar i ditt svar?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Send svar nå."
+msgstr "Send svar nå"
 
 msgid "Date Complete"
 msgstr "Dato fullført"
@@ -4598,14 +4577,13 @@ msgid "Create Unassigned Copy"
 msgstr "Lag ikke-tilordnet kopi"
 
 msgid "copy"
-msgstr ""
+msgstr "kopi"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Du kan ikke sende en oppgaveforespørsel til deg selv."
 
-#, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "Alltid be om lesebekreftelse"
+msgstr "En oppgaveforespørsel kan kun ha en mottaker."
 
 # 87%
 # 100%
@@ -4618,23 +4596,20 @@ msgstr "Prioritet"
 msgid "% Complete"
 msgstr "% Komplett"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "Pågående"
+msgstr "Følg fremdrift"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "Behold kopi av oppgave og motta fortløpende statusrapporter"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Send oppgave til mottaker"
+msgstr "Send oppgave til tilordnede"
 
 msgid "Send assignment"
 msgstr "Send oppgave"
 
-#, fuzzy
 msgid "Save without sending a task request to assignees"
-msgstr "Lagre uten å sende invitasjon til mottakere"
+msgstr "Lagre uten å sende oppgaveforespørsel til tilordnede"
 
 msgid "Save task"
 msgstr "Lagre oppgave"
@@ -4642,12 +4617,11 @@ msgstr "Lagre oppgave"
 msgid "Save task and close dialog"
 msgstr "Lagre oppgave og lukk dialogboksen"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Bruk standardinnstillinger"
+msgstr "Gjenopprett til oppgaveliste"
 
 msgid "Restore this item to your task list"
-msgstr ""
+msgstr "Gjenopprett dette elementet til din oppgaveliste"
 
 # 81%
 msgid "Delete this task"
@@ -4669,14 +4643,15 @@ msgid "Assign Task"
 msgstr "Tilordne oppgaven"
 
 msgid "Assign this task to someone else."
-msgstr ""
+msgstr "Tilordner denne oppgaven til noen andre."
 
 msgid "Cancel Assignment"
 msgstr "Avbryt tildeling"
 
-#, fuzzy
 msgid "Convert this task request to a regular task by removing assignees."
-msgstr "Endre denne møteinvitasjon om til en avtale ved å fjerne deltakerene"
+msgstr ""
+"Endre denne oppgaveforespørsel om til en vanlig oppgave ved å fjerne "
+"deltakere."
 
 # 76%
 msgid "Mark this task as private"
@@ -4722,7 +4697,6 @@ msgstr "Forfalte oppgaver"
 msgid "Completed Tasks"
 msgstr "Utførte oppgaver"
 
-#, fuzzy
 msgid "Task request"
 msgstr "Oppgaveforespørsel"
 
@@ -4748,13 +4722,12 @@ msgstr "Merk som fullført"
 msgid "Mark Incomplete"
 msgstr "Merk som ikke fullført"
 
-#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
-"Vennligst merk at alle endringer du gjør vil bli overskrevet når denne "
-"møteinnkallelsen blir oppdatert av møtearrangøren"
+"Vennligst merk at tilordnede oppgaver vil bli overskrevet når den som har "
+"fått oppgavene gjør endringer."
 
 # 92%
 msgid "Reminder Time"
@@ -4803,33 +4776,28 @@ msgstr "Sorter på: faktureringsinformasjon"
 msgid "Loading tasks"
 msgstr "Laster inn oppgaver"
 
-#, fuzzy
 msgid "Date completed"
 msgstr "Fullført dato"
 
 msgid "hours"
 msgstr "timer"
 
-#, fuzzy
 msgid "Billing information"
 msgstr "Fakturainformasjon"
 
-#, fuzzy
 msgid "Update list"
 msgstr "Oppdater liste"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "d.m.Y"
+msgstr "D, d.m.Y"
 
 # 87%
 # 78%
-#, fuzzy
 msgid "You cannot accept the task \""
-msgstr "Kunne ikke godta oppgaveforespørsel."
+msgstr "Du kan ikke godta oppgaven \""
 
 msgid "\" because it is not assigned to you."
-msgstr ""
+msgstr "\" fordi den ikke er tilordnet til deg."
 
 msgid "The server reported an unknown error on your request."
 msgstr "Serveren svarte med en ukjent feil på din henvendelse."
@@ -4966,9 +4934,8 @@ msgstr "Kontaktfaks"
 msgid "Configure widget"
 msgstr "Konfigurer miniprogram"
 
-#, fuzzy
 msgid "Reload interval (s)"
-msgstr "Aktualiseringsintervall (ms)"
+msgstr "Aktualiseringsintervall (s)"
 
 msgid "No appointments for today."
 msgstr "Ingen avtaler i dag."
@@ -5705,6 +5672,7 @@ msgstr "Kunne ikke finne bruker."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
+"Det er ikke mulig å sette e-postfilter på e-postboksen til andre brukere."
 
 msgid "Untitled rule"
 msgstr "Navnløs regel"
