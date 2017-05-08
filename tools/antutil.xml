@@ -43,7 +43,7 @@
 		<attribute name="warningLevel" default="VERBOSE"/>
 		<attribute name="accessControls" default="warning"/>
 		<attribute name="checkRegExp" default="warning"/>
-		<attribute name="checkVars" default="warning"/>
+		<attribute name="checkVars" default="error"/>
 		<attribute name="deprecated" default="warning"/>
 		<attribute name="fileoverviewTags" default="warning"/>
 		<attribute name="strictModuleDepCheck" default="warning"/>
@@ -54,6 +54,9 @@
 		<attribute name="invalidCasts" default="off"/>
 		<attribute name="missingProperties" default="off"/>
 		<attribute name="nonStandardJsDocs" default="off"/>
+		<attribute name="misplacedTypeAnnotation" default="off"/>
+		<attribute name="globalThis" default="off"/>
+		<attribute name="es5Strict" default="off"/>
 		<element name="externs" optional="true"/>
 
 		<sequential>
@@ -67,6 +70,9 @@
 				<arg line="-jar ${tools-folder}/lib/compiler.jar" />
 				<arg line="--js @{inputFolder}/@{inputFile}" />
 				<arg line="--js_output_file @{outputFolder}/@{outputFile}" />
+				<arg line="--source_map_location_mapping=@{outputFolder}/|''" />
+				<arg line="--output_wrapper '%output%//# sourceMappingURL=@{outputFile}.map' "/>
+				<arg line="--create_source_map @{outputFolder}/@{outputFile}.map --source_map_format=V3" />
 				<arg line="--compilation_level @{compilation}" />
 				<arg line="--warning_level @{warningLevel}" />
 				<arg line="--externs @{tmpFile}" />
@@ -83,6 +89,9 @@
 				<arg line="--jscomp_@{invalidCasts}=invalidCasts" />
 				<arg line="--jscomp_@{missingProperties}=missingProperties" />
 				<arg line="--jscomp_@{nonStandardJsDocs}=nonStandardJsDocs" />
+				<arg line="--jscomp_@{misplacedTypeAnnotation}=misplacedTypeAnnotation" />
+				<arg line="--jscomp_@{globalThis}=globalThis" />
+				<arg line="--jscomp_@{es5Strict}=es5Strict" />
 			</exec>
 
 			<delete file="@{tmpFile}"/>
@@ -95,6 +104,9 @@
 					</not>
 				</condition>
 			</fail>
+
+			<!-- The closure compiler generates the wrong sources: with an absolute path. -->
+			<replace file="@{outputFolder}/@{outputFile}.map" token="@{outputFolder}" value=""/>
 		</sequential>
 	</macrodef>
 

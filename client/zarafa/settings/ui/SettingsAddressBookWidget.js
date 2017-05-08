@@ -63,7 +63,7 @@ Zarafa.settings.ui.SettingsAddressBookWidget = Ext.extend(Zarafa.settings.ui.Set
 	 * make sure group headers cannot be selected.
 	 *
 	 * @param {Ext.form.ComboBox} combo The Address Book combobox
-	 * @param (Zarafa.core.data.IPMRecord IPMRecord) record The selected Address Book record
+	 * @param {Zarafa.core.data.IPMRecord IPMRecord} record The selected Address Book record
 	 * @param {Number} index The index of the selected record in the combo
 	 */
 	onBeforeDefaultABSelect : function(combo, record, index)

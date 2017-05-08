@@ -397,7 +397,6 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 				} else {
 					// if record is phantom then we have to discard this record and
 					// create new record using respective context model
-					var model = container.getCurrentContext().getModel();
 					newRecord = model.createRecord();
 				}
 				if (Ext.isDefined(config.isRecordChangeByUser)) {

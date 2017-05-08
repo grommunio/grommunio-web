@@ -490,7 +490,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 */
 	setMeetingInfo : function(el)
 	{
-		var isVisible = (this.setMeetingNotFoundInfo(el) === true ? true : isVisible);
+		var isVisible = this.setMeetingNotFoundInfo(el);
 
 		isVisible = (this.setDelegatorInfo(el) === true ? true : isVisible);
 
