@@ -764,10 +764,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var splitElement = editor.dom.get('zarafa-splitter');
 		editor.dom.split(blockquote, splitElement);
 
-		// Add some margin to the blockquotes for readability
 		var firstBlockquoteElement = editor.dom.getPrev(splitElement, 'blockquote');
 		var secondBlockquoteElement = editor.dom.getNext(splitElement, 'blockquote');
-		editor.dom.setStyle(firstBlockquoteElement, 'margin-bottom', '1em');
+
+		// Add some margin to the blockquotes for readability
+		if ( firstBlockquoteElement ){
+			editor.dom.setStyle(firstBlockquoteElement, 'margin-bottom', '1em');
+		}
 
 		// If the user pressed ENTER at the end of a blockquote, a new blockquote
 		// will not be created, so check if it exists
