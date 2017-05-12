@@ -57,7 +57,7 @@ Zarafa.core.mapi.ResponseStatus = Zarafa.core.Enum.create({
 	{
 		switch (responsestatus) {
 			case Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED:
-				return _('Meeting organiser');
+				return _('Organizer');
 			case Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE:
 				return _('No response');
 			case Zarafa.core.mapi.ResponseStatus.RESPONSE_NOT_RESPONDED:
