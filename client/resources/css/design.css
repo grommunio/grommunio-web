@@ -8804,6 +8804,23 @@ span.zarafa-emailaddress-link:hover {
   padding-top: 6px;
 }
 
+/**********************************************************************
+ * Meeting tracking tab
+ *********************************************************************/
+/* line 349, ../scss/components/_createitempanels.scss */
+.k-trackingtab .x-form-display-field {
+  padding: 10px 10px 10px 12px;
+}
+/* line 353, ../scss/components/_createitempanels.scss */
+.k-trackingtab .x-panel-body {
+  border-right: none;
+  border-left: none;
+}
+/* line 356, ../scss/components/_createitempanels.scss */
+.k-trackingtab .x-panel-body .x-grid3-row {
+  border-left: none;
+}
+
 /* line 2, ../scss/components/_calendar.scss */
 #zarafa-mainpanel-contentpanel-calendar > .x-panel-bwrap > .x-panel-body {
   padding: 9px 0;
