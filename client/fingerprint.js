@@ -89,7 +89,7 @@ var fingerprint = (function(){
 			'Lucida Bright',
 			'Charcoal',
 			
-			 // High availability on linux
+			// High availability on linux
 			'Utopia',
 			'New Century Schoolbook',
 			'Zapf Chancery',
@@ -135,14 +135,16 @@ var fingerprint = (function(){
 	 * Creates a 32 bit integer hash from a string
 	 */
 	function _hashCode(str) {
-	  var hash = 0, i, chr, len;
-	  if (str.length === 0) return hash;
-	  for (i = 0, len = str.length; i < len; i++) {
-	    chr   = str.charCodeAt(i);
-	    hash  = ((hash << 5) - hash) + chr;
-	    hash |= 0; // Convert to 32bit integer
-	  }
-	  return hash;
+		var hash = 0, i, chr, len = str.length;
+		if (len === 0) {
+			return hash;
+		}
+		for (i = 0; i < len; i++) {
+			chr   = str.charCodeAt(i);
+			hash  = ((hash << 5) - hash) + chr;
+			hash |= 0; // Convert to 32bit integer
+		}
+		return hash;
 	}
 
 	return {
@@ -260,7 +262,7 @@ var checkfont = (function() {
 
 	function checkDimension(){
 		return containerA.offsetWidth === containerB.offsetWidth &&
-			   containerA.offsetHeight === containerB.offsetHeight;
+				containerA.offsetHeight === containerB.offsetHeight;
 	}
 
 	return function checkfont(font, DOM){
@@ -281,7 +283,7 @@ var checkfont = (function() {
 		containerB.style.fontFamily = "monospace";
 
 		if(checkDimension()){
-		   	//Assume Arial exists, Second Check
+			//Assume Arial exists, Second Check
 			containerA.style.fontFamily = font + ",Arial";
 			containerB.style.fontFamily = "Arial";
 			result = !checkDimension();
