@@ -27,7 +27,7 @@ var fingerprint = (function(){
 			userAgent : navigator.userAgent || '',
 			vendor : navigator.vendor || '',
 			vendorSub : navigator.vendorSub || ''
-		}
+		};
 	}
 	
 	/**
@@ -143,7 +143,7 @@ var fingerprint = (function(){
 	    hash |= 0; // Convert to 32bit integer
 	  }
 	  return hash;
-	};
+	}
 
 	return {
 		/**
@@ -179,7 +179,7 @@ var sendKeepAlive = (function(){
 					// Note: phpGcMaxLifTime is in seconds, while the timeout is given in milliseconds
 					_sendKeepAlive(parseInt(Math.round(1000*phpGcMaxLifTime/2)));
 				}
-			}
+			};
 			request.send();
 		}, wait);
 	};
@@ -290,7 +290,7 @@ var checkfont = (function() {
 		}
 
 		cleanUp();
-		return result
+		return result;
 	};
 })();
 
