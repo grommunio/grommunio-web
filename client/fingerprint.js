@@ -11,21 +11,7 @@
  * the session should be destroyed.
  *************************************************************************/
 
-(function(){
-	var fingerprint = {};
-	
-	/**
-	 * Returns a fingerprint based on the navigator info, the
-	 * installed plugins, and available fonts.
-	 */
-	fingerprint.get = function(){
-		var navInfo = _getNavigatorInfo();
-		var fonts = _getFonts();
-		var plugins = _getPlugins();
-
-		return _hashCode(JSON.stringify([navInfo, fonts, plugins]));
-	}
-	
+var fingerprint = (function(){
 	/**
 	 * Returns an object with info about the navigator
 	 */
@@ -158,7 +144,23 @@
 	  }
 	  return hash;
 	};
+
+	return {
+		/**
+		 * Returns a fingerprint based on the navigator info, the
+		 * installed plugins, and available fonts.
+		 */
+		get: function() {
+			var navInfo = _getNavigatorInfo();
+			var fonts = _getFonts();
+			var plugins = _getPlugins();
+
+			return _hashCode(JSON.stringify([navInfo, fonts, plugins]));
+		}
+	};
+})();
 	
+var sendKeepAlive = (function(){
 	/**
 	 * Sends a request to the backend to keep the php session alive.
 	 * This is needed for the login page because the fingerprint is
@@ -166,7 +168,7 @@
 	 * @param {Number} wait Time in milliseconds that the function must wait
 	 * before it sends the keep-alive request.
 	 */
-	function _sendKeepAlive(wait) {
+	return function _sendKeepAlive(wait) {
 		setTimeout(function(){
 			var request = new XMLHttpRequest();
 			request.open('POST', 'kopano.php?service=fingerprint&type=keepalive');
@@ -180,12 +182,7 @@
 			}
 			request.send();
 		}, wait);
-	}
-
-	// Export the module
-	this.fingerprint = fingerprint;
-	// Export the keep-alive function
-	this.sendKeepAlive = _sendKeepAlive;
+	};
 })();
 
 
@@ -226,7 +223,7 @@
 * SOFTWARE.
 
 **/
-(function(){
+var checkfont = (function() {
 	var containerA, containerB, html = document.getElementsByTagName("html")[0],
 		filler = "random_words_#_!@#$^&*()_+mdvejreu_RANDOM_WORDS";
 
@@ -266,7 +263,7 @@
 			   containerA.offsetHeight === containerB.offsetHeight;
 	}
 
-	function checkfont(font, DOM){
+	return function checkfont(font, DOM){
 		var rootEle = html;
 		if(DOM && DOM.children && DOM.children.length) rootEle = DOM.children[0];
 
@@ -294,9 +291,7 @@
 
 		cleanUp();
 		return result
-	}
-
-	this.checkfont = checkfont;
+	};
 })();
 
 // Send a fingerprint request when the document is loaded
