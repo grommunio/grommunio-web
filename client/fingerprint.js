@@ -175,7 +175,7 @@ var sendKeepAlive = (function(){
 			var request = new XMLHttpRequest();
 			request.open('POST', 'kopano.php?service=fingerprint&type=keepalive');
 			request.onload = function() {
-				var phpGcMaxLifTime = !!request.response ? parseInt(request.response, 10) : 0;
+				var phpGcMaxLifTime = request.response ? parseInt(request.response, 10) : 0;
 				if ( phpGcMaxLifTime > 1 ){
 					// Send keep-alive request at half the session expiration time
 					// Note: phpGcMaxLifTime is in seconds, while the timeout is given in milliseconds
