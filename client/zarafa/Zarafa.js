@@ -798,7 +798,7 @@ Ext.apply(Zarafa, {
 		}
 
 		// Check if the Wingdings font is installed
-		this.wingdingsInstalled = window.checkfont('Wingdings');
+		this.wingdingsInstalled = window.checkfont.exists('Wingdings');
 	},
 
 	/**
