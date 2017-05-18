@@ -172,7 +172,7 @@ var sendKeepAlive = (function(){
 		setTimeout(function(){
 			var request = new XMLHttpRequest();
 			request.open('POST', 'kopano.php?service=fingerprint&type=keepalive');
-			request.onload = function(e) {
+			request.onload = function() {
 				var phpGcMaxLifTime = !!request.response ? parseInt(request.response, 10) : 0;
 				if ( phpGcMaxLifTime > 1 ){
 					// Send keep-alive request at half the session expiration time
@@ -300,7 +300,7 @@ var checkfont = (function() {
 // When the user has been authenticated, the backend will chek if the
 // sent fingerprint matches the one stored in the session. If they do not
 // match, the session will be destroyed.
-window.addEventListener('load', function(event){
+window.addEventListener('load', function(){
 	var request = new XMLHttpRequest();
 	request.open('POST', 'kopano.php?service=fingerprint');
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
