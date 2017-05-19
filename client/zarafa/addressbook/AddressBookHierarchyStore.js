@@ -49,7 +49,7 @@ Zarafa.addressbook.AddressBookHierarchyStore = Ext.extend(Zarafa.core.data.ListM
 
 Ext.reg('zarafa.addressbookhierarchystore', Zarafa.addressbook.AddressBookHierarchyStore);
 
-Zarafa.onReady(function(){
+Zarafa.onUIReady(function(){
 	// Make a singleton of the address book store and load it immediately
 	// Note: The typeof check is necessary for the js tests
 	if ( typeof Zarafa.addressbook.AddressBookHierarchyStore === 'function' ){
