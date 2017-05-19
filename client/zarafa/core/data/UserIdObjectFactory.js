@@ -11,44 +11,33 @@ Ext.namespace('Zarafa.core.data');
  */
 Zarafa.core.data.UserIdObjectFactory = {
 	/**
-	 * Creates a {@link Zarafa.core.data.UserIdObject} from the data in the given
-	 * {@link Zarafa.core.data.IPMRecord record} for the given fieldRoot.
+	 * Creates a {@link Zarafa.core.data.UserIdObject} from the data in the record.
 	 * @param {Zarafa.core.data.IPMRecord} record The record from which the data for the
 	 * userIdObject is taken.
-	 * @param {String} fieldRoot The root of the user field in this record for which the
-	 * userInfo object will be returned.
 	 * @return {Zarafa.core.data.UserIdObject|null}
 	 */
-	createFromRecord : function(record, fieldRoot)
+	createFromRecord : function(record)
 	{
 		// Return null for distlists
-		if ( !Ext.isEmpty(record.get('object_type')) && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST ) {
+		if ( !Ext.isFunction(record.get) || !Ext.isEmpty(record.get('object_type')) && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST ) {
 			return null;
-		}
-
-		// Make sure fieldRoot is a string
-		fieldRoot = fieldRoot || '';
-
-		// Make sure the fieldRoot ends with an underscore if it isn't empty
-		if ( !Ext.isEmpty(fieldRoot) && fieldRoot.indexOf(fieldRoot.length-1)!=='_' ){
-			fieldRoot += '_';
 		}
 
 		// Add the general fields to the object
 		var user = {};
 
 		// Try to be smart to find a display_name
-		user.display_name = record.get(fieldRoot + (Ext.isEmpty(fieldRoot) ? 'display_name' : 'name'));
+		user.display_name = record.get('display_name');
 
-		user.type = record.get(fieldRoot + 'address_type');
+		user.type = record.get('address_type');
 
 		if ( user.type === 'ZARAFA' ){
 
 			// Add ZARAFA specific fields to the object
-			var recordEntryId = record.get(fieldRoot + 'entryid');
-			var recordUsername = record.get(fieldRoot + 'username');
-			var recordEmailAddress = record.get(fieldRoot + 'email_address');
-			var recordSmtpAddress = record.get(fieldRoot + 'smtp_address');
+			var recordEntryId = record.get('entryid');
+			var recordUsername = record.get('username');
+			var recordEmailAddress = record.get('email_address');
+			var recordSmtpAddress = record.get('smtp_address');
 
 			user.entryid = recordEntryId;
 
@@ -72,7 +61,8 @@ Zarafa.core.data.UserIdObjectFactory = {
 
 			// Add the field for non-ZARAFA users to the object
 			// Try to be smart to find the email address
-			user.email_address = record.get(fieldRoot + 'email_address') || record.get(fieldRoot + 'smtp_address');
+			user.email_address = record.get('email_address') || record.get('smtp_address');
+			user.entryid = record.get('entryid');
 		} else {
 			return null;
 		}
@@ -80,9 +70,7 @@ Zarafa.core.data.UserIdObjectFactory = {
 		var userIdObject = new Zarafa.core.data.UserIdObject(user);
 
 		// If possible sync the userInfo with the cached one
-		userIdObject = Zarafa.core.data.PresenceCache.syncUsers([userIdObject])[0];
-
-		return userIdObject;
+		return Zarafa.core.data.PresenceCache.syncUsers([userIdObject])[0];
 	},
 
 	/**
@@ -90,12 +78,10 @@ Zarafa.core.data.UserIdObjectFactory = {
 	 * users in the passed store.
 	 * @param {Zarafa.core.data.MAPIStore|Zarafa.core.data.MAPISubStore} store The store
 	 * from which {@link Zarafa.core.data.UserIdObject UserIdObjects} will be created.
-	 * @param {String[]} fieldRoots The fields that denote the users for which
-	 * a userInfo block must be created.
 	 * @return {Zarafa.core.data.UserIdObject[]} An array with userInfo
 	 * objects.
 	 */
-	createFromStore : function(store, fieldRoots)
+	createFromStore : function(store)
 	{
 		if ( !store.data ) {
 			return [];
@@ -104,23 +90,11 @@ Zarafa.core.data.UserIdObjectFactory = {
 		var userIdObjects = [];
 		var records = store.getRange();
 
-		if ( !Array.isArray(fieldRoots) ){
-			fieldRoots = [fieldRoots];
-		}
 		Ext.each(records, function(record){
-			Ext.each(fieldRoots, function(fieldRoot, index){
-				// Stores don't have to pass a field name if they want to use the default props
-				// (name, address_type, etc). The passed field parameter will then be undefined,
-				// so we make sure it is a string.
-				if ( !Ext.isDefined(fieldRoot) ){
-					fieldRoot = '';
-					fieldRoots[index] = '';
-				}
-				var userIdObject = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record, fieldRoot);
-				if ( userIdObject ) {
-					userIdObjects.push(userIdObject);
-				}
-			}, this);
+			var userIdObject = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record);
+			if ( userIdObject ) {
+				userIdObjects.push(userIdObject);
+			}
 		}, this);
 
 		return userIdObjects;

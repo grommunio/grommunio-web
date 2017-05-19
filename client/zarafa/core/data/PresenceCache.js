@@ -10,44 +10,40 @@ Ext.namespace('Zarafa.core.data');
  */
 Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	/**
-	 * Holds the cached statuses for users. It is an array of objects that
-	 * contain a {@link Zarafa.core.data.UserIdObject user}, the statusByPlugin for
-	 * the user, and a squashed {@link Zarafa.core.data.PresenceStatus status}.
+	 * Holds the cached statuses for users. It is an object that
+	 * contain an entryid to Object mapping. The object contains the {@link
+	 * Zarafa.core.data.UserIdObject user}, the statusByPlugin for the
+	 * user, and a squashed {@link Zarafa.core.data.PresenceStatus status}.
 	 * @property
 	 * @private
 	 */
-	cache : [],
+	cache : {},
 
 	/**
-	 * Returns the index in the {#cache presence cache} for the passed user, or
-	 * -1 the user is not found.
-	 * @param {Zarafa.core.data.UserIdObject} user The user for which the index in the
+	 * Returns the entry of the user in the {#cache presence cache} for the passed user, or
+	 * undefined if the user is not found.
+	 * @param {Zarafa.core.data.UserIdObject} user The user for which the entry in the
 	 * {#cache presence cache} will be returned.
 	 * @param {Boolean} noSync If set to true then the given user will not be used to
 	 * update the cache. Note: this is a very ugly way to prevent infinite recursion
 	 * when this function is called from {#syncUsers}
-	 * @return {Integer}
+	 * @return {Object|undefined}
 	 * @private
 	 */
-	indexOfUser : function(user, noSync) {
-		var cachedEntryIndex = -1;
-		Ext.each(this.cache, function(entry, index){
-			// Check if the cached entry is from the requested user
-			if ( user.equals(entry.user) ){
-				cachedEntryIndex = index;
+	getUser : function(user, noSync) {
+		if (!user.hasOwnProperty('entryid')) {
+			return;
+		}
 
-				// Check if we can update the cached user data
-				// (IPMRecipientStores might change recipients from SMTP to
-				// ZARAFA after the names have been resolved)
-				if ( noSync !== true ){
-					this.syncUsers([user]);
-				}
-
-				return false;
+		// Check if we can update the cached user data
+		if (user.entryid in this.cache) {
+			// (IPMRecipientStores might change recipients from SMTP to
+			// ZARAFA after the names have been resolved)
+			if ( noSync !== true ){
+				this.syncUsers([user]);
 			}
-		}, this);
-
-		return cachedEntryIndex;
+			return this.cache[user.entryid];
+		}
 	},
 
 	/**
@@ -58,20 +54,19 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 */
 	syncUsers : function(users) {
 		Ext.each( users, function(user, index){
-			var cacheIndex = this.indexOfUser(user, true);
-			var syncedUser;
-			if ( cacheIndex >= 0 ){
+			var syncedUser = this.getUser(user, true);
+			if (Ext.isDefined(syncedUser)) {
 				// Check if we can update the cache
-				this.cache[cacheIndex].user.syncWithUser(user);
-				syncedUser = this.cache[cacheIndex].user;
-			} else{
+				this.cache[user.entryid].user.syncWithUser(user);
+				syncedUser = this.cache[user.entryid].user;
+			} else {
 				// Add the new user to the cache, so it will be updated during polling
-				this.cache.push({
+				this.cache[user.entryid] = {
 					user: user,
 					statusByPlugin : {},
 					status: Zarafa.core.data.PresenceStatus.UNKNOWN
-				});
-				syncedUser = this.cache[this.cache.length-1].user;
+				};
+				syncedUser = this.cache[user.entryid].user;
 			}
 
 			// Update the return value
@@ -95,12 +90,8 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 			return Zarafa.core.data.PresenceStatus.UNKNOWN;
 		}
 
-		var index = this.indexOfUser(userInfo);
-		if ( index>=0 ){
-			return this.cache[index].status;
-		}
-
-		// No status found for this user, return undefined
+		var user = this.getUser(userInfo);
+		return user && user.status;
 	},
 
 	/**
@@ -112,27 +103,37 @@ Zarafa.core.data.PresenceCache = Ext.extend(Object, {
 	 */
 	addStatusForUser : function(pluginName, user, status){
 		// First see if we already have a cached status for this user
-		var index = this.indexOfUser(user);
+		var cacheUser = this.getUser(user);
 
 		// Add the status of the user for this plugin
-		if ( index >= 0 ){
-			this.cache[index].statusByPlugin[pluginName] = status;
+		if ( Ext.isDefined(cacheUser) ){
+			cacheUser.statusByPlugin[pluginName] = status;
 		} else {
 			var statusByPlugin = {};
 			statusByPlugin[pluginName] = status;
-			this.cache.push({
+			this.cache[user.entryid] = {
 				user: user,
 				statusByPlugin : statusByPlugin
-			});
-			index = this.cache.length - 1;
+			};
 		}
 
 		// Add a squashed status
-		this.cache[index].status = Zarafa.core.data.PresenceStatus.UNKNOWN;
-		Ext.iterate(this.cache[index].statusByPlugin, function(pluginName){
-			if ( this.cache[index].statusByPlugin[pluginName] > this.cache[index].status ){
-				this.cache[index].status = this.cache[index].statusByPlugin[pluginName];
+		var presenceUser = this.cache[user.entryid];
+		presenceUser.status = Zarafa.core.data.PresenceStatus.UNKNOWN;
+		Ext.iterate(presenceUser.statusByPlugin, function(pluginName){
+			if ( presenceUser.statusByPlugin[pluginName] > presenceUser.status ){
+				presenceUser.status = presenceUser.statusByPlugin[pluginName];
 			}
+		}, this);
+	},
+
+	/**
+	 * Returns a list of {Zarafa.core.data.UserIdObject} objects in the cache.
+	 * @return {Array} of {@link Zarafa.core.data.UserIdObject UserIdObjects}
+	 */
+	getUserInfoList : function() {
+		return Object.keys(this).map(function(key) {
+			return this.cache[key].user;
 		}, this);
 	}
 });

@@ -69,15 +69,14 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 */
 	getPresenceStatusForUsers : function(users)
 	{
-		if ( !Array.isArray(users) ){
-			users = [users];
-		}
+		users = [].concat(users);
+
 		if ( users.length === 0 ){
 			return [];
 		}
-		var presenceStatuses = [];
-		Ext.each(users, function(){
-			presenceStatuses.push({});
+
+		var presenceStatuses = users.map(function() {
+			return {};
 		});
 
 		var presencePlugins = this.getPresencePlugins();
@@ -86,32 +85,15 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 			return presenceStatuses;
 		}
 
-		// Let's create an array without duplicate entries, so the
-		// plugins don't have to return a status more than once.
-		var uniqueUsers = [];
-		Ext.each(users, function(user){
-			var duplicate = Ext.each(uniqueUsers, function(uniqueUser){
-				if ( Ext.isEmpty(user) || user.equals(uniqueUser) ){
-					return false;
-				}
-			});
-			if ( !Ext.isDefined(duplicate) ){
-				uniqueUsers.push(user);
-			}
-		});
-
 		// Request the statuses from the presence plugins.
 		Ext.each(presencePlugins, function(presencePlugin){
 			var pluginName = presencePlugin.getName();
-			var pluginPresenceStatuses = presencePlugin.getPresenceStatuses(uniqueUsers);
+			var pluginPresenceStatuses = presencePlugin.getPresenceStatuses(users);
 
 			// Fill the statuses in the array
+			// XXX: required?
 			Ext.each(users, function(user, userIndex){
-				Ext.each(uniqueUsers, function(uniqueUser, uniqueUserIndex){
-					if ( user.username === uniqueUser.username && user.email_address === uniqueUser.email_address ){
-						presenceStatuses[userIndex][pluginName] = pluginPresenceStatuses[uniqueUserIndex];
-					}
-				});
+				presenceStatuses[userIndex][pluginName] = pluginPresenceStatuses[userIndex];
 			});
 		});
 
@@ -133,13 +115,13 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 
 		var statusByPlugin = this.getPresenceStatusForUsers([user])[0];
 		// Squash the status
-		var status = Zarafa.core.data.PresenceStatus.UNKNOWN;
+		var presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
 		Ext.iterate(statusByPlugin, function(pluginName){
-			if ( statusByPlugin[pluginName]>status ){
-				status = statusByPlugin[pluginName];
+			if ( statusByPlugin[pluginName] > presenceStatus ){
+				presenceStatus = statusByPlugin[pluginName];
 			}
 		});
-		return status;
+		return presenceStatus;
 	},
 
 	/**
@@ -228,10 +210,9 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * polls for updates.
 	 * @param {Zarafa.core.data.MAPIStore|Zarafa.core.data.MAPISubStore} store The store
 	 * that will be registered.
-	 * @param {Array|String} fieldRoots The user fields for which a presence status
 	 * will be added to the records. (e.g.: 'sender')
 	 */
-	registerStore : function(store, fieldRoots)
+	registerStore : function(store)
 	{
 		if (this.getPresencePlugins().length === 0) {
 			return;
@@ -248,25 +229,15 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 			return;
 		}
 
-		// Stores don't have to pass a field name if they want to use the default props
-		// (name, address_type, etc). The passed field parameter will then be undefined,
-		// so we make sure it is a string.
-		if ( !Ext.isDefined(fieldRoots) ){
-			fieldRoots = '';
-		}
-		if ( !Array.isArray(fieldRoots) ){
-			fieldRoots = [fieldRoots];
-		}
 		this.registeredStores.push({
-			store: store,
-			fieldRoots: fieldRoots
+			store: store
 		});
 
 		// Add the current users to the cache by calling the onLoad listener
-		this.onStoreLoad(store, store.getRange(), null, fieldRoots);
+		this.onStoreLoad(store, store.getRange(), null);
 
 		// Register an event handler for the load event of this store
-		store.on('load', this.onStoreLoad.createDelegate(this, [fieldRoots], true), this);
+		store.on('load', this.onStoreLoad, this);
 	},
 
 	/**
@@ -293,18 +264,16 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.MAPIRecord[]} records The records that are being loaded into
 	 * this store.
 	 * @param {Object} options The loading options that were specified
-	 * @param {String|String[]} userFieldRoots The root of the user fields for which presence
-	 * status must be added
 	 */
-	onStoreLoad : function(store, records, options, fieldRoots)
+	onStoreLoad : function(store, records, options)
 	{
 		// Create an array with user info objects to send to the PresenceManager
-		var users = Zarafa.core.data.UserIdObjectFactory.createFromStore(store, fieldRoots);
+		var users = Zarafa.core.data.UserIdObjectFactory.createFromStore(store);
 
 		// Check if we already have an entry for these users in the cache
 		// because otherwise we must add it and make a request to the plugins
-		Ext.each(users, function(user, index){
-			if ( Zarafa.core.data.PresenceCache.indexOfUser(user) === -1 ){
+		Ext.each(users, function(user){
+			if (!Ext.isDefined(Zarafa.core.data.PresenceCache.getUser(user))){
 				// Ask the presence plugins about this user
 				this.queuePresenceRequest(user);
 			}
@@ -325,9 +294,6 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 			updates = [updates];
 		}
 
-		// Remove duplicates
-		updates = this.removeDuplicateUpdates(updates);
-
 		// First add the statuses to the cache, and check if the UI needs to be updated
 		var realUpdates = [];
 		Ext.each(updates, function(update){
@@ -341,25 +307,24 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 
 		// Now update the stores that have records for these users
 		Ext.each(this.registeredStores, function(registeredStore){
-			var fields = registeredStore.fieldRoots;
 			var records = registeredStore.store.getRange();
 			var modified = [];
 			Ext.each(records, function(record) {
 				if ( modified.indexOf(record)>=0 ){
 					return;
 				}
-				Ext.each(fields, function(field) {
-					var recordAdded = Ext.each(realUpdates, function(update) {
-						var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record, field);
-						if ( user && user.equals(update.user) ){
-							modified.push(record);
-							return false;
-						}
-					}, this);
-					if ( Ext.isDefined(recordAdded) ){
+
+				var recordAdded = Ext.each(realUpdates, function(update) {
+					var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record);
+					if ( user && user.equals(update.user) ){
+						modified.push(record);
 						return false;
 					}
 				}, this);
+
+				if ( Ext.isDefined(recordAdded) ){
+					return false;
+				}
 			}, this);
 
 			// Fire update events for all modified records, so components that display these records
@@ -378,44 +343,12 @@ Zarafa.core.PresenceManager = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
-	 * Removes duplicates from the array with updates.
-	 * @param {Array} updates An array with objects that contain a
-	 * {@link Zarafa.core.data.UserIdObject user} and a
-	 * {@link Zarafa.core.data.PresenceStatus} for that user
-	 * @returns {Object[]}
-	 * @private
-	 */
-	removeDuplicateUpdates : function(updates)
-	{
-		var uniqueUpdates = [];
-		Ext.each(updates, function(update){
-			var isDuplicate = Ext.each(uniqueUpdates, function(uniqueUpdate){
-				if ( uniqueUpdate.user.equals(update.user) ){
-					return false;
-				}
-			}, this);
-
-			if ( Ext.isDefined(isDuplicate) ){
-				return;
-			}
-			uniqueUpdates.push(update);
-		}, this);
-
-		return uniqueUpdates;
-	},
-
-	/**
 	 * Requests a status from all presence plugins for all users in the
 	 * registered stores.
 	 */
 	pollForUpdates : function()
 	{
-		// Get all users from the registered stores
-		var users = [];
-		Ext.each(this.registeredStores, function(registeredStore){
-			users = users.concat(Zarafa.core.data.UserIdObjectFactory.createFromStore(registeredStore.store, registeredStore.fieldRoots));
-		}, this);
-
+		var users = Zarafa.core.data.PresenceCache.getUserInfoList();
 		var statuses = this.getPresenceStatusForUsers(users);
 		var statusesByPlugin = this.rearangeStatuses(users, statuses);
 		Ext.iterate(statusesByPlugin, function(pluginName){

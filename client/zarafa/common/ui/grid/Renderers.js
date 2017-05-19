@@ -177,17 +177,22 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	sender : function(value, p, record)
 	{
-		var fieldRoot;
+		var userRecord = false;
+		var presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
 		// Check which of the 2 properties must be used
+		// FIXME: sent representing seems to be always set...
 		value = record.get('sent_representing_name');
-		if ( Ext.isEmpty(value)) {
+		if ( Ext.isEmpty(value) && Ext.isFunction(Ext.isFunction(record.getSender))) {
 			value = record.get('sender_name');
-			fieldRoot = 'sender';
-		} else {
-			fieldRoot = 'sent_representing';
+			userRecord = record.getSender();
+		} else if (Ext.isFunction(record.getSentRepresenting)) {
+			userRecord = record.getSentRepresenting();
 		}
-		var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record, fieldRoot);
-		var presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+
+		if (userRecord !== false) {
+			var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(userRecord);
+			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
+		}
 
 		return '<span class="zarafa-presence-status '+Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus)+'">' +
 					'<span class="zarafa-presence-status-icon"></span>' +
