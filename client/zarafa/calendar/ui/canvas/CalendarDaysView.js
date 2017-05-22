@@ -97,6 +97,31 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 	appointmentOver : undefined,
 
 	/**
+	 * The &lt;img&gt; element which indicate current time on time strip and
+	 * placed at the left of {@link #indicatorLine}.
+	 * This element is created using {@link #create} during {@link #render}.
+	 * @property
+	 * @type Ext.Element
+	 */
+	indicatorIcon : undefined,
+
+	/**
+	 * The &lt;div&gt; element which is used to draw a line on time strip.
+	 * This element is created using {@link #createDiv} during {@link #render}.
+	 * @property
+	 * @type Ext.Element
+	 */
+	indicatorLine : undefined,
+
+	/**
+	 * The task which gets executed every minute in a multi-threaded manner and
+	 * draws indicator elements honoring current time.
+	 * @property
+	 * @type Object
+	 */
+	indicatorTask : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -111,6 +136,8 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		});
 
 		Zarafa.calendar.ui.canvas.CalendarDaysView.superclass.constructor.call(this, config);
+
+		this.on('destroy', this.onDestroy, this);
 	},
 
 	/**
@@ -151,6 +178,24 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 			'contextmenu': this.onBodyContextMenu,
 			scope: this
 		});
+
+		// Create current-time indicator, line and icon
+		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'k-calendar-timestrip-indicator-icon');
+		this.createDiv(this.parentView.scrollable, 'indicatorLine', 'k-calendar-timestrip-indicator-line');
+	},
+
+	/**
+	 * Handler which executes once the {@link Ext.Component} gets destroyed.
+	 * This will stop the {@link #indicatorTask}.
+	 * @param {Ext.Component} component The component which gets destroyed
+	 * must be created.
+	 * @private
+	 */
+	onDestroy : function(component)
+	{
+		if(this.indicatorTask){
+			Ext.TaskMgr.stop(this.indicatorTask);
+		}
 	},
 
 	/**
@@ -411,6 +456,29 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		}
 
 		context.restore();
+	},
+
+	/**
+	 * Draws thin line over calendar. The line indicates current-time.
+	 * @private
+	 */
+	drawCurrentTimeIndicator : function()
+	{
+		if (!this.parentView) {
+			return;
+		}
+
+		// Layout current-time indicator components based on current date and time
+		var totalHeight = this.parentView.numHours * this.parentView.getHourHeight();
+		var verticalPosition = Math.floor(this.getDateVerticalPosition(new Date()) * totalHeight);
+
+		// Minus 6 pixel because current-time denoted by the middle of icon
+		// And the size of icon is 12x12 pixels
+		this.indicatorIcon.setTop(verticalPosition - 6);
+		this.indicatorLine.setWidth(this.width + this.leftOffset);
+
+		// Minus 0.5 pixel because the 1px-thick-line should positioned exactly in middle of icon
+		this.indicatorLine.setTop(verticalPosition - 0.5);
 	},
 
 	/**
@@ -869,5 +937,36 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 		this.drawHeader(dayPositions);
 		this.drawBody(dayPositions);
+
+		if ( this.getDateRange().containsDate(new Date()) ) {
+			this.setIndicatorDisplayed(true);
+			this.drawCurrentTimeIndicator();
+
+			if (!Ext.isDefined(this.indicatorTask)) {
+				this.indicatorTask = Ext.TaskMgr.start({
+					run : function(){
+						this.drawCurrentTimeIndicator();
+					},
+					scope : this,
+					interval : 60000
+				});
+			}
+		} else {
+			this.setIndicatorDisplayed(false);
+
+			if (this.indicatorTask) {
+				Ext.TaskMgr.stop(this.indicatorTask);
+			}
+		}
+	},
+
+	/**
+	 * Hides or shows {@link #indicatorIcon} and {@link #indicatorLine}.
+	 * @param {Boolean} value True to display the element, false otherwise.
+	 */
+	setIndicatorDisplayed : function(value)
+	{
+		this.indicatorIcon.setDisplayed(value);
+		this.indicatorLine.setDisplayed(value);
 	}
 });
