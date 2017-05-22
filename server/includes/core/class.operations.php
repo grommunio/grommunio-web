@@ -2067,11 +2067,13 @@
 								 * recurrence meeting from scheduling tab.
 								 */
 								$recurrance = $recur->getRecurrence();
-								unset($recurrance['changed_occurences']);
-								unset($recurrance['deleted_occurences']);
-								foreach($recurrance as $key => $value) {
-									if(!isset($action['props'][$key])) {
-										$action['props'][$key] = $value;
+								if(isset($recurrance)) {
+									unset($recurrance['changed_occurences']);
+									unset($recurrance['deleted_occurences']);
+									foreach ($recurrance as $key => $value) {
+										if (!isset($action['props'][$key])) {
+											$action['props'][$key] = $value;
+										}
 									}
 								}
 								// Act like the 'props' are the recurrence pattern; it has more information but that
