@@ -415,8 +415,12 @@
 				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
 				browserWindows.each(function(browserWindow){
 					if(Ext.isDefined(browserWindow) && browserWindow.name !== 'mainBrowserWindow' && browserWindow !== activeBrowserWindow) {
-						getResult = new Ext.Element(browserWindow.document.getElementById(el));
-						return;
+						// If element is found in browser window then return ext element
+						var element = browserWindow.document.getElementById(el);
+						if (element) {
+							getResult = new Ext.Element(element);
+							return false;
+						}
 					}
 				});
 			} else {
