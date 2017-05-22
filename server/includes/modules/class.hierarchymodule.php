@@ -146,6 +146,8 @@
 										//   - emptyfolder: Delete all items within the folder
 										//   - readflags: Mark all items within the folder as read
 										//   - addtofavorites: Add the folder to "favorites"
+										$folder = mapi_msgstore_openentry($store, $entryid);
+										$data = $this->getFolderProps($store, $folder);
 										if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])) {
 											switch($action["message_action"]["action_type"])
 											{
@@ -161,6 +163,9 @@
 
 													if($destentryid && $deststore)
 														$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, ($action["message_action"]["action_type"] == "move"));
+													if ($data["props"]["container_class"] === "IPF.Contact") {
+														$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+													}
 												break;
 
 												case "emptyfolder":
@@ -178,14 +183,19 @@
 										} else {
 											// save folder
 											$folder = mapi_msgstore_openentry($store, hex2bin($action["entryid"]));
-
 											$this->save($store, $folder, $action);
+											if ($data["props"]["container_class"] === "IPF.Contact") {
+												$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+											}
 											$this->sendFeedback(true, array());
 										}
 									} else {
 										// no entryid, create new folder
 										if($store && $parententryid && isset($action["props"]["display_name"]) && isset($action["props"]["container_class"]))
 											$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
+										if($action["props"]["container_class"] === "IPF.Contact"){
+											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
+										}
 									}
 								}
 								break;
@@ -216,6 +226,7 @@
 
 								$this->addActionData("delete", $data);
 								$GLOBALS["bus"]->addData($this->getResponseData());
+								$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
 								break;
 							
 							case "opensharedfolder":
@@ -239,6 +250,7 @@
 										throw new MAPIException(null, MAPI_E_NO_ACCESS);
 									}
 									$GLOBALS["bus"]->addData($this->getResponseData());
+									$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
 								}
 								break;
 							default:

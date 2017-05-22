@@ -17,6 +17,15 @@
 		}
 
 		/**
+		 * Creates the notifiers for this module,
+		 * and register them to the Bus.
+		 */
+		function createNotifiers()
+		{
+			$GLOBALS["bus"]->registerNotifier('addressbooknotifier', ADDRESSBOOK_ENTRYID);
+		}
+
+		/**
 		 * Executes all the actions in the $data variable.
 		 * @return boolean true on success of false on fialure.
 		 */
