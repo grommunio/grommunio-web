@@ -40,6 +40,11 @@ class WebAppAuthentication
 	private static $_errorCode = NOERROR;
 
 	/**
+	 * @var boolean True if MAPI session savng support exists
+	 */
+	private static $_sessionSaveSupport = false;
+
+	/**
 	 * Returns the only instance of the WebAppAuthentication class.
 	 * If it does not exist yet, it will create an instance, and
 	 * also an MapiSession object, and it will start a php session
@@ -57,6 +62,9 @@ class WebAppAuthentication
 
 			// Instantiate the mapiSession
 			WebAppAuthentication::$_mapiSession = new MapiSession();
+
+			// Check if MAPI Saving session support exists
+			WebAppAuthentication::$_sessionSaveSupport = function_exists('kc_session_save') && function_exists('kc_session_restore');
 		}
 
 		return WebAppAuthentication::$_instance;
@@ -102,6 +110,14 @@ class WebAppAuthentication
 	}
 
 	/**
+	 * Set the MapiSession instance
+	 * @param MAPISession $session the mapisession to set
+	 */
+	public static function setMapiSession($session) {
+		WebAppAuthentication::$_mapiSession->setSession($session);
+	}
+
+	/**
 	 * Tries to authenticate the user. First it will check if the user
 	 * should be authenticated using single-sign-on. If not it will
 	 * check if the user is using the login-form. And finally if not of
@@ -144,23 +160,67 @@ class WebAppAuthentication
 		$sslcert_file = defined('SSLCERT_FILE') ? SSLCERT_FILE : null;
 		$sslcert_pass = defined('SSLCERT_PASS') ? SSLCERT_PASS : null;
 
-		// TODO: move logon from MapiSession to here
-		WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
-			$username,
-			$password,
-			DEFAULT_SERVER,
-			$sslcert_file,
-			$sslcert_pass
-		);
+		if (!WebAppAuthentication::_restoreMAPISession()) {
+			// TODO: move logon from MapiSession to here
+			WebAppAuthentication::$_errorCode = WebAppAuthentication::$_mapiSession->logon(
+				$username,
+				$password,
+				DEFAULT_SERVER,
+				$sslcert_file,
+				$sslcert_pass
+			);
 
-		if ( WebAppAuthentication::$_errorCode == NOERROR ) {
-			WebAppAuthentication::$_authenticated = true;
-		} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
-			// Print error message to error_log of webserver
-			error_log('Kopano WebApp user: ' . $username . ': authentication failure at MAPI');
+			if (WebAppAuthentication::$_errorCode === NOERROR ) {
+				WebAppAuthentication::$_authenticated = true;
+				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
+			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
+				// Print error message to error_log of webserver
+				error_log('Kopano WebApp user: ' . $username . ': authentication failure at MAPI');
+			}
 		}
 
 		return WebAppAuthentication::$_errorCode;
+	}
+
+	/**
+	 * Store a serialized MAPI Session, which can be used by _restoreMAPISession to re-create
+	 * a MAPISession, which saves a login call.
+	 *
+	 * @param MAPISession $session the session to serialize and save
+	 */
+	private static function _storeMAPISession($session) {
+		if (!WebAppAuthentication::$_sessionSaveSupport) {
+			return;
+		}
+
+		$encryptionStore = EncryptionStore::getInstance();
+
+		if (kc_session_save($session, $data) === NOERROR) {
+			$encryptionStore->add('savedsession', bin2hex($data));
+		}
+
+	}
+
+	/**
+	 * Restore a MAPISession from the serialized with kc_session_restore.
+	 *
+	 * @return boolean true if session has been restored succesfully
+	 */
+	private static function _restoreMAPISession() {
+		$encryptionStore = EncryptionStore::getInstance();
+
+		if (!WebAppAuthentication::$_sessionSaveSupport || $encryptionStore->get('savedsession') === null) {
+			return false;
+		}
+
+		if (kc_session_restore(hex2bin($encryptionStore->get('savedsession')), $session) === NOERROR) {
+			WebAppAuthentication::$_errorCode = NOERROR;
+			WebAppAuthentication::$_authenticated = true;
+			WebAppAuthentication::setMapiSession($session);
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

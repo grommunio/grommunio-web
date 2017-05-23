@@ -191,6 +191,15 @@
 		}
 
 		/**
+		 * Set MAPI session object
+		 *
+		 * @param mapisession The MAPI session
+		 */
+		function setSession($session) {
+			$this->session = $session;
+		}
+
+		/**
 		 * Get MAPI addressbook object
 		 *
 		 * @param string $fresh (optional) When set to true it will return an addressbook resource
