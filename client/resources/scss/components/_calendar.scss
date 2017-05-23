@@ -79,7 +79,7 @@ $calendar-tab-height: 30px;
 		padding: 0 $padding-large;
 		position: relative;
 		min-width: 84px;
-		
+
 		.zarafa-calendar-tab-title {
 			position: relative;
 			overflow : hidden;
@@ -87,9 +87,9 @@ $calendar-tab-height: 30px;
 			display: inline-block;
 			color: white;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
-			float: left; 
+			float: left;
 		}
-		
+
 		/* cross icon is 7x7 px */
 		.zarafa-calendar-tab-icon-close {
 			position: relative;
@@ -103,7 +103,7 @@ $calendar-tab-height: 30px;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
 			float: left;
 		}
-		
+
 		/* arrow_left_l icon is 5x9 px */
 		.zarafa-calendar-tab-icon-merge {
 			position: relative;
@@ -117,7 +117,7 @@ $calendar-tab-height: 30px;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
 			float: left;
 		}
-		
+
 		/* arrow_right_l icon is 5x9 px */
 		.zarafa-calendar-tab-icon-separate {
 			position: relative;
@@ -148,7 +148,7 @@ $calendar-tab-height: 30px;
 			background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium/2);
 		}
 	}
-	
+
 	.zarafa-calendar-tab-contents.light-background {
 		.zarafa-calendar-tab-title {
 			color: black;
@@ -178,7 +178,7 @@ $calendar-tab-height: 30px;
 	.zarafa-canvas-header-background {
 		/* a styling element that we can use to set some styles of the header */
 		.zarafa-styling-element {
-			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value 
+			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
 			 * and use it for the text it draws on the canvas
 			 */
 			color: white;
@@ -199,7 +199,7 @@ $calendar-tab-height: 30px;
 			top: -10000px;
 			left: -10000px;
 			visibility: hidden;
-			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value 
+			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
 			 * and use it for the text it draws on the canvas
 			 */
 			color: white;
@@ -227,19 +227,19 @@ $calendar-tab-height: 30px;
 	.zarafa-styling-element {
 		color: black;
 		padding: $padding-medium;
-		
+
 		h2 {
 			line-height: 20px;
 			font-weight: bold;
 			margin-bottom: $padding-small;
 		}
-		
+
 		p {
 			margin-bottom: $padding-small;
 			line-height: 20px;
 		}
 	}
-	
+
 }
 
 /* Margin between checkbox and calendar icon in hieracy */
@@ -340,7 +340,8 @@ $calendar-tab-height: 30px;
 {
 	overflow: hidden;
 	position: absolute;
-	background-color: #adaead;
+	background-color: $grey;
+	margin-left: 2*$padding-extra-large;
 }
 
 .k-calendar-timestrip-indicator-icon
@@ -429,13 +430,13 @@ $calendar-tab-height: 30px;
 .zarafa-calendar-dragproxy-header
 {
 	color : #ffffff;
-	
+
 	overflow : hidden;
 	position : absolute;
 	display : none;
 	cursor : move ! important;
 	z-index : 999;
-	
+
 	opacity:.5;
 	background-color : #9f9faf;
 }
@@ -448,15 +449,15 @@ $calendar-tab-height: 30px;
 	cursor : move;
 	z-index : 999;
 	padding : 4px;
-	
+
 	font-weight : bold;
 	font-size : 11px;
 	padding : 4px;
-    
+
 	border : 1px solid #a0a0a0;
 	color : #000000;
 	background-color : #e7e7e7;
-	
+
 }
 
 .zarafa-calendar-dragproxy
