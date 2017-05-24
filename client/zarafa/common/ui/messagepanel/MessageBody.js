@@ -147,25 +147,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 		// the open method clears the document if it has contents
 		iframeDocument.open();
-		/* Content Security Policy
-		 * The WebApp's iframe only allows styles, fonts and scripts which are loaded from our own domain.
-		 * styles are allowed to be inlined since addCSSText adds inline CSS to the iframe, also images are
-		 * allowed to be loaded from every source for the users UX. object-src, <object>, <embed>, <applet> elements
-		 * are completely blocked, <frame> and <iframe> elements are also completely blocked.
-		 */
-
-		if (!Ext.isIE) {
-			// Edge does not support child-src.
-			var contentSrc = Ext.isEdge ? 'frame-src': 'child-src';
-			var head = "<head><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; "
-					+ "connect-src 'self'; object-src 'none'; font-src 'self'; "
-					+ "img-src * data:; " + contentSrc + " 'none';"
-					+  "script-src 'self'; style-src 'unsafe-inline'\">"
-					+ "</head>";
-			iframeDocument.write('<!DOCTYPE html><html>');
-			iframeDocument.write(head);
-		}
-		iframeDocument.write('<body>');
+		iframeDocument.write('<!DOCTYPE html><html><body>');
 		iframeDocument.write(body);
 		iframeDocument.write('</body></html>');
 		iframeDocument.close();
