@@ -229,6 +229,13 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
                 }
             }
 		}
+		// when we close the shared store suggested contact folder
+		// of shared store was removed but node was not removed from
+		// contact context tree panel because we don't refresh/reload the tree panel
+		// nodes when we switch the context so here we just reload the root node.
+		if(rootNode.childNodes.length !== data.length) {
+			rootNode.reload();
+		}
 
 		this.fireEvent('load', this, rootNode, response);
 	},
@@ -254,7 +261,10 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		var treeNode = rootNode.findChildStoreByEntryId(record.get('store_entryid'));
 		if (treeNode) {
 			treeNode.remove(true);
-		}			
+			if (this.deferredLoading === true) {
+				this.deferredLoadingActiveParent.on('activate', this.doHierarchyLoad, this, { single : true });
+			}
+		}
 	},
 
 	/**
