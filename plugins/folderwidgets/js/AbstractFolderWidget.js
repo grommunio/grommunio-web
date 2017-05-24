@@ -150,18 +150,26 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 				xtype: 'form',
 				labelWidth: 120,
 				frame: true,
-
 				items: [{
-					xtype: 'zarafa.spinnerfield',
-					fieldLabel: _('Reload interval (s)'),
-					name: 'reloadinterval',
-					width: 60,
-					minValue: 30, // 30 seconds
-					maxValue: 1800, // 30 minutes
-					incrementValue: 30, // 30 seconds
-					defaultValue: this.get('reloadinterval')/1000 || 300, // Note: The reloadinterval is stored in ms but displayed in s!
-					listeners: { 'change': this.onFieldChange, scope: this },
-					plugins: ['zarafa.numberspinner']
+					xtype: 'zarafa.compositefield',
+					plugins: [ 'zarafa.splitfieldlabeler' ],
+					// # TRANSLATORS: The '{A}' represents the number of seconds which the user will type in.
+					fieldLabel: _('Reload interval {A} seconds.'),
+					labelWidth: 250,
+					combineErrors: false,
+					items: [{
+						xtype: 'zarafa.spinnerfield',
+						labelSplitter: '{A}',
+						fieldLabel: _('Reload interval'),
+						name: 'reloadinterval',
+						width: 60,
+						minValue: 30, // 30 seconds
+						maxValue: 1800, // 30 minutes
+						incrementValue: 30, // 30 seconds
+						defaultValue: this.get('reloadinterval') / 1000 || 300, // Note: The reloadinterval is stored in ms but displayed in s!
+						listeners: {'change': this.onFieldChange, scope: this},
+						plugins: ['zarafa.numberspinner']
+					}]
 				}],
 				buttons: [{
 					text: _('Close'),
