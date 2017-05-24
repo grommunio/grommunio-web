@@ -26,6 +26,15 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	linkPattern : /((?:http|ftp)s?:\/\/|www.)([\w\.\-]+)\.(\w{2,6})([\w\/\-\_\+\.\,\?\=\&\!\:\;\%\#\|]+)*/gi,
 
 	/**
+	 * The scroll position of the document in the iframe that holds the message body
+	 * when the message body is inside a tab in the {@link Zarafa.core.ui.MainContentTabPanel}
+	 * and the tab is deactivated.
+	 * @property
+	 * @type {Object}
+	 */
+	scrollPos : null,
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
@@ -47,7 +56,11 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				frameborder: 0,
 				src: Ext.SSL_SECURE_URL
 			},
-			border : false
+			border : false,
+			listeners: {
+				scope: this,
+				render: this.onRenderMessageBody
+			}
 		});
 
 		Zarafa.common.ui.messagepanel.MessageBody.superclass.constructor.call(this, config);
@@ -56,6 +69,42 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			this.plaintextTemplate = new Ext.Template(this.plaintextTemplate, {
 				compiled: true
 			});
+		}
+	},
+
+	/**
+	 * Event handler for the {@link Ext.Component.render} event. Will add listener to the
+	 * {@link Zarafa.core.ui.MainContentTabPanel.beforetabchange} event if the MessageBody
+	 * is rendered inside a tab panel of the {@link Zarafa.core.ui.MainContentTabPanel}.
+	 */
+	onRenderMessageBody : function()
+	{
+		// Make sure we are inside the Zarafa.core.ui.MainContentTabPanel before
+		// we set the listener.
+		var tabPanel = this.findParentByType('tabpanel');
+		if ( tabPanel ){
+			this.mon(tabPanel, 'beforetabchange', this.onBeforeTabChange, this);
+		}
+	},
+
+	/**
+	 * Event handler for the {@link Ext.TabPanel.beforetabchange} of the
+	 * {@link Zarafa.core.ui.MainContentTabPanel}
+	 *
+	 * @param {Zarafa.core.ui.MainContentTabPanel} mainContentTabPanel The main
+	 * tab panel of the WebApp
+	 * @param {Ext.Panel} newTab The tab (panel) that will be activated
+	 * @param {Ext.Panel} currentTab The tab (panel) that is currently active
+	 */
+	onBeforeTabChange : function(mainContentTabPanel, newTab, currentTab)
+	{
+		// Store the scroll position of the iframe that holds the message body
+		if ( currentTab === this.ownerCt.ownerCt ){
+			var iframeWindow = this.getEl().dom.contentWindow;
+			this.scrollPos = {
+				x: iframeWindow.pageXOffset,
+				y: iframeWindow.pageYOffset
+			};
 		}
 	},
 
@@ -151,6 +200,15 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		iframeDocument.write(body);
 		iframeDocument.write('</body></html>');
 		iframeDocument.close();
+
+		// Restore the scroll position if the tab panel was deactivated
+		if ( this.scrollPos ){
+			// Chrome needs a reset to work properly
+			iframeWindow.scrollTo(0, 0);
+
+			iframeWindow.scrollTo(this.scrollPos.x, this.scrollPos.y);
+			this.scrollPos = null;
+		}
 
 		// Disable drag and drop
 		Ext.EventManager.on(iframeWindow, 'dragover', Zarafa.onWindowDragDrop);
