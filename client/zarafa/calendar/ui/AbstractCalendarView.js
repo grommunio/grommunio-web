@@ -1469,7 +1469,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		// But we need to keep selection manually for this particular calendar view.
 		var selectedRecords = this.contextModel.selectedRecords;
 		if (!Ext.isEmpty(selectedRecords)) {
-			this.onAppointmentSelect(this.selectionModel, selectedRecords[0]);
+			this.selectionModel.selectRecord(selectedRecords[0], false);
 		}
 	},
 

@@ -316,8 +316,32 @@ Zarafa.calendar.Actions = {
 		var context = container.getContextByFolder(mapiFolderRecord);
 		var model = context.getModel();
 
+		// Load the folder if it is not
+		var foldersToLoad = model.getFolders();
+		var folderEntryid = mapiFolderRecord.get('entryid');
+		var folderIndex = foldersToLoad.indexOf(mapiFolderRecord);
+		if (folderIndex === -1) {
+			foldersToLoad.push(mapiFolderRecord);
+		}
+
+		if (model.default_merge_state && folderIndex !== -1) {
+			// Check if folder is already there in one of the groups, find it.
+			for (var key in model.groupings) {
+				var groupFolders = model.groupings[key].folders;
+				if(groupFolders.indexOf(folderEntryid) > -1) {
+					// Respective group found, Make it active
+					model.active_group = key;
+					model.groupings[key].active = folderEntryid;
+				}
+			}
+		} else {
+			// Create a new group, add it to groupings as an active one
+			model.active_group = Ext.id(null, 'group-');
+			model.groupings[model.active_group] = { folders : [ folderEntryid ], active : folderEntryid };
+		}
+
 		// Enable the context, but keep is suspended to prevent loading data
-		container.switchContext(context, mapiFolderRecord, true);
+		container.switchContext(context, foldersToLoad, true);
 
 		// define which view to load
 		context.switchView(Zarafa.calendar.data.Views.BLOCKS, Zarafa.calendar.data.ViewModes.DAYS);
@@ -326,6 +350,9 @@ Zarafa.calendar.Actions = {
 		var appointmentDate = record.get('appointment_startdate') || record.get('appointment_basedate');
 		model.setDataMode(Zarafa.calendar.data.DataModes.DAY);
 		model.setDate(appointmentDate);
+
+		// Select the appointment
+		model.setSelectedRecords([record.convertToAppointmentRecord()]);
 
 		// We are done initializing the context & model.
 		// Time to start loading
