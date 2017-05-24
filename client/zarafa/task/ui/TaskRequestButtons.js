@@ -158,22 +158,15 @@ Zarafa.task.ui.TaskRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	},
 
 	/**
-	 * Opens a {@link Zarafa.calendar.dialogs.SendMeetingRequestConfirmationContentPanel SendMeetingRequestConfirmationContentPanel}
+	 * Opens a {@link Zarafa.task.dialogs.SendTaskRequestConfirmationContentPanel SendTaskRequestConfirmationContentPanel}
+	 *
 	 * @param {Ext.Button} button button object.
 	 * @param {EventObject} eventObject The click event object.
 	 * @private
 	 */
 	openSendConfirmationContent : function(button, eventObject)
 	{
-		if (!this.record.isTaskOwner()) {
-			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg :_('You cannot accept the task "') + this.record.get('conversation_topic').trim() + _('" because it is not assigned to you.'),
-				icon: Ext.MessageBox.WARNING,
-				scope: this,
-				buttons: Ext.MessageBox.OK
-			});
-		} else {
+		if (this.record.isTaskOwner()) {
 			Zarafa.task.Actions.openSendConfirmationContent(this.record, { responseType : button.responseStatus });
 		}
 	}
