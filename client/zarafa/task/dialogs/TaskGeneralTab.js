@@ -79,6 +79,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'zarafa.taskinfo',
 			cls : 'k-taskinfopanel',
 			ref : 'taskInfoPanel',
+			autoHeight: true,
 			hidden : true
 		};
 	},
