@@ -39,18 +39,6 @@ error_reporting(E_ALL | E_STRICT);
 set_error_handler("kopano_error_handler");
 
 /**
- * Obtain the current Git working branch
- */
-function gitversion()
-{
-	if (is_dir('.git')) {
-		return trim(@shell_exec("git symbolic-ref --short HEAD || git rev-parse --short HEAD ."));
-	} else {
-		return '';
-	}
-}
-
-/**
 * Custom error handler, here we check to see if it is a MAPI error and dump all info
 * to the dump file, and finally we redirect the error back to PHP
 */
