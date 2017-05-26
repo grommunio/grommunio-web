@@ -7,7 +7,6 @@ $version = trim(file_get_contents('version'));
 $versionInfo = array(
 	'webapp'	=> $version,
 	'zcp'		=> phpversion('mapi'),
-	'server'	=> DEBUG_SHOW_SERVER ? DEBUG_SERVER_ADDRESS : '',
 	'git'		=> DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
 );
 

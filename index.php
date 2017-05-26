@@ -69,11 +69,7 @@
 
 		// Set some template variables for the login page
 		$branch = DEBUG_LOADER===LOAD_SOURCE ? gitversion() : '';
-		$server = DEBUG_SHOW_SERVER ? DEBUG_SERVER_ADDRESS : '';
 		$version = 'WebApp ' . trim(file_get_contents('version'));
-		if (!empty($server)) {
-			$version = _('Server') . ': ' . $server . ' - ' . $version;
-		}
 		$zcpversion = 'Kopano Core' . ' ' . phpversion('mapi');
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
 
