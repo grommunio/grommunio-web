@@ -535,16 +535,6 @@ class Conversion {
 
 						$action[$key] = $recipients;
 						break;
-					/*case 'proptag':
-						if(!empty($value)) {
-							// assume there will be only one proptag
-							$action[$key] = Conversion::json2property($key);
-						}
-						break;
-					case 'code':
-					default:
-						// currently not used
-						break;*/
 				}
 			}
 		}
@@ -591,16 +581,6 @@ class Conversion {
 
 						$action[$key] = $recipients;
 						break;
-					/*case 'proptag':
-						if(!empty($value)) {
-							// assume there will be only one proptag
-							$action[$key] = Conversion::property2json($key);
-						}
-						break;
-					case 'code':
-					default:
-						// currently not used
-						break;*/
 				}
 			}
 		}
@@ -729,10 +709,6 @@ class Conversion {
 			}
 		};
 		
-		// Note: For PHP<5.4 iconv will not return false when an illegal character is found, but it will
-		// return the part of the string until the illegal character. This results in WebApp showing
-		// only part of the body for PHP<5.4 while for PHP>=5.4 it will show the plain text body instead
-		// of the html body.
 		return iconv($charset, "utf-8", $string);
 	}
 }
