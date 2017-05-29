@@ -174,11 +174,7 @@ class Conversion {
 					$value = bin2hex($value);
 					break;
 				case PT_MV_BINARY:
-					$result = array();
-					foreach($value as $entry) {
-						$result[] = bin2hex($entry);
-					}
-					$value = $result;
+					$value = array_map("bin2hex", $value);
 					break;
 				case PT_MV_STRING8:
 					$result = "";
