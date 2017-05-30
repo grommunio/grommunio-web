@@ -419,7 +419,6 @@
 
 				// Allowing to hook in before the signed attachment is removed
 				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.signed', array(
-					'moduleObject' =>& $this,
 					'store' => $store,
 					'props' => $props,
 					'message' => &$message,
@@ -448,7 +447,6 @@
 
 				// Allowing to hook in before the encrypted attachment is removed
 				$GLOBALS['PluginManager']->triggerHook('server.util.parse_smime.encrypted', array(
-					'moduleObject' =>& $this,
 					'store' => $store,
 					'props' => $props,
 					'message' => &$message,
