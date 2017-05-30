@@ -485,7 +485,7 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		}
 
 		// @TODO handle other non supported types
-		var faultyMessages = ['IPM', 'MEMO', 'REPORT'];
+		var faultyMessages = ['IPM', 'MEMO', 'REPORT','IPM.MAIL'];
 		return this.isMessageClass(faultyMessages, false);
 	},
 
