@@ -37,7 +37,7 @@
 
 			for ($iterations = 4; $iterations > 0; $iterations--) {
 				if (substr($entryId, $len - ($offset + 2), $len - $offset) == '00') {
-					$padding += '00';
+					$padding .= '00';
 					$offset += 2;
 				} else {
 					// if non-null character found then break the loop
