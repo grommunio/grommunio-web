@@ -297,17 +297,18 @@
 	border-left : none;
 }
 
-.zarafa-search-combobox-menu-sep {
-	margin: 2px 0 !important;
-	background-color: $grey !important;
-	border-bottom-color: $grey !important;
+.k-search-combobox-menu-sep-parent {
+	margin: 3px 0;
+
+	.k-search-combobox-menu-sep {
+		margin: 0 !important;
+		height: 0 !important;
+		background-color: $grey !important;
+		border-bottom-color: $grey !important;
+	}
 }
 
-.zarafa-search-combobox-item {
-	padding: 2px 10px !important;
-}
-
-.zarafa-search-node-owner {
+.k-search-node-owner {
 	font-weight: normal;
 	color: $grey6 !important;
 }
