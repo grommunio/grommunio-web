@@ -736,7 +736,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 				var props = {
 					recipient_type : Zarafa.core.mapi.RecipientType.MAPI_ORIG,
 					recipient_flags : Zarafa.core.mapi.RecipientFlags.recipSendable | Zarafa.core.mapi.RecipientFlags.recipOrganizer,
-					recipient_trackstatus : Zarafa.core.mapi.RecipientTrackStatus.RECIPIENT_TRACKSTATUS_NONE
+					recipient_trackstatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED
 				};
 
 				// Check if the sent_representing_* properties are there,
