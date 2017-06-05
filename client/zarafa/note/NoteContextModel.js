@@ -29,6 +29,7 @@ Zarafa.note.NoteContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		Ext.applyIf(config, {
+			statefulRecordSelection: true,
 			current_data_mode : Zarafa.note.data.DataModes.ALL
 		});
 

@@ -40,6 +40,10 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	{
 		config = config || {};
 
+		Ext.applyIf(config, {
+			deferRowRender : false
+		});
+
 		if(Ext.isEmpty(config.view)) {
 			config.viewConfig = Ext.applyIf(config.viewConfig || {}, {
 				autoFill : true
@@ -103,6 +107,27 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.store.on('write', this.onWriteRecord, this);
 
 		this.on('viewready', this.onViewReady, this);
+
+		if (this.model && this.model.statefulRecordSelection) {
+			this.mon(this.model, 'recordselectionchange', this.onRecordSelectionChange, this);
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the recordselection in the {@link #model} has been changed.
+	 * If no selection is currently active, this will automatically select the given records in the grid.
+	 *
+	 * @param {Zarafa.core.ContextModel} model this model.
+	 * @param {Zarafa.core.data.IPMRecord[]} records The selected records
+	 * @private
+	 */
+	onRecordSelectionChange : function(model, records)
+	{
+		if (!this.getSelectionModel().hasSelection() && !Ext.isEmpty(records)) {
+			var index = model.getStore().indexOf(records[0]);
+			this.getSelectionModel().selectRecords(records);
+			this.getView().focusRow(index);
+		}
 	},
 
 	/**

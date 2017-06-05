@@ -1463,6 +1463,14 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 				this.addAppointment(record, false);
 			}
 		}, this);
+
+		// Keeping the selection can be achieved properly by using 'recordselectionchange'
+		// event of respective context instance in case of any GridView.
+		// But we need to keep selection manually for this particular calendar view.
+		var selectedRecords = this.contextModel.selectedRecords;
+		if (!Ext.isEmpty(selectedRecords)) {
+			this.onAppointmentSelect(this.selectionModel, selectedRecords[0]);
+		}
 	},
 
 	/**
