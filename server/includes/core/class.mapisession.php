@@ -128,7 +128,7 @@
 				$store_props = mapi_getprops($this->getDefaultMessageStore(), array(PR_USER_ENTRYID));
 
 				// open the user entry
-				$user = mapi_ab_openentry($this->getAddressbook(), $store_props[PR_USER_ENTRYID]);
+				$user = mapi_ab_openentry($this->getAddressbook(true), $store_props[PR_USER_ENTRYID]);
 
 				// receive userdata
 				// TODO: 0x8C9E0102 represents an LDAP jpegPhoto and should get a named property PR_EMS_AB_THUMBNAIL_PHOTO
