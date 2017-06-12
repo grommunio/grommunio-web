@@ -244,6 +244,9 @@ class DownloadMessage
 					$filename .= '.eml';
 
 					$filename = $this->handleDuplicateFileNames($filename);
+					// Remove slashes to prevent unwanted directories to be created in the zip file.
+					$filename = str_replace('\\', '_', $filename);
+					$filename = str_replace('/', '_', $filename);
 
 					// Add file into zip by stream
 					$zip->addFromString($filename, $datastring);
