@@ -774,10 +774,10 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		var orResMessageClass = [];
 		var orFilters = [];
 
-		Ext.iterate(this.searchCriteria, function(key, values, Object) {
+		Ext.iterate(this.searchCriteria, function(key, values) {
 			// search field restriction
 			if(key === 'search_fields') {
-				Ext.each(values, function(value, index, values){
+				Ext.each(values, function(value){
 					orResSearchField.push(
 						Zarafa.core.data.RestrictionFactory.dataResContent(
 							value,
@@ -789,7 +789,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			}
 
 			if (key === 'extra_fields') {
-				Ext.each(values, function(value, index, values) {
+				Ext.each(values, function(value) {
 					if (value === 'hasattach') {
 						orFilters.push(
 							Zarafa.core.data.RestrictionFactory.dataResProperty(
@@ -832,7 +832,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			}
 			// message class restriction
 			if(key === 'message_class' && !Ext.isEmpty(values)) {
-				Ext.each(values, function(value, index, values){
+				Ext.each(values, function(value){
 					orResMessageClass.push(
 						Zarafa.core.data.RestrictionFactory.dataResContent(
 							key,
