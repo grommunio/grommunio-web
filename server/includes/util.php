@@ -530,7 +530,15 @@
 
 		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
-		$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
+		try {
+			$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
+		} catch (MAPIException $e) {
+			if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_ENTRYID) {
+				$username = $GLOBALS["mapisession"]->getUserName();
+				error_log(sprintf('Unable to open IPM_SUBTREE for %s, trying to correct PR_IPM_SUBTREE_ENTRYID', $username));
+				$ipmsbutree = fix_ipmsubtree($store);
+			}
+		}
 		$hierarchy =  mapi_folder_gethierarchytable($ipmsubtree, CONVENIENT_DEPTH);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
 
@@ -546,5 +554,45 @@
 		}
 
 		return $folderStatCache;
+	}
+
+	/**
+	 * Fix the PR_IPM_SUBTREE_ENTRYID in the Store properties when it is broken,
+	 * by looking up the IPM_SUBTREE in the Hierarchytable and fetching the entryid
+	 * and if found, setting the PR_IPM_SUBTREE_ENTRYID to that found entryid.
+	 *
+	 * @param {Object} store the users MAPI Store
+	 * @return {mixed} false if unable to correct otherwise return the subtree.
+	 */
+	function fix_ipmsubtree($store)
+	{
+		$root = mapi_msgstore_openentry($store, null);
+		$username = $GLOBALS["mapisession"]->getUserName();
+		$hierarchytable = mapi_folder_gethierarchytable($root);
+		mapi_table_restrict($hierarchytable, [RES_CONTENT,
+				[
+					FUZZYLEVEL	=> FL_PREFIX,
+					ULPROPTAG	=> PR_DISPLAY_NAME,
+					VALUE		=> [PR_DISPLAY_NAME => "IPM_SUBTREE"]
+				]
+		]);
+
+		$folders = mapi_table_queryallrows($hierarchytable, array(PR_ENTRYID));
+		if (empty($folders)) {
+			error_log(sprintf("No IPM_SUBTREE found for %s, store is broken", $username));
+			return false;
+		}
+
+		try {
+			$entryid = $folders[0][PR_ENTRYID];
+			$ipmsubtree = mapi_msgstore_openentry($store, $entryid);
+		} catch (MAPIException $e) {
+			error_log(sprintf('Unable to open IPM_SUBTREE for %s, IPM_SUBTREE folder can not be opened. MAPI error: %s',
+					$username, get_mapi_error_name($e->getCode())));
+			return false;
+		}
+
+		mapi_setprops($store, [PR_IPM_SUBTREE_ENTRYID => $entryid]);
+		error_log(sprintf('Fixed PR_IPM_SUBTREE_ENTRYID for %s', $username));
 	}
 ?>
