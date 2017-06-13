@@ -769,7 +769,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 		var finalRes = [];
 		var andRes = [];
-		var andResDate = [];
+		var orResDate = [];
 		var orResSearchField = [];
 		var orResMessageClass = [];
 		var orFilters = [];
@@ -814,20 +814,37 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			// Date Range restriction
 			if(key === 'date_range') {
 				if(values.start !== 0 && values.end !== 0) {
-					andResDate.push(
-						Zarafa.core.data.RestrictionFactory.dataResProperty(
-							'last_modification_time',
-							Zarafa.core.mapi.Restrictions.RELOP_GE,
-							values.start
-						)
-					);
-					andResDate.push(
-						Zarafa.core.data.RestrictionFactory.dataResProperty(
-							'last_modification_time',
-							Zarafa.core.mapi.Restrictions.RELOP_LT,
-							values.end
-						)
-					);
+					// Modification date
+					orResDate = Zarafa.core.data.RestrictionFactory.createResOr([
+						Zarafa.core.data.RestrictionFactory.createResAnd([
+							Zarafa.core.data.RestrictionFactory.createResNot(
+								Zarafa.core.data.RestrictionFactory.dataResExist('PR_MESSAGE_DELIVERY_TIME')
+							),
+							Zarafa.core.data.RestrictionFactory.dataResProperty(
+								'last_modification_time',
+								Zarafa.core.mapi.Restrictions.RELOP_GE,
+								values.start
+							),
+							Zarafa.core.data.RestrictionFactory.dataResProperty(
+								'last_modification_time',
+								Zarafa.core.mapi.Restrictions.RELOP_LT,
+								values.end
+							)
+						]),
+						Zarafa.core.data.RestrictionFactory.createResAnd([
+							Zarafa.core.data.RestrictionFactory.dataResExist('PR_MESSAGE_DELIVERY_TIME'),
+							Zarafa.core.data.RestrictionFactory.dataResProperty(
+								'message_delivery_time',
+								Zarafa.core.mapi.Restrictions.RELOP_GE,
+								values.start
+							),
+							Zarafa.core.data.RestrictionFactory.dataResProperty(
+								'message_delivery_time',
+								Zarafa.core.mapi.Restrictions.RELOP_LT,
+								values.end
+							)
+						])
+					]);
 				}
 			}
 			// message class restriction
@@ -845,13 +862,19 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		}, this);
 
 		/**
-		 * It date informations are present in search criteria then create search restriction
+		 * If date informations are present in search criteria then create search restriction
 		 * something like this.
 		 * AND
 		 * 		AND
-		 * 			AND
-		 * 				start date
-		 * 				end date
+		 * 			OR
+		 * 				AND
+		 * 					Not PR_MESSAGE_DELIVERY_TIME exists
+		 * 					start date (last_modification_time)
+		 * 					end date (last_modification_time)
+		 * 				AND
+		 * 					PR_MESSAGE_DELIVERY_TIME exists
+		 * 					start date (message_delivery_time)
+		 * 					end date (message_delivery_time)
 		 * 			OR
 		 * 				searchFields
 		 * 		OR
@@ -859,9 +882,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		 * 		OR
 		 * 			search filters
 		 */
-		if(!Ext.isEmpty(andResDate)) {
+		if(!Ext.isEmpty(orResDate)) {
 			var andResDateSearchField = [];
-			andResDateSearchField.push(Zarafa.core.data.RestrictionFactory.createResAnd(andResDate));
+			andResDateSearchField.push(orResDate);
 			andResDateSearchField.push(Zarafa.core.data.RestrictionFactory.createResOr(orResSearchField));
 			andRes.push(Zarafa.core.data.RestrictionFactory.createResAnd(andResDateSearchField));
 		} else {
