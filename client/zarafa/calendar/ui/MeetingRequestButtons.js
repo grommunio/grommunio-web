@@ -121,9 +121,10 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 
 		// When this meeting is current, and the user didn't send the meeting request himself,
 		// then the user is allowed to accept or decline the meeting.
-		this.acceptButton.setVisible(isMeeting && !isSubMessage && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived);
-		this.tentativeButton.setVisible(isMeeting && !isSubMessage && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived);
-		this.declineButton.setVisible(isMeeting && !isSubMessage && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived);
+		var showButton = isMeeting && !isSubMessage && !senderIsReceiver && !isMeetingOutOfDate && !isMeetingCanceled && !senderIsStoreOwner && requestReceived;
+		this.acceptButton.setVisible(showButton);
+		this.tentativeButton.setVisible(showButton);
+		this.declineButton.setVisible(showButton);
 
 		// A user can only propose a new time for non-recurring meetings, or occurences. For the rest,
 		// the same rules apply as for accepting.

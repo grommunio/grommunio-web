@@ -260,6 +260,7 @@
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 				$properties["basedate"] = "PT_SYSTIME:PSETID_Appointment:0x8228";
 				$properties["timezone_data"] = "PT_BINARY:PSETID_Appointment:0x8233";
+				$properties["auxiliary_flags"] = "PT_LONG:PSETID_Appointment:0x8207";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
 				$properties["creation_time"] = PR_CREATION_TIME;

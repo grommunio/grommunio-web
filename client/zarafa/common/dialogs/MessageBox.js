@@ -70,9 +70,10 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, Ext.MessageBox, {
 	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
 	 * @param {Array} selections (optional) Array of configuration objects for the {@link Ext.form.Radio radios} from which the user can select.
 	 * @param {String} value (optional) Default value for the {@link Ext.form.RadioGroup radiogroup}.
+	 * @param {String} customButton (optional) buttons which need to show in message box. this buttons contains custom name's.
 	 * @return {Zarafa.common.dialogs.RadioMessageBox} this
 	 */
-	select : function(title, msg, fn, scope, selections, value)
+	select : function(title, msg, fn, scope, selections, value, customButton)
 	{
 		var label = Ext.create({
 			xtype: 'displayfield',
@@ -82,34 +83,70 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, Ext.MessageBox, {
 			hideLabel : true,
 			htmlEncode : true
 		});
+
 		var radioGroup = Ext.create({
 			xtype: 'radiogroup',
 			hideLabel: true,
 			style: 'padding-left: 50px;',
 			columns: 1,
 			items: selections,
-			value: value
+			value: value,
+			listeners : {
+				change : this.onChange,
+				scope : this
+			}
 		});
-
 		this.initDialog([{
 			xtype: 'container',
 			anchor: '100% 100%',
 			items: [ label, radioGroup ]
 		}]);
 
-		Ext.MessageBox.show({
-			title : title,
-			buttons: Ext.MessageBox.OKCANCEL,
-			fn: function(button) {
-				Ext.callback(fn, scope || window, [button, radioGroup.getValue()], 1);
-			},
-			minWidth: Ext.MessageBox.minPromptWidth,
-			scope : scope,
-			prompt: false,
-			value: value
-		});
-
+		if(!Ext.isEmpty(customButton)) {
+			var config = {};
+			Ext.apply(config, {
+				title : title,
+				minWidth: Ext.MessageBox.minPromptWidth,
+				scope : scope,
+				fn : fn,
+				prompt: false,
+				value: value,
+				customButton : customButton,
+				radioGroup : radioGroup
+			});
+			this.addCustomButtons(config);
+		} else {
+			Ext.MessageBox.show({
+				title : title,
+				buttons: Ext.MessageBox.OKCANCEL,
+				fn: function(button) {
+					Ext.callback(fn, scope || window, [button, radioGroup.getValue()], 1);
+				},
+				minWidth: Ext.MessageBox.minPromptWidth,
+				scope : scope,
+				prompt: false,
+				value: value
+			});
+		}
 		return this;
+	},
+
+	/**
+	 * Event handler triggered when radio button of {@link #select} message box
+	 * gets changed.
+	 *
+	 * @param {Ext.form.RadioGroup} radioGroup the radioGroup which triggers this event.
+	 * @param {Ext.form.Radio} radio the radio which listen the event.
+	 */
+	onChange : function (radioGroup, radio) {
+		if(radio.hideButtonText) {
+			var fbar = Ext.MessageBox.getDialog().getFooterToolbar();
+			var btn = fbar.find('name', radio.hideButtonText)[0];
+			if(Ext.isDefined(btn)) {
+				btn.setText(Ext.util.Format.capitalize(radio.showButtonText));
+				btn.name = radio.showButtonText;
+			}
+		}
 	},
 
 	/**
@@ -125,7 +162,12 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, Ext.MessageBox, {
 
 		if(!Ext.isEmpty(this.customButton)) {
 			Ext.each(this.customButton, function(button) {
-				dlg.mon(button, 'click', Ext.createDelegate(this.onButtonClick, config.scope, [config.fn], true), this);
+				var args = [];
+				args.push(config.fn);
+				if(Ext.isDefined(config.radioGroup)) {
+					args.push(config.radioGroup);
+				}
+				dlg.mon(button, 'click', Ext.createDelegate(this.onButtonClick, config.scope, args, true), this);
 			}, this);
 		}
 
@@ -139,12 +181,17 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, Ext.MessageBox, {
 	 * @param {Ext.Button}  button The button which user pressed.
 	 * @param {Ext.EventObject} event the event object
 	 * @parma {Function} callback The callback function to call when button is pressed.
+	 * @parma {Ext.form.RadioGroup} radioGroup The radioGroup contains if message box triggered from {@link #select} message box.
 	 */
-	onButtonClick : function(button, event, callback)
+	onButtonClick : function(button, event, callback, radioGroup)
 	{
 		var buttonName = button.name || 'cancel';
 		Ext.MessageBox.hide();
-		callback.call(this, buttonName);
+		if(radioGroup) {
+			callback.call(this, buttonName, radioGroup.getValue());
+		} else {
+			callback.call(this, buttonName);
+		}
 	},
 
 	/**

@@ -30,6 +30,7 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 		});
 
 		Zarafa.calendar.AppointmentStore.superclass.constructor.call(this, config);
+		this.on('update', this.onUpdate, this);
 	},
 
 	/**
@@ -220,6 +221,23 @@ Zarafa.calendar.AppointmentStore = Ext.extend(Zarafa.core.data.ListModuleStore, 
 	{
 		Zarafa.calendar.AppointmentStore.superclass.onNotifyObjectdeleted.apply(this, arguments);
 		this.reload();
+	},
+
+	/**
+	 * Event handler triggered when store was updated also it should open the copied meeting record
+	 * into tab for further adding.
+	 *
+	 * @param {Zarafa.calendar.AppointmentStore} store which gets updated.
+	 * @param {Zarafa.calendar.AppointmentRecord} record which is created in store.
+	 * @param {string} operation write Action that ocurred. Can be one of
+	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
+	 * {@link Ext.data.Record.COMMIT COMMIT}
+	 */
+	onUpdate : function (store, record, operation)
+	{
+		if(operation === Ext.data.Record.COMMIT && record.getActionResponse('resources_pasted') && record.isMeeting()) {
+			Zarafa.core.data.UIFactory.openViewRecord(record);
+		}
 	}
 });
 
