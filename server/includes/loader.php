@@ -5,6 +5,16 @@
  */
 class FileLoader {
 
+	private $source = DEBUG_LOADER === LOAD_SOURCE;
+
+	public function __construct()
+	{
+		// Unique cache file per WebApp location.
+		$basePath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . md5(realpath(__FILE__));
+		$this->cacheFile = "$basePath-loadcache";
+		$this->cacheSum = "$basePath-loadsum";
+	}
+
 	/**
 	 * Obtain the list of Extjs & UX files
 	 *
@@ -344,7 +354,6 @@ class FileLoader {
 			$filename = $files[$i];
 
 			$extends = Array();
-			$depends = Array();
 			$dependsFile = Array();
 			$class = Array();
 
@@ -537,6 +546,84 @@ class FileLoader {
 		}
 		fclose($fh);
 		return $fc;
+	}
+
+	/**
+	 * The JavaScript load order for WebApp. The loader order is cached when WebApp
+	 * is LOAD_SOURCE mode, since calculating the loader is quite expensive.
+	 */
+	public function jsOrder()
+	{
+		if ($this->source) {
+			if ($this->cacheExists()) {
+				echo file_get_contents($this->cacheFile);
+				return;
+			}
+			ob_start();
+		}
+
+		$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
+		$extjsFiles = $this->getExtjsJavascriptFiles(DEBUG_LOADER);
+		$this->printFiles($extjsFiles, $jsTemplate);
+		$webappFiles = $this->getZarafaJavascriptFiles(DEBUG_LOADER, $extjsFiles);
+		$this->printFiles($webappFiles, $jsTemplate);
+
+		$pluginFiles = $this->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($extjsFiles, $webappFiles));
+		$this->printFiles($pluginFiles, $jsTemplate);
+
+		$remoteFiles = $this->getRemoteJavascriptFiles(DEBUG_LOADER);
+		$this->printFiles($remoteFiles, $jsTemplate);
+
+		if ($this->source) {
+			$contents = ob_get_contents();
+			ob_end_clean();
+			echo $contents;
+			file_put_contents($this->cacheFile, $contents);
+		}
+	}
+
+	/**
+	 * The CSS load order for WebApp
+	 */
+	public function cssOrder()
+	{
+		$cssTemplate = "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{file}\">";
+		$extjsFiles = $this->getExtjsCSSFiles(DEBUG_LOADER);
+		$this->printFiles($extjsFiles, $cssTemplate);
+
+		$webappFiles = $this->getZarafaCSSFiles(DEBUG_LOADER);
+		$this->printFiles($webappFiles, $cssTemplate);
+
+		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
+		$this->printFiles($pluginFiles, $cssTemplate);
+
+		$remoteFiles = $this->getRemoteCSSFiles(DEBUG_LOADER);
+		$this->printFiles($remoteFiles, $cssTemplate);
+
+		/* Add the styling of the theme */
+		$css = Theming::getCss(Theming::getActiveTheme());
+		foreach ( $css as $file ) {
+			echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
+		}
+	}
+
+	/**
+	 * Checks if the any JavaScript or CSS files on disk have been changed
+	 * and writes a new md5 of the files to the disk.
+	 *
+	 * return boolean False if cache is outdated
+	 */
+	public function cacheExists()
+	{
+		$files = [$this->getJavascriptFiles('client'), $this->getJavascriptFiles('plugins')];
+		$md5 = md5(json_encode($files));
+
+		if (!file_exists($this->cacheSum) || file_get_contents($this->cacheSum) !== $md5) {
+			file_put_contents($this->cacheSum, $md5);
+			return false;
+		}
+
+		return true;
 	}
 }
 ?>

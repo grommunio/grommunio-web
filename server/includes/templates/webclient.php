@@ -3,11 +3,7 @@ include(BASE_PATH . 'server/includes/loader.php');
 
 $loader = new FileLoader();
 
-$cssTemplate = "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{file}\">\n";
-$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>\n";
-
 $version = trim(file_get_contents('version'));
-
 $versionInfo = array(
 	'webapp'	=> $version,
 	'zcp'		=> phpversion('mapi'),
@@ -67,25 +63,7 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 		<?php
-			$extjsFiles = $loader->getExtjsCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($extjsFiles, $cssTemplate);
-
-			$webappFiles = $loader->getZarafaCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($webappFiles, $cssTemplate);
-
-			$pluginFiles = $loader->getPluginCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($pluginFiles, $cssTemplate);
-
-			$remoteFiles = $loader->getRemoteCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($remoteFiles, $cssTemplate);
-
-			/* Add the styling of the theme */
-			$css = Theming::getCss($theme);
-			if ( count($css) ){
-				foreach ( $css as $file ){
-					echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
-				}
-			}
+			$loader->cssOrder();
 		?>
 	</head>
 
@@ -128,22 +106,8 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 		<!-- Translations -->
 		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&amp;load=translations.js&amp;lang=<?php echo $Language->getSelected() ?>"></script>
 
-		<!-- ExtJS & Thirdparty extensions-->
 		<?php
-			$extjsFiles = $loader->getExtjsJavascriptFiles(DEBUG_LOADER);
-			$loader->printFiles($extjsFiles, $jsTemplate);
-		?>
-
-		<!-- Zarafa client stuff -->
-		<?php
-			$webappFiles = $loader->getZarafaJavascriptFiles(DEBUG_LOADER, $extjsFiles);
-			$loader->printFiles($webappFiles, $jsTemplate);
-
-			$pluginFiles = $loader->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($extjsFiles, $webappFiles));
-			$loader->printFiles($pluginFiles, $jsTemplate);
-
-			$remoteFiles = $loader->getRemoteJavascriptFiles(DEBUG_LOADER);
-			$loader->printFiles($remoteFiles, $jsTemplate);
+			echo $loader->jsOrder();
 		?>
 
 		<script type="text/javascript">

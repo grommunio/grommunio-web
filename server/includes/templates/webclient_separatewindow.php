@@ -2,10 +2,6 @@
 include(BASE_PATH . 'server/includes/loader.php');
 
 $loader = new FileLoader();
-
-$cssTemplate = "\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"{file}\">\n";
-$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>\n";
-
 $version = trim(file_get_contents('version'));
 
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,23 +16,7 @@ $version = trim(file_get_contents('version'));
 		<link rel="shortcut icon" href="client/resources/images/favicon.ico?v2.2.0" type="image/x-icon">
 
 		<?php
-			$extjsCssFiles = $loader->getExtjsCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($extjsCssFiles, $cssTemplate);
-
-			$webappFiles = $loader->getZarafaCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($webappFiles, $cssTemplate);
-
-			$pluginFiles = $loader->getPluginCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($pluginFiles, $cssTemplate);
-
-			$remoteFiles = $loader->getRemoteCSSFiles(DEBUG_LOADER);
-			$loader->printFiles($remoteFiles, $cssTemplate);
-
-			/* Add the styling of the theme */
-			$css = Theming::getCss($theme);
-			foreach ($css as $file) {
-				echo '<link rel="stylesheet" type="text/css" href="' . $file . '">';
-			}
+			$loader->cssOrder();
 		?>
 	</head>
 
