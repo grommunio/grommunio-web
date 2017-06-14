@@ -50,6 +50,11 @@ Zarafa.task.TaskRecordFields = [
 	{name: 'tasklastuser'},
 	{name: 'flag_status'},
 	{name: 'flag_icon'},
+	{name: 'flag_request'},
+	{name: 'flag_due_by', type:'date', dateFormat:'timestamp', defaultValue: null},
+	{name: 'flag_complete_time', type:'date', dateFormat:'timestamp', defaultValue: null},
+	{name: 'task_start_date', type: 'date', dateFormat: 'timestamp', defaultValue: null},
+	{name: 'task_due_date', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'task_acceptance_state', type : 'int', defaultValue:Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED},
 	{name: 'updatecount', type : 'int'},
 	{name: 'task_not_found', type : 'boolean'}

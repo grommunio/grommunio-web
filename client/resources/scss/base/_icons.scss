@@ -195,20 +195,14 @@
 	.icon_mail_flag_red {
 		@extend .icons-icon_flag_red;
 	}
-	.icon_mail_flag_blue {
-		@extend .icon_flag_blue;
-	}
 	.icon_mail_flag_yellow {
 		@extend .icon_flag_yellow;
-	}
-	.icon_mail_flag_green {
-		@extend .icon_flag_green;
 	}
 	.icon_mail_flag_orange {
 		@extend .icon_flag_orange;
 	}
-	.icon_mail_flag_purple {
-		@extend .icon_flag_purple;
+	.icon_mail_flag_orange_dark {
+		@extend .icon_flag_orange_dark;
 	}
 	.icon_mail_completed {
 		@extend .icon_flag_complete;

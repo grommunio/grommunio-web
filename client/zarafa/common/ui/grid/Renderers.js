@@ -491,6 +491,73 @@ Zarafa.common.ui.grid.Renderers = {
 	},
 
 	/**
+	 * Render the Follow-up Flag Status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	flag : function(value, p, record)
+	{
+		var flagStatus = record.get('flag_status');
+		var flagRequest = record.get('flag_request');
+
+		if ( flagStatus === Zarafa.core.mapi.FlagStatus.completed ){
+			p.css += 'zarafa-grid-empty-cell icon_flag_complete';
+			return '';
+		}
+
+		if ( flagRequest!=='Follow up' || flagStatus!==Zarafa.core.mapi.FlagStatus.flagged ){
+			return '';
+		}
+
+		// add extra css class for empty cell
+		p.css += 'zarafa-grid-empty-cell';
+
+		// Now find the color we must show
+		var dueDate = record.get('task_due_date');
+
+		if ( !dueDate ){
+			p.css += ' icon_flag_red';
+			return '';
+		}
+
+		// Since we are interested in days and not in the exact time,
+		// we will set all times to 12am so it will be easy to compare days
+		dueDate.setToNoon();
+		var dueDateTimestamp = dueDate.getTime();
+		var today = new Date().setToNoon();
+		var todayTimestamp = today.getTime();
+
+		// If the due date is today or before today we will show a red flag
+		if ( dueDateTimestamp <= todayTimestamp ){
+			p.css += ' icon_flag_red';
+			return '';
+		}
+
+		// If the due date is tomorrow (timestamp difference will be 24 hours),
+		// we will show a dark orange flag
+		if ( dueDateTimestamp-todayTimestamp === 24*60*60*1000 ){
+			p.css += ' icon_flag_orange_dark';
+			return '';
+		}
+
+		if ( dueDate.inSameWeekAs(today) ){
+			p.css += ' icon_flag_orange';
+			return '';
+		}
+
+		if ( today.inNextWeek(dueDate) ){
+			p.css += ' icon_flag_yellow';
+			return '';
+		}
+
+		p.css += ' icon_flag_red';
+		return '';
+	},
+
+	/**
 	 * Render the dueby field
 	 *
 	 * @param {Object} value The data value for the cell.

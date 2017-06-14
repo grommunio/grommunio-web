@@ -315,6 +315,42 @@ Ext.apply(Date.prototype, {
 	},
 
 	/**
+	 * Sets the time of the date to 12:00 am.
+	 * @return {Date} this
+	 */
+	setToNoon : function()
+	{
+		this.clearTime().setHours(12);
+
+		return this;
+	},
+
+	/**
+	 * Checks if the given date is in the same week.
+	 * @param {Date} date The date to compare
+	 * @return {Boolean} true if the date is in the same week as this date, false otherwise.
+	 */
+	inSameWeekAs : function(date)
+	{
+		var clone = this.clone().setToNoon();
+		clone = clone.add(Date.DAY, -1*clone.getDay());
+		date.setToNoon();
+		date = date.add(Date.DAY, -1*date.getDay());
+
+		return clone.getTime() === date.getTime();
+	},
+
+	/**
+	 * Checks if the given date is in the next week.
+	 * @param {Date} date The date to compare
+	 * @return {Boolean} true if the date is in the next week from this date, false otherwise.
+	 */
+	inNextWeek : function(date)
+	{
+		return this.add(Date.DAY, 7).inSameWeekAs(date);
+	},
+
+	/**
 	 * Round the number of milliseconds/seconds/minutes or hours depending on the given value.
 	 * Note that days, months and years cannot be rounded.
 	 *

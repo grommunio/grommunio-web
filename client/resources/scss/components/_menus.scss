@@ -276,7 +276,8 @@ $menu-item-height : 30px;
 		background-position: sprite-position($iconsmap, icon_calendar_appt_cancelled, $offset-y: 3, $offset-x: 1);
 	}
 
-	.icon_flag_red {
+	.icon_mail_flag_red {
+		@extend .icon_flag_red;
       	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: 6, $offset-x: 1);
 	}
 
@@ -289,19 +290,9 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, icon_flag, $offset-y: 6, $offset-x: 1);
 	}
 
-	.icon_mail_flag_blue {
-		@extend .icon_flag_blue;
-      	background-position: sprite-position($iconsmap, icon_flag_blue, $offset-y: 6, $offset-x: 1);
-	}
-
 	.icon_mail_flag_yellow {
 		@extend .icon_flag_yellow;
       	background-position: sprite-position($iconsmap, icon_flag_yellow, $offset-y: 6, $offset-x: 1);
-	}
-
-	.icon_mail_flag_green {
-		@extend .icon_flag_green;
-      	background-position: sprite-position($iconsmap, icon_flag_green, $offset-y: 6, $offset-x: 1);
 	}
 
 	.icon_mail_flag_orange {
@@ -309,9 +300,9 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, icon_flag_orange, $offset-y: 6, $offset-x: 1);
 	}
 
-	.icon_mail_flag_purple {
-		@extend .icon_flag_purple;
-      	background-position: sprite-position($iconsmap, icon_flag_purple, $offset-y: 6, $offset-x: 1);
+	.icon_mail_flag_orange_dark {
+		@extend .icon_flag_orange_dark;
+      	background-position: sprite-position($iconsmap, icon_flag_orange_dark, $offset-y: 6, $offset-x: 1);
 	}
 
 	.icon_junk {

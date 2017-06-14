@@ -840,6 +840,8 @@
 				$properties["reminder_set"] = "PT_BOOLEAN:PSETID_Common:0x8503";
 				$properties["flag_request"] = "PT_STRING8:PSETID_Common:0x8530";
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
+				$properties["task_due_date"] = "PT_SYSTIME:PSETID_Task:0x8105";
+				$properties["task_start_date"] = "PT_SYSTIME:PSETID_Task:0x8104";
 				$properties["reply_requested"] = PR_REPLY_REQUESTED;
 				$properties["reply_time"] = PR_REPLY_TIME;
 				$properties["response_requested"] = PR_RESPONSE_REQUESTED;
@@ -1026,9 +1028,14 @@
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
 				$properties["flagdueby"] = "PT_SYSTIME:PSETID_Common:0x8560";
+				$properties["flag_status"] = PR_FLAG_STATUS;
+				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
+				$properties["task_due_date"] = "PT_SYSTIME:PSETID_Task:0x8105";
+				$properties["task_start_date"] = "PT_SYSTIME:PSETID_Task:0x8104";
 				$properties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
 				$properties["recurring_data"] = "PT_BINARY:PSETID_Task:0x8116";
 				$properties["dead_occurrence"] = "PT_BOOLEAN:PSETID_Task:0x8109";
+
 				// Conflict properties
 				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
 
