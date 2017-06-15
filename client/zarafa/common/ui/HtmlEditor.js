@@ -176,8 +176,12 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		if (Ext.isGecko) {
 			tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
-			var contentPanel = container.getTabPanel();
-			this.mon(contentPanel, 'tabchange', this.onTabChange, this);
+			// Get the tab panel only if mainPanel is available to prevent UI rendering
+			// while initializing tinymce to just load the source code of tinymce.
+			if (container.mainPanel) {
+				var contentPanel = container.getTabPanel();
+				this.mon(contentPanel, 'tabchange', this.onTabChange, this);
+			}
 		}
 
 		var listeners = {
