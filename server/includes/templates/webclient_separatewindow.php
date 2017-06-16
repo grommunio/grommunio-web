@@ -22,6 +22,7 @@ $version = trim(file_get_contents('version'));
 
 	<body>
 		<?php
+			$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
 			$extjsFiles[] = "client/tinymce/tinymce.js";
 			$loader->printFiles($extjsFiles, $jsTemplate);
 		?>
