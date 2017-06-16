@@ -19,6 +19,7 @@
 	<property name="extjs-base-file" value="ext-base.js"/>
 	<property name="extjs-all-debugfile" value="ext-all-debug.js"/>
 	<property name="extjs-all-file" value="ext-all.js"/>
+	<property name="extjs-base-all-file" value="ext-base-all.js"/>
 
 	<!-- The Ext-Ux distribution files -->
 	<property name="ux-folder" value="extjs/ux"/>
@@ -133,14 +134,20 @@
 
 	<!-- Prepare build, copy ExtJs files to target folder -->
 	<target name="prepare">
-		<mkdir dir="${target-folder}"/>
 		<!-- Copy files which will not be compiled, but are needed for compilation of the other components -->
+		<mkdir dir="${target-folder}/${extjs-folder}"/>
+		<!-- Concatenate small files so we have to load less files -->
+		<concat destfile="${target-folder}/${extjs-folder}/${extjs-base-all-file}">
+			<filelist dir="${extjs-folder}">
+				<file name="${extjs-base-file}"/>
+				<file name="${extjs-all-file}"/>
+			</filelist>
+		</concat>
+
 		<copy todir="${target-folder}/${extjs-folder}">
 			<fileset dir="${extjs-folder}">
 				<include name="${extjs-base-debugfile}"/>
-				<include name="${extjs-base-file}"/>
 				<include name="${extjs-all-debugfile}"/>
-				<include name="${extjs-all-file}"/>
 			</fileset>
 		</copy>
 		<copy todir="${target-folder}/${ux-folder}">
