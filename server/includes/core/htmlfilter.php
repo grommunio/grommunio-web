@@ -152,9 +152,9 @@ function sq_tagprint($tagname, $attary, $tagtype){
     } else {
         $fulltag = '<' . $tagname;
         if (is_array($attary) && sizeof($attary)){
-            while (list($attname, $attvalue) = each($attary)){
+	    foreach ($attary as $attname => $attvalue) {
                 $fulltag .= " $attname=$attvalue";
-            }
+	    }
 	}
         if ($tagtype == 3){
             $fulltag .= ' /';
@@ -557,7 +557,7 @@ function sq_fixatts($tagname,
                     $bad_attvals,
                     $add_attr_to_tag
                     ){
-    while (list($attname, $attvalue) = each($attary)){
+    foreach ($attary as $attname => $attvalue) {
         /**
          * See if this attribute should be removed.
          */
