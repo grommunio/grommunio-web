@@ -341,7 +341,14 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		this.setVisible(isVisible);
 		// Only re-layout when the component is visible.
 		if (isVisible) {
-			this.ownerCt.ownerCt.doLayout();
+			// For the task general tab we must do a layout of the complete panel because
+			// the extra info is updated after the other things are rendered.
+			var parent = this.findParentByType('zarafa.taskgeneraltab');
+			if ( parent ){
+				parent.doLayout();
+			} else {
+				this.doLayout();
+			}
 		}
 	},
 
