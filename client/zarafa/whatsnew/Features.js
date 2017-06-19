@@ -2,7 +2,7 @@
  * #dependsFile client/zarafa/Zarafa.js
  */
 
-Ext.namespace('Zarafa.whatsNew');
+Ext.namespace('Zarafa.whatsnew');
 
 /**
  * This object describes the new features that should be shown to users one time after updating
@@ -11,7 +11,7 @@ Ext.namespace('Zarafa.whatsNew');
  * WebApp must use urls relative to the root of the WebApp. Plugins must use urls relative to the
  * root directory of the plugin.
  */
-Zarafa.whatsNew.Features = {
+Zarafa.whatsnew.Features = {
 	// The features described here will only be shown when the version of the WebApp corresponds to
 	// the version set here.
     "version": '0.0',
