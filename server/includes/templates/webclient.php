@@ -111,8 +111,8 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 		?>
 
 		<script type="text/javascript">
-			settings 		= <?php echo json_encode($GLOBALS["settings"]->getJSON()); ?>;
-			languages 		= <?php echo json_encode($Language->getJSON()); ?>;
+			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
+			languages 		= <?php echo $Language->getJSON(); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 	= <?php echo json_encode($serverConfig); ?>;

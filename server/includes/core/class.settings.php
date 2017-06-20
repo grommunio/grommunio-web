@@ -232,7 +232,7 @@
 				throw new SettingsException(_('Settings object is not initialized'));
 			}
 
-			return $this->settings;
+			return json_encode($this->settings);
 		}
 
 		/**
