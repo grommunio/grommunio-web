@@ -423,6 +423,12 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 		// All preparations have been completed, it is now time to set
 		// the Record correctly into the component.
 		this.record = record;
+
+		// remove modified from modal dialog record
+		if(this.record.isModalDialogRecord) {
+			delete this.record.modified;
+		}
+
 		this.record.setUpdateModificationsTracking(true);
 		this.field.fireEvent('setrecord', this, record, oldrecord);
 
