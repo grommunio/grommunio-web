@@ -5,7 +5,7 @@
  */
 class FileLoader {
 
-	private $source = DEBUG_LOADER === LOAD_SOURCE;
+	private $source;
 
 	public function __construct()
 	{
@@ -13,6 +13,7 @@ class FileLoader {
 		$basePath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . md5(realpath(__FILE__));
 		$this->cacheFile = "$basePath-loadcache";
 		$this->cacheSum = "$basePath-loadsum";
+       		$this->source = DEBUG_LOADER === LOAD_SOURCE;
 	}
 
 	/**
