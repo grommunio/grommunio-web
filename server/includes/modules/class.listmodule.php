@@ -684,7 +684,7 @@
 		 */
 		function parseRestriction($action)
 		{
-			if(isset($action["restriction"])) {
+			if (isset($action["restriction"]) && is_array($action['restriction'])) {
 				if(isset($action["restriction"]["start"])) {
 					// Set start variable
 					$this->start = $action["restriction"]["start"];
