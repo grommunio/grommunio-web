@@ -57,7 +57,7 @@ Zarafa.whatsnew.Actions = {
 		// Update the version of the WebApp for which we we showed new features
 		sm.set('zarafa/v1/main/new_features_dialog/last_version/webapp', webAppVersion);
 
-		return Zarafa.whatsNew.Features.features;
+		return Zarafa.whatsnew.Features.features;
 	},
 
 	/**
@@ -127,7 +127,7 @@ Zarafa.whatsnew.Actions = {
 		var lastShownUnitVersion;
 
 		if ( unit === 'webapp-core' ){
-			whatsNewData = Zarafa.whatsNew.Features;
+			whatsNewData = Zarafa.whatsnew.Features;
 			unitVersion = container.getVersion().getWebApp();
 			lastShownUnitVersion = this.whatsNewSettings.last_version.webapp;
 		} else {
