@@ -28,9 +28,6 @@ define("DEBUG_DUMP_FILE", BASE_PATH . 'debug.txt');
 //              Load the original source files (for developers)
 define("DEBUG_LOADER", LOAD_SOURCE);
 
-// if true, show server url (if not localhost) in title of webaccess, or when this is a string, show that string
-define("DEBUG_SHOW_SERVER", true);
-
 // log php errors into apache log
 ini_set("log_errors", true);
 
@@ -40,38 +37,6 @@ ini_set("log_errors", true);
 //	This PHP error handler, only dumps the error to our dump file, including mapi_last_hresult
 error_reporting(E_ALL | E_STRICT);
 set_error_handler("kopano_error_handler");
-
-// get server url
-if (DEBUG_SHOW_SERVER){
-	if (DEBUG_SHOW_SERVER===true){
-		if (preg_match_all("|http://([^:/]+).*|", DEFAULT_SERVER, $matches)){
-			if ($matches[1][0]!="localhost"){ // other than localhost
-				define("DEBUG_SERVER_ADDRESS", $matches[1][0]);
-			} else {
-				define("DEBUG_SERVER_ADDRESS", '');
-			}
-		}else if (DEFAULT_SERVER!="file://\\\\.\\pipe\\kopano" && DEFAULT_SERVER!="file:///var/run/kopano"){  
-			// other non http server locations except the default values
-			define("DEBUG_SERVER_ADDRESS", str_replace("file://","",DEFAULT_SERVER)); // show location
-		} else {
-			define("DEBUG_SERVER_ADDRESS", '');
-		}
-	}else{ // show that string
-		define("DEBUG_SERVER_ADDRESS", DEBUG_SHOW_SERVER);
-	}
-}
-
-/**
- * Obtain the current Git working branch
- */
-function gitversion()
-{
-	if (is_dir('.git')) {
-		return trim(@shell_exec("git symbolic-ref --short HEAD || git rev-parse --short HEAD ."));
-	} else {
-		return '';
-	}
-}
 
 /**
 * Custom error handler, here we check to see if it is a MAPI error and dump all info

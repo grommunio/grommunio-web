@@ -32,10 +32,6 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 			},{
 				fieldLabel : _('Kopano Core'),
 				value : version.getZCP()
-			},{
-				fieldLabel : _('Server'),
-				value : version.getServer(),
-				hidden : Ext.isEmpty(version.getServer())
 			},
 				container.populateInsertionPoint('settings.versioninformation')
 			]

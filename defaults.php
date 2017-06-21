@@ -212,5 +212,4 @@ if(!defined('DEBUG_JSONOUT_GZIP')) define('DEBUG_JSONOUT_GZIP', false);
 if(!defined('DEBUG_PLUGINS')) define('DEBUG_PLUGINS', false);
 if(!defined('DEBUG_PLUGINS_DISABLE_CACHE')) define('DEBUG_PLUGINS_DISABLE_CACHE', false);
 if(!defined('DEBUG_DUMP_FILE')) define('DEBUG_DUMP_FILE', 'debug.txt');
-if(!defined('DEBUG_SHOW_SERVER')) define('DEBUG_SHOW_SERVER', false);
 ?>

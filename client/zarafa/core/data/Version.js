@@ -45,14 +45,6 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {String} Return the Server name
-	 */
-	getServer : function()
-	{
-		return this.meta.server;
-	},
-
-	/**
 	 * @return {String} Return the current Git branch
 	 */
 	getGit : function()

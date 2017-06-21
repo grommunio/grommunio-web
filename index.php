@@ -7,6 +7,24 @@
 	// Bootstrap the script
 	require_once('server/includes/bootstrap.php');
 
+	// Added in 3.4.0, remove check in 3.5.0
+	if (!function_exists('gitversion')) {
+		/**
+		 * Obtain the current Git working branch
+		 * @return string the current git working branch
+		 */
+		function gitversion()
+		{
+			if (is_dir(BASE_PATH . DIRECTORY_SEPARATOR . '.git')) {
+				return trim(@shell_exec("git symbolic-ref --short HEAD || git rev-parse --short HEAD ."));
+			} else {
+				return '';
+			}
+		}
+	} else {
+		error_log('Remove gitversion() function in debug.php it\'s deprecated');
+	}
+
 	/*
 	 * Get the favicon either from theme or use the default.
 	 *
@@ -69,11 +87,7 @@
 
 		// Set some template variables for the login page
 		$branch = DEBUG_LOADER===LOAD_SOURCE ? gitversion() : '';
-		$server = DEBUG_SHOW_SERVER ? DEBUG_SERVER_ADDRESS : '';
 		$version = 'WebApp ' . trim(file_get_contents('version'));
-		if (!empty($server)) {
-			$version = _('Server') . ': ' . $server . ' - ' . $version;
-		}
 		$zcpversion = 'Kopano Core' . ' ' . phpversion('mapi');
 		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
 
