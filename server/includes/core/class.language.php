@@ -104,7 +104,7 @@
 
 				textdomain('zarafa_webapp');
 			}else{
-				trigger_error("Unknown language: '".$lang."'", E_USER_WARNING);
+				error_log(sprintf("Unknown language: '%s'", $lang));
 			}
 		}
 
