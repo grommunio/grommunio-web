@@ -340,3 +340,21 @@
 		padding-top: $padding-medium;
 	}
 }
+
+/**********************************************************************
+ * Meeting tracking tab
+ *********************************************************************/
+.k-trackingtab {
+
+	.x-form-display-field {
+		padding : 10px 10px 10px $padding-extra-large;
+	}
+
+	.x-panel-body {
+		border-right: none;
+		border-left: none;
+		.x-grid3-row{
+			border-left: none;
+		}
+	}
+}

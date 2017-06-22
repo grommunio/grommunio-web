@@ -26,16 +26,17 @@ Zarafa.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 				type: 'vbox',
 				align: 'stretch'
 			},
+			cls : 'k-trackingtab',
 			border: false,
 			items: [{
 				xtype: 'displayfield',
+				height : 36,
 				value: _('The following responses for this meeting have been received') + ':',
 				hideLabel : true
 			},{
 				xtype : 'grid',
 				ref : 'responseTrackList',
 				flex: 1,
-				border: true,
 				store: new Zarafa.core.data.IPMRecipientStore(),
 				viewConfig : {
 					forceFit : true
