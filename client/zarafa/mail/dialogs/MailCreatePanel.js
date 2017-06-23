@@ -297,6 +297,33 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		} else {
 			record.data.body = value;
 		}
+
+		// Go for valuecorrection after record gets opened
+		this.record.store.on('open', this.onRecordOpen, this);
+	},
+
+	/**
+	 * Event Handler for {@link Zarafa.core.data.IPMStore store} open event. Handling a
+	 * special situation where two open requests made to server while double clicking
+	 * the mail from grid, first for tab panel, second for preview panel.
+	 * The html_body property of record, which belongs to tab panel, gets updated while
+	 * handling the response of second open request discarding the tinyMCE incurred changes,
+	 * left us with the situation where UI and underlying record differs.
+	 * To resolve this, we need to go for valuecorrection once the record gets opened successfully.
+	 *
+	 * @param {Zarafa.core.data.IPMStore} store The store of the record.
+	 * @param {Zarafa.core.data.IPMRecord} record The record which will be converted to a task
+	 */
+	onRecordOpen : function(store, record)
+	{
+		if (this.editorField) {
+			var fieldValue = this.editorField.getValue();
+
+			// Go further only if editor value differs with html_body of record
+			if ( fieldValue !== record.getBody(this.editorField.isHtmlEditor()) ) {
+				this.onBodyValueCorrection(this.editorField, fieldValue);
+			}
+		}
 	},
 
 	/**
