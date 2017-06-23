@@ -194,12 +194,8 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			}
 		}
 
-		// the open method clears the document if it has contents
-		iframeDocument.open();
-		iframeDocument.write('<!DOCTYPE html><html><body>');
-		iframeDocument.write(body);
-		iframeDocument.write('</body></html>');
-		iframeDocument.close();
+		var htmlBody = iframeDocument.getElementsByTagName('body')[0];
+		htmlBody.innerHTML = body;
 
 		// Restore the scroll position if the tab panel was deactivated
 		if ( this.scrollPos ){
