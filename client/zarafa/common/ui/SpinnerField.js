@@ -33,6 +33,12 @@ Zarafa.common.ui.SpinnerField = Ext.extend(Ext.form.TextField, {
 	 * @cfg {Function} autoSize
 	 */
 	autoSize: Ext.emptyFn,
+
+	/**
+	 * @cfg {String} The text that appears beside the SpinnerField.
+	 */
+	boxLabel : '',
+
 	/**
 	 * @cfg {Function} onBlur
 	 */
