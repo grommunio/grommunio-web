@@ -43,7 +43,7 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.create']:
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				if (record instanceof Zarafa.core.data.MAPIRecord) {
-					if (record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_FOLDER) {
+					if (record.get('object_type') == Zarafa.core.mapi.ObjectType.MAPI_FOLDER && !record.isSearchFolder()) {
 						bid = 1;
 					}
 				}

@@ -32,6 +32,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 				xtype: 'zarafa.searchpanel',
 				ref : 'searchPanel',
 				searchTabId : advanceSearchTabName,
+				searchFolder : config.searchFolder,
 				searchText : config.searchText,
 				searchContentPanel : this
 			}]
@@ -85,15 +86,20 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 		}
 
 		var searchPanel = activeTab.searchPanel;
-		if(Ext.isDefined(searchPanel)) {
+		if (Ext.isDefined(searchPanel)) {
 			var model = searchPanel.model;
 			var searchStore = model.stores[activeTab.name];
-			if(Ext.isDefined(searchStore)) {
+			if (Ext.isDefined(searchStore)) {
 				var searchGrid = searchPanel.centerRegion.switchBorder.searchGrid;
 				var selectionModel = searchGrid.getSelectionModel();
 				var records = selectionModel.getSelections();
 				model.setSelectedRecords(records, false);
 				model.setActiveStore(searchStore);
+
+				var searchFolder = searchStore.searchFolder[activeTab.name];
+				if (Ext.isDefined(searchFolder)) {
+					searchStore.setSearchEntryId(searchFolder.get('entryid'));
+				}
 			}
 		}
 	},

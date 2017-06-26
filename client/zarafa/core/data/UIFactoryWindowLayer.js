@@ -57,9 +57,11 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 		var windowCfg = {
 			modal : panel.modal,
 			manager : panel.manager,
+			iconCls : Ext.isDefined(config.iconCls) ? config.iconCls : '',
 			constrainHeader : true,
 			resizable : Ext.isDefined(panel.resizable)? panel.resizable : true,
 			minimizable: Ext.isDefined(panel.minimizable)? panel.minimizable : false,
+			closable : config.closable,
 			headerCfg : {
 				tag : 'div',
 				cls : 'zarafa-window-header x-window-header x-unselectable x-window-draggable'

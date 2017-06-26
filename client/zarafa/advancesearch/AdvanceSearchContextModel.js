@@ -40,6 +40,33 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 
 		Zarafa.advancesearch.AdvanceSearchContextModel.superclass.constructor.call(this, config);
 		container.on('folderselect', this.onFolderSelect, this);
+		container.getHierarchyStore().on('removeFolder', this.onHierarchyRemoveFolder, this);
+	},
+
+	/**
+	 * Create a new {@link Zarafa.core.data.IPFRecord SearchFolder} record.
+	 *
+	 * @param {String} folderName display name of folder which we are going to create.
+	 * @return {Zarafa.core.data.IPFRecord} The new {@link Zarafa.core.data.IPFRecord IPFRecord}.
+	 */
+	createSearchFolderRecord : function (folderName)
+	{
+		var hierarchyStore = container.getHierarchyStore();
+		var defaultStore = hierarchyStore.getDefaultStore();
+		var folder = defaultStore.getFavoritesRootFolder();
+		var entryId = '';
+		if (defaultStore.getFavoritesStore().findExact('entryid',this.store.searchFolderEntryId) === -1){
+			entryId = this.store.searchFolderEntryId;
+		}
+		var record = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(Zarafa.core.mapi.ObjectType.MAPI_FOLDER, {
+			entryid: entryId,
+			parent_entryid : folder.get('entryid'),
+			store_entryid : folder.get('store_entryid'),
+			display_name : folderName,
+			folder_type : Zarafa.core.mapi.MAPIFolderType.FOLDER_SEARCH
+		});
+
+		return record;
 	},
 
 	/**
@@ -148,6 +175,22 @@ Zarafa.advancesearch.AdvanceSearchContextModel = Ext.extend(Zarafa.core.ContextM
 			if(!isSameFolder) {
 				this.setFolders(folders);
 			}
+		}
+	},
+
+	/**
+	 * Event handler triggers when folder was delete from hierarchy. function was
+	 * responsible to clear/delete the search criteria from settings.
+	 *
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The store which fired the event
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} mapiStore mapi store in which folders are deleted.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder which was deleted from hierarchy.
+	 * @private
+	 */
+	onHierarchyRemoveFolder : function (store, mapiStore, folder)
+	{
+		if (folder.isSearchFolder()) {
+			container.getSettingsModel().remove('zarafa/v1/contexts/search/search_criteria/'+folder.get('entryid'));
 		}
 	}
 });

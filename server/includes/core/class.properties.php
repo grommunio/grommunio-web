@@ -1092,6 +1092,7 @@
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
+				$properties["folder_type"] = PR_FOLDER_TYPE;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["display_name"] = PR_DISPLAY_NAME;
 				$properties["container_class"] = PR_CONTAINER_CLASS;
@@ -1137,6 +1138,7 @@
 		function getFavoritesFolderProperties()
 		{
 			$properties = $this->getFolderListProperties();
+			$properties["search_folder_id"] = PR_WB_SF_ID;
 			$properties["message_class"] = PR_MESSAGE_CLASS;
 			$properties["subject"] = PR_SUBJECT;
 			$properties["favorites_folder_entryid"] = PR_WLINK_ENTRYID;

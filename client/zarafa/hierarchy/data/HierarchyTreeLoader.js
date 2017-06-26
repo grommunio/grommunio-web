@@ -549,23 +549,23 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 		var folder = attr.folder;
 
 		if (folder) {
-			if (attr.nodeType === 'rootfolder') {
-				attr.extendedDisplayName = this.tree.hasFilter();
-			}
-
-			// To uniquely identify the favorites tree nodes we append the "favorites-" key word with node id
-			// when the node is created.
-			attr.id = folder.isFavoritesFolder() ? "favorites-" + folder.get('entryid') : folder.get('entryid');
-			if (folder.isFavoritesRootFolder()) {
-				attr.leaf = folder.get('assoc_content_count') === 0;
-			} else {
-				attr.leaf = !folder.get('has_subfolder');
-			}
-
-			attr.uiProvider = Zarafa.hierarchy.ui.FolderNodeUI;
-			attr.expanded = this.tree.isFolderOpened(folder);
-			attr.allowDrag = !folder.isDefaultFolder();
+		if (attr.nodeType === 'rootfolder') {
+			attr.extendedDisplayName = this.tree.hasFilter();
 		}
+
+		// To uniquely identify the favorites tree nodes we append the "favorites-" key word with node id
+		// when the node is created.
+		attr.id = folder.isFavoritesFolder() ? "favorites-" + folder.get('entryid') : folder.get('entryid');
+		if (folder.isFavoritesRootFolder()) {
+			attr.leaf = folder.get('assoc_content_count') === 0;
+		} else {
+			attr.leaf = !folder.get('has_subfolder');
+		}
+
+		attr.uiProvider = Zarafa.hierarchy.ui.FolderNodeUI;
+		attr.expanded = this.tree.isFolderOpened(folder);
+		attr.allowDrag = !folder.isDefaultFolder() && !folder.isSearchFolder();
+	}
 
 		return Zarafa.hierarchy.data.HierarchyTreeLoader.superclass.createNode.apply(this, arguments);
 	},

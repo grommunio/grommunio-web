@@ -86,7 +86,6 @@
 								break;
 							case "open":
 								$folder = mapi_msgstore_openentry($store, $entryid);
-								
 								$data = $this->getFolderProps($store, $folder);
 
 								// return response
@@ -127,7 +126,13 @@
 								if ($store && $parententryid && $entryid) {
 									if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])
 										&& $action["message_action"]["action_type"] === "removefavorites" ) {
-										$this->removeFromFavorite($entryid);
+
+										if (isset($action["message_action"]["isSearchFolder"])
+											&& $action["message_action"]["isSearchFolder"]) {
+											$this->deleteSearchFolder($store, $parententryid, $entryid);
+										} else {
+											$this->removeFromFavorite($entryid);
+										}
 									} else {
 										$this->deleteFolder($store, $parententryid, $entryid, $action);
 									}
@@ -146,8 +151,10 @@
 										//   - emptyfolder: Delete all items within the folder
 										//   - readflags: Mark all items within the folder as read
 										//   - addtofavorites: Add the folder to "favorites"
-										$folder = mapi_msgstore_openentry($store, $entryid);
-										$data = $this->getFolderProps($store, $folder);
+										if (!isset($action["message_action"]["isSearchFolder"])){
+											$folder = mapi_msgstore_openentry($store, $entryid);
+											$data = $this->getFolderProps($store, $folder);
+										}
 										if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])) {
 											switch($action["message_action"]["action_type"])
 											{
@@ -177,7 +184,19 @@
 												break;
 
 												case "addtofavorites":
-													$this->addToFavorite($store, $entryid);
+													if (isset($action["message_action"]["isSearchFolder"]) && $action["message_action"]["isSearchFolder"]){
+														$searchStoreEntryId = $action["message_action"]["search_store_entryid"];
+														// Set display name to search folder.
+														$searchStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin($searchStoreEntryId));
+														$searchFolder = mapi_msgstore_openentry($searchStore, $entryid);
+														mapi_setprops($searchFolder, array(
+															PR_DISPLAY_NAME => $action["props"]["display_name"]
+														));
+														mapi_savechanges($searchFolder);
+														$this->createLinkedSearchFolder($searchFolder);
+													} else {
+														$this->addToFavorite($store, $entryid);
+													}
 												break;
 											}
 										} else {
@@ -192,7 +211,38 @@
 									} else {
 										// no entryid, create new folder
 										if($store && $parententryid && isset($action["props"]["display_name"]) && isset($action["props"]["container_class"]))
-											$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
+											if (isset($action["message_action"]) && isset($action["message_action"]["action_type"])) {
+												// We need to create new search folder under the favorites folder
+												// based on give search folder info.
+												if($action["message_action"]["action_type"] === "addtofavorites") {
+													$storeEntryId = $action["message_action"]["search_store_entryid"];
+													$searchFolderEntryId = $action["message_action"]["search_folder_entryid"];
+
+													// Get the search folder and search criteria using $storeEntryId and $searchFolderEntryId.
+													$Store = $GLOBALS["mapisession"]->openMessageStore(hex2bin($storeEntryId));
+													$searchFolder = mapi_msgstore_openentry($Store, hex2bin($searchFolderEntryId));
+													$searchCriteria = mapi_folder_getsearchcriteria($searchFolder);
+
+													// Get FINDERS_ROOT folder from store.
+													$finderRootFolder = mapi_getprops($Store, array(PR_FINDER_ENTRYID));
+													$searchFolderRoot = mapi_msgstore_openentry($Store, $finderRootFolder[PR_FINDER_ENTRYID]);
+
+													// Create new search folder in FINDERS_ROOT folder and set the search
+													// criteria in newly created search folder.
+													$newSearchFolder = mapi_folder_createfolder($searchFolderRoot, $action["props"]["display_name"], null, 0, FOLDER_SEARCH);
+													$subfolder_flag = 0;
+													if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
+														$subfolder_flag = RECURSIVE_SEARCH;
+													}
+													mapi_folder_setsearchcriteria($newSearchFolder, $searchCriteria['restriction'], $searchCriteria['folderlist'], $subfolder_flag);
+
+													// Sleep for 1 seconds initially, since it usually takes ~  1 seconds to fill the search folder.
+													sleep(1);
+													$this->createLinkedSearchFolder($newSearchFolder);
+												}
+											}else {
+												$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
+											}
 										if($action["props"]["container_class"] === "IPF.Contact"){
 											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
 										}
@@ -330,7 +380,11 @@
 										break;
 
 									case "addtofavorites":
-										$e->setDisplayMessage(_("Could not add folder to favorites."));
+										if ($e->getCode() == MAPI_E_COLLISION) {
+											$e->setDisplayMessage(_("A favorite folder with this name already exists, please use another name."));
+										} else {
+											$e->setDisplayMessage(_("Could not add folder to favorites."));
+										}
 										break;
 								}
 							} else {
@@ -752,7 +806,6 @@
 							$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
 						}
 					} else {
-						// 
 						$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
 						$storeProps = mapi_getprops($storeObj, array(PR_ENTRYID));
 						if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])){
@@ -763,6 +816,49 @@
 				}
 			}
 		}
+
+		/**
+		 * Function which is used to remove the search link message(IPM.Microsoft.WunderBar.SFInfo)
+		 * from associated contains table of IPM_COMMON_VIEWS folder.
+		 *
+		 * @param String $searchFolderId GUID that identifies the search folder
+		 */
+		function removeSearchLinkMessage($searchFolderId)
+		{
+			$commonViewsFolder = $this->getCommonViewsFolder();
+			$associatedTable = mapi_folder_getcontentstable($commonViewsFolder, MAPI_ASSOCIATED);
+
+			$restriction = array(RES_AND,
+				array(
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo")
+						)
+					),
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_WB_SF_ID,
+							VALUE => array(PR_WB_SF_ID => hex2bin($searchFolderId))
+						)
+					)
+				),
+			);
+
+			$messages = mapi_table_queryallrows($associatedTable, array(PR_WB_SF_ID, PR_ENTRYID), $restriction);
+
+			if (!empty($messages)) {
+				foreach ($messages as $message) {
+					if (bin2hex($message[PR_WB_SF_ID]) === $searchFolderId) {
+						mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
+						$this->sendFeedback(true);
+					}
+				}
+			}
+		}
+
 		/**
 		 * Function is used to create link message for the selected folder
 		 * in associated contains of IPM_COMMON_VIEWS folder.
@@ -785,7 +881,63 @@
 			$this->addActionData("update", $GLOBALS["operations"]->setFavoritesFolder($folderProps));
 			$GLOBALS["bus"]->addData($this->getResponseData());
 		}
-		
+
+		/**
+		 * Function which is used delete the search folder from respective store.
+		 *
+		 * @param Object $store $store $store MAPI store in which search folder is belongs.
+		 * @param array $parententryid $parententryid parent folder to search folder it is FIND_ROOT folder which
+		 * treated as search root folder.
+		 * @param String $entryid $entryid search folder entryid which is going to remove.
+		 */
+		function deleteSearchFolder($store, $parententryid, $entryid)
+		{
+			$folder = mapi_msgstore_openentry($store, $entryid);
+			$props = mapi_getprops($folder, array(PR_EXTENDED_FOLDER_FLAGS));
+			// for more information about PR_EXTENDED_FOLDER_FLAGS go through this link
+			// https://msdn.microsoft.com/en-us/library/ee203919(v=exchg.80).aspx
+			$flags = unpack("H2ExtendedFlags-Id/H2ExtendedFlags-Cb/H8ExtendedFlags-Data/H2SearchFolderTag-Id/H2SearchFolderTag-Cb/H8SearchFolderTag-Data/H2SearchFolderId-Id/H2SearchFolderId-Cb/H32SearchFolderId-Data", $props[PR_EXTENDED_FOLDER_FLAGS]);
+			$searchFolderId = $flags["SearchFolderId-Data"];
+			$this->removeSearchLinkMessage($searchFolderId);
+
+			$finderFolder = mapi_msgstore_openentry($store, $parententryid);
+			mapi_folder_deletefolder($finderFolder, $entryid);
+		}
+
+		/**
+		 * Function which is used create link message for the created search folder.
+		 * in associated contains table of IPM_COMMON_VIEWS folder.
+		 *
+		 * @param Object $folder MAPI search folder for which link message needs to
+		 * create in associated contains table of IPM_COMMON_VIEWS folder.
+		 */
+		function createLinkedSearchFolder($folder)
+		{
+			$searchFolderTag = openssl_random_pseudo_bytes(4);
+			$searchFolderId = openssl_random_pseudo_bytes(16);
+
+			// PR_EXTENDED_FOLDER_FLAGS used to create permanent/persistent search folder in MAPI.
+			// also it used to identify/get the linked search folder from FINDER_ROOT folder.
+			// PR_EXTENDED_FOLDER_FLAGS contains at least the SearchFolderTag, SearchFolderID,
+			// and ExtendedFlags subproperties.
+			// For more information about PR_EXTENDED_FOLDER_FLAGS go through this link
+			// https://msdn.microsoft.com/en-us/library/ee203919(v=exchg.80).aspx
+			$extendedFolderFlags = "0104000000010304".bin2hex($searchFolderTag)."0210".bin2hex($searchFolderId);
+
+			mapi_setprops($folder, array(
+				PR_EXTENDED_FOLDER_FLAGS => hex2bin($extendedFolderFlags)
+			));
+			mapi_savechanges($folder);
+
+			$folderProps = mapi_getprops($folder, $this->properties);
+			$commonViewsFolder = $this->getCommonViewsFolder();
+			$GLOBALS["operations"]->createFavoritesLink($commonViewsFolder, $folderProps, $searchFolderId);
+
+			$folderProps = mapi_getprops($folder, $this->properties);
+			$this->addActionData("update", $GLOBALS["operations"]->setFavoritesFolder($folderProps));
+			$GLOBALS["bus"]->addData($this->getResponseData());
+		}
+
 		/**
 		 * Modifies a folder off the hierarchylist.
 		 * @param object $store Message Store Object.

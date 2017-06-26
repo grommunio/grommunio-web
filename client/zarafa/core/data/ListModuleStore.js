@@ -428,7 +428,8 @@ Zarafa.core.data.ListModuleStore = Ext.extend(Zarafa.core.data.IPMStore, {
 			 */
 			Ext.applyIf(options.params, {
 				use_searchfolder : this.useSearchFolder,
-				subfolders : this.subfolders
+				subfolders : this.subfolders,
+				forceCreateSearchFolder : options.forceCreateSearchFolder
 			});
 		}
 
@@ -795,10 +796,11 @@ myStore.reload(lastOptions);
 		this.fireEvent('beforeupdatesearch', this, searchData);
 
 		this.setSearchEntryId(searchData.entryId);
+		this.setSearchStoreEntryId(searchResponse.search_store_entryid);
 
 		if(Zarafa.core.mapi.Search.isSearchRunning(searchData.searchState)) {
 			this.searchUpdateTimer = this.updateSearch.defer(
-				container.getSettingsModel().get('zarafa/v1/main/search/updatesearch_timeout'),
+				container.getSettingsModel().get('zarafa/v1/contexts/search/updatesearch_timeout'),
 				this
 			);
 		} else {

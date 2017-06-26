@@ -249,9 +249,13 @@
 				$this->sessionData['searchFolderEntryId'] = $action['search_folder_entryid'];
 			}
 
+			if (isset($action['forceCreateSearchFolder']) && $action['forceCreateSearchFolder']) {
+				$isSetSearchFolderEntryId = false;
+			}
+
 			// create or open search folder
 			$searchFolder = $this->createSearchFolder($store, $isSetSearchFolderEntryId);
-			if($searchFolder === false) {
+			if ($searchFolder === false) {
 				// if error in creating search folder then send error to client
 				$errorInfo = array();
 				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
@@ -261,7 +265,7 @@
 			}
 
 			$subfolder_flag = 0;
-			if(isset($action["subfolders"]) && $action["subfolders"] == "true") {
+			if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
 				$subfolder_flag = RECURSIVE_SEARCH;
 			}
 
@@ -354,6 +358,7 @@
 
 			$data["search_meta"] = array();
 			$data["search_meta"]["searchfolder_entryid"] = $searchFolderEntryId;
+			$data["search_meta"]["search_store_entryid"] = $action["store_entryid"];
 			$data["search_meta"]["searchstate"] = $result["searchstate"];
 			$data["search_meta"]["results"] = count($searchResults);
 
@@ -457,6 +462,7 @@
 			$data = array();
 			$data["search_meta"] = array();
 			$data["search_meta"]["searchfolder_entryid"] = $entryid;
+			$data["search_meta"]["search_store_entryid"] = $action["store_entryid"];
 			$data["search_meta"]["searchstate"] = $searchState;
 			$data["search_meta"]["results"] = $numberOfResults;		// actual number of items that we are sending to client
 
