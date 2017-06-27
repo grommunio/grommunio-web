@@ -865,6 +865,17 @@ class PluginManager
 
 		// Parse the <config> element
 		if (isset($data->config)) {
+			if (isset($data->config->configfile)) {
+				if (empty($data->config->configfile)) {
+					dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty configfile declaration");
+				}
+				if (!file_exists($data->config->configfile)) {
+					dump("[PLUGIN ERROR] Plugin $dirname manifest config file does not exists");
+				}
+			} else {
+				dump("[PLUGIN ERROR] Plugin $dirname manifest configfile entry is missing");
+			}
+
 			$files = Array(
 				LOAD_SOURCE => Array(),
 				LOAD_DEBUG => Array(),
@@ -887,10 +898,6 @@ class PluginManager
 
 		// Parse the <dependencies> element
 		if (isset($data->dependencies) && isset($data->dependencies->depends)){
-			if (!isset($data->config->configfile)) {
-				dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty configfile declaration");
-			}
-
 			$dependencies = Array(
 				DEPEND_DEPENDS => Array(),
 				DEPEND_REQUIRES => Array(),
