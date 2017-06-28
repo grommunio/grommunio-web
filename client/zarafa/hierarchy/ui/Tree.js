@@ -251,13 +251,21 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * This will first ensure the given folder {@link #ensureFolderVisible is visible}
 	 * and will then {@link Ext.tree.DefaultSelectionModel#select select the given node} in the tree.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to select
+	 * @param {Boolean} ensureVisibility True to make given folder visible in screen moving scroll bar.
 	 * @return {Boolean} True when the TreeNode for the given folder existed, and could be selected.
 	 */
-	selectFolderInTree : function(folder)
+	selectFolderInTree : function(folder, ensureVisibility)
 	{
-		var treeNode = this.ensureFolderVisible(folder);
+		var treeNode;
+
+		if (ensureVisibility !== false) {
+			treeNode = this.ensureFolderVisible(folder);
+		} else {
+			treeNode = this.getTreeNode(folder);
+		}
+
 		if (treeNode) {
-			this.getSelectionModel().select(treeNode);
+			this.getSelectionModel().select(treeNode, undefined, ensureVisibility);
 			return true;
 		} else {
 			return false;

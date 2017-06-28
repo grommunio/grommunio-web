@@ -402,16 +402,19 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * Fires when the {@link #loader} fires the {@link Zarafa.hierarchy.data.HierarchyTreeLoader#load}
 	 * event to indicate that all nodes have been rendered into the tree.
 	 * This will {@link #selectFolderInTree select} {@link Zarafa.core.ContextModel#getFolders all folders}
+	 * @param {Object} loader TreeLoader object.
+	 * @param {Object} node The {@link Ext.tree.TreeNode} object being loaded.
+	 * @param {Object} response The response object containing the data from the server.
 	 * @private
 	 */
-	onHierarchyLoaderLoad : function()
+	onHierarchyLoaderLoad : function(loader, node, response)
 	{
 		// Use respective model considering the case the current model doesn't belongs to current context
 		var currentContextModel = container.getCurrentContext().getModel();
 		if (currentContextModel) {
 			var folders = currentContextModel.getFolders();
 			for (var i = 0, len = folders.length; i < len; i++) {
-				this.selectFolderInTree(folders[i]);
+				this.selectFolderInTree(folders[i], folders[i].id === node.id);
 			}
 
 			// If we have multi selected folder then select previously selected node in tree.
