@@ -50,7 +50,7 @@ class FileLoader {
 					$this->getListOfFiles('js', 'client/extjs-mod')
 				)
 			);
-			$jsLoadingSequence[] = "client/tinymce/tinymce.dev.js";
+			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
 				$this->buildJSLoadingSequence(

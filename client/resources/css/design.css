@@ -12128,7 +12128,12 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   font-family: monospace !important;
 }
 
-/* line 222, ../scss/components/_settings.scss */
+/* line 223, ../scss/components/_settings.scss */
+.k-signature-editor .mce-panel.mce-tinymce {
+  width: auto !important;
+}
+
+/* line 228, ../scss/components/_settings.scss */
 .keyboard-type {
   margin-left: 40px;
   padding-left: 6px;
@@ -12140,48 +12145,48 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   display: inline-block;
 }
 
-/* line 233, ../scss/components/_settings.scss */
+/* line 239, ../scss/components/_settings.scss */
 .keyboard-desc {
   display: inline-block;
 }
 
 /* Out of office Category */
-/* line 238, ../scss/components/_settings.scss */
+/* line 244, ../scss/components/_settings.scss */
 .zarafa-settings-oof-invalid {
   color: #FF0000;
 }
 
-/* line 242, ../scss/components/_settings.scss */
+/* line 248, ../scss/components/_settings.scss */
 .zarafa-settings-oof-table-cellalign {
   text-align: right;
 }
 
-/* line 245, ../scss/components/_settings.scss */
+/* line 251, ../scss/components/_settings.scss */
 .zarafa-settings-oof-table-cellpadding {
   padding: 6px 6px 6px 0;
 }
 
-/* line 248, ../scss/components/_settings.scss */
+/* line 254, ../scss/components/_settings.scss */
 .zarafa-settings-oof-subject .label-subject {
   line-height: 24px;
   padding-right: 6px;
 }
 
-/* line 253, ../scss/components/_settings.scss */
+/* line 259, ../scss/components/_settings.scss */
 .zarafa-settings-oof-autoreplay {
   padding: 9px 0 6px 0;
 }
 
 /* Plugin list */
-/* line 259, ../scss/components/_settings.scss */
+/* line 265, ../scss/components/_settings.scss */
 .zarafa-settings-pluginavailable .zarafa-settings-widget-extrainfo {
   margin: 0;
 }
-/* line 262, ../scss/components/_settings.scss */
+/* line 268, ../scss/components/_settings.scss */
 .zarafa-settings-pluginavailable .k-settings-plugingrid {
   padding-top: 12px;
 }
-/* line 268, ../scss/components/_settings.scss */
+/* line 274, ../scss/components/_settings.scss */
 .zarafa-settings-pluginavailable .zarafa-settings-pluginavailable-fixed .x-grid3-col-display_name span {
   font-style: italic;
   color: #777777;
@@ -12840,6 +12845,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 /* line 17, ../scss/components/_tinymce.scss */
 .zarafa-mailcreatepanel-field-editor .mce-panel.mce-tinymce {
   border-width: 1px 0px 0px !important;
+  width: auto !important;
 }
 
 /* line 1, ../scss/components/_presence.scss */

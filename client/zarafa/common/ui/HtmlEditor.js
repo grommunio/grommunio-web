@@ -30,15 +30,6 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	defaultFontSize : undefined,
 
 	/**
-	 * set true to indicate that default formatting should be applied forcefully or not,
-	 * default value is false.
-	 *
-	 * @property
-	 * @type Boolean
-	 */
-	applyFormattingForcefully : false,
-
-	/**
 	 * @constructor
 	 * @param config configuration object
 	 * @cfg enableOverflow set {@link Ext.Toolbar.enableOverflow enableOverflow} on the toolbar.
@@ -119,6 +110,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					webdingsStyle +
 					'body{ '+
 						'word-wrap: break-word;' +
+					'}' +
+					'p,blockquote{'+
+						'font-family : initial;'+
+                    	'font-size : medium;'+
 					'}'
 			},
 			defaultFontFamily : container.getSettingsModel().get('zarafa/v1/main/default_font'),
@@ -174,15 +169,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on('paste', this.onPaste.createDelegate(this), this);
 		tinymceEditor.on('mousedown', this.onMouseDown.createDelegate(this), this);
 
-		if (Ext.isGecko) {
-			tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
-			// Get the tab panel only if mainPanel is available to prevent UI rendering
-			// while initializing tinymce to just load the source code of tinymce.
-			if (container.mainPanel) {
-				var contentPanel = container.getTabPanel();
-				this.mon(contentPanel, 'tabchange', this.onTabChange, this);
-			}
-		}
+        if (Ext.isGecko) {
+            tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
+            // Get the tab panel only if mainPanel is available to prevent UI rendering
+            // while initializing tinymce to just load the source code of tinymce.
+            if (container.mainPanel) {
+                var contentPanel = container.getTabPanel();
+                this.mon(contentPanel, 'beforetabchange', this.onBeforeTabChange, this);
+            }
+        }
 
 		var listeners = {
 			'blur' : this.onBlur,
@@ -214,8 +209,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		fontFamilyCombo.on('select', this.onFontFamilyChange.createDelegate(this), this);
 		fontSizeCombo.on('select', this.onFontSizeChange.createDelegate(this), this);
-
-		/*
+		this.applyFontStyles();
+		/**
 		 * @FIXME: The default formatting needs to be applied after the editor is completely initialized,
 		 * and a record needs to be attached/loaded with editor.
 		 * But there was a race condition between 'setrecord' event of Zarafa.core.plugins.RecordComponentPlugin
@@ -224,7 +219,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		 * 2) other than first instance
 		 * Any event/method based implementation is more reliable as compared to delay/timer based implementation.
 		 */
-		var defaultFormatTask = new Ext.util.DelayedTask(this.applyDefaultFormatting, this, [tinymceEditor]);
+		var defaultFormatTask = new Ext.util.DelayedTask(this.applyEmptyLines, this, [tinymceEditor]);
 		defaultFormatTask.delay(5);
 	},
 
@@ -366,83 +361,51 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var bogusHtml = '<br data-mce-bogus="1" />';
 		var newNode = editor.dom.create('p', editor.settings.forced_root_block_attrs, bogusHtml);
 		editor.getBody().insertBefore(newNode, firstNode);
-
-		// Apply default formatting to the new node by selecting it and calling composeDefaultFormatting
 		editor.selection.setCursorLocation(editor.getBody().firstChild, 0);
 		this.composeDefaultFormatting(editor);
 	},
 
 	/**
-	 * Function to set formatting with default font family and font size.
-	 * It uses {@link tinymce.Editor.execCommand execCommand} method of tinymce to dynamically
-	 * select values from the fontsize and fontname {@link tinymce.ui.ComboBox comboboxes}.
+	 * Function which is use to set empty lines before composing new mail.
+	 * It will add empty lines as per the mail {@link Zarafa.mail.data.ActionTypes action types}.
 	 * @param {tinymce.Editor} tinymceEditor The tinymce editor instance
 	 * @private
 	 */
-	applyDefaultFormatting : function(tinymceEditor)
+	applyEmptyLines: function (tinymceEditor)
 	{
-		var firstNodeHasFormatting = false;
+		if (!this.isDisabled() && this.record && this.record.phantom) {
 
-		if(!this.isDisabled() && this.record && this.record.phantom || this.applyFormattingForcefully) {
+			// When using the html editor without a MAPIRecord (e.g. for the signature editor), the getMessageAction
+			// is not defined, so check for it.
+			var actionType = Ext.isDefined(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : false;
 
-			if(Ext.isDefined(this.defaultFontSize) && Ext.isDefined(this.defaultFontFamily)) {
-				// To initialize the object of tinymce.dom.Selection with Range.
-				// for more information about Firefox Range class: https://developer.mozilla.org/en-US/docs/Web/API/Range.Range
-				tinymceEditor.fire('focusin', {});
+			//For reply, replyall and forward we must add two empty lines to the top.
+			//For "edit as new email" this should not be done!
+			if (Zarafa.mail.data.ActionTypes.isSendOrForward(actionType)) {
+				this.addEmptyLineBeforeContent();
+				this.addEmptyLineBeforeContent();
+			} else if (!Ext.isEmpty(tinymceEditor.getContent()) && actionType !== Zarafa.mail.data.ActionTypes.EDIT_AS_NEW) {
+					this.addEmptyLineBeforeContent();
+            } else {
+                tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
+                this.composeDefaultFormatting(tinymceEditor);
 
-				// Tinymce will insert the necessary style tags while we dynamically select the default font size/family
-				// at the current cursor position. The current cursor position is handled by tinymce.dom.Selection class,
-				// so we need to first check if selection object is initialized or not.
-				if(tinymceEditor.selection) {
-					var firstNode = tinymceEditor.getBody().firstChild;
+				// Somehow tinymce fire focus event after setting range selection,
+				// Therefor in IE11 focus is on editor so,
+                // Force fully set focus on the To input field.
+                if (Ext.isIE11) {
+                    var activeTab = container.getTabPanel().getActiveTab();
+                    var mailDialog = activeTab.mainPanel.dialog;
+                    mailDialog.update(this.record, true);
+                }
+            }
 
-					// When using the html editor without a MAPIRecord (e.g. for the signature editor), the getMessageAction
-					// is not defined, so check for it.
-					var actionType = Ext.isDefined(this.record.getMessageAction) ? this.record.getMessageAction('action_type') : false;
+			// HTML styles will be applied while selecting default values from comboboxes.
+			// We need to set those styles into the record to avoid change detection in record.
+			this.checkValueCorrection(this, "");
 
-					// We might have different scenarios with regards to content like with-signature, without-signature, response-content etc.
-					// if first node is 'p' than we assume that there is no response-content.
-					if (firstNode.nodeName === 'P' && actionType!==Zarafa.mail.data.ActionTypes.EDIT_AS_NEW) {
-
-						// Check if no content is there in editor body.
-						// no need to create an element to apply default formatting for the case
-						// where no signature is there in editor at the time of initialization
-						if (tinymceEditor.getContent() !== ''){
-							this.addEmptyLineBeforeContent();
-							firstNodeHasFormatting = true;
-						}
-
-					//For reply, replyall and forward we must add two empty lines to the top for with default formatting.
-					//For "edit as new email" this should not be done!
-					} else if (Zarafa.mail.data.ActionTypes.isSendOrForward(actionType)) {
-						this.addEmptyLineBeforeContent();
-						this.addEmptyLineBeforeContent();
-						firstNodeHasFormatting = true;
-					}
-
-					// Apply default formatting to the first node for anything but "Edit as New" if this has not already been done
-					if ( !firstNodeHasFormatting && actionType !== Zarafa.mail.data.ActionTypes.EDIT_AS_NEW ){
-
-						// The cursor must have to point to the very first element of the current content to apply the default formatting.
-						tinymceEditor.selection.setCursorLocation(firstNode, 0);
-						this.composeDefaultFormatting(tinymceEditor);
-					}
-
-					// For "Edit as New" messages we must set the cursor to the caret position
-					// This will set the correct font and size in the dropdowns of the editor
-					if ( actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW ) {
-						tinymceEditor.selection.setCursorLocation();
-					}
-
-					// HTML styles will be applied while selecting default values from comboboxes.
-					// We need to set those styles into the record to avoid change detection in record.
-					this.checkValueCorrection(this, "");
-
-					// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
-					tinymceEditor.undoManager.clear();
-					this.applyFormattingForcefully = false;
-				}
-			}
+			// Remove all the undo level from tinymce, so that user can't rollback the default HTML styles.
+			tinymceEditor.undoManager.clear();
 		}
 	},
 
@@ -454,7 +417,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	composeDefaultFormatting : function(editor)
 	{
-		editor.execCommand('fontsize', false, this.defaultFontSize, {skip_focus : true});
+		editor.execCommand('FontSize', false, this.defaultFontSize, {skip_focus : true});
 		editor.execCommand('FontName', false, this.defaultFontFamily, {skip_focus : true});
 		this.repositionBrTag(editor);
 	},
@@ -516,9 +479,10 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Enable this component by calling parent class {@link Ext.ux.form.TinyMCETextArea.enable enable} function.
-	 * It also call the {@link #applyDefaultFormatting} function to apply default formatting while composing signature.
+	 * It also call the {@link #applyEmptyLines} function to apply empty lines while composing signature.
 	 */
-	enable: function() {
+	enable: function()
+	{
 		if(this.disabled){
 			Zarafa.common.ui.HtmlEditor.superclass.enable.apply(this, arguments);
 
@@ -529,9 +493,9 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// with new/updated content.
 			editor.selection.lastFocusBookmark = null;
 
-			// Apply default formatting only if new signature is being composed.
+			// Apply empty lines only if new signature is being composed.
 			if(Ext.isEmpty(editor.getContent())) {
-				this.applyDefaultFormatting(editor);
+				this.applyEmptyLines(editor);
 			}
 		}
 	},
@@ -558,24 +522,23 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		}
 	},
 
-	/**
-	 * Function is called when double clicked in the editor.
-	 * While body is empty and double click in editor then firefox consider current selection on P tag instead of Span
-	 * and P tag doesn't have formatting that's way default formatting will remove.
-	 * Handle above situation by setting up selection on Span tag then after fire nodechange event of editor.
-	 */
-	onDBLClick : function ()
-	{
-		var editor = this.getEditor();
-		var element = editor.selection.getStart();
-		// tinymce used zero width space characters as character container in empty line,
-		// So needs to verify body is empty or not.
-		var isEmptyBody = editor.selection.getContent({ format: 'text' }) === '\uFEFF';
-		if (element === editor.getBody().firstChild && isEmptyBody) {
-			editor.selection.setCursorLocation(element.firstChild.firstChild);
-			editor.fire('NodeChange');
-		}
-	},
+    /**
+     * Function is called when double clicked in the editor.
+     * While body is empty and double click in editor then firefox consider current selection on P tag instead of Span
+     * and P tag doesn't have formatting that's way default formatting will remove.
+     * Handle above situation by setting up selection on Span tag then after fire nodechange event of editor.
+     */
+    onDBLClick : function ()
+    {
+        var editor = this.getEditor();
+        var element = editor.selection.getStart();
+        // tinymce used zero width space characters as character container in empty line,
+        // So needs to verify body is empty or not.
+        var isEmptyBody = editor.selection.getContent({ format: 'text' }) === "";
+        if (element === editor.getBody().firstChild && isEmptyBody) {
+            editor.selection.setCursorLocation(element.firstChild.firstChild, 0);
+        }
+    },
 
 	/**
 	 * Function is called when mouse is clicked in the editor.
@@ -592,7 +555,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 	/**
 	 * Function is called when any key is pressed in the editor.
-	 * @param {Object} option containing options for setting content, it has content and format
+	 * @param {Object} event The event object
 	 */
 	onKeyDown : function(event)
 	{
@@ -622,44 +585,25 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			}
 
 			(function(){
-				var content = editor.getContent();
+				var content = editor.getContent({ format: 'text' });
 				var node;
-				if(Ext.isEmpty(content)) {
-					/*
-					 * removing caret container if there is any,
-					 * as we are trying to remove all the dummy elements
-					 */
-					node = editor.dom.get('_mce_caret');
-					if (node) {
-						editor.dom.remove(node);
-					}
-
-					// If body doesn't have any child then add empty line before applying default formatting.
-					if (!editor.getBody().hasChildNodes()) {
-						this.addEmptyLineBeforeContent();
-					}
-					this.applyFormattingForcefully = true;
-					this.applyDefaultFormatting(editor);
-
-					// Applying default formatting after delete keypress event will go for value correction,
-					// where the record is silently gets updated with corrected value causing no-change situation.
-					// And while pressing save button, it detects with no-change and doesn't make the save call at all.
-					// Finally, project the change situation for this special case.
-					var afterDeleteValue = this.record.get('html_body');
-					this.record.set('html_body', content);
-					this.record.set('html_body', afterDeleteValue);
-					this.record.set('isHTML', true, true);
-				} else {
-					node = editor.selection.getNode();
-					if (node.hasChildNodes()) {
-						/*
-						 * We have to handle the case where tinymce line structure gets
-						 * compromised while removing single or multiple line(s)
-						 * with DELETE or BACKSPACE key
-						 */
-						this.validateStyleStructure(node);
-					}
-				}
+				if(Ext.isEmpty(content) || content === '\n' || content === ' &#13;') {
+					editor.setContent('');
+                    this.applyFontStyles();
+                    editor.selection.setCursorLocation(editor.getBody().firstChild, 0);
+					this.composeDefaultFormatting(editor);
+                } else {
+                    node = editor.selection.getNode();
+                    if(node.nodeName === 'P') {
+                        if(!node.hasChildNodes() || node.firstChild.nodeName === 'BR') {
+                            this.composeDefaultFormatting(editor);
+                            this.getEditorDocument().execCommand('Delete', false, null);
+                        }
+                    } else if(node.nodeName === 'SPAN' && node.hasChildNodes() &&  node.firstChild.nodeName === 'BR') {
+                        var textNode = this.getEditorDocument().createTextNode('');
+                        node.insertBefore(textNode, node.firstChild);
+                    }
+                }
 			}.createDelegate(this)).defer(1);
 		}
 
@@ -831,121 +775,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			// This will set the correct font and size in the dropdowns of the editor
 			var newNode = editor.selection.getNode();
 			editor.selection.setCursorLocation(newNode);
-			this.composeDefaultFormatting(editor);
 		}.createDelegate(this));
-	},
-
-	/**
-	 * Function is used to make necessary decision to insert node, which is
-	 * absent at its desired place as per the need to honor formatting in
-	 * current selected node.
-	 * @param {Object} node the current selected node in editor.
-	 * @private
-	 */
-	insertNode : function(node)
-	{
-		switch(node.nodeName) {
-			case 'SPAN':
-				this.addTextNodeInSpan(node);
-				break;
-			case 'BODY':
-				this.addPTagInBody(node);
-				break;
-			case 'P':
-				this.addTextNodeInP(node);
-				break;
-		}
-	},
-
-	/**
-	 * Function checks that the structure of current selected node is valid enough
-	 * to process further formatting. If requires, it also validate the structure
-	 * by inserting necessary nodes.
-	 * @param {Object} node the current selected node in editor.
-	 * @private
-	 */
-	validateStyleStructure : function(node)
-	{
-		var firstChild = node.firstChild;
-		/*
-		 * Insert text node with necessary tags and formatting
-		 * if selected node is empty or body of editor. Also it will
-		 * check that text node has proper style same as data-mce-style
-		 * if not then apply data-mce-style to style attribute.
-		 */
-		if(firstChild.nodeName === 'BR' || node.nodeName === 'BODY') {
-			this.insertNode(node);
-		} else if(firstChild.nodeName === '#text' && node.getAttribute('style') === null) {
-			node.setAttribute('style', node.getAttribute('data-mce-style'));
-		}
-	},
-
-	/**
-	 * Function creates a text node and insert it before the BR tag in span.
-	 * @param {Object} node the current selected node in editor.
-	 * @private
-	 */
-	addTextNodeInSpan : function(node)
-	{
-		var textNode = this.getEditorDocument().createTextNode('');
-		node.insertBefore(textNode, node.firstChild);
-	},
-
-	/**
-	 * Function finds BR tag, which has parent tag as P or BODY tag from editor's body element,
-	 * and replace it with P tag.
-	 *
-	 * @param {Object} node the current selected node in editor.
-	 * @private
-	 */
-	addPTagInBody : function(node)
-	{
-		var editor = this.getEditor();
-		var brTags = editor.dom.select('br');
-		Ext.each(brTags, function(brTag) {
-			var parentNode = brTag.parentNode;
-			if (parentNode.nodeName === 'BODY') {
-				brTag.remove();
-				this.composeDefaultFormatting(editor);
-			} else if(parentNode.nodeName === 'P' && parentNode.firstChild.nodeName === 'BR') {
-				this.composeDefaultFormatting(editor);
-			}
-		}, this);
-	},
-
-	/**
-	 * Function is used to apply the default formatting if P tag is empty.
-	 * @param {Object} node the current selected node in editor.
-	 * @private
-	 */
-	addTextNodeInP : function(node)
-	{
-		var editor = this.getEditor();
-		/*
-		 * After the deletion of selected lines, we need to re-apply the default
-		 * formatting to the empty P tag specially in chrome. And we have to mark
-		 * that modified P tag as dirty to identify that particular node at the time
-		 * when user tries to remove that line and it can be removed easily.
-		 */
-		if(node.id === '') {
-			this.composeDefaultFormatting(editor);
-			node.id = 'dirtyP';
-		} else {
-			if(node.previousSibling !== null) {
-				this.getEditorDocument().execCommand('Delete', false, null);
-				/*
-				 * It will check that previous node has proper formatting,
-				 * if not then apply default formatting.
-				 */
-				var currentNode = editor.selection.getNode();
-				if(currentNode.firstChild.nodeName === 'BR') {
-					this.composeDefaultFormatting(editor);
-					currentNode.id = 'dirtyP';
-				}
-			} else {
-				node.remove();
-			}
-		}
 	},
 
 	/**
@@ -996,13 +826,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.originalValue = this.getRawValue();
 		this.hasFocus = true;
 		this.fireEvent('focus', this);
-		// While body is empty and switching a focus in editor after tab change then
-		// some how firefox consider current selection on P tag instead of span and
-		// P tag doesn't have formatting that's way default formatting will remove.
-		if (this.isTabChanged) {
-			this.getEditor().selection.setCursorLocation();
-			this.isTabChanged = false;
-		}
+        // While body is empty and switching a focus in editor after tab change then
+        // some how firefox consider current selection on P tag instead of span and
+        // P tag doesn't have formatting that's way default formatting will remove.
+        if (this.isTabChanged) {
+            this.getEditor().selection.setCursorLocation();
+            this.isTabChanged = false;
+        }
 	},
 
 	/**
@@ -1065,12 +895,26 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		this.record = record;
 	},
 
+    /**
+     * Event handler triggers when content tab panel is changed
+     */
+    onBeforeTabChange : function ()
+    {
+        this.isTabChanged = true;
+        
+       	if(this.hasFocus){
+     	   this.getEditor().fire('blur', this);
+    	}
+    },
+
 	/**
-	 * Event handler triggers when content tab panel is changed
+	 * Function to set formatting with default font family and font size
 	 */
-	onTabChange : function ()
+	applyFontStyles : function ()
 	{
-		this.isTabChanged = true;
+		var body = Ext.get(this.getEditorBody());
+		body.setStyle('font-family',this.defaultFontFamily);
+		body.setStyle('font-size',this.defaultFontSize);
 	}
 });
 
