@@ -55,22 +55,20 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 				continue;
 			}
 
-			var store;
-			hierarchyStore.getStores().forEach(function(s){
-				if ( s.get('user_name') === user ){
-					store = s;
+			hierarchyStore.getStores().forEach(function(store){
+				if ( store.get('user_name') === user ){
+					// Saving rules only works with owner permissions on the full store.
+					// Note: Rules are stored on the default received folder (inbox). The WebApp backend will
+					// not check the rights and allows saving rules when the user has folder rights on the
+					// inbox (because that's what Kopano Core needs).
+					var subtree = store.getSubtreeFolder();
+					var inbox = store.getDefaultFolder('inbox');
+					if ( (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER && (inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS) ) {
+						data = data.concat({name: store.get('mailbox_owner_name'), value: store.get('store_entryid') });
+					}
 				}
 			});
 
-			// Saving rules only works with owner permissions on the full store.
-			// Note: Rules are stored on the default received folder (inbox). The WebApp backend will
-			// not check the rights and allows saving rules when the user has folder rights on the
-			// inbox (because that's what Kopano Core needs).
-			var subtree = store.getSubtreeFolder();
-			var inbox = store.getDefaultFolder('inbox');
-			if ( (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER && (inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS) ) {
-				data = data.concat({name: store.get('mailbox_owner_name'), value: store.get('store_entryid') });
-			}
 		}
 
 		return {

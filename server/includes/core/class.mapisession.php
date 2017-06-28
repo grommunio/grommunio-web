@@ -616,7 +616,7 @@
 								// The user or the corresponding store couldn't be found,
 								// print an error to the log, and remove the user from the settings.
 								dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
-								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username);
+								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
 							} else {
 								// That is odd, something else went wrong. Lets not be hasty and preserve
 								// the user in the settings, but do print something to the log to indicate
