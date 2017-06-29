@@ -158,6 +158,23 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 				this
 			);
 		} else {
+			// If we are adding recurrence for the first time, we have set properties in onBeforeSetRecord(). We must
+			// make sure these properties will be put in the modified property of the record or they will not be
+			// applied to the original record when applyData is called. (the setRecord method has emptied the modified
+			// property)
+			if ( !this.editRecurrence ){
+				this.record.modified['recurring'] = this.record.data['recurring'];
+				this.record.modified['recurrence_type'] = this.record.data['recurrence_type'];
+				this.record.modified['recurrence_subtype'] = this.record.data['recurrence_subtype'];
+				this.record.modified['recurrence_regen'] = this.record.data['recurrence_regen'];
+				this.record.modified['recurrence_term'] = this.record.data['recurrence_term'];
+				this.record.modified['recurrence_start'] = this.record.data['recurrence_start'];
+				this.record.modified['recurrence_startocc'] = this.record.data['recurrence_startocc'];
+				this.record.modified['recurrence_endocc'] = this.record.data['recurrence_endocc'];
+				this.record.modified['recurrence_everyn'] = this.record.data['recurrence_everyn'];
+				this.record.modified['recurrence_weekdays'] = this.record.data['recurrence_weekdays'];
+			}
+
 			Zarafa.common.recurrence.dialogs.RecurrenceContentPanel.superclass.onOk.apply(this, arguments);
 		}
 	},
