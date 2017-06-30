@@ -20,7 +20,7 @@ Zarafa.calendar.MeetingRequestRecordFields = [
 	{name: 'appointment_entryid'},
 	{name: 'appointment_store_entryid'},
 	{name: 'appointment_parent_entryid'},
-	{name: 'appointment_basedate', type: 'date', dateFormat: 'timestamp'},
+	{name: 'appointment_basedate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'appointment_duedate', type:'date', dateFormat:'timestamp'},
 	{name: 'appointment_startdate', type:'date', dateFormat:'timestamp'},
 	{name: 'appointment_recurring', type: 'boolean' },
