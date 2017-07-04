@@ -318,9 +318,14 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	{
 		if (this.editorField) {
 			var fieldValue = this.editorField.getValue();
+			var recordBody = false;
+
+			if (Ext.isFunction(record.getBody)) {
+				recordBody = record.getBody(this.editorField.isHtmlEditor());
+			}
 
 			// Go further only if editor value differs with html_body of record
-			if ( fieldValue !== record.getBody(this.editorField.isHtmlEditor()) ) {
+			if ( fieldValue !== recordBody ) {
 				this.onBodyValueCorrection(this.editorField, fieldValue);
 			}
 		}
