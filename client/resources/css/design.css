@@ -11489,186 +11489,191 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   background-position: 3px -1553px !important;
 }
 
+/* line 30, ../scss/components/_search.scss */
+.k-searchcenterpanel {
+  margin-left: 3px;
+}
+
 /* The search results grid */
-/* line 33, ../scss/components/_search.scss */
+/* line 37, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:active .x-grid3-hd-inner {
   background: inherit;
 }
-/* line 37, ../scss/components/_search.scss */
+/* line 41, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row td:first-child:hover .x-grid3-hd-inner {
   border-color: #ffffff;
 }
-/* line 41, ../scss/components/_search.scss */
+/* line 45, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-hd-row .zarafa-search-suggestion {
   font-style: italic;
   text-decoration: underline;
   color: #0f70bd;
   cursor: pointer;
 }
-/* line 49, ../scss/components/_search.scss */
+/* line 53, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row {
   border-left: none;
   border-right: none;
   /* let css take care of fields that are too long */
 }
-/* line 53, ../scss/components/_search.scss */
+/* line 57, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row .x-grid3-cell-inner {
   padding: 8px 6px;
 }
-/* line 57, ../scss/components/_search.scss */
+/* line 61, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row td {
   line-height: 20px;
 }
-/* line 62, ../scss/components/_search.scss */
+/* line 66, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data {
   /* the icons */
   /* notes */
 }
-/* line 63, ../scss/components/_search.scss */
+/* line 67, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td div.padding {
   overflow: hidden;
 }
-/* line 68, ../scss/components/_search.scss */
+/* line 72, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.icon {
   width: 28px;
 }
-/* line 71, ../scss/components/_search.scss */
+/* line 75, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.name {
   width: 120px;
   /* some padding to have some space between the fields */
   padding-right: 12px;
 }
-/* line 76, ../scss/components/_search.scss */
+/* line 80, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .subject {
   /* some padding to have some space between the fields */
   padding-right: 12px;
 }
-/* line 81, ../scss/components/_search.scss */
+/* line 85, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.subject-body {
   padding-right: 3px;
 }
-/* line 84, ../scss/components/_search.scss */
+/* line 88, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data td.subject-body span.body {
   opacity: 0.5;
 }
-/* line 90, ../scss/components/_search.scss */
+/* line 94, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_message,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail.icon_message_read {
   background-position: 4px -2830px;
 }
-/* line 95, ../scss/components/_search.scss */
+/* line 99, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail.icon_message_unread {
   background-position: 5px -3073px;
 }
-/* line 99, ../scss/components/_search.scss */
+/* line 103, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_replied {
   background-position: 4px -2865px;
 }
-/* line 102, ../scss/components/_search.scss */
+/* line 106, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_single {
   background-position: 4px -1113px;
 }
-/* line 106, ../scss/components/_search.scss */
+/* line 110, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_stubbed {
   background-position: 5px -3041px;
 }
-/* line 109, ../scss/components/_search.scss */
+/* line 113, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_forwarded {
   background-position: 4px -2759px;
 }
-/* line 112, ../scss/components/_search.scss */
+/* line 116, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_oof {
   background-position: 3px -2794px;
 }
-/* line 115, ../scss/components/_search.scss */
+/* line 119, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_user {
   background-position: 4px -1397px;
 }
-/* line 119, ../scss/components/_search.scss */
+/* line 123, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_distlist {
   background-position: 4px -1633px;
 }
-/* line 123, ../scss/components/_search.scss */
+/* line 127, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_equipment {
   background-position: 4px -1496px;
 }
-/* line 126, ../scss/components/_search.scss */
+/* line 130, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_gab_user {
   background-position: 4px -1596px;
 }
-/* line 130, ../scss/components/_search.scss */
+/* line 134, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_room {
   background-position: 7px -1564px;
 }
-/* line 133, ../scss/components/_search.scss */
+/* line 137, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_contact_company {
   background-position: 3px -1462px;
 }
-/* line 136, ../scss/components/_search.scss */
+/* line 140, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_appointment {
   background-position: 4px -1077px;
 }
-/* line 140, ../scss/components/_search.scss */
+/* line 144, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_recurring,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_recurring {
   background-position: 4px -1002px;
 }
-/* line 145, ../scss/components/_search.scss */
+/* line 149, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_single {
   background-position: 4px -1112px;
 }
-/* line 149, ../scss/components/_search.scss */
+/* line 153, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_accept {
   background-position: 4px -792px;
 }
-/* line 153, ../scss/components/_search.scss */
+/* line 157, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline {
   background-position: 4px -468px;
 }
-/* line 157, ../scss/components/_search.scss */
+/* line 161, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_tentative {
   background-position: 4px -1037px;
 }
-/* line 161, ../scss/components/_search.scss */
+/* line 165, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_newtime, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .zarafa-searchgrid .x-grid3-row table.messageclass-data button.icon_calendar_appt_newtime, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_appt_meeting_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .zarafa-searchgrid .x-grid3-row table.messageclass-data button.icon_appt_meeting_newtime, .zarafa-searchgrid .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data button.icon_appt_meeting_newtime, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small table.messageclass-data button.icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small table.messageclass-data button.icon_appt_meeting_newtime {
   background-position: 4px -892px;
 }
-/* line 165, ../scss/components/_search.scss */
+/* line 169, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_cancel, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_appt_meeting_decline, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_decline {
   background-position: 4px -468px;
 }
-/* line 169, ../scss/components/_search.scss */
+/* line 173, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_outofdate {
   background-position: 4px -929px;
 }
-/* line 173, ../scss/components/_search.scss */
+/* line 177, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_normal,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_recurring {
   background-position: 5px -4752px;
 }
-/* line 179, ../scss/components/_search.scss */
+/* line 183, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_assignee,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_assigner {
   background-position: 5px -4864px;
 }
-/* line 184, ../scss/components/_search.scss */
+/* line 188, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_request {
   background-position: 5px -5016px;
 }
-/* line 188, ../scss/components/_search.scss */
+/* line 192, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_declined {
   background-position: 5px -4940px;
 }
-/* line 192, ../scss/components/_search.scss */
+/* line 196, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_accepted {
   background-position: 5px -4788px;
 }
-/* line 196, ../scss/components/_search.scss */
+/* line 200, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_blue, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_blue, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_blue {
   background-position: 5px -3580px;
 }
-/* line 200, ../scss/components/_search.scss */
+/* line 204, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_stickynote,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_default_note,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_shared_note, .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_yellow, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow, .zarafa-searchgrid .x-grid3-row table.messageclass-data ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_note_yellow, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow,
@@ -11680,66 +11685,66 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_folder_shared_note, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_yellow {
   background-position: 5px -3939px;
 }
-/* line 204, ../scss/components/_search.scss */
+/* line 208, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_white, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_white, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_white {
   background-position: 5px -3858px;
 }
-/* line 208, ../scss/components/_search.scss */
+/* line 212, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_pink, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_pink, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_pink {
   background-position: 5px -3777px;
 }
-/* line 212, ../scss/components/_search.scss */
+/* line 216, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row table.messageclass-data .icon_note_green, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_green, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_note_green {
   background-position: 5px -3661px;
 }
-/* line 217, ../scss/components/_search.scss */
+/* line 221, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_nondelivery_receipt {
   background-position: 2px -2965px;
 }
-/* line 221, ../scss/components/_search.scss */
+/* line 225, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_read_receipt {
   background-position: 2px -2898px;
 }
-/* line 225, ../scss/components/_search.scss */
+/* line 229, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_mail_nonread_receipt {
   background-position: 2px -2932px;
 }
-/* line 235, ../scss/components/_search.scss */
+/* line 239, ../scss/components/_search.scss */
 .zarafa-searchgrid .x-grid3-row.mail_unread td {
   font-weight: bold;
 }
 
 /* The toolbox */
-/* line 242, ../scss/components/_search.scss */
+/* line 246, ../scss/components/_search.scss */
 .zarafa-search-toolbox {
   border-top: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
   padding: 0 0 9px 9px;
   background-color: #ffffff;
 }
-/* line 248, ../scss/components/_search.scss */
+/* line 252, ../scss/components/_search.scss */
 .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container {
   padding-right: 9px;
 }
-/* line 250, ../scss/components/_search.scss */
+/* line 254, ../scss/components/_search.scss */
 .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button {
   display: block;
 }
-/* line 253, ../scss/components/_search.scss */
+/* line 257, ../scss/components/_search.scss */
 .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button .x-btn-small em, .zarafa-search-toolbox .zarafa-search-toolbox-favoritesbutton-container .x-btn.search-toolbox-favorites-button .x-btn-small button {
   width: 100%;
 }
-/* line 261, ../scss/components/_search.scss */
+/* line 265, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-btn.x-btn-noicon .x-btn-small, .zarafa-search-toolbox .x-btn.x-btn-text-icon .x-btn-small {
   width: 100% !important;
 }
-/* line 264, ../scss/components/_search.scss */
+/* line 268, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-btn.x-btn-noicon .x-btn-small button span, .zarafa-search-toolbox .x-btn.x-btn-text-icon .x-btn-small button span {
   display: inline-block;
   padding-right: 25px;
   background-position: 100% -1778px;
 }
-/* line 273, ../scss/components/_search.scss */
+/* line 277, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-plain-header {
   line-height: 20px;
   box-sizing: border-box;
@@ -11747,7 +11752,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   /* subtract the border */
   padding-top: 8px;
 }
-/* line 279, ../scss/components/_search.scss */
+/* line 283, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-plain-header img.x-panel-inline-icon.advance_search {
   width: 16px;
   height: 16px;
@@ -11756,25 +11761,25 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   margin-top: -1px;
   margin-bottom: -1px;
 }
-/* line 290, ../scss/components/_search.scss */
+/* line 294, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-fieldset {
   border: none;
   border: none;
   padding: 0 0 9px;
 }
-/* line 295, ../scss/components/_search.scss */
+/* line 299, ../scss/components/_search.scss */
 .zarafa-search-toolbox .x-fieldset legend {
   padding-bottom: 6px;
   font-weight: bold;
 }
 
-/* line 302, ../scss/components/_search.scss */
+/* line 306, ../scss/components/_search.scss */
 .zarafa-search-previewpanel-toolbar {
   margin-left: 5px;
 }
 
 /* Input field loading mask */
-/* line 307, ../scss/components/_search.scss */
+/* line 311, ../scss/components/_search.scss */
 .zarafa-searchfield.zarafa-tbar-loading {
   background-image: url(../images/loading.gif);
   background-repeat: no-repeat;
@@ -11782,23 +11787,23 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 }
 
 /* FIXME: fix in ExtJS JavaScript */
-/* line 314, ../scss/components/_search.scss */
+/* line 318, ../scss/components/_search.scss */
 .zarafa-dateperiodfield-itemsCls .x-form-element {
   padding-left: 10px !important;
 }
 
-/* line 319, ../scss/components/_search.scss */
+/* line 323, ../scss/components/_search.scss */
 .zarafa-searchfield-folders {
   width: 80px;
   padding-top: 0px !important;
   border-left: none;
 }
 
-/* line 325, ../scss/components/_search.scss */
+/* line 329, ../scss/components/_search.scss */
 .k-search-combobox-menu-sep-parent {
   margin: 3px 0;
 }
-/* line 328, ../scss/components/_search.scss */
+/* line 332, ../scss/components/_search.scss */
 .k-search-combobox-menu-sep-parent .k-search-combobox-menu-sep {
   margin: 0 !important;
   height: 0 !important;
@@ -11806,13 +11811,13 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   border-bottom-color: #e6e6e6 !important;
 }
 
-/* line 336, ../scss/components/_search.scss */
+/* line 340, ../scss/components/_search.scss */
 .k-search-node-owner {
   font-weight: normal;
   color: #777777 !important;
 }
 
-/* line 342, ../scss/components/_search.scss */
+/* line 346, ../scss/components/_search.scss */
 .k-create-search-folder-panel .x-form-item-label {
   font-weight: bold;
 }

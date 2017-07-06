@@ -22,6 +22,7 @@ Zarafa.advancesearch.dialogs.SearchCenterPanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.searchcenterpanel',
+			cls : 'k-searchcenterpanel',
 			region : 'center',
 			layout : 'fit',
 			ref : 'centerRegion',
