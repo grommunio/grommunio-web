@@ -3297,7 +3297,7 @@
 				$attachments = mapi_table_queryallrows($attachmentTable, array(PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME,
 																			PR_ATTACH_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD,
 																			PR_ATTACH_CONTENT_ID, PR_ATTACH_MIME_TAG,
-																			PR_ATTACHMENT_CONTACTPHOTO, PR_OBJECT_TYPE));
+																			PR_ATTACHMENT_CONTACTPHOTO, PR_RECORD_KEY, PR_OBJECT_TYPE));
 				foreach($attachments as $attachmentRow) {
 					$props = array();
 
@@ -3314,6 +3314,7 @@
 					}
 
 					$props["object_type"] = $attachmentRow[PR_OBJECT_TYPE];
+					$props["record_key"] = bin2hex($attachmentRow[PR_RECORD_KEY]);
 					$props["attach_num"] = $attachmentRow[PR_ATTACH_NUM];
 					$props["attach_method"] = $attachmentRow[PR_ATTACH_METHOD];
 					$props["size"] = $attachmentRow[PR_ATTACH_SIZE];

@@ -749,11 +749,14 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 				// When we are not performing a cheap copy we wish to preserve
 				// the "add", "modify" and "delete" changes in the store.
 
+				// Attachment does not contains entryid so to compare attachments
+				// we use record_key property instead of entryid.
+				var idProp = name === 'attachments' ? 'record_key' : 'entryid';
 				// Go over the current store, and start searching for the corresponding
 				// record in the remote store.
 				store.each(function(record) {
 					var remoteRecordIndex = remoteStore.findBy(function (remoteRecord) {
-						return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), remoteRecord.get('entryid'));
+						return Zarafa.core.EntryId.compareEntryIds(this.get(idProp), remoteRecord.get(idProp));
 					}, record);
 					if (remoteRecordIndex < 0) {
 						// The other store doesn't contain this record,
@@ -765,7 +768,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 				// Go over the remote store to search for any new records which were added
 				remoteStore.each(function(record) {
 					var origRecordIndex = store.findBy(function (storeRecord) {
-						return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), storeRecord.get('entryid'));
+						return Zarafa.core.EntryId.compareEntryIds(this.get(idProp), storeRecord.get(idProp));
 					}, record);
 					if (origRecordIndex < 0) {
 						// New record, add it to the current store.
