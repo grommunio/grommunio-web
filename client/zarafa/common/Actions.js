@@ -69,6 +69,29 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Opens the {@link Zarafa.common.flags.ui.FlagsMenu FlagsMenu} for
+	 * the given {@link Zarafa.core.data.IPMRecord records}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the flags
+	 * menu will be shown.
+	 * @param {Array} position An array with the [x, y] position where the menu will be shown.
+	 * @param {Boolean} shadowEdit True to create copy of this record and push it to ShadowStore.
+	 */
+	openFlagsMenu : function(records, position, shadowEdit)
+	{
+		if (!Ext.isArray(records)) {
+			records = [ records ];
+		}
+
+		var menu = new Zarafa.common.flags.ui.FlagsMenu({
+			records: records,
+			shadowEdit : shadowEdit
+		});
+
+		menu.showAt(position);
+	},
+
+	/**
 	 * Opens a {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel} for configuring
 	 * the categories of the given {@link Zarafa.core.data.IPMRecord records}.
 	 *
