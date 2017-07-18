@@ -192,7 +192,13 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 				model : this.model
 			});
 			return false;
+		} else if (!container.getHierarchyStore().getFolder(combo.getValue())) {
+			// Check if current selected folder is available in hierarchy tree,
+			// If not then remove that folder from search combo box.
+			var folderRecord = this.findRecord('value', combo.getValue());
+			this.getStore().remove(folderRecord);
 		}
+
 		return true;
 	},
 
@@ -256,6 +262,16 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 		if (changeCurrentFolder) {
 			this.doChangeCurrentFolder(store, folder);
 		}
+
+		// Check if closed or deleted folder is available in hierarchy tree,
+		// If yes then remove that folder from search combo box.
+		this.getStore().each(function (record) {
+			var value = record.get('value');
+			if (value !== 'other' && !container.getHierarchyStore().getFolder(value)) {
+				this.getStore().remove(record);
+				return false;
+			}
+		}, this);
 
 		// Select 'All folders' if select folder is 'Inbox' folder of own store.
 		if (folder.getDefaultFolderKey() === 'inbox' && !folder.getMAPIStore().isSharedStore()) {

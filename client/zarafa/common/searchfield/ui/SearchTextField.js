@@ -148,6 +148,19 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 				this.focus();
 				return false;
 			}
+			var searchFolder = this.searchContainer.searchFolderCombo.getValue();
+
+			// Check if current selected folder is available in hierarchy tree,
+			// If not then show warning message to user.
+			if (!container.getHierarchyStore().getFolder(searchFolder)) {
+				Ext.MessageBox.show({
+					title: _('Kopano WebApp'),
+					msg: _("The folder you are searching through no longer exists. Please select another folder"),
+					icon: Ext.MessageBox.WARNING,
+					buttons: Ext.MessageBox.OK
+				});
+				return false;
+			}
 
 			if(!this.searchPanelRendered) {
 				var componentType = Zarafa.core.data.SharedComponentType['common.search'];
