@@ -75,6 +75,12 @@ if(!defined('ENABLE_DIRECT_BOOKING')) define('ENABLE_DIRECT_BOOKING', true);
 
 if(!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES", "bg_BG;ca_ES;da_DK;el_GR;et_EE;fa_IR;gl_ES;hr_HR;ko_KR;lt_LT;pt_PT;si_SI;sv_SE;uk_UA;cs_CZ;de_DE;en_GB;en_US;es_ES;fr_FR;he_IL;it_IT;nl_NL;pt_BR;ru_RU;zh_CN;zh_TW;ja_JP;fi_FI;hu_HU;tr_TR;nb_NO;pl_PL");
 
+/**
+ * Defines the domains to which redirection after login is allowed. The redirect url will be read from
+ * the GET-parameter 'continue'.
+ */
+if(!defined('REDIRECT_ALLOWED_DOMAINS')) define('REDIRECT_ALLOWED_DOMAINS', '');
+
 if(!defined('ENABLE_PLUGINS')) define('ENABLE_PLUGINS', true);
 if(!defined('PATH_PLUGIN_CONFIG_DIR')) define('PATH_PLUGIN_CONFIG_DIR', PATH_PLUGIN_DIR);
 
