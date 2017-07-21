@@ -76,23 +76,8 @@
 		</if>
 	</target>
 
-	<!-- Preformat the Concatenated Javascript files to improve compilation -->
-	<target name="preformat" depends="concat">
-		<if>
-			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
-			<then>
-				<echo message="Preformatting: ${plugin-debugfile}"/>
-				<replaceregexp byline="true">
-					<regexp pattern="(^[ ,\t]*\*[ ,\t]@.*)\{(.*)\[\]\}"/>
-					<substitution expression="\1{\2\|Array}"/>
-					<fileset dir="${target-folder}/${plugin-folder}/js" includes="${plugin-debugfile}"/>
-				</replaceregexp>
-			</then>
-		</if>
-	</target>
-
 	<!-- Compress JavaScript -->
-	<target name="compress" depends="preformat">
+	<target name="compress" depends="concat">
 		<if>
 			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
 			<then>

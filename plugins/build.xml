@@ -42,11 +42,8 @@
 		</antcall>
 	</target>
 
-	<!-- Preformat the Concatenated Javascript files to improve compilation -->
+	<!-- Stub target to not break external plugins -->
 	<target name="preformat">
-		<antcall target="execute">
-			<param name="action" value="preformat"/>
-		</antcall>
 	</target>
 
 	<!-- Compress JavaScript -->

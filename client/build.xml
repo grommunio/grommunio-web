@@ -236,18 +236,8 @@
 		</zConcat>
 	</target>
 
-	<!-- Preformat the Concatenated Javascript files to improve compilation -->
-	<target name="preformat" depends="concat">
-		<echo message="Preformatting: ${kopano-debugfile}"/>
-		<replaceregexp byline="true">
-			<regexp pattern="(^[ ,\t]*\*[ ,\t]@.*)\{(.*)\[\]\}"/>
-			<substitution expression="\1{\2\|Array}"/>
-			<fileset dir="${target-folder}/${kopano-folder}" includes="${kopano-debugfile}"/>
-		</replaceregexp>
-	</target>
-
 	<!-- Compress JavaScript -->
-	<target name="compress" depends="preformat">
+	<target name="compress" depends="concat">
 		<echo message="Compiling: ${extjs-mod-file}" />
 		<zCompile inputFolder="${target-folder}/${extjs-mod-folder}" inputFile="${extjs-mod-debugfile}" outputFolder="${target-folder}/${extjs-mod-folder}" outputFile="${extjs-mod-file}">
 			<externs>
