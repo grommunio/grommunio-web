@@ -97,7 +97,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 		// Periodically reload data from the server to remove stale
 		// data from the store.  But only do this when the store has
 		// finished loading for the first time.
-		interval = this.get('reloadinterval') || 300000;
+		var interval = this.get('reloadinterval') || 300000;
 		Ext.TaskMgr.start({
 			run: this.reloadStore,
 			interval: interval,
