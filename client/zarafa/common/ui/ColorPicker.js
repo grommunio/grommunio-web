@@ -174,11 +174,12 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	 * Sets a value for this field
 	 * @param {String} value The value to set. Should be an RGB
 	 * hex color without the '#'. E.g. 'FF0000' for red.
+	 * (# will be stripped if included)
 	 * @return {Zarafa.common.ui.ColorPicker} this
 	 */
 	setValue : function(value) {
         if ( !Ext.isEmpty(value) ){
-        	this.value = value;
+        	this.value = value.startsWith('#') ? value.replace('#', '') : value;
         }
 
         if(this.rendered){

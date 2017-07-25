@@ -25,6 +25,16 @@ Zarafa.settings.data.PersistentSettingsDefaultValue = function(){
 				'kopano' : {
 					'main' : {
 						/**
+						 * kopano/main/merged_categories
+						 * merged_categories object holds new name of standard category
+						 * followed by standard category index.
+						 * e.g. {6:VIP,..} where 6 is standard_index of Red category.
+						 * @property
+						 * @type Object
+						 */
+						'merged_categories' : {},
+
+						/**
 						 * kopano/main/categories
 						 * @property
 						 * @type String[]

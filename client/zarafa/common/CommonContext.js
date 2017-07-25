@@ -49,6 +49,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.attachitem.textrenderer');
 		Zarafa.core.data.SharedComponentType.addProperty('common.sendas.dialog.sendaseditcontentpanel');
 		Zarafa.core.data.SharedComponentType.addProperty('common.categories.dialogs.newcategory');
+		Zarafa.core.data.SharedComponentType.addProperty('common.categories.dialogs.renamecategory');
 	},
 
 	/**
@@ -86,6 +87,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.rules.dialog.ruleswordsedit']:
 			case Zarafa.core.data.SharedComponentType['common.sendas.dialog.sendaseditcontentpanel']:
 			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.newcategory']:
+			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.renamecategory']:
 				bid = 1;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy']:
@@ -213,6 +215,9 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.newcategory']:
 				component = Zarafa.common.categories.dialogs.NewCategoryPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.renamecategory']:
+				component = Zarafa.common.categories.dialogs.RenameCategoryPanel;
 				break;
 		}
 		return component;

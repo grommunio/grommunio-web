@@ -106,6 +106,21 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Opens a {@link Zarafa.common.categories.dialogs.RenameCategoryPanel RenameCategoryPanel} for renaming
+	 * a standard category.
+	 *
+	 * @param {Object} config (optional) Configuration object for renaming the {@link Zarafa.common.categories.dialogs.RenameCategoryPanel RenameCategoryPanel}.
+	 */
+	openRenameCategoryContent : function(config)
+	{
+		config = Ext.applyIf(config || {}, {
+			modal : true
+		});
+		var componentType = Zarafa.core.data.SharedComponentType['common.categories.dialogs.renamecategory'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
+	},
+
+	/**
 	 * Opens a {@link Zarafa.common.attachment.dialogs.AttachItemContentPanel Attach Item Content Panel} which is used
 	 * to attach an item as embedded attachment to a message.
 	 *

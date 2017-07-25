@@ -98,7 +98,8 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	 */
 	onApply : function()
 	{
-		var categoryString = this.categoriesPanel.getSelectedCategories().join('; ');
+		var categories = this.categoriesPanel.getSelectedCategories();
+		var categoryString = categories.join('; ');
 
 		if (Ext.isEmpty(this.record)) {
 			this.close();
@@ -116,6 +117,15 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 		// Also save the changes that the user made to the categories
 		var grid = this.categoriesPanel.categoriesGrid;
 		var store = grid.getStore();
+		// Check if standard categories are selected and it is
+		// first time used then mark those categories to used.
+		categories.forEach(function(category){
+			var categoryIndex = store.findExactCaseInsensitive('category', category);
+			var categoryRecord = store.getAt(categoryIndex);
+			if(!Ext.isEmpty(categoryRecord.get('standardIndex')) && !categoryRecord.get('used')) {
+				categoryRecord.set('used', true);
+			}
+		}, this);
 		store.save();
 
 		// Update the categoriesStore in Zarafa.common.categories.Util to make sure

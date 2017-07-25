@@ -45,12 +45,13 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 								category.standardIndex,
 								category.quickAccess===true,
 								Ext.isDefined(category.sortIndex) ? category.sortIndex : 100000,
-								true
+								true,
+								category.used
 							];
 						});
 
 		Ext.applyIf(config, {
-			fields : ['category', 'color', 'standardIndex', 'quickAccess', 'sortIndex', 'stored'],
+			fields : ['category', 'color', 'standardIndex', 'quickAccess', 'sortIndex', 'stored', 'used'],
 			data: categories
 		});
 
@@ -114,7 +115,8 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 				color: categoryRecord.get('color'),
 				standardIndex: categoryRecord.get('standardIndex'),
 				quickAccess: categoryRecord.get('quickAccess'),
-				sortIndex: categoryRecord.get('sortIndex')
+				sortIndex: categoryRecord.get('sortIndex'),
+				used: categoryRecord.get('used')
 			};
 		});
 

@@ -331,6 +331,8 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Event handler for the rowclick event of the category grid. Will check
 	 * if one of the pin/edit/delete icons was clicked and handle accordingly.
+	 * also it will open {@link Zarafa.common.categories.dialogs.RenameCategoryPanel RenameCategoryPanel}
+	 * when standard categories like 'Red', 'Green' etc. checkbox is checked for first time.
 	 *
 	 * @param {Ext.grid.GridPanel} grid The category grid
 	 * @param {Number} rowIndex The index of the row that was clicked.
@@ -349,6 +351,25 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 			this.editCategoryName(rowIndex);
 		} else if ( targetEl.hasClass('k-grid-button-delete') ){
 			this.deleteCategory(rowIndex);
+		} else if(targetEl.hasClass('x-grid3-row-checker')) {
+			// If check box is unchecked then just return.
+			if(!grid.getColumnModel().getColumnById('checker').isSelected(rowIndex)) {
+				return;
+			}
+			var category = grid.getStore().getAt(rowIndex);
+			var standardIndex = category.get('standardIndex');
+			if(Ext.isEmpty(standardIndex)) {
+				return;
+			}
+
+			if(category.get('used') === false) {
+				Zarafa.common.Actions.openRenameCategoryContent({
+					store: grid.getStore(),
+					isCategoryGrid : true,
+					categoryName : category.get('category'),
+					color : category.get('color')
+				});
+			}
 		}
 	},
 

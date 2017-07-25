@@ -336,7 +336,8 @@ Zarafa.common.categories.Util = {
 	 */
 	getCategoryNameByFlagColor : function(flagColorIndex)
 	{
-		var categories = container.getPersistentSettingsModel().get('kopano/main/categories', true);
+		var settingsModel = container.getPersistentSettingsModel();
+		var categories = settingsModel.get('kopano/main/categories', true);
 		var retVal = '';
 		Ext.iterate(categories, function(category){
 			if ( category.standardIndex === flagColorIndex ){
@@ -345,6 +346,10 @@ Zarafa.common.categories.Util = {
 			}
 		});
 
+		var mergedCategory = settingsModel.get('kopano/main/merged_categories/'+flagColorIndex, true);
+		if(mergedCategory) {
+			retVal = mergedCategory;
+		}
 		return retVal;
 	},
 
@@ -451,7 +456,12 @@ Zarafa.common.categories.Util = {
 
 		IPMStores.each(function(store){
 			store.each(function(record){
-				if ( !Ext.isEmpty(record.get('categories')) ){
+				// If record has categories as well as flag_status is to flagged and
+				// flag_request is not equal to 'Follow up' then update that record
+				// in store.
+				if ( !Ext.isEmpty(record.get('categories')) ||
+					(record.get('flag_status') === Zarafa.core.mapi.FlagStatus.flagged &&
+						record.get('flag_request') !== 'Follow up')){
 					store.fireEvent('update', store, record, Ext.data.Record.COMMIT);
 				}
 			}, this);

@@ -13187,6 +13187,12 @@ body .k-category-block {
   margin-left: 12px;
 }
 
+/* The "Rename category dialog" */
+/* line 106, ../scss/components/_categories.scss */
+.k-renamecategorypanel .k-colorpicker {
+  padding-right: 6px;
+}
+
 /* Rules settings category */
 /* line 3, ../scss/components/_rules.scss */
 #zarafa-mainpanel-contentpanel-settings .k-rules-widget > .x-panel-bwrap > .x-panel-body {

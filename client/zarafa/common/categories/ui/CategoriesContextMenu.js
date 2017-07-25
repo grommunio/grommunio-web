@@ -59,7 +59,6 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	createCategoryItems : function()
 	{
 		var categoriesStore = new Zarafa.common.categories.data.CategoriesStore();
-
 		// Add categories that are set on the record(s) but don't exist in the categoryStore
 		categoriesStore.addCategoriesFromMapiRecords(this.records);
 
@@ -70,7 +69,7 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 		});
 
 		// Map all categories to a config object for a menu item
-		return categoriesStore.data.items.map(function(category){
+		return categoriesStore.getRange().map(function(category){
 			return {
 				text: '<span class="k-category-in-menu">' + Ext.util.Format.htmlEncode(category.get('category')) + '</span>',
 				plainText: category.get('category'),
@@ -132,8 +131,11 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	},
 
 	/**
-	 * Event handler for the items in the categories submenu. Will add or remove the
-	 * clicked category to/from all selected records
+	 * Event handler for the items in the categories submenu. Will add, rename or remove the
+	 * clicked category to/from all selected records. function will be shows
+	 * {@link Zarafa.common.categories.dialogs.RenameCategoryPanel RenameCategoryPanel} when
+	 * standard categories(Red, Green etc.) are selected first time.
+	 *
 	 * @param {Ext.menu.Item} item The item of the categories submenu
 	 * that was clicked
 	 */
@@ -143,8 +145,23 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 			// Remove this category from all records
 			Zarafa.common.categories.Util.removeCategory(this.records, item.plainText, true);
 		} else {
-			// Add this category to all records that don't have it yet'
-			Zarafa.common.categories.Util.addCategory(this.records, item.plainText, true);
+			var categories  = container.getPersistentSettingsModel().get('kopano/main/categories');
+			var category = categories.find(function (category) {
+				if(!Ext.isEmpty(category.standardIndex) && (category.name === item.plainText)){
+					return category;
+				}
+			});
+
+			if(Ext.isDefined(category) && !category.used) {
+				Zarafa.common.Actions.openRenameCategoryContent({
+					categoryName : category.name,
+					records : this.records,
+					color : item.color
+				});
+			} else {
+				// Add this category to all records that don't have it yet'
+				Zarafa.common.categories.Util.addCategory(this.records, item.plainText, true);
+			}
 		}
 	}
 });

@@ -213,42 +213,48 @@ if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(arr
 		'color' => '#e40023',
 		'standardIndex' => 6,
 		'quickAccess' => true,
-		'sortIndex' => 0
+		'sortIndex' => 0,
+		'used' => false
 	),
 	array(
 		'name' => _('Orange'),
 		'color' => '#f99406',
 		'standardIndex' => 2,
 		'quickAccess' => true,
-		'sortIndex' => 1
+		'sortIndex' => 1,
+		'used' => false
 	),
 	array(
 		'name' => _('Yellow'),
 		'color' => '#f7ca17',
 		'standardIndex' => 4,
 		'quickAccess' => true,
-		'sortIndex' => 2
+		'sortIndex' => 2,
+		'used' => false
 	),
 	array(
 		'name' => _('Green'),
 		'color' => '#5ab556',
 		'standardIndex' => 3,
 		'quickAccess' => true,
-		'sortIndex' => 3
+		'sortIndex' => 3,
+		'used' => false
 	),
 	array(
 		'name' => _('Blue'),
 		'color' => '#0f70bd',
 		'standardIndex' => 5,
 		'quickAccess' => true,
-		'sortIndex' => 4
+		'sortIndex' => 4,
+		'used' => false
 	),
 	array(
 		'name' => _('Purple'),
 		'color' => '#912887',
 		'standardIndex' => 1,
 		'quickAccess' => true,
-		'sortIndex' => 5
+		'sortIndex' => 5,
+		'used' => false
 	),
 	array(
 		'name' => _('Important'),
