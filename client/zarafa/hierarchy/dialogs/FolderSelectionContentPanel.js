@@ -9,6 +9,11 @@ Ext.namespace('Zarafa.hierarchy.dialogs');
  */
 Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	/**
+	 * @cfg {Boolean} hideTodoList True to hide the To-do list.
+	 */
+	hideTodoList : false,
+
+	/**
 	 * @cfg {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which is selected by
 	 * default in the hierarchy tree.
 	 */
@@ -43,6 +48,7 @@ Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui
 			items: [{
 				xtype: 'zarafa.folderselectionpanel',
 				folder : config.folder,
+				hideTodoList: !!config.hideTodoList,
 				buttons : [{
 					text : _('Ok'),
 					handler : this.onOk,

@@ -608,7 +608,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 		if(contentReset || record.isModifiedSinceLastUpdate('reminder_time')) {
 			// Update reminder
-			record.set('flagdueby', record.get('reminder_time'));
+			record.set('flag_due_by', record.get('reminder_time'));
 		}
 
 		this.getForm().loadRecord(record);

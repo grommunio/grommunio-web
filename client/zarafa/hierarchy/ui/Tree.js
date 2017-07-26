@@ -30,6 +30,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	hideDeletedFolders : false,
 
 	/**
+	 * @cfg {Boolean} hideTodoList True to hide the To-do list.
+	 */
+	hideTodoList : false,
+
+	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
 	nodeConfig : undefined,
@@ -234,6 +239,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			hide = folder.isInDeletedItems();
 		}
 
+		// Check if the to-do list should be shown
+		if (!hide && this.hideTodoList) {
+			hide = folder.isTodoListFolder();
+		}
+
 		return !hide;
 	},
 
@@ -365,7 +375,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * Function is used to find the {@link Zarafa.hierarchy.ui.FolderNode} based on the folder.
 	 * If selected folder is {@link Zarafa.common.favorites.data.FavoritesFolderRecord favorites} folder then
 	 * we append "favorites-" keyword with folder entryid to uniquely identify and get the favorites marked folder node.
-	 * 
+	 *
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord | Zarafa.common.favorites.data.FavoritesFolderRecord} folder the folder
 	 * can be favorites folder or any noramal folder.
 	 * @returns {Zarafa.hierarchy.ui.FolderNode} folder node object

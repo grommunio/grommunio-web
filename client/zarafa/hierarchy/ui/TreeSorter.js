@@ -40,29 +40,30 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 	 * which must be used in the comparison between 2 {@link Zarafa.hierarchy.data.MAPIStoreRecord stores}.
 	 */
 	storeProperty : 'mailbox_owner_name',
-	
+
 	/**
-	 * @cfg {String[]} folderOrder The predefined order for the folders in the hierarchy. It contains default 
+	 * @cfg {String[]} folderOrder The predefined order for the folders in the hierarchy. It contains default
 	 * folder keys and container classes.
 	 */
 	folderOrder : [
-		'inbox', 
-		'drafts', 
-		'outbox', 
-		'sent', 
-		'IPF.Note', 
-		'wastebasket', 
-		'junk', 
-		'calendar', 
-		'IPF.Appointment', 
-		'contact', 
-		'IPF.Contact', 
-		'task', 
-		'IPF.Task', 
-		'note', 
-		'IPF.StickyNote', 
-		'journal', 
-		'IPF.Journal', 
+		'inbox',
+		'drafts',
+		'outbox',
+		'sent',
+		'IPF.Note',
+		'wastebasket',
+		'junk',
+		'calendar',
+		'IPF.Appointment',
+		'contact',
+		'IPF.Contact',
+		'todolist',
+		'task',
+		'IPF.Task',
+		'note',
+		'IPF.StickyNote',
+		'journal',
+		'IPF.Journal',
 		'IPF.Note.OutlookHomepage'
 	],
 
@@ -181,7 +182,7 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		}
 
 		// First check if record1 or record2 are a different default type or type
-		// and if so, sort the records based on that 
+		// and if so, sort the records based on that
 		var index1 = this.folderOrder.indexOf(folderKey1);
 		var index2 = this.folderOrder.indexOf(folderKey2);
 		if ( index1 > -1 ){
@@ -193,9 +194,9 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 		}else if ( index2 > -1 ){
 			return descending ? -1 : +1;
 		}
-		
+
 		// Folders that have the same type will now be sorted based on the passed property
-		
+
 		// For case insensitive sorting, convert to lowercase, this will correctly position
 		// folders which start with '_' to be sorted first (when converting to uppercase, those
 		// folders are otherwise sorted last.

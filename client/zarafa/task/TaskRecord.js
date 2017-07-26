@@ -39,7 +39,6 @@ Zarafa.task.TaskRecordFields = [
 	{name: 'date_completed', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'reminder', type: 'boolean', defaultValue: false},
 	{name: 'reminder_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
-	{name: 'flagdueby', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'hide_attachments', type: 'boolean', defaultValue: false},
 	{name: 'ownership', type: 'int', defaultValue:Zarafa.core.mapi.TaskOwnership.NEWTASK},
 	{name: 'conversation_topic'},
@@ -292,4 +291,3 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	}
 });
 Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.Task', Zarafa.task.TaskRecord);
-

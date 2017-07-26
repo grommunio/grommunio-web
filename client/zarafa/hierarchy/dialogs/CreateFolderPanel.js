@@ -110,7 +110,8 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 				forceLayout : true,
 				anchor : '100% 65%',
 				ref : '../hierarchyTree',
-				treeSorter : true
+				treeSorter : true,
+				hideTodoList: true
 			}]
 		};
 	},
@@ -138,7 +139,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * later when the event is fired again.
 	 *
 	 * @private
-	 */     
+	 */
 	onTreeNodeLoad : function()
 	{
 		// If the folder could be selected, then unregister the event handler.
@@ -164,7 +165,7 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 * Fired when a node has been selected from the {@link Zarafa.hierarchy.ui.Tree HierarchyTree}.
 	 * This will update the {@link Ext.form.ComboBox ComboBox} containing the container types to the
 	 * selected folders container type.
-	 * 
+	 *
 	 * @param {Ext.tree.DefaultSelectionModel} model The selection model which was used to select the
 	 */
 	onHierarchyNodeSelect : function(model)

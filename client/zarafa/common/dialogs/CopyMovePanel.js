@@ -157,6 +157,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				flex: 1,
 				border: true,
 				treeSorter: true,
+				hideTodoList: true,
 				enableDD : false,
 				anchor: '100% 90%',
 				ref: '../hierarchyTree'

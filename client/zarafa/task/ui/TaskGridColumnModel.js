@@ -84,6 +84,13 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
+		},{
+			header : _('Reminder Time'),
+			dataIndex: 'reminder_time',
+			width: 160,
+			renderer : Zarafa.common.ui.grid.Renderers.datetime,
+			tooltip : _('Sort by: Reminder Time'),
+			hidden: true
 		}, {
 			header : _('Assigned To'),
 			dataIndex : 'display_to',
@@ -178,6 +185,13 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
+		},{
+			header : _('Reminder Time'),
+			dataIndex: 'reminder_time',
+			width: 160,
+			renderer : Zarafa.common.ui.grid.Renderers.datetime,
+			tooltip : _('Sort by: Reminder Time'),
+			hidden: true
 		}, {
 			xtype : 'checkcolumn',
 			dataIndex : 'complete',
@@ -213,11 +227,6 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			tooltip : _('Sort by: Due Date'),
 			renderer : Zarafa.common.ui.grid.Renderers.utcdate
 		},{
-			dataIndex : 'categories',
-			header : _('Categories'),
-			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.categories
-		},{
 			dataIndex : 'percent_complete',
 			header : _('% Completed'),
 			width : 75,
@@ -227,7 +236,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'categories',
 			header : _('Categories'),
 			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.text
+			renderer : Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'zarafa-icon-column',
 			header : '<p class="icon_attachment">&nbsp;</p>',
@@ -276,6 +285,14 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	{
 		p.css += ' zarafa-grid-empty-cell';
 
+		// In the TodoList we will also show non-tasks. We will not show the complete
+		// checkbox there.
+		// TODO: This should be changed when KW-1828 is being implemented
+		if ( !(record instanceof Zarafa.task.TaskRecord) ){
+			p.css += ' x-item-disabled';
+			return '';
+		}
+
 		return Ext.ux.grid.CheckColumn.prototype.renderer.apply(this, arguments);
 	},
 
@@ -292,40 +309,42 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 */
 	onCompleteColumnProcessEvent : function(name, e, grid, rowIndex, colIndex)
 	{
-		if (name === 'mousedown') {
-			var record = grid.store.getAt(rowIndex);
+		if (name !== 'mousedown') {
+			return;
+		}
 
-			record.beginEdit();
+		var record = grid.store.getAt(rowIndex);
 
-			if (record.get('complete')) {
-				record.set('percent_complete', 1);
-				record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
-				record.set('date_completed', new Date());
-			} else {
-				record.set('status', Zarafa.core.mapi.TaskStatus.NOT_STARTED);
-				record.set('percent_complete', 0);
-				record.set('date_completed', null);
-			}
+		record.beginEdit();
 
-			record.endEdit();
+		if (record.get('complete')) {
+			record.set('percent_complete', 1);
+			record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
+			record.set('date_completed', new Date());
+		} else {
+			record.set('status', Zarafa.core.mapi.TaskStatus.NOT_STARTED);
+			record.set('percent_complete', 0);
+			record.set('date_completed', null);
+		}
 
-			if (!record.isNormalTask()) {
-				if (!record.isTaskOwner() && !record.isTaskRequest()) {
-					Ext.MessageBox.show({
-						title: _('Kopano WebApp'),
-						msg :_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
-						icon: Ext.MessageBox.WARNING,
-						scope: this,
-						buttons: Ext.MessageBox.OK
-					});
-					record.save();
-				} else {
-					record.respondToTaskRequest(Zarafa.core.mapi.TaskMode.UPDATE);
-				}
-			} else {
-				// save changes
+		record.endEdit();
+
+		if (!record.isNormalTask()) {
+			if (!record.isTaskOwner() && !record.isTaskRequest()) {
+				Ext.MessageBox.show({
+					title: _('Kopano WebApp'),
+					msg :_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
+					icon: Ext.MessageBox.WARNING,
+					scope: this,
+					buttons: Ext.MessageBox.OK
+				});
 				record.save();
+			} else {
+				record.respondToTaskRequest(Zarafa.core.mapi.TaskMode.UPDATE);
 			}
+		} else {
+			// save changes
+			record.save();
 		}
 	},
 

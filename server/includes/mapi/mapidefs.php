@@ -1,10 +1,10 @@
 <?php
-/* Resource types as defined in main.h of the mapi extension */ 
+/* Resource types as defined in main.h of the mapi extension */
 define('RESOURCE_SESSION'                        ,'MAPI Session');
 define('RESOURCE_TABLE'                          ,'MAPI Table');
 define('RESOURCE_ROWSET'                         ,'MAPI Rowset');
 define('RESOURCE_MSGSTORE'                       ,'MAPI Message Store');
-define('RESOURCE_FOLDER'                         ,'MAPI Folder'); 
+define('RESOURCE_FOLDER'                         ,'MAPI Folder');
 define('RESOURCE_MESSAGE'                        ,'MAPI Message');
 define('RESOURCE_ATTACHMENT'                     ,'MAPI Attachment');
 
@@ -315,7 +315,7 @@ define('STORE_ATTACH_OK'                         ,0x00000020); // The message st
 define('STORE_CATEGORIZE_OK'                     ,0x00000400); // The message store supports categorized views of tables.
 define('STORE_CREATE_OK'                         ,0x00000010); // The message store supports creation of new messages.
 define('STORE_ENTRYID_UNIQUE'                    ,0x00000001); // Entry identifiers for the objects in the message store are unique, that is, never reused during the life of the store.
-define('STORE_HTML_OK'                           ,0x00010000); // The message store supports Hypertext Markup Language (HTML) messages, stored in the PR_BODY_HTML property. Note that STORE_HTML_OK is not defined in versions of MAPIDEFS.H included with Microsoft® Exchange 2000 Server and earlier. If your development environment uses a MAPIDEFS.H file that does not include STORE_HTML_OK, use the value 0x00010000 instead.
+define('STORE_HTML_OK'                           ,0x00010000); // The message store supports Hypertext Markup Language (HTML) messages, stored in the PR_BODY_HTML property. Note that STORE_HTML_OK is not defined in versions of MAPIDEFS.H included with Microsoftï¿½ Exchange 2000 Server and earlier. If your development environment uses a MAPIDEFS.H file that does not include STORE_HTML_OK, use the value 0x00010000 instead.
 define('STORE_LOCALSTORE'                        ,0x00080000); // This flag is reserved and should not be used.
 define('STORE_MODIFY_OK'                         ,0x00000008); // The message store supports modification of its existing messages.
 define('STORE_MV_PROPS_OK'                       ,0x00000200); // The message store supports multivalued properties, guarantees the stability of value order in a multivalued property throughout a save operation, and supports instantiation of multivalued properties in tables.
@@ -390,7 +390,7 @@ define('olMeeting'                               ,1);
 define('olMeetingReceived'                       ,3);
 define('olMeetingCanceled'                       ,5);
 define('olMeetingReceivedAndCanceled'            ,7);
-    
+
 /*    OlMeetingResponse */
 define('olMeetingTentative'                      ,2);
 define('olMeetingAccepted'                       ,3);
@@ -587,7 +587,7 @@ define('recipOrganizer',						0x00000002);	// meeting organizer
 define('recipExceptionalResponse',				0x00000010);	// attendee gave a response for the exception
 define('recipExceptionalDeleted',				0x00000020);	// recipientRow exists, but it is treated as if the corresponding recipient is deleted from meeting
 define('recipOriginal',							0x00000100);	// recipient is an original Attendee
-define('recipReserved',							0x00000200);	
+define('recipReserved',							0x00000200);
 
 /* Flags which indicates type of Meeting Object */
 define('mtgEmpty',								0x00000000);	// Unspecified.
@@ -613,5 +613,22 @@ define('fnevTableModified',           0x00000100);
 define('fnevStatusObjectModified',    0x00000200);
 define('fnevReservedForMapi',         0x40000000);
 define('fnevExtended',                0x80000000);
+
+/* PersistBlockType values */
+define('PERSIST_SENTINEL',                0x0000);
+define('RSF_PID_RSS_SUBSCRIPTION',        0x8001);
+define('RSF_PID_SEND_AND_TRACK',          0x8002);
+define('RSF_PID_TODO_SEARCH',             0x8004);
+define('RSF_PID_CONV_ACTIONS',            0x8006);
+define('RSF_PID_COMBINED_ACTIONS',        0x8007);
+define('RSF_PID_SUGGESTED_CONTACTS',      0x8008);
+define('RSF_PID_CONTACT_SEARCH',          0x8009);
+define('RSF_PID_BUDDYLIST_PDLS',          0x800A);
+define('RSF_PID_BUDDYLIST_CONTACTS',      0x800B);
+
+/* PersistElementType Values */
+define('ELEMENT_SENTINEL',                0x0000);
+define('RSF_ELID_ENTRYID',                0x0001);
+define('RSF_ELID_HEADER',                 0x0002);
 
 ?>

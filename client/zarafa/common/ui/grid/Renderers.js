@@ -292,6 +292,9 @@ Zarafa.common.ui.grid.Renderers = {
 	percentage : function (value, p, record)
 	{
 		p.css = 'task_percentage';
+		if ( isNaN(value) ){
+			return '';
+		}
 		return Ext.util.Format.percentage(value);
 	},
 
@@ -377,6 +380,9 @@ Zarafa.common.ui.grid.Renderers = {
 	durationHours : function(value, p, record)
 	{
 		p.css = 'mail_duration';
+		if ( !Ext.isDefined(value) ){
+			return '';
+		}
 
 		return String.format(ngettext('{0} hour', '{0} hours', value), value);
 	},

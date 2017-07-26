@@ -161,7 +161,6 @@ define('PR_COLLECTOR'                                 ,mapi_prop_tag(PT_OBJECT, 
 
 define('PR_SMTP_ADDRESS'                              ,mapi_prop_tag(PT_TSTRING,     0x39FE));
 
-
 /*
  *  Message content properties
  */
@@ -280,6 +279,7 @@ define('PR_PREPROCESS'                                ,mapi_prop_tag(PT_BOOLEAN,
 define('PR_ORIGINATING_MTA_CERTIFICATE'               ,mapi_prop_tag(PT_BINARY,      0x0E25));
 define('PR_PROOF_OF_SUBMISSION'                       ,mapi_prop_tag(PT_BINARY,      0x0E26));
 
+define('PR_TODO_ITEM_FLAGS'                           ,mapi_prop_tag(PT_LONG,        0x0E2B));
 
 /*
  * The range of non-message and non-recipient property IDs (0x3000 - 0x3FFF)); is
@@ -743,6 +743,9 @@ PR_IPM_OL2007_ENTRYIDS:
 	00000000 (terminator?)
 */
 define('PR_IPM_OL2007_ENTRYIDS'                       ,mapi_prop_tag(PT_BINARY,      0x36D9));
+// Note: PR_IPM_OL2007_ENTRYIDS is the same property as PR_ADDITIONAL_REN_ENTRYIDS_EX, but Microsoft
+// seems to use the latter hence we will also use that to not confuse developers that want to Google it.
+define('PR_ADDITIONAL_REN_ENTRYIDS_EX'                ,mapi_prop_tag(PT_BINARY,      0x36D9));
 
 
 

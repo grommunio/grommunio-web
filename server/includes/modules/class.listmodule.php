@@ -232,6 +232,7 @@
 
 			$this->searchFolderList = true; // Set to indicate this is not the normal folder, but a search folder
 			$this->restriction = false;
+			$searchInTodoList = $GLOBALS['entryid']->compareEntryIds(bin2hex($entryid), bin2hex(TodoList::getEntryId()));
 
 			// Parse Restriction
 			$this->parseRestriction($action);
@@ -242,6 +243,25 @@
 				$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
+			}
+
+			if ( $searchInTodoList ){
+				// Since we cannot search in a search folder, we will combine the search restriction
+				// with the search restriction of the to-do list to mimic searching in the To-do list
+				$this->restriction = array(
+		            RES_AND,
+					array(
+						$this->restriction,
+						TodoList::_createRestriction()
+					)
+				);
+
+				// When searching in the To-do list we will actually always search in the IPM subtree, so
+				// set the entryid to that.
+		        $userStore = WebAppAuthentication::getMapiSession()->getDefaultMessageStore();
+		        $root = mapi_msgstore_openentry($userStore, null);
+		        $props = mapi_getprops($userStore, array(PR_IPM_SUBTREE_ENTRYID));
+		        $entryid = $props[PR_IPM_SUBTREE_ENTRYID];
 			}
 
 			$isSetSearchFolderEntryId = isset($action['search_folder_entryid']);
@@ -275,7 +295,7 @@
 			}
 
 			$subfolder_flag = 0;
-			if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
+			if ($searchInTodoList || (isset($action["subfolders"]) && $action["subfolders"] == "true")) {
 				$subfolder_flag = RECURSIVE_SEARCH;
 			}
 

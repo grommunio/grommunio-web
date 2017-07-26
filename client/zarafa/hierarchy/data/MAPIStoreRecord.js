@@ -41,6 +41,7 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'default_folder_journal'},
 	{name: 'default_folder_note'},
 	{name: 'default_folder_task'},
+	{name: 'default_folder_todolist'},
 	{name: 'default_folder_junk'},
 	{name: 'default_folder_syncissues'},
 	{name: 'default_folder_conflicts'},
@@ -66,7 +67,7 @@ Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.mapi.ObjectTy
 /**
  * @class Zarafa.hierarchy.data.MAPIStoreRecord
  * @extends Zarafa.core.data.IPFRecord
- * 
+ *
  */
 Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	/**

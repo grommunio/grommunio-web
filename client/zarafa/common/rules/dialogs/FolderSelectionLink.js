@@ -79,7 +79,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 						'&quot;{display_name:htmlEncode}&quot;' +
 					'</tpl>' +
 					'<tpl if="Ext.isEmpty(values.display_name)">' +
-						'&quot;' + _('Unnamed folder') + '&quot;' + 
+						'&quot;' + _('Unnamed folder') + '&quot;' +
 					'</tpl>' +
 				'</div>',
 				{
@@ -116,6 +116,7 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 	{
 		Zarafa.hierarchy.Actions.openFolderSelectionContent({
 			folder : this.folder,
+			hideTodoList: true,
 			callback : function(folder) {
 				this.folder = folder;
 				this.isModified = true;

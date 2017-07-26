@@ -2,21 +2,21 @@ ul.x-tab-strip {
 	padding-top: $padding-medium;
 	padding-left: $padding-medium;
 	border-color: $grey;
-	
+
 	li {
 		display : inline-block;
 		margin: 0 $padding-small 0 0;
 		border: 1px solid $background-color-tab !important;
-		
+
 		.x-tab-right {
 			background: $background-color-tab;
 			padding-left: $padding-medium;
 			padding-right: $padding-medium;
-			
+
 			.x-tab-left {
 				background: transparent;
 				padding: 0;
-				
+
 				.x-tab-strip-inner {
 					background: transparent;
 					overflow: visible;
@@ -30,15 +30,15 @@ ul.x-tab-strip {
 			}
 		}
 	}
-	
+
 	li.x-tab-strip-active {
 		position: relative;
 		z-index: 10;
 		border-color: $grey;
-		
+
 		.x-tab-right {
 			background: $background-color-tab-active;
-			
+
 			.x-tab-left {
 				.x-tab-strip-inner {
 					.x-tab-strip-text {
@@ -56,12 +56,12 @@ ul.x-tab-strip {
 			background-color: $normal-button-bgcolor-hover;
 		}
 	}
-	
+
 	li.x-tab-strip-closable {
 		.x-tab-right {
 			/* close cross is 7x7 px */
-			padding-right: 2 * $padding-large + 7px; 
-		}		
+			padding-right: 2 * $padding-large + 7px;
+		}
 
 		/* close icon of tab */
 		a.x-tab-strip-close {
@@ -84,7 +84,7 @@ ul.x-tab-strip-bottom li {
 
 
 /*********************************************************
- *  Special case: the tabs of the main content panel 
+ *  Special case: the tabs of the main content panel
  ********************************************************/
 
 #zarafa-mainpanel > .x-tab-panel-header {
@@ -93,11 +93,11 @@ ul.x-tab-strip-bottom li {
 		border-bottom: none;
 		padding-top: 0;
 		padding-left: 0;
-		
+
 		li {
 			.x-tab-right {
 				padding-right: $padding-extra-large;
-				
+
 				.x-tab-strip-text {
 					height: $header-height - 1px; /* 1px for the border) */
 					line-height: $header-height - 1px;
@@ -128,7 +128,7 @@ ul.x-tab-strip-bottom li {
 
 		li.x-tab-edge {
 			width: auto;
-			
+
 			.x-tab-add {
 				height: $header-height;
 				width: 11px;
@@ -150,7 +150,7 @@ ul.x-tab-strip-bottom li {
 
 		#zarafa-mainpanel-contentpanel-mail.x-panel {
 			border-top: none;
-			
+
 			> .x-panel-bwrap {
 				> .x-panel-body {
 					/* needed to have a transparency in the area between the grid panel and the preview panel */
@@ -166,7 +166,7 @@ ul.x-tab-strip-bottom li {
 		> .x-tab-panel-body {
 			/* needed to have a transparency in the area between the grid panel and the preview panel */
 			background: transparent;
-			
+
 			/* Move these borders to the inside panel(s) so we can have 'separate' grid and preview panels for mail context */
 			border-left: none;
 			border-right: none;
@@ -175,10 +175,10 @@ ul.x-tab-strip-bottom li {
 			> div > .x-panel {
 				border: 1px solid $grey;
 			}
-			
+
 			> div > div#zarafa-mainpanel-contentpanel-mail {
 				border: none;
-				
+
 				> .x-panel-bwrap > .x-panel-body > .x-panel {
 					border: 1px solid $grey;
 				}
@@ -242,13 +242,13 @@ ul.x-tab-strip {
 						padding-left: $padding-medium + 14px;
 						background-position: sprite-position($iconsmap, icon_inbox, $offset-y: 9, $offset-x: 0);
 					}
-					
+
 					.icon_folder_default_inbox,
 					.icon_folder_shared_inbox {
 						@extend .icon_folder_default_inbox;
 						background-position: sprite-position($iconsmap, icon_folder_default_inbox, $offset-y: 11, $offset-x: 0);
 					}
-				
+
 					.icon_folder,
 					.icon_folder_note,
 					.icon_folder_folder,
@@ -261,13 +261,13 @@ ul.x-tab-strip {
 						@extend .folder;
 						background-position: sprite-position($iconsmap, folder, $offset-y: 9, $offset-x: 0);
 					}
-					
+
 					.icon_folder_appointment,
 					.icon_folder_default_calendar,
 					.icon_folder_shared_calendar {
 						background-position: sprite-position($iconsmap, icon_folder_calendar, $offset-y: 10, $offset-x: 0);
 					}
-					
+
 					.icon_folder_default_contact,
 					.icon_folder_contact {
 						/* icon width is 13px */
@@ -275,12 +275,12 @@ ul.x-tab-strip {
 						/* icon contains two empty lines on the left */
 						background-position: sprite-position($iconsmap, icon_folder_contact, $offset-y: 10, $offset-x: -2px);
 					}
-				
+
 					.icon_mail.icon_message_read {
 						@extend .icon_mail_read;
 						background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 9, $offset-x: 0);
 					}
-				
+
 					.icon_mail.icon_message_unread {
 						@extend .icon_mail_unread;
 						background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 13, $offset-x: 0);
@@ -308,28 +308,28 @@ ul.x-tab-strip {
 						@extend .icon_note_yellow;
 						background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 9, $offset-x: 0);
 					}
-				
+
 					.icon_folder_default_wastebasket,
 					.icon_folder_delete,
 					.icon_empty_trash {
 						background-position: sprite-position($iconsmap, trash, $offset-y: 9, $offset-x: 0);
 					}
-				
+
 					.icon_appt_meeting_single {
 						@extend .icon_calendar_mr;
 						background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 9, $offset-x: 0);
 					}
-				
-				
+
+
 					.icon_appt_appointment {
 						@extend .icon_calendar_blue;
 						background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 10, $offset-x: 0);
 					}
-				
+
 					.icon_appt_meeting_cancel {
 						background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 10, $offset-x: 0);
 					}
-				
+
 					.icon_appt_meeting_recurring,
 					.icon_appt_recurring {
 						background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 10, $offset-x: 0);
@@ -344,17 +344,23 @@ ul.x-tab-strip {
 						@extend .icon_contact_card;
 						background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 10, $offset-x: 0);
 					}
-				
+
 					.icon_contact_distlist {
 						@extend .icon_distlist;
 						background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 10, $offset-x: 0);
 					}
-				
+
 					.icon_folder_default_task,
 					.icon_folder_task,
 					.icon_task_normal {
 						@extend .icon_task;
 						background-position: sprite-position($iconsmap, icon_task, $offset-y: 10, $offset-x: 0);
+						padding-left: $padding-medium + 14px;
+					}
+
+					.icon_folder_default_todolist {
+						@extend .icon_folder_task;
+						background-position: sprite-position($iconsmap, icon_folder_task, $offset-y: 10, $offset-x: 0);
 						/* icon width is 14px */
 						padding-left: $padding-medium + 14px;
 					}
@@ -368,14 +374,14 @@ ul.x-tab-strip {
 						@extend .icon_cogwheel;
 						background-position: sprite-position($icons, icon_cogwheel, $offset-y: 8px, $offset-x: -3px);
 					}
-				
+
 					.icon_folder_default_journal,
 					.icon_folder_journal{
 						@extend .icon_folder_default_journal;
 						background-position: sprite-position($iconsmap, icon_folder_default_journal, $offset-y: 9, $offset-x: -1px);
 						padding-left: $padding-medium + 13px;
 					}
-				
+
 					.advance_search{
 						@extend .icon_magnifier;
 						background-position: sprite-position($icons, icon_magnifier, $offset-y: 10, $offset-x: -1px);
