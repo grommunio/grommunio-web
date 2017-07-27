@@ -26,11 +26,11 @@ def read_settings():
         st = GetDefaultStore(s)
 
     except MAPIErrorNotFound as e:
-        print 'User \'%s\' has no user store (%s)' % (username, e)
+        print('User \'%s\' has no user store (%s)' % (username, e))
         return
 
     except MAPIErrorLogonFailed as e:
-        print 'User \'%s\' not found (on this server) (%s)' % (username, e)
+        print('User \'%s\' not found (on this server) (%s)' % (username, e))
         return
 
     try:
@@ -51,13 +51,13 @@ def write_settings(data):
     settings.SetSize(0)
     settings.Seek(0, STREAM_SEEK_END)
 
-    writesettings = settings.Write(data)
+    writesettings = settings.Write(data.encode('utf-8'))
 
     if writesettings:
-        print 'Writing settings for user \'%s\'' % sys.argv[1]
+        print('Writing settings for user \'%s\'' % sys.argv[1])
         settings.Commit(0)
     else:
-        print 'Writing Default Signature for user \'%s\' failed.' % sys.argv[1]
+        print('Writing Default Signature for user \'%s\' failed.' % sys.argv[1])
 
 
 def main():
@@ -69,25 +69,25 @@ def main():
     signaturecontent = dict({u'name': signaturename, u'content': signaturehtml, u'isHTML': True})
 
     if data:
-        webappsettings = json.loads(data)
+        webappsettings = json.loads(data.decode('utf-8'))
 
         if not len(webappsettings['settings']['zarafa']['v1']['contexts']['mail']):
-            print "WebApp settings are empty."
-            print "Adding config tree."
+            print("WebApp settings are empty.")
+            print("Adding config tree.")
             webappsettings['settings']['zarafa']['v1']['contexts']['mail'] = dict({})
 
         if u'signatures' not in list(webappsettings['settings']['zarafa']['v1']['contexts']['mail']):
-            print "Adding Signature settings to config tree."
+            print("Adding Signature settings to config tree.")
             webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures'] = dict({})
 
         if u'all' not in list(webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']):
-            print "Empty Signature settings detected."
+            print("Empty Signature settings detected.")
             webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures'] = dict({'all': dict({})})
 
         if webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['all'].get(signatureid):
-            print 'Default Signature already exists.'
+            print('Default Signature already exists.')
         else:
-            print 'Adding Default Signature.'
+            print('Adding Default Signature.')
             webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['all'][
                 signatureid] = signaturecontent
             webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['new_message'] = signatureid
