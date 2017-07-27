@@ -582,8 +582,8 @@
 		 *	Function will create a search folder in FINDER_ROOT folder
 		 *	if folder exists then it will open it
 		 *	@param		object				$store			MAPI Message Store Object
-		 *	@param		boolean				$openIfExists	open if folder exists
-		 *	@return		mapiFolderObject	$folder			created search folder
+		 *	@param		boolean				$openIfExists		open if folder exists
+		 *	@return		resource|boolean		$folder			created search folder
 		 */
 		function createSearchFolder($store, $openIfExists = true)
 		{
@@ -632,31 +632,27 @@
 		/**
 		 *	Function will open FINDER_ROOT folder in root container
 		 *	public folder's don't have FINDER_ROOT folder
-		 *	@param		object				$store		MAPI message store object
-		 *	@return		mapiFolderObject	root		folder for search folders
+		 *	@param		object			store MAPI message store object
+		 *	@return		resource|boolean	finder root folder for search folders
 		 */
 		function getSearchFoldersRoot($store)
 		{
-			$searchRootFolder = true;
+			$searchRootFolder = false;
 
 			// check if we can create search folders
-			$storeProps = mapi_getprops($store, array(PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID));
-			if(($storeProps[PR_STORE_SUPPORT_MASK] & STORE_SEARCH_OK) != STORE_SEARCH_OK) {
-				// store doesn't support search folders
-				// public store don't have FINDER_ROOT folder
-				$searchRootFolder = false;
+			$storeProps = mapi_getprops($store, array(PR_STORE_SUPPORT_MASK, PR_FINDER_ENTRYID, PR_DISPLAY_NAME));
+			if (($storeProps[PR_STORE_SUPPORT_MASK] & STORE_SEARCH_OK) !== STORE_SEARCH_OK) {
+				// store doesn't support search folders, public store don't have FINDER_ROOT folder
+				return $searchRootFolder;
 			}
 
-			if($searchRootFolder) {
-				// open search folders root
-				try {
-					$searchRootFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
-				} catch (MAPIException $e) {
-					$searchRootFolder = false;
-
-					// don't propogate the event to higher level exception handlers
-					$e->setHandled();
-				}
+			try {
+				$searchRootFolder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
+			} catch (MAPIException $e) {
+				$msg ="Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
+				error_log(sprintf($msg, $props[PR_DISPLAY_NAME]));
+				// don't propogate the event to higher level exception handlers
+				$e->setHandled();
 			}
 
 			return $searchRootFolder;
