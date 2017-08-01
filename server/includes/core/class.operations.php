@@ -712,9 +712,20 @@
 				} catch(MAPIException $e) {
 					$e->setHandled();
 					$props = mapi_getprops($store, array(PR_DISPLAY_NAME));
-					$msg = "Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
-					error_log(sprintf($msg, $props[PR_DISPLAY_NAME]));
-					continue;
+					switch($e->getCode()) {
+					case MAPI_E_NO_ACCESS:
+						$msg = "Unable to open FINDER_ROOT for store: %s. Run kopano-search-upgrade-findroots.py to resolve the permission issue";
+						error_log(sprintf($msg, $props[PR_DISPLAY_NAME]));
+						continue;
+					case MAPI_E_NOT_FOUND:
+						$msg = "Unable to open FINDER_ROOT for store: %s. Folder not found.";
+						error_log(sprintf($msg, $props[PR_DISPLAY_NAME]));
+						continue;
+					default:
+						$msg = "Unable to open FINDER_ROOT for store: %s. Unknown MAPI Error %s.";
+						error_log(sprintf($msg, $props[PR_DISPLAY_NAME], get_mapi_error_name($e->getCode())));
+						continue;
+					}
 				}
 			}
 
