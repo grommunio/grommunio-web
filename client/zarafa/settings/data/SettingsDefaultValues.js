@@ -488,13 +488,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'safe_senders_list' : [],
 
 								/**
-								 * zarafa/v1/contexts/mail/safe_recipients_list
-								 * @property
-								 * @type Array
-								 */
-								// 'safe_recipients_list' : [],
-
-								/**
 								 * zarafa/v1/contexts/mail/blocked_senders_list
 								 * @property
 								 * @type Array
