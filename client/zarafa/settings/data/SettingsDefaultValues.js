@@ -36,12 +36,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'base_content_layer' : 'tabs',
 							/**
-							 * zarafa/v1/main/use_files_api
-							 * @property
-							 * @type Boolean
-							 */
-							'use_files_api' : true,
-							/**
 							 * zarafa/v1/main/confirm_close_dialog
 							 * @property
 							 * @type Boolean
