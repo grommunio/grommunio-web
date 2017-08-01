@@ -529,33 +529,6 @@ Zarafa.core.Util =
 	},
 
 	/**
-	 * Function will be used to convert an object to an array, this function has some limitations
-	 * it truncates keys and also doesn't preserve the order of items. This function does same as Ext.toArray
-	 * but that function can not handle objects
-	 * @param {Object} obj object to be converted to an array
-	 * @return {Array} converted array
-	 */
-	objToArray : function(obj)
-	{
-		var ret = [];
-
-		if(Array.isArray(obj)) {
-			// we already have an array
-			return obj;
-		}
-
-		if(!Ext.isObject(obj)) {
-			return ret;
-		}
-
-		Ext.iterate(obj, function(key, value) {
-			ret.push(value);
-		}, this);
-
-		return ret;
-	},
-
-	/**
 	 * Merge 2 objects containing event hanlers into a single object,
 	 * while preserving scopes. This can be used when a {@link Ext.Component}
 	 * receives a {@link Ext.Component#listeners} object while it also needs

@@ -78,8 +78,6 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 		}
 
 		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
-		// settings are in object format so convert it to an array
-		safeSenders = Zarafa.core.Util.objToArray(safeSenders);
 
 		if(!Ext.isEmpty(safeSenders)) {
 			safeSenders.push(smtpAddress);
@@ -107,8 +105,6 @@ Zarafa.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Zarafa.core.ui.m
 		}
 
 		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
-		// settings are in object format so convert it to an array
-		safeSenders = Zarafa.core.Util.objToArray(safeSenders);
 
 		if(!Ext.isEmpty(safeSenders)) {
 			safeSenders.push(domainName);
