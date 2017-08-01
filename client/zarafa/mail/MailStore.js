@@ -74,37 +74,39 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 				// use CleanGlobalObjectId, so we can force reload of all exceptions also for recurring series
 				var globalObjectId = record.get('goid2');
 
-				if(!Ext.isEmpty(globalObjectId)) {
-					// find all meeting request records which is earlier/latest update of this meeting request record
-					var index = -1;
-					do {
-						index = this.findExact('goid2', globalObjectId, index + 1);
-
-						// check if we got any matching record or not
-						if(index >= 0) {
-							var rec = this.getAt(index);
-
-							// check if we found the same record which we updated, for that we need to pass updated data
-							// instead of just cloning the same record
-							if (!record.equals(rec)) {
-								if(rec.isOpened()) {
-									// indicate that record data is outdated, record should be reopened again when needed
-									rec.opened = false;
-
-									results.records.push(rec);
-									results.updatedRecords.push({});
-								}
-							} else {
-								// add original updated record with updated data
-								results.records.push(this.getAt(index));
-								results.updatedRecords.push(record);
-							}
-						}
-					} while(index != -1);
-				} else {
+				if (Ext.isEmpty(globalObjectId)) {
 					// no global object id found, we can't do anything
 					return Zarafa.mail.MailStore.superclass.getRecordsForUpdateData.apply(this, arguments);
 				}
+
+				// find all meeting request records which is earlier/latest update of this meeting request record
+				var index = -1;
+				do {
+					index = this.findExact('goid2', globalObjectId, index + 1);
+
+					// check if we got any matching record or not
+					if(index < 0) {
+						continue;
+					}
+
+					var rec = this.getAt(index);
+
+					// check if we found the same record which we updated, for that we need to pass updated data
+					// instead of just cloning the same record
+					if (!record.equals(rec)) {
+						if(rec.isOpened()) {
+							// indicate that record data is outdated, record should be reopened again when needed
+							rec.opened = false;
+
+							results.records.push(rec);
+							results.updatedRecords.push({});
+						}
+					} else {
+						// add original updated record with updated data
+						results.records.push(this.getAt(index));
+						results.updatedRecords.push(record);
+					}
+				} while(index != -1);
 			} else if(record.isMessageClass('IPM.TaskRequest', true)) {
 				// Don't update MailStore-record when it is an IPM.TaskRequest/Accept/Decline/Update
 				// because when user tried to open that particular task request, we actually open
