@@ -655,6 +655,9 @@ function sq_fixatts($tagname,
      */
     foreach ($add_attr_to_tag as $matchtag=>$addattary){
         if (preg_match($matchtag, $tagname)){
+            if ($tagname == 'a' && isset($attary['href'])) {
+                $addattary['title'] = '"' . trim($attary['href'], '""') . PHP_EOL . trim($addattary['title'], '""') . '"';
+            }
             $attary = array_merge($attary, $addattary);
         }
     }
@@ -1126,7 +1129,7 @@ function magicHTML($body) {
     $add_attr_to_tag = Array(
             "/^a$/i" =>
             Array('target'=>'"_blank"',
-                'title'=>'"'._("This external link will open in a new window").'"',
+                'title'=>'"'._("Click the link to open the URL in a new window.").'"',
                 'rel'=>'"noreferrer noopener"'
                 ),
             "/^base$/i" =>
