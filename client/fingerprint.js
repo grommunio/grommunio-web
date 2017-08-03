@@ -1,3 +1,4 @@
+(function() {
 /**************************************************************************
  * This module handles fingerprinting the user. It will create a fingerprint
  * from data gathered about:
@@ -11,21 +12,7 @@
  * the session should be destroyed.
  *************************************************************************/
 
-(function(){
-	var fingerprint = {};
-	
-	/**
-	 * Returns a fingerprint based on the navigator info, the
-	 * installed plugins, and available fonts.
-	 */
-	fingerprint.get = function(){
-		var navInfo = _getNavigatorInfo();
-		var fonts = _getFonts();
-		var plugins = _getPlugins();
-
-		return _hashCode(JSON.stringify([navInfo, fonts, plugins]));
-	}
-	
+const fingerprint = (function(){
 	/**
 	 * Returns an object with info about the navigator
 	 */
@@ -41,7 +28,7 @@
 			userAgent : navigator.userAgent || '',
 			vendor : navigator.vendor || '',
 			vendorSub : navigator.vendorSub || ''
-		}
+		};
 	}
 	
 	/**
@@ -51,7 +38,7 @@
 	function _getFonts(){
 		// First we define a list of fonts that we will check
 		// for availability.
-		var fonts = [
+		const fonts = [
 			// General
 			'Arial',
 		
@@ -103,7 +90,7 @@
 			'Lucida Bright',
 			'Charcoal',
 			
-			 // High availability on linux
+			// High availability on linux
 			'Utopia',
 			'New Century Schoolbook',
 			'Zapf Chancery',
@@ -111,15 +98,7 @@
 			'Bitstream Charter',
 			'Ubuntu'
 		];
-		
-		var ret = [];
-		for ( var i=0; i<fonts.length; i++ ){
-			if ( checkfont(fonts[i]) ){
-				ret.push(fonts[i]);
-			}
-		}
-		
-		return ret;
+    return window.checkfont.installed(fonts);
 	}
 	
 	/**
@@ -149,16 +128,34 @@
 	 * Creates a 32 bit integer hash from a string
 	 */
 	function _hashCode(str) {
-	  var hash = 0, i, chr, len;
-	  if (str.length === 0) return hash;
-	  for (i = 0, len = str.length; i < len; i++) {
-	    chr   = str.charCodeAt(i);
-	    hash  = ((hash << 5) - hash) + chr;
-	    hash |= 0; // Convert to 32bit integer
-	  }
-	  return hash;
+		var hash = 0, i, chr, len = str.length;
+		if (len === 0) {
+			return hash;
+		}
+		for (i = 0; i < len; i++) {
+			chr   = str.charCodeAt(i);
+			hash  = ((hash << 5) - hash) + chr;
+			hash |= 0; // Convert to 32bit integer
+		}
+		return hash;
+	}
+
+	return {
+		/**
+		 * Returns a fingerprint based on the navigator info, the
+		 * installed plugins, and available fonts.
+		 */
+		get: function() {
+			var navInfo = _getNavigatorInfo();
+			var fonts = _getFonts();
+			var plugins = _getPlugins();
+
+			return _hashCode(JSON.stringify([navInfo, fonts, plugins]));
+		}
 	};
+})();
 	
+const sendKeepAlive = (function(){
 	/**
 	 * Sends a request to the backend to keep the php session alive.
 	 * This is needed for the login page because the fingerprint is
@@ -166,26 +163,21 @@
 	 * @param {Number} wait Time in milliseconds that the function must wait
 	 * before it sends the keep-alive request.
 	 */
-	function _sendKeepAlive(wait) {
+	return function _sendKeepAlive(wait) {
 		setTimeout(function(){
-			var request = new XMLHttpRequest();
+			const request = new XMLHttpRequest();
 			request.open('POST', 'kopano.php?service=fingerprint&type=keepalive');
-			request.onload = function(e) {
-				var phpGcMaxLifTime = !!request.response ? parseInt(request.response, 10) : 0;
+			request.onload = function() {
+				const phpGcMaxLifTime = request.response ? parseInt(request.response, 10) : 0;
 				if ( phpGcMaxLifTime > 1 ){
 					// Send keep-alive request at half the session expiration time
 					// Note: phpGcMaxLifTime is in seconds, while the timeout is given in milliseconds
 					_sendKeepAlive(parseInt(Math.round(1000*phpGcMaxLifTime/2)));
 				}
-			}
+			};
 			request.send();
 		}, wait);
-	}
-
-	// Export the module
-	this.fingerprint = fingerprint;
-	// Export the keep-alive function
-	this.sendKeepAlive = _sendKeepAlive;
+	};
 })();
 
 
@@ -226,77 +218,96 @@
 * SOFTWARE.
 
 **/
-(function(){
-	var containerA, containerB, html = document.getElementsByTagName("html")[0],
-		filler = "random_words_#_!@#$^&*()_+mdvejreu_RANDOM_WORDS";
+window.checkfont = (function() {
+	var containerA;
+  var arialWidth;
+  var monospaceWidth;
+  var arialHeight;
+  var monospaceHeight;
 
-	function createContainers(){
-		containerA = document.createElement("span");
-		containerB = document.createElement("span");
+	function checkArial() {
+		return containerA.offsetWidth === arialWidth &&
+				containerA.offsetHeight === arialHeight;
+	}
 
-		containerA.textContent = filler;
-		containerB.textContent = filler;
+	function checkMonospace() {
+		return containerA.offsetWidth === monospaceWidth &&
+				containerA.offsetHeight === monospaceHeight;
+	}
 
-		var styles = {
-			margin: "0",
-			padding: "0",
-			fontSize: "32px",
-			position: "absolute",
-			left: '-10000px',
-			top: '-10000px',
-			zIndex: "-1"
-		};
+  function setupContainer() {
+		var container = document.createElement("span");
+    const html = document.getElementsByTagName("html")[0];
+		container.textContent = "random_words_#_!@#$^&*()_+mdvejreu_RANDOM_WORDS";
+    const styles = {
+      margin: "0",
+      padding: "0",
+      fontSize: "32px",
+      position: "absolute",
+      left: '-10000px',
+      top: '-10000px',
+      zIndex: "-1"
+    };
 
-		for(var key in styles){
+		for (var key in styles) {
 			if(styles.hasOwnProperty(key)){
-				containerA.style[key] = styles[key];
-				containerB.style[key] = styles[key];
+				container.style[key] = styles[key];
 			}
 		}
 
-		return function(){
-			//clean up
+		html.appendChild(container);
+    return container;
+  }
+
+  /**
+   * Initialize the width and height of both fonts.
+   */
+  function initModule() {
+    var containerB = setupContainer();
+    containerB.style.fontFamily = "monospace";
+    monospaceHeight = containerB.offsetHeight;
+    monospaceWidth = containerB.offsetWidth;
+
+    containerB.style.fontFamily = "Arial";
+    arialWidth = containerB.offsetWidth;
+    arialHeight = containerB.offsetHeight;
+
+    containerB.parentNode.removeChild(containerB);
+  }
+
+  function exists(font) {
+    //First Check
+    containerA.style.fontFamily = font + ",monospace";
+
+    if (checkMonospace()) {
+      //Assume Arial exists, Second Check
+      containerA.style.fontFamily = font + ",Arial";
+      return !checkArial();
+    }
+
+    return true;
+  }
+
+  initModule();
+
+  return {
+     /**
+     * Returns a filtered list of installed fonts.
+     * @param array list of fonts to check
+     * @return array filtered array of installed fonts
+     */
+    installed: function(fonts) {
+      containerA = setupContainer();
+      const result = fonts.filter(exists);
 			containerA.parentNode.removeChild(containerA);
-			containerB.parentNode.removeChild(containerB);
-		};
-	}
-
-	function checkDimension(){
-		return containerA.offsetWidth === containerB.offsetWidth &&
-			   containerA.offsetHeight === containerB.offsetHeight;
-	}
-
-	function checkfont(font, DOM){
-		var rootEle = html;
-		if(DOM && DOM.children && DOM.children.length) rootEle = DOM.children[0];
-
-		var result = null,
-			reg = /[\,\.\/\;\'\[\]\`\<\>\\\?\:\"\{\}\|\~\!\@\#\$\%\^\&\*\(\)\-\=\_\+]/g,
-			cleanUp = createContainers();
-
-		font = font.replace(reg, "");
-
-		rootEle.appendChild(containerA);
-		rootEle.appendChild(containerB);
-
-		//First Check
-		containerA.style.fontFamily = font + ",monospace";
-		containerB.style.fontFamily = "monospace";
-
-		if(checkDimension()){
-		   	//Assume Arial exists, Second Check
-			containerA.style.fontFamily = font + ",Arial";
-			containerB.style.fontFamily = "Arial";
-			result = !checkDimension();
-		}else{
-			result = true;
+      return result;
+    },
+		exists: function(font) {
+			return this.installed([font]).some(function(res) {
+				return font === res;
+			});
 		}
-
-		cleanUp();
-		return result
-	}
-
-	this.checkfont = checkfont;
+  };
 })();
 
 // Send a fingerprint request when the document is loaded
@@ -305,7 +316,7 @@
 // When the user has been authenticated, the backend will chek if the
 // sent fingerprint matches the one stored in the session. If they do not
 // match, the session will be destroyed.
-window.addEventListener('load', function(event){
+window.addEventListener('load', function(){
 	var request = new XMLHttpRequest();
 	request.open('POST', 'kopano.php?service=fingerprint');
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -316,3 +327,5 @@ window.addEventListener('load', function(event){
 	// Start sending keep-alive requests. The first one will be sent immediately
 	sendKeepAlive(0);
 });
+
+})();
