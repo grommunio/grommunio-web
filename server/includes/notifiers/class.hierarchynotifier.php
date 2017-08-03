@@ -66,48 +66,52 @@
 						$folderEntryid = $props[PR_ENTRYID];
 					}
 
-					if (isset($props[PR_STORE_ENTRYID]) && $folderEntryid) {
-						$store = $GLOBALS["mapisession"]->openMessageStore($props[PR_STORE_ENTRYID]);
+					if (!isset($props[PR_STORE_ENTRYID]) && !$folderEntryid) {
+						break;
+					}
 
-						$folder = mapi_msgstore_openentry($store, $folderEntryid);
-						if ($folder) {
-							$properties = $GLOBALS["properties"]->getFolderListProperties();
-							$folderProps = mapi_folder_getprops($folder, $properties);
+					$store = $GLOBALS["mapisession"]->openMessageStore($props[PR_STORE_ENTRYID]);
 
-							// If this folder belongs to Favorites folder,then change PARENT_ENTRYID manually.
-							if ($GLOBALS["entryid"]->isFavoriteFolder($folderProps[PR_ENTRYID])) {
-								$storeProps = mapi_getprops($store, array(PR_IPM_FAVORITES_ENTRYID));
+					$folder = mapi_msgstore_openentry($store, $folderEntryid);
+					if ($folder) {
+						$properties = $GLOBALS["properties"]->getFolderListProperties();
+						$folderProps = mapi_folder_getprops($folder, $properties);
 
-								if (isset($storeProps[PR_IPM_FAVORITES_ENTRYID])) {
-									$favFolder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_FAVORITES_ENTRYID]);
-									$favHierarchyTable = mapi_folder_gethierarchytable($favFolder, MAPI_DEFERRED_ERRORS);
-									$folders = mapi_table_queryallrows($favHierarchyTable, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID),
-										array(RES_PROPERTY,
-											array(
-												RELOP => RELOP_EQ,
-												ULPROPTAG => PR_ENTRYID,
-												VALUE => array(
-													PR_ENTRYID => $folderProps[PR_ENTRYID]
-												)
+						// If this folder belongs to Favorites folder,then change PARENT_ENTRYID manually.
+						if ($GLOBALS["entryid"]->isFavoriteFolder($folderProps[PR_ENTRYID])) {
+							$storeProps = mapi_getprops($store, array(PR_IPM_FAVORITES_ENTRYID));
+
+							if (isset($storeProps[PR_IPM_FAVORITES_ENTRYID])) {
+								$favFolder = mapi_msgstore_openentry($store, $storeProps[PR_IPM_FAVORITES_ENTRYID]);
+								$favHierarchyTable = mapi_folder_gethierarchytable($favFolder, MAPI_DEFERRED_ERRORS);
+								$folders = mapi_table_queryallrows($favHierarchyTable, array(PR_DISPLAY_NAME, PR_STORE_ENTRYID),
+									array(RES_PROPERTY,
+										array(
+											RELOP => RELOP_EQ,
+											ULPROPTAG => PR_ENTRYID,
+											VALUE => array(
+												PR_ENTRYID => $folderProps[PR_ENTRYID]
 											)
 										)
-									);
+									)
+								);
 
+								if (!empty($folders)) {
 									// Update folderProps to properties of folder which is under 'FAVORITES'
 									$folderProps[PR_DISPLAY_NAME] = $folders[0][PR_DISPLAY_NAME];
 									$folderProps[PR_PARENT_ENTRYID] = $storeProps[PR_IPM_FAVORITES_ENTRYID];
 								}
 							}
-
-							$data[] = $GLOBALS["operations"]->setFolder($folderProps);
 						}
 
-						$this->addNotificationActionData("folders", array( "item" => $data ));
-						$GLOBALS["bus"]->addData($this->createNotificationResponseData());
-
-						// data is changed in store so message size will be updated so reopen store to get correct data
-						$this->reopenStore = true;
+						$data[] = $GLOBALS["operations"]->setFolder($folderProps);
 					}
+
+					$this->addNotificationActionData("folders", array( "item" => $data ));
+					$GLOBALS["bus"]->addData($this->createNotificationResponseData());
+
+					// data is changed in store so message size will be updated so reopen store to get correct data
+					$this->reopenStore = true;
 					break;
 				case OBJECT_DELETE:
 					if (isset($props[PR_ENTRYID]) && isset($props[PR_PARENT_ENTRYID])) {
