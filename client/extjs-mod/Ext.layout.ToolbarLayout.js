@@ -158,7 +158,7 @@
 				this.moreMenu = new Ext.menu.Menu({
 					ownerCt : this.container,
 					listeners: {
-						beforeshow: this.beforeMoreShow,
+						beforeshow: this.onBeforeShowMoreMenu,
 						scope: this
 					}
 				});
@@ -194,6 +194,25 @@
 			// Ext will add down arrow button on render time if the button has menu
 			// So, set the menu after the more button rendered successfully
 			button.menu = this.moreMenu
+		},
+
+		/**
+		 * Event handler for the {@link #beforeshow} event. This will go through all
+		 * {@link Zarafa.core.ui.menu.ConditionalItem items} in the menu and call the
+		 * {@link Zarafa.core.ui.menu.ConditionalItem#beforeShow} function.
+		 *
+		 * @param {Zarafa.core.ui.menu.ConditionalMenu} menu The menu which is being opened.
+		 * @private
+		 */
+		onBeforeShowMoreMenu : function (menu)
+		{
+			this.beforeMoreShow(menu);
+			// move over the items list and call 'beforeOpen' on each item if that function exists
+			menu.items.each(function (item) {
+				if (Ext.isFunction(item.beforeShow)) {
+					item.beforeShow.call(item.scope || item, item);
+				}
+			}, this);
 		}
 	});
 })();

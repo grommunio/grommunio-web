@@ -224,29 +224,47 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	 * The menu items of the more button.
 	 *
 	 * @param {Zarafa.mail.dialogs.ShowMailToolbar} scope The scope for the menu items
-	 * @return {Ext.menu.Menu} the dropdown menu for the more button
+	 * @return {Zarafa.core.ui.menu.ConditionalMenu} the dropdown menu for the more button
 	 */
 	moreMenuButtons : function(scope)
 	{
 		return {
-			xtype: 'menu',
+			xtype: 'zarafa.conditionalmenu',
 			items: [{
-				text: _('Copy/Move'),
-				iconCls: 'icon_copy',
-				handler: this.onCopyMove,
-				scope: scope
+                xtype: 'zarafa.conditionalitem',
+				text : _('Mark Read'),
+				iconCls : 'icon_mail icon_message_read',
+                hideMode : 'offsets',
+                readState: true,
+                beforeShow : this.onBeforeShowMoreMenu,
+                handler : this.onReadFlagMenuItemClicked,
+                scope: scope
+			}, {
+                xtype: 'zarafa.conditionalitem',
+				text : _('Mark Unread'),
+                hideMode : 'offsets',
+				iconCls : 'icon_mail icon_message_unread',
+                readState: false,
+                beforeShow : this.onBeforeShowMoreMenu,
+				handler : this.onReadFlagMenuItemClicked,
+				scope : scope
+			}, {
+				text : _('Copy/Move'),
+				iconCls : 'icon_copy',
+				handler : this.onCopyMove,
+				scope : scope
 			}, {
 				text: _('Print'),
 				iconCls: 'icon_print',
 				handler: this.onPrintButton,
 				scope: this
-			},{
+			}, {
 				text: _('Edit as New Message'),
 				iconCls: 'icon_editAsNewEmail',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onMailResponseButton,
 				scope: scope
-			},{
+			}, {
 				text: _('Download'),
 				iconCls: 'icon_saveaseml',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
@@ -254,6 +272,31 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				scope: scope
 			}]
 		};
+	},
+
+	/**
+	 * Handler for the beforeshow event of the {@link Zarafa.core.ui.menu.ConditionalItem menu item}. Will
+	 * show and hide the menu item depends on record read status.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
+	 */
+	onBeforeShowMoreMenu : function (item)
+	{
+		// show and hide the 'Mark Read' and 'Mark Unread' if record read status is unread or read respectively.
+		item.setVisible(this.record.isRead() ? !item.readState : item.readState);
+	},
+
+	/**
+	 * Event handler which is called when the item has been clicked.
+	 * This will mark record as read or unread.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which has been clicked.
+	 * @private
+	 */
+	onReadFlagMenuItemClicked : function (item)
+	{
+		Zarafa.common.Actions.markAsRead(this.record, item.readState);
 	},
 
 	/**

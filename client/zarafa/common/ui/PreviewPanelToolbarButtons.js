@@ -88,8 +88,27 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	moreMenuButtons : function(model)
 	{
 		return {
-			xtype: 'menu',
-			items: [{
+			xtype: 'zarafa.conditionalmenu',
+			model: model,
+			items : [{
+				xtype : 'zarafa.conditionalitem',
+				text: _('Mark Read'),
+				iconCls: 'icon_mail icon_message_read',
+				model: model,
+				readState: false,
+				beforeShow : this.onReadFlagItemBeforeShow,
+				ref: 'markRead',
+				handler: this.onReadFlagMenuItemClicked
+			}, {
+				xtype : 'zarafa.conditionalitem',
+				text: _('Mark Unread'),
+				iconCls: 'icon_mail icon_message_unread',
+				model: model,
+				readState: true,
+				ref: 'markUnread',
+				beforeShow : this.onReadFlagItemBeforeShow,
+				handler: this.onReadFlagMenuItemClicked
+			}, {
 				text: _('Copy/Move'),
 				iconCls: 'icon_copy',
 				model: model,
@@ -113,7 +132,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				handler: this.onDownloadMail
 			}],
 			listeners: {
-				beforeshow: this.onBeforeShowMoreMenu,
+				beforeshow : this.onBeforeShowMoreMenu,
 				scope: this
 			}
 		};
@@ -122,22 +141,37 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	/**
 	 * Handler for the beforeshow event of the {#moreMenuButtons more menu}. Will
 	 * hide the Download and Edit-As-New buttons for any item that isn't a mail
-	 * item.
+	 * item And It will show and hide the 'Mark Read' and 'Mark Unread' depends on
+	 * record read status.
+	 *
+	 * @param {Ext.menu.Menu} menu the dropdown menu for the more button
 	 */
-	onBeforeShowMoreMenu : function(menu)
+	onBeforeShowMoreMenu : function (menu)
 	{
-		// A bit of a cumbersome way to get the record in the
-		// search preview panel, but we will get it from the
-		// zarafa.searchtoolbarpanel that has the preview
-		// menubar that shows the menu.
-		// Note that this menu is used for both the mail preview
-		// panel as the advanced search preview panel.
-		var record = menu.ownerCt.ownerCt.ownerCt.record;
+		var record = menu.model.getPreviewRecord();
 
 		// Show the editAsNew and download buttons only for mail items
 		var defaultFolderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class'));
 		menu.editAsNew.setVisible(defaultFolderType === 'inbox');
 		menu.download.setVisible(defaultFolderType === 'inbox');
+	},
+
+
+	/**
+	 * Event handler which determines if the Read Flag button must be shown.
+	 * There are two kind of read flag buttons which can both make use of this
+	 * function (Mark as Read and Mark as Unread buttons).
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
+	 */
+	onReadFlagItemBeforeShow : function(item)
+	{
+		var record = item.model.getPreviewRecord();
+		var defaultFolderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(record.get('message_class'));
+		// show and hide the 'Mark Read' and 'Mark Unread' if record read status is unread or read respectively.
+		var isPreviewRecordRead = record.isRead() === item.readState;
+		item.setVisible(defaultFolderType === 'inbox' && isPreviewRecordRead);
 	},
 
 	/**
@@ -194,8 +228,24 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	 *
 	 * @private
 	 */
-	onPrintButton : function()
+	onPrintButton : function ()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.model.getPreviewRecord());
+	},
+
+	/**
+	 * Event handler which is called when the item has been clicked.
+	 * This will mark record as read or unread.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which has been clicked.
+	 * @private
+	 */
+	onReadFlagMenuItemClicked : function (item)
+	{
+		var record = this.model.getPreviewRecord();
+		Zarafa.common.Actions.markAsRead(record, !item.readState);
+		if (!item.isXType('zarafa.conditionalitem')) {
+			item.parentMenu.hide(true);
+		}
 	}
 });
