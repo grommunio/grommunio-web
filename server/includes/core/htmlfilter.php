@@ -1004,7 +1004,7 @@ function sq_sanitize($body,
  */
 function magicHTML($body) {
     // Kill of all <script> since the parser might break on it KW-1198
-    $body = preg_replace("/<script.*?\/script\s?>/", "", $body);
+    $body = preg_replace("/<script.*?\/script\s*>/", "", $body);
 
     $tag_list = Array(
             false,
