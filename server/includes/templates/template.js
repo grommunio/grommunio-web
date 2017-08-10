@@ -25,7 +25,9 @@ var bgEl;
 var centerlinePos = 7/16;
 
 function onResize() {
-	if ( !bodyEl ) return;
+	if ( !bodyEl ) {
+		return;
+	}
 
 	var elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
 
