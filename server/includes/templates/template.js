@@ -15,44 +15,45 @@ navigator.sayswho = (function(){
 	return M.join(' ');
 })();
 
-function onResize() {
+const onResize = (function() {
 	// Our designer doesn't want the box in the center of the screen, instead
 	// he wants the center of the box at 7/16 of the height of the window :-)
 	const centerlinePos = 7/16;
 	const bodyEl = document.getElementsByTagName('body')[0];
-
-	if ( !bodyEl ) {
-		return;
-	}
-
 	const bgEl = document.getElementById('bg');
 	const cntEl = document.getElementById('form-container');
 	const maskEl = document.getElementById('loading-mask') || bodyEl;
-	const elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
 
-	cntEl.style.top = elemTop + 'px';
-	cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
-	bgEl.style.width = maskEl.clientWidth + 'px';
-	bgEl.style.height = maskEl.clientHeight + 'px';
-	bgEl.style.top = -elemTop + 'px';
-	bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
-}
+	function onResize() {
+		if (!bodyEl) {
+			return;
+		}
 
-const bodyEl = document.getElementsByTagName('body')[0];
-const cntEl = document.getElementById('form-container');
-const maskEl = document.getElementById('loading-mask') || bodyEl;
+		const elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
 
-// Add some classes to the body tag, so we can change styles (for IE)
-bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
-bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
+		cntEl.style.top = elemTop + 'px';
+		cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
+		bgEl.style.width = maskEl.clientWidth + 'px';
+		bgEl.style.height = maskEl.clientHeight + 'px';
+		bgEl.style.top = -elemTop + 'px';
+		bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
+	}
 
-var img = document.createElement('img');
-img.onload = function() {
-	cntEl.style.visibility = 'visible';
-};
-img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
+	// Add some classes to the body tag, so we can change styles (for IE)
+	bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') +
+		navigator.sayswho.split(' ')[0] + ' ' +
+		navigator.sayswho.replace(' ','');
 
-// call it once to initialize the elements
-onResize();
+	var img = document.createElement('img');
+	img.onload = function() {
+		cntEl.style.visibility = 'visible';
+	};
+	img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
 
-window.addEventListener('resize', onResize);
+	// call it once to initialize the elements
+	onResize();
+
+	window.addEventListener('resize', onResize);
+
+	return onResize;
+}());

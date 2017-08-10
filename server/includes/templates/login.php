@@ -86,6 +86,7 @@
 					return true;
 				}
 				// Adding this class will show the loader
+				const cntEl = document.getElementById('form-container');
 				cntEl.className += ' loading';
 				// Call onResize, because an error message might have enlarged the login box,
 				// so it is out of position.
