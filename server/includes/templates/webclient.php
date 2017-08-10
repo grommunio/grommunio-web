@@ -90,7 +90,6 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			maskEl = document.getElementById('loading-mask');
 			cntEl = document.getElementById('form-container');
 			bgEl = document.getElementById('bg');
-			logoEl = document.getElementById('logo');
 
 			// Add some classes to the body tag, so we can change styles (for IE)
 			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
