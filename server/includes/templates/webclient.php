@@ -111,7 +111,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			}
 		?>
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 		<script type="text/javascript">
 			urlActionData = <?php echo json_encode($urlActionData); ?>;
 		</script>

@@ -74,7 +74,7 @@
 			window.onload = onLoad;
 		</script>
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 		<script type="text/javascript">
 			// Show a spinner when submitting
 			var form = document.getElementsByTagName('form')[0];

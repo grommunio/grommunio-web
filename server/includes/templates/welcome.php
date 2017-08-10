@@ -34,7 +34,6 @@ $serverConfig = array(
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
 		<?php
 			$loader->cssOrder();
@@ -56,7 +55,7 @@ $serverConfig = array(
 			</div>
 		</div>
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 
 		<!-- Translations -->
 		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
