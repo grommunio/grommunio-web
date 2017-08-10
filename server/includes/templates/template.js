@@ -38,4 +38,21 @@ function onResize() {
 	bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
 }
 
+const bodyEl = document.getElementsByTagName('body')[0];
+const cntEl = document.getElementById('form-container');
+const maskEl = document.getElementById('loading-mask') || bodyEl;
+
+// Add some classes to the body tag, so we can change styles (for IE)
+bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
+bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
+
+var img = document.createElement('img');
+img.onload = function() {
+	cntEl.style.visibility = 'visible';
+};
+img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
+
+// call it once to initialize the elements
+onResize();
+
 window.addEventListener('resize', onResize);

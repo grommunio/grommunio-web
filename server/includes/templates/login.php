@@ -28,7 +28,6 @@
 			}
 		?>
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
 	</head>
 
@@ -75,24 +74,8 @@
 			window.onload = onLoad;
 		</script>
 
+		<script type="text/javascript"><?php require('template.js'); ?></script>
 		<script type="text/javascript">
-			const bodyEl = document.getElementsByTagName('body')[0];
-			const cntEl = document.getElementById('form-container');
-
-			// Add some classes to the body tag, so we can change styles (for IE)
-			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
-			bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
-
-			// Show the login box when the background image has loaded
-			var img = document.createElement('img');
-			img.onload = function(){
-				cntEl.style.visibility = 'visible';
-			}
-			img.src = window.getComputedStyle(bodyEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
-
-			// call it once to initialize the elements
-			onResize();
-
 			// Show a spinner when submitting
 			var form = document.getElementsByTagName('form')[0];
 			// Some browsers need some time to draw the spinner (MS Edge!),
