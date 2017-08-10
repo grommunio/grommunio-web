@@ -28,9 +28,7 @@ function onResize() {
 	const bgEl = document.getElementById('bg');
 	const cntEl = document.getElementById('form-container');
 	const maskEl = document.getElementById('loading-mask') || bodyEl;
-
-
-	var elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
+	const elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
 
 	cntEl.style.top = elemTop + 'px';
 	cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
