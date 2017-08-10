@@ -129,7 +129,7 @@
 
 										if (isset($action["message_action"]["isSearchFolder"])
 											&& $action["message_action"]["isSearchFolder"]) {
-											$this->deleteSearchFolder($store, $parententryid, $entryid);
+											$this->deleteSearchFolder($store, $parententryid, $entryid, $action);
 										} else {
 											$this->removeFromFavorite($entryid);
 										}
@@ -889,8 +889,9 @@
 		 * @param array $parententryid $parententryid parent folder to search folder it is FIND_ROOT folder which
 		 * treated as search root folder.
 		 * @param String $entryid $entryid search folder entryid which is going to remove.
+		 * @param array $action the action data, sent by the client
 		 */
-		function deleteSearchFolder($store, $parententryid, $entryid)
+		function deleteSearchFolder($store, $parententryid, $entryid, $action)
 		{
 			$folder = mapi_msgstore_openentry($store, $entryid);
 			$props = mapi_getprops($folder, array(PR_EXTENDED_FOLDER_FLAGS));
@@ -900,8 +901,20 @@
 			$searchFolderId = $flags["SearchFolderId-Data"];
 			$this->removeSearchLinkMessage($searchFolderId);
 
-			$finderFolder = mapi_msgstore_openentry($store, $parententryid);
-			mapi_folder_deletefolder($finderFolder, $entryid);
+            // Do not remove the search folder when the 'keepSearchFolder' flag is set.
+            // This flag indicates there is currently an open search tab which uses this search folder.
+            if (!isset($action["message_action"]["keepSearchFolder"])) {
+                $finderFolder = mapi_msgstore_openentry($store, $parententryid);
+                mapi_folder_deletefolder($finderFolder, $entryid);
+            } else {
+                // Rename search folder to default search folder name otherwise,
+                // It will not be picked up by our search folder cleanup logic.
+                $storeProps = mapi_getprops($store, [PR_FINDER_ENTRYID]);
+                $props = array();
+                $folder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
+                $folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, "WebApp Search Folder");
+                $GLOBALS["operations"]->renameFolder($store, $entryid, $folderName, $props);
+            }
 		}
 
 		/**
