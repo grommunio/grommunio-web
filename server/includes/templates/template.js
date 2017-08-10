@@ -15,11 +15,10 @@ navigator.sayswho = (function(){
 	return M.join(' ');
 })();
 
-// Our designer doesn't want the box in the center of the screen, instead
-// he wants the center of the box at 7/16 of the height of the window :-)
-var centerlinePos = 7/16;
-
 function onResize() {
+	// Our designer doesn't want the box in the center of the screen, instead
+	// he wants the center of the box at 7/16 of the height of the window :-)
+	const centerlinePos = 7/16;
 	const bodyEl = document.getElementsByTagName('body')[0];
 
 	if ( !bodyEl ) {
