@@ -35,6 +35,6 @@ function onResize() {
 	bgEl.style.height = maskEl.clientHeight + 'px';
 	bgEl.style.top = -elemTop + 'px';
 	bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
-};
+}
 
 window.addEventListener('resize', onResize);
