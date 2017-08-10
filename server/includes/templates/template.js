@@ -15,19 +15,21 @@ navigator.sayswho = (function(){
 	return M.join(' ');
 })();
 
-var bodyEl;
-var maskEl;
-var cntEl;
-var bgEl;
-
 // Our designer doesn't want the box in the center of the screen, instead
 // he wants the center of the box at 7/16 of the height of the window :-)
 var centerlinePos = 7/16;
 
 function onResize() {
+	const bodyEl = document.getElementsByTagName('body')[0];
+
 	if ( !bodyEl ) {
 		return;
 	}
+
+	const bgEl = document.getElementById('bg');
+	const cntEl = document.getElementById('form-container');
+	const maskEl = document.getElementById('loading-mask') || bodyEl;
+
 
 	var elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
 

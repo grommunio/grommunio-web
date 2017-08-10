@@ -86,10 +86,9 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		</div>
 
 		<script type="text/javascript">
-			bodyEl = document.getElementsByTagName('body')[0];
-			maskEl = document.getElementById('loading-mask');
-			cntEl = document.getElementById('form-container');
-			bgEl = document.getElementById('bg');
+			const bodyEl = document.getElementsByTagName('body')[0];
+			const cntEl = document.getElementById('form-container');
+			const maskEl = document.getElementById('loading-mask');
 
 			// Add some classes to the body tag, so we can change styles (for IE)
 			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
