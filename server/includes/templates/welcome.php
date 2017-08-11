@@ -35,9 +35,7 @@ $serverConfig = array(
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
-		<?php
-			$loader->cssOrder();
-		?>
+		<?php $loader->cssOrder(); ?>
 	</head>
 
 	<body class="zarafa-welcome">
@@ -59,21 +57,16 @@ $serverConfig = array(
 
 		<!-- Translations -->
 		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
-
 		<!-- JS Files -->
-		<?php
-			$loader->jsOrder();
-		?>
+		<?php $loader->jsOrder(); ?>
 
 		<script type="text/javascript">
 			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
 			languages 		= <?php echo $Language->getJSON(); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;
-			serverconfig 	= <?php echo json_encode($serverConfig); ?>;
-		</script>
+			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 
-		<script type="text/javascript">
 			Ext.onReady(Zarafa.loadWelcome, Zarafa);
 		</script>
 	</body>

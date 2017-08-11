@@ -64,9 +64,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<?php
-			$loader->cssOrder();
-		?>
+		<?php $loader->cssOrder(); ?>
 	</head>
 
 	<body class="zarafa-webclient">
@@ -85,23 +83,11 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		</div>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&amp;load=translations.js&amp;lang=<?php echo $Language->getSelected() ?>"></script>
-
+		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
+		<!-- JS Files -->
 		<?php
-			echo $loader->jsOrder();
-		?>
-
-		<script type="text/javascript">
-			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
-			persistentsettings 	= <?php echo $GLOBALS["settings"]->getPersistentSettingsJSON(); ?>;
-			languages 		= <?php echo $Language->getJSON(); ?>;
-			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
-			version 		= <?php echo json_encode($versionInfo); ?>;
-			serverconfig 	= <?php echo json_encode($serverConfig); ?>;
-		</script>
-
-		<!-- get URL data from session and dump it for client to use -->
-		<?php
+			$loader->jsOrder();
+			// get URL data from session and dump it for client to use
 			$urlActionData = array();
 			if(!empty($_SESSION['url_action'])) {
 				$urlActionData = $_SESSION['url_action'];
@@ -113,12 +99,14 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 		<script type="text/javascript">
-			urlActionData = <?php echo json_encode($urlActionData); ?>;
-		</script>
+			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
+			languages 		= <?php echo $Language->getJSON(); ?>;
+			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
+			version 		= <?php echo json_encode($versionInfo); ?>;
+			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
+			urlActionData 		= <?php echo json_encode($urlActionData); ?>;
 
-		<script type="text/javascript">
 			Ext.onReady(Zarafa.loadWebclient, Zarafa);
 		</script>
-
 	</body>
 </html>
