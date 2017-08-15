@@ -921,19 +921,24 @@ Zarafa.common.Actions = {
 						case 'ask':
 						/* falls through*/
 						default:
+							const store = record.getStore();
 							// Ask if a read receipt must be send.
 							Ext.MessageBox.confirm(_('Kopano WebApp'), _('The sender of this message has asked to be notified when you read this message. Do you wish to notify the sender?'),
 								// This function will execute when user provide some inputs,
 								// So other external changes should not affect the record.
 								function(buttonClicked) {
-									this.setReadFlags(read);
-									this.addMessageAction('send_read_receipt', buttonClicked !== 'no');
-									this.save();
+									// If the mailgrid has reloaded, retrieve the newly updated record.
+									var record = this;
+									if (!record.getStore()) {
+										record = store.getById(record.id);
+									}
+									record.setReadFlags(read);
+									record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
+									record.save();
 								}, record);
 							break;
-
 					}
-		  } else {
+				} else {
 				record.setReadFlags(read);
 				saveRecords.push(record);
 				}
