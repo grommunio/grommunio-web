@@ -12808,8 +12808,13 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   border-radius: 2px;
 }
 
+/* line 11, ../scss/components/_tooltip.scss */
+.x-tip .x-tip-body {
+  word-wrap: break-word;
+}
+
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
-/* line 12, ../scss/components/_tooltip.scss */
+/* line 16, ../scss/components/_tooltip.scss */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none;
 }

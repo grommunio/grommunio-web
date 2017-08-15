@@ -8,6 +8,10 @@
 	border-radius: 2px;
 }
 
+.x-tip .x-tip-body {
+	word-wrap: break-word;
+}
+
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
 .x-tip-anchor.x-tip-anchor-top {
 	background-image: none;
