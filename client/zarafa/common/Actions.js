@@ -898,8 +898,11 @@ Zarafa.common.Actions = {
 
 			// If the read status already matches the desired state,
 			// we don't need to do anything.
-			if (read !== record.isRead()) {
-				if (read === true && record.needsReadReceipt()) {
+			if (read === record.isRead()) {
+        continue;
+      }
+
+      if (read === true && record.needsReadReceipt()) {
 					switch (container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling')) {
 						case 'never':
 							record.setReadFlags(read);
@@ -930,12 +933,11 @@ Zarafa.common.Actions = {
 							break;
 
 					}
-				} else {
-					record.setReadFlags(read);
-					saveRecords.push(record);
+		  } else {
+				record.setReadFlags(read);
+				saveRecords.push(record);
 				}
 			}
-		}
 
 		if (!Ext.isEmpty(saveRecords)) {
 			saveRecords[0].store.save(saveRecords);
