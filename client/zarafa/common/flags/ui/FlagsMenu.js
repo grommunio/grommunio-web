@@ -174,15 +174,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	 */
 	setFlag : function(menuItem)
 	{
-		var flagProperties = {
-			flag_icon: 			Zarafa.core.mapi.FlagIcon.red,
-			flag_request: 		'Follow up',
-			flag_status: 		Zarafa.core.mapi.FlagStatus.flagged,
-			flag_complete_time:	null,
-			reminder_set:		true
-			// TODO: Do we need to set is_marked_as_task for Outlook???
-			// (here and in the functions below)
-		};
+		const flagProperties = Zarafa.common.flags.Util.getFlagBaseProperties();
 
 		switch ( menuItem.action ) {
 			case 'no_date':

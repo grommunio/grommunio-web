@@ -509,17 +509,18 @@ Zarafa.common.ui.grid.Renderers = {
 		var flagStatus = record.get('flag_status');
 		var flagRequest = record.get('flag_request');
 
+		// add extra css class for empty cell
+		p.css += 'zarafa-grid-empty-cell';
+
 		if ( flagStatus === Zarafa.core.mapi.FlagStatus.completed ){
-			p.css += 'zarafa-grid-empty-cell icon_flag_complete';
+			p.css += ' icon_flag_complete';
 			return '';
 		}
 
 		if ( flagRequest!=='Follow up' || flagStatus!==Zarafa.core.mapi.FlagStatus.flagged ){
-			return '';
+			p.css += ' icon_flag';
+			return '<div class="k-followup-flag"></div>';
 		}
-
-		// add extra css class for empty cell
-		p.css += 'zarafa-grid-empty-cell';
 
 		// Now find the color we must show
 		var dueDate = record.get('task_due_date');

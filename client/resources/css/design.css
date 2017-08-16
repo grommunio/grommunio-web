@@ -4812,61 +4812,83 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-position: 8px -1975px;
 }
 /* line 513, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag {
+  background-position: 4px -1924px;
+  visibility: hidden;
+}
+/* line 517, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_red, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_mail_flag_red, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_red {
   background-position: 5px -2085px;
 }
-/* line 516, ../scss/components/_grids.scss */
+/* line 520, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_yellow, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_yellow {
   background-position: 5px -2117px;
 }
-/* line 519, ../scss/components/_grids.scss */
+/* line 523, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_orange, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_orange {
   background-position: 5px -2021px;
 }
-/* line 522, ../scss/components/_grids.scss */
+/* line 526, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_orange_dark, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_orange_dark {
   background-position: 5px -2053px;
 }
-/* line 525, ../scss/components/_grids.scss */
+/* line 529, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_complete, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_completed {
   background-position: 5px -1993px;
 }
-/* line 529, ../scss/components/_grids.scss */
+/* line 533, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_note {
   background-position: 5px -312px;
 }
-/* line 533, ../scss/components/_grids.scss */
+/* line 537, ../scss/components/_grids.scss */
 .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_reminder {
   background-position: 8px -4691px;
 }
+/* line 542, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row-over .icon_flag, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row-over .icon_mail_flag {
+  visibility: visible;
+}
+/* line 545, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-multiselection.x-grid3-row-over .icon_flag, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-multiselection.x-grid3-row-over .icon_mail_flag {
+  visibility: hidden;
+}
+/* line 549, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_flag, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_mail_flag {
+  cursor: pointer;
+  margin: 5px;
+}
+/* line 554, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_flag .x-unselectable, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_mail_flag .x-unselectable {
+  padding-top: 0px;
+}
 
 /* Override ExtJS selected grid */
-/* line 540, ../scss/components/_grids.scss */
+/* line 560, ../scss/components/_grids.scss */
 .x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
   background-image: none;
 }
 
 /* Add some left padding for calendar */
-/* line 545, ../scss/components/_grids.scss */
+/* line 565, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-on {
   background-position: 3px -1378px;
   background-image: url('../images/icons-s2479700b37.png') !important;
 }
 
-/* line 550, ../scss/components/_grids.scss */
+/* line 570, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col {
   background-position: 3px -5388px;
   background-image: url('../images/icons-s2479700b37.png') !important;
 }
 
 /* Task grid Due tasks row */
-/* line 556, ../scss/components/_grids.scss */
+/* line 576, ../scss/components/_grids.scss */
 .zarafa-task-overdue {
   color: #e30022;
 }
 
 /* Task grid Completed tasks row */
-/* line 561, ../scss/components/_grids.scss */
+/* line 581, ../scss/components/_grids.scss */
 .zarafa-task-complete {
   color: #777777;
 }
@@ -4874,12 +4896,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid with no column headers
  ******************************************************************************/
-/* line 569, ../scss/components/_grids.scss */
+/* line 589, ../scss/components/_grids.scss */
 .x-grid-panel.k-no-column-headers .x-grid3-header {
   display: none;
 }
 
-/* line 574, ../scss/components/_grids.scss */
+/* line 594, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button-container {
   position: absolute;
   right: 0;
@@ -4888,17 +4910,17 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-color: #ffffff;
 }
 
-/* line 581, ../scss/components/_grids.scss */
+/* line 601, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
   background-color: #f2f2f2;
 }
 
-/* line 584, ../scss/components/_grids.scss */
+/* line 604, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-selected .zarafa-grid-button-container {
   background-color: #d5e8f7;
 }
 
-/* line 587, ../scss/components/_grids.scss */
+/* line 607, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button {
   width: 24px;
   height: 24px;
@@ -4909,82 +4931,82 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-image: url('../images/icons-s2479700b37.png') !important;
 }
 
-/* line 596, ../scss/components/_grids.scss */
+/* line 616, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block;
 }
 
 /* Fixed categories cannot be edited or deleted because they are used
    to map old flags to categories */
-/* line 601, ../scss/components/_grids.scss */
+/* line 621, ../scss/components/_grids.scss */
 .x-grid3-row-over .k-category-fixed .k-grid-button-edit,
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none;
 }
 
-/* line 606, ../scss/components/_grids.scss */
+/* line 626, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit {
   background-position: 3px -4283px;
 }
 
-/* line 609, ../scss/components/_grids.scss */
+/* line 629, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit:hover {
   background-position: 3px -4318px;
 }
 
-/* line 612, ../scss/components/_grids.scss */
+/* line 632, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete {
   background-position: 3px -5315px;
 }
 
-/* line 615, ../scss/components/_grids.scss */
+/* line 635, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete:hover {
   background-position: 3px -5350px;
 }
 
-/* line 618, ../scss/components/_grids.scss */
+/* line 638, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin {
   background-position: 3px -4423px;
 }
 
-/* line 621, ../scss/components/_grids.scss */
+/* line 641, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin:hover {
   background-position: 3px -4458px;
 }
 
-/* line 624, ../scss/components/_grids.scss */
+/* line 644, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
   display: block;
   background-position: 3px -4353px;
 }
 
-/* line 628, ../scss/components/_grids.scss */
+/* line 648, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin:hover {
   background-position: 3px -4388px;
 }
 
-/* line 632, ../scss/components/_grids.scss */
+/* line 652, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid-editor {
   padding-top: 1px;
 }
 
-/* line 636, ../scss/components/_grids.scss */
+/* line 656, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-col-color {
   position: relative;
 }
 
-/* line 640, ../scss/components/_grids.scss */
+/* line 660, ../scss/components/_grids.scss */
 .k-categories-grid .k-colorpicker-ct {
   display: none;
   margin: -2px 0 -2px 0;
 }
 
-/* line 646, ../scss/components/_grids.scss */
+/* line 666, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color svg,
 .k-categories-grid .x-grid3-col-color.k-menu-visible svg {
   display: none;
 }
-/* line 650, ../scss/components/_grids.scss */
+/* line 670, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color .k-colorpicker-ct,
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block;

@@ -358,11 +358,24 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowClick : function(grid, rowIndex, event)
 	{
+		var record;
+
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
 			// Get the record from the rowIndex
-			var record = this.store.getAt(rowIndex);
+			record = this.store.getAt(rowIndex);
 
 			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
+		}
+		if ( Ext.get(event.target).hasClass('icon_flag') ){
+			const flagProperties = Ext.apply(Zarafa.common.flags.Util.getFlagBaseProperties(), Zarafa.common.flags.Util.getFlagPropertiesNoDate());
+
+			record = this.store.getAt(rowIndex);
+			record.beginEdit();
+			for ( var property in flagProperties ){
+				record.set(property, flagProperties[property]);
+			}
+			record.endEdit();
+			record.save();
 		}
 	},
 

@@ -37,6 +37,24 @@ Zarafa.common.flags.Util = {
 	startWorkingHour : undefined,
 
 	/**
+	 * Base flag properties
+	 *
+	 * @return {Object} Object with base properties.
+	 */
+	getFlagBaseProperties : function()
+	{
+		return {
+			flag_icon: 		Zarafa.core.mapi.FlagIcon.red,
+			flag_request: 		'Follow up',
+			flag_status: 		Zarafa.core.mapi.FlagStatus.flagged,
+			flag_complete_time:	null,
+			reminder_set:		true
+			// TODO: Do we need to set is_marked_as_task for Outlook???
+			// (here and in the functions below)
+		};
+	},
+
+	/**
 	 * Returns the properties and their values that should be set on a record to
 	 * flag without a date.
 	 *

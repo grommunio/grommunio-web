@@ -510,6 +510,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			}
 
 			/* flags column */
+			.icon_flag {
+				background-position: sprite-position($iconsmap, icon_flag, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 2);
+				visibility: hidden;
+			}
 			.icon_flag_red {
 	        	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
@@ -533,6 +537,22 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			.icon_reminder {
 				background-position: sprite-position($iconsmap, icon_reminder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium + 2);
 			}
+		}
+
+		.x-grid3-row-over .icon_flag {
+			visibility: visible;
+		}
+		.zarafa-multiselection.x-grid3-row-over .icon_flag {
+			visibility: hidden;
+		}
+
+		.zarafa-grid-empty-cell.icon_flag {
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		.zarafa-grid-empty-cell.icon_flag .x-unselectable {
+			padding-top: 0px;
 		}
 	}
 
