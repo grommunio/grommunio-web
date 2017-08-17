@@ -131,6 +131,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		});
 
 		this.mon(container.getHierarchyStore(), 'addFolder', this.onHierarchyAddFolder, this);
+		this.mon(container.getHierarchyStore(), 'removeFolder', this.onHierarchyRemoveFolder, this);
 	},
 
 	/**
@@ -203,6 +204,25 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			}
 			container.getSettingsModel().set('zarafa/v1/contexts/search/search_criteria/'+record.get('entryid'), obj);
 			this.resumeEvents();
+		}
+	},
+
+	/**
+	 * Event handler triggers when folder was remove in hierarchy. function was
+	 * responsible to verify that search tab is still exist of folder which was removed.
+	 * If search tab is still open then set 'keepSearchFolder' flags true.
+	 *
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} store The store which fired the event
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} mapiStore mapi store in which new folders was removed.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord/Zarafa.hierarchy.data.MAPIFolderRecord[]} record folder record(s) which was removed in hierarchy.
+	 * @private
+	 */
+	onHierarchyRemoveFolder: function (store, mapiStore, record)
+	{
+		var searchStore = this.model.getActiveStore();
+		var searchStoreRecord = searchStore.searchFolder[this.searchToolBox.searchTabId];
+		if (searchStoreRecord && Zarafa.core.EntryId.compareEntryIds(searchStoreRecord.get('entryid'), record.get('entryid'))) {
+			record.addMessageAction('keepSearchFolder', true);
 		}
 	},
 
@@ -374,7 +394,14 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 		if (!Ext.isDefined(store.searchFolder[store.searchStoreUniqueId])) {
 			this.model.stopSearch();
 		} else {
-			 delete store.searchFolder[store.searchStoreUniqueId];
+			// If the search folder does not exists in the hierarchy,
+			// Then execute the stop search request.
+			var hierarchyStore = container.getHierarchyStore();
+			var defaultStore = hierarchyStore.getDefaultStore();
+			if (defaultStore.getFavoritesStore().findExact('entryid', store.searchFolderEntryId) === -1) {
+				this.model.stopSearch();
+			}
+			delete store.searchFolder[store.searchStoreUniqueId];
 		}
 
 		if(Ext.isDefined(this.searchToolbar)) {
