@@ -608,7 +608,6 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			combo.collapse();
 			Zarafa.advancesearch.Actions.openSelectSearchFolderDialog({
 				searchFolderCombo : combo,
-				searchToolBoxIncludeSubFolder : this.searchToolBox.includeSubFolder,
 				model : this.model
 			});
 			return false;

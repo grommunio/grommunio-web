@@ -168,6 +168,7 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 		Zarafa.common.searchfield.ui.SearchFolderCombo.superclass.initEvents.apply(this, arguments);
 
 		this.on('beforeselect', this.onBeforeSelectSearchFolder, this);
+        this.on('select', this.onSelectSearchFolder, this);
 		this.mon(this.model, 'folderchange', this.onFolderChange, this);
 		this.mon(this.model, 'activate', this.onActiveFolder, this);
 		this.mon(container, 'aftercontextswitch', this.onAfterContextSwitch, this);
@@ -338,7 +339,21 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			this.list.setWidth(listWidth);
 			this.innerList.setWidth(listWidth - this.list.getFrameWidth('lr'));
 		}
-	}
+	},
+
+    /**
+	 * Event handler triggered when a search combo list item is selected.
+	 * It will fire click event of search button to automatically triggers a search
+	 * when user selects a different folder from the search-tab drop-down.
+     *
+     */
+    onSelectSearchFolder: function ()
+	{
+        var searchTextField = this.searchFieldContainer.searchTextField;
+        if (searchTextField.searchPanelRendered) {
+            searchTextField.onTriggerClick();
+        }
+    }
 });
 
 Ext.reg('zarafa.searchfoldercombo', Zarafa.common.searchfield.ui.SearchFolderCombo);

@@ -26,7 +26,8 @@ Zarafa.common.searchfield.ui.SearchFieldContainer = Ext.extend(Ext.Container, {
 				searchContainer : this
 			},{
 				xtype : 'zarafa.searchfoldercombo',
-				model : config.model
+				model : config.model,
+				searchFieldContainer : this
 			},{
 				xtype : 'button',
 				ref : 'searchBtn',

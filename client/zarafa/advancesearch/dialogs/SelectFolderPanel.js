@@ -18,13 +18,6 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	searchFolderCombo : undefined,
 
 	/**
-	 * "Include sub folder" checkbox which belongs to {@link Zarafa.advancesearch.dialogs.SearchToolBoxPanel SearchToolBox}
-	 * @type Object
-	 * @property searchToolBoxIncludeSubFolder
-	 */
-	searchToolBoxIncludeSubFolder : undefined,
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
@@ -32,9 +25,6 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 	{
 		config = config || {};
 
-		if (Ext.isDefined(config.searchToolBoxIncludeSubFolder)) {
-			this.searchToolBoxIncludeSubFolder = config.searchToolBoxIncludeSubFolder;
-		}
 		Ext.applyIf(config, {
 			xtype : 'zarafa.selectfolderpanel',
 			layout: {
@@ -211,7 +201,6 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 		if (!Ext.isDefined(folder)) {
 			return;
 		}
-		var supportSearchFolder = this.model.supportsSearchFolder(folder);
 		var includeSubFolder = this.includeSubFolder.checked;
 		var store = this.searchFolderCombo.getStore();
 		var record = store.getAt(store.findExact("value", folder.get('entryid')));
@@ -230,24 +219,8 @@ Zarafa.advancesearch.dialogs.SelectFolderPanel = Ext.extend(Ext.Panel, {
 		} else {
 			record.set('include_subfolder', includeSubFolder);
 		}
-
 		this.searchFolderCombo.setValue(record.get('value'));
-		if (Ext.isDefined(this.searchToolBoxIncludeSubFolder)) {
-			if (supportSearchFolder) {
-				if (!this.searchToolBoxIncludeSubFolder.ownerCt.isVisible()) {
-					this.searchToolBoxIncludeSubFolder.ownerCt.setVisible(true);
-					this.searchToolBoxIncludeSubFolder.refOwner.doLayout();
-				}
-				this.searchToolBoxIncludeSubFolder.setValue(includeSubFolder);
-				if(this.searchToolBoxIncludeSubFolder.disabled && record.get('flag') !== Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
-					this.searchToolBoxIncludeSubFolder.setDisabled(false);
-				}
-			} else {
-				this.searchToolBoxIncludeSubFolder.ownerCt.setVisible(false);
-				this.searchToolBoxIncludeSubFolder.refOwner.doLayout();
-			}
-		}
-
+		this.searchFolderCombo.onSelect(record, 0);
 		this.dialog.close();
 	},
 
