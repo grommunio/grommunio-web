@@ -163,14 +163,28 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 102 or 103. Which
 	 * means that the user has replied on the email.
 	 */
-	repliedString : pgettext('mail.previewpanel', 'You replied to this message on {0}.'),
+	repliedString : pgettext('mail.previewpanel', 'You replied to this message.'),
 
 	/**
 	 * @cfg {String} forwardString string which must be displayed in the dialog if the
 	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 104. Which
 	 * means that the user has forwarded this email.
 	 */
-	forwardString : pgettext('mail.previewpanel', 'You forwarded this message on {0}.'),
+	forwardString : pgettext('mail.previewpanel', 'You forwarded this message.'),
+
+	/**
+	 * @cfg {String} repliedStringTime string which must be displayed in the dialog if the
+	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 102 or 103. Which
+	 * means that the user has replied on the email. Including the timestamp.
+	 */
+	repliedStringTime : pgettext('mail.previewpanel', 'You replied to this message on {0}.'),
+
+	/**
+	 * @cfg {String} forwardStringTime string which must be displayed in the dialog if the
+	 * {@link Zarafa.core.data.IPMRecord record} last_verb_executed property is 104. Which
+	 * means that the user has forwarded this email. Including the timestamp.
+	 */
+	forwardStringTime : pgettext('mail.previewpanel', 'You forwarded this message on {0}.'),
 
 	/**
 	 * @cfg {String} receivedTaskRequest string which must be displayed in the dialog if the
@@ -279,15 +293,18 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		var sensitivity = record.get('sensitivity');
 		var importance = record.get('importance');
 		var lastVerbExecuted = record.get('last_verb_executed');
+		var lastVerbExecutionTime = record.get('last_verb_execution_time');
 
 		// 104 is set in createmailitemmodule::setReplyForwardInfo when a message is forwarded.
 		if(lastVerbExecuted === 104) {
-			var text = String.format(this.forwardString, record.get('last_verb_execution_time').format('j-m-Y H:i'));
+			var text = lastVerbExecutionTime ? String.format(this.forwardStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+				this.forwardString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
 			isVisible = true;
 		} else if(lastVerbExecuted === 102 || lastVerbExecuted == 103) { // 102/103 is set when the message is a reply.
-			var text = String.format(this.repliedString, record.get('last_verb_execution_time').format('j-m-Y H:i'));
+			var text = lastVerbExecutionTime ? String.format(this.repliedStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+				this.repliedString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
 			isVisible = true;
