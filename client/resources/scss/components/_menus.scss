@@ -285,6 +285,10 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: 6, $offset-x: 0);
 	}
 
+	.icon_flag_Reminder {
+      	background-position: sprite-position($iconsmap, icon_flag_Reminder, $offset-y: 6, $offset-x: 0);
+	}
+
 	.icon_mail_flag {
 		@extend .icon_flag;
       	background-position: sprite-position($iconsmap, icon_flag, $offset-y: 6, $offset-x: 1);
