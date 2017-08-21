@@ -235,6 +235,7 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 			var recipientBox = this.getBoxForRecord(recipient);
 			if (recipientBox) {
 				recipientBox.update(recipient);
+				this.hideSuggestionList();
 			}
 		}
 	},
