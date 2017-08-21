@@ -120,6 +120,10 @@ body.login,
 		input:-webkit-autofill {
 			-webkit-box-shadow: 0 0 0px 1000px white inset;
 		}
+		input:focus {
+			outline:0;
+			border-color: $sky-blue;
+		}
 
 		#password {
 			margin-bottom: 8px;
@@ -134,7 +138,7 @@ body.login,
 			color: white;
 			height: 24px;
 			line-height: 24px;
-			border: none;
+			border: 1px solid transparent;
 			padding: 0 $padding-large;
 			min-width: 84px;
 			margin: 12px 0 0;
@@ -145,6 +149,9 @@ body.login,
 		}
 		#submitbutton:click {
 			background-color: $kopano-blue-active;
+		}
+		#submitbutton:focus {
+			box-shadow: 0 0 0 1px $white inset;
 		}
 	}
 

@@ -26,16 +26,16 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 	background: $mainmenubar-background-color;
 	color: $font-color-light;
 	padding: 0;
-	
+
 	* {
 		font-size: 15px !important;
 	}
-  
+
 	.x-btn {
   		padding: 0;
   		margin: 0;
 		display: block;
-  		
+
   		.x-btn-small{
 			height: auto;
 			background-color: transparent !important;
@@ -43,7 +43,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 			border: none;
 			margin: 0;
 		}
-		
+
 		button.x-btn-text {
 			font-size: 15px !important;
 			line-height: 100% !important;
@@ -58,14 +58,21 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 			border: none;
 		}
 	}
-  
+
+	/* focused button */
+	.x-btn.x-btn-focus {
+		.x-btn-small {
+			border: none !important;
+		}
+	}
+
 	.x-btn.x-btn-over, .x-btn.x-btn-over.x-btn-click {
 		background-color: $mainmenubar-background-color-hover !important;
-		
+
 		.x-btn-small{
 			border: none;
 		}
-		
+
 		button.x-btn-text {
 			border: none;
 			color: $mainmenubar-font-color-hover;
@@ -73,16 +80,16 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 			background-color: transparent;
 		}
 	}
-  
+
 	.zarafa-maintabbar-maintab-active,
 	.zarafa-maintabbar-maintab-active.x-btn-over,
 	.zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
 		background-color: $mainmenubar-background-color-active !important;
-		
+
 		.x-btn-small{
 			border: none;
 		}
-		
+
 		button.x-btn-text {
 			border: none;
 			color: $mainmenubar-font-color-active;
@@ -94,34 +101,34 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 			background-position: sprite-position($icons, arrow_menubar, $offset_y: 30px, $offset_x: 50%);
 		}
 	}
-	
+
 	.x-toolbar-right {
 		button.x-btn-text {
 			text-transform: none;
 		}
 	}
-	
+
 	#mainmenu-button-settings em{
         background-image: sprite-url($icons) !important;
         background-repeat: no-repeat;
 		background-position: sprite-position($icons, icon_settings, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
-		
+
 		button.x-btn-text {
 			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
 		}
 	}
-	
+
 	#mainmenu-button-logout em {
         background-image: sprite-url($icons) !important;
         background-repeat: no-repeat;
 		background-position: sprite-position($icons, icon_logout, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
-		
+
 		button.x-btn-text {
 			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
 			text-transform: none;
 		}
 	}
-	
+
 	#mainmenu-logintext {
 		opacity: $mainmenubar-button-opacity / 100;
 		padding-right: $mainmenubar-button-padding-right;

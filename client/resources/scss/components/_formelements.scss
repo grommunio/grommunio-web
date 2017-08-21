@@ -29,6 +29,17 @@ body.Safari input[type="radio"] {
 .x-form-text {
 	padding: 0 $padding-medium;
 }
+.x-form-text.x-form-focus:not(.x-trigger-noedit) {
+	border-color: $sky-blue !important;
+}
+
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
+	border-color: $sky-blue;
+
+	input.x-form-text.x-form-field.x-form-focus {
+		border-color: $sky-blue !important;
+	}
+}
 
 .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
 .ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
