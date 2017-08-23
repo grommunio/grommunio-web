@@ -23,10 +23,10 @@ Zarafa.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 			viewConfig : {
 				forceFit : true,
 				deferEmptyText : false,
-				emptyText : '<div class=\'emptytext\'>' + _('No send as address configured') + '</div>'
+				emptyText : '<div class=\'emptytext\'>' + _('No from addresses configured') + '</div>'
 			},
 			loadMask : {
-				msg : _('Loading send as addresses') + '...'
+				msg : _('Loading from addresses') + '...'
 			},
 			columns : this.initColumnModel(),
 			selModel : new Zarafa.common.ui.grid.RowSelectionModel({
@@ -88,7 +88,7 @@ Zarafa.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 		var sendasRecord = this.getSelectionModel().getSelected();
 
 		if(!sendasRecord) {
-			Ext.Msg.alert(_('Alert'), _('Please select a send as record.'));
+			Ext.Msg.alert(_('Alert'), _('Please select a from address record.'));
 			return;
 		}
 

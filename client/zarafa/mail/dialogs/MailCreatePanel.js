@@ -70,7 +70,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 
 		if(Ext.isEmpty(recipients)) {
 			items.push({
-				text : _('No send as address configured!')
+				text : _('No from addresses configured!')
 			});
 			return items;
 		}
