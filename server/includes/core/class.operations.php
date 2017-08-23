@@ -2043,7 +2043,7 @@
 					$attachment_state->close();
 				}
 
-				// Set 'hideattacments' if message has only inline attachments.
+				// Set 'hideattachments' if message has only inline attachments.
 				$properties = $GLOBALS['properties']->getMailProperties();
 				if($this->hasOnlyInlineAttachments($message)){
 					mapi_setprops($message, array($properties['hide_attachments'] => true));
