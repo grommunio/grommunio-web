@@ -6,10 +6,11 @@
 	"repository": "https://stash.kopano.io/scm/kw/kopano-webapp.git",
 	"scripts": {
 		"lint": "jshint client/zarafa",
+		"prelint": "jshint $(git diff-index --name-only HEAD | grep '.js')",
 		"jlint": "jshint client/zarafa --reporter=checkstyle > result.xml"
 	},
 	"pre-commit": {
-		"run": ["lint"]
+		"run": ["prelint"]
 	},
 	"devDependencies": {
 		"pre-commit": "*",
