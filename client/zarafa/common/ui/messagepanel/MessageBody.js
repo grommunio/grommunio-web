@@ -371,8 +371,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
-			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }' +
-			'img { max-width: 100%; min-width: 250px; }'
+			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }'
 		));
 
 		// Add a wingdings compatible font (only the smilies)
