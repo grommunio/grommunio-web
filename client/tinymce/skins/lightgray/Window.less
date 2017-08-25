@@ -35,12 +35,10 @@ div.@{prefix}-fullscreen {
 	position: fixed;
 	top: 0; left: 0;
 	opacity: 0;
-	transform: scale(0.1);
-	transition: transform 100ms ease-in, opacity 150ms ease-in;
+	.transition(opacity 150ms ease-in);
 }
 
 .@{prefix}-window.@{prefix}-in {
-	transform: scale(1);
 	opacity: 1;
 }
 
@@ -52,19 +50,20 @@ div.@{prefix}-fullscreen {
 
 .@{prefix}-window-head .@{prefix}-close {
 	position: absolute;
-	right: 0;
-	top: 0;
-	height: 38px;
-	width: 38px;
-	text-align: center;
+	right: 15px;
+	top: 9px;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 20px;
+	color: @window-head-close;
 	cursor: pointer;
 
-	i {
-		color: @window-head-close;
-	}
+	// IE7
+	height: 20px;
+	overflow: hidden;
 }
 
-.@{prefix}-close:hover i {
+.@{prefix}-close:hover {
 	color: @window-head-close-hover;
 }
 
@@ -73,7 +72,7 @@ div.@{prefix}-fullscreen {
 	font-size: @window-title-font-size;
 	font-weight: bold;
 	text-rendering: optimizelegibility;
-	padding-right: 20px;
+	padding-right: 10px;
 }
 
 .@{prefix}-window .@{prefix}-container-body {

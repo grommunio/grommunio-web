@@ -16,5 +16,6 @@
 	/* Override inline style of tinymce */
 	.mce-panel.mce-tinymce {
 		border-width: 1px 0px 0px !important;
+		width: auto !important;
 	}
 }

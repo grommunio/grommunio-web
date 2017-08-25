@@ -281,21 +281,6 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * Indicates if the component has been properly initialized. Note this returns
-	 * always true for the plain-text editor, and when the HtmlEditor is used the
-	 * {@link Ext.form.HtmlEditor#initialized} value is returned.
-	 * @return {Boolean} True if the component is initialized
-	 */
-	isInitialized : function()
-	{
-		if (this.isHtmlEditor()) {
-			var component = this.getLayout().activeItem;
-			return component.initialized;
-		}
-		return true;
-	},
-
-	/**
 	 * Updates the {@link #useHtml} flag and {@link Ext.layout.CardLayout#setActiveItem activates}
 	 * the corresponding {@link Ext.form.Field editor} from {@link #items}.
 	 * @param {Boolean} useHtml True to enable the HTML editor

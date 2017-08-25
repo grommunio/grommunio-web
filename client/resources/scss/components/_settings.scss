@@ -219,6 +219,12 @@
 	font-family: monospace !important;
  }
 
+.k-signature-editor{
+	.mce-panel.mce-tinymce {
+		width: auto !important;
+	}
+}
+
 .keyboard-type {
 	margin-left: 40px;
 	padding-left: $padding-medium;
