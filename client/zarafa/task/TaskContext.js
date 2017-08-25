@@ -47,7 +47,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		config = config || {};
 		Ext.applyIf(config, {
 			current_view : Zarafa.task.data.Views.LIST,
-			current_view_mode : Zarafa.task.data.ViewModes.NORMAL
+			current_view_mode : Zarafa.task.data.ViewModes.SIMPLE
 		});
 
 		// The tab in the top tabbar
@@ -302,52 +302,22 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 		var defaultItems = [{
 			id: 'zarafa-maintoolbar-view-tasks-simple',
-			text: _('Simple Tasks'),
-			overflowText: _('Simple Tasks'),
+			text: _('Simple view'),
+			overflowText: _('Simple view'),
 			iconCls: 'icon_task_simple',
 			valueView : Zarafa.task.data.Views.LIST,
-			valueViewMode : Zarafa.task.data.ViewModes.NORMAL,
+			valueViewMode : Zarafa.task.data.ViewModes.SIMPLE,
 			valueDataMode : Zarafa.task.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
 		},{
-			id: 'zarafa-maintoolbar-view-tasks-active',
-			text: _('Active Tasks'),
-			overflowText: _('Active Tasks'),
-			iconCls: 'icon_task_active',
+			id: 'zarafa-maintoolbar-view-tasks-detailed',
+			text: _('Detailed view'),
+			overflowText: _('Detailed view'),
+			iconCls: 'icon_task_detailed',
 			valueView : Zarafa.task.data.Views.LIST,
-			valueViewMode : Zarafa.task.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.task.data.DataModes.ACTIVE,
-			handler : this.onContextSelectView,
-			scope : this
-		},{
-			id: 'zarafa-maintoolbar-view-tasks-nextsevendays',
-			text: _('Next Seven Days'),
-			overflowText: _('Next Seven Days'),
-			iconCls: 'icon_task_seven_days',
-			valueView : Zarafa.task.data.Views.LIST,
-			valueViewMode : Zarafa.task.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.task.data.DataModes.NEXT_7_DAYS,
-			handler : this.onContextSelectView,
-			scope : this
-		},{
-			id: 'zarafa-maintoolbar-view-tasks-overdue',
-			text: _('Overdue Tasks'),
-			overflowText: _('OverDue Tasks'),
-			iconCls: 'icon_task_overdue',
-			valueView : Zarafa.task.data.Views.LIST,
-			valueViewMode : Zarafa.task.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.task.data.DataModes.OVERDUE,
-			handler : this.onContextSelectView,
-			scope : this
-		},{
-			id: 'zarafa-maintoolbar-view-tasks-completed',
-			text: _('Completed Tasks'),
-			overflowText: _('Completed Tasks'),
-			iconCls: 'icon_task_completed',
-			valueView : Zarafa.task.data.Views.LIST,
-			valueViewMode : Zarafa.task.data.ViewModes.NORMAL,
-			valueDataMode : Zarafa.task.data.DataModes.COMPLETED,
+			valueViewMode : Zarafa.task.data.ViewModes.DETAILED,
+			valueDataMode : Zarafa.task.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
 		}];

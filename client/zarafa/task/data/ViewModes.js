@@ -10,17 +10,25 @@ Ext.namespace('Zarafa.task.data');
  */
 Zarafa.task.data.ViewModes = Zarafa.core.Enum.create({
 	/**
-	 * View all task items from the selected folder(s) without grouping.
+	 * View all task items from the selected folder(s)) with some limited columns.
 	 *
 	 * @property
 	 * @type Number
 	 */
-	NORMAL : 0,
+	SIMPLE : 0,
 	/**
 	 * View all found task items from the selected folder(s).
 	 *
 	 * @property
 	 * @type Number
 	 */
-	SEARCH : 1
+	SEARCH : 1,
+	/**
+	 * View all task items from the selected folder(s) with all default columns, user may
+	 * show/hide columns, if required.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	DETAILED : 2
 });
