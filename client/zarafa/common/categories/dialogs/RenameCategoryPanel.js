@@ -35,6 +35,13 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 	categoryName : undefined,
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMStore} recordStore store which
+	 * contains the {@link Zarafa.core.data.MAPIRecord record} on which
+	 * category is going to apply. default is undefined.
+	 */
+	recordStore : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -198,7 +205,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 		category.set('used', true);
 		category.commit();
 		this.store.save();
-		Zarafa.common.categories.Util.addCategory(this.records, this.categoryName, true);
+		Zarafa.common.categories.Util.addCategory(this.records, this.categoryName, true, this.recordStore);
 		this.close();
 	},
 
@@ -272,7 +279,7 @@ Zarafa.common.categories.dialogs.RenameCategoryPanel = Ext.extend(Zarafa.core.ui
 		// from managed category dialog. As managed category dialog
 		// apply category on record by click on apply button
 		if(!this.isCategoryGrid) {
-			Zarafa.common.categories.Util.addCategory(this.records, categoryName, true);
+			Zarafa.common.categories.Util.addCategory(this.records, categoryName, true, this.recordStore);
 		}
 		Zarafa.common.categories.Util.updateStoresAfterCategoryUpdate();
 	}

@@ -20,12 +20,20 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 	category : '',
 
 	/**
+	 * @cfg {Zarafa.core.data.MAPIStore} store contains {@link #records} on which
+	 * categories is going to apply.
+	 */
+	store : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
 	constructor : function(config)
 	{
 		config = config || {};
+
+		this.store = config.records[0].getStore();
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.categorycontextmenu',
@@ -67,7 +75,7 @@ Zarafa.common.categories.ui.CategoryContextMenu = Ext.extend(Ext.menu.Menu, {
 	onRemoveCategory : function(item)
 	{
 		var category = Zarafa.common.categories.Util.getCategoryFromHtmlEncoded(item.category, this.records);
-		Zarafa.common.categories.Util.removeCategory(this.records, category, true);
+		Zarafa.common.categories.Util.removeCategory(this.records, category, true, this.store);
 	},
 
 	/**

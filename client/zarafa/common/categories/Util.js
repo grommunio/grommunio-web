@@ -157,19 +157,24 @@ Zarafa.common.categories.Util = {
 	 * @param {String} category The category name that must be
 	 * added to the record(s)
 	 * @param {Boolean} doSave Set to true to save the records to the backend
-	 *
+	 * @param {Zarafa.core.data.IPMStore} store (optional) store holding
+	 * records on which categories apply.
 	 */
-	addCategory : function(records, category, doSave)
+	addCategory : function(records, category, doSave, store)
 	{
 		// Make sure we have a boolean
 		doSave = doSave === true;
 
-		// Probably all records are in the same store, but to be certain
-		// we will save all different stores
-		var stores = [];
-
 		// Add the category to all records
 		Ext.each(records, function(record){
+			// when categories context menu is open and mean while
+			// if grid gets reload in that case record.store is null.
+			// to overcome this problem we again find that record from given store
+			// in parameter.
+			if(Ext.isEmpty(record.getStore()) && Ext.isDefined(store)) {
+				record = store.getById(record.get('entryid'));
+			}
+
 			var categories = this.getCategories(record);
 			if ( categories.indexOf(category) === -1 ){
 				// If the record has a flag without having flag_request set to
@@ -195,18 +200,11 @@ Zarafa.common.categories.Util = {
 				categories.push(category);
 				this.setCategories(record, categories, false);
 
-				if ( doSave && record.store && stores.indexOf(record.store)===-1 ){
-					stores.push(record.store);
+				if ( doSave ){
+					record.save();
 				}
 			}
 		}, this);
-
-		// Save the changes if requested
-		if ( doSave ){
-			Ext.each(stores, function(store){
-				store.save();
-			});
-		}
 	},
 
 	/**
@@ -273,8 +271,10 @@ Zarafa.common.categories.Util = {
 	 * will be removed
 	 * @param {String} category The category that will be removed
 	 * @param {Boolean} doSave Set to true to save the records to the backend
+	 * @param {Zarafa.core.data.IPMStore} store (optional) holding
+	 * records on which category going to remove.
 	 */
-	removeCategory : function(records, category, doSave)
+	removeCategory : function(records, category, doSave, store)
 	{
 		if ( !Ext.isArray(records) ){
 			records = [records];
@@ -283,8 +283,14 @@ Zarafa.common.categories.Util = {
 		// Make sure we have a boolean
 		doSave = doSave === true;
 
-		var stores = [];
 		Ext.each(records, function(record){
+			// when categories context menu is open and mean while
+			// if grid gets reload in that case record.store is null.
+			// to overcome this problem we again find that record from given store
+			// in parameter.
+			if(Ext.isEmpty(record.getStore()) && Ext.isDefined(store)) {
+				record = store.getById(record.get('entryid'));
+			}
 			var categories = this.getCategories(record);
 			var index = categories.indexOf(category);
 			var label = record.get('label') ? Zarafa.core.mapi.AppointmentLabels.getDisplayName(record.get('label')) : '';
@@ -315,17 +321,10 @@ Zarafa.common.categories.Util = {
 			}
 
 			var recordModified = record.isModified('categories') || record.isModified('label') || record.isModified('flag_status');
-			if ( recordModified && doSave && record.store && stores.indexOf(record.store)===-1 ){
-				stores.push(record.store);
+			if ( recordModified && doSave ){
+				record.save();
 			}
 		}, this);
-
-		// Save the changes if requested
-		if ( doSave ){
-			Ext.each(stores, function(store){
-				store.save();
-			});
-		}
 	},
 
 	/**
