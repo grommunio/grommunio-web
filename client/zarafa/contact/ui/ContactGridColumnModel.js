@@ -91,7 +91,7 @@ Zarafa.contact.ui.ContactGridColumnModel = Ext.extend(Zarafa.common.ui.grid.Colu
 			dataIndex : 'categories',
 			header : _('Categories'),
 			tooltip : _('Sort by: Categories'),
-			renderer	: Zarafa.common.ui.grid.Renderers.text
+			renderer	: Zarafa.common.ui.grid.Renderers.categories
 		},{
 			dataIndex : 'business_telephone_number',
 			header : _('Business Phone'),

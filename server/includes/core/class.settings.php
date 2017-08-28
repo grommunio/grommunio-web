@@ -29,6 +29,12 @@
 		private $settings;
 
 		/**
+		 * Associative Array that will store all the persistent settings of webapp, this will be filled by
+		 * retreiveAllSettings and will be used when we call saveSettings
+		 */
+		private $persistentSettings;
+
+		/**
 		 *  Array External settings which are stored outside of settings property and are managed differently,
 		 * Out of office settings are one of them
 		 */
@@ -55,6 +61,13 @@
 		private $settings_string;
 
 		/**
+		 * Json encoded string which represents existing set of settings, this can be compared with json encoded
+		 * string of $this->settings to check if there was a change in settings and we need to save the changes
+		 * to mapi
+		 */
+		private $persistentSettingsString;
+
+		/**
 		 * Keeps track of all modifications on settings which are not saved yet.
 		 * The array is reset in saveSettings() after a succesful save.
 		 */
@@ -63,13 +76,14 @@
 		function __construct()
 		{
 			$this->settings = array();
+			$this->persistentSettings = array();
 			$this->sysAdminDefaults = array();
 			$this->settings_string = '';
 			$this->modified = array();
 			$this->init = false;
 
 			// Initialize the settings object
-			$this->init();
+			$this->Init();
 		}
 
 		/**
@@ -89,6 +103,7 @@
 			// ignore exceptions when loading settings
 			try {
 				$this->retrieveSettings();
+				$this->retrievePersistentSettings();
 
 				// this object will only be initialized when we are able to retrieve existing settings correctly
 				$this->init = true;
@@ -105,21 +120,24 @@
 		 *
 		 * @param string $path Path to the setting you want to get, separated with slashes.
 		 * @param string $default If the setting is not found, and this parameter is passed, then this value is returned
+		 * @param boolean $persistent Set to true to get the given $path from the persistent settings.
 		 * @return string Setting data, or $default if not found or null of no default is found
 		 */
-		function get($path=null, $default=null)
+		function get($path=null, $default=null, $persistent=false)
 		{
 			if (!$this->init) {
 				throw new SettingsException(_('Settings object is not initialized'));
 			}
 
+			$settings = !!$persistent ? $this->persistentSettings : $this->settings;
+
 			if ($path==null) {
-				return $this->settings;
+				return $settings;
 			}
 
 			$path = explode('/', $path);
 
-			$tmp = $this->settings;
+			$tmp = $settings;
 			foreach ($path as $pointer) {
 				if (!empty($pointer)) {
 					if (!isset($tmp[$pointer])) {
@@ -133,6 +151,21 @@
 		}
 
 		/**
+		 * Get a setting from the persistent settings repository
+		 *
+		 * Retrieves the setting at the path specified. If the setting is not found, and no $default value
+		 * is passed, returns null.
+		 *
+		 * @param string $path Path to the setting you want to get, separated with slashes.
+		 * @param string $default If the setting is not found, and this parameter is passed, then this value is returned
+		 * @return string Setting data, or $default if not found or null of no default is found
+		 */
+		function getPersistent($path=null, $default=null)
+		{
+			return $this->get($path, $default, true);
+		}
+
+		/**
 		 * Store a setting
 		 *
 		 * Overwrites a setting at a specific settings path with the value passed.
@@ -141,14 +174,20 @@
 		 * @param mixed $value New value for the setting
 		 * @param boolean $autoSave True to directly save the settings to the MAPI Store,
 		 * this defaults to false as the settings will be saved at the end of the request.
+		 * @param boolean $persistent True to set a persistent setting, false otherwise.
 		 */
-		function set($path, $value, $autoSave = false)
+		function set($path, $value, $autoSave = false, $persistent=false)
 		{
 			if (!$this->init) {
 				throw new SettingsException(_('Settings object is not initialized'));
 			}
 
-			$this->modified[$path] = $value;
+			if ( !!$persistent ){
+				$this->modifiedPersistent[$path] = $value;
+			} else {
+				$this->modified[$path] = $value;
+			}
+
 			$path = explode('/', $path);
 
 			// Save the last key seperately
@@ -156,7 +195,12 @@
 
 			// Walk over the settings to find the object
 			// which we can manipulate
-			$pointer = &$this->settings;
+			if ( !!$persistent ){
+				$pointer = &$this->persistentSettings;
+			} else {
+				$pointer = &$this->settings;
+			}
+
 			for ($i = 0, $len = count($path); $i < $len; $i++) {
 				$key = $path[$i];
 
@@ -171,8 +215,23 @@
 			unset($pointer);
 
 			if ($autoSave === true) {
-				$this->saveSettings();
+				!!$persistent ? $this->savePersistentSettings() : $this->saveSettings();
 			}
+		}
+
+		/**
+		 * Store a persistent setting
+		 *
+		 * Overwrites a persistent setting at a specific settings path with the value passed.
+		 *
+		 * @param string $path Path to the setting you want to set, separated with slashes.
+		 * @param mixed $value New value for the setting
+		 * @param boolean $autoSave True to directly save the settings to the MAPI Store,
+		 * this defaults to false as the settings will be saved at the end of the request.
+		 */
+		function setPersistent($path, $value, $autoSave = false)
+		{
+			return $this->set($path, $value, $autoSave, true);
 		}
 
 		/**
@@ -236,6 +295,22 @@
 		}
 
 		/**
+		 * Get all persistent settings as a Javascript script
+		 *
+		 * This function will output all persistent settings as a JSON object, allowing easy inclusing in client-side
+		 * javascript.
+		 * @return String json encoded php array
+		 */
+		function getPersistentSettingsJSON()
+		{
+			if (!$this->init) {
+				throw new SettingsException(_('Settings object is not initialized'));
+			}
+
+			return json_encode($this->persistentSettings);
+		}
+
+		/**
 		 * Get settings from store
 		 *
 		 * This function retrieves the actual settings from the store.
@@ -260,7 +335,7 @@
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBACCESS_SETTINGS_JSON));
 
 			$settings = array("settings"=> array());
-			// Check if property exists, if it doesn not exist then we can continue with empty set of settings
+			// Check if property exists, if it does not exist then we can continue with empty set of settings
 			if (isset($storeProps[PR_EC_WEBACCESS_SETTINGS_JSON]) || propIsError(PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 				$this->settings_string = streamProperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON);
 
@@ -287,6 +362,42 @@
 				 */
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
 				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
+			}
+		}
+
+		/**
+		 * Get persistent settings from store.
+		 *
+		 * This function retrieves the actual persistent settings from the store.
+		 * Persistent settings are stored in PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON.
+		 *
+		 * This function returns nothing, but populates the 'persistentSettings' property of the class.
+		 */
+		private function retrievePersistentSettings()
+		{
+			// first check if property exist and we can open that using mapi_openproperty
+			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON));
+
+			// Check if property exists, if it does not exist then we can continue with empty set of settings
+			if ( isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON]) ){
+
+				if ( propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
+					$this->persistentSettingsString = streamProperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON);
+				} else {
+					$this->persistentSettingsString = $storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON];
+				}
+
+				if ( !empty($this->persistentSettingsString) ) {
+					try{
+						$persistentSettings = json_decode_data($this->persistentSettingsString, true);
+					} catch(Exception $e){}
+
+					if ( empty($persistentSettings) || empty($persistentSettings['settings']) ) {
+						throw new SettingsException(_('Error retrieving existing persistent settings'));
+					}
+
+					$this->persistentSettings =$persistentSettings['settings'];
+				}
 			}
 		}
 
@@ -403,6 +514,28 @@
 			// Put the external settings back
 			if ($externalSetting) {
 				$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'] = $externalSetting;
+			}
+		}
+
+		/**
+		 * Save persistent settings to store
+		 *
+		 * This function saves all persistent settings to the store's PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON property.
+		 */
+		function savePersistentSettings()
+		{
+			$persistentSettings = json_encode(array('settings' => $this->persistentSettings));
+
+			// Check if the settings have been changed.
+			if ($this->persistentSettingsString !== $persistentSettings) {
+				$stream = mapi_openproperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+				mapi_stream_setsize($stream, strlen($persistentSettings));
+				mapi_stream_write($stream, $persistentSettings);
+				mapi_stream_commit($stream);
+				mapi_savechanges($this->store);
+
+				// Settings saved, update settings string and modified array
+				$this->persistentSettingsString = $persistentSettings;
 			}
 		}
 

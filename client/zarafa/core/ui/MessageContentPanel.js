@@ -63,7 +63,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			ignoreReadFlagTimer : true
 		});
 
-		
+
 		this.addEvents(
 			/**
 			 * @event beforesendrecord
@@ -88,7 +88,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			/**
 			 * @event aftersendrecord
 			 * Fires after the record has been sent successfully.
-			 * This follows the {@link #updaterecord} event when the server responded to the send action 
+			 * This follows the {@link #updaterecord} event when the server responded to the send action
 			 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel from where the record is send
 			 * @param {Zarafa.core.data.IPMRecord} record The record which has been send
 			 */
@@ -124,7 +124,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 *
 	 * @param {Zarafa.core.data.IPMStore} store The store which performs the update
 	 * @param {Zarafa.core.data.IPMRecord} record The Record which has been updated
-	 * @param {String} operation  The update operation being performed. 
+	 * @param {String} operation  The update operation being performed.
 	 * ({@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}).
 	 * @private
 	 */
@@ -133,15 +133,26 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		if (Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), this.record.get('entryid'))) {
 			if(operation === Ext.data.Record.COMMIT){
 				var receivedFlags = record.get('message_flags');
+				var categories = record.get('categories');
+				var commit = false;
 
 				// Stop modification-tracking to prevent dirty mark
 				this.record.setUpdateModificationsTracking(false);
 
-				// As of now, message_flags property is being processed only because some properties seems
-				// to be missing in MailStore-record as compare to ShadowStore-record result into some weired
+				// As of now, message_flags and categories property is being processed only because some properties
+				// seems to be missing in MailStore-record as compare to ShadowStore-record result into some weird
 				// behavior with mail-formatting and meeting-request-accept functionalities.
+				this.record.beginEdit
 				if (this.record.get('message_flags') !== receivedFlags) {
 					this.record.set('message_flags', receivedFlags);
+					commit = true;
+				}
+				if (this.record.get('categories') !== categories) {
+					this.record.set('categories', categories);
+					commit = true;
+				}
+				this.record.endEdit();
+				if ( commit ){
 					this.record.commit();
 				}
 
@@ -226,7 +237,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 */
 	onBeforeSaveRecord : function(store, data)
 	{
-		if (data &&            
+		if (data &&
 		    ((data.update && data.update.indexOf(this.record) >= 0) ||
 		     (data.create && data.create.indexOf(this.record) >= 0))) {
 			this.isSending = this.record.hasMessageAction('send') || this.record.hasMessageAction('sendResponse');
@@ -239,7 +250,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * this will display the {@link #savingText to indicate the saving is in progress.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of 
+	 * @param {String} action write Action that ocurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
@@ -290,7 +301,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	},
 
 	/**
-	 * Save all changes made to the {@link #record} and send 
+	 * Save all changes made to the {@link #record} and send
 	 * the message to the specified recipients.
 	 */
 	sendRecord : function()
@@ -322,16 +333,16 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	 * Event handler which is called when send and save button is clicked
 	 * immediately one after another. Function registers {@link Zarafa.core.data.MAPIStore#write}
 	 * event which will call {@link #sendRecord} function when saving has been completed.
-	 * 
+	 *
 	 * This function is use to solve below problem.
-	 * 
+	 *
 	 * If we call {@link #sendRecord} straight away after {@link Zarafa.core.ui.RecordContentPanel #aftersaverecord} event then
 	 * {@link Ext.data.Store #write} event is triggerd on {@link Zarafa.core.data.ShadowStore ShadowStore} for this record,
 	 * It will call {@link Zarafa.core.data.MAPIRecord.clearMessageActions clearMessageActions}(i.e. send=true),
 	 * so when we get response of send request there will be no reference of the send request in record.
 	 * So we will not be able to perform {@link #aftersendrecord} event functionalities like,
 	 * Closing the dialog, Showing the 'Sent Successfully' notification, hiding the 'Sending...' notification.
-	 * 
+	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The contentpanel from where the record is saved
 	 * @param {Zarafa.core.data.IPMRecord} record The record which has been saved
 	 */
@@ -515,4 +526,4 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	}
 });
 
-Ext.reg('zarafa.messagecontentpanel', Zarafa.core.ui.MessageContentPanel); 
+Ext.reg('zarafa.messagecontentpanel', Zarafa.core.ui.MessageContentPanel);

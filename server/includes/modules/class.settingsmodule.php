@@ -29,7 +29,12 @@
 								$this->retrieveAll($actionType);
 								break;
 							case "set":
-								$this->set($action["setting"]);
+								if ( isset($action["setting"]) ){
+									$this->set($action["setting"], false);
+								}
+								if ( isset($action["persistentSetting"]) ){
+									$this->set($action["persistentSetting"], true);
+								}
 								break;
 							case "delete":
 							case "reset":
@@ -64,23 +69,37 @@
 		 *
 		 * @param $settings object/array Object containing a $path and $value of the setting
 		 * which must be modified.
+		 * @param $persistent boolean If true the settings will be stored in the persistent settings
+		 * as opposed to the normal settings
 		 */
-		function set($settings)
+		function set($settings, $persistent=false)
 		{
 			if (isset($settings)) {
 				// we will set the settings but wait with saving until the entire batch has been applied.
 				if (is_array($settings)) {
 					foreach ($settings as $setting) {
 						if (isset($setting['path']) && isset($setting['value'])) {
-							$GLOBALS['settings']->set($setting['path'], $setting['value']);
+							if ( !!$persistent ){
+								$GLOBALS['settings']->setPersistent($setting['path'], $setting['value']);
+							} else {
+								$GLOBALS['settings']->set($setting['path'], $setting['value']);
+							}
 						}
 					}
 				} else if (isset($settings['path']) && isset($settings['value'])) {
-					$GLOBALS['settings']->set($settings['path'], $settings['value']);
+					if ( !!$persistent ){
+						$GLOBALS['settings']->setPersistent($settings['path'], $settings['value']);
+					} else {
+						$GLOBALS['settings']->set($settings['path'], $settings['value']);
+					}
 				}
 
 				// Finally save the settings, this can throw exception when it fails saving settings
-				$GLOBALS['settings']->saveSettings();
+				if ( !!$persistent ){
+					$GLOBALS['settings']->savePersistentSettings();
+				} else {
+					$GLOBALS['settings']->saveSettings();
+				}
 
 				// send success notification to client
 				$this->sendFeedback(true);

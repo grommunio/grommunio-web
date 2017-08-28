@@ -106,34 +106,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'page_size' : 50,
 
-							/**
-							 * zarafa/v1/main/categories
-							 * @property
-							 * @type String[]
-							 */
-							'categories' : [
-								_('Business'),
-								_('Competition'),
-								_('Favorites'),
-								_('Gifts'),
-								_('Goals/Objectives'),
-								_('Holiday'),
-								_('Holiday Cards'),
-								_('Hot Contacts'),
-								_('Ideas'),
-								_('International'),
-								_('Key Customer'),
-								_('Miscellaneous'),
-								_('Personal'),
-								_('Phone Calls'),
-								_('Status'),
-								_('Strategies'),
-								_('Suppliers'),
-								_('Time & Expenses'),
-								_('VIP'),
-								_('Waiting')
-							],
-
 							'notifier' : {
 								/**
 								 * zarafa/v1/main/notifier/default

@@ -30,7 +30,7 @@ $serverConfig = array(
 		<title><?php echo $webappTitle; ?></title>
 		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/x-icon">
-		
+
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
@@ -56,7 +56,7 @@ $serverConfig = array(
 			</div>
 		</div>
 
-		<script type="text/javascript">			
+		<script type="text/javascript">
 			bodyEl = document.getElementsByTagName('body')[0];
 			maskEl = document.getElementById('loading-mask');
 			cntEl = document.getElementById('form-container');

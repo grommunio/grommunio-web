@@ -73,8 +73,6 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 
 		// Register mail specific dialog types
 		Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.options');
-		Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.flags');
-		Zarafa.core.data.SharedComponentType.addProperty('mail.contextmenu.flags');
         Zarafa.core.data.SharedComponentType.addProperty('mail.dialog.delayeddelivery');
 	},
 
@@ -159,7 +157,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		if(this.getCurrentView() !== Zarafa.mail.data.Views.SEARCH && this.getCurrentViewMode() !== Zarafa.mail.data.ViewModes.SEARCH){
 			/*
 			 * Check that current view model is one of the view mode from
-			 * NO_PREVIEW, RIGHT_PREVIEW and BOTTOM_PREVIEW then set the view mode to 
+			 * NO_PREVIEW, RIGHT_PREVIEW and BOTTOM_PREVIEW then set the view mode to
 			 * oldViewMode and view to oldView.
 			 */
 			if(Zarafa.mail.data.ViewModes.isMainViewMode(this.getCurrentViewMode())) {
@@ -236,12 +234,10 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			// Bid for mail specific dialog
 			case Zarafa.core.data.SharedComponentType['mail.dialog.options']:
-			case Zarafa.core.data.SharedComponentType['mail.dialog.flags']:
             case Zarafa.core.data.SharedComponentType['mail.dialog.delayeddelivery']:
 				bid = 1;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-			case Zarafa.core.data.SharedComponentType['mail.contextmenu.flags']:
 				if (record instanceof Zarafa.core.data.IPMRecord) {
 					if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
 						if (record.isMessageClass([ 'IPM.Note', 'IPM.TaskRequest', 'IPM.Schedule.Meeting', 'REPORT.IPM','REPORT.IPM.Note' ], true)) {
@@ -310,17 +306,11 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 					component = Zarafa.mail.dialogs.MailViewOptionsContentPanel;
 				}
 				break;
-			case Zarafa.core.data.SharedComponentType['mail.dialog.flags']:
-				component = Zarafa.mail.dialogs.MailFlagsContentPanel;
-				break;
 			case Zarafa.core.data.SharedComponentType['common.preview']:
 				component = Zarafa.mail.ui.MailViewPanel;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				component = Zarafa.mail.ui.MailGridContextMenu;
-				break;
-			case Zarafa.core.data.SharedComponentType['mail.contextmenu.flags']:
-				component = Zarafa.mail.dialogs.MailFlagsMenu;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.printer.renderer']:
 				if (record instanceof Zarafa.core.data.IPMRecord) {
@@ -503,7 +493,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 	 * Create the mail {@link Zarafa.settings.ui.SettingsCategory Settings Category}
 	 * to the {@link Zarafa.settings.SettingsContext}. This will create new
 	 * {@link Zarafa.settings.ui.SettingsCategoryTab tabs} for the
-	 * {@link Zarafa.mail.ui.SettingsMailCategory Mail} and the 
+	 * {@link Zarafa.mail.ui.SettingsMailCategory Mail} and the
 	 * {@link Zarafa.mail.ui.SettingsOutOfOfficeCategory Out of Office}
 	 * in the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel Widget Panel}.
 	 * @param {String} insertionName insertion point name that is currently populated
@@ -525,15 +515,15 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.mail insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarViewButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.maintoolbar.view.mail', this) || [];
-		
+
 		var defaultItems = [{
 			id: 'zarafa-maintoolbar-view-mail-nopreview',
 			overflowText: _('No preview'),
@@ -583,15 +573,15 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the Print button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the Print button in the main toolbar. It will use the
 	 * main.maintoolbar.print.mail insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarPrintButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.toolbar.print.mail', this) || [];
-		
+
 		var defaultItems = [{
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-singlemail',
@@ -604,10 +594,10 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			singleSelectOnly: true,
 			handler: this.onPrintSingle,
 			scope: this
-		}];	
+		}];
 		return defaultItems.concat(items);
 	},
-	
+
 	/**
 	 * Event handler which is fired when the 'print single' item in the dropdown has been pressed
 	 * This calls {@link Zarafa.common.Actions.openPrintDialog} with the previewed {@link Zarafa.core.data.MAPIRecord} record.
@@ -635,7 +625,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Adds a button to the top tab bar for this context.
-	 * @return {Object} The button for the top tabbar 
+	 * @return {Object} The button for the top tabbar
 	 * @private
 	 */
 	createMainTab: function()

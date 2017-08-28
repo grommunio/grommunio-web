@@ -56,10 +56,11 @@ Zarafa.note.ui.NoteGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer	: Zarafa.common.ui.grid.Renderers.datetime
 		}, {
 			dataIndex	: 'categories',
+			id			: 'categories',
 			header		: _('Categories'),
 			width		: 160,
 			tooltip		: _('Sort by: Categories'),
-			renderer	: Zarafa.common.ui.grid.Renderers.text
+			renderer	: Zarafa.common.ui.grid.Renderers.categories
 		}, {
 			dataIndex	: 'color',
 			header		: _('Color'),

@@ -28,6 +28,7 @@ $serverConfig = array(
 	'active_theme'					=> Theming::getActiveTheme(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
+	'default_categories'			=> json_decode(DEFAULT_CATEGORIES),
 	'maximum_eml_files_in_zip'		=> MAX_EML_FILES_IN_ZIP,
 	'powerpaste'					=> array(
 											'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
@@ -43,6 +44,9 @@ if ( CONTACT_SUFFIX ){
 }
 if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 	$serverConfig['additional_color_schemes'] = json_decode(ADDITIONAL_COLOR_SCHEMES);
+}
+if ( defined('ADDITIONAL_CATEGORIES') ){
+	$serverConfig['additional_default_categories'] = json_decode(ADDITIONAL_CATEGORIES);
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -111,6 +115,7 @@ if ( defined('ADDITIONAL_COLOR_SCHEMES') ){
 
 		<script type="text/javascript">
 			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
+			persistentsettings 	= <?php echo $GLOBALS["settings"]->getPersistentSettingsJSON(); ?>;
 			languages 		= <?php echo $Language->getJSON(); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;

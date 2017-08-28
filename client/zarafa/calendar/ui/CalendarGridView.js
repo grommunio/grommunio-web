@@ -109,7 +109,6 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 		Zarafa.calendar.ui.CalendarGridView.superclass.initEvents.call(this);
 
 		this.mon(this.model, 'foldermergestatechanged', this.onFolderMergestateChanged, this);
-		this.on('rowcontextmenu', this.onRowContextMenu, this);
 		this.on('rowdblclick', this.onRowDblClick, this);
 		this.mon(this.getSelectionModel(), 'selectionchange', this.onSelectionChange, this);
 	},
@@ -129,24 +128,6 @@ Zarafa.calendar.ui.CalendarGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessa
 		} else {
 			model.groupBy('parent_entryid');
 		}
-	},
-
-	/**
-	 * Event handler which is triggered when user opens context menu
-	 * @param {Ext.grid.GridPanel} grid grid panel object
-	 * @param {Number} rowIndex index of row
-	 * @param {Ext.EventObject} eventObj eventObj object of the event
-	 * @private
-	 */
-	onRowContextMenu : function(grid, rowIndex, eventObj)
-	{
-		// check row is already selected or not, if its not selected then select it first
-		var selectionModel = this.getSelectionModel();
-		if (!selectionModel.isSelected(rowIndex)) {
-			selectionModel.selectRow(rowIndex);
-		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), { position : eventObj.getXY() });
 	},
 
 	/**

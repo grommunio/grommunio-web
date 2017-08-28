@@ -303,7 +303,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				this.createBusyStatusPanel(),
 
 				this.createReminderPanel(),
-				this.createLabelPanel()
+				{
+					xtype: 'container',
+					cls: 'filler'
+				}
 			]
 		};
 	},
@@ -476,63 +479,6 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				lazyInit: false,
 				forceSelection: true,
 				editable: false,
-				listeners: {
-					select: this.onFieldSelect,
-					scope: this
-				}
-			}]
-		};
-	},
-
-	/**
-	 * Create the {@link Ext.Panel Panel} containing the form fields
-	 * for setting a label on the appointment.
-	 * @return {Object} Configuration object for the panel with reminder fields
-	 * @private
-	 */
-	createLabelPanel : function()
-	{
-		var labelStore = {
-			xtype: 'jsonstore',
-			fields: ['name', 'value'],
-			data : Zarafa.calendar.data.AppointmentLabels
-		};
-
-		return {
-			xtype: 'panel',
-			cls: 'k-label-panel',
-			layout: 'form',
-			autoHeight: true,
-			border: false,
-			labelAlign: 'left',
-			items: [{
-				xtype: 'combo',
-				name: 'label',
-				fieldLabel: _('Label'),
-				store: labelStore,
-				mode: 'local',
-				triggerAction: 'all',
-				displayField: 'name',
-				valueField: 'value',
-				lazyInit: false,
-				forceSelection: true,
-				editable: false,
-				autoSelect: true,
-				tpl: new Ext.XTemplate(
-					'<tpl for=".">',
-						'<div class="x-combo-list-item zarafa-calendar-appointment-{[this.getCSSLabel(values.value)]}">',
-							'{name}',
-						'</div>',
-					'</tpl>',
-					{
-						getCSSLabel : function(label)
-						{
-							label = Zarafa.core.mapi.AppointmentLabels.getName(label);
-							label = label.toLowerCase();
-							label = label.replace('_', '-');
-							return 'label-' + label;
-						}
-					}),
 				listeners: {
 					select: this.onFieldSelect,
 					scope: this

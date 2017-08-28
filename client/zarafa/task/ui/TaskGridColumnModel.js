@@ -203,7 +203,12 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			header : _('Due Date'),
 			tooltip : _('Sort by: Due Date'),
 			renderer : Zarafa.common.ui.grid.Renderers.utcdate
-		}, {
+		},{
+			dataIndex : 'categories',
+			header : _('Categories'),
+			tooltip : _('Sort by: Categories'),
+			renderer : Zarafa.common.ui.grid.Renderers.categories
+		},{
 			dataIndex : 'percent_complete',
 			header : _('% Completed'),
 			width : 75,

@@ -234,13 +234,8 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 		context.fillStyle = 'white';
 		context.fillRect(3, 3, width-6, height-6);
 
-		var colorScheme = this.getAppointmentColorScheme();
+		var color = this.getAppointmentColor();
 
-		// Check if we have a light or dark color scheme
-		var rgbBackgroundColor = this.calendarColorScheme.startcolorappointmentbox;
-		var hslBackgroundColor = Zarafa.core.ColorSchemes.rgbToHsl(rgbBackgroundColor);
-		var isDarkColor = hslBackgroundColor[2] < 0.5;
-		
 		var appointmentOpacity = 1;
 		if ( !this.isActive() ) {
 			appointmentOpacity = this.opacityNonActiveAppointment;
@@ -251,20 +246,20 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 		context.globalAlpha = appointmentOpacity;
 
 		// Draw the appointment box
-		context.fillStyle = colorScheme.startcolorappointment;
+		context.fillStyle = color;
 		context.fillRect(3 + stripWidth, 3, width-6-stripWidth, height-6);
-		
+
 		var busyStatus = this.getBusyStatus();
 		switch (busyStatus)
 		{
 			case Zarafa.core.mapi.BusyStatus.FREE:
 				context.fillStyle = 'white';
 				context.fillRect(3, 3, stripWidth, height - 6);
-				context.strokeStyle = this.calendarColorScheme.startcolorappointmentbox;
+				context.strokeStyle = color;
 				context.strokeRect(3.5, 3.5, stripWidth, height -7);
 				break;
 			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
-				context.fillStyle = this.calendarColorScheme.startcolorappointmentbox;
+				context.fillStyle = color;
 				context.fillRect(3, 3, stripWidth, height - 6);
 				// For tentative we use an image to only show parts of the background. This
 				// image should not be transparent otherwise the color behind that will show
@@ -291,8 +286,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 		// Get the font
 		var font = this.parentView.headerBackgroundCanvasStylingElement.getStyle('font');
 		// Check if we have a light or dark color
-		// We use the startcolorappointment property because colorschemes of labeled appointments don't have the base property!
-		isDarkColor = Zarafa.core.ColorSchemes.getLuma(colorScheme.startcolorappointment) < 155;
+		var isDarkColor = Zarafa.core.ColorSchemes.getLuma(color) < 155;
 		var fontColor = this.isActive() && isDarkColor ? 'white' : 'black';
 
 		// First start drawing all icons
@@ -335,7 +329,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 			drawTextObject.startTimeText = Ext.util.Format.htmlDecode(this.startTimeTextRenderer());
 			drawTextObject.endTimeText = Ext.util.Format.htmlDecode(this.endTimeTextRenderer());
 
-			// it will check that bounds length more then one it means 
+			// it will check that bounds length more then one it means
 			// appointment is lies in to multiple weeks.
 			if(this.bounds.length > 1) {
 				// we have to show the start time and appointment title to first bounds.
@@ -348,17 +342,17 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 				}
 			} else if(this.bounds.length === 1) {
 				// if bounds length was one it means appointment does not
-				// lies in to multiple weeks. but it may possible that appointment 
-				// lies in to multiple days 
+				// lies in to multiple weeks. but it may possible that appointment
+				// lies in to multiple days
 
 				// it will check that appointment is more then
-				// one day event. then show the start/end time and appointment title with 
+				// one day event. then show the start/end time and appointment title with
 				// its sub text.
 				if(this.getDateRange().getNumDays() > 0) {
 					drawTextObject.showStartTime = true;
 					drawTextObject.showEndTime = true;
 				} else {
-					// appointment was less then one day event 
+					// appointment was less then one day event
 					// so we have to just show the start time and appointment title.
 					drawTextObject.showStartTime = true;
 				}
@@ -372,9 +366,9 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 	/**
 	 * Function is responsible to draw start time , end time and
 	 * appointment title. it will draw the text based on the given object.
-	 * 
+	 *
 	 * @param {CanvasRenderingContext2D} context The canvas object on which we are drawing.
-	 * @param {Object} Obj the Obj contains the configuration option which used to draw the text 
+	 * @param {Object} Obj the Obj contains the configuration option which used to draw the text
 	 * on appointment
 	 * @private
 	 */
@@ -391,7 +385,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 			// draw end time at extreme right position of appointment.
 			context.drawText(obj.endTimeText, rightFlot, obj.yPosition);
 
-			// find the character size and based on that character size find the 
+			// find the character size and based on that character size find the
 			// approximated characters are draw in remaining width.
 			perTextSize = endTimeWidth / obj.endTimeText.length;
 			size = Math.floor(rightFlot/perTextSize);
@@ -415,7 +409,7 @@ Zarafa.calendar.ui.canvas.AppointmentBoxView = Ext.extend(Zarafa.calendar.ui.can
 			// find remaining width to draw the appointment title.
 			var remainingWidth = rightFlot - obj.xPosition;
 
-			// find the character size and based on that character size find the 
+			// find the character size and based on that character size find the
 			// approximated characters are draw in remaining width.
 			perTextSize = startTimeWidth / obj.startTimeText.length;
 			size = Math.floor(remainingWidth/perTextSize);

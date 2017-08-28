@@ -29,7 +29,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			background: $background-color-main;
 			max-width: 100%;
 			box-sizing: border-box;
-			
+
 			.zarafa-x-grid3-hd-title {
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -38,7 +38,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 					width: 15px;
 				}
 			}
-						
+
 			.x-grid3-hd-btn {
 				border: 1px solid $grey;
 				border-radius: 2px;
@@ -65,7 +65,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	td.sort-asc .x-grid3-hd-inner {
 		padding-right: 9px + 2*$padding-medium; /* some extra padding to place the sort icon */
 	}
-	
+
 	td.sort-desc .x-grid3-sort-icon,
 	td.sort-asc .x-grid3-sort-icon{
 		width: 9px;
@@ -74,7 +74,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		right: $padding-medium;
 		top: (($button-small-height - 5px)/2 - 1px);
 	}
-	
+
 	td.sort-desc .x-grid3-sort-icon{
 		@extend .arrow_down_l;
       	background-position: sprite-position($iconsmap, arrow_down_l, $offset-y: 0, $offset-x: 0);
@@ -112,7 +112,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				position: relative;
 				display: inline-block;
 				min-width: 12px;
-				
+
 				.title {
 					display: none;
 				}
@@ -125,18 +125,18 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		p {
 			display: none;
 		}
-		
+
 		.x-grid3-sort-icon {
 			margin: 0;
 		}
 	}
-	
-	
-	
+
+
+
 	/****************************************************************************
 	 * Icons
 	 ****************************************************************************/
-	
+
 	td.zarafa-icon-column .x-grid3-hd-inner{
 		p.icon_importance {
 			background-position: sprite-position($iconsmap, icon_importance, $offset-y: 5px, $offset-x: 4px);
@@ -180,12 +180,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		.x-menu-check-item {
 			/* check/uncheck images are 14 px wide */
 			padding-left: $padding-small + 14px + $padding-medium;
-			
+
 			.x-menu-item-text {
 				p {
 					padding-left: 10px;
 				}
-				
+
 				/* mail grid */
 				p.icon_importance {
 					background-position: sprite-position($iconsmap, icon_importance, $offset-y: 4px, $offset-x: 4px);
@@ -244,19 +244,28 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	.x-grid3-cell-inner {
 		line-height: 100%;
 		padding: $padding-large ($padding-medium + 1px);
+		position: relative;
 	}
-	
+
+	/*
+	 * exception for the categories column which has labels that will be truncated when too long
+	 * so truncating the cell itself will cause strange behaviour.
+	 */
+	.x-grid3-cell-inner.x-grid3-col-categories	{
+		text-overflow: clip;
+	}
+
 	.x-grid3-row-body-tr {
-		table td {
+		.zarafa-grid-body-container {
 			overflow: hidden;
 			word-wrap: break-word;
 
 			.grid_compact {
-				line-height: 100%;
-				min-height: $font-default-size; /* we need this for when there is no title set */
-				max-height: $font-default-size + 1px; /* added 1px because letters get cut off at the bottom otherwise */
+				line-height: $font-line-height-mail-grid-compact;
+				min-height: $font-line-height-mail-grid-compact; /* we need this for when there is no title set */
+				max-height: $font-line-height-mail-grid-compact; /* added 1px because letters get cut off at the bottom otherwise */
 				padding-bottom: 0px;
-				padding-top: 4px;
+				padding-top: $padding-small + 1px;
 			}
 
 			.grid_compact_left {
@@ -265,7 +274,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 			.grid_compact_subject_cell {
 				color : $grid-subject-color;
-				max-height: 2 * $font-default-size + 1px;
+				max-height: 2 * $font-line-height-mail-grid-compact;
+				overflow: hidden;
 			}
 		}
 	}
@@ -274,13 +284,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	.x-grid3-check-col-td,
 	.x-grid3-td-checker {
 		background: transparent;
-		
+
 		.x-grid3-cell-inner {
 			padding-top: ($font-default-size + 2*$padding-large - 15) / 2 !important; /* important is needed because Ext also added it */
 		}
 	}
 }
-	
+
 .x-grid3-row.x-grid3-row-expanded {
 	.x-grid3-cell-inner {
 		padding-bottom: $padding-large - 4px;
@@ -288,6 +298,11 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 	.x-grid3-row-body {
 		padding-bottom: $padding-large;
+	}
+}
+.x-grid3-row.x-grid3-row-expanded.with-categories {
+	.x-grid3-row-body {
+		padding-bottom: $padding-large - $padding-small;
 	}
 }
 
@@ -315,7 +330,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	.x-grid3-row {
 		border-left-color: white;
 	}
-	
+
 	.mail_unread {
 		div {
 			font-weight: bold;
@@ -328,7 +343,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	 ********************************/
 	.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3{
 		.x-grid3-row {
-			
+
 			/* Icon column */
 			.icon_message,
 			.icon_mail.icon_message_read {
@@ -408,7 +423,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			.icon_appt_meeting_cancel {
 	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
 			}
-	
+
 			.icon_appt_meeting_outofdate {
 				@extend .icon_calendar_appt_outofdate;
 	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
@@ -458,7 +473,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				@extend .icon_note_green;
 	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
-	
+
 			.icon_mail_nondelivery_receipt {
 				@extend .icon_mail_report_ndr;
 	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
@@ -471,7 +486,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				@extend .icon_mail_report_decline;
 	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
 			}
-	
+
 			/* attachment column */
 			.icon_attachment {
 				@extend .icon_paperclip;
@@ -480,7 +495,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			.grid_compact.icon_attachment {
 	        	background-position: sprite-position($icons, icon_paperclip, $offset-y: 0, $offset-x: $padding-medium - 4);
 			}
-	
+
 			/* importance column */
 			.icon_importance_urgent {
 				@extend .icon_priority_high;
@@ -496,7 +511,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			.grid_compact.icon_importance_nonurgent {
 	        	background-position: sprite-position($icons, icon_priority_low, $offset-y: 3, $offset-x: $padding-medium + 2);
 			}
-	
+
 			/* flags column */
 			.icon_mail_flag {
 				@extend .icon_flag;
@@ -535,8 +550,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				background-position: sprite-position($iconsmap, folder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
 		}
-	}	
-	
+	}
+
 	/* Override ExtJS selected grid */
 	.x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
 		background-image: none;
@@ -561,4 +576,94 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* Task grid Completed tasks row */
 .zarafa-task-complete {
 	color: $grey6;
+}
+
+/******************************************************************************
+ * Grid with no column headers
+ ******************************************************************************/
+.x-grid-panel.k-no-column-headers {
+	.x-grid3-header {
+		display: none;
+	}
+}
+
+.x-grid3 .zarafa-grid-button-container {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: ($font-default-size + 2 * $padding-large - $button-small-height)/2  0 ($font-default-size + 2 * $padding-large - $button-small-height)/2 $padding-small;
+	background-color: $background-color-main;
+}
+.x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
+	background-color: $grid-hover-color;
+}
+.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container {
+	background-color: $grid-active-color;
+}
+.x-grid3 .zarafa-grid-button {
+	width: $button-small-height;
+	height: $button-small-height;
+	float: left;
+	margin-left: $padding-small;
+	cursor: pointer;
+	display: none;
+	background-image: sprite-url($iconsmap) !important;
+}
+.x-grid3 .x-grid3-row-over .zarafa-grid-button {
+	display: block;
+}
+/* Fixed categories cannot be edited or deleted because they are used
+   to map old flags to categories */
+.x-grid3-row-over .k-category-fixed .k-grid-button-edit,
+.x-grid3-row-over .k-category-fixed .k-grid-button-delete {
+	display: none;
+}
+
+.x-grid3 .k-grid-button-edit {
+	background-position: sprite-position($iconsmap, icon_pencil, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .k-grid-button-edit:hover {
+	background-position: sprite-position($iconsmap, icon_pencil_dark, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .k-grid-button-delete {
+	background-position: sprite-position($iconsmap, icon_trash, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .k-grid-button-delete:hover {
+	background-position: sprite-position($iconsmap, icon_trash_dark, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .k-grid-button-pin {
+	background-position: sprite-position($iconsmap, icon_pin_outline, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .k-grid-button-pin:hover {
+	background-position: sprite-position($iconsmap, icon_pin_outline_dark, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .zarafa-pinned .k-grid-button-pin {
+	display: block;
+	background-position: sprite-position($iconsmap, icon_pin, $offset-x: 3, $offset-y: 3);
+}
+.x-grid3 .zarafa-pinned .k-grid-button-pin:hover {
+	background-position: sprite-position($iconsmap, icon_pin_dark, $offset-x: 3, $offset-y: 3);
+}
+
+.k-categories-grid .x-grid-editor {
+	padding-top: 1px;
+}
+
+.k-categories-grid .x-grid3-col-color {
+	position: relative;
+}
+
+.k-categories-grid .k-colorpicker-ct {
+	display: none;
+	margin: -2px 0 -2px 0;
+}
+.k-categories-grid .x-grid3-row-over .x-grid3-col-color,
+.k-categories-grid .x-grid3-col-color.k-menu-visible {
+	svg {
+		display: none;
+	}
+
+	.k-colorpicker-ct {
+		display: block;
+	}
 }

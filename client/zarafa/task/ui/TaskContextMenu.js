@@ -19,6 +19,11 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 */
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -26,21 +31,25 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	{
 		config = config || {};
 
+		if (Ext.isDefined(config.records) && !Array.isArray(config.records)) {
+			config.records = [ config.records ];
+		}
+
 		Ext.applyIf(config, {
 			items : [
 				this.createContextActionItems(),
 				{ xtype : 'menuseparator' },
 				container.populateInsertionPoint('context.task.contextmenu.actions', this),
 				{ xtype : 'menuseparator' },
-				this.createContextOptionsItems(),
+				this.createContextOptionsItems(config.records),
 				{ xtype: 'menuseparator' },
 				container.populateInsertionPoint('context.task.contextmenu.options', this)
 			]
 		});
-	
+
 		Zarafa.task.ui.TaskContextMenu.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Create the Action context menu items
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
@@ -79,29 +88,32 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 
 	/**
 	 * Create the Option context menu items
+	 * @param {Zarafa.core.data.IPMRecord{}} The records on which this menu acts
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
 	 * @private
 	 */
-	createContextOptionsItems : function()
+	createContextOptionsItems : function(records)
 	{
 		return [{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Categories'),
+			cls: 'k-unclickable',
 			iconCls : 'icon_categories',
-			handler : function() {
-				Zarafa.common.Actions.openCategoriesContent(this.records);
-			},
-			scope: this
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			}
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Delete'),
 			iconCls : 'icon_delete',
 			nonEmptySelectOnly:  true,
 			handler: this.onContextItemDelete,
-			scope: this	
+			scope: this
 		}];
 	},
-	
+
 	/**
 	 * Event handler which is called when the user selects the 'delete'
 	 * item in the context menu. This will delete all selected records.

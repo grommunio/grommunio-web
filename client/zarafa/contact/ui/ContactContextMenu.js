@@ -19,6 +19,11 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	 */
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -26,9 +31,13 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 	{
 		config = config || {};
 
+		if (Ext.isDefined(config.records) && !Array.isArray(config.records)) {
+			config.records = [ config.records ];
+		}
+
 		Ext.applyIf(config, {
 			items : [
-				this.createContextActionItems(),
+				this.createContextActionItems(config.records),
 				{ xtype : 'menuseparator' },
 				container.populateInsertionPoint('context.contact.contextmenu.actions', this),
 				{ xtype : 'menuseparator' },
@@ -39,16 +48,17 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 				hideOnDisabled : false
 			}
 		});
-	
+
 		Zarafa.contact.ui.ContactContextMenu.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Create the Action context menu items
+	 * @param {Zarafa.core.data.IPMRecord{}} The records on which this menu acts
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
 	 * @private
 	 */
-	createContextActionItems : function()
+	createContextActionItems : function(records)
 	{
 		return [{
 			text : _('Open'),
@@ -66,10 +76,13 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 			xtype: 'menuseparator'
 		}, {
 			text : _('Categories'),
+			cls: 'k-unclickable',
 			iconCls : 'icon_categories',
-			scope : this,
-			handler : this.onContextItemCategories,
-			singleSelectOnly : true
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			}
 		}, {
 			xtype: 'menuseparator'
 		}, {

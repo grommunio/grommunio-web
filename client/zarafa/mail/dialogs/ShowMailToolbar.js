@@ -127,7 +127,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 
 	/**
 	 * Create all buttons which should be added by default the the `Options` buttons.
-	 * This contains the buttons flag the message according to a particular color.
 	 *
 	 * @return {Array} The {@link Ext.Button} elements which should be added in the Options section of the {@link Ext.Toolbar}.
 	 * @private
@@ -146,16 +145,15 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			handler : this.onMailOptionsButton,
 			scope: this
 		},{
-			xtype: 'button',
-			ref: 'flagsBtn',
-			overflowText: _('Set flag'),
-			tooltip: {
-				title: _('Set flag'),
-				text: _('Set flag on this email')
+			xtype : 'button',
+			overflowText: _('Set Category'),
+			tooltip : {
+				title : _('Categories'),
+				text : _('Open the categories dialog.')
 			},
-			iconCls: 'icon_flag_red',
-			handler: this.onSetFlagButton,
-			scope: this
+			iconCls : 'icon_categories',
+			handler : this.onOpenCategories,
+			scope : this
 		},{
 			xtype: 'splitbutton',
 			cls: 'zarafa-more-options-btn',
@@ -213,7 +211,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 
 		this.deleteBtn.setVisible(!isSubMessage);
 		this.optionsBtn.setVisible(!isSubMessage && !isFaultyMessage);
-		this.flagsBtn.setVisible(!isSubMessage && !isFaultyMessage);
 
 		this.replyBtn.setVisible(!isFaultyMessage);
 		this.replyAllBtn.setVisible(!isFaultyMessage);
@@ -337,6 +334,16 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	onDeleteButton : function(button)
 	{
 		this.dialog.deleteRecord();
+	},
+
+	/**
+	 * Handler for the Categories toolbar button
+	 * This will call {@link Zarafa.common.Actions#openCategoriesContent}.
+	 * @private
+	 */
+	onOpenCategories : function()
+	{
+		Zarafa.common.Actions.openCategoriesContent(this.record);
 	},
 
 	/**

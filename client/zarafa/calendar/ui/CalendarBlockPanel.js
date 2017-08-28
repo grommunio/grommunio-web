@@ -118,7 +118,11 @@ Zarafa.calendar.ui.CalendarBlockPanel = Ext.extend(Ext.Panel, {
 	 */
 	onContextMenu : function(event, record)
 	{
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, { position : event.getXY() });
+		var config = {
+			position: event.getXY(),
+			calendarPanel: this.getCalendarPanel()
+		};
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, config);
 	},
 
 	/**

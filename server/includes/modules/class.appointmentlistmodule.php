@@ -10,12 +10,12 @@
 		 * @var date start interval of view visible
 		 */
 		private $startdate;
-		
+
 		/**
 		 * @var date end interval of view visible
 		 */
 		private $enddate;
-		
+
 		/**
 		 * Constructor
 		 * @param int $id unique id.
@@ -78,7 +78,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Function which retrieves a list of calendar items in a calendar folder
 		 * @param object $store MAPI Message Store Object
@@ -103,7 +103,7 @@
 						$this->enddate = $action["restriction"]["duedate"];
 					}
 				}
-				
+
 				if($this->startdate && $this->enddate) {
 					$data = array();
 
@@ -129,7 +129,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Function to return all Calendar items in a given timeframe. This
 		 * function also takes recurring items into account.
@@ -140,7 +140,7 @@
 		 */
 		function getCalendarItems($store, $entryid, $start, $end)
 		{
-			$restriction = 
+			$restriction =
 				// OR
 				//  - Either we want all appointments which fall within the given range
 				//	- Or we want all recurring items which we manually check if an occurence
@@ -208,7 +208,7 @@
 								ULPROPTAG => $this->properties["recurring"],
 								VALUE => true
 							)
-						)		
+						)
 					)
 			);// global OR
 
@@ -218,7 +218,7 @@
 
 			return $this->processItems($calendaritems, $store, $entryid, $start, $end);
 		}
-		
+
 		/**
 		 * Process calendar items to prepare them for being sent back to the client
 		 * @param array $calendaritems array of appointments retrieved from the mapi tablwe
@@ -231,6 +231,7 @@
 		function processItems($calendaritems, $store, $entryid, $start, $end)
 		{
 			$items = Array();
+			$openedMessages = Array();
 
 			foreach($calendaritems as $calendaritem)
 			{
@@ -252,6 +253,35 @@
 
 						if(isset($recuritem["basedate"])) {
 							$item["props"]["basedate"] = $recuritem["basedate"];
+						}
+
+						if ( isset($recuritem["exception"]) ){
+							// Add categories if they are set on the exception
+							// We will create a new Recurrence object with the opened message,
+							// so we can open the attachments. The attachements for this exception
+							// contains the categories property (if changed)
+							$msgEntryid = bin2hex($calendaritem[$this->properties["entryid"]]);
+							if ( !isset($openedMessages[$msgEntryid]) ){
+								// Open the message and add it to the openedMessages property
+								$message = mapi_msgstore_openentry($store, $calendaritem[$this->properties["entryid"]]);
+								$openedMessages[$msgEntryid] = $message;
+							} else {
+								// This message was already opened
+								$message = $openedMessages[$msgEntryid];
+							}
+							// Now create a Recurrence object with the mapi message (instead of the message props)
+							// so we can open the attachments
+							$recurrence = new Recurrence($store, $message);
+							$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
+							if($exceptionatt) {
+								// Existing exception (open existing item, which includes basedate)
+								$exception = mapi_attach_openobj($exceptionatt, 0);
+								$exceptionProps = $GLOBALS['operations']->getMessageProps($store, $exception, array('categories'=>$this->properties["categories"]));
+
+								if ( isset($exceptionProps['props']['categories']) ){
+									$item["props"]["categories"] = $exceptionProps['props']['categories'];
+								}
+							}
 						}
 
 						$item = $this->processPrivateItem($item);
@@ -314,7 +344,7 @@
 		{
 			$start_a = $a["props"]["startdate"];
 			$start_b = $b["props"]["startdate"];
-		
+
 		   if ($start_a == $start_b) {
 		       return 0;
 		   }

@@ -349,17 +349,17 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	},
 
 	/**
-	 * Obtain the singleton instance of the {@link Zarafa.calendar.ui.canvas.ToolTip Tooltip}.
-	 * @return {Zarafa.calendar.ui.canvas.ToolTip} The tooltip
+	 * Obtain the singleton instance of the {@link Zarafa.calendar.ui.ToolTip Tooltip}.
+	 * @return {Zarafa.calendar.ui.ToolTip} The tooltip
 	 */
 	getTooltipInstance : function()
 	{
 		if (!this.tooltip) {
-			this.tooltip = new Zarafa.calendar.ui.canvas.ToolTip({
-				container : this.container
+			this.tooltip = new Zarafa.calendar.ui.ToolTip({
+				target: this.el,
+				view: this
 			});
-
-			this.tooltip.on('tooltipmousemove', this.onTooltipMouseMove, this);
+			this.mon(this.tooltip, 'tooltipmousemove', this.onTooltipMouseMove, this);
 		}
 
 		return this.tooltip;
@@ -1512,6 +1512,11 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 		if (this.header) {
 			Ext.dd.ScrollManager.unregister(this.header);
+		}
+
+		// Remove the tooltip when the view is destroyed
+		if ( this.tooltip ){
+			this.tooltip.destroy();
 		}
 	}
 });

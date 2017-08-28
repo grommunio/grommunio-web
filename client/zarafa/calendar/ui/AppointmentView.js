@@ -331,26 +331,25 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	},
 
 	/**
-	 * Return the color scheme based on the activity and the label of the appointment. When the
+	 * Return the color based on the activity and the categories of the appointment. When the
 	 * appointment belongs to a non-active calendar, it will return the color scheme of the
 	 * calendar. This color scheme is set in the {@link #calendarColorScheme calendarColorScheme}
-	 * property. When the appointment belongs to an active calendar it will return the
-	 * {@link Zarafa.calendar.ui.LabelColorSchemes color scheme} based on the label of the
-	 * appointment. In the case that the appointment has no label the color scheme of the calendar
-	 * view it belongs to is used.
+	 * property. When the appointment belongs to an active calendar it will return the color of
+	 * the last added category. In the case that the appointment has no label the color scheme
+	 * of the calendar view it belongs to is used.
 	 * @return {Object} The color scheme object
 	 */
-	getAppointmentColorScheme: function()
+	getAppointmentColor: function()
 	{
-		if(this.isActive()){
-			// If no label is set when default back to the color scheme of the calendar
-			if(this.getLabel() != Zarafa.core.mapi.AppointmentLabels['NONE']){
-				return Zarafa.calendar.ui.LabelColorSchemes[ this.getLabel() ];
-			}else{
-				return this.calendarColorScheme;
-			}
-		}else{
-			return this.calendarColorScheme;
+		var categories = Zarafa.common.categories.Util.getCategories(this.record);
+
+		// If no category is set then default back to the color scheme of the calendar
+		// Note: If a label has been set, then it will have been added as the last
+		// category by the getCategories method
+		if ( this.isActive() &&  !Ext.isEmpty(categories) ){
+			return Zarafa.common.categories.Util.getCategoryColor(categories.pop());
 		}
+
+		return this.calendarColorScheme.base;
 	}
 });

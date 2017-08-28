@@ -93,19 +93,19 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 */
 	tooltipTextTpl : new Ext.XTemplate(
 		'<tpl if="values.meeting !== Zarafa.core.mapi.MeetingStatus.NONMEETING && !Ext.isEmpty(this.formatOrganizer(values))">',
-			_('Organizer') + ': {[this.formatOrganizer(values)]}\n',
+			_('Organizer') + ': {[this.formatOrganizer(values)]}<br>',
 		'</tpl>',
 		'<tpl if="values.alldayevent != true">',
-			_('Time') + ': {[this.formatTime(values.startdate, values.duedate)]}\n',
+			_('Time') + ': {[this.formatTime(values.startdate, values.duedate)]}<br>',
 		'</tpl>',
 		'<tpl if="values.alldayevent == true">',
-			_('Date') + ': {[this.formatDate(values.startdate, values.duedate)]}\n',
+			_('Date') + ': {[this.formatDate(values.startdate, values.duedate)]}<br>',
 		'</tpl>',
 		'<tpl if="!Ext.isEmpty(values.location)">',
-			_('Location') + ': {values.location:htmlEncode}\n',
+			_('Location') + ': {values.location:htmlEncode}<br>',
 		'</tpl>',
 		'<tpl if="!Ext.isEmpty(values.recurring_pattern)">',
-			_('Recurrence') + ': {values.recurring_pattern:htmlEncode}\n',
+			_('Recurrence') + ': {values.recurring_pattern:htmlEncode}<br>',
 		'</tpl>',
 		{
 			compiled : true,
@@ -422,7 +422,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	{
 		if (this.fireEvent('beforeappointmentcalendardrop', this, appointment, sourceFolder, targetFolder, dateRange) !== false) {
 
-			// Create copy of selected record and update that particular copy with the specific drop location because 
+			// Create copy of selected record and update that particular copy with the specific drop location because
 			// if we update orignal record then changes will be reflected to UI as well
 			var copyAppointment = appointment.copy();
 			this.doAppointmentChange(copyAppointment, dateRange);
@@ -459,13 +459,18 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 		if (this.showTooltip === true) {
 			var tooltip = this.view.getTooltipInstance();
 			if (tooltip) {
+				if ( !Ext.isDefined(tooltip.targetXY) ){
+					tooltip.targetXY = event.getXY();
+				}
+
 				var id = appointment.store.data.getKey(appointment);
 				var title = this.tooltipTitleTpl.apply(appointment.data);
 				var text = this.tooltipTextTpl.apply(appointment.data);
+				var categories = Zarafa.common.categories.Util.getCategories(appointment);
 
 				// As component ID we use the RecordKey, use the MixedCollection#getKey,
 				// as that will generate a fully unique ID in case of recurring series.
-				tooltip.show(id, { title : title, text: text }, event);
+				tooltip.show(id, { title : title, text: text, categories: categories }, event);
 			}
 		}
 

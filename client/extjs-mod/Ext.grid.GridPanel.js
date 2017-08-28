@@ -11,7 +11,11 @@
 		{
 			orig_onClick.apply(this, arguments);
 
-			this.view.focusEl.focus();
+			// Don't change the focus when the user clicks on an input because
+			// that would close a grid editor when one clicks on it
+			if ( e.target.tagName !== 'INPUT' ){
+				this.view.focusEl.focus();
+			}
 		},
 
 		/*

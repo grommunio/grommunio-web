@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.common.ui.grid');
 /**
  * @class Zarafa.common.ui.grid.RowSelectionModel
  * @extends Ext.grid.RowSelectionModel
- * 
+ *
  * This selection model makes use of {@link Zarafa.core.data.MAPIStore#getRecordKey} function
  * to provide a different unique id to access data. This is mainly done to provide support for records
  * which has same entryid but we need to create multiple instances of it so we need to append another
