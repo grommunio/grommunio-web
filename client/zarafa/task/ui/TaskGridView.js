@@ -110,6 +110,12 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 			'rowbodycontextmenu': this.onRowBodyContextMenu,
 			scope: this
 		});
+
+		this.mon(this.context, 'viewmodechange', this.onContextViewModeChange, this);
+
+		// Call the handler manually as task-context-object isn't initialized yet,
+		// while switching to task context for the first time.
+		this.onContextViewModeChange(this.context, this.context.getCurrentViewMode());
 	},
 
 	/**
@@ -234,6 +240,30 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		}
 
 		return cssClass;
+	},
+
+	/**
+	 * Event handler which is fired when the {@link Zarafa.core.Context} fires the
+	 * {@link Zarafa.core.Context#viewmodechange viewmodechange} event.
+	 * This will check the selected mode, and if needed change the
+	 * {@link Ext.grid.Column columns} inside the {@link Ext.grid.ColumnModel ColumnModel}
+	 * of this grid. Either use the simple set or the detailed set.
+	 *
+	 * @param {Zarafa.core.Context} context The context which fired the event
+	 * @param {Zarafa.mail.data.ViewModes} newViewMode The new active mode
+	 * @param {Zarafa.mail.data.ViewModes} oldViewMode The previous mode
+	 * @private
+	 */
+	onContextViewModeChange : function(context, newViewMode, oldViewMode)
+	{
+		switch(newViewMode){
+			case Zarafa.task.data.ViewModes.SIMPLE :
+				this.getColumnModel().setSimpleView(true);
+				break;
+			case Zarafa.task.data.ViewModes.DETAILED :
+				this.getColumnModel().setSimpleView(false);
+				break;
+		}
 	}
 });
 

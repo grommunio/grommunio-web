@@ -442,6 +442,12 @@ $menu-item-height : 30px;
 	height: 20px;
 	width: 20px;
 }
+.x-menu-item-icon.icon_task_simple {
+	background-position: sprite-position($iconsmap, icon_task_simple, $offset-y: 4, $offset-x: 2);
+}
+.x-menu-item-icon.icon_task_detailed {
+	background-position: sprite-position($iconsmap, icon_task_detailed, $offset-y: 4, $offset-x: 2);
+}
 
 /* Override ExtJS's ugly blue border of an menu item */
 li.x-menu-item a.x-menu-item {
