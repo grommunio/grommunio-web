@@ -86,7 +86,7 @@ public class Concatinator
 					dependencyNames.add(matcher.group(1).replace('/', File.separatorChar));
 
 			}
-			
+			reader.close();
 		}
 		
 		/**
