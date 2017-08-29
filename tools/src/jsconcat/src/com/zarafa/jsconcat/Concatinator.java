@@ -280,7 +280,7 @@ public class Concatinator
 		for (FileNode fileNode : fileNodes)
 		{
 			String deps = fileNode.dependNodes.toString();
-			System.out.printf("%-40s %-6d %-8d %s\n", 
+			System.out.printf("%-40s %-6d %-8d %s%n",
 					fileNode,
 					fileNode.depth,
 					fileNode.priority,
