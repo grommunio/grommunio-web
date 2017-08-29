@@ -298,7 +298,6 @@ public class Concatinator
 	 */
 	public void concat(String outputFileName) throws FileNotFoundException, IOException
 	{
-		
 		// Calculate dependencies
 		FileOutputStream outStream = new FileOutputStream(outputFileName);
 
@@ -312,10 +311,13 @@ public class Concatinator
 		// Copy in->out.
 		byte[] buf = new byte[1024];
 		int len;
-		while ((len=input.read(buf))!=-1) outStream.write(buf, 0, len);
-		
-		input.close();
-		outStream.close();		
+		try {
+			while ((len=input.read(buf))!=-1) outStream.write(buf, 0, len);
+		}
+		finally {
+			input.close();
+			outStream.close();
+		}
 	}	
 
 }
