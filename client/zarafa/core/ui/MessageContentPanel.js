@@ -142,7 +142,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 				// As of now, message_flags and categories property is being processed only because some properties
 				// seems to be missing in MailStore-record as compare to ShadowStore-record result into some weird
 				// behavior with mail-formatting and meeting-request-accept functionalities.
-				this.record.beginEdit
+				this.record.beginEdit();
 				if (this.record.get('message_flags') !== receivedFlags) {
 					this.record.set('message_flags', receivedFlags);
 					commit = true;

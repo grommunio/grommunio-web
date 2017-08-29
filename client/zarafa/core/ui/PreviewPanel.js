@@ -188,22 +188,17 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Updates the preview panel when the data of the record changes
+	 * Updates the categories in the preview panel when the data of the record changes.
 	 *
 	 * @param {Zarafa.core.data.IPMStore} store The store to which the record belongs
 	 * that is shown in the preview panel
 	 * @param {Zarafa.core.data.IPMRecord} record The Record that was updated
-	 * @param {String} operation One of Ext.data.Record.EDIT, Ext.data.Record.REJECT,
-	 * or Ext.data.Record.COMMIT
 	 */
-	updatePreviewPanel : function(store, record, operation)
+	updatePreviewPanel : function(store, record)
 	{
 		// Only update when we are showing a record in the preview panel
-		// and when changes to that record are commited
-		if ( this.record && record.equals(this.record) && operation===Ext.data.Record.COMMIT ){
-			// HACK: This should never start a load task, so we will set opened to true to prevent it
-			record.opened = true;
-			this.setRecord(record);
+		if ( this.record && record.equals(this.record) ){
+			this.record.set('categories', record.get('categories'));
 			this.doLayout();
 		}
 	},
