@@ -31,3 +31,18 @@ Ext.applyIf(String, {
 		return result;
 	}
 });
+
+if (!String.prototype.startsWith) {
+	/**
+	 * Determines whether a string begins with the characters of a specified string,
+	 * returning true or false as appropriate.
+	 * @param {String} searchString The characters to be searched for at the start of this string.
+	 * @param {Number} position The position in this string at which to begin searching for searchString; defaults to 0.
+	 * @return {Boolean} true if the given characters are found at the beginning of the string; otherwise, false.
+	 */
+	Object.defineProperty(String.prototype, 'startsWith', {
+		value : function(searchString, position) {
+			return this.substr(position || 0, searchString.length) === searchString;
+		}
+	});
+}
