@@ -16,7 +16,8 @@ Zarafa.contact.DistlistMemberFields = [
 	{name: 'display_name'},
 	{name: 'address_type', type: 'string', defaultValue: 'SMTP'},
 	{name: 'distlist_type', type: 'int', defaultValue: Zarafa.core.mapi.DistlistType.DL_EXTERNAL_MEMBER},
-	{name: 'email_address'}
+	{name: 'email_address'},
+	{name: 'smtp_address'}
 ];
 
 /**

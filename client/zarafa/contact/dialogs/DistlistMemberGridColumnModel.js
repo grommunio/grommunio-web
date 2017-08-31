@@ -52,7 +52,7 @@ Zarafa.contact.dialogs.DistlistMemberGridColumnModel = Ext.extend(Ext.grid.Colum
 					tooltip : _('Sort by: Name'),
 					renderer : Zarafa.common.ui.grid.Renderers.text
 				},{
-					dataIndex : 'email_address',
+					dataIndex : 'smtp_address',
 					header : _('E-mail Address'),
 					tooltip : _('Sort by: Email Address'),
 					width : 350,

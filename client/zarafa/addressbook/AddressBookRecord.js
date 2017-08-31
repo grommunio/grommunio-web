@@ -146,7 +146,8 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 			address_type : this.get('address_type'),
 			distlist_type : distlistType,
 			display_name : this.get('display_name'),
-			email_address : this.get('email_address') || this.get('smtp_address')
+			email_address : this.get('email_address') || this.get('smtp_address'),
+			smtp_address : this.get('smtp_address') || this.get('email_address')
 		};
 
 		return Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER, props);

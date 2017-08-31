@@ -122,6 +122,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 			// So create a new member record and fill it with form data.
 			var newRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_DISTLIST_MEMBER);
 			form.updateRecord(newRecord);
+			newRecord.set("smtp_address", newRecord.get("email_address"));
 
 			// Add newly created record into the store.
 			this.parentRecord.getMemberStore().add(newRecord);
