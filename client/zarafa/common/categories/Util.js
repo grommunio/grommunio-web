@@ -345,9 +345,11 @@ Zarafa.common.categories.Util = {
 			}
 		});
 
-		var mergedCategory = settingsModel.get('kopano/main/merged_categories/'+flagColorIndex, true);
-		if(mergedCategory) {
-			retVal = mergedCategory;
+		if (!Ext.isEmpty(flagColorIndex)) {
+			var mergedCategory = settingsModel.get('kopano/main/merged_categories/'+flagColorIndex, true);
+			if(mergedCategory) {
+				retVal = mergedCategory;
+			}
 		}
 		return retVal;
 	},
