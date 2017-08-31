@@ -204,8 +204,9 @@ Zarafa.common.ui.ColorPicker = Ext.extend(Ext.form.Field, {
 	onClick : function(event) {
 		this.menu.showAt(event.getXY());
 
-		if ( this.colors.indexOf(this.value.toUpperCase()) > -1 ){
-			this.menu.palette.select(this.value, true);
+		var value = this.value.toUpperCase();
+		if ( this.colors.indexOf(value) > -1 ){
+			this.menu.palette.select(value, true);
 		}
 	}
 });
