@@ -496,12 +496,23 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	 */
 	onSelect: function(record)
 	{
-		this.collapse();
-		this.el.dom.value = '';
-		this.sizeInputfield();
-		this.store.removeAll(true);
+		this.hideSuggestionList();
 		this.handleSelection(record);
 		this.lastQuery = '';
+	},
+
+	/**
+	 * Function which is use to hide suggestion list and
+	 * It will also remove all records from suggestion list store.
+	 */
+	hideSuggestionList: function ()
+	{
+		if (this.isExpanded()) {
+			this.collapse();
+			this.el.dom.value = '';
+			this.sizeInputfield();
+			this.store.removeAll(true);
+		}
 	},
 
 	/**
