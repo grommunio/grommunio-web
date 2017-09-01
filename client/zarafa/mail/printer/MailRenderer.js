@@ -38,6 +38,7 @@ Zarafa.mail.printer.MailRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 		// Strip line separator and paragraph separator, since they break JavaScript strings which breaks XTemplate's eval().
 		html += record.getBody(true).replace(/{/g, '&#123;').replace(/}/g, '&#125;').replace(/\u2028/g, '').replace(/\u2029/g, '');
 		html += '</p>\n';
-		return html;
+		// Remove inline images when that are not downloaded.
+		return record.isExternalContentBlocked() ? html.replace(/<img[^>]*>/g,"") : html;
 	}
 });
