@@ -2349,12 +2349,7 @@
 				}
 
 				$sendMeetingRequestResult = $request->sendMeetingRequest($delete, false, $basedate, $modifiedRecipients, $deletedRecipients);
-
-				$recipients = [];
-				foreach($this->getRecipientsInfo($message) as $key => $value) {
-					$recipients[] = $value['props'];
-				};
-				$this->addEmailsToRecipientHistory($recipients);
+				$this->addEmailsToRecipientHistory($message);
 
 				if($sendMeetingRequestResult === true){
 					mapi_savechanges($message);
@@ -2698,11 +2693,7 @@
 					$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 					$result = true;
 
-					$recipients = [];
-					foreach($this->getRecipientsInfo($message) as $key => $value) {
-						$recipients[] = $value['props'];
-					};
-					$this->addEmailsToRecipientHistory($recipients);
+					$this->addEmailsToRecipientHistory($message);
 				}
 			}
 
@@ -3977,10 +3968,15 @@
 		* opens the recipient history property (PR_EC_RECIPIENT_HISTORY_JSON) and updates or appends
 		* it with the passed email addresses.
 		*
-		* @param emailAddresses array structure with recipients
+		* @param MAPIMessage the MAPI Mail message which is send
 		*/
-		function addEmailsToRecipientHistory($emailAddresses){
-			if (!is_array($emailAddresses) || empty($emailAddresses)) {
+		function addEmailsToRecipientHistory($message){
+			$emailAddress = [];
+			foreach($this->getRecipientsInfo($message) as $key => $value) {
+				$emailAddresses[] = $value['props'];
+			}
+
+			if (empty($emailAddresses)) {
 				return;
 			}
 
