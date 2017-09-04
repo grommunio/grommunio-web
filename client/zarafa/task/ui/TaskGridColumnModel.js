@@ -285,12 +285,10 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	{
 		p.css += ' zarafa-grid-empty-cell';
 
-		// In the TodoList we will also show non-tasks. We will not show the complete
-		// checkbox there.
-		// TODO: This should be changed when KW-1828 is being implemented
-		if ( !(record instanceof Zarafa.task.TaskRecord) ){
-			p.css += ' x-item-disabled';
-			return '';
+		// Value will be undefined as there is no 'complete' property while
+		// rendering this column for mail record, using 'flag_status' instead.
+		if (!Ext.isDefined(value) && record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed ) {
+			value = true;
 		}
 
 		return Ext.ux.grid.CheckColumn.prototype.renderer.apply(this, arguments);
@@ -314,6 +312,31 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		}
 
 		var record = grid.store.getAt(rowIndex);
+
+		// Check if the record is a mail record
+		if ( !(record instanceof Zarafa.task.TaskRecord) ) {
+			// we need different set of flag properties as this is
+			// the mail record we are dealing with.
+			var mailFlagProps = {
+				flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
+				flag_complete_time:	new Date(),
+				flag_request: 		'',
+				flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
+				reminder_set:		false,
+				task_start_date: 	null,
+				task_due_date: 		null
+			}
+
+			grid.store.suspendEvents(false);
+			record.beginEdit();
+			for ( var property in mailFlagProps ){
+				record.set(property, mailFlagProps[property]);
+			}
+			record.endEdit();
+			record.save();
+			grid.store.resumeEvents();
+			return;
+		}
 
 		record.beginEdit();
 

@@ -106,8 +106,6 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 
 		this.on({
 			'rowdblclick': this.onRowDblClick,
-			// TODO: This should be changed when KW-1828 is being implemented
-			'cellmousedown': this.onCellMousedown,
 			scope: this
 		});
 
@@ -132,25 +130,6 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	onRowDblClick : function(grid, rowIndex, eventObj)
 	{
 		Zarafa.task.Actions.openTaskContent(grid.getSelectionModel().getSelections());
-	},
-
-	/**
-	 * Event handler which is triggered when user clicks on a cell. Will make structure
-	 * that a click on the complete column will not trigger anything for non-tasks
-	 * in the Todo-list
-	 * @param {Ext.grid.GridPanel} grid This grid
-	 * @param {Number} rowIndex	index of the row that was clicked
-	 * @param {Number} colIndex	index of the column that was clicked
-	 * @private
-	 */
-	onCellMousedown : function(grid, rowIndex, colIndex)
-	{
-		if ( grid.getColumnModel().findColumnIndex('complete') === colIndex ){
-			var record = this.store.getAt(rowIndex);
-			if ( !(record instanceof Zarafa.task.TaskRecord) ){
-				return false;
-			}
-		}
 	},
 
 	/**

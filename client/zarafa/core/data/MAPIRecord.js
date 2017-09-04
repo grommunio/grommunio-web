@@ -718,7 +718,10 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 */
 	getSubStore : function(name)
 	{
-		return this.subStores[name];
+		if (this.subStores !== null) {
+			return this.subStores[name];
+		}
+		return undefined;
 	},
 
 	/**
@@ -728,7 +731,11 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 */
 	setSubStore : function(name, store)
 	{
-		this.subStores[name] = store;
+		if (this.subStores === null) {
+			this.subStores = {name : store};
+		} else {
+			this.subStores[name] = store;
+		}
 		store.setParentRecord(this);
 		return store;
 	},

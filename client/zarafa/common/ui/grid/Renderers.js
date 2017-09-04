@@ -293,6 +293,11 @@ Zarafa.common.ui.grid.Renderers = {
 	{
 		p.css = 'task_percentage';
 		if ( isNaN(value) ){
+			// 'value' will not be available as there is no 'complete' property while
+			// rendering this column for mail record, using 'flag_status' instead.
+			if ( record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed ) {
+				return Ext.util.Format.percentage(1);
+			}
 			return '';
 		}
 		return Ext.util.Format.percentage(value);
