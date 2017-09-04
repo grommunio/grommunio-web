@@ -464,6 +464,21 @@ $menu-item-height : 30px;
 	background-position: sprite-position($iconsmap, icon_task_detailed, $offset-y: 4, $offset-x: 2);
 }
 
+.icon_previewpanel_off {
+	@extend .icon_previewpanel_off;
+	background-position: sprite-position($iconsmap, icon_previewpanel_off, $offset-y: 7, $offset-x: 1);
+}
+
+.icon_previewpanel_right {
+	@extend .icon_previewpanel_right;
+	background-position: sprite-position($iconsmap, icon_previewpanel_right, $offset-y: 7, $offset-x: 1);
+}
+
+.icon_previewpanel_bottom {
+	@extend .icon_previewpanel_bottom;
+	background-position: sprite-position($iconsmap, icon_previewpanel_bottom, $offset-y: 7, $offset-x: 1);
+}
+
 /* Override ExtJS's ugly blue border of an menu item */
 li.x-menu-item a.x-menu-item {
 	border: none;
