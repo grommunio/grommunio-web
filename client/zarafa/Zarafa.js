@@ -176,6 +176,7 @@ Ext.apply(Zarafa, {
 		container = new Zarafa.core.Container();
 
 		// Set the server object
+		/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
 		container.setServerConfig(serverconfig);
 		delete serverconfig;
 
@@ -187,7 +188,7 @@ Ext.apply(Zarafa, {
 		// Load all persistent settings (i.e. settings that will not be deleted when the user resets his settings)
 		// Persistent settings are not added to the welcome screen, so check if they exist first.
 		if ( Ext.isDefined(window.persistentsettings) ){
-			container.getPersistentSettingsModel().initialize(persistentsettings);
+			container.getPersistentSettingsModel().initialize(window.persistentsettings);
 			/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
 			delete persistentsettings;
 		}
