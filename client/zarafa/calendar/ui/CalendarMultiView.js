@@ -359,42 +359,9 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 				target: this.el,
 				view: this
 			});
-			this.mon(this.tooltip, 'tooltipmousemove', this.onTooltipMouseMove, this);
 		}
 
 		return this.tooltip;
-	},
-
-	/**
-	 * Event handler for the {@link Zarafa.calendar.ui.canvas.ToolTip#tooltipmousemove MouseMove}
-	 * event on the {@link #tooltip}. This will search for the {@link Zarafa.calendar.ui.AbstractCalendarView calendar}
-	 * over which the mouse is moving, and will delegate the event to that calendar.
-	 * @param {Zarafa.calendar.ui.canvas.ToolTip} tooltip The tooltip which fired the event
-	 * @param {Ext.EventObject} event The event object
-	 * @private
-	 */
-	onTooltipMouseMove : function(tooltip, event)
-	{
-		for (var i = 0; i < this.calendars.length; i++) {
-			var calendar = this.calendars[i];
-
-			// We don't have a proper box model for an individual calendar,
-			// so we have to piece everything together..
-			// The x & y coordinates, as well as the header always come from the header.
-			// the height depends on the scrollable container.
-			var header = calendar.getCalendarHeader();
-			var box = {
-				x : header.getX(),
-				y : header.getY(),
-				width : header.getWidth(),
-				height: this.scrollable.getHeight()
-			};
-
-			if (Zarafa.core.Util.inside(box, event.getPageX(), event.getPageY())) {
-				calendar.onMouseMove(event);
-				break;
-			}
-		}
 	},
 
 	/**
