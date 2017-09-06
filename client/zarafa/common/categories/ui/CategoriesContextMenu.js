@@ -17,6 +17,12 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	records : [],
 
 	/**
+	 * @cfg {Zarafa.core.data.MAPIStore} store contains {@link #records} on which
+	 * categories is going to apply.
+	 */
+	store : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -24,7 +30,12 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 	{
 		config = config || {};
 
-		this.records = config.records;
+		if(!Array.isArray(config.records)) {
+			this.records = [config.records];
+		} else {
+			this.records = config.records;
+		}
+		this.store = this.records[0].getStore();
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.categoriescontextmenu',
@@ -156,11 +167,12 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 				Zarafa.common.Actions.openRenameCategoryContent({
 					categoryName : category.name,
 					records : this.records,
-					color : item.color
+					color : item.color,
+					recordStore : this.store
 				});
 			} else {
 				// Add this category to all records that don't have it yet'
-				Zarafa.common.categories.Util.addCategory(this.records, item.plainText, true);
+				Zarafa.common.categories.Util.addCategory(this.records, item.plainText, true, this.store);
 			}
 		}
 	}
