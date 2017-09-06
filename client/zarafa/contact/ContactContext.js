@@ -376,7 +376,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Phone List'),
 			iconCls: 'icon_contact_list',
 			valueView : Zarafa.contact.data.Views.LIST,
-			valueViewMode : Zarafa.contact.data.ViewModes.PHONE_LIST,
+			valueViewMode : Zarafa.contact.data.ViewModes.NORMAL,
 			valueDataMode : Zarafa.contact.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
