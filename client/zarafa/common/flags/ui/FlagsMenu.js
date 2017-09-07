@@ -21,6 +21,12 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	shadowEdit : true,
 
 	/**
+	 * @cfg {Zarafa.core.data.IPMStore} store which contains
+	 * records on which flag will be apply.
+	 */
+	store : null,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -213,6 +219,14 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	setFlagProperties : function(records, flagProperties)
 	{
 		records.forEach(function(record){
+			// when flag context menu is open
+			// and mean while grid was reloaded in background
+			// in that case record.store is get null which throw
+			// the error while saving record to overcome this problem
+			// we required to do following action.
+			if(Ext.isEmpty(record.getStore())) {
+				record = this.store.getById(record.get('entryid'));
+			}
 			record.beginEdit();
 			for ( var property in flagProperties ){
 				record.set(property, flagProperties[property]);

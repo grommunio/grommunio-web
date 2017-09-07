@@ -344,6 +344,8 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		var column = cm.config[columnIndex];
 		if (column.dataIndex === 'icon_index' ){
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
+		} else if(column.dataIndex === 'flag_due_by') {
+			Zarafa.common.Actions.openFlagsMenu(record, e.getXY(), false);
 		}
 	},
 
@@ -365,17 +367,6 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			record = this.store.getAt(rowIndex);
 
 			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
-		}
-		if ( Ext.get(event.target).hasClass('icon_flag') ){
-			const flagProperties = Ext.apply(Zarafa.common.flags.Util.getFlagBaseProperties(), Zarafa.common.flags.Util.getFlagPropertiesNoDate());
-
-			record = this.store.getAt(rowIndex);
-			record.beginEdit();
-			for ( var property in flagProperties ){
-				record.set(property, flagProperties[property]);
-			}
-			record.endEdit();
-			record.save();
 		}
 	},
 
