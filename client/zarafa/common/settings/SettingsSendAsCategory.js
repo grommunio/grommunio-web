@@ -26,7 +26,7 @@ Zarafa.common.settings.SettingsSendAsCategory = Ext.extend(Zarafa.settings.ui.Se
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Send As'),
+			title : _('From Addresses'),
 			categoryIndex : 6,
 			xtype : 'zarafa.settingssendascategory',
 			iconCls : 'zarafa-settings-category-sendas',
