@@ -289,7 +289,6 @@
 				var Zarafa = {};
 				var container = {};
 				var settings = {};
-				var properties = {};
 				var languages = [];
 				var serverconfig = {};
 				var user = {};
