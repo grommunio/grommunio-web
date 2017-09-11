@@ -71,16 +71,17 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'subject',
 			header : _('Subject'),
 			tooltip : _('Sort by: Subject'),
-			renderer : Zarafa.common.ui.grid.Renderers.subject
+			renderer : this.columnRenderer
 		}, {
 			dataIndex : 'duedate',
 			header : _('Due Date'),
 			tooltip : _('Sort by: Due Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate
+			renderer : this.columnRenderer
 		}, {
 			headerCls: 'zarafa-icon-column',
 			header : '<p class="icon_reminder">&nbsp;</p>',
 			dataIndex : 'reminder',
+			tooltip : _('Sort by: Reminder'),
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
@@ -88,34 +89,34 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			header : _('Reminder Time'),
 			dataIndex: 'reminder_time',
 			width: 160,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime,
+			renderer : this.columnRenderer,
 			tooltip : _('Sort by: Reminder Time'),
 			hidden: true
 		}, {
 			header : _('Assigned To'),
 			dataIndex : 'display_to',
 			width : 100,
-			renderer : Zarafa.common.ui.grid.Renderers.name,
+			renderer : this.columnRenderer,
 			tooltip : _('Sort by: Assignee'),
 			hidden: true
 		}, {
 			dataIndex : 'startdate',
 			header : _('Start Date'),
 			tooltip : _('Sort by: Start Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate,
+			renderer : this.columnRenderer,
 			hidden: true
 		}, {
 			dataIndex : 'percent_complete',
 			header : _('% Completed'),
 			width : 75,
 			tooltip : _('Sort by: Percent Completed'),
-			renderer : Zarafa.common.ui.grid.Renderers.percentage,
+			renderer : this.columnRenderer,
 			hidden: true
 		}, {
 			dataIndex : 'categories',
 			header : _('Categories'),
 			tooltip : _('Sort by: Categories'),
-			renderer : Zarafa.common.ui.grid.Renderers.text,
+			renderer : Zarafa.common.ui.grid.Renderers.categories,
 			hidden: true
 		},{
 			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
@@ -156,7 +157,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'owner',
 			header : _('Owner'),
 			tooltip : _('Sort by: Owner'),
-			renderer : Zarafa.common.ui.grid.Renderers.text,
+			renderer : this.columnRenderer,
 			hidden: true
 		}];
 	},
@@ -189,7 +190,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			header : _('Reminder Time'),
 			dataIndex: 'reminder_time',
 			width: 160,
-			renderer : Zarafa.common.ui.grid.Renderers.datetime,
+			renderer : this.columnRenderer,
 			tooltip : _('Sort by: Reminder Time'),
 			hidden: true
 		}, {
@@ -209,29 +210,29 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'subject',
 			header : _('Subject'),
 			tooltip : _('Sort by: Subject'),
-			renderer : Zarafa.common.ui.grid.Renderers.subject
+			renderer : this.columnRenderer
 		}, {
 			header : _('Assigned To'),
 			dataIndex : 'display_to',
 			width : 100,
-			renderer : Zarafa.common.ui.grid.Renderers.name,
+			renderer : this.columnRenderer,
 			tooltip : _('Sort by: Assignee')
 		}, {
 			dataIndex : 'startdate',
 			header : _('Start Date'),
 			tooltip : _('Sort by: Start Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate
+			renderer : this.columnRenderer
 		}, {
 			dataIndex : 'duedate',
 			header : _('Due Date'),
 			tooltip : _('Sort by: Due Date'),
-			renderer : Zarafa.common.ui.grid.Renderers.utcdate
+			renderer : this.columnRenderer
 		},{
 			dataIndex : 'percent_complete',
 			header : _('% Completed'),
 			width : 75,
 			tooltip : _('Sort by: Percent Completed'),
-			renderer : Zarafa.common.ui.grid.Renderers.percentage
+			renderer : this.columnRenderer
 		}, {
 			dataIndex : 'categories',
 			header : _('Categories'),
@@ -266,9 +267,50 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'owner',
 			header : _('Owner'),
 			tooltip : _('Sort by: Owner'),
-			renderer : Zarafa.common.ui.grid.Renderers.text,
+			renderer : this.columnRenderer,
 			hidden: true
 		}];
+	},
+
+	/**
+	 * Render the cell based on dataIndex if record is completed
+	 * task then strikethrough text of that column.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	columnRenderer : function (value, p, record)
+	{
+		switch (this.dataIndex) {
+			case 'subject':
+				value = Zarafa.common.ui.grid.Renderers.subject(value, p, record);
+				break;
+			case 'display_to':
+				value = Zarafa.common.ui.grid.Renderers.name(value, p, record);
+				break;
+			case 'startdate':
+			case 'duedate':
+				value = Zarafa.common.ui.grid.Renderers.utcdate(value, p, record);
+				break;
+			case 'percent_complete':
+				value = Zarafa.common.ui.grid.Renderers.percentage(value, p, record);
+				break;
+			case 'owner':
+				value = Zarafa.common.ui.grid.Renderers.text(value, p, record);
+				break;
+			case 'reminder_time':
+				value = Zarafa.common.ui.grid.Renderers.datetime(value, p, record);
+				break;
+		}
+
+		if((record.get('complete')
+				|| record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed)
+			&& !Ext.isEmpty(value)) {
+			p.css += ' k-task-complete';
+		}
+		return value
 	},
 
 	/**

@@ -4892,16 +4892,20 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .zarafa-task-complete {
   color: #777777;
 }
+/* line 583, ../scss/components/_grids.scss */
+.zarafa-task-complete .k-task-complete {
+  text-decoration: line-through;
+}
 
 /******************************************************************************
  * Grid with no column headers
  ******************************************************************************/
-/* line 589, ../scss/components/_grids.scss */
+/* line 592, ../scss/components/_grids.scss */
 .x-grid-panel.k-no-column-headers .x-grid3-header {
   display: none;
 }
 
-/* line 594, ../scss/components/_grids.scss */
+/* line 597, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button-container {
   position: absolute;
   right: 0;
@@ -4910,17 +4914,17 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-color: #ffffff;
 }
 
-/* line 601, ../scss/components/_grids.scss */
+/* line 604, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
   background-color: #f2f2f2;
 }
 
-/* line 604, ../scss/components/_grids.scss */
+/* line 607, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-selected .zarafa-grid-button-container {
   background-color: #d5e8f7;
 }
 
-/* line 607, ../scss/components/_grids.scss */
+/* line 610, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button {
   width: 24px;
   height: 24px;
@@ -4931,82 +4935,82 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-image: url('../images/icons-s2479700b37.png') !important;
 }
 
-/* line 616, ../scss/components/_grids.scss */
+/* line 619, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block;
 }
 
 /* Fixed categories cannot be edited or deleted because they are used
    to map old flags to categories */
-/* line 621, ../scss/components/_grids.scss */
+/* line 624, ../scss/components/_grids.scss */
 .x-grid3-row-over .k-category-fixed .k-grid-button-edit,
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none;
 }
 
-/* line 626, ../scss/components/_grids.scss */
+/* line 629, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit {
   background-position: 3px -4283px;
 }
 
-/* line 629, ../scss/components/_grids.scss */
+/* line 632, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit:hover {
   background-position: 3px -4318px;
 }
 
-/* line 632, ../scss/components/_grids.scss */
+/* line 635, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete {
   background-position: 3px -5315px;
 }
 
-/* line 635, ../scss/components/_grids.scss */
+/* line 638, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete:hover {
   background-position: 3px -5350px;
 }
 
-/* line 638, ../scss/components/_grids.scss */
+/* line 641, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin {
   background-position: 3px -4423px;
 }
 
-/* line 641, ../scss/components/_grids.scss */
+/* line 644, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin:hover {
   background-position: 3px -4458px;
 }
 
-/* line 644, ../scss/components/_grids.scss */
+/* line 647, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
   display: block;
   background-position: 3px -4353px;
 }
 
-/* line 648, ../scss/components/_grids.scss */
+/* line 651, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin:hover {
   background-position: 3px -4388px;
 }
 
-/* line 652, ../scss/components/_grids.scss */
+/* line 655, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid-editor {
   padding-top: 1px;
 }
 
-/* line 656, ../scss/components/_grids.scss */
+/* line 659, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-col-color {
   position: relative;
 }
 
-/* line 660, ../scss/components/_grids.scss */
+/* line 663, ../scss/components/_grids.scss */
 .k-categories-grid .k-colorpicker-ct {
   display: none;
   margin: -2px 0 -2px 0;
 }
 
-/* line 666, ../scss/components/_grids.scss */
+/* line 669, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color svg,
 .k-categories-grid .x-grid3-col-color.k-menu-visible svg {
   display: none;
 }
-/* line 670, ../scss/components/_grids.scss */
+/* line 673, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color .k-colorpicker-ct,
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block;

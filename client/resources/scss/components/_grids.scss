@@ -580,6 +580,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* Task grid Completed tasks row */
 .zarafa-task-complete {
 	color: $grey6;
+	.k-task-complete {
+		text-decoration: line-through;
+	}
 }
 
 /******************************************************************************
