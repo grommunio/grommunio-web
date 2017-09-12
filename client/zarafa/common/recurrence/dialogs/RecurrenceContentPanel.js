@@ -16,6 +16,16 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 	editRecurrence : false,
 
 	/**
+	 * True when recurring item is being created by pasting. When this is true,
+	 * {@link #onOk} will request to create new recurring message in calendar.
+	 * default is false.
+	 * @property
+	 * @type Boolean
+	 * @private
+	 */
+	pasteItem : false,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -45,7 +55,7 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 				xtype: 'zarafa.recurrencepanel',
 				ref: 'recurrencePanel',
 				buttons : [{
-					text : _('Ok'),
+					text : config.pasteItem ? _('Create') : _('Ok'),
 					handler : this.onOk,
 					scope : this,
 					ref : '../../okBtn'
@@ -175,6 +185,10 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 				this.record.modified['recurrence_weekdays'] = this.record.data['recurrence_weekdays'];
 			}
 
+			if(this.pasteItem) {
+				this.store.add(this.modalRecord);
+			}
+
 			Zarafa.common.recurrence.dialogs.RecurrenceContentPanel.superclass.onOk.apply(this, arguments);
 		}
 	},
@@ -189,9 +203,13 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 	 */
 	onSaveRecord : function(contentpanel, record)
 	{
-		// Recurrence has been changed, inform the server
-		// to reset the recurrence.
-		record.set('recurring_reset', true);
+		// Do not set recurring_reset to true while pasting recurring meeting/appointment
+		// because we are creating recurring item and not resetting recurring item.
+		if(!this.pasteItem) {
+			// Recurrence has been changed, inform the server
+			// to reset the recurrence.
+			record.set('recurring_reset', true);
+		}
 
 		// This is not a recurring message, clear the recurring pattern
 		if (!record.get('recurring')) {
@@ -222,7 +240,11 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 			disabled = true;
 		}
 
-		this.removeReccurrenceBtn.setDisabled(disabled);
+		if(this.pasteItem) {
+			this.removeReccurrenceBtn.setVisible(false);
+		} else {
+			this.removeReccurrenceBtn.setDisabled(disabled);
+		}
 		this.okBtn.setDisabled(disabled);
 	},
 

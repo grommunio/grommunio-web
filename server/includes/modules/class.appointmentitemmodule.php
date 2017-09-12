@@ -239,6 +239,11 @@
 					$data['action_response'] = Array(
 						'resources_booked' => $this->directBookingMeetingRequest
 					);
+
+					if(isset($action['message_action']) && isset($action['message_action']['paste'])) {
+						$data['action_response']['resources_pasted'] = true;
+					}
+
 				} else {
 					if(!empty($action['message_action']['send'])){
 						$errorMsg = _('Meeting could not be sent.');

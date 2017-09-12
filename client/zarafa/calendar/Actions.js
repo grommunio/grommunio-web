@@ -357,5 +357,45 @@ Zarafa.calendar.Actions = {
 		// We are done initializing the context & model.
 		// Time to start loading
 		model.resumeLoading();
+	},
+
+	/**
+	 * Function which show the {@link Zarafa.common.dialogs.MessageBox.select selectMessageBox} dialog
+	 * if selected record is recurring items and based on selected option record is converted to either
+	 * {@link Zarafa.calendar.AppointmentRecord.convertToSeriesRecord seriesRecord} or
+	 * {@link Zarafa.calendar.AppointmentRecord.convertToOccurenceRecord OccurenceRecord}. Also it will open
+	 * the record if it is not.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record A selected calender item in calender view.
+	 * @param {Object} config Configuration object which contains {@link Ext.Component component}
+	 * on which key event is fired and scope of the {@link Zarafa.calendar.KeyMapping KeyMapping} object.
+	 */
+	copyRecurringItemContent : function(record, config)
+	{
+		Zarafa.common.Actions.copyRecurringSelectionContent(record, function(button, radio) {
+			// Action cancelled.
+			if (button === 'cancel') {
+				return;
+			}
+
+			var clipBoardRecord = '';
+			// Convert the record to the requested type
+			if (radio.id !== 'recurrence_series') {
+				clipBoardRecord = record.convertToOccurenceRecord();
+			} else {
+				clipBoardRecord = record.convertToSeriesRecord();
+			}
+
+			// Open record if record is not opened. we need to open record
+			// because we requires "body", "recurrence_*" property information to
+			// create proper normal/recurring record with proper recurring pattern .
+			if(!record.isOpened()) {
+				this.openRecord(config.component, clipBoardRecord);
+			} else {
+				config.component.clipBoardData = clipBoardRecord;
+				config.component.doPaste();
+			}
+
+		}, config.scope);
 	}
 };

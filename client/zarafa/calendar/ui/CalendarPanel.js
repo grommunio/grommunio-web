@@ -30,6 +30,14 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	store : undefined,
 
 	/**
+	 * The clipBoardData which contains copied record.
+	 *
+	 * @property
+	 * @type Zarafa.calendar.AppointmentRecord
+	 */
+	clipBoardData : undefined,
+
+	/**
 	 * @cfg {String} loadMaskText text shown when the panel is loading data from the store.
 	 */
 	loadMaskText : _('Loading') + '...',
@@ -919,6 +927,225 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			if (selection.getStartTime() === record.get('startdate').getTime() && selection.getDueTime() === record.get('duedate').getTime()) {
 				selectionModel.clearSelections();
 			}
+		}
+	},
+
+	/**
+	 * Function which is used to paste the copied item into calendar.
+	 * @private
+	 */
+	doPaste : function()
+	{
+		var record = this.createRecordCopy();
+		// Added source record info in message action. which used to
+		// copy attachments and recipients related information from source message to
+		// new pasted record.
+		record.addMessageAction("source_entryid", this.clipBoardData.get('entryid'));
+		record.addMessageAction("source_store_entryid", this.clipBoardData.get('store_entryid'));
+		record.addMessageAction("paste", true);
+
+		var store = this.model.store;
+		if(record.get('recurring')) {
+			Zarafa.common.Actions.openRecurrenceContent(record, {
+				store : store,
+				pasteItem : true
+			});
+		} else {
+			store.add(record);
+			store.save(record);
+		}
+	},
+
+	/**
+	 * Function which is used to generate new date range as per the user selected in
+	 * calendar view.
+	 *
+	 * @return {Zarafa.core.DateRange} dateRange new date range.
+	 * @private
+	 */
+	getNewDateRange : function()
+	{
+		var views = this.getView();
+		var dateModelType = this.model.getCurrentDataMode();
+		var copiedRecord = this.clipBoardData;
+		var calendarView = views.getCalendarViewByFolder(this.model.getDefaultFolder());
+
+		var dateRange = calendarView.selectionView.getDateRange();
+		var copyStartDate = copiedRecord.get('startdate');
+		var copyDueDate = copiedRecord.get('duedate');
+
+		if(dateModelType === Zarafa.calendar.data.DataModes.MONTH) {
+			// Selected only one day box in month view.
+			if(dateRange.getNumDays() === 1) {
+				var startDate = dateRange.getStartDate();
+
+				startDate = startDate.add(Date.HOUR,copyStartDate.getHours());
+				startDate = startDate.add(Date.MINUTE,copyStartDate.getMinutes());
+
+				var diffTime = Date.diff(Date.MILLI, copyDueDate, copyStartDate);
+				var dueDate = (startDate.getTime() / 1000) + (diffTime/1000);
+				dateRange.set(startDate, new Date(dueDate * 1000), true, true);
+			}
+		} else {
+			// If dateRange is undefined it means user pasting appointment
+			// at the same place where copied appointment currently located (with same date and duration).
+			if (!Ext.isDefined(dateRange)) {
+				dateRange = new Zarafa.core.DateRange();
+				dateRange.set(copyStartDate, copyDueDate, true, true);
+			} else if(!dateRange.isAllDay()) {
+				// If date range is not all day then we prepare new date range
+				// with copied appointment duration.
+				var startDate = dateRange.getStartDate();
+				var diffTime = Date.diff(Date.MILLI, copyDueDate, copyStartDate);
+				if(copiedRecord.get('alldayevent')) {
+					startDate.clearTime();
+					dateRange.setDueDate(startDate.add(Date.HOUR,24));
+				} else if (diffTime !== Date.dayInMillis) {
+					var dueDate = (startDate.getTime() / 1000) + (diffTime/1000);
+					dateRange.setDueDate(new Date(dueDate * 1000), true, true);
+				}
+			}
+		}
+		return dateRange;
+	},
+
+	/**
+	 * Function which is used to create new copy of record from original record
+	 * with some updated information like date range, recurring pattern etc.
+	 *
+	 * @return {Zarafa.calendar.AppointmentRecord} record which is going to paste in calender.
+	 * @private
+	 */
+	createRecordCopy : function()
+	{
+		var copiedRecord = this.clipBoardData;
+		var record = this.model.createRecord(undefined, this.getNewDateRange());
+		var remainder = copiedRecord.get('reminder');
+
+		// Outlook add's this 0x00000008 and 0x00000080 flags along with auxApptFlagCopied in
+		// auxiliary_flags(value is 137), As of now we are not able to figure it out what
+		// it is, so for now we follow Ol and added this flags. This flag is used to distinguish
+		// between original and copied appointment/meeting record in calender.
+		var auxiliaryFlags = Zarafa.core.mapi.AppointmentAuxiliaryFlags.auxApptFlagCopied | 0x00000008 | 0x00000080;
+		Ext.apply(record.data, {
+			'subject' : !copiedRecord.isCopied() ? _('Copy')+":"+copiedRecord.get('subject') : copiedRecord.get('subject'),
+			'body' : copiedRecord.get('body'),
+			'location' : copiedRecord.get('location'),
+			'importance' : copiedRecord.get('importance'),
+			'label' : copiedRecord.get('label'),
+			'private' : copiedRecord.get('private'),
+			'busystatus' : copiedRecord.get('busystatus'),
+			'reminder': remainder,
+			'categories' : copiedRecord.get('categories'),
+			'auxiliary_flags' : auxiliaryFlags
+		});
+
+		if (remainder) {
+			Ext.apply(record.data, {
+				'reminder_minutes' : copiedRecord.get('reminder_minutes'),
+				'reminder_time' : copiedRecord.get('reminder_time')
+			});
+		}
+
+		// Copy all attachment from original message.
+		var store = record.getAttachmentStore();
+		var origStore = copiedRecord.getAttachmentStore();
+		origStore.each(function (attach) {
+			store.add(attach.copy());
+		}, this);
+
+		if(copiedRecord.isMeeting()) {
+			this.copyMeetingProps(record, copiedRecord);
+		}
+
+		if (copiedRecord.get('recurring')) {
+			this.copyRecurringProps(record, copiedRecord);
+		}
+		return record;
+	},
+
+	/**
+	 * Function which copy necessary recurring properties of recurring appointment/meeting.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record A new Meeting record
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord Copy of original recurring appointment/meeting record
+	 * @private
+	 */
+	copyRecurringProps : function (record, copiedRecord)
+	{
+		if(copiedRecord.get('alldayevent')) {
+			record.get('startdate').setHours(12);
+		}
+		var startDate = record.get('startdate');
+		var startOcc = 0;
+		if (!record.get('alldayevent')) {
+			startOcc = (startDate.getHours() * 60) + startDate.getMinutes();
+		}
+
+		Ext.apply(record.data , {
+			'recurring' : true,
+			'recurrence_start' : startDate,
+			'recurrence_end' : startDate,
+			'recurrence_endocc' : startOcc + record.get('duration'),
+			'recurrence_startocc' : startOcc,
+			'recurrence_subtype' : copiedRecord.get('recurrence_subtype'),
+			'recurrence_term' : copiedRecord.get('recurrence_term'),
+			'recurrence_type' : copiedRecord.get('recurrence_type'),
+			'recurrence_weekdays' : copiedRecord.get('recurrence_weekdays'),
+			'recurrence_regen' : copiedRecord.get('recurrence_regen'),
+			'recurrence_numoccur' : copiedRecord.get('recurrence_numoccur'),
+			'recurrence_numexceptmod' : copiedRecord.get('recurrence_numexceptmod'),
+			'recurrence_numexcept' : copiedRecord.get('recurrence_numexcept'),
+			'recurrence_everyn' : copiedRecord.get('recurrence_everyn'),
+			'recurrence_month' : copiedRecord.get('recurrence_month'),
+			'recurrence_monthday' : parseInt(startDate.format('d'),10),
+			'recurrence_nday' : copiedRecord.get('recurrence_nday')
+		});
+		record.set('recurring_pattern', record.generateRecurringPattern());
+		record.updateTimezoneInformation();
+	},
+
+	/**
+	 * Function which apply meeting related properties from copy of an original record to
+	 * record which is going to paste in calendar.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record New meeting record
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord Copy of original recurring appointment/meeting record
+	 * @private
+	 */
+	copyMeetingProps : function (record, copiedRecord)
+	{
+		if (copiedRecord.isMeetingOrganized()) {
+			var store = record.getRecipientStore();
+			var origStore = copiedRecord.getRecipientStore();
+			origStore.each(function (recipient) {
+				store.add(recipient.copy());
+			}, this);
+			Ext.apply(record.data, {
+				'meeting' : copiedRecord.get('meeting'),
+				'responsestatus' : Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED,
+				'sender_address_type' : copiedRecord.get('sender_address_type'),
+				'sender_email_address' : copiedRecord.get('sender_email_address'),
+				'sender_entryid' : copiedRecord.get('sender_entryid'),
+				'sender_name' : copiedRecord.get('sender_name'),
+				'sender_presence_status' : copiedRecord.get('sender_presence_status'),
+				'sender_search_key' : copiedRecord.get('sender_search_key'),
+				'sender_username': copiedRecord.get('sender_username'),
+				'sent_representing_address_type' : copiedRecord.get('sent_representing_address_type'),
+				'sent_representing_email_address' : copiedRecord.get('sent_representing_email_address'),
+				'sent_representing_entryid' : copiedRecord.get('sent_representing_entryid'),
+				'sent_representing_name' : copiedRecord.get('sent_representing_name'),
+				'sent_representing_presence_status' : copiedRecord.get('sent_representing_presence_status'),
+				'sent_representing_search_key' : copiedRecord.get('sent_representing_search_key'),
+				'sent_representing_username' : copiedRecord.get('sent_representing_username'),
+				'reply_name' : copiedRecord.get('reply_name')
+			});
+		} else if(copiedRecord.isMeetingReceived()) {
+			Ext.apply(record.data, {
+				'meeting' : Zarafa.core.mapi.MeetingStatus.MEETING,
+				'responsestatus' : Zarafa.core.mapi.ResponseStatus.RESPONSE_ORGANIZED,
+				'sensitivity' : copiedRecord.get('sensitivity')
+			});
 		}
 	},
 

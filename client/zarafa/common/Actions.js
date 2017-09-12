@@ -459,6 +459,55 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Opens a {@link Zarafa.common.dialogs.MessageBox.select MessageBox} for
+	 * selecting if either a recurrence or the entire series must be paste for the Recurring
+	 * appointment/meeting.
+	 *
+	 * @param {Function} handler The handler which is invoked with the selected value
+	 * from the dialog. This function only takes one argument and is either 'recurrence_occurence'
+	 * when the single-occurence was selected or 'recurrence_series' when the series was selected.
+	 * @param {Object} scope (optional) The scope on which the handler must be invoked.
+	 */
+	copyRecurringSelectionContent : function(record, handler, scope)
+	{
+		var title = _('Paste Recurring {0}');
+		var text =  _('This is a recurring {0}. Do you want to paste only this occurrence or the series?');
+
+		var msgText = _('message');
+		if (record.isMessageClass('IPM.Appointment', true)) {
+			msgText = record.isMeeting() ? _('meeting request') : _('appointment');
+		}
+
+		title = String.format(title,Ext.util.Format.capitalize(msgText));
+		text =  String.format(text, msgText);
+
+		Zarafa.common.dialogs.MessageBox.select(
+			title, text, handler, scope, [{
+				boxLabel: _('Paste this occurrence only'),
+				id : 'recurrence_occurence',
+				name: 'select',
+				checked: true,
+				showButtonText : 'ok',
+				hideButtonText : 'next'
+			},{
+				boxLabel: _('Paste the series...'),
+				id : 'recurrence_series',
+				name: 'select',
+				showButtonText : 'next',
+				hideButtonText : 'ok'
+			}],
+			undefined,
+			[{
+				text : _('Ok'),
+				name : 'ok'
+			}, {
+				text : _('Cancel'),
+				name : 'cancel'
+			}]
+		);
+	},
+
+	/**
+	 * Opens a {@link Zarafa.common.dialogs.MessageBox.select MessageBox} for
 	 * selecting if either a recurrence or the entire series must be deleted.
 	 *
 	 * @param {Function} handler The handler which is invoked with the selected value
@@ -598,7 +647,7 @@ Zarafa.common.Actions = {
 						scope: record,
 						buttons: Ext.MessageBox.YESNO
 					});
-				} else if (record.isMeetingResponseRequired()) {
+				} else if (record.isMeetingResponseRequired() && !record.isCopied()) {
 					// We are the attendee of the meeting, lets ask if we should inform the organizer
 					this.deleteMeetingRequestConfirmationContent(record, this.declineInvitation, record);
 				} else {

@@ -902,6 +902,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			}
 		}
 
+		// Remove auxiliary_flags if unset copy meeting is going to send.
+		if (record.hasMessageAction('send') && record.isCopied()) {
+			record.set('auxiliary_flags', 0);
+		}
+
 		this.onBodyChange(this.editorField.getEditor(), this.editorField.getValue());
 
 		record.endEdit();
@@ -1210,8 +1215,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				}
 			}
 		} else {
-			// Meeting is in future, but not replied yet
 			if(Ext.isDate(dueDate) && dueDate.getTime() >= (new Date().getTime())) {
+				// Meeting is in future, but not replied yet
 				responseString = this.responseRequiredString;
 			}
 		}

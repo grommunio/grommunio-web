@@ -33,6 +33,7 @@ Zarafa.calendar.AppointmentRecordFields = [
 	{name: 'meeting', type: 'int', defaultValue: Zarafa.core.mapi.MeetingStatus.NONMEETING},
 	{name: 'location', type: 'string'},
 	{name: 'duration', type: 'int'},
+	{name: 'auxiliary_flags', type: 'int'},
 	{name: 'responsestatus', type: 'int', defaultValue: Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE},
 	{name: 'reminder', type: 'boolean'},
 	{name: 'reminder_minutes', type: 'int'},
@@ -639,7 +640,7 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	},
 
 	/**
-	 * @return {Boolean} true iff the record has been fully loaded.
+	 * @return {Boolean} true if the record has been fully loaded.
 	 */
 	isOpened : function()
 	{
@@ -648,6 +649,14 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		} else {
 			return this.openedSeries === true;
 		}
+	},
+
+	/**
+	 * @return {Boolean} true if the record is copied record.
+	 */
+	isCopied : function ()
+	{
+		return (this.get('auxiliary_flags') & Zarafa.core.mapi.AppointmentAuxiliaryFlags.auxApptFlagCopied) > 0;
 	},
 
 	/**
