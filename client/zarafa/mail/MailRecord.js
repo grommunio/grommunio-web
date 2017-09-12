@@ -28,7 +28,9 @@ Zarafa.mail.MailRecordFields = [
 	{name: 'flag_due_by', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'flag_complete_time', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'block_status', type: 'int', defaultValue: undefined},
-	{name: 'stubbed', type: 'boolean', defaultValue: false}
+	{name: 'stubbed', type: 'boolean', defaultValue: false},
+	{name: 'startdate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
+	{name: 'duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null}
 ];
 
 Zarafa.mail.MailRecordPhantomHandler = function(record) {
