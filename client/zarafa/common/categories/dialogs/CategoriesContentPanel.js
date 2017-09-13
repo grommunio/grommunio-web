@@ -108,6 +108,12 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 
 		Ext.each(this.record, function(record) {
 			record.set('categories', categoryString);
+			// Since the new implementation of categories, labels are deprecated and will
+			// also be displayed as categories. So if a label was set, we will need to remove it
+			// otherwise it will be added again.
+			if (record.get('label')) {
+				record.set('label', 0);
+			}
 		}, this);
 
 		if (this.autoSave) {
