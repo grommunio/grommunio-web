@@ -630,7 +630,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		if (this.minListWidth > desiredWidth) {
 			desiredWidth = this.minListWidth;
 		} else if (fieldWidth < desiredWidth) {
-			desiredWidth = fieldWidth;
+			// Don't restrict width of suggestion-list in case of zarafa.userlistbox
+			// because container is smaller then the width of content of suggestion list.
+			// And we don't want the ellipsis.
+			if (this.boxType !== "zarafa.userlistbox"){
+				desiredWidth = fieldWidth;
+			}
 		}
 
 		// We now have the width we need. Since we are going to align
@@ -638,7 +643,12 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		// from the start of the input field to the end of the box field.
 		var availableWidth = container.getWidth() - offset[0];
 		if (availableWidth < desiredWidth) {
-			desiredOffsetLeft = availableWidth - desiredWidth;
+			// Don't adjust left-offset of suggestion-list in case of zarafa.userlistbox.
+			// it will result into negative value because container is smaller then
+			// the desired-width.
+			if (this.boxType !== "zarafa.userlistbox") {
+				desiredOffsetLeft = availableWidth - desiredWidth;
+			}
 		}
 
 		// But what if so much size was needed, that the offset would cause
