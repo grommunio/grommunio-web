@@ -20,7 +20,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 
 	/**
 	 * @constructor
-	 * @param config Configuration structure
+	 * @param {Object} config Configuration structure
 	 */
 	constructor : function(config)
 	{

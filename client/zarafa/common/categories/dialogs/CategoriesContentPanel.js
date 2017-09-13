@@ -39,7 +39,7 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 
 	/**
 	 * @constructor
-	 * @param config Configuration structure
+	 * @param {Object} config Configuration structure
 	 */
 	constructor : function(config)
 	{

@@ -20,7 +20,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	categorySeparator : ';',
 	/**
 	 * @constructor
-	 * @param config Configuration structure
+	 * @param {Object} config Configuration structure
 	 */
 	constructor : function(config)
 	{
