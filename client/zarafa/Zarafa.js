@@ -190,7 +190,7 @@ Ext.apply(Zarafa, {
 		if ( Ext.isDefined(window.persistentsettings) ){
 			container.getPersistentSettingsModel().initialize(window.persistentsettings);
 			/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
-			delete persistentsettings;
+			delete window.persistentsettings;
 		}
 
 		// Set the user object
