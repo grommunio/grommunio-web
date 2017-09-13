@@ -54,6 +54,14 @@ $menu-item-height : 30px;
 				background-color: $grey4;
 			}
 		}
+
+		li.x-menu-list-item.x-menu-item-selected {
+			box-shadow: none;
+			a {
+				background-color: $light-blue;
+			}
+		}
+
 		li.x-menu-list-item.x-menu-item-active:active {
 			a:not(.k-unclickable) {
 				background-color: $grey;

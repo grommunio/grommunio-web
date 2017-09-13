@@ -250,7 +250,10 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 						contextName: context.getName(),
 						menu: Zarafa.core.Util.uniqueArray(menu, 'text'),
 						listeners : {
-							render : this.onRenderViewButton
+							render : this.onRenderViewButton,
+							menuhide : this.onSwitchViewMenuHide,
+							menushow : this.onSwitchViewMenuShow.createDelegate(this,[context], true),
+							scope : this
 						}
 					});
 				} else {
@@ -278,6 +281,55 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 		}
 
 		this.addItems(menuItems);
+	},
+
+	/**
+	 * Event handler which is triggered when switch view split button
+	 * menu hide. function which remove selection css class from
+	 * split button menu item.
+	 *
+	 * @param {Ext.SplitButton} splitBtn split button which contains highlighted menu item.
+	 * @param {Ext.menu.Menu} menu menu contains highlighted menu item.
+	 */
+	onSwitchViewMenuHide : function (splitBtn, menu)
+	{
+		menu.find().forEach(function(item){
+			var hasClass = item.getEl().hasClass('x-menu-item-selected');
+			if(hasClass) {
+				item.getEl().removeClass('x-menu-item-selected');
+			}
+		}, this);
+	},
+
+	/**
+	 * Event handler which is triggered when switch view split button
+	 * menu shows. It will highlight current selected view in switch
+	 * view menu by checking {@link Zarafa.core.Context#current_view_mode view mode}
+	 * of menu item and for sticky note switch view menu we use
+	 * {@link Zarafa.core.Context#current_view view} to highlight the
+	 * menu item.
+	 *
+	 * @param {Ext.SplitButton} splitBtn split button which menu item is going to highlight.
+	 * @param {Ext.menu.Menu} menu menu contains the menu item which is going to highlight
+	 * @param {Zarafa.core.Context} context which contains the switch view split button.
+	 */
+	onSwitchViewMenuShow : function(splitBtn, menu, context)
+	{
+		if(context.getName() !== 'note') {
+			var menuItem = menu.find('valueViewMode', context.getCurrentViewMode())[0];
+			if (Ext.isDefined(menuItem)) {
+				menuItem.addClass('x-menu-item-selected');
+			}
+		} else {
+			var menuItems = menu.find('valueView', context.getCurrentView());
+			var currentDataMode = context.getModel().getCurrentDataMode();
+			menuItems.forEach(function (menuItem) {
+				if(menuItem.valueDataMode === currentDataMode) {
+					menuItem.addClass('x-menu-item-selected');
+					return;
+				}
+			}, this);
+		}
 	},
 
 	/**

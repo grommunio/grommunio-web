@@ -5597,86 +5597,94 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-color: #f2f2f2;
 }
 /* line 58, ../scss/components/_menus.scss */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-selected {
+  box-shadow: none;
+}
+/* line 60, ../scss/components/_menus.scss */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-selected a {
+  background-color: #d5e8f7;
+}
+/* line 66, ../scss/components/_menus.scss */
 .x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active:active a:not(.k-unclickable) {
   background-color: #e6e6e6;
 }
-/* line 63, ../scss/components/_menus.scss */
+/* line 71, ../scss/components/_menus.scss */
 .x-menu .x-menu-list li.x-menu-sep-li {
   padding: 0;
   margin: 3px 0;
 }
-/* line 67, ../scss/components/_menus.scss */
+/* line 75, ../scss/components/_menus.scss */
 .x-menu .x-menu-list li.x-menu-sep-li .x-menu-sep {
   background-color: #e6e6e6;
   padding: 0;
   margin: 0;
   border: none;
 }
-/* line 81, ../scss/components/_menus.scss */
+/* line 89, ../scss/components/_menus.scss */
 .x-menu .icon_createEmailMessage {
   background-position: 0 -3511px;
 }
-/* line 102, ../scss/components/_menus.scss */
+/* line 110, ../scss/components/_menus.scss */
 .x-menu .icon_createTask {
   background-position: 3px -3628px;
 }
-/* line 107, ../scss/components/_menus.scss */
+/* line 115, ../scss/components/_menus.scss */
 .x-menu .icon_createTaskRequest {
   background-position: 3px -3350px;
 }
-/* line 116, ../scss/components/_menus.scss */
+/* line 124, ../scss/components/_menus.scss */
 .x-menu .icon_open {
   background-position: 2px -353px;
 }
-/* line 121, ../scss/components/_menus.scss */
+/* line 129, ../scss/components/_menus.scss */
 .x-menu .icon_copy {
   background-position: 3px -508px;
 }
-/* line 125, ../scss/components/_menus.scss */
+/* line 133, ../scss/components/_menus.scss */
 .x-menu .icon_remove {
   background-position: 5px -547px;
 }
-/* line 130, ../scss/components/_menus.scss */
+/* line 138, ../scss/components/_menus.scss */
 .x-menu .icon_folder_rename {
   background-position: 3px -2570px;
 }
-/* line 134, ../scss/components/_menus.scss */
+/* line 142, ../scss/components/_menus.scss */
 .x-menu .icon_createFolderColor {
   background-position: 4px -2255px;
 }
-/* line 139, ../scss/components/_menus.scss */
+/* line 147, ../scss/components/_menus.scss */
 .x-menu .icon_mark_all_read {
   background-position: 3px -2950px;
 }
-/* line 144, ../scss/components/_menus.scss */
+/* line 152, ../scss/components/_menus.scss */
 .x-menu .icon_folder_delete {
   background-position: 2px -5518px;
 }
-/* line 148, ../scss/components/_menus.scss */
+/* line 156, ../scss/components/_menus.scss */
 .x-menu .icon_restore, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_restore {
   background-position: 5px -4794px;
 }
-/* line 152, ../scss/components/_menus.scss */
+/* line 160, ../scss/components/_menus.scss */
 .x-menu .icon_folder_favorites {
   background-position: -30px -1896px;
 }
-/* line 157, ../scss/components/_menus.scss */
+/* line 165, ../scss/components/_menus.scss */
 .x-menu .icon_remove_favorites {
   background-position: 1px -4760px;
 }
-/* line 161, ../scss/components/_menus.scss */
+/* line 169, ../scss/components/_menus.scss */
 .x-menu .icon_openMessageOptions {
   background-position: 0 -405px;
 }
-/* line 166, ../scss/components/_menus.scss */
+/* line 174, ../scss/components/_menus.scss */
 .x-menu .icon_saveaseml {
   background-position: 3px -1787px;
 }
-/* line 171, ../scss/components/_menus.scss */
+/* line 179, ../scss/components/_menus.scss */
 .x-menu .icon_saveemlaszip {
   background-position: 5px -1821px;
 }
-/* line 176, ../scss/components/_menus.scss */
+/* line 184, ../scss/components/_menus.scss */
 .x-menu .icon_print, .x-menu .icon_print_single,
 .x-menu .icon_print_single_appt,
 .x-menu .icon_print_view,
@@ -5686,143 +5694,143 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .icon_print_single_contact {
   background-position: 0 -1884px;
 }
-/* line 180, ../scss/components/_menus.scss */
+/* line 188, ../scss/components/_menus.scss */
 .x-menu .icon_replyEmail {
   background-position: 0 -2151px;
 }
-/* line 185, ../scss/components/_menus.scss */
+/* line 193, ../scss/components/_menus.scss */
 .x-menu .icon_replyAllEmail {
   background-position: 0 -2201px;
 }
-/* line 190, ../scss/components/_menus.scss */
+/* line 198, ../scss/components/_menus.scss */
 .x-menu .icon_forwardEmail {
   background-position: 0 -856px;
 }
-/* line 195, ../scss/components/_menus.scss */
+/* line 203, ../scss/components/_menus.scss */
 .x-menu .icon_editAsNewEmail {
   background-position: 0 -713px;
 }
-/* line 200, ../scss/components/_menus.scss */
+/* line 208, ../scss/components/_menus.scss */
 .x-menu .icon_embedded_attachment {
   background-position: 2px -760px;
 }
-/* line 205, ../scss/components/_menus.scss */
+/* line 213, ../scss/components/_menus.scss */
 .x-menu .icon_message_unread {
   background-position: 3px -3192px;
 }
-/* line 210, ../scss/components/_menus.scss */
+/* line 218, ../scss/components/_menus.scss */
 .x-menu .icon_categories {
   background-position: 2px -1234px;
 }
-/* line 216, ../scss/components/_menus.scss */
+/* line 224, ../scss/components/_menus.scss */
 .x-menu .icon_checkNames {
   background-position: 1px -355px;
 }
-/* line 222, ../scss/components/_menus.scss */
+/* line 230, ../scss/components/_menus.scss */
 .x-menu .icon_saveEmail {
   background-position: 0 -804px;
 }
-/* line 228, ../scss/components/_menus.scss */
+/* line 236, ../scss/components/_menus.scss */
 .x-menu .icon_addSignature {
   background-position: 1px -2690px;
 }
-/* line 234, ../scss/components/_menus.scss */
+/* line 242, ../scss/components/_menus.scss */
 .x-menu .icon_setHighPriority {
   background-position: 9px -1930px;
 }
-/* line 240, ../scss/components/_menus.scss */
+/* line 248, ../scss/components/_menus.scss */
 .x-menu .icon_setLowPriority {
   background-position: 7px -1973px;
 }
-/* line 246, ../scss/components/_menus.scss */
+/* line 254, ../scss/components/_menus.scss */
 .x-menu .icon_setReadReceipt {
   background-position: 5px -2056px;
 }
-/* line 252, ../scss/components/_menus.scss */
+/* line 260, ../scss/components/_menus.scss */
 .x-menu .icon_showbcc {
   background-position: 4px -2595px;
 }
-/* line 257, ../scss/components/_menus.scss */
+/* line 265, ../scss/components/_menus.scss */
 .x-menu .icon_showfrom {
   background-position: 4px -2641px;
 }
-/* line 262, ../scss/components/_menus.scss */
+/* line 270, ../scss/components/_menus.scss */
 .x-menu .icon_private {
   background-position: 5px -2013px;
 }
-/* line 266, ../scss/components/_menus.scss */
+/* line 274, ../scss/components/_menus.scss */
 .x-menu .icon_cancel_meeting_request {
   background-position: 1px -912px;
 }
-/* line 271, ../scss/components/_menus.scss */
+/* line 279, ../scss/components/_menus.scss */
 .x-menu .icon_flag_red {
   background-position: 1px -2118px;
 }
-/* line 275, ../scss/components/_menus.scss */
+/* line 283, ../scss/components/_menus.scss */
 .x-menu .icon_flag_complete, .x-menu .icon_mail_completed, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_completed, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_mail_completed {
   background-position: 0 -1991px;
 }
-/* line 279, ../scss/components/_menus.scss */
+/* line 287, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag {
   background-position: 1px -1927px;
 }
-/* line 284, ../scss/components/_menus.scss */
+/* line 292, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag_blue {
   background-position: 1px -1959px;
 }
-/* line 289, ../scss/components/_menus.scss */
+/* line 297, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag_yellow {
   background-position: 1px -2150px;
 }
-/* line 294, ../scss/components/_menus.scss */
+/* line 302, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag_green {
   background-position: 1px -2022px;
 }
-/* line 299, ../scss/components/_menus.scss */
+/* line 307, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag_orange {
   background-position: 1px -2054px;
 }
-/* line 304, ../scss/components/_menus.scss */
+/* line 312, ../scss/components/_menus.scss */
 .x-menu .icon_mail_flag_purple {
   background-position: 1px -2086px;
 }
-/* line 309, ../scss/components/_menus.scss */
+/* line 317, ../scss/components/_menus.scss */
 .x-menu .icon_junk {
   background-position: 3px -2429px;
 }
-/* line 313, ../scss/components/_menus.scss */
+/* line 321, ../scss/components/_menus.scss */
 .x-menu .icon_delete, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_delete, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_delete {
   background-position: 2px -5518px;
 }
-/* line 318, ../scss/components/_menus.scss */
+/* line 326, ../scss/components/_menus.scss */
 .x-menu .icon_popout {
   background-position: 3px -1837px;
 }
-/* line 322, ../scss/components/_menus.scss */
+/* line 330, ../scss/components/_menus.scss */
 .x-menu .icon_appt_meeting_accept, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_accept, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_appt_meeting_accept, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_accept, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_appt_accept, .x-menu .icon_calendar_appt_accept, .x-menu .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_accept, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-menu .icon_appt_meeting_accept {
   background-position: 1px -848px;
 }
-/* line 327, ../scss/components/_menus.scss */
+/* line 335, ../scss/components/_menus.scss */
 .x-menu .icon_appt_meeting_tentative, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_tentative, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_appt_meeting_tentative, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_tentative, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_appt_tentative, .x-menu .icon_calendar_appt_tentative, .x-menu .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_tentative, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-menu .icon_appt_meeting_tentative {
   background-position: 1px -1093px;
 }
-/* line 332, ../scss/components/_menus.scss */
+/* line 340, ../scss/components/_menus.scss */
 .x-menu .icon_appt_meeting_decline, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_cancel_meeting_request, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_cancel_meeting_request, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_cancelled, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_appt_cancelled, .x-menu .icon_cancel_meeting_request, .x-menu .icon_calendar_appt_cancelled {
   background-position: 1px -912px;
 }
-/* line 337, ../scss/components/_menus.scss */
+/* line 345, ../scss/components/_menus.scss */
 .x-menu .icon_appt_meeting_newtime, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_appt_newtime, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_appt_meeting_newtime, .x-menu .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_appt_newtime, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu button.icon_calendar_appt_newtime, .x-menu .icon_calendar_appt_newtime, .x-menu ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_appt_meeting_newtime, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-menu .icon_appt_meeting_newtime, .x-menu .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_appt_meeting_newtime, .zarafa-searchgrid .x-grid3-row table.messageclass-data .x-menu .icon_appt_meeting_newtime {
   background-position: 1px -948px;
 }
-/* line 342, ../scss/components/_menus.scss */
+/* line 350, ../scss/components/_menus.scss */
 .x-menu .icon_calendar, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_view, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_calendar_view, .x-menu .icon_calendar_view {
   background-position: 1px -1133px;
 }
-/* line 347, ../scss/components/_menus.scss */
+/* line 355, ../scss/components/_menus.scss */
 .x-menu .icon_calendar_view {
   background-position: 2px -814px;
 }
-/* line 352, ../scss/components/_menus.scss */
+/* line 360, ../scss/components/_menus.scss */
 .x-menu .icon_print_single,
 .x-menu .icon_print_single_appt,
 .x-menu .icon_print_view,
@@ -5832,157 +5840,157 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .icon_print_single_contact {
   background-position: 0 -1883px;
 }
-/* line 363, ../scss/components/_menus.scss */
+/* line 371, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus {
   background-position: 2px -600px;
 }
-/* line 368, ../scss/components/_menus.scss */
+/* line 376, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_free {
   background-position: 2px -671px;
 }
-/* line 372, ../scss/components/_menus.scss */
+/* line 380, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_tentative {
   background-position: 2px -743px;
 }
-/* line 376, ../scss/components/_menus.scss */
+/* line 384, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_busy {
   background-position: 2px -635px;
 }
-/* line 380, ../scss/components/_menus.scss */
+/* line 388, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_outofoffice {
   background-position: 2px -707px;
 }
-/* line 388, ../scss/components/_menus.scss */
+/* line 396, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-required {
   background-position: 1px -3284px;
 }
-/* line 393, ../scss/components/_menus.scss */
+/* line 401, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-optional {
   background-position: 1px -3222px;
 }
-/* line 398, ../scss/components/_menus.scss */
+/* line 406, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-resource {
   background-position: 1px -3315px;
 }
-/* line 403, ../scss/components/_menus.scss */
+/* line 411, ../scss/components/_menus.scss */
 .x-menu .icon_contact_card_view {
   background-position: 1px -1549px;
 }
-/* line 407, ../scss/components/_menus.scss */
+/* line 415, ../scss/components/_menus.scss */
 .x-menu .icon_contact_list {
   background-position: 1px -1650px;
 }
-/* line 411, ../scss/components/_menus.scss */
+/* line 419, ../scss/components/_menus.scss */
 .x-menu .icon_note_icon_view {
   background-position: 2px -3862px;
 }
-/* line 416, ../scss/components/_menus.scss */
+/* line 424, ../scss/components/_menus.scss */
 .x-menu .buttons-icon_send_white, .x-menu .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_white, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_black {
   background-position: 1px -2329px;
 }
-/* line 420, ../scss/components/_menus.scss */
+/* line 428, ../scss/components/_menus.scss */
 .x-menu .icon_send_black {
   background-position: 1px -2373px;
 }
-/* line 424, ../scss/components/_menus.scss */
+/* line 432, ../scss/components/_menus.scss */
 .x-menu .icon_send_later_black {
   background-position: 1px -2420px;
 }
-/* line 429, ../scss/components/_menus.scss */
+/* line 437, ../scss/components/_menus.scss */
 .x-menu .buttons-icon_save_white {
   background-position: 0 -806px;
 }
-/* line 434, ../scss/components/_menus.scss */
+/* line 442, ../scss/components/_menus.scss */
 .x-menu .icon_task_complete {
   background-position: 3px -2738px;
 }
-/* line 438, ../scss/components/_menus.scss */
+/* line 446, ../scss/components/_menus.scss */
 .x-menu .icon_task_incomplete {
   background-position: 3px -2783px;
 }
-/* line 442, ../scss/components/_menus.scss */
+/* line 450, ../scss/components/_menus.scss */
 .x-menu .icon_attachment {
   background-position: -1px -1788px;
 }
-/* line 446, ../scss/components/_menus.scss */
+/* line 454, ../scss/components/_menus.scss */
 .x-menu .icon_allcategories {
   background-position: 0 -489px;
 }
 
-/* line 451, ../scss/components/_menus.scss */
+/* line 459, ../scss/components/_menus.scss */
 .x-shadow {
   display: none !important;
 }
 
 /* menu item icon default width / height */
-/* line 456, ../scss/components/_menus.scss */
+/* line 464, ../scss/components/_menus.scss */
 .x-menu-item-icon {
   height: 20px;
   width: 20px;
 }
 
-/* line 460, ../scss/components/_menus.scss */
+/* line 468, ../scss/components/_menus.scss */
 .x-menu-item-icon.icon_task_simple {
   background-position: 2px -5310px;
 }
 
-/* line 463, ../scss/components/_menus.scss */
+/* line 471, ../scss/components/_menus.scss */
 .x-menu-item-icon.icon_task_detailed {
   background-position: 2px -5241px;
 }
 
-/* line 467, ../scss/components/_menus.scss */
+/* line 475, ../scss/components/_menus.scss */
 .icon_previewpanel_off {
   background-position: 1px -4619px;
 }
 
-/* line 472, ../scss/components/_menus.scss */
+/* line 480, ../scss/components/_menus.scss */
 .icon_previewpanel_right {
   background-position: 1px -4651px;
 }
 
-/* line 477, ../scss/components/_menus.scss */
+/* line 485, ../scss/components/_menus.scss */
 .icon_previewpanel_bottom {
   background-position: 1px -4587px;
 }
 
 /* Override ExtJS's ugly blue border of an menu item */
-/* line 483, ../scss/components/_menus.scss */
+/* line 491, ../scss/components/_menus.scss */
 li.x-menu-item a.x-menu-item {
   border: none;
 }
 
-/* line 486, ../scss/components/_menus.scss */
+/* line 494, ../scss/components/_menus.scss */
 li.x-menu-item-active a.x-menu-item {
   border: none;
 }
 
-/* line 489, ../scss/components/_menus.scss */
+/* line 497, ../scss/components/_menus.scss */
 li.x-menu-item-active {
   background-image: none;
   background-color: transparent;
 }
 
 /* Categorie menu */
-/* line 498, ../scss/components/_menus.scss */
+/* line 506, ../scss/components/_menus.scss */
 .x-menu.k-categories .x-menu-list .x-menu-item svg {
   position: absolute;
   left: 3px;
   top: 8px;
 }
-/* line 505, ../scss/components/_menus.scss */
+/* line 513, ../scss/components/_menus.scss */
 .x-menu.k-categories .x-menu-list .x-menu-item.k-manage-categories {
   padding-left: 6px;
 }
 
-/* line 511, ../scss/components/_menus.scss */
+/* line 519, ../scss/components/_menus.scss */
 .x-menu-item-selected {
   background-color: #d5e8f7;
   border-bottom: 1px solid #ffffff !important;
 }
 
 /* Color picker */
-/* line 517, ../scss/components/_menus.scss */
+/* line 525, ../scss/components/_menus.scss */
 .x-color-palette.k-colorpicker-menu {
   width: 108px;
 }
