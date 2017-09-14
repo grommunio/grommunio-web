@@ -65,6 +65,8 @@ Zarafa.common.flags.Util = {
 		return {
 			task_start_date: 	null,
 			task_due_date: 		null,
+			startdate :         null,
+			duedate :           null,
 			reminder_set:		false,
 			reminder_time:		null,
 			flag_due_by:		null
@@ -94,6 +96,8 @@ Zarafa.common.flags.Util = {
 		return {
 			task_start_date: 	date,
 			task_due_date: 		date,
+			startdate :         date,
+			duedate :           date,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -114,6 +118,8 @@ Zarafa.common.flags.Util = {
 		return {
 			task_start_date: 	date,
 			task_due_date: 		date,
+			startdate :         date,
+			duedate :           date,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -169,6 +175,8 @@ Zarafa.common.flags.Util = {
 		return {
 			task_start_date: 	startDate,
 			task_due_date: 		dueDate,
+			startdate :         startDate,
+			duedate :           dueDate,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -194,6 +202,8 @@ Zarafa.common.flags.Util = {
 		return {
 			task_start_date: 	startDate,
 			task_due_date: 		dueDate,
+			startdate :         startDate,
+			duedate :           dueDate,
 			reminder_time:		reminderTime,
 			flag_due_by:		reminderTime
 		};
@@ -234,6 +244,8 @@ Zarafa.common.flags.Util = {
 			reminder_set:		false,
 			task_start_date: 	null,
 			task_due_date: 		null,
+			startdate :         null,
+			duedate :           null,
 			reminder_time:		null,
 			flag_due_by:		null
 		};
