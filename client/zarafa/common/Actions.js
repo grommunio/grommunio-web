@@ -85,7 +85,8 @@ Zarafa.common.Actions = {
 
 		var menu = new Zarafa.common.flags.ui.FlagsMenu({
 			records: records,
-			shadowEdit : shadowEdit
+			shadowEdit : shadowEdit,
+			store : records[0].getStore()
 		});
 
 		menu.showAt(position);
