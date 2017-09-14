@@ -310,7 +310,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			&& !Ext.isEmpty(value)) {
 			p.css += ' k-task-complete';
 		}
-		return value
+		return value;
 	},
 
 	/**
@@ -367,7 +367,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 				reminder_set:		false,
 				task_start_date: 	null,
 				task_due_date: 		null
-			}
+			};
 
 			grid.store.suspendEvents(false);
 			record.beginEdit();

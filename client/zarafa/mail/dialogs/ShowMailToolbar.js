@@ -307,20 +307,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Event handler when the "Set Flag" button has been pressed.
-	 * This will call the {@link Zarafa.mail.Actions#openMailFlagsContent}.
-	 *
-	 * @param {Ext.Button} button The button which has been pressed
-	 * @private
-	 */
-	onSetFlagButton : function(button)
-	{
-		Zarafa.mail.Actions.openMailFlagsContent(this.record, {
-			autoSave : true
-		});
-	},
-
-	/**
 	 * Event handler when the "Message Options" button has been pressed.
 	 * This will call the {@link Zarafa.mail.Actions#openMailOptionsContent}.
 	 *
