@@ -210,6 +210,7 @@ Zarafa.common.flags.Util = {
 		return {
 			flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
 			flag_complete_time:	new Date(),
+			complete:			true,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
 			reminder_set:		false,
