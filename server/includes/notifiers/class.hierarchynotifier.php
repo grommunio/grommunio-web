@@ -21,7 +21,7 @@
 		function __construct()
 		{
 			/*
-			 * Initialize hierarchy store's size, so in future on change events of 
+			 * Initialize hierarchy store's size, so in future on change events of
 			 * folder object or message item we can check store's previous size,
 			 * and if it is changed then send notification to server.
 			 */
@@ -32,7 +32,7 @@
 
 		/**
 		 * @return Number Return the bitmask of events which are handled
-		 * by this notifier. The bitmask can consist of the 
+		 * by this notifier. The bitmask can consist of the
 		 * OBJECT_SAVE, OBJECT_DELETE, TABLE_SAVE, TABLE_DELETE, REQUEST_START and REQUEST_END flags
 		 */
 		public function getEvents()
@@ -64,6 +64,13 @@
 						$folderEntryid = $props[PR_PARENT_ENTRYID];
 					} else if(isset($props[PR_ENTRYID])) {
 						$folderEntryid = $props[PR_ENTRYID];
+					}
+
+					// We won't send notifiers for changes to the todolist folder, since there is nothing to
+					// be updated by the client.
+					$entryIdUtil = new EntryId();
+					if ( $entryIdUtil->compareEntryIds(bin2hex($folderEntryid), bin2hex(TodoList::getEntryId())) ){
+						return;
 					}
 
 					if (!isset($props[PR_STORE_ENTRYID]) && !$folderEntryid) {

@@ -128,7 +128,7 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	isValidDropPoint : function(n, pt, dd, e, data)
 	{
 		var folder = n.node.getFolder();
-		if(folder.isFavoritesFolder() || folder.isFavoritesRootFolder()) {
+		if (folder.isFavoritesFolder() || folder.isFavoritesRootFolder() || folder.isTodoListFolder()) {
 			return false;
 		}
 		return Zarafa.hierarchy.ui.HierarchyFolderDropZone.superclass.isValidDropPoint.apply(this, arguments);

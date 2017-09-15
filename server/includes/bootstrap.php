@@ -1,18 +1,18 @@
 <?php
 
 	/*************************************************************************************
-	 * 
+	 *
 	 * This script bootstraps the entry scripts (index.php and kopano.php) by:
 	 * 	- including all classes that are used by both entry scripts
 	 * 	- check the correctness of the configuration file (if configured to do so)
 	 * 	- start buffering output (so we can add headers at any time)
 	 * 	- set the locale for character classification and conversion to en_US.UTF-8
 	 * 	- start a php session
-	 * 
+	 *
 	 * Note: Additional includes for kopano.php are added by bootstrap.kopano.php
-	 * 
+	 *
 	 *************************************************************************************/
-	 
+
 	// It would be better if we could just put the few lines of code that are in init.php
 	// in this script. Unfortunately that would break plugins that include init.php on their
 	// own. (e.g. the spellchecker plugin)
@@ -66,12 +66,12 @@
 	require_once(BASE_PATH . 'server/includes/core/class.encryptionstore.php');
 	require_once(BASE_PATH . 'server/includes/core/class.webappauthentication.php');
 
+	require_once(BASE_PATH . 'server/includes/core/class.todolist.php');
+
 	require_once(BASE_PATH . 'server/includes/core/class.theming.php');
 
 	ob_start();
 	setlocale(LC_CTYPE, "en_US.UTF-8");
-	
+
 	// Start a new session
 	$webappSession = WebAppSession::getInstance();
-	
-

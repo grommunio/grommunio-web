@@ -146,6 +146,14 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width : 80,
 			renderer : Zarafa.common.ui.grid.Renderers.size,
 			tooltip : _('Sort by: Size')
+		},{
+			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			headerCls: 'zarafa-icon-column flag',
+			dataIndex : 'flag_due_by',
+			width: 24,
+			renderer : Zarafa.common.ui.grid.Renderers.flag,
+			fixed : true,
+			tooltip : _('Sort by: flag')
 		}];
 	},
 
@@ -227,6 +235,14 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer : Zarafa.common.ui.grid.Renderers.attachment,
 			fixed : true,
 			tooltip : _('Sort by: Attachment')
+		},{
+			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			headerCls: 'zarafa-icon-column flag',
+			dataIndex : 'flag_due_by',
+			width: 24,
+			renderer : Zarafa.common.ui.grid.Renderers.flag,
+			fixed : true,
+			tooltip : _('Sort by: flag')
 		}];
 	},
 

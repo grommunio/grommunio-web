@@ -113,7 +113,11 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 					return;
 				}
 
-				Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position : event.getXY(), context : this.context });
+				Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+					position : event.getXY(),
+					context : this.context,
+					actsOnTodoListFolder : this.model.getDefaultFolder().isTodoListFolder()
+				});
 				break;
 		}
 	},

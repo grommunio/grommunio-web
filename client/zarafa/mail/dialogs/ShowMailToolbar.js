@@ -155,6 +155,17 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			handler : this.onOpenCategories,
 			scope : this
 		},{
+			xtype : 'button',
+			ref: 'setFlagBtn',
+			overflowText : _('Set flag'),
+			tooltip : {
+				title : _('Set flag'),
+				text : _('Set flag on this email')
+			},
+			iconCls : 'icon_flag_red',
+			handler : this.onSetFlagButton,
+			scope : this
+		},{
 			xtype: 'splitbutton',
 			cls: 'zarafa-more-options-btn',
 			tooltip: _('More options'),
@@ -210,6 +221,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		}
 
 		this.deleteBtn.setVisible(!isSubMessage);
+		this.setFlagBtn.setVisible(!isSubMessage);
 		this.optionsBtn.setVisible(!isSubMessage && !isFaultyMessage);
 
 		this.replyBtn.setVisible(!isFaultyMessage);
@@ -297,20 +309,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Event handler when the "Set Flag" button has been pressed.
-	 * This will call the {@link Zarafa.mail.Actions#openMailFlagsContent}.
-	 *
-	 * @param {Ext.Button} button The button which has been pressed
-	 * @private
-	 */
-	onSetFlagButton : function(button)
-	{
-		Zarafa.mail.Actions.openMailFlagsContent(this.record, {
-			autoSave : true
-		});
-	},
-
-	/**
 	 * Event handler when the "Message Options" button has been pressed.
 	 * This will call the {@link Zarafa.mail.Actions#openMailOptionsContent}.
 	 *
@@ -322,6 +320,19 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		Zarafa.mail.Actions.openMailOptionsContent(this.record, {
 			autoSave : true
 		});
+	},
+
+	/**
+	 * Event handler when the "Set Flag" button has been pressed.
+	 * This will call the {@link Zarafa.common.Actions#openFlagsMenu}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @param {Ext.EventObject} eventObject event object
+	 * @private
+	 */
+	onSetFlagButton : function (button, eventObject)
+	{
+		Zarafa.common.Actions.openFlagsMenu(this.record, eventObject.getXY(), false);
 	},
 
 	/**

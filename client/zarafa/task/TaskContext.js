@@ -169,8 +169,12 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 				}
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']: 
-				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass('IPM.Task', true)) {
-					bid = 1;
+				if (record instanceof Zarafa.core.data.IPMRecord) {
+					if(this.model.getDefaultFolder().isTodoListFolder()) {
+						bid = 2;
+					} else if(record.isMessageClass('IPM.Task', true)) {
+						bid = 1;
+					}
 				}
 				break;
 			case Zarafa.core.data.SharedComponentType['common.printer.renderer']:

@@ -178,6 +178,18 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
+	 * @return {Boolean} true if the folder is the to-do list search folder of the store, else false.
+	 */
+	isTodoListFolder : function()
+	{
+		var MAPIStore = container.getHierarchyStore().getDefaultStore();
+		if (MAPIStore) {
+			return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), MAPIStore.get('default_folder_todolist'));
+		}
+		return false;
+	},
+
+	/**
 	 * @return {Boolean} true if the folder is the subtree folder of its store else false.
 	 */
 	isFavoritesRootFolder : function()
@@ -472,7 +484,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 				// Is it also logical that unread count for 'Drafts', 'Outbox' or Junk Mails' should be displayed?
 				return Zarafa.hierarchy.data.CounterTypes.UNREAD;
 			}
-		} else if ((extendedFlags & Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT) === Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT && 
+		} else if ((extendedFlags & Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT) === Zarafa.core.mapi.FolderExtendedFlags.USE_UNREAD_COUNT &&
 				this.get('content_unread') > 0) {
 			// ExtendedFlags says use unread count
 			return Zarafa.hierarchy.data.CounterTypes.UNREAD;

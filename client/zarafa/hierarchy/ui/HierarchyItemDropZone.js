@@ -16,7 +16,7 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 	 * be dropped here, and if so it will {@link #processDrop drop the item}.
 	 *
 	 * @param {Object} n The object which describes the node over which
-	 * the item is being hovered 
+	 * the item is being hovered
 	 * @param {Ext.grid.GridDragZone} dd The DragZone which is used
 	 * for dragging the current item
 	 * @param {Ext.EventObject} e The Event Object used for dropping the item
@@ -41,7 +41,7 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 	/**
 	 * Called when the currently dragged item is being dropped on the container.
 	 * THis will call {@link #isValidDropPoint} to check if the item can actually
-	 * be dropped here, and if so it will {@link #processDrop drop the item}. 
+	 * be dropped here, and if so it will {@link #processDrop drop the item}.
 	 *
 	 * @param {Ext.grid.GridDragZone} dd The DragZone which is used
 	 * for dragging the current item
@@ -121,7 +121,7 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 	 * doesn't support messages from the given message class.
 	 *
 	 * @param {Object} n The object which describes the node over which
-	 * the item is being hovered 
+	 * the item is being hovered
 	 * @param {String} pt The DropPoint (see {@link #getDropPoint}).
 	 * @param {Ext.grid.GridDragZone} dd The DragZone which is used
 	 * for dragging the current item
@@ -133,7 +133,12 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 	isValidDropPoint : function(n, pt, dd, e, data)
 	{
 		var ret = false;
-		if (n.node && !Ext.isEmpty(data.selections) && !n.node.getFolder().isFavoritesRootFolder()) {
+		if (
+			n.node &&
+			!Ext.isEmpty(data.selections) &&
+			!n.node.getFolder().isFavoritesRootFolder() &&
+			!n.node.getFolder().isTodoListFolder()
+		) {
 			var folder = n.node.getFolder();
 			var record = data.selections[0];
 

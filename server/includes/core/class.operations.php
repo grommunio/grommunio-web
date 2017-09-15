@@ -114,7 +114,8 @@
 						"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
 						"quota_hard" => isset($msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD]) ? $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] : 0,
 						"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
-						"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex($msgstore_props[PR_FINDER_ENTRYID]) : ""
+						"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex($msgstore_props[PR_FINDER_ENTRYID]) : "",
+						"todolist_entryid" => bin2hex(TodoList::getEntryId())
 					)
 				);
 
@@ -290,6 +291,23 @@
 
 										$commonViewFolderProps = mapi_getprops($commonViewFolder);
 										array_push($storeData["folders"]["item"], $this->setFolder($commonViewFolderProps));
+
+										// Get the To-do list folder and add it to the hierarchy
+										$todoFolderEntryid = todoList::getEntryId();
+										if ( $todoFolderEntryid ){
+											$todoSearchFolder = mapi_msgstore_openentry($store, $todoFolderEntryid);
+											$todoSearchFolderProps = mapi_getprops($todoSearchFolder);
+
+											// Change the parent so the folder will be shown in the hierarchy
+											$todoSearchFolderProps[PR_PARENT_ENTRYID] = $subtreeFolderEntryID;
+											// Change the display name of the folder
+											$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-do list');
+											// Never show unread content for the To-do list
+											$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
+											$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
+											array_push($storeData["folders"]["item"], $this->setFolder($todoSearchFolderProps));
+											$storeData["props"]['default_folder_todolist'] = bin2hex($todoFolderEntryid);
+										}
 									}
 								} else {
 									// Recursively add all subfolders

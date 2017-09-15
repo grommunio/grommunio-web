@@ -33,7 +33,9 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 
 		// boolean to determine what we are going to do
 		var preventRowSelection = false;
-		if (cellIndex !== false && cellIndex >= 0) {
+		if (Ext.get(event.target).hasClass('icon_flag')) {
+			preventRowSelection = true;
+		} else if (cellIndex !== false && cellIndex >= 0) {
 			preventRowSelection = cm.config[cellIndex].preventRowSelection;
 		} else if ( cellIndex === false && Ext.get(event.target).hasClass('k-category-add') ){
 			// Prevent selection when the mousedown event is on the 'add category icon'

@@ -29,7 +29,6 @@ Zarafa.core.ui.menu.ConditionalMenu = Ext.extend(Ext.menu.Menu, {
 		Zarafa.core.ui.menu.ConditionalMenu.superclass.constructor.call(this, config);
 
 		this.on('beforeshow', this.onMenuBeforeShow, this);
-		this.on('hide', this.onMenuHide, this);
 	},
 
 	/**
@@ -91,23 +90,6 @@ Zarafa.core.ui.menu.ConditionalMenu = Ext.extend(Ext.menu.Menu, {
 		// But what if we just removed everything?
 		if (lastItemIndex === -1) {
 			return false;
-		}
-	},
-	
-	/**
-	 * Event handler for the {@link #hide} event. It will destroy the menu when it does not have an owner component.
-	 * Since the UIFactory creates a new menu on each contextclick, we must make sure the menu's are also destroyed
-	 * again when they are hidden, or else we will pollute the dom with abandoned menus.
-	 * Child menus will be destroyed when their parent is destroyed.
-	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalMenu} menu The menu which is being hidden.
-	 * @private
-	 */
-	onMenuHide : function(menu)
-	{
-		// Check if the menu has an owner component (only context menu's don't have it)
-		if ( !Ext.isDefined(menu.ownerCt) && !Ext.isDefined(menu.parentMenu)){
-			menu.destroy();
 		}
 	}
 });

@@ -105,7 +105,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			width: 22px;
 			padding: 0;
 			text-align: center;
-			spadding: ($button-small-height - $font-default-line-height - 2px)/2 ($padding-small - 2); /* substract 2px for the borders */
 
 			/* reposition the icon headers */
 			p {
@@ -148,9 +147,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			@extend .icon_paperclip;
 			background-position: sprite-position($icons, icon_paperclip, $offset-y: 2px, $offset-x: -4px);
 		}
-		p.icon_mail_flag {
-			@extend .icon_flag;
-			background-position: sprite-position($iconsmap, icon_flag, $offset-y: 3px, $offset-x: 0px);
+		p.icon_flag {
+			background-position: sprite-position($iconsmap, icon_flag, $offset-y: 5px, $offset-x: 0px);
 		}
 
 		/* note icon complete */
@@ -167,7 +165,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			width: 14px;
 		}
 		p.icon_reminder {
-			background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 5px, $offset-x: 0px);
+			background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 4px, $offset-x: 4px);
 			width: 18px;
 		}
 	}
@@ -183,7 +181,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 			.x-menu-item-text {
 				p {
-					padding-left: 10px;
+					padding-left: 13px;
 				}
 
 				/* mail grid */
@@ -197,9 +195,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 					@extend .icon_paperclip;
 					background-position: sprite-position($icons, icon_paperclip, $offset-y: 1px, $offset-x: -5px);
 				}
-				p.icon_mail_flag {
-					@extend .icon_flag;
-					background-position: sprite-position($iconsmap, icon_flag, $offset-y: 2px, $offset-x: 0px);
+				p.icon_flag {
+					background-position: sprite-position($iconsmap, icon_flag, $offset-y: 4px, $offset-x: 0px);
 				}
 
 				/* task icon complete */
@@ -513,42 +510,49 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			}
 
 			/* flags column */
-			.icon_mail_flag {
-				@extend .icon_flag;
-	        	background-position: sprite-position($iconsmap, icon_flag, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			.icon_flag {
+				background-position: sprite-position($iconsmap, icon_flag, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 2);
+				visibility: hidden;
 			}
-			.icon_mail_flag_red {
-				@extend .icons-icon_flag_red;
+			.icon_flag_red {
 	        	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
-			.icon_mail_flag_blue {
-				@extend .icon_flag_blue;
-	        	background-position: sprite-position($iconsmap, icon_flag_blue, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_flag_yellow {
-				@extend .icon_flag_yellow;
+			.icon_flag_yellow {
 	        	background-position: sprite-position($iconsmap, icon_flag_yellow, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
-			.icon_mail_flag_green {
-				@extend .icon_flag_green;
-	        	background-position: sprite-position($iconsmap, icon_flag_green, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_flag_orange {
-				@extend .icon_flag_orange;
+			.icon_flag_orange {
 	        	background-position: sprite-position($iconsmap, icon_flag_orange, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
-			.icon_mail_flag_purple {
-				@extend .icon_flag_purple;
-	        	background-position: sprite-position($iconsmap, icon_flag_purple, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
+			.icon_flag_orange_dark {
+	        	background-position: sprite-position($iconsmap, icon_flag_orange_dark, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
-			.icon_mail_completed {
-				@extend .icon_flag_complete;
+			.icon_flag_complete {
 	        	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: $padding-medium, $offset-x: $padding-medium - 1);
 			}
 
 			.icon_folder_note {
 				background-position: sprite-position($iconsmap, folder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
+
+			.icon_reminder {
+				background-position: sprite-position($iconsmap, icon_reminder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium + 2);
+			}
+		}
+
+		.x-grid3-row-over .icon_flag {
+			visibility: visible;
+		}
+		.zarafa-multiselection.x-grid3-row-over .icon_flag {
+			visibility: hidden;
+		}
+
+		.zarafa-grid-empty-cell.icon_flag {
+			cursor: pointer;
+			margin: 5px;
+		}
+
+		.zarafa-grid-empty-cell.icon_flag .x-unselectable {
+			padding-top: 0px;
 		}
 	}
 
@@ -576,6 +580,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /* Task grid Completed tasks row */
 .zarafa-task-complete {
 	color: $grey6;
+	.k-task-complete {
+		text-decoration: line-through;
+	}
 }
 
 /******************************************************************************

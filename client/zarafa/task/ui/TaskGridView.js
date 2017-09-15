@@ -114,6 +114,10 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		// Call the handler manually as task-context-object isn't initialized yet,
 		// while switching to task context for the first time.
 		this.onContextViewModeChange(this.context, this.context.getCurrentViewMode());
+
+		// Add an event handler that will reload the store when the flag status of
+		// a record has been changed
+		this.mon(this.getStore(), 'update', this.onStoreUpdate, this);
 	},
 
 	/**
@@ -126,6 +130,26 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	onRowDblClick : function(grid, rowIndex, eventObj)
 	{
 		Zarafa.task.Actions.openTaskContent(grid.getSelectionModel().getSelections());
+	},
+
+	/**
+	 * Event handler for the update event of the store of the grid. Will reload the store (and thus update
+	 * the view) when  the flag status of a record has been changed.
+	 * @param  {Zarafa.core.data.IPMStore} store The store with the data that is being displayed in the grid
+	 * @param  {Zarafa.core.data.IPMRecord} record The Record that was updated
+	 * @private
+	 */
+	onStoreUpdate : function(store, record)
+	{
+		var todoListEntryId = container.getHierarchyStore().getDefaultFolder('todolist').get('entryid');
+		if ( !Zarafa.core.EntryId.compareEntryIds(todoListEntryId, store.entryId) ){
+			// Only reload when watching the To-do list
+			return;
+		}
+
+		if ( record.modified && (record.isModified('flag_due_by') || record.isModified('flag_request')) ){
+			store.reload();
+		}
 	},
 
 	/**
@@ -158,15 +182,25 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	viewConfigGetRowClass : function(record, rowIndex, rowParams, store)
 	{
 		var cssClass = '';
+		var complete;
+		var duedate;
 
-		var task_complete = record.get('complete');
-		var task_duedate = record.get('duedate');
+		// For TaskRecords we will use the complete and duedate fields to style it. For
+		// other records (in the Todo-list) we will use the flag fields.
+		if ( record instanceof Zarafa.task.TaskRecord ){
+			complete = record.get('complete');
+			duedate = record.get('duedate');
+		} else {
+			complete = record.get('flag_complete_time');
+			complete = Ext.isDate(complete) && complete.getTime() < new Date().getTime();
+			duedate = record.get('flag_due_by');
+		}
 
-		if (Ext.isDate(task_duedate) && task_duedate.getTime() < new Date().getTime()) {
+		if (Ext.isDate(duedate) && duedate.getTime() < new Date().getTime()) {
 			cssClass += 'zarafa-task-overdue ';
 		}
 
-		if (task_complete) {
+		if (complete) {
 			cssClass += 'zarafa-task-complete ';
 		}
 

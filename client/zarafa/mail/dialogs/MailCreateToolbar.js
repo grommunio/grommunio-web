@@ -215,6 +215,16 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		},{
 			xtype : 'button',
+			overflowText : _('Set flag'),
+			tooltip : {
+				title : _('Set flag'),
+				text : _('Set flag on this email')
+			},
+			iconCls : 'icon_flag_red',
+			handler : this.onSetFlagButton,
+			scope : this
+		},{
+			xtype : 'button',
 			overflowText : _('High priority'),
 			tooltip : {
 				title : _('High priority'),
@@ -455,6 +465,19 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		Zarafa.mail.Actions.openMailOptionsContent(this.record, {
 			autoSave : false
 		});
+	},
+
+	/**
+	 * Event handler when the "Set Flag" button has been pressed.
+	 * This will call the {@link Zarafa.common.Actions#openFlagsMenu}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @param {Ext.EventObject} eventObject event object
+	 * @private
+	 */
+	onSetFlagButton : function (button, eventObject)
+	{
+		Zarafa.common.Actions.openFlagsMenu(this.record, eventObject.getXY(), false);
 	},
 
 	/**

@@ -51,6 +51,11 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	createRecord : function(folder)
 	{
 		folder = folder || this.getDefaultFolder();
+
+		if (folder.isTodoListFolder()) {
+			folder = container.getHierarchyStore().getDefaultFolderFromMessageClass('IPM.Task');
+		}
+
 		var defaultStore = folder.getMAPIStore();
 
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {

@@ -344,6 +344,8 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		var column = cm.config[columnIndex];
 		if (column.dataIndex === 'icon_index' ){
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
+		} else if(column.dataIndex === 'flag_due_by') {
+			Zarafa.common.Actions.openFlagsMenu(record, e.getXY(), false);
 		}
 	},
 
@@ -358,9 +360,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowClick : function(grid, rowIndex, event)
 	{
+		var record;
+
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
 			// Get the record from the rowIndex
-			var record = this.store.getAt(rowIndex);
+			record = this.store.getAt(rowIndex);
 
 			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
 		}

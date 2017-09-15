@@ -6,7 +6,7 @@
  * @xtype zarafa.hierarchycontextmenu
  */
 Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu, {
-	
+
 	/**
 	 * @cfg contextNode Holds {@link Zarafa.hierarchy.ui.FolderNode foldernode} on which 'contextmenu' event has occured
 	 */
@@ -40,10 +40,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				scope : this
 			}
 		});
-	
+
 		Zarafa.hierarchy.ui.ContextMenu.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Create the Action context menu items.
 	 * @param {Object} config Configuration object for the {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
@@ -74,7 +74,13 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextCopyMoveFolder,
 			beforeShow : function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
-				if (!access || record.isIPMSubTree() || record.isRSSFolder() || record.isDefaultFolder()) {
+				if (
+                    !access ||
+                    record.isIPMSubTree() ||
+                    record.isTodoListFolder() ||
+                    record.isRSSFolder() ||
+                    record.isDefaultFolder()
+                ) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -86,7 +92,15 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextItemRenameFolder,
 			beforeShow : function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY;
-				if (!access || record.isIPMSubTree() || record.isRSSFolder() || record.isDefaultFolder() || !this.contextTree || !this.contextNode) {
+				if (
+                    !access ||
+                    record.isIPMSubTree() ||
+                    record.isTodoListFolder() ||
+                    record.isRSSFolder() ||
+                    record.isDefaultFolder() ||
+                    !this.contextTree ||
+                    !this.contextNode
+                ) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -98,7 +112,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextItemNewFolder,
 			beforeShow : function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
-				if (!access || record.getMAPIStore().isArchiveStore()) {
+				if (!access || record.getMAPIStore().isArchiveStore() || record.isTodoListFolder()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -113,7 +127,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			beforeShow : function(item, record) {
 				// We're not modifying the folder, but the contents. Hence we request the READ access
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
-				if (!access || record.isIPMSubTree()) {
+				if (!access || record.isIPMSubTree() ||record.isTodoListFolder()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -127,7 +141,13 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextItemDeleteFolder,
 			beforeShow : function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_DELETE;
-				if (!access || record.isIPMSubTree() || record.isDefaultFolder() || record.isRSSFolder() || record.getMAPIStore().isArchiveStore()) {
+				if (
+                    !access ||
+                    record.isIPMSubTree() ||
+                    record.isDefaultFolder() ||
+                    record.isTodoListFolder() ||
+                    record.isRSSFolder() ||
+                    record.getMAPIStore().isArchiveStore()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -191,7 +211,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextItemRestore,
 			iconCls: 'icon_restore',
 			beforeShow : function(item, record) {
-				if (!record.get('access')) {
+				if (!record.get('access') || record.isTodoListFolder()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -209,7 +229,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				if (record.isCalendarFolder()) {
 					item.setDisabled(false);
 
-					// Store the color of the chosen color scheme, so we can use it later 
+					// Store the color of the chosen color scheme, so we can use it later
 					// to build a icon (more precisely just a div with a background color)
 					// in the context menu
 					var colorScheme = contextModel.getColorScheme(folderEntryId);
@@ -229,7 +249,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					if(!isVisible && record.isIPMSubTree()) {
 						isVisible = !record.isOwnRoot();
 					}
-					item.setDisabled(isVisible);
+					item.setDisabled(isVisible || record.isTodoListFolder());
 				}
 			},
 			handler : this.onContextItemFavorites
@@ -248,7 +268,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			handler : this.onContextItemProperties,
 			iconCls : 'icon_openMessageOptions',
 			beforeShow : function(item, record) {
-				if (!record.get('access')) {
+				if (!record.get('access') || record.isTodoListFolder()) {
 					item.setDisabled(true);
 				} else {
 					item.setDisabled(false);
@@ -256,17 +276,17 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			}
 		}];
 	},
-	
+
 	/**
 	 * Creates the submenu for the color select menu item
 	 * Because this function is called before the parent constructor
 	 * is called, the configuration properties are not yet set and
 	 * we must get them from the passed configuration object
-	 * 
+	 *
 	 * @param {Object} config Configuration object for the {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
-	 * @return {Object[]} An array with configuration objects for 
+	 * @return {Object[]} An array with configuration objects for
 	 * {@link Zarafa.core.ui.menu.ConditionalItem menu items}
-	 * @private 
+	 * @private
 	 */
 	createSelectColorSubmenu : function(config)
 	{
@@ -288,7 +308,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				iconBG : colorScheme.header
 			});
 		}, this);
-		
+
 		return items;
 	},
 
@@ -415,7 +435,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	/**
 	 * Fires when a color is selected from the {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Saves the new color to the settings and calls doLayout on the context to re-render.
-	 * 
+	 *
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The menu item that was clicked on
 	 */
 	onContextItemSelectColor : function(item)
@@ -423,11 +443,11 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var contextModel = this.contextTree.model;
 		var folder = item.getRecords();
 		var store = contextModel.getStore();
-		
+
 		// Find the color scheme of the chosen color
 		var colorSchemeName = item.colorSchemeName;
 		var colorScheme = Zarafa.core.ColorSchemes.getColorScheme(colorSchemeName);
-		
+
 		// And set the color scheme for this folder
 		contextModel.setColorScheme(folder.get('entryid'), colorScheme);
 
@@ -447,7 +467,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		// and favorites folder if exist
 		this.updateOtherHierarchyTreeNodes(folder.get('entryid'), colorScheme.base);
 	},
-	
+
 	/**
 	 * Fires on selecting 'Properties' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Opens {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}
@@ -542,7 +562,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Helper function to get all the available {@link Zarafa.hierarchy.ui.Tree tree} and update 
+	 * Helper function to get all the available {@link Zarafa.hierarchy.ui.Tree tree} and update
 	 * icon of respective folder with newly selected color.
 	 * @param {String} folderEntryid The entryid of the selected folder
 	 * @param {String} colorSchemeBase The chosen color

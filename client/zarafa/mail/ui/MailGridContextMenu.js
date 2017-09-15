@@ -208,6 +208,17 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			xtype: 'menuseparator'
 		},{
 			xtype: 'zarafa.conditionalitem',
+			text : _('Follow up'),
+			iconCls : 'icon_mail_flag_red',
+			menu : {
+				xtype: 'zarafa.flagsmenu',
+				records: records
+			},
+			scope: this
+		},{
+			xtype: 'menuseparator'
+		},{
+			xtype: 'zarafa.conditionalitem',
 			text : _('Move to Junk Folder'),
 			iconCls : 'icon_junk',
 			beforeShow : this.onMoveToJunkBeforeShow,

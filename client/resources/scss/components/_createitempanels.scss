@@ -21,6 +21,16 @@
 				}
 			}
 
+			.zarafa-mailcreatepanel-extrainfo {
+				padding: 0 $padding-medium $padding-medium $padding-medium;
+
+				div {
+					padding: $padding-medium;
+					background: $light-blue;
+					border: 1px solid $grey5;
+				}
+			}
+
 			/* Override min-width to take account for the drop down entry */
 			.zarafa-mailcreatepanel-field-from {
 				button {

@@ -98,6 +98,12 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	initMessageFormPanel : function(config)
 	{
 		return [{
+			xtype: 'container',
+			cls: 'zarafa-mailcreatepanel-extrainfo',
+			ref: 'extraInfoPanel',
+			autoHeight: true,
+			hidden: true
+		},{
 			xtype: 'zarafa.compositefield',
 			hideLabel: true,
 			ref: 'fromField',
@@ -274,6 +280,50 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 				this.editorField.bindRecord(record);
 				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 			}
+		}
+
+		this.updateExtraInfoPanel();
+	},
+
+	/**
+	 * Function will update the {@link #extraInfoPanel} with extra information that should be shown
+	 * @private
+	 */
+	updateExtraInfoPanel : function()
+	{
+		// clear the previous contents
+		var el = this.extraInfoPanel.getEl();
+		if(Ext.isDefined(el.dom)) {
+			el.dom.innerHTML = '';
+		}
+
+		var infoMessage = this.getExtraInfoMessage();
+
+		if (infoMessage) {
+			el.createChild({tag: 'div', html: pgettext('calendar.dialog', infoMessage)});
+		}
+
+		this.extraInfoPanel.setVisible(infoMessage !== false);
+		this.doLayout();
+	},
+
+	/**
+	 * Helper function to prepare extra-info-message based on configured flag properties.
+	 *
+	 * @param {String|Boolean} Message to show, false otherwise.
+	 */
+	getExtraInfoMessage : function()
+	{
+		var flagStatus = this.record.get('flag_status');
+		if (flagStatus !== Zarafa.core.mapi.FlagStatus.flagged) {
+			return false;
+		}
+
+		var configuredFlag = Zarafa.common.flags.Util.getConfiguredFlag(this.record);
+		if (configuredFlag === 'no_date') {
+			return _("This message will be flagged for follow up when it is sent.");
+		} else {
+			return String.format("This message will be flagged for follow up {0} when it is sent.", configuredFlag);
 		}
 	},
 

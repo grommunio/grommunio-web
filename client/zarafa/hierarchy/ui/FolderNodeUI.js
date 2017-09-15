@@ -85,16 +85,16 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 			// Get the scheme base only if we are able to get scheme successfully,
 			// otherwise let it be undefined instead of a JS fatal error.
 			if(scheme && scheme.base) {
-				calendarSVGIcon = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" style="color:'+scheme.base+'; position:relative; top:2px;">' + 
-									'<g>' + 
-										'<g class="icbg" style="fill:currentColor;stroke:none">' + 
-											'<rect width="15" height="12" x="0" y="1" />' + 
-											'<rect width="1" height="1" x="2" y="0" />' + 
-											'<rect width="1" height="1" x="7" y="0" />' + 
+				calendarSVGIcon = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" style="color:'+scheme.base+'; position:relative; top:2px;">' +
+									'<g>' +
+										'<g class="icbg" style="fill:currentColor;stroke:none">' +
+											'<rect width="15" height="12" x="0" y="1" />' +
+											'<rect width="1" height="1" x="2" y="0" />' +
+											'<rect width="1" height="1" x="7" y="0" />' +
 											'<rect width="1" height="1" x="12" y="0" />' +
-										'</g>' + 
-										'<path class="icgr" d="M 2.5,6.5 h 10 v 4 h -10 v -4.5 M 4.5,6.5 v 4 M 6.5,6.5 v 4 M 8.5,6.5 v 4 M 10.5,6.5 v 4 M 2.5,8.5 h 9.5" style="fill:currentColor;stroke:#ffffff;stroke-width:1;stroke-linejoin=miter" />' + 
-									'</g>' + 
+										'</g>' +
+										'<path class="icgr" d="M 2.5,6.5 h 10 v 4 h -10 v -4.5 M 4.5,6.5 v 4 M 6.5,6.5 v 4 M 8.5,6.5 v 4 M 10.5,6.5 v 4 M 2.5,8.5 h 9.5" style="fill:currentColor;stroke:#ffffff;stroke-width:1;stroke-linejoin=miter" />' +
+									'</g>' +
 								'</svg>' ;
 			}
 		}
@@ -207,7 +207,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		ownerNode.update(ownerName);
 		ownerNode.repaint();
 	},
-	
+
 	/**
 	 * Update the {@link #counterNode counter} with the correct value.
 	 * @param {Zarafa.hierarchy.ui.FolderNode} node The node which is being updated
@@ -215,6 +215,12 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	updateCounter : function(node)
 	{
 		var folder = node.getFolder();
+
+		// Don't show counters for the To-do list
+		if ( folder.isTodoListFolder() ){
+			return;
+		}
+
 		var elNode = Ext.get(this.elNode);
 		var counterNode = Ext.get(this.counterNode);
 
