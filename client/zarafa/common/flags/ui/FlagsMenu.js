@@ -139,6 +139,9 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	 */
 	onBeforeShowNoneFlagsMenuItem : function(item, records)
 	{
+		if (!Array.isArray(records)) {
+			records = [records];
+		}
 		var noTaskRecord = 0 ;
 		var hasTaskItems;
 		records.forEach(function(record){

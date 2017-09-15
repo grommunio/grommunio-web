@@ -32,7 +32,7 @@ class TodoList {
      * @return {String|Boolean} The entryid of the Todo-list search folder
      */
     private static function _retrieveEntryId() {
-        $userStore = WebAppAuthentication::getMapiSession()->getDefaultMessageStore();
+        $userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 
         $root = mapi_msgstore_openentry($userStore, null);
         $rootProperties = mapi_getprops($root, array(PR_ADDITIONAL_REN_ENTRYIDS_EX));
@@ -73,7 +73,7 @@ class TodoList {
      * @return String Entryid of the new search folder for the To-do list
      */
     public static function createTodoSearchFolder() {
-        $userStore = WebAppAuthentication::getMapiSession()->getDefaultMessageStore();
+        $userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
         $root = mapi_msgstore_openentry($userStore, null);
         $props = mapi_getprops($userStore, array(PR_IPM_SUBTREE_ENTRYID));
         $ipmSubTreeEntryId = $props[PR_IPM_SUBTREE_ENTRYID];
@@ -132,7 +132,7 @@ class TodoList {
      * @return Array The restriction for the To-do list search folder for the currently logged in user
      */
     public static function _createRestriction() {
-        $userStore = WebAppAuthentication::getMapiSession()->getDefaultMessageStore();
+        $userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 
         // First get some entryids that we need for the restriction
         $storeProperties = mapi_getprops($userStore, array(PR_IPM_OUTBOX_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID));

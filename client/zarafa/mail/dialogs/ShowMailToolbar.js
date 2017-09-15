@@ -156,6 +156,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			scope : this
 		},{
 			xtype : 'button',
+			ref: 'setFlagBtn',
 			overflowText : _('Set flag'),
 			tooltip : {
 				title : _('Set flag'),
@@ -220,6 +221,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		}
 
 		this.deleteBtn.setVisible(!isSubMessage);
+		this.setFlagBtn.setVisible(!isSubMessage);
 		this.optionsBtn.setVisible(!isSubMessage && !isFaultyMessage);
 
 		this.replyBtn.setVisible(!isFaultyMessage);
