@@ -54,6 +54,12 @@
 	// recommended)
 	define('CROSS_DOMAIN_AUTHENTICATION_ALLOWED_DOMAINS', "");
 
+	// Defines the domains to which redirection after login is allowed.
+	// Add http(s):// to the domains and separate domains with spaces.
+	// Note: The domain under which WebApp runs, is always allowed and does
+	// not need to be added here.
+	define('REDIRECT_ALLOWED_DOMAINS', '');
+
 	// Defines the base url and end with a slash.
 	$base_url = dirname($_SERVER["PHP_SELF"]);
 	if(substr($base_url,-1)!="/") $base_url .="/";
