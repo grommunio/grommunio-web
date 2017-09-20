@@ -5823,6 +5823,14 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-position: 2px -814px;
 }
 /* line 355, ../scss/components/_menus.scss */
+.x-menu .icon_importance_nonurgent {
+  background-position: 1px -1972px;
+}
+/* line 359, ../scss/components/_menus.scss */
+.x-menu .icon_importance_urgent {
+  background-position: 1px -1929px;
+}
+/* line 363, ../scss/components/_menus.scss */
 .x-menu .icon_print_single,
 .x-menu .icon_print_single_appt,
 .x-menu .icon_print_view,
@@ -5832,157 +5840,157 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-menu .icon_print_single_contact {
   background-position: 0 -1883px;
 }
-/* line 366, ../scss/components/_menus.scss */
+/* line 374, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus {
   background-position: 2px -600px;
 }
-/* line 371, ../scss/components/_menus.scss */
+/* line 379, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_free {
   background-position: 2px -671px;
 }
-/* line 375, ../scss/components/_menus.scss */
+/* line 383, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_tentative {
   background-position: 2px -743px;
 }
-/* line 379, ../scss/components/_menus.scss */
+/* line 387, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_busy {
   background-position: 2px -635px;
 }
-/* line 383, ../scss/components/_menus.scss */
+/* line 391, ../scss/components/_menus.scss */
 .x-menu .icon_busystatus_outofoffice {
   background-position: 2px -707px;
 }
-/* line 391, ../scss/components/_menus.scss */
+/* line 399, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-required {
   background-position: 1px -3254px;
 }
-/* line 396, ../scss/components/_menus.scss */
+/* line 404, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-optional {
   background-position: 1px -3192px;
 }
-/* line 401, ../scss/components/_menus.scss */
+/* line 409, ../scss/components/_menus.scss */
 .x-menu .x-freebusy-userlist-recipienttype-resource {
   background-position: 1px -3285px;
 }
-/* line 406, ../scss/components/_menus.scss */
+/* line 414, ../scss/components/_menus.scss */
 .x-menu .icon_contact_card_view {
   background-position: 1px -1549px;
 }
-/* line 410, ../scss/components/_menus.scss */
+/* line 418, ../scss/components/_menus.scss */
 .x-menu .icon_contact_list {
   background-position: 1px -1650px;
 }
-/* line 414, ../scss/components/_menus.scss */
+/* line 422, ../scss/components/_menus.scss */
 .x-menu .icon_note_icon_view {
   background-position: 2px -3832px;
 }
-/* line 419, ../scss/components/_menus.scss */
+/* line 427, ../scss/components/_menus.scss */
 .x-menu .buttons-icon_send_white, .x-menu .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_white, .x-panel-footer.x-panel-btns .x-toolbar-right-row .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_white, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.buttons_icon_send_later_black, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.buttons_icon_send_later_black {
   background-position: 1px -2329px;
 }
-/* line 423, ../scss/components/_menus.scss */
+/* line 431, ../scss/components/_menus.scss */
 .x-menu .icon_send_black {
   background-position: 1px -2373px;
 }
-/* line 427, ../scss/components/_menus.scss */
+/* line 435, ../scss/components/_menus.scss */
 .x-menu .icon_send_later_black {
   background-position: 1px -2420px;
 }
-/* line 432, ../scss/components/_menus.scss */
+/* line 440, ../scss/components/_menus.scss */
 .x-menu .buttons-icon_save_white {
   background-position: 0 -806px;
 }
-/* line 437, ../scss/components/_menus.scss */
+/* line 445, ../scss/components/_menus.scss */
 .x-menu .icon_task_complete {
   background-position: 3px -2738px;
 }
-/* line 441, ../scss/components/_menus.scss */
+/* line 449, ../scss/components/_menus.scss */
 .x-menu .icon_task_incomplete {
   background-position: 3px -2783px;
 }
-/* line 445, ../scss/components/_menus.scss */
+/* line 453, ../scss/components/_menus.scss */
 .x-menu .icon_attachment {
   background-position: -1px -1788px;
 }
-/* line 449, ../scss/components/_menus.scss */
+/* line 457, ../scss/components/_menus.scss */
 .x-menu .icon_allcategories {
   background-position: 0 -489px;
 }
 
-/* line 454, ../scss/components/_menus.scss */
+/* line 462, ../scss/components/_menus.scss */
 .x-shadow {
   display: none !important;
 }
 
 /* menu item icon default width / height */
-/* line 459, ../scss/components/_menus.scss */
+/* line 467, ../scss/components/_menus.scss */
 .x-menu-item-icon {
   height: 20px;
   width: 20px;
 }
 
-/* line 463, ../scss/components/_menus.scss */
+/* line 471, ../scss/components/_menus.scss */
 .x-menu-item-icon.icon_task_simple {
   background-position: 2px -5282px;
 }
 
-/* line 466, ../scss/components/_menus.scss */
+/* line 474, ../scss/components/_menus.scss */
 .x-menu-item-icon.icon_task_detailed {
   background-position: 2px -5213px;
 }
 
-/* line 470, ../scss/components/_menus.scss */
+/* line 478, ../scss/components/_menus.scss */
 .icon_previewpanel_off {
   background-position: 1px -4589px;
 }
 
-/* line 475, ../scss/components/_menus.scss */
+/* line 483, ../scss/components/_menus.scss */
 .icon_previewpanel_right {
   background-position: 1px -4621px;
 }
 
-/* line 480, ../scss/components/_menus.scss */
+/* line 488, ../scss/components/_menus.scss */
 .icon_previewpanel_bottom {
   background-position: 1px -4557px;
 }
 
 /* Override ExtJS's ugly blue border of an menu item */
-/* line 486, ../scss/components/_menus.scss */
+/* line 494, ../scss/components/_menus.scss */
 li.x-menu-item a.x-menu-item {
   border: none;
 }
 
-/* line 489, ../scss/components/_menus.scss */
+/* line 497, ../scss/components/_menus.scss */
 li.x-menu-item-active a.x-menu-item {
   border: none;
 }
 
-/* line 492, ../scss/components/_menus.scss */
+/* line 500, ../scss/components/_menus.scss */
 li.x-menu-item-active {
   background-image: none;
   background-color: transparent;
 }
 
 /* Categorie menu */
-/* line 501, ../scss/components/_menus.scss */
+/* line 509, ../scss/components/_menus.scss */
 .x-menu.k-categories .x-menu-list .x-menu-item svg {
   position: absolute;
   left: 3px;
   top: 8px;
 }
-/* line 508, ../scss/components/_menus.scss */
+/* line 516, ../scss/components/_menus.scss */
 .x-menu.k-categories .x-menu-list .x-menu-item.k-manage-categories {
   padding-left: 6px;
 }
 
-/* line 514, ../scss/components/_menus.scss */
+/* line 522, ../scss/components/_menus.scss */
 .x-menu-item-selected {
   background-color: #d5e8f7;
   border-bottom: 1px solid #ffffff !important;
 }
 
 /* Color picker */
-/* line 520, ../scss/components/_menus.scss */
+/* line 528, ../scss/components/_menus.scss */
 .x-color-palette.k-colorpicker-menu {
   width: 108px;
 }

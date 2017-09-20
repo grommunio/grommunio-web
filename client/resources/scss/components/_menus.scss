@@ -352,6 +352,14 @@ $menu-item-height : 30px;
 		background-position: sprite-position($iconsmap, icon_calendar, $offset-y: 4, $offset-x: 2);
 	}
 
+	.icon_importance_nonurgent {
+		background-position: sprite-position($icons, icon_priority_low, $offset-y: 6, $offset-x: 1);
+	}
+
+	.icon_importance_urgent{
+		background-position: sprite-position($icons, icon_priority_high, $offset-y: 6, $offset-x: 1);
+	}
+
 	.icon_print_single,
 	.icon_print_single_appt,
 	.icon_print_view,
