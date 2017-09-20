@@ -464,9 +464,6 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	onFolderClicked : function(treeNode)
 	{
 		var folder = treeNode.getFolder();
-		if(folder.isFavoritesFolder() && !folder.isSearchFolder()) {
-			folder = folder.getOriginalRecordFromFavoritesRecord();
-		}
 		Zarafa.hierarchy.Actions.openFolder(folder);
 	},
 
