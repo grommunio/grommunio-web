@@ -528,7 +528,7 @@ Zarafa.common.ui.grid.Renderers = {
 		}
 
 		// Now find the color we must show
-		var dueDate = record.get('task_due_date');
+		var dueDate = record.get('task_due_date') || record.get('duedate');
 
 		if ( !dueDate ){
 			p.css += ' icon_flag_red';
