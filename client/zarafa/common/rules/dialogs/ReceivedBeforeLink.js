@@ -2,59 +2,14 @@ Ext.namespace('Zarafa.common.rules.dialogs');
 
 /**
  * @class Zarafa.common.rules.dialogs.ReceivedBeforeLink
- * @extends Zarafa.common.rules.dialogs.BaseLink
+ * @extends Zarafa.common.rules.dialogs.ReceivedAfterLink
  * @xtype zarafa.receivedbeforelink
  *
  * Condition component for the {@link Zarafa.common.rules.data.ConditionFlags#RECEIVED_BEFORE RECEIVED_BEFORE}
  * condition. This will allow the user to select a date and can generate a proper
  * condition for it.
  */
-Zarafa.common.rules.dialogs.ReceivedBeforeLink = Ext.extend(Zarafa.common.rules.dialogs.BaseLink, {
-	/**
-	 * @constructor
-	 * @param {Object} config Configuration object
-	 */
-	constructor : function(config)
-	{
-		config = config || {};
-
-		Ext.applyIf(config, {
-			items : [{
-				xtype : 'datefield',
-				width: 120,
-				ref : 'receivedDate',
-				listeners : {
-					select : function() { this.isModified = true; },
-					scope : this
-				}
-			}]
-		});
-
-		Zarafa.common.rules.dialogs.ReceivedBeforeLink.superclass.constructor.call(this, config);
-	},
-
-	/**
-	 * Apply an action onto the DataView, this will parse the condition and show
-	 * the contents in a user-friendly way to the user.
-	 * @param {Zarafa.common.rules.data.ConditionFlags} conditionFlag The condition type
-	 * which identifies the exact type of the condition.
-	 * @param {Object} condition The condition to apply
-	 */
-	setCondition : function(conditionFlag, condition)
-	{
-		if (condition) {
-			var date = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_MESSAGE_DELIVERY_TIME'];
-			this.receivedDate.setValue(new Date(date * 1000));
-		} else {
-			this.receivedDate.setValue(new Date());
-		}
-
-		this.conditionFlag = conditionFlag;
-		this.condition = condition;
-		this.isModified = !Ext.isDefined(condition);
-
-	},
-
+Zarafa.common.rules.dialogs.ReceivedBeforeLink = Ext.extend(Zarafa.common.rules.dialogs.ReceivedAfterLink, {
 	/**
 	 * Obtain the condition as configured by the user
 	 * @return {Object} The condition
