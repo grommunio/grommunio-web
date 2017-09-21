@@ -476,7 +476,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * Forwards the 'appointmentmouseover' event to the parent calendar panel
 	 * @param {Zarafa.calendar.ui.AbstractCalendarDaysView} calendar The calendar which fired the event
-	 * @param {Zarafa.calendar.AppointmentRecord} record The appointment over which the mouse is moving
+	 * @param {Zarafa.calendar.AppointmentRecord} appointment The appointment over which the mouse is moving
 	 * @param {Ext.EventObject} event The original event object
 	 * @private
 	 */
@@ -488,7 +488,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * Forwards the 'appointmentmouseout' event to the parent calendar panel
 	 * @param {Zarafa.calendar.ui.AbstractCalendarDaysView} calendar The calendar which fired the event
-	 * @param {Zarafa.calendar.AppointmentRecord} record The appointment over which the mouse has moved out
+	 * @param {Zarafa.calendar.AppointmentRecord} appointment The appointment over which the mouse has moved out
 	 * @param {Ext.EventObject} event The original event object
 	 * @private
 	 */
@@ -542,7 +542,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 *
 	 * @param {Zarafa.calendar.ui.AbstractCalendarView} calendarView Calendar view the appointment was dragged from
 	 * @param {Ext.EventObject} event The mouse event
-	 * @param {Zarafa.calendar.ui.AppointmentView} The appointment on which the event occurred
+	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment on which the event occurred
 	 * @private
 	 */
 	onAppointmentInitDrag : function(calendarView, event, appointment)
@@ -556,7 +556,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 *
 	 * @param {Zarafa.calendar.ui.AbstractCalendarView} calendarView Calendar view the appointment was dragged to
 	 * @param {Ext.EventObject} event The mouse event
-	 * @param {Zarafa.calendar.ui.AppointmentView} The appointment on which the event occurred
+	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment on which the event occurred
 	 * @private
 	 */
 	onAppointmentEndDrag : function(calendarView, event, appointment)
@@ -934,6 +934,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 * the current value of this.calendarViewConstructor.
 	 * @param {String} groupId The group from {@link Zarafa.core.MultiFolderContextModel#getGroupings} for which this calendar is created.
 	 * @param {Mixed} folders MAPI folder(s) to show in the newly created calendar view. Can either a single {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} or an array.
+	 * @return {Zarafa.calendar.ui.AbstractCalendarView} calendarView new created calendarView.
 	 * @private
 	 */
 	createCalendarView : function(groupId, folders)
@@ -1017,7 +1018,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Removes folders from calendars that are not in the input folder list. Calendars that become 'empty' (don't display any folders) are removed.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} list of folders.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders list of folders.
 	 * @private
 	 */
 	pruneCalendarViews : function(folders)
@@ -1044,7 +1045,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Creates new child calendar views to make sure that all the MAPI folders given in the input are represented on screen.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} list of folders.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders list of folders.
 	 * @private
 	 */
 	createCalendarViews : function(folders)
@@ -1125,7 +1126,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * Sorts the child calendar views. Makes sure that the view are laid out from left to right in the same order
 	 * as they appear in the load request (which is the order in which they appear in the folder tree).
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} list of folders. The order of the calendar views will be according to the order of the folders in this list.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} folders list of folders. The order of the calendar views will be according to the order of the folders in this list.
 	 * @private
 	 */
 	sortCalendarViews : function(folders)
