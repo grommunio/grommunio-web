@@ -98,7 +98,6 @@ Zarafa.addressbook.ui.ABMultiUserSelectionPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Calls callback function
-	 * @return {Boolean} true, if callback was successfull
 	 */
 	doCallBack : function(){
 		var grid = this.abPanel.getGridPanel();
