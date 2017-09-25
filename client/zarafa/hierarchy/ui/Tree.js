@@ -35,6 +35,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	hideTodoList : false,
 
 	/**
+	 * @cfg {Boolean} hideFavorites True to hide the favorites folder in hierarchy.
+	 */
+	hideFavorites : false,
+
+	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
 	nodeConfig : undefined,
@@ -242,6 +247,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		// Check if the to-do list should be shown
 		if (!hide && this.hideTodoList) {
 			hide = folder.isTodoListFolder();
+		}
+
+		// Check if the favorites list folder should be shown
+		if (!hide && this.hideFavorites) {
+			hide = folder.isFavoritesRootFolder();
 		}
 
 		return !hide;

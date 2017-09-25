@@ -455,7 +455,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				}
 
 				var favoritesFolder = store.getFavoritesRootFolder();
-				if (store.isDefaultStore() && Ext.isDefined(favoritesFolder) && this.tree.nodeFilter(folder)) {
+				if (store.isDefaultStore() && Ext.isDefined(favoritesFolder) && this.tree.nodeFilter(favoritesFolder)) {
 					data.push(Ext.apply({ nodeType : 'rootfolder', folder: favoritesFolder }, this.nodeConfig));
 				}
 			}
