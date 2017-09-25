@@ -77,6 +77,7 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
 			iconCls : 'icon_mail_flag_red',
+			cls: 'k-unclickable',
 			beforeShow: this.onFollowUpItemBeforeShow,
 			menu : {
 				xtype: 'zarafa.flagsmenu',
@@ -184,7 +185,8 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	/**
 	 * Event handler which triggered before showing
 	 * follow-up context menu item. this context menu item
-	 * is only shows in To-do list folder.
+	 * is disabled only when selected record is task record
+	 * and record belongs to To-do list folder.
 	 *
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
 	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
@@ -193,7 +195,10 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	 */
 	onFollowUpItemBeforeShow : function (item, records)
 	{
-		item.setDisabled(this.actsOnTodoListFolder !== true);
+		var hasTaskRecord = records.some(function (record) {
+			return record.isMessageClass('IPM.Task');
+		});
+		item.setDisabled(this.actsOnTodoListFolder ? hasTaskRecord : true);
 	},
 
     /**
