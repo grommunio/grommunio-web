@@ -4273,6 +4273,7 @@
 					$memberItem['props']['display_name'] = $oneoff['name'];
 					$memberItem['props']['address_type'] = $oneoff['type'];
 					$memberItem['props']['email_address'] = $oneoff['address'];
+                    $memberItem['props']['smtp_address'] = $oneoff['address'];
 					$memberItem['props']['entryid'] = bin2hex($members[$key]);
 
 					$items[] = $memberItem;
@@ -4289,7 +4290,11 @@
 
 						if($parts['type'] !== DL_DIST) {
 							$memberItem['props']['email_address'] = $oneoffmembers[$key]['address'];
-						}
+
+                            //internal members in distribution list don't have smtp address so add add that property
+                            $memberProps = $this->convertDistlistMemberToRecipient($store, $memberItem);
+                            $memberItem['props']['smtp_address'] = isset($memberProps["smtp_address"]) ? $memberProps["smtp_address"] : $memberProps["email_address"] ;
+                        }
 
 						$items[] = $memberItem;
 					}
