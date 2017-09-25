@@ -25,7 +25,9 @@ Zarafa.calendar.Actions = {
 					if (button != 'ok') {
 						return;
 					}
-
+					if (Ext.isEmpty(record.getStore())) {
+						record = this.getById(record.get('entryid'));
+					}
 					// Convert the record to the requested type
 					if (radio.id !== 'recurrence_series') {
 						record = record.convertToOccurenceRecord();
@@ -34,7 +36,7 @@ Zarafa.calendar.Actions = {
 					}
 
 					Zarafa.core.data.UIFactory.openViewRecord(record, config);
-				});
+				}, record.getStore());
 			} else {
 				Zarafa.core.data.UIFactory.openViewRecord(record, config);
 			}
