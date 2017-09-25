@@ -28,6 +28,7 @@
 		{
 			$entryid = $this->getEntryID();
 			$GLOBALS["bus"]->registerNotifier('tasklistnotifier', $entryid);
+			$GLOBALS["bus"]->registerNotifier('newtodotasknotifier', bin2hex(TodoList::getEntryId()));
 		}
 
 		/**

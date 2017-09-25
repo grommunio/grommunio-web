@@ -126,6 +126,8 @@
 						} else {
 							$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
 						}
+						// Notify To-Do list folder as new task item was created.
+						$GLOBALS["bus"]->notify(bin2hex(TodoList::getEntryId()), OBJECT_SAVE, $messageProps);
 						$this->addActionData("update", array("item" => $data));
 						$GLOBALS["bus"]->addData($this->getResponseData());
 					}
