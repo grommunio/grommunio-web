@@ -1391,6 +1391,12 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 						return true;
 					}
 
+					// Check to see whether the start or end part of the block is spanning throughout
+					// the visibility hours
+					if (blockStartSecs < workStart && blockEndSecs > workEnd) {
+						return true;
+					}
+
 				// Block duration is higher than the hours that are hidden
 				}else{
 					return true;
