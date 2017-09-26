@@ -4319,8 +4319,9 @@
 		{
 			$body = streamProperty($message, PR_HTML);
 
-			// Only load the DOM if the HTML contains a data:image.
-			if (strpos($body, "data:image") !== false) {
+			// Only load the DOM if the HTML contains a data:image or data:text/plain due to a bug
+			// in Chrome on Windows in combination with TinyMCE.
+			if (strpos($body, "data:image") !== false || strpos($body, "data:text/plain") !== false) {
 				$doc = new DOMDocument();
 				// TinyMCE does not generate valid HTML, so we must supress warnings.
 				@$doc->loadHTML($body);
@@ -4330,7 +4331,8 @@
 				foreach ($images as $image) {
 					$src = $image->getAttribute('src');
 
-					if(strpos($src, "data:image") !== false) {
+					if (strpos($src, "data:image") !== false ||
+						strpos($body, "data:text/plain") !== false) {
 						$saveChanges = true;
 
 						// Extract mime type data:image/jpeg;
