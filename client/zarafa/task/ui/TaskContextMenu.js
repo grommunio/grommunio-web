@@ -77,7 +77,9 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
 			iconCls : 'icon_mail_flag_red',
+			cls: 'k-unclickable',
 			beforeShow: this.onFollowUpItemBeforeShow,
+			hideOnClick: false,
 			menu : {
 				xtype: 'zarafa.flagsmenu',
 				records: this.records

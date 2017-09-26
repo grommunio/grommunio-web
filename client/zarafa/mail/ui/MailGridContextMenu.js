@@ -209,7 +209,9 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
+			cls: 'k-unclickable',
 			iconCls : 'icon_mail_flag_red',
+			hideOnClick: false,
 			menu : {
 				xtype: 'zarafa.flagsmenu',
 				records: records
