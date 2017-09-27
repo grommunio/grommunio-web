@@ -116,49 +116,13 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 			handler: this.setFlag,
 			scope: this
 		}, {
-			xtype : 'zarafa.conditionalitem',
 			text: _('None'),
 			action: 'none',
 			hideOnDisabled : false,
 			iconCls : 'icon_mail_flag',
-			beforeShow: this.onBeforeShowNoneFlagsMenuItem,
 			handler: this.setFlag,
 			scope: this
 		}];
-	},
-
-	/**
-	 * Event handler which is triggered when before None
-	 * flags menu item shows. it will hide none flag menu item
-	 * if record is other then mail item or it will show in
-	 * disabled mode if selection model contains mixture of mail and task records.
-	 *
-	 * @param {Zarafa.core.ui.menu.MenuItem} item The item which is being tested
-	 * @param {Zarafa.core.data.MAPIRecord[]} records The records on which this context
-	 * menu is operating.
-	 */
-	onBeforeShowNoneFlagsMenuItem : function(item, records)
-	{
-		if (!Array.isArray(records)) {
-			records = [records];
-		}
-		var noTaskRecord = 0 ;
-		var hasTaskItems;
-		records.forEach(function(record){
-			if(record.isMessageClass('IPM.Task')) {
-				hasTaskItems = true;
-				noTaskRecord++;
-			}
-		});
-		// Don't show 'None' option in flag context menu
-		// if all selected items are task or selected record is task
-		// and show 'None' as disabled if selected records
-		// contains one or more task record.
-		if(records.length > 1 && records.length !== noTaskRecord && hasTaskItems) {
-			item.setDisabled(hasTaskItems);
-		} else {
-			item.setVisible(!hasTaskItems);
-		}
 	},
 
 	/**
