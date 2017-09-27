@@ -26,26 +26,6 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 			title: _('Miscellaneous Options'),
 			layout: 'form',
 			items: [{
-				xtype: 'zarafa.compositefield',
-				hideLabel: true,
-				anchor: '100%',
-				items: [{
-					xtype: 'button',
-					width: 100,
-					text: _('Categories'),
-					handler: this.onCategoriesHandler,
-					scope: this
-				},{
-					xtype: 'textfield',
-					ref: '../categoriesTextField',
-					name: 'categories',
-					flex : 1,
-					listeners: {
-						'change' : this.onPropertyChange,
-						scope : this
-					}		
-				}]
-			},{
 				xtype: 'textarea',
 				fieldLabel: _('Internet Headers'),
 				name: 'transport_message_headers',
@@ -63,34 +43,6 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 
 		Zarafa.mail.dialogs.MailOptionsMiscPanel.superclass.constructor.call(this, config);
 	},
-	
-	/**
-	 * Event handler which is triggered when the Input field for category
-	 * has been changed by the user.
-	 * and will apply it to the {@link Zarafa.core.data.IPMRecord record}.
-	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was changed.
-	 * @param {Mixed} newValue The new value
-	 * @param {Mixed} oldValue The old value
-	 * @private
-	 */
-	onPropertyChange : function(field, newValue, oldValue)
-	{
-		if (!Ext.isEmpty(field.name)) {
-			this.record.set(field.name, newValue);
-		}
-	},
-	
-	/**
-	 * Handler which is called when the categories button has been pressed. this will open the
-	 * categories dialog.
-	 * @private
-	 */
-	onCategoriesHandler : function()
-	{
-		if (this.record) {
-			Zarafa.common.Actions.openCategoriesContent(this.record, {autoSave : false});
-		}
-	},
 
 	/**
 	 * Update the {@link Ext.Panel Panel} with the given {@link Zarafa.core.data.IPMRecord IPMRecord}
@@ -104,7 +56,6 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 		if (record) {
 			this.getForm().loadRecord(record);
 		} else {
-			this.categoriesTextField.setValue('');
 			this.headersTextArea.setValue('');
 		}
 	},
