@@ -34,7 +34,7 @@ function onResize() {
 	cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
 	bgEl.style.width = maskEl.clientWidth + 'px';
 	bgEl.style.height = maskEl.clientHeight + 'px';
-	bgEl.style.top = -elemTop / 2 + 'px';
+	bgEl.style.top = -elemTop + 'px';
 	bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
 };
 
