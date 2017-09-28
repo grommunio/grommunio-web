@@ -1,0 +1,28 @@
+# Author: Guido Günther <agx@sigxcpu.org>
+
+  ^kopano-webapp {
+    #include <abstractions/apache2-common>
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+    #include <abstractions/php5>
+
+    @{PROC}/@{pid}/task/@{tid}/comm rw,
+    @{PROC}/@{pid}/cmdline r,
+
+    /etc/gss/mech.d/ r,
+    /etc/gss/mech.d/*.conf r,
+
+    /etc/kopano/webapp/*.php r,
+
+    /usr/share/kopano-webapp/** r,
+
+    /var/lib/kopano-webapp/tmp/** rwk,
+
+    /var/log/apache2/ r,
+    # FIXME: we should use separate logfiles for kopano upfront
+    /var/log/apache2/error.log rw,
+    /var/log/apache2/other_vhosts_access.log rw,
+
+    # Useful when in debugging mode
+    /usr/share/kopano-webapp/debug.txt rw,
+  }
