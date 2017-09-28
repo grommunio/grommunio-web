@@ -38,7 +38,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 			loadMask : this.initLoadMask(),
 			viewConfig : this.initViewConfig(),
 			selModel : this.initSelectionModel(),
-			colModel : this.initColumnModel(),
+			colModel : this.initColumnModel(config.model),
 			enableDragDrop : true,
 			ddGroup : 'dd.mapiitem'
 		});
@@ -72,12 +72,14 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 
 	/**
 	 * creates and returns a column model object, used in {@link Ext.grid.EditorGridPanel.colModel colModel} config
+	 *
+	 * @param {Zarafa.task.TaskContextModel} model The {@link Zarafa.task.TaskContextModel}.
 	 * @return {Ext.grid.ColumnModel} column model object
 	 * @private
 	 */
-	initColumnModel : function()
+	initColumnModel : function(model)
 	{
-		return new Zarafa.task.ui.TaskGridColumnModel();
+		return new Zarafa.task.ui.TaskGridColumnModel({model : model});
 	},
 
 	/**
