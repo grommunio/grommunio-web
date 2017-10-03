@@ -1,21 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Kopano Webapp Hebrew (Israel) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
-"PO-Revision-Date: 2012-06-01 09:31+0200\n"
+"PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: he\n"
+"Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
+"webapp/he/>\n"
+"Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -5430,7 +5431,7 @@ msgstr "לא ניתן לקבל מידע"
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr "מודול לא ידוע 's%' עם ת.ז 's%'"
+msgstr "Unknown module '%s' with id '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
@@ -5730,11 +5731,11 @@ msgstr "פגישה פרטית"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr "יום ההולדת של s%"
+msgstr "יום ההולדת של %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr "יום הנישואין של s%"
+msgstr "יום הנישואין של %s"
 
 msgid "Unknown user/group"
 msgstr "שם משתמש/קבוצה לא ידוע"
