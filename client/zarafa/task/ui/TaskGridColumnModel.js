@@ -300,7 +300,12 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 				value = Zarafa.common.ui.grid.Renderers.subject(value, p, record);
 				break;
 			case 'display_to':
-				value = Zarafa.common.ui.grid.Renderers.name(value, p, record);
+				// Determine that task has assignee if yes then get the formatted string of assignee name
+				if (Ext.isDefined(record.isTaskAssigned) && record.isTaskAssigned()) {
+					value = Zarafa.common.ui.grid.Renderers.name(value, p, record);
+				} else {
+					value = '';
+				}
 				break;
 			case 'startdate':
 			case 'duedate':
