@@ -1,15 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Kopano Webapp Spanish (Spain) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
-"Language-Team: Spanish <http://translate.kopano.io/projects/kopano/kopano-"
+"Language-Team: Spanish (Spain) <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
