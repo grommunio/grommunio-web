@@ -522,7 +522,7 @@ Zarafa.common.ui.grid.Renderers = {
 			return '';
 		}
 
-		if ( flagRequest!=='Follow up' || flagStatus!==Zarafa.core.mapi.FlagStatus.flagged ){
+		if ( !record.isMessageClass('IPM.Task') && (flagRequest!=='Follow up' || flagStatus!==Zarafa.core.mapi.FlagStatus.flagged )){
 			p.css += ' icon_flag';
 			return '<div class="k-followup-flag"></div>';
 		}
