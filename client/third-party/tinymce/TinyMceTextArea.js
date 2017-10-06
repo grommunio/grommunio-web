@@ -665,11 +665,11 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 			return result;
 		}
 
-		var ed = me.getEditor();
-		if(ed) {
+		me.withEd(function () {
+			var ed = me.getEditor();
 			ed.theme.panel.find('*').disabled(true);
 			this.getEditorBody().setAttribute('contenteditable', false);
-		}
+		});
 
 		return me;
 	},
