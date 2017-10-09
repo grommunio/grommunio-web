@@ -20,7 +20,7 @@ Zarafa.mail.MailRecordFields = [
 	{name: 'reply_requested'},
 	{name: 'response_requested'},
 	{name: 'source_message_info'},
-	{name: 'reminder_set', type: 'boolean', defaultValue: false},
+	{name: 'reminder', type: 'boolean', defaultValue: false},
 	{name: 'reminder_time', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'task_start_date', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'task_due_date', type: 'date', dateFormat: 'timestamp', defaultValue: null},

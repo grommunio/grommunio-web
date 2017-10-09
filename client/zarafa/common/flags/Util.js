@@ -48,7 +48,7 @@ Zarafa.common.flags.Util = {
 			flag_request: 		'Follow up',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.flagged,
 			flag_complete_time:	null,
-			reminder_set:		true
+			reminder:		true
 			// TODO: Do we need to set is_marked_as_task for Outlook???
 			// (here and in the functions below)
 		};
@@ -67,7 +67,7 @@ Zarafa.common.flags.Util = {
 			task_due_date: 		null,
 			startdate :         null,
 			duedate :           null,
-			reminder_set:		false,
+			reminder:		false,
 			reminder_time:		null,
 			flag_due_by:		null
 		};
@@ -223,7 +223,7 @@ Zarafa.common.flags.Util = {
 			complete:			true,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
-			reminder_set:		false,
+			reminder:		false,
 			task_start_date: 	null,
 			task_due_date: 		null
 		};
@@ -241,7 +241,7 @@ Zarafa.common.flags.Util = {
 			flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.cleared,
-			reminder_set:		false,
+			reminder:		false,
 			task_start_date: 	null,
 			task_due_date: 		null,
 			startdate :         null,

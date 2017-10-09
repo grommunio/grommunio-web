@@ -381,7 +381,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 				flag_complete_time:	new Date(),
 				flag_request: 		'',
 				flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
-				reminder_set:		false,
+				reminder:		false,
 				task_start_date: 	null,
 				task_due_date: 		null
 			};

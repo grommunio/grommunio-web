@@ -837,7 +837,7 @@
 				$properties["flag_icon"] = PR_FLAG_ICON;
 				$properties["block_status"] = PR_BLOCK_STATUS;
 				$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:0x8502";
-				$properties["reminder_set"] = "PT_BOOLEAN:PSETID_Common:0x8503";
+				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:0x8503";
 				$properties["flag_request"] = "PT_STRING8:PSETID_Common:0x8530";
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
 				$properties["task_due_date"] = "PT_SYSTIME:PSETID_Task:0x8105";
