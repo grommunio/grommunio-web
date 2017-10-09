@@ -156,13 +156,13 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		var blockExternalContent = true;
 		var ignoreChecks = false;
-		var senderSMTPAddress = this.get('sent_representing_email_address') || this.get('sender_email_address');
+		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address')).toLowerCase();
 		var blockedSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/blocked_senders_list', true);
 		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true);
 
 		// settings are in object format so convert it to an array
-		blockedSenders = Zarafa.core.Util.objToArray(blockedSenders);
-		safeSenders = Zarafa.core.Util.objToArray(safeSenders);
+		blockedSenders = Zarafa.core.Util.objToArray(blockedSenders).map(function(s){return s.toLowerCase();});
+		safeSenders = Zarafa.core.Util.objToArray(safeSenders).map(function(s){return s.toLowerCase();});
 
 		// if block_status property is set correctly then ignore all settings and show external content
 		if(this.checkBlockStatus()) {
