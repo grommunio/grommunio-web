@@ -130,8 +130,6 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 		if(MAPIStore) {
 			return MAPIStore.getSharedFolderKey(this.get('entryid'));
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -151,8 +149,6 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 		if(MAPIStore) {
 			return MAPIStore.getDefaultFolderKey(this.get('entryid'));
 		}
-
-		return undefined;
 	},
 
 	/**

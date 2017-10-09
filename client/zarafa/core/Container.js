@@ -442,8 +442,6 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 				return contexts[index];
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -460,8 +458,6 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 				return contexts[index];
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -478,8 +474,6 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 				return plugins[index];
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -496,8 +490,6 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 				return plugins[index];
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -514,8 +506,6 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 				return widgets[index];
 			}
 		}
-
-		return undefined;
 	},
 
 	/**

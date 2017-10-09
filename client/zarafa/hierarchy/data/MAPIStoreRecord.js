@@ -88,8 +88,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if (store) {
 			return store.getById(entryid);
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -149,8 +147,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 				return key.substring('default_folder_'.length);
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -167,8 +163,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if(defaultFolderID) {
 			return this.getFolder(defaultFolderID);
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -182,8 +176,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 				return key.substring('shared_folder_'.length);
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -200,8 +192,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if(sharedFolderID) {
 			return this.getFolder(sharedFolderID);
 		}
-
-		return undefined;
 	},
 
 	/**
