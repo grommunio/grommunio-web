@@ -24,7 +24,6 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'quota_soft', type: 'int', defaultValue: null},
 	{name: 'quota_hard', type: 'int', defaultValue: null},
 	{name: 'user_name'},
-	{name: 'user_entryid'},
 	{name: 'mailbox_owner_entryid'},
 	{name: 'mailbox_owner_name'},
 	{name: 'default_folder_inbox'},

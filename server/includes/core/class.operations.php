@@ -107,7 +107,6 @@
 						"object_type" => $msgstore_props[PR_OBJECT_TYPE],
 						"store_support_mask" => $msgstore_props[PR_STORE_SUPPORT_MASK],
 						"user_name" => $storeUserName,
-						"user_entryid" => bin2hex($msgstore_props[PR_USER_ENTRYID]),
 						"store_size" => round($msgstore_props[PR_MESSAGE_SIZE_EXTENDED]/1024),
 						"quota_warning" => isset($msgstore_props[PR_QUOTA_WARNING_THRESHOLD]) ? $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] : 0,
 						"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
