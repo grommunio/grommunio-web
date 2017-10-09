@@ -17,7 +17,6 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_STORE},
 	{name: 'display_name'},
 	{name: 'mdb_provider'},
-	{name: 'opened_status'},
 	{name: 'subtree_entryid'},
 	{name: 'store_support_mask', type: 'int'},
 	{name: 'store_size', type: 'int', defaultValue: null},
