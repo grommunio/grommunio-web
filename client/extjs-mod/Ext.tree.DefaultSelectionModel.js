@@ -11,14 +11,14 @@
 		 * @param {Boolean} ensureFocus True to make given folder visible in screen by focusing it.
 		 * @return {TreeNode} The selected node
 		 */
-		select : function(node, /* private*/ selectNextNode, ensureFocus = true){
+		select : function(node, /* private*/ selectNextNode, ensureFocus){
 			// If node is hidden, select the next node in whatever direction was being moved in.
 			if (!Ext.fly(node.ui.wrap).isVisible() && selectNextNode) {
 				return selectNextNode.call(this, node);
 			}
 			var last = this.selNode;
 			if(node == last){
-				if (ensureFocus) {
+				if (ensureFocus || !Ext.isDefined(ensureFocus)) {
 					node.ui.onSelectedChange(true);
 				} else {
 					node.ui.addClass("x-tree-selected");
