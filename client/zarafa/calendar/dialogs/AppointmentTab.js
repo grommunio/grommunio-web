@@ -741,10 +741,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		 * to update reminder_time and flagdueby aswell, When
 		 * 1) flagdueby is changed
 		 * 2) reminder minutes is changed
-		 * 3) startdate is changed
+		 * 3) startdate and reminder time not same
 		 */
 		if (record.get('reminder') === true) {
-			if(!record.get('flagdueby') || record.isModifiedSinceLastUpdate('reminder_minutes') || record.isModifiedSinceLastUpdate('startdate')) {
+			if(!record.get('flagdueby') ||  record.isModifiedSinceLastUpdate('reminder_minutes') || record.get('reminder_time') !== record.get('startdate')) {
 				var reminderDate;
 
 				if (record.isRecurring() || record.isRecurringOccurence()) {
