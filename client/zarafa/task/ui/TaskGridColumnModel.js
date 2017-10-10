@@ -452,7 +452,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	/**
 	 * Reconfigures this column model according to selected folder in hierarchy.
 	 * if selected folder is other than To-Do list folder then filter out the
-	 * flag column from column configuration object.
+	 * percent complete column from column configuration object.
 	 *
 	 * @param {Object} config The configuration to set on the columnmodel
 	 * @param {Boolean} initial True if this is the initial configuration of the columnmodel
@@ -462,17 +462,12 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	{
 		// If we have model, default folder and which
 		// is To-do list folder then don't show
-		// percent completed columns and for normal folder
-		// we don't show the flag columns.
+		// percent completed columns.
 		if (Ext.isDefined(this.model) &&
 			this.model.getDefaultFolder() &&
 			this.model.getDefaultFolder().isTodoListFolder()) {
 			config = config.filter(function(c) {
 				return c.dataIndex !== 'percent_complete';
-			});
-		} else {
-			config = config.filter(function(c) {
-				return c.dataIndex !== 'flag_due_by';
 			});
 		}
 		Zarafa.task.ui.TaskGridColumnModel.superclass.setConfig.call(this, config, initial);
