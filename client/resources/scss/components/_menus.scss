@@ -215,6 +215,11 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 7, $offset-x: 3);
 	}
 
+	.icon_message_read {
+		@extend .icon_mail_read;
+		background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 3, $offset-x: 3);
+	}
+
 	.icon_categories {
 		@extend .icon_categories;
       	background-position: sprite-position($iconsmap, icon_categories, $offset-y: 5, $offset-x: 2);
