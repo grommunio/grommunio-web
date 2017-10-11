@@ -60,6 +60,14 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			hideable : false,
 			renderer : Zarafa.common.ui.grid.Renderers.icon
 		}, {
+			headerCls: 'zarafa-icon-column',
+			header : '<p class="icon_reminder">&nbsp;</p>',
+			dataIndex : 'reminder',
+			tooltip : _('Sort by: Reminder'),
+			width: 24,
+			renderer: Zarafa.common.ui.grid.Renderers.reminder,
+			fixed: true
+		}, {
 			xtype : 'checkcolumn',
 			dataIndex : 'complete',
 			headerCls: 'zarafa-icon-column',
@@ -83,14 +91,6 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			tooltip : _('Sort by: Due Date'),
 			renderer : this.columnRenderer
 		}, {
-			headerCls: 'zarafa-icon-column',
-			header : '<p class="icon_reminder">&nbsp;</p>',
-			dataIndex : 'reminder',
-			tooltip : _('Sort by: Reminder'),
-			width: 24,
-			renderer: Zarafa.common.ui.grid.Renderers.reminder,
-			fixed: true
-		},{
 			header : _('Reminder Time'),
 			dataIndex: 'reminder_time',
 			width: 160,
@@ -187,6 +187,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			headerCls: 'zarafa-icon-column',
 			header : '<p class="icon_reminder">&nbsp;</p>',
 			dataIndex : 'reminder',
+			tooltip : _('Sort by: Reminder'),
 			width: 24,
 			renderer: Zarafa.common.ui.grid.Renderers.reminder,
 			fixed: true
