@@ -716,7 +716,7 @@ Ext.apply(Zarafa, {
 			});
 
 			// Remove resize event listener of loading page
-			window.removeEventListener('resize', onResize);
+			window.removeEventListener('resize', resizeLoginBox);
 
 			// Register webapp to handle mailto urls
 			this.registerMailto();

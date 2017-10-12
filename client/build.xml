@@ -314,7 +314,7 @@
 				var ngettext = function(msgid, msgid_plural, count) {};
 				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 				var pgettext = function(msgctxt, msgid) {};
-				var onResize = function() {};
+				var resizeLoginBox = function() {};
 			</externs>
 		</zCompile>
 	</target>

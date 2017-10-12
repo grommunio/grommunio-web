@@ -1,3 +1,4 @@
+/* exported resizeLoginBox */
 const resizeLoginBox = (function() {
 	// Our designer doesn't want the box in the center of the screen, instead
 	// he wants the center of the box at 7/16 of the height of the window :-)
