@@ -88,9 +88,9 @@
 				// Adding this class will show the loader
 				const cntEl = document.getElementById('form-container');
 				cntEl.className += ' loading';
-				// Call onResize, because an error message might have enlarged the login box,
+				// Call resizeLoginBox, because an error message might have enlarged the login box,
 				// so it is out of position.
-				onResize();
+				resizeLoginBox();
 				firstSubmit = false;
 				window.setTimeout(function(){ form.submit(); }, 10);
 				return false;
