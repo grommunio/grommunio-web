@@ -13,13 +13,14 @@ const onResize = (function() {
 		}
 
 		const elemTop = centerlinePos * maskEl.clientHeight - cntEl.clientHeight / 2;
+		const left = (maskEl.clientWidth - cntEl.clientWidth) / 2;
 
 		cntEl.style.top = elemTop + 'px';
-		cntEl.style.left = (maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
+		cntEl.style.left = left + 'px';
 		bgEl.style.width = maskEl.clientWidth + 'px';
 		bgEl.style.height = maskEl.clientHeight + 'px';
 		bgEl.style.top = -elemTop + 'px';
-		bgEl.style.left = -(maskEl.clientWidth - cntEl.clientWidth) / 2 + 'px';
+		bgEl.style.left = -left + 'px';
 	}
 
 	// Add some classes to the body tag, so we can change styles (for IE)
