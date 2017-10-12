@@ -790,9 +790,10 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Positions the DOM elements that make up the four separate areas of the view (tab, header, scrollable (body), bottom).
+	 * @param {Boolean} skipResizingScrollPosition True will skip resizing scrollbar position.
 	 * @private
 	 */
-	resizeAreas : function()
+	resizeAreas : function(skipResizingScrollPosition)
 	{
 		var tabHeight = this.getTabHeight();
 
@@ -825,7 +826,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		// so divide by 60 to get the number of hours. We don't need to
 		// round the value because that way we can support having time
 		// which is not an entire hour (9:30 for example).
-		if (this.showTimeStrips) {
+		if (this.showTimeStrips && !skipResizingScrollPosition) {
 			var targetScrollHeight = (this.firstWorkingHour / 60) * this.getHourHeight();
 			this.scrollable.scrollTo('top', targetScrollHeight);
 		}
@@ -1250,6 +1251,11 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		// forward the event to the individual calendar views
 		for (var i = 0, len = this.calendars.length; i < len; i++) {
 			this.calendars[i].onAppointmentRemove(store, record, operation);
+		}
+
+		// Resize calendar view after removing record.
+		if (record.get('alldayevent') === true && Date.diff(Date.DAY, record.get('duedate'), record.get('startdate')) >= 1) {
+			this.resizeAreas(true);
 		}
 	},
 
