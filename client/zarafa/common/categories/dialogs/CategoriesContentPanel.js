@@ -31,6 +31,13 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 	recordsCopied : false,
 
 	/**
+	 * @cfg {Function} callback the callback function to be called after applying categories to
+	 * record. callback function is not empty function if original selected record or records are
+	 * belongs to {@link Zarafa.advancesearch.AdvanceSearchStore AdvanceSearchStore}
+	 */
+	callback : Ext.emptyFn,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -143,6 +150,9 @@ Zarafa.common.categories.dialogs.CategoriesContentPanel = Ext.extend(Zarafa.core
 			Zarafa.common.categories.Util.updateStoresAfterCategoryUpdate();
 		}
 
+		if (Ext.isFunction(this.callback)) {
+			this.callback.call(this.scope || this);
+		}
 		this.close();
 	},
 

@@ -110,6 +110,21 @@ Zarafa.common.Actions = {
 			autoSave : true,
 			modal : true
 		});
+
+		// Callback function added in config object if
+		// selected records is belongs to search store.
+		var store = records[0].getStore();
+		if(Ext.isFunction(store.isAdvanceSearchStore) && store.isAdvanceSearchStore()) {
+			config.callback = function() {
+				Ext.each(records, function(record){
+					var foundRecord = this.record.find(function(rec){
+						return rec.get('entryid') === record.get('entryid');
+					});
+					record.applyData(foundRecord);
+				}, this);
+			};
+		}
+
 		var componentType = Zarafa.core.data.SharedComponentType['common.dialog.categories'];
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
 	},
