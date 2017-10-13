@@ -275,10 +275,6 @@
 										break;
 								}
 								break;
-
-							case "resolveConflict":
-								$this->resolveConflict($store, $parententryid, $entryid, $action);
-								break;
 							default:
 								$this->handleUnknownActionType($actionType);
 						}
@@ -361,10 +357,6 @@
 						if(empty($e->displayMessage)) {
 							$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder") . ".");
 						}
-						break;
-
-					case "resolveConflict":
-						$e->setDisplayMessage(_("Could not resolve conflict."));
 						break;
 
 					case "attach_items":
@@ -654,65 +646,6 @@
 			}
 
 			return $entryid;
-		}
-
-		function resolveConflict($store, $parententryid, $entryid, $action)
-		{
-
-			if(!is_array($entryid)) {
-				$entryid = array($entryid);
-			}
-			$srcmessage = mapi_openentry($GLOBALS["mapisession"]->getSession(), $entryid[0], 0);
-			if(!$srcmessage)
-				return false;
-
-			$dstmessage = mapi_openentry($GLOBALS["mapisession"]->getSession(), hex2bin($action["conflictentryid"]), MAPI_MODIFY);
-			if(!$dstmessage)
-				return false;
-
-			$srcfolder = mapi_openentry($GLOBALS["mapisession"]->getSession(), $parententryid, MAPI_MODIFY);
-
-			$result = mapi_copyto($srcmessage, array(), array(PR_CONFLICT_ITEMS, PR_SOURCE_KEY, PR_CHANGE_KEY, PR_PREDECESSOR_CHANGE_LIST), $dstmessage);
-			if(!$result)
-				return $result;
-
-			//remove srcmessage entryid from PR_CONFLICT_ITEMS
-			$props = mapi_getprops($dstmessage, array(PR_CONFLICT_ITEMS));
-			if(isset($props[PR_CONFLICT_ITEMS])){
-				$binentryid = hex2bin($entryid[0]);
-				foreach($props[PR_CONFLICT_ITEMS] as $i => $conflict){
-					if($conflict == $binentryid){
-						array_splice($props[PR_CONFLICT_ITEMS],$i,1);
-					}else{
-						$tmp = mapi_openentry($GLOBALS["mapisession"]->getSession(), $conflict, 0);
-						if(!$tmp){
-							array_splice($props[PR_CONFLICT_ITEMS],$i,1);
-						}
-						unset($tmp);
-					}
-				}
-				if(empty($props[PR_CONFLICT_ITEMS])){
-					mapi_setprops($dstmessage, $props);
-				}else{
-					mapi_deleteprops($dstmessage, array(PR_CONFLICT_ITEMS));
-				}
-			}
-
-
-			mapi_savechanges($dstmessage);
-
-			$result = mapi_folder_deletemessages($srcfolder, $entryid);
-
-			$props = array();
-			$props[PR_PARENT_ENTRYID] = $parententryid;
-			$props[PR_ENTRYID] = $entryid[0];
-
-			$storeprops = mapi_getprops($store, array(PR_ENTRYID));
-			$props[PR_STORE_ENTRYID] = $storeprops[PR_ENTRYID];
-			$GLOBALS["bus"]->notify(bin2hex($parententryid), TABLE_DELETE, $props);
-
-			if(!$result)
-				return $result;
 		}
 
 		/**
