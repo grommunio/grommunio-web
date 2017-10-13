@@ -25,7 +25,6 @@ Zarafa.core.data.MessageRecordFields = [
 	{name: 'client_submit_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
 	{name: 'transport_message_headers'},
 	{name: 'hide_attachments', type: 'boolean', defaultValue: false},
-	{name: 'x_original_to'}
 ];
 
 /**

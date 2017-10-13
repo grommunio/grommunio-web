@@ -850,7 +850,6 @@
 				$properties["read_receipt_requested"] = PR_READ_RECEIPT_REQUESTED;
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["transport_message_headers"] = PR_TRANSPORT_MESSAGE_HEADERS;
-				$properties["x_original_to"] = "PT_STRING8:PS_INTERNET_HEADERS:x-original-to";
 				$properties["source_message_info"] = "PT_BINARY:PSETID_Common:0x85CE";
 				$properties["deferred_send_time"] = PR_DEFERRED_SEND_TIME;
 
