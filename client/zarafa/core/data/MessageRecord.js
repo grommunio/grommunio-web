@@ -157,7 +157,6 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var blockExternalContent = true;
 		var ignoreChecks = false;
 		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address')).toLowerCase();
-		var blockedSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/blocked_senders_list', true).map(function(s){return s.toLowerCase();});
 		var safeSenders = container.getSettingsModel().get('zarafa/v1/contexts/mail/safe_senders_list', true).map(function(s){return s.toLowerCase();});
 
 		// if block_status property is set correctly then ignore all settings and show external content
@@ -168,11 +167,6 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		// first check for perfect match
 		if(!ignoreChecks) {
-			if(blockedSenders.indexOf(senderSMTPAddress) != -1) {
-				blockExternalContent = true;
-				ignoreChecks = true;
-			}
-
 			// safe sender list will have higher priority then blocked sender list
 			if(safeSenders.indexOf(senderSMTPAddress) != -1) {
 				blockExternalContent = false;
@@ -182,10 +176,6 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		// now check for partial matches
 		if(!ignoreChecks) {
-			if(Zarafa.core.Util.inArray(blockedSenders, senderSMTPAddress, true, true)) {
-				blockExternalContent = true;
-			}
-
 			// safe sender list will have higher priority then blocked sender list
 			if(Zarafa.core.Util.inArray(safeSenders, senderSMTPAddress, true, true)) {
 				blockExternalContent = false;
