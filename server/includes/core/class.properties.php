@@ -1027,6 +1027,7 @@
 				$properties["commonstart"] = "PT_SYSTIME:PSETID_Common:0x8516";
 				$properties["commonend"] = "PT_SYSTIME:PSETID_Common:0x8517";
 				$properties["commonassign"] = "PT_LONG:PSETID_Common:0x8518";
+				$properties["flag_icon"] = PR_FLAG_ICON;
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
 				$properties["flag_status"] = PR_FLAG_STATUS;
 				$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;

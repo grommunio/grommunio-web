@@ -147,6 +147,9 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	 */
 	setFlag : function(menuItem)
 	{
+		// If there was an old-style flag, we must set the category before changing the flag
+		Zarafa.common.flags.Util.updateCategories(this.records);
+
 		const flagProperties = Zarafa.common.flags.Util.getFlagBaseProperties();
 
 		switch ( menuItem.action ) {
@@ -180,7 +183,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	/**
 	 * Set necessary flag related properties into given record(s).
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record The record for which configured flag needs to be identified.
+	 * @param {Zarafa.core.data.IPMRecord} records The record(s) for which configured flag needs to be identified.
 	 * @param {Object} flagProperties Necessary flag properties
 	 */
 	setFlagProperties : function(records, flagProperties)

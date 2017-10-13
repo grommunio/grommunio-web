@@ -512,7 +512,6 @@ Zarafa.common.ui.grid.Renderers = {
 	flag : function(value, p, record)
 	{
 		var flagStatus = record.get('flag_status');
-		var flagRequest = record.get('flag_request');
 
 		// add extra css class for empty cell
 		p.css += 'zarafa-grid-empty-cell';
@@ -522,7 +521,7 @@ Zarafa.common.ui.grid.Renderers = {
 			return '';
 		}
 
-		if ( !record.isMessageClass('IPM.Task') && (flagRequest!=='Follow up' || flagStatus!==Zarafa.core.mapi.FlagStatus.flagged )){
+		if ( !record.isMessageClass('IPM.Task') && flagStatus!==Zarafa.core.mapi.FlagStatus.flagged ){
 			p.css += ' icon_flag';
 			return '<div class="k-followup-flag"></div>';
 		}

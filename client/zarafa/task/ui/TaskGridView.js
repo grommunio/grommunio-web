@@ -193,8 +193,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 			complete = record.get('complete');
 			duedate = record.get('duedate');
 		} else {
-			complete = record.get('flag_complete_time');
-			complete = Ext.isDate(complete) && complete.getTime() < new Date().getTime();
+			complete = record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed;
 			duedate = record.get('flag_due_by');
 		}
 
