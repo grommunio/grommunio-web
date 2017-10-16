@@ -34,11 +34,8 @@ $serverConfig = array(
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
-		<?php
-			$loader->cssOrder();
-		?>
+		<?php $loader->cssOrder(); ?>
 	</head>
 
 	<body class="zarafa-welcome">
@@ -56,44 +53,20 @@ $serverConfig = array(
 			</div>
 		</div>
 
-		<script type="text/javascript">
-			bodyEl = document.getElementsByTagName('body')[0];
-			maskEl = document.getElementById('loading-mask');
-			cntEl = document.getElementById('form-container');
-			bgEl = document.getElementById('bg');
-			logoEl = document.getElementById('logo');
-
-			// Add some classes to the body tag, so we can change styles (for IE)
-			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
-			bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
-
-			var img = document.createElement('img');
-			img.onload = function(){
-				cntEl.style.visibility = 'visible';
-			}
-			img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
-
-			// call it once to initialize the elements
-			onResize();
-		</script>
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 
 		<!-- Translations -->
 		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
-
 		<!-- JS Files -->
-		<?php
-			$loader->jsOrder();
-		?>
+		<?php $loader->jsOrder(); ?>
 
 		<script type="text/javascript">
 			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
 			languages 		= <?php echo $Language->getJSON(); ?>;
 			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
 			version 		= <?php echo json_encode($versionInfo); ?>;
-			serverconfig 	= <?php echo json_encode($serverConfig); ?>;
-		</script>
+			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 
-		<script type="text/javascript">
 			Ext.onReady(Zarafa.loadWelcome, Zarafa);
 		</script>
 	</body>

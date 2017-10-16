@@ -60,14 +60,11 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		<link rel="icon" href="<?php echo $favicon ?>" type="image/x-icon">
 		<link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/x-icon">
 
-		<script type="text/javascript"><?php require('template.js'); ?></script>
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<?php
-			$loader->cssOrder();
-		?>
+		<?php $loader->cssOrder(); ?>
 	</head>
 
 	<body class="zarafa-webclient">
@@ -85,45 +82,12 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			</div>
 		</div>
 
-		<script type="text/javascript">
-			bodyEl = document.getElementsByTagName('body')[0];
-			maskEl = document.getElementById('loading-mask');
-			cntEl = document.getElementById('form-container');
-			bgEl = document.getElementById('bg');
-			logoEl = document.getElementById('logo');
-
-			// Add some classes to the body tag, so we can change styles (for IE)
-			bodyEl.className += (bodyEl.className.length>0 ? ' ' : '') + navigator.sayswho.split(' ')[0];
-			bodyEl.className += ' ' + navigator.sayswho.replace(' ','');
-
-			var img = document.createElement('img');
-			img.onload = function(){
-				cntEl.style.visibility = 'visible';
-			}
-			img.src = window.getComputedStyle(maskEl, false).backgroundImage.slice(4, -1).replace(/"/g, "");
-
-			// call it once to initialize the elements
-			onResize();
-		</script>
-
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&amp;load=translations.js&amp;lang=<?php echo $Language->getSelected() ?>"></script>
-
+		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
+		<!-- JS Files -->
 		<?php
-			echo $loader->jsOrder();
-		?>
-
-		<script type="text/javascript">
-			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
-			persistentsettings 	= <?php echo $GLOBALS["settings"]->getPersistentSettingsJSON(); ?>;
-			languages 		= <?php echo $Language->getJSON(); ?>;
-			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
-			version 		= <?php echo json_encode($versionInfo); ?>;
-			serverconfig 	= <?php echo json_encode($serverConfig); ?>;
-		</script>
-
-		<!-- get URL data from session and dump it for client to use -->
-		<?php
+			$loader->jsOrder();
+			// get URL data from session and dump it for client to use
 			$urlActionData = array();
 			if(!empty($_SESSION['url_action'])) {
 				$urlActionData = $_SESSION['url_action'];
@@ -133,13 +97,16 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			}
 		?>
 
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 		<script type="text/javascript">
-			urlActionData = <?php echo json_encode($urlActionData); ?>;
-		</script>
+			settings 		= <?php echo $GLOBALS["settings"]->getJSON(); ?>;
+			languages 		= <?php echo $Language->getJSON(); ?>;
+			user 			= <?php echo json_encode($GLOBALS['mapisession']->getUserInfo()); ?>;
+			version 		= <?php echo json_encode($versionInfo); ?>;
+			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
+			urlActionData 		= <?php echo json_encode($urlActionData); ?>;
 
-		<script type="text/javascript">
 			Ext.onReady(Zarafa.loadWebclient, Zarafa);
 		</script>
-
 	</body>
 </html>
