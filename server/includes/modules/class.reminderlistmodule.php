@@ -58,7 +58,7 @@
 								$this->handleUnknownActionType($actionType);
 						}
 					} catch (MAPIException $e) {
-						$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
+						$this->processException($e, $actionType, $store, null, $entryid, $action);
 					}
 				}
 			}
