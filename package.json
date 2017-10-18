@@ -7,7 +7,9 @@
 	"scripts": {
 		"lint": "jshint client/zarafa",
 		"prelint": "jshint $(git diff-index --name-only HEAD | grep '.js')",
-		"jlint": "jshint client/zarafa --reporter=checkstyle > result.xml"
+		"jlint": "jshint client/zarafa --reporter=checkstyle > result.xml",
+		"phplint": "phpmd server text .phpmd.xml",
+		"phplintci": "phpmd server xml .phpmd.xml --reportfile result.xml"
 	},
 	"pre-commit": {
 		"run": ["prelint"]

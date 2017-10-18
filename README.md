@@ -21,6 +21,22 @@ Optional for development a pre-commit hook can be used, which runs JSHint.
   npm install
 ```
 
+# Running static analysis
+
+After setting the dependencies using ```npm install```, jshint can be run as
+following.
+
+```
+npm run lint
+```
+
+
+Running PHP linting, requires [phpmd](https://phpmd.org/about.html) to be installed:
+
+```
+npm run phplint
+```
+
 # Documentation
 In-depth documentation, such as administration and user manuals about our
 products can be found on our [Documentation Portal](
