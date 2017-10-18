@@ -40,7 +40,7 @@
 		// but the user is not logged in, so the state has changed for the user.
 		case MAPI_E_UNCONFIGURED:
 			
-		// NOERROR means the logon was successfull, and the connection to the
+		// NOERROR means the logon was successful, and the connection to the
 		// server is working as expected.
 		case NOERROR:
 			
