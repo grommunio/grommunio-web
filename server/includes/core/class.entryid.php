@@ -227,45 +227,6 @@
 			return $res;
 		}
 
-		// The entryid for local addressbook items
-		private function getWrappedABEIDVersion($entryId)
-		{
-			// always make entryids in uppercase so comparison will be case insensitive
-			$entryId = strtoupper($entryId);
-
-			$res = array(
-				'ulVersion'		=> '',	// ULONG,     4 bytes,  8 hex characters
-				'muid'			=> '',	// MAPIUID,  16 bytes, 32 hex characters
-				'ulObjType'		=> '',	// ULONG,     4 bytes,  8 hex characters
-				'ulOffset'		=> '',	// ULONG,     4 bytes,  8 hex characters
-				'unWrappedEntryId'	=> '',	// EID/EID_V0,  variable length because it contains server name
-			);
-
-			$res['length'] = strlen($entryId);
-			$offset = 0;
-
-			$res['ulVersion'] = substr($entryId, $offset, 8);
-			$offset += 8;
-
-			$res['muid'] = substr($entryId, $offset, 32);
-			$offset += 32;
-
-			$res['ulObjType'] = substr($entryId, $offset, 8);
-			$offset += 8;
-
-			$res['ulOffset'] = substr($entryId, $offset, 8);
-			$offset += 8;
-
-			$res['unWrappedEntryId'] = substr($entryId, $offset);
-
-			// unwrapped entryid is actually an object entryid so decompose it
-			$res['unWrappedEntryId'] = $this->createEntryIdObj($res['unWrappedEntryId']);
-
-			$res['name'] = 'WrappedABEID';
-
-			return $res;
-		}
-
 		/**
 		 * Creates an object that has split up all the components of an entryID.
 		 * @param {String} entryid Entryid
