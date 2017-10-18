@@ -466,7 +466,7 @@
 		 * It is mapped to username, If folder_type is 'all' (i.e. Open Entire Inbox)
 		 * then we will open full store and it's archived stores.
 		 * @param String $username The username
-		 * @return Array storeArray The array of stores containg user's store and archived stores
+		 * @return Array storeArray The array of stores containing user's store and archived stores
 		 */
 		function getSingleMessageStores($store, $storeOptions, $username)
 		{
