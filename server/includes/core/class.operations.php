@@ -2266,7 +2266,7 @@
 					} else {
 						$sourceEntryId = $action['message_action']['source_entryid'];
 						$sourceStoreEntryId = $action['message_action']['source_store_entryid'];
-						$sourceStore = $copyFromStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($sourceStoreEntryId));
+						$sourceStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($sourceStoreEntryId));
 						$sourceRecord = mapi_msgstore_openentry($sourceStore, hex2bin($sourceEntryId));
 						$sourceRecordProps = mapi_getprops($sourceRecord, array($properties["meeting"], $properties["responsestatus"]));
 						// Don't copy recipient if source record is received message.
