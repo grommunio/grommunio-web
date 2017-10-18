@@ -187,7 +187,7 @@ function sq_skipspace($text, $offset) {
  * @param  $body   The string to look for needle in.
  * @param  $offset Start looking from this position.
  * @param  $needle The character/string to look for.
- * @return         location of the next occurance of the needle, or
+ * @return         location of the next occurrence of the needle, or
  *                 strlen($body) if needle wasn't found.
  */
 function sq_findnxstr($body, $offset, $needle){
