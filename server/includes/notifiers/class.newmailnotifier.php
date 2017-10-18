@@ -38,8 +38,6 @@
 		 * the data differs newmail notifications for the changed folder(s) are created and send to the client.
 		 */
 		private function updateFolderHierachy() {
-			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-
 			$counterState = new State('counters_sessiondata');
 			$counterState->open();
 
