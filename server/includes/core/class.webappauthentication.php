@@ -276,7 +276,7 @@ class WebAppAuthentication
 
 		WebAppAuthentication::login($username, '');
 
-		// Store the username in the session if logging in was succesful
+		// Store the username in the session if logging in was successful
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
 			WebAppAuthentication::_storeCredentialsInSession($username, '');
 		}
