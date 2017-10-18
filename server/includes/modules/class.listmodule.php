@@ -259,7 +259,6 @@
 				// When searching in the To-do list we will actually always search in the IPM subtree, so
 				// set the entryid to that.
 		        $userStore = WebAppAuthentication::getMapiSession()->getDefaultMessageStore();
-		        $root = mapi_msgstore_openentry($userStore, null);
 		        $props = mapi_getprops($userStore, array(PR_IPM_SUBTREE_ENTRYID));
 		        $entryid = $props[PR_IPM_SUBTREE_ENTRYID];
 			}
