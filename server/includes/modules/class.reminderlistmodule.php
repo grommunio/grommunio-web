@@ -32,7 +32,7 @@
 						switch($actionType)
 						{
 							case "list":
-								$this->getReminders($action);
+								$this->getReminders();
 								break;
 							case "delete":
 								$subActionType = false;
@@ -219,7 +219,7 @@
 			return $folderProps[PR_ENTRYID];
 		}
 
-		function getReminders($action)
+		function getReminders()
 		{
 			$data = array();
 
