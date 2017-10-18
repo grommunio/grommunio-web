@@ -304,7 +304,7 @@ class DownloadAttachment
 				$filename = $props[PR_DISPLAY_NAME];
 			}
 
-			// Set content type if avaliable, otherwise it will be default to application/octet-stream
+			// Set content type if available, otherwise it will be default to application/octet-stream
 			if(isset($props[PR_ATTACH_MIME_TAG])) {
 				$contentType = $props[PR_ATTACH_MIME_TAG];
 			}
