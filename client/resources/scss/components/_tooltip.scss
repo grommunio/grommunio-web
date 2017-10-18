@@ -53,3 +53,9 @@
 	background-image: none;
 }
 
+/* The tooltip for 'nice' dates in grids */
+.k-griddatetooltip {
+	.x-tip-body {
+		white-space: nowrap;
+	}
+}

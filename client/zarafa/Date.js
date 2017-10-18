@@ -539,6 +539,61 @@ Ext.apply(Date.prototype, {
 		var monthStartWeek = monthStartDate.getWeekOfYear();
 
 		return currentWeek - monthStartWeek + 1;
+	},
+
+	/**
+	 * Returns the date in a 'nicely' formatted string.
+	 * @param {Boolean} includeTime The time will be added to the nicely
+	 * formatted string when true, or omitted otherwise. Default is true.
+	 *
+	 * @return {String} The nicely formatted date string.
+	 */
+	getNiceFormat : function(includeTime)
+	{
+		includeTime = includeTime !== false;
+
+		var d = this.clearTime(true);
+		var now = new Date().clearTime();
+
+		// Check for today. We'll only use time then.
+		if ( d.getTime() === now.getTime() ){
+			if ( includeTime ){
+				return this.format(_('G:i'));
+			} else {
+				return _('Today');
+			}
+		}
+
+		// Check for tomorrow.
+		if ( d.add(Date.DAY, -1).getTime() === now.getTime() ){
+			if ( includeTime ){
+				return _('Tomorrow') + ' ' + this.format(_('G:i'));
+			} else {
+				return _('Tomorrow');
+			}
+		}
+
+		// Check for future dates. We'll only show the date then.
+		if ( d > now ){
+			return this.format(_('d-m-Y'));
+		}
+
+		// Check for past week. We'll use day (name) + time then.
+		if ( d.add(Date.DAY, 6) >= now ){
+			if ( includeTime ){
+				return this.format(_('D G:i'));
+			} else {
+				return this.format(_('D d-m'));
+			}
+		}
+
+		// Check for two weeks ago. We'll use the day (name) + date (without year)
+		if ( d.add(Date.DAY, 14) >= now ){
+			return this.format(_('D d-m'));
+		}
+
+		// For anything older than two weeks ago, we'll show the date
+		return this.format(_('d-m-Y'));
 	}
 });
 

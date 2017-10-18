@@ -308,15 +308,22 @@ Zarafa.common.ui.grid.Renderers = {
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
-	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 *
 	 * @return {String} The formatted string
 	 */
-	date : function(value, p, record)
+	date : function(value, p)
 	{
 		p.css = 'mail_date';
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		return Ext.isDate(value) ? value.format(_('l d/m/Y')) : _('None');
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('zarafa/v1/main/datetime_display_format') === 'short' ){
+			return value.getNiceFormat(false);
+		} else {
+			return value.format(_('l d/m/Y'));
+		}
 	},
 
 	/**
@@ -324,19 +331,21 @@ Zarafa.common.ui.grid.Renderers = {
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
-	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+
 	 * @return {String} The formatted string
 	 */
-	utcdate : function(value, p, record)
+	utcdate : function(value, p)
 	{
-		p.css = 'mail_date';
+		if ( Ext.isDate(value) ){
+			value = value.toUTC();
+		}
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		return Ext.isDate(value) ? value.toUTC().format(_('l d/m/Y')) : _('None');
+		return this.date(value, p);
 	},
 
 	/**
-	 * Render the cell as Date with Time (l d/m/Y G:i) string
+	 * Render the cell as date with time (l d/m/Y G:i) when the user has set the long display format
+	 * or the 'nice' date when the the short display format has been set.
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
@@ -345,6 +354,7 @@ Zarafa.common.ui.grid.Renderers = {
 	 * @param {Integer} column The column in the grid for which a cell is rendered
 	 * @param {Zarafa.mail.MailStore} The store of the grid that is being rendered
 	 * @param {Object} meta An object with meta data that can be used by the renderer function
+	 *
 	 * @return {String} The formatted string
 	 */
 	datetime : function(value, p, record, row, column, store, meta)
@@ -355,8 +365,47 @@ Zarafa.common.ui.grid.Renderers = {
 			p.css += ' ' + meta.css;
 		}
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		return Ext.isDate(value) ? value.format(_('l d/m/Y G:i')) : _('None');
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('zarafa/v1/main/datetime_display_format') === 'short' ){
+			// Add one class that the tooltip can use to recognize a 'nice' date.
+			// Add one class so the tooltip can easily get the timestamp of the date.
+			p.css += ' k-date-nice k-ts-'+value.getTime();
+
+			return value.getNiceFormat();
+		} else {
+			return value.format(_('l d/m/Y G:i'));
+		}
+	},
+
+	/**
+	 * Render the cell as date with time (l d/m/Y G:i when the user has set the Long display
+	 * format, or d-m-Y, G:i when the short format has been set) This renderer should be used
+	 * instead of {#datetime} when a time should always be shown, e.g. for the reminder time.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 *
+	 * @return {String} The formatted string
+	 */
+	dateWithTime : function(value, p)
+	{
+		p.css = '';
+
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('zarafa/v1/main/datetime_display_format') === 'short' ){
+			// Add one class that the tooltip can use to recognize a 'nice' date.
+			// Add one class so the tooltip can easily get the timestamp of the date.
+			p.css += ' k-date-nice k-ts-'+value.getTime();
+			return value.format(_('d-m-Y G:i'));
+		} else {
+			return value.format(_('l d/m/Y G:i'));
+		}
 	},
 
 	/**

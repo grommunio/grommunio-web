@@ -12470,7 +12470,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
 /* line 23, ../scss/components/_settings.scss */
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel {
   padding: 6px 3px;
-  /* Inbox navigation */
+  /* minor information in labels */
   /* Keyboard shortcuts */
   /* About Category */
 }
@@ -12533,7 +12533,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid
   margin-bottom: 0;
 }
 /* line 78, ../scss/components/_settings.scss */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-category-general-liveScroll {
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .k-settings-label-minor {
   opacity: 0.5;
   margin-left: 3px;
 }
@@ -13611,6 +13611,12 @@ body .k-category-block {
 /* line 52, ../scss/components/_tooltip.scss */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none;
+}
+
+/* The tooltip for 'nice' dates in grids */
+/* line 58, ../scss/components/_tooltip.scss */
+.k-griddatetooltip .x-tip-body {
+  white-space: nowrap;
 }
 
 /* line 1, ../scss/components/_tinymce.scss */
