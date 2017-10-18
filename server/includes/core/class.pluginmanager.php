@@ -135,7 +135,7 @@ class PluginManager
 	 * from the state object or otherwise read in all the data and write it into
 	 * the state.
 	 *
-	 * @param String $disabled The list of plugins to disable, this list is seperated
+	 * @param String $disabled The list of plugins to disable, this list is separated
 	 * by the ';' character.
 	 */
 	function detectPlugins($disabled = ''){
