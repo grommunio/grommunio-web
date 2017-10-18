@@ -18,7 +18,7 @@
  * Convert the charset to UTF-8. If it is an array it will loop through all it's
  * items and encodes each item.
  * @param $source String|Array Input string or array with strings
- * @param $charset String Orginal charset of the source string(s).
+ * @param $charset String Original charset of the source string(s).
  * @return String Source string encoded with the new charset
  */
 function changeTranslationCharsetToUTF8($source, $charset){
