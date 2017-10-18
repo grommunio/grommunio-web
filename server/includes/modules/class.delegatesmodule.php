@@ -90,7 +90,7 @@
 		 */
 		function getDelegateProps($localFreeBusyMessage = false)
 		{
-			if(empty($delegateProps)) {
+			if(empty($this->delegateProps)) {
 				if($localFreeBusyMessage === false) {
 					$localFreeBusyMessage = $this->getLocalFreeBusyMessage();
 				}
