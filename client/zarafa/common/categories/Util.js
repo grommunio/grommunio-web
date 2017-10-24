@@ -226,7 +226,7 @@ Zarafa.common.categories.Util = {
 		// We'll start with the categories of the first record, and will then remove
 		// any category that isn't set on one of the other records
 		var selectedCategories = Zarafa.common.categories.Util.getCategories(records[0]);
-		Ext.each(this.records, function(record, index){
+		Ext.each(records, function(record, index){
 			if ( index === 0 ) {
 				return;
 			}
