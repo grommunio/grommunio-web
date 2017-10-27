@@ -696,6 +696,11 @@
 					$copyProps = Conversion::mapXML2MAPI($this->properties, $action["message_action"]["dropmodifications"]);
 				}
 
+				// if item has some changes made before choosing different calendar from create-in dropdown
+				if (isset($action["props"])) {
+					$copyProps = Conversion::mapXML2MAPI($this->properties, $action["props"]);
+				}
+
 				$props = array();
 				$props[PR_PARENT_ENTRYID] = $parententryid;
 				$props[PR_ENTRYID] = $entryids;

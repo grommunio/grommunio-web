@@ -9020,16 +9020,20 @@ span.zarafa-emailaddress-link:hover {
 }
 /* line 98, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-subject-panel,
+.k-appointmentcreatetab .k-createin-panel,
 .k-appointmentcreatetab .k-location-panel,
 .k-taskgeneraltab .k-subject-panel,
+.k-taskgeneraltab .k-createin-panel,
 .k-taskgeneraltab .k-location-panel {
   padding: 6px;
   border-bottom: 1px solid #e6e6e6;
 }
-/* line 103, ../scss/components/_createitempanels.scss */
+/* line 104, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-subject-panel label,
+.k-appointmentcreatetab .k-createin-panel label,
 .k-appointmentcreatetab .k-location-panel label,
 .k-taskgeneraltab .k-subject-panel label,
+.k-taskgeneraltab .k-createin-panel label,
 .k-taskgeneraltab .k-location-panel label {
   text-align: left;
   padding: 0 6px;
@@ -9037,42 +9041,42 @@ span.zarafa-emailaddress-link:hover {
   padding-top: 2px;
   width: 72px !important;
 }
-/* line 113, ../scss/components/_createitempanels.scss */
+/* line 114, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-datetime-panel table,
 .k-taskgeneraltab .k-datetime-panel table {
   width: 100%;
   border-collapse: collapse;
   white-space: nowrap;
 }
-/* line 118, ../scss/components/_createitempanels.scss */
+/* line 119, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-datetime-panel table tr:nth-child(2),
 .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
   border-bottom: 1px solid #e6e6e6;
 }
-/* line 122, ../scss/components/_createitempanels.scss */
+/* line 123, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-datetime-panel table td:first-child,
 .k-taskgeneraltab .k-datetime-panel table td:first-child {
   width: 100px;
 }
-/* line 125, ../scss/components/_createitempanels.scss */
+/* line 126, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-datetime-panel table td:first-child td:first-child,
 .k-taskgeneraltab .k-datetime-panel table td:first-child td:first-child {
   width: auto;
 }
-/* line 132, ../scss/components/_createitempanels.scss */
+/* line 133, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-date-panel,
 .k-taskgeneraltab .k-date-panel {
   padding: 6px;
   padding-right: 36px;
 }
-/* line 137, ../scss/components/_createitempanels.scss */
+/* line 138, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-date-panel .x-form-item:first-child label,
 .k-taskgeneraltab .k-date-panel .x-form-item:first-child label {
   padding: 0 6px;
   line-height: 20px;
   padding-top: 2px;
 }
-/* line 145, ../scss/components/_createitempanels.scss */
+/* line 146, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-date-panel .x-form-item:last-child label,
 .k-taskgeneraltab .k-date-panel .x-form-item:last-child label {
   padding: 0 9px;
@@ -9080,7 +9084,7 @@ span.zarafa-emailaddress-link:hover {
   padding-top: 2px;
   text-align: right;
 }
-/* line 154, ../scss/components/_createitempanels.scss */
+/* line 155, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-busystatus-panel,
 .k-appointmentcreatetab .k-label-panel,
 .k-appointmentcreatetab .k-status-panel,
@@ -9093,7 +9097,7 @@ span.zarafa-emailaddress-link:hover {
   padding-left: 12px;
   border-left: 1px solid #e6e6e6;
 }
-/* line 163, ../scss/components/_createitempanels.scss */
+/* line 164, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-reminder-panel,
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-reminder-panel,
@@ -9101,7 +9105,7 @@ span.zarafa-emailaddress-link:hover {
   padding: 6px;
   padding-left: 12px;
 }
-/* line 168, ../scss/components/_createitempanels.scss */
+/* line 169, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-reminder-panel .x-form-check-wrap,
 .k-appointmentcreatetab .k-taskrequestsettings .x-form-check-wrap,
 .k-taskgeneraltab .k-reminder-panel .x-form-check-wrap,
@@ -9109,28 +9113,28 @@ span.zarafa-emailaddress-link:hover {
   line-height: 20px;
   padding-top: 2px;
 }
-/* line 174, ../scss/components/_createitempanels.scss */
+/* line 175, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-taskrequestsettings {
   border-bottom: 1px solid #e6e6e6;
 }
-/* line 178, ../scss/components/_createitempanels.scss */
+/* line 179, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-taskrequestsettings .x-form-check-wrap label,
 .k-taskgeneraltab .k-taskrequestsettings .x-form-check-wrap label {
   padding-right: 18px;
 }
-/* line 184, ../scss/components/_createitempanels.scss */
+/* line 185, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-taskinfopanel,
 .k-taskgeneraltab .k-taskinfopanel {
   padding: 6px;
 }
-/* line 188, ../scss/components/_createitempanels.scss */
+/* line 189, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-extrainfopanel,
 .k-taskgeneraltab .k-extrainfopanel {
   padding: 6px;
   padding-bottom: 0;
 }
-/* line 193, ../scss/components/_createitempanels.scss */
+/* line 194, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .filler,
 .k-taskgeneraltab .filler {
   padding: 6px;
@@ -9138,12 +9142,12 @@ span.zarafa-emailaddress-link:hover {
   border-left: 1px solid #e6e6e6;
   height: 24px;
 }
-/* line 200, ../scss/components/_createitempanels.scss */
+/* line 201, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-field-attachments,
 .k-taskgeneraltab .k-field-attachments {
   padding: 6px;
 }
-/* line 205, ../scss/components/_createitempanels.scss */
+/* line 206, ../scss/components/_createitempanels.scss */
 .k-appointmentcreatetab .k-body-panel textarea,
 .k-taskgeneraltab .k-body-panel textarea {
   border: none;
@@ -9151,20 +9155,35 @@ span.zarafa-emailaddress-link:hover {
 }
 
 /* line 213, ../scss/components/_createitempanels.scss */
+.k-createin-combo {
+  text-indent: 20px;
+  background-position-x: 6px;
+  background-position-y: 4px;
+  background-repeat: no-repeat;
+}
+
+/* line 221, ../scss/components/_createitempanels.scss */
+.k-createin-combo-list-svg .x-combo-list-inner .x-combo-list-item svg {
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+/* line 230, ../scss/components/_createitempanels.scss */
 .k-taskdetailtab > .x-panel-bwrap {
   padding: 6px;
 }
-/* line 217, ../scss/components/_createitempanels.scss */
+/* line 234, ../scss/components/_createitempanels.scss */
 .k-taskdetailtab .k-datepanel,
 .k-taskdetailtab .k-workpanel,
 .k-taskdetailtab .k-companypanel {
   padding: 6px;
 }
-/* line 224, ../scss/components/_createitempanels.scss */
+/* line 241, ../scss/components/_createitempanels.scss */
 .k-taskdetailtab .k-workpanel .k-col1 {
   padding-left: 18px;
 }
-/* line 229, ../scss/components/_createitempanels.scss */
+/* line 246, ../scss/components/_createitempanels.scss */
 .k-taskdetailtab .k-updatelistpanel .x-form-item {
   padding: 6px;
 }
@@ -9172,68 +9191,68 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Contact create panel
  *********************************************************************/
-/* line 237, ../scss/components/_createitempanels.scss */
+/* line 254, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel {
   /* the general tab */
 }
-/* line 242, ../scss/components/_createitempanels.scss */
+/* line 259, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body {
   padding: 6px;
 }
-/* line 245, ../scss/components/_createitempanels.scss */
+/* line 262, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset {
   border: none;
 }
-/* line 248, ../scss/components/_createitempanels.scss */
+/* line 265, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset legend,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset legend {
   font-weight: bold;
 }
-/* line 252, ../scss/components/_createitempanels.scss */
+/* line 269, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-form-item,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-form-item {
   margin-bottom: 6px;
 }
-/* line 256, ../scss/components/_createitempanels.scss */
+/* line 273, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-compositefield.x-box-layout-ct,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-compositefield.x-box-layout-ct {
   overflow: visible;
 }
-/* line 260, ../scss/components/_createitempanels.scss */
+/* line 277, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-contactcreatepanel-field-attachments,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-contactcreatepanel-field-attachments {
   padding: 0 6px 6px;
   min-height: 24px;
 }
-/* line 264, ../scss/components/_createitempanels.scss */
+/* line 281, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-contactcreatepanel-field-attachments button,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .zarafa-contactcreatepanel-field-attachments button {
   text-align: left;
 }
-/* line 271, ../scss/components/_createitempanels.scss */
+/* line 288, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small {
   width: 100%;
 }
-/* line 274, ../scss/components/_createitempanels.scss */
+/* line 291, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small em,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small em {
   display: block;
 }
-/* line 277, ../scss/components/_createitempanels.scss */
+/* line 294, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small em button,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body fieldset .x-btn .x-btn-small em button {
   text-align: left;
   width: 100%;
 }
-/* line 286, ../scss/components/_createitempanels.scss */
+/* line 303, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab > .x-panel-bwrap > .x-panel-body .zarafa-clear,
 .zarafa-contactcreatepanel .zarafa-contactdetailtab > .x-panel-bwrap > .x-panel-body .zarafa-clear {
   padding-bottom: 18px;
 }
-/* line 294, ../scss/components/_createitempanels.scss */
+/* line 311, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box_ct {
   width: 94px !important;
   height: 94px !important;
@@ -9252,7 +9271,7 @@ span.zarafa-emailaddress-link:hover {
   user-select: none;
   /* non-prefixed version, currently not supported by any browser */
 }
-/* line 307, ../scss/components/_createitempanels.scss */
+/* line 324, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box {
   margin: 3px 0 0 3px;
   width: 94px;
@@ -9263,11 +9282,11 @@ span.zarafa-emailaddress-link:hover {
   background-position: left top;
   background-color: #ffffff;
 }
-/* line 317, ../scss/components/_createitempanels.scss */
+/* line 334, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box:hover {
   border-color: #222222;
 }
-/* line 320, ../scss/components/_createitempanels.scss */
+/* line 337, ../scss/components/_createitempanels.scss */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .default_contact_photo {
   background: url(../images/default_contact_profile.png) no-repeat center center;
 }
@@ -9275,14 +9294,14 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Distlist create panel
  *********************************************************************/
-/* line 332, ../scss/components/_createitempanels.scss */
+/* line 349, ../scss/components/_createitempanels.scss */
 .zarafa-distlist-createpanel-memberstab .buttons td {
   padding-bottom: 3px;
   /*needed to show the shadow of the buttons*/
 }
 
 /* textarea duplicate border */
-/* line 340, ../scss/components/_createitempanels.scss */
+/* line 357, ../scss/components/_createitempanels.scss */
 .zarafa-mailcreatepanel-field-editor.x-form-textarea {
   border-width: 1px 0px 0px;
 }
@@ -9290,16 +9309,16 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Task create panel
  *********************************************************************/
-/* line 348, ../scss/components/_createitempanels.scss */
+/* line 365, ../scss/components/_createitempanels.scss */
 .zarafa-taskgeneraltab .field-to {
   min-height: 24px;
   border-bottom: 1px solid #e6e6e6;
 }
-/* line 352, ../scss/components/_createitempanels.scss */
+/* line 369, ../scss/components/_createitempanels.scss */
 .zarafa-taskgeneraltab .field-to button {
   text-align: left;
 }
-/* line 356, ../scss/components/_createitempanels.scss */
+/* line 373, ../scss/components/_createitempanels.scss */
 .zarafa-taskgeneraltab .zarafa-taskcreatepanel-field-attachments {
   padding-top: 6px;
 }
@@ -9307,16 +9326,16 @@ span.zarafa-emailaddress-link:hover {
 /**********************************************************************
  * Meeting tracking tab
  *********************************************************************/
-/* line 366, ../scss/components/_createitempanels.scss */
+/* line 383, ../scss/components/_createitempanels.scss */
 .k-trackingtab .x-form-display-field {
   padding: 10px 10px 10px 12px;
 }
-/* line 370, ../scss/components/_createitempanels.scss */
+/* line 387, ../scss/components/_createitempanels.scss */
 .k-trackingtab .x-panel-body {
   border-right: none;
   border-left: none;
 }
-/* line 373, ../scss/components/_createitempanels.scss */
+/* line 390, ../scss/components/_createitempanels.scss */
 .k-trackingtab .x-panel-body .x-grid3-row {
   border-left: none;
 }
