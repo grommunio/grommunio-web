@@ -11660,6 +11660,19 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   padding-bottom: 10px;
 }
 
+/* Custom flag and reminder panel */
+/* line 444, ../scss/components/_popups.scss */
+.k-custom-flag-panel > .x-panel-bwrap > .x-panel-body {
+  padding: 0 !important;
+}
+/* line 450, ../scss/components/_popups.scss */
+.k-custom-flag-panel .k-custom-reminder-panel > .x-panel-bwrap > .x-panel-body, .k-custom-flag-panel .k-custom-date-panel > .x-panel-bwrap > .x-panel-body {
+  padding: 9px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
 /* line 1, ../scss/components/_scheduling.scss */
 .zarafa-freebusy-panel {
   /* Timeline */

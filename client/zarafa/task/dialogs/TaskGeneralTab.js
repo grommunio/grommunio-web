@@ -371,7 +371,6 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					scope : this
 				},{
 					xtype :'zarafa.datetimefield',
-					ref: '../../../reminderDate',
 					name : 'reminder_time',
 					width : 217,
 					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/task/reminder_time_stepping'),

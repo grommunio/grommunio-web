@@ -101,13 +101,19 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 			action: 'no_date',
 			handler: this.setFlag,
 			scope: this
+		},{
+			text: _('Custom'),
+			iconCls : 'icon_mail_flag_red',
+			action: 'custom',
+			handler: this.onSetCustomFlag,
+			scope: this
 		}, {
 			xtype: 'menuseparator'
 		}, {
-			text: _('Edit reminder'),
+			text: _('Set reminder'),
 			iconCls : 'icon_flag_Reminder',
-			action : 'edit_reminder',
-			disabled : true,
+			action : 'set_reminder',
+			handler: this.onSetCustomFlag,
 			scope: this
 		}, {
 			text: _('Complete'),
@@ -132,11 +138,20 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	onDestroy : function()
 	{
 		if (this.shadowEdit !== false) {
-			var shadowStore = container.getShadowStore();
-			this.records.forEach(function(record){
-				shadowStore.remove(record);
-			});
+			container.getShadowStore().remove(this.record);
 		}
+	},
+
+	/**
+	 * Event handler which is triggered when either custom
+	 * or set reminder flag context menu item was clicked.
+	 * @param {Ext.menu.Item} menuItem The menu item that was clicked
+	 */
+	onSetCustomFlag : function (menuItem)
+	{
+		Zarafa.common.Actions.openCustomFlagContent(this.records,{
+			setFocusOnReminder : menuItem.action === 'set_reminder'
+		});
 	},
 
 	/**
@@ -189,14 +204,6 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 	setFlagProperties : function(records, flagProperties)
 	{
 		records.forEach(function(record){
-			// when flag context menu is open
-			// and mean while grid was reloaded in background
-			// in that case record.store is get null which throw
-			// the error while saving record to overcome this problem
-			// we required to do following action.
-			if(Ext.isEmpty(record.getStore())) {
-				record = this.store.getById(record.get('entryid'));
-			}
 			record.beginEdit();
 			for ( var property in flagProperties ){
 				record.set(property, flagProperties[property]);

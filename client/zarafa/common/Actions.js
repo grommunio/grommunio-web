@@ -93,6 +93,24 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Opens a {@link Zarafa.common.flag.dialogs.CustomFlagContentPanel CustomFlagContentPanel} for set
+	 * the custom flag and reminder to given {@link Zarafa.core.data.IPMRecord records}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the custom
+	 * flag or/and reminder going to set.
+	 * @param {Object} config (optional) Configuration object for creating the ContentPanel
+	 */
+	openCustomFlagContent : function(records, config)
+	{
+		config = Ext.applyIf(config || {}, {
+			modal : true,
+			resizable : false
+		});
+		var componentType = Zarafa.core.data.SharedComponentType['common.flags.dialogs.customflag'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, records, config);
+	},
+
+	/**
 	 * Opens a {@link Zarafa.common.categories.dialogs.CategoriesContentPanel CategoriesContentPanel} for configuring
 	 * the categories of the given {@link Zarafa.core.data.IPMRecord records}.
 	 *

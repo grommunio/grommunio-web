@@ -840,8 +840,8 @@
 				$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:0x8503";
 				$properties["flag_request"] = "PT_STRING8:PSETID_Common:0x8530";
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
-				$properties["task_due_date"] = "PT_SYSTIME:PSETID_Task:0x8105";
-				$properties["task_start_date"] = "PT_SYSTIME:PSETID_Task:0x8104";
+				$properties["duedate"] = "PT_SYSTIME:PSETID_Task:0x8105";
+				$properties["startdate"] = "PT_SYSTIME:PSETID_Task:0x8104";
 				$properties["reply_requested"] = PR_REPLY_REQUESTED;
 				$properties["reply_time"] = PR_REPLY_TIME;
 				$properties["response_requested"] = PR_RESPONSE_REQUESTED;

@@ -379,13 +379,13 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// we need different set of flag properties as this is
 			// the mail record we are dealing with.
 			var mailFlagProps = {
-				flag_icon: 			Zarafa.core.mapi.FlagIcon.clear,
-				flag_complete_time:	new Date(),
-				flag_request: 		'',
-				flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
-				reminder:		false,
-				task_start_date: 	null,
-				task_due_date: 		null
+				flag_icon : Zarafa.core.mapi.FlagIcon.clear,
+				flag_complete_time : new Date(),
+				flag_request : '',
+				flag_status : Zarafa.core.mapi.FlagStatus.completed,
+				reminder : false,
+				startdate :null,
+				duedate :null
 			};
 
 			grid.store.suspendEvents(false);

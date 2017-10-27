@@ -437,3 +437,24 @@
 		padding-bottom: 10px;
 	}
 }
+
+/* Custom flag and reminder panel */
+.k-custom-flag-panel {
+  > .x-panel-bwrap {
+    > .x-panel-body {
+      padding: 0 !important;
+    }
+  }
+  .k-custom-reminder-panel, .k-custom-date-panel {
+    > .x-panel-bwrap {
+      > .x-panel-body {
+        padding: $padding-large;
+        border-top : none;
+		border-left: none;
+		border-right: none;
+      }
+    }
+  }
+}
+
+
