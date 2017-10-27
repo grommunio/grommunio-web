@@ -11565,26 +11565,32 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   margin-right: 0;
 }
 
-/* Reminder dialog */
+/* Checkbox in MessageBox */
 /* line 362, ../scss/components/_popups.scss */
+.k-cb-dontshowagain {
+  margin-top: 18px;
+}
+
+/* Reminder dialog */
+/* line 367, ../scss/components/_popups.scss */
 .zarafa-reminder-dialog-active-reminder-icon {
   width: 24px;
   height: 25px;
   float: left;
 }
 
-/* line 368, ../scss/components/_popups.scss */
+/* line 373, ../scss/components/_popups.scss */
 .zarafa-reminder-dialog-active-reminder-subject {
   font-weight: bold;
 }
 
-/* line 372, ../scss/components/_popups.scss */
+/* line 377, ../scss/components/_popups.scss */
 .zarafa-reminder-dialog-snooze, .zarafa-reminder-dialog-active-reminder {
   padding: 8px;
 }
 
 /* Address book dialog */
-/* line 381, ../scss/components/_popups.scss */
+/* line 386, ../scss/components/_popups.scss */
 .k-abuserselectionpanel > .x-panel-bwrap > .x-panel-body,
 .k-abmultiuserselectionpanel > .x-panel-bwrap > .x-panel-body,
 .k-addressbookpanel > .x-panel-bwrap > .x-panel-body {
@@ -11592,7 +11598,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-/* line 386, ../scss/components/_popups.scss */
+/* line 391, ../scss/components/_popups.scss */
 .k-abuserselectionpanel .k-addressbookmainpanel-header,
 .k-abuserselectionpanel .k-addressbookmainpanel-grid,
 .k-abmultiuserselectionpanel .k-addressbookmainpanel-header,
@@ -11602,7 +11608,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   padding-left: 9px !important;
   padding-right: 9px !important;
 }
-/* line 392, ../scss/components/_popups.scss */
+/* line 397, ../scss/components/_popups.scss */
 .k-abuserselectionpanel .k-addressbookmainpanel-header,
 .k-abmultiuserselectionpanel .k-addressbookmainpanel-header,
 .k-addressbookpanel .k-addressbookmainpanel-header {
@@ -11610,13 +11616,13 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   border-bottom: 1px solid #e6e6e6;
   /* search button */
 }
-/* line 396, ../scss/components/_popups.scss */
+/* line 401, ../scss/components/_popups.scss */
 .k-abuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
 .k-abmultiuserselectionpanel .k-addressbookmainpanel-header label.x-form-item-label,
 .k-addressbookpanel .k-addressbookmainpanel-header label.x-form-item-label {
   text-align: right;
 }
-/* line 401, ../scss/components/_popups.scss */
+/* line 406, ../scss/components/_popups.scss */
 .k-abuserselectionpanel .k-addressbookmainpanel-header .icon_search,
 .k-abmultiuserselectionpanel .k-addressbookmainpanel-header .icon_search,
 .k-addressbookpanel .k-addressbookmainpanel-header .icon_search {
@@ -11627,27 +11633,27 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   background-position: 4px -1552px !important;
 }
 
-/* line 411, ../scss/components/_popups.scss */
+/* line 416, ../scss/components/_popups.scss */
 .k-addressbookpanel {
   padding-bottom: 3px;
 }
 
-/* line 416, ../scss/components/_popups.scss */
+/* line 421, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel > .x-panel-bwrap > .x-panel-body {
   padding-bottom: 3px !important;
 }
-/* line 420, ../scss/components/_popups.scss */
+/* line 425, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel .k-addressbookmainpanel {
   padding-bottom: 9px;
 }
-/* line 423, ../scss/components/_popups.scss */
+/* line 428, ../scss/components/_popups.scss */
 .k-abmultiuserselectionpanel .zarafa-addressbook-dialog-compositefield {
   padding-left: 9px;
   padding-right: 9px;
 }
 
 /* Task send conformation dialog */
-/* line 431, ../scss/components/_popups.scss */
+/* line 436, ../scss/components/_popups.scss */
 .k-send-taskrequest-confirmation-panel .x-form-display-field {
   padding-bottom: 10px;
 }

@@ -71,7 +71,7 @@ Zarafa.task.Actions = {
 		}
 
 		if (record.isOpened()) {
-			var newTaskRecord = record.convertToTask(model.getDefaultFolder());		
+			var newTaskRecord = record.convertToTask(model.getDefaultFolder());
 			Zarafa.core.data.UIFactory.openCreateRecord(newTaskRecord);
 		} else {
 			// If record is not openend, then we need to reopen it to get the body. (For example when the selected records store reloads)
@@ -90,7 +90,7 @@ Zarafa.task.Actions = {
 	 */
 	openHandler: function(store, record, model)
 	{
-		var newTaskRecord = record.convertToTask(model.getDefaultFolder());		
+		var newTaskRecord = record.convertToTask(model.getDefaultFolder());
 		Zarafa.core.data.UIFactory.openCreateRecord(newTaskRecord);
 	},
 
@@ -147,5 +147,49 @@ Zarafa.task.Actions = {
 				flex : 1
 			}]
 		});
+	},
+
+	/**
+	 * Deletes all passed {@link Zarafa.core.data.IPMRecord records}. A
+	 * {@link Zarafa.common.dialogs.MessageBox.show MessageBox} will be shown to explain that the records will be
+	 * deleted from their original folder.
+	 *
+	 * @param {Array} records The array of {@link Zarafa.core.data.IPMRecord records} that must be deleted.
+	 */
+	deleteRecordsFromTodoList : function(records)
+	{
+		// It would be nice if we could use the state functionality for this, but the MessageBox is not an
+		// Ext.Component and this context menu is already gone when the MessageBox is displayed, so this is
+		// not possible.
+		var settingsKey = 'zarafa/v1/contexts/task/todolist/dialogs/delete_item_confirmation/disabled';
+		var disableDeleteConfirmationDialog = container.getSettingsModel().get(settingsKey) === true;
+
+		if ( disableDeleteConfirmationDialog ){
+			Zarafa.common.Actions.doDeleteRecords(records);
+			return;
+		}
+
+		Zarafa.common.dialogs.MessageBox.addCustomButtons({
+			title: _('Delete confirmation'),
+			minWidth: 351,
+			customButton: [{
+				text : _('Delete'),
+				name : 'delete'
+			}, {
+				text : _('Cancel'),
+				name : 'cancel'
+			}],
+			checkbox: true,
+			fn: function(btnId, text, checked){
+				if ( btnId !== 'delete' ){
+					return;
+				}
+
+				container.getSettingsModel().set(settingsKey, checked);
+				Zarafa.common.Actions.doDeleteRecords(records);
+			},
+			msg: _('Deleting the item(s) will also delete the original item(s).') + '<br />' + _('Do you want to delete the item(s)?')
+		});
+
 	}
 };

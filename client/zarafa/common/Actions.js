@@ -626,8 +626,42 @@ Zarafa.common.Actions = {
 
 	/**
 	 * Deletes all {@link Zarafa.core.data.IPMRecord records} from the {@link Zarafa.core.data.IPMStore store}.
+	 * If the records are deleted from the To-do list the deleting is delegated to
+	 * {@link Zarafa.task.Actions.deleteRecordsFromTodoList} otherwise it is delegated to {#doDeleteRecords}
+	 *
+	 * @param {Array} records The array of records which must be deleted.
+	 * @param {Boolean} askOcc (private) False to prevent a dialog to appear to ask if the occurence or series must
+	 * be deleted
+	 * @param {Boolean} softDelete (optional) true to directly soft delete record(s) skipping deleted-items
+	 * folder, false otherwise
+	 *
+	 * FIXME: This introduces Calendar-specific and To-do list (Task)-specific actions into the Common Context,
+	 * but there is no clean solution for this at this time. But we need to split this up into context-specific
+	 * actions while maintaining this single-entrypoint for deleting records.
+	 */
+	deleteRecords : function(records, askOcc, softDelete)
+	{
+		if (Ext.isEmpty(records)) {
+			return;
+		}
+		if (!Array.isArray(records)) {
+			records = [ records ];
+		}
+
+		// Check if the records are deleted from the todolist
+		var recordsFolderEntryid = records[0].getStore().entryId;
+		var folder = container.getHierarchyStore().getFolder(recordsFolderEntryid);
+		if ( folder && folder.isTodoListFolder() ){
+			Zarafa.task.Actions.deleteRecordsFromTodoList(records);
+		} else {
+			this.doDeleteRecords(records, askOcc, softDelete);
+		}
+	},
+
+	/**
+	 * Deletes all {@link Zarafa.core.data.IPMRecord records} from the {@link Zarafa.core.data.IPMStore store}.
 	 * If any of the given {@link Zarafa.core.data.IPMRecord records} is an recurring item, then
-	 * an {@link Zarafa.common.dialogs.MessageBox.select MessageBox} will be prompted which lets the user
+	 * a {@link Zarafa.common.dialogs.MessageBox.select MessageBox} will be prompted which lets the user
 	 * select between the series or the single occurence.
 	 * All given {@link Zarafa.core.data.IPMRecord records} must be located in the same
 	 * {@link Zarafa.core.data.IPMStore store}.
@@ -642,18 +676,10 @@ Zarafa.common.Actions = {
 	 * for this at this time. But we need to split this up into context-specific actions while maintaining this
 	 * single-entrypoint for deleting records.
 	 */
-	deleteRecords : function(records, askOcc, softDelete)
+	doDeleteRecords : function(records, askOcc, softDelete)
 	{
 		var store;
 		var saveRecords = [];
-
-		if (Ext.isEmpty(records)) {
-			return;
-		}
-
-		if (!Array.isArray(records)) {
-			records = [ records ];
-		}
 
 		for (var i = 0, len = records.length; i < len; i++) {
 			var record = records[i];
