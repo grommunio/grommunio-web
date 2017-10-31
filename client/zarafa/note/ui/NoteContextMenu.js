@@ -69,6 +69,11 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			handler : this.onContextItemOpen,
 			singleSelectOnly : true
 		}, {
+			text : _('Copy/Move'),
+			iconCls : 'icon_copy',
+			scope : this,
+			handler : this.onCopyMove
+		}, {
 			text : _('Print'),
 			iconCls : 'icon_print',
 			scope : this,
@@ -93,6 +98,16 @@ Zarafa.note.ui.NoteContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			scope : this,
 			handler : this.onContextItemDelete
 		}];
+	},
+
+	/**
+	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
+	 * or moving the currently selected notes.
+	 * @private
+	 */
+	onCopyMove : function()
+	{
+		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
 
 	/**
