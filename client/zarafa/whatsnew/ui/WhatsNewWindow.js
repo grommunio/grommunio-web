@@ -130,12 +130,13 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 					cls: 'k-whatsnew-feature-text',
 					width: 216,
 					autoScroll: true,
-					height: 283,
+					height: 287,
 					html : html
 				}, {
 					xtype: 'container',
 					cls: 'k-whatsnew-feature-image',
 					width: 432,
+					height: 287,
 					html: '<img src="'+feature.image_url+'">'
 				}]
 			};
@@ -146,7 +147,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 			ref: 'featureContainer',
 			layout: 'card',
 			activeItem: 0,
-			height: 283,
+			autoHeight: true,
 			defaults: {
 				border: false
 			},
