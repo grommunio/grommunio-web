@@ -59,9 +59,7 @@ body .k-category-block {
 .x-grid3-row-over .k-category-add {
 	visibility: visible;
 }
-.zarafa-multiselection.x-grid3-row-over .k-category-add {
-	visibility: hidden;
-}
+
 .k-category-add:hover {
 	@extend .icon_category_add_hover;
 	background-position: sprite-position($iconsmap, icon_category_add_hover, $offset-y: 1px, $offset-x: 2px);
