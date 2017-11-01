@@ -234,7 +234,7 @@
 				$task = mapi_folder_createmessage($taskFolder);
 				
 				$sub = $this->getEmbeddedTask($this->message);
-				mapi_copyto($sub, array(), array(), $task);
+				mapi_copyto($sub, array(), array($this->props['categories']), $task);
 
 				$senderProps = array(
 					PR_SENT_REPRESENTING_NAME,
@@ -486,7 +486,7 @@
 			$outgoing = $this->createOutgoingMessage();
 
 			// No need to copy PR_SENT_* information in to outgoing message.
-			$ignoreProps = array(PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
+			$ignoreProps = array($this->props["categories"],PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
 			mapi_copyto($this->message, array(), $ignoreProps, $outgoing);
 
 			// Make it a task request, and put it in sent items after it is sent
@@ -833,7 +833,7 @@
 
 			$message = !$this->isTaskRequest() ? $this->message : $this->getAssociatedTask(false);
 
-			$ignoreProps = array(PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
+			$ignoreProps = array($this->props["categories"], PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY);
 
 			mapi_copyto($message, array(), $ignoreProps, $outgoing);
 			mapi_copyto($message, array(), array(), $sub);
