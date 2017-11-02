@@ -558,6 +558,21 @@ msgstr "Tavaly"
 msgid "Custom date"
 msgstr "Egyéni dátum"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Hozzáad"
+
+msgid "You must specify a name."
+msgstr "Meg kell adnia a nevet."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 msgid "All folders are selected"
 msgstr "Minden mappa kiválasztva"
 
@@ -635,8 +650,17 @@ msgstr "Tárgy"
 msgid "Body & Attachments"
 msgstr "Üzenettörzs és mellékletek"
 
+msgid "Favorites"
+msgstr "Kedvencek"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 msgid "Select Folder"
 msgstr "Mappa választás"
+
+msgid "Delete search folder"
+msgstr ""
 
 # 76%
 # 84%
@@ -1044,9 +1068,6 @@ msgstr "Jelzés"
 msgid "Show as"
 msgstr "Megjelenítés, mint"
 
-msgid "Label"
-msgstr "Címke"
-
 msgid "Attachments"
 msgstr "Mellékletek"
 
@@ -1269,6 +1290,12 @@ msgstr "Új találkozó kérelem"
 msgid "Switch calendar range back and forth"
 msgstr "Naptár nézet tartomány oda-vissza állítása"
 
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "Y. F j. l, G:i"
@@ -1486,6 +1513,9 @@ msgstr "Határidő"
 msgid "Sort by: Due By"
 msgstr "Rendezés: Határidő szerint"
 
+msgid "Label"
+msgstr "Címke"
+
 # 76%
 # 78%
 msgid "Sort by: Label"
@@ -1552,6 +1582,9 @@ msgstr "Változások elmentése, és frissítés elküldése a résztvevőknek"
 
 msgid "Open meeting request with changes"
 msgstr "Értekezlet meghívó megnyitása a változásokkal"
+
+msgid "Copy"
+msgstr "Másolás"
 
 # 89%
 # 100%
@@ -1696,6 +1729,29 @@ msgstr "Ennek az előfordulásnak a megnyitása"
 
 msgid "Open the series"
 msgstr "Sorozat megnyitása"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1859,14 +1915,70 @@ msgstr "A támogatott képformátumok"
 msgid "Attachment Error"
 msgstr "Csatolmány hiba"
 
-msgid "Item belongs to these categories"
-msgstr "Az elem ezekhez a kategóriákhoz tartozik"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "Elérhető kategóriák"
+msgid "Apply"
+msgstr "Alkalmaz"
 
-msgid "Category"
-msgstr "Kategória"
+msgid "New"
+msgstr "Új"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Eltávolítás"
 
 # 90%
 msgid "Check Names"
@@ -1954,12 +2066,6 @@ msgstr ""
 "válassza ki a megfelelő jogosultságokat a mappa tulajdonságai, Jogosultságok "
 "fülön."
 
-msgid "Add"
-msgstr "Hozzáad"
-
-msgid "Remove"
-msgstr "Eltávolítás"
-
 # 90%
 msgid "Permission"
 msgstr "Hozzáférés"
@@ -1976,9 +2082,6 @@ msgstr "Üzenetek másolása/áthelyezése"
 msgid "Move"
 msgstr "Áthelyezés"
 
-msgid "Copy"
-msgstr "Másolás"
-
 # 90%
 # 100%
 msgid "New folder"
@@ -1994,6 +2097,39 @@ msgstr[1] "{0} üzenet kiválasztva."
 
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr "Kész"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
 
 msgid "Edit recipient"
 msgstr "Címzett szerkesztése"
@@ -2473,9 +2609,6 @@ msgstr "vagy"
 msgid "No rule exists"
 msgstr "Nem létezik szabály"
 
-msgid "New"
-msgstr "Új"
-
 msgid "Active"
 msgstr "Aktív"
 
@@ -2514,23 +2647,22 @@ msgstr "Egyéb..."
 msgid "Search in.."
 msgstr "Keresés.."
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr "Küldő hozzáadása/módosítása"
 
-# 96%
-# 100%
-msgid "No send as address configured"
-msgstr "Nincs küldés mint cím beállítva"
+msgid "No from addresses configured"
+msgstr ""
 
-# 96%
-# 100%
-msgid "Loading send as addresses"
-msgstr "Küldés mint címek betöltése"
+msgid "Loading from addresses"
+msgstr ""
 
-# 96%
-# 100%
-msgid "Please select a send as record."
-msgstr "Válasszon egy küldés mint címet."
+msgid "Please select a from address record."
+msgstr ""
 
 msgid "Here you can setup your alias email addresses."
 msgstr "Itt tudja beállítani az alias e-mail címeket."
@@ -2551,11 +2683,11 @@ msgstr "Meghatalmazottak beállításai"
 msgid "Rules"
 msgstr "Szabályok"
 
-msgid "Send As"
-msgstr "Küldés mint"
+msgid "From Addresses"
+msgstr ""
 
-msgid "Send As settings"
-msgstr "Küldés mint beállítások"
+msgid "From Addresses settings"
+msgstr ""
 
 msgid "No preview"
 msgstr "Nincs előnézet"
@@ -2754,6 +2886,14 @@ msgid "Received for {0}."
 msgstr "Beérkezett {0}."
 
 msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr "Erre az üzenetre az következő időpontban válaszolt: {0}."
 
@@ -2809,6 +2949,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Bcc"
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
@@ -2836,6 +2980,12 @@ msgstr "Megnyitás új ablakban"
 
 msgid "Pop-Out"
 msgstr "Pop-Out"
+
+msgid "Mark Read"
+msgstr "Megjelölés olvasottként"
+
+msgid "Mark Unread"
+msgstr "Megjelölés olvasatlanként"
 
 msgid "in"
 msgstr ""
@@ -3466,9 +3616,6 @@ msgstr "Fehér"
 msgid "Yellow"
 msgstr "Sárga"
 
-msgid "Meeting organiser"
-msgstr "Értekezelet szervező"
-
 msgid "No response"
 msgstr "Nincs válasz"
 
@@ -3489,9 +3636,6 @@ msgstr "Nem megkezdett"
 
 msgid "In Progress"
 msgstr "Folyamatban"
-
-msgid "Complete"
-msgstr "Kész"
 
 msgid "Wait for other person"
 msgstr "Másik személyre vár"
@@ -3641,9 +3785,6 @@ msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
 msgid "New Mail"
 msgstr "Új levél"
 
-msgid "Favorites"
-msgstr "Kedvencek"
-
 # 80%
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
@@ -3684,9 +3825,6 @@ msgstr "Feladatok elemei"
 
 msgid "Select where to place the folder"
 msgstr "Jelölje ki a mappa helyét"
-
-msgid "You must specify a name."
-msgstr "Meg kell adnia a nevet."
 
 msgid "You must select a destination folder."
 msgstr "Meg kell adnia a célmappát."
@@ -3951,10 +4089,11 @@ msgstr "g:i A"
 msgid "Message Options"
 msgstr "Üzenet beállítások"
 
-# 96%
-# 100%
-msgid "No send as address configured!"
-msgstr "Nincs küldés mint cím beállítva!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
 
 # 90%
 msgid "Send email"
@@ -4044,9 +4183,6 @@ msgstr "Nincs aláírás beállítva"
 msgid "E-Mail Flags"
 msgstr "Email jelölések"
 
-msgid "Set Flag"
-msgstr "Jelölés beállítása"
-
 msgid "Color of Flag"
 msgstr "Jelölés színe"
 
@@ -4080,6 +4216,9 @@ msgstr "Levél törlése"
 # 100%
 msgid "Delete this mail."
 msgstr "Levél törlése."
+
+msgid "Set Category"
+msgstr "Kategória beállítása"
 
 # 87%
 # 100%
@@ -4249,23 +4388,19 @@ msgstr "Módosítva"
 msgid "Sort by: Modified"
 msgstr "Rendezés: Módosítva"
 
-msgid "Flag Status"
-msgstr "Feladat állapota"
+msgid "Flag"
+msgstr ""
 
-# 75%
-msgid "Sort by: Flag Status"
-msgstr "Rendezés: Jelölés szerint"
+msgid "Sort by: flag"
+msgstr ""
 
 # 95%
 # 100%
 msgid "Forward as Attachment"
 msgstr "Továbbítás csatolmányként"
 
-msgid "Mark Read"
-msgstr "Megjelölés olvasottként"
-
-msgid "Mark Unread"
-msgstr "Megjelölés olvasatlanként"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Levélszemét mappába mozgatás"
@@ -4295,9 +4430,6 @@ msgstr "Jegyzet törlése"
 # 100%
 msgid "Delete this note"
 msgstr "Jegyzet törlése"
-
-msgid "Set Category"
-msgstr "Kategória beállítása"
 
 msgid "Print this note"
 msgstr "Jegyzet nyomtatása"
@@ -4348,54 +4480,6 @@ msgstr "Jegyzetek betöltése"
 
 msgid "Loading notes"
 msgstr "Jegyzetek betöltése"
-
-msgid "Competition"
-msgstr "Versenytárs"
-
-msgid "Gifts"
-msgstr "Ajándékok"
-
-msgid "Goals/Objectives"
-msgstr "Célok"
-
-msgid "Holiday Cards"
-msgstr "Üdvözlőkártyák"
-
-msgid "Hot Contacts"
-msgstr "Friss kapcsolat"
-
-msgid "Ideas"
-msgstr "Ötletek"
-
-msgid "International"
-msgstr "Nemzetközi"
-
-msgid "Key Customer"
-msgstr "Kiemelten fontos vásárló"
-
-msgid "Miscellaneous"
-msgstr "Vegyes"
-
-msgid "Phone Calls"
-msgstr "Telefonhívások"
-
-msgid "Status"
-msgstr "Állapot"
-
-msgid "Strategies"
-msgstr "Stratégiák"
-
-msgid "Suppliers"
-msgstr "Beszállítók"
-
-msgid "Time & Expenses"
-msgstr "Idő és kiadás"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Várakozás"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr "A beállítások frissítéséhez a WebAppot újra kell indítania."
@@ -4486,9 +4570,6 @@ msgstr "Gyorsbillentyűk engedélyezése"
 
 msgid "All keyboard shortcuts on"
 msgstr "Minden gyorsbillentyű engedélyezése"
-
-msgid "Apply"
-msgstr "Alkalmaz"
 
 msgid "Discard"
 msgstr "Elvet"
@@ -4590,11 +4671,20 @@ msgstr "WebApp"
 msgid "Kopano Core"
 msgstr "Kopano Core"
 
-msgid "Server"
-msgstr "Kiszolgáló"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "Rendezés: Prioritás szerint"
+
+msgid "Status"
+msgstr "Állapot"
 
 msgid "Sort by: Status"
 msgstr "Rendezés: Állapot szerint"
@@ -4777,24 +4867,11 @@ msgstr "{actualwork} óra"
 msgid "Open Shared Tasks"
 msgstr "Megosztott feladat megnyitása"
 
-msgid "Simple Tasks"
-msgstr "Egyszerű feladatok"
+msgid "Simple view"
+msgstr ""
 
-msgid "Active Tasks"
-msgstr "Aktív feladatok"
-
-msgid "Next Seven Days"
-msgstr "Következő hét napban"
-
-# 92%
-msgid "Overdue Tasks"
-msgstr "Lejárt feladatok"
-
-msgid "OverDue Tasks"
-msgstr "Lejárt feladatok"
-
-msgid "Completed Tasks"
-msgstr "Befejezett feladatok"
+msgid "Detailed view"
+msgstr ""
 
 # 92%
 # 100%
@@ -4830,35 +4907,14 @@ msgstr ""
 "Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
 "frissíti az értekezletet"
 
+msgid "Sort by: Complete"
+msgstr "Rendezés: Elvégzett feladatok szerint"
+
 msgid "Reminder Time"
 msgstr "Emlékeztető időpontja"
 
 msgid "Sort by: Reminder Time"
 msgstr "Rendezés: Emlékeztető ideje szerint"
-
-msgid "Sort by: Complete"
-msgstr "Rendezés: Elvégzett feladatok szerint"
-
-msgid "Sort by: Start Date"
-msgstr "Rendezés: Kezdő dátum szerint"
-
-msgid "Sort by: Owner"
-msgstr "Rendezés: Tulajdonos szerint"
-
-msgid "Sort by: Company"
-msgstr "Rendezés: Cég szerint"
-
-msgid "Date Completed"
-msgstr "Befejezés Időpontja"
-
-msgid "Sort by: Date Completed"
-msgstr "Rendezés: Befejezés dátuma szerint"
-
-msgid "Sort by: Total Work"
-msgstr "Rendezés: Teljes munkaidő szerint"
-
-msgid "Sort by: Actual Work"
-msgstr "Rendezés: Tényleges munka szerint"
 
 msgid "Assigned To"
 msgstr "Alábbi személyhez rendelve"
@@ -4866,11 +4922,11 @@ msgstr "Alábbi személyhez rendelve"
 msgid "Sort by: Assignee"
 msgstr "Rendezés: Hozzárendelt személy szerint"
 
-msgid "Sort by: Mileage"
-msgstr "Rendezés: Mérföldkövek szerint"
+msgid "Sort by: Start Date"
+msgstr "Rendezés: Kezdő dátum szerint"
 
-msgid "Sort by: Billing Information"
-msgstr "Rendezés: Számlázási információ szerint"
+msgid "Sort by: Owner"
+msgstr "Rendezés: Tulajdonos szerint"
 
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
@@ -4890,12 +4946,72 @@ msgstr "Lista frissítése"
 msgid "D d-m-Y"
 msgstr "Y-m-d D"
 
-# 78%
-msgid "You cannot accept the task \""
-msgstr "Nem tudja elfogadni a feladatot \""
+msgid "Improved categories"
+msgstr ""
 
-msgid "\" because it is not assigned to you."
-msgstr "\", mert más felhasználó a felelőse."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "The server reported an unknown error on your request."
 msgstr "A kiszolgáló ismeretlen hibával válaszolt a kérésre."
@@ -5035,8 +5151,11 @@ msgstr "Fax címzett"
 msgid "Configure widget"
 msgstr "Widget beállítása"
 
-msgid "Reload interval (s)"
-msgstr "Frissítés gyakorisága (s)"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr "Nincsenek találkozók a mai napon."
@@ -5147,20 +5266,62 @@ msgstr "Menta"
 msgid "Pearl aqua"
 msgstr "Világoskék"
 
-msgid "Sky blue"
-msgstr "Égszínkék"
+msgid "Kopano blue"
+msgstr "Kopano kék"
 
 msgid "Baby blue"
 msgstr "Babakék"
-
-msgid "Kopano blue"
-msgstr "Kopano kék"
 
 msgid "Mauve"
 msgstr "Mályva"
 
 msgid "Silver sand"
 msgstr "Homok"
+
+msgid "Competition"
+msgstr "Versenytárs"
+
+msgid "Gifts"
+msgstr "Ajándékok"
+
+msgid "Goals/Objectives"
+msgstr "Célok"
+
+msgid "Holiday Cards"
+msgstr "Üdvözlőkártyák"
+
+msgid "Hot Contacts"
+msgstr "Friss kapcsolat"
+
+msgid "Ideas"
+msgstr "Ötletek"
+
+msgid "International"
+msgstr "Nemzetközi"
+
+msgid "Key Customer"
+msgstr "Kiemelten fontos vásárló"
+
+msgid "Miscellaneous"
+msgstr "Vegyes"
+
+msgid "Phone Calls"
+msgstr "Telefonhívások"
+
+msgid "Strategies"
+msgstr "Stratégiák"
+
+msgid "Suppliers"
+msgstr "Beszállítók"
+
+msgid "Time & Expenses"
+msgstr "Idő és kiadás"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Várakozás"
 
 msgid "You have been automatically logged out"
 msgstr "Automatikusan ki lett jelentkeztetve"
@@ -5187,6 +5348,9 @@ msgstr "Ismeretlen értesítő '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Egy váratlan probléma lépett fel"
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5200,6 +5364,9 @@ msgstr "A beállítások objektum nem került inicializálásra"
 
 msgid "Error retrieving existing settings"
 msgstr "Hiba lépett fel a meglévő beállítások előhívásakor"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
@@ -5215,6 +5382,9 @@ msgstr "Sikertelen belépés, egy másik ablakban már be van jelentkezve!"
 
 msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ez a külső link egy új ablakban fog megnyílni"
@@ -5329,7 +5499,8 @@ msgstr[1] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig/%s-ig."
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Ismétlődés minden %s %s, érvényes %s %s előfordulásra %s-tól/től %s-ig."
+msgstr[0] ""
+"Ismétlődés minden %s %s, érvényes %s %s előfordulásra %s-tól/től %s-ig."
 msgstr[1] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig/%s-ig."
 
 # Have to look at it in action.
@@ -5525,6 +5696,10 @@ msgstr "A mappa kiürítése sikertelen."
 msgid "Could not perform action correctly."
 msgstr "A műveletet nem sikerült megfelelően végrehajtani."
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr "A mappát nem sikerült hozzáadni a kedvencekhez."
 
@@ -5687,6 +5862,18 @@ msgstr "A mappa elemeit nem lehetett betölteni."
 
 msgid "Error in search, please try again"
 msgstr "Hiba a keresésben, próbálja újra"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."

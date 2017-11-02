@@ -584,6 +584,22 @@ msgstr "Pr�ximo ano"
 msgid "Custom date"
 msgstr "Cliente chave"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Adicionar"
+
+#, fuzzy
+msgid "You must specify a name."
+msgstr "Voc� deve especificar um usu�rio!"
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 #, fuzzy
 msgid "All folders are selected"
 msgstr "Existe uma mensagem selecionada"
@@ -675,9 +691,18 @@ msgstr "Assunto"
 msgid "Body & Attachments"
 msgstr "Adicionar anexos"
 
+msgid "Favorites"
+msgstr "Favoritos"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 #, fuzzy
 msgid "Select Folder"
 msgstr "Selecionar pasta"
+
+msgid "Delete search folder"
+msgstr ""
 
 #, fuzzy
 msgid "Sort by: Date"
@@ -1055,9 +1080,6 @@ msgstr "Lembrete"
 msgid "Show as"
 msgstr ""
 
-msgid "Label"
-msgstr "Caracter�stica"
-
 msgid "Attachments"
 msgstr "Anexos"
 
@@ -1274,6 +1296,12 @@ msgid "New meeting request"
 msgstr "Pedido de reuni�o"
 
 msgid "Switch calendar range back and forth"
+msgstr ""
+
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -1502,6 +1530,9 @@ msgstr "Limite em"
 msgid "Sort by: Due By"
 msgstr "Organizar Por Limite"
 
+msgid "Label"
+msgstr "Caracter�stica"
+
 #, fuzzy
 msgid "Sort by: Label"
 msgstr "Organizar por ativado"
@@ -1574,6 +1605,9 @@ msgstr ""
 
 msgid "Open meeting request with changes"
 msgstr ""
+
+msgid "Copy"
+msgstr "Copiar"
 
 #, fuzzy
 msgid "a meeting request"
@@ -1729,6 +1763,29 @@ msgstr "Abrir essa occor�ncia"
 
 msgid "Open the series"
 msgstr "Abrir toda a s�rie"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 #, fuzzy
 msgid ""
@@ -1901,15 +1958,70 @@ msgstr ""
 msgid "Attachment Error"
 msgstr "Anexos"
 
-msgid "Item belongs to these categories"
-msgstr "Item pertence �s seguintes categorias"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "Categorias dispon�veis"
+msgid "Apply"
+msgstr ""
 
-#, fuzzy
-msgid "Category"
-msgstr "Categorias"
+msgid "New"
+msgstr "Novo"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Remover"
 
 msgid "Check Names"
 msgstr "Confere nomes"
@@ -1992,12 +2104,6 @@ msgid ""
 "Tab."
 msgstr ""
 
-msgid "Add"
-msgstr "Adicionar"
-
-msgid "Remove"
-msgstr "Remover"
-
 #, fuzzy
 msgid "Permission"
 msgstr "Permiss�es"
@@ -2015,9 +2121,6 @@ msgstr "Copiar/Mover mensagem"
 msgid "Move"
 msgstr "Mover"
 
-msgid "Copy"
-msgstr "Copiar"
-
 msgid "New folder"
 msgstr "Nova pasta"
 
@@ -2031,6 +2134,39 @@ msgstr[0] "Existe uma mensagem selecionada"
 msgstr[1] "Existe uma mensagem selecionada"
 
 msgid "Folder '{0}' selected."
+msgstr ""
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr "Completo"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
 msgstr ""
 
 #, fuzzy
@@ -2537,9 +2673,6 @@ msgstr "por"
 msgid "No rule exists"
 msgstr "Sem direitos"
 
-msgid "New"
-msgstr "Novo"
-
 #, fuzzy
 msgid "Active"
 msgstr "efetivo"
@@ -2583,19 +2716,22 @@ msgstr "Outro"
 msgid "Search in.."
 msgstr "Pesquisar"
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr ""
 
-#, fuzzy
-msgid "No send as address configured"
-msgstr "Nunca mandar uma resposta"
-
-msgid "Loading send as addresses"
+msgid "No from addresses configured"
 msgstr ""
 
-#, fuzzy
-msgid "Please select a send as record."
-msgstr "Por favor selecione pasta"
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
 
 msgid "Here you can setup your alias email addresses."
 msgstr ""
@@ -2620,13 +2756,11 @@ msgstr "Salvar prefer�ncias"
 msgid "Rules"
 msgstr "Regra"
 
-#, fuzzy
-msgid "Send As"
-msgstr "Enviar"
+msgid "From Addresses"
+msgstr ""
 
-#, fuzzy
-msgid "Send As settings"
-msgstr "Salvar prefer�ncias"
+msgid "From Addresses settings"
+msgstr ""
 
 #, fuzzy
 msgid "No preview"
@@ -2832,6 +2966,14 @@ msgctxt "mail.previewpanel"
 msgid "Received for {0}."
 msgstr "Recebido"
 
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
 #, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -2895,6 +3037,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr ""
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 #, fuzzy
 msgctxt "mail.previewpanel"
@@ -2924,6 +3070,12 @@ msgstr ""
 
 msgid "Pop-Out"
 msgstr ""
+
+msgid "Mark Read"
+msgstr "Marcar lida"
+
+msgid "Mark Unread"
+msgstr "Marcar n�o lida"
 
 msgid "in"
 msgstr ""
@@ -3600,10 +3752,6 @@ msgid "Yellow"
 msgstr "Amarelo"
 
 #, fuzzy
-msgid "Meeting organiser"
-msgstr "Organizador"
-
-#, fuzzy
 msgid "No response"
 msgstr "Sem resposta"
 
@@ -3625,9 +3773,6 @@ msgstr "N�o Iniciado"
 
 msgid "In Progress"
 msgstr "Em progresso"
-
-msgid "Complete"
-msgstr "Completo"
 
 msgid "Wait for other person"
 msgstr "Aguarde por outra pessoa"
@@ -3780,9 +3925,6 @@ msgstr[1] "Existem %s mensagens n�o lidas na sua caixa de entrada"
 msgid "New Mail"
 msgstr "Ler mensagens"
 
-msgid "Favorites"
-msgstr "Favoritos"
-
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr ""
@@ -3827,10 +3969,6 @@ msgstr "Itens"
 #, fuzzy
 msgid "Select where to place the folder"
 msgstr "Selecione onde voc� quer armazenar a nova pasta"
-
-#, fuzzy
-msgid "You must specify a name."
-msgstr "Voc� deve especificar um usu�rio!"
 
 #, fuzzy
 msgid "You must select a destination folder."
@@ -4109,7 +4247,10 @@ msgstr ""
 msgid "Message Options"
 msgstr "Op��es da mensagem"
 
-msgid "No send as address configured!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
 #, fuzzy
@@ -4199,10 +4340,6 @@ msgstr "Sem assinaturas"
 msgid "E-Mail Flags"
 msgstr "E-Mail"
 
-#, fuzzy
-msgid "Set Flag"
-msgstr "Bandeira vermelha"
-
 msgid "Color of Flag"
 msgstr "Cor da bandeira"
 
@@ -4239,6 +4376,10 @@ msgstr "Excluir bandeira"
 #, fuzzy
 msgid "Delete this mail."
 msgstr "Excluir esta coluna"
+
+#, fuzzy
+msgid "Set Category"
+msgstr "Organizar Por Categorias"
 
 #, fuzzy
 msgid "New mail"
@@ -4413,22 +4554,18 @@ msgstr "Modificado"
 msgid "Sort by: Modified"
 msgstr "Modificado"
 
-msgid "Flag Status"
-msgstr "Status da bandeira"
+msgid "Flag"
+msgstr ""
 
-#, fuzzy
-msgid "Sort by: Flag Status"
-msgstr "Organizar Por Status da bandeira"
+msgid "Sort by: flag"
+msgstr ""
 
 #, fuzzy
 msgid "Forward as Attachment"
 msgstr "Organizar Por Anexos"
 
-msgid "Mark Read"
-msgstr "Marcar lida"
-
-msgid "Mark Unread"
-msgstr "Marcar n�o lida"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Mover para Spam"
@@ -4458,10 +4595,6 @@ msgstr "Excluir itens"
 #, fuzzy
 msgid "Delete this note"
 msgstr "Excluir esta coluna"
-
-#, fuzzy
-msgid "Set Category"
-msgstr "Organizar Por Categorias"
 
 msgid "Print this note"
 msgstr ""
@@ -4517,54 +4650,6 @@ msgstr "Carregando"
 #, fuzzy
 msgid "Loading notes"
 msgstr "Carregando"
-
-msgid "Competition"
-msgstr "Completo"
-
-msgid "Gifts"
-msgstr "Presentes"
-
-msgid "Goals/Objectives"
-msgstr "Alvos/Objetivos"
-
-msgid "Holiday Cards"
-msgstr "Cart�es de feriado"
-
-msgid "Hot Contacts"
-msgstr "Contatos importantes"
-
-msgid "Ideas"
-msgstr "Id�ias"
-
-msgid "International"
-msgstr "Internacional"
-
-msgid "Key Customer"
-msgstr "Cliente chave"
-
-msgid "Miscellaneous"
-msgstr "V�rios"
-
-msgid "Phone Calls"
-msgstr "Liga��es telef�nicas"
-
-msgid "Status"
-msgstr "Status"
-
-msgid "Strategies"
-msgstr "Estrat�gias"
-
-msgid "Suppliers"
-msgstr "Fornecedores"
-
-msgid "Time & Expenses"
-msgstr "Tempo & Despesas"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Em espera"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr ""
@@ -4663,9 +4748,6 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
-msgid "Apply"
-msgstr ""
-
 msgid "Discard"
 msgstr ""
 
@@ -4762,13 +4844,21 @@ msgstr ""
 msgid "Kopano Core"
 msgstr ""
 
-#, fuzzy
-msgid "Server"
-msgstr "Servidor padr�o"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 #, fuzzy
 msgid "Sort by: Priority"
 msgstr "Organizar Por Prioridade"
+
+msgid "Status"
+msgstr "Status"
 
 #, fuzzy
 msgid "Sort by: Status"
@@ -4953,25 +5043,11 @@ msgstr "Trabalho atual"
 msgid "Open Shared Tasks"
 msgstr "Abrir pastas compartilhadas"
 
-msgid "Simple Tasks"
+msgid "Simple view"
 msgstr ""
 
-msgid "Active Tasks"
+msgid "Detailed view"
 msgstr ""
-
-#, fuzzy
-msgid "Next Seven Days"
-msgstr "Pr�ximo dia"
-
-msgid "Overdue Tasks"
-msgstr ""
-
-msgid "OverDue Tasks"
-msgstr ""
-
-#, fuzzy
-msgid "Completed Tasks"
-msgstr "Completo"
 
 #, fuzzy
 msgid "Task request"
@@ -5006,44 +5082,16 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Sort by: Complete"
+msgstr "Organizar por completo"
+
+#, fuzzy
 msgid "Reminder Time"
 msgstr "Lembrete"
 
 #, fuzzy
 msgid "Sort by: Reminder Time"
 msgstr "Organizar Por Remetente"
-
-#, fuzzy
-msgid "Sort by: Complete"
-msgstr "Organizar por completo"
-
-#, fuzzy
-msgid "Sort by: Start Date"
-msgstr "Organizar por Data de In�cio"
-
-#, fuzzy
-msgid "Sort by: Owner"
-msgstr "Organizar Por Dono"
-
-#, fuzzy
-msgid "Sort by: Company"
-msgstr "Organizar por completo"
-
-#, fuzzy
-msgid "Date Completed"
-msgstr "Data completa"
-
-#, fuzzy
-msgid "Sort by: Date Completed"
-msgstr "Organizar por completo"
-
-#, fuzzy
-msgid "Sort by: Total Work"
-msgstr "Trabalho Total"
-
-#, fuzzy
-msgid "Sort by: Actual Work"
-msgstr "Trabalho Atual"
 
 msgid "Assigned To"
 msgstr ""
@@ -5052,12 +5100,12 @@ msgid "Sort by: Assignee"
 msgstr ""
 
 #, fuzzy
-msgid "Sort by: Mileage"
-msgstr "Quil�metros usados"
+msgid "Sort by: Start Date"
+msgstr "Organizar por Data de In�cio"
 
 #, fuzzy
-msgid "Sort by: Billing Information"
-msgstr "Informa��o de cobran�a"
+msgid "Sort by: Owner"
+msgstr "Organizar Por Dono"
 
 #, fuzzy
 msgid "Loading tasks"
@@ -5081,10 +5129,71 @@ msgstr "Atualiza��o"
 msgid "D d-m-Y"
 msgstr ""
 
-msgid "You cannot accept the task \""
+msgid "Improved categories"
 msgstr ""
 
-msgid "\" because it is not assigned to you."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 msgid "The server reported an unknown error on your request."
@@ -5231,9 +5340,11 @@ msgstr "Contato"
 msgid "Configure widget"
 msgstr "Corfirmar exclus�o"
 
-#, fuzzy
-msgid "Reload interval (s)"
-msgstr "Ler itens"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr ""
@@ -5357,13 +5468,10 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "Sky blue"
+msgid "Kopano blue"
 msgstr ""
 
 msgid "Baby blue"
-msgstr ""
-
-msgid "Kopano blue"
 msgstr ""
 
 msgid "Mauve"
@@ -5371,6 +5479,51 @@ msgstr ""
 
 msgid "Silver sand"
 msgstr ""
+
+msgid "Competition"
+msgstr "Completo"
+
+msgid "Gifts"
+msgstr "Presentes"
+
+msgid "Goals/Objectives"
+msgstr "Alvos/Objetivos"
+
+msgid "Holiday Cards"
+msgstr "Cart�es de feriado"
+
+msgid "Hot Contacts"
+msgstr "Contatos importantes"
+
+msgid "Ideas"
+msgstr "Id�ias"
+
+msgid "International"
+msgstr "Internacional"
+
+msgid "Key Customer"
+msgstr "Cliente chave"
+
+msgid "Miscellaneous"
+msgstr "V�rios"
+
+msgid "Phone Calls"
+msgstr "Liga��es telef�nicas"
+
+msgid "Strategies"
+msgstr "Estrat�gias"
+
+msgid "Suppliers"
+msgstr "Fornecedores"
+
+msgid "Time & Expenses"
+msgstr "Tempo & Despesas"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Em espera"
 
 msgid "You have been automatically logged out"
 msgstr "A sess�o foi automaticamente terminada"
@@ -5396,6 +5549,9 @@ msgstr ""
 msgid "An unexpected error has occurred"
 msgstr ""
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5408,6 +5564,9 @@ msgid "Settings object is not initialized"
 msgstr ""
 
 msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
 msgstr ""
 
 msgid "Logon failed. Please verify your credentials and try again."
@@ -5423,6 +5582,9 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Erro desconhecido"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr ""
@@ -5700,6 +5862,10 @@ msgstr "Esvaziar pastas"
 msgid "Could not perform action correctly."
 msgstr ""
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr ""
 
@@ -5851,6 +6017,18 @@ msgid "Could not load the contents of this folder."
 msgstr ""
 
 msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
 msgstr ""
 
 msgid ""
