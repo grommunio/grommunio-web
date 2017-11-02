@@ -543,6 +543,21 @@ msgstr ""
 msgid "Custom date"
 msgstr "日付修正"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "追加"
+
+msgid "You must specify a name."
+msgstr "名前を指定して下さい。"
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 #, fuzzy
 msgid "All folders are selected"
 msgstr "{0}フォルダが選択されています。"
@@ -622,8 +637,17 @@ msgstr "件名"
 msgid "Body & Attachments"
 msgstr "本文及び添付ファイル"
 
+msgid "Favorites"
+msgstr "お気に入り"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 msgid "Select Folder"
 msgstr "フォルダ選択"
+
+msgid "Delete search folder"
+msgstr ""
 
 msgid "Sort by: Date"
 msgstr ""
@@ -993,9 +1017,6 @@ msgstr "リマインダー"
 msgid "Show as"
 msgstr "表示"
 
-msgid "Label"
-msgstr "ラベル"
-
 msgid "Attachments"
 msgstr "添付ファイル"
 
@@ -1214,6 +1235,12 @@ msgstr "新しい会議出席依頼"
 msgid "Switch calendar range back and forth"
 msgstr ""
 
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "Y年Fj日 l"
@@ -1421,6 +1448,9 @@ msgstr "期限日"
 msgid "Sort by: Due By"
 msgstr "並べ替え：期限日"
 
+msgid "Label"
+msgstr "ラベル"
+
 msgid "Sort by: Label"
 msgstr "並べ替え：ラベル"
 
@@ -1482,6 +1512,9 @@ msgstr "変更を保存して全受信者に更新を送信する。"
 
 msgid "Open meeting request with changes"
 msgstr "会議の変更依頼を開く。"
+
+msgid "Copy"
+msgstr "コピー"
 
 # 89%
 # 100%
@@ -1625,6 +1658,29 @@ msgstr "このイベントを削除する"
 
 msgid "Open the series"
 msgstr "一連の予定として開く"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1784,14 +1840,70 @@ msgstr ""
 msgid "Attachment Error"
 msgstr "添付ファイルエラー"
 
-msgid "Item belongs to these categories"
-msgstr "アイテムはこれらのカテゴリに分類されます。"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "利用可能なカテゴリ"
+msgid "Apply"
+msgstr "適用"
 
-msgid "Category"
-msgstr "カテゴリ"
+msgid "New"
+msgstr "新規作成"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "削除"
 
 # 90%
 msgid "Check Names"
@@ -1873,12 +1985,6 @@ msgid ""
 "Tab."
 msgstr ""
 
-msgid "Add"
-msgstr "追加"
-
-msgid "Remove"
-msgstr "削除"
-
 # 90%
 msgid "Permission"
 msgstr "許可"
@@ -1895,9 +2001,6 @@ msgstr "メッセージのコピー/移動"
 msgid "Move"
 msgstr "移動"
 
-msgid "Copy"
-msgstr "コピー"
-
 # 90%
 # 100%
 msgid "New folder"
@@ -1912,6 +2015,39 @@ msgstr[0] "{0}メッセージが選択されています。"
 
 msgid "Folder '{0}' selected."
 msgstr "{0}フォルダが選択されています。"
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr "完了"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
 
 msgid "Edit recipient"
 msgstr "受信者を編集します。"
@@ -2376,9 +2512,6 @@ msgstr "もしくは"
 msgid "No rule exists"
 msgstr "ルールが登録されていません。"
 
-msgid "New"
-msgstr "新規作成"
-
 msgid "Active"
 msgstr "アクティブ"
 
@@ -2421,16 +2554,21 @@ msgstr "他"
 msgid "Search in.."
 msgstr "検索.."
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr ""
 
-msgid "No send as address configured"
+msgid "No from addresses configured"
 msgstr ""
 
-msgid "Loading send as addresses"
+msgid "Loading from addresses"
 msgstr ""
 
-msgid "Please select a send as record."
+msgid "Please select a from address record."
 msgstr ""
 
 msgid "Here you can setup your alias email addresses."
@@ -2454,10 +2592,10 @@ msgstr "代理人設定"
 msgid "Rules"
 msgstr "仕訳ルール"
 
-msgid "Send As"
+msgid "From Addresses"
 msgstr ""
 
-msgid "Send As settings"
+msgid "From Addresses settings"
 msgstr ""
 
 msgid "No preview"
@@ -2654,6 +2792,14 @@ msgid "Received for {0}."
 msgstr "{0}受信しました。"
 
 msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr ""
 
@@ -2718,6 +2864,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Bcc"
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
@@ -2746,6 +2896,12 @@ msgstr ""
 
 msgid "Pop-Out"
 msgstr ""
+
+msgid "Mark Read"
+msgstr "既読にする"
+
+msgid "Mark Unread"
+msgstr "未読にする"
 
 msgid "in"
 msgstr ""
@@ -3374,9 +3530,6 @@ msgstr "白"
 msgid "Yellow"
 msgstr "黄"
 
-msgid "Meeting organiser"
-msgstr "会議の主催者"
-
 msgid "No response"
 msgstr "返答不要"
 
@@ -3398,9 +3551,6 @@ msgstr "未開始"
 
 msgid "In Progress"
 msgstr "進行中"
-
-msgid "Complete"
-msgstr "完了"
 
 msgid "Wait for other person"
 msgstr "他の人を待つ"
@@ -3545,9 +3695,6 @@ msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
 msgid "New Mail"
 msgstr "新しいメール"
 
-msgid "Favorites"
-msgstr "お気に入り"
-
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{0}内の{1}"
@@ -3585,9 +3732,6 @@ msgstr "タスク アイテム"
 
 msgid "Select where to place the folder"
 msgstr "フォルダを作成する場所を選択して下さい。"
-
-msgid "You must specify a name."
-msgstr "名前を指定して下さい。"
 
 msgid "You must select a destination folder."
 msgstr "フォルダの移動先を選択して下さい。"
@@ -3849,7 +3993,10 @@ msgstr "g:i A"
 msgid "Message Options"
 msgstr "メッセージのオプション"
 
-msgid "No send as address configured!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
 # 81%
@@ -3940,9 +4087,6 @@ msgstr "署名が設定されていません。"
 msgid "E-Mail Flags"
 msgstr "メールフラグ"
 
-msgid "Set Flag"
-msgstr "フラグをセットする"
-
 msgid "Color of Flag"
 msgstr "フラグの色"
 
@@ -3976,6 +4120,9 @@ msgstr ""
 # 100%
 msgid "Delete this mail."
 msgstr "このアイテムを削除."
+
+msgid "Set Category"
+msgstr "カテゴリーを設定"
 
 # 87%
 # 100%
@@ -4141,21 +4288,17 @@ msgstr ""
 msgid "Sort by: Modified"
 msgstr ""
 
-msgid "Flag Status"
-msgstr "フラグステータス"
+msgid "Flag"
+msgstr ""
 
-# 75%
-msgid "Sort by: Flag Status"
-msgstr "並べ替え：フラグステータス"
+msgid "Sort by: flag"
+msgstr ""
 
 msgid "Forward as Attachment"
 msgstr ""
 
-msgid "Mark Read"
-msgstr "既読にする"
-
-msgid "Mark Unread"
-msgstr "未読にする"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "迷惑メールフォルダーに移動"
@@ -4182,9 +4325,6 @@ msgstr "メモを削除する"
 # 100%
 msgid "Delete this note"
 msgstr "このメモを削除"
-
-msgid "Set Category"
-msgstr "カテゴリーを設定"
 
 # 80%
 msgid "Print this note"
@@ -4237,54 +4377,6 @@ msgstr "メモ読み込む"
 
 msgid "Loading notes"
 msgstr "メモ読み込み"
-
-msgid "Competition"
-msgstr "完了"
-
-msgid "Gifts"
-msgstr "ギフト"
-
-msgid "Goals/Objectives"
-msgstr "ゴール/目的"
-
-msgid "Holiday Cards"
-msgstr "ホリデーカード"
-
-msgid "Hot Contacts"
-msgstr "注目のコンタクト"
-
-msgid "Ideas"
-msgstr "アイデア"
-
-msgid "International"
-msgstr "海外"
-
-msgid "Key Customer"
-msgstr "重要顧客"
-
-msgid "Miscellaneous"
-msgstr "雑収入"
-
-msgid "Phone Calls"
-msgstr "電話"
-
-msgid "Status"
-msgstr "ステータス"
-
-msgid "Strategies"
-msgstr "ストラテジー（戦略）"
-
-msgid "Suppliers"
-msgstr "サプライヤー（仕入先）"
-
-msgid "Time & Expenses"
-msgstr "時間と費用"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "待機中"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr ""
@@ -4375,9 +4467,6 @@ msgstr ""
 
 msgid "All keyboard shortcuts on"
 msgstr ""
-
-msgid "Apply"
-msgstr "適用"
 
 msgid "Discard"
 msgstr "廃棄"
@@ -4473,11 +4562,20 @@ msgstr "WebApp"
 msgid "Kopano Core"
 msgstr "Kopano"
 
-msgid "Server"
-msgstr "サーバー"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "並べ替え：優先度"
+
+msgid "Status"
+msgstr "ステータス"
 
 msgid "Sort by: Status"
 msgstr "並べ替え順 : ステータス"
@@ -4670,24 +4768,11 @@ msgstr "実労働時間"
 msgid "Open Shared Tasks"
 msgstr "共有タスクを開く"
 
-msgid "Simple Tasks"
-msgstr "シンプルタスク"
+msgid "Simple view"
+msgstr ""
 
-msgid "Active Tasks"
-msgstr "進行中のタスク"
-
-msgid "Next Seven Days"
-msgstr "次の7日間"
-
-# 92%
-msgid "Overdue Tasks"
-msgstr "期限切れのタスク"
-
-msgid "OverDue Tasks"
-msgstr "期限切れのタスク"
-
-msgid "Completed Tasks"
-msgstr "完了したタスク"
+msgid "Detailed view"
+msgstr ""
 
 # 92%
 # 100%
@@ -4721,36 +4806,14 @@ msgid ""
 "makes changes."
 msgstr ""
 
+msgid "Sort by: Complete"
+msgstr "並べ替え：完成度"
+
 msgid "Reminder Time"
 msgstr "リマインダー　時間"
 
 msgid "Sort by: Reminder Time"
 msgstr "並べ替え：リマインダー　時間"
-
-msgid "Sort by: Complete"
-msgstr "並べ替え：完成度"
-
-msgid "Sort by: Start Date"
-msgstr "並べ替え：開始日"
-
-msgid "Sort by: Owner"
-msgstr "並べ替え：オーナー"
-
-# 76%
-msgid "Sort by: Company"
-msgstr "並べ替え：会社"
-
-msgid "Date Completed"
-msgstr "完了日"
-
-msgid "Sort by: Date Completed"
-msgstr "並べ替え：完了日"
-
-msgid "Sort by: Total Work"
-msgstr "並べ替え：予測時間"
-
-msgid "Sort by: Actual Work"
-msgstr "並べ替え：実働時間"
 
 msgid "Assigned To"
 msgstr "割り当て"
@@ -4758,12 +4821,11 @@ msgstr "割り当て"
 msgid "Sort by: Assignee"
 msgstr "並べ替え：代理人"
 
-# 75%
-msgid "Sort by: Mileage"
-msgstr "並べ替え：経費情報"
+msgid "Sort by: Start Date"
+msgstr "並べ替え：開始日"
 
-msgid "Sort by: Billing Information"
-msgstr "並べ替え：請求書情報"
+msgid "Sort by: Owner"
+msgstr "並べ替え：オーナー"
 
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
@@ -4787,13 +4849,71 @@ msgstr "更新リスト"
 msgid "D d-m-Y"
 msgstr "Y/m/d"
 
-# 79%
-# 80%
-#, fuzzy
-msgid "You cannot accept the task \""
-msgstr "タスク依頼を承諾できませんでした。"
+msgid "Improved categories"
+msgstr ""
 
-msgid "\" because it is not assigned to you."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 msgid "The server reported an unknown error on your request."
@@ -4933,9 +5053,11 @@ msgstr "Fax"
 msgid "Configure widget"
 msgstr "ウィジェットを設定する"
 
-#, fuzzy
-msgid "Reload interval (s)"
-msgstr "間隔を読み込む"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr "今日の会議予定はありません。"
@@ -5046,13 +5168,10 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "Sky blue"
+msgid "Kopano blue"
 msgstr ""
 
 msgid "Baby blue"
-msgstr ""
-
-msgid "Kopano blue"
 msgstr ""
 
 msgid "Mauve"
@@ -5060,6 +5179,51 @@ msgstr ""
 
 msgid "Silver sand"
 msgstr ""
+
+msgid "Competition"
+msgstr "完了"
+
+msgid "Gifts"
+msgstr "ギフト"
+
+msgid "Goals/Objectives"
+msgstr "ゴール/目的"
+
+msgid "Holiday Cards"
+msgstr "ホリデーカード"
+
+msgid "Hot Contacts"
+msgstr "注目のコンタクト"
+
+msgid "Ideas"
+msgstr "アイデア"
+
+msgid "International"
+msgstr "海外"
+
+msgid "Key Customer"
+msgstr "重要顧客"
+
+msgid "Miscellaneous"
+msgstr "雑収入"
+
+msgid "Phone Calls"
+msgstr "電話"
+
+msgid "Strategies"
+msgstr "ストラテジー（戦略）"
+
+msgid "Suppliers"
+msgstr "サプライヤー（仕入先）"
+
+msgid "Time & Expenses"
+msgstr "時間と費用"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "待機中"
 
 msgid "You have been automatically logged out"
 msgstr "自動的にログアウトしました。"
@@ -5088,6 +5252,9 @@ msgstr "不明な通知'%s'"
 msgid "An unexpected error has occurred"
 msgstr "予期しないエラーが発生しました。"
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5101,6 +5268,9 @@ msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "既存の設定を取得する際にエラーが発生しました。"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
 
 # 93%
 #, fuzzy
@@ -5119,6 +5289,9 @@ msgstr "Logon failed, another session already exists."
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー:%s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "この外部リンクは新しいウィンドウで開きます。"
@@ -5412,6 +5585,10 @@ msgstr "フォルダを空にできませんでした。"
 msgid "Could not perform action correctly."
 msgstr "正常に動作できませんでした。"
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr "お気に入りにフォルダを追加できませんでした。"
 
@@ -5565,6 +5742,18 @@ msgstr "このフォルダ内の内容を読み込めませんでした。"
 
 msgid "Error in search, please try again"
 msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."

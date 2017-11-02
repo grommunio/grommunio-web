@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-05-03 05:21+0000\n"
+"PO-Revision-Date: 2017-05-09 13:51+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -548,6 +548,22 @@ msgstr "Forrige år"
 msgid "Custom date"
 msgstr "Selvvalgt dato"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Legg til"
+
+# 85%
+msgid "You must specify a name."
+msgstr "Du må oppgi et navn."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 msgid "All folders are selected"
 msgstr "Alle mapper er valgt"
 
@@ -626,8 +642,17 @@ msgstr "Emne"
 msgid "Body & Attachments"
 msgstr "Tekst & Vedlegg"
 
+msgid "Favorites"
+msgstr "Favoritter"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 msgid "Select Folder"
 msgstr "Velg mappe"
+
+msgid "Delete search folder"
+msgstr ""
 
 # 84%
 msgid "Sort by: Date"
@@ -1007,9 +1032,6 @@ msgstr "Påminnelse"
 msgid "Show as"
 msgstr "Vis som"
 
-msgid "Label"
-msgstr "Etikett"
-
 # 100%
 msgid "Attachments"
 msgstr "Vedlegg"
@@ -1228,6 +1250,12 @@ msgstr "Ny møteinvitasjon"
 
 msgid "Switch calendar range back and forth"
 msgstr "Bytt kalenderområde frem og tilbake"
+
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1449,6 +1477,9 @@ msgstr "Forfaller på"
 msgid "Sort by: Due By"
 msgstr "Sorter på: forfallsdato"
 
+msgid "Label"
+msgstr "Etikett"
+
 # 78%
 msgid "Sort by: Label"
 msgstr "Sorter på: etikett"
@@ -1510,6 +1541,9 @@ msgstr "Lagre endringer og send en oppdatering til alle mottakere"
 
 msgid "Open meeting request with changes"
 msgstr "Åpne møteinvitasjonen med endringene"
+
+msgid "Copy"
+msgstr "Kopier"
 
 # 84%
 msgid "a meeting request"
@@ -1651,6 +1685,29 @@ msgstr "Åpne kun denne ene"
 
 msgid "Open the series"
 msgstr "Åpne hele serien"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1810,14 +1867,70 @@ msgstr "Støttede filformater for kontaktfoto er"
 msgid "Attachment Error"
 msgstr "Feil med vedlegg"
 
-msgid "Item belongs to these categories"
-msgstr "Elementet tilhører disse kategoriene"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "Tilgjengelige kategorier"
+msgid "Apply"
+msgstr "Bruk"
 
-msgid "Category"
-msgstr "Kategori"
+msgid "New"
+msgstr "Ny"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Fjern"
 
 # 90%
 msgid "Check Names"
@@ -1906,12 +2019,6 @@ msgstr ""
 "tillatelse, så gå på innstillinger for hver mappe og der endre valgene på "
 "arkfanen Rettigheter."
 
-msgid "Add"
-msgstr "Legg til"
-
-msgid "Remove"
-msgstr "Fjern"
-
 msgid "Permission"
 msgstr "Rettigheter"
 
@@ -1927,9 +2034,6 @@ msgstr "Kopier/flytt meldinger"
 msgid "Move"
 msgstr "Flytt"
 
-msgid "Copy"
-msgstr "Kopier"
-
 msgid "New folder"
 msgstr "Ny mappe"
 
@@ -1943,6 +2047,40 @@ msgstr[1] "Det er {0} meldinger valgt."
 
 msgid "Folder '{0}' selected."
 msgstr "Mappe '{0}' valgt."
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+# 80%
+msgid "Complete"
+msgstr "Ferdig"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
 
 msgid "Edit recipient"
 msgstr "Rediger mottaker"
@@ -2410,9 +2548,6 @@ msgstr "eller"
 msgid "No rule exists"
 msgstr "Ingen regel finnes"
 
-msgid "New"
-msgstr "Ny"
-
 msgid "Active"
 msgstr "Aktiv"
 
@@ -2449,21 +2584,25 @@ msgstr "Andre..."
 msgid "Search in.."
 msgstr "Søk i.."
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr "Legg til/Rediger avsender"
 
-# 96%
-msgid "No send as address configured"
-msgstr "Ingen \"Send som\" adresse er konfigurert"
+msgid "No from addresses configured"
+msgstr ""
 
-msgid "Loading send as addresses"
-msgstr "Laster inn \"Send som\" adresser"
+msgid "Loading from addresses"
+msgstr ""
 
-msgid "Please select a send as record."
-msgstr "Vennligst velg et \"Send som\" valg."
+msgid "Please select a from address record."
+msgstr ""
 
 msgid "Here you can setup your alias email addresses."
-msgstr "Her kan du sette opp dit e-post alias."
+msgstr "Her kan du sette opp din e-postalias."
 
 msgid "View"
 msgstr "Visning"
@@ -2480,11 +2619,11 @@ msgstr "Representant innstillinger"
 msgid "Rules"
 msgstr "Regler"
 
-msgid "Send As"
-msgstr "Send som"
+msgid "From Addresses"
+msgstr ""
 
-msgid "Send As settings"
-msgstr "\"Send som\" innstillinger"
+msgid "From Addresses settings"
+msgstr ""
 
 msgid "No preview"
 msgstr "Ingen forhåndsvisning"
@@ -2681,6 +2820,14 @@ msgid "Received for {0}."
 msgstr "Mottatt for {0}."
 
 msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr "Du svarte på denne meldingen {0}."
 
@@ -2734,6 +2881,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Bcc"
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
@@ -2760,6 +2911,12 @@ msgstr "Åpne i nytt nettleservindu"
 
 msgid "Pop-Out"
 msgstr "Sprett-ut"
+
+msgid "Mark Read"
+msgstr "Marker som lest"
+
+msgid "Mark Unread"
+msgstr "Marker som ulest"
 
 msgid "in"
 msgstr "om"
@@ -3393,9 +3550,6 @@ msgstr "Hvit"
 msgid "Yellow"
 msgstr "Gul"
 
-msgid "Meeting organiser"
-msgstr "Organisatør"
-
 msgid "No response"
 msgstr "Ingen respons"
 
@@ -3416,10 +3570,6 @@ msgstr "Ikke startet"
 
 msgid "In Progress"
 msgstr "Pågående"
-
-# 80%
-msgid "Complete"
-msgstr "Ferdig"
 
 msgid "Wait for other person"
 msgstr "Venter på annen person"
@@ -3571,9 +3721,6 @@ msgstr[1] "Det er {0} uleste meldinger i mappen {1}"
 msgid "New Mail"
 msgstr "Ny e-post"
 
-msgid "Favorites"
-msgstr "Favoritter"
-
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{0} i {1}"
@@ -3611,10 +3758,6 @@ msgstr "Oppgaveelementer"
 
 msgid "Select where to place the folder"
 msgstr "Velg hvor du vil plassere mappen"
-
-# 85%
-msgid "You must specify a name."
-msgstr "Du må oppgi et navn."
 
 msgid "You must select a destination folder."
 msgstr "Du må velge målmappe."
@@ -3883,8 +4026,11 @@ msgstr "G:i"
 msgid "Message Options"
 msgstr "Meldingsalternativer"
 
-msgid "No send as address configured!"
-msgstr "Ingen \"Send som\" adresse er konfigurert!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
 
 # 81%
 msgid "Send email"
@@ -3968,9 +4114,6 @@ msgstr "Ingen signatur er konfigurert"
 msgid "E-Mail Flags"
 msgstr "E-postflagg"
 
-msgid "Set Flag"
-msgstr "Sett flagg"
-
 msgid "Color of Flag"
 msgstr "Farge på flagg"
 
@@ -4003,6 +4146,9 @@ msgstr "Slette denne e-post"
 # 94%
 msgid "Delete this mail."
 msgstr "Slett denne e-posten."
+
+msgid "Set Category"
+msgstr "Sett kategori"
 
 msgid "New mail"
 msgstr "Ny e-post"
@@ -4162,21 +4308,17 @@ msgstr "Endret"
 msgid "Sort by: Modified"
 msgstr "Sorter på: endret"
 
-msgid "Flag Status"
-msgstr "Flaggstatus"
+msgid "Flag"
+msgstr ""
 
-# 75%
-msgid "Sort by: Flag Status"
-msgstr "Sorter på: flaggstatus"
+msgid "Sort by: flag"
+msgstr ""
 
 msgid "Forward as Attachment"
 msgstr "Videresend som vedlegg"
 
-msgid "Mark Read"
-msgstr "Marker som lest"
-
-msgid "Mark Unread"
-msgstr "Marker som ulest"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Flytt til Søppel E-post"
@@ -4203,9 +4345,6 @@ msgstr "Slett notat"
 # 75%
 msgid "Delete this note"
 msgstr "Slett dette notatet"
-
-msgid "Set Category"
-msgstr "Sett kategori"
 
 msgid "Print this note"
 msgstr "Skriv ut dette notatet"
@@ -4254,55 +4393,6 @@ msgstr "Laster inn notater"
 
 msgid "Loading notes"
 msgstr "Laster inn notater"
-
-msgid "Competition"
-msgstr "Konkurranse"
-
-msgid "Gifts"
-msgstr "Gaver"
-
-msgid "Goals/Objectives"
-msgstr "Mål/Målsetting"
-
-msgid "Holiday Cards"
-msgstr "Feriekort"
-
-# 75%
-msgid "Hot Contacts"
-msgstr "Ofte brukte kontakter"
-
-msgid "Ideas"
-msgstr "Ideer"
-
-msgid "International"
-msgstr "Internasjonal"
-
-msgid "Key Customer"
-msgstr "Hovedkunde"
-
-msgid "Miscellaneous"
-msgstr "Diverse"
-
-msgid "Phone Calls"
-msgstr "Anrop"
-
-msgid "Status"
-msgstr "Status"
-
-msgid "Strategies"
-msgstr "Strategier"
-
-msgid "Suppliers"
-msgstr "Leverandører"
-
-msgid "Time & Expenses"
-msgstr "Tid & utgifter"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Venter"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr ""
@@ -4395,9 +4485,6 @@ msgstr "Standard-hurtigtaster skrudd på"
 
 msgid "All keyboard shortcuts on"
 msgstr "Alle hurtigtaster skrudd på"
-
-msgid "Apply"
-msgstr "Bruk"
 
 msgid "Discard"
 msgstr "Forkast"
@@ -4499,11 +4586,20 @@ msgstr "WebApp"
 msgid "Kopano Core"
 msgstr "Kopano Core"
 
-msgid "Server"
-msgstr "Server"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "Sorter på: prioritet"
+
+msgid "Status"
+msgstr "Status"
 
 msgid "Sort by: Status"
 msgstr "Sorter på: status"
@@ -4679,23 +4775,11 @@ msgstr "{faktisktid} timer"
 msgid "Open Shared Tasks"
 msgstr "Åpne delte oppgaver"
 
-msgid "Simple Tasks"
-msgstr "Enkle oppgaver"
+msgid "Simple view"
+msgstr ""
 
-msgid "Active Tasks"
-msgstr "Aktive oppgaver"
-
-msgid "Next Seven Days"
-msgstr "Neste syv dager"
-
-msgid "Overdue Tasks"
-msgstr "Forfalte oppgaver"
-
-msgid "OverDue Tasks"
-msgstr "Forfalte oppgaver"
-
-msgid "Completed Tasks"
-msgstr "Utførte oppgaver"
+msgid "Detailed view"
+msgstr ""
 
 msgid "Task request"
 msgstr "Oppgaveforespørsel"
@@ -4729,6 +4813,9 @@ msgstr ""
 "Vennligst merk at tilordnede oppgaver vil bli overskrevet når den som har "
 "fått oppgavene gjør endringer."
 
+msgid "Sort by: Complete"
+msgstr "Sorter på: komplett"
+
 # 92%
 msgid "Reminder Time"
 msgstr "Påminnelsestidspunkt"
@@ -4736,42 +4823,17 @@ msgstr "Påminnelsestidspunkt"
 msgid "Sort by: Reminder Time"
 msgstr "Sorter på: påminnelsestidspunkt"
 
-msgid "Sort by: Complete"
-msgstr "Sorter på: komplett"
-
-msgid "Sort by: Start Date"
-msgstr "Sorter på: startdato"
-
-msgid "Sort by: Owner"
-msgstr "Sorter på: eier"
-
-msgid "Sort by: Company"
-msgstr "Sorter på: firma"
-
-msgid "Date Completed"
-msgstr "Fullført dato"
-
-# 76%
-msgid "Sort by: Date Completed"
-msgstr "Sorter på: dato fullført"
-
-msgid "Sort by: Total Work"
-msgstr "Sorter på: medgått tid"
-
-msgid "Sort by: Actual Work"
-msgstr "Sorter på: faktisk medgått tid"
-
 msgid "Assigned To"
 msgstr "Tilordnet til"
 
 msgid "Sort by: Assignee"
 msgstr "Sorter på: mottaker"
 
-msgid "Sort by: Mileage"
-msgstr "Sorter på: reisegodtgjørelse"
+msgid "Sort by: Start Date"
+msgstr "Sorter på: startdato"
 
-msgid "Sort by: Billing Information"
-msgstr "Sorter på: faktureringsinformasjon"
+msgid "Sort by: Owner"
+msgstr "Sorter på: eier"
 
 msgid "Loading tasks"
 msgstr "Laster inn oppgaver"
@@ -4791,13 +4853,72 @@ msgstr "Oppdater liste"
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
-# 87%
-# 78%
-msgid "You cannot accept the task \""
-msgstr "Du kan ikke godta oppgaven \""
+msgid "Improved categories"
+msgstr ""
 
-msgid "\" because it is not assigned to you."
-msgstr "\" fordi den ikke er tilordnet til deg."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
 
 msgid "The server reported an unknown error on your request."
 msgstr "Serveren svarte med en ukjent feil på din henvendelse."
@@ -4934,8 +5055,11 @@ msgstr "Kontaktfaks"
 msgid "Configure widget"
 msgstr "Konfigurer miniprogram"
 
-msgid "Reload interval (s)"
-msgstr "Aktualiseringsintervall (s)"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr "Ingen avtaler i dag."
@@ -5046,20 +5170,63 @@ msgstr "Mynte"
 msgid "Pearl aqua"
 msgstr "Lyseblå"
 
-msgid "Sky blue"
-msgstr "Himmelblå"
+msgid "Kopano blue"
+msgstr "Kopanoblå"
 
 msgid "Baby blue"
 msgstr "Babyblå"
-
-msgid "Kopano blue"
-msgstr "Kopanoblå"
 
 msgid "Mauve"
 msgstr "Blålilla"
 
 msgid "Silver sand"
 msgstr "Sølv"
+
+msgid "Competition"
+msgstr "Konkurranse"
+
+msgid "Gifts"
+msgstr "Gaver"
+
+msgid "Goals/Objectives"
+msgstr "Mål/Målsetting"
+
+msgid "Holiday Cards"
+msgstr "Feriekort"
+
+# 75%
+msgid "Hot Contacts"
+msgstr "Ofte brukte kontakter"
+
+msgid "Ideas"
+msgstr "Ideer"
+
+msgid "International"
+msgstr "Internasjonal"
+
+msgid "Key Customer"
+msgstr "Hovedkunde"
+
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+msgid "Phone Calls"
+msgstr "Anrop"
+
+msgid "Strategies"
+msgstr "Strategier"
+
+msgid "Suppliers"
+msgstr "Leverandører"
+
+msgid "Time & Expenses"
+msgstr "Tid & utgifter"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Venter"
 
 msgid "You have been automatically logged out"
 msgstr "Du har blitt automatisk logget ut"
@@ -5088,6 +5255,9 @@ msgstr "Ukjent Notifier '%s'"
 msgid "An unexpected error has occurred"
 msgstr "En uventet feil har oppstått"
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5102,6 +5272,9 @@ msgstr "Objektinnstillingen ble ikke initialisert"
 msgid "Error retrieving existing settings"
 msgstr "Feil ved henting av eksisterende innstillinger"
 
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
@@ -5114,6 +5287,9 @@ msgstr "Pålogging mislyktes, en annen økt finnes allerede."
 
 msgid "Unknown MAPI Error"
 msgstr "Ukjent MAPI feil"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Denne eksterne lenken vil bli åpnet i et nytt vindu"
@@ -5388,6 +5564,10 @@ msgstr "Kunne ikke tømme mappe."
 msgid "Could not perform action correctly."
 msgstr "Kunne ikke utføre handlingen korrekt."
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr "Kunne ikke legge mappen til dine Favoritter."
 
@@ -5563,6 +5743,18 @@ msgstr "Kunne ikke laste inn innholdet i denne mappen."
 
 msgid "Error in search, please try again"
 msgstr "Feil ved søk, forsøk igjen"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."

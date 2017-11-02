@@ -554,6 +554,21 @@ msgstr "Minulý rok"
 msgid "Custom date"
 msgstr "Výbrat datumy"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Přidat"
+
+msgid "You must specify a name."
+msgstr "Musíte uvést název."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 #, fuzzy
 msgid "All folders are selected"
 msgstr "Vybrána složka '{0}'."
@@ -633,9 +648,18 @@ msgstr "Předmět"
 msgid "Body & Attachments"
 msgstr "Obsah zprávy & přílohy"
 
+msgid "Favorites"
+msgstr "Oblíbené"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 # 76%
 msgid "Select Folder"
 msgstr "Vybrat složku"
+
+msgid "Delete search folder"
+msgstr ""
 
 msgid "Sort by: Date"
 msgstr ""
@@ -1011,9 +1035,6 @@ msgstr "Připomínka"
 msgid "Show as"
 msgstr "Ukázat jako"
 
-msgid "Label"
-msgstr "Označení"
-
 msgid "Attachments"
 msgstr "Přílohy"
 
@@ -1231,6 +1252,12 @@ msgstr "Nová žádost o schůzku"
 msgid "Switch calendar range back and forth"
 msgstr "Přepnout rozsah kalendáře"
 
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j. F Y"
@@ -1447,6 +1474,9 @@ msgstr "Termín dokončení"
 msgid "Sort by: Due By"
 msgstr "Třídit podle: Termín dokončení"
 
+msgid "Label"
+msgstr "Označení"
+
 # 76%
 # 78%
 msgid "Sort by: Label"
@@ -1509,6 +1539,9 @@ msgstr "Uložit změny a odesat aktualizaci všem příjemcům"
 
 msgid "Open meeting request with changes"
 msgstr "Otevřít změněnu žádost o schůzku"
+
+msgid "Copy"
+msgstr "Kopírovat"
 
 # 89%
 # 100%
@@ -1652,6 +1685,29 @@ msgstr "Otevřít pouze toto"
 
 msgid "Open the series"
 msgstr "Otevřít celou sérii"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1813,14 +1869,70 @@ msgstr "Podporovaný formát pro kontaktní obrázky je"
 msgid "Attachment Error"
 msgstr "Chyba přílohy"
 
-msgid "Item belongs to these categories"
-msgstr "Položky patří k těmto kategoriím"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "Dostupné kategorie"
+msgid "Apply"
+msgstr "Použít"
 
-msgid "Category"
-msgstr "Kategorie"
+msgid "New"
+msgstr "Nové"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Odstranit"
 
 # 90%
 msgid "Check Names"
@@ -1905,12 +2017,6 @@ msgstr ""
 "vaším jménem, přejděte na vlastnosti pro každou složku a změňte volby na "
 "záložce oprávnění."
 
-msgid "Add"
-msgstr "Přidat"
-
-msgid "Remove"
-msgstr "Odstranit"
-
 # 90%
 msgid "Permission"
 msgstr "Oprávnění"
@@ -1926,9 +2032,6 @@ msgstr "Kopírovat/Přesunout zprávu"
 
 msgid "Move"
 msgstr "Přesunout"
-
-msgid "Copy"
-msgstr "Kopírovat"
 
 # 90%
 # 100%
@@ -1946,6 +2049,39 @@ msgstr[2] "Je vybráno {0} zpráv."
 
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr "Dokončeno"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
 
 msgid "Edit recipient"
 msgstr "Upravit příjemce"
@@ -2418,9 +2554,6 @@ msgstr "nebo"
 msgid "No rule exists"
 msgstr "Žádné pravidlo neexistuje"
 
-msgid "New"
-msgstr "Nové"
-
 msgid "Active"
 msgstr "Aktivní"
 
@@ -2463,17 +2596,22 @@ msgstr "Další"
 msgid "Search in.."
 msgstr "Hledat v.."
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr ""
 
-msgid "No send as address configured"
-msgstr "Adresa \"odeslat jménem\" nenastavena"
+msgid "No from addresses configured"
+msgstr ""
 
-msgid "Loading send as addresses"
-msgstr "Načítání adres \"odeslat jménem\""
+msgid "Loading from addresses"
+msgstr ""
 
-msgid "Please select a send as record."
-msgstr "Zvolte prosím položku \"odeslat jménem\"."
+msgid "Please select a from address record."
+msgstr ""
 
 msgid "Here you can setup your alias email addresses."
 msgstr "Zde můžete nastavit svoje alias adresy."
@@ -2496,11 +2634,11 @@ msgstr "Nastavení zástupce"
 msgid "Rules"
 msgstr "Pravidlo"
 
-msgid "Send As"
-msgstr "Odeslat jménem"
+msgid "From Addresses"
+msgstr ""
 
-msgid "Send As settings"
-msgstr "Nastavení \"odeslat jménem\""
+msgid "From Addresses settings"
+msgstr ""
 
 msgid "No preview"
 msgstr "Bez náhledu"
@@ -2701,6 +2839,14 @@ msgid "Received for {0}."
 msgstr "Přijato pro {0}."
 
 msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr "Odpověděl(a) jste na tuto zprávu dne {0}."
 
@@ -2764,6 +2910,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Skrytá kopie"
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
@@ -2791,6 +2941,12 @@ msgstr "Otevřit v novém okně prohlížeče"
 
 msgid "Pop-Out"
 msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Označit jako přečtené"
+
+msgid "Mark Unread"
+msgstr "Označit jako nepřečtené"
 
 msgid "in"
 msgstr ""
@@ -3410,9 +3566,6 @@ msgstr "Bílá"
 msgid "Yellow"
 msgstr "Žlutá"
 
-msgid "Meeting organiser"
-msgstr "Organizátor schůzky"
-
 msgid "No response"
 msgstr "Žádná odpověď"
 
@@ -3433,9 +3586,6 @@ msgstr "Nezačalo"
 
 msgid "In Progress"
 msgstr "Probíhá"
-
-msgid "Complete"
-msgstr "Dokončeno"
 
 msgid "Wait for other person"
 msgstr "Čekat na jinou osobu"
@@ -3583,9 +3733,6 @@ msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
 msgid "New Mail"
 msgstr "Nová zpráva"
 
-msgid "Favorites"
-msgstr "Oblíbené"
-
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -3625,9 +3772,6 @@ msgstr "Položky Úkolů"
 
 msgid "Select where to place the folder"
 msgstr "Vyberte umístění složky"
-
-msgid "You must specify a name."
-msgstr "Musíte uvést název."
 
 msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
@@ -3895,7 +4039,10 @@ msgstr ""
 msgid "Message Options"
 msgstr "Možnosti zpráv"
 
-msgid "No send as address configured!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
 msgid "Send email"
@@ -3986,9 +4133,6 @@ msgstr "Nejsou nastaveny podpisy"
 msgid "E-Mail Flags"
 msgstr "Štítky"
 
-msgid "Set Flag"
-msgstr "Nastavit vlajku"
-
 msgid "Color of Flag"
 msgstr "Barva štítku"
 
@@ -4023,6 +4167,9 @@ msgstr ""
 #, fuzzy
 msgid "Delete this mail."
 msgstr "Smazat tuto položku."
+
+msgid "Set Category"
+msgstr "Nastavit Kategorii"
 
 # 87%
 # 100%
@@ -4194,23 +4341,17 @@ msgstr ""
 msgid "Sort by: Modified"
 msgstr ""
 
-# 75%
-#, fuzzy
-msgid "Flag Status"
-msgstr "Třídit podle: Štítku"
+msgid "Flag"
+msgstr ""
 
-# 75%
-msgid "Sort by: Flag Status"
-msgstr "Třídit podle: Štítku"
+msgid "Sort by: flag"
+msgstr ""
 
 msgid "Forward as Attachment"
 msgstr ""
 
-msgid "Mark Read"
-msgstr "Označit jako přečtené"
-
-msgid "Mark Unread"
-msgstr "Označit jako nepřečtené"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Přesunout do složky Nevyžádané"
@@ -4238,9 +4379,6 @@ msgstr ""
 #, fuzzy
 msgid "Delete this note"
 msgstr "Smazat tuto položku"
-
-msgid "Set Category"
-msgstr "Nastavit Kategorii"
 
 msgid "Print this note"
 msgstr "Vytisknout tuto poznámku"
@@ -4293,54 +4431,6 @@ msgstr "Načítání poznámek"
 
 msgid "Loading notes"
 msgstr "Načítání poznámek"
-
-msgid "Competition"
-msgstr "Soutěž"
-
-msgid "Gifts"
-msgstr "Dárky"
-
-msgid "Goals/Objectives"
-msgstr "Cíle/Záměry"
-
-msgid "Holiday Cards"
-msgstr "Pohlednice"
-
-msgid "Hot Contacts"
-msgstr "Důležité kontakty"
-
-msgid "Ideas"
-msgstr "Nápady"
-
-msgid "International"
-msgstr "Mezinárodní"
-
-msgid "Key Customer"
-msgstr "Klíčový zákazník"
-
-msgid "Miscellaneous"
-msgstr "Různé"
-
-msgid "Phone Calls"
-msgstr "Telefonní hovory"
-
-msgid "Status"
-msgstr "Stav"
-
-msgid "Strategies"
-msgstr "Plány"
-
-msgid "Suppliers"
-msgstr "Dodavatelé"
-
-msgid "Time & Expenses"
-msgstr "Čas & Výdaje"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Očekávání"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr ""
@@ -4431,9 +4521,6 @@ msgstr ""
 
 msgid "All keyboard shortcuts on"
 msgstr ""
-
-msgid "Apply"
-msgstr "Použít"
 
 msgid "Discard"
 msgstr "Vyřadit"
@@ -4528,11 +4615,20 @@ msgstr "WebApp"
 msgid "Kopano Core"
 msgstr "Kopano"
 
-msgid "Server"
-msgstr "Server"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "Třídit podle: Priority"
+
+msgid "Status"
+msgstr "Stav"
 
 msgid "Sort by: Status"
 msgstr "Třídit podle: Stavu"
@@ -4724,25 +4820,11 @@ msgstr "{vlastní práce} hodin"
 msgid "Open Shared Tasks"
 msgstr "Otevřít sdílené úkoly"
 
-msgid "Simple Tasks"
-msgstr "Jednoduché úkoly"
+msgid "Simple view"
+msgstr ""
 
-msgid "Active Tasks"
-msgstr "Průběžné úkoly"
-
-msgid "Next Seven Days"
-msgstr "Příštích sedm dní"
-
-# 92%
-#, fuzzy
-msgid "Overdue Tasks"
-msgstr "Opožděné úkoly"
-
-msgid "OverDue Tasks"
-msgstr "Opožděné úkoly"
-
-msgid "Completed Tasks"
-msgstr "Dokončené úkoly"
+msgid "Detailed view"
+msgstr ""
 
 # 92%
 # 100%
@@ -4779,35 +4861,14 @@ msgstr ""
 "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
 "organizatorem v případě aktualizace této žádosti o schůzku"
 
+msgid "Sort by: Complete"
+msgstr "Třídit podle: Dokončené"
+
 msgid "Reminder Time"
 msgstr "Čas připomínky"
 
 msgid "Sort by: Reminder Time"
 msgstr "Třídit podle: Čas připomínky"
-
-msgid "Sort by: Complete"
-msgstr "Třídit podle: Dokončené"
-
-msgid "Sort by: Start Date"
-msgstr "Třídit podle: Počáteční datum"
-
-msgid "Sort by: Owner"
-msgstr "Třídit podle: Vlastník"
-
-msgid "Sort by: Company"
-msgstr "Třídit podle: Firma"
-
-msgid "Date Completed"
-msgstr "Datum dokončení"
-
-msgid "Sort by: Date Completed"
-msgstr "Třídit podle: Data dokončení"
-
-msgid "Sort by: Total Work"
-msgstr "Třídit podle: Úhrn zakázek"
-
-msgid "Sort by: Actual Work"
-msgstr "Třídit podle: Aktuální práce"
 
 msgid "Assigned To"
 msgstr "Příděleno"
@@ -4815,11 +4876,11 @@ msgstr "Příděleno"
 msgid "Sort by: Assignee"
 msgstr "Třídit podle: Přidělení"
 
-msgid "Sort by: Mileage"
-msgstr "Třídit podle: Vzdálenosti"
+msgid "Sort by: Start Date"
+msgstr "Třídit podle: Počáteční datum"
 
-msgid "Sort by: Billing Information"
-msgstr "Třídit podle: Fakturační informace"
+msgid "Sort by: Owner"
+msgstr "Třídit podle: Vlastník"
 
 msgid "Loading tasks"
 msgstr "Načítání úkolů"
@@ -4843,11 +4904,71 @@ msgstr "Aktualizovat seznam"
 msgid "D d-m-Y"
 msgstr "d-m-r"
 
-#, fuzzy
-msgid "You cannot accept the task \""
-msgstr "Nelze přijmout zadání úkolu."
+msgid "Improved categories"
+msgstr ""
 
-msgid "\" because it is not assigned to you."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 msgid "The server reported an unknown error on your request."
@@ -4985,9 +5106,11 @@ msgstr ""
 msgid "Configure widget"
 msgstr "Nastavit prvek"
 
-#, fuzzy
-msgid "Reload interval (s)"
-msgstr "Interval načítání (ms)"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr "Dnes žádná schůzka."
@@ -5098,13 +5221,10 @@ msgstr ""
 msgid "Pearl aqua"
 msgstr ""
 
-msgid "Sky blue"
+msgid "Kopano blue"
 msgstr ""
 
 msgid "Baby blue"
-msgstr ""
-
-msgid "Kopano blue"
 msgstr ""
 
 msgid "Mauve"
@@ -5112,6 +5232,51 @@ msgstr ""
 
 msgid "Silver sand"
 msgstr ""
+
+msgid "Competition"
+msgstr "Soutěž"
+
+msgid "Gifts"
+msgstr "Dárky"
+
+msgid "Goals/Objectives"
+msgstr "Cíle/Záměry"
+
+msgid "Holiday Cards"
+msgstr "Pohlednice"
+
+msgid "Hot Contacts"
+msgstr "Důležité kontakty"
+
+msgid "Ideas"
+msgstr "Nápady"
+
+msgid "International"
+msgstr "Mezinárodní"
+
+msgid "Key Customer"
+msgstr "Klíčový zákazník"
+
+msgid "Miscellaneous"
+msgstr "Různé"
+
+msgid "Phone Calls"
+msgstr "Telefonní hovory"
+
+msgid "Strategies"
+msgstr "Plány"
+
+msgid "Suppliers"
+msgstr "Dodavatelé"
+
+msgid "Time & Expenses"
+msgstr "Čas & Výdaje"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Očekávání"
 
 msgid "You have been automatically logged out"
 msgstr "Byli jste automaticky odhlášeni"
@@ -5139,6 +5304,9 @@ msgstr "Neznámý oznamovatel '%s'"
 msgid "An unexpected error has occurred"
 msgstr ""
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5152,6 +5320,9 @@ msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "Chyba načítání současného nastavení"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
 
 #, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
@@ -5167,6 +5338,9 @@ msgstr ""
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "Neznámá MAPI chyba: %s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Tento externí odkaz se otevře v novém okně"
@@ -5472,6 +5646,10 @@ msgstr "Nelze vyprázdnit složku."
 msgid "Could not perform action correctly."
 msgstr "Nelze provést akci správně."
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr "Nelze přidat složku do oblíbených."
 
@@ -5619,6 +5797,18 @@ msgstr "Nelze načíst obsah této složky."
 
 msgid "Error in search, please try again"
 msgstr "Vyhledávání selhalo, zkuste prosím znovu"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."

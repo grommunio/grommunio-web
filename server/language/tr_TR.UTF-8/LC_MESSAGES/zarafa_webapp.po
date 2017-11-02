@@ -550,6 +550,21 @@ msgstr "geçen sene"
 msgid "Custom date"
 msgstr "özel tarih"
 
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Ekle"
+
+msgid "You must specify a name."
+msgstr "Bir isim belirtmelisiniz."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
 #, fuzzy
 msgid "All folders are selected"
 msgstr "Klasör '{0}' seçildi."
@@ -629,9 +644,18 @@ msgstr "Konu"
 msgid "Body & Attachments"
 msgstr "esas kısım ve ekleri"
 
+msgid "Favorites"
+msgstr "Favoriler"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
 # 76%
 msgid "Select Folder"
 msgstr "Klasörü sil"
+
+msgid "Delete search folder"
+msgstr ""
 
 msgid "Sort by: Date"
 msgstr "Sıralama: tarih"
@@ -1022,9 +1046,6 @@ msgstr "Hatırlatma"
 msgid "Show as"
 msgstr "Göster"
 
-msgid "Label"
-msgstr "Etiket"
-
 msgid "Attachments"
 msgstr "Eklenti"
 
@@ -1249,6 +1270,12 @@ msgstr "Yeni toplantı isteği"
 msgid "Switch calendar range back and forth"
 msgstr "takvim aralığını ileri geri değiştir"
 
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
 # 87%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1471,6 +1498,9 @@ msgstr "Bitiyor"
 msgid "Sort by: Due By"
 msgstr "Sıralama: Vadesi Geçcmiş"
 
+msgid "Label"
+msgstr "Etiket"
+
 # 76%
 # 78%
 msgid "Sort by: Label"
@@ -1535,6 +1565,9 @@ msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
 
 msgid "Open meeting request with changes"
 msgstr "değişiklik yapılan toplantı isteğini aç"
+
+msgid "Copy"
+msgstr "Kopyala"
 
 # 89%
 # 100%
@@ -1676,6 +1709,29 @@ msgstr "Bu olayı aç"
 
 msgid "Open the series"
 msgstr "Bu seriyi aç"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1836,14 +1892,70 @@ msgstr "Kişi resimleri için desteklenen format"
 msgid "Attachment Error"
 msgstr "Eklenti hatası"
 
-msgid "Item belongs to these categories"
-msgstr "Ürün bu kategorilere ait"
+msgid "Manage Categories"
+msgstr ""
 
-msgid "Available categories"
-msgstr "Mevcut kategoriler"
+msgid "Apply"
+msgstr "Uygula"
 
-msgid "Category"
-msgstr "Kategori"
+msgid "New"
+msgstr "Yeni"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Sil"
 
 # 90%
 msgid "Check Names"
@@ -1927,12 +2039,6 @@ msgstr ""
 "tek tek klasörlerin özellikler menüsüne gidin ve izinler sekmesindeki "
 "seçenekleri değiştirin."
 
-msgid "Add"
-msgstr "Ekle"
-
-msgid "Remove"
-msgstr "Sil"
-
 # 90%
 msgid "Permission"
 msgstr "İzinler"
@@ -1949,9 +2055,6 @@ msgstr "Kopyala / Taşı Mesajlar"
 msgid "Move"
 msgstr "Kaydır"
 
-msgid "Copy"
-msgstr "Kopyala"
-
 # 90%
 # 100%
 msgid "New folder"
@@ -1967,6 +2070,39 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
 
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Edit reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr "Tamamlandı"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
 
 msgid "Edit recipient"
 msgstr "Alıcı düzenle"
@@ -2443,9 +2579,6 @@ msgstr "veya"
 msgid "No rule exists"
 msgstr "kural yok"
 
-msgid "New"
-msgstr "Yeni"
-
 msgid "Active"
 msgstr "aktif"
 
@@ -2488,17 +2621,22 @@ msgstr "Diyeri"
 msgid "Search in.."
 msgstr "ara.."
 
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
 msgid "Add/Edit sender"
 msgstr "Gönderen ekle / düzenle"
 
-msgid "No send as address configured"
-msgstr "'farklı gönder' adresi tanımlanmadı"
+msgid "No from addresses configured"
+msgstr ""
 
-msgid "Loading send as addresses"
-msgstr "'farklı gönder' adresleri yükleniyor"
+msgid "Loading from addresses"
+msgstr ""
 
-msgid "Please select a send as record."
-msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
+msgid "Please select a from address record."
+msgstr ""
 
 msgid "Here you can setup your alias email addresses."
 msgstr "burada diğer e-posta adreslerinizi ayarlayabilirsiniz."
@@ -2521,11 +2659,11 @@ msgstr "Delege ayarları"
 msgid "Rules"
 msgstr "kural"
 
-msgid "Send As"
-msgstr "farklı gönder"
+msgid "From Addresses"
+msgstr ""
 
-msgid "Send As settings"
-msgstr "'farklı gönder' ayarları"
+msgid "From Addresses settings"
+msgstr ""
 
 msgid "No preview"
 msgstr "Önizleme yok"
@@ -2726,6 +2864,14 @@ msgid "Received for {0}."
 msgstr "{0} için alınan"
 
 msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr "Bu mesajı {0}'dan cevapladınız."
 
@@ -2792,6 +2938,10 @@ msgctxt "mail.previewpanel"
 msgid "Bcc"
 msgstr "Bcc"
 
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
@@ -2819,6 +2969,12 @@ msgstr "Yeni tarayıcı penceresinde aç"
 
 msgid "Pop-Out"
 msgstr "açılır pencere"
+
+msgid "Mark Read"
+msgstr "Okunmuş İşaretle"
+
+msgid "Mark Unread"
+msgstr "Okunmamış İşaretle"
 
 msgid "in"
 msgstr ""
@@ -3460,9 +3616,6 @@ msgstr "Beyaz"
 msgid "Yellow"
 msgstr "Sarı"
 
-msgid "Meeting organiser"
-msgstr "Toplantı düzenleyen"
-
 msgid "No response"
 msgstr "Cevap yok"
 
@@ -3483,9 +3636,6 @@ msgstr "Başlatılmadı"
 
 msgid "In Progress"
 msgstr "Devam etmekte"
-
-msgid "Complete"
-msgstr "Tamamlandı"
 
 msgid "Wait for other person"
 msgstr "Diğer kişi için bekleyin"
@@ -3634,9 +3784,6 @@ msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 msgid "New Mail"
 msgstr "Yeni E-posta"
 
-msgid "Favorites"
-msgstr "Favoriler"
-
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -3676,9 +3823,6 @@ msgstr "Görev Öğeler"
 
 msgid "Select where to place the folder"
 msgstr "Klasörün yerleştirileceği yeri seç"
-
-msgid "You must specify a name."
-msgstr "Bir isim belirtmelisiniz."
 
 msgid "You must select a destination folder."
 msgstr "Bir hedef klasörü seçmelisiniz."
@@ -3945,8 +4089,11 @@ msgstr "g:i A"
 msgid "Message Options"
 msgstr "Mesaj ayarları"
 
-msgid "No send as address configured!"
-msgstr "'Farklı kaydet' adresi tanımlanmadı!"
+msgid "No from addresses configured!"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
 
 msgid "Send email"
 msgstr "E-posta gönder"
@@ -4033,9 +4180,6 @@ msgstr "Yapılandırılmış imzalar yok"
 msgid "E-Mail Flags"
 msgstr "E-posta bayrakları"
 
-msgid "Set Flag"
-msgstr "Bayrak"
-
 msgid "Color of Flag"
 msgstr "Bayrak rengi"
 
@@ -4069,6 +4213,9 @@ msgstr "e-posta'yı sil"
 # 100%
 msgid "Delete this mail."
 msgstr "Bu e-posta'yı sil."
+
+msgid "Set Category"
+msgstr "Kategori ayarla"
 
 # 87%
 # 100%
@@ -4239,22 +4386,17 @@ msgstr "değiştirilmiş"
 msgid "Sort by: Modified"
 msgstr "Sıralama: Değiştirilmiş"
 
-# 75%
-msgid "Flag Status"
-msgstr "Sıralama: İşaretleme Durumu"
+msgid "Flag"
+msgstr ""
 
-# 75%
-msgid "Sort by: Flag Status"
-msgstr "Sıralama:Bayrak Durumu"
+msgid "Sort by: flag"
+msgstr ""
 
 msgid "Forward as Attachment"
 msgstr "ek olarak ilet"
 
-msgid "Mark Read"
-msgstr "Okunmuş İşaretle"
-
-msgid "Mark Unread"
-msgstr "Okunmamış İşaretle"
+msgid "Follow up"
+msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Önemsiz klasöre taşı"
@@ -4281,9 +4423,6 @@ msgstr "notu sil"
 # 100%
 msgid "Delete this note"
 msgstr "Bu notu sil"
-
-msgid "Set Category"
-msgstr "Kategori ayarla"
 
 msgid "Print this note"
 msgstr "Bu notu yazdır"
@@ -4334,54 +4473,6 @@ msgstr "Notlar yükleniyor"
 
 msgid "Loading notes"
 msgstr "Notlar yükleniyor"
-
-msgid "Competition"
-msgstr "Rekabet"
-
-msgid "Gifts"
-msgstr "Hediyeler"
-
-msgid "Goals/Objectives"
-msgstr "Amaçlar / Hedefler"
-
-msgid "Holiday Cards"
-msgstr "Tatil kartları"
-
-msgid "Hot Contacts"
-msgstr "Önemli Kişiler"
-
-msgid "Ideas"
-msgstr "Fikirler"
-
-msgid "International"
-msgstr "Uluslararası"
-
-msgid "Key Customer"
-msgstr "Önemli Müşteri"
-
-msgid "Miscellaneous"
-msgstr "Çeşilti"
-
-msgid "Phone Calls"
-msgstr "Telefon Görüşmeleri"
-
-msgid "Status"
-msgstr "Durum"
-
-msgid "Strategies"
-msgstr "Stratejiler"
-
-msgid "Suppliers"
-msgstr "Tedarikçiler"
-
-msgid "Time & Expenses"
-msgstr "Zaman ve Maliyet"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Bekleme"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyin."
@@ -4473,9 +4564,6 @@ msgstr "temel klavye kısayolları açık"
 
 msgid "All keyboard shortcuts on"
 msgstr "Tüm klavye kısayolları açık"
-
-msgid "Apply"
-msgstr "Uygula"
 
 msgid "Discard"
 msgstr "Geri al"
@@ -4578,11 +4666,20 @@ msgstr "WebApp"
 msgid "Kopano Core"
 msgstr "Kopano sunucusu"
 
-msgid "Server"
-msgstr "Sunucu"
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "Sıralama: Öncelik"
+
+msgid "Status"
+msgstr "Durum"
 
 msgid "Sort by: Status"
 msgstr "Sıralama: Durum"
@@ -4776,24 +4873,11 @@ msgstr "{actualwork} saatler"
 msgid "Open Shared Tasks"
 msgstr "Paylastığım Notlari Aç"
 
-msgid "Simple Tasks"
-msgstr "Kolay Görevler"
+msgid "Simple view"
+msgstr ""
 
-msgid "Active Tasks"
-msgstr "Etkin Görevler"
-
-msgid "Next Seven Days"
-msgstr "Gelecek Yedi Gün"
-
-# 92%
-msgid "Overdue Tasks"
-msgstr "gecikmiş görevler"
-
-msgid "OverDue Tasks"
-msgstr "Vadesi Geçmiş Görevler"
-
-msgid "Completed Tasks"
-msgstr "Tamamlanan Görevler"
+msgid "Detailed view"
+msgstr ""
 
 # 92%
 # 100%
@@ -4830,14 +4914,20 @@ msgstr ""
 "Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
 "değişikliklerin üzerine yazılacaktır"
 
+msgid "Sort by: Complete"
+msgstr "Sıralama: Tamamlanan"
+
 msgid "Reminder Time"
 msgstr "Hatırlatma Zamanı"
 
 msgid "Sort by: Reminder Time"
 msgstr "Sıralama: Hatırlatma Zamanı"
 
-msgid "Sort by: Complete"
-msgstr "Sıralama: Tamamlanan"
+msgid "Assigned To"
+msgstr "Atanan"
+
+msgid "Sort by: Assignee"
+msgstr "Sıralama: Atanan"
 
 msgid "Sort by: Start Date"
 msgstr "Sıralama: Başlangıç Tarihi"
@@ -4846,35 +4936,6 @@ msgstr "Sıralama: Başlangıç Tarihi"
 # 78%
 msgid "Sort by: Owner"
 msgstr "Sıralama: Sahibi"
-
-msgid "Sort by: Company"
-msgstr "Sıralama: Şirket"
-
-msgid "Date Completed"
-msgstr "Tarih Tamamlandı"
-
-msgid "Sort by: Date Completed"
-msgstr "Sıralama: Tamamlanma Tarihi"
-
-msgid "Sort by: Total Work"
-msgstr "Sıralama: Toplam Zaman"
-
-# 85%
-msgid "Sort by: Actual Work"
-msgstr "Sıralama: Toplam Zaman"
-
-msgid "Assigned To"
-msgstr "Atanan"
-
-msgid "Sort by: Assignee"
-msgstr "Sıralama: Atanan"
-
-# 75%
-msgid "Sort by: Mileage"
-msgstr "Sıralama: İlerleme"
-
-msgid "Sort by: Billing Information"
-msgstr "Sıralama: Fatura bilgileri"
 
 msgid "Loading tasks"
 msgstr "Görevler yükleniyor"
@@ -4898,12 +4959,71 @@ msgstr "Listeyi Güncelle"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
-# 78%
-#, fuzzy
-msgid "You cannot accept the task \""
-msgstr "Toplantı İsteği kabul edilmiyor"
+msgid "Improved categories"
+msgstr ""
 
-msgid "\" because it is not assigned to you."
+msgid ""
+"Categories now have a prominent place in your overviews of Mail, Calendar, "
+"Tasks and more."
+msgstr ""
+
+msgid ""
+"Adding a category is easy and can be done from the overview. Move your mouse "
+"over an email to see the \"Add category\" icon and click it, or right-click "
+"an item to open the context menu."
+msgstr ""
+
+msgid "Flag item for follow up"
+msgstr ""
+
+msgid ""
+"You can now mark email items for follow-up by setting a flag. In the new "
+"flags menu you can select the follow-up date. A reminder will be shown that "
+"day."
+msgstr ""
+
+msgid ""
+"The Tasks context provides a complete overview of your to-do's. All tasks "
+"and flagged emails will be shown in this to-do list."
+msgstr ""
+
+msgid "Transformation of flags into follow-ups and categories"
+msgstr ""
+
+msgid ""
+"Your former flagged items are transformed into items with a color category "
+"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
+"now have a category named \"Blue\"."
+msgstr ""
+
+msgid ""
+" You have the option to rename a color category when you first use it and "
+"all items with this category will get updated."
+msgstr ""
+
+msgid "Search folders"
+msgstr ""
+
+msgid ""
+"If there is a search query you use frequently you are in luck! After you "
+"have completed a search you can now save it as a \"search folder\" which "
+"will show up in your favorites! You can then do the same search again with a "
+"single click."
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 msgid "The server reported an unknown error on your request."
@@ -5045,9 +5165,11 @@ msgstr "kişi faksı"
 msgid "Configure widget"
 msgstr "Widget yapılandır"
 
-#, fuzzy
-msgid "Reload interval (s)"
-msgstr "yeniden yükleme aralığı (ms)"
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds."
+msgstr ""
 
 msgid "No appointments for today."
 msgstr "Bugüne randevu yok"
@@ -5158,20 +5280,62 @@ msgstr "Nane"
 msgid "Pearl aqua"
 msgstr "inci su"
 
-msgid "Sky blue"
-msgstr "Gökyüzü mavisi"
+msgid "Kopano blue"
+msgstr "kopano mavisi"
 
 msgid "Baby blue"
 msgstr "bebek mavisi"
-
-msgid "Kopano blue"
-msgstr "kopano mavisi"
 
 msgid "Mauve"
 msgstr "leylak"
 
 msgid "Silver sand"
 msgstr "gümüş kum"
+
+msgid "Competition"
+msgstr "Rekabet"
+
+msgid "Gifts"
+msgstr "Hediyeler"
+
+msgid "Goals/Objectives"
+msgstr "Amaçlar / Hedefler"
+
+msgid "Holiday Cards"
+msgstr "Tatil kartları"
+
+msgid "Hot Contacts"
+msgstr "Önemli Kişiler"
+
+msgid "Ideas"
+msgstr "Fikirler"
+
+msgid "International"
+msgstr "Uluslararası"
+
+msgid "Key Customer"
+msgstr "Önemli Müşteri"
+
+msgid "Miscellaneous"
+msgstr "Çeşilti"
+
+msgid "Phone Calls"
+msgstr "Telefon Görüşmeleri"
+
+msgid "Strategies"
+msgstr "Stratejiler"
+
+msgid "Suppliers"
+msgstr "Tedarikçiler"
+
+msgid "Time & Expenses"
+msgstr "Zaman ve Maliyet"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Bekleme"
 
 msgid "You have been automatically logged out"
 msgstr "Otomatik olarak çıkış yapıldı"
@@ -5198,6 +5362,9 @@ msgstr "Bilinmeyen bildirici '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Beklenmeyen bir hata oluştu"
 
+msgid "To-do list"
+msgstr ""
+
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
 #. * and %2$s is 'Holiday' (the username).
@@ -5211,6 +5378,9 @@ msgstr "Ayarlar nesnesi başlatılmadı"
 
 msgid "Error retrieving existing settings"
 msgstr "Varolan ayarları alırken hata"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
 
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
@@ -5226,6 +5396,9 @@ msgstr "Oturum açma başarısız, halihazırda başka bir oturum bulunuyor."
 
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
@@ -5525,6 +5698,10 @@ msgstr "Klasör boşaltılmıyor"
 msgid "Could not perform action correctly."
 msgstr "Doğru eylemi gerçekleştiremedi."
 
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
 msgid "Could not add folder to favorites."
 msgstr "Klasör favorilere eklenilmiyor"
 
@@ -5690,6 +5867,18 @@ msgstr "Bu klasörün içeriğini yükleyemedi"
 
 msgid "Error in search, please try again"
 msgstr "Arama hatası, lütfen tekrar deneyin"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
