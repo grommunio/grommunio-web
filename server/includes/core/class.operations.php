@@ -3396,28 +3396,6 @@
 						//Open contact photo attachement in binary format.
 						$attach = mapi_message_openattach($message, $props["attach_num"]);
 						$photo = mapi_attach_openbin($attach,PR_ATTACH_DATA_BIN);
-
-						// Process photo and restrict its size to 96.
-						if ($photo) {
-							$compressionRatio=1;
-							for ($length=2, $len = strlen($photo); $length <= $len;) {
-								$partinfo = unpack("Cmarker/Ccode/nlength",substr($photo,$length,4));
-								if ($partinfo['marker'] != 0xff) break; // error in structure???
-								if ($partinfo['code'] >= 0xc0 &&
-									$partinfo['code'] <= 0xc3) { // this is the size block
-									$photo_size = unpack("Cunknown/ny/nx",substr($photo,$length+4,5));
-									// find the resize factor, picture should be not higher than 96 pixel.
-									$compressionRatio = ceil($photo_size['y']/96);
-									break;
-								} else { // jump to next block
-									$length = $length+$partinfo['length']+2;
-								}
-							}
-							if ($partinfo['marker'] == 0xff) {
-								$props["attachment_contactphoto_sizex"] = (int)($photo_size['x'] / $compressionRatio);
-								$props["attachment_contactphoto_sizey"] = (int)($photo_size['y'] / $compressionRatio);
-							}
-						}
 					}
 
 					if ($props["attach_method"] == ATTACH_EMBEDDED_MSG){
