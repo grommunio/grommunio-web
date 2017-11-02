@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-04-28 09:45+0000\n"
+"PO-Revision-Date: 2017-10-02 16:14+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/hu/>\n"
@@ -345,7 +345,7 @@ msgid "Account"
 msgstr "Fiók"
 
 msgid "Member Of"
-msgstr "Tagja a"
+msgstr "Tagja"
 
 msgid "Group Membership"
 msgstr "Csoporttagság"
@@ -1070,7 +1070,7 @@ msgstr "Y. F j. G:i"
 
 # 75%
 msgid "None"
-msgstr "Egyik sem"
+msgstr "Nincs"
 
 msgid "Send invitation"
 msgstr "Meghívó küldése"
@@ -1738,7 +1738,7 @@ msgid "This \"{0}\" meeting was already accepted."
 msgstr "\"{0}\" értekezletet már elfogadta."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr "Ön a(z) \"{0}\" értekezlet összehívásra nem válaszolt."
+msgstr "Az alábbi értekezlet összehívásra nem válaszolt: \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
 msgstr "Törlés és válasz küldése az értekezlet szervezőjének"
@@ -1756,15 +1756,13 @@ msgid "Delete Incomplete Task"
 msgstr "Befejezetlen feladat törlése"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "Az alábbi feladat nem készült el: \"{0}\". Mit szeretne tenni?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Értekezlet meghívó elutasítása"
+msgstr "Visszautasítás és törlés"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Késznek jelöl"
+msgstr "Késznek jelöl és törlés"
 
 msgid ""
 "The sender of this message has asked to be notified when you read this "
@@ -2096,6 +2094,8 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"A kiválasztott elem törélse a Törölt elemek mappába mozgatás mellőzésével. A "
+"törölt elem még visszaállítható marad."
 
 # 91%
 msgid "Display name"
@@ -2119,9 +2119,8 @@ msgstr "Címzett szerkesztése"
 msgid "Send e-mail"
 msgstr "Küldés"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "Törölje a terjesztési listát."
+msgstr "Címzett törlése a javaslatok listájáról"
 
 msgid "View recipient"
 msgstr "Címzett megtekintése"
@@ -2771,9 +2770,8 @@ msgstr "Várakozás a címzett válaszára"
 msgid "Accepted by {0} on {1}."
 msgstr "Elfogadva {0} által ekkor: {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} elfogadta {1} nevében."
+msgstr "{0} elfogadta {2} {1} nevében."
 
 msgid "Declined by {0} on {1}."
 msgstr "Elutasítva {0} által ekkor: {1}."
@@ -2784,9 +2782,8 @@ msgstr "{0} elutasította {2} {1} nevében."
 msgid "Last update sent on {0}."
 msgstr "Utolsó frissítés kiküldve: {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} elfogadta {1} nevében."
+msgstr "{0} elfogadta {2} {1} nevében."
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -2826,7 +2823,7 @@ msgstr "nevében"
 #. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
 msgctxt "mail.previewpanel"
 msgid "Sent"
-msgstr "Elküldött"
+msgstr "Elküldve"
 
 # 75%
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
@@ -3452,7 +3449,7 @@ msgstr "Magas"
 # 75%
 # 80%
 msgid "Canceled"
-msgstr "Lemondta"
+msgstr "Megszakítva"
 
 msgid "Blue"
 msgstr "Kék"
@@ -3897,7 +3894,7 @@ msgid "Schedule mail to be sent out"
 msgstr "Küldendő levelek ütemezése"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Ütemezett elemek"
 
 msgid "Your message will be sent at "
 msgstr "A levél a következő időpontban lesz elküldve "
@@ -3906,19 +3903,19 @@ msgid "Go to your <b>Outbox</b> to edit your email."
 msgstr "A levél szerkesztéséhez nyisd meg a <b>Kimenő elemek</b> mappát."
 
 msgid "hour(s)"
-msgstr "óra"
+msgstr "óra múlva"
 
 msgid "day(s)"
-msgstr "nap"
+msgstr "nap múlva"
 
 msgid "month(s)"
-msgstr "hónap"
+msgstr "hónap múlva"
 
 msgid "at a specific time"
 msgstr "a megadott időben"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "A megadott idő a múltban van. Adjon meg új időpontot."
 
 msgid "today  at "
 msgstr "ma "
@@ -3970,7 +3967,7 @@ msgid "Send Later"
 msgstr "Küldés később"
 
 msgid "Schedule your mail to be sent on a specific date and time."
-msgstr ""
+msgstr "Levél küldésének ütemezése előre megadott napon és időben."
 
 msgid "Save email"
 msgstr "Email mentése"
@@ -4636,12 +4633,11 @@ msgstr "Számlázási Adatok"
 msgid "Mileage"
 msgstr "Mérföldkő"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Aktív feladatok"
+msgstr "Feladatok elfogadása"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Feladatok elutasítása"
 
 msgid ""
 "This task will be accepted and moved into the Tasks folder. Do you want to "
@@ -4650,13 +4646,12 @@ msgstr ""
 "Ez a feladat elfogadásra került és a feladatok mappába lett helyezve. "
 "Kívánja szerkeszteni a válaszát az elküldés előtt?"
 
-#, fuzzy
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
-"megjegyzést fűzni a válaszához?"
+"Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kívánja "
+"szerkeszteni a válasz üzenetet küldés előtt?"
 
 msgid "Send the response now"
 msgstr "Válasz elküldése azonnal"
@@ -4674,11 +4669,10 @@ msgid "copy"
 msgstr "másolás"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Saját magának nem küldhet feladatot."
 
-#, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "Mindig kérjen olvasási visszaigazolást"
+msgstr "A feladat kiosztásnak csak egy címzettje lehet."
 
 msgid "Due date"
 msgstr "Határidő"
@@ -4690,14 +4684,12 @@ msgstr "Prioritás"
 msgid "% Complete"
 msgstr "% kész"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "Folyamatban"
+msgstr "Készültség nyomon követése"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
 
-#, fuzzy
 msgid "Send task to assignees"
 msgstr "Feladat elküldése a hozzárendelt személynek"
 
@@ -4722,7 +4714,7 @@ msgid "Restore to Task List"
 msgstr "Alaphelyzetbe állítás"
 
 msgid "Restore this item to your task list"
-msgstr ""
+msgstr "Elem visszaállítása a feladatlistába"
 
 # 94%
 # 76%
@@ -4753,9 +4745,10 @@ msgstr ""
 msgid "Cancel Assignment"
 msgstr "Hozzárendelés törlése"
 
-#, fuzzy
 msgid "Convert this task request to a regular task by removing assignees."
-msgstr "A résztvevők törlésével átalakíthatja ezt az értekezletet találkozóvá"
+msgstr ""
+"A résztvevők törlésével átalakíthatja ezt a kiosztott feladatot saját "
+"feladattá."
 
 # 75%
 # 79%
@@ -4805,7 +4798,6 @@ msgstr "Befejezett feladatok"
 
 # 92%
 # 100%
-#, fuzzy
 msgid "Task request"
 msgstr "Feladat kiosztás"
 
@@ -4825,10 +4817,10 @@ msgid "Tasks"
 msgstr "Feladatok"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Befejezettnek jelöl"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Befejezetlennek jelöl"
 
 #, fuzzy
 msgid ""
@@ -4883,31 +4875,27 @@ msgstr "Rendezés: Számlázási információ szerint"
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
 
-#, fuzzy
 msgid "Date completed"
-msgstr "Befejezés Időpontja"
+msgstr "Befejezve"
 
 msgid "hours"
 msgstr "óra"
 
-#, fuzzy
 msgid "Billing information"
-msgstr "Számlázási Adatok"
+msgstr "Számlázási adatok"
 
 msgid "Update list"
 msgstr "Lista frissítése"
 
-#, fuzzy
 msgid "D d-m-Y"
-msgstr "Y-m-d"
+msgstr "Y-m-d D"
 
 # 78%
-#, fuzzy
 msgid "You cannot accept the task \""
-msgstr "Nem tudja elfogadni a feladatot."
+msgstr "Nem tudja elfogadni a feladatot \""
 
 msgid "\" because it is not assigned to you."
-msgstr ""
+msgstr "\", mert más felhasználó a felelőse."
 
 msgid "The server reported an unknown error on your request."
 msgstr "A kiszolgáló ismeretlen hibával válaszolt a kérésre."
@@ -5047,9 +5035,8 @@ msgstr "Fax címzett"
 msgid "Configure widget"
 msgstr "Widget beállítása"
 
-#, fuzzy
 msgid "Reload interval (s)"
-msgstr "Újratöltés ideje (ms)"
+msgstr "Frissítés gyakorisága (s)"
 
 msgid "No appointments for today."
 msgstr "Nincsenek találkozók a mai napon."
@@ -5334,7 +5321,7 @@ msgstr "Előfordulás minden %s %s érvényes %s."
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
 msgstr[0] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig."
-msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
+msgstr[1] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig/%s-ig."
 
 # Have to look at it in action.
 # 76%
@@ -5342,8 +5329,8 @@ msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig."
-msgstr[1] "Ismétlődés minden {0} érvényes {1} {2}-tól/től {3}-ig/{4}-ig."
+msgstr[0] "Ismétlődés minden %s %s, érvényes %s %s előfordulásra %s-tól/től %s-ig."
+msgstr[1] "Ismétlődés minden %s érvényes %s %s-tól/től %s-ig/%s-ig."
 
 # Have to look at it in action.
 # 77%

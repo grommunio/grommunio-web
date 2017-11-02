@@ -7,28 +7,29 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2015-06-17 16:51+0200\n"
-"Last-Translator: Gustavo <valdes.gustavo@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2017-06-12 15:20+0000\n"
+"Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
+"Language-Team: Spanish <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/es/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "Semana"
 
 msgid "Now"
 msgstr "Ahora"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "El valor debe estar entre 0% y 100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "El número tiene que ser mayor que cero"
 
 #, fuzzy
 msgid "More options"

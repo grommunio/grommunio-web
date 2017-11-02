@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-05-04 13:30+0000\n"
-"Last-Translator: Sean <s.vanderspek@zarafa.com>\n"
+"PO-Revision-Date: 2017-05-10 12:21+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -1829,7 +1829,7 @@ msgid "Download as ZIP"
 msgstr "Downloaden als ZIP"
 
 msgid "Continue"
-msgstr "Ga door"
+msgstr "Doorgaan"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
@@ -1974,7 +1974,7 @@ msgstr ""
 "permissie tab."
 
 msgid "Add"
-msgstr "Toevoegen"
+msgstr "Voeg toe"
 
 msgid "Remove"
 msgstr "Verwijderen"
@@ -2646,7 +2646,7 @@ msgid "Loading..."
 msgstr "Laden..."
 
 msgid "Failed"
-msgstr "Mislukt"
+msgstr "Gefaald"
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message

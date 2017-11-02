@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-05-02 13:54+0000\n"
+"PO-Revision-Date: 2017-08-21 14:49+0000\n"
 "Last-Translator: Andreas <a.roesler@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -2721,7 +2721,7 @@ msgstr "{0} hat im Auftrag von {1} abgelehnt."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr "{0} hat unter Vorbehalt akzepziert und eine neue Zeit vorgeschlagen."
+msgstr "{0} hat unter Vorbehalt akzeptiert und eine neue Zeit vorgeschlagen."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3508,7 +3508,7 @@ msgstr "Hoch"
 
 # 75%
 msgid "Canceled"
-msgstr "Abgesagt"
+msgstr "Abgebrochen"
 
 msgid "Blue"
 msgstr "Blau"
@@ -4847,7 +4847,7 @@ msgstr ""
 # 79%
 # 100%
 msgid "Mark this task as private"
-msgstr "Diesen Kontakt als privat markieren"
+msgstr "Diese Aufgabe als privat markieren"
 
 msgid "New task"
 msgstr "Neue Aufgabe"
@@ -5687,7 +5687,7 @@ msgstr ""
 
 # 85%
 msgid "unknown"
-msgstr "Unbekannt"
+msgstr "unbekannt"
 
 # 95%
 msgid "Could not move folder"
