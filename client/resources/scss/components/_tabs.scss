@@ -365,9 +365,13 @@ ul.x-tab-strip {
 						padding-left: $padding-medium + 14px;
 					}
 
-					.icon_task_assignee,
-                    .icon_task_assigner{
+					.icon_task_assignee{
 						background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: 10, $offset-x: -1);
+					}
+
+					.icon_task_assigner{
+						@extend .icon_task_request;
+						background-position: sprite-position($iconsmap, icon_task_request, $offset-y: 10, $offset-x: -1);
 					}
 
 					.zarafa-settings-category-general {

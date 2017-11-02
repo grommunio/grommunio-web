@@ -189,7 +189,7 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	 */
 	isTaskDeclined : function ()
 	{
-		return (this.get('taskstate') === Zarafa.core.mapi.TaskState.ACCEPT &&
+		return (this.get('taskstate') === Zarafa.core.mapi.TaskState.DECLINE &&
 			this.get('taskhistory') === Zarafa.core.mapi.TaskHistory.DECLINED);
 	},
 

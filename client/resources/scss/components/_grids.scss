@@ -431,13 +431,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	        	background-position: sprite-position($iconsmap, icon_task, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
 
-			.icon_task_assignee,
-            .icon_task_assigner{
+			.icon_task_assignee{
 				@extend .icon_task_assigned;
 				background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
 
-			.icon_task_request {
+			.icon_task_request,
+			.icon_task_assigner{
 				background-position: sprite-position($iconsmap, icon_task_request, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
 			}
 

@@ -59,6 +59,7 @@ Zarafa.core.mapi.IconIndex = Zarafa.core.Enum.create({
 	'task_recurring' : 0x00000501,
 	'task_assignee' : 0x00000502,
 	'task_assigner' : 0x00000503,
+	'task_declined' : 0x00000506,
 
 	// journal
 	'journal_conversation' : 0x00000601,

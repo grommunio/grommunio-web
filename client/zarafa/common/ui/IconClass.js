@@ -38,6 +38,25 @@ Zarafa.common.ui.IconClass = {
 			}
 		}
 
+		// If assignee uses older version webapp and he/she can decline task
+		// then it shows wrong icon for the declined task to assigner because
+		// earlier we use 0x00000502 icon index (icon_task_assignee class) for
+		// declined/accepted task in assigner task grid but after KW-1283 ticket
+		// we use 0x00000506 and 0x00000503 icon index for the declined and accepted task in
+		// assigner task grid.
+		if (!Ext.isEmpty(iconCls) &&
+			objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE &&
+			Ext.isFunction(record.isMessageClass) &&
+			record.isMessageClass('IPM.Task')) {
+			if (record.isTaskOrganized() && iconCls === 'icon_task_assignee'){
+				if(record.isTaskDeclined()) {
+					iconCls = 'icon_task_declined';
+				} else if (record.isTaskAccepted()) {
+					iconCls = 'icon_task_assigner';
+				}
+			}
+		}
+
 		// If the iconIndex could not be resolved to a CSS class, we have to
 		// read the other properties to see what CSS class might be applied
 		if (Ext.isEmpty(iconCls)) {
@@ -165,6 +184,7 @@ Zarafa.common.ui.IconClass = {
 	{
 		var recurring = false;
 		var counter_proposal = false;
+		var declinedTask = false;
 		if (record) {
 			// If the message is a stub, then we always return the stubbed
 			// icon regardless of the actual type of the message.
@@ -178,6 +198,14 @@ Zarafa.common.ui.IconClass = {
 			// Check if the message class was provided,
 			// use the message_class property otherwise.
 			messageClass = messageClass || record.get('message_class');
+
+			// If Assigner sent task request using older webapp version then KW-1283
+			// and assignee declined task from latest webapp version in that case
+			// mail icon shows instead of decline task icon to avoid this we add below code.
+			// Note : In future we can remove this check.
+			if (messageClass.toUpperCase() === 'IPM.TASK' && !Ext.isEmpty(record.get('icon_index'))) {
+				declinedTask = record.isTaskOrganized() && record.isTaskDeclined();
+			}
 		} else if (Ext.isObject(options)) {
 			messageClass = messageClass.toUpperCase();
 			if (messageClass === 'IPM.TASK') {
@@ -194,6 +222,7 @@ Zarafa.common.ui.IconClass = {
 
 			var mapping = {
 				'IPM.APPOINTMENT'			: 'icon_appt_appointment',
+				'IPM.TASK'                  : declinedTask ? 'icon_task_declined' : 'icon_task_normal',
 				'IPM.TASKREQUEST'			: 'icon_task_request',
 				'IPM.TASKREQUEST.DECLINE'	: 'icon_task_declined',
 				'IPM.TASKREQUEST.ACCEPT'	: 'icon_task_accepted',
