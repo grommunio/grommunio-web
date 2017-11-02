@@ -33,11 +33,11 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	filterRecipientType : undefined,
 
 	/**
-	 * @cfg {String} delimiterCharacter The character which is used to split input up into multiple
+	 * @cfg {String} delimiterCharacters The characters which is used to split input up into multiple
 	 * recipients. This allows the user to type in multiple recipients before they are converted into
 	 * boxes.
 	 */
-	delimiterCharacter: ';',
+	delimiterCharacters: [';',','],
 
 	/**
 	 * @cfg {Boolean} enableDrag true to enable just drag
@@ -123,22 +123,47 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	 * Called to handle the input when the user presses the handleInputKey or another trigger makes
 	 * this component need to handle the input. Has to be overwritten to implement the desired
 	 * behavior and the creation of the correct type of record.
+	 *
+	 * It will split up the input string if it has multiple email addresses or valid delimeteres.
+	 * It will split following types of multiple email addresses string
+	 *      1. Email addresses with valid delimiters  , and ; and spaces
+	 *      2. Email addresses with user name where email address is enclosed in < >
+	 *      3. User name with delimiters , and ;
 	 * @param {String} value The value from the input field
 	 */
 	handleInput : function(value)
 	{
 		// FIXME: Disallow typing in HTML formatting...
-		var splitted = value.split(this.delimiterCharacter);
-		var newRecords = [];
-		for (var i = 0; i < splitted.length; i++) {
-			var str = splitted[i].trim();
-			if (!Ext.isEmpty(str)) {
-				var record = this.boxStore.parseRecipient(str, this.defaultRecipientType);
-				newRecords.push(record);
+
+		var regExpStr = /([^,;\n\r]*?<{0,1}(?:[a-zA-Z0-9.!#$%&'*+\-/=?^_`{|}~])+\@[a-z0-9\-]+\.+(?:[a-z0-9]{2,15})+)>{0,1}/g;
+
+		// fetch the email addresses form string.
+		var emailAddresses = value.match(regExpStr);
+		var splitted = [];
+
+		// If string doesn't have email address and
+		// it has only user name with delimiter then split the string with that delimiter
+		if (Ext.isEmpty(emailAddresses)) {
+			splitted = value.split(new RegExp(this.delimiterCharacters.join('|'), 'g'));
+
+			if(Ext.isEmpty(splitted)) {
+				splitted.push(value);
 			}
+		} else {
+			splitted = emailAddresses;
 		}
 
-		if(newRecords.length > 0){
+		// Remove duplicate email addresses.
+		splitted = splitted.filter(function (emailAddress, index, self) {
+			self[index] = self[index].trim();
+			return index === self.indexOf(emailAddress.trim());
+		});
+
+		var newRecords = splitted.map(function (emailAddress) {
+			return this.boxStore.parseRecipient(emailAddress.trim(), this.defaultRecipientType);
+		}, this);
+
+		if (newRecords.length > 0) {
 			this.boxStore.add(newRecords);
 		}
 	},
