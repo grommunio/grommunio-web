@@ -92,7 +92,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isUploaded : function()
 	{
-		return !Ext.isEmpty(this.get('tmpname')) || (this.get('attach_num') > -1);
+		return !Ext.isEmpty(this.get('tmpname')) || !this.isTmpFile();
 	},
 
 	/**
