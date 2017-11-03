@@ -539,9 +539,6 @@ msgstr ""
 msgid "Add"
 msgstr "Tilføj"
 
-msgid "You must specify a name."
-msgstr "Du skal angive et navn."
-
 msgid "Add a folder to favorites based on your search query"
 msgstr ""
 
@@ -3619,6 +3616,9 @@ msgstr "Opgave elementer"
 msgid "Select where to place the folder"
 msgstr "Vælg hvor du vil placere mappen"
 
+msgid "You must specify a name."
+msgstr "Du skal angive et navn."
+
 msgid "You must select a destination folder."
 msgstr "Du skal vælge en destinations mappe."
 
@@ -3876,11 +3876,8 @@ msgstr "G:i"
 msgid "Message Options"
 msgstr "Meddelelses muligheder"
 
-msgid "No from addresses configured!"
-msgstr ""
-
-msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgid "No send as address configured!"
+msgstr "Ingen \"Send som\" adresse er konfigureret!"
 
 msgid "Send email"
 msgstr "Send email"
@@ -3991,9 +3988,6 @@ msgstr "Slet mail"
 
 msgid "Delete this mail."
 msgstr "Slet denne mail"
-
-msgid "Set Category"
-msgstr "Sæt kategori"
 
 msgid "New mail"
 msgstr "Ny mail"
@@ -4153,6 +4147,12 @@ msgstr "Ændret"
 msgid "Sort by: Modified"
 msgstr "Sorter efter: Ændret"
 
+msgid "Flag Status"
+msgstr "Flag"
+
+msgid "Sort by: Flag Status"
+msgstr "Sorter efter: Flag"
+
 msgid "Flag"
 msgstr ""
 
@@ -4188,6 +4188,9 @@ msgstr "Slet note"
 
 msgid "Delete this note"
 msgstr "Slet denne note"
+
+msgid "Set Category"
+msgstr "Sæt kategori"
 
 msgid "Print this note"
 msgstr "Udskriv note"
@@ -4233,6 +4236,54 @@ msgstr "Henter noter"
 
 msgid "Loading notes"
 msgstr "Henter noter"
+
+msgid "Competition"
+msgstr "Konkurrence"
+
+msgid "Gifts"
+msgstr "Gaver"
+
+msgid "Goals/Objectives"
+msgstr "Mål/målsætninger"
+
+msgid "Holiday Cards"
+msgstr "Postkort"
+
+msgid "Hot Contacts"
+msgstr "Ofte benyttede kontakter"
+
+msgid "Ideas"
+msgstr "Ideer"
+
+msgid "International"
+msgstr "International"
+
+msgid "Key Customer"
+msgstr "Hovedkunde"
+
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+msgid "Phone Calls"
+msgstr "Telefonopringninger"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Strategies"
+msgstr "Strategier"
+
+msgid "Suppliers"
+msgstr "Leverandører"
+
+msgid "Time & Expenses"
+msgstr "Tid og udgifter"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Venter"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr "For at ændringerne skal træde i kræft, skal du genindlæse WebApp."
@@ -4434,9 +4485,6 @@ msgstr ""
 
 msgid "Sort by: Priority"
 msgstr "Sorter efter: Prioritet"
-
-msgid "Status"
-msgstr "Status"
 
 msgid "Sort by: Status"
 msgstr "Sorter efter: Status"
@@ -4648,9 +4696,6 @@ msgstr "Påmindelses tidspunkt"
 msgid "Sort by: Reminder Time"
 msgstr "Sorter efter: Påmindelsestidspunkt"
 
-msgid "Assigned To"
-msgstr "Tildelt til"
-
 msgid "Sort by: Assignee"
 msgstr "Sorter efter: Modtager"
 
@@ -4660,11 +4705,29 @@ msgstr "Sorter efter: Startdato"
 msgid "Sort by: Owner"
 msgstr "Sorter efter: Ejer"
 
-msgid "Loading tasks"
-msgstr "Henter opgaver"
+msgid "Sort by: Company"
+msgstr "Sorter efter: Firma"
 
-msgid "Date completed"
+msgid "Date Completed"
 msgstr "Fuldført dato"
+
+msgid "Sort by: Date Completed"
+msgstr "Sorter efter: Afsluttet dato"
+
+msgid "Sort by: Total Work"
+msgstr "Sorter efter: Totalt arbejde"
+
+msgid "Sort by: Actual Work"
+msgstr "Sorter efter: Faktisk arbejde"
+
+msgid "Assigned To"
+msgstr "Tildelt til"
+
+msgid "Sort by: Mileage"
+msgstr "Sorter efter: Rejsegodtgørelse"
+
+msgid "Sort by: Billing Information"
+msgstr "Sorter efter: Fakturainformation"
 
 msgid "hours"
 msgstr "timer"
@@ -4677,6 +4740,18 @@ msgstr "Opdater liste"
 
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
+
+msgid "You cannot accept the task \""
+msgstr "Du kan ikke acceptere opgaven \""
+
+msgid "\" because it is not assigned to you."
+msgstr "\" fordi den ikke er tildelt til dig."
+
+msgid "Loading tasks"
+msgstr "Henter opgaver"
+
+msgid "Date completed"
+msgstr "Fuldført dato"
 
 msgid "Improved categories"
 msgstr ""
@@ -4878,7 +4953,7 @@ msgid "Configure widget"
 msgstr "Konfigurer widget"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Genindlæsningsinterva"
 
 msgid "seconds."
 msgstr ""
@@ -4993,62 +5068,20 @@ msgstr "Mynte"
 msgid "Pearl aqua"
 msgstr "Lyseblå"
 
-msgid "Kopano blue"
-msgstr "Kopano blå"
+msgid "Sky blue"
+msgstr "Himmelblå"
 
 msgid "Baby blue"
 msgstr "Babyblå"
+
+msgid "Kopano blue"
+msgstr "Kopano blå"
 
 msgid "Mauve"
 msgstr "Blålilla"
 
 msgid "Silver sand"
 msgstr "Sølv"
-
-msgid "Competition"
-msgstr "Konkurrence"
-
-msgid "Gifts"
-msgstr "Gaver"
-
-msgid "Goals/Objectives"
-msgstr "Mål/målsætninger"
-
-msgid "Holiday Cards"
-msgstr "Postkort"
-
-msgid "Hot Contacts"
-msgstr "Ofte benyttede kontakter"
-
-msgid "Ideas"
-msgstr "Ideer"
-
-msgid "International"
-msgstr "International"
-
-msgid "Key Customer"
-msgstr "Hovedkunde"
-
-msgid "Miscellaneous"
-msgstr "Diverse"
-
-msgid "Phone Calls"
-msgstr "Telefonopringninger"
-
-msgid "Strategies"
-msgstr "Strategier"
-
-msgid "Suppliers"
-msgstr "Leverandører"
-
-msgid "Time & Expenses"
-msgstr "Tid og udgifter"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Venter"
 
 msgid "You have been automatically logged out"
 msgstr "Du er blevet logget ud automatisk"

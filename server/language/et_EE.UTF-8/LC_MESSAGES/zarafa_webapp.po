@@ -5084,8 +5084,7 @@ msgid "Loading model from server failed"
 msgstr "Mudeli laadimine serverist ebaõnnestus"
 
 msgid "Out of Office currently on. Would you like to turn it off?"
-msgstr ""
-"Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
+msgstr "Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
 
 msgid "Out of office off"
 msgstr "Kontorist väljas on välja lülitatud"
