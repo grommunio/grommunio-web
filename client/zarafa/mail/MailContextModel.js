@@ -16,6 +16,38 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	oldDataMode : undefined,
 
 	/**
+	 * Amount of items to load per batch.
+	 * @property
+	 * @type Number
+	 * @private
+	 */
+	prefetchBathCount: 5,
+
+	/**
+	 * Amount of items which are loaded in the background.
+	 * @property
+	 * @type Number
+	 * @private
+	 */
+	prefetchedTotal: 0,
+
+	/**
+	 * The timeout between batch fetching items in milliseconds.
+	 * @property
+	 * @type Number
+	 * @private
+	*/
+	prefetchTimeout: 30000,
+
+	/**
+	 * The id of the background load deffered task, used to clear the timer.
+	 * @property
+	 * @type Number
+	 * @private
+	 */
+	prefetchItemTask: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -39,6 +71,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			'searchstop' : this.onSearchStop,
 			scope : this
 		});
+
+		if (container.getServerConfig().getPrefetchTotalCount() > 0) {
+			config.store.on('load', this.setupLazyLoadMail, this, {delay: 800, buffer: 5});
+		}
+		container.on('contextswitch', this.onContextSwitch, this);
 	},
 
 	/**
@@ -727,6 +764,8 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	onFolderChange : function(model, folders)
 	{
+		this.resetLazyLoadMail();
+
 		if(!Ext.isEmpty(folders)) {
 			var folder = folders[0];
 			var folderKey = folder.getDefaultFolderKey();
@@ -772,5 +811,63 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			this.setDataMode(this.oldDataMode);
 		}
 		delete this.oldDataMode;
+	},
+
+	/**
+	 * Resets the lazy load mail related variables.
+	 */
+	resetLazyLoadMail: function() {
+		this.prefetchedTotal = 0;
+		window.clearTimeout(this.prefetchItemTask);
+	},
+
+	/**
+	 * Setup lazy loading of mail bodies.
+	 * @param {Ext.data.Store} store The store which was loaded
+	 * @param {Ext.data.Record[]} records The records which were loaded from the store
+	 */
+	setupLazyLoadMail: function(store, records) {
+		this.resetLazyLoadMail();
+		this.lazyLoadMail(store, records);
+	},
+
+	/**
+	 * Event handler for {@link #load load} event of the mail store.
+	 * This will lazy load items in the background in a batch.
+	 * @param {Ext.data.Store} store The store which was loaded
+	 * @param {Ext.data.Record[]} records The records which were loaded from the store
+	 */
+	lazyLoadMail: function(store, records) {
+		const unOpened = records.filter(function(record) {
+			return !record.isOpened() && record.isMessageClass(['IPM.Note'], true);
+		});
+
+		const loadItems = unOpened.slice(0, this.prefetchBathCount);
+
+		if (!Ext.isEmpty(loadItems)) {
+			store.open(loadItems);
+		}
+
+		this.prefetchedTotal += loadItems.length;
+
+		// Start delayed task to fetch remainder of lazy loaded items
+		if (unOpened.length > 0 && this.prefetchedTotal < container.getServerConfig().getPrefetchTotalCount()) {
+			this.prefetchItemTask = this.lazyLoadMail.defer(this.prefetchTimeout, this, [store, unOpened]);
+		}
+	},
+
+	/**
+	* Event handler for the {@link Zarafa.core.Container.contextswitch contextswitch}
+	* event of the {@link Zarafa.core.Container Container} Will clear the batch item deferred task and amount
+	* of fetched items.
+	* @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder that is loaded for the new context
+	* @param {Zarafa.core.Context} oldContext context that was switched out
+	* @param {Zarafa.core.Context} newContext new context that was switched
+	*/
+	onContextSwitch : function(folder, oldContext, newContext)
+	{
+		if ( newContext.getName() !== 'mail' ) {
+			this.resetLazyLoadMail();
+		}
 	}
 });

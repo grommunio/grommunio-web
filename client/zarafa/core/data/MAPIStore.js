@@ -330,13 +330,14 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 	 * 'list' action. function will call {@link #execute} event, which is entry point for every
 	 * CRUD operation, {@link #execute} will internall call {@link #createCallback} to create a
 	 * callback function based on operation type ('open' -> onOpenRecords).
-	 * @param {Zarafa.core.data.MAPIRecord} record record for which we need extra properties.
-	 * @param {Object} options Extra options which can be used for opening the record
+	 * @param {Zarafa.core.data.MAPIRecord[]} records records for which we need extra properties.
+	 * @param {Object} options Extra options which can be used for opening the records
+	 * @return {Boolean|undefined} false when this.execute fails
 	 */
-	open : function(record, options)
+	open : function(records, options)
 	{
 		try {
-			return this.execute('open', record, options);
+			return this.execute('open', records, options);
 		} catch (e) {
 			this.handleException(e);
 			return false;
@@ -345,14 +346,35 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 
 	/**
 	 * Function will work as callback function for 'open' operation, and update the
-	 * existing record with the new data that is received from server.
+	 * existing records with the new data that is received from server.
 	 * @param {Boolean} success true if operation completed successfully else false.
-	 * @param {Zarafa.core.data.MAPIRecord} record updated record.
-	 * @param {Object} data properties of record which is received from server (in key/value pair).
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.dataMAPIRecord[]} records updated records.
+	 * @param {Object|Array} data properties of records which is received from server (in key/value pair).
 	 */
-	onOpenRecords : function(success, record, data)
+	onOpenRecords : function(success, records, data)
 	{
-		if (success === true && this.indexOf(record) > -1) {
+		if (success !== true) {
+			return;
+		}
+
+		if (!Array.isArray(records)) {
+			records = [ records ];
+		}
+
+		records.forEach(function(record) {
+			if (this.indexOf(record) === -1) {
+				return;
+			}
+
+			// Opening items in batch passes multiple records but only one data object per onOpenRecords
+			// call, therefore the entryid has to be compared to update the correct record.
+			// Also opening meeting requests passes the task request as record and expects the actual task to
+			// be applied onto the record, here the entryids don't match so just check if records length is not 1.
+			if (records.length !== 1 && Array.isArray(data) && data.length !== 0 &&
+				!Zarafa.core.EntryId.compareEntryIds(record.get('entryid'), data[0].entryid)) {
+				return;
+			}
+
 			try {
 				// call reader to update record data
 				var oldRecord = record;
@@ -363,12 +385,8 @@ Zarafa.core.data.MAPIStore = Ext.extend(Ext.data.GroupingStore, {
 				this.fireEvent('open', this, record, oldRecord);
 			} catch (e) {
 				this.handleException(e);
-				if (Array.isArray(record)) {
-					// Recurse to run back into the try {}.  DataReader#update splices-off the rs until empty.
-					this.onOpenRecords(success, record, data);
-				}
 			}
-		}
+		}, this);
 	},
 
 	/**
