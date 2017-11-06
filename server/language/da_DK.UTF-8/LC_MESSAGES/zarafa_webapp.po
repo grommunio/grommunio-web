@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-14 13:34+0100\n"
-"PO-Revision-Date: 2017-10-21 13:21+0000\n"
-"Last-Translator: Klaus Vink Slott <klaus@vink-slott.dk>\n"
+"PO-Revision-Date: 2017-11-06 20:45+0000\n"
+"Last-Translator: Bo Simonsen <bo@geekworld.dk>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/da/>\n"
 "Language: da_DK\n"
@@ -176,7 +176,7 @@ msgid "{0} (Spacebar)"
 msgstr "{0} (Mellemrum)"
 
 msgid "This date is before the minimum date"
-msgstr "Datoen skal være før den mindste dato"
+msgstr "Denne dato er før startdatoen"
 
 msgid "This date is after the maximum date"
 msgstr "Datoen skal være efter den største dato"
@@ -228,7 +228,7 @@ msgid "Loading"
 msgstr "Henter"
 
 msgid "The value in this field is invalid"
-msgstr "Værdien i dette felt er ikke gyldig"
+msgstr "Værdien i dette felt er ugyldig"
 
 msgid "The minimum length for this field is {0}"
 msgstr "Minimumslængden for dette felt er {0}"
@@ -240,19 +240,19 @@ msgid "This field is required"
 msgstr "Dette felt er krævet"
 
 msgid "The minimum value for this field is {0}"
-msgstr "Den mindste værdi for dette felt er {0}"
+msgstr "Minimumsværdien for dette felt er {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr "Den største værdi for dette felt er {0}"
+msgstr "Maksimumsværdien for dette felt er {0}"
 
 msgid "{0} is not a valid number"
 msgstr "{0} er ikke et gyldigt tal"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr "Datoen for dette felt skal være lig med eller efter {0}"
+msgstr "Datoen i dette felt skal være lig med eller senere end {0}"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr "Datoen i dette felt skal være lig med eller før {0}"
+msgstr "Datoen i dette felt skal være lig med eller tidligere end {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
 msgstr "{0} er ikke en gyldig dato - den skal være i formatet {1}"
@@ -348,16 +348,16 @@ msgid "User details"
 msgstr "Bruger detaljer"
 
 msgid "First"
-msgstr "Første"
+msgstr "Fornavn"
 
 msgid "Initial"
 msgstr "Initialer"
 
 msgid "Display"
-msgstr "Vis"
+msgstr "Visning"
 
 msgid "Last"
-msgstr "Sidste"
+msgstr "Efternavn"
 
 msgid "Address"
 msgstr "Adresse"
@@ -399,7 +399,7 @@ msgid "Manager"
 msgstr "Leder"
 
 msgid "Direct reports"
-msgstr "Rapporterer direkte"
+msgstr "Direkte underordnede"
 
 msgid "Phone numbers"
 msgstr "Telefonnumre"
@@ -408,7 +408,7 @@ msgid "Business"
 msgstr "Arbejde"
 
 msgid "Business2"
-msgstr "Arbejde2"
+msgstr "Arbejde 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -417,7 +417,7 @@ msgid "Home"
 msgstr "Hjemme"
 
 msgid "Home2"
-msgstr "Hjemme2"
+msgstr "Hjemme 2"
 
 msgid "Mobile"
 msgstr "Mobil"
@@ -513,37 +513,37 @@ msgid "Sort by: Fax"
 msgstr "Sorter efter: Fax"
 
 msgid "Any date"
-msgstr "Alle dage"
+msgstr "Alle datoer"
 
 msgid "Past week"
-msgstr "Sidste uge"
+msgstr "Forrige uge"
 
 msgid "Past 2 weeks"
 msgstr "Sidste 2 uger"
 
 msgid "Past month"
-msgstr "Sidste måned"
+msgstr "Forrige måned"
 
 msgid "Past 6 month"
-msgstr "Sidste 6 måneder"
+msgstr "Forrige 6 måneder"
 
 msgid "Past year"
-msgstr "Sidste år"
+msgstr "Forrige år"
 
 msgid "Custom date"
 msgstr "Selvvalgt dato"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Tilføj til favoritter"
 
 msgid "Add"
-msgstr "Tilføj"
+msgstr "Tilføj til"
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Tilføj en mappe til dine favoritter baseret på dit søgeresultat"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Mappenavn"
 
 msgid "All folders are selected"
 msgstr "Alle mapper er valgt"
@@ -618,19 +618,19 @@ msgid "Subject"
 msgstr "Emne"
 
 msgid "Body & Attachments"
-msgstr "Brevkrop og vedhæftninger"
+msgstr "Brevkrop & vedhæftninger"
 
 msgid "Favorites"
 msgstr "Favoritter"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Tilføj en mappe til dine favoritter baseret på dette søgeresultat"
 
 msgid "Select Folder"
 msgstr "Vælg mappe"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Slet søgemappe"
 
 msgid "Sort by: Date"
 msgstr "Sorter efter: Dato"
@@ -765,13 +765,13 @@ msgstr "Når"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
-msgstr "l j F Y G:i"
+msgstr "D j F Y H:i"
 
 msgid "Where"
 msgstr "Hvor"
 
 msgid "New Meeting Time Proposed"
-msgstr "Nyt møde tidspunkt er foreslået"
+msgstr "Forslag til nyt mødetidspunkt"
 
 msgid "and "
 msgstr "og"
@@ -1203,10 +1203,10 @@ msgid "Switch calendar range back and forth"
 msgstr "Skift kalender interval tilbage og frem"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Kopier det valgte element"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Sæt det valgte element ind"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1612,7 +1612,7 @@ msgid "Open the series"
 msgstr "Åbn serien"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Sæt ind serie {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
@@ -1620,13 +1620,13 @@ msgid ""
 msgstr ""
 
 msgid "message"
-msgstr ""
+msgstr "besked"
 
 msgid "meeting request"
-msgstr ""
+msgstr "mødeindkaldelse"
 
 msgid "appointment"
-msgstr ""
+msgstr "aftale"
 
 msgid "Paste this occurrence only"
 msgstr ""
@@ -1801,7 +1801,7 @@ msgid "New"
 msgstr "Ny"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Slet kategori"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
@@ -1809,19 +1809,19 @@ msgid ""
 msgstr ""
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Omdøb kategorien"
 
 msgid "A category named \""
 msgstr ""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Opret ny kategori"
 
 msgid "Pin to quick access"
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Opret"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
@@ -1837,7 +1837,7 @@ msgid ""
 msgstr ""
 
 msgid "Rename"
-msgstr ""
+msgstr "Omdøb"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr ""
@@ -1851,7 +1851,7 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Slå sammen"
 
 msgid "Remove"
 msgstr "Fjern"
@@ -1968,37 +1968,37 @@ msgid "Folder '{0}' selected."
 msgstr "Mappen '{0}' er valgt."
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Vis ikke denne meddelelse igen."
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "I morgen"
 
 msgid "This week"
-msgstr ""
+msgstr "Denne uge"
 
 msgid "Next week"
-msgstr ""
+msgstr "Næste uge"
 
 msgid "No date"
-msgstr ""
+msgstr "Ingen dato"
 
 msgid "Edit reminder"
-msgstr ""
+msgstr "Rediger påmindelser"
 
 msgid "Complete"
 msgstr "Komplet"
 
 msgid "today"
-msgstr ""
+msgstr "i dag"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "i morgen"
 
 msgid "this week"
-msgstr ""
+msgstr "denne uge"
 
 msgid "next week"
-msgstr ""
+msgstr "næste uge"
 
 msgid "Edit recipient"
 msgstr "Ret modtager"
@@ -2781,7 +2781,7 @@ msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -4154,7 +4154,7 @@ msgid "Sort by: Flag Status"
 msgstr "Sorter efter: Flag"
 
 msgid "Flag"
-msgstr ""
+msgstr "Flag"
 
 msgid "Sort by: flag"
 msgstr ""
@@ -4163,7 +4163,7 @@ msgid "Forward as Attachment"
 msgstr "Videresend som vedhæftning"
 
 msgid "Follow up"
-msgstr ""
+msgstr "Opfølgning"
 
 msgid "Move to Junk Folder"
 msgstr "Flyt til spam mappen"
@@ -4475,7 +4475,7 @@ msgid "Kopano Core"
 msgstr "Kopano Core"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Slet bekræftelse"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr ""
@@ -4653,10 +4653,10 @@ msgid "Open Shared Tasks"
 msgstr "Åbn delte opgaver"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Enkel visning"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Detaljeret visning"
 
 msgid "Task request"
 msgstr "Opgaveforespørgsel"
@@ -4812,13 +4812,13 @@ msgid "Don't show me new features again."
 msgstr ""
 
 msgid "Skip"
-msgstr ""
+msgstr "Skip"
 
 msgid "Previous"
-msgstr ""
+msgstr "Forrige"
 
 msgid "Next"
-msgstr ""
+msgstr "Næste"
 
 msgid "The server reported an unknown error on your request."
 msgstr "Serveren svarede med en ukendt fejl på din forespørgsel."
@@ -4956,7 +4956,7 @@ msgid "Reload interval"
 msgstr "Genindlæsningsinterva"
 
 msgid "seconds."
-msgstr ""
+msgstr "sekunder."
 
 msgid "No appointments for today."
 msgstr "Ingen aftaler i dag."
@@ -5415,13 +5415,13 @@ msgid "You have insufficient privileges to create this folder."
 msgstr ""
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Kunne ikke oprette mappe."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Kunne ikke lukke delt mappe."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Kunne ikke finde bruger."
 
 #, php-format
 msgid ""
@@ -5569,19 +5569,19 @@ msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Kunne ikke afbryde mødeindkaldelsen."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Kunne ikke afslå mødeindkaldelsen."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Kunne ikke acceptere mødeindkaldelsen."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
@@ -5671,7 +5671,7 @@ msgid "B"
 msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Den maksimale stakdybde er blevet overskredet"
 
 msgid "Control character error, possibly incorrectly encoded"
 msgstr ""
