@@ -266,3 +266,8 @@ div.zarafa-contact-cardview-selected,
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
 	background-color: #6da208;
 }
+
+/* Active calendar tab stroke */
+.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+    border-top-color: #6da208 ;
+}

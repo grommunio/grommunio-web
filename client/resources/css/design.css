@@ -9296,44 +9296,39 @@ span.zarafa-emailaddress-link:hover {
   border-left: none;
 }
 
-/* line 2, ../scss/components/_calendar.scss */
-#zarafa-mainpanel-contentpanel-calendar > .x-panel-bwrap > .x-panel-body {
-  padding: 9px 0;
-}
-
-/* line 9, ../scss/components/_calendar.scss */
+/* line 4, ../scss/components/_calendar.scss */
 .zarafa-calendar-container {
   position: absolute;
 }
 
-/* line 13, ../scss/components/_calendar.scss */
+/* line 8, ../scss/components/_calendar.scss */
 .zarafa-calendar-verticalline {
   position: absolute;
   overfow: hidden;
   background-color: black;
 }
 
-/* line 20, ../scss/components/_calendar.scss */
+/* line 15, ../scss/components/_calendar.scss */
 .zarafa-calendar-column {
   position: absolute;
 }
 
 /* Calendar borders */
-/* line 26, ../scss/components/_calendar.scss */
+/* line 21, ../scss/components/_calendar.scss */
 .zarafa-calendar-border-left {
   position: absolute;
   overflow: hidden;
   border-left: 1px solid;
 }
 
-/* line 33, ../scss/components/_calendar.scss */
+/* line 28, ../scss/components/_calendar.scss */
 .zarafa-calendar-border-right {
   position: absolute;
   overflow: hidden;
   border-right: 1px solid;
 }
 
-/* line 40, ../scss/components/_calendar.scss */
+/* line 35, ../scss/components/_calendar.scss */
 .zarafa-calendar-border-top {
   position: absolute;
   overflow: hidden;
@@ -9342,7 +9337,7 @@ span.zarafa-emailaddress-link:hover {
   border-top: 1px solid;
 }
 
-/* line 49, ../scss/components/_calendar.scss */
+/* line 44, ../scss/components/_calendar.scss */
 .zarafa-calendar-border-bottom {
   position: absolute;
   overflow: hidden;
@@ -9352,7 +9347,7 @@ span.zarafa-emailaddress-link:hover {
 }
 
 /* Quick appointment CSS, drag and type */
-/* line 59, ../scss/components/_calendar.scss */
+/* line 54, ../scss/components/_calendar.scss */
 .zarafa-calendar-textedit-body,
 .zarafa-calendar-textedit-header {
   border: 1px solid #000000;
@@ -9363,11 +9358,11 @@ span.zarafa-emailaddress-link:hover {
 }
 
 /* the tabs of the calendars */
-/* line 70, ../scss/components/_calendar.scss */
+/* line 65, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea {
   position: absolute;
 }
-/* line 73, ../scss/components/_calendar.scss */
+/* line 68, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents {
   cursor: pointer;
   height: 30px;
@@ -9381,7 +9376,7 @@ span.zarafa-emailaddress-link:hover {
   /* arrow_left_l icon is 5x9 px */
   /* arrow_right_l icon is 5x9 px */
 }
-/* line 83, ../scss/components/_calendar.scss */
+/* line 78, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-title {
   position: relative;
   overflow: hidden;
@@ -9391,7 +9386,7 @@ span.zarafa-emailaddress-link:hover {
   /* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
   float: left;
 }
-/* line 94, ../scss/components/_calendar.scss */
+/* line 89, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-icon-close {
   position: relative;
   display: inline-block;
@@ -9403,7 +9398,7 @@ span.zarafa-emailaddress-link:hover {
   /* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
   float: left;
 }
-/* line 108, ../scss/components/_calendar.scss */
+/* line 103, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-icon-merge {
   position: relative;
   display: inline-block;
@@ -9415,7 +9410,7 @@ span.zarafa-emailaddress-link:hover {
   /* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
   float: left;
 }
-/* line 122, ../scss/components/_calendar.scss */
+/* line 117, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-icon-separate {
   position: relative;
   display: inline-block;
@@ -9427,43 +9422,43 @@ span.zarafa-emailaddress-link:hover {
   /* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
   float: left;
 }
-/* line 135, ../scss/components/_calendar.scss */
+/* line 130, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-merge-icon {
   padding-left: 3px;
 }
-/* line 138, ../scss/components/_calendar.scss */
+/* line 133, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-close-icon,
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-separate-icon {
   padding-right: 3px;
 }
-/* line 143, ../scss/components/_calendar.scss */
+/* line 138, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-close-icon.zarafa-with-separate-icon .zarafa-calendar-tab-icon-close {
   padding-right: 3px;
 }
-/* line 146, ../scss/components/_calendar.scss */
+/* line 141, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.zarafa-with-close-icon.zarafa-with-separate-icon .zarafa-calendar-tab-icon-separate {
   padding-left: 3px;
   background-position: 3px -169.5px;
 }
-/* line 153, ../scss/components/_calendar.scss */
+/* line 148, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.light-background .zarafa-calendar-tab-title {
   color: black;
 }
-/* line 156, ../scss/components/_calendar.scss */
+/* line 151, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.light-background .zarafa-calendar-tab-icon-close {
   background-position: 6px -543.5px;
 }
-/* line 159, ../scss/components/_calendar.scss */
+/* line 154, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.light-background .zarafa-calendar-tab-icon-merge {
   background-position: 6px -55.5px;
 }
-/* line 162, ../scss/components/_calendar.scss */
+/* line 157, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents.light-background .zarafa-calendar-tab-icon-separate {
   background-position: 6px -169.5px;
 }
 
 /* We use elements inside canvas elements to pass some styling from the css files to the canvas*/
-/* line 169, ../scss/components/_calendar.scss */
+/* line 164, ../scss/components/_calendar.scss */
 .zarafa-styling-element {
   position: absolute;
   top: -10000px;
@@ -9472,12 +9467,12 @@ span.zarafa-emailaddress-link:hover {
 }
 
 /* The headers of the calendars */
-/* line 178, ../scss/components/_calendar.scss */
+/* line 173, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-header .zarafa-canvas-header-background {
   /* a styling element that we can use to set some styles of the header */
   /* a styling element that we can use to set some styles of the active header (current day) */
 }
-/* line 180, ../scss/components/_calendar.scss */
+/* line 175, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element {
   /* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
    * and use it for the text it draws on the canvas
@@ -9489,11 +9484,11 @@ span.zarafa-emailaddress-link:hover {
   padding-left: 9px;
   padding-right: 6px;
 }
-/* line 191, ../scss/components/_calendar.scss */
+/* line 186, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element.light-background {
   color: black;
 }
-/* line 196, ../scss/components/_calendar.scss */
+/* line 191, ../scss/components/_calendar.scss */
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
 .zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day {
   position: absolute;
@@ -9509,20 +9504,20 @@ span.zarafa-emailaddress-link:hover {
 }
 
 /* Timestrip */
-/* line 213, ../scss/components/_calendar.scss */
+/* line 208, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element div {
   color: #333333;
   padding-right: 22px;
 }
 
 /* Margin between checkbox and calendar icon in hieracy */
-/* line 219, ../scss/components/_calendar.scss */
+/* line 214, ../scss/components/_calendar.scss */
 .zarafa-hierachy-node-cb {
   margin-right: 6px;
 }
 
 /* Icon showed in popup when moving an item in a calendar where you do not have permission */
-/* line 224, ../scss/components/_calendar.scss */
+/* line 219, ../scss/components/_calendar.scss */
 .zarafa-calendar-delegate-permission {
   background-image: url('../images/icons-s2479700b37.png');
   background-position: 0 -121px;
@@ -9531,57 +9526,57 @@ span.zarafa-emailaddress-link:hover {
 /*
  * Appointment Dialog (HTML & Canvas)
 */
-/* line 232, ../scss/components/_calendar.scss */
+/* line 227, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-none {
   background-color: transparent;
 }
 
-/* line 237, ../scss/components/_calendar.scss */
+/* line 232, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-important {
   background-color: #E98784;
 }
 
-/* line 242, ../scss/components/_calendar.scss */
+/* line 237, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-work {
   background-color: #8CA9D9;
 }
 
-/* line 247, ../scss/components/_calendar.scss */
+/* line 242, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-personal {
   background-color: #C0D98C;
 }
 
-/* line 252, ../scss/components/_calendar.scss */
+/* line 247, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-holiday {
   background-color: #DFCB47;
 }
 
-/* line 257, ../scss/components/_calendar.scss */
+/* line 252, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-required {
   background-color: #D9C18C;
 }
 
-/* line 262, ../scss/components/_calendar.scss */
+/* line 257, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-travel-required {
   background-color: #8CC6D9;
 }
 
-/* line 267, ../scss/components/_calendar.scss */
+/* line 262, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-prepare-required {
   background-color: #8C8CD9;
 }
 
-/* line 272, ../scss/components/_calendar.scss */
+/* line 267, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-birthday {
   background-color: #C48CD9;
 }
 
-/* line 277, ../scss/components/_calendar.scss */
+/* line 272, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-special-date {
   background-color: #D9928C;
 }
 
-/* line 282, ../scss/components/_calendar.scss */
+/* line 277, ../scss/components/_calendar.scss */
 .zarafa-calendar-appointment-label-phone-interview {
   background-color: #9BD98C;
 }
@@ -9589,7 +9584,7 @@ span.zarafa-emailaddress-link:hover {
 /*
  * Calendar timestrip (HTML & Canvas)
  */
-/* line 290, ../scss/components/_calendar.scss */
+/* line 285, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip {
   position: absolute;
   background-color: #9fbf00;
@@ -9598,20 +9593,20 @@ span.zarafa-emailaddress-link:hover {
   border-left: 1px solid black;
 }
 
-/* line 299, ../scss/components/_calendar.scss */
+/* line 294, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element {
   position: absolute;
   color: #393839;
   text-align: right;
 }
 
-/* line 306, ../scss/components/_calendar.scss */
+/* line 301, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element div {
   padding-top: 4px;
   padding-right: 6px;
 }
 
-/* line 312, ../scss/components/_calendar.scss */
+/* line 307, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-line {
   overflow: hidden;
   position: absolute;
@@ -9619,7 +9614,7 @@ span.zarafa-emailaddress-link:hover {
   margin-left: 24px;
 }
 
-/* line 320, ../scss/components/_calendar.scss */
+/* line 315, ../scss/components/_calendar.scss */
 .k-calendar-timestrip-indicator-icon {
   height: 12px;
   width: 12px;
@@ -9630,7 +9625,7 @@ span.zarafa-emailaddress-link:hover {
   position: absolute;
 }
 
-/* line 331, ../scss/components/_calendar.scss */
+/* line 326, ../scss/components/_calendar.scss */
 .k-calendar-timestrip-indicator-line {
   height: 1px;
   position: absolute;
@@ -9642,42 +9637,42 @@ span.zarafa-emailaddress-link:hover {
 /*
  * Canvas Calendar
  */
-/* line 343, ../scss/components/_calendar.scss */
+/* line 338, ../scss/components/_calendar.scss */
 .zarafa-canvas {
   position: absolute;
 }
 
 /* Currently selected tab */
-/* line 349, ../scss/components/_calendar.scss */
+/* line 344, ../scss/components/_calendar.scss */
 .zarafa-calendar-tabarea .zarafa-calendar-tab-selected .zarafa-calendar-tab-title {
   font-weight: bold;
 }
 
-/* line 354, ../scss/components/_calendar.scss */
+/* line 349, ../scss/components/_calendar.scss */
 .zarafa-calendar-scrollable {
   position: absolute;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-/* line 361, ../scss/components/_calendar.scss */
+/* line 356, ../scss/components/_calendar.scss */
 .zarafa-calendar-header {
   position: absolute;
 }
 
-/* line 366, ../scss/components/_calendar.scss */
+/* line 361, ../scss/components/_calendar.scss */
 .zarafa-calendar-bottomarea {
   position: absolute;
 }
 
 /* Drag & Drop */
 /* Calendar drag selection (selecting an new appointment) */
-/* line 374, ../scss/components/_calendar.scss */
+/* line 369, ../scss/components/_calendar.scss */
 .zarafa-calendar-selection-dragging {
   background-color: #7f7f7f;
 }
 
-/* line 379, ../scss/components/_calendar.scss */
+/* line 374, ../scss/components/_calendar.scss */
 .zarafa-calendar-selection {
   overflow: hidden;
   position: absolute;
@@ -9686,9 +9681,20 @@ span.zarafa-emailaddress-link:hover {
   opacity: .5;
 }
 
-/* line 388, ../scss/components/_calendar.scss */
+/* line 383, ../scss/components/_calendar.scss */
 .zarafa-calendar-dragproxy-time {
   padding: 5px 0 0 3px;
+}
+
+/* line 387, ../scss/components/_calendar.scss */
+.zarafa-calendar-tabarea-stroke {
+  border-top: 6px solid #ffffff;
+  position: relative;
+}
+
+/* line 392, ../scss/components/_calendar.scss */
+.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+  border-top-color: #5ebb4b;
 }
 
 /* Unused CSS, but unsure if it's really unused */
