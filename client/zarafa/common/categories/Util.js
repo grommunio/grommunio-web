@@ -177,17 +177,6 @@ Zarafa.common.categories.Util = {
 
 			var categories = this.getCategories(record);
 			if ( categories.indexOf(category) === -1 ){
-				// If the record has a flag without having flag_request set to
-				// 'Follow up', we will first remove that flag. (Flags without
-				// flag_request set to 'Follow up' have been deprecated since
-				// the new implementation of the categories)
-				// Note: The getCategories function has already added the flag
-				// to the categories
-				if ( record.get('flag_status') === Zarafa.core.mapi.FlagStatus.flagged && record.get('flag_request')!=='Follow up' ){
-					record.set('flag_icon', Zarafa.core.mapi.FlagIcon.clear);
-					record.set('flag_status', Zarafa.core.mapi.FlagStatus.cleared);
-				}
-
 				// If the record has a label, we will first remove that
 				// (labels have been deprecated since the implementation
 				// of the new categories)
@@ -307,8 +296,13 @@ Zarafa.common.categories.Util = {
 				var flagColor = record.get('flag_icon');
 				var flagCategoryName = this.getCategoryNameByFlagColor(flagColor);
 				if ( flagCategoryName === category ){
-					record.set('flag_icon', Zarafa.core.mapi.FlagIcon.clear);
-					record.set('flag_status', Zarafa.core.mapi.FlagStatus.cleared);
+					var flagProperties = Zarafa.common.flags.Util.getFlagBaseProperties();
+					Ext.apply(flagProperties, Zarafa.common.flags.Util.getFlagPropertiesNoDate());
+					record.beginEdit();
+					for ( var property in flagProperties ){
+						record.set(property, flagProperties[property]);
+					}
+					record.endEdit();
 				}
 			}
 
@@ -320,7 +314,7 @@ Zarafa.common.categories.Util = {
 				record.set('label', 0);
 			}
 
-			var recordModified = record.isModified('categories') || record.isModified('label') || record.isModified('flag_status');
+			var recordModified = record.isModified('categories') || record.isModified('label') || record.isModified('flag_request');
 			if ( recordModified && doSave ){
 				record.save();
 			}

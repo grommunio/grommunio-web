@@ -374,6 +374,8 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 		// Check if the record is a mail record
 		if ( !(record instanceof Zarafa.task.TaskRecord) ) {
+			Zarafa.common.flags.Util.updateCategories(record);
+
 			// we need different set of flag properties as this is
 			// the mail record we are dealing with.
 			var mailFlagProps = {

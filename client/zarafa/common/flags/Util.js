@@ -325,5 +325,26 @@ Zarafa.common.flags.Util = {
 		}
 
 		return configuredFlag;
+	},
+
+	/**
+	 * Will update the categories of records with old-style flags to real categories. (e.g. a red flag will
+	 * become a real red category)
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which categories update with old-style flags
+	 * to real categories.
+	 */
+	updateCategories : function(records)
+	{
+		if (!Array.isArray(records)) {
+			records = [records];
+		}
+		records.forEach(function(record){
+			const flagStatus = record.get('flag_status');
+			const flagRequest = record.get('flag_request');
+			if ( flagStatus===Zarafa.core.mapi.FlagStatus.flagged && flagRequest!=='Follow up'){
+				const categories = Zarafa.common.categories.Util.getCategories(record);
+				Zarafa.common.categories.Util.setCategories(record, categories);
+			}
+		});
 	}
 };
