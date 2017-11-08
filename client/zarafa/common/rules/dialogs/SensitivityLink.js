@@ -60,11 +60,8 @@ Zarafa.common.rules.dialogs.SensitivityLink = Ext.extend(Zarafa.common.rules.dia
 			sensitivity = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_SENSITIVITY'];
 		}
 
-		this.conditionFlag = conditionFlag;
-		this.condition = condition;
-		this.isModified = !Ext.isDefined(condition);
-
 		this.sensitivityCombo.setValue(sensitivity);
+		Zarafa.common.rules.dialogs.SensitivityLink.superclass.setCondition.call(this, arguments);
 	},
 
 	/**

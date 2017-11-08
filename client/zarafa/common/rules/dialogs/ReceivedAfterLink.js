@@ -49,10 +49,7 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 			this.receivedDate.setValue(new Date());
 		}
 
-		this.conditionFlag = conditionFlag;
-		this.condition = condition;
-		this.isModified = !Ext.isDefined(condition);
-
+		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.call(this, arguments);
 	},
 
 	/**

@@ -60,11 +60,8 @@ Zarafa.common.rules.dialogs.ImportanceLink = Ext.extend(Zarafa.common.rules.dial
 			importance = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_IMPORTANCE'];
 		}
 
-		this.conditionFlag = conditionFlag;
-		this.condition = condition;
-		this.isModified = !Ext.isDefined(condition);
-
 		this.importanceCombo.setValue(importance);
+		Zarafa.common.rules.dialogs.ImportanceLink.superclass.setCondition.call(this, arguments);
 	},
 
 	/**
