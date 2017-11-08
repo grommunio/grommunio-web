@@ -32,7 +32,7 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderPanel = Ext.extend(Ext.form.FormP
 				items :[{
 					xtype: 'textfield',
 					ref : '../../searchFolderTextField',
-					fieldLabel: _('Folder name'),
+					emptyText: _('Folder name'),
 					labelSeparator : '',
 					anchor : '100%'
 				}]
