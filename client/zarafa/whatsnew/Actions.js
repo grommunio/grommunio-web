@@ -144,7 +144,7 @@ Zarafa.whatsnew.Actions = {
 		}
 
 		// Check if the new features are actually for the current version
-		if ( !Ext.isDefined(whatsNewData.version) || whatsNewData.version !== unitVersion ) {
+		if ( container.getVersion().versionCompare(whatsNewData.version, unitVersion) !== 0 ){
 			return false;
 		}
 
