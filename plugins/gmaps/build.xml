@@ -189,6 +189,7 @@
 				<include name="php/**/*.php"/>
 				<include name="md5/**/*.js"/>
 				<include name="config.php"/>
+				<include name="LICENSE.txt"/>
 				<!-- exclude the ant script -->
 				<exclude name="build.xml"/>
 				<!-- CSS is generated during build -->
