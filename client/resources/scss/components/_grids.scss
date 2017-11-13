@@ -496,7 +496,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			/* importance column */
 			.icon_importance_urgent {
 				@extend .icon_priority_high;
-	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 3);
+	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 4);
 			}
 			.icon_importance_nonurgent {
 				@extend .icon_priority_low;
