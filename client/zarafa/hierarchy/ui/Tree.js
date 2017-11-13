@@ -348,7 +348,7 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 */
 	isFolderOpened : function(folder)
 	{
-		return folder.isIPMSubTree() || this.defaultOpen;
+		return folder.isIPMSubTree() || folder.isFavoritesRootFolder() || this.defaultOpen;
 	},
 
 	/**
