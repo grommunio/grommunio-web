@@ -14,7 +14,7 @@ Ext.namespace('Zarafa.whatsnew');
 Zarafa.whatsnew.Features = {
 	// The features described here will only be shown when the version of the WebApp corresponds to
 	// the version set here.
-    "version": '3.4',
+    "version": '3.4.0',
 
 	// The following array describes the features that should be shown to the user. Each object in the
 	// array should/could contain the following properties that describe a feature:
