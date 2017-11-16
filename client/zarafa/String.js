@@ -3,34 +3,25 @@
  * #core
  */
 
-Ext.applyIf(String, {
-	/**
-	 * Pads the right side of a string with a specified character.  This is especially useful
-	 * for normalizing number and date strings.  Example usage:
-	 * <pre><code>
-	 var s = String.rightPad('123', 5, '0');
-	 // s now contains the string: '12300'
-	 * </code></pre>
-	 * @param {String} value The original string
-	 * @param {Number} padSize The total length of the output string
-	 * @param {String} padChar (optional) The character with which to pad the original string (defaults to empty string " ")
-	 * @return {String} The padded string
-	 * @static
-	 */
-	rightPad : function(value, padSize, padChar)
-	{
-		var result = String(value);
-		if(!padChar) {
-			padChar = ' ';
-		}
-
-		while (result.length < padSize) {
-			result += padChar;
-		}
-
-		return result;
-	}
-});
+// https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
+if (!String.prototype.padEnd) {
+    /* jshint freeze: false */
+    String.prototype.padEnd = function padEnd(targetLength,padString) {
+        targetLength = targetLength>>0; //floor if number or convert non-number to 0;
+        padString = String(padString || ' ');
+        if (this.length > targetLength) {
+            return String(this);
+        }
+        else {
+            targetLength = targetLength-this.length;
+            if (targetLength > padString.length) {
+                padString += padString.repeat(targetLength/padString.length); //append to original to ensure we are longer than needed
+            }
+            return String(this) + padString.slice(0,targetLength);
+        }
+    };
+}
 
 if (!String.prototype.startsWith) {
 	/**
@@ -45,4 +36,24 @@ if (!String.prototype.startsWith) {
 			return this.substr(position || 0, searchString.length) === searchString;
 		}
 	});
+}
+
+// https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+if (!String.prototype.padStart) {
+    /* jshint freeze: false */
+    String.prototype.padStart = function padStart(targetLength,padString) {
+        targetLength = targetLength>>0; //floor if number or convert non-number to 0;
+        padString = String(padString || ' ');
+        if (this.length > targetLength) {
+            return String(this);
+        }
+        else {
+            targetLength = targetLength-this.length;
+            if (targetLength > padString.length) {
+                padString += padString.repeat(targetLength/padString.length); //append to original to ensure we are longer than needed
+            }
+            return padString.slice(0,targetLength) + String(this);
+        }
+    };
 }
