@@ -293,9 +293,8 @@
 										array_push($storeData["folders"]["item"], $this->setFolder($commonViewFolderProps));
 
 										// Get the To-do list folder and add it to the hierarchy
-										$todoFolderEntryid = todoList::getEntryId();
-										if ( $todoFolderEntryid ){
-											$todoSearchFolder = mapi_msgstore_openentry($store, $todoFolderEntryid);
+										$todoSearchFolder = todoList::getTodoSearchFolder($store);
+										if ($todoSearchFolder) {
 											$todoSearchFolderProps = mapi_getprops($todoSearchFolder);
 
 											// Change the parent so the folder will be shown in the hierarchy
@@ -306,7 +305,7 @@
 											$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
 											$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
 											array_push($storeData["folders"]["item"], $this->setFolder($todoSearchFolderProps));
-											$storeData["props"]['default_folder_todolist'] = bin2hex($todoFolderEntryid);
+											$storeData["props"]['default_folder_todolist'] = bin2hex($todoSearchFolderProps[PR_ENTRYID]);
 										}
 									}
 								} else {
