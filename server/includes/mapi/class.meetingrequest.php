@@ -641,6 +641,17 @@ If it is the first time this attendee has proposed a new date/time, increment th
 				// if meeting request is already processed then don't do anything
 				return false;
 			}
+
+			// if correspondent calendar item is already processed then don't do anything
+			$calendarItem = $this->getCorrespondentCalendarItem();
+			$calendarItemProps = mapi_getprops($calendarItem, array(PR_PROCESSED));
+			if(isset($calendarItemProps) && $calendarItemProps[PR_PROCESSED] == true) {
+				// mark meeting-request mail as processed as well
+				mapi_setprops($this->message, Array(PR_PROCESSED => true));
+				mapi_savechanges($this->message);
+
+				return false;
+			}
 		}
 
 		// Retrieve basedate from globalID, if it is not recieved as argument
