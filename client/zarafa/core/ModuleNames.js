@@ -156,7 +156,7 @@ Zarafa.core.ModuleNames =
 	 */
 	'REMINDER' : {
 		list : 'reminderlistmodule',
-		item : 'reminderlistmodule'
+		item : 'reminderitemmodule'
 	},
 
 	/**

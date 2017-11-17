@@ -463,7 +463,9 @@ Zarafa.common.Actions = {
 
 		// we will always open the record into a dialog because reminders are also displayed in a dialog
 		Ext.applyIf(config, {
-			manager : Ext.WindowMgr
+			manager : Ext.WindowMgr,
+			modal : true,
+			showModalWithoutParent : true
 		});
 
 		if(record) {
