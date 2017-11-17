@@ -169,6 +169,7 @@ class Meetingrequest {
 		$properties['timezone'] = 'PT_STRING8:PSETID_Appointment:0x8234';
 		$properties['toattendeesstring'] = 'PT_STRING8:PSETID_Appointment:0x823B';
 		$properties['ccattendeesstring'] = 'PT_STRING8:PSETID_Appointment:0x823C';
+		$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 
 		$this->proptags = getPropIdsFromStrings($store, $properties);
 	}
@@ -2928,6 +2929,10 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		if ($prefix && isset($newmessageprops[PR_SUBJECT]))
 			$newmessageprops[PR_SUBJECT] = $prefix . $newmessageprops[PR_SUBJECT];
 
+		if(isset($newmessageprops[$this->proptags['categories']]) &&
+			!empty($newmessageprops[$this->proptags['categories']])) {
+			unset($newmessageprops[$this->proptags['categories']]);
+		}
 		mapi_setprops($new, $newmessageprops);
 
 		// Copy attachments
