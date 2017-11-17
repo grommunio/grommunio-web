@@ -15,8 +15,8 @@ Zarafa.core.data.JsonAttachmentReader = Ext.extend(Zarafa.core.data.JsonReader, 
 	constructor : function(meta, recordType)
 	{
 		meta = Ext.applyIf(meta || {}, {
-			id : 'attach_num',
-			idProperty : 'attach_num'
+			id : 'attach_id',
+			idProperty : 'attach_id'
 		});
 
 		// If no recordType is provided, force the type to be an attachment

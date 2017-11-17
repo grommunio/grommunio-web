@@ -743,47 +743,76 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Merge a substore into the substore inside this record.
 	 * @param {String} name The name of the subStore to merge
-	 * @param {Zarafa.core.data.SubStore} remoteStore The store to merge
+	 * @param {Zarafa.core.data.MAPISubStore} remoteSubStore The store to merge
 	 * @param {Boolean} cheapCopy Use the cheap assignment rather then the more expensive copying
 	 * of all records
 	 */
-	mergeSubStore : function(name, remoteStore, cheapCopy)
+	mergeSubStore : function(name, remoteSubStore, cheapCopy)
 	{
-		var store = this.getSubStore(name);
+		var subStore = this.getSubStore(name);
 
-		if (store && remoteStore) {
-			if (cheapCopy !== true) {
-				// When we are not performing a cheap copy we wish to preserve
-				// the "add", "modify" and "delete" changes in the store.
+		if (subStore && remoteSubStore) {
+			if (cheapCopy !== true ) {
+					// When we are not performing a cheap copy we wish to preserve
+					// the "add", "modify" and "delete" changes in the subStore.
 
-				// Go over the current store, and start searching for the corresponding
-				// record in the remote store.
-				store.each(function(record) {
-					if (!remoteStore.getById(remoteStore.data.getKey(record))) {
-						// The other store doesn't contain this record,
-						// remove it from the current store.
-						store.remove(record);
-					}
-				});
+					var prop = name === 'attachments' ? 'attach_id' : 'entryid';
+					// Go over the current store, and start searching for the corresponding
+					// record in the remote store.
+					subStore.each(function(record) {
+						var remoteRecordIndex = remoteSubStore.findBy(function (remoteRecord) {
+							return this.idComparison(record.get(prop), remoteRecord.get(prop));
+						}, this);
 
-				// Go over the remote store to search for any new records which were added
-				remoteStore.each(function(record) {
-					if (!store.getById(store.data.getKey(record))) {
-						// New record, add it to the current store.
-						store.add(record.copy());
-					}
-				}, this);
+						if (remoteRecordIndex < 0) {
+							// The other store doesn't contain this record,
+							// remove it from the current store.
+							subStore.remove(record);
+						}
+					}, this);
+
+					// Go over the remote store to search for any new records which were added
+					remoteSubStore.each(function(record) {
+						var origRecordIndex = subStore.findBy(function (storeRecord) {
+							return this.idComparison(record.get(prop), storeRecord.get(prop));
+						}, this);
+
+						if (origRecordIndex < 0) {
+							// New record, add it to the current store.
+							subStore.add(record.copy());
+						}
+					}, this);
 			} else {
 				// A cheap copy is nothing more that destroy all
 				// currently available data and move all records
 				// from the remote store into the current store.
 				// We fire the 'datachanged' event to inform the
 				// UI of the bulk change which has been performed.
-				store.removeAll(true);
-				store.add(remoteStore.getRange(), true);
-				store.fireEvent('datachanged', store);
+				subStore.removeAll(true);
+				subStore.add(remoteSubStore.getRange(), true);
+				subStore.fireEvent('datachanged', subStore);
 			}
 		}
+	},
+
+	/**
+	 * Function which is used to compare two entry ids also
+	 * it is take care of comparing local contact items.
+	 *
+	 * @param {String} entryIdOne The first id to compare
+	 * @param {String} entryIdTwo The second id to compare
+	 * @return {Boolean} return true if entryId is same else false.
+	 * @protected
+	 */
+	idComparison : function(entryIdOne, entryIdTwo)
+	{
+		entryIdOne = Zarafa.core.EntryId.hasContactProviderGUID(entryIdOne) ?
+			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdOne) : entryIdOne;
+
+		entryIdTwo = Zarafa.core.EntryId.hasContactProviderGUID(entryIdTwo) ?
+			Zarafa.core.EntryId.unwrapContactProviderEntryId(entryIdTwo) : entryIdTwo;
+
+		return Zarafa.core.EntryId.compareEntryIds(entryIdOne, entryIdTwo);
 	},
 
 	/**
