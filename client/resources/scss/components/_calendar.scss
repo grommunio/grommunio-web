@@ -1,8 +1,3 @@
-#zarafa-mainpanel-contentpanel-calendar {
-	> .x-panel-bwrap > .x-panel-body {
-		padding: $padding-large 0;
-	}
-}
 
 $calendar-tab-height: 30px;
 
@@ -387,6 +382,15 @@ $calendar-tab-height: 30px;
 
 .zarafa-calendar-dragproxy-time {
 	padding: $padding-small + 2px 0 0 $padding-small;
+}
+
+.zarafa-calendar-tabarea-stroke {
+	border-top: $padding-medium solid $white;
+	position: relative;
+}
+
+.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+	border-top-color: $action-bgcolor;
 }
 
 /* Unused CSS, but unsure if it's really unused */

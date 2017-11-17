@@ -26,7 +26,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @cfg {Number} tabAreaHeight height in pixels of the tab strip
 	 */
-	tabAreaHeight : 30,
+	tabAreaHeight : 39,
 	/**
 	 * @cfg {Number} height of the header text in pixels. This is the day number and friendly day name text (e.g. 'monday', 'tuesday', etc)
 	 */
@@ -105,6 +105,11 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 * @private
 	 */
 	tooltip : undefined,
+
+	/**
+	 * @cfg {Number} tabStrokeHeight height in pixels of the active tab stroke.
+	 */
+	tabStrokeHeight : 9,
 
 	/**
 	 * @constructor

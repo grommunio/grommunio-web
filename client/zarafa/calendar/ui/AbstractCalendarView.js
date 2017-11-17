@@ -305,6 +305,14 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	active : false,
 
 	/**
+	 * The active tab stroke which will show stroke on top of the active calendar tabs
+	 * This field is created using {@link #createDiv} during {@link #render}.
+	 * @property
+	 * @type Ext.Element
+	 */
+	activeTabStroke : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
@@ -1100,6 +1108,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		this.createDiv(this.parentView.bottom, 'borderBottom');
 
 		this.createDiv(this.parentView.tab, 'tabArea');
+		this.createDiv(this.tabArea, 'activeTabStroke');
 
 		Zarafa.calendar.ui.AbstractCalendarView.superclass.render.call(this, container);
 		this.renderChildren();
@@ -1402,6 +1411,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		this.tabArea.dom.className = this.getClassName('container', 'tabarea');
 		this.tabArea.setLeftTop(this.leftOffset, 0);
 		this.tabArea.setSize(this.width, this.parentView.getTabAreaHeight());
+
+		this.activeTabStroke.dom.className = this.getClassName('tabarea', 'stroke');
+		this.activeTabStroke.setSize(this.width, this.parentView.tabStrokeHeight);
 
 		if (this.parentView.showBorder) {
 			this.tabArea.show();

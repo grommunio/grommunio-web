@@ -266,11 +266,16 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 			if (selected === true) {
 				if (active === true) {
 					this.tabContents.addClass(className);
+					this.parentView.activeTabStroke.addClass(className);
 				} else {
 					this.tabContents.removeClass(className);
+					this.parentView.activeTabStroke.removeClass(className);
 				}
 			} else {
 				this.tabContents.removeClass(className);
+				if (active !== true) {
+					this.parentView.activeTabStroke.removeClass(className);
+				}
 			}
 		}
 

@@ -133,6 +133,11 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
 	background: #2b90d9 !important;
 }
 
+/* Active calendar tab stroke */
+.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+    border-top-color: #2b90d9;
+}
+
 /* hover state */
 .x-btn.zarafa-action.x-btn-over .x-btn-small,
 .x-btn.zarafa-action.x-btn-over .x-btn-medium,

@@ -418,3 +418,8 @@ ul.x-tab-strip li .x-tab-right,
   background: linear-gradient(to right, rgba(226, 223, 227, 0) 0%, #e2dfe3 50%, #e2dfe3 100%);
 }
 
+/* Active calendar tab stroke */
+.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+    border-top-color: #702277;
+}
+
