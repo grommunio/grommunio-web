@@ -69,11 +69,9 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			text : _('Open'),
 			iconCls : 'icon_open',
 			singleSelectOnly: true,
-			handler: function() {
-				Zarafa.task.Actions.openTaskContent(this.records);
-			},
+			handler: this.onOpenTask,
 			scope: this
-        },{
+		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
 			iconCls : 'icon_mail_flag_red',
@@ -86,24 +84,28 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			},
 			scope: this
 		},{
-            xtype: 'zarafa.conditionalitem',
-            text: _('Mark Complete'),
-            iconCls: 'icon_task_complete',
-            isMarkComplete: true,
-            beforeShow: this.onMarkCompleteItemBeforeShow,
-            handler: this.onMarkCompleteItemClick,
-            scope: this
-        }, {
-            xtype: 'zarafa.conditionalitem',
-            text: _('Mark Incomplete'),
-            iconCls: 'icon_task_incomplete',
-            isMarkComplete: false,
-            beforeShow: this.onMarkCompleteItemBeforeShow,
-            handler: this.onMarkCompleteItemClick,
-            scope: this
-        }];
+			xtype: 'zarafa.conditionalitem',
+			text: _('Mark Complete'),
+			iconCls: 'icon_task_complete',
+			isMarkComplete: true,
+			beforeShow: this.onMarkCompleteItemBeforeShow,
+			handler: this.onMarkCompleteItemClick,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Mark Incomplete'),
+			iconCls: 'icon_task_incomplete',
+			isMarkComplete: false,
+			beforeShow: this.onMarkCompleteItemBeforeShow,
+			handler: this.onMarkCompleteItemClick,
+			scope: this
+		},{
+			text : _('Copy/Move'),
+			iconCls : 'icon_copy',
+			handler: this.onCopyMove,
+			scope: this
+		}];
 	},
-
 
 	/**
 	 * Create the Option context menu items
@@ -131,6 +133,25 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			handler: this.onContextItemDelete,
 			scope: this
 		}];
+	},
+
+	/**
+	 * Event handler called when the user clicks the 'open' button
+	 * @private
+	 */
+	onOpenTask : function()
+	{
+		Zarafa.task.Actions.openTaskContent(this.records);
+	},
+
+	/**
+	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
+	 * or moving the currently selected tasks/task requests.
+	 * @private
+	 */
+	onCopyMove : function()
+	{
+		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
 
 	/**

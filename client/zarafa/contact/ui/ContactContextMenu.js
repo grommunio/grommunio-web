@@ -67,6 +67,11 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 			handler : this.onContextItemOpen,
 			singleSelectOnly : true
 		}, {
+			text : _('Copy/Move'),
+			iconCls : 'icon_copy',
+			scope : this,
+			handler : this.onCopyMove
+		}, {
 			text : _('Print'),
 			iconCls : 'icon_print',
 			scope : this,
@@ -91,6 +96,16 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 			scope : this,
 			handler : this.onContextItemDelete
 		}];
+	},
+
+	/**
+	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
+	 * or moving the currently selected contacts.
+	 * @private
+	 */
+	onCopyMove : function()
+	{
+		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
 
 	/**

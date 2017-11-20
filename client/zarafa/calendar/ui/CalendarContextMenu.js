@@ -96,6 +96,14 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			scope: this
 		},{
 			xtype : 'zarafa.conditionalitem',
+			text : _('Copy/Move'),
+			iconCls : 'icon_copy',
+			beforeShow : this.beforeShowNonPhantom,
+			hideOnDisabled : false,
+			handler: this.onCopyMove,
+			scope: this
+		},{
+			xtype : 'zarafa.conditionalitem',
 			iconCls : 'icon_delete',
 			text : _('Delete'),
 			beforeShow : this.beforeShowNonPhantom,
@@ -209,6 +217,16 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			handler : this.onSetBusyStatus,
 			scope: this
 		}];
+	},
+
+	/**
+	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
+	 * or moving the currently selected appointment/meeting requests.
+	 * @private
+	 */
+	onCopyMove : function()
+	{
+		Zarafa.common.Actions.openCopyMoveContent(this.records);
 	},
 
 	/**
