@@ -130,8 +130,10 @@ class EncryptionStore
 	 * @param {String} $value The value that will be stored for the given $key
 	 */
 	public function add($key, $value) {
+		$session_did_exists = $this->open_session();
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		$_SESSION['encryption-store'][$key] = $encryptedValue;
+		$this->close_session($session_did_exists);
 	}
 	
 	/**
@@ -141,12 +143,46 @@ class EncryptionStore
 	 * @return {String|null} 
 	 */
 	public function get($key) {
+		$session_did_exists = $this->open_session();
+
 		$encrypted = isset($_SESSION['encryption-store'][$key]) ? $_SESSION['encryption-store'][$key] : null;
 		if ( is_null($encrypted) ) {
 			return null;
 		}
 		
 		$value = openssl_decrypt($encrypted, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
+		$this->close_session($session_did_exists);
 		return $value;
+	}
+
+	/**
+	 * Open the php session if it isn't open
+	 * @return {Boolean} return if the session was opened or not
+	 */
+	private function open_session() {
+		if (!$this->session_exists()) {
+			session_start();
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Close session if it was explicitly opened
+	 * @param {Boolean} True if session was opened, false if not.
+	 */
+	private function close_session($opened) {
+		if ($this->session_exists() && $opened) {
+			session_write_close();
+		}
+	}
+
+	/**
+	 * Returns true if the session exists otherwise false.
+	 *
+	 * @return {Boolean} true if session exists
+	 */
+	private function session_exists() {
+		return session_status() === PHP_SESSION_ACTIVE;
 	}
 }
