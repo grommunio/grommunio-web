@@ -27,6 +27,8 @@ class EncryptionStore
 	// TODO: Should this be moved to config.php???
 	const _CIPHER_METHOD = 'aes-256-cbc';
 
+	const _SESSION_KEY = 'encryption-store';
+
 	private static $_initializionVector = '';
 	private static $_encryptionKey = '';
 	
@@ -39,8 +41,8 @@ class EncryptionStore
 		WebAppSession::getInstance();
 
 		// Create an encryption store in the session if it doesn't exist yet
-		if ( !isset($_SESSION['encryption-store']) ){
-			$_SESSION['encryption-store'] = array();
+		if ( !isset($_SESSION[EncryptionStore::_SESSION_KEY]) ){
+			$_SESSION[EncryptionStore::_SESSION_KEY] = array();
 		}
 
 		// Check if we have an initializion vector stored in the session
@@ -151,9 +153,9 @@ class EncryptionStore
 	public function add($key, $value, $expiration = 0) {
 		$session_did_exists = $this->open_session();
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
-		$_SESSION['encryption-store'][$key] = array('val' => $encryptedValue);
+		$_SESSION[EncryptionStore::_SESSION_KEY][$key] = array('val' => $encryptedValue);
 		if ($expiration) {
-			$_SESSION['encryption-store'][$key]['exp'] = $expiration;
+			$_SESSION[EncryptionStore::_SESSION_KEY][$key]['exp'] = $expiration;
 		}
 		$this->close_session($session_did_exists);
 	}
@@ -168,8 +170,7 @@ class EncryptionStore
 		$session_did_exists = $this->open_session();
 		// Remove expired entries before checking the $_SESSION
 		$this->removeExpiredEntries();
-
-		$values = isset($_SESSION['encryption-store'][$key]) ? $_SESSION['encryption-store'][$key] : null;
+		$values = isset($_SESSION[EncryptionStore::_SESSION_KEY][$key]) ? $_SESSION[EncryptionStore::_SESSION_KEY][$key] : null;
 		if ( !isset($values['val']) || is_null($values['val']) ) {
 			return null;
 		}
