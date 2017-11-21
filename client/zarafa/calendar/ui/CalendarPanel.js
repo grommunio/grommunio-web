@@ -932,16 +932,18 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Function which is used to paste the copied item into calendar.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} clipBoardRecord copied calender item which will paste in calender view.
 	 * @private
 	 */
-	doPaste : function()
+	doPaste : function(clipBoardRecord)
 	{
-		var record = this.createRecordCopy();
+		var record = this.createRecordCopy(clipBoardRecord);
 		// Added source record info in message action. which used to
 		// copy attachments and recipients related information from source message to
 		// new pasted record.
-		record.addMessageAction("source_entryid", this.clipBoardData.get('entryid'));
-		record.addMessageAction("source_store_entryid", this.clipBoardData.get('store_entryid'));
+		record.addMessageAction("source_entryid", clipBoardRecord.get('entryid'));
+		record.addMessageAction("source_store_entryid", clipBoardRecord.get('store_entryid'));
 		record.addMessageAction("paste", true);
 
 		var store = this.model.store;
@@ -960,14 +962,14 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 * Function which is used to generate new date range as per the user selected in
 	 * calendar view.
 	 *
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calender item.
 	 * @return {Zarafa.core.DateRange} dateRange new date range.
 	 * @private
 	 */
-	getNewDateRange : function()
+	getNewDateRange : function(copiedRecord)
 	{
 		var views = this.getView();
 		var dateModelType = this.model.getCurrentDataMode();
-		var copiedRecord = this.clipBoardData;
 		var calendarView = views.getCalendarViewByFolder(this.model.getDefaultFolder());
 
 		var dateRange = calendarView.selectionView.getDateRange();
@@ -1013,13 +1015,13 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	 * Function which is used to create new copy of record from original record
 	 * with some updated information like date range, recurring pattern etc.
 	 *
+	 * @param {Zarafa.core.data.IPMRecord} copiedRecord copied calender item.
 	 * @return {Zarafa.calendar.AppointmentRecord} record which is going to paste in calender.
 	 * @private
 	 */
-	createRecordCopy : function()
+	createRecordCopy: function (copiedRecord)
 	{
-		var copiedRecord = this.clipBoardData;
-		var record = this.model.createRecord(undefined, this.getNewDateRange());
+		var record = this.model.createRecord(undefined, this.getNewDateRange(copiedRecord));
 		var remainder = copiedRecord.get('reminder');
 
 		// Outlook add's this 0x00000008 and 0x00000080 flags along with auxApptFlagCopied in

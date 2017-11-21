@@ -159,13 +159,10 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 
 		function openHandler(store, records)
 		{
-			component.clipBoardData = records;
-			// After copy record in clipBoardData object
-			// we remove the record from shadowStore and
-			// deregister 'open' event.
+			// Remove the record from shadowStore and deregister 'open' event.
 			store.remove(records, true);
 			store.un('open', openHandler, this);
-			component.doPaste();
+			component.doPaste(records);
 		}
 		store.on('open', openHandler, this);
 		record.open();
@@ -185,7 +182,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 		if(Ext.isEmpty(component.clipBoardData)) {
 			return;
 		}
-		var record = component.clipBoardData;
+		var record = component.clipBoardData.copy();
 		if (component.isClipBoardDataRecurring) {
 			var config = {
 				component : component,
@@ -195,7 +192,7 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 		} else if(!record.isOpened()) {
 			this.openRecord(component, record);
 		} else {
-			component.doPaste();
+			component.doPaste(record);
 		}
 	}
 });

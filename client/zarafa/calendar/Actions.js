@@ -374,28 +374,31 @@ Zarafa.calendar.Actions = {
 	 */
 	copyRecurringItemContent : function(record, config)
 	{
-		Zarafa.common.Actions.copyRecurringSelectionContent(record, function(button, radio) {
+		Zarafa.common.Actions.copyRecurringSelectionContent(record, function (button, radio) {
 			// Action cancelled.
 			if (button === 'cancel') {
 				return;
 			}
 
 			var clipBoardRecord = '';
+			var forceOpen = false;
 			// Convert the record to the requested type
-			if (radio.id !== 'recurrence_series') {
-				clipBoardRecord = record.convertToOccurenceRecord();
-			} else {
+			if (radio.id === 'recurrence_series') {
 				clipBoardRecord = record.convertToSeriesRecord();
+				// If clipboard record is occurrence then it doesn't have recurrence props.
+				// So need to open it first.
+				forceOpen = !record.get("recurring");
+			} else {
+				clipBoardRecord = record.convertToOccurenceRecord();
 			}
 
 			// Open record if record is not opened. we need to open record
 			// because we requires "body", "recurrence_*" property information to
 			// create proper normal/recurring record with proper recurring pattern .
-			if(!record.isOpened()) {
+			if (!record.isOpened() || forceOpen) {
 				this.openRecord(config.component, clipBoardRecord);
 			} else {
-				config.component.clipBoardData = clipBoardRecord;
-				config.component.doPaste();
+				config.component.doPaste(clipBoardRecord);
 			}
 
 		}, config.scope);
