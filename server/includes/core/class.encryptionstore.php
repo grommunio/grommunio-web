@@ -26,7 +26,7 @@ class EncryptionStore
 	
 	// TODO: Should this be moved to config.php???
 	const _CIPHER_METHOD = 'aes-256-cbc';
-	
+
 	private static $_initializionVector = '';
 	private static $_encryptionKey = '';
 	
@@ -37,12 +37,12 @@ class EncryptionStore
 	private function __construct() {
 		// Make sure the php session is started
 		WebAppSession::getInstance();
-		
+
 		// Create an encryption store in the session if it doesn't exist yet
 		if ( !isset($_SESSION['encryption-store']) ){
 			$_SESSION['encryption-store'] = array();
 		}
-		
+
 		// Check if we have an initializion vector stored in the session
 		// If we don't, then we will create a new one, together with a new
 		// encryption key
@@ -55,6 +55,8 @@ class EncryptionStore
 			// can get the encryption key from the cookie.
 			EncryptionStore::getEncryptionKey();
 		}
+
+		$this->removeExpiredEntries();
 	}
 	
 	/**
@@ -122,17 +124,37 @@ class EncryptionStore
 		
 		return EncryptionStore::$_encryptionKey;
 	}
+
+	/*
+	 * Remove expired entries from the $_SESSION
+	*/
+	private function removeExpiredEntries() {
+		// Remove expired entries
+		foreach($_SESSION[EncryptionStore::_SESSION_KEY] as $key => $value) {
+			if (!isset($value['exp'])) {
+				continue;
+			}
+
+			if ($value['exp'] < time()) {
+				unset($_SESSION[EncryptionStore::_SESSION_KEY][$key]);
+			}
+		}
+	}
 	
 	/**
 	 * Adds a key/value combination to the encryption store
 	 * 
 	 * @param {String} $key The key that will be added (or overwritten)
 	 * @param {String} $value The value that will be stored for the given $key
+	 * @param {String} $expiration The expiration time in epoch for the given $key
 	 */
-	public function add($key, $value) {
+	public function add($key, $value, $expiration = 0) {
 		$session_did_exists = $this->open_session();
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
-		$_SESSION['encryption-store'][$key] = $encryptedValue;
+		$_SESSION['encryption-store'][$key] = array('val' => $encryptedValue);
+		if ($expiration) {
+			$_SESSION['encryption-store'][$key]['exp'] = $expiration;
+		}
 		$this->close_session($session_did_exists);
 	}
 	
@@ -144,11 +166,14 @@ class EncryptionStore
 	 */
 	public function get($key) {
 		$session_did_exists = $this->open_session();
+		// Remove expired entries before checking the $_SESSION
+		$this->removeExpiredEntries();
 
-		$encrypted = isset($_SESSION['encryption-store'][$key]) ? $_SESSION['encryption-store'][$key] : null;
-		if ( is_null($encrypted) ) {
+		$values = isset($_SESSION['encryption-store'][$key]) ? $_SESSION['encryption-store'][$key] : null;
+		if ( !isset($values['val']) || is_null($values['val']) ) {
 			return null;
 		}
+		$encrypted = $values['val'];
 		
 		$value = openssl_decrypt($encrypted, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
 		$this->close_session($session_did_exists);
