@@ -174,7 +174,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				}
 			}],
 			buttons : [{
-				text : _('Save'),
+				text : _('Save Signature'),
 				ref : '../saveSignatureBtn',
 				handler : this.onSaveSignature,
 				scope : this
