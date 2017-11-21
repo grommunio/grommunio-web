@@ -22,7 +22,7 @@
 		onMenuHide : function(menu)
 		{
 			// Check if the menu has an owner component (only context menu's don't have it)
-			if ( !Ext.isDefined(menu.ownerCt) && !Ext.isDefined(menu.parentMenu)){
+			if (!Ext.isDefined(menu.ownerCt) && !Ext.isDefined(menu.parentMenu) && menu.autoDestroy) {
 				menu.destroy();
 			}
 		}
