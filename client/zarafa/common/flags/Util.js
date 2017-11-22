@@ -63,8 +63,6 @@ Zarafa.common.flags.Util = {
 	getFlagPropertiesNoDate : function()
 	{
 		return {
-			task_start_date: 	null,
-			task_due_date: 		null,
 			startdate :         null,
 			duedate :           null,
 			reminder:		false,
@@ -94,8 +92,6 @@ Zarafa.common.flags.Util = {
 		}
 
 		return {
-			task_start_date: 	date,
-			task_due_date: 		date,
 			startdate :         date,
 			duedate :           date,
 			reminder_time:		reminderTime,
@@ -116,8 +112,6 @@ Zarafa.common.flags.Util = {
 		var reminderTime = this.getReminderTimeForDate(date);
 
 		return {
-			task_start_date: 	date,
-			task_due_date: 		date,
 			startdate :         date,
 			duedate :           date,
 			reminder_time:		reminderTime,
@@ -173,8 +167,6 @@ Zarafa.common.flags.Util = {
 		}
 
 		return {
-			task_start_date: 	startDate,
-			task_due_date: 		dueDate,
 			startdate :         startDate,
 			duedate :           dueDate,
 			reminder_time:		reminderTime,
@@ -200,8 +192,6 @@ Zarafa.common.flags.Util = {
 		var reminderTime = this.getReminderTimeForDate(dueDate);
 
 		return {
-			task_start_date: 	startDate,
-			task_due_date: 		dueDate,
 			startdate :         startDate,
 			duedate :           dueDate,
 			reminder_time:		reminderTime,
@@ -224,8 +214,8 @@ Zarafa.common.flags.Util = {
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
 			reminder:		false,
-			task_start_date: 	null,
-			task_due_date: 		null
+			startdate: 	null,
+			duedate: 		null
 		};
 	},
 
@@ -242,8 +232,6 @@ Zarafa.common.flags.Util = {
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.cleared,
 			reminder:		false,
-			task_start_date: 	null,
-			task_due_date: 		null,
 			startdate :         null,
 			duedate :           null,
 			reminder_time:		null,
@@ -297,8 +285,8 @@ Zarafa.common.flags.Util = {
 			return false;
 		}
 
-		var taskStartDate = record.get('task_start_date');
-		var taskDueDate = record.get('task_due_date');
+		var taskStartDate = record.get('startdate');
+		var taskDueDate = record.get('duedate');
 		var todayNoon = new Date().clone().setToNoon();
 		var tomorrowNoon = new Date().add(Date.DAY, 1).setToNoon();
 
@@ -314,11 +302,11 @@ Zarafa.common.flags.Util = {
 			configuredFlag = _('tomorrow');
 		} else {
 			var thisWeekProps = this.getFlagPropertiesThisWeek();
-			if (taskStartDate === thisWeekProps.task_start_date.getTime() && taskDueDate === thisWeekProps.task_due_date.getTime()) {
+			if (taskStartDate === thisWeekProps.startdate.getTime() && taskDueDate === thisWeekProps.duedate.getTime()) {
 				configuredFlag = _('this week');
 			} else {
 				var nextWeekProps = this.getFlagPropertiesNextWeek();
-				if (taskStartDate === nextWeekProps.task_start_date.getTime() && taskDueDate === nextWeekProps.task_due_date.getTime()) {
+				if (taskStartDate === nextWeekProps.startdate.getTime() && taskDueDate === nextWeekProps.duedate.getTime()) {
 					configuredFlag = _('next week');
 				}
 			}
