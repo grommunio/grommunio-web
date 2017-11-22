@@ -90,8 +90,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x
 .x-tree-node-el ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-icon.icon_folder_shared_task,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal, .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_normal,
 .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_recurring, .icon_task_accepted, .icon_task_active, .icon_task_assigned, .icon_task_assignee,
-.icon_task_assigner, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner, .icon_task_declined, .icon_task_detailed, .icon_task_request, .icon_task_simple, .icon_trash, .icon_trash_dark, .icon_unchecked, .menu_arrow_right_l, .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow, .new_folder, .trash, .icon_folder_default_wastebasket,
+.icon_task_assigner, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee, .icon_task_declined, .icon_task_detailed, .icon_task_request, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner, .icon_task_simple, .icon_trash, .icon_trash_dark, .icon_unchecked, .menu_arrow_right_l, .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow, .new_folder, .trash, .icon_folder_default_wastebasket,
 .icon_folder_delete,
 .icon_empty_trash, .x-menu .icon_delete, .x-menu .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_delete, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-menu button.icon_delete, .x-tree-node-el .x-tree-node-icon.icon_folder_default_wastebasket, .icon_folder_appointment,
 .icon_folder_default_calendar,
@@ -1640,8 +1639,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal,
 .icon_task_assigned,
 .icon_task_assignee,
 .icon_task_assigner,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner {
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee {
   /* need to use !important because Ext also uses it here and there! */
   background-image: url('../images/icons-s2479700b37.png') !important;
   background-repeat: no-repeat;
@@ -1668,7 +1666,8 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal,
 
 /* line 27, ../scss/base/_icons.scss */
 .icons-icon_task_request,
-.icon_task_request {
+.icon_task_request,
+ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner {
   /* need to use !important because Ext also uses it here and there! */
   background-image: url('../images/icons-s2479700b37.png') !important;
   background-repeat: no-repeat;
@@ -2539,8 +2538,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal,
 
 /* line 45, ../scss/base/_icons.scss */
 .icon_task_assigned, .icon_task_assignee,
-.icon_task_assigner, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner {
+.icon_task_assigner, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee {
   background-position: 0 -5144px;
 }
 
@@ -2555,7 +2553,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_normal,
 }
 
 /* line 45, ../scss/base/_icons.scss */
-.icon_task_request {
+.icon_task_request, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner {
   background-position: 0 -5248px;
 }
 
@@ -4738,12 +4736,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-position: 5px -5024px;
 }
 /* line 434, ../scss/components/_grids.scss */
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner {
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee {
   background-position: 5px -5136px;
 }
-/* line 440, ../scss/components/_grids.scss */
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_request {
+/* line 439, ../scss/components/_grids.scss */
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_request, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner,
+.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner {
   background-position: 5px -5240px;
 }
 /* line 444, ../scss/components/_grids.scss */
@@ -7053,9 +7051,7 @@ ul.x-tab-strip li .x-tab-strip-inner .icon_task_active {
 }
 /* line 229, ../scss/components/_tabs.scss */
 ul.x-tab-strip li .x-tab-strip-inner .icon_task_assigned, ul.x-tab-strip li .x-tab-strip-inner .icon_task_assignee,
-ul.x-tab-strip li .x-tab-strip-inner .icon_task_assigner, ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_assignee,
-ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_assigner {
+ul.x-tab-strip li .x-tab-strip-inner .icon_task_assigner, ul.x-tab-strip li .x-tab-strip-inner .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_task_assignee {
   background-position: 0 -5136px;
 }
 /* line 229, ../scss/components/_tabs.scss */
@@ -7067,7 +7063,7 @@ ul.x-tab-strip li .x-tab-strip-inner .icon_task_detailed {
   background-position: 0 -5208px;
 }
 /* line 229, ../scss/components/_tabs.scss */
-ul.x-tab-strip li .x-tab-strip-inner .icon_task_request {
+ul.x-tab-strip li .x-tab-strip-inner .icon_task_request, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner {
   background-position: 0 -5240px;
 }
 /* line 229, ../scss/components/_tabs.scss */
@@ -7224,40 +7220,43 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_defau
   padding-left: 20px;
 }
 /* line 368, ../scss/components/_tabs.scss */
-ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assignee,
-ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner {
+ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assignee {
   background-position: -1px -5135px;
 }
-/* line 373, ../scss/components/_tabs.scss */
+/* line 372, ../scss/components/_tabs.scss */
+ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner {
+  background-position: -1px -5239px;
+}
+/* line 377, ../scss/components/_tabs.scss */
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-settings-category-general {
   background-position: -3px -399px;
 }
-/* line 378, ../scss/components/_tabs.scss */
+/* line 382, ../scss/components/_tabs.scss */
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_journal,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_journal,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_journal {
   background-position: -1px -2359px;
   padding-left: 19px;
 }
-/* line 385, ../scss/components/_tabs.scss */
+/* line 389, ../scss/components/_tabs.scss */
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .advance_search {
   background-position: -1px -1546px;
   spadding-left: 19px;
 }
 
 /* iconCls for dirty messages */
-/* line 398, ../scss/components/_tabs.scss */
+/* line 402, ../scss/components/_tabs.scss */
 .x-tab-strip-text.zarafa-tab-edited {
   font-style: italic !important;
 }
 
-/* line 402, ../scss/components/_tabs.scss */
+/* line 406, ../scss/components/_tabs.scss */
 ul.x-tab-strip-top {
   background-image: none;
   background-color: transparent;
 }
 
-/* line 407, ../scss/components/_tabs.scss */
+/* line 411, ../scss/components/_tabs.scss */
 .x-tab-panel-header, .x-tab-panel-footer {
   background-color: transparent;
   border: none;
@@ -7265,20 +7264,20 @@ ul.x-tab-strip-top {
 }
 
 /* Override tab text font color */
-/* line 414, ../scss/components/_tabs.scss */
+/* line 418, ../scss/components/_tabs.scss */
 .x-tab-strip span.x-tab-strip-text {
   color: black;
 }
 
 /* Paging left/right arrows when there are too many tabs open to fit in the tab layout. */
-/* line 419, ../scss/components/_tabs.scss */
+/* line 423, ../scss/components/_tabs.scss */
 .x-tab-scroller-left {
   background-position: 5px -53px;
   background-image: url('../images/buttons-sa0668d9a97.png');
   border-bottom-color: transparent;
 }
 
-/* line 425, ../scss/components/_tabs.scss */
+/* line 429, ../scss/components/_tabs.scss */
 .x-tab-scroller-right {
   background-position: 5px -167px;
   background-image: url('../images/buttons-sa0668d9a97.png');
@@ -8486,9 +8485,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x
 
 /* line 146, ../scss/components/_hierarchy.scss */
 .x-tree-node-el .x-tree-node-icon.icon_task_assigned, .x-tree-node-el .x-tree-node-icon.icon_task_assignee,
-.x-tree-node-el .x-tree-node-icon.icon_task_assigner, .x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_assignee, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_assignee,
-.x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_assigner,
-.x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_assigner {
+.x-tree-node-el .x-tree-node-icon.icon_task_assigner, .x-tree-node-el .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_task_assignee, .x-panel:not(.zarafa-searchgrid) > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_task_assignee {
   background-position: 0 -5144px;
 }
 
@@ -8503,7 +8500,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x
 }
 
 /* line 146, ../scss/components/_hierarchy.scss */
-.x-tree-node-el .x-tree-node-icon.icon_task_request {
+.x-tree-node-el .x-tree-node-icon.icon_task_request, .x-tree-node-el ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-icon.icon_task_assigner, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x-tree-node-icon.icon_task_assigner {
   background-position: 0 -5248px;
 }
 
@@ -11424,8 +11421,10 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   background-position: 0 -5207px;
 }
 /* line 278, ../scss/components/_popups.scss */
-.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_request,
-.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_request {
+.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_request, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .display-name.icon_task_assigner, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_assigner,
+.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_request,
+.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .display-name.icon_task_assigner,
+ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_task_assigner {
   background-image: url('../images/icons-s2479700b37.png');
   background-repeat: no-repeat;
   background-position: 0 -5239px;
@@ -12198,7 +12197,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   background-position: 5px -5143px;
 }
 /* line 188, ../scss/components/_search.scss */
-.zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_request {
+.zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_request, .zarafa-searchgrid .x-grid3-row table.messageclass-data ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .zarafa-searchgrid .x-grid3-row table.messageclass-data .icon_task_assigner {
   background-position: 5px -5247px;
 }
 /* line 192, ../scss/components/_search.scss */
