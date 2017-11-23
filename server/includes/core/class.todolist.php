@@ -50,8 +50,8 @@ class TodoList {
 
 			// We're only interested in the entryid of the to-do search folder
 			if ( $header['id'] === RSF_PID_TODO_SEARCH ){
-    			// Now read the PersistElementBlock
-    			$dataHeader = unpack($headerFormat, substr($additionalRenEntryidsEx, 0, 4));
+			// Now read the PersistElementBlock
+			$dataHeader = unpack($headerFormat, substr($additionalRenEntryidsEx, 0, 4));
                 TodoList::$_entryId = substr($additionalRenEntryidsEx, 4, $dataHeader['size']);
                 return TodoList::$_entryId;
 			}
@@ -123,6 +123,35 @@ class TodoList {
         }
 
         return $entryid;
+    }
+
+    /**
+     * Retrieves the Todo search folder and creates it if not found.
+     *
+     * @param MAPIObject user store, the store of the user.
+     * @return MAPIObject Mapi Search Folder of the To-Do list
+     */
+   public static function getTodoSearchFolder($store)
+    {
+           $entryid = self::getEntryId();
+
+           try {
+                   return mapi_msgstore_openentry($store, $entryid);
+           } catch (MAPIException $e) {
+               $e->setHandled();
+               if ($e->getCode() === MAPI_E_NOT_FOUND || $e->getCode() === MAPI_E_INVALID_ENTRYID) {
+                       // Entryid invalid or no not found
+                       $entryid = self::createTodoSearchFolder();
+		       if ($entryid) {
+                               return mapi_msgstore_openentry($store, $entryid);
+		       }
+               }
+
+	       // Something went wrong, inform the administrator
+	       error_log(sprintf("Unable to open 'To-do Search (WebApp)' for user: %s", $GLOBALS["mapisession"]->getUserName()));
+
+               return null;
+           }
     }
 
     /**
