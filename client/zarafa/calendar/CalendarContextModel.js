@@ -155,7 +155,12 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	createRecord : function(folder, dateRange)
 	{
 		folder = folder || this.getDefaultFolder();
-		var store = folder.getMAPIStore();
+		var store;
+		if (folder.existsInFavorites()) {
+			store = container.getHierarchyStore().getById(folder.get('store_entryid'));
+		} else {
+			store = folder.getMAPIStore();
+		}
 
 		var zoomLevel = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level');
 		var defaultPeriod = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period');
