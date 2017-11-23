@@ -2,40 +2,14 @@ Ext.namespace('Zarafa.common.rules.dialogs');
 
 /**
  * @class Zarafa.common.rules.dialogs.ReceivedAfterLink
- * @extends Ext.Container
+ * @extends Zarafa.common.rules.dialogs.BaseLink,
  * @xtype zarafa.receivedafterlink
  *
  * Condition component for the {@link Zarafa.common.rules.data.ConditionFlags#RECEIVED_AFTER RECEIVED_AFTER}
  * condition. This will allow the user to select a date and can generate a proper
  * condition for it.
  */
-Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Ext.Container, {
-
-	/**
-	 * The Condition type which is handled by this view
-	 * This is set during {@link #setCondition}.
-	 * @property
-	 * @type Zarafa.common.rules.data.ConditionFlags
-	 */
-	conditionFlag : undefined,
-
-	/**
-	 * The condition property which was configured during
-	 * {@link #setCondition}.
-	 * @property
-	 * @type Object
-	 */
-	condition : undefined,
-
-	/**
-	 * True if the condition was modified by the user, if this is false,
-	 * then {@link #getCondition} will return {@link #condition} instead
-	 * of returning a new object.
-	 * @property
-	 * @type Boolean
-	 */
-	isModified : false,
-
+Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.dialogs.BaseLink, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -75,10 +49,7 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Ext.Container, {
 			this.receivedDate.setValue(new Date());
 		}
 
-		this.conditionFlag = conditionFlag;
-		this.condition = condition;
-		this.isModified = !Ext.isDefined(condition);
-
+		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.call(this, arguments);
 	},
 
 	/**
