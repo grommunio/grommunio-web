@@ -318,7 +318,7 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 				value = Zarafa.common.ui.grid.Renderers.text(value, p, record);
 				break;
 			case 'reminder_time':
-				value = Zarafa.common.ui.grid.Renderers.datetime(value, p, record);
+				value = Zarafa.common.ui.grid.Renderers.dateWithTime(value, p);
 				break;
 		}
 

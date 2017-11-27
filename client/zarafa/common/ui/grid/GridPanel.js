@@ -33,6 +33,13 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 	currentStoreEntryId : undefined,
 
 	/**
+	 * The tooltip that will be used to show the full date when hovered over 'short' formatted dates
+	 * @property
+	 * @type {Zarafa.common.ui.grid.DateTooltip}
+	 */
+	dateTooltip : null,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -82,6 +89,23 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		// it apart from other components in the key mapping.
 		xtypes = 'grid' + xtypes.replace(/grid/g, '');
 		Zarafa.core.KeyMapMgr.activate(this, xtypes);
+
+	    this.dateTooltip = new Zarafa.common.ui.grid.DateTooltip({
+			target: this.getEl().dom
+		});
+	},
+
+	/**
+	 * Called when the GridPanel has been destroyed. Will destroy the {#dateTooltip}
+	 * @private
+	 */
+	onDestroy: function()
+	{
+		Zarafa.common.ui.grid.GridPanel.superclass.onDestroy.apply(this, arguments);
+
+		if ( this.dateTooltip ){
+			this.dateTooltip.destroy();
+		}
 	},
 
 	/**

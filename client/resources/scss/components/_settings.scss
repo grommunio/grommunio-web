@@ -74,10 +74,10 @@
 			margin-bottom: 0;
 		}
 
-		/* Inbox navigation */
-		.zarafa-settings-category-general-liveScroll {
+		/* minor information in labels */
+		.k-settings-label-minor {
 			opacity: 0.5;
-			margin-left: 3px;
+			margin-left: $padding-small;
 		}
 
 		/* Keyboard shortcuts */

@@ -73,6 +73,15 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							'end_working_hour' : 17 * 60,
 
 							/**
+							 * zarafa/v1/main/datetime_display_format
+							 * Format to use when displaying a date and/or time in a grid.
+							 * Can be 'long' or 'short'
+							 * @property
+							 * @type String
+							 */
+							'datetime_display_format' : 'short',
+
+							/**
 							 * zarafa/v1/main/default_font
 							 * Default font for writing e-mail
 							 * @property
