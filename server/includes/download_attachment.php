@@ -357,11 +357,10 @@ class DownloadAttachment
 	/**
 	 * Function will open all attachments of message and prepare a ZIP file response for that attachment to send it to client.
 	 * This should only be used to download attachment that is already saved in MAPIMessage.
-	 * @param String $randomZipName A random zip archive name.
 	 * @param AttachmentState $attachment_state Object of AttachmentState class.
 	 * @param ZipArchive $zip ZipArchive object.
 	 */
-	public function addAttachmentsToZipArchive($randomZipName, $attachment_state, $zip)
+	public function addAttachmentsToZipArchive($attachment_state, $zip)
 	{
 		// Get all the attachments from message
 		$attachmentTable = mapi_message_getattachmenttable($this->message);
@@ -488,7 +487,7 @@ class DownloadAttachment
 							}
 						}
 					}
-					$this->addAttachmentsToZipArchive($randomZipName, $attachment_state, $zip);
+					$this->addAttachmentsToZipArchive($attachment_state, $zip);
 				} else {
 					$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
 				}

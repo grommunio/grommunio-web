@@ -32,7 +32,7 @@
 						switch($actionType)
 						{
 							case "list":
-								$this->getReminders($action);
+								$this->getReminders();
 								break;
 							case "delete":
 								$subActionType = false;
@@ -58,7 +58,7 @@
 								$this->handleUnknownActionType($actionType);
 						}
 					} catch (MAPIException $e) {
-						$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
+						$this->processException($e, $actionType, $store, null, $entryid, $action);
 					}
 				}
 			}
@@ -219,7 +219,7 @@
 			return $folderProps[PR_ENTRYID];
 		}
 
-		function getReminders($action)
+		function getReminders()
 		{
 			$data = array();
 
