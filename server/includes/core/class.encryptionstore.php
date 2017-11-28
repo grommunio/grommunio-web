@@ -26,7 +26,9 @@ class EncryptionStore
 	
 	// TODO: Should this be moved to config.php???
 	const _CIPHER_METHOD = 'aes-256-cbc';
-	
+
+	const _SESSION_KEY = 'encryption-store';
+
 	private static $_initializionVector = '';
 	private static $_encryptionKey = '';
 	
@@ -37,12 +39,12 @@ class EncryptionStore
 	private function __construct() {
 		// Make sure the php session is started
 		WebAppSession::getInstance();
-		
+
 		// Create an encryption store in the session if it doesn't exist yet
-		if ( !isset($_SESSION['encryption-store']) ){
-			$_SESSION['encryption-store'] = array();
+		if ( !isset($_SESSION[EncryptionStore::_SESSION_KEY]) ){
+			$_SESSION[EncryptionStore::_SESSION_KEY] = array();
 		}
-		
+
 		// Check if we have an initializion vector stored in the session
 		// If we don't, then we will create a new one, together with a new
 		// encryption key
@@ -55,6 +57,8 @@ class EncryptionStore
 			// can get the encryption key from the cookie.
 			EncryptionStore::getEncryptionKey();
 		}
+
+		$this->removeExpiredEntries();
 	}
 	
 	/**
@@ -122,16 +126,38 @@ class EncryptionStore
 		
 		return EncryptionStore::$_encryptionKey;
 	}
+
+	/*
+	 * Remove expired entries from the $_SESSION
+	*/
+	private function removeExpiredEntries() {
+		// Remove expired entries
+		foreach($_SESSION[EncryptionStore::_SESSION_KEY] as $key => $value) {
+			if (!isset($value['exp'])) {
+				continue;
+			}
+
+			if ($value['exp'] < time()) {
+				unset($_SESSION[EncryptionStore::_SESSION_KEY][$key]);
+			}
+		}
+	}
 	
 	/**
 	 * Adds a key/value combination to the encryption store
 	 * 
 	 * @param {String} $key The key that will be added (or overwritten)
 	 * @param {String} $value The value that will be stored for the given $key
+	 * @param {String} $expiration The expiration time in epoch for the given $key
 	 */
-	public function add($key, $value) {
+	public function add($key, $value, $expiration = 0) {
+		$session_did_exists = $this->open_session();
 		$encryptedValue = openssl_encrypt($value, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
-		$_SESSION['encryption-store'][$key] = $encryptedValue;
+		$_SESSION[EncryptionStore::_SESSION_KEY][$key] = array('val' => $encryptedValue);
+		if ($expiration) {
+			$_SESSION[EncryptionStore::_SESSION_KEY][$key]['exp'] = $expiration;
+		}
+		$this->close_session($session_did_exists);
 	}
 	
 	/**
@@ -141,12 +167,48 @@ class EncryptionStore
 	 * @return {String|null} 
 	 */
 	public function get($key) {
-		$encrypted = isset($_SESSION['encryption-store'][$key]) ? $_SESSION['encryption-store'][$key] : null;
-		if ( is_null($encrypted) ) {
+		$session_did_exists = $this->open_session();
+		// Remove expired entries before checking the $_SESSION
+		$this->removeExpiredEntries();
+		$values = isset($_SESSION[EncryptionStore::_SESSION_KEY][$key]) ? $_SESSION[EncryptionStore::_SESSION_KEY][$key] : null;
+		if ( !isset($values['val']) || is_null($values['val']) ) {
 			return null;
 		}
+		$encrypted = $values['val'];
 		
 		$value = openssl_decrypt($encrypted, EncryptionStore::_CIPHER_METHOD, EncryptionStore::$_encryptionKey, 0, EncryptionStore::$_initializionVector);
+		$this->close_session($session_did_exists);
 		return $value;
+	}
+
+	/**
+	 * Open the php session if it isn't open
+	 * @return {Boolean} return if the session was opened or not
+	 */
+	private function open_session() {
+		if (!$this->session_exists()) {
+			session_start();
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Close session if it was explicitly opened
+	 * @param {Boolean} True if session was opened, false if not.
+	 */
+	private function close_session($opened) {
+		if ($this->session_exists() && $opened) {
+			session_write_close();
+		}
+	}
+
+	/**
+	 * Returns true if the session exists otherwise false.
+	 *
+	 * @return {Boolean} true if session exists
+	 */
+	private function session_exists() {
+		return session_status() === PHP_SESSION_ACTIVE;
 	}
 }
