@@ -500,8 +500,8 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	onContextSelectView : function(button)
 	{
-		this.getModel().setDataMode(button.valueDataMode);
 		this.switchView(button.valueView, button.valueViewMode);
+		this.getModel().setDataMode(button.valueDataMode);
 	},
 
 	/**
