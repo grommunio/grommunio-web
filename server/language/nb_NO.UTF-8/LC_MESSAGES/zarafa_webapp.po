@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-11-17 07:04+0000\n"
+"PO-Revision-Date: 2017-11-29 19:57+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
 "/kopano-webapp/nb_NO/>\n"
@@ -4909,7 +4909,7 @@ msgid ""
 msgstr ""
 
 msgid "Search folders"
-msgstr ""
+msgstr "Søke-mapper"
 
 msgid ""
 "If there is a search query you use frequently you are in luck! After you "
@@ -4919,10 +4919,10 @@ msgid ""
 msgstr ""
 
 msgid "What's new"
-msgstr ""
+msgstr "Nyheter"
 
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "Ikke vis dette igjen."
 
 msgid "Skip"
 msgstr "Hopp over"
@@ -5069,10 +5069,10 @@ msgid "Configure widget"
 msgstr "Konfigurer miniprogram"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Last inn på nytt etter"
 
 msgid "seconds."
-msgstr ""
+msgstr "sekunder."
 
 msgid "No appointments for today."
 msgstr "Ingen avtaler i dag."
@@ -5269,7 +5269,7 @@ msgid "An unexpected error has occurred"
 msgstr "En uventet feil har oppstått"
 
 msgid "To-do list"
-msgstr ""
+msgstr "Liste over gjøremål"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5302,7 +5302,7 @@ msgid "Unknown MAPI Error"
 msgstr "Ukjent MAPI feil"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Klikk på lenken for å åpne den i et nytt vindu."
 
 msgid "This external link will open in a new window"
 msgstr "Denne eksterne lenken vil bli åpnet i et nytt vindu"
@@ -5579,7 +5579,7 @@ msgstr "Kunne ikke utføre handlingen korrekt."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "En favoritt-mappe ved dette navnet finnes allerede, bruk et annet navn."
 
 msgid "Could not add folder to favorites."
 msgstr "Kunne ikke legge mappen til dine Favoritter."
@@ -5767,7 +5767,7 @@ msgid "Unable to perform search query, store might not support searching."
 msgstr ""
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Feil ved oppretting av søke-mappe."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
