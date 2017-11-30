@@ -167,7 +167,14 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 
 		tinymceEditor.on('keydown', this.onKeyDown.createDelegate(this), this);
 		tinymceEditor.on('paste', this.onPaste.createDelegate(this), this);
-		tinymceEditor.on('mousedown', this.onMouseDown.createDelegate(this), this);
+		tinymceEditor.on('mousedown', this.relayIframeEvent.createDelegate(this), this);
+
+		// Listen for wheel event on underlying iframe as tinyMCE editor isn't providing
+		// wheel event.
+		if (Zarafa.isDeskApp) {
+			var iframeElement = this.getEditor().iframeElement;
+			iframeElement.contentWindow.addEventListener('wheel', this.relayIframeEvent.createDelegate(this), true);
+		}
 
         if (Ext.isGecko) {
             tinymceEditor.on('dblclick', this.onDBLClick.createDelegate(this));
@@ -544,13 +551,13 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 * Function is called when mouse is clicked in the editor.
 	 * Editor mousedown event needs to be relayed for the document element of WebApp page,
 	 * to hide the context-menu.
-	 * TODO : Try to use {@link Ext.util.Observable#relayEvents}.
-	 * Tried the same but the event doesn't bubbled up to the document element.
+	 * wheel event propagated from underlying iframe needs to be relayed to WepApp document
+	 * to perform zoom functionality in DeskApp.
 	 * @param {Object} event The event object
 	 */
-	onMouseDown : function(event)
+	relayIframeEvent : function(event)
 	{
-		Ext.getDoc().fireEvent('mousedown');
+		Ext.getDoc().fireEvent(event.type, event);
 	},
 
 	/**
