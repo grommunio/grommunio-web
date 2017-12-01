@@ -300,7 +300,7 @@
 											// Change the parent so the folder will be shown in the hierarchy
 											$todoSearchFolderProps[PR_PARENT_ENTRYID] = $subtreeFolderEntryID;
 											// Change the display name of the folder
-											$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-do list');
+											$todoSearchFolderProps[PR_DISPLAY_NAME] = _('To-Do List');
 											// Never show unread content for the To-do list
 											$todoSearchFolderProps[PR_CONTENT_UNREAD] = 0;
 											$todoSearchFolderProps[PR_CONTENT_COUNT] = 0;
