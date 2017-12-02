@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-11-29 19:57+0000\n"
+"PO-Revision-Date: 2017-12-02 12:49+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
 "/kopano-webapp/nb_NO/>\n"
@@ -789,7 +789,7 @@ msgstr "Når"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
-msgstr "D j F Y H:i"
+msgstr "l j F Y H:i"
 
 msgid "Where"
 msgstr "Hvor"
@@ -1259,7 +1259,7 @@ msgstr "Lim inn valgt element"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "I j F Y"
+msgstr "I j. F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
@@ -1390,7 +1390,7 @@ msgstr "l"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr "jS"
+msgstr "j."
 
 # 77%
 # 84%
@@ -3502,7 +3502,7 @@ msgstr "{0} på vegne av {1}"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
-msgstr "jS F"
+msgstr "j. F"
 
 msgid "Y"
 msgstr "Y"
