@@ -2684,7 +2684,7 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		// Publish updated free/busy information
 		if(!$this->errorSetResource){
 			for($i = 0, $len = count($resourceRecipData); $i < $len; $i++){
-				$storeProps = mapi_msgstore_getprops($resourceRecipData[$i]['store'], array(PR_MAILBOX_OWNER_ENTRYID));
+				$storeProps = mapi_getprops($resourceRecipData[$i]['store'], array(PR_MAILBOX_OWNER_ENTRYID));
 				if (isset($storeProps[PR_MAILBOX_OWNER_ENTRYID])){
 					$start = time() - 7 * 24 * 60 * 60;
 					$range = strtotime("+6 month");

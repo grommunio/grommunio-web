@@ -4170,7 +4170,7 @@
 			{
 				// Get the calendar and owner entryID
 				$calendar = mapi_msgstore_openentry($store, $rootFolderProps[PR_IPM_APPOINTMENT_ENTRYID]);
-				$storeProps = mapi_msgstore_getprops($store, array(PR_MAILBOX_OWNER_ENTRYID));
+				$storeProps = mapi_getprops($store, array(PR_MAILBOX_OWNER_ENTRYID));
 				if (isset($storeProps[PR_MAILBOX_OWNER_ENTRYID])){
 					$freeBusyRange = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/free_busy_range', 2);
 					$localFreeBusyEntryids = mapi_getprops($rootFolder, array(PR_FREEBUSY_ENTRYIDS));
