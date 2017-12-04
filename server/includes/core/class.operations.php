@@ -3105,7 +3105,7 @@
 
 						// Create new attachment.
 						$attachment = mapi_message_createattach($message);
-						mapi_message_setprops($attachment, $props);
+						mapi_setprops($attachment, $props);
 
 						$imessage = mapi_attach_openobj($attachment, MAPI_CREATE | MAPI_MODIFY);
 
