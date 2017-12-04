@@ -2943,7 +2943,7 @@
 				foreach($subfolders as $subfolder)
 				{
 					$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-					$folderProps = mapi_folder_getprops($folderObject, array(PR_DISPLAY_NAME));
+					$folderProps = mapi_getprops($folderObject, array(PR_DISPLAY_NAME));
 
 					array_push($folderNames, strtolower($folderProps[PR_DISPLAY_NAME]));
 				}

@@ -228,14 +228,14 @@
 			if (is_array($subfolders)) {
 				foreach($subfolders as $subfolder) {
 					$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]); 
-					$folderProps = mapi_folder_getprops($folderObject, array(PR_ENTRYID, PR_STORE_ENTRYID));
+					$folderProps = mapi_getprops($folderObject, array(PR_ENTRYID, PR_STORE_ENTRYID));
 					$GLOBALS["bus"]->notify(bin2hex($subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 				}
 			}
 
 			// notify the parent folder
 			$folder = mapi_msgstore_openentry($store, $parententryid);
-			$folderProps = mapi_folder_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
+			$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
 			$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 
 			$this->sendFeedback(true);
