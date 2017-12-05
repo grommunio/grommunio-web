@@ -412,39 +412,43 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 		}
 
 		// Check whether we have foldertype of the model and defaultFolders data or not.
-		if (!Ext.isEmpty(this.store) && !Ext.isEmpty(this.store.preferredMessageClass)) {
-			// assign default folder of this context model based on preffered message class from store, so getDefaultFolder can use this
-			var folderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(this.store.preferredMessageClass);
-			this.defaultFolder = hierarchyStore.getDefaultFolder(folderType);
+		if (Ext.isEmpty(this.store) || Ext.isEmpty(this.store.preferredMessageClass) || !Ext.isEmpty(this.folders)) {
+			return;
+		}
 
-			// If we haven't any folders yet. We should obtain
-			// the previously used folders or the default folder.
-			if (Ext.isEmpty(this.folders)) {
-				var openfolders = [];
+		// assign default folder of this context model based on preffered message class from store, so getDefaultFolder can use this
+		var folderType = Zarafa.core.MessageClass.getDefaultFolderTypeFromMessageClass(this.store.preferredMessageClass);
+		this.defaultFolder = hierarchyStore.getDefaultFolder(folderType);
 
-				if (!Ext.isEmpty(this.last_used_folders)) {
-					for (var key in this.last_used_folders) {
-						var store = hierarchyStore.getById(key);
-						if (store) {
-							var folders = store.getSubStore('folders');
-							var statefolders = this.last_used_folders[key];
-							for (var i = 0; i < statefolders.length; i++) {
-								var folder = folders.getById(statefolders[i]);
-								if (folder) {
-									openfolders.push(folder);
-								}
-							}
-						}
+		// If we haven't any folders yet. We should obtain
+		// the previously used folders or the default folder.
+		var openfolders = [];
+
+		if (!Ext.isEmpty(this.last_used_folders)) {
+			for (var key in this.last_used_folders) {
+				var store = hierarchyStore.getById(key);
+				if (!store) {
+					continue;
+				}
+
+				var folders = store.getSubStore('folders');
+				var statefolders = this.last_used_folders[key];
+				for (var i = 0; i < statefolders.length; i++) {
+					var folder = folders.getById(statefolders[i]);
+					if (!folder) {
+						continue;
 					}
-				}
 
-				if (Ext.isEmpty(openfolders) && this.defaultFolder) {
-					openfolders.push(this.defaultFolder);
+					openfolders.push(folder);
 				}
-
-				this.setFolders(openfolders);
 			}
 		}
+
+		if (Ext.isEmpty(openfolders) && this.defaultFolder) {
+			openfolders.push(this.defaultFolder);
+		}
+
+		this.setFolders(openfolders);
 	},
 
 	/**
