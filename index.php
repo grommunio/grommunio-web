@@ -103,6 +103,12 @@
 			$error = _("You have been automatically logged out");
 		} else {
 			$error = WebAppAuthentication::getErrorMessage();
+			if(empty($error) && useSecureCookies() && getRequestProtocol() == 'http') {
+				header("HTTP/1.0 400 Bad Request");
+				include(BASE_PATH . 'server/includes/templates/BadRequest.php');
+				error_log("Rejected insecure request as configuration for 'INSECURE_COOKIES' is false.");
+				die();
+			}
 		}
 
 		// If a username was passed as GET parameter we will prefill the username input
@@ -196,7 +202,7 @@
 	}
 
 	$Language->setLanguage($lang);
-	setcookie('lang', $lang, 0, '/', '', isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] ? true : false);
+	setcookie('lang', $lang, 0, '/', '', getRequestProtocol() === 'https');
 
 	// add extra header
 	header("X-Zarafa: " . trim(file_get_contents('version')));

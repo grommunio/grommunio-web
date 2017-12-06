@@ -24,11 +24,20 @@ class WebAppSession
 	 * Constructor
 	 */
 	private function __construct(){
-		if ( defined('COOKIE_NAME') )
-		{
+		$secure = useSecureCookies();
+		if (defined('COOKIE_NAME')) {
 			//Create a named session (otherwise use the PHP default, normally PHPSESSID)
-			session_name(COOKIE_NAME);
+			if ($secure){
+				//Create a named session and set secure cookies params.
+				session_name('__Secure-' . COOKIE_NAME);
+			} else {
+				session_name(COOKIE_NAME);
+			}
 		}
+		$lifetime = ini_get('session.cookie_lifetime');
+		$path = ini_get('session.cookie_path');
+		$domain = ini_get('session.cookie_domain');
+		session_set_cookie_params($lifetime, $path, $domain, $secure, true);
 		
 		// Start the session so we can use it for timeout checking
 		$this->start();
@@ -40,7 +49,7 @@ class WebAppSession
 			$this->checkForTimeout();
 		}
 	}
-	
+
 	/**
 	 * returns the instance of this class. Creates one if it doesn't exist yet.
 	 * To force this class to be used as singleton, the constructor is private

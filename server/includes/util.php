@@ -636,4 +636,31 @@
 		mapi_setprops($store, [PR_IPM_SUBTREE_ENTRYID => $entryid]);
 		error_log(sprintf('Fixed PR_IPM_SUBTREE_ENTRYID for %s', $username));
 	}
+
+	/**
+	 * Helper function which provide protocol used by current request.
+	 * @return string It can be either https or http.
+	 */
+	function getRequestProtocol()
+	{
+		if(!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+			return $_SERVER['HTTP_X_FORWARDED_PROTO'];
+		} else {
+			return !empty($_SERVER['HTTPS']) ? "https" : "http";
+		}
+	}
+
+	/**
+	 * Helper function which defines that webapp has to use secure cookies
+	 * or not. by default webapp always use secure cookies whether or not
+	 * 'INSECURE_COOKIES' defined. webapp only use insecure cookies
+	 * where a user has explicitly set true to 'INSECURE_COOKIES' configuration.
+	 *
+	 * @return Boolean return false only when a user has explicitly set
+	 * 'INSECURE_COOKIES' to true else returns true.
+	 */
+	function useSecureCookies()
+	{
+		return !defined('INSECURE_COOKIES') || INSECURE_COOKIES !== true;
+	}
 ?>
