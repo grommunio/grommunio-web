@@ -48,7 +48,6 @@ Zarafa.core.data.RecordFactory = {
 		if (lastDot > 0) {
 			return messageClass.substr(0, lastDot);
 		}
-		return undefined;
 	},
 
 	/**
@@ -65,8 +64,6 @@ Zarafa.core.data.RecordFactory = {
 		if (Ext.isDefined(messageClassParent)) {
 			return this.getRecordDefinitionByMessageClass(messageClassParent);
 		} 
-
-		return undefined;
 	},
 
 	/**
@@ -262,8 +259,6 @@ Zarafa.core.data.RecordFactory = {
 			return this.createRecordObjectByMessageClass(recordData.message_class, recordData, id);
 		} else if (!Ext.isEmpty(recordData.object_type)) {
 			return this.createRecordObjectByObjectType(recordData.object_type, recordData, id);
-		} else {
-			return undefined;
 		}
 	},
 
@@ -327,8 +322,6 @@ Zarafa.core.data.RecordFactory = {
 			return this.getRecordClassByMessageClass(recordData.message_class);
 		} else if (Ext.isDefined(recordData.object_type)) {
 			return this.getRecordClassByObjectType(recordData.object_type);
-		} else {
-			return undefined;
 		}
 	},
 

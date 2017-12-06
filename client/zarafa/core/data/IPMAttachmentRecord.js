@@ -28,10 +28,6 @@ Zarafa.core.data.IPMAttachmentRecordFields = [
 	{name: 'tmpname'},
 
 	{name: 'attachment_contactphoto', type: 'boolean', defaultValue: false},	// rename to contactphoto ???
-	// @FIXME check do we need below properties ?
-	{name: 'attachment_contactphoto_sizex', type: 'int'},	// rename to contactphoto_sizex ???
-	{name: 'attachment_contactphoto_sizey', type: 'int'},	// rename to contactphoto_sizey ???
-
 	// Properties that will only be used when opening embedded attachment from unsaved message
 	{name : 'entryid'},
 	{name : 'store_entryid'}

@@ -36,12 +36,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'base_content_layer' : 'tabs',
 							/**
-							 * zarafa/v1/main/use_files_api
-							 * @property
-							 * @type Boolean
-							 */
-							'use_files_api' : true,
-							/**
 							 * zarafa/v1/main/confirm_close_dialog
 							 * @property
 							 * @type Boolean
@@ -486,21 +480,6 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Array
 								 */
 								'safe_senders_list' : [],
-
-								/**
-								 * zarafa/v1/contexts/mail/safe_recipients_list
-								 * @property
-								 * @type Array
-								 */
-								// 'safe_recipients_list' : [],
-
-								/**
-								 * zarafa/v1/contexts/mail/blocked_senders_list
-								 * @property
-								 * @type Array
-								 */
-								'blocked_senders_list' : [],
-
 
 								/**
 								 * zarafa/v1/contexts/mail/close_on_respond

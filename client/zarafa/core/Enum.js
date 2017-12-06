@@ -22,7 +22,6 @@ Zarafa.core.Enum = Ext.extend(Object, {
 				return this[key];
 			}
 		}
-		return undefined;
 	},
 	
 	/**
@@ -38,7 +37,6 @@ Zarafa.core.Enum = Ext.extend(Object, {
 				return key;
 			}
 		}
-		return undefined;
 	},
 
 	/**
@@ -53,8 +51,6 @@ Zarafa.core.Enum = Ext.extend(Object, {
 		if(Ext.isNumber(value)) {
 			return value;
 		}
-
-		return undefined;
 	},
 
 	/**

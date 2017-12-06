@@ -141,24 +141,19 @@
 				$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
 				$properties["type"] = "PT_STRING8:PSETID_Meeting:0x24";
 				$properties["meetingrecurring"] = "PT_BOOLEAN:PSETID_Meeting:0x5";
-				$properties["unknown2"] = "PT_BOOLEAN:PSETID_Meeting:0xa";
 				$properties["attendee_critical_change"] = "PT_SYSTIME:PSETID_Meeting:0x1";
 				$properties["owner_critical_change"] = "PT_SYSTIME:PSETID_Meeting:0x1a";
 				$properties["meetingstatus"] = "PT_LONG:PSETID_Appointment:0x8217";
 				$properties["responsestatus"] = "PT_LONG:PSETID_Appointment:0x8218";
-				$properties["unknown6"] = "PT_LONG:PSETID_Meeting:0x4";
 				$properties["reply_time"] = "PT_SYSTIME:PSETID_Appointment:0x8220";
 				$properties["reply_name"] = "PT_STRING8:PSETID_Appointment:0x8230";
-				$properties["usetnef"] = "PT_BOOLEAN:PSETID_Common:0x8582";
 				$properties["recurrence_data"] = "PT_BINARY:PSETID_Appointment:0x8216";
 				$properties["reminderminutes"] = "PT_LONG:PSETID_Common:0x8501";
 				$properties["reminderset"] = "PT_BOOLEAN:PSETID_Common:0x8503";
 				$properties["flag_request"] = "PT_STRING8:PSETID_Common:0x8530";
 				$properties["flag_due_by"] = "PT_SYSTIME:PSETID_Common:0x8560";
-				$properties["sendasical"] = "PT_BOOLEAN:PSETID_Appointment:0x8200";
 				$properties["updatecounter"] = "PT_LONG:PSETID_Appointment:0x8201";                                     // AppointmentSequenceNumber
 				$properties["last_updatecounter"] = "PT_LONG:PSETID_Appointment:0x8203";                        // AppointmentLastSequence
-				$properties["unknown7"] = "PT_LONG:PSETID_Appointment:0x8202";
 				$properties["busystatus"] = "PT_LONG:PSETID_Appointment:0x8205";
 				$properties["intendedbusystatus"] = "PT_LONG:PSETID_Appointment:0x8224";
 				$properties["start"] = "PT_SYSTIME:PSETID_Appointment:0x820d";
@@ -269,9 +264,6 @@
 				// Meeting properties
 				$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
 				$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
-
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
 
 				// Propose new time properties
 				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:0x8250";
@@ -400,8 +392,6 @@
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["last_modification_time"] = PR_LAST_MODIFICATION_TIME;
 				$properties["creation_time"] = PR_CREATION_TIME;
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
 				$properties["deleted_on"] = PR_DELETED_ON;
 
 				// Detailed contacts properties
@@ -615,8 +605,6 @@
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["sensitivity"] = PR_SENSITIVITY;
 				$properties["private"] = "PT_BOOLEAN:PSETID_Common:0x8506";
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
 				$properties["creation_time"] = PR_CREATION_TIME;
 				$properties["deleted_on"] = PR_DELETED_ON;
 
@@ -850,7 +838,6 @@
 				$properties["read_receipt_requested"] = PR_READ_RECEIPT_REQUESTED;
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
 				$properties["transport_message_headers"] = PR_TRANSPORT_MESSAGE_HEADERS;
-				$properties["x_original_to"] = "PT_STRING8:PS_INTERNET_HEADERS:x-original-to";
 				$properties["source_message_info"] = "PT_BINARY:PSETID_Common:0x85CE";
 				$properties["deferred_send_time"] = PR_DEFERRED_SEND_TIME;
 
@@ -864,9 +851,6 @@
 				$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:0x8236";		// ClipEnd
 				$properties["appointment_exception"] = "PT_BOOLEAN:PSETID_Meeting:0xA";						// LID_IS_EXCEPTION
 				$properties["appointment_location"] = "PT_STRING8:PSETID_Appointment:0x8208";
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
-
 				// Propose new time properties
 				$properties["proposed_start_date"] = "PT_SYSTIME:PSETID_Appointment:0x8250";
 				$properties["proposed_end_date"] = "PT_SYSTIME:PSETID_Appointment:0x8251";
@@ -958,9 +942,6 @@
 				$properties["subject"] = PR_SUBJECT;
 				$properties["color"] = "PT_LONG:PSETID_Note:0x8B00";
 				$properties["categories"] = "PT_MV_STRING8:PS_PUBLIC_STRINGS:Keywords";
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
-
 				$properties["deleted_on"] = PR_DELETED_ON;
 
 				$this->mapping[$this->storeMapping]['note'] = getPropIdsFromStrings($this->store, $properties);
@@ -1035,10 +1016,6 @@
 				$properties["recurring"] = "PT_BOOLEAN:PSETID_Task:0x8126";
 				$properties["recurring_data"] = "PT_BINARY:PSETID_Task:0x8116";
 				$properties["dead_occurrence"] = "PT_BOOLEAN:PSETID_Task:0x8109";
-
-				// Conflict properties
-				$properties["conflictitems"] = PR_CONFLICT_ITEMS;
-
 				$properties["deleted_on"] = PR_DELETED_ON;
 
 				$properties["sent_representing_entryid"] = PR_SENT_REPRESENTING_ENTRYID;

@@ -78,7 +78,7 @@
 
 			foreach($storelist as $store)
 			{
-				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_MAPPING_SIGNATURE, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID));
+				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID));
 
 				$inboxProps = array();
 				$storeType = $msgstore_props[PR_MDB_PROVIDER];
@@ -104,11 +104,9 @@
 						"display_name" => str_replace('Inbox - ', '', $msgstore_props[PR_DISPLAY_NAME]),
 						"subtree_entryid" => bin2hex($msgstore_props[PR_IPM_SUBTREE_ENTRYID]),
 						"mdb_provider" => bin2hex($msgstore_props[PR_MDB_PROVIDER]),
-						"mapping_signature" => bin2hex($msgstore_props[PR_MAPPING_SIGNATURE]),
 						"object_type" => $msgstore_props[PR_OBJECT_TYPE],
 						"store_support_mask" => $msgstore_props[PR_STORE_SUPPORT_MASK],
 						"user_name" => $storeUserName,
-						"user_entryid" => bin2hex($msgstore_props[PR_USER_ENTRYID]),
 						"store_size" => round($msgstore_props[PR_MESSAGE_SIZE_EXTENDED]/1024),
 						"quota_warning" => isset($msgstore_props[PR_QUOTA_WARNING_THRESHOLD]) ? $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] : 0,
 						"quota_soft" => isset($msgstore_props[PR_QUOTA_SEND_THRESHOLD]) ? $msgstore_props[PR_QUOTA_SEND_THRESHOLD] : 0,
@@ -3398,28 +3396,6 @@
 						//Open contact photo attachement in binary format.
 						$attach = mapi_message_openattach($message, $props["attach_num"]);
 						$photo = mapi_attach_openbin($attach,PR_ATTACH_DATA_BIN);
-
-						// Process photo and restrict its size to 96.
-						if ($photo) {
-							$compressionRatio=1;
-							for ($length=2, $len = strlen($photo); $length <= $len;) {
-								$partinfo = unpack("Cmarker/Ccode/nlength",substr($photo,$length,4));
-								if ($partinfo['marker'] != 0xff) break; // error in structure???
-								if ($partinfo['code'] >= 0xc0 &&
-									$partinfo['code'] <= 0xc3) { // this is the size block
-									$photo_size = unpack("Cunknown/ny/nx",substr($photo,$length+4,5));
-									// find the resize factor, picture should be not higher than 96 pixel.
-									$compressionRatio = ceil($photo_size['y']/96);
-									break;
-								} else { // jump to next block
-									$length = $length+$partinfo['length']+2;
-								}
-							}
-							if ($partinfo['marker'] == 0xff) {
-								$props["attachment_contactphoto_sizex"] = (int)($photo_size['x'] / $compressionRatio);
-								$props["attachment_contactphoto_sizey"] = (int)($photo_size['y'] / $compressionRatio);
-							}
-						}
 					}
 
 					if ($props["attach_method"] == ATTACH_EMBEDDED_MSG){

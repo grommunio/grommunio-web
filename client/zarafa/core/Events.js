@@ -80,8 +80,6 @@ Zarafa.core.Events = {
 				return observable;
 			}
 		}
-
-		return undefined;
 	},
 
 	/**

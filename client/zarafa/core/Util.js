@@ -361,58 +361,6 @@ Zarafa.core.Util =
 	},
 
 	/**
-	 * Explode a previously {@link #flattenObject flattened} object back into the original object hierarchy.
-	 *
-	 * For example:
-	 *	{
-	 * 		'zarafa/v1/main/settingA' : 'value1',
-	 * 		'zarafa/v1/main/settingB' : 'value2'
-	 *	}
-	 *
-	 * will be exploded into:
-	 *	{
-	 *   	'zarafa' : {
-	 *   		'v1' : {
-	 *   			'main' : {
-	 *   				'settingA' : 'value1',
-	 *					'settingB' : 'value2'
-	 *   			}
-	 *   		}
-	 *   	}
-	 *	}
-	 *
-	 * @param {Object} obj The object to explode
-	 * @param {String} sep The separator which was applied between each path-key (e.g: '/')
-	 * @return {Object} The exploded object
-	 */
-	explodeObject : function(obj, sep)
-	{
-		var ret = {};
-
-		for (var key in obj) {
-			var pieces = key.split(sep);
-			var pos = ret;
-
-			// Build the hierarchy (make sure, we do no set the last key yet,
-			// because that will be the key into which the value is stored.
-			for (var i = 0, len = pieces.length - 1; i < len; i++) {
-				var piece = pieces[i];
-
-				if (!Ext.isDefined(pos[piece])) {
-					pos[piece] = {};
-				}
-
-				pos = pos[piece];
-			}
-
-			// Set the last item which is the actual key-value pair.
-			pos[pieces[pieces.length - 1]] = obj[key];
-		}
-
-		return ret;
-	},
-
-	/**
 	 * Convenience method to check if a given point (x,y) is inside a box (x,y,width,height)
 	 * @param {Object} box a (x, y, with, height) tuple
 	 * @param {Number} x point x component
@@ -526,33 +474,6 @@ Zarafa.core.Util =
 		}else{
 			return false;
 		}
-	},
-
-	/**
-	 * Function will be used to convert an object to an array, this function has some limitations
-	 * it truncates keys and also doesn't preserve the order of items. This function does same as Ext.toArray
-	 * but that function can not handle objects
-	 * @param {Object} obj object to be converted to an array
-	 * @return {Array} converted array
-	 */
-	objToArray : function(obj)
-	{
-		var ret = [];
-
-		if(Array.isArray(obj)) {
-			// we already have an array
-			return obj;
-		}
-
-		if(!Ext.isObject(obj)) {
-			return ret;
-		}
-
-		Ext.iterate(obj, function(key, value) {
-			ret.push(value);
-		}, this);
-
-		return ret;
 	},
 
 	/**

@@ -17,8 +17,6 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_STORE},
 	{name: 'display_name'},
 	{name: 'mdb_provider'},
-	{name: 'opened_status'},
-	{name: 'mapping_signature'},
 	{name: 'subtree_entryid'},
 	{name: 'store_support_mask', type: 'int'},
 	{name: 'store_size', type: 'int', defaultValue: null},
@@ -26,7 +24,6 @@ Zarafa.hierarchy.data.MAPIStoreRecordFields = [
 	{name: 'quota_soft', type: 'int', defaultValue: null},
 	{name: 'quota_hard', type: 'int', defaultValue: null},
 	{name: 'user_name'},
-	{name: 'user_entryid'},
 	{name: 'mailbox_owner_entryid'},
 	{name: 'mailbox_owner_name'},
 	{name: 'default_folder_inbox'},
@@ -81,7 +78,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 
 	/**
 	 * Retrieves a folder by MAPI id.
-	 * @param {String} entryID the MAPI entry id of the folder.
+	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} folder object or undefined if not found.
 	 */
 	getFolder : function(entryid)
@@ -91,8 +88,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if (store) {
 			return store.getById(entryid);
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -142,6 +137,7 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 	},
 
 	/**
+	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {String} a default folder key ('inbox', 'contacts', etc.) if the folder is a default folder, or undefined if otherwise.
 	 */
 	getDefaultFolderKey : function(entryid)
@@ -151,8 +147,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 				return key.substring('default_folder_'.length);
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -169,11 +163,10 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if(defaultFolderID) {
 			return this.getFolder(defaultFolderID);
 		}
-
-		return undefined;
 	},
 
 	/**
+	 * @param {String} entryid the MAPI entry id of the folder.
 	 * @return {String} a shared folder key ('inbox', 'contacts', etc.) if the folder is a shared folder, or undefined if otherwise.
 	 */
 	getSharedFolderKey : function(entryid)
@@ -183,8 +176,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 				return key.substring('shared_folder_'.length);
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -201,8 +192,6 @@ Zarafa.hierarchy.data.MAPIStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
 		if(sharedFolderID) {
 			return this.getFolder(sharedFolderID);
 		}
-
-		return undefined;
 	},
 
 	/**

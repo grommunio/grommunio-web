@@ -583,8 +583,6 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		if (index !== -1) {
 			return this.getAt(index);
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -597,8 +595,6 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		if (index !== -1) {
 			return this.getAt(index);
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -640,8 +636,6 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				return folderStore;
 			}
 		}
-
-		return undefined;
 	},
 
 	/**
@@ -661,8 +655,6 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				}
 			}
 		}
-
-		return undefined;
 	},
 
 	/**

@@ -372,7 +372,6 @@
 	// Constants for regular expressions which are used in get method to verify the input string
 	define("ID_REGEX", "/^[a-z0-9_]+$/im");
 	define("STRING_REGEX", "/^[a-z0-9_\s()@]+$/im");
-	define("MAILTO_REGEX", "/^[a-z0-9_\s()@:.=&?!%]+$/im");
 	define("USERNAME_REGEX", "/^[a-z0-9\-\.\'_@]+$/im");
 	define("ALLOWED_EMAIL_CHARS_REGEX", "/^[-a-z0-9_\.@!#\$%&'\*\+\/\=\?\^_`\{\|\}~]+$/im");
 	define("NUMERIC_REGEX", "/^[0-9]+$/im");
