@@ -70,6 +70,12 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			scope : this,
 			handler : this.onDownloadAllAsZip,
 			beforeShow : this.onDownloadZipBeforeShow
+		}, {
+			text : _('Import to folder'),
+			iconCls : 'icon_import_attachment',
+			scope : this,
+			handler : this.onImportToFolder,
+			beforeShow : this.onImportToFolderBeforeShow
 		}];
 	},
 
@@ -129,6 +135,18 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	},
 
 	/**
+	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 */
+	onImportToFolderBeforeShow : function(item, record)
+	{
+		// embedded messages can not be imported to folder
+		item.setDisabled(record.isEmbeddedMessage() || !record.canBeImported());
+	},
+
+	/**
 	 * Event handler which is called when the user selects the 'Preview'
 	 * item in the context menu. This will open the item in a new dialog.
 	 * @private
@@ -158,6 +176,16 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	onDownloadAllAsZip : function()
 	{
 		Zarafa.common.Actions.downloadAttachment(this.records, true);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Import to folder'
+	 * item in the context menu.
+	 * @private
+	 */
+	onImportToFolder : function()
+	{
+		Zarafa.common.Actions.importToFolder(this.records);
 	}
 });
 

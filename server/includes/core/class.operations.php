@@ -3174,7 +3174,8 @@
 								PR_ATTACH_DATA_BIN => "",
 								PR_ATTACH_MIME_TAG => $mimeType,
 								PR_ATTACHMENT_HIDDEN => !empty($cid) ? true : false,
-								PR_EC_WA_ATTACHMENT_ID => $fileinfo["attach_id"]
+								PR_EC_WA_ATTACHMENT_ID => $fileinfo["attach_id"],
+								PR_ATTACH_EXTENSION => pathinfo($fileinfo["name"], PATHINFO_EXTENSION)
 							);
 
 							if(isset($fileinfo['sourcetype']) && $fileinfo['sourcetype'] === 'contactphoto') {
@@ -3383,7 +3384,7 @@
 				$attachments = mapi_table_queryallrows($attachmentTable, array(PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME,
 																			PR_ATTACH_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD,
 																			PR_ATTACH_CONTENT_ID, PR_ATTACH_MIME_TAG,
-																			PR_ATTACHMENT_CONTACTPHOTO, PR_RECORD_KEY, PR_EC_WA_ATTACHMENT_ID, PR_OBJECT_TYPE));
+																			PR_ATTACHMENT_CONTACTPHOTO, PR_RECORD_KEY, PR_EC_WA_ATTACHMENT_ID, PR_OBJECT_TYPE, PR_ATTACH_EXTENSION));
 				foreach($attachments as $attachmentRow) {
 					$props = array();
 
@@ -3422,6 +3423,13 @@
 						$props["name"] = $attachmentRow[PR_DISPLAY_NAME];
 					} else {
 						$props["name"] = "untitled";
+					}
+
+					if(isset($attachmentRow[PR_ATTACH_EXTENSION]) && $attachmentRow[PR_ATTACH_EXTENSION]) {
+						$props["extension"] = $attachmentRow[PR_ATTACH_EXTENSION];
+					} else {
+						// For backward compatibility where attachments doesn't have the extension property
+						$props["extension"] = pathinfo($props["name"], PATHINFO_EXTENSION);
 					}
 
 					if(isset($attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) && $attachmentRow[PR_ATTACHMENT_CONTACTPHOTO]) {

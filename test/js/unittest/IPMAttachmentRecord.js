@@ -76,4 +76,20 @@ describe('IPMAttachmentRecord', function() {
       expect(record.attemptedToUpload()).toBeTruthy();
     });
   });
+
+  describe('canBeImported', function() {
+    it('default', function() {
+      expect(record.canBeImported()).toBeFalsy();
+    });
+
+    it('eml', function() {
+      record.set('extension', 'eml');
+      expect(record.canBeImported()).toBeTruthy();
+    });
+
+    it('vcf', function() {
+      record.set('extension', 'vcf');
+      expect(record.canBeImported()).toBeTruthy();
+    });
+  });
 });
