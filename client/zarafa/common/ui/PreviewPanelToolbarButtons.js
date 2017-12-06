@@ -90,6 +90,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 		return {
 			xtype: 'zarafa.conditionalmenu',
 			model: model,
+			autoDestroy : false,
 			items : [{
 				xtype : 'zarafa.conditionalitem',
 				text: _('Mark Read'),
