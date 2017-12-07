@@ -281,9 +281,8 @@
 		 */
 		function getUserName()
 		{
-			$this->retrieveUserData();
-
-			return array_key_exists("username",$this->session_info)?$this->session_info["username"]:false;
+			$encryptionStore = EncryptionStore::getInstance();
+			return $encryptionStore->get('username') ? $encryptionStore->get('username'): '';
 		}
 
 		/**
