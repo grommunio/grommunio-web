@@ -185,18 +185,16 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	{
 		var cssClass = '';
 		var complete;
-		var duedate;
 
-		// For TaskRecords we will use the complete and duedate fields to style it. For
-		// other records (in the Todo-list) we will use the flag fields.
+		// For TaskRecords we will use the complete field to style it strikethrough . For
+		// other records (in the Todo-list) we will use the flag_status field.
 		if ( record instanceof Zarafa.task.TaskRecord ){
 			complete = record.get('complete');
-			duedate = record.get('duedate');
 		} else {
 			complete = record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed;
-			duedate = record.get('flag_due_by');
 		}
 
+		var duedate = record.get('duedate');
 		if (Ext.isDate(duedate) && duedate.getTime() < new Date().getTime()) {
 			cssClass += 'zarafa-task-overdue ';
 		}
