@@ -75,7 +75,17 @@ Zarafa.common.flags.dialogs.CustomFlagContentPanel = Ext.extend(Zarafa.core.ui.C
 
 		var dateRange = this.customFlagPanel.dateField.getValue();
 		if(!Ext.isDate(dateRange.getStartDate()) || !Ext.isDate(dateRange.getDueDate())) {
-			Ext.apply(flagProperties, Zarafa.common.flags.Util.getFlagPropertiesNoDate());
+			Ext.apply(flagProperties, {
+				startdate : null,
+				duedate : null
+			});
+			if(!this.record[0].get('reminder')) {
+				Ext.apply(flagProperties, {
+					reminder:		false,
+					reminder_time:		null,
+					flag_due_by:		null
+				});
+			}
 		}
 
 		this.record.forEach(function (record) {
