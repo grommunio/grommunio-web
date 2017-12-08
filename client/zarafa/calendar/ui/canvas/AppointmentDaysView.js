@@ -410,6 +410,10 @@ Zarafa.calendar.ui.canvas.AppointmentDaysView = Ext.extend(Zarafa.calendar.ui.ca
 
 		// Get the bounds of the header from the parent calendar.
 		this.bounds = this.parentView.dateRangeToHeaderBounds(this.getDateRange(), this.slot, 1, true);
+
+		if (Ext.isEmpty(this.bounds)) {
+			return;
+		}
 		var width = this.bounds.right - this.bounds.left;
 		var height = this.bounds.bottom - this.bounds.top;
 
