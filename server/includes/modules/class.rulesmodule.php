@@ -47,7 +47,7 @@
 					$storeGuid = $action['store'];
 				}
 
-				$ownStoreEntryId = bin2hex($GLOBALS['mapisession']->defaultstore);
+				$ownStoreEntryId = $GLOBALS['mapisession']->getDefaultMessageStoreEntryId();
 
 				try {
 					if ( ENABLE_SHARED_RULES !== true && !$GLOBALS['entryid']->compareEntryIds($storeGuid, $ownStoreEntryId) ){
