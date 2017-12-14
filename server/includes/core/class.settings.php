@@ -81,9 +81,6 @@
 			$this->settings_string = '';
 			$this->modified = array();
 			$this->init = false;
-
-			// Initialize the settings object
-			$this->Init();
 		}
 
 		/**
@@ -126,7 +123,7 @@
 		function get($path=null, $default=null, $persistent=false)
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			$settings = !!$persistent ? $this->persistentSettings : $this->settings;
@@ -179,7 +176,7 @@
 		function set($path, $value, $autoSave = false, $persistent=false)
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			if ( !!$persistent ){
@@ -246,7 +243,7 @@
 		function delete($path, $autoSave = false)
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			$this->modified[$path] = '';
@@ -288,7 +285,7 @@
 		function getJSON()
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			return json_encode($this->settings);
@@ -304,7 +301,7 @@
 		function getPersistentSettingsJSON()
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			return json_encode($this->persistentSettings);
@@ -476,7 +473,7 @@
 		function saveSettings()
 		{
 			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
+				$this->Init();
 			}
 
 			$this->saveExternalSettings();
@@ -640,10 +637,6 @@
 		 */
 		function getSessionSettings($Language)
 		{
-			if (!$this->init) {
-				throw new SettingsException(_('Settings object is not initialized'));
-			}
-
 			$lang = $this->get('zarafa/v1/main/language', LANG);
 			$lang = $Language->resolveLanguage($lang);
 
