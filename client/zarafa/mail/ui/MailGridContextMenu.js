@@ -60,6 +60,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			items: [
 				this.createContextActionItems(),
 				{ xtype: 'menuseparator' },
+				this.createContextExportItems(config),
 				container.populateInsertionPoint('context.mail.contextmenu.actions', this),
 				{ xtype: 'menuseparator' },
 				this.createContextOptionsItems(config.records),
@@ -85,20 +86,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			iconCls : 'icon_open',
 			singleSelectOnly: true,
 			handler: this.onContextItemOpen,
-			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Download'),
-			iconCls : 'icon_saveaseml',
-			handler: this.onContextItemEml,
-			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Download as ZIP'),
-			iconCls : 'icon_saveemlaszip',
-			hideOnDisabled : false,
-			beforeShow : this.onZipMenuItemBeforeShow,
-			handler: this.onContextItemEmlZip,
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
@@ -141,15 +128,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.FORWARD,
-			handler: this.onContextItemResponse,
-			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Forward as Attachment'),
-			iconCls : 'icon_embedded_attachment',
-			singleSelectOnly: true,
-			beforeShow : this.onMenuItemBeforeShow,
-			responseMode : Zarafa.mail.data.ActionTypes.FORWARD_ATTACH,
 			handler: this.onContextItemResponse,
 			scope: this
 		},{
@@ -246,6 +224,27 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
+	 * Create the export context menu item.
+	 * @param {Object} config Configuration object
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Export context menu items
+	 */
+	createContextExportItems : function(config)
+	{
+		return [{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Export as'),
+			cls: 'k-unclickable',
+			iconCls: 'icon_export',
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.exportascontextmenu',
+				records: config.records,
+				model: config.model
+			}
+		}];
+	},
+
+	/**
 	 * Event handler which is called when the user selects the 'Open'
 	 * item in the context menu. This will open the item in a new panel.
 	 * @private
@@ -253,50 +252,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	onContextItemOpen : function()
 	{
 		Zarafa.common.Actions.openMessageContent(this.records);
-	},
-
-	/**
-	 * Event handler which is called when the user selects the 'Download as files'
-	 * item in the context menu. This will request to download selected message
-	 * as file (RFC822-formatted e-mail stream) with eml extension.
-	 * @private
-	 */
-	onContextItemEml : function()
-	{
-		Zarafa.common.Actions.openSaveEmlDialog(this.records);
-	},
-
-	/**
-	 * Event handler which is called when the user selects the 'Download as ZIP'
-	 * item in the context menu. This will request to download selected message
-	 * as file (RFC822-formatted e-mail stream) with eml extension included in a ZIP archive.
-	 * @private
-	 */
-	onContextItemEmlZip : function()
-	{
-		Zarafa.common.Actions.openSaveEmlDialog(this.records, true);
-	},
-
-	/**
-	 * Event handler which determines if menu items should be disable or not.
-	 * It will check if records are more than the configured upper limit of
-	 * total messages allowed to be included in single ZIP archive.
-	 * it changes the display text of menu item by postfixing the maximum limit information.
-	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
-	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
-	 * to see if the item must be enabled or disabled.
-	 * @private
-	 */
-	onZipMenuItemBeforeShow : function(item, records)
-	{
-		var serverConfig = container.getServerConfig();
-		var maxFiles = serverConfig.getMaxEmlFilesInZIP();
-
-		if(records.length > maxFiles){
-			item.setText(item.text + ' ( ' + _('max. ') + maxFiles + ' )');
-			item.disable();
-		}
 	},
 
 	/**

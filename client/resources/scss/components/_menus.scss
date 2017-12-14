@@ -225,6 +225,11 @@ $menu-item-height : 30px;
       	background-position: sprite-position($iconsmap, icon_categories, $offset-y: 5, $offset-x: 2);
 	}
 
+	.icon_export {
+		@extend .icon_export;
+		background-position: sprite-position($iconsmap, icon_export, $offset-y: 3, $offset-x: 2);
+	}
+
 	/* check names button */
 	.icon_checkNames {
 		@extend .icon_checknames;
