@@ -496,7 +496,7 @@
 					$GLOBALS["operations"]->publishFreeBusy($this->store);
 				}
 
-				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+				$stream = mapi_openproperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
 				mapi_stream_setsize($stream, strlen($settings));
 				mapi_stream_write($stream, $settings);
 				mapi_stream_commit($stream);
@@ -525,7 +525,7 @@
 
 			// Check if the settings have been changed.
 			if ($this->persistentSettingsString !== $persistentSettings) {
-				$stream = mapi_openproperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+				$stream = mapi_openproperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, IID_IStream, STGM_TRANSACTED, MAPI_CREATE | MAPI_MODIFY);
 				mapi_stream_setsize($stream, strlen($persistentSettings));
 				mapi_stream_write($stream, $persistentSettings);
 				mapi_stream_commit($stream);
