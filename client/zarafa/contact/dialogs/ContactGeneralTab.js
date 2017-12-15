@@ -215,6 +215,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				},{
 					xtype : 'textfield',
 					flex: 1,
+					ref : "../../phone1",
 					name : 'business_telephone_number',
 					listeners : {
 						scope : this,
@@ -233,6 +234,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype : 'textfield',
 					flex: 1,
 					name : 'home_telephone_number',
+					ref : "../../phone2",
 					listeners : {
 						scope : this,
 						change : this.onFieldChange
@@ -250,6 +252,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype : 'textfield',
 					flex: 1,
 					name : 'business_fax_number',
+					ref : "../../phone3",
 					listeners : {
 						scope : this,
 						change : this.onFieldChange
@@ -267,6 +270,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 					xtype : 'textfield',
 					flex: 1,
 					name : 'cellular_telephone_number',
+					ref : "../../phone4",
 					listeners : {
 						scope : this,
 						change : this.onFieldChange
@@ -1432,7 +1436,41 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 	getContactParser : function()
 	{
 		return this.dialog.contactParser;
-	}
+	},
+
+
+    /**
+     * Initialize all {@link Zarafa.core.data.MAPIRecord record} related events
+     * for this {@link Zarafa.contact.dialogs.ContactGeneralTab ContactGeneralTabPanel}.
+     * @private
+     */
+    initEvents: function ()
+    {
+	    this.mon(this.dialog, {
+		    'beforesaverecord': this.onBeforeSaveRecord,
+		    'scope': this
+	    });
+    },
+
+    /**
+     * Event handler which is fired when the the {@link Ext.data.Store store} for the {@link #record}
+     * fires the {@link Ext.data.Store#beforesave} event.
+     * This will check all phone number fields if any of this has "x" as a extension separator then
+     * replace it with "-".
+     * @private
+     */
+    onBeforeSaveRecord : function()
+    {
+	    for (var i = 1; i <= 4; i++) {
+		    var phone = this["phone" + i];
+		    if (phone.value.indexOf("x") > 0) {
+			    this.record.set(phone.name, phone.value.replace("x", "-"), true);
+			    if(phone.name === 'business_fax_number') {
+				    this.record.updateAddressbookProps();
+			    }
+		    }
+	    }
+    }
 });
 
 Ext.reg('zarafa.contactgeneraltab', Zarafa.contact.dialogs.ContactGeneralTab);

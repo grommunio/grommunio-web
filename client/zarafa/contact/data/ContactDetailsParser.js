@@ -230,7 +230,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 		};
 
 		// Search for extensions
-		var extensions = [ 'x', '/' ];
+		var extensions = ['x', '/', '-'];
 		for (var i = 0, len = extensions.length; i < len; i++) {
 			var ext = extensions[i];
 			var index = data.indexOf(ext);
@@ -466,7 +466,7 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 		var phoneString = !Ext.isEmpty(data['country_code']) ? (data['country_code'] + this.NBSP) : '';
 		phoneString += !Ext.isEmpty(data['city_code']) ? ('(' + data['city_code'] + ')' + this.NBSP) : '';
 		phoneString += !Ext.isEmpty(data['local_number']) ? (data['local_number'] + this.NBSP) : '';
-		phoneString += !Ext.isEmpty(data['extension']) ? ('x' + this.NBSP + data['extension']) : '';
+		phoneString += !Ext.isEmpty(data['extension']) ? ('-' + this.NBSP + data['extension']) : '';
 
 		return phoneString.trim();
 	},
