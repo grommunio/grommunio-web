@@ -9,14 +9,22 @@
 		"prelint": "jshint $(git diff-index --name-only HEAD | grep '.js')",
 		"jlint": "jshint client/zarafa --reporter=checkstyle > result.xml",
 		"phplint": "phpmd server text .phpmd.xml",
-		"phplintci": "phpmd server xml .phpmd.xml --reportfile result.xml"
+		"phplintci": "phpmd server xml .phpmd.xml --reportfile result.xml",
+		"jsunit": "karma start test/js/unittest.conf.js"
 	},
 	"pre-commit": {
-		"run": ["prelint"]
+		"run": [
+			"prelint"
+		]
 	},
 	"devDependencies": {
-		"pre-commit": "*",
 		"jshint": "*",
-		"jshint-junit-reporter": "*"
+		"jshint-junit-reporter": "*",
+		"karma": "^1.7.1",
+		"karma-chrome-launcher": "^2.2.0",
+		"karma-coverage": "^1.1.1",
+		"karma-jasmine": "^1.1.1",
+		"karma-junit-reporter": "^1.2.0",
+		"pre-commit": "*"
 	}
 }

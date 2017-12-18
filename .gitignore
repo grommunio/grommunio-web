@@ -19,5 +19,6 @@ tools/tools.jar
 # Eclipse files
 .project
 .settings
-# Closed tests
-test/
+# Test output
+test/js/result
+test/js/coverage
