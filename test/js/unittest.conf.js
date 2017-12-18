@@ -38,11 +38,18 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeNoSandbox'],
 
     singleRun: true,
 
     browserNoActivityTimeout: 8500,
+
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
 
     coverageReporter: {
       dir: "coverage",
@@ -58,4 +65,5 @@ module.exports = function(config) {
       suite: 'unit',
     },
   });
+
 };
