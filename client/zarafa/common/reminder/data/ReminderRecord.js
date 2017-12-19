@@ -58,20 +58,20 @@ Zarafa.common.reminder.data.ReminderRecord = Ext.extend(Zarafa.core.data.MAPIRec
 
 		if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Appointment', true)) {
 			props = {
-				recurring : this.get('appointment_recurring'),
-				startdate : this.get('appointment_startdate'),
-				duedate : this.get('appointment_enddate'),
-				startdate_recurring : this.get('appointment_startdate_recurring'),
-				enddate_recurring : this.get('appointment_enddate_recurring')
+				recurring: this.get('appointment_recurring'),
+				startdate: this.get('appointment_startdate'),
+				duedate: this.get('appointment_enddate'),
+				startdate_recurring: this.get('appointment_startdate_recurring'),
+				enddate_recurring: this.get('appointment_enddate_recurring')
 			};
 		} else if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Task', true)) {
 			props = {
-				startdate : this.get('task_startdate'),
-				duedate : this.get('task_duedate')
+				startdate: this.get('task_startdate'),
+				duedate: this.get('task_duedate')
 			};
-		} else {
+		} else if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Contact', true)) {
 			Ext.MessageBox.alert(_('Info'), _('Not supported at the moment.'));
-			return;
+			return false;
 		}
 
 		// Copy all common properties
@@ -93,8 +93,14 @@ Zarafa.common.reminder.data.ReminderRecord = Ext.extend(Zarafa.core.data.MAPIRec
 			flagdueby : this.get('flagdueby')
 		});
 
+		var record = Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(props, entryId);
 
-		return Zarafa.core.data.RecordFactory.createRecordObjectByRecordData(props, entryId);
+		// For mail record it's require a store to perform mark as read while opening the record.
+		if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Note', true)) {
+			Ext.copyTo(record, this, 'store');
+		}
+
+		return record;
 	}
 });
 

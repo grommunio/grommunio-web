@@ -8,7 +8,7 @@ Ext.namespace('Zarafa.common.reminder.data');
  * @extends Zarafa.core.data.MAPIStore
  * @xtype zarafa.reminderstore
  */
-Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.MAPIStore, {
+Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	/**
 	 * @cfg {String} actionType type of action that should be used to send request to server,
 	 * valid action types are defined in {@link Zarafa.core.Actions Actions}, default value is 'list'.

@@ -262,6 +262,11 @@
 										$GLOBALS["bus"]->notify(bin2hex($messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
 
 										break;
+                                    case "snooze":
+                                    case "dismiss":
+                                        $this->delete($store, $parententryid, $entryid, $action);
+                                        break;
+
 									default:
 										// Deleting an occurence means that we have to save the message to
 										// generate an exception. So when the basedate is provided, we actually
