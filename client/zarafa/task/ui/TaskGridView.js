@@ -107,6 +107,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		Zarafa.task.ui.TaskGridView.superclass.initEvents.call(this);
 
 		this.on({
+			'cellclick': this.onCellClick,
 			'rowdblclick': this.onRowDblClick,
 			scope: this
 		});
@@ -120,6 +121,31 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 		// Add an event handler that will reload the store when the flag status of
 		// a record has been changed
 		this.mon(this.getStore(), 'update', this.onStoreUpdate, this);
+	},
+
+	/**
+	 * Event handler for the cellclick event of the grid. Will open the
+	 * {@link Zarafa.common.flags.ui.FlagsMenu FlagContextMenu} if flag icon column
+	 * was clicked by user.
+	 *
+	 * @param {Zarafa.task.ui.TaskGridView} grid The task grid
+	 * @param {Number} rowIndex The index number of the row that was clicked
+	 * @param {Number} columnIndex The index number of the column that was clicked
+	 * @param {Ext.EventObject} event The event object
+	 * @private
+	 */
+	onCellClick : function(grid, rowIndex, columnIndex, e)
+	{
+		var record = this.store.getAt(rowIndex);
+		if (!Ext.isDefined(record)) {
+			return;
+		}
+
+		var cm = this.getColumnModel();
+		var column = cm.config[columnIndex];
+		 if(column.dataIndex === 'flag_due_by') {
+			Zarafa.common.Actions.openFlagsMenu(record, e.getXY());
+		}
 	},
 
 	/**
