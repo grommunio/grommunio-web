@@ -451,7 +451,10 @@
 		 */
 		function getDefaultMessageStoreEntryId()
 		{
-			$this->loadMessageStoresFromSession();
+			if (!isset($this->defaultStore)) {
+				$this->loadMessageStoresFromSession();
+			}
+
 			return bin2hex($this->defaultStore);
 		}
 
