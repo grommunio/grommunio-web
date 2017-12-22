@@ -1642,6 +1642,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		// If the text edit view is still visible, hide it.
 		if (this.textEditView.isVisible()) {
 			this.textEditView.hide();
+			this.textEditView.inputText = '';
 		}
 
 		// Check if the selected range is active and belongs to this calendar view, and

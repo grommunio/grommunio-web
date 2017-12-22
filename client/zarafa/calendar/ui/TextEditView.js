@@ -25,6 +25,11 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 	minimumHeight : 20,
 
 	/**
+	 * @cfg {String} inputText The text which was entered into the view.
+	 */
+	inputText : '',
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
@@ -94,9 +99,11 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 		this.mon(this.body, 'keypress', this.onKeyPress, this);
 		this.mon(this.body, 'keydown', this.onKeyPress, this);
 		this.mon(this.body, 'blur', this.onBlur, this);
+		this.mon(this.body, 'keyup', this.onKeyUp, this);
 		this.mon(this.header, 'keypress', this.onKeyPress, this);
 		this.mon(this.header, 'keydown', this.onKeyPress, this);
 		this.mon(this.header, 'blur', this.onBlur, this);
+		this.mon(this.header, 'keyup', this.onKeyUp, this);
 
 		Zarafa.calendar.ui.TextEditView.superclass.render.call(this, container);
 
@@ -163,12 +170,25 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 		if (event.keyCode == event.RETURN) {
 			var text = event.browserEvent.target.value;
 			event.browserEvent.target.value = '';
-
+			this.inputText = '';
 			this.hide();
 
 			this.fireEvent('textentered', this, text);
 		}
 
+	},
+
+	/**
+	 * Handles the keyup event.
+	 * Function will get and store input text.
+	 * @param {Ext.EventObject} event ExtJS event object.
+	 * @private
+	 */
+	onKeyUp: function (event)
+	{
+		if (event.keyCode !== event.RETURN) {
+			this.inputText = event.browserEvent.target.value;
+		}
 	},
 
 	/**
@@ -241,6 +261,13 @@ Zarafa.calendar.ui.TextEditView = Ext.extend(Zarafa.core.ui.View, {
 			}
 		} else {
 			this.makeElementsVisible([this.body, this.header], false);
+
+			// If input text is not empty then create the appointment
+			if (!Ext.isEmpty(this.inputText)) {
+				var text = this.inputText;
+				this.inputText = '';
+				this.fireEvent('textentered', this, text);
+			}
 		}
 
 		Zarafa.calendar.ui.TextEditView.superclass.onLayout.call(this);
