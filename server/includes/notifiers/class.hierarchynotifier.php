@@ -82,7 +82,7 @@
 					$folder = mapi_msgstore_openentry($store, $folderEntryid);
 					if ($folder) {
 						$properties = $GLOBALS["properties"]->getFolderListProperties();
-						$folderProps = mapi_folder_getprops($folder, $properties);
+						$folderProps = mapi_getprops($folder, $properties);
 
 						// If this folder belongs to Favorites folder,then change PARENT_ENTRYID manually.
 						if ($GLOBALS["entryid"]->isFavoriteFolder($folderProps[PR_ENTRYID])) {

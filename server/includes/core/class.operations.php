@@ -2706,7 +2706,7 @@
 					}
 
 					// save changes to new message created in outbox
-					mapi_message_savechanges($newmessage);
+					mapi_savechanges($newmessage);
 
 					// Save the new message properties
 					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true);
@@ -2941,7 +2941,7 @@
 				foreach($subfolders as $subfolder)
 				{
 					$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-					$folderProps = mapi_folder_getprops($folderObject, array(PR_DISPLAY_NAME));
+					$folderProps = mapi_getprops($folderObject, array(PR_DISPLAY_NAME));
 
 					array_push($folderNames, strtolower($folderProps[PR_DISPLAY_NAME]));
 				}
@@ -3103,7 +3103,7 @@
 
 						// Create new attachment.
 						$attachment = mapi_message_createattach($message);
-						mapi_message_setprops($attachment, $props);
+						mapi_setprops($attachment, $props);
 
 						$imessage = mapi_attach_openobj($attachment, MAPI_CREATE | MAPI_MODIFY);
 
@@ -4146,7 +4146,7 @@
 			{
 				// Get the calendar and owner entryID
 				$calendar = mapi_msgstore_openentry($store, $rootFolderProps[PR_IPM_APPOINTMENT_ENTRYID]);
-				$storeProps = mapi_msgstore_getprops($store, array(PR_MAILBOX_OWNER_ENTRYID));
+				$storeProps = mapi_getprops($store, array(PR_MAILBOX_OWNER_ENTRYID));
 				if (isset($storeProps[PR_MAILBOX_OWNER_ENTRYID])){
 					$freeBusyRange = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/free_busy_range', 2);
 					$localFreeBusyEntryids = mapi_getprops($rootFolder, array(PR_FREEBUSY_ENTRYIDS));

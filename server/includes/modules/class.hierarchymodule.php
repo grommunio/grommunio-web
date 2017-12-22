@@ -465,7 +465,7 @@
 		function addFolderToResponseData($store, $entryid, $actionType)
 		{
 			$folder = mapi_msgstore_openentry($store, $entryid);
-			$folderProps = mapi_folder_getprops($folder, $this->list_properties);
+			$folderProps = mapi_getprops($folder, $this->list_properties);
 
 			$data = $GLOBALS["operations"]->setFolder($folderProps);
 			$this->addActionData($actionType, $data);
@@ -1063,7 +1063,7 @@
 						// If destination folder is wastebasket then remove source folder from favorites list if
 						// it is present in it.
 						$defaultStore = $GLOBALS["mapisession"]->getDefaultMessageStore();
-						$wastebasketFolderEntryid = mapi_folder_getprops($defaultStore, array(PR_IPM_WASTEBASKET_ENTRYID));
+						$wastebasketFolderEntryid = mapi_getprops($defaultStore, array(PR_IPM_WASTEBASKET_ENTRYID));
 						if($GLOBALS["entryid"]->compareEntryIds($wastebasketFolderEntryid[PR_IPM_WASTEBASKET_ENTRYID], $destfolderentryid)) {
 							$this->removeFromFavorite($sourcefolderentryid);
 						}
@@ -1086,7 +1086,7 @@
 
 					// if move folder then refresh parent of source folder
 					$sourcefolder = mapi_msgstore_openentry($store, $parententryid);
-					$folderProps = mapi_folder_getprops($sourcefolder, array(PR_ENTRYID, PR_STORE_ENTRYID));
+					$folderProps = mapi_getprops($sourcefolder, array(PR_ENTRYID, PR_STORE_ENTRYID));
 					$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 				} else {
 					$this->sendFeedback(true);
@@ -1127,14 +1127,14 @@
 				if (is_array($subfolders)) {
 					foreach($subfolders as $subfolder) {
 						$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]); 
-						$folderProps = mapi_folder_getprops($folderObject, array(PR_ENTRYID, PR_STORE_ENTRYID));
+						$folderProps = mapi_getprops($folderObject, array(PR_ENTRYID, PR_STORE_ENTRYID));
 						$GLOBALS["bus"]->notify(bin2hex($subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 					}
 				}
 
 				// Now udpate destination folder
 				$folder = mapi_msgstore_openentry($deststore, $destfolderentryid);
-				$folderProps = mapi_folder_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
+				$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
 				$GLOBALS["bus"]->notify(bin2hex($folderProps[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 			} else {
 				if ($moveFolder) {
