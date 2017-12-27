@@ -399,18 +399,15 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			return;
 		}
 
+		var complete = record.get('complete');
 		record.beginEdit();
-
-		if (record.get('complete')) {
-			record.set('percent_complete', 1);
-			record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
-			record.set('date_completed', new Date());
-		} else {
-			record.set('status', Zarafa.core.mapi.TaskStatus.NOT_STARTED);
-			record.set('percent_complete', 0);
-			record.set('date_completed', null);
-		}
-
+		record.set('percent_complete', complete ? 1 : 0);
+		record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
+		record.set('date_completed', complete ? new Date() : null);
+		record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
+		record.set('flag_complete_time', complete ? new Date() : null);
+		record.set('flag_request', complete ? '' : 'Follow up');
+		record.set('flag_status', complete ? Zarafa.core.mapi.FlagStatus.completed : Zarafa.core.mapi.FlagStatus.flagged);
 		record.endEdit();
 
 		if (!record.isNormalTask()) {

@@ -83,13 +83,12 @@ Zarafa.common.Actions = {
 			records = [ records ];
 		}
 
-		var menu = new Zarafa.common.flags.ui.FlagsMenu({
-			records: records,
+		var component = Zarafa.core.data.SharedComponentType['common.contextmenu.flags'];
+		Zarafa.core.data.UIFactory.openContextMenu(component, records, {
+			position : position,
 			shadowEdit : shadowEdit,
 			store : records[0].getStore()
 		});
-
-		menu.showAt(position);
 	},
 
 	/**

@@ -143,8 +143,12 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 
 		var cm = this.getColumnModel();
 		var column = cm.config[columnIndex];
-		 if(column.dataIndex === 'flag_due_by') {
-			Zarafa.common.Actions.openFlagsMenu(record, e.getXY());
+		// show flag menu only for received/assignee task copy.
+		var disabled = record.isMessageClass('IPM.Task', true) && (record.isTaskOrganized() || record.isTaskNotResponded());
+		if(column.dataIndex === 'flag_due_by' && !disabled) {
+			Zarafa.task.Actions.openFlagsMenu(record, {
+				position : e.getXY()
+			});
 		}
 	},
 
@@ -157,7 +161,7 @@ Zarafa.task.ui.TaskGridView = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, 
 	 */
 	onRowDblClick : function(grid, rowIndex, eventObj)
 	{
-		Zarafa.task.Actions.openTaskContent(grid.getSelectionModel().getSelections());
+		Zarafa.common.Actions.openMessageContent(this.getSelectionModel().getSelected());
 	},
 
 	/**

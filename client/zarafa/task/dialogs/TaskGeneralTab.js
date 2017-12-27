@@ -535,17 +535,15 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				layout = true;
 			}
 			var startDate = record.get('startdate');
-			var startDateUpdate = false;
+			var startDateUpdate = contentReset || record.isModifiedSinceLastUpdate('startdate') || record.isModifiedSinceLastUpdate('taskhistor');
 			if (Ext.isDate(startDate)) {
 				startDate = startDate.toUTC(); // The startdate is an UTC representation
-				startDateUpdate = contentReset || record.isModifiedSinceLastUpdate('startdate') || record.isModifiedSinceLastUpdate('taskhistor');
 			}
 
 			var dueDate = record.get('duedate');
-			var dueDateUpdate = false;
+			var dueDateUpdate = contentReset || record.isModifiedSinceLastUpdate('duedate') || record.isModifiedSinceLastUpdate('taskhistory');
 			if (Ext.isDate(dueDate)) {
 				dueDate = dueDate.toUTC(); // The duedate is an UTC representation
-				dueDateUpdate = contentReset || record.isModifiedSinceLastUpdate('duedate') || record.isModifiedSinceLastUpdate('taskhistory');
 			}
 
 			if (startDateUpdate || dueDateUpdate) {
@@ -744,7 +742,8 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		this.record.beginEdit();
 		this.record.set(field.name, newValue);
 
-		if(newValue === Zarafa.core.mapi.TaskStatus.COMPLETE){
+		var complete = newValue === Zarafa.core.mapi.TaskStatus.COMPLETE;
+		if(complete){
 			this.record.set('complete', true);
 			this.record.set('percent_complete', 1);
 			this.record.set('date_completed', new Date());
@@ -767,6 +766,9 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 			this.record.set('date_completed', null);
 		}
+
+		// Set flags related properties.
+		this.setFlagsProperties(complete);
 		this.record.endEdit();
 	},
 
@@ -798,7 +800,22 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.set('percent_complete', newValue);
 			this.record.set('date_completed', new Date());
 		}
+		this.setFlagsProperties(newValue === 1);
 		this.record.endEdit();
+	},
+
+	/**
+	 * Set flags related properties to task record when
+	 * percentage complete or status was changed.
+	 *
+	 * @param {Boolean} complete true if selected record marked as a completed.
+	 */
+	setFlagsProperties : function (complete)
+	{
+		this.record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
+		this.record.set('flag_complete_time', complete ? new Date() : null);
+		this.record.set('flag_request', complete ? '' : 'Follow up');
+		this.record.set('flag_status', complete ? Zarafa.core.mapi.FlagStatus.completed : Zarafa.core.mapi.FlagStatus.flagged);
 	},
 
 	/**

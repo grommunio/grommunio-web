@@ -72,6 +72,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		// Register task specific dialog types
 		Zarafa.core.data.SharedComponentType.addProperty('task.dialogs.sendtaskrequestconfirmation');
 		Zarafa.core.data.SharedComponentType.addProperty('task.dialogs.sendtaskrequestcancellation');
+		Zarafa.core.data.SharedComponentType.addProperty('task.contextmenu.flags');
 	},
 
 	/**
@@ -200,6 +201,9 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 					}
 				}
 				break;
+			case Zarafa.core.data.SharedComponentType['task.contextmenu.flags']:
+				bid = 1;
+				break;
 		}
 		return bid;
 	},
@@ -228,7 +232,10 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 		  		component = Zarafa.task.ui.TaskContextMenu;
-				break;	
+				break;
+			case Zarafa.core.data.SharedComponentType['task.contextmenu.flags']:
+		  		component = Zarafa.task.ui.TaskFlagsMenu;
+				break;
 			case Zarafa.core.data.SharedComponentType['common.printer.renderer']:
 				if (record instanceof Zarafa.core.data.IPMRecord && record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
 					component = Zarafa.task.printer.TaskRenderer;

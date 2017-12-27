@@ -2,12 +2,12 @@ Ext.namespace('Zarafa.common.flags.ui');
 
 /**
  * @class Zarafa.common.flags.ui.FlagsMenu
- * @extends Ext.menu.Menu
+ * @extends Zarafa.core.ui.menu.ConditionalMenu
  * @xtype zarafa.flagsmenu
  *
  * The FlagsMenu is the menu that is shown for flags.
  */
-Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
+Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu, {
 	/**
 	 * @cfg {Zarafa.core.data.IPMRecord[]} The records to which the actions in
 	 * this menu will apply
@@ -102,17 +102,21 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 			handler: this.setFlag,
 			scope: this
 		},{
+			xtype: 'zarafa.conditionalitem',
 			text: _('Custom'),
 			iconCls : 'icon_mail_flag_red',
+			beforeShow: this.onFollowUpItemBeforeShow,
 			action: 'custom',
 			handler: this.onSetCustomFlag,
 			scope: this
 		}, {
 			xtype: 'menuseparator'
 		}, {
+			xtype: 'zarafa.conditionalitem',
 			text: _('Set reminder'),
 			iconCls : 'icon_flag_Reminder',
 			action : 'set_reminder',
+			beforeShow: this.onFollowUpItemBeforeShow,
 			handler: this.onSetCustomFlag,
 			scope: this
 		}, {
@@ -122,13 +126,35 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Ext.menu.Menu, {
 			handler: this.setFlag,
 			scope: this
 		}, {
+			xtype: 'zarafa.conditionalitem',
 			text: _('None'),
 			action: 'none',
-			hideOnDisabled : false,
+			beforeShow: this.onFollowUpItemBeforeShow,
 			iconCls : 'icon_mail_flag',
 			handler: this.setFlag,
 			scope: this
 		}];
+	},
+
+	/**
+	 * Event handler triggers before the item shows. If selected
+	 * record is task record then don't show 'Set reminder', 'Custom' and 'None'
+	 * options in flags context menu.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
+	 * to see if the item must be enabled or disabled.
+	 * @private
+	 */
+	onFollowUpItemBeforeShow : function (item, records)
+	{
+		if(!Array.isArray(records)) {
+			records = [records];
+		}
+		var hasTaskRecord = records.some(function (record) {
+			return record.isMessageClass('IPM.Task');
+		});
+		item.setDisabled(hasTaskRecord);
 	},
 
 	/**

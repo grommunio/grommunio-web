@@ -204,6 +204,18 @@ Zarafa.task.TaskRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	},
 
 	/**
+	 * Function is used to determine that task in not yet accpeted or declined by
+	 * assignee.
+	 *
+	 * @return {Boolean} true if user as an assignee yet not accepted or declined task
+	 * else false;
+	 */
+	isTaskNotResponded : function ()
+	{
+		return (this.isTaskOwner() && this.isTaskReceived() && this.isTaskAssigned());
+	},
+
+	/**
 	 * Generates task request response comment information which will be added to task request response body.
 	 * @return {String} generated body message.
 	 */

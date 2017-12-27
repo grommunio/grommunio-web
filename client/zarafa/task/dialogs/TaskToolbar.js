@@ -238,6 +238,17 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			enableToggle : true,
 			toggleHandler: this.onPrivateGroupToggle,
 			scope: this
+		},{
+			xtype : 'button',
+			overflowText : _('Set flag'),
+			tooltip : {
+				title : _('Set flag'),
+				text : _('Set flag on this email')
+			},
+			ref: 'setFlags',
+			iconCls : 'icon_flag_red',
+			handler : this.onSetFlagButton,
+			scope : this
 		}];
 	},
 
@@ -274,6 +285,24 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	onRecurrence : function(button)
 	{
 		Zarafa.common.Actions.openRecurrenceContent(this.record, false);
+	},
+
+	/**
+	 * Event handler when the "Set Flag" button has been pressed.
+	 * This will call the {@link Zarafa.task.Actions#openFlagsMenu}.
+	 *
+	 * @param {Ext.Button} button The button which has been pressed
+	 * @param {Ext.EventObject} eventObject event object
+	 * @private
+	 */
+	onSetFlagButton : function (button, eventObject)
+	{
+		var options = {
+			position : eventObject.getXY(),
+			shadowEdit : false,
+			saveOnSetFlag : false
+		};
+		Zarafa.task.Actions.openFlagsMenu(this.record, options);
 	},
 
 	/**
@@ -319,6 +348,10 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		this.record.set('percent_complete', 1);
 		this.record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
 		this.record.set('date_completed', new Date());
+		this.record.set('flag_icon', Zarafa.core.mapi.FlagIcon.red);
+		this.record.set('flag_complete_time', new Date());
+		this.record.set('flag_request', '');
+		this.record.set('flag_status', Zarafa.core.mapi.FlagStatus.completed);
 		this.record.endEdit();
 
 		/**
@@ -456,6 +489,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 					visible = true;
 				}
 
+				this.setFlags.setVisible(visible);
 				this.categoriesBtn.setVisible(visible);
 				this.markCompleteBtn.setVisible(visible);
 				this.setPrivate.setVisible(visible);
