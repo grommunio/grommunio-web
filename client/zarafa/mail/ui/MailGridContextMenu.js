@@ -232,6 +232,15 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	{
 		return [{
 			xtype: 'zarafa.conditionalitem',
+			text: _('Send to') + "...",
+			iconCls : 'icon_embedded_attachment',
+			singleSelectOnly: true,
+			beforeShow : this.onMenuItemBeforeShow,
+			responseMode : Zarafa.mail.data.ActionTypes.FORWARD_ATTACH,
+			handler: this.onContextItemResponse,
+			scope: this
+		}, {
+			xtype: 'zarafa.conditionalitem',
 			text: _('Export as'),
 			cls: 'k-unclickable',
 			iconCls: 'icon_export',
