@@ -388,9 +388,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
-	 * Event handler which is triggered when the user double-clicks on a particular item in the
-	 * grid. This will open a {@link Zarafa.mail.dialogs.ShowMailContentPanel contentpanel} which
-	 * contains the selected item.
+	 * Event handler which is triggered when the user double-clicks on a particular item in the grid.
+	 * This will check if existing record is opened in browser window then set focus on it otherwise,
+	 * Open a {@link Zarafa.mail.dialogs.ShowMailContentPanel contentpanel} which contains the selected item.
 	 *
 	 * @param {Grid} grid The Grid on which the user double-clicked
 	 * @param {Number} rowIndex The Row number on which was double-clicked.
@@ -399,7 +399,14 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowDblClick : function(grid, rowIndex, e)
 	{
-		Zarafa.common.Actions.openMessageContent(this.getSelectionModel().getSelected());
+		var record = this.getSelectionModel().getSelected();
+		// Switch focus to the browser window is record is already opened in browser window.
+		var browserWindow = Zarafa.core.BrowserWindowMgr.getOpenedWindow(record);
+		if (browserWindow) {
+			browserWindow.focus();
+		} else {
+			Zarafa.common.Actions.openMessageContent(record);
+		}
 	},
 
 	/**

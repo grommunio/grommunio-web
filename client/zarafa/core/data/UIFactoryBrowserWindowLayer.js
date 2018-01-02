@@ -57,9 +57,15 @@ Zarafa.core.data.UIFactoryBrowserWindowLayer = Ext.extend(Zarafa.core.data.UIFac
 				}
 			});
 		} else {
-			// Create and open a separate browser window.
-			var separateWindowInstance = window.open(url, uniqueWindowName, this.getBrowserWindowPosition());
-			this.registerNewlyCreatedWindow(separateWindowInstance, component, config);
+			// If record is already opened then switch focus to the browser window.
+			var browserWindow = Zarafa.core.BrowserWindowMgr.getOpenedWindow(config.record);
+			if (browserWindow) {
+				browserWindow.focus();
+			} else {
+				// Create and open a separate browser window.
+				var separateWindowInstance = window.open(url, uniqueWindowName, this.getBrowserWindowPosition());
+				this.registerNewlyCreatedWindow(separateWindowInstance, component, config);
+			}
 		}
 	},
 
