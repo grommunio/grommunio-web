@@ -45,37 +45,10 @@ Zarafa.mail.ui.ExportAsContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				beforeShow: this.onZipMenuItemBeforeShow,
 				handler: this.onContextItemEmlZip,
 				scope: this
-			}, {
-				text: _('Send as attachment'),
-				iconCls: 'icon_embedded_attachment',
-				singleSelectOnly: true,
-				beforeShow: this.onMenuItemBeforeShow,
-				handler: this.onContextItemResponse,
-				scope: this
 			}]
 		});
 
 		Zarafa.mail.ui.ExportAsContextMenu.superclass.constructor.call(this, config);
-	},
-
-	/**
-	 * Event handler which determines if menu items should be visible or not.
-	 * It will check if record is faulty then hide menu items which are not supported.
-	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
-	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
-	 * to see if the item must be enabled or disabled.
-	 * @private
-	 */
-	onMenuItemBeforeShow: function (item, records)
-	{
-		Ext.each(records, function (record) {
-			if (record.isFaultyMessage()) {
-				// hide menu item and break the loop
-				item.setVisible(false);
-				return false;
-			}
-		}, this);
 	},
 
 	/**
@@ -120,15 +93,6 @@ Zarafa.mail.ui.ExportAsContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	onContextItemEmlZip: function ()
 	{
 		Zarafa.common.Actions.openSaveEmlDialog(this.records, true);
-	},
-
-	/**
-	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New Message" menuitems are clicked.
-	 * @private
-	 */
-	onContextItemResponse: function ()
-	{
-		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, this.model, Zarafa.mail.data.ActionTypes.FORWARD_ATTACH);
 	}
 });
 
