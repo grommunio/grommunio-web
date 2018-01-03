@@ -37,6 +37,25 @@ Running PHP linting, requires [phpmd](https://phpmd.org/about.html) to be instal
 npm run phplint
 ```
 
+# Tests
+
+JavaScript unittest can be run with the following command and are located in test/js.
+
+```
+npm run jsunit
+```
+
+Generate xml output for Jenkins
+```
+npm run jsunit -- --reporters junit
+```
+
+Run coverage, output file in test/js/coverage
+
+```
+npm run jsunit -- --reporters coverage
+```
+
 # Documentation
 In-depth documentation, such as administration and user manuals about our
 products can be found on our [Documentation Portal](
