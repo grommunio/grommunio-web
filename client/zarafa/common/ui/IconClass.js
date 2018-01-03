@@ -214,6 +214,10 @@ Zarafa.common.ui.IconClass = {
 					return iconCls;
 				}
 			}
+
+			if (messageClass === 'IPM.NOTE' && Ext.isDefined(options.reminderRecord)) {
+				return 'icon_mail_read';
+			}
 		}
 
 		if (messageClass) {

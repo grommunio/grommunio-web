@@ -271,7 +271,9 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 		}
 
 		if (selections.length == 1) {
-			this.activeReminderTemplate.overwrite(el.dom , selections[0].data);
+			var data = selections[0].data;
+			data.reminderRecord = true;
+			this.activeReminderTemplate.overwrite(el.dom , data);
 		} else {
 			el.createChild({
 				tag: 'div',
