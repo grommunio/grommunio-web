@@ -2298,6 +2298,8 @@
 			$result = false;
 			// Check to see if it should be sent as a meeting request
 			if($send === true && $isExceptionAllowed){
+				$savedUnsavedRecipients = array();
+				$remove = array();
 				if(!isset($action['basedate'])) {
 					// retrieve recipients from saved message
 					$savedRecipients = $GLOBALS['operations']->getRecipientsInfo($message);
@@ -2306,7 +2308,6 @@
 					}
 
 					//retrieve removed recipients.
-					$remove = array();
 					if (!empty($recips) && !empty($recips["remove"])) {
 						$remove = $recips["remove"];
 					}
@@ -2385,9 +2386,12 @@
 
 				$sendMeetingRequestResult = $request->sendMeetingRequest($delete, false, $basedate, $modifiedRecipients, $deletedRecipients);
 
-				$this->addEmailsToRecipientHistory($message);
+				$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 
 				if($sendMeetingRequestResult === true){
+
+					$this->parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove);
+
 					mapi_savechanges($message);
 
 					// We want to sent the 'request_sent' property, to have it properly
@@ -2506,6 +2510,30 @@
 				}
 			}
 			return false;
+		}
+
+		/**
+		 * Function is used to identify the local distribution list from all recipients and
+		 * Add distribution list to recipient history.
+		 *
+		 * @param array $savedUnsavedRecipients array of recipients either saved or add
+		 * @param array $remove array of recipients that was removed
+		 */
+		function parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove)
+		{
+			$distLists = array();
+			foreach ($savedUnsavedRecipients as $key => $recipient) {
+				foreach ($recipient as $recipientItem) {
+					if ($recipientItem['address_type'] == 'MAPIPDL') {
+						$isExistInRemove = $this->isExistInRemove($recipientItem['entryid'], $remove);
+						if (!$isExistInRemove) {
+							array_push($distLists, array("props" => $recipientItem));
+						}
+					}
+				}
+			}
+
+			$this->addRecipientsToRecipientHistory($distLists);
 		}
 
 		/**
@@ -2729,7 +2757,7 @@
 					$messageProps[PR_PARENT_ENTRYID] = $tmp_props[PR_PARENT_ENTRYID];
 					$result = true;
 
-					$this->addEmailsToRecipientHistory($message);
+					$this->addRecipientsToRecipientHistory($this->getRecipientsInfo($message));
 				}
 			}
 
@@ -3981,11 +4009,12 @@
 		* opens the recipient history property (PR_EC_RECIPIENT_HISTORY_JSON) and updates or appends
 		* it with the passed email addresses.
 		*
-		* @param MAPIMessage the MAPI Mail message which is send
+		* @param array $recipients list of recipients
 		*/
-		function addEmailsToRecipientHistory($message) {
+		function addRecipientsToRecipientHistory($recipients)
+		{
 			$emailAddress = [];
-			foreach($this->getRecipientsInfo($message) as $key => $value) {
+			foreach ($recipients as $key => $value) {
 				$emailAddresses[] = $value['props'];
 			}
 
@@ -4000,7 +4029,6 @@
 
 			if(isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 				$datastring = streamProperty($store, PR_EC_RECIPIENT_HISTORY_JSON);
-				dump($datastring);
 
 				if(!empty($datastring)) {
 					$recipient_history = json_decode_data($datastring, true);

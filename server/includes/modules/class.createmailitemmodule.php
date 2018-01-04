@@ -181,6 +181,9 @@
 
 						// If draft is sent from the drafts folder, delete notification
 						if($result) {
+
+							$GLOBALS['operations']->parseDistListAndAddToRecipientHistory($savedUnsavedRecipients, $remove);
+
 							if(isset($entryid) && !empty($entryid)) {
 								$props = array();
 								$props[PR_ENTRYID] = $entryid;
