@@ -974,6 +974,27 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 			record.setEventPropagation(true);
 		}
+	},
+
+	/**
+	 * Returns folder(s) which has the provided container class.
+	 * @param {String} containerClass The container_class of the folders.
+	 * @return {Zarafa.core.data.IPFRecord[]} An array of folders
+	 */
+	getByContainerClass : function(containerClass)
+	{
+		var finalResult = [];
+
+		this.getStores().forEach( function(store) {
+			var subFolders = store.getFolderStore().getRange();
+			var subResult = subFolders.filter( function(folder) {
+				return folder.get('container_class') === containerClass;
+			});
+
+			finalResult = finalResult.concat(subResult);
+		});
+
+		return finalResult;
 	}
 });
 

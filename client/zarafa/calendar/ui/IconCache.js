@@ -7,10 +7,8 @@ Ext.namespace('Zarafa.calendar.ui');
  *
  * Special class which contains a number of
  * icons which are used within the Calendar.
- * These icons can be used inside the Canvas
- * for drawing, because this implies that the
- * images must be downloaded to the client,
- * we do that in this cache class.
+ * It also contains some svg icons which can
+ * declared only once and used at multiple places.
  */
 Zarafa.calendar.ui.IconCache = {
 
@@ -129,5 +127,35 @@ Zarafa.calendar.ui.IconCache = {
 			'ACH5BAEAAAEALAAAAAASAAwABwg9AAMIHEiwYEEABxEeJKhQIICGDg0qfPhwIMSFFg0GoLhR4saKGBlq' +
 			'7HiRJMaSEzN21JjSIsWJL0c65GgwIAA7';
 		return function() { return image; };
-	}()
+	}(),
+
+	/**
+	 * Obtain calendar icon in svg format.
+	 * @param {String} color The icon color.
+	 * @return {String} The calendar icon
+	 */
+	getCalendarSvgIcon : function(color)
+	{
+		return 'data:image/svg+xml;charset=utf8,' + encodeURIComponent(this.getCalendarSvgStructure(color));
+	},
+
+	/**
+	 * Obtain svg structure for calendar icon.
+	 * @param {String} color The icon color.
+	 * @return {String} The svg structure of calendar icon
+	 */
+	getCalendarSvgStructure : function(color)
+	{
+		return '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13" style="color:'+ color +';">' +
+			'<g>' +
+				'<g class="icbg" style="fill:currentColor;stroke:none">' +
+					'<rect width="15" height="12" x="0" y="1" />' +
+					'<rect width="1" height="1" x="2" y="0" />' +
+					'<rect width="1" height="1" x="7" y="0" />' +
+					'<rect width="1" height="1" x="12" y="0" />' +
+				'</g>' +
+				'<path class="icgr" d="M 2.5,6.5 h 10 v 4 h -10 v -4.5 M 4.5,6.5 v 4 M 6.5,6.5 v 4 M 8.5,6.5 v 4 M 10.5,6.5 v 4 M 2.5,8.5 h 9.5" style="fill:currentColor;stroke:#ffffff;stroke-width:1;stroke-linejoin=miter" />' +
+			'</g>' +
+		'</svg>';
+	}
 };

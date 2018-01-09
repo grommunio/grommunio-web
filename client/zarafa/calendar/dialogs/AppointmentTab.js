@@ -136,6 +136,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				this.createSubjectPanel(),
 				this.createLocationPanel(),
 				this.createDateTimePanel(),
+				this.createinPanel(),
 				this.createAttachmentsPanel(),
 				this.createBodyPanel()
 			]
@@ -308,6 +309,58 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					cls: 'filler'
 				}
 			]
+		};
+	},
+
+	/**
+	 * Create the {@link Ext.Panel panel} containing the form element
+	 * to set the calendar in which the appointment or meeting-request will be
+	 * created.
+	 * @return {Object} Configuration object for the panel containing the fields
+	 * @private
+	 */
+	createinPanel : function()
+	{
+		var createInStore = this.getCreateInStore();
+
+		var tplString = '<tpl for=".">' +
+			'<div class="x-combo-list-item">' +
+				'{[Zarafa.calendar.ui.IconCache.getCalendarSvgStructure(values.iconColor)]}' +
+				'{displayString}' +
+			'</div>' +
+		'</tpl>';
+
+		return {
+			xtype: 'panel',
+			cls: 'k-createin-panel',
+			hidden: (createInStore.data.length < 2),
+			layout: 'form',
+			labelWidth: 85,
+			labelAlign: 'left',
+			autoHeight: true,
+			border: false,
+			items: [{
+				xtype: 'combo',
+				tpl : tplString,
+				fieldLabel: _('Create in'),
+				ref: '../comboCreateIn',
+				store: createInStore,
+				cls : 'k-createin-combo',
+				listClass : 'k-createin-combo-list-svg',
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'displayString',
+				valueField: 'entryid',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				listeners: {
+					select: this.onCreateInSelect,
+					collapse: this.setCursorPosition,
+					expand: this.setCursorPosition,
+					scope: this
+				}
+			}]
 		};
 	},
 
@@ -730,6 +783,13 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 		}
 
+		if (contentReset && this.comboCreateIn.isVisible()) {
+			this.comboCreateIn.setValue(record.get('parent_entryid'));
+
+			var folderColor = this.getFolderColor(record.get('parent_entryid'));
+			this.comboCreateIn.el.setStyle('background-image', 'url(\'' + Zarafa.calendar.ui.IconCache.getCalendarSvgIcon(folderColor) + '\')');
+		}
+
 		this.updateExtraInfoPanel();
 
 		if (contentReset === true || record.isModifiedSinceLastUpdate('recurring_pattern')) {
@@ -955,6 +1015,90 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	onFieldSelect : function(combo, record, index)
 	{
 		this.record.set(combo.getName(), record.get(combo.valueField));
+	},
+
+	/**
+	 * Event handler which is fired when a combobox selection has changed.
+	 * This will update the corresponding field inside the {@link Zarafa.core.data.IPMRecord record}
+	 * @param {Ext.form.ComboBox} combo The combobox which was selected
+	 * @param {Ext.data.Record} record The selected calender-folder record
+	 * @param {Number} index The index of the selected record
+	 * @private
+	 */
+	onCreateInSelect : function(combo, record, index)
+	{
+		if (this.record.phantom) {
+			this.record.set('parent_entryid', record.get('entryid'));
+			this.record.set('store_entryid', record.get('store_entryid'));
+		} else {
+			this.record.moveTo(record);
+		}
+
+		combo.el.setStyle('background-image', 'url(\'' + Zarafa.calendar.ui.IconCache.getCalendarSvgIcon(record.get('iconColor')) + '\')');
+	},
+
+	/**
+	 * Event handler which is fired when combobox-list expanded or collapsed.
+	 * This will put cursor at the beginning of combobox content to avoid
+	 * text overlapping calendar-icon.
+	 * @param {Ext.form.ComboBox} combo The combobox which was selected
+	 * @private
+	 */
+	setCursorPosition : function(combo)
+	{
+		combo.el.dom.setSelectionRange(0, 0);
+	},
+
+	/**
+	 * Helper function to obtain color for given folder entryid.
+	 * @param {String} entryid Entry id of a folder
+	 * @return {String} The color as defined in {@link Zarafa.calendar.ui.ColorSchemes color-scheme}
+	 * for given folder
+	 */
+	getFolderColor : function(entryid)
+	{
+		var calendarContext = container.getContextByName('calendar');
+		var scheme = calendarContext.getModel().getColorScheme(entryid);
+
+		return scheme.base;
+	},
+
+	/**
+	 * Helper function to return object containing config options necessary to create
+	 * store which feeds the data to create-in-combo.
+	 * This store holds all the calendar folders.
+	 * @return {Object} Config set to create store which has all calendar folders.
+	 */
+	getCreateInStore : function()
+	{
+		var calendarFolders = container.getHierarchyStore().getByContainerClass('IPF.Appointment');
+		var createInData = [];
+
+		calendarFolders.forEach(function(dataItem) {
+			if (!(dataItem.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_CREATE)) {
+				return;
+			}
+
+			var displayString = dataItem.get('display_name');
+			var mapiStore = dataItem.getParentFolder().getMAPIStore();
+
+			if (mapiStore.isSharedStore()) {
+				displayString += ' - ' + mapiStore.get('mailbox_owner_name');
+			}
+
+			createInData.push({
+				'entryid' : dataItem.get('entryid'),
+				'store_entryid' : dataItem.get('store_entryid'),
+				'displayString' : displayString,
+				'iconColor' : this.getFolderColor(dataItem.get('entryid'))
+			});
+		}, this);
+
+		return {
+			xtype: 'jsonstore',
+			fields: ['entryid', 'store_entryid', 'displayString', 'iconColor'],
+			data : createInData
+		};
 	},
 
 	/**

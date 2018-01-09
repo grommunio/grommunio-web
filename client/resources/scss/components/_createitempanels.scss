@@ -96,6 +96,7 @@
 	}
 
 	.k-subject-panel,
+	.k-createin-panel,
 	.k-location-panel {
 		padding: $padding-medium;
 		border-bottom: 1px solid $grey;
@@ -208,6 +209,22 @@
 		}
 	}
 }
+
+.k-createin-combo {
+	text-indent: 20px;
+	background-position-x: 6px;
+	background-position-y: 4px;
+	background-repeat: no-repeat;
+}
+
+.k-createin-combo-list-svg {
+	.x-combo-list-inner .x-combo-list-item svg {
+		position:relative;
+		top:2px;
+		right:5px;
+	}
+}
+
 
 .k-taskdetailtab {
 	> .x-panel-bwrap {
