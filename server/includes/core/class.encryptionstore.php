@@ -105,9 +105,14 @@ class EncryptionStore
 	 */
 	private function createEncryptionKey() {
 		EncryptionStore::$_encryptionKey = openssl_random_pseudo_bytes(openssl_cipher_iv_length(EncryptionStore::_CIPHER_METHOD));
-		
-		// Store it in the cookie (http-only)
-		setcookie('encryption-store-key', bin2hex(EncryptionStore::$_encryptionKey), 0, '/', '', isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] ? true : false, true);
+		$cookieName = 'encryption-store-key';
+		$secure = useSecureCookies();
+		if ($secure) {
+			$cookieName = '__Secure-'.$cookieName;
+		}
+		$path = ini_get('session.cookie_path');
+		$domain = ini_get('session.cookie_domain');
+		setcookie($cookieName, bin2hex(EncryptionStore::$_encryptionKey), 0, $path, $domain, $secure, true);
 	}
 	
 	/**
