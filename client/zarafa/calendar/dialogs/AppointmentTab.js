@@ -321,9 +321,14 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	createinPanel : function()
 	{
-		var createInStore = this.getCreateInStore();
+		//config options necessary to create store which feeds the data to create-in-combo.
+		const createInStore = {
+			xtype: 'jsonstore',
+			fields: ['entryid', 'store_entryid', 'displayString', 'iconColor'],
+			data : this.getCreateInData()
+		};
 
-		var tplString = '<tpl for=".">' +
+		const tplString = '<tpl for=".">' +
 			'<div class="x-combo-list-item">' +
 				'{[Zarafa.calendar.ui.IconCache.getCalendarSvgStructure(values.iconColor)]}' +
 				'{displayString}' +
@@ -356,6 +361,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				editable: false,
 				listeners: {
 					select: this.onCreateInSelect,
+					beforeexpand: this.onCreateInBeforeExpand,
 					collapse: this.setCursorPosition,
 					expand: this.setCursorPosition,
 					scope: this
@@ -784,9 +790,18 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		if (contentReset && this.comboCreateIn.isVisible()) {
-			this.comboCreateIn.setValue(record.get('parent_entryid'));
+			const model = container.getContextByName('calendar').model;
+			const selectedFolder = model.getFolder(record.get('parent_entryid'));
+			let folderToSelect;
 
-			var folderColor = this.getFolderColor(record.get('parent_entryid'));
+			if (Ext.isDefined(selectedFolder) && selectedFolder.isInDeletedItems()){
+				folderToSelect = model.defaultFolder.get('entryid');
+			} else {
+				folderToSelect = record.get('parent_entryid');
+			}
+
+			this.comboCreateIn.setValue(folderToSelect);
+			const folderColor = this.getFolderColor(folderToSelect);
 			this.comboCreateIn.el.setStyle('background-image', 'url(\'' + Zarafa.calendar.ui.IconCache.getCalendarSvgIcon(folderColor) + '\')');
 		}
 
@@ -1064,12 +1079,12 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
-	 * Helper function to return object containing config options necessary to create
-	 * store which feeds the data to create-in-combo.
-	 * This store holds all the calendar folders.
-	 * @return {Object} Config set to create store which has all calendar folders.
+	 * Helper function to return array containing options necessary to create
+	 * store which feeds the data to create-in-combo along with entryid of respective
+	 * calendar folder.
+	 * @return {Object} Config set which has all calendar folders.
 	 */
-	getCreateInStore : function()
+	getCreateInData : function()
 	{
 		var calendarFolders = container.getHierarchyStore().getByContainerClass('IPF.Appointment');
 		var createInData = [];
@@ -1094,11 +1109,22 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			});
 		}, this);
 
-		return {
-			xtype: 'jsonstore',
-			fields: ['entryid', 'store_entryid', 'displayString', 'iconColor'],
-			data : createInData
-		};
+		return createInData;
+	},
+
+	/**
+	 * Event handler which is fired before a combobox-list gets expanded.
+	 * This will update combobox-store according to the current calendar folders available.
+	 * @param {Ext.form.ComboBox} combo The combobox which was selected
+	 * @private
+	 */
+	onCreateInBeforeExpand : function(combo)
+	{
+		const createInStore = combo.store;
+		const readerData = createInStore.reader.readRecords(this.getCreateInData());
+		createInStore.removeAll();
+		createInStore.add(readerData.records);
+		createInStore.applySort();
 	},
 
 	/**
