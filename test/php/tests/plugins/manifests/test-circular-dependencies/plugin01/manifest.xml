@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>plugin01</name>
+		<title>Plugin 01</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.io</authorURL>
+		<description>Plugin #1</description>
+	</info>
+	<dependencies>
+		<depends type="depends">
+			<dependsname>plugin02</dependsname>
+		</depends>
+	</dependencies>
+	<components>
+		<component>
+			<files>
+				<client>
+					<clientfile load="release">js/p1-release-file.js</clientfile>
+					<clientfile load="debug">js/p1-debug-file.js</clientfile>
+					<clientfile load="source">js/p1-source-file.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>
