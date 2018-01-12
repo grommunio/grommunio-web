@@ -203,7 +203,7 @@ Zarafa.common.ui.IconClass = {
 			// and assignee declined task from latest webapp version in that case
 			// mail icon shows instead of decline task icon to avoid this we add below code.
 			// Note : In future we can remove this check.
-			if (messageClass.toUpperCase() === 'IPM.TASK' && !Ext.isEmpty(record.get('icon_index'))) {
+			if (messageClass && messageClass.toUpperCase() === 'IPM.TASK' && !Ext.isEmpty(record.get('icon_index'))) {
 				declinedTask = record.isTaskOrganized() && record.isTaskDeclined();
 			}
 		} else if (Ext.isObject(options)) {
