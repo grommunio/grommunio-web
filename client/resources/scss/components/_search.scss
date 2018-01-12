@@ -48,196 +48,114 @@
 			color: $kopano-blue;
 			cursor: pointer;
 		}
+		.x-grid3-td-name {
+			width: 0 !important;
+		}
+		.x-grid3-hd.x-grid3-cell.x-grid3-td-column_icon.x-grid3-cell-first {
+			width: 100% !important;
+		}
+	}
+
+	span.body{
+		opacity: 0.5;
+	}
+
+	span.subject {
+		/* some padding to have some space between the fields */
+		padding-right: $padding-extra-large;
+	}
+
+	.x-grid3-row-body-tr {
+		.zarafa-grid-body-container {
+			overflow: hidden;
+			word-wrap: break-word;
+
+			.grid_compact {
+				line-height: $font-line-height-mail-grid-compact;
+				min-height: $font-line-height-mail-grid-compact; /* we need this for when there is no title set */
+				max-height: $font-line-height-mail-grid-compact; /* added 1px because letters get cut off at the bottom otherwise */
+				padding-bottom: 1px;
+				padding-top: $padding-small + 1px;
+			}
+
+			.grid_compact_left {
+				padding-left: 36px;
+			}
+
+			.grid_compact_body {
+				color: $grid-subject-color;
+				overflow: hidden;
+				font-weight: normal;
+			}
+
+			.grid_compact_subject {
+				max-height: $font-line-height-mail-grid-compact;
+				overflow: hidden;
+			}
+
+			.k-folder-location-container {
+				@extend .k-category-container;
+				text-align: left !important;
+			}
+
+			.k-folder-location {
+				float: right;
+				width: 130px;
+			}
+
+			.k-folder-name {
+				padding: 0 $padding-medium;
+				line-height: $font-default-size + 2px;
+				margin-right: $padding-small;
+				margin-bottom: $padding-small;
+				display: inline-block;
+				font-weight: bold;
+			}
+
+			.k-category-container {
+				padding-top: $padding-medium;
+			}
+		}
 	}
 
 	.x-grid3-row {
 		border-left: none;
 		border-right: none;
 
-		.x-grid3-cell-inner {
-			padding: ($header-height - $font-default-line-height)/2 $padding-medium;
-		}
-
-		td {
-			line-height: $font-default-line-height;
-		}
-
-		/* let css take care of fields that are too long */
-		table.messageclass-data {
-			td,
-			td div.padding{
-				overflow: hidden;
-			}
-
-			td.icon{
-				width: 28px;
-			}
-			td.name{
-				width: 120px;
-				/* some padding to have some space between the fields */
-				padding-right: $padding-extra-large;
-			}
-			.subject{
-				/* some padding to have some space between the fields */
-				padding-right: $padding-extra-large;
-			}
-
-			td.subject-body {
-				padding-right: $padding-small;
-
-				span.body{
-					opacity: 0.5;
-				}
-			}
-
-			/* the icons */
-			.icon_message,
-			.icon_mail.icon_message_read {
-				@extend .icon_mail_read;
-				background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail.icon_message_unread {
-				@extend .icon_mail_unread;
-				background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 5, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_replied {
-				background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_single {
-				@extend .icon_calendar_mr;
-				background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 1, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail_stubbed {
-				background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: 2, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_forwarded {
-				background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail_oof {
-				background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: 2, $offset-x: $padding-medium - 3);
-			}
-			.icon_contact_user {
-				@extend .icon_contact_card;
-				background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_distlist {
-				@extend .icon_distlist;
-				background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_equipment {
-				background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: 4, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_gab_user {
-				@extend .icon_contact_smtp;
-				background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: 4, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_room {
-				background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: 2, $offset-x: $padding-medium + 1);
-			}
-			.icon_contact_company {
-				background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: 2, $offset-x: $padding-medium - 3);
-			}
-			.icon_appt_appointment {
-				@extend .icon_calendar_blue;
-				background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_recurring,
-			.icon_appt_recurring {
-				@extend .icon_calendar_appt_recurring;
-				background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_single {
-				@extend .icon_calendar_mr;
-				background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_accept {
-				@extend .icon_calendar_appt_accept;
-				background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_decline {
-				@extend .icon_appt_meeting_cancel;
-				background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_tentative {
-				@extend .icon_calendar_appt_tentative;
-				background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_newtime {
-				@extend .icon_calendar_appt_newtime;
-				background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_cancel {
-				background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-
-			.icon_appt_meeting_outofdate {
-				@extend .icon_calendar_appt_outofdate;
-				background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_task_normal,
-			.icon_task_recurring {
-				@extend .icon_task;
-				background-position: sprite-position($iconsmap, icon_task, $offset-y: 2, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_assignee,
-			.icon_task_assigner{
-				background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: 2, $offset-x: $padding-medium - 1);
-			}
-
-            .icon_task_request {
-              background-position: sprite-position($iconsmap, icon_task_request, $offset-y: 2, $offset-x: $padding-medium - 1);
-            }
-
-			.icon_task_declined {
-				background-position: sprite-position($iconsmap, icon_task_declined, $offset-y: 2, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_accepted {
-				background-position: sprite-position($iconsmap, icon_task_accepted, $offset-y: 2, $offset-x: $padding-medium - 1);
-			}
-			/* notes */
-			.icon_note_blue {
-				@extend .icon_note_blue;
-				background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_yellow {
-				@extend .icon_note_yellow;
-				background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_white {
-				@extend .icon_note_white;
-				background-position: sprite-position($iconsmap, icon_note_white, $offset-y: 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_pink {
-				@extend .icon_note_pink;
-				background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_green {
-				@extend .icon_note_green;
-				background-position: sprite-position($iconsmap, icon_note_green, $offset-y: 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_mail_nondelivery_receipt {
-				@extend .icon_mail_report_ndr;
-				background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 4, $offset-x: $padding-medium - 4);
-			}
-			.icon_mail_read_receipt {
-				@extend .icon_mail_report_accept;
-				background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: 4, $offset-x: $padding-medium - 4);
-			}
-			.icon_mail_nonread_receipt {
-				@extend .icon_mail_report_decline;
-				background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 4, $offset-x: $padding-medium - 4);
-			}
-
-
+		.icon_task_assigner{
+			background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1) !important;
 		}
 	}
 
 	.x-grid3-row.mail_unread {
 		td {
 			font-weight: bold;
+		}
+	}
+
+	.with-no-subject {
+		.grid_compact_body {
+			max-height: 2 * $font-line-height-mail-grid-compact !important;
+		}
+
+		.k-category {
+			float: right;
+			display: flex;
+			flex-direction: row-reverse;
+			.k-category-container {
+				max-width: none !important;
+			}
+		}
+
+		.k-right-column {
+			float: right;
+			display: flex;
+			flex-direction: column;
+			max-width: 50%;
+		}
+
+		.k-folder-location-row{
+			float: right;
 		}
 	}
 }

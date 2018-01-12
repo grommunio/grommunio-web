@@ -145,13 +145,8 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	displayName : function(value, p, record)
 	{
-		var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record);
-		var presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
-
-		return '<span class="zarafa-presence-status '+Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus)+'">' +
-				'<span class="zarafa-presence-status-icon"></span>' +
-				Zarafa.common.ui.grid.Renderers.name(value, p, record) +
-				'</span>';
+		var userName = Zarafa.common.ui.grid.Renderers.name(value, p, record);
+		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, record);
 	},
 
 	/**
@@ -165,7 +160,6 @@ Zarafa.common.ui.grid.Renderers = {
 	sender : function(value, p, record)
 	{
 		var userRecord = false;
-		var presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
 		// Check which of the 2 properties must be used
 		// FIXME: sent representing seems to be always set...
 		value = record.get('sent_representing_name');
@@ -176,15 +170,8 @@ Zarafa.common.ui.grid.Renderers = {
 			userRecord = record.getSentRepresenting();
 		}
 
-		if (userRecord !== false) {
-			var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(userRecord);
-			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
-		}
-
-		return '<span class="zarafa-presence-status '+Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus)+'">' +
-					'<span class="zarafa-presence-status-icon"></span>' +
-					Zarafa.common.ui.grid.Renderers.name(value, p, record) +
-				'</span>';
+		var userName = Zarafa.common.ui.grid.Renderers.name(value, p, record);
+		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
 	},
 
 	/**
@@ -695,82 +682,21 @@ Zarafa.common.ui.grid.Renderers = {
 	},
 
 	/**
-	 * Render the name, subject and body information of record
+	 * Render the presence status of user along with user name.
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
 	 * @return {String} The formatted string
 	 */
-	dataColumn : function(value, p, record)
+	presenceStatus: function (value, p, record)
 	{
-		p.css = 'search-data';
-
-		if(Ext.isEmpty(value)) {
-			// if value is empty then add extra css class for empty cell
-			p.css += ' zarafa-grid-empty-cell';
+		var presenceStatus = Zarafa.core.data.PresenceStatus.UNKNOWN;
+		if (record !== false) {
+			var user = Zarafa.core.data.UserIdObjectFactory.createFromRecord(record);
+			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
 		}
-
-		var messageClass = record.get('message_class');
-		//TODO: give these variables better names
-		var name = '';
-		var subject = '';
-		var body = '';
-
-		switch (messageClass) {
-			case 'IPM.Contact':
-			case 'IPM.DistList':
-				name = Ext.util.Format.htmlEncode(record.get('display_name'));
-				subject = Ext.util.Format.htmlEncode(record.get('fileas'));
-				//TODO: try to get an emailadress from other fields if this field is empty
-				body = Ext.util.Format.htmlEncode(record.get('email_address_1'));
-				break;
-			case 'IPM.Task':
-				name = Ext.util.Format.htmlEncode(record.get('subject'));
-				body = Ext.util.Format.htmlEncode(record.get('body'));
-				break;
-			case 'IPM.StickyNote':
-				name = Ext.util.Format.htmlEncode(record.get('subject'));
-				subject = Ext.util.Format.htmlEncode(record.get('body'));
-				break;
-			default:
-			//case 'IPM.Note':
-			//case 'IPM.Appointment':
-			//case 'IPM.Schedule':
-				name = Zarafa.common.ui.grid.Renderers.sender(value, p, record);
-				subject = Ext.util.Format.htmlEncode(record.get('subject'));
-				body = Ext.util.Format.htmlEncode(record.get('body'));
-				break;
-		}
-		return ''+
-			'<table cellpadding=0 cellspacing=0 style="width:100%" class="messageclass-data mc-'+messageClass.toLowerCase().replace('.', '')+'">' +
-				'<tr>' +
-					'<td class="x-grid3-col x-grid3-cell x-grid3-td-0 icon ' + Zarafa.common.ui.IconClass.getIconClass(record) + '"></td>' +
-					'<td class="name"><div class="padding">' + name + '</div></td>' +
-					'<td class="subject-body"><div class="padding">' + ( subject ? '<span class="subject">'+subject+'</span>' : '' ) + ( body ? '<span class="body">'+body+'</span>' : '' ) + '</div></td>' +
-				'</tr>' +
-			'</table>';
-	},
-
-	/**
-	 * Render the date field and attachment icon if record contains attachment.
-	 *
-	 * @param {Object} value The data value for the cell.
-	 * @param {Object} p An object with metadata
-	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
-	 * @return {String} The formatted string
-	 */
-	dateColumn : function(value, p, record)
-	{
-		p.css = 'search-date';
-
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		var date = Ext.isDate(value) ? value.format(_('d/m/Y')) : '';
-
-		// TODO: make insertionpoint for other icons (reuse mail grid insertionpoint???)
-		return '<table cellpadding=0 cellspacing=0 style="width:100%"><tr>' +
-					'<td class="date"><div>' + date + '</div></td>' +
-					( record.get('hasattach') ? '<td class="icon_attachment" style="width:22px"></td>' : '' ) +
-				'</tr></table>';
+		return '<span class="zarafa-presence-status ' + Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus) + '">' +
+			'<span class="zarafa-presence-status-icon"></span>' + Ext.util.Format.htmlEncode(value) + '</span>';
 	}
 };
