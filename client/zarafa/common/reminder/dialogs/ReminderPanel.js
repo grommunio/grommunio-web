@@ -20,7 +20,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 	activeReminderTemplate :
 		'<tpl>' +
 			'<div>'+
-				'<span class="zarafa-reminder-dialog-active-reminder-icon {[Zarafa.common.ui.IconClass.getIconClassFromMessageClass(false, values.message_class, values)]}"></span>'+
+				'<span class="zarafa-reminder-dialog-active-reminder-icon {[Zarafa.common.ui.IconClass.getIconClass(values.record)]}"></span>'+
 				'<span class="zarafa-reminder-dialog-active-reminder-subject">' +
 					'<tpl if="!Ext.isEmpty(values.subject)">' +
 						// @FIXME this should be changed to truncate strings based on dialog width
@@ -272,7 +272,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 
 		if (selections.length == 1) {
 			var data = selections[0].data;
-			data.reminderRecord = true;
+			data.record = selections[0];
 			this.activeReminderTemplate.overwrite(el.dom , data);
 		} else {
 			el.createChild({

@@ -174,17 +174,18 @@ Zarafa.common.ui.IconClass = {
 	 * Function will first check for icon from icon_index, if icon_index is not found
 	 * It will generate icon_class from the message_class and will return it.
 	 * @param {Zarafa.core.data.IPMRecord} message The mapi message record.
-	 * @param {String} messageClass (optional) The message class for the message,
 	 * if not provided, the message_class property from the record will be used.
-	 * @param {Object} options (optional) The options which contains optional information
-	 * about given record.
 	 * @return {String} icon class.
+	 * @private
 	 */
-	getIconClassFromMessageClass : function(record, messageClass, options)
+	getIconClassFromMessageClass : function(record)
 	{
 		var recurring = false;
 		var counter_proposal = false;
 		var declinedTask = false;
+		var messageClass = record.get('message_class') || '';
+		messageClass = messageClass.toUpperCase();
+
 		if (record) {
 			// If the message is a stub, then we always return the stubbed
 			// icon regardless of the actual type of the message.
@@ -195,72 +196,52 @@ Zarafa.common.ui.IconClass = {
 			// Check if the message is recurring.
 			recurring = Ext.isFunction(record.isRecurring) && record.isRecurring();
 			counter_proposal = record.get('counter_proposal');
-			// Check if the message class was provided,
-			// use the message_class property otherwise.
-			messageClass = messageClass || record.get('message_class');
 
 			// If Assigner sent task request using older webapp version then KW-1283
 			// and assignee declined task from latest webapp version in that case
 			// mail icon shows instead of decline task icon to avoid this we add below code.
 			// Note : In future we can remove this check.
-			if (messageClass && messageClass.toUpperCase() === 'IPM.TASK' && !Ext.isEmpty(record.get('icon_index'))) {
+			if (messageClass === 'IPM.TASK' && !Ext.isEmpty(record.get('icon_index'))) {
 				declinedTask = record.isTaskOrganized() && record.isTaskDeclined();
 			}
-		} else if (Ext.isObject(options)) {
-			messageClass = messageClass.toUpperCase();
-			if (messageClass === 'IPM.TASK') {
-				var iconCls = Zarafa.core.mapi.IconIndex.getClassName(options.icon_index);
-				if (!Ext.isEmpty(iconCls)) {
-					return iconCls;
-				}
-			}
-
-			if (messageClass === 'IPM.NOTE' && Ext.isDefined(options.reminderRecord)) {
-				return 'icon_mail_read';
-			}
 		}
 
-		if (messageClass) {
-			// Ensure case-insensitive comparison
-			messageClass = messageClass.toUpperCase();
+		var mapping = {
+			'IPM.APPOINTMENT'			: 'icon_appt_appointment',
+			'IPM.TASK'                  : declinedTask ? 'icon_task_declined' : 'icon_task_normal',
+			'IPM.TASKREQUEST'			: 'icon_task_request',
+			'IPM.TASKREQUEST.DECLINE'	: 'icon_task_declined',
+			'IPM.TASKREQUEST.ACCEPT'	: 'icon_task_accepted',
+			'IPM.STICKYNOTE'			: 'icon_note_yellow',
+			'IPM.CONTACT'				: 'icon_contact_user',
+			'IPM.DISTLIST'				: 'icon_contact_distlist',
+			'IPM.DISTLIST.ORGANIZATION'		: 'icon_contact_distlist_organization',
+			'IPM.SCHEDULE.MEETING.REQUEST'		: recurring ? 'icon_appt_meeting_recurring' : 'icon_appt_meeting_single',
+			'IPM.SCHEDULE.MEETING.RESP.POS'		: 'icon_appt_meeting_accept',
+			'IPM.SCHEDULE.MEETING.RESP.TENT'	: counter_proposal ? 'icon_appt_meeting_newtime' : 'icon_appt_meeting_tentative',
+			'IPM.SCHEDULE.MEETING.RESP.NEG'		: 'icon_appt_meeting_decline',
+			'IPM.SCHEDULE.MEETING.CANCELED'		: 'icon_appt_meeting_cancel',
+			'IPM.NOTE'				: 'icon_mail',
+			'REPORT.IPM.NOTE.IPNRN'			: 'icon_mail_read_receipt',
+			'REPORT.IPM.NOTE.IPNNRN'		: 'icon_mail_nonread_receipt',
+			'REPORT.IPM.NOTE.DR'			: 'icon_mail_delivery_receipt',
+			'REPORT.IPM.NOTE.NDR'			: 'icon_mail_nondelivery_receipt',
+			'IPM.NOTE.STORAGEQUOTAWARNING'		: 'icon_mail icon_message_unread'
+		};
 
-			var mapping = {
-				'IPM.APPOINTMENT'			: 'icon_appt_appointment',
-				'IPM.TASK'                  : declinedTask ? 'icon_task_declined' : 'icon_task_normal',
-				'IPM.TASKREQUEST'			: 'icon_task_request',
-				'IPM.TASKREQUEST.DECLINE'	: 'icon_task_declined',
-				'IPM.TASKREQUEST.ACCEPT'	: 'icon_task_accepted',
-				'IPM.STICKYNOTE'			: 'icon_note_yellow',
-				'IPM.CONTACT'				: 'icon_contact_user',
-				'IPM.DISTLIST'				: 'icon_contact_distlist',
-				'IPM.DISTLIST.ORGANIZATION'		: 'icon_contact_distlist_organization',
-				'IPM.SCHEDULE.MEETING.REQUEST'		: recurring ? 'icon_appt_meeting_recurring' : 'icon_appt_meeting_single',
-				'IPM.SCHEDULE.MEETING.RESP.POS'		: 'icon_appt_meeting_accept',
-				'IPM.SCHEDULE.MEETING.RESP.TENT'	: counter_proposal ? 'icon_appt_meeting_newtime' : 'icon_appt_meeting_tentative',
-				'IPM.SCHEDULE.MEETING.RESP.NEG'		: 'icon_appt_meeting_decline',
-				'IPM.SCHEDULE.MEETING.CANCELED'		: 'icon_appt_meeting_cancel',
-				'IPM.NOTE'				: 'icon_mail',
-				'REPORT.IPM.NOTE.IPNRN'			: 'icon_mail_read_receipt',
-				'REPORT.IPM.NOTE.IPNNRN'		: 'icon_mail_nonread_receipt',
-				'REPORT.IPM.NOTE.DR'			: 'icon_mail_delivery_receipt',
-				'REPORT.IPM.NOTE.NDR'			: 'icon_mail_nondelivery_receipt',
-				'IPM.NOTE.STORAGEQUOTAWARNING'		: 'icon_mail icon_message_unread'
-			};
+		do {
+			var iconClass = mapping[messageClass];
+			if (!Ext.isEmpty(iconClass)) {
+				return iconClass;
+			}
 
-			do {
-				var iconClass = mapping[messageClass];
-				if (!Ext.isEmpty(iconClass)) {
-					return iconClass;
-				}
+			var index = messageClass.lastIndexOf('.');
+			if (index <= 0) {
+				break;
+			}
 
-				var index = messageClass.lastIndexOf('.');
-				if (index <= 0) {
-					break;
-				}
-
-				messageClass = messageClass.substr(0, index);
-			} while (true);
-		}
+			messageClass = messageClass.substr(0, index);
+		} while (true);
 
 		// No, or unknown, messageClass defined, return default icon.
 		return 'icon_message';
