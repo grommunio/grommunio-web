@@ -117,18 +117,40 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	{
 		var iframeWindow = this.getEl().dom.contentWindow;
 		var iframeDocument = iframeWindow.document;
+		var eventsToRelay = ['mousedown'];
+		if (Zarafa.isDeskApp) {
+			eventsToRelay.push('wheel', 'keydown');
+		}
 
-		iframeDocument.addEventListener('mousedown', this.onMouseDown.createDelegate(this), true);
+		// mousedown needs to be relayed to hide contextmenu.
+		// keydown and wheel needs to be relayed to perform zoom functionality in DeskApp.
+		this.relayIframeEvent(iframeDocument, eventsToRelay);
 	},
 
 	/**
-	 * Function is called when mouse is clicked in the editor.
-	 * iframe mousedown event needs to be relayed for the document element of WebApp page,
-	 * to hide the context-menu.
+	 * Helper function to add event listeners to the given iframe element for given
+	 * events with common handler.
+	 * @param {HTMLElement} iframeElement The iframe node to which given events needs
+	 * to be listened.
+	 * @param {Array} events The set of events for which listeners should be attached
+	 * to given iframe.
 	 */
-	onMouseDown : function()
+	relayIframeEvent : function(iframeElement, events)
 	{
-		Ext.getDoc().fireEvent('mousedown');
+		events.forEach(function(event){
+			iframeElement.addEventListener(event, this.relayEventHandlers.createDelegate(this), true);
+		}, this);
+	},
+
+	/**
+	 * Function is called when specified events performed in the iframe.
+	 * Basically this function relay those events to document element
+	 * belongs to WebApp window.
+	 * @param {Object} event The event object
+	 */
+	relayEventHandlers : function(event)
+	{
+		Ext.getDoc().fireEvent(event.type, event);
 	},
 
 	/**
