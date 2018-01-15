@@ -90,5 +90,5 @@
 
     // Custom Globals
     "globals"       : {},        // additional predefined global variables
-    "predef" : [ "Ext", "Zarafa", "container", "dgettext", "pgettext", "_", "npgettext", "ngettext" ,"settings", "serverconfig", "user", "version", "languages", "urlActionData", "resizeLoginBox"]
+    "predef" : [ "Ext", "Zarafa", "container", "dgettext", "pgettext", "_", "npgettext", "ngettext" ,"settings", "serverconfig", "user", "version", "languages", "urlActionData", "resizeLoginBox", "expect"]
 }
