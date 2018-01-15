@@ -3042,11 +3042,7 @@
 				$deleted = $attachment_state->getDeletedAttachments($attachments['dialog_attachments']);
 				if ($deleted) {
 					foreach ($deleted as $attach_num) {
-						try {
-							mapi_message_deleteattach($message, (int) $attach_num);
-						} catch (Exception $e) {
-							continue;
-						}
+						mapi_message_deleteattach($message, (int) $attach_num);
 					}
 					$attachment_state->clearDeletedAttachments($attachments['dialog_attachments']);
 				}
@@ -3102,7 +3098,6 @@
 
 						// get message and copy it to attachment table as embedded attachment
 						$props = array();
-						$props[PR_EC_WA_ATTACHMENT_ID] = $fileinfo['attach_id'];
 						$props[PR_ATTACH_METHOD] = ATTACH_EMBEDDED_MSG;
 						$props[PR_DISPLAY_NAME] = !empty($msgProps[PR_SUBJECT]) ? $msgProps[PR_SUBJECT] : _('Untitled');
 
@@ -3145,8 +3140,7 @@
 								PR_ATTACH_METHOD => ATTACH_BY_VALUE,
 								PR_ATTACH_DATA_BIN => "",
 								PR_ATTACH_MIME_TAG => $mimeType,
-								PR_ATTACHMENT_HIDDEN => !empty($cid) ? true : false,
-								PR_EC_WA_ATTACHMENT_ID => $fileinfo["attach_id"]
+								PR_ATTACHMENT_HIDDEN => !empty($cid) ? true : false
 							);
 
 							if(isset($fileinfo['sourcetype']) && $fileinfo['sourcetype'] === 'contactphoto') {
@@ -3355,7 +3349,7 @@
 				$attachments = mapi_table_queryallrows($attachmentTable, array(PR_ATTACH_NUM, PR_ATTACH_SIZE, PR_ATTACH_LONG_FILENAME,
 																			PR_ATTACH_FILENAME, PR_ATTACHMENT_HIDDEN, PR_DISPLAY_NAME, PR_ATTACH_METHOD,
 																			PR_ATTACH_CONTENT_ID, PR_ATTACH_MIME_TAG,
-																			PR_ATTACHMENT_CONTACTPHOTO, PR_RECORD_KEY, PR_EC_WA_ATTACHMENT_ID, PR_OBJECT_TYPE));
+																			PR_ATTACHMENT_CONTACTPHOTO, PR_OBJECT_TYPE));
 				foreach($attachments as $attachmentRow) {
 					$props = array();
 
@@ -3372,7 +3366,6 @@
 					}
 
 					$props["object_type"] = $attachmentRow[PR_OBJECT_TYPE];
-					$props["attach_id"] = isset($attachmentRow[PR_EC_WA_ATTACHMENT_ID]) ? $attachmentRow[PR_EC_WA_ATTACHMENT_ID] : bin2hex($attachmentRow[PR_RECORD_KEY]);
 					$props["attach_num"] = $attachmentRow[PR_ATTACH_NUM];
 					$props["attach_method"] = $attachmentRow[PR_ATTACH_METHOD];
 					$props["size"] = $attachmentRow[PR_ATTACH_SIZE];

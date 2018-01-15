@@ -22,7 +22,6 @@ Zarafa.core.data.IPMAttachmentRecordFields = [
 	{name: 'attach_message_class', type: 'string', defaultValue: 'IPM.Note'},
 	{name: 'size', type: 'int', defaultValue: 0},
 	{name: 'cid'},
-	{name: 'attach_id'},
 	{name: 'filetype'},
 	{name: 'hidden', type: 'boolean', defaultValue: false},
 	{name: 'name', type: 'string', defaultValue: _('Untitled')},

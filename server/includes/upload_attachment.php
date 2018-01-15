@@ -17,6 +17,8 @@
 	}	
 
 	try {
+		$newfiles = Array();
+
 		// Check if dialog_attachments is set
 		if(isset($_REQUEST['dialog_attachments'])) {
 			// Check if attachments have been uploaded
@@ -64,24 +66,23 @@
 					// set sourcetype as default if sourcetype is unset.
 					$sourcetype = isset($_POST['sourcetype']) ? $_POST['sourcetype'] : 'default';
 
-					$attachID = uniqid();
 					// Move the uploaded file into the attachment state
-					$attachTempName = $attachment_state->addUploadedAttachmentFile($_REQUEST['dialog_attachments'], $filename, $FILE['tmp_name'], array(
+					$attachid = $attachment_state->addUploadedAttachmentFile($_REQUEST['dialog_attachments'], $filename, $FILE['tmp_name'], array(
 						'name'       => $filename,
 						'size'       => $FILE['size'],
 						'type'       => $FILE['type'],
-						'sourcetype' => $sourcetype,
-						'attach_id'  => $attachID
+						'sourcetype' => $sourcetype
 					));
+
+					$newfiles[] = $attachid;
 
 					// Allow hooking in to handle uploads in plugins
 					$GLOBALS['PluginManager']->triggerHook('server.upload_attachment.upload', array(
-						'tmpname'  => $attachment_state->getAttachmentPath($attachTempName),
+						'tmpname'  => $attachment_state->getAttachmentPath($attachid),
 						'name' => $filename,
 						'size' => $FILE['size'],
 						'sourcetype' => $sourcetype,
-						'returnfiles' =>& $returnfiles,
-						'attach_id'   => $attachID
+						'returnfiles' =>& $returnfiles
 					));
 
 					if($sourcetype === 'contactphoto') {
@@ -89,8 +90,7 @@
 							'props' => Array(
 								'attach_num' => -1,
 								'attachment_contactphoto' => true,
-								'tmpname' => $attachTempName,
-								'attach_id' => $attachID,
+								'tmpname' => $attachid,
 								'name' => $filename,
 								'size' => $FILE['size']
 							)
@@ -99,8 +99,7 @@
 						$returnfiles[] = Array(
 							'props' => Array(
 								'attach_num' => -1,
-								'tmpname' => $attachTempName,
-								'attach_id' => $attachID,
+								'tmpname' => $attachid,
 								'name' => $filename,
 								'size' => $FILE['size']
 							)
@@ -154,20 +153,17 @@
 
 				echo json_encode($return);
 			} else if (isset($_POST['entryid'])) {	// Check for adding of embedded attachments
-				$attachID = uniqid();
-				$attachTampName = $attachment_state->addEmbeddedAttachment($_REQUEST['dialog_attachments'], array(
+				$attachid = $attachment_state->addEmbeddedAttachment($_REQUEST['dialog_attachments'], array(
 					'entryid' => sanitizePostValue('entryid', '', ID_REGEX),
 					'store_entryid' => sanitizePostValue('store_entryid', '', ID_REGEX),
 					// indicate that this is actually an embedded attachment
-					'sourcetype' => 'embedded',
-					'attach_id' => $attachID,
+					'sourcetype' => 'embedded'
 				));
 
 				$returnfiles[] = Array(
 					'props' => Array(
 						'attach_num' => -1,
-						'tmpname' => $attachTampName,
-						'attach_id' => $attachID,
+						'tmpname' => $attachid,
 						// we are not using this data here, so we can safely use $_POST directly without any sanitization
 						// this is only needed to identify response for a particular attachment record on client side
 						'name' => $_POST['name']
