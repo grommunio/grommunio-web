@@ -69,6 +69,13 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	dropZone : undefined,
 
 	/**
+	 * @cfg {Number} The length of time in milliseconds to delay between
+	 * the start of typing and sending the query to filter the dropdown
+	 * list
+	 */
+	queryDelay: 250,
+
+	/**
 	 * @constructor
 	 * @param config Configuration object
 	 */
