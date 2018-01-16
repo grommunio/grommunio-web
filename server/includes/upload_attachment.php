@@ -105,6 +105,12 @@
 								'size' => $FILE['size']
 							)
 						);
+					} else {
+						// Backwards compatibility for Plugins (S/MIME)
+						$lastKey = count($returnfiles) - 1;
+						if ($lastKey >= 0) {
+							$returnfiles[$lastKey]['props']['attach_id'] = $attachID;
+						}
 					}
 				}
 
