@@ -139,7 +139,7 @@
 					if($this->reopenStore) {
 						// @FIXME this actually very heavy operation for performance point of view
 						// we need to remove this in future
-						$store = mapi_openmsgstore($GLOBALS["mapisession"]->getSession(), $GLOBALS["mapisession"]->defaultstore);
+						$store = $GLOBALS["mapisession"]->getDefaultMessageStore(true);
 					} else {
 						$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 					}

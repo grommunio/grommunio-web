@@ -28,9 +28,8 @@
 
 		/**
 		 * @var string The entryid (binary) of the default store
-		 * FIXME:  public since class.hierarchynotifier re-opens the store which needs to be fixed.
 		 */
-		public $defaultstore;
+		private $defaultstore;
 
 		/**
 		 * @var string The entryid (binary) of the public store
@@ -413,21 +412,17 @@
 		 */
 		function loadMessageStoresFromSession()
 		{
-			if(!$this->defaultstore && !$this->publicStore){
-				$storestables = mapi_getmsgstorestable($this->session);
-				$rows = mapi_table_queryallrows($storestables, array(PR_ENTRYID, PR_DEFAULT_STORE, PR_MDB_PROVIDER));
-				foreach($rows as $row) {
-					$name = '';
-					if($row[PR_ENTRYID]){
-						if(isset($row[PR_DEFAULT_STORE]) && $row[PR_DEFAULT_STORE] == true) {
-							$this->defaultstore = $row[PR_ENTRYID];
-							$name = 'Default store';
-						}elseif($row[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID){
-							$this->publicStore = $row[PR_ENTRYID];
-							$name = 'Public store';
-						}
-					}
-					$this->openMessageStore($row[PR_ENTRYID], $name);
+			$storestables = mapi_getmsgstorestable($this->session);
+			$rows = mapi_table_queryallrows($storestables, array(PR_ENTRYID, PR_DEFAULT_STORE, PR_MDB_PROVIDER));
+			foreach($rows as $row) {
+				if (!$row[PR_ENTRYID]) {
+					continue;
+				}
+
+				if (isset($row[PR_DEFAULT_STORE]) && $row[PR_DEFAULT_STORE] == true) {
+					$this->defaultStore = $row[PR_ENTRYID];
+				} elseif ($row[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID) {
+					$this->publicStore = $row[PR_ENTRYID];
 				}
 			}
 		}
@@ -436,18 +431,31 @@
 		 * Get the current user's default message store
 		 *
 		 * The store is opened only once, subsequent calls will return the previous store object
+		 * @param boolean reopen force re-open
 		 * @return mapistore User's default message store object
 		 */
-		function getDefaultMessageStore()
+		function getDefaultMessageStore($reopen = False)
 		{
-			$this->loadMessageStoresFromSession();
-
 			// Return cached default store if we have one
-			if(isset($this->defaultstore) && isset($this->stores[$this->defaultstore])) {
+			if (!$reopen && isset($this->defaultstore) && isset($this->stores[$this->defaultstore])) {
 				return $this->stores[$this->defaultstore];
-			}else{
-				return false;
 			}
+
+			$this->loadMessageStoresFromSession();
+			return $this->openMessageStore($this->defaultStore, 'Default store');
+		}
+
+		/**
+		 * The default messagestore entryid
+		 * @return string the entryid of the default messagestore
+		 */
+		function getDefaultMessageStoreEntryId()
+		{
+			if (!isset($this->defaultStore)) {
+				$this->loadMessageStoresFromSession();
+			}
+
+			return bin2hex($this->defaultStore);
 		}
 
 		/**
@@ -487,14 +495,13 @@
 		 */
 		function getPublicMessageStore()
 		{
-			$this->loadMessageStoresFromSession();
-
 			// Return cached public store if we have one
 			if(isset($this->publicStore) && isset($this->stores[$this->publicStore])) {
 				return $this->stores[$this->publicStore];
-			}else{
-				return false;
 			}
+
+			$this->loadMessageStoresFromSession();
+			return $this->openMessageStore($this->publicStore, 'Public store');
 		}
 
 		/**
@@ -504,7 +511,8 @@
 		 */
 		function getAllMessageStores()
 		{
-			$this->loadMessageStoresFromSession();
+			$this->getDefaultMessageStore();
+			$this->getPublicMessageStore();
 			$this->getArchivedStores($this->getUserEntryID());
 			// The cache now contains all the stores in our profile. Next, add the stores
 			// for other users.
