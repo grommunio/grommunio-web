@@ -1,5 +1,5 @@
 /*
- * This file contains the unit tests for the the Zarafa.common.categories.data.CategoriesStore class.
+ * This file contains the unit tests for the Zarafa.common.categories.data.CategoriesStore class.
  * The following methods of the class are tested:
  * - Zarafa.common.categories.data.CategoriesStore.addCategoriesFromMapiRecords
  * - Zarafa.common.categories.data.CategoriesStore.addCategory

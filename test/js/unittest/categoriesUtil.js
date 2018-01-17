@@ -1,5 +1,5 @@
 /*
- * This file contains the unit tests for the the Zarafa.common.categories.Util object.
+ * This file contains the unit tests for the Zarafa.common.categories.Util object.
  * The following methods of the object are tested:
  * - Zarafa.common.categories.Util.loadCategoriesStore
  * - Zarafa.common.categories.Util.getCategories
@@ -312,8 +312,8 @@ describe('Zarafa.common.categories.Util', function() {
             expect(categories.some(c => c==='Orange')).toBeFalsy();
 
             expect(records[0].get('flag_request')).toEqual('Follow up');
-            expect(records[0].get('startdate')).toEqual(undefined);
-            expect(records[0].get('duedate')).toEqual(undefined);
+            expect(records[0].get('startdate')).toEqual(null);
+            expect(records[0].get('duedate')).toEqual(null);
         });
 
         it('should remove an old style label when the corresponding category is removed', function(){
