@@ -43,10 +43,10 @@
 					<h1><?php echo _("Welcome"); ?></h1>
 					<form action="<?php echo $url ?>" method="post">
 						<label for="username"><?php echo _("Username"); ?></label>
-						<input type="text" name="username" id="username" value="<?php echo $user; ?>">
+						<input type="text" name="username" id="username" value="<?php echo $user; ?>" required>
 
 						<label for="password"><?php echo _("Password"); ?></label>
-						<input type="password" name="password" id="password">
+						<input type="password" name="password" id="password" required>
 
 						<?php if ( isset($error) ) { ?>
 						<div id="error"><?php echo $error; ?></div>
