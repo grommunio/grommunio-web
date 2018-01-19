@@ -116,59 +116,7 @@ body.login,
 			height: 61px;
 			margin: 71px 0 15px;
 		}
-
-		label {
-			display: block;
-			margin-bottom: 0.5em;
-		}
-		input[type="text"],
-		input[type="password"] {
-			display: block;
-			width: 245 - 2* $padding-medium - 2;
-			background: white !important;
-			border: 1px solid $grey;
-			padding: 0 $padding-medium;
-			margin-bottom: 15px;
-			height: 24px;
-		}
-		input:-webkit-autofill {
-			-webkit-box-shadow: 0 0 0px 1000px white inset;
-		}
-		input:focus {
-			outline:0;
-			border-color: $sky-blue;
-		}
-
-		#password {
-			margin-bottom: 8px;
-		}
-
-		#error {
-			color: #e40023;
-		}
-
-		#submitbutton {
-			background: $kopano-blue;
-			color: white;
-			height: 24px;
-			line-height: 24px;
-			border: 1px solid transparent;
-			padding: 0 $padding-large;
-			min-width: 84px;
-			margin: 12px 0 0;
-			box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
-		}
-		#submitbutton:hover {
-			background-color: $kopano-blue-hover;
-		}
-		#submitbutton:click {
-			background-color: $kopano-blue-active;
-		}
-		#submitbutton:focus {
-			box-shadow: 0 0 0 1px $white inset;
-		}
 	}
-
 
 	#form-container.loading {
 		visibility: visible;
@@ -180,8 +128,62 @@ body.login,
 			background: url(../../images/loading_m.png) no-repeat center center;
 			animation: rotate 1.3s 0s infinite ease;
 		}
+	}
+}
 
 
+body.login > #form-container {
+	label {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+	input[type="text"],
+	input[type="password"] {
+		display: block;
+		width: 245 - 2* $padding-medium - 2;
+		background: white !important;
+		border: 1px solid $grey;
+		padding: 0 $padding-medium;
+		margin-bottom: 15px;
+		height: 24px;
+	}
+
+	input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0px 1000px white inset;
+	}
+
+	input:focus {
+		outline:0;
+		border-color: $sky-blue;
+	}
+
+	#password {
+		margin-bottom: 8px;
+	}
+
+	#error {
+		color: #e40023;
+	}
+
+	#submitbutton {
+		background: $kopano-blue;
+		color: white;
+		height: 24px;
+		line-height: 24px;
+		border: 1px solid transparent;
+		padding: 0 $padding-large;
+		min-width: 84px;
+		margin: 12px 0 0;
+		box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
+	}
+	#submitbutton:hover {
+		background-color: $kopano-blue-hover;
+	}
+	#submitbutton:click {
+		background-color: $kopano-blue-active;
+	}
+	#submitbutton:focus {
+		box-shadow: 0 0 0 1px $white inset;
 	}
 }
 
@@ -191,4 +193,3 @@ body.login.MSIE10 #bg,
 body.login.MSIE11 #bg{
 	background-image: url(../../images/loginbg_daybreak_blurred.jpg);
 }
-
