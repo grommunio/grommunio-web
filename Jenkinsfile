@@ -31,13 +31,23 @@ pipeline {
 					}
 				}
 			}
+		}	
+		stage('JS Coverage') {
+			when {
+				branch 'master'
+			}
+			steps {
+				sh 'CHROME_BIN=chromium-browser npm run jsunit -- --reporters coverage'
+				cobertura coberturaReportFile: 'test/js/coverage/cobertura.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 10, methodCoverageTargets: '80, 0, 0'
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/js/coverage/report-html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+			}
 		}
+
 	}
 	post {
 		always {
 			checkstyle canRunOnFailed: true, canComputeNew: false, pattern: 'jshint.xml'
 			junit 'test/js/result/**/unit.xml'
 		}
-
 	}
 }
