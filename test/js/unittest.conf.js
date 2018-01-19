@@ -42,7 +42,7 @@ module.exports = function(config) {
 
     singleRun: true,
 
-    browserNoActivityTimeout: 8500,
+    browserNoActivityTimeout: 15000,
 
     customLaunchers: {
       ChromeNoSandbox: {
