@@ -260,16 +260,19 @@
 
 	/**
 	 * This function will encode the input string for the header based on the browser that makes the
-	 * HTTP request. MSIE has an issue with unicode filenames. All browsers do not seem to follow
-	 * the RFC specification. Firefox requires an unencoded string in the HTTP header. MSIE will
+	 * HTTP request. MSIE and Edge has an issue with unicode filenames. All browsers do not seem to follow
+	 * the RFC specification. Firefox requires an unencoded string in the HTTP header. MSIE and Edge will
 	 * break on this and requires encoding.
 	 * @param String $input Unencoded string
 	 * @return String Encoded string
 	 */
-	function browserDependingHTTPHeaderEncode($input){
-		if(strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') === false){
+	function browserDependingHTTPHeaderEncode($input)
+	{
+		$isIE11 = strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false;
+		$isEdge = strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== false;
+		if(!$isIE11 && !$isEdge) {
 			return $input;
-		}else{
+		} else {
 			return rawurlencode($input);
 		}
 	}
