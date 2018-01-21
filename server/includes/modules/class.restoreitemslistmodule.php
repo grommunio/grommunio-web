@@ -207,7 +207,7 @@
 				if($e->getCode() == MAPI_E_COLLISION) {
 					$folder = mapi_msgstore_openentry($store, $folderentryid, SHOW_SOFT_DELETES);
 					$folderNameProps = mapi_getprops($folder, array(PR_DISPLAY_NAME));
-					$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $sfolder, $folderNameProps[PR_DISPLAY_NAME]);
+					$foldername = $GLOBALS["operations"]->getUniqueFolderName($sfolder, $folderNameProps[PR_DISPLAY_NAME]);
 					mapi_folder_copyfolder($sfolder, $folderentryid, $sfolder, $foldername, FOLDER_MOVE);
 				} else {
 					// all other errors should be propagated to higher level exception handlers
