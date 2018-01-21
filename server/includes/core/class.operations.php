@@ -1350,7 +1350,7 @@
 								$result = true;
 							} catch (MAPIException $e) {
 								if($e->getCode() == MAPI_E_COLLISION) {
-									$foldername = $this->checkFolderNameConflict($store, $wastebasket, $props[PR_DISPLAY_NAME]);
+									$foldername = $this->getUniqueFolderName($wastebasket, $props[PR_DISPLAY_NAME]);
 
 									mapi_folder_copyfolder($folder, $entryid, $wastebasket, $foldername, FOLDER_MOVE);
 									$folderProps = mapi_getprops($deleted_folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
@@ -1446,7 +1446,7 @@
 					}
 				} catch (MAPIException $e) {
 					if($e->getCode() == MAPI_E_COLLISION) {
-						$foldername = $this->checkFolderNameConflict($deststore, $destfolder, $props[PR_DISPLAY_NAME]);
+						$foldername = $this->getUniqueFolderName($destfolder, $props[PR_DISPLAY_NAME]);
 						if($moveFolder) {
 							mapi_folder_copyfolder($sourceparentfolder, $sourcefolderentryid, $destfolder, $foldername, FOLDER_MOVE);
 							$folderProps = mapi_getprops($folder, array(PR_ENTRYID, PR_STORE_ENTRYID));
@@ -2973,47 +2973,41 @@
 		/**
 		 * Create a unique folder name based on a provided new folder name
 		 *
-		 * checkFolderNameConflict() checks if a folder name conflict is caused by the given $foldername.
-		 * This function is used for copying of moving a folder to another folder. It returns
-		 * a unique foldername.
+		 * The function first checks if the parent of the new folder has
+		 * any subfolders. If there are subfolders retrieve the
+		 * subfolders of the parent folder, compare them with the
+		 * given foldername and finally generate an unique new
+		 * foldername
 		 *
-		 * @access private
-		 * @param object $store MAPI Message Store Object
 		 * @param object $folder MAPI Folder Object
 		 * @param string $foldername the folder name
 		 * @return string correct foldername
 		 */
-		function checkFolderNameConflict($store, $folder, $foldername)
+		public function getUniqueFolderName($folder, $foldername)
 		{
-			$folderNames = array();
+			$props = mapi_getprops($folder, array(PR_SUBFOLDERS));
+			if ($props[PR_SUBFOLDERS] === false) {
+				return $foldername;
+			}
 
 			$hierarchyTable = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS);
-			mapi_table_sort($hierarchyTable, array(PR_DISPLAY_NAME => TABLE_SORT_ASCEND), TBL_BATCH);
+			$subfolders = mapi_table_queryallrows($hierarchyTable, array(PR_DISPLAY_NAME));
 
-			$subfolders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
-
-			if (is_array($subfolders)) {
-				foreach($subfolders as $subfolder)
-				{
-					$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-					$folderProps = mapi_getprops($folderObject, array(PR_DISPLAY_NAME));
-
-					array_push($folderNames, strtolower($folderProps[PR_DISPLAY_NAME]));
-				}
+			$folderNames = array();
+			foreach($subfolders as $subfolder)
+			{
+				$folderNames[] = strtolower($subfolder[PR_DISPLAY_NAME]);
 			}
 
-			if(array_search(strtolower($foldername), $folderNames) !== false) {
-				$i = 1;
-
-				while(array_search((strtolower($foldername) . $i), $folderNames) !== false)
-				{
-					$i++;
-				}
-
-				$foldername .= $i;
+			$i = 0;
+			$newFolderName = strtolower($foldername);
+			$tmp = $newFolderName;
+			while(array_search($newFolderName, $folderNames) !== false)
+			{
+				$newFolderName = $tmp . ++$i;
 			}
 
-			return $foldername;
+			return $foldername . $i;
 		}
 
 		/**
