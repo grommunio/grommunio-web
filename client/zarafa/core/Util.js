@@ -622,5 +622,23 @@ Zarafa.core.Util =
 			this.skipRequester = false;
 			return;
 		}
+	},
+
+	/**
+	 * Helper function which add the given text into
+	 * browser clipboard data.
+	 *
+	 * @param {String} text The text which is going to
+	 * add in clipboard data.
+	 */
+	copyToClipboard : function (text)
+	{
+		var textArea = document.createElement("textarea");
+		textArea.setAttribute("id","copyTextArea");
+		document.body.appendChild(textArea);
+		textArea.innerText = text;
+		textArea.select();
+		document.execCommand("copy");
+		document.body.removeChild(textArea);
 	}
 };

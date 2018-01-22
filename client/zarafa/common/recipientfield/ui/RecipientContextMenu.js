@@ -53,6 +53,13 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
+				text: _('Copy e-mail address'),
+				iconCls : 'icon_copy',
+				hidden : !resolved,
+				handler: this.copyEmail,
+				scope: this
+			},{
+				xtype: 'zarafa.conditionalitem',
 				text: _('Send e-mail'),
 				iconCls : 'icon_send_email_to_recipient',
 				handler: this.emailRecipient,
@@ -90,6 +97,15 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 	openDetailsContent : function()
 	{
 		Zarafa.common.Actions.openViewRecipientContent(this.records);
+	},
+
+	/**
+	 * Handler for the "Copy email address" option. This will
+	 * copy email address of the resolved recipient.
+	 */
+	copyEmail : function ()
+	{
+		Zarafa.common.Actions.copyEmailAddress(this.records);
 	},
 
 	/**
