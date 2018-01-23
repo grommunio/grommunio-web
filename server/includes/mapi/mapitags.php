@@ -805,6 +805,7 @@ define('PR_EC_COMPANY_NAME', mapi_prop_tag(PT_STRING8,	PR_EC_BASE+0x48));
 
 /* WA properties */
 define('PR_EC_WA_ATTACHMENT_HIDDEN_OVERRIDE', mapi_prop_tag(PT_BOOLEAN, PR_EC_BASE+0xE0));
+define('PR_EC_WA_ATTACHMENT_ID', mapi_prop_tag(PT_STRING8, PR_EC_BASE+0xE1));
 
 // edkmdb, rules properties
 #define pidSpecialMin                                   0x6670
