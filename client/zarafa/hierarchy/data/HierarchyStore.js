@@ -977,7 +977,8 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	},
 
 	/**
-	 * Returns folder(s) which has the provided container class.
+	 * Returns folder(s) which has the provided container-class except folders
+	 * in "deleted items" or "Junk E-mail".
 	 * @param {String} containerClass The container_class of the folders.
 	 * @return {Zarafa.core.data.IPFRecord[]} An array of folders
 	 */
@@ -988,7 +989,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		this.getStores().forEach( function(store) {
 			var subFolders = store.getFolderStore().getRange();
 			var subResult = subFolders.filter( function(folder) {
-				return folder.get('container_class') === containerClass;
+				return folder.get('container_class') === containerClass && !folder.isInDeletedItems();
 			});
 
 			finalResult = finalResult.concat(subResult);
