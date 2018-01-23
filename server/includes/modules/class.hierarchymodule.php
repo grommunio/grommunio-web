@@ -129,14 +129,16 @@
 
 										if (isset($action["message_action"]["isSearchFolder"])
 											&& $action["message_action"]["isSearchFolder"]) {
-											$this->deleteSearchFolder($store, $parententryid, $entryid, $action);
+											$result = $this->deleteSearchFolder($store, $parententryid, $entryid, $action);
+											if ($result) {
+												$this->sendFeedback(true);
+											}
 										} else {
 											$this->removeFromFavorite($entryid);
 										}
 									} else {
 										$this->deleteFolder($store, $parententryid, $entryid, $action);
 									}
-
 								}
 								break;
 
@@ -260,12 +262,12 @@
 										$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 									} else {
 										$entryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($action["user_name"]);
-										$this->removeFromFavorite(hex2bin($action["entryid"]), PR_WLINK_ENTRYID, false);
+										$this->removeFromFavorite(hex2bin($action["entryid"]), $store, PR_WLINK_ENTRYID, false);
 									}
 								} else {
 									// We're closing a Shared Store, simply remove it from the session.
 									$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
-									$this->removeFromFavorite(hex2bin($action["store_entryid"]), PR_WLINK_STORE_ENTRYID, false);
+									$this->removeFromFavorite(hex2bin($action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
 								}
 
 								$data = array();
@@ -777,40 +779,67 @@
 
 		/**
 		 * Remove favorites link message from associated contains table of IPM_COMMON_VIEWS.
+		 * It will also remove favorites search folders of given store.
 		 *
 		 * @param String $entryid entryid of the folder.
+		 * @param object $store MAPI object of the store
 		 * @param String $prop property which is used to find record from associated contains table of
 		 * IPM_COMMON_VIEWS folder.
 		 * @param Boolean $doNotify true to notify the IPM_COMMO_VIEWS folder on client side.
 		 */
-		function removeFromFavorite($entryid, $prop = PR_WLINK_ENTRYID, $doNotify = true)
+		function removeFromFavorite($entryid, $store = false, $prop = PR_WLINK_ENTRYID, $doNotify = true)
 		{
 			$commonViewsFolder = $this->getCommonViewsFolder();
 			$associatedTable = mapi_folder_getcontentstable($commonViewsFolder, MAPI_ASSOCIATED);
 
-			$restriction = array(RES_PROPERTY,
-				array(
-					RELOP => RELOP_EQ,
-					ULPROPTAG => PR_MESSAGE_CLASS,
-					VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
-				),
+			$restriction = Array(RES_OR,
+				Array(
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.Link")
+						)
+					),
+					array(RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_MESSAGE_CLASS,
+							VALUE => array(PR_MESSAGE_CLASS => "IPM.Microsoft.WunderBar.SFInfo")
+						)
+					)
+				)
 			);
+			$finderHierarchyTables = array();
+			if (!empty($store)) {
+				$props = mapi_getprops($store, array(PR_FINDER_ENTRYID));
+				$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
+				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+			}
 
-			$messages = mapi_table_queryallrows($associatedTable, array(PR_ENTRYID, PR_WLINK_ENTRYID, PR_WLINK_STORE_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID), $restriction);
+			$messages = mapi_table_queryallrows($associatedTable, array(PR_ENTRYID, PR_MESSAGE_CLASS, PR_WB_SF_ID, PR_WLINK_ENTRYID, PR_WLINK_STORE_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID), $restriction);
 
 			if (!empty($messages)) {
 				foreach ($messages as $message) {
-					if ($GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
-						mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
-						if($doNotify) {
-							$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
+					if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo" && !empty($finderHierarchyTables)) {
+						$props = $GLOBALS["operations"]->getFavoritesLinkedSearchFolderProps($message[PR_WB_SF_ID], $finderHierarchyTables);
+						if (!empty($props)) {
+							$this->deleteSearchFolder($store, $props[PR_PARENT_ENTRYID], $props[PR_ENTRYID], array());
 						}
-					} else {
-						$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
-						$storeProps = mapi_getprops($storeObj, array(PR_ENTRYID));
-						if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])){
+					} else if ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
+						if ($GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
 							mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
-							$this->sendFeedback(true);
+							if ($doNotify) {
+								$GLOBALS["bus"]->notify(bin2hex($message[PR_ENTRYID]), OBJECT_SAVE, $message);
+							}
+						} else {
+							$storeObj = $GLOBALS["mapisession"]->openMessageStore($message[PR_WLINK_STORE_ENTRYID]);
+							$storeProps = mapi_getprops($storeObj, array(PR_ENTRYID));
+							if ($GLOBALS['entryid']->compareEntryIds($message[PR_WLINK_ENTRYID], $storeProps[PR_ENTRYID])) {
+								mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
+								$this->sendFeedback(true);
+							}
 						}
 					}
 				}
@@ -853,7 +882,6 @@
 				foreach ($messages as $message) {
 					if (bin2hex($message[PR_WB_SF_ID]) === $searchFolderId) {
 						mapi_folder_deletemessages($commonViewsFolder, array($message[PR_ENTRYID]));
-						$this->sendFeedback(true);
 					}
 				}
 			}
@@ -905,7 +933,7 @@
             // This flag indicates there is currently an open search tab which uses this search folder.
             if (!isset($action["message_action"]["keepSearchFolder"])) {
                 $finderFolder = mapi_msgstore_openentry($store, $parententryid);
-                mapi_folder_deletefolder($finderFolder, $entryid);
+	            return mapi_folder_deletefolder($finderFolder, $entryid);
             } else {
                 // Rename search folder to default search folder name otherwise,
                 // It will not be picked up by our search folder cleanup logic.
@@ -913,7 +941,7 @@
                 $props = array();
                 $folder = mapi_msgstore_openentry($store, $storeProps[PR_FINDER_ENTRYID]);
                 $folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, "WebApp Search Folder");
-                $GLOBALS["operations"]->renameFolder($store, $entryid, $folderName, $props);
+	            return $GLOBALS["operations"]->renameFolder($store, $entryid, $folderName, $props);
             }
 		}
 
