@@ -286,8 +286,20 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		respondData.signatureData = this.getSignatureData(false, signatureId);
 
 		// Prefix each line with the '> ' sign to indicate
-		// it is being quoted.
-		respondData.body = respondData.body.replace(/^/g,'> ').replace(/\n/g,'\n> ');
+		// it is being quoted. Wrap the text around 72 chars.
+		const text = respondData.body;
+		let newText = "> ";
+		let count = 0;
+		for (let i=0; i < text.length; ++i) {
+			if ((text[i] === " " && count > 72) || text[i] === "\n") {
+				newText += "\n> ";
+				count = 0;
+			} else {
+				newText += text[i];
+				count++;
+			}
+		}
+		respondData.body = newText;
 
 		record.set('body', template.apply(respondData));
 	},
