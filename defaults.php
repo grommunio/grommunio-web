@@ -33,6 +33,12 @@ if(!defined('ENABLE_RESPONSE_COMPRESSION')) define('ENABLE_RESPONSE_COMPRESSION'
 if(!defined('DISABLE_HTMLBODY_FILTER')) define('DISABLE_HTMLBODY_FILTER', false);
 
 /**
+ * Set to true to load HTML filtered body's from kopano-server instead
+ * of letting WebApp sanitize the HTML mail body.
+ */
+if(!defined('KC_FILTERED_BODY')) define('KC_FILTERED_BODY', false);
+
+/**
  * Set to true to disable login with Single Sign-On (SSO) on SSO environments.
  */
 if(!defined('DISABLE_REMOTE_USER_LOGIN')) define('DISABLE_REMOTE_USER_LOGIN', false);

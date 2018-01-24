@@ -42,6 +42,9 @@
     // Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", false);
 
+	// Use Kopano Core for HTML filtering, introduced in 8.5.0
+	define("KC_FILTERED_BODY", false);
+
 	// The timeout (in seconds) for the session. User will be logged out of WebApp
 	// when he has not actively used the WebApp for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
