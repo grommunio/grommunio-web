@@ -25,6 +25,23 @@ body.zarafa-welcome {
 	background-size: cover;
 }
 
+body.login:after,
+#loading-mask:after,
+#bg:after,
+body.zarafa-welcome:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	background: url(../../images/background.svg);
+	background-size: cover;
+	z-index: -1;
+}
+
 #loading-mask {
 	position: absolute;
 	top: 0;
