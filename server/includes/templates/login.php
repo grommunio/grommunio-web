@@ -44,7 +44,7 @@
 					<h1><?php echo _("Welcome"); ?></h1>
 					<form action="<?php echo $url ?>" method="post">
 						<label for="username"><?php echo _("Username"); ?></label>
-						<input type="text" name="username" id="username" value="<?php echo $user; ?>" autofocus="autofocus">
+						<input type="text" name="username" id="username" value="<?php echo $user; ?>">
 
 						<label for="password"><?php echo _("Password"); ?></label>
 						<input type="password" name="password" id="password">
