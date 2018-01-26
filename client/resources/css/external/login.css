@@ -229,15 +229,9 @@ body.login #form-container.loading .right h1, body.login #form-container.loading
   display: none;
 }
 
-/* IE9 supports blur filter in a different way */
-/* line 189, ../../scss/external/login.scss */
-body.login.MSIE9 #bg {
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
-}
-
 /* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
-/* line 194, ../../scss/external/login.scss */
+/* line 190, ../../scss/external/login.scss */
 body.login.MSIE10 #bg,
 body.login.MSIE11 #bg {
   background-image: url(../../images/loginbg_daybreak_blurred.jpg);

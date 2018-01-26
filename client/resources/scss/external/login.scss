@@ -185,10 +185,6 @@ body.login,
 	}
 }
 
-/* IE9 supports blur filter in a different way */
-body.login.MSIE9 #bg{
-	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
-}
 /* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
 body.login.MSIE10 #bg,
