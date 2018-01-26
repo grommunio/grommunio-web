@@ -21,10 +21,8 @@
 		<?php
 			/* Add the styling of the theme */
 			$css = Theming::getCss($theme);
-			if ( count($css) ){
-				foreach ( $css as $file ){
-					echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
-				}
+			foreach ( $css as $file ){
+				echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
 			}
 		?>
 
