@@ -4,13 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2018-01-15 06:35+0000\n"
-"Last-Translator: Felix <f.bartels@kopano.com>\n"
+"PO-Revision-Date: 2018-01-26 15:49+0100\n"
+"Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
-"webapp/de/>\n"
+"core/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2778,7 +2778,7 @@ msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
 
 msgid "Unknown"
-msgstr "Unbekannt"
+msgstr "<Unbekannt>"
 
 msgid "Meeting Organizer"
 msgstr "Organisator"
@@ -5226,10 +5226,12 @@ msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Posteingang"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
 msgstr "Postausgang"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
 msgstr "Gesendete Objekte"
@@ -5249,6 +5251,7 @@ msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Kontakte"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
 msgstr "Entwürfe"
@@ -5268,6 +5271,7 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Aufgaben"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
 msgstr "Junk E-Mail"
@@ -5649,10 +5653,8 @@ msgstr "Fällt jeden %s %s an, beginnend am %s."
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] ""
-"Fällt jeden %s an, beginnend am %s für %s Wiederholung von %s bis %s."
-msgstr[1] ""
-"Fällt jeden %s an, beginnend am %s für %s Wiederholungen von %s bis %s."
+msgstr[0] "Fällt jeden %s an, beginnend am %s für %s Wiederholung von %s bis %s."
+msgstr[1] "Fällt jeden %s an, beginnend am %s für %s Wiederholungen von %s bis %s."
 
 # 96%
 # 76%
