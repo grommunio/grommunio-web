@@ -135,12 +135,7 @@ body.login #form-container h2,
   font-weight: normal;
   text-align: right;
 }
-/* line 112, ../../scss/external/login.scss */
-body.login #form-container h2.zcp-version,
-#loading-mask #form-container h2.zcp-version {
-  color: transparent;
-}
-/* line 116, ../../scss/external/login.scss */
+/* line 113, ../../scss/external/login.scss */
 body.login #form-container #logo,
 #loading-mask #form-container #logo {
   background: url(../../images/kopano-logo_220x52.png) no-repeat right center;
@@ -148,13 +143,13 @@ body.login #form-container #logo,
   height: 61px;
   margin: 71px 0 15px;
 }
-/* line 123, ../../scss/external/login.scss */
+/* line 120, ../../scss/external/login.scss */
 body.login #form-container label,
 #loading-mask #form-container label {
   display: block;
   margin-bottom: 0.5em;
 }
-/* line 127, ../../scss/external/login.scss */
+/* line 124, ../../scss/external/login.scss */
 body.login #form-container input[type="text"],
 body.login #form-container input[type="password"],
 #loading-mask #form-container input[type="text"],
@@ -167,28 +162,28 @@ body.login #form-container input[type="password"],
   margin-bottom: 15px;
   height: 24px;
 }
-/* line 137, ../../scss/external/login.scss */
+/* line 134, ../../scss/external/login.scss */
 body.login #form-container input:-webkit-autofill,
 #loading-mask #form-container input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-/* line 140, ../../scss/external/login.scss */
+/* line 137, ../../scss/external/login.scss */
 body.login #form-container input:focus,
 #loading-mask #form-container input:focus {
   outline: 0;
   border-color: #3094e3;
 }
-/* line 145, ../../scss/external/login.scss */
+/* line 142, ../../scss/external/login.scss */
 body.login #form-container #password,
 #loading-mask #form-container #password {
   margin-bottom: 8px;
 }
-/* line 149, ../../scss/external/login.scss */
+/* line 146, ../../scss/external/login.scss */
 body.login #form-container #error,
 #loading-mask #form-container #error {
   color: #e40023;
 }
-/* line 153, ../../scss/external/login.scss */
+/* line 150, ../../scss/external/login.scss */
 body.login #form-container #submitbutton,
 #loading-mask #form-container #submitbutton {
   background: #0f70bd;
@@ -201,33 +196,33 @@ body.login #form-container #submitbutton,
   margin: 12px 0 0;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
 }
-/* line 164, ../../scss/external/login.scss */
+/* line 161, ../../scss/external/login.scss */
 body.login #form-container #submitbutton:hover,
 #loading-mask #form-container #submitbutton:hover {
   background-color: #065fa5;
 }
-/* line 167, ../../scss/external/login.scss */
+/* line 164, ../../scss/external/login.scss */
 body.login #form-container #submitbutton:click,
 #loading-mask #form-container #submitbutton:click {
   background-color: #065fa5;
 }
-/* line 170, ../../scss/external/login.scss */
+/* line 167, ../../scss/external/login.scss */
 body.login #form-container #submitbutton:focus,
 #loading-mask #form-container #submitbutton:focus {
   box-shadow: 0 0 0 1px #ffffff inset;
 }
-/* line 176, ../../scss/external/login.scss */
+/* line 173, ../../scss/external/login.scss */
 body.login #form-container.loading,
 #loading-mask #form-container.loading {
   visibility: visible;
 }
-/* line 178, ../../scss/external/login.scss */
+/* line 175, ../../scss/external/login.scss */
 body.login #form-container.loading .right,
 #loading-mask #form-container.loading .right {
   background: url(../../images/loading_m.png) no-repeat center center;
   animation: rotate 1.3s 0s infinite ease;
 }
-/* line 179, ../../scss/external/login.scss */
+/* line 176, ../../scss/external/login.scss */
 body.login #form-container.loading .right h1, body.login #form-container.loading .right form,
 #loading-mask #form-container.loading .right h1,
 #loading-mask #form-container.loading .right form {
@@ -235,14 +230,14 @@ body.login #form-container.loading .right h1, body.login #form-container.loading
 }
 
 /* IE9 supports blur filter in a different way */
-/* line 192, ../../scss/external/login.scss */
+/* line 189, ../../scss/external/login.scss */
 body.login.MSIE9 #bg {
   filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
 }
 
 /* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
-/* line 197, ../../scss/external/login.scss */
+/* line 194, ../../scss/external/login.scss */
 body.login.MSIE10 #bg,
 body.login.MSIE11 #bg {
   background-image: url(../../images/loginbg_daybreak_blurred.jpg);

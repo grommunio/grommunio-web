@@ -41,7 +41,6 @@
 					<?php if ( !empty($branch) ) { ?>
 					<h2><i><?php echo $branch; ?></i></h2>
 					<?php } ?>
-					<h2 class="zcp-version"><?php echo $zcpversion; ?></h2>
 				</div>
 				<div class="right">
 					<h1><?php echo _("Welcome"); ?></h1>
