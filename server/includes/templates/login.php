@@ -57,7 +57,9 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 		<script type="text/javascript">
+			// Set focus on the correct form element
 			function onLoad() {
 				if (document.getElementById("username").value == "") {
 					document.getElementById("username").focus();
@@ -68,10 +70,7 @@
 				}
 			}
 			window.onload = onLoad;
-		</script>
 
-		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
-		<script type="text/javascript">
 			// Show a spinner when submitting
 			var form = document.getElementsByTagName('form')[0];
 			// Some browsers need some time to draw the spinner (MS Edge!),
