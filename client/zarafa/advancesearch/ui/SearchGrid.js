@@ -378,7 +378,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			if ( recordTotalCount >= this.sortableRecordsMax ){
 				Zarafa.common.dialogs.MessageBox.alert(
 					_('Sorting not possible'),
-					String.format(_('The search results could not be sorted because the number of items is higher than {0}. Narrow down your results by specifying your input.'), this.sortableRecordsMax));
+					String.format(_('The search results could not be sorted because the number of items is higher than {0}. Narrow down your results by enabling more filters or by adjusting your input.'), this.sortableRecordsMax));
 				return false;
 			}
 
