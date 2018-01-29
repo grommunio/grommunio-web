@@ -8,21 +8,6 @@ Ext.namespace('Zarafa.task');
  */
 Zarafa.task.Actions = {
 	/**
-	 * Open a Panel in which the {@link Zarafa.core.data.IPMRecord record}
-	 * can be viewed, or further edited.
-	 *
-	 * @param {Zarafa.core.data.IPMRecord} records The records to open
-	 * @param {Object} config (optional) Configuration object used to create
-	 * the Content Panel.
-	 */
-	openTaskContent : function(records, config)
-	{
-		Ext.each(records, function(record) {
-			Zarafa.core.data.UIFactory.openViewRecord(record, config);
-		});
-	},
-
-	/**
 	 * Open a Panel in which a new {@link Zarafa.core.data.IPMRecord record} can be
 	 * further edited.
 	 *
@@ -190,6 +175,24 @@ Zarafa.task.Actions = {
 			},
 			msg: _('Deleting the item(s) will also delete the original item(s).') + '<br />' + _('Do you want to delete the item(s)?')
 		});
+	},
 
+	/**
+	 * Opens the {@link Zarafa.task.ui.TaskFlagsMenu FlagsMenu} for
+	 * the given {@link Zarafa.core.data.IPMRecord records}.
+	 *
+	 * @param {Zarafa.task.TaskRecord} records The record, or records for which the flags
+	 * menu will be shown.
+	 * @param {Object} options An Object Which contains configuration options to
+	 * open {@link Zarafa.task.ui.TaskFlagsMenu FlagsMenu}.
+	 */
+	openFlagsMenu : function(records, options)
+	{
+		if (!Ext.isArray(records)) {
+			records = [ records ];
+		}
+
+		var component = Zarafa.core.data.SharedComponentType['task.contextmenu.flags'];
+		Zarafa.core.data.UIFactory.openContextMenu(component, records, options);
 	}
 };

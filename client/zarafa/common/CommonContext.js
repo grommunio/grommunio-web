@@ -41,6 +41,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('common.contextmenu.freebusy.timelinebody');
 		Zarafa.core.data.SharedComponentType.addProperty('common.contextmenu.freebusy.timelineheader');
 		Zarafa.core.data.SharedComponentType.addProperty('common.contextmenu.reminder.remindergrid');
+		Zarafa.core.data.SharedComponentType.addProperty('common.contextmenu.flags');
 		Zarafa.core.data.SharedComponentType.addProperty('common.printer.renderer');
 		Zarafa.core.data.SharedComponentType.addProperty('common.rules.dialog.ruleswordsedit');
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.attachitem');
@@ -83,6 +84,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.freebusy.timelineheader']:
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.importance']:
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.category']:
+			case Zarafa.core.data.SharedComponentType['common.contextmenu.flags']:
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.categories']:
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.reminder.remindergrid']:
 			case Zarafa.core.data.SharedComponentType['common.rules.dialog.ruleswordsedit']:
@@ -214,6 +216,9 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.reminder.remindergrid']:
 				component = Zarafa.common.reminder.dialogs.ReminderGridContextMenu;
+				break;
+			case Zarafa.core.data.SharedComponentType['common.contextmenu.flags']:
+				component = Zarafa.common.flags.ui.FlagsMenu;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.newcategory']:
 				component = Zarafa.common.categories.dialogs.NewCategoryPanel;

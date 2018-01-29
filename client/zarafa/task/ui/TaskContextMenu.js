@@ -76,10 +76,10 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			text : _('Follow up'),
 			iconCls : 'icon_mail_flag_red',
 			cls: 'k-unclickable',
-			beforeShow: this.onFollowUpItemBeforeShow,
 			hideOnClick: false,
+			beforeShow: this.onBeforeShowFollowUp,
 			menu : {
-				xtype: 'zarafa.flagsmenu',
+				xtype: 'zarafa.taskflagsmenu',
 				records: this.records
 			},
 			scope: this
@@ -136,12 +136,33 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	},
 
 	/**
+	 * Event handler triggers before the item shows. Disable the
+	 * item If the selected record(s) has an organizer task copy
+	 * or received task which was not yet accepted.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
+	 * to see if the item must be enabled or disabled.
+	 * @private
+	 */
+	onBeforeShowFollowUp : function (item,records)
+	{
+		if(!Array.isArray(records)) {
+			records = [records];
+		}
+		var isDisabled = records.some(function (record) {
+			return record.isMessageClass('IPM.Task', true) && (record.isTaskOrganized() || record.isTaskNotResponded());
+		});
+		item.setDisabled(isDisabled);
+	},
+
+	/**
 	 * Event handler called when the user clicks the 'open' button
 	 * @private
 	 */
 	onOpenTask : function()
 	{
-		Zarafa.task.Actions.openTaskContent(this.records);
+		Zarafa.common.Actions.openMessageContent(this.records);
 	},
 
 	/**
@@ -180,6 +201,10 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			record.set('percent_complete', complete);
 			record.set('status', complete ? Zarafa.core.mapi.TaskStatus.COMPLETE : Zarafa.core.mapi.TaskStatus.NOT_STARTED);
 			record.set('date_completed', complete ? new Date() : null);
+			record.set('flag_icon', complete ? Zarafa.core.mapi.FlagIcon.clear : Zarafa.core.mapi.FlagIcon.red);
+			record.set('flag_complete_time', complete ? new Date() : null);
+			record.set('flag_request', complete ? '' : 'Follow up');
+			record.set('flag_status', complete ? Zarafa.core.mapi.FlagStatus.completed : Zarafa.core.mapi.FlagStatus.flagged);
 			record.endEdit();
 
 			if (!record.isNormalTask()) {
@@ -204,25 +229,6 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 		}
 	},
 
-	/**
-	 * Event handler which triggered before showing
-	 * follow-up context menu item. this context menu item
-	 * is disabled only when selected record is task record
-	 * and record belongs to To-do list folder.
-	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
-	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
-	 * to see if the item must be enabled or disabled.
-	 * @private
-	 */
-	onFollowUpItemBeforeShow : function (item, records)
-	{
-		var hasTaskRecord = records.some(function (record) {
-			return record.isMessageClass('IPM.Task');
-		});
-		item.setDisabled(this.actsOnTodoListFolder ? hasTaskRecord : true);
-	},
-
     /**
      * Function will loop through all given {@link Zarafa.core.data.IPMRecord records}
      * and will determine if this button can be applied to any of the records.
@@ -236,15 +242,13 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
      */
     onMarkCompleteItemBeforeShow: function (item, records)
 	{
-        var isDisabled = true;
-
+		var isDisabled = true;
 		if(this.actsOnTodoListFolder !== true) {
 			isDisabled = !records.some(function (record) {
 				return record.get('complete') !== item.isMarkComplete;
 			});
 		}
-
-        item.setDisabled(isDisabled);
+		item.setDisabled(isDisabled);
     }
 });
 
