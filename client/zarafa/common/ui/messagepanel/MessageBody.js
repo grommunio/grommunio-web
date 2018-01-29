@@ -241,6 +241,9 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		// so the text can be styled.
 		this.addCSSText(iframeDocument);
 
+		// Add listener to enlarge image
+		this.setImageClickHandler(iframeDocument);
+
 		this.scanDOMForLinks(iframeDocument);
 		this.handleMailToLinks(iframeDocumentElement);
 
@@ -394,7 +397,10 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
-			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }'
+			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }' +
+			'img { max-width: 100%; height: auto !important; }' +
+			'@media screen and (max-width: 250px) { img { max-width: 250px; } }' +
+			'.k-original { max-width: none; }'
 		));
 
 		// Add a wingdings compatible font (only the smilies)
@@ -418,6 +424,28 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		}
 
 		head.appendChild(css);
+	},
+
+	/**
+	 * Sets an event listener for img clicks inside an iframe
+	 * @param {Document} iframeDocument The iframe document in which the event listeners are added
+	 */
+	setImageClickHandler : function(iframeDocument)
+	{
+		var images = iframeDocument.body.querySelectorAll('img');
+		for (let i=0; i < images.length; i++) {
+			images[i].removeEventListener('click', this.onImageClick);
+			images[i].addEventListener('click', this.onImageClick);
+		}
+	},
+
+	/**
+	 * Toggle the k-original class when an image is clicked in an iframe
+	 * @param {Event} event The click event
+	 */
+	onImageClick : function(event)
+	{
+		event.target.classList.toggle('k-original');
 	},
 
 	/**
