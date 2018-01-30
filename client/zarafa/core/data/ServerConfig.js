@@ -181,6 +181,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if import functionality is supported on backend, false otherwise.
+	 */
+	isImportSupported : function()
+	{
+		return this.meta.is_vcfimport_supported;
+	},
+
+	/**
 	 * @return {Array} returns the color schemes defined in config.php/default.php.
 	 */
 	getColorSchemes : function()

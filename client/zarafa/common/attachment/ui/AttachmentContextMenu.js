@@ -73,9 +73,10 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		}, {
 			text : _('Import to folder'),
 			iconCls : 'icon_import_attachment',
-			scope : this,
 			handler : this.onImportToFolder,
-			beforeShow : this.onImportToFolderBeforeShow
+			beforeShow : this.onImportToFolderBeforeShow,
+			afterRender : this.onImportToFolderAfterRender,
+			scope : this
 		}];
 	},
 
@@ -144,6 +145,20 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	{
 		// embedded messages can not be imported to folder
 		item.setDisabled(record.isEmbeddedMessage() || !record.canBeImported());
+	},
+
+	/**
+	 * Function will be called after {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} gets rendered
+	 * It helps to put qtip in case if the item is disabled.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 */
+	onImportToFolderAfterRender : function(item)
+	{
+		if (!container.getServerConfig().isImportSupported()) {
+			let itemElement = this.getEl();
+			itemElement.dom.setAttribute('ext:qtip', _('In order to use the vCard import feature, upgrade your Kopano Core to version 8.3+'));
+			itemElement.dom.setAttribute('ext:qwidth', 'ext:qwidth="100%"');
+		}
 	},
 
 	/**

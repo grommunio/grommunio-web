@@ -93,23 +93,20 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 * Identify {@link Zarafa.common.data.FolderContentTypes content-type} based on
 	 * the filename of given attachment to filter matching tree nodes only
 	 * using {@link Zarafa.hierarchy.ui.Tree#IPMFilter}.
-	 *
-	 * @return {String} The content type, false if no match available
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record which should be imported.
+	 * @return {String} The content type, undefined if no match available
 	 * @private
 	 */
-	getIPMFilter : function()
+	getIPMFilter : function(record)
 	{
-		const attachments = this.store.getRange();
-
-		var hasEmlAttachment = attachments.some(function (attachment) {
-			return attachment.get('extension') === 'eml';
-		});
-
-		if (hasEmlAttachment) {
-			return Zarafa.common.data.FolderContentTypes.mail;
-		} else {
-			return undefined;
+		switch (record.get('extension')) {
+			case 'eml':
+				return Zarafa.common.data.FolderContentTypes.mail;
+			case 'vcf':
+				return Zarafa.common.data.FolderContentTypes.contact;
 		}
+
+		return;
 	}
 });
 
