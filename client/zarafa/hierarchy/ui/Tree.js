@@ -25,6 +25,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	IPMFilter : undefined,
 
 	/**
+	 * @cfg {Number} permissionFilter The {@link Zarafa.core.mapi.Rights} on which the hierarchy must be filtered
+	 */
+	permissionFilter : undefined,
+
+	/**
 	 * @cfg {Boolean} hideDeletedFolders True to hide the subfolders of "Deleted Items".
 	 */
 	hideDeletedFolders : false,
@@ -237,6 +242,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		// Check if the folder matches the requested IPMFilter
 		if (Ext.isDefined(this.IPMFilter)) {
 			hide = !folder.isContainerClass(this.IPMFilter, false);
+		}
+
+		// Check if the folder matches the requested permissionFilter
+		if (!hide && Ext.isDefined(this.permissionFilter)) {
+			hide = !(folder.get('rights') & this.permissionFilter);
 		}
 
 		// Check if the folder is located in Deleted items

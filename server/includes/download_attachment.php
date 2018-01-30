@@ -75,6 +75,16 @@ class DownloadAttachment
 	private $isSubMessage;
 
 	/**
+	 * Entryid of the MAPIFolder to which the given attachment needs to be imported as webapp item.
+	 */
+	private $destinationFolder;
+
+	/**
+	 * A boolean value, set to false by default, to define if the attachment needs to be imported into folder as webapp item.
+	 */
+	private $import;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -88,6 +98,8 @@ class DownloadAttachment
 		$this->zipFileName = _('Attachments').'%s.zip';
 		$this->messageSubject = '';
 		$this->isSubMessage = false;
+		$this->destinationFolder = false;
+		$this->import = false;
 	}
 
 	/**
@@ -161,6 +173,14 @@ class DownloadAttachment
 			
 			// Decode smime signed messages on this message
 			parse_smime($this->store, $this->message);
+		}
+
+		if(isset($data['destination_folder'])) {
+			$this->destinationFolder = sanitizeValue($data['destination_folder'], '', ID_REGEX);
+		}
+
+		if(isset($data['import'])) {
+			$this->import = sanitizeValue($data['import'], '', STRING_REGEX);
 		}
 	}
 
@@ -453,6 +473,53 @@ class DownloadAttachment
 	}
 
 	/**
+	 * Function will get the attachement and import it to the given MAPIFolder as webapp item.
+	 */
+	public function importAttachment()
+	{
+		$addrBook = $GLOBALS['mapisession']->getAddressbook();
+		try {
+			$destFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolder));
+		} catch(Exception $e) {
+			// Try to find the folder from shared stores in case if it is not found in current user's store
+			$destFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolder), hex2bin($this->destinationFolder));
+		}
+
+		$newMessage = mapi_folder_createmessage($destFolder);
+		$attachment = $this->getAttachmentByAttachNum();
+		$emlParam = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+
+		try {
+			// Convert an RFC822-formatted e-mail to a MAPI Message
+			$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $emlParam, array());
+		} catch(Exception $e) {
+			throw new ZarafaException(_("Attachment is not imported successfully"));
+		}
+
+		if($ok === true) {
+			mapi_message_savechanges($newMessage);
+
+			$return = Array(
+				// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
+				'success' => true,
+				'zarafa' => Array(
+					sanitizeGetValue('module', '', STRING_REGEX) => Array(
+						sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
+							'update' => Array(
+								'success'=> true
+							)
+						)
+					)
+				)
+			);
+
+			echo json_encode($return);
+		} else {
+			throw new ZarafaException(_("Attachment is not imported successfully"));
+		}
+	}
+
+	/**
 	 * Generic function to check passed data and decide which type of attachment is requested.
 	 */
 	public function download()
@@ -515,6 +582,12 @@ class DownloadAttachment
 			$this->downloadSavedAttachment($attachment, true);
 
 		} else if(count($this->attachNum) > 0) {
+			// check if the attachment needs to be imported
+			if ($this->import) {
+				$this->importAttachment();
+				return;
+			}
+
 			// check if temporary unsaved attachment is requested
 			if(is_string($this->attachNum[0])) {
 				$this->downloadUnsavedAttachment();

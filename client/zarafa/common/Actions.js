@@ -1055,6 +1055,20 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Raised a dialog to choose destination folder to import attachments.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} record The attachment record which should be imported.
+	 * @param {Object} config configuration object.
+	 */
+	importToFolder: function(record, config)
+	{
+		config = Ext.applyIf(config || {}, {
+			modal : true
+		});
+		var componentType = Zarafa.core.data.SharedComponentType['common.attachment.dialog.importtofolder'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
+	},
+
+	/**
 	 * Open a Panel in which the {@link Zarafa.core.data.IPMRecord record}
 	 * can be viewed, or further edited.
 	 *

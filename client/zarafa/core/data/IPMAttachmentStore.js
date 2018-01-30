@@ -111,7 +111,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	getInlineImageUrl : function(attachmentRecord)
 	{
-		var url = this.getAttachmentBaseUrl(attachmentRecord);
+		var url = this.getDownloadAttachmentUrl(attachmentRecord);
 		return Ext.urlAppend(url, 'contentDispositionType=inline');
 	},
 
@@ -124,26 +124,24 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 */
 	getAttachmentUrl : function(attachmentRecord, allAsZip)
 	{
-		var url = this.getAttachmentBaseUrl(attachmentRecord, allAsZip);
+		var url = this.getDownloadAttachmentUrl(attachmentRecord, allAsZip);
 		return Ext.urlAppend(url, 'contentDispositionType=attachment');
 	},
 
 	/**
-	 * Builds and returns attachment URL to download inline images,
+	 * Builds and returns attachment URL to download inline images/attachments,
 	 * it uses {@link Zarafa.core.data.IPMRecord IPMRecord} to get store and message entryids.
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachmentRecord Attachment record.
 	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
 	 * @return {String} URL for downloading attachments.
 	 */
-	getAttachmentBaseUrl : function(attachmentRecord, allAsZip)
+	getDownloadAttachmentUrl : function(attachmentRecord, allAsZip)
 	{
 		var parentRecord = this.getParentRecord();
 		var isSubMessage = parentRecord.isSubMessage();
 
-		var url = container.getBaseURL();
+		var url = this.getAttachmentBaseUrl();
 		url = Ext.urlAppend(url, 'load=download_attachment');
-		url = Ext.urlAppend(url, 'store=' + parentRecord.get('store_entryid'));
-		url = Ext.urlAppend(url, 'entryid=' + this.getAttachmentParentRecordEntryId());
 
 		// If all the attachments are requested to be downloaded in a ZIP, then there is no need to
 		// send 'attach_num' property.
@@ -175,8 +173,6 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			}
 			url = Ext.urlAppend(url, 'subject='+parentRecord.get('subject'));
 		}
-
-		url = Ext.urlAppend(url, 'dialog_attachments=' + this.getId());
 
 		// fire the 'attachmentstorebeforegetbaseurl' event.
 		var eventData = {
@@ -217,17 +213,42 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	},
 
 	/**
+	 * Builds and returns base attachment URL.
+	 * @return {String} URL for attachments
+	 * @private
+	 */
+	getAttachmentBaseUrl : function()
+	{
+		var url = container.getBaseURL();
+		url = Ext.urlAppend(url, 'store=' + this.getParentRecord().get('store_entryid'));
+		url = Ext.urlAppend(url, 'entryid=' + this.getAttachmentParentRecordEntryId());
+		url = Ext.urlAppend(url, 'dialog_attachments=' + this.getId());
+		return url;
+	},
+
+	/**
 	 * Builds and returns attachment URL to upload files.
 	 * @return {String} URL for uploading attachments
 	 * @private
 	 */
 	getUploadAttachmentUrl : function()
 	{
-		var url = container.getBaseURL();
-		url = Ext.urlAppend(url, 'load=upload_attachment');
-		url = Ext.urlAppend(url, 'store=' + this.getParentRecord().get('store_entryid'));
-		url = Ext.urlAppend(url, 'entryid=' + this.getParentRecord().get('entryid'));
-		url = Ext.urlAppend(url, 'dialog_attachments=' + this.getId());
+		return Ext.urlAppend(this.getAttachmentBaseUrl(), 'load=upload_attachment');
+	},
+
+	/**
+	 * Builds and returns attachment-URL to import attachments.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachmentRecord The attachment to import into given folder
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
+	 * @return {String} URL for importing attachments to respective folder
+	 * @private
+	 */
+	getImportAttachmentUrl : function(attachmentRecord, folder)
+	{
+		var url = this.getDownloadAttachmentUrl(attachmentRecord);
+		url = Ext.urlAppend(url, 'import=true');
+		url = Ext.urlAppend(url, 'destination_folder=' + folder.get('entryid'));
+
 		return url;
 	},
 
@@ -556,6 +577,24 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		var action = Ext.data.Api.actions['destroy'];
 		var callback = this.createCallback(action, record, false);
 		this.proxy.request(action, record, options.params, this.reader, callback, this, eventData.options);
+	},
+
+	/**
+	 * Imports an attachment into given folder.
+	 * @param {Zarafa.core.data.IPMAttachmentRecord} attachmentRecord The attachment to import into given folder
+	 * @param {Zarafa.core.data.IPMRecord IPMRecord} message The record to which given attachment belongs
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
+	 * @private
+	 */
+	importRecord : function(attachmentRecord, message, folder)
+	{
+		var options = {
+			'params' : {},
+			'requestUrl' : this.getImportAttachmentUrl(attachmentRecord, folder)
+		};
+
+		var action = Ext.data.Api.actions['create'];
+		this.proxy.request(action, message, options.params, this.reader, undefined, this, options);
 	},
 
 	/**

@@ -31,7 +31,8 @@ Zarafa.core.data.IPMAttachmentRecordFields = [
 	{name: 'attachment_contactphoto', type: 'boolean', defaultValue: false},	// rename to contactphoto ???
 	// Properties that will only be used when opening embedded attachment from unsaved message
 	{name : 'entryid'},
-	{name : 'store_entryid'}
+	{name : 'store_entryid'},
+	{name : 'extension', type: 'string'}
 ];
 
 /**
@@ -139,6 +140,24 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	isEmbeddedMessage : function()
 	{
 		return this.get('attach_method') === Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG && !this.isRecurrenceException();
+	},
+
+	/**
+	 * @return {Boolean} True if this attachment can be imported, false otherwise.
+	 */
+	canBeImported : function()
+	{
+		const fileExtension = this.get('extension');
+
+		return fileExtension === 'eml' || fileExtension === 'vcf' ;
+	},
+
+	/**
+	 * @return {Ext.data.Store} data store this record belongs to.
+	 */
+	getStore : function()
+	{
+		return this.store;
 	},
 
 	/**

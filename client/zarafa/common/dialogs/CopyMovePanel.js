@@ -113,11 +113,13 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 */
 	onDialogFocussed : function(){
 		var folder = this.dialog.getSelectedFolder();
-		var treeNode = this.hierarchyTree.ensureFolderVisible(folder);
+		if (folder) {
+			var treeNode = this.hierarchyTree.ensureFolderVisible(folder);
 
-		if (treeNode) {
-			// Move the focus to the selected folder by simply selecting it again
-			treeNode.select();
+			if (treeNode) {
+				// Move the focus to the selected folder by simply selecting it again
+				treeNode.select();
+			}
 		}
 	},
 
@@ -159,6 +161,8 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				treeSorter: true,
 				hideTodoList: true,
 				enableDD : false,
+				permissionFilter : Zarafa.core.mapi.Rights.RIGHTS_CREATE,
+				IPMFilter : this.getIPMFilter(),
 				anchor: '100% 90%',
 				ref: '../hierarchyTree'
 			}],
@@ -171,6 +175,11 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			}
 		};
 	},
+
+	/**
+	 * Allows any sub class to provide IPMFilter value if requires.
+	 */
+	getIPMFilter : Ext.emptyFn,
 
 	/**
 	 * Function which is called automatically by ExtJs when the {@link Ext.Panel panel}
