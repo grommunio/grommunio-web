@@ -24,7 +24,7 @@
 .zarafa-searchfield {
 	padding-top: 0px !important;
 	max-width: 350px;
-	border-right: none;
+	border-right: 1px solid transparent;
 }
 
 /* seperator In ExtJS it's tbseperator, used in for example create new mail dialog*/
@@ -77,6 +77,9 @@
 		}
 		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
 			background-color: $grey3;
+		}
+		.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
+			border: 1px solid $sky-blue;
 		}
 
 		/* split button */

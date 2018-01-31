@@ -1509,6 +1509,18 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			});
 		}
 
+		// Add combination of TAB with shift as well to trigger blur and handle input text
+		bindings.push({
+			key: [
+				Ext.EventObject.TAB
+			],
+			shift: true,
+			alt: false,
+			ctrl: false,
+			handler: this.onInputKeyTab,
+			scope: this
+		});
+
 		return new Ext.KeyMap(focusEl, bindings);
 	},
 
