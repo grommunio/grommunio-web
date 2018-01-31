@@ -168,19 +168,19 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					checked : Ext.isDefined(messageType['mail'])
 				},{
 					name : 'calendar',
-					boxLabel : _('Calendar items'),
+					boxLabel : _('Appointments'),
 					checked : Ext.isDefined(messageType['calendar'])
 				},{
 					name : 'contact',
-					boxLabel : _('Contact items'),
+					boxLabel : _('Contacts'),
 					checked : Ext.isDefined(messageType['contact'])
 				},{
 					name : 'task',
-					boxLabel : _('Task items'),
+					boxLabel : _('Tasks'),
 					checked : Ext.isDefined(messageType['task'])
 				},{
 					name : 'note',
-					boxLabel : _('Note items'),
+					boxLabel : _('Notes'),
 					checked : Ext.isDefined(messageType['note'])
 				}]
 			}]
@@ -217,11 +217,11 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				},
 				items : [{
 					name : 'message_flags',
-					boxLabel : _('Unread items'),
+					boxLabel : _('Unread'),
 					checked : Ext.isDefined(filterSetting['message_flags'])
 				},{
 					name : 'hasattach',
-					boxLabel : _('With attachments'),
+					boxLabel : _('Attachments'),
 					checked : Ext.isDefined(filterSetting['hasattach'])
 				}]
 			}]
