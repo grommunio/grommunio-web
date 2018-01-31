@@ -631,4 +631,6 @@ define('ELEMENT_SENTINEL',                0x0000);
 define('RSF_ELID_ENTRYID',                0x0001);
 define('RSF_ELID_HEADER',                 0x0002);
 
+/* IStream Flags */
+define('STGM_TRANSACTED',         0x00010000);
 ?>
