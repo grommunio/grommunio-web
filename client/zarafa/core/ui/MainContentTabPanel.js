@@ -10,6 +10,14 @@ Ext.namespace('Zarafa.core.ui');
 Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 
 	/**
+	 * The list of opened tab. It contains the list with the entryid and tab id.
+	 * @property
+	 * @type Ext.util.MixedCollection
+	 * @private
+	 */
+	openedTabs : new Ext.util.MixedCollection(),
+
+	/**
 	 * Overriden to modify the tab depending on whether the record has been edited or not
 	 * This method is called when a contained component fires the 'titlechange' event
 	 * @param {Component} item
@@ -78,6 +86,11 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 				tab.removeClass('zarafa-tab-edited');
 			}
 		}
+
+		// If record get saved then add record id
+		if (!record.phantom && !this.getOpenedTab(record)) {
+			this.registeredOpenTab(record, item.getId());
+		}
 	},
 
 	/**
@@ -130,6 +143,9 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 	{
 		if (this.fireEvent('beforeclose', tab)!==false) {
 			this.remove(tab);
+			this.openedTabs = this.openedTabs.filterBy(function (item) {
+				return item !== tab.getId();
+			});
 			this.fireEvent('close', tab);
 		}
 	},
@@ -217,6 +233,68 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 	getScrollWidth : function()
 	{
 		return this.edge.getOffsetsTo(this.stripWrap)[0] + this.getScrollPos() + this.edge.getWidth();
+	},
+
+	/**
+	 * Fires before Ext.Component is added or inserted into the Zarafa.core.ui.MainContentTabPanel
+	 * It will verify if the record is already opened in tab. If yes then moved focus on that tab,
+	 * Otherwise add tab id into openedTabs.
+	 * @param {Component} tab
+	 */
+	onBeforeAdd: function (tab)
+	{
+		if (tab.name === "main.content") {
+			return;
+		}
+
+		var record = tab.dialog.record;
+		if (!Ext.isEmpty(record) && !Ext.isEmpty(record.get("entryid"))) {
+			var openedTab = this.getOpenedTab(record);
+			if (openedTab) {
+				container.getTabPanel().setActiveTab(openedTab);
+				return false;
+			} else {
+				this.registeredOpenTab(record,tab.getId());
+			}
+		}
+	},
+
+	/**
+	 * Register a newly created tab with the {@link #openedTabs}.
+	 * If record is {@link Zarafa.core.data.AppointmentRecord AppointmentRecord} recurring occurence appointment then
+	 * append basedate with entryid.
+	 *
+	 * @param {Ext.data.Record} record
+	 * @param {String} tabId id of tab component.
+	 */
+	registeredOpenTab: function (record, tabId)
+	{
+		var entryid = record.get("entryid");
+		if (!Ext.isEmpty(record.get("basedate"))) {
+			entryid += "_" + record.get('basedate').getTime();
+		}
+		this.openedTabs.add(entryid, tabId);
+	},
+
+	/**
+	 * Function which is use to find tab id of given record.
+	 * @param {Zarafa.core.data.MAPIRecord} record
+	 * @returns {String | Boolean} Tab id if record is already opened, false otherwise.
+	 */
+	getOpenedTab: function (record)
+	{
+		return this.openedTabs.find(function (key, item) {
+			if (!Ext.isEmpty(record.get("basedate"))) {
+				if (item.indexOf(record.get("basedate").getTime()) > -1) {
+					item = item.split("_")[0];
+				} else {
+					item = false;
+				}
+			}
+			if (Zarafa.core.EntryId.compareEntryIds(item, record.get("entryid"))) {
+				return true;
+			}
+		});
 	}
 });
 

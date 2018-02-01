@@ -103,12 +103,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		this.initExtCss(browserWindowObject);
 
 		componentInstance.on('close', this.onSeparateWindowClose.createDelegate(this, [ browserWindowObject ]));
-
-		// Check the record has unsaved user changes before popout
-		// If true then update the record component plugin value
-		if(componentInstance.isRecordChangeByUser){
-			componentInstance.on('userupdaterecord', this.onComponentUserupdateRecord.createDelegate(this, [ componentInstance ], true));
-		}
+		componentInstance.on('userupdaterecord', this.onComponentUserupdateRecord.createDelegate(this, [ componentInstance ], true));
 
 		Ext.EventManager.on(
 			browserWindowObject,
@@ -148,7 +143,20 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 */
 	onComponentUserupdateRecord : function(field, record, isChangedByUser, componentInstance)
 	{
-		field.recordComponentPlugin.isChangedByUser = componentInstance.isRecordChangeByUser;
+		// Check the record has unsaved user changes before popout
+		// If true then update the record component plugin value
+		if (componentInstance.isRecordChangeByUser) {
+			field.recordComponentPlugin.isChangedByUser = componentInstance.isRecordChangeByUser;
+		}
+
+		// If record get saved then add record id
+		if (!record.phantom) {
+			var windowName = this.getOwnerWindow(componentInstance).name;
+			var windowObject = this.browserWindows.get(windowName);
+			if (Ext.isEmpty(windowObject.entryid)) {
+				windowObject.entryid = record.get("entryid");
+			}
+		}
 	},
 
 	/**
@@ -163,6 +171,12 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		var uniqueWindowName = browserWindowObject.name;
 		if (uniqueWindowName != 'mainBrowserWindow') {
 			this.initComponent(uniqueWindowName, component, config);
+
+			// add entryid along with the window object to identify browser window of particular record.
+			var entryid = config.record.get('entryid');
+			if (!Ext.isEmpty(entryid)) {
+				browserWindowObject.entryid = entryid;
+			}
 		}
 		this.browserWindows.add(uniqueWindowName, browserWindowObject);
 		this.setActive(uniqueWindowName);
@@ -622,6 +636,18 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		}
 
 		activeWindow.setFocusOnMainWindow();
+	},
+
+	/**
+	 * Function which is use to find browser window of given record.
+	 * @param {Zarafa.core.data.MAPIRecord} record The mapi record
+	 * @return {Object} Browser window object
+	 */
+	getOpenedWindow: function (record)
+	{
+		return this.browserWindows.find(function (browserWindow) {
+			return Zarafa.core.EntryId.compareEntryIds(browserWindow.entryid, record.get('entryid'));
+		});
 	}
 });
 

@@ -198,11 +198,19 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 
 	/**
 	 * Open the selected record in separate browser window by supplying layer type as "separateWindows".
+	 * And if record is opened in {@link Zarafa.core.ui.MainContentTabPanel tab} then close the existing tab.
 	 * @private
 	 */
 	onPopout : function()
 	{
-		Zarafa.common.Actions.openMessageContent(this.model.getPreviewRecord(), {layerType : 'separateWindows'});
+		var record = this.model.getPreviewRecord();
+		// If record is already opened in tab panel then close the opened tab.
+		var tabPanel = container.getTabPanel();
+		var openedTab = tabPanel.getOpenedTab(record);
+		if (openedTab) {
+			tabPanel.getItem(openedTab).close();
+		}
+		Zarafa.common.Actions.openMessageContent(record, {layerType : 'separateWindows'});
 	},
 
 	/**
