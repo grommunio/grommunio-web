@@ -243,7 +243,7 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 	 */
 	onBeforeAdd: function (tab)
 	{
-		if (tab.name === "main.content") {
+		if (tab.name === "main.content" || !tab.dialog) {
 			return;
 		}
 
