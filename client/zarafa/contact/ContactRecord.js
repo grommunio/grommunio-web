@@ -458,6 +458,21 @@ Zarafa.contact.ContactRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 		}
 		return Zarafa.contact.ContactRecord.superclass.afterOpen.call(this, arguments);
+	},
+
+	/**
+	 * Builds URL to download contact as RFC6350-formatted stream with vcf extension.
+	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
+	 * @return {String} URL for downloading message as file.
+	 */
+	getDownloadMessageUrl : function(allAsZip)
+	{
+		var url = container.getBaseURL();
+		url = Ext.urlAppend(url, 'load=download_contact');
+		url = Ext.urlAppend(url, 'storeid=' + this.get('store_entryid'));
+		url = Ext.urlAppend(url, 'entryid=' + this.get('entryid'));
+
+		return url;
 	}
 });
 
