@@ -43,12 +43,7 @@ Zarafa.core.EntryId = (function()
 	var MAPI_ONE_OFF_UID = '812B1FA4BEA310199D6E00DD010F5402';
 
 	/* Hardcoded ID used for generating entryid of addressbook container */
-	/*jshint unused:false*/
-	var ZARAFA_UID_ADDRESS_BOOK = '00000000';
-	/* Hardcoded ID used for generating entryid of global addressbook container */
 	var ZARAFA_UID_GLOBAL_ADDRESS_BOOK = '01000000';
-	/* Hardcoded ID used for generating entryid of global addresslists container */
-	var ZARAFA_UID_GLOBAL_ADDRESS_LISTS = '02000000';
 
 	var BASE_EID = Ext.extend(Object, {
 
