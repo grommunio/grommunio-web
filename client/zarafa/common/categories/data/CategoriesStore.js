@@ -34,11 +34,9 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		categories = categories.concat(container.getPersistentSettingsModel().get(this.settingsKey));
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 
-		categories = categories
-						.filter(function(category){
+		categories = categories.filter(function(category){
 							return Ext.isObject(category);
-						})
-						.map(function(category){
+						}).map(function(category){
 							return [
 								category.name,
 								category.color,
