@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2016-10-06 21:49+0000\n"
-"Last-Translator: Nobuyoshi <nobuyoshi.kumada@actplex.com>\n"
+"PO-Revision-Date: 2018-02-06 18:06+0000\n"
+"Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/ja/>\n"
 "Language: ja_JP\n"
@@ -4611,10 +4611,10 @@ msgid "Companies"
 msgstr "勤務先名"
 
 msgid "Billing Information"
-msgstr "請求書情報"
+msgstr "経費情報"
 
 msgid "Mileage"
-msgstr "経費情報"
+msgstr "進捗"
 
 #, fuzzy
 msgid "Accepting Task"
