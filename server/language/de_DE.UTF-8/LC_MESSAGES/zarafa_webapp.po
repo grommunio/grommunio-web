@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2018-01-26 15:49+0100\n"
-"Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
+"PO-Revision-Date: 2018-02-06 10:14+0000\n"
+"Last-Translator: Jan <jengelh@inai.de>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
-"core/de/>\n"
+"webapp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4831,7 +4831,7 @@ msgid "Billing Information"
 msgstr "Rechnungsinformationen"
 
 msgid "Mileage"
-msgstr "Reisekilometer"
+msgstr "Fortschritt"
 
 msgid "Accepting Task"
 msgstr "Aufgabe akzeptieren"
@@ -5594,9 +5594,7 @@ msgstr "Sie haben nicht genügend Berechtigungen um dieses Objekt zu öffnen."
 
 # 93%
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
-"Login fehlgeschlagen. Überprüfen Sie Ihren Benutzernamen und/oder Ihr "
-"Passwort."
+msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
 
 # 83%
 msgid "Can not connect to Kopano Core."
@@ -5616,7 +5614,7 @@ msgstr "Operation fehlgeschlagen: Server besitzt nicht genügend Speicher."
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr "Unbekannter MAPI Fehler: %s"
+msgstr "Unbekannter MAPI-Fehler: %s"
 
 msgid "Tentatively accepted"
 msgstr "Unter Vorbehalt"
@@ -5636,25 +5634,27 @@ msgstr "Findet jeden %s statt, beginnend am %s von %s bis %s."
 # 77%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Fällt jeden %s %s an, beginnend am %s von %s bis %s."
+msgstr "Findet jeden %s %s statt, beginnend am %s von %s bis %s."
 
 # 80%
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr "Fällt jeden %s an, beginnend am %s."
+msgstr "Findet jeden %s statt, beginnend am %s."
 
 # 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "Fällt jeden %s %s an, beginnend am %s."
+msgstr "Findet jeden %s %s statt, beginnend am %s."
 
 # 96%
 # 76%
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "Fällt jeden %s an, beginnend am %s für %s Wiederholung von %s bis %s."
-msgstr[1] "Fällt jeden %s an, beginnend am %s für %s Wiederholungen von %s bis %s."
+msgstr[0] ""
+"Findet jeden %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
+msgstr[1] ""
+"Findet jeden %s statt, beginnend am %s für %s Wiederholungen von %s bis %s."
 
 # 96%
 # 76%
@@ -5663,30 +5663,31 @@ msgstr[1] "Fällt jeden %s an, beginnend am %s für %s Wiederholungen von %s bis
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
 msgstr[0] ""
-"Fällt jeden %s %s an, beginnend am %s für %s Wiederholung von %s bis %s."
+"Findet jeden %s %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
 msgstr[1] ""
-"Fällt jeden %s %s an, beginnend am %s für %s Wiederholungen von %s bis %s."
+"Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen von %s bis "
+"%s."
 
 # 81%
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Fällt jeden %s an, beginnend am %s für %s Wiederholung."
-msgstr[1] "Fällt jeden %s an, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s statt, beginnend am %s für %s Wiederholung."
+msgstr[1] "Findet jeden %s statt, beginnend am %s für %s Wiederholungen."
 
 # 77%
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "Fällt jeden %s %s an, beginnend am %s für %s Wiederholung."
-msgstr[1] "Fällt jeden %s %s an, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholung."
+msgstr[1] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen."
 
 # 96%
 # 76%
 # 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Fällt jeden %s an, beginnend am %s bis %s von %s bis %s."
+msgstr "Findet jeden %s statt, beginnend am %s bis %s von %s bis %s."
 
 # 96%
 # 76%
@@ -5694,18 +5695,18 @@ msgstr "Fällt jeden %s an, beginnend am %s bis %s von %s bis %s."
 # 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Fällt jeden %s %s an, beginnend am %s bis %s von %s bis %s."
+msgstr "Findet jeden %s %s statt, beginnend am %s bis %s von %s bis %s."
 
 # 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "Fällt jeden %s an, beginnend am %s bis %s."
+msgstr "Findet jeden %s statt, beginnend am %s bis %s."
 
 # 78%
 # 92%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr "Fällt jeden %s %s an, beginnend am %s bis %s."
+msgstr "Findet jeden %s %s statt, beginnend am %s bis %s."
 
 msgid "Task Accepted:"
 msgstr "Aufgabe akzeptiert:"
