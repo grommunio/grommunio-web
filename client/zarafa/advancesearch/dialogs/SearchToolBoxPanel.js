@@ -637,9 +637,9 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	setMessageClassRestriction : function(group, checked)
 	{
 		// Helper to filter out duplicates
-		function onlyUnique(value, index, arr) {
+		const onlyUnique = function(value, index, arr) {
 			return arr.indexOf(value) === index;
-		}
+		};
 
 		var messageClasses = [];
 		var searchFields = [];
