@@ -100,7 +100,7 @@ Zarafa.core.ColorSchemes = {
 	rgbToHex : function(rgbObj)
 	{
 		// function that will convert a number to a hexadecimal string (between 0 and 255) 
-		function _toHex(n) {
+		const _toHex = function(n) {
 			n = parseInt(n,10);
 			if (isNaN(n)) {
 				return "00";
