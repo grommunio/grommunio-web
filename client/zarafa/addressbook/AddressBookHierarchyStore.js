@@ -87,7 +87,7 @@ Zarafa.onUIReady(function(){
 	// Make a singleton of the address book store and load it immediately
 	// Note: The typeof check is necessary for the js tests
 	if ( typeof Zarafa.addressbook.AddressBookHierarchyStore === 'function' ){
-		Zarafa.addressbook.AddressBookHierarchyStore = new Zarafa.addressbook.AddressBookHierarchyStore ();
+		Zarafa.addressbook.AddressBookHierarchyStore = new Zarafa.addressbook.AddressBookHierarchyStore();
 		Zarafa.addressbook.AddressBookHierarchyStore.on('load', function(){
 			// Add a property to identify group headers and remove group headers that don't
 			// have any group members (e.g. All Address Lists)
