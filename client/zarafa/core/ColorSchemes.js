@@ -107,7 +107,7 @@ Zarafa.core.ColorSchemes = {
 			}
 			n = Math.max(0,Math.min(n,255));
 			return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
-		}
+		};
 		
 		return '#' + _toHex(rgbObj.red)+_toHex(rgbObj.green)+_toHex(rgbObj.blue);
 	},
