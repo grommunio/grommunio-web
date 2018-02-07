@@ -817,13 +817,12 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var maxWidth = ct.getWidth() - ctPadding - 2; // Subtract two for border
 		var imageWidth = imgEl.dom.naturalWidth;
 		var imageHeight = imgEl.dom.naturalHeight;
-		var width, height, backgroundSize;
+		var width, height;
 		if ( imageWidth < maxWidth && imageHeight < maxWidth ) {
 			// The image is smaller than the area we reserved for it
 			// so we don't resize it.
 			width = imageWidth;
 			height = imageHeight;
-			backgroundSize = 'auto';
 		} else {
 			// The image is bigger than the area we reserved for it,
 			// so we will have resize it
