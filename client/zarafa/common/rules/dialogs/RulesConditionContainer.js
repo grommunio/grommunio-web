@@ -350,7 +350,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 							}
 						} else if (innerCondition[0] === Zarafa.core.mapi.Restrictions.RES_NOT) {
 							innerCondition = innerCondition[1];
-							if ('PR_DISPLAY_TO' === innerCondition[1][Zarafa.core.mapi.Restrictions.ULPROPTAG]) {
+							if (innerCondition[1][Zarafa.core.mapi.Restrictions.ULPROPTAG] === 'PR_DISPLAY_TO') {
 								conditionCounter++;
 							}
 						}
@@ -448,7 +448,6 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 					default:
 						return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 				}
-				break;
 			case Restrictions.RES_CONTENT:
 			case Restrictions.RES_PROPERTY:
 			case Restrictions.RES_SUBRESTRICTION:
