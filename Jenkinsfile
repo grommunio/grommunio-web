@@ -10,13 +10,14 @@ pipeline {
 			parallel {
 				stage('JS Lint') {
 					agent {
-						dockerfile {
-							label 'docker'
+						docker {
+							image 'node:9'
+							args '-u 0'
 						}
 					}
 					steps {
 						sh 'make lintci'
-						checkstyle canRunOnFailed: true, canComputeNew: false, pattern: 'jshint.xml'
+						junit allowEmptyResults: true, testResults: 'eslint.xml'
 					}
 				}
 				stage('Unittest') {

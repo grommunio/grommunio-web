@@ -2,6 +2,7 @@
 
 ANT ?= ant
 NPM ?= npm
+ESLINT ?= ./node_modules/.bin/eslint
 
 # Files
 
@@ -29,7 +30,7 @@ deploy: $(CORE_FILES)
 
 .PHONY: lint
 lint: vendor
-	$(NPM) run lint 
+	$(ESLINT) client/zarafa/
 
 .PHONY: lintci
 lintci: vendor

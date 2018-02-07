@@ -5,23 +5,17 @@
 	"license": "AGPL-3.0",
 	"repository": "https://stash.kopano.io/scm/kw/kopano-webapp.git",
 	"scripts": {
-		"lint": "jshint client/zarafa",
-		"prelint": "jshint $(git diff-index --name-only HEAD | grep '.js')",
-		"jlint": "jshint client/zarafa --reporter=checkstyle > jshint.xml",
 		"phplint": "phpmd server text .phpmd.xml || true",
 		"phplintci": "phpmd server xml .phpmd.xml --reportfile phpmd.xml || true",
 		"jsunit": "karma start test/js/unittest.conf.js"
 	},
 	"pre-commit": {
-		"run": [
-			"prelint"
-		]
+		"run": []
 	},
 	"devDependencies": {
-		"jasmine-core": "^2.9.1",
-		"jshint": "^2.9.5",
-		"jshint-junit-reporter": "^0.2.3",
-		"karma": "^2.0.0",
+		"eslint": "^4.17.0",
+		"jasmine-core": "^2.8.0",
+		"karma": "^1.7.1",
 		"karma-chrome-launcher": "^2.2.0",
 		"karma-coverage": "^1.1.1",
 		"karma-jasmine": "^1.1.1",
