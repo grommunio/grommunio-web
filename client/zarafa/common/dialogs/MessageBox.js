@@ -120,7 +120,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 				listeners: {
 					check: function(cb, checked){
 						checkboxState = checked;
-					}.bind(this)
+					}
 				},
 				scope: this
 			}]
