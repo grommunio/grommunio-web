@@ -1094,5 +1094,20 @@ Zarafa.common.Actions = {
 				Zarafa.core.data.UIFactory.openViewRecord(record, config);
 			}
 		});
+	},
+
+	/**
+	 * Copy email address of the given recipient.
+	 *
+	 * @param {Zarafa.core.dat.IPMRecipientRecord} record The record is resolved
+	 * recipient.
+	 */
+	copyEmailAddress : function (record)
+	{
+		var email = record.get('smtp_address') || record.get('email_address');
+		if(Ext.isEmpty(email)) {
+			return;
+		}
+		Zarafa.core.Util.copyToClipboard(email);
 	}
 };
