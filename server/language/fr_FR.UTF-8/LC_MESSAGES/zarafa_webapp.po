@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 15:31+0200\n"
-"PO-Revision-Date: 2017-03-13 13:25+0000\n"
-"Last-Translator: C <c.maltot@synairgis.com>\n"
+"PO-Revision-Date: 2018-02-09 09:18+0000\n"
+"Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
 "Language: fr_FR\n"
@@ -2086,16 +2086,16 @@ msgid "Edit reminder"
 msgstr ""
 
 msgid "Complete"
-msgstr "Compléter"
+msgstr "Achevé"
 
 msgid "today"
-msgstr ""
+msgstr "aujourd'hui"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "demain"
 
 msgid "this week"
-msgstr ""
+msgstr "cette semaine"
 
 msgid "next week"
 msgstr ""
@@ -4736,7 +4736,7 @@ msgid "Billing Information"
 msgstr "Éléments de facturation"
 
 msgid "Mileage"
-msgstr "Parcours"
+msgstr "Progrès"
 
 #, fuzzy
 msgid "Accepting Task"
