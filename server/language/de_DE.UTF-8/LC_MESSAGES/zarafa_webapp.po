@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2018-02-09 10:50+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -604,26 +604,24 @@ msgstr "Zeige..."
 msgid "Mails"
 msgstr "E-Mails"
 
-msgid "Calendar items"
-msgstr "Kalendereinträge"
+#, fuzzy
+msgid "Appointments"
+msgstr "Termin"
 
-msgid "Contact items"
+msgid "Contacts"
 msgstr "Kontakte"
 
-msgid "Task items"
+msgid "Tasks"
 msgstr "Aufgaben"
-
-msgid "Note items"
-msgstr "Notizen"
 
 msgid "Filter.."
 msgstr "Eingrenzen ..."
 
-msgid "Unread items"
-msgstr "ungelesene Elemente"
+msgid "Unread"
+msgstr "Ungelesen"
 
-msgid "With attachments"
-msgstr "mit Anhängen"
+msgid "Attachments"
+msgstr "Anhänge"
 
 msgid "Date"
 msgstr "Datum"
@@ -676,9 +674,11 @@ msgstr "Lade Suchergebnisse"
 msgid "Sorting not possible"
 msgstr "Sortieren nicht möglich"
 
+#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 "Die Ergebnisse konnten nicht sortiert werden, da mehr als {0} Treffer "
 "erzielt wurden. Grenzen Sie die Suche ein, um Ergebnisse sortieren zu können."
@@ -797,7 +797,8 @@ msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen."
 msgid "Occurs every {0} {1} effective {2} for {3} occurence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
 msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Wiederholung."
-msgstr[1] "Findet jeden {0} {1} statt, beginnend am {2} für {2} Wiederholungen."
+msgstr[1] ""
+"Findet jeden {0} {1} statt, beginnend am {2} für {2} Wiederholungen."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Findet jeden {0} statt, beginnend am {1} bis {2} von {3} bis {4}."
@@ -1051,6 +1052,10 @@ msgstr ""
 "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
 "werden, wenn der Organisator den Termin aktualisiert"
 
+#, fuzzy
+msgid "Create in"
+msgstr "Erstellt am"
+
 msgid "Time"
 msgstr "Zeit"
 
@@ -1065,9 +1070,6 @@ msgstr "Erinnerung"
 
 msgid "Show as"
 msgstr "Zeigen als"
-
-msgid "Attachments"
-msgstr "Anhänge"
 
 msgid "Warning"
 msgstr "Warnung"
@@ -1454,6 +1456,9 @@ msgstr "Neue Terminanfrage"
 
 msgid "Open"
 msgstr "Öffnen"
+
+msgid "Copy/Move"
+msgstr "Kopieren/Verschieben"
 
 msgid "Accept"
 msgstr "Akzeptieren"
@@ -1873,6 +1878,19 @@ msgstr "Element anhängen"
 msgid "No message selected"
 msgstr "Keine Nachricht ausgewählt"
 
+#, fuzzy
+msgid "Import to"
+msgstr "Wichtig"
+
+#, fuzzy
+msgid "Import"
+msgstr "Wichtig"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Neuer Ordner"
+
 msgid "Download as ZIP"
 msgstr "Als ZIP herunterladen"
 
@@ -1908,6 +1926,10 @@ msgstr "Herunterladen"
 
 msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Ordner leeren"
 
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
@@ -2104,11 +2126,6 @@ msgstr "Nachrichten kopieren/verschieben"
 msgid "Move"
 msgstr "Verschieben"
 
-# 90%
-# 100%
-msgid "New folder"
-msgstr "Neuer Ordner"
-
 msgid "Destination folder"
 msgstr "Zielverzeichnis"
 
@@ -2123,6 +2140,18 @@ msgstr "Ordner \"{0}\" ausgewählt."
 msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Zur Nachverfolgung kennzeichnen"
+
+# 90%
+msgid "Start date"
+msgstr "Startdatum"
+
+# 87%
+msgid "End date"
+msgstr "Enddatum"
+
 msgid "Tomorrow"
 msgstr "Morgen"
 
@@ -2135,7 +2164,13 @@ msgstr "Nächste Woche"
 msgid "No date"
 msgstr "Kein Datum"
 
-msgid "Edit reminder"
+# 87%
+#, fuzzy
+msgid "Custom"
+msgstr "Benutzerdefiniertes Datum"
+
+#, fuzzy
+msgid "Set reminder"
 msgstr "Erinnerung bearbeiten"
 
 msgid "Complete"
@@ -2275,6 +2310,10 @@ msgstr ""
 # 92%
 msgid "Edit Recipient"
 msgstr "Empfänger bearbeiten"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Neue E-Mail-Adresse"
 
 # 90%
 msgid "Send e-mail"
@@ -2761,25 +2800,27 @@ msgstr "Webseite"
 msgid "IM Address"
 msgstr "IM-Adresse"
 
-msgid "Copy/Move"
-msgstr "Kopieren/Verschieben"
-
-# 90%
-msgid "Start date"
-msgstr "Startdatum"
-
-# 87%
-msgid "End date"
-msgstr "Enddatum"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "D, d.m.Y"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} ausgewählte Zeile"
 msgstr[1] "{0} ausgewählte Zeilen"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d.m.Y"
+
 msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d.m.Y G:i"
 
 msgid "Unknown"
 msgstr "<Unbekannt>"
@@ -3187,9 +3228,6 @@ msgstr "Kein Kontakt ausgewählt"
 
 msgid "Distribution list"
 msgstr "Verteilerliste"
-
-msgid "Contacts"
-msgstr "Kontakte"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3611,8 +3649,8 @@ msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
-"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgröße ist {0}"
-", erlaubt sind maximal {1}"
+"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgröße ist "
+"{0}, erlaubt sind maximal {1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
@@ -3841,6 +3879,17 @@ msgstr "Widgets anzeigen"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Ihre Änderungen werden beim Schließen dieser Seite verloren gehen."
 
+# 75%
+# 83%
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "D., j. F Y H:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "D, d.m.Y"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3918,9 +3967,6 @@ msgstr "Typ"
 
 msgid "Description"
 msgstr "Name"
-
-msgid "Unread"
-msgstr "Ungelesen"
 
 msgid "Folder size"
 msgstr "Ordnergröße"
@@ -4261,8 +4307,8 @@ msgid ""
 msgstr ""
 "\"Von\"-Feld anzeigen. Wenn Sie die Stellvertreterberechtigung für das "
 "Postfach eines anderen Benutzers haben, können sie E-Mails versenden, die so "
-"aussehen, als kämen sie von diesem Benutzer, in dem Sie den Namen in das \""
-"Von\"-Feld eingeben"
+"aussehen, als kämen sie von diesem Benutzer, in dem Sie den Namen in das "
+"\"Von\"-Feld eingeben"
 
 msgid "No signatures configured"
 msgstr "Keine Signaturen konfiguriert"
@@ -4461,6 +4507,10 @@ msgstr "Signatur für neue Nachrichten"
 msgid "Signature for replies and forwards"
 msgstr "Signatur für Antworten und Weiterleitungen"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "Signaturen"
+
 msgid "<None>"
 msgstr "<Keine>"
 
@@ -4471,6 +4521,16 @@ msgstr ""
 # 76%
 msgid "New signature"
 msgstr "Neue Signatur"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr "max. "
 
 # 81%
 # 75%
@@ -4489,19 +4549,19 @@ msgstr "Flagge"
 msgid "Sort by: flag"
 msgstr "Nach Flagge sortieren"
 
-# 95%
-# 100%
-msgid "Forward as Attachment"
-msgstr "Als Anhang weiterleiten"
-
 msgid "Follow up"
 msgstr "Nachverfolgung"
 
 msgid "Move to Junk Folder"
 msgstr "Nach Spam verschieben"
 
-msgid "max. "
-msgstr "max. "
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "Senden"
+
+msgid "Export as"
+msgstr ""
 
 msgid "Loading mail"
 msgstr "Lade E-Mail"
@@ -4629,6 +4689,15 @@ msgstr "Einstellungen löschen"
 
 msgid "About"
 msgstr "Über"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
@@ -5009,9 +5078,6 @@ msgstr "Keine Aufgabe ausgewählt"
 msgid "Create task"
 msgstr "Aufgabe erstellen"
 
-msgid "Tasks"
-msgstr "Aufgaben"
-
 msgid "Mark Complete"
 msgstr "Als fertig markieren"
 
@@ -5119,8 +5185,8 @@ msgid ""
 msgstr ""
 "Ihre mit einer Flagge markierten Elemente wurden als Elemente mit einer "
 "farbigen Kategorie zur Nachverfolgung ohne Datumsangabe geändert. Zum "
-"Beispiel gehört ein Element mit einer blauen Flagge nun zur Kategorie \""
-"Blau\"."
+"Beispiel gehört ein Element mit einer blauen Flagge nun zur Kategorie \"Blau"
+"\"."
 
 msgid ""
 " You have the option to rename a color category when you first use it and "
@@ -5504,8 +5570,9 @@ msgstr "Unbekannter Notifier \"%s\""
 msgid "An unexpected error has occurred"
 msgstr "Ein unerwarteter Fehler ist aufgetreten"
 
-msgid "To-do list"
-msgstr "To-Do-Liste"
+#, fuzzy
+msgid "To-Do List"
+msgstr "Telefonliste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5514,9 +5581,6 @@ msgstr "To-Do-Liste"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s von %2$s"
-
-msgid "Settings object is not initialized"
-msgstr "Objekteinstellungen sind nicht initialisiert"
 
 msgid "Error retrieving existing settings"
 msgstr "Die Einstellungen konnten nicht empfangen werden"
@@ -5545,6 +5609,10 @@ msgstr "Klicken Sie auf den Link, um die URL in einem neuen Fenster zu öffnen."
 
 msgid "This external link will open in a new window"
 msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
+
+#, fuzzy
+msgid "Attachment is not imported successfully"
+msgstr "ZIP-Datei konnte nicht erstellt werden"
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP-Datei konnte nicht erstellt werden"
@@ -5619,9 +5687,6 @@ msgstr "Unter Vorbehalt"
 
 msgid "New Time Proposed"
 msgstr "Neue Zeit vorgeschlagen"
-
-msgid "d-m-Y"
-msgstr "d.m.Y"
 
 # 78%
 # 76%
@@ -5728,7 +5793,8 @@ msgid "Could not open occurrence."
 msgstr "Konnte Serientermin nicht öffnen."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
+msgstr ""
+"Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
@@ -5974,9 +6040,6 @@ msgstr ""
 "Sie haben keine ausreichenden Berechtigungen, um Elemente in diesem Ordner "
 "zu löschen"
 
-msgid "Could not resolve conflict."
-msgstr "Der Konflikt konnte nicht aufgelöst werden."
-
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um ein Element als Anhang "
@@ -6070,7 +6133,8 @@ msgstr "Fehler beim Erstellen des Suchordners."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um in diesem Ordner zu suchen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um in diesem Ordner zu suchen."
 
 msgid "Could not update search results."
 msgstr "Die Suchergebnisse konnten nicht aktualisiert werden."
@@ -6080,7 +6144,8 @@ msgstr "Die Suche konnte nicht gestoppt werden."
 
 # 83%
 msgid "You have insufficient privileges to save this message."
-msgstr "Sie haben nicht genügend Berechtigungen, um die Nachricht zu speichern."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um die Nachricht zu speichern."
 
 # 78%
 # 82%

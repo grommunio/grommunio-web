@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-14 13:34+0100\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -539,6 +539,9 @@ msgstr "Tilføj til favoritter"
 msgid "Add"
 msgstr "Tilføj til"
 
+msgid "You must specify a name."
+msgstr "Du skal angive et navn."
+
 msgid "Add a folder to favorites based on your search query"
 msgstr "Tilføj en mappe til dine favoritter baseret på dit søgeresultat"
 
@@ -575,26 +578,24 @@ msgstr "Vis.."
 msgid "Mails"
 msgstr "Meddelelser"
 
-msgid "Calendar items"
-msgstr "Kalender elementer"
+#, fuzzy
+msgid "Appointments"
+msgstr "Aftale"
 
-msgid "Contact items"
-msgstr "Kontakt elementer"
+msgid "Contacts"
+msgstr "Kontakter"
 
-msgid "Task items"
-msgstr "Opgave elementer"
-
-msgid "Note items"
-msgstr "Note elementer"
+msgid "Tasks"
+msgstr "Opgaver"
 
 msgid "Filter.."
 msgstr "Filtrer.."
 
-msgid "Unread items"
-msgstr "Ulæste elementer"
+msgid "Unread"
+msgstr "Ulæst"
 
-msgid "With attachments"
-msgstr "Med vedhæftninger"
+msgid "Attachments"
+msgstr "Vedhæftninger"
 
 msgid "Date"
 msgstr "Dato"
@@ -641,9 +642,11 @@ msgstr "Henter søgningsresultater"
 msgid "Sorting not possible"
 msgstr "Sortering er ikke mulig"
 
+#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 "Søgeresultaterne kunne ikke sorteres fordi antallet af fundne elementer er "
 "højere end {0}. Begræns din søgning ved at tilpasse det indtastede."
@@ -981,6 +984,10 @@ msgstr ""
 "Bemærk at ændringer du foretager vil blive overskrevet når denne "
 "mødeindkaldelse bliver opdateret af arrangøren"
 
+#, fuzzy
+msgid "Create in"
+msgstr "Oprettelsestidspunkt"
+
 msgid "Time"
 msgstr "Tid"
 
@@ -995,9 +1002,6 @@ msgstr "Påmindelse"
 
 msgid "Show as"
 msgstr "Vis som"
-
-msgid "Attachments"
-msgstr "Vedhæftninger"
 
 msgid "Warning"
 msgstr "Advarsel"
@@ -1353,6 +1357,9 @@ msgstr "Ny mødeindkaldelse"
 
 msgid "Open"
 msgstr "Åben"
+
+msgid "Copy/Move"
+msgstr "Kopier/flyt"
 
 msgid "Accept"
 msgstr "Accepter"
@@ -1740,6 +1747,17 @@ msgstr "Vedhæft element"
 msgid "No message selected"
 msgstr "Ingen meddelelse er valgt"
 
+#, fuzzy
+msgid "Import to"
+msgstr "Vigtigt"
+
+#, fuzzy
+msgid "Import"
+msgstr "Vigtigt"
+
+msgid "New folder"
+msgstr "Ny mappe"
+
 msgid "Download as ZIP"
 msgstr "Download som ZIP"
 
@@ -1776,6 +1794,10 @@ msgstr "Download"
 
 msgid "Download all as ZIP"
 msgstr "Download alt i en zipfil"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Tøm mappe"
 
 msgid "Attachment error"
 msgstr "Vedhæftningsfejl"
@@ -1954,9 +1976,6 @@ msgstr "Kopier/flyt meddelelser"
 msgid "Move"
 msgstr "Flyt"
 
-msgid "New folder"
-msgstr "Ny mappe"
-
 msgid "Destination folder"
 msgstr "Destinationsmappe"
 
@@ -1971,6 +1990,16 @@ msgstr "Mappen '{0}' er valgt."
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Sæt flag"
+
+msgid "Start date"
+msgstr "Startdato"
+
+msgid "End date"
+msgstr "Slutdato"
+
 msgid "Tomorrow"
 msgstr "I morgen"
 
@@ -1983,7 +2012,12 @@ msgstr "Næste uge"
 msgid "No date"
 msgstr "Ingen dato"
 
-msgid "Edit reminder"
+#, fuzzy
+msgid "Custom"
+msgstr "Selvvalgt dato"
+
+#, fuzzy
+msgid "Set reminder"
 msgstr "Rediger påmindelser"
 
 msgid "Complete"
@@ -2110,6 +2144,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Ny email adresse"
 
 msgid "Send e-mail"
 msgstr "Send mail"
@@ -2557,23 +2595,27 @@ msgstr "Hjemmeside"
 msgid "IM Address"
 msgstr "IM adresse"
 
-msgid "Copy/Move"
-msgstr "Kopier/flyt"
-
-msgid "Start date"
-msgstr "Startdato"
-
-msgid "End date"
-msgstr "Slutdato"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "D, d.m.Y"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} række er valgt"
 msgstr[1] "{0} rækker er valgt"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d.m.Y"
+
 msgid "l d/m/Y G:i"
 msgstr "I d.m.Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d.m.Y G:i"
 
 msgid "Unknown"
 msgstr "Ukendt"
@@ -2948,9 +2990,6 @@ msgstr "Ingen kontakt er valgt"
 
 msgid "Distribution list"
 msgstr "Distributionsliste"
-
-msgid "Contacts"
-msgstr "Kontakter"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3554,6 +3593,14 @@ msgstr "Udvid widget panel"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Dine ændringer vil gå tabt hvis du forlader siden nu."
 
+#, fuzzy
+msgid "D G:i"
+msgstr "j F G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "D, d.m.Y"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3617,9 +3664,6 @@ msgstr "Opgave elementer"
 msgid "Select where to place the folder"
 msgstr "Vælg hvor du vil placere mappen"
 
-msgid "You must specify a name."
-msgstr "Du skal angive et navn."
-
 msgid "You must select a destination folder."
 msgstr "Du skal vælge en destinations mappe."
 
@@ -3631,9 +3675,6 @@ msgstr "Type"
 
 msgid "Description"
 msgstr "Beskrivelse"
-
-msgid "Unread"
-msgstr "Ulæst"
 
 msgid "Folder size"
 msgstr "Mappestørrelse"
@@ -3877,8 +3918,12 @@ msgstr "G:i"
 msgid "Message Options"
 msgstr "Meddelelses muligheder"
 
-msgid "No send as address configured!"
-msgstr "Ingen \"Send som\" adresse er konfigureret!"
+#, fuzzy
+msgid "No from addresses configured!"
+msgstr "Ingen afsenderadresse er valgt"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
 
 msgid "Send email"
 msgstr "Send email"
@@ -3989,6 +4034,9 @@ msgstr "Slet mail"
 
 msgid "Delete this mail."
 msgstr "Slet denne mail"
+
+msgid "Set Category"
+msgstr "Sæt kategori"
 
 msgid "New mail"
 msgstr "Ny mail"
@@ -4130,6 +4178,10 @@ msgstr "Signaturer for nye meddelelser"
 msgid "Signature for replies and forwards"
 msgstr "Signatur for svar og videresendelser"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "Signaturer"
+
 msgid "<None>"
 msgstr "<Ingen>"
 
@@ -4138,6 +4190,16 @@ msgstr "Du har ugemte ændringer. Vil du gemme disse ændringer?"
 
 msgid "New signature"
 msgstr "Ny signatur"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr "maks "
 
 msgid "Sort by: Sent"
 msgstr "Sorter efter: Sendt"
@@ -4148,20 +4210,11 @@ msgstr "Ændret"
 msgid "Sort by: Modified"
 msgstr "Sorter efter: Ændret"
 
-msgid "Flag Status"
-msgstr "Flag"
-
-msgid "Sort by: Flag Status"
-msgstr "Sorter efter: Flag"
-
 msgid "Flag"
 msgstr "Flag"
 
 msgid "Sort by: flag"
 msgstr ""
-
-msgid "Forward as Attachment"
-msgstr "Videresend som vedhæftning"
 
 msgid "Follow up"
 msgstr "Opfølgning"
@@ -4169,8 +4222,12 @@ msgstr "Opfølgning"
 msgid "Move to Junk Folder"
 msgstr "Flyt til spam mappen"
 
-msgid "max. "
-msgstr "maks "
+#, fuzzy
+msgid "Send to"
+msgstr "Send"
+
+msgid "Export as"
+msgstr ""
 
 msgid "Loading mail"
 msgstr "Henter mail"
@@ -4189,9 +4246,6 @@ msgstr "Slet note"
 
 msgid "Delete this note"
 msgstr "Slet denne note"
-
-msgid "Set Category"
-msgstr "Sæt kategori"
 
 msgid "Print this note"
 msgstr "Udskriv note"
@@ -4237,54 +4291,6 @@ msgstr "Henter noter"
 
 msgid "Loading notes"
 msgstr "Henter noter"
-
-msgid "Competition"
-msgstr "Konkurrence"
-
-msgid "Gifts"
-msgstr "Gaver"
-
-msgid "Goals/Objectives"
-msgstr "Mål/målsætninger"
-
-msgid "Holiday Cards"
-msgstr "Postkort"
-
-msgid "Hot Contacts"
-msgstr "Ofte benyttede kontakter"
-
-msgid "Ideas"
-msgstr "Ideer"
-
-msgid "International"
-msgstr "International"
-
-msgid "Key Customer"
-msgstr "Hovedkunde"
-
-msgid "Miscellaneous"
-msgstr "Diverse"
-
-msgid "Phone Calls"
-msgstr "Telefonopringninger"
-
-msgid "Status"
-msgstr "Status"
-
-msgid "Strategies"
-msgstr "Strategier"
-
-msgid "Suppliers"
-msgstr "Leverandører"
-
-msgid "Time & Expenses"
-msgstr "Tid og udgifter"
-
-msgid "VIP"
-msgstr "VIP"
-
-msgid "Waiting"
-msgstr "Venter"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr "For at ændringerne skal træde i kræft, skal du genindlæse WebApp."
@@ -4333,6 +4339,15 @@ msgstr "Slet indstillinger"
 
 msgid "About"
 msgstr "Om"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Indbakke navigation"
@@ -4486,6 +4501,9 @@ msgstr "Vil du slette element(erne)?"
 
 msgid "Sort by: Priority"
 msgstr "Sorter efter: Prioritet"
+
+msgid "Status"
+msgstr "Status"
 
 msgid "Sort by: Status"
 msgstr "Sorter efter: Status"
@@ -4674,9 +4692,6 @@ msgstr "Ingen opgave er valgt"
 msgid "Create task"
 msgstr "Opret opgave"
 
-msgid "Tasks"
-msgstr "Opgaver"
-
 msgid "Mark Complete"
 msgstr "Marker som fuldført"
 
@@ -4697,6 +4712,9 @@ msgstr "Påmindelses tidspunkt"
 msgid "Sort by: Reminder Time"
 msgstr "Sorter efter: Påmindelsestidspunkt"
 
+msgid "Assigned To"
+msgstr "Tildelt til"
+
 msgid "Sort by: Assignee"
 msgstr "Sorter efter: Modtager"
 
@@ -4706,29 +4724,11 @@ msgstr "Sorter efter: Startdato"
 msgid "Sort by: Owner"
 msgstr "Sorter efter: Ejer"
 
-msgid "Sort by: Company"
-msgstr "Sorter efter: Firma"
+msgid "Loading tasks"
+msgstr "Henter opgaver"
 
-msgid "Date Completed"
+msgid "Date completed"
 msgstr "Fuldført dato"
-
-msgid "Sort by: Date Completed"
-msgstr "Sorter efter: Afsluttet dato"
-
-msgid "Sort by: Total Work"
-msgstr "Sorter efter: Totalt arbejde"
-
-msgid "Sort by: Actual Work"
-msgstr "Sorter efter: Faktisk arbejde"
-
-msgid "Assigned To"
-msgstr "Tildelt til"
-
-msgid "Sort by: Mileage"
-msgstr "Sorter efter: Rejsegodtgørelse"
-
-msgid "Sort by: Billing Information"
-msgstr "Sorter efter: Fakturainformation"
 
 msgid "hours"
 msgstr "timer"
@@ -4741,18 +4741,6 @@ msgstr "Opdater liste"
 
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
-
-msgid "You cannot accept the task \""
-msgstr "Du kan ikke acceptere opgaven \""
-
-msgid "\" because it is not assigned to you."
-msgstr "\" fordi den ikke er tildelt til dig."
-
-msgid "Loading tasks"
-msgstr "Henter opgaver"
-
-msgid "Date completed"
-msgstr "Fuldført dato"
 
 msgid "Improved categories"
 msgstr "Forbedrede kategorier"
@@ -5069,20 +5057,62 @@ msgstr "Mynte"
 msgid "Pearl aqua"
 msgstr "Lyseblå"
 
-msgid "Sky blue"
-msgstr "Himmelblå"
+msgid "Kopano blue"
+msgstr "Kopano blå"
 
 msgid "Baby blue"
 msgstr "Babyblå"
-
-msgid "Kopano blue"
-msgstr "Kopano blå"
 
 msgid "Mauve"
 msgstr "Blålilla"
 
 msgid "Silver sand"
 msgstr "Sølv"
+
+msgid "Competition"
+msgstr "Konkurrence"
+
+msgid "Gifts"
+msgstr "Gaver"
+
+msgid "Goals/Objectives"
+msgstr "Mål/målsætninger"
+
+msgid "Holiday Cards"
+msgstr "Postkort"
+
+msgid "Hot Contacts"
+msgstr "Ofte benyttede kontakter"
+
+msgid "Ideas"
+msgstr "Ideer"
+
+msgid "International"
+msgstr "International"
+
+msgid "Key Customer"
+msgstr "Hovedkunde"
+
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+msgid "Phone Calls"
+msgstr "Telefonopringninger"
+
+msgid "Strategies"
+msgstr "Strategier"
+
+msgid "Suppliers"
+msgstr "Leverandører"
+
+msgid "Time & Expenses"
+msgstr "Tid og udgifter"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Venter"
 
 msgid "You have been automatically logged out"
 msgstr "Du er blevet logget ud automatisk"
@@ -5108,8 +5138,9 @@ msgstr ""
 msgid "An unexpected error has occurred"
 msgstr "En uventet fejl opstod"
 
-msgid "To-do list"
-msgstr "To-do liste"
+#, fuzzy
+msgid "To-Do List"
+msgstr "Telefonliste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5117,9 +5148,6 @@ msgstr "To-do liste"
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
-
-msgid "Settings object is not initialized"
 msgstr ""
 
 msgid "Error retrieving existing settings"
@@ -5145,6 +5173,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Det eksterne link vil blive åbnet i et nyt vindue"
+
+#, fuzzy
+msgid "Attachment is not imported successfully"
+msgstr "ZIP filen kunne ikke dannes"
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP filen kunne ikke dannes"
@@ -5204,9 +5236,6 @@ msgstr "Foreløbigt accepteret"
 
 msgid "New Time Proposed"
 msgstr "Ny tid foreslået"
-
-msgid "d-m-Y"
-msgstr "d.m.Y"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
@@ -5474,9 +5503,6 @@ msgstr ""
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
-
-msgid "Could not resolve conflict."
-msgstr "Kunne ikke løse konflikten."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -597,26 +597,24 @@ msgstr "Afficher.."
 msgid "Mails"
 msgstr "Courrier"
 
-msgid "Calendar items"
-msgstr "Éléments de l'agenda"
+#, fuzzy
+msgid "Appointments"
+msgstr "Rendez-vous"
 
-msgid "Contact items"
-msgstr "Éléments de contacts"
+msgid "Contacts"
+msgstr "Contacts"
 
-msgid "Task items"
-msgstr "Éléments de tâches"
-
-msgid "Note items"
-msgstr "Éléments de notes"
+msgid "Tasks"
+msgstr "Tâches"
 
 msgid "Filter.."
 msgstr "Filtrer.."
 
-msgid "Unread items"
-msgstr "Éléments non lus"
+msgid "Unread"
+msgstr "Non lu(s)"
 
-msgid "With attachments"
-msgstr "Avec pièces jointes"
+msgid "Attachments"
+msgstr "Pièces jointes"
 
 msgid "Date"
 msgstr "Date"
@@ -665,9 +663,11 @@ msgstr "Téléchargement des résultats de la recherche"
 msgid "Sorting not possible"
 msgstr "Le tri n'est pas possible"
 
+#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 "Les résultats de recherche n'ont pas pu être triés car le nombre d'éléments "
 "est supérieur à {0}. Précisez vos résultats en spécifiant mieux votre "
@@ -1022,6 +1022,10 @@ msgstr ""
 "remplacées lorsque cette demande de réunion sera mise à jour par "
 "l'organisateur"
 
+#, fuzzy
+msgid "Create in"
+msgstr "Date de création"
+
 msgid "Time"
 msgstr "Heure"
 
@@ -1036,9 +1040,6 @@ msgstr "Rappel"
 
 msgid "Show as"
 msgstr "Afficher en"
-
-msgid "Attachments"
-msgstr "Pièces jointes"
 
 msgid "Warning"
 msgstr "Avertissement"
@@ -1424,6 +1425,9 @@ msgstr "Nouvelle demande de rendez-vous"
 
 msgid "Open"
 msgstr "Ouverture"
+
+msgid "Copy/Move"
+msgstr "Copier/Déplacer"
 
 msgid "Accept"
 msgstr "Accepter"
@@ -1833,6 +1837,19 @@ msgstr "Joindre l'élément"
 msgid "No message selected"
 msgstr "Aucun message sélectionné"
 
+#, fuzzy
+msgid "Import to"
+msgstr "Important"
+
+#, fuzzy
+msgid "Import"
+msgstr "Important"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Nouveau dossier"
+
 msgid "Download as ZIP"
 msgstr "Téléchargement au format ZIP"
 
@@ -1869,6 +1886,10 @@ msgstr "Téléchargement"
 
 msgid "Download all as ZIP"
 msgstr "Télécharger tout dans un fichier ZIP"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Vider le dossier"
 
 msgid "Attachment error"
 msgstr "Erreur de pièce jointe"
@@ -2051,11 +2072,6 @@ msgstr "Copier/Déplacer les messages"
 msgid "Move"
 msgstr "Déplacer"
 
-# 90%
-# 100%
-msgid "New folder"
-msgstr "Nouveau dossier"
-
 msgid "Destination folder"
 msgstr "Dossier de destination"
 
@@ -2070,6 +2086,16 @@ msgstr "Dossier '{0}' sélectionné."
 msgid "Do not show this message again."
 msgstr ""
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Définir l'indicateur"
+
+msgid "Start date"
+msgstr "Date de début"
+
+msgid "End date"
+msgstr "Date de fin"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2082,8 +2108,14 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+# 87%
+#, fuzzy
+msgid "Custom"
+msgstr "Date personnalisée"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Rappel"
 
 msgid "Complete"
 msgstr "Achevé"
@@ -2214,6 +2246,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "Modifier un destinataire"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Nouvelle adresse électronique"
 
 # 90%
 msgid "Send e-mail"
@@ -2685,14 +2721,9 @@ msgstr "Page Web"
 msgid "IM Address"
 msgstr "Adresse de messagerie instantanée"
 
-msgid "Copy/Move"
-msgstr "Copier/Déplacer"
-
-msgid "Start date"
-msgstr "Date de début"
-
-msgid "End date"
-msgstr "Date de fin"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-Y"
 
 # 76%
 msgid "{0} selected row"
@@ -2700,9 +2731,18 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} rangée sélectionnée"
 msgstr[1] "{0} rangées sélectionnées"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G\\Hi"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-Y"
 
 msgid "Unknown"
 msgstr "Inconnu"
@@ -3111,9 +3151,6 @@ msgstr "Aucun contact sélectionné"
 
 msgid "Distribution list"
 msgstr "Liste de diffusion"
-
-msgid "Contacts"
-msgstr "Contacts"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3770,6 +3807,13 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 "Vos modifications seront perdues si vous quittez cette page maintenant."
 
+msgid "D G:i"
+msgstr ""
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-Y"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3846,9 +3890,6 @@ msgstr "Type"
 
 msgid "Description"
 msgstr "Description"
-
-msgid "Unread"
-msgstr "Non lu(s)"
 
 msgid "Folder size"
 msgstr "Taille du dossier"
@@ -4376,6 +4417,10 @@ msgstr "Signature pour les nouveaux messages"
 msgid "Signature for replies and forwards"
 msgstr "Signature pour les réponses et transferts"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "Signatures"
+
 msgid "<None>"
 msgstr "<None>"
 
@@ -4387,6 +4432,16 @@ msgstr ""
 # 76%
 msgid "New signature"
 msgstr "Nouvelle signature"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Trier par : Envoyé"
@@ -4403,17 +4458,19 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-msgid "Forward as Attachment"
-msgstr "Transférer en tant que Pièce jointe"
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Déplacer vers le dossier 'Courrier indésirable'"
 
-msgid "max. "
-msgstr "max. "
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "Envoyer"
+
+msgid "Export as"
+msgstr ""
 
 msgid "Loading mail"
 msgstr "Chargement du courrier"
@@ -4534,6 +4591,15 @@ msgstr "Supprimer les paramètres"
 
 msgid "About"
 msgstr "À propos"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Boîte de réception"
@@ -4915,9 +4981,6 @@ msgstr "Aucune tâche sélectionnée"
 
 msgid "Create task"
 msgstr "Créer une tâche"
-
-msgid "Tasks"
-msgstr "Tâches"
 
 msgid "Mark Complete"
 msgstr "Marquer Complété"
@@ -5390,8 +5453,9 @@ msgstr "Notification inconnue '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Une erreur imprévue s'est produite"
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "Liste de téléphone"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5400,9 +5464,6 @@ msgstr ""
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
-
-msgid "Settings object is not initialized"
-msgstr "Les paramètres d'objets ne sont pas initialisés"
 
 msgid "Error retrieving existing settings"
 msgstr ""
@@ -5432,6 +5493,11 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ce lien externe s'ouvrira dans une nouvelle fenêtre"
+
+# 94%
+#, fuzzy
+msgid "Attachment is not imported successfully"
+msgstr "Fichier ZIP n'a pas été créé correctement"
 
 # 94%
 msgid "ZIP is not created successfully"
@@ -5502,9 +5568,6 @@ msgstr "Accepté provisoirement"
 
 msgid "New Time Proposed"
 msgstr "Nouvel horaire proposé"
-
-msgid "d-m-Y"
-msgstr "d-m-Y"
 
 # 78%
 # 76%
@@ -5842,9 +5905,6 @@ msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
 "Vous ne disposez pas des droits nécessaires pour supprimer les éléments dans "
 "ce dossier"
-
-msgid "Could not resolve conflict."
-msgstr "Impossible de résoudre le conflit."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""

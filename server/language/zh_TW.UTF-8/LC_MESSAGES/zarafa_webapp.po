@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -581,30 +581,22 @@ msgid "Mails"
 msgstr "郵件"
 
 #, fuzzy
-msgid "Calendar items"
-msgstr "日曆項目"
+msgid "Appointments"
+msgstr "約會"
 
-#, fuzzy
-msgid "Contact items"
-msgstr "聯絡項目"
+msgid "Contacts"
+msgstr "聯絡人"
 
-#, fuzzy
-msgid "Task items"
-msgstr "任務項目"
-
-#, fuzzy
-msgid "Note items"
-msgstr "註解項目"
+msgid "Tasks"
+msgstr "任務"
 
 msgid "Filter.."
 msgstr ""
 
-#, fuzzy
-msgid "Unread items"
-msgstr "讀取項目"
+msgid "Unread"
+msgstr "未讀"
 
-#, fuzzy
-msgid "With attachments"
+msgid "Attachments"
 msgstr "附件"
 
 msgid "Date"
@@ -657,7 +649,8 @@ msgstr ""
 
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 
 msgid "Did you mean"
@@ -1003,6 +996,10 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
+#, fuzzy
+msgid "Create in"
+msgstr "建立於"
+
 msgid "Time"
 msgstr "時間"
 
@@ -1017,9 +1014,6 @@ msgstr "提醒"
 
 msgid "Show as"
 msgstr "顯示成"
-
-msgid "Attachments"
-msgstr "附件"
 
 msgid "Warning"
 msgstr "警告"
@@ -1375,6 +1369,9 @@ msgstr "新增會議"
 
 msgid "Open"
 msgstr "開啟"
+
+msgid "Copy/Move"
+msgstr "複製/移動"
 
 msgid "Accept"
 msgstr "接受"
@@ -1771,6 +1768,20 @@ msgstr ""
 msgid "No message selected"
 msgstr "沒有選擇的郵件"
 
+#, fuzzy
+msgid "Import to"
+msgstr "重要的"
+
+#, fuzzy
+msgid "Import"
+msgstr "重要的"
+
+# 90%
+# 100%
+#, fuzzy
+msgid "New folder"
+msgstr "新資料夾"
+
 msgid "Download as ZIP"
 msgstr ""
 
@@ -1803,6 +1814,10 @@ msgstr "下載"
 
 msgid "Download all as ZIP"
 msgstr ""
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "空的資料夾"
 
 msgid "Attachment error"
 msgstr "附件錯誤"
@@ -1980,12 +1995,6 @@ msgstr "複製/移動 郵件"
 msgid "Move"
 msgstr "移動"
 
-# 90%
-# 100%
-#, fuzzy
-msgid "New folder"
-msgstr "新資料夾"
-
 msgid "Destination folder"
 msgstr "目前資料夾"
 
@@ -1999,6 +2008,16 @@ msgstr "選擇了 '{0}' 資料夾"
 msgid "Do not show this message again."
 msgstr ""
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "設定旗標"
+
+msgid "Start date"
+msgstr "開始日期"
+
+msgid "End date"
+msgstr "結束日期"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2011,8 +2030,13 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+#, fuzzy
+msgid "Custom"
+msgstr "到期日"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "提醒"
 
 msgid "Complete"
 msgstr "完成"
@@ -2145,6 +2169,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "編輯收件者"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "新增電子郵件地址"
 
 # 90%
 msgid "Send e-mail"
@@ -2609,23 +2637,27 @@ msgstr "網站"
 msgid "IM Address"
 msgstr "IM"
 
-msgid "Copy/Move"
-msgstr "複製/移動"
-
-msgid "Start date"
-msgstr "開始日期"
-
-msgid "End date"
-msgstr "結束日期"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-Y"
 
 # 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} 選擇項目"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-Y"
 
 msgid "Unknown"
 msgstr "未知的"
@@ -3022,9 +3054,6 @@ msgstr "沒有選擇的聯絡人"
 
 msgid "Distribution list"
 msgstr "通訊群組"
-
-msgid "Contacts"
-msgstr "聯絡人"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3622,6 +3651,15 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "jS F Y G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-Y"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3693,9 +3731,6 @@ msgstr "類型"
 
 msgid "Description"
 msgstr "描述"
-
-msgid "Unread"
-msgstr "未讀"
 
 msgid "Folder size"
 msgstr "資料夾大小"
@@ -4213,6 +4248,10 @@ msgstr "新郵件簽名檔"
 msgid "Signature for replies and forwards"
 msgstr "回覆和轉寄簽名檔"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "簽名檔"
+
 msgid "<None>"
 msgstr "<無>"
 
@@ -4221,6 +4260,16 @@ msgstr "你尚未儲存設定，你想要儲存此設定嗎?"
 
 msgid "New signature"
 msgstr "新簽名檔"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "檔案"
+
+msgid "max. "
+msgstr ""
 
 msgid "Sort by: Sent"
 msgstr "依傳送排序"
@@ -4237,16 +4286,17 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-msgid "Forward as Attachment"
-msgstr ""
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "移動到垃圾郵件資料夾"
 
-msgid "max. "
+#, fuzzy
+msgid "Send to"
+msgstr "傳送"
+
+msgid "Export as"
 msgstr ""
 
 msgid "Loading mail"
@@ -4369,6 +4419,15 @@ msgstr "刪除設定"
 
 msgid "About"
 msgstr "關於"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr ""
@@ -4724,9 +4783,6 @@ msgstr "沒有選擇的任務"
 
 msgid "Create task"
 msgstr ""
-
-msgid "Tasks"
-msgstr "任務"
 
 msgid "Mark Complete"
 msgstr ""
@@ -5182,8 +5238,9 @@ msgstr "Unknown notifier '%s'"
 msgid "An unexpected error has occurred"
 msgstr ""
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "電話列表"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5192,9 +5249,6 @@ msgstr ""
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
-
-msgid "Settings object is not initialized"
-msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "Error retrieving existing settings"
@@ -5222,6 +5276,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "This external link will open in a new window"
+
+msgid "Attachment is not imported successfully"
+msgstr ""
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -5291,9 +5348,6 @@ msgstr "暫時接受"
 
 msgid "New Time Proposed"
 msgstr "建議新時間"
-
-msgid "d-m-Y"
-msgstr "d-m-Y"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
@@ -5576,9 +5630,6 @@ msgstr "您沒有足夠權限搬移此行事曆項目"
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "您沒有足夠權限儲存此資料夾項目"
-
-msgid "Could not resolve conflict."
-msgstr "無法解決衝突"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "你沒有權限新增附件到此項目"

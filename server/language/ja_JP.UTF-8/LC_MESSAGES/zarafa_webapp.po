@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -592,26 +592,24 @@ msgstr "表示.."
 msgid "Mails"
 msgstr "メール"
 
-msgid "Calendar items"
-msgstr "カレンダーアイテム"
+#, fuzzy
+msgid "Appointments"
+msgstr "予定"
 
-msgid "Contact items"
-msgstr "連絡先 アイテム"
+msgid "Contacts"
+msgstr "コンタクト"
 
-msgid "Task items"
-msgstr "タスク アイテム"
-
-msgid "Note items"
-msgstr "メモ アイテム"
+msgid "Tasks"
+msgstr "タスク"
 
 msgid "Filter.."
 msgstr ""
 
-msgid "Unread items"
-msgstr "未読アイテム"
+msgid "Unread"
+msgstr "未読"
 
-msgid "With attachments"
-msgstr "添付ファイル付き"
+msgid "Attachments"
+msgstr "添付ファイル"
 
 msgid "Date"
 msgstr "日付"
@@ -660,7 +658,8 @@ msgstr ""
 
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 
 msgid "Did you mean"
@@ -1002,6 +1001,10 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
+#, fuzzy
+msgid "Create in"
+msgstr "作成日"
+
 msgid "Time"
 msgstr "時間"
 
@@ -1016,9 +1019,6 @@ msgstr "リマインダー"
 
 msgid "Show as"
 msgstr "表示"
-
-msgid "Attachments"
-msgstr "添付ファイル"
 
 msgid "Warning"
 msgstr "警告"
@@ -1385,6 +1385,9 @@ msgstr "新しい会議出席依頼"
 
 msgid "Open"
 msgstr "開く"
+
+msgid "Copy/Move"
+msgstr "コピー/移動"
 
 msgid "Accept"
 msgstr "承諾"
@@ -1790,6 +1793,19 @@ msgstr "アイテムを添付する"
 msgid "No message selected"
 msgstr "メッセージが選択されていません"
 
+#, fuzzy
+msgid "Import to"
+msgstr "重要"
+
+#, fuzzy
+msgid "Import"
+msgstr "重要"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "新しいフォルダ"
+
 msgid "Download as ZIP"
 msgstr ""
 
@@ -1822,6 +1838,10 @@ msgstr "ダウンロード"
 
 msgid "Download all as ZIP"
 msgstr ""
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "フォルダを空にする"
 
 msgid "Attachment error"
 msgstr "添付ファイルエラー"
@@ -2001,11 +2021,6 @@ msgstr "メッセージのコピー/移動"
 msgid "Move"
 msgstr "移動"
 
-# 90%
-# 100%
-msgid "New folder"
-msgstr "新しいフォルダ"
-
 msgid "Destination folder"
 msgstr "移動先フォルダ"
 
@@ -2019,6 +2034,16 @@ msgstr "{0}フォルダが選択されています。"
 msgid "Do not show this message again."
 msgstr ""
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "フラグ設定"
+
+msgid "Start date"
+msgstr "開始日"
+
+msgid "End date"
+msgstr "終了日"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2031,8 +2056,13 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+#, fuzzy
+msgid "Custom"
+msgstr "日付修正"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "リマインダー"
 
 msgid "Complete"
 msgstr "完了"
@@ -2161,6 +2191,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "受信者を編集します。"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "新しいメールアドレス"
 
 # 90%
 msgid "Send e-mail"
@@ -2629,23 +2663,27 @@ msgstr "Webページ"
 msgid "IM Address"
 msgstr "IMアドレス"
 
-msgid "Copy/Move"
-msgstr "コピー/移動"
-
-msgid "Start date"
-msgstr "開始日"
-
-msgid "End date"
-msgstr "終了日"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "Y/m/d"
 
 # 76%
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "選択行{0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "Y/m/d"
+
 msgid "l d/m/Y G:i"
 msgstr "Y/m/l d G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "Y/m/d"
 
 msgid "Unknown"
 msgstr "未定"
@@ -3046,9 +3084,6 @@ msgstr "コンタクトが選択されていません"
 # 94%
 msgid "Distribution list"
 msgstr "配布リスト"
-
-msgid "Contacts"
-msgstr "コンタクト"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3671,6 +3706,15 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "Y年Fj日 G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "Y/m/d"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3744,9 +3788,6 @@ msgstr "タイプ"
 
 msgid "Description"
 msgstr "説明"
-
-msgid "Unread"
-msgstr "未読"
 
 msgid "Folder size"
 msgstr "フォルダサイズ"
@@ -4269,6 +4310,10 @@ msgstr "新しいメッセージの署名"
 msgid "Signature for replies and forwards"
 msgstr "返信と転送の署名"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "署名"
+
 msgid "<None>"
 msgstr "<None>"
 
@@ -4277,6 +4322,16 @@ msgstr "保存されていない変更があります。変更を保存します
 
 msgid "New signature"
 msgstr "新しい署名"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "プロファイル"
+
+msgid "max. "
+msgstr ""
 
 # 76%
 msgid "Sort by: Sent"
@@ -4294,16 +4349,18 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-msgid "Forward as Attachment"
-msgstr ""
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "迷惑メールフォルダーに移動"
 
-msgid "max. "
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "送信済"
+
+msgid "Export as"
 msgstr ""
 
 msgid "Loading mail"
@@ -4425,6 +4482,15 @@ msgstr "設定削除"
 
 msgid "About"
 msgstr "内容"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr ""
@@ -4791,9 +4857,6 @@ msgstr "タスクが選択されていません"
 
 msgid "Create task"
 msgstr ""
-
-msgid "Tasks"
-msgstr "タスク"
 
 msgid "Mark Complete"
 msgstr ""
@@ -5252,8 +5315,9 @@ msgstr "不明な通知'%s'"
 msgid "An unexpected error has occurred"
 msgstr "予期しないエラーが発生しました。"
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "電話帳"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5262,9 +5326,6 @@ msgstr ""
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s の %2$s　"
-
-msgid "Settings object is not initialized"
-msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "既存の設定を取得する際にエラーが発生しました。"
@@ -5295,6 +5356,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "この外部リンクは新しいウィンドウで開きます。"
+
+msgid "Attachment is not imported successfully"
+msgstr ""
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -5368,9 +5432,6 @@ msgstr "仮承諾"
 
 msgid "New Time Proposed"
 msgstr "新しい日時の提示"
-
-msgid "d-m-Y"
-msgstr "Y/m/d"
 
 # 75%
 # 78%
@@ -5682,9 +5743,6 @@ msgstr "カレンダのアイテムを削除するための十分な権限があ
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "フォルダのアイテムを保存するための十分な権限がありません。"
-
-msgid "Could not resolve conflict."
-msgstr "矛盾を解決できませんでした。"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "添付ファイルを添付するための十分な権限がありません。"

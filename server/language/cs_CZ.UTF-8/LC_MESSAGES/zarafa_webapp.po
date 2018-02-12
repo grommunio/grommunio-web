@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2016-10-11 20:43+0000\n"
 "Last-Translator: Viktor <viktor.bale@anodyne.cz>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -603,26 +603,24 @@ msgstr "Ukázat.."
 msgid "Mails"
 msgstr "Zprávy"
 
-msgid "Calendar items"
-msgstr "Položky kalendáře"
+#, fuzzy
+msgid "Appointments"
+msgstr "Termín"
 
-msgid "Contact items"
-msgstr "Položky kontaktů"
+msgid "Contacts"
+msgstr "Kontakty"
 
-msgid "Task items"
-msgstr "Položky úkolů"
-
-msgid "Note items"
-msgstr "Položky poznámek"
+msgid "Tasks"
+msgstr "Úkoly"
 
 msgid "Filter.."
 msgstr "Filtrovat.."
 
-msgid "Unread items"
-msgstr "Nepřečtené položky"
+msgid "Unread"
+msgstr "Nepřečtené"
 
-msgid "With attachments"
-msgstr "S přílohami"
+msgid "Attachments"
+msgstr "Přílohy"
 
 msgid "Date"
 msgstr "Datum"
@@ -670,9 +668,11 @@ msgstr "Nahrávání výsledků vyhledávání"
 msgid "Sorting not possible"
 msgstr "Nelze seřadit"
 
+#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 "Výsledky hledání nelze seřadit, protože počet položek je vyšší než {0}. "
 "Upřesněte vyhledávací parametry."
@@ -1020,6 +1020,10 @@ msgstr ""
 "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
 "organizatorem v případě aktualizace této žádosti o schůzku"
 
+#, fuzzy
+msgid "Create in"
+msgstr "Vytvořeno"
+
 msgid "Time"
 msgstr "Čas"
 
@@ -1034,9 +1038,6 @@ msgstr "Připomínka"
 
 msgid "Show as"
 msgstr "Ukázat jako"
-
-msgid "Attachments"
-msgstr "Přílohy"
 
 msgid "Warning"
 msgstr "Varování"
@@ -1410,6 +1411,9 @@ msgstr "Nová žádost o schůzku"
 
 msgid "Open"
 msgstr "Otevřít"
+
+msgid "Copy/Move"
+msgstr "Kopírovat/Přesunout"
 
 msgid "Accept"
 msgstr "Přijmout"
@@ -1816,6 +1820,19 @@ msgstr "Přiložit položku"
 msgid "No message selected"
 msgstr "Nebyla vybrána žádná zpráva"
 
+#, fuzzy
+msgid "Import to"
+msgstr "Důležitý"
+
+#, fuzzy
+msgid "Import"
+msgstr "Důležitý"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Nová složka"
+
 msgid "Download as ZIP"
 msgstr "Stáhnout jako ZIP"
 
@@ -1851,6 +1868,10 @@ msgstr "Stáhnout"
 
 msgid "Download all as ZIP"
 msgstr "Stáhnout vše jako ZIP"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Vyprázdnit složku"
 
 msgid "Attachment error"
 msgstr "Chyba přílohy"
@@ -2033,11 +2054,6 @@ msgstr "Kopírovat/Přesunout zprávu"
 msgid "Move"
 msgstr "Přesunout"
 
-# 90%
-# 100%
-msgid "New folder"
-msgstr "Nová složka"
-
 msgid "Destination folder"
 msgstr "Cílová složka"
 
@@ -2053,6 +2069,16 @@ msgstr "Vybrána složka '{0}'."
 msgid "Do not show this message again."
 msgstr ""
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Nastavit štítek"
+
+msgid "Start date"
+msgstr "Počáteční datum"
+
+msgid "End date"
+msgstr "Konečné datum"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2065,8 +2091,13 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+#, fuzzy
+msgid "Custom"
+msgstr "Výbrat datumy"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Připomínka"
 
 msgid "Complete"
 msgstr "Dokončeno"
@@ -2196,6 +2227,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "Upravit Příjemce"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Nová e-mailová adresa"
 
 # 90%
 msgid "Send e-mail"
@@ -2667,14 +2702,9 @@ msgstr "Webová stránka"
 msgid "IM Address"
 msgstr "IM adresa"
 
-msgid "Copy/Move"
-msgstr "Kopírovat/Přesunout"
-
-msgid "Start date"
-msgstr "Počáteční datum"
-
-msgid "End date"
-msgstr "Konečné datum"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-r"
 
 # 76%
 msgid "{0} selected row"
@@ -2683,9 +2713,18 @@ msgstr[0] "{0} vybraný řádek"
 msgstr[1] "{0} vybrané řádky"
 msgstr[2] "{0} vybraných řádků"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-r"
+
 msgid "l d/m/Y G:i"
 msgstr "l d. m. Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-r"
 
 msgid "Unknown"
 msgstr "Neznámý"
@@ -3094,9 +3133,6 @@ msgstr "Nevybrán žádný kontakt"
 
 msgid "Distribution list"
 msgstr "Distribuční seznam"
-
-msgid "Contacts"
-msgstr "Kontakty"
 
 msgid "Dr."
 msgstr "Dr."
@@ -3707,6 +3743,15 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "j. F G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-r"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3784,9 +3829,6 @@ msgstr "Typ"
 
 msgid "Description"
 msgstr "Popis"
-
-msgid "Unread"
-msgstr "Nepřečtené"
 
 msgid "Folder size"
 msgstr "Velikost složky"
@@ -4322,6 +4364,10 @@ msgstr "Podpisy pro nové zprávy"
 msgid "Signature for replies and forwards"
 msgstr "Podpis pro odpovědi a přeposlané zprávy"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "Podpisy"
+
 msgid "<None>"
 msgstr "<Žádné>"
 
@@ -4330,6 +4376,16 @@ msgstr "Změny nebyly uloženy. Přejete si uložit změny?"
 
 msgid "New signature"
 msgstr "Nový podpis"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr ""
 
 # 76%
 msgid "Sort by: Sent"
@@ -4347,16 +4403,18 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-msgid "Forward as Attachment"
-msgstr ""
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Přesunout do složky Nevyžádané"
 
-msgid "max. "
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "Odeslat"
+
+msgid "Export as"
 msgstr ""
 
 msgid "Loading mail"
@@ -4478,6 +4536,15 @@ msgid "Delete settings"
 msgstr "Odstranit nastavení"
 
 msgid "About"
+msgstr ""
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -4843,9 +4910,6 @@ msgstr "Žádná úloha není zvolena"
 
 msgid "Create task"
 msgstr ""
-
-msgid "Tasks"
-msgstr "Úkoly"
 
 msgid "Mark Complete"
 msgstr ""
@@ -5304,8 +5368,9 @@ msgstr "Neznámý oznamovatel '%s'"
 msgid "An unexpected error has occurred"
 msgstr ""
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "Telefonní seznam"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5314,9 +5379,6 @@ msgstr ""
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s z %2$s"
-
-msgid "Settings object is not initialized"
-msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "Chyba načítání současného nastavení"
@@ -5344,6 +5406,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Tento externí odkaz se otevře v novém okně"
+
+msgid "Attachment is not imported successfully"
+msgstr ""
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -5413,9 +5478,6 @@ msgstr "Předběžně přijato"
 
 msgid "New Time Proposed"
 msgstr "Navržen nový čas"
-
-msgid "d-m-Y"
-msgstr "d-m-r"
 
 # 78%
 # 76%
@@ -5740,9 +5802,6 @@ msgstr "Nemáte oprávnění odstranit položku z kalendáře."
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Nemáte oprávnění uložit položky v této složce"
-
-msgid "Could not resolve conflict."
-msgstr "Nelze vyřešit konflikt."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nemáte oprávnění připojit položku jako přílohu."

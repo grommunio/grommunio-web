@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -610,30 +610,22 @@ msgid "Mails"
 msgstr "Почта"
 
 #, fuzzy
-msgid "Calendar items"
-msgstr "События календаря"
+msgid "Appointments"
+msgstr "Встреча"
 
-#, fuzzy
-msgid "Contact items"
+msgid "Contacts"
 msgstr "Контакты"
 
-#, fuzzy
-msgid "Task items"
+msgid "Tasks"
 msgstr "Задачи"
-
-#, fuzzy
-msgid "Note items"
-msgstr "Заметки"
 
 msgid "Filter.."
 msgstr ""
 
-#, fuzzy
-msgid "Unread items"
-msgstr "Чтение документов"
+msgid "Unread"
+msgstr "Непрочитанные"
 
-#, fuzzy
-msgid "With attachments"
+msgid "Attachments"
 msgstr "Вложения"
 
 msgid "Date"
@@ -687,7 +679,8 @@ msgstr ""
 
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 
 msgid "Did you mean"
@@ -1031,6 +1024,10 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
+#, fuzzy
+msgid "Create in"
+msgstr "Создан"
+
 msgid "Time"
 msgstr "Время"
 
@@ -1045,9 +1042,6 @@ msgstr "Напоминание"
 
 msgid "Show as"
 msgstr "Показать как"
-
-msgid "Attachments"
-msgstr "Вложения"
 
 msgid "Warning"
 msgstr "Внимание"
@@ -1424,6 +1418,9 @@ msgstr "Новое приглашение на собрание"
 
 msgid "Open"
 msgstr "Открыть"
+
+msgid "Copy/Move"
+msgstr "Копировать/Переместить"
 
 msgid "Accept"
 msgstr "Принять"
@@ -1847,6 +1844,19 @@ msgstr "Вложить объект"
 msgid "No message selected"
 msgstr "Сообщения не выбраны"
 
+#, fuzzy
+msgid "Import to"
+msgstr "Важно"
+
+#, fuzzy
+msgid "Import"
+msgstr "Важно"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Новый каталог"
+
 msgid "Download as ZIP"
 msgstr ""
 
@@ -1879,6 +1889,10 @@ msgstr "Загрузить"
 
 msgid "Download all as ZIP"
 msgstr ""
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Очистить каталог"
 
 msgid "Attachment error"
 msgstr "Ошибка вложения"
@@ -2055,11 +2069,6 @@ msgstr "Копировать/переместить сообщения"
 msgid "Move"
 msgstr "Переместить"
 
-# 90%
-# 100%
-msgid "New folder"
-msgstr "Новый каталог"
-
 msgid "Destination folder"
 msgstr "Каталог назначения"
 
@@ -2075,6 +2084,16 @@ msgstr "Выбрана папка «{0}»."
 msgid "Do not show this message again."
 msgstr ""
 
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Установить флаг"
+
+msgid "Start date"
+msgstr "Дата начала"
+
+msgid "End date"
+msgstr "Дата завершения"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2087,8 +2106,14 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+# 87%
+#, fuzzy
+msgid "Custom"
+msgstr "Срок"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Напоминание"
 
 msgid "Complete"
 msgstr "Завершено"
@@ -2216,6 +2241,10 @@ msgstr ""
 
 msgid "Edit Recipient"
 msgstr "Изменить получателя"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Новый адрес эл. почты"
 
 # 90%
 msgid "Send e-mail"
@@ -2690,14 +2719,9 @@ msgstr "Веб-страница"
 msgid "IM Address"
 msgstr "Адрес службы мгн. сообщений"
 
-msgid "Copy/Move"
-msgstr "Копировать/Переместить"
-
-msgid "Start date"
-msgstr "Дата начала"
-
-msgid "End date"
-msgstr "Дата завершения"
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-Y"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -2705,9 +2729,18 @@ msgstr[0] "Выбрана {0} строка"
 msgstr[1] "Выбраны {0} строки"
 msgstr[2] "Выбрано {0} строк"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-Y"
 
 msgid "Unknown"
 msgstr "Неизвестный"
@@ -3104,9 +3137,6 @@ msgstr "Контакты не выбраны"
 
 msgid "Distribution list"
 msgstr "Список рассылки"
-
-msgid "Contacts"
-msgstr "Контакты"
 
 msgid "Dr."
 msgstr "Доктор"
@@ -3720,6 +3750,17 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
+# 75%
+# 83%
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "D j F Y H:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-Y"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3797,9 +3838,6 @@ msgstr "Тип"
 
 msgid "Description"
 msgstr "Описание"
-
-msgid "Unread"
-msgstr "Непрочитанные"
 
 msgid "Folder size"
 msgstr "Размер каталога"
@@ -4327,6 +4365,10 @@ msgstr "Подпись для новых писем"
 msgid "Signature for replies and forwards"
 msgstr "Подпись для ответов и перенаправлений"
 
+#, fuzzy
+msgid "Save Signature"
+msgstr "Подписи"
+
 msgid "<None>"
 msgstr "<Нет>"
 
@@ -4336,6 +4378,16 @@ msgstr "Имеются несохранённые данные. Хотите с�
 # 76%
 msgid "New signature"
 msgstr "Добавить подпись"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Профиль"
+
+msgid "max. "
+msgstr ""
 
 msgid "Sort by: Sent"
 msgstr "Сортировать по «Отправлено»"
@@ -4352,16 +4404,19 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-msgid "Forward as Attachment"
-msgstr ""
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Отправить в папку «Нежел. почта»"
 
-msgid "max. "
+# 75%
+# 100%
+#, fuzzy
+msgid "Send to"
+msgstr "Отправить"
+
+msgid "Export as"
 msgstr ""
 
 msgid "Loading mail"
@@ -4485,6 +4540,15 @@ msgid "Delete settings"
 msgstr "Удалить настройки"
 
 msgid "About"
+msgstr ""
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -4861,9 +4925,6 @@ msgstr "Задачи не выбраны"
 
 msgid "Create task"
 msgstr ""
-
-msgid "Tasks"
-msgstr "Задачи"
 
 msgid "Mark Complete"
 msgstr ""
@@ -5327,8 +5388,9 @@ msgstr "Неизвестное уведовление «%s»"
 msgid "An unexpected error has occurred"
 msgstr "Произошла непредвиденная ошибка"
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "Телефонный справочник"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5337,9 +5399,6 @@ msgstr ""
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s из %2$s"
-
-msgid "Settings object is not initialized"
-msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "Ошибка получения текущих настроек"
@@ -5369,6 +5428,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Эта внешняя ссылка откроется в новом окне"
+
+msgid "Attachment is not imported successfully"
+msgstr ""
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -5441,9 +5503,6 @@ msgstr "Предварительно принято."
 
 msgid "New Time Proposed"
 msgstr "Предложено новое время."
-
-msgid "d-m-Y"
-msgstr "d-m-Y"
 
 # 78%
 # 76%
@@ -5756,9 +5815,6 @@ msgstr "Недостаточно прав для удаление элемент
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "У вас не хватает прав для сохранения элементов в этот каталог"
-
-msgid "Could not resolve conflict."
-msgstr "Не удалось разрешить конфликт."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Недостаточно прав для вложения элемента."

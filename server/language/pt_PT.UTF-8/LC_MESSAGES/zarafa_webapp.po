@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 15:31+0200\n"
+"POT-Creation-Date: 2018-02-12 12:07+0100\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -637,31 +637,23 @@ msgid "Mails"
 msgstr "E-Mail"
 
 #, fuzzy
-msgid "Calendar items"
-msgstr "Visualiza��o do Calend�rio"
+msgid "Appointments"
+msgstr "Compromisso"
 
-#, fuzzy
-msgid "Contact items"
+msgid "Contacts"
 msgstr "Contatos"
 
-#, fuzzy
-msgid "Task items"
-msgstr "Ler itens"
-
-#, fuzzy
-msgid "Note items"
-msgstr "Criar itens"
+msgid "Tasks"
+msgstr "Tarefas"
 
 msgid "Filter.."
 msgstr ""
 
-#, fuzzy
-msgid "Unread items"
-msgstr "Ler itens"
+msgid "Unread"
+msgstr "N�o Lido"
 
-#, fuzzy
-msgid "With attachments"
-msgstr "Adicionar anexos"
+msgid "Attachments"
+msgstr "Anexos"
 
 #, fuzzy
 msgid "Date"
@@ -716,7 +708,8 @@ msgstr ""
 
 msgid ""
 "The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by specifying your input."
+"than {0}. Narrow down your results by enabling more filters or by adjusting "
+"your input."
 msgstr ""
 
 msgid "Did you mean"
@@ -1065,6 +1058,10 @@ msgid ""
 "request is updated by the organizer"
 msgstr ""
 
+#, fuzzy
+msgid "Create in"
+msgstr "Criado"
+
 msgid "Time"
 msgstr "Hora"
 
@@ -1079,9 +1076,6 @@ msgstr "Lembrete"
 
 msgid "Show as"
 msgstr ""
-
-msgid "Attachments"
-msgstr "Anexos"
 
 msgid "Warning"
 msgstr ""
@@ -1461,6 +1455,9 @@ msgstr "Pedido de reuni�o"
 
 msgid "Open"
 msgstr "Abrir"
+
+msgid "Copy/Move"
+msgstr "Copiar/Mover"
 
 msgid "Accept"
 msgstr "Aceitar"
@@ -1905,6 +1902,17 @@ msgid "No message selected"
 msgstr "Existe uma mensagem selecionada"
 
 #, fuzzy
+msgid "Import to"
+msgstr "Importante"
+
+#, fuzzy
+msgid "Import"
+msgstr "Importante"
+
+msgid "New folder"
+msgstr "Nova pasta"
+
+#, fuzzy
 msgid "Download as ZIP"
 msgstr "Baixar"
 
@@ -1940,6 +1948,10 @@ msgstr "Baixar"
 
 msgid "Download all as ZIP"
 msgstr ""
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Esvaziar pastas"
 
 #, fuzzy
 msgid "Attachment error"
@@ -2121,9 +2133,6 @@ msgstr "Copiar/Mover mensagem"
 msgid "Move"
 msgstr "Mover"
 
-msgid "New folder"
-msgstr "Nova pasta"
-
 msgid "Destination folder"
 msgstr "Pasta destino"
 
@@ -2139,6 +2148,17 @@ msgstr ""
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "Set custom flag"
+msgstr ""
+
+#, fuzzy
+msgid "Start date"
+msgstr "Data de in�cio"
+
+#, fuzzy
+msgid "End date"
+msgstr "Sem Data Final"
+
 msgid "Tomorrow"
 msgstr ""
 
@@ -2151,8 +2171,13 @@ msgstr ""
 msgid "No date"
 msgstr ""
 
-msgid "Edit reminder"
-msgstr ""
+#, fuzzy
+msgid "Custom"
+msgstr "Cliente chave"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Lembrete"
 
 msgid "Complete"
 msgstr "Completo"
@@ -2291,6 +2316,10 @@ msgstr ""
 #, fuzzy
 msgid "Edit Recipient"
 msgstr "Organizar Por Recipiente"
+
+#, fuzzy
+msgid "Copy e-mail address"
+msgstr "Novo endere�o de e-mail"
 
 #, fuzzy
 msgid "Send e-mail"
@@ -2794,16 +2823,8 @@ msgstr "P�gina web"
 msgid "IM Address"
 msgstr "Endere�o IM (MSN, ICQ, Yahoo!Messenger)"
 
-msgid "Copy/Move"
-msgstr "Copiar/Mover"
-
-#, fuzzy
-msgid "Start date"
-msgstr "Data de in�cio"
-
-#, fuzzy
-msgid "End date"
-msgstr "Sem Data Final"
+msgid "D, d-m-Y, G:i"
+msgstr ""
 
 #, fuzzy
 msgid "{0} selected row"
@@ -2811,8 +2832,16 @@ msgid_plural "{0} selected rows"
 msgstr[0] "Deletado em"
 msgstr[1] "Deletado em"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr ""
+
 msgid "l d/m/Y G:i"
+msgstr ""
+
+msgid "d-m-Y G:i"
 msgstr ""
 
 #, fuzzy
@@ -3232,9 +3261,6 @@ msgstr ""
 #, fuzzy
 msgid "Distribution list"
 msgstr "Lista de distribui��o"
-
-msgid "Contacts"
-msgstr "Contatos"
 
 msgid "Dr."
 msgstr ""
@@ -3901,6 +3927,13 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
+#, fuzzy
+msgid "D G:i"
+msgstr "j \\de F \\de Y \\à\\s G:i"
+
+msgid "D d-m"
+msgstr ""
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3982,9 +4015,6 @@ msgstr "Tipo"
 
 msgid "Description"
 msgstr "Descri��o"
-
-msgid "Unread"
-msgstr "N�o Lido"
 
 #, fuzzy
 msgid "Folder size"
@@ -4533,6 +4563,10 @@ msgid "Signature for replies and forwards"
 msgstr ""
 
 #, fuzzy
+msgid "Save Signature"
+msgstr "Sem assinatura"
+
+#, fuzzy
 msgid "<None>"
 msgstr "Nenhum"
 
@@ -4542,6 +4576,16 @@ msgstr ""
 #, fuzzy
 msgid "New signature"
 msgstr "Sem assinatura"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Perfil"
+
+msgid "max. "
+msgstr ""
 
 #, fuzzy
 msgid "Sort by: Sent"
@@ -4560,17 +4604,17 @@ msgstr ""
 msgid "Sort by: flag"
 msgstr ""
 
-#, fuzzy
-msgid "Forward as Attachment"
-msgstr "Organizar Por Anexos"
-
 msgid "Follow up"
 msgstr ""
 
 msgid "Move to Junk Folder"
 msgstr "Mover para Spam"
 
-msgid "max. "
+#, fuzzy
+msgid "Send to"
+msgstr "Enviar"
+
+msgid "Export as"
 msgstr ""
 
 #, fuzzy
@@ -4704,6 +4748,15 @@ msgid "Delete settings"
 msgstr "Salvar prefer�ncias"
 
 msgid "About"
+msgstr ""
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
 msgstr ""
 
 #, fuzzy
@@ -5066,9 +5119,6 @@ msgstr ""
 #, fuzzy
 msgid "Create task"
 msgstr "Criar itens"
-
-msgid "Tasks"
-msgstr "Tarefas"
 
 msgid "Mark Complete"
 msgstr ""
@@ -5549,8 +5599,9 @@ msgstr ""
 msgid "An unexpected error has occurred"
 msgstr ""
 
-msgid "To-do list"
-msgstr ""
+#, fuzzy
+msgid "To-Do List"
+msgstr "Liga��es telef�nicas"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5558,9 +5609,6 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
-
-msgid "Settings object is not initialized"
 msgstr ""
 
 msgid "Error retrieving existing settings"
@@ -5587,6 +5635,9 @@ msgid "Click the link to open the URL in a new window."
 msgstr ""
 
 msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Attachment is not imported successfully"
 msgstr ""
 
 msgid "ZIP is not created successfully"
@@ -5654,9 +5705,6 @@ msgstr "aceito como tentativa,"
 #, fuzzy
 msgid "New Time Proposed"
 msgstr "Proposto"
-
-msgid "d-m-Y"
-msgstr ""
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
@@ -5957,9 +6005,6 @@ msgstr ""
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Voc� n�o tem direitos suficientes para criar um item nessa pasta."
-
-msgid "Could not resolve conflict."
-msgstr ""
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
