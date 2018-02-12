@@ -377,8 +377,8 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			var recordTotalCount = store.getTotalCount();
 			if ( recordTotalCount >= this.sortableRecordsMax ){
 				Zarafa.common.dialogs.MessageBox.alert(
-					_('Sorting not possible'),
-					String.format(_('The search results could not be sorted because the number of items is higher than {0}. Narrow down your results by enabling more filters or by adjusting your input.'), this.sortableRecordsMax));
+					_('Sorting tip'),
+					_('You can sort by date if you narrow down your search results. Enable filters or adjust your input.'));
 				return false;
 			}
 
