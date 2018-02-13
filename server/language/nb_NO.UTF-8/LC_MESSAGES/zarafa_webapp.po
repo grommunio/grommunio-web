@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 12:07+0100\n"
-"PO-Revision-Date: 2018-02-09 20:03+0000\n"
+"PO-Revision-Date: 2018-02-13 19:23+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -595,9 +595,8 @@ msgstr "Vis..."
 msgid "Mails"
 msgstr "E-post"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Avtale"
+msgstr "Avtaler"
 
 # 100%
 msgid "Contacts"
@@ -664,14 +663,13 @@ msgstr "Laster inn søkeresultater"
 msgid "Sorting not possible"
 msgstr "Ikke mulig å sortere"
 
-#, fuzzy
 msgid ""
 "The search results could not be sorted because the number of items is higher "
 "than {0}. Narrow down your results by enabling more filters or by adjusting "
 "your input."
 msgstr ""
 "Resultatet av søket kunne ikke bli sortert fordi antall elementer er høyere "
-"enn {0}. Oppgi mer nøyaktig det du søker etter."
+"enn {0}. Oppgi mer nøyaktig det du søker etter ved å bruke flere filter."
 
 msgid "Did you mean"
 msgstr "Mente du"
@@ -1018,9 +1016,8 @@ msgstr ""
 "Vennligst merk at alle endringer du gjør vil bli overskrevet når denne "
 "møteinnkallelsen blir oppdatert av møtearrangøren"
 
-#, fuzzy
 msgid "Create in"
-msgstr "Opprettet på"
+msgstr "Opprett i"
 
 msgid "Time"
 msgstr "Tidspunkt"
@@ -1820,13 +1817,11 @@ msgstr "Legg ved element"
 msgid "No message selected"
 msgstr "Ingen melding valgt"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Viktig"
+msgstr "Importer til"
 
-#, fuzzy
 msgid "Import"
-msgstr "Viktig"
+msgstr "Importer"
 
 msgid "New folder"
 msgstr "Ny mappe"
@@ -1869,9 +1864,8 @@ msgstr "Last ned"
 msgid "Download all as ZIP"
 msgstr "Last ned som ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Tøm mappe"
+msgstr "Importer til mappe"
 
 # 93%
 msgid "Attachment error"
@@ -2077,9 +2071,8 @@ msgstr "Mappe '{0}' valgt."
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "Sett flagg"
+msgstr "Sett selvvalgt flagg"
 
 msgid "Start date"
 msgstr "Startdato"
@@ -2102,13 +2095,11 @@ msgstr "Ingen dato"
 
 # 87%
 # 100%
-#, fuzzy
 msgid "Custom"
-msgstr "Selvvalgt dato"
+msgstr "Selvvalgt"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Rediger påminnelser"
+msgstr "Sett påminnelse"
 
 # 80%
 msgid "Complete"
@@ -2245,9 +2236,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Rediger mottaker"
 
-#, fuzzy
 msgid "Copy e-mail address"
-msgstr "Ny e-postadresse"
+msgstr "Kopier e-postadresse"
 
 # 90%
 msgid "Send e-mail"
@@ -4342,9 +4332,8 @@ msgstr "Signatur for nye meldinger"
 msgid "Signature for replies and forwards"
 msgstr "Signatur for svar og videresendinger"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Signaturer"
+msgstr "Lagre signatur"
 
 msgid "<None>"
 msgstr "<Ingen>"
@@ -4356,11 +4345,10 @@ msgid "New signature"
 msgstr "Ny signatur"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "EML fil(er)"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "ZIP fil"
 
 msgid "max. "
 msgstr "maks. "
@@ -4388,12 +4376,11 @@ msgid "Move to Junk Folder"
 msgstr "Flytt til Søppel E-post"
 
 # 75%
-#, fuzzy
 msgid "Send to"
-msgstr "Send"
+msgstr "Send til"
 
 msgid "Export as"
-msgstr ""
+msgstr "Eksporter som"
 
 msgid "Loading mail"
 msgstr "Laster inn e-post"
@@ -4515,10 +4502,10 @@ msgid "About"
 msgstr "Om"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Jeg ønsker å vise tid og dato på dette formatet:"
 
 msgid "Short"
-msgstr ""
+msgstr "Kort"
 
 msgid "Long"
 msgstr ""
