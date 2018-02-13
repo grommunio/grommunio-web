@@ -164,7 +164,7 @@
 	.k-reminder-panel,
 	.k-taskrequestsettings {
 		padding: $padding-medium;
-		padding-left: 2 * $padding-medium;
+		padding-left: $trigger-width - $padding-small;
 
 		.x-form-check-wrap {
 			line-height: $font-default-line-height;
