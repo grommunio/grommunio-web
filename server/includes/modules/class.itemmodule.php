@@ -348,17 +348,24 @@
 						break;
 
 					case 'delete':
-						if($e->getCode() == MAPI_E_NO_ACCESS) {
-							if (!empty($action['message_action']['action_type'])) {
-								switch($action['message_action']['action_type'])
-								{
-									case 'removeFromCalendar':
-										$e->setDisplayMessage(_('You have insufficient privileges to remove item from the calendar.'));
-										break;
+						switch ($e->getCode()) {
+							case MAPI_E_NO_ACCESS:
+								if (!empty($action['message_action']['action_type'])) {
+									switch($action['message_action']['action_type'])
+									{
+										case 'removeFromCalendar':
+											$e->setDisplayMessage(_('You have insufficient privileges to remove item from the calendar.'));
+											break;
+									}
 								}
-							}
+								break;
+							case MAPI_E_NOT_IN_QUEUE:
+								$e->setDisplayMessage(_('Message is no longer in the outgoing queue, typically because it has already been sent.'));
+								break;
+							case MAPI_E_UNABLE_TO_ABORT:
+								$e->setDisplayMessage(_('Message cannot be aborted'));
+								break;
 						}
-
 						if(empty($e->displayMessage)) {
 							$e->setDisplayMessage(_("You have insufficient privileges to delete items in this folder") . ".");
 						}
@@ -586,8 +593,6 @@
 		 */
 		function delete($store, $parententryid, $entryid, $action)
 		{
-			$result = false;
-
 			if($store && $parententryid && $entryid) {
 				$props = array();
 				$props[PR_PARENT_ENTRYID] = $parententryid;
