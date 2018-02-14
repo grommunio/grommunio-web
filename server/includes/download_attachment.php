@@ -498,6 +498,8 @@ class DownloadAttachment
 
 		if($ok === true) {
 			mapi_message_savechanges($newMessage);
+			$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
+			$destinationFolderProps = mapi_getprops($destFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
 
 			$return = Array(
 				// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
@@ -507,6 +509,22 @@ class DownloadAttachment
 						sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
 							'update' => Array(
 								'success'=> true
+							)
+						)
+					),
+					'hierarchynotifier' => Array(
+						'hierarchynotifier1' => Array(
+							'folders' => Array(
+								'item' => Array(
+									0 => Array(
+										'entryid' => $this->destinationFolder,
+										'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
+										'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+										'props' => Array(
+											'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1
+										)
+									)
+								)
 							)
 						)
 					)
