@@ -59,6 +59,10 @@ module.exports = function(config) {
       ]
     },
 
+    specReporter: {
+      suppressSkipped: true
+    },
+
     junitReporter: {
       outputFile: 'unit.xml',
       outputDir: 'result',
