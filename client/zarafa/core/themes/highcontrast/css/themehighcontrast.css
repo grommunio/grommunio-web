@@ -2,7 +2,7 @@
  *                                                                                           *
  * This is the css for the High Contrast theme for the Kopano WebApp.                        *
  *                                                                                           *
- * (c) 2016 Kopano                                                                       *
+ * (c) 2018 Kopano                                                                       *
  *                                                                                           *
  *********************************************************************************************/
 
@@ -240,4 +240,3 @@ ul.x-tab-strip li .x-tab-right,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade {
   background: linear-gradient(to right, rgba(207, 210, 220, 0) 0%, #cfd2dc 50%, #cfd2dc 100%);
 }
-

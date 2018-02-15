@@ -2,7 +2,7 @@
  *                                                                                           *
  * This is the css for the Lime theme for the Kopano WebApp.                                 *
  *                                                                                           *
- * (c) 2016 Kopano                                                                       *
+ * (c) 2018 Kopano                                                                       *
  *                                                                                           *
  *********************************************************************************************/
 
@@ -132,6 +132,11 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
 	background: #6da208 !important;
 }
 
+/* focused action button */
+.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
+  background: #6da208 !important;
+}
+
 /* hover state */
 .x-btn.zarafa-action.x-btn-over .x-btn-small,
 .x-btn.zarafa-action.x-btn-over .x-btn-medium,
@@ -240,6 +245,15 @@ div.zarafa-contact-cardview-selected,
 }
 
 /*********************************************************************
+ * Buttons
+ * =================================
+ *********************************************************************/
+/* Selected x-menu */
+.x-menu-item-selected {
+  background-color: #e1f5b2;
+}
+
+/*********************************************************************
  * Extra information about items
  * =================================
  * Sometimes extra information is shown in opened items. (e.g. 'You replied
@@ -247,12 +261,11 @@ div.zarafa-contact-cardview-selected,
  *********************************************************************/
 .preview-header-extrainfobox,
 .preview-header-extrainfobox-item,
-.zarafa-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div {
-  background: #c5e875;
+.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
+.k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
+.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
+  background: #e1f5b2 !important;
   color: #222222;
-}
-.preview-header-extrainfobox{
-  border: 1px solid #82ba00;
 }
 
 /*********************************************************************
@@ -270,4 +283,50 @@ div.zarafa-contact-cardview-selected,
 /* Active calendar tab stroke */
 .zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
     border-top-color: #6da208 ;
+}
+
+/*********************************************************************
+ * Focused items
+ * =================================
+ *********************************************************************/
+ /* Action button */
+ .x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
+  background: #6da208 !important;
+}
+
+/* Normal button */
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
+.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-small,
+.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-medium,
+.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-large,
+.x-toolbar .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+  border: 1px solid #6da208 !important;
+}
+
+/* Login */
+body.login #form-container input:focus,
+#loading-mask #form-container input:focus {
+  border-color: #6da208;
+}
+
+input:focus {
+	border-color: #6da208;
+}
+
+/* Form elements */
+.x-form-text.x-form-focus:not(.x-trigger-noedit) {
+	border-color: #6da208 !important;
+}
+
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
+	border-color: #6da208;
+}
+
+input.x-form-text.x-form-field.x-form-focus {
+	border-color: #6da208 !important;
+}
+
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
+  border-color: #6da208 !important;
 }
