@@ -58,6 +58,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 	{
 		// Initialize the items list with all default buttons, and add buttons which were
 		// registered through insertion points.
+		this.addItems([], 'main.toolbar.actions.first');
 		this.addNewItems();
 		this.addActionItems();
 		this.addPrintButton();
