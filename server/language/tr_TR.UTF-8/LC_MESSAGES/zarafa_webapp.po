@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 12:07+0100\n"
+"POT-Creation-Date: 2018-02-15 15:16+0100\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -662,17 +662,14 @@ msgstr "Sıralama: tarih"
 msgid "Loading Search results"
 msgstr "ara sonuçları yükleniyor"
 
-msgid "Sorting not possible"
+#, fuzzy
+msgid "Sorting tip"
 msgstr "sıralama yapılamıyor"
 
-#, fuzzy
 msgid ""
-"The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by enabling more filters or by adjusting "
-"your input."
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
 msgstr ""
-"Öğe sayısı {0}'dan büyük olduğu için arama sonuçları sıralanamamıştır. "
-"Belirleyici giriş yaparak sonuçlarınızı sınırlandırın."
 
 msgid "Did you mean"
 msgstr "ne demek istediniz"
@@ -1370,13 +1367,13 @@ msgstr "Paz"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
-msgid "Free/busy information is used by people sending meeting requests, "
+#, fuzzy
+msgid ""
+"Free/busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
 msgstr ""
 "müsait / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
 "kullanılıyor, "
-
-msgid "to determine when you are available for meetings."
-msgstr "ne zaman toplantılar için müsait olduğunu belirlemek."
 
 msgid "Free/Busy permission"
 msgstr "müsait / meşgul izni"

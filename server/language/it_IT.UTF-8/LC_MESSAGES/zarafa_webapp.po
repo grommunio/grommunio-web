@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 12:07+0100\n"
+"POT-Creation-Date: 2018-02-15 15:16+0100\n"
 "PO-Revision-Date: 2017-03-02 10:06+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -669,17 +669,14 @@ msgstr "Ordina per: Data"
 msgid "Loading Search results"
 msgstr "Carico risultati di ricerca"
 
-msgid "Sorting not possible"
+#, fuzzy
+msgid "Sorting tip"
 msgstr "Ordinamento non possibile"
 
-#, fuzzy
 msgid ""
-"The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by enabling more filters or by adjusting "
-"your input."
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
 msgstr ""
-"I risultati della ricerca non possono essere ordinati poiché il numero degli "
-"elementi è maggiore di {0}. Affina la ricerca per ordinare i risultati."
 
 msgid "Did you mean"
 msgstr "Intendevi"
@@ -1365,13 +1362,13 @@ msgstr "Dom"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostra date impegnate in grassetto nel selezionatore date"
 
-msgid "Free/busy information is used by people sending meeting requests, "
+#, fuzzy
+msgid ""
+"Free/busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
 msgstr ""
 "Le informazioni free/busy vengono utilizzate dagli utenti per inviare "
 "richieste di appuntamento "
-
-msgid "to determine when you are available for meetings."
-msgstr "per determinare la tua disponibilità per gli appuntamenti."
 
 msgid "Free/Busy permission"
 msgstr "Permessi free/busy"

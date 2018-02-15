@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 12:07+0100\n"
+"POT-Creation-Date: 2018-02-15 15:16+0100\n"
 "PO-Revision-Date: 2017-10-02 16:14+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -670,17 +670,14 @@ msgstr "Rendezés: Név"
 msgid "Loading Search results"
 msgstr "Keresési eredmények betöltése"
 
-msgid "Sorting not possible"
+#, fuzzy
+msgid "Sorting tip"
 msgstr "A rendezés nem lehetséges"
 
-#, fuzzy
 msgid ""
-"The search results could not be sorted because the number of items is higher "
-"than {0}. Narrow down your results by enabling more filters or by adjusting "
-"your input."
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
 msgstr ""
-"A keresési eredményeket nem lehet rendezni, mert az eredmények száma több, "
-"mint {0}. Szűkítse keresését kevesebb elem megjelenítéséhez."
 
 msgid "Did you mean"
 msgstr "Arra gondolt, hogy"
@@ -1388,11 +1385,11 @@ msgstr "Vas"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
 
-msgid "Free/busy information is used by people sending meeting requests, "
+#, fuzzy
+msgid ""
+"Free/busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
 msgstr "Elérhetőségéhez hozzáférhetnek mások, "
-
-msgid "to determine when you are available for meetings."
-msgstr "hogy lássák, mikor alkalmas az adott értekezlet."
 
 msgid "Free/Busy permission"
 msgstr "Elérhetőség mutatásának engedélyezése"
