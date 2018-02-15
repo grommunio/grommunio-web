@@ -18,8 +18,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	{
 		config = config || {};
 
-		var message = _('Free/busy information is used by people sending meeting requests, ');
-		message += _('to determine when you are available for meetings.');
+		var message = _('Free/busy information is used by people sending meeting requests, to determine when you are available for meetings.');
 
 		Ext.applyIf(config, {
 			title : _('Free/Busy permission'),
