@@ -398,9 +398,15 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			'blockquote { margin-right: 0px; }' +
 			// Make text in pre tags wrapped if too long for a line
 			'pre { white-space: pre-wrap; margin: 0; font-family:monospace; }' +
-			'img { max-width: 100%; height: auto !important; }' +
-			'@media screen and (max-width: 250px) { img { max-width: 250px; } }' +
-			'.k-original { max-width: none; }'
+
+			// Scale images
+			'p > span > img, div > img, p > img { max-width: 100%; height: auto !important; }' +
+			'@media screen and (max-width: 250px) { p > span > img, div > img, p > img { max-width: 250px; } }' +
+
+			// Elements that should not have the max-width style
+			// k-original: class that we set on img click
+			// table img: all images in tables. Often used in newsletters
+			'.k-original, table img { max-width: none !important; }'
 		));
 
 		// Add a wingdings compatible font (only the smilies)
