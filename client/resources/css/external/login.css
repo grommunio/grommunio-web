@@ -39,6 +39,24 @@ body.zarafa-welcome {
 }
 
 /* line 28, ../../scss/external/login.scss */
+body.login:after,
+#loading-mask:after,
+#bg:after,
+body.zarafa-welcome:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background: url(../../images/background.svg);
+  background-size: cover;
+  z-index: -1;
+}
+
+/* line 45, ../../scss/external/login.scss */
 #loading-mask {
   position: absolute;
   top: 0;
@@ -49,7 +67,7 @@ body.zarafa-welcome {
   z-index: 20002;
 }
 
-/* line 40, ../../scss/external/login.scss */
+/* line 57, ../../scss/external/login.scss */
 body.login #form-container,
 #loading-mask #form-container {
   display: inline-block;
@@ -61,7 +79,7 @@ body.login #form-container,
   color: #222222;
   /* clearfix */
 }
-/* line 49, ../../scss/external/login.scss */
+/* line 66, ../../scss/external/login.scss */
 body.login #form-container #bg,
 #loading-mask #form-container #bg {
   position: absolute;
@@ -70,7 +88,7 @@ body.login #form-container #bg,
   -webkit-filter: blur(10px);
   filter: blur(10px);
 }
-/* line 57, ../../scss/external/login.scss */
+/* line 74, ../../scss/external/login.scss */
 body.login #form-container #content,
 #loading-mask #form-container #content {
   width: 560px;
@@ -78,14 +96,14 @@ body.login #form-container #content,
   background: rgba(255, 255, 255, 0.5);
   position: relative;
 }
-/* line 64, ../../scss/external/login.scss */
+/* line 81, ../../scss/external/login.scss */
 body.login #form-container #content:after,
 #loading-mask #form-container #content:after {
   content: " ";
   display: block;
   clear: both;
 }
-/* line 70, ../../scss/external/login.scss */
+/* line 87, ../../scss/external/login.scss */
 body.login #form-container .left,
 #loading-mask #form-container .left {
   float: left;
@@ -93,7 +111,7 @@ body.login #form-container .left,
   height: 220px;
   padding-right: 60px;
 }
-/* line 76, ../../scss/external/login.scss */
+/* line 93, ../../scss/external/login.scss */
 body.login #form-container .right,
 #loading-mask #form-container .right {
   float: left;
@@ -102,7 +120,7 @@ body.login #form-container .right,
   min-height: 220px;
   position: relative;
 }
-/* line 84, ../../scss/external/login.scss */
+/* line 101, ../../scss/external/login.scss */
 body.login #form-container h1,
 #loading-mask #form-container h1 {
   font-size: 36px !important;
@@ -110,19 +128,14 @@ body.login #form-container h1,
   font-weight: normal;
   margin: 0 0 30px;
 }
-/* line 90, ../../scss/external/login.scss */
+/* line 107, ../../scss/external/login.scss */
 body.login #form-container h2,
 #loading-mask #form-container h2 {
   font-size: 13px;
   font-weight: normal;
   text-align: right;
 }
-/* line 95, ../../scss/external/login.scss */
-body.login #form-container h2.zcp-version,
-#loading-mask #form-container h2.zcp-version {
-  color: transparent;
-}
-/* line 99, ../../scss/external/login.scss */
+/* line 113, ../../scss/external/login.scss */
 body.login #form-container #logo,
 #loading-mask #form-container #logo {
   background: url(../../images/kopano-logo_220x52.png) no-repeat right center;
@@ -130,17 +143,32 @@ body.login #form-container #logo,
   height: 61px;
   margin: 71px 0 15px;
 }
-/* line 106, ../../scss/external/login.scss */
-body.login #form-container label,
-#loading-mask #form-container label {
+/* line 121, ../../scss/external/login.scss */
+body.login #form-container.loading,
+#loading-mask #form-container.loading {
+  visibility: visible;
+}
+/* line 123, ../../scss/external/login.scss */
+body.login #form-container.loading .right,
+#loading-mask #form-container.loading .right {
+  background: url(../../images/loading_m.png) no-repeat center center;
+  animation: rotate 1.3s 0s infinite ease;
+}
+/* line 124, ../../scss/external/login.scss */
+body.login #form-container.loading .right h1, body.login #form-container.loading .right form,
+#loading-mask #form-container.loading .right h1,
+#loading-mask #form-container.loading .right form {
+  display: none;
+}
+
+/* line 136, ../../scss/external/login.scss */
+body.login > #form-container label {
   display: block;
   margin-bottom: 0.5em;
 }
-/* line 110, ../../scss/external/login.scss */
-body.login #form-container input[type="text"],
-body.login #form-container input[type="password"],
-#loading-mask #form-container input[type="text"],
-#loading-mask #form-container input[type="password"] {
+/* line 140, ../../scss/external/login.scss */
+body.login > #form-container input[type="text"],
+body.login > #form-container input[type="password"] {
   display: block;
   width: 231px;
   background: white !important;
@@ -149,30 +177,25 @@ body.login #form-container input[type="password"],
   margin-bottom: 15px;
   height: 24px;
 }
-/* line 120, ../../scss/external/login.scss */
-body.login #form-container input:-webkit-autofill,
-#loading-mask #form-container input:-webkit-autofill {
+/* line 151, ../../scss/external/login.scss */
+body.login > #form-container input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-/* line 123, ../../scss/external/login.scss */
-body.login #form-container input:focus,
-#loading-mask #form-container input:focus {
+/* line 155, ../../scss/external/login.scss */
+body.login > #form-container input:focus {
   outline: 0;
   border-color: #3094e3;
 }
-/* line 128, ../../scss/external/login.scss */
-body.login #form-container #password,
-#loading-mask #form-container #password {
+/* line 160, ../../scss/external/login.scss */
+body.login > #form-container #password {
   margin-bottom: 8px;
 }
-/* line 132, ../../scss/external/login.scss */
-body.login #form-container #error,
-#loading-mask #form-container #error {
+/* line 164, ../../scss/external/login.scss */
+body.login > #form-container #error {
   color: #e40023;
 }
-/* line 136, ../../scss/external/login.scss */
-body.login #form-container #submitbutton,
-#loading-mask #form-container #submitbutton {
+/* line 168, ../../scss/external/login.scss */
+body.login > #form-container #submitbutton {
   background: #0f70bd;
   color: white;
   height: 24px;
@@ -183,48 +206,22 @@ body.login #form-container #submitbutton,
   margin: 12px 0 0;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
 }
-/* line 147, ../../scss/external/login.scss */
-body.login #form-container #submitbutton:hover,
-#loading-mask #form-container #submitbutton:hover {
+/* line 179, ../../scss/external/login.scss */
+body.login > #form-container #submitbutton:hover {
   background-color: #065fa5;
 }
-/* line 150, ../../scss/external/login.scss */
-body.login #form-container #submitbutton:click,
-#loading-mask #form-container #submitbutton:click {
+/* line 182, ../../scss/external/login.scss */
+body.login > #form-container #submitbutton:click {
   background-color: #065fa5;
 }
-/* line 153, ../../scss/external/login.scss */
-body.login #form-container #submitbutton:focus,
-#loading-mask #form-container #submitbutton:focus {
+/* line 185, ../../scss/external/login.scss */
+body.login > #form-container #submitbutton:focus {
   box-shadow: 0 0 0 1px #ffffff inset;
-}
-/* line 159, ../../scss/external/login.scss */
-body.login #form-container.loading,
-#loading-mask #form-container.loading {
-  visibility: visible;
-}
-/* line 161, ../../scss/external/login.scss */
-body.login #form-container.loading .right,
-#loading-mask #form-container.loading .right {
-  background: url(../../images/loading_m.png) no-repeat center center;
-  animation: rotate 1.3s 0s infinite ease;
-}
-/* line 162, ../../scss/external/login.scss */
-body.login #form-container.loading .right h1, body.login #form-container.loading .right form,
-#loading-mask #form-container.loading .right h1,
-#loading-mask #form-container.loading .right form {
-  display: none;
-}
-
-/* IE9 supports blur filter in a different way */
-/* line 175, ../../scss/external/login.scss */
-body.login.MSIE9 #bg {
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='100');
 }
 
 /* IE10 and IE11 don't support filters, so we load a blurred copy of the background image
  * and use that  */
-/* line 180, ../../scss/external/login.scss */
+/* line 192, ../../scss/external/login.scss */
 body.login.MSIE10 #bg,
 body.login.MSIE11 #bg {
   background-image: url(../../images/loginbg_daybreak_blurred.jpg);
