@@ -600,8 +600,7 @@ Zarafa.common.freebusy.data.FreebusyModel = Ext.extend(Ext.util.Observable,
 			if (userRecord.isResolved()) {
 				loadData.params.users.push({
 					userid : userRecord.id,
-					entryid : userRecord.get('entryid'),
-					organizer : userRecord.isMeetingOrganizer()
+					entryid : userRecord.get('entryid')
 				});
 			}
 		});
