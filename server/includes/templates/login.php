@@ -28,7 +28,7 @@
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
 	</head>
 
-	<body class="login">
+	<body class="login theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
 		<div id="form-container">
 			<div id="bg"></div>
 			<div id="content">

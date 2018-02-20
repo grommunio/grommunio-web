@@ -25,10 +25,18 @@ body.zarafa-welcome {
 	background-size: cover;
 }
 
-body.login:after,
-#loading-mask:after,
-#bg:after,
-body.zarafa-welcome:after {
+body.login.theme-basic:after,
+body.theme-basic #loading-mask:after,
+body.theme-basic #bg:after,
+body.theme-basic.zarafa-welcome:after,
+body.login.theme-highcontrast:after,
+body.theme-highcontrast #loading-mask:after,
+body.theme-highcontrast #bg:after,
+body.theme-highcontrast.zarafa-welcome:after,
+body.login.theme-dark:after,
+body.theme-dark #loading-mask:after,
+body.theme-dark #bg:after,
+body.theme-dark.zarafa-welcome:after {
 	content: '';
 	position: absolute;
 	top: 0;

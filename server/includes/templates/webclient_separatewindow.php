@@ -20,7 +20,7 @@ $version = trim(file_get_contents('version'));
 		?>
 	</head>
 
-	<body>
+	<body class="theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
 		<?php
 			$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
 			$extjsFiles[] = "client/tinymce/tinymce.js";
@@ -46,7 +46,7 @@ $version = trim(file_get_contents('version'));
 				var browserWindowManager = window.opener.Zarafa.core.BrowserWindowMgr;
 				browserWindowManager.createUI(window);
 			};
-			
+
 		</script>
 	</body>
 </html>
