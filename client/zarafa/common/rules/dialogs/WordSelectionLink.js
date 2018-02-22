@@ -259,7 +259,11 @@ Zarafa.common.rules.dialogs.WordSelectionLink = Ext.extend(Ext.BoxComponent, {
 					conditions.push(RestrictionFactory.dataResContent('PR_BODY', Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE, word.get('words')));
 				}, this);
 				break;
-
+			case Zarafa.common.rules.data.ConditionFlags.TRANSPORTHEADER_WORDS:
+				this.store.each(function(word) {
+					conditions.push(RestrictionFactory.dataResContent('PR_TRANSPORT_MESSAGE_HEADERS', Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE, word.get('words')));
+				}, this);
+				break;
 			default:
 				// Invalid conditionFlag
 				return false;

@@ -20,6 +20,9 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 	name : _('includes these words in the body ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.BODY_WORDS
 },{
+	name : _('includes these words in the transport-headers ...'),
+	value : Zarafa.common.rules.data.ConditionFlags.TRANSPORTHEADER_WORDS
+},{
 	name : _('has importance ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.IMPORTANCE
 },{

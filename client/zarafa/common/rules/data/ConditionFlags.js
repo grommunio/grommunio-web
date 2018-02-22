@@ -116,5 +116,12 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NONE: 15
+	NONE: 15,
+
+	/**
+	* Indicates that the condition checks which words are in the message-transport-header
+	* @property
+	* @type Number
+	*/
+	TRANSPORTHEADER_WORDS: 16
 });
