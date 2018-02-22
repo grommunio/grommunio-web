@@ -489,6 +489,11 @@ class DownloadAttachment
 		$attachment = $this->getAttachmentByAttachNum();
 		$emlParam = streamProperty($attachment, PR_ATTACH_DATA_BIN);
 
+		if ($this->isBroken($emlParam)) {
+			throw new ZarafaException(_("Eml is corrupted"));
+			return;
+		}
+
 		try {
 			// Convert an RFC822-formatted e-mail to a MAPI Message
 			$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $emlParam, array());
@@ -535,6 +540,29 @@ class DownloadAttachment
 		} else {
 			throw new ZarafaException(_("Attachment is not imported successfully"));
 		}
+	}
+
+	/**
+	 * Check if the attached eml is corrupted or not
+	 * @param String $attachment Content fetched from PR_ATTACH_DATA_BIN property of an attachment.
+	 * @return True if eml is broken, false otherwise.
+	 */
+	public function isBroken($attachment)
+	{
+		// Get header part to process further
+		$splittedContent = preg_split("/\r?\n\r?\n/", $attachment);
+
+		// Fetch raw header
+		if (preg_match_all('/([^:]+): ?.*\n/', $splittedContent[0], $matches)) {
+			$rawHeaders = $matches[1];
+		}
+
+		// Compare if necessary headers are present or not
+		if (isset($rawHeaders) && in_array('From', $rawHeaders) && in_array('Date', $rawHeaders)) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
