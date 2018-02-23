@@ -19,6 +19,14 @@ body.zarafa-welcome {
     background: url(../img/background.jpg) no-repeat center center;
     background-size: cover;
 }
+
+body.login:after,
+#loading-mask:after,
+#bg:after,
+body.zarafa-welcome:after {
+  background: url(../img/background_orange.svg);
+}
+
 /* The Sign in button of the login screen */
 body.login #form-container #submitbutton,
 #loading-mask #form-container #submitbutton {
