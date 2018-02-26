@@ -13665,6 +13665,61 @@ body .k-category-block {
   width: auto !important;
 }
 
+/* line 23, ../scss/components/_tinymce.scss */
+.mce-arrow-up {
+  margin-top: 12px !important;
+}
+
+/* line 27, ../scss/components/_tinymce.scss */
+.mce-arrow-down {
+  margin-top: -12px !important;
+}
+
+/* line 31, ../scss/components/_tinymce.scss */
+.mce-arrow:before,
+.mce-arrow:after {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  content: "";
+}
+
+/* line 43, ../scss/components/_tinymce.scss */
+.mce-arrow.mce-arrow-up:before {
+  top: -9px;
+  border-bottom-color: #e6e6e6;
+  border-width: 0 9px 9px;
+  margin-left: -9px;
+}
+
+/* line 50, ../scss/components/_tinymce.scss */
+.mce-arrow.mce-arrow-down:before {
+  bottom: -9px;
+  border-top-color: #e6e6e6;
+  border-width: 9px 9px 0;
+  margin-left: -9px;
+}
+
+/* line 57, ../scss/components/_tinymce.scss */
+.mce-arrow.mce-arrow-up:after {
+  top: -8px;
+  border-bottom-color: #ffffff;
+  border-width: 0 8px 8px;
+  margin-left: -8px;
+}
+
+/* line 64, ../scss/components/_tinymce.scss */
+.mce-arrow.mce-arrow-down:after {
+  bottom: -8px;
+  border-top-color: #ffffff;
+  border-width: 8px 8px 0;
+  margin-left: -8px;
+}
+
 /* line 1, ../scss/components/_presence.scss */
 .zarafa-presence-status-icon {
   display: inline-block;

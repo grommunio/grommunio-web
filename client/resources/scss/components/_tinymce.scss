@@ -19,3 +19,51 @@
 		width: auto !important;
 	}
 }
+
+.mce-arrow-up {
+	margin-top: 12px !important;
+}
+
+.mce-arrow-down {
+	margin-top: -12px !important;
+}
+
+.mce-arrow:before,
+.mce-arrow:after {
+	position: absolute;
+	left: 50%;
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent;
+	content: "";
+}
+
+.mce-arrow.mce-arrow-up:before {
+	top: -9px;
+	border-bottom-color: $grey ;
+	border-width: 0 9px 9px;
+	margin-left: -9px;
+}
+
+.mce-arrow.mce-arrow-down:before {
+	bottom: -9px;
+	border-top-color: $grey ;
+	border-width: 9px 9px 0;
+	margin-left: -9px;
+}
+
+.mce-arrow.mce-arrow-up:after {
+	top: -8px;
+	border-bottom-color: $white;
+	border-width: 0 8px 8px;
+	margin-left: -8px;
+}
+
+.mce-arrow.mce-arrow-down:after {
+	bottom: -8px;
+	border-top-color: #ffffff;
+	border-width: 8px 8px 0;
+	margin-left: -8px;
+}

@@ -68,7 +68,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			readOnly: false,
 			tinyMCEConfig :{
 				delta_height: 1,
-				plugins: ["advlist emoticons directionality lists image charmap searchreplace textcolor"],
+				plugins: ["advlist emoticons directionality lists image charmap searchreplace textcolor table"],
 				// Add the powerpaste as an external plugin so we can update tinymce by just replacing
 				// the contents of its folder without removing the powerpaste plugin
 				// Note: the path is relative to the path of tinymce
@@ -79,8 +79,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				powerpaste_word_import: powerpasteConfig.powerpaste_word_import,
 				powerpaste_html_import: powerpasteConfig.powerpaste_html_import,
 				powerpaste_allow_local_images: powerpasteConfig.powerpaste_allow_local_images,
-				toolbar1 : "fontselect fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent | ltr rtl | bullist numlist | searchreplace | link unlink | undo redo | charmap emoticons image hr removeformat",
-				extended_valid_elements : 'a[name|href|target|title|onclick|dir],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],table[style|dir|class|border=2|width|cellspacing|cellpadding|bgcolor],colgroup,col[style|dir|width],tbody,tr[style|dir|class],td[style|dir|class|colspan|rowspan|width|height],hr[class|width|size|noshade],font[face|size|color|style|dir],span[class|align|style|dir|br],p[class|style|dir|span|br]',
+				toolbar1 : "fontselect fontsizeselect | bold italic underline strikethrough | subscript superscript | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent | ltr rtl | bullist numlist | table | searchreplace | link unlink | undo redo | charmap emoticons image hr removeformat",
+				extended_valid_elements : 'a[name|href|target|title|onclick|dir],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|style],table[style|dir|class|border=1|cellspacing|cellpadding|bgcolor|id],colgroup,col[style|dir|width],tbody,tr[style|dir|class],td[style|dir|class|colspan|rowspan|width|height],hr[class|width|size|noshade],font[face|size|color|style|dir],span[class|align|style|dir|br],p[class|style|dir|span|br]',
 				paste_data_images : true,
 				automatic_uploads: false,
 				remove_trailing_brs: false,
@@ -114,7 +114,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					'p,blockquote{'+
 						'font-family : initial;'+
                     	'font-size : medium;'+
-					'}'
+					'}'+
+					'td, th, p{' +
+						'font-family : inherit !important;' +
+						'font-size : inherit !important;' +
+					'}',
+				table_default_styles: {
+					width: '10%',
+					borderSpacing: 0
+				}
 			},
 			defaultFontFamily : container.getSettingsModel().get('zarafa/v1/main/default_font'),
 			defaultFontSize : Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize()
@@ -168,6 +176,15 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		tinymceEditor.on('keydown', this.onKeyDown.createDelegate(this), this);
 		tinymceEditor.on('paste', this.onPaste.createDelegate(this), this);
 		tinymceEditor.on('mousedown', this.relayIframeEvent.createDelegate(this), this);
+
+		// Hack alert !
+		// hide the Cell menu item from table menu item.
+		var tableMenu = tinymceEditor.buttons.table.menu;
+		Ext.each(tableMenu, function(menu, i) {
+			if(menu.text === 'Cell') {
+				delete tinymceEditor.buttons.table.menu[i];
+			}
+		}, this);
 
 		// Listen for wheel event on underlying iframe as tinyMCE editor isn't providing
 		// wheel event.
