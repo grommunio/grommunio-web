@@ -213,9 +213,7 @@ Zarafa.common.flags.Util = {
 			complete:			true,
 			flag_request: 		'',
 			flag_status: 		Zarafa.core.mapi.FlagStatus.completed,
-			reminder:		false,
-			startdate: 	null,
-			duedate: 		null
+			reminder:		false
 		};
 	},
 
