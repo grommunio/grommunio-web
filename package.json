@@ -7,6 +7,7 @@
 	"scripts": {
 		"phplint": "phpmd server text .phpmd.xml || true",
 		"phplintci": "phpmd server xml .phpmd.xml --reportfile phpmd.xml || true",
+		"lint": "eslint client/zarafa",
 		"jsunit": "karma start test/js/unittest.conf.js"
 	},
 	"pre-commit": {

@@ -720,7 +720,6 @@ Ext.apply(Zarafa, {
 
 			// Process data that was passed as URL data
 			Zarafa.core.URLActionMgr.execute(urlActionData);
-			/*jshint -W051 */
 			delete urlActionData;
 
 			// Start the keepalive to make sure we stay logged into the zarafa-server,

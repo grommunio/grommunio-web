@@ -24,6 +24,9 @@ Optional for development a pre-commit hook can be used, which runs JSHint.
 
 # Running static analysis
 
+
+ESLint is used for JavaScript linting.
+
 ```
 make lint
 ```
