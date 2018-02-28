@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -652,6 +652,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "Czy chodziło ci o"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Błąd"
@@ -2386,6 +2389,10 @@ msgid "includes these words in the subject ..."
 msgstr "zawiera te słowa w temacie ..."
 
 msgid "includes these words in the body ..."
+msgstr "zawiera te słowa w treści ..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "zawiera te słowa w treści ..."
 
 msgid "has importance ..."
@@ -5174,6 +5181,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Link zewnętrzny zostanie otwarty w nowym oknie"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 #, fuzzy
 msgid "Attachment is not imported successfully"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -653,6 +653,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2423,6 +2426,12 @@ msgstr "主旨包含這些字"
 # 100%
 #, fuzzy
 msgid "includes these words in the body ..."
+msgstr "主旨包含這些字"
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "主旨包含這些字"
 
 msgid "has importance ..."
@@ -5274,6 +5283,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "This external link will open in a new window"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""

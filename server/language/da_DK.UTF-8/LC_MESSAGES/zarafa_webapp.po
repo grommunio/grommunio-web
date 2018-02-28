@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -650,6 +650,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "Mente du"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Fejl"
@@ -2386,6 +2389,10 @@ msgid "includes these words in the subject ..."
 msgstr "inkluder disse ord i emnet ..."
 
 msgid "includes these words in the body ..."
+msgstr "inkluder disse ord i brevkroppen ..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "inkluder disse ord i brevkroppen ..."
 
 msgid "has importance ..."
@@ -5170,6 +5177,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Det eksterne link vil blive åbnet i et nyt vindue"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 #, fuzzy
 msgid "Attachment is not imported successfully"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -663,6 +663,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2506,6 +2509,12 @@ msgstr "Inclui essas palavras no assunto ..."
 # 100%
 #, fuzzy
 msgid "includes these words in the body ..."
+msgstr "Inclui essas palavras no assunto ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "Inclui essas palavras no assunto ..."
 
 msgid "has importance ..."
@@ -5413,6 +5422,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Este link externo será aberto em uma nova janela"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""

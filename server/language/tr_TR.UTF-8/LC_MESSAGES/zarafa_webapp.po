@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -673,6 +673,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "ne demek istediniz"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Hata"
@@ -2513,6 +2516,12 @@ msgstr "konu bu kelimeleri içeren ..."
 # 84%
 # 100%
 msgid "includes these words in the body ..."
+msgstr "esas kısım bu kelimeleri içeren ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "esas kısım bu kelimeleri içeren ..."
 
 msgid "has importance ..."
@@ -5463,6 +5472,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 #, fuzzy
 msgid "Attachment is not imported successfully"

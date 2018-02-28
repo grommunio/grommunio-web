@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2018-02-20 14:50+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -682,6 +682,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "Meinten Sie"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Fehler"
@@ -2576,6 +2579,12 @@ msgstr "enthält diese Wörter im Betreff ..."
 # 84%
 # 100%
 msgid "includes these words in the body ..."
+msgstr "enthält diese Wörter im Text ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "enthält diese Wörter im Text ..."
 
 msgid "has importance ..."
@@ -5606,6 +5615,9 @@ msgstr "Klicken Sie auf den Link, um die URL in einem neuen Fenster zu öffnen."
 
 msgid "This external link will open in a new window"
 msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 #, fuzzy
 msgid "Attachment is not imported successfully"

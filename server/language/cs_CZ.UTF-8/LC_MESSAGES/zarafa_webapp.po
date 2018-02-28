@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2016-10-11 20:43+0000\n"
 "Last-Translator: Viktor <viktor.bale@anodyne.cz>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -675,6 +675,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2484,6 +2487,12 @@ msgstr "obsahuje tato slova v předmětu ..."
 # 84%
 # 100%
 msgid "includes these words in the body ..."
+msgstr "obsahuje tato slova v obsahu ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "obsahuje tato slova v obsahu ..."
 
 msgid "has importance ..."
@@ -5403,6 +5412,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Tento externí odkaz se otevře v novém okně"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""

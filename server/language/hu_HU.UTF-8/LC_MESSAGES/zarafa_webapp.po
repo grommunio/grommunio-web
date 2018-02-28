@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2017-10-02 16:14+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -681,6 +681,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "Arra gondolt, hogy"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Hiba"
@@ -2541,6 +2544,10 @@ msgid "includes these words in the subject ..."
 msgstr "tárgya tartalmazza ezeket a szavakat ..."
 
 msgid "includes these words in the body ..."
+msgstr "levéltörzse tartalmazza ezeket a szavakat..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "levéltörzse tartalmazza ezeket a szavakat..."
 
 msgid "has importance ..."
@@ -5450,6 +5457,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ez a külső link egy új ablakban fog megnyílni"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 #, fuzzy
 msgid "Attachment is not imported successfully"

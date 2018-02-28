@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Canadian French <http://translate.kopano.io/projects/kopano/"
@@ -645,6 +645,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2312,6 +2315,9 @@ msgid "includes these words in the subject ..."
 msgstr ""
 
 msgid "includes these words in the body ..."
+msgstr ""
+
+msgid "includes these words in the transport-headers ..."
 msgstr ""
 
 msgid "has importance ..."
@@ -5024,6 +5030,9 @@ msgid "Click the link to open the URL in a new window."
 msgstr ""
 
 msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Eml is corrupted"
 msgstr ""
 
 msgid "Attachment is not imported successfully"

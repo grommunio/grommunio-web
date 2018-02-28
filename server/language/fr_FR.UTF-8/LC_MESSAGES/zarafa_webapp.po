@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -671,6 +671,9 @@ msgstr ""
 
 msgid "Did you mean"
 msgstr "Vouliez-vous dire"
+
+msgid "With"
+msgstr ""
 
 msgid "Error"
 msgstr "Erreur"
@@ -2501,6 +2504,10 @@ msgid "includes these words in the subject ..."
 msgstr "inclut ces mots dans le sujet ..."
 
 msgid "includes these words in the body ..."
+msgstr "inclut ces mots dans le corps ..."
+
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "inclut ces mots dans le corps ..."
 
 msgid "has importance ..."
@@ -5489,6 +5496,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ce lien externe s'ouvrira dans une nouvelle fenêtre"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 # 94%
 #, fuzzy

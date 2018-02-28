@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -675,6 +675,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2503,6 +2506,12 @@ msgstr "aihe sisältää sanat ..."
 # 100%
 #, fuzzy
 msgid "includes these words in the body ..."
+msgstr "aihe sisältää sanat ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "aihe sisältää sanat ..."
 
 msgid "has importance ..."
@@ -5424,6 +5433,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ulkopuolinen linkki avataan uudessa ikkunassa"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""

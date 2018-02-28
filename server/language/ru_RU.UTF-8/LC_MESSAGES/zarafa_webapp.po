@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:16+0100\n"
+"POT-Creation-Date: 2018-02-28 11:09+0100\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -683,6 +683,9 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
+msgstr ""
+
+msgid "With"
 msgstr ""
 
 msgid "Error"
@@ -2499,6 +2502,12 @@ msgstr "Содержит слова в теме..."
 # 100%
 #, fuzzy
 msgid "includes these words in the body ..."
+msgstr "Содержит слова в теме..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers ..."
 msgstr "Содержит слова в теме..."
 
 msgid "has importance ..."
@@ -5426,6 +5435,9 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Эта внешняя ссылка откроется в новом окне"
+
+msgid "Eml is corrupted"
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
