@@ -43,11 +43,11 @@
 		var $searchResults;
 
 		/**
-		 * @var MAPIFolder resource of the freebusy folder which holds
+		 * @var MAPIMessage resource of the freebusy message which holds
 		 * information regarding delegation details, this variable will
 		 * only be populated when user is a delegate
 		 */
-		var $localFreeBusyFolder;
+		var $localFreeBusyMessage;
 
 		/**
 		 * @var BinString binary string of PR_MDB_PROVIDER property
@@ -66,7 +66,7 @@
 
 			$this->restriction = false;
 			$this->searchFolderList = false;
-			$this->localFreeBusyFolder = false;
+			$this->localFreeBusyMessage = false;
 			$this->storeProviderGuid = false;
 
 			$this->sort = array();
@@ -803,13 +803,13 @@
 		}
 
 		/**
-		 * Function which gets the delegation details from localfreebusy folder to use in
+		 * Function which gets the delegation details from localfreebusy message to use in
 		 * processPrivateItems function.
 		 * @param {MAPIStore} $store MAPI Message Store Object
 		 */
 		function getDelegateFolderInfo($store)
 		{
-			$this->localFreeBusyFolder = false;
+			$this->localFreeBusyMessage = false;
 			$this->storeProviderGuid = false;
 
 			try {
@@ -821,24 +821,13 @@
 					return;
 				}
 
-				// open localfreebusy folder for delegate permissions
-				$rootFolder = mapi_msgstore_openentry($store, null);
-				$rootFolderProps = mapi_getprops($rootFolder, array(PR_FREEBUSY_ENTRYIDS));
-
-				/**
-				 *	PR_FREEBUSY_ENTRYIDS contains 4 entryids
-				 *	PR_FREEBUSY_ENTRYIDS[0] gives associated freebusy folder in calendar
-				 *	PR_FREEBUSY_ENTRYIDS[1] Localfreebusy (used for delegate properties)
-				 *	PR_FREEBUSY_ENTRYIDS[2] global Freebusydata in public store
-				 *	PR_FREEBUSY_ENTRYIDS[3] Freebusydata in IPM_SUBTREE
-				 */
-				// get localfreebusy folder
-				$this->localFreeBusyFolder = mapi_msgstore_openentry($store, $rootFolderProps[PR_FREEBUSY_ENTRYIDS][1]);
+				// get localfreebusy message
+				$this->localFreeBusyMessage = freebusy::getLocalFreeBusyMessage($store);
 			} catch(MAPIException $e) {
 				// we got some error, but we don't care about that error instead just continue
 				$e->setHandled();
 
-				$this->localFreeBusyFolder = false;
+				$this->localFreeBusyMessage = false;
 				$this->storeProviderGuid = false;
 			}
 		}
@@ -906,21 +895,21 @@
 					$private = true;
 
 					// find delegate properties
-					if($this->localFreeBusyFolder !== false) {
+					if($this->localFreeBusyMessage !== false) {
 						try {
-							$localFreeBusyFolderProps = mapi_getprops($this->localFreeBusyFolder, array(PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATES_SEE_PRIVATE));
+							$localFreeBusyMessageProps = mapi_getprops($this->localFreeBusyMessage, array(PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATES_SEE_PRIVATE));
 
-							if(isset($localFreeBusyFolderProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]) && isset($localFreeBusyFolderProps[PR_DELEGATES_SEE_PRIVATE])) {
+							if(isset($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]) && isset($localFreeBusyMessageProps[PR_DELEGATES_SEE_PRIVATE])) {
 								// if more then one delegates info is stored then find index of
 								// current user
 								$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
 
 								$userFound = false;
 								$seePrivate = false;
-								foreach($localFreeBusyFolderProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] as $key => $entryId) {
+								foreach($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] as $key => $entryId) {
 									if ($GLOBALS['entryid']->compareABEntryIds(bin2hex($userEntryId), bin2hex($entryId))) {
 										$userFound = true;
-										$seePrivate = $localFreeBusyFolderProps[PR_DELEGATES_SEE_PRIVATE][$key];
+										$seePrivate = $localFreeBusyMessageProps[PR_DELEGATES_SEE_PRIVATE][$key];
 										break;
 									}
 								}

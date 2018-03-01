@@ -2436,8 +2436,7 @@ If it is the first time this attendee has proposed a new date/time, increment th
 				 * Get the LocalFreebusy message that contains the properties that
 				 * are set to accept or decline resource meeting requests
 				 */
-				// Use PR_FREEBUSY_ENTRYIDS[1] to open folder the LocalFreeBusy msg
-				$localFreebusyMsg = mapi_msgstore_openentry($userStore, $userRootProps[PR_FREEBUSY_ENTRYIDS][1]);
+				$localFreebusyMsg = freebusy::getLocalFreeBusyMessage($userStore);
 				if($localFreebusyMsg){
 					$props = mapi_getprops($localFreebusyMsg, array(PR_PROCESS_MEETING_REQUESTS, PR_DECLINE_RECURRING_MEETING_REQUESTS, PR_DECLINE_CONFLICTING_MEETING_REQUESTS));
 
