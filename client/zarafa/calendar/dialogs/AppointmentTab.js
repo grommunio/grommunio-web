@@ -794,7 +794,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			const selectedFolder = model.getFolder(record.get('parent_entryid'));
 			let folderToSelect;
 
-			if (Ext.isDefined(selectedFolder) && selectedFolder.isInDeletedItems()){
+			// Check if folder doesn't belongs to "Deleted Items" / "Junk E-mails" folders or
+			// user has enough rights.
+			if (Ext.isDefined(selectedFolder) && (selectedFolder.isInDeletedItems()
+				 || (!(selectedFolder.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_CREATE)))) {
+
 				folderToSelect = model.defaultFolder.get('entryid');
 			} else {
 				folderToSelect = record.get('parent_entryid');
