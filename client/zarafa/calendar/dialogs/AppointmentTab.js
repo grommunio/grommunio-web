@@ -324,8 +324,12 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		//config options necessary to create store which feeds the data to create-in-combo.
 		const createInStore = {
 			xtype: 'jsonstore',
-			fields: ['entryid', 'store_entryid', 'displayString', 'iconColor'],
-			data : this.getCreateInData()
+			fields: ['entryid', 'store_entryid', 'displayString', 'iconColor', 'sortOrder'],
+			data : this.getSortedCreateInData(),
+			sortInfo: {
+				field: 'sortOrder',
+				direction: 'ASC' // or 'DESC' (case sensitive for local sorting)
+			}
 		};
 
 		const tplString = '<tpl for=".">' +
@@ -790,7 +794,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		}
 
 		if (contentReset && this.comboCreateIn.isVisible()) {
-			const model = container.getContextByName('calendar').model;
+			const model = container.getContextByName('calendar').getModel();
 			const selectedFolder = model.getFolder(record.get('parent_entryid'));
 			let folderToSelect;
 
@@ -1086,11 +1090,21 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	 * Helper function to return array containing options necessary to create
 	 * store which feeds the data to create-in-combo along with entryid of respective
 	 * calendar folder.
+	 * This would also provide an extra field value on which store must be sorted.
+	 * The sorting order will be as under:
+	 * 		1) activePersonalCalendars
+	 * 		2) activeSharedCalendars
+	 * 		3) activePublicCalendars
+	 * 		4) inactivePersonalCalendars
+	 * 		5) inactiveSharedCalendars
+	 * 		6) inactivePublicCalendars
 	 * @return {Object} Config set which has all calendar folders.
 	 */
-	getCreateInData : function()
+	getSortedCreateInData : function()
 	{
 		var calendarFolders = container.getHierarchyStore().getByContainerClass('IPF.Appointment');
+		var context = container.getContextByName('calendar');
+		var groupings = context.getModel().getGroupings();
 		var createInData = [];
 
 		calendarFolders.forEach(function(dataItem) {
@@ -1105,15 +1119,45 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				displayString += ' - ' + mapiStore.get('mailbox_owner_name');
 			}
 
-			createInData.push({
+			var isActiveFolder = this.isActiveFolder(groupings, dataItem);
+			var comboRecord = {
 				'entryid' : dataItem.get('entryid'),
 				'store_entryid' : dataItem.get('store_entryid'),
 				'displayString' : displayString,
 				'iconColor' : this.getFolderColor(dataItem.get('entryid'))
-			});
+			};
+
+			if (dataItem.getMAPIStore().isPublicStore()) {
+				comboRecord['sortOrder'] = isActiveFolder ? '3' : '6';
+			} else if (mapiStore.isSharedStore()) {
+				comboRecord['sortOrder'] = isActiveFolder ? '2' : '5';
+			} else {
+				comboRecord['sortOrder'] = isActiveFolder ? '1' : '4';
+			}
+
+			createInData.push(comboRecord);
 		}, this);
 
 		return createInData;
+	},
+
+	/**
+	 * Helps to find if the given calendar folder is active/checked or not.
+	 * @param {Object} groupings Current state of {@link Zarafa.core.MultiFolderContextModel#groupings}.
+	 * @param {Zarafa.core.data.IPFRecord} dataItem Calendar folder to check.
+	 * @return {Boolean} true if folder is active, false otherwise.
+	 * @private
+	 */
+	isActiveFolder : function(groupings, dataItem)
+	{
+		var isActive = false;
+		for( var key in groupings ) {
+			if (dataItem.get('entryid') === groupings[key].active) {
+				isActive = true;
+			}
+		}
+
+		return isActive;
 	},
 
 	/**
@@ -1125,10 +1169,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	onCreateInBeforeExpand : function(combo)
 	{
 		const createInStore = combo.store;
-		const readerData = createInStore.reader.readRecords(this.getCreateInData());
+		const readerData = createInStore.reader.readRecords(this.getSortedCreateInData());
 		createInStore.removeAll();
 		createInStore.add(readerData.records);
 		createInStore.applySort();
+		combo.view.bindStore(createInStore);
 	},
 
 	/**
