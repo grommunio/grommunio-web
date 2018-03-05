@@ -270,7 +270,12 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 	registeredOpenTab: function (record, tabId)
 	{
 		var entryid = record.get("entryid");
-		if (!Ext.isEmpty(record.get("basedate"))) {
+
+		// If record is attachment record then take id instead of entryid because
+		// Attachment record id contains entryid with attach_num
+		if (Array.isArray(record.get('attach_num'))) {
+			entryid = record.id;
+		} else if (!Ext.isEmpty(record.get("basedate"))) {
 			entryid += "_" + record.get('basedate').getTime();
 		}
 		this.openedTabs.add(entryid, tabId);
@@ -291,7 +296,15 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 					item = false;
 				}
 			}
-			if (Zarafa.core.EntryId.compareEntryIds(item, record.get("entryid"))) {
+			var entryid = record.get("entryid");
+
+			// If record is attachment record then take id instead of entryid because
+			// Attachment record id contains entryid with attach_num
+			if (Array.isArray(record.get('attach_num'))) {
+				entryid = record.id;
+			}
+			
+			if (Zarafa.core.EntryId.compareEntryIds(item, entryid)) {
 				return true;
 			}
 		});
