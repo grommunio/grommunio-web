@@ -9,6 +9,7 @@ Ext.namespace('Zarafa.common.ui.grid');
  * which could not be resolved by plugins or directly in extjs.
  */
 Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
+
 	/**
 	 * @cfg {Boolean} disableScrollToTop {@link Ext.grid.GridView} by default scrolls to top when data is loaded in
 	 * {@link Zarafa.core.data.MAPIStore MAPIStore}, but in our case {@link Zarafa.core.ContextModel ContextModel} handles
@@ -25,19 +26,25 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	isBuffering : false,
 
 	/**
+	 * @cfg {Boolean} enableGrouping true will enable grouping grid, false otherwise.
+	 */
+	enableGrouping : false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
 	constructor : function(config)
 	{
 		Ext.applyIf(config, {
-			enableGrouping : true,
 			enableGroupingMenu : false,
-			groupTextTpl : '{text:htmlEncode} ({values.rs.length} {[ngettext("Item","Items", values.rs.length)]})',
+			groupTextTpl : '{text:htmlEncode}',
 			disableScrollToTop : false,
 			deferEmptyText : true,
 			emptyText : '<div class="emptytext">' + _('There are no items to show in this list') + '</div>',
-			forceFit : true
+			forceFit : true,
+			autoFill : true,
+			showGroupName : false
 		});
 
 		this.addEvents(
@@ -173,11 +180,36 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	 * and sets up options like column menus, moving and resizing.
 	 * This function is overridden to use a {@link Zarafa.common.ui.grid.GridDragZone} for the {@link #dragZone},
 	 * rather then the default {@link Ext.grid.GridDragZone}.
+	 * This is always intended to be called after renderUI. Sets up listeners on the UI elements
+	 * and sets up options like column menus, moving and resizing. It will overwrite to hide the
+	 * 'Group By This Field' button from header menu and change css class for the check box.
 	 * @private
 	 */
 	afterRenderUI : function()
 	{
-		Zarafa.common.ui.grid.GridView.superclass.afterRenderUI.apply(this, arguments);
+		// Called parent function of grouping view because
+		// we have to override the header menu items for
+		// grouping views.
+		Ext.grid.GroupingView.superclass.afterRenderUI.call(this);
+
+		if (this.enableGroupingMenu && this.hmenu) {
+			if (this.enableNoGroups) {
+				this.hmenu.add({
+					itemId: 'sortSepOne',
+					xtype: 'menuseparator'
+				}, {
+					itemId:'showGroups',
+					text: this.showGroupsText,
+					checked: true,
+					cls : 'showGroups',
+					iconCls : this.enableGrouping ? '': 'k-hide-img',
+					checkHandler: this.onShowGroupsClick,
+					scope: this
+				});
+			}
+
+			this.hmenu.on('beforeshow', this.beforeMenuShow, this);
+		}
 
 		if (this.dragZone) {
 			this.dragZone.destroy();
@@ -287,12 +319,24 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	 * was clicked for sort the data of {@link Ext.grid.GridPanel Grid}.
 	 * also it will fire the {@link #beforesort} event.
 	 * @param {Ext.grid.GridPanel} grid The grid on which the user clicked
-	 * @param {Number} The index number of the header which clicked.
+	 * @param {Number} index The index number of the header which clicked.
 	 * @private
 	 */
-	onHeaderClick : function(grid, index) 
+	onHeaderClick : function(grid, index)
 	{
-		if(this.fireEvent('beforesort', this) !== false) {
+		var store = grid.getStore();
+		if (this.enableGrouping) {
+			if (grid.colModel.findColumnIndex(store.defaultSortInfo.field) != index) {
+				this.clearGrouping();
+			} else {
+				store.remoteGroup = false;
+				store.remoteSort = false;
+				this.applyGrouping();
+				store.remoteGroup = true;
+				store.remoteSort = true;
+			}
+		}
+		if (this.fireEvent('beforesort', this) !== false) {
 			Zarafa.common.ui.grid.GridView.superclass.onHeaderClick.apply(this, arguments);
 		}
 	},
@@ -346,7 +390,90 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 			Ext.get(rowMask).remove();
 		}
 		this.isBuffering = false;
-	}
+	},
+
+	/**
+	 * Handler triggers when 'Show in groups' button was clicked.
+	 * It is toggle the 'Show in groups' button and set the enable_grouping
+	 * user settings.
+	 *
+	 * @param {Ext.menu.Item} mi The menu item which clicked.
+	 * @param {Boolean} checked The checked true grouping is enabled else false.
+	 */
+	onShowGroupsClick : function(mi, checked)
+	{
+		var dataIndex = this.cm.getDataIndex(this.hdCtxIndex);
+		if (this.grid.store.defaultSortInfo.field != dataIndex) {
+			return true;
+		}
+
+		if (checked && this.enableGrouping) {
+			checked = false;
+		}
+		Zarafa.common.ui.grid.GridView.superclass.onShowGroupsClick.apply(this, arguments);
+
+		var imgTag = mi.el.child('img');
+		if(checked) {
+			imgTag.addClass('x-menu-item-icon');
+			imgTag.removeClass('k-hide-img');
+		} else {
+			imgTag.removeClass('x-menu-item-icon');
+		}
+		container.getSettingsModel().set('zarafa/v1/contexts/mail/enable_grouping', checked);
+	},
+
+	/**
+	 * Handler triggers only when grouping is going to enable.
+	 * @override
+	 * @private
+	 */
+	onGroupByClick: function ()
+	{
+		this.applyGrouping();
+		// Make sure the checkboxes get properly set when changing groups
+		this.beforeMenuShow();
+	},
+
+	/**
+	 * Apply grouping on store.
+	 * It will apply grouping on default sort field.
+	 */
+	applyGrouping: function ()
+	{
+		var grid = this.grid;
+		this.enableGrouping = true;
+
+		// Grouping is allowed only on default sort fields
+		// e.g For Inbox = message_delivery_time, Draft = last_modification_time
+		// and so on.
+		var store = grid.getStore();
+		var groupField = store.defaultSortInfo.field;
+		store.sortInfo.field = groupField;
+		store.sortInfo.direction = store.sortToggle[groupField];
+		store.groupField = groupField;
+		store.applyGrouping();
+		grid.fireEvent('groupchange', grid, store.getGroupState());
+		this.refresh();
+	},
+
+	/**
+	 * Clear grouping from store.
+	 */
+	clearGrouping: function ()
+	{
+		var store = this.grid.getStore();
+		store.remoteGroup = false;
+		store.remoteSort = false;
+		store.clearGrouping();
+		store.remoteGroup = true;
+		store.remoteSort = true;
+		this.grid.fireEvent('groupchange', this, null);
+	},
+
+	/**
+	 * Function which stop toggle the grouping.
+	 */
+	toggleGroup : Ext.emptyFn
 });
 
 Ext.reg('zarafa.gridview', Zarafa.common.ui.grid.GridView);

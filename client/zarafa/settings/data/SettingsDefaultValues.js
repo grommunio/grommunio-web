@@ -488,6 +488,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 */
 								'close_on_respond' : true,
 
+								/**
+								 * zarafa/v1/contexts/mail/enable_grouping
+								 * @property
+								 * @type Boolean
+								 */
+								'enable_grouping' : false,
+
 								// Small hack, the server determines these defaults
 								// but we copy them here so the user can press
 								// 'revert to defaults' safely.

@@ -122,7 +122,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
-			tooltip : _('Sort by: Received')
+			tooltip : _('Sort by: Received'),
+			groupRenderer : this.groupHeaderByDate
 		},{
 			header : _('Sent'),
 			dataIndex : 'client_submit_time',
@@ -130,7 +131,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
-			tooltip : _('Sort by: Sent')
+			tooltip : _('Sort by: Sent'),
+			groupRenderer  : this.groupHeaderByDate
 		},{
 			header : _('Modified'),
 			dataIndex : 'last_modification_time',
@@ -139,7 +141,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
 			hidden: true,
-			tooltip : _('Sort by: Modified')
+			tooltip : _('Sort by: Modified'),
+			groupRenderer  : this.groupHeaderByDate
 		},{
 			header : _('Size'),
 			dataIndex : 'message_size',
@@ -194,7 +197,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
-			tooltip : _('Sort by: Received')
+			tooltip : _('Sort by: Received'),
+			groupRenderer : this.groupHeaderByDate
 		},{
 			header : _('Sent'),
 			dataIndex : 'client_submit_time',
@@ -202,7 +206,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
-			tooltip : _('Sort by: Sent')
+			tooltip : _('Sort by: Sent'),
+			groupRenderer : this.groupHeaderByDate
 		},{
 			header : _('Modified'),
 			dataIndex : 'last_modification_time',
@@ -211,7 +216,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// Setting the renderer with createDelegate to be able to pass a meta object to the renderer.
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
-			tooltip : _('Sort by: Modified')
+			tooltip : _('Sort by: Modified'),
+			groupRenderer : this.groupHeaderByDate
 		},{
 			header : _('Size'),
 			dataIndex : 'message_size',
@@ -272,5 +278,62 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 			this.setConfig(this.columns, false);
 		}
+	},
+
+	/**
+	 * Function which prepare the title for the grouping header based on the given date.
+	 * @param {Ext.Date} date The date which is used to format the header.
+	 * @return {String} formatted header for the grouping headers.
+	 */
+	groupHeaderByDate: function (date)
+	{
+		if (!Ext.isDate(date)) {
+			return _('Older');
+		}
+
+		var recordDate = date.setToNoon();
+		var today = new Date().setToNoon();
+		if (recordDate.getTime() === today.getTime()) {
+			return _('Today');
+		}
+
+		if (recordDate.getTime() === today.add(Date.DAY, -1).getTime()) {
+			return _('Yesterday');
+		}
+
+		// Current week Mon-Sun
+		var day = (today.getDay() - 1 ) * -1;
+		var startDateOfCurrentWeek = today.add(Date.DAY, day);
+		var lastDateOfCurrentWeek = startDateOfCurrentWeek.add(Date.DAY, 6);
+		if (recordDate.between(startDateOfCurrentWeek,lastDateOfCurrentWeek)) {
+			return recordDate.format('l');
+		}
+
+		// Previews week
+		var firstDateOfLastWeek = startDateOfCurrentWeek.add(Date.DAY, -7);
+		var lastDateOfLastWeek = firstDateOfLastWeek.add(Date.DAY, 7);
+		if (recordDate.between(firstDateOfLastWeek, lastDateOfLastWeek)) {
+			return _('Last Week');
+		}
+
+		// Previews Two week
+		var firstDateOfTwoWeek = firstDateOfLastWeek.add(Date.DAY, -7);
+		if (recordDate.between(firstDateOfTwoWeek, firstDateOfLastWeek)) {
+			return _('Two Weeks Ago');
+		}
+
+		// Previews Third week
+		var firstDateOfThirdWeek = firstDateOfTwoWeek.add(Date.DAY, -7);
+		if (recordDate.between(firstDateOfThirdWeek, firstDateOfTwoWeek)) {
+			return _('Three Weeks Ago');
+		}
+
+		// Last Months
+		var firstDateOfLastMonth = today.add(Date.MONTH, -1).getFirstDateOfMonth();
+		if (recordDate.between(firstDateOfLastMonth, firstDateOfThirdWeek)) {
+			return _('Last Month');
+		}
+
+		return _('Older');
 	}
 });

@@ -339,7 +339,7 @@ $menu-item-height : 30px;
 
 	.icon_calendar_appt_accept {
 		@extend .icon_calendar_appt_accept;
-      	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 3, $offset-x: 1);
+      	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 7, $offset-x: 2);
 	}
 
 	.icon_calendar_appt_tentative {
@@ -542,4 +542,13 @@ li.x-menu-item-active{
 /* Color picker */
 .x-color-palette.k-colorpicker-menu {
 	width: 108px;
+}
+
+.x-menu-check-item.showGroups {
+	.k-hide-img {
+		display: none !important;
+	}
+	.x-menu-item-icon {
+		background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 6, $offset-x: 2) !important;
+	}
 }
