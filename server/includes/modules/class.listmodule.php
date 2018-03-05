@@ -183,15 +183,7 @@
 					}
 				}
 
-				// Disable private items
-				for($index = 0, $len = count($data["item"]); $index < $len; $index++) {
-					$data["item"][$index] = $this->processPrivateItem($data["item"][$index]);
-
-					if(empty($data["item"][$index])) {
-						// remove empty results from data
-						unset($data["item"][$index]);
-					}
-				}
+				$data = $this->filterPrivateItems($data);
 
 				// Allowing to hook in just before the data sent away to be sent to the client
 				$GLOBALS['PluginManager']->triggerHook('server.module.listmodule.list.after', array(
@@ -369,6 +361,9 @@
 			// Get the table and merge the arrays
 			$table = $GLOBALS["operations"]->getTable($store, hex2bin($searchFolderEntryId), $this->properties, $this->sort, $this->start);
 			$data = array_merge($data, $table);
+
+			$this->getDelegateFolderInfo($store);
+			$data = $this->filterPrivateItems($data);
 
 			// remember which entryid's are send to the client
 			$searchResults = array();
@@ -846,6 +841,27 @@
 				$this->localFreeBusyFolder = false;
 				$this->storeProviderGuid = false;
 			}
+		}
+
+		/**
+		 * Helper function which loop through each item and filter out
+		 * private items, if any.
+		 * @param {array} array structure with row search data
+		 * @return {array} array structure with row search data
+		 */
+		function filterPrivateItems($data)
+		{
+			// Disable private items
+			for($index = 0, $len = count($data["item"]); $index < $len; $index++) {
+				$data["item"][$index] = $this->processPrivateItem($data["item"][$index]);
+
+				if(empty($data["item"][$index])) {
+					// remove empty results from data
+					unset($data["item"][$index]);
+				}
+			}
+
+			return $data;
 		}
 
 		/**
