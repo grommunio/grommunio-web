@@ -2789,7 +2789,7 @@
 
 			$folder = mapi_msgstore_openentry($store, $parententryid);
 
-			$msgprops = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER));
+			$msgprops = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID));
 
 			switch($msgprops[PR_MDB_PROVIDER]){
 				case ZARAFA_STORE_DELEGATE_GUID:
@@ -2826,8 +2826,19 @@
 						$result = mapi_folder_deletemessages($folder, $entryids);
 					}else{
 						try {
+							// if the message is deleting from outbox then first delete the
+							// message from an outgoing queue.
+							if (function_exists("mapi_msgstore_abortsubmit") && isset($msgprops[PR_IPM_OUTBOX_ENTRYID]) && $msgprops[PR_IPM_OUTBOX_ENTRYID] === $parententryid) {
+								foreach ($entryids as $entryid) {
+									mapi_msgstore_abortsubmit($store, $entryid);
+								}
+							}
 							$result = $this->copyMessages($store, $parententryid, $store, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, array(), true);
 						} catch (MAPIException $e) {
+							if($e->getCode() === MAPI_E_NOT_IN_QUEUE || $e->getCode() === MAPI_E_UNABLE_TO_ABORT) {
+								throw $e;
+							}
+
 							$e->setHandled();
 							// if moving fails, try normal delete
 							$result = mapi_folder_deletemessages($folder, $entryids);
