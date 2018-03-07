@@ -123,6 +123,41 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 					scope : this
 				}
 			},{
+				xtype: 'zarafa.compositefield',
+				plugins: [{
+					ptype : 'zarafa.splitfieldlabeler',
+					firstLabelCfg : {
+						style: 'text-align: left; padding: 3px 3px 3px 0px',
+						width : 205
+					}
+				}],
+				combineErrors: false,
+				fieldLabel: _('Default appointment duration {A} minutes'),
+				items : [{
+					xtype: 'zarafa.spinnerfield',
+					plugins: [ 'zarafa.numberspinner' ],
+					ref: '../durationSpinner',
+					name: 'zarafa/v1/contexts/calendar/default_appointment_period',
+					labelSplitter: '{A}',
+					allowBlank: false,
+					allowDecimals : false,
+					allowNegative : false,
+					defaultValue : 30,
+					minValue: 1,
+					maxValue: 120,
+					width: 50,
+					validator : function(value) {
+						if(value >= 1 && value <= 120) {
+							return true;
+						}
+						return _('Duration must be between 1 to 120 minutes.');
+					},
+					listeners : {
+						change: this.onDurationChange,
+						scope: this
+					}
+				}]
+			},{
 				xtype : 'checkboxgroup',
 				ref : 'workingDays',
 				fieldLabel : _('Working days'),
@@ -198,6 +233,8 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 		this.zoomLevelCombo.setValue(settingsModel.get(this.zoomLevelCombo.name));
 		this.boldCheck.setValue(settingsModel.get(this.boldCheck.name));
 
+		this.durationSpinner.setValue(settingsModel.get(this.durationSpinner.name));
+
 		// checkboxgroup.setValue() takes an object with name property as key and boolean values to set the checkboxes.
 		// The workingDaysList contains a list of days which are enabled by the user.
 		// Sunday 0, Monday 1, Tuesday 2, Wednesday 3, Thursday 4, Friday 5, Saturday 6
@@ -227,13 +264,39 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 	 */
 	updateSettings : function(settingsModel)
 	{
+		var duration = this.durationSpinner.getValue();
+		if (!this.durationSpinner.isValid()) {
+			if(Ext.isEmpty(duration) || duration === 0) {
+				duration = settingsModel.get(this.durationSpinner.name, false, true);
+			} else {
+				duration = this.durationSpinner.maxValue;
+			}
+		}
+
 		settingsModel.beginEdit();
 		this.onWorkTimeChange(this.workingHourPeriod, this.workingHourPeriod.getValue());
 		settingsModel.set(this.weekStartCombo.name, this.weekStartCombo.getValue());
 		settingsModel.set(this.zoomLevelCombo.name, this.zoomLevelCombo.getValue());
 		settingsModel.set(this.boldCheck.name, this.boldCheck.getValue());
+		settingsModel.set(this.durationSpinner.name, duration);
 		settingsModel.set(this.workingDays.name, Ext.pluck(this.workingDays.getValue(), 'inputValue'));
 		settingsModel.endEdit();
+	},
+
+	/**
+	 * Event handler which is called when a duration was changed
+	 * from {@link Zarafa.common.ui.SpinnerField duration} spinner field.
+	 *
+	 * @param {Zarafa.common.ui.SpinnerField} field The spinner field which holds
+	 * default duration for the appointment
+	 * @param {Number} newValue The new value for default duration for the appointments
+	 */
+	onDurationChange : function(field, newValue)
+	{
+		if (this.model && this.model.get(field.name) !== newValue) {
+			this.model.set(field.name, newValue);
+		}
+
 	},
 
 	/**

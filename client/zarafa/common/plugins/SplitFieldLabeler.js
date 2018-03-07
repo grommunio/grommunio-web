@@ -44,6 +44,16 @@ Zarafa.common.plugins.SplitFieldLabeler = Ext.extend(Ext.util.Observable, {
 	lastLabelCfg : {
 		style: 'text-align: left; padding: 3px 3px 3px 3px'
 	},
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor : function(config)
+	{
+		Ext.apply(this, config);
+	},
+
 	/**
 	 * Plugin initializer for the SplitFieldLabeler.
 	 * @param {Ext.Component} field The field for which the fieldlabeler is initialized
