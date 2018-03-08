@@ -150,7 +150,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 						if(value >= 1 && value <= 120) {
 							return true;
 						}
-						return _('Duration must be between 1 to 120 minutes.');
+						return _('Duration must be between 1 and 120 minutes.');
 					},
 					listeners : {
 						change: this.onDurationChange,
