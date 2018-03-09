@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1267,6 +1267,14 @@ msgstr "Arbejdsdagens slutning"
 
 msgid "Calendar resolution"
 msgstr "Kalender tæthed"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Standard påmindelses tid for heldags aftaler"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Værdi skal være mellem 0% og 100%"
 
 msgid "Working days"
 msgstr "Arbejdsdage"
@@ -3800,8 +3808,13 @@ msgstr "Marker alle meddelelser som læst"
 msgid "Delete Folder"
 msgstr "Slet mappe"
 
-msgid "Empty folder"
-msgstr "Tøm mappe"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Uønsket post"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Slettede elementer"
 
 msgid "Close store"
 msgstr "Luk lager"
@@ -5507,6 +5520,15 @@ msgstr "Kunne ikke gemme meddelelsen"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Denne udvidelse kan ikke slås til"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""

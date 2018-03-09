@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -1361,6 +1361,12 @@ msgstr "Fim do dia de trabalho"
 #, fuzzy
 msgid "Calendar resolution"
 msgstr "Visualiza��o do Calend�rio"
+
+msgid "Default appointment duration {A} minutes"
+msgstr ""
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 #, fuzzy
 msgid "Working days"
@@ -4151,8 +4157,13 @@ msgstr "Marcar todas as mensagens como lidas"
 msgid "Delete Folder"
 msgstr "Excluir pasta"
 
-msgid "Empty folder"
-msgstr "Esvaziar pastas"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "E-mail"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Excluir itens"
 
 msgid "Close store"
 msgstr "Fechar caixa"
@@ -6007,6 +6018,14 @@ msgid "Could not save message"
 msgstr "Voc� respondeu essa mensagem"
 
 msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
 msgstr ""
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1333,6 +1333,13 @@ msgstr "Työpäivä päättyy"
 
 msgid "Calendar resolution"
 msgstr "Kalenterin resoluutio"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Koko päivän kestävien tapaamisten muistutuksen oletusaika"
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 msgid "Working days"
 msgstr ""
@@ -3970,8 +3977,14 @@ msgstr "Merkitse kaikki viestit luetuiksi"
 msgid "Delete Folder"
 msgstr "Poista kansio"
 
-msgid "Empty folder"
-msgstr "Tyhjennä kansio"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Roskaposti"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Roskakori"
 
 msgid "Close store"
 msgstr "Sulje varasto"
@@ -5868,6 +5881,15 @@ msgstr "Viestiä ei voitu tallentaa"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Sinulla ei ole tarpeeksi oikeuksia poistaa kohdetta kalenterista."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Liitännäistä ei voida poistaa käytöstä"
 
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"

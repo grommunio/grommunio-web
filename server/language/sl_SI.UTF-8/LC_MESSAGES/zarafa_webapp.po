@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1360,6 +1360,13 @@ msgstr "Zaključek delovnega dne"
 
 msgid "Calendar resolution"
 msgstr "Resolucija koledarja"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Privzeti čas opomnika za celodnevni sestanek"
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 msgid "Working days"
 msgstr "Delovniki"
@@ -4061,8 +4068,13 @@ msgstr "Označi vsa sporočila kot prebrana"
 msgid "Delete Folder"
 msgstr "Izbriši mapo"
 
-msgid "Empty folder"
-msgstr "Izprazni mapo"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Nezaželjena pošta"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Izbrisani predmeti"
 
 msgid "Close store"
 msgstr "Zapri hrambo"
@@ -5925,6 +5937,15 @@ msgstr "Ne morem shraniti sporočila."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nimate dovolj dovoljenj za premikanje predmetov iz koledarja."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Tega vtičnika ne morete onemogočiti"
 
 # 81%
 #, fuzzy

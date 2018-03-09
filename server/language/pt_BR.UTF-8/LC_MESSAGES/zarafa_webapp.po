@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -1340,6 +1340,13 @@ msgstr "Fim do dia de trabalho"
 
 msgid "Calendar resolution"
 msgstr "Resolução de calendário"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Lembrete padrão para compromissos diurnos"
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 msgid "Working days"
 msgstr ""
@@ -3958,8 +3965,14 @@ msgstr "Marcar todas as mensagens como lidas"
 msgid "Delete Folder"
 msgstr "Excluir pasta"
 
-msgid "Empty folder"
-msgstr "Esvaziar pastas"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Lixo Eletrônico"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Itens Excluídos"
 
 msgid "Close store"
 msgstr "Fechar caixa"
@@ -5825,6 +5838,15 @@ msgstr "Não foi possível salvar a mensagem"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Você possui privilégios insuficientes para remover item do calendário."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Não é possível desabilitar este plug-in"
 
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"

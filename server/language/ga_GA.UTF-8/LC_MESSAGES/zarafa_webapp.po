@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Irish (Gabun)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Irish (GA) <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1281,6 +1281,12 @@ msgid "End of workday"
 msgstr ""
 
 msgid "Calendar resolution"
+msgstr ""
+
+msgid "Default appointment duration {A} minutes"
+msgstr ""
+
+msgid "Duration must be between 1 to 120 minutes."
 msgstr ""
 
 msgid "Working days"
@@ -3751,7 +3757,10 @@ msgstr ""
 msgid "Delete Folder"
 msgstr ""
 
-msgid "Empty folder"
+msgid "Empty Junk E-mail"
+msgstr ""
+
+msgid "Empty Deleted Items"
 msgstr ""
 
 msgid "Close store"
@@ -5435,6 +5444,14 @@ msgid "Could not save message"
 msgstr ""
 
 msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
 msgstr ""
 
 msgid "You have insufficient privileges to delete items in this folder"

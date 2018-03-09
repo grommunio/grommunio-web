@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1342,6 +1342,14 @@ msgstr "Iş gününün sonu"
 
 msgid "Calendar resolution"
 msgstr "Takvim çözünürlük"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Değer %0 ile %100 arasında olmalıdır"
 
 msgid "Working days"
 msgstr "iş günü"
@@ -4015,8 +4023,14 @@ msgstr "Tüm Mesajları Okunmuş İşaretle"
 msgid "Delete Folder"
 msgstr "Klasörü sil"
 
-msgid "Empty folder"
-msgstr "Klasörü boşalt"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "istenmeyen e-posta"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "silinen öğeler"
 
 msgid "Close store"
 msgstr "Store Kapat"
@@ -5872,6 +5886,15 @@ msgstr "Mesaj kaydedilmedi"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Bu takvimden öğeyi silmek için yeterli yetkiye sahip değilsiniz."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "eklenti etkinleştirilemiyor"
 
 # 81%
 msgid "You have insufficient privileges to delete items in this folder"

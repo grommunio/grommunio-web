@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1275,6 +1275,14 @@ msgstr "Koniec dnia pracy"
 
 msgid "Calendar resolution"
 msgstr "Rozwiązanie kalendarza"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Standardowy czas przypomnienia dla terminów całodniowych"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Wartość musi znajdować się między 0% a 100%"
 
 msgid "Working days"
 msgstr "Dni robocze"
@@ -3800,8 +3808,13 @@ msgstr "Zaznacz wszystkie wiadomości jako przeczytane"
 msgid "Delete Folder"
 msgstr "Usuń folder"
 
-msgid "Empty folder"
-msgstr "Opróżnij folder"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Niechciana poczta"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Usunięte obiekty"
 
 msgid "Close store"
 msgstr "Zamknij pocztę"
@@ -5534,6 +5547,15 @@ msgstr "Nie można zapisać wiadomości"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nie masz wystarczających uprawnień, aby usunąć wpis z kalendarza."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Nie można aktywować tej wtyczki"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Nie masz wystarczających uprawnień, aby usunąć elementy z tego foldru"

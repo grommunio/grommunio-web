@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2017-03-02 10:06+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1337,6 +1337,14 @@ msgstr "Fine giorno lavorativo"
 
 msgid "Calendar resolution"
 msgstr "Risoluzione calendario"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Orario predefinito appuntamento giornata intera"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Il valore deve essere compreso tra 0% e 100%"
 
 msgid "Working days"
 msgstr "Giorni lavorativi"
@@ -4027,8 +4035,14 @@ msgstr "Segna tutti i messaggi come letti"
 msgid "Delete Folder"
 msgstr "Elimina cartella"
 
-msgid "Empty folder"
-msgstr "Svuota cartella"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Posta indesiderata"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Posta eliminata"
 
 msgid "Close store"
 msgstr "Chiudi cassetta postale"
@@ -5927,6 +5941,15 @@ msgstr "Impossibile salvare il messaggio"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Non hai permessi sufficienti per rimuovere l'elemento dal calendario."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Questo plugin non può essere abilitato"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Non hai permessi sufficienti per eliminare elementi da questa cartella"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1284,6 +1284,13 @@ msgstr "結束工作日"
 
 msgid "Calendar resolution"
 msgstr "行事曆分解"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "預設全天約會提醒時間"
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 msgid "Working days"
 msgstr ""
@@ -3860,8 +3867,14 @@ msgstr "標記所有郵件為讀取"
 msgid "Delete Folder"
 msgstr "刪除資料夾"
 
-msgid "Empty folder"
-msgstr "空的資料夾"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "垃圾郵件"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "刪除郵件"
 
 msgid "Close store"
 msgstr "關閉收存"
@@ -5636,6 +5649,14 @@ msgstr "無法儲存郵件"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "您沒有足夠權限搬移此行事曆項目"
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
+msgstr ""
 
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"

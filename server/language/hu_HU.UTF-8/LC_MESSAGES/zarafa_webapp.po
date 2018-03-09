@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2017-10-02 16:14+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1360,6 +1360,14 @@ msgstr "Munkanap vége"
 
 msgid "Calendar resolution"
 msgstr "Naptár felosztása"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Az értéknek 0% és 100% között kell lennie"
 
 msgid "Working days"
 msgstr "Munkanapok"
@@ -4013,8 +4021,13 @@ msgstr "Minden üzenet megjelölése olvasottként"
 msgid "Delete Folder"
 msgstr "Mappa törlése"
 
-msgid "Empty folder"
-msgstr "Mappa ürítése"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Levélszemét"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Törölt elemek"
 
 msgid "Close store"
 msgstr "Tároló bezárása"
@@ -5869,6 +5882,15 @@ msgstr "Nem menthető üzenet"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nincs elég jogosultsága az elem eltávolításához a naptárból."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Ezt a beépülőmodult nem lehet engedélyezni"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "Nincsen jogosultsága az elemek eltávolításához ebben a mappában"

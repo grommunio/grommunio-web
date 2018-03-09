@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2018-02-12 07:30+0000\n"
 "Last-Translator: Robin <r.vangenderen@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1366,6 +1366,14 @@ msgstr "Einde van de werkdag"
 
 msgid "Calendar resolution"
 msgstr "Kalenderresolutie"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Standaard herinneringstijd voor heledagafspraken"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Waarde moet tussen 0% en 100% liggen"
 
 msgid "Working days"
 msgstr "Werkdagen"
@@ -4137,8 +4145,14 @@ msgstr "Markeer Alle Berichten Gelezen"
 msgid "Delete Folder"
 msgstr "Verwijder Map"
 
-msgid "Empty folder"
-msgstr "Map legen"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Ongewenste E-mail"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Verwijderde items"
 
 msgid "Close store"
 msgstr "Store sluiten"
@@ -6053,6 +6067,15 @@ msgstr "Kon bericht niet opslaan"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
 "U heeft niet voldoende permissies om het item uit de agenda te verwijderen."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Deze plugin kan niet worden ingeschakeld"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr "U heeft niet voldoende permissies om items in deze map te verwijderen"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2012-04-29 15:45+0200\n"
 "Last-Translator: Igor <Igor_halka@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1271,6 +1271,12 @@ msgid "End of workday"
 msgstr ""
 
 msgid "Calendar resolution"
+msgstr ""
+
+msgid "Default appointment duration {A} minutes"
+msgstr ""
+
+msgid "Duration must be between 1 to 120 minutes."
 msgstr ""
 
 msgid "Working days"
@@ -3747,7 +3753,10 @@ msgstr ""
 msgid "Delete Folder"
 msgstr ""
 
-msgid "Empty folder"
+msgid "Empty Junk E-mail"
+msgstr ""
+
+msgid "Empty Deleted Items"
 msgstr ""
 
 msgid "Close store"
@@ -5475,6 +5484,14 @@ msgid "Could not save message"
 msgstr "Не вдається видалити папку."
 
 msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
 msgstr ""
 
 # 81%

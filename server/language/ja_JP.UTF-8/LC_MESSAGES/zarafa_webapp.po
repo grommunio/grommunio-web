@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1300,6 +1300,13 @@ msgstr "（勤務の）最後の曜日"
 
 msgid "Calendar resolution"
 msgstr "カレンダー設定"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "終日予定のリマインダーの初期値"
+
+msgid "Duration must be between 1 to 120 minutes."
+msgstr ""
 
 msgid "Working days"
 msgstr ""
@@ -3918,8 +3925,14 @@ msgstr "全メッセージを既読にする"
 msgid "Delete Folder"
 msgstr "フォルダ削除"
 
-msgid "Empty folder"
-msgstr "フォルダを空にする"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "迷惑メール"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "削除済みアイテム"
 
 msgid "Close store"
 msgstr "フォルダを閉じる"
@@ -5748,6 +5761,15 @@ msgstr "メッセージを保存することができません"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "カレンダのアイテムを削除するための十分な権限がありません。"
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "このプラグインは無効にできません。"
 
 # 81%
 #, fuzzy

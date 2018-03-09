@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2018-02-13 19:23+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -1316,6 +1316,14 @@ msgstr "Arbeidsdagens slutt"
 
 msgid "Calendar resolution"
 msgstr "Kalenderoppløsning"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Standard påminnelsestid for heldagsavtale"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "Verdien må være mellom 0% og 100%"
 
 msgid "Working days"
 msgstr "Arbeidsdager"
@@ -3947,8 +3955,13 @@ msgstr "Merk alle meldinger som lest"
 msgid "Delete Folder"
 msgstr "Slett mappe"
 
-msgid "Empty folder"
-msgstr "Tøm mappe"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Søppelpost"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Slettede elementer"
 
 msgid "Close store"
 msgstr "Lukk e-postboks"
@@ -5737,6 +5750,15 @@ msgstr "Kunne ikke lagre meldingen"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
 "Du har ikke tilstrekkelige rettigheter til å fjerne elementer fra kalenderen."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Denne pluginen kan ikke aktiveres"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""

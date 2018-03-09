@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 10:47+0100\n"
+"POT-Creation-Date: 2018-03-09 11:00+0100\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1338,6 +1338,14 @@ msgstr "Fin día de trabajo"
 
 msgid "Calendar resolution"
 msgstr "Resolución del Calendario"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Hora por defecto del recordatorio Todo el Día"
+
+#, fuzzy
+msgid "Duration must be between 1 to 120 minutes."
+msgstr "El valor debe estar entre 0% y 100%"
 
 msgid "Working days"
 msgstr ""
@@ -4058,8 +4066,14 @@ msgstr "Marcar todos los mensajes como leídos"
 msgid "Delete Folder"
 msgstr "Borrar Carpeta"
 
-msgid "Empty folder"
-msgstr "Vaciar Carpeta"
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "papelera de reciclaje"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Elementos eliminados"
 
 msgid "Close store"
 msgstr "Cerrar Buzón"
@@ -5935,6 +5949,15 @@ msgstr "No se puede guardar el mensaje"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "No tiene privilegios necesarios para borrar objetos en esta carpeta"
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Este módulo no puede ser deshabilitado"
 
 #, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
