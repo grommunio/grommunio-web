@@ -63,7 +63,10 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 					// inbox (because that's what Kopano Core needs).
 					var subtree = store.getSubtreeFolder();
 					var inbox = store.getDefaultFolder('inbox');
-					if ( (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER && (inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS) ) {
+					if (
+						(subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER &&
+						(inbox && inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS)
+					) {
 						data = data.concat({name: store.get('mailbox_owner_name'), value: store.get('store_entryid') });
 					}
 				}
