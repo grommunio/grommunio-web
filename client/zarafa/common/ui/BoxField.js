@@ -273,7 +273,26 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 			 * @param {Zarafa.common.ui.Box} box The box that will be removed
 			 * @param {Ext.data.Record} record The record that belongs to the box
 			 */
-			'boxremove'
+			'boxremove',
+
+			/**
+			 * @event boxmouseenter
+			 * Fires when the mouse enter on the box
+			 * @param {Zarafa.common.ui.BoxField} boxField Parent of the box
+			 * @param {Zarafa.common.ui.Box} box The box for which the mouse enter call
+			 * @param {Ext.data.Record} record The record that belongs to the box
+			 * @param {Ext.EventObject} e The mouse event
+			 */
+			'boxmouseenter',
+
+			/**
+			 * @event boxmouseenter
+			 * Fires when the mouse leave on the box
+			 * @param {Zarafa.common.ui.BoxField} boxField Parent of the box
+			 * @param {Zarafa.common.ui.Box} box The box for which the the mouse leave call
+			 * @param {Ext.data.Record} record The record that belongs to the box
+			 */
+			'boxmouseleave'
 		);
 
 		Zarafa.common.ui.BoxField.superclass.constructor.call(this, config);
@@ -2062,6 +2081,29 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		if (this.editable !== false) {
 			Zarafa.core.Events.removePasteEventHandler(this, this.el, this.onPaste, this);
 		}
+	},
+
+	/**
+	 * Callback function from {@link Zarafa.common.ui.Box} which indicates
+	 * that the mouse enter on the given box.
+	 * This will fire the {@link #boxmouseenter} event.
+	 * @param {Zarafa.common.ui.Box} box The box which called this function
+	 * @param {Ext.EventObject} e The mouse event
+	 */
+	doBoxMouseEnter: function (box, e)
+	{
+		this.fireEvent('boxmouseenter', this, box, box.record, e);
+	},
+
+	/**
+	 * Callback function from {@link Zarafa.common.ui.Box} which indicates
+	 * that the mouse leave on the given box.
+	 * This will fire the {@link #boxmouseleave} event.
+	 * @param {Zarafa.common.ui.Box} box The box which called this function
+	 */
+	doBoxMouseLeave: function (box)
+	{
+		this.fireEvent('boxmouseleave', this, box, box.record);
 	}
 });
 

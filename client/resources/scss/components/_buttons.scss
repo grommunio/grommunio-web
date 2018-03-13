@@ -331,7 +331,7 @@ $normal-button-bgcolor-hover	: $grey2;
 
 				.x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) {
 					/* Normal button */
-    				.x-btn:not(.zarafa-action) {
+    				.x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) {
 						.x-btn-small, .x-btn-medium, .x-btn-large {
 							background-color: $normal-button-bgcolor !important;
 
@@ -342,7 +342,7 @@ $normal-button-bgcolor-hover	: $grey2;
 					}
 
 					/* hovered normal button */
-					.x-btn.x-btn-over:not(.zarafa-action) {
+					.x-btn.x-btn-over:not(.zarafa-action):not(.k-recipient-hover-card-button) {
 						.x-btn-small, .x-btn-medium, .x-btn-large {
 							background: $normal-button-bgcolor-hover !important;
 						}
@@ -448,3 +448,57 @@ $normal-button-bgcolor-hover	: $grey2;
 	div.x-btn-group-bc {
 		background-image: none;
 	}
+
+.x-window {
+	.k-recipient-hover-card-button {
+		.x-btn-small {
+			background-color: transparent !important;
+			box-shadow: none !important;
+		}
+
+		.icon_contact {
+			@extend .icon_contact;
+			background-position: sprite-position($iconsmap, icon_contact, $offset-y: 3px, $offset-x: 0) !important;
+		}
+
+		.icon_copy {
+			background-position: sprite-position($icons, icon_copy, $offset-y: 5px, $offset-x: 4px) !important;
+		}
+
+		.icon_send_email_to_recipient {
+			background-position: sprite-position($iconsmap, icon_new_email, $offset-y: 2px, $offset-x: 0) !important;
+			background-image: sprite-url($iconsmap)
+		}
+
+		.icon_new_contact {
+			@extend .icon_new_contact;
+			background-position: sprite-position($iconsmap, icon_new_contact, $offset-y: 2px, $offset-x: 0) !important;
+		}
+
+		.icon_edit_recipient {
+			background-position: sprite-position($iconsmap, icon_edit_recipient, $offset-y: 2px, $offset-x: 0) !important;
+		}
+	}
+
+	.k-recipient-hover-card-button.x-btn.x-btn-over {
+		.x-btn-small, .x-btn-medium, .x-btn-large {
+			border: 1px solid $grey2 !important;
+		}
+	}
+
+	.x-panel-footer, .x-window-footer {
+		.x-toolbar-left-row, .x-toolbar-right-row {
+			.x-toolbar-cell:not(.x-hide-offsets) {
+				.k-recipient-hover-card-button.x-btn.x-btn-over {
+					.x-btn-small, .x-btn-medium, .x-btn-large {
+						border: 1px solid $grey2 !important;
+					}
+				}
+			}
+		}
+	}
+
+	.k-hover-card-email-text {
+		padding-right: $padding-medium !important;
+	}
+}
