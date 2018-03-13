@@ -3185,7 +3185,7 @@
 								PR_ATTACH_DATA_BIN => "",
 								PR_ATTACH_MIME_TAG => $mimeType,
 								PR_ATTACHMENT_HIDDEN => !empty($cid) ? true : false,
-								PR_EC_WA_ATTACHMENT_ID => $fileinfo["attach_id"],
+								PR_EC_WA_ATTACHMENT_ID => isset($fileinfo["attach_id"]) && !empty($fileinfo["attach_id"]) ? $fileinfo["attach_id"] : uniqid(),
 								PR_ATTACH_EXTENSION => pathinfo($fileinfo["name"], PATHINFO_EXTENSION)
 							);
 
