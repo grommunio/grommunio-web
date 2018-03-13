@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 11:00+0100\n"
+"POT-Creation-Date: 2018-03-13 14:35+0100\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -1365,7 +1365,7 @@ msgstr "Visualiza��o do Calend�rio"
 msgid "Default appointment duration {A} minutes"
 msgstr ""
 
-msgid "Duration must be between 1 to 120 minutes."
+msgid "Duration must be between 1 and 120 minutes."
 msgstr ""
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 11:00+0100\n"
+"POT-Creation-Date: 2018-03-13 14:35+0100\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1344,7 +1344,7 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Hora por defecto del recordatorio Todo el Día"
 
 #, fuzzy
-msgid "Duration must be between 1 to 120 minutes."
+msgid "Duration must be between 1 and 120 minutes."
 msgstr "El valor debe estar entre 0% y 100%"
 
 msgid "Working days"

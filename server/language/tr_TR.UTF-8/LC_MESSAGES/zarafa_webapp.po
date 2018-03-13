@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 11:00+0100\n"
+"POT-Creation-Date: 2018-03-13 14:35+0100\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1348,7 +1348,7 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
 
 #, fuzzy
-msgid "Duration must be between 1 to 120 minutes."
+msgid "Duration must be between 1 and 120 minutes."
 msgstr "Değer %0 ile %100 arasında olmalıdır"
 
 msgid "Working days"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-09 11:00+0100\n"
+"POT-Creation-Date: 2018-03-13 14:35+0100\n"
 "PO-Revision-Date: 2017-10-02 16:14+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1366,7 +1366,7 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
 
 #, fuzzy
-msgid "Duration must be between 1 to 120 minutes."
+msgid "Duration must be between 1 and 120 minutes."
 msgstr "Az értéknek 0% és 100% között kell lennie"
 
 msgid "Working days"
