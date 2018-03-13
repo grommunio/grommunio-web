@@ -67,7 +67,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		<?php $loader->cssOrder(); ?>
 	</head>
 
-	<body class="zarafa-webclient">
+	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
 		<div id="loading-mask">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
