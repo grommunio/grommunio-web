@@ -148,7 +148,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
 	 * @param {String} title The title bar text
 	 * @param {String} msg The message box body text
 	 * @param {Function} fn (optional) The callback function invoked after the message box is closed
-	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
+	 * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser window.
 	 * @param {Array} selections (optional) Array of configuration objects for the {@link Ext.form.Radio radios} from which the user can select.
 	 * @param {String} value (optional) Default value for the {@link Ext.form.RadioGroup radiogroup}.
 	 * @param {String} customButton (optional) buttons which need to show in message box. this buttons contains custom name's.

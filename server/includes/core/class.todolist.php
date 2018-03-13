@@ -88,7 +88,7 @@ class TodoList {
                 $entryid = $props[PR_ENTRYID];
             }
         } catch (MAPIException $e) {
-            // don't propogate the event to higher level exception handlers
+            // don't propagate the event to higher level exception handlers
             $e->setHandled();
         }
 
@@ -114,7 +114,7 @@ class TodoList {
             // Entryid could not be saved, so don't use it.
             $entryid = false;
 
-            // don't propogate the event to higher level exception handlers
+            // don't propagate the event to higher level exception handlers
             $e->setHandled();
         }
 

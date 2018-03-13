@@ -69,7 +69,7 @@
 
 		/**
 		 * Keeps track of all modifications on settings which are not saved yet.
-		 * The array is reset in saveSettings() after a succesful save.
+		 * The array is reset in saveSettings() after a successful save.
 		 */
 		private $modified;
 
@@ -187,7 +187,7 @@
 
 			$path = explode('/', $path);
 
-			// Save the last key seperately
+			// Save the last key separately
 			$lastKey = array_pop($path);
 
 			// Walk over the settings to find the object
@@ -432,7 +432,7 @@
 		}
 
 		/**
-		 * Applies the default settigns defined by the System Administrator to the sysAdminDefaults
+		 * Applies the default settings defined by the System Administrator to the sysAdminDefaults
 		 * property.
 		 * @param Array $settings The default settings
 		 */

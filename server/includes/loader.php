@@ -92,7 +92,7 @@ class FileLoader {
 	 *
 	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
 	 * to indicate which files should be loaded.
-	 * @param array $libFiles (optional) libary files when $load = LOAD_SOURCE
+	 * @param array $libFiles (optional) library files when $load = LOAD_SOURCE
 	 * @return array The array of Javascript files
 	 */
 	public function getZarafaJavascriptFiles($load, $libFiles = Array())
@@ -147,7 +147,7 @@ class FileLoader {
 	 *
 	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
 	 * to indicate which files should be loaded.
-	 * @param array $libFiles (optional) libary files when $load = LOAD_SOURCE
+	 * @param array $libFiles (optional) library files when $load = LOAD_SOURCE
 	 * @return array The array of Javascript files
 	 */
 	public function getPluginJavascriptFiles($load, $libFiles = Array())
@@ -229,7 +229,7 @@ class FileLoader {
 	/**
 	 * getJavascriptFiles
 	 *
-	 * Scanning files and subdirectories that can be found withing the supplied
+	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located Javascript files to a list.
 	 * @param $path String Path of the directory to scan
 	 * @param $recursive Boolean If set to true scans subdirectories as well
@@ -244,7 +244,7 @@ class FileLoader {
 	/**
 	 * getCSSFiles
 	 *
-	 * Scanning files and subdirectories that can be found withing the supplied
+	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add all located CSS files to a list.
 	 * @param $path String Path of the directory to scan
 	 * @param $recursive Boolean If set to true scans subdirectories as well
@@ -259,7 +259,7 @@ class FileLoader {
 	/**
 	 * getListOfFiles
 	 *
-	 * Scanning files and subdirectories that can be found withing the supplied
+	 * Scanning files and subdirectories that can be found within the supplied
 	 * path and add the files to a list.
 	 * @param $ext The extension of files that are included ("js" or "css")
 	 * @param $path String Path of the directory to scan
@@ -411,7 +411,7 @@ class FileLoader {
 			// Add the file dependencies that have beed added by using #dependsFile in the file.
 			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; $i++){
 				$dependencyFilename = $fileData['dependsFile'][$i];
-				// Check if the file exists to prevent non-existant dependencies
+				// Check if the file exists to prevent non-existent dependencies
 				if(isset($fileDataLookup[ $dependencyFilename ])){
 					// Make sure the file does not depend on itself
 					if($dependencyFilename != $filename){

@@ -1914,7 +1914,7 @@
 		 * @param boolean $copyRecipients If set we copy all recipients from the $copyFromMessage.
 		 * @param boolean $copyInlineAttachmentsOnly if true then copy only inline attachments.
 		 * @param boolean $saveChanges if true then save all change in mapi message
-		 * @param boolean $send true if this function is called from submiteMessage else false.
+		 * @param boolean $send true if this function is called from submitMessage else false.
 		 * @return mapimessage Saved MAPI message resource
 		 */
 		function saveMessage($store, $entryid, $parententryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $propertiesToDelete = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $saveChanges = true, $send = false)
@@ -2043,7 +2043,7 @@
 					$attachment_state->close();
 				}
 
-				// Set 'hideattacments' if message has only inline attachments.
+				// Set 'hideattachments' if message has only inline attachments.
 				$properties = $GLOBALS['properties']->getMailProperties();
 				if($this->hasOnlyInlineAttachments($message)){
 					mapi_setprops($message, array($properties['hide_attachments'] => true));

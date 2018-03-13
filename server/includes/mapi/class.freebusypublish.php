@@ -226,7 +226,7 @@ class FreeBusyPublish {
 	}
 
 	/**
-	 * Publishes Free/Busy infomation of user.
+	 * Publishes Free/Busy information of user.
 	 * @param timestamp $starttime Time from which to publish data  (usually now)
 	 * @param timestamp $length Time of seconds from $starttime we should publish
 	 */

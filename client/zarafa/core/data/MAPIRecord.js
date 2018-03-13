@@ -607,6 +607,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * @param {String} name name of message action.
 	 * @return {Boolean} True if a {@link #actions message action} with the given name exists.
 	 */
 	hasMessageAction : function(name)
@@ -727,6 +728,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Set the SubStore for a particular name. This will set the SubStore on the {@link #subStores} field.
 	 * @param {String} name The name of the subStore to set
+	 * @param {Zarafa.core.data.MAPISubStore} store the subStore.
 	 * @return {Zarafa.core.data.MAPISubStore} The substore.
 	 */
 	setSubStore : function(name, store)
@@ -902,7 +904,6 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * This will serialize the given property into the identification section
 	 * when communication with the server.
 	 *
-	 * @param {String} The name of the property
 	 * @param {String} prop The propertyname to be added
 	 */
 	addIdProp : function(prop)
@@ -914,7 +915,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 
 	/**
 	 * Check if the given property is an {@link #idProperties id prop}.
-	 * @param {String} The name of the property
+	 * @param {String} prop The name of the property
 	 * @return {Boolean} True if the given prop is an ID property
 	 */
 	hasIdProp : function(prop)
@@ -924,7 +925,7 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 
 	/**
 	 * Remove extra Identification property from the {@link #idProperties} array.
-	 * @param {String} The name of the property
+	 * @param {String} prop The name of the property
 	 */
 	removeIdProp : function(prop)
 	{
@@ -938,9 +939,9 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	 * These properties will be placed inside the identification section of
 	 * the protocol during the communication with the server.
 	 *
-	 * @return {Array} The array of identification properties.
+	 * @return {array} the array of identification properties.
 	 */
-	getIdProps : function(allowEmpty)
+	getIdProps : function()
 	{
 		return this.idProperties;
 	},

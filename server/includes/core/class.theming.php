@@ -97,7 +97,7 @@ class Theming
 		
 		if ( isset($themePath) ){
 			
-			// Use SPL iterators to recursivly traverse the css directory and find all css files
+			// Use SPL iterators to recursively traverse the css directory and find all css files
 			$directoryIterator = new RecursiveDirectoryIterator($themePath . '/css/', FilesystemIterator::SKIP_DOTS);
 			$iterator = new RecursiveIteratorIterator($directoryIterator, RecursiveIteratorIterator::SELF_FIRST);
 			

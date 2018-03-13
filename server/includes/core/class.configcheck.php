@@ -15,7 +15,7 @@ class ConfigCheck
 		$this->result = true;	
 
 		// here we check our settings, changes to the config and
-		// additonal checks must be added/changed here
+		// additional checks must be added/changed here
 		$this->checkPHP("5.4", "You must upgrade PHP");
 		$this->checkExtension("mapi", "7.0.0-27530", "If you have upgraded Kopano Core, please restart Apache");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");

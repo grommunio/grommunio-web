@@ -30,7 +30,7 @@
 	* object, with the following properties: PR_ENTRYID, PR_STORE_ENTRYID
 	*
 	* <b>OBJECT_DELETE</b>
-	* This event is triggered when a folder is deleted. Teh entryid parameter is the entryid of the object
+	* This event is triggered when a folder is deleted. The entryid parameter is the entryid of the object
 	* that has been deleted. The data parameter contains an array of properties of the deleted object, with
 	* the following properties: PR_ENTRYID, PR_STORE_ENTRYID
 	*
@@ -247,7 +247,7 @@
 		}
 		
 		/**
-		 * Add reponse data to collected XML response
+		 * Add response data to collected XML response
 		 *
 		 * This function is called by all modules when they want to output some XML response data
 		 * to the client. It simply copies the XML response data to an internal structure. The data
