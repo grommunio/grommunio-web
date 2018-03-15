@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-13 14:35+0100\n"
-"PO-Revision-Date: 2018-02-20 14:50+0000\n"
-"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"PO-Revision-Date: 2018-03-15 09:35+0000\n"
+"Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -604,9 +604,8 @@ msgstr "Zeige..."
 msgid "Mails"
 msgstr "E-Mails"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Termin"
+msgstr "Termine"
 
 msgid "Contacts"
 msgstr "Kontakte"
@@ -684,7 +683,7 @@ msgid "Did you mean"
 msgstr "Meinten Sie"
 
 msgid "With"
-msgstr ""
+msgstr "Mit"
 
 msgid "Error"
 msgstr "Fehler"
@@ -1052,9 +1051,8 @@ msgstr ""
 "Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
 "werden, wenn der Organisator den Termin aktualisiert"
 
-#, fuzzy
 msgid "Create in"
-msgstr "Erstellt am"
+msgstr "Erstellen in"
 
 msgid "Time"
 msgstr "Zeit"
@@ -1370,9 +1368,8 @@ msgstr "Kalenderauflösung"
 msgid "Default appointment duration {A} minutes"
 msgstr "Standarderinnerungszeit für ganztägige Termine"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Der Wert muss zwischen 0% und 100% liegen"
+msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
 
 msgid "Working days"
 msgstr "Arbeitstage"
@@ -1401,13 +1398,12 @@ msgstr "So"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Belegte Termine in der Datumsauswahl in fett anzeigen"
 
-#, fuzzy
 msgid ""
 "Free/busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Die Belegunsinformationen (frei/gebucht) werden von Nutzern verwendet, "
-"welche Ihnen Termineinladungen schicken, "
+"Die Belegungsinformationen (frei/gebucht) werden von Nutzern verwendet, "
+"welche Ihnen Termineinladungen schicken,"
 
 msgid "Free/Busy permission"
 msgstr "Frei/Gebucht Berechtigungen"
@@ -1886,13 +1882,11 @@ msgstr "Element anhängen"
 msgid "No message selected"
 msgstr "Keine Nachricht ausgewählt"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Wichtig"
+msgstr "Importieren in"
 
-#, fuzzy
 msgid "Import"
-msgstr "Wichtig"
+msgstr "Import"
 
 # 90%
 # 100%
@@ -1935,9 +1929,8 @@ msgstr "Herunterladen"
 msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Ordner leeren"
+msgstr "Import in Ordner"
 
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
