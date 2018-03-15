@@ -114,7 +114,20 @@ Zarafa.advancesearch.ui.SearchGridRenderers = {
 	{
 		p.css = 'search-date';
 
-		var date = Ext.isDate(value) ? value.format(_('d/m/Y')) : '';
+		var date = '';
+		if (Ext.isDate(value)) {
+			if ( container.getSettingsModel().get('zarafa/v1/main/datetime_display_format') === 'short' ){
+				// Add one class that the tooltip can use to recognize a 'nice' date.
+				// Add one class so the tooltip can easily get the timestamp of the date.
+				p.css += ' k-date-nice k-ts-'+value.getTime();
+
+				date = value.getNiceFormat();
+			} else {
+				date = value.format(_('d/m/Y'));
+			}
+		} else if (record.isMessageClass('IPM.Task')){
+			date = _('No date');
+		}
 
 		return '<table cellpadding=0 cellspacing=0 style="width:100%"><tr>' +
 			'<td class="date"><div>' + date + '</div></td>' +
