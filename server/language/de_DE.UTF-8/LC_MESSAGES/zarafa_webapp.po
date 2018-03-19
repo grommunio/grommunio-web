@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-13 14:35+0100\n"
-"PO-Revision-Date: 2018-03-15 09:35+0000\n"
+"PO-Revision-Date: 2018-03-19 11:33+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -670,14 +670,15 @@ msgstr "Sortieren nach: Name"
 msgid "Loading Search results"
 msgstr "Lade Suchergebnisse"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Sortieren nicht möglich"
+msgstr "Sortieren Tipp"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Sie können nach Datum sortieren wenn Sie Ihre Suche verfeinern. Verwenden "
+"Sie die Filter oder einen anderen Suchbegriff."
 
 msgid "Did you mean"
 msgstr "Meinten Sie"
@@ -1364,9 +1365,8 @@ msgstr "Ende des Arbeitstages"
 msgid "Calendar resolution"
 msgstr "Kalenderauflösung"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Standarderinnerungszeit für ganztägige Termine"
+msgstr "Standarderinnerungszeit für {A} Minuten"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
@@ -2141,7 +2141,6 @@ msgstr "Ordner \"{0}\" ausgewählt."
 msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
 
-#, fuzzy
 msgid "Set custom flag"
 msgstr "Zur Nachverfolgung kennzeichnen"
 
@@ -2166,13 +2165,11 @@ msgid "No date"
 msgstr "Kein Datum"
 
 # 87%
-#, fuzzy
 msgid "Custom"
-msgstr "Benutzerdefiniertes Datum"
+msgstr "Benutzerdefiniert"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Erinnerung bearbeiten"
+msgstr "Erinnerung setzen"
 
 msgid "Complete"
 msgstr "Erledigt"
@@ -2312,9 +2309,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Empfänger bearbeiten"
 
-#, fuzzy
 msgid "Copy e-mail address"
-msgstr "Neue E-Mail-Adresse"
+msgstr "E-Mail-Adresse kopieren"
 
 # 90%
 msgid "Send e-mail"
@@ -2584,9 +2580,8 @@ msgstr "enthält diese Wörter im Text ..."
 
 # 84%
 # 100%
-#, fuzzy
 msgid "includes these words in the transport-headers ..."
-msgstr "enthält diese Wörter im Text ..."
+msgstr "enthält diese Wörter in den transport-headern ..."
 
 msgid "has importance ..."
 msgstr "Wichtigkeit ..."
@@ -2807,9 +2802,8 @@ msgstr "Webseite"
 msgid "IM Address"
 msgstr "IM-Adresse"
 
-#, fuzzy
 msgid "D, d-m-Y, G:i"
-msgstr "D, d.m.Y"
+msgstr "D, d.m.Y G:i"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -2817,7 +2811,7 @@ msgstr[0] "{0} ausgewählte Zeile"
 msgstr[1] "{0} ausgewählte Zeilen"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Erinnerung ist auf {0}, {1} gesetzt"
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
@@ -2825,7 +2819,6 @@ msgstr "d.m.Y"
 msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
 
-#, fuzzy
 msgid "d-m-Y G:i"
 msgstr "d.m.Y G:i"
 
@@ -3889,11 +3882,9 @@ msgstr "Ihre Änderungen werden beim Schließen dieser Seite verloren gehen."
 # 75%
 # 83%
 # 80%
-#, fuzzy
 msgid "D G:i"
-msgstr "D., j. F Y H:i"
+msgstr "D G:i"
 
-#, fuzzy
 msgid "D d-m"
 msgstr "D, d.m.Y"
 
@@ -4100,14 +4091,12 @@ msgstr "Alle Nachrichten als gelesen markieren"
 msgid "Delete Folder"
 msgstr "Ordner löschen"
 
-#, fuzzy
 msgid "Empty Junk E-mail"
-msgstr "Spam"
+msgstr "Junk-E-Mail Ordner leeren"
 
 # 92%
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Gelöschte Objekte"
+msgstr "Gelöschte Objekte leeren"
 
 msgid "Close store"
 msgstr "Postfach schließen"
@@ -4520,9 +4509,8 @@ msgstr "Signatur für neue Nachrichten"
 msgid "Signature for replies and forwards"
 msgstr "Signatur für Antworten und Weiterleitungen"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Signaturen"
+msgstr "Signaturen speichern"
 
 msgid "<None>"
 msgstr "<Keine>"
@@ -4536,11 +4524,10 @@ msgid "New signature"
 msgstr "Neue Signatur"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "EML Datei(en)"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Profil"
+msgstr "ZIP Datei"
 
 msgid "max. "
 msgstr "max. "
@@ -4569,12 +4556,11 @@ msgid "Move to Junk Folder"
 msgstr "Nach Spam verschieben"
 
 # 75%
-#, fuzzy
 msgid "Send to"
-msgstr "Senden"
+msgstr "Senden an"
 
 msgid "Export as"
-msgstr ""
+msgstr "Exportieren als"
 
 msgid "Loading mail"
 msgstr "Lade E-Mail"
@@ -4704,13 +4690,13 @@ msgid "About"
 msgstr "Über"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Datum und Zeit in diesem Format anzeigen:"
 
 msgid "Short"
-msgstr ""
+msgstr "Kurzform"
 
 msgid "Long"
-msgstr ""
+msgstr "Langform"
 
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
@@ -5583,9 +5569,8 @@ msgstr "Unbekannter Notifier \"%s\""
 msgid "An unexpected error has occurred"
 msgstr "Ein unerwarteter Fehler ist aufgetreten"
 
-#, fuzzy
 msgid "To-Do List"
-msgstr "Telefonliste"
+msgstr "To-Do Liste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5624,11 +5609,10 @@ msgid "This external link will open in a new window"
 msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "EML ist defekt"
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr "ZIP-Datei konnte nicht erstellt werden"
+msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP-Datei konnte nicht erstellt werden"
@@ -6054,10 +6038,11 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Die Nachricht ist nicht mehr in der Outgoing Queue, sie wurde wahrscheinlich "
+"schon verschickt."
 
-#, fuzzy
 msgid "Message cannot be aborted"
-msgstr "Dieses Plugin kann nicht aktiviert werden"
+msgstr "Der Vorgang kann nicht abgebrochen werden"
 
 # 81%
 msgid "You have insufficient privileges to delete items in this folder"
