@@ -593,8 +593,9 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			'requestUrl' : this.getImportAttachmentUrl(attachmentRecord, folder)
 		};
 
-		var action = Ext.data.Api.actions['create'];
-		this.proxy.request(action, message, options.params, this.reader, undefined, this, options);
+		var action = 'import';
+		var callback = this.createCallback(action, folder, false);
+		this.proxy.request(action, message, options.params, this.reader, callback, this, options);
 	},
 
 	/**
@@ -647,5 +648,20 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	 * See {@link Ext.data.Store}.
 	 * @private
 	 */
-	removeFromBatch : Ext.emptyFn
+	removeFromBatch : Ext.emptyFn,
+
+	/**
+	 * Proxy callback for import action
+	 * Callback function as created by {@Link #createCallback}.
+	 * See {@link Ext.data.Store}.
+	 * @protected
+	 */
+	onImportRecords : function(success, rs, data)
+	{
+		if (success === true) {
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), rs.get('display_name')));
+		} else {
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Failed to import item(s) to {0}'), rs.get('display_name')));
+		}
+	}
 });
