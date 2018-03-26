@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2018-03-19 11:35+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -685,6 +685,9 @@ msgstr "Meinten Sie"
 
 msgid "With"
 msgstr "Mit"
+
+msgid "No date"
+msgstr "Kein Datum"
 
 msgid "Error"
 msgstr "Fehler"
@@ -2160,9 +2163,6 @@ msgstr "Diese Woche"
 
 msgid "Next week"
 msgstr "Nächste Woche"
-
-msgid "No date"
-msgstr "Kein Datum"
 
 # 87%
 msgid "Custom"
@@ -4488,7 +4488,8 @@ msgstr "Ich bin nicht im Büro vom"
 msgid "I will be back on"
 msgstr "Ich werde zurück sein am"
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
 
 msgid "User is currently out of office."

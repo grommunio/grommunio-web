@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -715,6 +715,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "No date"
 msgstr ""
 
 #, fuzzy
@@ -2173,9 +2176,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "No date"
 msgstr ""
 
 #, fuzzy
@@ -4557,7 +4557,8 @@ msgstr "Eu estou ausente no momento"
 msgid "I will be back on"
 msgstr ""
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr "AutoResponder somente uma vez para cada remetente com o seguinte texto"
 
 #, fuzzy

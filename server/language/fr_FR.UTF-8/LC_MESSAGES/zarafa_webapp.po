@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -673,6 +673,9 @@ msgid "Did you mean"
 msgstr "Vouliez-vous dire"
 
 msgid "With"
+msgstr ""
+
+msgid "No date"
 msgstr ""
 
 msgid "Error"
@@ -2111,9 +2114,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "No date"
 msgstr ""
 
 # 87%
@@ -4412,7 +4412,8 @@ msgstr "Je serai absent(e) du bureau du"
 msgid "I will be back on"
 msgstr "Je serai de retour le"
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Réponse automatique une seule fois pour chaque expéditeur avec le texte "
 "suivant"

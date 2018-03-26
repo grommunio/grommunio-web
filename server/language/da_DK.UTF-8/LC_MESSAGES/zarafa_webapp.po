@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -653,6 +653,9 @@ msgstr "Mente du"
 
 msgid "With"
 msgstr ""
+
+msgid "No date"
+msgstr "Ingen dato"
 
 msgid "Error"
 msgstr "Fejl"
@@ -2016,9 +2019,6 @@ msgstr "Denne uge"
 
 msgid "Next week"
 msgstr "Næste uge"
-
-msgid "No date"
-msgstr "Ingen dato"
 
 #, fuzzy
 msgid "Custom"
@@ -4174,7 +4174,8 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbage på"
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Autosvar hver afsender en gang med denne tekst"
 
 msgid "User is currently out of office."

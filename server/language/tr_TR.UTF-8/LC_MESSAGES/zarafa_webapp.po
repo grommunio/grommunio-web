@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -675,6 +675,9 @@ msgid "Did you mean"
 msgstr "ne demek istediniz"
 
 msgid "With"
+msgstr ""
+
+msgid "No date"
 msgstr ""
 
 msgid "Error"
@@ -2118,9 +2121,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "No date"
 msgstr ""
 
 # 87%
@@ -4410,7 +4410,8 @@ msgstr "...itibariyle ofis dışındayım"
 msgid "I will be back on"
 msgstr "...geri döneceğim"
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Her gönderene bir kere otomatik metin yanıtla"
 
 msgid "User is currently out of office."

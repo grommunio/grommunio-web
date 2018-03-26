@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2011-03-08 15:51+0200\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -658,6 +658,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "No date"
 msgstr ""
 
 msgid "Error"
@@ -1964,9 +1967,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "No date"
 msgstr ""
 
 msgid "Custom"
@@ -4072,7 +4072,7 @@ msgstr ""
 msgid "I will be back on"
 msgstr ""
 
-msgid "AutoReply only once to each sender with the following text"
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 
 msgid "User is currently out of office."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -686,6 +686,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "No date"
 msgstr ""
 
 msgid "Error"
@@ -2110,9 +2113,6 @@ msgid "This week"
 msgstr ""
 
 msgid "Next week"
-msgstr ""
-
-msgid "No date"
 msgstr ""
 
 # 87%
@@ -4367,7 +4367,8 @@ msgstr "Включён статус «Я недоступен»"
 msgid "I will be back on"
 msgstr ""
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Единожды отправлять автоответ каждому пользователю с следующим текстом"
 
 msgid "User is currently out of office."

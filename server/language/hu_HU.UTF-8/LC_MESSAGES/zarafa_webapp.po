@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 14:35+0100\n"
+"POT-Creation-Date: 2018-03-26 15:26+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -682,6 +682,9 @@ msgstr "Arra gondolt, hogy"
 
 msgid "With"
 msgstr ""
+
+msgid "No date"
+msgstr "Nincs dátum"
 
 msgid "Error"
 msgstr "Hiba"
@@ -2139,9 +2142,6 @@ msgstr "Ez a hét"
 
 msgid "Next week"
 msgstr "Jövő hét"
-
-msgid "No date"
-msgstr "Nincs dátum"
 
 msgid "Custom"
 msgstr "Egyéni"
@@ -4397,7 +4397,8 @@ msgstr "Jelenleg házon kívül tartózkodom"
 msgid "I will be back on"
 msgstr "Visszatérek"
 
-msgid "AutoReply only once to each sender with the following text"
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Az automata válasz csak egyszer legyen elküldve a feladóknak, a következő "
 "szöveggel"
@@ -5764,7 +5765,8 @@ msgstr "A műveletet nem sikerült megfelelően végrehajtani."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr "Létezik már egy kedvenc mappa ezen a néven, kérem használjon más nevet."
+msgstr ""
+"Létezik már egy kedvenc mappa ezen a néven, kérem használjon más nevet."
 
 msgid "Could not add folder to favorites."
 msgstr "A mappát nem sikerült hozzáadni a kedvencekhez."
