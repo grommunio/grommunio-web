@@ -173,7 +173,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 			this.initComponent(uniqueWindowName, component, config);
 
 			// add entryid along with the window object to identify browser window of particular record.
-			var entryid = config.record.get('entryid');
+			var entryid = this.getEntryId(config.record);
 			if (!Ext.isEmpty(entryid)) {
 				browserWindowObject.entryid = entryid;
 			}
@@ -646,8 +646,21 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	getOpenedWindow: function (record)
 	{
 		return this.browserWindows.find(function (browserWindow) {
-			return Zarafa.core.EntryId.compareEntryIds(browserWindow.entryid, record.get('entryid'));
-		});
+			var entryid = this.getEntryId(record);
+			return Zarafa.core.EntryId.compareEntryIds(browserWindow.entryid, entryid);
+		}, this);
+	},
+
+	/**
+	 * Helper function which return entryid of given record.
+	 * If record is attachment record then take id instead of entryid because
+	 * Attachment record id contains entryid with attach_num.
+	 * @param {Zarafa.core.data.MAPIRecord} record The mapi record.
+	 * @returns {String} entryid Return entryid of record.
+	 */
+	getEntryId: function (record)
+	{
+		return Array.isArray(record.get('attach_num')) ? record.id : record.get('entryid');
 	}
 });
 
