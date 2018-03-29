@@ -150,7 +150,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 			// We need a rowselector depth of 15 because of the nested
 			// table in the rowBody.
-			rowSelectorDepth : 15
+			rowSelectorDepth : 15,
+			enableGrouping : this.hasEnabledGrouping(),
+			enableGroupingMenu : true
 		};
 	},
 
@@ -257,10 +259,10 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			case Zarafa.mail.data.ViewModes.RIGHT_PREVIEW :
 			case Zarafa.mail.data.ViewModes.NO_PREVIEW :
 			case Zarafa.mail.data.ViewModes.BOTTOM_PREVIEW :
-					var compact = newViewMode === Zarafa.mail.data.ViewModes.RIGHT_PREVIEW;
-					//The row body must only be enabled in compact view.
-					this.getView().enableRowBody = compact;
-					this.getColumnModel().setCompactView(compact);
+				var compact = newViewMode === Zarafa.mail.data.ViewModes.RIGHT_PREVIEW;
+				//The row body must only be enabled in compact view.
+				this.getView().enableRowBody = compact;
+				this.getColumnModel().setCompactView(compact);
 				break;
 			case Zarafa.mail.data.ViewModes.SEARCH :
 			case Zarafa.mail.data.ViewModes.LIVESCROLL :
@@ -471,6 +473,28 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onBeforeSort : function()
 	{
 		this.model.stopLiveScroll();
+	},
+
+	/**
+	 * Event handler triggers when the configuration of {@link Zarafa.mail.ui.MailGridColumnModel MailGridColumnModel}
+	 * is changed.
+	 */
+	onConfigChange : function ()
+	{
+		var store = this.getStore();
+		var groupField = store.defaultSortInfo.field;
+		if(this.getView().enableGrouping && store.sortInfo.field === groupField) {
+			store.groupField = groupField;
+		}
+	},
+
+	/**
+	 * Function which is used to check that grouping has enabled.
+	 * @return {Boolean} true if grouping is enabled else return false.
+	 */
+	hasEnabledGrouping : function ()
+	{
+		return container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_grouping');
 	}
 });
 

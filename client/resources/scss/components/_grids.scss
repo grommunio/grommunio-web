@@ -233,6 +233,21 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 }
 
 /******************************************************************************
+ * Group headers
+ ******************************************************************************/
+.x-grid-group-hd {
+	border: none;
+	background: $grey;
+	padding: $padding-small $padding-small;
+
+	div.x-grid-group-title {
+		color: $font-color-dark;
+		background-image : none;
+		font-weight: normal;
+	}
+}
+
+/******************************************************************************
  * Grid columns
  ******************************************************************************/
 .x-grid3-row {

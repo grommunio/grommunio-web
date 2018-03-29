@@ -13,7 +13,8 @@
 
 			// Don't change the focus when the user clicks on an input because
 			// that would close a grid editor when one clicks on it
-			if ( e.target.tagName !== 'INPUT' ){
+			var target = e.getTarget();
+			if ( target.tagName !== 'INPUT' && target.className !== 'x-grid-group-title' && target.className !== 'x-grid-group-hd'){
 				this.view.focusEl.focus();
 			}
 		},
