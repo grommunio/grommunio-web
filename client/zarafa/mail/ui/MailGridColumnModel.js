@@ -301,9 +301,16 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			return _('Yesterday');
 		}
 
-		// Current week Mon-Sun
-		var day = (today.getDay() - 1 ) * -1;
-		var startDateOfCurrentWeek = today.add(Date.DAY, day);
+		// Current week.
+		var weekStart = container.getSettingsModel().get('zarafa/v1/main/week_start');
+		var startDateOfCurrentWeek;
+		if (today.getDay() < weekStart) {
+			startDateOfCurrentWeek = today.getPreviousWeekDay(weekStart);
+		} else {
+			var day = (today.getDay() - weekStart ) * -1;
+			startDateOfCurrentWeek = today.add(Date.DAY, day);
+		}
+
 		var lastDateOfCurrentWeek = startDateOfCurrentWeek.add(Date.DAY, 6);
 		if (recordDate.between(startDateOfCurrentWeek,lastDateOfCurrentWeek)) {
 			return recordDate.format('l');
