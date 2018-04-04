@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 14:28+0200\n"
+"POT-Creation-Date: 2018-04-04 10:48+0200\n"
 "PO-Revision-Date: 2018-04-04 07:53+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -4548,6 +4548,29 @@ msgstr "Flagge"
 
 msgid "Sort by: flag"
 msgstr "Nach Flagge sortieren"
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "Ordner"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "Letzte Woche"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "Letzter Monat"
 
 msgid "Follow up"
 msgstr "Nachverfolgung"

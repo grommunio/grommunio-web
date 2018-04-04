@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 14:28+0200\n"
+"POT-Creation-Date: 2018-04-04 10:48+0200\n"
 "PO-Revision-Date: 2016-10-14 07:27+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (China) <http://translate.kopano.io/projects/kopano/"
@@ -4229,6 +4229,28 @@ msgid "Flag"
 msgstr ""
 
 msgid "Sort by: flag"
+msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "文件夹"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "最后一页"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+msgid "Last Month"
 msgstr ""
 
 msgid "Follow up"

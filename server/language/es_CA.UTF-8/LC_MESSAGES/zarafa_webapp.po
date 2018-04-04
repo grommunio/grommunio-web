@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 14:28+0200\n"
+"POT-Creation-Date: 2018-04-04 10:48+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4500,6 +4500,31 @@ msgstr ""
 
 msgid "Sort by: flag"
 msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "Carpeta"
+
+msgid "Yesterday"
+msgstr ""
+
+# 75%
+#, fuzzy
+msgid "Last Week"
+msgstr "Semana"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+# 80%
+#, fuzzy
+msgid "Last Month"
+msgstr "Mes"
 
 msgid "Follow up"
 msgstr ""

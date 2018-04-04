@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 14:28+0200\n"
+"POT-Creation-Date: 2018-04-04 10:48+0200\n"
 "PO-Revision-Date: 2012-12-14 14:00+0200\n"
 "Last-Translator: Amir <xfshxr@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4094,6 +4094,25 @@ msgid "Flag"
 msgstr ""
 
 msgid "Sort by: flag"
+msgstr ""
+
+msgid "Older"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "آخرین صفحه"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+msgid "Last Month"
 msgstr ""
 
 msgid "Follow up"
