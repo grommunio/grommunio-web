@@ -598,6 +598,32 @@ Ext.apply(Date.prototype, {
 });
 
 Ext.apply(Date, {
+    /**
+     * Get the short day name for the given day number.
+     * Overridden to make the short days translatable.
+     * @param {Number} day A zero-based javascript day number.
+     * @return {String} The short day name.
+     * @static
+     */
+    getShortDayName : function(day) {
+		// Let's first check if the short days have been translated.
+		// If not, we'll fall back to using the first 3 letters of
+		// the full day.
+		if (
+			Date.shortDayNames[0] === 'Sun' &&
+			Date.shortDayNames[1] === 'Mon' &&
+			Date.shortDayNames[2] === 'Tue' &&
+			Date.shortDayNames[3] === 'Wed' &&
+			Date.shortDayNames[4] === 'Thu' &&
+			Date.shortDayNames[5] === 'Fri' &&
+			Date.shortDayNames[6] === 'Sat'
+		) {
+			return Date.dayNames[day].substring(0, 3);
+		}
+
+        return Date.shortDayNames[day];
+    },
+
 	/**
 	 * The number milliseconds per day
 	 *

@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.util');
 // well as the WebApp core.
 
 /**
- * @class Zarafa.util.Translations
+ * @class Zarafa.util.Translations
  * @extends Object
  * Utility class containing utility functions for creating
  * translation strings.
@@ -31,22 +31,26 @@ Zarafa.util.Translations = {
 	 */
 	SplitTranslation : function(translation, split)
 	{
-		if (!Ext.isDefined(split))
+		if (!Ext.isDefined(split)) {
 			return translation;
+		}
 
 		var index = translation.indexOf(split);
-		if (index == -1)
+		if (index == -1) {
 			return translation;
+		}
 
 		// Find the last non-space character before the split-string
 		var endFirst = index - 1;
-		while (translation[endFirst] == ' ' && endFirst >= 0)
+		while (translation[endFirst] == ' ' && endFirst >= 0) {
 			endFirst--;
+		}
 
 		// Find the first non-space character after the split-string
 		var startSecond = index + split.length;
-		while (translation[startSecond] == ' ' && startSecond < translation.length)
+		while (translation[startSecond] == ' ' && startSecond < translation.length) {
 			startSecond++;
+		}
 
 		return [
 			translation.substr(0, endFirst + 1),
@@ -73,8 +77,9 @@ Zarafa.util.Translations = {
 	MultiSplitTranslation : function(translation, split)
 	{
 		// Split must always be an array
-		if (!Ext.isArray(split))
+		if (!Ext.isArray(split)) {
 			split = [ split ];
+		}
 
 		// Prepare our translated pieces, by default the
 		// main translation string is our piece
@@ -92,8 +97,9 @@ Zarafa.util.Translations = {
 				// split string is inside this piece. If it isn't then it will
 				// return a single string.
 				var splitPiece = Zarafa.util.Translations.SplitTranslation(piece, split[i]);
-				if (!Ext.isArray(splitPiece))
+				if (!Ext.isArray(splitPiece)) {
 					return true;
+				}
 
 				// Remove the old piece, we are replacing it with
 				// the new pieces.
@@ -139,6 +145,19 @@ Zarafa.util.Translations = {
 			_('Thursday'),
 			_('Friday'),
 			_('Saturday')
+		],
+
+		// The shortDayNames are not defined in Ext and thus technically shouldn't
+		// be part of this file. But since they are so connected to the dayNames,
+		// it seems most logical to place them here.
+		shortDayNames : [
+			_('Sun'),
+			_('Mon'),
+			_('Tue'),
+			_('Wed'),
+			_('Thu'),
+			_('Fri'),
+			_('Sat')
 		],
 
 		monthNames : [
