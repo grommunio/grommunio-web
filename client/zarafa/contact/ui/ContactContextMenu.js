@@ -40,6 +40,7 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 				this.createContextActionItems(config.records),
 				{ xtype : 'menuseparator' },
 				container.populateInsertionPoint('context.contact.contextmenu.actions', this),
+				this.createContextExportItems(config),
 				{ xtype : 'menuseparator' },
 				container.populateInsertionPoint('context.contact.contextmenu.options', this)
 			],
@@ -95,6 +96,25 @@ Zarafa.contact.ui.ContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditiona
 			iconCls : 'icon_delete',
 			scope : this,
 			handler : this.onContextItemDelete
+		}];
+	},
+
+	/**
+	 * Create the export context menu item.
+	 * @param {Object} config Configuration object
+	 * @return {Object} The Export context menu item
+	 */
+	createContextExportItems : function(config)
+	{
+		return [{
+			text: _('Export as'),
+			cls: 'k-unclickable',
+			iconCls: 'icon_export',
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.exportcontactcontextmenu',
+				records: config.records
+			}
 		}];
 	},
 

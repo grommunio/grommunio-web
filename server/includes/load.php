@@ -49,6 +49,11 @@
 			include(BASE_PATH . 'server/includes/download_message.php');
 			$GLOBALS['PluginManager']->triggerHook("server.index.load.download_message.after");
 			break;
+		case "download_contact":
+			$GLOBALS['PluginManager']->triggerHook("server.index.load.download_contact.before");
+			include(BASE_PATH . 'server/includes/download_contact.php');
+			$GLOBALS['PluginManager']->triggerHook("server.index.load.download_contact.after");
+			break;
 		case "separate_window":
 			$GLOBALS['PluginManager']->triggerHook("server.index.load.separate_window.before");
 			include(BASE_PATH .'server/includes/templates/webclient_separatewindow.php');
