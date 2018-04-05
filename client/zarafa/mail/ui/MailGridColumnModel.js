@@ -291,7 +291,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			return _('Older');
 		}
 
-		var recordDate = date.setToNoon();
+		var recordDate = date.clone().setToNoon();
 		var today = new Date().setToNoon();
 		if (recordDate.getTime() === today.getTime()) {
 			return _('Today');
