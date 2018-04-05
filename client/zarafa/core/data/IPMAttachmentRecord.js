@@ -149,7 +149,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	{
 		const fileExtension = this.get('extension');
 
-		return fileExtension === 'eml' || fileExtension === 'vcf' ;
+		return container.getServerConfig().isImportSupported() && (fileExtension === 'eml' || fileExtension === 'vcf');
 	},
 
 	/**

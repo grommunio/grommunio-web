@@ -1,8 +1,10 @@
 describe('IPMAttachmentRecord', function() {
   var record;
+  container = new Zarafa.core.Container();
 
   beforeEach(function() {
     record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, {});
+    container.setServerConfig({'is_vcfimport_supported' : true});
   });
 
   it('setInline', function() {

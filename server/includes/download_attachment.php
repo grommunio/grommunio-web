@@ -487,7 +487,8 @@ class DownloadAttachment
 
 		$newMessage = mapi_folder_createmessage($destFolder);
 		$attachment = $this->getAttachmentByAttachNum();
-		$emlParam = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+		$attachmentProps = mapi_attach_getprops($attachment, array(PR_ATTACH_LONG_FILENAME));
+		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
 
 		if ($this->isBroken($emlParam)) {
 			throw new ZarafaException(_("Eml is corrupted"));
@@ -495,8 +496,18 @@ class DownloadAttachment
 		}
 
 		try {
-			// Convert an RFC822-formatted e-mail to a MAPI Message
-			$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $emlParam, array());
+			switch(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION))
+			{
+				case 'eml':
+					// Convert an RFC822-formatted e-mail to a MAPI Message
+					$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, array());
+					break;
+
+				case 'vcf':
+					// Convert an RFC6350-formatted vCard to a MAPI Contact
+					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
+					break;
+			}
 		} catch(Exception $e) {
 			throw new ZarafaException(_("Attachment is not imported successfully"));
 		}

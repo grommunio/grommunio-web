@@ -60,7 +60,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			border: false,
 			header: true,
 			items: [
-				this.createTreePanel()
+				this.createTreePanel(Ext.isDefined(config.record) ? config.record[0] : undefined)
 			],
 			buttonAlign: 'left',
 			buttons: [{
@@ -128,10 +128,11 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 * which contains all the {@link Zarafa.hierarchy.data.MAPIFolderRecord folders}
 	 * to which the {@link Zarafa.core.data.IPMRecord records} can be
 	 * copied or moved to.
+	 * @param {Zarafa.core.data.IPMRecord} record The record(s) which are being copied or moved.
 	 * @return {Object} Configuration object for the tree panel.
 	 * @private
 	 */
-	createTreePanel : function()
+	createTreePanel : function(record)
 	{
 		return {
 			xtype: 'panel',
@@ -162,7 +163,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				hideTodoList: true,
 				enableDD : false,
 				permissionFilter : Zarafa.core.mapi.Rights.RIGHTS_CREATE,
-				IPMFilter : this.getIPMFilter(),
+				IPMFilter : this.getIPMFilter(record),
 				anchor: '100% 90%',
 				ref: '../hierarchyTree'
 			}],

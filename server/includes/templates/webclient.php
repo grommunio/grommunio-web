@@ -27,6 +27,7 @@ $serverConfig = array(
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
 	'active_theme'					=> Theming::getActiveTheme(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
+	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
 	'default_categories'			=> json_decode(DEFAULT_CATEGORIES),
 	'maximum_eml_files_in_zip'		=> MAX_EML_FILES_IN_ZIP,

@@ -18,6 +18,7 @@ describe('ServerConfig', function() {
     client_time: 1,
     active_theme: 'mexico',
     version_info: {'mexico': 1},
+    is_vcfimport_supported: true,
     color_schemes: {'blue': '#FFFFF'},
     additional_color_schemes: [],
     default_categories: [],
@@ -61,6 +62,10 @@ describe('ServerConfig', function() {
 
   it('getPluginsVersion', function() {
     expect(serverConfig.getPluginsVersion()).toEqual(data['version_info']);
+  });
+
+  it('isImportSupported', function() {
+    expect(serverConfig.isImportSupported()).toEqual(data['is_vcfimport_supported']);
   });
 
   it('getActiveTheme', function() {
