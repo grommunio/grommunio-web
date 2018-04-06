@@ -210,6 +210,9 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 			case 'open':
 				this.openAction(action, records, parameters, reader, callback, scope, args);
 				break;
+			case 'import':
+				this.importAction(action, records, parameters, reader, callback, scope, args);
+				break;
 		}
 	},
 	
@@ -259,7 +262,23 @@ Zarafa.core.data.MAPIProxy = Ext.extend(Ext.data.DataProxy, {
 	{
 		this.doRequests(args.actionType || Zarafa.core.Actions['open'], action, records, parameters, reader, callback, scope, args);
 	},
-	
+
+	/**
+	 * Performs an import action on one or more records.
+	 * @param {Ext.data.Api.action} action name of the action to perform. Always 'import'.
+	 * @param {Ext.data.Record[]} records list of records to operate on.
+	 * @param {Object} parameters object containing user parameters such as range (pagination) information, sorting information, etc.
+	 * @param {Ext.data.DataReader} reader data reader. Converts raw JavaScript objects (in our case) to instances of {@link Ext.data.Record}
+	 * @param {Function} callback call back function to call when the request has finished successfully.
+	 * @param {Object} scope scope for the call back function.
+	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
+	 * @private
+	 */
+	importAction : function(action, records, parameters, reader, callback, scope, args)
+	{
+		this.doRequests(args.actionType || Zarafa.core.Actions['import'], action, records, parameters, reader, callback, scope, args);
+	},
+
 	/**
 	 * Performs a read action on a Folder/Store to load all records.
 	 * @param {Ext.data.Api.action} action name of the action to perform. Always 'read'.

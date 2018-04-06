@@ -190,6 +190,16 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										'value' : 'popup'
 									},
 
+									'import' : {
+										/**
+										 * zarafa/v1/main/notifier/info/import/value
+										 * Default plugin for the "Import" user notifications
+										 * @property
+										 * @type String
+										 */
+										'value' : 'dropdown'
+									},
+
 									'sent' : {
 										/**
 										 * zarafa/v1/main/notifier/info/sent/value

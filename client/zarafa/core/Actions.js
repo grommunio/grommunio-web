@@ -225,5 +225,12 @@ Zarafa.core.Actions =
 	 * @property
 	 * @type String
 	 */
-	upload : 'upload'
+	upload : 'upload',
+
+	/**
+	 * Used for importing attached item into folder
+	 * @property
+	 * @type String
+	 */
+	import : 'import'
 };
