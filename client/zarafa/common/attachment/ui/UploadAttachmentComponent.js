@@ -100,9 +100,10 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 		var transferFile = transfer ? transfer.files : undefined;
 		var files = attachEl.dom.files || transferFile;
 		var record = this.scope.record;
-		var store = record.getAttachmentStore();
+		var store = Ext.isDefined(record) ? record.getAttachmentStore() : undefined;
 
-		if(store.canUploadFiles(files)) {
+		// If the record is not defined assume that this is the case of importing eml via upload
+		if(!Ext.isDefined(record) || (Ext.isDefined(store) && store.canUploadFiles(files))) {
 			if(this.accept === 'image/*') {
 				var fileType = files[0].type;
 				if (this.isSupportedImage(fileType)) {
@@ -114,6 +115,7 @@ Zarafa.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Component
 				this.callback.call(this.scope, files);
 			}
 		}
+
 		// remove attachment element.
 		attachEl.remove();
 	},

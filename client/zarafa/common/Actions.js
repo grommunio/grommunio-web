@@ -14,6 +14,21 @@ Zarafa.common.Actions = {
 	 * @type Ext.Element
 	 */
 	downloadFrame : undefined,
+
+	/**
+	 * The array holding broken eml files, if found.
+	 * @property
+	 * @type Array
+	 */
+	brokenFiles : undefined,
+
+	/**
+	 * Total number of files selected by user to upload.
+	 * @property
+	 * @type Number
+	 */
+	totalFiles : undefined,
+
 	/**
 	 * Open a {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for
 	 * copying or moving {@link Zarafa.core.data.IPMRecord records} to the
@@ -901,6 +916,24 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Opens attachment dialog.
+	 *
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder that is loaded for the new context
+	 * @param {Object} config (optional) Configuration object for creating the content panel
+	 */
+	openImportEmlContent : function(folder, config)
+	{
+		var attachComponent = new Zarafa.common.attachment.ui.UploadAttachmentComponent({
+			callback : this.importEmlCallback.createDelegate(this, [ folder ], 1),
+			multiple : true,
+			accept : '.eml',
+			scope : this
+		});
+
+		attachComponent.openAttachmentDialog();
+	},
+
+	/**
 	 * Opens a {@link Zarafa.addressbook.dialogs.ABUserSelectionContentPanel ABUserSelectionContentPanel}
 	 *
 	 * @param {Object} config Configuration object. For AB this normally includes:
@@ -1137,5 +1170,183 @@ Zarafa.common.Actions = {
 		recipientStore.add(recipientRecord);
 
 		Zarafa.core.data.UIFactory.openCreateRecord(record);
+	},
+
+	/**
+	 * Callback function for {@link Zarafa.common.attachment.ui.UploadAttachmentComponent}.
+	 * which is going to call necessary helper function.
+	 * 
+	 * @param {Object/Array} files The files is contains file information.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
+	 */
+	importEmlCallback : function(files, folder)
+	{
+		this.brokenFiles = [];
+		this.totalFiles = files.length;
+		this.readFiles(files, folder);
+	},
+
+	/**
+	 * Proxy callback for import action
+	 * @param {Object} response The response received
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The selected folder
+	 * @protected
+	 */
+	importDone : function(response, folder)
+	{
+		if (response.success === true) {
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), folder.get('display_name')));
+		} else {
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Failed to import item(s) to {0}'), folder.get('display_name')));
+		}
+	},
+
+	/**
+	 * Helper function to read selected files.
+	 * This will be executed recursively to read files synchronously.
+	 * @param {Object/Array} files The files is contains file information.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
+	 * @param {Number} index Index of the file to process.
+	 */
+	readFiles : function(files, folder, index)
+	{
+		// Terminate the recursive calls and import the files
+		if (index === this.totalFiles) {
+			this.importFiles(files, folder);
+			return;
+		}
+
+		// Start with first file if this is the first call
+		if (index === undefined) {
+			index = 0;
+		}
+
+		// Make sure we are processing only eml files for broken check
+		if (!this.isEmlFile(files[index])) {
+			this.brokenFiles.push(files[index]);
+			index++;
+			this.readFiles(files, folder, index);
+		} else {
+			var reader = new FileReader();
+			reader.onload = this.checkBroken.createDelegate(this, [ files, index, folder ], true);
+			reader.readAsText(files[index]);
+		}
+	},
+
+	/**
+	 * Handler for the load event of FileReader.
+	 * Check if the file is broken or not. Prepares an array containing
+	 * all the broken files, if found.
+	 * 
+	 * @param {Ext.EventObject} e The event object.
+	 * @param {Object/Array} files The files is contains file information.
+	 * @param {Number} index Index of the file to process.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
+	 */
+	checkBroken : function(e, files, index, folder)
+	{
+		var fileContent = e.target.result;
+
+		// Get header part to process further
+		var splittedContent = fileContent.split("/\r?\n\r?\n/");
+		var indexOfAttachment = splittedContent[0].indexOf('Content-Disposition: attachment;');
+		if (indexOfAttachment !== -1) {
+			splittedContent = splittedContent[0].substr(0, indexOfAttachment);
+		} else {
+			splittedContent = splittedContent[0];
+		}
+
+		var rawHeaders = splittedContent.match(/([^\n^:]+:)/g);
+
+		// Compare if necessary headers are present or not
+		if (Ext.isEmpty(rawHeaders) || rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1) {
+			this.brokenFiles.push(files[index]);
+		}
+
+		index++;
+		this.readFiles(files, folder, index);
+	},
+
+	/**
+	 * Helper function to import selected files in given {@link Zarafa.hierarchy.data.MAPIFolderRecord}.
+	 * Or raise proper error message box describing broken files.
+	 * 
+	 * @param {Object/Array} files The files is contains file information.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
+	 */
+	importFiles : function(files, folder)
+	{
+		if (this.brokenFiles.length > 0) {
+			if (this.brokenFiles.length > 1) {
+				// Show list if there is more than one broken-file
+				var componentType = Zarafa.core.data.SharedComponentType['hierarchy.dialog.brokenfiles'];
+				Zarafa.core.data.UIFactory.openLayerComponent(componentType, this.brokenFiles, {'modal' : true});
+			} else {
+				Zarafa.common.dialogs.MessageBox.addCustomButtons({
+					title: _('Import error'),
+					msg : String.format(_('Unable to import {0}. The file is not valid'), this.brokenFiles[0].name),
+					icon : Ext.MessageBox.ERROR,
+					fn : Ext.emptyFn,
+					customButton : [{
+						text : _('Close'),
+						name : 'cancel'
+					}],
+					scope : this
+				});
+			}
+
+			// if all files are broken then avoid making import request to server
+			if (this.brokenFiles.length === files.length) {
+				return;
+			}
+		}
+
+		var request = container.getRequest();
+		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
+			doImport : this.importDone.createDelegate(this, [folder], true)
+		});
+
+		var filesData = new FormData();
+
+		if (Array.isArray(files) || files instanceof FileList) {
+			for (var i = 0, len = files.length; i < len; i++) {
+				// Prevent broken files to be sent to server
+				if (this.brokenFiles.indexOf(files[i]) === -1) {
+					filesData.append('attachments[]', files[i]);
+				}
+			}
+		} else {
+			filesData.append('attachments', files);
+		}
+
+		var url = container.getBaseURL();
+		url = Ext.urlAppend(url, 'dialog_attachments=' + Zarafa.generateId(32));
+		url = Ext.urlAppend(url, 'load=upload_attachment');
+		url = Ext.urlAppend(url, 'destination_folder=' + folder.get('entryid'));
+		url = Ext.urlAppend(url, 'store=' + folder.get('store_entryid'));
+		url = Ext.urlAppend(url, 'import=true');
+
+		request.reset();
+		var requestId = request.addDataRequest('attachments', 'import', filesData, responseHandler);
+
+		url = Ext.urlAppend(url, 'module=attachments');
+		url = Ext.urlAppend(url, 'moduleid=' + requestId);
+		request.send(url, {});
+	},
+
+	/**
+	 * Helper function to check if given file is of eml type or not.
+	 * This is required as there is no file type available at all in case of IE11 and edge.
+	 * @param {Object} file The file to be checked.
+	 * @return {Boolean} True if the file is of type eml. false otherwise.
+	 */
+	isEmlFile : function (file)
+	{
+		if (!Ext.isEmpty(file.type)) {
+			return file.type === 'message/rfc822';
+		} else {
+			var i = file.name.lastIndexOf('.');
+			return file.name.substr(i + 1) === 'eml';
+		}
 	}
 };

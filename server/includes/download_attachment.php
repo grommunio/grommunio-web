@@ -493,7 +493,7 @@ class DownloadAttachment
 		switch(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION))
 		{
 			case 'eml':
-				if ($this->isBroken($attachmentStream)) {
+				if (isBrokenEml($attachmentStream)) {
 					throw new ZarafaException(_("Eml is corrupted"));
 				} else {
 					try {
@@ -554,29 +554,6 @@ class DownloadAttachment
 		} else {
 			throw new ZarafaException(_("Attachment is not imported successfully"));
 		}
-	}
-
-	/**
-	 * Check if the attached eml is corrupted or not
-	 * @param String $attachment Content fetched from PR_ATTACH_DATA_BIN property of an attachment.
-	 * @return True if eml is broken, false otherwise.
-	 */
-	public function isBroken($attachment)
-	{
-		// Get header part to process further
-		$splittedContent = preg_split("/\r?\n\r?\n/", $attachment);
-
-		// Fetch raw header
-		if (preg_match_all('/([^:]+): ?.*\n/', $splittedContent[0], $matches)) {
-			$rawHeaders = $matches[1];
-		}
-
-		// Compare if necessary headers are present or not
-		if (isset($rawHeaders) && in_array('From', $rawHeaders) && in_array('Date', $rawHeaders)) {
-			return false;
-		}
-
-		return true;
 	}
 
 	/**
