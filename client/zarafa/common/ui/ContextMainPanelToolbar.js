@@ -1,4 +1,4 @@
-Ext.namespace('Zarafa.calendar.ui');
+Ext.namespace('Zarafa.common.ui');
 
 /**
  * @class Zarafa.common.ui.ContextMainPanelToolbar

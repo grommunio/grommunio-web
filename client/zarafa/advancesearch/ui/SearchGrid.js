@@ -74,6 +74,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			enableColumnMove: false,
 			enableColumnResize: false,
 			enableHdMenu: false,
+			supportLiveScroll : true,
 			autoExpandMin : 200,
 			// The maximum number of records that the store can hold and still be sortable
 			//TODO: This value should probably be configurable, but let's not do that until we are absolutely sure

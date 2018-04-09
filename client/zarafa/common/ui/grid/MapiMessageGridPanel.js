@@ -27,6 +27,36 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	categoryTooltip : null,
 
 	/**
+	 * The supportLiveScroll is true if grid supports live scroll facility and
+	 * default it is false.
+	 *
+	 * @property
+	 * @type Boolean
+	 */
+	supportLiveScroll : false,
+
+	/**
+	 * Timer that is used to slide in/out loaded mail info slider after specified time.
+	 * @property
+	 * @type Number
+	 */
+	timer : undefined,
+
+	/**
+	 * @cfg sliderDuration specified time duration after that slide gets hide/remove the slide
+	 * from DOM.
+	 * @type Number
+	 */
+	sliderDuration : 5000,
+
+	/**
+	 * @cfg sliderDirection specified the direction where slider want to show in grid.
+	 * default is 'b'.
+	 * @type Number
+	 */
+	sliderDirection : 'b',
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -49,6 +79,7 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	{
 		Zarafa.common.ui.grid.MapiMessageGrid.superclass.initEvents.call(this);
 
+		this.mon(this.getView().scroller, 'scroll', this.onScroll, this);
 		this.on({
 			'afterrender': this.onRenderGrid,
 			'cellcontextmenu': this.onCellContextMenu,
@@ -218,6 +249,81 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		// Note: There might still be labels smaller than the maxWidth, so there could be space left.
 		// Fixing this iteratively would be too much of a performance decrease, so we will settle for
 		// these 'pseudo' optimized label widths.
+	},
+
+	/**
+	 * Event handler which triggers when scrollbar is scroll.
+	 * Slider element hide after 5 second of stop scrolling.
+	 */
+	onScroll : function()
+	{
+		if (!container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll')
+			|| !this.supportLiveScroll) {
+			return;
+		}
+
+		if (this.timer) {
+			clearTimeout(this.timer);
+		}
+
+		this.timer = setTimeout(function(element) {
+			element.ghost('b', {remove : true});
+		}, this.sliderDuration, this.getSlider());
+	},
+
+	/**
+	 * Function which prepare the slide element.
+	 *
+	 * @return {Ext.Element} slider element which show current loaded items in grid.
+	 */
+	getSlider : function ()
+	{
+		var store = this.getStore();
+		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
+		var html = String.format('<div>{0}</div>', sliderText);
+
+		var element = this.getSliderEl();
+		if (!element) {
+			var sliderCls = 'k-slider';
+			var sliderId = this.id + '-' + sliderCls;
+			var parentContainer = this.getEl();
+			element = Ext.DomHelper.insertFirst(parentContainer, { id : sliderId, cls : sliderCls, html : html}, true);
+			element.alignTo(parentContainer, this.sliderDirection +'-' + this.sliderDirection, [-8, 0]);
+			element = element.slideIn(this.sliderDirection);
+		} else {
+			element.dom.innerHTML = html;
+		}
+		return element;
+	},
+
+	/**
+	 * Function which used to get the slider element,
+	 * if it is exist in DOM.
+	 *
+	 * @return {Ext.Element|null} slider element if exist in DOM.
+	 */
+	getSliderEl : function()
+	{
+		var sliderCls = 'k-slider';
+		var sliderId = this.id + '-' + sliderCls;
+		var element = Ext.DomQuery.select('#' + sliderId).shift();
+		return Ext.get(element);
+	},
+
+	/**
+	 * Called when grid is being resized. This will align
+	 * the slider element to bottom center.
+	 *
+	 * @private
+	 */
+	onResize : function()
+	{
+		Zarafa.common.ui.grid.MapiMessageGrid.superclass.onResize.apply(this, arguments);
+
+		var sliderEl = this.getSliderEl();
+		if (sliderEl) {
+			sliderEl.alignTo(this.getEl(), this.sliderDirection + '-' + this.sliderDirection,[-8, 0]);
+		}
 	}
 });
 

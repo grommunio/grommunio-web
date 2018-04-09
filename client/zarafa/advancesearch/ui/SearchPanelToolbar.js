@@ -1,6 +1,3 @@
-/*
- * #dependsFile client/zarafa/mail/ui/MailPanelToolbar.js
- */
 Ext.namespace('Zarafa.advancesearch.ui');
 
 /**
@@ -33,7 +30,7 @@ Zarafa.advancesearch.ui.SearchPanelToolbar = Ext.extend(Zarafa.mail.ui.MailPanel
 	},
 
 	/**
-	 * Called automatically by superclass. This will initialize the component and also check 
+	 * Called automatically by superclass. This will initialize the component and also check
 	 * if live scroll enabled then disable pagination.
 	 * @private
 	 */
@@ -42,12 +39,6 @@ Zarafa.advancesearch.ui.SearchPanelToolbar = Ext.extend(Zarafa.mail.ui.MailPanel
 		Zarafa.advancesearch.ui.SearchPanelToolbar.superclass.initComponent.call(this);
 
 		this.pagesToolbar.bindStore(this.model.getStore());
-
-		if(container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll')) {
-			if(this.model) {
-				this.mon(this.model.getStore(),'load', this.onLoad, this);
-			}
-		}
 	}
 });
 
