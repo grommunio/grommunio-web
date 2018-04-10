@@ -147,7 +147,7 @@ describe('Zarafa.common.categories.Util', function() {
 
             expect(Array.isArray(categories)).toBeTruthy();
             expect(categories.length).toEqual(2);
-            expect(categories.some(c => c==='Travel Required')).toBeTruthy();
+            expect(categories.some(c => c.toLowerCase() ==='travel required')).toBeTruthy();
         });
 
         it('should use names from the category list to avoid case-sensitivity issues', function(){
@@ -213,7 +213,7 @@ describe('Zarafa.common.categories.Util', function() {
                 const categories = Zarafa.common.categories.Util.getCategories(record);
                 expect(categories.length).toEqual(3);
                 expect(categories.some(c => c==='Green')).toBeTruthy();
-                expect(categories.some(c => c==='Travel Required')).toBeTruthy();
+                expect(categories.some(c => c.toLowerCase() === 'travel required')).toBeTruthy();
             });
         });
 
@@ -324,7 +324,7 @@ describe('Zarafa.common.categories.Util', function() {
             expect(Array.isArray(categories)).toBeTruthy();
             expect(categories.length).toEqual(2);
             expect(categories.some(c => c==='Red')).toBeTruthy();
-            expect(categories.some(c => c==='Travel Required')).toBeTruthy();
+            expect(categories.some(c => c.toLowerCase() === 'travel required')).toBeTruthy();
 
             Zarafa.common.categories.Util.removeCategory(records, 'Travel Required');
             categories = Zarafa.common.categories.Util.getAllCategories(records);

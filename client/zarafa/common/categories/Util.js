@@ -78,7 +78,8 @@ Zarafa.common.categories.Util = {
 		// also be displayed as categories. So if a label was set, we will add it
 		// to the categories.
 		if ( record.get('label') ) {
-			var label = Zarafa.core.mapi.AppointmentLabels.getDisplayName(record.get('label'));
+			var label = Zarafa.core.mapi.AppointmentLabels.getName(record.get('label'));
+			label = label.replace("_", " ");
 			var index = categories.indexOf(label);
 			if ( index > -1 ){
 				// The set label is also set as a category. A label will always
