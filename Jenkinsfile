@@ -31,6 +31,17 @@ pipeline {
 						junit 'test/js/result/**/unit.xml'
 					}
 				}
+				stage('PHP Lint') {
+					agent {
+						dockerfile {
+							label 'docker'
+						}
+					}
+					steps {
+						sh 'npm run phplintci'
+						junit allowEmptyResults: true, testResults: 'phpmd.xml'
+					}
+				}
 			}
 		}	
 		stage('JS Coverage') {
