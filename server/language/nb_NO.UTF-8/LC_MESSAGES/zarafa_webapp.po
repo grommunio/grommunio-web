@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 16:43+0200\n"
-"PO-Revision-Date: 2018-02-13 19:23+0000\n"
+"PO-Revision-Date: 2018-04-11 19:46+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -660,20 +660,21 @@ msgstr "Sorter på: dato"
 msgid "Loading Search results"
 msgstr "Laster inn søkeresultater"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Ikke mulig å sortere"
+msgstr "Sorterings tips"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Du kan sortere på dato om du snevrer inn ditt søk. Bruk filter, eller endre "
+"ditt søk."
 
 msgid "Did you mean"
 msgstr "Mente du"
 
 msgid "With"
-msgstr ""
+msgstr "Med"
 
 msgid "No date"
 msgstr "Ingen dato"
@@ -1320,13 +1321,11 @@ msgstr "Arbeidsdagens slutt"
 msgid "Calendar resolution"
 msgstr "Kalenderoppløsning"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Standard påminnelsestid for heldagsavtale"
+msgstr "Standard varighet på avtaler i {A} minutter"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Verdien må være mellom 0% og 100%"
+msgstr "Varighet  må være mellom 1 og 120 minutter."
 
 msgid "Working days"
 msgstr "Arbeidsdager"
@@ -1355,12 +1354,12 @@ msgstr "Søn"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Vis opptatte dager med fet skrift i datovelgeren"
 
-#, fuzzy
 msgid ""
 "Free/busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Ledig/opptatt informasjon brukes når noen sender deg en møteinvitasjon, "
+"Ledig/opptatt informasjon brukes når noen sender deg en møteinvitasjon, for "
+"å avgjøre når du er ledig for et møte."
 
 msgid "Free/Busy permission"
 msgstr "Ledig/opptatt tillatelser"
@@ -1883,6 +1882,8 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3+"
 msgstr ""
+"For å kunne bruke vCard import funksjonen, så må du oppgradere Kopano Core "
+"til versjon 8.3+"
 
 # 93%
 msgid "Attachment error"
@@ -2498,9 +2499,8 @@ msgstr "inneholder følgende ord i emnefeltet ..."
 msgid "includes these words in the body ..."
 msgstr "inneholder følgende ord i meldingsteksten ..."
 
-#, fuzzy
 msgid "includes these words in the transport-headers ..."
-msgstr "inneholder følgende ord i meldingsteksten ..."
+msgstr "inkluder disse ordene i transport-headers ..."
 
 msgid "has importance ..."
 msgstr "har viktighet ..."
@@ -2708,9 +2708,8 @@ msgstr "Nettside"
 msgid "IM Address"
 msgstr "IM adresse"
 
-#, fuzzy
 msgid "D, d-m-Y, G:i"
-msgstr "D, d.m.Y"
+msgstr "D, d.m.Y G:i"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -2718,7 +2717,7 @@ msgstr[0] "{0} valgt rad"
 msgstr[1] "{0} valgte rader"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Påminnelser er satt på {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
@@ -2726,7 +2725,6 @@ msgstr "d.m.Y"
 msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
 
-#, fuzzy
 msgid "d-m-Y G:i"
 msgstr "d.m.Y G:i"
 
@@ -3504,9 +3502,8 @@ msgstr "Bytt bilde"
 msgid "Remove Picture"
 msgstr "Fjern bilde"
 
-#, fuzzy
 msgid "VCF file(s)"
-msgstr "EML fil(er)"
+msgstr "VCF fil(er)"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3550,10 +3547,10 @@ msgstr ""
 "filer er tillatt i en enkelt opplasting."
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Vellykket import til {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Mislykket import til {0}"
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -3763,11 +3760,9 @@ msgstr "Utvid miniprogrampanel"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Dine endringer vil gå tapt om du forlater siden nå."
 
-#, fuzzy
 msgid "D G:i"
-msgstr "D., j. F Y H:i"
+msgstr "D G:i"
 
-#, fuzzy
 msgid "D d-m"
 msgstr "D, d.m.Y"
 
@@ -3973,13 +3968,11 @@ msgstr "Merk alle meldinger som lest"
 msgid "Delete Folder"
 msgstr "Slett mappe"
 
-#, fuzzy
 msgid "Empty Junk E-mail"
-msgstr "Søppelpost"
+msgstr "Tøm Søppelpost"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Slettede elementer"
+msgstr "Tøm Slettede elementer"
 
 msgid "Close store"
 msgstr "Lukk e-postboks"
@@ -4347,9 +4340,8 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbake på"
 
-#, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
-msgstr "Autosvar hver sender, men bare en gang, med denne teksten"
+msgstr "Autosvar hver sender, men bare en gang per dag, med denne teksten"
 
 msgid "User is currently out of office."
 msgstr "Jeg er ikke på kontoret."
@@ -4406,24 +4398,21 @@ msgstr "Flagg"
 msgid "Sort by: flag"
 msgstr "Sorter på: flagg"
 
-#, fuzzy
 msgid "Older"
-msgstr "Mapper"
+msgstr "Eldre"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Igår"
 
-#, fuzzy
 msgid "Last Week"
 msgstr "Forrige uke"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "To uker siden"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Tre uker siden"
 
-#, fuzzy
 msgid "Last Month"
 msgstr "Forrige måned"
 
@@ -4563,7 +4552,7 @@ msgid "Short"
 msgstr "Kort"
 
 msgid "Long"
-msgstr ""
+msgstr "Langt format"
 
 msgid "Inbox navigation"
 msgstr "Navigasjon i Innboks"
@@ -4988,7 +4977,7 @@ msgid ""
 msgstr ""
 
 msgid "Flag item for follow up"
-msgstr ""
+msgstr "Flagg for oppfølging"
 
 msgid ""
 "You can now mark email items for follow-up by setting a flag. In the new "
@@ -5375,9 +5364,8 @@ msgstr "Ukjent Notifier '%s'"
 msgid "An unexpected error has occurred"
 msgstr "En uventet feil har oppstått"
 
-#, fuzzy
 msgid "To-Do List"
-msgstr "Telefonliste"
+msgstr "To-Do Liste"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5413,19 +5401,16 @@ msgid "This external link will open in a new window"
 msgstr "Denne eksterne lenken vil bli åpnet i et nytt vindu"
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "EML er skadet"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
-msgstr "ZIP-filen kunne ikke lages"
+msgstr "Eml-vedlegget ble ikke vellykket importert"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr "ZIP-filen kunne ikke lages"
+msgstr "vcf-vedlegget ble ikke vellykket importert"
 
-#, fuzzy
 msgid "Attachment is not imported successfully"
-msgstr "ZIP-filen kunne ikke lages"
+msgstr "Vedlegget ble ikke vellykket importert"
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP-filen kunne ikke lages"
@@ -5796,10 +5781,11 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Meldingen ligger ikke lenger i utgående-kø, sikkert fordi den har blitt "
+"sendt."
 
-#, fuzzy
 msgid "Message cannot be aborted"
-msgstr "Denne pluginen kan ikke aktiveres"
+msgstr "Meldingen kan ikke avbrytes"
 
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
