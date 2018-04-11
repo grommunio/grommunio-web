@@ -543,8 +543,8 @@ class FileLoader {
 			while(!feof($fh)){
 				$fc .= fgets($fh, 4096);
 			}
+			fclose($fh);
 		}
-		fclose($fh);
 		return $fc;
 	}
 
@@ -562,16 +562,12 @@ class FileLoader {
 			ob_start();
 		}
 
+		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
+
 		$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
-		$extjsFiles = $this->getExtjsJavascriptFiles(DEBUG_LOADER);
 		$this->printFiles($extjsFiles, $jsTemplate);
-		$webappFiles = $this->getZarafaJavascriptFiles(DEBUG_LOADER, $extjsFiles);
 		$this->printFiles($webappFiles, $jsTemplate);
-
-		$pluginFiles = $this->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($extjsFiles, $webappFiles));
 		$this->printFiles($pluginFiles, $jsTemplate);
-
-		$remoteFiles = $this->getRemoteJavascriptFiles(DEBUG_LOADER);
 		$this->printFiles($remoteFiles, $jsTemplate);
 
 		if ($this->source) {
@@ -580,6 +576,24 @@ class FileLoader {
 			echo $contents;
 			file_put_contents($this->cacheFile, $contents);
 		}
+	}
+
+	/**
+	 * Returns an array with all javascript files. The array has four entries, for the ExtJS files,
+	 * the Zarafa files, the plugin files and the remote files respectively.
+	 * This function will make sure that the directories are read only once.
+	 *
+	 * @return array An array that contains the names of all the javascript files that should be loaded
+	 */
+	private function getJsFiles() {
+		if ( !isset($this->extjsfiles) ){
+			$this->extjsFiles = $this->getExtjsJavascriptFiles(DEBUG_LOADER);
+			$this->webappFiles = $this->getZarafaJavascriptFiles(DEBUG_LOADER, $this->extjsFiles);
+			$this->pluginFiles = $this->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($this->extjsFiles, $this->webappFiles));
+			$this->remoteFiles = $this->getRemoteJavascriptFiles(DEBUG_LOADER);
+		}
+
+		return array($this->extjsFiles, $this->webappFiles, $this->pluginFiles, $this->remoteFiles);
 	}
 
 	/**
@@ -608,14 +622,15 @@ class FileLoader {
 	}
 
 	/**
-	 * Checks if the any JavaScript or CSS files on disk have been changed
+	 * Checks if the JavaScript or CSS files on disk have been changed
 	 * and writes a new md5 of the files to the disk.
 	 *
 	 * return boolean False if cache is outdated
 	 */
 	public function cacheExists()
 	{
-		$files = [$this->getJavascriptFiles('client'), $this->getJavascriptFiles('plugins')];
+		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
+		$files = [$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles];
 		$md5 = md5(json_encode($files));
 
 		if (!file_exists($this->cacheSum) || file_get_contents($this->cacheSum) !== $md5) {

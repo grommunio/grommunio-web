@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.common.rules.dialogs');
 
 /**
  * @class Zarafa.common.rules.dialogs.ReceivedAfterLink
- * @extends Zarafa.common.rules.dialogs.BaseLink,
+ * @extends Zarafa.common.rules.dialogs.BaseLink
  * @xtype zarafa.receivedafterlink
  *
  * Condition component for the {@link Zarafa.common.rules.data.ConditionFlags#RECEIVED_AFTER RECEIVED_AFTER}
