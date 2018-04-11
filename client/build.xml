@@ -260,7 +260,7 @@
 		</zCompile>
 
 		<echo message="Compiling: ${fingerprint-file}" />
-		<zCompile inputFolder="${target-folder}/${fingerprint-folder}" inputFile="${fingerprint-debugfile}" outputFolder="${target-folder}/${fingerprint-folder}" outputFile="${fingerprint-file}" warningLevel="default">
+		<zCompile inputFolder="${target-folder}/${fingerprint-folder}" inputFile="${fingerprint-debugfile}" outputFolder="${target-folder}/${fingerprint-folder}" outputFile="${fingerprint-file}" createSourceMap="false" warningLevel="default">
 			<externs>
 				var Ext = {};
 				var console = {};
@@ -268,7 +268,7 @@
 		</zCompile>
 
 		<echo message="Compiling: ${resize-file}" />
-		<zCompile inputFolder="${target-folder}/${resize-folder}" inputFile="${resize-debugfile}" outputFolder="${target-folder}/${resize-folder}" outputFile="${resize-file}" warningLevel="default">
+		<zCompile inputFolder="${target-folder}/${resize-folder}" inputFile="${resize-debugfile}" outputFolder="${target-folder}/${resize-folder}" outputFile="${resize-file}" createSourceMap="false" warningLevel="default">
 			<externs>
 			</externs>
 		</zCompile>
