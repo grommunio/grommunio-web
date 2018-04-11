@@ -490,26 +490,29 @@ class DownloadAttachment
 		$attachmentProps = mapi_attach_getprops($attachment, array(PR_ATTACH_LONG_FILENAME));
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
 
-		if ($this->isBroken($emlParam)) {
-			throw new ZarafaException(_("Eml is corrupted"));
-			return;
-		}
+		switch(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION))
+		{
+			case 'eml':
+				if ($this->isBroken($attachmentStream)) {
+					throw new ZarafaException(_("Eml is corrupted"));
+				} else {
+					try {
+						// Convert an RFC822-formatted e-mail to a MAPI Message
+						$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, array());
+					} catch(Exception $e) {
+						throw new ZarafaException(_("The eml Attachment is not imported successfully"));
+					}
+				}
+				break;
 
-		try {
-			switch(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION))
-			{
-				case 'eml':
-					// Convert an RFC822-formatted e-mail to a MAPI Message
-					$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, array());
-					break;
-
-				case 'vcf':
+			case 'vcf':
+				try {
 					// Convert an RFC6350-formatted vCard to a MAPI Contact
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
-					break;
-			}
-		} catch(Exception $e) {
-			throw new ZarafaException(_("Attachment is not imported successfully"));
+				} catch(Exception $e) {
+					throw new ZarafaException(_("The vcf attachment is not imported successfully"));
+				}
+				break;
 		}
 
 		if($ok === true) {
