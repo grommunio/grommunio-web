@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1804,6 +1804,11 @@ msgstr "Pobierz wszystkie pliki ZIP"
 msgid "Import to folder"
 msgstr "Opróżnij folder"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Błąd załącznika"
 
@@ -3227,6 +3232,9 @@ msgstr "Grupa"
 msgid "Work"
 msgstr "Praca"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Sortuj według: Pełna nazwa"
 
@@ -3362,6 +3370,9 @@ msgstr "Zmień obraz"
 msgid "Remove Picture"
 msgstr "Usuń obraz"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3402,6 +3413,12 @@ msgid ""
 msgstr ""
 "Załącznik nie został dodany. Próbujesz dodać {0} załączników, a dopuszczalne "
 "jest {1} załączników."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4264,9 +4281,6 @@ msgstr "Przenieś do folderu Poczta niechciana"
 #, fuzzy
 msgid "Send to"
 msgstr "Wysyłanie"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Wczytywanie e-maila"
@@ -5221,6 +5235,14 @@ msgid "Eml is corrupted"
 msgstr ""
 
 #, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "Nie można utworzyć pliku ZIP"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "Nie można utworzyć pliku ZIP"
+
+#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Nie można utworzyć pliku ZIP"
 
@@ -5235,10 +5257,6 @@ msgstr "Nie można znaleźć załącznika."
 
 msgid "Operation failed"
 msgstr "Operacja nie powiodła się"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr "Z '%s' nie można utworzyć EML"
 
 msgid "Sticky Note"
 msgstr "Żółta karteczka"

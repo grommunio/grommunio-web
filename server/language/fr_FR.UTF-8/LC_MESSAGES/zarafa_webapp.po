@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1902,6 +1902,11 @@ msgstr "Télécharger tout dans un fichier ZIP"
 msgid "Import to folder"
 msgstr "Vider le dossier"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Erreur de pièce jointe"
 
@@ -3399,6 +3404,9 @@ msgstr "Groupe"
 msgid "Work"
 msgstr "Travail"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Trier par : Nom complet"
 
@@ -3562,6 +3570,9 @@ msgstr "Changer de Photo"
 msgid "Remove Picture"
 msgstr "Supprimer la Photo"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3608,6 +3619,12 @@ msgstr ""
 "Impossible de télécharger la pièce jointe; le total en attachement est {0}, "
 "tandis que le nombre maximal de pièces jointes autorisées dans une requête "
 "est de {1}."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4510,9 +4527,6 @@ msgstr "Déplacer vers le dossier 'Courrier indésirable'"
 #, fuzzy
 msgid "Send to"
 msgstr "Envoyer"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Chargement du courrier"
@@ -5541,6 +5555,16 @@ msgstr ""
 
 # 94%
 #, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "Fichier ZIP n'a pas été créé correctement"
+
+# 94%
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "Fichier ZIP n'a pas été créé correctement"
+
+# 94%
+#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Fichier ZIP n'a pas été créé correctement"
 
@@ -5556,10 +5580,6 @@ msgstr "Impossible de trouver la pièce jointe."
 
 msgid "Operation failed"
 msgstr "L'opération a échouée"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr "La création en EML de '%s' n'est pas prise en charge"
 
 # 90%
 # 100%

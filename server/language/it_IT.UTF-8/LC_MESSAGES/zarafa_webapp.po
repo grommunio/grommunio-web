@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2017-03-02 10:06+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1912,6 +1912,11 @@ msgstr "Scarica tutti come file ZIP"
 msgid "Import to folder"
 msgstr "Svuota cartella"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Errore allegato"
 
@@ -3438,6 +3443,9 @@ msgstr "Gruppo"
 msgid "Work"
 msgstr "Lavoro"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Ordina per: Nome completo"
 
@@ -3575,6 +3583,9 @@ msgstr "Modifica immagine"
 msgid "Remove Picture"
 msgstr "Rimuovi immagine"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3618,6 +3629,12 @@ msgid ""
 msgstr ""
 "Impossibile caricare l'allegato. Il numero totale degli allegati è {0} "
 "mentre il massimo permesso per singola richiesta è {1}."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4520,9 +4537,6 @@ msgstr "Sposta nella cartella Posta Indesiderata"
 #, fuzzy
 msgid "Send to"
 msgstr "Invia"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Caricamento posta"
@@ -5542,6 +5556,14 @@ msgid "Eml is corrupted"
 msgstr ""
 
 #, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "Il file ZIP non è stato creato correttamente"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "Il file ZIP non è stato creato correttamente"
+
+#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Il file ZIP non è stato creato correttamente"
 
@@ -5556,10 +5578,6 @@ msgstr "Impossibile recuperare l'allegato."
 
 msgid "Operation failed"
 msgstr "Operazione fallita"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr "Creazione file EML di '%s' non supportata"
 
 # 90%
 # 100%

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -1963,6 +1963,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "Esvaziar pastas"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 #, fuzzy
 msgid "Attachment error"
 msgstr "Anexos"
@@ -3526,6 +3531,9 @@ msgstr "Grupos"
 msgid "Work"
 msgstr "Trabalho"
 
+msgid "Export as"
+msgstr ""
+
 #, fuzzy
 msgid "Sort by: Full Name"
 msgstr "Organizar por nome da regra"
@@ -3689,6 +3697,9 @@ msgstr ""
 msgid "Remove Picture"
 msgstr "Remover usu�rio"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3720,6 +3731,12 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
@@ -4650,9 +4667,6 @@ msgstr "Mover para Spam"
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
-
-msgid "Export as"
-msgstr ""
 
 #, fuzzy
 msgid "Loading mail"
@@ -5677,6 +5691,12 @@ msgstr ""
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5693,10 +5713,6 @@ msgstr "Adicionar anexos"
 #, fuzzy
 msgid "Operation failed"
 msgstr "Optional"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr ""
 
 msgid "Sticky Note"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1932,6 +1932,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "Izprazni mapo"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Napaka priloge"
 
@@ -3462,6 +3467,9 @@ msgstr "Skupina"
 msgid "Work"
 msgstr "Delo"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Razvrsti po: Polno ime"
 
@@ -3614,6 +3622,9 @@ msgstr "Spremeni sliko"
 msgid "Remove Picture"
 msgstr "Odstrani sliko"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3652,6 +3663,12 @@ msgid ""
 msgstr ""
 "Ne morem naložiti priloge. Skupno število priloge je {0} datotek medtem ko "
 "je dovoljeno število datotek {1}."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4557,9 +4574,6 @@ msgstr "Premakni v mapo Vsiljena pošta"
 #, fuzzy
 msgid "Send to"
 msgstr "Pošlji"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Nalaganje sporočila"
@@ -5563,6 +5577,12 @@ msgstr "Ta zunanji link se bo odprl v novem oknu"
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5579,10 +5599,6 @@ msgid "Could not find attachment."
 msgstr "Ne morem naložiti priloge."
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%

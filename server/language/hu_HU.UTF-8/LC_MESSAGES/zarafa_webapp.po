@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1922,6 +1922,11 @@ msgstr "Összes letöltése ZIP-ként"
 msgid "Import to folder"
 msgstr "Importálás mappába"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Csatolmány hiba"
 
@@ -3406,6 +3411,9 @@ msgstr "Csoport"
 msgid "Work"
 msgstr "Munka"
 
+msgid "Export as"
+msgstr "Exportálás mint"
+
 msgid "Sort by: Full Name"
 msgstr "Rendezés: Teljes név"
 
@@ -3544,6 +3552,10 @@ msgstr "Kép megváltoztatása"
 msgid "Remove Picture"
 msgstr "Kép eltávolítása"
 
+#, fuzzy
+msgid "VCF file(s)"
+msgstr "EML fájl(ok)"
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3587,6 +3599,12 @@ msgid ""
 msgstr ""
 "A csatolmányt nem lehet feltölteni, a csatolmányok száma {0} fájl, a "
 "maximálisan egedélyezett {1}."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4490,9 +4508,6 @@ msgstr "Levélszemét mappába mozgatás"
 # 75%
 msgid "Send to"
 msgstr "Továbbítás mellékletként"
-
-msgid "Export as"
-msgstr "Exportálás mint"
 
 msgid "Loading mail"
 msgstr "Levél betöltése"
@@ -5479,6 +5494,14 @@ msgstr "Ez a külső link egy új ablakban fog megnyílni"
 msgid "Eml is corrupted"
 msgstr "Az EML fájl sérült"
 
+#, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "A csatolmány importálása sikertelen"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "A csatolmány importálása sikertelen"
+
 msgid "Attachment is not imported successfully"
 msgstr "A csatolmány importálása sikertelen"
 
@@ -5495,10 +5518,6 @@ msgstr "A melléklet nem található."
 
 msgid "Operation failed"
 msgstr "Művelet sikertelen"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr "Eml fájl létrehozása nem támogatott ('%s')"
 
 # 90%
 # 100%

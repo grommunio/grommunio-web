@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1928,6 +1928,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "Carpeta vacía"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Error"
 
@@ -3447,6 +3452,9 @@ msgstr "Grupo"
 msgid "Work"
 msgstr "Trabajo"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nombre Completo"
 
@@ -3591,6 +3599,9 @@ msgstr ""
 msgid "Remove Picture"
 msgstr ""
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3621,6 +3632,12 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
@@ -4536,9 +4553,6 @@ msgstr "Mover a Papelera"
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Cargando correo"
@@ -5539,6 +5553,14 @@ msgid "Eml is corrupted"
 msgstr ""
 
 #, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "Grabación finalizada"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "Grabación finalizada"
+
+#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "Grabación finalizada"
 
@@ -5555,10 +5577,6 @@ msgid "Could not find attachment."
 msgstr "No se puede subir adjunto."
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1810,6 +1810,11 @@ msgstr "Download alt i en zipfil"
 msgid "Import to folder"
 msgstr "Tøm mappe"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Vedhæftningsfejl"
 
@@ -3223,6 +3228,9 @@ msgstr "Gruppe"
 msgid "Work"
 msgstr "Arbejde"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Sorter efter: Fulde navn"
 
@@ -3358,6 +3366,9 @@ msgstr "Ændre foto"
 msgid "Remove Picture"
 msgstr "Fjern billede"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3401,6 +3412,12 @@ msgid ""
 msgstr ""
 "Kunne ikke uploade vedhæftning, totalt antal vedhæftninger er {0} filer mens "
 "maksimalt {1} filer er tilladt i en enkelt forespørgsel."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4264,9 +4281,6 @@ msgstr "Flyt til spam mappen"
 #, fuzzy
 msgid "Send to"
 msgstr "Send"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Henter mail"
@@ -5217,6 +5231,14 @@ msgid "Eml is corrupted"
 msgstr ""
 
 #, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "ZIP filen kunne ikke dannes"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "ZIP filen kunne ikke dannes"
+
+#, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "ZIP filen kunne ikke dannes"
 
@@ -5231,10 +5253,6 @@ msgstr "Kunne ikke finde vedhæftning."
 
 msgid "Operation failed"
 msgstr "Operationen mislykkedes"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr ""
 
 msgid "Sticky Note"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1830,6 +1830,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "空的資料夾"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "附件錯誤"
 
@@ -3296,6 +3301,9 @@ msgstr "群組"
 msgid "Work"
 msgstr "工作"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "依全名排序"
 
@@ -3431,6 +3439,9 @@ msgstr ""
 msgid "Remove Picture"
 msgstr ""
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3461,6 +3472,12 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
@@ -4339,9 +4356,6 @@ msgstr "移動到垃圾郵件資料夾"
 #, fuzzy
 msgid "Send to"
 msgstr "傳送"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "載入郵件中"
@@ -5324,6 +5338,12 @@ msgstr "This external link will open in a new window"
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5340,10 +5360,6 @@ msgid "Could not find attachment."
 msgstr "無法上傳附件"
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%

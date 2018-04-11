@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1854,6 +1854,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "フォルダを空にする"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "添付ファイルエラー"
 
@@ -3333,6 +3338,9 @@ msgstr "グループ"
 msgid "Work"
 msgstr "仕事"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "並べ替え：氏名"
 
@@ -3482,6 +3490,9 @@ msgstr ""
 msgid "Remove Picture"
 msgstr ""
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3514,6 +3525,12 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
@@ -4403,9 +4420,6 @@ msgstr "迷惑メールフォルダーに移動"
 #, fuzzy
 msgid "Send to"
 msgstr "送信済"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "メールの読み込み中"
@@ -5404,6 +5418,12 @@ msgstr "この外部リンクは新しいウィンドウで開きます。"
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5420,10 +5440,6 @@ msgid "Could not find attachment."
 msgstr "添付ファイルをアップロードできませんでした。"
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2018-04-04 07:53+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1935,6 +1935,11 @@ msgstr "Alle als ZIP-Datei herunterladen"
 msgid "Import to folder"
 msgstr "Import in Ordner"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
 
@@ -3477,6 +3482,9 @@ msgstr "Gruppe"
 msgid "Work"
 msgstr "Arbeit"
 
+msgid "Export as"
+msgstr "Exportieren als"
+
 msgid "Sort by: Full Name"
 msgstr "Sortieren nach: Vollständiger Name"
 
@@ -3623,6 +3631,10 @@ msgstr "Bild ändern"
 msgid "Remove Picture"
 msgstr "Bild entfernen"
 
+#, fuzzy
+msgid "VCF file(s)"
+msgstr "EML Datei(en)"
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3665,6 +3677,12 @@ msgid ""
 msgstr ""
 "Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhänge "
 "hochzuladen, während nur {1} Anhänge erlaubt sind."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4581,9 +4599,6 @@ msgstr "Nach Spam verschieben"
 # 75%
 msgid "Send to"
 msgstr "Senden an"
-
-msgid "Export as"
-msgstr "Exportieren als"
 
 msgid "Loading mail"
 msgstr "Lade E-Mail"
@@ -5634,6 +5649,14 @@ msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
 msgid "Eml is corrupted"
 msgstr "EML ist defekt"
 
+#, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
+
 msgid "Attachment is not imported successfully"
 msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
 
@@ -5652,10 +5675,6 @@ msgstr "Der Anhang konnte nicht gefunden werden."
 # 100%
 msgid "Operation failed"
 msgstr "Vorgang fehlgeschlagen"
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
-msgstr "Aus \"%s\" konnte keine EML-Datei erstellt werden"
 
 # 70%
 # 90%

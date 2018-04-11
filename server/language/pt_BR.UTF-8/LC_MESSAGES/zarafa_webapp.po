@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -1909,6 +1909,11 @@ msgstr ""
 msgid "Import to folder"
 msgstr "Esvaziar pastas"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Erro de anexo"
 
@@ -3378,6 +3383,9 @@ msgstr "Grupos"
 msgid "Work"
 msgstr "Trabalho"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nome Completo"
 
@@ -3513,6 +3521,9 @@ msgstr ""
 msgid "Remove Picture"
 msgstr ""
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3547,6 +3558,12 @@ msgstr ""
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
 msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
@@ -4455,9 +4472,6 @@ msgstr "Mover para pasta de lixo eletrônico"
 #, fuzzy
 msgid "Send to"
 msgstr "Enviar"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Carregando E-Mail"
@@ -5463,6 +5477,12 @@ msgstr "Este link externo será aberto em uma nova janela"
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5479,10 +5499,6 @@ msgid "Could not find attachment."
 msgstr "Não foi possível enviar o anexo."
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%

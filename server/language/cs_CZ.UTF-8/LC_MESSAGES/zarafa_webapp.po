@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-04 10:48+0200\n"
+"POT-Creation-Date: 2018-04-11 16:43+0200\n"
 "PO-Revision-Date: 2016-10-11 20:43+0000\n"
 "Last-Translator: Viktor <viktor.bale@anodyne.cz>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1884,6 +1884,11 @@ msgstr "Stáhnout vše jako ZIP"
 msgid "Import to folder"
 msgstr "Vyprázdnit složku"
 
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3+"
+msgstr ""
+
 msgid "Attachment error"
 msgstr "Chyba přílohy"
 
@@ -3377,6 +3382,9 @@ msgstr "Skupina"
 msgid "Work"
 msgstr "Práce"
 
+msgid "Export as"
+msgstr ""
+
 msgid "Sort by: Full Name"
 msgstr "Třídit podle: Celé jméno"
 
@@ -3514,6 +3522,9 @@ msgstr "Změnit obrázek"
 msgid "Remove Picture"
 msgstr "Odstranit obrázek"
 
+msgid "VCF file(s)"
+msgstr ""
+
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
@@ -3553,6 +3564,12 @@ msgid ""
 msgstr ""
 "Nelze uložit přílohu, celkem příloh je {0} souborů, zatímco povolené maximum "
 "v jednom požadavku je {1}."
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4455,9 +4472,6 @@ msgstr "Přesunout do složky Nevyžádané"
 #, fuzzy
 msgid "Send to"
 msgstr "Odeslat"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Loading mail"
 msgstr "Načítání pošty"
@@ -5452,6 +5466,12 @@ msgstr "Tento externí odkaz se otevře v novém okně"
 msgid "Eml is corrupted"
 msgstr ""
 
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
 msgid "Attachment is not imported successfully"
 msgstr ""
 
@@ -5468,10 +5488,6 @@ msgid "Could not find attachment."
 msgstr "Nelze nahrát přílohu"
 
 msgid "Operation failed"
-msgstr ""
-
-#, php-format
-msgid "Eml creation of '%s' is not supported"
 msgstr ""
 
 # 90%
