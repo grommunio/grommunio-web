@@ -157,13 +157,13 @@ Zarafa.calendar.KeyMapping = Ext.extend(Object, {
 		var store = container.getShadowStore();
 		store.add(record);
 
-		function openHandler(store, records)
+		const openHandler = function(store, records)
 		{
 			// Remove the record from shadowStore and deregister 'open' event.
 			store.remove(records, true);
 			store.un('open', openHandler, this);
 			component.doPaste(records);
-		}
+		};
 		store.on('open', openHandler, this);
 		record.open();
 	},

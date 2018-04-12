@@ -563,13 +563,12 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 		// find connected graphs (clusters) of appointments and determine the maximum column number among them
 		// TODO clean up this code
 		var cluster = [], clusters = [];
-		var clusterStartDate = 0, clusterDueDate = 0;
+		var clusterDueDate = 0;
 		for (var i=0, appointment; appointment=appointments[i]; i++) {
 			var startDate = appointment.getDateRange().getStartTime();
 			var dueDate = appointment.getAdjustedDateRange().getDueTime();
 
 			if (cluster.length === 0) {
-				clusterStartDate = startDate;
 				clusterDueDate = dueDate;
 				cluster.push(appointment);
 			} else if (startDate < clusterDueDate) {
@@ -580,7 +579,6 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 
 				// start new cluster
 				cluster = [ appointment ];
-				clusterStartDate = startDate;
 				clusterDueDate = dueDate;
 			}
 		}

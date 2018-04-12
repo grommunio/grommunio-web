@@ -186,7 +186,6 @@ Zarafa.core.ui.ContextContainer = Ext.extend(Zarafa.core.ui.SwitchViewContentCon
 		// views often.
 		if (this.autoClean === true && oldItem && oldItem != newItem) {
 			this.remove(oldItem);
-			/*jshint -W051 */
 			delete oldItem;
 		}
 		var model = newContext.getModel();

@@ -114,7 +114,6 @@ Zarafa.core.ui.SwitchViewContentContainer = Ext.extend(Ext.Container, {
 		// views often.
 		if (this.autoClean === true && oldView && oldView != this.getActiveItem()) {
 			this.remove(oldView);
-			/*jshint -W051 */
 			delete oldView;
 		}
 	},

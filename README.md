@@ -14,6 +14,7 @@ The following dependencies are required:
 * libxml2-utils - for xmllint
 * ant, ant-contrib - for deploying JavaScript
 * compass - for generating css files.
+* make
 
 Optional for development a pre-commit hook can be used, which runs JSHint.
 
@@ -23,13 +24,12 @@ Optional for development a pre-commit hook can be used, which runs JSHint.
 
 # Running static analysis
 
-After setting the dependencies using ```npm install```, jshint can be run as
-following.
+
+ESLint is used for JavaScript linting.
 
 ```
-npm run lint
+make lint
 ```
-
 
 Running PHP linting, requires [phpmd](https://phpmd.org/about.html) to be installed:
 
@@ -42,18 +42,13 @@ npm run phplint
 JavaScript unittest can be run with the following command and are located in test/js.
 
 ```
-npm run jsunit
-```
-
-Generate xml output for Jenkins
-```
-npm run jsunit -- --reporters junit
+make test
 ```
 
 Run coverage, output file in test/js/coverage
 
 ```
-npm run jsunit -- --reporters coverage
+make open-coverage
 ```
 
 # Documentation

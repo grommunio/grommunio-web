@@ -817,13 +817,12 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var maxWidth = ct.getWidth() - ctPadding - 2; // Subtract two for border
 		var imageWidth = imgEl.dom.naturalWidth;
 		var imageHeight = imgEl.dom.naturalHeight;
-		var width, height, backgroundSize;
+		var width, height;
 		if ( imageWidth < maxWidth && imageHeight < maxWidth ) {
 			// The image is smaller than the area we reserved for it
 			// so we don't resize it.
 			width = imageWidth;
 			height = imageHeight;
-			backgroundSize = 'auto';
 		} else {
 			// The image is bigger than the area we reserved for it,
 			// so we will have resize it
@@ -1325,7 +1324,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			 * so we will give sometime for contact general tab to update contact record and
 			 * and with the latest updated contact record we can open the detailed dialogs
 			 */
-			/* jshint unused: false */
+			/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "showDetailedContent", "args": "none"}]*/
 			var showDetailedContent = function() {
 				var parsedData = this.getContactParser().parseInfo('name', newValue);
 
@@ -1371,7 +1370,7 @@ Zarafa.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			 * so we will give sometime for contact general tab to update contact record and
 			 * and with the latest updated contact record we can open the detailed dialogs
 			 */
-			/*jshint unused:false*/
+			/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "showDetailedContent", "args": "none"}]*/
 			var showDetailedContent = function() {
 				// check for incomplete data and show detailed name dialog
 				var parsedData = this.getContactParser().parseInfo('address', newValue);

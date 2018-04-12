@@ -47,13 +47,13 @@ Zarafa.common.plugins.FieldLabeler = Ext.extend(Ext.util.Observable, {
 		}
 
 		//  Pulls a named property down from the first ancestor Container it's found in
-		function getParentProperty(propName) {
+		const getParentProperty = function(propName) {
 			for (var p = this.ownerCt; p; p = p.ownerCt) {
 				if (p[propName]) {
 					return p[propName];
 				}
 			}
-		}
+		};
 
 		this.resizeEl = (this.wrap || this.el).wrap({
 			cls: 'x-form-element'

@@ -249,7 +249,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 	 * @param {Number} index The index from where the store was removed
 	 * @private
 	 */
-	onHierarchyStoreRemove : function(store, record, index)
+	onHierarchyStoreRemove : function(store, record)
 	{
 		// A call to doHierarchyLoad is pending,
 		// no need to execute this event handler.
@@ -466,7 +466,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 			// for 1 ms. This helps with large hierarchies where the JS would normally
 			// try to load the entire tree in a single thread which might take so long
 			// that the browser will kill it.
-			 /*jshint unused:false*/
+			/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "defer" }]*/
 			var defer = function(node, fn) {
 				data = this.getFilteredChildNodes(treeNode.getFolder(), 'folder');
 				fn(data, { status: true });

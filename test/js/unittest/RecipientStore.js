@@ -147,7 +147,6 @@ describe("RecipientStore", function() {
 		var recipientStore;
 
 		beforeEach(function() {
-			/*jshint -W020 */
 			container = new Zarafa.core.Container();
 			ipmStore = new Zarafa.core.data.ListModuleStore();
 			ipmRecord = ipmStore.reader.readRecords(data).records[0];

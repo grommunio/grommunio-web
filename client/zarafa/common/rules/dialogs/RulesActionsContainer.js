@@ -328,7 +328,7 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 				// the "Deleted Items" folder, and if the rule_state
 				// property has the ST_EXIT_LEVEL flag.
 				var RulesStates = Zarafa.core.mapi.RuleStates;
-				if (this.record.get('rule_state') & RulesStates.ST_EXIT_LEVEL === RulesStates.ST_EXIT_LEVEL) {
+				if ((this.record.get('rule_state') & RulesStates.ST_EXIT_LEVEL) === RulesStates.ST_EXIT_LEVEL) {
 					var deletedItems = container.getHierarchyStore().getDefaultFolder('wastebasket');
 					if (deletedItems && Zarafa.core.EntryId.compareEntryIds(deletedItems.get('entryid'), action.folderentryid)) {
 						return Zarafa.common.rules.data.ActionFlags.DELETE;

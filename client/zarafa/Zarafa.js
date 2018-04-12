@@ -172,16 +172,14 @@ Ext.apply(Zarafa, {
 		};
 
 		// Create global container object
-		/*jshint -W020 */ /* Ignore global read-only warning. */
 		container = new Zarafa.core.Container();
 
 		// Set the server object
-		/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
+		/*global user version languages serverconfig settings:true*/
 		container.setServerConfig(serverconfig);
 		delete serverconfig;
 
 		// Load all settings
-		/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
 		container.getSettingsModel().initialize(settings);
 		delete settings;
 
@@ -189,7 +187,6 @@ Ext.apply(Zarafa, {
 		// Persistent settings are not added to the welcome screen, so check if they exist first.
 		if ( Ext.isDefined(window.persistentsettings) ){
 			container.getPersistentSettingsModel().initialize(window.persistentsettings);
-			/*jshint -W051 */ /* Ignore variables should not be deleted warning. */
 			delete window.persistentsettings;
 		}
 
@@ -723,7 +720,6 @@ Ext.apply(Zarafa, {
 
 			// Process data that was passed as URL data
 			Zarafa.core.URLActionMgr.execute(urlActionData);
-			/*jshint -W051 */
 			delete urlActionData;
 
 			// Start the keepalive to make sure we stay logged into the zarafa-server,

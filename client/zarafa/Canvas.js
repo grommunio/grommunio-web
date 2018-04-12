@@ -245,7 +245,7 @@ if (!!document.createElement('canvas').getContext)
 				opacity = 1;
 			}
 
-			var decRGB = Array();
+			var decRGB = [];
 			str = str.replace('#','');
 			decRGB[0] = parseInt(str.substr(0, 2), 16);
 			decRGB[1] = parseInt(str.substr(2, 2), 16);
