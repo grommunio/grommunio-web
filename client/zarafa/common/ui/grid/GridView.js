@@ -326,7 +326,10 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	{
 		var store = grid.getStore();
 		if (this.enableGrouping) {
-			if (grid.colModel.findColumnIndex(store.defaultSortInfo.field) != index) {
+			this.hdCtxIndex = index;
+			var colModel = grid.colModel;
+			var dataIndex = colModel.getColumnAt(index).dataIndex;
+			if (!this.isAllowGrouping(dataIndex)) {
 				this.clearGrouping();
 			} else {
 				store.remoteGroup = false;
@@ -336,9 +339,29 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 				store.remoteSort = true;
 			}
 		}
+
 		if (this.fireEvent('beforesort', this) !== false) {
 			Zarafa.common.ui.grid.GridView.superclass.onHeaderClick.apply(this, arguments);
 		}
+	},
+
+	/**
+	 * Check that given field support grouping. default sorted fields are by default
+	 * support grouping.
+	 *
+	 * @param {String} dataIndex The dataIndex of field which needs to check
+	 * field support grouping.
+	 *
+	 * @return return true if given field is supported groupings else false.
+	 */
+	isAllowGrouping : function(dataIndex)
+	{
+		var supportedColumns = ['message_size'];
+		var store = this.grid.getStore();
+		if (store.defaultSortInfo.field != dataIndex && supportedColumns.indexOf(dataIndex) === -1) {
+			return false;
+		}
+		return true;
 	},
 
 	/**
@@ -402,8 +425,7 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	 */
 	onShowGroupsClick : function(mi, checked)
 	{
-		var dataIndex = this.cm.getDataIndex(this.hdCtxIndex);
-		if (this.grid.store.defaultSortInfo.field != dataIndex) {
+		if (!this.isAllowGrouping(this.cm.getDataIndex(this.hdCtxIndex))) {
 			return true;
 		}
 
@@ -443,13 +465,17 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 		var grid = this.grid;
 		this.enableGrouping = true;
 
-		// Grouping is allowed only on default sort fields
+		// Grouping is allowed on default sort fields and message_size field
 		// e.g For Inbox = message_delivery_time, Draft = last_modification_time
-		// and so on.
+		// and message_size so on.
 		var store = grid.getStore();
-		var groupField = store.defaultSortInfo.field;
+
+		var clickHeader = this.cm.getDataIndex(this.hdCtxIndex);
+		var groupField = this.isAllowGrouping(clickHeader) ? clickHeader : store.defaultSortInfo.field;
 		store.sortInfo.field = groupField;
-		store.sortInfo.direction = store.sortToggle[groupField];
+
+		var direction = store.sortToggle[groupField];
+		store.sortInfo.direction = Ext.isDefined(direction)? direction : 'DESC';
 		store.groupField = groupField;
 		store.applyGrouping();
 		grid.fireEvent('groupchange', grid, store.getGroupState());

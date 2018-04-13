@@ -148,7 +148,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'message_size',
 			width : 80,
 			renderer : Zarafa.common.ui.grid.Renderers.size,
-			tooltip : _('Sort by: Size')
+			tooltip : _('Sort by: Size'),
+			groupRenderer : this.groupHeaderBySize
 		},{
 			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
 			headerCls: 'zarafa-icon-column flag',
@@ -224,7 +225,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width : 80,
 			hidden: true,
 			renderer : Zarafa.common.ui.grid.Renderers.size,
-			tooltip : _('Sort by: Size')
+			tooltip : _('Sort by: Size'),
+			groupRenderer : this.groupHeaderBySize
 		},{
 			header : '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
 			headerCls: 'zarafa-icon-column importance',
@@ -283,7 +285,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	/**
 	 * Function which prepare the title for the grouping header based on the given date.
 	 * @param {Ext.Date} date The date which is used to format the header.
-	 * @return {String} formatted header for the grouping headers.
+	 * @return {String} formatted title for the grouping headers.
 	 */
 	groupHeaderByDate: function (date)
 	{
@@ -342,5 +344,25 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		}
 
 		return _('Older');
+	},
+
+	/**
+	 * Function which prepare the title for the grouping header based on the given size.
+	 * @param {Number} size The size of mail which is used to format the header.
+	 * @return {String} formatted title for grouping headers.
+	 */
+	groupHeaderBySize : function (size)
+	{
+		if (size <= 1024 * 50) {
+			return _('Small') + ' - 50kb';
+		} else if (size >= 1024 * 50 && size <= 1024 * 500 ) {
+			return _('Medium') + ' 50kb - 500kb';
+		} else if (size >= 1024 * 500 && size <= 1024 * 5120) {
+			return _('Large') + ' 500kb - 5mb';
+		} else if (size >= 1024 * 5120 && size <= 1024 * 20480) {
+			return _('Very large') + ' 5mb - 20mb';
+		} else {
+			return _('Huge') + ' + 20mb';
+		}
 	}
 });

@@ -481,10 +481,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onConfigChange : function ()
 	{
-		var store = this.getStore();
-		var groupField = store.defaultSortInfo.field;
-		if(this.getView().enableGrouping && store.sortInfo.field === groupField) {
-			store.groupField = groupField;
+		if (this.getView().enableGrouping) {
+			var store = this.getStore();
+			var sortInfo = this.getStore().sortInfo;
+			if (this.getView().isAllowGrouping(sortInfo.field)) {
+				store.groupField = sortInfo.field;
+			}
 		}
 	},
 
