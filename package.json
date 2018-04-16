@@ -6,8 +6,8 @@
 	"repository": "https://stash.kopano.io/scm/kw/kopano-webapp.git",
 	"scripts": {
 		"phplint": "phpmd server text .phpmd.xml || true",
-		"phplintci": "phpmd server xml .phpmd.xml --reportfile phpmd.xml || true",
 		"lint": "eslint client/zarafa",
+		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
 		"jsunit": "karma start test/js/unittest.conf.js"
 	},
 	"pre-commit": {

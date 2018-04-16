@@ -3449,7 +3449,6 @@
 
 						//Open contact photo attachement in binary format.
 						$attach = mapi_message_openattach($message, $props["attach_num"]);
-						$photo = mapi_attach_openbin($attach,PR_ATTACH_DATA_BIN);
 					}
 
 					if ($props["attach_method"] == ATTACH_EMBEDDED_MSG){
