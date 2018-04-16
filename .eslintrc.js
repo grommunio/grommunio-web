@@ -264,7 +264,8 @@ module.exports = {
         "yoda": [
             "error",
             "never"
-        ]
+        ],
+	"prefer-const": "off"
     },
     "globals": {
 	    "Zarafa": true,
