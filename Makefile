@@ -29,7 +29,7 @@ deploy: $(CORE_FILES)
 
 .PHONY: lint
 lint: vendor
-	$(NPM) run lint
+	$(NPM) run lint -- --cache
 
 .PHONY: lintci
 lintci: vendor
