@@ -59,16 +59,6 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 			items = items.concat(config.paging);
 		}
 
-		// Then we add all pagination toolbars which are registered,
-		// and we add our own default pagination toolbar.
-		items.push({
-			xtype: 'zarafa.paging',
-			style : 'border-style : none',
-			ref : 'pagesToolbar',
-			pageSize : container.getSettingsModel().get('zarafa/v1/main/page_size'),
-			store : config.model ? config.model.getStore() : undefined
-		});
-
 		// We add the default buttons
 		items = items.concat([
 			'->', 
@@ -120,40 +110,9 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 */
 	initEvent : function()
 	{
-		this.on('afterlayout', this.onAfterLayout, this, {delay : 2});
+		this.on('afterlayout', this.resizeSearchField, this, {delay : 2, single : true});
 	},
 
-	/**
-	 * Event handler triggers after the layout gets render.
-	 * it will set the search text field width dynamically.
-	 * @param {Zarafa.common.ui.ContextMainPanelToolbar} toolbar The toolbar which triggers the event.
-	 * @param {Ext.Layout} layout The ContainerLayout implementation for this container
-	 */
-	onAfterLayout : function(toolbar, layout)
-	{
-		var width = this.getWidth();
-
-		var itemWidth = 0;
-		Ext.each(toolbar.items.items, function(item, index, array){
-			if(!item.isXType('zarafa.searchfieldcontainer') && item.rendered) {
-				if(item.isVisible()) {
-					itemWidth += item.getWidth();
-				} else if(Ext.isDefined(item.xtbHidden) && item.xtbHidden) {
-					itemWidth += item.xtbWidth;
-				}
-			}
-		}, this);
-
-		if(width > itemWidth) {
-			Ext.each(toolbar.items.items, function(item, index, array){
-				if(!item.isVisible() && Ext.isDefined(item.xtbHidden) && item.xtbHidden) {
-					layout.unhideItem(item);
-				}
-			}, this);
-		}
-
-		toolbar.searchFieldContainer.searchTextField.setWidth(width - (itemWidth));
-	},
 
 	/**
 	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
@@ -183,6 +142,81 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	onPrint : function()
 	{
 		Zarafa.common.Actions.openPrintDialog(this.model.getSelectedRecords());
+	},
+
+	/**
+	 * Called when the grid is being resized. This will calculate the new width for the internal
+	 * {@link #searchTextField}.
+	 * @param {Number} adjWidth The box-adjusted width that was set
+	 * @param {Number} adjHeight The box-adjusted height that was set
+	 * @param {Number} rawWidth The width that was originally specified
+	 * @param {Number} rawHeight The height that was originally specified
+	 * @private
+	 **/
+	onResize : function(adjWidth, adjHeight, rawWidth, rawHeight)
+	{
+		Zarafa.common.ui.ContextMainPanelToolbar.superclass.onResize.apply(this, arguments);
+
+		// Only resize the searchTextField when the width
+		// of this component has been changed.
+		var allowResize = this.searchFieldContainer.rendered && this.copyButton.rendered && this.deleteButton.rendered;
+		if (Ext.isDefined(adjWidth) && allowResize) {
+			this.resizeSearchField();
+		}
+	},
+
+	/**
+	 * Function is used to resize the {@link #searchTextField}. also it will show the
+	 * hidden tool bar items if tool bar container has enough size to show.
+	 */
+	resizeSearchField : function()
+	{
+		// Get the width of the container without the padding
+		var containerWidth = this.el.getStyleSize().width;
+		var copyButtonWidth = 0;
+		var deleteButtonWidth = 0;
+
+		/*
+		 * Check if copyButton is visible then get width of the same,
+		 * but if not then get the xtbWidth of copyButton item. show the
+		 * tool bar item if container has enough space available.
+		 */
+		if(this.copyButton.xtbHidden) {
+			copyButtonWidth = this.copyButton.xtbWidth;
+			if (containerWidth > this.searchFieldContainer.getWidth() + copyButtonWidth) {
+				this.layout.unhideItem(this.copyButton);
+				this.doLayout();
+			}
+		} else {
+			copyButtonWidth = this.copyButton.getWidth();
+		}
+
+		/*
+		 * Check if deleteButton is visible then get width of the same,
+		 * but if not then get the xtbWidth of deleteButton item. show the
+		 * tool bar item if container has enough space available.
+		 */
+		if(this.deleteButton.xtbHidden) {
+			deleteButtonWidth = this.deleteButton.xtbWidth;
+			if (containerWidth > this.searchFieldContainer.getWidth() + copyButtonWidth + deleteButtonWidth) {
+				this.layout.unhideItem(this.deleteButton);
+				this.doLayout();
+			}
+		} else {
+			deleteButtonWidth = this.deleteButton.getWidth();
+		}
+
+		var extraMargin = 0;
+		var adjWidth = containerWidth - copyButtonWidth - deleteButtonWidth - extraMargin;
+
+		var searchFieldContainer = this.searchFieldContainer;
+		var searchField = searchFieldContainer.searchTextField;
+		var searchFolderCombo = searchFieldContainer.searchFolderCombo;
+		var searchFolderComboWidth = searchFolderCombo.getWidth();
+		var searchFolderComboTriggeredWidth = searchFolderCombo.getTriggerWidth();
+		var searchBtnWidth = searchFieldContainer.searchBtn.getWidth();
+
+		searchField.setWidth(adjWidth-(searchFolderComboWidth + searchBtnWidth + searchFolderComboTriggeredWidth));
 	}
 });
 

@@ -91,13 +91,9 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 	 */
 	onDataModeChange : function(model, mode, oldMode)
 	{
-		if (mode === Zarafa.calendar.data.DataModes.ALL || mode === Zarafa.calendar.data.DataModes.SEARCH) {
-			this.pagesToolbar.setVisible(true);
-			this.dateToolbar.setVisible(false);
-		} else {
-			this.pagesToolbar.setVisible(false);
-			this.dateToolbar.setVisible(true);
-
+		var hasDataModesAll = mode === Zarafa.calendar.data.DataModes.ALL;
+		this.dateToolbar.setVisible(!hasDataModesAll);
+		if (!hasDataModesAll) {
 			// we have to set the width of tbtext field based on the different views of calendar
 			// because when we navigate the months or days in calendar, text length of month/days 
 			// gets resize the tbtext and due to that copy/delete button gets hide, to overcome this 

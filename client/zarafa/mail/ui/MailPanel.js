@@ -86,7 +86,7 @@ Zarafa.mail.ui.MailPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
 				lazyItems : this.initViews(config.context)
 			}],
 			tbar : {
-				xtype: 'zarafa.mailpaneltoolbar',
+				xtype: 'zarafa.contextmainpaneltoolbar',
 				id: 'zarafa-main-content-mail-toolbar',
 				defaultTitle : _('Mail'),
 				paging : container.populateInsertionPoint('context.mail.toolbar.paging', this),

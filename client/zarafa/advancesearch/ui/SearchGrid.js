@@ -493,10 +493,6 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 			// we cannot do remote sorting and will change to local sorting
 			store.remoteSort = false;
 
-			// Reset the page size so the pagination toolbar (if shown) will show all results in one page.
-			var pagesToolbar = this.dialog.findByType('zarafa.paging')[0];
-			pagesToolbar.pageSize = this.sortableRecordsMax;
-
 			var loadedRecordCount = store.getCount();
 
 			// If necessary we must first load all records from the store before we can do the sorting

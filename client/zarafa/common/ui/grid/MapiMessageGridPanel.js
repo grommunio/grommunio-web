@@ -27,6 +27,14 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	categoryTooltip : null,
 
 	/**
+	 * @cfg {String} sliderCls
+	 * A CSS class to add to the slider element after it has been rendered (defaults to
+	 * <code>'k-slider'</code>).
+	 * @type String
+	 */
+	sliderCls : 'k-slider',
+
+	/**
 	 * The supportLiveScroll is true if grid supports live scroll facility and
 	 * default it is false.
 	 *
@@ -34,27 +42,6 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 * @type Boolean
 	 */
 	supportLiveScroll : false,
-
-	/**
-	 * Timer that is used to slide in/out loaded mail info slider after specified time.
-	 * @property
-	 * @type Number
-	 */
-	timer : undefined,
-
-	/**
-	 * @cfg sliderDuration specified time duration after that slide gets hide/remove the slide
-	 * from DOM.
-	 * @type Number
-	 */
-	sliderDuration : 5000,
-
-	/**
-	 * @cfg sliderDirection specified the direction where slider want to show in grid.
-	 * default is 'b'.
-	 * @type Number
-	 */
-	sliderDirection : 'b',
 
 	/**
 	 * @constructor
@@ -80,9 +67,16 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		Zarafa.common.ui.grid.MapiMessageGrid.superclass.initEvents.call(this);
 
 		this.mon(this.getView().scroller, 'scroll', this.onScroll, this);
+
 		this.on({
 			'afterrender': this.onRenderGrid,
 			'cellcontextmenu': this.onCellContextMenu,
+			scope : this
+		});
+
+		this.getEl().on({
+			'mouseenter' :  this.onMouseEnter,
+			'mouseleave' : this.onMouseLeave,
 			scope : this
 		});
 
@@ -257,62 +251,26 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	 */
 	onScroll : function()
 	{
-		if (!container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll')
-			|| !this.supportLiveScroll) {
-			return;
+		if (!this.isPagingEnabled()) {
+			container.getNotifier().notify('pagination.livescroll', undefined, undefined,{
+				parentEl : this.getEl(),
+				model : this.model
+			});
 		}
-
-		if (this.timer) {
-			clearTimeout(this.timer);
-		}
-
-		this.timer = setTimeout(function(element) {
-			element.ghost('b', {remove : true});
-		}, this.sliderDuration, this.getSlider());
 	},
 
 	/**
-	 * Function which prepare the slide element.
-	 *
-	 * @return {Ext.Element} slider element which show current loaded items in grid.
+	 * Function used to identify that pagination is enabled or not.
+	 * @return {Boolean} true if pagination is enabled else false.
 	 */
-	getSlider : function ()
+	isPagingEnabled : function ()
 	{
-		var store = this.getStore();
-		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
-		var html = String.format('<div>{0}</div>', sliderText);
-
-		var element = this.getSliderEl();
-		if (!element) {
-			var sliderCls = 'k-slider';
-			var sliderId = this.id + '-' + sliderCls;
-			var parentContainer = this.getEl();
-			element = Ext.DomHelper.insertFirst(parentContainer, { id : sliderId, cls : sliderCls, html : html}, true);
-			element.alignTo(parentContainer, this.sliderDirection +'-' + this.sliderDirection, [-8, 0]);
-			element = element.slideIn(this.sliderDirection);
-		} else {
-			element.dom.innerHTML = html;
-		}
-		return element;
+		return !container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll') || !this.supportLiveScroll;
 	},
 
 	/**
-	 * Function which used to get the slider element,
-	 * if it is exist in DOM.
-	 *
-	 * @return {Ext.Element|null} slider element if exist in DOM.
-	 */
-	getSliderEl : function()
-	{
-		var sliderCls = 'k-slider';
-		var sliderId = this.id + '-' + sliderCls;
-		var element = Ext.DomQuery.select('#' + sliderId).shift();
-		return Ext.get(element);
-	},
-
-	/**
-	 * Called when grid is being resized. This will align
-	 * the slider element to bottom center.
+	 * Called when the grid is being resized. It will display
+	 * slider in center of the grid.
 	 *
 	 * @private
 	 */
@@ -320,9 +278,43 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	{
 		Zarafa.common.ui.grid.MapiMessageGrid.superclass.onResize.apply(this, arguments);
 
-		var sliderEl = this.getSliderEl();
-		if (sliderEl) {
-			sliderEl.alignTo(this.getEl(), this.sliderDirection + '-' + this.sliderDirection,[-8, 0]);
+		var slider = Ext.get(this.id + '-k-slider');
+		if (slider) {
+			container.getNotifier().notify('pagination.livescroll', undefined, undefined,{
+				parentEl : this.getEl(),
+				update : true,
+				slider : slider
+			});
+		}
+	},
+
+	/**
+	 * Event handler which triggered when mouse enter/over the {@link Ext.grid.GridPanel Grid}.
+	 * It will also shows the notification/slider at bottom-center of {@link Ext.grid.GridPanel Grid}.
+	 * which contains the {@link Zarafa.common.ui.PagingToolbar PagingToolbar}.
+	 */
+	onMouseEnter : function()
+	{
+		if (!this.isPagingEnabled()) {
+			return;
+		}
+
+		container.getNotifier().notify('pagination.paging', undefined, undefined,{
+			parentEl : this.getEl(),
+			model : this.model
+		});
+	},
+
+	/**
+	 * Event handler which triggered when mouse leaves the {@link Ext.grid.GridPanel Grid}.
+	 * It will destroy the slider from bottom-center of {@link Ext.grid.GridPanel Grid}.
+	 */
+	onMouseLeave : function()
+	{
+		if (this.isPagingEnabled()) {
+			container.getNotifier().notify('pagination.paging', undefined, undefined,{
+				destroy : true
+			});
 		}
 	}
 });
