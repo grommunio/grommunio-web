@@ -38,7 +38,7 @@ pipeline {
 						}
 					}
 					steps {
-						sh 'npm run phplintci'
+						sh 'make phplintci'
 						junit allowEmptyResults: true, testResults: 'phpmd.xml'
 					}
 				}

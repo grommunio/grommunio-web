@@ -1,6 +1,7 @@
 # Tools
 
 ANT ?= ant
+PHPMD ?= phpmd
 NPM ?= npm
 
 # Files
@@ -49,6 +50,14 @@ jstestcov: build
 
 open-coverage: jstestcov
 	${BROWSER} test/js/coverage/report-html/index.html
+
+.PHONY: phplint
+phplint:
+	$(PHPMD) server text .phpmd.xml
+
+.PHONY: phplintcli
+phplintci:
+	$(PHPMD) server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml
 
 # NPM
 
