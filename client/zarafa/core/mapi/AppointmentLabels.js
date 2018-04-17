@@ -72,7 +72,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	PREPARE_REQUIRED : 7,
+	PREPARATION_REQUIRED : 7,
 
 	/**
 	 * Mark appointment as birthday
@@ -120,7 +120,7 @@ Zarafa.core.mapi.AppointmentLabels = Zarafa.core.Enum.create({
 				return _("Required");
 			case Zarafa.core.mapi.AppointmentLabels.TRAVEL_REQUIRED:
 				return _("Travel Required");
-			case Zarafa.core.mapi.AppointmentLabels.PREPARE_REQUIRED:
+			case Zarafa.core.mapi.AppointmentLabels.PREPARATION_REQUIRED:
 				return _("Preparation Required");
 			case Zarafa.core.mapi.AppointmentLabels.BIRTHDAY:
 				return _("Birthday");
