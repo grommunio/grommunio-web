@@ -19,6 +19,24 @@ body.zarafa-welcome {
     background: url(../img/background.jpg) no-repeat center center;
     background-size: cover;
 }
+
+body.login.theme-purple:after,
+body.theme-purple #loading-mask:after,
+body.theme-purple #bg:after,
+body.theme-purple zarafa-welcome:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+    background: url(../img/background_purple.svg);
+    background-size: cover;
+}
+
 /* The Sign in button of the login screen */
 body.login #form-container #submitbutton,
 #loading-mask #form-container #submitbutton {
