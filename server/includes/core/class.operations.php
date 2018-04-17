@@ -2788,7 +2788,7 @@
 			}
 
 			$folder = mapi_msgstore_openentry($store, $parententryid);
-
+			
 			$msgprops = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_OUTBOX_ENTRYID));
 
 			switch($msgprops[PR_MDB_PROVIDER]){
@@ -2830,7 +2830,11 @@
 							// message from an outgoing queue.
 							if (function_exists("mapi_msgstore_abortsubmit") && isset($msgprops[PR_IPM_OUTBOX_ENTRYID]) && $msgprops[PR_IPM_OUTBOX_ENTRYID] === $parententryid) {
 								foreach ($entryids as $entryid) {
-									mapi_msgstore_abortsubmit($store, $entryid);
+									$message = mapi_msgstore_openentry($store, $entryid);
+									$messageProps = mapi_getprops($message, array(PR_DEFERRED_SEND_TIME));
+									if (isset($messageProps[PR_DEFERRED_SEND_TIME])) {
+										mapi_msgstore_abortsubmit($store, $entryid);
+									}
 								}
 							}
 							$result = $this->copyMessages($store, $parententryid, $store, $msgprops[PR_IPM_WASTEBASKET_ENTRYID], $entryids, array(), true);
