@@ -143,8 +143,9 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onImportToFolderBeforeShow : function(item, record)
 	{
-		// embedded messages can not be imported to folder
-		item.setDisabled(record.isEmbeddedMessage() || !record.canBeImported());
+		var store = record.getStore();
+		var parentRecord = store.getParentRecord();
+		item.setDisabled(!record.canBeImported() || parentRecord.phantom);
 	},
 
 	/**

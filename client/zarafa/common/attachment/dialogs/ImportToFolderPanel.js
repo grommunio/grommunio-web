@@ -100,7 +100,18 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 */
 	getIPMFilter : function(record)
 	{
-		switch (record.get('extension')) {
+		let extension = record.get('extension');
+
+		if(record.isEmbeddedMessage()) {
+			let messageClass = record.get('attach_message_class');
+			if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Note')) {
+				extension = 'eml';
+			} else if (Zarafa.core.MessageClass.isClass(messageClass, 'IPM.Contact')) {
+				extension = 'vcf';
+			}
+		}
+
+		switch (extension) {
 			case 'eml':
 				return Zarafa.common.data.FolderContentTypes.mail;
 			case 'vcf':

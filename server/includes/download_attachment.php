@@ -77,12 +77,22 @@ class DownloadAttachment
 	/**
 	 * Entryid of the MAPIFolder to which the given attachment needs to be imported as webapp item.
 	 */
+	private $destinationFolderId;
+
+	/**
+	 * Resource of the MAPIFolder to which the given attachment needs to be imported as webapp item.
+	 */
 	private $destinationFolder;
 
 	/**
 	 * A boolean value, set to false by default, to define if the attachment needs to be imported into folder as webapp item.
 	 */
 	private $import;
+
+	/**
+	 * A boolean value, set to false by default, to define if the embedded attachment needs to be imported into folder.
+	 */
+	private $isEmbedded;
 
 	/**
 	 * Constructor
@@ -98,8 +108,10 @@ class DownloadAttachment
 		$this->zipFileName = _('Attachments').'%s.zip';
 		$this->messageSubject = '';
 		$this->isSubMessage = false;
+		$this->destinationFolderId = false;
 		$this->destinationFolder = false;
 		$this->import = false;
+		$this->isEmbedded = false;
 	}
 
 	/**
@@ -176,11 +188,29 @@ class DownloadAttachment
 		}
 
 		if(isset($data['destination_folder'])) {
-			$this->destinationFolder = sanitizeValue($data['destination_folder'], '', ID_REGEX);
+			$this->destinationFolderId = sanitizeValue($data['destination_folder'], '', ID_REGEX);
+
+			if ($this->destinationFolder === false){
+				try {
+					$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
+				} catch(Exception $e) {
+					// Try to find the folder from shared stores in case if it is not found in current user's store
+					$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
+					if ($otherStore !== false) {
+						$this->destinationFolder = mapi_msgstore_openentry($otherStore, hex2bin($this->destinationFolderId));
+					} else {
+						throw new ZarafaException(_("Destination folder not found."));
+					}
+				}
+			}
 		}
 
 		if(isset($data['import'])) {
 			$this->import = sanitizeValue($data['import'], '', STRING_REGEX);
+		}
+
+		if(isset($data['is_embedded'])) {
+			$this->isEmbedded = sanitizeValue($data['is_embedded'], '', STRING_REGEX);
 		}
 	}
 
@@ -478,14 +508,8 @@ class DownloadAttachment
 	public function importAttachment()
 	{
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
-		try {
-			$destFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolder));
-		} catch(Exception $e) {
-			// Try to find the folder from shared stores in case if it is not found in current user's store
-			$destFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolder), hex2bin($this->destinationFolder));
-		}
 
-		$newMessage = mapi_folder_createmessage($destFolder);
+		$newMessage = mapi_folder_createmessage($this->destinationFolder);
 		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, array(PR_ATTACH_LONG_FILENAME));
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
@@ -518,7 +542,7 @@ class DownloadAttachment
 		if($ok === true) {
 			mapi_message_savechanges($newMessage);
 			$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
-			$destinationFolderProps = mapi_getprops($destFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
+			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
 
 			$return = Array(
 				// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
@@ -536,7 +560,7 @@ class DownloadAttachment
 							'folders' => Array(
 								'item' => Array(
 									0 => Array(
-										'entryid' => $this->destinationFolder,
+										'entryid' => $this->destinationFolderId,
 										'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
 										'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
 										'props' => Array(
@@ -554,6 +578,82 @@ class DownloadAttachment
 		} else {
 			throw new ZarafaException(_("Attachment is not imported successfully"));
 		}
+	}
+
+	/**
+	 * Function will get the embedded attachement and import it to the given MAPIFolder as webapp item.
+	 */
+	public function importEmbeddedAttachment()
+	{
+		// get message props of sub message
+		$copyFromMessage = $GLOBALS['operations']->openMessage($this->store, hex2bin($this->entryId), $this->attachNum, true);
+
+		if(empty($copyFromMessage)) {
+			throw new ZarafaException(_("Embedded attachment not found."));
+		}
+
+		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+
+		// Copy the entire message
+		mapi_copyto($copyFromMessage, array(), array(), $newMessage);
+		mapi_savechanges($newMessage);
+
+		$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
+		$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
+		$return = Array(
+			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
+			'success' => true,
+			'zarafa' => Array(
+				sanitizeGetValue('module', '', STRING_REGEX) => Array(
+					sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
+						'update' => Array(
+							'success'=> true
+						)
+					)
+				),
+				'hierarchynotifier' => Array(
+					'hierarchynotifier1' => Array(
+						'folders' => Array(
+							'item' => Array(
+								0 => Array(
+									'entryid' => $this->destinationFolderId,
+									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'props' => Array(
+										'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		);
+
+		echo json_encode($return);
+	}
+
+	/**
+	 * Check if the attached eml is corrupted or not
+	 * @param String $attachment Content fetched from PR_ATTACH_DATA_BIN property of an attachment.
+	 * @return True if eml is broken, false otherwise.
+	 */
+	public function isBroken($attachment)
+	{
+		// Get header part to process further
+		$splittedContent = preg_split("/\r?\n\r?\n/", $attachment);
+
+		// Fetch raw header
+		if (preg_match_all('/([^:]+): ?.*\n/', $splittedContent[0], $matches)) {
+			$rawHeaders = $matches[1];
+		}
+
+		// Compare if necessary headers are present or not
+		if (isset($rawHeaders) && in_array('From', $rawHeaders) && in_array('Date', $rawHeaders)) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
@@ -621,7 +721,11 @@ class DownloadAttachment
 		} else if(count($this->attachNum) > 0) {
 			// check if the attachment needs to be imported
 			if ($this->import) {
-				$this->importAttachment();
+				if ($this->isEmbedded) {
+					$this->importEmbeddedAttachment();
+				} else {
+					$this->importAttachment();
+				}
 				return;
 			}
 
