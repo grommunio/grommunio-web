@@ -306,6 +306,11 @@ class WebAppAuthentication
 	 */
 	public static function authenticateWithPostedCredentials() {
 
+		if (empty($_POST['username']) || empty($_POST['password'])) {
+			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
+			return WebAppAuthentication::getErrorCode();
+		}
+
 		// Check if a session is already running and if the credentials match
 		$encryptionStore = EncryptionStore::getInstance();
 		$username = $encryptionStore->get('username');
