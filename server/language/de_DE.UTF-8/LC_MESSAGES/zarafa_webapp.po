@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 16:43+0200\n"
-"PO-Revision-Date: 2018-04-04 07:53+0000\n"
+"PO-Revision-Date: 2018-04-20 05:24+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -1939,6 +1939,8 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3+"
 msgstr ""
+"Um das vCard Import Feature zu verwenden müssen Sie Kopano Core auf die "
+"Version 8.3 und neuer updaten"
 
 msgid "Attachment error"
 msgstr "Problem mit dem Anhang"
@@ -3631,9 +3633,8 @@ msgstr "Bild ändern"
 msgid "Remove Picture"
 msgstr "Bild entfernen"
 
-#, fuzzy
 msgid "VCF file(s)"
-msgstr "EML Datei(en)"
+msgstr "VCF Datei(en)"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3679,10 +3680,10 @@ msgstr ""
 "hochzuladen, während nur {1} Anhänge erlaubt sind."
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Erfolgreich importierte Elemente in {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Import fehlgeschlagen in {0}"
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4569,24 +4570,21 @@ msgstr "Nach Flagge sortieren"
 
 # 85%
 # 100%
-#, fuzzy
 msgid "Older"
-msgstr "Ordner"
+msgstr "Älter"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gestern"
 
-#, fuzzy
 msgid "Last Week"
 msgstr "Letzte Woche"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Vorletzte Woche"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Vorvorletzte Woche"
 
-#, fuzzy
 msgid "Last Month"
 msgstr "Letzter Monat"
 
@@ -5649,13 +5647,11 @@ msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
 msgid "Eml is corrupted"
 msgstr "EML ist defekt"
 
-#, fuzzy
 msgid "The eml Attachment is not imported successfully"
 msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
 
-#, fuzzy
 msgid "The vcf attachment is not imported successfully"
-msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
+msgstr "Der VCF Anhang konnte nicht erfolgreich importiert werden"
 
 msgid "Attachment is not imported successfully"
 msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
