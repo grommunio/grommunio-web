@@ -193,5 +193,17 @@ Zarafa.core.data.UIFactory = {
 		if (ComponentConstructor) {
 			new ComponentConstructor(Ext.applyIf(config || {}, {records : records })).showAt(config.position);
 		}
+	},
+
+	/**
+	 * Open a hover card with supplied componentType
+	 *
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.data.MAPIRecord[]} records The record(s) for which the hover card will be shown
+	 * @param {Object} config Configuration object
+	 */
+	openHoverCard: function (records, config)
+	{
+		var componentType = Zarafa.core.data.SharedComponentType['common.hovercard'];
+		this.openContextMenu(componentType, records, config);
 	}
 };
