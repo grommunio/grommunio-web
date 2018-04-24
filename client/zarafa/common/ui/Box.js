@@ -195,8 +195,6 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 		this.mon(this.el, 'click', this.onClick, this);
 		this.mon(this.el, 'contextmenu', this.onContextMenu, this);
 		this.mon(this.el, 'dblclick', this.onDblClick, this);
-		this.mon(this.el, 'mouseenter',this.onMouseEnter, this, {buffer : 100});
-		this.mon(this.el, 'mouseleave',this.onMouseLeave, this, {buffer : 100});
 	},
 
 	/**
@@ -455,29 +453,6 @@ Zarafa.common.ui.Box = Ext.extend(Ext.BoxComponent, {
 			this.destroy();
 			this.parent.sizeContainer();
 		}
-	},
-
-	/**
-	 * Event handler which handel mouse enter event.
-	 *
-	 * @param {Ext.EventObject} e The mouse event
-	 * @param {HTMLElement} node The target node
-	 */
-	onMouseEnter : function (e, node)
-	{
-		e.stopEvent();
-		this.parent.doBoxMouseEnter(this, e);
-	},
-
-	/**
-	 * Event handler which handel mouse leave event.
-	 *
-	 * @param {Ext.EventObject} e The mouse event
-	 * @param {HTMLElement} node The target node
-	 */
-	onMouseLeave : function (e, node)
-	{
-		this.parent.doBoxMouseLeave(this);
 	}
 });
 
