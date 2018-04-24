@@ -113,9 +113,7 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 		Zarafa.common.recipientfield.ui.RecipientField.superclass.constructor.call(this, config);
 
 		this.on('boxdblclick', this.onBoxDblClick, this);
-		this.on('boxcontextmenu', this.onBoxRightClick, this);
-		this.on('boxmouseenter', this.onMouseEnter, this);
-		this.on('boxmouseleave', this.onMouseLeave, this);
+		this.on('boxcontextmenu', this.onBoxContextMenu, this);
 
 		// For some reason Ext explicitly sets the width if the size of a boxComponent is set before it is rendered
 		// This means it will never be resized again when the parents components size changes
@@ -333,17 +331,17 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	},
 
 	/**
-	 * Event handler when a Box has been right-clicked.
+	 * Event handler when the contextmenu is requested for a Box.
 	 * @param {Zarafa.common.recipientfield.ui.RecipientField} field This field to which the box belongs
-	 * @param {Zarafa.common.recipientfield.ui.RecipientBox} box The box for which was right-clicked
+	 * @param {Zarafa.common.recipientfield.ui.RecipientBox} box The box for which the contextmenu is requested
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record which is attached to the box
 	 * @private
 	 */
-	onBoxRightClick: function (field, box, record)
+	onBoxContextMenu : function(field, box, record)
 	{
-		Zarafa.core.data.UIFactory.openHoverCard(record, {
-			position: box.getEl().getXY(),
-			editable: box.editable
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
+			position : box.getEl().getXY(),
+			editable : box.editable
 		});
 	},
 
@@ -371,41 +369,6 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 				ddGroup : 'dd.mapiitem',
 				field : this
 			});
-		}
-	},
-
-	/**
-	 * Event handler which handle mouse enter event.
-	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
-	 * @param {Zarafa.common.ui.BoxField} field Parent of the box
-	 * @param {Zarafa.common.ui.Box} box The box for which the mouse enter call
-	 * @param {Ext.data.Record} record The record that belongs to the box
-	 * @param {Ext.EventObject} e The mouse event
-	 */
-	onMouseEnter: function (field, box, record, e)
-	{
-		Zarafa.core.data.UIFactory.openHoverCard(record, {
-			position: e.getXY()
-		});
-	},
-
-
-	/**
-	 * Event handler which handle mouse leave event.
-	 * It will hide {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
-	 * @param {Zarafa.common.ui.BoxField} field Parent of the box
-	 * @param {Zarafa.common.ui.Box} box The box for which the the mouse leave call
-	 * @param {Ext.data.Record} record The record that belongs to the box
-	 */
-	onMouseLeave: function (field, box, record)
-	{
-		var win = Ext.WindowMgr.getBy(function (win) {
-			if (win.records) {
-				return win.records.get('entryid') === record.get('entryid');
-			}
-		}, this);
-		if (win.length > 0 && !win[0].hasFocus) {
-			win[0].hide();
 		}
 	}
 });

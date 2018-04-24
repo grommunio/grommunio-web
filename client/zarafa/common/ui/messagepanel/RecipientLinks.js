@@ -114,10 +114,8 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 
 		container.populateInsertionPoint('previewpanel.toolbar.recipientlinks', this);
 
-		this.on('contextmenu', this.onRecipientRightClick, this);
+		this.on('contextmenu', this.onRecipientContextMenu, this);
 		this.on('dblclick', this.onRecipientDoubleClick, this);
-		this.on('mouseenter',this.onMouseEnter, this, {buffer : 100});
-		this.on('mouseleave',this.onMouseLeave, this, {buffer : 100});
 	},
 
 	/**
@@ -323,20 +321,16 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * Called when user right-clicks on an item in {@link Zarafa.common.ui.messagepanel.RecipientLinks}
-	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
+	 * handler to show context menu on right click
 	 * @param {Ext.DataView} dataView Reference to this object
 	 * @param {Number} index The index of the target node
 	 * @param {HTMLElement} node The target node
-	 * @param {Ext.EventObject} e The mouse event
+	 * @param {Ext.EventObject} evt The mouse event
 	 * @private
 	 */
-	onRecipientRightClick: function (dataView, index, node, e)
+	onRecipientContextMenu : function(dataView, index, node, evt)
 	{
-		var recipientRecord = this.createRecipientFromNode(node);
-		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
-			position: e.getXY()
-		});
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(this.createRecipientFromNode(node), { position : evt.getXY() });
 	},
 
 	/**
@@ -372,48 +366,6 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 		record.set('recipient_trackstatus_time', '');
 
 		return record;
-	},
-
-	/**
-	 * Event handler which handel mouse enter event.
-	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
-	 * @param {Ext.DataView} dataView Reference to this object
-	 * @param {Number} index The index of the target node
-	 * @param {HTMLElement} node The target node
-	 * @param {Ext.EventObject} e The mouse event
-	 */
-	onMouseEnter: function (dataView, index, node, e)
-	{
-		dataView.focus();
-		var recipientRecord = this.createRecipientFromNode(node);
-		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
-			position: e.getXY()
-		});
-	},
-
-
-	/**
-	 * Event handler which handel mouse leave event.
-	 * It will hide {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
-	 * @param {Ext.DataView} dataView Reference to this object
-	 * @param {Number} index The index of the target node
-	 * @param {HTMLElement} node The target node
-	 * @param {Ext.EventObject} e The mouse event
-	 */
-	onMouseLeave: function (dataView, index, node, e)
-	{
-		var recipientRecord = this.createRecipientFromNode(node);
-		if (!recipientRecord) {
-			return;
-		}
-		var win = Ext.WindowMgr.getBy(function (win) {
-			if (win.records) {
-				return win.records.get('entryid') === recipientRecord.get('entryid');
-			}
-		}, this);
-		if (win.length > 0 && !win[0].hasFocus) {
-			win[0].hide();
-		}
 	}
 });
 
