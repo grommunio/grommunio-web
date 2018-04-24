@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2018-04-11 19:46+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2716,6 +2716,10 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} valgt rad"
 msgstr[1] "{0} valgte rader"
 
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "Lastet inn {0} av {1}"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Påminnelser er satt på {0}, {1}"
 
@@ -4416,6 +4420,21 @@ msgstr "Tre uker siden"
 msgid "Last Month"
 msgstr "Forrige måned"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr "Oppfølging"
 
@@ -4428,10 +4447,6 @@ msgstr "Send til"
 
 msgid "Loading mail"
 msgstr "Laster inn e-post"
-
-# 76%
-msgid "Loaded {0} of {1}"
-msgstr "Lastet inn {0} av {1}"
 
 msgid "Save Note"
 msgstr "Lagre notat"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2621,6 +2621,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} række er valgt"
 msgstr[1] "{0} rækker er valgt"
 
+msgid "Loaded {0} of {1}"
+msgstr "Hentet {0} af {1}"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4272,6 +4275,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "Forrige måned"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr "Opfølgning"
 
@@ -4284,9 +4302,6 @@ msgstr "Send"
 
 msgid "Loading mail"
 msgstr "Henter mail"
-
-msgid "Loaded {0} of {1}"
-msgstr "Hentet {0} af {1}"
 
 msgid "Save Note"
 msgstr "Gem note"

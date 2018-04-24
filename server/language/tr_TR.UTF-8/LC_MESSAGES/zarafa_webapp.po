@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2764,6 +2764,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} seçili satır"
 msgstr[1] "{0} seçili satır"
 
+msgid "Loaded {0} of {1}"
+msgstr "{1} den {0} yüklendi"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4512,6 +4515,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "geçen ay"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr ""
 
@@ -4524,9 +4542,6 @@ msgstr "Gönder"
 
 msgid "Loading mail"
 msgstr "Mesaj yükleniyor"
-
-msgid "Loaded {0} of {1}"
-msgstr "{1} den {0} yüklendi"
 
 msgid "Save Note"
 msgstr "Notu kaydet"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2018-04-20 05:25+0000\n"
 "Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2817,6 +2817,12 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} ausgewählte Zeile"
 msgstr[1] "{0} ausgewählte Zeilen"
 
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "{0} von {1} Elementen geladen"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Erinnerung ist auf {0}, {1} gesetzt"
 
@@ -4588,6 +4594,21 @@ msgstr "Vorvorletzte Woche"
 msgid "Last Month"
 msgstr "Letzter Monat"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr "Nachverfolgung"
 
@@ -4600,12 +4621,6 @@ msgstr "Senden an"
 
 msgid "Loading mail"
 msgstr "Lade E-Mail"
-
-# 86%
-# 100%
-# 76%
-msgid "Loaded {0} of {1}"
-msgstr "{0} von {1} Elementen geladen"
 
 msgid "Save Note"
 msgstr "Notiz speichern"

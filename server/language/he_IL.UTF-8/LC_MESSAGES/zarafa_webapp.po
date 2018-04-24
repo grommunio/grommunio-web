@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2012-06-01 09:31+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2757,6 +2757,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "נבחר פריט {0}"
 msgstr[1] "נבחר פריט {1}"
 
+msgid "Loaded {0} of {1}"
+msgstr ""
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4516,6 +4519,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "חודש"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr ""
 
@@ -4528,9 +4546,6 @@ msgid "Send to"
 msgstr "נשלח"
 
 msgid "Loading mail"
-msgstr ""
-
-msgid "Loaded {0} of {1}"
 msgstr ""
 
 msgid "Save Note"

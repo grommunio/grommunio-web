@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2748,6 +2748,11 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} rangée sélectionnée"
 msgstr[1] "{0} rangées sélectionnées"
 
+# 86%
+# 100%
+msgid "Loaded {0} of {1}"
+msgstr "Chargé {0} de {1}"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4517,6 +4522,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "Le mois dernier"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr ""
 
@@ -4530,11 +4550,6 @@ msgstr "Envoyer"
 
 msgid "Loading mail"
 msgstr "Chargement du courrier"
-
-# 86%
-# 100%
-msgid "Loaded {0} of {1}"
-msgstr "Chargé {0} de {1}"
 
 msgid "Save Note"
 msgstr "Enregistrer la note"

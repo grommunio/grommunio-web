@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2623,6 +2623,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} wybrany wiersz"
 msgstr[1] "{0} wybrane wiersze"
 
+msgid "Loaded {0} of {1}"
+msgstr "Wczytano elementów {0} z {1}"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4272,6 +4275,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "Ostatni miesiąc"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr ""
 
@@ -4284,9 +4302,6 @@ msgstr "Wysyłanie"
 
 msgid "Loading mail"
 msgstr "Wczytywanie e-maila"
-
-msgid "Loaded {0} of {1}"
-msgstr "Wczytano elementów {0} z {1}"
 
 msgid "Save Note"
 msgstr "Zapisz notatkę"

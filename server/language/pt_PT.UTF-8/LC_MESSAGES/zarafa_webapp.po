@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
 "Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
 "Language-Team: pt_PT <pt@li.org>\n"
@@ -2847,6 +2847,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] "Deletado em"
 msgstr[1] "Deletado em"
 
+msgid "Loaded {0} of {1}"
+msgstr ""
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4658,6 +4661,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "Pr�ximo m�s"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr ""
 
@@ -4671,9 +4689,6 @@ msgstr "Enviar"
 #, fuzzy
 msgid "Loading mail"
 msgstr "Carregando"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 #, fuzzy
 msgid "Save Note"

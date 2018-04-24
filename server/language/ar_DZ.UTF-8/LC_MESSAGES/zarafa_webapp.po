@@ -2522,6 +2522,9 @@ msgid_plural "{0} selected rows"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "Loaded {0} of {1}"
+msgstr ""
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4147,9 +4150,6 @@ msgid "Send to"
 msgstr ""
 
 msgid "Loading mail"
-msgstr ""
-
-msgid "Loaded {0} of {1}"
 msgstr ""
 
 msgid "Save Note"

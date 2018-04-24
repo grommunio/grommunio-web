@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-11 16:43+0200\n"
+"POT-Creation-Date: 2018-04-24 15:38+0200\n"
 "PO-Revision-Date: 2018-02-12 07:30+0000\n"
 "Last-Translator: Robin <r.vangenderen@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2826,6 +2826,12 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} geselecteerde rij"
 msgstr[1] "{0} geselecteerde rijen"
 
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "Geladen {0} van {1}"
+
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
 
@@ -4637,6 +4643,21 @@ msgstr ""
 msgid "Last Month"
 msgstr "Afgelopen maand"
 
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
 msgid "Follow up"
 msgstr "Opvolgen"
 
@@ -4651,12 +4672,6 @@ msgstr "Verzenden"
 # 80%
 msgid "Loading mail"
 msgstr "Bericht laden"
-
-# 86%
-# 100%
-# 76%
-msgid "Loaded {0} of {1}"
-msgstr "Geladen {0} van {1}"
 
 msgid "Save Note"
 msgstr "Bewaar Notitie"
