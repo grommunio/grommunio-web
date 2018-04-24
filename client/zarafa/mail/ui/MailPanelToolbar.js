@@ -12,29 +12,12 @@ Ext.namespace('Zarafa.mail.ui');
  */
 Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelToolbar, {
 	/**
-	 * Info string which show that out of how many number of mails currently shown in grid.
-	 * @property
-	 * @type String
-	 */
-	pageInfoText : _('Loaded {0} of {1}'),
-
-	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
 	constructor : function(config)
 	{
 		config = config || {};
-
-		// Add an extra tool bar which show how many mails are currently in
-		// grid out of total mails. it is required because here we are not show the pagination 
-		// information.
-		config.paging = config.paging || [];
-		config.paging.push({
-			xtype: 'tbtext',
-			ref: 'loadedMailInfo',
-			cls : 'zarafa-loaded-mail-info'
-		});
 		Zarafa.mail.ui.MailPanelToolbar.superclass.constructor.call(this, config);
 	},
 
@@ -69,9 +52,6 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 
 		if(container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll')) {
 			this.pagesToolbar.setVisible(false);
-			if(this.model) {
-				this.mon(this.model.getStore(),'load', this.onLoad, this);
-			}
 		} else {
 			this.pagesToolbar.setVisible(true);
 			this.pagesToolbar.inputItem.setWidth(30);
@@ -87,8 +67,6 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 
 			this.pagesToolbar.last.setIconClass('x-tbar-page-last btn-width');
 			this.pagesToolbar.last.addClass('btn-margin-right');
-
-			this.loadedMailInfo.setVisible(false);
 		}
 	},
 
@@ -99,23 +77,6 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 	 * @param {Ext.Layout} layout The ContainerLayout implementation for this container
 	 */
 	onAfterLayout : Ext.emptyFn,
-
-	/**
-	 * Event handler which trigged whenever {@link Zarafa.core.data.MAPIStore MAPIStore}'s
-	 * {@link Zarafa.core.data.MAPIStore#load} is fired, and it will update the pagination
-	 * information of grid.
-	 * 
-	 * @param {Zarafa.core.data.IPMStore} store The store which has loaded
-	 * @param {Zarafa.core.data.IPMRecord/Array} records The records which have loaded
-	 * @param {Object} options The options object used for loading the store.
-	 */
-	onLoad : function(store, records, options)
-	{
-		var total = store.getTotalCount();
-		var pageData = store.getRange().length;
-		this.loadedMailInfo.setText(String.format(this.pageInfoText, pageData, total));
-		this.resizeSearchField();
-	},
 
 	/**
 	 * Function is used to resize the {@link #searchTextField}. also it will show the 
@@ -129,22 +90,8 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 		var copyButtonWidth = 0;
 		var deleteButtonWidth = 0;
 
-		/*
-		 * TODO: logic for the resize search field is very complex make it easy and optimize.
-		 * Check if loadedMailInfo or pagesToolbar is visible then get width of the same,
-		 * but if not then get the xtbWidth of loadedMailInfo or pagesToolbar item. show the 
-		 * tool bar item if container has enough space available.
-		 */
-		if (this.loadedMailInfo.isVisible()){
-			pageNavToolbarWidth = this.loadedMailInfo.getWidth();
-		} else if(this.pagesToolbar.isVisible()) {
+		if(this.pagesToolbar.isVisible()) {
 			pageNavToolbarWidth = this.pagesToolbar.getWidth();
-		} else if(this.loadedMailInfo.xtbHidden) {
-			pageNavToolbarWidth = this.loadedMailInfo.xtbWidth;
-			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth) {
-				this.layout.unhideItem(this.loadedMailInfo);
-				this.doLayout();
-			}
 		} else if(this.pagesToolbar.xtbHidden) {
 			pageNavToolbarWidth = this.pagesToolbar.xtbWidth;
 			if (containerWidth > this.searchFieldContainer.getWidth() + pageNavToolbarWidth) {
@@ -191,9 +138,9 @@ Zarafa.mail.ui.MailPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMainPanelTo
 		var searchFolderCombo = searchFieldContainer.searchFolderCombo;
 		var searchFolderComboWidth = searchFolderCombo.getWidth();
 		var searchFolderComboTriggeredWidth = searchFolderCombo.getTriggerWidth();
-		var serchBtnWidth = searchFieldContainer.searchBtn.getWidth();
+		var searchBtnWidth = searchFieldContainer.searchBtn.getWidth();
 
-		searchField.setWidth(adjWidth-(searchFolderComboWidth + serchBtnWidth + searchFolderComboTriggeredWidth));
+		searchField.setWidth(adjWidth-(searchFolderComboWidth + searchBtnWidth + searchFolderComboTriggeredWidth));
 	}
 });
 
