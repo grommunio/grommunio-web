@@ -411,17 +411,18 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 			} else if (!Ext.isEmpty(tinymceEditor.getContent()) && actionType !== Zarafa.mail.data.ActionTypes.EDIT_AS_NEW) {
 					this.addEmptyLineBeforeContent();
             } else {
+				var focusedElement = document.activeElement;
                 tinymceEditor.selection.setCursorLocation(tinymceEditor.getBody().firstChild, 0);
                 this.composeDefaultFormatting(tinymceEditor);
 
 				// Somehow tinymce fire focus event after setting range selection,
 				// Therefor in IE11 focus is on editor so,
-                // Force fully set focus on the To input field.
-                if (Ext.isIE11) {
-                    var activeTab = container.getTabPanel().getActiveTab();
-                    var mailDialog = activeTab.mainPanel.dialog;
-                    mailDialog.update(this.record, true);
-                }
+                // Force fully set focus on the previously focused element field.
+				if (Ext.isIE11) {
+					Ext.defer(function () {
+						focusedElement.focus();
+					}, 1, this);
+				}
             }
 
 			// HTML styles will be applied while selecting default values from comboboxes.
