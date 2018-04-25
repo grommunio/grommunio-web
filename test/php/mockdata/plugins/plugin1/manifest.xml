@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>plugin1</name>
+		<title>Plugin 1</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.io</authorURL>
+		<description>Plugin 1.</description>
+	</info>
+	<components>
+		<component>
+			<files>
+				<client>
+					<clientfile load="release">js/plugin1.js</clientfile>
+					<clientfile load="debug">js/plugin1-debug.js</clientfile>
+					<clientfile load="source">js/plugin1.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

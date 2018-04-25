@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>plugin3</name>
+		<title>Plugin</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.io</authorURL>
+		<description>A plugin.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.plugin3.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/plugin3.js</clientfile>
+					<clientfile load="debug">js/plugin3-debug.js</clientfile>
+					<clientfile load="source">js/ZDeveloper.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/plugin3.css</resourcefile>
+					<resourcefile load="source">resources/css/plugin3-styles.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

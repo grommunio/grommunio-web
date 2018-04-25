@@ -22,3 +22,4 @@ tools/tools.jar
 # Test output
 test/js/result
 test/js/coverage
+test/php/htmlcov/
