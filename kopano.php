@@ -11,12 +11,12 @@
 	// Notifier objects of the previous request are stored in the session. With this
 	// function they are restored to PHP objects.
 	ini_set("unserialize_callback_func", "sessionNotifierLoader");
-	
+
 	// Try to authenticate the user
 	WebAppAuthentication::authenticate();
-	
+
 	// Globals suck, but we use it still in many files, so we will
-	// store the mapisession as global 
+	// store the mapisession as global
 	$GLOBALS["mapisession"] = WebAppAuthentication::getMapiSession();
 
 	// Get the language from the session
@@ -33,7 +33,9 @@
 	header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
-	header("X-Zarafa: " . trim(file_get_contents(BASE_PATH . 'version')));
+	if ( WebAppAuthentication::isAuthenticated() ) {
+		header("X-Zarafa: " . trim(file_get_contents(BASE_PATH . 'version')));
+	}
 
 	// If a service request was sent (a REST call), the service controller will handle it.
 	if ( isset($_GET['service']) ) {
@@ -49,23 +51,23 @@
 		require_once(BASE_PATH . 'server/includes/controllers/ping.php');
 		die();
  	}
- 	
+
 	if ( !WebAppAuthentication::isAuthenticated() ) {
 		if (WebAppAuthentication::getErrorCode() === MAPI_E_NETWORK_ERROR) {
-			
+
 			// The user is not logged in because the Kopano Core server could not be reached.
 			// Return a HTTP 503 error so the client can act upon this event correctly.
 			header('HTTP/1.1 503 Service unavailable');
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
-			
+
 		} else {
-			
+
 			// The session expired, or the user is otherwise not logged on.
 			// Return a HTTP 401 error so the client can act upon this event correctly.
 			header('HTTP/1.1 401 Unauthorized');
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
 		}
-		
+
 		die();
 	}
 
@@ -76,13 +78,13 @@
 
 	// Create global dispatcher object
 	$GLOBALS["dispatcher"] = new Dispatcher();
-	
+
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();
-	
+
 	// Create global language object
 	$Language = new Language();
-	
+
 	// Create global settings object
 	$GLOBALS["settings"] = new Settings($Language);
 
@@ -167,4 +169,4 @@
 	// You can skip this as well because the lock is freed after the PHP script ends
 	// anyway. (only for PHP < 5.3.2)
 	$state->close();
-		
+
