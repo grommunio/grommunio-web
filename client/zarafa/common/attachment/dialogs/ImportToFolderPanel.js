@@ -21,6 +21,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 		Ext.applyIf(config, {
 			// Override from Ext.Component
 			xtype : 'zarafa.importtofolderpanel',
+			permissionFilter: Zarafa.core.mapi.Rights.RIGHTS_CREATE,
 			buttons: [{
 				text: _('Import'),
 				handler: this.onImport,
