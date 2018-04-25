@@ -18,6 +18,7 @@
   </testsuite>
   <logging>
     <log type="coverage-html" target="htmlcov" lowUpperBound="35" highLowerBound="70"/>
+    <log type="coverage-clover" target="coverage.xml"/>
     <log type="junit" target="webapp-phptests.xml" logIncompleteSkipped="false"/>
   </logging>
   <!-- blacklist tests for coverage -->

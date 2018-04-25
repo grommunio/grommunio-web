@@ -18,3 +18,4 @@ test: config.php debug.php
 clean:
 	@rm -rf htmlcov
 	@rm -rf webapp-phptests.xml
+	@rm -rf coverage.xml
