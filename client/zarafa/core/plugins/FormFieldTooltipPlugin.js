@@ -44,9 +44,13 @@ Zarafa.core.plugins.FormFieldTooltipPlugin = Ext.extend(Zarafa.core.plugins.Comp
 			// manually apply the qtip on components. here we are not
 			// apply the qtip on wrap object because we want to show tooltip
 			// on components object only and not on wrapper.
-			Ext.each(component.wrap.dom.children, function (childComponent) {
-				childComponent.qtip = component.tooltip;
-			});
+			if (Ext.isDefined(component.wrap)) {
+				Ext.each(component.wrap.dom.children, function (childComponent) {
+					childComponent.qtip = component.tooltip;
+				});
+			} else {
+				component.getEl().dom.qtip = component.tooltip;
+			}
 		}
 	}
 });

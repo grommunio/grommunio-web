@@ -150,8 +150,10 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 
 			if (!Ext.isDefined(record)) {
 				//remove event handlers before template is emptied
-				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderContextMenu, this);
-				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderContextMenu, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderRightClick, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderRightClick, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'mouseenter', this.onMouseEnter, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseenter', this.onMouseEnter, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'dblclick', this.onDoubleClick, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'dblclick', this.onDoubleClick, this);
 				this.senderElem.innerHTML = '';
@@ -169,8 +171,10 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 
 				this.senderTemplate.overwrite(senderElem, record.data);
 				//bind click events after template has been populated
-				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderContextMenu, this);
-				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderContextMenu, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderRightClick, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderRightClick, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'mouseenter', this.onMouseEnter, this, {buffer: 10});
+				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseenter', this.onMouseEnter, this, {buffer: 10});
 				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'dblclick', this.onDoubleClick, this);
 				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'dblclick', this.onDoubleClick, this);
 			}
@@ -179,16 +183,21 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	},
 
 	/**
-	 * handler to show context menu on right click
+	 * Called when user right-clicks on an link in {@link Zarafa.common.ui.messagepanel.SentInfoLinks}
+	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
 	 * @param {Ext.EventObject} evt The mouse event
 	 * @param {HTMLElement} elem The target node
 	 * @param {Object} obj The options configuration passed to the {@link Ext.Element#addListener} call
 	 * @private
 	 */
-	onSenderContextMenu : function(evt, elem, obj)
+	onSenderRightClick: function (evt, elem, obj)
 	{
 		var recipient = this.convertSenderToRecord(elem);
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(recipient, { position : evt.getXY() });
+		var senderElem = Ext.get(this.senderElem);
+		Zarafa.core.data.UIFactory.openHoverCard(recipient, {
+			position: evt.getXY(),
+			recipientView : senderElem
+		});
 	},
 
 	/**
@@ -222,6 +231,22 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 			sender = this.record.getSentRepresenting();
 		}
 		return sender;
+	},
+
+	/**
+	 * Event handler which handel mouse enter event.
+	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
+	 * @param {Ext.EventObject} e The mouse event
+	 * @param {HTMLElement} node The target node
+	 */
+	onMouseEnter: function (e, node)
+	{
+		var recipient = this.convertSenderToRecord(node);
+		var senderElem = Ext.get(this.senderElem);
+		Zarafa.core.data.UIFactory.openHoverCard(recipient, {
+			position: e.getXY(),
+			recipientView : senderElem
+		});
 	}
 });
 

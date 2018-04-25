@@ -122,6 +122,11 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 					bid = 0;
 				}
 				break;
+			case Zarafa.core.data.SharedComponentType['common.hovercard']:
+				if (record instanceof Zarafa.core.data.IPMRecipientRecord) {
+					bid = 1;
+				}
+				break;
 		}
 		return bid;
 	},
@@ -233,6 +238,9 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.flags.dialogs.customflag']:
 				component = Zarafa.common.flags.dialogs.CustomFlagContentPanel;
+				break;
+			case Zarafa.core.data.SharedComponentType['common.hovercard']:
+				component = Zarafa.common.recipientfield.ui.RecipientHoverCardView;
 				break;
 		}
 		return component;

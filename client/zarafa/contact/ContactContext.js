@@ -57,6 +57,8 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 		// Context menu button to add a recipient as contact
 		this.registerInsertionPoint('context.common.recipientfield.contextmenu.actions', this.createContactFromRecipientButton, this);
 
+		// Recipient hover card button to add a recipient as contact
+		this.registerInsertionPoint('context.common.recipientfield.hovercardview.actions', this.createContactFromHoverCardRecipientButton, this);
 		// The tab in the top tabbar
 		this.registerInsertionPoint('main.maintabbar.left', this.createMainTab, this);
 
@@ -441,6 +443,26 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			xtype: 'zarafa.conditionalitem',
 			text: _('Add to contacts'),
 			iconCls: 'icon_new_contact',
+			handler : Zarafa.contact.Actions.openRecipientContactContent,
+			scope: this
+		};
+	},
+
+	/**
+	 * Create "Add to contact list" item for {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView recipienthovercardview}
+	 * in when opening a recipienthovercard
+	 *
+	 * @param {String} insertionPoint The name of the insertion point
+	 * @param {Zarafa.common.recipientfield.ui.RecipientHoverCardView} recipienthovercardview
+	 * @return {Object} The button for creating a new {@link Zarafa.common.recipientfield.ui.RecipientHoverCardButton recipienthovercardbutton}
+	 * @static
+	 */
+	createContactFromHoverCardRecipientButton : function(insertionPoint, recipienthovercardview)
+	{
+		return {
+			xtype: 'zarafa.recipienthovercardbutton',
+			iconCls: 'icon_new_contact',
+			tooltip: _('Add to contacts'),
 			handler : Zarafa.contact.Actions.openRecipientContactContent,
 			scope: this
 		};

@@ -41,6 +41,13 @@ Zarafa.core.data.SharedComponentType = Zarafa.core.Enum.create({
 	/**
 	 * A dialog that views search result
 	 */
-	'common.search' : 5
+	'common.search' : 5,
+
+	/**
+	 * A hover card
+	 * @property
+	 * @type Number
+	 */
+	'common.hovercard': 6
 });
 
