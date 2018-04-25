@@ -62,7 +62,7 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 				xtype: 'zarafa.conditionalitem',
 				text: _('Send e-mail'),
 				iconCls : 'icon_send_email_to_recipient',
-				handler: this.emailRecipient,
+				handler: this.onEmailRecipient,
 				scope: this
 			},
 				container.populateInsertionPoint('context.common.recipientfield.contextmenu.actions', this),
@@ -116,24 +116,9 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 	 *
 	 * @private
 	 */
-	emailRecipient : function()
+	onEmailRecipient : function()
 	{
-		var folder = container.getHierarchyStore().getDefaultFolder('drafts');
-		var context = container.getContextByFolder(folder);
-		var model = context.getModel();
-
-		var record = model.createRecord(folder);
-
-		var recipientStore = record.getRecipientStore();
-		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, this.records.data);
-
-		// Make sure the recipient is of type MAPI_TO, the original recipient might have
-		// been a CC or BCC. But now we want to directly email him.
-		recipientRecord.set('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_TO);
-
-		recipientStore.add(recipientRecord);
-
-		Zarafa.core.data.UIFactory.openCreateRecord(record);
+		Zarafa.common.Actions.onEmailRecipient(this.records);
 	}
 });
 
