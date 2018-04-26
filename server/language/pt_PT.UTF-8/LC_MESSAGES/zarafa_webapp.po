@@ -15,75 +15,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
-#, fuzzy
 msgid "Wk"
 msgstr "Semana"
 
-#, fuzzy
 msgid "Now"
-msgstr "Baixa"
+msgstr "Agora"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "Valor tem que ser entre 0% e 100%"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "Número tem que ser maior que zero"
 
-#, fuzzy
 msgid "More options"
-msgstr "Opï¿½ï¿½es da mensagem"
+msgstr "Mais opções"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
 
 msgid "{0} KB"
 msgid_plural "{0} KB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
 
 msgid "{0} MB"
 msgid_plural "{0} MB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
 
 msgid "{0} GB"
 msgid_plural "{0} GB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
 
 msgid "{0} TB"
 msgid_plural "{0} TB"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
 
-#, fuzzy
 msgid "{0} minute"
 msgid_plural "{0} minutes"
-msgstr[0] "minuto"
-msgstr[1] "minuto"
+msgstr[0] "{0} minuto"
+msgstr[1] "{0} minutos"
 
-#, fuzzy
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] "1 hora"
-msgstr[1] "1 hora"
+msgstr[0] "{0} hora"
+msgstr[1] "{0} horas"
 
-#, fuzzy
 msgid "{0} day"
 msgid_plural "{0} days"
-msgstr[0] "dia"
-msgstr[1] "dia"
+msgstr[0] "{0} dia"
+msgstr[1] "{0} dias"
 
-#, fuzzy
 msgid "{0} week"
 msgid_plural "{0} weeks"
-msgstr[0] "1 semana"
-msgstr[1] "1 semana"
+msgstr[0] "{0} semana"
+msgstr[1] "{0} semanas"
 
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr ""
+msgstr "A rápida raposa castanha salta sobre o preguiçoso cão"
 
 msgid "Sunday"
 msgstr "Domingo"
@@ -92,7 +85,7 @@ msgid "Monday"
 msgstr "Segunda-feira"
 
 msgid "Tuesday"
-msgstr "Terï¿½a-feira"
+msgstr "Terça-feira"
 
 msgid "Wednesday"
 msgstr "Quarta-feira"
@@ -104,7 +97,7 @@ msgid "Friday"
 msgstr "Sexta-feira"
 
 msgid "Saturday"
-msgstr "Sï¿½bado"
+msgstr "Sábado"
 
 msgid "January"
 msgstr "Janeiro"
@@ -113,7 +106,7 @@ msgid "February"
 msgstr "Fevereiro"
 
 msgid "March"
-msgstr "Marï¿½o"
+msgstr "Março"
 
 msgid "April"
 msgstr "Abril"
@@ -143,32 +136,28 @@ msgid "December"
 msgstr "Dezembro"
 
 msgid "Page {A} of {0}"
-msgstr ""
+msgstr "Página {A} de {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr ""
+msgstr "A ver mensagens {0} - {1} de {2}"
 
 msgid "No messages to display"
-msgstr ""
+msgstr "Sem mensagens para mostrar"
 
-#, fuzzy
 msgid "First Page"
-msgstr "Primeira pï¿½gina"
+msgstr "Primeira página"
 
-#, fuzzy
 msgid "Previous Page"
-msgstr "Dia anterior"
+msgstr "Página anterior"
 
-#, fuzzy
 msgid "Next Page"
-msgstr "Prï¿½ximo dia"
+msgstr "Página seguinte"
 
-#, fuzzy
 msgid "Last Page"
-msgstr "ï¿½ltima pï¿½gina"
+msgstr "Última página"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Atualizar"
 
 msgid "Today"
 msgstr "Hoje"
@@ -180,47 +169,45 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "{0} (Spacebar)"
-msgstr ""
+msgstr "{0} (Barra de espaços)"
 
 msgid "This date is before the minimum date"
-msgstr ""
+msgstr "Esta data é anterior à data mínima"
 
 msgid "This date is after the maximum date"
-msgstr ""
+msgstr "Esta data é posterior à data máxima"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr ""
+msgstr "d/m/Y"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Desativado"
 
 msgid "Next Month (Control+Right)"
-msgstr ""
+msgstr "Mês seguinte (Control+Right)"
 
 msgid "Previous Month (Control+Left)"
-msgstr ""
+msgstr "Mês anterior (Control+Left)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr ""
+msgstr "Escolher um mês (Control+Up/Down para escolher anos)"
 
 msgid "Sort Ascending"
-msgstr "Organizar por ascendï¿½ncia"
+msgstr "Ordem ascendente"
 
 msgid "Sort Descending"
-msgstr "Organizar por descendï¿½ncia"
+msgstr "Ordem descendente"
 
 msgid "Columns"
-msgstr ""
+msgstr "Colunas"
 
 msgid "Group By This Field"
-msgstr ""
+msgstr "Agrupar através deste campo"
 
-#, fuzzy
 msgid "Show in Groups"
-msgstr "Grupos"
+msgstr "Mostar por grupos"
 
-#, fuzzy
 msgid "(None)"
 msgstr "(nenhum)"
 
@@ -228,112 +215,109 @@ msgid "Ok"
 msgstr "Ok"
 
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
-#, fuzzy
 msgid "No"
-msgstr "Nov"
+msgstr "Não"
 
 msgid "Loading"
-msgstr "Carregando"
+msgstr "A carregar"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "O valor neste campo é inválido"
 
 msgid "The minimum length for this field is {0}"
-msgstr ""
+msgstr "O comprimento mínimo para este campo é {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr ""
+msgstr "O comprimento máximo para este campo é {0}"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo é obrigatório"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "O valor mínimo para este campo é {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "O valor máximo para este campo é {0}"
 
 msgid "{0} is not a valid number"
-msgstr ""
+msgstr "{0} não é um número válido"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr ""
+msgstr "A data neste campo tem que ser igual ou depois de {0}"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr ""
+msgstr "A data neste campo tem que ser igual ou antes de {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
+msgstr "{0} não é uma data válida - tem que estar no formato {1}"
 
 msgid "You must select at least one item in this group"
-msgstr ""
+msgstr "Tem que selecionar pelo menos um item neste grupo"
 
 msgid "You must select one item in this group"
-msgstr ""
+msgstr "Tem que selecionar um item neste grupo"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr ""
+msgstr "A hora neste campo tem que ser igual ou depois de {0}"
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr ""
+msgstr "A hora neste campo tem que ser igual ou antes de {0}"
 
 msgid "{0} is not a valid time"
-msgstr ""
+msgstr "{0} não é uma hora válida"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
-msgstr ""
+msgstr "G:i"
 
 msgid "Name"
 msgstr "Nome"
 
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 msgid "true"
-msgstr ""
+msgstr "verdadeiro"
 
 msgid "false"
-msgstr ""
+msgstr "falso"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
+"Este campo deve ser um endereço de E-mail no formato \"user@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "Este campo de ser um URL no formato \"{0}\""
 
 msgid "This field should only contain letters and _"
-msgstr ""
+msgstr "Este campo deve apenas conter letras e '_'"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
+msgstr "Este campo deve apenas conter letras, números e '_'"
 
-#, fuzzy
 msgid "E-mail Addresses"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereços de E-mail"
 
-#, fuzzy
 msgid "E-mail addresses"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereços de E-mail"
 
-#, fuzzy
 msgid "Group details"
-msgstr "Grupos"
+msgstr "Detalhes do grupo"
 
 msgid "General"
 msgstr "Geral"
 
 msgid "Display Name"
-msgstr "Nome para exibiï¿½ï¿½o"
+msgstr "Nome a exibir"
 
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 msgid "Owner"
-msgstr "Dono"
+msgstr "Proprietário"
 
 msgid "Notes"
 msgstr "Notas"
@@ -342,61 +326,52 @@ msgid "Members"
 msgstr "Membros"
 
 msgid "Email Address"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereço de E-mail"
 
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
-#, fuzzy
 msgid "Member Of"
-msgstr "Membros"
+msgstr "Membro de"
 
-#, fuzzy
 msgid "Group Membership"
-msgstr "Membros"
+msgstr "Pertence aos grupos"
 
 msgid "Address Book"
-msgstr "Endereï¿½os"
+msgstr "Livro de Endereços"
 
-#, fuzzy
 msgid "User details"
-msgstr "Detalhes"
+msgstr "Detalhes do utilizador"
 
-#, fuzzy
 msgid "First"
-msgstr "Primeiro Nome"
+msgstr "Primeiro"
 
-#, fuzzy
 msgid "Initial"
-msgstr "Confidencial"
+msgstr "Inicial"
 
-#, fuzzy
 msgid "Display"
-msgstr "Nome para exibiï¿½ï¿½o"
+msgstr "Mostrar"
 
-#, fuzzy
 msgid "Last"
 msgstr "Sobrenome"
 
-#, fuzzy
 msgid "Address"
-msgstr "Endereï¿½os"
+msgstr "Morada"
 
 msgid "City"
-msgstr ""
+msgstr "Cidade"
 
-#, fuzzy
 msgid "State"
-msgstr "Status"
+msgstr "Região"
 
 msgid "Zip Code"
-msgstr ""
+msgstr "Código Postal"
 
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 msgid "Title"
-msgstr "Tï¿½tulo"
+msgstr "Título"
 
 msgid "Company"
 msgstr "Empresa"
@@ -405,204 +380,172 @@ msgid "Department"
 msgstr "Departamento"
 
 msgid "Office"
-msgstr "Escritï¿½rio"
+msgstr "Escritório"
 
-#, fuzzy
 msgid "Assistant"
-msgstr "Nome do assistente"
+msgstr "Assistente"
 
 msgid "Phone"
 msgstr "Telefone"
 
-#, fuzzy
 msgid "Organization"
-msgstr "Organizador"
+msgstr "Organização"
 
-#, fuzzy
 msgid "Manager"
-msgstr "Nome do diretor"
+msgstr "Diretor"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "Responde diretamente"
 
 msgid "Phone numbers"
-msgstr "Nï¿½meros de Telefone"
+msgstr "Números de Telefone"
 
 msgid "Business"
 msgstr "Trabalho"
 
-#, fuzzy
 msgid "Business2"
-msgstr "Trabalho"
+msgstr "Trabalho 2"
 
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 msgid "Home"
 msgstr "Casa"
 
-#, fuzzy
 msgid "Home2"
-msgstr "Casa"
+msgstr "Casa 2"
 
 msgid "Mobile"
-msgstr "Celular"
+msgstr "Telemóvel"
 
-#, fuzzy
 msgid "Pager"
-msgstr "Pï¿½gina"
+msgstr "Pager"
 
 msgid "Kopano WebApp"
-msgstr ""
+msgstr "WebApp Kopano"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "Tem que selecionar um ou mais utilizadores."
 
-#, fuzzy
 msgid "You must select a user."
-msgstr "Vocï¿½ deve especificar um usuï¿½rio!"
+msgstr "Tem que selecionar um utilizador."
 
 msgid "Select"
 msgstr "Selecionar"
 
-#, fuzzy
 msgid "Show Details"
-msgstr "Detalhes"
+msgstr "Mostar detalhes"
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Use a barra de procura par obter resultados"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "Pedir confirmaï¿½ï¿½o de recebimento para esta mensagem"
+msgstr "Não existem itens para mostrar nesta lista"
 
-#, fuzzy
 msgid "Show Names from the"
-msgstr "Exibir nomes do"
+msgstr "Exibir Nomes de"
 
 msgid "Search..."
-msgstr ""
+msgstr "Procurar..."
 
-#, fuzzy
 msgid "Sort by: Icon"
-msgstr "Organizar Por ï¿½cone"
+msgstr "Ordenar por: Icone"
 
-#, fuzzy
 msgid "Sort by: Name"
-msgstr "Organizar por nome"
+msgstr "Ordenar por: Nome"
 
-#, fuzzy
 msgid "Sort by: Display Name"
-msgstr "Organizar Por Nome"
+msgstr "Ordenar por: Nome a exibir"
 
 msgid "File as"
-msgstr "Salvar como"
+msgstr "Arquivar como"
 
-#, fuzzy
 msgid "Sort by: File As"
-msgstr "Organizar Por Arquivado Como"
+msgstr "Ordenar por: Arquivar como"
 
 msgid "First Name"
 msgstr "Primeiro Nome"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Ordenar por: Primeiro Nome"
 
 msgid "Last Name"
 msgstr "Sobrenome"
 
-#, fuzzy
 msgid "Sort by: Last Name"
-msgstr "Sobrenome"
+msgstr "Ordenar por: Sobrenome"
 
-#, fuzzy
 msgid "Sort by: Email Address"
-msgstr "Organizar Por Endereï¿½o de E-mail"
+msgstr "Ordenar por: Endereço de E-mail"
 
-#, fuzzy
 msgid "Sort by: Department"
-msgstr "Departamento"
+msgstr "Ordenar por: Departamento"
 
-#, fuzzy
 msgid "Office Phone"
-msgstr "Escritï¿½rio"
+msgstr "Telefone do escritório"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "Ordenar por: Telefone do escritório"
 
-#, fuzzy
 msgid "Sort by: Mobile"
-msgstr "Organizar pasta"
+msgstr "Ordenar por: Telemóvel"
 
-#, fuzzy
 msgid "Home Phone"
-msgstr "Telefone"
+msgstr "Telefone de casa"
 
-#, fuzzy
 msgid "Sort by: Home Phone"
-msgstr "Organizar Por Telefone Residencial"
+msgstr "Ordenar por: Telefone de casa"
 
-#, fuzzy
 msgid "Sort by: Pager"
-msgstr "Organizar por nome"
+msgstr "Ordenar por: Pager"
 
 msgid "Location"
 msgstr "Local"
 
-#, fuzzy
 msgid "Sort by: Location"
-msgstr "Local"
+msgstr "Ordenar por: Local"
 
 msgid "Sort by: Fax"
-msgstr ""
+msgstr "Ordenar por: Fax"
 
-#, fuzzy
 msgid "Any date"
-msgstr "Sem Data Final"
+msgstr "Qualquer data"
 
-#, fuzzy
 msgid "Past week"
-msgstr "Prï¿½xima semana"
+msgstr "Na última semana"
 
-#, fuzzy
 msgid "Past 2 weeks"
-msgstr "%d semanas"
+msgstr "Nas duas últimas semanas"
 
-#, fuzzy
 msgid "Past month"
-msgstr "Prï¿½ximo mï¿½s"
+msgstr "No último mês"
 
-#, fuzzy
 msgid "Past 6 month"
-msgstr "Prï¿½ximo mï¿½s"
+msgstr "Nos últimos seis meses"
 
-#, fuzzy
 msgid "Past year"
-msgstr "Prï¿½ximo ano"
+msgstr "No último ano"
 
-#, fuzzy
 msgid "Custom date"
-msgstr "Cliente chave"
+msgstr "Data personalizada"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Adicionar aos Favoritos"
 
 msgid "Add"
 msgstr "Adicionar"
 
-#, fuzzy
 msgid "You must specify a name."
-msgstr "Vocï¿½ deve especificar um usuï¿½rio!"
+msgstr "Tem de indicar um nome."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Adicionar uma pasta aos favoritos baseada na sua procura"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nome da pasta"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Existe uma mensagem selecionada"
+msgstr "Todas as pastas selecionadas"
 
 msgid "Reply"
 msgstr "Responder"
@@ -611,32 +554,26 @@ msgid "Reply All"
 msgstr "Responder a todos"
 
 msgid "Forward"
-msgstr "Encaminhar"
+msgstr "Reencaminhar"
 
-#, fuzzy
 msgid "Edit as New Message"
-msgstr "Mensagem de E-Mail"
+msgstr "Editar como nova mensagem"
 
-#, fuzzy
 msgid "Search tools"
-msgstr "Pesquisar"
+msgstr "Opções de pesquisa"
 
-#, fuzzy
 msgid "Folders"
-msgstr "Pasta"
+msgstr "Pastas"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Criar sub-pastas"
+msgstr "Incluir subpastas"
 
 msgid "Show.."
-msgstr ""
+msgstr "Mostar.."
 
-#, fuzzy
 msgid "Mails"
-msgstr "E-Mail"
+msgstr "Mensagens"
 
-#, fuzzy
 msgid "Appointments"
 msgstr "Compromisso"
 
@@ -647,17 +584,16 @@ msgid "Tasks"
 msgstr "Tarefas"
 
 msgid "Filter.."
-msgstr ""
+msgstr "Filtrar.."
 
 msgid "Unread"
-msgstr "Nï¿½o Lido"
+msgstr "Por ler"
 
 msgid "Attachments"
 msgstr "Anexos"
 
-#, fuzzy
 msgid "Date"
-msgstr "Data Final"
+msgstr "Data"
 
 msgid "From"
 msgstr "De"
@@ -665,93 +601,92 @@ msgstr "De"
 msgid "To"
 msgstr "Para"
 
-#, fuzzy
 msgid "Search.."
-msgstr "Pesquisar"
+msgstr "Procurar.."
 
 msgid "Sender"
 msgstr "Remetente"
 
-#, fuzzy
 msgid "Recipients"
-msgstr "Organizar Por Recipiente"
+msgstr "Destinatários"
 
 msgid "Subject"
 msgstr "Assunto"
 
-#, fuzzy
 msgid "Body & Attachments"
-msgstr "Adicionar anexos"
+msgstr "Corpo e anexos"
 
 msgid "Favorites"
 msgstr "Favoritos"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Adicionar uma pasta aos favoritos baseada nesta procura"
 
-#, fuzzy
 msgid "Select Folder"
 msgstr "Selecionar pasta"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Eliminar pasta de procura"
 
-#, fuzzy
 msgid "Sort by: Date"
-msgstr "Data de inï¿½cio"
+msgstr "Ordenar por: Data"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "A carregar resultados da procura"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Sugestão de ordenação"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Pode ordenar por data se definir uma procura mais restrita. Ative os filtros "
+"ou altere os termos da procura."
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Queria dizer"
 
 msgid "With"
-msgstr ""
+msgstr "Com"
 
 msgid "No date"
-msgstr ""
+msgstr "Sem data final"
 
-#, fuzzy
 msgid "Error"
-msgstr "Erro HTTP"
+msgstr "Erro"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
+"Não foi possível aceitar a proposta pois este evento não está disponível no "
+"calendário; Pode ter sido movido ou apagado."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
+"Não foi possível mostar a proposta pois este evento não está disponível no "
+"calendário; Pode ter sido movido ou apagado."
 
 msgid "Required"
-msgstr "Necessï¿½rio"
+msgstr "Obrigatório"
 
 msgid "Optional"
-msgstr "Optional"
+msgstr "Opcional"
 
 msgid "Resource"
 msgstr "Recurso"
 
-#, fuzzy
 msgid "Could not open store."
-msgstr "Fechar caixa"
+msgstr "Não foi possível abrir a caixa."
 
 msgid "Could not open default calendar folder."
-msgstr ""
+msgstr "Não foi possível abrir a pasta por defeito do Calendário."
 
 msgid "workday"
-msgstr "dia ï¿½til"
+msgstr "dia útil"
 
 msgid "day"
 msgstr "dia"
@@ -760,16 +695,16 @@ msgid "days"
 msgstr "dias"
 
 msgid "week"
-msgstr "Semana"
+msgstr "semana"
 
 msgid "weeks"
 msgstr "semanas"
 
 msgid " on "
-msgstr ""
+msgstr " em "
 
 msgid "month"
-msgstr "mï¿½s"
+msgstr "mês"
 
 msgid "months"
 msgstr "meses"
@@ -781,120 +716,114 @@ msgid "years"
 msgstr "anos"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Acontece a cada {0} a partir de {1} de {2} até {3}."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr ""
+msgstr "Acontece a cada {0} {1} a partir de {2} de {3} até {4}."
 
 msgid "Occurs every {0} effective {1}."
-msgstr ""
+msgstr "Acontece a cada {0} a partir de {1}."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr ""
+msgstr "Acontece a cada {0} {1} a partir de {2}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada {0} a partir de {1} por {2} vez de {3} até {4}."
+msgstr[1] "Acontece a cada {0} a partir de {1} por {2} vezes de {3} até {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada {0} {1} a partir de {2} por {3} vez de {4} até {5}."
+msgstr[1] "Acontece a cada {0} {1} a partir de {2} por {3} vezes de {4} até {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada {0} a partir de {1} por {2} vez."
+msgstr[1] "Acontece a cada {0} a partir de {1} por {2} vezes."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada {0} {1} a partir de {2} por {3} vez."
+msgstr[1] "Acontece a cada {0} {1} a partir de {2} por {3} vezes."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Acontece a cada {0} a partir de {1} até {2} de {3} até {4}."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr ""
+msgstr "Acontece a cada {0} {1} a partir de {2} até {3} de {4} até {5}."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr ""
+msgstr "Acontece a cada {0} a partir de {1} até {2}."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr ""
+msgstr "Acontece a cada {0} {1} a partir de {2} até {3}."
 
 msgid "When"
 msgstr "Quando"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
-msgstr "l, j \\de F \\de Y \\Ã \\s G:i"
+msgstr "l j F Y G:i"
 
 msgid "Where"
-msgstr ""
+msgstr "Onde"
 
-#, fuzzy
 msgid "New Meeting Time Proposed"
-msgstr "Hora atual da reuniï¿½o"
+msgstr "Nova hora de Reunião proposta"
 
 msgid "and "
-msgstr ""
+msgstr "e "
 
-#, fuzzy
 msgid "Sort by: Attachment"
-msgstr "Organizar Por Anexos"
+msgstr "Ordenar por: Anexos"
 
-#, fuzzy
 msgid "Sort by: Recurring"
-msgstr "Organizar por Reincidï¿½ncia"
+msgstr "Ordenar por: Periódico"
 
-#, fuzzy
 msgid "Sort by: Subject"
-msgstr "Organizar Por Assunto"
+msgstr "Ordenar por: Assunto"
 
 msgid "Startdate"
-msgstr "Data de inï¿½cio"
+msgstr "Data de início"
 
-#, fuzzy
 msgid "Sort by: Startdate"
-msgstr "Organizar por Data de Inï¿½cio"
+msgstr "Ordenar por: Data de início"
 
 msgid "Enddate"
-msgstr "Sem Data Final"
+msgstr "Data de fim"
 
-#, fuzzy
 msgid "Sort by: Enddate"
-msgstr "Organizar por Data Final"
+msgstr "Ordenar por: Data de fim"
 
 msgid "Organizer"
 msgstr "Organizador"
 
 msgid "Required Attendee"
-msgstr "Participante obrigatï¿½rio"
+msgstr "Participante obrigatório"
 
 msgid "Optional Attendee"
 msgstr "Participante opcional"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "Mostrar hora como"
 
 msgid "Start Date"
-msgstr "Data de inï¿½cio"
+msgstr "Data de início"
 
 msgid "End Date"
-msgstr "Data Final"
+msgstr "Data de fim"
 
 msgid "Recurrence pattern"
-msgstr "Padrï¿½o de reincidï¿½ncia"
+msgstr "Padrão de Periocidade"
 
 msgid "All Day Event"
-msgstr "Evento diurno"
+msgstr "Evento dia inteiro"
 
 msgid "Add Shared Calendar"
-msgstr ""
+msgstr "Adicionar calendário partilhado"
 
 msgid "Day"
 msgstr "Dia"
@@ -906,7 +835,7 @@ msgid "Week"
 msgstr "Semana"
 
 msgid "Month"
-msgstr "Mï¿½s"
+msgstr "Mês"
 
 msgid "List"
 msgstr "Lista"
@@ -914,30 +843,26 @@ msgstr "Lista"
 msgid "Appointment"
 msgstr "Compromisso"
 
-#, fuzzy
 msgid "Meeting request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Pedido de reunião"
 
-#, fuzzy
 msgid "Print selected appointment"
-msgstr "Compromisso Privado"
+msgstr "Imprimir compromisso selecionado"
 
-#, fuzzy
 msgid "Print overview"
-msgstr "Imprimir visualizaï¿½ï¿½o"
+msgstr "Imprimir vista geral"
 
 msgid "Print"
 msgstr "Imprimir"
 
-#, fuzzy
 msgid "No appointment selected"
-msgstr "Reincidï¿½ncia do Compromisso"
+msgstr "Nenhum compromisso selecionado"
 
 msgid "Calendar"
-msgstr "Calendï¿½rio"
+msgstr "Calendário"
 
 msgid "F Y"
-msgstr ""
+msgstr "F Y"
 
 msgid "All text fields"
 msgstr "Todos os campos de texto"
@@ -952,428 +877,403 @@ msgid "To or cc"
 msgstr "Para ou cc"
 
 msgid "Meeting"
-msgstr "Reuniï¿½o"
+msgstr "Reunião"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned."
-msgstr "Os recursos foram planejados."
+msgstr "Os recursos foram planeados."
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
+"Uma mensagem de atualização vai ser enviada a todos os destinatários. Deseja "
+"continuar?"
 
-#, fuzzy
 msgid "Send update to attendees"
-msgstr "Convidar Participantes"
+msgstr "Enviar atualização aos participantes"
 
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
-msgstr ""
+msgstr "Foram feitas alterações à lista de participantes. Escolha uma opção"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
+msgstr "Enviar atualizações só para os participantes adicionados ou eliminados."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Enviar atualizações para todos os participantes."
 
 msgid ""
 "One or more attendees you have invited are busy. Are you sure to invite?"
 msgstr ""
+"Um ou mais participantes selecionados estão ocupados. Tem a certeza que quer "
+"convidá-los?"
 
 msgid "Scheduling"
 msgstr "Agendamento"
 
 msgid "Tracking"
-msgstr "Acompanhando"
+msgstr "Acompanhamento"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr ""
+msgstr "Não possível resolver todos os participantes."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr ""
+msgstr "{0} participantes aceitaram, {1} em modo tentativa, {2} recusaram."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
-"participantes propuseram uma nova data para a reuniï¿½o. Por favor clique em "
-"'Agendamento' para detalhes."
+"{0} participantes propuseram uma nova data para a reunião. Por favor clique "
+"em 'Agendamento' para detalhes."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "Propôs uma nova data para essa reunião em {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "{0} propôs uma nova data para esta reunião em {1}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr "Aceito"
+msgstr "Aceite em {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "Aceite por {0} em {1}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr "aceito como tentativa,"
+msgstr "Aceite como tentativa em {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "aceito como tentativa,"
+msgstr "Aceite como tentativa por {0} em {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "A data deste compromisso está ultrapassada."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr "Por favor registre-se"
+msgstr "Por favor responda."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "Não foram recebidas respostas relativas a esta reunião."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr "A reuniï¿½o nï¿½o foi agendada."
+msgstr "A reunião foi cancelada."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "Não foram enviados convites para esta reunião."
 
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Qualquer alteração efetuada será anulada quando o autor do pedido desta "
+"reunião o atualizar"
 
-#, fuzzy
 msgid "Create in"
-msgstr "Criado"
+msgstr "Criar em"
 
 msgid "Time"
 msgstr "Hora"
 
 msgid "until"
-msgstr "atï¿½"
+msgstr "até"
 
 msgid "Recurrence"
-msgstr "Reincidï¿½ncia"
+msgstr "Periocidade"
 
 msgid "Reminder"
 msgstr "Lembrete"
 
 msgid "Show as"
-msgstr ""
+msgstr "Mostrar como"
 
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Anexos não podem ser modificados para uma única ocorrência"
 
 msgid "Type your message here..."
-msgstr ""
+msgstr "Escreva aqui a sua mensagem..."
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr ""
+msgstr "Quer alterar a localização \"{0}\" pela nova localização \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y G:i"
-msgstr "j \\de F \\de Y \\Ã \\s G:i"
+msgstr "j F Y G:i"
 
 msgid "None"
 msgstr "Nenhum"
 
-#, fuzzy
 msgid "Send invitation"
-msgstr "Cancelar Convite"
+msgstr "Enviar convite"
 
 msgid "Send"
 msgstr "Enviar"
 
 msgid "Send invitation to recipients"
-msgstr ""
+msgstr "Enviar convite para os destinatários"
 
 msgid "Save"
-msgstr "Salvar"
+msgstr "Gravar"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "Gravar e fechar"
 
 msgid "Save appointment and close dialog"
-msgstr ""
+msgstr "Gravar compromisso e fechar"
 
 msgid "Save without sending an invitation to recipients"
-msgstr ""
+msgstr "Gravar sem enviar convite aos destinatários"
 
 msgid "Delete"
-msgstr "Excluir"
+msgstr "Eliminar"
 
-#, fuzzy
 msgid "Delete this appointment"
-msgstr "Excluir esta coluna"
+msgstr "Eliminar este compromisso"
 
-#, fuzzy
 msgid "Add attachment"
 msgstr "Adicionar anexos"
 
-#, fuzzy
 msgid "Add attachments to this appointment"
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexos a este compromisso"
 
-#, fuzzy
 msgid "Cannot add attachment"
-msgstr "Adicionar anexos"
+msgstr "Não foi possível adicionar anexo"
 
-#, fuzzy
 msgid "Print this appointment"
-msgstr "Compromisso Privado"
+msgstr "Imprimir este compromisso"
 
-#, fuzzy
 msgid "Check names"
-msgstr "Confere nomes"
+msgstr "Conferir nomes"
 
 msgid "Check all recipient names"
-msgstr ""
+msgstr "Conferir nomes de todos os destinatários"
 
-#, fuzzy
 msgid "Open the recurrence dialog"
-msgstr "Abrir essa occorï¿½ncia"
+msgstr "Abrir opções de periocidade"
 
-#, fuzzy
 msgid "Invite attendees"
-msgstr "Convidar Participantes"
+msgstr "Convidar participantes"
 
 msgid "Invite attendees for this appointment"
-msgstr ""
+msgstr "Convidar participantes para esta reunião"
 
-#, fuzzy
 msgid "Cancel invitation"
-msgstr "Cancelar Convite"
+msgstr "Cancelar convite"
 
 msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
+"Converte este pedido de reunião para um compromisso removendo os "
+"participantes"
 
 msgid "High priority"
 msgstr "Prioridade alta"
 
 msgid "Mark this appointment as high priority"
-msgstr ""
+msgstr "Marcar esta reunião com importância alta"
 
 msgid "Low priority"
 msgstr "Prioridade baixa"
 
 msgid "Mark this appointment as low priority"
-msgstr ""
+msgstr "Marcar esta reunião com importância baixa"
 
 msgid "Categories"
 msgstr "Categorias"
 
-#, fuzzy
 msgid "Open the categories dialog"
-msgstr "Abrir toda a sï¿½rie"
+msgstr "Abrir opções de categorias"
 
 msgid "Private"
-msgstr "Privado"
+msgstr "Privada"
 
 msgid "Mark this appointment as private"
-msgstr ""
+msgstr "Marcar esta reunião como privada"
 
 msgid "Save meeting request and close dialog"
-msgstr ""
+msgstr "Gravar pedido reunião e fechar"
 
-#, fuzzy
 msgid "Proposed Date and Time"
-msgstr "Data e hora final propostas"
+msgstr "Data e hora propostas"
 
 msgid "Duration"
-msgstr "Duraï¿½ï¿½o"
+msgstr "Duração"
 
-#, fuzzy
 msgid "Proposed By"
 msgstr "Proposto por"
 
 msgid "Current Meeting Time"
-msgstr "Hora atual da reuniï¿½o"
+msgstr "Atual hora da reunião"
 
 msgid "Show only working hours"
-msgstr ""
+msgstr "Mostrar apenas horas de trabalho"
 
 msgid "Propose New Time"
 msgstr "Propor nova hora"
 
 msgid "Start time"
-msgstr "Hora de inï¿½cio"
+msgstr "Hora de início"
 
 msgid "End time"
-msgstr "Hora final"
+msgstr "Hora de fim"
 
 msgid "Comment"
-msgstr "Comentï¿½rio"
+msgstr "Comentário"
 
 msgid "Send Meeting Request Cancellation"
-msgstr ""
+msgstr "Enviar cancelamento do pedido de reunião"
 
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
-msgstr ""
+msgstr "Esta reunião será cancelada. Quer editar a resposta antes de enviar?"
 
 msgid "Edit the cancellation before Sending."
-msgstr ""
+msgstr "Editar o cancelamento antes de enviar."
 
 msgid "Send the cancellation now."
-msgstr ""
+msgstr "Enviar cancelamento agora."
 
 msgid "Send Meeting Request Confirmation"
-msgstr ""
+msgstr "Enviar confirmação de pedido de reunião"
 
 msgid ""
 "This meeting has been accepted and will be moved to your Calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
+"Esta reunião foi aceite e vai ser movida para o calendário. Quer editar a "
+"resposta antes de enviar?"
 
 msgid ""
 "This meeting has been tentatively accepted and will be moved to your "
 "Calendar. Do you want to include comments with your response?"
 msgstr ""
+"Esta reunião foi aceite em modo de tentativa e vai ser movida para o "
+"Calendário, Quer editar a resposta?"
 
 msgid ""
 "This meeting has been declined and will be moved to the Deleted Items "
 "folder. Do you want to include comments with your response?"
 msgstr ""
+"Esta reunião foi recusada e vai ser movida para os Itens Eliminados. Quer "
+"editar a resposta antes de enviar?"
 
 msgid "Edit the response before Sending."
-msgstr ""
+msgstr "Editar resposta antes de enviar."
 
-#, fuzzy
 msgid "Send the response now."
-msgstr "Nunca mandar uma resposta"
+msgstr "Enviar resposta agora."
 
-#, fuzzy
 msgid "Don't send a response."
-msgstr "Nunca mandar uma resposta"
+msgstr "Não enviar uma resposta."
 
-#, fuzzy
 msgid "The following responses for this meeting have been received"
-msgstr "As seguintes respostas a esta reuniï¿½o foram recebidas:"
+msgstr "As seguintes respostas a esta reunião foram recebidas"
 
 msgid "Attendance"
 msgstr "Comparecimento"
 
 msgid "Response"
-msgstr "Reaï¿½ï¿½o"
+msgstr "Resposta"
 
-#, fuzzy
 msgid "New appointment"
-msgstr "Compromisso"
+msgstr "Novo compromisso"
 
-#, fuzzy
 msgid "Creating an item"
-msgstr "Criar itens"
+msgstr "A criar item"
 
-#, fuzzy
 msgid "New meeting request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Novo pedido de reunião"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Mudar posição no calendário"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Abrir item selecionado"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Colar item selecionado"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "l, j &#100;e F &#100;e Y"
+msgstr "l j F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr "l, j \\de F"
+msgstr "l j F"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
-msgstr "Inï¿½cio"
+msgstr "Início"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "End"
-msgstr "e"
+msgstr "Fim"
 
 msgid "Organiser"
 msgstr "Organizador"
 
-#, fuzzy
 msgid "Meeting status"
-msgstr "Reuniï¿½o"
+msgstr "Estado da reunião"
 
-#, fuzzy
 msgid "Required Attendees"
-msgstr "Participante obrigatï¿½rio"
+msgstr "Participantes obrigatórios"
 
-#, fuzzy
 msgid "Optional Attendees"
-msgstr "Participante opcional"
+msgstr "Participantes opcionais"
 
-#, fuzzy
 msgid "Resources"
-msgstr "Recurso"
+msgstr "Recursos"
 
 msgid "Sensitivity"
-msgstr "Sensibilidade"
+msgstr "Confidencialidade"
 
 msgid "Importance"
-msgstr "Importï¿½ncia"
+msgstr "Importância"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
-msgstr ""
+msgstr "l d/m/Y"
 
 msgid "General calendar settings"
-msgstr ""
+msgstr "Definições gerais do calendário"
 
 msgid "First day of the week"
-msgstr ""
+msgstr "Primeiro dia da semana"
 
 msgid "Start of workday"
-msgstr "Comeï¿½o do dia de trabalho"
+msgstr "Começo do dia de trabalho"
 
 msgid "End of workday"
 msgstr "Fim do dia de trabalho"
 
-#, fuzzy
 msgid "Calendar resolution"
-msgstr "Visualizaï¿½ï¿½o do Calendï¿½rio"
+msgstr "Vista do Calendário"
 
 msgid "Default appointment duration {A} minutes"
-msgstr ""
+msgstr "Duração por defeito dos compromissos {A} minutos"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "Duração tem que ser entre 1 e 120 minutos."
 
-#, fuzzy
 msgid "Working days"
-msgstr "Dia do fim-de-semana"
+msgstr "Dias de trabalho"
 
 msgid "Mon"
 msgstr "Seg"
@@ -1391,77 +1291,72 @@ msgid "Fri"
 msgstr "Sex"
 
 msgid "Sat"
-msgstr "Sï¿½b"
+msgstr "Sáb"
 
 msgid "Sun"
 msgstr "Dom"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "Mostar datas ocupadas em negrito"
 
 msgid ""
 "Free/busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
+"Informação sobre livre/ocupado é usada no envio dos pedidos de reunião para "
+"determinar quando está disponível para os compromissos."
 
-#, fuzzy
 msgid "Free/Busy permission"
-msgstr "Permissï¿½es da pasta"
+msgstr "Permissões de disponibilidade"
 
 msgid "Publish {A} month(s) of Calendar free/busy information on the server."
-msgstr ""
+msgstr "Publicar {A} meses sobre a disponibilidade no servidor."
 
 msgid "You can only publish a free/busy period from 1 to 36 months."
-msgstr ""
+msgstr "Só é possível publicar a disponibilidade entre 1 a 36 meses."
 
 msgid "Side-by-side mode"
-msgstr ""
+msgstr "Modo lado a lado"
 
 msgid "Overlay mode"
-msgstr ""
+msgstr "Modo de sobreposição"
 
-#, fuzzy
 msgid "Calendar view settings"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Definições de visualização do Calendário"
 
-#, fuzzy
 msgid "View multiple calendars in"
-msgstr "Janela do calendï¿½rio multi-usuï¿½rio"
+msgstr "Ver múltiplos calendários em"
 
-#, fuzzy
 msgid "Reminder settings"
-msgstr "Lembretes"
+msgstr "Definições de lembretes"
 
 msgid "Enable reminder for new appointments"
-msgstr ""
+msgstr "Ativar lembretes para novas reuniões"
 
 msgid "Default reminder time"
-msgstr ""
+msgstr "Tempo por defeito dos lembretes"
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
+msgstr "Tempo por defeito dos lembretes para compromissos dia inteiro"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "l"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
-#, fuzzy
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] "Excluir itens"
-msgstr[1] "Excluir itens"
+msgstr[0] "{0} item selecionado"
+msgstr[1] "{0} itens selecionados"
 
-#, fuzzy
 msgid "New Appointment"
-msgstr "Compromisso"
+msgstr "Novo compromisso"
 
-#, fuzzy
 msgid "New Meeting Request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Novo Pedido de reunião"
 
 msgid "Open"
 msgstr "Abrir"
@@ -1478,606 +1373,545 @@ msgstr "Tentativa"
 msgid "Decline"
 msgstr "Recusar"
 
-#, fuzzy
 msgid "Occurrence"
-msgstr "incidï¿½ncias"
+msgstr "Periocidade"
 
-#, fuzzy
 msgid "Series"
-msgstr "Categorias"
+msgstr "Séries"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "Este compromisso foi movido ou eliminado. Quer continuar?"
 
 msgid "All Day"
 msgstr "Dia inteiro"
 
-#, fuzzy
 msgid "Sort by: All Day"
-msgstr "Dia inteiro"
+msgstr "Ordenar por: Dia inteiro"
 
 msgid "Icon"
-msgstr "ï¿½cone"
+msgstr "Icone"
 
 msgid "Recurring"
-msgstr "Reincidente"
+msgstr "Periódico"
 
-#, fuzzy
 msgid "Sort by: Duration"
-msgstr "Organizar Por Limite"
+msgstr "Ordenar por: Duração"
 
-#, fuzzy
 msgid "Meeting Status"
-msgstr "Reuniï¿½o"
+msgstr "Estado da reunião"
 
-#, fuzzy
 msgid "Sort by: Meeting Status"
-msgstr "Organizar Por Status da bandeira"
+msgstr "Ordenar por: Estado da reunião"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Ordenar por: Mostrar como"
 
-#, fuzzy
 msgid "Sort by: Categories"
-msgstr "Organizar Por Categorias"
+msgstr "Ordenar por: Categorias"
 
-#, fuzzy
 msgid "Created On"
-msgstr "Criado"
+msgstr "Criado em"
 
-#, fuzzy
 msgid "Sort by: Created On"
-msgstr "Organizar Por Criaï¿½ï¿½o"
+msgstr "Ordenar por: Criado em"
 
-#, fuzzy
 msgid "Due By"
 msgstr "Limite em"
 
-#, fuzzy
 msgid "Sort by: Due By"
-msgstr "Organizar Por Limite"
+msgstr "Ordenar por: Limite em"
 
 msgid "Label"
-msgstr "Caracterï¿½stica"
+msgstr "Etiqueta"
 
-#, fuzzy
 msgid "Sort by: Label"
-msgstr "Organizar por ativado"
+msgstr "Ordenar por: Etiqueta"
 
-#, fuzzy
 msgid "Sort by: Organizer"
-msgstr "Organizador"
+msgstr "Ordenar por: Organizador"
 
-#, fuzzy
 msgid "Sort by: Required Attendee"
-msgstr "Participante obrigatï¿½rio"
+msgstr "Ordenar por: Participante obrigatório"
 
-#, fuzzy
 msgid "Sort by: Optional Attendee"
-msgstr "Participante opcional"
+msgstr "Ordenar por: Participante opcional"
 
-#, fuzzy
 msgid "Sort by: Resources"
-msgstr "Recurso"
+msgstr "Ordenar por: Recursos"
 
-#, fuzzy
 msgid "Recurring Startdate"
-msgstr "Organizar por Data de Inï¿½cio"
+msgstr "Data início periodicidade"
 
-#, fuzzy
 msgid "Sort by: Recurring Startdate"
-msgstr "Organizar por Data de Inï¿½cio"
+msgstr "Ordenar por: Data início periodicidade"
 
-#, fuzzy
 msgid "Recurring Enddate"
-msgstr "Reincidente"
+msgstr "Data fim periodicidade"
 
-#, fuzzy
 msgid "Sort by: Recurring Enddate"
-msgstr "Organizar por Reincidï¿½ncia"
+msgstr "Ordenar por: Data fim periodicidade"
 
-#, fuzzy
 msgid "Recurring Pattern"
-msgstr "Padrï¿½o de reincidï¿½ncia"
+msgstr "Padrão de periodicidade"
 
-#, fuzzy
 msgid "Sort by: Recurring Pattern"
-msgstr "Organizar por Reincidï¿½ncia"
+msgstr "Ordenar por: Padrão de periodicidade"
 
-#, fuzzy
 msgid "Sort by: Reminder"
-msgstr "Organizar Por Remetente"
+msgstr "Ordenar por: Lembrete"
 
-#, fuzzy
 msgid "Sort by: Sensitivity"
-msgstr "Sensibilidade"
+msgstr "Ordenar por: Confidencialidade"
 
-#, fuzzy
 msgid "Loading appointments"
-msgstr "Compromisso reincidente"
+msgstr "A carregar compromissos"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F G:i"
-msgstr "j \\de F \\de Y \\Ã \\s G:i"
+msgstr "j F G:i"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
 msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr ""
+msgstr "A hora da reunião foi alterada. Escolha uma opção:"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Guardar alterações e enviar uma atualização a todos os destinatários"
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "Abrir pedido de reunião com alterações"
 
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "a meeting request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "um pedido de reunião"
 
-#, fuzzy
 msgid "an appointment"
-msgstr "Compromisso"
+msgstr "um compromisso"
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "Permissões insuficientes"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Não tem permissões suficientes para mover "
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Proposed"
 msgstr "Proposto"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "When"
 msgstr "Quando"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Local"
 
-#, fuzzy
 msgid "Remove From Calendar"
-msgstr "Remover do calendï¿½rio"
+msgstr "Remover do calendário"
 
 msgid "Not Current"
-msgstr ""
+msgstr "Desatualizado"
 
 msgid "Meeting Request is out of date"
-msgstr ""
+msgstr "Pedido de reunião expirado"
 
-#, fuzzy
 msgid "No Response Required"
-msgstr "Sem resposta"
+msgstr "Sem resposta necessária"
 
-#, fuzzy
 msgid "Accept Meeting Request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Aceitar pedido de reunião"
 
-#, fuzzy
 msgid "Tentatively Accept Meeting Request"
-msgstr "aceito como tentativa,"
+msgstr "Aceitar pedido de reunião em modo de tentativa"
 
-#, fuzzy
 msgid "Decline Meeting Request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Recusar pedido de reunião"
 
-#, fuzzy
 msgid "Propose New Time for Meeting Request"
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "Propor nova hora para o pedido de reunião"
 
 msgid "View All Proposals"
-msgstr ""
+msgstr "Ver todas as propostas"
 
 msgid "Accept Proposal"
-msgstr ""
+msgstr "Aceitar proposta"
 
-#, fuzzy
 msgid "Accept Proposed Time"
-msgstr "Propor nova hora"
+msgstr "Aceitar hora proposta"
 
-#, fuzzy
 msgid "View in calendar"
-msgstr "Janela do calendï¿½rio multi-usuï¿½rio"
+msgstr "Ver no calendário"
 
 msgid "This meeting request is out-of-date and will now be deleted."
-msgstr ""
+msgstr "Este pedido de reunião expirou e vai ser eliminado."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr ""
+"O calendário foi atualizado automaticamente. Este pedido de reunião vai ser "
+"eliminado."
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "G"
-msgstr "GB"
+msgstr "G"
 
-#, fuzzy
 msgid "Printing of multiple items has not been implemented."
-msgstr "Este tipo de mensagem ainda nï¿½o foi implementada"
+msgstr "Imprimir múltiplos itens ainda não foi implementado."
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "A impressão deste item ainda não está disponível"
 
 msgid "Item type: "
-msgstr ""
+msgstr "Tipo de item: "
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "A impressão desta vista ainda não está disponível"
 
-#, fuzzy
 msgid "Recurring Message"
-msgstr "Reincidente"
+msgstr "Mensagem de periodicidade"
 
-#, fuzzy
 msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
 "series?"
-msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+msgstr "Isto é uma mensagem periódica. Quer abrir só esta ou a série completa?"
 
-#, fuzzy
 msgid "Recurring Appointment"
-msgstr "Compromisso reincidente"
+msgstr "Compromisso periódico"
 
 msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
 "the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um compromisso periódico. Quer abrir só este ou a série completa?"
 
-#, fuzzy
 msgid "Recurring Meeting Request"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Pedido de reunião periódico"
 
-#, fuzzy
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um pedido de reunião periódico. Quer abrir só este ou a série "
+"completa?"
 
-#, fuzzy
 msgid "Recurring Task Request"
-msgstr "Compromisso reincidente"
+msgstr "Pedido de tarefa periódico"
 
-#, fuzzy
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um pedido de tarefa periódico. Quer abrir só este ou a série completa?"
 
 msgid "Open this occurrence"
-msgstr "Abrir essa occorï¿½ncia"
+msgstr "Abrir só esta"
 
 msgid "Open the series"
-msgstr "Abrir toda a sï¿½rie"
+msgstr "Abrir a série completa"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Periódico passado {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
+msgstr "Isto é uma mensagem periódica. Quer abrir só esta ou a série completa?"
 
 msgid "message"
-msgstr ""
+msgstr "mensagem"
 
 msgid "meeting request"
-msgstr ""
+msgstr "pedido de reunião"
 
 msgid "appointment"
-msgstr ""
+msgstr "compromisso"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Colar só esta ocorrência"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Colar a série..."
 
-#, fuzzy
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é uma mensagem periódica. Quer eliminar só esta ou a série completa?"
 
-#, fuzzy
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um compromisso periódico. Quer eliminar só este ou a série completa?"
 
-#, fuzzy
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um pedido de reunião periódico. Quer eliminar só este ou a série "
+"completa?"
 
-#, fuzzy
 msgid ""
 "This is a recurring task request. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
-"Essa ï¿½ uma reuniï¿½o reincidente. Vocï¿½ deseja abrir somente essa "
-"occorï¿½ncia ou a sï¿½rie completa?"
+"Isto é um pedido de tarefa periódico. Quer eliminar só este ou a série "
+"completa?"
 
 msgid "Delete this occurrence"
-msgstr "Deletar essa occorï¿½ncia"
+msgstr "Eliminar só este"
 
 msgid "Delete the series"
-msgstr "Excluir a sï¿½rie"
+msgstr "Eliminar a série completa"
 
 msgid "Confirm Delete"
-msgstr "Corfirmar exclusï¿½o"
+msgstr "Confirmar"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "O compromisso \"{0}\" já tinha sido aceite."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "Não respondeu ao pedido de reunião \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr ""
+msgstr "Eliminar e enviar uma resposta ao organizador"
 
-#, fuzzy
 msgid "Delete without sending"
-msgstr "Excluir a sï¿½rie"
+msgstr "Eliminar sem enviar"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 msgstr ""
+"Uma mensagem de cancelamento vai ser enviada a todos os destinatários. "
+"Deseja continuar?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Completo"
+msgstr "Eliminar tarefa por terminar"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "A tarefa \"{0}\" não foi terminada. Que pretende fazer?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Recusar e eliminar"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Marcar completo"
+msgstr "Marcar como terminada e eliminar"
 
-#, fuzzy
 msgid ""
 "The sender of this message has asked to be notified when you read this "
 "message. Do you wish to notify the sender?"
 msgstr ""
-"O remetente pediu para ser notificado sobre o recebimento desta mensagem"
+"O remetente pediu para ser notificado quando ler esta mensagem. Deseja "
+"enviar a notificação?"
 
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
-#, fuzzy
 msgid "Insert item"
-msgstr "Criar itens"
+msgstr "Inserir item"
 
-#, fuzzy
 msgid "Items:"
-msgstr "Itens"
+msgstr "Itens:"
 
 msgid "Look in:"
-msgstr ""
+msgstr "Ver em:"
 
 msgid "Insert as"
-msgstr ""
+msgstr "Inserir como"
 
-#, fuzzy
 msgid "Text only"
-msgstr "Prï¿½ximo mï¿½s"
+msgstr "Só texto"
 
-#, fuzzy
 msgid "Attachment"
-msgstr "Anexos"
+msgstr "Anexo"
 
-#, fuzzy
 msgid "Attach Item"
-msgstr "Anexos"
+msgstr "Anexar item"
 
-#, fuzzy
 msgid "No message selected"
-msgstr "Existe uma mensagem selecionada"
+msgstr "Nenhuma mensagem selecionada"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Importante"
+msgstr "Importar para"
 
-#, fuzzy
 msgid "Import"
-msgstr "Importante"
+msgstr "Importar"
 
 msgid "New folder"
 msgstr "Nova pasta"
 
-#, fuzzy
 msgid "Download as ZIP"
-msgstr "Baixar"
+msgstr "Transferir como ZIP"
 
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Estes anexos têm um tipo de ficheiro não suportado e não podem ser "
+"adicionados ao ficheiro ZIP:"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Deseja continuar a transferência sem adicionar estes ficheiros?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"Continuar sempre com a transferência dos ficheiros ZIP sem adicionar "
+"ficheiros não suportados."
 
-#, fuzzy
 msgid "File upload"
-msgstr "Salvar como"
+msgstr "Enviar ficheiro"
 
-#, fuzzy
 msgid "Attach item"
-msgstr "Anexos"
+msgstr "Anexar item"
 
-#, fuzzy
 msgid "Preview"
-msgstr "Imprimir visualizaï¿½ï¿½o"
+msgstr "Pré-visualização"
 
 msgid "Download"
-msgstr "Baixar"
+msgstr "Transferir"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Transferir tudo como ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Esvaziar pastas"
+msgstr "Importar para a pasta"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3+"
 msgstr ""
+"Para poder usar a funcionalidade de importar Vcard's, por favor atualize o "
+"Kopano Core para uma versão superior à 8.3"
 
-#, fuzzy
 msgid "Attachment error"
-msgstr "Anexos"
+msgstr "Erro Anexo"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "Não é possível criar ZIP. O tamanho máximo é 30 MB."
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "Formato da imagem não suportado. "
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "Os formatos de imagem suportados são"
 
-#, fuzzy
 msgid "Attachment Error"
-msgstr "Anexos"
+msgstr "Erro Anexo"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gerir Categorias"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid "New"
 msgstr "Novo"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Eliminar categoria"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
+"Tem a certeza que quer apagar a categoria \"{0}?\" Itens anteriormente "
+"atribuídos a esta categoria não serão afetados."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Alterar nome da categoria"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Uma categoria chamada \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Criar nova Categoria"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Marcar para acesso rápido"
 
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Tem que aplicar as modificações efetuadas nas categorias antes de poder "
+"criar esta categoria."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "Já tem uma categoria com o nome '{0}'. Por favor use outro nome."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Já tem uma categoria com o nome '{0}' nas modificações por aplicar. Por "
+"favor use outro nome."
 
 msgid "Rename"
-msgstr ""
+msgstr "Alterar nome"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Esta é a primeira vez que usou a categoria \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Tem certeza que quer alterar o nome?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"A categoria \"{}\" já existe. Quer juntar numa a categoria \"{1}\" e \"{2}\"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Fundir"
 
 msgid "Remove"
 msgstr "Remover"
 
 msgid "Check Names"
-msgstr "Confere nomes"
+msgstr "Conferir nomes"
 
-#, fuzzy
 msgid "Select an address to use"
-msgstr "Selecione o endereï¿½o a ser usado"
+msgstr "Selecione o endereço a usar"
 
 msgid "Email"
 msgstr "Email"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "Mais de que um '{0}' encontrado."
 
 msgid "Alert"
-msgstr ""
+msgstr "Alerta"
 
-#, fuzzy
 msgid "Please select a recipient"
-msgstr "Favor selecionar um contato"
+msgstr "Por favor selecionar um contato"
 
 msgid "Mail and Post"
-msgstr "Mensagem e Correio"
+msgstr "Correio e publicação"
 
 msgid "Contact"
 msgstr "Contato"
 
 msgid "Journal"
-msgstr "Diï¿½rio"
+msgstr "Diário"
 
 msgid "Note"
 msgstr "Nota"
@@ -2089,40 +1923,39 @@ msgid "Inbox"
 msgstr "Caixa de Entrada"
 
 msgid "Entire Inbox"
-msgstr ""
+msgstr "Caixa inteira"
 
 msgid "Secretary"
-msgstr "Secretï¿½rio(a)"
+msgstr "Assistente"
 
 msgid "Only read"
-msgstr "Somente lido"
+msgstr "Só ler"
 
-#, fuzzy
 msgid "Delegate Permissions"
-msgstr "Permissï¿½es"
+msgstr "Delegar permissões"
 
-#, fuzzy
 msgid "This delegate has the following permissions"
-msgstr "Com as seguintes propriedades"
+msgstr "Este utilizador tem as seguintes permissões"
 
 msgid "Delegate can see my private items."
-msgstr ""
+msgstr "Utilizador pode ver os meus itens privados."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr ""
+"Utilizador recebe cópias das mensagens enviadas para mim relacionadas com a "
+"reunião."
 
 msgid "Other"
 msgstr "Outro"
 
 msgid "No delegate exists"
-msgstr ""
+msgstr "Não existem utilizadores com permissões"
 
 msgid "Loading delegates"
-msgstr ""
+msgstr "A carregar utilizadores"
 
-#, fuzzy
 msgid "Please select a delegate."
-msgstr "Por favor selecione pasta"
+msgstr "Por favor selecione utilizador."
 
 msgid ""
 "Delegates can send items on your behalf. To grant permission to others to "
@@ -2130,279 +1963,258 @@ msgid ""
 "go to properties for each folder and change the options on the Permissions "
 "Tab."
 msgstr ""
+"Utilizadores nesta lista podem enviar itens em seu nome. Para atribuir "
+"permissões a pastas sem conceder a permissão de \"enviar em nome de\", aceda "
+"às propriedades."
 
-#, fuzzy
 msgid "Permission"
-msgstr "Permissï¿½es"
+msgstr "Nível de permissão"
 
 msgid "Delegate already exists in the list."
-msgstr ""
+msgstr "Utilizador já existe na lista."
 
 msgid "Copy/Move Folder"
 msgstr "Copiar/Mover pasta"
 
-#, fuzzy
 msgid "Copy/Move Messages"
-msgstr "Copiar/Mover mensagem"
+msgstr "Copiar/Mover mensagens"
 
 msgid "Move"
 msgstr "Mover"
 
 msgid "Destination folder"
-msgstr "Pasta destino"
+msgstr "Pasta de destino"
 
-#, fuzzy
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "Existe uma mensagem selecionada"
-msgstr[1] "Existe uma mensagem selecionada"
+msgstr[0] "Existe {0} mensagem selecionada."
+msgstr[1] "Existem {0} mensagens selecionadas."
 
 msgid "Folder '{0}' selected."
-msgstr ""
+msgstr "Pasta '{0}' selecionada."
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Não mostrar esta mensagem outra vez."
 
 msgid "Set custom flag"
-msgstr ""
+msgstr "Marcar bandeira personalizada"
 
-#, fuzzy
 msgid "Start date"
-msgstr "Data de inï¿½cio"
+msgstr "Data de início"
 
-#, fuzzy
 msgid "End date"
-msgstr "Sem Data Final"
+msgstr "Data de fim"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Amanhã"
 
 msgid "This week"
-msgstr ""
+msgstr "Esta semana"
 
 msgid "Next week"
-msgstr ""
+msgstr "Na próxima semana"
 
-#, fuzzy
 msgid "Custom"
-msgstr "Cliente chave"
+msgstr "Personalizado"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Lembrete"
+msgstr "Definir Lembrete"
 
 msgid "Complete"
 msgstr "Completo"
 
 msgid "today"
-msgstr ""
+msgstr "hoje"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "amanhã"
 
 msgid "this week"
-msgstr ""
+msgstr "esta semana"
 
 msgid "next week"
-msgstr ""
+msgstr "na próxima semana"
 
-#, fuzzy
 msgid "Edit recipient"
-msgstr "Organizar Por Recipiente"
+msgstr "Editar destinatário"
 
-#, fuzzy
 msgid "Select attendees"
-msgstr "Selecionar data"
+msgstr "Selecionar participantes"
 
-#, fuzzy
 msgid "Suggested Times"
-msgstr "Selecionar campos"
+msgstr "Datas sugeridas"
 
 msgid "Busy"
 msgstr "Ocupado"
 
 msgid "Out of Office"
-msgstr "Ausente"
+msgstr "Fora do escritório"
 
 msgid "No Information"
-msgstr "Nenhuma Informaï¿½ï¿½o"
+msgstr "Nenhuma Informação"
 
 msgid "Show non-working hours"
-msgstr ""
+msgstr "Mostar fora das horas de trabalho"
 
 msgid "Hide non-working hours"
-msgstr ""
+msgstr "Esconder fora das horas de trabalho"
 
 msgid "No freebusy information available for this date"
-msgstr ""
+msgstr "Sem informação disponível para esta data"
 
 msgid "No suggestions available"
-msgstr ""
+msgstr "Nenhuma sugestão disponível"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
+"Alternar entre diferentes contextos e.g. caixa de entrada. calendário, etc."
 
-#, fuzzy
 msgid "Basic navigation"
-msgstr "Cancelar Convite"
+msgstr "Navegação básica"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "Alternar entre vistas diferentes"
 
-#, fuzzy
 msgid "New item"
-msgstr "Ler itens"
+msgstr "Novo item"
 
-#, fuzzy
 msgid "All views"
-msgstr "Todas as pastas"
+msgstr "Todas as vistas"
 
-#, fuzzy
 msgid "Close tab"
-msgstr "Fechar"
+msgstr "Fechar aba"
 
-#, fuzzy
 msgid "Print item"
-msgstr "Editar itens"
+msgstr "Imprimir item"
 
 msgid "Items"
 msgstr "Itens"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Gravar um item e.g. mensagem, contato, etc."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Enviar um item e.g. mensagem, pedido de reunião, etc."
 
-#, fuzzy
 msgid "Select all items"
-msgstr "Selecionar data"
+msgstr "Selecionar todos os itens"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "Estender seleção até ao primeiro item da lista"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "Estender seleção até ao último item da lista"
 
-#, fuzzy
 msgid "Open selected item"
-msgstr "Excluir arquivo selecionado"
+msgstr "Abrir item selecionado"
 
-#, fuzzy
 msgid "Open dialog to categorize selected item"
-msgstr "Restaurar os itens selecionados"
+msgstr "Abrir opções para categorizar itens selecionados"
 
-#, fuzzy
 msgid "Print list"
-msgstr "Imprimir"
+msgstr "Imprimir lista"
 
-#, fuzzy
 msgid "Print selected item"
-msgstr "Deletar os itens selecionados permanentemente"
+msgstr "Imprimir item selecionado"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "Abrir opções de copiar/mover"
 
-#, fuzzy
 msgid "Delete selected item"
-msgstr "Excluir arquivo selecionado"
+msgstr "Eliminar item selecionado"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Eliminar o item selecionado sem o mover para a pasta Itens Eliminados. O "
+"item poderá ser recuperado na mesma."
 
-#, fuzzy
 msgid "Display name"
-msgstr "Nome para exibiï¿½ï¿½o"
+msgstr "Nome a mostrar"
 
-#, fuzzy
 msgid "E-mail address"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereço E-mail"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
+"A lista de distribuição vai ser substituída pelos seu membros. Não vai ser "
+"possível voltar à forma inicial."
 
-#, fuzzy
 msgid "Edit Recipient"
-msgstr "Organizar Por Recipiente"
+msgstr "Editar Destinatário"
 
-#, fuzzy
 msgid "Copy e-mail address"
-msgstr "Novo endereï¿½o de e-mail"
+msgstr "Novo endereço de E-mail"
 
-#, fuzzy
 msgid "Send e-mail"
-msgstr "Enviar nova mensagem"
+msgstr "Enviar mensagem"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Eliminar destinatário da lista de sugestões"
 
 msgid "View recipient"
-msgstr ""
+msgstr "Ver destinatário"
 
 msgid "Weekday"
 msgstr "Dia da semana"
 
-#, fuzzy
 msgid "Weekend Day"
 msgstr "Dia do fim-de-semana"
 
 msgid "1st"
-msgstr "1ï¿½"
+msgstr "1º"
 
 msgid "2nd"
-msgstr "2ï¿½"
+msgstr "2º"
 
 msgid "3rd"
-msgstr "3ï¿½"
+msgstr "3º"
 
 msgid "4th"
-msgstr "4ï¿½"
+msgstr "4º"
 
 msgid "last"
-msgstr "ï¿½ltimo"
+msgstr "último"
 
 msgid "Every {A} day(s)"
-msgstr ""
+msgstr "Todos {A} dia(s)"
 
-#, fuzzy
 msgid "Every weekday"
-msgstr "dia da semana"
+msgstr "Todos os dias da semana"
 
-#, fuzzy
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr "Me mande um relatï¿½rio de status quando a tarefa for completa"
+msgstr "Refazer nova tarefa {A} dia(s) depois de cada tarefa ser concluída"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr ""
+msgstr "Dia {A} de todos os {B} meses"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr ""
+msgstr "Os {A} {B} de todos os {C} meses"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "Refazer nova tarefa {A} meses depois de cada tarefa ser concluída"
 
 msgid "Appointment Recurrence"
-msgstr "Reincidï¿½ncia do Compromisso"
+msgstr "Periocidade do Compromisso"
 
 msgid "Remove Recurrence"
-msgstr "Remover reincidï¿½ncia"
+msgstr "Remover periocidade"
 
 msgid ""
 "This will discard any exceptions which might have been made for this "
 "recurring series. Do you wish to continue?"
 msgstr ""
+"Vai perder qualquer exceção que tenha definido para esta série periódica. "
+"Deseja continuar?"
 
-#, fuzzy
 msgid "Task Recurrence"
-msgstr "Reincidï¿½ncia"
+msgstr "Periocidade da tarefa"
 
 msgid "Daily"
-msgstr "Diï¿½ria"
+msgstr "Diária"
 
 msgid "Weekly"
 msgstr "Semanal"
@@ -2414,289 +2226,254 @@ msgid "Yearly"
 msgstr "Anual"
 
 msgid "Range of recurrence"
-msgstr "Escala de reincidï¿½ncia"
+msgstr "Escala da periocidade"
 
 msgid "No end date"
 msgstr "Sem data final"
 
-#, fuzzy
 msgid "End after {A} occurrences"
-msgstr "para %d ocorrï¿½ncias"
+msgstr "Acaba após {A}"
 
-#, fuzzy
 msgid "End by {A}"
-msgstr "Fim"
+msgstr "Acaba em {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "Duração do evento: {D} {H} {M}"
 
-#, fuzzy
 msgid "Every {A} week(s) on"
-msgstr "semana(s) na"
+msgstr "A cada {A} semana em"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
+msgstr "Refazer nova tarefa {A} semana(s) depois de cada tarefa ser concluída"
 
 msgid "Every {A} {B}"
-msgstr ""
+msgstr "A cada {A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr ""
+msgstr "O {A} {B} de {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "Refazer nova tarefa {A} ano(s) depois de cada tarefa ser concluída"
 
 msgid "Info"
-msgstr ""
+msgstr "Informação"
 
 msgid "Not supported at the moment."
-msgstr ""
+msgstr "Não suportado atualmente."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Existe um mais um item"
-msgstr[1] "Existe um mais um item"
+msgstr[0] "Existe {0} lembrete"
+msgstr[1] "Existem {0} lembretes"
 
 msgid "Reminders"
 msgstr "Lembretes"
 
-#, fuzzy
 msgid "Due In"
 msgstr "Limite em"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Due"
-msgstr "Dez"
+msgstr "Em"
 
-#, fuzzy
 msgid "Reminder time"
-msgstr "Lembrete"
+msgstr "Hora Lembrete"
 
 msgid "Dismiss All"
-msgstr "Ignorar todos"
+msgstr "Dispensar todos"
 
 msgid "Open Item"
 msgstr "Abrir item"
 
 msgid "Dismiss"
-msgstr "Ignorar"
+msgstr "Dispensar"
 
-#, fuzzy
 msgid "Click Snooze to be reminded again in"
-msgstr "Aperte Soneca para ser lembrado novamente em:"
+msgstr "Clique Suspender para ser lembrado novamente em"
 
 msgid "Snooze"
-msgstr "Soneca"
+msgstr "Suspender"
 
-#, fuzzy
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] "%d lembretes selecionados"
-msgstr[1] "%d lembretes selecionados"
+msgstr[0] "{0} lembrete selecionado."
+msgstr[1] "{0} lembretes selecionados."
 
-#, fuzzy
 msgid "Restore Softdeleted Items"
-msgstr "Restaurar itens deletados"
+msgstr "Recuperar itens Eliminados"
 
-#, fuzzy
 msgid "Restore From {0}"
-msgstr "Restaurar Itens"
+msgstr "Recuperar de {0}"
 
 msgid "Restore"
-msgstr "Restaurar"
+msgstr "Recuperar"
 
 msgid "Restore All"
-msgstr ""
+msgstr "Recuperar todos"
 
 msgid "Permanent Delete"
-msgstr ""
+msgstr "Eliminar definitivamente"
 
 msgid "Delete All"
-msgstr ""
+msgstr "Eliminar todos"
 
-#, fuzzy
 msgid "Messages"
-msgstr "Opï¿½ï¿½es da mensagem"
+msgstr "Mensagens"
 
-#, fuzzy
 msgid "Are you sure you want to Permanently Delete all items?"
-msgstr ""
-"Vocï¿½ tem certeza de que quer excluir o(s) iten(s) selecionados "
-"permanentemente?"
+msgstr "Tem certeza de que quer eliminar todos os itens definitivamente?"
 
-#, fuzzy
 msgid "Are you sure you want to Restore all items?"
-msgstr "Vocï¿½ tem certeza que quer excluir o(s) item(s) selecionados"
+msgstr "Tem certeza que quer recuperar todos os itens?"
 
-#, fuzzy
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] "%s itens recuperï¿½veis"
-msgstr[1] "%s itens recuperï¿½veis"
+msgstr[0] "Total {0} item recuperável"
+msgstr[1] "Total {0} itens recuperáveis"
 
-#, fuzzy
 msgid "Deleted On"
-msgstr "Deletado em"
+msgstr "Eliminado em"
 
-#, fuzzy
 msgid "Sort by: Deleted On"
-msgstr "Deletado em"
+msgstr "Ordenar por: Removido em"
 
 msgid "Item Count"
-msgstr ""
+msgstr "Número de itens"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "Ordenar por: Número de itens"
 
 msgid "Sort by: From"
-msgstr ""
+msgstr "Ordenar por: De"
 
 msgid "Received"
 msgstr "Recebido"
 
-#, fuzzy
 msgid "Sort by: Received"
-msgstr "Organizar Por Data de Recebimento"
+msgstr "Ordenar por: Data de Recebimento"
 
 msgid "Size"
 msgstr "Tamanho"
 
-#, fuzzy
 msgid "Sort by: Size"
-msgstr "Organizar Por Tamanho"
+msgstr "Ordenar por: Tamanho"
 
 msgid "Move the message to folder ..."
-msgstr ""
+msgstr "Mover a mensagem para a pasta ..."
 
-#, fuzzy
 msgid "Copy the message to folder ..."
-msgstr "Copiar/Mover mensagens selecionadas para"
+msgstr "Copiar a mensagem para a pasta ..."
 
 msgid "Delete the message"
-msgstr "Excluir mensagem"
+msgstr "Eliminar a mensagem"
 
-#, fuzzy
 msgid "Redirect the message to ..."
-msgstr "Excluir mensagem"
+msgstr "Redirecionar a mensagem para ..."
 
-#, fuzzy
 msgid "Forward the message to ..."
-msgstr "Vocï¿½ encaminhou essa mensagem em %s"
+msgstr "Reencaminhar a mensagem para ..."
 
 msgid "Forward the message as attachment to ..."
-msgstr ""
+msgstr "Reencaminhar a mensagem como anexo para ..."
 
 msgid "is received from ..."
-msgstr ""
+msgstr "recebida de ..."
 
 msgid "includes these words in the sender's address ..."
-msgstr ""
+msgstr "inclui estas palavras no endereço do remetente ..."
 
 msgid "includes these words in the subject ..."
-msgstr ""
+msgstr "inclui estas palavras no assunto ..."
 
 msgid "includes these words in the body ..."
-msgstr ""
+msgstr "inclui estas palavras no corpo da mensagem ..."
 
 msgid "includes these words in the transport-headers ..."
-msgstr ""
+msgstr "inclui estas palavras no cabeçalho de transporte ..."
 
-#, fuzzy
 msgid "has importance ..."
-msgstr "Importï¿½ncia"
+msgstr "tem importância ..."
 
 msgid "has an attachment"
-msgstr ""
+msgstr "tem anexos"
 
 msgid "is sent to ..."
-msgstr ""
+msgstr "enviada para ..."
 
-#, fuzzy
 msgid "is sent only to me"
-msgstr "Envie somente para mim"
+msgstr "enviada só para mim"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "tem o meu nome no campo Cc"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "tem o meu nome no campo Para ou Cc"
 
 msgid "has sensitivity"
-msgstr ""
+msgstr "tem confidencialidade"
 
 msgid "is received after"
-msgstr ""
+msgstr "recebida após"
 
 msgid "is received before"
-msgstr ""
+msgstr "recebida antes"
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "tem o meu nome no campo Para"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "recebida (todas as mensagens)"
 
-#, fuzzy
 msgid "Select one..."
-msgstr "Selecionar pasta"
+msgstr "Selecionar um..."
 
-#, fuzzy
 msgid "Unnamed folder"
-msgstr "Renomear pasta"
+msgstr "Pasta sem nome"
 
-#, fuzzy
 msgid "Add action"
-msgstr "Adicione um nome"
+msgstr "Adicionar ação"
 
-#, fuzzy
 msgid "Remove action"
-msgstr "Remover grupo"
+msgstr "Remover ação"
 
-#, fuzzy
 msgid "Unknown action"
-msgstr "Erro desconhecido"
+msgstr "Ação desconhecida"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "Esta ação para a regra atual é desconhecida"
 
 msgid "Add condition"
-msgstr ""
+msgstr "Adicionar condição"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "Remover condição"
 
-#, fuzzy
 msgid "Unknown condition"
-msgstr "Erro desconhecido"
+msgstr "Condição desconhecida"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "Esta condição para esta regra é desconhecida"
 
-#, fuzzy
 msgid "Inbox Rule"
-msgstr "Caixa de Entrada"
+msgstr "Regra de Caixa de Entrada"
 
 msgid "Rule name"
 msgstr "Nome da regra"
 
-#, fuzzy
 msgid "When the message"
-msgstr "Excluir mensagem"
+msgstr "Quando a mensagem"
 
-#, fuzzy
 msgid "Do the following"
-msgstr "Executar seguinte aï¿½ï¿½o"
+msgstr "Executar o seguinte"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "Para de processar mais regras"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "Especificar palavras ou frases"
 
 msgid "Edit"
 msgstr "Editar"
@@ -2708,1051 +2485,938 @@ msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
+"Listasde distribuição não são suportadas em regras. Deseja substituir a "
+"lista de distribuição pelos seus membros?"
 
-#, fuzzy
 msgid "or"
-msgstr "por"
+msgstr "ou"
 
-#, fuzzy
 msgid "No rule exists"
-msgstr "Sem direitos"
+msgstr "Não existem regras"
 
-#, fuzzy
 msgid "Active"
-msgstr "efetivo"
+msgstr "Ativa"
 
 msgid "Rule"
 msgstr "Regra"
 
-#, fuzzy
 msgid "Loading rules"
-msgstr "Carregando"
+msgstr "A carregar regras"
 
-#, fuzzy
 msgid "Please select a rule."
-msgstr "Por favor selecione pasta"
+msgstr "Por favor selecione uma regra."
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "Regra já tem a prioridade mais elevada."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "Regra já tem a prioridade mais baixa."
 
 msgid "myself"
-msgstr ""
+msgstr "eu próprio"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Atualizar regras para"
 
-#, fuzzy
 msgid "Do you wish to apply the changes?"
-msgstr "Vocï¿½ gostaria de notificar o remetente?"
+msgstr "Deseja aplicar as alterações?"
 
-#, fuzzy
 msgid "All folders"
 msgstr "Todas as pastas"
 
-#, fuzzy
 msgid "Other..."
-msgstr "Outro"
+msgstr "Outra..."
 
-#, fuzzy
 msgid "Search in.."
-msgstr "Pesquisar"
+msgstr "Procurar em.."
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"A pasta onde está a procurar já não existe. por favor selecione outra pasta"
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Adicionar/editar remetente"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Sem endereços configurados"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "A carregar 'Em nome de'"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Por favor selecione um registo."
 
 msgid "Here you can setup your alias email addresses."
-msgstr ""
+msgstr "Aqui pode configurar os seus endereços alternativos."
 
-#, fuzzy
 msgid "View"
-msgstr "Vizualizaï¿½ï¿½o em ï¿½cones"
+msgstr "Ver"
 
-#, fuzzy
 msgid "Please select a sendas record."
-msgstr "Por favor selecione pasta"
+msgstr "Por favor selecione um registo \"De\"."
 
-#, fuzzy
 msgid "Delegates"
-msgstr "Excluir"
+msgstr "Delegar"
 
-#, fuzzy
 msgid "Delegate settings"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Definições de delegação"
 
-#, fuzzy
 msgid "Rules"
-msgstr "Regra"
+msgstr "Regras"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Endereços 'De'"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Definições de endereços"
 
-#, fuzzy
 msgid "No preview"
-msgstr "Fechar visualizaï¿½ï¿½o"
+msgstr "Sem pré-visualização"
 
-#, fuzzy
 msgid "Right preview"
-msgstr "Imprimir visualizaï¿½ï¿½o"
+msgstr "Pré-visualização à direita"
 
-#, fuzzy
 msgid "Bottom preview"
-msgstr "Imprimir visualizaï¿½ï¿½o"
+msgstr "Pré-visualização em baixo"
 
-#, fuzzy
 msgid "Full name"
 msgstr "Nome completo"
 
 msgid "Job Title"
-msgstr "Funï¿½ï¿½o"
+msgstr "Nome do cargo"
 
-#, fuzzy
 msgid "Phone Numbers"
-msgstr "Nï¿½meros de Telefone"
+msgstr "Números de Telefone"
 
 msgid "Business Fax"
-msgstr "Fax comercial"
+msgstr "Fax trabalho"
 
 msgid "Webpage"
-msgstr "Pï¿½gina web"
+msgstr "Página Web"
 
 msgid "IM Address"
-msgstr "Endereï¿½o IM (MSN, ICQ, Yahoo!Messenger)"
+msgstr "Endereço IM (MSN, ICQ, Yahoo!Messenger)"
 
 msgid "D, d-m-Y, G:i"
-msgstr ""
+msgstr "D, d-m-Y, G:i"
 
-#, fuzzy
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] "Deletado em"
-msgstr[1] "Deletado em"
+msgstr[0] "{0} linha selecionada"
+msgstr[1] "0} linhas selecionadas"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "Carregado {0} de {1}"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Lembrete definido em: {0}, {1}"
 
 msgid "d-m-Y"
-msgstr ""
+msgstr "d-m-Y"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d-m-Y"
 
-#, fuzzy
 msgid "Unknown"
-msgstr "desconhecido"
+msgstr "Desconhecido"
 
-#, fuzzy
 msgid "Meeting Organizer"
 msgstr "Organizador"
 
-#, fuzzy
 msgid "{0} overdue"
-msgstr "%s atrasado"
+msgstr "{0} atrasado"
 
 msgid "Loading..."
-msgstr ""
+msgstr "A carregar..."
 
 msgid "Failed"
-msgstr ""
+msgstr "Falhou"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Attachments"
 msgstr "Anexos"
 
-#, fuzzy
 msgid "Download Pictures"
-msgstr "Baixar"
+msgstr "Transferir imagens"
 
 msgid "Add Sender to Safe Senders List"
-msgstr ""
+msgstr "Adicionar remetente à lista de remetentes seguros"
 
 msgid "Add Domain to Safe Senders List"
-msgstr ""
+msgstr "Adicionar domínio à lista de remetentes seguros"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr "Essa mensagem foi enviada com Baixa importï¿½ncia"
+msgstr "Esta mensagem foi enviada com importância {0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
 #. 'Please treat this as Confidential.'
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
-msgstr "Por favor trate isso como Privado"
+msgstr "Por favor considere isto como {0}."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
+"Clique aqui para transferir imagens. Para ajudar a proteger a sua "
+"privacidade a WebApp impediu a transferência automática de algumas imagens."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
+"Esta mensagem está corrompida e não pode ser visualizada corretamente. "
+"Clique aqui para reparar."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr "aceitou"
+msgstr "{0} aceitou."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr ""
+msgstr "{0} aceitou em nome de {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr "aceitou como tentativa"
+msgstr "{0} aceitou como tentativa."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr "aceitou como tentativa"
+msgstr "{0} aceitou como tentativa em nome de {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
-msgstr "rejeitou"
+msgstr "{0} recusou."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr ""
+msgstr "{0} recusou em nome de {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "{0} aceitou como tentativa e propôs uma nova data para a esta reunião."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid ""
 "{0} tentatively accepted on behalf of {1} and proposed a new time for this "
 "meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr ""
+"{0} aceitou como tentativa em nome de {1} e propôs uma nova data para a esta "
+"reunião."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "{0} recusou e propôs uma nova data para a esta reunião."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr "propï¿½s uma nova hora para essa reuniï¿½o"
+msgstr "{0} recusou em nome de {1} e propôs uma nova data para a esta reunião."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr ""
+"Esta reunião não existe no calendário. Pode ter sido movida ou eliminada."
 
 msgctxt "mail.previewpanel"
 msgid ""
 "This meeting request was updated after this message was sent. You should "
 "open the latest update or open the item from the calendar."
 msgstr ""
+"Este pedido de reunião foi alterado depois de responder. Deve abrir a última "
+"atualização ou abrir o item através do calendário."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr ""
+msgstr "Como organizador da reunião não necessita de responder ao convite"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr ""
+msgstr "A reunião foi alterada após o participante responder"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "A data deste compromisso está ultrapassada."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Please respond."
-msgstr "Por favor registre-se"
+msgstr "Por favor responda."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr ""
+msgstr "Isto é uma atualização de pedido de reunião enviado anteriormente."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "Recebido"
+msgstr "Recebido para {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Respondeu a esta mensagem em {0}"
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Reencaminhou esta mensagem em {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Vocï¿½ respondeu essa mensagem em {time}"
+msgstr "Respondeu a esta mensagem em {0}"
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr "Vocï¿½ encaminhou essa mensagem em {time}"
+msgstr "Reencaminhou esta mensagem em {0}."
 
 msgid "Assigned by {0} on {1}."
-msgstr ""
+msgstr "Atribuído a {0} por {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Pedir confirmaï¿½ï¿½o de recebimento para esta mensagem"
+msgstr "À espera de resposta dos destinatários"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "aceito como tentativa,"
+msgstr "Aceite por {0} em {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "aceitou como tentativa"
+msgstr "{0} aceitou em nome de {1} {2}."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "aceito como tentativa,"
+msgstr "Recusado por {0} em {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "aceitou como tentativa"
+msgstr "{0} recusou em nome de {1} {2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Última atualização enviada em {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "aceitou como tentativa"
+msgstr "{0} atualizou em nome de {1} {2}."
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
+msgstr "Vamos tentar corrigir a mensagem corrompida. Deseja continuar?"
 
 msgid "d-m-Y g:i a"
-msgstr ""
+msgstr "d-m-Y g:i a"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "Não foi encontrada nenhuma tarefa correspondente na sua lista."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Para"
 
 msgctxt "mail.previewpanel"
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 msgctxt "mail.previewpanel"
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr "Organizar Por Recipiente"
+msgstr "Destinatários"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr "em nome e interesse de"
+msgstr "em nome de"
 
 #. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Sent"
 msgstr "Enviado"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nenhum"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "Abrir numa nova janela"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "Pop-out"
 
 msgid "Mark Read"
-msgstr "Marcar lida"
+msgstr "Marcar como lida"
 
 msgid "Mark Unread"
-msgstr "Marcar nï¿½o lida"
+msgstr "Marcar como não lida"
 
 msgid "in"
-msgstr ""
+msgstr "em"
 
 msgid "Root"
-msgstr ""
+msgstr "Raiz"
 
 msgid "File As"
 msgstr "Arquivar Como"
 
-#, fuzzy
 msgid "Company Name"
 msgstr "Empresa"
 
-#, fuzzy
 msgid "Sort by: Company Name"
-msgstr "Organizar por nome"
+msgstr "Ordenar por: Empresa"
 
-#, fuzzy
 msgid "Sort by: Job Title"
-msgstr "Funï¿½ï¿½o"
+msgstr "Ordenar por: Nome do cargo"
 
 msgid "Full Name"
 msgstr "Nome completo"
 
-#, fuzzy
 msgid "Department Name"
-msgstr "Departamento"
+msgstr "Nome Departamento"
 
-#, fuzzy
 msgid "Home Address"
-msgstr "Endereï¿½o de casa"
+msgstr "Morada de casa"
 
 msgid "Business Address"
-msgstr "Endereï¿½o comercial"
+msgstr "Morada trabalho"
 
-#, fuzzy
 msgid "Other Address"
-msgstr "Endereï¿½o IM (MSN, ICQ, Yahoo!Messenger)"
+msgstr "Outra morada"
 
-#, fuzzy
 msgid "Business Phone"
-msgstr "Trabalho"
+msgstr "Telefone trabalho"
 
-#, fuzzy
 msgid "Business 2 Phone"
-msgstr "Trabalho"
+msgstr "Telefone trabalho 2"
 
-#, fuzzy
 msgid "Assistant Phone"
-msgstr "Nome do assistente"
+msgstr "Telefone do assistente"
 
 msgid "Company Main Phone"
-msgstr ""
+msgstr "Telefone Empresa"
 
 msgid "Home 2 Phone"
-msgstr ""
+msgstr "Telefone casa 2"
 
-#, fuzzy
 msgid "Car Phone"
-msgstr "Telefone"
+msgstr "Telefone do Carro"
 
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 msgid "Callback Phone"
-msgstr ""
+msgstr "Telefone para retornar"
 
-#, fuzzy
 msgid "Other Phone"
-msgstr "Outro"
+msgstr "Outro Telefone"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "Telefone primário"
 
 msgid "Telex"
-msgstr ""
+msgstr "Telex"
 
 msgid "TTY/TDD Phone"
-msgstr ""
+msgstr "Telefone TTY/TDD"
 
 msgid "ISDN"
-msgstr ""
+msgstr "ISDN"
 
-#, fuzzy
 msgid "Other Fax"
-msgstr "Outro"
+msgstr "Outro Fax"
 
-#, fuzzy
 msgid "Home Fax"
-msgstr "Casa"
+msgstr "Fax casa"
 
 msgid "Email Display As"
-msgstr ""
+msgstr "E-mail mostrar como"
 
-#, fuzzy
 msgid "Email 2"
-msgstr "Email"
+msgstr "E-mail 2"
 
 msgid "Email2 Display As"
-msgstr ""
+msgstr "E-mail 2 mostrar como"
 
-#, fuzzy
 msgid "Email 3"
-msgstr "Email"
+msgstr "E-mail 3"
 
 msgid "Email3 Display As"
-msgstr ""
+msgstr "E-mail 3 mostrar como"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
-msgstr "Aniversï¿½rio"
+msgstr "Aniversário"
 
 msgid "Wedding Anniversary"
-msgstr ""
+msgstr "Aniversário casamento"
 
 msgid "Spouse/Partner"
-msgstr ""
+msgstr "Cônjuge"
 
 msgid "Profession"
-msgstr "Profissï¿½o"
+msgstr "Profissão"
 
-#, fuzzy
 msgid "Assistant's Name"
 msgstr "Nome do assistente"
 
-#, fuzzy
 msgid "Distribution List Name"
-msgstr "Lista de Distribuiï¿½ï¿½o"
+msgstr "Nome da lista de distribuição"
 
-#, fuzzy
 msgid "Open Shared Contacts"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir contatos partilhados"
 
-#, fuzzy
 msgid "Business Cards"
-msgstr "Fax comercial"
+msgstr "Cartões de trabalho"
 
-#, fuzzy
 msgid "Phone List"
-msgstr "Ligaï¿½ï¿½es telefï¿½nicas"
+msgstr "Lista telefones"
 
-#, fuzzy
 msgid "Add to contacts"
-msgstr "Adicione como Contato"
+msgstr "Adicionar a contatos"
 
-#, fuzzy
 msgid "Print selected contact"
-msgstr "Favor selecionar um contato"
+msgstr "Imprimir contato selecionado"
 
 msgid "No contact selected"
-msgstr ""
+msgstr "Nenhum contato selecionado"
 
-#, fuzzy
 msgid "Distribution list"
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Lista de distribuição"
 
 msgid "Dr."
-msgstr ""
+msgstr "Dr."
 
 msgid "Miss"
-msgstr ""
+msgstr "Menina"
 
-#, fuzzy
 msgid "Mr."
-msgstr "Mar"
+msgstr "Sr."
 
 msgid "Mrs."
-msgstr ""
+msgstr "Sra."
 
 msgid "Ms."
-msgstr ""
+msgstr "Ms."
 
-#, fuzzy
 msgid "Prof."
-msgstr "Perfil"
+msgstr "Prof."
 
 msgid "Jr."
-msgstr ""
+msgstr "Jr."
 
 msgid "Sr."
-msgstr ""
+msgstr "Sr."
 
-#, fuzzy
 msgid "Email address"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereço de E-mail"
 
-#, fuzzy
 msgid "Phone number"
-msgstr "Nï¿½meros de Telefone"
+msgstr "Números de Telefone"
 
-#, fuzzy
 msgid "Check address"
-msgstr "Confere nomes"
+msgstr "Morada para envio de cheque"
 
 msgid "Street"
-msgstr ""
+msgstr "Rua"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Região"
 
 msgid "Zip/Postal code"
-msgstr ""
+msgstr "Código Postal"
 
 msgid "Country/Region"
-msgstr ""
+msgstr "País"
 
 msgid "Show this again when address is incomplete or unclear."
-msgstr ""
+msgstr "Mostar outra vez quando a morada for incompleta ou ilegível."
 
 msgid "Details"
 msgstr "Detalhes"
 
-#, fuzzy
 msgid "Office location"
-msgstr "Local"
+msgstr "Local do escritório"
 
-#, fuzzy
 msgid "Manager's name"
 msgstr "Nome do diretor"
 
-#, fuzzy
 msgid "Assistant's name"
 msgstr "Nome do assistente"
 
 msgid "Nickname"
-msgstr "Nome"
+msgstr "Alcunha"
 
 msgid "Suffix"
 msgstr "Sufixo"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
-msgstr ""
+msgstr "Aniversário"
 
 msgid "Photo"
-msgstr ""
+msgstr "Fotografia"
 
 msgid "Addresses"
-msgstr "Endereï¿½os"
+msgstr "Moradas"
 
-#, fuzzy
 msgid "Additional information"
-msgstr "Informaï¿½ï¿½o adicional"
+msgstr "Informação adicional"
 
-#, fuzzy
 msgid "Business 2"
-msgstr "Trabalho"
+msgstr "Trabalho 2"
 
 msgid "Callback"
-msgstr ""
+msgstr "Ligar de volta"
 
-#, fuzzy
 msgid "Car"
-msgstr "Cartï¿½es"
+msgstr "Carro"
 
-#, fuzzy
 msgid "Home 2"
-msgstr "Casa"
+msgstr "Casa 2"
 
 msgid "Primary"
-msgstr ""
+msgstr "Primário"
 
 msgid "TTY/TDD"
-msgstr ""
+msgstr "TTY/TDD"
 
-#, fuzzy
 msgid "Check full name"
-msgstr "Confere nomes"
+msgstr "Verificar nome completo"
 
-#, fuzzy
 msgid "Middle"
 msgstr "Segundo nome"
 
 msgid "Show this again when name is incomplete or unclear."
-msgstr ""
+msgstr "Mostar outra vez quando o nome estiver incompleto ou for ilegível."
 
-#, fuzzy
 msgid "Check phone number"
-msgstr "Nï¿½meros de Telefone"
+msgstr "Verificar número de telefone"
 
 msgid "Country/Region code"
-msgstr ""
+msgstr "Indicativo País"
 
 msgid "City/Area code"
-msgstr ""
+msgstr "Indicativo Cidade"
 
-#, fuzzy
 msgid "Local number"
-msgstr "Nï¿½meros de Telefone"
+msgstr "Número local"
 
 msgid "Extension"
-msgstr ""
+msgstr "Extensão"
 
 msgid "Save contact and close dialog"
-msgstr ""
+msgstr "Guardar contato e fechar"
 
-#, fuzzy
 msgid "Delete contact"
-msgstr "Deletado em"
+msgstr "Eliminar contato"
 
-#, fuzzy
 msgid "Delete this contact."
-msgstr "Excluir esta coluna"
+msgstr "Eliminar este contato."
 
-#, fuzzy
 msgid "Add Attachment"
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexo"
 
-#, fuzzy
 msgid "Add attachments to this contact."
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexos a este contato."
 
 msgid "Print this contact"
-msgstr ""
+msgstr "Imprimir este contato"
 
-#, fuzzy
 msgid "Open the categories dialog."
-msgstr "Abrir toda a sï¿½rie"
+msgstr "Abrir opções de categoria."
 
 msgid "Mark this contact as private."
-msgstr ""
+msgstr "Marcar contato como privado."
 
 msgid "Distribution List"
-msgstr "Lista de Distribuiï¿½ï¿½o"
+msgstr "Lista de Distribuição"
 
 msgid "Save distribution list and close dialog"
-msgstr ""
+msgstr "Guardar lista de distribuição e fechar"
 
-#, fuzzy
 msgid "Delete Distributionlist"
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Eliminar lista de distribuição"
 
-#, fuzzy
 msgid "Delete the Distribution list."
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Eliminar a lista de distribuição."
 
-#, fuzzy
 msgid "Print distribution list"
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Imprimir lista de distribuição"
 
-#, fuzzy
 msgid "Print this distribution list."
-msgstr "Contato ou lista de distribuiï¿½ï¿½o"
+msgstr "Imprime esta lista de distribuição."
 
 msgid "Mark this Distribution list as private."
-msgstr ""
+msgstr "Marcar esta lista de distribuição como privada."
 
 msgid "New e-mail address"
-msgstr "Novo endereï¿½o de e-mail"
+msgstr "Novo endereço de E-mail"
 
 msgid "Please input a valid email address!"
-msgstr "Por favor preencha um endereï¿½o de email vï¿½lido!"
+msgstr "Por favor preencha um endereço de email válido!"
 
-#, fuzzy
 msgid "E-mail Address"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereço de E-mail"
 
 msgid "Select Members"
 msgstr "Selecionar membros"
 
-#, fuzzy
 msgid "Add New"
-msgstr "Adicionar novo(a)"
+msgstr "Adicionar novo"
 
 msgid "Type your note here..."
-msgstr ""
+msgstr "Escreva aqui a sua nota..."
 
-#, fuzzy
 msgid "New contact"
-msgstr "Contato"
+msgstr "Novo contato"
 
-#, fuzzy
 msgid "New distribution list"
-msgstr "Lista de distribuiï¿½ï¿½o"
+msgstr "Nova lista de distribuição"
 
 msgid "E-mail"
 msgstr "E-mail"
 
 msgid "E-mail Display As"
-msgstr ""
+msgstr "E-mail mostrar como"
 
-#, fuzzy
 msgid "E-mail 2"
-msgstr "E-mail"
+msgstr "E-mail 2"
 
 msgid "E-mail 2 Display As"
-msgstr ""
+msgstr "E-mail 2 mostrar como"
 
-#, fuzzy
 msgid "E-mail 3"
-msgstr "E-mail"
+msgstr "E-mail 3"
 
 msgid "E-mail 3 Display As"
-msgstr ""
+msgstr "E-mail3 mostrar como"
 
-#, fuzzy
 msgid "Assistent"
-msgstr "Nome do assistente"
+msgstr "Assistente"
 
-#, fuzzy
 msgid "Loading contacts"
-msgstr "Contatos importantes"
+msgstr "A carregar contatos"
 
-#, fuzzy
 msgid "Group"
-msgstr "Grupos"
+msgstr "Grupo"
 
 msgid "Work"
 msgstr "Trabalho"
 
 msgid "Export as"
-msgstr ""
+msgstr "Exportar como"
 
-#, fuzzy
 msgid "Sort by: Full Name"
-msgstr "Organizar por nome da regra"
+msgstr "Ordenar por: Nome da completo"
 
-#, fuzzy
 msgid "Sort by: Email Address 1"
-msgstr "Organizar Por Endereï¿½o de E-mail 1"
+msgstr "Ordenar por: E-mail 1"
 
-#, fuzzy
 msgid "Sort by: Email Address 2"
-msgstr "Organizar Por Endereï¿½o de E-mail 2"
+msgstr "Ordenar por: E-mail 2"
 
-#, fuzzy
 msgid "Sort by: Email Address 3"
-msgstr "Organizar Por Endereï¿½o de E-mail 3"
+msgstr "Ordenar por: E-mail 3"
 
-#, fuzzy
 msgid "Mobile Phone"
-msgstr "Celular"
+msgstr "Telemóvel"
 
 msgid "Sort by: Mobile Phone"
-msgstr ""
+msgstr "Ordenar por: Telemóvel"
 
 msgid "Sort by: Business Phone"
-msgstr ""
+msgstr "Ordenar por: Telefone trabalho"
 
-#, fuzzy
 msgid "Sort by: Business Fax"
-msgstr "Fax comercial"
+msgstr "Ordenar por: Fax trabalho"
 
-#, fuzzy
 msgid "Sort by: Department Name"
-msgstr "Organizar Por Nome"
+msgstr "Ordenar por: Departamento"
 
-#, fuzzy
 msgid "Office Location"
-msgstr "Local"
+msgstr "Localização escritório"
 
 msgid "Sort by: Office Location"
-msgstr ""
+msgstr "Ordenar por: Localização escritório"
 
-#, fuzzy
 msgid "Sort by: Profession"
-msgstr "Profissï¿½o"
+msgstr "Ordenar por:Profissão"
 
 msgid "Manager Name"
 msgstr "Nome do diretor"
 
-#, fuzzy
 msgid "Sort by: Manager Name"
-msgstr "Nome do diretor"
+msgstr "Ordenar por: Nome do diretor"
 
-#, fuzzy
 msgid "Sort by: Assistant's Name"
-msgstr "Nome do assistente"
+msgstr "Ordenar por: nome do assistente"
 
-#, fuzzy
 msgid "Sort by: Nickname"
-msgstr "Organizar por nome"
+msgstr "Ordenar por: Alcunha"
 
-#, fuzzy
 msgid "Sort by: Spouse/Partner Name"
-msgstr "Nome do parceiro"
+msgstr "Ordenar por: Cônjuge"
 
-#, fuzzy
 msgid "Sort by: Birthday"
-msgstr "Aniversï¿½rio"
+msgstr "Ordenar por: Aniversário"
 
 msgid "Sort by: Anniversary"
-msgstr ""
+msgstr "Ordenar por: Casamento"
 
-#, fuzzy
 msgid "Sort by: Business Address"
-msgstr "Endereï¿½o comercial"
+msgstr "Ordenar por: Morada trabalho"
 
-#, fuzzy
 msgid "Sort by: Home Address"
-msgstr "Organizar Por Endereï¿½o de E-mail"
+msgstr "Ordenar por: Morada de casa"
 
-#, fuzzy
 msgid "Sort by: Office Address"
-msgstr "Organizar Por Endereï¿½o de E-mail"
+msgstr "Ordenar por: Morada escritório"
 
-#, fuzzy
 msgid "Mailing Address"
-msgstr "Endereï¿½o de E-mail"
+msgstr "Endereço de Mailing"
 
-#, fuzzy
 msgid "Sort by: Mailing Address"
-msgstr "Organizar Por Endereï¿½o de E-mail"
+msgstr "Ordenar por: Endereço de Mailing"
 
-#, fuzzy
 msgid "Sort by: IM Address"
-msgstr "Organizar Por Endereï¿½o de E-mail"
+msgstr "Ordenar por: Endereço IM"
 
-#, fuzzy
 msgid "Sort by: Webpage"
-msgstr "Pï¿½gina web"
+msgstr "Ordenar por: Página Web"
 
-#, fuzzy
 msgid "Assistant's Phone"
-msgstr "Nome do assistente"
+msgstr "Telefone do assistente"
 
 msgid "Sort by: Assistant's Phone"
-msgstr ""
+msgstr "Ordenar por: Telefone do assistente"
 
-#, fuzzy
 msgid "Business Phone 2"
-msgstr "Trabalho"
+msgstr "Telefone Trabalho 2"
 
 msgid "Sort by: Business Phone 2"
-msgstr ""
+msgstr "Ordenar por: Telefone trabalho 2"
 
 msgid "Sort by: Callback"
-msgstr ""
+msgstr "Ordenar por: Callback"
 
 msgid "Sort by: Car Phone"
-msgstr ""
+msgstr "Ordenar por: Carro"
 
-#, fuzzy
 msgid "Company Phone"
-msgstr "Empresa"
+msgstr "Telefone empresa"
 
 msgid "Sort by: Company Main Phone"
-msgstr ""
+msgstr "Ordenar por: Telefone empresa"
 
 msgid "Home Phone 2"
-msgstr ""
+msgstr "Telefone casa 2"
 
-#, fuzzy
 msgid "Sort by: Home Phone 2"
-msgstr "Organizar Por Telefone Residencial"
+msgstr "Ordenar por: Telefone casa 2"
 
 msgid "Sort by: Home Fax"
-msgstr ""
+msgstr "Ordenar por: Fax casa"
 
-#, fuzzy
 msgid "Sort by: ISDN"
-msgstr "Organizar por Nï¿½"
+msgstr "Ordenar por: ISDN"
 
 msgid "Sort by: Other Phone"
-msgstr ""
+msgstr "Ordenar por: Outro telefone"
 
-#, fuzzy
 msgid "Radio Phone"
-msgstr "Telefone"
+msgstr "Telefone Radio"
 
 msgid "Sort by: Radio Phone"
-msgstr ""
+msgstr "Ordenar por: Telefone Radio"
 
 msgid "Sort by: TTY/TDD Phone"
-msgstr ""
+msgstr "Ordenar por: TTY/TDD Phone"
 
 msgid "Sort by: Telex Phone"
-msgstr ""
+msgstr "Ordenar por: Telex"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "Alterar fotografia"
 
-#, fuzzy
 msgid "Remove Picture"
-msgstr "Remover usuï¿½rio"
+msgstr "Remover fotografia"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "Ficheiros(s) VCF"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
+"O browser parece ter bloqueado um ou mais pop-ups. Por favor altere as "
+"definições do seu browser para permitir sempre pop-ups da WebApp."
 
-#, fuzzy
 msgid "Untitled"
-msgstr "Regra sem nome"
+msgstr "Sem nome"
 
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr ""
+"Não foi possível adicionar o anexo. Só é possível adicionar {0} anexos à "
+"mensagem"
 
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr ""
+"Não foi possível adicionar o anexo. O anexo tem {0} enquanto o máximo "
+"permitido é {1}."
 
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
+"Não foi possível adicionar o anexo. O total dos anexos é {0} enquanto o "
+"máximo permitido é {1}."
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
+"Não foi possível adicionar o anexo. O total dos anexos é {0} enquanto o "
+"máximo permitido num único pedido é {1}."
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
+"Não foi possível adicionar o anexo. Está a tentar anexar {0} ficheiros "
+"enquanto o máximo permitido num único pedido é {1}."
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Item(s) importado(s) com sucesso para {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Falhou ao importar Item(s) para {0}"
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
-#, fuzzy
 msgid "{0} on behalf of {1}"
-msgstr "em nome e interesse de"
+msgstr "{0} em nome de {1}"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
 
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 msgid "Important"
 msgstr "Importante"
@@ -3764,17 +3428,16 @@ msgid "Holiday"
 msgstr "Feriado"
 
 msgid "Travel Required"
-msgstr "Viajar ï¿½ Necessï¿½rio"
+msgstr "Viajar Necessário"
 
-#, fuzzy
 msgid "Preparation Required"
-msgstr "Preparaï¿½ï¿½o Necessï¿½ria"
+msgstr "Preparação Necessária"
 
 msgid "Special Date"
-msgstr "Data Especial"
+msgstr "Data especial"
 
 msgid "Phone Interview"
-msgstr "Entrevista telefï¿½nica"
+msgstr "Entrevista telefónica"
 
 msgid "Free"
 msgstr "Livre"
@@ -3788,9 +3451,8 @@ msgstr "Normal"
 msgid "High"
 msgstr "Alta"
 
-#, fuzzy
 msgid "Canceled"
-msgstr "Cancelado:"
+msgstr "Cancelado"
 
 msgid "Blue"
 msgstr "Azul"
@@ -3807,16 +3469,14 @@ msgstr "Branco"
 msgid "Yellow"
 msgstr "Amarelo"
 
-#, fuzzy
 msgid "No response"
 msgstr "Sem resposta"
 
-#, fuzzy
 msgid "Not responded"
-msgstr "Nï¿½o respondeu"
+msgstr "Não respondeu"
 
 msgid "Accepted"
-msgstr "Aceito"
+msgstr "Aceite"
 
 msgid "Declined"
 msgstr "Recusado"
@@ -3825,7 +3485,7 @@ msgid "Confidential"
 msgstr "Confidencial"
 
 msgid "Not Started"
-msgstr "Nï¿½o Iniciado"
+msgstr "Não Iniciado"
 
 msgid "In Progress"
 msgstr "Em progresso"
@@ -3834,20 +3494,19 @@ msgid "Wait for other person"
 msgstr "Aguarde por outra pessoa"
 
 msgid "Deferred"
-msgstr ""
+msgstr "Diferido"
 
 msgid "Close"
 msgstr "Fechar"
 
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
-#, fuzzy
 msgid "High Contrast"
-msgstr "Contatos importantes"
+msgstr "Alto contraste"
 
 msgid "Lime"
-msgstr ""
+msgstr "Lima"
 
 msgid "Orange"
 msgstr "Laranja"
@@ -3855,187 +3514,173 @@ msgstr "Laranja"
 msgid "Purple"
 msgstr "Roxo"
 
-#, fuzzy
 msgid "Logout"
-msgstr "Logar"
+msgstr "Sair"
 
 msgid "Switch view"
-msgstr ""
+msgstr "Mudar vista"
 
 msgid "Kopano"
-msgstr ""
+msgstr "Kopano"
 
-#, fuzzy
 msgid "Sending"
-msgstr "Enviar"
+msgstr "A enviar"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Enviado"
 
 msgid "Sent successfully"
-msgstr ""
+msgstr "Enviado com sucesso"
 
-#, fuzzy
 msgid "Please specify a recipient"
-msgstr "Por favor especifique um endereï¿½o para encaminhamento"
+msgstr "Por favor especifique um destinatário"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "Os ficheiros anexos ainda não foram recebidos."
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "Quer enviar esta mensagem sem os anexos?"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "Não enviar"
 
-#, fuzzy
 msgid "Send Anyway"
-msgstr "Enviar nova mensagem"
+msgstr "Enviar na mesma"
 
-#, fuzzy
 msgid "Send this message without a subject?"
-msgstr "Vocï¿½ respondeu essa mensagem a todos em %s"
+msgstr "Enviar esta mensagem sem Assunto?"
 
-#, fuzzy
 msgid "Not all recipients could be resolved"
-msgstr "Os seguintes destinatï¿½rios nï¿½o puderam ser localizados"
+msgstr "Não foi possível resolver alguns destinatários"
 
 msgid "Collapse hierarchy"
-msgstr ""
+msgstr "Ocultar Painel de Navegação"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "Mostar Painel de Navegação"
 
-#, fuzzy
 msgid "Folders List"
-msgstr "Pastas"
+msgstr "Lista de pastas"
 
 msgid "Saving"
-msgstr ""
+msgstr "A gravar"
 
-#, fuzzy
 msgid "Saved"
-msgstr "Salvar"
+msgstr "Gravado"
 
 msgid "Saved successfully"
-msgstr ""
+msgstr "Gravado com sucesso"
 
 msgid ""
 "You are going to lose all unsaved changes. Are you sure you want to close "
 "this window?"
 msgstr ""
+"Todas as alterações não gravadas serão perdidas. Tem a certeza que quer "
+"fechar a janela?"
 
 msgid "Kopano Content Panel"
-msgstr ""
+msgstr "Painel de conteúdos Kopano"
 
-#, fuzzy
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr "Vocï¿½ tem certeza que quer excluir o(s) item(s) selecionados"
+msgstr "Este item foi alterado. Tem a certeza que o quer eliminar?"
 
 msgid "Welcome to Kopano WebApp"
-msgstr ""
+msgstr "Bem-vindo à Kopano WebApp"
 
 msgid ""
 "This is the first time you are using WebApp. <br />Please check the "
 "following settings before continuing."
 msgstr ""
+"É a primeira vez que está a usar a WebApp. <br />Por favor confira as "
+"seguintes definições antes de continuar."
 
-#, fuzzy
 msgid "Add widgets"
-msgstr "Adicionar endereï¿½o"
+msgstr "Adicionar widgets"
 
 msgid "No widgets installed."
-msgstr ""
+msgstr "Sem widgets instalados."
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "Fechar painel de widgets"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "Abrir painel de widgets"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "As alterações serão perdidas se sair desta página."
 
-#, fuzzy
 msgid "D G:i"
-msgstr "j \\de F \\de Y \\Ã \\s G:i"
+msgstr "j F G:i"
 
 msgid "D d-m"
-msgstr ""
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
 msgstr ""
+"Não tem permissões suficientes para abrir esta caixa. Quer removê-la do "
+"Painel de Navegação?"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
 msgstr ""
+"Não tem permissões suficientes para abrir esta pasta. Quer removê-la do "
+"Painel de Navegação?"
 
-#, fuzzy
 msgid "Not enough permissions to open this folder."
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para abrir esta pasta."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] "Existem %s mensagens nï¿½o lidas na sua caixa de entrada"
-msgstr[1] "Existem %s mensagens nï¿½o lidas na sua caixa de entrada"
+msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
+msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
 
-#, fuzzy
 msgid "New Mail"
-msgstr "Ler mensagens"
+msgstr "Nova mensagem"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
-msgstr ""
+msgstr "{0} em {1}"
 
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
 msgid "{0} of {1}"
-msgstr ""
+msgstr "{0} de {1}"
 
 msgid "Full control"
-msgstr "Controle total"
+msgstr "Controlo total"
 
 msgid "No rights"
-msgstr "Sem direitos"
+msgstr "Nenhum"
 
-#, fuzzy
 msgid "Create New Folder"
-msgstr "Nova pasta"
+msgstr "Criar nova pasta"
 
 msgid "Folder contains"
-msgstr "Conteï¿½do da pasta"
+msgstr "Conteúdo da pasta"
 
-#, fuzzy
 msgid "Calendar Items"
-msgstr "Visualizaï¿½ï¿½o do Calendï¿½rio"
+msgstr "Itens de calendário"
 
-#, fuzzy
 msgid "Mail and Post Items"
-msgstr "Mensagem e Correio"
+msgstr "Correio e itens publicados"
 
-#, fuzzy
 msgid "Contacts Items"
-msgstr "Contatos"
+msgstr "Itens de Contatos"
 
-#, fuzzy
 msgid "Note Items"
-msgstr "Restaurar Itens"
+msgstr "Itens de Notas"
 
-#, fuzzy
 msgid "Task Items"
-msgstr "Itens"
+msgstr "Itens de Tarefa"
 
-#, fuzzy
 msgid "Select where to place the folder"
-msgstr "Selecione onde vocï¿½ quer armazenar a nova pasta"
+msgstr "Selecione onde quer colocar a pasta"
 
-#, fuzzy
 msgid "You must select a destination folder."
-msgstr "Pasta destino"
+msgstr "Tem de selecionar uma pasta de destino."
 
 msgid "Properties"
 msgstr "Propriedades"
@@ -4044,22 +3689,19 @@ msgid "Type"
 msgstr "Tipo"
 
 msgid "Description"
-msgstr "Descriï¿½ï¿½o"
+msgstr "Descrição"
 
-#, fuzzy
 msgid "Folder size"
 msgstr "Tamanho da pasta"
 
-#, fuzzy
 msgid "Folder containing {0} Items"
-msgstr "Pasta contendo"
+msgstr "A pasta contém {0} itens"
 
 msgid "Permissions"
-msgstr "Permissï¿½es"
+msgstr "Permissões"
 
-#, fuzzy
 msgid "No permissions granted"
-msgstr "Permissï¿½es da pasta"
+msgstr "Sem permissões atribuídas"
 
 msgid "Profile"
 msgstr "Perfil"
@@ -4071,32 +3713,31 @@ msgid "Read items"
 msgstr "Ler itens"
 
 msgid "Create subfolders"
-msgstr "Criar sub-pastas"
+msgstr "Criar subpastas"
 
 msgid "Folder permissions"
-msgstr "Permissï¿½es da pasta"
+msgstr "Permissões da pasta"
 
 msgid "Folder visible"
-msgstr "Pasta visï¿½vel"
+msgstr "Pasta visível"
 
 msgid "Edit items"
 msgstr "Editar itens"
 
 msgid "Own"
-msgstr "Prï¿½prio"
+msgstr "Os seus"
 
 msgid "All"
-msgstr "Todas"
+msgstr "Todos"
 
 msgid "Delete items"
-msgstr "Excluir itens"
+msgstr "Eliminar itens"
 
 msgid "User already exists"
-msgstr "Usuï¿½rio jï¿½ existe"
+msgstr "Utilizador já existe"
 
-#, fuzzy
 msgid "Group already exists"
-msgstr "Usuï¿½rio jï¿½ existe"
+msgstr "Grupo já existe"
 
 msgid "Folder Size"
 msgstr "Tamanho da pasta"
@@ -4110,63 +3751,56 @@ msgstr "Tamanho (sem subpastas)"
 msgid "Total size (including subfolders)"
 msgstr "Tamanho total (incluindo subpastas)"
 
-#, fuzzy
 msgid "Loading subfolder sizes"
-msgstr "Tamanho total (incluindo subpastas)"
+msgstr "A carregar tamanho das subpastas"
 
 msgid "No subfolders present"
-msgstr ""
+msgstr "Nenhuma sub-pasta existente"
 
 msgid "Subfolder"
-msgstr "Subpasta"
+msgstr "Sub-pasta"
 
 msgid "Sort by: Name of the subfolder"
-msgstr ""
+msgstr "Ordenar por: Nome de subpastas"
 
-#, fuzzy
 msgid "Sort by: Size (without subfolders)"
-msgstr "Tamanho (sem subpastas)"
+msgstr "Ordenar por: Tamanho (sem subpastas)"
 
-#, fuzzy
 msgid "Total size"
 msgstr "Tamanho total"
 
-#, fuzzy
 msgid "Sort by: Total size (including subfolders)"
-msgstr "Tamanho total (incluindo subpastas)"
+msgstr "Ordenar por: Tamanho total (incluindo subpastas)"
 
 msgid "Open Shared Folders"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir pastas partilhadas"
 
 msgid "Username '{0}' could not be resolved."
-msgstr ""
+msgstr "Não foi possível resolver o utilizador '{0}'."
 
 msgid "Username '{0}' is not a valid user."
-msgstr ""
+msgstr "O utilizador '{0}' não é válido."
 
 msgid "It is not possible to open your own store twice"
-msgstr ""
+msgstr "Não é possível abrir a própria caixa duas vezes"
 
 msgid "This shared folder is already open."
-msgstr "Esta pasta compartilhada jï¿½ estï¿½ aberta"
+msgstr "Esta pasta partilhada já está aberta."
 
-#, fuzzy
 msgid "You must specify a username."
-msgstr "Vocï¿½ deve especificar um usuï¿½rio!"
+msgstr "Tem de especificar um utilizador."
 
 msgid "Folder type"
 msgstr "Tipo de pasta"
 
-#, fuzzy
 msgid "Show subfolders"
-msgstr "Sub-pastas"
+msgstr "Mostrar subpastas"
 
-#, fuzzy
 msgid "Open shared folder/store"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir pastas/caixas partilhadas"
 
 msgid "Rename Folder"
-msgstr "Renomear pasta"
+msgstr "Mudar nome da pasta"
 
 msgid "New Folder"
 msgstr "Nova pasta"
@@ -4175,62 +3809,53 @@ msgid "Mark All Messages Read"
 msgstr "Marcar todas as mensagens como lidas"
 
 msgid "Delete Folder"
-msgstr "Excluir pasta"
+msgstr "Eliminar pasta"
 
-#, fuzzy
 msgid "Empty Junk E-mail"
-msgstr "E-mail"
+msgstr "Esvaziar E-mail de SPAM"
 
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Excluir itens"
+msgstr "Esvaziar Itens Eliminados"
 
 msgid "Close store"
 msgstr "Fechar caixa"
 
-#, fuzzy
 msgid "Close folder"
-msgstr "Nova pasta"
+msgstr "Fechar pasta"
 
 msgid "Reload"
-msgstr "Atualizar"
+msgstr "Reiniciar"
 
-#, fuzzy
 msgid "Restore items"
 msgstr "Restaurar Itens"
 
-#, fuzzy
 msgid "Select color"
-msgstr "Selecionar pasta"
+msgstr "Selecionar Cor"
 
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "Favoritos"
+msgstr "Adicionar aos Favoritos"
 
-#, fuzzy
 msgid "Remove From Favorites"
-msgstr "Remover do calendï¿½rio"
+msgstr "Remover dos Favoritos"
 
-#, fuzzy
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
 msgstr ""
-"Vocï¿½ tem certeza de que quer excluir o(s) iten(s) selecionados "
-"permanentemente?"
+"Tem certeza de que quer excluir todos os itens e subpastas da pasta \"{0}\"?"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
+"Tem a certeza que quer apagar a pasta \"{0}\" e mover os seus conteúdos para "
+"a pasta Itens Excluídos?"
 
-#, fuzzy
 msgid "Are you sure you want to empty {0}?"
-msgstr "Vocï¿½ tem certeza de que vocï¿½ quer esvaziar %s?"
+msgstr "Tem certeza de que quer esvaziar {0}?"
 
-#, fuzzy
 msgid "Show all folders"
-msgstr "Todas as pastas"
+msgstr "Mostar todas as pastas"
 
 msgid "CC"
 msgstr "CC"
@@ -4238,13 +3863,11 @@ msgstr "CC"
 msgid "BCC"
 msgstr "BCC"
 
-#, fuzzy
 msgid "Sort by: Importance"
-msgstr "Importï¿½ncia"
+msgstr "Ordenar por: Importância"
 
-#, fuzzy
 msgid "Sort by: To"
-msgstr "Organizar Por ï¿½cone"
+msgstr "Ordenar por: Para"
 
 msgid "Red"
 msgstr "Vermelho"
@@ -4253,629 +3876,571 @@ msgid "Original message"
 msgstr "Mensagem original"
 
 msgid "Schedule mail to be sent out"
-msgstr ""
+msgstr "Agendar mensagem para ser enviada"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Itens agendados"
 
 msgid "Your message will be sent at "
-msgstr ""
+msgstr "A mensagem será enviada a "
 
 msgid "Go to your <b>Outbox</b> to edit your email."
-msgstr ""
+msgstr "Vá à <b>Caixa de Saída</b> para editar a mensagem."
 
 msgid "hour(s)"
-msgstr ""
+msgstr "hora(s)"
 
 msgid "day(s)"
-msgstr ""
+msgstr "dia(s)"
 
 msgid "month(s)"
-msgstr ""
+msgstr "mês(es)"
 
 msgid "at a specific time"
-msgstr ""
+msgstr "a uma hora específica"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "A data especificada é no passado. Indique outra."
 
 msgid "today  at "
-msgstr ""
+msgstr "hoje a "
 
 msgid "tomorrow  at "
-msgstr ""
+msgstr "amanhã a "
 
 msgid "{0} at "
-msgstr ""
+msgstr "{0} a "
 
 msgid "at {0}"
-msgstr ""
+msgstr "a {0}"
 
 msgid "Your email will be sent {0}{1}"
-msgstr ""
+msgstr "A mensagem será enviada {0}{1}"
 
 msgid "E-Mail"
 msgstr "E-Mail"
 
 msgid "Saving..."
-msgstr ""
+msgstr "A gravar..."
 
 msgid "Message saving failed."
-msgstr ""
+msgstr "Falhou ao gravar mensagem."
 
 msgid "Message Saved at {0}."
-msgstr ""
+msgstr "Mensagem gravada a {0}."
 
 msgid "g:i A"
-msgstr ""
+msgstr "g:i A"
 
 msgid "Message Options"
-msgstr "Opï¿½ï¿½es da mensagem"
+msgstr "Opções da mensagem"
 
 msgid "No from addresses configured!"
-msgstr ""
+msgstr "Sem endereços configurados!"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "Esta mensagem vai ser marcada para seguimento quando for enviada."
 
-#, fuzzy
 msgid "Send email"
-msgstr "Enviar nova mensagem"
+msgstr "Enviar mensagem"
 
 msgid "Send email to recipients"
-msgstr ""
+msgstr "Enviar mensagem para os destinatários"
 
 msgid "Send Later"
-msgstr ""
+msgstr "Enviar depois"
 
 msgid "Schedule your mail to be sent on a specific date and time."
-msgstr ""
+msgstr "Agendar a mensagem para ser enviada numa data específica."
 
-#, fuzzy
 msgid "Save email"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Gravar mensagem"
 
-#, fuzzy
 msgid "Delete this mail"
-msgstr "Excluir esta coluna"
+msgstr "Eliminar esta mensagem"
 
-#, fuzzy
 msgid "Add attachments to this email"
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexos a esta mensagem"
 
-#, fuzzy
 msgid "Add signature"
 msgstr "Adicionar assinatura"
 
-#, fuzzy
 msgid "Add signature to this mail"
-msgstr "Adicionar assinatura"
+msgstr "Adicionar assinatura a esta mensagem"
 
 msgid "Options"
-msgstr "Opï¿½ï¿½es"
+msgstr "Opções"
 
 msgid "Open options dialog"
-msgstr ""
+msgstr "Abrir opções"
 
 msgid "Set flag"
-msgstr ""
+msgstr "Marcar bandeira"
 
 msgid "Set flag on this email"
-msgstr ""
+msgstr "Marcar bandeira nesta mensagem"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "Marcar esta mensagem como alta prioridade"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "Marcar esta mensagem como baixa prioridade"
 
 msgid "Set read receipt"
-msgstr ""
+msgstr "Marcar recibo de leitura"
 
-#, fuzzy
 msgid "Request read receipt from recipients"
-msgstr "Pedir confirmaï¿½ï¿½o de recebimento para esta mensagem"
+msgstr "Pedir recibo de leitura dos destinatários"
 
 msgid "Show bcc"
-msgstr ""
+msgstr "Mostar bcc"
 
 msgid "Show Bcc"
-msgstr ""
+msgstr "Mostar Bcc"
 
 msgid ""
 "Show Bcc field in which you can specify the people who will recieve this "
 "message"
-msgstr ""
+msgstr "Mostar o campo Bcc onde pode indicar pessoas que vão receber a mensagem"
 
-#, fuzzy
 msgid "Show From"
-msgstr "De"
+msgstr "Mostrar De"
 
 msgid ""
 "Show From field, If you have delegate access to another person's account, "
 "you can send e-mail that looks like that came from them by entering their "
 "name into the From field"
 msgstr ""
+"Mostar o campo 'De'. Se tiver permissões para enviar em nome dessa conta, "
+"pode enviar E-mails que serão enviados como pelo próprio. Basta inserir esse "
+"E-mail no campo 'De'"
 
-#, fuzzy
 msgid "No signatures configured"
-msgstr "Sem assinaturas"
+msgstr "Sem assinaturas configuradas"
 
-#, fuzzy
 msgid "E-Mail Flags"
-msgstr "E-Mail"
+msgstr "Bandeiras de mensagem"
 
 msgid "Color of Flag"
 msgstr "Cor da bandeira"
 
-#, fuzzy
 msgid "Miscellaneous Options"
-msgstr "Vï¿½rios"
+msgstr "Opções Várias"
 
-#, fuzzy
 msgid "Internet Headers"
-msgstr "Cabeï¿½alho da internet"
+msgstr "Cabeçalhos de Internet"
 
 msgid "Message Settings"
-msgstr "Preferï¿½ncias da mensagem"
+msgstr "Preferências da mensagem"
 
 msgid "Tracking Options"
-msgstr "Opï¿½ï¿½es de tracking"
+msgstr "Opções de seguimento"
 
-#, fuzzy
 msgid "Request a read receipt for this message."
-msgstr "Pedir confirmaï¿½ï¿½o de recebimento para esta mensagem"
+msgstr "Pedir recibo de leitura para esta mensagem."
 
-#, fuzzy
 msgid "no subject"
-msgstr "Organizar Por Subjeto"
+msgstr "sem assunto"
 
-#, fuzzy
 msgid "Delete this item."
-msgstr "Excluir itens"
+msgstr "Eliminar este item."
 
-#, fuzzy
 msgid "Delete mail"
-msgstr "Excluir bandeira"
+msgstr "Eliminar mensagem"
 
-#, fuzzy
 msgid "Delete this mail."
-msgstr "Excluir esta coluna"
+msgstr "Eliminar esta mensagem."
 
-#, fuzzy
 msgid "Set Category"
-msgstr "Organizar Por Categorias"
+msgstr "Definir categoria"
 
-#, fuzzy
 msgid "New mail"
-msgstr "Novo endereï¿½o de e-mail"
+msgstr "Nova mensagem"
 
-#, fuzzy
 msgid "Mail"
-msgstr "E-Mail"
+msgstr "Correio"
 
-#, fuzzy
 msgid "Reply all"
 msgstr "Responder a todos"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "Marcar lida/por ler"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "Marcar bandeira vermelha/completa"
 
-#, fuzzy
 msgid "Open Shared Mails"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir caixas partilhadas"
 
-#, fuzzy
 msgid "Email message"
 msgstr "Mensagem de E-Mail"
 
-#, fuzzy
 msgid "Send E-mail"
-msgstr "Enviar e-mail (%s)"
+msgstr "Enviar Mensagem"
 
 msgid "Create a new email message addressed to this recipient."
-msgstr ""
+msgstr "Criar uma nova mensagem para este destinatário."
 
 msgid "Print single e-mail"
-msgstr ""
+msgstr "Imprimir só uma mensagem"
 
 msgid "FW"
-msgstr "ENC"
+msgstr "FW"
 
 msgid "RE"
-msgstr "RES"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
 
-#, fuzzy
 msgid "Plain Text"
-msgstr "Plain text"
+msgstr "Texto simples"
 
-#, fuzzy
 msgid "Compose mail settings"
-msgstr "Compor mensagem"
+msgstr "Definições de composição de E-mail"
 
 msgid "Compose mail in this format"
-msgstr "Compor mensagem no formato"
+msgstr "Formatar mensagem como"
 
 msgid "Default font"
-msgstr ""
+msgstr "Tipo de letra por defeito"
 
 msgid "Default font size"
-msgstr ""
+msgstr "Tamanho da letra por defeito"
 
 msgid "Always request a read receipt"
-msgstr ""
+msgstr "Enviar sempre um pedido de recibo de leitura"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
-#, fuzzy
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "Salvar automaticamente os nï¿½o-enviados a cada:"
+msgstr "{A}Gravar automaticamente E-mails por enviar a cada {B} minuto(s)"
 
-#, fuzzy
 msgid "Incoming mail"
-msgstr "Entrada de correspondï¿½ncia"
+msgstr "Mensagem de entrada"
 
 msgid "How to respond to requests for read receipts"
-msgstr "Como responder ï¿½ requisitos de recibo de leitura"
+msgstr "Como responder aos pedidos de recibo de leitura"
 
 msgid "Always send a response"
-msgstr "Sempre mandar uma resposta"
+msgstr "Enviar sempre uma resposta"
 
 msgid "Never send a response"
-msgstr "Nunca mandar uma resposta"
+msgstr "Nunca enviar uma resposta"
 
 msgid "Ask me before sending a response"
-msgstr "Me avise antes de mandar uma resposta"
+msgstr "Perguntar sempre antes de mandar uma resposta"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr ""
+msgstr "{A}Marcar automaticamente os E-mails como lidos após {B} segundo(s)"
 
 msgid "Off"
-msgstr "desligado"
+msgstr "Desligado"
 
 msgid "Right"
-msgstr "ï¿½ direita"
+msgstr "À direita"
 
 msgid "Bottom"
 msgstr "Na parte inferior"
 
-#, fuzzy
 msgid "General mail settings"
-msgstr "Nï¿½o salvar preferï¿½ncias"
+msgstr "Definições de E-mail gerais"
 
 msgid "Location of preview pane"
-msgstr ""
+msgstr "Localização do painel de leitura"
 
 msgid "Close original message on reply or forward"
-msgstr "Fechar mensagem original ao responder ou encaminhar"
+msgstr "Fechar mensagem original ao responder ou reencaminhar"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "Abrir ou compor um item de E-mail em"
 
 msgid "WebApp tab"
-msgstr ""
+msgstr "Aba WebApp"
 
 msgid "Browser window"
-msgstr ""
+msgstr "Nova janela"
 
-#, fuzzy
 msgid "I am currently in the office"
-msgstr "Eu estou presente no escritï¿½rio nesse momento"
+msgstr "Estou no escritório neste momento"
 
-#, fuzzy
 msgid "I am out of the office from"
-msgstr "Eu estou ausente no momento"
+msgstr "Estou ausente do escritório de"
 
 msgid "I will be back on"
-msgstr ""
+msgstr "Volto em"
 
-#, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
-msgstr "AutoResponder somente uma vez para cada remetente com o seguinte texto"
+msgstr ""
+"Responder automaticamente somente uma vez para cada remetente com o seguinte "
+"texto"
 
-#, fuzzy
 msgid "User is currently out of office."
-msgstr "Eu estou ausente no momento"
+msgstr "O utilizador está ausente do escritório de momento."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
-msgstr ""
+msgstr "A data que inseriu é antes da data de \"fora de escritório\" definida."
 
 msgid "Signatures"
-msgstr ""
+msgstr "Assinaturas"
 
 msgid "Signature for new messages"
-msgstr ""
+msgstr "Assinatura para novas mensagens"
 
 msgid "Signature for replies and forwards"
-msgstr ""
+msgstr "Assinatura para respostas e reencaminhamentos"
 
-#, fuzzy
 msgid "Save Signature"
-msgstr "Sem assinatura"
+msgstr "Assinaturas"
 
-#, fuzzy
 msgid "<None>"
 msgstr "Nenhum"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
-msgstr ""
+msgstr "Existem alterações por gravar. Deseja gravar estas alterações?"
 
-#, fuzzy
 msgid "New signature"
-msgstr "Sem assinatura"
+msgstr "Nova assinatura"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "Ficheiros(s) EML"
 
-#, fuzzy
 msgid "ZIP file"
-msgstr "Perfil"
+msgstr "Ficheiro ZIP"
 
 msgid "max. "
-msgstr ""
+msgstr "max. "
 
-#, fuzzy
 msgid "Sort by: Sent"
-msgstr "Organizar Por Data de Envio"
+msgstr "Ordenar por: Enviado"
 
 msgid "Modified"
 msgstr "Modificado"
 
-#, fuzzy
 msgid "Sort by: Modified"
-msgstr "Modificado"
+msgstr "Ordenar por: Modificado"
 
 msgid "Flag"
-msgstr ""
+msgstr "Marcar bandeira"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Ordenar por: bandeira"
 
-#, fuzzy
 msgid "Older"
-msgstr "Pasta"
+msgstr "Antigo"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontem"
 
-#, fuzzy
 msgid "Last Week"
-msgstr "Prï¿½xima semana"
+msgstr "Na semana passada"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Duas semanas antes"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Três semanas antes"
 
-#, fuzzy
 msgid "Last Month"
-msgstr "Prï¿½ximo mï¿½s"
+msgstr "No mês passado"
 
 msgid "Small"
-msgstr ""
+msgstr "Pequeno"
 
 msgid "Medium"
-msgstr ""
+msgstr "Médio"
 
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 msgid "Very large"
-msgstr ""
+msgstr "muito grande"
 
 msgid "Huge"
-msgstr ""
+msgstr "Enorme"
 
 msgid "Follow up"
-msgstr ""
+msgstr "Seguir"
 
 msgid "Move to Junk Folder"
 msgstr "Mover para Spam"
 
-#, fuzzy
 msgid "Send to"
-msgstr "Enviar"
+msgstr "Enviar para"
 
-#, fuzzy
 msgid "Loading mail"
-msgstr "Carregando"
+msgstr "A Carregar mensagens"
 
-#, fuzzy
 msgid "Save Note"
-msgstr "Nota"
+msgstr "Gravar Nota"
 
-#, fuzzy
 msgid "Save note"
-msgstr "Salvar"
+msgstr "Gravar nota"
 
-#, fuzzy
 msgid "Delete Note"
-msgstr "Excluir itens"
+msgstr "Eliminar Nota"
 
-#, fuzzy
 msgid "Delete this note"
-msgstr "Excluir esta coluna"
+msgstr "Eliminar esta nota"
 
 msgid "Print this note"
-msgstr ""
+msgstr "Imprimir esta nota"
 
 msgid "Color"
 msgstr "Cor"
 
-#, fuzzy
 msgid "New note"
-msgstr "Nova pasta"
+msgstr "Nova nota"
 
-#, fuzzy
 msgid "Open Shared Notes"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir Notas partilhadas"
 
 msgid "Sticky note"
-msgstr ""
+msgstr "Nota adesiva"
 
-#, fuzzy
 msgid "Print selected note"
-msgstr "Deletar os itens selecionados permanentemente"
+msgstr "Imprimir nota selecionada"
 
-#, fuzzy
 msgid "No note selected"
-msgstr "Baixar arquivo selecionado"
+msgstr "Nenhuma nota selecionada"
 
-#, fuzzy
 msgid "Icons"
-msgstr "ï¿½cone"
+msgstr "Icones"
 
-#, fuzzy
 msgid "List view"
-msgstr "Visualizaï¿½ï¿½o em lista"
+msgstr "Ver em lista"
 
 msgid "List Last Seven Days"
-msgstr ""
+msgstr "Visualizar últimos sete dias"
 
 msgid "Created"
 msgstr "Criado"
 
-#, fuzzy
 msgid "Sort by: Created"
-msgstr "Organizar Por Criaï¿½ï¿½o"
+msgstr "Ordenar por: Criado"
 
-#, fuzzy
 msgid "Sort by: Color"
-msgstr "Organizar pasta"
+msgstr "Ordenar por: Cor"
 
-#, fuzzy
 msgid "Loading Notes"
-msgstr "Carregando"
+msgstr "A carregar Notas"
 
-#, fuzzy
 msgid "Loading notes"
-msgstr "Carregando"
+msgstr "A carregar notas"
 
 msgid "In order for the changes to take effect, please reload WebApp."
 msgstr ""
+"Para que as alterações possam ser aplicadas, será necessário reiniciar a "
+"WebApp."
 
 msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+msgstr "ATENÇÂO: Qualquer alteração não guardada será perdida."
 
 msgid "Settings"
-msgstr "Preferï¿½ncias"
+msgstr "Definições"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
-#, fuzzy
 msgid "Account information - {0}"
-msgstr "Nenhuma Informaï¿½ï¿½o"
+msgstr "Informação da conta - {0}"
 
 msgid "Language"
-msgstr "Lï¿½ngua"
+msgstr "Idioma"
 
 msgid "Startup folder"
 msgstr "Pasta inicial"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "This change requires a reload of the WebApp"
-msgstr ""
+msgstr "Esta alteração requer reiniciar a WebApp"
 
-#, fuzzy
 msgid "Select Default Folder"
-msgstr "Selecionar pasta"
+msgstr "Selecionar pasta por defeito"
 
-#, fuzzy
 msgid "Advanced"
-msgstr "Comparecimento"
+msgstr "Avançadas"
 
-#, fuzzy
 msgid "Advanced settings"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Definições avançadas"
 
-#, fuzzy
 msgid "Edit setting"
-msgstr "preferï¿½ncias"
+msgstr "Editar definições"
 
-#, fuzzy
 msgid "Restore to defaults"
-msgstr "Restaurar Itens"
+msgstr "Repor valores originais"
 
-#, fuzzy
 msgid "Delete settings"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Eliminar definições"
 
 msgid "About"
-msgstr ""
+msgstr "Acerca"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Quero mostar a hora e data neste formato:"
 
 msgid "Short"
-msgstr ""
+msgstr "Abreviada"
 
 msgid "Long"
-msgstr ""
+msgstr "Completa"
 
-#, fuzzy
 msgid "Inbox navigation"
-msgstr "Cancelar Convite"
+msgstr "Navegação na Caixa de Entrada"
 
 msgid "I want to navigate through my items by using."
-msgstr ""
+msgstr "Quero percorrer os itens usando."
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "Percorrer infinitamente"
 
 msgid "WebApp automatically loads additional items when you scroll down"
-msgstr ""
+msgstr "WebApp carrega itens adicionais à medida que navega"
 
 msgid "Pagination"
-msgstr ""
+msgstr "Paginação"
 
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
+"A WebApp mostra os itens por página e pode percorrê-los através dos botões "
+"de navegação"
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "Carregar itens em blocos de {A}"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "Carregar {A} itens por página."
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Atalhos teclado"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "Parte de atalhos teclado básicos"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "Atalhos teclado desligados"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "Atalhos teclado básicos ligados"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "Todos atalhos teclado ligados"
 
 msgid "Discard"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
-#, fuzzy
 msgid "Available plugins"
-msgstr "Campos disponï¿½veis"
+msgstr "Plugins disponíveis"
 
 msgid ""
 "The following plugins are available in the WebApp. It is possible to select "
@@ -4883,412 +4448,406 @@ msgid ""
 "enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
 "in order for the changes to take effect."
 msgstr ""
+"Os seguintes plugins estão disponíveis. É possível selecionar e "
+"desseleccionar vários plugins para os ativar/desativar. Quando um plugin é "
+"ativado/desativado, a WebApp tem que ser reiniciada para as alterações "
+"poderem ser aplicadas."
 
 msgid "No plugins available"
-msgstr ""
+msgstr "Nenhum plugin disponível"
 
-#, fuzzy
 msgid "Version"
-msgstr "Permissï¿½es"
+msgstr "Versão"
 
 msgid "This plugin cannot be disabled"
-msgstr ""
+msgstr "Este plugin não pode ser desativado"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "Este plugin não pode ser ativado"
 
-#, fuzzy
 msgid "Mailbox Usage"
-msgstr "Mensagem de E-Mail"
+msgstr "Ocupação da caixa de correio"
 
 msgid "Quota information is not set on the user's store."
-msgstr ""
+msgstr "A informação da quota não está definida na caixa do utilizador."
 
 msgid "{0} of mailbox space is used."
-msgstr ""
+msgstr "{0} da caixa de correio usada."
 
 msgid "You have exceeded hard quota, you can not send or recieve mails."
-msgstr ""
+msgstr "Excedeu a quota. Não pode enviar nem receber E-mails."
 
 msgid "At {0} you won't be able to send mails."
-msgstr ""
+msgstr "A partir de {0} não vai conseguir enviar E-mails."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to recieve mails."
 msgstr ""
+"Não pode enviar E-mails pois excedeu a quota de aviso, a partir de {0} não "
+"vai poder receber E-mails."
 
 msgid "At {0} you won't be able to send or recieve mails."
-msgstr ""
+msgstr "A partir de {0} não vai poder enviar nem receber E-mails."
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr ""
+msgstr "Não pode enviar E-mails pois excedeu a quota de aviso."
 
-#, fuzzy
 msgid "Reset WebApp settings"
-msgstr "Nï¿½o salvar preferï¿½ncias"
+msgstr "Reset das definições da WebApp"
 
 msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
+msgstr "Repor as definições originais da WebApp"
 
 msgid ""
 "Your WebApp settings will be restored to their default condition. Are you "
 "sure you want to reset all WebApp settings?"
 msgstr ""
+"As definições da WebApp vão ser repostas no seu estado original. Tem a "
+"certeza que quer continuar com esta operação?"
 
 msgid ""
 "WebApp will automatically restart in order for these changes to take effect"
 msgstr ""
+"A WebApp vai reiniciar automaticamente para que as alterações possam ser "
+"aplicadas"
 
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 msgid "Webapp is reloading, Please wait."
-msgstr ""
+msgstr "WebApp a carregar... Por favor aguarde."
 
-#, fuzzy
 msgid "Setting"
-msgstr "Preferï¿½ncias"
+msgstr "Definição"
 
 msgid "The setting '{0}' can not be edited"
-msgstr ""
+msgstr "A definição '{0}' não pode ser editada"
 
-#, fuzzy
 msgid "Version information"
-msgstr "Informaï¿½ï¿½o de cobranï¿½a"
+msgstr "Informação sobre versão"
 
 msgid "WebApp"
-msgstr ""
+msgstr "WebApp"
 
 msgid "Kopano Core"
-msgstr ""
+msgstr "Kopano Core"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Confirmar remoção"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Apagar este item(s) também irá a pagar o item(s) original."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Tem certeza que quer apagar os itens?"
 
-#, fuzzy
 msgid "Sort by: Priority"
-msgstr "Organizar Por Prioridade"
+msgstr "Ordenar por: Prioridade"
 
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
-#, fuzzy
 msgid "Sort by: Status"
-msgstr "Organizar por Status Ocupado"
+msgstr "Ordenar por: Estado"
 
 msgid "Due Date"
-msgstr "Prazo final"
+msgstr "Data de término"
 
-#, fuzzy
 msgid "Sort by: Due Date"
-msgstr "Organizar Por Data Limite"
+msgstr "Ordenar por: Data de término"
 
 msgid "% Completed"
-msgstr "% Completo"
+msgstr "% Completada"
 
-#, fuzzy
 msgid "Sort by: Percent Completed"
-msgstr "Organizar Por Porcentagem Completa"
+msgstr "Ordenar por: Percentagem Completa"
 
-#, fuzzy
 msgid "Task Status"
-msgstr "Status"
+msgstr "Estado da Tarefa"
 
 msgid "Percent Complete"
-msgstr "Porcentagem completa"
+msgstr "Percentagem Completa"
 
 msgid "Total Work"
 msgstr "Trabalho Total"
 
 msgid "Actual Work"
-msgstr "Trabalho Atual"
+msgstr "Trabalho Efetivo"
 
 msgid "Companies"
 msgstr "Empresas"
 
-#, fuzzy
 msgid "Billing Information"
-msgstr "Informaï¿½ï¿½o de cobranï¿½a"
+msgstr "Informação de faturação"
 
 msgid "Mileage"
-msgstr "Quilï¿½metros usados"
+msgstr "Distância"
 
-#, fuzzy
 msgid "Accepting Task"
-msgstr "Pedido de reuniï¿½o"
+msgstr "Aceitação de Tarefa"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Recusa de Tarefa"
 
 msgid ""
 "This task will be accepted and moved into the Tasks folder. Do you want to "
 "edit the response before sending it?"
 msgstr ""
+"Esta tarefa vai ser aceite e movida para a pasta Tarefas. Quer editar a "
+"resposta antes de enviar?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
+"Esta tarefa vai ser recusada e movida para a pasta Itens Eliminados. Quer "
+"editar a resposta antes de enviar?"
 
-#, fuzzy
 msgid "Send the response now"
-msgstr "Nunca mandar uma resposta"
+msgstr "Enviar resposta agora"
 
-#, fuzzy
 msgid "Date Complete"
 msgstr "Data completa"
 
-#, fuzzy
 msgid "Update List"
-msgstr "Atualizaï¿½ï¿½o"
+msgstr "Atualizar lista"
 
 msgid "Create Unassigned Copy"
-msgstr ""
+msgstr "Criar cópia por atribuir"
 
 msgid "copy"
-msgstr ""
+msgstr "cópia"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Não é possível enviar um pedido de tarefa para o próprio."
 
 msgid "A task request can only have one recipient."
-msgstr ""
+msgstr "Um pedido de tarefa só pode ter um destinatário."
 
-#, fuzzy
 msgid "Due date"
-msgstr "Prazo final"
+msgstr "Data de término"
 
 msgid "Priority"
 msgstr "Prioridade"
 
-#, fuzzy
 msgid "% Complete"
-msgstr "% Completo"
+msgstr "% Completa"
 
-#, fuzzy
 msgid "Track progress"
-msgstr "Em progresso"
+msgstr "Ver progresso"
 
 msgid "Keep updated copy of task and receive automated status reports"
 msgstr ""
+"Manter cópia atualizada da tarefa e receber notificações de estado "
+"automáticos"
 
-#, fuzzy
 msgid "Send task to assignees"
-msgstr "Convidar Participantes"
+msgstr "Enviar tarefa aos destinatários"
 
 msgid "Send assignment"
-msgstr ""
+msgstr "Enviar tarefa"
 
 msgid "Save without sending a task request to assignees"
-msgstr ""
+msgstr "Gravar sem enviar pedido de tarefa aos destinatários"
 
-#, fuzzy
 msgid "Save task"
-msgstr "Salvar preferï¿½ncias"
+msgstr "Gravar tarefa"
 
 msgid "Save task and close dialog"
-msgstr ""
+msgstr "Gravar tarefa e fechar"
 
-#, fuzzy
 msgid "Restore to Task List"
-msgstr "Restaurar Itens"
+msgstr "Restaurar para Lista de Tarefas"
 
 msgid "Restore this item to your task list"
-msgstr ""
+msgstr "Restaurar este item para Lista de Tarefas"
 
-#, fuzzy
 msgid "Delete this task"
-msgstr "Excluir itens"
+msgstr "Eliminar esta tarefa"
 
-#, fuzzy
 msgid "Add attachments to this task"
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexos a esta tarefa"
 
-#, fuzzy
 msgid "Mark as Complete"
-msgstr "Marcar completo"
+msgstr "Marcar como completa"
 
-#, fuzzy
 msgid "Mark this task as complete"
-msgstr "Marcar completo"
+msgstr "Marcar esta tarefa como completa"
 
 msgid "Print this task"
-msgstr ""
+msgstr "Imprimir esta tarefa"
 
 msgid "Assign Task"
-msgstr ""
+msgstr "Atribuir tarefa"
 
 msgid "Assign this task to someone else."
-msgstr ""
+msgstr "Atribuir esta tarefa a outra pessoa."
 
 msgid "Cancel Assignment"
-msgstr ""
+msgstr "Cancelar atribuição"
 
 msgid "Convert this task request to a regular task by removing assignees."
 msgstr ""
+"Converter este pedido de tarefa para um tarefa simples removendo os "
+"destinatários."
 
-#, fuzzy
 msgid "Mark this task as private"
-msgstr "Por favor trate isso como Privado"
+msgstr "Marcar tarefa como privada"
 
 msgid "New task"
-msgstr ""
+msgstr "Nova tarefa"
 
-#, fuzzy
 msgid "Percent complete"
-msgstr "Porcentagem completa"
+msgstr "Percentagem completa"
 
 msgid "Total work"
 msgstr "Trabalho total"
 
 msgid "{totalwork} hours"
-msgstr ""
+msgstr "{totalwork} horas"
 
 msgid "Actual work"
-msgstr "Trabalho atual"
+msgstr "Trabalho efetivo"
 
-#, fuzzy
 msgid "{actualwork} hours"
-msgstr "Trabalho atual"
+msgstr "{actualwork} horas"
 
-#, fuzzy
 msgid "Open Shared Tasks"
-msgstr "Abrir pastas compartilhadas"
+msgstr "Abrir Tarefas partilhadas"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Visita simples"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Vista detalhada"
 
-#, fuzzy
 msgid "Task request"
-msgstr "Compromisso reincidente"
+msgstr "Pedido de tarefa"
 
-#, fuzzy
 msgid "Print selected task"
-msgstr "Deletar os itens selecionados permanentemente"
+msgstr "Imprimir tarefa selecionada"
 
 msgid "Print task list"
-msgstr ""
+msgstr "Imprimir lista de tarefas"
 
 msgid "No task selected"
-msgstr ""
+msgstr "Nenhuma tarefa selecionada"
 
-#, fuzzy
 msgid "Create task"
-msgstr "Criar itens"
+msgstr "Criar tarefa"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Assinalar Completa"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Assinalar Incompleta"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
+"As tarefas que estão atribuídas serão modificadas quando o respetivo "
+"utilizador proceder a alterações."
 
-#, fuzzy
 msgid "Sort by: Complete"
-msgstr "Organizar por completo"
+msgstr "Ordenar por: Completo"
 
-#, fuzzy
 msgid "Reminder Time"
-msgstr "Lembrete"
+msgstr "Hora Lembrete"
 
-#, fuzzy
 msgid "Sort by: Reminder Time"
-msgstr "Organizar Por Remetente"
+msgstr "Ordenar por: Hora Lembrete"
 
 msgid "Assigned To"
-msgstr ""
+msgstr "Atribuído a"
 
 msgid "Sort by: Assignee"
-msgstr ""
+msgstr "Ordenar por: Atribuído"
 
-#, fuzzy
 msgid "Sort by: Start Date"
-msgstr "Organizar por Data de Inï¿½cio"
+msgstr "Ordenar por: Data de Início"
 
-#, fuzzy
 msgid "Sort by: Owner"
-msgstr "Organizar Por Dono"
+msgstr "Ordenar por: Proprietário"
 
-#, fuzzy
 msgid "Loading tasks"
-msgstr "Carregando"
+msgstr "A Carregar Tarefas"
 
-#, fuzzy
 msgid "Date completed"
-msgstr "Data completa"
+msgstr "Data término"
 
 msgid "hours"
 msgstr "horas"
 
-#, fuzzy
 msgid "Billing information"
-msgstr "Informaï¿½ï¿½o de cobranï¿½a"
+msgstr "Informação de faturação"
 
-#, fuzzy
 msgid "Update list"
-msgstr "Atualizaï¿½ï¿½o"
+msgstr "Atualizar lista"
 
 msgid "D d-m-Y"
-msgstr ""
+msgstr "D d-m-Y"
 
 msgid "Improved categories"
-msgstr ""
+msgstr "Categorias melhoradas"
 
 msgid ""
 "Categories now have a prominent place in your overviews of Mail, Calendar, "
 "Tasks and more."
 msgstr ""
+"As categorias têm agora um espaço destacado nas vistas de Correio, "
+"Calendário, Tarefas e mais."
 
 msgid ""
 "Adding a category is easy and can be done from the overview. Move your mouse "
 "over an email to see the \"Add category\" icon and click it, or right-click "
 "an item to open the context menu."
 msgstr ""
+"Adicionar uma categoria é fácil e pode ser feito através da vista geral. "
+"Mova o rato sobre uma mensagem para ver  \"Adicionar categoria\" e "
+"selecione, ou use o botão do lado direito do rato para abrir o menu "
+"contextual."
 
 msgid "Flag item for follow up"
-msgstr ""
+msgstr "Marcar item para seguimento"
 
 msgid ""
 "You can now mark email items for follow-up by setting a flag. In the new "
 "flags menu you can select the follow-up date. A reminder will be shown that "
 "day."
 msgstr ""
+"Agora pode marcar mensagens para seguimento definindo uma bandeira. No novo "
+"menu de bandeiras pode definir uma data. Será mostrado um lembrete nesse dia."
 
 msgid ""
 "The Tasks context provides a complete overview of your to-do's. All tasks "
 "and flagged emails will be shown in this to-do list."
 msgstr ""
+"O contexto das Tarefas fornece uma visão das Ações a Fazer. Todas as tarefas "
+"e mensagens marcadas serão mostradas nesta lista."
 
 msgid "Transformation of flags into follow-ups and categories"
-msgstr ""
+msgstr "Transformação de marcas em seguimentos e categorias"
 
 msgid ""
 "Your former flagged items are transformed into items with a color category "
 "and a \"No date\" follow-up flag. For example: an item with a blue flag will "
 "now have a category named \"Blue\"."
 msgstr ""
+"Os seus itens anteriormente marcados com bandeiras serão transformados em "
+"categorias e ficarão com uma bandeira \"Sem data\". Por exemplo, um item com "
+"uma bandeira azul ficará com a categoria \"Azul\"."
 
 msgid ""
 " You have the option to rename a color category when you first use it and "
 "all items with this category will get updated."
 msgstr ""
+" Tem a opção de alterar a cor de uma categoria quando a usa pela primeira "
+"vez. Todos os itens nessa categoria serão atualizados."
 
 msgid "Search folders"
-msgstr ""
+msgstr "Pastas de procura"
 
 msgid ""
 "If there is a search query you use frequently you are in luck! After you "
@@ -5296,323 +4855,300 @@ msgid ""
 "will show up in your favorites! You can then do the same search again with a "
 "single click."
 msgstr ""
+"Se existir uma procura que realize frequentemente pode guarda-la como \""
+"pasta de procura\" e esta irá aparecer nos favoritos. Poderá voltar a fazer "
+"essa mesma procura selecionando a pasta de procura criada."
 
 msgid "What's new"
-msgstr ""
+msgstr "Novidades"
 
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "Não voltar a mostar novas funcionalidades."
 
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "Next"
-msgstr ""
+msgstr "Seguinte"
 
 msgid "The server reported an unknown error on your request."
-msgstr ""
+msgstr "O servidor retornou um erro desconhecido no pedido."
 
 msgid "The server reported an unspecified error on your request."
-msgstr ""
+msgstr "O servidor retornou um erro não definido no pedido."
 
 msgid "The session has expired, reauthentication is required."
-msgstr ""
+msgstr "A sessão expirou. É necessário voltar a autenticar-se."
 
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
-msgstr ""
+msgstr "A sessão desta janela foi terminada noutra janela ou aba."
 
-#, fuzzy
 msgid "Do you wish to be redirected to the logon page?"
-msgstr "Vocï¿½ gostaria de notificar o remetente?"
+msgstr "Deseja ser redirecionado para a página de login?"
 
 msgid "Session expired"
-msgstr ""
+msgstr "Sessão expirou"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
+"É necessário voltar a autenticar-se. clique aqui para voltar à página de "
+"login."
 
 msgid "Connection problem"
-msgstr ""
+msgstr "Erro ligação"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
+msgstr "Não foi possível ligar ao servidor. Tentar em {0} segundo(s)"
 
 msgid "Click to retry now"
-msgstr ""
+msgstr "Clique para tentar agora"
 
-#, fuzzy
 msgid "Connection restored"
-msgstr "Fechar caixa"
+msgstr "Ligação reposta"
 
 msgid "Connection with server has been restored"
-msgstr ""
+msgstr "A ligação com o servidor foi reposta"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Dados inválidos recebidos do servidor"
 
 msgid "Missing store"
-msgstr ""
+msgstr "Caixa não encontrada"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "A caixa por defeito não existe no Painel de Navegação."
 
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
-msgstr ""
+msgstr "Nem todas as funcionalidades da WebApp poderão funcionar devido a isso."
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Caixa de Entrada"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr ""
+msgstr "Caixa de Saída"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr "Abrir item"
+msgstr "Itens enviados"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr "Excluir itens"
+msgstr "Itens Eliminados"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
-msgstr "Calendï¿½rio"
+msgstr "Calendário"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
 msgstr "Contatos"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr ""
+msgstr "Rascunhos"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Journal"
-msgstr "Diï¿½rio"
+msgstr "Diário"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Notes"
 msgstr "Notas"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tarefas"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk E-mail"
-msgstr "E-mail"
+msgstr "E-mail de SPAM"
 
-#, fuzzy
 msgid "Missing folders"
-msgstr "Modificar Pasta"
+msgstr "Pastas inexistentes"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "A seguinte pasta necessária está em falta na lista: {0}"
+msgstr[1] "As seguintes pastas necessárias estão em falta na lista: {0}"
 
 msgid "Loading model from server failed"
-msgstr ""
+msgstr "Falhou a carregar modelo do servidor"
 
 msgid "Out of Office currently on. Would you like to turn it off?"
-msgstr ""
+msgstr "\"Fora do escritório\" está ativo. Deseja desativar?"
 
-#, fuzzy
 msgid "Out of office off"
-msgstr "Fora do escritï¿½rio - Ausente"
+msgstr "Fora do escritório desativado"
 
 msgid "Out of office has been turned off"
-msgstr ""
+msgstr "\"Fora do escritório\" foi desativado"
 
-#, fuzzy
 msgid "Send Fax"
-msgstr "Enviar"
+msgstr "Enviar Fax"
 
-#, fuzzy
 msgid "Contact Fax"
-msgstr "Contato"
+msgstr "Contato Fax"
 
-#, fuzzy
 msgid "Configure widget"
-msgstr "Corfirmar exclusï¿½o"
+msgstr "Configurar widget"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Intervalo para refrescar (s)"
 
 msgid "seconds."
-msgstr ""
+msgstr "segundos."
 
 msgid "No appointments for today."
-msgstr ""
+msgstr "Sem compromissos para hoje."
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
 #. icons.
 msgid "Today: {1} {0}"
-msgstr ""
+msgstr "Hoje: {1} {0}"
 
 #. TRANSLATORS: {0} is the subject of an
 #. appointment; {1} is the start time, {2} is the
 #. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr ""
-
 #, fuzzy
+msgid "{1}&minus;{2}: {3} {0}"
+msgstr "{1}&minus;{2}: {3} {0}"
+
 msgid "Today's Appointments"
-msgstr "Compromisso"
+msgstr "Compromissos para hoje"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "Sem mensagens por ler."
 
-#, fuzzy
 msgid "Unread Mail"
-msgstr "Ler mensagens"
+msgstr "Mensagens por ler"
 
 msgid "No tasks."
-msgstr ""
+msgstr "Sem tarefas."
 
 msgid "Google Maps"
-msgstr ""
+msgstr "Google Maps"
 
 #. TRANSLATORS: The map of earth
-#, fuzzy
 msgid "Map"
-msgstr "Mar"
+msgstr "Mapa"
 
-#, fuzzy
 msgid "Move currently selected message(s) to {0}"
-msgstr "Copiar/Mover mensagens selecionadas para"
+msgstr "Mover mensagens selecionadas para {0}"
 
-#, fuzzy
 msgid "Move to {0}"
-msgstr "Mover para"
+msgstr "Mover para {0}"
 
-#, fuzzy
 msgid "Move current message to {0}"
-msgstr "Vocï¿½ encaminhou essa mensagem em {time}"
+msgstr "Mover esta mensagem para {0}"
 
 msgid "Personal Inbox Manager"
-msgstr ""
+msgstr "Gestor de Caixa de entrada"
 
 msgid "Personal Inbox Management Settings"
-msgstr ""
+msgstr "Definições de Gestor de Caixa de entrada"
 
-#, fuzzy
 msgid "Select another folder"
-msgstr "Selecionar pasta"
+msgstr "Selecionar outra pasta"
 
 msgid "E-mails are moved to {0}"
-msgstr ""
+msgstr "Emails são movidos para {0}"
 
-#, fuzzy
 msgid "Quick Appointment"
-msgstr "Compromisso"
+msgstr "Compromisso rápido"
 
-#, fuzzy
 msgid "Quick Contact"
-msgstr "Contato"
+msgstr "Contato rápido"
 
-#, fuzzy
 msgid "Quick Mail"
-msgstr "Pesquisa rï¿½pida"
+msgstr "Mensagem rápida"
 
-#, fuzzy
 msgid "Quick Note"
-msgstr "Pesquisa rï¿½pida"
+msgstr "Nota rápida"
 
-#, fuzzy
 msgid "Quick Task"
-msgstr "Pesquisa rï¿½pida"
+msgstr "Tarefa rápida"
 
 msgid "Title Counter Plugin"
-msgstr ""
+msgstr "Título contador Plugin"
 
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 msgid "WebApp Manual"
-msgstr ""
+msgstr "Manual WebApp"
 
 msgid "INSERT"
-msgstr ""
+msgstr "INSERIR"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Ordenar por: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZDeveloper"
 
 msgid "Charm pink"
-msgstr ""
+msgstr "Rosa charmoso"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "Vermelho Cádmio"
 
-#, fuzzy
 msgid "Apricot"
-msgstr "Abril"
+msgstr "Alperce"
 
 msgid "California"
-msgstr ""
+msgstr "Califórnia"
 
 msgid "Soft green"
-msgstr ""
+msgstr "Verde suave"
 
 msgid "Mint"
-msgstr ""
+msgstr "Menta"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Pérola água"
 
 msgid "Kopano blue"
-msgstr ""
+msgstr "Azul Kopano"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "Azul-bebé"
 
 msgid "Mauve"
-msgstr ""
+msgstr "Malva"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "Areia prateada"
 
 msgid "Competition"
 msgstr "Completo"
 
 msgid "Gifts"
-msgstr "Presentes"
+msgstr "Prendas"
 
 msgid "Goals/Objectives"
-msgstr "Alvos/Objetivos"
+msgstr "Objetivos"
 
 msgid "Holiday Cards"
-msgstr "Cartï¿½es de feriado"
+msgstr "Cartões de feriado"
 
 msgid "Hot Contacts"
 msgstr "Contatos importantes"
 
 msgid "Ideas"
-msgstr "Idï¿½ias"
+msgstr "Ideias"
 
 msgid "International"
 msgstr "Internacional"
@@ -5621,13 +5157,13 @@ msgid "Key Customer"
 msgstr "Cliente chave"
 
 msgid "Miscellaneous"
-msgstr "Vï¿½rios"
+msgstr "Vários"
 
 msgid "Phone Calls"
-msgstr "Ligaï¿½ï¿½es telefï¿½nicas"
+msgstr "Chamadas telefónicas"
 
 msgid "Strategies"
-msgstr "Estratï¿½gias"
+msgstr "Estratégias"
 
 msgid "Suppliers"
 msgstr "Fornecedores"
@@ -5642,32 +5178,33 @@ msgid "Waiting"
 msgstr "Em espera"
 
 msgid "You have been automatically logged out"
-msgstr "A sessï¿½o foi automaticamente terminada"
+msgstr "A sessão foi automaticamente terminada"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "Não foi possível adicionar dados ao bus. A mesma ação já existe no bus"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Resposta pedida ao bus, mas resposta vazia."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Módulo desconhecido. '%s' com o id '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"O servidor encontrou um problema, por isso não foi possível processar o "
+"pedido."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Notificador desconhecido: '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Ocorreu um erro inesperado"
 
-#, fuzzy
 msgid "To-Do List"
-msgstr "Ligaï¿½ï¿½es telefï¿½nicas"
+msgstr "Lista de Ações a fazer"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5675,350 +5212,329 @@ msgstr "Ligaï¿½ï¿½es telefï¿½nicas"
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s de %2$s"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Erro a carregar definições existentes"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Erro a carregar definições persistentes"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
+"Início de sessão falhou. Por favor verifique o seu utilizador/password e "
+"volte a tentar."
 
-#, fuzzy
 msgid "Cannot connect to Kopano Core."
-msgstr "Nï¿½o foi possï¿½vel conectar com o servidor Kopano."
+msgstr "Não foi possível ligar ao Kopano Core."
 
 msgid "Logon failed, another session already exists."
-msgstr ""
+msgstr "Início de sessão falhou. Já existe uma sessão."
 
-#, fuzzy
 msgid "Unknown MAPI Error"
-msgstr "Erro desconhecido"
+msgstr "Erro MAPI desconhecido"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Este Link vai abrir numa nova janela."
 
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Este Link vai abrir numa nova janela"
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "EML está corrompido"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo EML não foi importado com sucesso"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo VCF não foi importado com sucesso"
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "O anexo não foi importado com sucesso"
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "O ficheiro ZIP não foi criado com sucesso"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Não é possível transferir os anexos"
 
-#, fuzzy
 msgid "Could not find attachment."
-msgstr "Adicionar anexos"
+msgstr "Não foi possível encontrar os anexos."
 
-#, fuzzy
 msgid "Operation failed"
-msgstr "Optional"
+msgstr "Operação falhou"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Nota adesiva"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Pedido de Tarefa"
 
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
+"Não foi possível encontrar a mensagem. Poderá ter sido movida ou apagada."
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Ação não foi executada corretamente."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Não tem permissões suficientes para abrir este objeto."
 
-#, fuzzy
 msgid "Logon Failed. Please check your name/password."
-msgstr "Falha ao registrar, por favor verifique o seu nome/senha"
+msgstr "Falha ao iniciar sessão. Por favor verifique o seu utilizador/password."
 
-#, fuzzy
 msgid "Can not connect to Kopano Core."
-msgstr "Nï¿½o foi possï¿½vel conectar com o servidor Kopano."
+msgstr "Não foi possível ligar ao Kopano Core."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Não foi possível abrir o objeto com o id fornecido."
 
-#, fuzzy
 msgid "There are no recipients in the message."
-msgstr "Pedir confirmaï¿½ï¿½o de recebimento para esta mensagem"
+msgstr "Não existem destinatários na mensagem."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Objeto não encontrado."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Operação falhou. O servidor não tem memória suficiente."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr "Erro desconhecido"
+msgstr "Erro MAPI desconhecido: %s"
 
-#, fuzzy
 msgid "Tentatively accepted"
-msgstr "aceito como tentativa,"
+msgstr "Aceite em modo tentativa"
 
-#, fuzzy
 msgid "New Time Proposed"
-msgstr "Proposto"
+msgstr "Nova data proposta"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr ""
+msgstr "Acontece a cada %s a partir de %s de %s até %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr ""
+msgstr "Acontece a cada %s %s a partir de %s de %s até %s."
 
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr ""
+msgstr "Acontece a cada %s a partir de %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr ""
+msgstr "Acontece a cada %s %s a partir de %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada %s a partir de %s por %s vez de %s até %s."
+msgstr[1] "Acontece a cada %s a partir de %s por %s vezes de %s até %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez de %s até %s."
+msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes de %s até %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada %s a partir de %s por %s vez."
+msgstr[1] "Acontece a cada %s a partir de %s por %s vezes."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Acontece a cada %s %s a partir de %s por %s vez."
+msgstr[1] "Acontece a cada %s %s a partir de %s por %s vezes."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Acontece %s a cada %s a partir de %s de %s até %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Acontece %s a cada %s %s a partir de %s de %s até %s."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr ""
+msgstr "Acontece a cada %s a partir de %s até %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr ""
+msgstr "Acontece a cada %s %s a partir de %s até %s."
 
-#, fuzzy
 msgid "Task Accepted:"
-msgstr "aceitou"
+msgstr "Tarefa aceite:"
 
-#, fuzzy
 msgid "Task Declined:"
-msgstr "rejeitou"
+msgstr "Tarefa recusada:"
 
-#, fuzzy
 msgid "Task Updated:"
-msgstr "Atualizaï¿½ï¿½o"
+msgstr "Tarefa atualizada:"
 
-#, fuzzy
 msgid "Task Completed:"
-msgstr "Marcar completo"
+msgstr "Tarefa terminada:"
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Não foi possível processar este tipo de objeto."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Não foi possível abrir este objeto."
 
-#, fuzzy
 msgid "Could not open occurrence."
-msgstr "para 1 ocorrï¿½ncia"
+msgstr "Não foi possível abrir a ocorrência."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
+msgstr "Não foi possível abrir a ocorrência. Provalvelmente foi apagada."
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Não é possível definir um lembrete antes do evento anterior. Remova o "
+"lembrete para guardar a alteração"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Dois eventos não podem acontecer no mesmo dia"
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
 "because you do not have the appropiate permissions for that account. Either "
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Vocï¿½ marcou \"%s\" como recurso. Vocï¿½ nï¿½o pode agendar uma reuniï¿½o "
-"com \"%s\" porque vocï¿½ nï¿½o dispï¿½e de permissï¿½o apropriada para essa "
-"conta. Entre com o nome como participante obrigatï¿½rio ou opcional ou fale "
-"com seu administrador para te conceder permissï¿½o para agendar uma "
-"reuniï¿½o com \"%s\"."
+"Marcou '%s' como um recurso. Não pode agendar uma reunião com '%s' porque "
+"não dispõe de permissões apropriadas para essa conta. Poderá inserir o nome "
+"do participante como obrigatório ou opcional ou contacte o seu administrador "
+"para atribuir permissões para agendar '%s'."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
-"\"%s\" rejeitou sua reuniï¿½o porque \"%s\" nï¿½o aceita pedidos para "
-"reuniï¿½o automaticamente."
+"\"%s\" recusou a reunião porque \"%s\" não aceita pedidos para reunião "
+"automaticamente."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"\"%s\" rejeitou sua reuniï¿½o porque ela ï¿½ reincidente. Vocï¿½ tem que "
-"agendar cada reuniï¿½o separadamente com essa reincidï¿½ncia."
+"\"%s\" recusou a reunião porque é recorrente. Tem que agendar cada reunião "
+"separadamente com este recurso."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
-"\"%s\" nï¿½o estï¿½ disponï¿½vel na hora especificada. Tente mudar a hora ou "
+"\"%s\" não está disponível na hora especificada. Tente mudar a hora ou "
 "procure outro recurso."
 
 msgid "Meeting was not scheduled."
-msgstr "A reuniï¿½o nï¿½o foi agendada."
+msgstr "A reunião não foi agendada."
 
-#, fuzzy
 msgid "Meeting could not be sent."
-msgstr "A reuniï¿½o nï¿½o foi agendada."
+msgstr "Não foi possível enviar a reunião."
 
-#, fuzzy
 msgid "Meeting could not be saved."
-msgstr "A reuniï¿½o nï¿½o foi agendada."
+msgstr "Não foi possível guardar a reunião."
 
 msgid "Private Appointment"
 msgstr "Compromisso Privado"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s's Birthday"
-msgstr "Aniversï¿½rio"
+msgstr "Aniversário de %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "Aniversário de %s"
 
 msgid "Unknown user/group"
-msgstr "Usuï¿½rio/Grupo Desconhecido"
+msgstr "Utilizador/Grupo desconhecido"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Não foi possível gravar a informação do delegado."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Não foi possível apagar o delegado."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Não foi possível obter lista de delegados."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Não foi possível carregar a hierarquia."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Não foi possível carregar as propriedades da pasta."
 
-#, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "Copiar/Mover pasta"
+msgstr "Não foi possível apagar a pasta dos favoritos."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Não tem permissões suficientes para apagar a pastas."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Não foi possível apagar a pasta."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Não tem permissões suficientes para copiar a pasta."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Não foi possível copiar a pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder."
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para mover esta pasta."
 
-#, fuzzy
 msgid "Could not move folder."
-msgstr "Copiar/Mover pasta"
+msgstr "Não foi possível mover a pasta."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Não tem permissões suficientes para apagar itens."
 
-#, fuzzy
 msgid "Could not empty folder."
-msgstr "Esvaziar pastas"
+msgstr "Não foi possível esvaziar a pasta."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Não foi possível executar a ação corretamente."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "Uma pasta favorita com este nome já existe. Por favor use outro nome."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Não foi possível adicionar a pasta aos favoritos."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "Não tem privilégios suficientes para alterar as permissões desta pasta."
 
-#, fuzzy
 msgid "Could not set folder permissions."
-msgstr "Permissï¿½es da pasta"
+msgstr "Não foi possível aplicar as permissões na pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to rename this folder."
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para alterar o nome desta pasta."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Uma pasta com este nome já existe. Por favor use outro nome."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Não foi possível alterar o nome da pasta."
 
-#, fuzzy
 msgid "You have insufficient privileges to create this folder."
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para criar itens nesta pasta."
 
-#, fuzzy
 msgid "Could not create folder."
-msgstr "Criar sub-pastas"
+msgstr "Não foi possível criar a pasta."
 
-#, fuzzy
 msgid "Could not close shared folder."
-msgstr "Abrir pastas compartilhadas"
+msgstr "Não foi possível fechar a pasta compartilhada."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Não foi possível resolver utilizador."
 
 #, php-format
 msgid ""
@@ -6026,254 +5542,254 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Não tem permissões suficientes para abrir a pasta %1$s . O proprietário da "
+"pasta pode modificá-las através da aba 'permissões' nas propriedades da "
+"pasta (botão direito sobre pasta %1$s > propriedades > permissões)."
 
 msgid "unknown"
 msgstr "desconhecido"
 
-#, fuzzy
 msgid "Could not move folder"
-msgstr "Copiar/Mover pasta"
+msgstr "Não foi possível mover a pasta"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Não foi possível copiar a pasta"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Não tem permissões suficientes para abrir esta mensagem."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Não foi possível encontrar a mensagem. Poderá ter sido movida ou apagada, ou "
+"não tem permissões para abrir esta mensagem."
 
 msgid "Could not open message."
-msgstr ""
+msgstr "Não foi possível abrir a mensagem."
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr ""
+msgstr "Não tem permissões suficientes para recusar o pedido de Reunião"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
+msgstr "Não tem permissões suficientes para aceitar o pedido de Reunião"
 
-#, fuzzy
 msgid "Could not copy message"
-msgstr "Vocï¿½ respondeu essa mensagem"
+msgstr "Não foi possível copiar a mensagem"
 
-#, fuzzy
 msgid "Could not move message"
-msgstr "Copiar/Mover mensagem"
+msgstr "Não foi possível mover a mensagem"
 
-#, fuzzy
 msgid "You have insufficient privileges to save items in this folder"
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para guardar itens nesta pasta"
 
-#, fuzzy
 msgid "Could not save message"
-msgstr "Vocï¿½ respondeu essa mensagem"
+msgstr "Não foi possível guardar a mensagem"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr ""
+msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"A mensagem já não se encontra na fila de saída. Normalmente porque já foi "
+"enviada."
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "Mensagem não pode ser abortada"
 
-#, fuzzy
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para eliminar itens nesta pasta"
 
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr ""
+msgstr "Não tem permissões suficientes para adicionar este item como anexo."
 
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "Não possível adicionar o item como anexo."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
 msgstr ""
+"Não tem permissões suficientes para se tornar proprietário do pedido de "
+"Tarefa."
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "Não foi possível apropriar o pedido de Tarefa."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
+msgstr "Não tem permissões suficientes para aceitar o pedido de Tarefa."
 
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "Não foi possível aceitar o pedido de Tarefa."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr ""
+msgstr "Não tem permissões suficientes para recusar o pedido de Tarefa."
 
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "Não foi possível recusar o pedido de Tarefa."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Conflitos com outros compromissos."
 
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
-msgstr[0] ""
-"Vocï¿½ gostaria de excluir todas as ocorrï¿½ncias deste compromisso "
-"reincidente, ou somente esta ocorrï¿½ncia?"
-msgstr[1] ""
-"Vocï¿½ gostaria de excluir todas as ocorrï¿½ncias deste compromisso "
-"reincidente, ou somente esta ocorrï¿½ncia?"
+msgstr[0] "%s ocorrência deste compromisso coincide com outro compromisso."
+msgstr[1] "%s ocorrências deste compromisso coincidem com outros compromissos."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr "Sua mensagem nï¿½o atingiu alguns ou todos os destinatï¿½rios"
+msgstr ""
+"Não foi possível entregar a  mensagem a alguns ou todos os destinatários"
 
 msgid "The following recipient(s) could not be reached"
-msgstr "Os seguintes destinatï¿½rios nï¿½o puderam ser localizados"
+msgstr "Não foi possível entregar aos seguintes destinatários"
 
-#, fuzzy
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "Vocï¿½ nï¿½o tem direitos suficientes para criar um item nessa pasta."
+msgstr "Não tem permissões suficientes para ver o conteúdo desta pasta."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Não foi possível carregar os conteúdos desta pasta."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Erro na procura. Por favor tente outra vez"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Não foi possível executar a procura. Não tem permissões para criar pasta de "
+"procura."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Não foi possível executar a procura. Pasta de procura não encontrada."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Não foi possível executar a procura. A caixa poderá não suportar procura."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Erro ao criar pasta de procura."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr ""
+msgstr "Não tem permissões suficientes para executar uma procura nesta pasta."
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "Não foi possível atualizar os resultados da procura."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Não foi possível para a procura."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Não tem permissões suficientes para gravar esta mensagem."
 
-#, fuzzy
 msgid "Could not save message."
-msgstr "Vocï¿½ respondeu essa mensagem"
+msgstr "Não foi possível guardar a mensagem."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Não tem permissões suficientes para apagar esta mensagem."
 
-#, fuzzy
 msgid "Could not delete message."
-msgstr "Copiar/Mover mensagens selecionadas para"
+msgstr "Não foi possível apagar mensagem."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "Não tem permissões suficientes para cancelar o pedido de Reunião."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Não foi possível cancelar o Convite de Reunião."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "Não tem permissões suficientes para recusar o pedido de Reunião."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Não foi possível recusar o Convite de Reunião."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "Não tem permissões suficientes para aceitar o pedido de Reunião."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Não foi possível aceitar o Convite de Reunião."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
+"Não tem permissões suficientes para cancelar o convite de pedido de Reunião."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Não foi possível cancelar os Convites de Reunião."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Não é possível continuar a procura nesta pasta."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Erro na procura. Por favor tente outra vez."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Erro a expandir lista de distribuição."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "A caixa ultrapassou o tamanho limite definido."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"De forma a reduzir o tamanho da caixa, selecione alguns itens que já não "
+"necessite, apague-os e esvazie a pasta Itens Eliminados."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "A caixa ultrapassou o tamanho de aviso definido."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Não foi possível processar o pedido corretamente."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Tipo de ação desconhecida - %s"
 
-#, fuzzy
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Aperte Soneca para ser lembrado novamente em:"
+msgstr "Não foi possível suspender o lembrete. Poderá ser relembrado outra vez."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Não foi possível dispensar o lembrete. Poderá ser relembrado outra vez."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Não tem permissões suficientes para executar esta ação."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Não foi possível encontrar o utilizador."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "Configurar filtros nas caixas de outros utilizadores não é permitido."
 
 msgid "Untitled rule"
 msgstr "Regra sem nome"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "Não foi possível carregar as regras."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "Não foi possível guardar as regras."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Pedido de tarefa:"
 
 msgid "Welcome"
-msgstr ""
+msgstr "Bem-vindo"
 
-#, fuzzy
 msgid "Username"
-msgstr "Nome do arquivo"
+msgstr "Utilizador"
 
 msgid "Password"
-msgstr ""
+msgstr "Palavra passe"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Entrar"
 
-#, fuzzy
 msgid "Could not upload attachment."
-msgstr "Adicionar anexos"
+msgstr "Não foi possível enviar o anexo."
 
 msgid "GB"
 msgstr "GB"
@@ -6288,23 +5804,23 @@ msgid "B"
 msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "O valor máximo da pilha foi excedido"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Erro de controlo no carácter , possívelmente mal codificado"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "JSON inválido ou malformado"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Erro de sintaxe"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Carateres UTF-8 mal formados. Possivelmente mal codificados"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "Erro JSON: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Foi encontrado um problema a codificar/descodificar os dados JSON."
