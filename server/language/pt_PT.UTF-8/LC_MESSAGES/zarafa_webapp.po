@@ -1,18 +1,20 @@
 # foo <foo@bar.foobar>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 15:38+0200\n"
-"PO-Revision-Date: 2008-12-16 16:18:06+0100\n"
-"Last-Translator: PHP-Langadmin automatic translator <foo@bar.foobar>\n"
-"Language-Team: pt_PT <pt@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2018-04-26 15:25+0000\n"
+"Last-Translator: Nuno <nuno.jeronimo@valsousa.pt>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -2767,7 +2769,7 @@ msgstr "Recebido para {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr "Respondeu a esta mensagem em {0}"
+msgstr "Respondeu a esta mensagem."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
@@ -2775,7 +2777,7 @@ msgstr "Reencaminhou esta mensagem em {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Respondeu a esta mensagem em {0}"
+msgstr "Respondeu a esta mensagem em {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
@@ -3385,7 +3387,7 @@ msgid ""
 "maximum is {1}"
 msgstr ""
 "Não foi possível adicionar o anexo. O total dos anexos é {0} enquanto o "
-"máximo permitido é {1}."
+"máximo permitido é {1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
@@ -5022,7 +5024,6 @@ msgstr "Hoje: {1} {0}"
 #. TRANSLATORS: {0} is the subject of an
 #. appointment; {1} is the start time, {2} is the
 #. end time, {3} is the html code to display icons.
-#, fuzzy
 msgid "{1}&minus;{2}: {3} {0}"
 msgstr "{1}&minus;{2}: {3} {0}"
 
@@ -5039,7 +5040,7 @@ msgid "No tasks."
 msgstr "Sem tarefas."
 
 msgid "Google Maps"
-msgstr "Google Maps"
+msgstr "Mapas Google"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
@@ -5587,7 +5588,7 @@ msgid "Could not save message"
 msgstr "Não foi possível guardar a mensagem"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr "{1}&minus;{2}: {3} {0}"
+msgstr "Não tem permissões suficientes para eliminar item do calendário."
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
