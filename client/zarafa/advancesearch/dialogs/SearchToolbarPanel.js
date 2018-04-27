@@ -79,8 +79,8 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 					scope : this
 				},{
 					xtype: 'button',
-					tooltip: _('Edit as New Message') + ' (Ctrl + E)',
-					overflowText: _('Edit as New Message'),
+					tooltip: _('Edit as New') + ' (Ctrl + E)',
+					overflowText: _('Edit as New'),
 					iconCls: 'icon_editAsNewEmail',
 					ref: 'editAsNewBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
@@ -143,7 +143,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New Message" menuitems are clicked from
+	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New" menuitems are clicked from
 	 * right toolbar of search tool bar.
 	 * @param {Ext.Button} button The button which was clicked
 	 * @private

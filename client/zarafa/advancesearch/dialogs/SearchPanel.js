@@ -711,7 +711,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				rightToolbar.popoutBtn.setVisible(isSupportPopout);
 			}
 
-			// Only show the "Edit as New Message" button in the toolbar when the item is in the Sent folder
+			// Only show the "Edit as New" button in the toolbar when the item is in the Sent folder
 			var defaultFolder = SearchResultPreviewPanel.model.getDefaultFolder();
 			rightToolbar.editAsNewBtn.setVisible(defaultFolder.getDefaultFolderKey() === 'sent' && !isFaultyMessage && isMessageReplyable);
 

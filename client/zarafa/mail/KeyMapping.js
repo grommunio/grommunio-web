@@ -77,7 +77,7 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 			handler: this.onEditAsNewMail,
 			scope: this,
 			settingsCfg : {
-				description : _('Edit as New Message'),
+				description : _('Edit as New'),
 				category : _('Mail')
 			}
 		}];

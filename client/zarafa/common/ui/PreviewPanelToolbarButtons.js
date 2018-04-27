@@ -120,7 +120,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				model: model,
 				handler : this.onPrintButton
 			}, {
-				text: _('Edit as New Message'),
+				text: _('Edit as New'),
 				iconCls: 'icon_editAsNewEmail',
 				ref: 'editAsNew',
 				model: model,
@@ -214,7 +214,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 	},
 
 	/**
-	 * "Edit as New Message" menuitem of more button handler
+	 * "Edit as New" menuitem of more button handler
 	 * @private
 	 */
 	onEditAsNewMessage : function()

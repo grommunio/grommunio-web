@@ -64,8 +64,8 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 					scope : this
 				},{
 					xtype: 'button',
-					tooltip: _('Edit as New Message') + ' (Ctrl + E)',
-					overflowText: _('Edit as New Message'),
+					tooltip: _('Edit as New') + ' (Ctrl + E)',
+					overflowText: _('Edit as New'),
 					iconCls: 'icon_editAsNewEmail',
 					ref: 'editAsNewBtn',
 					responseMode: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
@@ -129,7 +129,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 				toolbar.popoutBtn.setVisible(isSupportPopout);
 			}
 
-			// Only show the "Edit as New Message" button in the toolbar when the item is in the Sent folder
+			// Only show the "Edit as New" button in the toolbar when the item is in the Sent folder
 			var defaultFolder = this.model.getDefaultFolder();
 			toolbar.editAsNewBtn.setVisible(defaultFolder.getDefaultFolderKey()==='sent' && !isFaultyMessage && isMessageReplyable);
 		}
@@ -173,7 +173,7 @@ Zarafa.advancesearch.ui.SearchResultPreviewPanel = Ext.extend(Zarafa.core.ui.Pre
 	},
 
 	/**
-	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New Message" menuitems are clicked.
+	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New" menuitems are clicked.
 	 * @param {Ext.Button} button The button which was clicked
 	 * @private
 	 */
