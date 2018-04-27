@@ -31,7 +31,7 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 	 * - listeners: Event handlers which must be registered on the element
 	 * @return {Ext.MessageBox} The message box
 	 */
-	notify : function(category, title, message)
+	notify : function(category, title, message, config)
 	{
 		var icon;
 		if (category.indexOf('info') === 0) {
@@ -42,12 +42,103 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 			icon = Ext.MessageBox.ERROR;
 		}
 
-		return Ext.MessageBox.show({
-			title: title,
-			msg : message,
-			icon: icon,
-			buttons: Ext.MessageBox.OK
-		});
+		if (Ext.isDefined(config) && !Ext.isEmpty(config.details_message)) {
+			return new Zarafa.common.dialogs.CustomMessageBox({
+				width: 320,
+				title: title,
+				msg: message,
+				buttonAlign: 'left',
+				icon: icon,
+				cls: 'k-show-more-details',
+				customItems: this.getCustomItems(config),
+				customButtons: this.getCustomButtons(),
+				fn: this.customButtonsHandler
+			});
+		} else {
+			return Ext.MessageBox.show({
+				title: title,
+				msg: message,
+				icon: icon,
+				buttons: Ext.MessageBox.OK
+			});
+		}
+	},
+
+	/**
+	 * Helper function which will return the array of items for custom message box.
+	 * @param {Object} config Configuration object which can be applied to the notifier.
+	 * @returns {Array} Items the array of items which will show in custom message box.
+	 */
+	getCustomItems: function (config)
+	{
+		return [{
+			xtype: 'textarea',
+			grow: true,
+			cls: 'k-show-more-details-textarea',
+			growMax: 190,
+			growMin: 120,
+			name: 'textarea',
+			ref: '../showmoretextarea',
+			hidden: true,
+			readOnly: true,
+			value: config.details_message,
+			listeners: {
+				'render': function () {
+					this.setWidth(this.ownerCt.getWidth());
+				}
+			}
+		}];
+	},
+
+	/**
+	 * Helper function use to return array of custom buttons,
+	 * Which will add in custom message box.
+	 * @returns {Array} Buttons array of button which will show in message box.
+	 */
+	getCustomButtons: function ()
+	{
+		return [{
+			name: 'showdetails',
+			cls: 'zarafa-normal k-window-text-button',
+			text: _('Show Details'),
+			keepOpenWindow: true
+		}, '->', {
+			name: 'copydetails',
+			cls: 'zarafa-normal',
+			iconCls: 'icon_copy',
+			hidden: true,
+			text: _('Copy Details'),
+			keepOpenWindow: true
+		}, {
+			name: 'cancel',
+			cls: 'zarafa-action',
+			text: _('Close')
+		}];
+	},
+
+	/**
+	 * Helper function which will return handler function for custom message box.
+	 * @param {String} buttonName name of button which was click.
+	 * @param {Ext.Button} button Button which was click.
+	 */
+	customButtonsHandler: function (button)
+	{
+		var showMoreTextArea = this.dlgItemContainer.showmoretextarea;
+		var buttonName = button.name;
+		if (buttonName === 'showdetails') {
+			var isShowMoreTextVisible = showMoreTextArea.isVisible();
+			var showMoreText = isShowMoreTextVisible ? _("Show Details") : _("Hide Details");
+			showMoreTextArea.setVisible(!isShowMoreTextVisible);
+			button.setText(showMoreText);
+			var copyDetailsBtn = this.buttons.find(function (btn) {
+				return btn.name === "copydetails";
+			});
+			copyDetailsBtn.setVisible(!isShowMoreTextVisible);
+			this.center();
+		} else if (buttonName === 'copydetails') {
+			Zarafa.core.Util.copyToClipboard(showMoreTextArea.getValue());
+			this.close();
+		}
 	}
 });
 
