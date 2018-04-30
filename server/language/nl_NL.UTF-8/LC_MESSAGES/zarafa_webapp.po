@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 15:38+0200\n"
-"PO-Revision-Date: 2018-02-12 07:30+0000\n"
-"Last-Translator: Robin <r.vangenderen@zarafa.com>\n"
+"PO-Revision-Date: 2018-04-30 10:53+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -619,9 +619,8 @@ msgstr "Toon..."
 msgid "Mails"
 msgstr "E-mails"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Afspraak"
+msgstr "Afspraken"
 
 msgid "Contacts"
 msgstr "Contactpersonen"
@@ -684,20 +683,21 @@ msgstr "Sorteer op: Datum"
 msgid "Loading Search results"
 msgstr "Zoekresultaten laden"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Sorteren niet mogelijk"
+msgstr "Sorteer tip"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Sorteren op datum is mogelijk indien de zoekresultaten specifieker zijn. Zet "
+"filters aan of pas de zoekopdracht aan."
 
 msgid "Did you mean"
 msgstr "Bedoelde u"
 
 msgid "With"
-msgstr ""
+msgstr "Met"
 
 msgid "No date"
 msgstr "Geen datum"
@@ -1059,9 +1059,8 @@ msgstr ""
 "vergaderverzoek wordt bijgewerkt door de organisator"
 
 # 90%
-#, fuzzy
 msgid "Create in"
-msgstr "Aangemaakt Op"
+msgstr "Maak in"
 
 msgid "Time"
 msgstr "Tijd"
@@ -1370,13 +1369,11 @@ msgstr "Einde van de werkdag"
 msgid "Calendar resolution"
 msgstr "Kalenderresolutie"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Standaard herinneringstijd voor heledagafspraken"
+msgstr "Standaard afspraak tijdsduur {A} minuten"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Waarde moet tussen 0% en 100% liggen"
+msgstr "Tijdsduur moet tussen 1 en 120 minuten liggen."
 
 msgid "Working days"
 msgstr "Werkdagen"
@@ -4627,36 +4624,36 @@ msgid "Older"
 msgstr "Mappen"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 #, fuzzy
 msgid "Last Week"
 msgstr "Afgelopen week"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Twee weken geleden"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Drie weken geleden"
 
 #, fuzzy
 msgid "Last Month"
 msgstr "Afgelopen maand"
 
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 msgid "Medium"
-msgstr ""
+msgstr "Middelgroot"
 
 msgid "Large"
-msgstr ""
+msgstr "Groot"
 
 msgid "Very large"
-msgstr ""
+msgstr "Heel groot"
 
 msgid "Huge"
-msgstr ""
+msgstr "Enorm groot"
 
 msgid "Follow up"
 msgstr "Opvolgen"
