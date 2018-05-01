@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 15:38+0200\n"
-"PO-Revision-Date: 2016-10-11 20:43+0000\n"
-"Last-Translator: Viktor <viktor.bale@anodyne.cz>\n"
+"PO-Revision-Date: 2018-05-01 19:12+0000\n"
+"Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/cs/>\n"
 "Language: cs_CZ\n"
@@ -31,9 +31,8 @@ msgstr "Hodnota musí být mezi 0% a 100%"
 msgid "Number must be higher than zero"
 msgstr "Číslice musí být vyšší než nula"
 
-#, fuzzy
 msgid "More options"
-msgstr "Možnosti zpráv"
+msgstr "Více možností"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -455,9 +454,8 @@ msgid "Show Details"
 msgstr "Ukázat detaily"
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Chcete-li získat výsledky, použijte vyhledávací panel"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "V tomto náhledu není žádná položka k zobrazení"
 
@@ -465,7 +463,7 @@ msgid "Show Names from the"
 msgstr "Ukázat jména od"
 
 msgid "Search..."
-msgstr ""
+msgstr "Hledat..."
 
 msgid "Sort by: Icon"
 msgstr "Třídit podle: Ikony"
@@ -489,7 +487,7 @@ msgid "First Name"
 msgstr "Jméno"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Třídit podle křestního jména"
 
 # 77%
 msgid "Last Name"
@@ -555,7 +553,7 @@ msgid "Custom date"
 msgstr "Výbrat datumy"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Přidat k oblíbeným"
 
 msgid "Add"
 msgstr "Přidat"
@@ -564,10 +562,10 @@ msgid "You must specify a name."
 msgstr "Musíte uvést název."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Název složky"
 
 #, fuzzy
 msgid "All folders are selected"
@@ -591,9 +589,8 @@ msgstr "Vyhledávací nástroje"
 # 85%
 # 100%
 msgid "Folders"
-msgstr "Složka"
+msgstr "Složky"
 
-#, fuzzy
 msgid "Include subfolders"
 msgstr "Vytvořit podsložky"
 
@@ -603,9 +600,8 @@ msgstr "Ukázat.."
 msgid "Mails"
 msgstr "Zprávy"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Termín"
+msgstr "Schůzky"
 
 msgid "Contacts"
 msgstr "Kontakty"
@@ -650,29 +646,31 @@ msgid "Favorites"
 msgstr "Oblíbené"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
 
 # 76%
 msgid "Select Folder"
 msgstr "Vybrat složku"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Odstranit složku vyhledávání"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Seřadit podle: data"
 
 msgid "Loading Search results"
 msgstr "Nahrávání výsledků vyhledávání"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Nelze seřadit"
+msgstr "Tip pro třídění"
 
+#, fuzzy
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Pokud zúžíte výsledky vyhledávání, můžete seřadit podle data. Povolte "
+"filtry, nebo upravte zadání."
 
 msgid "Did you mean"
 msgstr ""
@@ -1025,7 +1023,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Create in"
-msgstr "Vytvořeno"
+msgstr "Vytvořit"
 
 msgid "Time"
 msgstr "Čas"
@@ -1155,7 +1153,7 @@ msgstr "Označit tuto schůzku jako soukromou"
 # 100%
 #, fuzzy
 msgid "Save meeting request and close dialog"
-msgstr "Uložit tento kontakt a zavřít okno"
+msgstr "Uložit žádost o schůzku a zavřít dialog"
 
 msgid "Proposed Date and Time"
 msgstr "Navrhované datum a čas"
@@ -1257,7 +1255,7 @@ msgid "Switch calendar range back and forth"
 msgstr "Přepnout rozsah kalendáře"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Kopírovat vybranou položku"
 
 msgid "Paste selected item"
 msgstr ""
@@ -1324,13 +1322,12 @@ msgstr "Konec pracovního dne"
 msgid "Calendar resolution"
 msgstr "Rozlišení kalendáře"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Výchozí doba připomínky pro celodenní události"
+msgstr "Výchozí doba trvání události {A} minut"
 
 #, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Hodnota musí být mezi 0% a 100%"
+msgstr "Doba trvání musí být mezi 1 a 120 minutami."
 
 msgid "Working days"
 msgstr "Pracovní dny"
@@ -1365,7 +1362,7 @@ msgid ""
 "determine when you are available for meetings."
 msgstr ""
 "Informace o dostupnosti je používána ostatními uživateli při tvorbě žádosti "
-"o schůzku, "
+"o schůzku,"
 
 msgid "Free/Busy permission"
 msgstr "Práva náhledu dostupnosti"
