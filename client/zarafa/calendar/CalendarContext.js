@@ -535,7 +535,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'menuitem',
 			id: 'zarafa-maintoolbar-newitem-appointment',
-			tooltip : _('Appointment')+' (Ctrl + Alt + A)',
+			tooltip: _('Appointment') + ' (Ctrl + Alt + A)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Appointment'),
 			handler: function()

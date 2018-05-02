@@ -50,12 +50,9 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 	{
 		return [{
 			xtype : 'button',
-			text : _('Save'),
-			overflowText : _('Save & Close'),
-			tooltip : {
-				title : _('Save & Close'),
-				text : _('Save distribution list and close dialog') + ' (Ctrl + S)'
-			},
+			text : _('Save')+' & '+_('Close'),
+			overflowText : _('Save')+' & '+_('Close'),
+			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
 			iconCls : 'buttons-icon_save_white',
 			handler : this.onSave,
@@ -64,21 +61,15 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 		}, {
 			xtype : 'button',
 			ref : 'deleteBtn',
-			overflowText : _('Delete Distributionlist'),
-			tooltip : {
-				title : _('Delete'),
-				text : _('Delete the Distribution list.')
-			},
+			overflowText : _('Delete'),
+			tooltip : _('Delete'),
 			iconCls : 'icon_delete',
 			handler : this.onDelete,
 			scope : this
 		}, {
 			xtype : 'button',
 			overflowText : _('Print'),
-			tooltip : {
-				title : _('Print distribution list'),
-				text : _('Print this distribution list.')
-			},
+			tooltip : _('Print') + ' (Ctrl + P)',
 			iconCls : 'icon_print',
 			handler : this.onPrint,
 			scope : this
@@ -99,8 +90,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 			xtype : 'button',
 			overflowText : _('Categories'),
 			tooltip : {
-				title : _('Categories'),
-				text : _('Open the categories dialog.')
+				text : _('Open the categories dialog')
 			},
 			iconCls : 'icon_categories',
 			handler : this.onCategories,
@@ -109,8 +99,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 			xtype : 'button',
 			overflowText : _('Private'),
 			tooltip : {
-				title : _('Private'),
-				text : _('Mark this Distribution list as private.')
+				text : _('Mark this Distribution list as private')
 			},
 			iconCls : 'icon_private',
 			ref : 'setPrivate',

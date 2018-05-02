@@ -51,12 +51,9 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			//Save button
 			xtype : 'button',
 			ref : 'saveBtn',
-			text: _('Save'),
-			overflowText : _('Save Note'),
-			tooltip: {
-				title: _('Save'),
-				text: _('Save note') + ' (Ctrl + S)'
-			},
+			text : _('Save'),
+			overflowText : _('Save'),
+			tooltip : _('Save') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
 			iconCls : 'buttons-icon_save_white',
 			handler : this.onSaveButton,
@@ -65,12 +62,9 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			//Delete button
 			xtype : 'button',
 			ref : 'deleteBtn',
-			overflowText : _('Delete Note'),
-			tooltip: {
-				title: _('Delete'),
-				text: _('Delete this note')
-			},
-			cls: 'tb-notes-btn-delete',
+			overflowText : _('Delete'),
+			tooltip : _('Delete'),
+			cls : 'tb-notes-btn-delete',
 			iconCls : 'icon_delete',
 			handler : this.onDeleteButton,
 			scope : this
@@ -78,10 +72,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			//Categories button
 			xtype : 'button',
 			overflowText: _('Set Category'),
-			tooltip : {
-				title : _('Categories'),
-				text : _('Open the categories dialog.')
-			},
+			tooltip : _('Open the categories dialog'),
 			cls: 'tb-notes-btn-categories',
 			iconCls : 'icon_categories',
 			handler : this.onOpenCategories,
@@ -89,10 +80,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		}, {
 			xtype : 'button',
 			overflowText: _('Print'),
-			tooltip: {
-				title: _('Print'),
-				text: _('Print this note')
-			},
+			tooltip: _('Print note'),
 			cls: 'tb-notes-btn-print',
 			iconCls : 'icon_print',
 			handler : this.onPrintRecord,

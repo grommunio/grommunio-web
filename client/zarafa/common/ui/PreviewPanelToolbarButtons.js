@@ -41,7 +41,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 		var toolbarButtons = [];
 		toolbarButtons = [{
 			xtype: 'zarafa.toolbarbutton',
-			tooltip: _('Delete') + ' (DELETE)',
+			tooltip: _('Delete'),
 			overflowText: _('Delete'),
 			iconCls: 'icon_delete',
 			nonEmptySelectOnly: true,
@@ -66,8 +66,8 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 		if (Zarafa.supportsPopOut()) {
 			toolbarButtons.push({
 				xtype: 'zarafa.toolbarbutton',
-				tooltip: _('Open in new browser window'),
-				overflowText: _('Pop-Out'),
+				tooltip: _('Pop-out'),
+				overflowText: _('Pop-out'),
 				iconCls: 'icon_popout',
 				ref: 'popoutBtn',
 				nonEmptySelectOnly: true,
@@ -93,7 +93,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			autoDestroy : false,
 			items : [{
 				xtype : 'zarafa.conditionalitem',
-				text: _('Mark Read'),
+				text: _('Mark as read'),
 				iconCls: 'icon_mail icon_message_read',
 				model: model,
 				readState: false,
@@ -102,7 +102,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				handler: this.onReadFlagMenuItemClicked
 			}, {
 				xtype : 'zarafa.conditionalitem',
-				text: _('Mark Unread'),
+				text: _('Mark as unread'),
 				iconCls: 'icon_mail icon_message_unread',
 				model: model,
 				readState: true,

@@ -34,8 +34,8 @@ Zarafa.hierarchy.ui.HierarchyTreeBottomBar = Ext.extend(Ext.Container, {
 
 			items: [{
 				cls: 'zarafa-hierarchy-treepanel-footer-opensharedfolder',
-				xtype:'button',
-				tooltip : buttonText + ' (Alt + S)',
+				xtype: 'button',
+				tooltip: buttonText + ' (Alt + S)',
 				text: buttonText + ' + ',
 				handler: this.openSharedFolder.createDelegate(this)
 			}]

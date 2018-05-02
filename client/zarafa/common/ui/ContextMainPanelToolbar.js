@@ -76,7 +76,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		},{
 			xtype: 'zarafa.toolbarbutton',
 			overflowText: _('Delete'),
-			tooltip: _('Delete') + ' (DELETE)',
+			tooltip: _('Delete'),
 			ref : 'deleteButton',
 			iconCls: 'icon_delete',
 			nonEmptySelectOnly: true,

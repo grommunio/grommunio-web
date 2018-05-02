@@ -81,12 +81,9 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		return [{
 			xtype : 'splitbutton',
 			text : _('Send'),
-			overflowText : _('Send email'),
+			overflowText : _('Send'),
 			ref : 'sendButton',
-			tooltip : {
-				title : _('Send email'),
-				text : _('Send email to recipients') + ' (Ctrl + ENTER)'
-			},
+			tooltip : _('Send') + ' (Ctrl + Enter)',
 			menu: {
 				defaults : {
 					plugins : 'zarafa.menuitemtooltipplugin'
@@ -95,17 +92,11 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 					text: _('Send'),
 					iconCls: 'icon_send_black',
 					handler: this.onSendButton,
-					tooltip : {
-						title : _('Send email'),
-						text : _('Send email to recipients') + ' (Ctrl + ENTER)'
-					},
+					tooltip : _('Send') + ' (Ctrl + Enter)',
 					scope: this
 				}, {
 					text: _('Send Later'),
-					tooltip: {
-						title: _('Send Later'),
-						text: _('Schedule your mail to be sent on a specific date and time.')
-					},
+					tooltip: _('Schedule your mail to be sent on a specific date and time'),
 					iconCls: 'icon_send_later_black',
 					handler: this.onSendLaterButton,
 					scope: this
@@ -117,11 +108,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		}, {
 			xtype : 'button',
-			overflowText : _('Save email'),
-			tooltip : {
-				title : _('Save email'),
-				text : _('Save email') + ' (Ctrl + S)'
-			},
+			overflowText : _('Save'),
+			tooltip : _('Save') + ' (Ctrl + S)',
 			iconCls : 'icon_saveEmail',
 			handler : this.onSaveButton,
 			scope : this
@@ -129,10 +117,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			ref : 'deleteBtn',
 			overflowText : _('Delete'),
-			tooltip : {
-				title : _('Delete'),
-				text : _('Delete this email')
-			},
+			tooltip : _('Delete'),
 			iconCls : 'icon_delete',
 			handler : this.onDeleteButton,
 			scope : this
@@ -140,10 +125,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'zarafa.attachmentbutton',
 			plugins : ['zarafa.recordcomponentupdaterplugin'],
 			overflowText : _('Add attachment'),
-			tooltip : {
-				title : _('Add attachment'),
-				text : _('Add attachments to this email')
-			},
+			tooltip : _('Add attachments to this email'),
 			iconCls : 'icon_attachment',
 			ref : 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
@@ -157,20 +139,14 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		},{
 			xtype : 'button',
 			overflowText : _('Check names'),
-			tooltip : {
-				title : _('Check names'),
-				text : _('Check all recipient names')
-			},
+			tooltip : _('Check names'),
 			iconCls : 'icon_checkNames',
 			handler : this.onCheckNamesButton,
 			scope : this
 		},{
 			xtype : 'button',
 			overflowText : _('Add signature'),
-			tooltip : {
-				title : _('Add signature'),
-				text : _('Add signature to this mail')
-			},
+			tooltip : _('Add signature'),
 			iconCls : 'icon_addSignature',
 			ref : 'signatureButton',
 			scope : this
@@ -206,30 +182,21 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		return [{
 			xtype : 'button',
 			overflowText : _('Options'),
-			tooltip : {
-				title : _('Options'),
-				text : _('Open options dialog')
-			},
+			tooltip: _('Open options dialog'),
 			iconCls : 'icon_openMessageOptions',
 			handler : this.onMailOptionsButton,
 			scope : this
 		},{
 			xtype : 'button',
 			overflowText : _('Set flag'),
-			tooltip : {
-				title : _('Set flag'),
-				text : _('Set flag on this email')
-			},
+			tooltip : _('Set flag on this email'),
 			iconCls : 'icon_flag_red',
 			handler : this.onSetFlagButton,
 			scope : this
 		},{
 			xtype : 'button',
 			overflowText : _('High priority'),
-			tooltip : {
-				title : _('High priority'),
-				text : _('Mark this mail as high priority')
-			},
+			tooltip : _('Mark this mail as high priority'),
 			iconCls : 'icon_setHighPriority',
 			ref : 'highPriority',
 			toggleGroup : 'priorityGroup',
@@ -240,10 +207,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		},{
 			xtype : 'button',
 			overflowText : _('Low priority'),
-			tooltip : {
-				title : _('Low priority'),
-				text : _('Mark this mail as low priority')
-			},
+			tooltip : _('Mark this mail as low priority'),
 			iconCls : 'icon_setLowPriority',
 			ref : 'lowPriority',
 			toggleGroup : 'priorityGroup',
@@ -254,10 +218,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		},{
 			xtype : 'button',
 			overflowText : _('Set read receipt'),
-			tooltip : {
-				title : _('Set read receipt'),
-				text : _('Request read receipt from recipients')
-			},
+			tooltip : _('Request read receipt from recipients'),
 			iconCls : 'icon_setReadReceipt',
 			enableToggle : true,
 			ref : 'readReceiptField',
@@ -265,11 +226,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		},{
 			xtype : 'button',
-			overflowText : _('Show bcc'),
-			tooltip : {
-				title : _('Show Bcc'),
-				text : _('Show Bcc field in which you can specify the people who will recieve this message')
-			},
+			overflowText : _('Show Bcc'),
+			tooltip : _('Show Bcc field'),
 			iconCls : 'icon_showbcc',
 			ref : 'showBcc',
 			enableToggle : true,
@@ -277,11 +235,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		},{
 			xtype : 'button',
-			overflowText : _('Show From'),
-			tooltip : {
-				title : _('Show From'),
-				text : _('Show From field, If you have delegate access to another person\'s account, you can send e-mail that looks like that came from them by entering their name into the From field')
-			},
+			overflowText : _('Show From field'),
+			tooltip : _('Show From field'),
 			iconCls : 'icon_showfrom',
 			ref : 'showFrom',
 			enableToggle : true,
@@ -302,8 +257,8 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		if (Zarafa.supportsPopOut() && Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
 			return [{
 				xtype: 'zarafa.toolbarbutton',
-				tooltip: _('Open in new browser window'),
-				overflowText: _('Pop-Out'),
+				tooltip: _('Pop-out'),
+				overflowText: _('Pop-out'),
 				iconCls: 'icon_popout',
 				ref: 'popOutBtn',
 				handler: this.onPopoutButton,
