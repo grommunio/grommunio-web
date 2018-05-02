@@ -184,23 +184,25 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	},
 
 	/**
-	 * Function returns parent record entry id for the attachment.
-	 * If parent record has an entryid then return it. For phantom records i.e. forward mail,
-	 * parent record won't have entryid so get source_entryid from record's
-	 * message action data and return it.
-	 * @return {String} entryID parent record entryid.
+	 * Function returns parent/source record entryid and store entryid for the attachment.
+	 * If parent record has an entryid then return that entryid and respective store entryid.
+	 * For phantom records i.e. forward mail, parent record won't have entryid so get
+	 * source_entryid and source_store_entryid from record's message action data and return it.
+	 * @return {Object} The object which container parent/source message entry id and store entryid.
 	 * @private
 	 */
-	getAttachmentParentRecordEntryId : function()
+	getAttachmentParentRecordIds : function()
 	{
 		var parentRecord = this.getParentRecord();
 		var entryID = parentRecord.get('entryid') || '';
+		var storeEntryId =  parentRecord.get('store_entryid');
 		var messageAction = parentRecord.getMessageActions();
 
 		if (Ext.isEmpty(entryID) && messageAction) {
 			switch(messageAction.action_type) {
 				case 'forward':
 					entryID = messageAction.source_entryid;
+					storeEntryId = messageAction.source_store_entryid;
 					break;
 				case 'reply':
 				case 'replyall':
@@ -209,7 +211,21 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			}
 		}
 
-		return entryID;
+		return {
+			'entryid' : entryID,
+			'store_entryid' : storeEntryId
+		};
+	},
+
+	/**
+	 * Function returns parent record entry id for the attachment.
+	 * @return {String} entryid parent record entryid.
+	 * @private
+	 */
+	getAttachmentParentRecordEntryId : function()
+	{
+		// Function is used by the Files plugin.
+		return this.getAttachmentParentRecordIds().entryid;
 	},
 
 	/**
@@ -220,8 +236,9 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	getAttachmentBaseUrl : function()
 	{
 		var url = container.getBaseURL();
-		url = Ext.urlAppend(url, 'store=' + this.getParentRecord().get('store_entryid'));
-		url = Ext.urlAppend(url, 'entryid=' + this.getAttachmentParentRecordEntryId());
+		var source = this.getAttachmentParentRecordIds();
+		url = Ext.urlAppend(url, 'store=' + source.store_entryid);
+		url = Ext.urlAppend(url, 'entryid=' + source.entryid);
 		url = Ext.urlAppend(url, 'dialog_attachments=' + this.getId());
 		return url;
 	},
