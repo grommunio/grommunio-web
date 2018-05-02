@@ -424,7 +424,7 @@ msgid "Pager"
 msgstr "Pager"
 
 msgid "Kopano WebApp"
-msgstr "WebApp Kopano"
+msgstr "Kopano WebApp"
 
 msgid "You must select one or more users."
 msgstr "Tem que selecionar um ou mais utilizadores."
@@ -1895,7 +1895,7 @@ msgid "Select an address to use"
 msgstr "Selecione o endereço a usar"
 
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 msgid "More than one '{0}' found."
 msgstr "Mais de que um '{0}' encontrado."
