@@ -1044,7 +1044,7 @@ msgid "Save without sending an invitation to recipients"
 msgstr "Gravar sem enviar convite aos destinatários"
 
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Apagar"
 
 msgid "Delete this appointment"
 msgstr "Eliminar este compromisso"
@@ -2637,7 +2637,7 @@ msgid "Loading..."
 msgstr "A carregar..."
 
 msgid "Failed"
-msgstr "Falhou"
+msgstr "Falhou."
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3023,7 +3023,7 @@ msgid "Sr."
 msgstr "Sr."
 
 msgid "Email address"
-msgstr "Endereço de E-mail"
+msgstr "Endereço de Email"
 
 msgid "Phone number"
 msgstr "Números de Telefone"
@@ -3569,7 +3569,7 @@ msgid "Saving"
 msgstr "A gravar"
 
 msgid "Saved"
-msgstr "Gravado"
+msgstr "Guardado"
 
 msgid "Saved successfully"
 msgstr "Gravado com sucesso"
@@ -5227,7 +5227,7 @@ msgstr ""
 "volte a tentar."
 
 msgid "Cannot connect to Kopano Core."
-msgstr "Não foi possível ligar ao Kopano Core."
+msgstr "Não é possível ligar ao Kopano Core."
 
 msgid "Logon failed, another session already exists."
 msgstr "Início de sessão falhou. Já existe uma sessão."
@@ -5787,7 +5787,7 @@ msgid "Password"
 msgstr "Palavra passe"
 
 msgid "Sign in"
-msgstr "Entrar"
+msgstr "Iniciar sessão"
 
 msgid "Could not upload attachment."
 msgstr "Não foi possível enviar o anexo."
