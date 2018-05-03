@@ -734,12 +734,21 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		}
 
 		if (this.isMeeting()) {
+			var existingOrganizer = false;
 			// find index of organizer's record
 			var orgIndex = recipientStore.findBy(function(record, id) {
 				if(record.isMeetingOrganizer()) {
+					existingOrganizer = record;
 					return true;
 				}
 			}, this);
+
+			// Check if organizer is available but mis-matched with record props
+			if (orgIndex !== -1 && this.isOrganizerChanged(existingOrganizer.get('entryid'))) {
+				// First remove and change organizer according to updated properties
+				recipientStore.remove(existingOrganizer, true);
+				orgIndex = -1;
+			}
 
 			if (orgIndex < 0) {
 				var props = {
@@ -805,6 +814,19 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 			// Normal appointments don't have any recipients.
 			recipientStore.removeAll();
 		}
+	},
+
+	/**
+	 * Helper function to check if available organizer into recipient-sub-store is according to
+	 * parent record's sent_representing_* or sender_* properties or not.
+	 * @param {String} organizerId EntryID of current organizer
+	 * @return {Boolean} True if organizer is same, false if organizer is changed
+	 */
+	isOrganizerChanged : function(organizerId)
+	{
+		var isRepresentingId = Zarafa.core.EntryId.compareEntryIds(organizerId, this.get('sent_representing_entryid'));
+		var isSenderId = Zarafa.core.EntryId.compareEntryIds(organizerId, this.get('sender_entryid'));
+		return !isRepresentingId || !isSenderId;
 	},
 
 	/**

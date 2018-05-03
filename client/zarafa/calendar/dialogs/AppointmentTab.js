@@ -1053,6 +1053,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		if (this.record.phantom) {
 			this.record.set('parent_entryid', record.get('entryid'));
 			this.record.set('store_entryid', record.get('store_entryid'));
+			this.resetOrganizer();
 		} else {
 			this.record.moveTo(record);
 		}
@@ -1070,6 +1071,29 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	setCursorPosition : function(combo)
 	{
 		combo.el.dom.setSelectionRange(0, 0);
+	},
+
+	/**
+	 * Helper function to change the organizer in case if the calendar gets changed
+	 * from own to shared or vice versa.
+	 */
+	resetOrganizer : function()
+	{
+		Zarafa.core.data.MessageRecordPhantomHandler(this.record);
+
+		if(this.record.userIsStoreOwner()) {
+			// While folder gets changed from shared to own then there might be some
+			// delegate properties available, unset such unnecessary properties.
+			this.record.beginEdit();
+			this.record.set('sent_representing_name', "");
+			this.record.set('sent_representing_email_address', "");
+			this.record.set('sent_representing_address_type', "");
+			this.record.set('sent_representing_entryid', "");
+			this.record.endEdit();
+		}
+
+		// Update the recipient-sub-store to change organizer based on new properties
+		this.record.updateMeetingRecipients();
 	},
 
 	/**
