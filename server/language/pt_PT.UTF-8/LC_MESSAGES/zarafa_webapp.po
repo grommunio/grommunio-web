@@ -2637,7 +2637,7 @@ msgid "Loading..."
 msgstr "A carregar..."
 
 msgid "Failed"
-msgstr "Falhou."
+msgstr "Falhou"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
