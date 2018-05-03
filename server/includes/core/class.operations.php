@@ -4368,8 +4368,8 @@
 				foreach ($images as $image) {
 					$src = $image->getAttribute('src');
 
-					if (strpos($src, "data:image") !== false ||
-						strpos($body, "data:text/plain") !== false) {
+					if (strpos($src, "cid:") === false && (strpos($src, "data:image") !== false ||
+						strpos($body, "data:text/plain") !== false)) {
 						$saveChanges = true;
 
 						// Extract mime type data:image/jpeg;
