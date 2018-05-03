@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 15:38+0200\n"
-"PO-Revision-Date: 2018-05-03 10:52+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2018-05-03 18:22+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -1379,25 +1379,25 @@ msgid "Working days"
 msgstr "Werkdagen"
 
 msgid "Mon"
-msgstr "Maa"
+msgstr "Ma"
 
 msgid "Tue"
-msgstr "Din"
+msgstr "Di"
 
 msgid "Wed"
 msgstr "Woe"
 
 msgid "Thu"
-msgstr "Don"
+msgstr "Do"
 
 msgid "Fri"
-msgstr "Vrij"
+msgstr "Vr"
 
 msgid "Sat"
 msgstr "Zat"
 
 msgid "Sun"
-msgstr "Zon"
+msgstr "Zo"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Geef dagen met afspraken vet weer in het datumkeuzeveld"
