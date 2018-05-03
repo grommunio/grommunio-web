@@ -2,8 +2,15 @@
 Options -Indexes
 
 # The maximum POST limit. To upload large files, this value must be larger than upload_max_filesize.
-php_value post_max_size 31M
-php_value upload_max_filesize 30M
+<IfModule mod_php5.c>
+	php_value post_max_size 31M
+	php_value upload_max_filesize 30M
+</IfModule>
+
+<IfModule mod_php7.c>
+	php_value post_max_size 31M
+	php_value upload_max_filesize 30M
+</IfModule>
 
 # Deny access to config.php, config.php.dist, debug.php, debug.php.dist, defaults.php
 # because they could become a security vulnerability when accessible
