@@ -55,6 +55,7 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 			border : false,
 			width : 400,
 			height : 300,
+			modal: true,
 			title : _('Add widgets'),
 			items : [{
 				xtype : 'dataview',
