@@ -17,6 +17,7 @@ $version = trim(file_get_contents('version'));
 
 		<?php
 			$loader->cssOrder();
+			echo Theming::getStyles($theme);
 		?>
 	</head>
 

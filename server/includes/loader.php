@@ -613,12 +613,6 @@ class FileLoader {
 
 		$remoteFiles = $this->getRemoteCSSFiles(DEBUG_LOADER);
 		$this->printFiles($remoteFiles, $cssTemplate);
-
-		/* Add the styling of the theme */
-		$css = Theming::getCss(Theming::getActiveTheme());
-		foreach ( $css as $file ) {
-			echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
-		}
 	}
 
 	/**

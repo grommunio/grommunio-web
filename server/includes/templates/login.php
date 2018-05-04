@@ -19,10 +19,7 @@
 
 		<?php
 			/* Add the styling of the theme */
-			$css = Theming::getCss($theme);
-			foreach ( $css as $file ){
-				echo '<link rel="stylesheet" type="text/css" href="'.$file.'">';
-			}
+			echo Theming::getStyles($theme);
 		?>
 
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
