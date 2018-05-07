@@ -19,6 +19,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
+		var emptyText = Ext.isDefined(config.emptyText) ? config.emptyText : _('No permissions granted');
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.folderpropertiespermissiontab',
@@ -29,7 +30,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 			},
 			border : false,
 			items: [
-				this.createUserListPanel(),
+				this.createUserListPanel(emptyText),
 				this.createProfilePanel(),
 				this.createPermissionPanel()
 			]
@@ -39,10 +40,11 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * @param {String} emptyText The string which shows in grid when grid is empty.
 	 * @return {Object} Configuration object for the panel which shows users to which permissions are set
 	 * @private
 	 */
-	createUserListPanel : function()
+	createUserListPanel : function(emptyText)
 	{
 		return {
 			xtype : 'panel',
@@ -60,7 +62,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel, {
 				viewConfig : {
 					forceFit : true,
 					deferEmptyText: false,
-					emptyText: '<div class="emptytext">' + _('No permissions granted') + '</div>'
+					emptyText: '<div class="emptytext">' + emptyText + '</div>'
 				},
 				sm : new Ext.grid.RowSelectionModel({
 					singleSelect : true,

@@ -162,6 +162,10 @@ $menu-item-height : 30px;
     background-position: sprite-position($iconsmap, icon_favorites, $offset-y: 2, $offset-x: 1);
   }
 
+  .icon_share {
+    background-position: sprite-position($iconsmap, icon_share, $offset-y: 4, $offset-x: 1);
+  }
+
   .icon_remove_favorites {
     background-position: sprite-position($iconsmap, icon_remove_favorites, $offset-y: 2, $offset-x: 1);
   }

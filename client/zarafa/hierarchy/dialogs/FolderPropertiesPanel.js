@@ -33,14 +33,14 @@ Zarafa.hierarchy.dialogs.FolderPropertiesPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype : 'tabpanel',
 				border : false,
-				activeTab : 0,
-				deferredRender : false,
+				activeTab : config.activeTab,
 				layoutOnTabChange : true,
 				items : [{
 					xtype : 'zarafa.folderpropertiesgeneraltab',
 					title: _('General')
 				},{
 					xtype : 'zarafa.folderpropertiespermissiontab',
+					emptyText : config.emptyText,
 					title: _('Permissions')
 				},
 				container.populateInsertionPoint('folderpropertiescontentpanel.tabs', this)
