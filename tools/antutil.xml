@@ -1,4 +1,4 @@
-<project name="utils">
+<project name="utils" xmlns:if="ant:if">
 	<!-- Macro for building a single tool in the src/ dir -->
 	<macrodef name="build-tool">
 		<attribute name="name"/>
@@ -38,6 +38,7 @@
 		<attribute name="inputFile"/>
 		<attribute name="outputFolder"/>
 		<attribute name="outputFile"/>
+		<attribute name="createSourceMap" default="true"/>
 		<attribute name="tmpFile" default="externs.js"/>
 		<attribute name="compilation" default="SIMPLE_OPTIMIZATIONS"/>
 		<attribute name="warningLevel" default="VERBOSE"/>
@@ -70,9 +71,9 @@
 				<arg line="-jar ${tools-folder}/lib/compiler.jar" />
 				<arg line="--js @{inputFolder}/@{inputFile}" />
 				<arg line="--js_output_file @{outputFolder}/@{outputFile}" />
-				<arg line="--source_map_location_mapping=@{outputFolder}/|''" />
-				<arg line="--output_wrapper '%output%//# sourceMappingURL=@{outputFile}.map' "/>
-				<arg line="--create_source_map @{outputFolder}/@{outputFile}.map --source_map_format=V3" />
+				<arg line="--source_map_location_mapping=@{outputFolder}/|''" if:true="@{createSourceMap}" />
+				<arg line="--output_wrapper '%output%//# sourceMappingURL=@{outputFile}.map' " if:true="@{createSourceMap}" />
+				<arg line="--create_source_map @{outputFolder}/@{outputFile}.map --source_map_format=V3" if:true="@{createSourceMap}" />
 				<arg line="--compilation_level @{compilation}" />
 				<arg line="--warning_level @{warningLevel}" />
 				<arg line="--externs @{tmpFile}" />
@@ -106,7 +107,7 @@
 			</fail>
 
 			<!-- The closure compiler generates the wrong sources: with an absolute path. -->
-			<replace file="@{outputFolder}/@{outputFile}.map" token="@{outputFolder}" value=""/>
+			<replace file="@{outputFolder}/@{outputFile}.map" token="@{outputFolder}" value="" if:true="@{createSourceMap}" />
 		</sequential>
 	</macrodef>
 
