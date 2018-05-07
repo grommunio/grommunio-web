@@ -140,6 +140,13 @@
 		 */
 		function getCalendarItems($store, $entryid, $start, $end)
 		{
+			// Create mapping for restriction used properties which should not be send to the client.
+			$properties = Array(
+				"clipstart" => "PT_SYSTIME:PSETID_Appointment:0x8235",
+				"clipend" => "PT_SYSTIME:PSETID_Appointment:0x8236",
+			);
+			$properties = getPropIdsFromStrings($store, $properties);
+
 			$restriction =
 				// OR
 				//  - Either we want all appointments which fall within the given range
@@ -198,15 +205,35 @@
 											)
 										)
 									)
-								)
+								),
 							)
 						),
 						//OR
 						//(item[isRecurring] == true)
-						Array(RES_PROPERTY,
-							Array(RELOP => RELOP_EQ,
-								ULPROPTAG => $this->properties["recurring"],
-								VALUE => true
+						Array(RES_AND,
+							array(
+								Array(RES_PROPERTY,
+									Array(RELOP => RELOP_EQ,
+										ULPROPTAG => $this->properties["recurring"],
+										VALUE => true
+									),
+								),
+								array(RES_AND,
+									array(
+										array(RES_PROPERTY,
+											Array(RELOP => RELOP_GT,
+												ULPROPTAG => $properties["clipend"],
+												VALUE => $start
+											)
+										),
+										array(RES_PROPERTY,
+											Array(RELOP => RELOP_LT,
+												ULPROPTAG => $properties["clipstart"],
+												VALUE => $end
+											)
+										)
+									)
+								),
 							)
 						)
 					)
