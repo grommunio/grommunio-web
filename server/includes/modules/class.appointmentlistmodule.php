@@ -259,12 +259,13 @@
 		{
 			$items = Array();
 			$openedMessages = Array();
+			$proptags = $GLOBALS["properties"]->getRecurrenceProperties();
 
 			foreach($calendaritems as $calendaritem)
 			{
 				$item = null;
 				if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
-					$recurrence = new Recurrence($store, $calendaritem);
+					$recurrence = new Recurrence($store, $calendaritem, $proptags);
 					$recuritems = $recurrence->getItems($start, $end);
 
 					foreach($recuritems as $recuritem)
@@ -298,7 +299,7 @@
 							}
 							// Now create a Recurrence object with the mapi message (instead of the message props)
 							// so we can open the attachments
-							$recurrence = new Recurrence($store, $message);
+							$recurrence = new Recurrence($store, $message, $proptags);
 							$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
 							if($exceptionatt) {
 								// Existing exception (open existing item, which includes basedate)
