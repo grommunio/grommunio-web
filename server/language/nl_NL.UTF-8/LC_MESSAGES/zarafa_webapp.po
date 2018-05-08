@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-08 13:43+0200\n"
-"PO-Revision-Date: 2018-05-04 09:44+0000\n"
+"PO-Revision-Date: 2018-05-08 11:43+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -620,9 +620,8 @@ msgstr "Beantwoord Allen"
 msgid "Forward"
 msgstr "Doorsturen"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Als nieuw bericht bewerken"
+msgstr "Als nieuw bewerken"
 
 msgid "Search tools"
 msgstr "Zoek opties"
@@ -662,15 +661,13 @@ msgstr "Bijlagen"
 msgid "Date"
 msgstr "Datum"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
-msgstr "Afzender"
+msgstr "Van"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
-msgstr "Aan"
+msgstr "Tot"
 
 msgid "Search.."
 msgstr "Zoeken..."
