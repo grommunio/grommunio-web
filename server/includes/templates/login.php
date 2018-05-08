@@ -34,7 +34,6 @@
 			<div id="content">
 				<div class="left">
 					<div id="logo"></div>
-					<h2><?php echo $version; ?></h2>
 					<?php if ( !empty($branch) ) { ?>
 					<h2><i><?php echo $branch; ?></i></h2>
 					<?php } ?>
