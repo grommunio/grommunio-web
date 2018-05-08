@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-08 13:43+0200\n"
-"PO-Revision-Date: 2018-05-08 10:09+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2018-05-08 11:41+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -647,15 +647,13 @@ msgstr "Anhänge"
 msgid "Date"
 msgstr "Datum"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "Von"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
-msgstr "An"
+msgstr "Bis"
 
 msgid "Search.."
 msgstr "Suche in ..."
