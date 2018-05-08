@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-08 13:43+0200\n"
-"PO-Revision-Date: 2017-03-02 10:06+0000\n"
+"PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/it/>\n"
@@ -474,7 +474,6 @@ msgstr "Mostra dettagli"
 msgid "Use the search bar to get results"
 msgstr "Utilizzare la barra di ricerca per visualizzare i risultati"
 
-#, fuzzy
 msgid "There are no items to show in this list"
 msgstr "Non ci sono elementi da mostrare"
 
@@ -577,7 +576,7 @@ msgid "Custom date"
 msgstr "Data personalizzata"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Aggiungi ai favoriti"
 
 msgid "Add"
 msgstr "Aggiungi"
@@ -586,14 +585,13 @@ msgid "You must specify a name."
 msgstr "Devi specificare un nome."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Aggiungi una cartella ai favoriti basata sulla query di ricerca"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nome della cartella"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Cartella '{0}' selezionata."
+msgstr "Tutti le cartelle sono selezionate"
 
 msgid "Reply"
 msgstr "Rispondi"
@@ -604,7 +602,6 @@ msgstr "Rispondi a tutti"
 msgid "Forward"
 msgstr "Inoltra"
 
-#, fuzzy
 msgid "Edit as New"
 msgstr "Modifica come nuovo messaggio"
 
@@ -616,7 +613,6 @@ msgstr "Tool di ricerca"
 msgid "Folders"
 msgstr "Cartelle"
 
-#, fuzzy
 msgid "Include subfolders"
 msgstr "Crea sottocartelle"
 
@@ -626,9 +622,8 @@ msgstr "Mostra come..."
 msgid "Mails"
 msgstr "Posta"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Appuntamento"
+msgstr "Appuntamenti"
 
 msgid "Contacts"
 msgstr "Contatti"
@@ -648,12 +643,10 @@ msgstr "Allegati"
 msgid "Date"
 msgstr "Data"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "Da"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "A"
@@ -677,14 +670,14 @@ msgid "Favorites"
 msgstr "Preferiti"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Aggiungi un folder ai favoriti basato su questa query di ricerca"
 
 # 76%
 msgid "Select Folder"
 msgstr "Seleziona cartella"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Elimina questa cartella"
 
 # 76%
 # 84%
@@ -695,26 +688,27 @@ msgstr "Ordina per: Data"
 msgid "Loading Search results"
 msgstr "Carico risultati di ricerca"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Ordinamento non possibile"
+msgstr "Ordine suggerito"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"E` possibile ordinare per data se si restringono i risultati della ricerca. "
+"Abilita i filtri oppure modifica i tuoi input."
 
 msgid "Did you mean"
 msgstr "Intendevi"
 
 msgid "With"
-msgstr ""
+msgstr "Con"
 
 msgid "To"
 msgstr "A"
 
 msgid "No date"
-msgstr ""
+msgstr "Data mancante"
 
 msgid "Error"
 msgstr "Errore"
@@ -1065,7 +1059,6 @@ msgstr ""
 "Qualsiasi modifica effettuata verrà sovrascritta quando questa richiesta di "
 "appuntamento verrà aggiornata dall'organizzatore"
 
-#, fuzzy
 msgid "Create in"
 msgstr "Creato il"
 
@@ -1118,7 +1111,7 @@ msgid "Save"
 msgstr "Salva"
 
 msgid "Save & Close"
-msgstr "Salva e chiudi"
+msgstr "Salva & Chiudi"
 
 msgid "Save appointment and close dialog"
 msgstr "Salva appuntamento e chiudi finestra"
@@ -1304,10 +1297,10 @@ msgid "Switch calendar range back and forth"
 msgstr "Inverti calendario"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Copia l'elemento selezionato"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Incollat l'elemento selezionato"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1370,13 +1363,11 @@ msgstr "Fine giorno lavorativo"
 msgid "Calendar resolution"
 msgstr "Risoluzione calendario"
 
-#, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "Orario predefinito appuntamento giornata intera"
+msgstr "Appuntamento predefinito durata {A} minuti"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "Il valore deve essere compreso tra 0% e 100%"
+msgstr "Il valore deve essere compreso tra 1 e 120 minuti."
 
 msgid "Working days"
 msgstr "Giorni lavorativi"
@@ -1384,13 +1375,13 @@ msgstr "Giorni lavorativi"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostra date impegnate in grassetto nel selezionatore date"
 
-#, fuzzy
 msgid ""
 "Free/busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Le informazioni free/busy vengono utilizzate dagli utenti per inviare "
-"richieste di appuntamento "
+"Le informazioni libero/occupato vengono usate dagli utenti per inviare "
+"richieste di appuntamento, al fine di determinate quando sei disponibile per "
+"apputamenti."
 
 msgid "Free/Busy permission"
 msgstr "Permessi free/busy"
@@ -1447,7 +1438,7 @@ msgid "New Meeting Request"
 msgstr "Nuova richiesta appuntamento"
 
 msgid "Open"
-msgstr "Apri"
+msgstr "Aperto"
 
 msgid "Copy/Move"
 msgstr "Copia/Sposta"
@@ -1734,27 +1725,29 @@ msgid "Open the series"
 msgstr "Apri la serie"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Incolla ricorrente {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Questo e` un {0} ricorrente. Vuoi incollar solo questo occorrenza oppure "
+"tutta la serie?"
 
 msgid "message"
-msgstr ""
+msgstr "messaggio"
 
 msgid "meeting request"
-msgstr ""
+msgstr "richiesta di appuntamento"
 
 msgid "appointment"
-msgstr ""
+msgstr "appuntamento"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Incolla solo questa ricorrenza"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Incolla la serie..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1811,21 +1804,18 @@ msgid ""
 msgstr ""
 "Un messaggio di cancellazione sarà inviato a tutti i destinatari. Continuare?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Attività completate"
+msgstr "Elinima il Task incompleto"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "Il task \"{0}\" non e` stato completato. Cosa vuoi fare?"
 
 # 80%
-#, fuzzy
 msgid "Decline and delete"
 msgstr "Rifiuta richiesta di riunione"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Segna come completata"
+msgstr "Segna come completata e elimina"
 
 msgid ""
 "The sender of this message has asked to be notified when you read this "
@@ -1869,13 +1859,11 @@ msgstr "Allega elemento"
 msgid "No message selected"
 msgstr "Nessun messaggio selezionato"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Importante"
+msgstr "Importa in"
 
-#, fuzzy
 msgid "Import"
-msgstr "Importante"
+msgstr "Importa"
 
 # 90%
 # 100%
@@ -1919,14 +1907,13 @@ msgstr "Scarica"
 msgid "Download all as ZIP"
 msgstr "Scarica tutti come file ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Svuota cartella"
+msgstr "Importa nella cartella"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3+"
-msgstr ""
+msgstr "Per poter importare vCard, installare Kopano Core versione 8.3+"
 
 msgid "Attachment error"
 msgstr "Errore allegato"
@@ -1947,7 +1934,7 @@ msgid "Attachment Error"
 msgstr "Errore allegato"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gestisci le categorie"
 
 msgid "Apply"
 msgstr "Applica"
@@ -1956,57 +1943,64 @@ msgid "New"
 msgstr "Nuovo"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Elimina Categoria"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
+"Sei sicuro di voler eliminare la categoria \"{0\"? Gli elementi assegnati a "
+"questa categoria non saranno toccati."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Rinomina Categoria"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Una categoria chiamata \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Crea Nuova Categoria"
 
 msgid "Pin to quick access"
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Devi applicare i cambiamenti che hai fatto alle categorie prima di poter "
+"creare questa categoria."
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "Esiste gia` una categoria chiamata '{0}'. Prego usare un'altro nome."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Esiste gia` una categoria chiamata '{0}' nei cambiamenti in attesa. Prego "
+"usare un'altro nome."
 
 msgid "Rename"
-msgstr ""
+msgstr "Rinomina"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Questa e` la prima volta che hai usato la categoria \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Vuoi rinominarla?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"La categoria \"{0}\" esiste gia`. Vuoi unire le categorie \"{1}\" e \"{2}\"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Unire"
 
 msgid "Remove"
 msgstr "Rimuovi"
@@ -2124,11 +2118,10 @@ msgid "Folder '{0}' selected."
 msgstr "Cartella '{0}' selezionata."
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Non mostrare piu` questo messaggio."
 
-#, fuzzy
 msgid "Set custom flag"
-msgstr "Imposta bandierina"
+msgstr "Imposta bandierina personalizzata"
 
 # 90%
 msgid "Start date"
@@ -2139,37 +2132,35 @@ msgid "End date"
 msgstr "Data fine"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Domani"
 
 msgid "This week"
-msgstr ""
+msgstr "Questa settimana"
 
 msgid "Next week"
-msgstr ""
+msgstr "La prossima settimana"
 
 # 87%
-#, fuzzy
 msgid "Custom"
-msgstr "Data personalizzata"
+msgstr "Personallizzata"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Promemoria"
+msgstr "Inserisci Promemoria"
 
 msgid "Complete"
 msgstr "Completato"
 
 msgid "today"
-msgstr ""
+msgstr "oggi"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "domani"
 
 msgid "this week"
-msgstr ""
+msgstr "questa settimana"
 
 msgid "next week"
-msgstr ""
+msgstr "la prossima settimana"
 
 msgid "Edit recipient"
 msgstr "Modifica destinatario"
@@ -2269,6 +2260,8 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Elimina l'elemento selezionato e spostalo nel cestino. L'elemento eliminato "
+"puo` essere ripristinato."
 
 msgid "Display name"
 msgstr "Nome visualizzato"
@@ -2288,17 +2281,15 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Modifica destinatario"
 
-#, fuzzy
 msgid "Copy e-mail address"
-msgstr "Nuovo indirizzo e-mail"
+msgstr "Copia l'indirizzo di e-mail"
 
 # 90%
 msgid "Send e-mail"
 msgstr "Invia e-mail"
 
-#, fuzzy
 msgid "Delete recipient from suggestion list"
-msgstr "Elimina la lista di distribuzione."
+msgstr "Elimina il destinatario dalla lista dei suggerimenti"
 
 msgid "View recipient"
 msgstr "Visualizza destinatario"
@@ -2553,9 +2544,8 @@ msgstr "include le seguenti parole nel corpo del messaggio ..."
 
 # 84%
 # 100%
-#, fuzzy
 msgid "includes these words in the transport-headers ..."
-msgstr "include le seguenti parole nel corpo del messaggio ..."
+msgstr "include le seguenti parole nel transport-headers..."
 
 msgid "has importance ..."
 msgstr "ha importanza ..."
@@ -2679,42 +2669,41 @@ msgid "Rule already has lowest priority."
 msgstr "La regola ha già la minima priorità."
 
 msgid "myself"
-msgstr ""
+msgstr "io"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Aggiorna le regole per"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Vuoi applicare le modifiche?"
 
-#, fuzzy
 msgid "All folders"
-msgstr "La mia cassetta postale"
+msgstr "Tutte le cartelle"
 
-#, fuzzy
 msgid "Other..."
-msgstr "Altro"
+msgstr "Altro..."
 
-#, fuzzy
 msgid "Search in.."
-msgstr "Ricerca in..."
+msgstr "Ricerca in.."
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"La cartella dove stai cercando non esiste piu`. Prego selezionare un'altra "
+"cartella"
 
 msgid "Add/Edit sender"
 msgstr "Aggiungi/modifica mittente"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "L'indirizzo del mittente non e` configurato"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Caricamento dagli indirizzi"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Prego selezionare un indirizzo del mittente."
 
 msgid "Here you can setup your alias email addresses."
 msgstr "Qui puoi impostare gli alias per i tuoi indirizzi email."
@@ -2733,15 +2722,14 @@ msgid "Delegate settings"
 msgstr "Gestione delegati"
 
 # 80%
-#, fuzzy
 msgid "Rules"
-msgstr "Regola"
+msgstr "Regole"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Indirizzi dei mittenti"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Impostazioni degli indirizzi dei mittenti"
 
 msgid "No preview"
 msgstr "Nessuna anteprima"
@@ -2772,9 +2760,8 @@ msgstr "Sito web"
 msgid "IM Address"
 msgstr "Indirizzo IM"
 
-#, fuzzy
 msgid "D, d-m-Y, G:i"
-msgstr "d-m-Y"
+msgstr "D, d-m-Y, G:i"
 
 # 76%
 msgid "{0} selected row"
@@ -2789,7 +2776,7 @@ msgid "Loaded {0} of {1}"
 msgstr "Elementi {0} di {1}"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Il promemoria e` impostato a: {0}.{1}"
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
@@ -2797,9 +2784,8 @@ msgstr "d-m-Y"
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
 
-#, fuzzy
 msgid "d-m-Y G:i"
-msgstr "d-m-Y"
+msgstr "d-m-Y G:i"
 
 msgid "Unknown"
 msgstr "Sconosciuto"
@@ -2961,11 +2947,11 @@ msgstr "Ricevuto per {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Hai risposto a questo messaggio."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Hai inoltrato questo messaggio."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -2975,36 +2961,29 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Hai inoltrato questo messaggio il {0}."
 
-#, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "Accettato da {0} il {1}"
+msgstr "Assegnato da {0} il {1}."
 
-#, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "Richiedi conferma di lettura ai destinatari"
+msgstr "Attesa di risposta dal destinatario"
 
-#, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "Accettato da {0} il {1}"
+msgstr "Accettato da {0} il {1}."
 
-#, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0} ha accettato per conto di {1}."
+msgstr "{0} ha accettato per conto di {1} {2}."
 
-#, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "Accettato da {0} il {1}"
+msgstr "Rifiustato da {0} il {1}."
 
-#, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0} ha rifiutato per conto di {1}."
+msgstr "{0} ha rifiutato per conto di {1} {2}."
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "Ultimo aggiornamento spedito il {0}."
 
-#, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0} ha accettato per conto di {1}."
+msgstr "{0} ha accettato per conto di {1} {2}."
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3012,12 +2991,11 @@ msgstr ""
 "Verrà eseguito un tentativo di correzione di un messaggio corrotto. "
 "Continuare?"
 
-#, fuzzy
 msgid "d-m-Y g:i a"
-msgstr "d-m-Y"
+msgstr "d-m-Y g:i a"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "L'attivita non e` stata trovata nella lista delle tue attivita`."
 
 # 100%
 msgctxt "mail.previewpanel"
@@ -3036,7 +3014,7 @@ msgstr "Ccn"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3461,7 +3439,7 @@ msgid "Work"
 msgstr "Lavoro"
 
 msgid "Export as"
-msgstr ""
+msgstr "Esporta come"
 
 msgid "Sort by: Full Name"
 msgstr "Ordina per: Nome completo"
@@ -3601,7 +3579,7 @@ msgid "Remove Picture"
 msgstr "Rimuovi immagine"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "file(s) VCF"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -3648,10 +3626,10 @@ msgstr ""
 "mentre il massimo permesso per singola richiesta è {1}."
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "l'elemento / elementi sono stati importati in {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Non e` stato possibile importare l'elemento / gli elementi {0}"
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -3698,7 +3676,7 @@ msgid "High"
 msgstr "Alta"
 
 msgid "Canceled"
-msgstr "Annullato"
+msgstr "Cancellato"
 
 msgid "Blue"
 msgstr "Blu"
@@ -3861,13 +3839,11 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "Lasciando questa pagina, tutte le modifiche effettuate andranno perse."
 
 # 80%
-#, fuzzy
 msgid "D G:i"
-msgstr "jS F Y G:i"
+msgstr "D G:i"
 
-#, fuzzy
 msgid "D d-m"
-msgstr "d-m-Y"
+msgstr "D d-m"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4069,14 +4045,12 @@ msgstr "Segna tutti i messaggi come letti"
 msgid "Delete Folder"
 msgstr "Elimina cartella"
 
-#, fuzzy
 msgid "Empty Junk E-mail"
-msgstr "Posta indesiderata"
+msgstr "Svuota la cartella della posta indesiderata"
 
 # 92%
-#, fuzzy
 msgid "Empty Deleted Items"
-msgstr "Posta eliminata"
+msgstr "Svuota la cartella della posta eliminata"
 
 msgid "Close store"
 msgstr "Chiudi cassetta postale"
@@ -4144,7 +4118,7 @@ msgid "Schedule mail to be sent out"
 msgstr "Programma l'invio dell'email"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "Elementi programmati"
 
 msgid "Your message will be sent at "
 msgstr "Il messaggio verrà inviato il "
@@ -4166,6 +4140,7 @@ msgstr "a una data specifica"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
+"La data e ora immessi sono nel passato. Prego immettere valori corretti."
 
 msgid "today  at "
 msgstr "oggi alle "
@@ -4202,7 +4177,7 @@ msgid "Message Options"
 msgstr "Opzioni Messaggio"
 
 msgid "No from addresses configured!"
-msgstr ""
+msgstr "Indirizzo del mittente non configurato!"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
@@ -5564,7 +5539,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
 msgid "Cannot connect to Kopano Core."
-msgstr "Impossibile stabilire la connessione al sistema Kopano."
+msgstr "Non e` possibile collegarsi con Kopano Core."
 
 msgid "Logon failed, another session already exists."
 msgstr "Accesso non riuscito. Sessione già esistente."
@@ -5946,7 +5921,7 @@ msgstr ""
 
 # 85%
 msgid "unknown"
-msgstr "Sconosciuto"
+msgstr "sconosciuto"
 
 # 78%
 # 80%
