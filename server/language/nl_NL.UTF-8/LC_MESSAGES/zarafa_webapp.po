@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-08 13:43+0200\n"
-"PO-Revision-Date: 2018-05-08 11:43+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2018-05-08 14:02+0000\n"
+"Last-Translator: Bob <b.huisman@kopano.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -3953,11 +3953,9 @@ msgstr "De wijzigingen worden niet opgeslagen wanneer u deze pagina verlaat."
 
 # 90%
 # 80%
-#, fuzzy
 msgid "D G:i"
 msgstr "D G:i"
 
-#, fuzzy
 msgid "D d-m"
 msgstr "D d-m"
 
