@@ -247,7 +247,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 				}
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-				if (record instanceof Zarafa.core.data.MessageRecord && record.isMessageClass(['IPM.Appointment', 'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}'], true)) {
+				if (!record) {
+					bid = 1;
+				} else if (record instanceof Zarafa.core.data.MessageRecord && record.isMessageClass(['IPM.Appointment', 'IPM.OLE.CLASS.{00061055-0000-0000-C000-000000000046}'], true)) {
 					bid = 1;
 				}
 				break;

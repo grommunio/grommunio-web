@@ -711,14 +711,15 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	onAppointmentCreate : function(multiview, folder, dateRange, text)
 	{
 		if (this.fireEvent('beforeappointmentcreate', this, folder, dateRange, text) !== false) {
-			var record = this.model.createRecord(folder, dateRange);
 
-			record.set('subject', text);
+			this.model.createRecord(function(record){
+				record.set('subject', text);
 
-			this.store.add(record);
-			record.save();
+				this.store.add(record);
+				record.save();
 
-			this.fireEvent('appointmentcreate', this, folder, record);
+				this.fireEvent('appointmentcreate', this, folder, record);
+			}.createDelegate(this, [folder, text], true), folder, dateRange);
 		}
 	},
 

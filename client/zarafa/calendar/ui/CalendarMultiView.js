@@ -588,16 +588,16 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 				this.rangeSelectionModel.clearSelections();
 				this.selectionModel.selectRecord(record, false);
 			}
+
+			this.fireEvent('contextmenu', event, record);
 		} else {
 			if (range) {
-				record = this.model.createRecord(calendar.getSelectedFolder(), range);
 				this.rangeSelectionModel.set(range, calendar);
+				this.selectionModel.clearSelections();
 			}
 
-			this.selectionModel.clearSelections();
+			this.fireEvent('contextmenu', event);
 		}
-
-		this.fireEvent('contextmenu', event, record);
 	},
 
 	/**

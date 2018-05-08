@@ -384,9 +384,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	onContextMenu : function(event)
 	{
-		var model = this.parentView.parentView.model;
-		var record = model.createRecord(this.parentView.getSelectedFolder(), this.getDateRange());
-		this.parentView.fireEvent('contextmenu', this.parentView, event, record);
+		this.parentView.fireEvent('contextmenu', this.parentView, event);
 	},
 
 	/**
@@ -397,7 +395,9 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	onDoubleClick : function(event)
 	{
 		var model = this.parentView.parentView.model;
-		var record = model.createRecord(this.parentView.getSelectedFolder(), this.getDateRange());
-		this.parentView.fireEvent('dblclick', this.parentView, event, record);
+
+		model.createRecord(function(record){
+			this.parentView.fireEvent('dblclick', this.parentView, event, record);
+		}.createDelegate(this, [event], true), this.parentView.getSelectedFolder(), this.getDateRange());
 	}
 });
