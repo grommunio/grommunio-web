@@ -273,7 +273,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				}),
 				startFieldConfig: {
 					labelSeparator : "",
-					fieldLabel: _('From'),
+					fieldLabel: pgettext('search.date', 'From'),
 					labelStyle : 'width : 35px',
 					itemCls : 'zarafa-dateperiodfield-itemsCls',
 					labelWidth: 50,
@@ -281,7 +281,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				},
 				endFieldConfig: {
 					labelSeparator : "",
-					fieldLabel: _('To'),
+					fieldLabel: pgettext('search.date', 'To'),
 					labelStyle : 'width : 35px',
 					itemCls : 'zarafa-dateperiodfield-itemsCls',
 					labelWidth: 50,
