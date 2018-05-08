@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,6 +114,27 @@ msgstr "Пятница"
 
 msgid "Saturday"
 msgstr "Суббота"
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "Январь"
@@ -586,8 +607,9 @@ msgstr "Ответить всем"
 msgid "Forward"
 msgstr "Переслать"
 
-msgid "Edit as New Message"
-msgstr ""
+#, fuzzy
+msgid "Edit as New"
+msgstr "Изменить настройки"
 
 msgid "Search tools"
 msgstr ""
@@ -631,9 +653,13 @@ msgstr "Вложения"
 msgid "Date"
 msgstr "Дата"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "От"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Кому"
 
@@ -687,6 +713,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Кому"
 
 msgid "No date"
 msgstr ""
@@ -1346,27 +1375,6 @@ msgstr "Значение должно быть между 0% и 100%."
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "При выборе даты показать дни занятости полужирным"
 
@@ -1829,6 +1837,9 @@ msgstr "Копия"
 
 msgid "Bcc"
 msgstr "СК"
+
+msgid "From"
+msgstr "От"
 
 msgid "Insert item"
 msgstr "Вставить объект"

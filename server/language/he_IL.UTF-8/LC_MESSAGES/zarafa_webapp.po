@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2012-06-01 09:31+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,6 +111,27 @@ msgstr "יום שישי"
 
 msgid "Saturday"
 msgstr "יום שבת"
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "ינואר"
@@ -602,7 +623,7 @@ msgstr "השב לכולם"
 msgid "Forward"
 msgstr "העבר"
 
-msgid "Edit as New Message"
+msgid "Edit as New"
 msgstr ""
 
 msgid "Search tools"
@@ -648,9 +669,13 @@ msgstr "קבצים מצורפים"
 msgid "Date"
 msgstr ""
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "מאת"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "אל"
 
@@ -705,6 +730,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "אל"
 
 msgid "No date"
 msgstr ""
@@ -1374,27 +1402,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr ""
 
@@ -1835,6 +1842,9 @@ msgstr "עותק נוסף"
 
 msgid "Bcc"
 msgstr "עותק סודי"
+
+msgid "From"
+msgstr "מאת"
 
 msgid "Insert item"
 msgstr ""

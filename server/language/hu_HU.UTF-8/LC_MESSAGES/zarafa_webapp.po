@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -102,6 +102,27 @@ msgstr "péntek"
 
 msgid "Saturday"
 msgstr "szombat"
+
+msgid "Sun"
+msgstr "Vas"
+
+msgid "Mon"
+msgstr "Hét"
+
+msgid "Tue"
+msgstr "kedd"
+
+msgid "Wed"
+msgstr "Szer"
+
+msgid "Thu"
+msgstr "Csüt"
+
+msgid "Fri"
+msgstr "Pén"
+
+msgid "Sat"
+msgstr "Szo"
 
 msgid "January"
 msgstr "Január"
@@ -585,7 +606,8 @@ msgstr "Válasz mindenkinek"
 msgid "Forward"
 msgstr "Továbbítás"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Szerkesztés új üzenetként"
 
 msgid "Search tools"
@@ -627,9 +649,13 @@ msgstr "Mellékletek"
 msgid "Date"
 msgstr "Dátum"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Feladó"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Címzett"
 
@@ -682,6 +708,9 @@ msgstr "Arra gondolt, hogy"
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Címzett"
 
 msgid "No date"
 msgstr "Nincs dátum"
@@ -1370,27 +1399,6 @@ msgstr "Az időtartamnak 1 és 120 perc között kell lennie."
 msgid "Working days"
 msgstr "Munkanapok"
 
-msgid "Mon"
-msgstr "Hét"
-
-msgid "Tue"
-msgstr "kedd"
-
-msgid "Wed"
-msgstr "Szer"
-
-msgid "Thu"
-msgstr "Csüt"
-
-msgid "Fri"
-msgstr "Pén"
-
-msgid "Sat"
-msgstr "Szo"
-
-msgid "Sun"
-msgstr "Vas"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
 
@@ -1845,6 +1853,9 @@ msgstr "Cc"
 # 100%
 msgid "Bcc"
 msgstr "Bcc"
+
+msgid "From"
+msgstr "Feladó"
 
 msgid "Insert item"
 msgstr "Elem beszúrása"

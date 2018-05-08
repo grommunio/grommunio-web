@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -102,6 +102,27 @@ msgstr "Fredag"
 
 msgid "Saturday"
 msgstr "Lørdag"
+
+msgid "Sun"
+msgstr "Søn"
+
+msgid "Mon"
+msgstr "Man"
+
+msgid "Tue"
+msgstr "Tir"
+
+msgid "Wed"
+msgstr "Ons"
+
+msgid "Thu"
+msgstr "Tor"
+
+msgid "Fri"
+msgstr "Fre"
+
+msgid "Sat"
+msgstr "Lør"
 
 msgid "January"
 msgstr "Januar"
@@ -560,7 +581,8 @@ msgstr "Svar til alle"
 msgid "Forward"
 msgstr "Videresend"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Rediger som ny meddelelse"
 
 msgid "Search tools"
@@ -600,9 +622,13 @@ msgstr "Vedhæftninger"
 msgid "Date"
 msgstr "Dato"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Fra"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Til"
 
@@ -653,6 +679,9 @@ msgstr "Mente du"
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Til"
 
 msgid "No date"
 msgstr "Ingen dato"
@@ -1282,27 +1311,6 @@ msgstr "Værdi skal være mellem 0% og 100%"
 msgid "Working days"
 msgstr "Arbejdsdage"
 
-msgid "Mon"
-msgstr "Man"
-
-msgid "Tue"
-msgstr "Tir"
-
-msgid "Wed"
-msgstr "Ons"
-
-msgid "Thu"
-msgstr "Tor"
-
-msgid "Fri"
-msgstr "Fre"
-
-msgid "Sat"
-msgstr "Lør"
-
-msgid "Sun"
-msgstr "Søn"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Vis optagede dage med fed i datovælgeren"
 
@@ -1733,6 +1741,9 @@ msgstr "Cc"
 
 msgid "Bcc"
 msgstr "Bcc"
+
+msgid "From"
+msgstr "Fra"
 
 msgid "Insert item"
 msgstr "Indsæt element"

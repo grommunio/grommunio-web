@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,6 +121,27 @@ msgstr "Petek"
 
 msgid "Saturday"
 msgstr "Sobota"
+
+msgid "Sun"
+msgstr "Ned"
+
+msgid "Mon"
+msgstr "Pon"
+
+msgid "Tue"
+msgstr "Tor"
+
+msgid "Wed"
+msgstr "Sre"
+
+msgid "Thu"
+msgstr "Čet"
+
+msgid "Fri"
+msgstr "Pet"
+
+msgid "Sat"
+msgstr "Sob"
 
 msgid "January"
 msgstr "Januar"
@@ -596,8 +617,9 @@ msgstr "Odgovori vsem"
 msgid "Forward"
 msgstr "Posreduj"
 
-msgid "Edit as New Message"
-msgstr ""
+#, fuzzy
+msgid "Edit as New"
+msgstr "Uredi nastavitve"
 
 msgid "Search tools"
 msgstr ""
@@ -643,9 +665,13 @@ msgstr "Priloge"
 msgid "Date"
 msgstr "Datum"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Od"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Za"
 
@@ -698,6 +724,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Za"
 
 msgid "No date"
 msgstr ""
@@ -1374,27 +1403,6 @@ msgstr ""
 msgid "Working days"
 msgstr "Delovniki"
 
-msgid "Mon"
-msgstr "Pon"
-
-msgid "Tue"
-msgstr "Tor"
-
-msgid "Wed"
-msgstr "Sre"
-
-msgid "Thu"
-msgstr "Čet"
-
-msgid "Fri"
-msgstr "Pet"
-
-msgid "Sat"
-msgstr "Sob"
-
-msgid "Sun"
-msgstr "Ned"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "V zbirniku datumov prikaži zasedene datume krepko"
 
@@ -1853,6 +1861,9 @@ msgstr "Kp"
 
 msgid "Bcc"
 msgstr "Skp"
+
+msgid "From"
+msgstr "Od"
 
 msgid "Insert item"
 msgstr "Vstavi predmet"

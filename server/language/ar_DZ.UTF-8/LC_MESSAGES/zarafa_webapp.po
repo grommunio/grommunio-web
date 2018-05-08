@@ -83,6 +83,27 @@ msgstr ""
 msgid "Saturday"
 msgstr ""
 
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
+
 msgid "January"
 msgstr ""
 
@@ -539,7 +560,7 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Edit as New Message"
+msgid "Edit as New"
 msgstr ""
 
 msgid "Search tools"
@@ -578,9 +599,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+msgctxt "search.date"
 msgid "From"
 msgstr ""
 
+msgctxt "search.date"
 msgid "To"
 msgstr ""
 
@@ -629,6 +652,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "To"
 msgstr ""
 
 msgid "No date"
@@ -1236,27 +1262,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr ""
 
@@ -1660,6 +1665,9 @@ msgid "Cc"
 msgstr ""
 
 msgid "Bcc"
+msgstr ""
+
+msgid "From"
 msgstr ""
 
 msgid "Insert item"

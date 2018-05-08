@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,6 +93,27 @@ msgstr "星期五"
 
 msgid "Saturday"
 msgstr "星期六"
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "一月"
@@ -556,8 +577,9 @@ msgstr "回覆所有人"
 msgid "Forward"
 msgstr "轉寄"
 
-msgid "Edit as New Message"
-msgstr ""
+#, fuzzy
+msgid "Edit as New"
+msgstr "編輯設定"
 
 msgid "Search tools"
 msgstr ""
@@ -602,9 +624,13 @@ msgstr "附件"
 msgid "Date"
 msgstr "日期"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "寄件者"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "收件人"
 
@@ -657,6 +683,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "收件人"
 
 msgid "No date"
 msgstr ""
@@ -1298,27 +1327,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "在日期選擇上顯示粗體的繁忙日期"
 
@@ -1750,6 +1758,9 @@ msgstr "副本"
 
 msgid "Bcc"
 msgstr "密件副本"
+
+msgid "From"
+msgstr "寄件者"
 
 msgid "Insert item"
 msgstr ""

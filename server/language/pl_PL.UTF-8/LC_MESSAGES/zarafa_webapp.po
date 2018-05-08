@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -103,6 +103,27 @@ msgstr "Piątek"
 
 msgid "Saturday"
 msgstr "Sobota"
+
+msgid "Sun"
+msgstr "Nd"
+
+msgid "Mon"
+msgstr "Pn"
+
+msgid "Tue"
+msgstr "Wt"
+
+msgid "Wed"
+msgstr "Śr"
+
+msgid "Thu"
+msgstr "Czw"
+
+msgid "Fri"
+msgstr "Pt"
+
+msgid "Sat"
+msgstr "Sb"
 
 msgid "January"
 msgstr "Styczeń"
@@ -562,7 +583,8 @@ msgstr "Odpowiedz wszystkim"
 msgid "Forward"
 msgstr "Prześlij dalej"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Wyślij jako nową wiadomość"
 
 msgid "Search tools"
@@ -602,9 +624,13 @@ msgstr "Załączniki"
 msgid "Date"
 msgstr "Data"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Od"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Do"
 
@@ -655,6 +681,9 @@ msgstr "Czy chodziło ci o"
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Do"
 
 msgid "No date"
 msgstr ""
@@ -1290,27 +1319,6 @@ msgstr "Wartość musi znajdować się między 0% a 100%"
 msgid "Working days"
 msgstr "Dni robocze"
 
-msgid "Mon"
-msgstr "Pn"
-
-msgid "Tue"
-msgstr "Wt"
-
-msgid "Wed"
-msgstr "Śr"
-
-msgid "Thu"
-msgstr "Czw"
-
-msgid "Fri"
-msgstr "Pt"
-
-msgid "Sat"
-msgstr "Sb"
-
-msgid "Sun"
-msgstr "Nd"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Daty zajęte pokaż w wybieraniu daty wytłuszczonym drukiem"
 
@@ -1729,6 +1737,9 @@ msgstr "DW"
 
 msgid "Bcc"
 msgstr "UDW"
+
+msgid "From"
+msgstr "Od"
 
 msgid "Insert item"
 msgstr "Wstaw element"

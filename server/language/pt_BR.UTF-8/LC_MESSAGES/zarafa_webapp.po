@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -100,6 +100,27 @@ msgstr "Sexta-feira"
 
 msgid "Saturday"
 msgstr "Sábado"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "Mon"
+msgstr "Seg"
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr "Qua"
+
+msgid "Thu"
+msgstr "Qui"
+
+msgid "Fri"
+msgstr "Sex"
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "janeiro"
@@ -565,7 +586,8 @@ msgstr "Responder a todos"
 msgid "Forward"
 msgstr "Encaminhar"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Editar como nova mensagem"
 
 msgid "Search tools"
@@ -611,9 +633,13 @@ msgstr "Anexos"
 msgid "Date"
 msgstr "Data"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "De"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Para"
 
@@ -667,6 +693,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Para"
 
 msgid "No date"
 msgstr ""
@@ -1354,27 +1383,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr "Seg"
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr "Qua"
-
-msgid "Thu"
-msgstr "Qui"
-
-msgid "Fri"
-msgstr "Sex"
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr "Dom"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostrar datas ocupadas em negrito no selecionador de datas"
 
@@ -1831,6 +1839,9 @@ msgstr "Cc"
 
 msgid "Bcc"
 msgstr "Cco"
+
+msgid "From"
+msgstr "De"
 
 msgid "Insert item"
 msgstr "Inserir item"

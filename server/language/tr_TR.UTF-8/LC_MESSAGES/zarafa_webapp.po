@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -102,6 +102,27 @@ msgstr "Cuma"
 
 msgid "Saturday"
 msgstr "Cumartesi"
+
+msgid "Sun"
+msgstr "Paz"
+
+msgid "Mon"
+msgstr "Pzt"
+
+msgid "Tue"
+msgstr "Sal"
+
+msgid "Wed"
+msgstr "Çar"
+
+msgid "Thu"
+msgstr "Per"
+
+msgid "Fri"
+msgstr "Cum"
+
+msgid "Sat"
+msgstr "Cmt"
 
 msgid "January"
 msgstr "Ocak"
@@ -578,7 +599,8 @@ msgstr "Hepsini yanıtla"
 msgid "Forward"
 msgstr "İlet"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Yeni mesaj olarak düzenle"
 
 msgid "Search tools"
@@ -622,9 +644,13 @@ msgstr "Eklenti"
 msgid "Date"
 msgstr "Tarih"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Kimden"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Kime"
 
@@ -676,6 +702,9 @@ msgstr "ne demek istediniz"
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Kime"
 
 msgid "No date"
 msgstr ""
@@ -1357,27 +1386,6 @@ msgstr "Değer %0 ile %100 arasında olmalıdır"
 msgid "Working days"
 msgstr "iş günü"
 
-msgid "Mon"
-msgstr "Pzt"
-
-msgid "Tue"
-msgstr "Sal"
-
-msgid "Wed"
-msgstr "Çar"
-
-msgid "Thu"
-msgstr "Per"
-
-msgid "Fri"
-msgstr "Cum"
-
-msgid "Sat"
-msgstr "Cmt"
-
-msgid "Sun"
-msgstr "Paz"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
@@ -1829,6 +1837,9 @@ msgstr "Cc"
 
 msgid "Bcc"
 msgstr "Bcc"
+
+msgid "From"
+msgstr "Kimden"
 
 msgid "Insert item"
 msgstr "öğe ekle"

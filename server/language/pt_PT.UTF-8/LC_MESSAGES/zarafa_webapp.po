@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2018-04-26 15:25+0000\n"
 "Last-Translator: Nuno <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -100,6 +100,27 @@ msgstr "Sexta-feira"
 
 msgid "Saturday"
 msgstr "Sábado"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "Mon"
+msgstr "Seg"
+
+msgid "Tue"
+msgstr "Ter"
+
+msgid "Wed"
+msgstr "Qua"
+
+msgid "Thu"
+msgstr "Qui"
+
+msgid "Fri"
+msgstr "Sex"
+
+msgid "Sat"
+msgstr "Sáb"
 
 msgid "January"
 msgstr "Janeiro"
@@ -558,7 +579,8 @@ msgstr "Responder a todos"
 msgid "Forward"
 msgstr "Reencaminhar"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Editar como nova mensagem"
 
 msgid "Search tools"
@@ -597,9 +619,13 @@ msgstr "Anexos"
 msgid "Date"
 msgstr "Data"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "De"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Para"
 
@@ -651,6 +677,9 @@ msgstr "Queria dizer"
 
 msgid "With"
 msgstr "Com"
+
+msgid "To"
+msgstr "Para"
 
 msgid "No date"
 msgstr "Sem data final"
@@ -739,7 +768,8 @@ msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
 msgstr[0] "Acontece a cada {0} {1} a partir de {2} por {3} vez de {4} até {5}."
-msgstr[1] "Acontece a cada {0} {1} a partir de {2} por {3} vezes de {4} até {5}."
+msgstr[1] ""
+"Acontece a cada {0} {1} a partir de {2} por {3} vezes de {4} até {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurences."
@@ -899,7 +929,8 @@ msgid ""
 msgstr "Foram feitas alterações à lista de participantes. Escolha uma opção"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr "Enviar atualizações só para os participantes adicionados ou eliminados."
+msgstr ""
+"Enviar atualizações só para os participantes adicionados ou eliminados."
 
 msgid "Send updates to all attendees."
 msgstr "Enviar atualizações para todos os participantes."
@@ -1276,27 +1307,6 @@ msgstr "Duração tem que ser entre 1 e 120 minutos."
 
 msgid "Working days"
 msgstr "Dias de trabalho"
-
-msgid "Mon"
-msgstr "Seg"
-
-msgid "Tue"
-msgstr "Ter"
-
-msgid "Wed"
-msgstr "Qua"
-
-msgid "Thu"
-msgstr "Qui"
-
-msgid "Fri"
-msgstr "Sex"
-
-msgid "Sat"
-msgstr "Sáb"
-
-msgid "Sun"
-msgstr "Dom"
 
 msgid "Show busy dates as bold in the date picker"
 msgstr "Mostar datas ocupadas em negrito"
@@ -1720,6 +1730,9 @@ msgstr "Cc"
 
 msgid "Bcc"
 msgstr "Bcc"
+
+msgid "From"
+msgstr "De"
 
 msgid "Insert item"
 msgstr "Inserir item"
@@ -4003,7 +4016,8 @@ msgstr "Mostar Bcc"
 msgid ""
 "Show Bcc field in which you can specify the people who will recieve this "
 "message"
-msgstr "Mostar o campo Bcc onde pode indicar pessoas que vão receber a mensagem"
+msgstr ""
+"Mostar o campo Bcc onde pode indicar pessoas que vão receber a mensagem"
 
 msgid "Show From"
 msgstr "Mostrar De"
@@ -4857,9 +4871,9 @@ msgid ""
 "will show up in your favorites! You can then do the same search again with a "
 "single click."
 msgstr ""
-"Se existir uma procura que realize frequentemente pode guarda-la como \""
-"pasta de procura\" e esta irá aparecer nos favoritos. Poderá voltar a fazer "
-"essa mesma procura selecionando a pasta de procura criada."
+"Se existir uma procura que realize frequentemente pode guarda-la como "
+"\"pasta de procura\" e esta irá aparecer nos favoritos. Poderá voltar a "
+"fazer essa mesma procura selecionando a pasta de procura criada."
 
 msgid "What's new"
 msgstr "Novidades"
@@ -4931,7 +4945,8 @@ msgstr "A caixa por defeito não existe no Painel de Navegação."
 
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
-msgstr "Nem todas as funcionalidades da WebApp poderão funcionar devido a isso."
+msgstr ""
+"Nem todas as funcionalidades da WebApp poderão funcionar devido a isso."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5282,7 +5297,8 @@ msgid "You have insufficient privileges to open this object."
 msgstr "Não tem permissões suficientes para abrir este objeto."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr "Falha ao iniciar sessão. Por favor verifique o seu utilizador/password."
+msgstr ""
+"Falha ao iniciar sessão. Por favor verifique o seu utilizador/password."
 
 msgid "Can not connect to Kopano Core."
 msgstr "Não foi possível ligar ao Kopano Core."
@@ -5511,7 +5527,8 @@ msgid "Could not add folder to favorites."
 msgstr "Não foi possível adicionar a pasta aos favoritos."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr "Não tem privilégios suficientes para alterar as permissões desta pasta."
+msgstr ""
+"Não tem privilégios suficientes para alterar as permissões desta pasta."
 
 msgid "Could not set folder permissions."
 msgstr "Não foi possível aplicar as permissões na pasta."
@@ -5751,10 +5768,12 @@ msgid "Unknown action type specified - %s"
 msgstr "Tipo de ação desconhecida - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Não foi possível suspender o lembrete. Poderá ser relembrado outra vez."
+msgstr ""
+"Não foi possível suspender o lembrete. Poderá ser relembrado outra vez."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Não foi possível dispensar o lembrete. Poderá ser relembrado outra vez."
+msgstr ""
+"Não foi possível dispensar o lembrete. Poderá ser relembrado outra vez."
 
 msgid "You have insufficient privileges to perform this action."
 msgstr "Não tem permissões suficientes para executar esta ação."

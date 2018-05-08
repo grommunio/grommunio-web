@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2016-10-14 07:27+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (China) <http://translate.kopano.io/projects/kopano/"
@@ -95,6 +95,27 @@ msgstr "星期五"
 
 msgid "Saturday"
 msgstr "星期六"
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "一月"
@@ -567,7 +588,7 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Edit as New Message"
+msgid "Edit as New"
 msgstr ""
 
 msgid "Search tools"
@@ -610,9 +631,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+msgctxt "search.date"
 msgid "From"
 msgstr ""
 
+msgctxt "search.date"
 msgid "To"
 msgstr ""
 
@@ -664,6 +687,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "To"
 msgstr ""
 
 msgid "No date"
@@ -1304,27 +1330,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr ""
 
@@ -1741,6 +1746,9 @@ msgid "Cc"
 msgstr ""
 
 msgid "Bcc"
+msgstr ""
+
+msgid "From"
 msgstr ""
 
 msgid "Insert item"

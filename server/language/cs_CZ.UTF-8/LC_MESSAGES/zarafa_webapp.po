@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -113,6 +113,27 @@ msgstr "pátek"
 
 msgid "Saturday"
 msgstr "sobota"
+
+msgid "Sun"
+msgstr "ne"
+
+msgid "Mon"
+msgstr "po"
+
+msgid "Tue"
+msgstr "út"
+
+msgid "Wed"
+msgstr "st"
+
+msgid "Thu"
+msgstr "čt"
+
+msgid "Fri"
+msgstr "pá"
+
+msgid "Sat"
+msgstr "so"
 
 msgid "January"
 msgstr "leden"
@@ -580,7 +601,8 @@ msgstr "Odpovědět všem"
 msgid "Forward"
 msgstr "Přeposlat"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Upravit jako novou zprávu"
 
 msgid "Search tools"
@@ -621,9 +643,13 @@ msgstr "Přílohy"
 msgid "Date"
 msgstr "Datum"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Od"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "Komu"
 
@@ -677,6 +703,9 @@ msgstr ""
 
 msgid "With"
 msgstr ""
+
+msgid "To"
+msgstr "Komu"
 
 msgid "No date"
 msgstr ""
@@ -1332,27 +1361,6 @@ msgstr "Doba trvání musí být mezi 1 a 120 minutami."
 msgid "Working days"
 msgstr "Pracovní dny"
 
-msgid "Mon"
-msgstr "po"
-
-msgid "Tue"
-msgstr "út"
-
-msgid "Wed"
-msgstr "st"
-
-msgid "Thu"
-msgstr "čt"
-
-msgid "Fri"
-msgstr "pá"
-
-msgid "Sat"
-msgstr "so"
-
-msgid "Sun"
-msgstr "ne"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Zobrazit tučně 'již obsazené' data při výběru termínu"
 
@@ -1801,6 +1809,9 @@ msgstr "Kopie"
 
 msgid "Bcc"
 msgstr "Skrytá kopie"
+
+msgid "From"
+msgstr "Od"
 
 msgid "Insert item"
 msgstr "Vložit položku"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2012-04-29 15:45+0200\n"
 "Last-Translator: Igor <Igor_halka@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,6 +111,27 @@ msgstr "П'ятниця"
 
 msgid "Saturday"
 msgstr "Субота"
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
 
 msgid "January"
 msgstr "Січень"
@@ -575,7 +596,7 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-msgid "Edit as New Message"
+msgid "Edit as New"
 msgstr ""
 
 msgid "Search tools"
@@ -614,9 +635,11 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+msgctxt "search.date"
 msgid "From"
 msgstr ""
 
+msgctxt "search.date"
 msgid "To"
 msgstr ""
 
@@ -667,6 +690,9 @@ msgid "Did you mean"
 msgstr ""
 
 msgid "With"
+msgstr ""
+
+msgid "To"
 msgstr ""
 
 msgid "No date"
@@ -1285,27 +1311,6 @@ msgstr ""
 msgid "Working days"
 msgstr ""
 
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Sun"
-msgstr ""
-
 msgid "Show busy dates as bold in the date picker"
 msgstr ""
 
@@ -1712,6 +1717,9 @@ msgid "Cc"
 msgstr ""
 
 msgid "Bcc"
+msgstr ""
+
+msgid "From"
 msgstr ""
 
 msgid "Insert item"

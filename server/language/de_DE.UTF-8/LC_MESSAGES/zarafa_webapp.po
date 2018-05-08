@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 15:38+0200\n"
+"POT-Creation-Date: 2018-05-08 13:43+0200\n"
 "PO-Revision-Date: 2018-05-08 10:09+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -104,6 +104,27 @@ msgstr "Freitag"
 
 msgid "Saturday"
 msgstr "Samstag"
+
+msgid "Sun"
+msgstr "So"
+
+msgid "Mon"
+msgstr "Mo"
+
+msgid "Tue"
+msgstr "Di"
+
+msgid "Wed"
+msgstr "Mi"
+
+msgid "Thu"
+msgstr "Do"
+
+msgid "Fri"
+msgstr "Fr"
+
+msgid "Sat"
+msgstr "Sa"
 
 msgid "January"
 msgstr "Januar"
@@ -584,7 +605,8 @@ msgstr "Allen antworten"
 msgid "Forward"
 msgstr "Weiterleiten"
 
-msgid "Edit as New Message"
+#, fuzzy
+msgid "Edit as New"
 msgstr "Nachricht erneut senden"
 
 msgid "Search tools"
@@ -625,9 +647,13 @@ msgstr "Anhänge"
 msgid "Date"
 msgstr "Datum"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "From"
 msgstr "Von"
 
+#, fuzzy
+msgctxt "search.date"
 msgid "To"
 msgstr "An"
 
@@ -685,6 +711,9 @@ msgstr "Meinten Sie"
 
 msgid "With"
 msgstr "Mit"
+
+msgid "To"
+msgstr "An"
 
 msgid "No date"
 msgstr "Kein Datum"
@@ -1377,27 +1406,6 @@ msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
 msgid "Working days"
 msgstr "Arbeitstage"
 
-msgid "Mon"
-msgstr "Mo"
-
-msgid "Tue"
-msgstr "Di"
-
-msgid "Wed"
-msgstr "Mi"
-
-msgid "Thu"
-msgstr "Do"
-
-msgid "Fri"
-msgstr "Fr"
-
-msgid "Sat"
-msgstr "Sa"
-
-msgid "Sun"
-msgstr "So"
-
 msgid "Show busy dates as bold in the date picker"
 msgstr "Belegte Termine in der Datumsauswahl in fett anzeigen"
 
@@ -1858,6 +1866,9 @@ msgstr "CC"
 
 msgid "Bcc"
 msgstr "BCC"
+
+msgid "From"
+msgstr "Von"
 
 msgid "Insert item"
 msgstr "Element einfügen"
