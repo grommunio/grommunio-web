@@ -67,7 +67,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		this.registerInsertionPoint('navigation.center', this.createTaskNavigationPanel, this);
 
 		// Adds convert mail to task contextmenu item in the mail contextmenu.
-		this.registerInsertionPoint('context.mail.contextmenu.actions', this.convertToTask, this);
+		this.registerInsertionPoint('context.mail.contextmenu.topoptions', this.convertToTask, this);
 
 		// Register task specific dialog types
 		Zarafa.core.data.SharedComponentType.addProperty('task.dialogs.sendtaskrequestconfirmation');

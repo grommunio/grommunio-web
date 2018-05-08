@@ -268,7 +268,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				handler: this.onPrintButton,
 				scope: this
 			}, {
-				text: _('Edit as New Message'),
+				text: _('Edit as New'),
 				iconCls: 'icon_editAsNewEmail',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onMailResponseButton,
@@ -393,7 +393,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	},
 
 	/**
-	 * Event handler when the "Reply/ Reply All/ Forward/ Edit as New Message" button has been pressed.
+	 * Event handler when the "Reply/ Reply All/ Forward/ Edit as New" button has been pressed.
 	 * This will call the {@link Zarafa.mail.Actions#openCreateMailResponseContent}.
 	 *
 	 * @param {Ext.Button} button The button which has been pressed

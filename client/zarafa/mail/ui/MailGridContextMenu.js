@@ -55,17 +55,17 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			}
 		}
 
-
 		Ext.applyIf(config, {
-			items: [
-				this.createContextActionItems(),
+			items : [
+				this.createContextOperationItems(),
 				{ xtype: 'menuseparator' },
-				this.createContextExportItems(config),
-				container.populateInsertionPoint('context.mail.contextmenu.actions', this),
+				this.createContextCategorizedItems(config.records),
 				{ xtype: 'menuseparator' },
-				this.createContextOptionsItems(config.records),
+				this.createContextCopyMoveItems(),
 				{ xtype: 'menuseparator' },
-				container.populateInsertionPoint('context.mail.contextmenu.options', this)
+				this.createContextActionItems(config),
+				{ xtype: 'menuseparator' },
+				this.createContextOptionItems()
 			]
 		});
 
@@ -74,35 +74,18 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
-	 * Create the Action context menu items
-	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
+	 * Create the Operation context menu items
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Operation context menu items
 	 * @private
 	 */
-	createContextActionItems : function()
+	createContextOperationItems : function()
 	{
-		return [{
-			xtype: 'zarafa.conditionalitem',
+		return[{
 			text : _('Open'),
 			iconCls : 'icon_open',
 			singleSelectOnly: true,
 			handler: this.onContextItemOpen,
 			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Copy/Move'),
-			iconCls : 'icon_copy',
-			hideOnDisabled : false,
-			handler: this.onCopyMove,
-			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Print'),
-			iconCls : 'icon_print',
-			singleSelectOnly: true,
-			handler: this.onContextItemPrint,
-			scope: this
-		},{
-			xtype: 'menuseparator'
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Reply'),
@@ -132,7 +115,29 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
-			text : _('Edit as New Message'),
+			text : _('Delete'),
+			iconCls : 'icon_delete',
+			handler: this.onContextItemDelete,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Mark Read'),
+			name : 'mark_read',
+			iconCls: 'icon_mail icon_message_read',
+			beforeShow : this.onReadFlagItemBeforeShow,
+			handler : this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Mark Unread'),
+			name : 'mark_unread',
+			iconCls: 'icon_mail icon_message_unread',
+			beforeShow : this.onReadFlagItemBeforeShow,
+			handler : this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Edit as New'),
 			iconCls : 'icon_editAsNewEmail',
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
@@ -143,36 +148,14 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
-	 * Create the Option context menu items
-	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this context menu acts.
-	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
+	 * Create the Categorized context menu items
+ 	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this context menu acts.
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Categorized context menu items
 	 * @private
 	 */
-	createContextOptionsItems : function(records)
+	createContextCategorizedItems : function(records)
 	{
-		return [{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Mark Read'),
-			iconCls: 'icon_mail icon_message_read',
-			beforeShow : function(item, records) {
-				this.onReadFlagItemBeforeShow(item, records, false);
-			},
-			handler : function() {
-				this.onReadFlagItemClicked(true);
-			},
-			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Mark Unread'),
-			iconCls: 'icon_mail icon_message_unread',
-			beforeShow : function(item, records) {
-				this.onReadFlagItemBeforeShow(item, records, true);
-			},
-			handler : function() {
-				this.onReadFlagItemClicked(false);
-			},
-			scope: this
-		},{
+		return[{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Categories'),
 			cls: 'k-unclickable',
@@ -182,8 +165,6 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				xtype: 'zarafa.categoriescontextmenu',
 				records: records
 			}
-		},{
-			xtype: 'menuseparator'
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
@@ -195,8 +176,23 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				records: records
 			},
 			scope: this
-		},{
-			xtype: 'menuseparator'
+		}];
+	},
+
+	/**
+	 * Create the Copy Move context menu items
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Copy Move context menu items
+	 * @private
+	 */
+	createContextCopyMoveItems : function()
+	{
+		return[{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Copy/Move'),
+			iconCls : 'icon_copy',
+			hideOnDisabled : false,
+			handler: this.onCopyMove,
+			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Move to Junk Folder'),
@@ -204,31 +200,16 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			beforeShow : this.onMoveToJunkBeforeShow,
 			handler: this.onContextItemJunk,
 			scope: this
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Delete'),
-			iconCls : 'icon_delete',
-			handler: this.onContextItemDelete,
-			scope: this
-		},{
-			xtype: 'menuseparator'
-		},{
-			xtype: 'zarafa.conditionalitem',
-			text : _('Options'),
-			iconCls : 'icon_openMessageOptions',
-			beforeShow : this.onMenuItemBeforeShow,
-			singleSelectOnly: true,
-			handler : this.onContextItemOptions,
-			scope: this
 		}];
 	},
 
 	/**
-	 * Create the export context menu item.
-	 * @param {Object} config Configuration object
-	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Export context menu items
+	 * Create the Action context menu items
+	 * @param {Object} config The configuration object which used to create action context menu item.
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Action context menu items
+	 * @private
 	 */
-	createContextExportItems : function(config)
+	createContextActionItems : function(config)
 	{
 		return [{
 			xtype: 'zarafa.conditionalitem',
@@ -250,12 +231,40 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				records: config.records,
 				model: config.model
 			}
-		}];
+		},
+			container.populateInsertionPoint('context.mail.contextmenu.actions', this)
+		];
 	},
 
 	/**
-	 * Event handler which is called when the user selects the 'Open'
-	 * item in the context menu. This will open the item in a new panel.
+	 * Create the Option context menu items
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this context menu acts.
+	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
+	 * @private
+	 */
+	createContextOptionItems : function()
+	{
+		return[container.populateInsertionPoint('context.mail.contextmenu.topoptions', this),{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Print'),
+			iconCls : 'icon_print',
+			singleSelectOnly: true,
+			handler: this.onContextItemPrint,
+			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Options'),
+			iconCls : 'icon_openMessageOptions',
+			beforeShow : this.onMenuItemBeforeShow,
+			singleSelectOnly: true,
+			handler : this.onContextItemOptions,
+			scope: this
+		},container.populateInsertionPoint('context.mail.contextmenu.options', this)];
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Open in window'
+	 * item in the context menu. This will open the item in a new browser window.
 	 * @private
 	 */
 	onContextItemOpen : function()
@@ -274,7 +283,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	},
 
 	/**
-	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New Message" menuitems are clicked.
+	 * Called when one of the "Reply"/"Reply All"/"Forward"/"Edit as New" menuitems are clicked.
 	 * @param {Ext.Button} button The button which was clicked
 	 * @private
 	 */
@@ -345,14 +354,13 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
 	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
 	 * to see if the item must be enabled or disabled.
-	 * @param {Boolean} read The required Read state value for one or more Records before
 	 * this item is enabled.
 	 * @private
 	 */
-	onReadFlagItemBeforeShow : function(item, records, read)
+	onReadFlagItemBeforeShow : function(item, records)
 	{
 		var count = 0;
-
+		var read = item.name !== 'mark_read';
 		Ext.each(records, function(record) {
 			if (record.isRead() === read) {
 				count++;
@@ -366,12 +374,11 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 * Event handler which is called when the item has been clicked.
 	 * This will mark all selected records as read or unread.
 	 *
-	 * @param {Boolean} read The value for of the Read flag.
 	 * @private
 	 */
-	onReadFlagItemClicked : function(read)
+	onReadFlagItemClicked : function(btn)
 	{
-		Zarafa.common.Actions.markAsRead(this.records, read);
+		Zarafa.common.Actions.markAsRead(this.records, btn.name === 'mark_read');
 	},
 
 	/**
