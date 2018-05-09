@@ -98,10 +98,10 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		},{
 			xtype: 'button',
 			ref: 'deleteBtn',
-			overflowText: _('Delete this item.'),
+			overflowText: _('Delete'),
 			tooltip: {
 				title : _('Delete mail'),
-				text : _('Delete this mail.')
+				text : _('Delete this email')
 			},
 			iconCls: 'icon_delete',
 			handler: this.onDeleteButton,

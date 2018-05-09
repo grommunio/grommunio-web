@@ -131,7 +131,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			overflowText : _('Delete'),
 			tooltip : {
 				title : _('Delete'),
-				text : _('Delete this mail')
+				text : _('Delete this email')
 			},
 			iconCls : 'icon_delete',
 			handler : this.onDeleteButton,
