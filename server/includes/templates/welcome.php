@@ -45,7 +45,6 @@ $serverConfig = array(
 				<div id="content">
 					<div class="left">
 						<div id="logo"></div>
-						<h2>WebApp <?php echo $version; ?></h2>
 					</div>
 					<div class="right">
 					</div>
