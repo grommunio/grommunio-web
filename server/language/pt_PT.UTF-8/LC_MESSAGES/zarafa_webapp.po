@@ -1908,7 +1908,7 @@ msgid "Select an address to use"
 msgstr "Selecione o endereço a usar"
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "Endereço"
 
 msgid "More than one '{0}' found."
 msgstr "Mais de que um '{0}' encontrado."
