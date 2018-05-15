@@ -25,7 +25,7 @@ Zarafa.mail.data.Templates =
 			'</tpl>' +
 			'-----' + _('Original message') + '-----\n' +
 			'<tpl if="!Ext.isEmpty(values.sent_representing_name)">' +
-				'> ' + _('From') + ':{sent_representing_name:htmlEncode} ' +
+				'> ' + _('From') + ': {sent_representing_name:htmlEncode} ' +
 				'<tpl if="!Ext.isEmpty(values.sent_representing_email_address)">' +
 					'<{sent_representing_email_address:htmlEncode}>' + 
 				'</tpl>' + '\n' +
