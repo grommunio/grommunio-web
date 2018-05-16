@@ -185,9 +185,11 @@ msgstr "Atualizar"
 msgid "Today"
 msgstr "Hoje"
 
+#, fuzzy
 msgid "OK"
 msgstr "OK"
 
+#, fuzzy
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -204,6 +206,7 @@ msgstr "Esta data é posterior à data máxima"
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
+#, fuzzy
 msgid "Disabled"
 msgstr "Desativado"
 
@@ -330,6 +333,7 @@ msgstr "Endereços de E-mail"
 msgid "Group details"
 msgstr "Detalhes do grupo"
 
+#, fuzzy
 msgid "General"
 msgstr "Geral"
 
@@ -348,8 +352,9 @@ msgstr "Notas"
 msgid "Members"
 msgstr "Membros"
 
+#, fuzzy
 msgid "Email Address"
-msgstr "Endereço de E-mail"
+msgstr "Endereço de Email"
 
 msgid "Account"
 msgstr "Conta"
@@ -555,6 +560,7 @@ msgstr "Data personalizada"
 msgid "Add to favorites"
 msgstr "Adicionar aos Favoritos"
 
+#, fuzzy
 msgid "Add"
 msgstr "Adicionar"
 
@@ -1071,6 +1077,7 @@ msgstr "Gravar compromisso e fechar"
 msgid "Save without sending an invitation to recipients"
 msgstr "Gravar sem enviar convite aos destinatários"
 
+#, fuzzy
 msgid "Delete"
 msgstr "Apagar"
 
@@ -3532,6 +3539,7 @@ msgstr "Sair"
 msgid "Switch view"
 msgstr "Mudar vista"
 
+#, fuzzy
 msgid "Kopano"
 msgstr "Kopano"
 
@@ -3700,6 +3708,7 @@ msgstr "Propriedades"
 msgid "Type"
 msgstr "Tipo"
 
+#, fuzzy
 msgid "Description"
 msgstr "Descrição"
 
