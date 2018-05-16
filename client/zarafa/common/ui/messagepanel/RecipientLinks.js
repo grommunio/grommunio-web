@@ -114,8 +114,9 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 
 		container.populateInsertionPoint('previewpanel.toolbar.recipientlinks', this);
 
-		this.on('contextmenu', this.onRecipientContextMenu, this);
+		this.on('contextmenu', this.onRecipientRightClick, this);
 		this.on('dblclick', this.onRecipientDoubleClick, this);
+		this.on('mouseenter',this.onMouseEnter, this, {buffer : 10});
 	},
 
 	/**
@@ -321,16 +322,21 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
-	 * handler to show context menu on right click
+	 * Called when user right-clicks on an item in {@link Zarafa.common.ui.messagepanel.RecipientLinks}
+	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
 	 * @param {Ext.DataView} dataView Reference to this object
 	 * @param {Number} index The index of the target node
 	 * @param {HTMLElement} node The target node
-	 * @param {Ext.EventObject} evt The mouse event
+	 * @param {Ext.EventObject} e The mouse event
 	 * @private
 	 */
-	onRecipientContextMenu : function(dataView, index, node, evt)
+	onRecipientRightClick: function (dataView, index, node, e)
 	{
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(this.createRecipientFromNode(node), { position : evt.getXY() });
+		var recipientRecord = this.createRecipientFromNode(node);
+		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
+			position: e.getXY(),
+			recipientView : dataView
+		});
 	},
 
 	/**
@@ -366,6 +372,23 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 		record.set('recipient_trackstatus_time', '');
 
 		return record;
+	},
+
+	/**
+	 * Event handler which handel mouse enter event.
+	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
+	 * @param {Ext.DataView} dataView Reference to this object
+	 * @param {Number} index The index of the target node
+	 * @param {HTMLElement} node The target node
+	 * @param {Ext.EventObject} e The mouse event
+	 */
+	onMouseEnter: function (dataView, index, node, e)
+	{
+		var recipientRecord = this.createRecipientFromNode(node);
+		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
+			position: e.getXY(),
+			recipientView : dataView
+		});
 	}
 });
 
