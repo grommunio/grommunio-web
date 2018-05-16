@@ -30,6 +30,15 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	store : undefined,
 
 	/**
+	 * A boolean that will be used to know if this dialog is focused for the first
+	 * time.
+	 * @type Boolean
+	 * @property
+	 * @private
+	 */
+	firstFocus : true,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
@@ -113,15 +122,43 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	 */
 	onDialogFocussed : function(){
 		var folder = this.dialog.getSelectedFolder();
+		var treeNode;
+		var visible = true;
 		if (folder) {
-			var treeNode = this.hierarchyTree.ensureFolderVisible(folder);
+			if ( this.firstFocus ) {
+				// On first focus we will make sure that the selected folder
+				// is visible.
+				treeNode = this.hierarchyTree.ensureFolderVisible(folder);
+			} else {
+				treeNode = this.hierarchyTree.getTreeNode(folder);
+				// Check if the node is visible by traversing its parents
+				// If a parent is not expanded the node is not visible.
+				var parent = treeNode.parentNode;
+				while ( parent ) {
+					if ( !parent.isExpanded() ) {
+						visible = false;
+						break;
+					}
+					parent = parent.parentNode;
+				}
+			}
 
-			if (treeNode) {
+			if ( treeNode && visible ) {
+				// Remember the scroll position, because we don't want to change that
+				var scrollTop = this.hierarchyTree.body.dom.scrollTop;
+
 				// Move the focus to the selected folder by simply selecting it again
 				treeNode.select();
+
+				if ( !this.firstFocus ) {
+					// Set the scroll position back
+					this.hierarchyTree.body.dom.scrollTop = scrollTop;
+				}
 			}
 		}
-	},
+
+		this.firstFocus = false;
+},
 
 	/**
 	 * Creates a {@link Zarafa.hierarchy.ui.Tree treepanel}
