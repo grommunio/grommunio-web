@@ -3733,15 +3733,16 @@
 		}
 
 		/**
-		 * Function which is use to check the distribution list belongs to any external folder or not.
-		 * @param string $entryid entryid of distribution list
-		 * @return boolean true if distribution list from external folder otherwise false.
+		 * Function which is use to check the contact item (distribution list / contact)
+		 * belongs to any external folder or not.
+		 * @param string $entryid entryid of contact item
+		 * @return boolean true if contact item from external folder otherwise false.
 		 *
 		 * FIXME: this function is broken and returns true if the user is a contact in a shared store.
 		 * Also research if we cannot just extract the GUID and compare it with our own GUID.
 		 * FIXME This function should be renamed, because it's also meant for normal shared folder contacts.
 		 */
-		function isExternalDistList($entryid)
+		function isExternalContactItem($entryid)
 		{
 			try {
 				if (!$GLOBALS['entryid']->hasContactProviderGUID(bin2hex($entryid))) {
@@ -3787,7 +3788,7 @@
 		{
 			$properties = $GLOBALS['properties']->getDistListProperties();
 
-			$isExternalDistList = $this->isExternalDistList(hex2bin($distlistEntryid));
+			$isExternalDistList = $this->isExternalContactItem(hex2bin($distlistEntryid));
 
 			if($isExternalDistList) {
 				$store = $this->getOtherStoreFromEntryid($distlistEntryid);

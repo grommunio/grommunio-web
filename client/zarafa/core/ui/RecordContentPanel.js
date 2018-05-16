@@ -580,9 +580,10 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 */
 	onBeforeSaveRecord : function(store, data)
 	{
+		var record = this.record.isModalDialogRecord ? this.modalRecord : this.record;
 		if (data &&
-			((data.update && data.update.indexOf(this.record) >= 0) ||
-			 (data.create && data.create.indexOf(this.record) >= 0))) {
+			((data.update && data.update.indexOf(record) >= 0) ||
+			 (data.create && data.create.indexOf(record) >= 0))) {
 			this.isSaving = true;
 
 			if(!this.hasInternalAction()) {

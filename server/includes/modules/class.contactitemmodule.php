@@ -35,26 +35,10 @@
 
 				/* Check if given entryid is shared folder distlist then
 				* get the store of distlist for fetching it's members.
-				*
-				* FIXME: isExternalDistList is broken and also returns true for normal contacts
-				* in a shared store when we already have the valid $store. Which causes a
-				* performance issue. A simple hack could be checking if $action['store_entryid'] is set.
-				*
-				* FIXME: isExternalDistList is also true when viewing the details of a shared contact
-				* in a new mail. Therefore we have to rename it to something more meaningful.
 				*/
-				if ($GLOBALS["operations"]->isExternalDistList($entryid)) {
-					$store = $GLOBALS['operations']->getOtherStoreFromEntryid(bin2hex($entryid));
-				}
-				if($store) {
-					$message = $GLOBALS['operations']->openMessage($store, $entryid);
-				} else {
-					// store is not passed so we need to open the message first to get the store resource
-					$message = $GLOBALS['mapisession']->openMessage($entryid);
-
-					$messageStoreInfo = mapi_getprops($message, array(PR_STORE_ENTRYID));
-					$store = $GLOBALS['mapisession']->openMessageStore($messageStoreInfo[PR_STORE_ENTRYID]);
-				}
+				$storeData = $this->getStoreParentEntryIdFromEntryId($entryid);
+				$store = $storeData["store"];
+				$message = $storeData["message"];
 			}
 
 			if(empty($message)) {
@@ -126,6 +110,10 @@
 				if(isset($action['props']['message_class'])) {
 					$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 					$parententryid = $this->getDefaultFolderEntryID($store, $action['props']['message_class']);
+				} else if($entryid) {
+					$data = $this->getStoreParentEntryIdFromEntryId($entryid);
+					$store = $data["store"];
+					$parententryid = $data["parent_entryid"];
 				}
 			} else if(!$parententryid) {
 				if(isset($action['props']['message_class']))
@@ -314,9 +302,19 @@
 		 */
 		function delete($store, $parententryid, $entryid, $action)
 		{
+			$message = false;
+			if(!$store && !$parententryid && $entryid) {
+				$data = $this->getStoreParentEntryIdFromEntryId($entryid);
+				$store = $data["store"];
+				$message = $data["message"];
+				$parententryid = $data["parent_entryid"];
+			}
+
 			if($store && $entryid) {
 				try {
-					$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+					if ($message === false) {
+						$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+					}
 
 					$props = mapi_getprops($message, array($this->properties['anniversary_eventid'], $this->properties['birthday_eventid']));
 
@@ -336,6 +334,27 @@
 
 				parent::delete($store, $parententryid, $entryid, $action);
 			}
+		}
+
+		/**
+		 * Function which retrieve the store, parent_entryid from record entryid.
+		 * @param $entryid entryid of the message
+		 * @return array which contains store and message object and parent entryid of that message.
+		 */
+		function getStoreParentEntryIdFromEntryId($entryid)
+		{
+			if ($GLOBALS['operations']->isExternalContactItem($entryid)) {
+				$store = $GLOBALS['operations']->getOtherStoreFromEntryid(bin2hex($entryid));
+				$message = $GLOBALS['operations']->openMessage($store, $entryid);
+				$messageStoreInfo = mapi_getprops($message, array(PR_STORE_ENTRYID, PR_PARENT_ENTRYID));
+			} else {
+				$message = $GLOBALS['mapisession']->openMessage($entryid);
+				$messageStoreInfo = mapi_getprops($message, array(PR_STORE_ENTRYID, PR_PARENT_ENTRYID));
+				$store = $GLOBALS['mapisession']->openMessageStore($messageStoreInfo[PR_STORE_ENTRYID]);
+			}
+
+			$parentEntryid = $messageStoreInfo[PR_PARENT_ENTRYID];
+			return array("message" => $message, "store" => $store, "parent_entryid" => $parentEntryid);
 		}
 
 		/**
