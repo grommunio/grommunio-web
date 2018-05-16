@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-08 13:43+0200\n"
-"PO-Revision-Date: 2018-05-16 11:20+0000\n"
+"PO-Revision-Date: 2018-05-16 17:19+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) "
 "<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
@@ -185,11 +185,9 @@ msgstr "Atualizar"
 msgid "Today"
 msgstr "Hoje"
 
-#, fuzzy
 msgid "OK"
 msgstr "OK"
 
-#, fuzzy
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -206,7 +204,6 @@ msgstr "Esta data é posterior à data máxima"
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
-#, fuzzy
 msgid "Disabled"
 msgstr "Desativado"
 
@@ -333,7 +330,6 @@ msgstr "Endereços de E-mail"
 msgid "Group details"
 msgstr "Detalhes do grupo"
 
-#, fuzzy
 msgid "General"
 msgstr "Geral"
 
@@ -352,7 +348,6 @@ msgstr "Notas"
 msgid "Members"
 msgstr "Membros"
 
-#, fuzzy
 msgid "Email Address"
 msgstr "Endereço de Email"
 
@@ -560,7 +555,6 @@ msgstr "Data personalizada"
 msgid "Add to favorites"
 msgstr "Adicionar aos Favoritos"
 
-#, fuzzy
 msgid "Add"
 msgstr "Adicionar"
 
@@ -1077,7 +1071,6 @@ msgstr "Gravar compromisso e fechar"
 msgid "Save without sending an invitation to recipients"
 msgstr "Gravar sem enviar convite aos destinatários"
 
-#, fuzzy
 msgid "Delete"
 msgstr "Apagar"
 
@@ -3539,7 +3532,6 @@ msgstr "Sair"
 msgid "Switch view"
 msgstr "Mudar vista"
 
-#, fuzzy
 msgid "Kopano"
 msgstr "Kopano"
 
@@ -3708,7 +3700,6 @@ msgstr "Propriedades"
 msgid "Type"
 msgstr "Tipo"
 
-#, fuzzy
 msgid "Description"
 msgstr "Descrição"
 
