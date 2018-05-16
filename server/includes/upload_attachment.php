@@ -125,7 +125,15 @@ class UploadAttachment
 						$fileType = 'application/octet-stream';
 					}
 
-					$attachID = uniqid();
+					// Don't go to extract attachID as passing it from client end is not
+					// possible with IE/Edge.
+					if(!isIE11() && !isEdge()) {
+						$attachID = substr($filename, -8);
+						$filename = substr($filename, 0, -8);
+					} else {
+						$attachID = uniqid();
+					}
+
 					// Move the uploaded file into the attachment state
 					$attachTempName = $this->attachment_state->addUploadedAttachmentFile($_REQUEST['dialog_attachments'], $filename, $_FILES['attachments']['tmp_name'][$key], array(
 						'name'       => $filename,
@@ -249,6 +257,7 @@ class UploadAttachment
 	function deleteUploadedFiles()
 	{
 		$num = sanitizePostValue('attach_num', false, NUMERIC_REGEX);
+		$attachID = sanitizePostValue('attach_id', false, STRING_REGEX);
 
 		if($num === false) {
 			// string is passed in attachNum so get it
@@ -256,7 +265,7 @@ class UploadAttachment
 			$num = mb_basename(stripslashes(sanitizePostValue('attach_num', '', FILENAME_REGEX)));
 
 			// Delete the file instance and unregister the file
-			$this->attachment_state->deleteUploadedAttachmentFile($_REQUEST['dialog_attachments'], $num);
+			$this->attachment_state->deleteUploadedAttachmentFile($_REQUEST['dialog_attachments'], $num, $attachID);
 		} else {
 			// Set the correct array structure
 			$this->attachment_state->addDeletedAttachment($_REQUEST['dialog_attachments'], $num);
@@ -285,7 +294,7 @@ class UploadAttachment
 	 */
 	function addingEmbeddedAttachments()
 	{
-		$attachID = uniqid();
+		$attachID = $_POST['attach_id'];
 		$attachTampName = $this->attachment_state->addEmbeddedAttachment($_REQUEST['dialog_attachments'], array(
 			'entryid' => sanitizePostValue('entryid', '', ID_REGEX),
 			'store_entryid' => sanitizePostValue('store_entryid', '', ID_REGEX),

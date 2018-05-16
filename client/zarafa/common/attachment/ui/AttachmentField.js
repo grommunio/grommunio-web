@@ -203,14 +203,46 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 	},
 
 	/**
+	 * Event handler for the {@link #boxremove} event. This will remove
+	 * the record belonging to the box from the {@link #boxStore}.
+	 * The same needs to be overridden to abort the upload process if attachment is
+	 * still uploading.
+	 * @param {Zarafa.common.ui.BoxField} field The field which has fired the event
+	 * @param {Zarafa.common.ui.Box} box The box which has been removed
+	 * @param {Ext.data.Record} record The record which belongs to the given box
+	 * @private
+	 */
+	onBoxRemove : function(field, box, record)
+	{
+		// If uploading is going on then abort the request first.
+		if (!record.isUploaded() && record.requestId) {
+			var xhrObj = container.getRequest().getActiveRequest(record.requestId);
+			var count = 0;
+
+			// Need to manually count as request object isn't providing length
+			xhrObj.requestData.forEach(function(key){
+				count++;
+			});
+
+			// Don't abort when there is more than one attachments considering that other
+			// attachments are still being uploaded.
+			if (count === 1) {
+				container.getRequest().abortRequest(xhrObj);
+			}
+		}
+
+		Zarafa.common.attachment.ui.AttachmentField.superclass.onBoxRemove.apply(this, arguments);
+	},
+
+	/**
 	 * Callback function from {@link Zarafa.common.attachment.ui.AttachmentBox} which indicates that
 	 * the box is being removed by the user. This will fire the {@link #boxremove}
-	 * event only if the given attachment is gets uploaded.
+	 * event only if the given attachment is gets uploaded in case of non-IE/Edge browser.
 	 * @param {Zarafa.common.ui.Box} box The box which called this function
 	 */
 	doBoxRemove: function(box)
 	{
-		if (box.record.isUploaded()) {
+		if (box.record.isUploaded() || !(Ext.isIE || Ext.isEdge)) {
 			Zarafa.common.attachment.ui.AttachmentField.superclass.doBoxRemove.apply(this, arguments);
 		}
 	}

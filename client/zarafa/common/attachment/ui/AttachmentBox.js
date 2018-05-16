@@ -100,7 +100,9 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 	 */
 	onClickRemove : function()
 	{
-		if (this.record.isUploaded()) {
+		// Don't allow user to remove attachment where it is still uploading and
+		// the browser is IE/Edge.
+		if (this.record.isUploaded() || !(Ext.isIE || Ext.isEdge)) {
 			Zarafa.common.attachment.ui.AttachmentBox.superclass.onClickRemove.apply(this, arguments);
 		}
 	}

@@ -55,6 +55,13 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	inline : false,
 
 	/**
+	 * Holds request id of all attachment requests made to server.
+	 * @property
+	 * @type private
+	 */
+	requestId : undefined,
+
+	/**
 	 * Applies all data from an {@link Zarafa.core.data.IPMAttachmentRecord IPMAttachmentRecord}
 	 * to this instance. This will update all data.
 	 *
