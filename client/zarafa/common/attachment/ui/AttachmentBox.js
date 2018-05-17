@@ -92,6 +92,17 @@ Zarafa.common.attachment.ui.AttachmentBox = Ext.extend(Zarafa.common.ui.Box, {
 			this.el.removeClass(this.invalidCls);
 			this.el.removeClass(this.validCls);
 		}
+	},
+
+	/**
+	 * Called when the user has clicked on the remove button.
+	 * @private
+	 */
+	onClickRemove : function()
+	{
+		if (this.record.isUploaded()) {
+			Zarafa.common.attachment.ui.AttachmentBox.superclass.onClickRemove.apply(this, arguments);
+		}
 	}
 });
 
