@@ -200,6 +200,19 @@ Zarafa.common.attachment.ui.AttachmentField = Ext.extend(Zarafa.common.ui.BoxFie
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(record, {
 			position : box.getEl().getXY()
 		});
+	},
+
+	/**
+	 * Callback function from {@link Zarafa.common.attachment.ui.AttachmentBox} which indicates that
+	 * the box is being removed by the user. This will fire the {@link #boxremove}
+	 * event only if the given attachment is gets uploaded.
+	 * @param {Zarafa.common.ui.Box} box The box which called this function
+	 */
+	doBoxRemove: function(box)
+	{
+		if (box.record.isUploaded()) {
+			Zarafa.common.attachment.ui.AttachmentField.superclass.doBoxRemove.apply(this, arguments);
+		}
 	}
 });
 
