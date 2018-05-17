@@ -1109,33 +1109,5 @@ Zarafa.common.Actions = {
 			return;
 		}
 		Zarafa.core.Util.copyToClipboard(email);
-	},
-
-	/**
-	 * It will create a new {@link Zarafa.core.data.MAPIRecord mail record}
-	 * and generate new phantom recipient for new mail. Then
-	 * it will open a new MailCreate ContentPanel for the new mail
-	 *
-	 * @param {Zarafa.core.dat.IPMRecipientRecord} record The record is recipient record
-	 * @private
-	 */
-	onEmailRecipient : function(recipient)
-	{
-		var folder = container.getHierarchyStore().getDefaultFolder('drafts');
-		var context = container.getContextByFolder(folder);
-		var model = context.getModel();
-
-		var record = model.createRecord(folder);
-
-		var recipientStore = record.getRecipientStore();
-		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipient.data);
-
-		// Make sure the recipient is of type MAPI_TO, the original recipient might have
-		// been a CC or BCC. But now we want to directly email him.
-		recipientRecord.set('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_TO);
-
-		recipientStore.add(recipientRecord);
-
-		Zarafa.core.data.UIFactory.openCreateRecord(record);
 	}
 };
