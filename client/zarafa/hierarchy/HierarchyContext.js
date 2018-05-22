@@ -25,6 +25,7 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('hierarchy.dialog.folderproperties');
 		Zarafa.core.data.SharedComponentType.addProperty('hierarchy.dialog.foldersize');
 		Zarafa.core.data.SharedComponentType.addProperty('hierarchy.dialog.opensharedfolder');
+		Zarafa.core.data.SharedComponentType.addProperty('hierarchy.dialog.brokenfiles');
 	},
 
 	/**
@@ -52,6 +53,7 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['hierarchy.dialog.folderproperties']:
 			case Zarafa.core.data.SharedComponentType['hierarchy.dialog.foldersize']:
 			case Zarafa.core.data.SharedComponentType['hierarchy.dialog.opensharedfolder']:
+			case Zarafa.core.data.SharedComponentType['hierarchy.dialog.brokenfiles']:
 				bid = 1;
 				break;
 		}
@@ -86,6 +88,9 @@ Zarafa.hierarchy.HierarchyContext = Ext.extend(Zarafa.core.Context, {
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				component = Zarafa.hierarchy.ui.ContextMenu;
+				break;
+			case Zarafa.core.data.SharedComponentType['hierarchy.dialog.brokenfiles']:
+				component = Zarafa.hierarchy.dialogs.BrokenFilesContentPanel;
 				break;
 		}
 		return component;

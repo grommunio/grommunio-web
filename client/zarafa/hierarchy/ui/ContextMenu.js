@@ -265,6 +265,30 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			},
 			handler : this.onContextItemFavoritesRemove
 		},{
+			xtype: 'menuseparator'
+		},{
+			text : _('Import emails'),
+			handler : this.onContextImportEml,
+			iconCls: 'icon_import_attachment',
+			beforeShow : function(item, record) {
+				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_CONTENTS;
+				var isIPFNote = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
+
+				if (
+					!access ||
+					!isIPFNote ||
+					record.isIPMSubTree() ||
+					record.isTodoListFolder() ||
+					record.isRSSFolder()
+				) {
+					item.setDisabled(true);
+				} else {
+					item.setDisabled(false);
+				}
+			}
+		},{
+			xtype: 'menuseparator'
+		},{
 			text : _('Properties'),
 			handler : this.onContextItemProperties,
 			iconCls : 'icon_openMessageOptions',
@@ -527,6 +551,15 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	onContextItemRestore : function()
 	{
 		Zarafa.common.Actions.openRestoreContent(this.records);
+	},
+
+	/**
+	 * Open upload files dialog to import into folder.
+	 * @private
+	 */
+	onContextImportEml : function()
+	{
+		Zarafa.common.Actions.openImportEmlContent(this.records);
 	},
 
 	/**
