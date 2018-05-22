@@ -122,11 +122,33 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		// Disable contextmenu globaly in the separate browser window.
 		Ext.getBody().on('contextmenu', this.onBodyContextMenu, this);
 
+		browserWindowObject.onkeydown = this.preventWindowReload.createDelegate(this);
+
 		// Check component instance has before unload event handler if yes then
 		// Register event handler for separate window onbeforeunload event
 		// which is use to show a confirmation dialog warning if window record has any unsaved changes
 		if (Ext.isFunction(componentInstance.onBeforeUnload)) {
 			browserWindowObject.onbeforeunload = componentInstance.onBeforeUnload.createDelegate(componentInstance);
+		}
+	},
+
+	/**
+	 * Function which used to prevent to reload popout window by F5 and Ctrl + R keys.
+	 * @param {Object} event The event object
+	 */
+	preventWindowReload : function (event)
+	{
+		switch (event.keyCode) {
+			case 116 : //F5 button
+				event.returnValue = false;
+				event.keyCode = 0;
+				return false;
+			case 82 : //R button
+				if (event.ctrlKey) {
+					event.returnValue = false;
+					event.keyCode = 0;
+					return false;
+				}
 		}
 	},
 

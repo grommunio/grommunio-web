@@ -397,7 +397,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	 */
 	applyEmptyLines: function (tinymceEditor)
 	{
-		if (!this.isDisabled() && this.record && this.record.phantom) {
+		if (!this.isDisabled() && this.record && this.record.phantom && Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
 
 			// When using the html editor without a MAPIRecord (e.g. for the signature editor), the getMessageAction
 			// is not defined, so check for it.
@@ -585,6 +585,21 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	onKeyDown : function(event)
 	{
 		var editor = this.getEditor();
+
+		if(!Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+			switch (event.keyCode) {
+				case 116 : //F5 button
+					event.returnValue = false;
+					event.keyCode = 0;
+					return false;
+				case 82 : //R button
+					if (event.ctrlKey) {
+						event.returnValue = false;
+						event.keyCode = 0;
+						return false;
+					}
+			}
+		}
 
 		/*
 		 * HACK: for IE and webkit browsers backspace/delete removes default formatting, so we have to
