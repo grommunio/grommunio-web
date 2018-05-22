@@ -163,6 +163,7 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				border: true,
 				treeSorter: true,
 				hideTodoList: true,
+				hideSearchFolders: true,
 				enableDD : false,
 				permissionFilter: permission,
 				IPMFilter : this.getIPMFilter(record),

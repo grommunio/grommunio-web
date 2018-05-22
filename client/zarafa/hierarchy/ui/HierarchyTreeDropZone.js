@@ -96,7 +96,7 @@ Zarafa.hierarchy.ui.HierarchyTreeDropZone = Ext.extend(Ext.tree.TreeDropZone, {
 
 		// TODO : After implementing functionality mark folder to favorite using
 		// drag and drop, This check is get's remove.
-		if(n.node.getFolder().isFavoritesRootFolder()) {
+		if(n.node.getFolder().isFavoritesRootFolder() || n.node.getFolder().isSearchFolder()) {
 			ret = undefined;
 		}
 

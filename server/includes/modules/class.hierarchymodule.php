@@ -130,6 +130,7 @@
 										if (isset($action["message_action"]["isSearchFolder"])
 											&& $action["message_action"]["isSearchFolder"]) {
 											$result = $this->deleteSearchFolder($store, $parententryid, $entryid, $action);
+											dump($result, '$result');
 											if ($result) {
 												$this->sendFeedback(true);
 											}
@@ -933,7 +934,7 @@
             // This flag indicates there is currently an open search tab which uses this search folder.
             if (!isset($action["message_action"]["keepSearchFolder"])) {
                 $finderFolder = mapi_msgstore_openentry($store, $parententryid);
-	            return mapi_folder_deletefolder($finderFolder, $entryid);
+                return mapi_folder_deletefolder($finderFolder, $entryid , DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
             } else {
                 // Rename search folder to default search folder name otherwise,
                 // It will not be picked up by our search folder cleanup logic.

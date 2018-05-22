@@ -925,7 +925,12 @@
 				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
 				$folders = mapi_table_queryallrows($hierarchyTable, array(PR_ENTRYID));
 				foreach($folders as $folder) {
-					mapi_folder_deletefolder($finderFolder, $folder[PR_ENTRYID]);
+					try{
+						mapi_folder_deletefolder($finderFolder, $folder[PR_ENTRYID] );
+					} catch (MAPIException $e) {
+						$msg = "Problem in deleting search folder while reset settings. MAPI Error %s.";
+						error_log(sprintf($msg, get_mapi_error_name($e->getCode())));
+					}
 				}
 				// Restriction used to find only Inbox and Sent folder's link messages from
 				// Associated contains table of IPM_COMMON_VIEWS folder, if exist in it.
