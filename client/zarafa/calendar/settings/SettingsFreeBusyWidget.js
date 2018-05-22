@@ -18,10 +18,10 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 	{
 		config = config || {};
 
-		var message = _('Free/busy information is used by people sending meeting requests, to determine when you are available for meetings.');
+		var message = _('Free/Busy information is used by people sending meeting requests, to determine when you are available for meetings.');
 
 		Ext.applyIf(config, {
-			title : _('Free/Busy permission'),
+			title : _('Free/Busy publishing'),
 			items : [{
 				xtype : 'displayfield',
 				hideLabel : true,
@@ -29,7 +29,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 			},{
 				xtype: 'zarafa.compositefield',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
-				fieldLabel: _('Publish {A} month(s) of Calendar free/busy information on the server.'),
+				fieldLabel: _('Publish {A} month(s) of Calendar Free/Busy information on the server.'),
 				items: [{
 					xtype: 'numberfield',
 					cls: 'k-centeredtext',
@@ -37,7 +37,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 					name : 'zarafa/v1/contexts/calendar/free_busy_range',
 					labelSplitter: '{A}',
 					ref : '../freeBusyMonth',
-					minValue : 1,
+					minValue : 0,
 					maxValue : 36,
 					allowBlank: false,
 					allowDecimals : false,
@@ -50,7 +50,7 @@ Zarafa.calendar.settings.SettingsFreeBusyWidget = Ext.extend(Zarafa.settings.ui.
 			},{
 				xtype : 'displayfield',
 				hideLabel : true,
-				value : _('You can only publish a free/busy period from 1 to 36 months.')
+				value : _('You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/Busy information is not published.')
 			}]
 		});
 
