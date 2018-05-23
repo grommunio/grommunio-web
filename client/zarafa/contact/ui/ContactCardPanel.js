@@ -62,6 +62,7 @@ Zarafa.contact.ui.ContactCardPanel = Ext.extend(Ext.Panel, {
 				region : 'east',
 				xtype : 'zarafa.characterstrip',
 				ref : 'characterStrip',
+				cls: 'contact-characterstrip',
 				selectedChar : config.model.getRestrictionCharacter(),
 				listeners : {
 					selectionchanged : this.onSelectionChanged,

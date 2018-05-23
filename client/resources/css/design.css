@@ -10047,6 +10047,11 @@ div.zarafa-contact-cardview-selected {
   padding: 0px !important;
 }
 
+/* line 81, ../scss/components/_contacts.scss */
+.contact-characterstrip .x-btn-pressed .x-btn-small {
+  background-color: #d5e8f7;
+}
+
 /* line 1, ../scss/components/_popups.scss */
 .ext-el-mask {
   background-color: #ffffff;

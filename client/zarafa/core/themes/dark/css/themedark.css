@@ -435,3 +435,10 @@ ul.x-tab-strip li .x-tab-right,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade {
   background: linear-gradient(to right, rgba(221, 223, 230, 0) 0%, #dddfe6 50%, #dddfe6 100%);
 }
+
+/*
+ * Contact filter
+ */
+.contact-characterstrip .x-btn-pressed .x-btn-small {
+  background-color: #b9dcf5;
+}

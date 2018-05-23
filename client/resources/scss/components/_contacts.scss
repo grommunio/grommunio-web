@@ -77,3 +77,7 @@ div.zarafa-contact-cardview-selected {
 		padding: 0px !important;
 	}
 }
+
+.contact-characterstrip .x-btn-pressed .x-btn-small {
+	background-color: $grid-active-color;
+}
