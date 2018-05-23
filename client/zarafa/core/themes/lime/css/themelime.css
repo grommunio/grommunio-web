@@ -348,3 +348,10 @@ input.x-form-text.x-form-field.x-form-focus {
 .x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) input.x-form-text.x-form-field.x-form-focus {
   border-color: #6da208 !important;
 }
+
+/*
+ * Contact filter
+ */
+.contact-characterstrip .x-btn-pressed .x-btn-small {
+  background-color: #e1f5b2;
+}
