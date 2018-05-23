@@ -60,7 +60,7 @@ Zarafa.hierarchy.dialogs.BrokenFilesPanel = Ext.extend(Ext.Panel, {
 			value: _('The files are not valid'),
 			hideLabel : true,
 			htmlEncode : true
-		}]
+		}];
 	},
 
 	/**
