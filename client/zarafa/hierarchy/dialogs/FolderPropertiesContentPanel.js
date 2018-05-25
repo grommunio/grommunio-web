@@ -21,7 +21,7 @@ Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel = Ext.extend(Zarafa.core.u
 			// Override from Ext.Component
 			xtype : 'zarafa.folderpropertiescontentpanel',
 			layout: 'fit',
-			title : _('Properties'),
+			title : Ext.isDefined(config.title)? config.title : _('Properties'),
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true,
 				useShadowStore : true
@@ -31,6 +31,8 @@ Zarafa.hierarchy.dialogs.FolderPropertiesContentPanel = Ext.extend(Zarafa.core.u
 			height: 450,
 			items: [{
 				xtype: 'zarafa.folderpropertiespanel',
+				activeTab : Ext.isDefined(config.activeTab) ? config.activeTab : 0,
+				emptyText : config.emptyText,
 				buttons : [{
 					text : _('Ok'),
 					handler : this.onOk,

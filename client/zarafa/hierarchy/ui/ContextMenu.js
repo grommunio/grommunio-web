@@ -265,6 +265,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			},
 			handler : this.onContextItemFavoritesRemove
 		},{
+			text : _('Share folder...'),
+			iconCls : 'icon_share',
+			name : 'shareFolder',
+			beforeShow : this.onBeforeContextItem,
+			handler : this.onContextItemSharedFolderAndProperties
+		},{
 			xtype: 'menuseparator'
 		},{
 			text : _('Import emails'),
@@ -290,16 +296,73 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			xtype: 'menuseparator'
 		},{
 			text : _('Properties'),
-			handler : this.onContextItemProperties,
+			handler : this.onContextItemSharedFolderAndProperties,
 			iconCls : 'icon_openMessageOptions',
-			beforeShow : function(item, record) {
-				if (!record.get('access') || record.isTodoListFolder()) {
-					item.setDisabled(true);
-				} else {
-					item.setDisabled(false);
-				}
-			}
+			beforeShow : this.onBeforeContextItem
 		}];
+	},
+
+	/**
+	 * Fires on selecting 'Share folder...'  or 'Properties' menu option from
+	 * {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu} Opens
+	 * {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}
+	 *
+	 * @param {Ext.Button} btn The context menu item which is clicked.
+	 * @private
+	 */
+	onContextItemSharedFolderAndProperties : function(btn)
+	{
+		var folder = this.records;
+		var mapiStore;
+		if (folder.isFavoritesFolder()) {
+			mapiStore = folder.getOriginalRecordFromFavoritesRecord().getMAPIStore();
+		} else {
+			mapiStore = folder.getMAPIStore();
+		}
+
+		var storeName = mapiStore.get('display_name');
+		var folderName = folder.get('display_name');
+		var formattedTitle = '';
+		var emptyText = '';
+		var isIPMSubTree = folder.isIPMSubTree();
+
+		if (mapiStore.isDefaultStore() || isIPMSubTree) {
+			var text = isIPMSubTree ? storeName : folderName;
+			formattedTitle = String.format(_('Properties of {0}'), text);
+			emptyText = String.format(_('Share {0} with...'), text);
+		} else {
+			formattedTitle = String.format(_('Properties of {0} - {1}'), folderName, storeName);
+			emptyText = String.format(_('Share {0} with...'), folderName);
+		}
+
+		var config = {
+			modal: true,
+			showModalWithoutParent: true,
+			title : formattedTitle,
+			emptyText : emptyText
+		};
+
+		if (btn.name == 'shareFolder') {
+			config.activeTab = 1;
+		}
+		Zarafa.hierarchy.Actions.openFolderPropertiesContent(folder, config);
+	},
+
+	/**
+	 * Event handler triggered before the "Shared folder..." or "Properties"
+	 * context menu item show.
+	 *
+	 * @param {Ext.Button} item The item which is going to show.
+	 * @param {Zarafa.core.data.IPFRecord} record The folder record on which
+	 * this context menu item shows.
+	 */
+	onBeforeContextItem : function(item, record)
+	{
+		if (!record.get('access') || record.isTodoListFolder()) {
+			item.setDisabled(true);
+		} else {
+			item.setDisabled(false);
+		}
 	},
 
 	/**
@@ -491,19 +554,6 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		// Update the color of svg-icon of same folder belongs to another available HierarchyTrees
 		// and favorites folder if exist
 		this.updateOtherHierarchyTreeNodes(folder.get('entryid'), colorScheme.base);
-	},
-
-	/**
-	 * Fires on selecting 'Properties' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
-	 * Opens {@link Zarafa.hierarchy.dialogs.FolderPropertiesContent FolderPropertiesContent}
-	 * @private
-	 */
-	onContextItemProperties : function()
-	{
-		Zarafa.hierarchy.Actions.openFolderPropertiesContent(this.records, {
-			modal: true,
-			showModalWithoutParent: true
-		});
 	},
 
 	/**
