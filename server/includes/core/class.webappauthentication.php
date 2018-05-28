@@ -92,7 +92,7 @@ class WebAppAuthentication
 			case MAPI_E_NETWORK_ERROR:
 				return _('Cannot connect to Kopano Core.');
 			case MAPI_E_INVALID_WORKSTATION_ACCOUNT:
-				return _('Logon failed, another session already exists.');
+				return _('Login did not work due to a duplicate session. The issue was automatically resolved, please log in again.');
 			case MAPI_E_END_OF_SESSION:
 				return '';
 			default:
@@ -317,8 +317,9 @@ class WebAppAuthentication
 		$password = $encryptionStore->get('password');
 
 		if ( !is_null($username) && !is_null($password) ){
-			if ( $username!=$_POST['username'] || $password!=$_POST['password'] ){
+			if ( $username!=$_POST['username'] || $password!=$_POST['password'] ) {
 				WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
+				WebAppAuthentication::$_phpSession->destroy();
 				return WebAppAuthentication::getErrorCode();
 			}
 		} else {
