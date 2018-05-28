@@ -466,23 +466,9 @@ Zarafa.common.Actions = {
 	openReminderRecord: function(record, config)
 	{
 		config = config || {};
-
-		if(Array.isArray(record)){
-			Ext.each(record, this.openReminderRecord, this);
-			return;
-		}
-
 		// convert reminder record to proper ipmrecord
 		record = record.convertToIPMRecord();
-
-		// we will always open the record into a dialog because reminders are also displayed in a dialog
-		Ext.applyIf(config, {
-			manager : Ext.WindowMgr,
-			modal : true,
-			showModalWithoutParent : true
-		});
-
-		if(record) {
+		if (record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
 		}
 	},
