@@ -115,9 +115,7 @@ class KopanoUser {
 		$GLOBALS['operations'] = new Operations();
 		$GLOBALS['settings'] = new Settings();
 		$GLOBALS['bus'] =  new Bus();
-		if (!isset($GLOBALS['properties'])) {
-			$GLOBALS['properties'] = new Properties();
-		}
+		$GLOBALS['properties'] = new Properties();
 		$GLOBALS['state'] = new State('webapp-test');
 		$GLOBALS['attachment_state'] = new AttachmentState();
 	}
@@ -150,6 +148,7 @@ class KopanoUser {
 		unset($GLOBALS['dispatcher']);
 		unset($GLOBALS['mapisession']);
 		unset($GLOBALS['operations']);
+		unset($GLOBALS['properties']);
 		unset($GLOBALS['PluginManager']);
 		unset($GLOBALS['settings']);
 		unset($GLOBALS['bus']);
