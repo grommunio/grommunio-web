@@ -58,6 +58,7 @@
 		<attribute name="misplacedTypeAnnotation" default="off"/>
 		<attribute name="globalThis" default="off"/>
 		<attribute name="es5Strict" default="off"/>
+		<attribute name="rewritePolyfills" default="off"/>
 		<element name="externs" optional="true"/>
 
 		<sequential>
@@ -77,6 +78,7 @@
 				<arg line="--compilation_level @{compilation}" />
 				<arg line="--warning_level @{warningLevel}" />
 				<arg line="--externs @{tmpFile}" />
+				<arg line="--rewrite_polyfills=@{rewritePolyfills}" />
 				<arg line="--jscomp_@{accessControls}=accessControls" />
 				<arg line="--jscomp_@{checkRegExp}=checkRegExp" />
 				<arg line="--jscomp_@{checkVars}=checkVars" />
