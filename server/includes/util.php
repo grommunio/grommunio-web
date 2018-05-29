@@ -583,7 +583,7 @@
 				$ipmsubtree = fix_ipmsubtree($store);
 			}
 		}
-		$hierarchy =  mapi_folder_gethierarchytable($ipmsubtree, CONVENIENT_DEPTH);
+		$hierarchy =  mapi_folder_gethierarchytable($ipmsubtree, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
 
 		$folderStatCache = array();
