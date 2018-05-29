@@ -154,6 +154,8 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderRightClick, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'mouseenter', this.onMouseEnter, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseenter', this.onMouseEnter, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'mouseleave', this.onMouseLeave, this);
+				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseleave', this.onMouseLeave, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-link'), 'dblclick', this.onDoubleClick, this);
 				this.mun(senderElem.select('.zarafa-sentinfo-on-behalf'), 'dblclick', this.onDoubleClick, this);
 				this.senderElem.innerHTML = '';
@@ -173,8 +175,10 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				//bind click events after template has been populated
 				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'contextmenu', this.onSenderRightClick, this);
 				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'contextmenu', this.onSenderRightClick, this);
-				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'mouseenter', this.onMouseEnter, this, {buffer: 10});
-				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseenter', this.onMouseEnter, this, {buffer: 10});
+				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'mouseenter', this.onMouseEnter, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseenter', this.onMouseEnter, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'mouseleave', this.onMouseLeave, this);
+				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'mouseleave', this.onMouseLeave, this);
 				this.mon(senderElem.select('.zarafa-sentinfo-link'), 'dblclick', this.onDoubleClick, this);
 				this.mon(senderElem.select('.zarafa-sentinfo-on-behalf'), 'dblclick', this.onDoubleClick, this);
 			}
@@ -236,17 +240,30 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	/**
 	 * Event handler which handel mouse enter event.
 	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
+	 * after 700 ms.
 	 * @param {Ext.EventObject} e The mouse event
 	 * @param {HTMLElement} node The target node
 	 */
 	onMouseEnter: function (e, node)
 	{
-		var recipient = this.convertSenderToRecord(node);
-		var senderElem = Ext.get(this.senderElem);
-		Zarafa.core.data.UIFactory.openHoverCard(recipient, {
-			position: e.getXY(),
-			recipientView : senderElem
-		});
+		this.timer = setTimeout(function (scope) {
+			var recipient = scope.convertSenderToRecord(node);
+			var senderElem = Ext.get(scope.senderElem);
+			Zarafa.core.data.UIFactory.openHoverCard(recipient, {
+				position: e.getXY(),
+				recipientView : senderElem
+			});
+		}, 700, this);
+	},
+
+	/**
+	 * Event handler which is triggered when
+	 * mouse leaves the sender links. it will
+	 * just clear the timeout.
+	 */
+	onMouseLeave : function ()
+	{
+		clearTimeout(this.timer);
 	}
 });
 
