@@ -1,17 +1,20 @@
 .x-tip {
-	border: solid 1px #a7a7a7;
+	background: $tooltip-dark;
 	border-radius: 2px;
 }
-/* tooltip  for example Addrss book button large */
+/* tooltip for example Addrss book button large */
 .x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
 	background-image: none;
-	background-color: #f1f1f1;
+	background: transparent;
+}
+
+/* Tooltip header text */
+.x-tip .x-tip-header-text {
+	color: $white;
 }
 
 /* The tooltip for the calendar appointments */
 .zarafa-appointment-tooltip {
-	border: 1px solid $font-color-dark;
-	border-radius: 0;
 	z-index: 9000 !important;
 
 	.x-tip-tc,
@@ -22,14 +25,14 @@
 	.x-tip-br,
 	.x-tip-ml,
 	.x-tip-mr {
-		background: white;
+		background-color: transparent;
 	}
 
 	.x-tip-tc {
 		padding-top: $padding-medium;
 	}
 	.x-tip-body {
-		color: $font-color-dark;
+		color: $white;
 	}
 
 	h2 {
@@ -46,6 +49,7 @@
 
 .x-tip .x-tip-body {
 	word-wrap: break-word;
+	color: $white;
 }
 
 /* Seemingly unused icon, removed so we do not load the ExtJS image */

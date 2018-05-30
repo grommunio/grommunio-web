@@ -10,6 +10,7 @@
 /* menus */
 /* grids */
 /* fonts */
+/* Tooltip */
 /* different padding sizes (and margins) used in the WebApp */
 /* sizes of the buttons */
 /* triggers of comboboxes and up-down inputs */
@@ -13706,25 +13707,29 @@ body .k-category-block {
 
 /* line 1, ../scss/components/_tooltip.scss */
 .x-tip {
-  border: solid 1px #a7a7a7;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
 }
 
-/* tooltip  for example Addrss book button large */
+/* tooltip for example Addrss book button large */
 /* line 6, ../scss/components/_tooltip.scss */
 .x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
   background-image: none;
-  background-color: #f1f1f1;
+  background: transparent;
+}
+
+/* Tooltip header text */
+/* line 12, ../scss/components/_tooltip.scss */
+.x-tip .x-tip-header-text {
+  color: #ffffff;
 }
 
 /* The tooltip for the calendar appointments */
-/* line 12, ../scss/components/_tooltip.scss */
+/* line 17, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip {
-  border: 1px solid black;
-  border-radius: 0;
   z-index: 9000 !important;
 }
-/* line 17, ../scss/components/_tooltip.scss */
+/* line 20, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip .x-tip-tc,
 .zarafa-appointment-tooltip .x-tip-tl,
 .zarafa-appointment-tooltip .x-tip-tr,
@@ -13733,41 +13738,42 @@ body .k-category-block {
 .zarafa-appointment-tooltip .x-tip-br,
 .zarafa-appointment-tooltip .x-tip-ml,
 .zarafa-appointment-tooltip .x-tip-mr {
-  background: white;
+  background-color: transparent;
 }
-/* line 28, ../scss/components/_tooltip.scss */
+/* line 31, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip .x-tip-tc {
   padding-top: 6px;
 }
-/* line 31, ../scss/components/_tooltip.scss */
+/* line 34, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip .x-tip-body {
-  color: black;
+  color: #ffffff;
 }
-/* line 35, ../scss/components/_tooltip.scss */
+/* line 38, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip h2 {
   line-height: 20px;
   font-weight: bold;
   margin-bottom: 3px;
 }
-/* line 41, ../scss/components/_tooltip.scss */
+/* line 44, ../scss/components/_tooltip.scss */
 .zarafa-appointment-tooltip p {
   line-height: 20px;
   padding-bottom: 6px;
 }
 
-/* line 47, ../scss/components/_tooltip.scss */
+/* line 50, ../scss/components/_tooltip.scss */
 .x-tip .x-tip-body {
   word-wrap: break-word;
+  color: #ffffff;
 }
 
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
-/* line 52, ../scss/components/_tooltip.scss */
+/* line 56, ../scss/components/_tooltip.scss */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none;
 }
 
 /* The tooltip for 'nice' dates in grids */
-/* line 58, ../scss/components/_tooltip.scss */
+/* line 62, ../scss/components/_tooltip.scss */
 .k-griddatetooltip .x-tip-body {
   white-space: nowrap;
 }
