@@ -112,8 +112,7 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 
 	/**
 	 * Function which return false when the dragged record is hovering over
-	 * the {@link Zarafa.hierarchy.data.MAPIFolderRecord#getFavoritesRootFolder Favorites} root folder or
-	 * {@link Zarafa.hierarchy.data.MAPIFolderRecord#isFavoritesFolder favorite} marked folder.
+	 * the {@link Zarafa.hierarchy.data.MAPIFolderRecord#isDropTargetForFolders special} folders.
 	 *
 	 * @param {Object} n The object which describes the node over which
 	 * the item is being hovered
@@ -128,7 +127,7 @@ Zarafa.hierarchy.ui.HierarchyFolderDropZone = Ext.extend(Zarafa.hierarchy.ui.Hie
 	isValidDropPoint : function(n, pt, dd, e, data)
 	{
 		var folder = n.node.getFolder();
-		if (folder.isFavoritesFolder() || folder.isFavoritesRootFolder() || folder.isTodoListFolder()) {
+		if (folder.isDropTargetForFolders() === false) {
 			return false;
 		}
 		return Zarafa.hierarchy.ui.HierarchyFolderDropZone.superclass.isValidDropPoint.apply(this, arguments);

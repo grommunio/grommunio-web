@@ -45,6 +45,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	hideFavorites : false,
 
 	/**
+	 * @cfg {Boolean} hideSearchFolders True to hide the search folder in hierarchy.
+	 */
+	hideSearchFolders : false,
+
+	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
 	nodeConfig : undefined,
@@ -262,6 +267,11 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		// Check if the favorites list folder should be shown
 		if (!hide && this.hideFavorites) {
 			hide = folder.isFavoritesRootFolder();
+		}
+
+		// Check if the search folder should be shown
+		if (!hide && this.hideSearchFolders) {
+			hide = folder.isSearchFolder();
 		}
 
 		return !hide;

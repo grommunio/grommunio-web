@@ -198,6 +198,28 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
+	 * Helper function which identify that folder is allow to drag and drop any item/folder.
+	 * Special folders like search folder, favorites root folder and todo-list folder are not
+	 * supported drag and drop items.
+	 *
+	 * @returns {boolean} return true if destination folder in normal or default folders else false.
+	 */
+	isDropTargetForItems : function()
+	{
+		return !(this.isSearchFolder() || this.isFavoritesRootFolder() || this.isTodoListFolder());
+	},
+
+	/**
+	 * Helper function which identify that targeted folder is allow to drag-drop folder items or not.
+	 *
+	 * @returns {Boolean} return true if targeted folder allow to drag-drop any folder items else false.
+	 */
+	isDropTargetForFolders : function()
+	{
+		return this.isDropTargetForItems() && !this.isFavoritesFolder();
+	},
+
+	/**
 	 * @returns {Boolean} true if the folder is the favorites folder else false.
 	 */
 	isFavoritesFolder : function()

@@ -136,8 +136,7 @@ Zarafa.hierarchy.ui.HierarchyItemDropZone = Ext.extend(Zarafa.hierarchy.ui.Hiera
 		if (
 			n.node &&
 			!Ext.isEmpty(data.selections) &&
-			!n.node.getFolder().isFavoritesRootFolder() &&
-			!n.node.getFolder().isTodoListFolder()
+			n.node.getFolder().isDropTargetForItems()
 		) {
 			var folder = n.node.getFolder();
 			var record = data.selections[0];
