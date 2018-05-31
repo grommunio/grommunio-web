@@ -38,8 +38,11 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.distlistexternalmembercontentpanel',
-			title : _('New e-mail address'),
-			layout : 'fit',
+			title : _('New email address'),
+			layout : 'form',
+			width: 350,
+			height: 150,
+			stateful: false,
 			items: this.createFormItems()
 		});
 
@@ -70,13 +73,13 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 				anchor: '100%'
 			},{
 				xtype: 'textfield',
-				fieldLabel: _('E-mail address'),
+				fieldLabel: _('Email address'),
 				name : 'email_address',
 				anchor: '100%',
 				allowBlank : false,
 				blankText: _('This field is required'),
 				vtype: 'email',
-				vtypeText : _('Please input a valid email address!')
+				vtypeText : _('Please enter a valid email address')
 			}],
 			buttons: [{
 				text: _('Ok'),
