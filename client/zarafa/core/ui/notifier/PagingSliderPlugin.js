@@ -185,8 +185,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 
 		if (!this.pagingEnabled) {
 			var store = this.model.getStore();
-			var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
-			sliderCfg.html = String.format('<div>{0}</div>', sliderText);
+			sliderCfg.html = this.getUpdatedPaginationText(store);
 		}
 
 		var element = Ext.get(sliderCfg.id);
@@ -201,6 +200,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 					'mouseleave' : this.setSliderTimeOut,
 					scope : this
 				});
+				store.on('load', this.onStoreLoad, this);
 			}
 			element.alignTo(this.parentEl, this.sliderContainerPosition + '-' + this.sliderContainerPosition, [-8, 0]);
 			element = element.slideIn(this.slideInDirection);
@@ -208,5 +208,29 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			element.dom.innerHTML = sliderCfg.html;
 		}
 		return element;
+	},
+
+	/**
+	 * Event handler triggered when store is load. it also update the
+	 * pagination text for the livescroll slider.
+	 *
+	 * @param {Zarafa.core.data.ListModuleStore} store The store which
+	 * fire the load event.
+	 */
+	onStoreLoad : function(store)
+	{
+		this.slider.dom.innerHTML = this.getUpdatedPaginationText(store);
+	},
+
+	/**
+	 * Helper function which gives the updated pagination text for the livescroll slider.
+	 * @param {Zarafa.core.data.ListModuleStore} store The store which used to update
+	 * pagination text.
+	 * @returns {String} return pagination text which shows in livescroll slider.
+	 */
+	getUpdatedPaginationText : function (store)
+	{
+		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
+		return String.format('<div>{0}</div>', sliderText);
 	}
 });
