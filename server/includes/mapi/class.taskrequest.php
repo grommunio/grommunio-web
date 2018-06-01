@@ -1079,6 +1079,10 @@
 		function deleteReceivedTR()
 		{
 			$store = $this->getTaskFolderStore();
+			$storeType = mapi_getprops($store, array(PR_MDB_PROVIDER));
+			if ($storeType[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+				$store = $this->getDefaultStore();
+			}
 			$inbox = mapi_msgstore_getreceivefolder($store);
 
 			$storeProps = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID));
