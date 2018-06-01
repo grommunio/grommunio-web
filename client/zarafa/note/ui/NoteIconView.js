@@ -124,6 +124,20 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 			'contextmenu': this.onNoteIconContextMenu,
 			'dblclick': this.onIconDblClick,
 			'selectionchange': this.onSelectionChange,
+			'afterrender' : this.onAfterRender,
+			scope : this
+		});
+
+	},
+
+	/**
+	 * Event handler called when note icon view rendered properly.
+	 */
+	onAfterRender : function()
+	{
+		this.getEl().on({
+			'mouseenter' : this.onMouseEnter,
+			'mouseleave' : this.onMouseLeave,
 			scope : this
 		});
 	},

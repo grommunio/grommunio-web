@@ -36,7 +36,7 @@ Zarafa.advancesearch.dialogs.SearchToolbarPanel = Ext.extend(Ext.Panel, {
 			}],
 			height : 35,
 			items : [{
-				xtype: 'zarafa.searchpaneltoolbar',
+				xtype: 'zarafa.contextmainpaneltoolbar',
 				style: 'border-style : none',
 				searchText : config.searchText,
 				context: config.searchContext

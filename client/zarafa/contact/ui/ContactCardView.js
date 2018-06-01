@@ -85,6 +85,20 @@ Zarafa.contact.ui.ContactCardView = Ext.extend(Zarafa.common.ui.DraggableDataVie
 			'dblclick': this.onNodeDblClick,
 			'contextmenu': this.onNodeContextMenu,
 			'selectionchange': this.onSelectionChange,
+			'afterrender' : this.onAfterRender,
+			scope : this
+		});
+	},
+
+	/**
+	 * Event handler called when contact card view rendered properly.
+	 */
+	onAfterRender : function()
+	{
+		var cardViewEl = Ext.get('contact-cardview');
+		cardViewEl.on({
+			'mouseenter' : this.onMouseEnter.createDelegate(this, [cardViewEl], true),
+			'mouseleave' : this.onMouseLeave,
 			scope : this
 		});
 	},

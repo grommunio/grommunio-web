@@ -147,6 +147,34 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	{
 		var count = this.getSelectionCount();
 		return String.format(ngettext('{0} selected item', '{0} selected items', count), count);
+	},
+
+	/**
+	 * Event handler which triggered when mouse enter/over the {@link Ext.DataView}.
+	 * It will also shows the notification/slider at bottom-center of {@link Ext.DataView}.
+	 * which contains the {@link Zarafa.common.ui.PagingToolbar PagingToolbar}.
+	 * @param {Ext.EventObjectImpl} EventObjImpl Event object
+	 * @param {HTMLElement} node The target node
+	 * @param {Ext.EventObject} eventObj The raw event object
+	 * @param {Ext.Element} parentCt The element on which paging slider should show.
+	 */
+	onMouseEnter : function(EventObjImpl, node, eventObj ,parentCt)
+	{
+		container.getNotifier().notify('pagination.paging', undefined, undefined,{
+			parentEl : !Ext.isEmpty(parentCt) ? parentCt : this.getEl(),
+			model : this.model
+		});
+	},
+
+	/**
+	 * Event handler which triggered when mouse leaves the {@link Ext.DataView}
+	 * It will destroy the slider from bottom-center of {@link Ext.DataView}.
+	 */
+	onMouseLeave : function()
+	{
+		container.getNotifier().notify('pagination.paging', undefined, undefined,{
+			destroy : true
+		});
 	}
 });
 

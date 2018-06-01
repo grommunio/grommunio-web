@@ -118,6 +118,29 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 */
 								'default' : 'messagebox',
 
+								'pagination' : {
+									/**
+									 * zarafa/v1/main/notifier/pagination/paging/value
+									 * Default plugin for the {@link Zarafa.common.ui.PagingToolbar PagingToolbar} slider.
+									 * @property
+									 * @type String
+									 */
+									'paging' : {
+										'value' : 'pagingslider'
+									},
+
+									/**
+									 * zarafa/v1/main/notifier/pagination/livescroll/value
+									 * Default plugin for the live scroll loaded information slider.
+									 * @property
+									 * @type String
+									 */
+									'livescroll' : {
+										'value' : 'livescrollslider'
+									}
+
+								},
+
 								'error' : {
 									/**
 									 * zarafa/v1/main/notifier/error/value

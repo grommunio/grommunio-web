@@ -140,7 +140,11 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 		);
 
 		this.on('afterlayout', this.onFirstLayout, this, {single: true});
-		this.cursor = 0;
+
+		if (!Ext.isDefined(this.cursor)) {
+			this.cursor =  0;
+		}
+
 		this.bindStore(this.store, true);
 	},
 
@@ -201,7 +205,10 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 			return;
 		}
 		var p = this.getParams();
-		this.cursor = (o.params && o.params.restriction && o.params.restriction[p.restriction.start]) ? o.params.restriction[p.restriction.start] : 0;
+		if (o.params && o.params.restriction && !Ext.isEmpty(o.params.restriction[p.restriction.start])) {
+			this.cursor =  o.params.restriction[p.restriction.start];
+		}
+
 		var d = this.getPageData(), ap = d.activePage, ps = d.pages;
 
 		this.afterTextItem.setText(String.format(this.afterPageText, d.pages));
