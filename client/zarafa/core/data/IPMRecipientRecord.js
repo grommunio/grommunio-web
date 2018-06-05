@@ -263,6 +263,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		return Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(objectType, {
 			entryid: entryid,
 			display_type : displayType,
+			display_name : this.get('display_name'),
 			display_type_ex : this.get('display_type_ex')
 		}, entryid);
 	},

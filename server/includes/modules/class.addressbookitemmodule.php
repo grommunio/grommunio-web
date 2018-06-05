@@ -39,12 +39,27 @@
 					// Let us try to get that particular contact item in respective user store.
 					// @Fixme: After implementation of KC-350 this extra handling can be removed.
 					if ($e->getCode() == MAPI_E_NOT_FOUND) {
-						$e->setHandled();
 						// Remove Address-Book-Provider prefix from the entryid
 						$externalEntryid = $GLOBALS["entryid"]->unwrapABEntryIdObj(bin2hex($entryid));
 
 						// Retrieve user store entryid to which this external item belongs
 						$userStore = $GLOBALS['operations']->getOtherStoreFromEntryid($externalEntryid);
+
+						// If userStore not found it means user is not exists in address book
+						if($userStore === false) {
+							$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted (e.g. kopano-contact deleted from LDAP)";
+
+							error_log(sprintf($msg, $action["message_action"]["username"]));
+
+							$e->setTitle(_('Contact not found'));
+							$e->setDisplayMessage(_("Contact information could not be displayed because the server 
+							had trouble retrieving the information. Please contact your system administrator if the
+							problem persists."));
+							throw $e;
+							return false;
+						}
+
+						$e->setHandled();
 						$contactItem = $GLOBALS['operations']->openMessage($userStore, hex2bin($externalEntryid));
 
 						if ($contactItem != false) {

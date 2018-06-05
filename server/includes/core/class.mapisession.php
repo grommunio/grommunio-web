@@ -664,11 +664,10 @@
 		 */
 		function retrieveOtherUsersFromSettings()
 		{
-			$result = false;
+			$result = Array();
 			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores",null);
 
 			if (is_array($other_users)){
-				$result = Array();
 				// Due to a previous bug you were able to open folders from both user_a and USER_A
 				// so we have to filter that here. We do that by making everything lower-case
 				foreach($other_users as $username=>$folders) {

@@ -251,6 +251,11 @@ Zarafa.common.Actions = {
 				// to open it, and obtain all details. However, we also need to
 				// find a point where we can remove it again.
 				container.getShadowStore().add(recipient);
+
+				// Passed user name in message action. which is use into error message
+				// which is log into error log in case if recipient is AddressBook contact
+				// and it is already deleted from server and still user trying to show details.
+				recipient.addMessageAction("username", recipient.get('display_name'));
 			}
 
 			config = Ext.applyIf(config || {}, { manager : Ext.WindowMgr });
