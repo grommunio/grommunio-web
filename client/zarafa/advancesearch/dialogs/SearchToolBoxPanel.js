@@ -18,6 +18,27 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	model : undefined,
 
 	/**
+	 * The template of the category blocks
+	 * @property
+	 * @type {Ext.Template/String}
+	 */
+	categoriesHtmlTemplate :
+		'<tpl for=".">' +
+			'<span class="k-category-block {colorClass}" '+
+				'<tpl if="!Ext.isEmpty(backgroundColor)">style="background-color:{backgroundColor};"</tpl>'+
+				'<tpl if="!Ext.isEmpty(hoverString)">ext:qtip = "{hoverString}" ext:qwidth="100%"</tpl>'+
+				'>' +
+				'{categoryName}' + '<span class="k-category-close"></span>'+
+			'</span>' +
+		'</tpl>',
+
+	/**
+	 * @cfg {Zarafa.advancesearch.data.SearchCategoriesStore} store The store which contain categories,
+	 * That added in category filter.
+	 */
+	searchCategoriesStore: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */
@@ -29,6 +50,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			config.model = config.searchContext.getModel();
 		}
 
+		this.searchCategoriesStore = new Zarafa.advancesearch.data.SearchCategoriesStore();
 		var messageType = {};
 		var filterSetting = {};
 		var searchInCheckBoxSetting = {};
@@ -37,6 +59,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			messageType = searchCriteria.messageTypeCheckBoxGroup || {};
 			filterSetting = searchCriteria.filterCheckBoxGroup || {};
 			searchInCheckBoxSetting = searchCriteria.searchInCheckBoxGroup || {};
+			this.searchCategoriesStore.addCategories(searchCriteria.categories);
 		}
 
 		/**
@@ -95,6 +118,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					this.createFilterFieldset(filterSetting),
 					this.createDateRangeFieldset(dateRangeStore),
 					this.createSearchInFieldset(searchInCheckBoxSetting),
+					this.createCategoryFilterFieldset(dateRangeStore),
 					this.createFavoritesContainer(config)
 				]
 			}]
@@ -292,6 +316,58 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Creates the category filter fieldset for search tool box of form panel.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createCategoryFilterFieldset: function ()
+	{
+		return {
+			layout: 'form',
+			xtype: 'fieldset',
+			border: false,
+			cls: 'k-category-filter',
+			title: _('Filter category..'),
+			autoHeight: true,
+			items: [{
+				xtype: 'button',
+				iconCls: 'k-category-add-button-icon',
+				cls: 'k-category-add-button',
+				handler: this.onSelectCategory,
+				scope: this
+			}, {
+				xtype: 'button',
+				text: _('Select Category'),
+				cls: 'k-category-filter-label',
+				width: 'auto',
+				hidden: this.searchCategoriesStore.getCount(),
+				ref: '../../categoryFilterLabel',
+				handler: this.onSelectCategory,
+				scope: this
+			}, {
+				xtype: 'dataview',
+				anchor: '100% 100%',
+				autoHeight: true,
+				tpl: this.categoriesHtmlTemplate,
+				prepareData: function (data) {
+					Ext.apply(data, {
+						hoverString: Ext.util.Format.htmlEncode(data.name.length > 20 ? data.name : '').replace(/\s/g, '&nbsp;'),
+						categoryName: Ext.util.Format.ellipsis(data.name, 20)
+					});
+					return data;
+				},
+				store: this.searchCategoriesStore,
+				itemSelector: 'span.k-category-block',
+				listeners: {
+					click: this.onCategoryRemove,
+					scope: this
+				}
+			}]
+		};
+	},
+
+	/**
 	 * Create the "Search in" {@link Ext.form.CheckboxGroup checkboxgroup} which specifies
 	 * which fields search has to look in.
 	 *
@@ -394,6 +470,8 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 		this.dateField.mon(this.dateField.startField, 'specialkey', this.onSpecialKey, this);
 		this.dateField.mon(this.dateField.endField, 'specialkey', this.onSpecialKey, this);
+		this.mon(this.searchCategoriesStore, 'add', this.onSearchCategoryUpdate, this);
+		this.mon(this.searchCategoriesStore, 'remove', this.onSearchCategoryUpdate, this);
 	},
 
 	/**
@@ -769,6 +847,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		var orResDate = [];
 		var orResSearchField = [];
 		var orResMessageClass = [];
+		var andResCategory = [];
 		var orFilters = [];
 
 		Ext.iterate(this.searchCriteria, function(key, values) {
@@ -856,6 +935,19 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					);
 				}, this);
 			}
+
+			// category restriction
+			if (key === 'categories' && !Ext.isEmpty(values)) {
+				Ext.each(values, function (value) {
+					andResCategory.push(
+						Zarafa.core.data.RestrictionFactory.dataResContent(
+							key,
+							Zarafa.core.mapi.Restrictions.FL_FULLSTRING | Zarafa.core.mapi.Restrictions.FL_IGNORECASE,
+							value
+						)
+					);
+				}, this);
+			}
 		}, this);
 
 		/**
@@ -902,6 +994,10 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		// Message class restriction which indicates which type of message you want to search.
 		andRes.push(Zarafa.core.data.RestrictionFactory.createResOr(orResMessageClass));
 
+		if (!Ext.isEmpty(andResCategory)) {
+			andRes.push(Zarafa.core.data.RestrictionFactory.createResAnd(andResCategory));
+		}
+
 		if (!Ext.isEmpty(orFilters)) {
 			andRes.push(Zarafa.core.data.RestrictionFactory.createResAnd(orFilters));
 		}
@@ -912,6 +1008,60 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 
 
 		return finalRes;
+	},
+
+	/**
+	 * Function which is handle click event of select category.
+	 * It will show {@link Zarafa.advancesearch.dialogs.SearchCategoriesContentPanel search category panel}.
+	 */
+	onSelectCategory: function ()
+	{
+		Zarafa.advancesearch.Actions.openSearchCategoryContentPanel({
+			modal: true,
+			searchCategoryStore: this.searchCategoriesStore,
+			scope: this
+		});
+	},
+
+	/**
+	 * Function which is handle click event of category box.
+	 * It will identify that is user click on close button, If yes then
+	 * Remove that category from {@link Zarafa.advancesearch.data.SearchCategoriesStore}
+	 *
+	 * @param {Ext.DataView} item Categories data view.
+	 * @param {Number} index The index of the target node in {@link Zarafa.advancesearch.data.SearchCategoriesStore}.
+	 * @param {HTMLElement} node html element.
+	 * @param {Ext.EventObject} e event object.
+	 */
+	onCategoryRemove: function (item, index, node, e)
+	{
+		var element = e.getTarget();
+		if (element.className === "k-category-close") {
+			this.searchCategoriesStore.removeAt(index);
+		}
+	},
+
+	/**
+	 * Sets the search restriction for categories
+	 * based on categories available in {@link #searchCategoriesStore},
+	 *
+	 * @param {Array} categories a list of categories.
+	 */
+	setCategoriesRestriction : function(categories)
+	{
+		this.searchCriteria['categories'] = categories;
+	},
+
+	/**
+	 * Handler which is call while category will be add or remove.
+	 * It will update the search restriction with categories available in {@link #searchCategoriesStore}
+	 */
+	onSearchCategoryUpdate: function ()
+	{
+		var categories = this.searchCategoriesStore.getCategories();
+		this.setCategoriesRestriction(categories);
+		this.afterUpdateRestriction();
+		this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
 	}
 });
 

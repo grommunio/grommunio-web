@@ -18,6 +18,12 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	 * various categories.
 	 */
 	categorySeparator : ';',
+
+	/**
+	 * @cfg {Boolean} hideActionButtons If it is true then it will hide all row action button in CategoriesGrid.
+	 */
+	hideActionButtons : false,
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
@@ -25,6 +31,10 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	constructor : function(config)
 	{
 		config = config || {};
+
+		if (config.hideActionButtons) {
+			this.hideActionButtons = config.hideActionButtons;
+		}
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
@@ -135,6 +145,7 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 						}
 					}),
 					sortable	: false,
+					hideActionButtons : this.hideActionButtons,
 					renderer 	: this.categoryNameRenderer
 				}
 			]
@@ -177,6 +188,11 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	{
 		var cls = record.get('quickAccess') ? ' zarafa-pinned' : '';
 		cls += Ext.isNumber(record.get('standardIndex')) ? ' k-category-fixed' : '';
+
+		if(this.hideActionButtons) {
+			return Ext.util.Format.htmlEncode(value);
+		}
+
 		return Ext.util.Format.htmlEncode(value) +
 			'<div class="zarafa-grid-button-container' + cls + '">' +
 				'<div class="zarafa-grid-button k-grid-button-edit"></div>' +
