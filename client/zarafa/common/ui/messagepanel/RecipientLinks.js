@@ -116,7 +116,8 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 
 		this.on('contextmenu', this.onRecipientRightClick, this);
 		this.on('dblclick', this.onRecipientDoubleClick, this);
-		this.on('mouseenter',this.onMouseEnter, this, {buffer : 10});
+		this.on('mouseenter',this.onMouseEnter, this);
+		this.on('mouseleave',this.onMouseLeave, this);
 	},
 
 	/**
@@ -375,8 +376,19 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	},
 
 	/**
+	 * Event handler which is triggered when
+	 * mouse leaves the recipient links. it will
+	 * just clear the timeout.
+	 */
+	onMouseLeave : function()
+	{
+		clearTimeout(this.timer);
+	},
+
+	/**
 	 * Event handler which handel mouse enter event.
 	 * It will show {@link Zarafa.common.recipientfield.ui.RecipientHoverCardView}
+	 * after 700 ms.
 	 * @param {Ext.DataView} dataView Reference to this object
 	 * @param {Number} index The index of the target node
 	 * @param {HTMLElement} node The target node
@@ -384,11 +396,13 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	 */
 	onMouseEnter: function (dataView, index, node, e)
 	{
-		var recipientRecord = this.createRecipientFromNode(node);
-		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
-			position: e.getXY(),
-			recipientView : dataView
-		});
+		this.timer = setTimeout(function (scope) {
+			var recipientRecord = scope.createRecipientFromNode(node);
+			Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
+				position: e.getXY(),
+				recipientView : dataView
+			});
+		}, 700, this);
 	}
 });
 
