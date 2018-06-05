@@ -421,15 +421,17 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			},
 			beforeShow : function(item, records) {
 				var visible = false;
-
+				var hasMixRecord = false;
 				for (var i = 0, len = records.length; i < len; i++) {
 					var record = records[i];
-					if (this.isSendEmailButtonVisible(record)) {
+					if (hasMixRecord == false && !record.isMessageClass(['IPM.Contact', 'IPM.DistList'])) {
+						hasMixRecord = true;
+					}
+					if (visible == false && this.isSendEmailButtonVisible(record)) {
 						visible = true;
-						break;
 					}
 				}
-				item.setVisible(visible);
+				item.setVisible(visible && !hasMixRecord);
 			}
 		};
 	},
