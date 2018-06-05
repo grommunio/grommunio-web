@@ -195,7 +195,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	{
 		var parentRecord = this.getParentRecord();
 		var entryID = parentRecord.get('entryid') || '';
-		var storeEntryId =  parentRecord.get('store_entryid');
+		var storeEntryId =  parentRecord.get('store_entryid') || '';
 		var messageAction = parentRecord.getMessageActions();
 
 		if (Ext.isEmpty(entryID) && messageAction) {

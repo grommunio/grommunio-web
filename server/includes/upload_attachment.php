@@ -136,7 +136,7 @@ class UploadAttachment
 					));
 
 					// Allow hooking in to handle import in plugins
-					$GLOBALS['PluginManager']->triggerHook('server.import_attachment.import', array(
+					$GLOBALS['PluginManager']->triggerHook('server.upload_attachment.upload', array(
 						'tmpname'  => $this->attachment_state->getAttachmentPath($attachTempName),
 						'name' => $filename,
 						'size' => $fileSize,
