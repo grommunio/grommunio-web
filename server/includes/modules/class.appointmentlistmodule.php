@@ -140,6 +140,13 @@
 		 */
 		function getCalendarItems($store, $entryid, $start, $end)
 		{
+			// Create mapping for restriction used properties which should not be send to the client.
+			$properties = Array(
+				"clipstart" => "PT_SYSTIME:PSETID_Appointment:0x8235",
+				"clipend" => "PT_SYSTIME:PSETID_Appointment:0x8236",
+			);
+			$properties = getPropIdsFromStrings($store, $properties);
+
 			$restriction =
 				// OR
 				//  - Either we want all appointments which fall within the given range
@@ -198,15 +205,35 @@
 											)
 										)
 									)
-								)
+								),
 							)
 						),
 						//OR
 						//(item[isRecurring] == true)
-						Array(RES_PROPERTY,
-							Array(RELOP => RELOP_EQ,
-								ULPROPTAG => $this->properties["recurring"],
-								VALUE => true
+						Array(RES_AND,
+							array(
+								Array(RES_PROPERTY,
+									Array(RELOP => RELOP_EQ,
+										ULPROPTAG => $this->properties["recurring"],
+										VALUE => true
+									),
+								),
+								array(RES_AND,
+									array(
+										array(RES_PROPERTY,
+											Array(RELOP => RELOP_GT,
+												ULPROPTAG => $properties["clipend"],
+												VALUE => $start
+											)
+										),
+										array(RES_PROPERTY,
+											Array(RELOP => RELOP_LT,
+												ULPROPTAG => $properties["clipstart"],
+												VALUE => $end
+											)
+										)
+									)
+								),
 							)
 						)
 					)
@@ -232,12 +259,13 @@
 		{
 			$items = Array();
 			$openedMessages = Array();
+			$proptags = $GLOBALS["properties"]->getRecurrenceProperties();
 
 			foreach($calendaritems as $calendaritem)
 			{
 				$item = null;
 				if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
-					$recurrence = new Recurrence($store, $calendaritem);
+					$recurrence = new Recurrence($store, $calendaritem, $proptags);
 					$recuritems = $recurrence->getItems($start, $end);
 
 					foreach($recuritems as $recuritem)
@@ -271,7 +299,7 @@
 							}
 							// Now create a Recurrence object with the mapi message (instead of the message props)
 							// so we can open the attachments
-							$recurrence = new Recurrence($store, $message);
+							$recurrence = new Recurrence($store, $message, $proptags);
 							$exceptionatt = $recurrence->getExceptionAttachment($recuritem["basedate"]);
 							if($exceptionatt) {
 								// Existing exception (open existing item, which includes basedate)

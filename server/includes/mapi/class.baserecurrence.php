@@ -1652,7 +1652,11 @@
 				if (isset($this->recur['regen']) && $this->recur['regen'] && isset($this->action['datecompleted'])) {
 					$daystart = $this->dayStartOf($this->action['datecompleted']);
 				} else {
-					$daystart = $this->dayStartOf($this->recur["start"]); // start on first day of occurrence
+					$recurstart = $this->dayStartOf($this->recur['start']);
+					$daystart = $this->dayStartOf($start); // start on first day of occurrence
+					if ($recurstart > $daystart) {
+						$daystart = $recurstart;
+					}
 				}
 
 				// Calculate the last day on which we want to be looking at a recurrence; this is either the end of the view
@@ -1747,7 +1751,7 @@
 								// keep the track of no. of time correct selection pattern(like 2nd weekday, 4th fiday, etc.)is matched 
 								$ndaycounter = 0;
 								// Find matching weekday in this month
-								for($day = 0; $day < $this->daysInMonth($now, 1); $day++)
+								for($day = 0, $total = $this->daysInMonth($now, 1); $day < $total; $day++)
 								{
 									$daynow = $now + $day * 60 * 60 * 24;
 									$nowtime = $this->gmtime($daynow); // Get the weekday of the current day
