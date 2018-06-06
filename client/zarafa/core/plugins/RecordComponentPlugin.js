@@ -696,7 +696,10 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 				return;
 			}
 
-			this.record.applyData(record);
+			var modelRecord = this.record.isModalDialogRecord ? this.field.modalRecord : this.record;
+			if (modelRecord !== record) {
+				this.record.applyData(record);
+			}
 		}
 
 		if (this.ignoreUpdates !== true) {
