@@ -31,7 +31,7 @@ $red2                     : #fbdde1;
 $sky-blue                 : #3094e3;
 
 $light-blue               : #d5e8f7;
-$seperator-color	  : #aca889;
+$seperator-color          : #aca889;
 
 /* Now we define which color we use for different elements */
 
@@ -61,4 +61,7 @@ $grid-subject-color       : $grey6;
 /* fonts */
 $font-color-light         : $white;
 $font-color-dark          : black;
+
+/* Tooltip */
+$tooltip-dark             : rgba(0, 0, 0, 0.8);
 
