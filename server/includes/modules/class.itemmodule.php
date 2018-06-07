@@ -344,6 +344,7 @@
 							$e->setDisplayMessage($this->getOverQuotaMessage($store));
 						} else {
 							$e->setDisplayMessage(_("Could not save message") . ".");
+							$e->allowToShowDetailsMessage = true;
 						}
 						break;
 

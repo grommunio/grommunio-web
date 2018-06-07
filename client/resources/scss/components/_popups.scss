@@ -462,3 +462,19 @@
 		padding-top: $padding-medium !important;
 	}
 }
+
+/* Custom message box with show more details  */
+.x-window.k-show-more-details {
+	.x-dlg-icon {
+		display: flex;
+		align-items: center;
+	}
+
+	.k-show-more-details-textarea {
+		margin-top: 10px;
+	}
+}
+
+.x-window.k-show-more-details .x-dlg-icon .ext-mb-content {
+	margin-left: 0 !important;
+}

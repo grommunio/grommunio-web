@@ -288,7 +288,7 @@ $normal-button-bgcolor-hover	: $grey2;
     		.x-toolbar-left-row,
     		.x-toolbar-right-row {
 				.x-toolbar-cell:not(.x-hide-offsets) {
-					.x-btn {
+					.x-btn:not(.k-window-text-button) {
 						.x-btn-small, .x-btn-medium, .x-btn-large {
 							border: 1px solid transparent !important;
 						}
@@ -449,6 +449,7 @@ $normal-button-bgcolor-hover	: $grey2;
 		background-image: none;
 	}
 
+
 .x-window {
 	.k-recipient-hover-card-button {
 		.x-btn-small {
@@ -500,5 +501,26 @@ $normal-button-bgcolor-hover	: $grey2;
 
 	.k-hover-card-email-text {
 		padding-right: $padding-medium !important;
+	}
+}
+
+.k-window-text-button {
+	.x-btn-small {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+	.x-btn-text {
+		font-weight: bold;
+	}
+}
+
+.k-window-text-button.x-btn.x-btn-over .x-btn-small{
+	background: transparent !important;
+	border: 1px solid $grey2 !important;
+}
+
+.x-window.k-show-more-details {
+	.icon_copy {
+		background-position: sprite-position($icons, icon_copy, $offset-y: 5, $offset-x: 3) !important;
 	}
 }

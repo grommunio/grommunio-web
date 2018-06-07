@@ -28,6 +28,12 @@ class BaseException extends Exception
 	 */
 	public $displayMessage = null;
 
+
+	/**
+	 * Flag for allow to exception details message or not
+	 */
+	public $allowToShowDetailsMessage = false;
+
 	/**
 	 * Construct the exception
 	 *
@@ -105,6 +111,16 @@ class BaseException extends Exception
 	public function getName()
 	{
 		return get_class($this);
+	}
+
+	/**
+	 * It will return details error message if allowToShowDetailsMessage is set.
+	 *
+	 * @return string returns details error message.
+	 */
+	public function getDetailsMessage()
+	{
+		return $this->allowToShowDetailsMessage ? $this->__toString() : '';
 	}
 
 	// @TODO getTrace and getTraceAsString

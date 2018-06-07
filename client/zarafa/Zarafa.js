@@ -296,6 +296,7 @@ Ext.apply(Zarafa, {
 	onException : function(proxy, type, action, options, response, args)
 	{
 		var message;
+		var detailsMessage = '';
 
 		if (type === 'response') {
 			// The error message can be in args when it is an Error object. This happens when the
@@ -314,6 +315,7 @@ Ext.apply(Zarafa, {
 				case Zarafa.core.ErrorType['ZARAFA']:
 				case Zarafa.core.ErrorType['GENERAL']:
 					message = response.error.info.display_message;
+					detailsMessage = response.error.info.details_message || '';
 					break;
 				default:
 					message = _('The server reported an unknown error on your request.');
@@ -326,7 +328,9 @@ Ext.apply(Zarafa, {
 		if (Ext.get('loading')) {
 			this.setErrorLoadingMask(_('Error'), message);
 		} else {
-			container.getNotifier().notify('error.proxy', _('Error'), message);
+			container.getNotifier().notify('error.proxy', _('Error'), message, {
+				details_message : detailsMessage
+			});
 		}
 	},
 

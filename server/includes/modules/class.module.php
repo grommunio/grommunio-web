@@ -115,6 +115,7 @@
 							$e->setDisplayMessage(_("You have insufficient privileges to save this message."));
 						else
 							$e->setDisplayMessage(_("Could not save message."));
+							$e->allowToShowDetailMessage = true;
 						break;
 
 					case "delete":
@@ -242,7 +243,8 @@
 							"hresult" => $exception->getCode(),
 							"hresult_name" => get_mapi_error_name($exception->getCode()),
 							"file" => $exception->getFileLine(),
-							"display_message" => $exception->getDisplayMessage()
+							"display_message" => $exception->getDisplayMessage(),
+							"details_message" => $exception->getDetailsMessage()
 						)
 					);
 				} else if($exception instanceof ZarafaException) {

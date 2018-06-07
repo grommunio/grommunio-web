@@ -3682,16 +3682,16 @@ button::-moz-focus-inner {
   /* focused action button */
 }
 /* line 292, ../scss/components/_buttons.scss */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn .x-btn-large {
+.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large,
+.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-small,
+.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-medium,
+.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.k-window-text-button) .x-btn-large {
   border: 1px solid transparent !important;
 }
 /* line 299, ../scss/components/_buttons.scss */
@@ -3958,43 +3958,64 @@ div.x-btn-group-bc {
   background-image: none;
 }
 
-/* line 454, ../scss/components/_buttons.scss */
+/* line 455, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .x-btn-small {
   background-color: transparent !important;
   box-shadow: none !important;
 }
-/* line 459, ../scss/components/_buttons.scss */
+/* line 460, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .icon_contact {
   background-position: 0 -1475px !important;
 }
-/* line 464, ../scss/components/_buttons.scss */
+/* line 465, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .icon_copy {
   background-position: 4px -506px !important;
 }
-/* line 468, ../scss/components/_buttons.scss */
+/* line 469, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .icon_send_email_to_recipient {
   background-position: 0 -3550px !important;
   background-image: url('../images/icons-s5e0631df8c.png');
 }
-/* line 473, ../scss/components/_buttons.scss */
+/* line 474, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .icon_new_contact, .x-window .k-recipient-hover-card-button .x-menu .icon_createContact, .x-menu .x-window .k-recipient-hover-card-button .icon_createContact {
   background-position: 0 -3470px !important;
 }
-/* line 478, ../scss/components/_buttons.scss */
+/* line 479, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button .icon_edit_recipient {
   background-position: 0 -1854px !important;
 }
-/* line 484, ../scss/components/_buttons.scss */
+/* line 485, ../scss/components/_buttons.scss */
 .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large {
   border: 1px solid #dadada !important;
 }
-/* line 493, ../scss/components/_buttons.scss */
+/* line 494, ../scss/components/_buttons.scss */
 .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-medium, .x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-large {
   border: 1px solid #dadada !important;
 }
-/* line 501, ../scss/components/_buttons.scss */
+/* line 502, ../scss/components/_buttons.scss */
 .x-window .k-hover-card-email-text {
   padding-right: 6px !important;
+}
+
+/* line 508, ../scss/components/_buttons.scss */
+.k-window-text-button .x-btn-small {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* line 512, ../scss/components/_buttons.scss */
+.k-window-text-button .x-btn-text {
+  font-weight: bold;
+}
+
+/* line 517, ../scss/components/_buttons.scss */
+.k-window-text-button.x-btn.x-btn-over .x-btn-small {
+  background: transparent !important;
+  border: 1px solid #dadada !important;
+}
+
+/* line 523, ../scss/components/_buttons.scss */
+.x-window.k-show-more-details .icon_copy {
+  background-position: 3px -506px !important;
 }
 
 /* line 1, ../scss/components/_panels.scss */
@@ -11921,6 +11942,22 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 /* line 461, ../scss/components/_popups.scss */
 .k-recipient-card-view .x-panel > .x-panel-bwrap > .x-panel-body {
   padding-top: 6px !important;
+}
+
+/* Custom message box with show more details  */
+/* line 468, ../scss/components/_popups.scss */
+.x-window.k-show-more-details .x-dlg-icon {
+  display: flex;
+  align-items: center;
+}
+/* line 473, ../scss/components/_popups.scss */
+.x-window.k-show-more-details .k-show-more-details-textarea {
+  margin-top: 10px;
+}
+
+/* line 478, ../scss/components/_popups.scss */
+.x-window.k-show-more-details .x-dlg-icon .ext-mb-content {
+  margin-left: 0 !important;
 }
 
 /* line 1, ../scss/components/_scheduling.scss */
