@@ -28,6 +28,8 @@ Zarafa.common.attachment.dialogs.ImportToFolderContentPanel = Ext.extend(Zarafa.
 			title : _('Import to'),
 			items: [{
 				xtype: 'zarafa.importtofolderpanel',
+				// A bit ugly, but the Zarafa.common.dialogs.CopyMoveContentPanel uses this ref
+				ref: 'copyMovePanel',
 				record : config.record
 			}]
 		});

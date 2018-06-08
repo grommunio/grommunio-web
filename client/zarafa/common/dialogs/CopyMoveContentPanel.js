@@ -65,12 +65,25 @@ Zarafa.common.dialogs.CopyMoveContentPanel = Ext.extend(Zarafa.core.ui.ContentPa
 			cls: 'copymove-panel',
 			items: [{
 				xtype: 'zarafa.copymovepanel',
+				ref: 'copyMovePanel',
 				record : config.record,
 				objectType : objectType
 			}]
 		});
 
 		Zarafa.common.dialogs.CopyMoveContentPanel.superclass.constructor.call(this, config);
+
+		this.mon(this.copyMovePanel.hierarchyTree.getSelectionModel(), 'selectionchange', this.onSelectionChange, this);
+	},
+
+	/**
+	 * Event listener for the selectionchange event of the hierarchy tree. Will
+	 * make sure this panel knows which folder is selected.
+	 * @param {Ext.tree.DefaultSelectionModel} selModel The selection model of the tree
+	 * @param {Ext.tree.TreeNode} node The selected tree node
+	 */
+	onSelectionChange: function(selModel, node) {
+		this.selectFolder(node.attributes.folder);
 	},
 
 	/**
