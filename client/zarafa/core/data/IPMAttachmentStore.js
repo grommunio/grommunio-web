@@ -263,8 +263,13 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	getImportAttachmentUrl : function(attachmentRecord, folder)
 	{
 		var url = this.getDownloadAttachmentUrl(attachmentRecord);
+		var isEmbedded = attachmentRecord.isEmbeddedMessage();
 		url = Ext.urlAppend(url, 'import=true');
 		url = Ext.urlAppend(url, 'destination_folder=' + folder.get('entryid'));
+
+		if (isEmbedded) {
+			url = Ext.urlAppend(url, 'is_embedded=' + isEmbedded);
+		}
 
 		return url;
 	},
