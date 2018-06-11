@@ -1652,11 +1652,7 @@
 				if (isset($this->recur['regen']) && $this->recur['regen'] && isset($this->action['datecompleted'])) {
 					$daystart = $this->dayStartOf($this->action['datecompleted']);
 				} else {
-					$recurstart = $this->dayStartOf($this->recur['start']);
-					$daystart = $this->dayStartOf($start); // start on first day of occurrence
-					if ($recurstart > $daystart) {
-						$daystart = $recurstart;
-					}
+					$daystart = $this->dayStartOf($this->recur["start"]); // start on first day of occurrence
 				}
 
 				// Calculate the last day on which we want to be looking at a recurrence; this is either the end of the view
