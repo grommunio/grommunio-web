@@ -529,7 +529,9 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				node = base;
 			} else if (this.tree.nodeFilter(parentfolder)) {
 				node = this.tree.getNodeById(parentfolder.get('entryid'));
-			} else {
+			}
+
+			if (!node) {
 				node = this.getFilteredParentNode(parentfolder);
 			}
 		}
