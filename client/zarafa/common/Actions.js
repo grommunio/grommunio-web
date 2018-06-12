@@ -466,10 +466,13 @@ Zarafa.common.Actions = {
 	openReminderRecord: function(record, config)
 	{
 		config = config || {};
+		var store = record.getStore();
+		var dismissReminders = record;
 		// convert reminder record to proper ipmrecord
 		record = record.convertToIPMRecord();
 		if (record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
+			store.dismissReminders(dismissReminders);
 		}
 	},
 

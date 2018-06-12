@@ -234,8 +234,9 @@
 			mapi_table_restrict($remindertable, $restriction, TBL_BATCH);
 			mapi_table_sort($remindertable, array($this->properties["flagdueby"] => TABLE_SORT_DESCEND), TBL_BATCH);
 
-			$rows = mapi_table_queryallrows($remindertable, $this->properties);
-
+			// reminder store hold only 99 records as
+			// we show 99 notification on client side.
+			$rows = mapi_table_queryrows($remindertable, $this->properties, 0, MAX_NUM_REMINDERS);
 			$data["item"] = array();
 
 			foreach($rows as $row) {
