@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1347,17 +1347,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "日付選択時に予定のある日付を太字で表示する。"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1780,6 +1782,26 @@ msgstr ""
 "このメッセージの送信者はこのメッセージの開封通知を要求しています。送信者に通"
 "知しますか？"
 
+#, fuzzy
+msgid "Import"
+msgstr "重要"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "重要"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "閉じる"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -1817,10 +1839,6 @@ msgstr "メッセージが選択されていません"
 
 #, fuzzy
 msgid "Import to"
-msgstr "重要"
-
-#, fuzzy
-msgid "Import"
 msgstr "重要"
 
 # 90%
@@ -2227,6 +2245,14 @@ msgstr "送信メール"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "配布リストを削除"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "新しいメールアドレス"
+
+# 81%
+msgid "Send email"
+msgstr "送信メール"
 
 msgid "View recipient"
 msgstr "受信者を表示します。"
@@ -2701,9 +2727,6 @@ msgstr "Y/m/d"
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "選択行{0}"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3292,10 +3315,12 @@ msgstr "配布リストを印刷"
 msgid "Mark this Distribution list as private."
 msgstr "配布リストを個人用にする"
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "新しいメールアドレス"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "正しいメールアドレスを入力して下さい。"
 
 # 92%
@@ -3541,12 +3566,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{1}の代わりとして{0}"
@@ -3639,9 +3658,6 @@ msgstr "他の人を待つ"
 msgid "Deferred"
 msgstr "延期"
 
-msgid "Close"
-msgstr "閉じる"
-
 msgid "Dark"
 msgstr ""
 
@@ -3705,6 +3721,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "フォルダー一覧"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "詳細を表示"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "詳細"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "保存中"
@@ -3797,6 +3824,12 @@ msgstr "フルコントロール"
 
 msgid "No rights"
 msgstr "権限がありません"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "新しいフォルダを作成する。"
@@ -3988,6 +4021,25 @@ msgstr "お気に入りへ追加する"
 msgid "Remove From Favorites"
 msgstr "カレンダーから削除する"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "初期フォルダー"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "重要"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "プロパティ"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "プロパティ"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4091,10 +4143,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-# 81%
-msgid "Send email"
-msgstr "送信メール"
-
 msgid "Send email to recipients"
 msgstr "電子メールを宛先に送信します。"
 
@@ -4110,7 +4158,8 @@ msgstr "メールの保存"
 # 94%
 # 76%
 # 100%
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "このアイテムを削除"
 
 # 86%
@@ -4200,18 +4249,8 @@ msgstr "このメッセージへの開封通知を要求する。"
 msgid "no subject"
 msgstr "件名がありません"
 
-# 94%
-msgid "Delete this item."
-msgstr "このアイテムを削除"
-
 msgid "Delete mail"
 msgstr ""
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "このアイテムを削除."
 
 msgid "Set Category"
 msgstr "カテゴリーを設定"
@@ -5428,8 +5467,10 @@ msgstr ""
 msgid "Cannot connect to Kopano Core."
 msgstr "Kopanoサーバーに接続できません。"
 
-msgid "Logon failed, another session already exists."
-msgstr "Logon failed, another session already exists."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5440,6 +5481,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "この外部リンクは新しいウィンドウで開きます。"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "移動先フォルダ"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5452,6 +5497,11 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "このコンタクトに添付ファイルを追加する"
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6034,8 +6084,17 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "添付ファイルをアップロードできませんでした。"
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "送信成功"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0}は有効な時間ではありません。"
 
 msgid "GB"
 msgstr "GB"

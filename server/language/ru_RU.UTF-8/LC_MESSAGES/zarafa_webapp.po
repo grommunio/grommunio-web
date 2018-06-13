@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1379,17 +1379,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "При выборе даты показать дни занятости полужирным"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1832,6 +1834,26 @@ msgstr ""
 "Отправитель этого сообщения запросил уведомление о прочтении этого "
 "сообщения. Желаете уведомить отправителя?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Важно"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Важно"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Закрыть"
+
 msgid "Cc"
 msgstr "Копия"
 
@@ -1869,10 +1891,6 @@ msgstr "Сообщения не выбраны"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Важно"
-
-#, fuzzy
-msgid "Import"
 msgstr "Важно"
 
 # 90%
@@ -2278,6 +2296,13 @@ msgstr "Отправить письмо"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Удалить этот список рассылки."
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Новый адрес эл. почты"
+
+msgid "Send email"
+msgstr "Отправить письмо"
 
 msgid "View recipient"
 msgstr "Показать получателя"
@@ -2759,9 +2784,6 @@ msgid_plural "{0} selected rows"
 msgstr[0] "Выбрана {0} строка"
 msgstr[1] "Выбраны {0} строки"
 msgstr[2] "Выбрано {0} строк"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3346,10 +3368,12 @@ msgstr "Печать этого списка рассылки."
 msgid "Mark this Distribution list as private."
 msgstr "Отметить этот список рассылки как «Частный»."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Новый адрес эл. почты"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Введите правильный адрес электронной почты!"
 
 msgid "E-mail Address"
@@ -3582,12 +3606,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} от имени {1}"
@@ -3679,9 +3697,6 @@ msgstr "В ожидании других участников"
 msgid "Deferred"
 msgstr "Отклонено"
 
-msgid "Close"
-msgstr "Закрыть"
-
 msgid "Dark"
 msgstr ""
 
@@ -3749,6 +3764,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "Каталоги"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Показать подробности"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Подробности"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "Сохраняется"
@@ -3848,6 +3874,12 @@ msgstr "Полный контроль"
 
 msgid "No rights"
 msgstr "Нет прав"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "Создать новый каталог"
@@ -4042,6 +4074,25 @@ msgstr "Добавить в «Избранное»"
 msgid "Remove From Favorites"
 msgstr "Удалить из календаря"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Начальный каталог"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Важно"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Свойства"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Свойства"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4148,9 +4199,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Отправить письмо"
-
 msgid "Send email to recipients"
 msgstr "Отправит письмо получателям"
 
@@ -4167,7 +4215,7 @@ msgstr "Сохранить письмо"
 # 100%
 # 94%
 #, fuzzy
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr "Удалить это письмо."
 
 msgid "Add attachments to this email"
@@ -4252,16 +4300,8 @@ msgstr "Запрос о прочтении данного сообщения."
 msgid "no subject"
 msgstr "без темы"
 
-msgid "Delete this item."
-msgstr "Удалить этот элемент."
-
 msgid "Delete mail"
 msgstr "Удалить письмо"
-
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "Удалить это письмо."
 
 msgid "Set Category"
 msgstr "Указать категорию"
@@ -5501,8 +5541,10 @@ msgstr "Войти не удалось. Проверьте ваши имя и п
 msgid "Cannot connect to Kopano Core."
 msgstr "Невозможно подключиться к серверу Kopano."
 
-msgid "Logon failed, another session already exists."
-msgstr "Войти не удалось, активна другая сессия."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5513,6 +5555,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Эта внешняя ссылка откроется в новом окне"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Каталог назначения"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5525,6 +5571,10 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Вложить файлы в этот контакт."
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6107,8 +6157,18 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "Не удалось загрузить вложение."
+# 94%
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Успешно отправлено"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "Время {0} неправильное"
 
 msgid "GB"
 msgstr "ГиБ"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1366,19 +1366,24 @@ msgstr "Zobrazit tučně 'již obsazené' data při výběru termínu"
 
 #, fuzzy
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 "Informace o dostupnosti je používána ostatními uživateli při tvorbě žádosti "
 "o schůzku,"
 
-msgid "Free/Busy permission"
+#, fuzzy
+msgid "Free/Busy publishing"
 msgstr "Práva náhledu dostupnosti"
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "Zveřejnit informace o vaší dostupnosti na serveru během {A} měsíce(ů)."
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr "Můžete zveřejnit dostupnost pouze na období od 1 do 36 měsíců."
 
 msgid "Side-by-side mode"
@@ -1803,6 +1808,26 @@ msgstr ""
 "Odesílatel této zprávy žádá potvrzení o přečtení této zprávy. Přejete si "
 "potvrzení odeslat?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Důležitý"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Důležitý"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Zavřít"
+
 # 100%
 msgid "Cc"
 msgstr "Kopie"
@@ -1841,10 +1866,6 @@ msgstr "Nebyla vybrána žádná zpráva"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Důležitý"
-
-#, fuzzy
-msgid "Import"
 msgstr "Důležitý"
 
 # 90%
@@ -2260,6 +2281,13 @@ msgstr "Odeslat e-mail"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Odstranit distribuční seznam."
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nová e-mailová adresa"
+
+msgid "Send email"
+msgstr "Odeslat zprávu"
 
 msgid "View recipient"
 msgstr "Zobrazit příjemce"
@@ -2739,9 +2767,6 @@ msgid_plural "{0} selected rows"
 msgstr[0] "{0} vybraný řádek"
 msgstr[1] "{0} vybrané řádky"
 msgstr[2] "{0} vybraných řádků"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3335,10 +3360,12 @@ msgstr "Tisknout tento distribuční seznam."
 msgid "Mark this Distribution list as private."
 msgstr "Označit tento Distribuční seznam jako soukromý."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Nová e-mailová adresa"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Prosím vložte platnou e-mailovou adresu!"
 
 msgid "E-mail Address"
@@ -3576,12 +3603,6 @@ msgstr ""
 "Nelze uložit přílohu, celkem příloh je {0} souborů, zatímco povolené maximum "
 "v jednom požadavku je {1}."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} v zastoupení {1}"
@@ -3672,9 +3693,6 @@ msgstr "Čekat na jinou osobu"
 msgid "Deferred"
 msgstr "Odloženo"
 
-msgid "Close"
-msgstr "Zavřít"
-
 msgid "Dark"
 msgstr "Tmavý"
 
@@ -3739,6 +3757,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "Seznam složek"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Ukázat detaily"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Detaily"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "Ukládání"
@@ -3835,6 +3864,12 @@ msgstr "Úplné řízení"
 
 msgid "No rights"
 msgstr "Žádné oprávnění"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "Vytvořit novou složku"
@@ -4028,6 +4063,25 @@ msgstr "Přidat do složky Oblíbené"
 msgid "Remove From Favorites"
 msgstr "Odstranit z kalendáře"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Výchozí adresář"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Důležitý"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Vlastnosti"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Vlastnosti"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4133,9 +4187,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Odeslat zprávu"
-
 msgid "Send email to recipients"
 msgstr "Odeslat zprávu příjemcům"
 
@@ -4152,7 +4203,7 @@ msgstr "Uložit zprávu"
 # 76%
 # 100%
 #, fuzzy
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr "Smazat tuto položku."
 
 # 86%
@@ -4242,19 +4293,8 @@ msgstr "Požadavek potvrzení o přečtení pro tuto zprávu."
 msgid "no subject"
 msgstr "žádný předmět"
 
-# 94%
-msgid "Delete this item."
-msgstr "Smazat tuto položku."
-
 msgid "Delete mail"
 msgstr ""
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this mail."
-msgstr "Smazat tuto položku."
 
 msgid "Set Category"
 msgstr "Nastavit Kategorii"
@@ -5473,7 +5513,9 @@ msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/
 msgid "Cannot connect to Kopano Core."
 msgstr "Nelze se připojit k Kopano serveru."
 
-msgid "Logon failed, another session already exists."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
 msgstr ""
 
 #, fuzzy
@@ -5486,6 +5528,10 @@ msgstr ""
 msgid "This external link will open in a new window"
 msgstr "Tento externí odkaz se otevře v novém okně"
 
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Cílová složka"
+
 msgid "Eml is corrupted"
 msgstr ""
 
@@ -5497,6 +5543,11 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Přidat přílohy k tomuto kontaktu."
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6088,8 +6139,17 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "Nelze nahrát přílohu."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Odesláno úspěšně"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} není platný čas"
 
 msgid "GB"
 msgstr "GB"

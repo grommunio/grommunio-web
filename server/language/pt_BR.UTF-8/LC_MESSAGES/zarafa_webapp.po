@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -1387,17 +1387,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "Mostrar datas ocupadas em negrito no selecionador de datas"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1834,6 +1836,26 @@ msgstr ""
 "O remetente pediu para ser notificado sobre o recebimento desta mensagem. "
 "Você deseja notificar o remetente?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Importante"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Importante"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Fechar"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -1871,10 +1893,6 @@ msgstr "Nenhuma mensagem selecionada"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Importante"
-
-#, fuzzy
-msgid "Import"
 msgstr "Importante"
 
 # 90%
@@ -2286,6 +2304,13 @@ msgstr "Enviar e-mail"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Remover a Lista de Distribuição."
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Novo endereço de E-Mail"
+
+msgid "Send email"
+msgstr "Enviar E-Mail"
 
 msgid "View recipient"
 msgstr "Ver destinatário"
@@ -2757,9 +2782,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} selecionado"
 msgstr[1] "{0} selecionados"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3340,10 +3362,12 @@ msgstr "Imprimir esta Lista de distribuição."
 msgid "Mark this Distribution list as private."
 msgstr "Marcar essa Lista de distribuição como particular."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Novo endereço de E-Mail"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Por favor, fornece um endereço de E-Mail válido!"
 
 msgid "E-mail Address"
@@ -3574,12 +3598,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} em nome de {1}"
@@ -3670,9 +3688,6 @@ msgstr "Aguarde por outra pessoa"
 msgid "Deferred"
 msgstr "Deferido"
 
-msgid "Close"
-msgstr "Fechar"
-
 msgid "Dark"
 msgstr ""
 
@@ -3741,6 +3756,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "Lista de Pastas"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Mostrar Detalhes"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Detalhes"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "Salvando"
@@ -3839,6 +3865,12 @@ msgstr "Controle total"
 
 msgid "No rights"
 msgstr "Sem direitos"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "Criar Nova Pasta"
@@ -4031,6 +4063,25 @@ msgstr "Adicionar a pasta de favoritos"
 msgid "Remove From Favorites"
 msgstr "Remover do Calendário"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Pasta inicial"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Importante"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Propriedades"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Propriedades"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4136,9 +4187,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Enviar E-Mail"
-
 msgid "Send email to recipients"
 msgstr "Enviar E-Mail aos destinatários"
 
@@ -4155,7 +4203,7 @@ msgstr "Salvar E-Mail"
 # 100%
 # 94%
 #, fuzzy
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr "Excluir este item."
 
 msgid "Add attachments to this email"
@@ -4244,17 +4292,8 @@ msgstr "Pedir confirmação de recebimento para esta mensagem."
 msgid "no subject"
 msgstr "sem assunto"
 
-msgid "Delete this item."
-msgstr "Excluir este item."
-
 msgid "Delete mail"
 msgstr ""
-
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this mail."
-msgstr "Excluir este item."
 
 msgid "Set Category"
 msgstr "Definir Categoria"
@@ -5487,8 +5526,10 @@ msgstr "Falha ao registrar. Por favor, verifique o seu nome/senha."
 msgid "Cannot connect to Kopano Core."
 msgstr "Não foi possível conectar no servidor Kopano."
 
-msgid "Logon failed, another session already exists."
-msgstr "Logon não foi possível, já que uma outra sessão está ativa."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5499,6 +5540,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Este link externo será aberto em uma nova janela"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Pasta destino"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5511,6 +5556,10 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Adicionar anexos ao contato."
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6124,8 +6173,18 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "Não foi possível enviar o anexo."
+# 94%
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Enviado com sucesso"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} não é uma hora válida"
 
 msgid "GB"
 msgstr "GB"

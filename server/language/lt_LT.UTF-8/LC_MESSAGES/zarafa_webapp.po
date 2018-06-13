@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2011-03-08 15:51+0200\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1299,17 +1299,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr ""
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1695,6 +1697,24 @@ msgid ""
 "message. Do you wish to notify the sender?"
 msgstr ""
 
+msgid "Import"
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+msgid "Import error"
+msgstr ""
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
 msgid "Cc"
 msgstr ""
 
@@ -1729,9 +1749,6 @@ msgid "No message selected"
 msgstr ""
 
 msgid "Import to"
-msgstr ""
-
-msgid "Import"
 msgstr ""
 
 msgid "New folder"
@@ -2116,6 +2133,12 @@ msgid "Send e-mail"
 msgstr ""
 
 msgid "Delete recipient from suggestion list"
+msgstr ""
+
+msgid "Copy email address"
+msgstr ""
+
+msgid "Send email"
 msgstr ""
 
 msgid "View recipient"
@@ -2568,9 +2591,6 @@ msgid_plural "{0} selected rows"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3115,10 +3135,10 @@ msgstr ""
 msgid "Mark this Distribution list as private."
 msgstr ""
 
-msgid "New e-mail address"
+msgid "New email address"
 msgstr ""
 
-msgid "Please input a valid email address!"
+msgid "Please enter a valid email address"
 msgstr ""
 
 msgid "E-mail Address"
@@ -3342,12 +3362,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr ""
@@ -3437,9 +3451,6 @@ msgstr ""
 msgid "Deferred"
 msgstr ""
 
-msgid "Close"
-msgstr ""
-
 msgid "Dark"
 msgstr ""
 
@@ -3502,6 +3513,15 @@ msgid "Expand hierarchy"
 msgstr ""
 
 msgid "Folders List"
+msgstr ""
+
+msgid "Copy Details"
+msgstr ""
+
+msgid "Hide Details"
+msgstr ""
+
+msgid "Loaded {0} of {1}"
 msgstr ""
 
 msgid "Saving"
@@ -3587,6 +3607,12 @@ msgid "Full control"
 msgstr ""
 
 msgid "No rights"
+msgstr ""
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
 msgstr ""
 
 msgid "Create New Folder"
@@ -3772,6 +3798,21 @@ msgstr ""
 msgid "Remove From Favorites"
 msgstr ""
 
+msgid "Share folder..."
+msgstr ""
+
+msgid "Import emails"
+msgstr ""
+
+msgid "Properties of {0}"
+msgstr ""
+
+msgid "Share {0} with..."
+msgstr ""
+
+msgid "Properties of {0} - {1}"
+msgstr ""
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -3872,9 +3913,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr ""
-
 msgid "Send email to recipients"
 msgstr ""
 
@@ -3887,7 +3925,7 @@ msgstr ""
 msgid "Save email"
 msgstr ""
 
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr ""
 
 msgid "Add attachments to this email"
@@ -3970,13 +4008,7 @@ msgstr ""
 msgid "no subject"
 msgstr ""
 
-msgid "Delete this item."
-msgstr ""
-
 msgid "Delete mail"
-msgstr ""
-
-msgid "Delete this mail."
 msgstr ""
 
 msgid "Set Category"
@@ -5106,7 +5138,9 @@ msgstr ""
 msgid "Cannot connect to Kopano Core."
 msgstr ""
 
-msgid "Logon failed, another session already exists."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
 msgstr ""
 
 msgid "Unknown MAPI Error"
@@ -5116,6 +5150,9 @@ msgid "Click the link to open the URL in a new window."
 msgstr ""
 
 msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
 msgstr ""
 
 msgid "Eml is corrupted"
@@ -5128,6 +5165,9 @@ msgid "The vcf attachment is not imported successfully"
 msgstr ""
 
 msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
 msgstr ""
 
 msgid "ZIP is not created successfully"
@@ -5642,7 +5682,14 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
+msgid "File is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
 msgstr ""
 
 msgid "GB"

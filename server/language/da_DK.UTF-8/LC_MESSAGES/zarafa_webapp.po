@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1316,19 +1316,24 @@ msgstr "Vis optagede dage med fed i datovælgeren"
 
 #, fuzzy
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 "Fri/optaget information er brugt af andre når de sender mødeindkaldelser,"
 
-msgid "Free/Busy permission"
+#, fuzzy
+msgid "Free/Busy publishing"
 msgstr "Fri/optaget tilladelser"
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 "Offentliggør {A} måned(er) af kalender fri/optaget information på serveren."
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr "Du kan kun offentliggøre en fri/optaget periode for 1 til 36 måneder."
 
 msgid "Side-by-side mode"
@@ -1736,6 +1741,26 @@ msgstr ""
 "Afsenderen af denne meddelelse har bedt om at blive underrettet når du læser "
 "denne meddelelse. Vil du underrette afsenderen nu?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Vigtigt"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Vigtigt"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Luk"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -1771,10 +1796,6 @@ msgstr "Ingen meddelelse er valgt"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Vigtigt"
-
-#, fuzzy
-msgid "Import"
 msgstr "Vigtigt"
 
 msgid "New folder"
@@ -2178,6 +2199,13 @@ msgstr "Send mail"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Slet modtageren fra forslagslisten"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Ny email adresse"
+
+msgid "Send email"
+msgstr "Send email"
 
 msgid "View recipient"
 msgstr "Vis modtager"
@@ -2631,9 +2659,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} række er valgt"
 msgstr[1] "{0} rækker er valgt"
-
-msgid "Loaded {0} of {1}"
-msgstr "Hentet {0} af {1}"
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3188,10 +3213,12 @@ msgstr "Udskriv denne distributionsliste."
 msgid "Mark this Distribution list as private."
 msgstr "Marker denne distributionsliste som privat."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Ny email adresse"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Indtast gyldig email adresse!"
 
 msgid "E-mail Address"
@@ -3427,12 +3454,6 @@ msgstr ""
 "Kunne ikke uploade vedhæftning, totalt antal vedhæftninger er {0} filer mens "
 "maksimalt {1} filer er tilladt i en enkelt forespørgsel."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} på vegne af {1}"
@@ -3522,9 +3543,6 @@ msgstr "Vent på anden person"
 msgid "Deferred"
 msgstr "Udsat"
 
-msgid "Close"
-msgstr "Luk"
-
 msgid "Dark"
 msgstr "Mørk"
 
@@ -3588,6 +3606,17 @@ msgstr "Udvid hierarki"
 
 msgid "Folders List"
 msgstr "Mappeliste"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Vis detaljer"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Detaljer"
+
+msgid "Loaded {0} of {1}"
+msgstr "Hentet {0} af {1}"
 
 msgid "Saving"
 msgstr "Gemmer"
@@ -3682,6 +3711,13 @@ msgstr "Fuld kontrol"
 
 msgid "No rights"
 msgstr "Ingen rettigheder"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "De vedhæftede filer er endnu ikke uploadet."
 
 msgid "Create New Folder"
 msgstr "Opret ny mappe"
@@ -3868,6 +3904,25 @@ msgstr "Tilføj til favoritter"
 msgid "Remove From Favorites"
 msgstr "Fjern fra favoritter"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Start mappe"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Vigtigt"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Egenskaber"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Egenskaber"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -3973,9 +4028,6 @@ msgstr "Ingen afsenderadresse er valgt"
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Send email"
-
 msgid "Send email to recipients"
 msgstr "Send email til modtagere"
 
@@ -3988,7 +4040,8 @@ msgstr "Planlæg at sende emailen på et specifikt angivet dato og tidspunkt."
 msgid "Save email"
 msgstr "Gem email"
 
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "Slet denne mail"
 
 msgid "Add attachments to this email"
@@ -4074,14 +4127,8 @@ msgstr "Anmod om kvittering af læsning for denne meddelelse."
 msgid "no subject"
 msgstr "intet emne"
 
-msgid "Delete this item."
-msgstr "Slet dette element"
-
 msgid "Delete mail"
 msgstr "Slet mail"
-
-msgid "Delete this mail."
-msgstr "Slet denne mail"
 
 msgid "Set Category"
 msgstr "Sæt kategori"
@@ -5241,8 +5288,10 @@ msgstr "Login fejlede. Check venligst dit brugernavn/adgangskode og prøv igen."
 msgid "Cannot connect to Kopano Core."
 msgstr "Kunne ikke forbinde til Kopano Core."
 
-msgid "Logon failed, another session already exists."
-msgstr "Logon fejlede, en anden session eksisterer allerede."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Ukendt MAPI fejl"
@@ -5252,6 +5301,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Det eksterne link vil blive åbnet i et nyt vindue"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Destinationsmappe"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5267,6 +5320,10 @@ msgstr "ZIP filen kunne ikke dannes"
 #, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "ZIP filen kunne ikke dannes"
+
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Tilføj vedhæftning til denne kontakt."
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP filen kunne ikke dannes"
@@ -5777,8 +5834,17 @@ msgstr "Password"
 msgid "Sign in"
 msgstr "Log på"
 
-msgid "Could not upload attachment."
-msgstr "Kan ikke uploade vedhæftning."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "ZIP filen kunne ikke dannes"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} er ikke en gyldig tid"
 
 msgid "GB"
 msgstr "GB"

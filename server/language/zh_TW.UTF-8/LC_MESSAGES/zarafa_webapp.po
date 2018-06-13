@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1331,17 +1331,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "在日期選擇上顯示粗體的繁忙日期"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1753,6 +1755,26 @@ msgid ""
 "message. Do you wish to notify the sender?"
 msgstr "當讀取時會通知寄件者此訊息已讀取，您希望通知寄件者嗎?"
 
+#, fuzzy
+msgid "Import"
+msgstr "重要的"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "重要的"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "關閉"
+
 msgid "Cc"
 msgstr "副本"
 
@@ -1792,10 +1814,6 @@ msgstr "沒有選擇的郵件"
 
 #, fuzzy
 msgid "Import to"
-msgstr "重要的"
-
-#, fuzzy
-msgid "Import"
 msgstr "重要的"
 
 # 90%
@@ -2205,6 +2223,13 @@ msgstr "傳送郵件"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "刪除此通訊群組"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "新增電子郵件地址"
+
+msgid "Send email"
+msgstr "傳送郵件"
 
 msgid "View recipient"
 msgstr "瀏覽收件者"
@@ -2675,9 +2700,6 @@ msgstr "d-m-Y"
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} 選擇項目"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3258,10 +3280,12 @@ msgstr "列印此通訊群組列表"
 msgid "Mark this Distribution list as private."
 msgstr "標示此通訊群組為私人"
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "新增電子郵件地址"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "請輸入有效的電子郵件地址"
 
 msgid "E-mail Address"
@@ -3488,12 +3512,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} 代表 {1} "
@@ -3584,9 +3602,6 @@ msgstr "等待其他人"
 msgid "Deferred"
 msgstr "延期"
 
-msgid "Close"
-msgstr "關閉"
-
 msgid "Dark"
 msgstr ""
 
@@ -3652,6 +3667,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "資料夾列表"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "顯示詳細"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "詳細"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "儲存中"
@@ -3740,6 +3766,12 @@ msgstr "完全控制"
 
 msgid "No rights"
 msgstr "沒有權限"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "建立新資料夾"
@@ -3933,6 +3965,25 @@ msgstr "新增至我的最愛資料夾"
 msgid "Remove From Favorites"
 msgstr "從行事曆上移除"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "開始資料夾"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "重要的"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "屬性"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "屬性"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4033,9 +4084,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "傳送郵件"
-
 msgid "Send email to recipients"
 msgstr "傳送郵件給收件人"
 
@@ -4052,7 +4100,7 @@ msgstr "儲存郵件"
 # 100%
 # 94%
 #, fuzzy
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr "刪除此項目"
 
 msgid "Add attachments to this email"
@@ -4135,17 +4183,8 @@ msgstr "要求此封郵件的讀取回條"
 msgid "no subject"
 msgstr "無主旨"
 
-msgid "Delete this item."
-msgstr "刪除此項目"
-
 msgid "Delete mail"
 msgstr ""
-
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this mail."
-msgstr "刪除此項目"
 
 msgid "Set Category"
 msgstr "設定類別"
@@ -5348,8 +5387,10 @@ msgstr "Logon Failed. Please check your name/password"
 msgid "Cannot connect to Kopano Core."
 msgstr "無法連線到Kopano server."
 
-msgid "Logon failed, another session already exists."
-msgstr "登入錯誤，有其他的連線已登入"
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5360,6 +5401,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "This external link will open in a new window"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "目前資料夾"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5372,6 +5417,10 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "新增附件到此聯絡人"
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -5916,8 +5965,17 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "無法上傳附件"
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "傳送成功"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} 不是一個有效的時間"
 
 msgid "GB"
 msgstr "GB"

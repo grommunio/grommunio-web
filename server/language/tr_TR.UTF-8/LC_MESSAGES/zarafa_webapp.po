@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1391,19 +1391,24 @@ msgstr "Tarih seçiminde meşgul günleri kalın göster"
 
 #, fuzzy
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 "müsait / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
 "kullanılıyor, "
 
-msgid "Free/Busy permission"
+#, fuzzy
+msgid "Free/Busy publishing"
 msgstr "müsait / meşgul izni"
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr "sadece 1 ila 36 aylık müsait / meşgul periodu yayımlayabilirsin."
 
 msgid "Side-by-side mode"
@@ -1832,6 +1837,26 @@ msgstr ""
 "Bu mesajın göndereni bu mesajı okuduğunuzda bildirilmesini istedi. Göndereni "
 "bildirmek istiyor musunuz?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Önemli"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Önemli"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Kapat"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -1869,10 +1894,6 @@ msgstr "Hiçbir mesaj seçilmedi"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Önemli"
-
-#, fuzzy
-msgid "Import"
 msgstr "Önemli"
 
 # 90%
@@ -2293,6 +2314,13 @@ msgstr "E-posta gönder"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Bu dağıtım listesini sil"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Yeni e-posta adresi"
+
+msgid "Send email"
+msgstr "E-posta gönder"
 
 msgid "View recipient"
 msgstr "Alıcı bilgileri"
@@ -2774,9 +2802,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} seçili satır"
 msgstr[1] "{0} seçili satır"
-
-msgid "Loaded {0} of {1}"
-msgstr "{1} den {0} yüklendi"
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3376,10 +3401,12 @@ msgstr "Bu dağıtım listesini yazdır"
 msgid "Mark this Distribution list as private."
 msgstr "Bu dağıtım listesini özel olarak işaretle"
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Yeni e-posta adresi"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Geçerli bir e-posta adresine giriniz !"
 
 # 92%
@@ -3629,12 +3656,6 @@ msgstr ""
 "Ek yüklenemiyor. Toplam ek sayısı {0}. tekil istekle izin verilen maksimum "
 "sayı {1}."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} adına"
@@ -3727,9 +3748,6 @@ msgstr "Diğer kişi için bekleyin"
 msgid "Deferred"
 msgstr "Ertelendi"
 
-msgid "Close"
-msgstr "Kapat"
-
 msgid "Dark"
 msgstr "koyu"
 
@@ -3794,6 +3812,17 @@ msgstr "Hiyerarşi genişlet"
 
 msgid "Folders List"
 msgstr "Klasör listesi"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Detaylar göster"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Ayrıntılar"
+
+msgid "Loaded {0} of {1}"
+msgstr "{1} den {0} yüklendi"
 
 msgid "Saving"
 msgstr "Kaydet"
@@ -3892,6 +3921,13 @@ msgstr "Tam Denetim"
 
 msgid "No rights"
 msgstr "Hiçbir hak"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "Eklenen dosyalar henüz yüklenmedi."
 
 msgid "Create New Folder"
 msgstr "Yeni klasör oluştur"
@@ -4086,6 +4122,25 @@ msgstr "favorilere ekle"
 msgid "Remove From Favorites"
 msgstr "favorilerden sil"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Başlangıҫ klasör"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Önemli"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Özellikleri"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Özellikleri"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4191,9 +4246,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "E-posta gönder"
-
 msgid "Send email to recipients"
 msgstr "Alıcılara e-posta gönder"
 
@@ -4209,7 +4261,8 @@ msgstr "E-posta kaydet"
 # 94%
 # 76%
 # 100%
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "Bu e-posta'yı sil"
 
 # 86%
@@ -4297,18 +4350,8 @@ msgstr "Bu ileti için okundu bilgisi istemek."
 msgid "no subject"
 msgstr "konu yok"
 
-# 94%
-msgid "Delete this item."
-msgstr "Bu öğeyi sil"
-
 msgid "Delete mail"
 msgstr "e-posta'yı sil"
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "Bu e-posta'yı sil."
 
 msgid "Set Category"
 msgstr "Kategori ayarla"
@@ -5539,8 +5582,10 @@ msgstr ""
 msgid "Cannot connect to Kopano Core."
 msgstr "Kopano sunucuya bağlanamıyor."
 
-msgid "Logon failed, another session already exists."
-msgstr "Oturum açma başarısız, halihazırda başka bir oturum bulunuyor."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Bilinmeyen MAPI hatası"
@@ -5550,6 +5595,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Hedef klasör"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5565,6 +5614,11 @@ msgstr "ZIP oluşturma başarısız"
 #, fuzzy
 msgid "Attachment is not imported successfully"
 msgstr "ZIP oluşturma başarısız"
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Bu kişiye eklentiler ekleyin"
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP oluşturma başarısız"
@@ -6176,8 +6230,17 @@ msgstr "Şifre"
 msgid "Sign in"
 msgstr "oturum aç"
 
-msgid "Could not upload attachment."
-msgstr "Eklenti yüklenemedi."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "ZIP oluşturma başarısız"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} geçerli bir zaman değil"
 
 msgid "GB"
 msgstr "GB"

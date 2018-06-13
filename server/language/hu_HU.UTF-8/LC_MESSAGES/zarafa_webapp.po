@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1404,17 +1404,22 @@ msgstr "Foglalt dátumokat kiemelten jelenítse meg a dátumválasztóban"
 
 #, fuzzy
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr "Elérhetőségéhez hozzáférhetnek mások, "
 
-msgid "Free/Busy permission"
+#, fuzzy
+msgid "Free/Busy publishing"
 msgstr "Elérhetőség mutatásának engedélyezése"
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "{A} hónap elérhetőségének publikussá tétele a kiszolgálón."
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 "Csak az 1 és 36 hónap közti intervallumban tudja megadni elérhetőségét."
 
@@ -1846,6 +1851,25 @@ msgstr ""
 "A küldő ebben az üzenetben olvasási visszaigazolást kért. Kíván "
 "visszaigazolást küldeni?"
 
+msgid "Import"
+msgstr "Importálás"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Importálás ebbe"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Bezárás"
+
 # 100%
 msgid "Cc"
 msgstr "Cc"
@@ -1885,9 +1909,6 @@ msgstr "Nincs kiválasztott üzenet"
 
 msgid "Import to"
 msgstr "Importálás ebbe"
-
-msgid "Import"
-msgstr "Importálás"
 
 # 90%
 # 100%
@@ -2309,6 +2330,14 @@ msgstr "Küldés"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Címzett törlése a javaslatok listájáról"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "E-mail cím másolása"
+
+# 90%
+msgid "Send email"
+msgstr "Email küldése"
 
 msgid "View recipient"
 msgstr "Címzett megtekintése"
@@ -2783,12 +2812,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} kiválasztott sor"
 msgstr[1] "{0} kiválasztott sor"
-
-# 86%
-# 100%
-# 76%
-msgid "Loaded {0} of {1}"
-msgstr "{0}/{1} elem betöltve"
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3369,10 +3392,12 @@ msgstr "Nyomtassa a terjesztési listát."
 msgid "Mark this Distribution list as private."
 msgstr "Jelölje meg a terjesztési listát személyesként."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Új e-mail cím"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Kérem adjon meg valós e-mail címet!"
 
 # 92%
@@ -3617,12 +3642,6 @@ msgstr ""
 "A csatolmányt nem lehet feltölteni, a csatolmányok száma {0} fájl, a "
 "maximálisan egedélyezett {1}."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} nevében"
@@ -3716,9 +3735,6 @@ msgstr "Másik személyre vár"
 msgid "Deferred"
 msgstr "Elhalasztott"
 
-msgid "Close"
-msgstr "Bezárás"
-
 msgid "Dark"
 msgstr "Sötét"
 
@@ -3782,6 +3798,20 @@ msgstr "Hierarchia megnyitása"
 
 msgid "Folders List"
 msgstr "Mappák listája"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Részletek megjelenítése"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Részletek"
+
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "{0}/{1} elem betöltve"
 
 msgid "Saving"
 msgstr "Mentés"
@@ -3886,6 +3916,13 @@ msgstr "Teljes hozzáférés"
 
 msgid "No rights"
 msgstr "Semmilyen jogosultság"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "A csatolandó fájlok még nincsenek feltöltve."
 
 msgid "Create New Folder"
 msgstr "Új mappa"
@@ -4074,6 +4111,25 @@ msgstr "Hozzáadás a kedvencekhez"
 msgid "Remove From Favorites"
 msgstr "Eltávolítás a kedvencekből"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Kezdő mappa"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Importálás ebbe"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Tulajdonságok"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Tulajdonságok"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4181,10 +4237,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-# 90%
-msgid "Send email"
-msgstr "Email küldése"
-
 msgid "Send email to recipients"
 msgstr "Email küldése a címzetteknek"
 
@@ -4200,7 +4252,8 @@ msgstr "Email mentése"
 # 94%
 # 76%
 # 100%
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "Levél törlése"
 
 # 86%
@@ -4290,18 +4343,8 @@ msgstr "Olvasási visszaigazolás kérése az üzenethez."
 msgid "no subject"
 msgstr "nincs tárgy"
 
-# 94%
-msgid "Delete this item."
-msgstr "Elem törlése."
-
 msgid "Delete mail"
 msgstr "Levél törlése"
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "Levél törlése."
 
 msgid "Set Category"
 msgstr "Kategória beállítása"
@@ -5505,8 +5548,10 @@ msgstr ""
 msgid "Cannot connect to Kopano Core."
 msgstr "Nem sikerült csatlakozni a Kopano szerverhez."
 
-msgid "Logon failed, another session already exists."
-msgstr "Sikertelen belépés, egy másik ablakban már be van jelentkezve!"
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
@@ -5516,6 +5561,10 @@ msgstr "Kattintson a linkre az új ablakban való megnyitáshoz."
 
 msgid "This external link will open in a new window"
 msgstr "Ez a külső link egy új ablakban fog megnyílni"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Célmappa"
 
 msgid "Eml is corrupted"
 msgstr "Az EML fájl sérült"
@@ -5530,6 +5579,11 @@ msgstr "A csatolmány importálása sikertelen"
 
 msgid "Attachment is not imported successfully"
 msgstr "A csatolmány importálása sikertelen"
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Mellékletek hozzáadása a névjegyhez."
 
 msgid "ZIP is not created successfully"
 msgstr "A ZIP fájl nem lett sikeresen létrehozva"
@@ -6156,8 +6210,17 @@ msgstr "Jelszó"
 msgid "Sign in"
 msgstr "Bejelentkezés"
 
-msgid "Could not upload attachment."
-msgstr "A melléklet feltöltése nem sikerült."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "A csatolmány importálása sikertelen"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} nem érvényes idő"
 
 msgid "GB"
 msgstr "GB"

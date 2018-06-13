@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2018-05-28 14:31+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1407,21 +1407,27 @@ msgstr "Werkdagen"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Geef dagen met afspraken vet weer in het datumkeuzeveld"
 
+#, fuzzy
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 "Beschikbaarheids informatie wordt gebruikt door de verzender van "
 "vergaderverzoeken, om te vast te stellen wanneer u beschikbaar bent voor "
 "vergaderingen."
 
-msgid "Free/Busy permission"
+#, fuzzy
+msgid "Free/Busy publishing"
 msgstr "Beschikbaarheids informatie permissie"
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "Publiceer {A} maand(en) beschikbaarheids informatie op de server."
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 "U kunt alleen beschikbaarheids informatie publiceren in een periode van 1 "
 "tot 36 maanden."
@@ -1868,6 +1874,25 @@ msgstr ""
 "De afzender van dit bericht heeft gevraagd kennis te geven wanneer dit "
 "bericht is gelezen. Wilt u deze kennisgeving sturen naar de afzender?"
 
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "Item(s) succesvol geimporteerd naar {0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "Kon item(s) niet succesvol importeren naar {0}"
+
+#, fuzzy
+msgid "Import error"
+msgstr "Importeren naar"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Sluiten"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -1905,9 +1930,6 @@ msgstr "Geen bericht geselecteerd"
 
 msgid "Import to"
 msgstr "Importeren naar"
-
-msgid "Import"
-msgstr "Importeren"
 
 # 90%
 # 100%
@@ -2340,6 +2362,13 @@ msgstr "Verzend e-mail"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Verwijder de geadresseerde uit de suggestielijst"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "E-mail adres kopiëren"
+
+msgid "Send email"
+msgstr "Verzend e-mail"
 
 msgid "View recipient"
 msgstr "Bekijk geadresseerde"
@@ -2823,12 +2852,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} geselecteerde rij"
 msgstr[1] "{0} geselecteerde rijen"
-
-# 86%
-# 100%
-# 76%
-msgid "Loaded {0} of {1}"
-msgstr "Geladen {0} van {1}"
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Herinnering ingesteld voor: {0}, {1}"
@@ -3425,10 +3448,12 @@ msgstr "Druk deze distributielijst af."
 msgid "Mark this Distribution list as private."
 msgstr "Markeer deze Distributielijst als privé."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Nieuw e-mailadres"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Voer een valide e-mailadres in!"
 
 msgid "E-mail Address"
@@ -3733,12 +3758,6 @@ msgstr ""
 "Kan bijlage niet uploaden, totaal aantal bijlagen {0} en het maximum "
 "toegestaan aantal bijlagen in een enkel verzoek is {1}."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr "Item(s) succesvol geimporteerd naar {0}"
-
-msgid "Failed to import item(s) to {0}"
-msgstr "Kon item(s) niet succesvol importeren naar {0}"
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} namens {1}"
@@ -3832,9 +3851,6 @@ msgstr "Wacht op iemand anders"
 msgid "Deferred"
 msgstr "Uitgesteld"
 
-msgid "Close"
-msgstr "Sluiten"
-
 msgid "Dark"
 msgstr "Donker"
 
@@ -3901,6 +3917,20 @@ msgstr "Hiërarchie uitklappen"
 
 msgid "Folders List"
 msgstr "Mappenlijst"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Toon Details"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Details"
+
+# 86%
+# 100%
+# 76%
+msgid "Loaded {0} of {1}"
+msgstr "Geladen {0} van {1}"
 
 msgid "Saving"
 msgstr "Opslaan"
@@ -4000,6 +4030,13 @@ msgstr "Volledig beheer"
 
 msgid "No rights"
 msgstr "Geen rechten"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "De bijgevoegde bestanden zijn nog niet opgeladen."
 
 msgid "Create New Folder"
 msgstr "Nieuwe map aanmaken"
@@ -4193,6 +4230,25 @@ msgstr "Aan favorieten toevoegen"
 msgid "Remove From Favorites"
 msgstr "Uit favorieten verwijderen"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Opstartmap"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Importeren naar"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Eigenschappen"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Eigenschappen"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4300,9 +4356,6 @@ msgstr "Geen afzenders geconfigureerd!"
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Dit bericht wordt gemarkeerd voor opvolging als het is verstuurd."
 
-msgid "Send email"
-msgstr "Verzend e-mail"
-
 msgid "Send email to recipients"
 msgstr "Verzend e-mail naar ontvangers"
 
@@ -4320,7 +4373,8 @@ msgstr "Sla e-mail op"
 # 94%
 # 76%
 # 100%
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "Verwijder deze e-mail"
 
 # 86%
@@ -4407,18 +4461,8 @@ msgstr "Verzoek een leesbevestiging voor dit bericht."
 msgid "no subject"
 msgstr "geen onderwerp"
 
-# 94%
-msgid "Delete this item."
-msgstr "Verwijder dit item."
-
 msgid "Delete mail"
 msgstr "E-mail verwijderen"
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "Verwijder deze e-mail."
 
 msgid "Set Category"
 msgstr "Stel categorie in"
@@ -5681,8 +5725,10 @@ msgstr "Inloggen mislukt. Controleer inloggegevens en probeer opnieuw."
 msgid "Cannot connect to Kopano Core."
 msgstr "Kan niet verbinden met Kopano Core."
 
-msgid "Logon failed, another session already exists."
-msgstr "Aanmelden mislukt, er is al een andere sessie."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 msgid "Unknown MAPI Error"
 msgstr "Onbekende MAPI-Fout"
@@ -5692,6 +5738,10 @@ msgstr "Klik op de link om de URL in een nieuw venster te openen."
 
 msgid "This external link will open in a new window"
 msgstr "Deze externe koppeling wordt in een nieuw venster geopend"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Bestemmingsmap"
 
 msgid "Eml is corrupted"
 msgstr "Eml is corrupt"
@@ -5704,6 +5754,11 @@ msgstr "De vcf bijlage kon niet succesvol worden geimporteerd"
 
 msgid "Attachment is not imported successfully"
 msgstr "Bijlage kon niet succesvol worden geimporteerd"
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Voeg bijlagen toe aan deze contactpersoon."
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP bestand kon niet worden aangemaakt"
@@ -6332,8 +6387,17 @@ msgstr "Wachtwoord"
 msgid "Sign in"
 msgstr "Inloggen"
 
-msgid "Could not upload attachment."
-msgstr "Kon de bijlage niet uploaden."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Bijlage kon niet succesvol worden geimporteerd"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} is geen geldig tijdstip"
 
 msgid "GB"
 msgstr "GB"

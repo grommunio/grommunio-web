@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1407,17 +1407,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "V zbirniku datumov prikaži zasedene datume krepko"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1856,6 +1858,26 @@ msgstr ""
 "Pošiljatelj tega sporočila želi biti obveščen kdaj berete to sporočilo. Ali "
 "želite obvestiti pošiljatelja?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Pomembno"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Pomembno"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Zapri"
+
 msgid "Cc"
 msgstr "Kp"
 
@@ -1894,10 +1916,6 @@ msgstr "Nobeno sporočilo ni izbrano"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Pomembno"
-
-#, fuzzy
-msgid "Import"
 msgstr "Pomembno"
 
 # 90%
@@ -2320,6 +2338,13 @@ msgstr "Pošlji sporočilo"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Izbriši distribucijski seznam."
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nov elektronski naslov"
+
+msgid "Send email"
+msgstr "Pošlji sporočilo"
 
 msgid "View recipient"
 msgstr "Poglej prejemnika"
@@ -2810,9 +2835,6 @@ msgstr[0] "{0} izbrana vrstica"
 msgstr[1] "{0} izbrane vrstice"
 msgstr[2] "{0} izbrane vrstice"
 msgstr[3] "{0} izbrane vrstice"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3420,10 +3442,12 @@ msgstr "Natisni ta distribucijski seznam."
 msgid "Mark this Distribution list as private."
 msgstr "Označi ta distribucijski seznam kot zaseben."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Nov elektronski naslov"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Prosim vnesite veljavni elektronski naslov!"
 
 # 92%
@@ -3678,12 +3702,6 @@ msgstr ""
 "Ne morem naložiti priloge. Skupno število priloge je {0} datotek medtem ko "
 "je dovoljeno število datotek {1}."
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0} v imenu {1}"
@@ -3774,9 +3792,6 @@ msgstr "Počakaj na drugo osebo"
 msgid "Deferred"
 msgstr "Odloženo"
 
-msgid "Close"
-msgstr "Zapri"
-
 msgid "Dark"
 msgstr ""
 
@@ -3842,6 +3857,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "Seznam map"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Pokaži podrobnosti"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Podrobnosti"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "Shranjevanje"
@@ -3940,6 +3966,13 @@ msgstr "Popolni nadzor"
 
 msgid "No rights"
 msgstr "Ni pravic"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "Priložene datoteke še niso bile naložene."
 
 msgid "Create New Folder"
 msgstr "Ustvari novo mapo"
@@ -4133,6 +4166,25 @@ msgstr "Dodaj v mapo priljubljeno"
 msgid "Remove From Favorites"
 msgstr "Odstrani s koledarja"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Zagonska mapa"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Pomembno"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Lastnosti"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Lastnosti"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4239,9 +4291,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Pošlji sporočilo"
-
 msgid "Send email to recipients"
 msgstr "Pošlji sporočilo prejemnikom"
 
@@ -4257,7 +4306,8 @@ msgstr "Shrani sporočilo"
 # 94%
 # 76%
 # 100%
-msgid "Delete this mail"
+#, fuzzy
+msgid "Delete this email"
 msgstr "Izbriši to sporočilo"
 
 # 86%
@@ -4347,18 +4397,8 @@ msgstr "Zahtevaj potrdilo o branju za to sporočilo."
 msgid "no subject"
 msgstr "ni predmeta"
 
-# 94%
-msgid "Delete this item."
-msgstr "Izbriši ta predmet"
-
 msgid "Delete mail"
 msgstr "Izbriši sporočilo"
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this mail."
-msgstr "Izbriši to sporočilo"
 
 msgid "Set Category"
 msgstr "Nastavi kategorijo"
@@ -5587,8 +5627,10 @@ msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
 msgid "Cannot connect to Kopano Core."
 msgstr "Ne morem se povezati na Kopano server."
 
-msgid "Logon failed, another session already exists."
-msgstr "Prijava neuspešna, odprto imate še eno sejo."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5599,6 +5641,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ta zunanji link se bo odprl v novem oknu"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Ciljna mapa"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5611,6 +5657,11 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Dodaj priloge k tem kontaktu."
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6228,8 +6279,17 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "Ne morem naložiti priloge."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Pošiljanje uspešno"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} ni veljaven čas"
 
 msgid "GB"
 msgstr "GB"

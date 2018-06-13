@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-08 13:43+0200\n"
+"POT-Creation-Date: 2018-06-13 11:17+0200\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1380,17 +1380,19 @@ msgid "Show busy dates as bold in the date picker"
 msgstr "Näytä varatut päivät lihavoituina päivämäärän valinnassa"
 
 msgid ""
-"Free/busy information is used by people sending meeting requests, to "
+"Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
 
-msgid "Free/Busy permission"
+msgid "Free/Busy publishing"
 msgstr ""
 
-msgid "Publish {A} month(s) of Calendar free/busy information on the server."
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 
-msgid "You can only publish a free/busy period from 1 to 36 months."
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
 msgstr ""
 
 msgid "Side-by-side mode"
@@ -1828,6 +1830,26 @@ msgstr ""
 "Viestin lähettäjä on pyytänyt lukukuittausta, kun luet tämän viestin. "
 "Haluatko kuitata lähettäjälle?"
 
+#, fuzzy
+msgid "Import"
+msgstr "Tärkeä"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Tärkeä"
+
+msgid "Unable to import {0}. The file is not valid"
+msgstr ""
+
+msgid "Close"
+msgstr "Sulje"
+
 msgid "Cc"
 msgstr "Kopio"
 
@@ -1867,10 +1889,6 @@ msgstr "Viestiä ei ole valittu"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Tärkeä"
-
-#, fuzzy
-msgid "Import"
 msgstr "Tärkeä"
 
 # 90%
@@ -2281,6 +2299,13 @@ msgstr "Lähetä sähköposti"
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Poista jakelulista."
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Uusi sähköpostiosoite"
+
+msgid "Send email"
+msgstr "Lähetä sähköposti"
 
 msgid "View recipient"
 msgstr "Tarkastele vastaanottajia"
@@ -2757,9 +2782,6 @@ msgid "{0} selected row"
 msgid_plural "{0} selected rows"
 msgstr[0] "{0} valittu rivi"
 msgstr[1] "{0} valittua riviä"
-
-msgid "Loaded {0} of {1}"
-msgstr ""
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr ""
@@ -3355,10 +3377,12 @@ msgstr "Tulosta jakelulista."
 msgid "Mark this Distribution list as private."
 msgstr "Merkitse jakelulista yksityiseksi."
 
-msgid "New e-mail address"
+#, fuzzy
+msgid "New email address"
 msgstr "Uusi sähköpostiosoite"
 
-msgid "Please input a valid email address!"
+#, fuzzy
+msgid "Please enter a valid email address"
 msgstr "Ole hyvä ja syötä toimiva sähköpostiosoite!"
 
 msgid "E-mail Address"
@@ -3592,12 +3616,6 @@ msgid ""
 "{1} files are allowed in single request."
 msgstr ""
 
-msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
-
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
 msgstr "{0}, käyttäjän {1} puolesta"
@@ -3688,9 +3706,6 @@ msgstr "Odota toista henkilöä"
 msgid "Deferred"
 msgstr "Lykätty"
 
-msgid "Close"
-msgstr "Sulje"
-
 msgid "Dark"
 msgstr ""
 
@@ -3756,6 +3771,17 @@ msgstr ""
 
 msgid "Folders List"
 msgstr "Kansio lista"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Näytä tiedot"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Yksityiskohdat"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
 
 msgid "Saving"
 msgstr "Tallennetaan"
@@ -3850,6 +3876,12 @@ msgstr "Täysi hallinta"
 
 msgid "No rights"
 msgstr "Ei oikeuksia"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
 
 msgid "Create New Folder"
 msgstr "Luo uusi kansio"
@@ -4043,6 +4075,25 @@ msgstr "Lisää suosikkikansioihin"
 msgid "Remove From Favorites"
 msgstr "Poista kalenterista"
 
+#, fuzzy
+msgid "Share folder..."
+msgstr "Aloitus kansio"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Tärkeä"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Ominaisuudet"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Ominaisuudet"
+
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
@@ -4149,9 +4200,6 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email"
-msgstr "Lähetä sähköposti"
-
 msgid "Send email to recipients"
 msgstr "Lähetä sähköposti vastaanottajille"
 
@@ -4168,7 +4216,7 @@ msgstr "Tallenna sähköposti"
 # 76%
 # 100%
 #, fuzzy
-msgid "Delete this mail"
+msgid "Delete this email"
 msgstr "Poista tämä kohde."
 
 # 86%
@@ -4258,19 +4306,8 @@ msgstr "Pyydä lukukuittaus viestille."
 msgid "no subject"
 msgstr "ei aihetta"
 
-# 94%
-msgid "Delete this item."
-msgstr "Poista tämä kohde."
-
 msgid "Delete mail"
 msgstr ""
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this mail."
-msgstr "Poista tämä kohde."
 
 msgid "Set Category"
 msgstr "Määritä kategoria"
@@ -5498,8 +5535,10 @@ msgstr "Sisäänkirjautuminen epäonnistui Tarkista nimesi/salasanasi."
 msgid "Cannot connect to Kopano Core."
 msgstr "Yhteyttä Kopanon palvelimeen ei saada."
 
-msgid "Logon failed, another session already exists."
-msgstr "Sisäänkirjautuminen epäonnistui, toinen istunto on jo käynnissä."
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
 
 #, fuzzy
 msgid "Unknown MAPI Error"
@@ -5510,6 +5549,10 @@ msgstr ""
 
 msgid "This external link will open in a new window"
 msgstr "Ulkopuolinen linkki avataan uudessa ikkunassa"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Kohdekansio"
 
 msgid "Eml is corrupted"
 msgstr ""
@@ -5522,6 +5565,11 @@ msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Lisää liitetiedostoja yhteystietoon."
 
 msgid "ZIP is not created successfully"
 msgstr ""
@@ -6158,8 +6206,17 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-msgid "Could not upload attachment."
-msgstr "Liitettä ei voitu ladata."
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Lähetetty onnistuneesti"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} ei ole saliittu aika"
 
 msgid "GB"
 msgstr "GtT"
