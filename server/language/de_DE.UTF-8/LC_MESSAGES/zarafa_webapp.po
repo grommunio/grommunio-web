@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-13 11:17+0200\n"
-"PO-Revision-Date: 2018-05-11 08:43+0000\n"
-"Last-Translator: Hans-Peter <h.stradinger@kopano.com>\n"
+"PO-Revision-Date: 2018-06-13 09:28+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -1406,7 +1406,6 @@ msgstr "Arbeitstage"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Belegte Termine in der Datumsauswahl in fett anzeigen"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
@@ -1414,20 +1413,18 @@ msgstr ""
 "Die Frei/Gebucht Informationen können von Benutzern verwendet werden um zu "
 "sehen wann Sie verfügbar sind."
 
-#, fuzzy
 msgid "Free/Busy publishing"
-msgstr "Frei/Gebucht Berechtigungen"
+msgstr "Frei/Gebucht Veröffentlichung"
 
-#, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "Informationen für {A} Monat(e) veröffentlichen."
+msgstr "Frei-/Gebucht Informationen für {A} Monat(e) veröffentlichen."
 
-#, fuzzy
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
-"Sie können Ihre Informationen nur für ein bis 36 Monate veröffentlichen."
+"Sie können Ihre Informationen nur für 0 bis 36 Monate veröffentlichen. 0 "
+"bedeutet Frei-/Gebucht Informationen werden nicht veröffentlicht."
 
 msgid "Side-by-side mode"
 msgstr "Seite-an-Seite-Modus"
@@ -1873,12 +1870,11 @@ msgstr "Erfolgreich importierte Elemente in {0}"
 msgid "Failed to import item(s) to {0}"
 msgstr "Import fehlgeschlagen in {0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Importieren in"
+msgstr "Importfehler"
 
 msgid "Unable to import {0}. The file is not valid"
-msgstr ""
+msgstr "Import von {0} nicht möglich. Die Datei ist ungültig"
 
 msgid "Close"
 msgstr "Schließen"
@@ -2356,7 +2352,6 @@ msgstr "E-Mail senden"
 msgid "Delete recipient from suggestion list"
 msgstr "Empfänger von der Liste mit Empfehlungen löschen"
 
-#, fuzzy
 msgid "Copy email address"
 msgstr "E-Mail-Adresse kopieren"
 
@@ -3459,13 +3454,11 @@ msgstr "Diese Verteilerliste drucken."
 msgid "Mark this Distribution list as private."
 msgstr "Diese Verteilerliste als privat markieren."
 
-#, fuzzy
 msgid "New email address"
 msgstr "Neue E-Mail-Adresse"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Bitte geben sie ein gültige E-Mail-Adresse ein!"
+msgstr "Bitte geben sie ein gültige E-Mail-Adresse ein"
 
 # 92%
 msgid "E-mail Address"
@@ -3877,13 +3870,11 @@ msgstr "Ordnerhierarchie anzeigen"
 msgid "Folders List"
 msgstr "Ordnerliste"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Details anzeigen"
+msgstr "Details kopieren"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Details"
+msgstr "Details verstecken"
 
 # 86%
 # 100%
@@ -3994,11 +3985,10 @@ msgid "No rights"
 msgstr "Keine Rechte"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Import nicht möglich:"
 
-#, fuzzy
 msgid "The files are not valid"
-msgstr "Die Anhänge wurden noch nicht vollständig hochgeladen."
+msgstr "Die Dateien sind ungültig"
 
 msgid "Create New Folder"
 msgstr "Einen neuen Ordner erstellen"
@@ -4191,24 +4181,20 @@ msgstr "Den Favoriten hinzufügen"
 msgid "Remove From Favorites"
 msgstr "Aus den Favoriten entfernen"
 
-#, fuzzy
 msgid "Share folder..."
-msgstr "Startordner"
+msgstr "Ordner teilen..."
 
-#, fuzzy
 msgid "Import emails"
-msgstr "Importieren in"
+msgstr "E-Mails importieren"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Eigenschaften"
+msgstr "Eigenschaften von {0}"
 
 msgid "Share {0} with..."
-msgstr ""
+msgstr "{0} teilen mit..."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Eigenschaften"
+msgstr "Eigenschaften von {0} -  {1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4337,7 +4323,6 @@ msgstr "E-Mail speichern"
 # 94%
 # 76%
 # 100%
-#, fuzzy
 msgid "Delete this email"
 msgstr "Diese E-Mail löschen"
 
@@ -5703,6 +5688,8 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Die Anmeldung ist auf Grund einer bereits bestehenden Sitzung "
+"fehlgeschlagen. Das Problem wurde automatisch behoben, bitte erneut anmelden."
 
 msgid "Unknown MAPI Error"
 msgstr "Unbekannter MAPI-Fehler"
@@ -5713,9 +5700,8 @@ msgstr "Klicken Sie auf den Link, um die URL in einem neuen Fenster zu öffnen."
 msgid "This external link will open in a new window"
 msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
 
-#, fuzzy
 msgid "Destination folder not found."
-msgstr "Zielverzeichnis"
+msgstr "Zielverzeichnis konnte nicht gefunden werden."
 
 msgid "Eml is corrupted"
 msgstr "EML ist defekt"
@@ -5730,9 +5716,8 @@ msgid "Attachment is not imported successfully"
 msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
 
 # 81%
-#, fuzzy
 msgid "Embedded attachment not found."
-msgstr "Diesem Kontakt Anhänge hinzufügen."
+msgstr "Eingebetteter Anhang nicht gefunden."
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP-Datei konnte nicht erstellt werden"
@@ -6410,17 +6395,15 @@ msgstr "Passwort"
 msgid "Sign in"
 msgstr "Anmelden"
 
-#, fuzzy
 msgid "File is not imported successfully"
-msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
+msgstr "Die Datei konnte nicht erfolgreich importiert werden"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Import von '%s' nicht möglich"
 
-#, fuzzy
 msgid "The EML is not valid"
-msgstr "{0} ist keine gültige Zeitangabe"
+msgstr "Die EML Datei ist ungültig"
 
 msgid "GB"
 msgstr "GB"
