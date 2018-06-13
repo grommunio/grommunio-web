@@ -277,5 +277,6 @@ module.exports = {
 	    "npgettext": true,
 	    "urlActionData": true,
 	    "resizeLoginBox": true,
+	    "tinymce": true,
     }
 };

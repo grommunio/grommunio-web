@@ -304,6 +304,7 @@
 				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 				var pgettext = function(msgctxt, msgid) {};
 				var resizeLoginBox = function() {};
+                var tinymce = {};
 			</externs>
 		</zCompile>
 	</target>
