@@ -117,10 +117,10 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 			var html = '<h2 class="k-whatsnew-text-title">' +
 							Ext.util.Format.htmlEncode(feature.title) +
 						'</h2><div class="k-whatsnew-text-description">' +
-							feature.description +
+							Ext.util.Format.nl2br(Ext.util.Format.htmlEncode(Zarafa.core.HTMLParser.br2nl(feature.description))) +
 						'</p>';
 			if ( !Ext.isEmpty(feature.icon_url) ){
-				html = '<img class="k-whatsnew-feature-icon" src="'+feature.icon_url+'">' + html;
+				html = '<img class="k-whatsnew-feature-icon" src="'+Ext.util.Format.htmlEncode(feature.icon_url)+'">' + html;
 			}
 
 			return {
@@ -137,7 +137,7 @@ Zarafa.whatsnew.ui.WhatsNewWindow = Ext.extend(Ext.Window, {
 					cls: 'k-whatsnew-feature-image',
 					width: 432,
 					height: 287,
-					html: '<img src="'+feature.image_url+'">'
+					html: '<img src="'+Ext.util.Format.htmlEncode(feature.image_url)+'">'
 				}]
 			};
 		});
