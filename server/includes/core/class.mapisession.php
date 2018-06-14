@@ -611,31 +611,29 @@
 		function getOtherUserStore()
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
-			if(is_array($otherusers)) {
-				foreach($otherusers as $username=>$folder) {
-					if(is_array($folder) && !empty($folder)) {
-						try {
-							$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+			foreach($otherusers as $username=>$folder) {
+				if(is_array($folder) && !empty($folder)) {
+					try {
+						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-							$this->openMessageStore($user_entryid, $username);
-							$this->userstores[$username] = $user_entryid;
+						$this->openMessageStore($user_entryid, $username);
+						$this->userstores[$username] = $user_entryid;
 
-							// Check if an entire store will be loaded, if so load the archive store as well
-							if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
-								$this->getArchivedStores($this->resolveStrictUserName($username));
-							}
-						} catch (MAPIException $e) {
-							if ($e->getCode() == MAPI_E_NOT_FOUND) {
-								// The user or the corresponding store couldn't be found,
-								// print an error to the log, and remove the user from the settings.
-								dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
-								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
-							} else {
-								// That is odd, something else went wrong. Lets not be hasty and preserve
-								// the user in the settings, but do print something to the log to indicate
-								// something happened...
-								dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
-							}
+						// Check if an entire store will be loaded, if so load the archive store as well
+						if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
+							$this->getArchivedStores($this->resolveStrictUserName($username));
+						}
+					} catch (MAPIException $e) {
+						if ($e->getCode() == MAPI_E_NOT_FOUND) {
+							// The user or the corresponding store couldn't be found,
+							// print an error to the log, and remove the user from the settings.
+							dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
+							$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
+						} else {
+							// That is odd, something else went wrong. Lets not be hasty and preserve
+							// the user in the settings, but do print something to the log to indicate
+							// something happened...
+							dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
 						}
 					}
 				}
@@ -664,35 +662,36 @@
 		 */
 		function retrieveOtherUsersFromSettings()
 		{
-			$result = Array();
-			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores",null);
+			$result = [];
+			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
 
-			if (is_array($other_users)){
-				// Due to a previous bug you were able to open folders from both user_a and USER_A
-				// so we have to filter that here. We do that by making everything lower-case
-				foreach($other_users as $username=>$folders) {
-					// No folders are being shared, the store has probably been closed by the user,
-					// but the username is still lingering in the settings...
-					if (!isset($folders) || empty($folders)) {
-						continue;
-					}
-
-					$username = strtolower($username);
-					if(!isset($result[$username])) {
-						$result[$username] = Array();
-					}
-
-					foreach($folders as $type => $folder) {
-						if(is_array($folder)) {
-							$result[$username][$folder["folder_type"]] = Array();
-							$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
-							$result[$username][$folder["folder_type"]]["show_subfolders"] = $folder["show_subfolders"];
-						}
-					}
+			// Due to a previous bug you were able to open folders from both user_a and USER_A
+			// so we have to filter that here. We do that by making everything lower-case
+			foreach($other_users as $username=>$folders) {
+				// No folders are being shared, the store has probably been closed by the user,
+				// but the username is still lingering in the settings...
+				if (!isset($folders) || empty($folders)) {
+					continue;
 				}
 
+				$username = strtolower($username);
+				if(!isset($result[$username])) {
+					$result[$username] = Array();
+				}
+
+				foreach($folders as $type => $folder) {
+					if(is_array($folder)) {
+						$result[$username][$folder["folder_type"]] = Array();
+						$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
+						$result[$username][$folder["folder_type"]]["show_subfolders"] = $folder["show_subfolders"];
+					}
+				}
+			}
+
+			if (!empty($result)) {
 				$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
 			}
+
 			return $result;
 		}
 
