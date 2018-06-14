@@ -662,11 +662,31 @@
 		 */
 		function retrieveOtherUsersFromSettings()
 		{
-			$result = [];
 			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
 
-			// Due to a previous bug you were able to open folders from both user_a and USER_A
-			// so we have to filter that here. We do that by making everything lower-case
+			$uppercaseUsers = array_filter(array_keys($other_users), function($string) {
+				return (bool) preg_match('/[A-Z]/', $string);
+			});
+
+			if ($uppercaseUsers) {
+				return $this->convertUpperCaseOtherUsersSettings($other_users);
+			}
+
+			return $other_users;
+		}
+
+
+		/*
+		 * Convert old settings to new settings format. Due to a
+		 * previous bug you were able to open folders from both user_a
+		 * and USER_A so we have to filter that here. We do that by
+		 * making everything lower-case
+		 * @param array $other_users the shared_stores settings
+		 * @return array Array of usernames of delegate stores
+		 */
+		private function convertUpperCaseOtherUsersSettings($other_users) {
+			$result = [];
+
 			foreach($other_users as $username=>$folders) {
 				// No folders are being shared, the store has probably been closed by the user,
 				// but the username is still lingering in the settings...
@@ -688,11 +708,7 @@
 				}
 			}
 
-			if (!empty($result)) {
-				$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
-			}
-
-			return $result;
+			$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
 		}
 
 		/**
