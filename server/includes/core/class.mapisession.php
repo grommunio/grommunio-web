@@ -46,6 +46,10 @@
 		 */
 		private $userstores;
 
+		/**
+		 * @var array Cache for userentryid -> archive properties
+		 */
+		private $archivePropsCache;
 
 		/**
 		 * @var int Makes sure retrieveUserData is called only once
@@ -60,6 +64,7 @@
 			$this->session = false;
 			$this->ab = false;
 			$this->userstores = array();
+			$this->archivePropsCache = array();
 			$this->userDataRetrieved = false;
 		}
 
@@ -569,9 +574,11 @@
 		 */
 		function getArchivedStores($userEntryid)
 		{
-			$ab = $this->getAddressbook();
-			$abitem = mapi_ab_openentry($ab, $userEntryid);
-			$userData = mapi_getprops($abitem, Array(PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS));
+			if (!isset($this->archivePropsCache[$userEntryid])) {
+				$this->archivePropsCache[$userEntryid] = $this->getArchiveProps($userEntryid);
+			}
+
+			$userData = $this->archivePropsCache[$userEntryid];
 
 			$archiveStores = Array();
 			if(isset($userData[PR_EC_ARCHIVE_SERVERS]) && count($userData[PR_EC_ARCHIVE_SERVERS]) > 0){
@@ -601,6 +608,16 @@
 				}
 			}
 			return $archiveStores;
+		}
+
+		/**
+		 * @param String $userEntryid binary entryid of the user
+		 * @return Array Address Archive Properties of the user.
+		 */
+		private function getArchiveProps($userEntryid) {
+			$ab = $this->getAddressbook();
+			$abitem = mapi_ab_openentry($ab, $userEntryid);
+			return mapi_getprops($abitem, Array(PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS));
 		}
 
 		/**
