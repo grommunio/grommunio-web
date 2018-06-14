@@ -650,7 +650,7 @@
 		function resolveStrictUserName($username)
 		{
 			$storeEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
-			$store = mapi_openmsgstore($this->getSession(), $storeEntryid);
+			$store = $this->openMessageStore($storeEntryid, $username);
 			$storeProps = mapi_getprops($store, Array(PR_MAILBOX_OWNER_ENTRYID));
 			return $storeProps[PR_MAILBOX_OWNER_ENTRYID];
 		}
