@@ -612,6 +612,10 @@
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
 			foreach($otherusers as $username=>$folder) {
+				if (isset($this->userstores[$username])) {
+					continue;
+				}
+
 				if(is_array($folder) && !empty($folder)) {
 					try {
 						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
