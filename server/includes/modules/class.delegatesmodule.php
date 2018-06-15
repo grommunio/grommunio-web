@@ -92,7 +92,7 @@
 		{
 			if(empty($this->delegateProps)) {
 				if($localFreeBusyMessage === false) {
-					$localFreeBusyMessage = $this->getLocalFreeBusyMessage();
+					$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
 				}
 
 				$this->delegateProps = mapi_getprops($localFreeBusyMessage, array(PR_DELEGATES_SEE_PRIVATE, PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_SCHDINFO_DELEGATE_NAMES));
@@ -113,48 +113,6 @@
 			}
 
 			return $this->delegateProps;
-		}
-
-		/**
-		 * Function will return resource of the local freebusy message of the user's store.
-		 * @param {MAPIStore} $store (optional) user's store.
-		 * @return {MAPIMessage} local freebusy message.
-		 */
-		function getLocalFreeBusyMessage($store = false)
-		{
-			if(!$this->localFreeBusyMessage) {
-				if($store === false) {
-					$store = $this->getDefaultStore();
-				}
-
-				// Get 'LocalFreeBusy' message from FreeBusy Store
-				$root = mapi_msgstore_openentry($store, null);
-				$storeProps = mapi_getprops($root, array(PR_FREEBUSY_ENTRYIDS));
-				$this->localFreeBusyMessage = mapi_msgstore_openentry($store, $storeProps[PR_FREEBUSY_ENTRYIDS][1]);
-			}
-
-			return $this->localFreeBusyMessage;
-		}
-
-		/**
-		 * Function will return resource of the freebusy folder of the user's store.
-		 * @param {MAPIStore} $store (optional) user's store.
-		 * @return {MAPIFolder} freebusy folder.
-		 */
-		function getFreeBusyFolder($store = false)
-		{
-			if(!$this->freeBusyFolder) {
-				if($store === false) {
-					$store = $this->getDefaultStore();
-				}
-
-				// Get 'LocalFreeBusy' message from FreeBusy Store
-				$root = mapi_msgstore_openentry($store, null);
-				$storeProps = mapi_getprops($root, array(PR_FREEBUSY_ENTRYIDS));
-				$this->freeBusyFolder = mapi_msgstore_openentry($store, $storeProps[PR_FREEBUSY_ENTRYIDS][3]);
-			}
-
-			return $this->freeBusyFolder;
 		}
 
 		/**
@@ -486,7 +444,7 @@
 		 */
 		function setDelegateProps($delegate, $delegateIndex = false)
 		{
-			$localFreeBusyMessage = $this->getLocalFreeBusyMessage();
+			$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
 			$delegateProps = $this->getDelegateProps($localFreeBusyMessage);
 
 			if($delegateIndex === false) {
@@ -537,7 +495,7 @@
 					mapi_savechanges($folder);
 
 					if ($folderName === 'calendar') {
-						$freeBusyFolder = $this->getFreeBusyFolder($store);
+						$freeBusyFolder = freebusy::getLocalFreeBusyFolder($store);
 
 						if(isset($freeBusyFolder)) {
 							// set permissions on free/busy message
@@ -795,7 +753,7 @@
 		 */
 		function deleteDelegateProps($delegate, $delegateIndex)
 		{
-			$localFreeBusyMessage = $this->getLocalFreeBusyMessage();
+			$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage();
 			$delegateProps = $this->getDelegateProps($localFreeBusyMessage);
 
 			unset($delegateProps[PR_DELEGATES_SEE_PRIVATE][$delegateIndex]);
@@ -847,7 +805,7 @@
 				mapi_zarafa_setpermissionrules($folder, $acls);
 
 				if ($folderName === 'calendar') {
-					$freeBusyFolder = $this->getFreeBusyFolder($store);
+					$freeBusyFolder = freebusy::getLocalFreeBusyFolder($store);
 
 					if(isset($freeBusyFolder)) {
 						mapi_zarafa_setpermissionrules($freeBusyFolder, $acls);

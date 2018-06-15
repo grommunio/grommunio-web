@@ -664,11 +664,9 @@
 			// check if the folder is the default calendar, if so we also need to set the same permissions on the freebusy folder
 			$root = mapi_msgstore_openentry($store, null);
 			if($root) {
-				$rootProps = mapi_getprops($root, array(PR_IPM_APPOINTMENT_ENTRYID, PR_FREEBUSY_ENTRYIDS));
+				$rootProps = mapi_getprops($root, array(PR_IPM_APPOINTMENT_ENTRYID));
 				if ($folderProps[PR_ENTRYID] == $rootProps[PR_IPM_APPOINTMENT_ENTRYID]){
-					if(isset($rootProps[PR_FREEBUSY_ENTRYIDS]) && isset($rootProps[PR_FREEBUSY_ENTRYIDS][3])){
-						$freebusy = mapi_msgstore_openentry($store, $rootProps[PR_FREEBUSY_ENTRYIDS][3]);
-					}
+					$freebusy = freebusy::getLocalFreeBusyFolder($store);
 				}
 			}
 

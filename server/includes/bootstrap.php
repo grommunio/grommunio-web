@@ -68,6 +68,8 @@
 
 	require_once(BASE_PATH . 'server/includes/core/class.todolist.php');
 
+	require_once(BASE_PATH . 'server/includes/core/class.freebusy.php');
+
 	require_once(BASE_PATH . 'server/includes/core/class.theming.php');
 
 	ob_start();

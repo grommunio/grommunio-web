@@ -4224,9 +4224,7 @@
 				$storeProps = mapi_getprops($store, array(PR_MAILBOX_OWNER_ENTRYID));
 				if (isset($storeProps[PR_MAILBOX_OWNER_ENTRYID])){
 					$freeBusyRange = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/free_busy_range', 2);
-					$localFreeBusyEntryids = mapi_getprops($rootFolder, array(PR_FREEBUSY_ENTRYIDS));
-					$localFreeBusyMessage = mapi_msgstore_openentry($store, $localFreeBusyEntryids[PR_FREEBUSY_ENTRYIDS][1]);
-
+					$localFreeBusyMessage = freebusy::getLocalFreeBusyMessage($store);
 					$freeBusyFolderAccess = mapi_getprops($localFreeBusyMessage, array(PR_ACCESS));
 					// If Free/busy folder have Modification access then update PR_FREEBUSY_COUNT_MONTHS.
 					if (($freeBusyFolderAccess[PR_ACCESS] & MAPI_ACCESS_MODIFY) === MAPI_ACCESS_MODIFY) {
