@@ -30,7 +30,7 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	 * The minimum width in pixels of the message box (defaults to 100)
 	 * @type Number
 	 */
-	minWidth: 100,
+	minWidth: 320,
 
 	/**
 	 * A callback function which is called when the dialog is dismissed either by clicking on the configured buttons,
@@ -95,7 +95,6 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 			maximizable: false,
 			stateful: false,
 			buttonAlign: 'center',
-			width: 400,
 			autoHeight: true,
 			fbar: config.customButtons,
 			listeners: {
@@ -177,8 +176,17 @@ Zarafa.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 			bw = this.body.getFrameWidth('lr'),
 			w;
 
-		w = Math.max(Math.min(this.width || iw + mw + fw + bw, this.maxWidth || this.maxWidth),
-			Math.max(this.minWidth || this.minWidth, this.bwidth || 0));
+		// Width of {@link #msgEl message element} including frame width, {@link #iconEl icon width} and
+		// it should be smaller than {@link #maxWidth}.
+		var msgElWidth = Math.min(this.width || iw + mw + fw + bw, this.maxWidth);
+
+		// Width of footer toolbar, It is considering width of all toolbar buttons.
+		var fbarWidth = 0;
+		this.buttons.forEach(function (button) {
+			fbarWidth += button.getResizeEl() ? button.getWidth() : button.minWidth;
+		});
+
+		w = Math.max(msgElWidth, this.minWidth, fbarWidth);
 
 		this.msgEl.update(this.msg || '&#160;');
 		this.setSize(w, 'auto').center();

@@ -44,7 +44,6 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 
 		if (Ext.isDefined(config) && !Ext.isEmpty(config.details_message)) {
 			return new Zarafa.common.dialogs.CustomMessageBox({
-				width: 320,
 				title: title,
 				msg: message,
 				buttonAlign: 'left',
