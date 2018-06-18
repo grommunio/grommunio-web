@@ -29,7 +29,7 @@ Zarafa.core.ui.notifier.SliderNotifierPlugin = Ext.extend(Zarafa.core.ui.notifie
 				'<h2 class="{basecls}-title">' +
 					'{title}' +
 				'</h2>' +
-				'<div class={basecls}-message">' +
+				'<div class="{basecls}-message">' +
 					'{message}' +
 				'</div>' +
 			'</div>'+
