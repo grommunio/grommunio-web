@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-19 11:59+0200\n"
-"PO-Revision-Date: 2018-05-28 14:31+0000\n"
+"PO-Revision-Date: 2018-06-19 12:25+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1407,30 +1407,26 @@ msgstr "Werkdagen"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Geef dagen met afspraken vet weer in het datumkeuzeveld"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Beschikbaarheids informatie wordt gebruikt door de verzender van "
+"Beschikbaarheidsinformatie wordt gebruikt door de verzender van "
 "vergaderverzoeken, om te vast te stellen wanneer u beschikbaar bent voor "
 "vergaderingen."
 
-#, fuzzy
 msgid "Free/Busy publishing"
-msgstr "Beschikbaarheids informatie permissie"
+msgstr "Beschikbaarheidsinformatie publiceren"
 
-#, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "Publiceer {A} maand(en) beschikbaarheids informatie op de server."
+msgstr "Publiceer {A} maand(en) beschikbaarheidsinformatie op de server."
 
-#, fuzzy
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
-"U kunt alleen beschikbaarheids informatie publiceren in een periode van 1 "
-"tot 36 maanden."
+"U kunt alleen beschikbaarheidsinformatie publiceren in een periode van 0 tot "
+"36 maanden. 0 betekent dat informatie niet wordt gepubliceerd."
 
 msgid "Side-by-side mode"
 msgstr "Naast-elkaarmodus"
@@ -1883,12 +1879,11 @@ msgstr "Item(s) succesvol geimporteerd naar {0}"
 msgid "Failed to import item(s) to {0}"
 msgstr "Kon item(s) niet succesvol importeren naar {0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Importeren naar"
+msgstr "Probleem met importeren"
 
 msgid "Unable to import {0}. The file is not valid"
-msgstr ""
+msgstr "{0} kan niet geïmporteerd worden. Het bestand is niet valide"
 
 msgid "Close"
 msgstr "Sluiten"
@@ -2363,9 +2358,8 @@ msgstr "Verzend e-mail"
 msgid "Delete recipient from suggestion list"
 msgstr "Verwijder de geadresseerde uit de suggestielijst"
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "E-mail adres kopiëren"
+msgstr "Emailadres kopiëren"
 
 msgid "Send email"
 msgstr "Verzend e-mail"
@@ -3448,13 +3442,11 @@ msgstr "Druk deze distributielijst af."
 msgid "Mark this Distribution list as private."
 msgstr "Markeer deze Distributielijst als privé."
 
-#, fuzzy
 msgid "New email address"
-msgstr "Nieuw e-mailadres"
+msgstr "Nieuw emailadres"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Voer een valide e-mailadres in!"
+msgstr "Voer een geldig emailadres in"
 
 msgid "E-mail Address"
 msgstr "E-mail adres"
@@ -3918,13 +3910,11 @@ msgstr "Hiërarchie uitklappen"
 msgid "Folders List"
 msgstr "Mappenlijst"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Toon Details"
+msgstr "Details Kopiëren"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Details"
+msgstr "Details verbergen"
 
 # 86%
 # 100%
@@ -4032,11 +4022,10 @@ msgid "No rights"
 msgstr "Geen rechten"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Kan de volgende bestanden niet importeren:"
 
-#, fuzzy
 msgid "The files are not valid"
-msgstr "De bijgevoegde bestanden zijn nog niet opgeladen."
+msgstr "De bestanden zijn niet valide"
 
 msgid "Create New Folder"
 msgstr "Nieuwe map aanmaken"
@@ -4230,24 +4219,20 @@ msgstr "Aan favorieten toevoegen"
 msgid "Remove From Favorites"
 msgstr "Uit favorieten verwijderen"
 
-#, fuzzy
 msgid "Share folder..."
-msgstr "Opstartmap"
+msgstr "Deel folder..."
 
-#, fuzzy
 msgid "Import emails"
-msgstr "Importeren naar"
+msgstr "Importeer emails"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Eigenschappen"
+msgstr "Eigenschappen van {0}"
 
 msgid "Share {0} with..."
-msgstr ""
+msgstr "Deel {0] met..."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Eigenschappen"
+msgstr "Eigenschappen van {0} - {1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4373,9 +4358,8 @@ msgstr "Sla e-mail op"
 # 94%
 # 76%
 # 100%
-#, fuzzy
 msgid "Delete this email"
-msgstr "Verwijder deze e-mail"
+msgstr "Verwijder deze email"
 
 # 86%
 msgid "Add attachments to this email"
@@ -5729,6 +5713,8 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Inloggen is niet gelukt vanwege een dubbele sessie. De issue is automatisch "
+"opgelost, graag opnieuw inloggen."
 
 msgid "Unknown MAPI Error"
 msgstr "Onbekende MAPI-Fout"
@@ -5739,9 +5725,8 @@ msgstr "Klik op de link om de URL in een nieuw venster te openen."
 msgid "This external link will open in a new window"
 msgstr "Deze externe koppeling wordt in een nieuw venster geopend"
 
-#, fuzzy
 msgid "Destination folder not found."
-msgstr "Bestemmingsmap"
+msgstr "Bestemmingsmap niet gevonden."
 
 msgid "Eml is corrupted"
 msgstr "Eml is corrupt"
@@ -5756,9 +5741,8 @@ msgid "Attachment is not imported successfully"
 msgstr "Bijlage kon niet succesvol worden geimporteerd"
 
 # 81%
-#, fuzzy
 msgid "Embedded attachment not found."
-msgstr "Voeg bijlagen toe aan deze contactpersoon."
+msgstr "Ingesloten bijlage niet gevonden."
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP bestand kon niet worden aangemaakt"
@@ -6387,17 +6371,15 @@ msgstr "Wachtwoord"
 msgid "Sign in"
 msgstr "Inloggen"
 
-#, fuzzy
 msgid "File is not imported successfully"
-msgstr "Bijlage kon niet succesvol worden geimporteerd"
+msgstr "Bijlage kon niet succesvol worden geïmporteerd"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "'%s' kon niet worden geïmporteerd"
 
-#, fuzzy
 msgid "The EML is not valid"
-msgstr "{0} is geen geldig tijdstip"
+msgstr "De EML is niet valide"
 
 msgid "GB"
 msgstr "GB"
