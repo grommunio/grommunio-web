@@ -106,15 +106,6 @@ Zarafa.note.ui.NoteIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
 	},
 
 	/**
-	 * Returns {@link Zarafa.note.ui.NoteMainPanel NoteMainPanel} object which instantiated all the views
-	 * @return {Zarafa.note.ui.NoteMainPanel} note main panel
-	 */
-	getMainPanel : function()
-	{
-		return this.ownerCt;
-	},
-
-	/**
 	 * initialize events for the grid panel
 	 * @private
 	 */
