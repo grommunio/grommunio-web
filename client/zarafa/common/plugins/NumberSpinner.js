@@ -131,11 +131,9 @@ Zarafa.common.plugins.NumberSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPl
 	 */
 	floatToString : function(value)
 	{
-		if (!Ext.isDefined(value)) {
-			return undefined;
+		if (Ext.isDefined(value)) {
+			return value.toString();
 		}
-
-		return value.toString();
 	},
 
 	/**
