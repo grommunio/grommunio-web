@@ -88,8 +88,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 */
 	viewConfigGetRowClass :function(record, rowIndex, rowParams, store)
 	{
-		var cssClass = !record.isRead() ? 'mail_unread' : 'mail_read';
-		return cssClass;
+		return record.isRead() ? 'mail_read' : 'mail_unread';
 	},
 
 	/**
