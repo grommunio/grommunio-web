@@ -45,5 +45,15 @@ Zarafa.advancesearch.Actions = {
 		var record = model.createSearchFolderRecord(config.searchText);
 
 		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+	},
+
+	/**
+	 * Open a {@link Zarafa.advancesearch.dialogs.SearchCategoriesContentPanel dialog}
+	 * @param {Object} config configuration options.
+	 */
+	openSearchCategoryContentPanel: function (config)
+	{
+		var componentType = Zarafa.core.data.SharedComponentType['search.dialog.searchcategory'];
+		Zarafa.core.data.UIFactory.openLayerComponent(componentType, [], config);
 	}
 };

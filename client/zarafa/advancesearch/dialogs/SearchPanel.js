@@ -169,6 +169,7 @@ Zarafa.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 			obj['filterCheckBoxGroup'] = {};
 			obj["search_text"] = this.searchText;
 			obj["search_folder_combo"] = {};
+			obj['categories'] = searchToolBox.searchCategoriesStore.getCategories();
 
 			searchInCheckBoxGroup.forEach(function(item){
 				obj['searchInCheckBoxGroup'][item.itemId] = true;
