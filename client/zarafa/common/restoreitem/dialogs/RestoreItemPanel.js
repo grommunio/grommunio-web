@@ -222,25 +222,28 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	},
 
 	/**
+	 * Helper for deleting / restoring items.
+	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be hard-deleted
+	 * @private
+	 */
+	doAction: function(records, action)
+	{
+		var saveRecords = records.map(function(record) {
+			record.addMessageAction('action_type', action + this.itemType);
+			this.store.remove(record);
+			return record;
+		}, this);
+		this.store.save(saveRecords);
+	},
+
+	/**
 	 * This will Permanently delete the selected record(s) which is passed as argument.
 	 * @param {Zarafa.common.restoreitem.data.RestoreItemRecord[]} records The records that should be hard-deleted
 	 * @private
 	 */
 	doPermanentDelete : function(records)
 	{
-		var saveRecords = [];
-
-		if (!Ext.isEmpty(records)) {
-			for (var i = 0, len = records.length; i < len; i++) {
-				var record = records[i];
-
-				record.addMessageAction('action_type', 'delete' + this.itemType);
-
-				this.store.remove(record);
-				saveRecords.push(record);
-			}
-			this.store.save(saveRecords);
-		}
+		this.doAction(records, 'delete');
 	},
 
 	/**
@@ -286,18 +289,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	 */
 	doRestore : function(records)
 	{
-		var saveRecords = [];
-
-		if (!Ext.isEmpty(records)) {
-			for (var i = 0, len = records.length; i < len; i++) {
-				var record = records[i];
-				record.addMessageAction('action_type', 'restore' + this.itemType);
-				this.store.remove(record);
-				saveRecords.push(record);
-			}
-
-			this.store.save(saveRecords);
-		}
+		this.doAction(records, 'restore');
 	},
 
 	/**
