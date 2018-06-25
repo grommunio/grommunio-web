@@ -96,15 +96,6 @@ Zarafa.note.ui.NoteGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	/**
-	 * Returns {@link Zarafa.note.ui.NoteMainPanel NoteMainPanel} object which instantiated all the views
-	 * @return {Zarafa.note.ui.NoteMainPanel} note main panel
-	 */
-	getMainPanel : function()
-	{
-		return this.ownerCt;
-	},
-
-	/**
 	 * @return {Object} loas mask config object
 	 * @private
 	 */
