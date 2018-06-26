@@ -217,16 +217,17 @@ span.zarafa-emailaddress-link:hover {
 }
 
 .preview-header-task .preview-from {
-	td {
-		min-width: 80px;
-		&.minwidth50{
-			min-width: 50px;
-		}
-		&.minwidth120{
-			min-width: 120px;
-		}
-		&.table-label{
-			color: #7F7F7F;
+	.task-info-container {
+		span {
+			min-width: 80px;
+			padding-top: 5px;
+			dgit isplay: inline-block;
+			&.minwidth120{
+				min-width: 120px;
+			}
+			&.label{
+				color: #7F7F7F;
+			}
 		}
 	}
 

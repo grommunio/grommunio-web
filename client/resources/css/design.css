@@ -9077,34 +9077,36 @@ span.zarafa-emailaddress-link:hover {
   background-color: #ddd;
 }
 
-/* line 220, ../scss/components/_preview_panel.scss */
-.preview-header-task .preview-from td {
+/* line 221, ../scss/components/_preview_panel.scss */
+.preview-header-task .preview-from .task-info-container span {
   min-width: 80px;
-}
-/* line 222, ../scss/components/_preview_panel.scss */
-.preview-header-task .preview-from td.minwidth50 {
-  min-width: 50px;
+  padding-top: 5px;
+  display: inline-block;
 }
 /* line 225, ../scss/components/_preview_panel.scss */
-.preview-header-task .preview-from td.minwidth120 {
+.preview-header-task .preview-from .task-info-container span.minwidth120 {
   min-width: 120px;
 }
 /* line 228, ../scss/components/_preview_panel.scss */
-.preview-header-task .preview-from td.table-label {
+.preview-header-task .preview-from .task-info-container span.minwidth150 {
+  min-width: 150px;
+}
+/* line 231, ../scss/components/_preview_panel.scss */
+.preview-header-task .preview-from .task-info-container span.label {
   color: #7F7F7F;
 }
-/* line 234, ../scss/components/_preview_panel.scss */
+/* line 238, ../scss/components/_preview_panel.scss */
 .preview-header-task .preview-from input.zarafa-task-date-completed {
   border: 1px solid #dadada;
   width: 150px;
   padding: 3px;
 }
 
-/* line 243, ../scss/components/_preview_panel.scss */
+/* line 247, ../scss/components/_preview_panel.scss */
 .task-attachment-info-panel .preview-attachment-title {
   color: #7F7F7F;
 }
-/* line 246, ../scss/components/_preview_panel.scss */
+/* line 250, ../scss/components/_preview_panel.scss */
 .task-attachment-info-panel .preview-header-attachments {
   margin-top: 0px;
 }

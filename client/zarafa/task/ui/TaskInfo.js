@@ -29,60 +29,64 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 	 * on {@link Zarafa.task.dialogs.TaskGeneralTab TaskGeneralTab} when task is assigned task.
 	 * The arguments of this template will be the {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
-	taskGeneralTabTpl :
-		'<table class="preview-from">' +
-			'<tr>' +
-				'<td class="table-label">' + _('Subject') + ':</td>' +
-				'<td colspan="100%">'+
+	taskGeneralTabTpl:
+		'<div class="preview-from">' +
+			'<div class="task-info-container">' +
+				'<span class="label">'+_('Subject')+': </span>' +
+				'<span>' +
 					'<tpl if="!Ext.isEmpty(values.conversation_topic)">' +
 						'{conversation_topic:htmlEncode}' +
 					'</tpl>' +
 					'<tpl if="Ext.isEmpty(values.conversation_topic)">' +
 						'{subject:htmlEncode}' +
 					'</tpl>' +
-				'</td>'+
-			'</tr>'+
-			'<tr>' +
-				'<td class="table-label">' + _('Start date') + ':</td>' +
-				'<td class="minwidth120">'+
-					'<tpl if="Ext.isDate(values.startdate)">' +
+				'</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label">'+ _('Start date') +': </span>' +
+				'<tpl if="Ext.isDate(values.startdate)">' +
+					'<span class="minwidth120">' +
 						'{startdate:date(_("d-m-Y"))}' +
-					'</tpl>' +
-					'<tpl if=" !Ext.isDate(values.startdate)">' +
+					'</span>'+
+				'</tpl>' +
+				'<tpl if=" !Ext.isDate(values.startdate)">' +
+					'<span class="minwidth120">' +
 						_('None') +
-					'</tpl>' +
-				'</td>'+
-				'<td class="table-label minwidth50">' + _('Due date') + ':</td>' +
-				'<td>'+
-					'<tpl if="Ext.isDate(values.duedate)">' +
-						'{duedate:date(_("d-m-Y"))}' +
-					'</tpl>' +
-					'<tpl if="!Ext.isDate(values.duedate)">' +
+					'</span>'+
+				'</tpl>' +
+				'<span class="label">'+  _('Due date') +': </span>' +
+				'<tpl if="Ext.isDate(values.duedate)">' +
+					'<span class="minwidth120">' +
+					'{duedate:date(_("d-m-Y"))}' +
+					'</span>'+
+				'</tpl>' +
+				'<tpl if="!Ext.isDate(values.duedate)">' +
+					'<span>' +
 						_('None') +
-					'</tpl>' +
-				'</td>'+
-			'</tr>'+
-			'<tr>' +
-				'<td class="table-label">' + _('Status') + ':</td>' +
-				'<td class="minwidth120">'+
+					'</span>'+
+				'</tpl>' +
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label">'+ _('Status') +': </span>' +
+				'<span class="minwidth120">' +
 					'{status:this.getStatus}' +
-				'</td>'+
-				'<td class="table-label minwidth50">' + _('Priority') + ':</td>' +
-				'<td>'+
+				'</span>'+
+				'<span class="label">'+ _('Priority') +': </span>' +
+				'<span class="minwidth120">' +
 					'{importance:this.getPriority}' +
-				'</td>'+
-				'<td class="table-label">' + _('% Complete') + ':</td>' +
-				'<td>'+
+				'</span>'+
+				'<span class="label">'+ _('% Complete') +': </span>' +
+				'<span>' +
 					'{percent_complete:this.getPercentComplete}' +
-				'</td>'+
-			'</tr>'+
-			'<tr>' +
-				'<td class="table-label">' + _('Owner') + ':</td>' +
-				'<td colspan="100%">'+
+				'</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label">'+ _('Owner') +': </span>' +
+				'<span>' +
 					'{owner:htmlEncode}' +
-				'</td>'+
-			'</tr>'+
-		'</table>',
+				'</span>'+
+			'</div>'+
+		'</div>',
 
 	/**
 	 * @cfg {Ext.Template/String} taskDetailsTabTpl The template which must be applied
@@ -90,47 +94,32 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 	 * The arguments of this template will be the {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
 	taskDetailsTabTpl :
-		'<table class="preview-from">' +
-			'<tr>' +
-				'<td class="table-label minwidth120">' + _('Date completed') + ':</td>' +
-				'<td colspan="100%">'+
-					//TODO: reduce code duplication using getter function while creating xTemplate.
-					'{date_completed:this.getFormatedDate}'+
-				'</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="table-label minwidth120">'+ _('Total work') +':</td>'+
-				'<td colspan="100%">'+
-					'{totalwork:htmlEncode} '+_('hours')+
-				'</td>'+
-				'<td class="table-label minwidth50">'+ _('Mileage') +':</td>'+
-				'<td>'+
-					'{mileage:htmlEncode}'+
-				'</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="table-label minwidth120">'+ _('Actual work') + ':</td>'+
-				'<td colspan="100%">'+
-					'{actualwork:htmlEncode} '+_('hours')+
-				'</td>'+
-				'<td class="table-label minwidth50">'+ _('Billing information') +':</td>'+
-				'<td>'+
-					'{billing_information:htmlEncode}'+
-				'</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="table-label minwidth120">'+ _('Company') + ':</td>'+
-				'<td colspan="100%">'+
-					'{companies:htmlEncode}'+
-				'</td>'+
-			'</tr>'+
-			'<tr>'+
-				'<td class="table-label minwidth120">'+ _('Update list') + ':</td>'+
-				'<td colspan="100%">'+
-					'{tasklastuser:htmlEncode}'+
-				'</td>'+
-			'</tr>'+
-		'</table>',
+		'<div class="preview-from">' +
+			'<div class="task-info-container">' +
+				'<span class="label minwidth120">'+ _('Date completed') +': </span>' +
+				'<span>' + '{date_completed:this.getFormatedDate}' + '</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label minwidth120">'+ _('Total work') +': </span>' +
+				'<span>' + '{totalwork:htmlEncode} '+_('hours')+ '</span>'+
+				'<span class="label">'+ _('Mileage') +': </span>' +
+				'<span>' + '{mileage:htmlEncode}' + '</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label minwidth120">'+ _('Actual work') +': </span>' +
+				'<span>' + '{actualwork:htmlEncode} '+_('hours') + '</span>'+
+				'<span class="label">'+ _('Billing information') +': </span>' +
+				'<span>' + '{billing_information:htmlEncode}' + '</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label minwidth120">'+ _('Company') +': </span>' +
+				'<span>' + '{companies:htmlEncode}' + '</span>'+
+			'</div>'+
+			'<div class="task-info-container">' +
+				'<span class="label minwidth120">'+ _('Update list') +': </span>' +
+				'<span>' + '{tasklastuser:htmlEncode}' + '</span>'+
+			'</div>'+
+		'</div>',
 
 	/**
 	 * @constructor
