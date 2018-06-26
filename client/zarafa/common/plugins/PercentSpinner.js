@@ -68,13 +68,11 @@ Zarafa.common.plugins.PercentSpinner = Ext.extend(Zarafa.common.plugins.NumberSp
 	 */
 	stringToFloat : function(value)
 	{
-		var isPercent;
-
 		if (Ext.isEmpty(value)) {
-			return undefined;
+			return;
 		}
 
-		isPercent = value.indexOf('%');
+		var isPercent = value.indexOf('%');
 
 		value = parseFloat(value);
 		if (isPercent) {
@@ -92,11 +90,9 @@ Zarafa.common.plugins.PercentSpinner = Ext.extend(Zarafa.common.plugins.NumberSp
 	 */
 	floatToString : function(value)
 	{
-		if (!Ext.isDefined(value)) {
-			return undefined;
+		if (Ext.isDefined(value)) {
+			return (value * 100) + '%';
 		}
-
-		return (value * 100) + '%';
 	},
 
 	/**
