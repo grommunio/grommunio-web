@@ -332,7 +332,7 @@ Zarafa.common.ui.grid.Renderers = {
 			value = value.toUTC();
 		}
 
-		return this.date(value, p);
+		return Zarafa.common.ui.grid.Renderers.date(value, p);
 	},
 
 	/**
