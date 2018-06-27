@@ -1658,17 +1658,20 @@
 				 */
 				if(isset($smtpprops[PR_SENT_REPRESENTING_ENTRYID]) && isset($props["props"]["sent_representing_email_address"])) {
 					$props["props"]["sent_representing_username"] = $props["props"]["sent_representing_email_address"];
-					$props["props"]["sent_representing_email_address"] = $this->getEmailAddressFromEntryID($smtpprops[PR_SENT_REPRESENTING_ENTRYID]);
+					$sentRepresentingSearchKey = isset($props['props']['sent_representing_search_key']) ? hex2bin($props['props']['sent_representing_search_key']) : false;
+					$props["props"]["sent_representing_email_address"] = $this->getEmailAddress($smtpprops[PR_SENT_REPRESENTING_ENTRYID], $sentRepresentingSearchKey);
 				}
 
 				if(isset($smtpprops[PR_SENDER_ENTRYID]) && isset($props["props"]["sender_email_address"])) {
 					$props["props"]["sender_username"] = $props["props"]["sender_email_address"];
-					$props["props"]["sender_email_address"] = $this->getEmailAddressFromEntryID($smtpprops[PR_SENDER_ENTRYID]);
+					$senderSearchKey = isset($props['props']['sender_search_key']) ? hex2bin($props['props']['sender_search_key']) : false;
+					$props["props"]["sender_email_address"] = $this->getEmailAddress($smtpprops[PR_SENDER_ENTRYID], $senderSearchKey);
 				}
 
 				if(isset($smtpprops[PR_RECEIVED_BY_ENTRYID]) && isset($props["props"]["received_by_email_address"])) {
 					$props["props"]["received_by_username"] = $props["props"]["received_by_email_address"];
-					$props["props"]["received_by_email_address"] = $this->getEmailAddressFromEntryID($smtpprops[PR_RECEIVED_BY_ENTRYID]);
+					$receivedSearchKey = isset($props['props']['received_by_search_key']) ? hex2bin($props['props']['received_by_search_key']) : false;
+					$props["props"]["received_by_email_address"] = $this->getEmailAddress($smtpprops[PR_RECEIVED_BY_ENTRYID], $receivedSearchKey);
 				}
 
 				// Get body content
@@ -1791,6 +1794,24 @@
 			}
 
 			return $props;
+		}
+
+		/**
+		 * Get the email address either from entryid or search key. function is helpful
+		 * to reqtrive the email address of already deleted contact which is use as a
+		 * recipient in message.
+		 *
+		 * @param String $entryId The entryId of an item/recipient.
+		 * @param String|boolean $searchKey Then search key of an item/recipient.
+		 * @return string email address if found else return empty string.
+		 */
+		function getEmailAddress($entryId, $searchKey = false)
+		{
+			$emailAddress = $this->getEmailAddressFromEntryID($entryId);
+			if (empty($emailAddress) && $searchKey !== false) {
+				$emailAddress = $this->getEmailAddressFromSearchKey($searchKey);
+			}
+			return $emailAddress;
 		}
 
 		/**
@@ -3541,7 +3562,7 @@
 
 						// Get the SMTP address from the addressbook if no address is found
 						if(empty($props['smtp_address']) && $recipientRow[PR_ADDRTYPE] == 'ZARAFA') {
-							$props['smtp_address'] = $GLOBALS['operations']->getEmailAddressFromEntryID($recipientRow[PR_ENTRYID]);
+							$props['smtp_address'] = $this->getEmailAddress($recipientRow[PR_ENTRYID], $recipientRow[PR_SEARCH_KEY]);
 						}
 					}
 
@@ -3568,6 +3589,20 @@
 			}
 
 			return $recipientsInfo;
+		}
+
+		/**
+		 * Extracts email address from PR_SEARCH_KEY property if possible.
+		 *
+		 * @param string $searchKey The PR_SEARCH_KEY property
+		 * @return string email address if possible else return empty string.
+		 */
+		function getEmailAddressFromSearchKey($searchKey)
+		{
+			if (strpos($searchKey, ':') !== false && strpos($searchKey, '@') !== false) {
+				return trim(strtolower(explode(':', $searchKey)[1]));
+			}
+			return "";
 		}
 
 		/**

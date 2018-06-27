@@ -237,26 +237,31 @@
 			if(!$exception->isHandled) {
 				if($exception instanceof MAPIException) {
 					$exception->setHandled();
-					return array(
+					$mapiError = array(
 						"type" => ERROR_MAPI,
 						"info" => array(
 							"hresult" => $exception->getCode(),
+							"title" => $exception->getTitle(),
 							"hresult_name" => get_mapi_error_name($exception->getCode()),
 							"file" => $exception->getFileLine(),
 							"display_message" => $exception->getDisplayMessage(),
 							"details_message" => $exception->getDetailsMessage()
 						)
 					);
+					return $mapiError;
+
 				} else if($exception instanceof ZarafaException) {
 					$exception->setHandled();
-					return array(
+					$kopanoError = array(
 						"type" => ERROR_ZARAFA,
 						"info" => array(
 							"file" => $exception->getFileLine(),
+							"title" => $exception->getTitle(),
 							"display_message" => $exception->getDisplayMessage(),
 							"original_message" => $exception->getMessage()
 						)
 					);
+					return $kopanoError;
 				}
 			}
 

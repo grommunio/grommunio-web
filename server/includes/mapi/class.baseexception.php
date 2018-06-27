@@ -35,6 +35,11 @@ class BaseException extends Exception
 	public $allowToShowDetailsMessage = false;
 
 	/**
+	 * The exception title to show as a message box title at client side.
+	 */
+	public $title = null;
+
+	/**
 	 * Construct the exception
 	 *
 	 * @param  string $errorMessage
@@ -79,6 +84,25 @@ class BaseException extends Exception
 	public function setDisplayMessage($message)
 	{
 		$this->displayMessage = $message;
+	}
+
+	/**
+	 * Function sets title of an exception that will be sent to the client side
+	 * to show it to user.
+	 * @param string $title title of an exception.
+	 */
+	public function setTitle($title)
+	{
+		$this->title = $title;
+	}
+
+	/**
+	 * @return string returns title that should be sent to client to display as a message box
+	 * title.
+	 */
+	public function getTitle()
+	{
+		return $this->title;
 	}
 
 	/**
