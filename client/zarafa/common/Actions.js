@@ -1036,7 +1036,13 @@ Zarafa.common.Actions = {
 	 */
 	downloadAttachment : function(record, allAsZip)
 	{
-		if(!this.downloadFrame) {
+		if (this.downloadFrame) {
+			// If download frame is not available in active browser window then
+			// create new download frame under active browser window.
+			if (!Ext.getBody().contains(this.downloadFrame.getEl().dom)) {
+				this.downloadFrame = new Zarafa.common.attachment.ui.AttachmentDownloader();
+			}
+		} else {
 			this.downloadFrame = new Zarafa.common.attachment.ui.AttachmentDownloader();
 		}
 
