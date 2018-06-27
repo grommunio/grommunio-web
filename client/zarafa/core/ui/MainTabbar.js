@@ -75,7 +75,32 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 				id: 'mainmenu-logintext'
 		};
 
-		this.add(leftItems, {xtype: 'tbfill'}, loginText, rightItems);
+		// Adding reminder button with bell icon.
+		var reminder = {
+			width : 30,
+			id : 'mainmenu-button-reminder',
+			ref : 'reminder',
+			handler : function() {
+				var store = container.getReminderStore();
+				Zarafa.common.Actions.openReminderContent(store.getRange());
+			},
+			listeners : {
+				render : function() {
+					var store = container.getReminderStore();
+					store.showReminderDialog = false;
+					store.load();
+				},
+				scope : this
+			},
+			style : {
+				backgroundImage : 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon() + '\')',
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'center'
+			},
+			scope : this
+		};
+
+		this.add(leftItems, {xtype: 'tbfill'}, loginText, reminder, rightItems);
 
 		// Don't show the logout button when using SSO, but always show it in DeskApp
 		if ( !container.getServerConfig().usingSSO() || Zarafa.isDeskApp ){

@@ -342,6 +342,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 
 		if(record) {
 			Zarafa.common.Actions.openReminderRecord(record);
+			this.dialog.close();
 		}
 	},
 

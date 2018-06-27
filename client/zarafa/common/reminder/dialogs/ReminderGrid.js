@@ -80,6 +80,7 @@ Zarafa.common.reminder.dialogs.ReminderGrid = Ext.extend(Zarafa.common.ui.grid.G
 		var record = this.store.getAt(rowIndex);
 		if (record) {
 			Zarafa.common.Actions.openReminderRecord(record);
+			this.dialog.close();
 		}
 	},
 

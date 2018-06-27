@@ -34,6 +34,14 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	refreshStore : false,
 
 	/**
+	 * Flag is used to show reminder dialog or not. It is false when reminder button render as we have to show reminder dialog
+	 * when webapp {@link #initializeReminderInterval polling} reminder store.
+	 * @property
+	 * @type Boolean
+	 */
+	showReminderDialog : true,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -141,6 +149,9 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	 */
 	sendReminderRequest : function()
 	{
+		if(!this.showReminderDialog) {
+			this.showReminderDialog = true;
+		}
 		this.load();
 	},
 
@@ -186,18 +197,35 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 			// if checksum has been changed that means we should update the store with new data
 			if(this.lastChecksum !== newChecksum) {
-				if (records.length > 0) {
-					var notificationMessage = String.format(ngettext('There is {0} reminder', 'There are {0} reminders', records.length), records.length);
-					container.getNotifier().notify('info.reminder', _('Reminders'), notificationMessage);
+				var reminderEl = Ext.DomQuery.select('#mainmenu-button-reminder')[0];
+				// Update reminder icon with counter.
+				if (reminderEl) {
+					this.updateReminderIcon(reminderEl, records.length);
 				}
-
-				// We call this function regardless of the number of reminders,
-				// as it will close an already opened window when 0 reminders are loaded.
-				Zarafa.common.Actions.openReminderContent(records);
-
-				this.lastChecksum = newChecksum;
+				if (this.showReminderDialog) {
+					Zarafa.common.Actions.openReminderContent(records);
+					this.lastChecksum = newChecksum;
+				}
 			}
 		}
+	},
+
+	/**
+	 * Update the reminder icon when reminder store updated. It will hide the
+	 * reminder button and set proper tooltip if reminder store does not contains
+	 * any reminders.
+	 *
+	 * @param {Ext.Element} reminderEl The reminder button element.
+	 * @param {Number} recordsLength The number of reminder in reminder store.
+	 */
+	updateReminderIcon : function(reminderEl, recordsLength)
+	{
+		var reminderBtn = Ext.get(reminderEl);
+		reminderBtn.setStyle('backgroundImage', 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon(recordsLength) + '\')');
+		var reminder = container.getMainPanel().mainTabBar.reminder;
+		var noReminder = recordsLength === 0;
+		reminder.setDisabled(noReminder);
+		reminder.setTooltip(noReminder? _('There are no reminders') : '');
 	},
 
 	/**
@@ -207,6 +235,10 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	 */
 	dismissReminders : function(reminderRecords)
 	{
+		if(!Array.isArray(reminderRecords)){
+			reminderRecords = [reminderRecords];
+		}
+
 		Ext.each(reminderRecords, function(reminderRecord) {
 			reminderRecord.addMessageAction('action_type', 'dismiss');
 		}, this);
