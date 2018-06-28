@@ -634,7 +634,7 @@
 			}
 
 			// check for folder name conflict, if conflicts then function will return new name
-			$folderName = $GLOBALS["operations"]->getUniqueFolderName($searchFolderRoot, "WebApp Search Folder");
+			$folderName = $GLOBALS["operations"]->checkFolderNameConflict($store, $searchFolderRoot, "WebApp Search Folder");
 			try {
 				$searchFolder = mapi_folder_createfolder($searchFolderRoot, $folderName, null, 0, FOLDER_SEARCH);
 
