@@ -1041,17 +1041,19 @@
 			}
 
 			$recips = array();
-			$taskReqProps = mapi_getprops($this->message, array(PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_ADDRTYPE));
+			$taskReqProps = mapi_getprops($this->message, array(PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_SEARCH_KEY));
 			$associatedTaskProps = mapi_getprops($task, array($this->props['taskupdates'], $this->props['tasksoc'], $this->props['taskmultrecips']));
 
 			// Build assignor info
-			$assignor = array(	PR_ENTRYID => $taskReqProps[PR_SENT_REPRESENTING_ENTRYID],
-								PR_DISPLAY_NAME => $taskReqProps[PR_SENT_REPRESENTING_NAME],
-								PR_EMAIL_ADDRESS => $taskReqProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS],
-								PR_RECIPIENT_DISPLAY_NAME => $taskReqProps[PR_SENT_REPRESENTING_NAME],
-								PR_ADDRTYPE => empty($taskReqProps[PR_SENT_REPRESENTING_ADDRTYPE]) ? 'SMTP' : $taskReqProps[PR_SENT_REPRESENTING_ADDRTYPE],
-								PR_RECIPIENT_FLAGS => recipSendable
-						);
+			$assignor = array(
+				PR_ENTRYID => $taskReqProps[PR_SENT_REPRESENTING_ENTRYID],
+				PR_DISPLAY_NAME => $taskReqProps[PR_SENT_REPRESENTING_NAME],
+				PR_EMAIL_ADDRESS => $taskReqProps[PR_SENT_REPRESENTING_EMAIL_ADDRESS],
+				PR_RECIPIENT_DISPLAY_NAME => $taskReqProps[PR_SENT_REPRESENTING_NAME],
+				PR_ADDRTYPE => empty($taskReqProps[PR_SENT_REPRESENTING_ADDRTYPE]) ? 'SMTP' : $taskReqProps[PR_SENT_REPRESENTING_ADDRTYPE],
+				PR_RECIPIENT_FLAGS => recipSendable,
+				PR_SEARCH_KEY => $taskReqProps[PR_SENT_REPRESENTING_SEARCH_KEY]
+			);
 
 			// Assignor has requested task updates, so set him/her as MAPI_CC in recipienttable.
 			if ((isset($associatedTaskProps[$this->props['taskupdates']]) && $associatedTaskProps[$this->props['taskupdates']])
