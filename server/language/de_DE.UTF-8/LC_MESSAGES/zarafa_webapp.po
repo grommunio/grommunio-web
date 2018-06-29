@@ -594,7 +594,7 @@ msgid "Folder name"
 msgstr "Ordnername"
 
 msgid "Select Category"
-msgstr "Kategorie setzen"
+msgstr "Kategorie auswählen"
 
 msgid "Apply"
 msgstr "Übernehmen"
