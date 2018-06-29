@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -574,6 +574,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Definir Categoria"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Pasta '{0}' selecionada."
 
@@ -642,6 +649,10 @@ msgstr "De"
 msgctxt "search.date"
 msgid "To"
 msgstr "Para"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Definir Categoria"
 
 #, fuzzy
 msgid "Search.."
@@ -1964,9 +1975,6 @@ msgstr "Erro de anexo"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Aplicar"
-
 msgid "New"
 msgstr "Novo"
 
@@ -2422,10 +2430,9 @@ msgstr "Informação "
 msgid "Not supported at the moment."
 msgstr "Não suportado no momento."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Existe {0} lembrete"
-msgstr[1] "Existem {0} lembretes"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Existe {0} lembrete"
 
 msgid "Reminders"
 msgstr "Lembretes"
@@ -5730,6 +5737,16 @@ msgstr "Tarefa atualizada:"
 
 msgid "Task Completed:"
 msgstr "Tarefa Concluída:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Não foi possível lidar com esse tipo de objeto."

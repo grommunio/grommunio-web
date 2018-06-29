@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -587,6 +587,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Kategori ayarla"
+
+msgid "Apply"
+msgstr "Uygula"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Klasör '{0}' seçildi."
 
@@ -653,6 +660,10 @@ msgstr "Kimden"
 msgctxt "search.date"
 msgid "To"
 msgstr "Kime"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "filtrele.."
 
 msgid "Search.."
 msgstr "ara.."
@@ -1965,9 +1976,6 @@ msgstr "Eklenti hatası"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Uygula"
-
 msgid "New"
 msgstr "Yeni"
 
@@ -2432,10 +2440,9 @@ msgstr "Bilgi"
 msgid "Not supported at the moment."
 msgstr "Şu anda desteklenmiyor."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "{0} hatırlatma var"
-msgstr[1] "{0} hatırlatma var"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} hatırlatma var"
 
 # 88%
 msgid "Reminders"
@@ -5776,6 +5783,16 @@ msgstr "Görev güncellendi"
 
 msgid "Task Completed:"
 msgstr "Görev tamamlandı"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Bu nesne türü halledilmiyor"

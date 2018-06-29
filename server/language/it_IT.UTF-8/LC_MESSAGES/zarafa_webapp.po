@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -590,6 +590,13 @@ msgstr "Aggiungi una cartella ai favoriti basata sulla query di ricerca"
 msgid "Folder name"
 msgstr "Nome della cartella"
 
+#, fuzzy
+msgid "Select Category"
+msgstr "Imposta categoria"
+
+msgid "Apply"
+msgstr "Applica"
+
 msgid "All folders are selected"
 msgstr "Tutti le cartelle sono selezionate"
 
@@ -650,6 +657,10 @@ msgstr "Da"
 msgctxt "search.date"
 msgid "To"
 msgstr "A"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Elimina Categoria"
 
 msgid "Search.."
 msgstr "Ricerca in..."
@@ -1958,9 +1969,6 @@ msgstr "Errore allegato"
 msgid "Manage Categories"
 msgstr "Gestisci le categorie"
 
-msgid "Apply"
-msgstr "Applica"
-
 msgid "New"
 msgstr "Nuovo"
 
@@ -2435,10 +2443,9 @@ msgstr "Informazioni"
 msgid "Not supported at the moment."
 msgstr "Non supportato al momento."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "E' presente {0} promemoria"
-msgstr[1] "Sono presenti {1} promemoria"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "E' presente {0} promemoria"
 
 # 88%
 msgid "Reminders"
@@ -5768,6 +5775,16 @@ msgstr "Attività aggiornata:"
 
 msgid "Task Completed:"
 msgstr "Attività completata:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Impossibile gestire questo tipo di oggetto."

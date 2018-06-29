@@ -548,6 +548,12 @@ msgstr ""
 msgid "Folder name"
 msgstr ""
 
+msgid "Select Category"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
 msgid "All folders are selected"
 msgstr ""
 
@@ -605,6 +611,9 @@ msgstr ""
 
 msgctxt "search.date"
 msgid "To"
+msgstr ""
+
+msgid "Filter category.."
 msgstr ""
 
 msgid "Search.."
@@ -1779,9 +1788,6 @@ msgstr ""
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr ""
-
 msgid "New"
 msgstr ""
 
@@ -2212,10 +2218,8 @@ msgstr ""
 msgid "Not supported at the moment."
 msgstr ""
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] ""
-msgstr[1] ""
+msgid "There are no reminders"
+msgstr ""
 
 msgid "Reminders"
 msgstr ""
@@ -5250,6 +5254,16 @@ msgid "Task Updated:"
 msgstr ""
 
 msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
 msgstr ""
 
 msgid "Could not handle this type of object."

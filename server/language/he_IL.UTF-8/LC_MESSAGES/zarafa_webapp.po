@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2012-06-01 09:31+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -611,6 +611,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "הגדר קטגוריה"
+
+msgid "Apply"
+msgstr ""
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "תיקיית '{0}' נבחרה."
 
@@ -678,6 +685,10 @@ msgstr "מאת"
 msgctxt "search.date"
 msgid "To"
 msgstr "אל"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "הגדר קטגוריה"
 
 #, fuzzy
 msgid "Search.."
@@ -1969,9 +1980,6 @@ msgstr "שגיאת קובץ מצורף"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr ""
-
 msgid "New"
 msgstr "חדש"
 
@@ -2432,10 +2440,8 @@ msgstr ""
 msgid "Not supported at the moment."
 msgstr ""
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] ""
-msgstr[1] ""
+msgid "There are no reminders"
+msgstr ""
 
 # 88%
 msgid "Reminders"
@@ -5770,6 +5776,16 @@ msgstr "משימה עודכנה:"
 
 msgid "Task Completed:"
 msgstr "משימה הושלמה: "
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "לא ניתן לטפל בסוג זה של אובייקט."

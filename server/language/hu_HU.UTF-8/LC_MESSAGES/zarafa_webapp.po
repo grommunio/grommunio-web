@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -594,6 +594,13 @@ msgstr "Mappa hozzáadása a kedvencekhez a keresés alapján"
 msgid "Folder name"
 msgstr "Mappa név"
 
+#, fuzzy
+msgid "Select Category"
+msgstr "Kategória beállítása"
+
+msgid "Apply"
+msgstr "Alkalmaz"
+
 msgid "All folders are selected"
 msgstr "Minden mappa kiválasztva"
 
@@ -658,6 +665,10 @@ msgstr "Feladó"
 msgctxt "search.date"
 msgid "To"
 msgstr "Címzett"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Kategória törlése"
 
 msgid "Search.."
 msgstr "Keresés.."
@@ -1980,9 +1991,6 @@ msgstr "Csatolmány hiba"
 msgid "Manage Categories"
 msgstr "Kategóriák kezelése"
 
-msgid "Apply"
-msgstr "Alkalmaz"
-
 msgid "New"
 msgstr "Új"
 
@@ -2452,10 +2460,9 @@ msgstr "Infó"
 msgid "Not supported at the moment."
 msgstr "Jelenleg nem támogatott."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "{0} emlékeztető van"
-msgstr[1] "{0} emlékeztető van"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} emlékeztető van"
 
 # 88%
 msgid "Reminders"
@@ -5752,6 +5759,16 @@ msgstr "Feladat frissítve:"
 
 msgid "Task Completed:"
 msgstr "Feladat befejezve:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Az alábbi objektumot nem lehetett feldolgozni."

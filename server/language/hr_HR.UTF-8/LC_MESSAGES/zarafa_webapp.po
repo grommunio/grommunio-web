@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2012-08-09 07:35+0200\n"
 "Last-Translator: Tomislav <tomislav.malnar@tzv-gredelj.hr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -583,6 +583,12 @@ msgstr ""
 msgid "Folder name"
 msgstr ""
 
+msgid "Select Category"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
 msgid "All folders are selected"
 msgstr ""
 
@@ -640,6 +646,9 @@ msgstr ""
 
 msgctxt "search.date"
 msgid "To"
+msgstr ""
+
+msgid "Filter category.."
 msgstr ""
 
 #, fuzzy
@@ -1820,9 +1829,6 @@ msgstr ""
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr ""
-
 msgid "New"
 msgstr ""
 
@@ -2254,11 +2260,8 @@ msgstr ""
 msgid "Not supported at the moment."
 msgstr ""
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgid "There are no reminders"
+msgstr ""
 
 msgid "Reminders"
 msgstr ""
@@ -5306,6 +5309,16 @@ msgid "Task Updated:"
 msgstr ""
 
 msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
 msgstr ""
 
 msgid "Could not handle this type of object."

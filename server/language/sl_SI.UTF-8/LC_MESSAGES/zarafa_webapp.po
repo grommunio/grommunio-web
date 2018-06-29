@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -605,6 +605,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Nastavi kategorijo"
+
+msgid "Apply"
+msgstr "Uporabi"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Izbrana '{0}' mapa."
 
@@ -674,6 +681,10 @@ msgstr "Od"
 msgctxt "search.date"
 msgid "To"
 msgstr "Za"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Nastavi kategorijo"
 
 #, fuzzy
 msgid "Search.."
@@ -1987,9 +1998,6 @@ msgstr "Napaka priloge"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Uporabi"
-
 msgid "New"
 msgstr "Novo"
 
@@ -2457,12 +2465,9 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Trenutno ni podprto."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Tukaj je {0} opomnik"
-msgstr[1] "Tukaj je {0} opomnikov"
-msgstr[2] "Tukaj je {0} opomnikov"
-msgstr[3] "Tukaj je {0} opomnikov"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Tukaj je {0} opomnik"
 
 # 88%
 msgid "Reminders"
@@ -5821,6 +5826,16 @@ msgstr "Naloga posodobljena:"
 
 msgid "Task Completed:"
 msgstr "Naloga dokončana:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Te vrste predmeta ni bilo mogoče prenesti."

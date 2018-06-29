@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -585,6 +585,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Définir la catégorie"
+
+msgid "Apply"
+msgstr "Appliquer"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Dossier '{0}' sélectionné."
 
@@ -650,6 +657,10 @@ msgstr "De"
 msgctxt "search.date"
 msgid "To"
 msgstr "À"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Filtrer.."
 
 msgid "Search.."
 msgstr "Rechercher.."
@@ -1961,9 +1972,6 @@ msgstr "Erreur de pièce jointe"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Appliquer"
-
 msgid "New"
 msgstr "Nouveau"
 
@@ -2424,10 +2432,9 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Pas encore implémenté."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Il y a {0} rappel"
-msgstr[1] "Il y a {0} rappels"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Il y a {0} rappel"
 
 msgid "Reminders"
 msgstr "Rappels"
@@ -5803,6 +5810,16 @@ msgstr "Tâche actualisée :"
 
 msgid "Task Completed:"
 msgstr "Tâche effectuée :"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Impossible de traiter ce type d'objet."

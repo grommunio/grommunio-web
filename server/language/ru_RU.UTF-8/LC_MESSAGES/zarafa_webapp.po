@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -595,6 +595,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Указать категорию"
+
+msgid "Apply"
+msgstr "Применить"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Выбрана папка «{0}»."
 
@@ -662,6 +669,10 @@ msgstr "От"
 msgctxt "search.date"
 msgid "To"
 msgstr "Кому"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Указать категорию"
 
 #, fuzzy
 msgid "Search.."
@@ -1961,9 +1972,6 @@ msgstr "Ошибка вложения"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Применить"
-
 msgid "New"
 msgstr "Создать"
 
@@ -2413,11 +2421,9 @@ msgstr "Информация"
 msgid "Not supported at the moment."
 msgstr "На данный момент не поддерживается."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "{0} оповещение"
-msgstr[1] "{0} оповещения"
-msgstr[2] "{0} оповещений"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} оповещение"
 
 msgid "Reminders"
 msgstr "Оповещения"
@@ -5733,6 +5739,16 @@ msgstr "Задача обновлена:"
 
 msgid "Task Completed:"
 msgstr "Задача выполнена:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Невозможно работать с этим типом объекта."

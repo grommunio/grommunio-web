@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -589,6 +589,13 @@ msgid "Folder name"
 msgstr "Název složky"
 
 #, fuzzy
+msgid "Select Category"
+msgstr "Nastavit Kategorii"
+
+msgid "Apply"
+msgstr "Použít"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "Vybrána složka '{0}'."
 
@@ -652,6 +659,10 @@ msgstr "Od"
 msgctxt "search.date"
 msgid "To"
 msgstr "Komu"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Filtrovat.."
 
 msgid "Search.."
 msgstr "Hledat v.."
@@ -1938,9 +1949,6 @@ msgstr "Chyba přílohy"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "Použít"
-
 msgid "New"
 msgstr "Nové"
 
@@ -2398,11 +2406,9 @@ msgstr "Informace"
 msgid "Not supported at the moment."
 msgstr "Momentálně nepodporováno."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Existuje {0} připomínka"
-msgstr[1] "Existují {0} připomínky"
-msgstr[2] "Existuje {0} připomínek"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Existuje {0} připomínka"
 
 # 88%
 msgid "Reminders"
@@ -5706,6 +5712,16 @@ msgstr "Úkol aktualizován:"
 
 msgid "Task Completed:"
 msgstr "Úkol dokončen:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Nelze zpracovat tento typ objektu."

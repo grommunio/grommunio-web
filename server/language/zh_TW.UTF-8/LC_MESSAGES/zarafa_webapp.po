@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -565,6 +565,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "設定類別"
+
+msgid "Apply"
+msgstr "套用"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "選擇了 '{0}' 資料夾"
 
@@ -633,6 +640,10 @@ msgstr "寄件者"
 msgctxt "search.date"
 msgid "To"
 msgstr "收件人"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "設定類別"
 
 #, fuzzy
 msgid "Search.."
@@ -1885,9 +1896,6 @@ msgstr "附件錯誤"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "套用"
-
 msgid "New"
 msgstr "新增"
 
@@ -2340,9 +2348,9 @@ msgstr "資訊"
 msgid "Not supported at the moment."
 msgstr "此時不支援"
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "有 {0} 提醒"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "有 {0} 提醒"
 
 # 88%
 msgid "Reminders"
@@ -5550,6 +5558,16 @@ msgstr "任務更新:"
 
 msgid "Task Completed:"
 msgstr "任務完成:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "無法處理此類型的物件"

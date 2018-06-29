@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -569,6 +569,13 @@ msgstr "Tilføj en mappe til dine favoritter baseret på dit søgeresultat"
 msgid "Folder name"
 msgstr "Mappenavn"
 
+#, fuzzy
+msgid "Select Category"
+msgstr "Sæt kategori"
+
+msgid "Apply"
+msgstr "Anvend"
+
 msgid "All folders are selected"
 msgstr "Alle mapper er valgt"
 
@@ -631,6 +638,10 @@ msgstr "Fra"
 msgctxt "search.date"
 msgid "To"
 msgstr "Til"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Slet kategori"
 
 msgid "Search.."
 msgstr "Søg.."
@@ -1865,9 +1876,6 @@ msgstr "Vedhæftningsfejl"
 msgid "Manage Categories"
 msgstr "Håndter kategorier"
 
-msgid "Apply"
-msgstr "Anvend"
-
 msgid "New"
 msgstr "Ny"
 
@@ -2315,10 +2323,9 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Ikke pt. understøttet."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Der er {0} påmindelse"
-msgstr[1] "Der er {0} påmindelser"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Der er {0} påmindelse"
 
 msgid "Reminders"
 msgstr "Påmindelser"
@@ -5447,6 +5454,16 @@ msgstr "Opgave opdateret:"
 
 msgid "Task Completed:"
 msgstr "Opgave fuldført:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Kunne ikke håndtere dette slags objekt."

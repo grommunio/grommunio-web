@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-06-26 10:56+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -567,6 +567,13 @@ msgstr "Adicionar uma pasta aos favoritos baseada na sua procura"
 msgid "Folder name"
 msgstr "Nome da pasta"
 
+#, fuzzy
+msgid "Select Category"
+msgstr "Definir categoria"
+
+msgid "Apply"
+msgstr "Aplicar"
+
 msgid "All folders are selected"
 msgstr "Todas as pastas selecionadas"
 
@@ -625,6 +632,10 @@ msgstr "De"
 msgctxt "search.date"
 msgid "To"
 msgstr "Para"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Eliminar categoria"
 
 msgid "Search.."
 msgstr "Procurar.."
@@ -1850,9 +1861,6 @@ msgstr "Erro Anexo"
 msgid "Manage Categories"
 msgstr "Gerir Categorias"
 
-msgid "Apply"
-msgstr "Aplicar"
-
 msgid "New"
 msgstr "Novo"
 
@@ -2302,10 +2310,9 @@ msgstr "Informação"
 msgid "Not supported at the moment."
 msgstr "Não suportado atualmente."
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "Existe {0} lembrete"
-msgstr[1] "Existem {0} lembretes"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Existe {0} lembrete"
 
 msgid "Reminders"
 msgstr "Lembretes"
@@ -5435,6 +5442,16 @@ msgstr "Tarefa atualizada:"
 
 msgid "Task Completed:"
 msgstr "Tarefa terminada:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Não foi possível processar este tipo de objeto."

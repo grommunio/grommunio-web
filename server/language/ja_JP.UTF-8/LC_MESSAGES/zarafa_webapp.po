@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 11:59+0200\n"
+"POT-Creation-Date: 2018-06-29 14:18+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -580,6 +580,13 @@ msgid "Folder name"
 msgstr ""
 
 #, fuzzy
+msgid "Select Category"
+msgstr "カテゴリーを設定"
+
+msgid "Apply"
+msgstr "適用"
+
+#, fuzzy
 msgid "All folders are selected"
 msgstr "{0}フォルダが選択されています。"
 
@@ -645,6 +652,10 @@ msgstr "From"
 msgctxt "search.date"
 msgid "To"
 msgstr "宛先"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "カテゴリーを設定"
 
 msgid "Search.."
 msgstr "検索.."
@@ -1908,9 +1919,6 @@ msgstr "添付ファイルエラー"
 msgid "Manage Categories"
 msgstr ""
 
-msgid "Apply"
-msgstr "適用"
-
 msgid "New"
 msgstr "新規作成"
 
@@ -2364,9 +2372,9 @@ msgstr "情報"
 msgid "Not supported at the moment."
 msgstr "サポートされていません。"
 
-msgid "There is {0} reminder"
-msgid_plural "There are {0} reminders"
-msgstr[0] "{0}個のリマインダーがあります。"
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0}個のリマインダーがあります。"
 
 # 88%
 msgid "Reminders"
@@ -5657,6 +5665,16 @@ msgstr "更新タスク:"
 
 msgid "Task Completed:"
 msgstr "完了したタスク:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server \n"
+"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
+"system administrator if the\n"
+"\t\t\t\t\t\t\tproblem persists."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Could not handle this type of object."
