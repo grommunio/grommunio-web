@@ -365,8 +365,7 @@ Zarafa.common.ui.IconClass = {
 	getReminderSvgStructure : function(counter)
 	{
 		var hasCounter = (counter !== 0 && Ext.isDefined(counter));
-		var viewBox = hasCounter ? "-40 -51 100 120" : "-43 -51 100 120";
-		var svg = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="'+viewBox+'">' +
+		var svg = '<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-40 -51 100 120">' +
 			'<g>' +
 				'<path style="fill:#FFF;" d="M7.3846154 18C8.4 18 9.2307692 17.169231 9.2307692 16.153846l-3.6923077 0C5.5384615 17.169231 6.36 18 7.3846154 18l0 0zm5.5384616 -5.538461l0 -4.6153851C12.923077 5.0123077 11.409231 2.64 8.7692308 2.0123077l0 -0.6276923C8.7692308 0.61846154 8.1507692 0 7.3846154 0 6.6184615 0 6 0.61846154 6 1.3846154L6 2.0123077C3.3507692 2.64 1.8461539 5.0030769 1.8461539 7.8461539l0 4.6153851L0 14.307692l0 0.923077 14.769231 0 0 -0.923077 -1.846154 -1.846153 0 0z"/>' +
 			'</g>';
