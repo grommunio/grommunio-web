@@ -15,7 +15,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @private
 	 */
 	origLanguage : '',
-	
+
 	/**
 	 * The name that will be shown for the default theme (i.e. no theme selected)
 	 * @property
@@ -57,6 +57,12 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			var plugin = plugins[i];
 			if ( plugin instanceof Zarafa.core.ThemePlugin ){
 				items.push([items.length, plugin.getDisplayName(), plugin.getName()]);
+			}
+		}
+		const jsonThemes = container.getServerConfig().getJsonThemes();
+		for ( var theme in jsonThemes ) {
+			if ( jsonThemes.hasOwnProperty(theme) ) {
+				items.push([items.length, jsonThemes[theme], theme]);
 			}
 		}
 		var themeStore = new Ext.data.ArrayStore({
@@ -129,7 +135,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 				}
 			}]
 		});
-		
+
 		if ( themeStore.data.length > 1 ){
 			// We have more than just the basic theme, so give the user the posibility to
 			// change it.
@@ -157,7 +163,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox} 
+	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox}
 	 * has been selected. This will inform the user that this setting requires a reload of the
 	 * webapp to become active.
 	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
@@ -198,7 +204,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox} 
+	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox}
 	 * has been selected. This will inform the user that this setting requires a reload of the
 	 * webapp to become active.
 	 * @param {Ext.form.ComboBox} combo The combobox which fired the event

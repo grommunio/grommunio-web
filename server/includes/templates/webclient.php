@@ -26,6 +26,7 @@ $serverConfig = array(
 	'freebusy_load_end_offset' 		=> FREEBUSY_LOAD_END_OFFSET,
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
 	'active_theme'					=> Theming::getActiveTheme(),
+	'json_themes'					=> Theming::getJsonThemes(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
@@ -65,7 +66,10 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 
 		<!-- load the login css first as we need it immediately! -->
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
-		<?php $loader->cssOrder(); ?>
+		<?php
+			$loader->cssOrder();
+			echo Theming::getStyles($theme);
+		?>
 	</head>
 
 	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">

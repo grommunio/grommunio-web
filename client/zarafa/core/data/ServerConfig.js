@@ -173,6 +173,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Array} The installed json themes
+	 */
+	getJsonThemes : function()
+	{
+		return this.meta.json_themes;
+	},
+
+	/**
  	 * @return {Array} returns the installed plugins version information array.
 	 */
 	getPluginsVersion : function()

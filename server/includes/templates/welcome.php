@@ -17,6 +17,7 @@ $serverConfig = array(
 	'freebusy_load_start_offset'	=> FREEBUSY_LOAD_START_OFFSET,
 	'freebusy_load_end_offset' 		=> FREEBUSY_LOAD_END_OFFSET,
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
+	'json_themes'					=> Theming::getJsonThemes(),
 	'active_theme'					=> Theming::getActiveTheme(),
 );
 ?>
@@ -35,7 +36,10 @@ $serverConfig = array(
 		<link rel="stylesheet" href="client/resources/css/external/login.css" >
 
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/fingerprint.js'); ?></script>
-		<?php $loader->cssOrder(); ?>
+		<?php
+			$loader->cssOrder();
+			echo Theming::getStyles($theme);
+		?>
 	</head>
 
 	<body class="zarafa-welcome theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">
