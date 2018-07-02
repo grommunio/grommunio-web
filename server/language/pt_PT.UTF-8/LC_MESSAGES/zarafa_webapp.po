@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-29 14:18+0200\n"
-"PO-Revision-Date: 2018-07-02 09:08+0000\n"
+"PO-Revision-Date: 2018-07-02 09:12+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) "
 "<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
@@ -607,7 +607,7 @@ msgid "Appointments"
 msgstr "Compromisso"
 
 msgid "Contacts"
-msgstr "Contatos"
+msgstr "Contactos"
 
 msgid "Tasks"
 msgstr "Tarefas"
@@ -1941,13 +1941,13 @@ msgid "Alert"
 msgstr "Alerta"
 
 msgid "Please select a recipient"
-msgstr "Por favor selecionar um contato"
+msgstr "Por favor selecione um destinatário"
 
 msgid "Mail and Post"
 msgstr "Correio e publicação"
 
 msgid "Contact"
-msgstr "Contato"
+msgstr "Contacto"
 
 msgid "Journal"
 msgstr "Diário"
@@ -2130,7 +2130,7 @@ msgid "Items"
 msgstr "Itens"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Gravar um item e.g. mensagem, contato, etc."
+msgstr "Gravar um item e.g. mensagem, contacto, etc."
 
 msgid "Send an item e.g. mail, meeting request, etc."
 msgstr "Enviar um item e.g. mensagem, pedido de reunião, etc."
@@ -3016,7 +3016,7 @@ msgid "Distribution List Name"
 msgstr "Nome da lista de distribuição"
 
 msgid "Open Shared Contacts"
-msgstr "Abrir contatos partilhados"
+msgstr "Abrir contactos partilhados"
 
 msgid "Business Cards"
 msgstr "Cartões de trabalho"
@@ -3025,13 +3025,13 @@ msgid "Phone List"
 msgstr "Lista telefones"
 
 msgid "Add to contacts"
-msgstr "Adicionar a contatos"
+msgstr "Adicionar a contactos"
 
 msgid "Print selected contact"
-msgstr "Imprimir contato selecionado"
+msgstr "Imprimir contacto selecionado"
 
 msgid "No contact selected"
-msgstr "Nenhum contato selecionado"
+msgstr "Nenhum contacto selecionado"
 
 msgid "Distribution list"
 msgstr "Lista de distribuição"
@@ -3158,28 +3158,28 @@ msgid "Extension"
 msgstr "Extensão"
 
 msgid "Save contact and close dialog"
-msgstr "Guardar contato e fechar"
+msgstr "Guardar contacto e fechar"
 
 msgid "Delete contact"
-msgstr "Eliminar contato"
+msgstr "Eliminar contacto"
 
 msgid "Delete this contact."
-msgstr "Eliminar este contato."
+msgstr "Eliminar este contacto."
 
 msgid "Add Attachment"
 msgstr "Adicionar anexo"
 
 msgid "Add attachments to this contact."
-msgstr "Adicionar anexos a este contato."
+msgstr "Adicionar anexos a este contacto."
 
 msgid "Print this contact"
-msgstr "Imprimir este contato"
+msgstr "Imprimir este contacto"
 
 msgid "Open the categories dialog."
 msgstr "Abrir opções de categoria."
 
 msgid "Mark this contact as private."
-msgstr "Marcar contato como privado."
+msgstr "Marcar contacto como privado."
 
 msgid "Distribution List"
 msgstr "Lista de Distribuição"
@@ -3221,7 +3221,7 @@ msgid "Type your note here..."
 msgstr "Escreva aqui a sua nota..."
 
 msgid "New contact"
-msgstr "Novo contato"
+msgstr "Novo contacto"
 
 msgid "New distribution list"
 msgstr "Nova lista de distribuição"
@@ -3248,7 +3248,7 @@ msgid "Assistent"
 msgstr "Assistente"
 
 msgid "Loading contacts"
-msgstr "A carregar contatos"
+msgstr "A carregar contactos"
 
 msgid "Group"
 msgstr "Grupo"
@@ -3714,7 +3714,7 @@ msgid "Mail and Post Items"
 msgstr "Correio e itens publicados"
 
 msgid "Contacts Items"
-msgstr "Itens de Contatos"
+msgstr "Itens de Contactos"
 
 msgid "Note Items"
 msgstr "Itens de Notas"
@@ -5007,7 +5007,7 @@ msgstr "Calendário"
 
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
-msgstr "Contatos"
+msgstr "Contactos"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
@@ -5053,7 +5053,7 @@ msgid "Send Fax"
 msgstr "Enviar Fax"
 
 msgid "Contact Fax"
-msgstr "Contato Fax"
+msgstr "Contacto Fax"
 
 msgid "Configure widget"
 msgstr "Configurar widget"
@@ -5123,7 +5123,7 @@ msgid "Quick Appointment"
 msgstr "Compromisso rápido"
 
 msgid "Quick Contact"
-msgstr "Contato rápido"
+msgstr "Contacto rápido"
 
 msgid "Quick Mail"
 msgstr "Mensagem rápida"
@@ -5198,7 +5198,7 @@ msgid "Holiday Cards"
 msgstr "Cartões de feriado"
 
 msgid "Hot Contacts"
-msgstr "Contatos importantes"
+msgstr "Contactos importantes"
 
 msgid "Ideas"
 msgstr "Ideias"
@@ -5441,7 +5441,7 @@ msgid "Task Completed:"
 msgstr "Tarefa terminada:"
 
 msgid "Contact not found"
-msgstr "Contato não encontrado"
+msgstr "Contacto não encontrado"
 
 msgid ""
 "Contact information could not be displayed because the server \n"
