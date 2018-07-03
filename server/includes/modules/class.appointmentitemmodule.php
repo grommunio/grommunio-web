@@ -236,6 +236,17 @@
 						}
 					}
 
+					// Get attachments information from the saved appointment to update client side
+					// according to the latest attachments related changes only if changes requested from client.
+					if (!empty($action['attachments'])) {
+						$attachments = $GLOBALS["operations"]->getAttachmentsInfo($savedAppointment);
+						if (!empty($attachments)) {
+							$data["attachments"] = array(
+								"item" => $attachments
+							);
+						}
+					}
+
 					$data['action_response'] = Array(
 						'resources_booked' => $this->directBookingMeetingRequest
 					);
