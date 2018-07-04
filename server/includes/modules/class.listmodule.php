@@ -723,6 +723,7 @@
 								$props = array_merge($this->properties, array('body' => PR_BODY));
 							case "task":
 							case "note":
+							case "filter":
 								$this->restriction = Conversion::json2restriction($props, $value);
 								break;
 						}

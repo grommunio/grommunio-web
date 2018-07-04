@@ -50,6 +50,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 
 		// The "New email" button which is available in all contexts
 		this.registerInsertionPoint('main.maintoolbar.new.item', this.createNewMailButton, this);
+		this.registerInsertionPoint('context.mainpaneltoolbar.item', this.createFilterButton, this);
 
 		// The tab in the top tabbar
 		this.registerInsertionPoint('main.maintabbar.left', this.createMainTab, this);
@@ -638,6 +639,97 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			context: this.getName(),
 			id: 'mainmenu-button-mail'
 		};
+	},
+
+	/**
+	 * Create filter button in {@link Zarafa.common.ui.ContextMainPanelToolbar ContextMainPanelToolbar}
+	 *
+	 * @param {String} insertionPoint The insertionPoint text.
+	 * @param {Zarafa.core.Context} currentContext The current context in which this
+	 * insertion point triggered.
+	 * @return {Object} configuration object to create filter button.
+	 */
+	createFilterButton : function(insertionPoint, currentContext)
+	{
+		return {
+			xtype: 'splitbutton',
+			cls: 'k-filter-options-btn',
+			text: '<span>' + _('Filter') + '</span>',
+			tooltip: _('Filter'),
+			overflowText: _('Filter'),
+			iconCls: 'icon_filter',
+			ref : 'filterBtn',
+			hidden : Ext.isDefined(currentContext)? currentContext.getName() !== 'mail': true,
+			nonEmptySelectOnly: true,
+			model: this.model,
+			menu : {
+				items : [{
+					xtype : 'menucheckitem',
+					text: _('Unread'),
+					model: this.model,
+					cls : 'k-unread-filter-btn',
+					ref : '../unreadBtn',
+					iconCls : 'k-hide-img',
+					checkHandler : this.onUnreadToggle,
+					scope : this
+				}]
+			},
+			handler: function() {
+				if(this.isXType("splitbutton")) {
+					this.showMenu();
+				}
+			},
+			listeners : {
+				menushow : function () {
+					var store = this.model.getStore();
+					var imgEl = this.unreadBtn.el.child('img');
+					if (store.hasFilterApplied) {
+						imgEl.addClass('x-menu-item-icon');
+						imgEl.removeClass('k-hide-img');
+						this.unreadBtn.checked = true;
+					} else if (imgEl.hasClass('x-menu-item-icon')) {
+						imgEl.removeClass('x-menu-item-icon');
+						this.unreadBtn.checked = false;
+					}
+				}
+			}
+		};
+	},
+
+	/**
+	 * Handler called when check 'Unread' button has been clicked.
+	 *
+	 * @param {Ext.menu.CheckItem} menuItem The menu item which is clicked.
+	 * @param {Boolean} checked The checked is true if {@link Ext.menu.CheckItem CheckItem} was clicked.
+	 */
+	onUnreadToggle : function(menuItem, checked)
+	{
+		var mainPanelToolbar = container.getContentPanel().getTopToolbar();
+		var filterBtn = mainPanelToolbar.filterBtn;
+		var imgTag = menuItem.el.child('img');
+		var model = menuItem.model;
+		var store = model.getStore();
+		var options = {
+			restriction: {}
+		};
+		if(checked) {
+			imgTag.addClass('x-menu-item-icon');
+			imgTag.removeClass('k-hide-img');
+			filterBtn.btnEl.addClass('k-selection');
+
+			// Add unread filter restriction.
+			options.restriction['filter'] = store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD);
+			store.hasFilterApplied = true;
+		} else {
+			imgTag.removeClass('x-menu-item-icon');
+			filterBtn.btnEl.removeClass('k-selection');
+			store.stopFilter();
+		}
+
+		model.load({
+			folder:[menuItem.model.getDefaultFolder()],
+			params : options
+		});
 	}
 });
 

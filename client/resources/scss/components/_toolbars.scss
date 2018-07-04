@@ -113,6 +113,25 @@
 			}
 		}
 
+		.x-btn.k-filter-options-btn {
+			.x-btn-small {
+				button {
+					min-width: 0px !important;
+				}
+			}
+			.x-btn-split {
+				padding-right: 0px;
+				background-image: none !important;
+			}
+
+			.icon_filter.x-btn-text {
+				border-right: none !important;
+				span {
+					padding-left: 5px;
+				}
+			}
+		}
+
 		/* Meeting/Task request buttongroup */
 		.x-btn-group.zarafa-mr-buttons, .k-tr-buttons {
 			.x-btn-group-tl,
@@ -400,6 +419,11 @@
 				/* recurrence button */
 				button.icon_recurrence {
 					background-position: sprite-position($icons, icon_recurrence, $offset-y: 4px, $offset-x: $padding-medium);
+				}
+
+				/* filter button */
+				button.icon_filter {
+					background-position: sprite-position($icons, icon_filter, $offset-y: 0px, $offset-x: 0px);
 				}
 
 				/* invite button */

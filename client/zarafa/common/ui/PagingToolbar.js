@@ -205,8 +205,12 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 			return;
 		}
 		var p = this.getParams();
-		if (o.params && o.params.restriction && !Ext.isEmpty(o.params.restriction[p.restriction.start])) {
-			this.cursor =  o.params.restriction[p.restriction.start];
+		if (o.params && o.params.restriction) {
+			if (!Ext.isEmpty(o.params.restriction[p.restriction.start])) {
+				this.cursor =  o.params.restriction[p.restriction.start];
+			} else if(this.cursor !== 0) {
+				this.cursor = 0;
+			}
 		}
 
 		var d = this.getPageData(), ap = d.activePage, ps = d.pages;
@@ -282,6 +286,10 @@ Zarafa.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 		o.restriction[pn.restriction.start] = start;
 		o.restriction[pn.restriction.limit] = this.pageSize;
 		if(this.fireEvent('beforechange', this, o) !== false){
+			if (this.store.hasFilterApplied) {
+				o.restriction["filter"] = this.store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD);
+				this.cursor = 0;
+			}
 			this.store.load({
 				folder : this.store.lastOptions.folder,
 				params: o

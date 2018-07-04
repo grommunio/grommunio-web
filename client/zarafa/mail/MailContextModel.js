@@ -657,6 +657,34 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
+	 * Load the store using the given (optional) restriction. if
+	 * {@link Zarafa.core.data.ListModuleStore#hasFilterApplied} then
+	 * set the filter restriction in params and if context is going to switch
+	 * then clear the filter.
+	 * @private
+	 */
+	load : function()
+	{
+		var options = {};
+		var store = this.getStore();
+		// suspended is only true when context is going to switch
+		// on context witch if filter is enabled then clear the filter.
+		if (this.suspended && store.hasFilterApplied) {
+			store.stopFilter();
+		} else if(store.hasFilterApplied) {
+			// If user switch folder within the context we have to
+			// persist the filter so, set the filter restriction
+			// in restriction/params object.
+			options.params = {
+				restriction: {
+					filter : store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+				}
+			};
+		}
+		Zarafa.mail.MailContextModel.superclass.load.call(this, options);
+	},
+
+	/**
 	 * Event handler which is executed right before the {@link #datamodechange}
 	 * event is fired. This allows subclasses to initialize the {@link #store}.
 	 * This will apply a restriction to the {@link #store} if needed.

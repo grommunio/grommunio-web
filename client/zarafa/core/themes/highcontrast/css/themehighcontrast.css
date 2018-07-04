@@ -247,3 +247,7 @@ ul.x-tab-strip li .x-tab-right,
 .contact-characterstrip .x-btn-pressed .x-btn-small {
   background-color: #b9dcf5;
 }
+
+.k-selection {
+	background-color: #b9dcf5 !important;
+}

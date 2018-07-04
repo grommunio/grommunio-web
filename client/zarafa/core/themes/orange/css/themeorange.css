@@ -355,3 +355,7 @@ input.x-form-text.x-form-field.x-form-focus {
 .contact-characterstrip .x-btn-pressed .x-btn-small {
   background-color: #fce8ce;
 }
+
+.k-selection {
+    background-color: #fce8ce !important;
+}
