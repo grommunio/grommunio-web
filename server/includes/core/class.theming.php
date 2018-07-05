@@ -34,13 +34,20 @@ class Theming
 		$themes = [];
 		$directoryIterator = new DirectoryIterator(BASE_PATH . PATH_PLUGIN_DIR);
 		foreach ( $directoryIterator as $info ) {
-			if (
-				!$info->isDot() && $info->isDir() &&
-				Theming::isJsonTheme($info->getFileName()) &&
-				!empty($themeProps = Theming::getJsonThemeProps($info->getFileName()))
-			) {
-				$themes[$info->getFileName()] = isset($themeProps['display-name']) ? $themeProps['display-name'] : $info->getFileName();
+			if ($info->isDot() || !$info->isDir()) {
+				continue;
 			}
+
+			if (!Theming::isJsonTheme($info->getFileName())) {
+				continue;
+			}
+			
+			$themeProps = Theming::getJsonThemeProps($info->getFileName());
+			if (empty($themeProps)) {
+				continue;
+			}
+
+			$themes[$info->getFileName()] = isset($themeProps['display-name']) ? $themeProps['display-name'] : $info->getFileName();
 		}
 
 		return $themes;
