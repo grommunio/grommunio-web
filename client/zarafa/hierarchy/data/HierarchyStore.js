@@ -797,11 +797,23 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				var newmail = folder.content_unread !== 0
 					&& folder.content_unread > folderStore.get('content_unread');
 
-				if (newmail && folder_keys.indexOf(folderKey) === -1
-						&& folderStore.isContainerClass('IPF.Note')) {
-					var notificationMessage = String.format(
-						ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
-						folder.content_unread, folder.display_name);
+				if (newmail && folder_keys.indexOf(folderKey) === -1 && folderStore.isContainerClass('IPF.Note')) {
+					var notificationMessage;
+					if ( folder.user_display_name ) {
+						// This is in a shared store. We have to show the shared store's user's name too
+						notificationMessage = String.format(
+							ngettext('There is {0} unread message in the folder {1} of {2}', 'There are {0} unread messages in the folder {1} of {2}', folder.content_unread),
+							folder.content_unread,
+							folder.display_name,
+							folder.user_display_name
+						);
+					} else {
+						notificationMessage = String.format(
+							ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
+							folder.content_unread,
+							folder.display_name
+						);
+					}
 
 					// New mail notification should show only on main browser window.
 					var mainBrowserWindowBody;
@@ -836,6 +848,22 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	},
 
 	/**
+	 * Sends a request to the server with only an action type and no other parameters. It will also not
+	 * wait for / handle a response.
+	 * @param {Zarafa.core.Actions} action The action type that will be send to the server
+	 */
+	sendSimpleActionToServer : function(action)
+	{
+		var options = {
+			params : {},
+			actionType : action
+		};
+
+		// fire request
+		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.emptyFn, this, options);
+	},
+
+	/**
 	 * Function will be used to send <b>keepalive</b> requests to the server so we will be always logged
 	 * on server and don't need to relogin after some time even if user doesn't perform any action.
 	 * function is created on a fingerprint of {@link #load} method, which performs a 'read' operation
@@ -849,14 +877,17 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	sendKeepAlive : function()
 	{
-		var options = {
-			params : {},
-			// indicate that this is a keepalive request
-			actionType : Zarafa.core.Actions['keepalive']
-		};
+		this.sendSimpleActionToServer(Zarafa.core.Actions['keepalive']);
+	},
 
-		// fire request
-		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.emptyFn, this, options);
+	/**
+	 * Send a <b>sharestoreupdate</b> request to make the backend check if there are unread emails
+	 * in one of the opened shared stores.
+	 * @private
+	 */
+	sendSharedStoreHierarchyUpdate : function()
+	{
+		this.sendSimpleActionToServer(Zarafa.core.Actions['sharedstoreupdate']);
 	},
 
 	/**
@@ -874,14 +905,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 */
 	sendDestroySession : function()
 	{
-		var options = {
-			params : {},
-			// indicate that this is a destroysession request
-			actionType : Zarafa.core.Actions['destroysession']
-		};
-
-		// fire request
-		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.emptyFn, this, options);
+		this.sendSimpleActionToServer(Zarafa.core.Actions['destroysession']);
 	},
 
 	/**

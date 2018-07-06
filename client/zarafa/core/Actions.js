@@ -232,5 +232,12 @@ Zarafa.core.Actions =
 	 * @property
 	 * @type String
 	 */
-	import : 'import'
+	import : 'import',
+
+	/**
+	 * Used for shared stores unread mail updates
+	 * @property
+	 * @type String
+	 */
+	sharedstoreupdate: 'sharedstoreupdate'
 };

@@ -173,6 +173,8 @@
 	//  	array(_('B'))
 	// )));
 
+	// Define the polling interval in minutes for unread mail in shared stores.
+	define('SHARED_STORE_POLLING_INTERVAL', 15);
 
 	/**************************************\
 	* Memory usage and timeouts            *

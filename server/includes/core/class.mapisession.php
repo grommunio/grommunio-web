@@ -811,6 +811,20 @@
 		}
 
 		/**
+		 * Get the username of the user store
+		 *
+		 * @param string $username The loginname of whom we want to full name.
+		 * @return string the display name of the user.
+		 */
+		function getDisplayNameofUser($username)
+		{
+			$user_entryid = $this->getStoreEntryIdOfUser($username);
+			$store = $this->openMessageStore($user_entryid, $username);
+			$props = mapi_getprops($store, array(PR_DISPLAY_NAME));
+			return str_replace('Inbox - ', '', $props[PR_DISPLAY_NAME]);
+		}
+
+		/**
 		 * Get the username of the owner of the specified store
 		 *
 		 * The store must have been previously added via addUserStores.
