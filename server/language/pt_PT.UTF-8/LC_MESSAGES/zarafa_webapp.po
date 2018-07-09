@@ -235,7 +235,7 @@ msgid "(None)"
 msgstr "(nenhum)"
 
 msgid "Ok"
-msgstr "OK"
+msgstr "Ok"
 
 msgid "Yes"
 msgstr "Sim"
