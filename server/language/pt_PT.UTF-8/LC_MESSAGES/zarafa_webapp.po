@@ -235,7 +235,7 @@ msgid "(None)"
 msgstr "(nenhum)"
 
 msgid "Ok"
-msgstr "Ok"
+msgstr "OK"
 
 msgid "Yes"
 msgstr "Sim"
@@ -559,7 +559,7 @@ msgid "Add"
 msgstr "Adicionar"
 
 msgid "You must specify a name."
-msgstr "Tem de indicar um nome."
+msgstr "Tem que especificar um nome."
 
 msgid "Add a folder to favorites based on your search query"
 msgstr "Adicionar uma pasta aos favoritos baseada na sua procura"
@@ -1087,7 +1087,7 @@ msgid "Delete this appointment"
 msgstr "Eliminar este compromisso"
 
 msgid "Add attachment"
-msgstr "Adicionar anexos"
+msgstr "Adicionar anexo"
 
 msgid "Add attachments to this appointment"
 msgstr "Adicionar anexos a este compromisso"
@@ -1905,7 +1905,7 @@ msgstr ""
 "favor use outro nome."
 
 msgid "Rename"
-msgstr "Alterar nome"
+msgstr "Renomear"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr "Esta é a primeira vez que usou a categoria \"{0}\"."
@@ -3723,7 +3723,7 @@ msgid "Task Items"
 msgstr "Itens de Tarefa"
 
 msgid "Select where to place the folder"
-msgstr "Selecione onde quer colocar a pasta"
+msgstr "Selecione onde colocar a pasta"
 
 msgid "You must select a destination folder."
 msgstr "Tem de selecionar uma pasta de destino."
@@ -3870,7 +3870,7 @@ msgid "Close folder"
 msgstr "Fechar pasta"
 
 msgid "Reload"
-msgstr "Reiniciar"
+msgstr "Recarregar"
 
 msgid "Restore items"
 msgstr "Restaurar Itens"
@@ -4361,7 +4361,7 @@ msgid "No note selected"
 msgstr "Nenhuma nota selecionada"
 
 msgid "Icons"
-msgstr "Icones"
+msgstr "Ícones"
 
 msgid "List view"
 msgstr "Ver em lista"
@@ -5863,7 +5863,7 @@ msgid "Username"
 msgstr "Utilizador"
 
 msgid "Password"
-msgstr "Palavra passe"
+msgstr "Palavra-passe"
 
 msgid "Sign in"
 msgstr "Iniciar sessão"
