@@ -53,7 +53,7 @@ Zarafa.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
 					},{
 						xtype : 'displayfield',
 						cls : 'zarafa-welcome-message',
-						value : _('This is the first time you are using WebApp. <br />Please check the following settings before continuing.')
+						value: _('This is the first time you are using WebApp. ') + '<br />' + _('Please check the following settings before continuing.')
 					},{
 						xtype : 'zarafa.settingswelcomecategory',
 						ref : '../../settingsCategory'
