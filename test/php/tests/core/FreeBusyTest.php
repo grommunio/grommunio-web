@@ -23,6 +23,7 @@ class FreeBusyTest extends KopanoTest
 		parent::setUp();
 		$user = $this->addUser(new FreebusyUser(new KopanoUser(KOPANO_USER1_NAME, KOPANO_USER1_PASSWORD)));
 		$this->store = $user->getDefaultMessageStore();
+		$this->cleanFolders = false;
 	}
 
 	/**
