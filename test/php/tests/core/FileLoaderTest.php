@@ -25,6 +25,9 @@ class FileLoaderTest extends KopanoTest {
 
 		$files = $loader->getExtjsCSSFiles(LOAD_DEBUG);
 		$this->assertNotEmpty($files);
+
+		$files = $loader->getExtjsCSSFiles(LOAD_SOURCE);
+		$this->assertNotEmpty($files);
 	}
 
 	public function testgetZarafaJavascriptFiles() {
