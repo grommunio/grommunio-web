@@ -331,7 +331,12 @@ class Theming
 
 		if ( $themeProps['primary-color'] ) {
 			if ( !$themeProps['primary-color:hover'] ) {
-				$themeProps['primary-color:hover'] = Colors::darker($themeProps['primary-color'], 10);
+				list(, , $l) = Colors::rgb2hsl(Colors::colorString2Object($themeProps['primary-color']));
+				if ( $l > 20 ) {
+					$themeProps['primary-color:hover'] = Colors::darker($themeProps['primary-color'], 10);
+				} else {
+					$themeProps['primary-color:hover'] = Colors::lighter($themeProps['primary-color'], 20);
+				}
 			}
 
 			if ( !$themeProps['mainbar-text-color'] ) {
