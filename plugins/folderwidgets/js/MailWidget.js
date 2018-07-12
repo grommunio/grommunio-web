@@ -190,7 +190,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'mail',
 		displayName : _('Unread Mail'),
-		iconPath : 'plugins/folderwidgets/resources/images/mail.png',
 		widgetConstructor : Zarafa.widgets.folderwidgets.MailWidget
 	}));
 });

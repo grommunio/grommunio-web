@@ -133,7 +133,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'tasks',
 		displayName : _('Tasks'),
-		iconPath : 'plugins/folderwidgets/resources/images/tasks.png',
 		widgetConstructor : Zarafa.widgets.folderwidgets.TasksWidget
 	}));
 });

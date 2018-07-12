@@ -1,3 +1,31 @@
+#datepicker.zarafa-widget-item {
+        background-image: url("../images/calendar.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 7px 10px;
+}
+
+#tasks.zarafa-widget-item {
+        background-image: url("../images/tasks.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 7px 10px;
+}
+
+#mail.zarafa-widget-item {
+        background-image: url("../images/unreadMail.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 7px 15px;
+}
+
+#appointments.zarafa-widget-item {
+        background-image: url("../images/calendar.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 7px 10px;
+}
+
 .today-item {
     padding: 3px;
     margin: 2px;
@@ -11,7 +39,7 @@
 }
 
 .today-tentative {
-    background: url(../images/today_tentative.png) repeat !important;
+    background: url(../images/tentative.svg) repeat !important;
     border-color: #ddd;
 }
 
@@ -34,7 +62,7 @@
     background-image: none !important;
 }
 .x-grid3-row.today-item.x-grid3-row-over.today-tentative {
-    background: url(../images/today_tentative.png) repeat !important;
+    background: url(../images/tentative.svg) repeat !important;
 }
 
 .today-item .x-grid3-cell-first .x-grid3-cell-inner {

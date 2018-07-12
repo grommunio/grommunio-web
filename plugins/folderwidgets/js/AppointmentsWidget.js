@@ -251,7 +251,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'appointments',
 		displayName : _('Today\'s Appointments'),
-		iconPath : 'plugins/folderwidgets/resources/images/appointments.png',
 		widgetConstructor : Zarafa.widgets.folderwidgets.AppointmentsWidget
 	}));
 });
