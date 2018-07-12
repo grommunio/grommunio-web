@@ -96,6 +96,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 			},
 			buttons : [{
 				text : _('Save'),
+				cls : 'zarafa-action',
 				handler : this.onSave,
 				scope : this
 			},{
@@ -229,7 +230,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'quicktask',
 		displayName : _('Quick Task'),
-		iconPath : 'plugins/quickitems/resources/images/quicktask.png',
 		widgetConstructor : Zarafa.widgets.quickitems.QuickTaskWidget
 	}));
 });
