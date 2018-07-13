@@ -862,7 +862,7 @@ If it is the first time this attendee has proposed a new date/time, increment th
 					$items = $this->findCalendarItems($messageprops[$this->proptags['goid']], $calFolder);
 					if (is_array($items)) {
 						// Get local categories before deleting MR.
-						$message = $GLOBALS['mapisession']->openMessage($items[0]);
+						$message = mapi_msgstore_openentry($store, $items[0]);
 						$localCategories = mapi_getprops($message, array($this->proptags['categories']));
 						mapi_folder_deletemessages($calFolder, $items);
 					}
