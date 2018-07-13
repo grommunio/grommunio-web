@@ -268,13 +268,29 @@
 	 */
 	function browserDependingHTTPHeaderEncode($input)
 	{
-		$isIE11 = strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false;
-		$isEdge = strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== false;
-		if(!$isIE11 && !$isEdge) {
+		if(!isIE11() && !isEdge()) {
 			return $input;
 		} else {
 			return rawurlencode($input);
 		}
+	}
+
+	/**
+	 * Helps to detect if the request came from IE11 or not.
+	 * @return Boolean True if IE11 is the requester, position of the word otherwise.
+	 */
+	function isIE11()
+	{
+		return strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false;
+	}
+
+	/**
+	 * Helps to detect if the request came from Edge or not.
+	 * @return Boolean True if Edge is the requester, position of the word otherwise.
+	 */
+	function isEdge()
+	{
+		return strpos($_SERVER['HTTP_USER_AGENT'], 'Edge') !== false;
 	}
 
 	/**

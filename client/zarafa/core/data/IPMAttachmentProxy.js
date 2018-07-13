@@ -118,6 +118,7 @@ Zarafa.core.data.IPMAttachmentProxy = Ext.extend(Zarafa.core.data.MAPIProxy, {
 		requestUrl = Ext.urlAppend(requestUrl, 'module=' + module);
 		requestUrl = Ext.urlAppend(requestUrl, 'moduleid=' + requestId);
 
+		record.requestId = requestId;
 		request.send(requestUrl, {});
 	}
 });

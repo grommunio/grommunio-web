@@ -453,6 +453,11 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 
 		for (var i = 0; i < files.length; i++) {
 			var file = files[i];
+			var originalName = file.name;
+
+			if (!(Ext.isIE || Ext.isEdge)) {
+				file = this.cloneFile(file);
+			}
 
 			// check if file was already handled by any other plugin
 			if(eventData.handledfiles.indexOf(file) !== -1) {
@@ -466,11 +471,12 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 
 				// Create an attachment record, with all the passed data, use record factory so default values will be applied
 				attach = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(this.attachmentRecordType, {
-					'name' : file['name'],
+					'name' : originalName,
 					'size' : file['size'],
 					'filetype' : file['type'],
 					'hidden' : Ext.isDefined(isHidden) ? isHidden : false,
-					'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE
+					'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
+					'attach_id' : file['attach_id']
 				});
 			} else {
 				// If the file is a String, it is the file name including a fake path
@@ -521,6 +527,24 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	},
 
 	/**
+	 * Clone given file to postfix an eight digit unique id to filename.
+	 * This particular unique id will then extracted on server side and act as attach_id for unsaved attachments.
+	 * @param {File} record File which needs to be cloned to pass uid postfixed to filename
+	 * @return {File} Cloned file.
+	 */
+	cloneFile : function(file)
+	{
+		var postfixId = Zarafa.generateId(8);
+		// create a Blob object from existing file
+		var blob = [file.slice(0, file.size, file.type)];
+		var postfixedName = file.name + postfixId;
+		var clonedFile = new File(blob, postfixedName, {type : file.type});
+		clonedFile.attach_id = postfixId;
+
+		return clonedFile;
+	},
+
+	/**
 	 * Add given {@link Zarafa.core.data.IPMRecord IPMRecord} as embedded attachment to {@link Zarafa.core.data.IPMAttachmentStore IPMAttachmentStore}, this will generate new
 	 * {@link Zarafa.core.data.IPMAttachmentRecord attachment record} and
 	 * add those to the store and will send request to server to save embedded attachment info to state file.
@@ -532,7 +556,8 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			'entryid' : record.get('entryid'),
 			'store_entryid' : record.get('store_entryid'),
 			// attach method to indicate this is an embedded attachment
-			'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG
+			'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_EMBEDDED_MSG,
+			'attach_id' : Zarafa.generateId(8)
 		};
 
 		// Some optional data which should be present only if it is not empty
@@ -577,7 +602,10 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 
 		var data = {};
 
-		if (record.isTmpFile()) {
+		if (!record.isUploaded()) {
+			data['deleteattachment'] = true;
+			data['attach_id'] = record.get('attach_id');
+		} else if (record.isTmpFile()) {
 			data['deleteattachment'] = true;
 			data['attach_num'] = record.get('tmpname');
 		} else {

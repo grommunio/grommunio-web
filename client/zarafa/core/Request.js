@@ -911,6 +911,27 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 			this.send();
 
 			return requestId;
+		},
+
+		/**
+		 * Method to {@link window.XMLHttpRequest#abort} given request discarding whatever the data
+		 * added to response by server.
+		 * @param {XMLHttpRequest} xhrObj Object of the request made previously.
+		 */
+		abortRequest : function(xhrObj)
+		{
+			xhrObj.preventRetry = true;
+			xhrObj.abort();
+		},
+
+		/**
+		 * Method gives active {@link XMLHttpRequest request} object based on given requestId which
+		 * was used to send the request to server.
+		 * @param {String} requestId Unique identifier of the request made previously.
+		 */
+		getActiveRequest : function(requestId)
+		{
+			return activeRequests[requestId];
 		}
 	};
 })());

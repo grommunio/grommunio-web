@@ -39,6 +39,11 @@ class AttachmentState {
 	private $deleteattachment;
 
 	/**
+	 * List of aborted attachment files while uploading is going on
+	 */
+	private $abortedattachment;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -63,6 +68,13 @@ class AttachmentState {
 		$this->state->open();
 		$this->files = $this->state->read('files');
 		$this->deleteattachment = $this->state->read('deleteattachment');
+		$this->abortedattachment = $this->state->read('abortedattachment');
+
+		// Check if any aborted attachments are pending to be removed
+		if (!empty($this->abortedattachment)) {
+			// Remove aborted attachments
+			$this->removeAbortedAttachments();
+		}
 	}
 
 	/**
@@ -261,8 +273,9 @@ class AttachmentState {
 	 * @param String $message_id The unique identifier for referencing the
 	 * attachments for a single message
 	 * @param String $filename The filename of the attachment to delete
+	 * @param String $attachID The unique identifier for referencing attachment
 	 */
-	public function deleteUploadedAttachmentFile($message_id, $filename)
+	public function deleteUploadedAttachmentFile($message_id, $filename, $attachID)
 	{
 		// Create the destination path, the attachment has
 		// previously been placed in the attachment folder
@@ -271,7 +284,7 @@ class AttachmentState {
 			unlink($filepath);
 		}
 
-		$this->removeAttachmentFile($message_id, mb_basename($filepath));
+		$this->removeAttachmentFile($message_id, mb_basename($filepath), $attachID);
 	}
 
 	/**
@@ -330,11 +343,41 @@ class AttachmentState {
 	 * @param String $message_id The unique identifier for referencing the
 	 * attachments for a single message
 	 * @param String $name The name of the attachment
+	 * @param String $attachID The unique identifier for referencing attachment
 	 */
-	public function removeAttachmentFile($message_id, $name)
+	public function removeAttachmentFile($message_id, $name, $attachID)
 	{
 		if ($this->files && isset($this->files[$message_id])) {
 			unset($this->files[$message_id][$name]);
+		}
+
+		// if attachID is supplied then user is trying to remove the attachment which is
+		// still uploading
+		if ($attachID) {
+			$found = false;
+			if (!empty($this->files)) {
+				// Loop over and find the attachment from attachID and remove the same
+				foreach($this->files as $tmpDir => $attachment) {
+					foreach($this->files[$tmpDir] as $tmpName => $attachmentVal) {
+						if ($this->files[$tmpDir][$tmpName]['attach_id'] === $attachID) {
+							$found = true;
+							$filepath = $this->getAttachmentPath($tmpName);
+							if (is_file($filepath)) {
+								unlink($filepath);
+							}
+							unset($this->files[$tmpDir][$tmpName]);
+						}
+					}
+				}
+			}
+
+			if (!$found) {
+				// if files array is empty or attachment is not found then just remember
+				// this particular attachment, which will be removed when attachment_state
+				// will be opened again.
+				$this->addAbortedAttachment($message_id, $attachID);
+				return;
+			}
 		}
 	}
 
@@ -400,6 +443,59 @@ class AttachmentState {
 	}
 
 	/**
+	 * Add an aborted attachment file to the 'abortedattachment' array.
+	 * So that it can be removed from message while it is available in 'files' array.
+	 * @param String $message_id The unique identifier for referencing the
+	 * attachments for a single message
+	 * @param String $attachID The unique identifier for referencing attachment
+	 */
+	public function addAbortedAttachment($message_id, $attachID)
+	{
+		if (!$this->abortedattachment) {
+			$this->abortedattachment = Array( $message_id => Array() );
+		} else if (!isset($this->abortedattachment[$message_id])) {
+			$this->abortedattachment[$message_id] = Array();
+		}
+
+		$this->abortedattachment[$message_id][] = $attachID;
+	}
+
+	/**
+	 * Remove an aborted attachment from the message and files list
+	 */
+	public function removeAbortedAttachments()
+	{
+		if (empty($this->files)){
+			return;
+		}
+
+		// Loop over and find the attachment from attachID and remove the same
+		foreach($this->files as $tmpDir => $attachment) {
+			foreach($this->files[$tmpDir] as $tmpName => $attachmentVal) {
+				if (!isset($this->abortedattachment[$tmpDir])) {
+					continue;
+				}
+
+				// check if the aborted attachID is present in files array
+				$index = array_search($this->files[$tmpDir][$tmpName]['attach_id'], $this->abortedattachment[$tmpDir]);
+				if ($index !== false) {
+					// Remove attachment from the list of aborted attachments.
+					unset($this->abortedattachment[$tmpDir][$index]);
+
+					// If respective file is still there in tmp directory then remove
+					$filepath = $this->getAttachmentPath($tmpName);
+					if (is_file($filepath)) {
+						unlink($filepath);
+					}
+
+					// Remove attachment from state as well
+					unset($this->files[$tmpDir][$tmpName]);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Remove all deleted attachment files from the message
 	 * @param String $message_id The unique identifier for referencing the
 	 * attachments for a single message
@@ -419,6 +515,7 @@ class AttachmentState {
 	{
 		$this->state->write('files', $this->files, false);
 		$this->state->write('deleteattachment', $this->deleteattachment, false);
+		$this->state->write('abortedattachment', $this->abortedattachment, false);
 		$this->state->flush();
 		$this->state->close();
 	}
