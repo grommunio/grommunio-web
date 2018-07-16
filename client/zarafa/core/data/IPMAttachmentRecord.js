@@ -159,7 +159,12 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 			isSupportedExtension = Zarafa.core.MessageClass.isClass(this.get('attach_message_class'), ['IPM.Note', 'IPM.Contact', 'IPM.TaskRequest', 'IPM.Schedule.Meeting.Resp', 'IPM.Schedule.Meeting.Request' ,'REPORT.IPM.Note'], true);
 		} else {
 			const fileExtension = this.get('extension');
-			isSupportedExtension = (fileExtension === 'eml' || fileExtension === 'vcf');
+			isSupportedExtension = (
+				fileExtension === 'eml' ||
+				fileExtension === 'vcf' ||
+				fileExtension === 'ics' ||
+				fileExtension === 'vcs'
+			);
 		}
 
 		return container.getServerConfig().isImportSupported() && isSupportedExtension;

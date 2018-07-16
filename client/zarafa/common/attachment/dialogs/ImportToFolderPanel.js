@@ -116,6 +116,9 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 				return Zarafa.common.data.FolderContentTypes.mail;
 			case 'vcf':
 				return Zarafa.common.data.FolderContentTypes.contact;
+			case 'ics':
+			case 'vcs':
+				return Zarafa.common.data.FolderContentTypes.appointment;
 		}
 
 		return;

@@ -709,9 +709,9 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 	onImportRecords : function(success, rs, data)
 	{
 		if (success === true) {
-			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), rs.get('display_name')));
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), rs.getFullyQualifiedDisplayName()));
 		} else {
-			container.getNotifier().notify('info.import', _('Import'), String.format(_('Failed to import item(s) to {0}'), rs.get('display_name')));
+			container.getNotifier().notify('info.import', _('Import'), String.format(_('Failed to import item(s) to {0}'), rs.getFullyQualifiedDisplayName()));
 		}
 	}
 });
