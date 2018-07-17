@@ -1,6 +1,5 @@
 <?php
 
-$version = trim(file_get_contents('version'));
 $serverVersion = $GLOBALS['mapisession']->getServerVersion();
 if (empty($serverVersion)) {
 	$serverVersion =  phpversion('mapi');
