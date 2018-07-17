@@ -1,14 +1,8 @@
 <?php
 include(BASE_PATH . 'server/includes/loader.php');
+include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
-
-$version = trim(file_get_contents('version'));
-$versionInfo = array(
-	'webapp'	=> $version,
-	'zcp'		=> phpversion('mapi'),
-	'git'		=> DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
-);
 
 $serverConfig = array(
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,

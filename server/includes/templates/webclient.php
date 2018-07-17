@@ -1,32 +1,20 @@
 <?php
 include(BASE_PATH . 'server/includes/loader.php');
+include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
 
-$version = trim(file_get_contents('version'));
-$versionInfo = array(
-	'webapp'	=> $version,
-	'zcp'		=> phpversion('mapi'),
-	'git'		=> DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
-);
-
-$serverConfig = array(
+$serverConfig = array_merge($serverConfig, array(
 	'base_url'						=> BASE_URL,
 	'webapp_title'					=> WEBAPP_TITLE,
 	'using_sso'						=> WebAppAuthentication::isUsingSingleSignOn() ? true : false,
 	'disable_full_gab'				=> DISABLE_FULL_GAB,
 	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
-	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
-	'max_attachment_size'			=> getMaxUploadSize(),
 	'post_max_size'					=> getMaxPostRequestSize(),
 	'max_file_uploads'				=> getMaxFileUploads(),
-	'freebusy_load_start_offset'	=> FREEBUSY_LOAD_START_OFFSET,
-	'freebusy_load_end_offset' 		=> FREEBUSY_LOAD_END_OFFSET,
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
-	'active_theme'					=> Theming::getActiveTheme(),
-	'json_themes'					=> Theming::getJsonThemes(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
@@ -38,7 +26,7 @@ $serverConfig = array(
 											'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
 										),
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
-);
+));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
 }
