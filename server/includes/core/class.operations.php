@@ -3905,11 +3905,29 @@
 				 * If contact or distribution list belongs to GAB then open that contact and
 				 * retrieve all properties which requires to prepare ideal recipient to send mail.
 				 */
-				$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), hex2bin($entryid));
-				$abProps = $this->getProps($abentry, $GLOBALS['properties']->getRecipientProperties());
-				$props = $abProps["props"];
-				$props["entryid"] = $abProps["entryid"];
-
+				try{
+					$abentry = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), hex2bin($entryid));
+					$abProps = $this->getProps($abentry, $GLOBALS['properties']->getRecipientProperties());
+					$props = $abProps["props"];
+					$props["entryid"] = $abProps["entryid"];
+				}catch(Exception $e) {
+					// Throw MAPI_E_NOT_FOUND it may possible that contact is already
+					// deleted from server. so just create recipient
+					// with existing information of distlist member.
+					// recipient is not valid so sender get report mail for that
+					// particular recipient to inform that recipient is not exist.
+					if ($e->getCode() == MAPI_E_NOT_FOUND) {
+						$props["entryid"] = $memberProps["entryid"];
+						$props["display_type"] = DT_MAILUSER;
+						$props["display_type_ex"] =  DT_MAILUSER;
+						$props["display_name"] = $memberProps["display_name"];
+						$props["smtp_address"] = $memberProps["email_address"];
+						$props["email_address"] = $memberProps["email_address"];
+						$props["address_type"] = !empty($memberProps["address_type"]) ? $memberProps["address_type"] : 'SMTP';
+					} else {
+						throw $e;
+					}
+				}
 			} else {
 				/**
 				 * If contact is belongs to local/shared folder then prepare ideal recipient to send mail
@@ -4376,7 +4394,6 @@
 					}
 				}
 			}
-
 			return $items;
 		}
 
