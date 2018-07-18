@@ -463,7 +463,18 @@ Zarafa.contact.data.ContactDetailsParser = Ext.extend(Object, {
 	 */
 	combinePhoneInfo : function(data)
 	{
-		var phoneString = !Ext.isEmpty(data['country_code']) ? (data['country_code'] + this.NBSP) : '';
+		var phoneString = '';
+		// Check country code is available if yes then
+		// check if it is valid country code,
+		// if not then convert it to valid country code by appending '+'
+		if (!Ext.isEmpty(data['country_code'])) {
+			var countryRegex = new RegExp('(\\+|0{2})[^' + this.SP + '|' + this.NBSP + ']+');
+			phoneString = data['country_code'] + this.NBSP;
+			if (!data['country_code'].match(countryRegex)) {
+				phoneString = '+' + phoneString;
+			}
+		}
+
 		phoneString += !Ext.isEmpty(data['city_code']) ? ('(' + data['city_code'] + ')' + this.NBSP) : '';
 		phoneString += !Ext.isEmpty(data['local_number']) ? (data['local_number'] + this.NBSP) : '';
 		phoneString += !Ext.isEmpty(data['extension']) ? ('-' + this.NBSP + data['extension']) : '';
