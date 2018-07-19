@@ -217,7 +217,8 @@ Translations.prototype.getTranslation = function(domain, msgctxt, msgid, msgid_p
 				translation = trans[index];
 		}
 
-		return translation;
+		// Encode the text to avoid xss attacks.
+		return Ext.util.Format.htmlEncode(translation);
 }
 // Instantiate the Translations, effectively making it a singleton
 var Translations = new Translations();
