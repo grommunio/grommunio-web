@@ -43,7 +43,9 @@ include("server/includes/core/class.pluginmanager.php");
 include("server/includes/core/class.plugin.php");
 include("server/includes/core/class.todolist.php");
 include("server/includes/core/class.freebusy.php");
-
+include('server/includes/core/class.log.php');
+include('server/includes/logger/class.baselogger.php');
+include('server/includes/logger/class.filelog.php');
 /**
  * KopanoTest
  *

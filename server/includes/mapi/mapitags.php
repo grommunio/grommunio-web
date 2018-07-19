@@ -907,4 +907,7 @@ define('PR_EC_SUGGESTION'                    ,mapi_prop_tag(PT_TSTRING, 0x6707))
 define('PR_EC_BODY_FILTERED'                 ,mapi_prop_tag(PT_BINARY, 0x6791));
 define('PR_EC_ENABLED_FEATURES'              ,mapi_prop_tag(PT_MV_TSTRING, PR_EC_BASE+0xB3));
 define('PR_EC_DISABLED_FEATURES'             ,mapi_prop_tag(PT_MV_TSTRING, 0x67B4));
+
+define('PR_PROPOSEDNEWTIME_START', PR_PROPOSENEWTIME_START);
+define('PR_PROPOSEDNEWTIME_END', PR_PROPOSENEWTIME_END);
 ?>

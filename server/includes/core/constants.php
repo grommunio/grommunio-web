@@ -38,11 +38,17 @@
 	define("DL_DIST_AB",			0xB6);		//	182
 
 	// @FIXME these needs to be changed in mapitags.php
-	define('PR_PROPOSEDNEWTIME_START', PR_PROPOSENEWTIME_START);
-	define('PR_PROPOSEDNEWTIME_END', PR_PROPOSENEWTIME_END);
+
 
 	// Constants are used to indicate error type on client
 	define("ERROR_MAPI",			1);
 	define("ERROR_ZARAFA",			2);
 	define("ERROR_GENERAL",			3);
+
+	define("LOGLEVEL_OFF",     0);
+	define("LOGLEVEL_FATAL",    1);
+	define("LOGLEVEL_ERROR",    2);
+	define("LOGLEVEL_WARN",     3);
+	define("LOGLEVEL_INFO",     4);
+	define("LOGLEVEL_DEBUG",    5);
 ?>
