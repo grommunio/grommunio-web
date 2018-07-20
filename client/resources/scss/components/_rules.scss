@@ -29,22 +29,6 @@
 	}
 }
 
-/* Specify word or phrases */
-.x-btn-text.zarafa-rules-add {
-	background-image: sprite-url($icons);
-	background-position: sprite-position($icons, 'plus', $offset_x: 6px, $offset_y: 7px);
-}
-
-.x-btn-text.zarafa-rules-sequence-up {
-	background-image: sprite-url($iconsmap);
-	background-position: sprite-position($iconsmap, 'arrow_up_l', $offset_y: 9px, $offset_x: 7px);
-}
-
-.x-btn-text.zarafa-rules-sequence-down {
-	background-image: sprite-url($iconsmap);
-	background-position: sprite-position($iconsmap, 'arrow_down_l', $offset_y: 9px, $offset_x: 7px);
-}
-
 .zarafa-folder-link, .zarafa-user-link, .zarafa-word-link {
 	text-decoration: underline;
 	padding: 4px 0px 0px 5px;

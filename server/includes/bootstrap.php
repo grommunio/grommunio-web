@@ -71,6 +71,8 @@
 	require_once(BASE_PATH . 'server/includes/core/class.freebusy.php');
 
 	require_once(BASE_PATH . 'server/includes/core/class.theming.php');
+	require_once(BASE_PATH . 'server/includes/core/class.iconsets.php');
+
 	require_once(BASE_PATH . 'server/includes/core/class.log.php');
 	require_once(BASE_PATH . 'server/includes/logger/class.baselogger.php');
 	require_once(BASE_PATH . 'server/includes/logger/class.filelog.php');

@@ -130,7 +130,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}]
 		});
 
-		Zarafa.settings.ui.SettingsCopyrightWidget.superclass.constructor.call(this, config);
+		Zarafa.settings.ui.SettingsPluginsWidget.superclass.constructor.call(this, config);
 		this.pluginsGrid.on('rowclick', this.onRowClick, this);
 	},
 

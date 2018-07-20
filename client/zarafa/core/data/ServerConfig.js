@@ -181,6 +181,30 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} The active iconset selected by admin or user.
+	 */
+	getActiveIconset : function()
+	{
+		return this.meta.active_iconset;
+	},
+
+	/**
+	 * @return {Array} The installed iconsets
+	 */
+	getIconsets : function()
+	{
+		return this.meta.iconsets;
+	},
+
+	/**
+	 * @return {Object} The about texts of iconsets
+	 */
+	getIconsetAbouts : function()
+	{
+		return this.meta.iconsets_about;
+	},
+
+	/**
  	 * @return {Array} returns the installed plugins version information array.
 	 */
 	getPluginsVersion : function()

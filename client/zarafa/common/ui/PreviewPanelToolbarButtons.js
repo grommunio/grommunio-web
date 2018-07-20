@@ -94,7 +94,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			items : [{
 				xtype : 'zarafa.conditionalitem',
 				text: _('Mark as read'),
-				iconCls: 'icon_mail icon_message_read',
+				iconCls: 'icon_mail icon_mail_read',
 				model: model,
 				readState: false,
 				beforeShow : this.onReadFlagItemBeforeShow,
@@ -103,7 +103,7 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 			}, {
 				xtype : 'zarafa.conditionalitem',
 				text: _('Mark as unread'),
-				iconCls: 'icon_mail icon_message_unread',
+				iconCls: 'icon_mail icon_mail_unread',
 				model: model,
 				readState: true,
 				ref: 'markUnread',
@@ -121,13 +121,13 @@ Zarafa.common.ui.PreviewPanelToolbarButtons = Ext.extend(Object, {
 				handler : this.onPrintButton
 			}, {
 				text: _('Edit as New'),
-				iconCls: 'icon_editAsNewEmail',
+				iconCls: 'icon_edit_as_new_mail',
 				ref: 'editAsNew',
 				model: model,
 				handler: this.onEditAsNewMessage
 			}, {
 				text: _('Download'),
-				iconCls: 'icon_saveaseml',
+				iconCls: 'icon_download',
 				ref: 'download',
 				model: model,
 				handler: this.onDownloadMail

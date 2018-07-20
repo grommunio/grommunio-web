@@ -412,7 +412,7 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 		},{
 			dataIndex : 'hasattach',
 			headerCls: 'zarafa-icon-column',
-			header : '<p class=\'icon_attachment\'>&nbsp;</p>',
+			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			tooltip : _('Sort by: Attachment'),
 			width : 24,
 			sortable: true,

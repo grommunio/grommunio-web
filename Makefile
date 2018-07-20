@@ -45,10 +45,19 @@ SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
 CSS = $(wildcard client/resources/css/*/*.css client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
 IMAGEDIR = client/resources/images
-IMAGES = $(wildcard  $(IMAGEDIR)/*.* $(IMAGEDIR)/whatsnew/*.* $(IMAGEDIR)/buttons/*.* $(IMAGEDIR)/icons/*.*)
+IMAGES = $(wildcard $(IMAGEDIR)/*.* $(IMAGEDIR)/whatsnew/*.*)
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
+APPICONS = $(wildcard $(IMAGEDIR)/app-icons/*.*)
+APPICONSSCSS = client/resources/scss/base/_icons.scss
+APPICONSEXTENSIONSFILE = client/resources/images/app-icons.extensions.json
 EXTJSMODFILES = $(wildcard client/extjs-mod/*.js)
 KOPANOCSS = $(DESTDIR)/client/resources/css/kopano.css
+ICONEXTENSIONSFILE = client/resources/iconsets/extensions.json
+ICONSETS = $(notdir $(filter-out client/resources/iconsets/extensions.json, $(wildcard client/resources/iconsets/*)))
+ICONS = $(foreach iconsetdir,$(ICONSETS),$(wildcard client/resources/iconsets/$(iconsetdir)/src/png/*/*.png))
+ICONSETSDEST = $(addprefix $(DESTDIR)/client/resources/iconsets/, $(ICONSETS))
+ICONSETSCSS = $(foreach iconsetdir,$(ICONSETS),client/resources/iconsets/$(iconsetdir)/$(iconsetdir)-icons.css)
+ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
 
 POFILES = $(wildcard server/language/*/*/*.po)
@@ -68,7 +77,7 @@ test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(INCLUDESDEST) $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(IMAGESDEST) $(KOPANOCSS) js
+client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(KOPANOCSS) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/resources/scss $(DESTDIR)/client/resources/
 	cp -r client/resources/config.rb $(DESTDIR)/client/resources/
@@ -194,17 +203,50 @@ phplintci:
 .PHONY: vendor
 vendor: node_modules
 
+node_modules:
+	$(NPM) install
+
+# Icons
+
+.SECONDEXPANSION:
+$(ICONSETSDEST): $$(subst deploy/,,$$@)/iconset.json $$@/$$(notdir $$@)-icons.css
+	mkdir -p $@
+	cp $< $@
+
+$(ICONSETSCSSDEST): $$(subst deploy/,,$$@)
+	mkdir -p $(@D)
+	cp $< $@
+
+.PHONY: iconsets
+iconsets: $(ICONS) node_modules
+	$(NPM) run iconsets
+
+# This rule should not be enabled until our build server supports nodejs.
+# Just create the iconsets locally by running `npm run iconsets` whenever
+# something has changed.
+#$(ICONSETSCSS): $$(@D)/src/png/*/*.png $(ICONEXTENSIONSFILE) node_modules
+#	$(NPM) run iconsets:$(notdir $(@D))
+
+# this rule creates the file client/resources/scss/base/_icons.scss
+# since the scss files are not compiled during the build (yet),
+# this rule can only be used locally for now.
+.PHONY: app-icons
+app-icons: $(APPICONSSCSS)
+
+$(APPICONSSCSS): $(APPICONS) $(APPICONSEXTENSIONSFILE) node_modules
+	$(NPM) run app-icons
+
 # Plugins
 
 .PHONY: plugins
 plugins:
 	make -C plugins
 
-node_modules:
-	$(NPM) install
-
 .PHONY: clean
 clean:
 	make -C plugins clean
 	@rm -rf deploy
 	@rm -rf node_modules
+
+print-%  :
+	@echo $* = $($*)

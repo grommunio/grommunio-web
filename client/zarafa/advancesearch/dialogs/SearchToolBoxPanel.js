@@ -98,7 +98,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype : 'zarafa.searchtoolboxpanel',
 			title: _('Search tools'),
 			width: 175,
-			iconCls : 'advance_search',
+			iconCls : 'icon_magnifier',
 			cls : 'zarafa-search-toolbox',
 			plugins : [{
 				ptype : 'zarafa.recordcomponentplugin'
@@ -332,7 +332,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			autoHeight: true,
 			items: [{
 				xtype: 'button',
-				iconCls: 'k-category-add-button-icon',
+				iconCls: 'icon_category_add',
 				cls: 'k-category-add-button',
 				handler: this.onSelectCategory,
 				scope: this
@@ -435,6 +435,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			layout:'fit',
 			items: [{
 				cls: 'search-toolbox-favorites-button',
+				iconCls: 'icon_favorites',
 				xtype:'button',
 				text: '<span>' + _('Favorites') + '</span>',
 				handler : this.onClickFavorites,

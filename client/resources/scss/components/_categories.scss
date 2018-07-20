@@ -53,17 +53,10 @@ body .k-category-block {
 	visibility: hidden;
 	width: 21px;
 	height: $category-block-height;
-	@extend .icon_category_add;
-	background-position: sprite-position($iconsmap, icon_category_add, $offset-y: 1px, $offset-x: 2px);
 	cursor: pointer;
 }
 .x-grid3-row-over .k-category-add {
 	visibility: visible;
-}
-
-.k-category-add:hover {
-	@extend .icon_category_add_hover;
-	background-position: sprite-position($iconsmap, icon_category_add_hover, $offset-y: 1px, $offset-x: 2px);
 }
 
 /* In the (pre) view panel */
@@ -137,11 +130,6 @@ body .k-category-block {
 		.x-btn-small {
 			border: 1px solid #dadada;
 		}
-
-		.k-category-add-button-icon {
-			@extend .icon_category_add_hover;
-			background-position: sprite-position($iconsmap, icon_category_add_hover, $offset-y: $padding-small, $offset-x: $padding-small);
-		}
 	}
 
 	.k-category-block {
@@ -156,13 +144,9 @@ body .k-category-block {
 		padding-right: $padding-medium;
 		width: 7px;
 		height: 7px;
-		@extend .icon_cross;
-		background-position: sprite-position($icons, icon_cross_white, $offset-y: 0, $offset-x: $padding-medium);
 	}
 
 	.k-category-add-button-icon {
-		@extend .icon_category_add;
-		background-position: sprite-position($iconsmap, icon_category_add, $offset-y: $padding-small, $offset-x: $padding-small);
 		width: $padding-extra-extra-large !important;
 		height: $padding-extra-extra-large !important;
 	}

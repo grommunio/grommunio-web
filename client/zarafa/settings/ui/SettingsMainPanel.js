@@ -21,7 +21,7 @@ Zarafa.settings.ui.SettingsMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPa
 	constructor : function(config)
 	{
 		config = config || {};
-		Ext.apply(config, {iconCls : 'zarafa-settings-category-general'});
+		Ext.apply(config, {iconCls : 'icon_cogwheel'});
 
 		// Load all category categories which we will
 		// display in the content panel.

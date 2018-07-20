@@ -24,7 +24,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 			layout: 'fit',
 			name : advanceSearchTabName,
 			title: config.searchText,
-			iconCls: 'advance_search',
+			iconCls: 'icon_magnifier',
 			border: false,
 			parentSearchField : config.parentSearchField,
 			parentSearchFolderCombo : config.parentSearchFolderCombo,
@@ -53,9 +53,9 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 
 	/**
 	 * Event handler triggers when content tab panel is changed, it's used to
-	 * toggle search view button & parent context view button when search panel 
+	 * toggle search view button & parent context view button when search panel
 	 * open/close.
-	 * 
+	 *
 	 * @param {Ext.TabPanel} tabPanel the tab panel which contains tabs.
 	 * @param {Ext.Panel} activeTab the activeTab from tab panel
 	 */
@@ -77,7 +77,7 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 					viewButton.setVisible(!isSearchPanel);
 				}, this);
 			break;
-			default : 
+			default :
 				// Toggle other context view button
 				var viewButton = mainToolbar.get('zarafa-maintoolbar-view-'+contextName);
 				if(Ext.isDefined(viewButton)){

@@ -289,7 +289,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 		record.set('task_acceptance_state', Zarafa.core.mapi.TaskAcceptanceState.NOT_DELEGATED);
 		record.set('date_completed', null);
 		record.set('updatecount', 1);
-		record.set('icon_index', Zarafa.core.mapi.IconIndex['task_normal']);
+		record.set('icon_index', Zarafa.core.mapi.IconIndex['task']);
 		record.set('taskfcreator', true);
 		record.set('tasklastdelegate', '');
 		record.set('task_goid', '');

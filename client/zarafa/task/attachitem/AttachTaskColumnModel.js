@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.task.attachitem');
  * @class Zarafa.task.attachitem.AttachTaskColumnModel
  * @extends Zarafa.common.ui.grid.ColumnModel
  *
- * The {@link Zarafa.task.attachitem.AttachTaskColumnModel AttachTaskColumnModel} is the column model containing 
+ * The {@link Zarafa.task.attachitem.AttachTaskColumnModel AttachTaskColumnModel} is the column model containing
  * sets of {@link Ext.grid.Column columns} for task folders.
  * This column model will be used with {@link Zarafa.common.attachment.dialog.AttachItemGrid AttachItemGrid}.
  */
@@ -56,7 +56,7 @@ Zarafa.task.attachitem.AttachTaskColumnModel = Ext.extend(Zarafa.common.ui.grid.
 			tooltip : _('Sort by: Priority'),
 			renderer : Zarafa.common.ui.grid.Renderers.importance
 		}, {
-			header : '<p class=\'icon_attachment\'>&nbsp;</p>',
+			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex : 'hasattach',
 			width : 24,

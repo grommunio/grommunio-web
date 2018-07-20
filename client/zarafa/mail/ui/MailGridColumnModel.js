@@ -84,7 +84,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			tooltip : _('Sort by: Icon'),
 			preventRowSelection : true
 		},{
-			header : '<p class="icon_attachment">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
+			header : '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			headerCls: 'zarafa-icon-column attachment',
 			dataIndex : 'hasattach',
 			width: 24,
@@ -238,7 +238,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			fixed : true,
 			tooltip : _('Sort by: Importance')
 		},{
-			header : '<p class="icon_attachment">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
+			header : '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			headerCls: 'zarafa-icon-column attachment',
 			dataIndex : 'hasattach',
 			width: 24,

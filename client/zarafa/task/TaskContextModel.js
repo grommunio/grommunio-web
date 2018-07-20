@@ -61,7 +61,7 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {
 			store_entryid : folder.get('store_entryid'),
 			parent_entryid : folder.get('entryid'),
-			icon_index : Zarafa.core.mapi.IconIndex['task_normal'],
+			icon_index : Zarafa.core.mapi.IconIndex['task'],
 			owner : defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
 		});
 

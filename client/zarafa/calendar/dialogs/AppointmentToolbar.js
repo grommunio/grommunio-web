@@ -51,13 +51,13 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	createActionButtons : function()
 	{
 		return [{
-			xtype : 'zarafa.meetingrequestbuttons'		
+			xtype : 'zarafa.meetingrequestbuttons'
 		},{
 			xtype: 'button',
 			overflowText: _('Send'),
 			text: _('Send'),
 			tooltip: _('Send') + ' (Ctrl + Enter)',
-			iconCls : 'buttons-icon_send_white',
+			iconCls : 'icon_send_white',
 			cls: 'button_sendMail zarafa-action',
 			ref: 'sendInvitation',
 			handler: this.onSendButton,
@@ -68,7 +68,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Save')+' & '+_('Close'),
 			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_save_white',
+			iconCls : 'icon_save_white',
 			ref : 'saveAppointment',
 			handler: this.onSaveButton,
 			scope: this
@@ -77,7 +77,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Save'),
 			tooltip: _('Save') + ' (Ctrl + S)',
 			cls: 'tb-calendar-btn-save',
-			iconCls: 'icon_saveEmail',
+			iconCls: 'icon_floppy',
 			ref : 'saveMeeting',
 			handler: this.onSaveButton,
 			scope: this
@@ -97,7 +97,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Add attachment'),
 			tooltip: _('Add attachment'),
 			cls: 'tb-calendar-btn-add-attachment',
-			iconCls: 'icon_attachment',
+			iconCls : 'icon_paperclip',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
 			listeners : {
@@ -112,7 +112,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Add attachment'),
 			tooltip: _('Attachments cannot be modified for a single occurence'),
 			cls: 'tb-calendar-btn-occurence-attachment',
-			iconCls: 'icon_attachment'
+			iconCls: 'icon_paperclip'
 		},{
 			xtype: 'button',
 			overflowText: _('Print'),
@@ -128,18 +128,18 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Check names'),
 			tooltip: _('Check names'),
 			cls: 'tb-calendar-btn-checknames',
-			iconCls: 'icon_checkNames',
+			iconCls: 'icon_checknames',
 			ref: 'checkNames',
 			handler: this.onCheckNamesButton,
 			scope: this
 		}];
 	},
-	
+
 	/**
 	 * Event listener for the added event of the {@link Zarafa.common.attachment.ui.AttachmentButton attachmentButton}
 	 * Adds the update function to the item when Ext converts the button to a menu item
 	 * (which happens when the toolbar overflows, i.e. is too wide for the containing panel)
-	 * 
+	 *
 	 * @param {Ext.Component} item The item that was added. This can be a {@link Zarafa.common.attachment.ui.AttachmentButton}
 	 * or a {@link Ext.menu.Item}
 	 */
@@ -185,7 +185,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			text: _('Cancel invitation'),
 			overflowText: _('Cancel invitation'),
 			cls: 'tb-calendar-btn-cancel',
-			iconCls: 'icon_cancel_meeting_request',
+			iconCls: 'icon_calendar_appt_cancelled',
 			ref: 'cancelInvitation',
 			handler: this.onCancelMeetingRequest,
 			scope: this
@@ -194,7 +194,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('High priority'),
 			tooltip: _('Mark this appointment as high priority'),
 			cls: 'tb-calendar-btn-high-priority',
-			iconCls: 'icon_setHighPriority',
+			iconCls: 'icon_priority_high',
 			ref: 'highPriority',
 			toggleGroup: 'priorityGroup',
 			importance: Zarafa.core.mapi.Importance.URGENT,
@@ -206,7 +206,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			overflowText: _('Low priority'),
 			tooltip: _('Mark this appointment as low priority'),
 			cls: 'tb-calendar-btn-low-priority',
-			iconCls: 'icon_setLowPriority',
+			iconCls: 'icon_priority_low',
 			ref: 'lowPriority',
 			toggleGroup: 'priorityGroup',
 			importance: Zarafa.core.mapi.Importance.NONURGENT,
@@ -333,7 +333,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	{
 		this.record.getRecipientStore().resolve(undefined, { cancelPreviousRequest : true });
 	},
-	
+
 	/**
 	 * Event handler when the "Send" button has been pressed.
 	 * This will {@link Zarafa.core.data.MessageContentPanel#sendRecord send} the given record.
@@ -395,7 +395,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 		var layout = false;
 
 		this.record = record;
-		
+
 		if(record.isSubMessage()) {
 			// hide all buttons which is used to save changes
 			this.sendInvitation.setVisible(false);

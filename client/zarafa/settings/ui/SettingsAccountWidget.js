@@ -75,6 +75,23 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 		});
 
+		var iconsetItems = [];
+		const iconsets = container.getServerConfig().getIconsets();
+		for ( var iconset in iconsets ) {
+			if ( iconsets.hasOwnProperty(iconset) ) {
+				iconsetItems.push([iconset, iconsets[iconset]['display-name']]);
+			}
+		}
+		var iconsetStore = new Ext.data.ArrayStore({
+			fields: ['id', 'displayName'],
+			idIndex: 0,
+			data: iconsetItems,
+			sortInfo: {
+				field: 'displayName',
+				direction: 'ASC'
+			}
+		});
+
 		Ext.applyIf(config, {
 			title : String.format(_('Account information - {0}'), user.getDisplayName()),
 			layout : 'form',
@@ -159,6 +176,26 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			});
 		}
 
+		// We always have more than one iconset (WebApp ships with the classic and breeze icon sets)
+		config.items.push({
+			xtype: 'combo',
+			width : 200,
+			editable: false,
+			forceSelection: true,
+			triggerAction: 'all',
+			store: iconsetStore,
+			fieldLabel: _('Icons'),
+			mode: 'local',
+			valueField: 'id',
+			displayField: 'displayName',
+			ref: 'iconsetCombo',
+			name : 'zarafa/v1/main/active_iconset',
+			listeners : {
+				select : this.onIconsetSelect,
+				scope : this
+			}
+		});
+
 		Zarafa.settings.ui.SettingsAccountWidget.superclass.constructor.call(this, config);
 	},
 
@@ -226,6 +263,28 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
+	 * Event handler which is fired when an iconset in the {@link Ext.form.ComboBox combobox}
+	 * has been selected. This will inform the user that this setting requires a reload of the
+	 * webapp to become active.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onIconsetSelect : function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+
+		if (this.activeIconset !== value) {
+			this.model.requiresReload = true;
+		}
+
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
 	 * Called by the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel widget panel}
 	 * to load the latest version of the settings from the
 	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
@@ -254,6 +313,13 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 			this.themeCombo.setValue(this.activeTheme);
 		}
+
+		this.activeIconset = settingsModel.get(this.iconsetCombo.name);
+		// Check if an iconset was set
+		if ( !this.activeIconset || this.iconsetCombo.store.find('id', this.activeIconset)===-1 ){
+			this.activeIconset = container.getServerConfig().getActiveIconset();
+		}
+		this.iconsetCombo.setValue(this.activeIconset);
 	},
 
 	/**
@@ -273,6 +339,8 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 		if ( Ext.isDefined(this.themeCombo) ){
 			settingsModel.set(this.themeCombo.name, this.themeCombo.getValue());
 		}
+
+		settingsModel.set(this.iconsetCombo.name, this.iconsetCombo.getValue());
 		settingsModel.endEdit();
 	}
 });

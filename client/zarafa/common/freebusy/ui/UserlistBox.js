@@ -40,16 +40,16 @@ Zarafa.common.freebusy.ui.UserlistBox = Ext.extend(Zarafa.common.recipientfield.
 	{
 		switch (record.get('recipient_type')) {
 			case Zarafa.core.mapi.RecipientType.MAPI_CC:
-				return 'x-freebusy-userlist-recipienttype-optional';
+				return 'icon_meetingrequest_optionalattendee';
 			case Zarafa.core.mapi.RecipientType.MAPI_BCC:
-				return 'x-freebusy-userlist-recipienttype-resource';
+				return 'icon_meetingrequest_resource';
 			case Zarafa.core.mapi.RecipientType.MAPI_TO:
 			/*fall through*/
 			default:
 				if(record.isMeetingOrganizer()) {
-					return 'x-freebusy-userlist-recipienttype-originator';
+					return 'icon_meetingrequest_organizer';
 				}
-				return 'x-freebusy-userlist-recipienttype-required';
+				return 'icon_meetingrequest_requiredattendee';
 		}
 	},
 
@@ -76,9 +76,9 @@ Zarafa.common.freebusy.ui.UserlistBox = Ext.extend(Zarafa.common.recipientfield.
 		}
 
 		// className is contains css classes for different type of attendee's icon element.
-		var className = ['x-freebusy-userlist-recipienttype-required',
-			'x-freebusy-userlist-recipienttype-optional',
-			'x-freebusy-userlist-recipienttype-resource'];
+		var className = ['icon_meetingrequest_requiredattendee',
+			'icon_meetingrequest_optionalattendee',
+			'icon_meetingrequest_resource'];
 
 		// Clear the css class of attendee's icon element which is defined attendee's type.
 		this.iconEl.removeClass(className);

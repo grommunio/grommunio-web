@@ -2,11 +2,11 @@ Ext.namespace('Zarafa.common.ui');
 
 /**
  * @class Zarafa.common.ui.IconClass
- * 
+ *
  * Class returns icon class for different records, like folder and message records,
  * based on it's properties like container_class/message_class, distlist_type,
  * display_type, icon_index.
- * 
+ *
  * @singleton
  */
 Zarafa.common.ui.IconClass = {
@@ -52,7 +52,7 @@ Zarafa.common.ui.IconClass = {
 				if(record.isTaskDeclined()) {
 					iconCls = 'icon_task_declined';
 				} else if (record.isTaskAccepted()) {
-					iconCls = 'icon_task_assigner';
+					iconCls = 'icon_task_assigned';
 				}
 			}
 		}
@@ -85,15 +85,13 @@ Zarafa.common.ui.IconClass = {
 		}
 
 		// Add special class in case the message was unread
-		if (objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
-			if (Ext.isFunction(record.isRead) && !record.isRead()) {
-				iconCls += ' icon_message_unread';
-			} else {
-				iconCls += ' icon_message_read';
-			}
-
-			if (Ext.isFunction(record.isRecurring) && record.isRecurring()) {
-				iconCls += ' icon_message_recurring';
+		if ( iconCls === 'icon_mail') {
+			if (objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE) {
+				if (Ext.isFunction(record.isRead) && !record.isRead()) {
+					iconCls = 'icon_mail_unread';
+				} else {
+					iconCls = 'icon_mail_read';
+				}
 			}
 		}
 
@@ -101,7 +99,7 @@ Zarafa.common.ui.IconClass = {
 	},
 
 	/**
-	 * Convenience method for getting the icon class for the 
+	 * Convenience method for getting the icon class for the
 	 * {@link Zarafa.core.data.IPFRecord IPFRecord}.
 	 *
 	 * Function will first check whether folder is IPM_Subtree then return store icon,
@@ -143,12 +141,12 @@ Zarafa.common.ui.IconClass = {
 					return 'icon_folder_public_store';
 				} else {
 					// Private store
-					return 'icon_folder_store';
+					return 'icon_inbox';
 				}
 			} else if (Ext.isFunction(folder.isFavoritesFolder) && folder.isFavoritesRootFolder()) {
-				return 'icon_folder_favorites';
+				return 'icon_favorites';
 			}
-		
+
 			// check if the folder is a default folder
 			var defaultKey = folder.getDefaultFolderKey();
 			if (defaultKey) {
@@ -208,7 +206,7 @@ Zarafa.common.ui.IconClass = {
 
 		var mapping = {
 			'IPM.APPOINTMENT'			: 'icon_appt_appointment',
-			'IPM.TASK'                  : declinedTask ? 'icon_task_declined' : 'icon_task_normal',
+			'IPM.TASK'                  : declinedTask ? 'icon_task_declined' : 'icon_task',
 			'IPM.TASKREQUEST'			: 'icon_task_request',
 			'IPM.TASKREQUEST.DECLINE'	: 'icon_task_declined',
 			'IPM.TASKREQUEST.ACCEPT'	: 'icon_task_accepted',
@@ -216,17 +214,17 @@ Zarafa.common.ui.IconClass = {
 			'IPM.CONTACT'				: 'icon_contact_user',
 			'IPM.DISTLIST'				: 'icon_contact_distlist',
 			'IPM.DISTLIST.ORGANIZATION'		: 'icon_contact_distlist_organization',
-			'IPM.SCHEDULE.MEETING.REQUEST'		: recurring ? 'icon_appt_meeting_recurring' : 'icon_appt_meeting_single',
-			'IPM.SCHEDULE.MEETING.RESP.POS'		: 'icon_appt_meeting_accept',
-			'IPM.SCHEDULE.MEETING.RESP.TENT'	: counter_proposal ? 'icon_appt_meeting_newtime' : 'icon_appt_meeting_tentative',
-			'IPM.SCHEDULE.MEETING.RESP.NEG'		: 'icon_appt_meeting_decline',
+			'IPM.SCHEDULE.MEETING.REQUEST'		: recurring ? 'icon_appt_meeting_recurring' : 'icon_calendar_mr',
+			'IPM.SCHEDULE.MEETING.RESP.POS'		: 'icon_calendar_appt_accept',
+			'IPM.SCHEDULE.MEETING.RESP.TENT'	: counter_proposal ? 'icon_appt_meeting_newtime' : 'icon_calendar_appt_tentative',
+			'IPM.SCHEDULE.MEETING.RESP.NEG'		: 'icon_calendar_appt_cancelled',
 			'IPM.SCHEDULE.MEETING.CANCELED'		: 'icon_appt_meeting_cancel',
 			'IPM.NOTE'				: 'icon_mail',
 			'REPORT.IPM.NOTE.IPNRN'			: 'icon_mail_read_receipt',
 			'REPORT.IPM.NOTE.IPNNRN'		: 'icon_mail_nonread_receipt',
 			'REPORT.IPM.NOTE.DR'			: 'icon_mail_delivery_receipt',
-			'REPORT.IPM.NOTE.NDR'			: 'icon_mail_nondelivery_receipt',
-			'IPM.NOTE.STORAGEQUOTAWARNING'		: 'icon_mail icon_message_unread'
+			'REPORT.IPM.NOTE.NDR'			: 'icon_mail_report_ndr',
+			'IPM.NOTE.STORAGEQUOTAWARNING'		: 'icon_mail icon_mail_unread'
 		};
 
 		do {
@@ -302,7 +300,7 @@ Zarafa.common.ui.IconClass = {
 			case Zarafa.core.mapi.DisplayTypeEx.DT_SEC_DISTLIST:
 				return 'icon_contact_distlist';
 			case Zarafa.core.mapi.DisplayType.DT_REMOTE_MAILUSER:
-				return 'icon_contact_gab_user';
+				return 'icon_contact_smtp';
 			case Zarafa.core.mapi.DisplayTypeEx.DT_ROOM:
 				return 'icon_contact_room';
 			case Zarafa.core.mapi.DisplayTypeEx.DT_EQUIPMENT:
@@ -324,7 +322,7 @@ Zarafa.common.ui.IconClass = {
 		if(record.isEmbeddedMessage()) {
 			return 'icon_embed_attachment';
 		} else {
-			return 'icon_attachment';
+			return 'icon_paperclip';
 		}
 	},
 

@@ -260,7 +260,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				title: _('Tentative'),
 				text: _('Tentatively Accept Meeting Request')
 			},
-			iconCls : 'icon_appt_meeting_tentative',
+			iconCls : 'icon_calendar_appt_tentative',
 			responseStatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_TENTATIVE,
 			handler: this.openSendConfirmationContent,
 			scope: this
@@ -368,7 +368,7 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 				text: _('View in calendar')
 			},
 			cls: 'tb-calendar-btn-calendar zarafa-action',
-			iconCls : 'icon_calendar_view',
+			iconCls : 'icon_calendar',
 			handler : this.showMeetingInCalendar,
 			scope: this
 		};

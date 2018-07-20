@@ -8,13 +8,18 @@
 		"phplint": "phpmd server text .phpmd.xml || true",
 		"lint": "eslint client/zarafa",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
-		"jsunit": "karma start test/js/unittest.conf.js"
+		"jsunit": "karma start test/js/unittest.conf.js",
+		"app-icons": "ikode --out client/resources/scss/base/_icons.scss --css --important --yes --ext client/resources/images/app-icons.extensions.json client/resources/images/app-icons",
+		"iconsets:classic": "ikode --out client/resources/iconsets/classic/classic-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json -d client/resources/iconsets/classic/src/png/16x16 client/resources/iconsets/classic/src/png/large",
+		"iconsets:breeze": "ikode --out client/resources/iconsets/breeze/breeze-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json -d client/resources/iconsets/breeze/src/png/16x16 client/resources/iconsets/breeze/src/png/large",
+		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze"
 	},
 	"pre-commit": {
 		"run": []
 	},
 	"devDependencies": {
 		"eslint": "^4.19.1",
+		"ikode": "0.0.7",
 		"jasmine-core": "^2.8.0",
 		"karma": "^1.7.1",
 		"karma-chrome-launcher": "^2.2.0",

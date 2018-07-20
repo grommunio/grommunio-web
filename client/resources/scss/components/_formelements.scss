@@ -64,24 +64,13 @@ body.Safari input[type="radio"] {
 		width: $trigger-width;
 		border: 1px solid $grey;
 		border-left: none;
-		background-color: $grey3;
-        background-image: 		sprite-url($iconsmap);
-        background-repeat: 		no-repeat;
-        background-position: 	sprite-position($iconsmap, arrow_down_s, $offset-y: ($button-small-height - 2 - 3)/2, $offset-x: ($trigger-width - 5)/2) !important;
+		background-color: $grey3 !important;
 	}
 	.x-form-trigger-over,
 	.x-form-spinner-trigger-over {
-		background-color: $grey4;
+		background-color: $grey4 !important;
 	}
 
-	.x-form-spinner-trigger {
-        background-image: 		sprite-url($iconsmap),
-        						sprite-url($iconsmap);
-        background-repeat: 		no-repeat,
-        						no-repeat;
-        background-position: 	sprite-position($iconsmap, arrow_up_s, $offset-y: (($button-small-height - 2)/2 - 3)/2, $offset-x: ($trigger-width - 5)/2),
-        						sprite-position($iconsmap, arrow_down_s, $offset-y: (3*($button-small-height - 2)/2 - 3)/2, $offset-x: ($trigger-width - 5)/2) !important;
-	}
 	.x-form-spinner-splitter {
 		display: none !important;
 	}

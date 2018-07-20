@@ -55,7 +55,7 @@ Zarafa.note.dialogs.NoteEditToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			overflowText : _('Save'),
 			tooltip : _('Save') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_save_white',
+			iconCls : 'icon_save_white',
 			handler : this.onSaveButton,
 			scope : this
 		}, {

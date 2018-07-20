@@ -3,8 +3,6 @@
 	cursor: pointer;
 	width: $button-small-height - 7;
 	height: $button-small-height - 7;
-	background-image: sprite-url($iconsmap) !important;
-	background-position: sprite-position($iconsmap, arrow_down_l_white, $offset-x: 4, $offset-y: 6);
 	position: relative;
 }
 .k-colorpicker.zarafa-border .k-colorpicker-box,
@@ -12,7 +10,6 @@
 	border: 1px solid $grey;
 	width: $button-small-height - 9;
 	height: $button-small-height - 9;
-	background-position: sprite-position($iconsmap, arrow_down_l_white, $offset-x: 3, $offset-y: 5);
 }
 .k-colorpicker .k-colorpicker-box:hover::after {
 	display: block;

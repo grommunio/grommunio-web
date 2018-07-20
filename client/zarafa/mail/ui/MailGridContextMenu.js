@@ -89,7 +89,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Reply'),
-			iconCls : 'icon_replyEmail',
+			iconCls : 'icon_reply',
 			beforeShow : this.onMenuItemBeforeShow,
 			singleSelectOnly: true,
 			responseMode : Zarafa.mail.data.ActionTypes.REPLY,
@@ -98,7 +98,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Reply All'),
-			iconCls : 'icon_replyAllEmail',
+			iconCls : 'icon_reply_all',
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.REPLYALL,
@@ -107,7 +107,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Forward'),
-			iconCls : 'icon_forwardEmail',
+			iconCls : 'icon_forward',
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.FORWARD,
@@ -123,7 +123,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			xtype: 'zarafa.conditionalitem',
 			text : _('Mark Read'),
 			name : 'mark_read',
-			iconCls: 'icon_mail icon_message_read',
+			iconCls: 'icon_mail icon_mail_read',
 			beforeShow : this.onReadFlagItemBeforeShow,
 			handler : this.onReadFlagItemClicked,
 			scope: this
@@ -131,14 +131,14 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			xtype: 'zarafa.conditionalitem',
 			text : _('Mark Unread'),
 			name : 'mark_unread',
-			iconCls: 'icon_mail icon_message_unread',
+			iconCls: 'icon_mail icon_mail_unread',
 			beforeShow : this.onReadFlagItemBeforeShow,
 			handler : this.onReadFlagItemClicked,
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Edit as New'),
-			iconCls : 'icon_editAsNewEmail',
+			iconCls : 'icon_edit_as_new_mail',
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
@@ -169,7 +169,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			xtype: 'zarafa.conditionalitem',
 			text : _('Follow up'),
 			cls: 'k-unclickable',
-			iconCls : 'icon_mail_flag_red',
+			iconCls : 'icon_flag_red',
 			hideOnClick: false,
 			menu : {
 				xtype: 'zarafa.flagsmenu',
@@ -196,7 +196,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Move to Junk Folder'),
-			iconCls : 'icon_junk',
+			iconCls : 'icon_folder_default_junk',
 			beforeShow : this.onMoveToJunkBeforeShow,
 			handler: this.onContextItemJunk,
 			scope: this
@@ -214,7 +214,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		return [{
 			xtype: 'zarafa.conditionalitem',
 			text: _('Send to') + "...",
-			iconCls : 'icon_embedded_attachment',
+			iconCls : 'icon_embed_attachment',
 			singleSelectOnly: true,
 			beforeShow : this.onMenuItemBeforeShow,
 			responseMode : Zarafa.mail.data.ActionTypes.FORWARD_ATTACH,
@@ -254,7 +254,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text : _('Options'),
-			iconCls : 'icon_openMessageOptions',
+			iconCls : 'icon_cogwheel',
 			beforeShow : this.onMenuItemBeforeShow,
 			singleSelectOnly: true,
 			handler : this.onContextItemOptions,

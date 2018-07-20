@@ -9,51 +9,51 @@ describe('IconClass', function() {
 		it('IPM.Note unread', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_mail icon_message_unread');
+			expect(iconClass).toEqual('icon_mail_unread');
 		});
 
 		it('IPM.Note read', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note');
 			record.set('message_flags', Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_mail icon_message_read');
+			expect(iconClass).toEqual('icon_mail_read');
 		});
 
 		it('IPM.Note stubbed', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note');
 			record.set('stubbed', true);
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_mail_stubbed icon_message_unread');
+			expect(iconClass).toEqual('icon_mail_stubbed');
 		});
 
 		it('IPM.Appointment', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Appointment');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_appt_appointment icon_message_read');
+			expect(iconClass).toEqual('icon_appt_appointment');
 		});
 
 		it('IPM.Contact', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Contact');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_contact_user icon_message_read');
+			expect(iconClass).toEqual('icon_contact_user');
 		});
 
 		it('IPM.Task', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_task_normal icon_message_read');
+			expect(iconClass).toEqual('icon_task');
 		});
 
 		it('IPM.StickyNote', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.StickyNote');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_note_yellow icon_message_read');
+			expect(iconClass).toEqual('icon_note_yellow');
 		});
 
 		it('IPM.Distlist', function() {
 			const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Distlist');
 			const iconClass = Zarafa.common.ui.IconClass.getIconClass(record);
-			expect(iconClass).toEqual('icon_contact_distlist icon_message_read');
+			expect(iconClass).toEqual('icon_contact_distlist');
 		});
 	});
 
@@ -82,7 +82,7 @@ describe('IconClass', function() {
 			record.set('display_type', Zarafa.core.mapi.DisplayType.DT_REMOTE_MAILUSER);
 			record.set('display_type_ex', Zarafa.core.mapi.DisplayTypeEx.DT_REMOTE_MAILUSER);
 			const iconClass = Zarafa.common.ui.IconClass.getIconClassFromDisplayType(record);
-			expect(iconClass).toEqual('icon_contact_gab_user');
+			expect(iconClass).toEqual('icon_contact_smtp');
 		});
 
 		it('Contact room', function() {

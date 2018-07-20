@@ -7,9 +7,20 @@
 
 		.zarafa-settings-category-tab {
 			padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
-			padding-left: $settings-category-tab-icon-strip-width;
+			padding-left: 4px;
 			line-height: $font-default-line-height;
 			cursor:pointer;
+			background-position: ($settings-category-tab-icon-strip-width - 16px)/2 center !important;
+		}
+		.zarafa-settings-category-tab.k-with-icon {
+			img.k-settings-category-icon {
+				width: 20px;
+				height: 20px;
+				float: left;
+				background-position: center center !important;
+				background-repeat: no-repeat;
+				margin-right: $padding-medium - 1px;
+			}
 		}
 		.zarafa-settings-category-tab-over {
 			background-color: $grey2;
@@ -124,80 +135,6 @@
 {
 	background-position: 2px center;
 	background-repeat: no-repeat;
-}
-
-.zarafa-settings-category-general
-{
-	background-position: sprite-position($icons, icon_cogwheel, $offset-x: 4, $offset-y: 5);
-	background-image: sprite-url($icons);
-}
-
-.zarafa-settings-category-mail
-{
-	background-position: sprite-position($icons, icon_unread_mail, $offset-x: 6, $offset-y: 9);
-	background-image: sprite-url($icons)
-}
-
-.zarafa-settings-category-oof
-{
-	background-position: sprite-position($iconsmap, icon_oof, $offset-x: 2, $offset-y: 3);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-rules
-{
-	background-position: sprite-position($iconsmap, icon_funnel, $offset-x: 3, $offset-y: 5);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-calendar
-{
-	background-position: sprite-position($iconsmap, icon_calendar, $offset-x: 6, $offset-y: 8);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-delegate
-{
-	background-position: sprite-position($iconsmap, delegates_s, $offset-x: 3, $offset-y: 5);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-sendas {
-	background-position: sprite-position($iconsmap, icon_sendas, $offset-x: 3, $offset-y: 6);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-plugins {
-	background-position: sprite-position($iconsmap, icon_plug, $offset-x: 3, $offset-y: 4);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-keyshortcut {
-	background-position: sprite-position($iconsmap, icon_shortcuts, $offset-x: 3, $offset-y: 5);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-advanced {
-	background-position: sprite-position($iconsmap, icon_spanner, $offset-x: 3, $offset-y: 4);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-category-copyright {
-	background-position: sprite-position($iconsmap, icon_seal, $offset-x: 3, $offset-y: 6);
-	background-image: sprite-url($iconsmap)
-}
-
-/* OOF and Signature icon in Mail settings and OOF setting tab */
-.zarafa-settings-favorite-oof
-{
-	background-position: sprite-position($iconsmap, icon_oof, $offset-x: 0, $offset-y: -2);
-	background-image: sprite-url($iconsmap)
-}
-
-.zarafa-settings-favorite-signatures
-{
-	background-position: sprite-position($icons, icon_signature, $offset-x: 0, $offset-y: -4);
-	background-image: sprite-url($icons)
 }
 
 .x-panel-inline-icon.zarafa-settings-favorite-oof, .x-panel-inline-icon.zarafa-settings-favorite-signatures

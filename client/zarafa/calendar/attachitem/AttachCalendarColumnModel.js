@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.calendar.attachitem');
  * @class Zarafa.calendar.attachitem.AttachCalendarColumnModel
  * @extends Zarafa.common.ui.grid.ColumnModel
  *
- * The {@link Zarafa.calendar.attachitem.AttachCalendarColumnModel AttachCalendarColumnModel} is the column model containing 
+ * The {@link Zarafa.calendar.attachitem.AttachCalendarColumnModel AttachCalendarColumnModel} is the column model containing
  * sets of {@link Ext.grid.Column columns} for calendar folders.
  * This column model will be used with {@link Zarafa.common.attachment.dialog.AttachItemGrid AttachItemGrid}.
  */
@@ -48,7 +48,7 @@ Zarafa.calendar.attachitem.AttachCalendarColumnModel = Ext.extend(Zarafa.common.
 			fixed : true,
 			renderer : Zarafa.common.ui.grid.Renderers.icon
 		}, {
-			header : '<p class=\'icon_attachment\'>&nbsp;</p>',
+			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex : 'hasattach',
 			width : 24,
@@ -56,7 +56,7 @@ Zarafa.calendar.attachitem.AttachCalendarColumnModel = Ext.extend(Zarafa.common.
 			renderer : Zarafa.common.ui.grid.Renderers.attachment,
 			tooltip : _('Sort by: Attachment')
 		}, {
-			header : '<p class=\'icon_recurring\'>&nbsp;</p>',
+			header : '<p class=\'icon_recurrence\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex: 'recurring',
 			tooltip : _('Sort by: Recurring'),

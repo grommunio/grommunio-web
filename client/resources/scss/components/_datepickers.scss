@@ -1,26 +1,22 @@
 .x-date-picker {
 	border: none;
 	border-bottom: 1px solid $grey;
-	
+
 	.x-date-left {
 		width: auto;
 		text-align: right;
-		
+
 		a {
 			display: inline-block;
-			background-image: sprite-url($icons);
-			background-position: sprite-position($icons, arrow_left_l, $offset-y: 3px, $offset-x: 11px);
 			opacity: inherit;
 		}
 	}
 	.x-date-right {
 		width: auto;
 		text-align: left;
-		
+
 		a {
 			display: inline-block;
-			background-image: sprite-url($icons);
-			background-position: sprite-position($icons, arrow_right_l, $offset-y: 3px, $offset-x: 0);
 			opacity: inherit;
 		}
 	}
@@ -28,15 +24,15 @@
 	/* the month selector dropdown */
 	.x-date-middle {
 		padding: ($header-height - $button-small-height)/2 $padding-medium ($header-height - $button-small-height)/2 $padding-medium;
-		
+
 		.x-btn-small {
 			background-color: white;
 			box-shadow: none;
-			
+
 			em {
 				background-color: $grey3 !important;
 				border: 1px solid $grey;
-				
+
 				button {
 					background-color: white;
 					color: $font-color-dark;
@@ -48,17 +44,17 @@
 				background-color: $grey4 !important;
 			}
 		}
-		
+
 		.x-btn-small:active {
 			background-color: white !important;
 			box-shadow: none;
 		}
 	}
-	
+
 	.x-date-inner {
 		cursor: default;
 		width: 100%;
-		
+
 		th {
 			background: white;
 			font-weight: bold;
@@ -68,19 +64,19 @@
 			height: $button-small-height;
 			vertical-align: middle;
 		}
-		
+
 		td {
 			height: $button-small-height;
 		}
-		
+
 		td.x-date-weeknumber {
 			border-right: 1px solid $grey;
-			
+
 			a {
 				color: $green;
 			}
 		}
-		
+
 		td:not(.x-date-weeknumber) {
 			cursor: default;
 
@@ -88,32 +84,32 @@
 				cursor: pointer;
 				color: $font-color-dark;
 				text-align: center;
-				
+
 				em {
 					display: inline-block;
 					width: 16px;
 					text-align: right;
-					
+
 					span {
 						cursor: pointer;
 					}
 				}
 			}
 		}
-		
+
 		td.x-date-prevday, td.x-date-nextday {
 			a {
 				color: $grey5;
 			}
 		}
-		
+
 		td.x-date-selected a {
 			background-color: $light-blue;
 			background-image: none;
 			border-color: $light-blue;
 			color: $font-color-dark;
 			cursor: default;
-			
+
 			span {
 				font-weight: normal;
 			}
@@ -130,7 +126,7 @@
 				background-color: transparent;
 			}
 		}
-		
+
 		td.x-date-today a {
 			background-color: $green;
 			border-color: $green;
@@ -141,53 +137,43 @@
 			background-color: $grey4;
 			color: $font-color-dark;
 		}
-		
+
 		td.x-date-busy {
 			span {
 				font-weight: bold;
 			}
 		}
 	}
-	
+
 	.x-date-bottom {
 		background: transparent;
 		border: none;
 		border-top: 1px solid $grey;
 		padding: ($header-height - $button-small-height)/2 0;
 	}
-	
+
 	/* the month picker */
 	.x-date-mp {
 		background: white;
-		
+
 		table {
 			td {
 				a {
 					color: $font-color-dark;
 				}
-				
+
 				a:hover {
 					background: $grey4;
 				}
 			}
-			
+
 			td.x-date-mp-ybtn {
-				a.x-date-mp-prev {
-					background: sprite-url($icons);
-					background-repeat: no-repeat;
-					background-position: sprite-position($icons, arrow_left_l, $offset-y: 3px, $offset-x: 5px);
-				}
-				a.x-date-mp-next {
-					background: sprite-url($icons);
-					background-repeat: no-repeat;
-					background-position: sprite-position($icons, arrow_right_l, $offset-y: 3px, $offset-x: 5px);
-				}
 				a.x-date-mp-prev:hover,
 				a.x-date-mp-next:hover {
 					background-color: $grey4;
 				}
 			}
-			
+
 			td.x-date-mp-sel {
 				a {
 					background: $green;
@@ -195,20 +181,20 @@
 					border-color: $green;
 				}
 			}
-			
+
 			td.x-date-mp-sep {
 				border-right: 1px solid $grey;
 			}
-			
+
 			tr.x-date-mp-btns {
 				background: transparent;
-				
+
 				td {
 					height: $button-small-height;
 					border-top: 1px solid $grey;
 					border-bottom: 1px solid $grey;
 					padding: ($header-height - $button-small-height)/2 $padding-small;
-					
+
 					button {
 						border: none;
 						border-radius: 0;
@@ -245,7 +231,7 @@
 		.x-date-inner {
 			th:first-child {
 				border-right: 1px solid $grey;
-	
+
 				span {
 					display: none;
 				}

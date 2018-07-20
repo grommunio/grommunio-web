@@ -55,7 +55,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			overflowText : _('Save')+' & '+_('Close'),
 			tooltip : _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_save_white',
+			iconCls : 'icon_save_white',
 			handler : this.onSave,
 			scope : this
 		}, {
@@ -72,7 +72,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 			overflowText : _('Add Attachment'),
 			tooltip : _('Add attachments to this contact'),
-			iconCls : 'icon_attachment',
+			iconCls : 'icon_paperclip',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
 			listeners : {
@@ -88,12 +88,12 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		}];
 	},
-	
+
 	/**
 	 * Event listener for the added event of the {@link Zarafa.common.attachment.ui.AttachmentButton attachmentButton}
 	 * Adds the update function to the item when Ext converts the button to a menu item
 	 * (which happens when the toolbar overflows, i.e. is too wide for the containing panel)
-	 * 
+	 *
 	 * @param {Ext.Component} item The item that was added. This can be a {@link Zarafa.common.attachment.ui.AttachmentButton}
 	 * or a {@link Ext.menu.Item}
 	 */

@@ -103,7 +103,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 				}]
 			},
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_send_white',
+			iconCls : 'icon_send_white',
 			handler : this.onSendButton,
 			scope : this
 		}, {
@@ -111,7 +111,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			ref : 'saveBtn',
 			overflowText : _('Save'),
 			tooltip : _('Save') + ' (Ctrl + S)',
-			iconCls : 'icon_saveEmail',
+			iconCls : 'icon_floppy',
 			handler : this.onSaveButton,
 			scope : this
 		},{
@@ -127,7 +127,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			plugins : ['zarafa.recordcomponentupdaterplugin'],
 			overflowText : _('Add attachment'),
 			tooltip : _('Add attachments to this email'),
-			iconCls : 'icon_attachment',
+			iconCls : 'icon_paperclip',
 			ref : 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
@@ -141,14 +141,14 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Check names'),
 			tooltip : _('Check names'),
-			iconCls : 'icon_checkNames',
+			iconCls : 'icon_checknames',
 			handler : this.onCheckNamesButton,
 			scope : this
 		},{
 			xtype : 'button',
 			overflowText : _('Add signature'),
 			tooltip : _('Add signature'),
-			iconCls : 'icon_addSignature',
+			iconCls : 'icon_signature',
 			ref : 'signatureButton',
 			scope : this
 		}];
@@ -184,7 +184,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Options'),
 			tooltip: _('Open options dialog'),
-			iconCls : 'icon_openMessageOptions',
+			iconCls : 'icon_cogwheel',
 			handler : this.onMailOptionsButton,
 			scope : this
 		},{
@@ -198,7 +198,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('High priority'),
 			tooltip : _('Mark this mail as high priority'),
-			iconCls : 'icon_setHighPriority',
+			iconCls : 'icon_priority_high',
 			ref : 'highPriority',
 			toggleGroup : 'priorityGroup',
 			importance : Zarafa.core.mapi.Importance.URGENT,
@@ -209,7 +209,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Low priority'),
 			tooltip : _('Mark this mail as low priority'),
-			iconCls : 'icon_setLowPriority',
+			iconCls : 'icon_priority_low',
 			ref : 'lowPriority',
 			toggleGroup : 'priorityGroup',
 			importance : Zarafa.core.mapi.Importance.NONURGENT,
@@ -220,7 +220,7 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Set read receipt'),
 			tooltip : _('Request read receipt from recipients'),
-			iconCls : 'icon_setReadReceipt',
+			iconCls : 'icon_read_receipt',
 			enableToggle : true,
 			ref : 'readReceiptField',
 			toggleHandler : this.onReadReceiptToggle,

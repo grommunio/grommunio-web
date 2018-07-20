@@ -73,7 +73,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	{
 		return [{
 			xtype : 'zarafa.conditionalitem',
-			iconCls : 'icon_create_appointment',
+			iconCls : 'icon_new_appointment',
 			text : _('New Appointment'),
 			beforeShow : this.beforeShowPhantom,
 			meetingRequest: false,
@@ -81,7 +81,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			scope: this
 		},{
 			xtype : 'zarafa.conditionalitem',
-			iconCls : 'icon_create_meeting_request',
+			iconCls : 'icon_new_meeting_request',
 			text : _('New Meeting Request'),
 			beforeShow : this.beforeShowPhantom,
 			meetingRequest: true,
@@ -125,7 +125,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			ref : 'tentativeButton',
 			text : _('Tentative'),
 			hidden : true,
-			iconCls : 'icon_appt_meeting_tentative',
+			iconCls : 'icon_calendar_appt_tentative',
 			beforeShow : this.beforeShowOnMeeting,
 			responseStatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_TENTATIVE,
 			scope: this

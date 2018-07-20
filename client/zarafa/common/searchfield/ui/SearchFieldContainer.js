@@ -31,7 +31,7 @@ Zarafa.common.searchfield.ui.SearchFieldContainer = Ext.extend(Ext.Container, {
 			},{
 				xtype : 'button',
 				ref : 'searchBtn',
-				iconCls : 'icon_search',
+				iconCls : 'icon_magnifier',
 				scope : this
 			}]
 		});

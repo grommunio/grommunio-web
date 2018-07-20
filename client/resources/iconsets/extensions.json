@@ -1,0 +1,140 @@
+{
+	".drop-yes": ".x-tree-drop-ok-append .x-dd-drop-icon",
+	".drop-add": ".x-tree-drop-ok-append-add .x-dd-drop-icon",
+	".drop-no": ".x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon",
+	".icon_mail_large_white": ".x-btn.zarafa-action .icon_new_email",
+	".icon_calendar_large_white": ".x-btn.zarafa-action .icon_new_appointment",
+	".icon_contact_large_white": ".x-btn.zarafa-action .icon_new_contact",
+	".icon_task_large_white": ".x-btn.zarafa-action .icon_new_task",
+	".icon_note_large_white": ".x-btn.zarafa-action .icon_new_note",
+
+	".icon_settings": "#mainmenu-button-settings em",
+	".icon_logout": "#mainmenu-button-logout em",
+
+	".icon_cogwheel_s": ".x-grid3-hd-btn",
+
+	".icon_mail_report_ndr": ".icon_mail_nondelivery_receipt",
+	".icon_mail_report_accept": ".icon_mail_read_receipt",
+	".icon_mail_report_decline": ".icon_mail_nonread_receipt",
+	".icon_paperclip": ".icon_attachment",
+	".icon_priority_high": ".icon_importance_urgent",
+	".icon_priority_low": ".icon_importance_nonurgent",
+	".icon_sort_ascending": ".x-menu-item.xg-hmenu-sort-desc .x-menu-item-icon",
+	".icon_sort_descending": ".x-menu-item.xg-hmenu-sort-asc .x-menu-item-icon",
+	".icon_columns": ".x-menu-item .x-cols-icon.x-menu-item-icon",
+
+	".icon_favorites": ".icon_folder_favorites",
+	".icon_folder_task": [
+		".icon_folder_default_task",
+		".icon_folder_default_todolist",
+		".icon_folder_shared_task"
+	],
+	".icon_folder_calendar": [
+		".icon_folder_appointment",
+		".icon_folder_default_calendar",
+		".icon_folder_shared_calendar"
+	],
+	".icon_folder_contact": [
+		".icon_folder_default_contact",
+		".icon_folder_shared_contact"
+	],
+	".icon_note_yellow": [
+		".icon_folder_stickynote",
+		".icon_folder_default_note",
+		".icon_folder_shared_note"
+	],
+	".folder": [
+		".icon_folder",
+		".icon_folder_note",
+		".icon_folder_folder",
+		".icon_folder_default_publicfolders",
+		".icon_folder_default_syncissues",
+		".icon_folder_default_conflicts",
+		".icon_folder_default_localfailures",
+		".icon_folder_default_serverfailures",
+		".icon_open"
+	],
+	".folder_public": [
+		".icon_folder_shared_store",
+		".icon_folder_public_store",
+		".icon_folder_shared_undefined"
+	],
+	".trash": [
+		".icon_folder_default_wastebasket",
+		".icon_folder_delete",
+		".icon_empty_trash"
+	],
+	".icon_folder_default_journal": ".icon_folder_journal",
+	".icon_task_request": ".icon_task_assigner",
+
+	".icon_calendar_blue": ".icon_appt_appointment",
+	".icon_calendar_appt_recurring": [
+		".icon_appt_meeting_recurring",
+		".icon_appt_recurring"
+	],
+	".icon_calendar_appt_newtime": ".icon_appt_meeting_newtime",
+	".icon_contact_card": [
+		".icon_contact_user",
+		".x-zarafa-boxfield-recipient-item-ambiguous .x-zarafa-boxfield-item-icon"
+	],
+	".icon_distlist": ".icon_contact_distlist",
+
+	".icon_checked": [
+		".icon_all_day",
+		".icon_complete",
+		".x-grid3-check-col-on",
+		".x-menu-item-checked .x-menu-item.x-menu-check-item .x-menu-item-icon",
+		".x-grid3-row-selected.x-grid3-row .x-grid3-row-checker",
+		".x-menu-item.x-menu-check-item.showGroups .x-menu-item-icon"
+	],
+	".icon_unchecked": [
+		".x-grid3-check-col",
+		".x-menu-item.x-menu-check-item .x-menu-item-icon",
+		".x-grid3-row .x-grid3-row-checker"
+	],
+	".icon_task_assigned": ".icon_task_assignee",
+
+	".icon_unread_mail": ".zarafa-settings-category-mail",
+	".icon_oof": [
+		".zarafa-settings-category-oof",
+		".zarafa-settings-favorite-oof"
+	],
+	".icon_funnel": ".zarafa-settings-category-rules",
+	".icon_calendar": ".zarafa-settings-category-calendar",
+	".delegates_s": ".zarafa-settings-category-delegate",
+	".icon_sendas": ".zarafa-settings-category-sendas",
+	".icon_plug": ".zarafa-settings-category-plugins",
+	".icon_shortcuts": ".zarafa-settings-category-keyshortcut",
+	".icon_spanner": ".zarafa-settings-category-advanced",
+	".icon_seal": ".zarafa-settings-category-copyright",
+	".icon_signature": ".zarafa-settings-favorite-signatures",
+
+	".icon_category_add_hover": [
+		".k-category-add:hover",
+		".k-category-filter .k-category-add-button.x-btn-over .k-category-add-button-icon"
+	],
+
+	".icon_pencil": ".k-grid-button-edit",
+	".icon_pencil_dark": ".k-grid-button-edit:hover",
+	".icon_trash": ".k-grid-button-delete",
+	".icon_trash_dark": ".k-grid-button-delete:hover",
+	".icon_pin_outline": ".k-grid-button-pin",
+	".icon_pin_outline_dark": ".k-grid-button-pin:hover",
+	".icon_pin": ".zarafa-pinned .k-grid-button-pin",
+	".icon_pin_dark": ".zarafa-pinned .k-grid-button-pin:hover",
+
+	".folder_bw" : ".icon_open",
+	".icon_folder_rename_bw": ".icon_folder_rename",
+	".icon_send": ".x-menu .icon_send_white",
+	".icon_floppy": ".x-menu .icon_save_white",
+
+	".icon_not_current": ".icon_no_response_required",
+
+	".icon_reply_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_reply",
+	".icon_calendar_appt_accept_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar_appt_accept",
+	".icon_calendar_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar",
+
+	".icon_notification_error": ".zarafa-slide-notifier-error .icon",
+	".icon_notification_warning": ".zarafa-slide-notifier-warning .icon",
+	".icon_notification_info": ".zarafa-slide-notifier-info .icon"
+}

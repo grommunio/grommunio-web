@@ -14,6 +14,8 @@ $serverConfig = array(
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
 	'json_themes'					=> Theming::getJsonThemes(),
 	'active_theme'					=> Theming::getActiveTheme(),
+	'iconsets'						=> Iconsets::getIconsets(),
+	'active_iconset'				=> Iconsets::getActiveIconset(),
 );
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -54,7 +54,7 @@ Zarafa.contact.dialogs.DistlistContentPanelToolbar = Ext.extend(Zarafa.core.ui.C
 			overflowText : _('Save')+' & '+_('Close'),
 			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_save_white',
+			iconCls : 'icon_save_white',
 			handler : this.onSave,
 			scope : this,
 			ref : 'saveCloseBtn'

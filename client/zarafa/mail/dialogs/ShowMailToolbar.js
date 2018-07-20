@@ -66,7 +66,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			tooltip: _('Reply') + ' (Ctrl + R)',
 			overflowText: _('Reply'),
 			cls: 'zarafa-action',
-			iconCls: 'icon_replyEmail',
+			iconCls: 'icon_reply',
 			ref: 'replyBtn',
 			actionType: Zarafa.mail.data.ActionTypes.REPLY,
 			handler: this.onMailResponseButton,
@@ -80,7 +80,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			text: _('Reply All'),
 			tooltip: _('Reply All') + ' (Ctrl + Alt + R)',
 			overflowText: _('Reply All'),
-			iconCls: 'icon_replyAllEmail',
+			iconCls: 'icon_reply_all',
 			ref: 'replyAllBtn',
 			actionType: Zarafa.mail.data.ActionTypes.REPLYALL,
 			handler: this.onMailResponseButton,
@@ -90,7 +90,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			text: _('Forward'),
 			tooltip: _('Forward') + ' (Ctrl + F)',
 			overflowText: _('Forward'),
-			iconCls: 'icon_forwardEmail',
+			iconCls: 'icon_forward',
 			ref: 'forwardBtn',
 			actionType: Zarafa.mail.data.ActionTypes.FORWARD,
 			handler: this.onMailResponseButton,
@@ -139,7 +139,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			tooltip: {
 				text: _('Open options dialog')
 			},
-			iconCls : 'icon_openMessageOptions',
+			iconCls : 'icon_cogwheel',
 			handler : this.onMailOptionsButton,
 			scope: this
 		},{
@@ -238,7 +238,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			items: [{
                 xtype: 'zarafa.conditionalitem',
 				text : _('Mark Read'),
-				iconCls : 'icon_mail icon_message_read',
+				iconCls : 'icon_mail icon_mail_read',
                 hideMode : 'offsets',
                 readState: true,
                 beforeShow : this.onBeforeShowMoreMenu,
@@ -248,7 +248,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
                 xtype: 'zarafa.conditionalitem',
 				text : _('Mark Unread'),
                 hideMode : 'offsets',
-				iconCls : 'icon_mail icon_message_unread',
+				iconCls : 'icon_mail icon_mail_unread',
                 readState: false,
                 beforeShow : this.onBeforeShowMoreMenu,
 				handler : this.onReadFlagMenuItemClicked,
@@ -265,13 +265,13 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				scope: this
 			}, {
 				text: _('Edit as New'),
-				iconCls: 'icon_editAsNewEmail',
+				iconCls: 'icon_edit_as_new_mail',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onMailResponseButton,
 				scope: scope
 			}, {
 				text: _('Download'),
-				iconCls: 'icon_saveaseml',
+				iconCls: 'icon_download',
 				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onDownloadMailButton,
 				scope: scope

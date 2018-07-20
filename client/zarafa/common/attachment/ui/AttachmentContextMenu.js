@@ -43,7 +43,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		});
 		Zarafa.common.attachment.ui.AttachmentContextMenu.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Create the Action context menu items
 	 * @param {Zarafa.core.data.IPMAttachmentRecord} Attachment record. Based on record type preview will be enabled or disabled.
@@ -60,13 +60,13 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 			beforeShow : this.onPreviewBeforeShow
 		}, {
 			text : _('Download'),
-			iconCls : 'icon_saveaseml',
+			iconCls : 'icon_download',
 			scope : this,
 			handler : this.onDownloadItem,
 			beforeShow : this.onDownloadBeforeShow
 		}, {
 			text : _('Download all as ZIP'),
-			iconCls : 'icon_saveemlaszip',
+			iconCls : 'icon_download_zip',
 			scope : this,
 			handler : this.onDownloadAllAsZip,
 			beforeShow : this.onDownloadZipBeforeShow
@@ -172,7 +172,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
 		Zarafa.core.data.UIFactory.openViewRecord(this.records);
-	}, 
+	},
 
 	/**
 	 * Event handler which is called when the user selects the 'Download'

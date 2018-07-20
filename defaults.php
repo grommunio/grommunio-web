@@ -107,6 +107,9 @@ if(!defined('THEME')) define('THEME', '');
  */
 if(!defined('PERSONAL_THEMES_ENABLED')) define('PERSONAL_THEMES_ENABLED', false);
 
+// Use the classic icons as default iconset
+if(!defined('ICONSET')) define('ICONSET', 'classic');
+
 // Disable/enabled advanced settings
 if(!defined('ENABLE_ADVANCED_SETTINGS')) define('ENABLE_ADVANCED_SETTINGS', false);
 

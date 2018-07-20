@@ -17,7 +17,6 @@
 		width: $font-default-line-height;
 		height: $font-default-line-height;
 		margin: 0;
-		background-image: sprite-url($icons) !important;
 		background-repeat: no-repeat;
 	}
 
@@ -41,9 +40,6 @@
 .x-panel-header .x-tool.x-tool-collapse-west,
 .x-layout-collapsed .x-tool.x-tool-expand-east {
 	width: 5px + $padding-large;
-	background-image: sprite-url($icons) !important;
-	background-repeat: no-repeat;
-	background-position: sprite-position($icons, 'arrow_left_l', $offset_y: ($font-default-line-height - 9)/2, $offset_x: $padding-large/2);
 }
 .x-layout-collapsed .x-tool.x-tool-expand-east {
 	margin-left: $padding-large/2;
@@ -55,9 +51,6 @@
 .x-panel-header .x-tool.x-tool-collapse-east,
 .x-layout-collapsed .x-tool.x-tool-expand-west {
 	width: 5px + $padding-large;
-	background-image: sprite-url($icons) !important;
-	background-repeat: no-repeat;
-	background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($font-default-line-height - 9)/2, $offset_x: $padding-large/2);
 }
 .x-layout-collapsed .x-tool.x-tool-expand-west {
 	margin-left: $padding-large/2;
@@ -66,7 +59,6 @@
 /* panel plus button */
 .x-panel-header .x-tool.x-tool-plus {
 	width: 11px + $padding-large;
-	background-position: sprite-position($icons, 'plus', $offset_y: ($font-default-line-height - 11)/2, $offset_x: $padding-large/2);
 }
 
 .x-panel-header .x-tool:last-of-type {
@@ -102,14 +94,6 @@
 	 .x-toolbar-right-row {
 	 	td.x-toolbar-cell:last-child {
 	 		padding-right: 0;
-	 	}
-		 .x-btn.x-btn-text-icon {
-			 .x-btn-small {
-				 button.buttons_icon_send_later_white {
-					 @extend .buttons-icon_send_white;
-					 background-position: sprite-position($icons, icon_send_later_white, $offset-x: $padding-medium, $offset-y: $padding-small+1);
-				 }
-			 }
 		 }
 	 }
 }

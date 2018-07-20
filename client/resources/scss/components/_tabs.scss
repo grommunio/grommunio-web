@@ -62,16 +62,6 @@ ul.x-tab-strip {
 			/* close cross is 7x7 px */
 			padding-right: 2 * $padding-large + 7px;
 		}
-
-		/* close icon of tab */
-		a.x-tab-strip-close {
-			@extend .icon_cross;
-			background-position: sprite-position($icons, 'icon_cross');
-			top: ($button-small-height - 1px - 7px) / 2;
-			right: $padding-large;
-			width: 7px;
-			height: 7px;
-		}
 	}
 }
 
@@ -112,10 +102,10 @@ ul.x-tab-strip-bottom li {
 			}
 
 			a.x-tab-strip-close {
-				top: ($header-height - 1px - 7px - 2*$padding-large) / 2;
-				padding: $padding-large;
-				right: 0;
-				background-position: sprite-position($icons, 'icon_cross', $offset_y: $padding-large, $offset_x: $padding-large);
+				height: 20px;
+				width: 20px;
+				top: ($header-height - 1px - 20px) / 2;
+				right: 2px;
 			}
 		}
 
@@ -135,9 +125,6 @@ ul.x-tab-strip-bottom li {
 				padding: 0 $padding-medium;
 				display: block;
 				cursor: pointer;
-				background-image: sprite-url($icons) !important;
-				background-repeat: no-repeat;
-				background-position: sprite-position($icons, 'plus',$offset_y: ($header-height - 11) / 2, $offset_x: 6px );
 			}
 		}
 	}
@@ -202,9 +189,10 @@ ul.x-tab-strip {
 			.x-tab-left {
 				.x-tab-strip-inner{
 					.x-tab-strip-icon {
-						/* most icons are 15px wide */
-						padding-left: $padding-medium + 15px;
+						/* icons are 16px wide */
+						padding-left: $padding-medium + 16px;
 						background-repeat: no-repeat;
+						background-position: left 10px !important;
 					}
 				}
 			}
@@ -215,187 +203,18 @@ ul.x-tab-strip {
 			.x-tab-left {
 				.x-tab-strip-inner{
 					.x-tab-strip-text {
-						/* most icons are 15px wide */
-						padding-left: $padding-medium + 15px;
+						/* icons are 16px wide */
+						padding-left: $padding-medium + 16px;
 						background-repeat: no-repeat;
+						background-position: left 10px !important;
+					}
+					.icon_cogwheel {
+						background-position: left 8px !important;
 					}
 				}
 			}
 		}
 	}
-
-	/* general re-positioning of the icons in tabs */
-	@each $img in sprite-names($iconsmap) {
-		li .x-tab-strip-inner .#{$img} {
-			background-position: sprite-position($iconsmap, $img, $offset-y: 9, $offset-x: 0);
-		}
-	}
-
-	/* icon exceptions and additions */
-	li {
-		.x-tab-right {
-			.x-tab-left {
-				.x-tab-strip-inner{
-
-					.icon_folder_store {
-						/* icon width is 14px */
-						padding-left: $padding-medium + 14px;
-						background-position: sprite-position($iconsmap, icon_inbox, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_folder_default_inbox,
-					.icon_folder_shared_inbox {
-						@extend .icon_folder_default_inbox;
-						background-position: sprite-position($iconsmap, icon_folder_default_inbox, $offset-y: 11, $offset-x: 0);
-					}
-
-					.icon_folder,
-					.icon_folder_note,
-					.icon_folder_folder,
-					.icon_folder_default_publicfolders,
-					.icon_folder_default_syncissues,
-					.icon_folder_default_conflicts,
-					.icon_folder_default_localfailures,
-					.icon_folder_default_serverfailures,
-					.icon_open {
-						@extend .folder;
-						background-position: sprite-position($iconsmap, folder, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_folder_appointment,
-					.icon_folder_default_calendar,
-					.icon_folder_shared_calendar {
-						background-position: sprite-position($iconsmap, icon_folder_calendar, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_folder_default_contact,
-					.icon_folder_contact {
-						/* icon width is 13px */
-						padding-left: $padding-medium + 13px;
-						/* icon contains two empty lines on the left */
-						background-position: sprite-position($iconsmap, icon_folder_contact, $offset-y: 10, $offset-x: -2px);
-					}
-
-					.icon_mail.icon_message_read {
-						@extend .icon_mail_read;
-						background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_mail.icon_message_unread {
-						@extend .icon_mail_unread;
-						background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: 13, $offset-x: 0);
-					}
-
-					.icon_mail_read_receipt {
-						@extend .icon_mail_report_accept;
-						background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: 11, $offset-x: 0);
-					}
-
-					.icon_mail_nondelivery_receipt {
-						@extend .icon_mail_report_ndr;
-						background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: 11, $offset-x: 0);
-					}
-
-					.icon_mail_nonread_receipt {
-						@extend .icon_mail_report_decline;
-						background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: 11, $offset-x: 0);
-					}
-
-					.icon_note_yellow,
-					.icon_folder_stickynote,
-					.icon_folder_default_note,
-					.icon_folder_shared_note {
-						@extend .icon_note_yellow;
-						background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_folder_default_wastebasket,
-					.icon_folder_delete,
-					.icon_empty_trash {
-						background-position: sprite-position($iconsmap, trash, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_appt_meeting_single {
-						@extend .icon_calendar_mr;
-						background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: 9, $offset-x: 0);
-					}
-
-
-					.icon_appt_appointment {
-						@extend .icon_calendar_blue;
-						background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_appt_meeting_cancel {
-						background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_appt_meeting_recurring,
-					.icon_appt_recurring {
-						background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_appt_meeting_newtime {
-						@extend .icon_calendar_appt_newtime;
-						background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: 9, $offset-x: 0);
-					}
-
-					.icon_contact_user {
-						@extend .icon_contact_card;
-						background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_contact_distlist {
-						@extend .icon_distlist;
-						background-position: sprite-position($iconsmap, icon_distlist, $offset-y: 10, $offset-x: 0);
-					}
-
-					.icon_folder_default_task,
-					.icon_folder_task,
-					.icon_task_normal {
-						@extend .icon_task;
-						background-position: sprite-position($iconsmap, icon_task, $offset-y: 10, $offset-x: 0);
-						padding-left: $padding-medium + 14px;
-					}
-
-					.icon_folder_default_todolist {
-						@extend .icon_folder_task;
-						background-position: sprite-position($iconsmap, icon_folder_task, $offset-y: 10, $offset-x: 0);
-						/* icon width is 14px */
-						padding-left: $padding-medium + 14px;
-					}
-
-					.icon_task_assignee{
-						background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: 10, $offset-x: -1);
-					}
-
-					.icon_task_assigner{
-						@extend .icon_task_request;
-						background-position: sprite-position($iconsmap, icon_task_request, $offset-y: 10, $offset-x: -1);
-					}
-
-					.zarafa-settings-category-general {
-						@extend .icon_cogwheel;
-						background-position: sprite-position($icons, icon_cogwheel, $offset-y: 8px, $offset-x: -3px);
-					}
-
-					.icon_folder_default_journal,
-					.icon_folder_journal{
-						@extend .icon_folder_default_journal;
-						background-position: sprite-position($iconsmap, icon_folder_default_journal, $offset-y: 9, $offset-x: -1px);
-						padding-left: $padding-medium + 13px;
-					}
-
-					.advance_search{
-						@extend .icon_magnifier;
-						background-position: sprite-position($icons, icon_magnifier, $offset-y: 10, $offset-x: -1px);
-						spadding-left: $padding-medium + 13px;
-					}
-				}
-			}
-		}
-	}
-
 }
 
 /* iconCls for dirty messages */
@@ -421,13 +240,9 @@ ul.x-tab-strip-top {
 
 /* Paging left/right arrows when there are too many tabs open to fit in the tab layout. */
 .x-tab-scroller-left {
-	background-position: sprite-position($icons, arrow_left_l, $offset-x: 5px, $offset-y: 13px);
-	background-image: sprite-url($icons);
 	border-bottom-color: transparent;
 }
 
 .x-tab-scroller-right {
-	background-position: sprite-position($icons, arrow_right_l, $offset-x: 5px, $offset-y: 13px);
-	background-image: sprite-url($icons);
 	border-bottom-color: transparent;
 }

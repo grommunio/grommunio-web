@@ -108,7 +108,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		var taskRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {
 			store_entryid : folder.get('store_entryid'),
 			parent_entryid : folder.get('entryid'),
-			icon_index : Zarafa.core.mapi.IconIndex['task_normal'],
+			icon_index : Zarafa.core.mapi.IconIndex['task'],
 			subject : this.get('subject'),
 			body : this.getBody(false),
 			importance : this.get('importance'),

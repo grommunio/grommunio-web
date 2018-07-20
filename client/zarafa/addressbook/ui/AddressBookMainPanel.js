@@ -131,7 +131,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 				flex: 1,
 				hideFieldLabel : true,
 				enableKeyEvents : true,
-				triggerClass : 'icon_search',
+				triggerClass : 'icon_magnifier',
 				triggerScope: this,
 				onTriggerClick: this.onSearchButtonClick.createDelegate(this),
 				wrapFocusClass: '',
