@@ -1,18 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-22 18:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
+"Language: ar_DZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.13.0\n"
+
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr ""
 
 msgid "Now"
-msgstr ""
+msgstr "حالياً"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "يجب أن تكون القيمة بين 0٪ و100٪."
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "يجب أن يكون الرقم أكبر من صفر"
 
 msgid "More options"
-msgstr ""
+msgstr "خيارات أكثر"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
@@ -63,594 +77,594 @@ msgid "The quick brown fox jumps over the lazy dog"
 msgstr ""
 
 msgid "Sunday"
-msgstr ""
+msgstr "الأحد"
 
 msgid "Monday"
-msgstr ""
+msgstr "الأثنين"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "الثلاثاء"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "الإربعاء"
 
 msgid "Thursday"
-msgstr ""
+msgstr "الخميس"
 
 msgid "Friday"
-msgstr ""
+msgstr "الجمعة"
 
 msgid "Saturday"
-msgstr ""
+msgstr "السبت"
 
 msgid "Sun"
-msgstr ""
+msgstr "احد"
 
 msgid "Mon"
-msgstr ""
+msgstr "اثنين"
 
 msgid "Tue"
-msgstr ""
+msgstr "ثلاثاء"
 
 msgid "Wed"
-msgstr ""
+msgstr "اربعاء"
 
 msgid "Thu"
-msgstr ""
+msgstr "خميس"
 
 msgid "Fri"
-msgstr ""
+msgstr "جمعة"
 
 msgid "Sat"
-msgstr ""
+msgstr "سبت"
 
 msgid "January"
-msgstr ""
+msgstr "كانون الثاني"
 
 msgid "February"
-msgstr ""
+msgstr "شباط"
 
 msgid "March"
-msgstr ""
+msgstr "آذار"
 
 msgid "April"
-msgstr ""
+msgstr "نيسان"
 
 msgid "May"
-msgstr ""
+msgstr "أيّار"
 
 msgid "June"
-msgstr ""
+msgstr "حزيران"
 
 msgid "July"
-msgstr ""
+msgstr "تموز"
 
 msgid "August"
-msgstr ""
+msgstr "آب"
 
 msgid "September"
-msgstr ""
+msgstr "أيلول"
 
 msgid "October"
-msgstr ""
+msgstr "تشرين الأول"
 
 msgid "November"
-msgstr ""
+msgstr "تشرين الثاني"
 
 msgid "December"
-msgstr ""
+msgstr "كانون الأول"
 
 msgid "Page {A} of {0}"
-msgstr ""
+msgstr "الصفحة {A} من {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr ""
+msgstr "إظهار الرسائل {0} - {1} من {2}"
 
 msgid "No messages to display"
-msgstr ""
+msgstr "لايوجد رسائل للعرض"
 
 msgid "First Page"
-msgstr ""
+msgstr "الصفحة الأولى"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "الصفحة السابقة"
 
 msgid "Next Page"
-msgstr ""
+msgstr "الصفحة التالية"
 
 msgid "Last Page"
-msgstr ""
+msgstr "الصفحة الأخيرة"
 
 msgid "Refresh"
-msgstr ""
+msgstr "تحديث"
 
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 msgid "OK"
-msgstr ""
+msgstr "موافق"
 
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء الأمر"
 
 msgid "{0} (Spacebar)"
-msgstr ""
+msgstr "{0} (المسافة)"
 
 msgid "This date is before the minimum date"
-msgstr ""
+msgstr "هذا الموعد هو قبل الحد الأدنى للموعد"
 
 msgid "This date is after the maximum date"
-msgstr ""
+msgstr "هذا الموعد هو بعد الحد الأقصى للموعد"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr ""
+msgstr "ي/ش/س"
 
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 msgid "Next Month (Control+Right)"
-msgstr ""
+msgstr "الشهر التالي (Control+Right)"
 
 msgid "Previous Month (Control+Left)"
-msgstr ""
+msgstr "الشهر السابق (Control+Left)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr ""
+msgstr "أختيار الشهر (Control+Up/Down )"
 
 msgid "Sort Ascending"
-msgstr ""
+msgstr "ترتيب تصاعدي"
 
 msgid "Sort Descending"
-msgstr ""
+msgstr "ترتيب تنازلي"
 
 msgid "Columns"
-msgstr ""
+msgstr "اعمدة"
 
 msgid "Group By This Field"
-msgstr ""
+msgstr "جمع على اساس هذا الحقل"
 
 msgid "Show in Groups"
-msgstr ""
+msgstr "إظهار على مجموعات"
 
 msgid "(None)"
-msgstr ""
+msgstr "(لا يوجد)"
 
 msgid "Ok"
-msgstr ""
+msgstr "موافق"
 
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 msgid "Loading"
-msgstr ""
+msgstr "جاري التحميل"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "هذه القيمة في هذا الحقل غير صالح"
 
 msgid "The minimum length for this field is {0}"
-msgstr ""
+msgstr "الطول الادنى لهذا الحقل هو {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr ""
+msgstr "الطول الاقصى لهذا الحقل هو {0}"
 
 msgid "This field is required"
-msgstr ""
+msgstr "هذ الحقل مطلوب"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "القيمة الادنى لهذه القيمة لهذا الحقل {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "القيمة الاقصى لهذا الحقل {0}"
 
 msgid "{0} is not a valid number"
-msgstr ""
+msgstr "{0} رقم غير صالح"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr ""
+msgstr "الموعد في هذا الحقل يجب ان يكون مساوي او بعد {0}"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr ""
+msgstr "الموعد في هذا الحقل يجب ان يكون مساوي او قبل {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
+msgstr "{0} هو ليس موعداً صالحاً - يجب ان يكون بالشكل {1}"
 
 msgid "You must select at least one item in this group"
-msgstr ""
+msgstr "يجب عليك الاختيار على الاقل عنصر في هذه المجموعة"
 
 msgid "You must select one item in this group"
-msgstr ""
+msgstr "يجب عليك الاختيار عنصر في هذه المجموعة"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr ""
+msgstr "الوقت في هذا الحقل يجب ان يكون مساوي او بعد {0}"
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr ""
+msgstr "الوقت في هذا الحقل يجب ان يكون مساوي او قبل {0}"
 
 msgid "{0} is not a valid time"
-msgstr ""
+msgstr "{0} ليس توقيتاً صالحاً"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "true"
-msgstr ""
+msgstr "wpdp"
 
 msgid "false"
-msgstr ""
+msgstr "غير صحيح"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
-msgstr ""
+msgstr "هذا الحقل يجب ان يكون البريد بالشكل \"user@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "هذا الحقل يجب ان يكون رابط بالشكل \"{0}\""
 
 msgid "This field should only contain letters and _"
-msgstr ""
+msgstr "هذا الحقل يجب ان يكون فقط احرف و _"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
+msgstr "هذا الحقل يجب ان يكون فقط احرف و ارقام و _"
 
 msgid "E-mail Addresses"
-msgstr ""
+msgstr "عناوين البريد الالكتروني"
 
 msgid "E-mail addresses"
-msgstr ""
+msgstr "عناوين البريد الالكتروني"
 
 msgid "Group details"
-msgstr ""
+msgstr "تفاصيل المجموعة"
 
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 msgid "Display Name"
-msgstr ""
+msgstr "اظهار الاسم"
 
 msgid "Alias"
-msgstr ""
+msgstr "الاسم المتسعار"
 
 msgid "Owner"
-msgstr ""
+msgstr "المالك"
 
 msgid "Notes"
-msgstr ""
+msgstr "الملاحظات"
 
 msgid "Members"
-msgstr ""
+msgstr "الاعضاء"
 
 msgid "Email Address"
-msgstr ""
+msgstr "عناوين البريد الالكتروني"
 
 msgid "Account"
-msgstr ""
+msgstr "الحساب"
 
 msgid "Member Of"
-msgstr ""
+msgstr "عضو في"
 
 msgid "Group Membership"
-msgstr ""
+msgstr "عضوية المجموعة"
 
 msgid "Address Book"
-msgstr ""
+msgstr "دفتر العنواين"
 
 msgid "User details"
-msgstr ""
+msgstr "تفاصيل المستخدم"
 
 msgid "First"
-msgstr ""
+msgstr "الاول"
 
 msgid "Initial"
-msgstr ""
+msgstr "مبدئي"
 
 msgid "Display"
-msgstr ""
+msgstr "الظاهر"
 
 msgid "Last"
-msgstr ""
+msgstr "الاخير"
 
 msgid "Address"
-msgstr ""
+msgstr "العناوين"
 
 msgid "City"
-msgstr ""
+msgstr "المدينة"
 
 msgid "State"
-msgstr ""
+msgstr "المحافظة"
 
 msgid "Zip Code"
-msgstr ""
+msgstr "الرقم البريدي"
 
 msgid "Country"
-msgstr ""
+msgstr "البلد"
 
 msgid "Title"
-msgstr ""
+msgstr "اللقب"
 
 msgid "Company"
-msgstr ""
+msgstr "الشركة"
 
 msgid "Department"
-msgstr ""
+msgstr "القسم"
 
 msgid "Office"
-msgstr ""
+msgstr "المكتب"
 
 msgid "Assistant"
-msgstr ""
+msgstr "المساعد"
 
 msgid "Phone"
-msgstr ""
+msgstr "الهاتف"
 
 msgid "Organization"
-msgstr ""
+msgstr "المنظمة"
 
 msgid "Manager"
-msgstr ""
+msgstr "المدير"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "تقارير مباشرة"
 
 msgid "Phone numbers"
-msgstr ""
+msgstr "ارقام الهواتف"
 
 msgid "Business"
-msgstr ""
+msgstr "العمل"
 
 msgid "Business2"
-msgstr ""
+msgstr "العمل الثاني"
 
 msgid "Fax"
-msgstr ""
+msgstr "فاكس"
 
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgid "Home2"
-msgstr ""
+msgstr "البيت الثاني"
 
 msgid "Mobile"
-msgstr ""
+msgstr "الجوال"
 
 msgid "Pager"
-msgstr ""
+msgstr "بيجر"
 
 msgid "Kopano WebApp"
-msgstr ""
+msgstr "كوبانو"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "يجب عليك اختيار عضو او اكثر"
 
 msgid "You must select a user."
-msgstr ""
+msgstr "يجب عليك اختيار عضو"
 
 msgid "Select"
-msgstr ""
+msgstr "اختيار"
 
 msgid "Show Details"
-msgstr ""
+msgstr "إظهار التفاصيل"
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "استخدام مربع البحث للحصول على النتائج"
 
 msgid "There are no items to show in this list"
-msgstr ""
+msgstr "لا يوجد عناصر لإظهارها في هذه القائمة"
 
 msgid "Show Names from the"
-msgstr ""
+msgstr "إظهار الاسماء من ال"
 
 msgid "Search..."
-msgstr ""
+msgstr "البحث..."
 
 msgid "Sort by: Icon"
-msgstr ""
+msgstr "ترتيب حسب: الايقونة"
 
 msgid "Sort by: Name"
-msgstr ""
+msgstr "ترتيب حسب: الاسم"
 
 msgid "Sort by: Display Name"
-msgstr ""
+msgstr "ترتيب حسب: الاسم الظاهري"
 
 msgid "File as"
-msgstr ""
+msgstr "ملف ك"
 
 msgid "Sort by: File As"
-msgstr ""
+msgstr "ترتيب حسب: ملف ك"
 
 msgid "First Name"
-msgstr ""
+msgstr "الاسم الاول"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "ترتيب حسب: الاسم الاول"
 
 msgid "Last Name"
-msgstr ""
+msgstr "اسم العائلة"
 
 msgid "Sort by: Last Name"
-msgstr ""
+msgstr "ترتيب حسب: اسم العائلة"
 
 msgid "Sort by: Email Address"
-msgstr ""
+msgstr "ترتيب حسب: عنواين البريد الالكتروني"
 
 msgid "Sort by: Department"
-msgstr ""
+msgstr "ترتيب حسب: القسم"
 
 msgid "Office Phone"
-msgstr ""
+msgstr "رقم المكتب"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "ترتيب حسب: رقم المكتب"
 
 msgid "Sort by: Mobile"
-msgstr ""
+msgstr "ترتيب حسب: الجوال"
 
 msgid "Home Phone"
-msgstr ""
+msgstr "الهاتف المحلي"
 
 msgid "Sort by: Home Phone"
-msgstr ""
+msgstr "ترتيب حسب: الهاتف المحلي"
 
 msgid "Sort by: Pager"
-msgstr ""
+msgstr "ترتيب حسب: البيجر"
 
 msgid "Location"
-msgstr ""
+msgstr "المكان"
 
 msgid "Sort by: Location"
-msgstr ""
+msgstr "ترتيب حسب: المكان"
 
 msgid "Sort by: Fax"
-msgstr ""
+msgstr "ترتيب حسب: الفاكس"
 
 msgid "Any date"
-msgstr ""
+msgstr "أيّ موعد"
 
 msgid "Past week"
-msgstr ""
+msgstr "الاسبوع الماضي"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "الاسبوعين الماضيين"
 
 msgid "Past month"
-msgstr ""
+msgstr "الشهر الماضي"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "6 شهور الماضية"
 
 msgid "Past year"
-msgstr ""
+msgstr "السنة الماضية"
 
 msgid "Custom date"
-msgstr ""
+msgstr "موعد مخصص"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "إضافة إلى الاهتمامات"
 
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 msgid "You must specify a name."
-msgstr ""
+msgstr "يجب عليك تحديد اسم"
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "أضف مجلدًا إلى المفضلة استنادًا إلى استعلام البحث الخاص بك"
 
 msgid "Folder name"
-msgstr ""
+msgstr "أسم المجلد"
 
 msgid "Select Category"
-msgstr ""
+msgstr "أختر الفئة"
 
 msgid "Apply"
-msgstr ""
+msgstr "تأكيد"
 
 msgid "All folders are selected"
-msgstr ""
+msgstr "كل المجلدات تم تحديدها"
 
 msgid "Reply"
-msgstr ""
+msgstr "الرد"
 
 msgid "Reply All"
-msgstr ""
+msgstr "رد الكل"
 
 msgid "Forward"
-msgstr ""
+msgstr "إعادة توجيه"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "تعديل كجديد"
 
 msgid "Search tools"
-msgstr ""
+msgstr "ادوات البحث"
 
 msgid "Folders"
-msgstr ""
+msgstr "المجلدات"
 
 msgid "Include subfolders"
-msgstr ""
+msgstr "تضمين المجلدات الفرعية"
 
 msgid "Show.."
-msgstr ""
+msgstr "إظهار"
 
 msgid "Mails"
-msgstr ""
+msgstr "البرايد"
 
 msgid "Appointments"
-msgstr ""
+msgstr "المواعيد"
 
 msgid "Contacts"
-msgstr ""
+msgstr "الاسماء"
 
 msgid "Tasks"
-msgstr ""
+msgstr "المهام"
 
 msgid "Filter.."
-msgstr ""
+msgstr "تصفية..."
 
 msgid "Unread"
-msgstr ""
+msgstr "غير مقروء"
 
 msgid "Attachments"
-msgstr ""
+msgstr "مرفقات"
 
 msgid "Date"
-msgstr ""
+msgstr "الموعد"
 
 msgctxt "search.date"
 msgid "From"
-msgstr ""
+msgstr "من"
 
 msgctxt "search.date"
 msgid "To"
-msgstr ""
+msgstr "إلى"
 
 msgid "Filter category.."
-msgstr ""
+msgstr "تصفية الفئة.."
 
 msgid "Search.."
-msgstr ""
+msgstr "بحث.."
 
 msgid "Sender"
-msgstr ""
+msgstr "المرسل"
 
 msgid "Recipients"
-msgstr ""
+msgstr "المستلمين"
 
 msgid "Subject"
-msgstr ""
+msgstr "الموضوع"
 
 msgid "Body & Attachments"
-msgstr ""
+msgstr "الهيئة و المرفقات"
 
 msgid "Favorites"
-msgstr ""
+msgstr "الإهتمامات"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "أضف مجلدًا إلى المفضلة بناءً على طلب البحث هذا"
 
 msgid "Select Folder"
-msgstr ""
+msgstr "اختيار المجلد"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "حذف تاريخ المجلد"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "ترتيب حسب: التاريخ"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "جاري نتائج البحث"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "ترتيب الفرز"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -658,19 +672,19 @@ msgid ""
 msgstr ""
 
 msgid "Did you mean"
-msgstr ""
+msgstr "تقصد"
 
 msgid "With"
-msgstr ""
+msgstr "مع"
 
 msgid "To"
-msgstr ""
+msgstr "إلى"
 
 msgid "No date"
-msgstr ""
+msgstr "بدون تاريخ"
 
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -683,13 +697,13 @@ msgid ""
 msgstr ""
 
 msgid "Required"
-msgstr ""
+msgstr "مطلوب"
 
 msgid "Optional"
-msgstr ""
+msgstr "أختياري"
 
 msgid "Resource"
-msgstr ""
+msgstr "المصدر"
 
 msgid "Could not open store."
 msgstr ""
@@ -698,46 +712,46 @@ msgid "Could not open default calendar folder."
 msgstr ""
 
 msgid "workday"
-msgstr ""
+msgstr "يوم عمل"
 
 msgid "day"
-msgstr ""
+msgstr "يوم"
 
 msgid "days"
-msgstr ""
+msgstr "ايام"
 
 msgid "week"
-msgstr ""
+msgstr "اسبوع"
 
 msgid "weeks"
-msgstr ""
+msgstr "اسابيع"
 
 msgid " on "
-msgstr ""
+msgstr "على"
 
 msgid "month"
-msgstr ""
+msgstr "شهر"
 
 msgid "months"
-msgstr ""
+msgstr "اشهر"
 
 msgid "year"
-msgstr ""
+msgstr "سنة"
 
 msgid "years"
-msgstr ""
+msgstr "سنوات"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr " يتكرر كل {0} يتأثر {1} من {2} إلى {3}"
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr ""
+msgstr " يتكرر كل {0}  {1} يتأثر  {2} من  {3} إلى {4}"
 
 msgid "Occurs every {0} effective {1}."
-msgstr ""
+msgstr " يتكرر كل {0} يتأثر {1}"
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr ""
+msgstr " يتكرر كل {0}  {1} يتأثر {2} "
 
 msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
 msgid_plural ""
@@ -774,59 +788,59 @@ msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr ""
 
 msgid "When"
-msgstr ""
+msgstr "متى"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
 msgstr ""
 
 msgid "Where"
-msgstr ""
+msgstr "أين"
 
 msgid "New Meeting Time Proposed"
 msgstr ""
 
 msgid "and "
-msgstr ""
+msgstr "و"
 
 msgid "Sort by: Attachment"
-msgstr ""
+msgstr "ترتيب حسب: المرفقات"
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "ترتيب حسب: متكرر"
 
 msgid "Sort by: Subject"
-msgstr ""
+msgstr "ترتيب حسب: الموضوع"
 
 msgid "Startdate"
-msgstr ""
+msgstr "تاريخ البدء"
 
 msgid "Sort by: Startdate"
-msgstr ""
+msgstr "ترتيب حسب: تاريخ البدء"
 
 msgid "Enddate"
-msgstr ""
+msgstr "ترتيب حسب: تاريخ الانتهاء"
 
 msgid "Sort by: Enddate"
-msgstr ""
+msgstr "ترتيب حسب: تاريخ الانتهاء"
 
 msgid "Organizer"
-msgstr ""
+msgstr "المُنظم"
 
 msgid "Required Attendee"
-msgstr ""
+msgstr "الحضور مطلوب"
 
 msgid "Optional Attendee"
-msgstr ""
+msgstr "الحضور اختياري"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "إظهار التاريخ كـ"
 
 msgid "Start Date"
-msgstr ""
+msgstr "بداية الموعد"
 
 msgid "End Date"
-msgstr ""
+msgstr "نهاية الموعد"
 
 msgid "Recurrence pattern"
 msgstr ""
