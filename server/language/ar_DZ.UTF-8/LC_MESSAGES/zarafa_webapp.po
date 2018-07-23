@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-22 18:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-07-23 14:50+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
 "Language: ar_DZ\n"
@@ -843,49 +843,49 @@ msgid "End Date"
 msgstr "نهاية الموعد"
 
 msgid "Recurrence pattern"
-msgstr ""
+msgstr "نمط التكررار"
 
 msgid "All Day Event"
-msgstr ""
+msgstr "الحدث لكّل اليوم"
 
 msgid "Add Shared Calendar"
-msgstr ""
+msgstr "إضافة تقويم مشترك"
 
 msgid "Day"
-msgstr ""
+msgstr "اليوم"
 
 msgid "Workweek"
-msgstr ""
+msgstr "أيام العمل"
 
 msgid "Week"
-msgstr ""
+msgstr "أسبوع"
 
 msgid "Month"
-msgstr ""
+msgstr "شهر"
 
 msgid "List"
-msgstr ""
+msgstr "قائمة"
 
 msgid "Appointment"
-msgstr ""
+msgstr "موعد"
 
 msgid "Meeting request"
-msgstr ""
+msgstr "الموعد مطلوب"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "طباعة الموعد المحدد"
 
 msgid "Print overview"
-msgstr ""
+msgstr "نظرة عامة عن الطباعة"
 
 msgid "Print"
-msgstr ""
+msgstr "طباعة"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "لا يوجد موعد محدد"
 
 msgid "Calendar"
-msgstr ""
+msgstr "تقويم"
 
 msgid "F Y"
 msgstr ""
@@ -897,13 +897,13 @@ msgid "Body"
 msgstr ""
 
 msgid "Subject or Sender"
-msgstr ""
+msgstr "الموضوع او المرسل"
 
 msgid "To or cc"
 msgstr ""
 
 msgid "Meeting"
-msgstr ""
+msgstr "موعد"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned."
@@ -931,10 +931,10 @@ msgid ""
 msgstr ""
 
 msgid "Scheduling"
-msgstr ""
+msgstr "جدولة"
 
 msgid "Tracking"
-msgstr ""
+msgstr "متابعة"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
@@ -1001,99 +1001,99 @@ msgid ""
 msgstr ""
 
 msgid "Create in"
-msgstr ""
+msgstr "إنشاء في"
 
 msgid "Time"
-msgstr ""
+msgstr "الوقت"
 
 msgid "until"
-msgstr ""
+msgstr "حتى"
 
 msgid "Recurrence"
-msgstr ""
+msgstr "التكرار"
 
 msgid "Reminder"
-msgstr ""
+msgstr "تذكير"
 
 msgid "Show as"
-msgstr ""
+msgstr "إظهار كـ"
 
 msgid "Warning"
-msgstr ""
+msgstr "تحذير"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "لا يمكن تعديل المرفقات لحدث واحد"
 
 msgid "Type your message here..."
-msgstr ""
+msgstr "أكتب رسالتك هنا..."
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr ""
+msgstr "هل تريد تحديث الموقع \"{0}\"  مع الموقع الجديد \"{1}\" ؟"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y G:i"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "بلا"
 
 msgid "Send invitation"
-msgstr ""
+msgstr "إرسال دعوة"
 
 msgid "Send"
-msgstr ""
+msgstr "إرسال"
 
 msgid "Send invitation to recipients"
-msgstr ""
+msgstr "إرسال دعوة إلى المستلمين"
 
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 msgid "Save & Close"
-msgstr ""
+msgstr "حفظ و إغلاق"
 
 msgid "Save appointment and close dialog"
-msgstr ""
+msgstr "حفظ الموعد و إغلاق مربع الحوار"
 
 msgid "Save without sending an invitation to recipients"
-msgstr ""
+msgstr "حفظ بدون إرسال دعوة إلى المستلمين"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Delete this appointment"
-msgstr ""
+msgstr "حذف الموعد"
 
 msgid "Add attachment"
-msgstr ""
+msgstr "إضافة مرفق"
 
 msgid "Add attachments to this appointment"
-msgstr ""
+msgstr "إضافة مرفقات إلى الموعد"
 
 msgid "Cannot add attachment"
-msgstr ""
+msgstr "لا يمكن إضافة مرفق"
 
 msgid "Print this appointment"
-msgstr ""
+msgstr "طباعة هذا الموعد "
 
 msgid "Check names"
-msgstr ""
+msgstr "تحقق من الأسماء"
 
 msgid "Check all recipient names"
-msgstr ""
+msgstr "التحقق من كل أسماء المستخدمين"
 
 msgid "Open the recurrence dialog"
-msgstr ""
+msgstr "فتح مربع حوار التكرار"
 
 msgid "Invite attendees"
-msgstr ""
+msgstr "إضافة مدعوين"
 
 msgid "Invite attendees for this appointment"
-msgstr ""
+msgstr "إضافة مدعوين إلى هذا الموعد"
 
 msgid "Cancel invitation"
-msgstr ""
+msgstr "إلغاء الدعوة"
 
 msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
