@@ -349,7 +349,6 @@
 				// Finally merge the settings with the external settings which were obtained
 				// at the start of this function.
 				$this->settings = array_replace_recursive($settings, $this->settings);
-				$this->settings = $this->updateKeycontrolSettings($this->settings);
 			} elseif (DISABLE_WELCOME_SCREEN) {
 				/*
 				 * if DISABLE_WELCOME_SCREEN is true and PR_EC_WEBACCESS_SETTINGS_JSON is not exists at that time, We
@@ -397,29 +396,6 @@
 					$this->persistentSettings =$persistentSettings['settings'];
 				}
 			}
-		}
-
-		/**
-		 * Update keycontrol settings to the new full, basic and none settings.
-		 * Previously the keyboard settings could be enabled or disabled, since 2.2.0 we have basic,
-		 * full and a no keyboard shortcut setting. This introduces a new setting called 'keycontrols',
-		 * which superseedes 'keycontrols_enabled' therefore we convert the old setting to the new
-		 * setting if it's not set. Making the update backwards-compatible with the previous version.
-		 *
-		 * @param Array $settings the setting object
-		 * @return Array Settings object
-		 */
-		function updateKeycontrolSettings($settings)
-		{
-			if (isset($settings['zarafa']['v1']['main']) && !isset($settings['zarafa']['v1']['main']['keycontrols'])) {
-				if (isset($settings['zarafa']['v1']['main']['keycontrols_enabled']) && $settings['zarafa']['v1']['main']['keycontrols_enabled']) {
-					$settings['zarafa']['v1']['main']['keycontrols'] = 'full';
-				} else {
-					$settings['zarafa']['v1']['main']['keycontrols'] = 'disabled';
-				}
-			}
-
-			return $settings;
 		}
 
 		/**
