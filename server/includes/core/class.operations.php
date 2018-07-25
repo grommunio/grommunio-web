@@ -19,8 +19,6 @@
 
 	class Operations
 	{
-		function __construct(){}
-
 		/**
 		* Gets the hierarchy list of all required stores.
 		*
