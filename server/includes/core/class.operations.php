@@ -445,10 +445,6 @@
 				)
 			));
 
-/**
- * FIXME: This code is disabled because of ZCP-10423 which says that using CONVENIENT_DEPTH is much slower
- * then walking recursively through the hierarchy.
- *
 			$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 			mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
 
@@ -473,60 +469,6 @@
 			// When the server returned a different number of rows then was requested,
 			// we have reached the end of the table and we should exit the loop.
 			} while (count($rows) === $batchcount);
- *
- * As temporary solution we will be using the following code which recursively walks through the hierarchy.
- */
-
-			$expand = Array(
-				Array(
-					'folder' => $folder,
-					'props' => mapi_getprops($folder, Array(PR_ENTRYID, PR_SUBFOLDERS))
-				)
-			);
-
-			// Start looping through the $expand array, during each loop we grab the first item in
-			// the array and obtain the hierarchy table for that particular folder. If one of those
-			// subfolders has subfolders of its own, it will be appended to $expand again to ensure
-			// it will be expanded later.
-			while (!empty($expand)) {
-				$item = array_shift($expand);
-				$columns = $properties;
-
-				$hierarchyTable = mapi_folder_gethierarchytable($item['folder'], MAPI_DEFERRED_ERRORS);
-				mapi_table_restrict($hierarchyTable, $restriction, TBL_BATCH);
-
-				mapi_table_setcolumns($hierarchyTable, $columns);
-				$columns = null;
-
-				// Load the hierarchy in small batches
-				$batchcount = 100;
-				do {
-					$rows = mapi_table_queryrows($hierarchyTable, $columns, 0, $batchcount);
-
-					foreach($rows as $subfolder) {
-
-						// If the subfolders has subfolders of its own, append the folder
-						// to the $expand array, so it can be expanded in the next loop.
-						if ($subfolder[PR_SUBFOLDERS]) {
-							$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-							array_push($expand, array('folder' => $folderObject, 'props' => $subfolder));
-						}
-
-						if ($parentEntryid) {
-							$subfolder[PR_PARENT_ENTRYID] = $parentEntryid;
-						}
-
-						// Add the folder to the return list.
-						array_push($storeData["folders"]["item"], $this->setFolder($subfolder));
-					}
-
-				// When the server returned a different number of rows then was requested,
-				// we have reached the end of the table and we should exit the loop.
-				} while (count($rows) === $batchcount);
-
-				// Reset $parentEntryid, because in the next loop we won't be needing it.
-				$parentEntryid = false;
-			}
 		}
 
 		/**
