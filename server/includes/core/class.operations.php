@@ -3911,12 +3911,12 @@
 					$props = $abProps["props"];
 					$props["entryid"] = $abProps["entryid"];
 				}catch(Exception $e) {
-					// Throw MAPI_E_NOT_FOUND it may possible that contact is already
+					// Throw MAPI_E_NOT_FOUND or MAPI_E_UNKNOWN_ENTRYID it may possible that contact is already
 					// deleted from server. so just create recipient
 					// with existing information of distlist member.
 					// recipient is not valid so sender get report mail for that
 					// particular recipient to inform that recipient is not exist.
-					if ($e->getCode() == MAPI_E_NOT_FOUND) {
+					if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_UNKNOWN_ENTRYID) {
 						$props["entryid"] = $memberProps["entryid"];
 						$props["display_type"] = DT_MAILUSER;
 						$props["display_type_ex"] =  DT_MAILUSER;
