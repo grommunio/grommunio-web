@@ -49,7 +49,6 @@ class LoadReminderTest extends KopanoTest {
 
 		$this->assertArrayHasKey('list', $response, 'Test that the response has the \'list\' key');
 		$this->assertArrayHasKey('item', $response['list'], 'Test that the response has the \'item\' array');
-		$this->assertArrayHasKey('rowchecksum', $response['list'], 'Test that the response has the \'rowchecksum\' array');
 	}
 
 	/**

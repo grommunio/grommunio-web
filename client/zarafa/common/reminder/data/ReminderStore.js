@@ -191,8 +191,6 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 		if (success !== false) {
 			var records = data.records;
-
-			// @FIXME server sends md5 checksum for this checking, so its better to use that checksum here
 			var newChecksum = Ext.util.JSON.encode(Ext.pluck(records, 'id'));
 
 			// if checksum has been changed that means we should update the store with new data

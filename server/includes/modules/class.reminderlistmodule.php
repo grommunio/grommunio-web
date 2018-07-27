@@ -279,9 +279,6 @@
 				 array_push($data["item"], Conversion::mapMAPI2XML($this->properties, $row));
 			}
 
-			// Generate this handy MD5 so that the client can easily detect changes
-			$data["rowchecksum"] = md5(serialize($data["item"]));
-
 			$this->addActionData("list", $data);
 			$GLOBALS["bus"]->addData($this->getResponseData());
 
