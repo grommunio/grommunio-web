@@ -498,7 +498,7 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 
 			if (isSpecial && this.get('content_count') > 0) {
 				return Zarafa.hierarchy.data.CounterTypes.TOTAL;
-			} else if (!isSpecial && this.get('content_unread') > 0) {
+			} else if (!isSpecial && this.get('content_unread') > 0 && !this.isSearchFolder()) {
 				// Is it also logical that unread count for 'Drafts', 'Outbox' or Junk Mails' should be displayed?
 				return Zarafa.hierarchy.data.CounterTypes.UNREAD;
 			}
