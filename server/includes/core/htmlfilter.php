@@ -672,8 +672,7 @@ function sq_fixatts($tagname,
  * @param  $pos	     the position
  * @return           a string with edited content.
  */
-function sq_fixstyle($body, $pos){
-
+function sq_fixstyle($body, $pos) {
     // workaround for </style> in between comments
     $content = '';
     $sToken = '';
@@ -708,15 +707,22 @@ function sq_fixstyle($body, $pos){
                     $content .= $char;
                  }
                  break;
-
             case '!':
                 if ($sToken == '<') {
-					$content .= $sToken;
-					$sToken = '';
+                    // possible comment
+                    if (isset($body{$i + 2}) && substr($body, $i, 3) === '!--') {
+                        $i = strpos($body,'-->', $i + 3);
+                        if ($i === false) { // no end comment
+                            $i = strlen($body);
+                        }
+			// Skip ->
+			$i += 2;
+                        $sToken = '';
+                    }
                 } else {
                     $content .= $char;
                 }
-                break;
+	    	break;
 
             default:
                 if ($bEndTag) {
@@ -885,17 +891,15 @@ function sq_sanitize($body,
 			 * then we would like to copy that to $trusted string.
 			 */
 			if($free_content != FALSE){
-					$trusted .= $free_content;
-				}
+				$trusted .= $free_content;
+			}
+			list($style_content, $curpos) = sq_fixstyle($body, $gt+1);
 
-			list($style_content, $curpos) =
-                sq_fixstyle($body, $gt+1);
-
-            if ($style_content != FALSE){
-                $trusted .= sq_tagprint($tagname, $attary, $tagtype);
-                $trusted .= $style_content;
-                $trusted .= sq_tagprint($tagname, false, 2);
-            }
+		    	if ($style_content != FALSE){
+				$trusted .= sq_tagprint($tagname, $attary, $tagtype);
+				$trusted .= $style_content;
+				$trusted .= sq_tagprint($tagname, false, 2);
+		    	}
             continue;
         }
         if ($skip_content == false){
