@@ -1,7 +1,5 @@
 #!/bin/bash
 
-declare -r newlang=$1
-
 update_translations () {
   potfile=$1
   lang=$2
@@ -9,15 +7,77 @@ update_translations () {
   xgettext --no-location --omit-header --keyword=_ --keyword=_W --keyword=_TT -j -L $lang --keyword=dgettext:2 --keyword=ngettext:1,2 --keyword=dngettext:2,3 --keyword=pgettext:1c,2 --keyword=dpgettext:2c,3 --keyword=npgettext:1c,2,3 --keyword=dnpgettext:2c,3,4 --add-comments=TRANSLATORS --from-code utf-8 --files-from $files -o $potfile
 }
 
-update_potfile() {
+create_potfile() {
+  dirs=$1
+
   # Find JavaScript translations
-  find client/zarafa plugins client/extjs-mod -type f -name '*.js' ! -path "./deploy/*" -printf '%p\n' | sort > /tmp/JSFILES
-  update_translations $POT_FILE JavaScript /tmp/JSFILES # gettext 0.19.3 supports javascript, buildserver runs moldy debian wheezy.
+  find ${dirs} -type f -name '*.js' ! -path "./deploy/*" -printf '%p\n' | sort > /tmp/JSFILES
+  update_translations $POT_FILE JavaScript /tmp/JSFILES
 
   # Find PHP translations
   find . -type f -name '*.php' ! -path "./test/*" ! -path "./deploy/*" -printf '%P\n'   | sort > /tmp/PHPFILES
   update_translations $POT_FILE php /tmp/PHPFILES
 }
+
+function update_pos() {
+  # Merge PO files and remove obsolete strings
+  for lang in server/language/*.UTF-8/LC_MESSAGES/zarafa_webapp.po; do
+    echo $lang
+    msgmerge -N -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
+  done
+}
+
+function new_lang() {
+  lang=$1
+  pluginname=$2
+
+  # Create the server/language/${lang}/LC_MESSAGES/ directory
+  langdir="server/language/${lang}.UTF-8"
+  poname='zarafa_webapp.po'
+  if [ -n "${pluginname}" ]; then
+    langdir=${langdir//server\/}
+    poname="plugin_${pluginname}.po"
+  fi
+
+  mkdir -p "${langdir}/LC_MESSAGES"
+  touch "${langdir}/language.txt"
+
+  # Create po file
+  pofile="${langdir}/LC_MESSAGES/${poname}"
+  touch "${pofile}"
+  msgmerge -N -q "${pofile}" "${POT_FILE}" > "${pofile}"
+}
+
+function usage {
+  cat <<EOM
+Usage: $(basename "$0") [OPTION]...
+
+  -l lang     new language to be created
+  -u          update a po files
+  -h          display help
+EOM
+  exit 2
+}
+
+if [[ $1 == "" ]]; then
+  usage
+  exit 1
+fi
+
+while getopts ":h:l:p:u" arg; do
+  case $arg in
+    l)
+      declare -r newlang=${OPTARG}
+      ;;
+    u)
+      declare -r update="1"
+      ;;
+    h|*)
+      usage
+      exit 0
+      ;;
+  esac
+done
 
 POT_FILE=webapp.pot
 # Clean up pot file if script aborted.
@@ -26,23 +86,32 @@ POT_FILE=webapp.pot
 # Otherwise xgettext complains
 touch $POT_FILE
 
-update_potfile
+# WebApp case
+if [ -f "kopano-webapp.conf" ]; then
+  create_potfile "client/zarafa client/extjs-mod plugins"
 
-if [ -z "${newlang}" ]; then
-  # Merge PO files and remove obsolete strings
-  for lang in server/language/*.UTF-8/LC_MESSAGES/zarafa_webapp.po; do
-    echo $lang
-    msgmerge -N -q $lang $POT_FILE | msgattrib --no-obsolete -o $lang.new && mv $lang.new $lang
-  done
-else
-  # Create the server/language/${lang}/LC_MESSAGES/ directory
-  langdir="server/language/${newlang}.UTF-8/LC_MESSAGES/"
-  mkdir -p "${langdir}"
-  touch "server/language/${newlang}.UTF-8/language.txt"
+  if [ -n "${newlang}" ]; then
+      new_lang "${newlang}"
+  fi
 
-  # Create po file
-  touch "${langdir}/zarafa_webapp.po"
-  msgmerge -N -q "${langdir}/zarafa_webapp.po" $POT_FILE > "${langdir}/zarafa_webapp.po"
+  if [ -n "${update}" ]; then
+      update_pos
+  fi
+else # Plugin case
+  if [ ! -f manifest.xml ]; then
+    echo "Not in plugin directory"
+    exit 1
+  fi
+
+  create_potfile "js"
+  if [ -n "${newlang}" ]; then
+    new_lang "${newlang}" $(basename $(pwd))
+  fi
+
+  if [ -n "${update}" ]; then
+    echo 'Upating language is not supported for plugins'
+  fi
 fi
 
+# TODO(jelle): use a trap
 rm $POT_FILE
