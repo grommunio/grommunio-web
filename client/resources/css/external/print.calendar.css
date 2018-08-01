@@ -68,12 +68,6 @@ q:before, q:after {
   width: 100%;
 }
 
-/* used to see if all css is loaded before we start printing */
-/* line 56, ../../scss/external/_print.scss */
-#csscheck {
-  display: none;
-}
-
 /* line 3, ../../scss/external/print.calendar.scss */
 table {
   width: 100%;

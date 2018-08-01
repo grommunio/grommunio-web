@@ -30,38 +30,12 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			win.document.write(this.generateHTML(component));
 			win.document.close();
 			this.postRender(window.document, win.document, component);
-
-			this.doPrintOnStylesheetLoad.defer(10, this, [win]);
-		}
-	},
-
-	/**
-	 * check if style is loaded and do print afterwards
-	 * 
-	 * @param {window} win
-	 */
-	doPrintOnStylesheetLoad: function(win)
-	{
-		if (win) {
-			// Search for the images, if they are not loaded yet, reschedule
-			var images = win.document.getElementsByTagName('img');
-			for (var i = 0, len = images.length; i < len; i++) {
-				var image = images[i];
-				if (image.complete !== true || image.src && image.width + image.height === 0 ) {
-					this.doPrintOnStylesheetLoad.defer(10, this, [win]);
-					return;
-				}
-			}
-
-			// Search for the CSS, if it is not available yet, reschedule
-			var el = win.document.getElementById('csscheck'),
-			comp = el.currentStyle || win.getComputedStyle(el, null);
-			if (comp.display !== "none") {
-				this.doPrintOnStylesheetLoad.defer(10, this, [win]);
-				return;
-			}
-			win.print();
-			win.close();
+			
+			// Show print dialog when window has loaded all resources.
+			win.onload = function(win) {
+				win.print();
+				win.close();
+			}.defer(10, this, [win]);
 		}
 	},
 
@@ -81,7 +55,6 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 					'<title>' + this.getTitle(component) + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
-					'<div id="csscheck"></div>\n' +
 					'<div id="pagemargin">\n' +
 						this.generateBodyTemplate(component) +
 					'</div>\n' +
