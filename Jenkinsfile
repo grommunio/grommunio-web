@@ -5,6 +5,8 @@ pipeline {
     	environment {
         	CHROME_BIN = 'chromium-browser'
     	}
+	options { buildDiscarder(logRotator(numToKeepStr: '50')) }
+
 	stages {
 		stage('Test') {
 			parallel {
