@@ -134,7 +134,7 @@
 							return;
 						}
 
-						if ( !(isset($action['message_action']['action_type']) && $action['message_action']['action_type']==='edit_as_new') ){
+						if (!(isset($action['message_action']['action_type']) && $action['message_action']['action_type'] === 'edit_as_new' || $action['message_action']['action_type'] === 'forward_attach')) {
 							$this->setReplyForwardInfo($action);
 						}
 
