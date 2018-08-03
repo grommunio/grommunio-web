@@ -169,15 +169,29 @@ Zarafa.core.ui.MainContentTabPanel = Ext.extend(Ext.TabPanel, {
 				model = button.scope.model;
 			}
 
-			var record = model.createRecord();
-			if (!record) {
-				//if unable to create record from the current context model, invoke the handler of the first item in the 'new' menu
-				var button = container.getMainPanel().mainToolbar.newButton;
-				button.handler.call(button.scope);
-				return;
+			if (model.checkCreateRights === Ext.emptyFn) {
+				var record = model.createRecord();
+				if (!record) {
+					//if unable to create record from the current context model, invoke the handler of the first item in the 'new' menu
+					var button = container.getMainPanel().mainToolbar.newButton;
+					button.handler.call(button.scope);
+					return;
+				} else {
+					// This will always use tab layer only, no matter what layer is configured in settings
+					Zarafa.core.data.UIFactory.openCreateRecord(record, {layerType : 'tab'});
+				}
 			} else {
-				// This will always use tab layer only, no matter what layer is configured in settings
-				Zarafa.core.data.UIFactory.openCreateRecord(record, {layerType : 'tab'});
+				model.createRecord(function(record){
+					if (!record) {
+						//if unable to create record from the current context model, invoke the handler of the first item in the 'new' menu
+						var button = container.getMainPanel().mainToolbar.newButton;
+						button.handler.call(button.scope);
+						return;
+					} else {
+						// This will always use tab layer only, no matter what layer is configured in settings
+						Zarafa.core.data.UIFactory.openCreateRecord(record, {layerType : 'tab'});
+					}
+				}.createDelegate(this));
 			}
 		}
 	},

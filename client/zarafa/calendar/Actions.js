@@ -51,8 +51,9 @@ Zarafa.calendar.Actions = {
 	 */
 	openCreateAppointmentContent : function(model, config)
 	{
-		var record = model.createRecord();
-		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+		model.createRecord(function(record){
+			Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+		}.createDelegate(this, [config], true));
 	},
 
 	/**
@@ -80,9 +81,10 @@ Zarafa.calendar.Actions = {
 	 */
 	openCreateMeetingRequestContent : function(model, config)
 	{
-		var record = model.createRecord();
-		record.convertToMeeting();
-		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+		model.createRecord(function(record){
+			record.convertToMeeting();
+			Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+		}.createDelegate(this, [config], true));
  	},
 
 	/**

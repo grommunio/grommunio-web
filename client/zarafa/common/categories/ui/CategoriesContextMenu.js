@@ -35,7 +35,10 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 		} else {
 			this.records = config.records;
 		}
-		this.store = this.records[0].getStore();
+
+		if(Ext.isDefined(this.records[0])) {
+			this.store = this.records[0].getStore();
+		}
 
 		Ext.applyIf(config, {
 			xtype: 'zarafa.categoriescontextmenu',

@@ -165,10 +165,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 			text : _('Categories'),
 			hideOnClick: false,
 			beforeShow : this.beforeShowNonPhantom,
-			menu: {
-				xtype: 'zarafa.categoriescontextmenu',
-				records: records
-			}
+			menu: this.createSubCategories(records)
 		},{
 			xtype : 'zarafa.conditionalitem',
 			iconCls : 'icon_busystatus',
@@ -179,6 +176,22 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				items: this.createBusyStatusItems()
 			}
 		}];
+	},
+
+	/**
+	 * Create the sub context menu items for categories only if records are supplied.
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records on which this menu acts
+	 * @return {Object} The object of Options containing {@link Zarafa.common.categories.ui.CategoriesContextMenu}
+	 * @private
+	 */
+	createSubCategories : function(records)
+	{
+		if (records) {
+			return {
+				xtype: 'zarafa.categoriescontextmenu',
+				records: records
+			};
+		}
 	},
 
 	/**
@@ -239,9 +252,11 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	beforeShowPhantom : function(item, records)
 	{
 		var hasNonPhantoms = false;
-		for (var i = 0, len = records.length; i < len; i++) {
-			if (records[i].phantom === false) {
-				hasNonPhantoms = true;
+		if (records) {
+			for (var i = 0, len = records.length; i < len; i++) {
+				if (records[i].phantom === false) {
+					hasNonPhantoms = true;
+				}
 			}
 		}
 		item.setVisible(!hasNonPhantoms);
@@ -257,12 +272,16 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	beforeShowNonPhantom : function(item, records)
 	{
 		var hasPhantoms = false;
-		for (var i = 0, len = records.length; i < len; i++) {
-			if (records[i].phantom === true) {
-				hasPhantoms = true;
+		if (records) {
+			for (var i = 0, len = records.length; i < len; i++) {
+				if (records[i].phantom === true) {
+					hasPhantoms = true;
+				}
 			}
+			item.setVisible(!hasPhantoms);
+		} else {
+			item.setVisible(false);
 		}
-		item.setVisible(!hasPhantoms);
 	},
 
 	/**
@@ -275,7 +294,7 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	beforeShowOnMeeting : function(item, records)
 	{
 		// If user has select more then one record then we should not have to show the menu items.
-		if(records.length > 1){
+		if(!records || records.length > 1){
 			return;
 		}
 
@@ -487,18 +506,38 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 */
 	onCreate : function(button)
 	{
-		if (button.meetingRequest) {
-			for (var i = 0, len = this.records.length; i < len; i++) {
-				var record = this.records[i];
+		if (!this.records) {
+			var model = this.calendarPanel.model;
+			var calendarView = this.calendarPanel.getView();
+			var activeCalendar = calendarView.rangeSelectionModel.calendarView;
+			var rangeModel = this.calendarPanel.getRangeSelectionModel();
 
+			model.createRecord(function(record){
+				this.openContent(button, [record]);
+			}.createDelegate(this, [button], true), activeCalendar.getSelectedFolder(), rangeModel.dateRange);
+		} else {
+			this.openContent(button, this.records);
+		}
+	},
+
+	/**
+	 * Helper function to open dialog for new appointment / meeting request.
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} button The selected menuitem
+	 * @param {Zarafa.core.data.MAPIRecord[]} records The records on which this contextmenu gets opened
+	 */
+	openContent : function(button, records)
+	{
+		if (button.meetingRequest) {
+			for (var i = 0, len = records.length; i < len; i++) {
+				var record = records[i];
 				// Change meeting status only if it is not a meeting, otherwise leave as it is (in order not to overwrite old meeting status)
 				if (record.get('meeting') === Zarafa.core.mapi.MeetingStatus.NONMEETING) {
 					record.convertToMeeting();
 				}
 			}
-			Zarafa.calendar.Actions.openMeetingRequestContent(this.records);
+			Zarafa.calendar.Actions.openMeetingRequestContent(records);
 		} else {
-			Zarafa.calendar.Actions.openAppointmentContent(this.records);
+			Zarafa.calendar.Actions.openAppointmentContent(records);
 		}
 	}
 });

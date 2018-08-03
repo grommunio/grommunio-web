@@ -142,19 +142,64 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 		}
 	},
 
+	/*
+	 * Check if user has enough permissions to create record in given folder.
+	 * A confirmation message will be raised when user don't have enough permissions
+	 * asking to use default folder instead.
+	 * @param {Function} callback The callback function which will be called once the record gets created.
+	 * @param {Zarafa.core.IPMFolder} folder The target folder in which the new record will be created.
+	 * @param {Zarafa.core.DateRange} dateRange The {@link Zarafa.core.DateRange DateRange} object
+	 * @return {Boolean} true if user has enough permissions, false otherwise.
+	 */
+	checkCreateRights : function(callback, folder, dateRange)
+	{
+		if (folder.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_CREATE) {
+			return true;
+		} else {
+			Zarafa.common.dialogs.MessageBox.addCustomButtons({
+				width: 400,
+				title: _('Create in other calendar'),
+				msg : _('The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar.') + '<br><br>' + _('What would you like?'),
+				icon: Ext.MessageBox.QUESTION,
+				fn : function(buttonName){
+					if ( buttonName === 'own' ){
+						this.createRecord(callback, this.defaultFolder, dateRange);
+					}
+				},
+				customButton: [{
+					name : 'own',
+					text: _('Own calendar')
+				}, {
+					name : 'cancel',
+					text: _('Cancel')
+				}],
+				scope: this
+			});
+
+			return false;
+		}
+	},
+
 	/**
 	 * Create a new {@link Zarafa.core.data.IPMRecord IPMRecord} record  which is associated to this context.
 	 * this is a base function to create record. each context will overwrite this function to
 	 * create record of that specific context.
+	 * @param {Function} callback The callback function which will be called once the record gets created.
 	 * @param {Zarafa.core.IPMFolder} folder (optional) The target folder in which the new record must be
 	 * created. If this is not provided the default folder will be used.
 	 * @param {Zarafa.core.DateRange} dateRange (optional) The {@link Zarafa.core.DateRange DateRange} object
 	 * that should be used to get start and due dates for the appointment.
 	 * @return {Zarafa.core.data.IPMRecord} record  which is associated to this context.
 	 */
-	createRecord : function(folder, dateRange)
+	createRecord : function(callback, folder, dateRange)
 	{
 		folder = folder || this.getDefaultFolder();
+
+		// check for create permissions
+		if (!this.checkCreateRights(callback, folder, dateRange)) {
+			return;
+		}
+
 		var store;
 		if (folder.existsInFavorites()) {
 			store = container.getHierarchyStore().getById(folder.get('store_entryid'));
@@ -200,7 +245,12 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 			alldayevent : allDay
 		});
 
-		return record;
+		// call callback if provided, return newly created record otherwise
+		if (Ext.isDefined(callback)) {
+			callback.call(this, record);
+		} else {
+			return record;
+		}
 	},
 
 	/**
