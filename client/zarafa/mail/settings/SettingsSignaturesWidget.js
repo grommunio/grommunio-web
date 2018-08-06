@@ -352,7 +352,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		// For the Signatures selection combo, we must add a fake entry called <None>
 		// to disable the signatures in some situations.
-		var signaturesIdArray = [{ id : 0, name : _('<None>') }].concat(signaturesArray);
+		var signaturesIdArray = [{ id : 0, name : '<'+ _('None') + '>' }].concat(signaturesArray);
 
 		// Load the signature ids into the New Message, and select the correct value
 		// based on the settings.
