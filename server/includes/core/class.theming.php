@@ -41,7 +41,7 @@ class Theming
 			if (!Theming::isJsonTheme($info->getFileName())) {
 				continue;
 			}
-			
+
 			$themeProps = Theming::getJsonThemeProps($info->getFileName());
 			if (empty($themeProps)) {
 				continue;
@@ -540,6 +540,11 @@ class Theming
 			.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
 				background-color: {{selection-color}} !important;
 				border-color: {{selection-color}};
+			}
+
+			/* Selected x-menu */
+			.x-menu-item-selected {
+			background-color: {{selection-color}};
 			}
 
 			/*********************************************************************
