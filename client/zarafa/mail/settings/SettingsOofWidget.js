@@ -176,6 +176,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				anchor: '100%',
 				name : 'zarafa/v1/contexts/mail/outofoffice/message',
 				ref : 'bodyField',
+				height : '400',
 				hideLabel : true,
 				emptyText : _('User is currently out of office.'),
 				listeners : {
