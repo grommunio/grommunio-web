@@ -152,16 +152,10 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 				// # TRANSLATORS: {0} is the subject of an all-day
 				// # appointment, {1} is the html code to display
 				// # icons.
-				return String.format(_("Today: {1} {0}"),
-									 Ext.util.Format.htmlEncode(value), icons);
-			} else {
-				// # TRANSLATORS: {0} is the subject of an
-				// # appointment; {1} is the start time, {2} is the
-				// # end time, {3} is the html code to display icons.
-				return String.format(_("{1}&minus;{2}: {3} {0}"),
-									 Ext.util.Format.htmlEncode(value), starttime, duetime,
-									 icons);
+				return String.format(_("Today: {1} {0}"), Ext.util.Format.htmlEncode(value), icons);
 			}
+
+			return String.format("{1}-{2}: {3} {0}", Ext.util.Format.htmlEncode(value), starttime, duetime, icons);
 	},
 
 	/**
