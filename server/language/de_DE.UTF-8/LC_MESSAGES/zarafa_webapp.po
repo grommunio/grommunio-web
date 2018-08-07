@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-07 12:39+0200\n"
-"PO-Revision-Date: 2018-06-29 12:51+0000\n"
-"Last-Translator: Felix <f.bartels@kopano.com>\n"
+"PO-Revision-Date: 2018-08-07 19:29+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -962,21 +962,21 @@ msgstr "Kein Termin ausgewählt"
 msgid "Calendar"
 msgstr "Kalender"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Im Kalender anzeigen"
+msgstr "In anderem Kalender anlegen"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Sie haben auf den ausgewählten Kalender nur Leserechte. Sie können Element "
+"stattdessen in Ihrem eigenen Kalender anlegen."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Was möchten Sie?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Im Kalender anzeigen"
+msgstr "Eigener Kalender"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3931,15 +3931,11 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr "Willkommen bei Kopano WebApp"
 
-#, fuzzy
 msgid "This is the first time you are using WebApp. "
-msgstr "Dies ist das erste Mal, dass Sie die Kategorie \"{0}\" benutzen."
+msgstr "Sie verwenden WebApp zum ersten Mal. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"Sie benutzen WebApp zum ersten Mal.<br />Bitte überprüfen Sie die folgenden "
-"Einstellungen bevor Sie fortfahren."
+msgstr "Bitte überprüfen Sie die folgenden Einstellungen bevor Sie fortfahren."
 
 msgid "Add widgets"
 msgstr "Alle Widgets"
@@ -4268,9 +4264,8 @@ msgstr "Geplante E-Mails"
 msgid "Your message will be sent at "
 msgstr "Ihre Nachricht wird versandt um "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "Ihre E-Mail kann weiterhin im <b>Postausgang</b> bearbeitet werden."
+msgstr "Navigieren Sie zu Ihrem Postausgang um die E-Mail zu bearbeiten."
 
 msgid "hour(s)"
 msgstr "Stunde(n)"
@@ -4481,9 +4476,8 @@ msgstr "Eine neue E-Mail-Nachricht an diesen Empfänger erstellen."
 msgid "Print single e-mail"
 msgstr "Einzelne E-Mail drucken"
 
-#, fuzzy
 msgid "Filter"
-msgstr "Eingrenzen ..."
+msgstr "Filter"
 
 msgid "RE"
 msgstr "AW"
