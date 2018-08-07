@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2011-03-08 15:51+0200\n"
 "Last-Translator: Anonymous Pootle User\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -904,6 +904,20 @@ msgid "No appointment selected"
 msgstr ""
 
 msgid "Calendar"
+msgstr ""
+
+msgid "Create in other calendar"
+msgstr ""
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+msgid "Own calendar"
 msgstr ""
 
 msgid "F Y"
@@ -3550,9 +3564,10 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr ""
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
 msgstr ""
 
 msgid "Add widgets"
@@ -3859,7 +3874,7 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr ""
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
@@ -4047,10 +4062,13 @@ msgstr ""
 msgid "Print single e-mail"
 msgstr ""
 
-msgid "FW"
+msgid "Filter"
 msgstr ""
 
 msgid "RE"
+msgstr ""
+
+msgid "FW"
 msgstr ""
 
 msgid "HTML"
@@ -4155,9 +4173,6 @@ msgid "Signature for replies and forwards"
 msgstr ""
 
 msgid "Save Signature"
-msgstr ""
-
-msgid "<None>"
 msgstr ""
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
@@ -4935,12 +4950,6 @@ msgstr ""
 #. appointment, {1} is the html code to display
 #. icons.
 msgid "Today: {1} {0}"
-msgstr ""
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
 msgstr ""
 
 msgid "Today's Appointments"

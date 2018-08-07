@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -905,6 +905,22 @@ msgstr "Ingen aftale er valgt"
 
 msgid "Calendar"
 msgstr "Kalender"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Vis i kalender"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Vis i kalender"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3650,9 +3666,14 @@ msgstr "Elementet er blevet ændret. Er du sikker på du vil slette det?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Velkommen til Kopano Webapp"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+"Dette er den første gang du bruger WebApp. <br/>Tjek venligst de følgende "
+"indstillinger inden du fortsætter."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
 msgstr ""
 "Dette er den første gang du bruger WebApp. <br/>Tjek venligst de følgende "
 "indstillinger inden du fortsætter."
@@ -3977,7 +3998,8 @@ msgstr "Planlagte elementer"
 msgid "Your message will be sent at "
 msgstr "Din meddelelse vil blive sendt "
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
 msgstr "Gå til din <b>Udbakke</b> for at redigere din meddelelse."
 
 msgid "hour(s)"
@@ -4170,11 +4192,15 @@ msgstr "Opret en ny meddelelse til denne modtager."
 msgid "Print single e-mail"
 msgstr "Udskriv enkelt email"
 
-msgid "FW"
-msgstr "VS"
+#, fuzzy
+msgid "Filter"
+msgstr "Filtrer.."
 
 msgid "RE"
 msgstr "SV"
+
+msgid "FW"
+msgstr "VS"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4284,9 +4310,6 @@ msgstr "Signatur for svar og videresendelser"
 #, fuzzy
 msgid "Save Signature"
 msgstr "Signaturer"
-
-msgid "<None>"
-msgstr "<Ingen>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Du har ugemte ændringer. Vil du gemme disse ændringer?"
@@ -5088,12 +5111,6 @@ msgstr "Ingen aftaler i dag."
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "I dag: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Dagens aftaler"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -927,6 +927,22 @@ msgstr "沒有選擇的約會"
 
 msgid "Calendar"
 msgstr "行事曆"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "檢視多重行事曆在"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "檢視多重行事曆在"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3710,9 +3726,10 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr "歡迎來到Kopano WebApp"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
 msgstr ""
 
 msgid "Add widgets"
@@ -4035,7 +4052,7 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr ""
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
@@ -4233,11 +4250,14 @@ msgstr "建立新的電子郵件給此收件人"
 msgid "Print single e-mail"
 msgstr "列印單一電子郵件"
 
-msgid "FW"
-msgstr "轉寄"
+msgid "Filter"
+msgstr ""
 
 msgid "RE"
 msgstr "回覆"
+
+msgid "FW"
+msgstr "轉寄"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4350,9 +4370,6 @@ msgstr "回覆和轉寄簽名檔"
 #, fuzzy
 msgid "Save Signature"
 msgstr "簽名檔"
-
-msgid "<None>"
-msgstr "<無>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "你尚未儲存設定，你想要儲存此設定嗎?"
@@ -5186,12 +5203,6 @@ msgstr "今日沒有約會"
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "今日: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}和分鐘;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "今天的約會"

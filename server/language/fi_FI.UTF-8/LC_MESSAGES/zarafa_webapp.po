@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -954,6 +954,22 @@ msgstr "Tapaamista ei valittu"
 
 msgid "Calendar"
 msgstr "Kalenteri"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Tarkastele useampia kalentereita kohteessa"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Tarkastele useampia kalentereita kohteessa"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3815,9 +3831,10 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr "Tervetuloa käyttämään Kopanon WebApp-sovellusta"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
 msgstr ""
 
 msgid "Add widgets"
@@ -4149,7 +4166,7 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr ""
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
@@ -4356,11 +4373,14 @@ msgstr "Luo sähköpostiviesti tälle vastaanottajille."
 msgid "Print single e-mail"
 msgstr "Tulosta yksittäinen sähköposti"
 
-msgid "FW"
-msgstr "FW"
+msgid "Filter"
+msgstr ""
 
 msgid "RE"
 msgstr "RE"
+
+msgid "FW"
+msgstr "FW"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4475,9 +4495,6 @@ msgstr "Allekirjoitukset vastauksiin ja välitettyihin viesteihin"
 #, fuzzy
 msgid "Save Signature"
 msgstr "Allekirjoitukset"
-
-msgid "<None>"
-msgstr "<Ei mitään>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "Sinulla on tallentamattomia muutoksia. Haluatko tallentaa muutokset?"
@@ -5331,12 +5348,6 @@ msgstr "Ei tapaamisia tälle päivälle."
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "Tänään: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Tämän päivän tapaamiset"

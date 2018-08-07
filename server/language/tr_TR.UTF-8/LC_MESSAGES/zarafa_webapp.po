@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -949,6 +949,22 @@ msgstr "Seçilmiş randevu yok"
 
 msgid "Calendar"
 msgstr "Takvim"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "takvim'de görüntüle"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "takvim'de görüntüle"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3857,9 +3873,14 @@ msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Kopano WebApp'e hoşgeldiniz"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+"WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
+"aşağıdaki ayarları kontrol edin."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
 msgstr ""
 "WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
 "aşağıdaki ayarları kontrol edin."
@@ -4195,7 +4216,7 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr ""
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
@@ -4400,11 +4421,15 @@ msgstr "Bu kişiye hitaben yeni bir e-posta mesajı oluşturun."
 msgid "Print single e-mail"
 msgstr "Tek bir e-posta yazdır"
 
-msgid "FW"
-msgstr "İLT"
+#, fuzzy
+msgid "Filter"
+msgstr "filtrele.."
 
 msgid "RE"
 msgstr "YNT"
+
+msgid "FW"
+msgstr "İLT"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4516,9 +4541,6 @@ msgstr "Yanıtlar ve iletimler için İmza"
 #, fuzzy
 msgid "Save Signature"
 msgstr "Imzalar"
-
-msgid "<None>"
-msgstr "<Hiç>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
@@ -5379,12 +5401,6 @@ msgstr "Bugüne randevu yok"
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "Bugün: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Bugünün randevuları"

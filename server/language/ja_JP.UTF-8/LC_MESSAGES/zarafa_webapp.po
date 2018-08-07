@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -929,6 +929,22 @@ msgstr "予定が選択されていません"
 
 msgid "Calendar"
 msgstr "カレンダー"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "カレンダーを表示"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "カレンダーを表示"
 
 msgid "F Y"
 msgstr "Y年F"
@@ -3766,9 +3782,10 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr "Kopano WebAppへようこそ"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
 msgstr ""
 
 msgid "Add widgets"
@@ -4093,7 +4110,8 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr "メッセージは次の時間に送信されます "
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
 msgstr "<b>送信済みフォルダ</b> を開き、メールを編集してください。"
 
 msgid "hour(s)"
@@ -4298,11 +4316,14 @@ msgstr "この受信者のアドレスに新たにメールを作成する。"
 msgid "Print single e-mail"
 msgstr "メールを印刷する"
 
-msgid "FW"
-msgstr "FW"
+msgid "Filter"
+msgstr ""
 
 msgid "RE"
 msgstr "RE"
+
+msgid "FW"
+msgstr "FW"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4412,9 +4433,6 @@ msgstr "返信と転送の署名"
 #, fuzzy
 msgid "Save Signature"
 msgstr "署名"
-
-msgid "<None>"
-msgstr "<None>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "保存されていない変更があります。変更を保存しますか？"
@@ -5261,12 +5279,6 @@ msgstr "今日の会議予定はありません。"
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "今日: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "今日の会議予定"

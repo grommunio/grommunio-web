@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2016-10-14 07:34+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -957,6 +957,22 @@ msgstr "Nenhum compromisso selecionado"
 
 msgid "Calendar"
 msgstr "Calendário"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Visualizar múltiplos calendários em"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Visualizar múltiplos calendários em"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3801,9 +3817,10 @@ msgstr ""
 msgid "Welcome to Kopano WebApp"
 msgstr "Bem vindo ao Kopano WebApp"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
 msgstr ""
 
 msgid "Add widgets"
@@ -4136,7 +4153,8 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr "Sua mensagem será enviada ás "
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
 msgstr "Vá a sua <b>caixa de saída</b> para editar seu e-mail."
 
 msgid "hour(s)"
@@ -4343,11 +4361,14 @@ msgstr "Criar um novo e-mail endereçado para este destinatário."
 msgid "Print single e-mail"
 msgstr "Imprimir único E-Mail"
 
-msgid "FW"
-msgstr "ENC"
+msgid "Filter"
+msgstr ""
 
 msgid "RE"
 msgstr "RES"
+
+msgid "FW"
+msgstr "ENC"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4464,9 +4485,6 @@ msgstr "Assinatura para respostas e encaminhamentos"
 #, fuzzy
 msgid "Save Signature"
 msgstr "Assinaturas"
-
-msgid "<None>"
-msgstr "<Nenhum>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
@@ -5319,12 +5337,6 @@ msgstr "Sem compromissos hoje."
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "Hoje: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Compromissos de Hoje"

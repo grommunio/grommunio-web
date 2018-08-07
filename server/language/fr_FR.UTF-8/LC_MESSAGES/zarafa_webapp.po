@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
@@ -935,6 +935,22 @@ msgstr "Aucun rendez-vous sélectionné"
 
 msgid "Calendar"
 msgstr "Agenda"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Afficher dans le calendrier"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Afficher dans le calendrier"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3865,9 +3881,14 @@ msgstr "Cet élément a été modifié. Etes-vous certain de vouloir le supprime
 msgid "Welcome to Kopano WebApp"
 msgstr "Bienvenue sur Kopano WebApp"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+"C'est la première fois que vous utilisez Kopano WebApp. <br /> Veuillez "
+"vérifier les paramètres suivants avant de continuer."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
 msgstr ""
 "C'est la première fois que vous utilisez Kopano WebApp. <br /> Veuillez "
 "vérifier les paramètres suivants avant de continuer."
@@ -4200,7 +4221,8 @@ msgstr ""
 msgid "Your message will be sent at "
 msgstr "Votre message sera envoyé à "
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
 msgstr "Allez à votre <b>Boîte d'envoi</b> pour éditer votre email."
 
 msgid "hour(s)"
@@ -4406,11 +4428,15 @@ msgstr "Créer un nouveau message électronique adressé à ce destinataire"
 msgid "Print single e-mail"
 msgstr "Imprimer un courriel unique"
 
-msgid "FW"
-msgstr "TR"
+#, fuzzy
+msgid "Filter"
+msgstr "Filtrer.."
 
 msgid "RE"
 msgstr "RE"
+
+msgid "FW"
+msgstr "TR"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4524,9 +4550,6 @@ msgstr "Signature pour les réponses et transferts"
 #, fuzzy
 msgid "Save Signature"
 msgstr "Signatures"
-
-msgid "<None>"
-msgstr "<None>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
@@ -5401,12 +5424,6 @@ msgstr "Aucun rendez-vous aujourd'hui"
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "Aujourd'hui : {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Rendez-vous du jour"

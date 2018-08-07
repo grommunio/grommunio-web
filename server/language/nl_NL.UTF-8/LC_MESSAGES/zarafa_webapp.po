@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-02 15:50+0200\n"
+"POT-Creation-Date: 2018-08-07 12:38+0200\n"
 "PO-Revision-Date: 2018-07-02 13:47+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -968,6 +968,22 @@ msgstr "Geen afspraak geselecteerd"
 
 msgid "Calendar"
 msgstr "Agenda"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Bekijk in kalender"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Bekijk in kalender"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3953,9 +3969,12 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Welkom bij Kopano WebApp"
 
-msgid ""
-"This is the first time you are using WebApp. <br />Please check the "
-"following settings before continuing."
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr "Dit is de eerste keer dat u categorie \"{0}\" heeft gebruikt."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
 msgstr ""
 "Het is de eerste keer dat je WebApp gebruikt <br />Kijk SVP volgende "
 "instellingen na alvorens verder te gaan."
@@ -4287,7 +4306,8 @@ msgstr "Ingeplande Items"
 msgid "Your message will be sent at "
 msgstr "Uw bericht wordt verstuurd op "
 
-msgid "Go to your <b>Outbox</b> to edit your email."
+#, fuzzy
+msgid "Go to your Outbox to edit your email."
 msgstr "Ga naar uw <b>Outbox</b> om uw e-mail te bewerken."
 
 msgid "hour(s)"
@@ -4494,11 +4514,15 @@ msgstr "Nieuw e-mailbericht maken gericht aan deze ontvanger."
 msgid "Print single e-mail"
 msgstr "Druk een e-mail af"
 
-msgid "FW"
-msgstr "FW"
+#, fuzzy
+msgid "Filter"
+msgstr "Filter..."
 
 msgid "RE"
 msgstr "AW"
+
+msgid "FW"
+msgstr "FW"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4606,9 +4630,6 @@ msgstr "Handtekening voor antwoorden en doorsturen"
 
 msgid "Save Signature"
 msgstr "Handtekening opslaan"
-
-msgid "<None>"
-msgstr "<Geen>"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "U heeft niet-opgeslagen wijzigingen. Wilt u deze opslaan?"
@@ -5502,12 +5523,6 @@ msgstr "Geen afspraken vandaag."
 #. icons.
 msgid "Today: {1} {0}"
 msgstr "Vandaag: {1} {0}"
-
-#. TRANSLATORS: {0} is the subject of an
-#. appointment; {1} is the start time, {2} is the
-#. end time, {3} is the html code to display icons.
-msgid "{1}&minus;{2}: {3} {0}"
-msgstr "{1}&minus;{2}: {3} {0}"
 
 msgid "Today's Appointments"
 msgstr "Afspraken Vandaag"
