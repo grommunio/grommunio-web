@@ -131,7 +131,16 @@
 				if(Ext.isDefined(component.menu) && component.splitOnMoreMenu){
 					var items = component.menu.items.items;
 					Ext.each(items,function (item) {
-						menu.add(this.createMenuConfig(item));
+						var config = this.createMenuConfig(item);
+						if(item.isXType('menucheckitem')) {
+							config.xtype = item.xtype;
+							var store = item.model.store;
+							if (store.hasFilterApplied) {
+								config.iconCls = "";
+								config.checked = true;
+							}
+						}
+						menu.add(config);
 					},this);
 				} else {
 					orig_addComponentToMenu.apply(this, arguments);

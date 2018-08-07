@@ -61,7 +61,8 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 
 		// We add the default buttons
 		items = items.concat([
-			'->', 
+			'->',
+			container.populateInsertionPoint('context.mainpaneltoolbar.item', config.context),
 		{
 			xtype: 'zarafa.toolbarbutton',
 			overflowText : _('Copy/Move'),
@@ -112,7 +113,6 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	{
 		this.on('afterlayout', this.resizeSearchField, this, {delay : 2, single : true});
 	},
-
 
 	/**
 	 * Open the {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
@@ -175,6 +175,25 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		var containerWidth = this.el.getStyleSize().width;
 		var copyButtonWidth = 0;
 		var deleteButtonWidth = 0;
+		var filterButtonWidth = 0;
+
+		if(Ext.isDefined(this.filterBtn)) {
+			if(this.filterBtn.xtbHidden) {
+				filterButtonWidth = this.filterBtn.xtbWidth;
+				if (containerWidth > this.searchFieldContainer.getWidth() + filterButtonWidth) {
+					this.layout.unhideItem(this.filterBtn);
+					// Update the selection of filter split button.
+					if (!Ext.isEmpty(this.model)) {
+						if (this.model.getStore().hasFilterApplied) {
+							this.filterBtn.btnEl.addClass('k-selection');
+						}
+					}
+					this.doLayout();
+				}
+			} else {
+				filterButtonWidth = this.filterBtn.getWidth();
+			}
+		}
 
 		/*
 		 * Check if copyButton is visible then get width of the same,
@@ -207,7 +226,7 @@ Zarafa.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 		}
 
 		var extraMargin = 0;
-		var adjWidth = containerWidth - copyButtonWidth - deleteButtonWidth - extraMargin;
+		var adjWidth = containerWidth - copyButtonWidth - deleteButtonWidth - extraMargin - filterButtonWidth;
 
 		var searchFieldContainer = this.searchFieldContainer;
 		var searchField = searchFieldContainer.searchTextField;

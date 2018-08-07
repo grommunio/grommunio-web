@@ -556,3 +556,16 @@ li.x-menu-item-active{
 		background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: 6, $offset-x: 2) !important;
 	}
 }
+
+.x-menu-check-item.k-unread-filter-btn {
+	.k-hide-img {
+		display: none !important;
+	}
+	.x-menu-item-icon {
+		background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: 6, $offset-x: 2) !important;
+	}
+}
+
+.k-selection {
+	background-color: $light-blue !important;
+}

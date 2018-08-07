@@ -996,7 +996,16 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 				};
 				options.restriction['start'] = cursor;
 				options.restriction['limit'] = container.getSettingsModel().get('zarafa/v1/main/page_size');
-				this.store.liveScroll({
+				var store = this.store;
+				// If filter was applied already then set the
+				// filter restriction in params.
+				if (store.hasFilterApplied) {
+					var filter = store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD);
+					if (store.hasFilterApplied) {
+						options.restriction['filter'] = filter;
+					}
+				}
+				store.liveScroll({
 					folder : [this.getDefaultFolder()],
 					params : options,
 					add : true
