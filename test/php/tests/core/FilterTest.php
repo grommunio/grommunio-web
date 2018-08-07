@@ -106,10 +106,10 @@ class FilterTest extends KopanoTest {
 		$this->assertNotFalse(stripos($result, '<div id="testsafehtml1"><p>CONTENT<style>testCSSStyle { font-family: Arial; }</style></p></div>'), 'Test that the filter does not remove a text nodes that is a sibbling of a nested STYLE-tag');
 
 		// When you have html comment in style node then should not be considered as comment
-		// and should not be removed from style tag
+		// and should be removed from style tag
 		// stripos returns the index of the found string. This could also be 0.
-		// Therefore we need a check it matches false explicitly.
-		$this->assertNotFalse(stripos($result, '@font-face {font-family:"Cambria Math"}'), 'Test that the filter does not remove a html comment node that is added in style node');
+		// Therefore we need a check it matches true explicitly.
+		$this->assertFalse(stripos($result, '@font-face {font-family:"Cambria Math"}'), 'Test that the filter does not remove a html comment node that is added in style node');
 	}
 
 	/**
