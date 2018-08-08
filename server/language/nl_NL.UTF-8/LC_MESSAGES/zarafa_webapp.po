@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-07 12:39+0200\n"
-"PO-Revision-Date: 2018-07-02 13:47+0000\n"
+"PO-Revision-Date: 2018-08-08 08:47+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -969,21 +969,21 @@ msgstr "Geen afspraak geselecteerd"
 msgid "Calendar"
 msgstr "Agenda"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Bekijk in kalender"
+msgstr "Aanmaken in andere kalender"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"De geselecteerde kalender heeft \"alleen-lezen\" rechten. In plaats daarvan "
+"kan het item in je eigen kalender gemaakt worden."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Wat wil je doen?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Bekijk in kalender"
+msgstr "Eigen kalender"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3969,15 +3969,11 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Welkom bij Kopano WebApp"
 
-#, fuzzy
 msgid "This is the first time you are using WebApp. "
-msgstr "Dit is de eerste keer dat u categorie \"{0}\" heeft gebruikt."
+msgstr "Dit is de eerste keer dat je WebApp gebruikt. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"Het is de eerste keer dat je WebApp gebruikt <br />Kijk SVP volgende "
-"instellingen na alvorens verder te gaan."
+msgstr "Controleer de volgende settings voordat je verder gaat."
 
 msgid "Add widgets"
 msgstr "Widgets toevoegen"
@@ -4306,9 +4302,8 @@ msgstr "Ingeplande Items"
 msgid "Your message will be sent at "
 msgstr "Uw bericht wordt verstuurd op "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "Ga naar uw <b>Outbox</b> om uw e-mail te bewerken."
+msgstr "Ga naar je Outbox om de e-mail te bewerken."
 
 msgid "hour(s)"
 msgstr "uur"
@@ -4514,9 +4509,8 @@ msgstr "Nieuw e-mailbericht maken gericht aan deze ontvanger."
 msgid "Print single e-mail"
 msgstr "Druk een e-mail af"
 
-#, fuzzy
 msgid "Filter"
-msgstr "Filter..."
+msgstr "Filter"
 
 msgid "RE"
 msgstr "AW"
