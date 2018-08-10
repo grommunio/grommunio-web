@@ -726,7 +726,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			store.stopFilter();
 		}
 
-		model.load({
+		store.load({
 			folder:[menuItem.model.getDefaultFolder()],
 			params : options
 		});

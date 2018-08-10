@@ -119,6 +119,26 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		}
 
 		return results;
+	},
+
+	/**
+	 * Function is used to set the filter restriction if {#hasFilterApplied filter is enabled}
+	 * while reloading mail store.
+	 * @param {Object} options An options which set the filter restriction in params
+	 * if filter was already applied on store.
+	 */
+	reload : function(options)
+	{
+		if (this.hasFilterApplied) {
+			options = Ext.apply(options||{}, {
+				params:{
+					restriction:{
+						filter:this.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+					}
+				}
+			});
+		}
+		Zarafa.mail.MailStore.superclass.reload.call(this, options);
 	}
 });
 

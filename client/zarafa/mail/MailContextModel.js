@@ -661,11 +661,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * {@link Zarafa.core.data.ListModuleStore#hasFilterApplied} then
 	 * set the filter restriction in params and if context is going to switch
 	 * then clear the filter.
+	 * @param {Object} options The options object to load the store with
 	 * @private
 	 */
-	load : function()
+	load : function(options)
 	{
-		var options = {};
 		var store = this.getStore();
 		// suspended is only true when context is going to switch
 		// on context witch if filter is enabled then clear the filter.
@@ -675,11 +675,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			// If user switch folder within the context we have to
 			// persist the filter so, set the filter restriction
 			// in restriction/params object.
-			options.params = {
-				restriction: {
-					filter : store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+			options = Ext.apply(options || {}, {
+				params : {
+					restriction: {
+						filter: store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD)
+					}
 				}
-			};
+			});
 		}
 		Zarafa.mail.MailContextModel.superclass.load.call(this, options);
 	},

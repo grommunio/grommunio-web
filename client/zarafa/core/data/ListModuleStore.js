@@ -823,9 +823,28 @@ myStore.reload(lastOptions);
 	getFilterRestriction : function(filterType)
 	{
 		if (filterType === Zarafa.common.data.Filters.UNREAD) {
-			return Zarafa.core.data.RestrictionFactory.dataResBitmask('PR_MESSAGE_FLAGS',
+			var unreadFilterRestriction = Zarafa.core.data.RestrictionFactory.dataResBitmask(
+				'PR_MESSAGE_FLAGS',
 				Zarafa.core.mapi.Restrictions.BMR_EQZ,
 				Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
+
+			var model = container.getCurrentContext().getModel();
+			var previewedRecord = model.getPreviewRecord();
+
+			// Add preview record in filter restriction so we can
+			// make it remains preview in preview panel.
+			if(!Ext.isEmpty(previewedRecord) && this.hasFilterApplied) {
+				return Zarafa.core.data.RestrictionFactory.createResOr([
+					Zarafa.core.data.RestrictionFactory.dataResProperty(
+						'entryid',
+						Zarafa.core.mapi.Restrictions.RELOP_EQ,
+						previewedRecord.get('entryid')
+					),
+					unreadFilterRestriction
+				]);
+			}
+
+			return unreadFilterRestriction;
 		}
 		return false;
 	},
