@@ -30,6 +30,13 @@ Zarafa.common.Actions = {
 	totalFiles : undefined,
 
 	/**
+	 * Defines if the imported item should be shown after import.
+	 * @property
+	 * @type Boolean
+	 */
+	showImported : false,
+
+	/**
 	 * Open a {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for
 	 * copying or moving {@link Zarafa.core.data.IPMRecord records} to the
 	 * preferred destination folder.
@@ -1178,11 +1185,13 @@ Zarafa.common.Actions = {
 	 * 
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
+	 * @param {Boolean} show Open the imported item
 	 */
-	importEmlCallback : function(files, folder)
+	importEmlCallback : function(files, folder, show)
 	{
 		this.brokenFiles = [];
 		this.totalFiles = files.length;
+		this.showImported = show === true;
 		this.readFiles(files, folder);
 	},
 
@@ -1195,9 +1204,22 @@ Zarafa.common.Actions = {
 	importDone : function(response, folder)
 	{
 		if (response.success === true) {
-			container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), folder.get('display_name')));
+			if ( this.showImported !== true ) {
+			   container.getNotifier().notify('info.import', _('Import'), String.format(_('Successfully imported item(s) to {0}'), folder.get('display_name')));
+			}
 		} else {
 			container.getNotifier().notify('info.import', _('Import'), String.format(_('Failed to import item(s) to {0}'), folder.get('display_name')));
+		}
+
+		if ( this.showImported === true && Ext.isDefined(response.items)) {
+			var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note', {
+				'entryid' : response.items,
+				'parent_entryid' : folder.get('entryid'),
+				'store_entryid' : folder.get('store_entryid')
+			});
+
+			record.opened = false;
+			Zarafa.core.data.UIFactory.openViewRecord(record);
 		}
 	},
 

@@ -182,8 +182,8 @@ class UploadAttachment
 			}
 
 			if ($this->import) {
-				if ($importStatus === true) {
-					$this->sendImportResponse();
+				if ($importStatus !== false) {
+					$this->sendImportResponse($importStatus);
 				} else {
 					throw new ZarafaException(_("File is not imported successfully"));
 				}
@@ -244,7 +244,7 @@ class UploadAttachment
 
 		if($ok === true) {
 			mapi_message_savechanges($newMessage);
-			return true;
+			return bin2hex(mapi_getprops($newMessage, array(PR_ENTRYID))[PR_ENTRYID]);
 		}
 
 		return false;
@@ -358,7 +358,7 @@ class UploadAttachment
 	/**
 	 * Helper function to send proper response for import request only.
 	 */
-	function sendImportResponse()
+	function sendImportResponse($importStatus)
 	{
 		$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
 		$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
@@ -369,7 +369,8 @@ class UploadAttachment
 				sanitizeGetValue('module', '', STRING_REGEX) => Array(
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
 						'import' => Array(
-							'success'=> true
+							'success'=> true,
+							'items' => $importStatus
 						)
 					)
 				),
