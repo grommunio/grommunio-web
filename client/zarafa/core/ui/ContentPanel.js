@@ -70,6 +70,11 @@ Zarafa.core.ui.ContentPanel = Ext.extend(Ext.Container, {
 	useInputAutoFocusPlugin : true,
 
 	/**
+	 * @cfg {Boolean} forceFullyOpenInMainWindow True to render panel on main browser window
+	 */
+	forceFullyOpenInMainWindow: false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object.
 	 */

@@ -802,7 +802,16 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 					var notificationMessage = String.format(
 						ngettext('There is {0} unread message in the folder {1}', 'There are {0} unread messages in the folder {1}', folder.content_unread),
 						folder.content_unread, folder.display_name);
-					container.getNotifier().notify('info.newmail', _('New Mail'),notificationMessage);
+
+					// New mail notification should show only on main browser window.
+					var mainBrowserWindowBody;
+					if (!Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+						mainBrowserWindowBody = Zarafa.core.BrowserWindowMgr.getMainBrowserWindowBody();
+					}
+
+					container.getNotifier().notify('info.newmail', _('New Mail'), notificationMessage, {
+						container: mainBrowserWindowBody
+					});
 				}
 
 				folderStore.set('content_unread', folder.content_unread);

@@ -32,6 +32,7 @@ Zarafa.common.reminder.dialogs.ReminderContentPanel = Ext.extend(Zarafa.core.ui.
 			minWidth: 350,
 			maxWidth: 350,
 			height: 300,
+			forceFullyOpenInMainWindow: true,
 			items : [{
 				xtype : 'zarafa.reminderpanel',
 				store: config.store

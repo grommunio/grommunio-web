@@ -96,6 +96,13 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 		var activeElement = document.activeElement;
 		var window = new Ext.Window(windowCfg);
 		window.on('close', this.onWindowClose.createDelegate(this, [activeElement]));
+
+		// Verify if window should open on main browser window then,
+		// Render it on main browser window first.
+		if (panel.forceFullyOpenInMainWindow && !Zarafa.core.BrowserWindowMgr.isMainWindowActive()) {
+			window.render(Zarafa.core.BrowserWindowMgr.getMainBrowserWindowBody());
+		}
+
 		window.show();
 	},
 
