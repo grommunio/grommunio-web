@@ -46,6 +46,10 @@
 		 */
 		private $userstores;
 
+		/**
+		 * @var array Cache for userentryid -> archive properties
+		 */
+		private $archivePropsCache;
 
 		/**
 		 * @var int Makes sure retrieveUserData is called only once
@@ -60,6 +64,7 @@
 			$this->session = false;
 			$this->ab = false;
 			$this->userstores = array();
+			$this->archivePropsCache = array();
 			$this->userDataRetrieved = false;
 		}
 
@@ -569,9 +574,11 @@
 		 */
 		function getArchivedStores($userEntryid)
 		{
-			$ab = $this->getAddressbook();
-			$abitem = mapi_ab_openentry($ab, $userEntryid);
-			$userData = mapi_getprops($abitem, Array(PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS));
+			if (!isset($this->archivePropsCache[$userEntryid])) {
+				$this->archivePropsCache[$userEntryid] = $this->getArchiveProps($userEntryid);
+			}
+
+			$userData = $this->archivePropsCache[$userEntryid];
 
 			$archiveStores = Array();
 			if(isset($userData[PR_EC_ARCHIVE_SERVERS]) && count($userData[PR_EC_ARCHIVE_SERVERS]) > 0){
@@ -604,6 +611,16 @@
 		}
 
 		/**
+		 * @param String $userEntryid binary entryid of the user
+		 * @return Array Address Archive Properties of the user.
+		 */
+		private function getArchiveProps($userEntryid) {
+			$ab = $this->getAddressbook();
+			$abitem = mapi_ab_openentry($ab, $userEntryid);
+			return mapi_getprops($abitem, Array(PR_ACCOUNT, PR_EC_ARCHIVE_SERVERS));
+		}
+
+		/**
 		 * Get all the available shared stores
 		 *
 		 * The store is opened only once, subsequent calls will return the previous store object
@@ -611,31 +628,33 @@
 		function getOtherUserStore()
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
-			if(is_array($otherusers)) {
-				foreach($otherusers as $username=>$folder) {
-					if(is_array($folder) && !empty($folder)) {
-						try {
-							$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
+			foreach($otherusers as $username=>$folder) {
+				if (isset($this->userstores[$username])) {
+					continue;
+				}
 
-							$this->openMessageStore($user_entryid, $username);
-							$this->userstores[$username] = $user_entryid;
+				if(is_array($folder) && !empty($folder)) {
+					try {
+						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-							// Check if an entire store will be loaded, if so load the archive store as well
-							if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
-								$this->getArchivedStores($this->resolveStrictUserName($username));
-							}
-						} catch (MAPIException $e) {
-							if ($e->getCode() == MAPI_E_NOT_FOUND) {
-								// The user or the corresponding store couldn't be found,
-								// print an error to the log, and remove the user from the settings.
-								dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
-								$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
-							} else {
-								// That is odd, something else went wrong. Lets not be hasty and preserve
-								// the user in the settings, but do print something to the log to indicate
-								// something happened...
-								dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
-							}
+						$this->openMessageStore($user_entryid, $username);
+						$this->userstores[$username] = $user_entryid;
+
+						// Check if an entire store will be loaded, if so load the archive store as well
+						if(isset($folder['all']) && $folder['all']['folder_type'] == 'all'){
+							$this->getArchivedStores($this->resolveStrictUserName($username));
+						}
+					} catch (MAPIException $e) {
+						if ($e->getCode() == MAPI_E_NOT_FOUND) {
+							// The user or the corresponding store couldn't be found,
+							// print an error to the log, and remove the user from the settings.
+							dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.');
+							$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, true);
+						} else {
+							// That is odd, something else went wrong. Lets not be hasty and preserve
+							// the user in the settings, but do print something to the log to indicate
+							// something happened...
+							dump('Failed to load store for user ' . $username . '. ' . $e->getDisplayMessage());
 						}
 					}
 				}
@@ -652,7 +671,7 @@
 		function resolveStrictUserName($username)
 		{
 			$storeEntryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
-			$store = mapi_openmsgstore($this->getSession(), $storeEntryid);
+			$store = $this->openMessageStore($storeEntryid, $username);
 			$storeProps = mapi_getprops($store, Array(PR_MAILBOX_OWNER_ENTRYID));
 			return $storeProps[PR_MAILBOX_OWNER_ENTRYID];
 		}
@@ -664,36 +683,53 @@
 		 */
 		function retrieveOtherUsersFromSettings()
 		{
-			$result = Array();
-			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores",null);
+			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
 
-			if (is_array($other_users)){
-				// Due to a previous bug you were able to open folders from both user_a and USER_A
-				// so we have to filter that here. We do that by making everything lower-case
-				foreach($other_users as $username=>$folders) {
-					// No folders are being shared, the store has probably been closed by the user,
-					// but the username is still lingering in the settings...
-					if (!isset($folders) || empty($folders)) {
-						continue;
-					}
+			$uppercaseUsers = array_filter(array_keys($other_users), function($string) {
+				return (bool) preg_match('/[A-Z]/', $string);
+			});
 
-					$username = strtolower($username);
-					if(!isset($result[$username])) {
-						$result[$username] = Array();
-					}
+			if ($uppercaseUsers) {
+				return $this->convertUpperCaseOtherUsersSettings($other_users);
+			}
 
-					foreach($folders as $type => $folder) {
-						if(is_array($folder)) {
-							$result[$username][$folder["folder_type"]] = Array();
-							$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
-							$result[$username][$folder["folder_type"]]["show_subfolders"] = $folder["show_subfolders"];
-						}
-					}
+			return $other_users;
+		}
+
+
+		/*
+		 * Convert old settings to new settings format. Due to a
+		 * previous bug you were able to open folders from both user_a
+		 * and USER_A so we have to filter that here. We do that by
+		 * making everything lower-case
+		 * @param array $other_users the shared_stores settings
+		 * @return array Array of usernames of delegate stores
+		 */
+		private function convertUpperCaseOtherUsersSettings($other_users) {
+			$result = [];
+
+			foreach($other_users as $username=>$folders) {
+				// No folders are being shared, the store has probably been closed by the user,
+				// but the username is still lingering in the settings...
+				if (!isset($folders) || empty($folders)) {
+					continue;
 				}
 
-				$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
+				$username = strtolower($username);
+				if(!isset($result[$username])) {
+					$result[$username] = Array();
+				}
+
+				foreach($folders as $type => $folder) {
+					if(is_array($folder)) {
+						$result[$username][$folder["folder_type"]] = Array();
+						$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
+						$result[$username][$folder["folder_type"]]["show_subfolders"] = $folder["show_subfolders"];
+					}
+				}
 			}
-			return $result;
+
+			$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
 		}
 
 		/**

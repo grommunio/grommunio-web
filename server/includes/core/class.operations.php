@@ -198,12 +198,10 @@
 						$sharedFolders = array();
 
 						// Check whether we should open the whole store or just single folders
-						if(is_array($otherUsers)) {
-							if(isset($otherUsers[ $username ])){
-								$sharedFolders = $otherUsers[ $username ];
-								if(!isset($otherUsers[ $username ]['all'])){
-									$openWholeStore = false;
-								}
+						if(isset($otherUsers[ $username ])){
+							$sharedFolders = $otherUsers[ $username ];
+							if(!isset($otherUsers[ $username ]['all'])){
+								$openWholeStore = false;
 							}
 						}
 
