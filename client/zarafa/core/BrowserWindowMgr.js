@@ -683,6 +683,17 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	getEntryId: function (record)
 	{
 		return Array.isArray(record.get('attach_num')) ? record.id : record.get('entryid');
+	},
+
+	/**
+	 * Helper function which return main browser window body.
+	 * @returns {Object} body of  main browser window.
+	 */
+	getMainBrowserWindowBody : function ()
+	{
+		var activeBrowserWindow = this.browserWindows.get('mainBrowserWindow');
+		var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;
+		return Ext.get(documentObject.body || documentObject.documentElement);
 	}
 });
 
