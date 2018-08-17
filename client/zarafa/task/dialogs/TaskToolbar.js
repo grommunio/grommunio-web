@@ -51,37 +51,28 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	{
 		return [{
 			xtype: 'button',
-			text : _('Send'),
-			overflowText: _('Send task to assignees'),
-			tooltip: {
-				title: _('Send assignment'),
-				text: _('Send task to assignees') + ' (Ctrl + ENTER)'
-			},
-			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_send_white',
+			text: _('Send'),
+			overflowText: _('Send'),
+			tooltip: _('Send task to assignees') + ' (Ctrl + Enter)',
+			cls: 'zarafa-action',
+			iconCls: 'buttons-icon_send_white',
 			ref: 'sendBtn',
 			handler: this.onSendTask,
 			scope: this
 		},{
 			xtype: 'button',
 			overflowText: _('Save'),
-			tooltip: {
-				title: _('Save'),
-				text: _('Save without sending a task request to assignees') + ' (Ctrl + S)'
-			},
+			tooltip: _('Save') + ' (Ctrl + S)',
 			iconCls: 'icon_saveEmail',
-			ref : 'saveTaskRequest',
+			ref: 'saveTaskRequest',
 			handler: this.onSave,
 			scope: this
 		},{
 			xtype : 'button',
 			ref : 'saveBtn',
-			text : _('Save'),
-			overflowText : _('Save task'),
-			tooltip: {
-				title: _('Save & Close'),
-				text: _('Save task and close dialog') + ' (Ctrl + S)'
-			},
+			text : _('Save')+' & '+_('Close'),
+			overflowText : _('Save')+' & '+_('Close'),
+			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
 			iconCls : 'buttons-icon_save_white',
 			handler: this.onSave,
@@ -93,19 +84,12 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			overflowText: _('Restore to Task List'),
 			hidden : true,
 			handler : this.onRestoreToTaskList,
-			tooltip: {
-				title: _('Restore to Task List'),
-				text: _('Restore this item to your task list')
-			},
 			scope: this
 		},{
 			xtype : 'button',
 			ref : 'deleteBtn',
 			overflowText : _('Delete'),
-			tooltip: {
-				title: _('Delete'),
-				text: _('Delete this task')
-			},
+			tooltip: _('Delete this task'),
 			iconCls : 'icon_delete',
 			handler : this.onDelete,
 			scope : this
@@ -113,10 +97,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype : 'zarafa.attachmentbutton',
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 			overflowText : _('Add Attachment'),
-			tooltip: {
-				title: _('Add attachment'),
-				text: _('Add attachments to this task')
-			},
+			tooltip: _('Add attachments to this task'),
 			iconCls : 'icon_attachment',
 			ref : 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
@@ -132,10 +113,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype : 'button',
 			ref: 'markCompleteBtn',
 			overflowText : _('Mark as Complete'),
-			tooltip: {
-				title: _('Mark as Complete'),
-				text: _('Mark this task as complete')
-			},
+			tooltip: _('Mark this task as complete'),
 			iconCls : 'icon_task_complete',
 			handler : this.onComplete,
 			scope : this
@@ -143,20 +121,14 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype : 'button',
 			overflowText : _('Print'),
 			ref: 'printBtn',
-			tooltip : {
-				title : _('Print'),
-				text : _('Print this task')
-			},
+			tooltip : _('Print this task'),
 			iconCls : 'icon_print',
 			handler : this.onPrint,
 			scope : this
 		},{
 			xtype: 'button',
 			overflowText: _('Check names'),
-			tooltip: {
-				title: _('Check names'),
-				text: _('Check all recipient names')
-			},
+			tooltip: _('Check names'),
 			iconCls: 'icon_checkNames',
 			ref: 'checkNamesBtn',
 			handler: this.onCheckNames,
@@ -195,10 +167,6 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype: 'button',
 			text: _('Assign Task'),
 			overflowText: _('Assign Task'),
-			tooltip: {
-				title: _('Assign Task'),
-				text: _('Assign this task to someone else.')
-			},
 			iconCls: 'icon_invite_attendees',
 			ref: 'assignTask',
 			handler: this.onAssignment,
@@ -206,10 +174,6 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		},{
 			xtype: 'button',
 			text: _('Cancel Assignment'),
-			tooltip: {
-				title: _('Cancel Assignment'),
-				text: _('Convert this task request to a regular task by removing assignees.')
-			},
 			overflowText: _('Cancel Assignment'),
 			iconCls: 'icon_cancel_meeting_request',
 			ref: 'cancelAssignmetBtn',
@@ -218,10 +182,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		},{
 			xtype: 'button',
 			overflowText: _('Categories'),
-			tooltip: {
-				title: _('Categories'),
-				text: _('Open the categories dialog')
-			},
+			tooltip: _('Open the categories dialog'),
 			ref: 'categoriesBtn',
 			iconCls: 'icon_categories',
 			handler: this.onCategories,
@@ -229,10 +190,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		},{
 			xtype: 'button',
 			overflowText: _('Private'),
-			tooltip: {
-				title: _('Private'),
-				text: _('Mark this task as private')
-			},
+			tooltip: _('Mark this task as private'),
 			iconCls: 'icon_private',
 			ref: 'setPrivate',
 			enableToggle : true,
@@ -241,10 +199,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		},{
 			xtype : 'button',
 			overflowText : _('Set flag'),
-			tooltip : {
-				title : _('Set flag'),
-				text : _('Set flag on this email')
-			},
+			tooltip : _('Set flag on this email'),
 			ref: 'setFlags',
 			iconCls : 'icon_flag_red',
 			handler : this.onSetFlagButton,

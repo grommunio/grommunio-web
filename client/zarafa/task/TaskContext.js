@@ -406,7 +406,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Populates the View button in the main toolbar
+	 * Populates the Print button in the main toolbar
 	 * @return {Array} items The menu items available for printing in this context
 	 */
 	getMainToolbarPrintButtons : function()

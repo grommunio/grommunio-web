@@ -100,8 +100,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'deleteBtn',
 			overflowText: _('Delete'),
 			tooltip: {
-				title : _('Delete mail'),
-				text : _('Delete this email')
+				text : _('Delete')
 			},
 			iconCls: 'icon_delete',
 			handler: this.onDeleteButton,
@@ -138,7 +137,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'optionsBtn',
 			overflowText: _('Options'),
 			tooltip: {
-				title: _('Options'),
 				text: _('Open options dialog')
 			},
 			iconCls : 'icon_openMessageOptions',
@@ -148,8 +146,7 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			xtype : 'button',
 			overflowText: _('Set Category'),
 			tooltip : {
-				title : _('Categories'),
-				text : _('Open the categories dialog.')
+				text : _('Open the categories dialog')
 			},
 			iconCls : 'icon_categories',
 			handler : this.onOpenCategories,
@@ -159,7 +156,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			ref: 'setFlagBtn',
 			overflowText : _('Set flag'),
 			tooltip : {
-				title : _('Set flag'),
 				text : _('Set flag on this email')
 			},
 			iconCls : 'icon_flag_red',

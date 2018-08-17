@@ -51,12 +51,9 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		return [{
 			xtype : 'button',
 			ref : 'saveCloseBtn',
-			text : _('Save'),
-			overflowText : _('Save & Close'),
-			tooltip : {
-				title : _('Save & Close'),
-				text : _('Save contact and close dialog') + ' (Ctrl + S)'
-			},
+			text : _('Save')+' & '+_('Close'),
+			overflowText : _('Save')+' & '+_('Close'),
+			tooltip : _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
 			iconCls : 'buttons-icon_save_white',
 			handler : this.onSave,
@@ -65,10 +62,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			ref : 'deleteBtn',
 			overflowText : _('Delete'),
-			tooltip : {
-				title : _('Delete contact'),
-				text : _('Delete this contact.')
-			},
+			tooltip :_('Delete'),
 			iconCls : 'icon_delete',
 			handler : this.onDelete,
 			scope : this
@@ -77,10 +71,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			ref : 'addAttachment',
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 			overflowText : _('Add Attachment'),
-			tooltip : {
-				title : _('Add Attachment'),
-				text : _('Add attachments to this contact.')
-			},
+			tooltip : _('Add attachments to this contact'),
 			iconCls : 'icon_attachment',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
@@ -91,10 +82,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 		},{
 			xtype : 'button',
 			overflowText : _('Print'),
-			tooltip : {
-				title : _('Print'),
-				text : _('Print this contact')
-			},
+			tooltip : _('Print') + ' (Ctrl + P)',
 			iconCls : 'icon_print',
 			handler : this.onPrint,
 			scope : this
@@ -132,8 +120,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Categories'),
 			tooltip : {
-				title : _('Categories'),
-				text : _('Open the categories dialog.')
+				text : _('Open the categories dialog')
 			},
 			iconCls : 'icon_categories',
 			handler : this.onCategories,
@@ -142,8 +129,7 @@ Zarafa.contact.dialogs.ContactToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			xtype : 'button',
 			overflowText : _('Private'),
 			tooltip : {
-				title : _('Private'),
-				text : _('Mark this contact as private.')
+				text : _('Mark this contact as private')
 			},
 			iconCls : 'icon_private',
 			ref : 'setPrivate',
