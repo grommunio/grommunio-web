@@ -16,7 +16,7 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationPanel = Ext.extend(Ext.form.FormP
 	 * @property
 	 * @type String
 	 */
-	acceptInfoString : _('This task will be accepted and moved into the Tasks folder. Do you want to edit the response before sending it?'),
+	acceptInfoString : _('This task will be accepted and moved to your task folder. Do you want to include comments with your response?'),
 
 	/**
 	 * Info string that will be shown for assignee that is going to decline task request.
@@ -49,7 +49,7 @@ Zarafa.task.dialogs.SendTaskRequestConfirmationPanel = Ext.extend(Ext.form.FormP
 				autoHeight: true
 			},{
 				xtype:'radio',
-				boxLabel: _('Edit the response before Sending.'),
+				boxLabel: _('Edit the response before sending'),
 				name: 'sendtaskconfirmation',
 				autoHeight: true,
 				listeners : {
