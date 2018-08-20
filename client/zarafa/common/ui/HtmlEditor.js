@@ -76,6 +76,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					link: "../tinymce-plugins/link/plugin.js",
 					powerpaste: "../tinymce-plugins/powerpaste/plugin.min.js"
 				},
+				link_assume_external_targets: true,
 				powerpaste_word_import: powerpasteConfig.powerpaste_word_import,
 				powerpaste_html_import: powerpasteConfig.powerpaste_html_import,
 				powerpaste_allow_local_images: powerpasteConfig.powerpaste_allow_local_images,
@@ -958,7 +959,7 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
     onBeforeTabChange : function ()
     {
         this.isTabChanged = true;
-        
+
        	if(this.hasFocus){
      	   this.getEditor().fire('blur', this);
     	}

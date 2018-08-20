@@ -572,15 +572,25 @@ function sq_fixatts($tagname,
             }
         }
 
+        $replaceBackToForwardSlash = false;
+
         if ($attname == 'href' || $attname == 'src' || $attname == 'background') {
-            # If you type \\server\share into Outlook, then it will put
-            # file:/// in front of it, making it file:///\\server\share.
-            # Transform this into file://///server/share.  The extra
-            # slashes are required to make it work for Firefox as well.
+            // If you type \\server\share into Outlook, then it will put
+	        // file:/// in front of it, making it file:///\\server\share.
+	        // Transform this into file://///server/share.  The extra
+	        // slashes are required to make it work for Firefox as well.
             if (preg_match("/^['\"]file:\\/\\/\\/?\\\\\\\\([^\\\\]+)\\\\([^\\\\]+)(\\\\.*)?['\"]$/", $attvalue, $aMatch)) {
                 $attvalue = "\"file://///" . $aMatch[1] . "/" .
                     $aMatch[2] . str_replace(Array("\\"), Array("/"),
                                              $aMatch[3]) . "\"";
+            }
+
+	        // If you type c:\folder\folder\word.doc then,
+	        // It will remove backward slash while we translated into 8-bit string so,
+	        // Change backward slashes to forward slashes and then again change them back afterward.
+	        if (preg_match("#^['\"][a-zA-Z]:[\\\\][^//].*['\"]$#",$attvalue, $aMatch)) {
+		        $attvalue = str_replace(Array("\\"), Array("/"), $aMatch[0]);
+		        $replaceBackToForwardSlash = true;
             }
         }
 
@@ -594,6 +604,11 @@ function sq_fixatts($tagname,
          */
         $oldattvalue = $attvalue;
         sq_defang($attvalue);
+
+	    if($replaceBackToForwardSlash) {
+		    $attvalue = str_replace(Array("/"), Array("\\"), $attvalue);
+        }
+
         if ($attname == 'style' && $attvalue !== $oldattvalue) {
             // entities are used in the attribute value. In 99% of the cases it's there as XSS
             // i.e.<div style="{ left:exp&#x0280;essio&#x0274;( alert('XSS') ) }">
