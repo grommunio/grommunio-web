@@ -5,10 +5,10 @@ msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-14 11:18+0200\n"
-"PO-Revision-Date: 2018-07-09 09:54+0000\n"
+"PO-Revision-Date: 2018-08-20 16:07+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -899,21 +899,21 @@ msgstr "Nenhum compromisso selecionado"
 msgid "Calendar"
 msgstr "Calendário"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Ver no calendário"
+msgstr "Criar noutro calendário"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"O calendário selecionado só permissões de leitura. Alternativamente pode "
+"criar um item no seu próprio calendário."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "O que preferia?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Ver no calendário"
+msgstr "Meu calendário"
 
 msgid "F Y"
 msgstr "F Y"
@@ -3644,15 +3644,11 @@ msgstr "Este item foi alterado. Tem a certeza que o quer eliminar?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Bem-vindo à Kopano WebApp"
 
-#, fuzzy
 msgid "This is the first time you are using WebApp. "
-msgstr "Esta é a primeira vez que usou a categoria \"{0}\"."
+msgstr "Esta é a primeira vez que está a usar a WebApp. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"É a primeira vez que está a usar a WebApp. <br />Por favor confira as "
-"seguintes definições antes de continuar."
+msgstr "Por favor confira as seguintes definições antes de continuar."
 
 msgid "Add widgets"
 msgstr "Adicionar widgets"
@@ -3964,9 +3960,8 @@ msgstr "Itens agendados"
 msgid "Your message will be sent at "
 msgstr "A mensagem será enviada a "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "Vá à <b>Caixa de Saída</b> para editar a mensagem."
+msgstr "Vá à sua Caixa de Saída para editar a mensagem."
 
 msgid "hour(s)"
 msgstr "hora(s)"
@@ -4157,9 +4152,8 @@ msgstr "Criar uma nova mensagem para este destinatário."
 msgid "Print single e-mail"
 msgstr "Imprimir só uma mensagem"
 
-#, fuzzy
 msgid "Filter"
-msgstr "Filtrar.."
+msgstr "Filtrar"
 
 msgid "RE"
 msgstr "RE"
