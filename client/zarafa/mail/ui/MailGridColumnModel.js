@@ -96,7 +96,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'sent_representing_name',
 			width : 100,
 			renderer : Zarafa.common.ui.grid.Renderers.sender,
-			tooltip : _('Sort by: From')
+			tooltip : _('Sort by: From'),
+			groupRenderer:this.groupHeaderBySender
 		},{
 			header : _('To'),
 			dataIndex : 'display_to',
@@ -184,7 +185,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			dataIndex : 'sent_representing_name',
 			width : 160,
 			renderer : Zarafa.common.ui.grid.Renderers.sender,
-			tooltip : _('Sort by: From')
+			tooltip : _('Sort by: From'),
+			groupRenderer:this.groupHeaderBySender
 		},{
 			header : _('To'),
 			dataIndex : 'display_to',
@@ -280,6 +282,16 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 			this.setConfig(this.columns, false);
 		}
+	},
+
+	/**
+	 * Function which prepare the title for the grouping header based on the given sender name.
+	 * @param {String} sender The sender which is used to the header.
+	 * @return {String} formatted title for the grouping headers.
+	 */
+	groupHeaderBySender: function(sender)
+	{
+		return Ext.isEmpty(sender) ? _('Unknown') : sender;
 	},
 
 	/**

@@ -356,7 +356,7 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 	 */
 	isAllowGrouping : function(dataIndex)
 	{
-		var supportedColumns = ['message_size'];
+		var supportedColumns = ['message_size', 'sent_representing_name'];
 		var store = this.grid.getStore();
 		if (store.defaultSortInfo.field != dataIndex && supportedColumns.indexOf(dataIndex) === -1) {
 			return false;
