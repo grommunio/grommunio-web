@@ -16,21 +16,21 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 	 * @property
 	 * @type String
 	 */
-	acceptInfoString : _('This meeting has been accepted and will be moved to your Calendar. Do you want to include comments with your response?'),
+	acceptInfoString : _('This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?'),
 
 	/**
 	 * Info string that will be shown for attendee that is going to tentatively accept meeting request.
 	 * @property
 	 * @type String
 	 */
-	tentativeAcceptInfoString : _('This meeting has been tentatively accepted and will be moved to your Calendar. Do you want to include comments with your response?'),
+	tentativeAcceptInfoString : _('This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?'),
 
 	/**
 	 * Info string that will be shown for attendee that is going to decline meeting request.
 	 * @property
 	 * @type String
 	 */
-	declineInfoString : _('This meeting has been declined and will be moved to the Deleted Items folder. Do you want to include comments with your response?'),
+	declineInfoString : _('This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?'),
 
 	/**
 	 * @constructor
@@ -56,7 +56,7 @@ Zarafa.calendar.dialogs.SendMeetingRequestConfirmationPanel = Ext.extend(Ext.for
 				style: 'padding-bottom: 10px;'
 			},{
 				xtype:'radio',
-				boxLabel: _('Edit the response before Sending.'),
+				boxLabel: _('Edit the response before sending'),
 				name: 'sendmrconfirmation',
 				autoHeight: true,
 				listeners : {
