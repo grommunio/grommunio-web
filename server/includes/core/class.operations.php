@@ -4387,7 +4387,7 @@
 							PR_ATTACH_CONTENT_ID => $uniqueId,
 							PR_ATTACHMENT_HIDDEN => true,
 							PR_ATTACH_FLAGS => 4,
-							PR_ATTACH_MIME_TAG => 'image/' . $mimeType
+							PR_ATTACH_MIME_TAG => $mimeType !== 'plain' ? 'image/' . $mimeType : 'image/png'
 						);
 						mapi_setprops($inlineImage, $props);
 
