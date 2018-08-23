@@ -1031,7 +1031,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 		// between original and copied appointment/meeting record in calender.
 		var auxiliaryFlags = Zarafa.core.mapi.AppointmentAuxiliaryFlags.auxApptFlagCopied | 0x00000008 | 0x00000080;
 		Ext.apply(record.data, {
-			'subject' : !copiedRecord.isCopied() ? _('Copy')+":"+copiedRecord.get('subject') : copiedRecord.get('subject'),
+			'subject' : !copiedRecord.isCopied() ? _('Copy')+": "+copiedRecord.get('subject') : copiedRecord.get('subject'),
 			'body' : copiedRecord.get('body'),
 			'location' : copiedRecord.get('location'),
 			'importance' : copiedRecord.get('importance'),
