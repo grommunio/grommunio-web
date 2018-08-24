@@ -36,7 +36,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 			height: this.get('widgetheight') || 300,
 			autoScroll: true,
 			layout: 'fit',
-			folderType: 'task',
+			folderType: 'todolist',
 			store: store,
 			items: [{
 				xtype: 'zarafa.gridpanel',
@@ -120,7 +120,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	 */
 	dueDateRenderer: function (value, metaData, record)
 	{
-		var dateNow = new Date;
+		var dateNow = new Date();
 		var dateDue = record.get("duedate");
 		metaData.attr = "";
 
@@ -135,8 +135,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 			value = dateDue.format(_("d/m/Y"));
 		}
 
-
-		return String.format("{0}", value)
+		return String.format("{0}", value);
 	},
 
 	/**
@@ -150,14 +149,19 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	 */
 	ownerRenderer: function (value, metaData, record)
 	{
-		var ownerArray = record.get("owner").split(" "); // array of all parts of the owner's name
-		var ownerValue = "";
-
-		for (var i = 0, len = ownerArray.length; i < len; i++) {
-			ownerValue += ownerArray[i].substring(0, 1);
+		var owner = record.get("owner");
+		if (!Ext.isString(owner)) {
+			return '';
 		}
 
-		return String.format('<span title="{1}">{0}</span>', ownerValue, record.get("owner"));
+		var ownerNames = owner.split(" "); // array of all parts of the owner's name
+		var initials = '';
+
+		for (var i = 0, len = ownerNames.length; i < len; i++) {
+			initials += ownerNames[i].substring(0, 1);
+		}
+
+		return '<span title="' + Ext.util.Format.htmlEncode(owner) + '">' + Ext.util.Format.htmlEncode(initials) + '</span>';
 	},
 
 	/**
@@ -172,7 +176,6 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	 * rendering that allows customization of various aspects of a grid row.
 	 * If enableRowBody is configured true, then the following properties may be set by this function,
 	 * and will be used to render a full-width expansion row below each grid row.
-	 * @param {Ext.data.Store} store The Ext.data.Store this grid is bound to
 	 * @return {String} a CSS class name to add to the row
 	 * @private
 	 */
@@ -182,7 +185,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 		var valueCategories = Zarafa.widgets.folderwidgets.TasksWidget.superclass.renderCategories(record);
 
 		// Add color red if due date is reached
-		var dateNow = new Date;
+		var dateNow = new Date();
 		var dateDue = record.get("duedate");
 		var color = "";
 

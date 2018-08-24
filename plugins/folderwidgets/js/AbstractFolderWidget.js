@@ -148,28 +148,11 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	{
 		var valueCategories = ''; // will contain list of categories as colored squares
 
-		record.get("categories").split(";").forEach(function (category, i) {
-			var tempCategory = _(category.trim());
-
-			if (tempCategory != '') {
-				var tempLetter = tempCategory.substring(0, 1);
-
-				/* ------------------------------------------
-				 convert category to a color
-				 https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript
-				 ------------------------------------------ */
-				var hash = 0;
-				for (var j = 0; j < tempCategory.length; j++) {
-					hash = tempCategory.charCodeAt(j) + ((hash << 5) - hash);
-				}
-				var tempColor = '#';
-				for (var j = 0; j < 3; j++) {
-					var tempColorHash = (hash >> (j * 8)) & 0xFF;
-					tempColor += ('00' + tempColorHash.toString(16)).substr(-2);
-				}
-
-				valueCategories += String.format('<span class="folderwidget-category-box" style="background-color: {2}" title="{1}">{0}</span>', tempLetter, _(tempCategory), tempColor);
-			}
+		var categories = Zarafa.common.categories.Util.getCategories(record);
+		categories.forEach(function (category, i) {
+			var letter = category.substring(0, 1);
+			var color = Zarafa.common.categories.Util.getCategoryColor(category);
+			valueCategories = '<span class="advanced-folderwidget-category-box" style="background-color: ' + color + '" title="' + Ext.util.Format.htmlEncode(category) + '">' + Ext.util.Format.htmlEncode(letter) + '</span>';
 		});
 
 		// Add an '|' as separator if list of categories is not empty
@@ -240,7 +223,8 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 					plugins: ['zarafa.numberspinner']
 				},
 					this.createConfigHeight()
-				], buttons: [{
+				],
+				buttons: [{
 					text: _('Close'),
 					scope: this,
 					handler: function () {
