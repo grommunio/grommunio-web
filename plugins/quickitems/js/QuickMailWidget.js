@@ -94,6 +94,7 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 			},
 			buttons : [{
 				text : _('Send'),
+				cls : 'zarafa-action',
 				handler : this.onSend,
 				scope : this
 			},{
@@ -206,7 +207,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'quickmail',
 		displayName : _('Quick Mail'),
-		iconPath : 'plugins/quickitems/resources/images/quickmail.png',
 		widgetConstructor : Zarafa.widgets.quickitems.QuickMailWidget
 	}));
 });

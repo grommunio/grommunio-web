@@ -109,6 +109,7 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 			},
 			buttons : [{
 				text : _('Save'),
+				cls : 'zarafa-action',
 				handler : this.onSave,
 				scope : this
 			},{
@@ -339,7 +340,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'quickappt',
 		displayName : _('Quick Appointment'),
-		iconPath : 'plugins/quickitems/resources/images/quickappt.png',
 		widgetConstructor : Zarafa.widgets.quickitems.QuickAppointmentWidget
 	}));
 });

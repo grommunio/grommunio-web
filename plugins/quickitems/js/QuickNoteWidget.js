@@ -47,6 +47,7 @@ Zarafa.widgets.quickitems.QuickNoteWidget = Ext.extend(Zarafa.widgets.quickitems
 			},
 			buttons : [{
 				text : _('Save'),
+				cls : 'zarafa-action',
 				handler : this.onSave,
 				scope : this
 			},{
@@ -163,7 +164,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'quicknote',
 		displayName : _('Quick Note'),
-		iconPath : 'plugins/quickitems/resources/images/quicknote.png',
 		widgetConstructor : Zarafa.widgets.quickitems.QuickNoteWidget
 	}));
 });

@@ -130,6 +130,7 @@ Zarafa.widgets.quickitems.QuickContactWidget = Ext.extend(Zarafa.widgets.quickit
 			},
 			buttons : [{
 				text : _('Save'),
+				cls : 'zarafa-action',
 				handler : this.onSave,
 				scope : this
 			},{
@@ -394,7 +395,6 @@ Zarafa.onReady(function() {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'quickcontact',
 		displayName : _('Quick Contact'),
-		iconPath : 'plugins/quickitems/resources/images/quickcontact.png',
 		widgetConstructor : Zarafa.widgets.quickitems.QuickContactWidget
 	}));
 });

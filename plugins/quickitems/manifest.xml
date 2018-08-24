@@ -22,6 +22,9 @@
 					<clientfile load="source">js/QuickNoteWidget.js</clientfile>
 					<clientfile load="source">js/QuickTaskWidget.js</clientfile>
 				</client>
+				<resources>
+					<resourcefile>resources/css/quickitems.css</resourcefile>
+				</resources>
 			</files>
 		</component>
 	</components>
