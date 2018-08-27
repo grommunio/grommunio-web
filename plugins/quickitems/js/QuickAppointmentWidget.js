@@ -251,7 +251,7 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 		var context = container.getContextByName('calendar');
 		var model = context.getModel();
 
-		return model.createRecord(folder);
+		return model.createRecord(undefined, folder);
 	},
 
 	/**
