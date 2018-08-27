@@ -126,6 +126,9 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 			var searchDate = '';
 			switch (record.get('message_class')){
 				case 'IPM.Note':
+				case 'IPM.Note.SMIME.MultipartSigned':
+				case 'IPM.Note.SMIME.SignedEncrypt':
+				case 'IPM.Note.SMIME':
 					searchDate = record.get('message_delivery_time') || record.get('last_modification_time');
 					break;
 				case 'IPM.Task':
