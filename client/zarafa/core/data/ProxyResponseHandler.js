@@ -60,9 +60,9 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	 * if the {@link Zarafa.core.data.JsonReader JsonReader} is used, and which function is called.
 	 * See {@link Zarafa.core.data.JsonReader#readResponse readResponse} and
 	 * {@link Zarafa.core.data.JsonReader#readRecords readRecords} for possible return values)
-	 * this could be an Array or an {@link Ext.data.Response object}. 
+	 * this could be an Array or an {@link Ext.data.Response object}.
 	 * @property
-	 * @type Mixed 
+	 * @type Mixed
 	 */
 	receivedRecords: undefined,
 
@@ -84,7 +84,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 
 	/**
 	 * The handler which is invoked when no valid response was returned
-	 * for the Request. This could be the PHP-side returned an invalid object which could not be 
+	 * for the Request. This could be the PHP-side returned an invalid object which could not be
 	 * parsed by a {@link Ext.data.DataReader DataReader}.
 	 * @param {Object} responseObject The raw browser response object (e.g.: XMLHttpRequest)
 	 * @param {Object} args (optional) A Javascript error object if the response could not
@@ -93,7 +93,7 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 	responseFailure : function(responseObject, args)
 	{
 		if (Ext.isDefined(this.proxy)) {
-			// Create the args object containing the sendRecords and the JS Error to be used when 
+			// Create the args object containing the sendRecords and the JS Error to be used when
 			// handling the exception event
 			args = {
 				error: args,
@@ -266,12 +266,15 @@ Zarafa.core.data.ProxyResponseHandler = Ext.extend(Zarafa.core.data.AbstractResp
 		}
 
 		// Item count is the number of items in the server-side store, not the number of items in
-		// the returned record list. This is used for pagination. 
+		// the returned record list. This is used for pagination.
 		var itemCount = response.page ? response.page.totalrowcount : items.length;
 
 		var o = { count : itemCount };
 		// Add 'field' property to response data, this will fix this.getRoot(o) in JSONReader
 		o[field] = items;
+		if (response.error) {
+			o.error = response.error;
+		}
 
 		// Use the reader to turn the raw JavaScript objects into a set of Ext.data.Record instances.
 		return this.reader.readRecords(o);
