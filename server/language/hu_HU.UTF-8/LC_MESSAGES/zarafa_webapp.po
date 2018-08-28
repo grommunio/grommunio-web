@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1151,68 +1151,30 @@ msgstr "Y. F j. G:i"
 msgid "None"
 msgstr "Nincs"
 
-msgid "Send invitation"
-msgstr "Meghívó küldése"
-
 # 75%
 msgid "Send"
 msgstr "Küldés"
 
-msgid "Send invitation to recipients"
-msgstr "Meghívók elküldése a résztvevőknek"
-
 msgid "Save"
 msgstr "Mentés"
 
-msgid "Save & Close"
-msgstr "Mentés és bezárás"
-
-msgid "Save appointment and close dialog"
-msgstr "Találkozó elmentése és a párbeszédablak bezárása"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Mentés a résztvevők meghívóinak kiküldése nélkül"
+msgid "Close"
+msgstr "Bezárás"
 
 msgid "Delete"
 msgstr "Törlés"
 
-msgid "Delete this appointment"
-msgstr "Találkozó törlése"
-
 msgid "Add attachment"
 msgstr "Melléklet hozzáadása"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Mellékletek hozzáadása a találkozóhoz"
-
-msgid "Cannot add attachment"
-msgstr "Nem lehet mellékletet csatolni"
-
-msgid "Print this appointment"
-msgstr "Találkozó nyomtatása"
 
 msgid "Check names"
 msgstr "Nevek ellenőrzése"
 
-msgid "Check all recipient names"
-msgstr "Minden címzett nevének ellenőrzése"
-
-msgid "Open the recurrence dialog"
-msgstr "Ismétlődés párbeszédablakának megnyitása"
-
 msgid "Invite attendees"
 msgstr "Résztvevők meghívása"
 
-msgid "Invite attendees for this appointment"
-msgstr "Résztvevők meghívása a találkozóra"
-
 msgid "Cancel invitation"
 msgstr "Meghívás törlése"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr "A résztvevők törlésével átalakíthatja ezt az értekezletet találkozóvá"
 
 msgid "High priority"
 msgstr "Sürgős"
@@ -1239,12 +1201,6 @@ msgstr "Személyes"
 
 msgid "Mark this appointment as private"
 msgstr "Találkozó magánjellegűnek jelölése"
-
-# 85%
-# 82%
-# 100%
-msgid "Save meeting request and close dialog"
-msgstr "Feladat mentése és a párbeszéd bezárása"
 
 msgid "Proposed Date and Time"
 msgstr "Ajánlott dátum és idő"
@@ -1293,28 +1249,32 @@ msgstr "Törlési üzenet küldése most."
 msgid "Send Meeting Request Confirmation"
 msgstr "Értekezlet meghívó megerősítésének elküldése"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván "
 "megjegyzést fűzni a válaszához?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Ez az értekezlet esetleges módban elfogadásra került és a naptárába lett "
 "helyezve. Kíván megjegyzést fűzni a válaszához?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván "
 "megjegyzést fűzni a válaszához?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Válasz szerkesztése elküldés előtt."
 
 msgid "Send the response now."
@@ -1893,9 +1853,6 @@ msgstr "Importálás ebbe"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Bezárás"
 
 # 100%
 msgid "Cc"
@@ -3083,16 +3040,16 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nincs"
 
-msgid "Open in new browser window"
-msgstr "Megnyitás új ablakban"
-
-msgid "Pop-Out"
+#, fuzzy
+msgid "Pop-out"
 msgstr "Pop-Out"
 
-msgid "Mark Read"
-msgstr "Megjelölés olvasottként"
+#, fuzzy
+msgid "Mark as read"
+msgstr "Megjelölés olvasatlanként"
 
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Megjelölés olvasatlanként"
 
 msgid "in"
@@ -3366,53 +3323,24 @@ msgstr "Körzetszám"
 msgid "Extension"
 msgstr "Kiterjesztés"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "Névjegy mentése és a párbeszédablak bezárása"
-
-msgid "Delete contact"
-msgstr "Kapcsolat törlése"
-
-msgid "Delete this contact."
-msgstr "Törölje a névjegyet."
-
 msgid "Add Attachment"
 msgstr "Melléklet hozzáadása"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Mellékletek hozzáadása a névjegyhez."
 
-msgid "Print this contact"
-msgstr "Nyomtassa a kapcsolatot"
-
-msgid "Open the categories dialog."
-msgstr "Kategóriák párbeszédablak megnyitása."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Jelölje meg a névjegyet személyesként."
 
 msgid "Distribution List"
 msgstr "Terjesztési lista"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "Terjesztési lista mentése és a párbeszédablak bezárása"
-
-msgid "Delete Distributionlist"
-msgstr "Terjesztési lista törlése"
-
-msgid "Delete the Distribution list."
-msgstr "Törölje a terjesztési listát."
-
-msgid "Print distribution list"
-msgstr "Terjesztési lista nyomtatása"
-
-msgid "Print this distribution list."
-msgstr "Nyomtassa a terjesztési listát."
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Jelölje meg a terjesztési listát személyesként."
 
 #, fuzzy
@@ -3481,9 +3409,6 @@ msgstr "Exportálás mint"
 
 msgid "Sort by: Full Name"
 msgstr "Rendezés: Teljes név"
-
-msgid "Sort by: Email Address 1"
-msgstr "Rendezés: E-mail cím 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Rendezés: E-mail cím 2"
@@ -3620,6 +3545,9 @@ msgstr "Kép eltávolítása"
 #, fuzzy
 msgid "VCF file(s)"
 msgstr "EML fájl(ok)"
+
+msgid "Open in new browser window"
+msgstr "Megnyitás új ablakban"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -4266,24 +4194,12 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Email küldése a címzetteknek"
-
 msgid "Send Later"
 msgstr "Küldés később"
 
-msgid "Schedule your mail to be sent on a specific date and time."
-msgstr "Levél küldésének ütemezése előre megadott napon és időben."
-
-msgid "Save email"
-msgstr "Email mentése"
-
-# 94%
-# 76%
-# 100%
 #, fuzzy
-msgid "Delete this email"
-msgstr "Levél törlése"
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Levél küldésének ütemezése előre megadott napon és időben."
 
 # 86%
 msgid "Add attachments to this email"
@@ -4291,9 +4207,6 @@ msgstr "Mellékletek hozzáadása az emailhez"
 
 msgid "Add signature"
 msgstr "Aláírás hozzáadása"
-
-msgid "Add signature to this mail"
-msgstr "Aláírás hozzáadása az emailhez"
 
 # 75%
 msgid "Options"
@@ -4320,30 +4233,16 @@ msgstr "Olvasási visszaigazolás beállítása"
 msgid "Request read receipt from recipients"
 msgstr "Olvasási visszaigazolás kérése a címzettektől"
 
-msgid "Show bcc"
-msgstr "Titkos címzettek megjelenítése"
-
 msgid "Show Bcc"
 msgstr "Titkos címzettek megjelenítése"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"Titkos másolat mező megjelenítése, ahol beállíthatja, hogy kik kapják meg a "
-"levelet"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Titkos címzettek megjelenítése"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Feladó megjelenítése"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Feladó mező megjelenítése, ha van meghatalmazott joga egy másik személy "
-"fiókjához, küldheti a levelet az ő nevében is, ezen személy nevének "
-"beírásával a feladó mezőbe"
 
 msgid "No signatures configured"
 msgstr "Nincs aláírás beállítva"
@@ -4372,11 +4271,17 @@ msgstr "Olvasási visszaigazolás kérése az üzenethez."
 msgid "no subject"
 msgstr "nincs tárgy"
 
-msgid "Delete mail"
-msgstr "Levél törlése"
-
 msgid "Set Category"
 msgstr "Kategória beállítása"
+
+msgid "Pop-Out"
+msgstr "Pop-Out"
+
+msgid "Mark Read"
+msgstr "Megjelölés olvasottként"
+
+msgid "Mark Unread"
+msgstr "Megjelölés olvasatlanként"
 
 # 87%
 # 100%
@@ -4401,18 +4306,13 @@ msgstr "Megjelölés piros/elvégzett zászlóval"
 msgid "Open Shared Mails"
 msgstr "Megosztott levelezés megnyitása"
 
-msgid "Email message"
-msgstr "Email üzenet"
-
-# 90%
-msgid "Send E-mail"
-msgstr "Email küldése"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Új email üzenet létrehozása a címzettnek."
-
 msgid "Print single e-mail"
 msgstr "Email nyomtatása"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Kijelölt elem nyomtatása"
 
 #, fuzzy
 msgid "Filter"
@@ -4617,21 +4517,8 @@ msgstr "Továbbítás mellékletként"
 msgid "Loading mail"
 msgstr "Levél betöltése"
 
-msgid "Save Note"
-msgstr "Jegyzet mentése"
-
-msgid "Save note"
-msgstr "Jegyzet mentése"
-
-msgid "Delete Note"
-msgstr "Jegyzet törlése"
-
-# 81%
-# 100%
-msgid "Delete this note"
-msgstr "Jegyzet törlése"
-
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "Jegyzet nyomtatása"
 
 msgid "Color"
@@ -4938,12 +4825,13 @@ msgstr "Feladatok elfogadása"
 msgid "Declining Task"
 msgstr "Feladatok elutasítása"
 
+#, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
-"Ez a feladat elfogadásra került és a feladatok mappába lett helyezve. "
-"Kívánja szerkeszteni a válaszát az elküldés előtt?"
+"Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván "
+"megjegyzést fűzni a válaszához?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
@@ -4992,26 +4880,8 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Feladat elküldése a hozzárendelt személynek"
 
-msgid "Send assignment"
-msgstr "Hozzárendelés elküldése"
-
-msgid "Save without sending a task request to assignees"
-msgstr "Mentés a felelősök értesítése nélkül"
-
-msgid "Save task"
-msgstr "Feladat mentése"
-
-# 85%
-# 82%
-# 100%
-msgid "Save task and close dialog"
-msgstr "Feladat mentése és a párbeszéd bezárása"
-
 msgid "Restore to Task List"
 msgstr "Visszaállítás a Feladatlistába"
-
-msgid "Restore this item to your task list"
-msgstr "Elem visszaállítása a feladatlistába"
 
 # 94%
 # 76%
@@ -5036,16 +4906,8 @@ msgstr "Feladat nyomtatása"
 msgid "Assign Task"
 msgstr "Feladat hozzárendelése"
 
-msgid "Assign this task to someone else."
-msgstr "Feladat átadása másik felhasználónak."
-
 msgid "Cancel Assignment"
 msgstr "Hozzárendelés törlése"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
-"A résztvevők törlésével átalakíthatja ezt a kiosztott feladatot saját "
-"feladattá."
 
 # 75%
 # 79%

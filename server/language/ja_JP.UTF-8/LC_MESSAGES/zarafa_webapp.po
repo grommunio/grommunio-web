@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1102,67 +1102,31 @@ msgstr "Y年Fj日 G:i"
 msgid "None"
 msgstr "メモ"
 
-msgid "Send invitation"
-msgstr "会議出席依頼を送信"
-
 # 75%
 msgid "Send"
 msgstr "送信済"
-
-msgid "Send invitation to recipients"
-msgstr "会議出席依頼を宛先に送信します。"
 
 # 80%
 msgid "Save"
 msgstr "保存"
 
-msgid "Save & Close"
-msgstr "保存して終了"
-
-msgid "Save appointment and close dialog"
-msgstr "予定を保存しダイアログを閉じる"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "変更内容を保存するが会議出席依頼を送信しない。"
+msgid "Close"
+msgstr "閉じる"
 
 msgid "Delete"
 msgstr "削除"
 
-msgid "Delete this appointment"
-msgstr "この予定を削除する"
-
 msgid "Add attachment"
 msgstr "添付ファイルを追加"
-
-msgid "Add attachments to this appointment"
-msgstr "この予定に添付資料を追加する"
-
-msgid "Cannot add attachment"
-msgstr "添付ファイルを追加できません。"
-
-msgid "Print this appointment"
-msgstr "この予定を印刷"
 
 msgid "Check names"
 msgstr "名前の確認"
 
-msgid "Check all recipient names"
-msgstr "全受信者の名前を確認する"
-
-msgid "Open the recurrence dialog"
-msgstr "繰り返しダイアログを開く"
-
 msgid "Invite attendees"
 msgstr "出席者を招待"
 
-msgid "Invite attendees for this appointment"
-msgstr "この予定の出席者を招待"
-
 msgid "Cancel invitation"
 msgstr "招待をキャンセル"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "高優先度"
@@ -1189,12 +1153,6 @@ msgstr "プライベート"
 
 msgid "Mark this appointment as private"
 msgstr "この予約をプライベートにする"
-
-# 85%
-# 82%
-# 100%
-msgid "Save meeting request and close dialog"
-msgstr "この連絡先を保存してダイアログを閉じる"
 
 msgid "Proposed Date and Time"
 msgstr "提案日時"
@@ -1241,28 +1199,32 @@ msgstr "キャンセル通知を今すぐ送信"
 msgid "Send Meeting Request Confirmation"
 msgstr "会議出席依頼への確認メールを送信する"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
 "か？"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "この会議は仮受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
 "か？"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めます"
 "か？"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "送信前に返信を編集する。"
 
 msgid "Send the response now."
@@ -1825,9 +1787,6 @@ msgstr "重要"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "閉じる"
 
 msgid "Cc"
 msgstr "Cc"
@@ -3009,16 +2968,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "メモ"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "未読にする"
 
-msgid "Mark Read"
-msgstr "既読にする"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "未読にする"
 
 msgid "in"
@@ -3290,53 +3248,24 @@ msgstr "市内局番"
 msgid "Extension"
 msgstr "内線番号"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "この連絡先を保存してダイアログを閉じる"
-
-msgid "Delete contact"
-msgstr "連絡先削除"
-
-msgid "Delete this contact."
-msgstr "この連絡先を削除する"
-
 msgid "Add Attachment"
 msgstr "添付ファイルの追加"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "このコンタクトに添付ファイルを追加する"
 
-msgid "Print this contact"
-msgstr "この連絡先を印刷する"
-
-msgid "Open the categories dialog."
-msgstr "カテゴリーダイアログを開く"
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "この連絡先を個人用にする"
 
 msgid "Distribution List"
 msgstr "配布リスト"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "配布リストを保存してダイアログを閉じる"
-
-msgid "Delete Distributionlist"
-msgstr "配布リストを削除"
-
-msgid "Delete the Distribution list."
-msgstr "配布リストを削除"
-
-msgid "Print distribution list"
-msgstr "配布リストを印刷"
-
-msgid "Print this distribution list."
-msgstr "配布リストを印刷"
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "配布リストを個人用にする"
 
 #, fuzzy
@@ -3406,10 +3335,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "並べ替え：氏名"
-
-# 91%
-msgid "Sort by: Email Address 1"
-msgstr "並べ替え：Emailアドレス"
 
 # 91%
 msgid "Sort by: Email Address 2"
@@ -3554,6 +3479,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4169,24 +4097,12 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "電子メールを宛先に送信します。"
-
 msgid "Send Later"
 msgstr "後で送信"
 
-msgid "Schedule your mail to be sent on a specific date and time."
-msgstr ""
-
-msgid "Save email"
-msgstr "メールの保存"
-
-# 94%
-# 76%
-# 100%
 #, fuzzy
-msgid "Delete this email"
-msgstr "このアイテムを削除"
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "送信される予定されたメール"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4194,9 +4110,6 @@ msgstr "このメールに添付ファイルを追加する"
 
 msgid "Add signature"
 msgstr "署名を追加する"
-
-msgid "Add signature to this mail"
-msgstr "このメールに署名を追加する"
 
 # オプション
 msgid "Options"
@@ -4223,30 +4136,16 @@ msgstr "開封通知を設定する"
 msgid "Request read receipt from recipients"
 msgstr "受信者に開封通知を要求する"
 
-msgid "Show bcc"
-msgstr "Bccを表示"
-
 msgid "Show Bcc"
 msgstr "Bccを表示"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"[Bcc]ボックスを表示します。このボックスには他の受信者には秘密でメッセージを送"
-"る宛先を指定します。"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Bccを表示"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "送信者を表示"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"[差出人]ボックスを表示します。他のユーザーのアカウントの代理アクセス権を持っ"
-"ている場合[差出人]ボックスにその人の名前を入力すると、その人からのメッセージ"
-"として電子メールを送信できます。"
 
 msgid "No signatures configured"
 msgstr "署名が設定されていません。"
@@ -4275,11 +4174,17 @@ msgstr "このメッセージへの開封通知を要求する。"
 msgid "no subject"
 msgstr "件名がありません"
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "カテゴリーを設定"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "既読にする"
+
+msgid "Mark Unread"
+msgstr "未読にする"
 
 # 87%
 # 100%
@@ -4304,17 +4209,13 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "共有メールを開く"
 
-msgid "Email message"
-msgstr "メールメッセージ"
-
-msgid "Send E-mail"
-msgstr "メール送信"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "この受信者のアドレスに新たにメールを作成する。"
-
 msgid "Print single e-mail"
 msgstr "メールを印刷する"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "選択したタスクを印刷"
 
 msgid "Filter"
 msgstr ""
@@ -4518,22 +4419,9 @@ msgstr "送信済"
 msgid "Loading mail"
 msgstr "メールの読み込み中"
 
-msgid "Save Note"
-msgstr "メモを保存"
-
-msgid "Save note"
-msgstr "メモを保存"
-
-msgid "Delete Note"
-msgstr "メモを削除する"
-
-# 81%
-# 100%
-msgid "Delete this note"
-msgstr "このメモを削除"
-
 # 80%
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "このメモを印刷する"
 
 msgid "Color"
@@ -4840,8 +4728,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
 "か？"
@@ -4897,29 +4785,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "代理人にタスクを送信"
 
-msgid "Send assignment"
-msgstr "課題を送信する"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "変更内容を保存するが会議出席依頼を送信しない。"
-
-msgid "Save task"
-msgstr "タスクの保存"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "この連絡先を保存してダイアログを閉じる"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "初期設定に戻す"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -4946,14 +4814,8 @@ msgstr "このメールを印刷する"
 msgid "Assign Task"
 msgstr "アサインタスク"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "課題をキャンセルする"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 75%
 # 79%

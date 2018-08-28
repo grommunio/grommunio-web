@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2012-06-01 09:31+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1144,67 +1144,31 @@ msgstr "D j F Y H:i"
 msgid "None"
 msgstr "אף אחד"
 
-msgid "Send invitation"
-msgstr "שלח הזמנה"
-
 # 75%
 #, fuzzy
 msgid "Send"
 msgstr "נשלח"
 
-msgid "Send invitation to recipients"
-msgstr ""
-
 msgid "Save"
 msgstr "שמור"
 
-msgid "Save & Close"
-msgstr "שמור & סגור"
-
-msgid "Save appointment and close dialog"
-msgstr "שמור מינוי שיח קרוב"
-
-msgid "Save without sending an invitation to recipients"
-msgstr ""
+msgid "Close"
+msgstr "סגור"
 
 msgid "Delete"
 msgstr "מחק"
 
-msgid "Delete this appointment"
-msgstr "מחק פגישה זו"
-
 msgid "Add attachment"
 msgstr "הוסף קובץ מצורף"
-
-msgid "Add attachments to this appointment"
-msgstr "הוסף קבצים מצורפים לפגישה זו"
-
-msgid "Cannot add attachment"
-msgstr ""
-
-msgid "Print this appointment"
-msgstr "הדפס את פגישה זו"
 
 msgid "Check names"
 msgstr "בדוק שמות"
 
-msgid "Check all recipient names"
-msgstr "בדוק את שמות כל המקבלים"
-
-msgid "Open the recurrence dialog"
-msgstr "פתח את תיבת דו שיח מופע חוזר"
-
 msgid "Invite attendees"
 msgstr "הזמן משתתפים"
 
-msgid "Invite attendees for this appointment"
-msgstr "הזמן משתתפים לפגישה זו"
-
 msgid "Cancel invitation"
 msgstr "בטל הזמנה"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "עדיפות גובהה"
@@ -1229,13 +1193,6 @@ msgstr "פרטי"
 
 msgid "Mark this appointment as private"
 msgstr "סמן פגישה זו כפרטית"
-
-# 78%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "שמור מינוי שיח קרוב"
 
 msgid "Proposed Date and Time"
 msgstr "תאריך וזמן הוצעו"
@@ -1283,27 +1240,31 @@ msgstr ""
 msgid "Send Meeting Request Confirmation"
 msgstr "שלח אישור בקשת פגישה"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "פגשיה זו התקבלה בהיסוס ומועברת ללוח השנה שלך. האם אתה רוצה לכלול הערות עם "
 "התגובה שלך?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם "
 "התגובה שלך?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "ערוך את התגבוה לפני שליחה."
 
 msgid "Send the response now."
@@ -1881,9 +1842,6 @@ msgstr "חשוב"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "סגור"
 
 msgid "Cc"
 msgstr "עותק נוסף"
@@ -3065,16 +3023,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "ללא"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "סמן כלא נקרא"
 
-msgid "Mark Read"
-msgstr "סמן כנקרא"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "סמן כלא נקרא"
 
 msgid "in"
@@ -3360,33 +3317,17 @@ msgstr "מספר מקומי"
 msgid "Extension"
 msgstr "תוספת"
 
-# 78%
-#, fuzzy
-msgid "Save contact and close dialog"
-msgstr "שמור מינוי שיח קרוב"
-
-msgid "Delete contact"
-msgstr "מחק איש קשר"
-
-msgid "Delete this contact."
-msgstr "מחק איש קשר זה"
-
 msgid "Add Attachment"
 msgstr "הוסף קובץ מצורף"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "הוסף קבצים מצורפים עבור איש קשר זה."
 
-msgid "Print this contact"
-msgstr ""
-
-# 96%
-msgid "Open the categories dialog."
-msgstr "פתח את תיבת דו שיח הקטגוריות"
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "סמן את איש קשר זה כפרטי."
 
 # 94%
@@ -3394,26 +3335,8 @@ msgstr "סמן את איש קשר זה כפרטי."
 msgid "Distribution List"
 msgstr "רשימת תפוצה"
 
-msgid "Save distribution list and close dialog"
-msgstr ""
-
-msgid "Delete Distributionlist"
-msgstr "מחק רשימת תפוצה"
-
-msgid "Delete the Distribution list."
-msgstr "מחק את רשימת תפוצה זו."
-
-# 75%
 #, fuzzy
-msgid "Print distribution list"
-msgstr "צור רשימת תפוצה"
-
-# 79%
-#, fuzzy
-msgid "Print this distribution list."
-msgstr "שמור את רשימת תפוצה זו"
-
-msgid "Mark this Distribution list as private."
+msgid "Mark this Distribution list as private"
 msgstr "סמן את רשימת תפוצה זו כפרטית."
 
 #, fuzzy
@@ -3495,9 +3418,6 @@ msgstr ""
 #, fuzzy
 msgid "Sort by: Full Name"
 msgstr "מיין לפי: גודל"
-
-msgid "Sort by: Email Address 1"
-msgstr ""
 
 msgid "Sort by: Email Address 2"
 msgstr ""
@@ -3638,6 +3558,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4267,24 +4190,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "שלח דואר לנמענים"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "שמור דואר"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "מחק פריט זה."
 
 # 86%
 msgid "Add attachments to this email"
@@ -4292,9 +4202,6 @@ msgstr "הוסף קבצים מצורפים לדואר זה"
 
 msgid "Add signature"
 msgstr "הוסף חתימה"
-
-msgid "Add signature to this mail"
-msgstr ""
 
 msgid "Options"
 msgstr "אפשרויות"
@@ -4320,24 +4227,14 @@ msgstr "הגדר קבלת קריאה"
 msgid "Request read receipt from recipients"
 msgstr "בקש קבלת קריאה מהמשתמש"
 
-msgid "Show bcc"
-msgstr "הצג את שדה עותק סודי"
-
 msgid "Show Bcc"
 msgstr "הצג את שדה עותק סודי"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "הצג את שדה עותק סודי שבו תוכל לציין את האנשים שיקבלו את הודעה זו"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "הצג את שדה עותק סודי"
 
-msgid "Show From"
-msgstr ""
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
+msgid "Show From field"
 msgstr ""
 
 msgid "No signatures configured"
@@ -4367,11 +4264,17 @@ msgstr "בקש קבלת קריאה עבור הודעה זו"
 msgid "no subject"
 msgstr ""
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "הגדר קטגוריה"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "סמן כנקרא"
+
+msgid "Mark Unread"
+msgstr "סמן כלא נקרא"
 
 # 87%
 # 100%
@@ -4401,21 +4304,15 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "פתח תיקיות משותפות"
 
-msgid "Email message"
-msgstr "הודעת דואר אלקטרוני"
-
-# 90%
-#, fuzzy
-msgid "Send E-mail"
-msgstr "שלח דואר"
-
-# 87%
-#, fuzzy
-msgid "Create a new email message addressed to this recipient."
-msgstr "צור הודעה חדשה המיועדת לאיש קשר זה."
-
 msgid "Print single e-mail"
 msgstr ""
+
+# 77%
+# 78%
+# 100%
+#, fuzzy
+msgid "Print selected email"
+msgstr "נבחר פריט {0}"
 
 msgid "Filter"
 msgstr ""
@@ -4618,25 +4515,13 @@ msgstr "נשלח"
 msgid "Loading mail"
 msgstr ""
 
-msgid "Save Note"
-msgstr "שמור פתק"
-
-# 88%
-#, fuzzy
-msgid "Save note"
-msgstr "שמור פתק"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
+# 77%
+# 78%
 # 100%
+# 84%
 #, fuzzy
-msgid "Delete this note"
-msgstr "מחק פריט זה"
-
-msgid "Print this note"
-msgstr ""
+msgid "Print note"
+msgstr "נבחר פריט {0}"
 
 msgid "Color"
 msgstr "צבע"
@@ -4940,8 +4825,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
 
@@ -4997,29 +4882,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "שלח משימה לנמחה"
 
-msgid "Send assignment"
-msgstr "שלח מטלה"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "שלח משימה לנמחה"
-
-msgid "Save task"
-msgstr "שמור משימה"
-
-# 78%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "שמור מינוי שיח קרוב"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "שחזר פריטים"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -5046,14 +4911,8 @@ msgstr "הדפס דואר זה"
 msgid "Assign Task"
 msgstr "הקצה משימה"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "בטל משימה"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 75%
 # 79%

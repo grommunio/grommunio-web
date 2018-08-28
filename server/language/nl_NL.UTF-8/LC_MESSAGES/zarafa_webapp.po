@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2018-08-08 08:47+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1150,69 +1150,30 @@ msgstr "j F Y G:i"
 msgid "None"
 msgstr "Geen"
 
-msgid "Send invitation"
-msgstr "Verstuur uitnodiging"
-
 # 75%
 msgid "Send"
 msgstr "Verzenden"
 
-msgid "Send invitation to recipients"
-msgstr "Verstuur uitnodiging naar genodigden"
-
 msgid "Save"
 msgstr "Opslaan"
 
-msgid "Save & Close"
-msgstr "Opslaan & Sluiten"
-
-msgid "Save appointment and close dialog"
-msgstr "Afspraak opslaan en venster sluiten"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Sla op zonder een uitnodiging te sturen"
+msgid "Close"
+msgstr "Sluiten"
 
 msgid "Delete"
 msgstr "Verwijderen"
 
-# 78%
-msgid "Delete this appointment"
-msgstr "Verwijder deze afspraak"
-
 msgid "Add attachment"
 msgstr "Bijlage toevoegen"
-
-msgid "Add attachments to this appointment"
-msgstr "Voeg bijlagen toe aan deze afspraak"
-
-msgid "Cannot add attachment"
-msgstr "Kan bijlage niet toevoegen"
-
-msgid "Print this appointment"
-msgstr "Druk deze afspraak af"
 
 msgid "Check names"
 msgstr "Namen controleren"
 
-msgid "Check all recipient names"
-msgstr "Controleer alle namen van ontvangers"
-
-msgid "Open the recurrence dialog"
-msgstr "Open het terugkeervenster"
-
 msgid "Invite attendees"
 msgstr "Nodig deelnemers uit"
 
-msgid "Invite attendees for this appointment"
-msgstr "Nodig deelnemers uit voor deze afspraak"
-
 msgid "Cancel invitation"
 msgstr "Annuleer uitnodiging"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
-"Converteer dit vergaderverzoek naar een afspraak door genodigden te "
-"verwijderen"
 
 msgid "High priority"
 msgstr "Hoge prioriteit"
@@ -1239,12 +1200,6 @@ msgstr "Privé"
 
 msgid "Mark this appointment as private"
 msgstr "Markeer deze afspraak als privé"
-
-# 85%
-# 82%
-# 100%
-msgid "Save meeting request and close dialog"
-msgstr "Sla vergaderverzoek op en sluit venster"
 
 msgid "Proposed Date and Time"
 msgstr "Voorgestelde Datum en Tijd"
@@ -1293,28 +1248,32 @@ msgstr "Verzend de annulering nu."
 msgid "Send Meeting Request Confirmation"
 msgstr "Stuur Bevestiging Vergaderverzoek"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Deze afspraak is geaccepteerd en wordt naar uw Agenda verplaatst. Wilt u "
 "commentaar invoegen in uw antwoord?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Deze afspraak is voorlopig geaccepteerd en wordt naar uw Agenda verplaatst. "
 "Wilt u commentaar invoegen in uw antwoord?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Deze afspraak is afgewezen en wordt verplaatst naar de Deleted Items map. "
 "Wilt u commentaar invoegen in uw antwoord?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Antwoord bewerken voor het versturen."
 
 msgid "Send the response now."
@@ -1909,9 +1868,6 @@ msgstr "Probleem met importeren"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr "{0} kan niet geïmporteerd worden. Het bestand is niet valide"
-
-msgid "Close"
-msgstr "Sluiten"
 
 msgid "Cc"
 msgstr "Cc"
@@ -3120,16 +3076,16 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "geen"
 
-msgid "Open in new browser window"
-msgstr "Open in nieuw browser venster"
-
-msgid "Pop-Out"
+#, fuzzy
+msgid "Pop-out"
 msgstr "Pop-out"
 
-msgid "Mark Read"
-msgstr "Markeer Gelezen"
+#, fuzzy
+msgid "Mark as read"
+msgstr "Markeer Ongelezen"
 
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Markeer Ongelezen"
 
 msgid "in"
@@ -3409,57 +3365,25 @@ msgstr "Lokaal nummer"
 msgid "Extension"
 msgstr "Extensie"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "Bewaar deze contactpersoon en sluit het venster"
-
-msgid "Delete contact"
-msgstr "Verwijder contactpersoon"
-
-msgid "Delete this contact."
-msgstr "Verwijder deze contactpersoon."
-
 msgid "Add Attachment"
 msgstr "Bijlage Toevoegen"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Voeg bijlagen toe aan deze contactpersoon."
 
-msgid "Print this contact"
-msgstr "Druk deze contactpersoon af"
-
-# 96%
-msgid "Open the categories dialog."
-msgstr "Open het categorievenster."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Markeer deze contactpersoon als privé."
 
 # 94%
 msgid "Distribution List"
 msgstr "Distributielijst"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "Bewaar deze distributielijst en sluit het venster"
-
-msgid "Delete Distributionlist"
-msgstr "Verwijder Distributielijst"
-
-msgid "Delete the Distribution list."
-msgstr "Verwijder de Distributielijst."
-
-# 75%
-msgid "Print distribution list"
-msgstr "Druk distributielijst af"
-
-# 79%
-msgid "Print this distribution list."
-msgstr "Druk deze distributielijst af."
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Markeer deze Distributielijst als privé."
 
 msgid "New email address"
@@ -3531,11 +3455,6 @@ msgstr "Exporteren als"
 
 msgid "Sort by: Full Name"
 msgstr "Sorteer op: Volledige Naam"
-
-# 91%
-# 87%
-msgid "Sort by: Email Address 1"
-msgstr "Sorteer op: E-mailadres 1"
 
 # 91%
 # 87%
@@ -3726,6 +3645,9 @@ msgstr "Verwijder Afbeelding"
 
 msgid "VCF file(s)"
 msgstr "VCF bestand(en)"
+
+msgid "Open in new browser window"
+msgstr "Open in nieuw browser venster"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -4360,25 +4282,14 @@ msgstr "Geen afzenders geconfigureerd!"
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Dit bericht wordt gemarkeerd voor opvolging als het is verstuurd."
 
-msgid "Send email to recipients"
-msgstr "Verzend e-mail naar ontvangers"
-
 msgid "Send Later"
 msgstr "Verzend Later"
 
-msgid "Schedule your mail to be sent on a specific date and time."
+#, fuzzy
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
 "Plan uw bericht in om verstuurd te worden op een specifieke datum en "
 "tijdstip."
-
-msgid "Save email"
-msgstr "Sla e-mail op"
-
-# 94%
-# 76%
-# 100%
-msgid "Delete this email"
-msgstr "Verwijder deze email"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4386,9 +4297,6 @@ msgstr "Voeg bijlagen toe aan deze e-mail"
 
 msgid "Add signature"
 msgstr "Voeg handtekening toe"
-
-msgid "Add signature to this mail"
-msgstr "Voeg handtekening toe aan dit bericht"
 
 msgid "Options"
 msgstr "Opties"
@@ -4414,28 +4322,16 @@ msgstr "Leesbevestiging instellen"
 msgid "Request read receipt from recipients"
 msgstr "Verzoek een leesbevestiging van geadresseerden"
 
-msgid "Show bcc"
-msgstr "Toon Bcc"
-
 msgid "Show Bcc"
 msgstr "Toon Bcc"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "Toon Bcc-veld waar ontvangers van dit bericht kunnen worden toegevoegd"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Toon Bcc"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Toon Afzender"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Toon het veld Van. Wanneer je gemachtigde rechten hebt op iemand anders zijn "
-"account, kun je een e-mail sturen die van deze persoon lijkt te komen als je "
-"zijn naam in het Van veld selecteert"
 
 msgid "No signatures configured"
 msgstr "Geen handtekeningen geconfigureerd"
@@ -4464,11 +4360,17 @@ msgstr "Verzoek een leesbevestiging voor dit bericht."
 msgid "no subject"
 msgstr "geen onderwerp"
 
-msgid "Delete mail"
-msgstr "E-mail verwijderen"
-
 msgid "Set Category"
 msgstr "Stel categorie in"
+
+msgid "Pop-Out"
+msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Markeer Gelezen"
+
+msgid "Mark Unread"
+msgstr "Markeer Ongelezen"
 
 # 87%
 # 100%
@@ -4494,20 +4396,13 @@ msgstr "Markering rood/voltooid wisselen"
 msgid "Open Shared Mails"
 msgstr "Open Gedeelde E-mails"
 
-# 92%
-msgid "Email message"
-msgstr "E-mailbericht"
-
-# 90%
-msgid "Send E-mail"
-msgstr "Verzend E-mail"
-
-# 87%
-msgid "Create a new email message addressed to this recipient."
-msgstr "Nieuw e-mailbericht maken gericht aan deze ontvanger."
-
 msgid "Print single e-mail"
 msgstr "Druk een e-mail af"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Druk geselecteerde item af"
 
 msgid "Filter"
 msgstr "Filter"
@@ -4707,21 +4602,8 @@ msgstr "Verzenden naar"
 msgid "Loading mail"
 msgstr "Bericht laden"
 
-msgid "Save Note"
-msgstr "Bewaar Notitie"
-
-msgid "Save note"
-msgstr "Notitie opslaan"
-
-msgid "Delete Note"
-msgstr "Notitie verwijderen"
-
-# 81%
-# 100%
-msgid "Delete this note"
-msgstr "Verwijder deze notitie"
-
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "Druk deze notitie af"
 
 msgid "Color"
@@ -5047,12 +4929,13 @@ msgstr "Taak Accepteren"
 msgid "Declining Task"
 msgstr "Taak Afwijzen"
 
+#, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
-"Deze taak wordt geaccepteerd en verplaatst naar de Taken map. Wilt u het "
-"antwoord bewerken voor het versturen?"
+"Deze afspraak is geaccepteerd en wordt naar uw Agenda verplaatst. Wilt u "
+"commentaar invoegen in uw antwoord?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
@@ -5103,27 +4986,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Stuur taak naar geadresseerden"
 
-msgid "Send assignment"
-msgstr "Taakverzoek verzenden"
-
-msgid "Save without sending a task request to assignees"
-msgstr "Sla op zonder een taakverzoek naar geadresseerden te sturen"
-
-msgid "Save task"
-msgstr "Bewaar taak"
-
-# 85%
-# 82%
-# 100%
-msgid "Save task and close dialog"
-msgstr "Bewaar deze taak en sluit het venster"
-
 # 84%
 msgid "Restore to Task List"
 msgstr "Herstellen naar Takenlijst"
-
-msgid "Restore this item to your task list"
-msgstr "Herstel dit item naar uw takenlijst"
 
 # 94%
 # 76%
@@ -5148,16 +5013,8 @@ msgstr "Druk deze taak af"
 msgid "Assign Task"
 msgstr "Wijs Taak Toe"
 
-msgid "Assign this task to someone else."
-msgstr "Wijs deze taak toe aan iemand anders."
-
 msgid "Cancel Assignment"
 msgstr "Annuleer Toewijzing"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
-"Converteer deze toegewezen taak naar een reguliere taak door geadresseerden "
-"te verwijderen."
 
 # 75%
 # 79%

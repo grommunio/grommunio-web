@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1129,69 +1129,31 @@ msgstr "jS F Y G:i"
 msgid "None"
 msgstr "Ei yhtään"
 
-msgid "Send invitation"
-msgstr "Lähetä kutsu"
-
 # 75%
 msgid "Send"
 msgstr "Lähetä"
-
-msgid "Send invitation to recipients"
-msgstr "Lähetä kutsu osallistujille"
 
 # 80%
 msgid "Save"
 msgstr "Tallenna"
 
-msgid "Save & Close"
-msgstr "Tallenna ja sulje"
-
-msgid "Save appointment and close dialog"
-msgstr "Tallenna tapaaminen ja sulje ikkuna"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Tallenna lähettämättä kutsua osallistujille"
+msgid "Close"
+msgstr "Sulje"
 
 msgid "Delete"
 msgstr "Poista"
 
-msgid "Delete this appointment"
-msgstr "Poista tapaaminen"
-
 msgid "Add attachment"
 msgstr "Lisää liitetiedosto"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Lisää liitetiedostoja tapaamiseen"
-
-msgid "Cannot add attachment"
-msgstr ""
-
-msgid "Print this appointment"
-msgstr "Tulosta tapaaminen"
 
 msgid "Check names"
 msgstr "Tarkista nimet"
 
-msgid "Check all recipient names"
-msgstr "Tarkista kaikkien vastaanottajien nimet"
-
-msgid "Open the recurrence dialog"
-msgstr "Avaa toistuvuus ikkuna"
-
 msgid "Invite attendees"
 msgstr "Kutsu osallistujia"
 
-msgid "Invite attendees for this appointment"
-msgstr "Kutsu osallistujia tapaamiseen"
-
 msgid "Cancel invitation"
 msgstr "Peru kutsu"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "Korkea tärkeysaste"
@@ -1218,13 +1180,6 @@ msgstr "Yksityinen"
 
 msgid "Mark this appointment as private"
 msgstr "Merkitse tämä tapaaminen yksityiseksi"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "Tallenna yhteystieto ja sulje ikkuna"
 
 msgid "Proposed Date and Time"
 msgstr "Ehdotettu päivä ja aika"
@@ -1270,28 +1225,32 @@ msgstr "Lähetä peruutus."
 msgid "Send Meeting Request Confirmation"
 msgstr "Lähetä kokouskutsun vahvistus"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää "
 "kommentteja vastaukseesi?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Kokous on hyväksytty alustavasti ja se siirretään kalenteriisi. Haluatko "
 "liittää kommentteja vastaukseesi?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Kokouksesta on kieltäydytty ja se siirretään roskakoriin. Haluatko liittää "
 "kommentteja vastaukseesi?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Muokkaa vastausta ennen lähetystä."
 
 msgid "Send the response now."
@@ -1873,9 +1832,6 @@ msgstr "Tärkeä"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Sulje"
 
 msgid "Cc"
 msgstr "Kopio"
@@ -3060,16 +3016,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ei yhtään"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "Merkitse lukemattomaksi"
 
-msgid "Mark Read"
-msgstr "Merkitse luetuksi"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Merkitse lukemattomaksi"
 
 msgid "in"
@@ -3349,55 +3304,24 @@ msgstr "Paikallisnumero"
 msgid "Extension"
 msgstr "Jatke"
 
-# 85%
-#, fuzzy
-msgid "Save contact and close dialog"
-msgstr "Tallenna yhteystieto ja sulje ikkuna"
-
-msgid "Delete contact"
-msgstr "Poista yhteystieto"
-
-msgid "Delete this contact."
-msgstr "Poista yhteystieto."
-
 msgid "Add Attachment"
 msgstr "Lisää Liitetiedosto"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Lisää liitetiedostoja yhteystietoon."
 
-msgid "Print this contact"
-msgstr "Tulosta yhteystieto"
-
-msgid "Open the categories dialog."
-msgstr "Avaa kategoriat ikkuna."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Merkitse yhteystieto yksityiseksi."
 
 msgid "Distribution List"
 msgstr "Jakelulista"
 
-# 86%
 #, fuzzy
-msgid "Save distribution list and close dialog"
-msgstr "Tallenna jakelulista ja sulje ikkuna"
-
-msgid "Delete Distributionlist"
-msgstr "Poista jakelulista"
-
-msgid "Delete the Distribution list."
-msgstr "Poista jakelulista."
-
-msgid "Print distribution list"
-msgstr "Tulosta jakelulista"
-
-msgid "Print this distribution list."
-msgstr "Tulosta jakelulista."
-
-msgid "Mark this Distribution list as private."
+msgid "Mark this Distribution list as private"
 msgstr "Merkitse jakelulista yksityiseksi."
 
 #, fuzzy
@@ -3466,9 +3390,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Järjestä: Koko nimi"
-
-msgid "Sort by: Email Address 1"
-msgstr "Järjestä: Sähköpostiosoite 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Järjestä: Sähköpostiosoite 2"
@@ -3603,6 +3524,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4224,24 +4148,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Lähetä sähköposti vastaanottajille"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "Tallenna sähköposti"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Poista tämä kohde."
 
 # 86%
 msgid "Add attachments to this email"
@@ -4249,9 +4160,6 @@ msgstr "Lisää liitetiedostoja sähköpostiin"
 
 msgid "Add signature"
 msgstr "Lisää allekirjoitus"
-
-msgid "Add signature to this mail"
-msgstr "Lisää allekirjoitus tähän viestiin"
 
 # 75%
 msgid "Options"
@@ -4278,30 +4186,16 @@ msgstr "Aseta lukukuittaus"
 msgid "Request read receipt from recipients"
 msgstr "Pyydä lukukuittaus vastaanottajilta"
 
-msgid "Show bcc"
-msgstr "Näytä piilokopiot"
-
 msgid "Show Bcc"
 msgstr "Näytä piilokopiot"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"Näytä piilokopiokentät, joissa voidaan määritellä tämän viestin "
-"vastaanottajat"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Näytä piilokopiot"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Näytä lähettäjä"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Näytä Lähettäjä-kenttä. Mikäli sinulla on edustajaoikeudet toisen henkilön "
-"tiliin, voit lähettää sähköpostin jossa lähettäjänä näkyy kyseinen henkilö, "
-"kirjoittamalla hänen nimensä Lähettäjä-kenttään."
 
 msgid "No signatures configured"
 msgstr "Allekirjoituksia ei asetettu"
@@ -4330,11 +4224,17 @@ msgstr "Pyydä lukukuittaus viestille."
 msgid "no subject"
 msgstr "ei aihetta"
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "Määritä kategoria"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "Merkitse luetuksi"
+
+msgid "Mark Unread"
+msgstr "Merkitse lukemattomaksi"
 
 # 87%
 # 100%
@@ -4361,17 +4261,13 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Avaa jaetut postit"
 
-msgid "Email message"
-msgstr "Sähköpostiviesit"
-
-msgid "Send E-mail"
-msgstr "Lähetä sähköposti"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Luo sähköpostiviesti tälle vastaanottajille."
-
 msgid "Print single e-mail"
 msgstr "Tulosta yksittäinen sähköposti"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Tulosta valitut tehtävät"
 
 msgid "Filter"
 msgstr ""
@@ -4580,22 +4476,8 @@ msgstr "Lähetä"
 msgid "Loading mail"
 msgstr "Ladataan postia"
 
-msgid "Save Note"
-msgstr "Tallenna Merkintä"
-
-msgid "Save note"
-msgstr "Tallenna merkintä"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "Poista tämä kohde"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "Tulosta tämä merkintä"
 
 msgid "Color"
@@ -4906,8 +4788,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Kokous on hyväksytty ja se siirretään kalenteriisi. Haluatko liittää "
 "kommentteja vastaukseesi?"
@@ -4963,29 +4845,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Lähetä tehtävä toimeksiannetulle"
 
-msgid "Send assignment"
-msgstr "Lähetä toimeksianto"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Tallenna lähettämättä kutsua osallistujille"
-
-msgid "Save task"
-msgstr "Tallenna tehtävä"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "Tallenna yhteystieto ja sulje ikkuna"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Palauta oletus"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -5012,14 +4874,8 @@ msgstr "Tulosta sähköposti"
 msgid "Assign Task"
 msgstr "Määrää tehtävä"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Peru tehtävä"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 75%
 # 79%

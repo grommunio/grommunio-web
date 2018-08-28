@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1152,69 +1152,31 @@ msgstr "jS F Y G:i"
 msgid "None"
 msgstr "Nič"
 
-msgid "Send invitation"
-msgstr "Pošlji povabilo"
-
 # 75%
 msgid "Send"
 msgstr "Pošlji"
-
-msgid "Send invitation to recipients"
-msgstr "Pošlji povabilo prejemnikom"
 
 # 80%
 msgid "Save"
 msgstr "Shrani"
 
-msgid "Save & Close"
-msgstr "Srani & Zapri"
-
-msgid "Save appointment and close dialog"
-msgstr "Shrani sestanek in zapri dialog"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Shrani brez pošiljanja povabil prejemnikom"
+msgid "Close"
+msgstr "Zapri"
 
 msgid "Delete"
 msgstr "Izbriši"
 
-msgid "Delete this appointment"
-msgstr "Izbriši ta sestanek"
-
 msgid "Add attachment"
 msgstr "Dodaj prilogo"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Dodaj priloge k tem sestanku"
-
-msgid "Cannot add attachment"
-msgstr "Priloge ni bilo mogoče dodati"
-
-msgid "Print this appointment"
-msgstr "Natisni ta sestanek"
 
 msgid "Check names"
 msgstr "Preveri imena"
 
-msgid "Check all recipient names"
-msgstr "Preveri imena vseh prejemnikov"
-
-msgid "Open the recurrence dialog"
-msgstr "Odpri dialog ponavljanja"
-
 msgid "Invite attendees"
 msgstr "Povabi udeležence"
 
-msgid "Invite attendees for this appointment"
-msgstr "Povabi udeležence za ta sestanek"
-
 msgid "Cancel invitation"
 msgstr "Prekliči povabilo"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "Visoka pomembnost"
@@ -1241,13 +1203,6 @@ msgstr "Zasebno"
 
 msgid "Mark this appointment as private"
 msgstr "Označi ta sestanek kot zaseben"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "Shrani ta kontakt in zapri dialog"
 
 msgid "Proposed Date and Time"
 msgstr "Predlagan datum in čas"
@@ -1295,28 +1250,32 @@ msgstr "Pošlji preklic sedaj."
 msgid "Send Meeting Request Confirmation"
 msgstr "Pošlji potrditev zahtevka za sestanek"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Ta sestanek je bil potrjen in bo premaknjen v Vaš koledar. Ali želite "
 "vključiti komentarje z Vašim odzivom?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Ta sestanek je bil pogojno sprejet in bo premaknjen v Vaš koledar. Ali "
 "želite vključiti komentarje z Vašim odzivom?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Ta sestanek je bil zavrnjen in bo premaknjen v mapo Izbrisani predmeti. Ali "
 "želite vključiti komentarje z Vašim odzivom?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Uredi odziv pred pošiljanjem."
 
 msgid "Send the response now."
@@ -1901,9 +1860,6 @@ msgstr "Pomembno"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Zapri"
 
 msgid "Cc"
 msgstr "Kp"
@@ -3116,16 +3072,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Noben"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "Označi neprebrano"
 
-msgid "Mark Read"
-msgstr "Označi prebrano"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Označi neprebrano"
 
 msgid "in"
@@ -3411,56 +3366,25 @@ msgstr "Lokalna številka"
 msgid "Extension"
 msgstr "Podaljšanje"
 
-# 85%
-#, fuzzy
-msgid "Save contact and close dialog"
-msgstr "Shrani ta kontakt in zapri dialog"
-
-msgid "Delete contact"
-msgstr "Izbriši kontakt"
-
-msgid "Delete this contact."
-msgstr "Izbriši ta kontakt."
-
 msgid "Add Attachment"
 msgstr "Dodaj prilogo"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Dodaj priloge k tem kontaktu."
 
-msgid "Print this contact"
-msgstr "Natisni ta kontakt"
-
-msgid "Open the categories dialog."
-msgstr "Odpri dialog kategorij."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Označi ta kontakt kot zaseben."
 
 # 94%
 msgid "Distribution List"
 msgstr "Distribucijski seznam"
 
-# 86%
 #, fuzzy
-msgid "Save distribution list and close dialog"
-msgstr "Shrani ta distribucijski seznam in zapri dialog"
-
-msgid "Delete Distributionlist"
-msgstr "Izbriši distribucijski seznam"
-
-msgid "Delete the Distribution list."
-msgstr "Izbriši distribucijski seznam."
-
-msgid "Print distribution list"
-msgstr "Natisni distribucijski seznam"
-
-msgid "Print this distribution list."
-msgstr "Natisni ta distribucijski seznam."
-
-msgid "Mark this Distribution list as private."
+msgid "Mark this Distribution list as private"
 msgstr "Označi ta distribucijski seznam kot zaseben."
 
 #, fuzzy
@@ -3531,9 +3455,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Razvrsti po: Polno ime"
-
-msgid "Sort by: Email Address 1"
-msgstr "Razvrsti po: Elektronski naslov 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Razvrsti po: Elektronski naslov 2"
@@ -3682,6 +3603,9 @@ msgid "Remove Picture"
 msgstr "Odstrani sliko"
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4317,24 +4241,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Pošlji sporočilo prejemnikom"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "Shrani sporočilo"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Izbriši to sporočilo"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4342,9 +4253,6 @@ msgstr "Dodaj priloge k tem sporočilu"
 
 msgid "Add signature"
 msgstr "Dodaj podpis"
-
-msgid "Add signature to this mail"
-msgstr "Dodaj podpis k tem sporočilu"
 
 # 75%
 msgid "Options"
@@ -4371,30 +4279,16 @@ msgstr "Nastavi potrdilo o branju"
 msgid "Request read receipt from recipients"
 msgstr "Zahtevaj potrdilo o branju od prejemnikov"
 
-msgid "Show bcc"
-msgstr "Pokaži Skp"
-
 msgid "Show Bcc"
 msgstr "Pokaži Skp"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"Pokaži Skp polje v katerem lahko specificiram osebe, ki bodo prejele to "
-"sporočilo"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Pokaži Skp"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Pokaži Od"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Pokaži Od polje, če imate pooblastila za dostop do računa drugih oseb, lahko "
-"pošljete sporočilo, za katerega izgleda, da je prišlo od njih z vnosom "
-"njihovega imena v polje Od"
 
 msgid "No signatures configured"
 msgstr "Ni nastavljenih podpisov"
@@ -4423,11 +4317,17 @@ msgstr "Zahtevaj potrdilo o branju za to sporočilo."
 msgid "no subject"
 msgstr "ni predmeta"
 
-msgid "Delete mail"
-msgstr "Izbriši sporočilo"
-
 msgid "Set Category"
 msgstr "Nastavi kategorijo"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "Označi prebrano"
+
+msgid "Mark Unread"
+msgstr "Označi neprebrano"
 
 # 87%
 # 100%
@@ -4454,17 +4354,13 @@ msgstr "Nastavi zasledovanje"
 msgid "Open Shared Mails"
 msgstr "Odprta pošta v skupni rabi"
 
-msgid "Email message"
-msgstr "Elektronsko sporočilo"
-
-msgid "Send E-mail"
-msgstr "Pošlji elektronsko sporočilo"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Ustvari novo sporočilo naslovljeno na tega prejemnika."
-
 msgid "Print single e-mail"
 msgstr "Natisni posamezno elektronsko sporočilo"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Natisni izbrano nalogo"
 
 msgid "Filter"
 msgstr ""
@@ -4673,22 +4569,8 @@ msgstr "Pošlji"
 msgid "Loading mail"
 msgstr "Nalaganje sporočila"
 
-msgid "Save Note"
-msgstr "Shrani opombo"
-
-msgid "Save note"
-msgstr "Shrani opombo"
-
-msgid "Delete Note"
-msgstr "Brisanje beležke"
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "Izbriši to postavko"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "Natisni to opombo"
 
 msgid "Color"
@@ -5007,8 +4889,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Ta sestanek je bil potrjen in bo premaknjen v Vaš koledar. Ali želite "
 "vključiti komentarje z Vašim odzivom?"
@@ -5064,29 +4946,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Pošlji nalogo pooblaščencu"
 
-msgid "Send assignment"
-msgstr "Pošlji dodelitev"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Shrani brez pošiljanja povabil prejemnikom"
-
-msgid "Save task"
-msgstr "Shrani nalogo"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "Shrani ta kontakt in zapri dialog"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Povrni na privzeto"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -5113,14 +4975,8 @@ msgstr "Natisni to sporočilo"
 msgid "Assign Task"
 msgstr "Dodeli nalogo"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Prekliči dodelitev"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 75%
 # 79%

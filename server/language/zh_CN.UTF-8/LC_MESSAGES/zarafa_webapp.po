@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2016-10-14 07:27+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (China) <http://translate.kopano.io/projects/kopano/"
@@ -1080,69 +1080,30 @@ msgstr ""
 msgid "None"
 msgstr "无"
 
-msgid "Send invitation"
-msgstr ""
-
 # 75%
 #, fuzzy
 msgid "Send"
 msgstr "已发送"
 
-msgid "Send invitation to recipients"
-msgstr ""
-
 msgid "Save"
 msgstr "保存"
 
-msgid "Save & Close"
-msgstr ""
-
-msgid "Save appointment and close dialog"
-msgstr ""
-
-msgid "Save without sending an invitation to recipients"
+msgid "Close"
 msgstr ""
 
 msgid "Delete"
 msgstr "删除"
 
-msgid "Delete this appointment"
-msgstr ""
-
 msgid "Add attachment"
 msgstr "添加附件"
-
-# 81%
-# 77%
-#, fuzzy
-msgid "Add attachments to this appointment"
-msgstr "添加附件到任务"
-
-msgid "Cannot add attachment"
-msgstr ""
-
-msgid "Print this appointment"
-msgstr ""
 
 msgid "Check names"
 msgstr "检查名字"
 
-msgid "Check all recipient names"
-msgstr "检查所有收件人名字"
-
-msgid "Open the recurrence dialog"
-msgstr "打开循环对话框"
-
 msgid "Invite attendees"
 msgstr ""
 
-msgid "Invite attendees for this appointment"
-msgstr ""
-
 msgid "Cancel invitation"
-msgstr ""
-
-msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
 
 msgid "High priority"
@@ -1184,9 +1145,6 @@ msgstr "内部的"
 #, fuzzy
 msgid "Mark this appointment as private"
 msgstr "标记这项任务为完成"
-
-msgid "Save meeting request and close dialog"
-msgstr ""
 
 msgid "Proposed Date and Time"
 msgstr ""
@@ -1233,21 +1191,21 @@ msgid "Send Meeting Request Confirmation"
 msgstr ""
 
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
 
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 
-msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
-msgstr ""
-
-msgid "Edit the response before Sending."
+msgid "Edit the response before sending"
 msgstr ""
 
 msgid "Send the response now."
@@ -1785,9 +1743,6 @@ msgid "Import error"
 msgstr "重要的"
 
 msgid "Unable to import {0}. The file is not valid"
-msgstr ""
-
-msgid "Close"
 msgstr ""
 
 msgid "Cc"
@@ -2918,16 +2873,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "无"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "标记为未读"
 
-msgid "Mark Read"
-msgstr "标记为已读"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "标记为未读"
 
 msgid "in"
@@ -3186,56 +3140,29 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-msgid "Save contact and close dialog"
-msgstr ""
-
-msgid "Delete contact"
-msgstr ""
-
-msgid "Delete this contact."
-msgstr ""
-
 msgid "Add Attachment"
 msgstr "添加附件"
 
 # 81%
 #, fuzzy
-msgid "Add attachments to this contact."
+msgid "Add attachments to this contact"
 msgstr "添加附件到任务"
-
-msgid "Print this contact"
-msgstr ""
-
-msgid "Open the categories dialog."
-msgstr ""
 
 # 76%
 # 79%
 # 100%
 #, fuzzy
-msgid "Mark this contact as private."
+msgid "Mark this contact as private"
 msgstr "标记这项任务为完成"
 
 msgid "Distribution List"
 msgstr ""
 
-msgid "Save distribution list and close dialog"
-msgstr ""
-
-msgid "Delete Distributionlist"
-msgstr ""
-
-msgid "Delete the Distribution list."
-msgstr ""
-
-msgid "Print distribution list"
-msgstr ""
-
-msgid "Print this distribution list."
-msgstr ""
-
-msgid "Mark this Distribution list as private."
-msgstr ""
+# 76%
+# 100%
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "标记这项任务为完成"
 
 msgid "New email address"
 msgstr ""
@@ -3295,9 +3222,6 @@ msgid "Export as"
 msgstr ""
 
 msgid "Sort by: Full Name"
-msgstr ""
-
-msgid "Sort by: Email Address 1"
 msgstr ""
 
 msgid "Sort by: Email Address 2"
@@ -3430,6 +3354,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4031,24 +3958,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr ""
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr ""
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "删除这个项目"
 
 # 86%
 #, fuzzy
@@ -4056,9 +3970,6 @@ msgid "Add attachments to this email"
 msgstr "添加附件到任务"
 
 msgid "Add signature"
-msgstr ""
-
-msgid "Add signature to this mail"
 msgstr ""
 
 msgid "Options"
@@ -4085,24 +3996,13 @@ msgstr ""
 msgid "Request read receipt from recipients"
 msgstr ""
 
-msgid "Show bcc"
-msgstr ""
-
 msgid "Show Bcc"
 msgstr ""
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
+msgid "Show Bcc field"
 msgstr ""
 
-msgid "Show From"
-msgstr ""
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
+msgid "Show From field"
 msgstr ""
 
 msgid "No signatures configured"
@@ -4132,11 +4032,17 @@ msgstr ""
 msgid "no subject"
 msgstr ""
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "设置类别"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "标记为已读"
+
+msgid "Mark Unread"
+msgstr "标记为未读"
 
 msgid "New mail"
 msgstr ""
@@ -4156,17 +4062,12 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr ""
 
-msgid "Email message"
-msgstr ""
-
-msgid "Send E-mail"
-msgstr ""
-
-msgid "Create a new email message addressed to this recipient."
-msgstr ""
-
 msgid "Print single e-mail"
 msgstr ""
+
+#, fuzzy
+msgid "Print selected email"
+msgstr "给选中文字加下划线"
 
 msgid "Filter"
 msgstr ""
@@ -4364,25 +4265,9 @@ msgstr "已发送"
 msgid "Loading mail"
 msgstr ""
 
-msgid "Save Note"
-msgstr "保存便签"
-
-# 88%
 #, fuzzy
-msgid "Save note"
-msgstr "保存便签"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
-# 100%
-#, fuzzy
-msgid "Delete this note"
-msgstr "删除这个项目"
-
-msgid "Print this note"
-msgstr ""
+msgid "Print note"
+msgstr "给选中文字加下划线"
 
 msgid "Color"
 msgstr "颜色"
@@ -4675,8 +4560,8 @@ msgid "Declining Task"
 msgstr ""
 
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 
 msgid ""
@@ -4729,25 +4614,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "发送任务到受托人"
 
-msgid "Send assignment"
-msgstr "发送任务"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "发送任务到受托人"
-
-msgid "Save task"
-msgstr "保存任务"
-
-msgid "Save task and close dialog"
-msgstr ""
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "恢复项目"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -4771,14 +4640,8 @@ msgstr ""
 msgid "Assign Task"
 msgstr "分配任务"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "取消分配的任务"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 76%
 # 100%

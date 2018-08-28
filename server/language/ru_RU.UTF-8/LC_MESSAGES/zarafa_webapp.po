@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1126,67 +1126,31 @@ msgstr "D j F Y H:i"
 msgid "None"
 msgstr "Нет"
 
-msgid "Send invitation"
-msgstr "Отправить приглашение"
-
 # 75%
 # 100%
 msgid "Send"
 msgstr "Отправить"
 
-msgid "Send invitation to recipients"
-msgstr "Послать приглашение получателям"
-
 msgid "Save"
 msgstr "Сохранить"
 
-msgid "Save & Close"
-msgstr "Сохранить и закрыть"
-
-msgid "Save appointment and close dialog"
-msgstr "Сохранить встречу и закрыть окно"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Сохранить, не посылая приглашение получателям"
+msgid "Close"
+msgstr "Закрыть"
 
 msgid "Delete"
 msgstr "Удалить"
 
-msgid "Delete this appointment"
-msgstr "Удалить эту встречу"
-
 msgid "Add attachment"
 msgstr "Вложить файлы"
-
-msgid "Add attachments to this appointment"
-msgstr "Добавить вложения к этой встрече"
-
-msgid "Cannot add attachment"
-msgstr "Не удалось добавить вложение"
-
-msgid "Print this appointment"
-msgstr "Распечатать эту встречу"
 
 msgid "Check names"
 msgstr "Проверить имена"
 
-msgid "Check all recipient names"
-msgstr "Проверить имена всех получателей"
-
-msgid "Open the recurrence dialog"
-msgstr "Откроет диалог повторения"
-
 msgid "Invite attendees"
 msgstr "Пригласить участников"
 
-msgid "Invite attendees for this appointment"
-msgstr "Пригласить участников на эту встречу"
-
 msgid "Cancel invitation"
 msgstr "Отменить приглашение"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "Высокий приоритет"
@@ -1211,13 +1175,6 @@ msgstr "Частное"
 
 msgid "Mark this appointment as private"
 msgstr "Отметит эту встречу как «Частная»"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "Сохранить задачу и закрыть окно"
 
 msgid "Proposed Date and Time"
 msgstr "Предложены дата и время"
@@ -1265,28 +1222,32 @@ msgstr "Сейчас же отправить аннулирование."
 msgid "Send Meeting Request Confirmation"
 msgstr "Отправить согласие на приглашение"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Это собрание было принято и будет перемещено в ваш календарь. Хотите "
 "добавить комментарий к вашему ответу?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Это собрание было предварительно принято и будет перемещено в ваш календарь. "
 "Хотите добавить комментарий к вашему ответу?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Это собрание было отклонено и будет перемещено в каталог удаленных "
 "элементов. Хотите добавить комментарий к вашему ответу?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Редактировать ответ до отправки."
 
 msgid "Send the response now."
@@ -1877,9 +1838,6 @@ msgstr "Важно"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Закрыть"
 
 msgid "Cc"
 msgstr "Копия"
@@ -3059,16 +3017,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Нет"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "Пометить как непрочитанные"
 
-msgid "Mark Read"
-msgstr "Пометить как прочитанные"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Пометить как непрочитанные"
 
 msgid "in"
@@ -3340,54 +3297,23 @@ msgstr "Местный номер"
 msgid "Extension"
 msgstr "Расширение"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "Сохранить контакт и закрыть окно"
-
-msgid "Delete contact"
-msgstr "Удалить контакт"
-
-msgid "Delete this contact."
-msgstr "Удалить этот контакт."
-
 msgid "Add Attachment"
 msgstr "Вложить файлы"
 
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Вложить файлы в этот контакт."
 
-msgid "Print this contact"
-msgstr "Печать этого контакта"
-
-msgid "Open the categories dialog."
-msgstr "Открыть диалог категорий."
-
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Отметить этот контакт как «Частный»."
 
 # 94%
 msgid "Distribution List"
 msgstr "Список рассылки"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "Сохранить список рассылки и закрыть окно"
-
-msgid "Delete Distributionlist"
-msgstr "Удалить список рассылки"
-
-msgid "Delete the Distribution list."
-msgstr "Удалить этот список рассылки."
-
-# 75%
-msgid "Print distribution list"
-msgstr "Печать списка рассылки"
-
-# 79%
-msgid "Print this distribution list."
-msgstr "Печать этого списка рассылки."
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Отметить этот список рассылки как «Частный»."
 
 #, fuzzy
@@ -3458,9 +3384,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Сортировать по полному имени"
-
-msgid "Sort by: Email Address 1"
-msgstr "Сортировать по адресу эл. почты"
 
 msgid "Sort by: Email Address 2"
 msgstr "Сортировать по адресу эл. почты 2"
@@ -3594,6 +3517,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4226,33 +4152,17 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Отправит письмо получателям"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "Сохранить письмо"
-
-# 76%
-# 100%
-# 94%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Удалить это письмо."
 
 msgid "Add attachments to this email"
 msgstr "Вложить файлы в это письмо"
 
 msgid "Add signature"
 msgstr "Добавить подпись"
-
-msgid "Add signature to this mail"
-msgstr "Добавит подпись к этому письму"
 
 msgid "Options"
 msgstr "Свойства"
@@ -4278,27 +4188,16 @@ msgstr "Уведомить о прочтении"
 msgid "Request read receipt from recipients"
 msgstr "Запрос о прочтении данного сообщения"
 
-msgid "Show bcc"
-msgstr "Показать СК"
-
 msgid "Show Bcc"
 msgstr "Показать СК"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "Показать поле СК, где можно указать тех, кто получит это сообщение"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Показать СК"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Показать поле «Откуда»"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Если у вс имеется доступ к другой учётной записи, то вы можете отправить "
-"письмо от его имени, указав его в поле \"От\"."
 
 msgid "No signatures configured"
 msgstr "Подписи не настроены"
@@ -4327,11 +4226,17 @@ msgstr "Запрос о прочтении данного сообщения."
 msgid "no subject"
 msgstr "без темы"
 
-msgid "Delete mail"
-msgstr "Удалить письмо"
-
 msgid "Set Category"
 msgstr "Указать категорию"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "Пометить как прочитанные"
+
+msgid "Mark Unread"
+msgstr "Пометить как непрочитанные"
 
 # 87%
 # 100%
@@ -4357,19 +4262,13 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Открыть общую почту"
 
-msgid "Email message"
-msgstr "Сообщение эл. почты"
-
-# 90%
-msgid "Send E-mail"
-msgstr "Отправить письмо"
-
-# 87%
-msgid "Create a new email message addressed to this recipient."
-msgstr "Создать сообщение, адресованное этому контакту."
-
 msgid "Print single e-mail"
 msgstr "Печать одного письма"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Печать выбранного элемента"
 
 msgid "Filter"
 msgstr ""
@@ -4577,23 +4476,8 @@ msgstr "Отправить"
 msgid "Loading mail"
 msgstr "Загрузка почты"
 
-msgid "Save Note"
-msgstr "Сохранить заметку"
-
-# 88%
-msgid "Save note"
-msgstr "Сохранить заметку"
-
-msgid "Delete Note"
-msgstr "Удалить заметку"
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "Удалить этот элемент"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "Распечатать эту заметку"
 
 msgid "Color"
@@ -4909,8 +4793,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Это собрание было принято и будет перемещено в ваш календарь. Хотите "
 "добавить комментарий к вашему ответу?"
@@ -4967,28 +4851,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Отправить задачу для назначения"
 
-msgid "Send assignment"
-msgstr "Отправить назначение"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Сохранить, не посылая приглашение получателям"
-
-msgid "Save task"
-msgstr "Сохранить задачу"
-
-# 85%
-# 82%
-# 100%
-msgid "Save task and close dialog"
-msgstr "Сохранить задачу и закрыть окно"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Настройки по умолчанию"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 76%
 # 100%
@@ -5014,14 +4879,8 @@ msgstr "Распечатать это письмо"
 msgid "Assign Task"
 msgstr "Назначить задачу"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Отменить назначение"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 79%
 # 100%

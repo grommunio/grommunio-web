@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1130,68 +1130,30 @@ msgstr "l jS F Y G:i"
 msgid "None"
 msgstr "Nada"
 
-msgid "Send invitation"
-msgstr "Enviar invitación"
-
 # 75%
 msgid "Send"
 msgstr "Enviar"
 
-msgid "Send invitation to recipients"
-msgstr "Enviar invitación a los destinatarios"
-
 msgid "Save"
 msgstr "Guardar"
 
-msgid "Save & Close"
-msgstr "Guardar y cerrar"
-
-msgid "Save appointment and close dialog"
-msgstr "Guardar cita y cerrar el diálogo"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Guardar sin enviar invitación a los destinatarios"
+msgid "Close"
+msgstr "Cerrar"
 
 msgid "Delete"
 msgstr "Eliminar"
 
-msgid "Delete this appointment"
-msgstr "Borrar esta cita"
-
 msgid "Add attachment"
 msgstr "Añadir adjunto"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Añadir adjuntos a esta cita"
-
-msgid "Cannot add attachment"
-msgstr "No es posible agregar adjunto(s)"
-
-msgid "Print this appointment"
-msgstr "Imprimir esta cita"
 
 msgid "Check names"
 msgstr "Comprobar nombres"
 
-msgid "Check all recipient names"
-msgstr "Comprobar los nombres de todos los destinatarios"
-
-msgid "Open the recurrence dialog"
-msgstr "Abrir el diálogo de repetición"
-
 msgid "Invite attendees"
 msgstr "Invitar asistentes"
 
-msgid "Invite attendees for this appointment"
-msgstr "Invitar asistentes a esta cita"
-
 msgid "Cancel invitation"
 msgstr "Cancelar invitación"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "Prioridad alta"
@@ -1218,13 +1180,6 @@ msgstr "Privado"
 
 msgid "Mark this appointment as private"
 msgstr "Marcar esta cita como privada"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "Guardar tarea y cerrar cuadro de diálogo"
 
 msgid "Proposed Date and Time"
 msgstr "Propuesta de fecha y hora"
@@ -1272,28 +1227,32 @@ msgstr "Enviar la cancelación ahora."
 msgid "Send Meeting Request Confirmation"
 msgstr "Enviar confirmación solicitud de reunión"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Esta reunión ha sido aceptada y será trasladada a su calendario. ¿Quiere "
 "incluir comentarios con su respuesta?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Esta reunión ha sido aceptada provisionalmente y será trasladada a su "
 "calendario. ¿Quiere incluir comentarios con su respuesta?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. "
 "¿Quiere incluir comentarios con su respuesta?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Editar respuesta antes de ser enviada."
 
 msgid "Send the response now."
@@ -1887,9 +1846,6 @@ msgstr "Importante"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Cerrar"
 
 msgid "Cc"
 msgstr "Cc"
@@ -3117,16 +3073,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nada"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "Marcar como no Leído"
 
-msgid "Mark Read"
-msgstr "Marcar como leído"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Marcar como no Leído"
 
 msgid "in"
@@ -3410,57 +3365,25 @@ msgstr "Número local"
 msgid "Extension"
 msgstr "Extensión"
 
-# 85%
-#, fuzzy
-msgid "Save contact and close dialog"
-msgstr "Guardar Contacto y cerrar cuadro de diálogo"
-
-msgid "Delete contact"
-msgstr "Borrar contacto"
-
-msgid "Delete this contact."
-msgstr "Borrar este contacto."
-
 msgid "Add Attachment"
 msgstr "Añadir adjunto"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Añadir adjuntos a esta tarea"
 
-msgid "Print this contact"
-msgstr "Imprimir este contacto."
-
-# 96%
-msgid "Open the categories dialog."
-msgstr "Abrir el diálogo de categorías."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Marcar esta cita como privada."
 
 # 94%
 msgid "Distribution List"
 msgstr "Lista de distribución"
 
-# 86%
 #, fuzzy
-msgid "Save distribution list and close dialog"
-msgstr "Guardar Lista de Distribución y cerrar cuadro de diálogo"
-
-msgid "Delete Distributionlist"
-msgstr "Borrar Lista de Distribución"
-
-msgid "Delete the Distribution list."
-msgstr "Borrar la Lista de Distribución."
-
-msgid "Print distribution list"
-msgstr "Imprimir lista de Distribución"
-
-msgid "Print this distribution list."
-msgstr "Imprimir esta lista de distribución."
-
-msgid "Mark this Distribution list as private."
+msgid "Mark this Distribution list as private"
 msgstr "Marcar esta lista de distribución como privada."
 
 #, fuzzy
@@ -3531,9 +3454,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nombre Completo"
-
-msgid "Sort by: Email Address 1"
-msgstr "Ordenar por: Correo Electrónico 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Ordenar por: Correo Electrónico 2"
@@ -3674,6 +3594,9 @@ msgid "Remove Picture"
 msgstr "Remover Imagen"
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4321,24 +4244,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Enviar Correo Electrónico a los destinatarios"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "Guardar Correo Electrónico"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Borrar este Correo Electrónico"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4346,9 +4256,6 @@ msgstr "Añadir adjuntos a este Correo Electrónico"
 
 msgid "Add signature"
 msgstr "Añadir Firma"
-
-msgid "Add signature to this mail"
-msgstr "Añadir Firma a este Correo Electrónico"
 
 # 75%
 msgid "Options"
@@ -4375,30 +4282,16 @@ msgstr "Configurar confirmación de lectura"
 msgid "Request read receipt from recipients"
 msgstr "Solicitar confirmación de lectura de los destinatarios"
 
-msgid "Show bcc"
-msgstr "Mostrar cco"
-
 msgid "Show Bcc"
 msgstr "Mostrar Cco"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"Mostrar el campo Cco en la que puede especificar las personas que van a "
-"recibir este mensaje"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Mostrar Cco"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Mostrar De"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Mostrar campo De, Si usted tiene acceso delegado a la cuenta de otra "
-"persona, usted puede enviar un mail y este será recibido como si fuese "
-"enviado desde la cuenta delegada, introduciendo su nombre en el campo De"
 
 msgid "No signatures configured"
 msgstr "Firmas no configuradas"
@@ -4427,11 +4320,17 @@ msgstr "Solicitar confirmación de lectura para este mensaje"
 msgid "no subject"
 msgstr "Sin asunto"
 
-msgid "Delete mail"
-msgstr "Borrar correo electrónico"
-
 msgid "Set Category"
 msgstr "Establecer categoría"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "Marcar como leído"
+
+msgid "Mark Unread"
+msgstr "Marcar como no Leído"
 
 # 87%
 # 100%
@@ -4458,17 +4357,13 @@ msgstr "Cambiar bandera rojo/completo"
 msgid "Open Shared Mails"
 msgstr "Abrir correos compartidos"
 
-msgid "Email message"
-msgstr "Mensaje de correo electrónico"
-
-msgid "Send E-mail"
-msgstr "Enviar correo electrónico"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Crear un nuevo mensaje de correo electrónico para este destinatario."
-
 msgid "Print single e-mail"
 msgstr "Imprimir solo este correo electrónico"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Imprimir tareas seleccionadas"
 
 msgid "Filter"
 msgstr ""
@@ -4676,22 +4571,8 @@ msgstr "Enviar"
 msgid "Loading mail"
 msgstr "Cargando correo"
 
-msgid "Save Note"
-msgstr "Guardar nota"
-
-# 88%
-msgid "Save note"
-msgstr "Guardar nota"
-
-msgid "Delete Note"
-msgstr "Borrar Nota"
-
-# 81%
-# 100%
-msgid "Delete this note"
-msgstr "Borrar esta nota"
-
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "Imprimir esta nota"
 
 msgid "Color"
@@ -5016,8 +4897,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Esta reunión ha sido aceptada y será trasladada a su calendario. ¿Quiere "
 "incluir comentarios con su respuesta?"
@@ -5073,28 +4954,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Enviar la tarea al asignado"
 
-msgid "Send assignment"
-msgstr "Enviar la asignación"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Guardar sin enviar invitación a los destinatarios"
-
-msgid "Save task"
-msgstr "Guardar la tarea"
-
-# 85%
-# 82%
-# 100%
-msgid "Save task and close dialog"
-msgstr "Guardar tarea y cerrar cuadro de diálogo"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Restaurar a valores por defecto"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -5119,14 +4981,8 @@ msgstr "Imprimir esta tarea"
 msgid "Assign Task"
 msgstr "Asignar Tarea"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Cancelar Asignación"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 75%
 # 79%

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1116,67 +1116,31 @@ msgstr "j. F Y G:i"
 msgid "None"
 msgstr "Žádný"
 
-msgid "Send invitation"
-msgstr "Odeslat pozvánku"
-
 # 75%
 msgid "Send"
 msgstr "Odeslat"
-
-msgid "Send invitation to recipients"
-msgstr "Odeslat pozvánky příjemcům"
 
 # 80%
 msgid "Save"
 msgstr "Uložit"
 
-msgid "Save & Close"
-msgstr "Uložit & Zavřít"
-
-msgid "Save appointment and close dialog"
-msgstr "Uložit termín a zavřít okno"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Uložit bez odeslání pozvánek příjemcům"
+msgid "Close"
+msgstr "Zavřít"
 
 msgid "Delete"
 msgstr "Smazat"
 
-msgid "Delete this appointment"
-msgstr "Odstranit tento termín"
-
 msgid "Add attachment"
 msgstr "Přidat přílohu"
-
-msgid "Add attachments to this appointment"
-msgstr "Přidat přílohu k tomto termínu"
-
-msgid "Cannot add attachment"
-msgstr "Nelze připojit přílohu"
-
-msgid "Print this appointment"
-msgstr "Tisknout termín"
 
 msgid "Check names"
 msgstr "Ověřit jména"
 
-msgid "Check all recipient names"
-msgstr "Ověřit jména všech příjemců"
-
-msgid "Open the recurrence dialog"
-msgstr "Otevřít volby opakování"
-
 msgid "Invite attendees"
 msgstr "Pozvat účastníci"
 
-msgid "Invite attendees for this appointment"
-msgstr "Pozvat účastníky"
-
 msgid "Cancel invitation"
 msgstr "Zrušit pozvánky"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr "Změnit tuto žádost o schůzku na termín odebráním účastníků"
 
 msgid "High priority"
 msgstr "Vysoká priorita"
@@ -1203,13 +1167,6 @@ msgstr "Soukromé"
 
 msgid "Mark this appointment as private"
 msgstr "Označit tuto schůzku jako soukromou"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "Uložit žádost o schůzku a zavřít dialog"
 
 msgid "Proposed Date and Time"
 msgstr "Navrhované datum a čas"
@@ -1255,28 +1212,32 @@ msgstr "Odeslat zrušení nyní."
 msgid "Send Meeting Request Confirmation"
 msgstr "Poslat potvrzení žádosti o schůzku"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Tato schůzka byla přijata a bude přesunuta do vašeho kalendáře. Přejete si "
 "připojit komentář k vaší odpovědí?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Tato schůzka byla předběžně přijata a bude přesunuta do vašeho kalendáře. "
 "Přejete si připojit komentář k vaší odpovedí?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Tato schůzka byla zrušena a bude přesunuta do složky odstraněné položky. "
 "Přejete si připojit komentář k vaší odpovědí?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Upravit odpověď před odesláním."
 
 msgid "Send the response now."
@@ -1851,9 +1812,6 @@ msgstr "Důležitý"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Zavřít"
 
 # 100%
 msgid "Cc"
@@ -3052,16 +3010,16 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Žádný"
 
-msgid "Open in new browser window"
-msgstr "Otevřit v novém okně prohlížeče"
-
-msgid "Pop-Out"
+#, fuzzy
+msgid "Pop-out"
 msgstr "Pop-out"
 
-msgid "Mark Read"
-msgstr "Označit jako přečtené"
+#, fuzzy
+msgid "Mark as read"
+msgstr "Označit jako nepřečtené"
 
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Označit jako nepřečtené"
 
 msgid "in"
@@ -3333,53 +3291,24 @@ msgstr "Místní číslo"
 msgid "Extension"
 msgstr "Linka"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "Uložit tento kontakt a zavřít okno"
-
-msgid "Delete contact"
-msgstr "Odstranit kontakt"
-
-msgid "Delete this contact."
-msgstr "Odstranit tento kontakt."
-
 msgid "Add Attachment"
 msgstr "Přidat Přílohu"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Přidat přílohy k tomuto kontaktu."
 
-msgid "Print this contact"
-msgstr "Tisknout tento kontakt"
-
-msgid "Open the categories dialog."
-msgstr "Otevřít okno kategorií."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Označit tento kontakt jako soukromý."
 
 msgid "Distribution List"
 msgstr "Distribuční seznam"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "Uložit tento distribuční seznam a zavřít okno"
-
-msgid "Delete Distributionlist"
-msgstr "Odstranit distribuční seznam"
-
-msgid "Delete the Distribution list."
-msgstr "Odstranit distribuční seznam."
-
-msgid "Print distribution list"
-msgstr "Tisk distribučního seznamu"
-
-msgid "Print this distribution list."
-msgstr "Tisknout tento distribuční seznam."
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Označit tento Distribuční seznam jako soukromý."
 
 #, fuzzy
@@ -3447,9 +3376,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Třídit podle: Celé jméno"
-
-msgid "Sort by: Email Address 1"
-msgstr "Třídit podle: E-mailová adresa 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Třídit podle: E-mailová adresa 2"
@@ -3584,6 +3510,9 @@ msgstr "Odstranit obrázek"
 
 msgid "VCF file(s)"
 msgstr ""
+
+msgid "Open in new browser window"
+msgstr "Otevřit v novém okně prohlížeče"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -4210,24 +4139,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Odeslat zprávu příjemcům"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "Uložit zprávu"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Smazat tuto položku."
 
 # 86%
 msgid "Add attachments to this email"
@@ -4235,9 +4151,6 @@ msgstr "Přidat přílohy k této zprávě"
 
 msgid "Add signature"
 msgstr "Přidat podpis"
-
-msgid "Add signature to this mail"
-msgstr "Přidat podpis k této zprávě"
 
 # 75%
 msgid "Options"
@@ -4264,30 +4177,16 @@ msgstr "Nastavit potvrzení o přečtení"
 msgid "Request read receipt from recipients"
 msgstr "Žádat potvrzení o přečtení od příjemců"
 
-msgid "Show bcc"
-msgstr "Ukázat skryté kopie"
-
 msgid "Show Bcc"
 msgstr "Ukázat Skryté kopie"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr ""
-"Ukázat pole Skryté kopie, v němž lze specifikovat budoucí příjemce této "
-"zprávy"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Ukázat Skryté kopie"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Ukázat Od koho"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Zobrazit pole Od. Pokud máte povolen přístup k účtu jiných osob, můžete "
-"poslat e-mail, který vypadá, jako by přišel od nich, tak, že uvedete jejich "
-"jméno do pole Od"
 
 msgid "No signatures configured"
 msgstr "Nejsou nastaveny podpisy"
@@ -4316,11 +4215,17 @@ msgstr "Požadavek potvrzení o přečtení pro tuto zprávu."
 msgid "no subject"
 msgstr "žádný předmět"
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "Nastavit Kategorii"
+
+msgid "Pop-Out"
+msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Označit jako přečtené"
+
+msgid "Mark Unread"
+msgstr "Označit jako nepřečtené"
 
 # 87%
 # 100%
@@ -4347,17 +4252,13 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Otevřít sdílenou poštu"
 
-msgid "Email message"
-msgstr "E-mailová zpráva"
-
-msgid "Send E-mail"
-msgstr "Odeslat E-mail"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Vytvořit novou zprávu adresovanou tomuto příjemci."
-
 msgid "Print single e-mail"
 msgstr "Tisknout jedinou zprávu"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Tisknout vybrané položky"
 
 #, fuzzy
 msgid "Filter"
@@ -4566,22 +4467,8 @@ msgstr "Odeslat"
 msgid "Loading mail"
 msgstr "Načítání pošty"
 
-msgid "Save Note"
-msgstr "Uložit Poznámku"
-
-msgid "Save note"
-msgstr "Uložit poznámku"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "Smazat tuto položku"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "Vytisknout tuto poznámku"
 
 msgid "Color"
@@ -4886,8 +4773,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Tato schůzka byla přijata a bude přesunuta do vašeho kalendáře. Přejete si "
 "připojit komentář k vaší odpovědí?"
@@ -4943,29 +4830,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Odeslat úkol pověřené osobě"
 
-msgid "Send assignment"
-msgstr "Odeslat pověření"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Uložit bez odeslání pozvánek příjemcům"
-
-msgid "Save task"
-msgstr "Uložit úkol"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "Uložit tento kontakt a zavřít dialogové okno"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Nastavit výchozí"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -4992,15 +4859,8 @@ msgstr "Tisknout tuto zprávu"
 msgid "Assign Task"
 msgstr "Přidělit úkol"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Zrušit přidělení"
-
-#, fuzzy
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr "Změnit tuto žádost o schůzku na termín odebráním účastníků"
 
 # 75%
 # 79%

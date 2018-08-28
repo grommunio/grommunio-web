@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2017-01-11 15:00+0000\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1134,68 +1134,30 @@ msgstr "j F Y G:i"
 msgid "None"
 msgstr "Yok"
 
-msgid "Send invitation"
-msgstr "Davet gönder"
-
 msgid "Send"
 msgstr "Gönder"
-
-msgid "Send invitation to recipients"
-msgstr "Alıcılara davetiye gönder"
 
 # 80%
 msgid "Save"
 msgstr "Kaydet"
 
-msgid "Save & Close"
-msgstr "Kaydet ve Kapat"
-
-msgid "Save appointment and close dialog"
-msgstr "Randevu kaydet ve kapat"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Davetiye göndermeden kaydet"
+msgid "Close"
+msgstr "Kapat"
 
 msgid "Delete"
 msgstr "Sil"
 
-msgid "Delete this appointment"
-msgstr "Randevuyu sil"
-
 msgid "Add attachment"
 msgstr "Eklenti ekle"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Bu randevuya eklentiler ekleyin"
-
-msgid "Cannot add attachment"
-msgstr "ek eklenemiyor"
-
-msgid "Print this appointment"
-msgstr "Bu randevuyu yazdır"
 
 msgid "Check names"
 msgstr "Adı kontrol et"
 
-msgid "Check all recipient names"
-msgstr "Butun alıcı adlarını kontrol et"
-
-msgid "Open the recurrence dialog"
-msgstr "Tekrarlama dialogunu aç"
-
 msgid "Invite attendees"
 msgstr "Katıllimcılar davet et"
 
-msgid "Invite attendees for this appointment"
-msgstr "Bu randevu için katılımcı davet et"
-
 msgid "Cancel invitation"
 msgstr "Davetiyeyi iptal et"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr "katılımcıları silerek toplantı isteğini randevuya çevir"
 
 msgid "High priority"
 msgstr "Yüksek öncelik"
@@ -1223,12 +1185,6 @@ msgstr "Özel"
 
 msgid "Mark this appointment as private"
 msgstr "Bu randevuyu özel olarak işaretle"
-
-# 85%
-# 82%
-# 100%
-msgid "Save meeting request and close dialog"
-msgstr "Toplantı isteğini kaydet ve pencereyi kapat"
 
 msgid "Proposed Date and Time"
 msgstr "Önerilen Tarih ve Saat"
@@ -1276,28 +1232,32 @@ msgstr "İptali şimdi gönder."
 msgid "Send Meeting Request Confirmation"
 msgstr "Toplantı isteği onayı gönder"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Davetiye kabul edilmiştir ve takvimine geçiriliyor. Yanıta yorum eklemek "
 "istiyor musunuz?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Bu toplantı geçici olarak kabul edilmiştir ve takvime geçiriliyor. Yanıta "
 "yorum eklemek istiyor musunuz?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Bu toplantı reddetilmiştir ve silinmiş öğelere geçiriliyor. Yanıta yorum "
 "eklemek istiyor musunuz?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Yanıtı göndermeden düzenle"
 
 msgid "Send the response now."
@@ -1880,9 +1840,6 @@ msgstr "Önemli"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Kapat"
 
 msgid "Cc"
 msgstr "Cc"
@@ -3086,16 +3043,16 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Hiç"
 
-msgid "Open in new browser window"
-msgstr "Yeni tarayıcı penceresinde aç"
-
-msgid "Pop-Out"
+#, fuzzy
+msgid "Pop-out"
 msgstr "açılır pencere"
 
-msgid "Mark Read"
-msgstr "Okunmuş İşaretle"
+#, fuzzy
+msgid "Mark as read"
+msgstr "Okunmamış İşaretle"
 
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Okunmamış İşaretle"
 
 msgid "in"
@@ -3374,54 +3331,25 @@ msgstr "Yerel numara"
 msgid "Extension"
 msgstr "Uzantı"
 
-# 85%
-msgid "Save contact and close dialog"
-msgstr "Kişiyi kaydet ve pencereyi kapat"
-
-msgid "Delete contact"
-msgstr "Kişiyi sil"
-
-msgid "Delete this contact."
-msgstr "Bu kişiyi sil."
-
 msgid "Add Attachment"
 msgstr "Eklenti ekle"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Bu kişiye eklentiler ekleyin"
 
-msgid "Print this contact"
-msgstr "Bu kişiyi yazdır"
-
-msgid "Open the categories dialog."
-msgstr "Kategoriler iletişimi açın."
-
 # 75%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Bu kişiyi özel olarak işaretle."
 
 # 94%
 msgid "Distribution List"
 msgstr "Dağıtım listesi"
 
-# 86%
-msgid "Save distribution list and close dialog"
-msgstr "Dağıtım listesini kaydet ve pencereyi kapat"
-
-msgid "Delete Distributionlist"
-msgstr "Dağıtım listesini sil"
-
-msgid "Delete the Distribution list."
-msgstr "Bu dağıtım listesini sil"
-
-msgid "Print distribution list"
-msgstr "Dağıtım listesini yazdır"
-
-msgid "Print this distribution list."
-msgstr "Bu dağıtım listesini yazdır"
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Bu dağıtım listesini özel olarak işaretle"
 
 #, fuzzy
@@ -3491,10 +3419,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Sıralama: Ad"
-
-# 91%
-msgid "Sort by: Email Address 1"
-msgstr "Sıralama: E-posta 1"
 
 # 91%
 msgid "Sort by: Email Address 2"
@@ -3639,6 +3563,9 @@ msgstr "resmi kaldır"
 
 msgid "VCF file(s)"
 msgstr ""
+
+msgid "Open in new browser window"
+msgstr "Yeni tarayıcı penceresinde aç"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -4274,24 +4201,11 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "Alıcılara e-posta gönder"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "E-posta kaydet"
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Bu e-posta'yı sil"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4299,9 +4213,6 @@ msgstr "Bu e-postaya eklentiler ekleyin"
 
 msgid "Add signature"
 msgstr "Imza ekle"
-
-msgid "Add signature to this mail"
-msgstr "Mesaja imza ekle"
 
 # 75%
 msgid "Options"
@@ -4328,28 +4239,16 @@ msgstr "Okundu bilgi isteme"
 msgid "Request read receipt from recipients"
 msgstr "Alıcılardan okundu isteyi isteyin"
 
-msgid "Show bcc"
-msgstr "Bcc göster"
-
 msgid "Show Bcc"
 msgstr "Bcc göster"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "Bu mesajı alacak insanları belirtebileceğiniz gizli alanını göster"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Bcc göster"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Gönderen göster"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Gönderen göster. Eğer başka bir kişinin hesabına temsilci erişiminiz varsa, "
-"onun adına e-posta gönderebilirsin. O kişinin adını Gönderen alanında "
-"seçeceksin."
 
 msgid "No signatures configured"
 msgstr "Yapılandırılmış imzalar yok"
@@ -4378,11 +4277,17 @@ msgstr "Bu ileti için okundu bilgisi istemek."
 msgid "no subject"
 msgstr "konu yok"
 
-msgid "Delete mail"
-msgstr "e-posta'yı sil"
-
 msgid "Set Category"
 msgstr "Kategori ayarla"
+
+msgid "Pop-Out"
+msgstr "açılır pencere"
+
+msgid "Mark Read"
+msgstr "Okunmuş İşaretle"
+
+msgid "Mark Unread"
+msgstr "Okunmamış İşaretle"
 
 # 87%
 # 100%
@@ -4407,19 +4312,13 @@ msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
 msgid "Open Shared Mails"
 msgstr "Paylastığım mesajları aç"
 
-msgid "Email message"
-msgstr "E-posta mesajı"
-
-# 90%
-msgid "Send E-mail"
-msgstr "E-posta gönder"
-
-# 87%
-msgid "Create a new email message addressed to this recipient."
-msgstr "Bu kişiye hitaben yeni bir e-posta mesajı oluşturun."
-
 msgid "Print single e-mail"
 msgstr "Tek bir e-posta yazdır"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Seçili öğeyi yazdır"
 
 #, fuzzy
 msgid "Filter"
@@ -4626,21 +4525,8 @@ msgstr "Gönder"
 msgid "Loading mail"
 msgstr "Mesaj yükleniyor"
 
-msgid "Save Note"
-msgstr "Notu kaydet"
-
-msgid "Save note"
-msgstr "Notu kaydet"
-
-msgid "Delete Note"
-msgstr "notu sil"
-
-# 81%
-# 100%
-msgid "Delete this note"
-msgstr "Bu notu sil"
-
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "Bu notu yazdır"
 
 msgid "Color"
@@ -4953,8 +4839,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Davetiye kabul edilmiştir ve takvimine geçiriliyor. Yanıta yorum eklemek "
 "istiyor musunuz?"
@@ -5013,28 +4899,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "Görevi ataya gönder"
 
-msgid "Send assignment"
-msgstr "Görev isteği gönder"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "Davetiye göndermeden kaydet"
-
-msgid "Save task"
-msgstr "Görevi kaydet"
-
-# 85%
-# 82%
-# 100%
-msgid "Save task and close dialog"
-msgstr "Görevi kaydet ve pencereyi kapat"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Eski durumuna getir"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -5059,15 +4926,8 @@ msgstr "Bu görevi yazdır"
 msgid "Assign Task"
 msgstr "Görev ver"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "Atamayı iptal et"
-
-#, fuzzy
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr "katılımcıları silerek toplantı isteğini randevuya çevir"
 
 # 75%
 # 79%

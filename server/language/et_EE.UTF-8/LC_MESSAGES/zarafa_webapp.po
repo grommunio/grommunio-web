@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1105,68 +1105,32 @@ msgstr ""
 msgid "None"
 msgstr "Puudub"
 
-msgid "Send invitation"
-msgstr ""
-
 # 75%
 #, fuzzy
 msgid "Send"
 msgstr "Saadetud"
-
-msgid "Send invitation to recipients"
-msgstr ""
 
 # 80%
 #, fuzzy
 msgid "Save"
 msgstr "Salvestatud"
 
-msgid "Save & Close"
-msgstr ""
-
-msgid "Save appointment and close dialog"
-msgstr ""
-
-msgid "Save without sending an invitation to recipients"
+msgid "Close"
 msgstr ""
 
 msgid "Delete"
 msgstr "Kustuta"
 
-msgid "Delete this appointment"
-msgstr ""
-
 msgid "Add attachment"
-msgstr ""
-
-msgid "Add attachments to this appointment"
-msgstr ""
-
-msgid "Cannot add attachment"
-msgstr ""
-
-msgid "Print this appointment"
 msgstr ""
 
 msgid "Check names"
 msgstr ""
 
-msgid "Check all recipient names"
-msgstr ""
-
-msgid "Open the recurrence dialog"
-msgstr ""
-
 msgid "Invite attendees"
 msgstr ""
 
-msgid "Invite attendees for this appointment"
-msgstr ""
-
 msgid "Cancel invitation"
-msgstr ""
-
-msgid "Convert this meeting request to an appointment by removing attendees"
 msgstr ""
 
 msgid "High priority"
@@ -1193,9 +1157,6 @@ msgid "Private"
 msgstr "Isiklik"
 
 msgid "Mark this appointment as private"
-msgstr ""
-
-msgid "Save meeting request and close dialog"
 msgstr ""
 
 msgid "Proposed Date and Time"
@@ -1243,21 +1204,21 @@ msgid "Send Meeting Request Confirmation"
 msgstr ""
 
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
 
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 
-msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
-msgstr ""
-
-msgid "Edit the response before Sending."
+msgid "Edit the response before sending"
 msgstr ""
 
 msgid "Send the response now."
@@ -1804,9 +1765,6 @@ msgid "Import error"
 msgstr "Oluline"
 
 msgid "Unable to import {0}. The file is not valid"
-msgstr ""
-
-msgid "Close"
 msgstr ""
 
 msgid "Cc"
@@ -2976,16 +2934,13 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Puudub"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
+msgid "Mark as read"
 msgstr ""
 
-msgid "Mark Read"
-msgstr ""
-
-msgid "Mark Unread"
+msgid "Mark as unread"
 msgstr ""
 
 msgid "in"
@@ -3268,28 +3223,13 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-msgid "Save contact and close dialog"
-msgstr ""
-
-msgid "Delete contact"
-msgstr ""
-
-msgid "Delete this contact."
-msgstr ""
-
 msgid "Add Attachment"
 msgstr ""
 
-msgid "Add attachments to this contact."
+msgid "Add attachments to this contact"
 msgstr ""
 
-msgid "Print this contact"
-msgstr ""
-
-msgid "Open the categories dialog."
-msgstr "Ava kategooriate aken."
-
-msgid "Mark this contact as private."
+msgid "Mark this contact as private"
 msgstr ""
 
 # 94%
@@ -3298,32 +3238,13 @@ msgstr ""
 msgid "Distribution List"
 msgstr "Postiloend"
 
-msgid "Save distribution list and close dialog"
-msgstr ""
-
-msgid "Delete Distributionlist"
-msgstr ""
-
-msgid "Delete the Distribution list."
-msgstr ""
-
-# 76%
-# 78%
-# 100%
-#, fuzzy
-msgid "Print distribution list"
-msgstr "Postiloend"
-
 # 76%
 # 78%
 # 79%
 # 100%
 #, fuzzy
-msgid "Print this distribution list."
+msgid "Mark this Distribution list as private"
 msgstr "Postiloend"
-
-msgid "Mark this Distribution list as private."
-msgstr ""
 
 # 92%
 # 100%
@@ -3405,9 +3326,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Sorteeri: Täisnime järgi"
-
-msgid "Sort by: Email Address 1"
-msgstr "Sorteeri: E-posti aadressi järgi"
 
 msgid "Sort by: Email Address 2"
 msgstr "Sorteeri: E-posti aadressi 2 järgi"
@@ -3596,6 +3514,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4207,32 +4128,16 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr ""
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr ""
-
-# 94%
-# 76%
-# 100%
-#, fuzzy
-msgid "Delete this email"
-msgstr "Kustuta see kirje"
 
 msgid "Add attachments to this email"
 msgstr ""
 
 msgid "Add signature"
-msgstr ""
-
-msgid "Add signature to this mail"
 msgstr ""
 
 msgid "Options"
@@ -4259,24 +4164,13 @@ msgstr ""
 msgid "Request read receipt from recipients"
 msgstr ""
 
-msgid "Show bcc"
-msgstr ""
-
 msgid "Show Bcc"
 msgstr ""
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
+msgid "Show Bcc field"
 msgstr ""
 
-msgid "Show From"
-msgstr ""
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
+msgid "Show From field"
 msgstr ""
 
 msgid "No signatures configured"
@@ -4306,11 +4200,17 @@ msgstr ""
 msgid "no subject"
 msgstr ""
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "Määra kategooria"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr ""
+
+msgid "Mark Unread"
+msgstr ""
 
 msgid "New mail"
 msgstr ""
@@ -4336,17 +4236,15 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Avada jagatud märkused"
 
-msgid "Email message"
-msgstr ""
-
-msgid "Send E-mail"
-msgstr ""
-
-msgid "Create a new email message addressed to this recipient."
-msgstr ""
-
 msgid "Print single e-mail"
 msgstr ""
+
+# 77%
+# 100%
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Trüki valitud kontakt"
 
 msgid "Filter"
 msgstr ""
@@ -4550,22 +4448,8 @@ msgstr "Saadetud"
 msgid "Loading mail"
 msgstr "Laeb märkuseid"
 
-msgid "Save Note"
-msgstr "Salvesta märkus"
-
-msgid "Save note"
-msgstr "Salvesta märkus"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "Kustuta see kirje"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "Trüki see märkus"
 
 msgid "Color"
@@ -4868,8 +4752,8 @@ msgid "Declining Task"
 msgstr ""
 
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
 
 msgid ""
@@ -4919,24 +4803,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr ""
 
-msgid "Send assignment"
-msgstr ""
-
-msgid "Save without sending a task request to assignees"
-msgstr ""
-
-msgid "Save task"
-msgstr ""
-
-msgid "Save task and close dialog"
-msgstr ""
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "Taasta kirjed"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 94%
 # 76%
@@ -4960,13 +4829,7 @@ msgstr ""
 msgid "Assign Task"
 msgstr ""
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
-msgstr ""
-
-msgid "Convert this task request to a regular task by removing assignees."
 msgstr ""
 
 msgid "Mark this task as private"

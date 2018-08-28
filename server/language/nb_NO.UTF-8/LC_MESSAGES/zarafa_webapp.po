@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2018-04-11 19:46+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -1118,70 +1118,30 @@ msgstr "jS F Y G:i"
 msgid "None"
 msgstr "Ingen"
 
-msgid "Send invitation"
-msgstr "Send invitasjon"
-
 # 75%
 msgid "Send"
 msgstr "Send"
 
-msgid "Send invitation to recipients"
-msgstr "Send invitasjon til mottakere"
-
 msgid "Save"
 msgstr "Lagre"
 
-msgid "Save & Close"
-msgstr "Lagre & lukke"
-
-# 82%
-# 78%
-msgid "Save appointment and close dialog"
-msgstr "Lagre avtale og lukk dialogboksen"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "Lagre uten å sende invitasjon til mottakere"
+msgid "Close"
+msgstr "Lukk"
 
 msgid "Delete"
 msgstr "Slett"
 
-msgid "Delete this appointment"
-msgstr "Slett denne avtalen"
-
 msgid "Add attachment"
 msgstr "Legg til vedlegg"
-
-# 81%
-# 77%
-msgid "Add attachments to this appointment"
-msgstr "Legg til et vedlegg til denne avtalen"
-
-msgid "Cannot add attachment"
-msgstr "Kunne ikke legge til vedlegg"
-
-msgid "Print this appointment"
-msgstr "Skriv ut denne avtalen"
 
 msgid "Check names"
 msgstr "Kontroller navn"
 
-msgid "Check all recipient names"
-msgstr "Kontroller alle mottakere"
-
-msgid "Open the recurrence dialog"
-msgstr "Åpne dialogboksen Regelmessighet"
-
 msgid "Invite attendees"
 msgstr "Inviter deltakere"
 
-msgid "Invite attendees for this appointment"
-msgstr "Inviter deltakere til denne avtalen"
-
 msgid "Cancel invitation"
 msgstr "Avbryt invitasjonen"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr "Endre denne møteinvitasjon om til en avtale ved å fjerne deltakerene"
 
 msgid "High priority"
 msgstr "Høy prioritet"
@@ -1209,9 +1169,6 @@ msgstr "Privat"
 # 75%
 msgid "Mark this appointment as private"
 msgstr "Marker denne avtalen som privat"
-
-msgid "Save meeting request and close dialog"
-msgstr "Lagre møteinnkallelse og lukk dialogboksen"
 
 msgid "Proposed Date and Time"
 msgstr "Foreslå ny dato og tid"
@@ -1261,28 +1218,32 @@ msgstr "Send avbruddsmelding nå."
 msgid "Send Meeting Request Confirmation"
 msgstr "Send bekreftelse på møteinvitasjon"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr ""
 "Denne møteinvitasjonen har blitt godtatt og vil bli flyttet til din "
 "kalender. Vil du inkludere en kommentar i ditt svar?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Denne møteinvitasjonen har blitt foreløpig godtatt og vil bli flyttet til "
 "din kalender. Vil du inkludere en kommentar i ditt svar?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr ""
 "Denne møteinvitasjonen har blitt avslått og vil bli flyttet til din mappe "
 "med slettede elementer. Vil du inkludere en kommentar i ditt svar?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "Rediger svaret før sending."
 
 msgid "Send the response now."
@@ -1855,9 +1816,6 @@ msgstr "Importer til"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "Lukk"
 
 msgid "Cc"
 msgstr "Cc"
@@ -3028,16 +2986,16 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ingen"
 
-msgid "Open in new browser window"
-msgstr "Åpne i nytt nettleservindu"
-
-msgid "Pop-Out"
+#, fuzzy
+msgid "Pop-out"
 msgstr "Sprett-ut"
 
-msgid "Mark Read"
-msgstr "Marker som lest"
+#, fuzzy
+msgid "Mark as read"
+msgstr "Marker som ulest"
 
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "Marker som ulest"
 
 msgid "in"
@@ -3304,53 +3262,25 @@ msgstr "Lokalt nummer"
 msgid "Extension"
 msgstr "Direktevalg"
 
-# 82%
-msgid "Save contact and close dialog"
-msgstr "Lagre kontakten og lukk dialogboksen"
-
-msgid "Delete contact"
-msgstr "Slett kontakt"
-
-msgid "Delete this contact."
-msgstr "Slett denne kontakten."
-
 msgid "Add Attachment"
 msgstr "Legg til vedlegg"
 
 # 81%
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "Legg til et vedlegg til denne kontakten."
-
-msgid "Print this contact"
-msgstr "Skriv ut denne kontakten"
-
-msgid "Open the categories dialog."
-msgstr "Åpne dialogboksen Kategori."
 
 # 76%
 # 79%
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "Marker denne kontakten som privat."
 
 msgid "Distribution List"
 msgstr "Distribusjonsliste"
 
-msgid "Save distribution list and close dialog"
-msgstr "Lagre distribusjonsliste og lukk dialogboksen"
-
-msgid "Delete Distributionlist"
-msgstr "Slett distribusjonsliste"
-
-msgid "Delete the Distribution list."
-msgstr "Slett denne distribusjonslisten."
-
-msgid "Print distribution list"
-msgstr "Skriv ut distribusjonslisten"
-
-msgid "Print this distribution list."
-msgstr "Skriv ut denne distribusjonslisten."
-
-msgid "Mark this Distribution list as private."
+#, fuzzy
+msgid "Mark this Distribution list as private"
 msgstr "Marker denne distribusjonsliste som privat."
 
 #, fuzzy
@@ -3420,9 +3350,6 @@ msgstr "Eksporter som"
 
 msgid "Sort by: Full Name"
 msgstr "Sorter på: fullt navn"
-
-msgid "Sort by: Email Address 1"
-msgstr "Sorter på: e-postadresse 1"
 
 msgid "Sort by: Email Address 2"
 msgstr "Sorter på: e-postadresse 2"
@@ -3571,6 +3498,9 @@ msgstr "Fjern bilde"
 
 msgid "VCF file(s)"
 msgstr "VCF fil(er)"
+
+msgid "Open in new browser window"
+msgstr "Åpne i nytt nettleservindu"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
@@ -4204,21 +4134,12 @@ msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 "Denne meldingen vil bli markert for oppfølging etter at den har blitt sendt."
 
-msgid "Send email to recipients"
-msgstr "Send e-post til mottakere"
-
 msgid "Send Later"
 msgstr "Send senere"
 
-msgid "Schedule your mail to be sent on a specific date and time."
-msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt."
-
-msgid "Save email"
-msgstr "Lagre e-post"
-
 #, fuzzy
-msgid "Delete this email"
-msgstr "Slett denne e-posten"
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt."
 
 # 86%
 msgid "Add attachments to this email"
@@ -4226,9 +4147,6 @@ msgstr "Legg til et vedlegg til denne e-posten"
 
 msgid "Add signature"
 msgstr "Legg til signatur"
-
-msgid "Add signature to this mail"
-msgstr "Legg til signatur på denne e-posten"
 
 msgid "Options"
 msgstr "Alternativer"
@@ -4254,28 +4172,16 @@ msgstr "Innstilling for lesebekreftelse"
 msgid "Request read receipt from recipients"
 msgstr "Be om lesebekreftelse fra mottaker"
 
-msgid "Show bcc"
-msgstr "Vis bcc"
-
 msgid "Show Bcc"
 msgstr "Vis Bcc"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "Vis Bcc-feltet slik at du kan oppgi mottakere for denne meldingen"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Vis Bcc"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "Vis fra"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr ""
-"Vis \"Fra\"-felt. Hvis du har tilgang til en annen bruker sin konto, som "
-"såkalt Representant, så kan du sende e-post som om det var de som sendte "
-"den, ved å bruke deres adresse i \"Fra\"-feltet"
 
 msgid "No signatures configured"
 msgstr "Ingen signatur er konfigurert"
@@ -4304,11 +4210,17 @@ msgstr "Be om lesebekreftelse for denne meldingen."
 msgid "no subject"
 msgstr "uten emne"
 
-msgid "Delete mail"
-msgstr "Slette denne e-post"
-
 msgid "Set Category"
 msgstr "Sett kategori"
+
+msgid "Pop-Out"
+msgstr "Sprett-ut"
+
+msgid "Mark Read"
+msgstr "Marker som lest"
+
+msgid "Mark Unread"
+msgstr "Marker som ulest"
 
 msgid "New mail"
 msgstr "Ny e-post"
@@ -4328,17 +4240,14 @@ msgstr "Veksle mellom rødt/fullført flagg"
 msgid "Open Shared Mails"
 msgstr "Åpne delt e-post"
 
-msgid "Email message"
-msgstr "E-postmelding"
-
-msgid "Send E-mail"
-msgstr "Send e-post"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "Lag en ny e-post adressert til denne mottakeren."
-
 msgid "Print single e-mail"
 msgstr "Skriv ut enkelt e-post"
+
+# 77%
+# 84%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Skriv ut valgt notat"
 
 #, fuzzy
 msgid "Filter"
@@ -4533,20 +4442,8 @@ msgstr "Send til"
 msgid "Loading mail"
 msgstr "Laster inn e-post"
 
-msgid "Save Note"
-msgstr "Lagre notat"
-
-msgid "Save note"
-msgstr "Lagre notat"
-
-msgid "Delete Note"
-msgstr "Slett notat"
-
-# 75%
-msgid "Delete this note"
-msgstr "Slett dette notatet"
-
-msgid "Print this note"
+#, fuzzy
+msgid "Print note"
 msgstr "Skriv ut dette notatet"
 
 msgid "Color"
@@ -4856,12 +4753,13 @@ msgstr "Godtar oppgave"
 msgid "Declining Task"
 msgstr "Avslår oppgave"
 
+#, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr ""
-"Denne oppgaven har blitt godtatt og vil bli flyttet til din Oppgave mappe. "
-"Vil du inkludere en kommentar i ditt svar?"
+"Denne møteinvitasjonen har blitt godtatt og vil bli flyttet til din "
+"kalender. Vil du inkludere en kommentar i ditt svar?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
@@ -4911,23 +4809,8 @@ msgstr "Behold kopi av oppgave og motta fortløpende statusrapporter"
 msgid "Send task to assignees"
 msgstr "Send oppgave til tilordnede"
 
-msgid "Send assignment"
-msgstr "Send oppgave"
-
-msgid "Save without sending a task request to assignees"
-msgstr "Lagre uten å sende oppgaveforespørsel til tilordnede"
-
-msgid "Save task"
-msgstr "Lagre oppgave"
-
-msgid "Save task and close dialog"
-msgstr "Lagre oppgave og lukk dialogboksen"
-
 msgid "Restore to Task List"
 msgstr "Gjenopprett til oppgaveliste"
-
-msgid "Restore this item to your task list"
-msgstr "Gjenopprett dette elementet til din oppgaveliste"
 
 # 81%
 msgid "Delete this task"
@@ -4948,16 +4831,8 @@ msgstr "Skriv ut denne oppgaven"
 msgid "Assign Task"
 msgstr "Tilordne oppgaven"
 
-msgid "Assign this task to someone else."
-msgstr "Tilordner denne oppgaven til noen andre."
-
 msgid "Cancel Assignment"
 msgstr "Avbryt tildeling"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
-"Endre denne oppgaveforespørsel om til en vanlig oppgave ved å fjerne "
-"deltakere."
 
 # 76%
 msgid "Mark this task as private"

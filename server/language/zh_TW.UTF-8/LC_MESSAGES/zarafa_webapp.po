@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"POT-Creation-Date: 2018-08-28 09:11+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1096,65 +1096,29 @@ msgstr "jS F Y G:i"
 msgid "None"
 msgstr "無"
 
-msgid "Send invitation"
-msgstr "傳送邀請"
-
 msgid "Send"
 msgstr "傳送"
-
-msgid "Send invitation to recipients"
-msgstr "傳送邀請給收件者"
 
 msgid "Save"
 msgstr "儲存"
 
-msgid "Save & Close"
-msgstr "儲存與關閉"
-
-msgid "Save appointment and close dialog"
-msgstr "儲存此約會並關閉對話框"
-
-msgid "Save without sending an invitation to recipients"
-msgstr "儲存並不傳送邀請通知給收件者"
+msgid "Close"
+msgstr "關閉"
 
 msgid "Delete"
 msgstr "刪除"
 
-msgid "Delete this appointment"
-msgstr "刪除此約會"
-
 msgid "Add attachment"
 msgstr "新增附件"
-
-msgid "Add attachments to this appointment"
-msgstr "新增附件到此約會"
-
-msgid "Cannot add attachment"
-msgstr ""
-
-msgid "Print this appointment"
-msgstr "列印此約會"
 
 msgid "Check names"
 msgstr "檢查名稱"
 
-msgid "Check all recipient names"
-msgstr "檢查所有收件者名稱"
-
-msgid "Open the recurrence dialog"
-msgstr "開啟此週期對話框"
-
 msgid "Invite attendees"
 msgstr "邀請與會者"
 
-msgid "Invite attendees for this appointment"
-msgstr "邀請與會者參加此約會"
-
 msgid "Cancel invitation"
 msgstr "取消邀請"
-
-msgid "Convert this meeting request to an appointment by removing attendees"
-msgstr ""
 
 msgid "High priority"
 msgstr "高優先性"
@@ -1179,13 +1143,6 @@ msgstr "私人的"
 
 msgid "Mark this appointment as private"
 msgstr "標示此約會為私人"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save meeting request and close dialog"
-msgstr "儲存此聯絡人並關閉對話框"
 
 msgid "Proposed Date and Time"
 msgstr "建議日期與時間"
@@ -1231,22 +1188,26 @@ msgstr "現在傳送取消通知"
 msgid "Send Meeting Request Confirmation"
 msgstr "傳送會議邀請確認"
 
+#, fuzzy
 msgid ""
-"This meeting has been accepted and will be moved to your Calendar. Do you "
-"want to include comments with your response?"
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
 msgstr "此會議已被接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
 
+#, fuzzy
 msgid ""
-"This meeting has been tentatively accepted and will be moved to your "
-"Calendar. Do you want to include comments with your response?"
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
 msgstr "此會議已被暫時的接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
 
+#, fuzzy
 msgid ""
-"This meeting has been declined and will be moved to the Deleted Items "
-"folder. Do you want to include comments with your response?"
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
 msgstr "此會議已被拒絕並且會移到刪除項目資料夾，你要包含你的回應意見嗎?"
 
-msgid "Edit the response before Sending."
+#, fuzzy
+msgid "Edit the response before sending"
 msgstr "傳送前先編輯回應"
 
 msgid "Send the response now."
@@ -1798,9 +1759,6 @@ msgstr "重要的"
 
 msgid "Unable to import {0}. The file is not valid"
 msgstr ""
-
-msgid "Close"
-msgstr "關閉"
 
 msgid "Cc"
 msgstr "副本"
@@ -2975,16 +2933,15 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "無"
 
-msgid "Open in new browser window"
+msgid "Pop-out"
 msgstr ""
 
-msgid "Pop-Out"
-msgstr ""
+#, fuzzy
+msgid "Mark as read"
+msgstr "標示未閱讀"
 
-msgid "Mark Read"
-msgstr "標示已閱讀"
-
-msgid "Mark Unread"
+#, fuzzy
+msgid "Mark as unread"
 msgstr "標示未閱讀"
 
 msgid "in"
@@ -3255,53 +3212,22 @@ msgstr "本地數字"
 msgid "Extension"
 msgstr "分機"
 
-# 85%
-#, fuzzy
-msgid "Save contact and close dialog"
-msgstr "儲存此聯絡人並關閉對話框"
-
-msgid "Delete contact"
-msgstr "刪除聯絡人"
-
-msgid "Delete this contact."
-msgstr "刪除此聯絡人"
-
 msgid "Add Attachment"
 msgstr "新增附件"
 
-msgid "Add attachments to this contact."
+#, fuzzy
+msgid "Add attachments to this contact"
 msgstr "新增附件到此聯絡人"
 
-msgid "Print this contact"
-msgstr "列印此聯絡人"
-
-msgid "Open the categories dialog."
-msgstr "開啟類別對話框"
-
-msgid "Mark this contact as private."
+#, fuzzy
+msgid "Mark this contact as private"
 msgstr "標示此聯絡人為私人"
 
 msgid "Distribution List"
 msgstr "通訊群組"
 
-# 86%
 #, fuzzy
-msgid "Save distribution list and close dialog"
-msgstr "儲存此通訊群組並且關閉對話框"
-
-msgid "Delete Distributionlist"
-msgstr "刪除通訊群組"
-
-msgid "Delete the Distribution list."
-msgstr "刪除此通訊群組"
-
-msgid "Print distribution list"
-msgstr "列印通訊群組列表"
-
-msgid "Print this distribution list."
-msgstr "列印此通訊群組列表"
-
-msgid "Mark this Distribution list as private."
+msgid "Mark this Distribution list as private"
 msgstr "標示此通訊群組為私人"
 
 #, fuzzy
@@ -3368,9 +3294,6 @@ msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "依全名排序"
-
-msgid "Sort by: Email Address 1"
-msgstr "依電子郵件1排序"
 
 msgid "Sort by: Email Address 2"
 msgstr "依電子郵件2排序"
@@ -3502,6 +3425,9 @@ msgid "Remove Picture"
 msgstr ""
 
 msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
 msgstr ""
 
 msgid ""
@@ -4109,33 +4035,17 @@ msgstr ""
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
 
-msgid "Send email to recipients"
-msgstr "傳送郵件給收件人"
-
 msgid "Send Later"
 msgstr ""
 
-msgid "Schedule your mail to be sent on a specific date and time."
+msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-
-msgid "Save email"
-msgstr "儲存郵件"
-
-# 76%
-# 100%
-# 94%
-#, fuzzy
-msgid "Delete this email"
-msgstr "刪除此項目"
 
 msgid "Add attachments to this email"
 msgstr "新增附件到此郵件"
 
 msgid "Add signature"
 msgstr "新增簽名"
-
-msgid "Add signature to this mail"
-msgstr "新增簽名到此郵件"
 
 msgid "Options"
 msgstr "選項"
@@ -4161,25 +4071,16 @@ msgstr "設定讀取回條"
 msgid "Request read receipt from recipients"
 msgstr "要求收件人讀取回條"
 
-msgid "Show bcc"
-msgstr "顯示密件副本"
-
 msgid "Show Bcc"
 msgstr "顯示密件副本"
 
-msgid ""
-"Show Bcc field in which you can specify the people who will recieve this "
-"message"
-msgstr "顯示密件副本欄位以便指定使用者收到此封郵件"
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "顯示密件副本"
 
-msgid "Show From"
+#, fuzzy
+msgid "Show From field"
 msgstr "顯示寄件者"
-
-msgid ""
-"Show From field, If you have delegate access to another person's account, "
-"you can send e-mail that looks like that came from them by entering their "
-"name into the From field"
-msgstr "顯示寄件者欄位，如果你委派給其他人，你可以選擇傳送郵件的寄件者"
 
 msgid "No signatures configured"
 msgstr "沒有設定簽名檔"
@@ -4208,11 +4109,17 @@ msgstr "要求此封郵件的讀取回條"
 msgid "no subject"
 msgstr "無主旨"
 
-msgid "Delete mail"
-msgstr ""
-
 msgid "Set Category"
 msgstr "設定類別"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "標示已閱讀"
+
+msgid "Mark Unread"
+msgstr "標示未閱讀"
 
 # 87%
 # 100%
@@ -4238,17 +4145,13 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "開啟共用郵件"
 
-msgid "Email message"
-msgstr "郵件訊息"
-
-msgid "Send E-mail"
-msgstr "傳送電子郵件"
-
-msgid "Create a new email message addressed to this recipient."
-msgstr "建立新的電子郵件給此收件人"
-
 msgid "Print single e-mail"
 msgstr "列印單一電子郵件"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "列印此任務"
 
 msgid "Filter"
 msgstr ""
@@ -4453,22 +4356,8 @@ msgstr "傳送"
 msgid "Loading mail"
 msgstr "載入郵件中"
 
-msgid "Save Note"
-msgstr "儲存筆記"
-
-msgid "Save note"
-msgstr "儲存筆記"
-
-msgid "Delete Note"
-msgstr ""
-
-# 81%
-# 100%
 #, fuzzy
-msgid "Delete this note"
-msgstr "刪除此項目"
-
-msgid "Print this note"
+msgid "Print note"
 msgstr "列印此筆記"
 
 msgid "Color"
@@ -4771,8 +4660,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"This task will be accepted and moved into the Tasks folder. Do you want to "
-"edit the response before sending it?"
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
 msgstr "此會議已被接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
 
 #, fuzzy
@@ -4824,29 +4713,9 @@ msgstr ""
 msgid "Send task to assignees"
 msgstr "傳送任務到委派者"
 
-msgid "Send assignment"
-msgstr "傳送任務"
-
-#, fuzzy
-msgid "Save without sending a task request to assignees"
-msgstr "儲存並不傳送邀請通知給收件者"
-
-msgid "Save task"
-msgstr "儲存任務"
-
-# 85%
-# 82%
-# 100%
-#, fuzzy
-msgid "Save task and close dialog"
-msgstr "儲存此聯絡人並關閉對話框"
-
 #, fuzzy
 msgid "Restore to Task List"
 msgstr "回復預設值"
-
-msgid "Restore this item to your task list"
-msgstr ""
 
 # 76%
 # 100%
@@ -4872,14 +4741,8 @@ msgstr "列印此郵件"
 msgid "Assign Task"
 msgstr "分配任務"
 
-msgid "Assign this task to someone else."
-msgstr ""
-
 msgid "Cancel Assignment"
 msgstr "取消任務"
-
-msgid "Convert this task request to a regular task by removing assignees."
-msgstr ""
 
 # 79%
 # 100%
