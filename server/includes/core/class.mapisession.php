@@ -927,9 +927,14 @@
 				$subtreeEntryid = $storeProps[PR_IPM_SUBTREE_ENTRYID];
 			}
 
-			// Only searches one level deep, otherwise deleted contact folders will also be included.
 			$contactFolders = array();
-			$contactFolders = $this->getContactFolders($store, $subtreeEntryid, false);
+			try{
+				// Only searches one level deep, otherwise deleted contact folders will also be included.
+				$contactFolders = $this->getContactFolders($store, $subtreeEntryid, false);
+			}catch (Exception $e) {
+				return $contactFolders;
+			}
+
 			// Need to search all the contact-subfolders within first level contact folders.
 			$firstLevelHierarchyNodes = $contactFolders;
 			foreach ($firstLevelHierarchyNodes as $key => $firstLevelNode) {
