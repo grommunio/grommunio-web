@@ -61,16 +61,6 @@ Zarafa.widgets.quickitems.QuickNoteWidget = Ext.extend(Zarafa.widgets.quickitems
 	},
 
 	/**
-	 * @param {Object} field The field updated field
-	 * @param {Object} value The value of the field updated
-	 * @private
-	 */
-	onChange : function(field, value)
-	{
-		this.wrap.record.set(field.name, value);
-	},
-
-	/**
 	 * Create a new record which must be edited by this widget.
 	 * @return {Ext.data.Record} record The record to load into the {@link #wrap}
 	 * @protected

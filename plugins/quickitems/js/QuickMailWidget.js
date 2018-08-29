@@ -108,16 +108,6 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 	},
 
 	/**
-	 * @param {Object} field The field updated field
-	 * @param {Object} value The value of the field updated
-	 * @private
-	 */
-	onChange : function(field, value)
-	{
-		this.wrap.record.set(field.name, value);
-	},
-
-	/**
 	 * Event handler which is triggered when one of the Input fields
 	 * has been changed by the user. It will validate the new value,
 	 * and if correct, will apply it to the {@link Zarafa.core.data.IPMRecord record}.
