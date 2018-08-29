@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-28 09:11+0200\n"
-"PO-Revision-Date: 2018-08-08 08:47+0000\n"
+"PO-Revision-Date: 2018-08-29 12:34+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1248,33 +1248,29 @@ msgstr "Verzend de annulering nu."
 msgid "Send Meeting Request Confirmation"
 msgstr "Stuur Bevestiging Vergaderverzoek"
 
-#, fuzzy
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Deze afspraak is geaccepteerd en wordt naar uw Agenda verplaatst. Wilt u "
+"Deze afspraak wordt geaccepteerd en naar uw agenda verplaatst. Wilt u "
 "commentaar invoegen in uw antwoord?"
 
-#, fuzzy
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Deze afspraak is voorlopig geaccepteerd en wordt naar uw Agenda verplaatst. "
+"Deze afspraak wordt voorlopig geaccepteerd en naar uw agenda verplaatst. "
 "Wilt u commentaar invoegen in uw antwoord?"
 
-#, fuzzy
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Deze afspraak is afgewezen en wordt verplaatst naar de Deleted Items map. "
+"Deze afspraak wordt afgewezen en verplaatst naar de verwijderde bestanden. "
 "Wilt u commentaar invoegen in uw antwoord?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Antwoord bewerken voor het versturen."
+msgstr "Antwoord bewerken voor het versturen"
 
 msgid "Send the response now."
 msgstr "Antwoord nu verzenden."
@@ -3076,17 +3072,14 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "geen"
 
-#, fuzzy
 msgid "Pop-out"
 msgstr "Pop-out"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Markeer Ongelezen"
+msgstr "Markeer als ongelezen"
 
-#, fuzzy
 msgid "Mark as unread"
-msgstr "Markeer Ongelezen"
+msgstr "Markeer als ongelezen"
 
 msgid "in"
 msgstr "over"
@@ -3369,22 +3362,19 @@ msgid "Add Attachment"
 msgstr "Bijlage Toevoegen"
 
 # 81%
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "Voeg bijlagen toe aan deze contactpersoon."
+msgstr "Voeg bijlagen toe aan deze contactpersoon"
 
 # 75%
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Markeer deze contactpersoon als privé."
+msgstr "Markeer deze contactpersoon als privé"
 
 # 94%
 msgid "Distribution List"
 msgstr "Distributielijst"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Markeer deze Distributielijst als privé."
+msgstr "Markeer deze distributielijst als privé"
 
 msgid "New email address"
 msgstr "Nieuw emailadres"
@@ -4285,11 +4275,9 @@ msgstr "Dit bericht wordt gemarkeerd voor opvolging als het is verstuurd."
 msgid "Send Later"
 msgstr "Verzend Later"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
-"Plan uw bericht in om verstuurd te worden op een specifieke datum en "
-"tijdstip."
+"Plan uw bericht in om verstuurd te worden op een specifieke datum en tijdstip"
 
 # 86%
 msgid "Add attachments to this email"
@@ -4325,13 +4313,11 @@ msgstr "Verzoek een leesbevestiging van geadresseerden"
 msgid "Show Bcc"
 msgstr "Toon Bcc"
 
-#, fuzzy
 msgid "Show Bcc field"
 msgstr "Toon Bcc"
 
-#, fuzzy
 msgid "Show From field"
-msgstr "Toon Afzender"
+msgstr "Toon afzender"
 
 msgid "No signatures configured"
 msgstr "Geen handtekeningen geconfigureerd"
@@ -4400,9 +4386,8 @@ msgid "Print single e-mail"
 msgstr "Druk een e-mail af"
 
 # 78%
-#, fuzzy
 msgid "Print selected email"
-msgstr "Druk geselecteerde item af"
+msgstr "Print de geselecteerde email"
 
 msgid "Filter"
 msgstr "Filter"
@@ -4602,9 +4587,8 @@ msgstr "Verzenden naar"
 msgid "Loading mail"
 msgstr "Bericht laden"
 
-#, fuzzy
 msgid "Print note"
-msgstr "Druk deze notitie af"
+msgstr "Print notitie"
 
 msgid "Color"
 msgstr "Kleur"
@@ -4929,12 +4913,11 @@ msgstr "Taak Accepteren"
 msgid "Declining Task"
 msgstr "Taak Afwijzen"
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Deze afspraak is geaccepteerd en wordt naar uw Agenda verplaatst. Wilt u "
+"Deze afspraak wordt geaccepteerd en naar uw task folder verplaatst. Wilt u "
 "commentaar invoegen in uw antwoord?"
 
 msgid ""
