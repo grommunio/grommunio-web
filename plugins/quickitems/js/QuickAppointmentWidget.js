@@ -123,27 +123,6 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 	},
 
 	/**
-	 * Event handler which is triggered when one of the Input fields
-	 * has been changed by the user. It will validate the new value,
-	 * and if correct, will apply it to the {@link Zarafa.core.data.IPMRecord record}.
-	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was changed.
-	 * @param {Mixed} newValue The new value
-	 * @param {Mixed} oldValue The old value
-	 * @private
-	 */
-	onBodyChange : function(field, newValue, oldValue)
-	{
-		this.wrap.record.beginEdit();
-		if (field instanceof Ext.form.HtmlEditor) {
-			this.wrap.record.set('isHTML', true);
-		} else {
-			this.wrap.record.set('isHTML', false);
-		}
-		this.wrap.record.set(field.name, newValue);
-		this.wrap.record.endEdit();
-	},
-
-	/**
 	 * Event handler which is fired when the {@link Zarafa.common.ui.DateRangeField} has been changed.
 	 * This will update the start and due date inside the {@link #record} accordingly.
 	 * @param {Ext.form.Field} field The field which has changed
