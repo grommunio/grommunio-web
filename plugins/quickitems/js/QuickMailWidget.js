@@ -150,26 +150,16 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 		record.endEdit();
 	},
 
-	/**
-	 * Event handler which is fired when the user pressed the 'Send' button.
-	 * This will call {@link Zarafa.core.ui.MessageContentPanel#sendRecord} to start
-	 * sending the mail.
-	 * @private
-	 */
-	onSend : function()
-	{
-		this.wrap.sendRecord();
-	},
-
-	/**
-	 * Event handler which is fired when the user pressed the 'Disacrd' button.
-	 * This will call {@link #reset} to clear the contents.
-	 * @private
-	 */
-	onDiscard : function()
-	{
-		this.reset();
-	}
+       /**
+        * Event handler which is fired when the user pressed the 'Send' button.
+        * This will call {@link Zarafa.core.ui.MessageContentPanel#sendRecord} to start
+        * sending the mail.
+        * @private
+        */
+       onSend : function()
+       {
+               this.wrap.sendRecord();
+       }
 });
 
 Zarafa.onReady(function() {

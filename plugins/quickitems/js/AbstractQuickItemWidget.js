@@ -254,5 +254,26 @@ Zarafa.widgets.quickitems.AbstractQuickItemWidget = Ext.extend(Zarafa.core.ui.wi
 		}
 		this.wrap.record.set(field.name, newValue);
 		this.wrap.record.endEdit();
+	},
+
+	/**
+	 * Event handler which is fired when the user pressed the 'Save' button.
+	 * This will call {@link Zarafa.core.ui.MessageContentPanel#saveRecord} to start
+	 * sending the mail.
+	 * @private
+	 */
+	onSave : function()
+	{
+		this.wrap.saveRecord();
+	},
+
+	/**
+	 * Event handler which is fired when the user pressed the 'Disacrd' button.
+	 * This will call {@link #reset} to clear the contents.
+	 * @private
+	 */
+	onDiscard : function()
+	{
+		this.reset();
 	}
 });

@@ -281,27 +281,6 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 		this.onToggleAllDay(this.wrap.alldayCheck, this.wrap.alldayCheck.getValue());
 		this.onBodyChange(this.wrap.editorField, this.wrap.editorField.getValue());
 		record.endEdit();
-	},
-
-	/**
-	 * Event handler which is fired when the user pressed the 'Save' button.
-	 * This will call {@link Zarafa.core.ui.MessageContentPanel#saveRecord} to start
-	 * sending the mail.
-	 * @private
-	 */
-	onSave : function()
-	{
-		this.wrap.saveRecord();
-	},
-
-	/**
-	 * Event handler which is fired when the user pressed the 'Disacrd' button.
-	 * This will call {@link #reset} to clear the contents.
-	 * @private
-	 */
-	onDiscard : function()
-	{
-		this.reset();
 	}
 });
 
