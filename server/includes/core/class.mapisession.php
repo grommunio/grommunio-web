@@ -103,6 +103,22 @@
 		}
 
 		/**
+		 * Get the user MAPI Object
+		 *
+		 * @param string $userEntryid The user entryid which is going to open. default is false.
+		 * @return object An user MAPI object.
+		 */
+		function getUser($userEntryid = false){
+			if($userEntryid === false) {
+				// get user entryid
+				$store_props = mapi_getprops($this->getDefaultMessageStore(), array(PR_USER_ENTRYID));
+				$userEntryid = $store_props[PR_USER_ENTRYID];
+			}
+			// open the user entry
+			return mapi_ab_openentry($this->getAddressbook(true), $userEntryid);
+		}
+
+		/**
 		* Get logged-in user information
 		*
 		* This function populates the 'session_info' property of this class with the following information:
@@ -124,11 +140,8 @@
 			$result = NOERROR;
 
 			try {
-				// get user entryid
 				$store_props = mapi_getprops($this->getDefaultMessageStore(), array(PR_USER_ENTRYID));
-
-				// open the user entry
-				$user = mapi_ab_openentry($this->getAddressbook(true), $store_props[PR_USER_ENTRYID]);
+				$user = $this->getUser($store_props[PR_USER_ENTRYID]);
 
 				// receive userdata
 				// TODO: 0x8C9E0102 represents an LDAP jpegPhoto and should get a named property PR_EMS_AB_THUMBNAIL_PHOTO
@@ -331,6 +344,24 @@
 			$this->retrieveUserData();
 
 			return array_key_exists("userimage",$this->session_info)? $this->session_info["userimage"]:false;
+		}
+
+		/**
+		 * Get currently disabled features for the user
+		 * @return array An disabled features list.
+		 */
+		function getDisabledFeatures()
+		{
+			$userProps = mapi_getprops($this->getUser(), array(PR_EC_DISABLED_FEATURES));
+			return isset($userProps[PR_EC_DISABLED_FEATURES]) ? $userProps[PR_EC_DISABLED_FEATURES] : [];
+		}
+
+		/**
+		 * @return boolean True if webapp is disabled feature else return false.
+		 */
+		function isWebappDisableAsFeature()
+		{
+			return array_search('webapp', $this->getDisabledFeatures()) !== false;
 		}
 
 		 /**

@@ -905,5 +905,6 @@ define('PR_WB_SF_ID'                         ,mapi_prop_tag(PT_BINARY,     0x684
 define('PR_EC_SUGGESTION'                    ,mapi_prop_tag(PT_TSTRING, 0x6707));
 
 define('PR_EC_BODY_FILTERED'                 ,mapi_prop_tag(PT_BINARY, 0x6791));
-
+define('PR_EC_ENABLED_FEATURES'              ,mapi_prop_tag(PT_MV_TSTRING, PR_EC_BASE+0xB3));
+define('PR_EC_DISABLED_FEATURES'             ,mapi_prop_tag(PT_MV_TSTRING, 0x67B4));
 ?>

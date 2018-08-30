@@ -182,6 +182,25 @@
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();
 
+	// If webapp feature is not enabled for the user,
+	// we will show the login page with appropriated error message.
+	if($GLOBALS['mapisession']->isWebappDisableAsFeature()) {
+		header("X-Zarafa-Hresult: " . get_mapi_error_name(MAPI_E_WEBAPP_FEATURE_DISABLED));
+
+		$error = _("Sorry, access to WebApp is not available with this user account. Please contact your system administrator.");
+		// Set some template variables for the login page
+		$user = sanitizeGetValue('user', '', USERNAME_REGEX);
+
+		$url = '?logon';
+		// Set a template variable for the favicon of the login, welcome, and webclient page
+		$theme = Theming::getActiveTheme();
+		$favicon = getFavicon(Theming::getActiveTheme());
+		$webappSession->destroy();
+		// Include the login template
+		include(BASE_PATH . 'server/includes/templates/login.php');
+		die();
+	}
+
 	// Set session settings (language & style)
 	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value){
 		$_SESSION[$key] = $value;
