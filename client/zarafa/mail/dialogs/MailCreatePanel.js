@@ -485,7 +485,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	setSignatureInEditor: function(signatureId)
 	{
 		var model = this.dialog.getContextModel();
-		var signatureData = model.getSignatureData(this.editorField.isHtmlEditor(), signatureId);
+		var signatureData = model.getSignatureData(this.editorField.isHtmlEditor(), signatureId, false);
 		if (!Ext.isEmpty(signatureData)) {
 			this.editorField.insertAtCursor(signatureData);
 		}
