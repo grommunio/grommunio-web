@@ -867,7 +867,9 @@
 						mapi_folder_deletefolder($finderFolder, $folder[PR_ENTRYID] );
 					} catch (MAPIException $e) {
 						$msg = "Problem in deleting search folder while reset settings. MAPI Error %s.";
-						error_log(sprintf($msg, get_mapi_error_name($e->getCode())));
+						$formattedMsg = sprintf($msg, get_mapi_error_name($e->getCode()));
+						error_log($formattedMsg);
+						Log::Write(LOGLEVEL_ERROR, "Operations:setDefaultFavoritesFolder() ". $formattedMsg);
 					}
 				}
 				// Restriction used to find only Inbox and Sent folder's link messages from
@@ -887,7 +889,7 @@
 					$defaultFavFoldersKeys = array("inbox", "sent");
 					foreach ($defaultFavFoldersKeys as $folderKey) {
 						$folderObj = $GLOBALS["mapisession"]->openMessage(hex2bin($storeData["props"]["default_folder_" . $folderKey]));
-						$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID));
+						$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME));
 						$this->createFavoritesLink($commonViewFolder, $props);
 					}
 				} else if (count($rows) < 2) {
@@ -906,7 +908,7 @@
 						$folderObj = $GLOBALS["mapisession"]->openMessage($sentFolderEntryid);
 					}
 
-					$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID));
+					$props = mapi_getprops($folderObj, array(PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME));
 					$this->createFavoritesLink($commonViewFolder, $props);
 				}
 				$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/show_default_favorites", false, true);

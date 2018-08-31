@@ -166,6 +166,11 @@
 						$e->setDisplayMessage(_("Error in distribution list expansion."));
 						break;
 				}
+				Log::Write(
+					LOGLEVEL_ERROR,
+					"Module::handleException():". $actionType . ": " . $e->displayMessage,
+					$e,
+					$action);
 			}
 		}
 
@@ -435,6 +440,11 @@
 							"original_message" => sprintf(_("Unknown action type specified - %s"), $actionType)
 						)
 				)
+			);
+			Log::Write(
+				LOGLEVEL_ERROR,
+				"Module::handleUnknownActionType(): ERROR_ZARAFA : " . _("Could not process request data properly."),
+				sprintf(_("Unknown action type specified - %s"), $actionType)
 			);
 		}
 

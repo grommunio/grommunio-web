@@ -400,6 +400,12 @@
 							$e->setDisplayMessage(_("Could not decline Task Request."));
 						break;
 				}
+				Log::Write(
+					LOGLEVEL_ERROR,
+					"itemmodule::handleException():". $actionType . ": " . $e->displayMessage,
+					$e,
+					$action
+				);
 			}
 
 			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);

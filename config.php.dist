@@ -196,6 +196,34 @@
 	// Time that attachments are allowed to survive (in seconds)
 	define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
 
+	/**********************************************************************************
+	 *  Logging settings
+	 *
+	 *  Possible LOG_USER_LEVEL values are:
+	 *  LOGLEVEL_OFF            - no logging
+	 *  LOGLEVEL_FATAL          - log only critical errors
+	 *  LOGLEVEL_ERROR          - logs events which might require corrective actions
+	 *  LOGLEVEL_WARN           - might lead to an error or require corrective actions in the future
+	 *  LOGLEVEL_INFO           - usually completed actions
+	 *  LOGLEVEL_DEBUG          - debugging information, typically only meaningful to developers
+	 *
+	 *  The verbosity increases from top to bottom. More verbose levels include less verbose
+	 *  ones, e.g. setting to LOGLEVEL_DEBUG will also output LOGLEVEL_FATAL, LOGLEVEL_ERROR,
+	 *  LOGLEVEL_WARN and LOGLEVEL_INFO level entries.
+	 *
+	 **************************************************************************************/
+	define('LOG_USER_LEVEL', LOGLEVEL_OFF);
+
+	// To save e.g. user activity data only for selected users, add the usernames to the array
+	// The data will be saved into a dedicated file per user in the LOG_FILE_DIR
+	// Users have to be encapsulated in quotes, several users are comma separated, like:
+	// LOG_USERS = array('user1', 'user2');
+	define('LOG_USERS', array());
+
+	// Location to the log directory
+	// e.g /var/log/webapp-userslog/users/
+	define('LOG_FILE_DIR', '');
+
 	/**************************************\
 	* Languages                            *
 	\**************************************/
