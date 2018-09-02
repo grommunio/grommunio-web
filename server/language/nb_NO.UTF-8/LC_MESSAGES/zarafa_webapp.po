@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-28 09:11+0200\n"
-"PO-Revision-Date: 2018-04-11 19:46+0000\n"
+"PO-Revision-Date: 2018-09-02 17:38+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -585,9 +585,8 @@ msgstr "Legg en mappe til dine favoritter basert på dine søkeresultat"
 msgid "Folder name"
 msgstr "Mappenavn"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Sett kategori"
+msgstr "Velg kategori"
 
 msgid "Apply"
 msgstr "Bruk"
@@ -605,7 +604,6 @@ msgstr "Svar til alle"
 msgid "Forward"
 msgstr "Videresend"
 
-#, fuzzy
 msgid "Edit as New"
 msgstr "Rediger som ny melding"
 
@@ -647,13 +645,11 @@ msgstr "Vedlegg"
 msgid "Date"
 msgstr "Dato"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "Fra"
 
 # 100%
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "Til"
@@ -938,21 +934,21 @@ msgstr "Ingen avtale valgt"
 msgid "Calendar"
 msgstr "Kalender"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Vis i kalender"
+msgstr "Opprett i annen kalender"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Den valgte kalenderen har kun lese-rettigheter. Du kan istedenfor opprette "
+"elementet i din egen kalender."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Hva ønsker du?"
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Vis i kalender"
+msgstr "Egen kalender"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1218,33 +1214,29 @@ msgstr "Send avbruddsmelding nå."
 msgid "Send Meeting Request Confirmation"
 msgstr "Send bekreftelse på møteinvitasjon"
 
-#, fuzzy
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Denne møteinvitasjonen har blitt godtatt og vil bli flyttet til din "
-"kalender. Vil du inkludere en kommentar i ditt svar?"
+"Denne møteinvitasjonen vil bli godtatt og flyttet til din kalender. Vil du "
+"inkludere en kommentar i ditt svar?"
 
-#, fuzzy
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Denne møteinvitasjonen har blitt foreløpig godtatt og vil bli flyttet til "
-"din kalender. Vil du inkludere en kommentar i ditt svar?"
+"Denne møteinvitasjonen vil bli foreløpig godtatt og flyttet til din "
+"kalender. Vil du inkludere en kommentar i ditt svar?"
 
-#, fuzzy
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Denne møteinvitasjonen har blitt avslått og vil bli flyttet til din mappe "
-"med slettede elementer. Vil du inkludere en kommentar i ditt svar?"
+"Denne møteinvitasjonen vil bli avslått og bli flyttet til din mappe med "
+"slettede elementer. Vil du inkludere en kommentar i ditt svar?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Rediger svaret før sending."
+msgstr "Rediger svaret før sending"
 
 msgid "Send the response now."
 msgstr "Send svar nå."
@@ -1351,7 +1343,6 @@ msgstr "Arbeidsdager"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Vis opptatte dager med fet skrift i datovelgeren"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
@@ -1359,19 +1350,18 @@ msgstr ""
 "Ledig/opptatt informasjon brukes når noen sender deg en møteinvitasjon, for "
 "å avgjøre når du er ledig for et møte."
 
-#, fuzzy
 msgid "Free/Busy publishing"
-msgstr "Ledig/opptatt tillatelser"
+msgstr "Ledig/opptatt publisering"
 
-#, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr "Publiser {A} måned(er) med ledig/opptatt informasjon fra server."
 
-#, fuzzy
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
-msgstr "Du kan bare publisere 1 til 36 måneder med ledig/opptatt informasjon."
+msgstr ""
+"Du kan bare publisere 1 til 36 måneder med ledig/opptatt informasjon. 0 "
+"betyr at ingen informasjon blir publisert."
 
 msgid "Side-by-side mode"
 msgstr "side om side"
@@ -1810,12 +1800,11 @@ msgstr "Vellykket import til {0}"
 msgid "Failed to import item(s) to {0}"
 msgstr "Mislykket import til {0}"
 
-#, fuzzy
 msgid "Import error"
-msgstr "Importer til"
+msgstr "Feil ved import"
 
 msgid "Unable to import {0}. The file is not valid"
-msgstr ""
+msgstr "Kunne ikke importere {0}. Filen er ikke gyldig"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2277,7 +2266,6 @@ msgstr "Send e-post"
 msgid "Delete recipient from suggestion list"
 msgstr "Slett mottakeren fra forslagslisten"
 
-#, fuzzy
 msgid "Copy email address"
 msgstr "Kopier e-postadresse"
 
@@ -2393,9 +2381,8 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Ikke støttet for øyeblikket."
 
-#, fuzzy
 msgid "There are no reminders"
-msgstr "Det er {0} påminnelse"
+msgstr "Det er ingen påminnelser"
 
 msgid "Reminders"
 msgstr "Påminnelser"
@@ -2986,15 +2973,12 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Ingen"
 
-#, fuzzy
 msgid "Pop-out"
 msgstr "Sprett-ut"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Marker som ulest"
+msgstr "Marker som lest"
 
-#, fuzzy
 msgid "Mark as unread"
 msgstr "Marker som ulest"
 
@@ -3266,30 +3250,25 @@ msgid "Add Attachment"
 msgstr "Legg til vedlegg"
 
 # 81%
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "Legg til et vedlegg til denne kontakten."
+msgstr "Legg til et vedlegg til denne kontakten"
 
 # 76%
 # 79%
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Marker denne kontakten som privat."
+msgstr "Marker denne kontakten som privat"
 
 msgid "Distribution List"
 msgstr "Distribusjonsliste"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Marker denne distribusjonsliste som privat."
+msgstr "Marker denne distribusjonsliste som privat"
 
-#, fuzzy
 msgid "New email address"
 msgstr "Ny e-postadresse"
 
-#, fuzzy
 msgid "Please enter a valid email address"
-msgstr "Vennligst skriv inn en gyldig e-postadresse!"
+msgstr "Vennligst skriv inn en gyldig e-postadresse"
 
 msgid "E-mail Address"
 msgstr "E-postadresse"
@@ -3700,13 +3679,11 @@ msgstr "Utvid hierarki"
 msgid "Folders List"
 msgstr "Mappeliste"
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Vis detaljer"
+msgstr "Kopier detaljer"
 
-#, fuzzy
 msgid "Hide Details"
-msgstr "Detaljer"
+msgstr "Skjul detaljer"
 
 # 76%
 msgid "Loaded {0} of {1}"
@@ -3738,15 +3715,11 @@ msgstr "Elementet har blitt endret. Er du sikker på at du vil slette det?"
 msgid "Welcome to Kopano WebApp"
 msgstr "Velkommen til Kopano WebApp"
 
-#, fuzzy
 msgid "This is the first time you are using WebApp. "
-msgstr "Dette er første gangen du bruker kategorien \"{0}\"."
+msgstr "Dette er første gangen du bruker WebApp. "
 
-#, fuzzy
 msgid "Please check the following settings before continuing."
-msgstr ""
-"Dette er første gang du bruker WebApp. <br />Vennligst sjekk følgende "
-"innstillinger før du fortsetter."
+msgstr "Vennligst sjekk følgende innstillinger før du fortsetter."
 
 msgid "Add widgets"
 msgstr "Legg til miniprogram"
@@ -3810,11 +3783,10 @@ msgid "No rights"
 msgstr "Ingen rettigheter"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Kunne ikke importere:"
 
-#, fuzzy
 msgid "The files are not valid"
-msgstr "De vedlagte filene er ennå ikke lastet opp."
+msgstr "Filene er ikke gyldige"
 
 msgid "Create New Folder"
 msgstr "Opprett ny mappe"
@@ -4005,24 +3977,20 @@ msgstr "Legg til i favoritt-mapper"
 msgid "Remove From Favorites"
 msgstr "Fjern fra favoritter"
 
-#, fuzzy
 msgid "Share folder..."
-msgstr "Oppstartsmappe"
+msgstr "Del mappe..."
 
-#, fuzzy
 msgid "Import emails"
-msgstr "Importer til"
+msgstr "Importer e-post"
 
-#, fuzzy
 msgid "Properties of {0}"
-msgstr "Egenskaper"
+msgstr "Egenskaper til {0}"
 
 msgid "Share {0} with..."
-msgstr ""
+msgstr "Del {0} med..."
 
-#, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "Egenskaper"
+msgstr "Egenskaper til {0} - {1}"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
@@ -4072,9 +4040,8 @@ msgstr "Planlagte e-poster"
 msgid "Your message will be sent at "
 msgstr "Din melding vil bli sendt "
 
-#, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "Gå til din <b>Utboks</b> for å fortsette å redigere din e-post."
+msgstr "Gå til din Utboks for å redigerer din e-post."
 
 msgid "hour(s)"
 msgstr "time(r)"
@@ -4137,9 +4104,8 @@ msgstr ""
 msgid "Send Later"
 msgstr "Send senere"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt."
+msgstr "Planlegg å sende e-posten på en angitt dato og tidspunkt"
 
 # 86%
 msgid "Add attachments to this email"
