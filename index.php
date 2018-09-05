@@ -261,7 +261,7 @@
 		// Fetch the hierarchy state cache for unread counters notifications for subfolders
 		$counterState = new State('counters_sessiondata');
 		$counterState->open();
-		$counterState->write("sessionData", update_hierarchy_counters());
+		$counterState->write("sessionData", updateHierarchyCounters());
 		$counterState->close();
 
 		// clean search folders

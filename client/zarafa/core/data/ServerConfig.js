@@ -250,5 +250,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getPowerpasteConfig: function ()
 	{
 		return this.meta.powerpaste;
+	},
+
+	/**
+	 * @return {Number} return the shared stores polling interval in microseconds
+	 */
+	getSharedStorePollingInterval : function()
+	{
+		return this.meta.shared_store_polling_interval * 60000;
 	}
 });

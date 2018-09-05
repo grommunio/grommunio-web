@@ -811,6 +811,9 @@ Ext.apply(Zarafa, {
 			this.startIdleTimeChecker(clientTimeout);
 		}
 
+		// Starts shared stores unread email poller.
+		this.startSharedStoresHierarchyChecker();
+
 		// Check if the Wingdings font is installed
 		this.wingdingsInstalled = window.checkfont.exists('Wingdings');
 	},
@@ -882,6 +885,29 @@ Ext.apply(Zarafa, {
 			scope : this,
 			interval : interval
 		}]).defer(interval); //Start sending keepalives after interval milliseconds.
+	},
+
+	/**
+	 * Start the Shared Stores unread mail poller, fetches the hierarchy
+	 * once to fill the server side cache.
+	 * @private
+	 */
+	startSharedStoresHierarchyChecker: function()
+	{
+		// Undocumented configuration option for selenium testing in seconds.
+		const interval = container.getSettingsModel().get('zarafa/v1/main/reminder_shared_polling') * 1000 ||
+			container.getServerConfig().getSharedStorePollingInterval();
+
+		if (!Ext.isNumber(interval)) {
+			return;
+		}
+
+		// Fetch shared stores state on login.
+		container.getHierarchyStore().sendSharedStoreHierarchyUpdate();
+
+		setInterval(function() {
+			container.getHierarchyStore().sendSharedStoreHierarchyUpdate();
+		}, interval);
 	},
 
 	/**

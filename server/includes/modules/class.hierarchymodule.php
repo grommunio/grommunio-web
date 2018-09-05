@@ -314,6 +314,23 @@
 								$GLOBALS["bus"]->addData($this->getResponseData());
 								$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
 								break;
+							case "sharedstoreupdate":
+								$supported_types = ['inbox' => 1, 'all' => 1];
+								$users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+
+								foreach($users as $username => $data) {
+									$key = array_keys($data)[0];
+									$folder_type = $data[$key]['folder_type'];
+
+									if (!isset($supported_types[$folder_type])) {
+										continue;
+									}
+
+									$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, $username);
+								}
+
+								$this->sendFeedback(true);
+								break;
 							default:
 								$this->handleUnknownActionType($actionType);
 						}

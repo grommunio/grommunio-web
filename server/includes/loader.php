@@ -323,7 +323,7 @@ class FileLoader {
 	 * classed which are depended upon by the given files).
 	 * @return Array List of files that are sorted in the correct sequence
 	 */
-	public function buildJSLoadingSequence($files, $coreFiles = Array(), $libFiles = Array()){
+	private function buildJSLoadingSequence($files, $coreFiles = Array(), $libFiles = Array()){
 		// Create a lookup table to easily get the classes which are defined in the library files
 		$libFileLookup = Array();
 		// Create a lookup table to easily get the name of the file the class is defined in
@@ -621,7 +621,7 @@ class FileLoader {
 	 *
 	 * return boolean False if cache is outdated
 	 */
-	public function cacheExists()
+	private function cacheExists()
 	{
 		list($extjsFiles, $webappFiles, $pluginFiles, $remoteFiles) = $this->getJsFiles();
 		$files = [$extjsFiles, $webappFiles, $pluginFiles, $remoteFiles];

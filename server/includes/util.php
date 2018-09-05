@@ -579,16 +579,13 @@
 	}
 
 	/**
-	 * Fetches the full hierarchy and returns an array with a cache of the state
-	 * of the folders in the hierarchy.
-	 *
-	 * @return {Array} folderStatCache a cache of the hierarchy folders.
+	 * Tries to open the IPM subtree. If opening fails, it will try to fix it by
+	 * trying to find the correct entryid of the IPM subtree in the hierarchy.
+	 * @param {MAPIObject} $store the store to retrieve IPM subtree from
+	 * @return {mixed} false if the subtree is broken beyond quick repair,
+	 * the IPM subtree resource otherwise
 	 */
-	function update_hierarchy_counters()
-	{
-		$props = array(PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID);
-
-		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+	function getSubTree($store) {
 		$storeProps = mapi_getprops($store, array(PR_IPM_SUBTREE_ENTRYID));
 		try {
 			$ipmsubtree = mapi_msgstore_openentry($store, $storeProps[PR_IPM_SUBTREE_ENTRYID]);
@@ -599,7 +596,31 @@
 				$ipmsubtree = fix_ipmsubtree($store);
 			}
 		}
-		$hierarchy =  mapi_folder_gethierarchytable($ipmsubtree, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+
+		return $ipmsubtree;
+	}
+
+	/**
+	 * Fetches the full hierarchy and returns an array with a cache of the stat
+	 * of the folders in the hierarchy.
+	 *
+	 * @param {String} $username the user who's store to retrieve hierarchy counters from.
+	 * If no username is given, the currently logged in user's store will be used.
+	 * @return {Array} folderStatCache a cache of the hierarchy folders.
+	 */
+	function updateHierarchyCounters($username)
+	{
+		// Open the correct store
+		if ($username) {
+			$userEntryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($username);
+			$store = $GLOBALS["mapisession"]->openMessageStore($userEntryid);
+		} else {
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+		}
+
+		$props = array(PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID);
+		$rootFolder = getSubTree($store);
+		$hierarchy =  mapi_folder_gethierarchytable($rootFolder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
 
 		$folderStatCache = array();
@@ -621,7 +642,7 @@
 	 * by looking up the IPM_SUBTREE in the Hierarchytable and fetching the entryid
 	 * and if found, setting the PR_IPM_SUBTREE_ENTRYID to that found entryid.
 	 *
-	 * @param {Object} store the users MAPI Store
+	 * @param {Object} $store the users MAPI Store
 	 * @return {mixed} false if unable to correct otherwise return the subtree.
 	 */
 	function fix_ipmsubtree($store)
@@ -645,7 +666,7 @@
 
 		try {
 			$entryid = $folders[0][PR_ENTRYID];
-			mapi_msgstore_openentry($store, $entryid);
+			$ipmsubtree = mapi_msgstore_openentry($store, $entryid);
 		} catch (MAPIException $e) {
 			error_log(sprintf('Unable to open IPM_SUBTREE for %s, IPM_SUBTREE folder can not be opened. MAPI error: %s',
 					$username, get_mapi_error_name($e->getCode())));
@@ -654,6 +675,8 @@
 
 		mapi_setprops($store, [PR_IPM_SUBTREE_ENTRYID => $entryid]);
 		error_log(sprintf('Fixed PR_IPM_SUBTREE_ENTRYID for %s', $username));
+
+		return $ipmsubtree;
 	}
 
 	/**

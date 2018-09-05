@@ -36,7 +36,8 @@ $serverConfig = array(
 											'powerpaste_word_import' => POWERPASTE_WORD_IMPORT,
 											'powerpaste_html_import' => POWERPASTE_HTML_IMPORT,
 											'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
-										)
+										),
+	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 );
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);

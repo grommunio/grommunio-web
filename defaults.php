@@ -385,6 +385,9 @@ if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(arr
 // Maximum reminder items we can show on client side.
 if(!defined('MAX_NUM_REMINDERS')) define('MAX_NUM_REMINDERS', 99);
 
+// Shared store polling timer in minutes
+if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTERVAL', 15);
+
 // Defaults for powerpaste
 if(!defined('POWERPASTE_WORD_IMPORT')) define('POWERPASTE_WORD_IMPORT', 'merge');
 if(!defined('POWERPASTE_HTML_IMPORT')) define('POWERPASTE_HTML_IMPORT', 'merge');
