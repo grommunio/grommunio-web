@@ -20,7 +20,7 @@
 			if (!Log::$logger) {
 				Log::$logger = new FileLog();
 				Log::$logger->SetUser($GLOBALS["mapisession"]->getUserName());
-				Log::$logger->SetSpecialLogUsers(LOG_USERS);
+				Log::$logger->SetSpecialLogUsers(explode(";", LOG_USERS));
 			}
 			return Log::$logger;
 		}
