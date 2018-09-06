@@ -216,11 +216,11 @@
 	 **************************************************************************************/
 	define('LOG_USER_LEVEL', LOGLEVEL_OFF);
 
-	// To save e.g. user activity data only for selected users, add the usernames to the array
+	// To save e.g. user activity data only for selected users, provide the username followed by semicolon.
 	// The data will be saved into a dedicated file per user in the LOG_FILE_DIR
-	// Users have to be encapsulated in quotes, several users are comma separated, like:
-	// LOG_USERS = array('user1', 'user2');
-	define('LOG_USERS', array());
+	// Users have to be encapsulated in quotes, several users are semicolon separated, like:
+	// define('LOG_USERS', 'user1;user2;user3');
+	define('LOG_USERS', '');
 
 	// Location to the log directory
 	// e.g /var/log/webapp-userslog/users/

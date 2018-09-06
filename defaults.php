@@ -406,6 +406,6 @@ if(!defined('DEBUG_DUMP_FILE')) define('DEBUG_DUMP_FILE', 'debug.txt');
 
 // Defaults for Logger
 if(!defined('LOG_USER_LEVEL')) define('LOG_USER_LEVEL', LOGLEVEL_OFF);
-if(!defined('LOG_USERS')) define('LOG_USERS', array());
+if(!defined('LOG_USERS')) define('LOG_USERS', '');
 if(!defined('LOG_FILE_DIR')) define('LOG_FILE_DIR', '');
 ?>
