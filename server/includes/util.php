@@ -608,7 +608,7 @@
 	 * If no username is given, the currently logged in user's store will be used.
 	 * @return {Array} folderStatCache a cache of the hierarchy folders.
 	 */
-	function updateHierarchyCounters($username)
+	function updateHierarchyCounters($username='')
 	{
 		// Open the correct store
 		if ($username) {
