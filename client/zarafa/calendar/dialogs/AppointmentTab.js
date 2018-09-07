@@ -1124,6 +1124,12 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				return;
 			}
 
+			// Workaround for KC-1270, backend should not return
+			// folders with inaccessible parent folder.
+			if (!dataItem.getParentFolder()) {
+				return;
+			}
+
 			var displayString = dataItem.get('display_name');
 			var mapiStore = dataItem.getParentFolder().getMAPIStore();
 
