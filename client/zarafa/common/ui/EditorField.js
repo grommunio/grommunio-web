@@ -143,7 +143,7 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 		// the right type.
 		return [
 			Ext.apply({}, {
-				xtype : config.htmlXtype || this.htmlXtype,
+				xtype : config.htmlXtype || this.getHTMLEditorXtype(),
 				name : config.htmlName || this.htmlName,
 				enableKeyEvents : config.enableKeyEvents || false
 			}, componentConfig),
@@ -350,6 +350,24 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 			var component = this.getLayout().activeItem;
 			component.bindRecord(record);
 		}
+	},
+
+	/**
+	 * Function used to get the configured editor xtype.
+	 * @return {String} configured editor xtype.
+	 */
+	getHTMLEditorXtype : function()
+	{
+		var editorPlugins = container.getPlugins()
+			.filter(htmlEditorPlugin => htmlEditorPlugin instanceof Zarafa.core.HtmlEditorPlugin);
+		var configuredEditor = container.getSettingsModel().get('zarafa/v1/contexts/mail/html_editor');
+		var editorPlugin = editorPlugins.find(editorPlugin => editorPlugin.getName() === configuredEditor);
+
+		if(editorPlugin) {
+			// Don't fail if a plugin didn't define an editorXType
+			this.htmlXtype = editorPlugin.editorXType || this.htmlXtype;
+		}
+		return this.htmlXtype;
 	}
 });
 
