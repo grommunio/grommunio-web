@@ -1,12 +1,8 @@
 <?php
-/*
-	config.php
+	// The config file for the webapp.
+	// All possible web client settings can be set in this file. Some settings
+	// (language) can also be set per user or logon.
 
-	The config file for the webapp.
-	All possible web client settings can be set in this file. Some settings
-	(language) can also be set per user or logon.
-
-*/
 	// Comment next line to disable the config check (or set FALSE to log the config errors)
 	define("CONFIG_CHECK", TRUE);
 
@@ -39,7 +35,7 @@
 	// Name of the cookie that is used for the session
 	define("COOKIE_NAME", "KOPANO_WEBAPP");
 
-    // Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
+	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", false);
 
 	// Use Kopano Core for HTML filtering, introduced in 8.5.0
@@ -233,7 +229,7 @@
 	// Location to the translations
 	define("LANGUAGE_DIR", "server/language/");
 
-	// Defines the default interface language. This can be overriden by the user.
+	// Defines the default interface language. This can be overridden by the user.
 	if (isset($_ENV['LANG']) && $_ENV['LANG']!="C"){
 		define('LANG', $_ENV["LANG"]); // This means the server environment language determines the web client language.
 	}else{
