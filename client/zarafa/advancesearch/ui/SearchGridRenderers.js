@@ -97,7 +97,6 @@ Zarafa.advancesearch.ui.SearchGridRenderers = {
 					value = _('To') + ': ' + value;
 				}
 		}
-
 		var userName = Ext.util.Format.htmlEncode(value);
 		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
 	},

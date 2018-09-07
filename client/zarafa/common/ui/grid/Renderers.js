@@ -169,7 +169,6 @@ Zarafa.common.ui.grid.Renderers = {
 		} else if (Ext.isFunction(record.getSentRepresenting)) {
 			userRecord = record.getSentRepresenting();
 		}
-
 		var userName = Zarafa.common.ui.grid.Renderers.name(value, p, record);
 		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
 	},
@@ -697,6 +696,6 @@ Zarafa.common.ui.grid.Renderers = {
 			presenceStatus = Zarafa.core.PresenceManager.getPresenceStatusForUser(user);
 		}
 		return '<span class="zarafa-presence-status ' + Zarafa.core.data.PresenceStatus.getCssClass(presenceStatus) + '">' +
-			'<span class="zarafa-presence-status-icon"></span>' + Ext.util.Format.htmlEncode(value) + '</span>';
+			'<span class="zarafa-presence-status-icon"></span>' + value + '</span>';
 	}
 };
