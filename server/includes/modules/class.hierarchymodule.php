@@ -326,7 +326,7 @@
 										continue;
 									}
 
-									$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, $username);
+									$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, array($username, $folder_type));
 								}
 
 								$this->sendFeedback(true);

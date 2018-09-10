@@ -602,13 +602,16 @@
 
 	/**
 	 * Fetches the full hierarchy and returns an array with a cache of the stat
-	 * of the folders in the hierarchy.
+	 * of the folders in the hierarchy. Passing the folderType is required for cases where
+	 * the user has permission on the inbox folder, but no folder visible
+	 * rights on the rest of the store.
 	 *
 	 * @param {String} $username the user who's store to retrieve hierarchy counters from.
 	 * If no username is given, the currently logged in user's store will be used.
+	 * @param {String} $folderType if inbox use the inbox as root folder.
 	 * @return {Array} folderStatCache a cache of the hierarchy folders.
 	 */
-	function updateHierarchyCounters($username='')
+	function updateHierarchyCounters($username='', $folderType='')
 	{
 		// Open the correct store
 		if ($username) {
@@ -619,9 +622,26 @@
 		}
 
 		$props = array(PR_DISPLAY_NAME, PR_LOCAL_COMMIT_TIME_MAX, PR_CONTENT_COUNT, PR_CONTENT_UNREAD, PR_ENTRYID, PR_STORE_ENTRYID);
-		$rootFolder = getSubTree($store);
-		$hierarchy =  mapi_folder_gethierarchytable($rootFolder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+
+		if ($folderType === 'inbox') {
+			try {
+				$rootFolder = mapi_msgstore_getreceivefolder($store);
+			} catch (MAPIException $e) {
+				$username = $GLOBALS["mapisession"]->getUserName();
+				error_log(sprintf("Unable to open Inbox for %s. MAPI Error '%s'", $username, get_mapi_error_name($e->getCode())));
+				return [];
+			}
+		} else {
+			$rootFolder = getSubTree($store);
+		}
+
+		$hierarchy = mapi_folder_gethierarchytable($rootFolder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
 		$rows = mapi_table_queryallrows($hierarchy, $props);
+
+		// Append the Inbox folder itself.
+		if ($folderType === 'inbox') {
+			array_push($rows, mapi_getprops($rootFolder, $props));
+		}
 
 		$folderStatCache = array();
 		foreach($rows as $folder) {

@@ -25,7 +25,7 @@
 		{
 			switch ($event) {
 				case HIERARCHY_UPDATE:
-					$this->updateFolderHierachy($props);
+					$this->updateFolderHierachy($props[0], $props[1]);
 					break;
 			}
 		}
@@ -38,8 +38,9 @@
 		 * the data differs newmail notifications for the changed folder(s) are created and send to the client.
 		 * @param string $username The user for whom the store is checked for mail updates. If not set, it will be
 		 * current user's own store.
+		 * @param string $folderType the type of shared folder (all, inbox or calendar)
 		 */
-		private function updateFolderHierachy($username='') {
+		private function updateFolderHierachy($username='', $folderType='') {
 			$counterState = new State('counters_sessiondata');
 			$counterState->open();
 			$cacheKey = 'sessionData';
@@ -52,7 +53,7 @@
 				$sessionData = array();
 			}
 
-			$folderStatCache = updateHierarchyCounters($username);
+			$folderStatCache = updateHierarchyCounters($username, $folderType);
 
 			if ($folderStatCache !== $sessionData) {
 				$data = array("item" => array());
@@ -61,7 +62,6 @@
 					if (isset($sessionData[$display_name]) &&
 						$sessionData[$display_name]['commit_time'] !== $props['commit_time']) {
 						if ($username) {
-							// TODO: Show real username.
 							$name = $GLOBALS["mapisession"]->getDisplayNameofUser($username);
 						} else {
 							$name = null;
