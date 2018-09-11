@@ -116,12 +116,39 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			// override processEvent so we can save the change in the record
 			processEvent : this.onRuleStateColumnProcessEvent.createDelegate(this)
 		}, {
+			dataIndex : 'rule_state',
+			header : _('Out of office'),
+			sortable : false,
+			fixed : true,
+			width : 100,
+			renderer : this.ruleOutOfOfficeStateRenderer
+		},{
 			dataIndex : 'rule_name',
 			header : _('Rule'),
 			sortable : false,
 			renderer : Zarafa.common.ui.grid.Renderers.text
 		}];
 	},
+
+	/**
+	 * Render the cell as Rule state, setting an Out of office icon in
+	 * out of office column to indicate that rule is active when
+	 * user is out of office rule state.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 */
+	ruleOutOfOfficeStateRenderer : function(value, p, record)
+	{
+		var stateOnlyWhenOOF = value & Zarafa.core.mapi.RuleStates.ST_ONLY_WHEN_OOF;
+
+		if (stateOnlyWhenOOF === Zarafa.core.mapi.RuleStates.ST_ONLY_WHEN_OOF) {
+			p.css += ' icon_rule_oof';
+		}
+		return '';
+	},
+
 
 	/**
 	 * Render the cell as Rule state checkbox, function will call {@link Ext.ux.grid.CheckColumn#renderer CheckColumn#renderer}
