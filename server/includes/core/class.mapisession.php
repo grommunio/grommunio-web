@@ -79,19 +79,21 @@
 		 * @param string $server the server address
 		 * @param string $sslcert_file the optional ssl certificate file
 		 * @param string $sslcert_pass the optional ssl certificate password
+		 * @param string $flags the optional logon flags
 		 * @result int 0 on no error, otherwise a MAPI error code
 		 */
-		function logon($username = NULL, $password = NULL, $server = DEFAULT_SERVER, $sslcert_file = NULL, $sslcert_pass = NULL, $notifications = 1)
+		function logon($username = NULL, $password = NULL, $server = DEFAULT_SERVER, $sslcert_file = NULL, $sslcert_pass = NULL, $flags = 0)
 		{
 			$result = NOERROR;
 			$username = (string) $username;
 			$password = (string) $password;
+			$flags |= 1; // Always disable notifications
 
 			try {
 				$webapp_version = 'WebApp-'.trim(file_get_contents(BASE_PATH . 'version'));
 				$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 				$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file,
-								   $sslcert_pass, 1, $webapp_version, $browser_version);
+								   $sslcert_pass, $flags, $webapp_version, $browser_version);
 				if ($this->session !== false){
 					$this->session_info["username"] = $username;
 				}

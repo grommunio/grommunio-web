@@ -45,6 +45,11 @@
 		return $favicon;
 	}
 
+	if (isset($_GET['oidc-silent-refresh'])) {
+		include('server/includes/templates/oidc-silent-refresh.php');
+		die();
+	}
+
 	// If the user wants to logout (and is not using single-signon)
 	// then destroy the session and redirect to this page, so the login page
 	// will be shown
@@ -126,7 +131,11 @@
 		$favicon = getFavicon(Theming::getActiveTheme());
 
 		// Include the login template
-		include(BASE_PATH . 'server/includes/templates/login.php');
+		if (empty(OIDC_ISS)) {
+			include(BASE_PATH . 'server/includes/templates/login.php');
+		} else {
+			include(BASE_PATH . 'server/includes/templates/oidc.php');
+		}
 		die();
 	}
 
@@ -244,6 +253,11 @@
 	if ( isset($_GET['load']) ) {
 		include(BASE_PATH . 'server/includes/load.php');
 		die();
+	}
+
+	// Load OIDC JavaScript for refreshing of the token.
+	if (!empty(OIDC_ISS)) {
+		require_once(BASE_PATH . 'client/oidc.js.php');
 	}
 
 	if (!DISABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {

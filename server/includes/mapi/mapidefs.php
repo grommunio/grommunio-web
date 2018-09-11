@@ -633,4 +633,7 @@ define('RSF_ELID_HEADER',                 0x0002);
 
 /* IStream Flags */
 define('STGM_TRANSACTED',         0x00010000);
+
+/* Logon Flags */
+define('EC_PROFILE_FLAGS_OIDC', 0x0004000);
 ?>
