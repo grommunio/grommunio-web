@@ -4,22 +4,15 @@ Ext.namespace('Zarafa.core');
  * @class Zarafa.core.HtmlEditorPlugin
  * @extends Zarafa.core.Plugin
  *
- * Plugin that makes it possible to use another html editor
+ * Class is consider as a interface for all html editor plugins all
+ * functions are override by the respective html editor plugins.
  */
 Zarafa.core.HtmlEditorPlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
-	 * Editor plugins should overwrite this value with the xtype of their editor
+	 * Editor plugins should overwrite this value with the xtype of their editor.
+	 * @property
 	 */
 	editorXType: '',
-
-	/**
-	 * @constructor
-	 * @param {Object} config Configuration object
-	 */
-	constructor : function(config)
-	{
-		Zarafa.core.HtmlEditorPlugin.superclass.constructor.call(this, config);
-	},
 
 	/**
 	 * Sets the underlying DOM field's value directly, bypassing validation.

@@ -358,12 +358,15 @@ Zarafa.common.ui.EditorField = Ext.extend(Ext.Container, {
 	 */
 	getHTMLEditorXtype : function()
 	{
-		var editorPlugins = container.getPlugins()
-			.filter(htmlEditorPlugin => htmlEditorPlugin instanceof Zarafa.core.HtmlEditorPlugin);
+		var editorPlugins = container.getPlugins().filter(function (htmlEditorPlugin){
+			return htmlEditorPlugin instanceof Zarafa.core.HtmlEditorPlugin;
+		});
 		var configuredEditor = container.getSettingsModel().get('zarafa/v1/contexts/mail/html_editor');
-		var editorPlugin = editorPlugins.find(editorPlugin => editorPlugin.getName() === configuredEditor);
+		var editorPlugin = editorPlugins.find(function(editorPlugin){
+			return editorPlugin.getName() === configuredEditor;
+		});
 
-		if(editorPlugin) {
+		if (editorPlugin) {
 			// Don't fail if a plugin didn't define an editorXType
 			this.htmlXtype = editorPlugin.editorXType || this.htmlXtype;
 		}

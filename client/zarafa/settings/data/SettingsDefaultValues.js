@@ -533,7 +533,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type string
 								 */
-								'html_editor' : '',
+								'html_editor' : 'full_tinymce',
 
 								// Small hack, the server determines these defaults
 								// but we copy them here so the user can press

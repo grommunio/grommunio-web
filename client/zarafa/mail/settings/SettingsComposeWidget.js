@@ -93,32 +93,25 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 					scope : this
 				}
 			},{
-				xtype : 'zarafa.compositefield',
+				xtype : 'combo',
+				name : 'zarafa/v1/contexts/mail/html_editor',
 				fieldLabel : _('Editor'),
-				items : [{
-					xtype : 'combo',
-					name : 'zarafa/v1/contexts/mail/html_editor',
-					ref : '../editorCombo',
-					width : 200,
-					store : this.createEditorStore(),
-					mode: 'local',
-					allowBlank: false,
-					triggerAction: 'all',
-					displayField: 'name',
-					valueField: 'value',
-					lazyInit: false,
-					forceSelection: true,
-					editable: false,
-					autoSelect: true,
-					listeners : {
-						select : this.onSelectEditorCombo,
-						scope : this
-					}
-				},{
-					xtype : 'displayfield',
-					cls : 'zarafa-settings-reload-warning',
-					ref : '../editorWarning'
-				}]
+				ref : 'editorCombo',
+				width : 200,
+				store : this.createEditorStore(),
+				mode: 'local',
+				allowBlank: false,
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+				listeners : {
+					select: this.onSelectComboItem,
+					scope: this
+				}
 			},{
 				xtype : 'combo',
 				name : 'zarafa/v1/main/default_font',
@@ -227,7 +220,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 			fields : ['name', 'value'],
 			data : [{
 				name: 'TinyMCE Editor',
-				value: ''
+				value: 'full_tinymce'
 			}].concat(this.getHTMLEditorPlugins().map(function(e) {
 				return {
 					name: e.getDisplayName(),
@@ -245,7 +238,9 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 	 */
 	getHTMLEditorPlugins : function()
 	{
-		return container.getPlugins().filter(htmlEditorPlguin => htmlEditorPlguin instanceof Zarafa.core.HtmlEditorPlugin);
+		return container.getPlugins().filter(function (htmlEditorPlguin)  {
+			return htmlEditorPlguin instanceof Zarafa.core.HtmlEditorPlugin;
+		});
 	},
 
 	/**
@@ -265,8 +260,10 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		this.composerCombo.setValue(useHtml ? 'html' : 'plain');
 
 		var editorName = settingsModel.get(this.editorCombo.name);
-		var isExistEditor =this.getHTMLEditorPlugins().some(editor => editor.getName() === editorName);
-		this.selectedEditor = isExistEditor ? editorName : '';
+		var isExistEditor = this.getHTMLEditorPlugins().some(function (editor){
+			return editor.getName() === editorName;
+		});
+		this.selectedEditor = isExistEditor ? editorName : 'full_tinymce';
 		this.editorCombo.setValue(this.selectedEditor);
 		this.editorCombo.setDisabled(useHtml !== true);
 
@@ -309,31 +306,6 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		settingsModel.set(this.readBox.name, this.readBox.getValue());
 		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
 		settingsModel.endEdit();
-		this.setEditor(this.editorCombo.getValue());
-	},
-
-	/**
-	 * Override the {@link Zarafa.common.ui.EditorField} to use the editor of choice
-	 *
-	 * @param {String} name The name of editor plugins.
-	 */
-	setEditor: function(name)
-	{
-		if (this.composerCombo.getValue() !== 'html') {
-			return;
-		}
-		// Start with the default editor
-		var editorXType = 'zarafa.htmleditor';
-
-		var editorPlugin = this.getHTMLEditorPlugins().find(htmlEditorPlguin => htmlEditorPlguin.getName() === name);
-		if ( editorPlugin ) {
-			// Don't fail if a plugin didn't define an editorXType
-			editorXType = editorPlugin.editorXType || 'zarafa.htmleditor';
-		}
-
-		Ext.override(Zarafa.common.ui.EditorField, {
-			htmlXtype: editorXType
-		});
 	},
 
 	/**
@@ -394,7 +366,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 
 	/**
 	 * Event handler which is called when a selection has been made in the
-	 * Font selection {@link Ext.form.ComboBox combobox}.
+	 * Font or editor selection {@link Ext.form.ComboBox combobox}.
 	 * @param {Ext.form.ComboBox} field The field which fired the event
 	 * @param {Ext.data.Record} record The selected record
 	 */
@@ -408,26 +380,6 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				this.model.set(field.name, value);
 			}
 		}
-	},
-
-	/**
-	 * Event handler which is called when a selection has been made in the
-	 * editor selection {@link Ext.form.ComboBox combobox}.
-	 * @param {Ext.form.ComboBox} field The field which fired the event
-	 * @param {Ext.data.Record} record The selected record
-	 */
-	onSelectEditorCombo : function(field, record)
-	{
-		var value = record.get(field.valueField);
-
-		if (this.selectedEditor !== value) {
-			this.model.requiresReload = true;
-			this.editorWarning.setValue(_('This change requires a reload of the WebApp'));
-		} else {
-			this.editorWarning.reset();
-		}
-
-		this.onSelectComboItem(field,record);
 	}
 });
 
