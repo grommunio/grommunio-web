@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 09:11+0200\n"
+"POT-Creation-Date: 2018-09-13 12:56+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3695,6 +3695,11 @@ msgstr "沒有足夠的權限來開啟這個文件夾，你想要從此階層移
 msgid "Not enough permissions to open this folder."
 msgstr "沒有足夠的權限來開啟這個文件夾"
 
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
+
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
@@ -5220,6 +5225,11 @@ msgstr "等待中"
 
 msgid "You have been automatically logged out"
 msgstr "您已自動登出"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Can't add data to bus, same action type is present in bus"

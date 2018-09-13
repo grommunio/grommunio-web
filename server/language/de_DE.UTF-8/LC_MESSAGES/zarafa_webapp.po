@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 09:11+0200\n"
+"POT-Creation-Date: 2018-09-13 12:56+0200\n"
 "PO-Revision-Date: 2018-08-07 19:29+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3900,6 +3900,12 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Keine ausreichenden Berechtigungen, um diesen Ordner zu öffnen."
 
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
+msgstr[1] "Im Ordner {1} befinden sich {0} ungelesene Nachrichten"
+
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
@@ -5502,6 +5508,11 @@ msgstr "Wartend"
 
 msgid "You have been automatically logged out"
 msgstr "Sie wurden automatisch ausgeloggt"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

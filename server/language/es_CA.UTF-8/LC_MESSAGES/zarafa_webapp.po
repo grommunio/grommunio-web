@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 09:11+0200\n"
+"POT-Creation-Date: 2018-09-13 12:56+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3862,6 +3862,12 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Privilegios insuficientes para abrir la carpeta."
 
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
+msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
+
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
@@ -5420,6 +5426,11 @@ msgstr "Esperando"
 
 msgid "You have been automatically logged out"
 msgstr "Se ha cerrado la sesión automáticamente"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""

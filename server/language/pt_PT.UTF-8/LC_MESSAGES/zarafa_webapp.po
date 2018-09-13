@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 09:11+0200\n"
+"POT-Creation-Date: 2018-09-13 12:56+0200\n"
 "PO-Revision-Date: 2018-08-20 16:07+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
@@ -3621,6 +3621,12 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Não tem permissões suficientes para abrir esta pasta."
 
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
+msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
+
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
@@ -5118,6 +5124,11 @@ msgstr "Em espera"
 
 msgid "You have been automatically logged out"
 msgstr "A sessão foi automaticamente terminada"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Não foi possível adicionar dados ao bus. A mesma ação já existe no bus"

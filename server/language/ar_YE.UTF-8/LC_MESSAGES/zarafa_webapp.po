@@ -3491,6 +3491,11 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr ""
 
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] ""
@@ -4933,6 +4938,11 @@ msgid "Waiting"
 msgstr ""
 
 msgid "You have been automatically logged out"
+msgstr ""
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
