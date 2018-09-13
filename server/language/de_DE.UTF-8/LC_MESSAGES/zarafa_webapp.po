@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-13 12:56+0200\n"
-"PO-Revision-Date: 2018-09-13 11:14+0000\n"
-"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"PO-Revision-Date: 2018-09-13 11:15+0000\n"
+"Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -709,7 +709,7 @@ msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
-"Sie können nach Datum sortieren wenn Sie Ihre Suche verfeinern. Verwenden "
+"Sie können nach Datum sortieren, wenn Sie Ihre Suche verfeinern. Verwenden "
 "Sie die Filter oder einen anderen Suchbegriff."
 
 msgid "Did you mean"
@@ -1843,7 +1843,7 @@ msgid ""
 msgstr "Der Absender hat eine Lesebestätigung angefordert. Bestätigung senden?"
 
 msgid "Import"
-msgstr "Import"
+msgstr "Einfügen"
 
 msgid "Successfully imported item(s) to {0}"
 msgstr "Erfolgreich importierte Elemente in {0}"
@@ -1893,7 +1893,7 @@ msgid "No message selected"
 msgstr "Keine Nachricht ausgewählt"
 
 msgid "Import to"
-msgstr "Importieren in"
+msgstr "Einfügen in"
 
 # 90%
 # 100%
@@ -1937,7 +1937,7 @@ msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
 
 msgid "Import to folder"
-msgstr "Import in Ordner"
+msgstr "Einfügen in Ordner"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
@@ -2318,7 +2318,7 @@ msgid "Edit Recipient"
 msgstr "Empfänger bearbeiten"
 
 msgid "Copy e-mail address"
-msgstr "E-Mail-Adresse kopieren"
+msgstr "Kopiere E-Mail-Adresse"
 
 # 90%
 msgid "Send e-mail"
