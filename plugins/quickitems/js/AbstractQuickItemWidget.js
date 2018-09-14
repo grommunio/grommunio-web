@@ -220,5 +220,60 @@ Zarafa.widgets.quickitems.AbstractQuickItemWidget = Ext.extend(Zarafa.core.ui.wi
 		if (this.record) {
 			container.getShadowStore().remove(this.record, true);
 		}
+	},
+
+	/**
+	 * Event handler which is triggered when one of the Input fields
+	 * has been changed by the user. It will validate the new value,
+	 * and if correct, will apply it to the {@link Zarafa.core.data.IPMRecord record}.
+	 * @param {Object} field The field updated field
+	 * @param {Object} value The value of the field updated
+	 * @private
+	 */
+	onChange : function(field, value)
+	{
+		this.wrap.record.set(field.name, value);
+	},
+
+	/**
+	 * Event handler which is triggered when one of the Input fields
+	 * has been changed by the user. It will validate the new value,
+	 * and if correct, will apply it to the {@link Zarafa.core.data.IPMRecord record}.
+	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was changed.
+	 * @param {Mixed} newValue The new value
+	 * @param {Mixed} oldValue The old value
+	 * @private
+	 */
+	onBodyChange : function(field, newValue, oldValue)
+	{
+		this.wrap.record.beginEdit();
+		if (field instanceof Ext.form.HtmlEditor) {
+			this.wrap.record.set('isHTML', true);
+		} else {
+			this.wrap.record.set('isHTML', false);
+		}
+		this.wrap.record.set(field.name, newValue);
+		this.wrap.record.endEdit();
+	},
+
+	/**
+	 * Event handler which is fired when the user pressed the 'Save' button.
+	 * This will call {@link Zarafa.core.ui.MessageContentPanel#saveRecord} to start
+	 * sending the mail.
+	 * @private
+	 */
+	onSave : function()
+	{
+		this.wrap.saveRecord();
+	},
+
+	/**
+	 * Event handler which is fired when the user pressed the 'Disacrd' button.
+	 * This will call {@link #reset} to clear the contents.
+	 * @private
+	 */
+	onDiscard : function()
+	{
+		this.reset();
 	}
 });
