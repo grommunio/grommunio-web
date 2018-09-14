@@ -145,6 +145,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 			layout: 'fit',
 			width: 320,
 			height: 130,
+			modal: true,
 
 			items: [{
 				xtype: 'form',
