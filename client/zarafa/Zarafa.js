@@ -894,9 +894,7 @@ Ext.apply(Zarafa, {
 	 */
 	startSharedStoresHierarchyChecker: function()
 	{
-		// Undocumented configuration option for selenium testing in seconds.
-		const interval = container.getSettingsModel().get('zarafa/v1/main/reminder_shared_polling') * 1000 ||
-			container.getServerConfig().getSharedStorePollingInterval();
+		const interval = container.getServerConfig().getSharedStorePollingInterval();
 
 		if (!Ext.isNumber(interval)) {
 			return;
