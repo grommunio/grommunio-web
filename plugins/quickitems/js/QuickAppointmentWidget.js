@@ -42,14 +42,10 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 						hideLabel: true,
 						anchor: '100%',
 						items: [{
-							xtype: 'label',
-							width: 100,
-							text: _('Subject') + ':'
-						},{
 							xtype: 'textfield',
 							flex: 1,
 							name: 'subject',
-							value: undefined,
+							emptyText: _('Subject') + ':',
 							listeners: {
 								change : this.onChange,
 								scope : this
@@ -60,19 +56,14 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 						ref: '../datetimePeriod',
 						defaultPeriod: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period'),
 						timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
-						width: 300,
 						listeners: {
 							change: this.onDateRangeFieldChange,
 							scope: this
 						},
 						startFieldConfig: {
-							fieldLabel: _('Start time'),
-							labelWidth: 100,
 							minValue : new Date().clearTime()
 						},
 						endFieldConfig: {
-							fieldLabel: _('End time'),
-							labelWidth: 100,
 							minValue : new Date().clearTime()
 						}
 					},{
@@ -80,14 +71,12 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 						hideLabel: true,
 						anchor: '100%',
 						items: [{
-							xtype: 'spacer',
-							width: 100
-						},{
 							xtype: 'checkbox',
 							name: 'alldayevent',
 							ref : '../../alldayCheck',
 							hideLabel : false,
 							boxLabel: _('All Day Event'),
+							height: 15,
 							handler: this.onToggleAllDay,
 							scope: this
 						}]
@@ -110,10 +99,12 @@ Zarafa.widgets.quickitems.QuickAppointmentWidget = Ext.extend(Zarafa.widgets.qui
 			buttons : [{
 				text : _('Save'),
 				cls : 'zarafa-action',
+				style: 'padding-bottom: 5px',
 				handler : this.onSave,
 				scope : this
 			},{
 				text : _('Discard'),
+				style: 'padding-bottom: 5px',
 				handler : this.onDiscard,
 				scope : this
 			}]

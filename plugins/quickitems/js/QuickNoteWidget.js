@@ -48,10 +48,12 @@ Zarafa.widgets.quickitems.QuickNoteWidget = Ext.extend(Zarafa.widgets.quickitems
 			buttons : [{
 				text : _('Save'),
 				cls : 'zarafa-action',
+				style: 'padding-bottom: 5px',
 				handler : this.onSave,
 				scope : this
 			},{
 				text : _('Discard'),
+				style: 'padding-bottom: 5px',
 				handler : this.onDiscard,
 				scope : this
 			}]

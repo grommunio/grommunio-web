@@ -42,14 +42,10 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 						hideLabel: true,
 						anchor: '100%',
 						items: [{
-							xtype: 'label',
-							width: 100,
-							text: _('Subject') + ':'
-						},{
 							xtype: 'textfield',
 							flex: 1,
 							name: 'subject',
-							value: undefined,
+							emptyText: _('Subject') + ':',
 							listeners: {
 								change : this.onChange,
 								scope : this
@@ -60,13 +56,10 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 						hideLabel: true,
 						anchor: '100%',
 						items: [{
-							xtype: 'label',
-							width: 100,
-							text: _('End date') + ':'
 						},{
 							xtype: 'datefield',
 							ref: '../../dueDateField',
-							emptyText : _('None'),
+							emptyText : _('End date') + ': ' + _('none'),
 							flex: 1,
 							name: 'commonend',
 							utcname : 'duedate',
@@ -97,10 +90,12 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 			buttons : [{
 				text : _('Save'),
 				cls : 'zarafa-action',
+				style: 'padding-bottom: 5px',
 				handler : this.onSave,
 				scope : this
 			},{
 				text : _('Discard'),
+				style: 'padding-bottom: 5px',
 				handler : this.onDiscard,
 				scope : this
 			}]
