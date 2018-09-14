@@ -6,7 +6,7 @@
 		<name>webappmanual</name>
 		<title>WebApp Manual</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Adds a button in the top menu bar, which directs the user to the user manual of the WebApp.</description>
 	</info>
 	<config>

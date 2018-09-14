@@ -6,7 +6,7 @@
 		<name>zdeveloper</name>
 		<title>Kopano Developer Plugin</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Shows all available insertion points on screen.</description>
 	</info>
 	<config>

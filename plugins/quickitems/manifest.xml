@@ -6,7 +6,7 @@
 		<name>quickitems</name>
 		<title>Quick Items</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Special widgets for easily creating new Mails, Appointments, Contacts, Tasks and Notes.</description>
 	</info>
 	<components>

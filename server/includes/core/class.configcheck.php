@@ -33,7 +33,7 @@ class ConfigCheck
 
 		$this->checkDirectory(TMP_PATH, "rw", "Please make sure this directory exists and is writable for PHP/Apache");
 		$this->checkFunction("iconv", "Install the 'iconv' module for PHP, or else you don't have euro-sign support.");
-		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"http://php.net/manual/en/ref.zlib.php#zlib.installation\">http://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
+		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"https://php.net/manual/en/ref.zlib.php#zlib.installation\">https://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
 		$this->checkLoader(DEBUG_LOADER, "Your 'DEBUG_LOADER' configuration isn't valid for the current folder");
 
 		// check if there were *any* errors and we need to stop the WebApp

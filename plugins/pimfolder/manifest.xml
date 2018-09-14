@@ -6,7 +6,7 @@
 		<name>pimfolder</name>
 		<title>Personal Inbox Management</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Kopano PIM plugin, allows you to set-up a folder quickly moving your mail to another folder; like &quot;Archive&quot; in GTD</description>
 	</info>
 	<config>
