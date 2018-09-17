@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-09-13 11:24+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3757,8 +3757,9 @@ msgstr "Abmelden"
 msgid "Switch view"
 msgstr "Ansicht umschalten"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Alle Widgets"
 
 msgid "Sending"
 msgstr "Senden"
@@ -5390,6 +5391,9 @@ msgstr "Schnell-E-Mail"
 
 msgid "Quick Note"
 msgstr "Schnellnotiz"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Schnellaufgabe"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3707,8 +3707,10 @@ msgstr "Kijelentkezés"
 msgid "Switch view"
 msgstr "Nézet változtatása"
 
-msgid "Kopano"
-msgstr "Kopano"
+# There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Widgets"
+msgstr "Beépülő modul hozzáadása"
 
 msgid "Sending"
 msgstr "Küldés"
@@ -5289,6 +5291,9 @@ msgstr "Gyors email"
 
 msgid "Quick Note"
 msgstr "Gyors jegyzet"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Gyors feladat"

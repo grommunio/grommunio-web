@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano WebApp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3522,8 +3522,9 @@ msgstr "Wyloguj"
 msgid "Switch view"
 msgstr "Przełącz widok"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Wszystkie widżety"
 
 msgid "Sending"
 msgstr "Wysyłanie"
@@ -5052,6 +5053,9 @@ msgstr "Szybki e-mail"
 
 msgid "Quick Note"
 msgstr "Szybka notatka"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Szybkie zadanie"

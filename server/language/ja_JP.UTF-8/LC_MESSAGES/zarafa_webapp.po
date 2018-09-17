@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3631,8 +3631,9 @@ msgstr "ログアウト"
 msgid "Switch view"
 msgstr "ビューを切替"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "ウィジェット追加"
 
 msgid "Sending"
 msgstr "送信中"
@@ -5198,6 +5199,9 @@ msgstr "クイック メール"
 
 msgid "Quick Note"
 msgstr "クイック メモ"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "クイック タスク"

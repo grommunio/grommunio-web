@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2013-10-29 05:36+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3667,8 +3667,9 @@ msgstr "Выйти"
 msgid "Switch view"
 msgstr "Переключить вид"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Добавить виджет"
 
 msgid "Sending"
 msgstr "Отправляется"
@@ -5272,6 +5273,9 @@ msgstr "Быстрое письмо"
 
 msgid "Quick Note"
 msgstr "Быстрая заметка"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Быстрая задача"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2014-12-19 20:00+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3759,8 +3759,9 @@ msgstr "Odjava"
 msgid "Switch view"
 msgstr "Preklopi pogled"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Dodaj pripomočke"
 
 msgid "Sending"
 msgstr "Pošiljanje"
@@ -5361,6 +5362,9 @@ msgstr "Hitra pošta"
 
 msgid "Quick Note"
 msgstr "Hitri zapisek"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Hitra naloga"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-08-20 16:07+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
@@ -3500,8 +3500,9 @@ msgstr "Sair"
 msgid "Switch view"
 msgstr "Mudar vista"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Adicionar widgets"
 
 msgid "Sending"
 msgstr "A enviar"
@@ -5022,6 +5023,9 @@ msgstr "Mensagem rápida"
 
 msgid "Quick Note"
 msgstr "Nota rápida"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Tarefa rápida"

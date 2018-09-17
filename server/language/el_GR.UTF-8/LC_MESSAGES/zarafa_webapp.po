@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3395,7 +3395,7 @@ msgstr ""
 msgid "Switch view"
 msgstr ""
 
-msgid "Kopano"
+msgid "Widgets"
 msgstr ""
 
 msgid "Sending"
@@ -4855,6 +4855,9 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "Quick Task"

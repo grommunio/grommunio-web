@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2013-02-18 13:13+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3574,8 +3574,9 @@ msgstr "登出"
 msgid "Switch view"
 msgstr "切換檢視"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "新增小工具"
 
 msgid "Sending"
 msgstr "傳送中"
@@ -5123,6 +5124,9 @@ msgstr "新增郵件"
 
 msgid "Quick Note"
 msgstr "新增筆記"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "新增任務"

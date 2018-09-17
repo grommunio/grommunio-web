@@ -3376,7 +3376,7 @@ msgstr ""
 msgid "Switch view"
 msgstr ""
 
-msgid "Kopano"
+msgid "Widgets"
 msgstr ""
 
 msgid "Sending"
@@ -4836,6 +4836,9 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "Quick Task"

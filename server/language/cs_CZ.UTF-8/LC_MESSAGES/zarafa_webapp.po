@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -3665,8 +3665,9 @@ msgstr "Odhlásit"
 msgid "Switch view"
 msgstr "Přepnout náhled"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Přidat prvky"
 
 msgid "Sending"
 msgstr "Odesílání"
@@ -5246,6 +5247,9 @@ msgstr "Rychlá pošta"
 
 msgid "Quick Note"
 msgstr "Rychlá poznámka"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Rychlý úkol"

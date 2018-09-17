@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 12:56+0200\n"
+"POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2013-02-21 09:59+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3675,8 +3675,9 @@ msgstr "Kirjaudu ulos"
 msgid "Switch view"
 msgstr "Vaihda näkymää"
 
-msgid "Kopano"
-msgstr "Kopano"
+#, fuzzy
+msgid "Widgets"
+msgstr "Lisää pienoisohjelmia"
 
 msgid "Sending"
 msgstr "Lähetetään"
@@ -5262,6 +5263,9 @@ msgstr "Pikaposti"
 
 msgid "Quick Note"
 msgstr "Pikamerkintä"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Pikatehtävä"
