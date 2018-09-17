@@ -12,9 +12,8 @@ pipeline {
 			parallel {
 				stage('JS Lint') {
 					agent {
-						docker {
-							image 'node:9'
-							args '-u 0'
+						dockerfile {
+							label 'docker'
 						}
 					}
 					steps {
