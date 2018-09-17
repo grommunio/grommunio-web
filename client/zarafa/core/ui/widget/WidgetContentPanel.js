@@ -53,8 +53,8 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 		Ext.applyIf(config, {
 			layout : 'fit',
 			border : false,
-			width : 400,
-			height : 300,
+			width : 550,
+			height : 280,
 			modal: true,
 			title : _('Add widgets'),
 			items : [{
