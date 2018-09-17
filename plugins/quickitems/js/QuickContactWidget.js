@@ -55,15 +55,12 @@ Zarafa.widgets.quickitems.QuickContactWidget = Ext.extend(Zarafa.widgets.quickit
 						xtype: 'zarafa.compositefield',
 						hideLabel: true,
 						anchor: '100%',
-						autoHeight: true,
+						height: 30,
 						items : [{
-							xtype : 'label',
-							width : 100,
-							text : _('Full Name') + ':'
-						},{
 							xtype : 'textfield',
 							flex : 1,
 							name : 'display_name',
+							emptyText : _('Full Name') + ':',
 							ref : '../../fullnameField',
 							listeners : {
 								scope : this,
@@ -74,7 +71,7 @@ Zarafa.widgets.quickitems.QuickContactWidget = Ext.extend(Zarafa.widgets.quickit
 						xtype: 'zarafa.compositefield',
 						hideLabel: true,
 						anchor: '100%',
-						autoHeight: true,
+						height: 33,
 						items : [{
 							xtype : 'splitbutton',
 							width: 100,
@@ -97,16 +94,13 @@ Zarafa.widgets.quickitems.QuickContactWidget = Ext.extend(Zarafa.widgets.quickit
 						xtype: 'zarafa.compositefield',
 						hideLabel: true,
 						anchor: '100%',
-						autoHeight: true,
 						items : [{
-							xtype : 'label',
-							width: 100,
-							text : _('Email') + ':'
-						},{
 							xtype : 'textfield',
 							flex: 1,
+							emptyText: _('Email') + ':',
 							ref : '../../mailAddressField',
 							name : 'email_address_1',
+							height: 30,
 							listeners : {
 								scope : this,
 								change : this.onChange
@@ -131,10 +125,12 @@ Zarafa.widgets.quickitems.QuickContactWidget = Ext.extend(Zarafa.widgets.quickit
 			buttons : [{
 				text : _('Save'),
 				cls : 'zarafa-action',
+				style: 'padding-bottom: 5px',
 				handler : this.onSave,
 				scope : this
 			},{
 				text : _('Discard'),
+				style: 'padding-bottom: 5px',
 				handler : this.onDiscard,
 				scope : this
 			}]

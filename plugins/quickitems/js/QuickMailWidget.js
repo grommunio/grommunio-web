@@ -49,7 +49,7 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 						autoHeight: true,
 						items: [{
 							xtype: 'label',
-							width: 100,
+							width: 20,
 							text: _('To') + ':'
 						},{
 							xtype: 'zarafa.recipientfield',
@@ -63,14 +63,10 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 						hideLabel: true,
 						anchor: '100%',
 						items: [{
-							xtype: 'label',
-							width: 100,
-							text: _('Subject') + ':'
-						},{
 							xtype: 'textfield',
 							flex: 1,
 							name: 'subject',
-							value: undefined,
+							emptyText: _('Subject') + ':',
 							listeners: {
 								change : this.onChange,
 								scope : this
@@ -95,10 +91,12 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 			buttons : [{
 				text : _('Send'),
 				cls : 'zarafa-action',
+				style: 'padding-bottom: 5px',
 				handler : this.onSend,
 				scope : this
 			},{
 				text : _('Discard'),
+				style: 'padding-bottom: 5px',
 				handler : this.onDiscard,
 				scope : this
 			}]

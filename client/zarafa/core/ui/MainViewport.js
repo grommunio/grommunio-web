@@ -103,7 +103,7 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	{
 		this.widgetPanel = new Zarafa.core.ui.widget.WidgetPanel({
 			region : 'east',
-			title : _('Kopano'),
+			title : _('Widgets'),
 			numColumns : 1,
 
 			stateful : true,
