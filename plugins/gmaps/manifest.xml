@@ -6,7 +6,7 @@
 		<name>gmaps</name>
 		<title>Google Maps Plugin</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Shows contact address on google maps.</description>
 	</info>
 	<config>

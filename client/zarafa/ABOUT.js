@@ -22,7 +22,7 @@ Zarafa.ABOUT = ""
 	+ "GNU Affero General Public License for more details.</p>"
 
 	+ "<p>You should have received a copy of the GNU Affero General Public License "
-	+ "along with this program.  If not, see <a href=\"http://www.gnu.org/licenses/\" target=\"_blank\">http://www.gnu.org/licenses/</a>.</p>"
+	+ "along with this program.  If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>"
 
 	+ "<hr />"
 
@@ -30,7 +30,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>Ext JS</h1>"
 
-	+ "<p>Copyright (C) Sencha, Inc.  Ext JS is distributed under the terms of the GNU General Public License: <a href=\"http://www.gnu.org/copyleft/gpl.html\" target=\"_blank\">http://www.gnu.org/copyleft/gpl.html</a></p>"
+	+ "<p>Copyright (C) Sencha, Inc.  Ext JS is distributed under the terms of the GNU General Public License: <a href=\"https://www.gnu.org/copyleft/gpl.html\" target=\"_blank\">https://www.gnu.org/copyleft/gpl.html</a></p>"
 
 
 	+ "<h1>Printer rendering</h1>"
@@ -58,7 +58,7 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>TinyMCE</h1>"
 
-	+ "<p>Copyright, Moxiecode Systems AB. Released under LGPL License: <a href=\"http://www.tinymce.com/license\" target=\"_blank\">http://www.tinymce.com/license</a></p>"
+	+ "<p>Copyright, Moxiecode Systems AB. Released under LGPL License: <a href=\"https://www.tinymce.com/license\" target=\"_blank\">https://www.tinymce.com/license</a></p>"
 
 
 	+ "<h1>TinyMCE PowerPaste</h1>"
@@ -76,4 +76,4 @@ Zarafa.ABOUT = ""
 	+ "GNU Affero General Public License for more details.</p>"
 
 	+ "You should have received a copy of the GNU Affero General Public License "
-	+ "along with this program. If not, see <a href=\"http://www.gnu.org/licenses/\" target=\"_blank\">http://www.gnu.org/licenses/</a>.</p>";
+	+ "along with this program. If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>";

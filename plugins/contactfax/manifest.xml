@@ -6,7 +6,7 @@
 		<name>contactfax</name>
 		<title>Contact Fax Plugin</title>
 		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<authorURL>https://www.kopano.com</authorURL>
 		<description>Open a new 'create mail' dialog with contact's fax number in the TO field of the email.</description>
 	</info>
 	<config>
