@@ -382,6 +382,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			.icon_mail_oof {
 	        	background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 3);
 			}
+			.icon_rule_oof {
+				@extend .icon_oof;
+	        	background-position: sprite-position($iconsmap, icon_oof, $offset-y: $padding-medium - 2, $offset-x: $padding-medium - 3);
+			}
 			.icon_contact_user {
 				@extend .icon_contact_card;
 	        	background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);

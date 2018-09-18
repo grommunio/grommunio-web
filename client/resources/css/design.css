@@ -80,7 +80,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_stick
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_note,
 ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_shared_note, .x-tree-node-el .x-tree-node-icon.icon_folder_stickynote,
 .x-tree-node-el .x-tree-node-icon.icon_folder_default_note,
-.x-tree-node-el .x-tree-node-icon.icon_folder_shared_note, .icon_note_yellow_large, .icon_notification_error, .icon_notification_info, .icon_notification_warning, .icon_oof, .icon_pencil, .icon_pencil_dark, .icon_pin, .icon_pin_dark, .icon_pin_outline, .icon_pin_outline_dark, .icon_plug, .icon_plus, .x-zarafa-boxfield ul .x-zarafa-boxfield-item-expand, .icon_previewpanel_bottom, .icon_previewpanel_off, .icon_previewpanel_right, .icon_refresh, .icon_reminder, .icon_remove_favorites, .icon_restore, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore, .icon_seal, .icon_sendas, .icon_share, .icon_shortcuts, .icon_sort_ascending, .icon_sort_descending, .icon_spanner, .icon_task, .icon_folder_default_task,
+.x-tree-node-el .x-tree-node-icon.icon_folder_shared_note, .icon_note_yellow_large, .icon_notification_error, .icon_notification_info, .icon_notification_warning, .icon_oof, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_rule_oof, .icon_pencil, .icon_pencil_dark, .icon_pin, .icon_pin_dark, .icon_pin_outline, .icon_pin_outline_dark, .icon_plug, .icon_plus, .x-zarafa-boxfield ul .x-zarafa-boxfield-item-expand, .icon_previewpanel_bottom, .icon_previewpanel_off, .icon_previewpanel_right, .icon_refresh, .icon_reminder, .icon_remove_favorites, .icon_restore, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_restore, .icon_seal, .icon_sendas, .icon_share, .icon_shortcuts, .icon_sort_ascending, .icon_sort_descending, .icon_spanner, .icon_task, .icon_folder_default_task,
 .icon_folder_shared_task, .icon_task_normal,
 .icon_task_recurring, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_default_task,
@@ -1392,7 +1392,8 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_share
 
 /* line 27, ../scss/base/_icons.scss */
 .icons-icon_oof,
-.icon_oof {
+.icon_oof,
+.x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_rule_oof {
   /* need to use !important because Ext also uses it here and there! */
   background-image: url('../images/icons-s5e0631df8c.png') !important;
   background-repeat: no-repeat;
@@ -2415,7 +2416,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_folder_share
 }
 
 /* line 45, ../scss/base/_icons.scss */
-.icon_oof {
+.icon_oof, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_rule_oof {
   background-position: 0 -4317px;
 }
 
@@ -4840,224 +4841,228 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-position: 3px -2951px;
 }
 /* line 385, ../scss/components/_grids.scss */
+.x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_rule_oof {
+  background-position: 3px -4314px;
+}
+/* line 389, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_user {
   background-position: 4px -1510px;
 }
-/* line 389, ../scss/components/_grids.scss */
+/* line 393, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_distlist {
   background-position: 4px -1746px;
 }
-/* line 393, ../scss/components/_grids.scss */
+/* line 397, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_equipment {
   background-position: 4px -1609px;
 }
-/* line 396, ../scss/components/_grids.scss */
+/* line 400, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_gab_user {
   background-position: 4px -1709px;
 }
-/* line 400, ../scss/components/_grids.scss */
+/* line 404, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_room {
   background-position: 7px -1677px;
 }
-/* line 403, ../scss/components/_grids.scss */
+/* line 407, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_contact_company {
   background-position: 3px -1575px;
 }
-/* line 406, ../scss/components/_grids.scss */
+/* line 410, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_appointment {
   background-position: 4px -1126px;
 }
-/* line 410, ../scss/components/_grids.scss */
+/* line 414, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_recurring,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_recurring {
   background-position: 4px -1051px;
 }
-/* line 415, ../scss/components/_grids.scss */
+/* line 419, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_single {
   background-position: 4px -1161px;
 }
-/* line 419, ../scss/components/_grids.scss */
+/* line 423, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_accept {
   background-position: 4px -843px;
 }
-/* line 423, ../scss/components/_grids.scss */
+/* line 427, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_decline {
   background-position: 4px -519px;
 }
-/* line 427, ../scss/components/_grids.scss */
+/* line 431, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_tentative {
   background-position: 4px -1086px;
 }
-/* line 431, ../scss/components/_grids.scss */
+/* line 435, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_newtime, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-toolbar .x-btn.x-btn-text-icon .x-btn-small button.icon_calendar_appt_newtime, .x-toolbar .x-btn.x-btn-text-icon .x-btn-small .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row button.icon_calendar_appt_newtime {
   background-position: 4px -941px;
 }
-/* line 435, ../scss/components/_grids.scss */
+/* line 439, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_cancel, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_decline {
   background-position: 4px -519px;
 }
-/* line 439, ../scss/components/_grids.scss */
+/* line 443, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_appt_meeting_outofdate {
   background-position: 4px -978px;
 }
-/* line 443, ../scss/components/_grids.scss */
+/* line 447, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_normal,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_recurring {
   background-position: 5px -5131px;
 }
-/* line 449, ../scss/components/_grids.scss */
+/* line 453, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assignee {
   background-position: 5px -5243px;
 }
-/* line 454, ../scss/components/_grids.scss */
+/* line 458, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_request, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .icon_task_assigner, ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_assigner {
   background-position: 5px -5347px;
 }
-/* line 459, ../scss/components/_grids.scss */
+/* line 463, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_declined {
   background-position: 5px -5279px;
 }
-/* line 463, ../scss/components/_grids.scss */
+/* line 467, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_task_accepted {
   background-position: 5px -5167px;
 }
-/* line 468, ../scss/components/_grids.scss */
+/* line 472, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_blue {
   background-position: 5px -3737px;
 }
-/* line 472, ../scss/components/_grids.scss */
+/* line 476, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_stickynote,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_default_note,
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_shared_note, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_yellow {
   background-position: 5px -4096px;
 }
-/* line 476, ../scss/components/_grids.scss */
+/* line 480, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_white {
   background-position: 5px -4015px;
 }
-/* line 480, ../scss/components/_grids.scss */
+/* line 484, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_pink {
   background-position: 5px -3934px;
 }
-/* line 484, ../scss/components/_grids.scss */
+/* line 488, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_note_green {
   background-position: 5px -3818px;
 }
-/* line 489, ../scss/components/_grids.scss */
+/* line 493, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_nondelivery_receipt {
   background-position: 2px -3122px;
 }
-/* line 493, ../scss/components/_grids.scss */
+/* line 497, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_read_receipt {
   background-position: 2px -3055px;
 }
-/* line 497, ../scss/components/_grids.scss */
+/* line 501, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_nonread_receipt {
   background-position: 2px -3089px;
 }
-/* line 503, ../scss/components/_grids.scss */
+/* line 507, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_attachment {
   background-position: 2px -1837px;
 }
-/* line 507, ../scss/components/_grids.scss */
+/* line 511, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_attachment {
   background-position: 2px -1844px;
 }
-/* line 512, ../scss/components/_grids.scss */
+/* line 516, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_importance_urgent {
   background-position: 10px -1979px;
 }
-/* line 516, ../scss/components/_grids.scss */
+/* line 520, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_importance_nonurgent {
   background-position: 7px -2022px;
 }
-/* line 520, ../scss/components/_grids.scss */
+/* line 524, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_importance_urgent {
   background-position: 10px -1986px;
 }
-/* line 523, ../scss/components/_grids.scss */
+/* line 527, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .grid_compact.icon_importance_nonurgent {
   background-position: 8px -2029px;
 }
-/* line 528, ../scss/components/_grids.scss */
+/* line 532, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag {
   background-position: 4px -1958px;
   visibility: hidden;
 }
-/* line 532, ../scss/components/_grids.scss */
+/* line 536, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_red, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-menu .icon_mail_flag_red, .x-menu .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_red {
   background-position: 5px -2119px;
 }
-/* line 535, ../scss/components/_grids.scss */
+/* line 539, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_yellow, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_yellow {
   background-position: 5px -2151px;
 }
-/* line 538, ../scss/components/_grids.scss */
+/* line 542, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_orange, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_orange {
   background-position: 5px -2055px;
 }
-/* line 541, ../scss/components/_grids.scss */
+/* line 545, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_orange_dark, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_flag_orange_dark {
   background-position: 5px -2087px;
 }
-/* line 544, ../scss/components/_grids.scss */
+/* line 548, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_flag_complete, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_mail_completed {
   background-position: 5px -2027px;
 }
-/* line 548, ../scss/components/_grids.scss */
+/* line 552, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_folder_note {
   background-position: 5px -312px;
 }
-/* line 552, ../scss/components/_grids.scss */
+/* line 556, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_reminder {
   background-position: 8px -4763px;
 }
-/* line 557, ../scss/components/_grids.scss */
+/* line 561, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row-over .icon_flag, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row-over .icon_mail_flag {
   visibility: visible;
 }
-/* line 561, ../scss/components/_grids.scss */
+/* line 565, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_flag, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_mail_flag {
   cursor: pointer;
   margin: 5px;
 }
-/* line 566, ../scss/components/_grids.scss */
+/* line 570, ../scss/components/_grids.scss */
 .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_flag .x-unselectable, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .zarafa-grid-empty-cell.icon_mail_flag .x-unselectable {
   padding-top: 0px;
 }
 
 /* Override ExtJS selected grid */
-/* line 572, ../scss/components/_grids.scss */
+/* line 576, ../scss/components/_grids.scss */
 .x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
   background-image: none;
 }
 
 /* Add some left padding for calendar */
-/* line 577, ../scss/components/_grids.scss */
+/* line 581, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-on {
   background-position: 3px -1376px;
   background-image: url('../images/icons-s5e0631df8c.png') !important;
 }
 
-/* line 582, ../scss/components/_grids.scss */
+/* line 586, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col {
   background-position: 3px -5495px;
   background-image: url('../images/icons-s5e0631df8c.png') !important;
 }
 
 /* Task grid Due tasks row */
-/* line 588, ../scss/components/_grids.scss */
+/* line 592, ../scss/components/_grids.scss */
 .zarafa-task-overdue {
   color: #e30022;
 }
 
 /* Task grid Completed tasks row */
-/* line 593, ../scss/components/_grids.scss */
+/* line 597, ../scss/components/_grids.scss */
 .zarafa-task-complete {
   color: #777777;
 }
-/* line 595, ../scss/components/_grids.scss */
+/* line 599, ../scss/components/_grids.scss */
 .zarafa-task-complete .k-task-complete {
   text-decoration: line-through;
 }
@@ -5065,12 +5070,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid with no column headers
  ******************************************************************************/
-/* line 604, ../scss/components/_grids.scss */
+/* line 608, ../scss/components/_grids.scss */
 .x-grid-panel.k-no-column-headers .x-grid3-header {
   display: none;
 }
 
-/* line 609, ../scss/components/_grids.scss */
+/* line 613, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button-container {
   position: absolute;
   right: 0;
@@ -5079,17 +5084,17 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-color: #ffffff;
 }
 
-/* line 616, ../scss/components/_grids.scss */
+/* line 620, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
   background-color: #f2f2f2;
 }
 
-/* line 619, ../scss/components/_grids.scss */
+/* line 623, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-selected .zarafa-grid-button-container {
   background-color: #d5e8f7;
 }
 
-/* line 622, ../scss/components/_grids.scss */
+/* line 626, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button {
   width: 24px;
   height: 24px;
@@ -5100,88 +5105,88 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-image: url('../images/icons-s5e0631df8c.png') !important;
 }
 
-/* line 631, ../scss/components/_grids.scss */
+/* line 635, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block;
 }
 
 /* Fixed categories cannot be edited or deleted because they are used
    to map old flags to categories */
-/* line 636, ../scss/components/_grids.scss */
+/* line 640, ../scss/components/_grids.scss */
 .x-grid3-row-over .k-category-fixed .k-grid-button-edit,
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none;
 }
 
-/* line 641, ../scss/components/_grids.scss */
+/* line 645, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit {
   background-position: 3px -4355px;
 }
 
-/* line 644, ../scss/components/_grids.scss */
+/* line 648, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-edit:hover {
   background-position: 3px -4390px;
 }
 
-/* line 647, ../scss/components/_grids.scss */
+/* line 651, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete {
   background-position: 3px -5422px;
 }
 
-/* line 650, ../scss/components/_grids.scss */
+/* line 654, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-delete:hover {
   background-position: 3px -5457px;
 }
 
-/* line 653, ../scss/components/_grids.scss */
+/* line 657, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin {
   background-position: 3px -4495px;
 }
 
-/* line 656, ../scss/components/_grids.scss */
+/* line 660, ../scss/components/_grids.scss */
 .x-grid3 .k-grid-button-pin:hover {
   background-position: 3px -4530px;
 }
 
-/* line 659, ../scss/components/_grids.scss */
+/* line 663, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
   display: block;
   background-position: 3px -4425px;
 }
 
-/* line 663, ../scss/components/_grids.scss */
+/* line 667, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin:hover {
   background-position: 3px -4460px;
 }
 
-/* line 667, ../scss/components/_grids.scss */
+/* line 671, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid-editor {
   padding-top: 1px;
 }
 
-/* line 671, ../scss/components/_grids.scss */
+/* line 675, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-col-color {
   position: relative;
 }
 
-/* line 675, ../scss/components/_grids.scss */
+/* line 679, ../scss/components/_grids.scss */
 .k-categories-grid .k-colorpicker-ct {
   display: none;
   margin: -2px 0 -2px 0;
 }
 
-/* line 681, ../scss/components/_grids.scss */
+/* line 685, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color svg,
 .k-categories-grid .x-grid3-col-color.k-menu-visible svg {
   display: none;
 }
-/* line 685, ../scss/components/_grids.scss */
+/* line 689, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color .k-colorpicker-ct,
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block;
 }
 
-/* line 690, ../scss/components/_grids.scss */
+/* line 694, ../scss/components/_grids.scss */
 .k-slider {
   position: absolute;
   z-index: 9001;
@@ -7191,7 +7196,7 @@ ul.x-tab-strip li .x-tab-strip-inner .icon_notification_warning {
   background-position: 0 -4265px;
 }
 /* line 229, ../scss/components/_tabs.scss */
-ul.x-tab-strip li .x-tab-strip-inner .icon_oof {
+ul.x-tab-strip li .x-tab-strip-inner .icon_oof, ul.x-tab-strip li .x-tab-strip-inner .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .icon_rule_oof, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row ul.x-tab-strip li .x-tab-strip-inner .icon_rule_oof {
   background-position: 0 -4309px;
 }
 /* line 229, ../scss/components/_tabs.scss */
@@ -8603,7 +8608,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-tree-node-el .x
 }
 
 /* line 146, ../scss/components/_hierarchy.scss */
-.x-tree-node-el .x-tree-node-icon.icon_oof {
+.x-tree-node-el .x-tree-node-icon.icon_oof, .x-tree-node-el .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-icon.icon_rule_oof, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-tree-node-el .x-tree-node-icon.icon_rule_oof {
   background-position: 0 -4317px;
 }
 
@@ -11516,8 +11521,10 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   background-position: 0 -4264px;
 }
 /* line 278, ../scss/components/_popups.scss */
-.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_oof,
-.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_oof {
+.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_oof, .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .display-name.icon_rule_oof, .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_rule_oof,
+.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_oof,
+.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .display-name.icon_rule_oof,
+.x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3 .x-grid3-row .x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-general .display-name.icon_rule_oof {
   background-image: url('../images/icons-s5e0631df8c.png');
   background-repeat: no-repeat;
   background-position: 0 -4308px;
