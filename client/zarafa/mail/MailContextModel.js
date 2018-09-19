@@ -132,7 +132,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		if (isMultipleItems) {
-			responseRecord.set('subject', '');
+			responseRecord.set('subject', _('FW') + ': ');
 		}
 
 		// If the record we are replying is in other user's store then set delegator info.
@@ -202,10 +202,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				subjectPrefix = _('RE') + ': ';
 				break;
 			case Zarafa.mail.data.ActionTypes.FORWARD:
+			case Zarafa.mail.data.ActionTypes.FORWARD_ATTACH:
 				subjectPrefix = _('FW') + ': ';
 				break;
 			case Zarafa.mail.data.ActionTypes.EDIT_AS_NEW:
-			case Zarafa.mail.data.ActionTypes.FORWARD_ATTACH:
 				subjectPrefix = '';
 				break;
 			default:
