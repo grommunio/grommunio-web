@@ -1,0 +1,24 @@
+/* Closure compiler externs */
+var FormData = {};
+var Ext = {};
+var Zarafa = {};
+var container = {};
+var settings = {};
+var properties = {};
+var languages = [];
+var serverconfig = {};
+var user = {};
+var version = {};
+var urlActionData = {};
+var console = {};
+var _ = function(key, domain) {};
+var dgettext = function(domain, msgid) {};
+var dngettext = function(domain, msgid, msgid_plural, count) {};
+var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
+var dpgettext = function(domain, msgctxt, msgid) {};
+var ngettext = function(msgid, msgid_plural, count) {};
+var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
+var pgettext = function(msgctxt, msgid) {};
+var onResize = function() {};
+var tinymce = {};
+var resizeLoginBox = function() {};
