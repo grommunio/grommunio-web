@@ -3490,7 +3490,9 @@ If it is the first time this attendee has proposed a new date/time, increment th
 					$this->proptags['recurring'],
 					$this->proptags['clipstart'],
 					$this->proptags['clipend'],
-					PR_RCVD_REPRESENTING_ENTRYID
+					PR_RCVD_REPRESENTING_ENTRYID,
+					$this->proptags['basedate'],
+					PR_RCVD_REPRESENTING_NAME
 				)
 		);
 
@@ -3546,6 +3548,15 @@ If it is the first time this attendee has proposed a new date/time, increment th
 			} else {
 				// Get all items in the timeframe that we want to book, and get the goid and busystatus for each item
 				$items = getCalendarItems($userStore, $calFolder, $messageProps[$this->proptags['startdate']], $messageProps[$this->proptags['duedate']], array($this->proptags['goid'], $this->proptags['busystatus']));
+
+				if(isset($messageProps[$this->proptags['basedate']]) && !empty($messageProps[$this->proptags['basedate']])) {
+					$basedate = $messageProps[$this->proptags['basedate']];
+					// Get the goid2 from recurring MR which further used to
+					// check the resource conflicts item.
+					$recurrItemProps = mapi_getprops($this->message, array($this->proptags['goid2']));
+					$messageProps[$this->proptags['goid']] = $this->setBasedateInGlobalID($recurrItemProps[$this->proptags['goid2']], $basedate);
+					$messageProps[$this->proptags['goid2']] = $recurrItemProps[$this->proptags['goid2']];
+				}
 
 				foreach($items as $item) {
 					if ($item[$this->proptags['busystatus']] !== fbFree) {
