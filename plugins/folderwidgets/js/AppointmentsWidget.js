@@ -16,29 +16,29 @@ Ext.namespace('Zarafa.widgets.folderwidgets');
  * outside of WebApp.
  */
 Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.folderwidgets.AbstractFolderWidget, {
+
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function (config)
 	{
 		config = config || {};
 
 		var store = new Zarafa.calendar.AppointmentStore();
 
 		Ext.applyIf(config, {
-			height : 300,
+			height: this.get('widgetheight') || 300,
 			autoScroll: true,
 			layout: 'fit',
-			folderType : 'calendar',
-			store : store,
-			items : [{
+			folderType: 'calendar',
+			store: store,
+			items: [{
 				xtype: 'zarafa.gridpanel',
 				store: store,
-				border: true,
 				hideHeaders: true,
-				loadMask : {
-					msg : _('Loading appointments') + '...'
+				loadMask: {
+					msg: _('Loading appointments') + '...'
 				},
 				sm: new Ext.grid.RowSelectionModel({
 					singleSelect: true
@@ -48,20 +48,19 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 					emptyText: '<div class="emptytext">' + _('No appointments for today.') + '</div>',
 					forceFit: true,
 					enableRowBody: true,
-					getRowClass: this.applyRowClass
+					rowSelectorDepth: 15,
+					getRowClass: this.viewConfigGetRowClass,
+					scope: this
 				},
-				colModel : new Ext.grid.ColumnModel({
+				colModel: new Ext.grid.ColumnModel({
 					columns: [{
-						header: _('Subject'),
-						dataIndex: 'subject',
-						editable: false,
-						menuDisabled: true,
-						renderer: this.subjectRenderer,
-						width: 300
+						header: _('Time'),
+						dataIndex: 'startdate',
+						renderer: this.dummyColumnRenderer
 					}]
 				}),
 				listeners: {
-					'rowcontextmenu' : this.onRowContextMenu,
+					'rowcontextmenu': this.onRowContextMenu,
 					'rowdblclick': this.onRowDblClick,
 					scope: this
 				}
@@ -76,19 +75,22 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * a restriction which only allows todays appointments.
 	 * @private
 	 */
-	reloadStore : function()
+	reloadStore: function ()
 	{
 		if (this.folder) {
 			var now = new Date();
 			var today = now.clearTime();
-			var tomorrow = today.add(Date.DAY, 1);
+			var dueDate = today.add(Date.DAY, 10);
 
 			this.store.load({
-				folder : this.folder,
-				params : {
+				folder: this.folder,
+				params: {
 					restriction: {
 						startdate: now.getTime() / 1000,
-						duedate: tomorrow.getTime() / 1000
+						// FIXME: Create Config-Option for duedate
+						duedate: dueDate.getTime() / 1000,
+						// FIXME: Create Config-Option for limit
+						limit: 10
 					}
 				}
 			});
@@ -100,13 +102,121 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * before now are removed.
 	 * @private
 	 */
-	updateFilter : function() {
-		this.store.filterBy(function(record) {
+	updateFilter: function ()
+	{
+		this.store.filterBy(function (record) {
 			var now = new Date();
 			var startdate = record.get('startdate') || now;
 			var duedate = record.get('duedate') || now;
 			return (startdate >= now || duedate >= now) && startdate < now.clearTime().add(Date.DAY, 1);
 		}, this);
+	},
+
+	/**
+	 * Just needed to make sure the 'columns'-object renders a line with height=0px
+	 *
+	 * @param {Mixed} value The subject of the appointment
+	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
+	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
+	 * @private
+	 */
+	dummyColumnRenderer: function (value, metaData, record)
+	{
+		metaData.attr = "style='padding:0; margin:0; height:0px; '";
+		return "";
+	},
+
+	/**
+	 * Apply custom style and content for the row body. This will color
+	 * a task in red when its due-date is reached. If categories are applied
+	 * to an appointment these categories will be displayed in a colored square naming
+	 * the first letter of the category and its full name in a tooltip.
+	 *
+	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
+	 * @param {Number} rowIndex The row index
+	 * @param {Object} rowParams A config object that is passed to the row template during
+	 * rendering that allows customization of various aspects of a grid row.
+	 * If enableRowBody is configured true, then the following properties may be set by this function,
+	 * and will be used to render a full-width expansion row below each grid row.
+	 * @param {Ext.data.Store} store The Ext.data.Store this grid is bound to
+	 * @return {String} a CSS class name to add to the row
+	 * @private
+	 */
+	viewConfigGetRowClass: function (record, rowIndex, rowParams)
+	{
+
+		var iconToString = function (icon) {
+			return '<img src="' + icon.src + '" /> ';
+		};
+
+		var value = '<table width="100%"><tbody>';
+
+		/**
+		 * this.startdateArray is used to simulate some "grouping" in the table
+		 * as 'this' is not in the context of this class, the array has to be
+		 * initialized here.
+		 */
+		if (!this.startdateArray) {
+			this.startdateArray = new Array();
+		}
+
+		var recordDate = record.get("startdate");
+		var todaysDate = new Date;
+
+		this.startdateArray[rowIndex] = recordDate;
+
+		if ((!this.startdateArray[rowIndex - 1]) || (this.startdateArray[rowIndex - 1].add(Date.DAY, 1).clearTime() <= recordDate)) {
+			// the appointment before was on another day then this appointment
+
+			value += '<tr><td><div class="folderwidget-groupedview">';
+
+			if (recordDate <= todaysDate.add(Date.DAY, 1).clearTime()) {
+				value += _("Today");
+			} else if (recordDate < todaysDate.add(Date.DAY, 2).clearTime()) {
+				value += _("Tomorrow");
+			} else if (recordDate <= todaysDate.add(Date.DAY, 7).clearTime()) {
+				value += recordDate.format('l');
+			} else {
+				value += recordDate.format(_("d.m.Y"));
+			}
+
+			value += '</div></td></tr>';
+		}
+
+		// Row to display time + recurrance + location
+		value += '<tr><td>';
+
+		if (record.get('alldayevent')) {
+			value += _('All Day');
+		} else {
+			value += record.get("startdate").format(_("G:i")) + ' - ' + record.get("duedate").format(_("G:i"));
+		}
+
+		var recurringPattern = record.get('recurring_pattern');
+		if (recurringPattern) {
+			if (record.get('exception') === true) {
+				value += ' <span title="' + recurringPattern + '">' + iconToString(Zarafa.calendar.ui.IconCache.getExceptionIcon()) + '</span>';
+			} else {
+				value += ' <span title="' + recurringPattern + '">' + iconToString(Zarafa.calendar.ui.IconCache.getRecurringIcon()) + '</span>';
+			}
+		}
+
+		// Row to display categories + subject + private-flag
+		value += '</td></tr><tr><td>';
+
+		value += Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.renderCategories(record);
+
+		value += record.get("subject");
+
+		if (record.get('private') === true) {
+			value += ' ' + iconToString(Zarafa.calendar.ui.IconCache.getPrivateIcon());
+		}
+
+		value += '</td></tr></tbody></table>';
+
+		rowParams.body = value;
+
+		return "x-grid3-row-expanded ";
 	},
 
 	/**
@@ -159,8 +269,9 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	},
 
 	/**
-	 * Add additional information to the row, in this case the
-	 * location of the meeting.  TODO: add a preview of the body here.
+	 * Add additional information to the row, in this case the location of
+	 * the meeting.
+	 * TODO: add a preview of the body here.
 	 * The location is rendered in its own table for future use.
 	 *
 	 * @param record The record being displayed.  If it has no
@@ -174,12 +285,13 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * appointment.
 	 * @private
 	 */
-	applyRowClass : function(record, rowIndex, rowParams, store) {
+	applyRowClass: function (record, rowIndex, rowParams, store)
+	{
 		var location = record.get('location');
 		if (location) {
 			rowParams.body = '<table style="width: 100%; padding: 0; border-spacing: 0;">';
 			rowParams.body += String.format('<tr><td style="width: 100%; font-size: 80%;"><i>{0}</i></td></tr>',
-											Ext.util.Format.htmlEncode(location));
+				Ext.util.Format.htmlEncode(location));
 			rowParams.body += '</table>';
 		} else {
 			rowParams.body = '';
@@ -188,16 +300,16 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 		var css = 'today-item ';
 		var busystatus = record.get('busystatus');
 		switch (busystatus) {
-		case Zarafa.core.mapi.BusyStatus.FREE:
-			return css + 'today-free';
-		case Zarafa.core.mapi.BusyStatus.TENTATIVE:
-			return css + 'today-tentative';
-		case Zarafa.core.mapi.BusyStatus.BUSY:
-			return css + 'today-busy';
-		case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
-			return css + 'today-outofoffice';
-		default:
-			return css + 'today-unknown';
+			case Zarafa.core.mapi.BusyStatus.FREE:
+				return css + 'today-free';
+			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
+				return css + 'today-tentative';
+			case Zarafa.core.mapi.BusyStatus.BUSY:
+				return css + 'today-busy';
+			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
+				return css + 'today-outofoffice';
+			default:
+				return css + 'today-unknown';
 		}
 	},
 
@@ -205,10 +317,10 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * Event handler which is triggered when user opens context menu
 	 * @param {Ext.grid.GridPanel} grid grid panel object
 	 * @param {Number} rowIndex index of row
-	 * @param {Ext.EventObject} eventObj eventObj object of the event
+	 * @param {Ext.EventObject} event event object of the event
 	 * @private
 	 */
-	onRowContextMenu : function(grid, rowIndex, event)
+	onRowContextMenu: function (grid, rowIndex, event)
 	{
 		// check row is already selected or not, if its not selected then select it first
 		var selectionModel = grid.getSelectionModel();
@@ -222,10 +334,12 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 			var context = container.getContextByFolder(this.folder);
 			if (context) {
 				model = context.getModel();
+				Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), {
+					position: event.getXY(),
+					model: model
+				});
 			}
 		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), { position : event.getXY(), model : model });
 	},
 
 	/**
@@ -235,10 +349,11 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, event)
+	onRowDblClick: function (grid, rowIndex, event)
 	{
 		var record = grid.getSelectionModel().getSelected();
 		if (!Ext.isEmpty(record)) {
+			// FIXME what about recurring series records ?
 			if (record.isRecurringOccurence()) {
 				record = record.convertToOccurenceRecord();
 			}
@@ -247,7 +362,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	}
 });
 
-Zarafa.onReady(function() {
+Zarafa.onReady(function () {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'appointments',
 		displayName : _('Today\'s Appointments'),

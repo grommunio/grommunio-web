@@ -4,46 +4,45 @@ Ext.namespace('Zarafa.widgets.folderwidgets');
  * @class Zarafa.widgets.folderwidgets.TasksWidget
  * @extends Zarafa.widgets.folderwidgets.AbstractFolderWidget
  *
- * Widget that current (non-completed) tasks.
+ * Widget that shows current, non-completed tasks incl. its duedate, importance,
+ * % completed, owner and categories
  */
 Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidgets.AbstractFolderWidget, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function (config)
 	{
 		config = config || {};
 
+		// FIXME - add something to find mails marked for follow-up as well
 		var store = new Zarafa.task.TaskStore();
+
+		// sort by duedate
+		store.setDefaultSort('duedate', 'asc');
 
 		// Create a restriction, we only want uncomplete tasks, so tasks which
 		// do not have the status flag set to Zarafa.core.mapi.TaskStatus.COMPLETE
 		store.setRestriction({
-			'search' : Zarafa.core.data.RestrictionFactory.dataResProperty(
+			'task': Zarafa.core.data.RestrictionFactory.dataResProperty(
 				'status',
 				Zarafa.core.mapi.Restrictions.RELOP_NE,
 				Zarafa.core.mapi.TaskStatus.COMPLETE
 			)
 		});
-		// If we want to use a search restriction we must say that this store is an advanceSearchStore
-		// or it will be removed.
-		store.isAdvanceSearchStore = function(){
-			return true;
-		};
 
 		Ext.applyIf(config, {
-			height : 200,
+			height: this.get('widgetheight') || 300,
 			autoScroll: true,
 			layout: 'fit',
-			folderType : 'task',
-			store : store,
-			items : [{
+			folderType: 'todolist',
+			store: store,
+			items: [{
 				xtype: 'zarafa.gridpanel',
 				store: store,
-				border: true,
-				loadMask : {
-					msg : _('Loading tasks') + '...'
+				loadMask: {
+					msg: _('Loading tasks') + '...'
 				},
 				sm: new Ext.grid.RowSelectionModel({
 					singleSelect: true
@@ -51,24 +50,45 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 				viewConfig: {
 					deferEmptyText: false,
 					emptyText: '<div class="emptytext">' + _('No tasks.') + '</div>',
-					forceFit: true
+					forceFit: true,
+					enableRowBody: true,
+					rowSelectorDepth: 15,
+					getRowClass: this.viewConfigGetRowClass
+
 				},
-				colModel : new Ext.grid.ColumnModel({
+				colModel: new Ext.grid.ColumnModel({
 					columns: [{
+						header: _("Due Date"),
+						tooltip: _("Due Date"),
+						dataIndex: "duedate",
+						renderer: this.dueDateRenderer
+					}, {
+						header: "<p class='icon_importance'>&nbsp;</p>",
+						tooltip: _("Importance"),
+						dataIndex: "importance",
+						align: "center",
+						width: 55,
+						renderer: Zarafa.common.ui.grid.Renderers.importance
+					}, {
+						header: "%",
+						tooltip: _("% Completed"),
+						dataIndex: "percent_complete",
+						align: "center",
+						width: 80,
+						renderer: Zarafa.common.ui.grid.Renderers.percentage
+					}, {
 						header: _('Owner'),
+						tooltip: _("Owner"),
 						dataIndex: 'owner',
-						menuDisabled : true,
-						renderer: Ext.util.Format.htmlEncode
-					},{
-						header: _('Subject'),
-						dataIndex: 'subject',
-						editable: false,
-						menuDisabled : true,
-						renderer: Ext.util.Format.htmlEncode
-					}]
+						renderer: this.ownerRenderer
+					}],
+					defaults: {
+						sortable: true,
+						menuDisabled: true
+					}
 				}),
 				listeners: {
-					'rowcontextmenu' : this.onRowContextMenu,
+					'rowcontextmenu': this.onRowContextMenu,
 					'rowdblclick': this.onRowDblClick,
 					scope: this
 				}
@@ -79,24 +99,113 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	},
 
 	/**
-	 * Update the filter.
+	 * Update the filter to make sure only non-completed tasks are shown
 	 * @private
 	 */
-        updateFilter : function()
+	updateFilter: function ()
 	{
-		this.store.filterBy(function(record) {
+		this.store.filterBy(function (record) {
 			return (record.get('status') != Zarafa.core.mapi.TaskStatus.COMPLETE);
 		}, this);
+	},
+
+	/**
+	 * Render the due date in the form "d/m/Y" and add color red if
+	 * due date is already reached
+	 *
+	 * @param {Mixed} value The subject of the appointment
+	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
+	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
+	 * @private
+	 */
+	dueDateRenderer: function (value, metaData, record)
+	{
+		var dateNow = new Date();
+		var dateDue = record.get("duedate");
+		metaData.attr = "";
+
+		if (!dateDue) {
+			value = _("none");
+		} else if (dateDue < dateNow.clearTime().add(Date.DAY, 1)) {
+			value = _("Today");
+			metaData.attr = "style='color: #F00;'";
+		} else if (dateDue < dateNow.clearTime().add(Date.DAY, 2)) {
+			value = _("Tomorrow");
+		} else {
+			value = dateDue.format(_("d/m/Y"));
+		}
+
+		return String.format("{0}", value);
+	},
+
+	/**
+	 * Renders the owner of the task as its initials and adds its full
+	 * form as a tooltip
+	 *
+	 * @param {Mixed} value The subject of the appointment
+	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
+	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
+	 * @private
+	 */
+	ownerRenderer: function (value, metaData, record)
+	{
+		var owner = record.get("owner");
+		if (!Ext.isString(owner)) {
+			return '';
+		}
+
+		var ownerNames = owner.split(" "); // array of all parts of the owner's name
+		var initials = '';
+
+		for (var i = 0, len = ownerNames.length; i < len; i++) {
+			initials += ownerNames[i].substring(0, 1);
+		}
+
+		return '<span title="' + Ext.util.Format.htmlEncode(owner) + '">' + Ext.util.Format.htmlEncode(initials) + '</span>';
+	},
+
+	/**
+	 * Apply custom style and content for the row body. This will color
+	 * a task in red when its due-date is reached. If categories are applied
+	 * to a task these categories will be displayed in a colored square naming
+	 * the first letter of the category and its full name in a tooltip.
+	 *
+	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
+	 * @param {Number} rowIndex The row index
+	 * @param {Object} rowParams A config object that is passed to the row template during
+	 * rendering that allows customization of various aspects of a grid row.
+	 * If enableRowBody is configured true, then the following properties may be set by this function,
+	 * and will be used to render a full-width expansion row below each grid row.
+	 * @return {String} a CSS class name to add to the row
+	 * @private
+	 */
+	viewConfigGetRowClass: function (record, rowIndex, rowParams)
+	{
+		var valueSubject = record.get("subject"); // Subject to be displayed
+		var valueCategories = Zarafa.widgets.folderwidgets.TasksWidget.superclass.renderCategories(record);
+
+		// Add color red if due date is reached
+		var dateNow = new Date();
+		var dateDue = record.get("duedate");
+		var color = "";
+
+		if (dateDue && (dateDue < dateNow.clearTime().add(Date.DAY, 1))) {
+			color = 'style="color:#F00;"';
+		}
+
+		rowParams.body = String.format('<div class="folderwidget-task-row" {2}>{1}{0}</div>', valueSubject, valueCategories, color);
+
+		return "x-grid3-row-expanded ";
 	},
 
 	/**
 	 * Event handler which is triggered when user opens context menu
 	 * @param {Ext.grid.GridPanel} grid grid panel object
 	 * @param {Number} rowIndex index of row
-	 * @param {Ext.EventObject} eventObj eventObj object of the event
+	 * @param {Ext.EventObject} event event object of the event
 	 * @private
 	 */
-	onRowContextMenu : function(grid, rowIndex, event)
+	onRowContextMenu: function (grid, rowIndex, event)
 	{
 		// check row is already selected or not, if its not selected then select it first
 		var selectionModel = grid.getSelectionModel();
@@ -110,10 +219,12 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 			var context = container.getContextByFolder(this.folder);
 			if (context) {
 				model = context.getModel();
+				Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), {
+					position: event.getXY(),
+					model: model
+				});
 			}
 		}
-
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(selectionModel.getSelections(), { position : event.getXY(), model : model });
 	},
 
 	/**
@@ -123,13 +234,13 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	 * @param {Ext.EventObject} event The event object
 	 * @private
 	 */
-	onRowDblClick : function(grid, rowIndex, event)
+	onRowDblClick: function (grid, rowIndex, event)
 	{
 		Zarafa.core.data.UIFactory.openViewRecord(grid.getSelectionModel().getSelected());
 	}
 });
 
-Zarafa.onReady(function() {
+Zarafa.onReady(function () {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'tasks',
 		displayName : _('Tasks'),

@@ -24,29 +24,29 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
 	 * @private
 	 */
-	folder : undefined,
+	folder: undefined,
 
 	/**
 	 * @cfg {Zarafa.core.data.MAPIStore} store The store which is being used for loading the records
 	 */
-	store : undefined,
+	store: undefined,
 
 	/**
 	 * @cfg {String} folderType The folder type to obtain the desired folder
 	 * from the {@link Zarafa.hierarchy.data.HierarchyStore hierarchy}.
 	 */
-	folderType : undefined,
+	folderType: undefined,
 
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
-	constructor : function(config)
+	constructor: function (config)
 	{
 		config = config || {};
 
 		Ext.applyIf(config, {
-			hasConfig : true
+			hasConfig: true
 		});
 
 		Zarafa.widgets.folderwidgets.AbstractFolderWidget.superclass.constructor.call(this, config);
@@ -56,7 +56,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * Initialize the event handlers for the {@link #store} and {@link Zarafa.hierarchy.data.HierarchyStore Hierarchy}.
 	 * @protected
 	 */
-	initEvents : function()
+	initEvents: function ()
 	{
 		Zarafa.widgets.folderwidgets.AbstractFolderWidget.superclass.initEvents.apply(this, arguments);
 
@@ -68,7 +68,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 
 		// Wait for the store to be loaded, so we can activate
 		// the refreshing and reloading times.
-		this.mon(this.store, 'load', this.onStoreLoad, this, { single : true });
+		this.mon(this.store, 'load', this.onStoreLoad, this, {single: true});
 
 		// Listen for record updates, as that might have impact on the filtering
 		// which should be applied.
@@ -80,7 +80,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * @param {Zarafa.hierarchy.data.HierarchyStore} hierarchyStore The store which fired the event
 	 * @private
 	 */
-	onHierarchyLoad : function(hierarchyStore)
+	onHierarchyLoad: function (hierarchyStore)
 	{
 		this.folder = hierarchyStore.getDefaultFolder(this.folderType);
 		if (this.folder) {
@@ -92,16 +92,18 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * When the store has finished loading, update the filter for the first time.
 	 * @private
 	 */
-	onStoreLoad : function()
+	onStoreLoad: function ()
 	{
 		// Periodically reload data from the server to remove stale
 		// data from the store.  But only do this when the store has
 		// finished loading for the first time.
-		var interval = this.get('reloadinterval') || 300000;
+		var interval = this.get('reloadinterval') || 300;
+		interval *= 1000; // convert seconds in milliseconds
+
 		Ext.TaskMgr.start({
 			run: this.reloadStore,
 			interval: interval,
-			scope : this
+			scope: this
 		});
 	},
 
@@ -110,7 +112,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * to ensure that unwanted records are immediately removed.
 	 * @private
 	 */
-	onStoreUpdate : function()
+	onStoreUpdate: function ()
 	{
 		this.updateFilter();
 	},
@@ -119,10 +121,10 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * This will {@link Ext.data.Store#load load} the {@link #store}.
 	 * @private
 	 */
-	reloadStore : function()
+	reloadStore: function ()
 	{
 		if (this.folder) {
-			this.store.load({ folder : this.folder });
+			this.store.load({folder: this.folder});
 		}
 	},
 
@@ -130,7 +132,60 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * Update the filter.
 	 * @private
 	 */
-	updateFilter : Ext.emptyFn,
+	updateFilter: Ext.emptyFn,
+
+	/**
+	 * Helper function called when applying custom style and content for the
+	 * row-body.
+	 * Renders colored boxes per category with the first letter of the
+	 * category and its full name in a tooltip.
+	 *
+	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
+	 * @return {String} the colored boxes in HTML-format
+	 * @private
+	 */
+	renderCategories: function (record)
+	{
+		var valueCategories = ''; // will contain list of categories as colored squares
+
+		var categories = Zarafa.common.categories.Util.getCategories(record);
+		categories.forEach(function (category, i) {
+			var letter = category.substring(0, 1);
+			var color = Zarafa.common.categories.Util.getCategoryColor(category);
+			valueCategories = '<span class="advanced-folderwidget-category-box" style="background-color: ' + color + '" title="' + Ext.util.Format.htmlEncode(category) + '">' + Ext.util.Format.htmlEncode(letter) + '</span>';
+		});
+
+		// Add an '|' as separator if list of categories is not empty
+		var separator = valueCategories ? " | " : "";
+
+		return valueCategories + separator;
+	},
+
+	/**
+	 * Create spinner field with the given minimum and maximum value.
+	 * @param {Number} minHeight minimum value of spinner field.
+	 * @param {Number} maxHeight maximum value of spinner field.
+	 * @return {Object[]} An array with configuration objects of spinner field.
+	 */
+	createConfigHeight: function (minHeight, maxHeight)
+	{
+		return {
+			xtype: 'zarafa.spinnerfield',
+			fieldLabel: _('Widget height'),
+			name: 'widgetheight',
+			boxLabel: _('pixels'),
+			width: 60,
+			minValue: minHeight || 100, // 100 pixel
+			maxValue: maxHeight || 500, // 500 pixel
+			incrementValue: 5, // 5 pixel
+			defaultValue: this.get('widgetheight') || 300,
+			listeners: {
+				'change': this.onFieldChange,
+				scope: this
+			},
+			plugins: ['zarafa.numberspinner']
+		};
+	},
 
 	/**
 	 * Configure the widget.  At this time, only the reload and
@@ -138,7 +193,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * @todo Also allow the user to select the folder(s) to show here.
 	 * @private
 	 */
-	config : function()
+	config: function ()
 	{
 		var win = new Ext.Window({
 			title: _('Configure widget'),
@@ -146,36 +201,33 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 			width: 320,
 			height: 130,
 			modal: true,
-
 			items: [{
 				xtype: 'form',
 				frame: true,
-				cls : 'k-configure-widget',
+				cls: 'k-configure-widget',
 				labelWidth: 120,
 				items: [{
 					xtype: 'zarafa.spinnerfield',
 					fieldLabel: _('Reload interval'),
 					name: 'reloadinterval',
-					boxLabel : _('seconds.'),
+					boxLabel: _('seconds'),
 					width: 60,
 					minValue: 30, // 30 seconds
 					maxValue: 1800, // 30 minutes
 					incrementValue: 30, // 30 seconds
-					defaultValue: this.get('reloadinterval')/1000 || 300, // Note: The reloadinterval is stored in ms but displayed in s!
-					listeners: { 'change': this.onFieldChange, scope: this },
+					defaultValue: this.get('reloadinterval') || 300,
+					listeners: {
+						'change': this.onFieldChange,
+						scope: this
+					},
 					plugins: ['zarafa.numberspinner']
-				}],
+				},
+					this.createConfigHeight()
+				],
 				buttons: [{
 					text: _('Close'),
 					scope: this,
-					handler: function() {
-						win.close();
-					}
-				}],
-				buttons: [{
-					text: _('Close'),
-					scope: this,
-					handler: function() {
+					handler: function () {
 						win.close();
 					}
 				}]
@@ -193,8 +245,13 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 * @param {Mixed} oldValue The old value which was applied
 	 * @private
 	 */
-	onFieldChange : function(field, newValue, oldValue)
+	onFieldChange: function (field, newValue, oldValue)
 	{
-		this.set(field.getName(), newValue * 1000);
+		var fieldName = field.getName();
+
+		this.set(fieldName, newValue);
+		if (fieldName === 'widgetheight') {
+			this.setHeight(newValue);
+		}
 	}
 });
