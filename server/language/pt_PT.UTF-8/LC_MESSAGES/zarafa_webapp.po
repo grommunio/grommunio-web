@@ -5,10 +5,10 @@ msgstr ""
 "Project-Id-Version: PHP-Langadmin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
-"PO-Revision-Date: 2018-08-20 16:07+0000\n"
+"PO-Revision-Date: 2018-09-25 10:59+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -1167,33 +1167,29 @@ msgstr "Enviar cancelamento agora."
 msgid "Send Meeting Request Confirmation"
 msgstr "Enviar confirmação de pedido de reunião"
 
-#, fuzzy
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Esta reunião foi aceite e vai ser movida para o calendário. Quer editar a "
-"resposta antes de enviar?"
+"Esta reunião vai ser aceite e movida para o calendário. Quer incluir "
+"comentários com a sua resposta?"
 
-#, fuzzy
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Esta reunião foi aceite em modo de tentativa e vai ser movida para o "
-"Calendário, Quer editar a resposta?"
+"Esta reunião vai ser aceite em modo de tentativa e movida para o Calendário, "
+"Quer incluir comentários com a sua resposta?"
 
-#, fuzzy
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Esta reunião foi recusada e vai ser movida para os Itens Eliminados. Quer "
-"editar a resposta antes de enviar?"
+"Esta reunião vai ser recusada e movida para os Itens Eliminados. Quer "
+"incluir comentários com a sua resposta?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Editar resposta antes de enviar."
+msgstr "Editar resposta antes de enviar"
 
 msgid "Send the response now."
 msgstr "Enviar resposta agora."
@@ -2867,15 +2863,12 @@ msgctxt "mail.previewpanel"
 msgid "None"
 msgstr "Nenhum"
 
-#, fuzzy
 msgid "Pop-out"
 msgstr "Pop-out"
 
-#, fuzzy
 msgid "Mark as read"
-msgstr "Marcar como não lida"
+msgstr "Marcar como lida"
 
-#, fuzzy
 msgid "Mark as unread"
 msgstr "Marcar como não lida"
 
@@ -3136,20 +3129,17 @@ msgstr "Extensão"
 msgid "Add Attachment"
 msgstr "Adicionar anexo"
 
-#, fuzzy
 msgid "Add attachments to this contact"
-msgstr "Adicionar anexos a este contacto."
+msgstr "Adicionar anexos a este contacto"
 
-#, fuzzy
 msgid "Mark this contact as private"
-msgstr "Marcar contacto como privado."
+msgstr "Marcar contacto como privado"
 
 msgid "Distribution List"
 msgstr "Lista de Distribuição"
 
-#, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "Marcar esta lista de distribuição como privada."
+msgstr "Marcar esta lista de distribuição como privada"
 
 msgid "New email address"
 msgstr "Novo endereço de E-mail"
@@ -3500,9 +3490,8 @@ msgstr "Sair"
 msgid "Switch view"
 msgstr "Mudar vista"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Adicionar widgets"
+msgstr "Widgets"
 
 msgid "Sending"
 msgstr "A enviar"
@@ -3622,11 +3611,10 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Não tem permissões suficientes para abrir esta pasta."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
-msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
+msgstr[0] "Existe {0} mensagem por ler na pasta {1} de {2}"
+msgstr[1] "Existem {0} mensagens por ler na pasta {1} de {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -3960,9 +3948,8 @@ msgstr "Esta mensagem vai ser marcada para seguimento quando for enviada."
 msgid "Send Later"
 msgstr "Enviar depois"
 
-#, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Agendar a mensagem para ser enviada numa data específica."
+msgstr "Agendar a mensagem para ser enviada numa data específica"
 
 msgid "Add attachments to this email"
 msgstr "Adicionar anexos a esta mensagem"
@@ -3997,11 +3984,9 @@ msgstr "Pedir recibo de leitura dos destinatários"
 msgid "Show Bcc"
 msgstr "Mostar Bcc"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Mostar Bcc"
+msgstr "Mostrar Bcc"
 
-#, fuzzy
 msgid "Show From field"
 msgstr "Mostrar De"
 
@@ -4065,7 +4050,6 @@ msgstr "Abrir caixas partilhadas"
 msgid "Print single e-mail"
 msgstr "Imprimir só uma mensagem"
 
-#, fuzzy
 msgid "Print selected email"
 msgstr "Imprimir item selecionado"
 
@@ -4259,7 +4243,6 @@ msgstr "Enviar para"
 msgid "Loading mail"
 msgstr "A Carregar mensagens"
 
-#, fuzzy
 msgid "Print note"
 msgstr "Imprimir esta nota"
 
@@ -4564,13 +4547,12 @@ msgstr "Aceitação de Tarefa"
 msgid "Declining Task"
 msgstr "Recusa de Tarefa"
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Esta reunião foi aceite e vai ser movida para o calendário. Quer editar a "
-"resposta antes de enviar?"
+"Esta tarefa vai ser aceite e movida para a pasta das tarefas. Quer incluir "
+"comentários com a sua resposta?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
@@ -5025,7 +5007,7 @@ msgid "Quick Note"
 msgstr "Nota rápida"
 
 msgid "none"
-msgstr ""
+msgstr "nenhum"
 
 msgid "Quick Task"
 msgstr "Tarefa rápida"
@@ -5133,6 +5115,8 @@ msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
+"Infelizmente o acesso à Webapp não está disponível para a conta deste "
+"utilizador. Por favor contacte o seu administrador de sistema."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "Não foi possível adicionar dados ao bus. A mesma ação já existe no bus"
