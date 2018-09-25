@@ -425,7 +425,7 @@ Zarafa.common.KeyMapping = Ext.extend(Object, {
 	 */
 	onSaveTabItem: function(key, event, component)
 	{
-		if(Ext.isFunction(component.saveRecord)) {
+		if(Ext.isFunction(component.saveRecord) && component.dialog.autoSave) {
 			component.saveRecord();
 		}
 	},

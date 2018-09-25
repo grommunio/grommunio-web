@@ -175,7 +175,7 @@ Zarafa.core.plugins.AutoSaveMessagePlugin = Ext.extend(Object, {
 				}
 			});
 
-			if(!ambiguityDetected){
+			if(!ambiguityDetected && this.field.autoSave){
 				this.field.saveRecord();
 			} else {
 				this.resetMessageAutoSaveTimer();
