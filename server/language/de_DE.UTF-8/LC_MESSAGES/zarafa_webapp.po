@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KC-8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
-"PO-Revision-Date: 2018-09-13 11:24+0000\n"
+"PO-Revision-Date: 2018-09-25 14:37+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -5633,7 +5633,7 @@ msgstr "Sie haben nicht genügend Berechtigungen, um dieses Objekt zu öffnen."
 
 # 93%
 msgid "Logon Failed. Please check your name/password."
-msgstr "Login fehlgeschlagen. Prüfen Sie Benutzername und Passwort."
+msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
 
 # 83%
 msgid "Can not connect to Kopano Core."
