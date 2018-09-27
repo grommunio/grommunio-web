@@ -180,7 +180,54 @@
 				$GLOBALS['bus']->addData($this->getResponseData());
 			}
 		}
-		
+
+		/**
+		 * Function does customization of exception based on module data.
+		 * like, here it will generate display message based on actionType
+		 * for particular exception.
+		 *
+		 * @param object $e Exception object
+		 * @param string $actionType the action type, sent by the client
+		 * @param MAPIobject $store Store object of message.
+		 * @param string $parententryid parent entryid of the message.
+		 * @param string $entryid entryid of the message.
+		 * @param array $action the action data, sent by the client
+		 */
+		function handleException(&$e, $actionType = null, $store = null, $parententryid = null, $entryid = null, $action = null)
+		{
+			if (is_null($e->displayMessage)) {
+				switch ($actionType) {
+					case "save":
+						if ($e->getCode() == MAPI_E_NO_ACCESS) {
+							$message = mapi_msgstore_openentry($store, $entryid);
+							$messageProps = mapi_getprops($message, array(PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID));
+							$messageClass = $messageProps[PR_MESSAGE_CLASS];
+
+							$text = $messageClass !== "IPM.Appointment" ? _('a meeting request') : _('an appointment');
+							$msg = _('You have insufficient privileges to move ' . $text .' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
+
+							$e->setDisplayMessage($msg);
+							$e->setTitle(_('Insufficient privileges'));
+
+							// Need this notification to refresh the calender.
+							$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_DELETE, $messageProps);
+						}
+						break;
+				}
+			}
+			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
+		}
+
+
+		/**
+		 * Save the give appointment or meeting request to the calendar.
+		 *
+		 * @param mapistore $store MAPI store of the message
+		 * @param string $parententryid Parent entryid of the message (folder entryid, NOT message entryid)
+		 * @param string $entryid entryid of the message
+		 * @param array $action Action array containing json request
+		 * @param string $actionType The action type which triggered this action
+		 */
 		function save($store, $parententryid, $entryid, $action, $actionType = 'save')
 		{
 			$result = false;
