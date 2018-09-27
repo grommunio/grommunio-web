@@ -1031,5 +1031,17 @@
 
 			return mapi_table_queryallrows($contactFolderTable, array(PR_STORE_ENTRYID, PR_ENTRYID, PR_DISPLAY_NAME));
 		}
+
+		/**
+		 * Obtains server version from the PR_EC_SERVER_VERSION property.
+		 */
+		public function getServerVersion()
+		{
+			$props = mapi_getprops($this->getDefaultMessageStore(), array(PR_EC_SERVER_VERSION));
+			if (propIsError(PR_EC_SERVER_VERSION, $props) === MAPI_E_NOT_FOUND) {
+				return '';
+			}
+			return $props[PR_EC_SERVER_VERSION];
+		}
 	}
 ?>

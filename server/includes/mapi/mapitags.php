@@ -771,6 +771,9 @@ define('PR_EC_OUTOFOFFICE_SUBJECT'                    ,mapi_prop_tag(PT_STRING8,
 define('PR_EC_OUTOFOFFICE_FROM'                       ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x63));
 define('PR_EC_OUTOFOFFICE_UNTIL'                         ,mapi_prop_tag(PT_SYSTIME,     PR_EC_BASE+0x64));
 
+/* Server version */
+define('PR_EC_SERVER_VERSION'                        ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x16));
+
 /* quota support */
 define('PR_QUOTA_WARNING_THRESHOLD'                   ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x21));
 define('PR_QUOTA_SEND_THRESHOLD'                      ,mapi_prop_tag(PT_LONG,        PR_EC_BASE+0x22));

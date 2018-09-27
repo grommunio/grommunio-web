@@ -1,15 +1,10 @@
 <?php
 include(BASE_PATH . 'server/includes/loader.php');
+include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
 
-$version = trim(file_get_contents('version'));
-$versionInfo = array(
-	'webapp'	=> $version,
-	'zcp'		=> phpversion('mapi'),
-	'git'		=> DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
-);
-
+$versionInfo['webapp'] = $loader->getVersion();
 $serverConfig = array(
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
@@ -25,7 +20,7 @@ $serverConfig = array(
 <html>
 
 	<head>
-		<meta name="Generator" content="Kopano WebApp v<?php echo $version?>">
+		<meta name="Generator" content="Kopano WebApp v<?php echo $loader->getVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -59,7 +54,7 @@ $serverConfig = array(
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 

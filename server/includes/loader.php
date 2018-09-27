@@ -216,14 +216,22 @@ class FileLoader {
 	 */
 	public function printFiles($files, $template = '{file}', $base = false, $concatVersion = true)
 	{
-		$version = trim(file_get_contents('version'));
 		foreach($files as $file) {
 			$file = $base === true ? basename($file) : $file;
 			if($concatVersion) {
-				$file = $file."?version=".$version;
+				$file = $file."?version=".$this->getVersion();
 			}
 			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
+	}
+
+	/**
+	 * Return WebApp version.
+	 * @return String returns WebApp version
+	 */
+	public function getVersion()
+	{
+		return trim(file_get_contents('version'));
 	}
 
 	/**

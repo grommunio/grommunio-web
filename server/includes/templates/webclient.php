@@ -1,32 +1,21 @@
 <?php
 include(BASE_PATH . 'server/includes/loader.php');
+include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
 
-$version = trim(file_get_contents('version'));
-$versionInfo = array(
-	'webapp'	=> $version,
-	'zcp'		=> phpversion('mapi'),
-	'git'		=> DEBUG_LOADER === LOAD_SOURCE ? gitversion() : '',
-);
-
-$serverConfig = array(
+$versionInfo['webapp'] = $loader->getVersion();
+$serverConfig = array_merge($serverConfig, array(
 	'base_url'						=> BASE_URL,
 	'webapp_title'					=> WEBAPP_TITLE,
 	'using_sso'						=> WebAppAuthentication::isUsingSingleSignOn() ? true : false,
 	'disable_full_gab'				=> DISABLE_FULL_GAB,
 	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
-	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
-	'max_attachment_size'			=> getMaxUploadSize(),
 	'post_max_size'					=> getMaxPostRequestSize(),
 	'max_file_uploads'				=> getMaxFileUploads(),
-	'freebusy_load_start_offset'	=> FREEBUSY_LOAD_START_OFFSET,
-	'freebusy_load_end_offset' 		=> FREEBUSY_LOAD_END_OFFSET,
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
-	'active_theme'					=> Theming::getActiveTheme(),
-	'json_themes'					=> Theming::getJsonThemes(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
@@ -38,7 +27,7 @@ $serverConfig = array(
 											'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
 										),
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
-);
+));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
 }
@@ -56,7 +45,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 <html>
 
 	<head>
-		<meta name="Generator" content="Kopano WebApp v<?php echo $version?>">
+		<meta name="Generator" content="Kopano WebApp v<?php echo $loader->getVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -88,7 +77,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		</div>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $version ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
 		<!-- JS Files -->
 		<?php
 			$loader->jsOrder();
