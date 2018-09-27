@@ -528,6 +528,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 */
 								'enable_grouping' : false,
 
+								/**
+								 * zarafa/v1/contexts/mail/html_editor
+								 * @property
+								 * @type string
+								 */
+								'html_editor' : 'full_tinymce',
+
 								// Small hack, the server determines these defaults
 								// but we copy them here so the user can press
 								// 'revert to defaults' safely.
