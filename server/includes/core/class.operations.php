@@ -3890,7 +3890,7 @@
 		/**
 		 * Parse reply-to value from PR_REPLY_RECIPIENT_ENTRIES property
 		 * @param string $flatEntryList the PR_REPLY_RECIPIENT_ENTRIES value
-		 * @return array list of recipients in XML array structure
+		 * @return array list of recipients in array structure
 		 */
 		function readReplyRecipientEntry($flatEntryList)
 		{
@@ -3933,6 +3933,10 @@
 			$recipients = Array();
 			foreach ($entryids as $entryid)
 			{
+				// Check if entryid extracted, since unpack errors can not be catched.
+				if (!$entryid) {
+					continue;
+				}
 				$entry = mapi_ab_openentry($addressbook, $entryid);
 				$props = mapi_getprops($entry, array( PR_ENTRYID, PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ADDRTYPE, PR_EMAIL_ADDRESS ));
 
