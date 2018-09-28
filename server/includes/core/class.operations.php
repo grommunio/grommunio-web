@@ -40,8 +40,8 @@
 		* @param array $properties MAPI property mapping for folders
 		* @param int $type Which stores to fetch (HIERARCHY_GET_ALL | HIERARCHY_GET_DEFAULT | HIERARCHY_GET_ONE)
 		* @param object $store Only when $type == HIERARCHY_GET_ONE
-		* @param array $storeOptions Only whe $type == HIERARCHY_GET_ONE, this overrides the  loading options which is normally
-		* obtained frrom the settings for loading the store (e.g. only load calendar).
+		* @param array $storeOptions Only when $type == HIERARCHY_GET_ONE, this overrides the  loading options which is normally
+		* obtained from the settings for loading the store (e.g. only load calendar).
 		* @param String $username The username
 		*
 		* @return array Return structure
@@ -126,7 +126,7 @@
 					$inbox = mapi_msgstore_getreceivefolder($store);
 					$inboxProps = mapi_getprops($inbox, array(PR_ENTRYID));
 				} catch (MAPIException $e) {
-					// don't propogate this error to parent handlers, if store doesn't support it
+					// don't propagate this error to parent handlers, if store doesn't support it
 					if($e->getCode() === MAPI_E_NO_SUPPORT) {
 						$e->setHandled();
 					}
@@ -725,10 +725,10 @@
 		function getFavoriteLinkedFolderProps($linkMessageProps)
 		{
 			// In webapp we use IPM_SUBTREE as root folder for the Hierarchy but OL is use IMsgStore as a
-			// Root folder. OL never mark favorites to IPM_SUBTREE. so to make favorites compatible with OL
+			// Root folder. OL never mark favorites to IPM_SUBTREE. So to make favorites compatible with OL
 			// we need this check.
-			// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. which same only in one case
-			// where some user has mark favorites to root(Inbox-<user name>) folder from OL. so here if condition
+			// Here we check PR_WLINK_STORE_ENTRYID and PR_WLINK_ENTRYID is same. Which same only in one case
+			// where some user has mark favorites to root(Inbox-<user name>) folder from OL. So here if condition
 			// gets true we get the IPM_SUBTREE and send it to response as favorites folder to webapp.
 			if($GLOBALS['entryid']->compareEntryIds($linkMessageProps[PR_WLINK_STORE_ENTRYID], $linkMessageProps[PR_WLINK_ENTRYID])) {
 				$storeObj = $GLOBALS["mapisession"]->openMessageStore($linkMessageProps[PR_WLINK_STORE_ENTRYID]);
@@ -1328,7 +1328,7 @@
 		 * @param object $store MAPI Message Store Object
 		 * @param string $entryid The entryid of the folder which will be emptied
 		 * @param array $folderProps reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the emptied folder
-		 * @param Boolean $hardDelete flag to indicate if messages will be hard deleted and can not be recoved using restore soft deleted items
+		 * @param Boolean $hardDelete flag to indicate if messages will be hard deleted and can not be recovered using restore soft deleted items
 		 * @return boolean true if action succeeded, false if not
 		 */
 		function emptyFolder($store, $entryid, &$folderProps, $hardDelete = false)
@@ -1469,7 +1469,7 @@
 				$data["item"] = array();
 
 				/**
-				 * Retrieving the entries should be done in batches to prevent large ammounts of
+				 * Retrieving the entries should be done in batches to prevent large amounts of
 				 * items in one list clogging up the memory limit. This is especially important when
 				 * dealing with contactlists in the addressbook. Those lists can contain 10K items.
 				 */
@@ -1737,8 +1737,8 @@
 		}
 
 		/**
-		 * Get the email address either from entryid or search key. function is helpful
-		 * to reqtrive the email address of already deleted contact which is use as a
+		 * Get the email address either from entryid or search key. Function is helpful
+		 * to retrieve the email address of already deleted contact which is use as a
 		 * recipient in message.
 		 *
 		 * @param String $entryId The entryId of an item/recipient.
@@ -2132,7 +2132,7 @@
 									$isReminderTimeAllowed = $recurrence->isValidReminderTime($basedate, $action['props']['reminder_minutes'], $action['props']['startdate']);
 								}
 
-								// As the reminder minutes occurs before other occurences don't modify the item.
+								// As the reminder minutes occurs before other occurrences don't modify the item.
 								if($isReminderTimeAllowed){
 									if($recurrence->isException($basedate)){
 										$oldProps = $recurrence->getExceptionProperties($recurrence->getChangeException($basedate));
@@ -2156,7 +2156,7 @@
 							// Check if the meeting is recurring
 							if($recips && $recurrenceProps[$properties["recurring"]] && isset($recurrenceProps[$properties['startdate_recurring']]) && isset($recurrenceProps[$properties['enddate_recurring']])) {
 								// If recipient of meeting is modified than that modification needs to be applied
-								// to reccurring exception as well, if any.
+								// to recurring exception as well, if any.
 								$exception_recips = array();
 								if (isset($recips['add'])) {
 									$exception_recips['add'] = $this->createRecipientList($recips['add'], 'add', true, true);
@@ -3915,7 +3915,7 @@
 				// Obtain the size for the current entry
 				$size = unpack('a' . $position . '/V1cb/a*', $flatEntryList);
 
-				// We have the size, now can can obtain the bytes
+				// We have the size, now can obtain the bytes
 				$entryid = unpack('a' . $position . '/V1cb/a' . $size['cb'] . 'entryid/a*', $flatEntryList);
 
 				// unpack() will remove the NULL characters, readd
@@ -3958,7 +3958,7 @@
 		 * Build full-page HTML from the TinyMCE HTML
 		 *
 		 * This function basically takes the generated HTML from TinyMCE and embeds it in
-		 * a standonline HTML page (including header and CSS) to form.
+		 * a standalone HTML page (including header and CSS) to form.
 		 *
 		 * @param string $body This is the HTML created by the TinyMCE
 		 * @param string $title  Optional, this string is placed in the <title>

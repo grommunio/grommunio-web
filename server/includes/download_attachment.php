@@ -581,7 +581,7 @@ class DownloadAttachment
 	}
 
 	/**
-	 * Function will get the embedded attachement and import it to the given MAPIFolder as webapp item.
+	 * Function will get the embedded attachment and import it to the given MAPIFolder as webapp item.
 	 */
 	public function importEmbeddedAttachment()
 	{
