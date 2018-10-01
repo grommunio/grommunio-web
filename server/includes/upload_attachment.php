@@ -59,7 +59,7 @@ class UploadAttachment
 	}
 
 	/**
-	 * Function will initialize data for this class object. it will also sanitize data
+	 * Function will initialize data for this class object. It will also sanitize data
 	 * for possible XSS attack because data is received in $_REQUEST
 	 * @param Array $data parameters received with the request.
 	 */

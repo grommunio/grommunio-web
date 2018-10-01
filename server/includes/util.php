@@ -296,7 +296,7 @@
 	/**
 	 * This function will return base name of the file from the full path of the file.
 	 * PHP's basename() does not properly support streams or filenames beginning with a non-US-ASCII character.
-	 * The default implementation in php for basename is locale aware. so it will truncate umlauts which can not be
+	 * The default implementation in php for basename is locale aware. So it will truncate umlauts which can not be
 	 * parsed by the current set locale.
 	 * This problem only occurs with PHP < 5.2
 	 * @see http://bugs.php.net/bug.php?id=37738, https://bugs.php.net/bug.php?id=37268
