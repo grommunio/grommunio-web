@@ -9,7 +9,7 @@ require_once( BASE_PATH . 'server/includes/core/class.webappsession.php');
  * This way the encrypted strings and the encryption key will not be 
  * stored on the same computer.
  * 
- * The class uses the openssl libs to handle the encryption. THis means
+ * The class uses the openssl libs to handle the encryption. This means
  * that the openssl libs should be available on the system, and PHP
  * should be compiled with the following option --with-openssl[=DIR]
  * See http://php.net/manual/en/openssl.installation.php for more information.
@@ -45,7 +45,7 @@ class EncryptionStore
 			$_SESSION[EncryptionStore::_SESSION_KEY] = array();
 		}
 
-		// Check if we have an initializion vector stored in the session
+		// Check if we have an initializing vector stored in the session
 		// If we don't, then we will create a new one, together with a new
 		// encryption key
 		$iv = $this->getInitializationVector();
@@ -91,7 +91,7 @@ class EncryptionStore
 	 */
 	private function getInitializationVector() {
 		if ( empty(EncryptionStore::$_initializionVector) ){
-			// Try to find the initializion vector in the session
+			// Try to find the initialization vector in the session
 			if ( isset($_SESSION['encryption-store-iv']) ){
 				EncryptionStore::$_initializionVector = hex2bin($_SESSION['encryption-store-iv']);
 			}

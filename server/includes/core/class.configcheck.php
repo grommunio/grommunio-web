@@ -2,7 +2,7 @@
 
 /**
  * This class will check the server configuration and it stops the 
- * webaccess from working until this is fixed
+ * webapp from working until this is fixed
  */
 class ConfigCheck 
 {
