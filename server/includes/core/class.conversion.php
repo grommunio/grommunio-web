@@ -3,9 +3,6 @@
 /**
 * Conversion utility functions for converting various data types and structures.
 *
-* All functions in this class are 'static', although they are not marked as such for PHP4
-* compatibility.
-*
 * @package core
 */
 class Conversion {
@@ -60,7 +57,7 @@ class Conversion {
 	 * @return array MAPI property array
 	 *
 	 * @todo This function is slow. Since it is used very very frequently, we could get some speedup from
-	 *       optimisiing this function.
+	 *       optimising this function.
 	 * @todo This function does more than just converting, most notably doing something with 'body'. This needs
 	 *       commenting.
 	 */
@@ -190,7 +187,7 @@ class Conversion {
 					# This is a nice PHP bug. values smaller than this will produce a segfault in the strftime() call on 64bit systems.
 					# So, we cap it on this number. I've only seen it in irrelevant properties (FlagDueBy), which have a PT_SYSTIME of 0,
 					# which should represent 1-1-1601 00:00:00, which seems to be a default in a PST file?
-					# on 32bit systems, this is in other manners broken, but atleast it doesn't segfault.
+					# on 32bit systems, this is in other manners broken, but at least it doesn't segfault.
 					if ($value < -6847761600) {
 						$value = -6847761600;
 					}
@@ -294,7 +291,7 @@ class Conversion {
 	 * Convert an JSON restriction structure into a MAPI SRestriction array
 	 *
 	 * @access private
-	 * @param {Array} $mapping An associative array mapping propety keys to MAPI proptags
+	 * @param {Array} $mapping An associative array mapping property keys to MAPI proptags
 	 * @param {Array} $json The parsed JSON array data
 	 * @return {Array} MAPI restriction array compatible with MAPI extension restriction format
 	 */
@@ -491,7 +488,7 @@ class Conversion {
 	}
 
 	/**
-	 * Converts a JSON Respresentation of PT_ACTIONS value array to its MAPI form.
+	 * Converts a JSON Representation of PT_ACTIONS value array to its MAPI form.
 	 *
 	 * @param {Array} $actions JSON representation PT_ACTIONS structure
 	 * @return {Array} Converted PT_ACTIONS structure that can be used in MAPI
