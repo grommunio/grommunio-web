@@ -1328,10 +1328,12 @@
 		 * @param object $store MAPI Message Store Object
 		 * @param string $entryid The entryid of the folder which will be emptied
 		 * @param array $folderProps reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the emptied folder
-		 * @param Boolean $hardDelete flag to indicate if messages will be hard deleted and can not be recovered using restore soft deleted items
+		 * @param Boolean $hardDelete flag to indicate if messages will be hard deleted and can not be recoved using restore soft deleted items
+		 * @param Boolean $emptySubFolders true to remove all messages with child folders of selected folder else false will
+		 * remove only message of selected folder.
 		 * @return boolean true if action succeeded, false if not
 		 */
-		function emptyFolder($store, $entryid, &$folderProps, $hardDelete = false)
+		function emptyFolder($store, $entryid, &$folderProps, $hardDelete = false, $emptySubFolders = true)
 		{
 			$result = false;
 			$folder = mapi_msgstore_openentry($store, $entryid);
@@ -1343,7 +1345,22 @@
 					$flag |= DELETE_HARD_DELETE;
 				}
 
-				$result = mapi_folder_emptyfolder($folder, $flag);
+				if($emptySubFolders) {
+					$result = mapi_folder_emptyfolder($folder, $flag);
+				} else {
+					// Delete all items of selected folder without 
+					// removing child folder and it's content.
+					// FIXME: it is effecting performance because mapi_folder_emptyfolder function not provide facility to
+					// remove only selected folder items without touching child folder and it's items.
+					// for more check KC-1268
+					$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+					$rows = mapi_table_queryallrows($table, array(PR_ENTRYID));
+					$messages = array();
+					foreach ($rows as $row) {
+						array_push($messages, $row[PR_ENTRYID]);
+					}
+					$result = mapi_folder_deletemessages($folder, $messages, $flag);
+				}
 
 				// Update freebusy in case we just emptied the calendar folder
 				$GLOBALS["operations"]->publishFreeBusy($store, $entryid);

@@ -1085,7 +1085,36 @@
 		function emptyFolder($store, $entryid)
 		{
 			$props = array();
-			$result = $GLOBALS["operations"]->emptyFolder($store, $entryid, $props);
+
+			$result = false;
+
+			// False will only remove the message of
+			// selected folder only and can't remove the
+			// child folders.
+			$emptySubFolders = false;
+			$storeProps = mapi_getprops($store, array(PR_IPM_WASTEBASKET_ENTRYID));
+			// Check that selected folder is Waste basket or Junk folder then empty folder by removing
+			// the child folders.
+			if(isset($storeProps[PR_IPM_WASTEBASKET_ENTRYID]) && $storeProps[PR_IPM_WASTEBASKET_ENTRYID] === $entryid) {
+				$emptySubFolders = true;
+			} else {
+				$root = mapi_msgstore_openentry($store, null);
+				$rootProps = mapi_getprops($root, array(PR_ADDITIONAL_REN_ENTRYIDS));
+				// check if selected folder is junk folder then make junk folder empty with
+				// it's child folder and it's contains.
+				if(isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && is_array($rootProps[PR_ADDITIONAL_REN_ENTRYIDS])) {
+					// Checking if folder is junk folder or not.
+					$emptySubFolders = $GLOBALS['entryid']->compareEntryIds($rootProps[PR_ADDITIONAL_REN_ENTRYIDS][4], $entryid);
+				}
+
+				if($emptySubFolders === false) {
+					$folder = mapi_msgstore_openentry($store, $entryid);
+					$folderProps = mapi_getprops($folder, array(PR_SUBFOLDERS));
+					$emptySubFolders = $folderProps[PR_SUBFOLDERS] === false;
+				}
+			}
+
+			$result = $GLOBALS["operations"]->emptyFolder($store, $entryid, $props, false, $emptySubFolders);
 
 			if($result && isset($props[PR_ENTRYID])) {
 				$this->addFolderToResponseData($store, $entryid, "folders");

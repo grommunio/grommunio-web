@@ -54,7 +54,14 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 */
 	createContextMenuItems : function(config)
 	{
-		var isJunkFolder = config.records ? config.records.isSpecialFolder('junk') : false;
+		var folderName = _('Empty folder');
+		var record = config.records;
+		if (record.isSpecialFolder('junk')) {
+			folderName = _('Empty Junk E-mail');
+		} else if (record.isSpecialFolder('wastebasket')) {
+			folderName = _('Empty Deleted Items');
+		}
+
 		return [{
 			text : _('Open'),
 			iconCls : 'icon_open',
@@ -155,13 +162,13 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 				}
 			}
 		}, {
-			text : isJunkFolder ? _("Empty Junk E-mail") : _("Empty Deleted Items"),
-			iconCls : 'icon_empty_trash',
+			text : folderName,
+			iconCls : 'icon_folder_delete',
 			handler : this.onContextItemEmptyFolder,
 			beforeShow : function(item, record) {
 				// We're not modifying the folder, but the contents. Hence we request the READ access
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_READ;
-				if (access && record.isSpecialFolder('wastebasket') || isJunkFolder) {
+				if (access && !record.isIPMSubTree() &&  !record.isTodoListFolder()) {
 					item.setDisabled(false);
 				} else {
 					item.setDisabled(true);
