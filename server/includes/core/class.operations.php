@@ -3937,7 +3937,15 @@
 				if (!$entryid) {
 					continue;
 				}
-				$entry = mapi_ab_openentry($addressbook, $entryid);
+
+				// Handle malformed entryid's
+				try {
+					$entry = mapi_ab_openentry($addressbook, $entryid);
+				} catch (MAPIException $e) {
+					Log::Write(LOGLEVEL_WARN, "readReplyRecipientEntry unable to open AB entry: " . get_mapi_error_name($e->getCode()), $e->getDisplayMessage());
+					continue;
+				}
+
 				$props = mapi_getprops($entry, array( PR_ENTRYID, PR_SEARCH_KEY, PR_OBJECT_TYPE, PR_DISPLAY_NAME, PR_ADDRTYPE, PR_EMAIL_ADDRESS ));
 
 				// Put data in recipient array
