@@ -314,6 +314,7 @@
 							$e->setDisplayMessage(_("Could not find message, either it has been moved or deleted or you don't have access to open this message."));
 						} else {
 							$e->setDisplayMessage(_("Could not open message."));
+							$e->allowToShowDetailsMessage = true;
 						}
 						break;
 
