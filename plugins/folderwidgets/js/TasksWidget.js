@@ -40,6 +40,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 			store: store,
 			items: [{
 				xtype: 'zarafa.gridpanel',
+				cls: 'k-taskwidget',
 				store: store,
 				loadMask: {
 					msg: _('Loading tasks') + '...'
@@ -58,27 +59,26 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 				},
 				colModel: new Ext.grid.ColumnModel({
 					columns: [{
-						header: _("Due Date"),
-						tooltip: _("Due Date"),
+						header: _("Due"),
+						tooltip : _('Sort by: Due Date'),
 						dataIndex: "duedate",
-						renderer: this.dueDateRenderer
+						renderer: Zarafa.common.ui.grid.Renderers.utcdate
 					}, {
 						header: "<p class='icon_importance'>&nbsp;</p>",
-						tooltip: _("Importance"),
+						tooltip : _('Sort by: Priority'),
 						dataIndex: "importance",
-						align: "center",
-						width: 55,
+						width: 24,
+						fixed: true,
 						renderer: Zarafa.common.ui.grid.Renderers.importance
 					}, {
 						header: "%",
-						tooltip: _("% Completed"),
+						tooltip : _('Sort by: Percentage Completed'),
 						dataIndex: "percent_complete",
-						align: "center",
-						width: 80,
+						width : 75,
 						renderer: Zarafa.common.ui.grid.Renderers.percentage
 					}, {
 						header: _('Owner'),
-						tooltip: _("Owner"),
+						tooltip : _('Sort by: Owner'),
 						dataIndex: 'owner',
 						renderer: this.ownerRenderer
 					}],
@@ -110,35 +110,6 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 	},
 
 	/**
-	 * Render the due date in the form "d/m/Y" and add color red if
-	 * due date is already reached
-	 *
-	 * @param {Mixed} value The subject of the appointment
-	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
-	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
-	 * @private
-	 */
-	dueDateRenderer: function (value, metaData, record)
-	{
-		var dateNow = new Date();
-		var dateDue = record.get("duedate");
-		metaData.attr = "";
-
-		if (!dateDue) {
-			value = _("none");
-		} else if (dateDue < dateNow.clearTime().add(Date.DAY, 1)) {
-			value = _("Today");
-			metaData.attr = "style='color: #F00;'";
-		} else if (dateDue < dateNow.clearTime().add(Date.DAY, 2)) {
-			value = _("Tomorrow");
-		} else {
-			value = dateDue.format(_("d/m/Y"));
-		}
-
-		return String.format("{0}", value);
-	},
-
-	/**
 	 * Renders the owner of the task as its initials and adds its full
 	 * form as a tooltip
 	 *
@@ -161,41 +132,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 			initials += ownerNames[i].substring(0, 1);
 		}
 
-		return '<span title="' + Ext.util.Format.htmlEncode(owner) + '">' + Ext.util.Format.htmlEncode(initials) + '</span>';
-	},
-
-	/**
-	 * Apply custom style and content for the row body. This will color
-	 * a task in red when its due-date is reached. If categories are applied
-	 * to a task these categories will be displayed in a colored square naming
-	 * the first letter of the category and its full name in a tooltip.
-	 *
-	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
-	 * @param {Number} rowIndex The row index
-	 * @param {Object} rowParams A config object that is passed to the row template during
-	 * rendering that allows customization of various aspects of a grid row.
-	 * If enableRowBody is configured true, then the following properties may be set by this function,
-	 * and will be used to render a full-width expansion row below each grid row.
-	 * @return {String} a CSS class name to add to the row
-	 * @private
-	 */
-	viewConfigGetRowClass: function (record, rowIndex, rowParams)
-	{
-		var valueSubject = record.get("subject"); // Subject to be displayed
-		var valueCategories = Zarafa.widgets.folderwidgets.TasksWidget.superclass.renderCategories(record);
-
-		// Add color red if due date is reached
-		var dateNow = new Date();
-		var dateDue = record.get("duedate");
-		var color = "";
-
-		if (dateDue && (dateDue < dateNow.clearTime().add(Date.DAY, 1))) {
-			color = 'style="color:#F00;"';
-		}
-
-		rowParams.body = String.format('<div class="folderwidget-task-row" {2}>{1}{0}</div>', valueSubject, valueCategories, color);
-
-		return "x-grid3-row-expanded ";
+		return '<span ext:qtip="' + Ext.util.Format.htmlEncode(owner) + '" ext:qwidth="100%">' + Ext.util.Format.htmlEncode(initials) + '</span>';
 	},
 
 	/**

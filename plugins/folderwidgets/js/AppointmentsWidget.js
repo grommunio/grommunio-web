@@ -35,17 +35,18 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 			store: store,
 			items: [{
 				xtype: 'zarafa.gridpanel',
+				cls: 'k-appointmentwidget',
 				store: store,
 				hideHeaders: true,
 				loadMask: {
-					msg: _('Loading appointments') + '...'
+					msg: _('Loading appointments...')
 				},
 				sm: new Ext.grid.RowSelectionModel({
 					singleSelect: true
 				}),
 				viewConfig: {
 					deferEmptyText: false,
-					emptyText: '<div class="emptytext">' + _('No appointments for today.') + '</div>',
+					emptyText: '<div class="emptytext">' + _('No appointments') + '</div>',
 					forceFit: true,
 					enableRowBody: true,
 					rowSelectorDepth: 15,
@@ -56,7 +57,8 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 					columns: [{
 						header: _('Time'),
 						dataIndex: 'startdate',
-						renderer: this.dummyColumnRenderer
+						renderer: this.timeRenderer,
+						scope: this
 					}]
 				}),
 				listeners: {
@@ -67,7 +69,50 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 			}]
 		});
 
+		// Customize the configuration of the settings window
+		this.configurationConfig = {
+			height: 180
+		};
+
 		Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Adds a field to configure the number of days for which appointments will be shown
+	 * @return {array} An array of configuration objects for {@link Ext.Component components}
+	 */
+	getConfigurationItems: function()
+	{
+		return [{
+			xtype: 'zarafa.spinnerfield',
+			fieldLabel: _('Number of days'),
+			name: 'numdays',
+			boxLabel: _('day(s)'),
+			width: 60,
+			minValue: 1, // 1 day
+			maxValue: 365, // 1 year
+			incrementValue: 1, // 1 day
+			defaultValue: this.get('numdays') || 5,
+			listeners: {
+				'change': this.onNumDaysChange,
+				scope: this
+			},
+			plugins: ['zarafa.numberspinner']
+		}];
+	},
+
+	/**
+	 * Event handler which is fired when 'Number of Days' field in the Configuration dialog
+	 * has been changed. This will update the corresponding option in the settings.
+	 * @param {Ext.form.Field} field The field which fired the event
+	 * @param {Mixed} newValue The new value which was applied
+	 * @param {Mixed} oldValue The old value which was applied
+	 * @private
+	 */
+	onNumDaysChange: function (field, newValue, oldValue)
+	{
+		this.set(field.getName(), newValue);
+		this.reloadStore();
 	},
 
 	/**
@@ -77,240 +122,90 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	 */
 	reloadStore: function ()
 	{
-		if (this.folder) {
-			var now = new Date();
-			var today = now.clearTime();
-			var dueDate = today.add(Date.DAY, 10);
-
-			this.store.load({
-				folder: this.folder,
-				params: {
-					restriction: {
-						startdate: now.getTime() / 1000,
-						// FIXME: Create Config-Option for duedate
-						duedate: dueDate.getTime() / 1000,
-						// FIXME: Create Config-Option for limit
-						limit: 10
-					}
-				}
-			});
+		if (!this.folder) {
+			return;
 		}
+
+		var numDays = this.get('numdays') || 5;
+
+		var startdate = new Date().clearTime().getTime() / 1000;
+		var duedate = new Date().clearTime().add(Date.DAY, numDays).getTime() / 1000;
+
+		this.store.load({
+			folder: this.folder,
+			params: {
+				restriction: {
+					startdate: startdate,
+					duedate: duedate
+				}
+			}
+		});
 	},
 
 	/**
-	 * Update the filter with the current time.  Items that end
+	 * Update the filter with the current time. Items that end
 	 * before now are removed.
 	 * @private
 	 */
 	updateFilter: function ()
 	{
+		var now = new Date().getTime() / 1000;
 		this.store.filterBy(function (record) {
-			var now = new Date();
-			var startdate = record.get('startdate') || now;
-			var duedate = record.get('duedate') || now;
-			return (startdate >= now || duedate >= now) && startdate < now.clearTime().add(Date.DAY, 1);
+			var dueDate = record.get('duedate').getTime() / 1000;
+			return !dueDate || dueDate >= now;
 		}, this);
 	},
 
 	/**
-	 * Just needed to make sure the 'columns'-object renders a line with height=0px
+	 * Renderer for the time column. Adds a recurrence icon and a private icon if applicable
 	 *
 	 * @param {Mixed} value The subject of the appointment
 	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
 	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
 	 * @private
 	 */
-	dummyColumnRenderer: function (value, metaData, record)
+	timeRenderer: function (value, metaData, record)
 	{
-		metaData.attr = "style='padding:0; margin:0; height:0px; '";
-		return "";
-	},
-
-	/**
-	 * Apply custom style and content for the row body. This will color
-	 * a task in red when its due-date is reached. If categories are applied
-	 * to an appointment these categories will be displayed in a colored square naming
-	 * the first letter of the category and its full name in a tooltip.
-	 *
-	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
-	 * @param {Number} rowIndex The row index
-	 * @param {Object} rowParams A config object that is passed to the row template during
-	 * rendering that allows customization of various aspects of a grid row.
-	 * If enableRowBody is configured true, then the following properties may be set by this function,
-	 * and will be used to render a full-width expansion row below each grid row.
-	 * @param {Ext.data.Store} store The Ext.data.Store this grid is bound to
-	 * @return {String} a CSS class name to add to the row
-	 * @private
-	 */
-	viewConfigGetRowClass: function (record, rowIndex, rowParams)
-	{
-
-		var iconToString = function (icon) {
-			return '<img src="' + icon.src + '" /> ';
-		};
-
-		var value = '<table width="100%"><tbody>';
-
-		/**
-		 * this.startdateArray is used to simulate some "grouping" in the table
-		 * as 'this' is not in the context of this class, the array has to be
-		 * initialized here.
-		 */
-		if (!this.startdateArray) {
-			this.startdateArray = new Array();
-		}
-
-		var recordDate = record.get("startdate");
-		var todaysDate = new Date;
-
-		this.startdateArray[rowIndex] = recordDate;
-
-		if ((!this.startdateArray[rowIndex - 1]) || (this.startdateArray[rowIndex - 1].add(Date.DAY, 1).clearTime() <= recordDate)) {
-			// the appointment before was on another day then this appointment
-
-			value += '<tr><td><div class="folderwidget-groupedview">';
-
-			if (recordDate <= todaysDate.add(Date.DAY, 1).clearTime()) {
-				value += _("Today");
-			} else if (recordDate < todaysDate.add(Date.DAY, 2).clearTime()) {
-				value += _("Tomorrow");
-			} else if (recordDate <= todaysDate.add(Date.DAY, 7).clearTime()) {
-				value += recordDate.format('l');
-			} else {
-				value += recordDate.format(_("d.m.Y"));
-			}
-
-			value += '</div></td></tr>';
-		}
-
-		// Row to display time + recurrance + location
-		value += '<tr><td>';
-
-		if (record.get('alldayevent')) {
-			value += _('All Day');
-		} else {
-			value += record.get("startdate").format(_("G:i")) + ' - ' + record.get("duedate").format(_("G:i"));
-		}
-
+		var recurringIcon = '';
 		var recurringPattern = record.get('recurring_pattern');
 		if (recurringPattern) {
 			if (record.get('exception') === true) {
-				value += ' <span title="' + recurringPattern + '">' + iconToString(Zarafa.calendar.ui.IconCache.getExceptionIcon()) + '</span>';
+				recurringIcon =
+					'&nbsp;<span ext:qwidth="300" ext:qtip="' + recurringPattern + '">' +
+						'<img src="' + Zarafa.calendar.ui.IconCache.getExceptionIcon().src + '"/>' +
+					'</span>';
 			} else {
-				value += ' <span title="' + recurringPattern + '">' + iconToString(Zarafa.calendar.ui.IconCache.getRecurringIcon()) + '</span>';
+				recurringIcon =
+					'&nbsp;<span ext:qwidth="300" ext:qtip="' + recurringPattern + '">' +
+						'<img src="' + Zarafa.calendar.ui.IconCache.getRecurringIcon().src + '"/>' +
+					'</span>';
 			}
 		}
 
-		// Row to display categories + subject + private-flag
-		value += '</td></tr><tr><td>';
-
-		value += Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.renderCategories(record);
-
-		value += record.get("subject");
-
+		var privateIcon = '';
 		if (record.get('private') === true) {
-			value += ' ' + iconToString(Zarafa.calendar.ui.IconCache.getPrivateIcon());
+			privateIcon = '&nbsp;<img src="' + Zarafa.calendar.ui.IconCache.getPrivateIcon().src + '"/>';
 		}
 
-		value += '</td></tr></tbody></table>';
+		var dayStart = new Date().clearTime();
+		var dayEnd = new Date().add(Date.DAY, 1).clearTime();
+		var start = value;
+		var end = record.get('duedate');
+		var allDayEvent = record.get('alldayevent');
 
-		rowParams.body = value;
-
-		return "x-grid3-row-expanded ";
-	},
-
-	/**
-	 * Render the subject, which is the time span + the subject of
-	 * the appointment.  The passed value is the subject of the
-	 * appointment, the rest of the data is retrieved through record.
-	 *
-	 * @param {Mixed} value The subject of the appointment
-	 * @param {Object} metaData Used to set style information to gray out appointments that occur now
-	 * @param {Ext.data.Record} record The record being displayed, used to retrieve the start and end times
-	 * @param {Number} rowIndex The index of the rendered row
-	 * @param {Number} colIndex The index of the rendered column
-	 * @param {Ext.data.Store} store The store to which the record belongs
-	 * @private
-	 */
-	subjectRenderer : function(value, metaData, record, rowIndex, colIndex, store) {
-			var now = new Date();
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			var starttime = (record.get('startdate') || now).format(_("G:i"));
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			var duetime = (record.get('duedate') || now).format(_("G:i"));
-			if ((record.get('startdate') || now) < now) {
-				metaData.attr = "style='color: #888; font-weight: bold;'";
-			} else {
-				metaData.attr = "style='font-weight: bold;'";
+		if ( start >= dayStart && end <= dayEnd ) {
+			if ( !allDayEvent ) {
+				return String.format(_('Today {0} - {1}'), start.format(_('G:i')), end.format(_('G:i'))) + recurringIcon + privateIcon;
 			}
 
-			var icons = '';
-			var iconToString = function(icon) { return '<img src="' + icon.src + '" /> '; };
-
-			if (record.get('private') === true) {
-				icons += iconToString(Zarafa.calendar.ui.IconCache.getPrivateIcon());
-			}
-			if (record.get('recurring') === true) {
-				if (record.get('exception') === true) {
-					icons += iconToString(Zarafa.calendar.ui.IconCache.getExceptionIcon());
-				} else {
-					icons += iconToString(Zarafa.calendar.ui.IconCache.getRecurringIcon());
-				}
-			}
-
-			if (record.get('alldayevent')) {
-				// # TRANSLATORS: {0} is the subject of an all-day
-				// # appointment, {1} is the html code to display
-				// # icons.
-				return String.format(_("Today: {1} {0}"), Ext.util.Format.htmlEncode(value), icons);
-			}
-
-			return String.format("{1}-{2}: {3} {0}", Ext.util.Format.htmlEncode(value), starttime, duetime, icons);
-	},
-
-	/**
-	 * Add additional information to the row, in this case the location of
-	 * the meeting.
-	 * TODO: add a preview of the body here.
-	 * The location is rendered in its own table for future use.
-	 *
-	 * @param record The record being displayed.  If it has no
-	 * location set, then the table is omitted entirely.
-	 * @param {Number} rowIndex The index of the rendered row
-	 * @param {Object} rowParams The row parameters
-	 * @param {Ext.data.Store} store The store in which the record is placed
-	 * @returns A string containing a space separated list of css
-	 * classes to apply.  It will always contain 'today-item', and a
-	 * second class that indicates the intended busy state of the
-	 * appointment.
-	 * @private
-	 */
-	applyRowClass: function (record, rowIndex, rowParams, store)
-	{
-		var location = record.get('location');
-		if (location) {
-			rowParams.body = '<table style="width: 100%; padding: 0; border-spacing: 0;">';
-			rowParams.body += String.format('<tr><td style="width: 100%; font-size: 80%;"><i>{0}</i></td></tr>',
-				Ext.util.Format.htmlEncode(location));
-			rowParams.body += '</table>';
-		} else {
-			rowParams.body = '';
+			return _('Today (all day)') + recurringIcon + privateIcon;
 		}
 
-		var css = 'today-item ';
-		var busystatus = record.get('busystatus');
-		switch (busystatus) {
-			case Zarafa.core.mapi.BusyStatus.FREE:
-				return css + 'today-free';
-			case Zarafa.core.mapi.BusyStatus.TENTATIVE:
-				return css + 'today-tentative';
-			case Zarafa.core.mapi.BusyStatus.BUSY:
-				return css + 'today-busy';
-			case Zarafa.core.mapi.BusyStatus.OUTOFOFFICE:
-				return css + 'today-outofoffice';
-			default:
-				return css + 'today-unknown';
+		if ( !allDayEvent ) {
+			return String.format(_('{0} - {1}'), start.format(_('d/m/y G:i')), end.format(_('d/m/y G:i'))) + recurringIcon + privateIcon;
 		}
+
+		return String.format(_('{0} - {1} (all day)'), start.format(_('d/m/y')), end.format(_('d/m/y'))) + recurringIcon + privateIcon;
 	},
 
 	/**
@@ -365,7 +260,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 Zarafa.onReady(function () {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'appointments',
-		displayName : _('Today\'s Appointments'),
+		displayName : _('Upcoming Appointments'),
 		widgetConstructor : Zarafa.widgets.folderwidgets.AppointmentsWidget
 	}));
 });
