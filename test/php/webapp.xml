@@ -15,6 +15,7 @@
     <directory>tests/hierarchy/</directory>
     <directory>tests/addressbook/</directory>
     <directory>tests/language/</directory>
+    <directory>tests/meetings/</directory>
   </testsuite>
   <logging>
     <log type="coverage-html" target="htmlcov" lowUpperBound="35" highLowerBound="70"/>
