@@ -3525,7 +3525,8 @@
 
 						// Get the SMTP address from the addressbook if no address is found
 						if(empty($props['smtp_address']) && $recipientRow[PR_ADDRTYPE] == 'ZARAFA') {
-							$props['smtp_address'] = $this->getEmailAddress($recipientRow[PR_ENTRYID], $recipientRow[PR_SEARCH_KEY]);
+							$recipientSearchKey = isset($recipientRow[PR_SEARCH_KEY]) ? $recipientRow[PR_SEARCH_KEY] : false;
+							$props['smtp_address'] = $this->getEmailAddress($recipientRow[PR_ENTRYID], $recipientSearchKey);
 						}
 					}
 
