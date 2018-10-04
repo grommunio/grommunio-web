@@ -297,7 +297,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 * @property
 										 * @type String
 										 */
-										'value' : 'messagebox'
+										'value' : 'dropdown'
 									}
 
 								}
