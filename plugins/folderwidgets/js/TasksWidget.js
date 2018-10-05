@@ -243,7 +243,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 Zarafa.onReady(function () {
 	container.registerWidget(new Zarafa.core.ui.widget.WidgetMetaData({
 		name : 'tasks',
-		displayName : _('Tasks'),
+		displayName : _('Tasks / To-Do'),
 		widgetConstructor : Zarafa.widgets.folderwidgets.TasksWidget
 	}));
 });
