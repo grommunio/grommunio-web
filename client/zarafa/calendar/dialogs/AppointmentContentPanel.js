@@ -58,6 +58,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 			xtype : 'zarafa.appointmentcontentpanel',
 			// Override from Ext.Component
 			layout : 'fit',
+			cls: 'k-apptcreatepanel',
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true
 			}),
@@ -108,7 +109,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 		if(contentReset){
 			this.updateIconFromRecord(record);
 		}
-		
+
 		if (record.isOpened()) {
 			if (contentReset || record.isModifiedSinceLastUpdate('meeting')) {
 				record.updateMeetingRecipients();
@@ -167,7 +168,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	/**
 	 * Update this panel's icon class from the record that it contains
 	 * First obtains the icon class from a mapping, then calls {@link #setIcon}
-	 * 
+	 *
 	 * @param {Zarafa.core.data.MAPIRecord} record The record bound to this component
 	 * @private
 	 */
@@ -179,7 +180,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	},
 
 	/**
-	 * When record has been updated, title also has to be - for instance if we have the subject 
+	 * When record has been updated, title also has to be - for instance if we have the subject
 	 * in the title and the subject changes
 	 * Calls {@link #setTitle} this.setTitle in order to update
 	 * @param {Zarafa.core.data.MAPIRecord} record The record that has been updated
@@ -234,7 +235,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	 * this will display the {@link #savingText} to indicate the saving is in progress.
 	 *
 	 * @param {Zarafa.core.ui.RecordContentPanel} contentpanel The record which fired the event
-	 * @param {String} action write Action that ocurred. Can be one of 
+	 * @param {String} action write Action that ocurred. Can be one of
 	 * {@link Ext.data.Record.EDIT EDIT}, {@link Ext.data.Record.REJECT REJECT} or
 	 * {@link Ext.data.Record.COMMIT COMMIT}
 	 * @param {Zarafa.core.data.IPMRecord} record The record which was updated
@@ -334,7 +335,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 	},
 
 	/**
-	 * Save all changes made to the {@link #record} and send 
+	 * Save all changes made to the {@link #record} and send
 	 * the message to the specified recipients.
 	 */
 	sendRecord : function()
