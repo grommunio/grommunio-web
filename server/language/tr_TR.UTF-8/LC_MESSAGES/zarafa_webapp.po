@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Kopano Webapp Turkish translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
-"PO-Revision-Date: 2017-01-11 15:00+0000\n"
+"PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
-"Language-Team: Turkish <http://translate.kopano.io/projects/kopano/kopano-"
+"Langauge-Team: Turkish <https://translate.kopano.io/projects/kopano/kopano-"
 "webapp/tr/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -2485,6 +2485,7 @@ msgstr "Tüm öğeleri geri yüklemek istediğinizden emin misiniz?"
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
 msgstr[0] "toplam {0} kurtarılabilir öğe"
+msgstr[1] ""
 
 msgid "Deleted On"
 msgstr "Sil"
@@ -5232,6 +5233,7 @@ msgstr "eksik klasörler"
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
 msgstr[0] "aşağıdaki gerekli klasör hiyerarşide eksik: {0}"
+msgstr[1] ""
 
 msgid "Loading model from server failed"
 msgstr "Sunucudan model yüklenmesi başarısız"
@@ -5610,6 +5612,7 @@ msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
 msgstr[0] ""
 "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+msgstr[1] ""
 
 # 78%
 # 76%
@@ -5619,6 +5622,7 @@ msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
 msgstr[0] ""
 "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+msgstr[1] ""
 
 # 77%
 # 81%
@@ -5967,13 +5971,15 @@ msgstr "Toplantı isteği reddettilmiyor"
 msgid "Conflicts with another appointment."
 msgstr "bir diğer toplantı ile çelişiyor."
 
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
 msgstr[0] ""
+"Bu yinelenen randevu %s gerçekleşmesi bir diğer randevu ile çakışıyor."
+msgstr[1] ""
 "Bu yinelenen randevu %s gerçekleşmesi bir diğer randevu ile çakışıyor."
 
 msgid "Your message did not reach some or all of the intended recipients"

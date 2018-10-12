@@ -1,10 +1,10 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Kopano Webapp Dutch translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-09-13 10:57+0000\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -5721,8 +5721,8 @@ msgstr[1] "Vind elke %s %s plaats vanaf %s voor %s herhalingen van %s tot %s."
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Vind elke %s %s plaats vanaf %s voor %s herhaling."
-msgstr[1] "Vind elke %s %s plaats vanaf %s voor %s herhalingen."
+msgstr[0] "Vind elke %s plaats vanaf %s voor %s herhaling."
+msgstr[1] "Vind elke %s plaats vanaf %s voor %s herhalingen."
 
 # 77%
 #, php-format

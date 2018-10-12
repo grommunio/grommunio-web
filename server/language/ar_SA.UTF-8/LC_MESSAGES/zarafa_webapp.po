@@ -1,3 +1,24 @@
+# Kopano Webapp Arabic (Saudi Arabia) translation.
+# Copyright (C) 2018
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Arabic (Saudi Arabia)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-14 11:18+0200\n"
+"PO-Revision-Date: 2018-08-24 21:03+0200\n"
+"Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
+"Language-Team: Arabic (Saudi Arabia) <https://translate.kopano.io/projects/kopano/"
+"kopano-webapp/ar_SA/>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 2.1.1\n"
+
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr ""

@@ -1,10 +1,10 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Kopano Webapp Japanese translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:57+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -5473,74 +5473,74 @@ msgstr "新しい日時の提示"
 # 76%
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "毎{%s}実施（期間：%sから%s）"
+msgstr "Occurs every %s effective %s from %s to %s."
 
 # 75%
 # 78%
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "毎{%s}実施（期間：%sから%sまで）"
+msgstr "Occurs every %s %s effective %s from %s to %s."
 
 # 80%
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr "毎{%s}実施　"
+msgstr "Occurs every %s effective %s."
 
 # 75%
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "毎{%s}実施"
+msgstr "Occurs every %s %s effective %s."
 
 # 76%
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
+msgstr[0] "Occurs every %s effective %s for %s occurence from %s to %s."
 
 # 76%
 # 95%
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
+msgstr[0] "Occurs every %s %s effective %s for %s occurence from %s to %s."
 
 # 77%
 # 81%
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "毎{0}実施 {1}から{2}まで有効"
+msgstr[0] "Occurs every %s effective %s for %s occurence."
 
 # 77%
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "毎{0}実施 {1}から{2}まで有効"
+msgstr[0] "Occurs every %s %s effective %s for %s occurence."
 
 # 76%
 # 75%
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
+msgstr "Occurs every %s effective %s until %s from %s to %s."
 
 # 76%
 # 75%
 # 94%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "毎{0}実施　{2}まで{3}から{4}まで{1}有効"
+msgstr "Occurs every %s %s effective %s until %s from %s to %s."
 
 # 75%
 # 78%
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "毎{0}実施　有効{1}"
+msgstr "Occurs every %s effective %s until %s."
 
 # 75%
 # 78%
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr "毎{0}実施　有効{1}"
+msgstr "Occurs every %s %s effective %s until %s."
 
 msgid "Task Accepted:"
 msgstr "タスクの承諾:"
@@ -5602,7 +5602,7 @@ msgstr ""
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
-msgstr "'%s'は会議出席依頼を自動的に承諾しないため会議を辞退しました。"
+msgstr ""
 
 #, php-format
 msgid ""
