@@ -95,6 +95,11 @@ class DownloadAttachment
 	private $isEmbedded;
 
 	/**
+	 * Resource of the shared MAPIStore into which attachments needs to be imported.
+	 */
+	private $otherStore;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -112,6 +117,7 @@ class DownloadAttachment
 		$this->destinationFolder = false;
 		$this->import = false;
 		$this->isEmbedded = false;
+		$this->otherStore = false;
 	}
 
 	/**
@@ -195,11 +201,14 @@ class DownloadAttachment
 					$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
 				} catch(Exception $e) {
 					// Try to find the folder from shared stores in case if it is not found in current user's store
-					$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
-					if ($otherStore !== false) {
-						$this->destinationFolder = mapi_msgstore_openentry($otherStore, hex2bin($this->destinationFolderId));
+					$this->otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
+					if ($this->otherStore !== false) {
+						$this->destinationFolder = mapi_msgstore_openentry($this->otherStore, hex2bin($this->destinationFolderId));
 					} else {
-						throw new ZarafaException(_("Destination folder not found."));
+						$this->destinationFolder = mapi_msgstore_openentry($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin($this->destinationFolderId));
+						if (!$this->destinationFolder) {
+							throw new ZarafaException(_("Destination folder not found."));
+						}
 					}
 				}
 			}
@@ -537,10 +546,53 @@ class DownloadAttachment
 					throw new ZarafaException(_("The vcf attachment is not imported successfully"));
 				}
 				break;
+			case 'vcs':
+			case 'ics':
+				try {
+					// Convert vCalendar 1.0 or iCalendar to a MAPI Appointment
+					$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, false);
+				} catch(Exception $e) {
+					$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_DISPLAY_NAME, PR_MDB_PROVIDER));
+					$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
+					if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+						$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
+						$publicStoreName = mapi_getprops($publicStore, array(PR_DISPLAY_NAME));
+						$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
+					} else if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
+						$sharedStoreOwnerName = mapi_getprops($this->otherStore, array(PR_MAILBOX_OWNER_NAME));
+						$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
+					}
+
+					$message = sprintf(_("Unable to import '%s' to '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME], $fullyQualifiedFolderName);
+					if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
+						$message .= _("There is no appointment found in this file.");
+					} else if ($e->getCode() === MAPI_E_CORRUPT_DATA) {
+						$message .= _("The file is corrupt.");
+					} else if ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
+						$message .= _("The file is invalid.");
+					} else {
+						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . _("Please contact your system administrator if the problem persists.");
+					}
+
+					$e = new ZarafaException($message);
+					$e->setTitle(_("Import error"));
+					throw $e;
+				}
+				break;
 		}
 
 		if($ok === true) {
-			mapi_message_savechanges($newMessage);
+			mapi_savechanges($newMessage);
+
+			// Check that record is not appointment record. we have to only convert the
+			// Meeting request record to appointment record.
+			$newMessageProps = mapi_getprops($newMessage, array(PR_MESSAGE_CLASS));
+			if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
+				// Convert the Meeting request record to proper appointment record so we can
+				// properly show the appointment in calendar.
+				$req = new Meetingrequest($this->store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
+				$req->doAccept(true, false, false, false,false,false, false, false,false, true);
+			}
 			$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
 			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
 
@@ -554,25 +606,31 @@ class DownloadAttachment
 								'success'=> true
 							)
 						)
-					),
-					'hierarchynotifier' => Array(
-						'hierarchynotifier1' => Array(
-							'folders' => Array(
-								'item' => Array(
-									0 => Array(
-										'entryid' => $this->destinationFolderId,
-										'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
-										'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
-										'props' => Array(
-											'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1
-										)
+					)
+				)
+			);
+
+			// send hierarchy notification only in case of 'eml'
+			if (pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION) === 'eml') {
+				$hierarchynotifier = Array(
+					'hierarchynotifier1' => Array(
+						'folders' => Array(
+							'item' => Array(
+								0 => Array(
+									'entryid' => $this->destinationFolderId,
+									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
+									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
+									'props' => Array(
+										'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1
 									)
 								)
 							)
 						)
 					)
-				)
-			);
+				);
+
+				$return['zarafa']['hierarchynotifier'] = $hierarchynotifier;
+			}
 
 			echo json_encode($return);
 		} else {

@@ -588,9 +588,10 @@ If it is the first time this attendee has proposed a new date/time, increment th
 	 * @param string $newProposedStartTime contains starttime if user has proposed other time
 	 * @param string $newProposedEndTime contains endtime if user has proposed other time
 	 * @param string $basedate start of day of occurrence for which user has accepted the recurrent meeting
+	 * @param boolean $isImported true to indicate that MR is imported from .ics or .vcs file else it false.
 	 * @return string $entryid entryid of item which created/updated in calendar
 	 */
-	function doAccept($tentative, $sendresponse, $move, $newProposedStartTime=false, $newProposedEndTime=false, $body=false, $userAction = false, $store=false, $basedate = false)
+	function doAccept($tentative, $sendresponse, $move, $newProposedStartTime=false, $newProposedEndTime=false, $body=false, $userAction = false, $store=false, $basedate = false, $isImported = false)
 	{
 		if($this->isLocalOrganiser()) {
 			return false;
@@ -638,7 +639,7 @@ If it is the first time this attendee has proposed a new date/time, increment th
 			// if correspondent calendar item is already processed then don't do anything
 			$calendarItem = $this->getCorrespondentCalendarItem();
 			$calendarItemProps = mapi_getprops($calendarItem, array(PR_PROCESSED));
-			if(isset($calendarItemProps) && $calendarItemProps[PR_PROCESSED] == true) {
+			if(isset($calendarItemProps[PR_PROCESSED]) && $calendarItemProps[PR_PROCESSED] == true) {
 				// mark meeting-request mail as processed as well
 				mapi_setprops($this->message, Array(PR_PROCESSED => true));
 				mapi_savechanges($this->message);
@@ -664,14 +665,14 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		// While sender is receiver then we have to process the meeting request as per the intended busy status
 		// instead of tentative, and accept the same as per the intended busystatus.
 		$senderEntryId = isset($messageprops[PR_SENT_REPRESENTING_ENTRYID]) ? $messageprops[PR_SENT_REPRESENTING_ENTRYID] : $messageprops[PR_SENDER_ENTRYID];
-		if($GLOBALS["entryid"]->compareEntryIds($senderEntryId, $messageprops[PR_RECEIVED_BY_ENTRYID])) {
+		if(isset($messageprops[PR_RECEIVED_BY_ENTRYID]) && $GLOBALS["entryid"]->compareEntryIds($senderEntryId, $messageprops[PR_RECEIVED_BY_ENTRYID])) {
 			$entryid = $this->accept(false, $sendresponse, $move, $proposeNewTimeProps, $body, true, $store, $calFolder, $basedate);
 		} else {
 			$entryid = $this->accept($tentative, $sendresponse, $move, $proposeNewTimeProps, $body, $userAction, $store, $calFolder, $basedate);
 		}
 
 		// if we have first time processed this meeting then set PR_PROCESSED property
-		if($this->isMeetingRequest($messageprops[PR_MESSAGE_CLASS]) && $userAction == false) {
+		if($this->isMeetingRequest($messageprops[PR_MESSAGE_CLASS]) && $userAction === false && $isImported === false) {
 			if(!isset($messageprops[PR_PROCESSED]) || $messageprops[PR_PROCESSED] != true) {
 				// set processed flag
 				mapi_setprops($this->message, Array(PR_PROCESSED => true));
