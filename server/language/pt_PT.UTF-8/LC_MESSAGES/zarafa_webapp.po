@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-17 15:27+0200\n"
-"PO-Revision-Date: 2018-09-25 10:59+0000\n"
+"PO-Revision-Date: 2018-10-17 14:39+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -935,10 +935,9 @@ msgstr "Para ou cc"
 msgid "Meeting"
 msgstr "Reunião"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Os recursos foram planeados."
+msgstr "Os recursos foram planeados"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
@@ -2488,7 +2487,7 @@ msgid "Do the following"
 msgstr "Executar o seguinte"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Aplicar apenas quando Fora do escritório estiver ativo"
 
 msgid "Stop processing more rules"
 msgstr "Para de processar mais regras"
@@ -2518,7 +2517,6 @@ msgstr "Não existem regras"
 msgid "Active"
 msgstr "Ativa"
 
-#, fuzzy
 msgid "Out of office"
 msgstr "Fora do escritório"
 
@@ -3503,9 +3501,8 @@ msgstr "Mudar vista"
 msgid "Widgets"
 msgstr "Widgets"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "A enviar"
+msgstr "A enviar..."
 
 msgid "Sent successfully"
 msgstr "Enviado com sucesso"
@@ -3795,9 +3792,8 @@ msgstr "Mostrar subpastas"
 msgid "Open shared folder/store"
 msgstr "Abrir pastas/caixas partilhadas"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Importar para a pasta"
+msgstr "Pasta vazia"
 
 msgid "Empty Junk E-mail"
 msgstr "Esvaziar E-mail de SPAM"
@@ -4009,7 +4005,7 @@ msgid "No signatures configured"
 msgstr "Sem assinaturas configuradas"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Não é possível guardar enquanto o anexo é enviado"
 
 msgid "E-Mail Flags"
 msgstr "Bandeiras de mensagem"
@@ -4092,9 +4088,8 @@ msgstr "Definições de composição de E-mail"
 msgid "Compose mail in this format"
 msgstr "Formatar mensagem como"
 
-#, fuzzy
 msgid "Editor"
-msgstr "Editar"
+msgstr "Editor"
 
 msgid "Default font"
 msgstr "Tipo de letra por defeito"
@@ -4958,12 +4953,11 @@ msgstr "Enviar Fax"
 msgid "Contact Fax"
 msgstr "Contacto Fax"
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Widgets"
+msgstr "Altura do Widget"
 
 msgid "pixels"
-msgstr ""
+msgstr "pixeis"
 
 msgid "Configure widget"
 msgstr "Configurar widget"
@@ -4971,15 +4965,14 @@ msgstr "Configurar widget"
 msgid "Reload interval"
 msgstr "Intervalo para refrescar (s)"
 
-#, fuzzy
 msgid "seconds"
-msgstr "segundos."
+msgstr "segundos"
 
 msgid "No appointments for today."
 msgstr "Sem compromissos para hoje."
 
 msgid "d.m.Y"
-msgstr ""
+msgstr "d.m.Y"
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -4991,7 +4984,7 @@ msgid "Today's Appointments"
 msgstr "Compromissos para hoje"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Escolha de data"
 
 msgid "No unread mail."
 msgstr "Sem mensagens por ler."
@@ -5006,7 +4999,7 @@ msgid "none"
 msgstr "nenhum"
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Tarefas a fazer"
 
 msgid "Google Maps"
 msgstr "Mapas Google"
@@ -5233,28 +5226,26 @@ msgstr "O anexo EML não foi importado com sucesso"
 msgid "The vcf attachment is not imported successfully"
 msgstr "O anexo VCF não foi importado com sucesso"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Não foi possível importar '%s'"
+msgstr "Não foi possível importar '%s' para '%s' "
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "A data deste compromisso está ultrapassada."
+msgstr "Não foi encontrado nenhum compromisso neste ficheiro."
 
-#, fuzzy
 msgid "The file is corrupt."
-msgstr "EML está corrompido"
+msgstr "O ficheiro está corrompido."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "Os ficheiros não são válidos"
+msgstr "O ficheiro é inválido."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s'. "
-msgstr "Não foi possível importar '%s'"
+msgstr "Não foi possível importar '%s' "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
+"Por favor contacte o seu administrador de sistema se o problema persistir."
 
 msgid "Attachment is not imported successfully"
 msgstr "O anexo não foi importado com sucesso"
