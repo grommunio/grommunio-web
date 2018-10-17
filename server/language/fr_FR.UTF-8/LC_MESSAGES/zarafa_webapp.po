@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -970,8 +970,9 @@ msgstr "À ou Cc"
 msgid "Meeting"
 msgstr "Réunion"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Les ressources ont été planifiées."
 
 msgid ""
@@ -2618,6 +2619,9 @@ msgstr "Quand le message"
 msgid "Do the following"
 msgstr "Faire ceci"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Cesser le traitement des autres règles"
 
@@ -2645,6 +2649,10 @@ msgstr "Aucune règle n'existe"
 
 msgid "Active"
 msgstr "Actif"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Absent(e) du bureau"
 
 # 80%
 msgid "Rule"
@@ -3725,12 +3733,9 @@ msgstr "Changer de vue"
 msgid "Widgets"
 msgstr "Ajouter des widgets"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Envoi en cours"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Envoyé"
 
 # 94%
 msgid "Sent successfully"
@@ -4042,6 +4047,19 @@ msgstr "Afficher les sous-répertoires"
 msgid "Open shared folder/store"
 msgstr "Ouvrir un dossier / magasin partagé"
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Vider le dossier"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Spam"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Supprimer les éléments"
+
 msgid "Rename Folder"
 msgstr "Renommer le Dossier"
 
@@ -4053,15 +4071,6 @@ msgstr "Marquer tous les messages comme lus"
 
 msgid "Delete Folder"
 msgstr "Effacer le dossier"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "Spam"
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Supprimer les éléments"
 
 msgid "Close store"
 msgstr "Fermer la base"
@@ -4136,6 +4145,10 @@ msgstr "Trier par : Importance"
 
 msgid "Sort by: To"
 msgstr "Trier par : À"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Envoyé"
 
 msgid "Red"
 msgstr "Rouge"
@@ -4262,6 +4275,9 @@ msgstr "Afficher De"
 msgid "No signatures configured"
 msgstr "Aucune signature configurée"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "Indicateurs de courriel"
 
@@ -4334,11 +4350,11 @@ msgstr "Imprimer l'élément sélectionnée"
 msgid "Filter"
 msgstr "Filtrer.."
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "TR"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4351,6 +4367,10 @@ msgstr "Paramètres de composition du courrier"
 
 msgid "Compose mail in this format"
 msgstr "Composer le courrier sous ce format"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Éditer"
 
 msgid "Default font"
 msgstr "Police par défaut"
@@ -5267,17 +5287,27 @@ msgstr "Envoyer Fax"
 msgid "Contact Fax"
 msgstr "Contact Fax"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Ajouter des widgets"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Configurer le module"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "Aucun rendez-vous aujourd'hui"
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5288,6 +5318,9 @@ msgstr "Aujourd'hui : {1} {0}"
 msgid "Today's Appointments"
 msgstr "Rendez-vous du jour"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Aucun message non lu."
 
@@ -5296,6 +5329,12 @@ msgstr "Message Non lu"
 
 msgid "No tasks."
 msgstr "Aucune tâche."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5336,9 +5375,6 @@ msgstr "Message rapide"
 
 msgid "Quick Note"
 msgstr "Note rapide"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Tâche rapide"
@@ -5531,6 +5567,28 @@ msgstr "Fichier ZIP n'a pas été créé correctement"
 #, fuzzy
 msgid "The vcf attachment is not imported successfully"
 msgstr "Fichier ZIP n'a pas été créé correctement"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Ce rendez-vous est planifié dans le passé."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Les fichiers joints ne sont pas encore téléchargés."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
 
 # 94%
 #, fuzzy

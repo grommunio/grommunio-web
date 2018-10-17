@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2018-09-13 10:57+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1003,8 +1003,9 @@ msgstr "Aan of cc"
 msgid "Meeting"
 msgstr "Bijeenkomst"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Resources zijn geboekt."
 
 msgid ""
@@ -2668,6 +2669,9 @@ msgstr "Als het bericht"
 msgid "Do the following"
 msgstr "Doe het volgende"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Voorkom uitvoeren van andere regels"
 
@@ -2695,6 +2699,10 @@ msgstr "Er bestaan geen regels"
 
 msgid "Active"
 msgstr "Actief"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Niet Aanwezig"
 
 # 80%
 msgid "Rule"
@@ -3801,12 +3809,9 @@ msgstr "Weergave wijzigen"
 msgid "Widgets"
 msgstr "Widgets toevoegen"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Verzenden"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Verstuurd"
 
 # 94%
 msgid "Sent successfully"
@@ -4114,6 +4119,17 @@ msgstr "Toon submappen"
 msgid "Open shared folder/store"
 msgstr "Open gedeelde map of opslag"
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Importeren naar map"
+
+msgid "Empty Junk E-mail"
+msgstr "Ongewenste E-mail legen"
+
+# 92%
+msgid "Empty Deleted Items"
+msgstr "Verwijderde items legen"
+
 msgid "Rename Folder"
 msgstr "Map Hernoemen"
 
@@ -4125,13 +4141,6 @@ msgstr "Markeer Alle Berichten Gelezen"
 
 msgid "Delete Folder"
 msgstr "Verwijder Map"
-
-msgid "Empty Junk E-mail"
-msgstr "Ongewenste E-mail legen"
-
-# 92%
-msgid "Empty Deleted Items"
-msgstr "Verwijderde items legen"
 
 msgid "Close store"
 msgstr "Store sluiten"
@@ -4204,6 +4213,10 @@ msgstr "Sorteer op: Belangrijkheid"
 # 76%
 msgid "Sort by: To"
 msgstr "Sorteer op: Aan"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Verstuurd"
 
 msgid "Red"
 msgstr "Rood"
@@ -4328,6 +4341,9 @@ msgstr "Toon afzender"
 msgid "No signatures configured"
 msgstr "Geen handtekeningen geconfigureerd"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "E-mailmarkeringen"
 
@@ -4398,11 +4414,11 @@ msgstr "Print de geselecteerde email"
 msgid "Filter"
 msgstr "Filter"
 
-msgid "RE"
-msgstr "AW"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "AW"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4415,6 +4431,10 @@ msgstr "Instellingen voor nieuwe e-mail"
 
 msgid "Compose mail in this format"
 msgstr "Mail in dit formaat opstellen"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Bewerken"
 
 msgid "Default font"
 msgstr "Standaardlettertype"
@@ -5346,17 +5366,28 @@ msgstr "Fax Verzenden"
 msgid "Contact Fax"
 msgstr "Contact Fax"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Widgets toevoegen"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Configureer widget"
 
 msgid "Reload interval"
 msgstr "Herlaad interval"
 
-msgid "seconds."
+#, fuzzy
+msgid "seconds"
 msgstr "seconden."
 
 msgid "No appointments for today."
 msgstr "Geen afspraken vandaag."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5367,6 +5398,9 @@ msgstr "Vandaag: {1} {0}"
 msgid "Today's Appointments"
 msgstr "Afspraken Vandaag"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Geen ongelezen e-mail."
 
@@ -5375,6 +5409,12 @@ msgstr "Ongelezen E-mail"
 
 msgid "No tasks."
 msgstr "Geen taken."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5415,9 +5455,6 @@ msgstr "Vlugge E-mail"
 
 msgid "Quick Note"
 msgstr "Vlugge Notitie"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Vlugge Taak"
@@ -5605,6 +5642,29 @@ msgstr "De EML bijlage kon niet succesvol worden geimporteerd"
 
 msgid "The vcf attachment is not imported successfully"
 msgstr "De vcf bijlage kon niet succesvol worden geimporteerd"
+
+#, fuzzy, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "'%s' kon niet worden geïmporteerd"
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Deze bijeenkomst is in het verleden."
+
+#, fuzzy
+msgid "The file is corrupt."
+msgstr "Eml is corrupt"
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "De bestanden zijn niet valide"
+
+#, fuzzy, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' kon niet worden geïmporteerd"
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr "Bijlage kon niet succesvol worden geimporteerd"

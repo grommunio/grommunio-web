@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -963,8 +963,9 @@ msgstr "收件人或副本"
 msgid "Meeting"
 msgstr "會議"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "資源已被預約"
 
 msgid ""
@@ -2540,6 +2541,9 @@ msgstr "When the message"
 msgid "Do the following"
 msgstr "Do the following"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Stop processing more rules"
 
@@ -2565,6 +2569,10 @@ msgstr "沒有規則存在"
 
 msgid "Active"
 msgstr "啟動"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "不在辦公室"
 
 # 80%
 msgid "Rule"
@@ -3579,12 +3587,9 @@ msgstr "切換檢視"
 msgid "Widgets"
 msgstr "新增小工具"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "傳送中"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "已傳送"
 
 msgid "Sent successfully"
 msgstr "傳送成功"
@@ -3876,6 +3881,19 @@ msgstr "顯示子資料夾"
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "空的資料夾"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "垃圾郵件"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "刪除郵件"
+
 msgid "Rename Folder"
 msgstr "重新命名資料夾"
 
@@ -3887,15 +3905,6 @@ msgstr "標記所有郵件為讀取"
 
 msgid "Delete Folder"
 msgstr "刪除資料夾"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "垃圾郵件"
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "刪除郵件"
 
 msgid "Close store"
 msgstr "關閉收存"
@@ -3969,6 +3978,10 @@ msgstr "依重要性排序"
 
 msgid "Sort by: To"
 msgstr "依收件者排序"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "已傳送"
 
 msgid "Red"
 msgstr "紅色"
@@ -4092,6 +4105,9 @@ msgstr "顯示寄件者"
 msgid "No signatures configured"
 msgstr "沒有設定簽名檔"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "電子郵件旗標"
 
@@ -4163,11 +4179,11 @@ msgstr "列印此任務"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "回覆"
-
 msgid "FW"
 msgstr "轉寄"
+
+msgid "RE"
+msgstr "回覆"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4180,6 +4196,10 @@ msgstr "編輯郵件設定"
 
 msgid "Compose mail in this format"
 msgstr "編輯郵件格式"
+
+#, fuzzy
+msgid "Editor"
+msgstr "編輯"
 
 msgid "Default font"
 msgstr "預設字型"
@@ -5056,17 +5076,27 @@ msgstr "傳送傳真"
 msgid "Contact Fax"
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "新增小工具"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "配置工具"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "今日沒有約會"
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5077,6 +5107,9 @@ msgstr "今日: {1} {0}"
 msgid "Today's Appointments"
 msgstr "今天的約會"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "沒有未讀郵件"
 
@@ -5085,6 +5118,12 @@ msgstr "未讀郵件"
 
 msgid "No tasks."
 msgstr "沒有任務"
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google地圖"
@@ -5125,9 +5164,6 @@ msgstr "新增郵件"
 
 msgid "Quick Note"
 msgstr "新增筆記"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "新增任務"
@@ -5310,6 +5346,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "此約會在過去的時間發生"
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} 不是一個有效的時間"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

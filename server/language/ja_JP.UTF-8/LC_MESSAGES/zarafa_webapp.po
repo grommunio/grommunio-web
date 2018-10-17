@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -964,8 +964,9 @@ msgstr "宛先もしくは同報"
 msgid "Meeting"
 msgstr "会議"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "リソースは計画されました。"
 
 msgid ""
@@ -2562,6 +2563,9 @@ msgstr "メッセージ"
 msgid "Do the following"
 msgstr "以下を実行する"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "これ以上ルール仕訳を実行するのをやめる。"
 
@@ -2587,6 +2591,10 @@ msgstr "ルールが登録されていません。"
 
 msgid "Active"
 msgstr "アクティブ"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "外出中"
 
 # 80%
 msgid "Rule"
@@ -3635,12 +3643,9 @@ msgstr "ビューを切替"
 msgid "Widgets"
 msgstr "ウィジェット追加"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "送信中"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "送信"
 
 msgid "Sent successfully"
 msgstr "送信成功"
@@ -3936,6 +3941,19 @@ msgstr "サブフォルダ表示"
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "フォルダを空にする"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "迷惑メール"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "削除済みアイテム"
+
 msgid "Rename Folder"
 msgstr "フォルダ名を変更"
 
@@ -3947,15 +3965,6 @@ msgstr "全メッセージを既読にする"
 
 msgid "Delete Folder"
 msgstr "フォルダ削除"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "迷惑メール"
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "削除済みアイテム"
 
 msgid "Close store"
 msgstr "フォルダを閉じる"
@@ -4028,6 +4037,10 @@ msgstr "並べ替え：重要度"
 # 76%
 msgid "Sort by: To"
 msgstr "並べ替え：宛先"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "送信"
 
 msgid "Red"
 msgstr "赤"
@@ -4156,6 +4169,9 @@ msgstr "送信者を表示"
 msgid "No signatures configured"
 msgstr "署名が設定されていません。"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "メールフラグ"
 
@@ -4226,11 +4242,11 @@ msgstr "選択したタスクを印刷"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4243,6 +4259,10 @@ msgstr "メール設定"
 
 msgid "Compose mail in this format"
 msgstr "この形式でメールを構成する。"
+
+#, fuzzy
+msgid "Editor"
+msgstr "編集"
 
 msgid "Default font"
 msgstr "デフォルトフォント"
@@ -5130,17 +5150,27 @@ msgstr "Fax送信"
 msgid "Contact Fax"
 msgstr "Fax"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "ウィジェット追加"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "ウィジェットを設定する"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "今日の会議予定はありません。"
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5151,6 +5181,9 @@ msgstr "今日: {1} {0}"
 msgid "Today's Appointments"
 msgstr "今日の会議予定"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "未読メールはありません。"
 
@@ -5159,6 +5192,12 @@ msgstr "未読メール"
 
 msgid "No tasks."
 msgstr "タスクがありません。"
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Googleマップ"
@@ -5199,9 +5238,6 @@ msgstr "クイック メール"
 
 msgid "Quick Note"
 msgstr "クイック メモ"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "クイック タスク"
@@ -5389,6 +5425,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "この予定はすでに終了しました。"
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0}は有効な時間ではありません。"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

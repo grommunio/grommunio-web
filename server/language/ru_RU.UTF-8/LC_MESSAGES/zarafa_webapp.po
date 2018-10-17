@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-03 22:26+0200\n"
 "Last-Translator: Ainur <shakirov.aynur@cg.ru>\n"
 "Language-Team: Russian <https://translate.kopano.io/projects/kopano/kopano-"
@@ -986,8 +986,9 @@ msgstr "Кому или Копия"
 msgid "Meeting"
 msgstr "Собрание"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Ресурсы были запланированы."
 
 msgid ""
@@ -2618,6 +2619,9 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Остановить работу других правил"
 
@@ -2643,6 +2647,10 @@ msgstr "Правил нет"
 
 msgid "Active"
 msgstr "Включен"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Отсутствую"
 
 # 80%
 msgid "Rule"
@@ -3672,12 +3680,9 @@ msgstr "Переключить вид"
 msgid "Widgets"
 msgstr "Добавить виджет"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Отправляется"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Отправлено"
 
 # 94%
 msgid "Sent successfully"
@@ -3989,6 +3994,19 @@ msgstr "Показать подкаталоги"
 msgid "Open shared folder/store"
 msgstr "Открыть общий каталог/хранилище"
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Очистить каталог"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Нежелательная почта"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Удаленные"
+
 msgid "Rename Folder"
 msgstr "Переименовать каталог"
 
@@ -4000,15 +4018,6 @@ msgstr "Отметить все сообщения прочитанными"
 
 msgid "Delete Folder"
 msgstr "Удалить каталог"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "Нежелательная почта"
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Удаленные"
 
 msgid "Close store"
 msgstr "Закрыть хранилище"
@@ -4087,6 +4096,10 @@ msgstr "Сортировать по важности"
 
 msgid "Sort by: To"
 msgstr "Сортировать по «Куда»"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Отправлено"
 
 msgid "Red"
 msgstr "Красный"
@@ -4211,6 +4224,9 @@ msgstr "Показать поле «Откуда»"
 msgid "No signatures configured"
 msgstr "Подписи не настроены"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "Флаги почты"
 
@@ -4282,11 +4298,11 @@ msgstr "Печать выбранного элемента"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4299,6 +4315,10 @@ msgstr "Настройки написания письма"
 
 msgid "Compose mail in this format"
 msgstr "Написать письмо в этом формате"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Изменить"
 
 msgid "Default font"
 msgstr "Основной шрифт"
@@ -5205,17 +5225,27 @@ msgstr "Отправить факс"
 msgid "Contact Fax"
 msgstr "Факс"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Добавить виджет"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Настройка виджета"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "Сегодня встреч нет."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5226,6 +5256,9 @@ msgstr "Сегодня: {1} {0}"
 msgid "Today's Appointments"
 msgstr "Сегодняшние встречи"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Нет непрочитанных писем."
 
@@ -5234,6 +5267,12 @@ msgstr "Непрочитанные письма"
 
 msgid "No tasks."
 msgstr "Задач нет."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Карты Google"
@@ -5274,9 +5313,6 @@ msgstr "Быстрое письмо"
 
 msgid "Quick Note"
 msgstr "Быстрая заметка"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Быстрая задача"
@@ -5464,6 +5500,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Эта встреча произошла в прошлом."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Время {0} неправильное"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

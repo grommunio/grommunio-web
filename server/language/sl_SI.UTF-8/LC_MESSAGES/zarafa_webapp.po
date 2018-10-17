@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -1010,8 +1010,9 @@ msgstr "Za ali kp"
 msgid "Meeting"
 msgstr "Sestanek"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Načrtovani so bili viri."
 
 msgid ""
@@ -2661,6 +2662,9 @@ msgstr "Ko sporočilo"
 msgid "Do the following"
 msgstr "Naredi naslednje"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Prenehaj ustvarjati pravila"
 
@@ -2686,6 +2690,10 @@ msgstr "Ni nobenega pravila"
 
 msgid "Active"
 msgstr "Aktiven"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Odsoten"
 
 # 80%
 msgid "Rule"
@@ -3764,12 +3772,9 @@ msgstr "Preklopi pogled"
 msgid "Widgets"
 msgstr "Dodaj pripomočke"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Pošiljanje"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Poslano"
 
 msgid "Sent successfully"
 msgstr "Pošiljanje uspešno"
@@ -4080,6 +4085,18 @@ msgstr "Pokaži podmape"
 msgid "Open shared folder/store"
 msgstr "Odpri mapo v skupni rabi/hrambo"
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Izprazni mapo"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Nezaželjena pošta"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Izbrisani predmeti"
+
 msgid "Rename Folder"
 msgstr "Preimenuj mapo"
 
@@ -4091,14 +4108,6 @@ msgstr "Označi vsa sporočila kot prebrana"
 
 msgid "Delete Folder"
 msgstr "Izbriši mapo"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "Nezaželjena pošta"
-
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Izbrisani predmeti"
 
 msgid "Close store"
 msgstr "Zapri hrambo"
@@ -4177,6 +4186,10 @@ msgstr "Razvrsti po: Pomembnost"
 # 76%
 msgid "Sort by: To"
 msgstr "Razvrsti po: Za"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Poslano"
 
 msgid "Red"
 msgstr "Beri"
@@ -4303,6 +4316,9 @@ msgstr "Pokaži Od"
 msgid "No signatures configured"
 msgstr "Ni nastavljenih podpisov"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "Zastavice sporočila"
 
@@ -4375,11 +4391,11 @@ msgstr "Natisni izbrano nalogo"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "Ponovno"
-
 msgid "FW"
 msgstr "Posreduj"
+
+msgid "RE"
+msgstr "Ponovno"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4392,6 +4408,10 @@ msgstr "Sestavi nastavitve sporočila"
 
 msgid "Compose mail in this format"
 msgstr "Sestavi sporočilo v tem formatu"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Uredi"
 
 msgid "Default font"
 msgstr "Privzeta pisava"
@@ -5294,17 +5314,27 @@ msgstr "Pošlji faks"
 msgid "Contact Fax"
 msgstr "Kontakt faksa"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Dodaj pripomočke"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Configure widget"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "Ni sestankov za danes."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5315,6 +5345,9 @@ msgstr "Danes: {1} {0}"
 msgid "Today's Appointments"
 msgstr "Današnji sestanki"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Ni neprebranih sporočil."
 
@@ -5323,6 +5356,12 @@ msgstr "Neprebrano sporočilo"
 
 msgid "No tasks."
 msgstr "Ni nalog."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5363,9 +5402,6 @@ msgstr "Hitra pošta"
 
 msgid "Quick Note"
 msgstr "Hitri zapisek"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Hitra naloga"
@@ -5547,6 +5583,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Ta sestanek se pojavlja v preteklosti."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Priložene datoteke še niso bile naložene."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

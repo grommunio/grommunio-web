@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -971,7 +971,7 @@ msgid "Meeting"
 msgstr "Kohtumine"
 
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr ""
 
 msgid ""
@@ -2540,6 +2540,9 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr ""
 
@@ -2565,6 +2568,10 @@ msgstr ""
 
 msgid "Active"
 msgstr ""
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Kontorist väljas"
 
 # 80%
 #, fuzzy
@@ -3672,12 +3679,9 @@ msgstr "Muuda vaadet"
 msgid "Widgets"
 msgstr "Lisa vidinaid"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Saatmine"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Saadetud"
 
 msgid "Sent successfully"
 msgstr "Edukalt saadetud"
@@ -3970,6 +3974,18 @@ msgstr ""
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Kadunud kaustad"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Rämpspost"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Kustutatud"
+
 msgid "Rename Folder"
 msgstr ""
 
@@ -3981,14 +3997,6 @@ msgstr ""
 
 msgid "Delete Folder"
 msgstr ""
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "Rämpspost"
-
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Kustutatud"
 
 msgid "Close store"
 msgstr ""
@@ -4058,6 +4066,10 @@ msgstr ""
 #, fuzzy
 msgid "Sort by: To"
 msgstr "Sorteeri: ikoon"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Saadetud"
 
 msgid "Red"
 msgstr ""
@@ -4182,6 +4194,9 @@ msgstr ""
 msgid "No signatures configured"
 msgstr ""
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr ""
 
@@ -4255,10 +4270,10 @@ msgstr "Trüki valitud kontakt"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
+msgid "FW"
 msgstr ""
 
-msgid "FW"
+msgid "RE"
 msgstr ""
 
 msgid "HTML"
@@ -4271,6 +4286,9 @@ msgid "Compose mail settings"
 msgstr ""
 
 msgid "Compose mail in this format"
+msgstr ""
+
+msgid "Editor"
 msgstr ""
 
 msgid "Default font"
@@ -5147,16 +5165,26 @@ msgstr ""
 msgid "Contact Fax"
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Lisa vidinaid"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr ""
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
+msgstr ""
+
+msgid "d.m.Y"
 msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
@@ -5168,6 +5196,9 @@ msgstr ""
 msgid "Today's Appointments"
 msgstr ""
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr ""
 
@@ -5175,6 +5206,12 @@ msgid "Unread Mail"
 msgstr ""
 
 msgid "No tasks."
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
 msgstr ""
 
 msgid "Google Maps"
@@ -5215,9 +5252,6 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Quick Task"
@@ -5405,6 +5439,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Selles vaates pole hetkel kirjeid kuvamiseks"
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} ei ole kehtiv aeg"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

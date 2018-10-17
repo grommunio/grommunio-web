@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-05 20:01+0200\n"
 "Last-Translator: Tomislav <tomislav.malnar@tzv-gredelj.hr>\n"
 "Language-Team: Kopano Webapp Croatian (Croatia) <https://translate.kopano.io/"
@@ -947,7 +947,7 @@ msgid "Meeting"
 msgstr ""
 
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr ""
 
 msgid ""
@@ -2439,6 +2439,9 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr ""
 
@@ -2463,6 +2466,9 @@ msgid "No rule exists"
 msgstr ""
 
 msgid "Active"
+msgstr ""
+
+msgid "Out of office"
 msgstr ""
 
 msgid "Rule"
@@ -3428,11 +3434,7 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-msgid "Sending"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
+msgid "Sending..."
 msgstr ""
 
 msgid "Sent successfully"
@@ -3719,6 +3721,15 @@ msgstr ""
 msgid "Open shared folder/store"
 msgstr ""
 
+msgid "Empty folder"
+msgstr ""
+
+msgid "Empty Junk E-mail"
+msgstr ""
+
+msgid "Empty Deleted Items"
+msgstr ""
+
 msgid "Rename Folder"
 msgstr ""
 
@@ -3729,12 +3740,6 @@ msgid "Mark All Messages Read"
 msgstr ""
 
 msgid "Delete Folder"
-msgstr ""
-
-msgid "Empty Junk E-mail"
-msgstr ""
-
-msgid "Empty Deleted Items"
 msgstr ""
 
 msgid "Close store"
@@ -3799,6 +3804,10 @@ msgid "Sort by: Importance"
 msgstr ""
 
 msgid "Sort by: To"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
 msgstr ""
 
 msgid "Red"
@@ -3921,6 +3930,9 @@ msgstr ""
 msgid "No signatures configured"
 msgstr ""
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr ""
 
@@ -3984,10 +3996,10 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
+msgid "FW"
 msgstr ""
 
-msgid "FW"
+msgid "RE"
 msgstr ""
 
 msgid "HTML"
@@ -4000,6 +4012,9 @@ msgid "Compose mail settings"
 msgstr ""
 
 msgid "Compose mail in this format"
+msgstr ""
+
+msgid "Editor"
 msgstr ""
 
 msgid "Default font"
@@ -4821,16 +4836,25 @@ msgstr ""
 msgid "Contact Fax"
 msgstr ""
 
+msgid "Widget height"
+msgstr ""
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr ""
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
+msgstr ""
+
+msgid "d.m.Y"
 msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
@@ -4842,6 +4866,9 @@ msgstr ""
 msgid "Today's Appointments"
 msgstr ""
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr ""
 
@@ -4849,6 +4876,12 @@ msgid "Unread Mail"
 msgstr ""
 
 msgid "No tasks."
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
 msgstr ""
 
 msgid "Google Maps"
@@ -4889,9 +4922,6 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Quick Task"
@@ -5069,6 +5099,26 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+msgid "There is no appointment found in this file."
+msgstr ""
+
+msgid "The file is corrupt."
+msgstr ""
+
+msgid "The file is invalid."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -1002,8 +1002,9 @@ msgstr "שדה אל או שדה עותק נוסף"
 msgid "Meeting"
 msgstr "פגישה"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "תוכננו משאבים"
 
 msgid ""
@@ -2624,6 +2625,9 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr ""
 
@@ -2649,6 +2653,10 @@ msgstr ""
 
 msgid "Active"
 msgstr ""
+
+#, fuzzy
+msgid "Out of office"
+msgstr "מחוץ למשרד"
 
 # 80%
 #, fuzzy
@@ -3714,12 +3722,9 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-msgid "Sending"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "נשלח"
+#, fuzzy
+msgid "Sending..."
+msgstr "שומר..."
 
 # 94%
 #, fuzzy
@@ -4024,6 +4029,18 @@ msgstr "הצג תיקיות משנה"
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "תיקיה ריקה"
+
+msgid "Empty Junk E-mail"
+msgstr ""
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "מחק פריטים"
+
 msgid "Rename Folder"
 msgstr "קבע שם חדש לתיקיה"
 
@@ -4035,14 +4052,6 @@ msgstr "סמן את כל ההודעות כנקראו"
 
 msgid "Delete Folder"
 msgstr "מחק תיקיה"
-
-msgid "Empty Junk E-mail"
-msgstr ""
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "מחק פריטים"
 
 msgid "Close store"
 msgstr "סגור אחסון"
@@ -4122,6 +4131,10 @@ msgstr "מיין לפי: חשיבות"
 
 msgid "Sort by: To"
 msgstr "מיין לפי: אל"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "נשלח"
 
 msgid "Red"
 msgstr "אדום"
@@ -4247,6 +4260,9 @@ msgstr ""
 msgid "No signatures configured"
 msgstr ""
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "דגלי דואר אלקטרוני"
 
@@ -4324,11 +4340,11 @@ msgstr "נבחר פריט {0}"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "תגובה"
-
 msgid "FW"
 msgstr "הועבר"
+
+msgid "RE"
+msgstr "תגובה"
 
 msgid "HTML"
 msgstr ""
@@ -4340,6 +4356,9 @@ msgid "Compose mail settings"
 msgstr ""
 
 msgid "Compose mail in this format"
+msgstr ""
+
+msgid "Editor"
 msgstr ""
 
 msgid "Default font"
@@ -5243,17 +5262,26 @@ msgstr ""
 msgid "Contact Fax"
 msgstr ""
 
+msgid "Widget height"
+msgstr ""
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "להגדיר יישומון"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "אין פגישות היום"
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5264,6 +5292,9 @@ msgstr "היום: {1} {0}"
 msgid "Today's Appointments"
 msgstr "פגישות היום"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr ""
 
@@ -5271,6 +5302,12 @@ msgid "Unread Mail"
 msgstr ""
 
 msgid "No tasks."
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
 msgstr ""
 
 msgid "Google Maps"
@@ -5311,9 +5348,6 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Quick Task"
@@ -5497,6 +5531,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "פגישה זו מתרחשת בעבר"
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} אינו זמן תקף"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

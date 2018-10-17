@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -990,8 +990,9 @@ msgstr "Vastaanottaja tai kopio"
 msgid "Meeting"
 msgstr "Tapaaminen"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Resurssit on suunniteltu."
 
 msgid ""
@@ -2617,6 +2618,9 @@ msgstr "Kun viesti"
 msgid "Do the following"
 msgstr "Tee seuraava"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Älä käsittele enempää sääntöjä"
 
@@ -2642,6 +2646,10 @@ msgstr "Sääntöä ei ole"
 
 msgid "Active"
 msgstr "Aktiivinen"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Poissa toimistolta"
 
 # 80%
 msgid "Rule"
@@ -3680,12 +3688,9 @@ msgstr "Vaihda näkymää"
 msgid "Widgets"
 msgstr "Lisää pienoisohjelmia"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Lähetetään"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Lähetetty"
 
 msgid "Sent successfully"
 msgstr "Lähetetty onnistuneesti"
@@ -3984,6 +3989,19 @@ msgstr "Näytä alikansiot"
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Tyhjennä kansio"
+
+#, fuzzy
+msgid "Empty Junk E-mail"
+msgstr "Roskaposti"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Roskakori"
+
 msgid "Rename Folder"
 msgstr "Nimeä kansio uudelleen"
 
@@ -3995,15 +4013,6 @@ msgstr "Merkitse kaikki viestit luetuiksi"
 
 msgid "Delete Folder"
 msgstr "Poista kansio"
-
-#, fuzzy
-msgid "Empty Junk E-mail"
-msgstr "Roskaposti"
-
-# 92%
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Roskakori"
 
 msgid "Close store"
 msgstr "Sulje varasto"
@@ -4082,6 +4091,10 @@ msgstr "Järjestä: Tärkeys"
 # 76%
 msgid "Sort by: To"
 msgstr "Järjestä: Vastaanottaja"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Lähetetty"
 
 msgid "Red"
 msgstr "Punainen"
@@ -4208,6 +4221,9 @@ msgstr "Näytä lähettäjä"
 msgid "No signatures configured"
 msgstr "Allekirjoituksia ei asetettu"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "Sähköpostimerkinnät"
 
@@ -4280,11 +4296,11 @@ msgstr "Tulosta valitut tehtävät"
 msgid "Filter"
 msgstr ""
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4297,6 +4313,10 @@ msgstr "Postin kirjoitusasetukset"
 
 msgid "Compose mail in this format"
 msgstr "Kirjoita viesti tässä muodossa"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Muokkaa"
 
 msgid "Default font"
 msgstr "Oletusfontti"
@@ -5195,17 +5215,27 @@ msgstr "Lähetä faksi"
 msgid "Contact Fax"
 msgstr "Yhteystiedon faksi"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Lisää pienoisohjelmia"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Konfiguroi pienoisohjelma"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "Ei tapaamisia tälle päivälle."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5216,6 +5246,9 @@ msgstr "Tänään: {1} {0}"
 msgid "Today's Appointments"
 msgstr "Tämän päivän tapaamiset"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Ei lukemattomia posteja."
 
@@ -5224,6 +5257,12 @@ msgstr "Lukemattomat postit"
 
 msgid "No tasks."
 msgstr "Ei tehtäviä."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5264,9 +5303,6 @@ msgstr "Pikaposti"
 
 msgid "Quick Note"
 msgstr "Pikamerkintä"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Pikatehtävä"
@@ -5451,6 +5487,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Tapaaminen sijoittuu menneisyyteen."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} ei ole saliittu aika"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"

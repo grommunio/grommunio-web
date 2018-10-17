@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2018-09-02 17:38+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -968,8 +968,9 @@ msgstr "Til eller cc"
 msgid "Meeting"
 msgstr "Møte"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Ressurser har blitt planlagt."
 
 msgid ""
@@ -2589,6 +2590,9 @@ msgstr "Når meldingen"
 msgid "Do the following"
 msgstr "Gjør følgende"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Stopp behandlingen av flere regler"
 
@@ -2616,6 +2620,10 @@ msgstr "Ingen regel finnes"
 
 msgid "Active"
 msgstr "Aktiv"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Fraværende"
 
 msgid "Rule"
 msgstr "Regel"
@@ -3638,13 +3646,9 @@ msgstr "Bytt visningsmodus"
 msgid "Widgets"
 msgstr "Legg til miniprogram"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Sender"
-
-# 100%
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Sendt"
 
 msgid "Sent successfully"
 msgstr "Meldingen ble sendt"
@@ -3944,6 +3948,16 @@ msgstr "Vis undermapper"
 msgid "Open shared folder/store"
 msgstr "Åpne delt mappe/e-postboks"
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Importer til mappe"
+
+msgid "Empty Junk E-mail"
+msgstr "Tøm Søppelpost"
+
+msgid "Empty Deleted Items"
+msgstr "Tøm Slettede elementer"
+
 msgid "Rename Folder"
 msgstr "Gi nytt navn på mappe"
 
@@ -3956,12 +3970,6 @@ msgstr "Merk alle meldinger som lest"
 
 msgid "Delete Folder"
 msgstr "Slett mappe"
-
-msgid "Empty Junk E-mail"
-msgstr "Tøm Søppelpost"
-
-msgid "Empty Deleted Items"
-msgstr "Tøm Slettede elementer"
 
 msgid "Close store"
 msgstr "Lukk e-postboks"
@@ -4031,6 +4039,11 @@ msgstr "Sorter på: viktighet"
 # 76%
 msgid "Sort by: To"
 msgstr "Sorter på: til"
+
+# 100%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Sendt"
 
 msgid "Red"
 msgstr "Rød"
@@ -4159,6 +4172,9 @@ msgstr "Vis fra"
 msgid "No signatures configured"
 msgstr "Ingen signatur er konfigurert"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "E-postflagg"
 
@@ -4226,11 +4242,11 @@ msgstr "Skriv ut valgt notat"
 msgid "Filter"
 msgstr "Filter.."
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4243,6 +4259,10 @@ msgstr "Innstilling for redigering av e-post"
 
 msgid "Compose mail in this format"
 msgstr "Skriv e-post med denne formateringen"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Rediger"
 
 msgid "Default font"
 msgstr "Standardskrift"
@@ -5109,17 +5129,28 @@ msgstr "Send faks"
 msgid "Contact Fax"
 msgstr "Kontaktfaks"
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Legg til miniprogram"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Konfigurer miniprogram"
 
 msgid "Reload interval"
 msgstr "Last inn på nytt etter"
 
-msgid "seconds."
+#, fuzzy
+msgid "seconds"
 msgstr "sekunder."
 
 msgid "No appointments for today."
 msgstr "Ingen avtaler i dag."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5130,6 +5161,9 @@ msgstr "I dag: {1} {0}"
 msgid "Today's Appointments"
 msgstr "Dagens avtaler"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Ingen uleste e-post."
 
@@ -5138,6 +5172,12 @@ msgstr "Uleste e-post"
 
 msgid "No tasks."
 msgstr "Ingen oppgave."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5178,9 +5218,6 @@ msgstr "Hurtig e-post"
 
 msgid "Quick Note"
 msgstr "Hurtignotat"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Hurtigoppgave"
@@ -5364,6 +5401,30 @@ msgstr "Eml-vedlegget ble ikke vellykket importert"
 
 msgid "The vcf attachment is not imported successfully"
 msgstr "vcf-vedlegget ble ikke vellykket importert"
+
+#, fuzzy, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kunne ikke importere:"
+
+# 100%
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Denne avtalen finner sted i fortiden."
+
+#, fuzzy
+msgid "The file is corrupt."
+msgstr "EML er skadet"
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Filene er ikke gyldige"
+
+#, fuzzy, php-format
+msgid "Unable to import '%s'. "
+msgstr "Kunne ikke importere:"
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
 
 msgid "Attachment is not imported successfully"
 msgstr "Vedlegget ble ikke vellykket importert"

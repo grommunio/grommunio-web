@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:57+0200\n"
+"POT-Creation-Date: 2018-10-17 15:27+0200\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -976,8 +976,9 @@ msgstr "Adresát"
 msgid "Meeting"
 msgstr "Schůzka"
 
+#, fuzzy
 msgctxt "calendar.dialog"
-msgid "Resources have been planned."
+msgid "Resources have been planned"
 msgstr "Zdroje byly naplánovány."
 
 msgid ""
@@ -2599,6 +2600,9 @@ msgstr "Jestliže zpráva"
 msgid "Do the following"
 msgstr "Provést následující"
 
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
 msgid "Stop processing more rules"
 msgstr "Zastavit zpracování dalších pravidel"
 
@@ -2626,6 +2630,10 @@ msgstr "Žádné pravidlo neexistuje"
 
 msgid "Active"
 msgstr "Aktivní"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Mimo kancelář"
 
 # 80%
 msgid "Rule"
@@ -3669,12 +3677,9 @@ msgstr "Přepnout náhled"
 msgid "Widgets"
 msgstr "Přidat prvky"
 
-msgid "Sending"
+#, fuzzy
+msgid "Sending..."
 msgstr "Odesílání"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Sent"
-msgstr "Odesláno"
 
 msgid "Sent successfully"
 msgstr "Odesláno úspěšně"
@@ -3978,6 +3983,17 @@ msgstr "Ukázat podsložky"
 msgid "Open shared folder/store"
 msgstr ""
 
+#, fuzzy
+msgid "Empty folder"
+msgstr "Vyprázdnit složku"
+
+msgid "Empty Junk E-mail"
+msgstr ""
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Odstraněné položky"
+
 msgid "Rename Folder"
 msgstr "Přejmenovat složku"
 
@@ -3989,13 +4005,6 @@ msgstr "Označit všechny přečtené zprávy"
 
 msgid "Delete Folder"
 msgstr "Odstranit složku"
-
-msgid "Empty Junk E-mail"
-msgstr ""
-
-#, fuzzy
-msgid "Empty Deleted Items"
-msgstr "Odstraněné položky"
 
 msgid "Close store"
 msgstr "Zavřít úložiště"
@@ -4073,6 +4082,10 @@ msgstr "Třídit podle: Důležitost"
 # 76%
 msgid "Sort by: To"
 msgstr "Třídit podle: Komu"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Odesláno"
 
 msgid "Red"
 msgstr "Červená"
@@ -4199,6 +4212,9 @@ msgstr "Ukázat Od koho"
 msgid "No signatures configured"
 msgstr "Nejsou nastaveny podpisy"
 
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
 msgid "E-Mail Flags"
 msgstr "Štítky"
 
@@ -4272,11 +4288,11 @@ msgstr "Tisknout vybrané položky"
 msgid "Filter"
 msgstr "Filtrovat.."
 
-msgid "RE"
-msgstr "RE"
-
 msgid "FW"
 msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4289,6 +4305,10 @@ msgstr "Vytvořit nastavení pošty"
 
 msgid "Compose mail in this format"
 msgstr "Vytvořit poštu v tomto formátu"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Upravit"
 
 msgid "Default font"
 msgstr ""
@@ -5178,17 +5198,27 @@ msgstr "Poslat fax"
 msgid "Contact Fax"
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Přidat prvky"
+
+msgid "pixels"
+msgstr ""
+
 msgid "Configure widget"
 msgstr "Nastavit prvek"
 
 msgid "Reload interval"
 msgstr ""
 
-msgid "seconds."
+msgid "seconds"
 msgstr ""
 
 msgid "No appointments for today."
 msgstr "Dnes žádná schůzka."
+
+msgid "d.m.Y"
+msgstr ""
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5199,6 +5229,9 @@ msgstr "Dnes: {A} {0}"
 msgid "Today's Appointments"
 msgstr "Dnešní schůzky"
 
+msgid "Datepicker"
+msgstr ""
+
 msgid "No unread mail."
 msgstr "Žádná nepřečtená pošta."
 
@@ -5207,6 +5240,12 @@ msgstr "Nepřečtená pošta"
 
 msgid "No tasks."
 msgstr "Žádné úkoly."
+
+msgid "none"
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
 
 msgid "Google Maps"
 msgstr ""
@@ -5247,9 +5286,6 @@ msgstr "Rychlá pošta"
 
 msgid "Quick Note"
 msgstr "Rychlá poznámka"
-
-msgid "none"
-msgstr ""
 
 msgid "Quick Task"
 msgstr "Rychlý úkol"
@@ -5433,6 +5469,28 @@ msgid "The eml Attachment is not imported successfully"
 msgstr ""
 
 msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Tato schůzka již proběhla."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} není platný čas"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
 msgstr ""
 
 msgid "Attachment is not imported successfully"
