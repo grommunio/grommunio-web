@@ -289,7 +289,7 @@ class UploadAttachment
 	}
 
 	/**
-	 * Function adds embedded attachment and send
+	 * Function adds embedded/icsfile attachment and send
 	 * proper response back to client.
 	 */
 	function addingEmbeddedAttachments()
@@ -298,8 +298,7 @@ class UploadAttachment
 		$attachTampName = $this->attachment_state->addEmbeddedAttachment($_REQUEST['dialog_attachments'], array(
 			'entryid' => sanitizePostValue('entryid', '', ID_REGEX),
 			'store_entryid' => sanitizePostValue('store_entryid', '', ID_REGEX),
-			// indicate that this is actually an embedded attachment
-			'sourcetype' => 'embedded',
+			'sourcetype' => intval($_POST['attach_method'], 10) === ATTACH_EMBEDDED_MSG ? 'embedded' : 'icsfile',
 			'attach_id' => $attachID,
 		));
 

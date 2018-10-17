@@ -487,6 +487,40 @@ class DownloadAttachment
 			$file = fopen($tmpname, 'r');
 			fpassthru($file);
 			fclose($file);
+		} else if($fileinfo['sourcetype'] === 'icsfile') {
+			// When "Send to" option used with calendar item. which create the new mail with
+			// ics file as an attachment and now user try to download the ics attachment before saving
+			// mail at that time this code is used to download the ics file successfully.
+			$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($fileinfo['store_entryid']));
+			$message = mapi_msgstore_openentry($messageStore , hex2bin($fileinfo['entryid']));
+
+			// Get address book for current session
+			$addrBook = $GLOBALS['mapisession']->getAddressbook();
+
+			// get message properties.
+			$messageProps = mapi_getprops($message, array(PR_SUBJECT));
+
+			// Read the appointment as RFC2445-formatted ics stream.
+			$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $message, array());
+
+			$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
+			$filename .= '.ics';
+			// Set the headers
+			header('Pragma: public');
+			header('Expires: 0'); // set expiration time
+			header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+			header('Content-Transfer-Encoding: binary');
+
+			// Set Content Disposition header
+			header('Content-Disposition: ' . $this->contentDispositionType . '; filename="' . addslashes(browserDependingHTTPHeaderEncode($filename)) . '"');
+			// Set content type header
+			header('Content-Type: application/octet-stream');
+
+			// Set the file length
+			header('Content-Length: ' . strlen($appointmentStream));
+
+			$split = str_split($appointmentStream, BLOCK_SIZE);
+			foreach ($split as $s) echo $s;
 		}
 		$attachment_state->close();
 	}

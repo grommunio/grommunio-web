@@ -74,9 +74,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {String} actionType The action type for the given {@link Zarafa.core.data.IPMRecord record}.
 	 * Can be any of the values of {@link Zarafa.mail.data.ActionTypes ActionTypes}.
 	 * @param {Zarafa.core.data.IPMRecord} responseRecord The new {@link Zarafa.core.data.IPMRecord IPMRecord}.
+	 * @param {Object} (Optional) config The optional configuration.
 	 * @private
 	 */
-	createResponseRecord : function(record, actionType, responseRecord)
+	createResponseRecord : function(record, actionType, responseRecord, config)
 	{
 		// FIXME: Error message?
 		if (Ext.isEmpty(actionType) || !record) {
@@ -122,7 +123,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		this.initRecordSubject(responseRecord, record, actionType);
 
 		if (actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
-			responseRecord.getAttachmentStore().addEmbeddedAttachment(record);
+			responseRecord.getAttachmentStore().addAsAttachment(record, config);
 		} else if (actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW) {
 			this.copyRecordBody(responseRecord, record);
 			this.initRecordAttachments(responseRecord, record, actionType);
