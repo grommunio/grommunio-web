@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-17 15:27+0200\n"
-"PO-Revision-Date: 2018-10-11 13:46+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2018-10-17 13:22+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -996,10 +996,9 @@ msgstr "An oder CC"
 msgid "Meeting"
 msgstr "Besprechung"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Die Ressourcen wurden geplant."
+msgstr "Die Ressourcen wurden geplant"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
@@ -3769,9 +3768,8 @@ msgstr "Ansicht umschalten"
 msgid "Widgets"
 msgstr "Alle Widgets"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "Senden"
+msgstr "Senden..."
 
 # 94%
 msgid "Sent successfully"
