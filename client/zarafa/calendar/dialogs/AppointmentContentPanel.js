@@ -251,7 +251,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 				if(record.getRecipientStore().findExact('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_BCC) !== -1){
 					// If the server lets the client now the appointment has been booked (resources) then notify the user.
 					if(record.getActionResponse('resources_booked')){
-						container.getNotifier().notify('info.meeting', _('Kopano WebApp'), pgettext('calendar.dialog', 'Resources have been planned.'));
+						container.getNotifier().notify('info.meeting', pgettext('calendar.dialog', 'Resources have been planned'));
 					}
 				}
 			}
