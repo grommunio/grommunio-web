@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-17 15:27+0200\n"
-"PO-Revision-Date: 2018-10-17 13:22+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2018-10-17 13:33+0000\n"
+"Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -2668,7 +2668,7 @@ msgid "Do the following"
 msgstr "Folgende Aktion ausführen"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Nur anwenden wenn Abwesenheitsbenachrichtigung aktiv ist"
 
 msgid "Stop processing more rules"
 msgstr "Keine weiteren Regeln anwenden"
@@ -2698,7 +2698,6 @@ msgstr "Es wurde keine Regel angelegt"
 msgid "Active"
 msgstr "Aktiv"
 
-#, fuzzy
 msgid "Out of office"
 msgstr "Abwesend"
 
@@ -3764,9 +3763,8 @@ msgstr "Abmelden"
 msgid "Switch view"
 msgstr "Ansicht umschalten"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Alle Widgets"
+msgstr "Widgets"
 
 msgid "Sending..."
 msgstr "Senden..."
@@ -3897,7 +3895,7 @@ msgstr "Keine ausreichenden Berechtigungen, um diesen Ordner zu öffnen."
 #, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Es befinden sich {0} ungelesene Nachricht Im Ordner {1} aus {2}"
+msgstr[0] "Es befindet sich {0} ungelesene Nachricht Im Ordner {1} aus {2}"
 msgstr[1] "Es befinden sich {0} ungelesene Nachrichten Im Ordner {1} aus {2}"
 
 msgid "There is {0} unread message in the folder {1}"
@@ -4080,9 +4078,8 @@ msgstr "Unterordner anzeigen"
 msgid "Open shared folder/store"
 msgstr "Gemeinsamen Ordner oder Postfach öffnen"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Einfügen in Ordner"
+msgstr "Ordner leeren"
 
 msgid "Empty Junk E-mail"
 msgstr "Junk-E-Mail Ordner leeren"
@@ -4307,7 +4304,7 @@ msgid "No signatures configured"
 msgstr "Keine Signaturen konfiguriert"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Es kann nicht gespeichert werden, während ein Anhang hochlädt"
 
 msgid "E-Mail Flags"
 msgstr "E-Mail-Kategorien"
@@ -4399,9 +4396,8 @@ msgstr "Einstellungen zur E-Mail-Erstellung"
 msgid "Compose mail in this format"
 msgstr "E-Mail in diesem Format erstellen"
 
-#, fuzzy
 msgid "Editor"
-msgstr "Bearbeiten"
+msgstr "Editor"
 
 msgid "Default font"
 msgstr "Standardschriftart"
@@ -5340,12 +5336,11 @@ msgstr "Fax senden"
 msgid "Contact Fax"
 msgstr "Fax kontaktieren"
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Alle Widgets"
+msgstr "Höhe des Widget"
 
 msgid "pixels"
-msgstr ""
+msgstr "Pixel"
 
 msgid "Configure widget"
 msgstr "Widget konfigurieren"
@@ -5353,15 +5348,14 @@ msgstr "Widget konfigurieren"
 msgid "Reload interval"
 msgstr "Aktualisieren nach"
 
-#, fuzzy
 msgid "seconds"
-msgstr "Sekunden."
+msgstr "Sekunden"
 
 msgid "No appointments for today."
 msgstr "Heute keine Termine."
 
 msgid "d.m.Y"
-msgstr ""
+msgstr "d.m.Y"
 
 #. TRANSLATORS: {0} is the subject of an all-day
 #. appointment, {1} is the html code to display
@@ -5373,7 +5367,7 @@ msgid "Today's Appointments"
 msgstr "Heutige Termine"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Datumsauswahl"
 
 msgid "No unread mail."
 msgstr "Keine ungelesene E-Mail."
@@ -5385,10 +5379,10 @@ msgid "No tasks."
 msgstr "Keine Aufgaben."
 
 msgid "none"
-msgstr ""
+msgstr "keine"
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Aufgaben / To-Dos"
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5619,28 +5613,27 @@ msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Der VCF Anhang konnte nicht erfolgreich importiert werden"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Import von '%s' nicht möglich"
+msgstr "Konnte '%s' nicht nach '%s' importieren. "
 
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "Dieser Termin liegt in der Vergangenheit."
+msgstr "Es gibt keine Termine in dieser Datei."
 
-#, fuzzy
 msgid "The file is corrupt."
-msgstr "EML ist defekt"
+msgstr "Die Datei ist beschädigt."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "Die Dateien sind ungültig"
+msgstr "Die Datei ist ungültig."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s'. "
-msgstr "Import von '%s' nicht möglich"
+msgstr "Konnte '%s' nicht importieren. "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
+"Bitte kontaktieren Sie Ihren lokalen Administrator falls das Problem "
+"wiederholt auftritt."
 
 msgid "Attachment is not imported successfully"
 msgstr "Der Anhang konnte nicht erfolgreich importiert werden"
