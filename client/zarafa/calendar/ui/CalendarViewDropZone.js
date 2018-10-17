@@ -345,21 +345,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				if (dd.calendar !== this.calendar) {
 					this.calendar.onDrop(e, dd.calendar, data.target, this.dateRange);
 				} else {
-					var appointment = data.selections[0];
-					// Check if we can modify the calendar or meeting request.
-					if(appointment.get('access') & Zarafa.core.mapi.Access.ACCESS_MODIFY) {
-						this.calendar.onMove(e, data.target, this.dateRange);
-					} else {
-						var text = appointment.isMeeting() ? _('a meeting request') : _('an appointment');
-						Ext.MessageBox.show({
-							title: _('Insufficient privileges'),
-							msg: _('You have insufficient privileges to move ' + text +
-							' in this calendar. The calendar owner can grant you these rights from: settings > delegates.'),
-							icon: 'zarafa-calendar-delegate-permission',
-							buttons: Ext.MessageBox.OK
-						});
-						return false;
-					}
+					this.calendar.onMove(e, data.target, this.dateRange);
 				}
 				break;
 			case DragStates.RESIZING_START:
