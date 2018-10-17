@@ -24,18 +24,18 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	sendValidationQueue : undefined,
 
 	/**
-	 * @cfg {String/Object} sendingText When {@link #showInfoMask} is true, then this text
-	 * will be shown when the message is being send. When an object is provided which contains
-	 * the 'msg' and 'title' fields respectively.
+	 * @cfg {String/Object} sendingText When {@link #showInfoMask} is true, this text
+	 * will be shown when the message is being sent. When an object is provided which contains
+	 * the 'msg' fields respectively.
 	 */
-	sendingText : { msg : _('Sending') + '...' },
+	sendingText : { msg : _('Sending...') },
 
 	/**
-	 * @cfg {String/Object} sendingDoneText When {@link #showInfoMask} is true, then this text
+	 * @cfg {String/Object} sendingDoneText When {@link #showInfoMask} is true, this text
 	 * will be shown when the message has been sent. When an object is provided which contains
-	 * the 'msg' and 'title' fields respectively.
+	 * the 'msg' fields respectively.
 	 */
-	sendingDoneText :{ title: _('Sent'), msg :  _('Sent successfully') },
+	sendingDoneText :{ msg : '<b>'+ _('Sent successfully')+'</b>' },
 
 	/**
 	 * Indicates if the panel is currently busy sending data to the server.
