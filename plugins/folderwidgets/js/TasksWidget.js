@@ -45,7 +45,7 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 				loadMask: {
 					msg: _('Loading tasks') + '...'
 				},
-				sm: new Ext.grid.RowSelectionModel({
+				sm: new Zarafa.common.ui.grid.RowSelectionModel({
 					singleSelect: true
 				}),
 				viewConfig: {
