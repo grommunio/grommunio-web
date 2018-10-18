@@ -41,7 +41,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 				loadMask: {
 					msg: _('Loading appointments...')
 				},
-				sm: new Ext.grid.RowSelectionModel({
+				sm: new Zarafa.common.ui.grid.RowSelectionModel({
 					singleSelect: true
 				}),
 				viewConfig: {
