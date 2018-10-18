@@ -96,6 +96,7 @@ Zarafa.widgets.quickitems.AbstractQuickItemWidget = Ext.extend(Zarafa.core.ui.wi
 		if (this.hasDialog) {
 			this.tools.unshift({
 				id : 'plus',
+				qtip: _('Open in new tab'),
 				handler : this.dialog,
 				scope : this
 			});

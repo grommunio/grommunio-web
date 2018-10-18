@@ -2865,8 +2865,7 @@ ul.x-tab-strip li.x-tab-strip-closable a.x-tab-strip-close,
 .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-icon-close,
 .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-tool-close,
-#zarafa-mainpanel-contentpanel-today .x-tool.x-tool-close,
-.zarafa-widgetpanel > .x-panel-bwrap .x-tool.x-tool-close,
+.zarafa-widgetpanel .x-panel .x-panel-header .x-tool.x-tool-close,
 .k-category-filter .k-category-close {
   /* need to use !important because Ext also uses it here and there! */
   background-image: url('../images/buttons-sb7c8758d9a.png') !important;
@@ -13377,25 +13376,28 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 /* home tab */
 /* Widget icons */
 /* line 6, ../scss/components/_zarafa.scss */
-#zarafa-mainpanel-contentpanel-today .x-tool.x-tool-gear,
-.zarafa-widgetpanel > .x-panel-bwrap .x-tool.x-tool-gear {
+.zarafa-widgetpanel .x-panel .x-panel-header .x-tool.x-tool-gear {
   background-image: url('../images/buttons-sb7c8758d9a.png') !important;
   background-repeat: no-repeat;
   background-position: 0 -405px;
 }
 /* line 12, ../scss/components/_zarafa.scss */
-#zarafa-mainpanel-contentpanel-today .x-tool.x-tool-toggle,
-.zarafa-widgetpanel > .x-panel-bwrap .x-tool.x-tool-toggle {
+.zarafa-widgetpanel .x-panel .x-panel-header .x-tool.x-tool-toggle {
   background-image: url('../images/icons-s5e0631df8c.png') !important;
   background-repeat: no-repeat;
-  background-position: 4px 8px;
+  background-position: 4px -65px;
 }
 /* line 18, ../scss/components/_zarafa.scss */
-#zarafa-mainpanel-contentpanel-today .x-tool.x-tool-close,
-.zarafa-widgetpanel > .x-panel-bwrap .x-tool.x-tool-close {
+.zarafa-widgetpanel .x-panel .x-panel-header .x-tool.x-tool-close {
   background-image: url('../images/buttons-sb7c8758d9a.png') !important;
   background-repeat: no-repeat;
   background-position: 4px -587px;
+}
+/* line 27, ../scss/components/_zarafa.scss */
+.zarafa-widgetpanel .x-panel.x-panel-collapsed .x-panel-header .x-tool.x-tool-toggle {
+  background-image: url('../images/icons-s5e0631df8c.png') !important;
+  background-repeat: no-repeat;
+  background-position: 4px 8px;
 }
 
 /* line 3, ../scss/components/_categories.scss */

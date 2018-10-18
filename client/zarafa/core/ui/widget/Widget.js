@@ -6,8 +6,8 @@ Ext.namespace('Zarafa.core.ui.widget');
  * @xtype zarafa.widget
  *
  * A 'widget' is a plug-in that users can instantiate and put on their today view or tool bar.
- * Examples of widgets are the clock, the weather widget, public notes, etc. 
- * 
+ * Examples of widgets are the clock, the weather widget, public notes, etc.
+ *
  * Users can add new instances of a widget freely, and create multiple instances if desired. Each
  * widget instance has a unique GUID, and settings for that instance are stored in the widgets/[GUID]
  * settings folder. When a widget is destroyed, that folder is deleted.
@@ -48,6 +48,20 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 	widgetPanel : undefined,
 
 	/**
+	 * {@link Ext.QuickTips tooltip} message for the widget's collapse {@link Ext.Button button}
+	 * @property
+	 * @type String
+	 */
+	collapseQuickTip : undefined,
+
+	/**
+	 * {@link Ext.QuickTips tooltip} message for the widget's expand {@link Ext.Button button}
+	 * @property
+	 * @type String
+	 */
+	expandQuickTip : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -62,6 +76,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 		if (config.hasConfig === true) {
 			tools.push({
 				id : 'gear',
+				qtip: _('Configure widget'),
 				handler: this.config,
 				scope : this
 			});
@@ -70,6 +85,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 		// Always add the close tool.
 		tools.push({
 			id : 'close',
+			qtip: _('Remove widget'),
 			scope : this,
 			handler: this.close
 		});
@@ -79,6 +95,8 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 			anchor : '100%',
 			frame : true,
 			collapsible : true,
+			collapseQuickTip: _('Collapse widget'),
+			expandQuickTip: _('Expand widget'),
 			draggable : {
 				ddGroup : 'dd.widget'
 			},
@@ -88,6 +106,38 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 		Zarafa.core.ui.widget.Widget.superclass.constructor.call(this, config);
 
 		this.initWidget();
+	},
+
+	/**
+	 * Called during rendering of the panel, this will initialize all events.
+	 * @private
+	 */
+	initEvents: function ()
+	{
+		Zarafa.core.ui.widget.Widget.superclass.initEvents.call(this);
+		this.on('afterlayout', this.setCollapseQuickTip, this, {single: true});
+		this.on('expand', this.setCollapseQuickTip, this);
+		this.on('collapse', this.setExpandQuickTip, this);
+	},
+
+	/**
+	 * Event handler which is called after {@link Zarafa.core.ui.MainViewSidebar panel} get layout
+	 * This will set {@link Ext.QuickTips} on {@link Ext.Button collapse} button
+	 * @private
+	 */
+	setCollapseQuickTip: function ()
+	{
+		this.tools['toggle'].dom.qtip = this.collapseQuickTip;
+	},
+
+	/**
+	 * Event handler which is called before {@link Zarafa.core.ui.MainViewSidebar panel} collapse
+	 * This will set {@link Ext.QuickTips} on {@link Ext.Button expand} button
+	 * @private
+	 */
+	setExpandQuickTip: function ()
+	{
+		this.tools['toggle'].dom.qtip = this.expandQuickTip;
 	},
 
 	/**
@@ -112,6 +162,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 	{
 		this.tools.splice(this.tools.length - 1, 0, {
 			id : 'help',
+			qtip: -('About this widget'),
 			handler : this.showAbout,
 			scope : this,
 			title : title,
@@ -131,7 +182,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 
 	/**
 	 * Called when the widget has been rendered.
-	 * This will initialize the {@link #widgetPanel}. 
+	 * This will initialize the {@link #widgetPanel}.
 	 */
 	onRender : function()
 	{
@@ -142,7 +193,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 	/**
 	 * Get a settings property..
 	 * @param {String} key settings path. This is path relative to where the widget's settings are stored.
-	 * @return {String} value. 
+	 * @return {String} value.
 	 */
 	get : function(key)
 	{
@@ -152,7 +203,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 	/**
 	 * Set a settings property.
 	 * @param {String} key settings path. This is path relative to where the widget's settings are stored.
-	 * @param {String} value value. 
+	 * @param {String} value value.
 	 */
 	set : function(key, value)
 	{
@@ -170,7 +221,7 @@ Zarafa.core.ui.widget.Widget = Ext.extend(Ext.ux.Portlet, {
 	/**
 	 * Called when a user clicks the config button on the widget panel.
 	 * Should be overridden by child classes.
-	 * @protected 
+	 * @protected
 	 */
 	config : Ext.emptyFn,
 

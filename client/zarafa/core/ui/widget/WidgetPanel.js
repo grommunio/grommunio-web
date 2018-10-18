@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.core.ui.widget');
  * @class Zarafa.core.ui.widget.WidgetPanel
  * @extends Zarafa.core.ui.MainViewSidebar
  * @xtype zarafa.widgetpanel
- * 
+ *
  * The main panel which contains {@link Zarafa.core.ui.widget.Widget widgets}.
  */
 Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
@@ -51,6 +51,7 @@ Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 
 		var tools = [{
 			id : 'plus',
+			qtip: _('Add new widget'),
 			scope : this,
 			handler: function() {
 				Zarafa.common.Actions.openWidgetsContent({
@@ -132,7 +133,7 @@ Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 		var verifiedGuids = [];
 
 		if(!Ext.isDefined(guids)) {
-			/* 
+			/*
 			 * For the first time when webapp reload for the user
 			 * settingsPath/guids is undefined, and from then on
 			 * it will be string either empty or guids pointing widgets.
