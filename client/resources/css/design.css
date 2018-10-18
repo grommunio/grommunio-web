@@ -13400,6 +13400,7 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
 
 /* line 3, ../scss/components/_categories.scss */
 .k-category-block {
+  color: black;
   padding: 0 6px;
   line-height: 15px;
   background-color: #e6e6e6;
@@ -13416,33 +13417,33 @@ ul.x-tab-strip li .x-tab-right .x-tab-left .x-tab-strip-inner .x-panel-ghost .x-
   cursor: default;
 }
 
-/* line 19, ../scss/components/_categories.scss */
+/* line 20, ../scss/components/_categories.scss */
 .k-category-block.zarafa-dark {
   color: #ffffff;
 }
 
-/* line 22, ../scss/components/_categories.scss */
+/* line 23, ../scss/components/_categories.scss */
 body .k-category-block {
   font-size: 11px !important;
 }
 
-/* line 25, ../scss/components/_categories.scss */
+/* line 26, ../scss/components/_categories.scss */
 .x-grid3-cell-inner > .k-category-block {
   margin-bottom: 0;
 }
 
-/* line 28, ../scss/components/_categories.scss */
+/* line 29, ../scss/components/_categories.scss */
 .zarafa-appointment-tooltip .k-category-block {
   max-width: 221px;
 }
 
 /* In the mail grid */
-/* line 33, ../scss/components/_categories.scss */
+/* line 34, ../scss/components/_categories.scss */
 .grid_compact_left {
   padding-left: 29px;
 }
 
-/* line 36, ../scss/components/_categories.scss */
+/* line 37, ../scss/components/_categories.scss */
 .k-category-container, .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-folder-location-container {
   float: right;
   max-width: 50%;
@@ -13453,13 +13454,13 @@ body .k-category-block {
 }
 
 /* The add category button in the mail grid */
-/* line 46, ../scss/components/_categories.scss */
+/* line 47, ../scss/components/_categories.scss */
 .k-category-add-container {
   float: right;
   padding-top: 3px;
 }
 
-/* line 50, ../scss/components/_categories.scss */
+/* line 51, ../scss/components/_categories.scss */
 .k-category-add {
   display: block;
   visibility: hidden;
@@ -13469,18 +13470,18 @@ body .k-category-block {
   cursor: pointer;
 }
 
-/* line 59, ../scss/components/_categories.scss */
+/* line 60, ../scss/components/_categories.scss */
 .x-grid3-row-over .k-category-add {
   visibility: visible;
 }
 
-/* line 63, ../scss/components/_categories.scss */
+/* line 64, ../scss/components/_categories.scss */
 .k-category-add:hover {
   background-position: 2px -1302px;
 }
 
 /* In the (pre) view panel */
-/* line 69, ../scss/components/_categories.scss */
+/* line 70, ../scss/components/_categories.scss */
 .k-preview-header-categories {
   margin-top: 6px;
   max-height: 54px;
@@ -13489,7 +13490,7 @@ body .k-category-block {
 }
 
 /* In the context menu */
-/* line 76, ../scss/components/_categories.scss */
+/* line 77, ../scss/components/_categories.scss */
 .k-category-in-menu {
   max-width: 10em;
   overflow: hidden;
@@ -13499,46 +13500,46 @@ body .k-category-block {
 }
 
 /* The "Create new category dialog" */
-/* line 86, ../scss/components/_categories.scss */
+/* line 87, ../scss/components/_categories.scss */
 .k-newcategorypanel .k-colorpicker {
   padding-right: 6px;
 }
-/* line 90, ../scss/components/_categories.scss */
+/* line 91, ../scss/components/_categories.scss */
 .k-newcategorypanel .k-pin-check {
   margin-top: 12px;
 }
-/* line 93, ../scss/components/_categories.scss */
+/* line 94, ../scss/components/_categories.scss */
 .k-newcategorypanel .k-pin-check input {
   margin-left: 3px;
 }
-/* line 97, ../scss/components/_categories.scss */
+/* line 98, ../scss/components/_categories.scss */
 .k-newcategorypanel .k-pin-check label {
   margin-left: 12px;
 }
 
 /* The "Rename category dialog" */
-/* line 105, ../scss/components/_categories.scss */
+/* line 106, ../scss/components/_categories.scss */
 .k-renamecategorypanel .k-colorpicker {
   padding-right: 6px;
 }
 
 /** Search category filter **/
-/* line 112, ../scss/components/_categories.scss */
+/* line 113, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-container {
   float: left !important;
 }
-/* line 116, ../scss/components/_categories.scss */
+/* line 117, ../scss/components/_categories.scss */
 .k-category-filter .k-category-container, .k-category-filter .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-folder-location-container, .zarafa-searchgrid .x-grid3-row-body-tr .zarafa-grid-body-container .k-category-filter .k-folder-location-container {
   float: left;
   max-width: 80%;
   text-align: left;
   max-height: none;
 }
-/* line 123, ../scss/components/_categories.scss */
+/* line 124, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-button, .k-category-filter .k-category-filter-label {
   float: left;
 }
-/* line 126, ../scss/components/_categories.scss */
+/* line 127, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-button .x-btn-small, .k-category-filter .k-category-filter-label .x-btn-small {
   display: block;
   background: transparent !important;
@@ -13546,21 +13547,21 @@ body .k-category-block {
   box-shadow: none !important;
   margin-right: 3px;
 }
-/* line 136, ../scss/components/_categories.scss */
+/* line 137, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-button.x-btn-over .x-btn-small {
   border: 1px solid #dadada;
 }
-/* line 140, ../scss/components/_categories.scss */
+/* line 141, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-button.x-btn-over .k-category-add-button-icon {
   background-position: 3px -1300px;
 }
-/* line 146, ../scss/components/_categories.scss */
+/* line 147, ../scss/components/_categories.scss */
 .k-category-filter .k-category-block {
   max-width: 14em;
   margin-top: 3px;
   padding: 0 3px;
 }
-/* line 152, ../scss/components/_categories.scss */
+/* line 153, ../scss/components/_categories.scss */
 .k-category-filter .k-category-close {
   display: inline-block;
   cursor: pointer;
@@ -13569,19 +13570,19 @@ body .k-category-block {
   height: 7px;
   background-position: 6px -632px;
 }
-/* line 162, ../scss/components/_categories.scss */
+/* line 163, ../scss/components/_categories.scss */
 .k-category-filter .k-category-add-button-icon {
   background-position: 3px -1267px;
   width: 18px !important;
   height: 18px !important;
 }
-/* line 170, ../scss/components/_categories.scss */
+/* line 171, ../scss/components/_categories.scss */
 .k-category-filter .k-category-filter-label .x-btn-small {
   background: #b6b6b6 !important;
   margin-top: 3px;
   text-align: center;
 }
-/* line 176, ../scss/components/_categories.scss */
+/* line 177, ../scss/components/_categories.scss */
 .k-category-filter .k-category-filter-label .x-btn-text, .k-category-filter .k-category-filter-label .x-btn-click {
   color: #ffffff !important;
   height: 14px !important;

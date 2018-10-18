@@ -1,6 +1,7 @@
 $category-block-height : $font-default-size + 2px;
 
 .k-category-block {
+	color: $font-color-dark;
 	padding: 0 $padding-medium;
 	line-height: $category-block-height;
 	background-color: $grey;
@@ -17,7 +18,7 @@ $category-block-height : $font-default-size + 2px;
 	cursor: default;
 }
 .k-category-block.zarafa-dark {
-	color: #ffffff;
+	color: $font-color-light;
 }
 body .k-category-block {
 	font-size: $font-default-size - 2px !important;
