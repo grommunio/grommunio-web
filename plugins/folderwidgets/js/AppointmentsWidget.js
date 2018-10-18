@@ -116,6 +116,33 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	},
 
 	/**
+	 * Initialize the event handlers for the {@link #store} and {@link Zarafa.hierarchy.data.HierarchyStore Hierarchy}.
+	 * @protected
+	 */
+	initEvents: function ()
+	{
+		Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.initEvents.apply(this, arguments);
+
+		// Wait for the store to be loaded, so we can activate
+		// the filter task.
+		this.mon(this.store, 'load', this.startFilterTask, this, {single: true});
+	},
+
+	/**
+	* Starts a filter task for the store. Will make sure that the filter is updated at
+	* every 30 seconds so old appointments will be filtered out.
+	* @private
+	*/
+	startFilterTask: function ()
+	{
+		Ext.TaskMgr.start({
+			run: this.updateFilter,
+			interval: 30000,
+			scope: this
+		});
+	},
+
+	/**
 	 * This will {@link Ext.data.Store#load load} the {@link #store} using
 	 * a restriction which only allows todays appointments.
 	 * @private
