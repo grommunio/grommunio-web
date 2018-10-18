@@ -71,3 +71,28 @@
 		display: none;
 	}
 }
+
+/* TaskWidget */
+.k-taskwidget,
+.k-appointmentwidget {
+		.x-grid3-row {
+		.x-grid3-row-body-tr {
+			.zarafa-grid-body-container {
+				.grid_compact_left {
+					padding-left: $padding-medium + 1px;
+				}
+			}
+		}
+	}
+
+	.x-grid3-row.zarafa-task-overdue {
+		.x-grid3-row-body-tr {
+			.zarafa-grid-body-container {
+				.grid_compact_left {
+					color: inherit;
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}

@@ -13835,6 +13835,19 @@ body .k-category-block {
   display: none;
 }
 
+/* TaskWidget */
+/* line 81, ../scss/components/_widgets.scss */
+.k-taskwidget .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left,
+.k-appointmentwidget .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
+  padding-left: 7px;
+}
+/* line 91, ../scss/components/_widgets.scss */
+.k-taskwidget .x-grid3-row.zarafa-task-overdue .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left,
+.k-appointmentwidget .x-grid3-row.zarafa-task-overdue .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
+  color: inherit;
+  opacity: 0.5;
+}
+
 /* loading mask  */
 /* line 2, ../scss/components/_loading_mask.scss */
 .x-mask-loading {

@@ -287,11 +287,11 @@ Zarafa.common.ui.grid.Renderers = {
 			// 'value' will not be available as there is no 'complete' property while
 			// rendering this column for mail record, using 'flag_status' instead.
 			if ( record.get('flag_status') === Zarafa.core.mapi.FlagStatus.completed ) {
-				return Ext.util.Format.percentage(1);
+				return Ext.util.Format.percentage(1, 0);
 			}
 			return '';
 		}
-		return Ext.util.Format.percentage(value);
+		return Ext.util.Format.percentage(value, 0);
 	},
 
 	/**

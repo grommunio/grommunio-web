@@ -38,6 +38,22 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	folderType: undefined,
 
 	/**
+	 * The task that was {@link Ext.TaskMgr.start started} to reload the folder grid.
+	 * @property
+	 * @type Object
+	 * @private
+	 */
+	reloadTask: undefined,
+
+	/**
+	 * The configuration object for the configure window of the widget
+	 * @property
+	 * @type Object
+	 * @private
+	 */
+	configurationConfig: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -68,7 +84,10 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 
 		// Wait for the store to be loaded, so we can activate
 		// the refreshing and reloading times.
-		this.mon(this.store, 'load', this.onStoreLoad, this, {single: true});
+		this.mon(this.store, 'load', this.startReloadTask, this, {single: true});
+
+		// Apply the filter when we have new records
+		this.mon(this.store, 'load', this.updateFilter, this);
 
 		// Listen for record updates, as that might have impact on the filtering
 		// which should be applied.
@@ -89,18 +108,22 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	},
 
 	/**
-	 * When the store has finished loading, update the filter for the first time.
+	 * Starts a reload task for the store. If one already exists, it will be stopped first.
 	 * @private
 	 */
-	onStoreLoad: function ()
+	startReloadTask: function ()
 	{
+		if ( this.reloadTask ) {
+			Ext.TaskMgr.stop(this.reloadTask);
+		}
+
 		// Periodically reload data from the server to remove stale
 		// data from the store.  But only do this when the store has
 		// finished loading for the first time.
 		var interval = this.get('reloadinterval') || 300;
 		interval *= 1000; // convert seconds in milliseconds
 
-		Ext.TaskMgr.start({
+		this.reloadTask = Ext.TaskMgr.start({
 			run: this.reloadStore,
 			interval: interval,
 			scope: this
@@ -135,30 +158,37 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	updateFilter: Ext.emptyFn,
 
 	/**
-	 * Helper function called when applying custom style and content for the
-	 * row-body.
-	 * Renders colored boxes per category with the first letter of the
-	 * category and its full name in a tooltip.
+	 * Apply custom style and content for the row body. This will color
+	 * a task in red when its due-date is reached. If categories are applied
+	 * to a task these categories will be displayed.
 	 *
 	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
-	 * @return {String} the colored boxes in HTML-format
+	 * @param {Number} rowIndex The row index
+	 * @param {Object} rowParams A config object that is passed to the row template during
+	 * rendering that allows customization of various aspects of a grid row.
+	 * If enableRowBody is configured true, then the following properties may be set by this function,
+	 * and will be used to render a full-width expansion row below each grid row.
+	 * @return {String} a CSS class name to add to the row
 	 * @private
 	 */
-	renderCategories: function (record)
+	viewConfigGetRowClass: function (record, rowIndex, rowParams)
 	{
-		var valueCategories = ''; // will contain list of categories as colored squares
+		rowParams.body = '<div class="zarafa-grid-body-container">';
 
+		// Render the categories
 		var categories = Zarafa.common.categories.Util.getCategories(record);
-		categories.forEach(function (category, i) {
-			var letter = category.substring(0, 1);
-			var color = Zarafa.common.categories.Util.getCategoryColor(category);
-			valueCategories = '<span class="advanced-folderwidget-category-box" style="background-color: ' + color + '" title="' + Ext.util.Format.htmlEncode(category) + '">' + Ext.util.Format.htmlEncode(letter) + '</span>';
-		});
+		var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+		rowParams.body += '<div class="k-category-container">' + categoriesHtml + '</div>';
 
-		// Add an '|' as separator if list of categories is not empty
-		var separator = valueCategories ? " | " : "";
+		// Render the subject
+		var subject = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), {});
+		rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell">{0}</div>', subject);
+		rowParams.body += '</div>';
 
-		return valueCategories + separator;
+		// Get the due date class from the normal TaskGridView
+		var rowClass = Zarafa.task.ui.TaskGridView.prototype.viewConfigGetRowClass(record);
+
+		return "x-grid3-row-expanded " + rowClass;
 	},
 
 	/**
@@ -195,7 +225,7 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	 */
 	config: function ()
 	{
-		var win = new Ext.Window({
+		var config = Ext.apply({}, this.configurationConfig || {}, {
 			title: _('Configure widget'),
 			layout: 'fit',
 			width: 320,
@@ -223,24 +253,35 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 					plugins: ['zarafa.numberspinner']
 				},
 					this.createConfigHeight()
-				],
+				].concat(this.getConfigurationItems()),
 				buttons: [{
 					text: _('Close'),
 					scope: this,
 					handler: function () {
-						win.close();
+						this.win.close();
 					}
 				}]
 			}]
 		});
 
-		win.show(this);
+		this.win = new Ext.Window(config);
+		this.win.show(this);
+	},
+
+	/**
+	 * Returns an array with the items that should be added to the configuration window
+	 * of the widget. Should be overridden by child classes.
+	 * @return {array} An array of configuration objects for {@link Ext.Component components}
+	 */
+	getConfigurationItems: function()
+	{
+		return [];
 	},
 
 	/**
 	 * Event handler which is fired when one of the fields in the Configuration dialog
 	 * has been changed. This will update the corresponding option in the settings.
-	 * @param {Ext.form.Field} field The field whcih fired the event
+	 * @param {Ext.form.Field} field The field which fired the event
 	 * @param {Mixed} newValue The new value which was applied
 	 * @param {Mixed} oldValue The old value which was applied
 	 * @private
@@ -248,10 +289,14 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	onFieldChange: function (field, newValue, oldValue)
 	{
 		var fieldName = field.getName();
-
 		this.set(fieldName, newValue);
+
 		if (fieldName === 'widgetheight') {
 			this.setHeight(newValue);
+		}
+
+		if (fieldName === 'reloadinterval') {
+			this.startReloadTask();
 		}
 	}
 });
