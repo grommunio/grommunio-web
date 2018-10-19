@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-17 15:27+0200\n"
-"PO-Revision-Date: 2018-10-19 09:19+0000\n"
+"PO-Revision-Date: 2018-10-19 09:51+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) "
 "<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
@@ -4118,7 +4118,7 @@ msgid "Never send a response"
 msgstr "Nunca enviar uma resposta"
 
 msgid "Ask me before sending a response"
-msgstr "Perguntar sempre antes de mandar uma resposta"
+msgstr "Perguntar sempre antes de enviar uma resposta"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
