@@ -180,8 +180,7 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 		record = record.convertToDelegate();
 
 		if(this.store.getById(record.get('entryid'))) {
-			Ext.Msg.alert(_('Alert'), _('Delegate already exists in the list.'));
-			return;
+			return Ext.Msg.alert(_('Duplicate delegate'), _('Delegate already exists in the list.'));
 		}
 
 		this.store.add(record);
