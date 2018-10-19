@@ -2,7 +2,7 @@ Ext.namespace('Zarafa.common.recipientfield.data');
 
 /**
  * @class Zarafa.common.recipientfield.data.SuggestionListStore
- * @class Ext.data.Store
+ * @extends Ext.data.Store
  * @xtype zarafa.suggestionliststore
  *
  * The main store which holds the suggestions as shown inside the
