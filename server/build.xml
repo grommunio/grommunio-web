@@ -83,6 +83,7 @@
 		<dirname property="outdir" file="${outfile}"/>
 		<mkdir dir="${outdir}"/>
 		<exec executable="msgfmt" failonerror="true">
+			<arg value="-c"/>
 			<arg value="-v"/>
 			<arg value="-o"/>
 			<arg value="${outfile}"/>
