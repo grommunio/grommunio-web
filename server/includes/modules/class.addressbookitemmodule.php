@@ -52,9 +52,8 @@
 							error_log(sprintf($msg, $action["message_action"]["username"]));
 
 							$e->setTitle(_('Contact not found'));
-							$e->setDisplayMessage(_("Contact information could not be displayed because the server 
-							had trouble retrieving the information. Please contact your system administrator if the
-							problem persists."));
+							$e->setDisplayMessage(_("Contact information could not be displayed because the server had trouble retrieving the information.") .
+							_("Please contact your system administrator if the problem persists."));
 							throw $e;
 							return false;
 						}
