@@ -24,18 +24,39 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 		var name = component && component.getXType
 			? String.format("print_{0}_{1}", component.getXType(), component.id.replace(/-/g, '_'))
 			: "print";
-             
-		var win = window.open('', name);
-		if (win) {
-			win.document.write(this.generateHTML(component));
-			win.document.close();
-			this.postRender(window.document, win.document, component);
-			
-			// Show print dialog when window has loaded all resources.
-			win.onload = function(win) {
-				win.print();
-				win.close();
-			}.defer(10, this, [win]);
+
+		// Note: Introduced to work with DeskApp.
+		// Before we opened a separate window, which then was printed.
+		// Now we use a hidden iframe.
+		// When changed, printing in deskapp has to be checked.
+		// Unfortunately we need to keep the old way for IE and Firefox
+		if (Ext.isIE || Ext.isGecko) {
+			var win = window.open('', name);
+			if (win) {
+				win.document.write(this.generateHTML(component));
+				win.document.close();
+				this.postRender(window.document, win.document, component);
+
+				// Show print dialog when window has loaded all resources.
+				win.onload = function(win) {
+					win.print();
+					win.close();
+				}.defer(10, this, [win]);
+			}
+		} else {
+			// Needed for popouts
+			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeDocument = activeWindow.document
+			var printFrame = activeDocument.createElement('iframe');
+			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
+			activeDocument.body.appendChild(printFrame);
+			var printDocument = printFrame.contentDocument;
+			printDocument.write(this.generateHTML(component));
+			printDocument.close();
+			printFrame.onload = function (printFrame) {
+				printFrame.contentWindow.print();
+				printFrame.remove();
+			}.defer(250, this, [printFrame]);
 		}
 	},
 
