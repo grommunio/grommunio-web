@@ -154,20 +154,59 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	canBeImported : function()
 	{
-		let isSupportedExtension = false;
+		var isSupportedExtension = false;
 		if (this.isEmbeddedMessage()) {
 			isSupportedExtension = Zarafa.core.MessageClass.isClass(this.get('attach_message_class'), ['IPM.Note', 'IPM.Contact', 'IPM.TaskRequest', 'IPM.Schedule.Meeting.Resp', 'IPM.Schedule.Meeting.Request' ,'REPORT.IPM.Note'], true);
 		} else {
-			const fileExtension = this.get('extension');
-			isSupportedExtension = (
-				fileExtension === 'eml' ||
-				fileExtension === 'vcf' ||
-				fileExtension === 'ics' ||
-				fileExtension === 'vcs'
-			);
+			isSupportedExtension = this.isEmlAttachment() || this.isVCFAttachment() || this.isICSAttachment();
 		}
 
-		return container.getServerConfig().isImportSupported() && isSupportedExtension;
+		return container.getServerConfig().isVCfImportSupported() && isSupportedExtension;
+	},
+
+	/**
+	 * Function used to check that attachment is ICS or VCS file or not.
+	 *
+	 * @return {boolean} true if attachment is ICS Or VCS else false
+	 */
+	isICSAttachment : function()
+	{
+		var fileExtension = this.get('extension');
+		if (!Ext.isEmpty(fileExtension)) {
+			return fileExtension === 'ics' || fileExtension === 'vcs';
+		}
+
+		return this.get('type') === 'text/calendar';
+	},
+
+	/**
+	 * Function used to check that attachment is EML file or not.
+	 *
+	 * @return {boolean} true if attachment is EML else false
+	 */
+	isEmlAttachment : function()
+	{
+		var fileExtension = this.get('extension');
+		if (!Ext.isEmpty(fileExtension)) {
+			return fileExtension === 'eml';
+		}
+
+		return this.get('type') === 'application/octet-stream';
+	},
+
+	/**
+	 * Function used to check that attachment is VCF file or not.
+	 *
+	 * @return {boolean} true if attachment is VCF else false
+	 */
+	isVCFAttachment : function()
+	{
+		var fileExtension = this.get('extension');
+		if (!Ext.isEmpty(fileExtension)) {
+			return fileExtension === 'vcf';
+		}
+
+		return this.get('type') === 'text/vcard';
 	},
 
 	/**

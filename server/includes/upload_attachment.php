@@ -1,6 +1,7 @@
 <?php
 // required to handle php errors
 require_once(__DIR__ . '/exceptions/class.ZarafaErrorException.php');
+require_once(__DIR__ . '/exceptions/class.ZarafaException.php');
 
 /**
 * Upload Attachment
@@ -45,6 +46,17 @@ class UploadAttachment
 	protected $attachment_state;
 
 	/**
+	 * A boolean value, set to true by default which update the counter of the folder.
+	 */
+	protected $allowUpdateCounter;
+
+	/**
+	 * A boolean value, set to false by default which extract the attach id concatenated with attachment name
+	 * from the client side.
+	 */
+	protected $ignoreExtractAttachid;
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -56,6 +68,8 @@ class UploadAttachment
 		$this->store = false;
 		$this->import = false;
 		$this->attachment_state = false;
+		$this->allowUpdateCounter = true;
+		$this->ignoreExtractAttachid = false;
 	}
 
 	/**
@@ -83,6 +97,10 @@ class UploadAttachment
 
 		if(isset($data['import'])) {
 			$this->import = sanitizeValue($data['import'], '', STRING_REGEX);
+		}
+
+		if(isset($data['ignore_extract_attachid'])) {
+			$this->ignoreExtractAttachid = sanitizeValue($data['ignore_extract_attachid'], '', STRING_REGEX);
 		}
 
 		if ($this->attachment_state === false) {
@@ -127,7 +145,7 @@ class UploadAttachment
 
 					// Don't go to extract attachID as passing it from client end is not
 					// possible with IE/Edge.
-					if(!isIE11() && !isEdge()) {
+					if(!isIE11() && !isEdge() && $this->ignoreExtractAttachid === false) {
 						$attachID = substr($filename, -8);
 						$filename = substr($filename, 0, -8);
 					} else {
@@ -153,8 +171,9 @@ class UploadAttachment
 						'attach_id'   => $attachID
 					));
 
-					if ($this->import) { // import given files
-						$importStatus = $this->importFiles($attachTempName, $filename);
+					// import given files
+					if ($this->import) {
+						$importStatus = $this->importFiles($attachTempName, $filename, isset($_POST['has_icsvcs_file']) ? $_POST['has_icsvcs_file'] : false);
 					} else if($sourcetype === 'contactphoto' || $sourcetype === 'default') {
 						$fileData = Array(
 							'props' => Array(
@@ -207,15 +226,16 @@ class UploadAttachment
 	}
 
 	/**
-	 * Function reads content of the given file and convert the same into
-	 * a webapp email into respective destination folder.
+	 * Function reads content of the given file and call either importICSFile or importEMLFile
+	 * function based on the file type.
+	 *
 	 * @param String $attachTempName A temporary file name of server location where it actually saved/available.
 	 * @param String $filename An actual file name.
+	 * @param String $fileType An actual file type.
 	 * @return Boolean true if the import is successful, false otherwise.
 	 */
-	function importFiles($attachTempName, $filename)
+	function importFiles($attachTempName, $filename, $fileType)
 	{
-		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
 		$handle = fopen($filepath, "r");
 		$attachmentStream = '';
@@ -227,18 +247,99 @@ class UploadAttachment
 		fclose($handle);
 		unlink($filepath);
 
+		if ($fileType) {
+			return $this->importICSFile($attachmentStream, $filename);
+		} else {
+			return $this->importEMLFile($attachmentStream, $filename);
+		}
+	}
+
+    /**
+     * Function reads content of the given file and convert the same into
+     * a webapp appointment into respective destination folder.
+	 *
+     * @param String $attachTempName A temporary file name of server location where it actually saved/available.
+     * @param String $filename An actual file name.
+     * @return Boolean true if the import is successful, false otherwise.
+     */
+	function importICSFile($attachmentStream, $filename)
+	{
+		$this->destinationFolder = $this->getDestinationFolder();
+
+		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+		$addrBook = $GLOBALS['mapisession']->getAddressbook();
+		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+
+		// FIXME: Same exact code is used in download_attachment.php in importAttachment function for ics/vcs.
+		// Find some way to reduce the code duplication.
+		try {
+			// Convert vCalendar 1.0 or iCalendar to a MAPI Appointment
+			$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $store, $addrBook, $newMessage, $attachmentStream, false);
+		} catch(Exception $e) {
+			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_DISPLAY_NAME, PR_MDB_PROVIDER));
+			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
+			if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+				$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
+				$publicStoreName = mapi_getprops($publicStore, array(PR_DISPLAY_NAME));
+				$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
+			} else if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
+				$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
+				$sharedStoreOwnerName = mapi_getprops($otherStore, array(PR_MAILBOX_OWNER_NAME));
+				$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
+			}
+
+			$message = sprintf(_("Unable to import '%s' to '%s'. "), $filename, $fullyQualifiedFolderName);
+			if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
+				$message .= _("There is no appointment found in this file.");
+			} else if ($e->getCode() === MAPI_E_CORRUPT_DATA) {
+				$message .= _("The file is corrupt.");
+			} else if ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
+				$message .= _("The file is invalid.");
+			} else {
+				$message = sprintf(_("Unable to import '%s'. "), $filename) . _("Please contact your system administrator if the problem persists.");
+			}
+
+			$e = new ZarafaException($message);
+			$e->setTitle(_("Import error"));
+			throw $e;
+		}
+		if($ok === true) {
+			mapi_message_savechanges($newMessage);
+			// Check that record is not appointment record(IPM.Schedule.Meeting.Request). we have to only convert the
+			// Meeting request record to appointment record.
+			$newMessageProps = mapi_getprops($newMessage, array(PR_MESSAGE_CLASS));
+			if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
+				// Convert the Meeting request record to proper appointment record so we can
+				// properly show the appointment in calendar.
+				$req = new Meetingrequest($store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
+				$req->doAccept(true, false, false, false,false,false, false, false,false, true);
+			}
+
+			$this->allowUpdateCounter = false;
+			return bin2hex(mapi_getprops($newMessage, array(PR_ENTRYID))[PR_ENTRYID]);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Function reads content of the given file and convert the same into
+	 * a webapp email into respective destination folder.
+	 *
+	 * @param String $attachTempName A temporary file name of server location where it actually saved/available.
+	 * @param String $filename An actual file name.
+	 * @return Boolean true if the import is successful, false otherwise.
+	 */
+	function importEMLFile($attachmentStream, $filename)
+	{
 		if (isBrokenEml($attachmentStream)) {
 			throw new ZarafaException(sprintf(_("Unable to import '%s'"), $filename) . ". ". _("The EML is not valid"));
 		}
 
-		try {
-			$this->destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
-		} catch(Exception $e) {
-			// Try to find the folder from shared stores in case if it is not found in current user's store
-			$this->destinationFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), hex2bin($this->destinationFolderId));
-		}
+		$this->destinationFolder = $this->getDestinationFolder();
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 		// Convert an RFC822-formatted e-mail to a MAPI Message
 		$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, array());
 
@@ -248,6 +349,24 @@ class UploadAttachment
 		}
 
 		return false;
+	}
+
+    /**
+	 * Function used get the destination folder in which
+	 * item gets imported.
+	 *
+     * @return Object folder object in which item get's imported.
+     */
+	function getDestinationFolder()
+	{
+        $destinationFolder = null;
+		try {
+			$destinationFolder = mapi_msgstore_openentry($this->store, hex2bin($this->destinationFolderId));
+		} catch(Exception $e) {
+			// Try to find the folder from shared stores in case if it is not found in current user's store
+			$destinationFolder = mapi_msgstore_openentry($GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), hex2bin($this->destinationFolderId));
+		}
+		return $destinationFolder;
 	}
 
 	/**
@@ -382,7 +501,7 @@ class UploadAttachment
 									'parent_entryid' => bin2hex($destinationFolderProps[PR_PARENT_ENTRYID]),
 									'store_entryid' => bin2hex($storeProps[PR_ENTRYID]),
 									'props' => Array(
-										'content_unread' => $destinationFolderProps[PR_CONTENT_UNREAD] + 1
+										'content_unread' => $this->allowUpdateCounter ? $destinationFolderProps[PR_CONTENT_UNREAD] + 1 : 0
 									)
 								)
 							)
@@ -415,8 +534,9 @@ class UploadAttachment
 	 * into JSON format and send the response back to client.
 	 *
 	 * @param object $exception Exception object.
+	 * @param String $title Title which used to show as title of exception dialog.
 	 */
-	function handleUploadException($exception)
+	function handleUploadException($exception, $title = null)
 	{
 		$return = array();
 
@@ -443,6 +563,7 @@ class UploadAttachment
 					'type' => ERROR_GENERAL,
 					'info' => array(
 						'file' => $exception->getFileLine(),
+						'title' => $title,
 						'display_message' => $exception->getDisplayMessage(),
 						'original_message' => $exception->getMessage()
 					)
@@ -488,6 +609,8 @@ try {
 
 	// upload files
 	$uploadInstance->upload();
+}catch (ZarafaException $e) {
+	$uploadInstance->handleUploadException($e, $e->getTitle());
 } catch (Exception $e) {
 	$uploadInstance->handleUploadException($e);
 }

@@ -289,24 +289,15 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			xtype: 'menuseparator'
 		},{
 			text : _('Import emails'),
-			handler : this.onContextImportEml,
+			handler : this.onContextImportItem,
 			iconCls: 'icon_import_attachment',
-			beforeShow : function(item, record) {
-				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_CONTENTS;
-				var isIPFNote = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
-
-				if (
-					!access ||
-					!isIPFNote ||
-					record.isIPMSubTree() ||
-					record.isTodoListFolder() ||
-					record.isRSSFolder()
-				) {
-					item.setDisabled(true);
-				} else {
-					item.setDisabled(false);
-				}
-			}
+			beforeShow : this.onBeforeShowImportItem
+		},{
+			text : _('Import appointments'),
+			iconCls : 'icon_import_attachment',
+			name : 'importAppointments',
+			beforeShow : this.onBeforeShowImportItem,
+			handler : this.onContextImportItem
 		},{
 			xtype: 'menuseparator'
 		},{
@@ -374,6 +365,38 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	onBeforeContextItem : function(item, record)
 	{
 		if (!record.get('access') || record.isTodoListFolder()) {
+			item.setDisabled(true);
+		} else {
+			item.setDisabled(false);
+		}
+	},
+
+	/**
+	 * Event handler triggered before the 'Import emails' and 'Import appointment'
+	 * context menu item show.
+	 *
+	 * @param {Ext.Button} item The item which is going to show.
+	 * @param {Zarafa.core.data.IPFRecord} record The folder record on which
+	 * this context menu item shows.
+	 */
+	onBeforeShowImportItem : function(item, record)
+	{
+		var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_CONTENTS;
+
+		var hasImportSupport;
+		if (item.name === 'importAppointments') {
+			hasImportSupport = record.isCalendarFolder();
+		} else {
+			hasImportSupport = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
+		}
+
+		if (
+			!access ||
+			!hasImportSupport ||
+			record.isIPMSubTree() ||
+			record.isTodoListFolder() ||
+			record.isRSSFolder()
+		) {
 			item.setDisabled(true);
 		} else {
 			item.setDisabled(false);
@@ -620,11 +643,17 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 
 	/**
 	 * Open upload files dialog to import into folder.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The menu item that was clicked on
 	 * @private
 	 */
-	onContextImportEml : function()
+	onContextImportItem : function(button)
 	{
-		Zarafa.common.Actions.openImportEmlContent(this.records);
+		var config = Ext.apply({}, {
+			accept : button.name === 'importAppointments' ? '.ics,.vcs' : '.eml',
+			callback : Zarafa.common.Actions.importItemCallback.createDelegate(Zarafa.common.Actions, [ button.getRecords() ], 1)
+		});
+		Zarafa.common.Actions.openImportContent(this.records, config);
 	},
 
 	/**
