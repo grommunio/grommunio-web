@@ -164,7 +164,7 @@ class DownloadAttachment
 		}
 
 		if(isset($data['attachCid'])) {
-			$this->attachCid = sanitizeValue($data['attachCid'], '', FILENAME_REGEX);
+			$this->attachCid = rawurldecode($data['attachCid']);
 		}
 
 		if(isset($data['AllAsZip'])) {
@@ -188,7 +188,7 @@ class DownloadAttachment
 		if($this->store && $this->entryId) {
 			$this->store = $GLOBALS['mapisession']->openMessageStore(hex2bin($this->store));
 			$this->message = mapi_msgstore_openentry($this->store, hex2bin($this->entryId));
-			
+
 			// Decode smime signed messages on this message
 			parse_smime($this->store, $this->message);
 		}
@@ -347,7 +347,7 @@ class DownloadAttachment
 			if(isset($props[PR_ATTACH_MIME_TAG])) {
 				$contentType = $props[PR_ATTACH_MIME_TAG];
 			}
-			
+
 			$contentIsSentAsUTF8 = false;
 			// For ODF files we must change the content type because otherwise
 			// IE<11 cannot properly read it in the xmlhttprequest object
@@ -358,8 +358,8 @@ class DownloadAttachment
 					$contentType = 'text/plain; charset=UTF-8';
 					$contentIsSentAsUTF8 = true;
 				}
-			}	
-			
+			}
+
 			// Set the headers
 			header('Pragma: public');
 			header('Expires: 0'); // set expiration time
@@ -379,7 +379,7 @@ class DownloadAttachment
 			for($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
 				$body .= mapi_stream_read($stream, BLOCK_SIZE);
 			}
-			
+
 			// Convert the content to UTF-8 if we want to send it like that
 			if ( $contentIsSentAsUTF8 ){
 				$body = mb_convert_encoding($body, 'UTF-8');
@@ -396,7 +396,7 @@ class DownloadAttachment
 	public function sendZipResponse($randomZipName)
 	{
 		$subject = isset($this->messageSubject) ? ' '.$this->messageSubject : '';
-		
+
 		// Set the headers
 		header('Pragma: public');
 		header('Expires: 0'); // set expiration time
@@ -464,7 +464,7 @@ class DownloadAttachment
 	 */
 	public function downloadUnsavedAttachment()
 	{
-		// return recently uploaded file 
+		// return recently uploaded file
 		$attachment_state = new AttachmentState();
 		$attachment_state->open();
 
