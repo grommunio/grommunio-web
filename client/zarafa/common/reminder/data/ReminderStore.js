@@ -48,7 +48,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	constructor : function(config)
 	{
 		config = config || {};
-		
+
 		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_REMINDER);
 
 		Ext.applyIf(config, {
@@ -128,8 +128,8 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 
 	/**
-	 * Initialize remider requests to the server. Listen to the aftersend event in the 
-	 * {@link Zarafa.core.Request Request} object to reset the counter everytime the clients sends a 
+	 * Initialize remider requests to the server. Listen to the aftersend event in the
+	 * {@link Zarafa.core.Request Request} object to reset the counter everytime the clients sends a
 	 * request to the server.
 	 */
 	initializeReminderInterval : function()
@@ -201,6 +201,12 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 					this.updateReminderIcon(reminderEl, records.length);
 				}
 				if (this.showReminderDialog) {
+					if ( records.length > 0 ) {
+						// Emit a notification message. (used by the desktopnotifications plugin)
+						var notificationMessage = String.format(ngettext('There is {0} reminder', 'There are {0} reminders', records.length), records.length);
+						container.getNotifier().notify('info.reminder', _('Reminders'), notificationMessage);
+					}
+
 					Zarafa.common.Actions.openReminderContent(records);
 					this.lastChecksum = newChecksum;
 				}
@@ -228,7 +234,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 	/**
 	 * Function dismisses the reminder which are passed to the function.
-	 * @param {Zarafa.common.reminder.data.ReminderRecord[]} reminderRecords 
+	 * @param {Zarafa.common.reminder.data.ReminderRecord[]} reminderRecords
 	 * reminder records which are going to be dismissed
 	 */
 	dismissReminders : function(reminderRecords)
