@@ -54,7 +54,6 @@ KOPANOCSS = $(DESTDIR)/client/resources/css/kopano.css
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
 
 POFILES = $(wildcard server/language/*/*/*.po)
-PHPFILES = config.php.dist kopano.php $(wildcard server/includes/*.php) $(wildcard server/includes/*/*.php)
 JSFILES = $(wildcard client/zarafa/*.js) $(wildcard client/zarafa/*/*.js)
 CORE_FILES = $(POFILES) $(PHPFILES) $(JSFILES)
 
