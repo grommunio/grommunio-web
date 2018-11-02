@@ -183,7 +183,7 @@ Zarafa.whatsnew.Actions = {
 		featuresByPlugin = featuresByPlugin.sort(function(a, b){
 			var posA = pluginOrder.indexOf(a.name);
 			var posB = pluginOrder.indexOf(b.name);
-			if ( (posA==-1 && posB>-1) || (posA>-1 && posB==1) ){
+			if ( (posA==-1 && posB>-1) || (posA>-1 && posB==-1) ){
 				return posB - posA;
 			}
 			return posA - posB;
