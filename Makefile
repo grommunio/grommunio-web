@@ -31,8 +31,6 @@ APACHECONFDEST = $(addprefix $(DESTDIR)/, $(APACHECONF))
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard server/includes/*/*.php server/includes/*.php *.php))))
 DISTFILES = $(addprefix $(DESTDIR)/,config.php.dist debug.php.dist)
 ROBOTS = $(addprefix $(DESTDIR)/, robots.txt)
-ROOTPHP = $(wildcard *.php)
-ROOTPHPDEST =$(addprefix $(DESTDIR)/, $(ROOTPHP))
 HTACCESS = $(addprefix $(DESTDIR)/, .htaccess)
 LANGTXT = $(wildcard server/language/*/language.txt)
 LANGTXTDEST = $(addprefix $(DESTDIR)/, $(LANGTXT))
@@ -68,7 +66,7 @@ deploy: server client plugins
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(ROOTPHPDEST) $(HTACCESS) $(DESTDIR)/version $(INCLUDESDEST) $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(INCLUDESDEST) $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(IMAGESDEST) $(KOPANOCSS) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
