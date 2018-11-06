@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -1600,29 +1600,6 @@ msgstr ""
 msgid "Copy"
 msgstr "העתק"
 
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "בקשה לפגישה חדשה"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "פגישה חדשה"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "אין ברשותך הרשאות מספקות בכדי להעתיק תיקיה."
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2098,6 +2075,10 @@ msgstr ""
 #, fuzzy
 msgid "Permission"
 msgstr "הרשאות"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "סרב לבקשת הפגישה"
 
 msgid "Delegate already exists in the list."
 msgstr ""
@@ -3811,6 +3792,25 @@ msgstr ""
 msgid "No widgets installed."
 msgstr ""
 
+msgid "Configure widget"
+msgstr "להגדיר יישומון"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "הסר"
+
+# 86%
+#, fuzzy
+msgid "Collapse widget"
+msgstr "לא ניתן לטעון את ההיררכיה."
+
+msgid "Expand widget"
+msgstr ""
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "להגדיר יישומון"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -5039,6 +5039,10 @@ msgstr ""
 msgid "Sort by: Owner"
 msgstr "מיין לפי: גודל"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "מיין לפי: התקבלו"
+
 msgid "Loading tasks"
 msgstr ""
 
@@ -5268,29 +5272,51 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "להגדיר יישומון"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "אין פגישות היום"
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "פגישה חדשה"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "פגישה חדשה"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "היום: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "פגישות היום"
+msgid "Today (all day)"
+msgstr ""
+
+msgid "{0} - {1}"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "ש-ח-י"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+msgid "d/m/y"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "מופע חוזר של פגישה"
 
 msgid "Datepicker"
 msgstr ""
@@ -5302,9 +5328,6 @@ msgid "Unread Mail"
 msgstr ""
 
 msgid "No tasks."
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Tasks / To-Do"
@@ -5338,6 +5361,9 @@ msgstr ""
 msgid "E-mails are moved to {0}"
 msgstr ""
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr ""
 
@@ -5348,6 +5374,9 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "Quick Task"
@@ -5721,10 +5750,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5737,6 +5764,29 @@ msgid "Could not open occurrence."
 msgstr ""
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "בקשה לפגישה חדשה"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "פגישה חדשה"
+
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "אין ברשותך הרשאות מספקות בכדי להעתיק תיקיה."
+
+msgid "Insufficient privileges"
 msgstr ""
 
 msgid ""

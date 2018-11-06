@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1588,29 +1588,6 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-# 89%
-# 100%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Nueva solicitud de Reunión"
-
-# 93%
-# 100%
-#, fuzzy
-msgid "an appointment"
-msgstr "Nueva cita"
-
-# 80%
-# 84%
-#, fuzzy
-msgid "Insufficient privileges"
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
-
-# 80%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2111,6 +2088,10 @@ msgstr ""
 #, fuzzy
 msgid "Permission"
 msgstr "Permisos"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Rechazar solicitud de reunión"
 
 msgid "Delegate already exists in the list."
 msgstr "El delegado ya existe en la lista."
@@ -3832,6 +3813,25 @@ msgstr "Añadir widgets"
 msgid "No widgets installed."
 msgstr "No hay widgets instalados"
 
+msgid "Configure widget"
+msgstr "Configurar widget"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Eliminar"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Configurar widget"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Añadir widgets"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Añadir widgets"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -5050,6 +5050,10 @@ msgstr "Ordenar por. Fecha de inicio"
 msgid "Sort by: Owner"
 msgstr "Ordenar por. Propietario"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Ordenar por. Porcentaje completado"
+
 msgid "Loading tasks"
 msgstr "Cargando tareas"
 
@@ -5280,29 +5284,53 @@ msgstr "Añadir widgets"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Configurar widget"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Cargando citas"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nueva cita"
+
+msgid "Number of days"
 msgstr ""
 
-msgid "d.m.Y"
+# 86%
+# 100%
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Página {A} de {0}"
+
+msgid "Today (all day)"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} en {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "I d/m/A G:i"
+
+msgid "{0} - {1} (all day)"
 msgstr ""
 
-msgid "Today's Appointments"
-msgstr ""
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/aa"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Cargando citas"
 
 msgid "Datepicker"
 msgstr ""
@@ -5314,9 +5342,6 @@ msgid "Unread Mail"
 msgstr "Correo no leído"
 
 msgid "No tasks."
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Tasks / To-Do"
@@ -5350,6 +5375,9 @@ msgstr ""
 msgid "E-mails are moved to {0}"
 msgstr ""
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr ""
 
@@ -5361,6 +5389,9 @@ msgstr ""
 
 msgid "Quick Note"
 msgstr "Nota"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr ""
@@ -5734,10 +5765,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5751,6 +5780,29 @@ msgstr ""
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+
+# 89%
+# 100%
+#, fuzzy
+msgid "a meeting request"
+msgstr "Nueva solicitud de Reunión"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "an appointment"
+msgstr "Nueva cita"
+
+# 80%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+
+# 80%
+# 84%
+#, fuzzy
+msgid "Insufficient privileges"
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

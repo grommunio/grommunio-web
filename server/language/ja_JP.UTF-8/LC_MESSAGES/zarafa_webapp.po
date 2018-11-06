@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1530,26 +1530,6 @@ msgstr "会議の変更依頼を開く。"
 msgid "Copy"
 msgstr "コピー"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "会議出席依頼"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "予定"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "フォルダをコピーするための十分な権限がありません。 "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2037,6 +2017,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "許可"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "会議出席依頼を辞退する"
 
 msgid "Delegate already exists in the list."
 msgstr "代理人は既に設定されています。"
@@ -3728,6 +3712,25 @@ msgstr "ウィジェット追加"
 msgid "No widgets installed."
 msgstr "ウィジェットがインストールされていません。"
 
+msgid "Configure widget"
+msgstr "ウィジェットを設定する"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "削除"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "階層情報を広げる"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "ウィジェット追加"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "ウィジェット追加"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4927,6 +4930,10 @@ msgstr "並べ替え：開始日"
 msgid "Sort by: Owner"
 msgstr "並べ替え：オーナー"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "並べ替え：完成度"
+
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
 
@@ -5157,29 +5164,50 @@ msgstr "ウィジェット追加"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "ウィジェットを設定する"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "今日の会議予定はありません。"
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "予定を読み込み中"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "新しい予定"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "今日: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "今日の会議予定"
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0}内の{1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "Y/m/l d G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "Y/m/d"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "予定を読み込み中"
 
 msgid "Datepicker"
 msgstr ""
@@ -5192,9 +5220,6 @@ msgstr "未読メール"
 
 msgid "No tasks."
 msgstr "タスクがありません。"
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5227,6 +5252,9 @@ msgstr "他のフォルダを選択"
 msgid "E-mails are moved to {0}"
 msgstr "メールを{0}に移動しました。"
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr "クイック予約"
 
@@ -5238,6 +5266,9 @@ msgstr "クイック メール"
 
 msgid "Quick Note"
 msgstr "クイック メモ"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "クイック タスク"
@@ -5616,10 +5647,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5633,6 +5662,26 @@ msgstr "定期的な予定を開くことができません。"
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "この定期的な予定はおそらく削除されたため開くことができません。"
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "会議出席依頼"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "予定"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "フォルダをコピーするための十分な権限がありません。 "
+
+msgid "Insufficient privileges"
+msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

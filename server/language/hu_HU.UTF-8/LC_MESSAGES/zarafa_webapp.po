@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1598,26 +1598,6 @@ msgstr "Értekezlet meghívó megnyitása a változásokkal"
 msgid "Copy"
 msgstr "Másolás"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "Új értekezlet kérelem"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "egy találkozó"
-
-msgid "Insufficient privileges"
-msgstr "Nincs elég jogosultsága"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "Nincs elég jogosultsága az áthelyezéshez "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2115,6 +2095,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Hozzáférés"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Visszautasítás és törlés"
 
 msgid "Delegate already exists in the list."
 msgstr "A meghatalmazott már szerepel a listán."
@@ -3816,6 +3800,26 @@ msgstr "Beépülő modul hozzáadása"
 msgid "No widgets installed."
 msgstr "Nincs beépülő modul telepítve."
 
+msgid "Configure widget"
+msgstr "Widget beállítása"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Kép eltávolítása"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Beépülő modul panel összezárása"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Beépülő modul panel szétnyitása"
+
+# There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Add new widget"
+msgstr "Beépülő modul hozzáadása"
+
 msgid "Collapse widget panel"
 msgstr "Beépülő modul panel összezárása"
 
@@ -5022,6 +5026,10 @@ msgstr "Rendezés: Kezdő dátum szerint"
 msgid "Sort by: Owner"
 msgstr "Rendezés: Tulajdonos szerint"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Rendezés: Készenléti állapot szerint"
+
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
 
@@ -5250,9 +5258,6 @@ msgstr "Beépülő modul hozzáadása"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Widget beállítása"
-
 msgid "Reload interval"
 msgstr "Újratöltési intervallum"
 
@@ -5260,20 +5265,46 @@ msgstr "Újratöltési intervallum"
 msgid "seconds"
 msgstr "másodperc."
 
-msgid "No appointments for today."
-msgstr "Nincsenek találkozók a mai napon."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Találkozók betöltése"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Új találkozó"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Ma: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Mai találkozók"
+msgid "Today (all day)"
+msgstr ""
+
+# 80%
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{1} - {0}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l Y/m/d G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "Y/m/d"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Találkozók betöltése"
 
 msgid "Datepicker"
 msgstr ""
@@ -5286,9 +5317,6 @@ msgstr "Olvasatlan üzenet"
 
 msgid "No tasks."
 msgstr "Nincsenek feladatok."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5321,6 +5349,10 @@ msgstr "Másik mappa kiválasztása"
 msgid "E-mails are moved to {0}"
 msgstr "Emailek átmozgatva ide: {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Megnyitás új ablakban"
+
 msgid "Quick Appointment"
 msgstr "Gyors találkozó"
 
@@ -5332,6 +5364,9 @@ msgstr "Gyors email"
 
 msgid "Quick Note"
 msgstr "Gyors jegyzet"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Gyors feladat"
@@ -5720,10 +5755,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5739,6 +5772,26 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Az ismétlődést nem lehetett megnyitni, az adott alkalom valószínűleg "
 "törlődött."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "Új értekezlet kérelem"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "egy találkozó"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "Nincs elég jogosultsága az áthelyezéshez "
+
+msgid "Insufficient privileges"
+msgstr "Nincs elég jogosultsága"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

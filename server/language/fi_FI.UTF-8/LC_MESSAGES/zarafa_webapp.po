@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -1573,29 +1573,6 @@ msgstr "Avaa kokouskutsu muutoksilla"
 msgid "Copy"
 msgstr "Kopioi"
 
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Uusi kokouskutsu"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "Uusi tapaaminen"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion kopioimiseen."
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2086,6 +2063,10 @@ msgstr ""
 
 msgid "Permission"
 msgstr "Oikeudet"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Kieltäydy kokouskutsusta"
 
 msgid "Delegate already exists in the list."
 msgstr "Edustaja on jo listalla."
@@ -3774,6 +3755,25 @@ msgstr "Lisää pienoisohjelmia"
 msgid "No widgets installed."
 msgstr "Pienoisohjelmia ei ole asennettu."
 
+msgid "Configure widget"
+msgstr "Konfiguroi pienoisohjelma"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Poista"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Hierarkiaa ei voitu ladata."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Lisää pienoisohjelmia"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Lisää pienoisohjelmia"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4989,6 +4989,10 @@ msgstr "Järjestä: Aloitus aika"
 msgid "Sort by: Owner"
 msgstr "Järjestä: Omistaja"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Järjestä: Prosenttia valmiina"
+
 msgid "Loading tasks"
 msgstr "Ladataan tehtäviä"
 
@@ -5222,29 +5226,50 @@ msgstr "Lisää pienoisohjelmia"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Konfiguroi pienoisohjelma"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Ei tapaamisia tälle päivälle."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Ladataan tapaamisia"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Uusi tapaaminen"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Tänään: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Tämän päivän tapaamiset"
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d.m.Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Ladataan tapaamisia"
 
 msgid "Datepicker"
 msgstr ""
@@ -5257,9 +5282,6 @@ msgstr "Lukemattomat postit"
 
 msgid "No tasks."
 msgstr "Ei tehtäviä."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5292,6 +5314,9 @@ msgstr "Valitse toinen kansio"
 msgid "E-mails are moved to {0}"
 msgstr "Sähköpostit siirretty kohteeseen {0}"
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr "Pikakokous"
 
@@ -5303,6 +5328,9 @@ msgstr "Pikaposti"
 
 msgid "Quick Note"
 msgstr "Pikamerkintä"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Pikatehtävä"
@@ -5691,10 +5719,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5710,6 +5736,29 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Toistuvuutta ei voitu avata, yksittäinen toistuminen on todennäköisesti "
 "poistettu."
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "Uusi kokouskutsu"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "Uusi tapaaminen"
+
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion kopioimiseen."
+
+msgid "Insufficient privileges"
+msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

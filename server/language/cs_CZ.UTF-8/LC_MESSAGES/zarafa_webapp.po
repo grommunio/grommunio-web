@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1557,26 +1557,6 @@ msgstr "Otevřít změněnu žádost o schůzku"
 msgid "Copy"
 msgstr "Kopírovat"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "žádost o schůzku"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "termín"
-
-msgid "Insufficient privileges"
-msgstr "Nedostatečná práva"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "Nemáte dostatečná práva přesunout "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2069,6 +2049,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Oprávnění"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Odmítnout žádost o schůzku"
 
 msgid "Delegate already exists in the list."
 msgstr "Zástupce je již na seznamu."
@@ -3763,6 +3747,25 @@ msgstr "Přidat prvky"
 msgid "No widgets installed."
 msgstr "Nejsou nainstalovány žádné prvky."
 
+msgid "Configure widget"
+msgstr "Nastavit prvek"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Odstranit obrázek"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Nelze načíst hierarchii."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Přidat prvky"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Přidat prvky"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4977,6 +4980,10 @@ msgstr "Třídit podle: Počáteční datum"
 msgid "Sort by: Owner"
 msgstr "Třídit podle: Vlastník"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Třídit podle: Dokončeno procent"
+
 msgid "Loading tasks"
 msgstr "Načítání úkolů"
 
@@ -5205,29 +5212,51 @@ msgstr "Přidat prvky"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Nastavit prvek"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Dnes žádná schůzka."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Načítání schůzek"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nový termín"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Dnes: {A} {0}"
 
-msgid "Today's Appointments"
-msgstr "Dnešní schůzky"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d. m. Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d. m. Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Načítání schůzek"
 
 msgid "Datepicker"
 msgstr ""
@@ -5240,9 +5269,6 @@ msgstr "Nepřečtená pošta"
 
 msgid "No tasks."
 msgstr "Žádné úkoly."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5275,6 +5301,10 @@ msgstr "Vybrat jinou složku"
 msgid "E-mails are moved to {0}"
 msgstr "Zprávy byly přesunuty k {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Otevřit v novém okně prohlížeče"
+
 msgid "Quick Appointment"
 msgstr "Rychlá schůzka"
 
@@ -5286,6 +5316,9 @@ msgstr "Rychlá pošta"
 
 msgid "Quick Note"
 msgstr "Rychlá poznámka"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Rychlý úkol"
@@ -5663,10 +5696,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5680,6 +5711,26 @@ msgstr "Výskyt nelze otevřít."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Nelze otevřít výskyt, specifický výskyt je pravděpodobně odstraněn."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "žádost o schůzku"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "termín"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "Nemáte dostatečná práva přesunout "
+
+msgid "Insufficient privileges"
+msgstr "Nedostatečná práva"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

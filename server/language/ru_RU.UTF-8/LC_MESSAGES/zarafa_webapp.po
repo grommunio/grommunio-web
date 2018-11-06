@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
@@ -1552,26 +1552,6 @@ msgstr "Открыть измененное приглашение на собр
 msgid "Copy"
 msgstr "Копировать"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "приглашение на собрание"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "встреча"
-
-msgid "Insufficient privileges"
-msgstr "Недостаточно прав"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "У вас недостаточно прав для перемещения "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -1976,8 +1956,8 @@ msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
-"Категория \"{0}\" уже существует. Хотите  объединить категории \"{1}\" и \""
-"{2}\"?"
+"Категория \"{0}\" уже существует. Хотите  объединить категории \"{1}\" и "
+"\"{2}\"?"
 
 msgid "Merge"
 msgstr "Объединить"
@@ -2068,6 +2048,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Разрешения"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Отменить и удалить"
 
 msgid "Delegate already exists in the list."
 msgstr "Делегат уже существует в этом списке"
@@ -3726,6 +3710,25 @@ msgstr "Добавить виджет"
 msgid "No widgets installed."
 msgstr "Виджеты не установлены."
 
+msgid "Configure widget"
+msgstr "Настройка виджета"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Удалить изображение"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Свернуть панель виджетов"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Раскрыть панель виджетов"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Добавить виджет"
+
 msgid "Collapse widget panel"
 msgstr "Свернуть панель виджетов"
 
@@ -4917,6 +4920,11 @@ msgstr "Сортировать по дате начала"
 msgid "Sort by: Owner"
 msgstr "Сортировать по владельцу"
 
+# 76%
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Сортировать по завершённости (в %)"
+
 msgid "Loading tasks"
 msgstr "Загрузка задач"
 
@@ -5154,29 +5162,51 @@ msgstr "Добавить виджет"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Настройка виджета"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Сегодня встреч нет."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Загрузка встреч"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Новая встреча"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Сегодня: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Сегодняшние встречи"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} в {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Загрузка встреч"
 
 msgid "Datepicker"
 msgstr ""
@@ -5189,9 +5219,6 @@ msgstr "Непрочитанные письма"
 
 msgid "No tasks."
 msgstr "Задач нет."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5224,6 +5251,10 @@ msgstr "Выберите другой каталог"
 msgid "E-mails are moved to {0}"
 msgstr "Письма перемещены в {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Открыть в новом окне браузера"
+
 msgid "Quick Appointment"
 msgstr "Быстрая встреча"
 
@@ -5235,6 +5266,9 @@ msgstr "Быстрое письмо"
 
 msgid "Quick Note"
 msgstr "Быстрая заметка"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Быстрая задача"
@@ -5614,10 +5648,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5631,6 +5663,26 @@ msgstr "Событие открыть не удалось."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Событие открыть не удалось. Возможно, событие было удалено."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "приглашение на собрание"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "встреча"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "У вас недостаточно прав для перемещения "
+
+msgid "Insufficient privileges"
+msgstr "Недостаточно прав"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

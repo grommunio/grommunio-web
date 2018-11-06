@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-10-17 13:36+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1601,27 +1601,6 @@ msgstr "Open het vergaderverzoek met wijzigingen"
 msgid "Copy"
 msgstr "Kopiëren"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "een vergaderverzoek"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "een afspraak"
-
-msgid "Insufficient privileges"
-msgstr "Onvoldoende permissie"
-
-# 88%
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "U heeft onvoldoende permissie om deze map te verplaatsen: "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2130,6 +2109,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Permissie"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Afwijzen en verwijderen"
 
 msgid "Delegate already exists in the list."
 msgstr "Gemachtigde bestaat reeds in de lijst."
@@ -3895,6 +3878,25 @@ msgstr "Widgets toevoegen"
 msgid "No widgets installed."
 msgstr "Geen widgets geïnstalleerd."
 
+msgid "Configure widget"
+msgstr "Configureer widget"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Verwijder Afbeelding"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Widget paneel inklappen"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Widget paneel uitklappen"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Widgets toevoegen"
+
 msgid "Collapse widget panel"
 msgstr "Widget paneel inklappen"
 
@@ -5112,6 +5114,11 @@ msgstr "Sorteer op: Startdatum"
 msgid "Sort by: Owner"
 msgstr "Sorteer op: Eigenaar"
 
+# 88%
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sorteer op: Percentage Voltooid"
+
 # 76%
 msgid "Loading tasks"
 msgstr "Taken laden"
@@ -5366,29 +5373,53 @@ msgstr "Widget hoogte"
 msgid "pixels"
 msgstr "pixels"
 
-msgid "Configure widget"
-msgstr "Configureer widget"
-
 msgid "Reload interval"
 msgstr "Herlaad interval"
 
 msgid "seconds"
 msgstr "seconden"
 
-msgid "No appointments for today."
-msgstr "Geen afspraken vandaag."
+# 86%
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Afspraken laden"
 
-msgid "d.m.Y"
-msgstr "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nieuwe Afspraak"
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+msgid "Number of days"
+msgstr ""
+
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Vandaag: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Afspraken Vandaag"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} in {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d-m-Y"
+
+# 86%
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Afspraken laden"
 
 msgid "Datepicker"
 msgstr "Datumkiezer"
@@ -5401,9 +5432,6 @@ msgstr "Ongelezen E-mail"
 
 msgid "No tasks."
 msgstr "Geen taken."
-
-msgid "none"
-msgstr "geen"
 
 msgid "Tasks / To-Do"
 msgstr "Taken / To-Do"
@@ -5436,6 +5464,10 @@ msgstr "Selecteer een andere folder"
 msgid "E-mails are moved to {0}"
 msgstr "E-mails worden verplaatst naar {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Open in nieuw browser venster"
+
 msgid "Quick Appointment"
 msgstr "Vlugge Afspraak"
 
@@ -5447,6 +5479,9 @@ msgstr "Vlugge E-mail"
 
 msgid "Quick Note"
 msgstr "Vlugge Notitie"
+
+msgid "none"
+msgstr "geen"
 
 msgid "Quick Task"
 msgstr "Vlugge Taak"
@@ -5823,11 +5858,10 @@ msgstr "Taak is Voltooid:"
 msgid "Contact not found"
 msgstr "Contact niet gevonden"
 
+#, fuzzy
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 "Contact informatie kan niet worden getoond, omdat de server problemen heeft "
 "met het ophalen van de informatie. Neem contact op met uw "
@@ -5846,6 +5880,27 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Kon herhaling niet openen, deze specifieke herhaling is waarschijnlijk "
 "verwijderd."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "een vergaderverzoek"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "een afspraak"
+
+# 88%
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "U heeft onvoldoende permissie om deze map te verplaatsen: "
+
+msgid "Insufficient privileges"
+msgstr "Onvoldoende permissie"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

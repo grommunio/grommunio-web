@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -1518,29 +1518,6 @@ msgstr ""
 msgid "Copy"
 msgstr "複製"
 
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "新增會議"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "新增約會"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "您沒有足夠的權限複製資料夾"
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2011,6 +1988,10 @@ msgstr ""
 
 msgid "Permission"
 msgstr "權限"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "拒絕會議邀請"
 
 msgid "Delegate already exists in the list."
 msgstr "代理人在列表中已經存在"
@@ -3671,6 +3652,25 @@ msgstr "新增小工具"
 msgid "No widgets installed."
 msgstr "沒有安裝小工具"
 
+msgid "Configure widget"
+msgstr "配置工具"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "移除"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "無法讀取階層"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "新增小工具"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "新增小工具"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4854,6 +4854,10 @@ msgstr "依開始日期排序"
 msgid "Sort by: Owner"
 msgstr "依擁有者排序"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "依完成百分比排序"
+
 msgid "Loading tasks"
 msgstr "載入任務中"
 
@@ -5083,29 +5087,51 @@ msgstr "新增小工具"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "配置工具"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "今日沒有約會"
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "載入會議中"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "新增約會"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "今日: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "今天的約會"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} 在 {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "載入會議中"
 
 msgid "Datepicker"
 msgstr ""
@@ -5118,9 +5144,6 @@ msgstr "未讀郵件"
 
 msgid "No tasks."
 msgstr "沒有任務"
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5153,6 +5176,9 @@ msgstr "選擇其他的資料夾"
 msgid "E-mails are moved to {0}"
 msgstr "E-mails搬移到{0}"
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr "新增約會"
 
@@ -5164,6 +5190,9 @@ msgstr "新增郵件"
 
 msgid "Quick Note"
 msgstr "新增筆記"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "新增任務"
@@ -5510,10 +5539,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5527,6 +5554,29 @@ msgstr "無法開啟事件"
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "無法開啟事件,此事件已被刪除"
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "新增會議"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "新增約會"
+
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "您沒有足夠的權限複製資料夾"
+
+msgid "Insufficient privileges"
+msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

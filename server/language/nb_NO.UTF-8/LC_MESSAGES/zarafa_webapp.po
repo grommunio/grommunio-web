@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-09-02 17:38+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -1552,21 +1552,6 @@ msgstr "Åpne møteinvitasjonen med endringene"
 msgid "Copy"
 msgstr "Kopier"
 
-# 84%
-msgid "a meeting request"
-msgstr "en møteinvitasjon"
-
-msgid "an appointment"
-msgstr "en avtale"
-
-msgid "Insufficient privileges"
-msgstr "Ikke tilstrekkelige rettigheter"
-
-# 75%
-# 77%
-msgid "You have insufficient privileges to move "
-msgstr "Du har ikke tilstrekkelige rettigheter til å flytte "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2068,6 +2053,10 @@ msgstr ""
 
 msgid "Permission"
 msgstr "Rettigheter"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Avslå og slett"
 
 msgid "Delegate already exists in the list."
 msgstr "Representanten finnes allerede i listen."
@@ -3732,6 +3721,25 @@ msgstr "Legg til miniprogram"
 msgid "No widgets installed."
 msgstr "Ingen miniprogram er installert."
 
+msgid "Configure widget"
+msgstr "Konfigurer miniprogram"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Fjern bilde"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Minimer miniprogrampanel"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Utvid miniprogrampanel"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Legg til miniprogram"
+
 msgid "Collapse widget panel"
 msgstr "Minimer miniprogrampanel"
 
@@ -4910,6 +4918,10 @@ msgstr "Sorter på: startdato"
 msgid "Sort by: Owner"
 msgstr "Sorter på: eier"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sorter på: prosent utført"
+
 msgid "Loading tasks"
 msgstr "Laster inn oppgaver"
 
@@ -5136,9 +5148,6 @@ msgstr "Legg til miniprogram"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Konfigurer miniprogram"
-
 msgid "Reload interval"
 msgstr "Last inn på nytt etter"
 
@@ -5146,20 +5155,42 @@ msgstr "Last inn på nytt etter"
 msgid "seconds"
 msgstr "sekunder."
 
-msgid "No appointments for today."
-msgstr "Ingen avtaler i dag."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Laster inn avtaler"
 
-msgid "d.m.Y"
+#, fuzzy
+msgid "No appointments"
+msgstr "Ny avtale"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "I dag: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Dagens avtaler"
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} i {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d.m.Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Laster inn avtaler"
 
 msgid "Datepicker"
 msgstr ""
@@ -5172,9 +5203,6 @@ msgstr "Uleste e-post"
 
 msgid "No tasks."
 msgstr "Ingen oppgave."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5207,6 +5235,10 @@ msgstr "Velg en annen mappe"
 msgid "E-mails are moved to {0}"
 msgstr "E-post er flyttet til {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Åpne i nytt nettleservindu"
+
 msgid "Quick Appointment"
 msgstr "Hurtigavtale"
 
@@ -5218,6 +5250,9 @@ msgstr "Hurtig e-post"
 
 msgid "Quick Note"
 msgstr "Hurtignotat"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Hurtigoppgave"
@@ -5566,10 +5601,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5585,6 +5618,21 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Kunne ikke åpne forekomstserien, den aktuelle forekomstserien er trolig "
 "slettet."
+
+# 84%
+msgid "a meeting request"
+msgstr "en møteinvitasjon"
+
+msgid "an appointment"
+msgstr "en avtale"
+
+# 75%
+# 77%
+msgid "You have insufficient privileges to move "
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte "
+
+msgid "Insufficient privileges"
+msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

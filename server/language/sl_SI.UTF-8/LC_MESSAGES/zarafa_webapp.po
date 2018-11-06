@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -1597,30 +1597,6 @@ msgstr "Odpri zahtevo za sestanek s spremembami"
 msgid "Copy"
 msgstr "Kopiraj"
 
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Nova zahteva za sestanek"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "Novi sestanek"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 77%
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2119,6 +2095,10 @@ msgstr ""
 
 msgid "Permission"
 msgstr "Dovoljenje"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Zavrni zahtevo za sestanek"
 
 msgid "Delegate already exists in the list."
 msgstr "Član že obstaja na listi."
@@ -3864,6 +3844,25 @@ msgstr "Dodaj pripomočke"
 msgid "No widgets installed."
 msgstr "Ni naloženih pripomočkov."
 
+msgid "Configure widget"
+msgstr "Configure widget"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Odstrani sliko"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Nalaganje hierarhije je bilo neuspešno."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Dodaj pripomočke"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Dodaj pripomočke"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -5092,6 +5091,10 @@ msgstr "Razvrsti po: Času začetka"
 msgid "Sort by: Owner"
 msgstr "Razvrsti po: Lastniku"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Razvrsti po: Dokončanem procentu"
+
 msgid "Loading tasks"
 msgstr "Nalaganje nalog"
 
@@ -5321,29 +5324,50 @@ msgstr "Dodaj pripomočke"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Configure widget"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Ni sestankov za danes."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Nalagam sestanke"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Novi sestanek"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Danes: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Današnji sestanki"
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Nalagam sestanke"
 
 msgid "Datepicker"
 msgstr ""
@@ -5356,9 +5380,6 @@ msgstr "Neprebrano sporočilo"
 
 msgid "No tasks."
 msgstr "Ni nalog."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5391,6 +5412,9 @@ msgstr "Izberi drugo mapo"
 msgid "E-mails are moved to {0}"
 msgstr "Elektronska sporočila so prestavljena v {0}"
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr "Hitri sestanek"
 
@@ -5402,6 +5426,9 @@ msgstr "Hitra pošta"
 
 msgid "Quick Note"
 msgstr "Hitri zapisek"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Hitra naloga"
@@ -5778,10 +5805,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5797,6 +5822,30 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Pojavljanja ni bilo mogoče odpreti, dotično pojavljanje je najverjetneje "
 "izbrisano."
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "Nova zahteva za sestanek"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "Novi sestanek"
+
+# 77%
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
+
+msgid "Insufficient privileges"
+msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

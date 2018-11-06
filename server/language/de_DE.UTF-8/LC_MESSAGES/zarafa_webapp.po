@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-10-17 13:33+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1594,26 +1594,6 @@ msgstr "Besprechungsanfrage mit den Änderungen öffnen"
 msgid "Copy"
 msgstr "Kopieren"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "neue Terminanfrage"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "neuer Termin"
-
-msgid "Insufficient privileges"
-msgstr "Nicht genügend Berechtigungen"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "Sie haben nicht genügend Berechtigungen zum verschieben von "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2122,6 +2102,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Berechtigung"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Ablehnen und löschen"
 
 msgid "Delegate already exists in the list."
 msgstr "Stellvertreter existiert bereits in der Liste."
@@ -3857,6 +3841,25 @@ msgstr "Alle Widgets"
 msgid "No widgets installed."
 msgstr "Es sind keine Widgets installiert."
 
+msgid "Configure widget"
+msgstr "Widget konfigurieren"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Bild entfernen"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Widgets verstecken"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Widgets anzeigen"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Alle Widgets"
+
 msgid "Collapse widget panel"
 msgstr "Widgets verstecken"
 
@@ -5086,6 +5089,10 @@ msgstr "Sortieren nach: Startdatum"
 msgid "Sort by: Owner"
 msgstr "Sortieren nach: Besitzer"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sortieren nach: Prozent erledigt"
+
 msgid "Loading tasks"
 msgstr "Lade Aufgaben"
 
@@ -5342,29 +5349,51 @@ msgstr "Höhe des Widget"
 msgid "pixels"
 msgstr "Pixel"
 
-msgid "Configure widget"
-msgstr "Widget konfigurieren"
-
 msgid "Reload interval"
 msgstr "Aktualisieren nach"
 
 msgid "seconds"
 msgstr "Sekunden"
 
-msgid "No appointments for today."
-msgstr "Heute keine Termine."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Termine werden geladen"
 
-msgid "d.m.Y"
-msgstr "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Neuer Termin"
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+msgid "Number of days"
+msgstr ""
+
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Heute: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Heutige Termine"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} in {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d.m.Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Termine werden geladen"
 
 msgid "Datepicker"
 msgstr "Datumsauswahl"
@@ -5377,9 +5406,6 @@ msgstr "Ungelesene E-Mail"
 
 msgid "No tasks."
 msgstr "Keine Aufgaben."
-
-msgid "none"
-msgstr "keine"
 
 msgid "Tasks / To-Do"
 msgstr "Aufgaben / To-Dos"
@@ -5412,6 +5438,10 @@ msgstr "Einen Ordner auswählen"
 msgid "E-mails are moved to {0}"
 msgstr "E-Mails werden verschoben nach {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "In einem eigenen Fenster öffnen"
+
 msgid "Quick Appointment"
 msgstr "Schnelltermin"
 
@@ -5423,6 +5453,9 @@ msgstr "Schnell-E-Mail"
 
 msgid "Quick Note"
 msgstr "Schnellnotiz"
+
+msgid "none"
+msgstr "keine"
 
 msgid "Quick Task"
 msgstr "Schnellaufgabe"
@@ -5810,11 +5843,10 @@ msgstr "Aufgabe erledigt:"
 msgid "Contact not found"
 msgstr "Kontakt wurde nicht gefunden"
 
+#, fuzzy
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 "Kontaktinformationen konnten nicht angezeigt werden da der Server \n"
 "\t\t\t\t\t\t\tProbleme beim Abrufen der Informationen hatte. Bitte "
@@ -5833,6 +5865,26 @@ msgstr "Konnte Serientermin nicht öffnen."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "neue Terminanfrage"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "neuer Termin"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "Sie haben nicht genügend Berechtigungen zum verschieben von "
+
+msgid "Insufficient privileges"
+msgstr "Nicht genügend Berechtigungen"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -1586,26 +1586,6 @@ msgstr "değişiklik yapılan toplantı isteğini aç"
 msgid "Copy"
 msgstr "Kopyala"
 
-# 89%
-# 100%
-# 84%
-msgid "a meeting request"
-msgstr "bir toplantı isteği"
-
-# 93%
-# 100%
-# 80%
-msgid "an appointment"
-msgstr "bir randevu"
-
-msgid "Insufficient privileges"
-msgstr "yetersiz yetki"
-
-# 79%
-# 100%
-msgid "You have insufficient privileges to move "
-msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2094,6 +2074,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "İzinler"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Toplanti isteği reddet"
 
 msgid "Delegate already exists in the list."
 msgstr "Delege listesinde zaten var."
@@ -3825,6 +3809,25 @@ msgstr "Parçacık ekle"
 msgid "No widgets installed."
 msgstr "Widget kurulmamış"
 
+msgid "Configure widget"
+msgstr "Widget yapılandır"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "resmi kaldır"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "widget panosunu daralt"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "widget panosunu genişlet"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Parçacık ekle"
+
 msgid "Collapse widget panel"
 msgstr "widget panosunu daralt"
 
@@ -5047,6 +5050,10 @@ msgstr "Sıralama: Başlangıç Tarihi"
 msgid "Sort by: Owner"
 msgstr "Sıralama: Sahibi"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sıralama: Yüzde Tamamlandı"
+
 msgid "Loading tasks"
 msgstr "Görevler yükleniyor"
 
@@ -5280,29 +5287,51 @@ msgstr "Parçacık ekle"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Widget yapılandır"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Bugüne randevu yok"
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Randevular yükleniyor"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Yeni randevu"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Bugün: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Bugünün randevuları"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d-m-Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Randevular yükleniyor"
 
 msgid "Datepicker"
 msgstr ""
@@ -5315,9 +5344,6 @@ msgstr "okunmamış e-posta"
 
 msgid "No tasks."
 msgstr "Görev yok."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5350,6 +5376,10 @@ msgstr "Başka bir klasör seçin"
 msgid "E-mails are moved to {0}"
 msgstr "E-postalar {0}'a taşınıyor"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Yeni tarayıcı penceresinde aç"
+
 msgid "Quick Appointment"
 msgstr "Hızlı randevu"
 
@@ -5361,6 +5391,9 @@ msgstr "Hızlı mesaj"
 
 msgid "Quick Note"
 msgstr "Hızlı Not"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Hızlı görev"
@@ -5741,10 +5774,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5758,6 +5789,26 @@ msgstr "Olay açılamadı."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Olay açılamadı, bu spesifik olay muhtemelen silindi."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "bir toplantı isteği"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "bir randevu"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
+
+msgid "Insufficient privileges"
+msgstr "yetersiz yetki"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

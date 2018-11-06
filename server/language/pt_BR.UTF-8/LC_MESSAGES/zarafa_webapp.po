@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -1580,29 +1580,6 @@ msgstr "Abrir solicitação de reunião com modificações"
 msgid "Copy"
 msgstr "Copiar"
 
-# 89%
-# 100%
-# 84%
-#, fuzzy
-msgid "a meeting request"
-msgstr "Novo pedido de reunião"
-
-# 93%
-# 100%
-# 80%
-#, fuzzy
-msgid "an appointment"
-msgstr "Novo Compromisso"
-
-msgid "Insufficient privileges"
-msgstr ""
-
-# 79%
-# 100%
-#, fuzzy
-msgid "You have insufficient privileges to move "
-msgstr "Você não possui privilégios suficientes para copiar a pasta."
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2093,6 +2070,10 @@ msgstr ""
 # 90%
 msgid "Permission"
 msgstr "Permissão"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Recusar pedido de reunião"
 
 msgid "Delegate already exists in the list."
 msgstr "Delegado já existe na lista."
@@ -3764,6 +3745,26 @@ msgstr "Adicionar widgets"
 msgid "No widgets installed."
 msgstr "Nenhum widgets instalado."
 
+msgid "Configure widget"
+msgstr "Configurar widgets"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Remover"
+
+# 86%
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Não foi possível carregar a hierarquia."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Adicionar widgets"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Adicionar widgets"
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4981,6 +4982,10 @@ msgstr "Ordenar por: Data de Início"
 msgid "Sort by: Owner"
 msgstr "Ordenar por: Proprietário"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Ordenar por: Porcentagem Concluída"
+
 msgid "Loading tasks"
 msgstr "Carregando tarefas"
 
@@ -5213,29 +5218,51 @@ msgstr "Adicionar widgets"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Configurar widgets"
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
-msgstr "Sem compromissos hoje."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Carregando compromissos"
 
-msgid "d.m.Y"
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Novo Compromisso"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "Hoje: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Compromissos de Hoje"
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} em {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Carregando compromissos"
 
 msgid "Datepicker"
 msgstr ""
@@ -5248,9 +5275,6 @@ msgstr "Correio não lido"
 
 msgid "No tasks."
 msgstr "Sem tarefas."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5283,6 +5307,9 @@ msgstr "Selecione outra pasta"
 msgid "E-mails are moved to {0}"
 msgstr "E-mails são movidos para {0}"
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr "Compromisso Rápido"
 
@@ -5294,6 +5321,9 @@ msgstr "E-Mail Rápido"
 
 msgid "Quick Note"
 msgstr "Nota Rápida"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Tarefa Rápida"
@@ -5686,10 +5716,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5705,6 +5733,29 @@ msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
 "Não foi possível abrir ocorrência, provavelmente a ocorrência específica foi "
 "removida."
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "Novo pedido de reunião"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "Novo Compromisso"
+
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "Você não possui privilégios suficientes para copiar a pasta."
+
+msgid "Insufficient privileges"
+msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

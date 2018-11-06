@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Irish (Gabun)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Irish (GA) <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1498,18 +1498,6 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "a meeting request"
-msgstr ""
-
-msgid "an appointment"
-msgstr ""
-
-msgid "Insufficient privileges"
-msgstr ""
-
-msgid "You have insufficient privileges to move "
-msgstr ""
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -1958,6 +1946,9 @@ msgid ""
 msgstr ""
 
 msgid "Permission"
+msgstr ""
+
+msgid "Duplicate delegate"
 msgstr ""
 
 msgid "Delegate already exists in the list."
@@ -3539,6 +3530,21 @@ msgstr ""
 msgid "No widgets installed."
 msgstr ""
 
+msgid "Configure widget"
+msgstr ""
+
+msgid "Remove widget"
+msgstr ""
+
+msgid "Collapse widget"
+msgstr ""
+
+msgid "Expand widget"
+msgstr ""
+
+msgid "Add new widget"
+msgstr ""
+
 msgid "Collapse widget panel"
 msgstr ""
 
@@ -4653,6 +4659,9 @@ msgstr ""
 msgid "Sort by: Owner"
 msgstr ""
 
+msgid "Sort by: Percentage Completed"
+msgstr ""
+
 msgid "Loading tasks"
 msgstr ""
 
@@ -4872,28 +4881,40 @@ msgstr ""
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr ""
-
 msgid "Reload interval"
 msgstr ""
 
 msgid "seconds"
 msgstr ""
 
-msgid "No appointments for today."
+msgid "Loading appointments..."
 msgstr ""
 
-msgid "d.m.Y"
+msgid "No appointments"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+msgid "Number of days"
 msgstr ""
 
-msgid "Today's Appointments"
+msgid "Today {0} - {1}"
+msgstr ""
+
+msgid "Today (all day)"
+msgstr ""
+
+msgid "{0} - {1}"
+msgstr ""
+
+msgid "d/m/y G:i"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+msgid "d/m/y"
+msgstr ""
+
+msgid "Upcoming Appointments"
 msgstr ""
 
 msgid "Datepicker"
@@ -4906,9 +4927,6 @@ msgid "Unread Mail"
 msgstr ""
 
 msgid "No tasks."
-msgstr ""
-
-msgid "none"
 msgstr ""
 
 msgid "Tasks / To-Do"
@@ -4942,6 +4960,9 @@ msgstr ""
 msgid "E-mails are moved to {0}"
 msgstr ""
 
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Quick Appointment"
 msgstr ""
 
@@ -4952,6 +4973,9 @@ msgid "Quick Mail"
 msgstr ""
 
 msgid "Quick Note"
+msgstr ""
+
+msgid "none"
 msgstr ""
 
 msgid "Quick Task"
@@ -5296,10 +5320,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5312,6 +5334,18 @@ msgid "Could not open occurrence."
 msgstr ""
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid "Insufficient privileges"
 msgstr ""
 
 msgid ""

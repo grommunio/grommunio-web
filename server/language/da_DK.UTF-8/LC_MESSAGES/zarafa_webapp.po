@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 15:27+0200\n"
+"POT-Creation-Date: 2018-11-06 16:42+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1500,18 +1500,6 @@ msgstr "Åben mødeindkaldelse med ændringer"
 msgid "Copy"
 msgstr "Kopier"
 
-msgid "a meeting request"
-msgstr "en mødeindkaldelse"
-
-msgid "an appointment"
-msgstr "en aftale"
-
-msgid "Insufficient privileges"
-msgstr "Ikke tilstrækkelige rettigheder"
-
-msgid "You have insufficient privileges to move "
-msgstr "Du har ikke tilstrækkelige rettigheder til at flytte "
-
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -1998,6 +1986,10 @@ msgstr ""
 
 msgid "Permission"
 msgstr "Tilladelse"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Afslå og slet"
 
 msgid "Delegate already exists in the list."
 msgstr "Delegeret eksisterer allerede i listen."
@@ -3625,6 +3617,25 @@ msgstr "Tilføj widgets"
 msgid "No widgets installed."
 msgstr "Ingen widgets er installeret"
 
+msgid "Configure widget"
+msgstr "Konfigurer widget"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Fjern billede"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Luk widget panel"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Udvid widget panel"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Tilføj widgets"
+
 msgid "Collapse widget panel"
 msgstr "Luk widget panel"
 
@@ -4786,6 +4797,10 @@ msgstr "Sorter efter: Startdato"
 msgid "Sort by: Owner"
 msgstr "Sorter efter: Ejer"
 
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sorter efter: procent udført"
+
 msgid "Loading tasks"
 msgstr "Henter opgaver"
 
@@ -5007,9 +5022,6 @@ msgstr "Tilføj widgets"
 msgid "pixels"
 msgstr ""
 
-msgid "Configure widget"
-msgstr "Konfigurer widget"
-
 msgid "Reload interval"
 msgstr "Genindlæsningsinterva"
 
@@ -5017,20 +5029,42 @@ msgstr "Genindlæsningsinterva"
 msgid "seconds"
 msgstr "sekunder."
 
-msgid "No appointments for today."
-msgstr "Ingen aftaler i dag."
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Henter aftaler"
 
-msgid "d.m.Y"
+#, fuzzy
+msgid "No appointments"
+msgstr "Ny aftale"
+
+msgid "Number of days"
 msgstr ""
 
-#. TRANSLATORS: {0} is the subject of an all-day
-#. appointment, {1} is the html code to display
-#. icons.
-msgid "Today: {1} {0}"
+#, fuzzy
+msgid "Today {0} - {1}"
 msgstr "I dag: {1} {0}"
 
-msgid "Today's Appointments"
-msgstr "Dagens aftaler"
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} i {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "I d.m.Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Henter aftaler"
 
 msgid "Datepicker"
 msgstr ""
@@ -5043,9 +5077,6 @@ msgstr "Ulæst post"
 
 msgid "No tasks."
 msgstr "Ingen opgaver."
-
-msgid "none"
-msgstr ""
 
 msgid "Tasks / To-Do"
 msgstr ""
@@ -5079,6 +5110,10 @@ msgstr "Vælg anden mappe"
 msgid "E-mails are moved to {0}"
 msgstr "E-mails er flyttet til {0}"
 
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Åbn i nyt browser vindue"
+
 msgid "Quick Appointment"
 msgstr "Hurtigaftale"
 
@@ -5090,6 +5125,9 @@ msgstr "Hurtig email"
 
 msgid "Quick Note"
 msgstr "Hurtig note"
+
+msgid "none"
+msgstr ""
 
 msgid "Quick Task"
 msgstr "Hurtig opgave"
@@ -5429,10 +5467,8 @@ msgid "Contact not found"
 msgstr ""
 
 msgid ""
-"Contact information could not be displayed because the server \n"
-"\t\t\t\t\t\t\thad trouble retrieving the information. Please contact your "
-"system administrator if the\n"
-"\t\t\t\t\t\t\tproblem persists."
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
 msgstr ""
 
 msgid "Could not handle this type of object."
@@ -5446,6 +5482,18 @@ msgstr ""
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+
+msgid "a meeting request"
+msgstr "en mødeindkaldelse"
+
+msgid "an appointment"
+msgstr "en aftale"
+
+msgid "You have insufficient privileges to move "
+msgstr "Du har ikke tilstrækkelige rettigheder til at flytte "
+
+msgid "Insufficient privileges"
+msgstr "Ikke tilstrækkelige rettigheder"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
