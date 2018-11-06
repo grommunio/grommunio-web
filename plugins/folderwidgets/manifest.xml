@@ -19,6 +19,7 @@
 					<clientfile load="source">js/AppointmentsWidget.js</clientfile>
 					<clientfile load="source">js/TasksWidget.js</clientfile>
 					<clientfile load="source">js/MailWidget.js</clientfile>
+					<clientfile load="source">js/DatepickerWidget.js</clientfile>
 				</client>
 				<resources>
 					<resourcefile>resources/css/folderwidgets.css</resourcefile>

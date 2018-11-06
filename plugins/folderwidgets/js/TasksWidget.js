@@ -33,7 +33,6 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 		});
 
 		Ext.applyIf(config, {
-			height: this.get('widgetheight') || 300,
 			autoScroll: true,
 			layout: 'fit',
 			folderType: 'todolist',

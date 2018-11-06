@@ -61,8 +61,12 @@ Zarafa.widgets.folderwidgets.AbstractFolderWidget = Ext.extend(Zarafa.core.ui.wi
 	{
 		config = config || {};
 
+		// Set the guid so we can use the get() function
+		this.guid = config.guid;
+
 		Ext.applyIf(config, {
-			hasConfig: true
+			hasConfig: true,
+			height: this.get('widgetheight') || 300
 		});
 
 		Zarafa.widgets.folderwidgets.AbstractFolderWidget.superclass.constructor.call(this, config);
