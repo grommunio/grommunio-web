@@ -28,7 +28,6 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 		var store = new Zarafa.calendar.AppointmentStore();
 
 		Ext.applyIf(config, {
-			height: this.get('widgetheight') || 300,
 			autoScroll: true,
 			layout: 'fit',
 			folderType: 'calendar',

@@ -37,7 +37,6 @@ Zarafa.widgets.folderwidgets.MailWidget = Ext.extend(Zarafa.widgets.folderwidget
 		};
 
 		Ext.applyIf(config, {
-			height : 200,
 			autoScroll: true,
 			layout: 'fit',
 			folderType : 'inbox',
