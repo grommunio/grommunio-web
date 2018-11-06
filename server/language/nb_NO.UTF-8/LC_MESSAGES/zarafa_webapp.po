@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-06 16:42+0100\n"
-"PO-Revision-Date: 2018-09-02 17:38+0000\n"
+"PO-Revision-Date: 2018-11-06 20:16+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -968,10 +968,9 @@ msgstr "Til eller cc"
 msgid "Meeting"
 msgstr "Møte"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Ressurser har blitt planlagt."
+msgstr "Ressursen har blitt planlagt"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
@@ -2610,7 +2609,6 @@ msgstr "Ingen regel finnes"
 msgid "Active"
 msgstr "Aktiv"
 
-#, fuzzy
 msgid "Out of office"
 msgstr "Fraværende"
 
@@ -3631,13 +3629,11 @@ msgstr "Logg ut"
 msgid "Switch view"
 msgstr "Bytt visningsmodus"
 
-#, fuzzy
 msgid "Widgets"
-msgstr "Legg til miniprogram"
+msgstr "Miniprogram"
 
-#, fuzzy
 msgid "Sending..."
-msgstr "Sender"
+msgstr "Sender..."
 
 msgid "Sent successfully"
 msgstr "Meldingen ble sendt"
@@ -3724,19 +3720,15 @@ msgstr "Ingen miniprogram er installert."
 msgid "Configure widget"
 msgstr "Konfigurer miniprogram"
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Fjern bilde"
+msgstr "Fjern miniprogram"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "Minimer miniprogrampanel"
+msgstr "Minimer miniprogram"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Utvid miniprogrampanel"
+msgstr "Utvid miniprogram"
 
-#, fuzzy
 msgid "Add new widget"
 msgstr "Legg til miniprogram"
 
@@ -3772,11 +3764,10 @@ msgstr ""
 msgid "Not enough permissions to open this folder."
 msgstr "Du har ikke tilstrekkelige tillatelse til å kunne åpne denne mappen."
 
-#, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "Det er {0} ulest melding i mappen {1}"
-msgstr[1] "Det er {0} uleste meldinger i mappen {1}"
+msgstr[0] "Det er {0} ulest melding i mappen {1} til {2}"
+msgstr[1] "Det er {0} uleste meldinger i mappen {1} til {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -3956,9 +3947,8 @@ msgstr "Vis undermapper"
 msgid "Open shared folder/store"
 msgstr "Åpne delt mappe/e-postboks"
 
-#, fuzzy
 msgid "Empty folder"
-msgstr "Importer til mappe"
+msgstr "Tøm mappen"
 
 msgid "Empty Junk E-mail"
 msgstr "Tøm Søppelpost"
@@ -4169,13 +4159,11 @@ msgstr "Be om lesebekreftelse fra mottaker"
 msgid "Show Bcc"
 msgstr "Vis Bcc"
 
-#, fuzzy
 msgid "Show Bcc field"
-msgstr "Vis Bcc"
+msgstr "Vis Bcc-felt"
 
-#, fuzzy
 msgid "Show From field"
-msgstr "Vis fra"
+msgstr "Vis fra-felt"
 
 msgid "No signatures configured"
 msgstr "Ingen signatur er konfigurert"
@@ -4242,13 +4230,11 @@ msgstr "Skriv ut enkelt e-post"
 
 # 77%
 # 84%
-#, fuzzy
 msgid "Print selected email"
-msgstr "Skriv ut valgt notat"
+msgstr "Skriv ut valgt e-post"
 
-#, fuzzy
 msgid "Filter"
-msgstr "Filter.."
+msgstr "Filter"
 
 msgid "FW"
 msgstr "FW"
@@ -4268,9 +4254,8 @@ msgstr "Innstilling for redigering av e-post"
 msgid "Compose mail in this format"
 msgstr "Skriv e-post med denne formateringen"
 
-#, fuzzy
 msgid "Editor"
-msgstr "Rediger"
+msgstr "Redigeringsprogram"
 
 msgid "Default font"
 msgstr "Standardskrift"
@@ -4416,19 +4401,19 @@ msgid "Last Month"
 msgstr "Forrige måned"
 
 msgid "Small"
-msgstr ""
+msgstr "Liten"
 
 msgid "Medium"
-msgstr ""
+msgstr "Middels"
 
 msgid "Large"
-msgstr ""
+msgstr "Stor"
 
 msgid "Very large"
-msgstr ""
+msgstr "Veldig stor"
 
 msgid "Huge"
-msgstr ""
+msgstr "Kjempestor"
 
 msgid "Follow up"
 msgstr "Oppfølging"
@@ -4443,7 +4428,6 @@ msgstr "Send til"
 msgid "Loading mail"
 msgstr "Laster inn e-post"
 
-#, fuzzy
 msgid "Print note"
 msgstr "Skriv ut dette notatet"
 
@@ -4754,13 +4738,12 @@ msgstr "Godtar oppgave"
 msgid "Declining Task"
 msgstr "Avslår oppgave"
 
-#, fuzzy
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Denne møteinvitasjonen har blitt godtatt og vil bli flyttet til din "
-"kalender. Vil du inkludere en kommentar i ditt svar?"
+"Denne møteinvitasjonen vil bli godtatt og vil bli flyttet til din kalender. "
+"Vil du inkludere en kommentar i ditt svar?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
@@ -4918,7 +4901,6 @@ msgstr "Sorter på: startdato"
 msgid "Sort by: Owner"
 msgstr "Sorter på: eier"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Sorter på: prosent utført"
 
@@ -5141,59 +5123,50 @@ msgstr "Send faks"
 msgid "Contact Fax"
 msgstr "Kontaktfaks"
 
-#, fuzzy
 msgid "Widget height"
-msgstr "Legg til miniprogram"
+msgstr "Høyde på miniprogram"
 
 msgid "pixels"
-msgstr ""
+msgstr "Pixel"
 
 msgid "Reload interval"
 msgstr "Last inn på nytt etter"
 
-#, fuzzy
 msgid "seconds"
-msgstr "sekunder."
+msgstr "sekunder"
 
-#, fuzzy
 msgid "Loading appointments..."
-msgstr "Laster inn avtaler"
+msgstr "Laster inn avtaler..."
 
-#, fuzzy
 msgid "No appointments"
-msgstr "Ny avtale"
+msgstr "Ingen avtaler"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Antall dager"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "I dag: {1} {0}"
+msgstr "I dag: {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "I dag (hele dagen)"
 
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} i {1}"
+msgstr "{0} - {1}"
 
-#, fuzzy
 msgid "d/m/y G:i"
-msgstr "l d.m.Y G:i"
+msgstr "d.m.Y G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (hele dagen)"
 
-#, fuzzy
 msgid "d/m/y"
 msgstr "d.m.Y"
 
-#, fuzzy
 msgid "Upcoming Appointments"
-msgstr "Laster inn avtaler"
+msgstr "Kommende avtaler"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Datovelger"
 
 msgid "No unread mail."
 msgstr "Ingen uleste e-post."
@@ -5205,7 +5178,7 @@ msgid "No tasks."
 msgstr "Ingen oppgave."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Oppgaver / To-Dos"
 
 msgid "Google Maps"
 msgstr "Google Maps"
@@ -5235,9 +5208,8 @@ msgstr "Velg en annen mappe"
 msgid "E-mails are moved to {0}"
 msgstr "E-post er flyttet til {0}"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Åpne i nytt nettleservindu"
+msgstr "Åpne i ny nettleserfane"
 
 msgid "Quick Appointment"
 msgstr "Hurtigavtale"
@@ -5252,7 +5224,7 @@ msgid "Quick Note"
 msgstr "Hurtignotat"
 
 msgid "none"
-msgstr ""
+msgstr "ingen"
 
 msgid "Quick Task"
 msgstr "Hurtigoppgave"
@@ -5424,9 +5396,8 @@ msgstr "Klikk på lenken for å åpne den i et nytt vindu."
 msgid "This external link will open in a new window"
 msgstr "Denne eksterne lenken vil bli åpnet i et nytt vindu"
 
-#, fuzzy
 msgid "Destination folder not found."
-msgstr "Målmappe"
+msgstr "Målmappe ikke funnet."
 
 msgid "Eml is corrupted"
 msgstr "EML er skadet"
@@ -5437,26 +5408,23 @@ msgstr "Eml-vedlegget ble ikke vellykket importert"
 msgid "The vcf attachment is not imported successfully"
 msgstr "vcf-vedlegget ble ikke vellykket importert"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Kunne ikke importere:"
+msgstr "Kunne ikke importere '%s' til '%s'. "
 
 # 100%
-#, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "Denne avtalen finner sted i fortiden."
+msgstr ""
 
-#, fuzzy
 msgid "The file is corrupt."
-msgstr "EML er skadet"
+msgstr "Filen er skadet."
 
-#, fuzzy
 msgid "The file is invalid."
-msgstr "Filene er ikke gyldige"
+msgstr "Filen er ikke gyldig."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to import '%s'. "
-msgstr "Kunne ikke importere:"
+msgstr "Kunne ikke importere  '%s'. "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
@@ -5465,9 +5433,8 @@ msgid "Attachment is not imported successfully"
 msgstr "Vedlegget ble ikke vellykket importert"
 
 # 81%
-#, fuzzy
 msgid "Embedded attachment not found."
-msgstr "Legg til et vedlegg til denne kontakten."
+msgstr "Inkludert vedlegg ikke funnet."
 
 msgid "ZIP is not created successfully"
 msgstr "ZIP-filen kunne ikke lages"
@@ -5598,7 +5565,7 @@ msgid "Task Completed:"
 msgstr "Oppgave fullført:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Kunne ikke finne kontakten"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
@@ -6089,17 +6056,15 @@ msgstr "Passord"
 msgid "Sign in"
 msgstr "Logg inn"
 
-#, fuzzy
 msgid "File is not imported successfully"
-msgstr "Vedlegget ble ikke vellykket importert"
+msgstr "Filen ble ikke vellykket importert"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Kunne ikke importere  '%s'"
 
-#, fuzzy
 msgid "The EML is not valid"
-msgstr "{0} er ikke et gyldig tidspunkt"
+msgstr "EML-fila er ikke gyldig"
 
 msgid "GB"
 msgstr "GB"
