@@ -3536,6 +3536,12 @@
 						$props['smtp_address'] = $props['email_address'];
 					}
 
+					// PST importer imports items without an entryid and as SMTP recipient, this causes issues for
+					// opening meeting requests with removed users as recipient.
+					if (empty($props['entryid']) && $props['address_type'] === 'SMTP') {
+						$props['entryid'] = bin2hex(mapi_createoneoff($props['display_name'], $props['address_type'], $props['email_address'], MAPI_UNICODE));
+					}
+
 					// Set propose new time properties
 					if(isset($recipientRow[PR_PROPOSEDNEWTIME]) && isset($recipientRow[PR_PROPOSEDNEWTIME_START]) && isset($recipientRow[PR_PROPOSEDNEWTIME_END])) {
 						$props['proposednewtime_start'] = $recipientRow[PR_PROPOSEDNEWTIME_START];
