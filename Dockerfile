@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y chromium-browser phpmd \
-			ant ant-optional libxml2-utils \
+			ant ant-optional libxml2-utils gettext \
 			openjdk-8-jdk php-xml php-zip php-common php-gettext \
 			wget apt-transport-https gnupg2 make python
 # Latest nodejs
