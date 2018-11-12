@@ -74,6 +74,7 @@ Zarafa.core.ui.widget.WidgetPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 			headerCfg : { cls : 'zarafa-main-header x-panel-header' },
 			layout : 'fit',
 			tools : tools,
+			animCollapse : false,
 			items : [ this.portal ],
 			collapseQuickTip: _('Collapse widget panel'),
 			expandQuickTip: _('Expand widget panel')
