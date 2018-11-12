@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-06 16:42+0100\n"
-"PO-Revision-Date: 2018-10-17 13:36+0000\n"
+"PO-Revision-Date: 2018-11-12 11:39+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -2110,9 +2110,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Permissie"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Afwijzen en verwijderen"
+msgstr "Identieke gemachtige"
 
 msgid "Delegate already exists in the list."
 msgstr "Gemachtigde bestaat reeds in de lijst."
@@ -3881,21 +3880,17 @@ msgstr "Geen widgets geïnstalleerd."
 msgid "Configure widget"
 msgstr "Configureer widget"
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Verwijder Afbeelding"
+msgstr "Verwijder widget"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "Widget paneel inklappen"
+msgstr "Widget inklappen"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Widget paneel uitklappen"
+msgstr "Widget uitklappen"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Widgets toevoegen"
+msgstr "Widget toevoegen"
 
 msgid "Collapse widget panel"
 msgstr "Widget paneel inklappen"
@@ -5115,7 +5110,6 @@ msgid "Sort by: Owner"
 msgstr "Sorteer op: Eigenaar"
 
 # 88%
-#, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteer op: Percentage Voltooid"
 
@@ -5380,46 +5374,39 @@ msgid "seconds"
 msgstr "seconden"
 
 # 86%
-#, fuzzy
 msgid "Loading appointments..."
-msgstr "Afspraken laden"
+msgstr "Afspraken laden..."
 
 # 93%
 # 100%
-#, fuzzy
 msgid "No appointments"
-msgstr "Nieuwe Afspraak"
+msgstr "Geen afspraken"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Aantal dagen"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Vandaag: {1} {0}"
+msgstr "Vandaag: {1} - {0}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Vandaag (gehele dag)"
 
 # 100%
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} in {1}"
+msgstr "{0} - {1}"
 
-#, fuzzy
 msgid "d/m/y G:i"
-msgstr "l d/m/Y G:i"
+msgstr "d/m/Y G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (gehele dag)"
 
-#, fuzzy
 msgid "d/m/y"
 msgstr "d-m-Y"
 
 # 86%
-#, fuzzy
 msgid "Upcoming Appointments"
-msgstr "Afspraken laden"
+msgstr "Aankomende afspraken"
 
 msgid "Datepicker"
 msgstr "Datumkiezer"
@@ -5464,9 +5451,8 @@ msgstr "Selecteer een andere folder"
 msgid "E-mails are moved to {0}"
 msgstr "E-mails worden verplaatst naar {0}"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Open in nieuw browser venster"
+msgstr "Open in nieuwe tab"
 
 msgid "Quick Appointment"
 msgstr "Vlugge Afspraak"
@@ -5858,14 +5844,12 @@ msgstr "Taak is Voltooid:"
 msgid "Contact not found"
 msgstr "Contact niet gevonden"
 
-#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
 "Contact informatie kan niet worden getoond, omdat de server problemen heeft "
-"met het ophalen van de informatie. Neem contact op met uw "
-"systeemadministrator als het probleem zich blijft voordoet."
+"met het ophalen van de informatie."
 
 msgid "Could not handle this type of object."
 msgstr "Kon dit type object niet behandelen."
