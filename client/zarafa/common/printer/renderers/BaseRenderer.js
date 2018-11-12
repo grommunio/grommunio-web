@@ -46,7 +46,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 		} else {
 			// Needed for popouts
 			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
-			var activeDocument = activeWindow.document
+			var activeDocument = activeWindow.document;
 			var printFrame = activeDocument.createElement('iframe');
 			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
 			activeDocument.body.appendChild(printFrame);
@@ -129,7 +129,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	generateBodyTemplate: Ext.emptyFn,
 
 	/**
-	 * Prepares data suitable for use in an XTemplate from the component 
+	 * Prepares data suitable for use in an XTemplate from the component
 	 * @param {Ext.Component} component The component to acquire data from
 	 * @return {Array} An empty array (override this to prepare your own data)
 	 */
@@ -154,7 +154,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @param {Object} obj the object for the renderer
 	 */
 	postRender: Ext.emptyFn,
-  
+
 	/**
 	 * Returns the title to give to the print window
 	 * @param {Ext.Component} component The component to be printed
