@@ -222,6 +222,9 @@ Ext.apply(Zarafa, {
 		Ext.EventManager.on(window, 'dragover', this.onWindowDragDrop, this);
 		Ext.EventManager.on(window, 'drop', this.onWindowDragDrop, this);
 
+		// Disable default mouse click other then left and right.
+		Ext.EventManager.on(window, 'auxclick', this.onWindowAuxClick, this);
+
 		// Add main event handlers to listen for errors
 		container.getRequest().on('connectionparalyzed', this.onConnectionParalyze, this);
 		container.getRequest().on('connectioninterrupted', this.onConnectionLoss, this);
@@ -281,6 +284,21 @@ Ext.apply(Zarafa, {
 		event.stopPropagation();
 		event.preventDefault();
 		return false;
+	},
+
+	/**
+	 * Event handler triggered when a non-primary pointing device button
+	 * (e.g. any non-left mouse button) has been pressed and released on an element.
+	 *
+	 * @param {Ext.EventObject} event The event object
+	 * @private
+	 */
+	onWindowAuxClick : function(event)
+	{
+		// FIXME: This fix is only work for the chrome.
+		// firefox and Edge wont work as Expected.
+		event.preventDefault();
+		return;
 	},
 
 	/**
