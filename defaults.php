@@ -4,6 +4,9 @@
  * not been set in the config.php.Each definition of a configuration value must
  * be preceeded by "if(!defined('KEY'))"
  */
+
+require_once(__DIR__ . '/server/includes/core/constants.php');
+
 if(!defined('CONFIG_CHECK')) define('CONFIG_CHECK', TRUE);
 if(!defined('CONFIG_CHECK_COOKIES_HTTP')) define('CONFIG_CHECK_COOKIES_HTTP', FALSE);
 if(!defined('CONFIG_CHECK_COOKIES_SSL')) define('CONFIG_CHECK_COOKIES_SSL', FALSE);
@@ -11,7 +14,6 @@ if(!defined('CONFIG_CHECK_COOKIES_SSL')) define('CONFIG_CHECK_COOKIES_SSL', FALS
 if(!defined('STATE_FILE_MAX_LIFETIME')) define('STATE_FILE_MAX_LIFETIME', 28*60*60);
 if(!defined('UPLOADED_ATTACHMENT_MAX_LIFETIME')) define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
 if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
-
 
 /**
  * Set to true to give users the possiblity to edit and create mail filters on the store
