@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-06 16:42+0100\n"
-"PO-Revision-Date: 2018-10-19 09:51+0000\n"
+"PO-Revision-Date: 2018-11-16 12:10+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -1221,7 +1221,7 @@ msgid "Switch calendar range back and forth"
 msgstr "Mudar posição no calendário"
 
 msgid "Copy selected item"
-msgstr "Abrir item selecionado"
+msgstr "Copiar item selecionado"
 
 msgid "Paste selected item"
 msgstr "Colar item selecionado"
@@ -1971,9 +1971,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Nível de permissão"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Recusar e eliminar"
+msgstr "Delegado duplicado"
 
 msgid "Delegate already exists in the list."
 msgstr "Utilizador já existe na lista."
@@ -3578,21 +3577,17 @@ msgstr "Sem widgets instalados."
 msgid "Configure widget"
 msgstr "Configurar widget"
 
-#, fuzzy
 msgid "Remove widget"
-msgstr "Remover fotografia"
+msgstr "Remover widget"
 
-#, fuzzy
 msgid "Collapse widget"
-msgstr "Fechar painel de widgets"
+msgstr "Colapsar widget"
 
-#, fuzzy
 msgid "Expand widget"
-msgstr "Abrir painel de widgets"
+msgstr "Expandir widget"
 
-#, fuzzy
 msgid "Add new widget"
-msgstr "Adicionar widgets"
+msgstr "Adicionar novo widget"
 
 msgid "Collapse widget panel"
 msgstr "Fechar painel de widgets"
@@ -4733,7 +4728,6 @@ msgstr "Ordenar por: Data de Início"
 msgid "Sort by: Owner"
 msgstr "Ordenar por: Proprietário"
 
-#, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Ordenar por: Percentagem Completa"
 
@@ -4980,42 +4974,35 @@ msgstr "Intervalo para refrescar (s)"
 msgid "seconds"
 msgstr "segundos"
 
-#, fuzzy
 msgid "Loading appointments..."
-msgstr "A carregar compromissos"
+msgstr "A carregar compromissos..."
 
-#, fuzzy
 msgid "No appointments"
-msgstr "Novo compromisso"
+msgstr "Sem compromissos"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Número de dias"
 
-#, fuzzy
 msgid "Today {0} - {1}"
-msgstr "Hoje: {1} {0}"
+msgstr "Hoje {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Hoje (todo dia)"
 
-#, fuzzy
 msgid "{0} - {1}"
-msgstr "{0} em {1}"
+msgstr "{0} - {1}"
 
-#, fuzzy
 msgid "d/m/y G:i"
-msgstr "l d/m/Y G:i"
+msgstr "d/m/Y G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (todo dia)"
 
-#, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
 
-#, fuzzy
 msgid "Upcoming Appointments"
-msgstr "A carregar compromissos"
+msgstr "Próximos compromissos"
 
 msgid "Datepicker"
 msgstr "Escolha de data"
@@ -5060,9 +5047,8 @@ msgstr "Selecionar outra pasta"
 msgid "E-mails are moved to {0}"
 msgstr "Emails são movidos para {0}"
 
-#, fuzzy
 msgid "Open in new tab"
-msgstr "Abrir numa nova janela"
+msgstr "Abrir numa nova aba"
 
 msgid "Quick Appointment"
 msgstr "Compromisso rápido"
@@ -5419,14 +5405,12 @@ msgstr "Tarefa terminada:"
 msgid "Contact not found"
 msgstr "Contacto não encontrado"
 
-#, fuzzy
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
 "A informação sobre o contacto não pode ser exibida porque o servidor teve um "
-"problema ao recolher a informação. Por favor contacte o seu administrador de "
-"sistema se o problema persistir."
+"problema ao recolher a informação."
 
 msgid "Could not handle this type of object."
 msgstr "Não foi possível processar este tipo de objeto."
