@@ -175,6 +175,27 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 				xtype: 'zarafa.conditionalmenu',
 				items: this.createBusyStatusItems()
 			}
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text: _('Send to...'),
+			iconCls : 'icon_embedded_attachment',
+			singleSelectOnly: true,
+			beforeShow : this.beforeShowItem,
+			responseMode : Zarafa.mail.data.ActionTypes.FORWARD_ATTACH,
+			handler: this.onContextItemResponse,
+			scope: this
+		},{
+			xtype : 'zarafa.conditionalitem',
+			text: _('Export as'),
+			cls: 'k-unclickable',
+			iconCls: 'icon_export',
+			hideOnClick: false,
+			beforeShow : this.beforeShowItem,
+			scope: this,
+			menu: {
+				xtype: 'zarafa.exportitemcontextmenu',
+				records: records
+			}
 		}];
 	},
 
@@ -271,14 +292,30 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 	 */
 	beforeShowNonPhantom : function(item, records)
 	{
-		var hasPhantoms = false;
-		if (records) {
-			for (var i = 0, len = records.length; i < len; i++) {
-				if (records[i].phantom === true) {
-					hasPhantoms = true;
-				}
-			}
-			item.setVisible(!hasPhantoms);
+		if (!Ext.isEmpty(records)) {
+			item.setVisible(!records.some(function (record) {
+				return record.phantom === true;
+			}));
+		} else {
+			item.setVisible(false);
+		}
+	},
+
+	/**
+	 * Makes the given menuitem invisible when any of the records has read
+	 * only access or is a phantom record.
+	 *
+	 * @param {Zarafa.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Zarafa.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowItem : function(item, records)
+	{
+		if(!Ext.isEmpty(records)) {
+			item.setVisible(!records.some(function (record) {
+				return record.get('access') === Zarafa.core.mapi.Access.ACCESS_READ || record.phantom === true;
+			}));
 		} else {
 			item.setVisible(false);
 		}
@@ -539,6 +576,17 @@ Zarafa.calendar.ui.CalendarContextMenu = Ext.extend(Zarafa.core.ui.menu.Conditio
 		} else {
 			Zarafa.calendar.Actions.openAppointmentContent(records);
 		}
+	},
+
+	/**
+	 * Called when one of the "Send to" menuitems are clicked.
+	 * @param {Ext.Button} button The button which was clicked
+	 * @private
+	 */
+	onContextItemResponse : function(button)
+	{
+		var mailModel = container.getContextByName('mail').getModel();
+		Zarafa.mail.Actions.openCreateMailResponseContent(this.records, mailModel, button.responseMode, {"attachAsIcs":true});
 	}
 });
 

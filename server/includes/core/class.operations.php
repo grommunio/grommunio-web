@@ -3156,6 +3156,43 @@
 						// save changes in the embedded message and the final attachment
 						mapi_savechanges($imessage);
 						mapi_savechanges($attachment);
+					} elseif ($fileinfo['sourcetype'] === 'icsfile') {
+						$messageStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($fileinfo['store_entryid']));
+						$copyFrom = mapi_msgstore_openentry($messageStore , hex2bin($fileinfo['entryid']));
+
+						// Get addressbook for current session
+						$addrBook = $GLOBALS['mapisession']->getAddressbook();
+
+						// get message properties.
+						$messageProps = mapi_getprops($copyFrom, array(PR_SUBJECT));
+
+						// Read the appointment as RFC2445-formatted ics stream.
+						$appointmentStream = mapi_mapitoical($GLOBALS['mapisession']->getSession(), $addrBook, $copyFrom, array());
+
+						$filename = (!empty($messageProps[PR_SUBJECT])) ? $messageProps[PR_SUBJECT] : _('Untitled');
+						$filename .= '.ics';
+
+						$props = Array(
+							PR_ATTACH_LONG_FILENAME => $filename,
+							PR_DISPLAY_NAME => $filename,
+							PR_ATTACH_METHOD => ATTACH_BY_VALUE,
+							PR_ATTACH_DATA_BIN => "",
+							PR_ATTACH_MIME_TAG => "application/octet-stream",
+							PR_ATTACHMENT_HIDDEN => false,
+							PR_EC_WA_ATTACHMENT_ID => isset($fileinfo["attach_id"]) && !empty($fileinfo["attach_id"]) ? $fileinfo["attach_id"] : uniqid(),
+							PR_ATTACH_EXTENSION => pathinfo($filename, PATHINFO_EXTENSION)
+						);
+
+						$attachment = mapi_message_createattach($message);
+						mapi_setprops($attachment, $props);
+
+						// Stream the file to the PR_ATTACH_DATA_BIN property
+						$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
+						mapi_stream_write($stream, $appointmentStream);
+
+						// Commit the stream and save changes
+						mapi_stream_commit($stream);
+						mapi_savechanges($attachment);
 					} else {
 						$filepath = $attachment_state->getAttachmentPath($tmpname);
 						if (is_file($filepath)) {

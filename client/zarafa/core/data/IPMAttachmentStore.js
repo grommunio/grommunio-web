@@ -544,11 +544,82 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		return clonedFile;
 	},
 
+
 	/**
+	 * Wrapper function which call either {@link #addIcsAsAttachment} or {@link #addEmbeddedAttachment}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} record The record which needs to be added as an attachment into store.
+	 * @param {Object} config (optional) The configuration object
+	 */
+	addAsAttachment : function(record, config)
+	{
+		var data = [];
+		if(Ext.isDefined(config) && config.attachAsIcs) {
+			data = this.addIcsAsAttachment(record);
+		} else {
+			data = this.addEmbeddedAttachment(record);
+		}
+
+		// Create an attachment record, with all the passed data, use record factory so default values will be applied
+		var attach = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, data);
+
+		// Add it to the store
+		this.add(attach);
+
+		var options = {
+			'params' : attach.data,
+			'requestUrl' : this.getUploadAttachmentUrl()
+		};
+
+		var action = Ext.data.Api.actions['create'];
+		var callback = this.createCallback(action, attach, false);
+		this.proxy.request(action, attach, options.params, this.reader, callback, this, options);
+	},
+
+	/**
+	 * Add given {@link Zarafa.core.data.IPMRecord IPMRecord} as embedded attachment to
+	 * {@link Zarafa.core.data.IPMAttachmentStore IPMAttachmentStore}, this will generate new
+	 * {@link Zarafa.core.data.IPMAttachmentRecord attachment record} and add those to the store and
+	 * will send request to server to save ics attachment info to state file.
+	 * @param {Zarafa.core.data.IPMRecord} record The record which needs to be added as ics attachment into store.
+	 *
+	 * @return data object which is used to create attachment record.
+	 */
+	addIcsAsAttachment : function(record)
+	{
+		var data = {
+			'entryid' : record.get('entryid'),
+			'store_entryid' : record.get('store_entryid'),
+			// attach method to indicate this is an embedded attachment
+			'attach_method' : Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE,
+			'attach_id' : Zarafa.generateId(8)
+		};
+
+		// Some optional data which should be present only if it is not empty
+		if(!Ext.isEmpty(record.get('subject'))) {
+			data['name'] = record.get('subject') + ".ics";
+		}
+
+		data['extension'] = "ics";
+
+		if(!Ext.isEmpty(record.get('message_class'))) {
+			data['attach_message_class'] = record.get('message_class');
+		}
+
+		if(!Ext.isEmpty(record.get('message_size'))) {
+			data['size'] = record.get('message_size');
+		}
+
+		return data;
+	},
+
+ 	/**
 	 * Add given {@link Zarafa.core.data.IPMRecord IPMRecord} as embedded attachment to {@link Zarafa.core.data.IPMAttachmentStore IPMAttachmentStore}, this will generate new
 	 * {@link Zarafa.core.data.IPMAttachmentRecord attachment record} and
 	 * add those to the store and will send request to server to save embedded attachment info to state file.
 	 * @param {Zarafa.core.data.IPMRecord} record The record which needs to be added as embedded attachment into store.
+	 *
+	 * @return data object which is used to create attachment record.
 	 */
 	addEmbeddedAttachment : function(record)
 	{
@@ -573,20 +644,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 			data['size'] = record.get('message_size');
 		}
 
-		// Create an attachment record, with all the passed data, use record factory so default values will be applied
-		var attach = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, data);
-
-		// Add it to the store
-		this.add(attach);
-
-		var options = {
-			'params' : attach.data,
-			'requestUrl' : this.getUploadAttachmentUrl()
-		};
-
-		var action = Ext.data.Api.actions['create'];
-		var callback = this.createCallback(action, attach, false);
-		this.proxy.request(action, attach, options.params, this.reader, callback, this, options);
+		return data;
 	},
 
 	/**

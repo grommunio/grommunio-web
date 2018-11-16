@@ -275,7 +275,7 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 	attachItemAsAttachment : function(record)
 	{
 		// add new attachment into parent record
-		this.record.getAttachmentStore().addEmbeddedAttachment(record);
+		this.record.getAttachmentStore().addAsAttachment(record);
 
 		// now close the dialog
 		this.dialog.close();

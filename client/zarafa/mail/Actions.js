@@ -115,7 +115,7 @@ Zarafa.mail.Actions = {
 			}
 
 			if (actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
-				response = model.createResponseRecord(record, actionType, response);
+				response = model.createResponseRecord(record, actionType, response, config);
 			} else {
 				var openHandler = function(store, record) {
 					// This function will called in the scope of the record for
@@ -125,7 +125,7 @@ Zarafa.mail.Actions = {
 					}
 
 					if (actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH) {
-						response = model.createResponseRecord(record, actionType, response);
+						response = model.createResponseRecord(record, actionType, response, config);
 					} else {
 						response = model.createResponseRecord(record, actionType);
 						Zarafa.core.data.UIFactory.openCreateRecord(response, config);

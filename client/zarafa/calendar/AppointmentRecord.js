@@ -972,6 +972,21 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		}
 
 		return (checkedWeekDays.length === 2) ? checkedWeekDays.join(" ") : checkedWeekDays.join(", ");
+	},
+
+	/**
+	 * Builds URL to download appointment as RFC2445-formatted stream with ics extension.
+	 * @param {Boolean} allAsZip (optional) True to downloading all the attachments as ZIP
+	 * @return {String} URL for downloading message as file.
+	 */
+	getDownloadMessageUrl : function(allAsZip)
+	{
+		var url = container.getBaseURL();
+		url = Ext.urlAppend(url, 'load=download_appointment');
+		url = Ext.urlAppend(url, 'storeid=' + this.get('store_entryid'));
+		url = Ext.urlAppend(url, 'entryid=' + this.get('entryid'));
+
+		return url;
 	}
 });
 
