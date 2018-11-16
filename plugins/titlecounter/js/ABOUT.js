@@ -21,4 +21,4 @@ Zarafa.plugins.titlecounter.ABOUT = ""
 	+ "GNU Affero General Public License for more details.</p>"
 
 	+ "<p>You should have received a copy of the GNU Affero General Public License "
-	+ "along with this program.  If not, see <a href=\"https://www.gnu.org/licenses/\">https://www.gnu.org/licenses/</a>.</p>";
+	+ "along with this program.  If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>";
