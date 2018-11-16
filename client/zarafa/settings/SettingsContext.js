@@ -141,7 +141,12 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	disable : function()
 	{
-		container.getNavigationBar().expand();
+		// Get the state of the navigation panel so we know if we must expand it again
+		var navState = Ext.state.Manager.get(container.getNavigationBar().stateId);
+		if ( navState && !navState.collapsed ) {
+			container.getNavigationBar().expand();
+		}
+
 		container.un('beforecontextswitch', this.onBeforeContextSwitch, this);
 
 		Zarafa.settings.SettingsContext.superclass.disable.apply(this, arguments);
