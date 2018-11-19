@@ -21,9 +21,6 @@
 		background-color: transparent;
 		width: $button-small-height;
 		height: $button-small-height !important;
-		background-image: sprite-url($icons) !important;
-		background-repeat: no-repeat;
-		background-position: sprite-position($icons, icon_magnifier, $offset-x: 3px, $offset-y: 3px) !important;
 	}
 }
 
@@ -121,10 +118,6 @@
 	.x-grid3-row {
 		border-left: none;
 		border-right: none;
-
-		.icon_task_assigner{
-			background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1) !important;
-		}
 	}
 
 	.x-grid3-row.mail_unread {
@@ -186,8 +179,6 @@
 				span {
 					display: inline-block;
 					padding-right: 25px;
-					@extend .icon_favorites;
-					background-position: sprite-position($iconsmap, icon_favorites, $offset_y: -1px, $offset_x: 100%);
 				}
 			}
 		}
@@ -199,7 +190,6 @@
 		padding-top: ($header-height - $font-default-line-height)/2;
 
 		img.x-panel-inline-icon.advance_search {
-			@extend .icon_magnifier;
 			width: 16px;
 			height: 16px;
 			vertical-align: middle;

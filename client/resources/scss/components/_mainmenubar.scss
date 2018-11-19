@@ -14,7 +14,7 @@ $mainmenubar-button-active-opacity : 100;
 
 $mainmenubar-button-padding-left: $padding-extra-large;
 $mainmenubar-button-padding-right: $padding-extra-large;
-$mainmenubar-button-padding-top: 11px;
+$mainmenubar-button-padding-top: 10px;
 $mainmenubar-button-padding-bottom: 10px;
 
 #zarafa-mainmenu {
@@ -46,7 +46,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 
 		button.x-btn-text {
 			font-size: 15px !important;
-			line-height: 100% !important;
+			line-height: 16px !important;
 			color : $mainmenubar-font-color;
 			text-transform: uppercase;
 			text-shadow: none;
@@ -95,10 +95,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 			color: $mainmenubar-font-color-active;
 			opacity: $mainmenubar-button-active-opacity / 100;
 			font-weight: normal;
-
-        	background-image: sprite-url($icons) !important;
-        	background-repeat: no-repeat;
-			background-position: sprite-position($icons, arrow_menubar, $offset_y: 30px, $offset_x: 50%);
+			background-position: center bottom !important;
 		}
 	}
 
@@ -108,23 +105,20 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 		}
 	}
 
-	#mainmenu-button-settings em{
-        background-image: sprite-url($icons) !important;
-        background-repeat: no-repeat;
-		background-position: sprite-position($icons, icon_settings, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
+	#mainmenu-button-settings em,
+	#mainmenu-button-logout em {
+		background-position: $mainmenubar-button-padding-left center !important;
+	}
 
+	#mainmenu-button-settings em{
 		button.x-btn-text {
-			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
+			padding-left: $mainmenubar-button-padding-left + 16px + 4px;
 		}
 	}
 
 	#mainmenu-button-logout em {
-        background-image: sprite-url($icons) !important;
-        background-repeat: no-repeat;
-		background-position: sprite-position($icons, icon_logout, $offset_y: 10px, $offset_x: $mainmenubar-button-padding-left);
-
 		button.x-btn-text {
-			padding-left: $mainmenubar-button-padding-left + 16px + 9px;
+			padding-left: $mainmenubar-button-padding-left + 16px + 4px;
 			text-transform: none;
 		}
 	}

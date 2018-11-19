@@ -116,7 +116,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			}
 		}, {
 			text : _('New Folder'),
-			iconCls : 'icon_createFolderColor',
+			iconCls : 'icon_folder_create',
 			handler : this.onContextItemNewFolder,
 			beforeShow : function(item, record) {
 				var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
@@ -130,7 +130,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			xtype: 'menuseparator'
 		}, {
 			text : _('Mark All Messages Read'),
-			iconCls : 'icon_mark_all_read',
+			iconCls : 'icon_mail_read',
 			handler : this.onContextItemReadFlags,
 			beforeShow : function(item, record) {
 				// We're not modifying the folder, but the contents. Hence we request the READ access
@@ -249,7 +249,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			menu : this.createSelectColorSubmenu(config)
 		},{
 			text : _('Add to Favorites'),
-			iconCls : 'icon_folder_favorites',
+			iconCls : 'icon_favorites',
 			hidden : true,
 			beforeShow : function(item, record) {
 				if(!record.isInDeletedItems()) {
@@ -304,7 +304,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		},{
 			text : _('Properties'),
 			handler : this.onContextItemSharedFolderAndProperties,
-			iconCls : 'icon_openMessageOptions',
+			iconCls : 'icon_cogwheel',
 			beforeShow : this.onBeforeContextItem
 		}];
 	},

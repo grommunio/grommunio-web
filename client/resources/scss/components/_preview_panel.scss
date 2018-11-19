@@ -14,6 +14,7 @@
 	width: 15px;
 	height: 15px;
 }
+
 .preview-header ::-webkit-scrollbar-button:vertical {
 	border: 1px solid #fff;
 	background-color: #fff;
@@ -24,13 +25,21 @@
 .preview-header ::-webkit-scrollbar-button:vertical:hover {
 	border: 1px solid $grey2;
 }
-.preview-header ::-webkit-scrollbar-button:vertical:decrement {
-	background-image: $iconsmap;
-	@include sprite-background-position($iconsmap, arrow_up_s, $offset-x: 4, $offset-y: 5);
-}
 .preview-header ::-webkit-scrollbar-button:vertical:increment {
-	background-image: $iconsmap;
-	@include sprite-background-position($iconsmap, arrow_down_s, $offset-x: 4, $offset-y: 5);
+	/* this is the arrow_down_s.png icon */
+	/* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
+	/* so we're cheating a little and adding this one here */
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAHElEQVR4AWMKDAz8j46ZGBgYGBlQASMTjIFMAwD7JAnFXwG1BAAAAABJRU5ErkJggg==);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.preview-header ::-webkit-scrollbar-button:vertical:decrement {
+	/* this is the arrow_up_s.png icon */
+	/* putting this webkit rule in app-icons.extensions.json would break the rule on IE11 */
+	/* so we're cheating a little and adding this one here */
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAGElEQVR4AWMIDAyE4f8wNkIAgRnAAugYAIFDFzUC5hyIAAAAAElFTkSuQmCC);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 .preview-header ::-webkit-scrollbar-button:vertical:increment:disabled {
 	background-color: red;
@@ -72,16 +81,6 @@ $preview-header-collapse-icon-height	: 5;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
-.preview-header-collapse-minus {
-	@extend .arrow_up_l;
-	/* when setting the background position, remember we pulled the image to the top and the right */
-	background-position: sprite-position($iconsmap, arrow_up_l, $offset-y: $padding-large, $offset-x: $preview-header-collapse-button-width - $preview-header-collapse-icon-width - $padding-large);
-}
-.preview-header-collapse-plus {
-	@extend .arrow_down_l;
-	/* when setting the background position, remember we pulled the image to the top and the right */
-	background-position: sprite-position($iconsmap, arrow_down_l, $offset-y: $padding-large, $offset-x: $preview-header-collapse-button-width - $preview-header-collapse-icon-width - $padding-large);
 }
 
 .preview-header-titlebox,

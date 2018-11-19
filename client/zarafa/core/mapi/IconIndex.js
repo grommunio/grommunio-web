@@ -3,7 +3,7 @@ Ext.namespace("Zarafa.core.mapi");
 /**
  * @class Zarafa.core.mapi.IconIndex
  * @extends Zarafa.core.Enum
- * 
+ *
  * Enumerates all Icon Index values
  *
  * @singleton
@@ -21,7 +21,7 @@ Zarafa.core.mapi.IconIndex = Zarafa.core.Enum.create({
 	'mail_remote' : 0x00000107,
 	'mail_delivery_receipt' : 0x00000108,
 	'mail_read_receipt' : 0x00000109,
-	'mail_nondelivery_receipt' : 0x0000010a,
+	'icon_mail_report_ndr' : 0x0000010a,
 	'mail_nonread_receipt' : 0x0000010b,
 	'mail_recall_s' : 0x0000010c,
 	'mail_recall_f' : 0x0000010d,
@@ -44,7 +44,7 @@ Zarafa.core.mapi.IconIndex = Zarafa.core.Enum.create({
 	// appointment
 	'appt_appointment' : 0x00000400,
 	'appt_recurring' : 0x00000401,
-	'appt_meeting_single' : 0x00000402,
+	'calendar_mr' : 0x00000402,
 	'appt_meeting_recurring' : 0x00000403,
 	'appt_meeting_request' : 0x00000404,
 	'appt_meeting_accept' : 0x00000405,
@@ -55,10 +55,10 @@ Zarafa.core.mapi.IconIndex = Zarafa.core.Enum.create({
 	'appt_meeting_forward' : 0x0000040b,
 
 	// task
-	'task_normal' : 0x00000500,
+	'task' : 0x00000500,
 	'task_recurring' : 0x00000501,
 	'task_assignee' : 0x00000502,
-	'task_assigner' : 0x00000503,
+	'task_assigned' : 0x00000503,
 	'task_declined' : 0x00000506,
 
 	// journal

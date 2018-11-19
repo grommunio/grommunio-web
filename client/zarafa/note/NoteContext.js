@@ -29,7 +29,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	 * @private
 	 */
 	oldView : undefined,
-		
+
 	/**
 	 * When searching, this property marks the {@link Zarafa.core.Context#getCurrentViewMode viewmode}
 	 * which was used before {@link #onSearchStart searching started} the viewmode was switched to
@@ -270,7 +270,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 			tooltip: _('Sticky note')+' (Ctrl + Alt + S)',
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Sticky note'),
-			iconCls: 'icon_createNote',
+			iconCls: 'icon_new_note',
 			newMenuIndex: 5,
 			context: 'note',
 			handler: function()
@@ -282,20 +282,20 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the Print button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the Print button in the main toolbar. It will use the
 	 * main.maintoolbar.print.note insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarPrintButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.toolbar.print.note', this) || [];
-		
+
 		var defaultItems = [{
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-selectednote',
 			overflowText: _('Print selected note'),
-			iconCls: 'icon_print_single_note',
+			iconCls: 'icon_print_note',
 			tooltip: _('Print selected note') + ' (Ctrl + P)',
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected note'),
@@ -307,7 +307,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 
 		return defaultItems.concat(items);
 	},
-	
+
 	/**
 	 * Handler for printing the selected {@link Zarafa.core.data.MAPIRecord} record. Menu item is disabled if there is no record selected.
 	 * Calls {@link Zarafa.common.Actions.openPrintDialog} openPrintDialog with the selected record.
@@ -324,9 +324,9 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.note insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarViewButtons : function()
@@ -368,13 +368,13 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 		return defaultItems.concat(items);
 	},
 
-	/** 
-	 * Event handler which is fired when one of the View buttons 
-	 * has been pressed. This will call {@link Zarafa.note.NoteContext#setView setView} 
-	 * to update the view. 
-	 * @param {Ext.Button} button The button which was pressed 
-	 * @private 
-	 */ 
+	/**
+	 * Event handler which is fired when one of the View buttons
+	 * has been pressed. This will call {@link Zarafa.note.NoteContext#setView setView}
+	 * to update the view.
+	 * @param {Ext.Button} button The button which was pressed
+	 * @private
+	 */
 	onContextSelectView : function(button)
 	{
 		this.getModel().setDataMode(button.valueDataMode);
@@ -383,7 +383,7 @@ Zarafa.note.NoteContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Adds a button to the top tab bar for this context.
-	 * @return {Object} The button for the top tabbar 
+	 * @return {Object} The button for the top tabbar
 	 * @private
 	 */
 	createMainTab: function()

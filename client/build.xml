@@ -75,6 +75,10 @@
 	<property name="kopano-themes-folder" value="zarafa/core/themes"/>
 	<property name="kopano-themes-target-folder" value="themes"/>
 
+	<!-- The Kopano iconsets -->
+	<property name="kopano-iconsets-folder" value="resources/iconsets"/>
+	<property name="kopano-iconsets-target-folder" value="resources/iconsets"/>
+
 	<!-- Meta target -->
 	<target name="all" depends="prepare, concat, compress"/>
 
@@ -138,8 +142,9 @@
 			</fileset>
 		</delete>
 
-		<!-- Delete the Kopano themes -->
+		<!-- Delete the Kopano themes and iconsets -->
 		<delete dir="${target-folder}/${kopano-themes-target-folder}"/>
+		<delete dir="${target-folder}/${kopano-iconsets-target-folder}"/>
 	</target>
 
 	<!-- Prepare build, copy ExtJs files to target folder -->
@@ -331,6 +336,7 @@
 				<!-- CSS is generated during build -->
 				<exclude name="resources/css/*.*"/>
 				<exclude name="third-party/resources/css/*.*"/>
+				<exclude name="resources/.sass-cache/**/*"/>
 			</fileset>
 		</copy>
 
@@ -356,6 +362,15 @@
 		<copy todir="${target-folder}/${kopano-themes-target-folder}" includeEmptyDirs="false">
 			<fileset dir="${kopano-themes-folder}">
 				<exclude name="**/*.js"/>
+			</fileset>
+		</copy>
+
+		<!-- Copy the iconsets -->
+		<echo message="Copying ${kopano-iconsets-folder} to ${target-folder}/${kopano-iconsets-target-folder}"/>
+		<copy todir="${target-folder}/${kopano-iconsets-target-folder}" includeEmptyDirs="false">
+			<fileset dir="${kopano-iconsets-folder}">
+				<exclude name="extensions.json"/>
+				<exclude name="**/src/**/*"/>
 			</fileset>
 		</copy>
 	</target>

@@ -79,7 +79,6 @@ $calendar-tab-height: 30px;
 			position: relative;
 			overflow : hidden;
 			white-space:nowrap;
-			display: inline-block;
 			color: white;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
 			float: left;
@@ -88,11 +87,8 @@ $calendar-tab-height: 30px;
 		/* cross icon is 7x7 px */
 		.zarafa-calendar-tab-icon-close {
 			position: relative;
-			display: inline-block;
 			padding-left: $padding-medium;
 			padding-right: $padding-medium;
-			@extend .icon_cross;
-			background-position: sprite-position($icons, 'icon_cross_white', $offset_y: ($calendar-tab-height - 7px)/2, $offset_x: $padding-medium);
 			width: 7px;
 			height: $calendar-tab-height;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
@@ -102,11 +98,8 @@ $calendar-tab-height: 30px;
 		/* arrow_left_l icon is 5x9 px */
 		.zarafa-calendar-tab-icon-merge {
 			position: relative;
-			display: inline-block;
 			padding-left: $padding-medium;
 			padding-right: $padding-medium;
-			@extend .arrow_left_l;
-			background-position: sprite-position($icons, 'arrow_left_l_white', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
 			width: 5px;
 			height: $calendar-tab-height;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
@@ -116,11 +109,8 @@ $calendar-tab-height: 30px;
 		/* arrow_right_l icon is 5x9 px */
 		.zarafa-calendar-tab-icon-separate {
 			position: relative;
-			display: inline-block;
 			padding-left: $padding-medium;
 			padding-right: $padding-medium;
-			@extend .arrow_right_l;
-			background-position: sprite-position($icons, 'arrow_right_l_white', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
 			width: 5px;
 			height: $calendar-tab-height;
 			/* the float is needed because safari lowers the title otherwise (and I have no idea why)*/
@@ -140,22 +130,12 @@ $calendar-tab-height: 30px;
 		}
 		.zarafa-calendar-tab-icon-separate {
 			padding-left: $padding-medium/2;
-			background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium/2);
 		}
 	}
 
 	.zarafa-calendar-tab-contents.light-background {
 		.zarafa-calendar-tab-title {
 			color: black;
-		}
-		.zarafa-calendar-tab-icon-close {
-			background-position: sprite-position($icons, 'icon_cross', $offset_y: ($calendar-tab-height - 7px)/2, $offset_x: $padding-medium);
-		}
-		.zarafa-calendar-tab-icon-merge {
-			background-position: sprite-position($icons, 'arrow_left_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
-		}
-		.zarafa-calendar-tab-icon-separate {
-			background-position: sprite-position($icons, 'arrow_right_l', $offset_y: ($calendar-tab-height - 5px)/2 - 2, $offset_x: $padding-medium);
 		}
 	}
 }
@@ -213,12 +193,6 @@ $calendar-tab-height: 30px;
 /* Margin between checkbox and calendar icon in hieracy */
 .zarafa-hierachy-node-cb {
 	margin-right: 6px;
-}
-
-/* Icon showed in popup when moving an item in a calendar where you do not have permission */
-.zarafa-calendar-delegate-permission {
-        background-image: sprite-url($iconsmap);
-	background-position: sprite-position($iconsmap, 'delegates_l');
 }
 
 /*
@@ -317,9 +291,6 @@ $calendar-tab-height: 30px;
 	height: 12px;
 	width: 12px;
 	left: 6px;
-	background-image: sprite-url($iconsmap);
-	background-repeat: no-repeat;
-	background-position: sprite-position($iconsmap, 'icon_indicator_calendar', $offset_y: 0, $offset_x: 0);
 	position: absolute;
 }
 
@@ -392,82 +363,3 @@ $calendar-tab-height: 30px;
 .zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
 	border-top-color: $action-bgcolor;
 }
-
-/* Unused CSS, but unsure if it's really unused */
-/*
-.zarafa-calendar-dragproxy-time
-{
-	overflow : hidden;
-	position : absolute;
-	color : #000000;
-	font-weight : bold;
-	font-size : 11px;
-}
-
-.zarafa-calendar-dragproxy-header
-{
-	color : #ffffff;
-
-	overflow : hidden;
-	position : absolute;
-	display : none;
-	cursor : move ! important;
-	z-index : 999;
-
-	opacity:.5;
-	background-color : #9f9faf;
-}
-
-.zarafa-calendar-dragproxy-outside
-{
-	overflow : hidden;
-	display : none;
-	position : absolute;
-	cursor : move;
-	z-index : 999;
-	padding : 4px;
-
-	font-weight : bold;
-	font-size : 11px;
-	padding : 4px;
-
-	border : 1px solid #a0a0a0;
-	color : #000000;
-	background-color : #e7e7e7;
-
-}
-
-.zarafa-calendar-dragproxy
-{
-	padding : 2px;
-	opacity:.5;
-	background-color : #7f7f7f;
-	overflow: hidden;
-	position: absolute;
-}
-
-.zarafa-calendar-dragproxy-single
-{
-	border: 1px solid #3f3f3f;
-}
-
-.zarafa-calendar-dragproxy-first
-{
-	border-top: 1px solid #3f3f3f;
-	border-left: 1px solid #3f3f3f;
-	border-right: 1px solid #3f3f3f;
-}
-
-.zarafa-calendar-dragproxy-middle
-{
-	border-left: 1px solid #3f3f3f;
-	border-right: 1px solid #3f3f3f;
-}
-
-.zarafa-calendar-dragproxy-last
-{
-	border-bottom: 1px solid #3f3f3f;
-	border-left: 1px solid #3f3f3f;
-	border-right: 1px solid #3f3f3f;
-}
-*/

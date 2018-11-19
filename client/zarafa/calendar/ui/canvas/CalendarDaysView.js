@@ -150,7 +150,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 	{
 		// Parent render.
 		Zarafa.calendar.ui.canvas.CalendarDaysView.superclass.render.call(this, container);
-		
+
 		this.create('canvas', this.header, 'headerBackgroundCanvas', 'zarafa-canvas zarafa-canvas-layer-1 zarafa-canvas-header-background');
 		this.create('div', this.headerBackgroundCanvas, 'headerBackgroundCanvasStylingElement', 'zarafa-styling-element');
 		this.create('div', this.headerBackgroundCanvas, 'headerBackgroundCanvasStylingElementActive', 'zarafa-styling-element-active');
@@ -180,7 +180,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		});
 
 		// Create current-time indicator, line and icon
-		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'k-calendar-timestrip-indicator-icon');
+		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'icon_indicator_calendar');
 		this.createDiv(this.parentView.scrollable, 'indicatorLine', 'k-calendar-timestrip-indicator-line');
 	},
 
@@ -346,7 +346,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		// Let's get some styling from the css styling of the canvas
 		context.fillStyle = this.headerBackgroundCanvasStylingElement.getStyle('color');
 		context.font = this.headerBackgroundCanvasStylingElement.getStyle('font');
-		
+
 		for (var i = 0, len = dayPositions.length; i < len; i++) {
 			var pos = dayPositions[i];
 			var dayWidth = pos.right - pos.left;
@@ -362,7 +362,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 				headerText = Ext.util.Format.substr(headerText, 0, headerText.length - (diff/context.getFontSize() + 2));
 				headerTextLength = context.textWidth(headerText);
 			}
-			
+
 			if ( pos.today ) {
 				context.save();
 				context.fillStyle = this.headerBackgroundCanvasStylingElementActive.getStyle('color');
@@ -932,7 +932,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		} else {
 			this.headerBackgroundCanvasStylingElement.removeClass('light-background');
 		}
-		
+
 		var dayPositions = this.calculateDayLayoutPositions();
 
 		this.drawHeader(dayPositions);

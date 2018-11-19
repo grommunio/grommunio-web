@@ -29,7 +29,7 @@ Zarafa.settings.ui.SettingsGeneralCategory = Ext.extend(Zarafa.settings.ui.Setti
 		Ext.applyIf(config, {
 			title : _('General'),
 			categoryIndex : 0,
-			iconCls : 'zarafa-settings-category-general',
+			iconCls : 'icon_cogwheel',
 			items : [{
 					xtype : 'zarafa.settingsaccountwidget'
 				},{

@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.mail.attachitem');
  * @class Zarafa.mail.attachitem.AttachMailColumnModel
  * @extends Zarafa.common.ui.grid.ColumnModel
  *
- * The {@link Zarafa.mail.attachitem.AttachMailColumnModel AttachMailColumnModel} is the column model containing 
+ * The {@link Zarafa.mail.attachitem.AttachMailColumnModel AttachMailColumnModel} is the column model containing
  * sets of {@link Ext.grid.Column columns} for mail folders.
  * This column model will be used with {@link Zarafa.common.attachment.dialog.AttachItemGrid AttachItemGrid}.
  */
@@ -56,7 +56,7 @@ Zarafa.mail.attachitem.AttachMailColumnModel = Ext.extend(Zarafa.common.ui.grid.
 			renderer : Zarafa.common.ui.grid.Renderers.icon,
 			tooltip : _('Sort by: Icon')
 		}, {
-			header : '<p class=\'icon_attachment\'>&nbsp;</p>',
+			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex : 'hasattach',
 			width : 24,

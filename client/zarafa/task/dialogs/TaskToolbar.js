@@ -55,7 +55,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			overflowText: _('Send'),
 			tooltip: _('Send task to assignees') + ' (Ctrl + Enter)',
 			cls: 'zarafa-action',
-			iconCls: 'buttons-icon_send_white',
+			iconCls: 'icon_send_white',
 			ref: 'sendBtn',
 			handler: this.onSendTask,
 			scope: this
@@ -63,7 +63,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype: 'button',
 			overflowText: _('Save'),
 			tooltip: _('Save') + ' (Ctrl + S)',
-			iconCls: 'icon_saveEmail',
+			iconCls: 'icon_floppy',
 			ref: 'saveTaskRequest',
 			handler: this.onSave,
 			scope: this
@@ -74,7 +74,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			overflowText : _('Save')+' & '+_('Close'),
 			tooltip: _('Save')+' & '+_('Close') + ' (Ctrl + S)',
 			cls : 'zarafa-action',
-			iconCls : 'buttons-icon_save_white',
+			iconCls : 'icon_save_white',
 			handler: this.onSave,
 			scope : this
 		},{
@@ -98,7 +98,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
 			overflowText : _('Add Attachment'),
 			tooltip: _('Add attachments to this task'),
-			iconCls : 'icon_attachment',
+			iconCls : 'icon_paperclip',
 			ref : 'attachmentButton',
 			// Add a listener to the component added event to set use the correct update function when the toolbar overflows
 			// (i.e. is too wide for the panel) and Ext moves the button to a menuitem.
@@ -129,18 +129,18 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype: 'button',
 			overflowText: _('Check names'),
 			tooltip: _('Check names'),
-			iconCls: 'icon_checkNames',
+			iconCls: 'icon_checknames',
 			ref: 'checkNamesBtn',
 			handler: this.onCheckNames,
 			scope: this
 		}];
 	},
-	
+
 	/**
 	 * Event listener for the added event of the {@link Zarafa.common.attachment.ui.AttachmentButton attachmentButton}
 	 * Adds the update function to the item when Ext converts the button to a menu item
 	 * (which happens when the toolbar overflows, i.e. is too wide for the containing panel)
-	 * 
+	 *
 	 * @param {Ext.Component} item The item that was added. This can be a {@link Zarafa.common.attachment.ui.AttachmentButton}
 	 * or a {@link Ext.menu.Item}
 	 */
@@ -175,7 +175,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			xtype: 'button',
 			text: _('Cancel Assignment'),
 			overflowText: _('Cancel Assignment'),
-			iconCls: 'icon_cancel_meeting_request',
+			iconCls: 'icon_calendar_appt_cancelled',
 			ref: 'cancelAssignmetBtn',
 			handler: this.onCancelAssignment,
 			scope: this
@@ -332,7 +332,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 		record.set('taskmode', Zarafa.core.mapi.TaskMode.NOTHING);
 		record.set('taskhistory', Zarafa.core.mapi.TaskHistory.NONE);
 		record.set('ownership', Zarafa.core.mapi.TaskOwnership.NEWTASK);
-		record.set('icon_index', Zarafa.core.mapi.IconIndex['task_normal']);
+		record.set('icon_index', Zarafa.core.mapi.IconIndex['task']);
 		record.set('updatecount', 2);
 		record.set('taskfcreator', true);
 		record.set('tasklastdelegate', '');

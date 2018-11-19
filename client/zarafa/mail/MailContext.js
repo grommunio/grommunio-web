@@ -395,7 +395,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			tooltip : _('Email')+ ' (Ctrl + Alt + X)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Email'),
-			iconCls: 'icon_createEmailMessage',
+			iconCls: 'icon_new_email',
 			newMenuIndex: 1,
 			context: 'mail',
 			handler: function()
@@ -415,7 +415,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 	{
 		return {
 			text : _('Send email'),
-			iconCls : 'icon_send_email_to_recipient',
+			iconCls : 'icon_new_email',
 			scope : this,
 			handler : function(item) {
 				Zarafa.mail.Actions.openCreateMailContentForContacts(this.getModel(), item.parentMenu.records);
@@ -447,7 +447,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype : 'button',
 			plugins : [ 'zarafa.recordcomponentupdaterplugin' ],
-			iconCls : 'icon_send_email_to_recipient',
+			iconCls : 'icon_new_email',
 			overflowText : _('Send email'),
 			tooltip : _('Send email'),
 			handler : function(btn) {
@@ -586,7 +586,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-singlemail',
 			overflowText: _('Print single e-mail'),
-			iconCls: 'icon_print_single',
+			iconCls: 'icon_print',
 			tooltip : _('Print selected email') + ' (Ctrl + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Print single e-mail'),

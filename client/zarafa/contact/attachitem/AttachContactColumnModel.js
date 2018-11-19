@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.contact.attachitem');
  * @class Zarafa.contact.attachitem.AttachContactColumnModel
  * @extends Zarafa.common.ui.grid.ColumnModel
  *
- * The {@link Zarafa.contact.attachitem.AttachContactColumnModel AttachContactColumnModel} is the column model containing 
+ * The {@link Zarafa.contact.attachitem.AttachContactColumnModel AttachContactColumnModel} is the column model containing
  * sets of {@link Ext.grid.Column columns} for contact folders.
  * This column model will be used with {@link Zarafa.common.attachment.dialog.AttachItemGrid AttachItemGrid}.
  */
@@ -48,7 +48,7 @@ Zarafa.contact.attachitem.AttachContactColumnModel = Ext.extend(Zarafa.common.ui
 			fixed : true,
 			renderer : Zarafa.common.ui.grid.Renderers.icon
 		}, {
-			header : '<p class=\'icon_attachment\'>&nbsp;</p>',
+			header : '<p class=\'icon_paperclip\'>&nbsp;</p>',
 			headerCls: 'zarafa-icon-column',
 			dataIndex : 'hasattach',
 			width : 24,

@@ -155,8 +155,8 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.preview']:
 				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass([ 'IPM.Contact', 'IPM.DistList' ], true)) {
 					bid = 1;
-				// If the guid of the entryid indicates this record comes from the Contact Provider 
-				// then we also want this record. This happens when opening an Addressbook record. 
+				// If the guid of the entryid indicates this record comes from the Contact Provider
+				// then we also want this record. This happens when opening an Addressbook record.
 				} else if (record instanceof Zarafa.core.data.MAPIRecord) {
 					var entryid = record.get('entryid');
 					if(entryid && Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
@@ -226,7 +226,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 						component = Zarafa.contact.dialogs.ContactContentPanel;
 					} else if (record.isMessageClass('IPM.DistList', true)) {
 						component = Zarafa.contact.dialogs.DistlistContentPanel;
-					} 
+					}
 				} else if (record instanceof Zarafa.core.data.MAPIRecord) {
 					var entryid = record.get('entryid');
 					if (entryid && Zarafa.core.EntryId.hasContactProviderGUID(entryid)) {
@@ -234,7 +234,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 							component = Zarafa.contact.dialogs.ContactContentPanel;
 						} else if (record.get('object_type') === Zarafa.core.mapi.ObjectType.MAPI_DISTLIST) {
 							component = Zarafa.contact.dialogs.DistlistContentPanel;
-						} 
+						}
 					}
 				}
 				break;
@@ -353,15 +353,15 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.contact insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarViewButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.maintoolbar.view.contact', this) || [];
-		
+
 		var defaultItems = [{
 			id: 'zarafa-maintoolbar-view-contacts-businesscards',
 			text: _('Business Cards'),
@@ -387,13 +387,13 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 		return defaultItems.concat(items);
 	},
 
-	/** 
-	 * Event handler which is fired when one of the View buttons 
-	 * has been pressed. This will call {@link Zarafa.contact.ContactContext#setView setView} 
-	 * to update the view. 
-	 * @param {Ext.Button} button The button which was pressed 
-	 * @private 
-	 */ 
+	/**
+	 * Event handler which is fired when one of the View buttons
+	 * has been pressed. This will call {@link Zarafa.contact.ContactContext#setView setView}
+	 * to update the view.
+	 * @param {Ext.Button} button The button which was pressed
+	 * @private
+	 */
 	onContextSelectView : function(button)
 	{
 		this.getModel().setDataMode(button.valueDataMode);
@@ -404,7 +404,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 	 * Create "New Contact" {@link Ext.menu.MenuItem item} for the "New item"
 	 * {@link Ext.menu.Menu menu} in the {@link Zarafa.core.ui.MainToolbar MainToolbar}.
 	 * This button should be shown in all {@link Zarafa.core.Context contexts} and
-	 * is used to create a new contact. 
+	 * is used to create a new contact.
 	 *
 	 * @return {Object} The menu item for creating a new contact item
 	 * @static
@@ -422,7 +422,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.contact.Actions.openCreateContactContent(this.getModel());
 			},
 			scope : this,
-			iconCls : 'icon_createContact',
+			iconCls : 'icon_new_contact',
 			newMenuIndex : 3,
 			context: 'contact'
 		};
@@ -475,12 +475,12 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 	getMainToolbarPrintButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.toolbar.print.contact', this) || [];
-		
+
 		var defaultItems = [{
 			xtype:'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-selectedcontact',
 			overflowText: _('Print selected contact'),
-			iconCls: 'icon_print_single_contact',
+			iconCls: 'icon_print_contact',
 			tooltip: _('Print selected contact') + ' (Ctrl + P)',
 			plugins: 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected contact'),
@@ -531,7 +531,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.contact.Actions.openCreateDistlistContent(this.getModel());
 			},
 			scope: this,
-			iconCls: 'icon_createDistributionList',
+			iconCls: 'icon_new_distlist',
 			newMenuIndex: 3,
 			context: 'contact'
 		};
@@ -539,7 +539,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Adds a button to the top tab bar for this context.
-	 * @return {Object} The button for the top tabbar 
+	 * @return {Object} The button for the top tabbar
 	 * @private
 	 */
 	createMainTab: function()
@@ -568,7 +568,7 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 		var model = this.getModel();
 
 		switch (newViewMode) {
-			case Zarafa.contact.data.ViewModes.SEARCH: 
+			case Zarafa.contact.data.ViewModes.SEARCH:
 			case Zarafa.contact.data.ViewModes.NORMAL:
 				model.clearGrouping();
 				break;

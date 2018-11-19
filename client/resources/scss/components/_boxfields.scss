@@ -10,7 +10,7 @@
 }
 .x-zarafa-boxfield {
 	padding: 0;
-	
+
 	/* clearfix solution found at http://nicolasgallagher.com/micro-clearfix-hack/ */
 	ul:before,
 	ul:after {
@@ -23,12 +23,12 @@
 
 	ul {
 		padding: 0 1px;
-		/* 
+		/*
 		 * We need to set a minumum height because the attachment field by default has no contents and therefor would
 		 * have a height of 0
 		 */
 		min-height: 22px;
-		
+
 		li {
 			float: left;
 			margin: 1px $padding-small 0 0;
@@ -37,7 +37,7 @@
 		li:last-child {
 			margin-bottom: 1px;
 		}
-		
+
 		li.x-zarafa-boxfield-input-item {
 			padding: 0;
 
@@ -60,23 +60,20 @@
 			border-radius: 2px;
 
 			.x-zarafa-boxfield-item-icon {
-				display: inline-block;
 				float: left;
 				height: 15px;
 				width: 15px;
 				padding-right: $padding-medium;
 				margin-top: 1.5px;
 			}
-			
+
 			.x-zarafa-boxfield-item-text {
-				display: inline-block;
 				float: left;
 				line-height: 18px;
 				overflow: hidden;
 			}
-			
+
 			.x-zarafa-boxfield-item-close {
-				display: inline-block;
 				float: left;
 				cursor: pointer;
 				padding-left: $padding-medium;
@@ -84,8 +81,10 @@
 				width: 7px;
 				height: 7px;
 				margin-top: 5.5px;
+				/*
 				@extend .icon_cross;
 				background-position: sprite-position($icons, icon_cross, $offset-y: 0, $offset-x: $padding-medium);
+				*/
 			}
 		}
 
@@ -104,29 +103,17 @@
 		.x-zarafa-boxfield-item.x-zarafa-boxfield-recipient-item .x-zarafa-boxfield-item-icon {
 			display: none;
 		}
-		
+
 		/* Display the icon when the recipient box is resolved */
-		.x-zarafa-boxfield-item.x-zarafa-boxfield-recipient-item-resolved .x-zarafa-boxfield-item-icon, 
+		.x-zarafa-boxfield-item.x-zarafa-boxfield-recipient-item-resolved .x-zarafa-boxfield-item-icon,
 		.x-zarafa-boxfield-item.x-zarafa-boxfield-recipient-item-ambiguous .x-zarafa-boxfield-item-icon {
 			display: inline-block;
-		}
-		.x-zarafa-boxfield-recipient-item .icon_contact_user {
-			@extend .icon_contact_card;
-			background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: -1, $offset-x: 0);
-		}
-		.x-zarafa-boxfield-recipient-item-ambiguous .x-zarafa-boxfield-item-icon {
-			@extend .icon_addressbook;
-			background-position: sprite-position($iconsmap, icon_addressbook, $offset-y: -1, $offset-x: 0);
-		}
-		.icon_contact_distlist {
-			@extend .icon_distlist;
-			background-position: sprite-position($iconsmap, icon_distlist, $offset-y: -1, $offset-x: 0);
 		}
 
 		.x-zarafa-boxfield-recipient-item-invalid {
 			background: transparent;
 			border-color: transparent;
-			
+
 			.x-zarafa-boxfield-item-text {
 				border-bottom: 2px dotted #e40023;
 				line-height: 13px;
@@ -145,8 +132,6 @@
 		}
 
 		.x-zarafa-boxfield-item-expand {
-			@extend .icon_plus;
-			background-position: sprite-position($iconsmap, icon_plus, $offset-y: 0, $offset-x: 0);
 			width: 8px;
 			height: 8px;
 			margin-top: ($font-default-line-height - 8px)/2;
@@ -177,7 +162,6 @@
 	margin-top: 5px;
 	padding:0 6px;
 	visibility: hidden;
-	@extend .icon_cross;
 }
 .x-zarafa-boxfield-suggestion-item:hover .x-zarafa-boxfield-suggestion-cross {
 	visibility : visible !important;
@@ -202,30 +186,22 @@
 		padding: 0;
 		/* increase the minimum height because this boxfield has no border */
 		min-height: 24px;
-		/*xmargin-bottom: -1px;*/
 
 		li {
 			margin-top: 0;
 			margin-bottom: 1px;
-		}		
-		
+		}
+
 		.x-zarafa-boxfield-item {
-			
-			.icon_attachment {
-				background-position: sprite-position($icons, icon_paperclip, $offset-y: 0, $offset-x: -6px);
-				width: 8px;
-				height: 17px;
-			}
-			
 			.x-zarafa-boxfield-item-text {
 				line-height: 22px;
 			}
-			
+
 			.x-zarafa-boxfield-item-close {
 				margin-top: 7.5px;
 			}
 		}
-		
+
 		.x-zarafa-boxfield-item.x-zarafa-boxfield-attachment-item-uploading {
 		    background-color: #d5e8f7;
 		    background-image: linear-gradient(45deg, transparent, transparent 25%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.7) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.7) 75%, rgba(255, 255, 255, 0.7) 100%, transparent);

@@ -29,7 +29,7 @@ Zarafa.contact.ui.ExportContactContextMenu = Ext.extend(Zarafa.core.ui.menu.Cond
 			items: [{
 				xtype: 'zarafa.conditionalitem',
 				text: _('VCF file(s)'),
-				iconCls: 'icon_saveaseml',
+				iconCls: 'icon_download',
 				hideOnDisabled: false,
 				beforeShow: this.onExportMenuBeforeShow,
 				handler: this.onContextItemVcf,

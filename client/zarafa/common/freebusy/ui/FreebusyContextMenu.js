@@ -55,31 +55,31 @@ Zarafa.common.freebusy.ui.FreebusyContextMenu = Ext.extend(Zarafa.core.ui.menu.C
 			},'-',{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Required Attendee'),
-				iconCls: 'x-freebusy-userlist-recipienttype-required',
-				hidden : !editable || organizer, 
+				iconCls: 'icon_meetingrequest_requiredattendee',
+				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_TO,
 				handler : this.onRecipientTypeChange,
 				scope: this
-			},{   
+			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Optional Attendee'),
-				iconCls: 'x-freebusy-userlist-recipienttype-optional',
-				hidden : !editable || organizer, 
+				iconCls: 'icon_meetingrequest_optionalattendee',
+				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_CC,
 				handler : this.onRecipientTypeChange,
 				scope: this
-			},{   
+			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Resource'),
-				iconCls: 'x-freebusy-userlist-recipienttype-resource',
-				hidden : !editable || organizer, 
+				iconCls: 'icon_meetingrequest_resource',
+				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_BCC,
 				handler : this.onRecipientTypeChange,
 				scope: this
 			},
 			// Add insertion points
 			container.populateInsertionPoint('context.freebusy.userlist.contextmenu', this)
-			]	
+			]
 		});
 
 		Zarafa.common.freebusy.ui.FreebusyContextMenu.superclass.constructor.call(this, config);
@@ -104,7 +104,7 @@ Zarafa.common.freebusy.ui.FreebusyContextMenu = Ext.extend(Zarafa.core.ui.menu.C
 	 * @private
 	 */
 	openDetailsContent : function()
-	{   
+	{
 		Zarafa.common.Actions.openViewRecipientContent(this.records);
 	},
 

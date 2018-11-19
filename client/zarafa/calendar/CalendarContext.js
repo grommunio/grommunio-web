@@ -441,7 +441,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		var defaultItems = [{
 			id: 'zarafa-maintoolbar-view-calendar-day',
 			text : _('Day'),
-			iconCls : 'icon-calendar-day',
+			iconCls : 'icon_large_calendar_view_day',
 			ref : 'calendarDay',
 			valueView : Zarafa.calendar.data.Views.BLOCKS,
 			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
@@ -451,7 +451,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			id: 'zarafa-maintoolbar-view-calendar-workweek',
 			text : _('Workweek'),
-			iconCls : 'icon-calendar-workweek',
+			iconCls : 'icon_large_calendar_view_workweek',
 			ref : 'calendarWorkweek',
 			valueView : Zarafa.calendar.data.Views.BLOCKS,
 			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
@@ -461,7 +461,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			id: 'zarafa-maintoolbar-view-calendar-week',
 			text : _('Week'),
-			iconCls : 'icon-calendar-week',
+			iconCls : 'icon_large_calendar_view_week',
 			ref : 'calendarWeek',
 			valueView : Zarafa.calendar.data.Views.BLOCKS,
 			valueViewMode : Zarafa.calendar.data.ViewModes.DAYS,
@@ -471,7 +471,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			id: 'zarafa-maintoolbar-view-calendar-month',
 			text : _('Month'),
-			iconCls : 'icon-calendar-month',
+			iconCls : 'icon_large_calendar_view_month',
 			ref : 'calendarMonth',
 			valueView : Zarafa.calendar.data.Views.BLOCKS,
 			valueViewMode : Zarafa.calendar.data.ViewModes.BOX,
@@ -481,7 +481,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			id: 'zarafa-maintoolbar-view-calendar-list',
 			text : _('List'),
-			iconCls : 'icon-calendar-grid',
+			iconCls : 'icon_large_list_view',
 			ref : 'calendarList',
 			valueView : Zarafa.calendar.data.Views.LIST,
 			valueViewMode : Zarafa.calendar.data.ViewModes.LIST,
@@ -543,7 +543,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.calendar.Actions.openCreateAppointmentContent(this.getModel());
 			},
 			scope: this,
-			iconCls: 'icon_create_appointment',
+			iconCls: 'icon_new_appointment',
 			newMenuIndex: 2,
 			context: 'calendar'
 		};
@@ -567,7 +567,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 				Zarafa.calendar.Actions.openCreateMeetingRequestContent(this.getModel());
 			},
 			scope: this,
-			iconCls: 'icon_create_meeting_request',
+			iconCls: 'icon_new_meeting_request',
 			newMenuIndex: 2
 		};
 	},
@@ -584,7 +584,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-selectedappointment',
 			overflowText: _('Print selected appointment'),
-			iconCls: 'icon_print_single_appt',
+			iconCls: 'icon_print_appt',
 			tooltip : _('Print selected appointment') + ' (Ctrl + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected appointment'),
@@ -596,7 +596,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			xtype : 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-calendaroverview',
 			overflowText: _('Print overview'),
-			iconCls: 'icon_print_view',
+			iconCls: 'icon_print',
 			text: _('Print overview'),
 			tooltip : _('Print overview') + ' (Ctrl + Alt + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',

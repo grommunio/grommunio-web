@@ -16,6 +16,11 @@ $serverConfig = array_merge($serverConfig, array(
 	'post_max_size'					=> getMaxPostRequestSize(),
 	'max_file_uploads'				=> getMaxFileUploads(),
 	'client_timeout' 				=> defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT>0 ? CLIENT_TIMEOUT : false,
+	'active_theme'					=> Theming::getActiveTheme(),
+	'json_themes'					=> Theming::getJsonThemes(),
+	'iconsets'						=> Iconsets::getIconsets(),
+	'active_iconset'				=> Iconsets::getActiveIconset(),
+	'iconsets_about'				=> Iconsets::getAboutTexts(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
@@ -59,7 +64,9 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		<?php
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
+			$iconsetStylesheet = Iconsets::getActiveStylesheet();
 		?>
+		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
 	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic') ?>">

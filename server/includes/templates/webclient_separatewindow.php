@@ -17,6 +17,7 @@ $loader = new FileLoader();
 		<?php
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
+			$iconsetStylesheet = Iconsets::getActiveStylesheet();
 		?>
 	</head>
 
@@ -26,6 +27,7 @@ $loader = new FileLoader();
 			$extjsFiles[] = "client/tinymce/tinymce.js";
 			$loader->printFiles($extjsFiles, $jsTemplate);
 		?>
+		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 		<script>
 
 			/**

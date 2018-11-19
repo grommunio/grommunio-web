@@ -58,7 +58,11 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 
 		Ext.applyIf(config, {
 			cls : 'zarafa-settings-category-tab',
-			html : config.title || this.title
+			html : config.title || this.title,
+			listeners: {
+				afterrender: this.onAfterRender,
+				scope: this
+			}
 		});
 
 		Zarafa.settings.ui.SettingsCategoryTab.superclass.constructor.call(this, config);
@@ -99,9 +103,6 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 
 		var el = this.getEl();
 
-		if (!Ext.isEmpty(this.iconCls)) {
-			el.addClass(this.iconCls);
-		}
 		if (!Ext.isEmpty(this.cls)) {
 			el.addClassOnClick(this.cls + '-click');
 			el.addClassOnFocus(this.cls + '-focus');
@@ -109,6 +110,29 @@ Zarafa.settings.ui.SettingsCategoryTab = Ext.extend(Ext.Container, {
 		}
 
 		this.mon(el, 'click', this.onClick, this);
+	},
+
+	/**
+	 * Called after the Tab has been rendered, this will add the icon
+	 * @private
+	 */
+	onAfterRender : function()
+	{
+		var el = this.getEl();
+
+		if (!Ext.isEmpty(this.iconCls)) {
+			el.addClass('k-with-icon');
+
+			// Create an element for the icon
+			el.createChild(
+				{
+					tag: 'img',
+					cls: this.iconCls + ' k-settings-category-icon',
+					src: Ext.BLANK_IMAGE_URL
+				},
+				Ext.fly(el.dom.firstChild)
+			);
+		}
 	},
 
 	/**

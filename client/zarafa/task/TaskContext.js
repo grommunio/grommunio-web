@@ -169,7 +169,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 					}
 				}
 				break;
-			case Zarafa.core.data.SharedComponentType['common.contextmenu']: 
+			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
 				if (record instanceof Zarafa.core.data.IPMRecord) {
 					if(this.model.getDefaultFolder().isTodoListFolder()) {
 						bid = 2;
@@ -302,9 +302,9 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the 
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.task insertion point to allow other plugins to add their items at the end.
-	 * 
+	 *
 	 * @return {Ext.Component[]} an array of components
 	 */
 	getMainToolbarViewButtons : function()
@@ -336,13 +336,13 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		return defaultItems.concat(items);
 	},
 
-	/** 
-	 * Event handler which is fired when one of the View buttons 
-	 * has been pressed. This will call {@link Zarafa.task.TaskContext#setView setView} 
-	 * to update the view. 
-	 * @param {Ext.Button} button The button which was pressed 
-	 * @private 
-	 */ 
+	/**
+	 * Event handler which is fired when one of the View buttons
+	 * has been pressed. This will call {@link Zarafa.task.TaskContext#setView setView}
+	 * to update the view.
+	 * @param {Ext.Button} button The button which was pressed
+	 * @private
+	 */
 	onContextSelectView : function(button)
 	{
 		this.getModel().setDataMode(button.valueDataMode);
@@ -353,7 +353,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	 * Create "New Task" {@link Ext.menu.MenuItem item} for the "New item"
 	 * {@link Ext.menu.Menu menu} in the {@link Zarafa.core.ui.MainToolbar MainToolbar}.
 	 * This button should be shown in all {@link Zarafa.core.Context contexts} and
-	 * is used to create a new task. 
+	 * is used to create a new task.
 	 *
 	 * @return {Object} The menu item for creating a new task item
 	 * @static
@@ -371,7 +371,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			handler	: function(){
 				Zarafa.task.Actions.openCreateTaskContent(this.getModel());
 			},
-			iconCls		: 'icon_createTask',
+			iconCls		: 'icon_new_task',
 			newMenuIndex: 4,
 			context: 'task',
 			scope : this
@@ -398,7 +398,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			handler : function(){
 				Zarafa.task.Actions.openCreateTaskRequestContent(this.getModel());
 			},
-			iconCls : 'icon_createTaskRequest',
+			iconCls : 'icon_new-task_request',
 			newMenuIndex: 4,
 			context: 'task',
 			scope : this
@@ -412,12 +412,12 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	getMainToolbarPrintButtons : function()
 	{
 		var items = container.populateInsertionPoint('main.toolbar.print.task', this) || [];
-		
+
 		var defaultItems = [{
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-selectedtask',
 			overflowText: _('Print selected task'),
-			iconCls: 'icon_print_single_task',
+			iconCls: 'icon_print_task',
 			tooltip : _('Print selected task') + ' (Ctrl + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Print selected task'),
@@ -428,7 +428,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			overflowText: _('Print task list'),
 			id: 'zarafa-maintoolbar-print-tasklist',
-			iconCls: 'icon_print_task_list',
+			iconCls: 'icon_print',
 			tooltip : _('Print task list') + ' (Ctrl + Alt + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',
 			text: _('Print task list'),
@@ -466,7 +466,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Adds a button to the top tab bar for this context.
-	 * @return {Object} The button for the top tabbar 
+	 * @return {Object} The button for the top tabbar
 	 * @private
 	 */
 	createMainTab: function()
@@ -489,7 +489,7 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype: 'zarafa.conditionalitem',
 			text : _('Create task'),
-			iconCls : 'icon_createTask',
+			iconCls : 'icon_new_task',
 			singleSelectOnly: true,
 			hidden: true,
 			handler: this.onContextItemCreateTask,
@@ -511,10 +511,10 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Event Handler triggered when {@link #convertToTask convert to task} context menu item is click. 
-	 * function is used to convert email to task record 
+	 * Event Handler triggered when {@link #convertToTask convert to task} context menu item is click.
+	 * function is used to convert email to task record
 	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item 
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
 	 * @param {Ext.EventObject} event The event information
 	 * @private
 	 */

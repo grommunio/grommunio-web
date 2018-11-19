@@ -35,13 +35,13 @@ Zarafa.mail.ui.ExportAsContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			cls: 'k-categories',
 			items: [{
 				text: _('EML file(s)'),
-				iconCls: 'icon_saveaseml',
+				iconCls: 'icon_download',
 				handler: this.onContextItemEml,
 				scope: this
 			}, {
 				text: _('ZIP file'),
 				hideOnDisabled: false,
-				iconCls: 'icon_saveemlaszip',
+				iconCls: 'icon_download_zip',
 				beforeShow: this.onZipMenuItemBeforeShow,
 				handler: this.onContextItemEmlZip,
 				scope: this

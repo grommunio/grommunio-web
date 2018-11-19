@@ -1,3 +1,8 @@
+/* arrows that show where a column will be moved. Looks ugly. We don't want this. */
+.col-move-bottom, .col-move-top {
+	background-image: none !important;
+}
+
 /* column headers */
 .x-grid3-header {
 	background: $background-color-main;
@@ -47,8 +52,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				height: $button-small-height - 2px !important; /* overwriting the inline styled height that extjs gives this element */
 				right: -20px;
 				top: -1px; /* needed because the parent has a border */
-				@extend .icon_cogwheel_s;
-      			background-position: sprite-position($iconsmap, icon_cogwheel_s, $offset-y: 6, $offset-x: 3);
 			}
 		}
 	}
@@ -73,15 +76,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		position: absolute;
 		right: $padding-medium;
 		top: (($button-small-height - 5px)/2 - 1px);
-	}
-
-	td.sort-desc .x-grid3-sort-icon{
-		@extend .arrow_down_l;
-      	background-position: sprite-position($iconsmap, arrow_down_l, $offset-y: 0, $offset-x: 0);
-	}
-	td.sort-asc .x-grid3-sort-icon{
-		@extend .arrow_up_l;
-      	background-position: sprite-position($iconsmap, arrow_up_l, $offset-y: 0, $offset-x: 0);
 	}
 
 	td.sort-desc .x-grid3-hd-inner,
@@ -110,7 +104,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			p {
 				position: relative;
 				display: inline-block;
-				min-width: 12px;
+				min-width: 20px;
 
 				.title {
 					display: none;
@@ -129,46 +123,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			margin: 0;
 		}
 	}
-
-
-
-	/****************************************************************************
-	 * Icons
-	 ****************************************************************************/
-
-	td.zarafa-icon-column .x-grid3-hd-inner{
-		p.icon_importance {
-			background-position: sprite-position($iconsmap, icon_importance, $offset-y: 5px, $offset-x: 4px);
-		}
-		p.icon_index {
-			background-position: sprite-position($iconsmap, icon_index, $offset-y: 4px, $offset-x: 1px);
-		}
-		p.icon_attachment {
-			@extend .icon_paperclip;
-			background-position: sprite-position($icons, icon_paperclip, $offset-y: 2px, $offset-x: -4px);
-		}
-		p.icon_flag {
-			background-position: sprite-position($iconsmap, icon_flag, $offset-y: 5px, $offset-x: 0px);
-		}
-
-		/* note icon complete */
-		p.icon_complete,
-		/* calendar grid */
-		p.icon_allday {
-			@extend .icon_all_day;
-			background-position: sprite-position($iconsmap, icon_all_day, $offset-y: 3px, $offset-x: 0px);
-			width: 14px;
-		}
-		p.icon_recurring {
-			@extend .icon_recurrence;
-			background-position: sprite-position($icons, icon_recurrence, $offset-y: 3px, $offset-x: 0px);
-			width: 14px;
-		}
-		p.icon_reminder {
-			background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 4px, $offset-x: 4px);
-			width: 18px;
-		}
-	}
 }
 
 	/****************************************************************************
@@ -181,43 +135,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 			.x-menu-item-text {
 				p {
-					padding-left: 13px;
-				}
-
-				/* mail grid */
-				p.icon_importance {
-					background-position: sprite-position($iconsmap, icon_importance, $offset-y: 4px, $offset-x: 4px);
-				}
-				p.icon_index {
-					background-position: sprite-position($iconsmap, icon_index, $offset-y: 3px, $offset-x: 1px);
-				}
-				p.icon_attachment {
-					@extend .icon_paperclip;
-					background-position: sprite-position($icons, icon_paperclip, $offset-y: 1px, $offset-x: -5px);
-				}
-				p.icon_flag {
-					background-position: sprite-position($iconsmap, icon_flag, $offset-y: 4px, $offset-x: 0px);
-				}
-
-				/* task icon complete */
-				p.icon_complete,
-				/* calendar grid */
-				p.icon_allday {
-					@extend .icon_all_day;
-					background-position: sprite-position($iconsmap, icon_all_day, $offset-y: 3px, $offset-x: 0pxpx);
-					margin-left: -2px;
-					padding-left: 12px;
-				}
-				p.icon_recurring {
-					@extend .icon_recurrence;
-					background-position: sprite-position($icons, icon_recurrence, $offset-y: 3px, $offset-x: 0pxpx);
-					margin-left: -2px;
-					padding-left: 12px;
-				}
-				p.icon_reminder {
-					background-position: sprite-position($iconsmap, icon_reminder, $offset-y: 3px, $offset-x: 0px);
-					margin-left: -6px;
-					padding-left: 16px;
+					padding-left: 20px;
+					background-position: 2px center !important;
 				}
 			}
 		}
@@ -350,243 +269,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	}
 }
 
-	/*********************************
-	 * Icons in the grid colums
-	 ********************************/
-	.x-panel > .x-panel-bwrap > .x-panel-body > .x-grid3{
-		.x-grid3-row {
-
-			/* Icon column */
-			.icon_message,
-			.icon_mail.icon_message_read {
-				@extend .icon_mail_read;
-	        	background-position: sprite-position($iconsmap, icon_mail_read, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail.icon_message_unread {
-				@extend .icon_mail_unread;
-	        	background-position: sprite-position($iconsmap, icon_mail_unread, $offset-y: $padding-medium + 5, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_replied {
-	        	background-position: sprite-position($iconsmap, icon_mail_replied, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_single {
-				@extend .icon_calendar_mr;
-	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: $padding-medium + 1, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail_stubbed {
-	        	background-position: sprite-position($iconsmap, icon_mail_stubbed, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 1);
-			}
-			.icon_mail_forwarded {
-	        	background-position: sprite-position($iconsmap, icon_mail_forwarded, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_mail_oof {
-	        	background-position: sprite-position($iconsmap, icon_mail_oof, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 3);
-			}
-			.icon_rule_oof {
-				@extend .icon_oof;
-	        	background-position: sprite-position($iconsmap, icon_oof, $offset-y: $padding-medium - 2, $offset-x: $padding-medium - 3);
-			}
-			.icon_contact_user {
-				@extend .icon_contact_card;
-	        	background-position: sprite-position($iconsmap, icon_contact_card, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_distlist {
-				@extend .icon_distlist;
-	        	background-position: sprite-position($iconsmap, icon_distlist, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_equipment {
-	        	background-position: sprite-position($iconsmap, icon_contact_equipment, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_gab_user {
-				@extend .icon_contact_smtp;
-	        	background-position: sprite-position($iconsmap, icon_contact_smtp, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 2);
-			}
-			.icon_contact_room {
-	        	background-position: sprite-position($iconsmap, icon_contact_room, $offset-y: $padding-medium + 2, $offset-x: $padding-medium + 1);
-			}
-			.icon_contact_company {
-	        	background-position: sprite-position($iconsmap, icon_contact_company, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 3);
-			}
-			.icon_appt_appointment {
-				@extend .icon_calendar_blue;
-	        	background-position: sprite-position($iconsmap, icon_calendar_blue, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_recurring,
-			.icon_appt_recurring {
-				@extend .icon_calendar_appt_recurring;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_recurring, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_single {
-				@extend .icon_calendar_mr;
-	        	background-position: sprite-position($iconsmap, icon_calendar_mr, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_accept {
-				@extend .icon_calendar_appt_accept;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_accept, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_decline {
-				@extend .icon_appt_meeting_cancel;
-	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_tentative {
-				@extend .icon_calendar_appt_tentative;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_tentative, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_newtime {
-				@extend .icon_calendar_appt_newtime;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_newtime, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_appt_meeting_cancel {
-	        	background-position: sprite-position($iconsmap, icon_appt_meeting_cancel, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-
-			.icon_appt_meeting_outofdate {
-				@extend .icon_calendar_appt_outofdate;
-	        	background-position: sprite-position($iconsmap, icon_calendar_appt_outofdate, $offset-y: $padding-medium + 2, $offset-x: $padding-medium - 2);
-			}
-			.icon_task_normal,
-			.icon_task_recurring {
-				@extend .icon_task;
-	        	background-position: sprite-position($iconsmap, icon_task, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_assignee{
-				@extend .icon_task_assigned;
-				background-position: sprite-position($iconsmap, icon_task_assigned, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_request,
-			.icon_task_assigner{
-				background-position: sprite-position($iconsmap, icon_task_request, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_declined {
-				background-position: sprite-position($iconsmap, icon_task_declined, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_task_accepted {
-				background-position: sprite-position($iconsmap, icon_task_accepted, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			/* notes */
-			.icon_note_blue {
-				@extend .icon_note_blue;
-	        	background-position: sprite-position($iconsmap, icon_note_blue, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_yellow {
-				@extend .icon_note_yellow;
-	        	background-position: sprite-position($iconsmap, icon_note_yellow, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_white {
-				@extend .icon_note_white;
-	        	background-position: sprite-position($iconsmap, icon_note_white, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_pink {
-				@extend .icon_note_pink;
-	        	background-position: sprite-position($iconsmap, icon_note_pink, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_note_green {
-				@extend .icon_note_green;
-	        	background-position: sprite-position($iconsmap, icon_note_green, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_mail_nondelivery_receipt {
-				@extend .icon_mail_report_ndr;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_ndr, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
-			}
-			.icon_mail_read_receipt {
-				@extend .icon_mail_report_accept;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_accept, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
-			}
-			.icon_mail_nonread_receipt {
-				@extend .icon_mail_report_decline;
-	        	background-position: sprite-position($iconsmap, icon_mail_report_decline, $offset-y: $padding-medium + 4, $offset-x: $padding-medium - 4);
-			}
-
-			/* attachment column */
-			.icon_attachment {
-				@extend .icon_paperclip;
-	        	background-position: sprite-position($icons, icon_paperclip, $offset-y: $padding-medium + 1, $offset-x: $padding-medium - 4);
-			}
-			.grid_compact.icon_attachment {
-	        	background-position: sprite-position($icons, icon_paperclip, $offset-y: 0, $offset-x: $padding-medium - 4);
-			}
-
-			/* importance column */
-			.icon_importance_urgent {
-				@extend .icon_priority_high;
-	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 4);
-			}
-			.icon_importance_nonurgent {
-				@extend .icon_priority_low;
-	        	background-position: sprite-position($icons, icon_priority_low, $offset-y: $padding-medium + 4, $offset-x: $padding-medium + 1);
-			}
-			.grid_compact.icon_importance_urgent {
-	        	background-position: sprite-position($icons, icon_priority_high, $offset-y: 3, $offset-x: $padding-medium + 4);
-			}
-			.grid_compact.icon_importance_nonurgent {
-	        	background-position: sprite-position($icons, icon_priority_low, $offset-y: 3, $offset-x: $padding-medium + 2);
-			}
-
-			/* flags column */
-			.icon_flag {
-				background-position: sprite-position($iconsmap, icon_flag, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 2);
-				visibility: hidden;
-			}
-			.icon_flag_red {
-	        	background-position: sprite-position($iconsmap, icon_flag_red, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_flag_yellow {
-	        	background-position: sprite-position($iconsmap, icon_flag_yellow, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_flag_orange {
-	        	background-position: sprite-position($iconsmap, icon_flag_orange, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_flag_orange_dark {
-	        	background-position: sprite-position($iconsmap, icon_flag_orange_dark, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-			.icon_flag_complete {
-	        	background-position: sprite-position($iconsmap, icon_flag_complete, $offset-y: $padding-medium, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_folder_note {
-				background-position: sprite-position($iconsmap, folder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium - 1);
-			}
-
-			.icon_reminder {
-				background-position: sprite-position($iconsmap, icon_reminder, $offset-y: $padding-medium + 3, $offset-x: $padding-medium + 2);
-			}
-		}
-
-		.x-grid3-row-over .icon_flag {
-			visibility: visible;
-		}
-
-		.zarafa-grid-empty-cell.icon_flag {
-			cursor: pointer;
-			margin: 5px;
-		}
-
-		.zarafa-grid-empty-cell.icon_flag .x-unselectable {
-			padding-top: 0px;
-		}
-	}
-
-	/* Override ExtJS selected grid */
-	.x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
-		background-image: none;
-	}
-
-	/* Add some left padding for calendar */
-	.x-grid3-row .x-grid3-check-col-on {
-		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 3, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
-	}
-
-	.x-grid3-row .x-grid3-check-col {
-		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 3, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
-	}
+/* Override ExtJS selected grid */
+.x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
+	background-image: none;
+}
 
 /* Task grid Due tasks row */
 .zarafa-task-overdue {
@@ -630,7 +316,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	margin-left: $padding-small;
 	cursor: pointer;
 	display: none;
-	background-image: sprite-url($iconsmap) !important;
 }
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
 	display: block;
@@ -642,32 +327,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	display: none;
 }
 
-.x-grid3 .k-grid-button-edit {
-	background-position: sprite-position($iconsmap, icon_pencil, $offset-x: 3, $offset-y: 3);
-}
-.x-grid3 .k-grid-button-edit:hover {
-	background-position: sprite-position($iconsmap, icon_pencil_dark, $offset-x: 3, $offset-y: 3);
-}
-.x-grid3 .k-grid-button-delete {
-	background-position: sprite-position($iconsmap, icon_trash, $offset-x: 3, $offset-y: 3);
-}
-.x-grid3 .k-grid-button-delete:hover {
-	background-position: sprite-position($iconsmap, icon_trash_dark, $offset-x: 3, $offset-y: 3);
-}
-.x-grid3 .k-grid-button-pin {
-	background-position: sprite-position($iconsmap, icon_pin_outline, $offset-x: 3, $offset-y: 3);
-}
-.x-grid3 .k-grid-button-pin:hover {
-	background-position: sprite-position($iconsmap, icon_pin_outline_dark, $offset-x: 3, $offset-y: 3);
-}
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
 	display: block;
-	background-position: sprite-position($iconsmap, icon_pin, $offset-x: 3, $offset-y: 3);
 }
-.x-grid3 .zarafa-pinned .k-grid-button-pin:hover {
-	background-position: sprite-position($iconsmap, icon_pin_dark, $offset-x: 3, $offset-y: 3);
-}
-
 .k-categories-grid .x-grid-editor {
 	padding-top: 1px;
 }

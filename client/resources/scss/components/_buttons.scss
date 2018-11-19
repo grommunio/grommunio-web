@@ -9,61 +9,6 @@ $action-fontcolor				: $font-color-light;
 $normal-button-bgcolor			: $grey;
 $normal-button-bgcolor-hover	: $grey2;
 
-/**************************************
- * Code to create the sprite
- *************************************/
-    @import "compass/utilities/sprites";
-
-    $disable-magic-sprite-selectors: true;
-    $iconmap-spacing : 30px;
-
-    $icons: sprite-map(
-    	"buttons/*.png",
-    	$layout: vertical,
-    	$inline: false,
-    	$spacing: $iconmap-spacing,
-    	$position: 0%,
-
-	    $buttons-arrow_menubar-position: 50%,
-	    $buttons-arrow_down_s_btn-position: 100%,
-	    $buttons-arrow_down_s_white_btn-position: 100%,
-
-	    $buttons-icon_mail_large_white-position: 50%,
-	    $buttons-icon_calendar_large_white-position: 50%,
-	    $buttons-icon_contact_large_white-position: 50%,
-	    $buttons-icon_note_large_white-position: 50%,
-	    $buttons-icon_task_large_white-position: 50%
-    );
-
-/*
-    @import "buttons/*.png";
-
-    @include all-buttons-sprites;
-*/
-    @each $img in sprite-names($icons) {
-      .buttons-#{$img},
-      .#{$img} {
-      	/* need to use !important because Ext also uses it here and there! */
-        background-image: sprite-url($icons) !important;
-        background-repeat: no-repeat;
-        background-position: sprite-position($icons, $img, $offset-y: 0, $offset-x: 0);
-      }
-    }
-
-/**************************************
- * End of code to create the sprite
- *************************************/
-
-
-/**************************************
- * Specific icons
- *************************************/
-.icon_attachment {
-	@extend .icon_paperclip;
-}
-
-
-
 /* Mixin for special button, usually with a different background and font color */
 @mixin action-button() {
 	background-color: $action-bgcolor;
@@ -165,10 +110,12 @@ $normal-button-bgcolor-hover	: $grey2;
 	}
 	/* small button with icon and text */
 	/* standard icon size is 12x12px */
-	.x-btn.x-btn-text-icon {
+	.x-btn.x-btn-text-icon,
+	.x-btn.x-btn-text-icon.zarafa-action {
 		.x-btn-small {
-			button {
+			button.x-btn-text {
 				padding-left: $padding-medium + 12px + $padding-medium;
+				background-position: 4px center !important;
 			}
 		}
 	}
@@ -197,9 +144,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	.x-btn {
 		em.x-btn-split, em.x-btn-arrow {
 			background-color: transparent !important;
-        	background-image: sprite-url($icons) !important;
-        	background-repeat: no-repeat;
-			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 17px, $offset_x: 100%);
+			background-position: right center !important;
 			padding-right: 12px;
 
 			button {
@@ -209,7 +154,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	}
 	.x-btn .x-btn-small{
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: sprite-position($icons, arrow_down_s_btn, $offset_y: 11px, $offset_x: 100%);
+			background-position: right center !important;
 			padding-right: 12px;
 
 			button {
@@ -221,7 +166,7 @@ $normal-button-bgcolor-hover	: $grey2;
 
 	.x-btn.zarafa-action .x-btn-small {
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: sprite-position($icons, arrow_down_s_white_btn, $offset_y: 11px, $offset_x: 100%);
+			background-position: right center !important;
 			padding-right: 12px;
 
 			button {
@@ -275,7 +220,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	/* split button and arrow button */
 	.x-btn.zarafa-action .x-btn-large {
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: sprite-position($icons, arrow_down_s_white_btn, $offset_y: 17px, $offset_x: 100%);
+			background-position: right center !important;
 		}
 	}
 
@@ -369,56 +314,15 @@ $normal-button-bgcolor-hover	: $grey2;
     }
 
 	/* Drag & Drop icon override, select mail drag to folder hiearchy. */
-	.x-tree-drop-ok-append .x-dd-drop-icon {
-		background-position: sprite-position($iconsmap, drop-yes, $offset-y: 0, $offset-x: 0);
-		background-image: sprite-url($iconsmap)
-	}
-
-	.x-tree-drop-ok-append-add .x-dd-drop-icon {
-		background-position: sprite-position($iconsmap, drop-add, $offset-y: 0, $offset-x: 0);
-		background-image: sprite-url($iconsmap)
-	}
-
+	.x-tree-drop-ok-append .x-dd-drop-icon,
+	.x-tree-drop-ok-append-add .x-dd-drop-icon,
 	.x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon {
-		background-position: sprite-position($iconsmap, drop-no, $offset-y: 0, $offset-x: 0);
-		background-image: sprite-url($iconsmap)
+		top: 6px;
 	}
 
 	/* Override ExtJS group icon sprite */
 	.x-btn-group-ml, .x-btn-group-mr {
 		background-image: none !important;
-	}
-
-	/* */
-	.x-grid3-check-col-on {
-		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 0, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
-	}
-
-	.x-grid3-check-col {
-		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 0, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
-	}
-
-	/* Grid menu's */
-	.x-menu-item-checked .x-menu-item.x-menu-check-item .x-menu-item-icon {
-		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 0, $offset-y: 3);
-		background-image: sprite-url($iconsmap) !important;
-	}
-
-	.x-menu-item.x-menu-check-item .x-menu-item-icon {
-		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 0, $offset-y: 3);
-		background-image: sprite-url($iconsmap) !important;
-	}
-
-	/* settings grid */
-	.x-grid3-row .x-grid3-row-checker {
-		background-position: sprite-position($iconsmap, icon_unchecked, $offset-x: 2, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
-	}
-	.x-grid3-row-selected.x-grid3-row .x-grid3-row-checker {
-		background-position: sprite-position($iconsmap, icon_checked, $offset-x: 2, $offset-y: 0);
-		background-image: sprite-url($iconsmap) !important;
 	}
 
 /*******************************************************
@@ -455,29 +359,6 @@ $normal-button-bgcolor-hover	: $grey2;
 		.x-btn-small {
 			background-color: transparent !important;
 			box-shadow: none !important;
-		}
-
-		.icon_contact {
-			@extend .icon_contact;
-			background-position: sprite-position($iconsmap, icon_contact, $offset-y: 3px, $offset-x: 0) !important;
-		}
-
-		.icon_copy {
-			background-position: sprite-position($icons, icon_copy, $offset-y: 5px, $offset-x: 4px) !important;
-		}
-
-		.icon_send_email_to_recipient {
-			background-position: sprite-position($iconsmap, icon_new_email, $offset-y: 2px, $offset-x: 0) !important;
-			background-image: sprite-url($iconsmap)
-		}
-
-		.icon_new_contact {
-			@extend .icon_new_contact;
-			background-position: sprite-position($iconsmap, icon_new_contact, $offset-y: 2px, $offset-x: 0) !important;
-		}
-
-		.icon_edit_recipient {
-			background-position: sprite-position($iconsmap, icon_edit_recipient, $offset-y: 2px, $offset-x: 0) !important;
 		}
 	}
 
@@ -517,10 +398,4 @@ $normal-button-bgcolor-hover	: $grey2;
 .k-window-text-button.x-btn.x-btn-over .x-btn-small{
 	background: transparent !important;
 	border: 1px solid $grey2 !important;
-}
-
-.x-window.k-show-more-details {
-	.icon_copy {
-		background-position: sprite-position($icons, icon_copy, $offset-y: 5, $offset-x: 3) !important;
-	}
 }

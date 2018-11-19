@@ -34,7 +34,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	 * @return {Ext.Button} return search preview button
 	 * @private
 	 */
-	createMainToolbarSearchViewButton : function() 
+	createMainToolbarSearchViewButton : function()
 	{
 		var menuItems = new Zarafa.common.CommonViewButtons({'context' : this});
 
@@ -43,7 +43,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 			scale : 'large',
 			ref : 'searchView',
 			hidden : true,
-			iconCls : 'view_icon',
+			iconCls : 'icon_large_view',
 			menu : menuItems
 		};
 	},
@@ -76,7 +76,7 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Bid for the type of shared component and the given record.
-	 * This will bid on a dialog.crate or dialog.view for a record with a 
+	 * This will bid on a dialog.crate or dialog.view for a record with a
 	 * message class set to IPM or IPM.Note.
 	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.

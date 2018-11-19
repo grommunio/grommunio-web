@@ -61,7 +61,7 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 			},{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Send e-mail'),
-				iconCls : 'icon_send_email_to_recipient',
+				iconCls : 'icon_new_email',
 				handler: this.onEmailRecipient,
 				scope: this
 			},

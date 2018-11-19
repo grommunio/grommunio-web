@@ -15,7 +15,7 @@ Ext.namespace('Zarafa.calendar.ui');
  */
 Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	/**
-	 * @cfg {String} The CSS class returned to the drag source when drop is allowed 
+	 * @cfg {String} The CSS class returned to the drag source when drop is allowed
 	 * while the user has the Ctrl-key pressed (defaults to "x-dd-drop-ok-add").
 	 */
 	dropAllowedAdd : 'x-dd-drop-ok-add',
@@ -28,16 +28,16 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 	headerMode : false,
 
 	/**
-	 * @cfg {Zarafa.calendar.data.SnapModes} selectingSnapMode The snapmode for selections and resizing. 
-	 * If this is {@link Zarafa.calendar.data.SnapModes#ZOOMLEVEL} then appointments or selections that 
-	 * are resized are snapped to the time which matches the 
-	 * {@link Zarafa.calendar.ui.AbstractCalendarView#getZoomLevel zoomlevel}. When this option is 
+	 * @cfg {Zarafa.calendar.data.SnapModes} selectingSnapMode The snapmode for selections and resizing.
+	 * If this is {@link Zarafa.calendar.data.SnapModes#ZOOMLEVEL} then appointments or selections that
+	 * are resized are snapped to the time which matches the
+	 * {@link Zarafa.calendar.ui.AbstractCalendarView#getZoomLevel zoomlevel}. When this option is
 	 * {@link Zarafa.calendar.data.SnapModes#DAY} the time is snapped to the entire day.
 	 */
 	selectingSnapMode : Zarafa.calendar.data.SnapModes.ZOOMLEVEL,
 
 	/**
-	 * @cfg {Zarafa.calendar.data.SnapModes} draggingSnapMode The snapmode for appointments when dragging. 
+	 * @cfg {Zarafa.calendar.data.SnapModes} draggingSnapMode The snapmode for appointments when dragging.
 	 * If this is {@link Zarafa.calendar.data.SnapModes#ZOOMLEVEL} then appointments are snapped to the
 	 * time which matches the {@link Zarafa.calendar.ui.AbstractCalendarView#getZoomLevel zoomlevel}.
 	 * When this option is {@link Zarafa.calendar.data.SnapModes#DAY} the appointments are snapped
@@ -206,7 +206,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				dueDate = startDate.add(Date.MINUTE, zoomLevel);
 			}
 
-			this.initDateRange = new Zarafa.core.DateRange({ startDate : startDate, dueDate : dueDate }); 
+			this.initDateRange = new Zarafa.core.DateRange({ startDate : startDate, dueDate : dueDate });
 		}
 
 		// Activate the initial range
@@ -471,11 +471,11 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				// Get number of minutes since start of day
 				var minSinceStartOfDay = startDate.getHours()*60 + startDate.getMinutes();
 
-				// We check whether the overDate is actually at 0:00. If not the DST change happens at 
-				// midnight. The DST diff fix later on will not work then as it will search between the 
+				// We check whether the overDate is actually at 0:00. If not the DST change happens at
+				// midnight. The DST diff fix later on will not work then as it will search between the
 				// start of the day and the appointment time. Because 0:00 will become 01:00 it will not
-				// detect the DST change between 01:00 and for example 11:00. By taking the number of 
-				// minutes that were supposed to be between 0:00 and 01:00 and subtract from 
+				// detect the DST change between 01:00 and for example 11:00. By taking the number of
+				// minutes that were supposed to be between 0:00 and 01:00 and subtract from
 				// minSinceStartOfDay, the Date object will calculate the Date correctly. An example of
 				// a DST change at 0:00 is the Brazilian DST change.
 				var minCorrectionForDSTChangeAtMidNight = overDate.getHours()*60 + overDate.getMinutes();
@@ -486,8 +486,8 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				startDate = overDate.clone();
 				// Add the number of minutes since the start of the day
 				startDate = startDate.add(Date.MINUTE, minSinceStartOfDay);
-				// Check if there is an DST diff between the start of this new day and time of the 
-				// appointment on that day. If so we need to add the DST diff, otherwise it will be an 
+				// Check if there is an DST diff between the start of this new day and time of the
+				// appointment on that day. If so we need to add the DST diff, otherwise it will be an
 				// hour off on DST change days. If there is no DST diff it will just add 0.
 				startDate = startDate.add( Date.MILLI, Date.getDSTDiff(startDate, overDate) );
 

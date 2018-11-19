@@ -39,12 +39,12 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 					text : _('File upload'),
 					handler : this.onFileUpload,
 					scope: this,
-					iconCls : 'icon_attachment'
+					iconCls : 'icon_paperclip'
 				}, {
 					text : _('Attach item'),
 					handler : this.onFileAttach,
 					scope: this,
-					iconCls : 'icon_embedded_attachment'
+					iconCls : 'icon_embed_attachment'
 				},
 				container.populateInsertionPoint('main.attachment.method', this)
 				]
@@ -77,7 +77,7 @@ Zarafa.common.attachment.ui.AttachmentButton = Ext.extend(Ext.SplitButton, {
 	/**
 	 * The callback function of {@link Zarafa.common.attachment.ui.UploadAttachmentComponent}
 	 * which used to upload the attachment file on server.
-	 * 
+	 *
 	 * @param {Object/Array} files The files contains file information.
 	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
 	 */

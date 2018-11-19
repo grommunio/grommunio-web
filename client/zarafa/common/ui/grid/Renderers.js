@@ -59,7 +59,7 @@ Zarafa.common.ui.grid.Renderers = {
 			return '';
 		}
 
-		p.css = (value === true) ? 'icon_attachment' : 'icon_noattachment';
+		p.css = (value === true) ? 'icon_paperclip' : 'icon_noattachment';
 
 		// add extra css class for empty cell
 		p.css += ' zarafa-grid-empty-cell';
@@ -77,7 +77,7 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	recurrence : function(value, p, record)
 	{
-		p.css = value ? 'icon_recurring' : 'zarafa-grid-empty-cell';
+		p.css = value ? 'icon_recurrence' : 'zarafa-grid-empty-cell';
 		return '';
 	},
 

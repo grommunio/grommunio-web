@@ -149,7 +149,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 			scope: this
 		}, '->', container.populateInsertionPoint('context.common.recipientfield.hovercardview.actions', this), {
 			xtype: 'zarafa.recipienthovercardbutton',
-			iconCls: 'icon_send_email_to_recipient',
+			iconCls: 'icon_new_email',
 			handler: this.onEmailRecipient,
 			tooltip: _('Send email'),
 			scope: this

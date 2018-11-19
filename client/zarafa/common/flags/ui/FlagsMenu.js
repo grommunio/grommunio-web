@@ -73,38 +73,38 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 	{
 		return [{
 			text: _('Today'),
-			iconCls : 'icon_mail_flag_red',
+			iconCls : 'icon_flag_red',
 			action: 'today',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('Tomorrow'),
-			iconCls : 'icon_mail_flag_orange_dark',
+			iconCls : 'icon_flag_orange_dark',
 			action: 'tomorrow',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('This week'),
-			iconCls : 'icon_mail_flag_orange',
+			iconCls : 'icon_flag_orange',
 			action: 'this_week',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('Next week'),
-			iconCls : 'icon_mail_flag_yellow',
+			iconCls : 'icon_flag_yellow',
 			action: 'next_week',
 			handler: this.setFlag,
 			scope: this
 		}, {
 			text: _('No date'),
-			iconCls : 'icon_mail_flag_red',
+			iconCls : 'icon_flag_red',
 			action: 'no_date',
 			handler: this.setFlag,
 			scope: this
 		},{
 			xtype: 'zarafa.conditionalitem',
 			text: _('Custom'),
-			iconCls : 'icon_mail_flag_red',
+			iconCls : 'icon_flag_red',
 			beforeShow: this.onFollowUpItemBeforeShow,
 			action: 'custom',
 			handler: this.onSetCustomFlag,
@@ -130,7 +130,7 @@ Zarafa.common.flags.ui.FlagsMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMen
 			text: _('None'),
 			action: 'none',
 			beforeShow: this.onFollowUpItemBeforeShow,
-			iconCls : 'icon_mail_flag',
+			iconCls : 'icon_flag',
 			handler: this.setFlag,
 			scope: this
 		}];
