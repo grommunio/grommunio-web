@@ -2788,8 +2788,9 @@
 
 			switch($msgprops[PR_MDB_PROVIDER]){
 				case ZARAFA_STORE_DELEGATE_GUID:
+					$softDelete = $softDelete || defined('ENABLE_DEFAULT_SOFT_DELETE') ? ENABLE_DEFAULT_SOFT_DELETE : false;
 					// with a store from an other user we need our own waste basket...
-					if(isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete == true) {
+					if(isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete) {
 						// except when it is the waste basket itself
 						$result = mapi_folder_deletemessages($folder, $entryids);
 					}else{
