@@ -2526,26 +2526,18 @@ ul.x-tab-strip-top {
   padding-left: 9px;
 }
 
-/* adjust the width of the icon */
-/* line 86, ../scss/components/_hierarchy.scss */
-.x-tree-node-collapsed .x-tree-node-icon,
-.x-tree-node-expanded .x-tree-node-icon,
-.x-tree-node-leaf .x-tree-node-icon {
-  width: 15px;
-}
-
 /* Selection in tree */
-/* line 93, ../scss/components/_hierarchy.scss */
+/* line 86, ../scss/components/_hierarchy.scss */
 .x-tree-node .zarafa-hierarchy-node.x-tree-selected {
   background-color: #d5e8f7;
 }
 
-/* line 97, ../scss/components/_hierarchy.scss */
+/* line 90, ../scss/components/_hierarchy.scss */
 .x-tree-node .x-tree-node-over {
   background-color: #f2f2f2;
 }
 
-/* line 101, ../scss/components/_hierarchy.scss */
+/* line 94, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-tbar .x-form-display-field.x-form-item,
 .x-form-field.zarafa-hierarchy-treepanel-showallfolders {
   padding: 0 0 0 0;
@@ -2553,35 +2545,35 @@ ul.x-tab-strip-top {
 }
 
 /* counters */
-/* line 108, ../scss/components/_hierarchy.scss */
+/* line 101, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
   color: #5ebb4b;
 }
 
-/* line 112, ../scss/components/_hierarchy.scss */
+/* line 105, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-owner {
   font-weight: normal;
   color: #777777 !important;
 }
 
-/* line 117, ../scss/components/_hierarchy.scss */
+/* line 110, ../scss/components/_hierarchy.scss */
 .zarafa-tree-node.zarafa-hierarchy-node-withcounter {
   font-weight: bold;
 }
 
 /* make the whole hierarchy tree entry's look clickable */
-/* line 123, ../scss/components/_hierarchy.scss */
+/* line 116, ../scss/components/_hierarchy.scss */
 .x-tree-node-el span, .x-tree-node-el img, .x-tree-node-el a {
   cursor: pointer;
 }
-/* line 127, ../scss/components/_hierarchy.scss */
+/* line 120, ../scss/components/_hierarchy.scss */
 .x-tree-node-el svg rect, .x-tree-node-el svg path, .x-tree-node-el svg g {
   cursor: pointer;
 }
 
 /* Margin for checkbox next to calendar icon  */
-/* line 134, ../scss/components/_hierarchy.scss */
+/* line 127, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-cb {
   margin-right: 6px;
 }
