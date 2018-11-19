@@ -36,7 +36,7 @@ body * :not(.mce-ico) {
  * this file!
  ***************************************************************/
 /* line 1, ../scss/base/_icons.scss */
-.arrow_down_l, .x-tool.x-tool-toggle, td.sort-desc .x-grid3-sort-icon, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .preview-header-collapse-plus, .zarafa-rules-sequence-down {
+.arrow_down_l, .x-panel-collapsed .x-tool.x-tool-toggle, td.sort-desc .x-grid3-sort-icon, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .preview-header-collapse-plus, .zarafa-rules-sequence-down {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAM0lEQVR4AWMIDAy8DMT/8eDLIEUgfAWbAqg4A0wRholQPgNCEQLfASmA0gyYihD4AroYAK0QQiQoDznDAAAAAElFTkSuQmCC) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
@@ -106,7 +106,7 @@ body * :not(.mce-ico) {
 }
 
 /* line 11, ../scss/base/_icons.scss */
-.arrow_up_l, td.sort-asc .x-grid3-sort-icon, .preview-header-collapse-minus, .zarafa-rules-sequence-up {
+.arrow_up_l, .x-tool.x-tool-toggle, td.sort-asc .x-grid3-sort-icon, .preview-header-collapse-minus, .zarafa-rules-sequence-up {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAALklEQVR4AWMIDAxExxfQxdAV3AHi/yAal6LLYAUIfBld0RWEJAJDxRngJuDBlwEG4UIk2qxT2wAAAABJRU5ErkJggg==) !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;

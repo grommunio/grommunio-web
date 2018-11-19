@@ -11,7 +11,7 @@
 		".x-btn.x-btn.zarafa-action .x-btn-arrow"
 	],
 	".arrow_down_l": [
-		".x-tool.x-tool-toggle",
+		".x-panel-collapsed .x-tool.x-tool-toggle",
 		"td.sort-desc .x-grid3-sort-icon",
 		".x-tree-lines .x-tree-elbow-end-minus",
 		".x-tree-lines .x-tree-elbow-minus",
@@ -19,6 +19,7 @@
 		".zarafa-rules-sequence-down"
 	],
 	".arrow_up_l": [
+		".x-tool.x-tool-toggle",
 		"td.sort-asc .x-grid3-sort-icon",
 		".preview-header-collapse-minus",
 		".zarafa-rules-sequence-up"
