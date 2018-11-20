@@ -99,7 +99,7 @@
 		".zarafa-settings-category-oof",
 		".zarafa-settings-favorite-oof"
 	],
-	".icon_funnel": ".zarafa-settings-category-rules",
+	".icon_filter": ".zarafa-settings-category-rules",
 	".icon_calendar": ".zarafa-settings-category-calendar",
 	".delegates_s": ".zarafa-settings-category-delegate",
 	".icon_sendas": ".zarafa-settings-category-sendas",
