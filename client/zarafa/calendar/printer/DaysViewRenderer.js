@@ -73,11 +73,14 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			if (end > dueDate) {
 				showEnd = dueDate.clone();
 			}
-
+			
 			var subject = items[i].get('subject');
 			if (!Ext.isString(subject)) {
 				subject = '';
 			}
+
+			var location = items[i].get('location');
+			location = Ext.isString(location) && !Ext.isEmpty(location) ? ' ' + _('Location: ') + location : ' ';
 
 			var timeformat;
 			var showDate = start.getDayOfYear() !== end.getDayOfYear() || start.getYear() !== end.getYear();
@@ -106,7 +109,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 					+ end.format(timeformat) + '</td>';
 			}
 			append += '<td class="calendar-item" colspan='+ (allday ? '2' : '1') +'>'
-				+ Ext.util.Format.htmlEncode(subject) + '</td></tr>';
+				+ Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '</td></tr>';
 
 			var startday = showStart.getDay();
             if (startday < offset) {
