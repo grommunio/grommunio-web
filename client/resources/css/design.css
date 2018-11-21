@@ -4173,9 +4173,9 @@ div.zarafa-contact-cardview-selected {
   text-align: right;
 }
 /* line 393, ../scss/components/_popups.scss */
-.k-abuserselectionpanel .k-addressbookmainpanel-header .icon_search,
-.k-abmultiuserselectionpanel .k-addressbookmainpanel-header .icon_search,
-.k-addressbookpanel .k-addressbookmainpanel-header .icon_search {
+.k-abuserselectionpanel .k-addressbookmainpanel-header .icon_magnifier,
+.k-abmultiuserselectionpanel .k-addressbookmainpanel-header .icon_magnifier,
+.k-addressbookpanel .k-addressbookmainpanel-header .icon_magnifier {
   background-color: transparent;
   width: 24px;
 }
@@ -4576,7 +4576,7 @@ div.zarafa-contact-cardview-selected {
   height: 22px;
 }
 /* line 20, ../scss/components/_search.scss */
-.search_container button.icon_search {
+.search_container button.icon_magnifier {
   background-color: transparent;
   width: 24px;
   height: 24px !important;
