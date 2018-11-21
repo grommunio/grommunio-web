@@ -33,7 +33,8 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 			title : _('Edit recipient'),
 			layout : 'fit',
 			width: 350,
-			height: 100,
+			height: 110,
+			stateful: false,
 			items: [{
 				xtype: 'form',
 				layout: 'form',
