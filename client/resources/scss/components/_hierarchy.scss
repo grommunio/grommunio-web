@@ -82,13 +82,6 @@
 	padding-left: $padding-extra-large - 3px;
 }
 
-/* adjust the width of the icon */
-.x-tree-node-collapsed .x-tree-node-icon,
-.x-tree-node-expanded .x-tree-node-icon,
-.x-tree-node-leaf .x-tree-node-icon {
-	width: 15px;
-}
-
 /* Selection in tree */
 .x-tree-node .zarafa-hierarchy-node.x-tree-selected {
 	background-color: $grid-active-color;
