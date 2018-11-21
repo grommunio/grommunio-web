@@ -11,15 +11,17 @@
 	border-color : #ccc;
 
 	.left {
+		display: table-cell;
 		width: 40px;
-		float: left;
-		padding: 10px;
+		padding: 5px;
 		box-sizing: border-box;
 		vertical-align: middle;
 	}
 
 	.right {
-		padding: 10px 10px 10px 0;
+		display: table-cell;
+		text-align: left;
+		padding: 10px 10px 10px 0px;
 	}
 }
 
@@ -56,8 +58,8 @@
 .zarafa-slide-notifier-warning,
 .zarafa-slide-notifier-error {
 	.icon {
-		height: 20px;
-		width: 20px;
+		height: 30px;
+		width: 30px;
 	}
 }
 
