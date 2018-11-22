@@ -50,6 +50,8 @@
 .x-tip .x-tip-body {
 	word-wrap: break-word;
 	color: $white;
+	width: auto !important; /* calculation of Ext is incorrect */
+	white-space: nowrap;
 }
 
 /* Seemingly unused icon, removed so we do not load the ExtJS image */

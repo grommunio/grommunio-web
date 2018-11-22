@@ -5976,16 +5976,19 @@ body .k-category-block {
 .x-tip .x-tip-body {
   word-wrap: break-word;
   color: #ffffff;
+  width: auto !important;
+  /* calculation of Ext is incorrect */
+  white-space: nowrap;
 }
 
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
-/* line 56, ../scss/components/_tooltip.scss */
+/* line 58, ../scss/components/_tooltip.scss */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none;
 }
 
 /* The tooltip for 'nice' dates in grids */
-/* line 62, ../scss/components/_tooltip.scss */
+/* line 64, ../scss/components/_tooltip.scss */
 .k-griddatetooltip .x-tip-body {
   white-space: nowrap;
 }
