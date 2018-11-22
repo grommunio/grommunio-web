@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-22 15:37+0100\n"
-"PO-Revision-Date: 2018-11-06 16:21+0000\n"
-"Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
+"PO-Revision-Date: 2018-11-22 14:42+0000\n"
+"Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -1463,9 +1463,8 @@ msgid "Decline"
 msgstr "Ablehnen"
 
 # 75%
-#, fuzzy
 msgid "Send to..."
-msgstr "Senden an"
+msgstr "Senden an..."
 
 msgid "Export as"
 msgstr "Exportieren als"
@@ -2111,9 +2110,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Berechtigung"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Ablehnen und löschen"
+msgstr "Stellvertreter kopieren"
 
 msgid "Delegate already exists in the list."
 msgstr "Stellvertreter existiert bereits in der Liste."
@@ -2142,7 +2140,7 @@ msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr "Zur Nachverfolgung kennzeichnen"
@@ -2443,11 +2441,10 @@ msgstr "Informationen"
 msgid "Not supported at the moment."
 msgstr "Wird momentan nicht unterstützt."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Es gibt keine Erinnerungen"
-msgstr[1] "Es gibt keine Erinnerungen"
+msgstr[0] "Es gibt {0} Erinnerung"
+msgstr[1] "Es gibt {0} Erinnerungen"
 
 # 88%
 msgid "Reminders"
@@ -4694,9 +4691,8 @@ msgstr "Standardeinstellungen wiederherstellen"
 msgid "Delete settings"
 msgstr "Einstellungen löschen"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Symbole"
+msgstr "{0} Symbol-Set"
 
 msgid "About"
 msgstr "Über"
