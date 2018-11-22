@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1410,6 +1410,14 @@ msgstr "仮の予定"
 msgid "Decline"
 msgstr "辞退する"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "送信済"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 msgid "Occurrence"
@@ -2047,6 +2055,9 @@ msgstr "{0}フォルダが選択されています。"
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "フラグ設定"
@@ -2333,12 +2344,17 @@ msgid "Not supported at the moment."
 msgstr "サポートされていません。"
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "{0}個のリマインダーがあります。"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "{0}個のリマインダーがあります。"
 
 # 88%
 msgid "Reminders"
 msgstr "リマインダー"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0}個のリマインダーがあります。"
 
 msgid "Due In"
 msgstr "期限"
@@ -3321,9 +3337,6 @@ msgstr "グループ"
 
 msgid "Work"
 msgstr "仕事"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "並べ替え：氏名"
@@ -4545,6 +4558,10 @@ msgstr "初期設定に戻す"
 
 msgid "Delete settings"
 msgstr "設定削除"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "アイコン"
 
 msgid "About"
 msgstr "内容"

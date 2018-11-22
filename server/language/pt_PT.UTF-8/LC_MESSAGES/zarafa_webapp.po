@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-11-16 12:10+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -1374,6 +1374,13 @@ msgstr "Tentativa"
 msgid "Decline"
 msgstr "Recusar"
 
+#, fuzzy
+msgid "Send to..."
+msgstr "Enviar para"
+
+msgid "Export as"
+msgstr "Exportar como"
+
 msgid "Occurrence"
 msgstr "Periocidade"
 
@@ -2000,6 +2007,9 @@ msgstr "Pasta '{0}' selecionada."
 msgid "Do not show this message again."
 msgstr "Não mostrar esta mensagem outra vez."
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr "Marcar bandeira personalizada"
 
@@ -2273,11 +2283,17 @@ msgstr "Informação"
 msgid "Not supported at the moment."
 msgstr "Não suportado atualmente."
 
-msgid "There are no reminders"
-msgstr "Não existem lembretes"
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Não existem lembretes"
+msgstr[1] "Não existem lembretes"
 
 msgid "Reminders"
 msgstr "Lembretes"
+
+msgid "There are no reminders"
+msgstr "Não existem lembretes"
 
 msgid "Due In"
 msgstr "Limite em"
@@ -3193,9 +3209,6 @@ msgstr "Grupo"
 
 msgid "Work"
 msgstr "Trabalho"
-
-msgid "Export as"
-msgstr "Exportar como"
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nome da completo"
@@ -4357,6 +4370,10 @@ msgstr "Repor valores originais"
 
 msgid "Delete settings"
 msgstr "Eliminar definições"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ícones"
 
 msgid "About"
 msgstr "Acerca"

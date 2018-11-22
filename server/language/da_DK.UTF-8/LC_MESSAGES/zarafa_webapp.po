@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1387,6 +1387,13 @@ msgstr "Foreløbig "
 msgid "Decline"
 msgstr "Afvis"
 
+#, fuzzy
+msgid "Send to..."
+msgstr "Send"
+
+msgid "Export as"
+msgstr ""
+
 msgid "Occurrence"
 msgstr "Hændelse"
 
@@ -2017,6 +2024,9 @@ msgstr "Mappen '{0}' er valgt."
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Sæt flag"
@@ -2295,11 +2305,17 @@ msgid "Not supported at the moment."
 msgstr "Ikke pt. understøttet."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "Der er {0} påmindelse"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Der er {0} påmindelse"
+msgstr[1] "Der er {0} påmindelse"
 
 msgid "Reminders"
 msgstr "Påmindelser"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Der er {0} påmindelse"
 
 msgid "Due In"
 msgstr "Forfalder om"
@@ -3226,9 +3242,6 @@ msgstr "Gruppe"
 
 msgid "Work"
 msgstr "Arbejde"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Sorter efter: Fulde navn"
@@ -4431,6 +4444,10 @@ msgstr "Genskab til standard"
 
 msgid "Delete settings"
 msgstr "Slet indstillinger"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikoner"
 
 msgid "About"
 msgstr "Om"

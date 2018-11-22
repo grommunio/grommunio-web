@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -1460,6 +1460,13 @@ msgstr "Geçici"
 msgid "Decline"
 msgstr "Reddedildi"
 
+#, fuzzy
+msgid "Send to..."
+msgstr "Gönder"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 msgid "Occurrence"
@@ -2105,6 +2112,9 @@ msgstr "Klasör '{0}' seçildi."
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Bayrak"
@@ -2399,12 +2409,18 @@ msgid "Not supported at the moment."
 msgstr "Şu anda desteklenmiyor."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "{0} hatırlatma var"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "{0} hatırlatma var"
+msgstr[1] "{0} hatırlatma var"
 
 # 88%
 msgid "Reminders"
 msgstr "Hatırlatmalar"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} hatırlatma var"
 
 msgid "Due In"
 msgstr "Bitiyor"
@@ -3406,9 +3422,6 @@ msgstr "Grup"
 
 msgid "Work"
 msgstr "İş"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Sıralama: Ad"
@@ -4651,6 +4664,10 @@ msgstr "Eski durumuna getir"
 
 msgid "Delete settings"
 msgstr "Ayarları sil"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Simgeler"
 
 msgid "About"
 msgstr "hakkında"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish (Spain) <http://translate.kopano.io/projects/kopano/"
@@ -1448,6 +1448,14 @@ msgstr "Tentativa"
 msgid "Decline"
 msgstr "Rehusar"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Enviar"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 #, fuzzy
@@ -2116,6 +2124,9 @@ msgstr "Carpeta '{0}' seleccionada."
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Establecer bandera"
@@ -2415,13 +2426,19 @@ msgid "Not supported at the moment."
 msgstr "No soportado por el momento."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "Hay {0} recordatorio"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Hay {0} recordatorio"
+msgstr[1] "Hay {0} recordatorio"
 
 # 88%
 #, fuzzy
 msgid "Reminders"
 msgstr "Recordatorio"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Hay {0} recordatorio"
 
 msgid "Due In"
 msgstr "A vencer en"
@@ -3435,9 +3452,6 @@ msgstr "Grupo"
 
 msgid "Work"
 msgstr "Trabajo"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nombre Completo"
@@ -4691,6 +4705,10 @@ msgstr "Restaurar a valores por defecto"
 
 msgid "Delete settings"
 msgstr "Eliminar ajustes"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Iconos"
 
 msgid "About"
 msgstr "Acerca de"

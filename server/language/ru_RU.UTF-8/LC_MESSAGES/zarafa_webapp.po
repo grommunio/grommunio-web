@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1425,6 +1425,15 @@ msgstr "Предварит."
 msgid "Decline"
 msgstr "Отменить"
 
+# 75%
+# 100%
+#, fuzzy
+msgid "Send to..."
+msgstr "Отправить как вложение"
+
+msgid "Export as"
+msgstr "Экспортировать как"
+
 # 80%
 # 100%
 msgid "Occurrence"
@@ -2080,6 +2089,9 @@ msgstr "Выбрана папка «{0}»."
 msgid "Do not show this message again."
 msgstr "Больше не показывать это сообщение."
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr "Установить пользовательский флаг"
 
@@ -2361,11 +2373,18 @@ msgstr "Информация"
 msgid "Not supported at the moment."
 msgstr "На данный момент не поддерживается."
 
-msgid "There are no reminders"
-msgstr "Напоминаний нет"
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Напоминаний нет"
+msgstr[1] "Напоминаний нет"
+msgstr[2] "Напоминаний нет"
 
 msgid "Reminders"
 msgstr "Оповещения"
+
+msgid "There are no reminders"
+msgstr "Напоминаний нет"
 
 msgid "Due In"
 msgstr "Due In"
@@ -3326,9 +3345,6 @@ msgstr "Группа"
 
 msgid "Work"
 msgstr "Работа"
-
-msgid "Export as"
-msgstr "Экспортировать как"
 
 msgid "Sort by: Full Name"
 msgstr "Сортировать по полному имени"
@@ -4536,6 +4552,10 @@ msgstr "Настройки по умолчанию"
 
 msgid "Delete settings"
 msgstr "Удалить настройки"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Иконки"
 
 msgid "About"
 msgstr "О программе"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -1472,6 +1472,14 @@ msgstr "Pogojno"
 msgid "Decline"
 msgstr "Zavrni"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Pošlji"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 #, fuzzy
@@ -2128,6 +2136,9 @@ msgstr "Izbrana '{0}' mapa."
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Nastavi zastavico"
@@ -2420,12 +2431,20 @@ msgid "Not supported at the moment."
 msgstr "Trenutno ni podprto."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "Tukaj je {0} opomnik"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Tukaj je {0} opomnik"
+msgstr[1] "Tukaj je {0} opomnik"
+msgstr[2] "Tukaj je {0} opomnik"
+msgstr[3] "Tukaj je {0} opomnik"
 
 # 88%
 msgid "Reminders"
 msgstr "Opomniki"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Tukaj je {0} opomnik"
 
 msgid "Due In"
 msgstr "Zapade"
@@ -3438,9 +3457,6 @@ msgstr "Skupina"
 
 msgid "Work"
 msgstr "Delo"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Razvrsti po: Polno ime"
@@ -4695,6 +4711,10 @@ msgstr "Povrni na privzeto"
 
 msgid "Delete settings"
 msgstr "Izbriši nastavitve"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikone"
 
 msgid "About"
 msgstr "O"

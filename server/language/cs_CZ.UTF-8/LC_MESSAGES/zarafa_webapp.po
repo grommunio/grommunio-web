@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-05-01 19:12+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1434,6 +1434,14 @@ msgstr "Předběžně"
 msgid "Decline"
 msgstr "Odmítnout"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Odeslat"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 #, fuzzy
@@ -2081,6 +2089,9 @@ msgstr "Vybrána složka '{0}'."
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Nastavit štítek"
@@ -2366,12 +2377,19 @@ msgid "Not supported at the moment."
 msgstr "Momentálně nepodporováno."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "Existuje {0} připomínka"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Existuje {0} připomínka"
+msgstr[1] "Existuje {0} připomínka"
+msgstr[2] "Existuje {0} připomínka"
 
 # 88%
 msgid "Reminders"
 msgstr "Připomínky"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Existuje {0} připomínka"
 
 msgid "Due In"
 msgstr "Dokončit během"
@@ -3362,9 +3380,6 @@ msgstr "Skupina"
 
 msgid "Work"
 msgstr "Práce"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Třídit podle: Celé jméno"
@@ -4595,6 +4610,10 @@ msgstr "Nastavit výchozí"
 
 msgid "Delete settings"
 msgstr "Odstranit nastavení"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikony"
 
 msgid "About"
 msgstr ""

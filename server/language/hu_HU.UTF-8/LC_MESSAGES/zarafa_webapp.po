@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1470,6 +1470,14 @@ msgstr "Feltételes"
 msgid "Decline"
 msgstr "Elutasít"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Továbbítás mellékletként"
+
+msgid "Export as"
+msgstr "Exportálás mint"
+
 # 80%
 # 100%
 msgid "Occurrence"
@@ -2126,6 +2134,9 @@ msgstr "'{0}' mappa kiválasztva."
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr "Egyedi jelölő beállítása"
 
@@ -2419,12 +2430,18 @@ msgid "Not supported at the moment."
 msgstr "Jelenleg nem támogatott."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "{0} emlékeztető van"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "{0} emlékeztető van"
+msgstr[1] "{0} emlékeztető van"
 
 # 88%
 msgid "Reminders"
 msgstr "Emlékeztetők"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} emlékeztető van"
 
 msgid "Due In"
 msgstr "Esedékes -kor"
@@ -3395,9 +3412,6 @@ msgstr "Csoport"
 
 msgid "Work"
 msgstr "Munka"
-
-msgid "Export as"
-msgstr "Exportálás mint"
 
 msgid "Sort by: Full Name"
 msgstr "Rendezés: Teljes név"
@@ -4644,6 +4658,10 @@ msgstr "Alaphelyzetbe állítás"
 
 msgid "Delete settings"
 msgstr "Beállítások törlése"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikonok"
 
 msgid "About"
 msgstr "Rólunk"

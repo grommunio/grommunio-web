@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-11-06 16:21+0000\n"
 "Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1462,6 +1462,14 @@ msgstr "Mit Vorbehalt"
 msgid "Decline"
 msgstr "Ablehnen"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Senden an"
+
+msgid "Export as"
+msgstr "Exportieren als"
+
 # 80%
 # 100%
 msgid "Occurrence"
@@ -2133,6 +2141,9 @@ msgstr "Ordner \"{0}\" ausgewählt."
 msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr "Zur Nachverfolgung kennzeichnen"
 
@@ -2432,12 +2443,18 @@ msgstr "Informationen"
 msgid "Not supported at the moment."
 msgstr "Wird momentan nicht unterstützt."
 
-msgid "There are no reminders"
-msgstr "Es gibt keine Erinnerungen"
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Es gibt keine Erinnerungen"
+msgstr[1] "Es gibt keine Erinnerungen"
 
 # 88%
 msgid "Reminders"
 msgstr "Erinnerungen"
+
+msgid "There are no reminders"
+msgstr "Es gibt keine Erinnerungen"
 
 msgid "Due In"
 msgstr "Fällig in"
@@ -3437,9 +3454,6 @@ msgstr "Gruppe"
 
 msgid "Work"
 msgstr "Arbeit"
-
-msgid "Export as"
-msgstr "Exportieren als"
 
 msgid "Sort by: Full Name"
 msgstr "Sortieren nach: Vollständiger Name"
@@ -4679,6 +4693,10 @@ msgstr "Standardeinstellungen wiederherstellen"
 
 msgid "Delete settings"
 msgstr "Einstellungen löschen"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Symbole"
 
 msgid "About"
 msgstr "Über"

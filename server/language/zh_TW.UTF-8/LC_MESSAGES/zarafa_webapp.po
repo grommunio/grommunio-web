@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -1393,6 +1393,13 @@ msgstr "暫定"
 msgid "Decline"
 msgstr "拒絕"
 
+#, fuzzy
+msgid "Send to..."
+msgstr "傳送"
+
+msgid "Export as"
+msgstr ""
+
 # 80%
 # 100%
 #, fuzzy
@@ -2018,6 +2025,9 @@ msgstr "選擇了 '{0}' 資料夾"
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "設定旗標"
@@ -2306,12 +2316,17 @@ msgid "Not supported at the moment."
 msgstr "此時不支援"
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "有 {0} 提醒"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "有 {0} 提醒"
 
 # 88%
 msgid "Reminders"
 msgstr "提醒"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "有 {0} 提醒"
 
 msgid "Due In"
 msgstr "到期於"
@@ -3278,9 +3293,6 @@ msgstr "群組"
 
 msgid "Work"
 msgstr "工作"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "依全名排序"
@@ -4480,6 +4492,10 @@ msgstr "回復預設值"
 
 msgid "Delete settings"
 msgstr "刪除設定"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "圖示"
 
 msgid "About"
 msgstr "關於"

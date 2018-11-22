@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1455,6 +1455,14 @@ msgstr "Tentativa"
 msgid "Decline"
 msgstr "Rehusar"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Enviar"
+
+msgid "Export as"
+msgstr ""
+
 #, fuzzy
 msgid "Occurrence"
 msgstr "Repetición"
@@ -2119,6 +2127,9 @@ msgstr ""
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Establecer bandera"
@@ -2408,13 +2419,19 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "No soportado por el momento."
 
-msgid "There are no reminders"
-msgstr ""
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
+msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
 
 # 88%
 #, fuzzy
 msgid "Reminders"
 msgstr "Recordatorio"
+
+msgid "There are no reminders"
+msgstr ""
 
 msgid "Due In"
 msgstr ""
@@ -3422,9 +3439,6 @@ msgstr "Grupo"
 
 msgid "Work"
 msgstr "Trabajo"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Ordenar por: Nombre Completo"
@@ -4661,6 +4675,10 @@ msgstr "Restaurar por defecto"
 
 msgid "Delete settings"
 msgstr "Eliminar ajustes"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Iconos"
 
 msgid "About"
 msgstr "Acerca"

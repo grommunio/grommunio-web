@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish (Poland) <http://translate.kopano.io/projects/kopano/"
@@ -1408,6 +1408,13 @@ msgstr "Wstępnie"
 msgid "Decline"
 msgstr "Odmów"
 
+#, fuzzy
+msgid "Send to..."
+msgstr "Wysyłanie"
+
+msgid "Export as"
+msgstr ""
+
 msgid "Occurrence"
 msgstr "Powtórzenie"
 
@@ -2025,6 +2032,9 @@ msgstr "Wybrano '{0}' folderów."
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 #, fuzzy
 msgid "Set custom flag"
 msgstr "Zaznacz obserwuj"
@@ -2309,11 +2319,18 @@ msgid "Not supported at the moment."
 msgstr "Chwilowo nierozpoznany."
 
 #, fuzzy
-msgid "There are no reminders"
-msgstr "Masz {0} przypomnienie"
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Masz {0} przypomnienie"
+msgstr[1] "Masz {0} przypomnienie"
+msgstr[2] "Masz {0} przypomnienie"
 
 msgid "Reminders"
 msgstr "Przypomnienia"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Masz {0} przypomnienie"
 
 msgid "Due In"
 msgstr "Wymagalny w "
@@ -3247,9 +3264,6 @@ msgstr "Grupa"
 
 msgid "Work"
 msgstr "Praca"
-
-msgid "Export as"
-msgstr ""
 
 msgid "Sort by: Full Name"
 msgstr "Sortuj według: Pełna nazwa"
@@ -4449,6 +4463,10 @@ msgstr "Przywróć ustawienia standardowe"
 
 msgid "Delete settings"
 msgstr "Usuń ustawienia"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikony"
 
 msgid "About"
 msgstr "O"

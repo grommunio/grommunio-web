@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-11-08 16:05+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1428,6 +1428,14 @@ msgstr "Foreløpig"
 msgid "Decline"
 msgstr "Avslå"
 
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Send til"
+
+msgid "Export as"
+msgstr "Eksporter som"
+
 # 80%
 msgid "Occurrence"
 msgstr "Forekomst"
@@ -2083,6 +2091,9 @@ msgstr "Mappe '{0}' valgt."
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr "Sett selvvalgt flagg"
 
@@ -2370,11 +2381,17 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Ikke støttet for øyeblikket."
 
-msgid "There are no reminders"
-msgstr "Det er ingen påminnelser"
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Det er ingen påminnelser"
+msgstr[1] "Det er ingen påminnelser"
 
 msgid "Reminders"
 msgstr "Påminnelser"
+
+msgid "There are no reminders"
+msgstr "Det er ingen påminnelser"
 
 msgid "Due In"
 msgstr "Forfaller"
@@ -3318,9 +3335,6 @@ msgstr "Gruppe"
 
 msgid "Work"
 msgstr "Arbeid"
-
-msgid "Export as"
-msgstr "Eksporter som"
 
 msgid "Sort by: Full Name"
 msgstr "Sorter på: fullt navn"
@@ -4523,6 +4537,10 @@ msgstr "Bruk standardinnstillinger"
 # 88%
 msgid "Delete settings"
 msgstr "Slett innstillinger"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikoner"
 
 msgid "About"
 msgstr "Om"

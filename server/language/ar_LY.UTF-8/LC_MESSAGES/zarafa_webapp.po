@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Libya)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 16:42+0100\n"
+"POT-Creation-Date: 2018-11-22 15:37+0100\n"
 "PO-Revision-Date: 2018-08-24 09:04+0200\n"
 "Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
 "Language-Team: Arabic (Libya) <https://translate.kopano.io/projects/kopano/"
@@ -1400,6 +1400,12 @@ msgstr ""
 msgid "Decline"
 msgstr ""
 
+msgid "Send to..."
+msgstr ""
+
+msgid "Export as"
+msgstr ""
+
 msgid "Occurrence"
 msgstr ""
 
@@ -1996,6 +2002,9 @@ msgstr ""
 msgid "Do not show this message again."
 msgstr ""
 
+msgid "ICS"
+msgstr ""
+
 msgid "Set custom flag"
 msgstr ""
 
@@ -2262,10 +2271,19 @@ msgstr ""
 msgid "Not supported at the moment."
 msgstr ""
 
-msgid "There are no reminders"
-msgstr ""
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 msgid "Reminders"
+msgstr ""
+
+msgid "There are no reminders"
 msgstr ""
 
 msgid "Due In"
@@ -3181,9 +3199,6 @@ msgid "Group"
 msgstr ""
 
 msgid "Work"
-msgstr ""
-
-msgid "Export as"
 msgstr ""
 
 msgid "Sort by: Full Name"
@@ -4324,6 +4339,9 @@ msgid "Restore to defaults"
 msgstr ""
 
 msgid "Delete settings"
+msgstr ""
+
+msgid "{0} Iconset"
 msgstr ""
 
 msgid "About"
