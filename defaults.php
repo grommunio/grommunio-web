@@ -390,6 +390,9 @@ if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(arr
 // Maximum reminder items we can show on client side.
 if(!defined('MAX_NUM_REMINDERS')) define('MAX_NUM_REMINDERS', 99);
 
+// Set true to default soft delete the shared store items
+if(!defined('ENABLE_DEFAULT_SOFT_DELETE')) define('ENABLE_DEFAULT_SOFT_DELETE', false);
+
 // Shared store polling timer in minutes
 if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTERVAL', 15);
 

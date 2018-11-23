@@ -136,6 +136,9 @@
 	// Maximum eml files to be included in a single ZIP archive
 	define('MAX_EML_FILES_IN_ZIP', 50);
 
+	// Set true to default soft delete the shared store items
+	define('ENABLE_DEFAULT_SOFT_DELETE', false);
+
 	// Additional color schemes for the calendars can be added by uncommenting and editing the following define.
 	// The format is the same as the format of COLOR_SCHEMES which is defined in default.php
 	// To change the default colors, COLOR_SCHEMES can also be defined here.
