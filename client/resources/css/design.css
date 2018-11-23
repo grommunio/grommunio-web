@@ -2438,106 +2438,116 @@ ul.x-tab-strip-top {
 }
 
 /* hierarchy toolbar (Show all folders panel) */
-/* line 3, ../scss/components/_hierarchy.scss */
+/* line 4, ../scss/components/_hierarchy.scss */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
   /* Bottom has -1 pixel since we have a bottom-border of 1px */
   padding: 8px 12px 7px 12px;
 }
-/* line 9, ../scss/components/_hierarchy.scss */
+/* line 10, ../scss/components/_hierarchy.scss */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap input, #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap label {
   line-height: 20px;
   vertical-align: middle;
 }
-/* line 15, ../scss/components/_hierarchy.scss */
+/* line 16, ../scss/components/_hierarchy.scss */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-item {
   margin-bottom: 0;
 }
 
-/* line 21, ../scss/components/_hierarchy.scss */
+/* line 22, ../scss/components/_hierarchy.scss */
 .zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
   padding: 12px 0 6px;
 }
 
-/* line 25, ../scss/components/_hierarchy.scss */
+/* line 26, ../scss/components/_hierarchy.scss */
 .zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child {
   padding-bottom: 12px;
 }
 
 /* Fix for the background-color when the titles are longer than the width of the box */
-/* line 30, ../scss/components/_hierarchy.scss */
+/* line 31, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel .x-tree-root-ct {
   display: inline-block;
   min-width: 100%;
 }
 
 /* Override -- lines in hierarchytree */
-/* line 36, ../scss/components/_hierarchy.scss */
+/* line 37, ../scss/components/_hierarchy.scss */
 .x-tree-lines .x-tree-elbow,
 .x-tree-lines .x-tree-elbow-line,
 .x-tree-lines .x-tree-elbow-end {
   background-image: none;
 }
 
-/* line 42, ../scss/components/_hierarchy.scss */
+/* line 43, ../scss/components/_hierarchy.scss */
 #zarafa-navigationpanel .zarafa-context-navigation-block:not(.fixed-bottombar) .zarafa-hierarchy-treepanel-body {
   height: auto !important;
 }
 
-/* line 46, ../scss/components/_hierarchy.scss */
+/* line 47, ../scss/components/_hierarchy.scss */
+.zarafa-hierarchy-treepanel-body {
+  overflow: hidden !important;
+}
+
+/* line 51, ../scss/components/_hierarchy.scss */
+.zarafa-hierarchy-treepanel-body:hover {
+  overflow: auto !important;
+}
+
+/* line 55, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-bottombar {
   border-top: 1px solid #e6e6e6;
   padding: 10px 0;
 }
-/* line 50, ../scss/components/_hierarchy.scss */
+/* line 59, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-bottombar table {
   padding-left: 12px;
   width: 100%;
   padding-right: 9px;
 }
-/* line 55, ../scss/components/_hierarchy.scss */
+/* line 64, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder {
   display: block;
 }
-/* line 58, ../scss/components/_hierarchy.scss */
+/* line 67, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder .x-btn-small {
   display: block;
 }
-/* line 61, ../scss/components/_hierarchy.scss */
+/* line 70, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder .x-btn-small em, .zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder .x-btn-small button {
   width: 100%;
 }
 
-/* line 69, ../scss/components/_hierarchy.scss */
+/* line 78, ../scss/components/_hierarchy.scss */
 .x-tree-node-el {
   line-height: 20px;
 }
-/* line 72, ../scss/components/_hierarchy.scss */
+/* line 81, ../scss/components/_hierarchy.scss */
 .x-tree-node-el a {
   margin-left: 6px;
 }
 
-/* line 77, ../scss/components/_hierarchy.scss */
+/* line 86, ../scss/components/_hierarchy.scss */
 .x-tree-node a span, .x-dd-drag-ghost a span {
   padding-left: 0;
 }
 
-/* line 81, ../scss/components/_hierarchy.scss */
+/* line 90, ../scss/components/_hierarchy.scss */
 .x-tree-node.zarafa-tree-root-container .x-tree-node-el {
   padding-left: 9px;
 }
 
 /* Selection in tree */
-/* line 86, ../scss/components/_hierarchy.scss */
+/* line 95, ../scss/components/_hierarchy.scss */
 .x-tree-node .zarafa-hierarchy-node.x-tree-selected {
   background-color: #d5e8f7;
 }
 
-/* line 90, ../scss/components/_hierarchy.scss */
+/* line 99, ../scss/components/_hierarchy.scss */
 .x-tree-node .x-tree-node-over {
   background-color: #f2f2f2;
 }
 
-/* line 94, ../scss/components/_hierarchy.scss */
+/* line 103, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-treepanel-tbar .x-form-display-field.x-form-item,
 .x-form-field.zarafa-hierarchy-treepanel-showallfolders {
   padding: 0 0 0 0;
@@ -2545,35 +2555,35 @@ ul.x-tab-strip-top {
 }
 
 /* counters */
-/* line 101, ../scss/components/_hierarchy.scss */
+/* line 110, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
   color: #5ebb4b;
 }
 
-/* line 105, ../scss/components/_hierarchy.scss */
+/* line 114, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-owner {
   font-weight: normal;
   color: #777777 !important;
 }
 
-/* line 110, ../scss/components/_hierarchy.scss */
+/* line 119, ../scss/components/_hierarchy.scss */
 .zarafa-tree-node.zarafa-hierarchy-node-withcounter {
   font-weight: bold;
 }
 
 /* make the whole hierarchy tree entry's look clickable */
-/* line 116, ../scss/components/_hierarchy.scss */
+/* line 125, ../scss/components/_hierarchy.scss */
 .x-tree-node-el span, .x-tree-node-el img, .x-tree-node-el a {
   cursor: pointer;
 }
-/* line 120, ../scss/components/_hierarchy.scss */
+/* line 129, ../scss/components/_hierarchy.scss */
 .x-tree-node-el svg rect, .x-tree-node-el svg path, .x-tree-node-el svg g {
   cursor: pointer;
 }
 
 /* Margin for checkbox next to calendar icon  */
-/* line 127, ../scss/components/_hierarchy.scss */
+/* line 136, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-cb {
   margin-right: 6px;
 }
