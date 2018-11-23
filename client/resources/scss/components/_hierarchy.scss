@@ -1,5 +1,6 @@
 /* hierarchy toolbar (Show all folders panel) */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar {
+	
 	.x-toolbar{
 		/* Bottom has -1 pixel since we have a bottom-border of 1px */
 		padding: ($toolbar-height - $font-default-line-height)/2 $padding-extra-large (($toolbar-height - $font-default-line-height)/2 - 1) $padding-extra-large;
@@ -41,6 +42,14 @@
 
 #zarafa-navigationpanel .zarafa-context-navigation-block:not(.fixed-bottombar) .zarafa-hierarchy-treepanel-body{
 	height: auto !important;
+}
+
+.zarafa-hierarchy-treepanel-body {
+	overflow: hidden !important;
+}
+
+.zarafa-hierarchy-treepanel-body:hover {
+	overflow: auto !important;
 }
 
 .zarafa-hierarchy-treepanel-bottombar{
