@@ -19,8 +19,21 @@
 	}
 }
 
+/* Always show the favorites container when screen is at least 768 pixels height
+Note: Does not work in IE11 */
+@media (min-height: 768px) {
+
+	.zarafa-tree-ipm-subtree-favorites-container {
+		position: sticky;
+		top: 0;
+		background: $white;
+		border-bottom: 1px solid $grey;
+		z-index: 99;	
+	}
+}
+
 .zarafa-tree-ipm-subtree-container, .zarafa-tree-ipm-subtree-favorites-container {
-  padding: $padding-extra-large 0 $padding-medium;
+	padding: $padding-extra-large 0 $padding-medium;
 }
 
 .zarafa-tree-ipm-subtree-container:last-child, .zarafa-tree-ipm-subtree-favorites-container:last-child{
@@ -53,7 +66,7 @@
 }
 
 .zarafa-hierarchy-treepanel-bottombar{
-	border-top: 1px solid #e6e6e6;
+	border-top: 1px solid $grey;
 	padding: 10px 0;
 
 	table {
