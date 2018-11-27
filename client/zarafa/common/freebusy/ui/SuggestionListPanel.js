@@ -30,8 +30,8 @@ Zarafa.common.freebusy.ui.SuggestionListPanel = Ext.extend(Ext.Panel, {
 				items: [{
 					xtype: 'container',
 					border : false,
-					height : 168,
-					width: 175,
+					height : 195,
+					width: 195,
 					layout : 'fit',
 					items : [{
 						xtype: 'datepicker',
