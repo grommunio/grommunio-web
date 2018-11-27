@@ -828,9 +828,9 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 			}
 
 			return this.dirtySelectedSignature;
-		} else {
-			return false;
 		}
+
+		return false;
 	},
 
 	/**
@@ -845,7 +845,9 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 	 */
 	onValueCorrection : function(field, value, oldValue)
 	{
-		this.selectedSignature.data.content = value;
+		if ( this.selectedSignature ) {
+			this.selectedSignature.data.content = value;
+		}
 	}
 });
 

@@ -157,9 +157,9 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	setSourceMessageInfo : function(record, actionType, responseRecord)
 	{
-		// Hack alert ! 
-		// we are not able to identify the 0x85CE named property, So here we hardcode first 24byte 
-		// value of the record, based on action type (reply, replyall, forward) and add 48byte 
+		// Hack alert !
+		// we are not able to identify the 0x85CE named property, So here we hardcode first 24byte
+		// value of the record, based on action type (reply, replyall, forward) and add 48byte
 		// entryid at the end.
 		var sourceMessageAction;
 		switch(actionType) {
@@ -233,7 +233,6 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	initRecordBody : function(record, origRecord, actionType)
 	{
-		var template;
 		var signatureId = this.getSignatureId(actionType);
 
 		// Create a copy of the original data, the body has changed,
@@ -243,13 +242,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		/**
 		 * here we go through all the recipients in recipientStore and build the username <user@abc.com> format
 		 * recipient for to and cc fields, and add then in respondData display_to and display_cc field.
-		 * and we don't want to change original record, 
+		 * and we don't want to change original record,
 		 */
 		if(origRecord.isOpened()){
 			var recipientStore = origRecord.getRecipientStore();
 			var to = [];
 			var cc = [];
-		
+
 			if (recipientStore.getCount() > 0) {
 				recipientStore.each(function(recipient) {
 					switch(recipient.get('recipient_type')){
@@ -268,21 +267,14 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		// Initialize HTML body
-		template = new Ext.XTemplate(Zarafa.mail.data.Templates.htmlQuotedTemplate, {
-			// Compile the template directly
-			compiled: true
-		});
-
 		respondData.body = origRecord.getBody(true);
 		respondData.signatureData = this.getSignatureData(true, signatureId);
-		record.set('html_body', template.apply(respondData));
+		respondData.fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
+		respondData.fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		record.set('html_body', Zarafa.mail.data.Templates.htmlQuotedTemplate.apply(respondData));
 
 		// Initialize plain-text body
-		template = new Ext.XTemplate(Zarafa.mail.data.Templates.plaintextQuotedTemplate, {
-			// Compile the template directly
-			compiled: true
-		});
-
 		respondData.body = origRecord.getBody(false);
 		respondData.signatureData = this.getSignatureData(false, signatureId);
 
@@ -302,7 +294,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 		respondData.body = newText;
 
-		record.set('body', template.apply(respondData));
+		record.set('body', Zarafa.mail.data.Templates.plaintextQuotedTemplate.apply(respondData));
 	},
 
 	/**
@@ -381,7 +373,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 				if (!recipDuplicate) {
 					this.addRecipientToStore(store, recipient, false);
-				
+
 					// Store entryid of added recipient to prevent doubles
 					addedRecipientEntryids.push(recipEntryid);
 				}
@@ -408,26 +400,26 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		// Create a new recipient containing all data from the original.
 		recipient = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipData);
-		
+
 		if (to) {
 			recipient.set('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_TO);
 		}
 
 		// We have copied the 'rowid' as well, but new recipients
-		// shouldn't have this property as it will be filled in by PHP. 
+		// shouldn't have this property as it will be filled in by PHP.
 		recipient.set('rowid', undefined);
 
 		store.add(recipient);
 
 	},
-	
+
 	/**
 	 * Copy the body (both plain text and html) of the {@link Zarafa.core.data.IPMRecord original record}
 	 * to the {@link Zarafa.core.data.IPMRecord new record}.
 	 * The html body will be cleaned, meaning the wrapping div that was added by
 	 * the WebApp backend will be removed. This is necessary because it introduces
 	 * problems when we paste it in TinyMCE.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The new record
 	 * @param {Zarafa.core.data.IPMRecord} origRecord The original record
 	 * @private
@@ -436,22 +428,22 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	{
 		// We can simply copy the contents of the plain text body
 		record.set('body', origRecord.getBody(false));
-		
+
 		var htmlBody = origRecord.getBody(true);
-		
+
 		// Remove the comments
 		htmlBody = htmlBody.replace(/<\!\-\-.*?\-\->/gi, '');
-		
+
 		// Remove the wrapping div
 		htmlBody = htmlBody.replace(/^\s*<div\s+class=['"]bodyclass['"]\s*>/gi, '');
 		htmlBody = htmlBody.replace(/\s*<\/div\s*>\s*$/gi, '');
 		record.set('html_body', htmlBody);
 	},
-	
+
 	/**
 	 * Copy the recipients of the {@link Zarafa.core.data.IPMRecord original record}
 	 * to the {@link Zarafa.core.data.IPMRecord new record}.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} record The record to initialize
 	 * @param {Zarafa.core.data.IPMRecord} origRecord The original record
 	 * to which the respond is created
@@ -469,7 +461,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			recipient = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipData);
 
 			// We have copied the 'rowid' as well, but new recipients
-			// shouldn't have this property as it will be filled in by PHP. 
+			// shouldn't have this property as it will be filled in by PHP.
 			recipient.set('rowid', undefined);
 
 			recipientStore.add(recipient);
@@ -545,9 +537,10 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * when it needs to be converted from plain to html or vice versa.
 	 * @param {Boolean} preferHTML True if the signature should be returned in HTML format else in plain format.
 	 * @param {Number} signatureId id of the signature to get the data, this id can be get using {@link #getSignatureId}.
+	 * @param {Boolean} withEmptyLines True (default) to add empty lines before the signature, false otherwise.
 	 * @return {String} signature data that should be added to body of the {@link Zarafa.core.data.IPMRecord IPMRecord}.
 	 */
-	getSignatureData : function(preferHtml, signatureId)
+	getSignatureData : function(preferHtml, signatureId, withEmptyLines)
 	{
 		if(!signatureId) {
 			return '';
@@ -561,41 +554,46 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		// Create a copy of the original data
 		sigDetails = Ext.apply({}, sigDetails);
-		
+
 		if(!Ext.isDefined(sigDetails['content'])) {
 			return '';
 		}
 
 		var sigIsHtml = sigDetails['isHTML'];
-		
+
 		if(preferHtml === false) {
 			// we want signature in plain format, so if signature is in html format then convert it to plain format
 			if(sigIsHtml === true) {
 				sigDetails['content'] = Zarafa.core.HTMLParser.convertHTMLToPlain(sigDetails['content']);
 			}
 
-			// no conversion needed if signature is in plain format
-
-			// Prefix the signature with some newlines
-			sigDetails['content'] = '\n\n' + sigDetails['content'];
+			// Prefix the signature with two newlines
+			if ( withEmptyLines !== false ) {
+				sigDetails['content'] = '\n\n' + sigDetails['content'];
+			}
 		} else {
-			// we want signature in html format, so if signature is in plain format then convert it to html
-			if(sigIsHtml === false) {
+			if (sigIsHtml === false) {
+				// we want signature in html format, so if signature is in plain format then convert it to html
 				sigDetails['content'] = Zarafa.core.HTMLParser.convertPlainToHTML(sigDetails['content']);
 			}
 
-			// no conversion needed if signature is in html format
-
-			// Prefix the signature with newline, using font stylings from settings
-			sigDetails['content'] = sigDetails['content'];
+			// Prefix the signature with two newlines
+			if ( withEmptyLines !== false ) {
+				var fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
+				var fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
+				sigDetails['content'] =
+					'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
+					'<p style="font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;"><br/></p>' +
+					sigDetails['content'];
+			}
 		}
-		
+
 		// Parse the signature to replace the templates
 		sigDetails['content'] = this.replaceSignatureTemplates(sigDetails['content'], preferHtml);
 
 		return sigDetails['content'];
 	},
-	
+
 	/**
 	 * Replaces the templates in a signature
 	 * @param {String} signatureContent The text of the signature (can be html or plain text)
@@ -609,7 +607,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if ( !/{%.*}/gi.test(signatureContent) ){
 			return signatureContent;
 		}
-		
+
 		// TODO: The user information should be updated, so we will always have
 		// the latest data
 
@@ -642,7 +640,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			phone_mobile	: user.getPhoneMobile(),
 			phone_pager		: user.getPhonePager()
 		};
-		
+
 		Ext.iterate(map, function(key, value){
 			if ( !Ext.isDefined(value) ){
 				value = '';
@@ -653,7 +651,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			}
 			signatureContent = signatureContent.replace(new RegExp('{%'+key+'}', 'gi'), value);
 		});
-		
+
 		return signatureContent;
 	},
 
@@ -722,7 +720,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Event handler which is executed right before the {@link #folderchange}
 	 * event is fired. This allows subclasses to update the folders.
 	 * Also apply the default sorting on mail grid as per the folder type.
-	 * 
+	 *
 	 * @param {Zarafa.core.ContextModel} model The model which fired the event.
 	 * @param {Array} folders selected folders as an array of {@link Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
 	 * @private
@@ -732,7 +730,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if(!Ext.isEmpty(folders)) {
 			var folder = folders[0];
 			var folderKey = folder.getDefaultFolderKey();
-			var field = 'message_delivery_time'; 
+			var field = 'message_delivery_time';
 
 			if(folderKey === 'drafts') {
 				field = 'last_modification_time';
@@ -761,7 +759,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			this.setDataMode(Zarafa.mail.data.DataModes.SEARCH);
 		}
 	},
-	
+
 	/**
 	 * Event handler for the {@link #searchstop searchstop} event.
 	 * This will {@link #setDataMode change the datamode} to the {@link #oldDataMode previous datamode}.
