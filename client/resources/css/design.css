@@ -5730,9 +5730,9 @@ body .k-category-block {
 .zarafa-notifier-eventdropdown-item .left,
 .zarafa-notifier-popup-item .left,
 .zarafa-notifier-dropdown-item .left {
+  display: table-cell;
   width: 40px;
-  float: left;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   vertical-align: middle;
 }
@@ -5740,21 +5740,23 @@ body .k-category-block {
 .zarafa-notifier-eventdropdown-item .right,
 .zarafa-notifier-popup-item .right,
 .zarafa-notifier-dropdown-item .right {
-  padding: 10px 10px 10px 0;
+  display: table-cell;
+  text-align: left;
+  padding: 10px 10px 10px 0px;
 }
 
-/* line 26, ../scss/components/_notifications.scss */
+/* line 28, ../scss/components/_notifications.scss */
 .zarafa-notifier-dropdown-item,
 .zarafa-notifier-eventdropdown-item {
   border-width: 0 1px 1px 1px;
 }
 
-/* line 31, ../scss/components/_notifications.scss */
+/* line 33, ../scss/components/_notifications.scss */
 .zarafa-notifier-popup-item {
   border-width: 1px 0 0 1px;
 }
 
-/* line 36, ../scss/components/_notifications.scss */
+/* line 38, ../scss/components/_notifications.scss */
 .zarafa-notifier-dropdown-item-title,
 .zarafa-notifier-eventdropdown-item-title,
 .zarafa-notifier-popup-item-title {
@@ -5762,43 +5764,43 @@ body .k-category-block {
   font-size: 1.3em;
 }
 
-/* line 43, ../scss/components/_notifications.scss */
+/* line 45, ../scss/components/_notifications.scss */
 .zarafa-notifier-container {
   position: absolute;
   z-index: 1000000000;
   width: 356px;
 }
 
-/* line 50, ../scss/components/_notifications.scss */
+/* line 52, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-icon {
   height: 30px;
 }
 
-/* line 58, ../scss/components/_notifications.scss */
+/* line 60, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-info .icon,
 .zarafa-slide-notifier-warning .icon,
 .zarafa-slide-notifier-error .icon {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 
-/* line 64, ../scss/components/_notifications.scss */
+/* line 66, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-error {
   background-color: #f4eaea;
 }
 
-/* line 68, ../scss/components/_notifications.scss */
+/* line 70, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-warning {
   background-color: #f4eac0;
 }
 
-/* line 72, ../scss/components/_notifications.scss */
+/* line 74, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-info {
   background-color: #eaf4ea;
 }
 
 /* Create a normal formatted list in the Missing Default Folder notifier */
-/* line 77, ../scss/components/_notifications.scss */
+/* line 79, ../scss/components/_notifications.scss */
 .zarafa-slide-notifier-error-hierarchy-defaultfolder ul {
   list-style: disc;
   padding-left: 40px;
