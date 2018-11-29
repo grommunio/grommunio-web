@@ -1,0 +1,10 @@
+{
+	".icon_mail_read": [
+		".icon_mail_nondelivery_receipt",
+		".icon_mail_report_ndr"
+	],
+	".icon_mail_unread": [
+		".mail_unread .icon_mail_nondelivery_receipt",
+		".mail_unread .icon_mail_report_ndr"
+	]
+}
