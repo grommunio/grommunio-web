@@ -28,7 +28,6 @@ JSOPTIONS = --externs client/externs.js \
 # Server files
 
 APACHECONFDEST = $(addprefix $(DESTDIR)/, $(APACHECONF))
-PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard server/includes/*/*.php server/includes/*.php *.php))))
 DISTFILES = $(addprefix $(DESTDIR)/,config.php.dist debug.php.dist)
 ROBOTS = $(addprefix $(DESTDIR)/, robots.txt)
 HTACCESS = $(addprefix $(DESTDIR)/, .htaccess)
@@ -37,7 +36,7 @@ LANGTXTDEST = $(addprefix $(DESTDIR)/, $(LANGTXT))
 POS = $(wildcard server/language/*/LC_MESSAGES/zarafa_webapp.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(shell find server/includes -name '*.php')
-INCLUDESDEST =  $(addprefix $(DESTDIR)/, $(INCLUDES))
+PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
 SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
 
 # Client files
@@ -61,8 +60,7 @@ ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
 
 POFILES = $(wildcard server/language/*/*/*.po)
-JSFILES = $(wildcard client/zarafa/*.js) $(wildcard client/zarafa/*/*.js)
-CORE_FILES = $(POFILES) $(PHPFILES) $(JSFILES)
+JSFILES = $(shell find client/zarafa -name '*.js')
 
 # Build
 
@@ -75,7 +73,7 @@ deploy: server client plugins
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(INCLUDESDEST) $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(KOPANOCSS) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
