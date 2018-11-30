@@ -81,9 +81,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 					'</div>\n' +
 				'</body>\n' +
 				'</html>'
-			),{
-				disableFormats: true
-			}
+			)
 		).apply(this.prepareData(component));
 	},
 
