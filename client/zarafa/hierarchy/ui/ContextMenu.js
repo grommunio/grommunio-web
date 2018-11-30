@@ -252,6 +252,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			iconCls : 'icon_favorites',
 			hidden : true,
 			beforeShow : function(item, record) {
+				// Hide the button is favorites is hidden
+				if (container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/hide_favorites')) {
+					return item.setVisible(false);
+				}
 				if(!record.isInDeletedItems()) {
 					var isVisible = record.existsInFavorites();
 					if(!isVisible && record.isIPMSubTree()) {
@@ -266,6 +270,10 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			hidden : true,
 			iconCls : 'icon_remove_favorites',
 			beforeShow : function(item, record) {
+				// Hide the button if favorites is hidden
+				if (container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/hide_favorites')) {
+					return item.setVisible(false);
+				}
 				if(record.existsInFavorites()) {
 					item.setDisabled(false);
 				}

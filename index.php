@@ -230,6 +230,8 @@
 	// Set a template variable for the favicon of the login, welcome, and webclient page
 	$theme = Theming::getActiveTheme();
 	$favicon = getFavicon(Theming::getActiveTheme());
+	$hideFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/hide_favorites") ? 'hideFavorites' : '';
+	$scrollFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/scroll_favorites") ? 'scrollFavorites' : '';
 
 	// If GET parameter 'load' is defined, we defer handling to the load.php script
 	if ( isset($_GET['load']) ) {

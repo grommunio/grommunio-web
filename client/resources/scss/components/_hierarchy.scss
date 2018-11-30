@@ -1,3 +1,12 @@
+/* Favorites settings */
+body.hideFavorites .zarafa-tree-ipm-subtree-favorites-container {
+	display: none !important;	
+}
+
+body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container {
+	position: relative !important;
+}
+
 /* hierarchy toolbar (Show all folders panel) */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar {
 	
