@@ -2568,34 +2568,38 @@ Note: Does not work in IE11 */
 
 /* counters */
 /* line 123, ../scss/components/_hierarchy.scss */
-.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
-.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
-  color: #5ebb4b;
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter {
+  color: #59b147;
 }
 
-/* line 127, ../scss/components/_hierarchy.scss */
+/* line 126, ../scss/components/_hierarchy.scss */
+.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+  color: #0f70bd;
+}
+
+/* line 129, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-owner {
   font-weight: normal;
   color: #777777 !important;
 }
 
-/* line 132, ../scss/components/_hierarchy.scss */
+/* line 134, ../scss/components/_hierarchy.scss */
 .zarafa-tree-node.zarafa-hierarchy-node-withcounter {
   font-weight: bold;
 }
 
 /* make the whole hierarchy tree entry's look clickable */
-/* line 138, ../scss/components/_hierarchy.scss */
+/* line 140, ../scss/components/_hierarchy.scss */
 .x-tree-node-el span, .x-tree-node-el img, .x-tree-node-el a {
   cursor: pointer;
 }
-/* line 142, ../scss/components/_hierarchy.scss */
+/* line 144, ../scss/components/_hierarchy.scss */
 .x-tree-node-el svg rect, .x-tree-node-el svg path, .x-tree-node-el svg g {
   cursor: pointer;
 }
 
 /* Margin for checkbox next to calendar icon  */
-/* line 149, ../scss/components/_hierarchy.scss */
+/* line 151, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-cb {
   margin-right: 6px;
 }

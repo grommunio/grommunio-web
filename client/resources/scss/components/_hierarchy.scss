@@ -120,9 +120,11 @@ Note: Does not work in IE11 */
 }
 
 /* counters */
-.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
+.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter {
+	color: $green-hover;
+}
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
-	color: $green;
+	color: $kopano-blue;
 }
 .zarafa-hierarchy-node-owner {
   font-weight: normal;
