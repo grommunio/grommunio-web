@@ -240,7 +240,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 					elNode.replaceClass('zarafa-hierarchy-node-unread-count', 'zarafa-hierarchy-node-total-count');
 					elNode.addClass('zarafa-hierarchy-node-withcounter');
 				}
-				counterNode.update('(' + folder.getCounterValue() + ')');
+				counterNode.update(folder.getCounterValue());
 				counterNode.repaint();
 				break;
 			case Zarafa.hierarchy.data.CounterTypes.UNREAD:
@@ -251,7 +251,7 @@ Zarafa.hierarchy.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 					elNode.replaceClass('zarafa-hierarchy-node-total-count', 'zarafa-hierarchy-node-unread-count');
 					elNode.addClass('zarafa-hierarchy-node-withcounter');
 				}
-				counterNode.update('(' + folder.getCounterValue() + ')');
+				counterNode.update(folder.getCounterValue());
 				counterNode.repaint();
 				break;
 			case Zarafa.hierarchy.data.CounterTypes.NONE:
