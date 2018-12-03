@@ -23,13 +23,18 @@ Zarafa.widgets.folderwidgets.TasksWidget = Ext.extend(Zarafa.widgets.folderwidge
 		store.setDefaultSort('duedate', 'asc');
 
 		// Create a restriction, we only want uncomplete tasks, so tasks which
-		// do not have the status flag set to Zarafa.core.mapi.TaskStatus.COMPLETE
+		// do not have the status flag set to Zarafa.core.mapi.TaskStatus.COMPLETE or
+		// Zarafa.core.mapi.FlagStatus.completed
 		store.setRestriction({
-			'task': Zarafa.core.data.RestrictionFactory.dataResProperty(
+			'task': Zarafa.core.data.RestrictionFactory.createResAnd([Zarafa.core.data.RestrictionFactory.dataResProperty(
 				'status',
 				Zarafa.core.mapi.Restrictions.RELOP_NE,
 				Zarafa.core.mapi.TaskStatus.COMPLETE
-			)
+			),Zarafa.core.data.RestrictionFactory.dataResProperty(
+				'flag_status',
+				Zarafa.core.mapi.Restrictions.RELOP_NE,
+				Zarafa.core.mapi.FlagStatus.completed
+			)])
 		});
 
 		Ext.applyIf(config, {
