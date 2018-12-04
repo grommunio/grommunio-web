@@ -4425,6 +4425,7 @@
 		function convertInlineImage($message)
 		{
 			$body = streamProperty($message, PR_HTML);
+			$imageIDs = array();
 
 			// Only load the DOM if the HTML contains a data:image or data:text/plain due to a bug
 			// in Chrome on Windows in combination with TinyMCE.
@@ -4456,6 +4457,8 @@
 						// TinyMCE adds an extra inline image for some reason, remove it.
 						$image->setAttribute('data-mce-src', '');
 
+						array_push($imageIDs, $uniqueId);
+
 						// Create hidden attachment with CID
 						$inlineImage = mapi_message_createattach($message);
 						$props = Array(PR_ATTACH_FILENAME => 'inline.txt',
@@ -4485,7 +4488,41 @@
 					mapi_savechanges($message);
 				}
 			}
+			$this->clearDeletedInlineAttachments($message, $imageIDs);
+		}
 
+		/**
+		 * Delete the deleted inline image attachment from attachment store.
+		 *
+		 * @param MAPIMessage $message the distribution list message
+		 * @param Array $imageIDs Array of existing inline image PR_ATTACH_CONTENT_ID
+		 */
+		function clearDeletedInlineAttachments($message, $imageIDs = array())
+		{
+			$attachmentTable = mapi_message_getattachmenttable($message);
+
+			$restriction =	Array(RES_AND, Array(
+				Array(RES_PROPERTY,
+					Array(
+						RELOP => RELOP_EQ,
+						ULPROPTAG => PR_ATTACHMENT_HIDDEN,
+						VALUE => Array( PR_ATTACHMENT_HIDDEN => true )
+					)
+				),
+				Array(RES_EXIST,
+					Array(
+						ULPROPTAG => PR_ATTACH_CONTENT_ID
+					)
+				)
+			));
+
+			$attachments = mapi_table_queryallrows($attachmentTable, array( PR_ATTACH_CONTENT_ID, PR_ATTACH_NUM), $restriction);
+			foreach ($attachments as $attachment) {
+				$clearDeletedInlineAttach = array_search($attachment[PR_ATTACH_CONTENT_ID], $imageIDs) === false;
+				if($clearDeletedInlineAttach) {
+					mapi_message_deleteattach($message, $attachment[PR_ATTACH_NUM]);
+				}
+			}
 		}
 
 		/**
