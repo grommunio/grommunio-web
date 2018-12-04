@@ -262,7 +262,7 @@
 							padding-bottom: ($header-height - 1 - $font-default-line-height) / 2;
 							padding-left: (16 + $padding-medium);
 							line-height: $font-default-line-height;
-							background-position: 0 ($header-height - 1 - 13)/2;
+							background-position: 0 ($header-height - 1 - 17)/2 !important;
 							background-repeat: no-repeat;
 							font-weight: bold;
 							font-size: $font-size-large !important;
