@@ -349,7 +349,21 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @property
 								 * @type Number
 								 */
-								'polling_interval' : 60 * 5
+								'polling_interval' : 60 * 5,
+								
+								/**
+								 * zarafa/v1/contexts/hierarchy/hide_favorites
+								 * @property
+								 * @type Boolean
+								 */
+								'hide_favorites' : false,
+								
+								/**
+								 * zarafa/v1/contexts/hierarchy/scroll_favorites
+								 * @property
+								 * @type Boolean
+								 */
+								'scroll_favorites' : false
 							},
 
 							'search' : {

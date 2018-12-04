@@ -52,6 +52,30 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change : this.onRadioChange,
 					scope : this
 				}
+			},{
+				xtype : 'displayfield',
+				hideLabel : true,
+				value : _('Favorite settings')
+			},{
+				xtype : 'checkbox',
+				name : 'zarafa/v1/contexts/hierarchy/hide_favorites',
+				ref : 'hideFavorites',
+				boxLabel : _('Hide favorites'),
+				hideLabel : true,
+				listeners : {
+					change : this.onFieldChange,
+					scope : this
+				}
+			},{
+				xtype : 'checkbox',
+				name: 'zarafa/v1/contexts/hierarchy/scroll_favorites',
+				ref : 'scrollFavorites',
+				boxLabel : _('Unpin favorites from top'),
+				hideLabel : true,
+				listeners : {
+					change : this.onFieldChange,
+					scope : this
+				}	
 			}]
 		});
 
@@ -69,6 +93,8 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 	{
 		this.model = settingsModel;
 		this.datetimeDisplayFormat.setValue(settingsModel.get(this.datetimeDisplayFormat.name));
+		this.hideFavorites.setValue(settingsModel.get(this.hideFavorites.name));
+		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 	},
 
 	/**
@@ -82,6 +108,19 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		var datetimeDisplayFormat = this.datetimeDisplayFormat.getValue().inputValue;
 
 		settingsModel.set(this.datetimeDisplayFormat.name, datetimeDisplayFormat);
+		settingsModel.set(this.hideFavorites.name, this.hideFavorites.getValue());
+		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
+		if (this.hideFavorites.getValue() === true) {
+			Ext.getBody().addClass('hideFavorites');
+		} else {
+			Ext.getBody().removeClass('hideFavorites');
+		}
+
+		if (this.scrollFavorites.getValue() === true) {
+			Ext.getBody().addClass('scrollFavorites');
+		} else {
+			Ext.getBody().removeClass('scrollFavorites');
+		}
 	},
 
 	/**
@@ -99,7 +138,26 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				this.model.set(field.name, radio.inputValue);
 			}
 		}
+	},
+
+	/**
+	 * Event handler which is called when one of the textfields has been changed.
+	 * This will apply the new value to the settings.
+	 * @param {Ext.form.Field} field The field which has fired the event
+	 * @param {String} value The new value
+	 * @private
+	 */
+	onFieldChange : function(field, cb)
+	{
+		if (this.model) {
+			// FIXME: The settings model should be able to detect if
+			// a change was applied
+			if (this.model.get(field.name) !== cb.checked) {
+				this.model.set(field.name, cb.checked);
+			}
+		}
 	}
+
 });
 
 Ext.reg('zarafa.settingsdisplaywidget', Zarafa.settings.ui.SettingsDisplayWidget);

@@ -93,7 +93,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			autoLoad: true,
 			data: Zarafa.advancesearch.data.DateRangeFields
 		};
-
+		
 		Ext.applyIf(config, {
 			xtype : 'zarafa.searchtoolboxpanel',
 			title: _('Search tools'),
@@ -123,7 +123,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				]
 			}]
 		});
-
+		
 		this.addEvents(
 			/**
 			 * @event afterupdaterestriction fired after the {@link #searchCriteria} gets updated by the
@@ -433,6 +433,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			xtype : 'container',
 			cls: 'zarafa-search-toolbox-favoritesbutton-container',
 			layout:'fit',
+			hidden: container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/hide_favorites', true, false),
 			items: [{
 				cls: 'search-toolbox-favorites-button',
 				iconCls: 'icon_favorites',
