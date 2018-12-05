@@ -4060,7 +4060,7 @@ div.zarafa-contact-cardview-selected {
   padding-bottom: 7.5px;
   padding-left: 22px;
   line-height: 20px;
-  background-position: 0 11px;
+  background-position: 0 9px !important;
   background-repeat: no-repeat;
   font-weight: bold;
   font-size: 15px !important;
