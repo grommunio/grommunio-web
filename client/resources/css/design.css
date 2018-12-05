@@ -1964,9 +1964,10 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct #mainmenu-logintext {
 .zarafa-maintoolbar {
   border: none;
   padding: 9px 0 0 12px;
-  background: url(../images/kopano-logo_115x26.png) no-repeat right 12px center;
+  background: url(../images/kopano-logo.svg) no-repeat right 12px center;
+  background-size: 115px 26px;
 }
-/* line 6, ../scss/components/_maintoolbar.scss */
+/* line 7, ../scss/components/_maintoolbar.scss */
 .zarafa-maintoolbar .x-btn,
 .zarafa-maintoolbar .x-btn.zarafa-action {
   margin-right: 9px;

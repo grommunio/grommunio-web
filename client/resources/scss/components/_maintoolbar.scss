@@ -1,7 +1,8 @@
 .zarafa-maintoolbar {
 	border: none;
 	padding: $padding-large 0 0 $padding-extra-large;
-	background: url(../images/kopano-logo_115x26.png) no-repeat right $padding-extra-large center;
+	background: url(../images/kopano-logo.svg) no-repeat right $padding-extra-large center;
+	background-size: 115px 26px;
 
 	.x-btn,
 	.x-btn.zarafa-action {
