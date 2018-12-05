@@ -213,11 +213,19 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if import functionality is supported on backend, false otherwise.
+	 * @return {Boolean} True if VCF import functionality is supported on backend, false otherwise.
 	 */
-	isImportSupported : function()
+	isVCfImportSupported : function()
 	{
 		return this.meta.is_vcfimport_supported;
+	},
+
+	/**
+	 * @return {Boolean} True if ICS and VCS import functionality is supported on backend, false otherwise.
+	 */
+	isICSImportSupported : function()
+	{
+		return this.meta.is_icsimport_supported;
 	},
 
 	/**

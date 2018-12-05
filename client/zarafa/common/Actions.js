@@ -922,15 +922,16 @@ Zarafa.common.Actions = {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder that is loaded for the new context
 	 * @param {Object} config (optional) Configuration object for creating the content panel
 	 */
-	openImportEmlContent : function(folder, config)
+	openImportContent : function(folder, config)
 	{
-		var attachComponent = new Zarafa.common.attachment.ui.UploadAttachmentComponent({
-			callback : this.importEmlCallback.createDelegate(this, [ folder ], 1),
+		config = Ext.applyIf(config || {}, {
+			callback : this.importItemCallback.createDelegate(this, [ folder ], 1),
 			multiple : true,
 			accept : '.eml',
 			scope : this
 		});
 
+		var attachComponent = new Zarafa.common.attachment.ui.UploadAttachmentComponent(config);
 		attachComponent.openAttachmentDialog();
 	},
 
@@ -1187,11 +1188,11 @@ Zarafa.common.Actions = {
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
 	 * @param {Boolean} show Open the imported item
 	 */
-	importEmlCallback : function(files, folder, show)
+	importItemCallback : function(files, folder, show)
 	{
-		this.brokenFiles = [];
-		this.totalFiles = files.length;
-		this.showImported = show === true;
+		Zarafa.common.Actions.brokenFiles = [];
+		Zarafa.common.Actions.totalFiles = files.length;
+		Zarafa.common.Actions.showImported = show === true;
 		this.readFiles(files, folder);
 	},
 
@@ -1243,8 +1244,8 @@ Zarafa.common.Actions = {
 			index = 0;
 		}
 
-		// Make sure we are processing only eml files for broken check
-		if (!this.isEmlFile(files[index])) {
+		// Make sure we are processing only eml and ics/vcs files for broken check
+		if (!this.isEmlFile(files[index]) && !this.isICSFile(files[index])) {
 			this.brokenFiles.push(files[index]);
 			index++;
 			this.readFiles(files, folder, index);
@@ -1280,13 +1281,54 @@ Zarafa.common.Actions = {
 
 		var rawHeaders = splittedContent.match(/([^\n^:]+:)/g);
 
+		// Restrict the eml files to import in calendar folder.
+		var invalidImportingFolder = (this.isEmlFile(files[index]) && folder.isCalendarFolder()) || (this.isICSFile(files[index]) && !folder.isCalendarFolder());
+
 		// Compare if necessary headers are present or not
-		if (Ext.isEmpty(rawHeaders) || rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1) {
+		if (Ext.isEmpty(rawHeaders) || invalidImportingFolder) {
+			this.brokenFiles.push(files[index]);
+		} else if (this.isICSFile(files[index])) {
+			this.isBrokenICSVCS(files[index], splittedContent, rawHeaders);
+		} else if(rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1) {
 			this.brokenFiles.push(files[index]);
 		}
 
 		index++;
 		this.readFiles(files, folder, index);
+	},
+
+	/**
+	 * Helper function to check selected ics/vcs file(s) is valid or not.
+	 *
+	 * @param {Object} file The file is contains file information.
+	 * @param {String} splittedContent The formatted content of ics/vcs file.
+	 * @param {Array} rawHeaders The keys array of ics/vcs file contains.
+	 */
+	isBrokenICSVCS : function(file, splittedContent, rawHeaders)
+	{
+		var begins = rawHeaders.filter(function(header){return header === "BEGIN:";});
+		var end = rawHeaders.filter(function(header){return header === "END:";});
+
+		// IF Appointment was updated then there may be chances that VTIMEZONE property exists in ICS/VCS file
+		// VTIMEZONE block must have to DTSTART if not then we consider that ICS/VCS is invalid.
+		// Also check that VEVENT block must have 'DTSTART;TZID' and 'DTEND;TZID' properties.
+		var hasTimeZoneProperlty = splittedContent.search(/VTIMEZONE(\r\n|\n|\r)/);
+		if (hasTimeZoneProperlty != -1) {
+			var icsRawHeaders = splittedContent.match(/([^\n=:^]+)/g);
+			var hasStartAndEndDate = icsRawHeaders.indexOf('DTSTART;TZID') !== -1 && icsRawHeaders.indexOf('DTEND;TZID') !== -1;
+			var hasNotStartDate = icsRawHeaders.indexOf('DTSTART') === -1;
+			// Check that any of the condition is true then we consider that ICS/VCS file is
+			// broken.
+			if (begins.length !== end.length || hasNotStartDate || !hasStartAndEndDate) {
+				this.brokenFiles.push(file);
+			}
+		} else {
+			var hasStartDate = rawHeaders.indexOf("DTSTART;VALUE=DATE:") !== -1 || rawHeaders.indexOf("DTSTART:") !== -1;
+			var hasEndDate = rawHeaders.indexOf("DTEND;VALUE=DATE:") !== -1 || rawHeaders.indexOf("DTEND:") !== -1;
+			if (begins.length !== end.length || !hasStartDate || !hasEndDate) {
+				this.brokenFiles.push(file);
+			}
+		}
 	},
 
 	/**
@@ -1306,7 +1348,7 @@ Zarafa.common.Actions = {
 			} else {
 				Zarafa.common.dialogs.MessageBox.addCustomButtons({
 					title: _('Import error'),
-					msg : String.format(_('Unable to import {0}. The file is not valid'), this.brokenFiles[0].name),
+					msg : String.format(_('Unable to import "{0}". The file is not valid'), this.brokenFiles[0].name),
 					icon : Ext.MessageBox.ERROR,
 					fn : Ext.emptyFn,
 					customButton : [{
@@ -1335,10 +1377,17 @@ Zarafa.common.Actions = {
 				// Prevent broken files to be sent to server
 				if (this.brokenFiles.indexOf(files[i]) === -1) {
 					filesData.append('attachments[]', files[i]);
+					// Need to pass 1 and 0 because on php side we get all formData in
+					// string so 'false' can break the import eml feature.
+					filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
 				}
 			}
+
 		} else {
 			filesData.append('attachments', files);
+			// Need to pass 1 and 0 because on php side we get all formData in
+			// string so 'false' can break the import eml feature.
+			filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
 		}
 
 		var url = container.getBaseURL();
@@ -1347,6 +1396,11 @@ Zarafa.common.Actions = {
 		url = Ext.urlAppend(url, 'destination_folder=' + folder.get('entryid'));
 		url = Ext.urlAppend(url, 'store=' + folder.get('store_entryid'));
 		url = Ext.urlAppend(url, 'import=true');
+		// For the normal attachment we concatenate the attachment id with attachment name
+		// which will be extracted by upload_attachment module but here we are importing
+		// some items like ics, eml, etc. so we don't need to concat the attach id with attachment name
+		// so just pass the ignore_extract_attachid flag in request.
+		url = Ext.urlAppend(url, 'ignore_extract_attachid=true');
 
 		request.reset();
 		var requestId = request.addDataRequest('attachments', 'import', filesData, responseHandler);
@@ -1368,7 +1422,30 @@ Zarafa.common.Actions = {
 			return file.type === 'message/rfc822';
 		} else {
 			var i = file.name.lastIndexOf('.');
+			if (i === -1) {
+				return false;
+			}
 			return file.name.substr(i + 1) === 'eml';
+		}
+	},
+
+	/**
+	 * Helper function to check if given file is of ics or vcs type or not.
+	 * This is required as there is no file type available at all in case of IE11 and edge.
+	 * @param {Object} file The file to be checked.
+	 * @return {Boolean} True if the file is of type ics or vcs. false otherwise.
+	 */
+	isICSFile : function (file)
+	{
+		if (!Ext.isEmpty(file.type)) {
+			return file.type === 'text/calendar';
+		} else {
+			var i = file.name.lastIndexOf('.');
+			if (i === -1) {
+				return false;
+			}
+			var extension = file.name.substr(i + 1);
+			return extension === 'ics' || extension === 'vcs';
 		}
 	}
 };

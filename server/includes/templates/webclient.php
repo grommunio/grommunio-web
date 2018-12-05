@@ -23,6 +23,7 @@ $serverConfig = array_merge($serverConfig, array(
 	'iconsets_about'				=> Iconsets::getAboutTexts(),
 	'version_info'					=> $GLOBALS['PluginManager']->getPluginsVersion(),
 	'is_vcfimport_supported'		=> function_exists('mapi_vcftomapi'),
+	'is_icsimport_supported'		=> function_exists('mapi_mapitoical'),
 	'color_schemes'					=> json_decode(COLOR_SCHEMES),
 	'default_categories'			=> json_decode(DEFAULT_CATEGORIES),
 	'maximum_eml_files_in_zip'		=> MAX_EML_FILES_IN_ZIP,
