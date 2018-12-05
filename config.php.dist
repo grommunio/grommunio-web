@@ -92,7 +92,7 @@
 
 	// General WebApp icon set. This will be loaded by default for every user.
 	// Users can override the iconset in the settings.
-	// define("ICONSET", 'classic');
+	define("ICONSET", 'breeze');
 
 	// The title that will be shown in the title bar of the browser
 	define("WEBAPP_TITLE", 'Kopano WebApp');
