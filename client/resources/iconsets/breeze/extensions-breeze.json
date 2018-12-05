@@ -8,5 +8,11 @@
 		".mail_unread .icon_mail_report_ndr"
 	],
 	".icon_rules": ".zarafa-settings-category-rules",
-	".icon_cogwheel_s": ".icon_filter"
+	".icon_cogwheel_s": ".icon_filter",
+	".folder_public": [
+		".icon_folder_shared_store",
+		".icon_folder_public_store",
+		".icon_folder_shared_undefined",
+		".icon_share"
+	]
 }
