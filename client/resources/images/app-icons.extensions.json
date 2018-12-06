@@ -2,11 +2,13 @@
 	"THIS FILE CONTAINS THE EXTENSIONS FOR THE APP ICONS OF KOPANO WEBAPP": "",
 	"=================================+==================================": "",
 
-	".arrow_down_s_btn": [
+	".arrow_down_s": [
 		".x-btn .x-btn-split",
-		".x-btn .x-btn-arrow"
+		".x-btn .x-btn-arrow",
+		".x-form-trigger",
+		".x-form-spinner-trigger"
 	],
-	".arrow_down_s_white_btn": [
+	".arrow_down_s_white": [
 		".x-btn.x-btn.zarafa-action .x-btn-split",
 		".x-btn.x-btn.zarafa-action .x-btn-arrow"
 	],
@@ -54,10 +56,6 @@
 		".zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text",
 		".zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text"
 	],
-	".arrow_down_s": [
-		".x-form-trigger",
-		".x-form-spinner-trigger"
-	],
 	".arrow_updown": ".x-form-field-wrap .x-form-spinner-trigger",
 	".icon_cross_large": ".x-tool-close",
 	".icon_cross_white": [
@@ -67,7 +65,8 @@
 	".plus": [
 		".x-tab-add",
 		".x-tool.x-tool-plus",
-		".zarafa-rules-add"
+		".zarafa-rules-add",
+		".x-zarafa-boxfield-item-expand"
 	],
 	".icon_cross": [
 		".icon_remove",
@@ -77,7 +76,6 @@
 		".x-freebusy-userrow-remove",
 		".x-tab-strip .x-tab-strip-closable a.x-tab-strip-close"
 	],
-	".icon_plus_s": ".x-zarafa-boxfield-item-expand",
 	".icon_tools_cogwheel": ".x-tool.x-tool-gear",
 	".icon_tools_minimize": ".x-tool.x-tool-minimize",
 	".triangle_left": ".x-tbar-page-prev",

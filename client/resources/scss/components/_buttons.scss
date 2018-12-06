@@ -144,7 +144,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	.x-btn {
 		em.x-btn-split, em.x-btn-arrow {
 			background-color: transparent !important;
-			background-position: right center !important;
+			background-position: right 3px center !important;
 			padding-right: 12px;
 
 			button {
@@ -154,7 +154,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	}
 	.x-btn .x-btn-small{
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: right center !important;
+			background-position: right 3px center !important;
 			padding-right: 12px;
 
 			button {
@@ -166,7 +166,7 @@ $normal-button-bgcolor-hover	: $grey2;
 
 	.x-btn.zarafa-action .x-btn-small {
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: right center !important;
+			background-position: right 3px center !important;
 			padding-right: 12px;
 
 			button {
@@ -220,7 +220,7 @@ $normal-button-bgcolor-hover	: $grey2;
 	/* split button and arrow button */
 	.x-btn.zarafa-action .x-btn-large {
 		em.x-btn-split, em.x-btn-arrow {
-			background-position: right center !important;
+			background-position: right 3px center !important;
 		}
 	}
 
