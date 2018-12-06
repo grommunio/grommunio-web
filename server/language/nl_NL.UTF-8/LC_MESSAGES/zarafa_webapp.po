@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-06 15:18+0100\n"
-"PO-Revision-Date: 2018-11-12 11:40+0000\n"
+"PO-Revision-Date: 2018-12-06 14:26+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1310,9 +1310,8 @@ msgstr "Kopieer geselecteerd item"
 msgid "Paste selected item"
 msgstr "Plak geselecteerd item"
 
-#, fuzzy
 msgid "Location: "
-msgstr "Locatie"
+msgstr "Locatie: "
 
 # 87%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -1473,9 +1472,8 @@ msgid "Decline"
 msgstr "Afwijzen"
 
 # 75%
-#, fuzzy
 msgid "Send to..."
-msgstr "Verzenden naar"
+msgstr "Verzenden naar.."
 
 msgid "Export as"
 msgstr "Exporteren als"
@@ -1853,9 +1851,8 @@ msgstr "Kon item(s) niet succesvol importeren naar {0}"
 msgid "Import error"
 msgstr "Probleem met importeren"
 
-#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "{0} kan niet geïmporteerd worden. Het bestand is niet valide"
+msgstr "Kan \"{0}\" niet geïmporteerd worden. Het bestand is niet valide"
 
 msgid "Cc"
 msgstr "Cc"
@@ -1940,21 +1937,19 @@ msgstr "Allen downloaden als ZIP"
 msgid "Import to folder"
 msgstr "Importeren naar map"
 
-#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
-"Om de vCard import functionaliteit te gebruiken, moet uw Kopano Core worden "
-"bijgewerkt naar versie 8.3+"
+"Om de vCard import functionaliteit te gebruiken, moet Kopano Core worden "
+"bijgewerkt naar versie 8.3+."
 
-#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
-"Om de vCard import functionaliteit te gebruiken, moet uw Kopano Core worden "
-"bijgewerkt naar versie 8.3+"
+"Om de ICS/VCS import functionaliteit te gebruiken, moet uw Kopano Core "
+"worden bijgewerkt naar versie 8.3+."
 
 msgid "Attachment error"
 msgstr "Bijlagefout"
@@ -2162,7 +2157,7 @@ msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr "Speciale vlag instellen"
@@ -2455,11 +2450,10 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Op dit moment niet ondersteund."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Er zijn geen herinnering"
-msgstr[1] "Er zijn geen herinnering"
+msgstr[0] "Er is {0} herinnering"
+msgstr[1] "Er zijn {0} herinneringen"
 
 # 88%
 msgid "Reminders"
@@ -4193,9 +4187,8 @@ msgstr "Importeer emails"
 
 # 93%
 # 100%
-#, fuzzy
 msgid "Import appointments"
-msgstr "Geen afspraken"
+msgstr "Importeer afspraken"
 
 msgid "Properties of {0}"
 msgstr "Eigenschappen van {0}"
@@ -4741,9 +4734,8 @@ msgstr "Standaard herstellen"
 msgid "Delete settings"
 msgstr "Instellingen verwijderen"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Iconen"
+msgstr "{0} Iconen"
 
 msgid "About"
 msgstr "Over"
@@ -4758,22 +4750,20 @@ msgid "Long"
 msgstr "Lang"
 
 # 88%
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Gemachtigdeninstellingen"
+msgstr "Instellingen voor favorieten"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Voeg toe aan favorieten"
+msgstr "Verberg favorieten"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Maak favorieten los van de bovenkant"
 
 msgid "Inbox navigation"
-msgstr "Postvak navigatie"
+msgstr "Inbox navigatie"
 
 msgid "I want to navigate through my items by using."
-msgstr "Navigeren door items door middel van."
+msgstr "I wil navigeren door mijn items met."
 
 msgid "Infinite Scroll"
 msgstr "Eindeloos bladeren"
@@ -4781,7 +4771,7 @@ msgstr "Eindeloos bladeren"
 # 98%
 # 100%
 msgid "WebApp automatically loads additional items when you scroll down"
-msgstr "(WebApp laadt automatisch nieuwe items wanneer u naar beneden scrollt)"
+msgstr "WebApp laadt automatisch nieuwe items wanneer u naar beneden scrollt"
 
 msgid "Pagination"
 msgstr "Paginering"
@@ -5183,40 +5173,45 @@ msgstr "Lijst bijwerken"
 msgid "D d-m-Y"
 msgstr "D d-m-Y"
 
-#, fuzzy
 msgid "Import / Export"
-msgstr "Probleem met importeren"
+msgstr "Importeren/Exporteren"
 
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
 msgstr ""
+"Kalender, contacten en mail items kunnen geïmporteerd en geëxporteerd worden "
+"van en naar WebApp."
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Klik met de rechtermuisknop en selecteer de importeer knop. Tevens kunnen "
+"items ook geïmporteerd worden via het rechtsklik menu van een bijlage."
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Exporteren kan gedaan worden via het rechtsklik menu van een item."
 
 #, fuzzy
 msgid "Icon packs"
-msgstr "Iconen"
+msgstr "Icon packs"
 
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Je kan nu kiezen tussen verschillende iconen. Standaard zijn de Breeze icons "
+"enabled, maar de oude iconen kunnen via settings worden geactiveerd."
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
-msgstr ""
+msgstr "Ga naar settings, open de algemene tab en selecteer een icon pack."
 
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Links: Breeze - Rechts: Klassiek"
 
 msgid "What's new"
 msgstr "Wat is er nieuw"
