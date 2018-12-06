@@ -2253,24 +2253,33 @@
 				} else {
 					$tz = null;
 					$hasRecipient = false;
-					if (!$pasteRecord) {
-						//Set sender of new Appointment.
-						$this->setSenderAddress($store, $action);
-					} else {
+					$copyAttachments = false;
+					$sourceRecord = false;
+					if (isset($action['message_action']) && isset($action['message_action']['source_entryid'])) {
 						$sourceEntryId = $action['message_action']['source_entryid'];
 						$sourceStoreEntryId = $action['message_action']['source_store_entryid'];
+						
 						$sourceStore = $GLOBALS['mapisession']->openMessageStore(hex2bin($sourceStoreEntryId));
 						$sourceRecord = mapi_msgstore_openentry($sourceStore, hex2bin($sourceEntryId));
-						$sourceRecordProps = mapi_getprops($sourceRecord, array($properties["meeting"], $properties["responsestatus"]));
-						// Don't copy recipient if source record is received message.
-						if($sourceRecordProps[$properties["meeting"]] === olMeeting &&
-							$sourceRecordProps[$properties["meeting"]] === olResponseOrganized) {
-							$table = mapi_message_getrecipienttable($sourceRecord);
-							$hasRecipient = mapi_table_getrowcount($table) > 0;
+						if ($pasteRecord) {
+							$sourceRecordProps = mapi_getprops($sourceRecord, array($properties["meeting"], $properties["responsestatus"]));
+							// Don't copy recipient if source record is received message.
+							if($sourceRecordProps[$properties["meeting"]] === olMeeting &&
+								$sourceRecordProps[$properties["meeting"]] === olResponseOrganized) {
+								$table = mapi_message_getrecipienttable($sourceRecord);
+								$hasRecipient = mapi_table_getrowcount($table) > 0;
+							}
+						} else {
+							$copyAttachments = true;
+							//Set sender of new Appointment.
+							$this->setSenderAddress($store, $action);
 						}
+					} else {
+						//Set sender of new Appointment.
+						$this->setSenderAddress($store, $action);
 					}
 
-					$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : array(), isset($action['attachments']) ? $action['attachments'] : array(), array(), $pasteRecord ? $sourceRecord : false, false, $hasRecipient, false, false, false, $send);
+					$message = $this->saveMessage($store, $entryid, $parententryid, Conversion::mapXML2MAPI($properties, $action['props']), $messageProps, $recips ? $recips : array(), isset($action['attachments']) ? $action['attachments'] : array(), array(),$sourceRecord, $copyAttachments, $hasRecipient, false, false, false, $send);
 
 					if(isset($action['props']['timezone'])) {
 						$tzprops = Array('timezone','timezonedst','dststartmonth','dststartweek','dststartday','dststarthour','dstendmonth','dstendweek','dstendday','dstendhour');

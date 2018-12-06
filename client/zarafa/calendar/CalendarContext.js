@@ -73,6 +73,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		// The control will be shown when the user selects the calendar context from the button panel.
 		this.registerInsertionPoint('navigation.center', this.createCalendarNavigationPanel, this);
 
+		// Adds convert mail to appointment contextmenu item in the mail contextmenu.
+		this.registerInsertionPoint('context.mail.contextmenu.topoptions', this.convertToAppointment, this);
+
 		// Register the calendar category for the settings
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategories, this);
 
@@ -675,6 +678,53 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			context: this.getName(),
 			id: 'mainmenu-button-calendar'
 		};
+	},
+
+	/**
+	 * Adds a new contextmenu item in the mail context, which converts an email to an appointment
+	 * @return {Zarafa.core.ui.menu.ConditionalItem} The Action context menu item
+	 * @private
+	 */
+	convertToAppointment : function()
+	{
+		return {
+			xtype: 'zarafa.conditionalitem',
+			text : _('Create Appointment'),
+			iconCls : 'icon_new_appointment',
+			hidden: true,
+			handler: this.onContextItemCreateAppointment,
+			beforeShow: this.onBeforeShowCreateAppointment,
+			scope: this
+		};
+	},
+
+	/**
+	 * Event Handler triggered when {@link #convertToAppointment convert to
+	 * appointment} context menu item is clicked.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @private
+	 */
+	onContextItemCreateAppointment : function(menuItem)
+	{
+		Zarafa.calendar.Actions.createAppointmentFromMail(menuItem.getRecords(), this.getModel());
+	},
+
+	/**
+	 * onBeforeShow handler which disables showing the convert to appointment menuitem
+	 * when a single item is selected and it's a mail item.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
+	 * @private
+	 */
+	onBeforeShowCreateAppointment : function(menuItem)
+	{
+		var records = menuItem.getRecords();
+		if (Array.isArray(records) && records.length === 1) {
+			menuItem.setVisible(records[0].isMessageClass('IPM.Note'));
+		} else {
+			menuItem.setVisible(false);
+		}
 	}
 });
 
