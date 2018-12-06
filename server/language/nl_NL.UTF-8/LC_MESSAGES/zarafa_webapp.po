@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-06 15:18+0100\n"
-"PO-Revision-Date: 2018-12-06 14:26+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2018-12-06 15:22+0000\n"
+"Last-Translator: Bob <b.huisman@kopano.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -5193,7 +5193,6 @@ msgstr ""
 msgid "Exporting can be done from the context menu of an item."
 msgstr "Exporteren kan gedaan worden via het rechtsklik menu van een item."
 
-#, fuzzy
 msgid "Icon packs"
 msgstr "Icon packs"
 
