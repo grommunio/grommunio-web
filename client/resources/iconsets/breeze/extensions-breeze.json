@@ -8,7 +8,9 @@
 		".mail_unread .icon_mail_report_ndr"
 	],
 	".icon_rules": ".zarafa-settings-category-rules",
-	".icon_cogwheel_s": ".icon_filter",
+	".icon_cogwheel_s": [
+		".x-grid3-hd-btn"
+	],
 	".folder_public": [
 		".icon_folder_shared_store",
 		".icon_folder_public_store",
