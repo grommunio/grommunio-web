@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-22 15:37+0100\n"
+"POT-Creation-Date: 2018-12-06 15:18+0100\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -1289,6 +1289,10 @@ msgstr "Copia l'elemento selezionato"
 msgid "Paste selected item"
 msgstr "Incollat l'elemento selezionato"
 
+#, fuzzy
+msgid "Location: "
+msgstr "Posizione"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
@@ -1820,7 +1824,7 @@ msgstr "Non e` stato possibile importare l'elemento / gli elementi {0}"
 msgid "Import error"
 msgstr "Importa in"
 
-msgid "Unable to import {0}. The file is not valid"
+msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
 msgid "Cc"
@@ -1906,9 +1910,16 @@ msgstr "Scarica tutti come file ZIP"
 msgid "Import to folder"
 msgstr "Importa nella cartella"
 
+#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
-"version 8.3+"
+"version 8.3 or higher."
+msgstr "Per poter importare vCard, installare Kopano Core versione 8.3+"
+
+#, fuzzy
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
 msgstr "Per poter importare vCard, installare Kopano Core versione 8.3+"
 
 msgid "Attachment error"
@@ -4106,6 +4117,12 @@ msgstr "Cartella di avvio"
 msgid "Import emails"
 msgstr "Importa in"
 
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Nuovo appuntamento"
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Proprietà"
@@ -4677,6 +4694,18 @@ msgstr ""
 msgid "Long"
 msgstr ""
 
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Gestione delegati"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Aggiungi ai favoriti"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navigazione inbox"
 
@@ -5089,56 +5118,39 @@ msgstr "Aggiorna lista"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
-msgid "Improved categories"
+#, fuzzy
+msgid "Import / Export"
+msgstr "Importa in"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
 msgstr ""
 
 msgid ""
-"Categories now have a prominent place in your overviews of Mail, Calendar, "
-"Tasks and more."
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Icone"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
 msgstr ""
 
 msgid ""
-"Adding a category is easy and can be done from the overview. Move your mouse "
-"over an email to see the \"Add category\" icon and click it, or right-click "
-"an item to open the context menu."
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
 msgstr ""
 
-msgid "Flag item for follow up"
-msgstr ""
-
-msgid ""
-"You can now mark email items for follow-up by setting a flag. In the new "
-"flags menu you can select the follow-up date. A reminder will be shown that "
-"day."
-msgstr ""
-
-msgid ""
-"The Tasks context provides a complete overview of your to-do's. All tasks "
-"and flagged emails will be shown in this to-do list."
-msgstr ""
-
-msgid "Transformation of flags into follow-ups and categories"
-msgstr ""
-
-msgid ""
-"Your former flagged items are transformed into items with a color category "
-"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
-"now have a category named \"Blue\"."
-msgstr ""
-
-msgid ""
-" You have the option to rename a color category when you first use it and "
-"all items with this category will get updated."
-msgstr ""
-
-msgid "Search folders"
-msgstr ""
-
-msgid ""
-"If there is a search query you use frequently you are in luck! After you "
-"have completed a search you can now save it as a \"search folder\" which "
-"will show up in your favorites! You can then do the same search again with a "
-"single click."
+msgid "Left: Breeze - Right: Classic"
 msgstr ""
 
 msgid "What's new"

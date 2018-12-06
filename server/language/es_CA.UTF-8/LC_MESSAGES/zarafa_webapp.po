@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-22 15:37+0100\n"
+"POT-Creation-Date: 2018-12-06 15:18+0100\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1300,6 +1300,10 @@ msgstr ""
 msgid "Paste selected item"
 msgstr ""
 
+#, fuzzy
+msgid "Location: "
+msgstr "Ubicación"
+
 # 75%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
@@ -1837,7 +1841,7 @@ msgstr ""
 msgid "Import error"
 msgstr "Importante"
 
-msgid "Unable to import {0}. The file is not valid"
+msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
 msgid "Cc"
@@ -1927,7 +1931,12 @@ msgstr "Carpeta vacía"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
-"version 8.3+"
+"version 8.3 or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -4126,6 +4135,12 @@ msgstr "Carpeta de inicio"
 msgid "Import emails"
 msgstr "Importante"
 
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Nueva cita"
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Propiedades"
@@ -4692,6 +4707,18 @@ msgstr ""
 msgid "Long"
 msgstr ""
 
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Configurar Delegados"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Favoritos"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
 #, fuzzy
 msgid "Inbox navigation"
 msgstr "Enviar invitación"
@@ -5094,56 +5121,39 @@ msgstr "Actualizar Lista"
 msgid "D d-m-Y"
 msgstr "d-m-A"
 
-msgid "Improved categories"
+#, fuzzy
+msgid "Import / Export"
+msgstr "Importante"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
 msgstr ""
 
 msgid ""
-"Categories now have a prominent place in your overviews of Mail, Calendar, "
-"Tasks and more."
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Iconos"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
 msgstr ""
 
 msgid ""
-"Adding a category is easy and can be done from the overview. Move your mouse "
-"over an email to see the \"Add category\" icon and click it, or right-click "
-"an item to open the context menu."
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
 msgstr ""
 
-msgid "Flag item for follow up"
-msgstr ""
-
-msgid ""
-"You can now mark email items for follow-up by setting a flag. In the new "
-"flags menu you can select the follow-up date. A reminder will be shown that "
-"day."
-msgstr ""
-
-msgid ""
-"The Tasks context provides a complete overview of your to-do's. All tasks "
-"and flagged emails will be shown in this to-do list."
-msgstr ""
-
-msgid "Transformation of flags into follow-ups and categories"
-msgstr ""
-
-msgid ""
-"Your former flagged items are transformed into items with a color category "
-"and a \"No date\" follow-up flag. For example: an item with a blue flag will "
-"now have a category named \"Blue\"."
-msgstr ""
-
-msgid ""
-" You have the option to rename a color category when you first use it and "
-"all items with this category will get updated."
-msgstr ""
-
-msgid "Search folders"
-msgstr ""
-
-msgid ""
-"If there is a search query you use frequently you are in luck! After you "
-"have completed a search you can now save it as a \"search folder\" which "
-"will show up in your favorites! You can then do the same search again with a "
-"single click."
+msgid "Left: Breeze - Right: Classic"
 msgstr ""
 
 msgid "What's new"
