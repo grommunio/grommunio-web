@@ -585,11 +585,11 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		var defaultItems = [{
 			xtype: 'zarafa.conditionalitem',
 			id: 'zarafa-maintoolbar-print-singlemail',
-			overflowText: _('Print single e-mail'),
+			overflowText: _('Print single email'),
 			iconCls: 'icon_print',
 			tooltip : _('Print selected email') + ' (Ctrl + P)',
 			plugins : 'zarafa.menuitemtooltipplugin',
-			text: _('Print single e-mail'),
+			text: _('Print single email'),
 			hideOnDisabled: false,
 			singleSelectOnly: true,
 			handler: this.onPrintSingle,

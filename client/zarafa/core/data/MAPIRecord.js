@@ -18,7 +18,7 @@ Ext.namespace('Zarafa.core.data');
  *
  * An extension to the {@link Ext.data.Record Record} that adds the open() method for loading
  * the 'full' contents of a MAPI item. The list modules on the server side only return partial records,
- * omitting, for example, the body of e-mail messages. The open() method can be used to retrieve
+ * omitting, for example, the body of email messages. The open() method can be used to retrieve
  * these fields.
  *
  */

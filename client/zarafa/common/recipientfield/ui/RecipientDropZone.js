@@ -7,7 +7,7 @@ Ext.namespace('Zarafa.common.recipientfield.ui');
  *
  * A {@link Ext.dd.DropZone DropZone} installed on a {@link Zarafa.common.recipientfield.ui.RecipientField RecipientField}
  * Ensures cooperation between different RecipientFields' drag and drop zones in order to enable the dragging
- * of recipients e.g. from the TO to the CC field of an e-mail.
+ * of recipients e.g. from the TO to the CC field of an email.
  */
 Zarafa.common.recipientfield.ui.RecipientDropZone = Ext.extend(Zarafa.common.ui.BoxFieldDropZone, {
 	/**

@@ -325,7 +325,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				anchorNode.setAttribute('href', link);
 				anchorNode.setAttribute('target', '_blank');
 			}else if(parts[i].search(this.emailPattern) != -1){
-				// Create a new anchor-node for making an e-mail address clickable.
+				// Create a new anchor-node for making an email address clickable.
 				var anchorNode = Ext.DomHelper.append(containerNode, {tag: 'a', html: parts[i]});
 				var link = parts[i];
 				if(link.indexOf('mailto:') !== 0){
