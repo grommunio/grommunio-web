@@ -314,6 +314,9 @@ class Theming
 		if ( isset($themeProps['logo-large']) ) {
 			$themeProps['logo-large'] = Theming::fixUrl($themeProps['logo-large'], $theme);
 		}
+		if ( isset($themeProps['logo-small']) ) {
+			$themeProps['logo-small'] = Theming::fixUrl($themeProps['logo-small'], $theme);
+		}
 		if ( isset($themeProps['logo-large']) && !isset($themeProps['logo-small']) ) {
 			$themeProps['logo-small'] = $themeProps['logo-large'];
 		}
