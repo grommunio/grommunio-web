@@ -50,34 +50,16 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			var printFrame = activeDocument.createElement('iframe');
 			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
 			activeDocument.body.appendChild(printFrame);
+			printFrame.onload = function () {
+				printFrame.contentWindow.print();
+
+				// Remove the iframe after printing
+				activeDocument.body.removeChild(printFrame);
+			};
 			var printDocument = printFrame.contentDocument;
 			printDocument.write(this.generateHTML(component));
 			printDocument.close();
-			this.doPrintOnImageLoad.defer(10, this, [printDocument, printFrame]);
-		}
-	},
-
-	/**
-	 * check if image is loaded and do print afterwards
-	 *
-	 * @param {HTMLDocument} printDocument The document of DOM.
-	 * @param {HTMLIFrameElement} printFrame The printFrame is iframe which open the
-	 * print dialog.
-	 */
-	doPrintOnImageLoad: function(printDocument, printFrame)
-	{
-		if (printFrame) {
-			// Search for the images, if they are not loaded yet, reschedule
-			var images = printDocument.getElementsByTagName('img');
-			for (var i = 0, len = images.length; i < len; i++) {
-				var image = images[i];
-				if (image.complete !== true ) {
-					this.doPrintOnImageLoad.defer(10, this, [printDocument, printFrame]);
-					return;
-				}
-			}
-			printFrame.contentWindow.print();
-			printFrame.contentWindow.close();
+			this.postRender(activeDocument, printDocument, component);
 		}
 	},
 
