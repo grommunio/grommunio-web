@@ -34,7 +34,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			cls: 'zarafa-mr-buttons',
 			items: [
 				this.getRemoveFromCalendarButton(),
-				this.getNotCurrentButton(),
 				this.getNoResponseRequiredButton(),
 				this.getAcceptButton(),
 				this.getTentativeButton(),
@@ -112,9 +111,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 		// from the calendar.
 		this.removeFromCalendarButton.setVisible(isMeetingCanceled && !isSubMessage && !apptNotFound);
 
-		// When the meeting request is outdated, we can show the non-current button
-		this.nonCurrentButton.setVisible(isMeetingRequest && !isSubMessage && isMeetingOutOfDate);
-
 		// When this meeting is current, but the user did send this meeting request to himself,
 		// then the user doesn't need to respond.
 		this.noResponseButton.setVisible(isMeetingRequest && !isSubMessage && senderIsReceiver && !isMeetingOutOfDate);
@@ -138,11 +134,9 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 		this.calendarButton.setVisible((isMeetingRequest || isMeetingResponse) && !isSubMessage && !apptNotFound);
 
 		// Determine the action button
-		if ( this.acceptButton.isVisible() ){
+		if (this.acceptButton.isVisible()) {
 			this.calendarButton.getEl().removeClass('zarafa-action');
-		} else if ( this.nonCurrentButton.isVisible() ){
-			this.calendarButton.getEl().removeClass('zarafa-action');
-		} else if ( this.calendarButton.isVisible() ){
+		} else if (this.calendarButton.isVisible()) {
 			this.calendarButton.getEl().addClass('zarafa-action');
 		}
 
@@ -176,27 +170,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			},
 			cls: 'tb-calendar-btn-remove zarafa-action',
 			handler : this.onRemoveFromCalendar,
-			scope: this
-		};
-	},
-
-	/**
-	 * @return {Ext.Button} element config which should be
-	 * added in the {@link Ext.Toolbar Toolbar}.
-	 * @private
-	 */
-	getNotCurrentButton : function()
-	{
-		return {
-			xtype : 'button',
-			ref : 'nonCurrentButton',
-			text : _('Not Current'),
-			tooltip: {
-				title: _('Not Current'),
-				text: _('Meeting Request is out of date')
-			},
-			cls: 'tb-calendar-btn-not-current zarafa-action',
-			handler : this.onNotCurrent,
 			scope: this
 		};
 	},
@@ -372,25 +345,6 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 			handler : this.showMeetingInCalendar,
 			scope: this
 		};
-	},
-
-	/**
-	 * Function sends request to remove outdated Meeting Request mails.
-	 * @param {Ext.Button} button button object.
-	 * @param {EventObject} eventObject The click event object.
-	 * @private
-	 */
-	onNotCurrent : function(button, eventObject)
-	{
-		Ext.MessageBox.show({
-			title: _('Kopano WebApp'),
-			msg : _('This meeting request is out-of-date and will now be deleted.'),
-			icon: Ext.MessageBox.WARNING,
-			record: this.record,
-			fn: this.removeRecordOnOk,
-			scope: this,
-			buttons: Ext.MessageBox.OKCANCEL
-		});
 	},
 
 	/**
