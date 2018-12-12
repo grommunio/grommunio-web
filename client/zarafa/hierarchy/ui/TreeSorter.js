@@ -197,11 +197,14 @@ Zarafa.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
 
 		// Folders that have the same type will now be sorted based on the passed property
 
+		// When sorting on display name, we will use the 'fully qualified display name', so
+		// we will use 'Calendar of Hank Bla' instead of just 'Calendar' to sort.
+		var v1 = property = 'display_name' && record1.getFullyQualifiedDisplayName ? record1.getFullyQualifiedDisplayName() : record1.get(property);
+		var v2 = property = 'display_name' && record2.getFullyQualifiedDisplayName ? record2.getFullyQualifiedDisplayName() : record2.get(property);
+
 		// For case insensitive sorting, convert to lowercase, this will correctly position
 		// folders which start with '_' to be sorted first (when converting to uppercase, those
 		// folders are otherwise sorted last.
-		var v1 = record1.get(property);
-		var v2 = record2.get(property);
 		if (!caseSensitive) {
 			v1 = !Ext.isEmpty(v1) ? v1.toLowerCase() : v1;
 			v2 = !Ext.isEmpty(v2) ? v2.toLowerCase() : v2;
