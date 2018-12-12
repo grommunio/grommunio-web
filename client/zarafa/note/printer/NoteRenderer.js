@@ -5,7 +5,7 @@ Ext.namespace('Zarafa.note.printer');
  * @extends Zarafa.common.printer.renderers.RecordRenderer
  *
  * A printer for notes using the same layout as for emails
- * 
+ *
  * Prints a single note request or note item
  */
 Zarafa.note.printer.NoteRenderer = Ext.extend(Zarafa.common.printer.renderers.RecordRenderer, {
@@ -17,11 +17,11 @@ Zarafa.note.printer.NoteRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 	 */
 	generateBodyTemplate: function(record) {
 		var html = '';
-		html += '<b>{fullname:htmlEncode}</b>\n';
+		html += '<b>{fullname}</b>\n';
 		html += '<hr>\n';
 		html += '<table>\n';
 		html += this.addRow(_('Modified'), '{last_modification_time:date("' + _("l jS F Y G:i") + '")}');
-		html += this.optionalRow(_('Categories'), 'categories', '{categories:htmlEncode}');
+		html += this.optionalRow(_('Categories'), 'categories', '{categories}');
 		html += '</table><br><p>\n';
 		html += record.getBody(true);
 		html += '</p>\n';

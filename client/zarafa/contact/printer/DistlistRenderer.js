@@ -16,15 +16,15 @@ Zarafa.contact.printer.DistlistRenderer = Ext.extend(Zarafa.common.printer.rende
 	 */
 	generateBodyTemplate: function(record) {
 		var html = '';
-		html += '<b>{fullname:htmlEncode}</b>\n';
+		html += '<b>{fullname}</b>\n';
 		html += '<hr>\n';
 		html += '<table>\n';
-		html += this.optionalRow(_('Full Name'), 'display_name', '{display_name:htmlEncode}');
+		html += this.optionalRow(_('Full Name'), 'display_name', '{display_name}');
 		html += '</table><br><p>\n';
 		html += _('Members') + '\n';
 		html += '<table>\n';
 		html += '<tpl for="members">\n';
-		html += this.addRow('', '{display_name:htmlEncodeUndef}');
+		html += this.addRow('', '{display_name:undef}');
 		html += '</tpl>\n';
 		html += '</table><br><p>\n';
 		html += record.getBody(true);

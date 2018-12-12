@@ -116,7 +116,7 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 		// skipping page nr for now
 		html += '<table id="bottom">'
 			+ '<tr>'
-			+ '<td class="nowrap" align=left>{fullname:htmlEncode}</td>'
+			+ '<td class="nowrap" align=left>{fullname}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 			+ '<td class="nowrap" align=right>{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
 			+ '</tr>'

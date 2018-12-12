@@ -233,7 +233,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 
 		html += '<tr><td align="left">' + container.getServerConfig().getWebappTitle() + '</td>'
 			 + '<td align="center" valign="top" width="20%" rowspan=3><div id="datepicker_left"></div></td></tr>'
-			 + '<tr><td align="left">' + _('Calendar') + ' : ' + '{fullname:htmlEncode} </td></tr>\n';
+			 + '<tr><td align="left">' + _('Calendar') + ' : ' + '{fullname} </td></tr>\n';
 
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 		html += '<tr><td align="left" width="80%">{startdate:date("' + _("l jS F Y") + '")}</td></tr>\n';
@@ -253,7 +253,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		// skipping page nr for now
 		html += '<table id="bottom">'
 			+ '<tr>'
-			+ '<td class="nowrap" align="left">{fullname:htmlEncode}</td>'
+			+ '<td class="nowrap" align="left">{fullname}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
 			+ '</tr>'
