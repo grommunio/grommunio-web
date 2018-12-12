@@ -11,8 +11,8 @@ Ext.namespace('Zarafa.calendar.printer');
 Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
 	/**
 	 * @property customStylesheetPath
-	 * @type Array of Strings
-	 * The paths at which the print stylesheets can be found for a specific renderer
+	 * @type String
+	 * The path at which the print stylesheets can be found for this renderer
 	 */
 	customStylesheetPath: 'client/resources/css/external/print.calendar.css',
 
@@ -23,13 +23,15 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 	timeStyle : '',
 
 	/**
-	 * Prepares data suitable for use in an XTemplate from the component 
+	 * Prepares data suitable for use in an XTemplate from the component
 	 * @param {Ext.Component} component The component to acquire data from
 	 * @return {Array} An empty array (override this to prepare your own data)
 	 */
 	prepareData: function(context)
 	{
-		var data = Zarafa.calendar.printer.DaysViewRenderer.superclass.prepareData.apply(this, arguments);
+		var data = {
+			fullname: Ext.util.Format.htmlEncode(container.getUser().getDisplayName())
+		};
 		var model = context.getModel();
 		var daterange = model.dateRange;
 		var numDays = daterange.getDuration(Date.DAY);
@@ -73,7 +75,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			if (end > dueDate) {
 				showEnd = dueDate.clone();
 			}
-			
+
 			var subject = items[i].get('subject');
 			if (!Ext.isString(subject)) {
 				subject = '';
@@ -125,12 +127,11 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 
 	/**
 	 * Add additional rendering into the newly created dom tree containing the processed template
-	 * 
-	 * @param {Document} webappDOM original webapp DOM
+	 *
 	 * @param {Document} printDOM DOM containing processed print template
 	 * @param {Zarafa.calendar.CalendarContextModel} context calendar context to render for printing
 	 */
-	postRender: function(webappDOM, printDOM, context)
+	postRender: function(printDOM, context)
 	{
 		var daterange = context.getModel().dateRange;
 		var left = daterange.getStartDate().clone();

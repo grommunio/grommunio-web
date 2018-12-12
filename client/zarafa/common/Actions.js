@@ -362,52 +362,55 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Opens a PrintDialog for printing the contents of the given {@link Zarafa.core.data.IPMRecord records}.
-	 *
-	 * @param {Zarafa.core.data.IPMRecord} records The record, or records for which the print will be displayed.
-	 * @param {Object} config (optional) Configuration object
+	 * Opens a PrintDialog for printing the contents of the given object(s).
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 */
-	openPrintDialog: function(records, config)
+	openPrintDialog: function(objectToPrint)
 	{
-		if (Ext.isEmpty(records)) {
+		if (Ext.isEmpty(objectToPrint)) {
 			return;
-		} else if (Array.isArray(records)) {
-			if (records.length > 1) {
+		} else if (Array.isArray(objectToPrint)) {
+			if (objectToPrint.length > 1) {
 				Ext.MessageBox.alert(_('Print'), _('Printing of multiple items has not been implemented.'));
 				return;
-			} else {
-				// We only need the first record
-				records = records[0];
 			}
+
+			// We only need the first record
+			objectToPrint = objectToPrint[0];
 		}
 
-		var openHandler = function (store, record) {
+		var openHandler = function (store, objectToPrint) {
 			if (store) {
-				if (this !== record) {
+				if (this !== objectToPrint) {
 					return;
 				}
-				store.un('open', openHandler, record);
+				store.un('open', openHandler, objectToPrint);
 			}
 
 			var componentType = Zarafa.core.data.SharedComponentType['common.printer.renderer'];
-			var component = container.getSharedComponent(componentType, record);
+			var component = container.getSharedComponent(componentType, objectToPrint);
 			if (component) {
 				var renderer = new component();
-				renderer.print(record);
-			} else  {
-				if (record instanceof Zarafa.core.data.MAPIRecord) {
-					Ext.MessageBox.alert(_('Print'), _('Printing of this item is not yet available') + '\n' + _('Item type: ') + record.get('message_class'));
-				} else {
-					Ext.MessageBox.alert(_('Print'), _('Printing of this view is not yet available'));
-				}
+				renderer.print(objectToPrint);
+			} else if (objectToPrint instanceof Zarafa.core.data.MAPIRecord) {
+				Ext.MessageBox.alert(
+					_('Print'),
+					_('Printing of this item is not yet available') + '\n' + _('Item type: ') + objectToPrint.get('message_class')
+				);
+			} else {
+				Ext.MessageBox.alert(
+					_('Print'),
+					_('Printing of this view is not yet available')
+				);
 			}
 		};
 
-		if (records instanceof Zarafa.core.data.MAPIRecord && !records.isOpened()) {
-			records.getStore().on('open', openHandler, records);
-			records.open();
+		if (objectToPrint instanceof Zarafa.core.data.MAPIRecord && !objectToPrint.isOpened()) {
+			objectToPrint.getStore().on('open', openHandler, objectToPrint);
+			objectToPrint.open();
 		} else {
-			openHandler(undefined, records);
+			openHandler(undefined, objectToPrint);
 		}
 	},
 
@@ -1183,7 +1186,7 @@ Zarafa.common.Actions = {
 	/**
 	 * Callback function for {@link Zarafa.common.attachment.ui.UploadAttachmentComponent}.
 	 * which is going to call necessary helper function.
-	 * 
+	 *
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
 	 * @param {Boolean} show Open the imported item
@@ -1260,7 +1263,7 @@ Zarafa.common.Actions = {
 	 * Handler for the load event of FileReader.
 	 * Check if the file is broken or not. Prepares an array containing
 	 * all the broken files, if found.
-	 * 
+	 *
 	 * @param {Ext.EventObject} e The event object.
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Number} index Index of the file to process.
@@ -1334,7 +1337,7 @@ Zarafa.common.Actions = {
 	/**
 	 * Helper function to import selected files in given {@link Zarafa.hierarchy.data.MAPIFolderRecord}.
 	 * Or raise proper error message box describing broken files.
-	 * 
+	 *
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to which files needs to be imported.
 	 */
