@@ -21,29 +21,12 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @param {Ext.Component} component The component to print
 	 */
 	print: function(component) {
-		var name = component && component.getXType
-			? String.format("print_{0}_{1}", component.getXType(), component.id.replace(/-/g, '_'))
-			: "print";
-
-		// Note: Introduced to work with DeskApp.
-		// Before we opened a separate window, which then was printed.
-		// Now we use a hidden iframe.
-		// When changed, printing in deskapp has to be checked.
-		// Unfortunately we need to keep the old way for IE and Firefox
-		if (Ext.isIE || Ext.isGecko) {
-			var win = window.open('', name);
-			if (win) {
-				win.document.write(this.generateHTML(component));
-				win.document.close();
-				this.postRender(window.document, win.document, component);
-
-				// Show print dialog when window has loaded all resources.
-				win.onload = function(win) {
-					win.print();
-					win.close();
-				}.defer(10, this, [win]);
-			}
-		} else {
+		// The WebKit browsers (Chrome, Safari, and Edge (which is also recognized as WebKit))
+		// show a print preview, so we can use an hidden iframe to create our print.
+		// IE and FireFox don't have a print preview when printing from an iframe, so
+		// we will open a new window in which we will create our print. This window will
+		// also function as a print preview
+		if ( Ext.isWebKit ) {
 			// Needed for popouts
 			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			var activeDocument = activeWindow.document;
@@ -51,15 +34,32 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
 			activeDocument.body.appendChild(printFrame);
 			printFrame.onload = function () {
-				printFrame.contentWindow.print();
+				// Remove the iframe after printing.
+				printFrame.contentWindow.onafterprint = function() {
+					activeDocument.body.removeChild(printFrame);
+				};
 
-				// Remove the iframe after printing
-				activeDocument.body.removeChild(printFrame);
+				// Focus needed for IE
+				printFrame.contentWindow.focus();
+				printFrame.contentWindow.print();
 			};
 			var printDocument = printFrame.contentDocument;
 			printDocument.write(this.generateHTML(component));
 			printDocument.close();
-			this.postRender(activeDocument, printDocument, component);
+			this.postRender(activeWindow, printDocument, component);
+		} else {
+			var win = window.open('', 'name'+(new Date().getTime()));
+			if (win) {
+				win.document.write(this.generateHTML(component));
+				win.document.close();
+				this.postRender(window.document, win.document, component);
+
+				// Show print dialog when window has loaded all resources.
+				win.onload = function() {
+					win.print();
+					win.close();
+				};
+			}
 		}
 	},
 
@@ -76,7 +76,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 				'<head>\n' +
 					'<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />\n' +
 					this.generateHeadTemplate(component) +
-					'<title>' + this.getTitle(component) + '</title>\n' +
+					'<title>' + _('Kopano WebApp print') + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
 					'<div id="pagemargin">\n' +
@@ -154,14 +154,5 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @param {Document} printDOM DOM containing processed print template
 	 * @param {Object} obj the object for the renderer
 	 */
-	postRender: Ext.emptyFn,
-
-	/**
-	 * Returns the title to give to the print window
-	 * @param {Ext.Component} component The component to be printed
-	 * @return {String} The window title
-	 */
-	getTitle: function(component) {
-		return typeof component.getTitle == 'function' ? component.getTitle() : (component.title || "Printing");
-	}
+	postRender: Ext.emptyFn
 });
