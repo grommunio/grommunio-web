@@ -7,6 +7,12 @@ Ext.namespace('Zarafa.common.printer.renderers');
  * Utility functions for a record renderer class. Don't use this directly, use a subclass instead.
  */
 Zarafa.common.printer.renderers.RecordRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
+	/**
+	 * @property customStylesheetPath
+	 * @type String
+	 * The path at which the print stylesheets can be found for the record renderer
+	 */
+	customStylesheetPath: 'client/resources/css/external/print.record.css',
 
 	/**
 	 * Print a single table row
@@ -15,7 +21,7 @@ Zarafa.common.printer.renderers.RecordRenderer = Ext.extend(Zarafa.common.printe
 	 * @private
 	 */
 	addRow: function(header, data) {
-  		var args = Ext.toArray(arguments);
+		var args = Ext.toArray(arguments);
 		var tpl = '<tr>';
 
 		tpl += '<th valign="top">' + header + (Ext.isEmpty(header) ? '' : ':') + '</th>';
@@ -43,7 +49,7 @@ Zarafa.common.printer.renderers.RecordRenderer = Ext.extend(Zarafa.common.printe
 		html += this.addRow(header, format);
 		html += '</tpl>';
 		return html;
-      	},
+	},
 
 	/**
 	 * Prepares data for any record for use in the XTemplate
@@ -51,11 +57,19 @@ Zarafa.common.printer.renderers.RecordRenderer = Ext.extend(Zarafa.common.printe
 	 * @return {Array} Data suitable for use in the XTemplate
 	 */
 	prepareData: function(record) {
-		var data = Zarafa.common.printer.renderers.RecordRenderer.superclass.prepareData(record);
-		var opt;
+		// copy all properties
+		var data = Ext.apply({}, record.data);
+		data['fullname'] = container.getUser().getDisplayName();
+
+		// HTML Escape all data
+		for (var key in data) {
+			if(Ext.isString(data[key])) {
+				data[key] = Ext.util.Format.htmlEncode(data[key]);
+			}
+		}
 
 		// remove default values
-		opt = record.get('sensitivity');
+		var opt = record.get('sensitivity');
 		if (!Ext.isEmpty(opt) && opt === 0) {
 			delete data['sensitivity'];
 		}
@@ -68,12 +82,5 @@ Zarafa.common.printer.renderers.RecordRenderer = Ext.extend(Zarafa.common.printe
 		data['attachment_names'] = Ext.util.Format.htmlEncode(record.getAttachmentNames());
 
 		return data;
-	},
-
-	/**
-	 * @property customStylesheetPaths
-	 * @type Hash of Strings
-	 * The path at which the print stylesheets can be found for a specific renderer
-	 */
-	customStylesheetPath: 'client/resources/css/external/print.record.css'
+	}
 });

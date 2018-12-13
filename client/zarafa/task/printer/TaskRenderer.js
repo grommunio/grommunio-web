@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.task.printer');
  * @extends Zarafa.common.printer.renderers.RecordRenderer
  *
  * A printer for tasks using the same layout as for emails
- * 
+ *
  * Prints a single task request or task item
  */
 Zarafa.task.printer.TaskRenderer = Ext.extend(Zarafa.common.printer.renderers.RecordRenderer, {
@@ -18,10 +18,10 @@ Zarafa.task.printer.TaskRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 	 */
 	generateBodyTemplate: function(record) {
 		var html = '';
-		html += '<b>{fullname:htmlEncode}</b>\n';
+		html += '<b>{fullname}</b>\n';
 		html += '<hr>\n';
 		html += '<table>\n';
-		html += this.addRow(_('Subject'), '{subject:htmlEncode}');
+		html += this.addRow(_('Subject'), '{subject}');
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 		html += this.optionalRow(_('Start'), 'startdate', '{startdate:date("' + _('l d/m/Y') + '")}');
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -35,12 +35,12 @@ Zarafa.task.printer.TaskRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 		html += this.addRow(_('Actual work'), _('{actualwork} hours'));
 		html += this.addRow('', '');   // separator
 		// outlook always prints Recurrence: (none) .. no clue what it means, and why.
-		html += this.optionalRow(_('Recurrence pattern'), 'recurring_pattern', '{recurring_pattern:htmlEncode}');
+		html += this.optionalRow(_('Recurrence pattern'), 'recurring_pattern', '{recurring_pattern}');
 		html += this.optionalRow('', 'recurring_pattern', '');
-		html += this.addRow(_('Owner'), '{owner:htmlEncode}');
+		html += this.addRow(_('Owner'), '{owner}');
 		html += this.addRow('', '');   // separator
-		html += this.optionalRow(_('Categories'), 'categories', '{categories:htmlEncode}');
-		html += this.optionalRow(_('Attachments'), 'attachment_names', '{attachment_names:htmlEncode}');
+		html += this.optionalRow(_('Categories'), 'categories', '{categories}');
+		html += this.optionalRow(_('Attachments'), 'attachment_names', '{attachment_names}');
 		html += '</table><br><p>\n';
 		html += record.getBody(true);
 		html += '</p>\n';

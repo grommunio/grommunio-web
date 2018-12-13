@@ -8,18 +8,24 @@ Ext.namespace('Zarafa.task.printer');
  * Prints a list of all tasks in a folder
  */
 Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
+	/**
+	 * @property customStylesheetPath
+	 * @type String
+	 * The path at which the print stylesheets can be found for this renderer
+	 */
+	customStylesheetPath: 'client/resources/css/external/print.task.css',
 
 	/**
 	 * Generate the XTemplate HTML text for printing a task list.
 	 * This prints every task given in the context view.
-	 * @param {TaskContext} context The task view in the webapp
+	 * @param {Zarafa.task.TaskContext} context The task view in the webapp
 	 * @return {String} The HTML for the XTemplate to print
 	 */
 	generateBodyTemplate: function(context) {
 		var html = '';
 
 		// +----------------------------------------------------+
-		// | priority | % complete | due date | subject | owner | 
+		// | priority | % complete | due date | subject | owner |
 		// ....
 		// +----------------------------------------------------+
 		// [name]               [page nr]            [print date]
@@ -61,23 +67,18 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 
 	/**
 	 * Returns the data for the XTemplate used in generateBodyTemplate()
-	 * @param {TaskContext} context The task view in the webapp
+	 * @param {Zarafa.task.TaskContext} context The task view in the webapp
 	 * @return {Object} XTemplate data
 	 */
 	prepareData: function(context) {
-		var data = Zarafa.task.printer.TaskListViewRenderer.superclass.prepareData.apply(this, arguments);
+		var data = {
+			fullname: container.getUser().getDisplayName()
+		};
 		var model = context.getModel();
 
 		data['currenttime'] = new Date();
 		data['tasks'] = model.getStore().getRange();
 
 		return data;
-	},
-
-	/**
-	 * @property customStylesheetPath
-	 * @type Array of Strings
-	 * The paths at which the print stylesheets can be found for a specific renderer
-	 */
-	customStylesheetPath: 'client/resources/css/external/print.task.css'
+	}
 });

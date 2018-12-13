@@ -18,32 +18,16 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 
 	/**
 	 * Prints the component
-	 * @param {Ext.Component} component The component to print
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 */
-	print: function(component) {
-		var name = component && component.getXType
-			? String.format("print_{0}_{1}", component.getXType(), component.id.replace(/-/g, '_'))
-			: "print";
-
-		// Note: Introduced to work with DeskApp.
-		// Before we opened a separate window, which then was printed.
-		// Now we use a hidden iframe.
-		// When changed, printing in deskapp has to be checked.
-		// Unfortunately we need to keep the old way for IE and Firefox
-		if (Ext.isIE || Ext.isGecko) {
-			var win = window.open('', name);
-			if (win) {
-				win.document.write(this.generateHTML(component));
-				win.document.close();
-				this.postRender(window.document, win.document, component);
-
-				// Show print dialog when window has loaded all resources.
-				win.onload = function(win) {
-					win.print();
-					win.close();
-				}.defer(10, this, [win]);
-			}
-		} else {
+	print: function(objectToPrint) {
+		// The WebKit browsers (Chrome, Safari, and Edge (which is also recognized as WebKit))
+		// show a print preview, so we can use an hidden iframe to create our print.
+		// IE and FireFox don't have a print preview when printing from an iframe, so
+		// we will open a new window in which we will create our print. This window will
+		// also function as a print preview
+		if ( Ext.isWebKit ) {
 			// Needed for popouts
 			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
 			var activeDocument = activeWindow.document;
@@ -51,41 +35,57 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 			printFrame.style.cssText = "height: 0px; width: 0px; position: absolute;";
 			activeDocument.body.appendChild(printFrame);
 			printFrame.onload = function () {
-				printFrame.contentWindow.print();
+				// Remove the iframe after printing.
+				printFrame.contentWindow.onafterprint = function() {
+					activeDocument.body.removeChild(printFrame);
+				};
 
-				// Remove the iframe after printing
-				activeDocument.body.removeChild(printFrame);
+				printFrame.contentWindow.print();
 			};
 			var printDocument = printFrame.contentDocument;
-			printDocument.write(this.generateHTML(component));
+			printDocument.write(this.generateHTML(objectToPrint));
 			printDocument.close();
-			this.postRender(activeDocument, printDocument, component);
+			this.postRender(printDocument, objectToPrint);
+		} else {
+			var win = window.open('', 'name'+(new Date().getTime()));
+			if (win) {
+				win.document.write(this.generateHTML(objectToPrint));
+				win.document.close();
+				this.postRender(win.document, objectToPrint);
+
+				// Show print dialog when window has loaded all resources.
+				win.onload = function() {
+					win.print();
+					win.close();
+				};
+			}
 		}
 	},
 
 	/**
 	 * Generates the HTML Markup which wraps whatever this.generateBodyTemplate produces
-	 * @param {Ext.Component} component The component to generate HTML for
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 * @return {String} An HTML fragment to be placed inside the print window
 	 */
-	generateHTML: function(component) {
+	generateHTML: function(objectToPrint) {
 		return new Ext.XTemplate(
 			this.cleanTemplate(
 				// no doctype, quicks mode works better for printing, especially in chrome.
 				'<html>\n' +
 				'<head>\n' +
 					'<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />\n' +
-					this.generateHeadTemplate(component) +
-					'<title>' + this.getTitle(component) + '</title>\n' +
+					this.generateHeadTemplate(objectToPrint) +
+					'<title>' + _('Kopano WebApp print') + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
 					'<div id="pagemargin">\n' +
-						this.generateBodyTemplate(component) +
+						this.generateBodyTemplate(objectToPrint) +
 					'</div>\n' +
 				'</body>\n' +
 				'</html>'
 			)
-		).apply(this.prepareData(component));
+		).apply(this.prepareData(objectToPrint));
 	},
 
 	/**
@@ -104,49 +104,33 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 
 	/**
 	 * Returns the HTML that will be placed into the <head> part of the print window.
-	 * @param {Ext.Component} component The component to render
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 * @return {String} The HTML fragment to place inside the print window's <head> element
 	 */
-	generateHeadTemplate: function(record) {
-		if (!Ext.isEmpty(this.customStylesheetPath)) {
-			if (Array.isArray(this.customStylesheetPath)) {
-				var all = '';
-				for (var i=0, l=this.customStylesheetPath.length; i<l; i++) {
-					all += '<link href="' + this.customStylesheetPath[i] + '?' + new Date().getTime() + '" rel="stylesheet" type="text/css" media="screen,print" />\n';
-				}
-				return all;
-			} else {
-				return '<link href="' + this.customStylesheetPath + '?' + new Date().getTime() + '" rel="stylesheet" type="text/css" media="screen,print" />';
-			}
+	generateHeadTemplate: function(objectToPrint) {
+		if ( !Ext.isString(this.customStylesheetPath) || Ext.isEmpty(this.customStylesheetPath) ) {
+			return '';
 		}
-		return '';
+
+		return '<link href="' +this.customStylesheetPath + '?' + new Date().getTime() + '" rel="stylesheet" type="text/css" media="screen,print" />\n';
 	},
 
 	/**
 	 * Returns the HTML that will be placed into the <body> part of the print window.
-	 * @param {Ext.Component} component The component to render
+	 * @param {Zarafa.core.data.MAPIRecord|Zarafa.core.Context} objectToPrint The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 * @return {String} The HTML fragment to place inside the print window's <body> element
 	 */
 	generateBodyTemplate: Ext.emptyFn,
 
 	/**
 	 * Prepares data suitable for use in an XTemplate from the component
-	 * @param {Ext.Component} component The component to acquire data from
+	 * @param {Zarafa.core.data.MAPIRecord} record The record(s)
+	 * that will be printed, or the context for which the items in the store will be printed.
 	 * @return {Array} An empty array (override this to prepare your own data)
 	 */
-	prepareData: function(record) {
-		// copy all properties
-		var data = Ext.apply({}, record.data);
-		data['fullname'] = container.getUser().getDisplayName();
-
-		// HTML Escape all data
-		for (var key in data) {
-			if(Ext.isString(data[key])) {
-				data[key] = Ext.util.Format.htmlEncode(data[key]);
-			}
-		}
-		return data;
-	},
+	prepareData: Ext.emptyFn,
 
 	/**
 	 * Passes the newly created DOM tree to add more rendering of Ext components in.
@@ -154,14 +138,5 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @param {Document} printDOM DOM containing processed print template
 	 * @param {Object} obj the object for the renderer
 	 */
-	postRender: Ext.emptyFn,
-
-	/**
-	 * Returns the title to give to the print window
-	 * @param {Ext.Component} component The component to be printed
-	 * @return {String} The window title
-	 */
-	getTitle: function(component) {
-		return typeof component.getTitle == 'function' ? component.getTitle() : (component.title || "Printing");
-	}
+	postRender: Ext.emptyFn
 });
