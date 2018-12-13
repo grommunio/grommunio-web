@@ -189,10 +189,10 @@ Zarafa.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, {
 	displaySaveEmailException : function(responseObject)
 	{
 		Ext.MessageBox.show({
-			title : _('Kopano WebApp'),
-			msg : responseObject.zarafa.error.info.display_message,
-			icon: Ext.MessageBox.ERROR,
-			buttons : Ext.MessageBox.OK
+			title: _('Unable to download'),
+			msg: responseObject.zarafa.error.info.display_message,
+			cls: Ext.MessageBox.ERROR_CLS,
+			buttons: Ext.MessageBox.OK
 		});
 	}
 });

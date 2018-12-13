@@ -357,9 +357,8 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	onNoResponseRequired : function(button, eventObject)
 	{
 		Ext.MessageBox.show({
-			title: _('Kopano WebApp'),
-			msg :_('Your calendar has been updated automatically. This meeting request will now be deleted.'),
-			icon: Ext.MessageBox.WARNING,
+			title: _('No additional response required'),
+			msg:_('Your calendar has been updated automatically. This meeting request will now be deleted.'),
 			record: this.record,
 			fn: this.removeRecordOnOk,
 			scope: this,
@@ -408,9 +407,9 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	{
 		if (this.record.get('appointment_not_found')) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg :_('This appointment has been moved or deleted, do you want to continue?'),
-				icon: Ext.MessageBox.WARNING,
+				title: _('Appointment not found'),
+				msg:_('This appointment has been moved or deleted, do you want to continue?'),
+				cls: Ext.MessageBox.WARNING_CLS,
 				record: this.record,
 				fn: this.onProposeNewTimeAppointmentNotFoundConfirmation,
 				scope: this,
@@ -444,9 +443,9 @@ Zarafa.calendar.ui.MeetingRequestButtons = Ext.extend(Ext.ButtonGroup, {
 	{
 		if (this.record.get('appointment_not_found')) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg :_('This appointment has been moved or deleted, do you want to continue?'),
-				icon: Ext.MessageBox.WARNING,
+				title: _('Appointment not found'),
+				msg:_('This appointment has been moved or deleted, do you want to continue?'),
+				cls: Ext.MessageBox.WARNING_CLS,
 				record: this.record,
 				fn: this.onRespondAppointmentNotFoundConfirmation.createDelegate(this, [ button.responseStatus ], 1),
 				scope: this,

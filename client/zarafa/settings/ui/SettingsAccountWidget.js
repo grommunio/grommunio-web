@@ -219,9 +219,6 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 
 		if (this.origLanguage !== value) {
 			this.model.requiresReload = true;
-			this.languageWarning.setValue(_('This change requires a reload of the WebApp'));
-		} else {
-			this.languageWarning.reset();
 		}
 
 		if (this.model) {

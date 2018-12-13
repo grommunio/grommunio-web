@@ -508,9 +508,8 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 		this.signaturesGrid.focus();
 		if (this.hasDirtySignature()) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : _('You have unsaved changes. Do you wish to save the changes?'),
-				icon: Ext.MessageBox.QUESTION,
+				title: _('Unsaved changes'),
+				msg: _('You have unsaved changes. Do you wish to save the changes?'),
 				fn: this.onSignatureBeforeRowSelectConfirm.createDelegate(this, [ selectionModel, rowIndex, keepExisting, record ], 1),
 				buttons: Ext.MessageBox.YESNOCANCEL
 			});
@@ -625,9 +624,8 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		if (this.hasDirtySignature()) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : _('You have unsaved changes. Do you wish to save the changes?'),
-				icon: Ext.MessageBox.QUESTION,
+				title: _('Unsaved changes'),
+				msg: _('You have unsaved changes. Do you wish to save the changes?'),
 				fn: this.onAddSignatureConfirm.createDelegate(this),
 				buttons: Ext.MessageBox.YESNOCANCEL
 			});

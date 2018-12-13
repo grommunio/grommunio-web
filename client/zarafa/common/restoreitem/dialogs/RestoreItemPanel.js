@@ -208,16 +208,18 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	onDeleteAll : function(button, eventObj)
 	{
 		var records = this.store.getRange();
-
-		Ext.MessageBox.confirm(
-			_('Kopano WebApp'),
-			_('Are you sure you want to Permanently Delete all items?'),
-			function (buttonClicked) {
+		
+		Ext.MessageBox.show({
+			title: _('Delete all items'),
+			msg: _('Are you sure you want to permanently delete all items?'),
+			buttons: Ext.MessageBox.YESNO,
+			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
 					this.doPermanentDelete(records);
 				}
 			},
-		this);
+			scope: this
+		});
 	},
 
 	/**
@@ -270,15 +272,18 @@ Zarafa.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Ext.grid.GridPan
 	onRestoreAll : function(button, eventObj)
 	{
 		var records = this.store.getRange();
-		Ext.MessageBox.confirm(
-			_('Kopano WebApp'),
-			_('Are you sure you want to Restore all items?'),
-			function (buttonClicked) {
+		Ext.MessageBox.show({
+			title: _('Restore all items'),
+			msg: _('Are you sure you want to restore all items?'),
+			buttons: Ext.MessageBox.YESNO,
+			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
 					this.doRestore(records);
 				}
+			
 			},
-		this);
+			scope: this
+		});
 	},
 
 	/**

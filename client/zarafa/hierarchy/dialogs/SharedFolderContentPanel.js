@@ -37,19 +37,19 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 
 		config = Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.sharedfoldercontentpanel',
+			xtype: 'zarafa.sharedfoldercontentpanel',
 			layout: 'fit',
-			title : _('Open Shared Folders'),
+			title: _('Open Shared Folders'),
 			width: 330,
 			height: 250,
 			items: [{
 				xtype: 'zarafa.sharedfolderpanel',
-				ref : 'sharedFolderPanel',
-				store : config.store,
-				defaultSelectedFolderType : config.defaultSelectedFolderType || this.defaultSelectedFolderType,
+				ref: 'sharedFolderPanel',
+				store: config.store,
+				defaultSelectedFolderType: config.defaultSelectedFolderType || this.defaultSelectedFolderType,
 				buttons: [{
-					text: _('Ok'),
-					handler: this.onOk,
+					text: _('Open'),
+					handler: this.onOpen,
 					scope: this
 				},{ 
 					text: _('Cancel'),
@@ -69,7 +69,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 	 * and will close the panel.
 	 * @private
 	 */
-	onOk : function()
+	onOpen : function()
 	{
 		if (this.store && this.store.getCount() > 0) {
 			var recipient = this.store.getAt(0);
@@ -77,7 +77,7 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 			// If the recipient has not yet been resolved, then we should
 			// wait until the store has correctly resolved the user.
 			if (!recipient.isResolved() && !recipient.attemptedToResolve()) {
-				this.mon(this.store, 'resolved', this.onOk, this, { single: true }); 
+				this.mon(this.store, 'resolved', this.onOpen, this, { single: true }); 
 				return;
 			}
 
@@ -86,25 +86,22 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 			// a second chance of entering a valid user.
 			if (!recipient.isResolved()) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg : String.format(_('Username \'{0}\' could not be resolved.'), recipient.get('display_name')),
-					icon: Ext.MessageBox.ERROR,
+					title: _('Unresolved user'),
+					msg: String.format(_('Username \'{0}\' could not be resolved.'), recipient.get('display_name')),
 					buttons: Ext.MessageBox.OK
 				});
 				return;
 			} else if (recipient.get('display_type') !== Zarafa.core.mapi.DisplayType.DT_MAILUSER) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg : String.format(_('Username \'{0}\' is not a valid user.'), recipient.get('display_name')),
-					icon: Ext.MessageBox.ERROR,
+					title: _('Invalid user'),
+					msg: String.format(_('Username \'{0}\' is not a valid user.'), recipient.get('display_name')),
 					buttons: Ext.MessageBox.OK
 				});
 				return;
 			} else if (recipient.get('email_address') === container.getUser().getEmailAddress()) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg : _('It is not possible to open your own store twice'), 
-					icon: Ext.MessageBox.ERROR,
+					title: _('Own store'),
+					msg: _('It is not possible to open your own store twice.'),
 					buttons: Ext.MessageBox.OK
 				});
 				return;
@@ -118,9 +115,8 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 			var opened = container.getHierarchyStore().open(name, options['type'], options['subfolders']);
 			if (!opened) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg :_('This shared folder is already open.'),
-					icon: Ext.MessageBox.ERROR,
+					title: _('Folder already open'),
+					msg: _('This shared folder is already open.'),
 					buttons: Ext.MessageBox.OK
 				});
 			} else {
@@ -128,9 +124,8 @@ Zarafa.hierarchy.dialogs.SharedFolderContentPanel = Ext.extend(Zarafa.core.ui.Co
 			}
 		} else {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg :_('You must specify a username.'),
-				icon: Ext.MessageBox.ERROR,
+				title: _('No user'),
+				msg: _('You must specify a user'),
 				buttons: Ext.MessageBox.OK
 			});
 		}

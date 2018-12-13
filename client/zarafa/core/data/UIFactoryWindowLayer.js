@@ -70,15 +70,7 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 			items : [
 				panel
 			],
-			title : panel.title,
-			listeners : {
-				// We want to give fade effect when subjecttext is longer than window width
-				'afterrender' : function(win) {
-					if (Ext.isDefined(win.header) && Ext.isElement(win.header.dom)) {
-						Ext.DomHelper.append(win.header.dom, "<span class='fade'>&nbsp;</span>");
-					}
-				}
-			}
+			title : panel.title
 		};
 
 		// If the component has listeners defined add them to the containing window

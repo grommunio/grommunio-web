@@ -30,20 +30,18 @@ Zarafa.hierarchy.Actions = {
 			}
 		} else if (folder.isIPMSubTree() || folder.isSharedFolder()) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : (folder.isIPMSubTree() ?
+				title: _('Insufficient permissions'),
+				msg: (folder.isIPMSubTree() ?
 					_('Not enough permissions to open this store, do you want to remove it from the hierarchy?') :
 					_('Not enough permissions to open this folder, do you want to remove it from the hierarchy?')),
-				icon: Ext.MessageBox.ERROR,
 				buttons: Ext.MessageBox.YESNO,
 				fn : this.onFolderPermissionBox,
 				scope : folder
 			});
 		} else {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : _('Not enough permissions to open this folder.'),
-				icon: Ext.MessageBox.ERROR,
+				title: _('Insufficient Permissions'),
+				msg: _('Not enough permissions to open this folder.'),
 				buttons: Ext.MessageBox.OK
 			});
 		}

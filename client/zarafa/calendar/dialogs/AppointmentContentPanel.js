@@ -312,12 +312,12 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 				// Determine if organizer related properties were only changed
 				// then no need to send message to all attendees
 				Ext.MessageBox.show({
-					title : _('Kopano WebApp'),
-					msg : _('An update message will be sent to all recipients, do you wish to continue?'),
-					icon : Ext.MessageBox.WARNING,
-					fn : this.sendMeetingUpdate,
-					scope : this,
-					buttons : Ext.MessageBox.YESNO
+					title: _('Send update'),
+					msg: _('An update message will be sent to all recipients, do you wish to continue?'),
+					cls: Ext.MessageBox.WARNING_CLS,
+					fn: this.sendMeetingUpdate,
+					scope: this,
+					buttons: Ext.MessageBox.YESNO
 				});
 				// The user is confronted with a messagebox, lets not yet
 				// save the appointment be wait for his answer.
@@ -429,15 +429,17 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 		}
 
 		if (busy) {
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				_('One or more attendees you have invited are busy. Are you sure to invite?'),
-				function (buttonClicked) {
-					// If the user pressed "yes" we can continue with
-					// the validation, otherwise the sending will have to be stopped
+			Ext.MessageBox.show({
+				title: _('Busy attendees'),
+				msg: _('One or more attendees are busy. Are you sure to invite?'),
+				buttons: Ext.MessageBox.YESNO,
+				fn: function (buttonClicked) {
+					// If the user pressed "yes" we can continue with the validation
+					// If not, sending will be stopped.
 					callback(buttonClicked == 'yes');
 				},
-				this);
+				scope: this
+			});
 		} else {
 			// The freebusy panel couldn't be found,
 			// lets not make this block sending the meeting request.

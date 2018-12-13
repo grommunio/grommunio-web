@@ -157,16 +157,18 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 		// created exceptions will be discarded. When this is a new series, then we can directly start
 		// creating the new recurrence.
 		if (this.record.phantom !== true && this.editRecurrence === true && this.record.hasRecurringExceptions()) {
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				_('This will discard any exceptions which might have been made for this recurring series. Do you wish to continue?'),
-				function(button) {
+			Ext.MessageBox.show({
+				title: _('Reset recurring'),
+				msg: _('This will reset every exception. Do you want to continue?'),
+				cls: Ext.MessageBox.WARNING_CLS,
+				buttons: Ext.MessageBox.YESNO,
+				fn: function(button) {
 					if (button === 'yes') {
 						Zarafa.common.recurrence.dialogs.RecurrenceContentPanel.superclass.onOk.apply(this, arguments);
 					}
 				},
-				this
-			);
+				scope: this
+			});
 		} else {
 			// If we are adding recurrence for the first time, we have set properties in onBeforeSetRecord(). We must
 			// make sure these properties will be put in the modified property of the record or they will not be

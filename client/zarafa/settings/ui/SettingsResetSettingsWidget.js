@@ -25,20 +25,20 @@ Zarafa.settings.ui.SettingsResetSettingsWidget= Ext.extend(Zarafa.settings.ui.Se
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Reset WebApp settings'),
-			layout : 'column',
-			items : [{
-				xtype : 'displayfield',
-				columnWidth : 1,
-				hideLabel : true,
-				value : _('Resets WebApp\'s settings to their original defaults')
+			title: _('Reset settings'),
+			layout: 'column',
+			items: [{
+				xtype: 'displayfield',
+				columnWidth: 1,
+				hideLabel: true,
+				value : _('Reset settings to their original defaults.')
 			},{
-				xtype : 'button',
-				text : _('Reset WebApp settings'),
-				columnWidth : 1,
-				autoWidth : true,
-				handler : this.onResetSettings,
-				scope : this
+				xtype: 'button',
+				text: _('Reset settings'),
+				columnWidth: 1,
+				autoWidth: true,
+				handler: this.onResetSettings,
+				scope: this
 			}]
 		});
 
@@ -46,29 +46,29 @@ Zarafa.settings.ui.SettingsResetSettingsWidget= Ext.extend(Zarafa.settings.ui.Se
 	},
 
 	/**
-	 * Event handler when the "Reset Settings" button was clicked.
+	 * Event handler when the "Reset settings" button was clicked.
 	 * This will {@link Zarafa.settings.SettingsModel#reset reset} the 
 	 * {@link Zarafa.settings.data.SettingsDefaultValue values} of the settings.
 	 * @private
 	 */
 	onResetSettings : function()
 	{
-		var message = _('Your WebApp settings will be restored to their default condition. Are you sure you want to reset all WebApp settings?');
+		var message = _('This will close all opened shared stores and resets all settings to the default value.');
 		message += '<br/><br/>';
-		message += _('WebApp will automatically restart in order for these changes to take effect');
+		message += _('WebApp will automatically reload in order for these changes to take effect');
 		message += '<br/>';
 
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
-			title: _('Reset WebApp settings'),
-			msg : message,
-			icon: Ext.MessageBox.QUESTION,
-			fn : this.resetDefaultSettings,
-			customButton : [{
-				text : _('Reset'),
-				name : 'reset'
+			title: _('Reset settings'),
+			msg: message,
+			cls: Ext.MessageBox.WARNING_CLS,
+			fn: this.resetDefaultSettings,
+			customButton: [{
+				text: _('Reset'),
+				name: 'reset'
 			}, {
-				text : _('Cancel'),
-				name : 'cancel'
+				text: _('Cancel'),
+				name: 'cancel'
 			}],
 			scope : this
 		});
@@ -91,7 +91,7 @@ Zarafa.settings.ui.SettingsResetSettingsWidget= Ext.extend(Zarafa.settings.ui.Se
 			realModel.save();
 
 			this.loadMask = new Zarafa.common.ui.LoadMask(Ext.getBody(), {
-				msg : '<b>' + _('Webapp is reloading, Please wait.') + '</b>'
+				msg : '<b>' + _('Reloading, Please wait.') + '</b>'
 			});
 
 			this.loadMask.show();

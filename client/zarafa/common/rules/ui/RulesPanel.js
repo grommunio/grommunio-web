@@ -159,9 +159,8 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 		var model = context.getModel();
 		if (model.dirty) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : _('Do you wish to apply the changes?'),
-				icon: Ext.MessageBox.QUESTION,
+				title: _('Apply changes'),
+				msg: _('Do you wish to apply the changes?'),
 				fn: this.applyChanges.createDelegate(this, [ model, field, record ], 1),
 				buttons: Ext.MessageBox.YESNOCANCEL
 			});

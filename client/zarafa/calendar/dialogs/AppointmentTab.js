@@ -916,10 +916,9 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		} else {
 			//If suggested location seems different then ask user whether want to use suggested location or not.
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
+				title: _('Update location'),
 				msg: String.format(_('Do you want to update the location "{0}" with the new location "{1}"?'), Ext.util.Format.htmlEncode(meetingLocation), Ext.util.Format.htmlEncode(locationSuggestion)),
 				buttons: Ext.Msg.YESNO,
-				icon: Ext.MessageBox.WARNING,
 				fn: this.setLocation,
 				locationSuggestion: locationSuggestion,
 				scope: this

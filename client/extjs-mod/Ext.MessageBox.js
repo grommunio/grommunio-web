@@ -83,6 +83,13 @@ Ext.MessageBox = Ext.extend(Object, {
 	ERROR : 'ext-mb-error',
 
 	/**
+	 * The CSS classes that provides dialog header text color
+	 * @type String
+	 */
+	WARNING_CLS: 'k-warning-dialog',
+	ERROR_CLS: 'k-error-dialog',
+
+	/**
 	 * The default height in pixels of the message box's multiline textarea if displayed (defaults to 75)
 	 * @type Number
 	 */
@@ -515,10 +522,43 @@ icon: Ext.MessageBox.INFO
 				d.focusEl = db;
 			}
 		}
+
 		if(Ext.isDefined(this.opt.iconCls)){
 		  d.setIconClass(this.opt.iconCls);
 		}
-		this.setIcon(Ext.isDefined(this.opt.icon) ? this.opt.icon : this.bufferIcon);
+		
+		// Workaround when old icon is still set by a plugin(external or internal)	
+		// If the window is called with legacy icon we set an empty icon
+		// and add the similar cls instead.
+		// Log a message in the console that this icon is deprecated
+		if (Ext.isDefined(this.opt.icon)) {
+			var icon = this.opt.icon;
+			switch (icon) {
+				case this.WARNING:
+					icon = '';
+					d.el.addClass(this.WARNING_CLS);
+					console.warn('Deprecated warning icon used');
+					break;
+				case this.INFO:
+				case this.QUESTION:
+					icon = '';
+					console.warn('Deprecated info/question icon used');
+					break;
+				case this.ERROR:
+					icon = '';
+					d.el.addClass(this.ERROR_CLS);
+					console.warn('Deprecated error icon used');
+					break;
+			}
+			this.setIcon(icon);
+		} else {
+			// Add a x-hidden class to the default icon
+			// So space for empty icon is not visible
+			// Remove ext-mb-icon class for correct styling
+			this.iconEl.addClass('x-hidden');
+			this.iconEl.removeClass('ext-mb-icon');
+		}
+		
 		this.bwidth = this.updateButtons(this.opt.buttons);
 		this.progressBar.setVisible(this.opt.progress === true || this.opt.wait === true);
 		this.updateProgress(0, this.opt.progressText);
@@ -545,7 +585,7 @@ icon: Ext.MessageBox.INFO
 			}, this, {single:true});
 			d.show(this.opt.animEl);
 		}
-		if(this.opt.wait === true){
+		if (this.opt.wait === true) {
 			this.progressBar.wait(this.opt.waitConfig);
 		}
 		return this;
@@ -565,18 +605,18 @@ Ext.MessageBox.ERROR
 	 * @param {String} icon A CSS classname specifying the icon's background image url, or empty string to clear the icon
 	 * @return {Ext.MessageBox} this
 	 */
-	setIcon : function(icon){
-		if(!this.dlg){
+	setIcon : function(icon) {
+		if (!this.dlg) {
 			this.bufferIcon = icon;
 			return;
 		}
 		this.bufferIcon = undefined;
-		if(icon && icon != ''){
+		if (icon && icon != '') {
 			this.iconEl.removeClass('x-hidden');
 			this.iconEl.replaceClass(this.iconCls, icon);
 			this.bodyEl.addClass('x-dlg-icon');
 			this.iconCls = icon;
-		}else{
+		} else {
 			this.iconEl.replaceClass(this.iconCls, 'x-hidden');
 			this.bodyEl.removeClass('x-dlg-icon');
 			this.iconCls = '';

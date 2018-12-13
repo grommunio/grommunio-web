@@ -497,11 +497,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		} else {
 			msg = String.format(_('Are you sure you want to delete the folder "{0}" and move all of its contents into the Deleted Items folder?'), Ext.util.Format.htmlEncode(this.records.getDisplayName()));
 		}
-
-		Ext.MessageBox.confirm(
-			_('Kopano WebApp'),
-			msg,
-			function (buttonClicked) {
+		
+		Ext.MessageBox.show({
+			title: _('Delete folder'),
+			msg: msg,
+			buttons: Ext.MessageBox.YESNO,
+			fn: function (buttonClicked) {
 				if (buttonClicked == 'yes') {
 					var record = this.records;
 
@@ -524,7 +525,8 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 					store.save(record);
 				}
 			},
-			this);
+			scope: this
+		});
 	},
 
 	/**
@@ -534,17 +536,19 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	 * @private
 	 */
 	onContextItemEmptyFolder : function()
-	{
-		Ext.MessageBox.confirm(
-			_('Kopano WebApp'),
-			String.format(_('Are you sure you want to empty {0}?'), Ext.util.Format.htmlEncode(this.records.getDisplayName())),
-			function (buttonClicked) {
+	{	
+		Ext.MessageBox.show({
+			title: _('Empty folder'),
+			msg: String.format(_('Are you sure you want to empty {0}?'), Ext.util.Format.htmlEncode(this.records.getDisplayName())),
+			buttons: Ext.MessageBox.YESNO,
+			fn: function(buttonClicked) {
 				if (buttonClicked == 'yes') {
 					this.records.emptyFolder();
 					this.records.save();
 				}
 			},
-			this);
+			scope: this
+		});
 	},
 
 	/**

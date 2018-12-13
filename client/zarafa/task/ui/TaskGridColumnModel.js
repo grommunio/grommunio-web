@@ -411,9 +411,8 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 		if (!record.isNormalTask()) {
 			if (!record.isTaskOwner() && !record.isTaskRequest()) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg :_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
-					icon: Ext.MessageBox.WARNING,
+					title: _('Assigned task changes'),
+					msg:_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
 					scope: this,
 					buttons: Ext.MessageBox.OK
 				});

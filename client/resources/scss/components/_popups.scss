@@ -1,30 +1,55 @@
 .ext-el-mask {
-	background-color: #ffffff;
+	background-color: $white;
 }
 
 /* Override EXtJS's CSS when dragging an popup */
 .x-panel-ghost > ul {
 	border-color: transparent;
 }
-.x-panel-ghost {
-	background-color: #f2f2f2;
+.x-panel-ghost, .x-panel-ghost .x-window-tl {
+	background-color: #f8f8ff;
 	border-color: transparent;
 }
 .x-panel-ghost .x-window-tl {
-	border-color:transparent;
+	border-color: transparent;
 }
 
+.x-panel-ghost .x-window-tl {
+	background: #f8f8ff !important;
+}
 
-// FIXME: generalize case for x-panel-ghost so that we do not generate a gazzillion CSS rules
+.x-panel-ghost .x-window-header-text {
+	color: $dark-grey !important;	
+}
+
+// Error and warning dialog border colors
+.x-window.k-error-dialog {
+	border-left: 2px solid #DC3023;
+}
+
+.x-window.k-warning-dialog {
+	border-left: 2px solid #E08A1E;
+}
+
+.x-window .ext-mb-text {
+	color: #5f6368;
+}
+
+.x-window .x-panel-header {
+	font-weight: bold;
+	border-bottom: 1px solid lightgrey;
+	background: $white;
+}
+
+// x-window and x-panel-ghost items
 .x-window,
 .x-panel-ghost {
-	border: 1px solid $grey5;
-	box-shadow: rgba(0, 0, 0, 0.45) 0px 3px 5px 0;
+	box-shadow: rgba(0, 0, 0, 0.45) 0px 1px 5px 0;
 
 	/* header */
 	.x-window-tl {
 		padding-left: $padding-large;
-		background: $grey;
+		background: $white;
 
 		.x-window-tr {
 			padding-right: 0;
@@ -40,6 +65,11 @@
 					.x-tool {
 						position: relative;
 						z-index: 10;
+						opacity: 0.6;
+					}
+
+					.x-tool:hover {
+						opacity: 1;
 					}
 
 					.x-tool-close {
@@ -53,33 +83,19 @@
 					}
 
 					.x-window-header-text {
-						color: $font-default-color;
+						color: $dark-grey2;
 						font-weight: normal;
 						line-height: $header-height;
 						display: block;
 						left: $padding-large;
 						height: $header-height;
-						position: absolute;
 						overflow: hidden;
+						font-size: $font-size-large;
+						text-overflow: ellipsis;
+						white-space: nowrap;
 					}
 
-					/* this element is used to fade out the text when the window is too short */
-					.fade {
-						display: block;
-						width: 70px;
-						height: $header-height;
-						top: 0;
-						right: 0px;
-						position: absolute;
-						background: linear-gradient( to right, rgba($grey, 0) 0%, rgba($grey, 1.0) 50%, rgba($grey, 1.0) 100%);
-					}
 				}
-				.x-window-header.x-window-draggable {
-					.fade {
-						cursor: move;
-					}
-				}
-
 				.x-window-header.icon_favorites {
 					background-image: none !important;
 
@@ -180,6 +196,10 @@
 
 			.x-window-bc {
 				background: none;
+				
+				.x-window-footer {
+					padding-top: 20px;
+				}
 			}
 		}
 	}

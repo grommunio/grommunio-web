@@ -66,9 +66,8 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 
 			if (model.hasChanges()) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
-					msg : _('Do you wish to apply the changes?'),
-					icon: Ext.MessageBox.QUESTION,
+					title: _('Apply changes'),
+					msg: _('Do you wish to apply the changes?'),
 					fn: this.applyChanges.createDelegate(this, [ viewId ], 1),
 					buttons: Ext.MessageBox.YESNOCANCEL
 				});
@@ -162,21 +161,20 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	onSaveSettings : function(model, param)
 	{
 		if(param.requiresReload) {
-			var message = _('In order for the changes to take effect, please reload WebApp.') +'<br>'+ _('NOTE: Any unsaved changes will be lost.');
+			var message = _('You must reload WebApp for the changes to take effect. Unsaved changes will be lost.');
 
 			Zarafa.common.dialogs.MessageBox.addCustomButtons({
-				title: _('Kopano WebApp'),
-				msg : message,
-				icon : Ext.MessageBox.QUESTION,
-				fn : this.reloadWebapp,
-				customButton : [{
-					text : _('Reload'),
-					name : 'reload'
+				title: _('Reload WebApp'),
+				msg: message,
+				fn: this.reloadWebapp,
+				customButton: [{
+					text: _('Reload'),
+					name: 'reload'
 				}, {
-					text : _('Cancel'),
-					name : 'cancel'
+					text: _('Cancel'),
+					name: 'cancel'
 				}],
-				scope : this
+				scope: this
 			});
 		}
 	},
@@ -335,9 +333,8 @@ Zarafa.settings.SettingsContext = Ext.extend(Zarafa.core.Context, {
 	{
 		if (this.getModel().hasChanges()) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : _('Do you wish to apply the changes?'),
-				icon: Ext.MessageBox.QUESTION,
+				title: _('Apply changes'),
+				msg: _('Do you wish to apply the changes?'),
 				fn: this.applyChangesContext.createDelegate(this, [ folder, newContext ], 1),
 				buttons: Ext.MessageBox.YESNOCANCEL
 			});
