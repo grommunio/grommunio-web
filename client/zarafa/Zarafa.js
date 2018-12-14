@@ -797,6 +797,9 @@ Ext.apply(Zarafa, {
 		Zarafa.initializeGlobals();
 		Zarafa.initializeEnvironment();
 
+		// Recolor the icons if necessary
+		this.recolorIcons();
+
 		// Start loading all plugins
 		Zarafa.fireReady();
 
@@ -943,6 +946,67 @@ Ext.apply(Zarafa, {
 			plugin = container.getContextByName('today');
 		}
 		container.switchContext(plugin);
+	},
+
+	/**
+	 * When an iconset has SVG icons and it has defined the primary-color and/or
+	 * secondary-color properties and the active theme has defined the
+	 * icons-primary-color and/or icons-secondary-color property this function
+	 * will rewrite the css rules of the iconset to update the colors of the icons.
+	 */
+	recolorIcons : function()
+	{
+		// Get the properties defined by the active iconset
+		var serverConfig = container.getServerConfig();
+		var iconsets = serverConfig.getIconsets();
+		var activeIconsetName = serverConfig.getActiveIconset();
+		var activeIconset = iconsets[activeIconsetName];
+
+		// If the iconset did not define a primary or secondary color, we cannot
+		// redefine the colors, so return without doing anything
+		if ( !activeIconset['primary-color'] && !activeIconset['secondary-color'] ) {
+			return;
+		}
+
+		// Get the primary and secondary icon color defined in the active theme
+		// (themes can override the colors of iconsets that allow recoloring)
+		var themeIconsPrimaryColor = serverConfig.getPrimaryIconColor();
+		var themeIconsSecondaryColor = serverConfig.getSecondaryIconColor();
+
+		// If the active theme did not define a new primary or secondary color
+		// for the icons there is nothing to do, so return
+		if ( !themeIconsPrimaryColor && !themeIconsSecondaryColor ) {
+			return;
+		}
+
+		// Get the stylesheet element that contains the icons as background images
+		// and check all rules in it for SVG icons we can recolor
+		var sheet = document.getElementById('kopano-iconset-stylesheet');
+		for ( var i=0; i<sheet.sheet.cssRules.length; i++ ) {
+			var rule = sheet.sheet.cssRules[i];
+
+			// Check the rule to see if it contains an SVG background image
+			// (we can only recolor SVG icons)
+			var matches = (/url\("data:image\/svg\+xml;base64,(.+?)"\)/).exec(rule.cssText);
+			if ( matches !== null ) {
+				// base64 decode the SVG image
+				var svg = atob(matches[1]);
+
+				// Simply replace the color codes
+				var svgRecolored = svg.replace(activeIconset['primary-color'], themeIconsPrimaryColor).replace(activeIconset['secondary-color'], themeIconsSecondaryColor);
+
+				// If we changed anything, replace the CSS rule to use the base64 encoded SVG
+				// with the new color(s)
+				if ( svg !== svgRecolored ) {
+					var cssText = rule.cssText.replace(
+						/url\("data:image\/svg\+xml;base64,(.+)"\)/,
+						'url("data:image/svg+xml;base64,' + btoa(svgRecolored) + '")'
+					);
+					sheet.sheet.deleteRule(i);
+					sheet.sheet.insertRule(cssText, i);
+				}
+			}
+		}
 	},
 
 	/**

@@ -169,6 +169,55 @@ class Theming
 	}
 
 	/**
+	 * Returns the value that is assigned to a property by the active theme
+	 * or null otherwise.
+	 * Currently only implemented for JSON themes.
+	 * @return String The value that the active theme has set for the property,
+	 * or NULL.
+	 */
+	public static function getThemeProperty($propName) {
+		$theme = Theming::getActiveTheme();
+		if ( !Theming::isJsonTheme($theme) ) {
+			return false;
+		}
+
+		$props = Theming::getJsonThemeProps($theme);
+		if ( !isset($props[$propName]) ) {
+			return false;
+		}
+
+		return $props[$propName];
+	}
+
+	/**
+	 * Returns the color that the active theme has set for the primary color
+	 * of the icons. Currently only supported for JSON themes.
+	 * Note: Only SVG icons of an iconset that has defined the primary color
+	 * can be 'recolored'.
+	 * @return String The color that the active theme has set for the primary
+	 * color of the icons, or FALSE.
+	 */
+	public static function getPrimaryIconColor() {
+		$val = Theming::getThemeProperty('icons-primary-color');
+
+		return $val !== null ? $val : false;
+	}
+
+	/**
+	 * Returns the color that the active theme has set for the secondary color
+	 * of the icons. Currently only supported for JSON themes.
+	 * Note: Only SVG icons of an iconset that has defined the secondary color
+	 * can be 'recolored'.
+	 * @return String The color that the active theme has set for the secondary
+	 * color of the icons, or FALSE.
+	 */
+	public static function getSecondaryIconColor() {
+		$val = Theming::getThemeProperty('icons-secondary-color');
+
+		return $val !== null ? $val : false;
+	}
+
+	/**
 	 * Checks if a theme is a JSON theme. (Basically this means that it checks if a
 	 * directory with the theme name exists and if that directory contains a file
 	 * called theme.json)

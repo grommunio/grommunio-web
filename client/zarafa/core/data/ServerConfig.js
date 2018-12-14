@@ -205,6 +205,24 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String|Boolean} The primary color for SVG icons if defined by the active theme,
+	 * or false otherwise
+	 */
+	getPrimaryIconColor : function()
+	{
+		return this.meta.icons_primary_color;
+	},
+
+	/**
+	 * @return {String|Boolean} The secondary color for SVG icons if defined by the active theme,
+	 * or false otherwise
+	 */
+	getSecondaryIconColor : function()
+	{
+		return this.meta.icons_secondary_color;
+	},
+
+	/**
 	 * @return {Object} The about texts of iconsets
 	 */
 	getIconsetAbouts : function()
