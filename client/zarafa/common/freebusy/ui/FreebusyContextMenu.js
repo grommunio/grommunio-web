@@ -52,6 +52,13 @@ Zarafa.common.freebusy.ui.FreebusyContextMenu = Ext.extend(Zarafa.core.ui.menu.C
 				hidden : !resolved,
 				handler: this.openDetailsContent,
 				scope: this
+			},{
+				xtype: 'zarafa.conditionalitem',
+				text: _('Copy email address'),
+				iconCls : 'icon_copy',
+				hidden : !resolved,
+				handler: this.copyEmail,
+				scope: this
 			},'-',{
 				xtype: 'zarafa.conditionalitem',
 				text: _('Required Attendee'),
@@ -116,6 +123,15 @@ Zarafa.common.freebusy.ui.FreebusyContextMenu = Ext.extend(Zarafa.core.ui.menu.C
 	onRecipientTypeChange: function(item)
 	{
 		this.records.set('recipient_type', item.recipientType);
+	},
+
+	/**
+	 * Handler for the "Copy email address" option. This will
+	 * copy email address of the resolved recipient.
+	 */
+	copyEmail : function ()
+	{
+		Zarafa.common.Actions.copyEmailAddress(this.records);
 	}
 });
 
