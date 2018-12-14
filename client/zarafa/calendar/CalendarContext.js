@@ -319,6 +319,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 						case Zarafa.calendar.data.DataModes.DAY:
 							component = Zarafa.calendar.printer.DaysViewRenderer;
 							break;
+						case Zarafa.calendar.data.DataModes.MONTH:
+							component = Zarafa.calendar.printer.MonthViewRenderer;
+							break;
 					}
 				}
 				break;
@@ -605,15 +608,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			plugins : 'zarafa.menuitemtooltipplugin',
 			handler: this.onPrintView,
 			scope: this,
-			hideOnDisabled: false,
-			beforeShow: function(item, record) {
-				// This function is called in a different scope,
-				// access the context by using the 'scope' property.
-				var model = item.scope.getModel();
-				var dataMode = model.getCurrentDataMode();
-
-				item.setDisabled(dataMode == Zarafa.calendar.data.DataModes.MONTH);
-			}
+			hideOnDisabled: false
 		}];
 
 		return defaultItems.concat(items);

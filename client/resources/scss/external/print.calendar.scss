@@ -79,3 +79,52 @@ td.calendar-item {
 	width: 100%;
 }
 
+.k-calendar-header {
+	border: 1px solid black;
+}
+
+table.k-calendar-days {
+	margin-top: 5px;
+
+	th {
+		border: 1px solid black;
+		text-align: center;
+		background-color: lightgrey;
+		width: 14.28% !important;
+	}
+
+	td {
+		border: 1px solid #000;
+		vertical-align: top;
+		text-align: left;
+
+		svg.k-appointment-status{
+			position: absolute;
+			display: inline-block;
+			width: 7px;
+			top: 0;
+			left: 0;
+			bottom: 0;
+		}
+
+		.k-appointment {
+			font-size:14px;
+			width: 90%;
+			height:20px;
+			border-radius: 4px;
+			line-height: 1.5;
+			background-color:#FFF;
+			position: absolute;
+			left:2.5%;
+			margin-bottom: 1px;
+		}
+
+		.k-overflow-indicator {
+			display: inline-block;
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+			height: 10px;
+		}
+	}
+}

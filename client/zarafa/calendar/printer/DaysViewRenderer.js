@@ -3,24 +3,12 @@ Ext.namespace('Zarafa.calendar.printer');
 
 /**
  * @class Zarafa.calendar.printer.DaysViewRenderer
- * @extends Zarafa.common.printer.renderers.BaseRenderer
+ * @extends Zarafa.calendar.printer.AbstractViewRenderer
  *
  * Prints single day calendar overview.
  * Also it serves as baseclass to be used to print other calendar appointments.
  */
-Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
-	/**
-	 * @property customStylesheetPath
-	 * @type String
-	 * The path at which the print stylesheets can be found for this renderer
-	 */
-	customStylesheetPath: 'client/resources/css/external/print.calendar.css',
-
-	/**
-	 * @cfg {String} timeStyle The style attribute which must be applied to  the
-	 * &lt;td&gt; element containing the timestamp for the appointment
-	 */
-	timeStyle : '',
+Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.AbstractViewRenderer, {
 
 	/**
 	 * Prepares data suitable for use in an XTemplate from the component
@@ -123,73 +111,6 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			}
 		}
 		return data;
-	},
-
-	/**
-	 * Add additional rendering into the newly created dom tree containing the processed template
-	 *
-	 * @param {Document} printDOM DOM containing processed print template
-	 * @param {Zarafa.calendar.CalendarContextModel} context calendar context to render for printing
-	 */
-	postRender: function(printDOM, context)
-	{
-		var daterange = context.getModel().dateRange;
-		var left = daterange.getStartDate().clone();
-		var right = daterange.getDueDate().clone();
-
-		right.setMonth(right.getMonth()+1);
-
-		/*
-		 * Particularly in IE, Nodes are not allowed to be inserted into another document
-		 * from the one in which they were created.
-		 * Actually, Here we are trying to create element in printing document, using our original document which is not possible.
-		 * As a solution, we are creating/rendering date picker into the body and than copies the html structure
-		 * of date picker into the printing document.
-		 */
-		var leftDP, rightDP;
-		if (Ext.isIE11){
-			leftDP = new Ext.DatePicker({
-				renderTo: Ext.getBody(),
-				hidden : true,
-				width : '200px',
-				value: left,
-				showToday: false
-			});
-
-			rightDP = new Ext.DatePicker({
-				renderTo: Ext.getBody(),
-				hidden : true,
-				width : '200px',
-				value: right,
-				showToday: false
-			});
-
-			var leftPrintDomDP = printDOM.getElementById('datepicker_left');
-			if (leftPrintDomDP) {
-				leftPrintDomDP.innerHTML = leftDP.el.dom.innerHTML;
-			}
-
-			var rightPrintDomDP = printDOM.getElementById('datepicker_right');
-			if (rightPrintDomDP) {
-				rightPrintDomDP.innerHTML = rightDP.el.dom.innerHTML;
-			}
-
-			// Destroys date picker component with its element from the DOM.
-			leftDP.destroy();
-			rightDP.destroy();
-		} else {
-			leftDP = new Ext.DatePicker({
-				renderTo: printDOM.getElementById('datepicker_left'),
-				value: left,
-				showToday: false
-			});
-
-			rightDP = new Ext.DatePicker({
-				renderTo: printDOM.getElementById('datepicker_right'),
-				value: right,
-				showToday: false
-			});
-		}
 	},
 
 	/**
