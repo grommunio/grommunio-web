@@ -52,7 +52,7 @@ Zarafa.contact.dialogs.DistlistExternalMemberContentPanel = Ext.extend(Zarafa.co
 	},
 
 	/**
-	 * Create the form in which the new e-mail address info can be fetch
+	 * Create the form in which the new email address info can be fetch
 	 * @return {Object} Configuration object for the form
 	 */
 	createFormItems : function()

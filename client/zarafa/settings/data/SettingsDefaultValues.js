@@ -77,7 +77,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 
 							/**
 							 * zarafa/v1/main/default_font
-							 * Default font for writing e-mail
+							 * Default font for writing email
 							 * @property
 							 * @type String
 							 */
@@ -85,7 +85,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 
 							/**
 							 * zarafa/v1/main/default_font_size
-							 * Default font size for writing e-mail
+							 * Default font size for writing email
 							 * possible values are {@link Zarafa.common.ui.htmleditor.FontSize#fontSizes}
 							 * @property
 							 * @type Number

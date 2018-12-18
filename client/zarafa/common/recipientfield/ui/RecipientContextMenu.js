@@ -53,14 +53,14 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
-				text: _('Copy e-mail address'),
+				text: _('Copy email address'),
 				iconCls : 'icon_copy',
 				hidden : !resolved,
 				handler: this.copyEmail,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
-				text: _('Send e-mail'),
+				text: _('Send email'),
 				iconCls : 'icon_new_email',
 				handler: this.onEmailRecipient,
 				scope: this
