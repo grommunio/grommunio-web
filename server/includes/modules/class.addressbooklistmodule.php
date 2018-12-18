@@ -268,7 +268,7 @@
 				$rows = mapi_table_queryallrows($table, $this->properties);
 
 				for ($i = 0, $len = count($rows); $i < $len; $i++) {
-					$user_data = $rows[$i];
+					$user_data = array_shift($rows);
 
 					$item = array();
 					$item['entryid'] = bin2hex($user_data[$this->properties['entryid']]);
