@@ -93,7 +93,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			autoLoad: true,
 			data: Zarafa.advancesearch.data.DateRangeFields
 		};
-		
+
 		Ext.applyIf(config, {
 			xtype : 'zarafa.searchtoolboxpanel',
 			title: _('Search tools'),
@@ -121,9 +121,13 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					this.createCategoryFilterFieldset(dateRangeStore),
 					this.createFavoritesContainer(config)
 				]
-			}]
+			}],
+			listeners: {
+				afterrender: this.onAfterRender,
+				scope: this
+			}
 		});
-		
+
 		this.addEvents(
 			/**
 			 * @event afterupdaterestriction fired after the {@link #searchCriteria} gets updated by the
@@ -134,6 +138,47 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		);
 
 		Zarafa.advancesearch.dialogs.SearchToolBoxPanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler for the render event of the SearchToolBoxPanel. Will add an event listener to the
+	 * input element of the {@link Zarafa.common.searchfield.ui.SearchTextField}
+	 */
+	onAfterRender : function()
+	{
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+
+		// Because the input event is not relayed by the Ext.form.TextField (like e.g. keyup) we must listen
+		// to the input element itself. We can only add the listener once it has been rendered, hence the
+		// double mon()
+		this.mon(searchTextField, 'render', function() {
+			this.mon(searchTextField.getEl(), 'input', this.onSearchTextFieldChange, this);
+
+			// Call the listener also upon rendering of the searchTextField, since we might need to disable the
+			// search fields of the toolbox
+			this.onSearchTextFieldChange();
+		}, this, {single: true});
+	},
+
+	/**
+	 * Event handler for the input event of the input of the {@link Zarafa.common.searchfield.ui.SearchTextField}
+	 * Will disable the search field panels when the search query is a KQL query, or enable them otherwise
+	 * @param {Zarafa.common.searchfield.ui.SearchTextField} searchTextField The text field where the
+	 * search queries are entered.
+	 */
+	onSearchTextFieldChange : function()
+	{
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var query = searchTextField.getValue();
+		var isKqlQuery = Zarafa.advancesearch.KQLParser.isKqlQuery(query);
+
+		if ( isKqlQuery ) {
+			this.searchInFieldset.disable();
+			this.categoryFilterFieldSet.disable();
+		} else {
+			this.searchInFieldset.enable();
+			this.categoryFilterFieldSet.enable();
+		}
 	},
 
 	/**
@@ -330,6 +375,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			cls: 'k-category-filter',
 			title: _('Filter category..'),
 			autoHeight: true,
+			ref: '../categoryFilterFieldSet',
 			items: [{
 				xtype: 'button',
 				iconCls: 'icon_category_add',
@@ -385,6 +431,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			width : 160,
 			border : false,
 			title: _('Search..'),
+			ref : '../searchInFieldset',
 			items : [{
 				xtype : 'checkboxgroup',
 				columns : 1,
@@ -828,6 +875,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		Zarafa.advancesearch.Actions.openCreateSearchFolderContentPanel(this.model, config);
 	},
 
+
 	/**
 	 * Function will be used to create search restriction based on value entered in
 	 * search textfield and {@link Zarafa.common.search.dialogs.SearchToolBoxPanel SearchToolBox}.
@@ -844,8 +892,15 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			return [];
 		}
 
+		var tokens = Zarafa.advancesearch.KQLParser.tokenize(textFieldValue);
+		if ( tokens ) {
+			var tokenRes = Zarafa.advancesearch.KQLParser.createTokenRestriction(tokens);
+			var andRes = [tokenRes];
+		} else {
+			andRes = [];
+		}
+
 		var finalRes = [];
-		var andRes = [];
 		var orResDate = [];
 		var orResSearchField = [];
 		var orResMessageClass = [];
@@ -853,17 +908,19 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		var orFilters = [];
 
 		Ext.iterate(this.searchCriteria, function(key, values) {
-			// search field restriction
-			if(key === 'search_fields') {
-				Ext.each(values, function(value){
-					orResSearchField.push(
-						Zarafa.core.data.RestrictionFactory.dataResContent(
-							value,
-							Zarafa.core.mapi.Restrictions.FL_SUBSTRING | Zarafa.core.mapi.Restrictions.FL_IGNORECASE,
-							textFieldValue
-						)
-					);
-				}, this);
+			if ( !tokens ) {
+				// search field restriction
+				if(key === 'search_fields') {
+					Ext.each(values, function(value){
+						orResSearchField.push(
+							Zarafa.core.data.RestrictionFactory.dataResContent(
+								value,
+								Zarafa.core.mapi.Restrictions.FL_SUBSTRING | Zarafa.core.mapi.Restrictions.FL_IGNORECASE,
+								textFieldValue
+							)
+						);
+					}, this);
+				}
 			}
 
 			if (key === 'extra_fields') {
@@ -925,6 +982,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 					]);
 				}
 			}
+
 			// message class restriction
 			if(key === 'message_class' && !Ext.isEmpty(values)) {
 				Ext.each(values, function(value){
@@ -939,7 +997,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			}
 
 			// category restriction
-			if (key === 'categories' && !Ext.isEmpty(values)) {
+			if (!tokens && key === 'categories' && !Ext.isEmpty(values)) {
 				Ext.each(values, function (value) {
 					andResCategory.push(
 						Zarafa.core.data.RestrictionFactory.dataResContent(
@@ -976,9 +1034,11 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		if(!Ext.isEmpty(orResDate)) {
 			var andResDateSearchField = [];
 			andResDateSearchField.push(orResDate);
-			andResDateSearchField.push(Zarafa.core.data.RestrictionFactory.createResOr(orResSearchField));
+			if ( orResSearchField.length ) {
+				andResDateSearchField.push(Zarafa.core.data.RestrictionFactory.createResOr(orResSearchField));
+			}
 			andRes.push(Zarafa.core.data.RestrictionFactory.createResAnd(andResDateSearchField));
-		} else {
+		} else if ( orResSearchField.length ) {
 			/**
 			 * If date information is not present in search criteria then create search restriction
 			 * something like this.
