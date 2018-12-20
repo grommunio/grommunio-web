@@ -162,16 +162,16 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	createCompanyPanel : function()
 	{
-		return{
-			layout : 'form',
+		return {
+			layout: 'form',
 			ref: 'companyPanel',
 			cls: 'k-companypanel',
-			items : [{
-				xtype : 'textfield',
-				fieldLabel:_('Companies'),
-				anchor : '100%',
-				name : 'companies',
-				listeners :{
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: _('Companies'),
+				anchor: '100%',
+				name: 'companies',
+				listeners: {
 					'change' : this.onPropertyChange,
 					scope : this
 				}
@@ -187,26 +187,24 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	createUpdateListPanel : function()
 	{
-		return{
-			layout : 'form',
+		return {
+			layout: 'form',
 			cls: 'k-updatelistpanel',
-			border : false,
-			items : [{
-				xtype : 'textfield',
+			items: [{
+				xtype: 'textfield',
 				fieldLabel:_('Update List'),
-				labelAlign: 'left',
-				ref : '../updateList',
-				anchor : '100%',
-				readOnly : true,
-				name : 'updatelist'
+				ref: '../updateList',
+				anchor: '100%',
+				readOnly: true,
+				name: 'updatelist'
 			},{
-				xtype : 'button',
+				xtype: 'button',
 				width: 150,
-				ref : '../createUnassignedCopy',
-				handler : this.onCreateUnassignedCopy,
-				text : _('Create Unassigned Copy'),
-				name : 'create_unassigned_copy',
-				scope : this
+				ref: '../createUnassignedCopy',
+				handler: this.onCreateUnassignedCopy,
+				text: _('Create Unassigned Copy'),
+				name: 'create_unassigned_copy',
+				scope: this
 			}]
 		};
 	},
