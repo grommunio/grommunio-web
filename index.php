@@ -172,7 +172,13 @@
 	// Instantiate Plugin Manager and init the plugins (btw: globals suck)
 	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
 	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
+
+	// Initialize plugins and prevent any output which might be written as
+	// plugins might be uncleanly output white-space and other stuff. We must
+	// not allow this here as it can destroy the response data.
+	ob_start();
 	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
+	ob_end_clean();
 
 	$Language = new Language();
 
