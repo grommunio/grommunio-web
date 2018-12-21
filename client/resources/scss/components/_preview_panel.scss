@@ -110,8 +110,7 @@ $preview-header-collapse-icon-height	: 5;
 }
 
 .preview-header-recipients .preview-recipient-title,
-.preview-header-attachments .preview-attachment-title
-{
+.preview-header-attachments .preview-attachment-title {
 	float:left;
 }
 
@@ -138,14 +137,12 @@ $preview-header-collapse-icon-height	: 5;
 
 /* Overflow for recipients / attachments */
 .preview-header-recipients .preview-recipient-data,
-.preview-header-attachments .preview-attachment-data
-{
+.preview-header-attachments .preview-attachment-data {
 	overflow-y: auto;
 }
 
 /* Attachments: */
-.preview-header-attachmentbox
-{
+.preview-header-attachmentbox {
 	line-height:18px;
 	padding-top:2px;
 }
@@ -158,23 +155,14 @@ $preview-header-collapse-icon-height	: 5;
 
 /* Top header infobox  */
 .preview-header-extrainfobox {
-	// FIXME: SASS Color
-	background-color: #D2E0F0;
-	color: #000000;
-	padding: 2px 0px;
+	background-color: $light-blue;
+	margin-bottom: $padding-small;
+	padding: $padding-medium $padding-large $padding-medium $padding-large;
 }
 
 /* Corrupt message case */
 .preview-header-extrainfobox-item-over {
-	// FIXME: SASS Color
-	background-color: #FFBD69;
-	cursor : pointer;
-}
-
-.preview-header-extrainfobox-item {
-	padding: 0px 8px;
-	// FIXME: SASS Color
-	color: #15428B;
+	cursor: pointer;
 }
 
 /* Preview header email address */
@@ -189,15 +177,14 @@ span.zarafa-emailaddress-link:hover {
 }
 
 .preview-title-hr {
-	margin : 2px 0;
+	margin: 2px 0;
 }
 
 .preview-recipient-data {
 	word-wrap: break-word;
 }
 
-.preview-header-attachments .zarafa-attachment-link
-{
+.preview-header-attachments .zarafa-attachment-link {
 	// FIXME: sassify
 	border-radius: 4px;
 	border: 1px solid #d3d2d2;
@@ -209,8 +196,7 @@ span.zarafa-emailaddress-link:hover {
 	cursor: pointer;
 }
 
-.preview-header-attachments .zarafa-attachment-link-over
-{
+.preview-header-attachments .zarafa-attachment-link-over {
 	// FIXME: sassify
 	background-color: #ddd;
 }
