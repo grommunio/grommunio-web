@@ -51,6 +51,11 @@ if(!defined('DISABLE_REMOTE_USER_LOGIN')) define('DISABLE_REMOTE_USER_LOGIN', fa
 if(!defined('DISABLE_WELCOME_SCREEN')) define('DISABLE_WELCOME_SCREEN', false);
 
 /**
+ * Set to true to disable the "What's new dialog" that will be shown to users to introduce new features.
+ */
+if(!defined('DISABLE_WHATS_NEW_DIALOG')) define('DISABLE_WHATS_NEW_DIALOG', false);
+
+/**
  * By default we won't disable the FULL GAB, as it is a performance option
  * which, when enabled, prevents the full GAB to be loaded'
  */

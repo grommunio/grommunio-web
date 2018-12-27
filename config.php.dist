@@ -124,6 +124,9 @@
 	// When set to true this disables the welcome screen to be shown for first time users.
 	define('DISABLE_WELCOME_SCREEN', false);
 
+	// Set to true to disable the "What's new dialog" that will be shown to users to introduce new features.
+	define('DISABLE_WHATS_NEW_DIALOG', false);
+
 	// When set to false it will disable showing of advanced settings.
 	define('ENABLE_ADVANCED_SETTINGS', false);
 
