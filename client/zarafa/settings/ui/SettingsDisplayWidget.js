@@ -76,7 +76,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change : this.onFieldChange,
 					scope : this
 				}	
-			}]
+			},
+			// Insertion point at the end of the display widget
+			container.populateInsertionPoint('settings.display.last')]
 		});
 
 		Zarafa.settings.ui.SettingsDisplayWidget.superclass.constructor.call(this, config);

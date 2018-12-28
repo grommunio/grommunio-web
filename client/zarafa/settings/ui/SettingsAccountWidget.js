@@ -195,6 +195,11 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 				scope : this
 			}
 		});
+		
+		// Insertion point at the end of the account information widget
+		config.items.push(
+			container.populateInsertionPoint('settings.account.last')
+		);
 
 		Zarafa.settings.ui.SettingsAccountWidget.superclass.constructor.call(this, config);
 	},
