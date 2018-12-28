@@ -12,6 +12,7 @@ $serverConfig = array_merge($serverConfig, array(
 	'disable_full_gab'				=> DISABLE_FULL_GAB,
 	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
 	'always_enabled_plugins'		=> $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
+	'disable_whats_new_dialog'		=> DISABLE_WHATS_NEW_DIALOG,
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,
 	'post_max_size'					=> getMaxPostRequestSize(),
 	'max_file_uploads'				=> getMaxFileUploads(),
