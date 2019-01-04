@@ -2,5 +2,7 @@
 	"id":	"breeze",
 	"display-name": "Breeze",
 	"stylesheet": "breeze-icons.css",
+	"primary-color": "#6d6d70",
+	"secondary-color": "#19b5f1",
 	"about": "The Breeze iconset was created by <a target=\"_blank\" href=\"https://www.patreon.com/user?u=10071325\">Andreas Kainz</a>"
 }
