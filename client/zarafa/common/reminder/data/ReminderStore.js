@@ -42,6 +42,24 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	showReminderDialog : true,
 
 	/**
+	 * The object with the configuration for the {@link Ext.TaskMgr TaskMgr} to start the polling for reminders.
+	 * @property
+	 * @type Object
+	 */
+	pollTask : null,
+
+	/**
+	 * The notifier plugin that is used to show 'error.json' notifications. If the {#link load loading} of reminders
+	 * is failing because the backend produces an error, we will show the notification once using the originally
+	 * registered notification plugin, and after that we will move the noficiations to the console to not bother the
+	 * user with the same message notification over and over again. Once the backend returns valid responses again
+	 * we will restore the original notifier plugin.
+	 * @property
+	 * @type Zarafa.core.ui.notifier.NotifyPlugin
+	 */
+	originalErrorNotifier : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -104,7 +122,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 	/**
 	 * Event handler will be called when an error/exception is occured at server side,
-	 * and error is returned. And interval will be cleared to avoid more errors.
+	 * and error is returned. The notification method will be changed to avoid more errors.
 	 * @param {Zarafa.core.data.MAPIProxy} proxy object that received the error
 	 * and which fired exception event.
 	 * @param {String} type 'request' if an invalid response from server recieved,
@@ -117,9 +135,18 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	onError : function(proxy, type, action, options, response, args)
 	{
 		// if any error occurs in getting reminders then we don't need to nag users by displaying error message
-		// every time so we will show the error message once and clear the timer, so no more requests for reminder will be sent
-		if(action === Ext.data.Api.actions.read) {
-			this.clearReminderInterval();
+		// every time so we will show the error message once and then use the console notifier for subsequent
+		// messages
+		if(action === Ext.data.Api.actions.read && !this.originalErrorNotifier) {
+			// Store the original notifier so we can restore it later
+			this.originalErrorNotifier = container.getSettingsModel().get('zarafa/v1/main/notifier/error/value');
+			container.getSettingsModel().set('zarafa/v1/main/notifier/error/value', 'console');
+
+			// Restore the original notifier when everything works again
+			this.on('load', function() {
+				container.getSettingsModel().set('zarafa/v1/main/notifier/error/value', this.originalErrorNotifier);
+				this.originalErrorNotifier = undefined;
+			}, this, {single: true});
 		}
 
 		// clear the checksum, after getting error we should always show the reminder dialog even if no reminders are changed
@@ -128,19 +155,18 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 
 
 	/**
-	 * Initialize remider requests to the server. Listen to the aftersend event in the
-	 * {@link Zarafa.core.Request Request} object to reset the counter everytime the clients sends a
-	 * request to the server.
+	 * Initialize reminder requests to the server by {@link Ext.TaskMgr.start starting} a task.
 	 */
 	initializeReminderInterval : function()
 	{
 		var interval = container.getSettingsModel().get('zarafa/v1/main/reminder/polling_interval');
+		this.pollTask = {
+			run: this.sendReminderRequest,
+			scope: this,
+			interval: interval * 1000
+		};
 
-		// Fire reminder request automatically at specific interval
-		if (Ext.isNumber(interval) && interval > 0) {
-			this.on('load', this.sendReminderRequest, this, { buffer : interval * 1000});
-			this.sendReminderRequest.defer(interval * 1000, this);
-		}
+		Ext.TaskMgr.start(this.pollTask);
 	},
 
 	/**
@@ -171,7 +197,7 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	 */
 	clearReminderInterval : function()
 	{
-		this.un('load', this.sendReminderRequest, this);
+		Ext.TaskMgr.stop(this.pollTask);
 	},
 
 	/**

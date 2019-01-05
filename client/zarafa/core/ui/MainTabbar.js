@@ -85,10 +85,13 @@ Zarafa.core.ui.MainTabBar = Ext.extend(Ext.Toolbar, {
 				Zarafa.common.Actions.openReminderContent(store.getRange());
 			},
 			listeners : {
-				render : function() {
+				afterRender : function(reminderBtn) {
 					var store = container.getReminderStore();
-					store.showReminderDialog = false;
-					store.load();
+					var recordLength = store.getRange().length;
+					reminderBtn.getEl().setStyle('backgroundImage', 'url(\'' + Zarafa.common.ui.IconClass.getReminderSvgIcon( recordLength ) + '\')');
+					var noReminder = recordLength === 0;
+					reminderBtn.setDisabled(noReminder);
+					reminderBtn.setTooltip(noReminder? _('There are no reminders') : '');
 				},
 				scope : this
 			},

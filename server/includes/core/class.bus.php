@@ -289,8 +289,10 @@
 		function getData()
 		{
 			if(empty($this->responseData)) {
-				// we shouldn't send empty responses
-				throw new BusException(_("Response data requested from bus but it doesn't have any data."));
+				// Helps to avoid unnecessary bus error message on client side when kopano server is stopped.
+				// we just error_log and send empty zarafa array on client side
+				error_log(_("Response data requested from bus but it doesn't have any data."));
+				return json_encode(array("zarafa" => array()));
 			} else {
 				return $this->responseData;
 			}
