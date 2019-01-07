@@ -1478,39 +1478,47 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   display: none;
 }
 
-/* line 334, ../scss/components/_grids.scss */
+/* Additional categories cannot be edited or deleted because they are
+   defined by the admin */
+/* line 335, ../scss/components/_grids.scss */
+.x-grid3-row-over .k-category-additional .k-grid-button-edit,
+.x-grid3-row-over .k-category-additional .k-grid-button-delete {
+  display: none;
+}
+
+/* line 340, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
   display: block;
 }
 
-/* line 337, ../scss/components/_grids.scss */
+/* line 343, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid-editor {
   padding-top: 1px;
 }
 
-/* line 341, ../scss/components/_grids.scss */
+/* line 347, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-col-color {
   position: relative;
 }
 
-/* line 345, ../scss/components/_grids.scss */
+/* line 351, ../scss/components/_grids.scss */
 .k-categories-grid .k-colorpicker-ct {
   display: none;
   margin: -2px 0 -2px 0;
 }
 
-/* line 351, ../scss/components/_grids.scss */
+/* line 357, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color svg,
 .k-categories-grid .x-grid3-col-color.k-menu-visible svg {
   display: none;
 }
-/* line 355, ../scss/components/_grids.scss */
+/* line 361, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color .k-colorpicker-ct,
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block;
 }
 
-/* line 360, ../scss/components/_grids.scss */
+/* line 366, ../scss/components/_grids.scss */
 .k-slider {
   position: absolute;
   z-index: 9001;

@@ -34,6 +34,17 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		categories = categories.concat(container.getPersistentSettingsModel().get(this.settingsKey));
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 
+		// Add additonal categories defined by the admin. They are already defined by the default
+		// persistent settings, but the user might have removed/changed them and since KW-2841 we
+		// always want to have those categories available
+		var additionalCategories = container.getServerConfig().getAdditionalDefaultCategories() || [];
+		var newAdditionalCategories = additionalCategories.filter(function(category) {
+			return !categories.some(function(c) {
+				return c.name === category.name;
+			});
+		});
+		categories = categories.concat(newAdditionalCategories);
+
 		categories = categories.filter(function(category){
 							return Ext.isObject(category);
 						}).map(function(category){
@@ -41,6 +52,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 								category.name,
 								category.color,
 								category.standardIndex,
+								additionalCategories.some(function(c) { return c.name === category.name; }),
 								category.quickAccess===true,
 								Ext.isDefined(category.sortIndex) ? category.sortIndex : 100000,
 								true,
@@ -49,7 +61,7 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 						});
 
 		Ext.applyIf(config, {
-			fields : ['category', 'color', 'standardIndex', 'quickAccess', 'sortIndex', 'stored', 'used'],
+			fields : ['category', 'color', 'standardIndex', 'additional', 'quickAccess', 'sortIndex', 'stored', 'used'],
 			data: categories
 		});
 
