@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-13 14:58+0100\n"
-"PO-Revision-Date: 2018-05-01 19:12+0000\n"
+"PO-Revision-Date: 2019-01-08 13:41+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/cs/>\n"
@@ -588,9 +588,8 @@ msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího d
 msgid "Folder name"
 msgstr "Název složky"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Nastavit Kategorii"
+msgstr "Nastavit kategorii"
 
 msgid "Apply"
 msgstr "Použít"
@@ -701,16 +700,15 @@ msgstr "Nahrávání výsledků vyhledávání"
 msgid "Sorting tip"
 msgstr "Tip pro třídění"
 
-#, fuzzy
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
-"Pokud zúžíte výsledky vyhledávání, můžete seřadit podle data. Povolte "
+"Pokud zúžíte výsledky vyhledávání, můžete je seřadit podle data. Povolte "
 "filtry, nebo upravte zadání."
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Mysleli jste tím"
 
 msgid "With"
 msgstr ""
@@ -1129,7 +1127,7 @@ msgid "Close"
 msgstr "Zavřít"
 
 msgid "Delete"
-msgstr "Smazat"
+msgstr "Odstranit"
 
 msgid "Add attachment"
 msgstr "Přidat přílohu"
@@ -2671,7 +2669,7 @@ msgid "Update rules for"
 msgstr ""
 
 msgid "Do you wish to apply the changes?"
-msgstr "Přejete si uložit změny?"
+msgstr "Chcete použít tyto změny?"
 
 #, fuzzy
 msgid "All folders"
@@ -6176,7 +6174,7 @@ msgid "Username"
 msgstr "Uživatelské jméno"
 
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 msgid "Sign in"
 msgstr ""
