@@ -2,7 +2,7 @@
 	var checkPerc = /^(100?|\d?\d)?%?$/;
 	var checkNaturalInteger = /^[1-9]\d*$/i;
 	// Override regex to allow TLD with max length of 10 characters
-	var email = /^(\w+)([\-+.\'][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,10}$/;
+	var email = /^(\w+)([\-+.\']+[\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,10}$/;
 
 	/**
 	 * @class Ext.form.VTypes
