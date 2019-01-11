@@ -18,7 +18,7 @@ JSDEPLOY = $(DESTDIR)/client
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
 
 JSOPTIONS = --externs client/externs.js \
-	--compilation_level SIMPLE --warning_level VERBOSE --jscomp_off=es5Strict \
+	--compilation_level SIMPLE --warning_level VERBOSE --jscomp_off=es5Strict --strict_mode_input=false \
 	--jscomp_off=globalThis --jscomp_off=misplacedTypeAnnotation --jscomp_off=nonStandardJsDocs \
 	--jscomp_off=missingProperties --jscomp_off=invalidCasts --jscomp_off=checkTypes \
 	--jscomp_warning=visibility --jscomp_warning=unknownDefines --jscomp_warning=undefinedVars \
@@ -152,13 +152,15 @@ $(JSDEPLOY)/resize.js: client/resize.js
 	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
-$(JSDEPLOY)/third-party/ux-thirdparty.js: client/third-party/tinymce/TinyMceTextArea.js
+$(JSDEPLOY)/third-party/ux-thirdparty.js: $(JSDEPLOY)/third-party/TinyMceTextArea-debug.js client/third-party/tokenizr/tokenizr.min.js
 	mkdir -p $(JSDEPLOY)/third-party
-	cat client/third-party/tinymce/TinyMceTextArea.js > $(JSDEPLOY)/third-party/ux-thirdparty-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
-	--source_map_location_mapping=$(JSDEPLOY)/third-party/\| \
-	--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
-	--create_source_map $@.map $(JSOPTIONS)
+	# concatenate using cat
+	cat $^ > $@
+
+$(JSDEPLOY)/third-party/TinyMceTextArea-debug.js: client/third-party/tinymce/TinyMceTextArea.js
+	mkdir -p $(JSDEPLOY)/third-party
+	cp $< $@
+	$(JSCOMPILER) --js $< --js_output_file $@
 
 config:
 	cp $(DESTDIR)/config.php.dist $(DESTDIR)/config.php

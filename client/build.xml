@@ -279,15 +279,21 @@
 		</zCompile>
 
 		<echo message="Compiling: ${thirdparty-file}" />
-		<zCompile inputFolder="${target-folder}/${thirdparty-folder}" inputFile="${thirdparty-debugfile}" outputFolder="${target-folder}/${thirdparty-folder}" outputFile="${thirdparty-file}" warningLevel="default">
+		<zCompile inputFolder="${target-folder}/${thirdparty-folder}" inputFile="${thirdparty-debugfile}" outputFolder="${target-folder}/${thirdparty-folder}" outputFile="${thirdparty-file}" warningLevel="QUIET">
 			<externs>
 				var Ext = {};
 				var console = {};
+				var exports = {};
+				var module = {};
+				var define = {};
+				var global = {};
+				var require = {};
+				var Proxy = {};
 			</externs>
 		</zCompile>
 
 		<echo message="Compiling: ${kopano-file}" />
-		<zCompile inputFolder="${target-folder}/${kopano-folder}" inputFile="${kopano-debugfile}" outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-file}">
+		<zCompile inputFolder="${target-folder}/${kopano-folder}" inputFile="${kopano-debugfile}" outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-file}" checkRegExp="off">
 			<externs>
 				var FormData = {};
 				var Ext = {};
@@ -310,6 +316,7 @@
 				var pgettext = function(msgctxt, msgid) {};
 				var resizeLoginBox = function() {};
                 var tinymce = {};
+				var Tokenizr = {};
 			</externs>
 		</zCompile>
 	</target>
