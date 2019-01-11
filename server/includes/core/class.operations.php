@@ -4436,9 +4436,9 @@
 			$body = streamProperty($message, PR_HTML);
 			$imageIDs = array();
 
-			// Only load the DOM if the HTML contains a data:image or data:text/plain due to a bug
+			// Only load the DOM if the HTML contains a img or data:text/plain due to a bug
 			// in Chrome on Windows in combination with TinyMCE.
-			if (strpos($body, "data:image") !== false || strpos($body, "data:text/plain") !== false) {
+			if (strpos($body, "img") !== false || strpos($body, "data:text/plain") !== false) {
 				$doc = new DOMDocument();
 				// TinyMCE does not generate valid HTML, so we must supress warnings.
 				@$doc->loadHTML($body);
@@ -4484,6 +4484,13 @@
 						mapi_stream_write($stream, $rawImage);
 						mapi_stream_commit($stream);
 						mapi_savechanges($inlineImage);
+					} else if (strstr($src, "cid:") !== false) {
+						// Check for the cid(there may be http: ) is in the image src. push the cid 
+						// to $imageIDs array. which further used in clearDeletedInlineAttachments function.
+
+						$firstOffset = strpos($src, ":") + 1;
+						$cid = substr($src, $firstOffset);
+						array_push($imageIDs, $cid);				
 					}
 				}
 
