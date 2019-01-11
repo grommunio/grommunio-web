@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -926,6 +926,10 @@ msgstr "列印"
 msgid "No appointment selected"
 msgstr "沒有選擇的約會"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "私人約會"
+
 msgid "Calendar"
 msgstr "行事曆"
 
@@ -1547,12 +1551,6 @@ msgstr "位置"
 msgid "Remove From Calendar"
 msgstr "從行事曆上移除"
 
-msgid "Not Current"
-msgstr "不是現在"
-
-msgid "Meeting Request is out of date"
-msgstr "會議要求已過期"
-
 msgid "No Response Required"
 msgstr "不需要回應"
 
@@ -1580,9 +1578,6 @@ msgstr "接受建議時間"
 #, fuzzy
 msgid "View in calendar"
 msgstr "檢視多重行事曆在"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "此會議邀請已過期，將會被刪除"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2082,6 +2077,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "編輯收件者"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "新增電子郵件地址"
+
 msgid "Select attendees"
 msgstr "選擇出席人員"
 
@@ -2182,6 +2181,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "顯示名稱"
 
@@ -2196,24 +2199,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "編輯收件者"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "新增電子郵件地址"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "傳送郵件"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "刪除此通訊群組"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "新增電子郵件地址"
-
-msgid "Send email"
-msgstr "傳送郵件"
 
 msgid "View recipient"
 msgstr "瀏覽收件者"
@@ -4195,7 +4186,8 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "開啟共用郵件"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "列印單一電子郵件"
 
 # 78%

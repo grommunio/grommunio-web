@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -932,6 +932,10 @@ msgstr "Trüki"
 msgid "No appointment selected"
 msgstr ""
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Kontaktide laadimine"
+
 # 100%
 msgid "Calendar"
 msgstr "Kalender"
@@ -1564,12 +1568,6 @@ msgstr "Asukoht"
 msgid "Remove From Calendar"
 msgstr ""
 
-msgid "Not Current"
-msgstr ""
-
-msgid "Meeting Request is out of date"
-msgstr ""
-
 msgid "No Response Required"
 msgstr ""
 
@@ -1595,9 +1593,6 @@ msgid "Accept Proposed Time"
 msgstr ""
 
 msgid "View in calendar"
-msgstr ""
-
-msgid "This meeting request is out-of-date and will now be deleted."
 msgstr ""
 
 msgid ""
@@ -2091,6 +2086,12 @@ msgstr ""
 msgid "Edit recipient"
 msgstr ""
 
+# 87%
+# 100%
+#, fuzzy
+msgid "Copy email address"
+msgstr "E-posti aadressid"
+
 msgid "Select attendees"
 msgstr ""
 
@@ -2193,6 +2194,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano veebirakendus"
+
 # 91%
 # 100%
 #, fuzzy
@@ -2213,25 +2218,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
-# 87%
-# 100%
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "E-posti aadressid"
-
-msgid "Send e-mail"
+msgid "Send email"
 msgstr ""
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
-
-# 87%
-# 100%
-#, fuzzy
-msgid "Copy email address"
-msgstr "E-posti aadressid"
-
-msgid "Send email"
 msgstr ""
 
 msgid "View recipient"
@@ -4292,8 +4282,12 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Avada jagatud märkused"
 
-msgid "Print single e-mail"
-msgstr ""
+# 77%
+# 100%
+# 78%
+#, fuzzy
+msgid "Print single email"
+msgstr "Trüki valitud kontakt"
 
 # 77%
 # 100%

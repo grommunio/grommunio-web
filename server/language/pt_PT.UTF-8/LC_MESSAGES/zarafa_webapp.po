@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-12-13 14:08+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -898,6 +898,10 @@ msgstr "Imprimir"
 msgid "No appointment selected"
 msgstr "Nenhum compromisso selecionado"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Compromisso Privado"
+
 msgid "Calendar"
 msgstr "Calendário"
 
@@ -1514,12 +1518,6 @@ msgstr "Local"
 msgid "Remove From Calendar"
 msgstr "Remover do calendário"
 
-msgid "Not Current"
-msgstr "Desatualizado"
-
-msgid "Meeting Request is out of date"
-msgstr "Pedido de reunião expirado"
-
 msgid "No Response Required"
 msgstr "Sem resposta necessária"
 
@@ -1546,9 +1544,6 @@ msgstr "Aceitar hora proposta"
 
 msgid "View in calendar"
 msgstr "Ver no calendário"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Este pedido de reunião expirou e vai ser eliminado."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2061,6 +2056,9 @@ msgstr "na próxima semana"
 msgid "Edit recipient"
 msgstr "Editar destinatário"
 
+msgid "Copy email address"
+msgstr "Copiar endereço de E-mail"
+
 msgid "Select attendees"
 msgstr "Selecionar participantes"
 
@@ -2153,6 +2151,10 @@ msgstr ""
 "Eliminar o item selecionado sem o mover para a pasta Itens Eliminados. O "
 "item poderá ser recuperado na mesma."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Nome a mostrar"
 
@@ -2169,20 +2171,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Editar Destinatário"
 
-msgid "Copy e-mail address"
-msgstr "Novo endereço de E-mail"
-
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "Enviar mensagem"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Eliminar destinatário da lista de sugestões"
-
-msgid "Copy email address"
-msgstr "Copiar endereço de E-mail"
-
-msgid "Send email"
-msgstr "Enviar mensagem"
 
 msgid "View recipient"
 msgstr "Ver destinatário"
@@ -4091,7 +4084,8 @@ msgstr "Marcar bandeira vermelha/completa"
 msgid "Open Shared Mails"
 msgstr "Abrir caixas partilhadas"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Imprimir só uma mensagem"
 
 msgid "Print selected email"

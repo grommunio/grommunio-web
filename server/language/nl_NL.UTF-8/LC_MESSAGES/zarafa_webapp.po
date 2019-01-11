@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-12-06 15:22+0000\n"
 "Last-Translator: Bob <b.huisman@kopano.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -966,6 +966,10 @@ msgstr "Afdrukken"
 msgid "No appointment selected"
 msgstr "Geen afspraak geselecteerd"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Privé-afspraak"
+
 msgid "Calendar"
 msgstr "Agenda"
 
@@ -1630,12 +1634,6 @@ msgstr "Locatie"
 msgid "Remove From Calendar"
 msgstr "Verwijder Uit Agenda"
 
-msgid "Not Current"
-msgstr "Verouderd"
-
-msgid "Meeting Request is out of date"
-msgstr "Vergaderverzoek is verouderd"
-
 msgid "No Response Required"
 msgstr "Geen Antwoord Nodig"
 
@@ -1663,9 +1661,6 @@ msgstr "Accepteer Voorgestelde Tijd"
 
 msgid "View in calendar"
 msgstr "Bekijk in kalender"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Dit vergaderverzoek is verouderd en wordt nu verwijderd."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2203,6 +2198,9 @@ msgstr "volgende week"
 msgid "Edit recipient"
 msgstr "Bewerk geadresseerde"
 
+msgid "Copy email address"
+msgstr "Emailadres kopiëren"
+
 msgid "Select attendees"
 msgstr "Selecteer genodigden"
 
@@ -2304,6 +2302,10 @@ msgstr ""
 "Verwijder geselecteerde item zonder het te verplaatsen naar de Verwijderde "
 "Items map. Het verwijderde item kan nog steeds worden hersteld."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "Weergavenaam"
@@ -2324,21 +2326,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Bewerk Geadresseerde"
 
-msgid "Copy e-mail address"
-msgstr "E-mail adres kopiëren"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "Verzend e-mail"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Verwijder de geadresseerde uit de suggestielijst"
-
-msgid "Copy email address"
-msgstr "Emailadres kopiëren"
-
-msgid "Send email"
-msgstr "Verzend e-mail"
 
 msgid "View recipient"
 msgstr "Bekijk geadresseerde"
@@ -4423,7 +4415,8 @@ msgstr "Markering rood/voltooid wisselen"
 msgid "Open Shared Mails"
 msgstr "Open Gedeelde E-mails"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Druk een e-mail af"
 
 # 78%

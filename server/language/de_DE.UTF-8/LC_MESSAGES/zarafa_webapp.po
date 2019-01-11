@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-12-06 14:56+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -959,6 +959,10 @@ msgstr "Drucken"
 msgid "No appointment selected"
 msgstr "Kein Termin ausgewählt"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Privater Termin"
+
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -1623,12 +1627,6 @@ msgstr "Ort"
 msgid "Remove From Calendar"
 msgstr "Aus dem Kalender entfernen"
 
-msgid "Not Current"
-msgstr "Nicht aktuell"
-
-msgid "Meeting Request is out of date"
-msgstr "Die Besprechungsanfrage ist nicht mehr aktuell"
-
 msgid "No Response Required"
 msgstr "Keine Antwort erforderlich"
 
@@ -1656,9 +1654,6 @@ msgstr "Vorgeschlagene Zeit akzeptieren"
 
 msgid "View in calendar"
 msgstr "Im Kalender anzeigen"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Die Besprechungsanfrage ist veraltet und wird jetzt gelöscht."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2197,6 +2192,9 @@ msgstr "Nächste Woche"
 msgid "Edit recipient"
 msgstr "Empfänger bearbeiten"
 
+msgid "Copy email address"
+msgstr "E-Mail-Adresse kopieren"
+
 msgid "Select attendees"
 msgstr "Teilnehmer auswählen"
 
@@ -2298,6 +2296,10 @@ msgstr ""
 "Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "Anzeigename"
@@ -2317,21 +2319,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Empfänger bearbeiten"
 
-msgid "Copy e-mail address"
-msgstr "Kopiere E-Mail-Adresse"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "E-Mail senden"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Empfänger von der Liste mit Empfehlungen löschen"
-
-msgid "Copy email address"
-msgstr "E-Mail-Adresse kopieren"
-
-msgid "Send email"
-msgstr "E-Mail senden"
 
 msgid "View recipient"
 msgstr "Empfänger anzeigen"
@@ -4392,7 +4384,8 @@ msgstr "Nachverfolgung ändern"
 msgid "Open Shared Mails"
 msgstr "Gemeinsame E-Mails öffnen"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Einzelne E-Mail drucken"
 
 # 78%

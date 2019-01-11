@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-05 20:33+0200\n"
 "Last-Translator: Igor <Igor_halka@mail.ru>\n"
 "Language-Team: Ukrainian (Ukraine) <https://translate.kopano.io/projects/"
@@ -918,6 +918,9 @@ msgstr ""
 msgid "No appointment selected"
 msgstr ""
 
+msgid "Create Appointment"
+msgstr ""
+
 msgid "Calendar"
 msgstr ""
 
@@ -1514,12 +1517,6 @@ msgstr ""
 msgid "Remove From Calendar"
 msgstr ""
 
-msgid "Not Current"
-msgstr ""
-
-msgid "Meeting Request is out of date"
-msgstr ""
-
 msgid "No Response Required"
 msgstr ""
 
@@ -1545,9 +1542,6 @@ msgid "Accept Proposed Time"
 msgstr ""
 
 msgid "View in calendar"
-msgstr ""
-
-msgid "This meeting request is out-of-date and will now be deleted."
 msgstr ""
 
 msgid ""
@@ -2028,6 +2022,9 @@ msgstr ""
 msgid "Edit recipient"
 msgstr ""
 
+msgid "Copy email address"
+msgstr ""
+
 msgid "Select attendees"
 msgstr ""
 
@@ -2117,6 +2114,9 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+msgid "Kopano WebApp print"
+msgstr ""
+
 msgid "Display name"
 msgstr ""
 
@@ -2131,19 +2131,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
-msgid "Copy e-mail address"
-msgstr ""
-
-msgid "Send e-mail"
+msgid "Send email"
 msgstr ""
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
-
-msgid "Copy email address"
-msgstr ""
-
-msgid "Send email"
 msgstr ""
 
 msgid "View recipient"
@@ -4048,8 +4039,9 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr ""
 
-msgid "Print single e-mail"
-msgstr ""
+#, fuzzy
+msgid "Print single email"
+msgstr "Підкреслення виділеного тексту."
 
 #, fuzzy
 msgid "Print selected email"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -947,6 +947,10 @@ msgstr "Yazdır"
 msgid "No appointment selected"
 msgstr "Seçilmiş randevu yok"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Özel Randevu"
+
 msgid "Calendar"
 msgstr "Takvim"
 
@@ -1615,12 +1619,6 @@ msgstr "Konum"
 msgid "Remove From Calendar"
 msgstr "Takvimden Sil"
 
-msgid "Not Current"
-msgstr "Geçerli Değil"
-
-msgid "Meeting Request is out of date"
-msgstr "Toplantı isteği güncel değil"
-
 msgid "No Response Required"
 msgstr "Cevaba gerek yok"
 
@@ -1647,9 +1645,6 @@ msgstr "Önerilmiş yeni zamanı kabul et"
 
 msgid "View in calendar"
 msgstr "takvim'de görüntüle"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Bu toplanti isteğinin zamanı geçti ve şimdi siliniyor"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2172,6 +2167,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "Alıcı düzenle"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Yeni e-posta adresi"
+
 msgid "Select attendees"
 msgstr "Katılımcı seçin"
 
@@ -2269,6 +2268,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "Ad Görüntüsü"
@@ -2288,24 +2291,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Alıcı düzenle"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Yeni e-posta adresi"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "E-posta gönder"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Bu dağıtım listesini sil"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Yeni e-posta adresi"
-
-msgid "Send email"
-msgstr "E-posta gönder"
 
 msgid "View recipient"
 msgstr "Alıcı bilgileri"
@@ -4367,7 +4358,8 @@ msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
 msgid "Open Shared Mails"
 msgstr "Paylastığım mesajları aç"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Tek bir e-posta yazdır"
 
 # 78%

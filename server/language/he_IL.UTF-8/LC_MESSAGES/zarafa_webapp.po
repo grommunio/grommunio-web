@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -966,6 +966,10 @@ msgstr "הדפס"
 msgid "No appointment selected"
 msgstr ""
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "פגישה פרטית"
+
 msgid "Calendar"
 msgstr "לוח שנה"
 
@@ -1630,12 +1634,6 @@ msgstr "מיקום"
 msgid "Remove From Calendar"
 msgstr "הסר מלוח השנה"
 
-msgid "Not Current"
-msgstr "לא כרגע"
-
-msgid "Meeting Request is out of date"
-msgstr "בקשת הפגשיה כבר אינה תקפה"
-
 msgid "No Response Required"
 msgstr "אין צורך בתגובה"
 
@@ -1662,9 +1660,6 @@ msgstr "קבל את הצעת הזמן"
 
 msgid "View in calendar"
 msgstr ""
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "בקשה זו לפגישה כבר לא תקפה והיא תימחק עכשיו."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2174,6 +2169,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "ערוך נמען"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "כתובת דואר אלקטרוני חדשה"
+
 msgid "Select attendees"
 msgstr "בחר משתתפים"
 
@@ -2274,6 +2273,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "הווב אפ של זראפה"
+
 # 91%
 msgid "Display name"
 msgstr "שם תצוגה"
@@ -2290,25 +2293,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "ערוך נמען"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "כתובת דואר אלקטרוני חדשה"
-
-# 90%
-#, fuzzy
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "שלח דואר"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "מחק את רשימת תפוצה זו."
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "כתובת דואר אלקטרוני חדשה"
-
-msgid "Send email"
-msgstr "שלח דואר"
 
 msgid "View recipient"
 msgstr "הצג נמען"
@@ -4356,8 +4346,12 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "פתח תיקיות משותפות"
 
-msgid "Print single e-mail"
-msgstr ""
+# 77%
+# 78%
+# 100%
+#, fuzzy
+msgid "Print single email"
+msgstr "נבחר פריט {0}"
 
 # 77%
 # 78%

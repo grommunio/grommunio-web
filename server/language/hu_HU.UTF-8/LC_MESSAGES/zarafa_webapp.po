@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -967,6 +967,10 @@ msgstr "Nyomtatás"
 msgid "No appointment selected"
 msgstr "Nincs kiválasztott találkozó"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Magán találkozó"
+
 # 88%
 msgid "Calendar"
 msgstr "Naptár"
@@ -1628,12 +1632,6 @@ msgstr "Helyszín"
 msgid "Remove From Calendar"
 msgstr "Eltávolítás a naptárból"
 
-msgid "Not Current"
-msgstr "Nem időszerű"
-
-msgid "Meeting Request is out of date"
-msgstr "Az értekezlet kérés időpontja már elmúlt"
-
 msgid "No Response Required"
 msgstr "Nem igényel választ"
 
@@ -1660,9 +1658,6 @@ msgstr "Javasolt időpont elfogadása"
 
 msgid "View in calendar"
 msgstr "Megtekintés a naptárban"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "A találkozó lejárt, és törlésre kerül."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2190,6 +2185,10 @@ msgstr "jövő hét"
 msgid "Edit recipient"
 msgstr "Címzett szerkesztése"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "E-mail cím másolása"
+
 msgid "Select attendees"
 msgstr "Válasszon résztvevőket"
 
@@ -2289,6 +2288,10 @@ msgstr ""
 "A kiválasztott elem törélse a Törölt elemek mappába mozgatás mellőzésével. A "
 "törölt elem még visszaállítható marad."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "Megjelenő név"
@@ -2308,22 +2311,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Címzett szerkesztése"
 
-msgid "Copy e-mail address"
-msgstr "E-mail cím másolása"
-
-msgid "Send e-mail"
-msgstr "Küldés"
-
-msgid "Delete recipient from suggestion list"
-msgstr "Címzett törlése a javaslatok listájáról"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "E-mail cím másolása"
-
 # 90%
 msgid "Send email"
 msgstr "Email küldése"
+
+msgid "Delete recipient from suggestion list"
+msgstr "Címzett törlése a javaslatok listájáról"
 
 msgid "View recipient"
 msgstr "Címzett megtekintése"
@@ -4363,7 +4356,8 @@ msgstr "Megjelölés piros/elvégzett zászlóval"
 msgid "Open Shared Mails"
 msgstr "Megosztott levelezés megnyitása"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Email nyomtatása"
 
 # 78%

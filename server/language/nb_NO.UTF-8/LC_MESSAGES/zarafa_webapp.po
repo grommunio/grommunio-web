@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-11-08 16:05+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -931,6 +931,10 @@ msgstr "Skriv ut"
 msgid "No appointment selected"
 msgstr "Ingen avtale valgt"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Privat avtale"
+
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -1581,12 +1585,6 @@ msgstr "Sted"
 msgid "Remove From Calendar"
 msgstr "Fjern fra kalender"
 
-msgid "Not Current"
-msgstr "Ikke aktuell"
-
-msgid "Meeting Request is out of date"
-msgstr "Møteinvitasjon har gått ut på dato"
-
 msgid "No Response Required"
 msgstr "Svar er ikke nødvendig"
 
@@ -1616,9 +1614,6 @@ msgstr "Godta foreslått tidspunkt"
 
 msgid "View in calendar"
 msgstr "Vis i kalender"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Denne møteinvitasjonen har gått ut på dato og vil bli slettet."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2154,6 +2149,9 @@ msgstr "neste uke"
 msgid "Edit recipient"
 msgstr "Rediger mottaker"
 
+msgid "Copy email address"
+msgstr "Kopier e-postadresse"
+
 msgid "Select attendees"
 msgstr "Velg deltakere"
 
@@ -2253,6 +2251,10 @@ msgstr ""
 "Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
 "slettede elementene kan allikevel bli gjenopprettet."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Visningsnavn"
 
@@ -2270,22 +2272,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Rediger mottaker"
 
-msgid "Copy e-mail address"
-msgstr "Kopier e-postadresse"
-
-# 90%
-msgid "Send e-mail"
+# 81%
+msgid "Send email"
 msgstr "Send e-post"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Slett mottakeren fra forslagslisten"
-
-msgid "Copy email address"
-msgstr "Kopier e-postadresse"
-
-# 81%
-msgid "Send email"
-msgstr "Send e-post"
 
 msgid "View recipient"
 msgstr "Vis mottakere"
@@ -4257,7 +4249,8 @@ msgstr "Veksle mellom rødt/fullført flagg"
 msgid "Open Shared Mails"
 msgstr "Åpne delt e-post"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Skriv ut enkelt e-post"
 
 # 77%

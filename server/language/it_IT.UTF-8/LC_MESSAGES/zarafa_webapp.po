@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -944,6 +944,10 @@ msgstr "Stampa"
 msgid "No appointment selected"
 msgstr "Nessun appuntamento selezionato"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Appuntamento privato"
+
 msgid "Calendar"
 msgstr "Calendario"
 
@@ -1604,12 +1608,6 @@ msgstr "Posizione"
 msgid "Remove From Calendar"
 msgstr "Rimuovi dal calendario"
 
-msgid "Not Current"
-msgstr "Non attuale"
-
-msgid "Meeting Request is out of date"
-msgstr "La richiesta di riunione è scaduta"
-
 msgid "No Response Required"
 msgstr "Risposta non richiesta"
 
@@ -1638,9 +1636,6 @@ msgstr "Accetta orario proposto"
 
 msgid "View in calendar"
 msgstr "Visualizza nel calendario"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Questa richiesta di riunione è scaduta e sarà eliminata."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2177,6 +2172,10 @@ msgstr "la prossima settimana"
 msgid "Edit recipient"
 msgstr "Modifica destinatario"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Copia l'indirizzo di e-mail"
+
 msgid "Select attendees"
 msgstr "Seleziona partecipanti"
 
@@ -2275,6 +2274,10 @@ msgstr ""
 "Elimina l'elemento selezionato e spostalo nel cestino. L'elemento eliminato "
 "puo` essere ripristinato."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Nome visualizzato"
 
@@ -2293,22 +2296,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Modifica destinatario"
 
-msgid "Copy e-mail address"
-msgstr "Copia l'indirizzo di e-mail"
-
-# 90%
-msgid "Send e-mail"
-msgstr "Invia e-mail"
+msgid "Send email"
+msgstr "Invia email"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Elimina il destinatario dalla lista dei suggerimenti"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Copia l'indirizzo di e-mail"
-
-msgid "Send email"
-msgstr "Invia email"
 
 msgid "View recipient"
 msgstr "Visualizza destinatario"
@@ -4362,7 +4354,8 @@ msgstr "Attiva/Disattiva bandierina rossa/completato"
 msgid "Open Shared Mails"
 msgstr "Apri mail condivise"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Stampa singole e-mail"
 
 # 78%

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2019-01-09 11:22+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -938,6 +938,10 @@ msgstr "Tisk"
 msgid "No appointment selected"
 msgstr "Nebyl vybrán termín"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Soukromá schůzka"
+
 msgid "Calendar"
 msgstr "Kalendář"
 
@@ -1585,12 +1589,6 @@ msgstr "Místo"
 msgid "Remove From Calendar"
 msgstr "Odstranit z kalendáře"
 
-msgid "Not Current"
-msgstr "Neaktuální"
-
-msgid "Meeting Request is out of date"
-msgstr "Žádost o schůzku je již neaktuální"
-
 msgid "No Response Required"
 msgstr "Odpověď není nutná"
 
@@ -1618,9 +1616,6 @@ msgstr "Přijmout navrhovaný čas"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Zobrazit v kalendáři"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Tato žádost o schůzku není aktuální a nyní bude odstraněna."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2146,6 +2141,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "Upravit příjemce"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nová e-mailová adresa"
+
 msgid "Select attendees"
 msgstr "Vybrat účastníky"
 
@@ -2241,6 +2240,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebbApp"
+
 # 91%
 msgid "Display name"
 msgstr "Zobrazené jméno"
@@ -2257,24 +2260,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Upravit Příjemce"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Nová e-mailová adresa"
-
-# 90%
-msgid "Send e-mail"
-msgstr "Odeslat e-mail"
+msgid "Send email"
+msgstr "Odeslat zprávu"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Odstranit distribuční seznam."
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Nová e-mailová adresa"
-
-msgid "Send email"
-msgstr "Odeslat zprávu"
 
 msgid "View recipient"
 msgstr "Zobrazit příjemce"
@@ -4309,7 +4300,8 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Otevřít sdílenou poštu"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Tisknout jedinou zprávu"
 
 # 78%

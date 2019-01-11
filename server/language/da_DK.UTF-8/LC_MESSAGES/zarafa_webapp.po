@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -903,6 +903,10 @@ msgstr "Udskriv"
 msgid "No appointment selected"
 msgstr "Ingen aftale er valgt"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Privat aftale"
+
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -1529,12 +1533,6 @@ msgstr "Placering"
 msgid "Remove From Calendar"
 msgstr "Fjern fra kalender"
 
-msgid "Not Current"
-msgstr "Ikke aktuelt"
-
-msgid "Meeting Request is out of date"
-msgstr "Mødeindkaldelsen er udløbet"
-
 msgid "No Response Required"
 msgstr "Intet svar er krævet"
 
@@ -1561,9 +1559,6 @@ msgstr "Accepter foreslået tidspunkt"
 
 msgid "View in calendar"
 msgstr "Vis i kalender"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Denne mødeindkaldelse er udløbet og vil nu blive slettet."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2081,6 +2076,10 @@ msgstr "næste uge"
 msgid "Edit recipient"
 msgstr "Ret modtager"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Ny email adresse"
+
 msgid "Select attendees"
 msgstr "Vælg deltagere"
 
@@ -2172,6 +2171,10 @@ msgstr ""
 "Slet de markerede elementer uden først at flytte dem til Slettede Elementer. "
 "De slettede elementer kan alligevel blive genoprettet."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Vist navn"
 
@@ -2188,22 +2191,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Ret modtager"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Ny email adresse"
-
-msgid "Send e-mail"
-msgstr "Send mail"
+msgid "Send email"
+msgstr "Send email"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Slet modtageren fra forslagslisten"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Ny email adresse"
-
-msgid "Send email"
-msgstr "Send email"
 
 msgid "View recipient"
 msgstr "Vis modtager"
@@ -4157,7 +4149,8 @@ msgstr "Flip rød/komplet flag"
 msgid "Open Shared Mails"
 msgstr "Åbn delt mail"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Udskriv enkelt email"
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -927,6 +927,10 @@ msgstr "印刷"
 msgid "No appointment selected"
 msgstr "予定が選択されていません"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "個人的な予定"
+
 msgid "Calendar"
 msgstr "カレンダー"
 
@@ -1560,12 +1564,6 @@ msgstr "場所"
 msgid "Remove From Calendar"
 msgstr "カレンダーから削除する"
 
-msgid "Not Current"
-msgstr "現在ではない"
-
-msgid "Meeting Request is out of date"
-msgstr "会議依頼は過去日付です。"
-
 msgid "No Response Required"
 msgstr "返信不要"
 
@@ -1592,9 +1590,6 @@ msgstr "提案の日時の承諾"
 
 msgid "View in calendar"
 msgstr "カレンダーを表示"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "この会議出席依頼は期限切れなので削除します。"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2112,6 +2107,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "受信者を編集します。"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "新しいメールアドレス"
+
 msgid "Select attendees"
 msgstr "出席者を選択して下さい。"
 
@@ -2206,6 +2205,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "表示名"
@@ -2222,25 +2225,13 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "受信者を編集します。"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "新しいメールアドレス"
-
-# 90%
-msgid "Send e-mail"
+# 81%
+msgid "Send email"
 msgstr "送信メール"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "配布リストを削除"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "新しいメールアドレス"
-
-# 81%
-msgid "Send email"
-msgstr "送信メール"
 
 msgid "View recipient"
 msgstr "受信者を表示します。"
@@ -4262,7 +4253,8 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "共有メールを開く"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "メールを印刷する"
 
 # 78%

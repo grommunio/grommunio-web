@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -932,6 +932,10 @@ msgstr "Печать"
 msgid "No appointment selected"
 msgstr "Встречи не выбраны"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Частная встреча"
+
 msgid "Calendar"
 msgstr "Календарь"
 
@@ -1583,12 +1587,6 @@ msgstr "Место"
 msgid "Remove From Calendar"
 msgstr "Удалить из календаря"
 
-msgid "Not Current"
-msgstr "Не текущий"
-
-msgid "Meeting Request is out of date"
-msgstr "Приглашение на собрание устарело"
-
 msgid "No Response Required"
 msgstr "Ответ не требуется"
 
@@ -1615,9 +1613,6 @@ msgstr "Принять предложенное время"
 
 msgid "View in calendar"
 msgstr "Посмотреть в календаре"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Приглашение на встречу устарело и будет удалено."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2147,6 +2142,9 @@ msgstr "следующая неделя"
 msgid "Edit recipient"
 msgstr "Изменить получателя"
 
+msgid "Copy email address"
+msgstr "Скопировать электронную почту"
+
 msgid "Select attendees"
 msgstr "Выберите участников"
 
@@ -2244,6 +2242,10 @@ msgstr ""
 "Удалить выбранные элементы без перемещения в папку «Удаленные». Удаленные "
 "элементы можно восстановить."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Отображаемое имя"
 
@@ -2260,21 +2262,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Изменить получателя"
 
-msgid "Copy e-mail address"
-msgstr "Скопировать электронную почту"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "Отправить письмо"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Удалить получателя из списка предложений"
-
-msgid "Copy email address"
-msgstr "Скопировать электронную почту"
-
-msgid "Send email"
-msgstr "Отправить письмо"
 
 msgid "View recipient"
 msgstr "Показать получателя"
@@ -4265,7 +4257,8 @@ msgstr "Переключатель флага красный/завершено"
 msgid "Open Shared Mails"
 msgstr "Открыть общую почту"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Печать одного письма"
 
 # 78%

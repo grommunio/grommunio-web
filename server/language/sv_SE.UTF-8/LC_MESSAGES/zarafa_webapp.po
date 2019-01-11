@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Swedish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2018-02-07 12:19+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Swedish <https://translate.kopano.io/projects/kopano/kopano-"
@@ -890,6 +890,9 @@ msgstr ""
 msgid "No appointment selected"
 msgstr ""
 
+msgid "Create Appointment"
+msgstr ""
+
 msgid "Calendar"
 msgstr ""
 
@@ -1483,12 +1486,6 @@ msgstr ""
 msgid "Remove From Calendar"
 msgstr ""
 
-msgid "Not Current"
-msgstr ""
-
-msgid "Meeting Request is out of date"
-msgstr ""
-
 msgid "No Response Required"
 msgstr ""
 
@@ -1514,9 +1511,6 @@ msgid "Accept Proposed Time"
 msgstr ""
 
 msgid "View in calendar"
-msgstr ""
-
-msgid "This meeting request is out-of-date and will now be deleted."
 msgstr ""
 
 msgid ""
@@ -1994,6 +1988,9 @@ msgstr ""
 msgid "Edit recipient"
 msgstr ""
 
+msgid "Copy email address"
+msgstr ""
+
 msgid "Select attendees"
 msgstr ""
 
@@ -2083,6 +2080,9 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+msgid "Kopano WebApp print"
+msgstr ""
+
 msgid "Display name"
 msgstr ""
 
@@ -2097,19 +2097,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
-msgid "Copy e-mail address"
-msgstr ""
-
-msgid "Send e-mail"
+msgid "Send email"
 msgstr ""
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
-
-msgid "Copy email address"
-msgstr ""
-
-msgid "Send email"
 msgstr ""
 
 msgid "View recipient"
@@ -3984,7 +3975,7 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr ""
 
-msgid "Print single e-mail"
+msgid "Print single email"
 msgstr ""
 
 msgid "Print selected email"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish (Poland) <http://translate.kopano.io/projects/kopano/"
@@ -921,6 +921,10 @@ msgstr "Drukuj"
 msgid "No appointment selected"
 msgstr "Nie wybrano teminu"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Termin prywatny"
+
 msgid "Calendar"
 msgstr "Kalendarz"
 
@@ -1550,12 +1554,6 @@ msgstr "Lokalizacja"
 msgid "Remove From Calendar"
 msgstr "Usuń z kalendarza"
 
-msgid "Not Current"
-msgstr "Nieaktualny"
-
-msgid "Meeting Request is out of date"
-msgstr "Wezwanie na spotkanie jest nieaktualne"
-
 msgid "No Response Required"
 msgstr "Odpowiedź nie jest wymagana"
 
@@ -1582,9 +1580,6 @@ msgstr "Akceptuj zaproponowany czas"
 
 msgid "View in calendar"
 msgstr "Pokaż w kalendarzu"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Wezwanie na spotkanie jest zdezaktualizowane i zostanie usunięte."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2089,6 +2084,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "Edytuj odbiorcę"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nowy adres e-mail"
+
 msgid "Select attendees"
 msgstr "Wybierz uczestnika"
 
@@ -2180,6 +2179,10 @@ msgstr ""
 "Usuń wybrany element nie przenosząc usuniętych obiektów dofolderu usunięte "
 "obiekty. Wciąż można przywrócić usunięty element."
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 msgid "Display name"
 msgstr "Wyświetl nazwę"
 
@@ -2196,22 +2199,11 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Edytuj odbiorcę"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Nowy adres e-mail"
-
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "Wyślij e-mail"
 
 msgid "Delete recipient from suggestion list"
 msgstr "Usuń odbiorcę z listy zaleceń"
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Nowy adres e-mail"
-
-msgid "Send email"
-msgstr "Wyślij e-mail"
 
 msgid "View recipient"
 msgstr "Pokaz odbiorcę"
@@ -4175,7 +4167,8 @@ msgstr "Zmień flage monitującą"
 msgid "Open Shared Mails"
 msgstr "Otwórz wspólne e-maile"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Drukuj pojedyncze e-maile"
 
 #, fuzzy

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -972,6 +972,10 @@ msgstr "Natisni"
 msgid "No appointment selected"
 msgstr "Ni izbranih sestankov"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Zasebni sestanek"
+
 # 100%
 msgid "Calendar"
 msgstr "Koledar"
@@ -1627,12 +1631,6 @@ msgstr "Lokacija"
 msgid "Remove From Calendar"
 msgstr "Odstrani s koledarja"
 
-msgid "Not Current"
-msgstr "Ne trenutni"
-
-msgid "Meeting Request is out of date"
-msgstr "Zahteva za sestanek je zastarela"
-
 msgid "No Response Required"
 msgstr "Ni zahtevanega odziva"
 
@@ -1660,9 +1658,6 @@ msgstr "Sprejmi predlagan čas"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Poglej večkratne koledarje v"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Ta zahteva za sestanek je zastarela in bo sedaj izbrisana."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2193,6 +2188,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "Uredi prejemnika"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nov elektronski naslov"
+
 msgid "Select attendees"
 msgstr "Izberi udeležence"
 
@@ -2293,6 +2292,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano Spletna aplikacija"
+
 # 91%
 msgid "Display name"
 msgstr "Prikazovalno ime"
@@ -2309,24 +2312,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Uredi prejemnika"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Nov elektronski naslov"
-
-# 90%
-msgid "Send e-mail"
+msgid "Send email"
 msgstr "Pošlji sporočilo"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Izbriši distribucijski seznam."
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Nov elektronski naslov"
-
-msgid "Send email"
-msgstr "Pošlji sporočilo"
 
 msgid "View recipient"
 msgstr "Poglej prejemnika"
@@ -4410,7 +4401,8 @@ msgstr "Nastavi zasledovanje"
 msgid "Open Shared Mails"
 msgstr "Odprta pošta v skupni rabi"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Natisni posamezno elektronsko sporočilo"
 
 # 78%

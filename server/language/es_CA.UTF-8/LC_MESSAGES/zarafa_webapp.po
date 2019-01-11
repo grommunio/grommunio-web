@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-13 14:58+0100\n"
+"POT-Creation-Date: 2019-01-11 14:14+0100\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -950,6 +950,10 @@ msgstr "Imprimir"
 msgid "No appointment selected"
 msgstr "No hay citas seleccionadas"
 
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Nueva cita"
+
 msgid "Calendar"
 msgstr "Calendario"
 
@@ -1618,12 +1622,6 @@ msgstr "Ubicación"
 msgid "Remove From Calendar"
 msgstr "Eliminar del calendario"
 
-msgid "Not Current"
-msgstr "No Actual"
-
-msgid "Meeting Request is out of date"
-msgstr "La solicitud de reunión está fuera de fecha"
-
 msgid "No Response Required"
 msgstr "La respuesta no es requerida"
 
@@ -1651,9 +1649,6 @@ msgstr "Aceptar la hora propuesta"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Ver varios calendarios en"
-
-msgid "This meeting request is out-of-date and will now be deleted."
-msgstr "Esta solicitud de reunión está fuera de fecha y ahora se eliminará."
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -2184,6 +2179,10 @@ msgstr ""
 msgid "Edit recipient"
 msgstr "Editar recipiente"
 
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nueva dirección de correo electrónico"
+
 msgid "Select attendees"
 msgstr "Seleccionar asistentes "
 
@@ -2285,6 +2284,10 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
 # 91%
 msgid "Display name"
 msgstr "Mostrar nombre"
@@ -2303,23 +2306,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Editar recipiente"
 
-#, fuzzy
-msgid "Copy e-mail address"
-msgstr "Nueva dirección de correo electrónico"
-
-msgid "Send e-mail"
-msgstr "Enviar correo electrónico"
+msgid "Send email"
+msgstr "Enviar Correo Electrónico"
 
 #, fuzzy
 msgid "Delete recipient from suggestion list"
 msgstr "Borrar la Lista de Distribución."
-
-#, fuzzy
-msgid "Copy email address"
-msgstr "Nueva dirección de correo electrónico"
-
-msgid "Send email"
-msgstr "Enviar Correo Electrónico"
 
 msgid "View recipient"
 msgstr "Ver recipiente"
@@ -4378,7 +4370,8 @@ msgstr ""
 msgid "Open Shared Mails"
 msgstr "Abrir correos compartidos"
 
-msgid "Print single e-mail"
+#, fuzzy
+msgid "Print single email"
 msgstr "Imprimir solo este correo electrónico"
 
 # 78%
