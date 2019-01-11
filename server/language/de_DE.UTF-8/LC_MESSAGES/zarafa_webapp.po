@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-11 14:14+0100\n"
-"PO-Revision-Date: 2018-12-06 14:56+0000\n"
-"Last-Translator: Björn <b.neumann@kopano.com>\n"
+"PO-Revision-Date: 2019-01-11 13:30+0000\n"
+"Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -959,9 +959,8 @@ msgstr "Drucken"
 msgid "No appointment selected"
 msgstr "Kein Termin ausgewählt"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Privater Termin"
+msgstr "Termin erstellen"
 
 msgid "Calendar"
 msgstr "Kalender"
@@ -2296,9 +2295,8 @@ msgstr ""
 "Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
-#, fuzzy
 msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgstr "Kopano WebApp drucken"
 
 # 91%
 msgid "Display name"
@@ -4384,7 +4382,6 @@ msgstr "Nachverfolgung ändern"
 msgid "Open Shared Mails"
 msgstr "Gemeinsame E-Mails öffnen"
 
-#, fuzzy
 msgid "Print single email"
 msgstr "Einzelne E-Mail drucken"
 
