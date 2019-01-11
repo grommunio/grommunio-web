@@ -103,12 +103,35 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	convertToTask : function(folder)
 	{
+		return this.convertRecord(folder, 'IPM.Task');
+	},
+
+	/**
+	* Convert a mail record to an appointment record by using the mail's
+	* @param {Zarafa.core.IPMFolder} folder The target folder in which the new record must be
+	* created.
+	* @return {Zarafa.core.data.IPMRecord} record The newly created appointment.
+	*/
+	convertToAppointment : function(folder)
+	{
+		return this.convertRecord(folder, 'IPM.Appointment');
+	},
+
+	/**
+	 * Convert a mail record to a record with the provided messageClass
+	 * @param {Zarafa.core.IPMFolder} folder The target folder in which the new record must be
+	 * created.
+	 * @param {String} messageClass the messageClass of the new item.
+	 * @return {Zarafa.core.data.IPMRecord} record The newly created appointment.
+	 * @private
+	 */
+	convertRecord : function(folder, messageClass)
+	{
 		var defaultStore = folder.getMAPIStore();
 
-		var taskRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', {
+		var newRecord = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
 			store_entryid : folder.get('store_entryid'),
 			parent_entryid : folder.get('entryid'),
-			icon_index : Zarafa.core.mapi.IconIndex['task'],
 			subject : this.get('subject'),
 			body : this.getBody(false),
 			importance : this.get('importance'),
@@ -116,21 +139,24 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			owner : defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
 		});
 
+		// Set icon based on messageClass
+		newRecord.set('icon_index', Zarafa.core.mapi.IconIndex[Zarafa.common.ui.IconClass.getIconClassFromMessageClass(newRecord)]);
+
 		/**
 		 * By copying the reference to the original mail,
-		 * the server is able to add attachments in to the task.
+		 * the server is able to add attachments in to the appointment.
 		 */
-		taskRecord.addMessageAction('source_entryid', this.get('entryid'));
-		taskRecord.addMessageAction('source_store_entryid', this.get('store_entryid'));
+		newRecord.addMessageAction('source_entryid', this.get('entryid'));
+		newRecord.addMessageAction('source_store_entryid', this.get('store_entryid'));
 
-		// Initialize the taskRecord with attachments
-		var store = taskRecord.getAttachmentStore();
+		// Initialize the appointmentRecord with attachments
+		var store = newRecord.getAttachmentStore();
 		var origStore = this.getAttachmentStore();
 		origStore.each(function (attach) {
 			store.add(attach.copy());
 		}, this);
 
-		return taskRecord;
+		return newRecord;
 	},
 
 	/**

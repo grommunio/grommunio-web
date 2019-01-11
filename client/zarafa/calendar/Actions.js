@@ -404,5 +404,45 @@ Zarafa.calendar.Actions = {
 			}
 
 		}, config.scope);
+	},
+
+	/**
+	 * Converts record to an appointment and calls {@link Zarafa.core.data.UIFactory.openCreateRecord}
+	 * to open the newly created appointment as editable record. The original record isn't removed.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord} records The record which will be converted to an appointment
+	 * @param {Zarafa.calendar.CalendarContextModel} model Used to create a new appointment record
+	 */
+	createAppointmentFromMail : function(records, model)
+	{
+		var record;
+
+		if (Array.isArray(records) && !Ext.isEmpty(records)) {
+			record = records[0];
+		} else {
+			return;
+		}
+
+		if (record.isOpened()) {
+			this.openHandler(record.getStore(), record, model);
+		} else {
+			// If record is not opened, then we need to reopen it to get the body. (For example when the selected records store reloads)
+			record.getStore().on('open', this.openHandler.createDelegate(this, [model], 2), this, {single : true});
+			record.open();
+		}
+	},
+
+	/**
+	 * Handler for {@link Zarafa.core.data.IPMStore store} open event. Converts the opened record
+	 * to an appointment and opens it as editable record.
+	 *
+	 * @param {Zarafa.core.data.IPMStore} store The store of the record.
+	 * @param {Zarafa.core.data.IPMRecord} record The record which will be converted to an appointment
+	 * @param {Zarafa.calendar.CalendarContextModel} model Used to create a new appointment record
+	 */
+	openHandler: function(store, record, model)
+	{
+		var newAppointmentRecord = record.convertToAppointment(model.getDefaultFolder());
+		Zarafa.core.data.UIFactory.openCreateRecord(newAppointmentRecord);
 	}
 };
