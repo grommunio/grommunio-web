@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-11 14:14+0100\n"
-"PO-Revision-Date: 2018-12-06 15:22+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2019-01-11 13:10+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -966,9 +966,8 @@ msgstr "Afdrukken"
 msgid "No appointment selected"
 msgstr "Geen afspraak geselecteerd"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Privé-afspraak"
+msgstr "Maak afspraak"
 
 msgid "Calendar"
 msgstr "Agenda"
@@ -2302,9 +2301,8 @@ msgstr ""
 "Verwijder geselecteerde item zonder het te verplaatsen naar de Verwijderde "
 "Items map. Het verwijderde item kan nog steeds worden hersteld."
 
-#, fuzzy
 msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgstr "Kopano WebApp printen"
 
 # 91%
 msgid "Display name"
@@ -4415,9 +4413,8 @@ msgstr "Markering rood/voltooid wisselen"
 msgid "Open Shared Mails"
 msgstr "Open Gedeelde E-mails"
 
-#, fuzzy
 msgid "Print single email"
-msgstr "Druk een e-mail af"
+msgstr "Print email"
 
 # 78%
 msgid "Print selected email"
