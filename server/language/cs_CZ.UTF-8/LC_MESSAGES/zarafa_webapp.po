@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-11 14:14+0100\n"
-"PO-Revision-Date: 2019-01-14 11:22+0000\n"
+"PO-Revision-Date: 2019-01-14 17:34+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/cs/>\n"
@@ -2109,10 +2109,10 @@ msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Tuto zprávu již nezobrazovat."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 #, fuzzy
 msgid "Set custom flag"
@@ -2125,36 +2125,35 @@ msgid "End date"
 msgstr "Konečné datum"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Zítra"
 
 msgid "This week"
-msgstr ""
+msgstr "Tento týden"
 
 msgid "Next week"
-msgstr ""
+msgstr "Příští týden"
 
 #, fuzzy
 msgid "Custom"
 msgstr "Výbrat datumy"
 
-#, fuzzy
 msgid "Set reminder"
-msgstr "Připomínka"
+msgstr "Nastavit připomenutí"
 
 msgid "Complete"
 msgstr "Dokončeno"
 
 msgid "today"
-msgstr ""
+msgstr "dnes"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "zítra"
 
 msgid "this week"
-msgstr ""
+msgstr "tento týden"
 
 msgid "next week"
-msgstr ""
+msgstr "příští týden"
 
 msgid "Edit recipient"
 msgstr "Upravit příjemce"
@@ -2253,14 +2252,17 @@ msgstr "Otevřít okno na kopírování/přesunování"
 msgid "Delete selected item"
 msgstr "Odstranit vybranou položku"
 
+#, fuzzy
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Odstranit vybranou položku, aniž byste ji přesunuli do složky Odstraněné "
+"položky. Vymazaná položka může být obnovena."
 
 #, fuzzy
 msgid "Kopano WebApp print"
-msgstr "Kopano WebbApp"
+msgstr "Vytisknout Kopano WebbApp"
 
 # 91%
 msgid "Display name"
