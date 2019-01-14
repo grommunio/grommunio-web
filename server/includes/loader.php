@@ -41,7 +41,6 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod-debug.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty-debug.js";
-			$jsLoadingSequence[] = "client/third-party/tokenizr.min.js";
 		} else {
 			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
