@@ -145,63 +145,10 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		tokens = this.normalize([...tokens]);
 
 		var expressionOrOperatorFound = tokens.some(function(t) {
-			return typeof t === 'object' && (t.type === 'expression' || t.type === 'operator');
+			return typeof t === 'object' && (t.type === 'expression' || t.type === 'subquery' || t.type === 'operator');
 		});
 
 		return expressionOrOperatorFound;
-	},
-
-	/**
-	 * Will process the tokens and move AND parts into subqueries.
-	 * We now have tokens like <expression> OR <subquery> AND <expression>
-	 * Since the AND takes presendence over OR we will move the AND with
-	 * its expressions into a subquery so we will only have something like
-	 * <expression> OR <subquery> OR <subquery>
-	 * 					or
-	 * <expression> AND <subquery> AND <subquery>
-	 * (so only with the same operator)
-	 * @param {Object[]} tokens Array of token objects
-	 */
-	flatten: function(tokens) {
-		var pos = 0;
-		var lastOperator;
-		var lastOperatorPos;
-		while ( pos < tokens.length ) {
-			var token = tokens[pos];
-			if ( token.type === 'subquery' ) {
-				token.value = this.flatten(token.value);
-			}
-			if ( token.type === 'operator' && (token.value.op === 'AND' || token.value.op === 'OR') ) {
-				if ( lastOperator && lastOperator !== token.value.op ) {
-					// We must create a subquery
-					if ( lastOperator === 'AND' ) {
-						var subqueryTokens = tokens.splice(lastOperatorPos-1, pos+1);
-						tokens.splice(lastOperatorPos-1, 0, {
-							type: 'subquery',
-							value: subqueryTokens
-						});
-						pos = pos - subqueryTokens.length + 1;
-					} else {
-						subqueryTokens = [];
-						// eslint-disable-next-line max-depth
-						while ( tokens[pos-1] && (!tokens[pos] || !(tokens[pos].type === 'operator' && tokens[pos].value === 'OR')) ) {
-							subqueryTokens = subqueryTokens.concat(tokens.splice(pos-1, 1));
-						}
-						tokens.splice(pos-1, 0, {
-							type: 'subquery',
-							value: subqueryTokens
-						});
-						pos--;
-					}
-				} else {
-					lastOperator = token.value.op;
-					lastOperatorPos = pos;
-				}
-			}
-			pos++;
-		}
-
-		return tokens;
 	},
 
 	/**
@@ -262,18 +209,24 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 					}
 					subqueryTokens.push(tmpToken);
 				}
-				if ( subqueryTokens[subqueryTokens.length -1].type === 'EOF') {
-					// Something is wrong with the query! We couldn't find the closing parenthesis.
-					// Let's just drop the subquery for now.
+				if ( subqueryTokens.length === 0 || subqueryTokens[subqueryTokens.length -1].type === 'EOF') {
+					// Something is wrong with the query! There is nothing in the parentheses or
+					// we couldn't find the closing parenthesis. Let's just drop the subquery for now.
 					// TODO: Show a message
 
 				} else {
-					// Create a subquery
-					t.push({
-						type: 'subquery',
-						value: this.normalize(subqueryTokens),
-						negate: token.negate
-					});
+					// Create a subquery, but only if our subquery tokens contain more than one token.
+					// Otherwise we can just drop the parenthesis
+					subqueryTokens = this.normalize(subqueryTokens);
+					if ( subqueryTokens.length > 1 ) {
+						t.push({
+							type: 'subquery',
+							value: this.normalize(subqueryTokens),
+							negate: token.negate
+						});
+					} else if (subqueryTokens.length === 1 ) {
+						t.push(subqueryTokens[0]);
+					}
 				}
 			}
 
@@ -286,6 +239,60 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		}
 
 		return t;
+	},
+
+	/**
+	 * Will process the tokens and move AND parts into subqueries.
+	 * We now have tokens like <expression> OR <subquery> AND <expression>
+	 * Since the AND takes presendence over OR we will move the AND with
+	 * its expressions into a subquery so we will only have something like
+	 * <expression> OR <subquery> OR <subquery>
+	 * 					or
+	 * <expression> AND <subquery> AND <subquery>
+	 * (so only with the same operator)
+	 * @param {Object[]} tokens Array of token objects
+	 * @return {Object[]} Array of token objects
+	 */
+	flatten: function(tokens) {
+		var pos = 0;
+		var lastOperator;
+		var lastOperatorPos;
+		while ( pos < tokens.length ) {
+			var token = tokens[pos];
+			if ( token.type === 'subquery' ) {
+				token.value = this.flatten(token.value);
+			}
+			if ( token.type === 'operator' && (token.value.op === 'AND' || token.value.op === 'OR') ) {
+				if ( lastOperator && lastOperator !== token.value.op ) {
+					// We must create a subquery
+					if ( lastOperator === 'AND' ) {
+						var subqueryTokens = tokens.splice(lastOperatorPos-1, pos+1);
+						tokens.splice(lastOperatorPos-1, 0, {
+							type: 'subquery',
+							value: subqueryTokens
+						});
+						pos = pos - subqueryTokens.length + 1;
+					} else {
+						subqueryTokens = [];
+						// eslint-disable-next-line max-depth
+						while ( tokens[pos-1] && (!tokens[pos] || !(tokens[pos].type === 'operator' && tokens[pos].value === 'OR')) ) {
+							subqueryTokens = subqueryTokens.concat(tokens.splice(pos-1, 1));
+						}
+						tokens.splice(pos-1, 0, {
+							type: 'subquery',
+							value: subqueryTokens
+						});
+						pos--;
+					}
+				} else {
+					lastOperator = token.value.op;
+					lastOperatorPos = pos;
+				}
+			}
+			pos++;
+		}
+
+		return tokens;
 	},
 
 	/**
@@ -418,11 +425,3 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 });
 
 Zarafa.advancesearch.KQLParser = new Zarafa.advancesearch.KQLParser();
-
-//AND subject=bla AND sender:jan AND cc:r.toussaint OR rtoussaint ronald
-//subject=bla OR (sender=fabian AND subject=test)
-//subject=bla OR (subject=test AND (sender=jan OR sender=fabian))
-//(sender=fabian OR sender=jan) AND subject=bla
-//(NOT sender=fabian OR sender=jan) AND subject=bla
-//to=user1@localhost OR to:user2@localhost
-//to=andreas AND to=userdsfsda
