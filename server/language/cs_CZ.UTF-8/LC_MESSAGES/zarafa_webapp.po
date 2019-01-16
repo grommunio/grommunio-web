@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-11 14:14+0100\n"
-"PO-Revision-Date: 2019-01-14 17:34+0000\n"
+"PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/cs/>\n"
@@ -1777,7 +1777,7 @@ msgstr "Odmítnout žádost o schůzku"
 
 #, fuzzy
 msgid "Mark complete and delete"
-msgstr "Označit jako Dokončené a odstranit"
+msgstr "Označit jako dokončené a odstranit"
 
 msgid ""
 "The sender of this message has asked to be notified when you read this "
@@ -1843,7 +1843,7 @@ msgstr "Nebyla vybrána žádná zpráva"
 
 #, fuzzy
 msgid "Import to"
-msgstr "Důležitý"
+msgstr "Importovat do"
 
 # 90%
 # 100%
@@ -1898,10 +1898,13 @@ msgstr ""
 "Chcete-li použít funkci importu vCard, upgradujte Kopano Core na verzi 8.3 "
 "nebo vyšší."
 
+#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Chcete-li použít funkci importu ICS/VCS, upgradujte Kopano Core na verzi 8.3 "
+"nebo vyšší."
 
 msgid "Attachment error"
 msgstr "Chyba přílohy"
