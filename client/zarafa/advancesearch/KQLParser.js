@@ -33,7 +33,7 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 			'category'
 		];
 		var ops = [':', '=', '<>'];
-		var boolOps = ['AND', 'OR', 'NOT'];
+		var boolOps = ['AND', 'OR', 'NOT', '+', '-'];
 
 		var keyword = false;
 		var operator = false;
@@ -196,6 +196,16 @@ Zarafa.advancesearch.KQLParser = Ext.extend(Object, {
 		var lastToken = null;
 		while (tokens.length) {
 			var token = tokens.shift();
+
+			// First rewrite + to AND and - to NOT
+			if ( token.type === 'operator') {
+				if ( token.value.op === '+' ) {
+					token.value.op = 'AND';
+				} else if ( token.value.op === '-' ) {
+					token.value.op = 'NOT';
+				}
+			}
+
 			if ( token.type === 'operator' && token.value.op !== 'NOT' ) {
 				if ( lastToken && (lastToken.type === 'expression' || lastToken.type === 'subquery') ) {
 					// This is fine, add the token
