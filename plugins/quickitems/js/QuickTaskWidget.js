@@ -25,7 +25,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 				layout : 'fit',
 				items : [{
 					xtype : 'form',
-					ref : 'formPanel',
+					ref : '../formPanel',
 					layout: {
 						type: 'vbox',
 						align: 'stretch'
@@ -58,7 +58,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 						items: [{
 						},{
 							xtype: 'datefield',
-							ref: '../../dueDateField',
+							ref: '../dueDateField',
 							emptyText : _('End date') + ': ' + _('none'),
 							flex: 1,
 							name: 'commonend',
@@ -73,7 +73,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 						}]
 					},{
 						xtype: 'zarafa.editorfield',
-						ref: '../editorField',
+						ref: 'editorField',
 						htmlName : 'html_body',
 						plaintextName : 'body',
 						hideLabel: true,
@@ -116,11 +116,11 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 	onDueDateChange : function(field, newValue, oldValue)
 	{
 		if (Ext.isDate(newValue)) {
-			this.wrap.record.set(field.name, newValue.clone());
-			this.wrap.record.set(field.utcname, newValue.toUTC());
+			this.record.set(field.name, newValue.clone());
+			this.record.set(field.utcname, newValue.fromUTC());
 		} else {
-			this.wrap.record.set(field.name, null);
-			this.wrap.record.set(field.utcname, null);
+			this.record.set(field.name, null);
+			this.record.set(field.utcname, null);
 		}
 	},
 
@@ -147,7 +147,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 	 */
 	update : function(record, contentReset)
 	{
-		this.wrap.formPanel.getForm().loadRecord(record);
+		this.formPanel.getForm().loadRecord(record);
 	},
 
 	/**
@@ -159,9 +159,9 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 	updateRecord : function(record)
 	{
 		record.beginEdit();
-		this.wrap.formPanel.getForm().updateRecord(record);
-		this.onDueDateChange(this.wrap.dueDateField, this.wrap.dueDateField.getValue());
-		this.onBodyChange(this.wrap.editorField, this.wrap.editorField.getValue());
+		this.formPanel.getForm().updateRecord(record);
+		this.onDueDateChange(this.formPanel.dueDateField, this.formPanel.dueDateField.getValue());
+		this.onBodyChange(this.formPanel.editorField, this.formPanel.editorField.getValue());
 		record.endEdit();
 	}
 });
