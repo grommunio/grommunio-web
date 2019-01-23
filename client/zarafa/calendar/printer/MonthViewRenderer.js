@@ -103,13 +103,14 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 			var startDate = record.get('startdate').clone();
 			var status = record.get('busystatus');
 
+			dateRange = dateRange.set( startDate,  record.get('duedate').clone(), true, true);
+			var text = dateRange.isAllDay() ? record.get("subject") : record.get('startdate').format( _('G:i')) + " " + record.get("subject");
+
 			var location = record.get('location');
-			var text = record.get("subject");
 			if (!Ext.isEmpty(location)) {
 				text += " (" + location + ")";
 			}
 
-			dateRange = dateRange.set( startDate,  record.get('duedate').clone(), true, true);
 			if(dateRange.getNumDays() > 1) {
 				for(var i = 0; i < dateRange.getNumDays(); i++) {
 					var date = startDate.add(Date.DAY, i).clearTime(true).getTime();
