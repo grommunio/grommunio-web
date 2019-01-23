@@ -993,7 +993,7 @@ Ext.apply(Zarafa, {
 				var svg = atob(matches[1]);
 
 				// Simply replace the color codes
-				var svgRecolored = svg.replace(activeIconset['primary-color'], themeIconsPrimaryColor).replace(activeIconset['secondary-color'], themeIconsSecondaryColor);
+				var svgRecolored = svg.replace(new RegExp(activeIconset['primary-color'], 'gi'), themeIconsPrimaryColor).replace(new RegExp(activeIconset['secondary-color'], 'gi'), themeIconsSecondaryColor);
 
 				// If we changed anything, replace the CSS rule to use the base64 encoded SVG
 				// with the new color(s)
