@@ -65,9 +65,9 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 		var isSearchPanel = activeTab.isXType('zarafa.searchcontentpanel');
 
 		// Toggle the search view button.
-		mainToolbar.searchView.setVisible(isSearchPanel);
-		var contextName = container.getCurrentContext().getName();
+		mainToolbar.get('zarafa-maintoolbar-view-advancesearch').setVisible(isSearchPanel);
 
+		var contextName = container.getCurrentContext().getName();
 		switch(contextName) {
 			case 'calendar':
 				// Toggle calendar context view buttons
