@@ -12,10 +12,20 @@
 		"app-icons": "ikode --out client/resources/scss/base/_icons.scss --css --important --yes --ext client/resources/images/app-icons.extensions.json client/resources/images/app-icons",
 		"iconsets:classic": "ikode --out client/resources/iconsets/classic/classic-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json -d client/resources/iconsets/classic/src/png/16x16 client/resources/iconsets/classic/src/png/large",
 		"iconsets:breeze": "ikode --out client/resources/iconsets/breeze/breeze-icons.css --css --important --yes --ext client/resources/iconsets/extensions.json --ext client/resources/iconsets/breeze/extensions-breeze.json -d client/resources/iconsets/breeze/src/svg/16x16 client/resources/iconsets/breeze/src/svg/large",
-		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze"
+		"iconsets": "\"$npm_execpath\" run iconsets:classic && \"$npm_execpath\" run iconsets:breeze",
+		"build:tokenizr": "grunt --gruntfile Gruntfile.tokenizr.js"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.2.3",
+		"babelify": "^10.0.0",
+		"browserify": "^16.2.3",
+		"browserify-derequire": "^1.0.0",
 		"eslint": "^4.19.1",
+		"grunt": "^1.0.3",
+		"grunt-browserify": "^5.3.0",
+		"grunt-cli": "^1.3.2",
 		"ikode": "^1.1.0",
 		"jasmine-core": "^2.99.1",
 		"karma": "^3.1.3",
@@ -24,5 +34,8 @@
 		"karma-jasmine": "^1.1.2",
 		"karma-junit-reporter": "^1.2.0",
 		"karma-spec-reporter": "0.0.32"
+	},
+	"dependencies": {
+		"tokenizr": "^1.5.2"
 	}
 }
