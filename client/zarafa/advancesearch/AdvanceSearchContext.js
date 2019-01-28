@@ -22,30 +22,52 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 
 		Zarafa.advancesearch.AdvanceSearchContext.superclass.constructor.call(this, config);
 
-		this.registerInsertionPoint('main.toolbar.actions.last', this.createMainToolbarSearchViewButton, this);
-
 		Zarafa.core.data.SharedComponentType.addProperty('search.dialog.selectfolder');
 		Zarafa.core.data.SharedComponentType.addProperty('search.dialog.searchcategory');
 	},
 
 	/**
-	 * Add search switch view button in main panel tool bar, which used to switch the view of
-	 * {@link Zarafa.advancesearch.dialogs.SearchPanel search panel}.
-	 * @return {Ext.Button} return search preview button
-	 * @private
+	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
+	 * main.maintoolbar.view.advancesearch insertion point to allow other plugins to add their items at the end.
+	 *
+	 * @return {Ext.Component[]} an array of components
 	 */
-	createMainToolbarSearchViewButton : function()
-	{
-		var menuItems = new Zarafa.common.CommonViewButtons({'context' : this});
+	getMainToolbarViewButtons : function(){
+		var items = container.populateInsertionPoint('main.maintoolbar.view.advancesearch') || [];
 
-		return {
-			xtype : 'button',
-			scale : 'large',
-			ref : 'searchView',
-			hidden : true,
-			iconCls : 'icon_large_view',
-			menu : menuItems
-		};
+		var defaultItems = [{
+			id: 'zarafa-maintoolbar-view-advancesearch-nopreview',
+			overflowText: _('No preview'),
+			iconCls: 'icon_previewpanel_off',
+			text: _('No preview'),
+			valueView : Zarafa.common.data.Views.LIST,
+			valueViewMode : Zarafa.common.data.ViewModes.NO_PREVIEW,
+			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			handler: this.onContextSelectView,
+			scope: this
+		},{
+			id: 'zarafa-maintoolbar-view-advancesearch-previewright',
+			overflowText: _('Right preview'),
+			iconCls: 'icon_previewpanel_right',
+			text: _('Right preview'),
+			valueView : Zarafa.common.data.Views.LIST,
+			valueViewMode : Zarafa.common.data.ViewModes.RIGHT_PREVIEW,
+			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			handler: this.onContextSelectView,
+			scope: this
+		},{
+			id: 'zarafa-maintoolbar-view-advancesearch-previewbottom',
+			overflowText: _('Bottom preview'),
+			iconCls: 'icon_previewpanel_bottom',
+			text: _('Bottom preview'),
+			valueView : Zarafa.common.data.Views.LIST,
+			valueViewMode : Zarafa.common.data.ViewModes.BOTTOM_PREVIEW,
+			valueDataMode : Zarafa.common.data.DataModes.ALL,
+			handler: this.onContextSelectView,
+			scope: this
+		}];
+
+		return defaultItems.concat(items);
 	},
 
 	/**
