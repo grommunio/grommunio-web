@@ -38,7 +38,8 @@
 		{
 			foreach($this->data as $actionType => $action)
 			{
-				// Determine if the request contains items or not. We couldn't add the storeEntryId to
+
+				// Determine if the request contains multiple items or not. We couldn't add the storeEntryId to
 				// the action data if it contained items because it was an array, so the storeEntryId
 				// was added to all the items. We will pick it from the first item.
 				if (isset($action[0])) {
@@ -74,8 +75,11 @@
 							// delete all existing rules.
 							$this->deleteRules($store);
 
-							// Now can save all rules
-							$this->saveRules($store, $action);
+							// Now can save all rules, note that $action can contain just a store key when
+							// all rules are removed.
+							if (count($action) > 1) {
+								$this->saveRules($store, $action);
+							}
 
 							// delete (outlook) client rules
 							$this->deleteOLClientRules($store);
