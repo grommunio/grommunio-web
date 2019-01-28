@@ -1,16 +1,16 @@
-Ext.namespace('Zarafa.calendar.ui.canvas');
+Ext.namespace('Zarafa.calendar.ui.html');
 
 /**
- * @class Zarafa.calendar.ui.canvas.AppointmentProxy
+ * @class Zarafa.calendar.ui.html.AppointmentProxy
  * @extends Zarafa.calendar.ui.AppointmentView
  *
- * A special {@link Zarafa.calendar.ui.AbstractDateRangeView} which acts as proxy for the
+ * A special {@link Zarafa.calendar.ui.AppointmentView} which acts as proxy for the
  * {@link Zarafa.calendar.ui.CalendarViewDropZone} when an appointment is being resized or
  * dragged over the calendar.
  *
  * This will render the selecte area as a grey block with some extra information text.
  */
-Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.AppointmentView, {
+Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.AppointmentView, {
 
 	/**
 	 * @cfg {Boolean} showTime initial value of showTime. When true the start and due times are rendered in the view body. Defaults to false.
@@ -83,7 +83,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 			'keyup'
 		);
 
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.constructor.call(this, config);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -93,7 +93,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	init : function()
 	{
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.init.call(this);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.init.call(this);
 
 		this.body = [];
 	},
@@ -107,7 +107,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 		if (this.dateRange) {
 			this.mun(this.dateRange, 'update', this.onDateRangeUpdate, this);
 		}
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.setDateRange.call(this, dateRange);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.setDateRange.call(this, dateRange);
 		if (this.dateRange) {
 			this.mon(this.dateRange, 'update', this.onDateRangeUpdate, this);
 		}
@@ -119,7 +119,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	render : function(container)
 	{
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.render.apply(this, arguments);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.render.apply(this, arguments);
 
 		// Relay key events
 		this.focusEl.relayEvent('keypress', this);
@@ -190,7 +190,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	setVisible : function(visible)
 	{
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.setVisible.call(this, visible);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.setVisible.call(this, visible);
 
 		if (visible) {
 			this.setBodyClass('zarafa-calendar-selection zarafa-calendar-selection-dragging zarafa-calendar-dragproxy-time');
@@ -362,7 +362,7 @@ Zarafa.calendar.ui.canvas.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoi
 	 */
 	onLayout : function()
 	{
-		Zarafa.calendar.ui.canvas.AppointmentProxy.superclass.onLayout.call(this);
+		Zarafa.calendar.ui.html.AppointmentProxy.superclass.onLayout.call(this);
 
 		// The selectionRange is updated, make sure we mark
 		// this selection as focussed.

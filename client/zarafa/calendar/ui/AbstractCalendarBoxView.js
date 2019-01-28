@@ -18,7 +18,7 @@ Ext.namespace('Zarafa.calendar.ui');
 Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.AbstractCalendarView, {
 	/**
 	 * Array of {@link Zarafa.calendar.data.DayBoxConfiguration configuration} objects for the
-	 * Day positions within this view. 
+	 * Day positions within this view.
 	 * @property
 	 * @type Array
 	 */
@@ -43,13 +43,13 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 	/**
 	 * @cfg {Number} appointmentHeight The height of an appointment within the calendar view.
 	 */
-	appointmentHeight : 30,
+	appointmentHeight : 26,
 
 	/**
 	 * @cfg {Number} expandThreshold The threshold in pixels which must remain empty at the bottom of
 	 * box. If there are more appointments that should be visible in that box, they will not be rendered.
 	 */
-	expandThreshold : 10,
+	expandThreshold : 5,
 
 	/**
 	 * The number of days per week.
@@ -94,11 +94,6 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 			config.firstDayOfWeek = container.getSettingsModel().get('zarafa/v1/main/week_start');
 		}
 
-		Ext.applyIf(config, {
-			appointmentBodyLeftMargin : 6,
-			appointmentBodyRightMargin : 6
-		});
-
 		// If Drag & Drop is enabled by the enableDD option, we must split it up
 		// to only enable Drag & Drop for the body element, as we have no functional
 		// Drag & Drop support for the header of this view.
@@ -115,7 +110,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 	/**
 	 * The {@link Zarafa.calendar.ui.CalendarMultiView CalendarMultiView} view has a header area that automatically
 	 * resizes when its child views require more space. In the days view for instance, appointments that span
-	 * more than 24 hours are laid out in the header. 
+	 * more than 24 hours are laid out in the header.
 	 * @return {Number} height in pixels the calendar view needs to properly lay out its header.
 	 */
 	getDesiredHeaderHeight : function()
@@ -145,9 +140,9 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 	/**
 	 * Converts a location in page coordinates to a corresponding date.
-	 * @param {Number} x horizontal component of the location   
+	 * @param {Number} x horizontal component of the location
 	 * @param {Number} y vertical component of the location
-	 * @return {Date} a Date object that corresponds to the given location   
+	 * @return {Date} a Date object that corresponds to the given location
 	 */
 	screenLocationToDate : function(x, y)
 	{
@@ -158,7 +153,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 			if (bodyX>configuration.left && bodyX<=configuration.right && bodyY>configuration.top && bodyY<=configuration.bottom)
 			{
 				// Check if the location is in the left or right half of the box. If it's in the right half
-				// the location is actually closer to the date of the next box (next day), so we'll return 
+				// the location is actually closer to the date of the next box (next day), so we'll return
 				// the date plus one day instead.
 				// return (configuration.right-bodyX < bodyX-configuration.left) ? configuration.date.add(Date.DAY, 1) : configuration.date;
 				return configuration.date;
@@ -170,7 +165,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 	/**
 	 * Converts a location in page coordinates to a corresponding daterange.
-	 * @param {Number} x horizontal component of the location   
+	 * @param {Number} x horizontal component of the location
 	 * @param {Number} y vertical component of the location
 	 * @return {Zarafa.core.DateRange} A DateRange object that corresponds to the given location
 	 */
@@ -195,19 +190,16 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 	/**
 	 * Converts a date range ([startDate, dueDate>) to zero or more (left, right, top, bottom) bounds objects.
 	 * This method is used to lay out appointments (and proxies) on the calendar body.
-	 * @param {Zarafa.core.DateRange} dateRange date range  
-	 * @param {Number} column (optional) when several appointments are overlapping a column may be assigned
-	 * @param {Number} columnCount (optional) the number of overlapping appointments in an overlap dependency graph
-	 * @param {Boolean} useMargin (optional) True to apply a right margin to the appointments to prevent them from
-	 * filling up the entire width of a daybox.
+	 * @param {Zarafa.core.DateRange} dateRange date range
+	 * @param {Number} slot (optional) when several appointments are overlapping a column may be assigned
 	 */
-	dateRangeToBodyBounds : function(dateRange, slot, slotCount, useMargin)
+	dateRangeToBodyBounds : function(dateRange, slot)
 	{
 		var visible = this.getVisibleDateRange();
 		var visibleWeeks = this.getVisibleWeekCount(visible);
-		var fill = slot === undefined;
+		var fill = slot === undefined; // fill will be true for the selection box
 		slot = slot || 0;
-		
+
 		var weekStart = visible.getStartDate();
 		var startDate = dateRange.getStartDate();
 		var dueDate  = dateRange.getDueDate();
@@ -226,11 +218,8 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 		dueDate.setHours(12);
 
 		var ret = [];
-		var leftMargin = useMargin ? this.appointmentBodyLeftMargin : 0;
-		var rightMargin = useMargin ? this.appointmentBodyRightMargin : 0;
 
-		for (var i=0; i<visibleWeeks; i++)
-		{
+		for (var i=0; i<visibleWeeks; i++) {
 			var weekDue = weekStart.add(Date.DAY, this.numDaysInWeek);
 			weekDue.setHours(12);
 
@@ -249,23 +238,25 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 			startDay = Math.max(startDay, 0);
 			dueDay = Math.min(dueDay, 6);
-			
-			if (startDay<7 && dueDay>=0)
-			{
+
+			if (startDay<7 && dueDay>=0) {
 				var startdayBoxConfigurations = this.dayBoxConfigurations[i*7 + startDay];
 				var duedayBoxConfigurations = this.dayBoxConfigurations[i*7 + dueDay];
-				
-				var top = startdayBoxConfigurations.top + this.dayHeaderHeight + this.appointmentHeight * slot - 3*slot;
-				var bottom = fill ? startdayBoxConfigurations.bottom : top + this.appointmentHeight;
-				
-				if (fill || bottom < startdayBoxConfigurations.bottom - this.expandThreshold) {
+
+				var left = startdayBoxConfigurations.left + 2;
+				var right = duedayBoxConfigurations.right - 2;
+				var top = startdayBoxConfigurations.top + this.dayHeaderHeight + this.appointmentHeight * slot;
+				if ( !fill ) {
+					top += 2; // 2 pixels margin at the top
+				}
+				var bottom = fill ? startdayBoxConfigurations.bottom -1 : top + this.appointmentHeight - 1;
+
+				if (fill || bottom <= startdayBoxConfigurations.bottom - this.expandThreshold) {
 					ret.push({
-						left : startdayBoxConfigurations.left + leftMargin + 1,
-						right : duedayBoxConfigurations.right - rightMargin - 1,
+						left : left, //startdayBoxConfigurations.left /*+ leftMargin*/ + 2,
+						right : right, //duedayBoxConfigurations.right /*- rightMargin*/ - 2,
 						top : top,
-						bottom : bottom,
-						firstBox : true,
-						lastBox : true
+						bottom : bottom
 					});
 				}
 			}
@@ -294,7 +285,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 				ret.push(appointment);
 			}
 		}
-		
+
 		return ret;
 	},
 
@@ -314,7 +305,7 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 				ret = Math.max(ret, appointment.slot);
 			}
 		}
-		
+
 		return ret;
 	},
 
@@ -330,8 +321,8 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 	{
 		// Detect the Date of the first day of the week for the start date of the loaded range
 		var visibleStart = this.getStartDate().getPreviousWeekDay(this.firstDayOfWeek);
-		// Detect the Date of the last day of the week for the due date of the loaded range     
-		var visibleDue = this.getDueDate().getNextWeekDay(this.firstDayOfWeek);	
+		// Detect the Date of the last day of the week for the due date of the loaded range
+		var visibleDue = this.getDueDate().getNextWeekDay(this.firstDayOfWeek);
 		return new Zarafa.core.DateRange({ startDate : visibleStart, dueDate : visibleDue });
 	},
 
@@ -382,29 +373,32 @@ Zarafa.calendar.ui.AbstractCalendarBoxView = Ext.extend(Zarafa.calendar.ui.Abstr
 
 				var dayRange = new Zarafa.core.DateRange({ startDate : date, dueDate : dueDate });
 				var workingDay = (this.parentView.workingDays.indexOf(date.getDay()) >= 0);
-				var appointments = this.findAppointmentsByRange(dayRange);
 
-				Ext.each(appointments, function(appointment) {
+				// Find all appointments that cover the complete dayRange. We can use those
+				// to change the background of the dayBox to reflect the busyStatus.
+				var appointments = this.findAppointmentsByRange(dayRange);
+				appointments.forEach(function(appointment) {
 					var appointmentStatus = appointment.getRecord().get('busystatus');
 					busyStatus = Math.max(busyStatus, appointmentStatus);
 				});
 
-				var boxHeight = Math.round((i+1) * dayHeight) + 1 - Math.round(i * dayHeight);
-				var overflowSlot = Math.floor((boxHeight - this.headerHeight - this.expandThreshold) / this.appointmentHeight);
+				//var boxHeight = Math.round((i+1) * dayHeight) + 1 - Math.round(i * dayHeight);
+				var boxHeight = dayHeight;
+				var slotCount = Math.floor((boxHeight - this.dayHeaderHeight - this.expandThreshold - 2) / this.appointmentHeight);
 
 				// Here it will get the first and last date of selected month.
 				var activeDateRange = this.contextModel.getActiveDateRange();
 
 				this.dayBoxConfigurations.push(new Zarafa.calendar.data.DayBoxConfiguration({
-					left : Math.round(j * dayWidth),
-					right : Math.round((j+1) * dayWidth) + 1,
-					top : Math.round(i * dayHeight),
-					bottom : Math.round((i+1) * dayHeight) + 1,
+					left : j * dayWidth,
+					right : (j+1) * dayWidth - 1,
+					top : i * dayHeight,
+					bottom : (i+1) * dayHeight - 1,
 					date : date,
 					today : todayTime == date.getTime(),
-					workingDay : workingDay, 
+					workingDay : workingDay,
 					busyStatus : busyStatus,
-					overflow : this.maxSlotInRange(dayRange) >= overflowSlot,
+					overflow : this.maxSlotInRange(dayRange) + 1 > slotCount,
 					active : date.getTime() >= activeDateRange.getStartDate().getTime() && date.getTime() < activeDateRange.getDueDate().getTime()
 				}));
 			}

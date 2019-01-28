@@ -3,13 +3,13 @@ Ext.namespace('Zarafa.calendar.ui');
 /**
  * @class Zarafa.calendar.ui.AppointmentSelectionModel
  * @extends Ext.grid.AbstractSelectionModel
- * 
+ *
  * The appointment selection model keeps a list of selected appointment records.
  * Used to share a common selection model across different calendar views.
  */
 Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel, {
 	/**
-	 * @cfg {Boolean} singleSelect true to allow selection of only one row at a time (defaults to false allowing multiple selections)
+	 * @cfg {Boolean} singleSelect true to allow selection of only one row at a time (defaults to true disallowing multiple selections)
 	 */
 	singleSelect : true,
 
@@ -136,7 +136,7 @@ Zarafa.calendar.ui.AppointmentSelectionModel = Ext.extend(Ext.grid.AbstractSelec
 	/**
 	 * Selects a record. Before selecting a record, checks if the selection model
 	 * {@link Ext.grid.AbstractSelectionModel#isLocked is locked}.
-	 * If these checks are satisfied the record will be selected 
+	 * If these checks are satisfied the record will be selected
 	 * and followed up by firing the {@link #selectionchange} events.
 	 * @param {Zarafa.core.data.IPMRecord} record The record to select
 	 * @param {Boolean} keepExisting (optional) <tt>true</tt> to keep existing selections

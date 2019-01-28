@@ -3463,127 +3463,278 @@ span.zarafa-emailaddress-link:hover {
   color: black;
 }
 
-/* We use elements inside canvas elements to pass some styling from the css files to the canvas*/
-/* line 144, ../scss/components/_calendar.scss */
-.zarafa-styling-element {
+/* The headers of the calendars */
+/* line 145, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background {
+  display: grid;
+}
+/* line 148, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background.k-dark {
+  color: #ffffff;
+}
+/* line 152, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background .k-cal-header-title {
+  padding: 0 9px;
+  line-height: 30px;
+  white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 162, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title {
+  background: #5ebb4b;
+}
+/* line 165, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background .k-active-border {
+  border-right: 1px solid #5ebb4b;
+}
+/* line 168, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-background .k-today:first-child {
+  border-left: 1px solid #5ebb4b;
+}
+/* line 173, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-header .k-html-header-appointment {
   position: absolute;
-  top: -10000px;
-  left: -10000px;
-  visibility: hidden;
+  top: 0;
 }
 
-/* The headers of the calendars */
-/* line 153, ../scss/components/_calendar.scss */
-.zarafa-calendar-container-header .zarafa-canvas-header-background {
-  /* a styling element that we can use to set some styles of the header */
-  /* a styling element that we can use to set some styles of the active header (current day) */
+/* line 180, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-body .k-html-body-background {
+  display: grid;
 }
-/* line 155, ../scss/components/_calendar.scss */
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element {
-  /* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
-   * and use it for the text it draws on the canvas
-   */
-  color: white;
-  /* the height value defines the height of the header */
-  height: 30px;
-  /* this is the padding that the js will use for the days in the header */
-  padding-left: 9px;
-  padding-right: 6px;
+/* line 183, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-body .k-html-body-background > div {
+  border-width: 0 1px 1px 0;
+  border-style: solid;
+  position: relative;
 }
-/* line 166, ../scss/components/_calendar.scss */
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element.light-background {
-  color: black;
+/* line 188, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-body .k-html-body-background > div.k-active-border {
+  border-color: #5ebb4b;
 }
-/* line 171, ../scss/components/_calendar.scss */
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day {
+/* line 192, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-body .k-html-body-background .k-today.k-day-0 {
+  border-left: 1px solid #5ebb4b;
+}
+/* line 196, ../scss/components/_calendar.scss */
+.zarafa-calendar-container-body .k-html-body-appointment {
   position: absolute;
-  top: -10000px;
-  left: -10000px;
-  visibility: hidden;
-  /* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
-   * and use it for the text it draws on the canvas
-   */
-  color: white;
-  /* This is the color that the js will use as the background and border color of the current day */
-  background-color: #5ebb4b;
+  top: 0;
+}
+
+/* line 202, ../scss/components/_calendar.scss */
+.k-appointment-box {
+  position: absolute;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  cursor: move;
+}
+/* line 209, ../scss/components/_calendar.scss */
+.k-appointment-box .k-status {
+  border: none;
+}
+/* line 213, ../scss/components/_calendar.scss */
+.k-appointment-box.k-dark {
+  color: #ffffff;
+}
+/* line 217, ../scss/components/_calendar.scss */
+.k-appointment-box.k-inactive {
+  opacity: 0.4;
+}
+/* line 221, ../scss/components/_calendar.scss */
+.k-appointment-box.k-selected {
+  border-color: #000000;
+  z-index: 10;
+}
+/* line 225, ../scss/components/_calendar.scss */
+.k-appointment-box.k-selected .k-resizehandle {
+  display: block;
+}
+/* line 230, ../scss/components/_calendar.scss */
+.k-appointment-box .k-resizehandle {
+  position: absolute;
+  left: calc(50% - 3.5px);
+  top: -3.5px;
+  display: none;
+  background: #ffffff;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 7px;
+  height: 7px;
+  cursor: row-resize;
+}
+/* line 242, ../scss/components/_calendar.scss */
+.k-appointment-box .k-resizehandle.k-resizehandle-end {
+  top: calc(100% - 3.5px);
+}
+/* line 247, ../scss/components/_calendar.scss */
+.k-appointment-box .k-status {
+  height: 100%;
+  float: left;
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  margin-right: 3px;
+}
+/* line 255, ../scss/components/_calendar.scss */
+.k-appointment-box .k-status.k-status-tentative {
+  background: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=) repeat;
+}
+/* line 258, ../scss/components/_calendar.scss */
+.k-appointment-box .k-status.k-status-outofoffice {
+  background: #912787;
+}
+/* line 261, ../scss/components/_calendar.scss */
+.k-appointment-box .k-status.k-status-free {
+  background: #ffffff;
+}
+/* line 266, ../scss/components/_calendar.scss */
+.k-appointment-box .k-icons {
+  float: left;
+  margin-right: 3px;
+  padding-top: 3px;
+}
+/* line 271, ../scss/components/_calendar.scss */
+.k-appointment-box .k-icons .k-icon {
+  float: left;
+  width: 16px;
+  height: 16px;
+  /*
+  &.k-icon-private {
+  	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADaSURBVCiRfZE9SkNRFIS/GbMBW0uthKQVBCEbMNroBrIE95BtBMGfgJDKFYQUWgQEwR1Y2VgYbQxMCl/kRd/NwMA9l++eM5xLEpoMnEt6kvQhaQb0klCCjyWl5kdJn8CJKmBNtp+BzqpOsi1pCixa/+gf7dQLSe/Vce7Cg7fC/UtT/v6f/CsvgO7aBEm7tveBe+ALGAMPkm6TtJNM6p1PJcX2je1roNu4wQq+kPRq+8r2CDja8D+cSZravrR9BxyW4CRQxRhKGgMHm+AkbAHfwF6SQZJZYZ2/WgIY6MDMF1W9zwAAAABJRU5ErkJggg==) no-repeat center center;
+  }
+  */
+}
+/* line 284, ../scss/components/_calendar.scss */
+.k-appointment-box .k-title {
+  line-height: 23px;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  padding-right: 3px;
+  display: block;
+}
+
+/* line 297, ../scss/components/_calendar.scss */
+.k-html-header-appointment .k-appointment-box {
+  /* selection in the header of the days view has the handles on the left and tight sides */
+}
+/* line 299, ../scss/components/_calendar.scss */
+.k-html-header-appointment .k-appointment-box .k-resizehandle {
+  left: -3.5px;
+  top: calc(50% - 3.5px);
+  cursor: col-resize;
+}
+/* line 304, ../scss/components/_calendar.scss */
+.k-html-header-appointment .k-appointment-box .k-resizehandle.k-resizehandle-end {
+  left: calc(100% - 3.5px);
+}
+
+/* line 313, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background {
+  height: 100%;
+}
+/* line 316, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-header {
+  padding: 0 9px;
+  line-height: 24px;
+  cursor: pointer;
+  /* we must move the header over the appointment layer to be able to catch its events */
+  position: relative;
+  z-index: 10;
+}
+/* line 325, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {
+  border-color: #5ebb4b !important;
+}
+/* line 328, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today {
+  border-left-width: 2px;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+}
+/* line 333, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
+  background: #5ebb4b !important;
+  color: #ffffff;
+}
+/* line 338, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-status-tentative {
+  background-image: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=);
+  background-repeat: repeat;
+}
+/* line 344, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-appointment {
+  height: 100%;
+  width: 100%;
+}
+/* line 351, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .k-appointment-box .k-resizehandle {
+  left: -3.5px;
+  top: calc(50% - 3.5px);
+  cursor: col-resize;
+}
+/* line 357, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .k-appointment-box .k-resizehandle-end {
+  left: calc(100% - 3.5px);
+}
+/* line 362, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .k-expand-btn {
+  width: 14px;
+  height: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 7px;
+  position: absolute;
+  background: #ffffff;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0.7;
+}
+/* line 374, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .k-expand-btn:hover {
+  opacity: 1;
+}
+/* line 378, ../scss/components/_calendar.scss */
+.zarafa-calendar-boxview .k-expand-btn::after {
+  display: block;
+  content: ' ';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  /* some css magic to create a rectangle with pure css */
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid;
+  border-top-color: inherit;
+  transform-origin: bottom;
+  transform: scale(1, 2);
 }
 
 /* Timestrip */
-/* line 188, ../scss/components/_calendar.scss */
+/* line 398, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element div {
   color: #333333;
   padding-right: 22px;
 }
 
 /* Margin between checkbox and calendar icon in hieracy */
-/* line 194, ../scss/components/_calendar.scss */
+/* line 404, ../scss/components/_calendar.scss */
 .zarafa-hierachy-node-cb {
   margin-right: 6px;
 }
 
 /*
- * Appointment Dialog (HTML & Canvas)
-*/
-/* line 201, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-none {
-  background-color: transparent;
-}
-
-/* line 206, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-important {
-  background-color: #E98784;
-}
-
-/* line 211, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-work {
-  background-color: #8CA9D9;
-}
-
-/* line 216, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-personal {
-  background-color: #C0D98C;
-}
-
-/* line 221, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-holiday {
-  background-color: #DFCB47;
-}
-
-/* line 226, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-required {
-  background-color: #D9C18C;
-}
-
-/* line 231, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-travel-required {
-  background-color: #8CC6D9;
-}
-
-/* line 236, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-prepare-required {
-  background-color: #8C8CD9;
-}
-
-/* line 241, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-birthday {
-  background-color: #C48CD9;
-}
-
-/* line 246, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-special-date {
-  background-color: #D9928C;
-}
-
-/* line 251, ../scss/components/_calendar.scss */
-.zarafa-calendar-appointment-label-phone-interview {
-  background-color: #9BD98C;
-}
-
-/*
- * Calendar timestrip (HTML & Canvas)
+ * Calendar timestrip
  */
-/* line 259, ../scss/components/_calendar.scss */
+/* line 411, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip {
   position: absolute;
   background-color: #9fbf00;
@@ -3592,20 +3743,20 @@ span.zarafa-emailaddress-link:hover {
   border-left: 1px solid black;
 }
 
-/* line 268, ../scss/components/_calendar.scss */
+/* line 420, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element {
   position: absolute;
   color: #393839;
   text-align: right;
 }
 
-/* line 275, ../scss/components/_calendar.scss */
+/* line 427, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-element div {
   padding-top: 4px;
   padding-right: 6px;
 }
 
-/* line 281, ../scss/components/_calendar.scss */
+/* line 433, ../scss/components/_calendar.scss */
 .zarafa-calendar-timestrip-line {
   overflow: hidden;
   position: absolute;
@@ -3613,7 +3764,7 @@ span.zarafa-emailaddress-link:hover {
   margin-left: 24px;
 }
 
-/* line 289, ../scss/components/_calendar.scss */
+/* line 441, ../scss/components/_calendar.scss */
 .k-calendar-timestrip-indicator-icon {
   height: 16px;
   width: 16px;
@@ -3621,7 +3772,7 @@ span.zarafa-emailaddress-link:hover {
   position: absolute;
 }
 
-/* line 297, ../scss/components/_calendar.scss */
+/* line 449, ../scss/components/_calendar.scss */
 .k-calendar-timestrip-indicator-line {
   height: 1px;
   position: absolute;
@@ -3633,42 +3784,42 @@ span.zarafa-emailaddress-link:hover {
 /*
  * Canvas Calendar
  */
-/* line 309, ../scss/components/_calendar.scss */
+/* line 461, ../scss/components/_calendar.scss */
 .zarafa-canvas {
   position: absolute;
 }
 
 /* Currently selected tab */
-/* line 315, ../scss/components/_calendar.scss */
+/* line 467, ../scss/components/_calendar.scss */
 .zarafa-calendar-tabarea .zarafa-calendar-tab-selected .zarafa-calendar-tab-title {
   font-weight: bold;
 }
 
-/* line 320, ../scss/components/_calendar.scss */
+/* line 472, ../scss/components/_calendar.scss */
 .zarafa-calendar-scrollable {
   position: absolute;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-/* line 327, ../scss/components/_calendar.scss */
+/* line 479, ../scss/components/_calendar.scss */
 .zarafa-calendar-header {
   position: absolute;
 }
 
-/* line 332, ../scss/components/_calendar.scss */
+/* line 484, ../scss/components/_calendar.scss */
 .zarafa-calendar-bottomarea {
   position: absolute;
 }
 
 /* Drag & Drop */
 /* Calendar drag selection (selecting an new appointment) */
-/* line 340, ../scss/components/_calendar.scss */
+/* line 492, ../scss/components/_calendar.scss */
 .zarafa-calendar-selection-dragging {
   background-color: #7f7f7f;
 }
 
-/* line 345, ../scss/components/_calendar.scss */
+/* line 497, ../scss/components/_calendar.scss */
 .zarafa-calendar-selection {
   overflow: hidden;
   position: absolute;
@@ -3677,18 +3828,18 @@ span.zarafa-emailaddress-link:hover {
   opacity: .5;
 }
 
-/* line 354, ../scss/components/_calendar.scss */
+/* line 506, ../scss/components/_calendar.scss */
 .zarafa-calendar-dragproxy-time {
   padding: 5px 0 0 3px;
 }
 
-/* line 358, ../scss/components/_calendar.scss */
+/* line 510, ../scss/components/_calendar.scss */
 .zarafa-calendar-tabarea-stroke {
   border-top: 6px solid #ffffff;
   position: relative;
 }
 
-/* line 363, ../scss/components/_calendar.scss */
+/* line 515, ../scss/components/_calendar.scss */
 .zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
   border-top-color: #5ebb4b;
 }

@@ -1096,6 +1096,12 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			return;
 		}
 
+		// Update the themeCls, this will be used when assigning
+		// the CSS class names to all objects.
+		var selectedFolder = this.getSelectedFolder();
+		var entryid = selectedFolder ? selectedFolder.get('entryid') : '';
+		this.calendarColorScheme = this.contextModel.getColorScheme(entryid);
+
 		// create tab, header and body divs
 		this.createDiv(this.parentView.scrollable, 'body');
 		this.createDiv(this.parentView.header, 'header', 'zarafa-calendar-header');
@@ -1383,15 +1389,17 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onLayout : function()
 	{
+		var selectedFolder = this.getSelectedFolder();
+
+		if ( !selectedFolder ) {
+			return Zarafa.calendar.ui.AbstractCalendarView.superclass.onLayout.call(this);
+		}
+
 		// Update the themeCls, this will be used when assigning
 		// the CSS class names to all objects.
-		if ( this.getSelectedFolder() ) {
-			var colorScheme = this.contextModel.getColorScheme(this.getSelectedFolder().get('entryid'));
-			if(colorScheme) {
-				this.calendarColorScheme = colorScheme;
-			}
-		}else{
-			return Zarafa.calendar.ui.AbstractCalendarView.superclass.onLayout.call(this);
+		var colorScheme = this.contextModel.getColorScheme(selectedFolder.get('entryid'));
+		if(colorScheme) {
+			this.calendarColorScheme = colorScheme;
 		}
 
 		// layout border and tab
@@ -1467,7 +1475,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 	onAppointmentsLoad : function(store, records, options)
 	{
 		// Destroy all appointments.
-		this.clearAppointments(true);
+		this.clearAppointments(true, false);
 
 		// Create an appointment for each record.
 		Ext.each(records, function(record) {
@@ -1650,11 +1658,9 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		if (active && calendarView == this) {
 			this.selectionView.setDateRange(dateRange);
 			this.selectionView.setVisible(true);
-		} else {
+		} else if (this.selectionView.isVisible()) {
 			// Otherwise hide the selection view
-			if (this.selectionView.isVisible()) {
-				this.selectionView.setVisible(false);
-			}
+			this.selectionView.setVisible(false);
 		}
 	},
 
@@ -1769,7 +1775,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Event handler for the D&D proxy, which is called when the mousedown event has been fired.
-	 * Depending if the Ctrl key was presed the previously selected record will remain selected
+	 * Depending if the Ctrl key was pressed the previously selected record will remain selected
 	 * or will be deselected.
 	 * @param {Object} event The event object
 	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment object

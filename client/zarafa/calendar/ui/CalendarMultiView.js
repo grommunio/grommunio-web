@@ -101,7 +101,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 * instance to be used on the calendars.
 	 *
 	 * @property
-	 * @type Zarafa.calendar.ui.canvas.ToolTip
+	 * @type Zarafa.calendar.ui.ToolTip
 	 * @private
 	 */
 	tooltip : undefined,
@@ -272,7 +272,8 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			this.mon(this.context, 'zoomchange', this.onZoomLevelChanged, this);
 		}
 		if (Ext.isDefined(this.model)) {
-			this.mon(this.model, 'foldermergestatechanged', this.onFolderMergestateChanged, this);
+			this.mon(this.model, 'foldermergestatechanged', this.onFolderChange, this);
+			this.mon(this.model, 'folderchange', this.onFolderChange, this);
 		}
 
 		this.addTimeStrip();
@@ -381,8 +382,6 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	onViewModeChanged : function(context, viewMode, oldViewMode)
 	{
-		var nameSpace = Zarafa.calendar.ui.canvas;
-
 		if (!this.rendered) {
 			return;
 		}
@@ -390,13 +389,13 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		switch (viewMode) {
 			case Zarafa.calendar.data.ViewModes.DAYS:
 				this.showTimeStrips = true;
-				this.calendarViewConstructor = nameSpace.CalendarDaysView;
+				this.calendarViewConstructor = Zarafa.calendar.ui.html.CalendarDaysView;
 				this.container.addClass('zarafa-calendar-daysview');
 				this.container.removeClass('zarafa-calendar-boxview');
 				break;
 			case Zarafa.calendar.data.ViewModes.BOX:
 				this.showTimeStrips = false;
-				this.calendarViewConstructor = nameSpace.CalendarBoxView;
+				this.calendarViewConstructor = Zarafa.calendar.ui.html.CalendarBoxView;
 				this.container.removeClass('zarafa-calendar-daysview');
 				this.container.addClass('zarafa-calendar-boxview');
 				break;
@@ -414,17 +413,10 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			var folders = calendar.getFolders();
 
 			if (folders.length > 0) {
-				var newCalendar = this.createCalendarView(calendar.groupId, folders);
-				newCalendar.setSelectedFolder(calendar.selectedFolder);
+				this.createCalendarView(calendar.groupId, folders);
 			}
 
 			this.removeCalendarView(calendar);
-		}
-
-		// All calendars are recreated, this means that we need
-		// to reload all data from the store and force it into the UI again.
-		if (this.store && this.store.lastOptions && !this.store.isExecuting('list')) {
-			this.onLoad(this.store, this.store.getRange(), this.store.lastOptions);
 		}
 	},
 
@@ -443,16 +435,11 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Event handler which is triggered when the mergeState has
-	 * changed for the folders. This will either merge the contents
-	 * of all folders into a single view, or apply grouping to
-	 * clearly differentiate between the different folders
-	 * @param {Zarafa.core.ContextModel} model The model which raised the event
-	 * @param {Boolean} mergeState The current merge state
-	 * @private
+	 * changed for the folders or when the folders have changed.
 	 */
-	onFolderMergestateChanged : function(model, mergeState)
+	onFolderChange : function()
 	{
-		// if folder is not present than we cannot proceed for calendar merge
+		// if folder is not present than we cannot proceed pruning and creating views
 		if (!Ext.isDefined(this.folders)) {
 			return;
 		}
@@ -764,6 +751,10 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		// apply all data into the view now.
 		if (store && store.lastOptions && !store.isExecuting('list')) {
 			this.onLoad(store, store.getRange(), store.lastOptions);
+
+			if ( this.rendered ) {
+				this.manageCalendarViews(store.lastOptions.folder);
+			}
 		}
 	},
 
@@ -877,7 +868,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 		Ext.dd.ScrollManager.unregister(this.scrollable);
 		Ext.dd.ScrollManager.unregister(this.header);
 		// Register the scrollable element or not based on the viewMode.
-		if(this.context.getCurrentViewMode() === Zarafa.calendar.data.ViewModes.DAYS){
+		if (this.context.getCurrentViewMode() === Zarafa.calendar.data.ViewModes.DAYS) {
 			Ext.dd.ScrollManager.register(this.scrollable);
 			Ext.dd.ScrollManager.register(this.header);
 		}
@@ -1155,18 +1146,25 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * Manages the child calendar views. Removes folders from views that are not currently loaded,
 	 * and adds new views for folders that are not yet represented.
+	 *
+	 * @param {Zarafa.core.data.IPFRecord[]} folders Array of the folders that are shown in the view. Normally
+	 * this function will use this.folders, but when we are calling this function from {#bindStore} we will pass
+	 * the folders of the store when available. That way we will immediately have the folders when we switch the view.
 	 * @private
 	 */
-	manageCalendarViews : function()
+	manageCalendarViews : function(folders)
 	{
+		// Use this.folders when folders is undefined
+		folders = folders || this.folders;
+
 		// Remove calendar views that are not in the folder list.
-		this.pruneCalendarViews(this.folders);
+		this.pruneCalendarViews(folders);
 
 		// Add new calendar views for folders that are currently not displayed.
-		this.createCalendarViews(this.folders);
+		this.createCalendarViews(folders);
 
 		// Sorts the calendars based on the order of their folders in the hierarchy model.
-		this.sortCalendarViews(this.folders);
+		this.sortCalendarViews(folders);
 	},
 
 	/**
@@ -1203,10 +1201,16 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			return;
 		}
 
+		// Only create the views here the first time, not on every load
+		var calendarsShouldBeManaged = Ext.isEmpty(this.folders);
+
 		this.folders = options.folder || [];
 		//always show tab
 		this.showBorder = true;
-		this.manageCalendarViews();
+
+		if ( calendarsShouldBeManaged ) {
+			this.manageCalendarViews();
+		}
 
 		// forward the event to the individual calendar views
 		for (var i = 0, len = this.calendars.length; i < len; i++) {

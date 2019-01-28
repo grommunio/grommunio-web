@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.calendar.ui');
  *
  * A tab that sits on top of a calendar view. Calendar views can show multiple folders at once, and each folder has
  * a corresponding tab. The tabs can be used to move the corresponding folder to the view left of it (merge), move
- * the folder into its own view (separate), close the view, or make it the active folder. 
+ * the folder into its own view (separate), close the view, or make it the active folder.
  */
 Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	/**
@@ -127,12 +127,12 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * @constructor
-	 * @param {Object} config configuration object. 
+	 * @param {Object} config configuration object.
 	 */
 	constructor : function(config)
 	{
 		config = config || {};
-		
+
 		//TODO: move this to a separate function or make a folder method for it?
 		var displayName;
 		if (config.folder) {
@@ -143,7 +143,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 			baseCls : 'zarafa-calendar',
 			title : displayName ? Ext.util.Format.htmlEncode(displayName) : undefined
 		});
-		
+
 		// define drag/drop events
 		this.addEvents(
 			/**
@@ -166,24 +166,24 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 			'close',
 			/**
 			 * @event click
-			 * Fires when the tab is clicked. 
+			 * Fires when the tab is clicked.
 			 * @param {MAPIFolder} folder MAPI folder.
 			 */
 			'click'
-		);		
-		
+		);
+
 		Zarafa.calendar.ui.CalendarTabView.superclass.constructor.call(this, config);
 	},
-	
+
 	/**
 	 * Calculates the desired width of the tab, that is, the size required to show the text,
-	 * close icon, and any other enabled icons (merge, separate). 
-	 * Used by {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} to lay out and size the tabs. 
+	 * close icon, and any other enabled icons (merge, separate).
+	 * Used by {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} to lay out and size the tabs.
 	 * @return {Number} desired tab width
 	 */
 	getDesiredWidth : function()
 	{
-		// textMetrics has not been set up if not rendered. 
+		// textMetrics has not been set up if not rendered.
 		if (!this.rendered) {
 			return 0;
 		}
@@ -199,21 +199,21 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 		if ( addClass ){
 			this.tabContents.removeClass('zarafa-calendar-tab-selected');
 		}
-		
+
 		var desiredWidth = this.getMinimumWidth() + textMetrics.getWidth(this.title);
 
 		// Check if we don't want a bigger width because of a min-width set in the css files
 		this.tabContents.dom.style.removeProperty('min-width');
 		var cssMinWidth = parseInt(this.tabContents.getStyle('min-width')) + this.tabContents.getPadding('lr');
-		
+
 		return Math.max(desiredWidth, cssMinWidth);
 	},
-	
+
 	/**
 	 * Calculates the minimum width of the tab, that is, the size required to show the close icon and
 	 * any other enabled icons (merge, separate). This means the tabs should always be large enough to
 	 * at least show all the icons.
-	 * Used by {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} to lay out and size the tabs. 
+	 * Used by {@link Zarafa.calendar.ui.AbstractCalendarView AbstractCalendarView} to lay out and size the tabs.
 	 * @return {Number} minimum tab width
 	 */
 	getMinimumWidth : function()
@@ -235,7 +235,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 			width += this.separateIcon.getWidth();
 		}
 
-		return width;		
+		return width;
 	},
 
 	/**
@@ -252,7 +252,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	 * Sets whether the folder this tab corresponds to is the selected folder for that view.
 	 * The effect of setting this to 'true' is that the text on the tab is shown in bold face.
 	 * This.will also update the classNames assigned to {@link #tabBackground} and {@link #tabContents}.
-	 * @param {Boolean} selected true iff the tab should be displayed as selected. 
+	 * @param {Boolean} selected true iff the tab should be displayed as selected.
 	 * @param {Boolean} active true iff the tab should be displayed as active.
 	 * This is different from selected in that only one tab can be active at any one point,
 	 * while there is one selected tab for each calendar (i.e. the one on top, whose color scheme is used)
@@ -285,24 +285,24 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Sets whether the merge icon (left arrow) is visible. When a tab belongs to the leftmost calendar
-	 * view it cannot be moved to the left, thus the icon will not be displayed. 
+	 * view it cannot be moved to the left, thus the icon will not be displayed.
 	 * @param {Boolean} showMergeIcon true iff the merge icon should be displayed.
 	 */
 	setShowMergeIcon : function(showMergeIcon)
 	{
 		this.showMergeIcon = showMergeIcon;
 	},
-	
+
 	/**
 	 * Sets whether the separate icon (right arrow) is visible. When a calendar view is showing
-	 * only a single folder, that folder cannot be separated out from the view, thus the icon will not be displayed. 
+	 * only a single folder, that folder cannot be separated out from the view, thus the icon will not be displayed.
 	 * @param {Boolean} showSeparateIcon true iff the merge icon should be displayed.
 	 */
 	setShowSeparateIcon : function(showSeparateIcon)
 	{
 		this.showSeparateIcon = showSeparateIcon;
 	},
-	
+
 	/**
 	 * Sets whether the close icon is visible. When a calendar view is showing only a single folder,
 	 * that folder cannot be closed, thus the icon will not be displayed.
@@ -312,7 +312,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		this.showCloseIcon = showCloseIcon;
 	},
-	
+
 	/**
 	 * Assign each {@link Ext.Element element} generated during {@link #render} with
 	 * a CSS className. This will use {@link #getClassName} to obtain the desired
@@ -331,7 +331,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 			this.tabText.dom.className = this.getClassName('tab-title');
 			this.closeIcon.dom.className = this.getClassName('tab-icon', 'close');
 			this.separateIcon.dom.className = this.getClassName('tab-icon', 'separate');
-			
+
 			this.tabContents.applyStyles({
 				'background-color' : colorScheme.header
 			});
@@ -360,7 +360,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 		if (contextModel instanceof Zarafa.calendar.CalendarContextModel) {
 			var colorScheme = contextModel.getColorScheme(this.folder.get('entryid'));
 			// Check if we have a light or dark color by converting the color code to HSL and checking the L-value
-			var isDarkColor = Zarafa.core.ColorSchemes.getLuma(colorScheme.base) < 155;
+			var isDarkColor = Zarafa.core.ColorSchemes.isDark(colorScheme.base);
 			if ( !isDarkColor ){
 				this.tabContents.addClass('light-background');
 			}
@@ -400,7 +400,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 
 		// Right icon.
 		this.separateIcon.setVisible(this.showSeparateIcon);
-		
+
 		Zarafa.calendar.ui.CalendarTabView.superclass.onLayout.call(this);
 	},
 
@@ -414,13 +414,13 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		// Container divs
 		this.createDiv(this.parentView.tabArea, 'tabContents');
-	
+
 		// content divs
 		this.createDiv(this.tabContents, 'mergeIcon');
 		this.createDiv(this.tabContents, 'tabText');
 		this.createDiv(this.tabContents, 'closeIcon');
 		this.createDiv(this.tabContents, 'separateIcon');
-		
+
 		this.mergeIcon.setVisibilityMode(Ext.Element.DISPLAY);
 		this.closeIcon.setVisibilityMode(Ext.Element.DISPLAY);
 		this.separateIcon.setVisibilityMode(Ext.Element.DISPLAY);
@@ -440,7 +440,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 
 		Zarafa.calendar.ui.CalendarTabView.superclass.render.call(this, container);
 	},
-	
+
 	/**
 	 * Handles the 'click' event of the merge icon, and fires the {@link #merge} event.
 	 * @private
@@ -449,7 +449,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		this.fireEvent('merge', this.folder);
 	},
-	
+
 	/**
 	 * Handles the 'click' event of the separate icon, and fires the {@link #separate} event.
 	 * @private
@@ -458,7 +458,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		this.fireEvent('separate', this.folder);
 	},
-	
+
 	/**
 	 * Handles the 'click' event of the close icon, and fires the {@link #close} event.
 	 * @private
@@ -467,7 +467,7 @@ Zarafa.calendar.ui.CalendarTabView = Ext.extend(Zarafa.core.ui.View, {
 	{
 		this.fireEvent('close', this.folder);
 	},
-	
+
 	/**
 	 * Handles the 'click' event of the tab text, and fires the {@link #click} event.
 	 * @private
