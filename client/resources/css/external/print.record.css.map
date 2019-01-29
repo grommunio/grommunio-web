@@ -1,0 +1,8 @@
+{
+"version": 3,
+"mappings": "AACA,KAOC,CALG,IAAI,CAAE,IAAI,CACV,UAAU,CAAE,KAAK,CACjB,aAAa,CAAE,KAAK,CACpB,WAAW,CAAE,KAAK,CAClB,YAAY,CAAE,KAAK,CAGvB,YAAa,CACZ,KAAM,CACL,OAAO,CAAE,kBAAkB,CAG5B,WAAY,CACX,UAAU,CAAE,IAAI,CAChB,MAAM,CAAE,CAAC,EAKX,8EAA+E,CAC9E,MAAM,CAAC,CAAC,CACR,OAAO,CAAC,CAAC,CAEV,aAAc,CACb,MAAM,CAAC,CAAC,CAET,oCAAqC,CACpC,UAAU,CAAC,MAAM,CACjB,WAAW,CAAC,MAAM,CAEnB,UAAW,CACV,UAAU,CAAC,IAAI,CAEhB,iBAAkB,CACjB,SAAS,CAAC,IAAI,CAEf,gBAAgB,CACf,OAAO,CAAC,EAAE,CAIX,OAAQ,CACP,WAAW,CAAE,MAAM,CAEpB,KAAM,CACL,WAAW,CAAE,MAAM,CAEpB,UAAW,CACV,KAAK,CAAE,IAAI,CCjDZ,KAAM,CACJ,KAAK,CAAE,IAAI,CACX,UAAU,CAAE,IAAI,CAChB,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,KAAK,CAClB,eAAe,CAAE,QAAQ,CAG3B,QAAS,CACP,KAAK,CAAE,GAAG,CACV,WAAW,CAAE,IAAI,CACjB,OAAO,CAAE,eAAe,CAG1B,QAAS,CACP,OAAO,CAAE,eAAe",
+"sources": ["/home/fabian/Workspace/kopano-webapp-git/client/resources/scss/external/_print.scss","/home/fabian/Workspace/kopano-webapp-git/client/resources/scss/external/print.record.scss"],
+"sourcesContent": ["","@import '_print';\n\ntable {\n  width: 100%;\n  text-align: left;\n  font-size: 11px;\n  font-family: arial;\n  border-collapse: collapse;\n}\n\ntable th {\n  width: 25%;\n  font-weight: bold;\n  padding: 2px 3px 2px 0px;\n}\n\ntable td {\n  padding: 2px 3px 2px 0px;\n}\n"],
+"names": [],
+"file": "print.record.css"
+}
