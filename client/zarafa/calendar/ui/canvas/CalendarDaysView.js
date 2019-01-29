@@ -180,7 +180,7 @@ Zarafa.calendar.ui.canvas.CalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abstr
 		});
 
 		// Create current-time indicator, line and icon
-		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'icon_indicator_calendar');
+		this.create({tag : 'img', src : Ext.BLANK_IMAGE_URL}, this.parentView.scrollable, 'indicatorIcon', 'icon_indicator_calendar k-calendar-timestrip-indicator-icon');
 		this.createDiv(this.parentView.scrollable, 'indicatorLine', 'k-calendar-timestrip-indicator-line');
 	},
 

@@ -3579,8 +3579,8 @@ span.zarafa-emailaddress-link:hover {
 
 /* line 289, ../scss/components/_calendar.scss */
 .k-calendar-timestrip-indicator-icon {
-  height: 12px;
-  width: 12px;
+  height: 16px;
+  width: 16px;
   left: 6px;
   position: absolute;
 }
