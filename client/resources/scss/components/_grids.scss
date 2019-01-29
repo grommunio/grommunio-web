@@ -100,14 +100,18 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			padding: 0;
 			text-align: center;
 
-			/* reposition the icon headers */
-			p {
-				position: relative;
-				display: inline-block;
-				min-width: 20px;
+			.zarafa-x-grid3-hd-title {
+				text-overflow: clip;
 
-				.title {
-					display: none;
+				/* reposition the icon headers */
+				p {
+					position: relative;
+					display: inline-block;
+					min-width: 20px;
+
+					.title {
+						display: none;
+					}
 				}
 			}
 		}

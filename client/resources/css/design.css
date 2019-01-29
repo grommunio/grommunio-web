@@ -1226,24 +1226,28 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   width: 22px;
   padding: 0;
   text-align: center;
+}
+/* line 103, ../scss/components/_grids.scss */
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title {
+  text-overflow: clip;
   /* reposition the icon headers */
 }
-/* line 104, ../scss/components/_grids.scss */
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p {
+/* line 107, ../scss/components/_grids.scss */
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
   position: relative;
   display: inline-block;
   min-width: 20px;
 }
-/* line 109, ../scss/components/_grids.scss */
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p .title {
+/* line 112, ../scss/components/_grids.scss */
+.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p .title {
   display: none;
 }
-/* line 118, ../scss/components/_grids.scss */
+/* line 122, ../scss/components/_grids.scss */
 .x-grid3-hd-row td.zarafa-icon-column.sort-asc p,
 .x-grid3-hd-row td.zarafa-icon-column.sort-desc p {
   display: none;
 }
-/* line 122, ../scss/components/_grids.scss */
+/* line 126, ../scss/components/_grids.scss */
 .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-sort-icon,
 .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-sort-icon {
   margin: 0;
@@ -1252,12 +1256,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /****************************************************************************
  * Icons in the 'Show columns' menu
  ****************************************************************************/
-/* line 132, ../scss/components/_grids.scss */
+/* line 136, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item {
   /* check/uncheck images are 14 px wide */
   padding-left: 23px;
 }
-/* line 137, ../scss/components/_grids.scss */
+/* line 141, ../scss/components/_grids.scss */
 .x-menu .x-menu-check-item .x-menu-item-text p {
   padding-left: 20px;
   background-position: 2px center !important;
@@ -1266,7 +1270,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Empty text
  ******************************************************************************/
-/* line 148, ../scss/components/_grids.scss */
+/* line 152, ../scss/components/_grids.scss */
 .k-addressbookmainpanel-grid .emptytext {
   font-size: 15px !important;
   color: #777777;
@@ -1276,13 +1280,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Group headers
  ******************************************************************************/
-/* line 157, ../scss/components/_grids.scss */
+/* line 161, ../scss/components/_grids.scss */
 .x-grid-group-hd {
   border: none;
   background: #e6e6e6;
   padding: 3px 3px;
 }
-/* line 162, ../scss/components/_grids.scss */
+/* line 166, ../scss/components/_grids.scss */
 .x-grid-group-hd div.x-grid-group-title {
   color: black;
   background-image: none;
@@ -1292,7 +1296,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid columns
  ******************************************************************************/
-/* line 172, ../scss/components/_grids.scss */
+/* line 176, ../scss/components/_grids.scss */
 .x-grid3-row {
   border-top: none;
   border-color: #e6e6e6;
@@ -1302,22 +1306,22 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
    */
   /* reposition checkboxes (size of checkbox is 15x15) */
 }
-/* line 175, ../scss/components/_grids.scss */
+/* line 179, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-cell-inner {
   line-height: 100%;
   padding: 9px 7px;
   position: relative;
 }
-/* line 185, ../scss/components/_grids.scss */
+/* line 189, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-cell-inner.x-grid3-col-categories {
   text-overflow: clip;
 }
-/* line 190, ../scss/components/_grids.scss */
+/* line 194, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container {
   overflow: hidden;
   word-wrap: break-word;
 }
-/* line 194, ../scss/components/_grids.scss */
+/* line 198, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact {
   line-height: 15px;
   min-height: 15px;
@@ -1327,63 +1331,63 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   padding-bottom: 0px;
   padding-top: 4px;
 }
-/* line 202, ../scss/components/_grids.scss */
+/* line 206, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_left {
   padding-left: 30px;
 }
-/* line 206, ../scss/components/_grids.scss */
+/* line 210, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-row-body-tr .zarafa-grid-body-container .grid_compact_subject_cell {
   color: #777777;
   max-height: 30px;
   overflow: hidden;
 }
-/* line 215, ../scss/components/_grids.scss */
+/* line 219, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-td,
 .x-grid3-row .x-grid3-td-checker {
   background: transparent;
 }
-/* line 219, ../scss/components/_grids.scss */
+/* line 223, ../scss/components/_grids.scss */
 .x-grid3-row .x-grid3-check-col-td .x-grid3-cell-inner,
 .x-grid3-row .x-grid3-td-checker .x-grid3-cell-inner {
   padding-top: 8px !important;
   /* important is needed because Ext also added it */
 }
 
-/* line 226, ../scss/components/_grids.scss */
+/* line 230, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-expanded .x-grid3-cell-inner {
   padding-bottom: 5px;
 }
-/* line 230, ../scss/components/_grids.scss */
+/* line 234, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-expanded .x-grid3-row-body {
   padding-bottom: 9px;
 }
 
-/* line 235, ../scss/components/_grids.scss */
+/* line 239, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-expanded.with-categories .x-grid3-row-body {
   padding-bottom: 6px;
 }
 
-/* line 241, ../scss/components/_grids.scss */
+/* line 245, ../scss/components/_grids.scss */
 .x-grid3-row-over {
   background: #f2f2f2;
   border-color: #e6e6e6;
   /* Ext wants to make the hovered border darker, we don't */
 }
 
-/* line 245, ../scss/components/_grids.scss */
+/* line 249, ../scss/components/_grids.scss */
 .x-grid3-row-selected {
   background: #d5e8f7 !important;
   /* Ext uses important, so we also must do that */
 }
 
-/* line 249, ../scss/components/_grids.scss */
+/* line 253, ../scss/components/_grids.scss */
 .x-grid3-row.x-grid3-row-selected {
   border: 1px solid #d5e8f7;
   border-top: 0px;
 }
 
 /* Mail grid */
-/* line 261, ../scss/components/_grids.scss */
+/* line 265, ../scss/components/_grids.scss */
 #mail-grid .x-grid3-row,
 #calendar_grid .x-grid3-row,
 #contact-gridview .x-grid3-row,
@@ -1392,7 +1396,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 #unread-mail-widget .x-grid3-row {
   border-left-color: white;
 }
-/* line 266, ../scss/components/_grids.scss */
+/* line 270, ../scss/components/_grids.scss */
 #mail-grid .mail_unread div,
 #calendar_grid .mail_unread div,
 #contact-gridview .mail_unread div,
@@ -1403,23 +1407,23 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 }
 
 /* Override ExtJS selected grid */
-/* line 273, ../scss/components/_grids.scss */
+/* line 277, ../scss/components/_grids.scss */
 .x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
   background-image: none;
 }
 
 /* Task grid Due tasks row */
-/* line 278, ../scss/components/_grids.scss */
+/* line 282, ../scss/components/_grids.scss */
 .zarafa-task-overdue {
   color: #e30022;
 }
 
 /* Task grid Completed tasks row */
-/* line 283, ../scss/components/_grids.scss */
+/* line 287, ../scss/components/_grids.scss */
 .zarafa-task-complete {
   color: #777777;
 }
-/* line 285, ../scss/components/_grids.scss */
+/* line 289, ../scss/components/_grids.scss */
 .zarafa-task-complete .k-task-complete {
   text-decoration: line-through;
 }
@@ -1427,12 +1431,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid with no column headers
  ******************************************************************************/
-/* line 294, ../scss/components/_grids.scss */
+/* line 298, ../scss/components/_grids.scss */
 .x-grid-panel.k-no-column-headers .x-grid3-header {
   display: none;
 }
 
-/* line 299, ../scss/components/_grids.scss */
+/* line 303, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button-container {
   position: absolute;
   right: 0;
@@ -1441,17 +1445,17 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background-color: #ffffff;
 }
 
-/* line 306, ../scss/components/_grids.scss */
+/* line 310, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button-container {
   background-color: #f2f2f2;
 }
 
-/* line 309, ../scss/components/_grids.scss */
+/* line 313, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-selected .zarafa-grid-button-container {
   background-color: #d5e8f7;
 }
 
-/* line 312, ../scss/components/_grids.scss */
+/* line 316, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-grid-button {
   width: 24px;
   height: 24px;
@@ -1461,52 +1465,52 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   display: none;
 }
 
-/* line 320, ../scss/components/_grids.scss */
+/* line 324, ../scss/components/_grids.scss */
 .x-grid3 .x-grid3-row-over .zarafa-grid-button {
   display: block;
 }
 
 /* Fixed categories cannot be edited or deleted because they are used
    to map old flags to categories */
-/* line 325, ../scss/components/_grids.scss */
+/* line 329, ../scss/components/_grids.scss */
 .x-grid3-row-over .k-category-fixed .k-grid-button-edit,
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
   display: none;
 }
 
-/* line 330, ../scss/components/_grids.scss */
+/* line 334, ../scss/components/_grids.scss */
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
   display: block;
 }
 
-/* line 333, ../scss/components/_grids.scss */
+/* line 337, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid-editor {
   padding-top: 1px;
 }
 
-/* line 337, ../scss/components/_grids.scss */
+/* line 341, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-col-color {
   position: relative;
 }
 
-/* line 341, ../scss/components/_grids.scss */
+/* line 345, ../scss/components/_grids.scss */
 .k-categories-grid .k-colorpicker-ct {
   display: none;
   margin: -2px 0 -2px 0;
 }
 
-/* line 347, ../scss/components/_grids.scss */
+/* line 351, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color svg,
 .k-categories-grid .x-grid3-col-color.k-menu-visible svg {
   display: none;
 }
-/* line 351, ../scss/components/_grids.scss */
+/* line 355, ../scss/components/_grids.scss */
 .k-categories-grid .x-grid3-row-over .x-grid3-col-color .k-colorpicker-ct,
 .k-categories-grid .x-grid3-col-color.k-menu-visible .k-colorpicker-ct {
   display: block;
 }
 
-/* line 356, ../scss/components/_grids.scss */
+/* line 360, ../scss/components/_grids.scss */
 .k-slider {
   position: absolute;
   z-index: 9001;
