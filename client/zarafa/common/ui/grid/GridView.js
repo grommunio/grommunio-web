@@ -69,19 +69,6 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 			'beforesort'
 		);
 		Zarafa.common.ui.grid.GridView.superclass.constructor.call(this, config);
-
-		this.initEvents();
-	},
-
-	/**
-	 * Initialize event handlers
-	 * @private
-	 */
-	initEvents : function()
-	{
-		Zarafa.common.ui.grid.GridView.superclass.initEvents.call(this);
-
-		this.on('rowremoved', this.onRowRemoved, this);
 	},
 
 	/**
@@ -286,32 +273,6 @@ Zarafa.common.ui.grid.GridView = Ext.extend(Ext.grid.GroupingView, {
 			}
 		}
 		this.scroller.on('scroll', this.onScroll, this);
-	},
-
-	/**
-	 * Called after a row has been removed for the GridView.
-	 * This will check if the store has a next/previous row to select in the Grid
-	 * @private
-	 */
-	onRowRemoved : function(view, rowIndex, record)
-	{
-		var sm = this.grid.getSelectionModel();
-		var itemCount = this.grid.store.getCount();
-
-		if (itemCount > 0) {
-			// check for the next item in store else select the previous item
-			if(rowIndex < itemCount) {
-				sm.selectRow(rowIndex);
-			} else {
-				sm.selectRow(rowIndex - 1);
-			}
-		} else {
-			sm.clearSelections();
-			// When the store is empty, sm.clearSelections will not
-			// fire any events to indicate that the selections have
-			// changed...
-			sm.fireEvent('selectionchange', sm);
-		}
 	},
 
 	/**

@@ -129,7 +129,7 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 					Ext.apply( { store : this.store }, this.initialConfig.loadMask ) );
 		}
 
-		this.store.on('write', this.onWriteRecord, this);
+		this.mon(this.store, 'write', this.onWriteRecord, this);
 
 		this.on('viewready', this.onViewReady, this);
 
@@ -195,6 +195,36 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 						store.load(options);
 					}
 				}
+			}
+
+			var deletedRecord = Array.isArray(recordSet) ? recordSet[recordSet.length - 1] : recordSet;
+			// lastIndex is the index of deleted record from grid/store.
+			// lastIndex is added by destroyRecord function of Ext.data.Store
+			this.onRowRemoved(deletedRecord.lastIndex, deletedRecord);
+		}
+	},
+
+	/**
+	 * Called after a row has been removed for the GridView.
+	 * This will check if the store has a next/previous row to select in the Grid
+	 * @param rowIndex {Number} rowIndex the index of row was deleted from grid.
+	 * @private
+	 */
+	onRowRemoved : function(rowIndex)
+	{
+		if (container.getShadowStore().isExecuting("open")) {
+			container.getShadowStore().proxy.cancelRequests('open');
+			return;
+		}
+
+		var itemCount = this.getStore().getCount();
+		if (itemCount > 0) {
+			var sm = this.getSelectionModel();
+			// check for the next item in store else select the previous item
+			if(rowIndex < itemCount) {
+				sm.selectRow(rowIndex);
+			} else {
+				sm.selectRow(rowIndex - 1);
 			}
 		}
 	},
