@@ -342,7 +342,10 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				this.calendar.onSelect(e, this.dateRange);
 				break;
 			case DragStates.DRAGGING:
-				if (dd.calendar !== this.calendar) {
+				var record = data.target.record;
+				if ( record.isMeeting() && record.isMeetingReceived() ) {
+					this.showWarningMessageBox(e, dd, data.target, dd.calendar !== this.calendar ? "drop" : "move");
+				} else if (dd.calendar !== this.calendar) {
 					this.calendar.onDrop(e, dd.calendar, data.target, this.dateRange);
 				} else {
 					this.calendar.onMove(e, data.target, this.dateRange);
@@ -350,9 +353,57 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 				break;
 			case DragStates.RESIZING_START:
 			case DragStates.RESIZING_DUE:
-				this.calendar.onResize(e, data.target, this.dateRange);
+				var record = data.target.record;
+				if (record.isMeeting() && record.isMeetingReceived() ) {
+					this.showWarningMessageBox(e, dd, data.target, "resize");
+				} else {
+					this.calendar.onResize(e, data.target, this.dateRange);
+				}
 				break;
 		}
+	},
+
+	/**
+	 * Helper function which show {@link Zarafa.common.dialogs.MessageBox MessageBox}
+	 * when attendee is trying to move the meeting.
+	 *
+	 * @param {Ext.EventObject} event The event
+	 * @param {Ext.dd.DragSource} dd The drag source that was dragged over this drop zone
+	 * @param {Zarafa.calendar.ui.AppointmentView} appointment The appointment which was dropped
+	 * @param {String} action The action can be anything from "move", "drop" or "resize".
+	 */
+	showWarningMessageBox : function(event, dd, appointment, action)
+	{
+		var dateRange = this.dateRange;
+		Zarafa.common.dialogs.MessageBox.addCustomButtons({
+			width: 400,
+			title: _('Kopano Webapp'),
+			msg : _('Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?'),
+			icon: Ext.MessageBox.WARNING,
+			fn : function(buttonName) {
+				if (buttonName === 'move') {
+					switch (action) {
+						case "move":
+							this.calendar.onMove(event, appointment, dateRange);
+							break;
+						case "drop":
+							this.calendar.onDrop(event, dd.calendar, appointment, dateRange);
+							break;
+						case "resize":
+							this.calendar.onResize(event, appointment, dateRange);
+							break;
+					}
+				}
+			},
+			customButton: [{
+				name : 'move',
+				text: _('Move')
+			}, {
+				name : 'cancel',
+				text: _('Don\'t move')
+			}],
+			scope: this
+		});
 	},
 
 	/**
