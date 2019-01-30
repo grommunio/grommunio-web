@@ -39,14 +39,4 @@ class FileLoaderTest extends KopanoTest {
 		$files = $loader->getZarafaJavascriptFiles(LOAD_DEBUG);
 		$this->assertNotEmpty($files);
 	}
-
-	public function testgetZarafaCSSFiles() {
-		$loader = new Fileloader();
-
-		$files = $loader->getZarafaCSSFiles(LOAD_RELEASE);
-		$this->assertNotEmpty($files);
-
-		$files = $loader->getZarafaCSSFiles(LOAD_DEBUG);
-		$this->assertNotEmpty($files);
-	}
 }
