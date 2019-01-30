@@ -118,31 +118,6 @@ class FileLoader {
 	}
 
 	/**
-	 * Obtain the list of WebApp files
-	 *
-	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
-	 * to indicate which files should be loaded.
-	 * @return array The array of CSS files
-	 */
-	public function getZarafaCSSFiles($load)
-	{
-		$cssLoadingSequence = array();
-
-		if ($load == LOAD_RELEASE) {
-			$cssLoadingSequence[] = "client/resources/css/kopano.css";
-		} else if ($load == LOAD_DEBUG) {
-			$cssLoadingSequence[] = "client/resources/css/kopano.css";
-		} else {
-			$cssLoadingSequence = array_merge(
-				$cssLoadingSequence,
-				$this->getListOfFiles('css', 'client/resources/css', false)
-			);
-		}
-
-		return $cssLoadingSequence;
-	}
-
-	/**
 	 * Obtain the list of all Javascript files as registered by the plugins.
 	 *
 	 * @param number $load The LOAD_RELEASE | LOAD_DEBUG | LOAD_SOURCE flag
@@ -613,8 +588,8 @@ class FileLoader {
 		$extjsFiles = $this->getExtjsCSSFiles(DEBUG_LOADER);
 		$this->printFiles($extjsFiles, $cssTemplate);
 
-		$webappFiles = $this->getZarafaCSSFiles(DEBUG_LOADER);
-		$this->printFiles($webappFiles, $cssTemplate);
+		// Since we only have one css file, we can add that directly
+		$this->printFiles(array("client/resources/css/kopano.css"), $cssTemplate);
 
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
 		$this->printFiles($pluginFiles, $cssTemplate);
