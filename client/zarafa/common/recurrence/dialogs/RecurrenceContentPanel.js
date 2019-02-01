@@ -183,6 +183,13 @@ Zarafa.common.recurrence.dialogs.RecurrenceContentPanel = Ext.extend(Zarafa.core
 				this.record.modified['recurrence_endocc'] = this.record.data['recurrence_endocc'];
 				this.record.modified['recurrence_everyn'] = this.record.data['recurrence_everyn'];
 				this.record.modified['recurrence_weekdays'] = this.record.data['recurrence_weekdays'];
+
+				// remove basedate from idProperties and update the
+				// opened and openedSeries
+				this.record.removeIdProp('basedate');
+				this.modalRecord.removeIdProp('basedate');
+				this.modalRecord.opened = !this.record.isRecurring();
+				this.modalRecord.openedSeries = !this.modalRecord.opened;
 			}
 
 			if(this.pasteItem) {
