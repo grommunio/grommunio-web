@@ -14,7 +14,7 @@
 }
 
 /* The tooltip for the calendar appointments */
-.zarafa-appointment-tooltip {
+.x-tip.zarafa-appointment-tooltip {
 	z-index: 9000 !important;
 
 	.x-tip-tc,
@@ -33,6 +33,7 @@
 	}
 	.x-tip-body {
 		color: $white;
+		white-space: normal;
 	}
 
 	h2 {

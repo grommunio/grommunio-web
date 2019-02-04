@@ -5959,41 +5959,42 @@ body .k-category-block {
 
 /* The tooltip for the calendar appointments */
 /* line 17, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip {
+.x-tip.zarafa-appointment-tooltip {
   z-index: 9000 !important;
 }
 /* line 20, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip .x-tip-tc,
-.zarafa-appointment-tooltip .x-tip-tl,
-.zarafa-appointment-tooltip .x-tip-tr,
-.zarafa-appointment-tooltip .x-tip-bc,
-.zarafa-appointment-tooltip .x-tip-bl,
-.zarafa-appointment-tooltip .x-tip-br,
-.zarafa-appointment-tooltip .x-tip-ml,
-.zarafa-appointment-tooltip .x-tip-mr {
+.x-tip.zarafa-appointment-tooltip .x-tip-tc,
+.x-tip.zarafa-appointment-tooltip .x-tip-tl,
+.x-tip.zarafa-appointment-tooltip .x-tip-tr,
+.x-tip.zarafa-appointment-tooltip .x-tip-bc,
+.x-tip.zarafa-appointment-tooltip .x-tip-bl,
+.x-tip.zarafa-appointment-tooltip .x-tip-br,
+.x-tip.zarafa-appointment-tooltip .x-tip-ml,
+.x-tip.zarafa-appointment-tooltip .x-tip-mr {
   background-color: transparent;
 }
 /* line 31, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip .x-tip-tc {
+.x-tip.zarafa-appointment-tooltip .x-tip-tc {
   padding-top: 6px;
 }
 /* line 34, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip .x-tip-body {
+.x-tip.zarafa-appointment-tooltip .x-tip-body {
   color: #ffffff;
+  white-space: normal;
 }
-/* line 38, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip h2 {
+/* line 39, ../scss/components/_tooltip.scss */
+.x-tip.zarafa-appointment-tooltip h2 {
   line-height: 20px;
   font-weight: bold;
   margin-bottom: 3px;
 }
-/* line 44, ../scss/components/_tooltip.scss */
-.zarafa-appointment-tooltip p {
+/* line 45, ../scss/components/_tooltip.scss */
+.x-tip.zarafa-appointment-tooltip p {
   line-height: 20px;
   padding-bottom: 6px;
 }
 
-/* line 50, ../scss/components/_tooltip.scss */
+/* line 51, ../scss/components/_tooltip.scss */
 .x-tip .x-tip-body {
   word-wrap: break-word;
   color: #ffffff;
@@ -6003,13 +6004,13 @@ body .k-category-block {
 }
 
 /* Seemingly unused icon, removed so we do not load the ExtJS image */
-/* line 58, ../scss/components/_tooltip.scss */
+/* line 59, ../scss/components/_tooltip.scss */
 .x-tip-anchor.x-tip-anchor-top {
   background-image: none;
 }
 
 /* The tooltip for 'nice' dates in grids */
-/* line 64, ../scss/components/_tooltip.scss */
+/* line 65, ../scss/components/_tooltip.scss */
 .k-griddatetooltip .x-tip-body {
   white-space: nowrap;
 }
