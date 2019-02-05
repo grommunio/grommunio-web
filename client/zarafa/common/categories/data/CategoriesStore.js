@@ -31,7 +31,10 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 		config = config || {};
 		var categories = [];
 
-		categories = categories.concat(container.getPersistentSettingsModel().get(this.settingsKey));
+		var storedCategories = container.getPersistentSettingsModel().get(this.settingsKey);
+		if ( storedCategories ) {
+			categories = categories.concat(container.getPersistentSettingsModel().get(this.settingsKey));
+		}
 		categories = categories.concat(container.populateInsertionPoint('main.categories'));
 
 		// Add additonal categories defined by the admin. They are already defined by the default
@@ -43,6 +46,16 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 				return c.name === category.name;
 			});
 		});
+
+		// Remove stored additional categories that are not present in the configured addtional categories
+		categories = categories.filter(function(category) {
+			return !category.additional ||
+					additionalCategories.some(function(additionalCategory) {
+						return additionalCategory.name === category.name;
+					});
+		});
+
+		// Add new additional categories
 		categories = categories.concat(newAdditionalCategories);
 
 		categories = categories.filter(function(category){
@@ -126,7 +139,8 @@ Zarafa.common.categories.data.CategoriesStore = Ext.extend(Ext.data.ArrayStore, 
 				standardIndex: categoryRecord.get('standardIndex'),
 				quickAccess: categoryRecord.get('quickAccess'),
 				sortIndex: categoryRecord.get('sortIndex'),
-				used: categoryRecord.get('used')
+				used: categoryRecord.get('used'),
+				additional: categoryRecord.get('additional')
 			};
 		});
 
