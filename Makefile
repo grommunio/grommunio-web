@@ -47,6 +47,7 @@ IMAGEDIR = client/resources/images
 IMAGES = $(wildcard $(IMAGEDIR)/*.* $(IMAGEDIR)/whatsnew/*.*)
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
 APPICONS = $(wildcard $(IMAGEDIR)/app-icons/*.*)
+APPICONSDEST = $(addprefix $(DESTDIR)/, $(APPICONS))
 APPICONSSCSS = client/resources/scss/base/_icons.scss
 APPICONSEXTENSIONSFILE = client/resources/images/app-icons.extensions.json
 EXTJSMODFILES = $(wildcard client/extjs-mod/*.js)
@@ -76,11 +77,13 @@ test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(KOPANOCSS) js
+client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(KOPANOCSS) $(APPICONSDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/resources/scss $(DESTDIR)/client/resources/
 	cp -r client/resources/config.rb $(DESTDIR)/client/resources/
+	cp -r client/resources/iconsets $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
+	cp -r client/resources/images/app-icons $(DESTDIR)/client/resources/images/
 	rm -rf $(DESTDIR)/client/themes/*/js
 	# TODO use separate targets
 
