@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -570,6 +570,15 @@ msgstr "מיין לפי: שינוי"
 #, fuzzy
 msgid "Sort by: Fax"
 msgstr "מיין לפי: מאת"
+
+msgid "No preview"
+msgstr "ללא תצוגה"
+
+msgid "Right preview"
+msgstr "תצוגה מימין"
+
+msgid "Bottom preview"
+msgstr "תצוגה מלמטה"
 
 # 87%
 #, fuzzy
@@ -1371,6 +1380,12 @@ msgstr "רגישות"
 msgid "Importance"
 msgstr "חשיבות"
 
+msgid "M j"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr ""
@@ -1615,6 +1630,21 @@ msgstr ""
 
 msgid "Copy"
 msgstr "העתק"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "הווב אפ של זראפה"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr "העבר"
+
+msgid "Don't move"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2100,9 +2130,6 @@ msgstr "העתק/העבר תיקיה"
 
 msgid "Copy/Move Messages"
 msgstr "העתק/העבר הודעות"
-
-msgid "Move"
-msgstr "העבר"
 
 msgid "Destination folder"
 msgstr ""
@@ -2736,15 +2763,6 @@ msgstr ""
 
 msgid "From Addresses settings"
 msgstr ""
-
-msgid "No preview"
-msgstr "ללא תצוגה"
-
-msgid "Right preview"
-msgstr "תצוגה מימין"
-
-msgid "Bottom preview"
-msgstr "תצוגה מלמטה"
 
 msgid "Full name"
 msgstr ""

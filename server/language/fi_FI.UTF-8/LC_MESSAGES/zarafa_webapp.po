@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -548,6 +548,15 @@ msgstr "Järjestä: Sijainti"
 # 76%
 msgid "Sort by: Fax"
 msgstr "Järjestä: Faksi"
+
+msgid "No preview"
+msgstr "Ei esikatselua"
+
+msgid "Right preview"
+msgstr "Esikatselu oikealla"
+
+msgid "Bottom preview"
+msgstr "Esikatselu alareunassa"
 
 #, fuzzy
 msgid "Any date"
@@ -1343,6 +1352,13 @@ msgstr "Herkkyys"
 msgid "Importance"
 msgstr "Tärkeys"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
@@ -1588,6 +1604,21 @@ msgstr "Avaa kokouskutsu muutoksilla"
 
 msgid "Copy"
 msgstr "Kopioi"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr "Siirrä"
+
+msgid "Don't move"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2088,9 +2119,6 @@ msgstr "Kopioi/Siirrä kansio"
 
 msgid "Copy/Move Messages"
 msgstr "Kopioi/Siirrä viestejä"
-
-msgid "Move"
-msgstr "Siirrä"
 
 msgid "Destination folder"
 msgstr "Kohdekansio"
@@ -2731,15 +2759,6 @@ msgstr ""
 
 msgid "From Addresses settings"
 msgstr ""
-
-msgid "No preview"
-msgstr "Ei esikatselua"
-
-msgid "Right preview"
-msgstr "Esikatselu oikealla"
-
-msgid "Bottom preview"
-msgstr "Esikatselu alareunassa"
 
 msgid "Full name"
 msgstr ""

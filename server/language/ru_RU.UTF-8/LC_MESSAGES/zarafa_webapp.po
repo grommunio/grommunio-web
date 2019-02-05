@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -551,6 +551,15 @@ msgstr "Сортировать по месту"
 # 76%
 msgid "Sort by: Fax"
 msgstr "Сортировать по факсу"
+
+msgid "No preview"
+msgstr "Без предпросмотра"
+
+msgid "Right preview"
+msgstr "Предпросмотр справа"
+
+msgid "Bottom preview"
+msgstr "Предпросмотр снизу"
 
 msgid "Any date"
 msgstr "Любая дата"
@@ -1323,6 +1332,13 @@ msgstr "Конфиденциальность"
 msgid "Importance"
 msgstr "Важность"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
@@ -1568,6 +1584,25 @@ msgstr "Открыть измененное приглашение на собр
 
 msgid "Copy"
 msgstr "Копировать"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Обратите внимание, что любые изменения, которые вы делаете, будут "
+"перезаписаны, если это собрание будет обновлено организатором"
+
+msgid "Move"
+msgstr "Переместить"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Не отправлять"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2077,9 +2112,6 @@ msgstr "Скопировать/переместить каталог"
 
 msgid "Copy/Move Messages"
 msgstr "Копировать/переместить сообщения"
-
-msgid "Move"
-msgstr "Переместить"
 
 msgid "Destination folder"
 msgstr "Каталог назначения"
@@ -2714,15 +2746,6 @@ msgstr "Адреса отправки"
 
 msgid "From Addresses settings"
 msgstr "Настройки адресов отправки"
-
-msgid "No preview"
-msgstr "Без предпросмотра"
-
-msgid "Right preview"
-msgstr "Предпросмотр справа"
-
-msgid "Bottom preview"
-msgstr "Предпросмотр снизу"
 
 msgid "Full name"
 msgstr "ФИО"

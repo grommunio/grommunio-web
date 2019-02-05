@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -556,6 +556,15 @@ msgstr "Rendezés: Helyszín"
 # 76%
 msgid "Sort by: Fax"
 msgstr "Rendezés: Fax"
+
+msgid "No preview"
+msgstr "Nincs előnézet"
+
+msgid "Right preview"
+msgstr "Jobb oldali előnézet"
+
+msgid "Bottom preview"
+msgstr "Alsó előnézet"
 
 # 87%
 msgid "Any date"
@@ -1367,6 +1376,13 @@ msgstr "Információ érzékenysége"
 msgid "Importance"
 msgstr "Fontosság"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l Y/m/d"
@@ -1613,6 +1629,25 @@ msgstr "Értekezlet meghívó megnyitása a változásokkal"
 
 msgid "Copy"
 msgstr "Másolás"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Bármely most végbevitt változtatás felülíródik, ha az értekezlet szervezője "
+"frissíti az értekezletet"
+
+msgid "Move"
+msgstr "Áthelyezés"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Ne Küldje"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2120,9 +2155,6 @@ msgstr "Mappa másolása/mozgatása"
 
 msgid "Copy/Move Messages"
 msgstr "Üzenetek másolása/áthelyezése"
-
-msgid "Move"
-msgstr "Áthelyezés"
 
 msgid "Destination folder"
 msgstr "Célmappa"
@@ -2762,15 +2794,6 @@ msgstr ""
 
 msgid "From Addresses settings"
 msgstr ""
-
-msgid "No preview"
-msgstr "Nincs előnézet"
-
-msgid "Right preview"
-msgstr "Jobb oldali előnézet"
-
-msgid "Bottom preview"
-msgstr "Alsó előnézet"
 
 # 88%
 # 100%

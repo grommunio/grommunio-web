@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -566,6 +566,15 @@ msgstr "Razvrsti po: Lokaciji"
 # 76%
 msgid "Sort by: Fax"
 msgstr "Razvrsti po: Faks"
+
+msgid "No preview"
+msgstr "Ni predogleda"
+
+msgid "Right preview"
+msgstr "Desni predogled"
+
+msgid "Bottom preview"
+msgstr "Spodnji predogled"
 
 #, fuzzy
 msgid "Any date"
@@ -1370,6 +1379,13 @@ msgstr "Občutljivost"
 msgid "Importance"
 msgstr "Pomembnost"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "jS"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "1 d/m/L"
@@ -1612,6 +1628,22 @@ msgstr "Odpri zahtevo za sestanek s spremembami"
 
 msgid "Copy"
 msgstr "Kopiraj"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano Spletna aplikacija"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr "Premakni"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Ne pošlji"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2120,9 +2152,6 @@ msgstr "Kopiraj/premakni mapo"
 
 msgid "Copy/Move Messages"
 msgstr "Kopiraj/Premakni sporočila"
-
-msgid "Move"
-msgstr "Premakni"
 
 msgid "Destination folder"
 msgstr "Ciljna mapa"
@@ -2777,15 +2806,6 @@ msgstr ""
 
 msgid "From Addresses settings"
 msgstr ""
-
-msgid "No preview"
-msgstr "Ni predogleda"
-
-msgid "Right preview"
-msgstr "Desni predogled"
-
-msgid "Bottom preview"
-msgstr "Spodnji predogled"
 
 msgid "Full name"
 msgstr ""

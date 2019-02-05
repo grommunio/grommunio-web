@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -532,6 +532,15 @@ msgstr "Sorter efter: Placering"
 
 msgid "Sort by: Fax"
 msgstr "Sorter efter: Fax"
+
+msgid "No preview"
+msgstr "Ingen forhåndsvisning"
+
+msgid "Right preview"
+msgstr "Højre forhåndsvisning"
+
+msgid "Bottom preview"
+msgstr "Nedre forhåndsvisning"
 
 msgid "Any date"
 msgstr "Alle datoer"
@@ -1282,6 +1291,13 @@ msgstr "Følsomhed"
 msgid "Importance"
 msgstr "Vigtighed"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
@@ -1514,6 +1530,25 @@ msgstr "Åben mødeindkaldelse med ændringer"
 
 msgid "Copy"
 msgstr "Kopier"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Bemærk at ændringer du foretager vil blive overskrevet når denne "
+"mødeindkaldelse bliver opdateret af arrangøren"
+
+msgid "Move"
+msgstr "Flyt"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Send ikke"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2010,9 +2045,6 @@ msgstr "Kopier/flyt mappe"
 
 msgid "Copy/Move Messages"
 msgstr "Kopier/flyt meddelelser"
-
-msgid "Move"
-msgstr "Flyt"
 
 msgid "Destination folder"
 msgstr "Destinationsmappe"
@@ -2625,15 +2657,6 @@ msgstr "Afsenderadresser"
 
 msgid "From Addresses settings"
 msgstr "Indstillinger for afsenderadresse"
-
-msgid "No preview"
-msgstr "Ingen forhåndsvisning"
-
-msgid "Right preview"
-msgstr "Højre forhåndsvisning"
-
-msgid "Bottom preview"
-msgstr "Nedre forhåndsvisning"
 
 msgid "Full name"
 msgstr "Fulde navn"

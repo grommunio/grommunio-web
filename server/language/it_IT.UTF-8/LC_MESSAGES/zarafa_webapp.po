@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -551,6 +551,15 @@ msgstr "Ordina per: Posizione"
 # 76%
 msgid "Sort by: Fax"
 msgstr "Ordina per: Fax"
+
+msgid "No preview"
+msgstr "Nessuna anteprima"
+
+msgid "Right preview"
+msgstr "Anteprima a destra"
+
+msgid "Bottom preview"
+msgstr "Anteprima in basso"
 
 # 87%
 msgid "Any date"
@@ -1339,6 +1348,13 @@ msgstr "Priorità"
 msgid "Importance"
 msgstr "Importanza"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "jS"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
@@ -1588,6 +1604,25 @@ msgstr "Apri richiesta di appuntamento modificata"
 
 msgid "Copy"
 msgstr "Copia"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Qualsiasi modifica effettuata verrà sovrascritta quando questa richiesta di "
+"appuntamento verrà aggiornata dall'organizzatore"
+
+msgid "Move"
+msgstr "Sposta"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Non inviare"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2106,9 +2141,6 @@ msgstr "Copia/Sposta cartella"
 
 msgid "Copy/Move Messages"
 msgstr "Copia/Sposta messaggi"
-
-msgid "Move"
-msgstr "Sposta"
 
 msgid "Destination folder"
 msgstr "Cartella di destinazione"
@@ -2753,15 +2785,6 @@ msgstr "Indirizzi dei mittenti"
 
 msgid "From Addresses settings"
 msgstr "Impostazioni degli indirizzi dei mittenti"
-
-msgid "No preview"
-msgstr "Nessuna anteprima"
-
-msgid "Right preview"
-msgstr "Anteprima a destra"
-
-msgid "Bottom preview"
-msgstr "Anteprima in basso"
 
 # 88%
 # 100%

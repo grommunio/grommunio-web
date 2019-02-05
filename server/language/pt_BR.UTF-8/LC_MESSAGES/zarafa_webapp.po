@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -537,6 +537,15 @@ msgstr "Ordenar por: Localização"
 
 msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
+
+msgid "No preview"
+msgstr "Sem visualização"
+
+msgid "Right preview"
+msgstr "Visualização à direita"
+
+msgid "Bottom preview"
+msgstr "Visualização na parte inferior"
 
 #, fuzzy
 msgid "Any date"
@@ -1354,6 +1363,13 @@ msgstr "Sensibilidade"
 msgid "Importance"
 msgstr "Importância"
 
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
@@ -1594,6 +1610,21 @@ msgstr "Abrir solicitação de reunião com modificações"
 
 msgid "Copy"
 msgstr "Copiar"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Don't move"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2094,9 +2125,6 @@ msgstr "Copiar/Mover pasta"
 
 msgid "Copy/Move Messages"
 msgstr "Copiar/Mover Mensagens"
-
-msgid "Move"
-msgstr "Mover"
 
 msgid "Destination folder"
 msgstr "Pasta destino"
@@ -2735,15 +2763,6 @@ msgstr ""
 
 msgid "From Addresses settings"
 msgstr ""
-
-msgid "No preview"
-msgstr "Sem visualização"
-
-msgid "Right preview"
-msgstr "Visualização à direita"
-
-msgid "Bottom preview"
-msgstr "Visualização na parte inferior"
 
 msgid "Full name"
 msgstr ""

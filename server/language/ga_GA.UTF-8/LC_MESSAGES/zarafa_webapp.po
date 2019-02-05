@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Irish (Gabun)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-11 14:14+0100\n"
+"POT-Creation-Date: 2019-02-05 15:35+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Irish (GA) <http://translate.kopano.io/projects/kopano/kopano-"
@@ -557,6 +557,15 @@ msgid "Sort by: Location"
 msgstr ""
 
 msgid "Sort by: Fax"
+msgstr ""
+
+msgid "No preview"
+msgstr ""
+
+msgid "Right preview"
+msgstr ""
+
+msgid "Bottom preview"
 msgstr ""
 
 msgid "Any date"
@@ -1283,6 +1292,12 @@ msgstr ""
 msgid "Importance"
 msgstr ""
 
+msgid "M j"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr ""
@@ -1508,6 +1523,20 @@ msgid "Open meeting request with changes"
 msgstr ""
 
 msgid "Copy"
+msgstr ""
+
+msgid "Kopano Webapp"
+msgstr ""
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid "Don't move"
 msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
@@ -1966,9 +1995,6 @@ msgid "Copy/Move Folder"
 msgstr ""
 
 msgid "Copy/Move Messages"
-msgstr ""
-
-msgid "Move"
 msgstr ""
 
 msgid "Destination folder"
@@ -2576,15 +2602,6 @@ msgid "From Addresses"
 msgstr ""
 
 msgid "From Addresses settings"
-msgstr ""
-
-msgid "No preview"
-msgstr ""
-
-msgid "Right preview"
-msgstr ""
-
-msgid "Bottom preview"
 msgstr ""
 
 msgid "Full name"
