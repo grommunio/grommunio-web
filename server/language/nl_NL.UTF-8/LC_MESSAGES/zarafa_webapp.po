@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-05 15:35+0100\n"
-"PO-Revision-Date: 2019-01-11 13:10+0000\n"
+"PO-Revision-Date: 2019-02-05 14:35+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1634,20 +1634,18 @@ msgstr "Kopiëren"
 msgid "Kopano Webapp"
 msgstr "Kopano WebApp"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-"Alle gemaakte wijzigingen zullen worden overschreven wanneer dit "
-"vergaderverzoek wordt bijgewerkt door de organisator"
+"Alle gemaakte wijzigingen zullen worden overschreven wanneer deze afspraak "
+"wordt bijgewerkt door de organisator. Wil je deze afspraak verplaatsen?"
 
 msgid "Move"
 msgstr "Verplaatsen"
 
-#, fuzzy
 msgid "Don't move"
-msgstr "Niet verzenden"
+msgstr "Niet verplaatsen"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
