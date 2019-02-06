@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-05 15:35+0100\n"
-"PO-Revision-Date: 2018-11-08 16:05+0000\n"
+"PO-Revision-Date: 2019-02-06 11:25+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -663,9 +663,8 @@ msgctxt "search.date"
 msgid "To"
 msgstr "Til"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "Slett kategori"
+msgstr "Filtrerings kategori.."
 
 msgid "Search.."
 msgstr "Søk.."
@@ -940,9 +939,8 @@ msgstr "Skriv ut"
 msgid "No appointment selected"
 msgstr "Ingen avtale valgt"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Privat avtale"
+msgstr "Lag avtale"
 
 msgid "Calendar"
 msgstr "Kalender"
@@ -1284,9 +1282,8 @@ msgstr "Kopier valgt element"
 msgid "Paste selected item"
 msgstr "Lim inn valgt element"
 
-#, fuzzy
 msgid "Location: "
-msgstr "Sted"
+msgstr "Sted: "
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1330,7 +1327,7 @@ msgid "Importance"
 msgstr "Viktighet"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 #, fuzzy
 msgid "j"
@@ -1453,9 +1450,8 @@ msgid "Decline"
 msgstr "Avslå"
 
 # 75%
-#, fuzzy
 msgid "Send to..."
-msgstr "Send til"
+msgstr "Send til .."
 
 msgid "Export as"
 msgstr "Eksporter som"
@@ -1583,24 +1579,21 @@ msgstr "Åpne møteinvitasjonen med endringene"
 msgid "Copy"
 msgstr "Kopier"
 
-#, fuzzy
 msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgstr "Kopano Webapp"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Vennligst merk at alle endringer du gjør vil bli overskrevet når denne "
-"møteinnkallelsen blir oppdatert av møtearrangøren"
+"møteinnkallelsen blir oppdatert av møtearrangøren. Vil du flytte dette møte?"
 
 msgid "Move"
 msgstr "Flytt"
 
-#, fuzzy
 msgid "Don't move"
-msgstr "Ikke send"
+msgstr "Ikke flytt"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1830,9 +1823,8 @@ msgstr "Mislykket import til {0}"
 msgid "Import error"
 msgstr "Feil ved import"
 
-#, fuzzy
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "Kunne ikke importere {0}. Filen er ikke gyldig"
+msgstr "Kunne ikke importere \"{0}\". Filen er ikke gyldig"
 
 msgid "Cc"
 msgstr "Cc"
@@ -1914,21 +1906,19 @@ msgstr "Last ned som ZIP"
 msgid "Import to folder"
 msgstr "Importer til mappe"
 
-#, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
 "For å kunne bruke vCard import funksjonen, så må du oppgradere Kopano Core "
-"til versjon 8.3+"
+"til versjon 8.3 eller høyere."
 
-#, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
-"For å kunne bruke vCard import funksjonen, så må du oppgradere Kopano Core "
-"til versjon 8.3+"
+"For å kunne bruke ICS/VCS  import funksjonen, så må du oppgradere Kopano "
+"Core til versjon 8.3 eller høyere."
 
 # 93%
 msgid "Attachment error"
@@ -2105,9 +2095,8 @@ msgstr ""
 msgid "Permission"
 msgstr "Rettigheter"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Avslå og slett"
+msgstr "Kopi til vikar"
 
 msgid "Delegate already exists in the list."
 msgstr "Representanten finnes allerede i listen."
@@ -2133,7 +2122,7 @@ msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr "Sett selvvalgt flagg"
@@ -2283,9 +2272,8 @@ msgstr ""
 "Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
 "slettede elementene kan allikevel bli gjenopprettet."
 
-#, fuzzy
 msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgstr "Kopano WebApp utskrift"
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -2419,11 +2407,10 @@ msgstr "Info"
 msgid "Not supported at the moment."
 msgstr "Ikke støttet for øyeblikket."
 
-#, fuzzy
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Det er ingen påminnelser"
-msgstr[1] "Det er ingen påminnelser"
+msgstr[0] "Det er {0} påminnelse"
+msgstr[1] "Det er {0} påminnelser"
 
 msgid "Reminders"
 msgstr "Påminnelser"
@@ -4039,9 +4026,8 @@ msgstr "Del mappe..."
 msgid "Import emails"
 msgstr "Importer e-post"
 
-#, fuzzy
 msgid "Import appointments"
-msgstr "Ingen avtaler"
+msgstr "Importer avtaler"
 
 msgid "Properties of {0}"
 msgstr "Egenskaper til {0}"
@@ -4272,7 +4258,6 @@ msgstr "Veksle mellom rødt/fullført flagg"
 msgid "Open Shared Mails"
 msgstr "Åpne delt e-post"
 
-#, fuzzy
 msgid "Print single email"
 msgstr "Skriv ut enkelt e-post"
 
@@ -4572,9 +4557,8 @@ msgstr "Bruk standardinnstillinger"
 msgid "Delete settings"
 msgstr "Slett innstillinger"
 
-#, fuzzy
 msgid "{0} Iconset"
-msgstr "Ikoner"
+msgstr "{0} Ikonsamling"
 
 msgid "About"
 msgstr "Om"
@@ -4588,16 +4572,14 @@ msgstr "Kort"
 msgid "Long"
 msgstr "Langt format"
 
-#, fuzzy
 msgid "Favorite settings"
-msgstr "Representant innstillinger"
+msgstr "Favoritt innstillinger"
 
-#, fuzzy
 msgid "Hide favorites"
-msgstr "Legg til favoritter"
+msgstr "Skjul favoritter"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Ta bort favoritter fra toppen"
 
 msgid "Inbox navigation"
 msgstr "Navigasjon i Innboks"
@@ -4985,40 +4967,45 @@ msgstr "Oppdater liste"
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
-#, fuzzy
 msgid "Import / Export"
-msgstr "Feil ved import"
+msgstr "Import/eksport"
 
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
 msgstr ""
+"Kalender, kontakter og e-post kan importeres og eksporter til og fra WebApp."
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Høyre-klikk på en mappe og velg importer-knappen. Du kan også importere "
+"direkte fra kontektsmenyen til vedlegg."
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Eksport kan utføres fra kontektsmenyen til et objekt."
 
-#, fuzzy
 msgid "Icon packs"
-msgstr "Ikoner"
+msgstr "Ikonsamlinger"
 
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Du kan velge blant flere typer ikoner. Ikonsamlingen Breeze er satt som "
+"standard, men om du ønsker spå kan du endre tilbake til de klassiske ikonene "
+"her."
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Gå til Innstillinger, åpne Generelt arkfanen, og velg ønsket ikon-samling."
 
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Venstre: Breeze - Høyre: Klassisk"
 
 msgid "What's new"
 msgstr "Nyheter"
@@ -5377,6 +5364,8 @@ msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
+"Beklager, tilgang til WebApp er ikke mulig for denne brukeren. Ta kontakt "
+"med din systemadministrator."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
@@ -5417,7 +5406,7 @@ msgid "Error retrieving existing settings"
 msgstr "Feil ved henting av eksisterende innstillinger"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Feil ved lasting av eksisterende innstillinger"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
@@ -5430,6 +5419,8 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"På grunn av en allerede eksisterende pålogging, så var det ikke muli8g å "
+"logge inn. Dette har blitt løst automatisk, forsøk å logge inn igjen."
 
 msgid "Unknown MAPI Error"
 msgstr "Ukjent MAPI feil"
@@ -5458,7 +5449,7 @@ msgstr "Kunne ikke importere '%s' til '%s'. "
 
 # 100%
 msgid "There is no appointment found in this file."
-msgstr ""
+msgstr "Fant ingen avtaler i denne filen."
 
 msgid "The file is corrupt."
 msgstr "Filen er skadet."
@@ -5471,7 +5462,7 @@ msgid "Unable to import '%s'. "
 msgstr "Kunne ikke importere  '%s'. "
 
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Ta kontakt med din systemadministrator om dette problemet vedvarer."
 
 msgid "Attachment is not imported successfully"
 msgstr "Vedlegget ble ikke vellykket importert"
@@ -5615,6 +5606,8 @@ msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Kunne ikke vise kontaktinformasjonen fordi serveren hadde problemer med å "
+"hente denne."
 
 msgid "Could not handle this type of object."
 msgstr "Kunne ikke håndtere denne typen objekt."
@@ -5956,12 +5949,14 @@ msgstr "Feil ved søk, forsøk igjen"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Kunne ikke utføre søk, fordi du ikke har rettigheter til å opprette en Søke-"
+"mappe."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Kunne ikke utføre søk, da Søke-mappen ikke ble funnet."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "Kunne ikke utføre søk, kontoen støtter muligens ikke søk."
 
 msgid "Error in creating search folder."
 msgstr "Feil ved oppretting av søke-mappe."
