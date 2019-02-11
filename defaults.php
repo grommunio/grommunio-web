@@ -402,7 +402,7 @@ if(!defined('ENABLE_DEFAULT_SOFT_DELETE')) define('ENABLE_DEFAULT_SOFT_DELETE', 
 if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTERVAL', 15);
 
 // Prefetch email count
-if(!defined('PREFETCH_EMAIL_COUNT')) define('PREFETCH_EMAIL_COUNT', 0);
+if(!defined('PREFETCH_EMAIL_COUNT')) define('PREFETCH_EMAIL_COUNT', 10);
 
 // Defaults for powerpaste
 if(!defined('POWERPASTE_WORD_IMPORT')) define('POWERPASTE_WORD_IMPORT', 'merge');
