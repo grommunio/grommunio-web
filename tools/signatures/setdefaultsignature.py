@@ -84,16 +84,13 @@ def main():
             print("Empty Signature settings detected.")
             webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures'] = dict({'all': dict({})})
 
-        if webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['all'].get(signatureid):
-            print('Default Signature already exists.')
-        else:
-            print('Adding Default Signature.')
-            webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['all'][
-                signatureid] = signaturecontent
-            webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['new_message'] = signatureid
-            webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures'][
-                'replyforward_message'] = signatureid
-            write_settings(json.dumps(webappsettings))
+        print('Adding Default Signature.')
+        webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['all'][
+            signatureid] = signaturecontent
+        webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures']['new_message'] = signatureid
+        webappsettings['settings']['zarafa']['v1']['contexts']['mail']['signatures'][
+            'replyforward_message'] = signatureid
+        write_settings(json.dumps(webappsettings))
 
 
 if __name__ == '__main__':
