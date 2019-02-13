@@ -18,7 +18,7 @@ output_style = :compressed
 
 # Create inline sourcemaps
 sourcemap = true
-sass_options = {:sourcemap => :inline}
+sass_options = {:sourcemap => :auto}
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = true

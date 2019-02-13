@@ -66,6 +66,7 @@
 
 	<!-- The Kopano CSS files -->
 	<property name="kopano-css-folder" value="resources/css"/>
+	<property name="kopano-scss-folder" value="resources/scss"/>
 
 	<!-- The Kopano images -->
 	<property name="kopano-images-folder" value="resources/images"/>
@@ -326,6 +327,13 @@
 		<!-- copy css files (including sourcemaps) -->
 		<copy todir="${target-folder}/${kopano-css-folder}">
 			<fileset dir="${kopano-css-folder}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- copy scss files (used by the sourcemaps) -->
+		<copy todir="${target-folder}/${kopano-scss-folder}">
+			<fileset dir="${kopano-scss-folder}">
 				<include name="**/*" />
 			</fileset>
 		</copy>

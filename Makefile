@@ -43,6 +43,8 @@ SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
 
 CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.* client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
+SCSS = $(wildcard client/resources/scss/*.* client/resources/scss/*/*.*)
+SCSSDEST = $(addprefix $(DESTDIR)/, $(SCSS))
 IMAGEDIR = client/resources/images
 IMAGES = $(wildcard $(IMAGEDIR)/*.* $(IMAGEDIR)/whatsnew/*.*)
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
@@ -75,7 +77,7 @@ test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
+client: $(CSSDEST) $(SCSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	cp -r client/resources/images/app-icons $(DESTDIR)/client/resources/images/
