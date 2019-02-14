@@ -12,7 +12,7 @@ Zarafa.mail.Actions = {
 	 * further edited.
 	 *
 	 * @param {Zarafa.mail.MailContextModel} model Context Model object that will be used
-	 * to {@link Zarafa.mail.MailContextModel#createRecord create} the E-Mail.
+	 * to {@link Zarafa.mail.MailContextModel#createRecord create} the email.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */

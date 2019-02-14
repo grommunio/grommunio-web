@@ -109,7 +109,7 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 	},
 
 	/**
-	 * Handler for the "E-mail Recipient" option. This will create
+	 * Handler for the "Email Recipient" option. This will create
 	 * a new {@link Zarafa.core.data.MAPIRecord mail record}
 	 * and generate new phantom recipient for new mail. Then
 	 * it will open a new MailCreate ContentPanel for the new mail

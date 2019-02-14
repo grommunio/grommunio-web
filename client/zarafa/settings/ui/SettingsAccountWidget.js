@@ -102,7 +102,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 				htmlEncode : true
 			},{
 				xtype : 'displayfield',
-				fieldLabel : _('E-mail'),
+				fieldLabel : _('Email'),
 				value : user.getSMTPAddress(),
 				htmlEncode : true
 			},{

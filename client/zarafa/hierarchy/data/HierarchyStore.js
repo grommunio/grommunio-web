@@ -1011,7 +1011,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 
 	/**
 	 * Returns folder(s) which has the provided container-class except folders
-	 * in "deleted items" or "Junk E-mail".
+	 * in "deleted items" or "Junk Email".
 	 * @param {String} containerClass The container_class of the folders.
 	 * @return {Zarafa.core.data.IPFRecord[]} An array of folders
 	 */

@@ -57,7 +57,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var folderName = _('Empty folder');
 		var record = config.records;
 		if (record.isSpecialFolder('junk')) {
-			folderName = _('Empty Junk E-mail');
+			folderName = _('Empty Junk Email');
 		} else if (record.isSpecialFolder('wastebasket')) {
 			folderName = _('Empty Deleted Items');
 		}
