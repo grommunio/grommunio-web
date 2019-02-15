@@ -124,6 +124,11 @@
 	}
 }
 
+/* Widget info text */
+.zarafa-settings-widget-extrainfo {
+	padding: 0 0 $padding-large 0;
+}
+
 /* Loading of "address book -> select default folder" */
 .x-mask-loading-combo, .x-mask-loading-combo div {
 	background-color: transparent !important;
@@ -202,10 +207,6 @@
 	.zarafa-settings-widget-extrainfo {
 		margin: 0;
 	}
-	.k-settings-plugingrid {
-		padding-top: $padding-extra-large;
-	}
-
 	.zarafa-settings-pluginavailable-fixed {
 		.x-grid3-col-display_name {
 			span {

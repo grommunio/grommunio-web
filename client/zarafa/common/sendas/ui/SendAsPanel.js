@@ -39,73 +39,73 @@ Zarafa.common.sendas.ui.SendAsPanel = Ext.extend(Ext.Panel, {
 	createPanelItems : function(store)
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Here you can setup your alias email addresses.'),
-			fieldClass : 'x-form-display-field zarafa-settings-widget-extrainfo'
+			xtype: 'displayfield',
+			value: _('Manage the email addresses you can use as sender address when sending an email.'),
+			fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 		}, {
-			xtype : 'container',
-			flex : 1,
-			layout : {
-				type : 'hbox',
-				align : 'stretch',
-				pack  : 'start'
+			xtype: 'container',
+			flex: 1,
+			layout: {
+				type: 'hbox',
+				align: 'stretch',
+				pack: 'start'
 			},
-			items : [{
-				xtype : 'zarafa.sendasgrid',
-				ref : '../sendasGrid',
-				store : store,
-				flex : 1
+			items: [{
+				xtype: 'zarafa.sendasgrid',
+				ref: '../sendasGrid',
+				store: store,
+				flex: 1
 			}, {
-				xtype : 'container',
-				width : 160,
-				layout : {
-					type : 'vbox',
-					align : 'center',
-					pack  : 'start'
+				xtype: 'container',
+				width: 160,
+				layout: {
+					type: 'vbox',
+					align: 'center',
+					pack: 'start'
 				},
-				items : [{
-					xtype : 'button',
-					text : _('Address Book') + '...',
-					handler : this.onSendAsAddressBook,
-					scope : this
+				items: [{
+					xtype: 'button',
+					text: _('Address Book') + '...',
+					handler: this.onSendAsAddressBook,
+					scope: this
 				},{
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				},{
-					xtype : 'button',
-					text : _('Add') + '...',
-					handler : this.onSendAsAdd,
-					scope : this
+					xtype: 'button',
+					text: _('Add') + '...',
+					handler: this.onSendAsAdd,
+					scope: this
 				},{
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				},{
-					xtype : 'button',
-					text : _('Edit') + '...',
-					disabled : true,
-					ref : '../../editButton',
-					handler : this.onSendAsEdit,
-					scope : this
+					xtype: 'button',
+					text: _('Edit') + '...',
+					disabled: true,
+					ref: '../../editButton',
+					handler: this.onSendAsEdit,
+					scope: this
 				},{
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				},{
-					xtype : 'button',
-					text : _('View') + '...',
-					disabled : true,
-					ref : '../../viewButton',
-					handler : this.onSendAsView,
-					scope : this
+					xtype: 'button',
+					text: _('View') + '...',
+					disabled: true,
+					ref: '../../viewButton',
+					handler: this.onSendAsView,
+					scope: this
 				},{
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				},{
-					xtype : 'button',
-					text : _('Remove') + '...',
-					disabled : true,
-					ref : '../../removeButton',
-					handler : this.onSendAsRemove,
-					scope : this
+					xtype: 'button',
+					text: _('Remove') + '...',
+					disabled: true,
+					ref: '../../removeButton',
+					handler: this.onSendAsRemove,
+					scope: this
 				}]
 			}]
 		}];

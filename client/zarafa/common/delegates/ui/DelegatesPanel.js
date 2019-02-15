@@ -34,14 +34,14 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Override from Ext.Component
-			xtype : 'zarafa.delegatespanel',
-			border : false,
-			layout : {
-				type : 'vbox',
-				align : 'stretch',
-				pack  : 'start'
+			xtype: 'zarafa.delegatespanel',
+			border: false,
+			layout: {
+				type: 'vbox',
+				align: 'stretch',
+				pack: 'start'
 			},
-			items : this.createPanelItems(config.store)
+			items: this.createPanelItems(config.store)
 		});
 
 		Zarafa.common.delegates.ui.DelegatesPanel.superclass.constructor.call(this, config);
@@ -56,56 +56,56 @@ Zarafa.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 	createPanelItems : function(store)
 	{
 		return [{
-			xtype : 'displayfield',
-			value : _('Delegates can send items on your behalf. To grant permission to others to access your folders without also giving them send-on-behalf-of privileges, go to properties for each folder and change the options on the Permissions Tab.'),
-			fieldClass : 'x-form-display-field zarafa-settings-widget-extrainfo'
+			xtype: 'displayfield',
+			value: '<b>' + _('Delegates can send items on your behalf.') + '</b> <br>' + _('If you only want to set folder permissions, right-click on a folder to open the context menu and click on "Share Folder..."'),
+			fieldClass: 'x-form-display-field zarafa-settings-widget-extrainfo'
 		}, {
-			xtype : 'container',
-			flex : 1,
-			layout : {
-				type : 'hbox',
-				align : 'stretch',
-				pack  : 'start'
+			xtype: 'container',
+			flex: 1,
+			layout: {
+				type: 'hbox',
+				align: 'stretch',
+				pack: 'start'
 			},
-			items : [{
-				xtype : 'zarafa.delegatesgrid',
-				ref : '../delegatesGrid',
-				store : store,
-				flex : 1
+			items: [{
+				xtype: 'zarafa.delegatesgrid',
+				ref: '../delegatesGrid',
+				store: store,
+				flex: 1
 			}, {
-				xtype : 'container',
-				width : 160,
-				layout : {
-					type : 'vbox',
-					align : 'center',
-					pack  : 'start'
+				xtype: 'container',
+				width: 160,
+				layout: {
+					type: 'vbox',
+					align: 'center',
+					pack: 'start'
 				},
 				items : [{
-					xtype : 'button',
-					text : _('Add') + '...',
-					handler : this.onDelegateAdd,
-					ref : '../../addButton',
-					scope : this
+					xtype: 'button',
+					text: _('Add') + '...',
+					handler: this.onDelegateAdd,
+					ref: '../../addButton',
+					scope: this
 				}, {
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				}, {
-					xtype : 'button',
-					text : _('Remove') + '...',
-					disabled : true,
-					ref : '../../removeButton',
-					handler : this.onDelegateRemove,
-					scope : this
+					xtype: 'button',
+					text: _('Remove') + '...',
+					disabled: true,
+					ref: '../../removeButton',
+					handler: this.onDelegateRemove,
+					scope: this
 				}, {
-					xtype : 'spacer',
-					height : 20
+					xtype: 'spacer',
+					height: 20
 				}, {
-					xtype : 'button',
-					text : _('Permission') + '...',
-					disabled : true,
-					ref : '../../permissionButton',
-					handler : this.onDelegatePermission,
-					scope : this
+					xtype: 'button',
+					text: _('Permission') + '...',
+					disabled: true,
+					ref: '../../permissionButton',
+					handler: this.onDelegatePermission,
+					scope: this
 				}]
 			}]
 		}];

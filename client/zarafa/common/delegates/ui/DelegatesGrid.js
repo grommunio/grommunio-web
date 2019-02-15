@@ -27,7 +27,8 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 			store : config.store,
 			viewConfig : {
 				forceFit : true,
-				emptyText : '<div class=\'emptytext\'>' + _('No delegate exists') + '</div>'
+				deferEmptyText : false,
+				emptyText : '<div class=\'emptytext\'>' + _('No delegates configured') + '</div>'
 			},
 			loadMask : this.initLoadMask(),
 			columns : this.initColumnModel(),
