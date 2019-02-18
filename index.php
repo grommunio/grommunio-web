@@ -84,6 +84,7 @@
 		// Get language from the cookie, or from the language that is set by the admin
 		$Language = new Language();
 		$lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : LANG;
+		$lang = $Language->resolveLanguage($lang);
 		$Language->setLanguage($lang);
 
 		// If GET parameter 'load' is defined, we defer handling to the load.php script
