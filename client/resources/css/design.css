@@ -16,15 +16,37 @@
 /* triggers of comboboxes and up-down inputs */
 /* settings */
 /* The font */
-/*
- * Remember, !important is very fugly! But in this case it is used because we want to force only one font accross the WebApp
- * and this is a very easy way to overwrite all those font-settings that Ext does.
- */
+/* Set our preferred font on the body and all selectors that Ext has used to change the default font */
 @import url(../../tinymce/skins/white/skin.min.css);
-/* line 26, ../scss/base/_fonts.scss */
-body * :not(.mce-ico) {
-  font-family: arial, tahoma, helvetica, sans-serif !important;
-  font-size: 13px !important;
+/* line 22, ../scss/base/_fonts.scss */
+body,
+.x-panel-header,
+.x-panel-mc,
+.x-panel-tl .x-panel-header,
+.x-form-item,
+.x-form-field,
+.x-small-editor .x-form-field,
+.ext-webkit .x-small-editor .x-form-field,
+.x-toolbar td, .x-toolbar span, .x-toolbar input, .x-toolbar div, .x-toolbar select, .x-toolbar label,
+.x-tree-node,
+.x-tab-strip span.x-tab-strip-text,
+.x-grid3-hd-row td,
+.x-grid3-row td, .x-grid3-summary-row td,
+.x-grid-empty,
+.x-menu-list-item,
+.x-tip .x-tip-mc,
+.x-tip .x-tip-body,
+.x-window-tl .x-window-header,
+.x-window-dlg .ext-mb-text, .x-window-dlg .x-window-header-text,
+.x-window-mc,
+.x-btn button,
+.x-date-mp-btns button,
+.x-dd-drag-ghost,
+.ext-el-mask-msg div,
+.x-date-inner a,
+.x-date-mp td {
+  font-family: arial, tahoma, helvetica, sans-serif;
+  font-size: 13px;
 }
 
 /***************************************************************
@@ -5453,8 +5475,8 @@ div.zarafa-contact-cardview-selected {
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
   background: #0f70bd;
   color: #ffffff;
-  font-family: arial, tahoma, helvetica, sans-serif !important;
-  font-size: 15px !important;
+  font-family: arial, tahoma, helvetica, sans-serif;
+  font-size: 15px;
   line-height: 20px;
   padding: 8px 9px;
   border-left: 1px solid #0f70bd;
