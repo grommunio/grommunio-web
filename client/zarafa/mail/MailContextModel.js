@@ -32,14 +32,6 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	prefetchedTotal: 0,
 
 	/**
-	 * The timeout between batch fetching items in milliseconds.
-	 * @property
-	 * @type Number
-	 * @private
-	*/
-	prefetchTimeout: 30000,
-
-	/**
 	 * The id of the background load deffered task, used to clear the timer.
 	 * @property
 	 * @type Number
@@ -852,7 +844,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		// Start delayed task to fetch remainder of lazy loaded items
 		if (unOpened.length > 0 && this.prefetchedTotal < container.getServerConfig().getPrefetchTotalCount()) {
-			this.prefetchItemTask = this.lazyLoadMail.defer(this.prefetchTimeout, this, [store, unOpened]);
+			this.prefetchItemTask = this.lazyLoadMail.defer(container.getServerConfig().getPrefetchInterval(), this, [store, unOpened]);
 		}
 	},
 
