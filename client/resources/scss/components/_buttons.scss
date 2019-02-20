@@ -9,24 +9,6 @@ $action-fontcolor				: $font-color-light;
 $normal-button-bgcolor			: $grey;
 $normal-button-bgcolor-hover	: $grey2;
 
-/* Mixin for special button, usually with a different background and font color */
-@mixin action-button() {
-	background-color: $action-bgcolor;
-	color: $action-fontcolor;
-	min-width: 84px;
-	height: 24px; /* Overriden from style.css */
-	font-size: 13px;
-}
-
-@mixin action-button-hover() {
-	background-color: $action-bgcolor-hover;
-}
-
-@mixin action-button-active() {
-	background-color: $action-bgcolor;
-	box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.35);
-}
-
 /**************************************
  * General buttons
  *************************************/
