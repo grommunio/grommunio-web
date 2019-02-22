@@ -324,5 +324,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getPrefetchTotalCount : function()
 	{
 		return this.meta.prefetch_email_count;
+	},
+
+	/**
+	 * @return {Number} return the interval in microseconds to load new emails in the background.
+	 */
+	getPrefetchInterval : function()
+	{
+		return this.meta.prefetch_email_interval * 1000;
 	}
 });

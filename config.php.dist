@@ -182,9 +182,13 @@
 	// Define the polling interval in minutes for unread mail in shared stores.
 	define('SHARED_STORE_POLLING_INTERVAL', 15);
 
-	// Define the amount of emails to load in the background, in batches of 10 emails per request every 30 seconds
-	// until the defined amount of items is loaded. Setting this value to zero disables this feature.
+	// Define the amount of emails to load in the background, in batches of 10 emails per request every x seconds
+	// defined by PREFETCH_EMAIL_INTERVAL until the defined amount of items is loaded. Setting this value to zero
+	// disables this feature.
 	define('PREFETCH_EMAIL_COUNT', 10);
+
+	// Define the interval between loading of new emails in the background.
+	define('PREFETCH_EMAIL_INTERVAL', 30);
 
 	/**************************************\
 	* Memory usage and timeouts            *

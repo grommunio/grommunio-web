@@ -403,6 +403,7 @@ if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTER
 
 // Prefetch email count
 if(!defined('PREFETCH_EMAIL_COUNT')) define('PREFETCH_EMAIL_COUNT', 10);
+if(!defined('PREFETCH_EMAIL_INTERVAL')) define('PREFETCH_EMAIL_INTERVAL', 30);
 
 // Defaults for powerpaste
 if(!defined('POWERPASTE_WORD_IMPORT')) define('POWERPASTE_WORD_IMPORT', 'merge');
