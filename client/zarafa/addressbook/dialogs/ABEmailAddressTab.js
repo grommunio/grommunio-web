@@ -21,7 +21,7 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.abemailaddresstab',
-			title : _('E-mail Addresses'),
+			title : _('Email Addresses'),
 			layout: {
 				type: 'vbox',
 				pack  : 'start',
@@ -29,7 +29,7 @@ Zarafa.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel, {
 			},
 			items : [{
 				xtype : 'displayfield',
-				value : _('E-mail addresses') + ':',
+				value : _('Email addresses') + ':',
 				hideLabel : true
 			},{
 				xtype : 'panel',

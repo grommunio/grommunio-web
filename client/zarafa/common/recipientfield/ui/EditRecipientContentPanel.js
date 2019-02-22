@@ -47,7 +47,7 @@ Zarafa.common.recipientfield.ui.EditRecipientContentPanel = Ext.extend(Zarafa.co
 					anchor: '100%'
 				},{
 					xtype: 'textfield',
-					fieldLabel: _('E-mail address'),
+					fieldLabel: _('Email address'),
 					allowBlank : false,
 					vtype : 'email',
 					name: 'smtp_address',

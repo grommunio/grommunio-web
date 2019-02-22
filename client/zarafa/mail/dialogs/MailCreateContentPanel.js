@@ -68,7 +68,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 			xtype : 'zarafa.mailcreatecontentpanel',
 			// Override from Ext.Component
 			layout : 'fit',
-			title : _('E-Mail'),
+			title : _('Email'),
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true
 			}),

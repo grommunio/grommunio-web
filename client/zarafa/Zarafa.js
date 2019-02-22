@@ -658,7 +658,7 @@ Ext.apply(Zarafa, {
 			name : pgettext('hierarchy.foldername', 'Tasks')
 		},{
 			type : 'junk',
-			name : pgettext('hierarchy.foldername', 'Junk E-mail')
+			name : pgettext('hierarchy.foldername', 'Junk Email')
 		}];
 
 		var missing = [];
