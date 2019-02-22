@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-05 15:35+0100\n"
-"PO-Revision-Date: 2019-01-23 14:26+0000\n"
+"PO-Revision-Date: 2019-02-22 10:49+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -1279,9 +1279,8 @@ msgid "Importance"
 msgstr "Importância"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
-#, fuzzy
 msgid "j"
 msgstr "j"
 
@@ -1515,24 +1514,21 @@ msgstr "Abrir pedido de reunião com alterações"
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "Kopano Webapp"
 msgstr "Kopano WebApp"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Qualquer alteração efetuada será anulada quando o autor do pedido desta "
-"reunião o atualizar"
+"reunião o atualizar. Deseja mover esta reunião?"
 
 msgid "Move"
 msgstr "Mover"
 
-#, fuzzy
 msgid "Don't move"
-msgstr "Não enviar"
+msgstr "Não mover"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
