@@ -188,6 +188,9 @@ Zarafa.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 	{
 		var cls = record.get('quickAccess') ? ' zarafa-pinned' : '';
 		cls += Ext.isNumber(record.get('standardIndex')) ? ' k-category-fixed' : '';
+		if ( record.get('additional') ) {
+			cls += ' k-category-additional';
+		}
 
 		if(this.hideActionButtons) {
 			return Ext.util.Format.htmlEncode(value);

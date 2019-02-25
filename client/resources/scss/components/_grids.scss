@@ -330,6 +330,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-grid3-row-over .k-category-fixed .k-grid-button-delete {
 	display: none;
 }
+/* Additional categories cannot be edited or deleted because they are
+   defined by the admin */
+.x-grid3-row-over .k-category-additional .k-grid-button-edit,
+.x-grid3-row-over .k-category-additional .k-grid-button-delete {
+	display: none;
+}
 
 .x-grid3 .zarafa-pinned .k-grid-button-pin {
 	display: block;
