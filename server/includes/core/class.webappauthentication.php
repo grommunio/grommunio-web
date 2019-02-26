@@ -246,7 +246,7 @@ class WebAppAuthentication
 
 		// REMOTE_USER is set when apache has authenticated the user,
 		// meaning Single Sign-on environment is in effect.
-		return isset($_SERVER['REMOTE_USER']);
+		return isset($_SERVER['REMOTE_USER']) && !empty($_SERVER['REMOTE_USER']);
 	}
 
 	/**
