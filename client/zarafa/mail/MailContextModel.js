@@ -831,7 +831,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	lazyLoadMail: function(store, records) {
 		const unOpened = records.filter(function(record) {
-			return !record.isOpened() && record.isMessageClass(['IPM.Note'], true);
+			return (
+				!record.isOpened() &&							// No records that were already opened
+				record.isMessageClass(['IPM.Note'], true) &&	// Only mails
+				store.indexOf(record) >= 0						// No records that were deleted during the 'defer time'
+			);
 		});
 
 		const loadItems = unOpened.slice(0, this.prefetchBathCount);
