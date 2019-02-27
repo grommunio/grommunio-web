@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -333,11 +333,13 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "שדה זה צריך להכיל רק אותיות, מספרים ו _"
 
 # 81%
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "כתובות דואר אלקטרני"
 
 # 75%
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "כתובות דואר אלקטרוני"
 
 msgid "Group details"
@@ -2308,8 +2310,8 @@ msgstr "הווב אפ של זראפה"
 msgid "Display name"
 msgstr "שם תצוגה"
 
-# 85%
-msgid "E-mail address"
+# 92%
+msgid "Email address"
 msgstr "כתובת דואר אלקטרוני"
 
 msgid ""
@@ -3236,10 +3238,6 @@ msgstr "הבן"
 msgid "Sr."
 msgstr "האב"
 
-# 92%
-msgid "Email address"
-msgstr "כתובת דואר אלקטרוני"
-
 msgid "Phone number"
 msgstr "מזפר טלפון"
 
@@ -3371,10 +3369,6 @@ msgstr "כתובת דואר אלקטרוני חדשה"
 msgid "Please enter a valid email address"
 msgstr "אנא הזן כתובת דואר אלקטרוני תקפה!"
 
-# 92%
-msgid "E-mail Address"
-msgstr "כתובת דואר אלקטרוני"
-
 msgid "Select Members"
 msgstr ""
 
@@ -3394,28 +3388,10 @@ msgstr ""
 msgid "New distribution list"
 msgstr "צור רשימת תפוצה"
 
-# 83%
-#, fuzzy
-msgid "E-mail"
-msgstr "דואר אלקטורני"
-
-msgid "E-mail Display As"
+msgid "Email 2 Display As"
 msgstr ""
 
-# 87%
-#, fuzzy
-msgid "E-mail 2"
-msgstr "דואר אלקטורני 2"
-
-msgid "E-mail 2 Display As"
-msgstr ""
-
-# 87%
-#, fuzzy
-msgid "E-mail 3"
-msgstr "דואר אלקטורני 3"
-
-msgid "E-mail 3 Display As"
+msgid "Email 3 Display As"
 msgstr ""
 
 # 88%
@@ -4064,7 +4040,7 @@ msgstr ""
 msgid "Empty folder"
 msgstr "תיקיה ריקה"
 
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr ""
 
 # 92%
@@ -4221,22 +4197,17 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-#, fuzzy
-msgid "E-Mail"
-msgstr "דואר אלקטורני"
-
 msgid "Saving..."
 msgstr "שומר..."
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
+msgid "Saved at {0}"
 msgstr ""
 
 msgid "g:i A"
 msgstr "g:i A"
+
+msgid "Saving failed"
+msgstr ""
 
 msgid "Message Options"
 msgstr "אפשרויות הודעה"
@@ -4299,12 +4270,6 @@ msgstr ""
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "דגלי דואר אלקטרוני"
-
-msgid "Color of Flag"
-msgstr "צבע הדגל"
 
 msgid "Miscellaneous Options"
 msgstr "אפשרויות שונות"
@@ -5275,9 +5240,10 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "משימות"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
-msgstr ""
+msgid "Junk Email"
+msgstr "דואר אלקטורני"
 
 msgid "Missing folders"
 msgstr ""

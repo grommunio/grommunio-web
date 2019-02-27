@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2019-02-05 14:35+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -333,11 +333,13 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "Dit veld mag alleen letters, cijfers en _ bevatten"
 
 # 87%
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Email adressen"
 
 # 81%
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "E-mailadressen"
 
 msgid "Group details"
@@ -2339,8 +2341,7 @@ msgid "Display name"
 msgstr "Weergavenaam"
 
 # 85%
-# 92%
-msgid "E-mail address"
+msgid "Email address"
 msgstr "E-mailadres"
 
 msgid ""
@@ -3277,10 +3278,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-# 85%
-msgid "Email address"
-msgstr "E-mailadres"
-
 # 92%
 msgid "Phone number"
 msgstr "Telefoonnummer"
@@ -3406,9 +3403,6 @@ msgstr "Nieuw emailadres"
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig emailadres in"
 
-msgid "E-mail Address"
-msgstr "E-mail adres"
-
 # 82%
 msgid "Select Members"
 msgstr "Selecteer Leden"
@@ -3428,25 +3422,12 @@ msgstr "Nieuwe contactpersoon"
 msgid "New distribution list"
 msgstr "Nieuw distributielijst"
 
-# 83%
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "Toon E-mail Als"
-
-# 87%
-msgid "E-mail 2"
-msgstr "E-mail 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Toon E-mail 2 Als"
 
-# 87%
-msgid "E-mail 3"
-msgstr "E-mail 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "Toon E-mail 3 Als"
 
 # 88%
@@ -4148,7 +4129,8 @@ msgstr "Open gedeelde map of opslag"
 msgid "Empty folder"
 msgstr "Leeg folder"
 
-msgid "Empty Junk E-mail"
+#, fuzzy
+msgid "Empty Junk Email"
 msgstr "Ongewenste E-mail legen"
 
 # 92%
@@ -4296,21 +4278,19 @@ msgstr "op {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Uw e-mail wordt {0}{1} verstuurd"
 
-# 83%
-msgid "E-Mail"
-msgstr "E-Mail"
-
 msgid "Saving..."
 msgstr "Opslaan..."
 
-msgid "Message saving failed."
-msgstr "Opslaan e-mail mislukt."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "E-mail opgeslagen om {0}."
 
 msgid "g:i A"
 msgstr "G:i"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Activiteit mislukt"
 
 msgid "Message Options"
 msgstr "Berichtopties"
@@ -4373,12 +4353,6 @@ msgstr "Geen handtekeningen geconfigureerd"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Kan niet opslaan als bijlage aan het uploaden is"
-
-msgid "E-Mail Flags"
-msgstr "E-mailmarkeringen"
-
-msgid "Color of Flag"
-msgstr "Markeringskleur"
 
 msgid "Miscellaneous Options"
 msgstr "Overige Opties"
@@ -5347,8 +5321,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Taken"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Ongewenste E-mail"
 
 msgid "Missing folders"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -324,10 +324,12 @@ msgstr "Tämä kenttä voi pitää sisällään ainoastaan kirjaimia ja _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Tämä kenttä voi pitää sisällään ainoastaan kirjaimia, numeroita ja _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Sähköpostiosoitteet"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Sähköpostiosoitteet"
 
 msgid "Group details"
@@ -2292,7 +2294,7 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Näyttönimi"
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Sähköpostiosoite"
 
 msgid ""
@@ -3233,9 +3235,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-msgid "Email address"
-msgstr "Sähköpostiosoite"
-
 msgid "Phone number"
 msgstr "Puhelinnumero"
 
@@ -3359,9 +3358,6 @@ msgstr "Uusi sähköpostiosoite"
 msgid "Please enter a valid email address"
 msgstr "Ole hyvä ja syötä toimiva sähköpostiosoite!"
 
-msgid "E-mail Address"
-msgstr "Muu osoite"
-
 msgid "Select Members"
 msgstr "Valitse jäseniä"
 
@@ -3380,24 +3376,12 @@ msgstr ""
 msgid "New distribution list"
 msgstr "Tulosta jakelulista"
 
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "Sähköpostin näyttö muodossa"
-
-# 75%
-msgid "E-mail 2"
-msgstr "Sähköposti 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Sähköposti 2:n näyttö muodossa"
 
-# 75%
-msgid "E-mail 3"
-msgstr "Sähköposti 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "S'hköpostin 3:n näyttö muodossa"
 
 msgid "Assistent"
@@ -4028,7 +4012,7 @@ msgid "Empty folder"
 msgstr "Tyhjennä kansio"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "Roskaposti"
 
 # 92%
@@ -4184,21 +4168,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-msgid "E-Mail"
-msgstr "Sähköposti"
-
 msgid "Saving..."
 msgstr ""
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
-msgstr ""
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "Siirrä kohteeseen {0}"
 
 msgid "g:i A"
 msgstr ""
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Ladataan postia"
 
 msgid "Message Options"
 msgstr "Viestivalinnat"
@@ -4263,12 +4245,6 @@ msgstr "Allekirjoituksia ei asetettu"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Sähköpostimerkinnät"
-
-msgid "Color of Flag"
-msgstr "Merkinnän väri"
 
 msgid "Miscellaneous Options"
 msgstr "Sekalaiset valinnat"
@@ -5229,8 +5205,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tehtävät"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Roskaposti"
 
 msgid "Missing folders"

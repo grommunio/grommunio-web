@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2019-02-22 10:49+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -323,10 +323,12 @@ msgstr "Este campo deve apenas conter letras e '_'"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Este campo deve apenas conter letras, números e '_'"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Endereços de E-mail"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Endereços de E-mail"
 
 msgid "Group details"
@@ -2184,8 +2186,8 @@ msgstr "Impressão Kopano WebApp"
 msgid "Display name"
 msgstr "Nome a mostrar"
 
-msgid "E-mail address"
-msgstr "Endereço E-mail"
+msgid "Email address"
+msgstr "Endereço de Email"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -3062,9 +3064,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-msgid "Email address"
-msgstr "Endereço de Email"
-
 msgid "Phone number"
 msgstr "Números de Telefone"
 
@@ -3180,9 +3179,6 @@ msgstr "Novo endereço de E-mail"
 msgid "Please enter a valid email address"
 msgstr "Por favor introduza um endereço de email válido"
 
-msgid "E-mail Address"
-msgstr "Endereço de E-mail"
-
 msgid "Select Members"
 msgstr "Selecionar membros"
 
@@ -3198,22 +3194,12 @@ msgstr "Novo contacto"
 msgid "New distribution list"
 msgstr "Nova lista de distribuição"
 
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "E-mail mostrar como"
-
-msgid "E-mail 2"
-msgstr "E-mail 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "E-mail 2 mostrar como"
 
-msgid "E-mail 3"
-msgstr "E-mail 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "E-mail3 mostrar como"
 
 msgid "Assistent"
@@ -3832,7 +3818,8 @@ msgstr "Abrir pastas/caixas partilhadas"
 msgid "Empty folder"
 msgstr "Esvaziar pasta"
 
-msgid "Empty Junk E-mail"
+#, fuzzy
+msgid "Empty Junk Email"
 msgstr "Esvaziar E-mail de SPAM"
 
 msgid "Empty Deleted Items"
@@ -3972,20 +3959,19 @@ msgstr "a {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "A mensagem será enviada {0}{1}"
 
-msgid "E-Mail"
-msgstr "E-Mail"
-
 msgid "Saving..."
 msgstr "A gravar..."
 
-msgid "Message saving failed."
-msgstr "Falhou ao gravar mensagem."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Mensagem gravada a {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Operação falhou"
 
 msgid "Message Options"
 msgstr "Opções da mensagem"
@@ -4046,12 +4032,6 @@ msgstr "Sem assinaturas configuradas"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Não é possível guardar enquanto o anexo é enviado"
-
-msgid "E-Mail Flags"
-msgstr "Bandeiras de mensagem"
-
-msgid "Color of Flag"
-msgstr "Cor da bandeira"
 
 msgid "Miscellaneous Options"
 msgstr "Opções Várias"
@@ -4949,8 +4929,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tarefas"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "E-mail de SPAM"
 
 msgid "Missing folders"

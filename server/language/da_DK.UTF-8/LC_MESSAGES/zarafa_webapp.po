@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -323,10 +323,12 @@ msgstr "Dette felt må kun indeholde bogstaver og _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Dette felt må kun indeholde bogstaver, tal og _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Email adresser"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Email adresser "
 
 msgid "Group details"
@@ -2210,7 +2212,7 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Vist navn"
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Email adresse"
 
 msgid ""
@@ -3096,9 +3098,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-msgid "Email address"
-msgstr "Email adresse"
-
 msgid "Phone number"
 msgstr "Telefonnummer"
 
@@ -3219,9 +3218,6 @@ msgstr "Ny email adresse"
 msgid "Please enter a valid email address"
 msgstr "Indtast gyldig email adresse!"
 
-msgid "E-mail Address"
-msgstr "Email adresse"
-
 msgid "Select Members"
 msgstr "Vælg medlemmer"
 
@@ -3237,22 +3233,12 @@ msgstr "Ny kontakt"
 msgid "New distribution list"
 msgstr "Ny distributionsliste"
 
-msgid "E-mail"
-msgstr "Email"
-
-msgid "E-mail Display As"
-msgstr "Email Vis som"
-
-msgid "E-mail 2"
-msgstr "Email 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Email 2 Vis som"
 
-msgid "E-mail 3"
-msgstr "Email 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "Email 3 Vis som"
 
 msgid "Assistent"
@@ -3891,7 +3877,7 @@ msgid "Empty folder"
 msgstr "Tøm mappe"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "Uønsket post"
 
 #, fuzzy
@@ -4039,20 +4025,19 @@ msgstr "om {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Din email vil blive sendt {0}{1}"
 
-msgid "E-Mail"
-msgstr "Email"
-
 msgid "Saving..."
 msgstr "Gemmer..."
 
-msgid "Message saving failed."
-msgstr "Meddelelsen kunne ikke gemmes."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Meddelelsen er gemt på {0}."
 
 msgid "g:i A"
 msgstr "G:i"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Operationen mislykkedes"
 
 msgid "Message Options"
 msgstr "Meddelelses muligheder"
@@ -4117,12 +4102,6 @@ msgstr "Ingen signatur er konfigureret"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Email flag"
-
-msgid "Color of Flag"
-msgstr "Flagfarve"
 
 msgid "Miscellaneous Options"
 msgstr "Diverse muligheder"
@@ -5025,8 +5004,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Opgaver"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Uønsket post"
 
 msgid "Missing folders"

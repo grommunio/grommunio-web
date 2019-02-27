@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -314,10 +314,12 @@ msgstr "這個欄位只有字母和_"
 msgid "This field should only contain letters, numbers and _"
 msgstr "這個欄位只有字母、數字和_"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "電子郵件地址"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "電子郵件地址"
 
 msgid "Group details"
@@ -2216,7 +2218,7 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "顯示名稱"
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr "電子郵件地址"
 
 msgid ""
@@ -3139,9 +3141,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-msgid "Email address"
-msgstr "電子郵件地址"
-
 msgid "Phone number"
 msgstr "電話號碼"
 
@@ -3262,9 +3261,6 @@ msgstr "新增電子郵件地址"
 msgid "Please enter a valid email address"
 msgstr "請輸入有效的電子郵件地址"
 
-msgid "E-mail Address"
-msgstr "電子郵件地址"
-
 msgid "Select Members"
 msgstr "選擇成員"
 
@@ -3283,22 +3279,12 @@ msgstr ""
 msgid "New distribution list"
 msgstr "列印通訊群組列表"
 
-msgid "E-mail"
-msgstr "電子郵件"
-
-msgid "E-mail Display As"
-msgstr "電子郵件顯示為"
-
-msgid "E-mail 2"
-msgstr "電子郵件2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "電子郵件2顯示為"
 
-msgid "E-mail 3"
-msgstr "電子郵件3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "電子郵件3顯示為"
 
 msgid "Assistent"
@@ -3917,7 +3903,7 @@ msgid "Empty folder"
 msgstr "空的資料夾"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "垃圾郵件"
 
 # 92%
@@ -4068,20 +4054,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "E-Mail"
-msgstr "電子郵件"
-
 msgid "Saving..."
 msgstr ""
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
-msgstr ""
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "搬移到{0}"
 
 msgid "g:i A"
 msgstr ""
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "載入郵件中"
 
 msgid "Message Options"
 msgstr "郵件選項"
@@ -4144,12 +4129,6 @@ msgstr "沒有設定簽名檔"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "電子郵件旗標"
-
-msgid "Color of Flag"
-msgstr "旗標顏色"
 
 msgid "Miscellaneous Options"
 msgstr "其他選項"
@@ -5088,8 +5067,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "任務"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "垃圾郵件"
 
 msgid "Missing folders"

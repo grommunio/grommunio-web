@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -330,11 +330,13 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "A mező csak betűket, számokat, és _ jelet tartalmazhat"
 
 # 81%
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "E-mail címek"
 
 # 75%
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "E-mail címek"
 
 msgid "Group details"
@@ -2328,8 +2330,8 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Megjelenő név"
 
-# 85%
-msgid "E-mail address"
+# 92%
+msgid "Email address"
 msgstr "E-mail cím"
 
 msgid ""
@@ -3258,10 +3260,6 @@ msgstr "Ifj."
 msgid "Sr."
 msgstr "Úr"
 
-# 92%
-msgid "Email address"
-msgstr "E-mail cím"
-
 msgid "Phone number"
 msgstr "Telefonszám"
 
@@ -3385,10 +3383,6 @@ msgstr "Új e-mail cím"
 msgid "Please enter a valid email address"
 msgstr "Kérem adjon meg valós e-mail címet!"
 
-# 92%
-msgid "E-mail Address"
-msgstr "E-mail cím"
-
 msgid "Select Members"
 msgstr "Tagok kiválasztása"
 
@@ -3406,24 +3400,12 @@ msgstr "Új névjegy"
 msgid "New distribution list"
 msgstr "Új terjesztési lista"
 
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "E-mail megjelenítés, mint"
-
-# 75%
-msgid "E-mail 2"
-msgstr "E-mail 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "E-mail 2 megjelenítés, mint"
 
-# 75%
-msgid "E-mail 3"
-msgstr "E-mail 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "E-mail 3 megjelenítés, mint"
 
 msgid "Assistent"
@@ -4086,7 +4068,8 @@ msgstr "Megosztott mappa/tárhely megnyitása"
 msgid "Empty folder"
 msgstr "Importálás mappába"
 
-msgid "Empty Junk E-mail"
+#, fuzzy
+msgid "Empty Junk Email"
 msgstr "Levélszemét törlése"
 
 msgid "Empty Deleted Items"
@@ -4239,21 +4222,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr "A levél kiküldésének időpontja: {0}{1}"
 
-# 83%
-msgid "E-Mail"
-msgstr "Email"
-
 msgid "Saving..."
 msgstr "Mentés..."
 
-msgid "Message saving failed."
-msgstr "Üzenet mentése sikertelen."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Üzenet elmentve ekkor: {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Művelet sikertelen"
 
 msgid "Message Options"
 msgstr "Üzenet beállítások"
@@ -4319,12 +4300,6 @@ msgstr "Nincs aláírás beállítva"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Email jelölések"
-
-msgid "Color of Flag"
-msgstr "Jelölés színe"
 
 msgid "Miscellaneous Options"
 msgstr "Vegyes beállítások"
@@ -5265,8 +5240,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Feladatok"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Levélszemét"
 
 msgid "Missing folders"

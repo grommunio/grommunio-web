@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -334,10 +334,12 @@ msgstr "Это поле должно содержать лишь буквы и �
 msgid "This field should only contain letters, numbers and _"
 msgstr "Это поле должно содержать лишь буквы, цифры и «_»"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Почтовые адреса"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Почтовые адреса"
 
 msgid "Group details"
@@ -2281,7 +2283,7 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Отображаемое имя"
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Адрес эл. почты"
 
 msgid ""
@@ -3196,9 +3198,6 @@ msgstr "Мл."
 msgid "Sr."
 msgstr "Ст."
 
-msgid "Email address"
-msgstr "Адрес эл. почты"
-
 msgid "Phone number"
 msgstr "Номер телефона"
 
@@ -3318,9 +3317,6 @@ msgstr "Новый email адрес"
 msgid "Please enter a valid email address"
 msgstr "Пожалуйста, введите правильный email адрес"
 
-msgid "E-mail Address"
-msgstr "Адрес эл. почты"
-
 msgid "Select Members"
 msgstr "Выбрать участников"
 
@@ -3339,25 +3335,12 @@ msgstr "Новый контакт"
 msgid "New distribution list"
 msgstr "Новый список рассылки"
 
-# 83%
-msgid "E-mail"
-msgstr "Эл. почта"
-
-msgid "E-mail Display As"
-msgstr "Отображаемый адрес эл. почты"
-
-# 87%
-msgid "E-mail 2"
-msgstr "Эл. почта 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Отображаемый адрес эл. почты 2"
 
-# 87%
-msgid "E-mail 3"
-msgstr "Эл. почта 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "Отображаемый адрес эл. почты 3"
 
 # 88%
@@ -3995,7 +3978,8 @@ msgstr "Открыть общий каталог/хранилище"
 msgid "Empty folder"
 msgstr "Очистить папку"
 
-msgid "Empty Junk E-mail"
+#, fuzzy
+msgid "Empty Junk Email"
 msgstr "Очистить папку нежелательной почты"
 
 # 92%
@@ -4144,21 +4128,19 @@ msgstr "в {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Ваше письмо будет отправлено {0}{1}"
 
-# 83%
-msgid "E-Mail"
-msgstr "Эл. почта"
-
 msgid "Saving..."
 msgstr "Сохранение..."
 
-msgid "Message saving failed."
-msgstr "Не удалось сохранить письмо"
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Письмо сохранено в {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Операция не удалась"
 
 msgid "Message Options"
 msgstr "Параметры сообщения"
@@ -4219,12 +4201,6 @@ msgstr "Подписи не настроены"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Нельзя сохранять, пока не загружены вложения"
-
-msgid "E-Mail Flags"
-msgstr "Флаги почты"
-
-msgid "Color of Flag"
-msgstr "Цвет флага"
 
 msgid "Miscellaneous Options"
 msgstr "Остальные параметры"
@@ -5164,8 +5140,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Задачи"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Нежелательная почта"
 
 msgid "Missing folders"

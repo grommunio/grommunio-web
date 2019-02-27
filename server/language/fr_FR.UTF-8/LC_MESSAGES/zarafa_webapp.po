@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -327,10 +327,12 @@ msgid "This field should only contain letters, numbers and _"
 msgstr ""
 "Ce champ ne peut contenir que des lettres, des chiffres et le caractère _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Adresses électroniques"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Adresses électroniques"
 
 msgid "Group details"
@@ -2305,7 +2307,7 @@ msgstr "WebApp Kopano"
 msgid "Display name"
 msgstr "Afficher le nom"
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Adresse électronique"
 
 msgid ""
@@ -3248,9 +3250,6 @@ msgstr "Fils"
 msgid "Sr."
 msgstr "Père"
 
-msgid "Email address"
-msgstr "Adresse électronique"
-
 msgid "Phone number"
 msgstr "Numéro de téléphone"
 
@@ -3375,9 +3374,6 @@ msgstr "Nouvelle adresse électronique"
 msgid "Please enter a valid email address"
 msgstr "Veuillez saisir un adresse électronique valide !"
 
-msgid "E-mail Address"
-msgstr "Adresse électronique"
-
 msgid "Select Members"
 msgstr "Sélectionner les membres"
 
@@ -3396,25 +3392,12 @@ msgstr "Nouveau contact"
 msgid "New distribution list"
 msgstr "Nouvelle liste de distribution"
 
-# 83%
-msgid "E-mail"
-msgstr "Courriel"
-
-msgid "E-mail Display As"
-msgstr "Afficher l'adresse électronique comme"
-
-# 87%
-msgid "E-mail 2"
-msgstr "Adresse électronique 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Afficher l'adresse électronique 2 comme"
 
-# 87%
-msgid "E-mail 3"
-msgstr "Adresse électronique 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "Afficher l'adresse électronique 3 comme"
 
 # 88%
@@ -4097,7 +4080,7 @@ msgid "Empty folder"
 msgstr "Vider le dossier"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "Spam"
 
 # 92%
@@ -4250,21 +4233,19 @@ msgstr "à {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "Votre email sera envoyé {0}{1}"
 
-# 83%
-msgid "E-Mail"
-msgstr "Courriel"
-
 msgid "Saving..."
 msgstr "Enregistrement..."
 
-msgid "Message saving failed."
-msgstr "Échec de l'enregistrement du message."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Message enregistré à {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "L'opération a échouée"
 
 msgid "Message Options"
 msgstr "Options message"
@@ -4328,12 +4309,6 @@ msgstr "Aucune signature configurée"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Indicateurs de courriel"
-
-msgid "Color of Flag"
-msgstr "Couleur de l'indicateur"
 
 msgid "Miscellaneous Options"
 msgstr "Options diverses"
@@ -5310,8 +5285,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tâches"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Spam"
 
 msgid "Missing folders"

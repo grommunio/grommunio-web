@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
 "Language-Team: Arabic (Algeria) <https://translate.kopano.io/projects/kopano/"
@@ -359,10 +359,12 @@ msgstr "هذا الحقل يجب ان يكون فقط احرف و _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "هذا الحقل يجب ان يكون فقط احرف و ارقام و _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "عناوين البريد الالكتروني"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "عناوين البريد الالكتروني"
 
 msgid "Group details"
@@ -2178,7 +2180,7 @@ msgstr "كوبانو"
 msgid "Display name"
 msgstr ""
 
-msgid "E-mail address"
+msgid "Email address"
 msgstr ""
 
 msgid ""
@@ -3057,9 +3059,6 @@ msgstr ""
 msgid "Sr."
 msgstr ""
 
-msgid "Email address"
-msgstr ""
-
 msgid "Phone number"
 msgstr ""
 
@@ -3176,9 +3175,6 @@ msgstr ""
 msgid "Please enter a valid email address"
 msgstr ""
 
-msgid "E-mail Address"
-msgstr ""
-
 msgid "Select Members"
 msgstr ""
 
@@ -3194,22 +3190,10 @@ msgstr ""
 msgid "New distribution list"
 msgstr ""
 
-msgid "E-mail"
+msgid "Email 2 Display As"
 msgstr ""
 
-msgid "E-mail Display As"
-msgstr ""
-
-msgid "E-mail 2"
-msgstr ""
-
-msgid "E-mail 2 Display As"
-msgstr ""
-
-msgid "E-mail 3"
-msgstr ""
-
-msgid "E-mail 3 Display As"
+msgid "Email 3 Display As"
 msgstr ""
 
 msgid "Assistent"
@@ -3814,7 +3798,7 @@ msgstr ""
 msgid "Empty folder"
 msgstr ""
 
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr ""
 
 msgid "Empty Deleted Items"
@@ -3952,19 +3936,16 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-msgid "E-Mail"
-msgstr ""
-
 msgid "Saving..."
 msgstr ""
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
+msgid "Saved at {0}"
 msgstr ""
 
 msgid "g:i A"
+msgstr ""
+
+msgid "Saving failed"
 msgstr ""
 
 msgid "Message Options"
@@ -4025,12 +4006,6 @@ msgid "No signatures configured"
 msgstr ""
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
-
-msgid "E-Mail Flags"
-msgstr ""
-
-msgid "Color of Flag"
 msgstr ""
 
 msgid "Miscellaneous Options"
@@ -4902,7 +4877,7 @@ msgid "Tasks"
 msgstr ""
 
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr ""
 
 msgid "Missing folders"

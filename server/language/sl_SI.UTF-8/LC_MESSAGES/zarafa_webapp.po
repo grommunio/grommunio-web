@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -344,10 +344,12 @@ msgstr "To polje mora vsebovati samo črke in _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "To polje mora vsebovati samo črke, številke in _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Elektronski naslov"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Elektronski naslovi"
 
 msgid "Group details"
@@ -2329,8 +2331,7 @@ msgstr "Kopano Spletna aplikacija"
 msgid "Display name"
 msgstr "Prikazovalno ime"
 
-# 92%
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Elektronski naslov"
 
 msgid ""
@@ -3291,9 +3292,6 @@ msgstr "Ml"
 msgid "Sr."
 msgstr "Sr"
 
-msgid "Email address"
-msgstr "Elektronski naslov"
-
 msgid "Phone number"
 msgstr "Telefonska številka"
 
@@ -3423,10 +3421,6 @@ msgstr "Nov elektronski naslov"
 msgid "Please enter a valid email address"
 msgstr "Prosim vnesite veljavni elektronski naslov!"
 
-# 92%
-msgid "E-mail Address"
-msgstr "Elektronski naslov"
-
 msgid "Select Members"
 msgstr "Izberi člane"
 
@@ -3445,24 +3439,12 @@ msgstr ""
 msgid "New distribution list"
 msgstr "Natisni distribucijski seznam"
 
-msgid "E-mail"
-msgstr "Elektronski naslov"
-
-msgid "E-mail Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "Prikazno ime elektronskega sporočila"
 
-# 75%
-msgid "E-mail 2"
-msgstr "Elektronski naslov 2"
-
-msgid "E-mail 2 Display As"
-msgstr "Prikazno ime elektronskega sporočila"
-
-# 75%
-msgid "E-mail 3"
-msgstr "Elektronski naslov 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "Prikazno ime elektronskega sporočila 3"
 
 # 88%
@@ -4125,7 +4107,7 @@ msgid "Empty folder"
 msgstr "Izprazni mapo"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "Nezaželjena pošta"
 
 #, fuzzy
@@ -4280,21 +4262,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-msgid "E-Mail"
-msgstr "Elektronsko sporočilo"
-
 msgid "Saving..."
 msgstr "Shranjujem ..."
 
-msgid "Message saving failed."
-msgstr "Shranjevanje sporočila ni uspelo."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Sporočilo je bilo shranjeno dne {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Shranjevanje sporočila ni uspelo."
 
 msgid "Message Options"
 msgstr "Možnosti sporočila"
@@ -4359,12 +4339,6 @@ msgstr "Ni nastavljenih podpisov"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Zastavice sporočila"
-
-msgid "Color of Flag"
-msgstr "Barva zastavice"
 
 msgid "Miscellaneous Options"
 msgstr "Razne možnosti"
@@ -5327,8 +5301,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Naloge"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Nezaželjena pošta"
 
 msgid "Missing folders"

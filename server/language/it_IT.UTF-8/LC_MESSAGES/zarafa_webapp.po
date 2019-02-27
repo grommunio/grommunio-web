@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -331,10 +331,12 @@ msgstr "Questo campo può contenere solo lettere e _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Questo campo può contenere solo lettere, numeri e _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Indirizzi e-mail"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Indirizzi e-mail"
 
 msgid "Group details"
@@ -2313,8 +2315,7 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Nome visualizzato"
 
-# 92%
-msgid "E-mail address"
+msgid "Email address"
 msgstr "Indirizzo email"
 
 msgid ""
@@ -3260,9 +3261,6 @@ msgstr "Jr."
 msgid "Sr."
 msgstr "Sr."
 
-msgid "Email address"
-msgstr "Indirizzo email"
-
 msgid "Phone number"
 msgstr "Numero telefonico"
 
@@ -3393,9 +3391,6 @@ msgstr "Nuovo indirizzo e-mail"
 msgid "Please enter a valid email address"
 msgstr "Inserire un indirizzo email valido!"
 
-msgid "E-mail Address"
-msgstr "Indirizzo e-mail"
-
 msgid "Select Members"
 msgstr "Seleziona membri"
 
@@ -3414,25 +3409,12 @@ msgstr "Nuovo contatto"
 msgid "New distribution list"
 msgstr "Nuova lista di distribuzione"
 
-# 83%
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "E-mail Visualizza come"
-
-# 87%
-msgid "E-mail 2"
-msgstr "E-mail 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "E-mail 2 Visualizza come"
 
-# 87%
-msgid "E-mail 3"
-msgstr "E-mail 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "E-mail 3 Visualizza come"
 
 # 88%
@@ -4082,7 +4064,8 @@ msgstr "Apri cartella condivisa"
 msgid "Empty folder"
 msgstr "Importa nella cartella"
 
-msgid "Empty Junk E-mail"
+#, fuzzy
+msgid "Empty Junk Email"
 msgstr "Svuota la cartella della posta indesiderata"
 
 # 92%
@@ -4236,21 +4219,19 @@ msgstr "il {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "La tua email verrà inviata {0}{1}"
 
-# 83%
-msgid "E-Mail"
-msgstr "E-mail"
-
 msgid "Saving..."
 msgstr "Salvataggio in corso..."
 
-msgid "Message saving failed."
-msgstr "Salvataggio messaggio fallito."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Messaggio salvato il {0}."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Operazione fallita"
 
 msgid "Message Options"
 msgstr "Opzioni Messaggio"
@@ -4315,12 +4296,6 @@ msgstr "Nessuna fima configurata"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Bandierine e-mail"
-
-msgid "Color of Flag"
-msgstr "Colore bandierina"
 
 msgid "Miscellaneous Options"
 msgstr "Opzioni varie"
@@ -5291,8 +5266,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Attività"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Posta indesiderata"
 
 msgid "Missing folders"

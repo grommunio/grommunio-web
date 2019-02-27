@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -331,10 +331,12 @@ msgstr "See väli peaks sisaldama ainult tähti ja _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "See väli peaks sisaldama ainult tähti, numbreid ja _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "E-posti aadressid"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "E-posti aadressid"
 
 msgid "Group details"
@@ -2232,11 +2234,11 @@ msgstr "Kopano veebirakendus"
 msgid "Display name"
 msgstr "Kuvatav nimi"
 
-# 87%
+# 92%
 # 100%
 #, fuzzy
-msgid "E-mail address"
-msgstr "E-posti aadressid"
+msgid "Email address"
+msgstr "E-posti aadress"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -3147,12 +3149,6 @@ msgstr ""
 # 92%
 # 100%
 #, fuzzy
-msgid "Email address"
-msgstr "E-posti aadress"
-
-# 92%
-# 100%
-#, fuzzy
 msgid "Phone number"
 msgstr "Telefoninumbrid"
 
@@ -3288,12 +3284,6 @@ msgstr "E-posti aadress"
 msgid "Please enter a valid email address"
 msgstr ""
 
-# 92%
-# 100%
-#, fuzzy
-msgid "E-mail Address"
-msgstr "E-posti aadress"
-
 msgid "Select Members"
 msgstr ""
 
@@ -3312,31 +3302,10 @@ msgstr ""
 msgid "New distribution list"
 msgstr "Postiloend"
 
-# 83%
-# 100%
-#, fuzzy
-msgid "E-mail"
-msgstr "E-post"
-
-msgid "E-mail Display As"
+msgid "Email 2 Display As"
 msgstr ""
 
-# 87%
-# 100%
-#, fuzzy
-msgid "E-mail 2"
-msgstr "E-post 2"
-
-msgid "E-mail 2 Display As"
-msgstr ""
-
-# 87%
-# 100%
-#, fuzzy
-msgid "E-mail 3"
-msgstr "E-post 3"
-
-msgid "E-mail 3 Display As"
+msgid "Email 3 Display As"
 msgstr ""
 
 # 88%
@@ -4019,7 +3988,7 @@ msgid "Empty folder"
 msgstr "Kadunud kaustad"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "Rämpspost"
 
 #, fuzzy
@@ -4163,23 +4132,23 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-# 100%
-#, fuzzy
-msgid "E-Mail"
-msgstr "E-post"
-
 msgid "Saving..."
 msgstr ""
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
+msgid "Saved at {0}"
 msgstr ""
 
 msgid "g:i A"
 msgstr ""
+
+# 76%
+# 84%
+# 85%
+# 78%
+# 100%
+#, fuzzy
+msgid "Saving failed"
+msgstr "Laeb märkuseid"
 
 msgid "Message Options"
 msgstr ""
@@ -4239,12 +4208,6 @@ msgid "No signatures configured"
 msgstr ""
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
-
-msgid "E-Mail Flags"
-msgstr ""
-
-msgid "Color of Flag"
 msgstr ""
 
 msgid "Miscellaneous Options"
@@ -5185,8 +5148,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Ülesanded"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "Rämpspost"
 
 msgid "Missing folders"

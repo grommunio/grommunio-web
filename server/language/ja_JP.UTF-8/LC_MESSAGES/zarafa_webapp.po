@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -321,11 +321,13 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "文字と数字のみ"
 
 # 81%
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "Emailアドレス"
 
 # 75%
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "Emailアドレス"
 
 msgid "Group details"
@@ -2241,9 +2243,9 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "表示名"
 
-# 85%
-msgid "E-mail address"
-msgstr "メールアドレス"
+# 92%
+msgid "Email address"
+msgstr "Emailアドレス"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -3175,10 +3177,6 @@ msgid "Sr."
 msgstr "御中"
 
 # 92%
-msgid "Email address"
-msgstr "Emailアドレス"
-
-# 92%
 msgid "Phone number"
 msgstr "電話番号"
 
@@ -3303,10 +3301,6 @@ msgstr "新しいメールアドレス"
 msgid "Please enter a valid email address"
 msgstr "正しいメールアドレスを入力して下さい。"
 
-# 92%
-msgid "E-mail Address"
-msgstr "メールアドレス"
-
 msgid "Select Members"
 msgstr "メンバー選択"
 
@@ -3324,24 +3318,12 @@ msgstr ""
 msgid "New distribution list"
 msgstr "新しい配布リスト"
 
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "メール表示"
 
-# 75%
-msgid "E-mail 2"
-msgstr "メール 2"
-
-msgid "E-mail 2 Display As"
-msgstr "メール表示"
-
-# 75%
-msgid "E-mail 3"
-msgstr "メール 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "メール表示"
 
 # 88%
@@ -3981,7 +3963,7 @@ msgid "Empty folder"
 msgstr "フォルダを空にする"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "迷惑メール"
 
 # 92%
@@ -4132,21 +4114,19 @@ msgstr "の {0}"
 msgid "Your email will be sent {0}{1}"
 msgstr "あなたのメールは {0}{1} に送信されます"
 
-# 83%
-msgid "E-Mail"
-msgstr "E-mail"
-
 msgid "Saving..."
 msgstr "保存中..."
 
-msgid "Message saving failed."
-msgstr "メッセージの保存に失敗しました。"
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "{0}にメッセージを保存しました。"
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "メッセージの保存に失敗しました。"
 
 msgid "Message Options"
 msgstr "メッセージのオプション"
@@ -4212,12 +4192,6 @@ msgstr "署名が設定されていません。"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "メールフラグ"
-
-msgid "Color of Flag"
-msgstr "フラグの色"
 
 msgid "Miscellaneous Options"
 msgstr "その他オプション"
@@ -5166,8 +5140,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "タスク"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "迷惑メール"
 
 msgid "Missing folders"

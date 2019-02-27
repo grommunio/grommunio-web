@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -324,10 +324,12 @@ msgstr "Bu alan sadece harf ve _ içermeli"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Bu alan sadece harf, rakam ve _ içermeli"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "E-posta Adresleri"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "E-posta adresleri"
 
 msgid "Group details"
@@ -2308,9 +2310,9 @@ msgstr "Kopano WebApp"
 msgid "Display name"
 msgstr "Ad Görüntüsü"
 
-# 87%
-msgid "E-mail address"
-msgstr "E-posta adresi"
+# 92%
+msgid "Email address"
+msgstr "E-posta adres"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -3261,10 +3263,6 @@ msgid "Sr."
 msgstr "Sr."
 
 # 92%
-msgid "Email address"
-msgstr "E-posta adres"
-
-# 92%
 msgid "Phone number"
 msgstr "Telefon numara"
 
@@ -3392,10 +3390,6 @@ msgstr "Yeni e-posta adresi"
 msgid "Please enter a valid email address"
 msgstr "Geçerli bir e-posta adresine giriniz !"
 
-# 92%
-msgid "E-mail Address"
-msgstr "E-posta adresi"
-
 msgid "Select Members"
 msgstr "Üye seçin"
 
@@ -3413,24 +3407,12 @@ msgstr "yeni kişi"
 msgid "New distribution list"
 msgstr "yeni dağıtım listesi"
 
-msgid "E-mail"
-msgstr "E-posta"
-
-msgid "E-mail Display As"
-msgstr "E-posta olarak göster"
-
-# 75%
-msgid "E-mail 2"
-msgstr "E-posta 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "E-posta 2 olarak göster"
 
-# 75%
-msgid "E-mail 3"
-msgstr "E-posta 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "E-posta 3 olarak göster"
 
 # 88%
@@ -4090,7 +4072,7 @@ msgid "Empty folder"
 msgstr "Klasörü boşalt"
 
 #, fuzzy
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr "istenmeyen e-posta"
 
 # 92%
@@ -4242,21 +4224,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-msgid "E-Mail"
-msgstr "E-posta"
-
 msgid "Saving..."
 msgstr "kaydediliyor..."
 
-msgid "Message saving failed."
-msgstr "Mesaj kaydetme başarısız."
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "mesaj {0}'da kaydedildi."
 
 msgid "g:i A"
 msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "işlem başarısız"
 
 msgid "Message Options"
 msgstr "Mesaj ayarları"
@@ -4321,12 +4301,6 @@ msgstr "Yapılandırılmış imzalar yok"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "E-posta bayrakları"
-
-msgid "Color of Flag"
-msgstr "Bayrak rengi"
 
 msgid "Miscellaneous Options"
 msgstr "Diyer ayarlar"
@@ -5292,8 +5266,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Görevler"
 
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
+msgid "Junk Email"
 msgstr "istenmeyen e-posta"
 
 msgid "Missing folders"

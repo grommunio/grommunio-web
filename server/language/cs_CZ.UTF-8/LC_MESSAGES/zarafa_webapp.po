@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-05 15:35+0100\n"
+"POT-Creation-Date: 2019-02-27 14:15+0100\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -334,10 +334,12 @@ msgstr "Toto pole má obsahovat pouze písmena a _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Toto pole má obsahovat pouze písmena, čísla a _"
 
-msgid "E-mail Addresses"
+#, fuzzy
+msgid "Email Addresses"
 msgstr "E-mailové adresy"
 
-msgid "E-mail addresses"
+#, fuzzy
+msgid "Email addresses"
 msgstr "E-mailové adresy"
 
 msgid "Group details"
@@ -2302,8 +2304,8 @@ msgstr "Vytisknout Kopano WebbApp"
 msgid "Display name"
 msgstr "Zobrazené jméno"
 
-msgid "E-mail address"
-msgstr "e-mailová adresa"
+msgid "Email address"
+msgstr "E-mailová adresa"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -3248,9 +3250,6 @@ msgstr "Ml."
 msgid "Sr."
 msgstr "St."
 
-msgid "Email address"
-msgstr "E-mailová adresa"
-
 msgid "Phone number"
 msgstr "Telefonní číslo"
 
@@ -3374,9 +3373,6 @@ msgstr "Nová e-mailová adresa"
 msgid "Please enter a valid email address"
 msgstr "Prosím vložte platnou e-mailovou adresu!"
 
-msgid "E-mail Address"
-msgstr "E-mailová adresa"
-
 msgid "Select Members"
 msgstr "Vybrat členy"
 
@@ -3394,24 +3390,12 @@ msgstr "Nový kontakt"
 msgid "New distribution list"
 msgstr "Nový distribuční seznam"
 
-msgid "E-mail"
-msgstr "E-mail"
-
-msgid "E-mail Display As"
-msgstr "Ukázat E-mail jako"
-
-# 75%
-msgid "E-mail 2"
-msgstr "E-mail 2"
-
-msgid "E-mail 2 Display As"
+#, fuzzy
+msgid "Email 2 Display As"
 msgstr "E-mail 2 ukázat jako"
 
-# 75%
-msgid "E-mail 3"
-msgstr "E-mail 3"
-
-msgid "E-mail 3 Display As"
+#, fuzzy
+msgid "Email 3 Display As"
 msgstr "E-mail 3 ukázat jako"
 
 msgid "Assistent"
@@ -4050,7 +4034,7 @@ msgstr ""
 msgid "Empty folder"
 msgstr "Vyprázdnit složku"
 
-msgid "Empty Junk E-mail"
+msgid "Empty Junk Email"
 msgstr ""
 
 #, fuzzy
@@ -4204,21 +4188,19 @@ msgstr ""
 msgid "Your email will be sent {0}{1}"
 msgstr ""
 
-# 83%
-msgid "E-Mail"
-msgstr "Pošta"
-
 msgid "Saving..."
 msgstr ""
 
-msgid "Message saving failed."
-msgstr ""
-
-msgid "Message Saved at {0}."
+#, fuzzy
+msgid "Saved at {0}"
 msgstr "Zpráva byla uložena o {0}."
 
 msgid "g:i A"
 msgstr ""
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Načítání pošty"
 
 msgid "Message Options"
 msgstr "Možnosti zpráv"
@@ -4283,12 +4265,6 @@ msgstr "Nejsou nastaveny podpisy"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr ""
-
-msgid "E-Mail Flags"
-msgstr "Štítky"
-
-msgid "Color of Flag"
-msgstr "Barva štítku"
 
 msgid "Miscellaneous Options"
 msgstr "Různé možnosti"
@@ -5240,9 +5216,11 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Úkoly"
 
+# 83%
+#, fuzzy
 msgctxt "hierarchy.foldername"
-msgid "Junk E-mail"
-msgstr ""
+msgid "Junk Email"
+msgstr "E-mail"
 
 msgid "Missing folders"
 msgstr ""
