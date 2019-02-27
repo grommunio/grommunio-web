@@ -834,6 +834,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			return (
 				!record.isOpened() &&							// No records that were already opened
 				record.isMessageClass(['IPM.Note'], true) &&	// Only mails
+				!record.isMessageClass(['IPM.Note.SMIME'], true) &&
 				store.indexOf(record) >= 0						// No records that were deleted during the 'defer time'
 			);
 		});
