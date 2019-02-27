@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-27 14:15+0100\n"
-"PO-Revision-Date: 2019-02-05 14:35+0000\n"
+"PO-Revision-Date: 2019-02-27 13:14+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -333,14 +333,12 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "Dit veld mag alleen letters, cijfers en _ bevatten"
 
 # 87%
-#, fuzzy
 msgid "Email Addresses"
-msgstr "Email adressen"
+msgstr "Emailadressen"
 
 # 81%
-#, fuzzy
 msgid "Email addresses"
-msgstr "E-mailadressen"
+msgstr "Emailadressen"
 
 msgid "Group details"
 msgstr "Groepdetails"
@@ -1374,9 +1372,8 @@ msgid "Importance"
 msgstr "Belangrijkheid"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
-#, fuzzy
 msgid "j"
 msgstr "j"
 
@@ -1632,7 +1629,6 @@ msgstr "Open het vergaderverzoek met wijzigingen"
 msgid "Copy"
 msgstr "Kopiëren"
 
-#, fuzzy
 msgid "Kopano Webapp"
 msgstr "Kopano WebApp"
 
@@ -3422,13 +3418,11 @@ msgstr "Nieuwe contactpersoon"
 msgid "New distribution list"
 msgstr "Nieuw distributielijst"
 
-#, fuzzy
 msgid "Email 2 Display As"
-msgstr "Toon E-mail 2 Als"
+msgstr "Toon email2 als"
 
-#, fuzzy
 msgid "Email 3 Display As"
-msgstr "Toon E-mail 3 Als"
+msgstr "Toon email3 als"
 
 # 88%
 msgid "Assistent"
@@ -4129,9 +4123,8 @@ msgstr "Open gedeelde map of opslag"
 msgid "Empty folder"
 msgstr "Leeg folder"
 
-#, fuzzy
 msgid "Empty Junk Email"
-msgstr "Ongewenste E-mail legen"
+msgstr "Ongewenste Email legen"
 
 # 92%
 msgid "Empty Deleted Items"
@@ -4281,16 +4274,14 @@ msgstr "Uw e-mail wordt {0}{1} verstuurd"
 msgid "Saving..."
 msgstr "Opslaan..."
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "E-mail opgeslagen om {0}."
+msgstr "Email opgeslagen om {0}"
 
 msgid "g:i A"
 msgstr "G:i"
 
-#, fuzzy
 msgid "Saving failed"
-msgstr "Activiteit mislukt"
+msgstr "Opslaan mislukt"
 
 msgid "Message Options"
 msgstr "Berichtopties"
@@ -5321,10 +5312,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Taken"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr "Ongewenste E-mail"
+msgstr "Ongewenste Email"
 
 msgid "Missing folders"
 msgstr "Ontbrekende mappen"
