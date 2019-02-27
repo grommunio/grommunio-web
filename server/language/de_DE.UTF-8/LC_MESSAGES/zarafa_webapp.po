@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-27 14:15+0100\n"
-"PO-Revision-Date: 2019-02-05 14:45+0000\n"
+"PO-Revision-Date: 2019-02-27 13:14+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -326,11 +326,9 @@ msgstr "Diese Feld sollte nur Buchstaben und _ enthalten"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Dieses Feld sollte nur Buchstaben, Ziffern und _ enthalten"
 
-#, fuzzy
 msgid "Email Addresses"
 msgstr "E-Mail-Adressen"
 
-#, fuzzy
 msgid "Email addresses"
 msgstr "E-Mail-Adressen"
 
@@ -3432,11 +3430,9 @@ msgstr "Neuer Kontakt"
 msgid "New distribution list"
 msgstr "Neue Verteilerliste"
 
-#, fuzzy
 msgid "Email 2 Display As"
 msgstr "E-Mail 2 darstellen als"
 
-#, fuzzy
 msgid "Email 3 Display As"
 msgstr "E-Mail 3 darstellen als"
 
@@ -4091,7 +4087,6 @@ msgstr "Gemeinsamen Ordner oder Postfach öffnen"
 msgid "Empty folder"
 msgstr "Ordner leeren"
 
-#, fuzzy
 msgid "Empty Junk Email"
 msgstr "Junk-E-Mail Ordner leeren"
 
@@ -4245,18 +4240,16 @@ msgstr "Ihre E-Mail wird versendet {0}{1}"
 msgid "Saving..."
 msgstr "Speichern..."
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "Nachricht gespeichert um {0}."
+msgstr "Nachricht gespeichert unter {0}"
 
 msgid "g:i A"
 msgstr "G:i"
 
 # 81%
 # 100%
-#, fuzzy
 msgid "Saving failed"
-msgstr "Vorgang fehlgeschlagen"
+msgstr "Speichern fehlgeschlagen"
 
 msgid "Message Options"
 msgstr "Nachrichtenoptionen"
@@ -5299,7 +5292,6 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Aufgaben"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "Spam"
