@@ -41,17 +41,17 @@ SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
 
 # Client files
 
-CSS = $(wildcard client/resources/css/*/*.css client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
+CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.* client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
+SCSS = $(wildcard client/resources/scss/*.* client/resources/scss/*/*.*)
+SCSSDEST = $(addprefix $(DESTDIR)/, $(SCSS))
 IMAGEDIR = client/resources/images
 IMAGES = $(wildcard $(IMAGEDIR)/*.* $(IMAGEDIR)/whatsnew/*.*)
 IMAGESDEST = $(addprefix $(DESTDIR)/, $(IMAGES))
 APPICONS = $(wildcard $(IMAGEDIR)/app-icons/*.*)
-APPICONSDEST = $(addprefix $(DESTDIR)/, $(APPICONS))
 APPICONSSCSS = client/resources/scss/base/_icons.scss
 APPICONSEXTENSIONSFILE = client/resources/images/app-icons.extensions.json
 EXTJSMODFILES = $(wildcard client/extjs-mod/*.js)
-KOPANOCSS = $(DESTDIR)/client/resources/css/kopano.css
 ICONEXTENSIONSFILE = client/resources/iconsets/extensions.json
 ICONSETS = $(notdir $(filter-out client/resources/iconsets/extensions.json, $(wildcard client/resources/iconsets/*)))
 ICONS = $(foreach iconsetdir,$(ICONSETS),$(wildcard client/resources/iconsets/$(iconsetdir)/src/png/*/*.png))
@@ -77,11 +77,8 @@ test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(KOPANOCSS) $(APPICONSDEST) js
+client: $(CSSDEST) $(SCSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
-	cp -r client/resources/scss $(DESTDIR)/client/resources/
-	cp -r client/resources/config.rb $(DESTDIR)/client/resources/
-	cp -r client/resources/iconsets $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	cp -r client/resources/images/app-icons $(DESTDIR)/client/resources/images/
 	rm -rf $(DESTDIR)/client/themes/*/js
@@ -110,10 +107,6 @@ $(ROBOTS): robots.txt
 	cp $< $@
 
 $(HTACCESS): .htaccess
-	cp $< $@
-
-$(KOPANOCSS): client/resources/css/design.css
-	mkdir -p $$(dirname $@)
 	cp $< $@
 
 $(DESTDIR)/%.mo : %.po

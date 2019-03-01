@@ -66,7 +66,7 @@
 
 	<!-- The Kopano CSS files -->
 	<property name="kopano-css-folder" value="resources/css"/>
-	<property name="kopano-css-file" value="kopano.css"/>
+	<property name="kopano-scss-folder" value="resources/scss"/>
 
 	<!-- The Kopano images -->
 	<property name="kopano-images-folder" value="resources/images"/>
@@ -218,27 +218,6 @@
 				<fileset dir="zarafa" includes="**/*.js" />
 			</concatfiles>
 		</zConcat>
-
-		<!-- Compile SASS files -->
-		<!-- FIXME: throw error when compass is not found
-		<echo message="Compiling: ${kopano-css-folder}"/>
-		<exec executable="compass" failonerror="true" logError="true">
-			<arg value="compile" />
-			<arg value="-\-boring" />
-			<arg value="-c" />
-			<arg value="${kopano-css-folder}/../config.rb" />
-			<arg value="${kopano-css-folder}/../"/>
-		</exec>
-		-->
-
-		<!-- Concatenate zarafa CSS files -->
-		<mkdir dir="${target-folder}/${kopano-css-folder}"/>
-		<echo message="Concatenating: ${kopano-css-file}"/>
-		<zConcat outputFolder="${target-folder}/${kopano-css-folder}" outputFile="${kopano-css-file}">
-			<concatfiles>
-				<fileset dir="${kopano-css-folder}" includes="**/*.css" excludes="external/**/*.css" />
-			</concatfiles>
-		</zConcat>
 	</target>
 
 	<!-- Compress JavaScript -->
@@ -328,7 +307,7 @@
 		<!-- copy files -->
 		<copy todir="${target-folder}">
 			<fileset dir=".">
-				<include name="resources/**/*.*"/>
+				<include name="resources/fonts/"/>
 				<include name="third-party/resources/**/*.*"/>
 				<!-- Don't copy the entire extjs resources folder,
 				     we want to loose all individual CSS files -->
@@ -341,26 +320,31 @@
 				<!-- exclude the ant script -->
 				<exclude name="build.xml"/>
 				<!-- CSS is generated during build -->
-				<exclude name="resources/css/*.*"/>
 				<exclude name="third-party/resources/css/*.*"/>
-				<exclude name="resources/.sass-cache/**/*"/>
 			</fileset>
 		</copy>
 
-		<!-- copy files -->
-		<copy todir="${target-folder}">
-			<fileset dir=".">
-				<include name="resources/css/external/*.css" />
-				<include name="resources/images/*" />
+		<!-- copy css files (including sourcemaps) -->
+		<copy todir="${target-folder}/${kopano-css-folder}">
+			<fileset dir="${kopano-css-folder}">
+				<include name="**/*" />
 			</fileset>
 		</copy>
 
-		<!-- Copy the images of the new design to the images folder -->
+		<!-- copy scss files (used by the sourcemaps) -->
+		<copy todir="${target-folder}/${kopano-scss-folder}">
+			<fileset dir="${kopano-scss-folder}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- Copy the images -->
 		<echo message="Copying ${kopano-images-folder}"/>
-		<copy todir="${target-folder}/${kopano-images-folder}">
+		<copy todir="${target-folder}/${kopano-images-folder}" includeEmptyDirs="false">
 			<fileset dir="${kopano-images-folder}">
-				<include name="*.png"/>
-				<include name="*.gif"/>
+				<include name="**/*"/>
+				<exclude name="app-icons/"/>
+				<exclude name="app-icons.extensions.json"/>
 			</fileset>
 		</copy>
 
@@ -377,6 +361,7 @@
 		<copy todir="${target-folder}/${kopano-iconsets-target-folder}" includeEmptyDirs="false">
 			<fileset dir="${kopano-iconsets-folder}">
 				<exclude name="extensions.json"/>
+				<exclude name="breeze/extensions-breeze.json"/>
 				<exclude name="**/src/**/*"/>
 			</fileset>
 		</copy>
