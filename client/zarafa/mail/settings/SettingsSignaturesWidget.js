@@ -166,6 +166,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 				ref : 'contentField',
 				anchor : '100%',
 				height: 300,
+				useHtml : container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor'),
 				disableEditor: true,
 				listeners : {
 					change : this.onEditorFieldChange,

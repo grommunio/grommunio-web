@@ -21,10 +21,10 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	showbcc : false,
 
 	/**
-	 * @cfg {Boolean} use_html_editor True to enable the HTML editor in this panel
+	 * @cfg {Boolean} useHtml True to enable the HTML editor in this panel
 	 * If not provided, the value will be obtained from the {@link Zarafa.settings.SettingsModel}.
 	 */
-	use_html_editor : false,
+	useHtml : false,
 
 	/**
 	 * True if the From field should be shown.
@@ -51,8 +51,8 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	{
 		config = config || {};
 
-		if (!Ext.isDefined(config.use_html_editor)) {
-			config.use_html_editor = container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor');
+		if (!Ext.isDefined(config.useHtml)) {
+			config.useHtml = container.getSettingsModel().get('zarafa/v1/contexts/mail/dialogs/mailcreate/use_html_editor');
 		}
 
 		config.plugins = Ext.value(config.plugins, []);
@@ -77,7 +77,7 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 			items: [{
 				xtype: 'zarafa.mailcreatepanel',
 				ref: 'mainPanel',
-				use_html_editor : config.use_html_editor,
+				useHtml : config.useHtml,
 				tbar :{
 					xtype: 'zarafa.mailcreatetoolbar'
 				}

@@ -9,9 +9,9 @@ Ext.namespace('Zarafa.mail.dialogs');
  */
 Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	/**
-	 * @cfg {Boolean} use_html_editor True to enable the HTML editor in this panel.
+	 * @cfg {Boolean} useHtml True to enable the HTML editor in this panel.
 	 */
-	use_html_editor : false,
+	useHtml : false,
 
 	/**
 	 * @constructor
@@ -252,6 +252,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			enableKeyEvents : true,
 			ref: 'editorField',
 			hideLabel: true,
+			useHtml:config.useHtml,
 			flex: 1,
 			listeners: {
 				change : this.onBodyChange,
@@ -276,7 +277,7 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		// record will contain body only when its already opened
 		if(record.isOpened()) {
 			if(contentReset) {
-				this.editorField.setHtmlEditor(this.use_html_editor, false);
+				this.editorField.setHtmlEditor(this.useHtml, false);
 				this.editorField.bindRecord(record);
 				this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 			}
