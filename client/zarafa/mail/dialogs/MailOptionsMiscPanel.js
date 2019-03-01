@@ -30,14 +30,20 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 				fieldLabel: _('Internet Headers'),
 				name: 'transport_message_headers',
 				readOnly: true,
-				// Anchor -32 pixels from the bottom to compensate for the extra
-				// horizontal scrollbar, we are forcing during rendering.
-				anchor: '0 -32',
+				anchor: '100% -50',
 				autoScroll: true,
 				border: false,
 				// Make sure the text is not wrapped
 				style: 'word-wrap: normal',
 				ref: 'headersTextArea'
+			},{
+				xtype: 'textfield',
+				fieldLabel: _('EntryID'),
+				name: 'entryid',
+				readOnly: true,
+				anchor: '100%',
+				autoScroll: true,
+				border: false
 			}]
 		});
 
