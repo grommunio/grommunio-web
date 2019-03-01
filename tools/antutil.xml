@@ -76,6 +76,7 @@
 				<arg line="--output_wrapper '%output%//# sourceMappingURL=@{outputFile}.map' " if:true="@{createSourceMap}" />
 				<arg line="--create_source_map @{outputFolder}/@{outputFile}.map --source_map_format=V3" if:true="@{createSourceMap}" />
 				<arg line="--compilation_level @{compilation}" />
+				<arg line="--strict_mode_input=false" />
 				<arg line="--warning_level @{warningLevel}" />
 				<arg line="--externs @{tmpFile}" />
 				<arg line="--rewrite_polyfills=@{rewritePolyfills}" />
