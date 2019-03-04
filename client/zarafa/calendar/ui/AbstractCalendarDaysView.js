@@ -613,7 +613,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 
 		var clusters = this.getAppointmentClusters(bodyAppointments);
 
-		Ext.each(clusters, this.doGreedyColoring, this);
+		clusters.forEach(function(cluster) {
+			this.doGreedyColoring(cluster, false);
+		}, this);
 	},
 
 	/**
