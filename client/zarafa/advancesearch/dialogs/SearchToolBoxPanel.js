@@ -927,12 +927,23 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				Ext.each(values, function(value) {
 					if (value === 'hasattach') {
 						orFilters.push(
-							Zarafa.core.data.RestrictionFactory.dataResProperty(
-								value,
-								Zarafa.core.mapi.Restrictions.RELOP_EQ,
-								true
+							Zarafa.core.data.RestrictionFactory.createResAnd([
+								Zarafa.core.data.RestrictionFactory.dataResProperty(
+									'hide_attachments',
+									Zarafa.core.mapi.Restrictions.RELOP_NE,
+									true
+								),
+								Zarafa.core.data.RestrictionFactory.createResSubRestriction(
+									'PR_MESSAGE_ATTACHMENTS',
+									Zarafa.core.data.RestrictionFactory.dataResProperty(
+										'PR_ATTACHMENT_HIDDEN',
+										Zarafa.core.mapi.Restrictions.RELOP_NE,
+										true
+									)
 								)
+							])
 						);
+
 					}
 					if (value === 'message_flags') {
 						orFilters.push(
