@@ -162,7 +162,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		if (isMultipleItems) {
-			responseRecord.set('subject', _('FW') + ': ');
+			if (container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations')) {
+				responseRecord.set('subject', ('FW') + ': ');		
+			} else {
+				responseRecord.set('subject', _('FW') + ': ');
+			}
 		}
 
 		// If the record we are replying is in other user's store then set delegator info.
@@ -224,16 +228,25 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	initRecordSubject : function(record, origRecord, actionType)
 	{
 		var subjectPrefix;
+		var english_abb = container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations');
 
 		switch (actionType)
 		{
 			case Zarafa.mail.data.ActionTypes.REPLY:
 			case Zarafa.mail.data.ActionTypes.REPLYALL:
-				subjectPrefix = _('RE') + ': ';
+				if (english_abb) {
+					subjectPrefix = ('RE') + ': ';
+				} else {
+					subjectPrefix = _('RE') + ': ';
+				}
 				break;
 			case Zarafa.mail.data.ActionTypes.FORWARD:
 			case Zarafa.mail.data.ActionTypes.FORWARD_ATTACH:
-				subjectPrefix = _('FW') + ': ';
+				if (english_abb) {
+					subjectPrefix = ('FW') + ': ';
+				} else {
+					subjectPrefix = _('FW') + ': ';
+				}
 				break;
 			case Zarafa.mail.data.ActionTypes.EDIT_AS_NEW:
 				subjectPrefix = '';

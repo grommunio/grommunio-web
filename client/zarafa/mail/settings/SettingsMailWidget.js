@@ -58,6 +58,18 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 				}
 			},{
 				xtype : 'checkbox',
+				name : 'zarafa/v1/contexts/mail/use_english_abbreviations',
+				ref : 'englishAbb',
+				boxLabel : _('Use English abbreviations for forward (FW:) and reply (RE:)'),
+				hideLabel : true,
+				lazyInit : false,
+				hidden: container.getSettingsModel().get('zarafa/v1/main/language') === 'en_GB' || container.getSettingsModel().get('zarafa/v1/main/language') === 'en_US.UTF-8',
+				listeners : {
+					check : this.onCheck,
+					scope : this
+				}
+			},{
+				xtype : 'checkbox',
 				name : 'zarafa/v1/contexts/mail/close_on_respond',
 				ref : 'closeCheck',
 				boxLabel : _('Close original message on reply or forward'),
@@ -120,6 +132,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		}
 		this.previewCombo.setValue(previewLocation);
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
+		this.englishAbb.setValue(settingsModel.get(this.englishAbb.name));
 
 		// There is popout settings only if supported.
 		if (Zarafa.supportsPopOut()) {

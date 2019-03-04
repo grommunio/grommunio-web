@@ -529,6 +529,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'safe_senders_list' : [],
 
 								/**
+								 * zarafa/v1/context/mail/use_english_abbreviations
+								 * @property
+								 * @type Boolean
+								 */
+								'use_english_abbreviations' : false,
+
+								/**
 								 * zarafa/v1/contexts/mail/close_on_respond
 								 * @property
 								 * @type Boolean
