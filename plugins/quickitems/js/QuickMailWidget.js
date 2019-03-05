@@ -43,25 +43,27 @@ Zarafa.widgets.quickitems.QuickMailWidget = Ext.extend(Zarafa.widgets.quickitems
 						style: 'padding-bottom: 2px'
 					},
 					items : [{
-						xtype: 'zarafa.compositefield',
+						xtype: 'zarafa.resizablecompositefield',
 						hideLabel: true,
 						anchor: '100%',
 						autoHeight: true,
 						items: [{
 							xtype: 'label',
 							width: 20,
+							autoHeight: true,
 							text: _('To') + ':'
 						},{
 							xtype: 'zarafa.recipientfield',
 							ref: '../toRecipientField',
 							flex: 1,
-							height: 30,
+							autoHeight: true,
 							defaultRecipientType: Zarafa.core.mapi.RecipientType.MAPI_TO
 						}]			
 					},{
 						xtype: 'zarafa.compositefield',
 						hideLabel: true,
 						anchor: '100%',
+						autoHeight: true,
 						items: [{
 							xtype: 'textfield',
 							flex: 1,
