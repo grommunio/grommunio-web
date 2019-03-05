@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2017-10-05 20:01+0200\n"
 "Last-Translator: Tomislav <tomislav.malnar@tzv-gredelj.hr>\n"
 "Language-Team: Kopano Webapp Croatian (Croatia) <https://translate.kopano.io/"
@@ -4074,6 +4074,9 @@ msgid "General mail settings"
 msgstr ""
 
 msgid "Location of preview pane"
+msgstr ""
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
 msgstr ""
 
 msgid "Close original message on reply or forward"

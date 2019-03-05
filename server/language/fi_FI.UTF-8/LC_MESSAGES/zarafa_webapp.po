@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -4386,6 +4386,9 @@ msgstr "Yleiset postiasetukset"
 #, fuzzy
 msgid "Location of preview pane"
 msgstr "Sijainnin esikatseluruutu"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""

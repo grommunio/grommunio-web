@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -4338,6 +4338,9 @@ msgstr "Общие параметры письма"
 # 100%
 msgid "Location of preview pane"
 msgstr "Место панели предпросмотра"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Закрывать текущее письмо при ответе или пересылке"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -4450,6 +4450,9 @@ msgstr "Paramètres de configuration générale du courrier"
 # 100%
 msgid "Location of preview pane"
 msgstr "Emplacement de la fenêtre d'affichage"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Fermer le  message original lors des réponses ou transferts"

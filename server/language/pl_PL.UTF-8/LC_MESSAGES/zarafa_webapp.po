@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish (Poland) <http://translate.kopano.io/projects/kopano/"
@@ -4251,6 +4251,9 @@ msgstr "Ustawienia ogólne e-maila"
 
 msgid "Location of preview pane"
 msgstr "Pozycja okna podglądu"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""

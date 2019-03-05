@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-27 14:15+0100\n"
+"POT-Creation-Date: 2019-03-05 10:57+0100\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
 "Language-Team: Arabic (Algeria) <https://translate.kopano.io/projects/kopano/"
@@ -4136,6 +4136,9 @@ msgid "General mail settings"
 msgstr ""
 
 msgid "Location of preview pane"
+msgstr ""
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
 msgstr ""
 
 msgid "Close original message on reply or forward"
