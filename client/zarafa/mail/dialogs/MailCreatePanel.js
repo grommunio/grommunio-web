@@ -69,20 +69,17 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 		var items = [];
 
 		if(Ext.isEmpty(recipients)) {
-			items.push({
-				text : _('No from addresses configured!')
-			});
-			return items;
+			return;
 		}
 
 		Ext.each(recipients, function(recipient) {
 			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipient);
 
 			var item = {
-				text : record.formatRecipient(true),
-				handler : this.onSelectSendAsRecipient,
-				scope : this,
-				record : record
+				text: record.formatRecipient(true),
+				handler: this.onSelectSendAsRecipient,
+				scope: this,
+				record: record
 			};
 
 			items.push(item);
@@ -97,6 +94,9 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 	 */
 	initMessageFormPanel : function(config)
 	{
+		var sendAsMenu = this.initSendAsList();
+		var hasEmptySendAsList = Ext.isEmpty(sendAsMenu);
+
 		return [{
 			xtype: 'container',
 			cls: 'zarafa-mailcreatepanel-extrainfo',
@@ -107,35 +107,35 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'zarafa.compositefield',
 			hideLabel: true,
 			ref: 'fromField',
-			cls: 'zarafa-mailcreatepanel-field-from',
+			cls: hasEmptySendAsList ? 'zarafa-mailcreatepanel-field-from-large' : 'zarafa-mailcreatepanel-field-from',
 			anchor: '100%',
 			autoHeight: true,
 			items: [{
-				xtype: 'splitbutton',
+				xtype: hasEmptySendAsList ? 'button' : 'splitbutton',
 				autoHeight: true,
 				text: _('From') + ':',
 				handler: this.onSelectUser,
-				menu: new Ext.menu.Menu({
+				menu: hasEmptySendAsList ? false : new Ext.menu.Menu({
 					showSeparator : false,
-					items: this.initSendAsList()
+					items: sendAsMenu
 				}),
 				scope: this
 			},{
 				xtype: 'zarafa.addressbookboxfield',
-				enableKeyEvents : true,
+				enableKeyEvents: true,
 				ref: '../fromRecipientField',
-				boxType : 'zarafa.recipientbox',
-				boxStore : new Zarafa.core.data.IPMRecipientStore({
-					listeners : {
+				boxType: 'zarafa.recipientbox',
+				boxStore: new Zarafa.core.data.IPMRecipientStore({
+					listeners: {
 						// When recipient is added/removed/resolved in from field's
 						// store set sent_representing_* properties on record.
-						'add' : this.onFromRecipientChanged,
-						'resolved' : this.onFromRecipientChanged,
-						'remove' : this.onFromRecipientChanged,
-						scope : this
+						'add': this.onFromRecipientChanged,
+						'resolved': this.onFromRecipientChanged,
+						'remove': this.onFromRecipientChanged,
+						scope: this
 					}}),
 				flex: 1,
-				boxLimit : 1
+				boxLimit: 1
 			}]
 		},{
 			xtype: 'zarafa.resizablecompositefield',
