@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2014,8 +2014,9 @@ msgstr "代理人接收到與會議相關的訊息發送副本給我"
 msgid "Other"
 msgstr "其他"
 
-msgid "No delegate exists"
-msgstr "代理人不存在"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "沒有設定簽名檔"
 
 msgid "Loading delegates"
 msgstr "載入代理人"
@@ -2023,11 +2024,12 @@ msgstr "載入代理人"
 msgid "Please select a delegate."
 msgstr "請選擇一個代理人"
 
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
 msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
 msgstr ""
 
 msgid "Permission"
@@ -2655,7 +2657,9 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
 msgstr ""
 
 msgid "View"
@@ -4070,9 +4074,6 @@ msgstr "載入郵件中"
 
 msgid "Message Options"
 msgstr "郵件選項"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

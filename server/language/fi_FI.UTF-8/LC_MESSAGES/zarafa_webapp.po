@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -2090,8 +2090,9 @@ msgstr ""
 msgid "Other"
 msgstr "Muu"
 
-msgid "No delegate exists"
-msgstr "Edustajaa ei ole olemassa"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Allekirjoituksia ei asetettu"
 
 msgid "Loading delegates"
 msgstr "Ladataan edustajia"
@@ -2099,11 +2100,12 @@ msgstr "Ladataan edustajia"
 msgid "Please select a delegate."
 msgstr "Valitse edustaja."
 
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
 msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
 msgstr ""
 
 msgid "Permission"
@@ -2735,7 +2737,9 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
 msgstr ""
 
 msgid "View"
@@ -4184,9 +4188,6 @@ msgstr "Ladataan postia"
 
 msgid "Message Options"
 msgstr "Viestivalinnat"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

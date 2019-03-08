@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -2099,8 +2099,9 @@ msgstr "Delege bana gönderilen toplantı ile ilgili mesajlar kopyalarını alı
 msgid "Other"
 msgstr "Diyeri"
 
-msgid "No delegate exists"
-msgstr "Temsilci yok"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Yapılandırılmış imzalar yok"
 
 msgid "Loading delegates"
 msgstr "Delegeler yükleniyor"
@@ -2108,16 +2109,13 @@ msgstr "Delegeler yükleniyor"
 msgid "Please select a delegate."
 msgstr "Lütfen delege seҫiniz."
 
-msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+msgid "Delegates can send items on your behalf."
 msgstr ""
-"Temsilciler sizin adınıza öğeler gönderebilir. Başkalarına sizin adınıza "
-"gönderim yapma ayrıcalıkları vermeden klasörlerinize erişim sağlamak için "
-"tek tek klasörlerin özellikler menüsüne gidin ve izinler sekmesindeki "
-"seçenekleri değiştirin."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
 
 # 90%
 msgid "Permission"
@@ -2758,8 +2756,10 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
-msgstr "burada diğer e-posta adreslerinizi ayarlayabilirsiniz."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
 
 msgid "View"
 msgstr "görünüm"
@@ -4240,9 +4240,6 @@ msgstr "işlem başarısız"
 
 msgid "Message Options"
 msgstr "Mesaj ayarları"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

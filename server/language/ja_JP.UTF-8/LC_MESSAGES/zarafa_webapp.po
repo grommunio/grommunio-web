@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2043,8 +2043,9 @@ msgstr ""
 msgid "Other"
 msgstr "他"
 
-msgid "No delegate exists"
-msgstr "代理人は設定されていません。"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "署名が設定されていません。"
 
 msgid "Loading delegates"
 msgstr "委任情報を読み込み中"
@@ -2052,11 +2053,12 @@ msgstr "委任情報を読み込み中"
 msgid "Please select a delegate."
 msgstr "代理人を選択して下さい。"
 
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
 msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
 msgstr ""
 
 # 90%
@@ -2682,7 +2684,9 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
 msgstr ""
 
 msgid "View"
@@ -4130,9 +4134,6 @@ msgstr "メッセージの保存に失敗しました。"
 
 msgid "Message Options"
 msgstr "メッセージのオプション"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

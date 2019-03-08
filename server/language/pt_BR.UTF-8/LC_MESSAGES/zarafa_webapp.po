@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -2095,8 +2095,9 @@ msgstr ""
 msgid "Other"
 msgstr "Outro"
 
-msgid "No delegate exists"
-msgstr "Nenhum delegado configurado"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Nenhuma assinatura configurada"
 
 msgid "Loading delegates"
 msgstr "Carregando delegados"
@@ -2104,11 +2105,12 @@ msgstr "Carregando delegados"
 msgid "Please select a delegate."
 msgstr "Por favor, selecione um delegado."
 
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
 msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
 msgstr ""
 
 # 90%
@@ -2740,7 +2742,9 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
 msgstr ""
 
 msgid "View"
@@ -4177,9 +4181,6 @@ msgstr "Falha ao salvar a mensagem."
 
 msgid "Message Options"
 msgstr "Opções da mensagem"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

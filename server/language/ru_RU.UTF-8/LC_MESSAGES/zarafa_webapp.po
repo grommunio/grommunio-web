@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2078,8 +2078,9 @@ msgstr "Отправлять мне копии все сообщений от с
 msgid "Other"
 msgstr "Другой"
 
-msgid "No delegate exists"
-msgstr "Делегатов нет"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Подписи не настроены"
 
 msgid "Loading delegates"
 msgstr "Загрузка делегатов"
@@ -2087,16 +2088,13 @@ msgstr "Загрузка делегатов"
 msgid "Please select a delegate."
 msgstr "Выберите делегата."
 
-msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+msgid "Delegates can send items on your behalf."
 msgstr ""
-"Делегаты могут осуществлять отправку от вашего имени. Чтобы предоставить "
-"разрешение другим пользователям к вашим папкам, не предоставляя им прав для "
-"отправки по поручению, перейдите в свойства выбранной папки и добавьте "
-"соответствующие параметры на вкладке «Разрешения»."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
 
 # 90%
 msgid "Permission"
@@ -2723,8 +2721,10 @@ msgstr "Загрузка адресов"
 msgid "Please select a from address record."
 msgstr "Пожалуйста, выберите один из адресов."
 
-msgid "Here you can setup your alias email addresses."
-msgstr "Здесь вы можете настроить свои превдонимы эл. почты."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
 
 msgid "View"
 msgstr "Просмотр"
@@ -4144,9 +4144,6 @@ msgstr "Операция не удалась"
 
 msgid "Message Options"
 msgstr "Параметры сообщения"
-
-msgid "No from addresses configured!"
-msgstr "Нет адреса отправителя!"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "При отправке сообщение будет помечено флагом для отслеживания."

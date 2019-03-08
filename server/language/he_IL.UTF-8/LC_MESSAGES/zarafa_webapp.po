@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -2099,7 +2099,7 @@ msgstr ""
 msgid "Other"
 msgstr "אחר"
 
-msgid "No delegate exists"
+msgid "No delegates configured"
 msgstr ""
 
 msgid "Loading delegates"
@@ -2108,11 +2108,12 @@ msgstr ""
 msgid "Please select a delegate."
 msgstr ""
 
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
 msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
 msgstr ""
 
 # 90%
@@ -2740,7 +2741,9 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
 msgstr ""
 
 msgid "View"
@@ -4211,9 +4214,6 @@ msgstr ""
 
 msgid "Message Options"
 msgstr "אפשרויות הודעה"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

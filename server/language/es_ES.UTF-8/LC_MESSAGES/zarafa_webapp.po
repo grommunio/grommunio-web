@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish (Spain) <http://translate.kopano.io/projects/kopano/"
@@ -2107,8 +2107,9 @@ msgstr ""
 msgid "Other"
 msgstr "Otro"
 
-msgid "No delegate exists"
-msgstr "No existe delegado"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Firmas no configuradas"
 
 msgid "Loading delegates"
 msgstr "Cargando delegados"
@@ -2116,16 +2117,13 @@ msgstr "Cargando delegados"
 msgid "Please select a delegate."
 msgstr "Por favor, seleccione un delegado."
 
-msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+msgid "Delegates can send items on your behalf."
 msgstr ""
-"Los Delegados pueden enviar elementos en su nombre. Para asignar permisos a "
-"otros para acceder a sus directorios sin brindarles permiso de enviar-en-mi-"
-"nombre, vaya a las propiedades de cada directorio y camibe las opciones en "
-"la lengüeta de Permisos."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
 
 # 90%
 #, fuzzy
@@ -2769,8 +2767,10 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
-msgstr "Acá puede configurar sus direcciones de correo alias"
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
 
 msgid "View"
 msgstr "Vista"
@@ -4276,9 +4276,6 @@ msgstr "Falló guardado de mensaje."
 
 msgid "Message Options"
 msgstr "Opciones de Mensaje"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""

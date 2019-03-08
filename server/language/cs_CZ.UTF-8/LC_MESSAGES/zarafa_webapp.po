@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:11+0100\n"
+"POT-Creation-Date: 2019-03-08 16:17+0100\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2095,8 +2095,9 @@ msgstr "Zástupce dostává kopie zpráv týkajících se schůzek odeslaných m
 msgid "Other"
 msgstr "Další"
 
-msgid "No delegate exists"
-msgstr "Žádný zástupce není nastaven"
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Nejsou nastaveny podpisy"
 
 msgid "Loading delegates"
 msgstr "Načítání zástupců"
@@ -2104,16 +2105,13 @@ msgstr "Načítání zástupců"
 msgid "Please select a delegate."
 msgstr "Vyberte prosím zástupce."
 
-msgid ""
-"Delegates can send items on your behalf. To grant permission to others to "
-"access your folders without also giving them send-on-behalf-of privileges, "
-"go to properties for each folder and change the options on the Permissions "
-"Tab."
+msgid "Delegates can send items on your behalf."
 msgstr ""
-"Zástupce mohou posílat položky vaším jménem. Chcete-li udělit oprávnění "
-"ostatním k přístupu k vaším složkám, aniž by měli oprávnění posílat položky "
-"vaším jménem, přejděte na vlastnosti pro každou složku a změňte volby na "
-"záložce oprávnění."
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
 
 # 90%
 msgid "Permission"
@@ -2749,8 +2747,10 @@ msgstr ""
 msgid "Please select a from address record."
 msgstr ""
 
-msgid "Here you can setup your alias email addresses."
-msgstr "Zde můžete nastavit svoje alias adresy."
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
 
 msgid "View"
 msgstr "Zobrazit"
@@ -4204,9 +4204,6 @@ msgstr "Načítání pošty"
 
 msgid "Message Options"
 msgstr "Možnosti zpráv"
-
-msgid "No from addresses configured!"
-msgstr ""
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
