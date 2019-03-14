@@ -163,7 +163,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		if (isMultipleItems) {
 			if (container.getSettingsModel().get('zarafa/v1/contexts/mail/use_english_abbreviations')) {
-				responseRecord.set('subject', ('FW') + ': ');		
+				responseRecord.set('subject', ('FW') + ': ');
 			} else {
 				responseRecord.set('subject', _('FW') + ': ');
 			}
@@ -843,6 +843,13 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * @param {Ext.data.Record[]} records The records which were loaded from the store
 	 */
 	lazyLoadMail: function(store, records) {
+		// Don't start lazy loading for the outbox to avoid
+		// the dreaded "Could not find message" error when
+		// sending a mail with the outbox opened.
+		if (this.getDefaultFolder().getDefaultFolderKey() === 'outbox') {
+			return;
+		}
+
 		const unOpened = records.filter(function(record) {
 			return (
 				!record.isOpened() &&							// No records that were already opened
