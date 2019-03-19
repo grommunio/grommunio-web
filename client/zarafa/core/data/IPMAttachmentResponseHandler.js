@@ -33,6 +33,6 @@ Zarafa.core.data.IPMAttachmentResponseHandler = Ext.extend(Zarafa.core.data.Prox
 	 */
 	compareResponseDataToRecord : function(data, record)
 	{
-		return data.props.name == record.get('name');
+		return data.props.name.localeCompare(record.get('name')) === 0;
 	}
 });
