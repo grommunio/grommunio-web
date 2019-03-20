@@ -1,4 +1,7 @@
 <?php
+// required to handle php errors
+require_once(__DIR__ . '/exceptions/class.ZarafaErrorException.php');
+require_once(__DIR__ . '/download_base.php');
 
 /**
  * DownloadAttachment
@@ -8,25 +11,8 @@
  *
  * Main reason to create this class is to not pollute the global namespace.
  */
-class DownloadAttachment
+class DownloadAttachment extends DownloadBase
 {
-	/**
-	 * Resource of the MAPIStore which holds the message which contains attachments
-	 * This will be used to get MAPIMessage resource to open attachment table and get attachments
-	 */
-	private $store;
-
-	/**
-	 * Entryid of the MAPIMessage that contains attachments, this is only needed when we are trying to access
-	 * saved attachments from saved message
-	 */
-	private $entryId;
-
-	/**
-	 * Resource of MAPIMessage that contains attachments.
-	 */
-	private $message;
-
 	/**
 	 * Content disposition type for the attachment that will be sent with header with the attachment data
 	 * Possible values are 'inline' and 'attachment'. When content-type is application/octet-stream and
@@ -51,11 +37,6 @@ class DownloadAttachment
 	 * attachment number is also passed to access embedded message.
 	 */
 	private $attachCid;
-
-	/**
-	 * A boolean value, set to false by default, to define if all the attachments are requested to be downloaded in a zip or not.
-	 */
-	private $allAsZip;
 
 	/**
 	 * A string that will be initialized with WebApp-specific and common-for-all file name for ZIP file.
@@ -104,12 +85,9 @@ class DownloadAttachment
 	 */
 	public function __construct()
 	{
-		$this->storeId = false;
-		$this->entryId = false;
 		$this->contentDispositionType = 'attachment';
 		$this->attachNum = array();
 		$this->attachCid = false;
-		$this->allAsZip = false;
 		$this->zipFileName = _('Attachments').'%s.zip';
 		$this->messageSubject = '';
 		$this->isSubMessage = false;
@@ -118,6 +96,8 @@ class DownloadAttachment
 		$this->import = false;
 		$this->isEmbedded = false;
 		$this->otherStore = false;
+
+		parent:: __construct();
 	}
 
 	/**
@@ -444,16 +424,17 @@ class DownloadAttachment
 					}
 
 					// Add file into zip by stream
-					$zip->addFromString($props[PR_ATTACH_LONG_FILENAME], $datastring);
+					$fileDownloadName = $this->handleDuplicateFileNames($props[PR_ATTACH_LONG_FILENAME]);
+					$zip->addFromString($fileDownloadName, $datastring);
 				}
 			}
+		}
 
-			// Go for adding unsaved attachments in ZIP, if any.
-			// This situation arise while user upload attachments in draft.
-			$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
-			if($attachmentFiles){
-				$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
-			}
+		// Go for adding unsaved attachments in ZIP, if any.
+		// This situation arise while user upload attachments in draft.
+		$attachmentFiles = $attachment_state->getAttachmentFiles($this->dialogAttachments);
+		if($attachmentFiles){
+			$this->addUnsavedAttachmentsToZipArchive($attachment_state, $zip);
 		}
 	}
 
@@ -540,7 +521,8 @@ class DownloadAttachment
 			$filePath = $attachment_state->getAttachmentPath($fileName);
 			// Avoid including contact photo and embedded messages in ZIP
 			if ($fileInfo['sourcetype'] !== 'embedded' && $fileInfo['sourcetype'] !== 'contactphoto') {
-				$zip->addFile($filePath, $fileInfo['name']);
+				$fileDownloadName = $this->handleDuplicateFileNames( $fileInfo['name']);
+				$zip->addFile($filePath, $fileDownloadName);
 			}
 		}
 	}
