@@ -126,7 +126,6 @@ class DownloadAttachment
 	 */
 	public function init($data)
 	{
-		error_log(var_export($data, true));
 		if(isset($data['store'])) {
 			$this->store = sanitizeValue($data['store'], '', ID_REGEX);
 		}
