@@ -828,11 +828,12 @@
 							}else {
 								// Check or you exist in the right month
 
+								$dayofweek = gmdate("w", $monthbegindow);
 								for($i = 0; $i < 7; $i++) {
-									if($nday == 5 && (1<<( (gmdate("w", $monthbegindow)-$i)%7) ) & $weekdays) {
+									if($nday == 5 && (($dayofweek-$i)%7 >= 0) && (1<<( ($dayofweek-$i)%7) ) & $weekdays) {
 										$day = gmdate("j", $monthbegindow) - $i;
 										break;
-									}else if($nday != 5 && (1<<( (gmdate("w", $monthbegindow )+$i)%7) ) & $weekdays) {
+									}else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
 										$day = (($nday-1)*7) + ($i+1);
 										break;
 									}
@@ -869,11 +870,12 @@
 							
 							$day = 0;
 							// Set start on the right day
+							$dayofweek = gmdate("w", $monthbegindow);
 							for($i = 0; $i < 7; $i++) {
-								if($nday == 5 && (1<<( (gmdate("w", $monthbegindow )-$i)%7) ) & $weekdays) {
+								if($nday == 5 && (($dayofweek-$i)%7) >= 0&& (1<<(($dayofweek-$i)%7) ) & $weekdays) {
 									$day = $i;
 									break;
-								}else if($nday != 5 && (1<<( (gmdate("w", $monthbegindow )+$i)%7) ) & $weekdays) {
+								}else if($nday != 5 && (1<<( ($dayofweek+$i)%7) ) & $weekdays) {
 									$day = ($nday - 1) * 7 + ($i+1);
 									break;
 								}
