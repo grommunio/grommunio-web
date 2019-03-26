@@ -380,7 +380,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 					// favorites tree was in collapsible mode. Extjs is follow the lazy rendering
 					// so tree node was only created when tree is in expanded mode or user expand it.
 					if (Ext.isDefined(treeNode)) {
-						treeNode.updateUI(record);
+						treeNode.updateUI(favRecord);
 					}
 				}
 			}
