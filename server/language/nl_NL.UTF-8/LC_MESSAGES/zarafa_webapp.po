@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-08 16:17+0100\n"
-"PO-Revision-Date: 2019-03-05 09:53+0000\n"
+"PO-Revision-Date: 2019-03-28 16:46+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -2128,23 +2128,24 @@ msgstr ""
 msgid "Other"
 msgstr "Overig"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Geen handtekeningen geconfigureerd"
+msgstr "Geen gemachtigen geconfigureerd"
 
 msgid "Loading delegates"
 msgstr "Gemachtigden laden"
 
 msgid "Please select a delegate."
-msgstr "Selecteer aub een gemachtigde."
+msgstr "Selecteer a.u.b. een gemachtigde."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Gemachtigen kunnen namens u versturen."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Als u alleen folder rechten wilt geven, klik dan rechts op een folder om de "
+"context menu te openen en click op \"Deel folder...\""
 
 # 90%
 msgid "Permission"
@@ -2390,7 +2391,7 @@ msgid "Regenerate new task {A} day(s) after each task is completed"
 msgstr "Maak nieuwe taak {A} dag(en) nadat elke taak is voltooid"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr "Dag {A} van elke {B} ma(a)nd(en)"
+msgstr "Dag {A} van elke {B} maand(en)"
 
 msgid "The {A} {B} of every {C} month(s)"
 msgstr "De {A} {B} van elke {C} ma(a)nd(en)"
@@ -2781,7 +2782,7 @@ msgstr "Selecteer een afzender."
 msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
-msgstr ""
+msgstr "Beheer de emailadressen die gebruikt kunnen worden als afzender."
 
 msgid "View"
 msgstr "Bekijken"
