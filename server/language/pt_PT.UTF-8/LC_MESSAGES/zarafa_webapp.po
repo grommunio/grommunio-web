@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-01 12:42+0200\n"
-"PO-Revision-Date: 2019-02-22 10:49+0000\n"
+"PO-Revision-Date: 2019-04-01 14:41+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -323,11 +323,9 @@ msgstr "Este campo deve apenas conter letras e '_'"
 msgid "This field should only contain letters, numbers and _"
 msgstr "Este campo deve apenas conter letras, números e '_'"
 
-#, fuzzy
 msgid "Email Addresses"
 msgstr "Endereços de E-mail"
 
-#, fuzzy
 msgid "Email addresses"
 msgstr "Endereços de E-mail"
 
@@ -1992,9 +1990,8 @@ msgstr ""
 msgid "Other"
 msgstr "Outro"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Sem assinaturas configuradas"
+msgstr "Sem delegados configurados"
 
 msgid "Loading delegates"
 msgstr "A carregar utilizadores"
@@ -2003,12 +2000,14 @@ msgid "Please select a delegate."
 msgstr "Por favor selecione utilizador."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Delegados podem enviar itens em seu nome."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Se desejar apenas definir permissões para pastas, carregue com o botão "
+"direito numa pasta e selecione \"Partilhar Pasta...\" nas opções"
 
 msgid "Permission"
 msgstr "Nível de permissão"
@@ -2610,6 +2609,8 @@ msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
 msgstr ""
+"Gerir os endereços de E-mail que pode usar como remetente para enviar "
+"mensagens."
 
 msgid "View"
 msgstr "Ver"
@@ -3195,13 +3196,11 @@ msgstr "Novo contacto"
 msgid "New distribution list"
 msgstr "Nova lista de distribuição"
 
-#, fuzzy
 msgid "Email 2 Display As"
-msgstr "E-mail 2 mostrar como"
+msgstr "E-mail 2 Mostrar Como"
 
-#, fuzzy
 msgid "Email 3 Display As"
-msgstr "E-mail3 mostrar como"
+msgstr "E-mail 3 Mostrar Como"
 
 msgid "Assistent"
 msgstr "Assistente"
@@ -3819,7 +3818,6 @@ msgstr "Abrir pastas/caixas partilhadas"
 msgid "Empty folder"
 msgstr "Esvaziar pasta"
 
-#, fuzzy
 msgid "Empty Junk Email"
 msgstr "Esvaziar E-mail de SPAM"
 
@@ -3963,16 +3961,14 @@ msgstr "A mensagem será enviada {0}{1}"
 msgid "Saving..."
 msgstr "A gravar..."
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "Mensagem gravada a {0}."
+msgstr "Gravada em {0}"
 
 msgid "g:i A"
 msgstr "g:i A"
 
-#, fuzzy
 msgid "Saving failed"
-msgstr "Operação falhou"
+msgstr "Gravar falhou"
 
 msgid "Message Options"
 msgstr "Opções da mensagem"
@@ -4038,7 +4034,7 @@ msgid "Internet Headers"
 msgstr "Cabeçalhos de Internet"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Message Settings"
 msgstr "Preferências da mensagem"
@@ -4162,7 +4158,7 @@ msgid "Location of preview pane"
 msgstr "Localização do painel de leitura"
 
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "Usar abreviações inglesas para reencaminhar (FW:) e responder (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr "Fechar mensagem original ao responder ou reencaminhar"
@@ -4933,7 +4929,6 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tarefas"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "E-mail de SPAM"
