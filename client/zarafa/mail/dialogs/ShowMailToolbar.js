@@ -236,21 +236,21 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 		return {
 			xtype: 'zarafa.conditionalmenu',
 			items: [{
-                xtype: 'zarafa.conditionalitem',
+				xtype: 'zarafa.conditionalitem',
 				text : _('Mark Read'),
 				iconCls : 'icon_mail icon_mail_read',
-                hideMode : 'offsets',
-                readState: true,
-                beforeShow : this.onBeforeShowMoreMenu,
-                handler : this.onReadFlagMenuItemClicked,
-                scope: scope
+				hideMode : 'offsets',
+				readState: true,
+				beforeShow : this.onBeforeShowMoreMenu,
+				handler : this.onReadFlagMenuItemClicked,
+				scope: scope
 			}, {
-                xtype: 'zarafa.conditionalitem',
+				xtype: 'zarafa.conditionalitem',
 				text : _('Mark Unread'),
-                hideMode : 'offsets',
+				hideMode : 'offsets',
 				iconCls : 'icon_mail icon_mail_unread',
-                readState: false,
-                beforeShow : this.onBeforeShowMoreMenu,
+				readState: false,
+				beforeShow : this.onBeforeShowMoreMenu,
 				handler : this.onReadFlagMenuItemClicked,
 				scope : scope
 			}, {
@@ -272,7 +272,6 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 			}, {
 				text: _('Download'),
 				iconCls: 'icon_download',
-				actionType: Zarafa.mail.data.ActionTypes.EDIT_AS_NEW,
 				handler: this.onDownloadMailButton,
 				scope: scope
 			}]
