@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4313,6 +4313,9 @@ msgstr "Opciones varias"
 
 msgid "Internet Headers"
 msgstr "Encabezados de Internet"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Configuración de mensajes"

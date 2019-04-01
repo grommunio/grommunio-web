@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2019-03-08 16:48+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -4316,6 +4316,9 @@ msgstr "Verschiedene Optionen"
 
 msgid "Internet Headers"
 msgstr "Internet-Kopfzeilen"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Nachrichteneinstellungen"

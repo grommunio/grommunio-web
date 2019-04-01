@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Catalan (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2017-10-04 20:55+0200\n"
 "Last-Translator: Angel <craem@craem.net>\n"
 "Language-Team: Catalan (Spain) <https://translate.kopano.io/projects/kopano/"
@@ -3928,6 +3928,9 @@ msgid "Miscellaneous Options"
 msgstr ""
 
 msgid "Internet Headers"
+msgstr ""
+
+msgid "EntryID"
 msgstr ""
 
 msgid "Message Settings"

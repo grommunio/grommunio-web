@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -4214,6 +4214,9 @@ msgid "Miscellaneous Options"
 msgstr ""
 
 msgid "Internet Headers"
+msgstr ""
+
+msgid "EntryID"
 msgstr ""
 
 msgid "Message Settings"

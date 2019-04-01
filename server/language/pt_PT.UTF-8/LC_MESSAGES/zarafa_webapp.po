@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2019-02-22 10:49+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
@@ -4036,6 +4036,9 @@ msgstr "Opções Várias"
 
 msgid "Internet Headers"
 msgstr "Cabeçalhos de Internet"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Preferências da mensagem"

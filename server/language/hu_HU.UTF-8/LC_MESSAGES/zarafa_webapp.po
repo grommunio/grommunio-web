@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -4303,6 +4303,9 @@ msgstr "Vegyes beállítások"
 
 msgid "Internet Headers"
 msgstr "Internetes fejlécek"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Üzenet beállítások"

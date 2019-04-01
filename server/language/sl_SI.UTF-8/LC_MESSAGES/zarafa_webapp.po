@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -4340,6 +4340,9 @@ msgstr "Razne možnosti"
 
 msgid "Internet Headers"
 msgstr "Internetne glave"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Nastavitve sporočila"

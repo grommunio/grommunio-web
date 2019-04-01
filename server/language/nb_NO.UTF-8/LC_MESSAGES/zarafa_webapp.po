@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2019-02-06 11:25+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -4184,6 +4184,9 @@ msgstr "Diverse alternativer"
 
 msgid "Internet Headers"
 msgstr "Internett meldingshoder"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Meldingsalternativer"

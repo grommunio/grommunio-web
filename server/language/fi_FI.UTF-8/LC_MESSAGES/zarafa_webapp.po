@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -4252,6 +4252,9 @@ msgstr "Sekalaiset valinnat"
 
 msgid "Internet Headers"
 msgstr "Internet-otsikot"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Viestiasetukset"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 16:17+0100\n"
+"POT-Creation-Date: 2019-04-01 12:42+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -4268,6 +4268,9 @@ msgstr "Různé možnosti"
 
 msgid "Internet Headers"
 msgstr "Záhlaví internetu"
+
+msgid "EntryID"
+msgstr ""
 
 msgid "Message Settings"
 msgstr "Nastavení zpráv"
