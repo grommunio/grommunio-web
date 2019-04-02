@@ -517,12 +517,26 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 */
 	onBodyContextMenu : function(event, el)
 	{
-		// Disable contextmenu globally in the separate browser window,
-		// only when the 'zarafa-contextmenu-enabled'
-		// CSS class is applied on the element will we allow the contextmenu to be shown.
-		if (!Ext.get(el).hasClass('zarafa-contextmenu-enabled')) {
-			event.preventDefault();
+		el = Ext.get(el);
+
+		// Don't disable the browser contextmenu when the
+		// 'zarafa-contextmenu-enabled' CSS class is applied
+		// on the element.
+		if (el.hasClass('zarafa-contextmenu-enabled') || el.up('div.zarafa-contextmenu-enabled')) {
+			return;
 		}
+
+		// Don't disable the browser contextmenu for regular
+		// text inputs.
+		if ( el.dom.tagName.toUpperCase() === 'INPUT' ){
+			var type = el.getAttribute('type') || '';
+			var readonly = !Ext.isEmpty(el.dom.attributes.readonly);
+			if ( type.toUpperCase() === 'TEXT' && !readonly ) {
+				return;
+			}
+		}
+
+		event.preventDefault();
 	},
 
 	/**

@@ -253,7 +253,7 @@ Ext.apply(Zarafa, {
 		// Don't disable the browser contextmenu when the
 		// 'zarafa-contextmenu-enabled' CSS class is applied
 		// on the element.
-		if ( el.hasClass('zarafa-contextmenu-enabled') ){
+		if ( el.hasClass('zarafa-contextmenu-enabled') || el.up('div.zarafa-contextmenu-enabled')){
 			return;
 		}
 
