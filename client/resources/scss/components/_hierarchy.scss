@@ -3,7 +3,8 @@ body.hideFavorites .zarafa-tree-ipm-subtree-favorites-container {
 	display: none !important;	
 }
 
-body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container {
+/* Set the position to relative when scrollFavorites class is added AND when favorites is shown in an x-window */
+body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container, .x-window .zarafa-tree-ipm-subtree-favorites-container {
 	position: relative !important;
 }
 
