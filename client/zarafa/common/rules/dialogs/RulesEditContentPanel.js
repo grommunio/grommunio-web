@@ -23,6 +23,7 @@ Zarafa.common.rules.dialogs.RulesEditContentPanel = Ext.extend(Zarafa.core.ui.Re
 			// Override from Ext.Component
 			layout : 'fit',
 			modal : true,
+			cls: 'k-ruleseditpanel',
 			recordComponentPluginConfig : Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite : true,
 				useShadowStore : true
