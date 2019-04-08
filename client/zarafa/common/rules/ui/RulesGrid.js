@@ -94,7 +94,9 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			ref : '../downButton',
 			handler : this.onRuleSequenceDown,
 			scope : this
-		}];
+		},
+			container.populateInsertionPoint('settings.rules.action.last')
+		];
 	},
 
 	/**
