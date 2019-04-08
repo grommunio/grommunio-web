@@ -135,6 +135,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			id : baseId + '-senderwords'
 		},{
 			xtype : 'zarafa.wordselectionlink',
+			id : baseId + '-recipientwords'
+		},{
+			xtype : 'zarafa.wordselectionlink',
 			id : baseId + '-words'
 		},{
 			xtype : 'zarafa.wordselectionlink',
@@ -418,6 +421,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE:
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM:
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
+			case Zarafa.common.rules.data.ConditionFlags.RECIPIENT_WORDS:
 			case Zarafa.common.rules.data.ConditionFlags.SENSITIVITY:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME:
@@ -462,7 +466,15 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 					case 'PR_IMPORTANCE':
 						return Zarafa.common.rules.data.ConditionFlags.IMPORTANCE;
 					case 'PR_MESSAGE_RECIPIENTS':
-						return Zarafa.common.rules.data.ConditionFlags.SENT_TO;
+						// If there exists sub restriction.
+						if (condition[0] === Restrictions.RES_SUBRESTRICTION) {
+							var isRecepientWordsRes = condition[1][Restrictions.RESTRICTION][1][Restrictions.ULPROPTAG] === 'PR_SMTP_ADDRESS';
+							if (isRecepientWordsRes) {
+								return Zarafa.common.rules.data.ConditionFlags.RECIPIENT_WORDS;
+							}
+							return Zarafa.common.rules.data.ConditionFlags.SENT_TO;
+						}
+						break;
 					case 'PR_MESSAGE_TO_ME':
 						return Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME;
 					case 'PR_SENDER_SEARCH_KEY':
@@ -546,6 +558,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
 				layout.setActiveItem(panel.id + '-senderwords');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.RECIPIENT_WORDS:
+				layout.setActiveItem(panel.id + '-recipientwords');
 				layout.activeItem.setCondition(value);
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.SUBJECT_WORDS:

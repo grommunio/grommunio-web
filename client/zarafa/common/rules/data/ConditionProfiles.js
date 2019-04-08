@@ -14,6 +14,9 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 	name : _('includes these words in the sender\'s address ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS
 },{
+	name : _('includes these words in the recipient\'s address ...'),
+	value : Zarafa.common.rules.data.ConditionFlags.RECIPIENT_WORDS
+},{
 	name : _('includes these words in the subject ...'),
 	value : Zarafa.common.rules.data.ConditionFlags.SUBJECT_WORDS
 },{
