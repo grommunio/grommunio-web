@@ -898,7 +898,7 @@
 							$defaultContactFolder = array(
 								PR_STORE_ENTRYID => $storeEntryID,
 								PR_ENTRYID       => $rootProps[PR_IPM_CONTACT_ENTRYID],
-								PR_DISPLAY_NAME  => dgettext("zarafa", "Contacts")
+								PR_DISPLAY_NAME  => _("Contacts")
 							);
 							array_push($userContactFolders, $defaultContactFolder);
 
