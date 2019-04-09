@@ -31,7 +31,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			layout: 'form',
 			border: false,
-			labelWidth : 80,
+			labelWidth : 87,
 			flex : 1,
 			items: [
 				this.createRecipientField(config.store),
@@ -58,7 +58,7 @@ Zarafa.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 			anchor :'100%',
 			items: [{
 				xtype: 'button',
-				width: 80,
+				anchor: '100%',
 				text: _('Name') + ':',
 				handler: this.onSelectUser,
 				scope: this
