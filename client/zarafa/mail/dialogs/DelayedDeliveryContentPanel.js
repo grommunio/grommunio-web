@@ -40,7 +40,7 @@ Zarafa.mail.dialogs.DelayedDeliveryContentPanel = Ext.extend(Zarafa.core.ui.Cont
                 buttons: [{
                     text: _('Send'),
                     cls: 'zarafa-action',
-                    iconCls: 'buttons_icon_send_later_white',
+                    iconCls: 'icon_send_later_white',
                     ref: '../sendButton',
                     disabled: true,
                     handler: this.onSend,
