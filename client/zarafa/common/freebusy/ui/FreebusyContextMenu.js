@@ -61,24 +61,21 @@ Zarafa.common.freebusy.ui.FreebusyContextMenu = Ext.extend(Zarafa.core.ui.menu.C
 				scope: this
 			},'-',{
 				xtype: 'zarafa.conditionalitem',
-				text: _('Required Attendee'),
-				iconCls: 'icon_meetingrequest_requiredattendee',
+				text: _('Set as required'),
 				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_TO,
 				handler : this.onRecipientTypeChange,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
-				text: _('Optional Attendee'),
-				iconCls: 'icon_meetingrequest_optionalattendee',
+				text: _('Set as optional'),
 				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_CC,
 				handler : this.onRecipientTypeChange,
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
-				text: _('Resource'),
-				iconCls: 'icon_meetingrequest_resource',
+				text: _('Set as resource'),
 				hidden : !editable || organizer,
 				recipientType : Zarafa.core.mapi.RecipientType.MAPI_BCC,
 				handler : this.onRecipientTypeChange,
