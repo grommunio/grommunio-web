@@ -25,4 +25,7 @@ Zarafa.common.rules.data.ActionProfiles = [{
 },{
 	name : _('Forward the message as attachment to ...'),
 	value : Zarafa.common.rules.data.ActionFlags.FORWARD_ATTACH
+}, {
+	name : _('Mark the message as read ...'),
+	value : Zarafa.common.rules.data.ActionFlags.MARK_AS_READ
 }];

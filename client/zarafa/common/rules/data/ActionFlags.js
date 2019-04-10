@@ -53,5 +53,12 @@ Zarafa.common.rules.data.ActionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	FORWARD_ATTACH : 6
+	FORWARD_ATTACH : 6,
+
+	/**
+	 * Indicates that the "Mark As Read" action is selected
+	 * @property
+	 * @type Number
+	 * */
+	MARK_AS_READ : 7
 });

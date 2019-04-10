@@ -137,6 +137,9 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 		},{
 			xtype : 'zarafa.userselectionlink',
 			id : baseId + '-to'
+		},{
+			xtype: 'zarafa.markasreadlink',
+			id : baseId + '-markasread',
 		}];
 	},
 
@@ -257,9 +260,19 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 			if (!action) {
 				panel.get(0).markInvalid();
 				actionsValid = false;
+				break;
 			}
 
-			actions.push(action);
+			// If the Action is 'Mark as read', We need to shift it first in actions list.
+			// Because it will not work if we keep it later after other actions.
+			// i.e. for actions like Move/copy , delete the entry id of the message changes,
+			// So if we add action after these actions it will not find the required message.
+ 			if (action.action === Zarafa.core.mapi.RuleActions.OP_MARK_AS_READ) {
+				actions.unshift(action);
+			} else {
+				actions.push(action);
+			}
+
 		}
 
 		record.set('rule_actions', actions);
@@ -305,6 +318,7 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 			case Zarafa.common.rules.data.ActionFlags.REDIRECT:
 			case Zarafa.common.rules.data.ActionFlags.FORWARD:
 			case Zarafa.common.rules.data.ActionFlags.FORWARD_ATTACH:
+			case Zarafa.common.rules.data.ActionFlags.MARK_AS_READ:
 				layout.activeItem.setAction(actionFlag, action);
 				break;
 		}
@@ -351,6 +365,8 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 					default:
 						return Zarafa.common.rules.data.ActionFlags.UNKNOWN;
 				}
+			case Zarafa.core.mapi.RuleActions.OP_MARK_AS_READ:
+				return Zarafa.common.rules.data.ActionFlags.MARK_AS_READ;
 				/* falls through */
 			default:
 				// Any other RuleAction is not supported
@@ -398,6 +414,10 @@ Zarafa.common.rules.dialogs.RulesActionsContainer = Ext.extend(Ext.Container, {
 			case Zarafa.common.rules.data.ActionFlags.FORWARD:
 			case Zarafa.common.rules.data.ActionFlags.FORWARD_ATTACH:
 				layout.setActiveItem(panel.id + '-to');
+				layout.activeItem.setAction(value);
+				break;
+			case Zarafa.common.rules.data.ActionFlags.MARK_AS_READ:
+				layout.setActiveItem(panel.id + '-markasread');
 				layout.activeItem.setAction(value);
 				break;
 		}
