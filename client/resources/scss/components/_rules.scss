@@ -29,12 +29,21 @@
 	}
 }
 
-.zarafa-folder-link, .zarafa-user-link, .zarafa-word-link {
-	text-decoration: underline;
-	padding: 4px 0px 0px 5px;
-	cursor:pointer;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	font-weight: bold;
+/* Rules edit panel (called "Inbox Rule" */
+
+.k-ruleseditpanel {
+	.zarafa-folder-link, .zarafa-user-link, .zarafa-word-link {
+        	text-decoration: underline;
+	        padding: 4px 0px 0px 5px;
+	        cursor:pointer;
+	        overflow: hidden;
+        	text-overflow: ellipsis;
+	        white-space: nowrap;
+	        font-weight: bold;
+	}
+	
+	 .zarafa-compositefield {
+		padding-top: $padding-medium;
+	}	
+
 }
