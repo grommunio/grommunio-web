@@ -342,6 +342,52 @@ class WebAppAuthentication
 	}
 
 	/**
+	 * Logs the user in with a given username and token in $_POST and logs
+	 * in with the special flag for token authentication enabled. If $new
+	 * is true it's assumed that a session does not exists and there wille
+	 * be a new one generated and fingerprint stored in session which is
+	 * later compared after logon. After successful logon the session is stored.
+	 *
+	 * @param Boolean $new true if user has no session yet.
+	 * @return integer|void
+	 */
+	public static function authenticateWithToken($new=True) {
+		$sslcert_file = defined('SSLCERT_FILE') ? SSLCERT_FILE : null;
+		$sslcert_pass = defined('SSLCERT_PASS') ? SSLCERT_PASS : null;
+
+		if (empty($_POST['token'])) {
+			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
+			return WebAppAuthentication::getErrorCode();
+		}
+
+		if ($new) {
+			// If no session is currently running, then store a fingerprint of the requester
+			// in the session.
+			$_SESSION['fingerprint'] = BrowserFingerprint::getFingerprint();
+
+			// Give the session a new id
+			session_regenerate_id();
+		}
+
+		WebAppAuthentication::$_errorCode = WebAppAuthentication::getMapiSession()->logon(
+			$_POST['username'],
+			$_POST['token'],
+			DEFAULT_SERVER,
+			$sslcert_file,
+			$sslcert_pass,
+			EC_PROFILE_FLAGS_OIDC
+		);
+
+		// Store the credentials in the session if logging in was succesfull
+		if ( WebAppAuthentication::$_errorCode === NOERROR ){
+			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['token']);
+			WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
+		}
+
+		return WebAppAuthentication::getErrorCode();
+	}
+
+	/**
 	 * Tries to authenticate the user with credentials from the session. When credentials
 	 * are found in the session it will return the error code from the logon attempt with
 	 * those credentials, otherwise it will return void.

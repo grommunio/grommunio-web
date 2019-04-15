@@ -425,4 +425,9 @@ if(!defined('DEBUG_DUMP_FILE')) define('DEBUG_DUMP_FILE', 'debug.txt');
 if(!defined('LOG_USER_LEVEL')) define('LOG_USER_LEVEL', LOGLEVEL_OFF);
 if(!defined('LOG_USERS')) define('LOG_USERS', '');
 if(!defined('LOG_FILE_DIR')) define('LOG_FILE_DIR', '');
+
+// OIDC
+if(!defined('OIDC_ISS')) define('OIDC_ISS', '');
+if(!defined('OIDC_CLIENT_ID')) define('OIDC_CLIENT_ID', '');
+if(!defined('OIDC_SCOPE')) define('OIDC_SCOPE', 'openid profile email kopano/gc');
 ?>

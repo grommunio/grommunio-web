@@ -50,10 +50,18 @@
 	<property name="fingerprint-debugfile" value="fingerprint-debug.js"/>
 	<property name="fingerprint-file" value="fingerprint.js"/>
 
-	<!-- The resize script -->
+	<!-- The OIDC files -->
+	<property name="oidc-folder" value="oidc"/>
+
+	<!-- The kopano oidc script -->
 	<property name="resize-folder" value=""/>
 	<property name="resize-debugfile" value="resize-debug.js"/>
 	<property name="resize-file" value="resize.js"/>
+
+	<!-- The kopano oidc script -->
+	<property name="oidc-kopano-folder" value=""/>
+	<property name="oidc-kopano-debugfile" value="oidc-kopano-debug.js"/>
+	<property name="oidc-kopano-file" value="oidc-kopano.js"/>
 
 	<!-- Third-party plugins CSS files -->
 	<property name="thirdparty-css-folder" value="${thirdparty-folder}/resources/css"/>
@@ -125,6 +133,16 @@
                 <include name="${resize-file}"/>
             </fileset>
 
+            <!-- Delete the kopano oidc script -->
+            <fileset dir="${target-folder}/${oidc-kopano-folder}">
+                <include name="${oidc-kopano-file}"/>
+            </fileset>
+
+            <!-- Delete the OIDC files -->
+            <fileset dir="${target-folder}/${oidc-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
 			<!-- Delete the Extjs-mod files -->
 			<fileset dir="${target-folder}/${extjs-mod-folder}">
 				<include name="${extjs-mod-debugfile}"/>
@@ -173,6 +191,13 @@
 		</copy>
         <copy file="${fingerprint-file}" tofile="${target-folder}/${fingerprint-folder}/${fingerprint-debugfile}"></copy>
         <copy file="${resize-file}" tofile="${target-folder}/${resize-folder}/${resize-debugfile}"></copy>
+        <copy file="${oidc-kopano-file}" tofile="${target-folder}/${oidc-kopano-folder}/${oidc-kopano-debugfile}"></copy>
+        <copy todir="${target-folder}/${oidc-folder}">
+            <fileset dir="${oidc-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+
         <copy todir="${target-folder}/${tinymce-folder}">
             <fileset dir="${tinymce-folder}">
                 <include name="**/*.*"/>
@@ -257,6 +282,13 @@
 			</externs>
 		</zCompile>
 
+		<echo message="Compiling: ${oidc-kopano-file}" />
+		<zCompile inputFolder="${target-folder}/${oidc-kopano-folder}" inputFile="${oidc-kopano-debugfile}" outputFolder="${target-folder}/${oidc-kopano-folder}" outputFile="${oidc-kopano-file}" createSourceMap="false" warningLevel="default">
+			<externs>
+				var Oidc = {};
+			</externs>
+		</zCompile>
+
 		<echo message="Compiling: ${thirdparty-file}" />
 		<zCompile inputFolder="${target-folder}/${thirdparty-folder}" inputFile="${thirdparty-debugfile}" outputFolder="${target-folder}/${thirdparty-folder}" outputFile="${thirdparty-file}" warningLevel="QUIET">
 			<externs>
@@ -294,6 +326,7 @@
 				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 				var pgettext = function(msgctxt, msgid) {};
 				var resizeLoginBox = function() {};
+				var userManager = {};
                 var tinymce = {};
 				var Tokenizr = {};
 			</externs>

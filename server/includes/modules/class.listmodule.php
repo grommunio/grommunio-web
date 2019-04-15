@@ -165,7 +165,6 @@
 				// Get the table and merge the arrays
 				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
 
-
 				// If the request come from search folder then no need to send folder information
 				if (!$isSearchFolder) {
 					// Open the folder.

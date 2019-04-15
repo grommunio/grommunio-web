@@ -332,5 +332,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getPrefetchInterval : function()
 	{
 		return this.meta.prefetch_email_interval * 1000;
+	},
+
+	/*
+	 * @return {Boolean} return OIDC if enabled.
+	 */
+	getOIDCEnabled : function()
+	{
+		return this.meta.oidc_enabled;
 	}
 });

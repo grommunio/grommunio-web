@@ -29,6 +29,11 @@
 	// Set to true to disable login with Single Sign-On (SSO) on SSO environments.
 	define('DISABLE_REMOTE_USER_LOGIN', false);
 
+	// OIDC Server Configuration, introduced in 8.7.0
+	define('OIDC_ISS', '');
+	define('OIDC_CLIENT_ID', '');
+	define('OIDC_SCOPE', 'openid profile email kopano/gc');
+
 	// set to 'true' to strip domain from login name found from Single Sign-On webservers
 	define("LOGINNAME_STRIP_DOMAIN", false);
 
