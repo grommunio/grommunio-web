@@ -30,9 +30,9 @@ Zarafa.common.rules.dialogs.SentCcMeLink = Ext.extend(Zarafa.common.rules.dialog
 
 		// Create a restriction
 		return RestrictionFactory.createResAnd([
-			RestrictionFactory.dataResProperty('PR_MESSAGE_CC_ME', Restrictions.RELOP_EQ, true, '0x0059000B'),
-			RestrictionFactory.dataResProperty('PR_MESSAGE_RECIP_ME', Restrictions.RELOP_EQ, true, '0x0058000B'),
-			RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, false, '0x0057000B')
+			RestrictionFactory.dataResProperty('PR_MESSAGE_CC_ME', Restrictions.RELOP_EQ, true),
+			RestrictionFactory.dataResProperty('PR_MESSAGE_RECIP_ME', Restrictions.RELOP_EQ, true),
+			RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, false)
 		]);
 	}
 });

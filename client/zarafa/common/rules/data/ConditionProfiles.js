@@ -41,6 +41,9 @@ Zarafa.common.rules.data.ConditionProfiles = [{
 	name : _('has my name in the Cc field'),
 	value : Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME
 },{
+	name : _('does not have my name in the TO or CC field'),
+	value : Zarafa.common.rules.data.ConditionFlags.NAME_BCC
+},{
 	name : _('has my name in the To or Cc field'),
 	value : Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC
 },{

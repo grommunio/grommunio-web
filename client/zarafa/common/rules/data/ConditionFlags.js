@@ -130,5 +130,12 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	RECIPIENT_WORDS: 17
+	RECIPIENT_WORDS: 17,
+
+	/**
+	 * Indicates that the condition checks if the user is in the Bcc field
+	 * @property
+	 * @type Number
+	 */
+	NAME_BCC  : 18
 });
