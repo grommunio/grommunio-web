@@ -131,7 +131,7 @@
 		$favicon = getFavicon(Theming::getActiveTheme());
 
 		// Include the login template
-		if (empty(OIDC_ISS)) {
+		if (OIDC_ISS === "") {
 			include(BASE_PATH . 'server/includes/templates/login.php');
 		} else {
 			include(BASE_PATH . 'server/includes/templates/oidc.php');
@@ -256,7 +256,7 @@
 	}
 
 	// Load OIDC JavaScript for refreshing of the token.
-	if (!empty(OIDC_ISS)) {
+	if (OIDC_ISS !== "") {
 		require_once(BASE_PATH . 'client/oidc.js.php');
 	}
 
