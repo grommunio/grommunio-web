@@ -55,8 +55,8 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 				continue;
 			}
 
-			hierarchyStore.getStores().forEach(function(store){
-				if ( store.get('user_name') === user ){
+			hierarchyStore.getStores().forEach(function(store) {
+				if (store.get('user_name') === user) {
 					// Saving rules only works with owner permissions on the full store.
 					// Note: Rules are stored on the default received folder (inbox). The WebApp backend will
 					// not check the rights and allows saving rules when the user has folder rights on the
@@ -89,14 +89,16 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 	 */
 	createPanelItems : function(config)
 	{
-		var comboStore = this.createComboboxStore();
 		var items = [];
-		if ( container.getServerConfig().isSharedRulesEnabled() ){
+		// Only create the combolist when the setting is enabled in config.php
+		if (container.getServerConfig().isSharedRulesEnabled()) {
+			var comboStore = this.createComboboxStore();
 			items.push({
 				xtype: 'container',
 				cls: 'k-store-picker',
 				border: false,
 				layout: 'form',
+				hidden: !Ext.isDefined(comboStore.data[1]),
 				labelWidth: '-', // Anything but a number to make sure Ext does not set a width
 				items: {
 					xtype: 'combo',
@@ -110,10 +112,10 @@ Zarafa.common.rules.ui.RulesPanel = Ext.extend(Ext.Container, {
 					forceSelection: true,
 					value: comboStore.data[0].value,
 					editable: false,
-					listeners : {
-						beforeselect : this.onBeforeUserSelect,
-						select : this.onUserSelect,
-						scope : this
+					listeners: {
+						beforeselect: this.onBeforeUserSelect,
+						select: this.onUserSelect,
+						scope: this
 					}
 				}
 			});
