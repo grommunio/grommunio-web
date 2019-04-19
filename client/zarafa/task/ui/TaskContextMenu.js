@@ -129,10 +129,41 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 			xtype: 'zarafa.conditionalitem',
 			text : _('Delete'),
 			iconCls : 'icon_delete',
-			nonEmptySelectOnly:  true,
+			nonEmptySelectOnly: true,
 			handler: this.onContextItemDelete,
 			scope: this
+		},{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Remove from To-Do List'),
+			iconCls : 'icon_cross_large',
+			beforeShow: this.onBeforeShowRemoveTodo,
+			handler: this.onContextRemoveTodo,
+			scope: this
 		}];
+	},
+	
+	/**
+	 * Event handler triggers before the item shows. Disable the
+	 * item If the selected record(s) has an organizer task copy
+	 * or received task which was not yet accepted.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Zarafa.core.data.IPMRecord[]} records The records which must be checked
+	 * to see if the item must be enabled or disabled.
+	 * @private
+	 */
+	onBeforeShowRemoveTodo : function (item, records)
+	{
+		if(!Array.isArray(records)) {
+			records = [records];
+		}
+		var hierarchyStore = container.getHierarchyStore();
+		var isDisabled = records.some(function (record) {
+			var recordFolderEntryid = record.getStore().entryId;
+			var folder = hierarchyStore.getFolder(recordFolderEntryid);
+			return record.isMessageClass('IPM.Task', true) || !folder.isTodoListFolder();
+		});
+		item.setDisabled(isDisabled);
 	},
 
 	/**
@@ -183,6 +214,26 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 	onContextItemDelete : function()
 	{
 		Zarafa.common.Actions.deleteRecords(this.records);
+	},
+	
+	/**
+	 * Event handler which is called when the user selects the 'Remove from To-Do List'
+	 * item in the context menu. This will remove the flag from all selected records.
+	 * @private
+	 */
+	onContextRemoveTodo : function()
+	{
+		const flagProperties = Zarafa.common.flags.Util.getFlagBaseProperties();
+		Ext.apply(flagProperties, Zarafa.common.flags.Util.getFlagPropertiesRemoveFlag());
+
+		this.records.forEach(function(record){
+			record.beginEdit();
+			for (var property in flagProperties) {
+				record.set(property, flagProperties[property]);
+			}
+			record.endEdit();
+			record.save();
+		}, this);
 	},
 
 	/**
