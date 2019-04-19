@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2017-10-05 20:33+0200\n"
 "Last-Translator: Igor <Igor_halka@mail.ru>\n"
 "Language-Team: Ukrainian (Ukraine) <https://translate.kopano.io/projects/"
@@ -2050,6 +2050,15 @@ msgid "Edit recipient"
 msgstr ""
 
 msgid "Copy email address"
+msgstr ""
+
+msgid "Set as required"
+msgstr ""
+
+msgid "Set as optional"
+msgstr ""
+
+msgid "Set as resource"
 msgstr ""
 
 msgid "Select attendees"
@@ -4662,6 +4671,9 @@ msgid "Mark Complete"
 msgstr ""
 
 msgid "Mark Incomplete"
+msgstr ""
+
+msgid "Remove from To-Do List"
 msgstr ""
 
 msgid ""

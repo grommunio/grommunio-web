@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish (Poland) <http://translate.kopano.io/projects/kopano/"
@@ -2119,6 +2119,18 @@ msgstr "Edytuj odbiorcę"
 #, fuzzy
 msgid "Copy email address"
 msgstr "Nowy adres e-mail"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "To pole jest wymagane"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Optionalnie"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sortuj według: Zasoby"
 
 msgid "Select attendees"
 msgstr "Wybierz uczestnika"
@@ -4830,6 +4842,10 @@ msgstr "Zaznacz jako gotowe"
 
 msgid "Mark Incomplete"
 msgstr "Zaznacz jako niegotowe"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Usuń z ulubionych"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

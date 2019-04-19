@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2019-02-06 11:25+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -2172,6 +2172,19 @@ msgstr "Rediger mottaker"
 
 msgid "Copy email address"
 msgstr "Kopier e-postadresse"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Dette feltet er obligatorisk"
+
+# 75%
+#, fuzzy
+msgid "Set as optional"
+msgstr "Valgfri"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sorter på: ressurser"
 
 msgid "Select attendees"
 msgstr "Velg deltakere"
@@ -4891,6 +4904,10 @@ msgstr "Merk som fullført"
 
 msgid "Mark Incomplete"
 msgstr "Merk som ikke fullført"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Fjern fra favoritter"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

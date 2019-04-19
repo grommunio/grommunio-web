@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2111,6 +2111,18 @@ msgstr "Ret modtager"
 #, fuzzy
 msgid "Copy email address"
 msgstr "Ny email adresse"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Dette felt er krævet"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Valgfri"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sorter efter: Ressourcer"
 
 msgid "Select attendees"
 msgstr "Vælg deltagere"
@@ -4808,6 +4820,10 @@ msgstr "Marker som fuldført"
 
 msgid "Mark Incomplete"
 msgstr "Marker som ikke fuldført"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Fjern fra favoritter"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

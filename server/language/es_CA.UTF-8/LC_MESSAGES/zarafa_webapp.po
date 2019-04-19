@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2214,6 +2214,18 @@ msgstr "Editar recipiente"
 #, fuzzy
 msgid "Copy email address"
 msgstr "Nueva dirección de correo electrónico"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Este campo es obligatorio"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Opcional"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Ordenar por: Recursos"
 
 msgid "Select attendees"
 msgstr "Seleccionar asistentes "
@@ -5060,6 +5072,10 @@ msgstr ""
 
 msgid "Mark Incomplete"
 msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Eliminar del calendario"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

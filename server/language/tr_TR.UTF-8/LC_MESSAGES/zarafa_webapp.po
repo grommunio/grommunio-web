@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -2202,6 +2202,18 @@ msgstr "Alıcı düzenle"
 #, fuzzy
 msgid "Copy email address"
 msgstr "Yeni e-posta adresi"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Bu alan gereklidir"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Seçimsel"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sıralama: Kaynak"
 
 msgid "Select attendees"
 msgstr "Katılımcı seçin"
@@ -5054,6 +5066,10 @@ msgstr ""
 
 msgid "Mark Incomplete"
 msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "favorilerden sil"
 
 #, fuzzy
 msgid ""

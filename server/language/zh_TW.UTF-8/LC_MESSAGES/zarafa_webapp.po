@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2112,6 +2112,18 @@ msgstr "編輯收件者"
 #, fuzzy
 msgid "Copy email address"
 msgstr "新增電子郵件地址"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "必要的欄位"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "選擇性"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "依資源排序"
 
 msgid "Select attendees"
 msgstr "選擇出席人員"
@@ -4867,6 +4879,10 @@ msgstr ""
 
 msgid "Mark Incomplete"
 msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "從行事曆上移除"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

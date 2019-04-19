@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2142,6 +2142,18 @@ msgstr "受信者を編集します。"
 #, fuzzy
 msgid "Copy email address"
 msgstr "新しいメールアドレス"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "必須項目"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "任意"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "並べ替え：リソース"
 
 msgid "Select attendees"
 msgstr "出席者を選択して下さい。"
@@ -4939,6 +4951,10 @@ msgstr ""
 
 msgid "Mark Incomplete"
 msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "カレンダーから削除する"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "

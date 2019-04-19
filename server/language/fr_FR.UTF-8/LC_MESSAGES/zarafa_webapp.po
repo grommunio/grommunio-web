@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -2201,6 +2201,18 @@ msgstr "Modifier un destinataire"
 #, fuzzy
 msgid "Copy email address"
 msgstr "Nouvelle adresse électronique"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Ce champ est obligatoire"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Facultatif"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Trier par: Ressources"
 
 msgid "Select attendees"
 msgstr "Participants"
@@ -5070,6 +5082,10 @@ msgstr "Marquer Complété"
 
 msgid "Mark Incomplete"
 msgstr "Marquer Non complété"
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Supprimer des Favoris"
 
 #, fuzzy
 msgid ""

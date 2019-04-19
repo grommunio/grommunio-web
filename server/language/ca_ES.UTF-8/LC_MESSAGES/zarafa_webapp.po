@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Catalan (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-01 12:42+0200\n"
+"POT-Creation-Date: 2019-04-19 13:43+0200\n"
 "PO-Revision-Date: 2017-10-04 20:55+0200\n"
 "Last-Translator: Angel <craem@craem.net>\n"
 "Language-Team: Catalan (Spain) <https://translate.kopano.io/projects/kopano/"
@@ -2018,6 +2018,16 @@ msgid "Edit recipient"
 msgstr ""
 
 msgid "Copy email address"
+msgstr ""
+
+#, fuzzy
+msgid "Set as required"
+msgstr "La sessió ha caducat"
+
+msgid "Set as optional"
+msgstr ""
+
+msgid "Set as resource"
 msgstr ""
 
 msgid "Select attendees"
@@ -4601,6 +4611,9 @@ msgid "Mark Complete"
 msgstr ""
 
 msgid "Mark Incomplete"
+msgstr ""
+
+msgid "Remove from To-Do List"
 msgstr ""
 
 msgid ""
