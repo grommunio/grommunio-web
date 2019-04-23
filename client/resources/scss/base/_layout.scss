@@ -37,9 +37,14 @@ ul.x-tab-strip-top {
 	height: $padding-small;
 }
 
-/* Common emptytext for example empty task list */
+/* Common emptytext for empty grids. Overwriting x-grid-empty in some cases.
+ * Note: Not all elements with the emptytext class are grids, so we also set the font-color here
+ */
 .emptytext {
 	text-align: center;
+	font-size: 16px;
+	margin-top: 10%;
+	color: grey;
 }
 
 /* TODO: move to general scss file */
