@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 11:24+0200\n"
-"PO-Revision-Date: 2019-03-08 16:48+0000\n"
+"PO-Revision-Date: 2019-04-24 10:51+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -2224,16 +2224,16 @@ msgstr "E-Mail-Adresse kopieren"
 
 #, fuzzy
 msgid "Set as required"
-msgstr "Dieses Feld ist auszufüllen"
+msgstr "Als erforderlich kennzeichnen"
 
 # 75%
 #, fuzzy
 msgid "Set as optional"
-msgstr "Optional"
+msgstr "Als optional kennzeichnen"
 
 #, fuzzy
 msgid "Set as resource"
-msgstr "Sortieren nach: Ressourcen"
+msgstr "Als Ressource kennzeichnen"
 
 msgid "Select attendees"
 msgstr "Teilnehmer auswählen"
@@ -4331,7 +4331,7 @@ msgid "Internet Headers"
 msgstr "Internet-Kopfzeilen"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Message Settings"
 msgstr "Nachrichteneinstellungen"
@@ -5085,9 +5085,8 @@ msgstr "Als fertig markieren"
 msgid "Mark Incomplete"
 msgstr "Als unfertig markieren"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Aus den Favoriten entfernen"
+msgstr "Aus der To-Do Liste entfernen"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
