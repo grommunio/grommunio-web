@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 11:24+0200\n"
-"PO-Revision-Date: 2019-04-04 07:26+0000\n"
+"PO-Revision-Date: 2019-04-24 09:53+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -2227,18 +2227,15 @@ msgstr "Bewerk geadresseerde"
 msgid "Copy email address"
 msgstr "Emailadres kopiëren"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "Dit veld is verplicht"
+msgstr "Markeer als verplicht"
 
 # 75%
-#, fuzzy
 msgid "Set as optional"
-msgstr "Optioneel"
+msgstr "Markeer als optioneel"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "Sorteer op: Resources"
+msgstr "Markeer als resource"
 
 msgid "Select attendees"
 msgstr "Selecteer genodigden"
@@ -5110,9 +5107,8 @@ msgstr "Markeer als Voltooid"
 msgid "Mark Incomplete"
 msgstr "Markeer als Onvoltooid"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Uit favorieten verwijderen"
+msgstr "Verwijderen uit To-Do lijst"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
