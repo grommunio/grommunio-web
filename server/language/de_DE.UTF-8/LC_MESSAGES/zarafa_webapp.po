@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 11:24+0200\n"
-"PO-Revision-Date: 2019-04-24 10:51+0000\n"
-"Last-Translator: Felix <f.bartels@kopano.com>\n"
+"PO-Revision-Date: 2019-04-24 11:42+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -2222,16 +2222,13 @@ msgstr "Empfänger bearbeiten"
 msgid "Copy email address"
 msgstr "E-Mail-Adresse kopieren"
 
-#, fuzzy
 msgid "Set as required"
 msgstr "Als erforderlich kennzeichnen"
 
 # 75%
-#, fuzzy
 msgid "Set as optional"
 msgstr "Als optional kennzeichnen"
 
-#, fuzzy
 msgid "Set as resource"
 msgstr "Als Ressource kennzeichnen"
 
