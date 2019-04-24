@@ -37,13 +37,22 @@ ul.x-tab-strip-top {
 	height: $padding-small;
 }
 
-/* Common emptytext for empty grids. Overwriting x-grid-empty in some cases.
- * Note: Not all elements with the emptytext class are grids, so we also set the font-color here
- */
+/* Common emptytext for empty grids. Overwriting x-grid-empty in some cases */
 .emptytext {
 	text-align: center;
-	font-size: 16px;
-	margin-top: 10%;
+	font-size: $font-size-large;
+	margin-top: 5%;
+}
+
+/* Exclude bigger font and margin for x-window empty texts
+ * Example: permission tab
+ */
+.x-window .emptytext {
+	font-size: $font-default-size !important;
+	margin-top: 0;
+}
+
+#note-iconview .emptytext {
 	color: grey;
 }
 
