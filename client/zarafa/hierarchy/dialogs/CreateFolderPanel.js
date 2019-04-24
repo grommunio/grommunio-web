@@ -111,7 +111,8 @@ Zarafa.hierarchy.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 				anchor : '100% 65%',
 				ref : '../hierarchyTree',
 				treeSorter : true,
-				hideTodoList: true
+				hideTodoList: true,
+				hideFavorites: true
 			}]
 		};
 	},
