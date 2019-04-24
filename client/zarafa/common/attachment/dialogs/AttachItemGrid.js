@@ -26,13 +26,6 @@ Zarafa.common.attachment.dialogs.AttachItemGrid = Ext.extend(Zarafa.common.ui.gr
 			store : new Zarafa.core.data.ListModuleStore(),
 			loadMask : true,
 			tbar : [{
-				xtype : 'displayfield',
-				value : _('Items:'),
-				hideLabel : true
-			}, 
-				// right align
-				'->',
-			{
 				xtype : 'zarafa.paging',
 				pageSize : 50,
 				// provide a dummy store for initialization, this will be changed later on

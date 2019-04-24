@@ -168,3 +168,10 @@
 			margin-left: $padding-small;
 		}
 	}
+
+/* Insert item dialog */
+.k-insert-item-dialog .x-toolbar { 
+        border-bottom: none !important;
+	padding-left: 0 !important;
+}
+

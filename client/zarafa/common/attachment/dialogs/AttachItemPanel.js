@@ -32,11 +32,6 @@ Zarafa.common.attachment.dialogs.AttachItemPanel = Ext.extend(Ext.Panel, {
 				padding : 10
 			},
 			items : [{
-				xtype : 'displayfield',
-				value : _('Look in:'),
-				hideLabel : true,
-				height : 20
-			}, {
 				xtype : 'container',
 				flex : 1,
 				layout : {

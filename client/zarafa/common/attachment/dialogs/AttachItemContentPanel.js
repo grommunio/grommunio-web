@@ -55,6 +55,7 @@ Zarafa.common.attachment.dialogs.AttachItemContentPanel = Ext.extend(Zarafa.core
 		Ext.applyIf(config, {
 			title : _('Insert item'),
 			layout : 'fit',
+			cls: 'k-insert-item-dialog',
 			items : [{
 				xtype : 'zarafa.attachitempanel',
 				record : config.record,
