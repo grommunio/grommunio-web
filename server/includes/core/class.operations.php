@@ -3457,8 +3457,17 @@
 						}
 					}
 
+					$attach_id = '';
+					if (isset($attachmentRow[PR_EC_WA_ATTACHMENT_ID])) {
+						$attach_id = $attachmentRow[PR_EC_WA_ATTACHMENT_ID];
+					} else if (isset($attachmentRow[PR_RECORD_KEY])) {
+						$attach_id = bin2hex($attachmentRow[PR_RECORD_KEY]);
+					} else {
+						$attach_id = uniqid();
+					}
+
 					$props["object_type"] = $attachmentRow[PR_OBJECT_TYPE];
-					$props["attach_id"] = isset($attachmentRow[PR_EC_WA_ATTACHMENT_ID]) ? $attachmentRow[PR_EC_WA_ATTACHMENT_ID] : bin2hex($attachmentRow[PR_RECORD_KEY]);
+					$props["attach_id"] = $attach_id;
 					$props["attach_num"] = $attachmentRow[PR_ATTACH_NUM];
 					$props["attach_method"] = $attachmentRow[PR_ATTACH_METHOD];
 					$props["size"] = $attachmentRow[PR_ATTACH_SIZE];
