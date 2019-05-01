@@ -32,6 +32,7 @@ Zarafa.hierarchy.dialogs.FolderSelectionPanel = Ext.extend(Ext.Panel, {
 				xtype : 'zarafa.hierarchytree',
 				ref : 'hierarchyTree',
 				border: true,
+				hideFavorites: true,
 				forceLayout : true,
 				treeSorter : true,
 				hideTodoList: !!config.hideTodoList,

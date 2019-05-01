@@ -49,7 +49,13 @@ Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui
 				xtype: 'zarafa.folderselectionpanel',
 				folder : config.folder,
 				hideTodoList: !!config.hideTodoList,
+				buttonAlign: 'left',
 				buttons : [{
+					text : _('New folder'),
+					handler : this.onNewFolder,
+					cls: 'zarafa-normal',
+					scope: this
+				},'->',{
 					text : _('Ok'),
 					handler : this.onOk,
 					scope : this
@@ -62,6 +68,35 @@ Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui
 		});
 
 		Zarafa.hierarchy.dialogs.FolderSelectionContentPanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler which is fired when the user pressed the
+	 * 'New folder' button. This will open dialog for creating new folder.
+	 */
+	onNewFolder : function() {
+		var parentFolder = this.get(0).getFolder();
+		Zarafa.hierarchy.Actions.openCreateFolderContent(parentFolder);
+		this.mon(this.get(0).hierarchyTree, 'append', this.onTreeAppend, this, {delay: 10});
+	},
+
+	/**
+	 * Event handler which is triggered when a new folder is appended to the tree and selects the newly created folder
+	 * @param {Zarafa.hierarchy.ui.Tree} tree the folder tree
+	 * @param {Ext.data.Node} parent the parent of the newly created node
+	 * @param {Ext.data.Node} node the appended node
+	 * @private
+	 */
+	onTreeAppend: function(tree, parent, node)
+	{
+		// Sometimes the 'append' is fired but the node is not rendered yet,so add a delay of 10 ms.
+		if (!node.parentNode) {
+			// The node is probably removed and appended again, so let's find the
+			// correct node in the tree again
+			node = tree.getNodeById(node.id);
+		}
+		tree.selectPath(node.getPath());
+		this.mun(this.get(0).hierarchyTree, 'append', this.onTreeAppend, this);
 	},
 
 	/**
