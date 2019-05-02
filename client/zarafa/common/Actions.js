@@ -743,9 +743,8 @@ Zarafa.common.Actions = {
 				if (record.isMeetingSent()) {
 					// We are the organizer of the meeting, so lets ask if the recipients should be notified.
 					Ext.MessageBox.show({
-						title: _('Kopano WebApp'),
-						msg : _('A cancellation message will be sent to all recipients, do you wish to continue?'),
-						icon: Ext.MessageBox.WARNING,
+						title: _('Notify recipients'),
+						msg: _('A cancellation message will be sent to all recipients, do you wish to continue?'),
 						fn: this.cancelInvitation,
 						scope: record,
 						buttons: Ext.MessageBox.YESNO
@@ -997,50 +996,55 @@ Zarafa.common.Actions = {
 			// If the read status already matches the desired state,
 			// we don't need to do anything.
 			if (read === record.isRead()) {
-        continue;
-      }
+		        	continue;
+      			}
 
-      if (read === true && record.needsReadReceipt()) {
-					switch (container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling')) {
-						case 'never':
-							record.setReadFlags(read);
-							// Never send a read receipt.
-							record.addMessageAction('send_read_receipt', false);
+			if (read === true && record.needsReadReceipt()) {
+				switch (container.getSettingsModel().get('zarafa/v1/contexts/mail/readreceipt_handling')) {
+					case 'never':
+						record.setReadFlags(read);
+						// Never send a read receipt.
+						record.addMessageAction('send_read_receipt', false);
 
-							saveRecords.push(record);
-							break;
-						case 'always':
-							record.setReadFlags(read);
-							// Always send a read receipt.
-							record.addMessageAction('send_read_receipt', true);
+						saveRecords.push(record);
+						break;
+					case 'always':
+						record.setReadFlags(read);
+						// Always send a read receipt.
+						record.addMessageAction('send_read_receipt', true);
 
-							saveRecords.push(record);
-							break;
-						case 'ask':
+						saveRecords.push(record);
+						break;
+					case 'ask':
 						/* falls through*/
-						default:
-							const store = record.getStore();
-							// Ask if a read receipt must be send.
-							Ext.MessageBox.confirm(_('Kopano WebApp'), _('The sender of this message has asked to be notified when you read this message. Do you wish to notify the sender?'),
-								// This function will execute when user provide some inputs,
-								// So other external changes should not affect the record.
-								function(buttonClicked) {
-									// If the mailgrid has reloaded, retrieve the newly updated record.
-									var record = this;
-									if (!record.getStore()) {
-										record = store.getById(record.id);
-									}
-									record.setReadFlags(read);
-									record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
-									record.save();
-								}, record);
-							break;
-					}
-				} else {
+					default:
+						const store = record.getStore();
+						// Ask if a read receipt must be send.
+						Ext.MessageBox.show({
+							title: _('Notify sender'),
+							msg: _('The sender of this email has requested a read receipt. Do you wish to notify the sender?'),
+							buttons: Ext.MessageBox.YESNO,
+							fn: // This function will execute when user provide some inputs,
+							// So other external changes should not affect the record.
+							function(buttonClicked) {
+							// If the mailgrid has reloaded, retrieve the newly updated record.
+								var record = this;
+								if (!record.getStore()) {
+									record = store.getById(record.id);
+								}
+								record.setReadFlags(read);
+								record.addMessageAction('send_read_receipt', buttonClicked !== 'no');
+								record.save();
+							},
+							scope: record
+						});
+						break;
+				}
+			} else {
 				record.setReadFlags(read);
 				saveRecords.push(record);
-				}
 			}
+		}	
 
 		if (!Ext.isEmpty(saveRecords)) {
 			saveRecords[0].store.save(saveRecords);

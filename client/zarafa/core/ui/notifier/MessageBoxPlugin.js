@@ -33,13 +33,11 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 	 */
 	notify : function(category, title, message, config)
 	{
-		var icon;
-		if (category.indexOf('info') === 0) {
-			icon = Ext.MessageBox.INFO;
-		} else if (category.indexOf('warning') === 0) {
-			icon = Ext.MessageBox.WARNING;
+		var dialogCls;
+		if (category.indexOf('warning') === 0) {
+			dialogCls = Ext.MessageBox.WARNING_CLS;
 		} else if (category.indexOf('error') === 0) {
-			icon = Ext.MessageBox.ERROR;
+			dialogCls = Ext.MessageBox.ERROR_CLS;
 		}
 
 		if (Ext.isDefined(config) && !Ext.isEmpty(config.details_message)) {
@@ -47,8 +45,7 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 				title: title,
 				msg: message,
 				buttonAlign: 'left',
-				icon: icon,
-				cls: 'k-show-more-details',
+				cls: 'k-show-more-details' + ' '+dialogCls,
 				customItems: this.getCustomItems(config),
 				customButtons: this.getCustomButtons(),
 				fn: this.customButtonsHandler
@@ -57,7 +54,7 @@ Zarafa.core.ui.notifier.MessageBoxPlugin = Ext.extend(Zarafa.core.ui.notifier.No
 			return Ext.MessageBox.show({
 				title: title,
 				msg: message,
-				icon: icon,
+				cls: dialogCls,
 				buttons: Ext.MessageBox.OK
 			});
 		}

@@ -87,10 +87,9 @@ Zarafa.advancesearch.dialogs.CreateSearchFolderContentPanel = Ext.extend(Zarafa.
 		var newFolderName = this.searchFolderTextField.getValue().trim();
 		if (Ext.isEmpty(newFolderName)) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
+				title: _('Empty folder name'),
 				msg: _("You must specify a name."),
-				buttons: Ext.MessageBox.OK,
-				icon: Ext.MessageBox.INFO
+				buttons: Ext.MessageBox.OK
 			});
 
 			return;

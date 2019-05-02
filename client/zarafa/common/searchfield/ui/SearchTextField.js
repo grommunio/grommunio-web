@@ -154,9 +154,8 @@ Zarafa.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField, {
 			// If not then show warning message to user.
 			if (!container.getHierarchyStore().getFolder(searchFolder)) {
 				Ext.MessageBox.show({
-					title: _('Kopano WebApp'),
+					title: _('Folder does not exist'),
 					msg: _("The folder you are searching through no longer exists. Please select another folder"),
-					icon: Ext.MessageBox.WARNING,
 					buttons: Ext.MessageBox.OK
 				});
 				return false;

@@ -600,7 +600,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	doAppointmentChangeConfirmation : function(appointment, dateRange, changeCallback)
 	{
 		Zarafa.common.dialogs.MessageBox.select(
-			_('Kopano WebApp'),
+			_('Update recipients'),
 			_('The time of the meeting has changed. Choose one of the following:'),
 			function(button, select) {
 				if (button == 'ok') {

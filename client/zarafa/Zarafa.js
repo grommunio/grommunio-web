@@ -393,13 +393,13 @@ Ext.apply(Zarafa, {
 			this.setErrorLoadingMask(_('Error'), message);
 		} else {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg : message + '<br>' +  _('Do you wish to be redirected to the logon page?'),
-				icon : Ext.MessageBox.ERROR,
-				buttons : Ext.MessageBox.YESNO,
-				fn : this.onConnectionParalyzeConfirmation,
+				title: _('Session expired'),
+				msg: message + '<br>' +  _('Do you wish to be redirected to the logon page?'),
+				cls: Ext.MessageBox.ERROR_CLS,
+				buttons: Ext.MessageBox.YESNO,
+				fn: this.onConnectionParalyzeConfirmation,
 				scope: this,
-				logoutFn : logoutFn
+				logoutFn: logoutFn
 			});
 		}
 	},
@@ -1035,13 +1035,14 @@ Ext.apply(Zarafa, {
 			}
 		}
 
-		if ( oof ) {
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				_('Out of Office currently on. Would you like to turn it off?'),
-				this.onOofConfirm,
-				this
-			);
+		if (oof) {
+			Ext.MessageBox.show({
+				title: _('Out of Office'),
+				msg: _('Out of Office is currently activated. Would you like to turn it off?'),
+				buttons: Ext.MessageBox.YESNO,
+				fn: this.onOofConfirm,
+				scope: this
+			});
 		}
 	},
 

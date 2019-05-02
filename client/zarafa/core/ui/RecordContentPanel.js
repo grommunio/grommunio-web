@@ -149,7 +149,7 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	 * @cfg {String} unSaveWarningMessage When {@link #record} has any unsaved changes
 	 * And user trying to close separate window or tab if that is the case, then confirm dialog will show with this text
 	 */
-	unSaveWarningMessage : _('You are going to lose all unsaved changes. Are you sure you want to close this window?'),
+	unSaveWarningMessage : _('You will lose all unsaved work. Are you sure you want to close this window?'),
 
 	/**
 	 * @constructor
@@ -485,11 +485,13 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		}
 
 		if (this.recordComponentPlugin.isChangedByUser === true) {
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				_('This item has been changed. Are you sure you want to delete it?'),
-				this.onConfirmDelete,
-				this);
+			Ext.MessageBox.show({
+				title: _('Delete item'),
+				msg: _('This item has been changed. Are you sure you want to delete it?'),
+				buttons: Ext.MessageBox.YESNO,
+				fn: this.onConfirmDelete,
+				scope: this
+			});
 		} else {
 			Zarafa.common.Actions.deleteRecords(this.modalRecord || this.record);
 		}
@@ -746,12 +748,14 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		// if it doesn't the record is deleted and there are no unsaved changes. Otherwise
 		// the 'dirty' flag will warn us about unsaved changes.
 		if (this.confirmClose && this.recordComponentPlugin.isChangedByUser === true) {
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				this.unSaveWarningMessage,
-				this.onConfirmClose,
-				this);
-			return;
+			return Ext.MessageBox.show({
+				title: _('Unsaved changes'),
+				cls: Ext.MessageBox.WARNING_CLS,
+				msg: this.unSaveWarningMessage,
+				buttons: Ext.MessageBox.YESNO,
+				fn: this.onConfirmClose,
+				scope: this
+			});
 		}
 		Zarafa.core.ui.RecordContentPanel.superclass.doClose.call(this);
 	},

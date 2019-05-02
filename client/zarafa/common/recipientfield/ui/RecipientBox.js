@@ -140,9 +140,8 @@ Zarafa.common.recipientfield.ui.RecipientBox = Ext.extend(Zarafa.common.ui.Box, 
 	onClickExpand: function()
 	{
 		Ext.MessageBox.show({
-			title: _('Kopano WebApp'),
-			msg :_('Distribution list will be replaced with its members. You will not be able to collapse it again.'),
-			icon: Ext.MessageBox.WARNING,
+			title: _('Expand distribution list'),
+			msg:_('Distribution list will be replaced with its members. You will not be able to collapse it again.'),
 			record: this.record,
 			fn: this.doExpand,
 			scope: this,

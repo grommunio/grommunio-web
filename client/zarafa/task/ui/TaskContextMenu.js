@@ -269,9 +269,8 @@ Zarafa.task.ui.TaskContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu,
 
 		if (showWarning) {
 			Ext.MessageBox.show({
-				title: _('Kopano WebApp'),
-				msg :_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
-				icon: Ext.MessageBox.WARNING,
+				title: _('Changes to assigned task'),
+				msg:_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
 				buttons: Ext.MessageBox.OK
 			});
 		}

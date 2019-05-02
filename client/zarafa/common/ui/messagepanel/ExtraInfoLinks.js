@@ -406,12 +406,11 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	onExtraInfoFaultyClick : function(evtObject)
 	{
 		Ext.MessageBox.show({
-			title : _('Kopano WebApp'),
-			msg :_('We are going to try to fix a corrupted mail message, do you wish to continue?'),
-			icon : Ext.MessageBox.WARNING,
-			fn : this.onFixFaultyMessage,
-			scope : this,
-			buttons : Ext.MessageBox.YESNO
+			title: _('Fix message'),
+			msg:_('We are going to try to fix a corrupted mail message, do you wish to continue?'),
+			fn: this.onFixFaultyMessage,
+			scope: this,
+			buttons: Ext.MessageBox.YESNO
 		});
 	},
 

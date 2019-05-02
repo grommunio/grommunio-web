@@ -367,7 +367,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		// Check if recipients have been provided
 		var recipientStore = this.record.getRecipientStore();
 		if (!Ext.isDefined(recipientStore) || recipientStore.getCount() === 0) {
-			container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('Please specify a recipient'));
+			Ext.MessageBox.show({
+				title: _('No recipient'),
+				msg: _('Please specify at least one recipient'),
+				buttons: Ext.MessageBox.OK
+			});
 
 			// The message cannot be send, cancel the callbacks
 			callback(false);
@@ -383,7 +387,11 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 			}, this);
 
 			if (invalid) {
-				container.getNotifier().notify('warning.sending', _('Kopano WebApp'), _('Please specify a recipient'));
+				Ext.MessageBox.show({
+					title: _('No recipient'),
+					msg: _('Please specify a recipient'),
+					buttons: Ext.MessageBox.OK
+				});
 
 				// The message cannot be send, cancel the callbacks
 				callback(false);
@@ -417,14 +425,14 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		}, this);
 
 		// Check if the attachment has been uploaded
-		if (!isAllAttachUploaded){
+		if (!isAllAttachUploaded) {
 			var message  = _('The attached files are not uploaded yet.');
 			message += '<br/>';
 			message += _('Do you want to send this message without attachments?');
 
 			Zarafa.common.dialogs.MessageBox.addCustomButtons({
-				title : _('Kopano WebApp'),
-				icon: Ext.MessageBox.WARNING,
+				title : _('Attachments not uploaded yet'),
+				cls: Ext.MessageBox.WARNING_CLS,
 				msg : message,
 				fn : function(button) {
 					callback(button === 'sendanyway');
@@ -437,7 +445,7 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 					name : 'sendanyway'
 				}]
 			});
-		}else {
+		} else {
 			callback(true);
 		}
 	},
@@ -456,16 +464,18 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 	{
 		// Check if the subject has been provided
 		if (Ext.isEmpty(this.record.get('subject'))){
-			Ext.MessageBox.confirm(
-				_('Kopano WebApp'),
-				_('Send this message without a subject?'),
-				function (buttonClicked) {
+			Ext.MessageBox.show({
+				title: _('No subject'),
+				msg: _('Send this message without a subject?'),
+				buttons: Ext.MessageBox.YESNO,
+				fn: function (buttonClicked) {
 					// If the user clicked "yes" then the
 					// callback queue can continue, otherwise
 					// it will have to abort.
 					callback(buttonClicked == 'yes');
 				},
-				this);
+				scope: this,
+			});
 		} else {
 			// The subject is provided, we can continue
 			callback(true);
@@ -491,7 +501,12 @@ Zarafa.core.ui.MessageContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPane
 		if (!Ext.isEmpty(invalid)) {
 			// Invalid recipients were found, show error to the user
 			// and cancel the callbacks as we cannot send the message
-			container.getNotifier().notify('warning.sending', '', _('Not all recipients could be resolved'));
+			Ext.MessageBox.show({
+				title: _('Unresolved recipients'),
+				msg: _('Not all recipients could be resolved'),
+				cls: Ext.MessageBox.WARNING_CLS,
+				buttons: Ext.MessageBox.OK
+			});
 			callback(false);
 		} else if(!Ext.isEmpty(unresolved)) {
 			// Unresolved recipients were found, try to resolve them, and have the event handler
