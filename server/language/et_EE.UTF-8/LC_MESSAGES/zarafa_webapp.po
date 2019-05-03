@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -456,8 +456,9 @@ msgstr "Mobiil"
 msgid "Pager"
 msgstr "Peiler"
 
-msgid "Kopano WebApp"
-msgstr "Kopano veebirakendus"
+#, fuzzy
+msgid "No user selected"
+msgstr "Ühtegi kontakti pole valitud"
 
 msgid "You must select one or more users."
 msgstr "Te peate valima ühe või rohkem kui ühe kasutaja."
@@ -599,6 +600,10 @@ msgstr ""
 
 msgid "Add"
 msgstr ""
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Kadunud kaustad"
 
 msgid "You must specify a name."
 msgstr ""
@@ -989,6 +994,11 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr ""
 
+# 75%
+#, fuzzy
+msgid "Send update"
+msgstr "Saadetud"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1006,8 +1016,10 @@ msgstr ""
 msgid "Send updates to all attendees."
 msgstr ""
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+msgid "Busy attendees"
+msgstr ""
+
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 
 msgid "Scheduling"
@@ -1108,6 +1120,10 @@ msgstr ""
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "Asukoht"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1450,6 +1466,9 @@ msgstr ""
 msgid "Series"
 msgstr ""
 
+msgid "Appointment not found"
+msgstr ""
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
@@ -1554,6 +1573,9 @@ msgstr ""
 msgid "jS F Y"
 msgstr "jS F Y"
 
+msgid "Update recipients"
+msgstr ""
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
 
@@ -1626,6 +1648,9 @@ msgid "Accept Proposed Time"
 msgstr ""
 
 msgid "View in calendar"
+msgstr ""
+
+msgid "No additional response required"
 msgstr ""
 
 msgid ""
@@ -1751,6 +1776,10 @@ msgstr ""
 msgid "Delete without sending"
 msgstr ""
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Palun täpsusta saaja"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1773,9 +1802,12 @@ msgstr "Keeldutud"
 msgid "Mark complete and delete"
 msgstr ""
 
+msgid "Notify sender"
+msgstr ""
+
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 
 #, fuzzy
@@ -1805,12 +1837,6 @@ msgid "From"
 msgstr ""
 
 msgid "Insert item"
-msgstr ""
-
-msgid "Items:"
-msgstr ""
-
-msgid "Look in:"
 msgstr ""
 
 msgid "Insert as"
@@ -1885,6 +1911,9 @@ msgid "Attachment error"
 msgstr ""
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2069,6 +2098,9 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid "Kopano WebApp"
+msgstr "Kopano veebirakendus"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2251,6 +2283,12 @@ msgstr "Kuvatav nimi"
 msgid "Email address"
 msgstr "E-posti aadress"
 
+# 76%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Postiloend"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2313,9 +2351,10 @@ msgstr ""
 msgid "Remove Recurrence"
 msgstr ""
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
+msgid "Reset recurring"
+msgstr ""
+
+msgid "This will reset every exception. Do you want to continue?"
 msgstr ""
 
 msgid "Task Recurrence"
@@ -2434,10 +2473,20 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
-msgid "Are you sure you want to Permanently Delete all items?"
+# 92%
+# 100%
+#, fuzzy
+msgid "Delete all items"
+msgstr "Kustutatud"
+
+msgid "Are you sure you want to permanently delete all items?"
 msgstr ""
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Restore all items"
+msgstr "Taasta kirjed"
+
+msgid "Are you sure you want to restore all items?"
 msgstr ""
 
 msgid "Total {0} recoverable item"
@@ -2646,6 +2695,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr ""
 
@@ -2659,6 +2711,10 @@ msgstr ""
 #, fuzzy
 msgid "Search in.."
 msgstr "Märts"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Kaustade nimekiri"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -2932,6 +2988,9 @@ msgid "Last update sent on {0}."
 msgstr ""
 
 msgid "{0} has updated on behalf of {1} {2}."
+msgstr ""
+
+msgid "Fix message"
 msgstr ""
 
 msgid ""
@@ -3691,6 +3750,14 @@ msgstr "Saatmine"
 msgid "Sent successfully"
 msgstr "Edukalt saadetud"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Vastus puudub"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Palun täpsusta saaja"
+
 msgid "Please specify a recipient"
 msgstr "Palun täpsusta saaja"
 
@@ -3700,14 +3767,26 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+msgid "Attachments not uploaded yet"
+msgstr ""
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "Sorteeri: pealkiri"
+
 msgid "Send this message without a subject?"
 msgstr "Saadan selle kirja ilma pealkirjata?"
+
+# 80%
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Palun täpsusta saaja"
 
 msgid "Not all recipients could be resolved"
 msgstr "Kõiki saajaid ei suudetud tuvastada"
@@ -3741,9 +3820,9 @@ msgstr "Salvestatud"
 msgid "Saved successfully"
 msgstr "Edukalt salvestatud"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Te kaotate kõik salvestamata muudatused. Oled kindel, et soovid selle akna "
 "sulgeda?"
@@ -3751,7 +3830,16 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr ""
 
+# 92%
+# 100%
+#, fuzzy
+msgid "Delete item"
+msgstr "Kustutatud"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3801,6 +3889,9 @@ msgstr ""
 msgid "D d-m"
 msgstr ""
 
+msgid "Insufficient permissions"
+msgstr ""
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3809,6 +3900,9 @@ msgstr ""
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
+msgstr ""
+
+msgid "Insufficient Permissions"
 msgstr ""
 
 msgid "Not enough permissions to open this folder."
@@ -3869,6 +3963,12 @@ msgid "Task Items"
 msgstr ""
 
 msgid "Select where to place the folder"
+msgstr ""
+
+msgid "No folder name"
+msgstr ""
+
+msgid "No destination"
 msgstr ""
 
 msgid "You must select a destination folder."
@@ -3972,20 +4072,36 @@ msgstr ""
 msgid "Open Shared Folders"
 msgstr "Avada jagatud märkused"
 
+msgid "Unresolved user"
+msgstr ""
+
 msgid "Username '{0}' could not be resolved."
+msgstr ""
+
+msgid "Invalid user"
 msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr ""
 
-msgid "It is not possible to open your own store twice"
+msgid "Own store"
+msgstr ""
+
+msgid "It is not possible to open your own store twice."
+msgstr ""
+
+msgid "Folder already open"
 msgstr ""
 
 msgid "This shared folder is already open."
 msgstr ""
 
-msgid "You must specify a username."
+msgid "No user"
 msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Te peate valima kasutaja."
 
 msgid "Folder type"
 msgstr ""
@@ -4072,6 +4188,10 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Kadunud kaustad"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr ""
@@ -4550,11 +4670,14 @@ msgstr "Laeb märkuseid"
 msgid "Loading notes"
 msgstr "Laeb märkuseid"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano veebirakendus"
 
 msgid "Settings"
 msgstr ""
@@ -4572,9 +4695,6 @@ msgid "Startup folder"
 msgstr ""
 
 msgid "Theme"
-msgstr ""
-
-msgid "This change requires a reload of the WebApp"
 msgstr ""
 
 msgid "Select Default Folder"
@@ -4663,6 +4783,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr ""
+
 msgid "Discard"
 msgstr "Loobu"
 
@@ -4717,25 +4840,25 @@ msgstr ""
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 
-msgid "Reset WebApp settings"
+msgid "Reset settings"
 msgstr ""
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4841,7 +4964,13 @@ msgstr ""
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
+msgstr ""
+
+msgid "Multiple recipients"
 msgstr ""
 
 msgid "A task request can only have one recipient."
@@ -4959,6 +5088,9 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "Taasta kirjed"
 
+msgid "Changes to assigned task"
+msgstr ""
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -4996,6 +5128,9 @@ msgstr "Sorteeri: ikoon"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteeri: Kuvatava nime järgi"
+
+msgid "Assigned task changes"
+msgstr ""
 
 msgid "Loading tasks"
 msgstr ""
@@ -5084,11 +5219,11 @@ msgstr ""
 "Käesolev kasutaja seanss on suletud teisest veebilehitseja aknast või "
 "vahelehest."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Kas te soovite suunamist sisenemise lehele?"
-
 msgid "Session expired"
 msgstr "Seanss aegunud"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Kas te soovite suunamist sisenemise lehele?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5184,7 +5319,8 @@ msgstr[1] "Nimetatud vajalikud kaustad on puuduvad hierarhiast: {0}"
 msgid "Loading model from server failed"
 msgstr "Mudeli laadimine serverist ebaõnnestus"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 "Kontorist väljas on hetkel sisse lülitatud. Kas soovite välja lülitada?"
 

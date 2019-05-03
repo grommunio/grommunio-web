@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -451,8 +451,9 @@ msgstr "Móvil"
 msgid "Pager"
 msgstr "Buscapersonas"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+#, fuzzy
+msgid "No user selected"
+msgstr "No hay tareas seleccionadas"
 
 msgid "You must select one or more users."
 msgstr "Debe seleccionar uno o más usuarios."
@@ -593,6 +594,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "Añadir"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Carpeta vacía"
 
 msgid "You must specify a name."
 msgstr "Ud. debe especificar un nombre."
@@ -1007,6 +1012,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Los recursos han sido planificados."
 
+#, fuzzy
+msgid "Send update"
+msgstr "Fecha de finalización"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1028,8 +1037,12 @@ msgstr "Enviar actualizaciones solamente a los asistentes añadidos o borrados."
 msgid "Send updates to all attendees."
 msgstr "Enviar actualizaciones a todos los asistentes."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Invitar asistentes"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Uno o más asistentes que usted ha invitado están ocupados. ¿Está usted "
 "seguro de invitarlos?"
@@ -1136,6 +1149,10 @@ msgstr "Los adjuntos no se pueden modificar para una sola ocurrencia."
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "Actualizar Lista"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1497,6 +1514,10 @@ msgstr "Repetición"
 msgid "Series"
 msgstr "Categorías"
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Cita"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?."
 
@@ -1610,6 +1631,10 @@ msgstr "l jS F Y G:i"
 msgid "jS F Y"
 msgstr "jS F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Editar recipiente"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
 
@@ -1682,6 +1707,10 @@ msgstr "Aceptar la hora propuesta"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Ver varios calendarios en"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "La respuesta no es requerida"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1826,6 +1855,10 @@ msgstr "Borrar y enviar una respuesta al organizador de la reunión"
 msgid "Delete without sending"
 msgstr "Borrar sin enviar"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Editar recipiente"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1848,9 +1881,15 @@ msgstr "Rechazar solicitud de reunión"
 msgid "Mark complete and delete"
 msgstr "Marcar como Completado"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Ordenar por: Recordatorio de Tiempo"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "El emisor de este mensaje ha solicitado la notificación al leer este "
 "mensaje. ¿Desea enviar la notificación?"
@@ -1882,14 +1921,6 @@ msgid "From"
 msgstr "De"
 
 msgid "Insert item"
-msgstr ""
-
-# 83%
-#, fuzzy
-msgid "Items:"
-msgstr "Elementos"
-
-msgid "Look in:"
 msgstr ""
 
 msgid "Insert as"
@@ -1971,6 +2002,9 @@ msgid "Attachment error"
 msgstr "Error"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2160,6 +2194,9 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2339,6 +2376,12 @@ msgstr "Mostrar nombre"
 msgid "Email address"
 msgstr "Correo Electrónico"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Imprimir lista de Distribución"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2405,10 +2448,13 @@ msgstr ""
 msgid "Remove Recurrence"
 msgstr ""
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Repetición"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Esta cita ha sido movida o borrada, ¿desea continuar?."
 
 msgid "Task Recurrence"
 msgstr ""
@@ -2534,11 +2580,23 @@ msgstr ""
 msgid "Messages"
 msgstr "Mensaje"
 
-msgid "Are you sure you want to Permanently Delete all items?"
-msgstr ""
+#, fuzzy
+msgid "Delete all items"
+msgstr "Elementos eliminados"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr ""
+"¿Esta seguro de que desea eliminar permanentemente todos los elementos y "
+"subcarpetas de la carpeta \"{0}\"?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Restaurar elementos"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "¿Esta seguro de que desea vaciar {0}?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2744,6 +2802,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "¿ Desea aplicar los cambios ?"
 
@@ -2758,6 +2819,10 @@ msgstr "Otro"
 #, fuzzy
 msgid "Search in.."
 msgstr "Buscar en"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Contenido de carpeta"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3040,6 +3105,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} ha aceptado el nombre de {1}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Mensaje original"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3763,6 +3832,14 @@ msgstr "Enviando"
 msgid "Sent successfully"
 msgstr "Envio finalizado"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Editar recipiente"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Por favor, especifique un destinatario"
+
 msgid "Please specify a recipient"
 msgstr "Por favor, especifique un destinatario"
 
@@ -3772,14 +3849,26 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Los adjuntos no se pueden modificar para una sola ocurrencia."
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "Sin asunto"
+
 msgid "Send this message without a subject?"
 msgstr "¿ Enviar este mensaje sin asunto ?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Editar recipiente"
 
 msgid "Not all recipients could be resolved"
 msgstr "No todos los destinatarios pueden ser resueltos"
@@ -3817,9 +3906,9 @@ msgstr "Guardado"
 msgid "Saved successfully"
 msgstr "Grabación finalizada"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Ud. va a perder los cambios no guardados. ¿ Está seguro de cerrar esta "
 "ventana ?"
@@ -3827,7 +3916,14 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Panel de Contenido Kopano"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Elementos eliminados"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3883,6 +3979,12 @@ msgstr "l jS F Y G:i"
 msgid "D d-m"
 msgstr "d-m-A"
 
+# 80%
+# 84%
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3896,6 +3998,12 @@ msgid ""
 msgstr ""
 "No dispone de suficientes permisos para abrir la carpeta, ¿desea eliminarla "
 "de la jerarquía?"
+
+# 80%
+# 84%
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Privilegios insuficientes para abrir la carpeta."
@@ -3960,6 +4068,14 @@ msgstr "Elementos de Tareas"
 
 msgid "Select where to place the folder"
 msgstr "Seleccionar donde alojar carpeta"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Nombre carpeta"
+
+#, fuzzy
+msgid "No destination"
+msgstr "sin Información"
 
 msgid "You must select a destination folder."
 msgstr "Ud. debe seleccionar un destino para la carpeta."
@@ -4060,21 +4176,39 @@ msgstr "Ordenar por: Tamaño Total (subcarpetas incluidas)"
 msgid "Open Shared Folders"
 msgstr "Abrir notas compartidas"
 
+msgid "Unresolved user"
+msgstr ""
+
 msgid "Username '{0}' could not be resolved."
 msgstr "No se pudo resolver el usuario '{0}'."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "El usuario '{0}' no es un usuario válido."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Caja no encontrada"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "No es posible abrir su propio buzón dos veces."
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "La carpeta compartida ya se encuentra abierta."
 
 msgid "This shared folder is already open."
 msgstr "La carpeta compartida ya se encuentra abierta."
 
+msgid "No user"
+msgstr ""
+
 # 85%
 #, fuzzy
-msgid "You must specify a username."
+msgid "You must specify a user"
 msgstr "Ud. debe especificar un nombre."
 
 msgid "Folder type"
@@ -4174,6 +4308,10 @@ msgid ""
 msgstr ""
 "¿Esta seguro de que desea eliminar la carpeta \"{0}\" y mover todo su "
 "contenido a la carpeta de Elementos Eliminados?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Borrar Carpeta"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "¿Esta seguro de que desea vaciar {0}?"
@@ -4650,11 +4788,14 @@ msgstr "Cargando notas"
 msgid "Loading notes"
 msgstr "Cargando notas"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Configuración"
@@ -4673,9 +4814,6 @@ msgstr "Carpeta de inicio"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Este cambio require recargar la WebApp"
 
 msgid "Select Default Folder"
 msgstr ""
@@ -4766,6 +4904,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Este cambio require recargar la WebApp"
+
 msgid "Discard"
 msgstr "Descartar"
 
@@ -4829,25 +4970,26 @@ msgstr ""
 "Usted no puede enviar correos electrónicos, ha excedido su espacio máximo "
 "permitido"
 
-msgid "Reset WebApp settings"
-msgstr ""
+#, fuzzy
+msgid "Reset settings"
+msgstr "Eliminar ajustes"
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4957,8 +5099,15 @@ msgstr "Crear copia sin asignar"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Ver recipiente"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -5077,6 +5226,10 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "Eliminar del calendario"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Enviar la tarea al agente"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5106,6 +5259,10 @@ msgstr "Ordenar por. Propietario"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Ordenar por. Porcentaje completado"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Asignar Tarea"
 
 msgid "Loading tasks"
 msgstr "Cargando tareas"
@@ -5194,12 +5351,12 @@ msgid ""
 "browser window or tab."
 msgstr ""
 
+msgid "Session expired"
+msgstr "Sesión expirada"
+
 #, fuzzy
 msgid "Do you wish to be redirected to the logon page?"
 msgstr "Deja de ser rediredicionado a la pagina de logeo"
-
-msgid "Session expired"
-msgstr "Sesión expirada"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr "autentificacion necesaria, volver ala pagina de logeo."
@@ -5299,7 +5456,7 @@ msgstr[1] "La siguientes carpetas no fueron encontradas en el arbol: {0}"
 msgid "Loading model from server failed"
 msgstr "La carga del modelo desde el servidor, ha fallado"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
 msgid "Out of office off"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -461,8 +461,11 @@ msgstr "Mobil"
 msgid "Pager"
 msgstr "Pager"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebbApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Žádná úloha není zvolena"
 
 msgid "You must select one or more users."
 msgstr "Musíte vybrat jednoho či více uživatelů."
@@ -589,6 +592,10 @@ msgstr "Přidat k oblíbeným"
 
 msgid "Add"
 msgstr "Přidat"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Vyprázdnit složku"
 
 msgid "You must specify a name."
 msgstr "Musíte uvést název."
@@ -997,6 +1004,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Zdroje byly naplánovány."
 
+#, fuzzy
+msgid "Send update"
+msgstr "Konečné datum"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "Aktualizace bude odeslána všem příjemcům, přejete si pokračovat?"
@@ -1014,8 +1025,12 @@ msgstr "Odeslat aktualizace pouze přidaným nebo odebraným účastníkům."
 msgid "Send updates to all attendees."
 msgstr "Odeslat aktualizace všem účastníkům."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Pozvat účastníky"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Jeden či více pozvaných účastníků je zaneprázdněno. Chcete přesto pozvat?"
 
@@ -1121,6 +1136,10 @@ msgstr "Přílohy nemohou být modifikovány pro jedno opakování"
 
 msgid "Type your message here..."
 msgstr "Zde napište svou zprávu..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Aktualizovat seznam"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1475,6 +1494,10 @@ msgstr "Opakování"
 msgid "Series"
 msgstr "série"
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Termín"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
 
@@ -1577,6 +1600,10 @@ msgstr "j. F G:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Upravit příjemce"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Čas schůzky se změnil. Vyberte jedno z následujících:"
 
@@ -1652,6 +1679,10 @@ msgstr "Přijmout navrhovaný čas"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Zobrazit v kalendáři"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Odpověď není nutná"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1795,6 +1826,10 @@ msgstr "Odstranit a poslat odpověď organizátorovi schůzky"
 msgid "Delete without sending"
 msgstr "Odstranit bez odesílání"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Upravit příjemce"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1815,9 +1850,15 @@ msgstr "Odmítnout žádost o schůzku"
 msgid "Mark complete and delete"
 msgstr "Označit jako dokončené a odstranit"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Třídit podle: Připomínka"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "Odesílatel této zprávy žádá potvrzení o přečtení této zprávy. Přejete si "
 "potvrzení odeslat?"
@@ -1853,13 +1894,6 @@ msgstr "Od"
 
 msgid "Insert item"
 msgstr "Vložit položku"
-
-# 83%
-msgid "Items:"
-msgstr "Položky:"
-
-msgid "Look in:"
-msgstr "Vyhledat v:"
 
 msgid "Insert as"
 msgstr "Vložit jako"
@@ -1947,6 +1981,9 @@ msgstr "Chyba přílohy"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Nelze vytvořit ZIP, maximální povolená velikost je 30 MB."
+
+msgid "Unable to download"
+msgstr ""
 
 msgid "Picture format is not supported. "
 msgstr "Formát obrázku není podporován. "
@@ -2142,6 +2179,9 @@ msgstr[2] "Je vybráno {0} zpráv."
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebbApp"
+
 msgid "Do not show this message again."
 msgstr "Tuto zprávu již nezobrazovat."
 
@@ -2317,6 +2357,12 @@ msgstr "Zobrazené jméno"
 msgid "Email address"
 msgstr "E-mailová adresa"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Nový distribuční seznam"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2382,12 +2428,13 @@ msgstr "Opakování termínu"
 msgid "Remove Recurrence"
 msgstr "Odstranit opakování"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"Touto akcí budu zrušeny všechny výjimky, které byly provedeny pro tuto "
-"opakovanou sérii. Přejete si pokračovat?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Opakování"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
 
 msgid "Task Recurrence"
 msgstr "Opakování úkolu"
@@ -2513,10 +2560,20 @@ msgstr "Vymazat vše"
 msgid "Messages"
 msgstr "Zprávy"
 
-msgid "Are you sure you want to Permanently Delete all items?"
+#, fuzzy
+msgid "Delete all items"
+msgstr "Vybrat všechny položky"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr "Jse si jist, že chcete trvale vymazat všechny položky?"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Restore all items"
+msgstr "Obnovit položky"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
 msgstr "Jste si jist, že chcete obnovit všechny položky?"
 
 msgid "Total {0} recoverable item"
@@ -2727,6 +2784,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Chcete použít tyto změny?"
 
@@ -2741,6 +2801,10 @@ msgstr "Další"
 #, fuzzy
 msgid "Search in.."
 msgstr "Hledat v.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Obsah složky"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3027,6 +3091,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} přijalo v zastoupení {1}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "zpráva"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3724,6 +3792,14 @@ msgstr "Odesílání"
 msgid "Sent successfully"
 msgstr "Odesláno úspěšně"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Uveďte prosím příjemce"
+
 msgid "Please specify a recipient"
 msgstr "Uveďte prosím příjemce"
 
@@ -3733,14 +3809,27 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+# 81%
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Přidat přílohy k tomuto kontaktu."
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "žádný předmět"
+
 msgid "Send this message without a subject?"
 msgstr "Odeslat tuto zprávu bez uvedení předmětu?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Upravit příjemce"
 
 msgid "Not all recipients could be resolved"
 msgstr "Ne všechny příjemce lze rozlišit"
@@ -3775,9 +3864,9 @@ msgstr "Uloženo"
 msgid "Saved successfully"
 msgstr "Uloženo úspěšně"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Zavřením tohoto okna přijdete o všechna neuložená data. Opravdu chcete "
 "zavřít?"
@@ -3785,7 +3874,14 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Hlavní panel"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Odstranit položky"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3840,6 +3936,10 @@ msgstr "j. F G:i"
 msgid "D d-m"
 msgstr "d-m-r"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Nedostatečná práva"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3853,6 +3953,10 @@ msgid ""
 msgstr ""
 "Není k dispozici oprávnění k otevření této složky, přejete si odstranit ji "
 "ze systému?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Nedostatečná práva"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Není k dispozici oprávnění otevřít tuto složku."
@@ -3918,6 +4022,14 @@ msgstr "Položky Úkolů"
 
 msgid "Select where to place the folder"
 msgstr "Vyberte umístění složky"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Název složky"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Žádné informace"
 
 msgid "You must select a destination folder."
 msgstr "Musíte označit cílovou složku."
@@ -4017,19 +4129,38 @@ msgstr "Třídit podle: Celková velikost (včetně podsložek)"
 msgid "Open Shared Folders"
 msgstr "Otevřít Sdílené složky"
 
+msgid "Unresolved user"
+msgstr ""
+
 msgid "Username '{0}' could not be resolved."
 msgstr "Jméno uživatele '{0}' nebylo možné rozpoznat."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Uživatel '{0}' není platným uživatelem."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Obnovit"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Nelze otevřít vaše vlastní úložiště dvakrát"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Tato sdílená složka je již otevřena."
 
 msgid "This shared folder is already open."
 msgstr "Tato sdílená složka je již otevřena."
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "Musíte uvést jméno uživatele."
 
 msgid "Folder type"
@@ -4128,6 +4259,10 @@ msgid ""
 msgstr ""
 "Určitě chcete odstranit složku \"{0}\" a přesunout její obsah do složky "
 "Odstraněné položky?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Odstranit složku"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Opravdu chcete vyprázdnit {0}?"
@@ -4609,11 +4744,14 @@ msgstr "Načítání poznámek"
 msgid "Loading notes"
 msgstr "Načítání poznámek"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebbApp"
 
 msgid "Settings"
 msgstr "Nastavení"
@@ -4632,9 +4770,6 @@ msgstr "Výchozí adresář"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Tato změna vyžaduje nové načtení WebApp"
 
 msgid "Select Default Folder"
 msgstr ""
@@ -4724,6 +4859,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Tato změna vyžaduje nové načtení WebApp"
+
 msgid "Discard"
 msgstr "Vyřadit"
 
@@ -4780,25 +4918,26 @@ msgstr "Na {0} nebudete moci posílat ani přijímat zprávy."
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Nemůžete odesílat zprávy, neboť jste překročili měkkou kvótu."
 
-msgid "Reset WebApp settings"
-msgstr ""
+#, fuzzy
+msgid "Reset settings"
+msgstr "Odstranit nastavení"
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4908,8 +5047,15 @@ msgstr "Vytvořit nepřidělenou kopii"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Zobrazit příjemce"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -5030,6 +5176,10 @@ msgid "Remove from To-Do List"
 msgstr "Odstranit z kalendáře"
 
 #, fuzzy
+msgid "Changes to assigned task"
+msgstr "Odeslat úkol pověřené osobě"
+
+#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5061,6 +5211,10 @@ msgstr "Třídit podle: Vlastník"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Třídit podle: Dokončeno procent"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Přidělit úkol"
 
 msgid "Loading tasks"
 msgstr "Načítání úkolů"
@@ -5148,10 +5302,10 @@ msgid ""
 "browser window or tab."
 msgstr ""
 
-msgid "Do you wish to be redirected to the logon page?"
+msgid "Session expired"
 msgstr ""
 
-msgid "Session expired"
+msgid "Do you wish to be redirected to the logon page?"
 msgstr ""
 
 msgid "Reauthentication required, click here to go to back to logon page."
@@ -5253,7 +5407,7 @@ msgstr[2] ""
 msgid "Loading model from server failed"
 msgstr "Selhalo načítání ze serveru"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
 msgid "Out of office off"

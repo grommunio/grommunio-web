@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2019-04-24 09:53+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -460,8 +460,11 @@ msgstr "Mobiel"
 msgid "Pager"
 msgstr "Pieper"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Geen notitie geselecteerd"
 
 msgid "You must select one or more users."
 msgstr "Graag één of meer gebruikers selecteren."
@@ -607,6 +610,10 @@ msgstr "Voeg toe aan favorieten"
 
 msgid "Add"
 msgstr "Voeg toe"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Leeg folder"
 
 msgid "You must specify a name."
 msgstr "Specificeer een naam."
@@ -1019,6 +1026,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Resources zijn geboekt"
 
+#, fuzzy
+msgid "Send update"
+msgstr "Verzend Later"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "Er wordt een update naar alle ontvangers verstuurd, wilt u doorgaan?"
@@ -1038,8 +1049,12 @@ msgstr "Verstuur updates alleen naar toegevoegde of verwijderde genodigden."
 msgid "Send updates to all attendees."
 msgstr "Verstuur updates naar alle genodigden."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Nodig deelnemers uit"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Een of meerdere genodigden zijn bezig. Wilt u hen alsnog uitnodigen?"
 
 msgid "Scheduling"
@@ -1148,6 +1163,10 @@ msgstr "Bijlagen kunnen niet worden gewijzigd voor een herhaling"
 
 msgid "Type your message here..."
 msgstr "Schrijf het bericht hier..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Lijst bijwerken"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1504,6 +1523,10 @@ msgstr "Geval"
 msgid "Series"
 msgstr "Serie"
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Contact niet gevonden"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
 
@@ -1616,6 +1639,10 @@ msgstr "j F G:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Bewerk geadresseerde"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
 "Het tijdstip van de vergadering is veranderd. Kies een van de volgende:"
@@ -1691,6 +1718,10 @@ msgstr "Accepteer Voorgestelde Tijd"
 
 msgid "View in calendar"
 msgstr "Bekijk in kalender"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Geen Antwoord Nodig"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1838,6 +1869,10 @@ msgstr "Verwijder en stuur een antwoord naar de organisator"
 msgid "Delete without sending"
 msgstr "Verwijder zonder te versturen"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Bewerk geadresseerde"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1856,10 +1891,17 @@ msgstr "Afwijzen en verwijderen"
 msgid "Mark complete and delete"
 msgstr "Markeer als voltooid en verwijder"
 
+# 86%
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Sorteer op: Herinnering"
+
 # Nog ff niet vertalen, WA-2159 heeft het nodig!
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "De afzender van dit bericht heeft gevraagd kennis te geven wanneer dit "
 "bericht is gelezen. Wilt u deze kennisgeving sturen naar de afzender?"
@@ -1890,13 +1932,6 @@ msgstr "Afzender"
 
 msgid "Insert item"
 msgstr "Item invoegen"
-
-# 83%
-msgid "Items:"
-msgstr "Items:"
-
-msgid "Look in:"
-msgstr "Zoeken in:"
 
 msgid "Insert as"
 msgstr "Invoegen als"
@@ -1981,6 +2016,10 @@ msgstr "Bijlagefout"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Kan geen ZIP-bestand aanmaken, de maximum toegestane grootte is 30MB."
+
+#, fuzzy
+msgid "Unable to download"
+msgstr "Kan de volgende bestanden niet importeren:"
 
 msgid "Picture format is not supported. "
 msgstr "Formaat van de afbeelding wordt niet ondersteund. "
@@ -2174,6 +2213,9 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
 
@@ -2349,6 +2391,13 @@ msgstr "Weergavenaam"
 msgid "Email address"
 msgstr "E-mailadres"
 
+# 75%
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Nieuw distributielijst"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2415,12 +2464,13 @@ msgstr "Terugkeerpatroon Afspraak"
 msgid "Remove Recurrence"
 msgstr "Terugkeerpatroon verwijderen"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"Dit verwijdert alle uitzonderingen die zijn gemaakt voor deze herhalende "
-"serie. Wilt u doorgaan?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Terugkerend"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
 
 msgid "Task Recurrence"
 msgstr "Taakherhaling"
@@ -2544,10 +2594,20 @@ msgstr "Alles verwijderen"
 msgid "Messages"
 msgstr "Berichten"
 
-msgid "Are you sure you want to Permanently Delete all items?"
+#, fuzzy
+msgid "Delete all items"
+msgstr "Selecteer alle items"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr "Ben je zeker dat je alle verwijderde items voorgoed wil verwijderen?"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Restore all items"
+msgstr "Herstel items"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
 msgstr "Ben je zeker dat je alle items wil hestellen?"
 
 msgid "Total {0} recoverable item"
@@ -2759,6 +2819,9 @@ msgstr "mijzelf"
 msgid "Update rules for"
 msgstr "Werk regels bij voor"
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
 
@@ -2770,6 +2833,10 @@ msgstr "Andere..."
 
 msgid "Search in.."
 msgstr "Zoeken in..."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Map bevat"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3049,6 +3116,10 @@ msgstr "Laatste update verstuurd op {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} heeft namens {1} bijgewerkt op {2}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "bericht"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3814,6 +3885,14 @@ msgstr "Verzenden..."
 msgid "Sent successfully"
 msgstr "Succesvol verstuurd"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Bewerk geadresseerde"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Geef een ontvanger op"
+
 msgid "Please specify a recipient"
 msgstr "Geef een ontvanger op"
 
@@ -3823,14 +3902,26 @@ msgstr "De bijgevoegde bestanden zijn nog niet opgeladen."
 msgid "Do you want to send this message without attachments?"
 msgstr "Wil dit bericht verzenden zonder de bijlagen?"
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Bijlagen kunnen niet worden gedownload"
+
 msgid "Don't Send"
 msgstr "Niet verzenden"
 
 msgid "Send Anyway"
 msgstr "Toch verzenden"
 
+#, fuzzy
+msgid "No subject"
+msgstr "geen onderwerp"
+
 msgid "Send this message without a subject?"
 msgstr "Dit bericht verzenden zonder onderwerp?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Bewerk geadresseerde"
 
 msgid "Not all recipients could be resolved"
 msgstr "Niet alle ontvangers konden worden gevalideerd"
@@ -3868,9 +3959,9 @@ msgstr "Opgeslagen"
 msgid "Saved successfully"
 msgstr "Succesvol opgeslagen"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Alle niet-opgeslagen wijzigingen zullen verloren gaan. Wilt u dit venster "
 "echt sluiten?"
@@ -3878,8 +3969,15 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Kopano Content Panel"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Items verwijderen"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
+
+msgid "Unsaved changes"
+msgstr ""
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Welkom bij Kopano WebApp"
@@ -3928,6 +4026,10 @@ msgstr "D G:i"
 msgid "D d-m"
 msgstr "D d-m"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Onvoldoende permissie"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3941,6 +4043,10 @@ msgid ""
 msgstr ""
 "Niet voldoende permissies om deze map te openen, wilt u hem verwijderen van "
 "de hiërarchie?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Onvoldoende permissie"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Geen permissies om deze map te openen."
@@ -4004,6 +4110,14 @@ msgstr "Taakitems"
 
 msgid "Select where to place the folder"
 msgstr "Selecteer locatie voor de map"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Foldernaam"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Geen Informatie"
 
 msgid "You must select a destination folder."
 msgstr "U moet een bestemmingsmap selecteren."
@@ -4106,20 +4220,40 @@ msgstr "Sorteer op: Totale grootte (met submappen)"
 msgid "Open Shared Folders"
 msgstr "Open Gedeelde Mappen"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Kon gebruiker niet vinden."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "Gebruikersnaam '{0}' kon niet worden gevonden."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "'{0}' is geen geldige gebruiker."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Ontbrekende store"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Het is niet mogelijk om uw eigen store tweemaal te openen"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Deze gedeelde map is al open."
 
 msgid "This shared folder is already open."
 msgstr "Deze gedeelde map is al open."
 
+msgid "No user"
+msgstr ""
+
 # 85%
-msgid "You must specify a username."
+#, fuzzy
+msgid "You must specify a user"
 msgstr "U moet een gebruikersnaam opgeven."
 
 msgid "Folder type"
@@ -4209,6 +4343,10 @@ msgid ""
 msgstr ""
 "Weet u zeker dat u de map \"{0}\" wilt verwijderen en alle inhoud naar de "
 "Deleted Items-map verplaatsen?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Verwijder Map"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Weet u zeker dat u {0} wilt leegmaken?"
@@ -4678,11 +4816,15 @@ msgstr "Notities Laden"
 msgid "Loading notes"
 msgstr "Notities laden"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+#, fuzzy
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr "Om de wijziging toe te passen moet WebApp opnieuw worden geladen."
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr "Let op: Niet opgeslagen wijzigingen gaan verloren."
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 # 87%
 msgid "Settings"
@@ -4702,9 +4844,6 @@ msgstr "Opstartmap"
 
 msgid "Theme"
 msgstr "Thema"
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Deze wijziging wordt effectief door WebApp opnieuw te laden"
 
 msgid "Select Default Folder"
 msgstr "Selecteer standaard map"
@@ -4795,6 +4934,9 @@ msgstr "Basis sneltoetsen ingeschakeld"
 msgid "All keyboard shortcuts on"
 msgstr "Alle sneltoetsen ingeschakeld"
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Deze wijziging wordt effectief door WebApp opnieuw te laden"
+
 msgid "Discard"
 msgstr "Niet opslaan"
 
@@ -4858,28 +5000,30 @@ msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 "U kunt geen e-mail versturen omdat u de zachte quota heeft overschreden."
 
-msgid "Reset WebApp settings"
-msgstr "Reset WebApp instellingen"
+#, fuzzy
+msgid "Reset settings"
+msgstr "Instellingen verwijderen"
 
-msgid "Resets WebApp's settings to their original defaults"
+#, fuzzy
+msgid "Reset settings to their original defaults."
 msgstr ""
 "Reset de instellingen van WebApp naar de originele standaard instellingen"
 
 msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
 msgstr ""
-"De WebApp instellingen zullen worden hersteld naar de standaardwaarden. Weet "
-"u zeker dat alle instellingen moeten worden teruggezet?"
 
+#, fuzzy
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr "WebApp zal automatisch herstarten om deze wijzigingen door te voeren"
 
 msgid "Reset"
 msgstr "Herstel"
 
-msgid "Webapp is reloading, Please wait."
+#, fuzzy
+msgid "Reloading, Please wait."
 msgstr "WebApp herlaadt, moment geduld."
 
 # 75%
@@ -4990,8 +5134,15 @@ msgstr "Maak Nieuwe Niet-toegewezen Kopie"
 msgid "copy"
 msgstr "kopie"
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr "U kunt geen taakverzoek naar uzelf sturen."
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Bekijk geadresseerde"
 
 msgid "A task request can only have one recipient."
 msgstr "Een taakverzoek mag maar één geadresseerde hebben."
@@ -5110,6 +5261,10 @@ msgstr "Markeer als Onvoltooid"
 msgid "Remove from To-Do List"
 msgstr "Verwijderen uit To-Do lijst"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Stuur taak naar geadresseerden"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5146,6 +5301,10 @@ msgstr "Sorteer op: Eigenaar"
 # 88%
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteer op: Percentage Voltooid"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Wijs Taak Toe"
 
 # 76%
 msgid "Loading tasks"
@@ -5238,11 +5397,11 @@ msgstr ""
 "De sessie in het huidige browservenster is afgesloten in een ander "
 "browservenster of -tab."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Wilt u naar de aanmeldpagina gaan?"
-
 msgid "Session expired"
 msgstr "Sessie is verlopen"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Wilt u naar de aanmeldpagina gaan?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5345,7 +5504,8 @@ msgstr[1] "De volgende vereiste mappen ontbreken in de hiërarchie: {0}"
 msgid "Loading model from server failed"
 msgstr "Het laden van het model van de server is mislukt"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
 msgid "Out of office off"

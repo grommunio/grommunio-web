@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -451,8 +451,11 @@ msgstr "Cep telefonu"
 msgid "Pager"
 msgstr "Ҫağrı cihazı"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Not seçilmedi"
 
 msgid "You must select one or more users."
 msgstr "Bir veya daha fazla kullanıcı seçmelisiniz."
@@ -587,6 +590,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "Ekle"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Klasörü boşalt"
 
 msgid "You must specify a name."
 msgstr "Bir isim belirtmelisiniz."
@@ -1004,6 +1011,11 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Kaynaklar planlanmıştır."
 
+# 87%
+#, fuzzy
+msgid "Send update"
+msgstr "Bitiş tarihi"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1024,8 +1036,12 @@ msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
 msgid "Send updates to all attendees."
 msgstr "Güncellemeleri tüm katılımcılara gönder."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Katıllimcılar davet et"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Davet ettiğiniz bir veya daha fazla katılımcı meşgul. Davet etmek "
 "istediğinize eminmisiniz?"
@@ -1134,6 +1150,10 @@ msgstr "Ekler tek bir olay için modifiye edilemez"
 
 msgid "Type your message here..."
 msgstr "Mesajınızı buraya yazın..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Listeyi Güncelle"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1501,6 +1521,11 @@ msgstr "Tekrarlama"
 msgid "Series"
 msgstr "seri"
 
+# 91%
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Randevular"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
@@ -1607,6 +1632,10 @@ msgstr "F j, Y, g:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Alıcı düzenle"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Toplantı saati değişti. Aşağıdakiler arasından seç:"
 
@@ -1682,6 +1711,10 @@ msgstr "Önerilmiş yeni zamanı kabul et"
 
 msgid "View in calendar"
 msgstr "takvim'de görüntüle"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Cevaba gerek yok"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1820,6 +1853,10 @@ msgstr "Toplantıyı sil ve düzenleyene bir yanıt gönder"
 msgid "Delete without sending"
 msgstr "Göndermeden sil"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Alıcı düzenle"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1841,9 +1878,15 @@ msgstr "Toplanti isteği reddet"
 msgid "Mark complete and delete"
 msgstr "Tamamlanmış İşaretle"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Sıralama: Hatırlatma Zamanı"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "Bu mesajın göndereni bu mesajı okuduğunuzda bildirilmesini istedi. Göndereni "
 "bildirmek istiyor musunuz?"
@@ -1876,13 +1919,6 @@ msgstr "Kimden"
 
 msgid "Insert item"
 msgstr "öğe ekle"
-
-# 83%
-msgid "Items:"
-msgstr "öğeler:"
-
-msgid "Look in:"
-msgstr "bak:"
 
 msgid "Insert as"
 msgstr "olarak ekle"
@@ -1963,6 +1999,9 @@ msgstr "Eklenti hatası"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "ZIP oluşturulamıyor, izin verilen maksimum boyut 30 MB."
+
+msgid "Unable to download"
+msgstr ""
 
 msgid "Picture format is not supported. "
 msgstr "resim formatı desteklenmiyor. "
@@ -2145,6 +2184,9 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2324,6 +2366,12 @@ msgstr "Ad Görüntüsü"
 msgid "Email address"
 msgstr "E-posta adres"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "yeni dağıtım listesi"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2391,12 +2439,13 @@ msgstr "Randevu tekrarlama"
 msgid "Remove Recurrence"
 msgstr "Tekrarlamayı kaldır"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"Bu, bu tekrarlama serisi için yapılmış olabilecek herhangi bir istisna atar. "
-"Devam etmek istiyor musunuz?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "tekrar eden"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
 
 msgid "Task Recurrence"
 msgstr "Görev Tekrarlama"
@@ -2521,10 +2570,20 @@ msgstr "tümünü sil"
 msgid "Messages"
 msgstr "mesajlar"
 
-msgid "Are you sure you want to Permanently Delete all items?"
+#, fuzzy
+msgid "Delete all items"
+msgstr "Tüm öğeleri seç"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr "Tüm öğeleri kalıcı olarak silmek istediğinizden emin misiniz?"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Restore all items"
+msgstr "Eski durumuna getir"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
 msgstr "Tüm öğeleri geri yüklemek istediğinizden emin misiniz?"
 
 msgid "Total {0} recoverable item"
@@ -2736,6 +2795,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Değişiklikleri uygulamak istiyor musunuz?"
 
@@ -2750,6 +2812,10 @@ msgstr "Diyeri"
 #, fuzzy
 msgid "Search in.."
 msgstr "ara.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Klasör içerir"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3034,6 +3100,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{1} adına {0} kabul etti."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Orijinal mesaj"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3754,6 +3824,14 @@ msgstr "Gönder"
 msgid "Sent successfully"
 msgstr "Başarıyla gönderildi"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Bir alıcı belirtin"
+
 msgid "Please specify a recipient"
 msgstr "Bir alıcı belirtin"
 
@@ -3763,14 +3841,26 @@ msgstr "Eklenen dosyalar henüz yüklenmedi."
 msgid "Do you want to send this message without attachments?"
 msgstr "Bu mesajı eksiz göndermek istiyor musunuz?"
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Ekler indirilemiyor"
+
 msgid "Don't Send"
 msgstr "gönderme"
 
 msgid "Send Anyway"
 msgstr "her neyse gönder"
 
+#, fuzzy
+msgid "No subject"
+msgstr "konu yok"
+
 msgid "Send this message without a subject?"
 msgstr "Bu mesajı konusuz gönder?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Alıcı düzenle"
 
 msgid "Not all recipients could be resolved"
 msgstr "Bütün alıcılar eşleştirilmedi"
@@ -3805,9 +3895,9 @@ msgstr "Kaydedildi"
 msgid "Saved successfully"
 msgstr "Başarıyla kaydedildi"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Kaydedilmemiş değişiklikleri kaybedeceksiniz. Pencereyi kapatmak "
 "istediğinizden emin misiniz?"
@@ -3815,8 +3905,15 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Kopano Content Panel"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Öğeleri sil"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
+
+msgid "Unsaved changes"
+msgstr ""
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Kopano WebApp'e hoşgeldiniz"
@@ -3877,6 +3974,10 @@ msgstr "F j, Y, g:i"
 msgid "D d-m"
 msgstr "d-m-Y"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "yetersiz yetki"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3889,6 +3990,10 @@ msgid ""
 "the hierarchy?"
 msgstr ""
 "Bu klasör açmak için yeterli izininiz yok, hiyerarşi kaldırmak istiyorsunuz?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "yetersiz yetki"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Bu dizini görmek için yeterli izniniz yok"
@@ -3953,6 +4058,14 @@ msgstr "Görev Öğeler"
 
 msgid "Select where to place the folder"
 msgstr "Klasörün yerleştirileceği yeri seç"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Klasör adı"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Bilgi yok"
 
 msgid "You must select a destination folder."
 msgstr "Bir hedef klasörü seçmelisiniz."
@@ -4052,20 +4165,40 @@ msgstr "Sıralama: Toplam büyüklüğü (alt klasörler dahil)"
 msgid "Open Shared Folders"
 msgstr "Paylastığım klasörü aç"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Kullanıcı çözümlenemedi."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "Kullanıcı adı '{0}' çözülemedi."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Kullanıcı ad '{0}' geçerli bir kullanıcı değil."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "mağaza eksik"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Kendi mağazanı iki defa açmak mümkün değildir"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Bu paylaşılan klasör zaten açık."
 
 msgid "This shared folder is already open."
 msgstr "Bu paylaşılan klasör zaten açık."
 
+msgid "No user"
+msgstr ""
+
 # 85%
-msgid "You must specify a username."
+#, fuzzy
+msgid "You must specify a user"
 msgstr "Bir kullanıcı adı belirtmelisiniz."
 
 msgid "Folder type"
@@ -4164,6 +4297,10 @@ msgid ""
 msgstr ""
 "\"{0}\" Klasör iҫindeki tüm içeriğini silinmiş öğelere taşımak istediğinize "
 "eminmisiniz?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Klasörü sil"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "{0} Boşaltmak istediğinizden emin misiniz?"
@@ -4639,11 +4776,15 @@ msgstr "Notlar yükleniyor"
 msgid "Loading notes"
 msgstr "Notlar yükleniyor"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+#, fuzzy
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyin."
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr "NOT: Kaydedilmemiş tüm değişiklikler kaybolacak."
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Ayarlar"
@@ -4662,9 +4803,6 @@ msgstr "Başlangıҫ klasör"
 
 msgid "Theme"
 msgstr "tema"
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Bu değişiklik WebApp yeniden açarsan etkili olur"
 
 msgid "Select Default Folder"
 msgstr "varsayılan klasör seç"
@@ -4755,6 +4893,9 @@ msgstr "temel klavye kısayolları açık"
 msgid "All keyboard shortcuts on"
 msgstr "Tüm klavye kısayolları açık"
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Bu değişiklik WebApp yeniden açarsan etkili olur"
+
 msgid "Discard"
 msgstr "Geri al"
 
@@ -4816,21 +4957,22 @@ msgstr "{0}'de ileti gönderemeyecek ve de alamayacaksınız"
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Ileti gönderilmiyor çünkü yumuşak kutunuzu aştınız"
 
-msgid "Reset WebApp settings"
-msgstr "WebApp ayarlarını sıfırla"
+#, fuzzy
+msgid "Reset settings"
+msgstr "Ayarları sil"
 
-msgid "Resets WebApp's settings to their original defaults"
+#, fuzzy
+msgid "Reset settings to their original defaults."
 msgstr "WebApp ayarlarını varsayılan değerlerine sıfırlar"
 
 msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
 msgstr ""
-"WebApp ayarlarınız varsayılan durumuna geri yüklenecek. Tüm WebApp "
-"ayarlarını sıfırlamak istediğinizden emin misiniz?"
 
+#, fuzzy
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 "WebApp, bu değişikliklerin yürürlüğe girmesi için otomatik olarak yeniden "
 "başlar"
@@ -4838,7 +4980,8 @@ msgstr ""
 msgid "Reset"
 msgstr "sıfırla"
 
-msgid "Webapp is reloading, Please wait."
+#, fuzzy
+msgid "Reloading, Please wait."
 msgstr "Webapp yeniden yükleniyor, lütfen bekleyin."
 
 msgid "Setting"
@@ -4949,8 +5092,15 @@ msgstr "Atanmamış Kopya oluştur"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Alıcı bilgileri"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -5072,6 +5222,10 @@ msgid "Remove from To-Do List"
 msgstr "favorilerden sil"
 
 #, fuzzy
+msgid "Changes to assigned task"
+msgstr "Görevi ataya gönder"
+
+#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5105,6 +5259,10 @@ msgstr "Sıralama: Sahibi"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Sıralama: Yüzde Tamamlandı"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Görev ver"
 
 msgid "Loading tasks"
 msgstr "Görevler yükleniyor"
@@ -5194,11 +5352,11 @@ msgstr ""
 "Geçerli tarayıcı penceresindeki oturum başka bir tarayıcı penceresinden veya "
 "sekmesinden kapatıldı."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
-
 msgid "Session expired"
 msgstr "oturum süresi doldu"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5301,7 +5459,8 @@ msgstr[1] ""
 msgid "Loading model from server failed"
 msgstr "Sunucudan model yüklenmesi başarısız"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
 
 msgid "Out of office off"

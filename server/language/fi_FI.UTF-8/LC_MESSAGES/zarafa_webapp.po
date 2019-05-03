@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -451,8 +451,11 @@ msgstr "Matkapuhelin"
 msgid "Pager"
 msgstr "Hakulaite"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Ei valittuja tehtäviä"
 
 msgid "You must select one or more users."
 msgstr "Vähintään yksi käyttäjä on valittava."
@@ -588,6 +591,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "Lisää"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Tyhjennä kansio"
 
 msgid "You must specify a name."
 msgstr "Nimi on määriteltävä."
@@ -1010,6 +1017,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Resurssit on suunniteltu."
 
+#, fuzzy
+msgid "Send update"
+msgstr "Päättymispäivä"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "Päivitysviesti lähetetään kaikille vastaanottajille, haluatko jatkaa?"
@@ -1027,8 +1038,12 @@ msgstr "Lähetä päivitykset vain lisätyille tai poistetuille osallistujille."
 msgid "Send updates to all attendees."
 msgstr "Lähetä päivitys kaikille osallistujille."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Kutsu osallistujia"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Yksi tai useampi kutsutuista osallistujista on varattu. Haluatko varmasti "
 "kutsua?"
@@ -1133,6 +1148,10 @@ msgstr "Liitteitä ei voi muokata yksittäistä tapaamista koskien"
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "Päivitä lista"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1486,6 +1505,10 @@ msgstr "Toistuvuus"
 msgid "Series"
 msgstr ""
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Tapaaminen"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
 
@@ -1595,6 +1618,10 @@ msgstr "jS F G:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Muokkaa vastaanottajia"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Kokouksen ajankohtaa on muutettu. Valitse jokin seuraavista:"
 
@@ -1668,6 +1695,10 @@ msgstr "Hyväksy ehdotettu aika"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Tarkastele useampia kalentereita kohteessa"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Vastausta ei vaadita"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1808,6 +1839,10 @@ msgstr "Poista ja lähetä vastaus kokouksen järjestäjälle"
 msgid "Delete without sending"
 msgstr "Poista ilman lähetystä"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Muokkaa vastaanottajia"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1828,9 +1863,15 @@ msgstr "Kieltäydy kokouskutsusta"
 msgid "Mark complete and delete"
 msgstr "Merkitse valmiiksi"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Järjestä: Muistutus"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "Viestin lähettäjä on pyytänyt lukukuittausta, kun luet tämän viestin. "
 "Haluatko kuitata lähettäjälle?"
@@ -1862,14 +1903,6 @@ msgid "From"
 msgstr "Lähettäjä"
 
 msgid "Insert item"
-msgstr ""
-
-# 83%
-#, fuzzy
-msgid "Items:"
-msgstr "Kohteet"
-
-msgid "Look in:"
 msgstr ""
 
 msgid "Insert as"
@@ -1950,6 +1983,9 @@ msgid "Attachment error"
 msgstr "Liitevirhe"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2135,6 +2171,9 @@ msgstr[1] "{0} viestiä on valittu."
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2311,6 +2350,12 @@ msgstr "Näyttönimi"
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Tulosta jakelulista"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2375,12 +2420,13 @@ msgstr "Tapaamisen toistuminen"
 msgid "Remove Recurrence"
 msgstr "Poista toistuminen"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"Toistuvalle sarjalle mahdollisesti asetetut poikkeukset hylätään. Haluatko "
-"jatkaa?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Toistuvuus"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Tapaaminen on siirretty tai poistettu, haluatko jatkaa?"
 
 msgid "Task Recurrence"
 msgstr "Tehtävän toistuminen"
@@ -2505,11 +2551,23 @@ msgstr ""
 msgid "Messages"
 msgstr "viesti"
 
-msgid "Are you sure you want to Permanently Delete all items?"
-msgstr ""
+#, fuzzy
+msgid "Delete all items"
+msgstr "Poista kohteita"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr ""
+"Haluatko varmasti poistaa pysyvästi kaikki kohteet ja alikansiot kansiosta "
+"\"{0}\"?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Palauta kohteita"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Haluatko varmasti tyhjentää kohteen {0}?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2717,6 +2775,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Haluatko tallentaa muutokset?"
 
@@ -2731,6 +2792,10 @@ msgstr "Muu"
 #, fuzzy
 msgid "Search in.."
 msgstr "Hae kohteesta"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Kansio sisältää"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3009,6 +3074,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} on hyväksynyt käyttäjän {1} puolesta."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Alkuperäinen viesti"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3710,6 +3779,14 @@ msgstr "Lähetetään"
 msgid "Sent successfully"
 msgstr "Lähetetty onnistuneesti"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Muokkaa vastaanottajia"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Määrittele vastaanottaja"
+
 msgid "Please specify a recipient"
 msgstr "Määrittele vastaanottaja"
 
@@ -3719,14 +3796,27 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+# 81%
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Lisää liitetiedostoja yhteystietoon."
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "ei aihetta"
+
 msgid "Send this message without a subject?"
 msgstr "Lähetä tämä viesti ilman aihetta?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Muokkaa vastaanottajia"
 
 msgid "Not all recipients could be resolved"
 msgstr "Kaikkia vastaanottajia ei pystytty selvittämään"
@@ -3761,9 +3851,9 @@ msgstr "Tallennettu"
 msgid "Saved successfully"
 msgstr "Tallennettu onnistuneesti"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Tallentamattomat muutokset menetetään. Haluatko varmasti sulkea tämän "
 "ikkunan?"
@@ -3771,7 +3861,14 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Kopanon Sisältöruutu"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Poista kohteita"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3827,6 +3924,10 @@ msgstr "jS F G:i"
 msgid "D d-m"
 msgstr "d-m-Y"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Kansion oikeudet"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3840,6 +3941,10 @@ msgid ""
 msgstr ""
 "Sinulla ei ole tarvittavia oikeuksia kansion avaamiseksi. Haluatko poistaa "
 "sen listauksesta?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Edustajaoikeudet"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Sinula ei ole tarvittavia oikeuksia kansion avaamiseksi."
@@ -3901,6 +4006,14 @@ msgstr "Tehtäväkohteet"
 
 msgid "Select where to place the folder"
 msgstr "Valitse kansion sijainti"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Kansion nimi"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Ei tietoja"
 
 msgid "You must select a destination folder."
 msgstr "Kohdekansio on valittava."
@@ -3999,19 +4112,39 @@ msgstr "Järjestä: Kokonaiskoko (alikansiot mukaanluettuina)"
 msgid "Open Shared Folders"
 msgstr "Avaa jaetut kansiot"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Käyttäjää ei voitu selvittää."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "Käyttäjänimeä '{0}' ei voitu selvittää."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Käyttäjänimi '{0}' ei ole käypä."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Puuttuva varasto"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Et voi avata omaa varastoasi kahdesti"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Jaettu kansio on jo avattu."
 
 msgid "This shared folder is already open."
 msgstr "Jaettu kansio on jo avattu."
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "Käyttäjänimi on määriteltävä."
 
 msgid "Folder type"
@@ -4112,6 +4245,10 @@ msgid ""
 msgstr ""
 "Haluatko varmasti poistaa kansion \"{0}\" ja siirtää kaikki sen sisällöt "
 "Poistetut kohteet -kansioon?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Poista kansio"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Haluatko varmasti tyhjentää kohteen {0}?"
@@ -4593,11 +4730,14 @@ msgstr "Ladataan merkintöjä"
 msgid "Loading notes"
 msgstr "Ladataan merkintöjä"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Asetukset"
@@ -4616,9 +4756,6 @@ msgstr "Aloitus kansio"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Tämä muutos vaatii WebApp:n uudelleenlatauksen"
 
 msgid "Select Default Folder"
 msgstr ""
@@ -4708,6 +4845,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Tämä muutos vaatii WebApp:n uudelleenlatauksen"
+
 msgid "Discard"
 msgstr "Hylkää"
 
@@ -4770,25 +4910,26 @@ msgstr "Et voi lähettää tai vastaanottaa viestejä, kun laatikon koko on {0}.
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Sähköpostisi kokoraja on ylittynyt, et voi lähettää viestejä."
 
-msgid "Reset WebApp settings"
-msgstr ""
+#, fuzzy
+msgid "Reset settings"
+msgstr "Poista asetukset"
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4898,8 +5039,15 @@ msgstr "Luo määrittelemätön kopio"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Tarkastele vastaanottajia"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -5019,6 +5167,10 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "Poista kalenterista"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Lähetä tehtävä toimeksiannetulle"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5048,6 +5200,10 @@ msgstr "Järjestä: Omistaja"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Järjestä: Prosenttia valmiina"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Määrää tehtävä"
 
 msgid "Loading tasks"
 msgstr "Ladataan tehtäviä"
@@ -5137,11 +5293,11 @@ msgstr ""
 "Nykyisessä selainikkunassa oleva istunti on suljettu toisesta "
 "selainikkunasta tai välilehdestä."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Haluatko palata sisäänkirjautumissivulle?"
-
 msgid "Session expired"
 msgstr "Istunto vanhentunut"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Haluatko palata sisäänkirjautumissivulle?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5244,7 +5400,8 @@ msgstr[1] "Seuraavat vaaditut kansiot puuttuvat hierarkiasta: {0}"
 msgid "Loading model from server failed"
 msgstr "Mallin lataaminen palvelimelta epäonnistui"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Poissaolovastaus on päällä. Haluatko kytkeä sen pois päältä?"
 
 msgid "Out of office off"

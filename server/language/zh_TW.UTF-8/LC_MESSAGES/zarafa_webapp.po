@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -439,8 +439,11 @@ msgstr "行動電話"
 msgid "Pager"
 msgstr "呼叫器"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "沒有選擇的任務"
 
 msgid "You must select one or more users."
 msgstr "你必須選擇一個或多個使用者"
@@ -566,6 +569,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "新增"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "空的資料夾"
 
 msgid "You must specify a name."
 msgstr "您必須指定一個名字"
@@ -983,6 +990,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "資源已被預約"
 
+#, fuzzy
+msgid "Send update"
+msgstr "結束日期"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "更新的郵件會傳送到所有收件人，你想要繼續嗎?"
@@ -1000,8 +1011,12 @@ msgstr "傳送更新到新增加或移除的與會者"
 msgid "Send updates to all attendees."
 msgstr "傳送更新到所有與會者"
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "邀請與會者"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "你邀請的一個或多個與會者已繁忙。你確定要邀請?"
 
 msgid "Scheduling"
@@ -1101,6 +1116,10 @@ msgstr "無法單一修改附件"
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "更新列表"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1435,6 +1454,10 @@ msgstr "週期"
 msgid "Series"
 msgstr ""
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "約會"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "此約會已搬移或刪除，您要繼續嗎？"
 
@@ -1539,6 +1562,10 @@ msgstr "jS F Y G:i"
 msgid "jS F Y"
 msgstr "jS F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "編輯收件者"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
 
@@ -1611,6 +1638,10 @@ msgstr "接受建議時間"
 #, fuzzy
 msgid "View in calendar"
 msgstr "檢視多重行事曆在"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "不需要回應"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1736,6 +1767,10 @@ msgstr "刪除並回復給會議組織人員"
 msgid "Delete without sending"
 msgstr "刪除不發送"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "編輯收件者"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1756,9 +1791,15 @@ msgstr "拒絕會議邀請"
 msgid "Mark complete and delete"
 msgstr "標示已完成"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "依提醒時間排序"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr "當讀取時會通知寄件者此訊息已讀取，您希望通知寄件者嗎?"
 
 #, fuzzy
@@ -1788,14 +1829,6 @@ msgid "From"
 msgstr "寄件者"
 
 msgid "Insert item"
-msgstr ""
-
-# 83%
-#, fuzzy
-msgid "Items:"
-msgstr "項目"
-
-msgid "Look in:"
 msgstr ""
 
 msgid "Insert as"
@@ -1876,6 +1909,9 @@ msgid "Attachment error"
 msgstr "附件錯誤"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2058,6 +2094,9 @@ msgstr[0] "選擇了{0} 封郵件"
 msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2235,6 +2274,12 @@ msgstr "顯示名稱"
 msgid "Email address"
 msgstr "電子郵件地址"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "列印通訊群組列表"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2299,12 +2344,13 @@ msgstr "約會循環"
 msgid "Remove Recurrence"
 msgstr "移除循環"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "週期"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "此約會已搬移或刪除，您要繼續嗎？"
 
 msgid "Task Recurrence"
 msgstr "任務移除"
@@ -2427,11 +2473,21 @@ msgstr ""
 msgid "Messages"
 msgstr "郵件"
 
-msgid "Are you sure you want to Permanently Delete all items?"
-msgstr ""
+#, fuzzy
+msgid "Delete all items"
+msgstr "刪除項目"
 
-msgid "Are you sure you want to Restore all items?"
-msgstr ""
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "您確定要永久刪除\"{0}\"資料夾中所有項目及子資料夾?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "回復項目"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "您確定要清空{0}?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2637,6 +2693,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "你要套用此改變嗎?"
 
@@ -2651,6 +2710,10 @@ msgstr "其他"
 #, fuzzy
 msgid "Search in.."
 msgstr "搜尋"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "資料夾內文"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -2922,6 +2985,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "於 {1} 代表中 {0} 已接受"
+
+#, fuzzy
+msgid "Fix message"
+msgstr "原始郵件"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3608,6 +3675,14 @@ msgstr "傳送中"
 msgid "Sent successfully"
 msgstr "傳送成功"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "編輯收件者"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "請選擇一個收件人"
+
 msgid "Please specify a recipient"
 msgstr "請選擇一個收件人"
 
@@ -3617,14 +3692,26 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "新增附件到此聯絡人"
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "無主旨"
+
 msgid "Send this message without a subject?"
 msgstr "要傳送沒有主旨的郵件嗎?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "編輯收件者"
 
 msgid "Not all recipients could be resolved"
 msgstr "不是所有收件人地址能夠解析成功"
@@ -3659,15 +3746,22 @@ msgstr "已儲存"
 msgid "Saved successfully"
 msgstr "儲存成功"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "你將失去所有改變。你確定要關閉此視窗嗎?"
 
 msgid "Kopano Content Panel"
 msgstr "Kopano 內容面板"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "刪除項目"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3722,6 +3816,10 @@ msgstr "jS F Y G:i"
 msgid "D d-m"
 msgstr "d-m-Y"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "資料夾權限"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3731,6 +3829,10 @@ msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
 msgstr "沒有足夠的權限來開啟這個文件夾，你想要從此階層移除嗎?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "代理人權限"
 
 msgid "Not enough permissions to open this folder."
 msgstr "沒有足夠的權限來開啟這個文件夾"
@@ -3792,6 +3894,14 @@ msgstr "任務項目"
 
 msgid "Select where to place the folder"
 msgstr "選擇放置資料夾的位置"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "資料夾名稱"
+
+#, fuzzy
+msgid "No destination"
+msgstr "無相關資訊"
 
 msgid "You must select a destination folder."
 msgstr "您必須選擇一個目標資料夾"
@@ -3890,19 +4000,38 @@ msgstr "排序方式: 全部大小 (包括子資料夾)"
 msgid "Open Shared Folders"
 msgstr "開啟共用資料夾"
 
+msgid "Unresolved user"
+msgstr ""
+
 msgid "Username '{0}' could not be resolved."
 msgstr "使用者名稱 '{0}' 無法解析"
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "使用者名稱 '{0}' 不是有效的使用者"
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "遺失的儲存庫"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "不能重複開啟自己的收存夾"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "此共享資料夾已開啟"
 
 msgid "This shared folder is already open."
 msgstr "此共享資料夾已開啟"
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "你必須指定一個使用者名稱"
 
 msgid "Folder type"
@@ -3999,6 +4128,10 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr "您確定要刪除此文件夾\"{0}\"並將所有文件夾中的資料移至已刪除的郵件?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "刪除資料夾"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "您確定要清空{0}?"
@@ -4472,11 +4605,14 @@ msgstr "載入筆記中"
 msgid "Loading notes"
 msgstr "載入筆記"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "設定"
@@ -4495,9 +4631,6 @@ msgstr "開始資料夾"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "需要重新載入WebApp"
 
 msgid "Select Default Folder"
 msgstr ""
@@ -4587,6 +4720,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr "需要重新載入WebApp"
+
 msgid "Discard"
 msgstr "丟棄"
 
@@ -4641,25 +4777,26 @@ msgstr "在{0}你將不能傳送或接收郵件"
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "由於達到信箱容量警示，你不能傳送郵件"
 
-msgid "Reset WebApp settings"
-msgstr ""
+#, fuzzy
+msgid "Reset settings"
+msgstr "刪除設定"
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4765,8 +4902,15 @@ msgstr "建立未指定的副本"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "瀏覽收件者"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -4884,6 +5028,10 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "從行事曆上移除"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "傳送任務到委派者"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -4913,6 +5061,10 @@ msgstr "依擁有者排序"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "依完成百分比排序"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "分配任務"
 
 msgid "Loading tasks"
 msgstr "載入任務中"
@@ -5001,11 +5153,11 @@ msgid ""
 "browser window or tab."
 msgstr "在此瀏覽器視窗的session已被其他瀏覽器視窗或頁籤關閉"
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "您要重新連到登入畫面嗎？"
-
 msgid "Session expired"
 msgstr "連線愈時"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "您要重新連到登入畫面嗎？"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr "需要重新認証，請點選這裡回到登入畫面"
@@ -5105,7 +5257,8 @@ msgstr[0] ""
 msgid "Loading model from server failed"
 msgstr "伺服器載入模組失敗"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "不在辦公室已啟動，您要關閉嗎？"
 
 msgid "Out of office off"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -461,8 +461,11 @@ msgstr "Mobil"
 msgid "Pager"
 msgstr "Személyhívó"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Nincs kiválasztott jegyzet"
 
 msgid "You must select one or more users."
 msgstr "Ki kell választania egy vagy több felhasználót."
@@ -595,6 +598,10 @@ msgstr "Hozzáadás a kedvencekhez"
 
 msgid "Add"
 msgstr "Hozzáad"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Importálás mappába"
 
 msgid "You must specify a name."
 msgstr "Meg kell adnia egy nevet."
@@ -1026,6 +1033,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Erőforrások lefoglalása megtörtént."
 
+#, fuzzy
+msgid "Send update"
+msgstr "Küldés később"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1044,8 +1055,12 @@ msgstr "Frissítés küldése csak a hozzáadott vagy törölt résztvevők rés
 msgid "Send updates to all attendees."
 msgstr "Frissítés küldése minden résztvevőnek."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Résztvevők meghívása"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Egy, vagy több meghívott elfoglalt. Biztosan meghívja őket?"
 
 msgid "Scheduling"
@@ -1153,6 +1168,10 @@ msgstr "A mellékletet nem lehet csak egy előfordulásnál módosítani"
 
 msgid "Type your message here..."
 msgstr "Írja be üzenetét..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Lista frissítése"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1512,6 +1531,11 @@ msgstr "Ismétlődés"
 msgid "Series"
 msgstr "Sorozat"
 
+# Maybe "Találkozó".
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Találkozó"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
 
@@ -1620,6 +1644,10 @@ msgstr ""
 msgid "jS F Y"
 msgstr "Y. F j"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Címzett szerkesztése"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Az értekezlet időpontja megváltozott. Válasszon az alábbiak közül:"
 
@@ -1695,6 +1723,10 @@ msgstr "Javasolt időpont elfogadása"
 
 msgid "View in calendar"
 msgstr "Megtekintés a naptárban"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Nem igényel választ"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1838,6 +1870,10 @@ msgstr "Törlés és válasz küldése az értekezlet szervezőjének"
 msgid "Delete without sending"
 msgstr "Törlés küldés nélkül"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Címzett szerkesztése"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1856,9 +1892,15 @@ msgstr "Visszautasítás és törlés"
 msgid "Mark complete and delete"
 msgstr "Késznek jelöl és törlés"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Rendezés: Emlékeztető szerint"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "A küldő ebben az üzenetben olvasási visszaigazolást kért. Kíván "
 "visszaigazolást küldeni?"
@@ -1892,13 +1934,6 @@ msgstr "Feladó"
 
 msgid "Insert item"
 msgstr "Elem beszúrása"
-
-# 83%
-msgid "Items:"
-msgstr "Elemek:"
-
-msgid "Look in:"
-msgstr "Keresés a következőben:"
 
 msgid "Insert as"
 msgstr "Beillesztés, mint"
@@ -1979,6 +2014,9 @@ msgstr "Csatolmány hiba"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
 "Nem sikerült létrehozni a ZIP-fájlt, a maximális megengedett méret 30 MB."
+
+msgid "Unable to download"
+msgstr ""
 
 msgid "Picture format is not supported. "
 msgstr "Nem támogatott képformátum. "
@@ -2167,6 +2205,9 @@ msgstr[1] "{0} üzenet kiválasztva."
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
 
@@ -2344,6 +2385,12 @@ msgstr "Megjelenő név"
 msgid "Email address"
 msgstr "E-mail cím"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Új terjesztési lista"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2414,11 +2461,13 @@ msgstr "Találkozó ismétlődése"
 msgid "Remove Recurrence"
 msgstr "Ismétlődés eltávolítása"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"Ez minden kivételt el fog távolítani az ismétlődésből. Kívánja folytatni?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Ismétlődés"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "A találkozót áthelyezték, vagy törölték, kívánja folytatni?"
 
 msgid "Task Recurrence"
 msgstr "Feladat ismétlődése"
@@ -2546,10 +2595,20 @@ msgstr "Mindegyik törlése"
 msgid "Messages"
 msgstr "Üzenetek"
 
-msgid "Are you sure you want to Permanently Delete all items?"
+#, fuzzy
+msgid "Delete all items"
+msgstr "Összes elem kiválasztása"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr "Biztos benne, hogy minden elemet véglegesen töröl?"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Restore all items"
+msgstr "Elemek helyreállítása"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
 msgstr "Biztos benne, hogy mindegyik elemet visszaállítja?"
 
 msgid "Total {0} recoverable item"
@@ -2753,6 +2812,9 @@ msgstr "saját magam"
 msgid "Update rules for"
 msgstr "Szabályok kezelése a következő felhasználó számára"
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Kívánja alkalmazni a változásokat?"
 
@@ -2764,6 +2826,10 @@ msgstr "Egyéb..."
 
 msgid "Search in.."
 msgstr "Keresés.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Mappa tartalmaz"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3037,6 +3103,10 @@ msgstr "Utolsó frissítés kiküldve: {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} elfogadta {2} {1} nevében."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "üzenet"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3744,6 +3814,14 @@ msgstr "Küldés"
 msgid "Sent successfully"
 msgstr "Sikeresen elküldve"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Kérjük adjon meg egy címzettet"
+
 msgid "Please specify a recipient"
 msgstr "Kérjük adjon meg egy címzettet"
 
@@ -3753,14 +3831,26 @@ msgstr "A csatolandó fájlok még nincsenek feltöltve."
 msgid "Do you want to send this message without attachments?"
 msgstr "Csatolmány nélkül akarja elküldeni a levelet?"
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "A csatolmányok nem letölthetőek"
+
 msgid "Don't Send"
 msgstr "Ne Küldje"
 
 msgid "Send Anyway"
 msgstr "Küldés Mindenképp"
 
+#, fuzzy
+msgid "No subject"
+msgstr "nincs tárgy"
+
 msgid "Send this message without a subject?"
 msgstr "Üzenet küldése tárgy nélkül?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Címzett szerkesztése"
 
 msgid "Not all recipients could be resolved"
 msgstr "Nem minden címzett található meg"
@@ -3798,9 +3888,9 @@ msgstr "Mentett"
 msgid "Saved successfully"
 msgstr "Sikeresen elmentve"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Minden nem mentett változás el fog veszni. Biztosan be akarja csukni ezt az "
 "ablakot?"
@@ -3808,8 +3898,15 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Kopano Content Panel"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "Elemek törlése"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Ez az elem megváltozott. Biztosan törölni akarja?"
+
+msgid "Unsaved changes"
+msgstr ""
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Köszönti a Kopano WebApp"
@@ -3875,6 +3972,10 @@ msgstr ""
 msgid "D d-m"
 msgstr "Y-m-d D"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Nincs elég jogosultsága"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3888,6 +3989,10 @@ msgid ""
 msgstr ""
 "Nincs elég jogosultsága megnyitni ezt a mappát, kívánja eltávolítani a "
 "hierarchiából?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Nincs elég jogosultsága"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Nincs elég jogosultsága megnyitni ezt a mappát."
@@ -3954,6 +4059,14 @@ msgstr "Feladatok elemei"
 #, fuzzy
 msgid "Select where to place the folder"
 msgstr "Válassza ki a feltöltési mappát"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Mappa név"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Nincs információ"
 
 msgid "You must select a destination folder."
 msgstr "Meg kell adnia a célmappát."
@@ -4052,19 +4165,39 @@ msgstr "Rendezés: teljes méret (almappákkal)"
 msgid "Open Shared Folders"
 msgstr "Megosztott mappák megnyitása"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "A felhasználó nem feloldható."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "'{0}' felhasználó nem feloldható."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "'{0}' nem érvényes felhasználó."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Hiányzó tároló"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Nem lehetséges a saját tárolót duplán megnyitni"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "A megosztott mappa már meg van nyitva."
 
 msgid "This shared folder is already open."
 msgstr "A megosztott mappa már meg van nyitva."
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "Meg kell adnia egy felhasználónevet."
 
 msgid "Folder type"
@@ -4160,6 +4293,10 @@ msgid ""
 msgstr ""
 "Biztosan törölni kívánja a \"{0}\" mappát és az összes elemét a Törölt "
 "elemek mappába helyezi?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Mappa törlése"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Biztosan ki szeretné üríteni {0}?"
@@ -4636,11 +4773,15 @@ msgstr "Jegyzetek betöltése"
 msgid "Loading notes"
 msgstr "Jegyzetek betöltése"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+#, fuzzy
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr "A beállítások frissítéséhez a WebAppot újra kell indítania."
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr "A nem elmentett változtatások elvesznek."
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -4659,9 +4800,6 @@ msgstr "Kezdő mappa"
 
 msgid "Theme"
 msgstr "Téma"
-
-msgid "This change requires a reload of the WebApp"
-msgstr "A változtatásokhoz a WebApp újratöltése szükséges"
 
 msgid "Select Default Folder"
 msgstr "Alapértelmezett mappa kiválasztása"
@@ -4751,6 +4889,9 @@ msgstr "Gyorsbillentyűk engedélyezése"
 msgid "All keyboard shortcuts on"
 msgstr "Minden gyorsbillentyű engedélyezése"
 
+msgid "This change requires a reload of the WebApp"
+msgstr "A változtatásokhoz a WebApp újratöltése szükséges"
+
 msgid "Discard"
 msgstr "Elvet"
 
@@ -4813,27 +4954,30 @@ msgstr "{0} -tól nem fog tudni leveleket küldeni, vagy fogadni."
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Nem tud leveleket küldeni, mert elérte az alsó kvóta határt."
 
-msgid "Reset WebApp settings"
-msgstr "WebApp beállítások visszaállítása"
+#, fuzzy
+msgid "Reset settings"
+msgstr "Beállítások törlése"
 
-msgid "Resets WebApp's settings to their original defaults"
+#, fuzzy
+msgid "Reset settings to their original defaults."
 msgstr "A WebApp beállításokat alaphelyzetbe állítja"
 
 msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
 msgstr ""
-"Az összes WebApp beállítás alaphelyzetbe lesz állítva. Biztosan ezt akarja?"
 
+#, fuzzy
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 "A beállítások érvénybe lépéséhez a WebApp automatikusan újra fog indulni"
 
 msgid "Reset"
 msgstr "Visszaállítás"
 
-msgid "Webapp is reloading, Please wait."
+#, fuzzy
+msgid "Reloading, Please wait."
 msgstr "Betöltés folyamatban. Kérem várjon."
 
 msgid "Setting"
@@ -4939,8 +5083,15 @@ msgstr "Nem hozzárendelt másolat készítése"
 msgid "copy"
 msgstr "másolás"
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr "Saját magának nem küldhet feladatot."
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Címzett megtekintése"
 
 msgid "A task request can only have one recipient."
 msgstr "A feladat kiosztásnak csak egy címzettje lehet."
@@ -5054,6 +5205,10 @@ msgid "Remove from To-Do List"
 msgstr "Eltávolítás a kedvencekből"
 
 #, fuzzy
+msgid "Changes to assigned task"
+msgstr "Feladat elküldése a hozzárendelt személynek"
+
+#, fuzzy
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5085,6 +5240,10 @@ msgstr "Rendezés: Tulajdonos szerint"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Rendezés: Készenléti állapot szerint"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Feladat hozzárendelése"
 
 msgid "Loading tasks"
 msgstr "Feladatok betöltése"
@@ -5170,11 +5329,11 @@ msgstr ""
 "Az ebben a böngészőablakban található munkamenet be lett zárva egy másik "
 "böngésző ablak, vagy lap miatt."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Kívánja, hogy át legyen irányítva a bejelentkező oldalra?"
-
 msgid "Session expired"
 msgstr "Munkamenet lejárt"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Kívánja, hogy át legyen irányítva a bejelentkező oldalra?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5275,7 +5434,8 @@ msgstr[1] "A következő szükséges mappák hiányoznak a hierarchiából: {0}"
 msgid "Loading model from server failed"
 msgstr "A modell betöltése a szerverről sikertelen"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "A házon kívüli üzenet be van kapcsolva. Szeretné kikapcsolni?"
 
 msgid "Out of office off"

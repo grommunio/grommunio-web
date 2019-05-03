@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -471,8 +471,11 @@ msgstr "Mobilni telefon"
 msgid "Pager"
 msgstr "Pozivnik"
 
-msgid "Kopano WebApp"
-msgstr "Kopano Spletna aplikacija"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Izbrana ni nobena naloga"
 
 msgid "You must select one or more users."
 msgstr "Izbrati morate enega ali več uporabnikov."
@@ -606,6 +609,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "Dodaj"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Izprazni mapo"
 
 msgid "You must specify a name."
 msgstr "Specificirati morate ime."
@@ -1030,6 +1037,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Načrtovani so bili viri."
 
+#, fuzzy
+msgid "Send update"
+msgstr "Datum zaključka"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1050,8 +1061,12 @@ msgstr "Pošlji posodobitve samo popravljenim ali izbrisanim povabljencem."
 msgid "Send updates to all attendees."
 msgstr "Pošlji spremembe vsem udeležencem."
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Povabi udeležence"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Eden ali več povabljencev, ki ste jih povabili, so zasedeni. Ali ste "
 "prepričani, da jih želite povabiti?"
@@ -1156,6 +1171,10 @@ msgstr "Priloge ne morejo biti spremenjene za enkratno pojavljanje"
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "Posodobi listo"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1515,6 +1534,10 @@ msgstr "Ponavljanje"
 msgid "Series"
 msgstr ""
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Sestanek"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
 
@@ -1619,6 +1642,10 @@ msgstr "jS F G:i"
 msgid "jS F Y"
 msgstr "jS F Y"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "Uredi prejemnika"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Čas sestanka je bil spremenjen. Izberi nekaj od naslednjega:"
 
@@ -1692,6 +1719,10 @@ msgstr "Sprejmi predlagan čas"
 #, fuzzy
 msgid "View in calendar"
 msgstr "Poglej večkratne koledarje v"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Ni zahtevanega odziva"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1835,6 +1866,10 @@ msgstr "Izbriši in pošlji odziv organizatorju sestanka"
 msgid "Delete without sending"
 msgstr "Izbriši brez pošiljanja"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Uredi prejemnika"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1856,9 +1891,15 @@ msgstr "Zavrni zahtevo za sestanek"
 msgid "Mark complete and delete"
 msgstr "Označi kot dokončano"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Razvrsti po: Opomnik"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "Pošiljatelj tega sporočila želi biti obveščen kdaj berete to sporočilo. Ali "
 "želite obvestiti pošiljatelja?"
@@ -1891,13 +1932,6 @@ msgstr "Od"
 
 msgid "Insert item"
 msgstr "Vstavi predmet"
-
-# 83%
-msgid "Items:"
-msgstr "Predmeti"
-
-msgid "Look in:"
-msgstr "Poglej v:"
 
 msgid "Insert as"
 msgstr "Vstavi kot"
@@ -1977,6 +2011,9 @@ msgid "Attachment error"
 msgstr "Napaka priloge"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2166,6 +2203,9 @@ msgstr[3] "Izbranih je {0} sporočil."
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
 
+msgid "Kopano WebApp"
+msgstr "Kopano Spletna aplikacija"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2344,6 +2384,12 @@ msgstr "Prikazovalno ime"
 msgid "Email address"
 msgstr "Elektronski naslov"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Natisni distribucijski seznam"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2409,12 +2455,13 @@ msgstr "Ponavljanje sestanka"
 msgid "Remove Recurrence"
 msgstr "Odstrani ponavljanje"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"To dejanje bo zavrglo vse izjeme, ki so bile mogoče narejene za te "
-"ponavljajoče serije. Ali želite nadaljevati?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Ponavljanje"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
 
 msgid "Task Recurrence"
 msgstr "Ponavljanje opravila"
@@ -2544,11 +2591,21 @@ msgstr "Izbriši vse"
 msgid "Messages"
 msgstr "sporočilo"
 
-msgid "Are you sure you want to Permanently Delete all items?"
+#, fuzzy
+msgid "Delete all items"
+msgstr "Izberi vse predmete"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr "Ali želite permanentno izbrisati vse predmete?"
 
-msgid "Are you sure you want to Restore all items?"
-msgstr ""
+#, fuzzy
+msgid "Restore all items"
+msgstr "Obnovi predmete"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Ali želite permanentno izbrisati vse predmete?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2757,6 +2814,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "Ali želite uporabiti spremembe?"
 
@@ -2771,6 +2831,10 @@ msgstr "Drugi"
 #, fuzzy
 msgid "Search in.."
 msgstr "Marec"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Mapa vsebuje"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3057,6 +3121,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} je prejel v imenu {1}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Originalno sporočilo"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3787,6 +3855,14 @@ msgstr "Pošiljanje"
 msgid "Sent successfully"
 msgstr "Pošiljanje uspešno"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Prosim specificirajte prejemnika"
+
 msgid "Please specify a recipient"
 msgstr "Prosim specificirajte prejemnika"
 
@@ -3796,14 +3872,26 @@ msgstr "Priložene datoteke še niso bile naložene."
 msgid "Do you want to send this message without attachments?"
 msgstr "Ali želite poslati to sporočilo brez prilog?"
 
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Priložene datoteke še niso bile naložene."
+
 msgid "Don't Send"
 msgstr "Ne pošlji"
 
 msgid "Send Anyway"
 msgstr "Pošlji v vsakem primeru"
 
+#, fuzzy
+msgid "No subject"
+msgstr "ni predmeta"
+
 msgid "Send this message without a subject?"
 msgstr "Ali naj pošljem to sporočilo brez zadeve?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Uredi prejemnika"
 
 msgid "Not all recipients could be resolved"
 msgstr "Vsi prejeniki niso bili rešeni"
@@ -3838,9 +3926,9 @@ msgstr "Shranjeno"
 msgid "Saved successfully"
 msgstr "Uspešno shranjeno"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Izgubili boste vse neshranjene spremembe. Ali ste prepričani, da želite "
 "zapreti to okno?"
@@ -3848,8 +3936,16 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Zarafin panel vsebine"
 
+# 92%
+#, fuzzy
+msgid "Delete item"
+msgstr "Izbriši predmete"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Ta predmet je bil spremenjen. Ali ga želite izbrisati?"
+
+msgid "Unsaved changes"
+msgstr ""
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Dobrodošli v spletni aplikaciji Kopano"
@@ -3910,6 +4006,10 @@ msgstr "jS F G:i"
 msgid "D d-m"
 msgstr "d-m-Y"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Dovoljenja mape"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3923,6 +4023,10 @@ msgid ""
 msgstr ""
 "Nimate dovolj dovoljenj za odpiranje te mape, ali jo želite izbrisati iz "
 "hierarhije?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Dovoljenja člana"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Nimate dovolj dovoljenj za odpiranje te mape."
@@ -3989,6 +4093,14 @@ msgstr "Predmeti nalog"
 
 msgid "Select where to place the folder"
 msgstr "Izberi kam naj shranim mapo"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Ima mape"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Ni informacije"
 
 msgid "You must select a destination folder."
 msgstr "Izbrati morate mapo."
@@ -4088,19 +4200,39 @@ msgstr "Razvrsti po: Skupna velikost (skupaj s podmapami)"
 msgid "Open Shared Folders"
 msgstr "Odpri mape v skupni rabi"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Uporabnika ni bilo mogoče rešiti."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "Uporabniško ime '{0}' ni prepoznano."
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Uporabniško ime '{0}' ni veljaven uporabnik."
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "Manjkajoče shranjevanje"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "Vaše hrambe ni možno odpreti dvakrat"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Ta mapa v skupni rabi je že odprta."
 
 msgid "This shared folder is already open."
 msgstr "Ta mapa v skupni rabi je že odprta."
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "Specificirati morate uporabniško ime."
 
 msgid "Folder type"
@@ -4200,6 +4332,10 @@ msgid ""
 msgstr ""
 "Ali ste prepričani, da želite izbrisati mapo \"{0}\" in premakniti vsebino v "
 "mapo Izbrisano?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Izbriši mapo"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Ali ste prepričani, da želite izprazniti {0}\"?"
@@ -4681,11 +4817,14 @@ msgstr "Nalaganje zapiskov"
 msgid "Loading notes"
 msgstr "Nalagam zapiske"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano Spletna aplikacija"
 
 msgid "Settings"
 msgstr "Nastavitve"
@@ -4704,9 +4843,6 @@ msgstr "Zagonska mapa"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "Ta sprememba zahteva ponovno naložitev spletne aplikacije"
 
 msgid "Select Default Folder"
 msgstr "Izberi standardno mapo"
@@ -4800,6 +4936,9 @@ msgstr "Bližnjice na tipkovnici"
 msgid "All keyboard shortcuts on"
 msgstr "Bližnjice na tipkovnici"
 
+msgid "This change requires a reload of the WebApp"
+msgstr "Ta sprememba zahteva ponovno naložitev spletne aplikacije"
+
 msgid "Discard"
 msgstr "Zavrži"
 
@@ -4863,28 +5002,29 @@ msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 "Ne morete pošiljati elektronskih sporočil, ker ste presegli mehko kvoto."
 
-msgid "Reset WebApp settings"
-msgstr "Resetiranje WebApp nastavitev"
+#, fuzzy
+msgid "Reset settings"
+msgstr "Izbriši nastavitve"
 
-msgid "Resets WebApp's settings to their original defaults"
+#, fuzzy
+msgid "Reset settings to their original defaults."
 msgstr "Nastavite WebApp nastavitve na privzete nastavitve."
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
 
 #, fuzzy
 msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
-msgstr ""
-"Vaše nastavitve bodo spremenjene na privzete nastavitve. Ali želite "
-"resitirati Vaše nastavitve?"
-
-msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr "WebApp se bo avtomacko ponovno zagnal, da se spremembe aktivirajo."
 
 msgid "Reset"
 msgstr "resetirati"
 
-msgid "Webapp is reloading, Please wait."
+#, fuzzy
+msgid "Reloading, Please wait."
 msgstr "WebApp se ponovno nalaga, prosim počakajte."
 
 msgid "Setting"
@@ -4994,8 +5134,15 @@ msgstr "Ustvari nedodeljeno kopijo"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Poglej prejemnika"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -5115,6 +5262,10 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "Odstrani s koledarja"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Pošlji nalogo pooblaščencu"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -5144,6 +5295,10 @@ msgstr "Razvrsti po: Lastniku"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "Razvrsti po: Dokončanem procentu"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Dodeli nalogo"
 
 msgid "Loading tasks"
 msgstr "Nalaganje nalog"
@@ -5233,11 +5388,11 @@ msgstr ""
 "Seja v trenutnem oknu brskalnika je bila zaprta z drugim oknom brskalnika "
 "ali zavihkom."
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Ali želite, da vas preusmerimo na prijavno stran?"
-
 msgid "Session expired"
 msgstr "Seja je potekla"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Ali želite, da vas preusmerimo na prijavno stran?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5336,7 +5491,8 @@ msgstr[3] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
 msgid "Loading model from server failed"
 msgstr "Nalaganje vzorca iz serverja je spodletelo"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Odsotnost je vključena. Ali jo želite izključiti?"
 
 msgid "Out of office off"

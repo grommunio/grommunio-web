@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2018-08-24 20:49+0200\n"
 "Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
 "Language-Team: Arabic <https://translate.kopano.io/projects/kopano/kopano-"
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Pager"
 msgstr ""
 
-msgid "Kopano WebApp"
+msgid "No user selected"
 msgstr ""
 
 msgid "You must select one or more users."
@@ -603,6 +603,9 @@ msgid "Add to favorites"
 msgstr ""
 
 msgid "Add"
+msgstr ""
+
+msgid "Empty folder name"
 msgstr ""
 
 msgid "You must specify a name."
@@ -994,6 +997,9 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr ""
 
+msgid "Send update"
+msgstr ""
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
@@ -1011,8 +1017,10 @@ msgstr ""
 msgid "Send updates to all attendees."
 msgstr ""
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+msgid "Busy attendees"
+msgstr ""
+
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 
 msgid "Scheduling"
@@ -1110,6 +1118,9 @@ msgid "Attachments cannot be modified for a single occurence"
 msgstr ""
 
 msgid "Type your message here..."
+msgstr ""
+
+msgid "Update location"
 msgstr ""
 
 msgid ""
@@ -1433,6 +1444,9 @@ msgstr ""
 msgid "Series"
 msgstr ""
 
+msgid "Appointment not found"
+msgstr ""
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr ""
 
@@ -1528,6 +1542,9 @@ msgstr ""
 msgid "jS F Y"
 msgstr ""
 
+msgid "Update recipients"
+msgstr ""
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
 
@@ -1597,6 +1614,9 @@ msgid "Accept Proposed Time"
 msgstr ""
 
 msgid "View in calendar"
+msgstr ""
+
+msgid "No additional response required"
 msgstr ""
 
 msgid ""
@@ -1722,6 +1742,9 @@ msgstr ""
 msgid "Delete without sending"
 msgstr ""
 
+msgid "Notify recipients"
+msgstr ""
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1739,9 +1762,12 @@ msgstr ""
 msgid "Mark complete and delete"
 msgstr ""
 
+msgid "Notify sender"
+msgstr ""
+
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 
 msgid "Import"
@@ -1769,12 +1795,6 @@ msgid "From"
 msgstr ""
 
 msgid "Insert item"
-msgstr ""
-
-msgid "Items:"
-msgstr ""
-
-msgid "Look in:"
 msgstr ""
 
 msgid "Insert as"
@@ -1848,6 +1868,9 @@ msgid "Attachment error"
 msgstr ""
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2028,6 +2051,9 @@ msgstr[5] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid "Kopano WebApp"
+msgstr ""
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2186,6 +2212,9 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
+msgid "Expand distribution list"
+msgstr ""
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2248,9 +2277,10 @@ msgstr ""
 msgid "Remove Recurrence"
 msgstr ""
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
+msgid "Reset recurring"
+msgstr ""
+
+msgid "This will reset every exception. Do you want to continue?"
 msgstr ""
 
 msgid "Task Recurrence"
@@ -2377,10 +2407,16 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
-msgid "Are you sure you want to Permanently Delete all items?"
+msgid "Delete all items"
 msgstr ""
 
-msgid "Are you sure you want to Restore all items?"
+msgid "Are you sure you want to permanently delete all items?"
+msgstr ""
+
+msgid "Restore all items"
+msgstr ""
+
+msgid "Are you sure you want to restore all items?"
 msgstr ""
 
 msgid "Total {0} recoverable item"
@@ -2580,6 +2616,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr ""
 
@@ -2590,6 +2629,9 @@ msgid "Other..."
 msgstr ""
 
 msgid "Search in.."
+msgstr ""
+
+msgid "Folder does not exist"
 msgstr ""
 
 msgid ""
@@ -2849,6 +2891,9 @@ msgid "Last update sent on {0}."
 msgstr ""
 
 msgid "{0} has updated on behalf of {1} {2}."
+msgstr ""
+
+msgid "Fix message"
 msgstr ""
 
 msgid ""
@@ -3500,6 +3545,12 @@ msgstr ""
 msgid "Sent successfully"
 msgstr ""
 
+msgid "No recipient"
+msgstr ""
+
+msgid "Please specify at least one recipient"
+msgstr ""
+
 msgid "Please specify a recipient"
 msgstr ""
 
@@ -3509,13 +3560,22 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+msgid "Attachments not uploaded yet"
+msgstr ""
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+msgid "No subject"
+msgstr ""
+
 msgid "Send this message without a subject?"
+msgstr ""
+
+msgid "Unresolved recipients"
 msgstr ""
 
 msgid "Not all recipients could be resolved"
@@ -3549,14 +3609,19 @@ msgid "Saved successfully"
 msgstr ""
 
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 
 msgid "Kopano Content Panel"
 msgstr ""
 
+msgid "Delete item"
+msgstr ""
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3604,6 +3669,9 @@ msgstr ""
 msgid "D d-m"
 msgstr ""
 
+msgid "Insufficient permissions"
+msgstr ""
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3612,6 +3680,9 @@ msgstr ""
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
+msgstr ""
+
+msgid "Insufficient Permissions"
 msgstr ""
 
 msgid "Not enough permissions to open this folder."
@@ -3676,6 +3747,12 @@ msgid "Task Items"
 msgstr ""
 
 msgid "Select where to place the folder"
+msgstr ""
+
+msgid "No folder name"
+msgstr ""
+
+msgid "No destination"
 msgstr ""
 
 msgid "You must select a destination folder."
@@ -3774,19 +3851,34 @@ msgstr ""
 msgid "Open Shared Folders"
 msgstr ""
 
+msgid "Unresolved user"
+msgstr ""
+
 msgid "Username '{0}' could not be resolved."
+msgstr ""
+
+msgid "Invalid user"
 msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr ""
 
-msgid "It is not possible to open your own store twice"
+msgid "Own store"
+msgstr ""
+
+msgid "It is not possible to open your own store twice."
+msgstr ""
+
+msgid "Folder already open"
 msgstr ""
 
 msgid "This shared folder is already open."
 msgstr ""
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+msgid "You must specify a user"
 msgstr ""
 
 msgid "Folder type"
@@ -3866,6 +3958,9 @@ msgstr ""
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
+msgstr ""
+
+msgid "Delete folder"
 msgstr ""
 
 msgid "Are you sure you want to empty {0}?"
@@ -4303,10 +4398,12 @@ msgstr ""
 msgid "Loading notes"
 msgstr ""
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
+msgid "Reload WebApp"
 msgstr ""
 
 msgid "Settings"
@@ -4325,9 +4422,6 @@ msgid "Startup folder"
 msgstr ""
 
 msgid "Theme"
-msgstr ""
-
-msgid "This change requires a reload of the WebApp"
 msgstr ""
 
 msgid "Select Default Folder"
@@ -4413,6 +4507,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr ""
+
 msgid "Discard"
 msgstr ""
 
@@ -4467,25 +4564,25 @@ msgstr ""
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 
-msgid "Reset WebApp settings"
+msgid "Reset settings"
 msgstr ""
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
 
 msgid "Reset"
 msgstr ""
 
-msgid "Webapp is reloading, Please wait."
+msgid "Reloading, Please wait."
 msgstr ""
 
 msgid "Setting"
@@ -4585,7 +4682,13 @@ msgstr ""
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
+msgstr ""
+
+msgid "Multiple recipients"
 msgstr ""
 
 msgid "A task request can only have one recipient."
@@ -4687,6 +4790,9 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr ""
 
+msgid "Changes to assigned task"
+msgstr ""
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -4714,6 +4820,9 @@ msgid "Sort by: Owner"
 msgstr ""
 
 msgid "Sort by: Percentage Completed"
+msgstr ""
+
+msgid "Assigned task changes"
 msgstr ""
 
 msgid "Loading tasks"
@@ -4796,10 +4905,10 @@ msgid ""
 "browser window or tab."
 msgstr ""
 
-msgid "Do you wish to be redirected to the logon page?"
+msgid "Session expired"
 msgstr ""
 
-msgid "Session expired"
+msgid "Do you wish to be redirected to the logon page?"
 msgstr ""
 
 msgid "Reauthentication required, click here to go to back to logon page."
@@ -4896,7 +5005,7 @@ msgstr[5] ""
 msgid "Loading model from server failed"
 msgstr ""
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
 
 msgid "Out of office off"

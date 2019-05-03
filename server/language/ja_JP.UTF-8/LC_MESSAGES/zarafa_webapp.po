@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 11:24+0200\n"
+"POT-Creation-Date: 2019-05-03 15:42+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -450,8 +450,11 @@ msgstr "モバイル"
 msgid "Pager"
 msgstr "ポケベル"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "タスクが選択されていません"
 
 msgid "You must select one or more users."
 msgstr "１つもしくは複数のユーザーを選択して下さい。"
@@ -580,6 +583,10 @@ msgstr ""
 
 msgid "Add"
 msgstr "追加"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "フォルダを空にする"
 
 msgid "You must specify a name."
 msgstr "名前を指定して下さい。"
@@ -984,6 +991,10 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "リソースは計画されました。"
 
+#, fuzzy
+msgid "Send update"
+msgstr "後で送信"
+
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "全受信者に更新したメッセージを送信します。続行しますか？"
@@ -1001,8 +1012,12 @@ msgstr "追加もしくは削除した出席者のみ更新情報を送信する
 msgid "Send updates to all attendees."
 msgstr "全ての出席者に更新情報を送信する。"
 
-msgid ""
-"One or more attendees you have invited are busy. Are you sure to invite?"
+#, fuzzy
+msgid "Busy attendees"
+msgstr "出席者を招待"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "招待した出席者の中に既に予定ありの人がいます。招待しますか？"
 
 msgid "Scheduling"
@@ -1105,6 +1120,10 @@ msgstr "出席者は単独のイベントの修正をすることはできませ
 
 msgid "Type your message here..."
 msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "更新リスト"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1452,6 +1471,10 @@ msgstr "繰り返し"
 msgid "Series"
 msgstr ""
 
+#, fuzzy
+msgid "Appointment not found"
+msgstr "予定"
+
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "この予定は変更になったか削除されました。続行しますか？"
 
@@ -1552,6 +1575,10 @@ msgstr "Y年Fj日 G:i"
 msgid "jS F Y"
 msgstr "Y年Fj日"
 
+#, fuzzy
+msgid "Update recipients"
+msgstr "受信者を編集します。"
+
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "会議時間が変更されました。以下から選択して下さい。"
 
@@ -1623,6 +1650,10 @@ msgstr "提案の日時の承諾"
 
 msgid "View in calendar"
 msgstr "カレンダーを表示"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "返信不要"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1765,6 +1796,10 @@ msgstr "削除し会議オーガナイザー返信する"
 msgid "Delete without sending"
 msgstr "送信せずに削除"
 
+#, fuzzy
+msgid "Notify recipients"
+msgstr "受信者を編集します。"
+
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
@@ -1785,9 +1820,15 @@ msgstr "会議出席依頼を辞退する"
 msgid "Mark complete and delete"
 msgstr "完成フラグを立てる"
 
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "並べ替え：リマインダー"
+
+#, fuzzy
 msgid ""
-"The sender of this message has asked to be notified when you read this "
-"message. Do you wish to notify the sender?"
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
 msgstr ""
 "このメッセージの送信者はこのメッセージの開封通知を要求しています。送信者に通"
 "知しますか？"
@@ -1820,13 +1861,6 @@ msgstr "From"
 
 msgid "Insert item"
 msgstr "アイテムを追加する"
-
-# 83%
-msgid "Items:"
-msgstr "項目"
-
-msgid "Look in:"
-msgstr "中身を見る："
 
 msgid "Insert as"
 msgstr "挿入する"
@@ -1904,6 +1938,9 @@ msgid "Attachment error"
 msgstr "添付ファイルエラー"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
 msgstr ""
 
 msgid "Picture format is not supported. "
@@ -2088,6 +2125,9 @@ msgstr[0] "{0}メッセージが選択されています。"
 msgid "Folder '{0}' selected."
 msgstr "{0}フォルダが選択されています。"
 
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
 msgid "Do not show this message again."
 msgstr ""
 
@@ -2261,6 +2301,12 @@ msgstr "表示名"
 msgid "Email address"
 msgstr "Emailアドレス"
 
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "新しい配布リスト"
+
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
@@ -2326,12 +2372,13 @@ msgstr "繰り返しの予定"
 msgid "Remove Recurrence"
 msgstr "繰り返しの取消し"
 
-msgid ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
-msgstr ""
-"This will discard any exceptions which might have been made for this "
-"recurring series. Do you wish to continue?"
+#, fuzzy
+msgid "Reset recurring"
+msgstr "繰り返し"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "この予定は変更になったか削除されました。続行しますか？"
 
 msgid "Task Recurrence"
 msgstr "繰り返しのタスク"
@@ -2454,11 +2501,22 @@ msgstr "全て削除"
 msgid "Messages"
 msgstr "メッセージ"
 
-msgid "Are you sure you want to Permanently Delete all items?"
-msgstr ""
+#, fuzzy
+msgid "Delete all items"
+msgstr "アイテム削除"
 
-msgid "Are you sure you want to Restore all items?"
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
 msgstr ""
+"{0}フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "アイテムを回復する"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "{0}を空にしますがよろしいですか？"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2664,6 +2722,9 @@ msgstr ""
 msgid "Update rules for"
 msgstr ""
 
+msgid "Apply changes"
+msgstr ""
+
 msgid "Do you wish to apply the changes?"
 msgstr "変更を適用してもよろしいですか？"
 
@@ -2678,6 +2739,10 @@ msgstr "他"
 #, fuzzy
 msgid "Search in.."
 msgstr "検索.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "フォルダ内の内容"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -2959,6 +3024,10 @@ msgstr ""
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0}が{1}の代わりに受諾しました。"
+
+#, fuzzy
+msgid "Fix message"
+msgstr "オリジナル本文"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3664,6 +3733,14 @@ msgstr "送信中"
 msgid "Sent successfully"
 msgstr "送信成功"
 
+#, fuzzy
+msgid "No recipient"
+msgstr "受信者を編集します。"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "受信者を特定して下さい。"
+
 msgid "Please specify a recipient"
 msgstr "受信者を特定して下さい。"
 
@@ -3673,14 +3750,27 @@ msgstr ""
 msgid "Do you want to send this message without attachments?"
 msgstr ""
 
+# 81%
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "このコンタクトに添付ファイルを追加する"
+
 msgid "Don't Send"
 msgstr ""
 
 msgid "Send Anyway"
 msgstr ""
 
+#, fuzzy
+msgid "No subject"
+msgstr "件名がありません"
+
 msgid "Send this message without a subject?"
 msgstr "件名が空白ですが送信しますか？"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "受信者を編集します。"
 
 msgid "Not all recipients could be resolved"
 msgstr "全ての受信者の認識ができませんでした。"
@@ -3714,9 +3804,9 @@ msgstr "保存しました"
 msgid "Saved successfully"
 msgstr "正常に保存しました"
 
+#, fuzzy
 msgid ""
-"You are going to lose all unsaved changes. Are you sure you want to close "
-"this window?"
+"You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "保存されていない変更は全て失われてしまいますが、このウィンドウを閉じてもよろ"
 "しいですか？"
@@ -3724,7 +3814,14 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr "Kopanoコンテンツパネル"
 
+#, fuzzy
+msgid "Delete item"
+msgstr "アイテム削除"
+
 msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Kopano WebApp"
@@ -3779,6 +3876,10 @@ msgstr "Y年Fj日 G:i"
 msgid "D d-m"
 msgstr "Y/m/d"
 
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "フォルダ アクセス権"
+
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
@@ -3792,6 +3893,10 @@ msgid ""
 msgstr ""
 "このフォルダを開くための十分な権限がありません。このヒエラルキーから取り除き"
 "ますか？"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "委譲する権限"
 
 msgid "Not enough permissions to open this folder."
 msgstr "このフォルダを開く権限がありません。"
@@ -3851,6 +3956,14 @@ msgstr "タスク アイテム"
 
 msgid "Select where to place the folder"
 msgstr "フォルダを作成する場所を選択して下さい。"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "フォルダ名"
+
+#, fuzzy
+msgid "No destination"
+msgstr "情報がありません。"
 
 msgid "You must select a destination folder."
 msgstr "フォルダの移動先を選択して下さい。"
@@ -3950,19 +4063,39 @@ msgstr "並べ替え：サイズ（サブフォルダを含む）"
 msgid "Open Shared Folders"
 msgstr "共有フォルダを開く"
 
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Could not resolve user."
+
 msgid "Username '{0}' could not be resolved."
 msgstr "ユーザー名 '{0}' は確認できませんでした。"
+
+msgid "Invalid user"
+msgstr ""
 
 msgid "Username '{0}' is not a valid user."
 msgstr "ユーザー{0}は有効なユーザーではありません。"
 
-msgid "It is not possible to open your own store twice"
+#, fuzzy
+msgid "Own store"
+msgstr "データストアがありません。"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
 msgstr "自分のデータストアを２度開くことはできません。"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "この共有フォルダは既に開いています。"
 
 msgid "This shared folder is already open."
 msgstr "この共有フォルダは既に開いています。"
 
-msgid "You must specify a username."
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
 msgstr "ユーザー名を指定して下さい。"
 
 msgid "Folder type"
@@ -4057,6 +4190,10 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr "\"{0}\"フォルダを削除し全てゴミ箱に移動しますがよろしいですか？"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "フォルダ削除"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "{0}を空にしますがよろしいですか？"
@@ -4533,11 +4670,14 @@ msgstr "メモ読み込む"
 msgid "Loading notes"
 msgstr "メモ読み込み"
 
-msgid "In order for the changes to take effect, please reload WebApp."
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
 msgstr ""
 
-msgid "NOTE: Any unsaved changes will be lost."
-msgstr ""
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "設定"
@@ -4556,9 +4696,6 @@ msgstr "初期フォルダー"
 
 msgid "Theme"
 msgstr ""
-
-msgid "This change requires a reload of the WebApp"
-msgstr "この変更を反映するにはWebAppの再表示が必要となります。"
 
 msgid "Select Default Folder"
 msgstr ""
@@ -4648,6 +4785,9 @@ msgstr ""
 msgid "All keyboard shortcuts on"
 msgstr ""
 
+msgid "This change requires a reload of the WebApp"
+msgstr "この変更を反映するにはWebAppの再表示が必要となります。"
+
 msgid "Discard"
 msgstr "廃棄"
 
@@ -4704,25 +4844,28 @@ msgstr "{0}によりメールの送受信ができません。"
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "ソフト割当量を超えたためメール送信できません。"
 
-msgid "Reset WebApp settings"
-msgstr ""
+#, fuzzy
+msgid "Reset settings"
+msgstr "設定削除"
 
-msgid "Resets WebApp's settings to their original defaults"
-msgstr ""
-
-msgid ""
-"Your WebApp settings will be restored to their default condition. Are you "
-"sure you want to reset all WebApp settings?"
+msgid "Reset settings to their original defaults."
 msgstr ""
 
 msgid ""
-"WebApp will automatically restart in order for these changes to take effect"
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
 msgstr "設定反映を行うためにWebAppは自動的に再起動します"
 
 msgid "Reset"
 msgstr "リセット"
 
-msgid "Webapp is reloading, Please wait."
+#, fuzzy
+msgid "Reloading, Please wait."
 msgstr "Webappを再読み込み中です、しばらくお待ちください。"
 
 # 87%
@@ -4835,8 +4978,15 @@ msgstr "依頼前のコピーを作成する"
 msgid "copy"
 msgstr ""
 
+msgid "Unable to send task request"
+msgstr ""
+
 msgid "You cannot send a task request to yourself."
 msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "受信者を表示します。"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
@@ -4956,6 +5106,10 @@ msgstr ""
 msgid "Remove from To-Do List"
 msgstr "カレンダーから削除する"
 
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "代理人にタスクを送信"
+
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
@@ -4985,6 +5139,10 @@ msgstr "並べ替え：オーナー"
 #, fuzzy
 msgid "Sort by: Percentage Completed"
 msgstr "並べ替え：完成度"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "アサインタスク"
 
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
@@ -5073,11 +5231,11 @@ msgid ""
 msgstr ""
 "この画面のセッションは他のブラウザの画面もしくはタブにより切断されました。"
 
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "ログオンページへリダイレクトしますか？"
-
 msgid "Session expired"
 msgstr "セッション期限切れ"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "ログオンページへリダイレクトしますか？"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5178,7 +5336,8 @@ msgstr[0] "次のフォルダが見つかりません。：{0}"
 msgid "Loading model from server failed"
 msgstr "Loading model from server failed"
 
-msgid "Out of Office currently on. Would you like to turn it off?"
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "離籍モードです。解除しますか？"
 
 msgid "Out of office off"
