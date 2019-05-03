@@ -70,6 +70,16 @@ Zarafa.core.data.UIFactoryWindowLayer = Ext.extend(Zarafa.core.data.UIFactoryLay
 			items : [
 				panel
 			],
+
+			listeners : {
+				// We want to give fade effect when subjecttext is longer than window width
+				// NOTE: Removing this breaks logon when webmeetings is enabled
+				'afterrender' : function(win) {
+					if (Ext.isDefined(win.header) && Ext.isElement(win.header.dom)) {
+						Ext.DomHelper.append(win.header.dom, "<span class='fade'>&nbsp;</span>");
+					}
+				}
+			},
 			title : panel.title
 		};
 
