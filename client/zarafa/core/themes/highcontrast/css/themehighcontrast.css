@@ -209,23 +209,23 @@ ul.x-tab-strip li.x-tab-strip-active,
 .x-btn .x-btn-small,
 .x-btn .x-btn-medium,
 .x-btn .x-btn-large,
-/* Panels general */
-.x-panel .x-panel-header,
+/* Panels general in the mainview, not in the x-windows */
+div.zarafa-mainview .x-panel .x-panel-header,
+.zarafa-widgetpanel.x-panel .x-panel-header,
+.zarafa-navigation.x-panel .x-panel-header,
 /* Menus */
 .x-menu .x-menu-scroller.x-menu-item-active:active,
 .x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active:active a,
 .x-menu .x-menu-list li.x-menu-sep-li .x-menu-sep,
 /* Tab strip */
 ul.x-tab-strip li .x-tab-right,
-/* Dialogs */
-.x-window .x-window-tl,
-.x-panel-ghost .x-window-tl,
 /* Scheduling panel */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-day td,
 /* Date picker */
 .x-date-picker .x-date-mp table tr.x-date-mp-btns td button {
   background-color: #cfd2dc;
 }
+
 /* Buttons */
 .x-btn.x-btn-over.x-btn-click .x-btn-small,
 .x-btn.x-btn-over.x-btn-click .x-btn-medium,
@@ -235,6 +235,7 @@ ul.x-tab-strip li .x-tab-right,
 .x-btn.x-btn-click .x-btn-large {
   background-color: #cfd2dc !important;
 }
+
 /* Fade block in titlebar of dialog header */
 .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade {
