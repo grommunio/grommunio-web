@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-03 15:42+0200\n"
-"PO-Revision-Date: 2019-02-06 11:25+0000\n"
+"PO-Revision-Date: 2019-05-09 18:31+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,12 +323,10 @@ msgid "This field should only contain letters, numbers and _"
 msgstr "Dette feltet kan kun inneholde bokstaver, tall og _"
 
 # 87%
-#, fuzzy
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
 # 81%
-#, fuzzy
 msgid "Email addresses"
 msgstr "E-postadresser"
 
@@ -453,9 +451,8 @@ msgid "Pager"
 msgstr "Personsøker"
 
 # 75%
-#, fuzzy
 msgid "No user selected"
-msgstr "Intet notat er valgt"
+msgstr "Ingen bruker er valgt"
 
 msgid "You must select one or more users."
 msgstr "Du må velge en eller flere brukere."
@@ -588,9 +585,8 @@ msgstr "Legg til favoritter"
 msgid "Add"
 msgstr "Legg til"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Tøm mappen"
+msgstr "Mangler mappenavn"
 
 # 85%
 msgid "You must specify a name."
@@ -991,9 +987,8 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Ressursen har blitt planlagt"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Send senere"
+msgstr "Send oppdatering"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
@@ -1012,11 +1007,9 @@ msgstr "Send oppdatering kun til deltakere som er lagt til eller slettet."
 msgid "Send updates to all attendees."
 msgstr "Send oppdatering til alle deltakere."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Inviter deltakere"
+msgstr "Opptatte deltakere"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "En eller flere deltakere du har invitert er opptatt. Vil du allikevel "
@@ -1129,9 +1122,8 @@ msgstr "Vedlegg kan ikke endres for en enkelt gjentakelse"
 msgid "Type your message here..."
 msgstr "Skiv din melding her..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Oppdater liste"
+msgstr "Oppdater lokasjon"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1349,9 +1341,8 @@ msgstr "Viktighet"
 msgid "M j"
 msgstr "M j"
 
-#, fuzzy
 msgid "j"
-msgstr "j."
+msgstr "j"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
@@ -1483,9 +1474,8 @@ msgstr "Forekomst"
 msgid "Series"
 msgstr "Serie"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Kunne ikke finne kontakten"
+msgstr "Kunne ikke finne avtalen"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
@@ -1591,9 +1581,8 @@ msgstr "D., j. F Y H:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Rediger mottaker"
+msgstr "Oppdater mottaker"
 
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr "Tidspunktet for møtet har blitt endret. Velg en av de følgende:"
@@ -1608,7 +1597,7 @@ msgid "Copy"
 msgstr "Kopier"
 
 msgid "Kopano Webapp"
-msgstr "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -1671,9 +1660,8 @@ msgstr "Godta foreslått tidspunkt"
 msgid "View in calendar"
 msgstr "Vis i kalender"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "Svar er ikke nødvendig"
+msgstr "Ytterligere svar er ikke nødvendig"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1818,9 +1806,8 @@ msgstr "Slett og send svar til møtearrangør"
 msgid "Delete without sending"
 msgstr "Slett uten å sende"
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Rediger mottaker"
+msgstr "Informer mottakere"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1841,11 +1828,9 @@ msgid "Mark complete and delete"
 msgstr "Merk som fullført og slett"
 
 # 77%
-#, fuzzy
 msgid "Notify sender"
-msgstr "Sorter på: påminnelse"
+msgstr "Informer sender"
 
-#, fuzzy
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
@@ -1963,9 +1948,8 @@ msgstr "Feil med vedlegg"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Kunne ikke lage ZIP, største tillate størrelse er 30 MB."
 
-#, fuzzy
 msgid "Unable to download"
-msgstr "Kunne ikke importere:"
+msgstr "Kunne ikke laste ned"
 
 msgid "Picture format is not supported. "
 msgstr "Bildeformatet er ikke støttet. "
@@ -2111,9 +2095,8 @@ msgstr ""
 msgid "Other"
 msgstr "Andre"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Ingen signatur er konfigurert"
+msgstr "Ingen representant er konfigurert"
 
 msgid "Loading delegates"
 msgstr "Laster inn representanter"
@@ -2123,12 +2106,14 @@ msgid "Please select a delegate."
 msgstr "Vennligst velg en representant."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Representanter kan sende e-post på dine vegne."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Om du kun ønsker å endre rettigheter, så høyre-klikker du på mappen, og "
+"åpner hurtigmeny, der trykker du på \"Delte mapper\""
 
 msgid "Permission"
 msgstr "Rettigheter"
@@ -2214,18 +2199,15 @@ msgstr "Rediger mottaker"
 msgid "Copy email address"
 msgstr "Kopier e-postadresse"
 
-#, fuzzy
 msgid "Set as required"
-msgstr "Dette feltet er obligatorisk"
+msgstr "Marker som obligatorisk"
 
 # 75%
-#, fuzzy
 msgid "Set as optional"
-msgstr "Valgfri"
+msgstr "Marker som valgfritt"
 
-#, fuzzy
 msgid "Set as resource"
-msgstr "Sorter på: ressurser"
+msgstr "Marker som ressurs"
 
 msgid "Select attendees"
 msgstr "Velg deltakere"
@@ -2337,9 +2319,8 @@ msgid "Email address"
 msgstr "E-postadresse"
 
 # 78%
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "Ny distribusjonsliste"
+msgstr "Utvid distribusjonsliste"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -2406,13 +2387,11 @@ msgstr "Regelmessig avtale"
 msgid "Remove Recurrence"
 msgstr "Fjern regelmessighet"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "Regelmessighet"
+msgstr "Tilbakestill regelmessighet"
 
-#, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
-msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
+msgstr "Dette vil nullstille alle unntak, vil du fortsette?"
 
 msgid "Task Recurrence"
 msgstr "Regelmessig oppgave"
@@ -2530,19 +2509,15 @@ msgstr "Slett alle"
 msgid "Messages"
 msgstr "Meldinger"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "Velg alle elementer"
+msgstr "Slett alle elementer"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
 msgstr "Er du sikker på at du vil permanent slette alle elementer?"
 
-#, fuzzy
 msgid "Restore all items"
 msgstr "Gjenopprett elementer"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
 msgstr "Er du sikker på at du vil gjenopprette alle elementer?"
 
@@ -2746,7 +2721,7 @@ msgid "Update rules for"
 msgstr "Oppdater regler for"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Ta i bruk endringen"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Ønsker du å bruke disse endringene?"
@@ -2760,9 +2735,8 @@ msgstr "Andre..."
 msgid "Search in.."
 msgstr "Søk i.."
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "Mappen inneholder"
+msgstr "Mappen finnes ikke"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -2785,6 +2759,8 @@ msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
 msgstr ""
+"Behandle e-postadresser du kan bruke som avsender-adresse når du sender "
+"e-post."
 
 msgid "View"
 msgstr "Visning"
@@ -3393,11 +3369,9 @@ msgstr "Ny kontakt"
 msgid "New distribution list"
 msgstr "Ny distribusjonsliste"
 
-#, fuzzy
 msgid "Email 2 Display As"
 msgstr "Vis e-post 2 som"
 
-#, fuzzy
 msgid "Email 3 Display As"
 msgstr "Vis e-post 3 som"
 
@@ -3730,14 +3704,12 @@ msgstr "Sender..."
 msgid "Sent successfully"
 msgstr "Meldingen ble sendt"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Rediger mottaker"
+msgstr "Ingen mottaker"
 
 # 80%
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Vennligst velg en mottaker"
+msgstr "Vennligst velg minst en mottaker"
 
 # 80%
 msgid "Please specify a recipient"
@@ -3749,9 +3721,8 @@ msgstr "De vedlagte filene er ennå ikke lastet opp."
 msgid "Do you want to send this message without attachments?"
 msgstr "Vil du sende denne e-posten uten vedlegg?"
 
-#, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "Vedlegg kunne ikke bli lastet ned"
+msgstr "Vedlegg ikke ennå lastet opp"
 
 msgid "Don't Send"
 msgstr "Ikke send"
@@ -3759,16 +3730,14 @@ msgstr "Ikke send"
 msgid "Send Anyway"
 msgstr "Send allikevel"
 
-#, fuzzy
 msgid "No subject"
-msgstr "uten emne"
+msgstr "Inget emne"
 
 msgid "Send this message without a subject?"
 msgstr "Vil du sende denne e-posten uten et emne?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Rediger mottaker"
+msgstr "Uløste mottakere"
 
 msgid "Not all recipients could be resolved"
 msgstr "Ikke alle mottakere kunne løses"
@@ -3802,7 +3771,6 @@ msgstr "Lagret"
 msgid "Saved successfully"
 msgstr "Vellykket lagring"
 
-#, fuzzy
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
@@ -3813,15 +3781,14 @@ msgid "Kopano Content Panel"
 msgstr "Kopano innholdspanel"
 
 # 92%
-#, fuzzy
 msgid "Delete item"
-msgstr "Slette elementer"
+msgstr "Slett element"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Elementet har blitt endret. Er du sikker på at du vil slette det?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Ulagrede endringer"
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Velkommen til Kopano WebApp"
@@ -3868,7 +3835,6 @@ msgstr "D G:i"
 msgid "D d-m"
 msgstr "D, d.m.Y"
 
-#, fuzzy
 msgid "Insufficient permissions"
 msgstr "Ikke tilstrekkelige rettigheter"
 
@@ -3886,7 +3852,6 @@ msgstr ""
 "Du har ikke tilstrekkelige tillatelse til å kunne åpne denne mappen, vil du "
 "fjerne den fra hierarkiet?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
 msgstr "Ikke tilstrekkelige rettigheter"
 
@@ -3951,13 +3916,11 @@ msgstr "Oppgaveelementer"
 msgid "Select where to place the folder"
 msgstr "Velg hvor mappen skal plasseres"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Mappenavn"
+msgstr "Mangler mappenavn"
 
-#, fuzzy
 msgid "No destination"
-msgstr "Ingen informasjon"
+msgstr "Mangler mål"
 
 msgid "You must select a destination folder."
 msgstr "Du må velge målmappe."
@@ -4060,40 +4023,35 @@ msgstr "Sorter på: total størrelse (inkludert undermapper)"
 msgid "Open Shared Folders"
 msgstr "Åpne delte mapper"
 
-#, fuzzy
 msgid "Unresolved user"
-msgstr "Kunne ikke finne bruker."
+msgstr "Kunne ikke finne bruker"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Brukernavnet '{0}' ble ikke funnet."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Ugyldig bruker"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Brukernavnet '{0}' er ikke en gyldig bruker."
 
-#, fuzzy
 msgid "Own store"
-msgstr "Mangler e-postboks"
+msgstr "Egen e-postboks"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "Det er ikke mulig å åpne din e-postboks to ganger"
+msgstr "Det er ikke mulig å åpne din e-postboks to ganger."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "Denne delte mappen er allerede åpen."
+msgstr "Denne mappen er allerede åpen"
 
 msgid "This shared folder is already open."
 msgstr "Denne delte mappen er allerede åpen."
 
 msgid "No user"
-msgstr ""
+msgstr "Ingen bruker"
 
-#, fuzzy
 msgid "You must specify a user"
-msgstr "Du må oppgi et brukernavn."
+msgstr "Du må oppgi en bruker"
 
 msgid "Folder type"
 msgstr "Mappetype"
@@ -4107,7 +4065,6 @@ msgstr "Åpne delt mappe/e-postboks"
 msgid "Empty folder"
 msgstr "Tøm mappen"
 
-#, fuzzy
 msgid "Empty Junk Email"
 msgstr "Tøm Søppelpost"
 
@@ -4180,7 +4137,6 @@ msgstr ""
 "Er du sikker på at vil slette mappen \"{0}\" og flytte hele dens innhold inn "
 "i \"Slettede elementer\" mappen?"
 
-#, fuzzy
 msgid "Delete folder"
 msgstr "Slett mappe"
 
@@ -4259,16 +4215,14 @@ msgstr "Din e-post vil bli sendt {0}{1}"
 msgid "Saving..."
 msgstr "Lagre..."
 
-#, fuzzy
 msgid "Saved at {0}"
-msgstr "Melding lagret klokken {0}."
+msgstr "Melding lagret {0}"
 
 msgid "g:i A"
 msgstr "G:i"
 
-#, fuzzy
 msgid "Saving failed"
-msgstr "Operasjonen mislyktes"
+msgstr "Lagring feilet"
 
 msgid "Message Options"
 msgstr "Meldingsalternativer"
@@ -4336,7 +4290,7 @@ msgid "Internet Headers"
 msgstr "Internett meldingshoder"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Message Settings"
 msgstr "Meldingsalternativer"
@@ -4462,7 +4416,7 @@ msgid "Location of preview pane"
 msgstr "Plassering av forhåndsvisningsrute"
 
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "Bruk de engelske forkortningene for Videresending (FW:) og Svar (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr "Lukk original melding etter at du har svart eller videresendt den"
@@ -4634,16 +4588,15 @@ msgstr "Laster inn notater"
 msgid "Loading notes"
 msgstr "Laster inn notater"
 
-#, fuzzy
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
 "be lost."
 msgstr ""
-"For at disse endringene skal tas i bruk, så må du laste inn Kopano på nytt."
+"For at disse endringene skal tas i bruk, så må du laste inn WebApp på nytt. "
+"Endringer som ikke er lagret vil gå tapt."
 
-#, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Last inn WebApp pånytt"
 
 msgid "Settings"
 msgstr "Innstillinger"
@@ -4812,20 +4765,17 @@ msgid "You can not send mails as you have exceeded soft quota."
 msgstr "Du har oversteget din myk-kvotegrense, så du kan ikke sende e-post."
 
 # 88%
-#, fuzzy
 msgid "Reset settings"
-msgstr "Slett innstillinger"
+msgstr "Nullstill innstillinger"
 
-#, fuzzy
 msgid "Reset settings to their original defaults."
-msgstr "Tilbakestill WebApp innstillinger til de originale"
+msgstr "Tilbakestill innstillinger til de originale."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
 
-#, fuzzy
 msgid ""
 "WebApp will automatically reload in order for these changes to take effect"
 msgstr ""
@@ -4835,9 +4785,8 @@ msgstr ""
 msgid "Reset"
 msgstr "Tilbakestill"
 
-#, fuzzy
 msgid "Reloading, Please wait."
-msgstr "WebApp lastes inn, vennligst vent."
+msgstr "Laster inn pånytt, vennligst vent."
 
 msgid "Setting"
 msgstr "Innstilling"
@@ -4950,9 +4899,8 @@ msgstr ""
 msgid "You cannot send a task request to yourself."
 msgstr "Du kan ikke sende en oppgaveforespørsel til deg selv."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Vis mottakere"
+msgstr "Flere mottakere"
 
 msgid "A task request can only have one recipient."
 msgstr "En oppgaveforespørsel kan kun ha en mottaker."
@@ -5056,9 +5004,8 @@ msgstr "Merk som fullført"
 msgid "Mark Incomplete"
 msgstr "Merk som ikke fullført"
 
-#, fuzzy
 msgid "Remove from To-Do List"
-msgstr "Fjern fra favoritter"
+msgstr "Fjern fra Gjøremålslisten"
 
 #, fuzzy
 msgid "Changes to assigned task"
@@ -5275,7 +5222,6 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Oppgaver"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "Søppelpost"
@@ -5291,7 +5237,6 @@ msgstr[1] "Følgende nødvendig mapper mangler i hierarkiet: {0}"
 msgid "Loading model from server failed"
 msgstr "Lasting av modulen fra server feilet"
 
-#, fuzzy
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
