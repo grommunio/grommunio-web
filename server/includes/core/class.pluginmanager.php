@@ -887,6 +887,7 @@ class PluginManager
 					'type' => TYPE_CONFIG,
 					'load' => LOAD_RELEASE,
 					'module' => null,
+					'notifier' => null
 				);
 			}
 			$plugindata['components'][] = Array(
@@ -952,6 +953,8 @@ class PluginManager
 							$load = LOAD_RELEASE;
 							$type = TYPE_PLUGIN;
 							$module = null;
+							$notifier = null;
+
 							$filename = (string) $serverfile;
 							if (empty($filename)) {
 								dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty serverfile declaration");
@@ -965,12 +968,16 @@ class PluginManager
 							if (isset($serverfile['module'])) {
 								$module = (string) $serverfile['module'];
 							}
+							if (isset($serverfile['notifier'])) {
+								$notifier = (string) $serverfile['notifier'];
+							}
 							if ($filename){
 								$files[$load][] = Array(
 									'file' => $filename,
 									'type' => $type,
 									'load' => $load,
-									'module' => $module
+									'module' => $module,
+									'notifier' => $notifier
 								);
 							}
 						}
