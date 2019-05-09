@@ -71,6 +71,12 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	useShadowStore : false,
 
 	/**
+	 * @cfg {Ext.data.Store} shadowStore is data store, it allows to use custom shadow store
+	 * by record component plugin. This config mostly used by the external plugins like Files plugin.
+	 */
+	shadowStore : undefined,
+
+	/**
 	 * Indicates if the {@link #record} has been changed by the user since it has been loaded.
 	 * If this is changed to true for the first time, the {@link #userupdaterecord} event will be
 	 * fired on the {@link #field}.
@@ -146,6 +152,10 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 				config.useShadowStore = true;
 			}
 		}
+
+		Ext.applyIf(config, {
+			shadowStore : container.getShadowStore()
+		});
 
 		Ext.apply(this, config);
 	},
@@ -301,7 +311,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	startShadowRecordEdit : function(record)
 	{
 		if(this.useShadowStore) {
-			container.getShadowStore().add(record);
+			this.shadowStore.add(record);
 		}
 	},
 
@@ -316,7 +326,7 @@ Zarafa.core.plugins.RecordComponentPlugin = Ext.extend(Object, {
 	endShadowRecordEdit : function(record)
 	{
 		if(this.useShadowStore) {
-			container.getShadowStore().remove(record, true);
+			this.shadowStore.remove(record, true);
 		}
 	},
 
