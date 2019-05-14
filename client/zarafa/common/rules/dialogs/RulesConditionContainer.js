@@ -58,6 +58,34 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 		return Zarafa.common.rules.dialogs.RulesConditionContainer.superclass.createComboBoxContainer.call(this, id, profileStore);
 	},
 
+	/**
+	 * Function that can be used to remove a condition from a rule.
+	 * This will always remove the last condition.
+	 * @private
+	 */
+	removeComboBoxContainer : function()
+	{
+		if (this.boxContainerCount > 1) {
+			// if removed condition was atleast / atmost size condition then reset the size unit property in the record accordingly.
+			var conditionBoxToRemove = this.get(this.items.getCount() - 2).get(0);
+			var conditionFlag = conditionBoxToRemove.getValue();
+			if (conditionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE) {
+				this.record.set('rule_msg_atmost_size_unit', '');
+			} else if (conditionFlag === Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE) {
+				this.record.set('rule_msg_atleast_size_unit', '');
+			}
+
+			// Don't remove the last item, as that is the container
+			// to add and remove conditions.
+			this.remove(this.get(this.items.getCount() - 2));
+			this.boxContainerCount--;
+
+			// Toggle the removeConditionBtn
+			this.removeBtn.setDisabled(this.boxContainerCount <= 1);
+
+			this.doLayout();
+		}
+	},
 
 	/**
 	 * Updates the panel by loading data from the record into the form panel.
@@ -86,10 +114,27 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 			var count = Math.max(1, conditions.length);
 			this.setBoxContainerCount(count);
 
+			var atleastSizeUnit = record.get('rule_msg_atleast_size_unit');
+			var atmostSizeUnit = record.get('rule_msg_atmost_size_unit');
+
+			var atleastSizes = atleastSizeUnit.split(';');
+			var atmostSizes = atmostSizeUnit.split(';');
+
 			for (var i = 0, len = conditions.length; i < len; i++) {
 				// Apply the action to the corresponding container
 				if (conditions[i]) {
-					this.applyCondition(this.get(i), conditions[i]);
+					var conditionFlag = this.getConditionFlagFromCondition(conditions[i]);
+					var isAtleastSizeCondition = conditionFlag === Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE;
+					var isAtmostSizeCondition = conditionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE;
+					if (isAtleastSizeCondition) {
+						//sending sizeUnits values according to condition in order.
+						this.applyCondition(this.get(i), conditions[i], atleastSizes.shift());
+					} else if (isAtmostSizeCondition) {
+						//sending sizeUnits values according to condition in order.
+						this.applyCondition(this.get(i), conditions[i], atmostSizes.shift());
+					} else {
+						this.applyCondition(this.get(i), conditions[i]);
+					}
 				}
 			}
 		}
@@ -111,8 +156,26 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 			var activeItem = panel.get(1).layout.activeItem;
 			var condition = null;
 
+			// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
+			var initAtleastCond = true;
+			var initAtmostCond = true;
+
 			if (Ext.isFunction(activeItem.getCondition)) {
 				condition = activeItem.getCondition();
+			}
+
+			// For conditions Atleast and Atmost, for first time in loop 'rule_msg_atleast_size_unit' and
+			// 'rule_msg_atmost_size_unit' props in record will be overwritten.
+			if (activeItem.id.indexOf('atleastsize') >= 0) {
+				activeItem.setSizeUnit(record, initAtleastCond);
+				if (initAtleastCond) {
+					initAtleastCond = false;
+				}
+			} else if (activeItem.id.indexOf('atmostsize') >= 0) {
+				activeItem.setSizeUnit(record, initAtmostCond);
+				if (initAtmostCond) {
+					initAtmostCond = false;
+				}
 			}
 
 			// If no valid condition was found, then

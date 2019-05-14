@@ -19,7 +19,9 @@ Zarafa.common.rules.data.RulesRecordFields = [
 	{name: 'rule_sequence', type: 'number'},
 	{name: 'rule_state', type: 'number', defaultValue: Zarafa.core.mapi.RuleStates.ST_ENABLED},
 	{name: 'rule_condition', allowBlank : false},
-	{name: 'rule_actions', allowBlank : false}
+	{name: 'rule_actions', allowBlank : false},
+	{name: 'rule_msg_atleast_size_unit', type: 'string'},
+	{name: 'rule_msg_atmost_size_unit', type: 'string'}
 ];
 
 /**

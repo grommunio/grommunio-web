@@ -640,5 +640,43 @@ Zarafa.core.Util =
 		textArea.select();
 		document.execCommand("copy");
 		document.body.removeChild(textArea);
+	},
+
+	/**
+	 * Function which will convert given input into Bytes.
+	 * @param {Number} imput the number which needs to be converted in bytes.
+	 * @param {String} sizeUnit string which indicates given input is in which unit.
+	 * And value must be 'KB' or 'MB'.
+	 * @return {Number} input in Bytes.
+	 */
+	convertToBytes : function (input, sizeUnit)
+	{
+		sizeUnit = sizeUnit.toUpperCase();
+		if (sizeUnit === 'MB') {
+			input = input * Math.pow(1024,2);
+		} else if (sizeUnit === 'KB') {
+			input = input * 1024;
+		}
+		return input;
+	},
+
+	/**
+	 * Function which will convert given input into
+	 * KB or MB size unit.
+	 * @param {Number} imput the number in bytes which needs to be converted.
+	 * @param {String} sizeUnit string which should indicate
+	 * in which unit input is needed to be converted.
+	 * And value must be 'KB' or 'MB'.
+	 * @return {Number} input in KB or MB.
+	 */
+	convertBytesToKBorMB : function (input, sizeUnit)
+	{
+		sizeUnit = sizeUnit.toUpperCase();
+		if (sizeUnit === 'MB') {
+			input = input / Math.pow(1024,2);
+		} else if (sizeUnit === 'KB') {
+			input = input / 1024;
+		}
+		return input;
 	}
 };

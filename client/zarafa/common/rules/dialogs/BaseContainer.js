@@ -159,6 +159,12 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
             xtype : 'zarafa.attachmentlink',
             id : baseId + '-attachment'
         },{
+            xtype : 'zarafa.atleatsizelink',
+            id : baseId + '-atleastsize'
+        },{
+            xtype : 'zarafa.atmostsizelink',
+            id : baseId + '-atmostsize'
+        },{
             xtype : 'zarafa.sentccmelink',
             id : baseId + '-cc-me'
         },{
@@ -360,7 +366,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @param {Object} condition The condition which should be loaded
      * @private
      */
-    applyCondition : function(panel, condition)
+    applyCondition : function(panel, condition, sizeUnit)
     {
         var conditionFlag = this.getConditionFlagFromCondition(condition);
         var combo = panel.get(0);
@@ -385,6 +391,10 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
             case Zarafa.common.rules.data.ConditionFlags.UNKNOWN:
             /* falls through*/
             default:
+                break;
+            case Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE:
+            case Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE:
+                layout.activeItem.setCondition(conditionFlag, condition, sizeUnit);
                 break;
             case Zarafa.common.rules.data.ConditionFlags.SUBJECT_WORDS:
             case Zarafa.common.rules.data.ConditionFlags.BODY_WORDS:
@@ -457,6 +467,13 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
                         return Zarafa.common.rules.data.ConditionFlags.ATTACHMENT;
                     case 'PR_MESSAGE_RECIP_ME':
                         return Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC;
+                    case 'PR_MESSAGE_SIZE':
+                        if (condition[1][1] === Restrictions.RELOP_LE) {
+                            return Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE;
+                        } else if (condition[1][1] === Restrictions.RELOP_GE) {
+                            return Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE;
+                        }
+                        break;
                     case 'PR_SENSITIVITY':
                         return Zarafa.common.rules.data.ConditionFlags.SENSITIVITY;
                     case 'PR_MESSAGE_DELIVERY_TIME':
@@ -636,6 +653,14 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
                 break;
             case Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE:
                 layout.setActiveItem(panel.id + '-received-before');
+                layout.activeItem.setCondition(value);
+                break;
+            case Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE:
+                layout.setActiveItem(panel.id + '-atleastsize');
+                layout.activeItem.setCondition(value);
+                break;
+            case Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE:
+                layout.setActiveItem(panel.id + '-atmostsize');
                 layout.activeItem.setCondition(value);
                 break;
             case Zarafa.common.rules.data.ConditionFlags.NONE:
