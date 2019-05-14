@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-14 09:42+0200\n"
-"PO-Revision-Date: 2019-04-24 09:53+0000\n"
+"PO-Revision-Date: 2019-05-14 12:30+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -462,9 +462,8 @@ msgstr "Pieper"
 
 # 75%
 # 100%
-#, fuzzy
 msgid "No user selected"
-msgstr "Geen notitie geselecteerd"
+msgstr "Geen gebruiker geselecteerd"
 
 msgid "You must select one or more users."
 msgstr "Graag één of meer gebruikers selecteren."
@@ -611,9 +610,8 @@ msgstr "Voeg toe aan favorieten"
 msgid "Add"
 msgstr "Voeg toe"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Leeg folder"
+msgstr "Geen folder naam"
 
 msgid "You must specify a name."
 msgstr "Specificeer een naam."
@@ -1026,9 +1024,8 @@ msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Resources zijn geboekt"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Verzend Later"
+msgstr "Verstuur een update"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
@@ -1049,11 +1046,9 @@ msgstr "Verstuur updates alleen naar toegevoegde of verwijderde genodigden."
 msgid "Send updates to all attendees."
 msgstr "Verstuur updates naar alle genodigden."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Nodig deelnemers uit"
+msgstr "Bezette genodigden"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr "Een of meerdere genodigden zijn bezig. Wilt u hen alsnog uitnodigen?"
 
@@ -1164,9 +1159,8 @@ msgstr "Bijlagen kunnen niet worden gewijzigd voor een herhaling"
 msgid "Type your message here..."
 msgstr "Schrijf het bericht hier..."
 
-#, fuzzy
 msgid "Update location"
-msgstr "Lijst bijwerken"
+msgstr "Locatie bijwerken"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1523,9 +1517,8 @@ msgstr "Geval"
 msgid "Series"
 msgstr "Serie"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Contact niet gevonden"
+msgstr "Kalenderafspraak niet gevonden"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
@@ -1639,9 +1632,8 @@ msgstr "j F G:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Bewerk geadresseerde"
+msgstr "Update genodigden"
 
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
@@ -1719,9 +1711,8 @@ msgstr "Accepteer Voorgestelde Tijd"
 msgid "View in calendar"
 msgstr "Bekijk in kalender"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "Geen Antwoord Nodig"
+msgstr "Geen antwoord nodig"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1869,9 +1860,8 @@ msgstr "Verwijder en stuur een antwoord naar de organisator"
 msgid "Delete without sending"
 msgstr "Verwijder zonder te versturen"
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Bewerk geadresseerde"
+msgstr "Stel genodigden op de hoogte"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1893,12 +1883,10 @@ msgstr "Markeer als voltooid en verwijder"
 
 # 86%
 # 77%
-#, fuzzy
 msgid "Notify sender"
-msgstr "Sorteer op: Herinnering"
+msgstr "Stel afzender op de hoogte"
 
 # Nog ff niet vertalen, WA-2159 heeft het nodig!
-#, fuzzy
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
@@ -2017,9 +2005,8 @@ msgstr "Bijlagefout"
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Kan geen ZIP-bestand aanmaken, de maximum toegestane grootte is 30MB."
 
-#, fuzzy
 msgid "Unable to download"
-msgstr "Kan de volgende bestanden niet importeren:"
+msgstr "Kan bestanden niet downloaden"
 
 msgid "Picture format is not supported. "
 msgstr "Formaat van de afbeelding wordt niet ondersteund. "
@@ -2394,9 +2381,8 @@ msgstr "E-mailadres"
 # 75%
 # 78%
 # 100%
-#, fuzzy
 msgid "Expand distribution list"
-msgstr "Nieuw distributielijst"
+msgstr "Distributielijst uitklappen"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
@@ -2464,13 +2450,11 @@ msgstr "Terugkeerpatroon Afspraak"
 msgid "Remove Recurrence"
 msgstr "Terugkeerpatroon verwijderen"
 
-#, fuzzy
 msgid "Reset recurring"
-msgstr "Terugkerend"
+msgstr "Reset terugkeerpatroon"
 
-#, fuzzy
 msgid "This will reset every exception. Do you want to continue?"
-msgstr "Deze afspraak is verplaatst of verwijderd, wilt u doorgaan?"
+msgstr "Deze actie reset elke uitzondering, wilt u doorgaan?"
 
 msgid "Task Recurrence"
 msgstr "Taakherhaling"
@@ -2594,21 +2578,17 @@ msgstr "Alles verwijderen"
 msgid "Messages"
 msgstr "Berichten"
 
-#, fuzzy
 msgid "Delete all items"
-msgstr "Selecteer alle items"
+msgstr "Verwijder alle items"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all items?"
-msgstr "Ben je zeker dat je alle verwijderde items voorgoed wil verwijderen?"
+msgstr "Weet u zeker dat u alle verwijderde items voorgoed wil verwijderen?"
 
-#, fuzzy
 msgid "Restore all items"
-msgstr "Herstel items"
+msgstr "Herstel alle items"
 
-#, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "Ben je zeker dat je alle items wil hestellen?"
+msgstr "Weet u zeker dat u alle items wilt herstellen?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2667,9 +2647,8 @@ msgstr "Stuur het bericht door naar ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Stuur het bericht als bijlage door naar ..."
 
-#, fuzzy
 msgid "Mark the message as read ..."
-msgstr "Stuur het bericht door naar ..."
+msgstr "Markeer het bericht als gelezen ..."
 
 msgid "is received from ..."
 msgstr "is ontvangen van ..."
@@ -2677,7 +2656,6 @@ msgstr "is ontvangen van ..."
 msgid "includes these words in the sender's address ..."
 msgstr "Gebruik deze woorden in het adres van de afzender ..."
 
-#, fuzzy
 msgid "includes these words in the recipient's address ..."
 msgstr "Gebruik deze woorden in het adres van de afzender ..."
 
@@ -2828,7 +2806,7 @@ msgid "Update rules for"
 msgstr "Werk regels bij voor"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Pas veranderingen toe"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
@@ -2842,9 +2820,8 @@ msgstr "Andere..."
 msgid "Search in.."
 msgstr "Zoeken in..."
 
-#, fuzzy
 msgid "Folder does not exist"
-msgstr "Map bevat"
+msgstr "Map bestaat niet"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
@@ -3125,9 +3102,8 @@ msgstr "Laatste update verstuurd op {0}."
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} heeft namens {1} bijgewerkt op {2}."
 
-#, fuzzy
 msgid "Fix message"
-msgstr "bericht"
+msgstr "Corrigeer bericht"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
@@ -3893,13 +3869,11 @@ msgstr "Verzenden..."
 msgid "Sent successfully"
 msgstr "Succesvol verstuurd"
 
-#, fuzzy
 msgid "No recipient"
-msgstr "Bewerk geadresseerde"
+msgstr "Geen geadresseerde"
 
-#, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "Geef een ontvanger op"
+msgstr "Geef ten minste een ontvanger op"
 
 msgid "Please specify a recipient"
 msgstr "Geef een ontvanger op"
@@ -3910,9 +3884,8 @@ msgstr "De bijgevoegde bestanden zijn nog niet opgeladen."
 msgid "Do you want to send this message without attachments?"
 msgstr "Wil dit bericht verzenden zonder de bijlagen?"
 
-#, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "Bijlagen kunnen niet worden gedownload"
+msgstr "Bijlage zijn nog niet geupload"
 
 msgid "Don't Send"
 msgstr "Niet verzenden"
@@ -3920,16 +3893,14 @@ msgstr "Niet verzenden"
 msgid "Send Anyway"
 msgstr "Toch verzenden"
 
-#, fuzzy
 msgid "No subject"
-msgstr "geen onderwerp"
+msgstr "Geen onderwerp"
 
 msgid "Send this message without a subject?"
 msgstr "Dit bericht verzenden zonder onderwerp?"
 
-#, fuzzy
 msgid "Unresolved recipients"
-msgstr "Bewerk geadresseerde"
+msgstr "Niet gevalideerde ontvangers"
 
 msgid "Not all recipients could be resolved"
 msgstr "Niet alle ontvangers konden worden gevalideerd"
@@ -3967,25 +3938,23 @@ msgstr "Opgeslagen"
 msgid "Saved successfully"
 msgstr "Succesvol opgeslagen"
 
-#, fuzzy
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
 "Alle niet-opgeslagen wijzigingen zullen verloren gaan. Wilt u dit venster "
-"echt sluiten?"
+"sluiten?"
 
 msgid "Kopano Content Panel"
 msgstr "Kopano Content Panel"
 
-#, fuzzy
 msgid "Delete item"
-msgstr "Items verwijderen"
+msgstr "Item verwijderen"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Niet-opgeslagen aanpassingen"
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Welkom bij Kopano WebApp"
@@ -4034,9 +4003,8 @@ msgstr "D G:i"
 msgid "D d-m"
 msgstr "D d-m"
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "Onvoldoende permissie"
+msgstr "Onvoldoende rechten"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
@@ -4052,9 +4020,8 @@ msgstr ""
 "Niet voldoende permissies om deze map te openen, wilt u hem verwijderen van "
 "de hiërarchie?"
 
-#, fuzzy
 msgid "Insufficient Permissions"
-msgstr "Onvoldoende permissie"
+msgstr "Onvoldoende rechten"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Geen permissies om deze map te openen."
@@ -4119,13 +4086,11 @@ msgstr "Taakitems"
 msgid "Select where to place the folder"
 msgstr "Selecteer locatie voor de map"
 
-#, fuzzy
 msgid "No folder name"
-msgstr "Foldernaam"
+msgstr "Geen foldernaam"
 
-#, fuzzy
 msgid "No destination"
-msgstr "Geen Informatie"
+msgstr "Geen bestemming"
 
 msgid "You must select a destination folder."
 msgstr "U moet een bestemmingsmap selecteren."
@@ -4228,41 +4193,36 @@ msgstr "Sorteer op: Totale grootte (met submappen)"
 msgid "Open Shared Folders"
 msgstr "Open Gedeelde Mappen"
 
-#, fuzzy
 msgid "Unresolved user"
-msgstr "Kon gebruiker niet vinden."
+msgstr "Niet gevalideerde gebruiker"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Gebruikersnaam '{0}' kon niet worden gevonden."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Onbekende gebruiker"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "'{0}' is geen geldige gebruiker."
 
-#, fuzzy
 msgid "Own store"
-msgstr "Ontbrekende store"
+msgstr "Eigen store"
 
-#, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "Het is niet mogelijk om uw eigen store tweemaal te openen"
+msgstr "Het is niet mogelijk om uw eigen store tweemaal te openen."
 
-#, fuzzy
 msgid "Folder already open"
-msgstr "Deze gedeelde map is al open."
+msgstr "Deze map is al open"
 
 msgid "This shared folder is already open."
 msgstr "Deze gedeelde map is al open."
 
 msgid "No user"
-msgstr ""
+msgstr "Geen gebruiker"
 
 # 85%
-#, fuzzy
 msgid "You must specify a user"
-msgstr "U moet een gebruikersnaam opgeven."
+msgstr "U moet een gebruikersnaam opgeven"
 
 msgid "Folder type"
 msgstr "Maptype"
@@ -4352,9 +4312,8 @@ msgstr ""
 "Weet u zeker dat u de map \"{0}\" wilt verwijderen en alle inhoud naar de "
 "Deleted Items-map verplaatsen?"
 
-#, fuzzy
 msgid "Delete folder"
-msgstr "Verwijder Map"
+msgstr "Verwijder map"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Weet u zeker dat u {0} wilt leegmaken?"
@@ -4824,15 +4783,15 @@ msgstr "Notities Laden"
 msgid "Loading notes"
 msgstr "Notities laden"
 
-#, fuzzy
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
 "be lost."
-msgstr "Om de wijziging toe te passen moet WebApp opnieuw worden geladen."
+msgstr ""
+"Om de wijziging toe te passen moet WebApp opnieuw worden geladen. Niet-"
+"opgeslagen veranderingen gaan verloren."
 
-#, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Herlaad WebApp"
 
 # 87%
 msgid "Settings"
@@ -5008,31 +4967,28 @@ msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 "U kunt geen e-mail versturen omdat u de zachte quota heeft overschreden."
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Instellingen verwijderen"
+msgstr "Instellingen resetten"
 
-#, fuzzy
 msgid "Reset settings to their original defaults."
-msgstr ""
-"Reset de instellingen van WebApp naar de originele standaard instellingen"
+msgstr "Reset de instellingen naar de originele standaard instellingen."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Deze actie sluit alle gedeelde mappen en reset alle instellingen naar de "
+"standaard."
 
-#, fuzzy
 msgid ""
 "WebApp will automatically reload in order for these changes to take effect"
-msgstr "WebApp zal automatisch herstarten om deze wijzigingen door te voeren"
+msgstr "WebApp zal automatisch herladen om deze wijzigingen door te voeren"
 
 msgid "Reset"
 msgstr "Herstel"
 
-#, fuzzy
 msgid "Reloading, Please wait."
-msgstr "WebApp herlaadt, moment geduld."
+msgstr "Herladen, moment geduld."
 
 # 75%
 msgid "Setting"
@@ -5143,14 +5099,13 @@ msgid "copy"
 msgstr "kopie"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Niet mogelijk om een gedeelde taak te versturen"
 
 msgid "You cannot send a task request to yourself."
 msgstr "U kunt geen taakverzoek naar uzelf sturen."
 
-#, fuzzy
 msgid "Multiple recipients"
-msgstr "Bekijk geadresseerde"
+msgstr "Meerdere ontvangers"
 
 msgid "A task request can only have one recipient."
 msgstr "Een taakverzoek mag maar één geadresseerde hebben."
@@ -5269,9 +5224,8 @@ msgstr "Markeer als Onvoltooid"
 msgid "Remove from To-Do List"
 msgstr "Verwijderen uit To-Do lijst"
 
-#, fuzzy
 msgid "Changes to assigned task"
-msgstr "Stuur taak naar geadresseerden"
+msgstr "Veranderingen in toegewezen taak"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
@@ -5310,9 +5264,8 @@ msgstr "Sorteer op: Eigenaar"
 msgid "Sort by: Percentage Completed"
 msgstr "Sorteer op: Percentage Voltooid"
 
-#, fuzzy
 msgid "Assigned task changes"
-msgstr "Wijs Taak Toe"
+msgstr "Toegewezen taak veranderingen"
 
 # 76%
 msgid "Loading tasks"
@@ -5512,7 +5465,6 @@ msgstr[1] "De volgende vereiste mappen ontbreken in de hiërarchie: {0}"
 msgid "Loading model from server failed"
 msgstr "Het laden van het model van de server is mislukt"
 
-#, fuzzy
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "De Afwezigheidsassistent is ingeschakeld. Wilt u deze uitschakelen?"
 
