@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2019-04-01 14:41+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
@@ -2496,10 +2496,18 @@ msgstr "Reencaminhar a mensagem para ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Reencaminhar a mensagem como anexo para ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Reencaminhar a mensagem para ..."
+
 msgid "is received from ..."
 msgstr "recebida de ..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "inclui estas palavras no endereço do remetente ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "inclui estas palavras no endereço do remetente ..."
 
 msgid "includes these words in the subject ..."

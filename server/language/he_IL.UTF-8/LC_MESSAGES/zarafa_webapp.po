@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -2630,10 +2630,17 @@ msgstr ""
 msgid "Forward the message as attachment to ..."
 msgstr ""
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "סמן את כל ההודעות כנקראו"
+
 msgid "is received from ..."
 msgstr ""
 
 msgid "includes these words in the sender's address ..."
+msgstr ""
+
+msgid "includes these words in the recipient's address ..."
 msgstr ""
 
 msgid "includes these words in the subject ..."

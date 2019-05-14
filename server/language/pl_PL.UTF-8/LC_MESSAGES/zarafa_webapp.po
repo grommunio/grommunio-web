@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-21 13:21+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish (Poland) <http://translate.kopano.io/projects/kopano/"
@@ -2542,10 +2542,18 @@ msgstr "Przekaż wiadomość dalej do ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Przekaż wiadomość dalej jako załącznik ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Przekaż wiadomość dalej do ..."
+
 msgid "is received from ..."
 msgstr "otrzymana od ..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "zawiera te słowa w adresie nadawcy ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "zawiera te słowa w adresie nadawcy ..."
 
 msgid "includes these words in the subject ..."

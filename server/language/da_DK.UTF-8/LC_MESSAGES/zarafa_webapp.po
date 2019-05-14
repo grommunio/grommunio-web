@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2523,10 +2523,18 @@ msgstr "Videresend meddelelsen til ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Videresend meddelelsen som vedhæftning til ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Videresend meddelelsen til ..."
+
 msgid "is received from ..."
 msgstr "er modtaget fra ..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "inkluder disse ord i afsenderens adresse ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "inkluder disse ord i afsenderens adresse ..."
 
 msgid "includes these words in the subject ..."

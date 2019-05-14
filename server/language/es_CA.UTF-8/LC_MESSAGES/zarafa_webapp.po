@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2652,10 +2652,17 @@ msgstr ""
 msgid "Forward the message as attachment to ..."
 msgstr ""
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Marcar todos los mensajes como leídos"
+
 msgid "is received from ..."
 msgstr ""
 
 msgid "includes these words in the sender's address ..."
+msgstr ""
+
+msgid "includes these words in the recipient's address ..."
 msgstr ""
 
 msgid "includes these words in the subject ..."

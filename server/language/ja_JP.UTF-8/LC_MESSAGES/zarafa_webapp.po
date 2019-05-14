@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2570,11 +2570,21 @@ msgstr " ...にメッセージを転送します。"
 msgid "Forward the message as attachment to ..."
 msgstr " ...にこのメッセージを添付ファイルとして転送します。"
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr " ...にメッセージを転送します。"
+
 msgid "is received from ..."
 msgstr " ...から受信します。"
 
 msgid "includes these words in the sender's address ..."
 msgstr ""
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
+msgstr "件名にこれらの言葉が含まれています。"
 
 msgid "includes these words in the subject ..."
 msgstr "件名にこれらの言葉が含まれています。"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2664,10 +2664,18 @@ msgstr "Üzenet továbbítása ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Üzenet továbbítása mellékletként ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Üzenet továbbítása ..."
+
 msgid "is received from ..."
 msgstr "küldője..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "küldőjének címe tartalmazza ezeket a szavakat ..."
 
 msgid "includes these words in the subject ..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2630,10 +2630,18 @@ msgstr "Přeposlat zprávu k ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Přeposlat zprávu jako přílohu k ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Přeposlat zprávu k ..."
+
 msgid "is received from ..."
 msgstr "je přijato od..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "obsahuje tato slova v adese odesílatele ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "obsahuje tato slova v adese odesílatele ..."
 
 msgid "includes these words in the subject ..."

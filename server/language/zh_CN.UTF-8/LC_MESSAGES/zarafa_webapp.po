@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:36+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.kopano.io/projects/"
@@ -2492,10 +2492,17 @@ msgstr ""
 msgid "Forward the message as attachment to ..."
 msgstr ""
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "标记为未读"
+
 msgid "is received from ..."
 msgstr ""
 
 msgid "includes these words in the sender's address ..."
+msgstr ""
+
+msgid "includes these words in the recipient's address ..."
 msgstr ""
 
 msgid "includes these words in the subject ..."

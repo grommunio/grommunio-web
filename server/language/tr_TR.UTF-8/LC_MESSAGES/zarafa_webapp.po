@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -2641,10 +2641,18 @@ msgstr "mesajı ilet ..."
 msgid "Forward the message as attachment to ..."
 msgstr "mesajı ek olarak ilet ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "mesajı ilet ..."
+
 msgid "is received from ..."
 msgstr "alındığı kişi ..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "gönderen adresi bu kelimeleri içeren ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "gönderen adresi bu kelimeleri içeren ..."
 
 msgid "includes these words in the subject ..."

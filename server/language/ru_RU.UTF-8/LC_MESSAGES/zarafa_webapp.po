@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2608,10 +2608,18 @@ msgstr "Переслать сообщение..."
 msgid "Forward the message as attachment to ..."
 msgstr "Переслать сообщение как вложение..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Переслать сообщение..."
+
 msgid "is received from ..."
 msgstr "Получено от..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "содержит слова в адресе отправителя ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "содержит слова в адресе отправителя ..."
 
 msgid "includes these words in the subject ..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Canadian French <http://translate.kopano.io/projects/kopano/"
@@ -2399,10 +2399,16 @@ msgstr ""
 msgid "Forward the message as attachment to ..."
 msgstr ""
 
+msgid "Mark the message as read ..."
+msgstr ""
+
 msgid "is received from ..."
 msgstr ""
 
 msgid "includes these words in the sender's address ..."
+msgstr ""
+
+msgid "includes these words in the recipient's address ..."
 msgstr ""
 
 msgid "includes these words in the subject ..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -2662,10 +2662,18 @@ msgstr "Posreduj sporočilo do ..."
 msgid "Forward the message as attachment to ..."
 msgstr "Posreduj sporočilo kot prilogo do ..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "Posreduj sporočilo do ..."
+
 msgid "is received from ..."
 msgstr "je prejeto od ..."
 
 msgid "includes these words in the sender's address ..."
+msgstr "Vsebuje te besede v naslovu pošiljatelja ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
 msgstr "Vsebuje te besede v naslovu pošiljatelja ..."
 
 msgid "includes these words in the subject ..."

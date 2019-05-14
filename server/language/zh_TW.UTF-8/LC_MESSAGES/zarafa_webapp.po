@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2541,11 +2541,21 @@ msgstr "轉送郵件到..."
 msgid "Forward the message as attachment to ..."
 msgstr "轉送附檔到..."
 
+#, fuzzy
+msgid "Mark the message as read ..."
+msgstr "轉送郵件到..."
+
 msgid "is received from ..."
 msgstr "接收到來自..."
 
 msgid "includes these words in the sender's address ..."
 msgstr ""
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the recipient's address ..."
+msgstr "主旨包含這些字"
 
 msgid "includes these words in the subject ..."
 msgstr "主旨包含這些字"

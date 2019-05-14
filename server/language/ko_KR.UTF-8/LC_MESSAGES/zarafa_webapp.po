@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-03 15:42+0200\n"
+"POT-Creation-Date: 2019-05-14 09:42+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: Nobuyoshi <nobuyoshi.kumada@actplex.com>\n"
 "Language-Team: Korean (Korea) <http://translate.kopano.io/projects/kopano/"
@@ -2382,10 +2382,16 @@ msgstr ""
 msgid "Forward the message as attachment to ..."
 msgstr ""
 
+msgid "Mark the message as read ..."
+msgstr ""
+
 msgid "is received from ..."
 msgstr ""
 
 msgid "includes these words in the sender's address ..."
+msgstr ""
+
+msgid "includes these words in the recipient's address ..."
 msgstr ""
 
 msgid "includes these words in the subject ..."
