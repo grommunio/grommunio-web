@@ -276,7 +276,7 @@
 	* Powerpaste                           *
 	\**************************************/
 
-	// Options for TinyMCE's powerpaste plugin, see https://www.tinymce.com/docs/enterprise/paste-from-word/#configurationoptions
+	// Options for TinyMCE's powerpaste plugin, see https://www.tiny.cloud/docs/plugins/powerpaste/#configurationoptions
 	// for more details.
 	define('POWERPASTE_WORD_IMPORT', 'merge');
 	define('POWERPASTE_HTML_IMPORT', 'merge');
