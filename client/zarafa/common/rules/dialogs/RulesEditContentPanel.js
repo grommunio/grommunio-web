@@ -30,7 +30,7 @@ Zarafa.common.rules.dialogs.RulesEditContentPanel = Ext.extend(Zarafa.core.ui.Re
 			}),
 			autoSave : false,
 			width : 600,
-			height : 400,
+			height : 457,
 			title : _('Inbox Rule'),
 			items : [{
 				xtype : 'zarafa.ruleseditpanel',

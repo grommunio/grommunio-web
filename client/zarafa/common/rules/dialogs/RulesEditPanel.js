@@ -74,6 +74,16 @@ Zarafa.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 		}, {
 			xtype : 'spacer',
 			height : 15
+		},	{
+			xtype : 'displayfield',
+			value : _('Exceptions'),
+			height : 20
+		},	{
+			xtype: 'zarafa.rulesexceptionscontainer',
+			anchor: '100%'
+		},	{
+			xtype : 'spacer',
+			height : 15
 		}, {
 			xtype : 'checkbox',
 			ref : 'onlyIfOOFCheckbox',
