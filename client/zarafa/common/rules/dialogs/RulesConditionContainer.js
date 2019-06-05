@@ -164,6 +164,9 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			xtype : 'zarafa.sentccmelink',
 			id : baseId + '-cc-me'
 		},{
+			xtype : 'zarafa.namebcclink',
+			id : baseId + '-name-to-bcc'
+		},{
 			xtype : 'zarafa.nametocclink',
 			id : baseId + '-name-to-cc'
 		},{
@@ -426,6 +429,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY:
+			case Zarafa.common.rules.data.ConditionFlags.NAME_BCC:
 			case Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME:
 			case Zarafa.common.rules.data.ConditionFlags.NONE:
 				layout.activeItem.setCondition(conditionFlag, condition);
@@ -497,20 +501,64 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				}
 			/* falls through*/
 			case Restrictions.RES_AND:
+				var bccLinkFlag = 0;
+				var currCoreVersion = container.getVersion().getZCP();
+				var versionCompare = container.versionRecord.versionCompare(currCoreVersion,"8.7.2");
+
 				for (var i = 0, len = condition[1].length; i < len; i++) {
 					var sub = condition[1][i];
 
+					// Check if the RES_AND contains the restriction for PR_MESSAGE_RECIP_ME,
+					// And its value is false. So, increase bccLinkFLag value by one.
+					if (sub[0] === Restrictions.RES_PROPERTY &&
+						sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_RECIP_ME') {
+						var isOlderVersion = versionCompare === -1 ? true : false;
+
+						if (isOlderVersion && sub[1][Restrictions.VALUE]['PR_MESSAGE_RECIP_ME'] === false) {
+							bccLinkFlag++;
+							continue;
+						} else if (!isOlderVersion && sub[1][Restrictions.VALUE]['PR_MESSAGE_RECIP_ME'] === true) {
+							bccLinkFlag++;
+							continue;
+						}
+					}
+
+					// Check if the RES_AND contains the restriction for PR_MESSAGE_CC_ME,
+					// And its value is false. So, increase bccLinkFlag value by one.
+					if (sub[0] === Restrictions.RES_PROPERTY &&
+						sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_CC_ME' &&
+						sub[1][Restrictions.VALUE]['PR_MESSAGE_CC_ME'] === false) {
+						bccLinkFlag++;
+						continue;
+					}
+
+					// Check if the RES_AND contains the restriction for PR_MESSAGE_TO_ME,
+					// And its value is false. So, increase bccLinkFlag value by one.
+					if (sub[0] === Restrictions.RES_PROPERTY &&
+						sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME' &&
+						sub[1][Restrictions.VALUE]['PR_MESSAGE_TO_ME'] === false) {
+						bccLinkFlag++;
+						continue;
+					}
+
 					// PR_MESSAGE_CC_ME is only used in the SENT_CC_ME restriction for now
 					if (sub[0] === Restrictions.RES_PROPERTY &&
-					    sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_CC_ME') {
+					    sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_CC_ME'&&
+						sub[1][Restrictions.VALUE]['PR_MESSAGE_CC_ME'] === true) {
 						return Zarafa.common.rules.data.ConditionFlags.SENT_CC_ME;
 					}
 					// Check if the RES_AND contains the restriction for PR_MESSAGE_TO_ME,
 					// this indicates that this restriction is the SENT_TO_ME_ONLY condition
 					if (sub[0] === Restrictions.RES_PROPERTY &&
-					    sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME') {
+					    sub[1][Restrictions.ULPROPTAG] === 'PR_MESSAGE_TO_ME' &&
+						sub[1][Restrictions.VALUE]['PR_MESSAGE_TO_ME'] === true) {
 						return Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME_ONLY;
 					}
+				}
+
+				// if all three conditions is matched with bcc rule's restriction then only return BCC flag.
+				if (bccLinkFlag === 3) {
+					return Zarafa.common.rules.data.ConditionFlags.NAME_BCC;
 				}
 				return Zarafa.common.rules.data.ConditionFlags.UNKNOWN;
 			case Restrictions.RES_OR:
@@ -606,6 +654,10 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Ext.Container, 
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.NAME_TO_CC:
 				layout.setActiveItem(panel.id + '-name-to-cc');
+				layout.activeItem.setCondition(value);
+				break;
+			case Zarafa.common.rules.data.ConditionFlags.NAME_BCC:
+				layout.setActiveItem(panel.id + '-name-to-bcc');
 				layout.activeItem.setCondition(value);
 				break;
 			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_AFTER:

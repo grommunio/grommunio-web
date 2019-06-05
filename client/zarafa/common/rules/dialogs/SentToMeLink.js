@@ -31,13 +31,13 @@ Zarafa.common.rules.dialogs.SentToMeLink = Ext.extend(Zarafa.common.rules.dialog
 		// Create a restriction
 		return RestrictionFactory.createResAnd([
 			// The PR_MESSAGE_TO_ME property should be set to 'true'
-			RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, true, '0x0057000B'),
+			RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, true),
 			// The PR_DISPLAY_TO property should not contain the ';' character (this implies a single recipient).
 			RestrictionFactory.createResNot(
-				RestrictionFactory.dataResContent('PR_DISPLAY_TO', Restrictions.FL_SUBSTRING, ';', '0x0E04001E')
+				RestrictionFactory.dataResContent('PR_DISPLAY_TO', Restrictions.FL_SUBSTRING, ';')
 			),
 			// The PR_DISPLAY_CC property should be empty
-			RestrictionFactory.dataResProperty('PR_DISPLAY_CC', Restrictions.RELOP_EQ, '', '0x00E03001E')
+			RestrictionFactory.dataResProperty('PR_DISPLAY_CC', Restrictions.RELOP_EQ, '')
 		]);
 	}
 });
