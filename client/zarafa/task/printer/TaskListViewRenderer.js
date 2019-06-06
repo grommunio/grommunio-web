@@ -28,24 +28,24 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		// | priority | % complete | due date | subject | owner |
 		// ....
 		// +----------------------------------------------------+
-		// [name]               [page nr]            [print date]
+		// [name]                                    [print date]
 
-		html += '<table id="tasks" class="task-list" cellpadding=0 cellspacing=0>\n';
+		html += '<table id="tasks" cellpadding=0 cellspacing=0>\n';
 
-		html += '<tr class="nowrap">'
+		html += '<tr>'
 			+ '<th>' + _('Priority') + '</th>'
-			+ '<th>' + _('% Completed') + '</th>'
-			+ '<th class="wrap fullwidth">' + _('Subject') + '</th>'
+			+ '<th>' + _('Completed') + '</th>'
+			+ '<th>' + _('Subject') + '</th>'
 			+ '<th>' + _('Owner') + '</th>'
 			+ '<th>' + _('Due date') + '</th>'
 			+ '</tr>\n';
 
 		// date format l jS F == Monday 1st January
 		html += '<tpl for="tasks">'
-			+ '<tr class="nowrap">'
+			+ '<tr>'
 			+ '<td>{values.data.importance:importanceString}</td>'
 			+ '<td>{values.data.percent_complete:percentage(0)}</td>'
-			+ '<td class="wrap fullwidth">{values.data.subject:htmlEncode}</td>'
+			+ '<td>{values.data.subject:htmlEncode}</td>'
 			+ '<td>{values.data.owner:htmlEncode}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 			+ '<td>{values.data.duedate:date("' + _("l jS F Y") + '")}</td>'
@@ -53,13 +53,13 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			+ '</tpl>';
 
 		html += '</table>\n';
-
-		// skipping page nr for now
+		
+		// Bottom table with username and date
 		html += '<table id="bottom">'
 		+ '<tr>'
-		+ '<td class="nowrap" align=left>{fullname:htmlEncode}</td>'
+		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		+ '<td class="nowrap" align=right>{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+		+ '<td class="right">' + _('Printed on: ') + '{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
 		+ '</tr>'
 		+ '</table>\n';
 		return html;
