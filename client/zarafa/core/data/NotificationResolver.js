@@ -15,6 +15,12 @@ Ext.namespace('Zarafa.core.data');
  */
 Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 	/**
+	 * @cfg {Array} IPFNotificationModules The IPFNotificationModules contains the IPF notification
+	 * module names.
+	 */
+	IPFNotificationModules : ['hierarchynotifier', 'newmailnotifier', 'addressbooknotifier', 'newtodotasknotifier'],
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object.
 	 */
@@ -25,6 +31,18 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 		Ext.apply(this, config);
 
 		Zarafa.core.data.NotificationResolver.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Function which used to add the IPF notification module name to {@link #IPFNotificationModules}.
+	 * function mainly used by the external as well as internal plugins when plugins required to
+	 * implement server side notification.
+	 *
+	 * @param {String} module The module is name of IPF notification module.
+	 */
+	addIPFNotificationModule : function(module)
+	{
+		this.IPFNotificationModules.push(module);
 	},
 
 	/**
@@ -46,11 +64,7 @@ Zarafa.core.data.NotificationResolver = Ext.extend(Ext.util.Observable, {
 			return null;
 		}
 
-		if (moduleName == 'hierarchynotifier' ||
-			moduleName == 'newmailnotifier' ||
-			moduleName =='addressbooknotifier' ||
-			moduleName =='newtodotasknotifier'
-		) {
+		if (this.IPFNotificationModules.indexOf(moduleName) !== -1) {
 			handlers = this.getHandlersForIPFResponse(response);
 		} else {
 			handlers = this.getHandlersForIPMResponse(response);
