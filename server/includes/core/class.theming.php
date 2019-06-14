@@ -435,6 +435,11 @@ class Theming
 			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 				background-color: {{primary-color}};
 			}
+			/* Unread items */
+			.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
+			.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+		        	border-left: 4px solid {{primary-color}} !important;
+			}
 		',
 
 		'primary-color:hover' => '
@@ -618,6 +623,17 @@ class Theming
 			.k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
 			.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
 				background: {{selection-color}} !important;
+			}
+
+			/* Selected mail item */
+			.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+			        border-left: 4px solid {{selection-color}} !important;
+			}
+
+			/* Hover selected item */
+			.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+			.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+			        border-left: 4px solid {{selection-color}} !important;
 			}
 		',
 

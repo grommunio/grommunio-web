@@ -374,3 +374,41 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	height: 30px;
 	line-height: 2.5;
 }
+
+/* Unread borders */
+.k-unreadborders {
+	
+	/* Header should be moved to the right for alignment */
+	.x-grid3-header {
+		padding-left: $padding-small;
+	}
+
+	/* x-grid-3 should have a little more padding */
+	.x-grid3-row {
+		padding-right: $padding-small;
+	}
+
+	/* Unread items */
+	.x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+		border-left: 4px solid $kopano-blue !important;
+	}
+
+	/* Read items */
+	.x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
+		border-left: 4px solid $white !important;
+	}
+
+	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+		border-left: 4px solid $grid-active-color !important;
+	}
+
+	/* hover read item */
+	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
+		border-left: 4px solid $grid-hover-color !important;
+	}
+
+	/* Hover selected item */
+	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+		border-left: 4px solid $grid-active-color !important;
+	}
+}

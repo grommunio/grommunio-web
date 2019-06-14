@@ -109,6 +109,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'page_size' : 50,
 
+							/**
+							 * zarafa/v1/main/unread_borders
+							 * Show borders for unread items
+							 * @property
+							 * @type Boolean
+							 */
+							'unread_borders' : false,
+
 							'notifier' : {
 								/**
 								 * zarafa/v1/main/notifier/default

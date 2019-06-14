@@ -76,7 +76,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
-	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic'); echo ' '. $hideFavorites; echo ' '. $scrollFavorites ?>">
+	<body class="zarafa-webclient theme-<?php echo strtolower($theme ? $theme : 'basic'); echo ' '. $hideFavorites; echo ' '. $scrollFavorites; echo ' '. $unreadBorders ?>">
 		<div id="loading-mask">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
