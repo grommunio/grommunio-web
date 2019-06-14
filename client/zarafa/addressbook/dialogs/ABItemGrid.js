@@ -35,16 +35,19 @@ Zarafa.addressbook.dialogs.ABItemGrid = Ext.extend(Ext.grid.GridPanel, {
 					header  : _('Display Name'),
 					dataIndex: 'display_name',
 					renderer : Ext.util.Format.htmlEncode,
+					headerCls: 'k-unsortable',
 					sortable: false
 				},{
 					header  : _('Email Address'),
 					dataIndex: 'smtp_address',
 					renderer : Ext.util.Format.htmlEncode,
+					headerCls: 'k-unsortable',
 					sortable: false
 				},{
 					header  : _('Account'),
 					dataIndex: 'account',
 					renderer : Ext.util.Format.htmlEncode,
+					headerCls: 'k-unsortable',
 					sortable: false
 				}]
 			})

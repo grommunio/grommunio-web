@@ -112,6 +112,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 			header : _('Active'),
 			fixed : true,
 			width : 60,
+			headerCls: 'k-unsortable',
 			sortable : false,
 			// override renderer to show active state of rule
 			renderer : this.ruleStateRenderer.createDelegate(this),
@@ -120,6 +121,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		}, {
 			dataIndex : 'rule_state',
 			header : _('Out of office'),
+			headerCls: 'k-unsortable',
 			sortable : false,
 			fixed : true,
 			width : 100,
@@ -127,6 +129,7 @@ Zarafa.common.rules.ui.RulesGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
 		},{
 			dataIndex : 'rule_name',
 			header : _('Rule'),
+			headerCls: 'k-unsortable',
 			sortable : false,
 			renderer : Zarafa.common.ui.grid.Renderers.text
 		}];

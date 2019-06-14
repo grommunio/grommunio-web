@@ -113,12 +113,14 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 						id : 'display_name',
 						header  : _('Display Name'),
 						dataIndex: 'display_name',
+						headerCls: 'k-unsortable',
 						sortable: false,
 						renderer : this.onDisplayNameRenderer
 					},{
 						id : 'display_name',
 						header  : _('Version'),
 						dataIndex: 'version',
+						headerCls: 'k-unsortable',
 						sortable: false
 					}],
 					selModel: model

@@ -156,12 +156,12 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			hidden: true
 		}, {
 			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
-			headerCls: 'zarafa-icon-column flag',
+			headerCls: 'zarafa-icon-column flag k-unsortable',
 			dataIndex : 'flag_due_by',
 			width: 24,
 			renderer : Zarafa.common.ui.grid.Renderers.flag,
 			fixed : true,
-			tooltip : _('Sort by: flag')
+			sortable: false
 		}];
 	},
 
@@ -275,12 +275,12 @@ Zarafa.task.ui.TaskGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			hidden: true
 		}, {
 			header : '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
-			headerCls: 'zarafa-icon-column flag',
+			headerCls: 'zarafa-icon-column flag k-unsortable',
 			dataIndex : 'flag_due_by',
 			width: 24,
 			renderer : Zarafa.common.ui.grid.Renderers.flag,
 			fixed : true,
-			tooltip : _('Sort by: flag')
+			sortable: false
 		}];
 	},
 

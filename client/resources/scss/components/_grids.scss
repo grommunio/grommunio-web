@@ -59,8 +59,8 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	td:hover .x-grid3-hd-inner .x-grid3-hd-btn{
 		border-color: $grey2;
 	}
-	td:active .x-grid3-hd-inner,
-	td:active .x-grid3-hd-inner .x-grid3-hd-btn{
+	td:not(.k-unsortable):active .x-grid3-hd-inner,
+	td:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn{
 		background-color: $grey3;
 	}
 
@@ -85,10 +85,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		border-color: $grey;
 		background-color: $grey3;
 	}
-	td.sort-desc:active .x-grid3-hd-inner,
-	td.sort-asc:active .x-grid3-hd-inner,
-	td.sort-desc:active .x-grid3-hd-inner .x-grid3-hd-btn,
-	td.sort-asc:active .x-grid3-hd-inner .x-grid3-hd-btn {
+	td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner,
+	td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner,
+	td.sort-desc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn,
+	td.sort-asc:not(.k-unsortable):active .x-grid3-hd-inner .x-grid3-hd-btn {
 		background-color: $grey4;
 	}
 
