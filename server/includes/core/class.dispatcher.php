@@ -67,12 +67,13 @@
 				require_once($path);
 				$notifier = new $notifierName();
 			} else {
-				$path = $GLOBALS['PluginManager']->getNotifierFilePath($moduleName);
+				$path = $GLOBALS['PluginManager']->getNotifierFilePath($notifierName);
+
 				if (is_file($path)) {
 					require_once($path);
 					$notifier = new $notifierName();
 				} else {
-					throw new DispatcherException(sprintf(_("Unknown notifier '%s'"), $moduleName), 0, null, _("Server encountered some problem, so it was not able to handle the request."));
+					throw new DispatcherException(sprintf(_("Unknown notifier '%s'"), $notifierName), 0, null, _("Server encountered some problem, so it was not able to handle the request."));
 				}
 			}
 			return $notifier;
