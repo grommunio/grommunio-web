@@ -547,6 +547,26 @@ class Theming
 			.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
 				background: {{action-color}} !important;
 			}
+			/* Selected calendar */
+			.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+				border-top-color: {{action-color}};
+			}
+			.x-date-picker .x-date-inner td.x-date-weeknumber a,
+			.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
+			.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+				color: {{action-color}};
+			}
+			.x-date-picker .x-date-inner td.x-date-today a {
+				border-color: {{action-color}};
+			}
+			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
+			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+				border-right-color: {{action-color}};
+			}
+			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
+			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
+				border-left-color: {{action-color}};
+			}
 		',
 
 		'action-color:hover' => '
