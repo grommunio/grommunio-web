@@ -78,7 +78,7 @@
 	require_once(BASE_PATH . 'server/includes/logger/class.filelog.php');
 
 	ob_start();
-	setlocale(LC_CTYPE, "en_US.UTF-8");
+	setlocale(LC_CTYPE, Language::resolveLanguage(LANG));
 
 	// Start a new session
 	$webappSession = WebAppSession::getInstance();
