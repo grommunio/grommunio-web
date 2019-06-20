@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Lebanon)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 09:42+0200\n"
+"POT-Creation-Date: 2019-06-20 09:21+0200\n"
 "PO-Revision-Date: 2018-08-24 20:46+0200\n"
 "Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
 "Language-Team: Arabic (Lebanon) <https://translate.kopano.io/projects/kopano/"
@@ -2509,6 +2509,9 @@ msgstr ""
 msgid "has my name in the Cc field"
 msgstr ""
 
+msgid "does not have my name in the To or Cc field"
+msgstr ""
+
 msgid "has my name in the To or Cc field"
 msgstr ""
 
@@ -4746,6 +4749,16 @@ msgid "Mark this task as private"
 msgstr ""
 
 msgid "New task"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Printed by: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
 msgstr ""
 
 msgid "Percent complete"

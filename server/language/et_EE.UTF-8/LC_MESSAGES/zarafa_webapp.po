@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 09:42+0200\n"
+"POT-Creation-Date: 2019-06-20 09:21+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -2583,6 +2583,9 @@ msgstr ""
 msgid "has my name in the Cc field"
 msgstr ""
 
+msgid "does not have my name in the To or Cc field"
+msgstr ""
+
 msgid "has my name in the To or Cc field"
 msgstr ""
 
@@ -5037,6 +5040,20 @@ msgstr ""
 
 msgid "New task"
 msgstr ""
+
+#, fuzzy
+msgid "Completed"
+msgstr "Valmis"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Sorteeri: ikoon"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Trüki see märkus"
 
 msgid "Percent complete"
 msgstr ""

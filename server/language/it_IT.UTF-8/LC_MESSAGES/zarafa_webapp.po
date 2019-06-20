@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-14 09:42+0200\n"
+"POT-Creation-Date: 2019-06-20 09:21+0200\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -2688,6 +2688,10 @@ msgstr "inviato solo a me"
 msgid "has my name in the Cc field"
 msgstr "ha il mio nome nel campo Cc"
 
+#, fuzzy
+msgid "does not have my name in the To or Cc field"
+msgstr "ha il mion nome nel campo A o Cc"
+
 msgid "has my name in the To or Cc field"
 msgstr "ha il mion nome nel campo A o Cc"
 
@@ -5172,6 +5176,19 @@ msgstr "Contrassegna questa attività come privata"
 
 msgid "New task"
 msgstr "Nuova attività"
+
+#, fuzzy
+msgid "Completed"
+msgstr "Completato"
+
+#, fuzzy
+msgid "Printed by: "
+msgstr "Ordina per: Destinatario"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Stampa nota"
 
 msgid "Percent complete"
 msgstr "Percentuale completato"
