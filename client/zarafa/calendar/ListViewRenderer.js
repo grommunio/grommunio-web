@@ -1,13 +1,13 @@
 // -*- coding: utf-8; indent-tabs-mode: nil -*-
-Ext.namespace('Zarafa.task.printer');
+Ext.namespace('Zarafa.calendar.printer');
 
 /**
- * @class Zarafa.calendar.task.TaskListViewRenderer
+ * @class Zarafa.calendar.printer.ListViewRenderer
  * @extends Zarafa.common.printer.renderers.BaseRenderer
  *
- * Prints a list of all tasks in a folder
+ * Prints a list of all calendar items in a folder
  */
-Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
+Zarafa.calendar.printer.ListViewRenderer = Ext.extend(Zarafa.common.printer.renderers.BaseRenderer, {
 	/**
 	 * @property customStylesheetPath
 	 * @type String
@@ -33,22 +33,24 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		html += '<table id="printlist" cellpadding=0 cellspacing=0>\n';
 
 		html += '<tr>'
-			+ '<th>' + _('Priority') + '</th>'
-			+ '<th>' + _('Completed') + '</th>'
 			+ '<th>' + _('Subject') + '</th>'
-			+ '<th>' + _('Owner') + '</th>'
-			+ '<th>' + _('Due date') + '</th>'
+			+ '<th>' + _('Start') + '</th>'
+			+ '<th>' + _('End') + '</th>'
+			+ '<th>' + _('Duration') + '</th>'
+			+ '<th>' + _('Location') + '</th>'
+			+ '<th>' + _('Categories') + '</th>'
 			+ '</tr>\n';
 
 		// date format l jS F == Monday 1st January
-		html += '<tpl for="tasks">'
+		html += '<tpl for="appointments">'
 			+ '<tr>'
-			+ '<td>{values.data.importance:importanceString}</td>'
-			+ '<td>{values.data.percent_complete:percentage(0)}</td>'
 			+ '<td>{values.data.subject:htmlEncode}</td>'
-			+ '<td>{values.data.owner:htmlEncode}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td>{values.data.duedate:date("' + _("l jS F Y") + '")}</td>'
+			+ '<td>{values.data.startdate:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td>{values.data.duedate:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td>{[Ext.util.Format.duration(values.data.duration, 1)]}</td>'
+			+ '<td>{values.data.location:htmlEncode}</td>'
+			+ '<td>{values.data.categories:htmlEncode}</td>'
 			+ '</tr>\n'
 			+ '</tpl>';
 
@@ -67,18 +69,17 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 
 	/**
 	 * Returns the data for the XTemplate used in generateBodyTemplate()
-	 * @param {Zarafa.task.TaskContext} context The task view in the webapp
+	 * @param {Zarafa.calendar.CalendarContext} context The calendar list view in the webapp
 	 * @return {Object} XTemplate data
 	 */
-	prepareData: function(context) {
-		var data = {
-			fullname: container.getUser().getDisplayName()
-		};
+	prepareData: function(context)
+	{
+		var data = {};
 		var model = context.getModel();
-
+		data['fullname'] = container.getUser().getDisplayName();
 		data['currenttime'] = new Date();
-		data['tasks'] = model.getStore().getRange();
-
+		data['appointments'] = model.getStore().getRange();
+		
 		return data;
 	}
 });

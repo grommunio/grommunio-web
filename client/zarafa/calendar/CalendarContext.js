@@ -322,6 +322,9 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 						case Zarafa.calendar.data.DataModes.MONTH:
 							component = Zarafa.calendar.printer.MonthViewRenderer;
 							break;
+						case Zarafa.calendar.data.DataModes.ALL:
+							component = Zarafa.calendar.printer.ListViewRenderer;
+							break;
 					}
 				}
 				break;
