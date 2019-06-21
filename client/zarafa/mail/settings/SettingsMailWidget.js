@@ -63,7 +63,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 				boxLabel : _('Use English abbreviations for forward (FW:) and reply (RE:)'),
 				hideLabel : true,
 				lazyInit : false,
-				hidden: container.getSettingsModel().get('zarafa/v1/main/language') === 'en_GB' || container.getSettingsModel().get('zarafa/v1/main/language') === 'en_US.UTF-8',
+				hidden: Zarafa.core.Util.inArray(['en_GB', 'en_GB.UTF-8', 'en_US.UTF-8'], container.getSettingsModel().get('zarafa/v1/main/language'), false, false),
 				listeners : {
 					check : this.onCheck,
 					scope : this

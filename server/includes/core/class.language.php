@@ -6,7 +6,7 @@
 	 */
 	class Language {
 
-		private $languages =array("en_GB"=>"English");
+		private $languages =array("en_GB.UTF-8"=>"English");
 		private $languagetable = array("en_GB"=>"eng_ENG");
 		private $lang;
 		private $loaded = false;
@@ -73,14 +73,14 @@
 		* setLanguage attempts to set the language to the specified language. The language passed
 		* is the name of the directory containing the language.
 		*
-		* For setLanguage() to success, the language has to have been loaded via loadLanguages() AND
-		* the gettext system on the system must 'know' the language specified.
+		* For setLanguage() to succeed, the language has to have been loaded via loadLanguages() AND
+		* the gettext system must 'know' the language specified.
 		*
-		* @param string $lang Language (eg nl_NL.UTF-8)
+		* @param string $lang Language code (eg nl_NL.UTF-8)
 		*/
 		function setLanguage($lang)
 		{
-			$lang = (empty($lang)||$lang=="C")?LANG:$lang; // default language fix
+			$lang = (empty($lang) || $lang=="C") ? LANG : $lang; // default language fix
 
 			if ($this->is_language($lang)){
 				$this->lang = $lang;
@@ -158,22 +158,34 @@
 		*/
 		function is_language($lang)
 		{
-			return $lang=="en_GB" || is_dir(LANGUAGE_DIR . "/" . $lang);
+			return $lang=="en_GB.UTF-8" || is_dir(LANGUAGE_DIR . "/" . $lang);
 		}
 
 		/**
-		 * Returns the resolved language name(e.g en_GB.UTF-8) if given language name is not resolved(e.g. en_GB).
+		 * Returns the resolved language code, i.e. ending on UTF-8. 
+		 * Examples: 
+		 *  - en_GB => en.GB.UTF-8
+		 *  - en_GB.utf8 => en_GB.UTF-8
+		 *  - en_GB.UTF-8 => en_GB.UTF-8 (no changes)
 		 *
-		 * @param string $lang language name in which webapp gets load.
-		 * @return string return resolved language name (e.g en_GB.UTF-8).
+		 * @param string $lang language code to resolve.
+		 * @return string resolved language name (i.e. language code ending on .UTF-8).
 		 */
-		function resolveLanguage($lang)
+		static function resolveLanguage($lang)
 		{
-			$isResolved = strstr($lang, '.UTF-8') === '.UTF-8';
-			if(!$isResolved && $lang !== 'en_GB') {
-				$lang = $lang.".UTF-8";
+			$normalizedLang = stristr($lang, '.utf-8', true);
+			if ( !empty($normalizedLang) && $normalizedLang !== $lang ) {
+				// Make sure we will use the format UTF-8 (capitals and hyphen)
+				return $normalizedLang .= '.UTF-8';
 			}
-			return $lang;
+			
+			$normalizedLang = stristr($lang, '.utf8', true);
+			if ( !empty($normalizedLang) && $normalizedLang !== $lang ) {
+				// Make sure we will use the format UTF-8 (capitals and hyphen)
+				return $normalizedLang . '.UTF-8';
+			}
+
+			return $lang . '.UTF-8';
 		}
 
 		function getTranslations(){
