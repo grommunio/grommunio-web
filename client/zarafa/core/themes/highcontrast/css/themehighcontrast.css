@@ -2,7 +2,7 @@
  *                                                                                           *
  * This is the css for the High Contrast theme for the Kopano WebApp.                        *
  *                                                                                           *
- * (c) 2018 Kopano                                                                       *
+ * (c) 2019 Kopano                                                                       *
  *                                                                                           *
  *********************************************************************************************/
 
@@ -252,3 +252,19 @@ ul.x-tab-strip li .x-tab-right,
 .k-selection {
 	background-color: #b9dcf5 !important;
 }
+
+/*****************************
+ * Unread items border styling
+ *****************************/
+
+/* Selected mail item */
+.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #b9dcf5 !important;
+}
+
+/* Hover selected item */
+.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #b9dcf5 !important;
+}
+

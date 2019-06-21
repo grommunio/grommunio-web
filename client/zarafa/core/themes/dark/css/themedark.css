@@ -2,7 +2,7 @@
  *                                                                                           *
  * This is the css for the Dark theme for the Kopano WebApp.                                 *
  *                                                                                           *
- * (c) 2018 Kopano                                                                           *
+ * (c) 2019 Kopano                                                                           *
  *                                                                                           *
  *********************************************************************************************/
 
@@ -443,3 +443,25 @@ ul.x-tab-strip li .x-tab-right,
 .k-selection {
     background-color: #b9dcf5 !important;
 }
+
+/*****************************
+ * Unread items border styling
+ *****************************/
+
+/* Unread items */
+.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
+.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+        border-left: 4px solid #2b90d9 !important;
+}
+
+/* Selected mail item */
+.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #b9dcf5 !important;
+}
+
+/* Hover selected item */
+.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #b9dcf5 !important;
+}
+

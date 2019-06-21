@@ -2,7 +2,7 @@
  *                                                                                           *
  * This is the css for the Purple theme for the Kopano WebApp.                               *
  *                                                                                           *
- * (c) 2018 Kopano                                                                    *
+ * (c) 2019 Kopano                                                                    *
  *                                                                                           *
  *********************************************************************************************/
 
@@ -506,3 +506,25 @@ input.x-form-text.x-form-field.x-form-focus {
 .k-selection {
     background-color: #e9ddf1 !important;
 }
+
+/*****************************
+ * Unread items border styling
+ *****************************/
+
+/* Unread items */
+.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
+.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+        border-left: 4px solid #702277 !important;
+}
+
+/* Selected mail item */
+.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #e9ddf1 !important;
+}
+
+/* Hover selected item */
+.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+        border-left: 4px solid #e9ddf1 !important;
+}
+

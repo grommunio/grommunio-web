@@ -75,8 +75,23 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				listeners : {
 					change : this.onFieldChange,
 					scope : this
-				}	
+				}
+			},{
+				xtype : 'displayfield',
+				hideLabel : true,
+				value : _('Other')
+			},{
+				xtype : 'checkbox',
+				name: 'zarafa/v1/main/unread_borders',
+				ref : 'unreadBorders',
+				boxLabel : _('Give unread items a colored border'),
+				hideLabel : true,
+				listeners : {
+					change : this.onFieldChange,
+					scope : this
+				}
 			},
+
 			// Insertion point at the end of the display widget
 			container.populateInsertionPoint('settings.display.last')]
 		});
@@ -97,6 +112,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.datetimeDisplayFormat.setValue(settingsModel.get(this.datetimeDisplayFormat.name));
 		this.hideFavorites.setValue(settingsModel.get(this.hideFavorites.name));
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
+		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
 	},
 
 	/**
@@ -112,16 +128,27 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		settingsModel.set(this.datetimeDisplayFormat.name, datetimeDisplayFormat);
 		settingsModel.set(this.hideFavorites.name, this.hideFavorites.getValue());
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
+		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
+		
+		// Hide favorites
 		if (this.hideFavorites.getValue() === true) {
 			Ext.getBody().addClass('hideFavorites');
 		} else {
 			Ext.getBody().removeClass('hideFavorites');
 		}
-
+		
+		// Scroll favorites
 		if (this.scrollFavorites.getValue() === true) {
 			Ext.getBody().addClass('scrollFavorites');
 		} else {
 			Ext.getBody().removeClass('scrollFavorites');
+		}
+		
+		// Unread borders
+		if (this.unreadBorders.getValue() === true) {
+			Ext.getBody().addClass('k-unreadborders');
+		} else {
+			Ext.getBody().removeClass('k-unreadborders');
 		}
 	},
 
