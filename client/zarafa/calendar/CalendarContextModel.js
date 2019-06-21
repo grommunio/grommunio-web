@@ -570,10 +570,14 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 	 */
 	getDateRangeText : function()
 	{
-		if (this.current_data_mode == Zarafa.calendar.data.DataModes.MONTH) {
-			return this.getMonthRangeText();
-		} else {
-			return this.dateRange.format();
+		switch (this.current_data_mode) {
+			case Zarafa.calendar.data.DataModes.MONTH:
+				return this.getMonthRangeText();
+			case Zarafa.calendar.data.DataModes.DAY:
+				// For day view we add the current day and date. Ref KW-2818. 
+				return this.date.format(_('l')) + ' '+ this.dateRange.format();
+			default:
+				return this.dateRange.format();
 		}
 	},
 

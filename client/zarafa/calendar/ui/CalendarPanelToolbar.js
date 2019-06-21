@@ -104,7 +104,7 @@ Zarafa.calendar.ui.CalendarPanelToolbar = Ext.extend(Zarafa.common.ui.ContextMai
 					this.text.setWidth(250);
 				break;
 				case Zarafa.calendar.data.DataModes.DAY:
-					this.text.setWidth(140);
+					this.text.setWidth(250);
 				break;
 				default:
 					this.text.setWidth(120);
