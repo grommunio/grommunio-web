@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 09:21+0200\n"
+"POT-Creation-Date: 2019-06-24 10:51+0200\n"
 "PO-Revision-Date: 2017-10-05 20:36+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.kopano.io/projects/"
@@ -945,6 +945,10 @@ msgstr "日历"
 msgid "F Y"
 msgstr "F Y"
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr ""
+
 msgid "All text fields"
 msgstr "所有字段"
 
@@ -1268,6 +1272,22 @@ msgstr ""
 msgid "Paste selected item"
 msgstr ""
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr ""
+
+msgid "Printed by: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "给选中文字加下划线"
+
 msgid "Location: "
 msgstr ""
 
@@ -1284,14 +1304,6 @@ msgstr "j F Y"
 #, fuzzy
 msgid "l jS F"
 msgstr "j F Y"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Start"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "End"
-msgstr ""
 
 msgid "Organiser"
 msgstr ""
@@ -1391,10 +1403,6 @@ msgid "Default reminder time"
 msgstr ""
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -4563,6 +4571,9 @@ msgstr "收藏夹"
 msgid "Unpin favorites from top"
 msgstr ""
 
+msgid "Give unread items a colored border"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -4859,14 +4870,6 @@ msgstr ""
 #, fuzzy
 msgid "Completed"
 msgstr "完成"
-
-msgid "Printed by: "
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "Printed on: "
-msgstr "给选中文字加下划线"
 
 msgid "Percent complete"
 msgstr ""

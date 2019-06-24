@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 09:21+0200\n"
+"POT-Creation-Date: 2019-06-24 10:51+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -1007,6 +1007,10 @@ msgstr "לוח שנה"
 msgid "F Y"
 msgstr "F Y"
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr ""
+
 msgid "All text fields"
 msgstr "כל שדות הטקסט"
 
@@ -1343,6 +1347,27 @@ msgstr ""
 msgid "Paste selected item"
 msgstr ""
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "התחלה"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr ""
+
+#, fuzzy
+msgid "Printed by: "
+msgstr "מיין לפי: אל"
+
+# 77%
+# 78%
+# 100%
+# 84%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "נבחר פריט {0}"
+
 #, fuzzy
 msgid "Location: "
 msgstr "מיקום"
@@ -1359,14 +1384,6 @@ msgstr "l j F Y"
 #, fuzzy
 msgid "l jS F"
 msgstr "l j F Y"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Start"
-msgstr "התחלה"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "End"
-msgstr ""
 
 # 88%
 #, fuzzy
@@ -1475,10 +1492,6 @@ msgid "Default reminder time"
 msgstr ""
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -4838,6 +4851,9 @@ msgstr "מועדפים"
 msgid "Unpin favorites from top"
 msgstr ""
 
+msgid "Give unread items a colored border"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5146,19 +5162,6 @@ msgstr ""
 #, fuzzy
 msgid "Completed"
 msgstr "הושלם"
-
-#, fuzzy
-msgid "Printed by: "
-msgstr "מיין לפי: אל"
-
-# 77%
-# 78%
-# 100%
-# 84%
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "Printed on: "
-msgstr "נבחר פריט {0}"
 
 msgid "Percent complete"
 msgstr ""

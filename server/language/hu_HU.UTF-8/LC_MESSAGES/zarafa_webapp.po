@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 09:21+0200\n"
+"POT-Creation-Date: 2019-06-24 10:51+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1012,6 +1012,10 @@ msgstr "Megtekintés a naptárban"
 msgid "F Y"
 msgstr "F Y"
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
 msgid "All text fields"
 msgstr "Minden szövegmező"
 
@@ -1349,6 +1353,24 @@ msgstr "Kijelölt elem másolása"
 msgid "Paste selected item"
 msgstr "Kijelölt elem beillesztése"
 
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Indítás"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Vége"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Rendezés: Címzett szerint"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Jegyzet nyomtatása"
+
 #, fuzzy
 msgid "Location: "
 msgstr "Helyszín"
@@ -1360,14 +1382,6 @@ msgstr "Y. F j. l, G:i"
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "F j. l"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "Start"
-msgstr "Indítás"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "End"
-msgstr "Vége"
 
 # 88%
 msgid "Organiser"
@@ -1479,10 +1493,6 @@ msgstr "Alapértelmezett emlékeztetési időpont"
 
 msgid "Default all-day appointment reminder time"
 msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l"
-msgstr "l"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
@@ -4859,6 +4869,9 @@ msgstr "Hozzáadás a kedvencekhez"
 msgid "Unpin favorites from top"
 msgstr ""
 
+msgid "Give unread items a colored border"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Beérkező üzenetek közötti navigáció"
 
@@ -5168,16 +5181,6 @@ msgstr "Új feladat"
 #, fuzzy
 msgid "Completed"
 msgstr "Kész"
-
-# 76%
-#, fuzzy
-msgid "Printed by: "
-msgstr "Rendezés: Címzett szerint"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "Printed on: "
-msgstr "Jegyzet nyomtatása"
 
 msgid "Percent complete"
 msgstr "Százalékban kész"
