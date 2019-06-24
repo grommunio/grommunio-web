@@ -5184,9 +5184,8 @@ msgstr "Markeer deze taak als privé"
 msgid "New task"
 msgstr "Nieuwe taak"
 
-#, fuzzy
 msgid "Completed"
-msgstr "Voltooid"
+msgstr "Afgerond"
 
 msgid "Percent complete"
 msgstr "Percentage afgerond"
