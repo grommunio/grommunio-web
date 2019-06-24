@@ -20,7 +20,7 @@ class LanguagesTest extends KopanoTest {
 		}
 
 		$this->assertNotEmpty($langs, 'Test that multiple languages were detected');
-		$this->assertArrayHasKey('en_GB', $langs, 'Test that the \'en_GB\' language was found');
+		$this->assertArrayHasKey('en_GB.UTF-8', $langs, 'Test that the \'en_GB\' language was found');
 		$this->assertArrayHasKey('de_DE.UTF-8', $langs, 'Test that the \'de_DE\' language was found');
 		$this->assertArrayHasKey('nl_NL.UTF-8', $langs, 'Test that the \'nl_NL\' language was found');
 	}
