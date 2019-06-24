@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-24 10:51+0200\n"
-"PO-Revision-Date: 2019-05-14 12:30+0000\n"
+"PO-Revision-Date: 2019-06-24 12:15+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1348,14 +1348,12 @@ msgid "End"
 msgstr "Einde"
 
 # 76%
-#, fuzzy
 msgid "Printed by: "
-msgstr "Sorteer op: Aan"
+msgstr "Geprint door: "
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Print notitie"
+msgstr "Geprint op: "
 
 msgid "Location: "
 msgstr "Locatie: "
@@ -2697,9 +2695,8 @@ msgstr "is alleen naar mij verzonden"
 msgid "has my name in the Cc field"
 msgstr "bevat mijn naam in het CC veld"
 
-#, fuzzy
 msgid "does not have my name in the To or Cc field"
-msgstr "bevat mijn naam in het Aan of CC veld"
+msgstr "heeft mijn naam niet in de Aan of CC veld"
 
 msgid "has my name in the To or Cc field"
 msgstr "bevat mijn naam in het Aan of CC veld"
@@ -4871,7 +4868,7 @@ msgid "Unpin favorites from top"
 msgstr "Maak favorieten los van de bovenkant"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Geef ongelezen items een gekleurde rand"
 
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
