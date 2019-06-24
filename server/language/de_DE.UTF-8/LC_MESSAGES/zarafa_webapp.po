@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-24 10:51+0200\n"
-"PO-Revision-Date: 2019-06-03 07:02+0000\n"
+"PO-Revision-Date: 2019-06-24 13:31+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -1345,14 +1345,12 @@ msgid "End"
 msgstr "Ende"
 
 # 76%
-#, fuzzy
 msgid "Printed by: "
-msgstr "Sortien nach: An"
+msgstr "Gedruckt von: "
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
 msgid "Printed on: "
-msgstr "Diese Notiz drucken"
+msgstr "Gedruckt am: "
 
 msgid "Location: "
 msgstr "Ort: "
@@ -2699,9 +2697,8 @@ msgstr "Nur an mich gesendet"
 msgid "has my name in the Cc field"
 msgstr "enthält meinen Namen im CC-Feld"
 
-#, fuzzy
 msgid "does not have my name in the To or Cc field"
-msgstr "enthält meinen Namen im An- oder CC-Feld"
+msgstr "enthält meinen Namen nicht im An- oder CC-Feld"
 
 msgid "has my name in the To or Cc field"
 msgstr "enthält meinen Namen im An- oder CC-Feld"
@@ -4845,7 +4842,7 @@ msgid "Unpin favorites from top"
 msgstr "Favoriten nicht oben anzeigen"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Zeige ungelesene Elemente mit einer farbigen Umrandung an"
 
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
@@ -5161,7 +5158,6 @@ msgstr "Diese Aufgabe als privat markieren"
 msgid "New task"
 msgstr "Neue Aufgabe"
 
-#, fuzzy
 msgid "Completed"
 msgstr "Erledigt"
 
