@@ -256,7 +256,7 @@
 	if (isset($_ENV['LANG']) && $_ENV['LANG']!="C"){
 		define('LANG', $_ENV["LANG"]); // This means the server environment language determines the web client language.
 	}else{
-		define('LANG', 'en_GB'); // default fallback language
+		define('LANG', 'en_US.UTF-8'); // default fallback language
 	}
 
 	// List of languages that should be enabled in the logon
