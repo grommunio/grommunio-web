@@ -35,6 +35,8 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 		var preventRowSelection = false;
 		if (Ext.get(event.target).hasClass('icon_flag')) {
 			preventRowSelection = true;
+		} else if (cellIndex !== false && cm.config[cellIndex].dataIndex === 'sent_representing_name' && Ext.fly(event.target).hasClass('k-icon')) {
+			preventRowSelection = true;
 		} else if (cellIndex !== false && cellIndex >= 0) {
 			preventRowSelection = cm.config[cellIndex].preventRowSelection;
 		} else if ( cellIndex === false && Ext.get(event.target).hasClass('k-category-add') ){
@@ -42,12 +44,12 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 			preventRowSelection = true;
 		}
 
-		if (preventRowSelection !== true) {
-			Zarafa.mail.ui.MailRowSelectionModel.superclass.handleMouseDown.call(this, g, rowIndex, event);
-		} else {
+		if (preventRowSelection === true) {
 			// We must still set the focus on the clicked element, or else the grid will jump to
 			// the previous focussed element when we close a dialog
 			g.getView().focusRow(rowIndex);
+		} else {
+			Zarafa.mail.ui.MailRowSelectionModel.superclass.handleMouseDown.call(this, g, rowIndex, event);
 		}
 	}
 });

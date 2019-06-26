@@ -37,7 +37,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	sensitivityInfoString : pgettext('mail.previewpanel', 'Please treat this as {0}.'),
 
 	/**
-	 * @cfg {String} blockStatusInfoString string which must be displayed in the {@link #header} 
+	 * @cfg {String} blockStatusInfoString string which must be displayed in the {@link #header}
 	 * if there is any external content blocked in the {@link Zarafa.core.data.IPMRecord record} body.
 	 */
 	blockStatusInfoString : pgettext('mail.previewpanel', 'Click here to download pictures. To help protect your privacy, WebApp prevented automatic download of some pictures in this message.'),
@@ -279,9 +279,10 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	{
 		// clear the previous contents
 		var el = this.getEl();
-		if(Ext.isDefined(el.dom)) {
-			el.dom.innerHTML = '';
+		if (!Ext.isDefined(el.dom)) {
+			return;
 		}
+		el.dom.innerHTML = '';
 
 		if(!Ext.isDefined(record)) {
 			this.setVisible(false);

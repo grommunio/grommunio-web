@@ -11,6 +11,8 @@ Ext.namespace('Zarafa.mail');
  * single specific folder only.
  */
 Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
+	openedConversationItems : [],
+
 	/**
 	 * @constructor
 	 * @param {Object} config configuration params that should be used to create instance of this store.
@@ -139,6 +141,182 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 			});
 		}
 		Zarafa.mail.MailStore.superclass.reload.call(this, options);
+	},
+
+	/**
+	 * Used to check if this store contains conversations. (records grouped by conversation and
+	 * prefixed with conversation header records)
+	 *
+	 * @return {Boolean} True if the store contains conversations, or false otherwise.
+	 */
+	containsConversations: function() {
+		// First check if the admin has not disabled conversation view
+		var conversationsAdminEnabled = container.getServerConfig().isConversationViewEnabled();
+		if (!conversationsAdminEnabled) {
+			return false;
+		}
+
+		// Check if the user enabled conversation view in his settings
+		var conversationsUserEnabled = container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_conversation_view');
+		if (!conversationsUserEnabled) {
+			return false;
+		}
+
+		// Check if the user is using infinite scroll
+		var infiniteScrollEnabled = container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_live_scroll');
+		if (!infiniteScrollEnabled) {
+			return false;
+		}
+
+		// Check if this store contains the inbox. It is the only folder that can be rendered
+		// with conversation view.
+		var inbox = container.getHierarchyStore().getDefaultFolder('inbox');
+		return (Zarafa.core.EntryId.compareEntryIds(this.entryId, inbox.get('entryid')));
+	},
+
+	/**
+	 * Checks if the given record is part of an expanded conversation
+	 *
+	 * @param {Zarafa.mai.MailRecord} record The record that should be checked
+	 * @return {Boolean} True is the record is part of an expanded conversation,
+	 * false otherwise
+	 */
+	isConversationOpened : function(record) {
+		return this.openedConversationItems.some(function(entryid) {
+			// TODO: use the entryid compare function
+			return record.get('entryid') === entryid;
+		});
+	},
+
+	/**
+	 * Filters the store to not show items in conversations that have not been expanded
+	 */
+	filterByConversations : function() {
+		this.filterBy(function(record) {
+			return (
+				record.get('depth') === 0 ||
+				this.isConversationOpened(record)
+			);
+		}, this);
+	},
+
+	toggleConversation : function(headerRecord, expand) {
+		if (!headerRecord.isConversationHeaderRecord()) {
+			return;
+		}
+
+		var headerRecordEntryid = headerRecord.get('entryid');
+
+		// User clicked on a 'conversation header'. Toggle the conversation items
+		if (Ext.isDefined(expand)) {
+			var hide = !expand;
+		} else {
+			hide = this.openedConversationItems.some(function(entryid) {
+				// TODO: use compareEntryId function
+				return headerRecordEntryid === entryid;
+			});
+		}
+
+		if (hide) {
+			this.openedConversationItems = this.openedConversationItems.filter(function(entryid) {
+				return entryid !== headerRecordEntryid;
+			});
+		} else {
+			this.openedConversationItems.push(headerRecordEntryid);
+		}
+
+		// Remove the filter to be able to simply access all records
+		this.clearFilter(true);
+		var rowIndex = this.indexOf(headerRecord);
+		var conversationCount = headerRecord.get('conversation_count');
+		var records = this.getRange(rowIndex + 1, rowIndex + conversationCount);
+
+		records.forEach(function(r) {
+			// Don't use r.set() because that would send events which would
+			// end up in trying to update a row that might not be rendered
+			if (hide) {
+				this.openedConversationItems = this.openedConversationItems.filter(function(entryid) {
+					// TODO: use compareEntryId function (or shouldn't we?)
+					return entryid !== r.get('entryid');
+				});
+			} else {
+				this.openedConversationItems.push(r.get('entryid'));
+			}
+		}, this);
+
+		// Set the filter again to show all expanded conversations and hide all collapsed conversations
+		this.filterByConversations();
+	},
+
+	/**
+	 * Helper function to open (expand) a conversation
+	 *
+	 * @param {Zarafa.mail.MailRecord} headerRecord
+	 */
+	expandConversation: function(headerRecord) {
+		this.toggleConversation(headerRecord, true);
+	},
+
+	/**
+	 * Returns all the records in the store that are part of the conversation identified
+	 * by the given header record
+	 *
+	 * @param {Zarafa.core.data.MapiRecord} headerRecord The header record of the conversation
+	 * @return {Zarafa.core.data.MapiRecord[]} The records that belong to the requested conversation
+	 */
+	getConversationItemsFromHeaderRecord(headerRecord) {
+		var items = this.snapshot || this.data;
+		var index = items.findIndex('id', headerRecord.id) + 1;
+		var retVal = [];
+		var item;
+		while ((item = items.get(index)) && item.get('depth') > 0) {
+			retVal.push(item);
+			index++;
+		}
+
+		return retVal;
+	},
+
+	/**
+	 * Returns the number of items in the store without counting conversation headers
+	 *
+	 * @return {Number} The number of items in the store without counting conversation headers
+	 */
+	getRealMailItemCount() {
+		if (!this.containsConversations) {
+			return this.getRange().length;
+		}
+
+		var count = 0;
+		var items = this.snapshot ? this.snapshot.items : this.getRange();
+		items.forEach(function(item) {
+			if (item.get('depth') > 0 || item.get('conversation_count') === 0) {
+				count++;
+			}
+		});
+
+		return count;
+	},
+
+	/**
+	 * Returns the number of conversations that are contained by the store
+	 *
+	 * @return {Number} Number of conversation in the store
+	 */
+	getConversationCount() {
+		if (!this.containsConversations) {
+			return 0;
+		}
+
+		var count = 0;
+		var items = this.snapshot ? this.snapshot.items : this.getRange();
+		items.forEach(function(item) {
+			if (item.get('depth') === 0) {
+				count++;
+			}
+		});
+
+		return count;
 	}
 });
 

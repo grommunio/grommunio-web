@@ -373,6 +373,13 @@ Zarafa.core.data.IPMStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 					}
 				}
 
+				// Conversation data will not be fetched when we open a message, only for lists
+				// So we must remove this info from the received data if it isn't valid
+				if (record.get('conversation_count') && !singleData.get('conversation_count')) {
+					delete singleData.data.conversation_count;
+					delete singleData.data.conversation_data;
+				}
+
 				// Merge the changes into the record without using the JSONReader.
 				record.applyData(singleData);
 				// Commit the changes, it is a merge, so there are no local changes.

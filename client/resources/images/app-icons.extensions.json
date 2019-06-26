@@ -85,5 +85,6 @@
 	".triangle_right": ".x-tbar-page-next",
 	".triangle_right_outline": ".x-item-disabled .x-tbar-page-next",
 	".triangle_right_stop": ".x-tbar-page-last",
-	".triangle_right_stop_outline": ".x-item-disabled .x-tbar-page-next"
+	".triangle_right_stop_outline": ".x-item-disabled .x-tbar-page-next",
+	".line_vertical": ".line_vertical.x-grid3-row-selected"
 }

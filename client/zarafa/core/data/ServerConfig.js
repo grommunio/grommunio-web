@@ -54,6 +54,15 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	 * @return {Boolean} True if it should be possible to set rules on the store
 	 * of other users.
 	 */
+	isConversationViewEnabled : function()
+	{
+		return this.meta.enable_conversation_view === true;
+	},
+
+	/**
+	 * @return {Boolean} True if it should be possible to set rules on the store
+	 * of other users.
+	 */
 	isSharedRulesEnabled : function()
 	{
 		return this.meta.enable_shared_rules === true;

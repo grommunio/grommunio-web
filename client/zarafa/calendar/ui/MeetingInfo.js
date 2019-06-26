@@ -17,16 +17,16 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 	record : undefined,
 
 	/**
-	 * @cfg {Ext.Template/String} meetingInfoTemplate The template which must be applied 
-	 * {@link #header} to build meeting info when the {@link Zarafa.core.data.IPMRecord record} 
-	 * has been {@link #update updated}.The arguments of this template will be 
+	 * @cfg {Ext.Template/String} meetingInfoTemplate The template which must be applied
+	 * {@link #header} to build meeting info when the {@link Zarafa.core.data.IPMRecord record}
+	 * has been {@link #update updated}.The arguments of this template will be
 	 * the {@link Zarafa.core.data.IPMRecord#data record.data} field.
 	 */
 	meetingInfoTemplate :
 			'<hr class="preview-title-hr">'+
 			 '<table>'+
 					'<tpl if="values.counter_proposal">' +
-						'<tr class="preview-proposed">' + 
+						'<tr class="preview-proposed">' +
 	/* # TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent. */
 							'<td class="preview-proposed-title">' + pgettext('mail.previewpanel', 'Proposed') + ':</td>'+
 							'<td>'+
@@ -42,7 +42,7 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'</td>'+
 						'</tr>'+
 					'</tpl>'+
-							
+
 					'<tr class="preview-when">' +
 					/* # TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
 						'<td class="preview-when-title">' + pgettext('mail.previewpanel', 'When') + ':</td>' +
@@ -63,18 +63,18 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'</tpl>' +
 						'</td>'+
 					'</tr>'+
-				
+
 					'<tpl if="!Ext.isEmpty(values.appointment_location)">' +
 							'<tr class="preview-location">' +
 							/* # TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent */
 								'<td class="preview-location-title">' + pgettext('mail.previewpanel', 'Location') + ':</td>' +
 								'<td>'+
-									'{appointment_location:htmlEncode}' + 
+									'{appointment_location:htmlEncode}' +
 								'</td>'+
 							'</tr>'+
 					'</tpl>'+
 				'</table>',
-				
+
 
 	/**
 	 * @constructor
@@ -86,14 +86,14 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 
 		config.plugins = Ext.value(config.plugins, []);
 		config.plugins.push('zarafa.recordcomponentupdaterplugin');
-		
+
 		config =  Ext.applyIf(config, {
 			xtype: 'zarafa.meetinginfo',
 			cls: 'preview-header-meeting',
 			hidden : true,
 			forceLayout : true
 		});
-		
+
 		Zarafa.calendar.ui.MeetingInfo.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.meetingInfoTemplate)) {
@@ -107,11 +107,15 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 	 * Update the {@link Zarafa.calendar.ui.MeetingInfo header} with the data
 	 * from the {@link Zarafa.core.data.IPMRecord record}. Updates the panel
 	 * by loading data from the record data into the template.
-	 * 	
+	 *
 	 * @param {Zarafa.core.data.IPMRecord} record to update the header panel with
 	 */
 	update: function(record)
 	{
+		if ( !this.el.dom ) {
+			return;
+		}
+
 		if (record instanceof Zarafa.calendar.MeetingRequestRecord) {
 			this.meetingInfoTemplate.overwrite(Ext.get(this.el.dom), record.data);
 			this.setVisible(true);

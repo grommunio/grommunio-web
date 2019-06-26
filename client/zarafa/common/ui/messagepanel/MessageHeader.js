@@ -158,7 +158,7 @@ Zarafa.common.ui.messagepanel.MessageHeader = Ext.extend(Ext.Panel, {
 	 */
 	update: function(record, contentReset)
 	{
-		if (Ext.isDefined(this.header)) {
+		if (Ext.isDefined(this.header) && Ext.isDefined(this.header.dom)) {
 			// If this is the initial load, then we must ensure that the panel is expanded.
 			if (contentReset === true && this.collapseElement && (this.collapsed === true || this.sliding === true)) {
 				// When we are currently sliding, we cannot call the expand function now,

@@ -99,12 +99,14 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			scope : this
 		});
 
+		this.mon(this.getView(), 'beforelivescrollstart', this.onBeforeLiveScrollStart, this);
 		this.mon(this.getView(), 'livescrollstart', this.onLiveScrollStart, this);
 		this.mon(this.getView(), 'beforesort', this.onBeforeSort, this);
 
+		this.mon(this.getSelectionModel(), 'beforerowselect', this.onBeforeRowSelect, this);
 		// Add a buffer to the following 2 event handlers. These are influenced by Extjs when a record
 		// is removed from the store. However removing of records isn't performed in batches. This means
-		// that wee need to offload the event handlers attached to removing of records in case that
+		// that we need to offload the event handlers attached to removing of records in case that
 		// a large batch of records is being removed.
 		this.mon(this.getSelectionModel(), 'rowselect', this.onRowSelect, this, { buffer : 1 });
 		this.mon(this.getSelectionModel(), 'selectionchange', this.onSelectionChange, this, { buffer : 1 });
@@ -112,6 +114,28 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		this.mon(this.context, 'viewmodechange', this.onContextViewModeChange, this);
 		this.mon(this.context, 'viewchange', this.onContextViewChange, this);
 		this.onContextViewModeChange(this.context, this.context.getCurrentViewMode());
+
+		var store = this.getStore();
+		store.filterByConversations();
+		this.mon(this.getStore(), 'load', store.filterByConversations, store);
+		this.mon(this.getStore(), 'add', store.filterByConversations, store);
+		this.mon(this.getStore(), 'remove', store.filterByConversations, store);
+
+		this.mon(this.getView(), 'rowupdated', function(view, rowIndex, record) {
+			if (record.get('depth') === 0) {
+				return;
+			}
+
+			// Update the conversation header (to reflect read/unread status and flags)
+			var store = record.getStore();
+			var i = rowIndex;
+			do {
+				i--;
+				var r = store.getAt(i);
+			} while (r.get('depth') > 0);
+			view.refreshRow(r);
+		}, this);
+
 	},
 
 	/**
@@ -174,30 +198,61 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	viewConfigGetRowClass : function(record, rowIndex, rowParams, store)
 	{
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+
 		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
+		// Conversation headers should get the read/unread info from the items in the conversation
+		if (conversationCount > 1 && depth === 0) {
+			cssClass = 'mail_read';
+			var conversationRecords = store.getConversationItemsFromHeaderRecord(record);
+			conversationRecords.every(function(r) {
+				if (Ext.isFunction(r.isRead) && !r.isRead()) {
+					cssClass = 'mail_unread';
+					return false;
+				}
+				return true;
+			});
+		}
 
-		if (this.enableRowBody) {
-			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
-			var value = ''; // The value which must be rendered
-			rowParams.body = '<div class="zarafa-grid-body-container">';
+		cssClass += ' k-depth-' + depth;
+		if (depth === 0 && conversationCount > 1) {
+			cssClass += ' k-conversation-header';
+		}
 
+		if (depth === 0 && conversationCount > 1 && store.isConversationOpened(record)) {
+			cssClass += ' line_vertical';
+		}
+		if (depth > 0) {
+			cssClass += ' line_vertical';
+		}
+
+		if (store.getCount() === rowIndex + 1 || store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject')) {
+			cssClass += ' k-last-conversation-item';
+		}
+
+		if (!this.enableRowBody || depth !== 0) {
+			//return 'x-grid3-row-collapsed ' + cssClass;
+		}
+
+		rowParams.body = '<div class="zarafa-grid-body-container">';
+
+		if (conversationCount === 0 || depth > 0) {
 			// Render the categories
 			cssClass += ' with-categories';
 			var categories = Zarafa.common.categories.Util.getCategories(record);
 			var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
 			rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
-
-			// Render the subject
-			meta = {};
-			value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
-			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
-
-			rowParams.body += '</div>';
-
-			return 'x-grid3-row-expanded ' + cssClass;
 		}
 
-		return 'x-grid3-row-collapsed ' + cssClass;
+		// Render the subject
+		var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
+		var value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record); // The value which must be rendered
+		rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
+
+		rowParams.body += '</div>';
+
+		return 'x-grid3-row-expanded ' + cssClass;
 	},
 
 	/**
@@ -342,10 +397,17 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		if (!Ext.isDefined(record)) {
 			return;
 		}
+		// conversation header records can't be changed by clicking on certain cells
+		if (record.isConversationHeaderRecord()) {
+			return;
+		}
 
 		var cm = this.getColumnModel();
 		var column = cm.config[columnIndex];
-		if (column.dataIndex === 'icon_index' ){
+		if (
+			column.dataIndex === 'icon_index' && !record.isConversationRecord() ||
+			column.dataIndex === 'sent_representing_name' && record.isConversationRecord() && Ext.fly(e.target).hasClass('k-icon')
+		) {
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
 		} else if(column.dataIndex === 'flag_due_by') {
 			Zarafa.common.Actions.openFlagsMenu(record, e.getXY());
@@ -363,14 +425,40 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowClick : function(grid, rowIndex, event)
 	{
-		var record;
+		// Get the record from the rowIndex
+		var record = this.store.getAt(rowIndex);
+
+		if (record.isConversationHeaderRecord()) {
+			var store = grid.getStore();
+			store.toggleConversation(record);
+
+			return false;
+		}
 
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
-			// Get the record from the rowIndex
-			record = this.store.getAt(rowIndex);
-
 			Zarafa.common.Actions.openCategoriesMenu([record], event.getXY());
 		}
+	},
+
+	/**
+	 * Event handler which is triggered when the user opens the context menu.
+	 * Overridden to make sure that right-clicks on conversation headers do not
+	 * generate a context menu.
+	 *
+	 * @param {Zarafa.mail.ui.MailGrid} grid The grid which was right clicked
+	 * @param {Number} rowIndex The index number of the row which was right clicked
+	 * @param {Number} cellIndex The index number of the column which was right clicked
+	 * @param {Ext.EventObject} event The event structure
+	 * @private
+	 */
+	onCellContextMenu : function(grid, rowIndex, cellIndex, event)
+	{
+		var record = this.store.getAt(rowIndex);
+		if (record.isConversationHeaderRecord()) {
+			return false;
+		}
+
+		return Zarafa.mail.ui.MailGrid.superclass.onCellContextMenu.call(this, grid, rowIndex, cellIndex, event);
 	},
 
 	/**
@@ -387,6 +475,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowBodyContextMenu : function(grid, rowIndex, event)
 	{
+		var record = this.store.getAt(rowIndex);
+		if (record.isConversationHeaderRecord()) {
+			return false;
+		}
+
 		this.onCellContextMenu(grid, rowIndex, -1, event);
 	},
 
@@ -412,6 +505,18 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		}
 	},
 
+	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record) {
+		if (record.isConversationHeaderRecord()) {
+			var store = this.getStore();
+			if (!store.isConversationOpened(record)) {
+				store.expandConversation(record);
+				selectionModel.selectRow(rowIndex+1, keepExisting);
+			}
+
+			return false;
+		}
+	},
+
 	/**
 	 * Event handler which is trigggerd when the user selects a row from the {@link Ext.grid.GridPanel}.
 	 * This will updates the {@link Zarafa.mail.MailContextModel MailContextModel} with the record which
@@ -425,8 +530,10 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowSelect : function(selectionModel, rowNumber, record)
 	{
 		var count = selectionModel.getCount();
+		//var conversationCount = record.get('conversation_count');
+		//var depth = record.get('depth');
 
-		if (count === 0) {
+		if (record.isConversationHeaderRecord()) {
 			this.model.setPreviewRecord(undefined);
 		} else if (count === 1 && selectionModel.getSelected() === record) {
 			this.model.setPreviewRecord(record);
@@ -448,6 +555,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		this.model.setSelectedRecords(selections);
 		if (Ext.isEmpty(selections)) {
 			this.model.setPreviewRecord(undefined);
+		}
+	},
+
+	onBeforeLiveScrollStart : function(view, target) {
+		if (this.store.getRealMailItemCount() + this.store.removedsentitems >= this.store.totalLength) {
+			return false;
 		}
 	},
 

@@ -124,7 +124,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
 			tooltip : _('Sort by: Received'),
-			groupRenderer : this.groupHeaderByDate
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['message_delivery_time'], 0)
 		},{
 			header : _('Sent'),
 			dataIndex : 'client_submit_time',
@@ -133,7 +133,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
 			tooltip : _('Sort by: Sent'),
-			groupRenderer  : this.groupHeaderByDate
+			groupRenderer  : this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
 		},{
 			header : _('Modified'),
 			dataIndex : 'last_modification_time',
@@ -143,7 +143,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
 			hidden: true,
 			tooltip : _('Sort by: Modified'),
-			groupRenderer  : this.groupHeaderByDate
+			groupRenderer  : this.groupHeaderByDate.createDelegate(this, ['last_modification_time'], 0)
 		},{
 			header : _('Size'),
 			dataIndex : 'message_size',
@@ -201,7 +201,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-received'}], true),
 			tooltip : _('Sort by: Received'),
-			groupRenderer : this.groupHeaderByDate
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['message_delivery_time'], 0)
 		},{
 			header : _('Sent'),
 			dataIndex : 'client_submit_time',
@@ -210,7 +210,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-sent'}], true),
 			tooltip : _('Sort by: Sent'),
-			groupRenderer : this.groupHeaderByDate
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['client_submit_time'], 0)
 		},{
 			header : _('Modified'),
 			dataIndex : 'last_modification_time',
@@ -220,7 +220,7 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			// This way we can add a css-class to the element (used by Selenium tests)
 			renderer : Zarafa.common.ui.grid.Renderers.datetime.createDelegate(null, [{css: 'mail-modified'}], true),
 			tooltip : _('Sort by: Modified'),
-			groupRenderer : this.groupHeaderByDate
+			groupRenderer : this.groupHeaderByDate.createDelegate(this, ['last_modification_time'], 0)
 		},{
 			header : _('Size'),
 			dataIndex : 'message_size',
@@ -296,11 +296,22 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 	/**
 	 * Function which prepare the title for the grouping header based on the given date.
+	 *
+	 * @param {String} type The index property for the column
 	 * @param {Ext.Date} date The date which is used to format the header.
+	 * @param {undefined} unused Unused argument (weirdness by ExtJS)
+	 * @param {Zarafa.core.data.MAPIRecord} record The record for which the group header is requested
 	 * @return {String} formatted title for the grouping headers.
 	 */
-	groupHeaderByDate: function (date)
+	groupHeaderByDate: function (type, date, unused, record)
 	{
+		if (type === 'message_delivery_time' && record.store && record.store.containsConversations && record.store.containsConversations()) {
+			if (record.getNewestRecordInConversation){
+				var r = record.getNewestRecordInConversation();
+				date = r.get('message_delivery_time');
+			}
+		}
+
 		if (!Ext.isDate(date)) {
 			return _('Older');
 		}
@@ -373,8 +384,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			return _('Large') + ' 500kb - 5mb';
 		} else if (size >= 1024 * 5120 && size <= 1024 * 20480) {
 			return _('Very large') + ' 5mb - 20mb';
-		} else {
-			return _('Huge') + ' + 20mb';
 		}
+
+		return _('Huge') + ' + 20mb';
 	}
 });

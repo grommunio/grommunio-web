@@ -748,6 +748,8 @@ myStore.reload(lastOptions);
 				// if paging information is provided then update total count
 				if(metaData.page) {
 					this.totalLength = metaData.page.totalrowcount;
+
+					this.removedsentitems = metaData.page.removedsentitems || 0;
 				}
 
 				// if folder information is provided, then update the folder

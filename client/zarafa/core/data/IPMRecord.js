@@ -57,7 +57,10 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'deleted_on', type:'date', dateFormat:'timestamp', defaultValue: null},
     {name: 'deferred_send_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	// required when converting attachment record to ipm record for opening embedded messages
-	{name: 'attach_num', defaultValue: null}
+	{name: 'attach_num', defaultValue: null},
+	{name: 'conversation_count', type: 'int', defaultValue: 0},
+	{name: 'depth', type: 'int', defaultValue: 0},
+	{name: 'folder_name', type: 'string', defaultValue: ''}
 ];
 
 // Register these properties as base for the IPM message class, this will ensure that every IPM.* class

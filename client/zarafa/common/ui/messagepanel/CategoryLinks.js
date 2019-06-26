@@ -92,7 +92,7 @@ Zarafa.common.ui.messagepanel.CategoryLinks = Ext.extend(Ext.Container, {
 	{
 		this.record = record;
 
-		if ( this.el ){
+		if ( this.el && this.el.dom ){
 			// Render the categories
 			var categories = Zarafa.common.categories.Util.getCategories(record);
 			var html = Zarafa.common.categories.Util.getCategoriesHtml(categories);
