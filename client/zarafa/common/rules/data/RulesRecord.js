@@ -150,6 +150,80 @@ Zarafa.common.rules.data.RulesRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	setActionsValid : function(valid)
 	{
 		this.actionsValid = valid;
+	},
+
+	/**
+	 * Rules Record's 'rule_condition' property contains Conditions and Exceptions.
+	 * This function will parse the conditions from {@link Zarafa.core.data.IPMRecord record} record's
+	 * 'rule_condition' property. And return Array consists of only conditions.
+	 * @param {Object} container is {@link Zarafa.common.rules.dialogs.RulesConditionContainer RulesConditionContainer}
+	 * or {@link Zarafa.common.rules.dialogs.RulesExceptionContainer RulesExceptionContainer}
+	 * or {@link Zarafa.common.rules.dialogs.BaseContainer BaseContainer}.
+	 * Which contain {@link #getConditionsArray} method to get conditions in array.
+	 * @return {Array} returns array of conditions.
+	 */
+	getConditions : function(container)
+	{
+		var conditions = this.get('rule_condition');
+
+		if (conditions)  {
+			conditions = container.getConditionsArray(conditions);
+		}
+		// If condition is single and null or false.
+		else if (conditions !== '') {
+			return [conditions];
+		}
+
+		// If conditions array contains more than one conditions than only there is chance of exception
+        // and conditions array needs to be filtered out.
+		if (conditions && conditions.length > 1) {
+			conditions = conditions.filter(function(condition) {
+				// If condition is null or condition value is not NOT condition and Invalid Exception,
+				// only then include the condition in conditions array.
+				if (!condition || condition[Zarafa.core.mapi.Restrictions.VALUE] !== Zarafa.core.mapi.Restrictions.RES_NOT &&
+					condition !== Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION){
+					return true;
+				}
+			});
+		}
+
+		return conditions;
+	},
+
+	/**
+	 * Rules Record's 'rule_condition' property contains Conditions and Exceptions.
+	 * This function will parse the exceptions from  {@link Zarafa.core.data.IPMRecord record} record's
+	 * 'rule_condition' property. And returns Array consists of only exceptions.
+	 * @param {Object} container is {@link Zarafa.common.rules.dialogs.RulesConditionContainer RulesConditionContainer}
+	 * or {@link Zarafa.common.rules.dialogs.RulesExceptionContainer RulesExceptionContainer}
+	 * or {@link Zarafa.common.rules.dialogs.BaseContainer BaseContainer}.
+	 * Which contains {@link #getConditionsArray} method to get conditions in array.
+	 * @return {Array} returns array of exceptions.
+	 */
+	getExceptions : function(container)
+	{
+		var conditions = this.get('rule_condition');
+		if (conditions)  {
+			conditions = container.getConditionsArray(conditions);
+		}
+
+		if (conditions && conditions.length > 1) {
+			conditions = conditions.filter(function(condition){
+                // If condition value is  NOT condition or Invalid Exception,
+                // only then include the condition in conditions array and treat that as exception.
+				if ( condition && condition[Zarafa.core.mapi.Restrictions.VALUE] === Zarafa.core.mapi.Restrictions.RES_NOT ||
+					condition === Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION){
+					return true;
+				}
+			});
+
+			if(!Ext.isEmpty(conditions)) {
+				return conditions;
+			}
+		}
+
+		// If there is no Exceptions selected by user.
+		return null;
 	}
 });
 
