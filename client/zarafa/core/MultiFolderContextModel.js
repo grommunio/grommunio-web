@@ -465,7 +465,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		// Remove 'favorites-' prefix before getting respective color scheme.
 		folderId = folderId.replace('favorites-','');
 
-		if(!this.colorMap) {
+		if (!this.colorMap) {
 			return undefined;
 		}
 

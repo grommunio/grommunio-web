@@ -357,8 +357,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 		// each appointment box to line up over the horizontal hour lines
 		startDatePos--;
 
-		if (startDay == dueDay)
-		{
+		if (startDay == dueDay)	{
 			// The startDay is the same as the dueDay, we already checked that
 			// both values fall within the current view boundaries, so all that
 			// is left to be done is creating a single Zarafa.calendar.data.AppointmentBounds
@@ -386,14 +385,11 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 				firstBox : true,
 				lastBox : true
 			}));
-		}
-		else
-		{
+		} else {
 			// add a bounds object for the first day.
-			if (startDay >= 0)
-			{
-				var columnWidth = (this.dayLayoutPositions[startDay].right - this.dayLayoutPositions[startDay].left - 1 - rightMargin - leftMargin) / columnCount;
-				var left = this.dayLayoutPositions[startDay].left + (columnWidth * column) + leftMargin;
+			if (startDay >= 0) {
+				columnWidth = (this.dayLayoutPositions[startDay].right - this.dayLayoutPositions[startDay].left - 1 - rightMargin - leftMargin) / columnCount;
+				left = this.dayLayoutPositions[startDay].left + (columnWidth * column) + leftMargin;
 				ret.push(new Zarafa.calendar.data.AppointmentBounds({
 					left : Math.round(left),
 					right : Math.round(left + columnWidth),
@@ -405,10 +401,9 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 
 			// for every day that is spanned completely by the appointment, return a bounds object that spans
 			// that day strip
-			for (var i = Math.max(startDay + 1, 0); i <= Math.min(dueDay - 1, numDays - 1); i++)
-			{
-				var columnWidth = (this.dayLayoutPositions[i].right - this.dayLayoutPositions[i].left - 1 - rightMargin - leftMargin) / columnCount;
-				var left = this.dayLayoutPositions[i].left + (columnWidth * column) + leftMargin;
+			for (var i = Math.max(startDay + 1, 0); i <= Math.min(dueDay - 1, numDays - 1); i++) {
+				columnWidth = (this.dayLayoutPositions[i].right - this.dayLayoutPositions[i].left - 1 - rightMargin - leftMargin) / columnCount;
+				left = this.dayLayoutPositions[i].left + (columnWidth * column) + leftMargin;
 				ret.push(new Zarafa.calendar.data.AppointmentBounds({
 					left : Math.round(left),
 					right : Math.round(left + columnWidth),
@@ -421,8 +416,7 @@ Zarafa.calendar.ui.AbstractCalendarDaysView = Ext.extend(Zarafa.calendar.ui.Abst
 			// this will be the only item in the bounds array
 			// The check 'dueDatePos>0' handles a corner case where an appointment is exactly 24 hours long
 			// (even though this shouldn't be displayed in the body anyway).
-			if (dueDay < numDays && dueDatePos > 0)
-			{
+			if (dueDay < numDays && dueDatePos > 0)	{
 				var columnWidth = (this.dayLayoutPositions[dueDay].right - this.dayLayoutPositions[dueDay].left - 1 - rightMargin - leftMargin) / columnCount;
 				var left = this.dayLayoutPositions[dueDay].left + (columnWidth * column) + leftMargin;
 

@@ -106,7 +106,7 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 			return false;
 		}
 
-		return Zarafa.calendar.ui.CalendarViewDragZone.superclass.onBeforeDrag.apply(this, arguments);
+		return true;
 	},
 
 	/**
@@ -227,8 +227,6 @@ Zarafa.calendar.ui.CalendarViewDragZone = Ext.extend(Ext.dd.DragZone, {
 		}
 
 		this.hideProxy();
-
-		Zarafa.calendar.ui.CalendarViewDragZone.superclass.onMouseUp.apply(this, arguments);
 	},
 
 	/**

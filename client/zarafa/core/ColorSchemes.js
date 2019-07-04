@@ -3,20 +3,20 @@ Ext.namespace('Zarafa.core');
 /**
  * @class Zarafa.core.ColorSchemes
  * @singleton
- * 
+ *
  * An object that can be used to handle color schemes.
  * Color schemes are used by {@link Zarafa.core.Context contexts}
  * that can display different folders in one view. Currently only
  * the {@link Zarafa.calendar.CalendarContext calendar context}
  * is such a context.
- * 
+ *
  * It has methods to create color schemes based on a single color
  * and to add complete color schemes.
  */
 Zarafa.core.ColorSchemes = {
-	
+
 	/**
-	 * An array with the fields that represent a color available in 
+	 * An array with the fields that represent a color available in
 	 * a color scheme. The fields have a name that can be used a key
 	 * in a color scheme, and a weight (percentage) that will be used
 	 * to create these color based on the base color of a color scheme.
@@ -33,7 +33,7 @@ Zarafa.core.ColorSchemes = {
 			weight : 1
 		}
 	],
-	
+
 	/**
 	 * The list of color schemes. Contexts can add color schemes
 	 * using the function {@link #createColorScheme} or {@link #addColorScheme}.
@@ -42,10 +42,10 @@ Zarafa.core.ColorSchemes = {
 	 * @private
 	 */
 	colorSchemes : [],
-	
+
 	/**
 	 * Adds a field to the {@link #fields colorScheme fields}
-	 * @param {Object|Array} field An object with properties name (mandatory) and 
+	 * @param {Object|Array} field An object with properties name (mandatory) and
 	 * weight (the weight of the color as ratio of the base color of the color
 	 * scheme) or color (an RGB hex value that will be used as color for this field
 	 * (e.g. '#0067AC')), or an array with field objects.
@@ -53,16 +53,16 @@ Zarafa.core.ColorSchemes = {
 	addField : function(field)
 	{
 		var i;
-		
+
 		if ( Array.isArray(field) ){
 			for ( i=0; i<field.length; i++ ){
 				this.addField(field[i]);
 			}
 			return;
 		}
-		
+
 		this.fields.push(field);
-		
+
 		// Add the color to existing color schemes
 		for ( i =0; i<this.colorSchemes.length; i++ ){
 			if ( !Ext.isDefined(this.colorSchemes[i][field.name]) ){
@@ -74,7 +74,7 @@ Zarafa.core.ColorSchemes = {
 			}
 		}
 	},
-	
+
 	/**
 	 * Converts a hexadecimal RGB color value into an object with
 	 * red, green, and blue fields
@@ -91,7 +91,7 @@ Zarafa.core.ColorSchemes = {
 			blue: parseInt(hexColor.substring(5,7), 16)
 		};
 	},
-	
+
 	/**
 	 * Converts an RGB object into a hexadecimal RGB color value
 	 * @param {Object} rgbObj An decimal RGB color object
@@ -99,7 +99,7 @@ Zarafa.core.ColorSchemes = {
 	 */
 	rgbToHex : function(rgbObj)
 	{
-		// function that will convert a number to a hexadecimal string (between 0 and 255) 
+		// function that will convert a number to a hexadecimal string (between 0 and 255)
 		const _toHex = function(n) {
 			n = parseInt(n,10);
 			if (isNaN(n)) {
@@ -108,10 +108,10 @@ Zarafa.core.ColorSchemes = {
 			n = Math.max(0,Math.min(n,255));
 			return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
 		};
-		
+
 		return '#' + _toHex(rgbObj.red)+_toHex(rgbObj.green)+_toHex(rgbObj.blue);
 	},
-	
+
 	/**
 	 * Creates a color for a color scheme based on the baseColor of
 	 * that scheme and a weight factor.
@@ -124,16 +124,16 @@ Zarafa.core.ColorSchemes = {
 	createDarkColor : function(baseColor, colorWeight)
 	{
 		var rgbBaseColor = this.hexToRgb(baseColor);
-		
+
 		var rgbColor = {
 			red : rgbBaseColor.red * colorWeight,
 			green : rgbBaseColor.green * colorWeight,
 			blue : rgbBaseColor.blue * colorWeight
 		};
-		
+
 		return this.rgbToHex(rgbColor);
 	},
-	
+
 	/**
 	 * Creates a color for a color scheme based on the baseColor of
 	 * that scheme and a weight factor.
@@ -146,16 +146,16 @@ Zarafa.core.ColorSchemes = {
 	createLightColor : function(baseColor, colorWeight)
 	{
 		var rgbBaseColor = this.hexToRgb(baseColor);
-		
+
 		var rgbColor = {
 			red : 255 - (255-rgbBaseColor.red) * (255-128*colorWeight) / 127,
 			green : 255 - (255-rgbBaseColor.green) * (255-128*colorWeight) / 127,
 			blue : 255 - (255-rgbBaseColor.blue) * (255-128*colorWeight) / 127
 		};
-		
+
 		return this.rgbToHex(rgbColor);
 	},
-	
+
 	/**
 	 * Creates a color for a color scheme based on the baseColor of
 	 * that scheme and a weight factor.
@@ -170,49 +170,49 @@ Zarafa.core.ColorSchemes = {
 	createColor : function(baseColor, colorWeight)
 	{
 		var rgbBaseColor = this.hexToRgb(baseColor);
-		
+
 		if ( Math.max(rgbBaseColor.red, rgbBaseColor.green, rgbBaseColor.blue) > 127 ){
 			return this.createLightColor(baseColor, colorWeight);
 		}else{
 			return this.createDarkColor(baseColor, colorWeight);
 		}
 	},
-	
+
 	/**
 	 * Creates a color scheme based on a single base color
-	 * 
+	 *
 	 * @param {String} name The unique name for this color scheme
 	 * (can be used to identify the color scheme)
 	 * @param {String} displayName The name of the color scheme that
-	 * will be used if a name for the color scheme must be shown 
+	 * will be used if a name for the color scheme must be shown
 	 * to the user.
-	 * @param {String} baseColor an RGB hexadecimal color value 
+	 * @param {String} baseColor an RGB hexadecimal color value
 	 * (e.g. '#0067AC for Kopano Blue)
 	 */
 	createColorScheme : function(name, displayName, baseColor)
 	{
 		var i;
-		
+
 		if ( Array.isArray(name) ){
 			for ( i=0; i<name.length; i++ ){
 				this.createColorScheme(name[i]);
 			}
-			
+
 			return;
 		}
-		
+
 		if ( Ext.isObject(name) ){
 			displayName = name.displayName;
 			baseColor = name.baseColor || name.base;
 			name = name.name;
 		}
-		
+
 		var colorScheme = {
 			name : name,
 			displayName : displayName,
 			base : baseColor
 		};
-		
+
 		// Loop through all the fields and create a color for it in this scheme
 		for ( i=0; i<this.fields.length; i++ ){
 			if ( this.fields[i].name !== 'base' ){
@@ -223,12 +223,12 @@ Zarafa.core.ColorSchemes = {
 				}
 			}
 		}
-		
+
 		if ( !Ext.isDefined(this.getColorScheme(name)) ){
 			this.colorSchemes.push(colorScheme);
 		}
 	},
-	
+
 	/**
 	 * Adds a complete color scheme to the color scheme list
 	 * @param {Object} colorScheme
@@ -241,7 +241,7 @@ Zarafa.core.ColorSchemes = {
 			// So don't add the color scheme.
 			return;
 		}
-		
+
 		// Create colors that are not available in the passed color scheme
 		for ( var i=0; i<this.fields.length; i++ ){
 			if ( !Ext.isDefined(colorScheme[this.fields[i].name]) ){
@@ -252,12 +252,12 @@ Zarafa.core.ColorSchemes = {
 				}
 			}
 		}
-		
+
 		this.colorSchemes.push(colorScheme);
 	},
-	
+
 	/**
-	 * Adds the color schemes and additional color schemes that are defined 
+	 * Adds the color schemes and additional color schemes that are defined
 	 * in the config.php/default.php
 	 */
 	addColorSchemesFromConfig : function()
@@ -276,7 +276,7 @@ Zarafa.core.ColorSchemes = {
 			}
 		}
 	},
-	
+
 	/**
 	 * Returns the color scheme with the passed name if found,
 	 * or undefined otherwise
@@ -290,10 +290,10 @@ Zarafa.core.ColorSchemes = {
 				return this.colorSchemes[i];
 			}
 		}
-		
+
 		return undefined;
 	},
-	
+
 	/**
 	 * Returns the array with all defined color schemes
 	 * @return {Object[]} An array with all defined color schemes
@@ -302,7 +302,7 @@ Zarafa.core.ColorSchemes = {
 	{
 		return this.colorSchemes;
 	},
-	
+
 	/**
 	 * Converts an RGB color value to HSL. Conversion formula
 	 * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
@@ -322,13 +322,13 @@ Zarafa.core.ColorSchemes = {
 			g = rgb.green;
 			b = rgb.blue;
 		}
-		
+
 	    r /= 255;
 	    g /= 255;
 	    b /= 255;
 	    var max = Math.max(r, g, b), min = Math.min(r, g, b);
 	    var h, s, l = (max + min) / 2;
-	
+
 	    if ( max === min ) {
 	        h = s = 0; // achromatic
 	    }else{
@@ -341,30 +341,47 @@ Zarafa.core.ColorSchemes = {
 	        }
 	        h /= 6;
 	    }
-	
+
 	    return [h, s, l];
 	},
-	
+
 	/**
-	 * Returns the luma value (brightness perception)
+	 * Returns the luma value (brightness perception) of a color.
+	 * The color can be passed as an red, green & blue triplet or as a hex string.
 	 * See http://stackoverflow.com/a/12043228
-	 * @param   {Number}  r       The red color value
-	 * @param   {Number}  g       The green color value
-	 * @param   {Number}  b       The blue color value
+	 *
+	 * @param {Number|String} r The red color value or the hex string of an rgb color (starting with #)
+	 * @param {Number} g The green color value
+	 * @param {Number} b The blue color value
 	 * @return {Number} luma value
 	 */
 	getLuma : function(r, g, b)
 	{
-		if ( arguments.length === 1 && r.substr(0,1) === '#' ){
+		if ( g === undefined && r.substr(0,1) === '#' ){
 			var rgb = this.hexToRgb(r);
 			r = rgb.red;
 			g = rgb.green;
 			b = rgb.blue;
 		}
-		
+
 		var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
-		
+
 		return luma;
+	},
+
+	/**
+	 * Checks if a color should be treated as dark (e.g. a dark background should have a light text color)
+	 * The color can be passed as an red, green & blue triplet or as a hex string.
+	 *
+	 * @param {Number|String} r The red color value or the hex string of an rgb color (starting with #)
+	 * @param {Number} g The green color value
+	 * @param {Number} b The blue color value
+	 * @return {Boolean} True is the given color should be considered as dark
+	 */
+	isDark : function(r, g, b)
+	{
+		// Use the (very subjective) value of 155 as the border between dark and light
+		return Zarafa.core.ColorSchemes.getLuma(r, g, b) < 155;
 	}
 };
 

@@ -140,46 +140,266 @@ $calendar-tab-height: 30px;
 	}
 }
 
-/* We use elements inside canvas elements to pass some styling from the css files to the canvas*/
-.zarafa-styling-element {
-	position: absolute;
-	top: -10000px;
-	left: -10000px;
-	visibility: hidden;
-}
-
 /* The headers of the calendars */
 .zarafa-calendar-container-header {
-	.zarafa-canvas-header-background {
-		/* a styling element that we can use to set some styles of the header */
-		.zarafa-styling-element {
-			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
-			 * and use it for the text it draws on the canvas
-			 */
-			color: white;
-			/* the height value defines the height of the header */
-			height: 30px;
-			/* this is the padding that the js will use for the days in the header */
-			padding-left: $padding-large;
-			padding-right: $padding-medium;
-		}
-		.zarafa-styling-element.light-background {
-			color: black;
+	.k-html-header-background {
+		display: grid;
+		display: -ms-grid;
+
+		&.k-dark {
+			color: $white;
 		}
 
-		/* a styling element that we can use to set some styles of the active header (current day) */
-		.zarafa-styling-element-active,
-		.zarafa-styling-element-current-day {
+		.k-cal-header-title {
+			padding: 0 $padding-large;
+			line-height: $font-line-height-extra-large - 1;
+			white-space: nowrap;
+			width: 100%;
+			box-sizing: border-box;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.k-today .k-cal-header-title {
+			background: $action-bgcolor;
+			color: $white;
+		}
+		.k-active-border {
+			border-right: 1px solid $action-bgcolor;
+		}
+		.k-today:first-child {
+			border-left: 1px solid $action-bgcolor;
+		}
+	}
+
+	.k-html-header-appointment {
+		position: absolute;
+		top: 0;
+	}
+}
+
+.zarafa-calendar-container-body {
+	.k-html-body-background {
+		display: grid;
+		display: -ms-grid;
+
+		> div {
+			border-width: 0 1px 1px 0;
+			border-style: solid;
+			position: relative;
+
+			&.k-active-border {
+				border-color: $action-bgcolor;
+			}
+		}
+		.k-today.k-day-0 {
+			border-left: 1px solid $action-bgcolor;
+		}
+	}
+	.k-html-body-appointment {
+		position: absolute;
+		top: 0;
+	}
+}
+
+.k-appointment-box {
+	position: absolute;
+	color: $font-color-dark;
+	box-sizing: border-box;
+	border: 1px solid $white;
+	cursor: move;
+	z-index: 100;
+
+	.k-status {
+		border: none;
+	}
+
+	&.k-dark {
+		color: $font-color-light;
+	}
+
+	&.k-inactive {
+		opacity: 0.4;
+	}
+
+	&.k-selected {
+		border-color: #000000;
+		z-index: 110;
+
+		.k-resizehandle {
+			display: block;
+		}
+	}
+
+	.k-resizehandle {
+		position: absolute;
+		left: calc(50% - 3.5px);
+		top: -3.5px;
+		display: none;
+		background: $white;
+		border: 1px solid black;
+		box-sizing: border-box;
+		width: 7px;
+		height: 7px;
+		cursor: row-resize;
+
+		&.k-resizehandle-end {
+			top: calc(100% - 3.5px);
+		}
+	}
+
+	.k-status {
+		height: 100%;
+		float: left;
+		border-width: 1px 0 1px 1px;
+		border-style: solid;
+		box-sizing: border-box;
+		margin-right: $padding-small;
+
+		&.k-status-tentative {
+			background: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=) repeat;
+		}
+		&.k-status-outofoffice {
+			background: #912787;
+		}
+		&.k-status-free {
+			background: $white;
+		}
+	}
+
+	.k-icons {
+		float: left;
+		margin-right: $padding-small;
+		padding-top: $padding-small;
+
+		.k-icon {
+			float: left;
+			width: 16px;
+			height: 16px;
+
+			/*
+			&.k-icon-private {
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADaSURBVCiRfZE9SkNRFIS/GbMBW0uthKQVBCEbMNroBrIE95BtBMGfgJDKFYQUWgQEwR1Y2VgYbQxMCl/kRd/NwMA9l++eM5xLEpoMnEt6kvQhaQb0klCCjyWl5kdJn8CJKmBNtp+BzqpOsi1pCixa/+gf7dQLSe/Vce7Cg7fC/UtT/v6f/CsvgO7aBEm7tveBe+ALGAMPkm6TtJNM6p1PJcX2je1roNu4wQq+kPRq+8r2CDja8D+cSZravrR9BxyW4CRQxRhKGgMHm+AkbAHfwF6SQZJZYZ2/WgIY6MDMF1W9zwAAAABJRU5ErkJggg==) no-repeat center center;
+			}
+			*/
+		}
+	}
+
+	.k-title {
+		line-height: $font-default-line-height + 3;
+		max-height: 100%;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-word;
+		padding-right: $padding-small;
+		display: block;
+	}
+}
+
+.k-html-header-appointment {
+	.k-appointment-box {
+		/* selection in the header of the days view has the handles on the left and tight sides */
+		.k-resizehandle {
+			left: -3.5px;
+			top: calc(50% - 3.5px);
+			cursor: col-resize;
+
+			&.k-resizehandle-end {
+				left: calc(100% - 3.5px);
+			}
+		}
+	}
+}
+
+.zarafa-calendar-boxview {
+	.k-html-header-background {
+		.k-cal-header-title {
+			line-height: $font-line-height-extra-large + 5;
+		}
+	}
+
+	.zarafa-calendar-container-body {
+		.k-html-body-background {
+			height: 100%;
+
+			.k-header {
+				padding: 0 $padding-large;
+				line-height: $font-default-line-height + 4px;
+				cursor: pointer;
+				/* we must move the header over the appointment layer to be able to catch its events */
+				position: relative;
+				z-index: 10;
+			}
+
+			.k-action-border {
+				border-color: $action-bgcolor !important;
+			}
+			.k-today {
+				border-left-width: 2px;
+				border-right-width: 3px;
+				border-bottom-width: 3px;
+
+				.k-header {
+					background: $action-bgcolor !important;
+					color: $white;
+				}
+			}
+			.k-status-tentative {
+				background-image: url(data:image/gif;base64,R0lGODlhCAAIAIABAP///wAAACH5BAEKAAEALAAAAAAIAAgAAAIPhIN2qRgKHIwPslZxpq8AADs=);
+				background-repeat: repeat;
+			}
+		}
+
+		.k-html-body-appointment {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.k-appointment-box {
+		.k-resizehandle {
+			left: -3.5px;
+			top: calc(50% - 3.5px);
+			cursor: col-resize;
+		}
+
+		.k-resizehandle-end {
+			left: calc(100% - 3.5px);
+		}
+	}
+
+	.k-expand-btn {
+		width: 14px;
+		height: 14px;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 7px;
+		position: absolute;
+		background: $white;
+		z-index: 120;
+		cursor: pointer;
+		opacity: 0.7;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&::after {
+			display: block;
+			content: ' ';
+			width: 0px;
+			height: 0px;
 			position: absolute;
-			top: -10000px;
-			left: -10000px;
-			visibility: hidden;
-			/* Note: although we can set the color here, it is not the css that sets the color but the javascript that will read this value
-			 * and use it for the text it draws on the canvas
-			 */
-			color: white;
-			/* This is the color that the js will use as the background and border color of the current day */
-			background-color: $green;
+			bottom: 2px;
+			right: 3px;
+			/* some css magic to create a rectangle with pure css */
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-top: 4px solid;
+			border-top-color: inherit;
+			transform-origin: bottom;
+			transform: scale(1, 2);
 		}
 	}
 }
@@ -196,65 +416,7 @@ $calendar-tab-height: 30px;
 }
 
 /*
- * Appointment Dialog (HTML & Canvas)
-*/
-.zarafa-calendar-appointment-label-none
-{
-	background-color: transparent;
-}
-
-.zarafa-calendar-appointment-label-important
-{
-	background-color: #E98784;
-}
-
-.zarafa-calendar-appointment-label-work
-{
-	background-color: #8CA9D9;
-}
-
-.zarafa-calendar-appointment-label-personal
-{
-	background-color: #C0D98C;
-}
-
-.zarafa-calendar-appointment-label-holiday
-{
-	background-color: #DFCB47;
-}
-
-.zarafa-calendar-appointment-label-required
-{
-	background-color: #D9C18C;
-}
-
-.zarafa-calendar-appointment-label-travel-required
-{
-	background-color: #8CC6D9;
-}
-
-.zarafa-calendar-appointment-label-prepare-required
-{
-	background-color: #8C8CD9;
-}
-
-.zarafa-calendar-appointment-label-birthday
-{
-	background-color: #C48CD9;
-}
-
-.zarafa-calendar-appointment-label-special-date
-{
-	background-color: #D9928C;
-}
-
-.zarafa-calendar-appointment-label-phone-interview
-{
-	background-color: #9BD98C;
-}
-
-/*
- * Calendar timestrip (HTML & Canvas)
+ * Calendar timestrip
  */
 .zarafa-calendar-timestrip
 {
@@ -347,7 +509,7 @@ $calendar-tab-height: 30px;
 	overflow : hidden;
 	position : absolute;
 	cursor : move;
-	z-index : 999;
+	z-index : 99;
 	opacity:.5;
 }
 

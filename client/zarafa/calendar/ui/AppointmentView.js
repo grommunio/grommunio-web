@@ -343,13 +343,13 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	{
 		var categories = Zarafa.common.categories.Util.getCategories(this.record);
 
-		// If no category is set then default back to the color scheme of the calendar
 		// Note: If a label has been set, then it will have been added as the last
 		// category by the getCategories method
 		if ( this.isActive() &&  !Ext.isEmpty(categories) ){
 			return Zarafa.common.categories.Util.getCategoryColor(categories.pop());
 		}
 
+		// If no category is set then default back to the color scheme of the calendar
 		return this.calendarColorScheme.base;
 	}
 });
