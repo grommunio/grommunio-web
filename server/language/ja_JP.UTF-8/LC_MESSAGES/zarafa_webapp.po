@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1617,6 +1617,9 @@ msgstr "移動"
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2650,6 +2653,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "１つ選択"
 
+msgid "Unknown condition"
+msgstr "不明な条件"
+
+msgid "This condition for the current rule is unknown"
+msgstr "現在の仕訳ルールのこの条件は不明です。"
+
 msgid "Unnamed folder"
 msgstr "名前の設定がないフォルダ"
 
@@ -2671,12 +2680,6 @@ msgstr "条件を追加"
 msgid "Remove condition"
 msgstr "条件を外す"
 
-msgid "Unknown condition"
-msgstr "不明な条件"
-
-msgid "This condition for the current rule is unknown"
-msgstr "現在の仕訳ルールのこの条件は不明です。"
-
 msgid "Inbox Rule"
 msgstr "受信箱の仕訳ルール"
 
@@ -2689,11 +2692,24 @@ msgstr "メッセージ"
 msgid "Do the following"
 msgstr "以下を実行する"
 
+# オプション
+#, fuzzy
+msgid "Exceptions"
+msgstr "オプション"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "これ以上ルール仕訳を実行するのをやめる。"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "アクションを追加"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "アクションを削除"
 
 msgid "Specify Words or Phrases"
 msgstr "単語と文章を特定する。"

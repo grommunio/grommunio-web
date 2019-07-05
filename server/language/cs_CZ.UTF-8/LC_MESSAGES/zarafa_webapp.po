@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1644,6 +1644,9 @@ msgstr "Přesunout"
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2707,6 +2710,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "Vybrat jednu..."
 
+msgid "Unknown condition"
+msgstr "Neznámá podmínka"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Tato podmínka pro aktuální pravidlo je neznámá"
+
 msgid "Unnamed folder"
 msgstr "Nepojmenovaná složka"
 
@@ -2728,12 +2737,6 @@ msgstr "Přidat podmínku"
 msgid "Remove condition"
 msgstr "Odstranit podmínku"
 
-msgid "Unknown condition"
-msgstr "Neznámá podmínka"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Tato podmínka pro aktuální pravidlo je neznámá"
-
 msgid "Inbox Rule"
 msgstr "Pravidlo pro doručenou poštu"
 
@@ -2746,11 +2749,24 @@ msgstr "Jestliže zpráva"
 msgid "Do the following"
 msgstr "Provést následující"
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Možnosti"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Zastavit zpracování dalších pravidel"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Přidat akci"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Odstranit akci"
 
 msgid "Specify Words or Phrases"
 msgstr "Specifikovat slova nebo fráze"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -1665,6 +1665,9 @@ msgstr "Déplacer"
 msgid "Don't move"
 msgstr "Ne pas envoyer"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2707,6 +2710,12 @@ msgstr "Est reçu (tous les messages)"
 msgid "Select one..."
 msgstr "Choisir un..."
 
+msgid "Unknown condition"
+msgstr "Condition inconnue"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Cette condition est inconnue pour la règle en cours"
+
 msgid "Unnamed folder"
 msgstr "Dossier sans nom"
 
@@ -2728,12 +2737,6 @@ msgstr "Ajouter une condition"
 msgid "Remove condition"
 msgstr "Supprimer une condition"
 
-msgid "Unknown condition"
-msgstr "Condition inconnue"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Cette condition est inconnue pour la règle en cours"
-
 msgid "Inbox Rule"
 msgstr "Règle de la boîte de réception"
 
@@ -2746,11 +2749,23 @@ msgstr "Quand le message"
 msgid "Do the following"
 msgstr "Faire ceci"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "Options"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Cesser le traitement des autres règles"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Ajouter une action"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Supprimer une action"
 
 msgid "Specify Words or Phrases"
 msgstr "Spécifier des Mots ou des Phrases"

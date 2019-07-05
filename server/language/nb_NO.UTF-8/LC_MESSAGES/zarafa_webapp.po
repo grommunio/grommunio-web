@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2019-06-25 13:44+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1620,6 +1620,9 @@ msgstr "Flytt"
 msgid "Don't move"
 msgstr "Ikke flytt"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2641,6 +2644,12 @@ msgstr "er mottatt (alle meldinger)"
 msgid "Select one..."
 msgstr "Merk..."
 
+msgid "Unknown condition"
+msgstr "Ukjent betingelse"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Betingelsen for gjeldende regel er ukjent"
+
 msgid "Unnamed folder"
 msgstr "Mappe uten navn"
 
@@ -2663,12 +2672,6 @@ msgstr "Legg til betingelse"
 msgid "Remove condition"
 msgstr "Fjern betingelse"
 
-msgid "Unknown condition"
-msgstr "Ukjent betingelse"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Betingelsen for gjeldende regel er ukjent"
-
 msgid "Inbox Rule"
 msgstr "Innboksregel"
 
@@ -2682,11 +2685,23 @@ msgstr "Når meldingen"
 msgid "Do the following"
 msgstr "Gjør følgende"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "Alternativer"
+
 msgid "Apply only when Out of Office is active"
 msgstr "Bruk kun når Fraværende er aktivert"
 
 msgid "Stop processing more rules"
 msgstr "Stopp behandlingen av flere regler"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Legg til handling"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Fjern handling"
 
 msgid "Specify Words or Phrases"
 msgstr "Angi ord eller uttrykk"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1642,6 +1642,9 @@ msgstr "Переместить"
 msgid "Don't move"
 msgstr "Не отправлять"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2684,6 +2687,14 @@ msgstr "получено (все сообщения)"
 msgid "Select one..."
 msgstr "Выбор..."
 
+msgid "Unknown condition"
+msgstr "Неизвестное условие"
+
+# 89%
+# 100%
+msgid "This condition for the current rule is unknown"
+msgstr "Это условие  для текущего правила фильтрации неизвестно"
+
 msgid "Unnamed folder"
 msgstr "Безымянная папка"
 
@@ -2705,14 +2716,6 @@ msgstr "Добавить условие"
 msgid "Remove condition"
 msgstr "Удалить условие"
 
-msgid "Unknown condition"
-msgstr "Неизвестное условие"
-
-# 89%
-# 100%
-msgid "This condition for the current rule is unknown"
-msgstr "Это условие  для текущего правила фильтрации неизвестно"
-
 msgid "Inbox Rule"
 msgstr "Правило фильтрации входящих"
 
@@ -2725,11 +2728,23 @@ msgstr "Когда сообщение"
 msgid "Do the following"
 msgstr "Производить следующие действия"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "Свойства"
+
 msgid "Apply only when Out of Office is active"
 msgstr "Применять только когда включен статус «Нет в офисе»"
 
 msgid "Stop processing more rules"
 msgstr "Остановить работу других правил фильтрации"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Добавить действие"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Удалить действие"
 
 msgid "Specify Words or Phrases"
 msgstr "Укажите слова или предложения"

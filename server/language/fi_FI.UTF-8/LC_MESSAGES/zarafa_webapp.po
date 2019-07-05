@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -1659,6 +1659,9 @@ msgstr "Siirrä"
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2703,6 +2706,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "Valitse yksi..."
 
+msgid "Unknown condition"
+msgstr "Tuntematon ehto"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Nykyisen säännön ehto on tuntematon"
+
 msgid "Unnamed folder"
 msgstr "Nimeämätön kansio"
 
@@ -2724,12 +2733,6 @@ msgstr "Lisää ehto"
 msgid "Remove condition"
 msgstr "Poista ehto"
 
-msgid "Unknown condition"
-msgstr "Tuntematon ehto"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Nykyisen säännön ehto on tuntematon"
-
 msgid "Inbox Rule"
 msgstr "Saapuneiden viestien sääntö"
 
@@ -2742,11 +2745,24 @@ msgstr "Kun viesti"
 msgid "Do the following"
 msgstr "Tee seuraava"
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Valinnat"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Älä käsittele enempää sääntöjä"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Lisää toiminto"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Poista toiminto"
 
 msgid "Specify Words or Phrases"
 msgstr "Määrittele sanat tai lausekkeet"

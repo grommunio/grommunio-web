@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -1613,6 +1613,9 @@ msgstr ""
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2617,6 +2620,12 @@ msgstr ""
 msgid "Select one..."
 msgstr ""
 
+msgid "Unknown condition"
+msgstr ""
+
+msgid "This condition for the current rule is unknown"
+msgstr ""
+
 msgid "Unnamed folder"
 msgstr ""
 
@@ -2638,12 +2647,6 @@ msgstr ""
 msgid "Remove condition"
 msgstr ""
 
-msgid "Unknown condition"
-msgstr ""
-
-msgid "This condition for the current rule is unknown"
-msgstr ""
-
 msgid "Inbox Rule"
 msgstr ""
 
@@ -2656,10 +2659,19 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+msgid "Exceptions"
+msgstr ""
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
+msgstr ""
+
+msgid "Add exception"
+msgstr ""
+
+msgid "Remove exception"
 msgstr ""
 
 msgid "Specify Words or Phrases"

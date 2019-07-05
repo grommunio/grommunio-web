@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1672,6 +1672,9 @@ msgstr "Mover"
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2723,6 +2726,12 @@ msgstr ""
 msgid "Select one..."
 msgstr ""
 
+msgid "Unknown condition"
+msgstr ""
+
+msgid "This condition for the current rule is unknown"
+msgstr ""
+
 msgid "Unnamed folder"
 msgstr ""
 
@@ -2744,12 +2753,6 @@ msgstr ""
 msgid "Remove condition"
 msgstr ""
 
-msgid "Unknown condition"
-msgstr ""
-
-msgid "This condition for the current rule is unknown"
-msgstr ""
-
 msgid "Inbox Rule"
 msgstr ""
 
@@ -2762,11 +2765,23 @@ msgstr ""
 msgid "Do the following"
 msgstr ""
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Opciones"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr ""
+
+msgid "Add exception"
+msgstr ""
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Eliminar"
 
 msgid "Specify Words or Phrases"
 msgstr ""

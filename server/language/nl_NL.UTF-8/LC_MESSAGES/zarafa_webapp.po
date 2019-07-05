@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2019-06-24 12:15+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1672,6 +1672,9 @@ msgstr "Verplaatsen"
 msgid "Don't move"
 msgstr "Niet verplaatsen"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2719,6 +2722,12 @@ msgstr "wordt ontvangen (alle berichten)"
 msgid "Select one..."
 msgstr "Selecteer een..."
 
+msgid "Unknown condition"
+msgstr "Onbekende voorwaarde"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Deze voorwaarde voor de huidige regel is onbekend"
+
 msgid "Unnamed folder"
 msgstr "Map zonder naam"
 
@@ -2740,12 +2749,6 @@ msgstr "Voorwaarde toevoegen"
 msgid "Remove condition"
 msgstr "Voorwaarde verwijderen"
 
-msgid "Unknown condition"
-msgstr "Onbekende voorwaarde"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Deze voorwaarde voor de huidige regel is onbekend"
-
 msgid "Inbox Rule"
 msgstr "Regel voor Postvak In"
 
@@ -2758,11 +2761,23 @@ msgstr "Als het bericht"
 msgid "Do the following"
 msgstr "Doe het volgende"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "Opties"
+
 msgid "Apply only when Out of Office is active"
 msgstr "Pas alleen toe indien Out of Office actief is"
 
 msgid "Stop processing more rules"
 msgstr "Voorkom uitvoeren van andere regels"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Actie toevoegen"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Actie verwijderen"
 
 msgid "Specify Words or Phrases"
 msgstr "Geef Woorden of Frasen"

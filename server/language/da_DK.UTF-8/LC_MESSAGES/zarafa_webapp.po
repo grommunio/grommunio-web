@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1586,6 +1586,9 @@ msgstr "Flyt"
 msgid "Don't move"
 msgstr "Send ikke"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2596,6 +2599,12 @@ msgstr "er modtaget (alle meddelelser)"
 msgid "Select one..."
 msgstr "Vælg en..."
 
+msgid "Unknown condition"
+msgstr "Ukendt betingelse"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Denne betingelse for den valgte regel er ukendt"
+
 msgid "Unnamed folder"
 msgstr "Unavngivet folder"
 
@@ -2617,12 +2626,6 @@ msgstr "Tilføj betingelse"
 msgid "Remove condition"
 msgstr "Fjern betingelse"
 
-msgid "Unknown condition"
-msgstr "Ukendt betingelse"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Denne betingelse for den valgte regel er ukendt"
-
 msgid "Inbox Rule"
 msgstr "Indbakke regel"
 
@@ -2635,11 +2638,23 @@ msgstr "Når meddelelsen"
 msgid "Do the following"
 msgstr "Gør følgende"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "Muligheder"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Stop udførsel af flere regler"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Tilføj handling"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Fjern handling"
 
 msgid "Specify Words or Phrases"
 msgstr "Angiv ord eller sætninger"

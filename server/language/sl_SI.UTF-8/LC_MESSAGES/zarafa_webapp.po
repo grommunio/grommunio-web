@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -1684,6 +1684,9 @@ msgstr "Premakni"
 msgid "Don't move"
 msgstr "Ne pošlji"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2740,6 +2743,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "Izberi eno ..."
 
+msgid "Unknown condition"
+msgstr "Neznano stanje"
+
+msgid "This condition for the current rule is unknown"
+msgstr "To stanje za trenutno pravilo je neznano"
+
 msgid "Unnamed folder"
 msgstr "Neimenovana mapa"
 
@@ -2761,12 +2770,6 @@ msgstr "Dodaj stanje"
 msgid "Remove condition"
 msgstr "Odstrani stanje"
 
-msgid "Unknown condition"
-msgstr "Neznano stanje"
-
-msgid "This condition for the current rule is unknown"
-msgstr "To stanje za trenutno pravilo je neznano"
-
 msgid "Inbox Rule"
 msgstr "Pravilo prejetih sporočil"
 
@@ -2779,11 +2782,24 @@ msgstr "Ko sporočilo"
 msgid "Do the following"
 msgstr "Naredi naslednje"
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Možnosti"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Prenehaj ustvarjati pravila"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Dodaj dejanje"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Odstrani dejanje"
 
 msgid "Specify Words or Phrases"
 msgstr "Specificiraj besede ali fraze"

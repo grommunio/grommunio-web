@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -1602,6 +1602,9 @@ msgstr "移動"
 msgid "Don't move"
 msgstr ""
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2620,6 +2623,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "選擇一個..."
 
+msgid "Unknown condition"
+msgstr "未知條件"
+
+msgid "This condition for the current rule is unknown"
+msgstr "現有規則未知此條件"
+
 msgid "Unnamed folder"
 msgstr "未命名的資料夾"
 
@@ -2641,12 +2650,6 @@ msgstr "添加條件"
 msgid "Remove condition"
 msgstr "移除條件"
 
-msgid "Unknown condition"
-msgstr "未知條件"
-
-msgid "This condition for the current rule is unknown"
-msgstr "現有規則未知此條件"
-
 msgid "Inbox Rule"
 msgstr "收件夾規則"
 
@@ -2659,11 +2662,23 @@ msgstr "When the message"
 msgid "Do the following"
 msgstr "Do the following"
 
+#, fuzzy
+msgid "Exceptions"
+msgstr "選項"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Stop processing more rules"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "新增動作"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "移除動作"
 
 msgid "Specify Words or Phrases"
 msgstr "指定字或片語"

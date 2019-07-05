@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -1689,6 +1689,9 @@ msgstr "Áthelyezés"
 msgid "Don't move"
 msgstr "Ne Küldje"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2737,6 +2740,12 @@ msgstr "érkezett (minden üzenet)"
 msgid "Select one..."
 msgstr "Válaszon egy..."
 
+msgid "Unknown condition"
+msgstr "Ismeretlen feltétel"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Ebben a szabályban ez a feltétel ismeretlen"
+
 msgid "Unnamed folder"
 msgstr "Névtelen mappa"
 
@@ -2758,12 +2767,6 @@ msgstr "Feltétel hozzáadása"
 msgid "Remove condition"
 msgstr "Feltétel eltávolítása"
 
-msgid "Unknown condition"
-msgstr "Ismeretlen feltétel"
-
-msgid "This condition for the current rule is unknown"
-msgstr "Ebben a szabályban ez a feltétel ismeretlen"
-
 msgid "Inbox Rule"
 msgstr "Beérkező szabály"
 
@@ -2776,11 +2779,24 @@ msgstr "Ha az üzenet"
 msgid "Do the following"
 msgstr "Tegye a következőket"
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Lehetőségek"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Állítsa meg a többi szabály feldolgozását"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Művelet hozzáadása"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Művelet eltávolítása"
 
 msgid "Specify Words or Phrases"
 msgstr "Adjon meg szavakat vagy kifejezéseket"

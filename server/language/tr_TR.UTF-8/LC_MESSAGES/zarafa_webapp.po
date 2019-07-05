@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 10:51+0200\n"
+"POT-Creation-Date: 2019-07-05 14:35+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -1677,6 +1677,9 @@ msgstr "Kaydır"
 msgid "Don't move"
 msgstr "gönderme"
 
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
@@ -2719,6 +2722,12 @@ msgstr ""
 msgid "Select one..."
 msgstr "birini seç ..."
 
+msgid "Unknown condition"
+msgstr "bilinmeyen koşul"
+
+msgid "This condition for the current rule is unknown"
+msgstr "güncel kuralın bu koşulu bilinmiyor"
+
 msgid "Unnamed folder"
 msgstr "isimsiz klasör"
 
@@ -2740,12 +2749,6 @@ msgstr "koşul ekle"
 msgid "Remove condition"
 msgstr "koşul sil"
 
-msgid "Unknown condition"
-msgstr "bilinmeyen koşul"
-
-msgid "This condition for the current rule is unknown"
-msgstr "güncel kuralın bu koşulu bilinmiyor"
-
 msgid "Inbox Rule"
 msgstr "'gelen kutusu' kuralı"
 
@@ -2758,11 +2761,24 @@ msgstr "mesaj"
 msgid "Do the following"
 msgstr "aşağıdakileri yapın"
 
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Ayarlar"
+
 msgid "Apply only when Out of Office is active"
 msgstr ""
 
 msgid "Stop processing more rules"
 msgstr "Daha fazla kural işlemeyi durdur"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "eylem ekle"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "eylem sil"
 
 msgid "Specify Words or Phrases"
 msgstr "kelime ve cümleler belirle"
