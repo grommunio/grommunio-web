@@ -193,7 +193,6 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 		this.activeContext = newContext;
 
 		this.toggleVisibilityNavigationComponents();
-		this.doLayout();
 
 		var title = newContext.getDisplayName() || _('Folders List');
 		this.setTitle(title);
@@ -227,11 +226,11 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 
 		// Use this variable to see if we have to switch to the default one if none is found
 		var contextNavPanelFound = false;
-		if(!this.showFolderList){
-			// Loop through all items to find the one for the active Context
-			for (var i = 0, len = center.items.length; i < len; i++){
-				var item = center.items.itemAt(i);
-				if(item.getContext() == this.activeContext){
+		// Loop through all items to find the one for the active Context
+		for (var i = 0, len = center.items.length; i < len; i++){
+			var item = center.items.itemAt(i);
+			if(!this.showFolderList || item.restrictToShowAllFolderList === true) {
+				if (item.getContext() == this.activeContext) {
 					// Switch to the panel belonging to the active Context
 					if (!Ext.isFunction(layout.setActiveItem)) {
 						center.activeItem = i;
@@ -252,6 +251,8 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 				layout.setActiveItem(0);
 			}
 		}
+
+		this.doLayout();
 	},
 
 	/**
@@ -269,7 +270,6 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 
 		this.showFolderList = showFolderList;
 		this.toggleVisibilityNavigationComponents();
-		this.doLayout();
 
 		this.fireEvent('toggleshowallfolders', this.showFolderList);
 	},
