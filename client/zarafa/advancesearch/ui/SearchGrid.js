@@ -333,7 +333,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 		if (dataIndex === 'icon_index') {
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
 		} else if (dataIndex === 'flag_due_by') {
-			Zarafa.common.Actions.openFlagsMenu(record, e.getXY());
+			Zarafa.common.Actions.openFlagsMenu(record, e.getXY(), false);
 		}
 	},
 
@@ -392,7 +392,7 @@ Zarafa.advancesearch.ui.SearchGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessag
 
 		var records = sm.getSelections();
 
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position : event.getXY(), context : this.searchContext });
+		Zarafa.core.data.UIFactory.openDefaultContextMenu(records, { position : event.getXY(), context : this.searchContext, shadowEdit : false });
 	},
 
 	/**

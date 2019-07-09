@@ -130,6 +130,7 @@ Zarafa.advancesearch.AdvanceSearchStore = Ext.extend(Zarafa.core.data.ListModule
 				case 'IPM.Note.SMIME.SignedEncrypt':
 				case 'IPM.Note.SMIME':
 					searchDate = record.get('message_delivery_time') || record.get('last_modification_time');
+					record.data['duedate'] = record.get('task_duedate');
 					break;
 				case 'IPM.Task':
 					searchDate = record.get('task_duedate');

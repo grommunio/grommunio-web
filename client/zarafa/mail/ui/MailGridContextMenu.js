@@ -59,7 +59,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			items : [
 				this.createContextOperationItems(),
 				{ xtype: 'menuseparator' },
-				this.createContextCategorizedItems(config.records),
+				this.createContextCategorizedItems(config),
 				{ xtype: 'menuseparator' },
 				this.createContextCopyMoveItems(),
 				{ xtype: 'menuseparator' },
@@ -153,7 +153,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Categorized context menu items
 	 * @private
 	 */
-	createContextCategorizedItems : function(records)
+	createContextCategorizedItems : function(config)
 	{
 		return[{
 			xtype: 'zarafa.conditionalitem',
@@ -163,7 +163,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			hideOnClick: false,
 			menu: {
 				xtype: 'zarafa.categoriescontextmenu',
-				records: records
+				records: config.records
 			}
 		},{
 			xtype: 'zarafa.conditionalitem',
@@ -173,7 +173,8 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 			hideOnClick: false,
 			menu : {
 				xtype: 'zarafa.flagsmenu',
-				records: records
+				records: config.records,
+				shadowEdit : config.shadowEdit
 			},
 			scope: this
 		}];
