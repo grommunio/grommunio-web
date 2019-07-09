@@ -75,7 +75,7 @@
 		 * Function does customization of exception based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
-		 * 
+		 *
 		 * @param object $e Exception object
 		 * @param string $actionType the action type, sent by the client
 		 * @param MAPIobject $store Store object of the current user.
@@ -113,6 +113,44 @@
 			}
 
 			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
+		}
+
+		/**
+		 * Parses the incoming sort request and builds a MAPI sort order.
+		 * Overridden to rewrite the sorting for flags. (because the flags that are shown in the WebApp
+		 * are a combination of several properties)
+		 *
+		 * @param array $action the action data, sent by the client
+		 * @param array|bool $map Normally properties are mapped from the XML to MAPI by the standard
+		 * $this->properties mapping. However, if you want other mappings, you can specify them in this parameter.
+		 * @param bool $allow_multi_instance Sort as multi-value instance (every value a different row)
+		 * @param array|bool a custom set of properties to use instead of the properties stored in module
+		 */
+		function parseSortOrder($action, $map = false, $allow_multi_instance = false, $properties = false)
+		{
+			if(isset($action['sort'])) {
+				// Check if the user wants to sort the maillist on flags.
+				// If so, we will rewrite the sorting a little
+				if ( is_array($action['sort']) && count($action['sort'])>0 && $action['sort'][0]['field'] === 'flag_due_by' ) {
+					$dir = $action['sort'][0]['direction'];
+					$action['sort'] = array(
+						array(
+							'field' => 'flag_status',
+							'direction' => $dir,
+						),
+						array(
+							'field' => 'duedate',
+							'direction' => $dir === 'ASC' ? 'DESC' : 'ASC',
+						),
+						array(
+							'field' => 'flag_due_by',
+							'direction' => $dir,
+						),
+					);
+				}
+			}
+
+			parent::parseSortOrder($action, $map, $allow_multi_instance, $properties);
 		}
 	}
 ?>
