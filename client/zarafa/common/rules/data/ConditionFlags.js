@@ -137,5 +137,18 @@ Zarafa.common.rules.data.ConditionFlags = Zarafa.core.Enum.create({
 	 * @property
 	 * @type Number
 	 */
-	NAME_BCC  : 18
+	NAME_BCC  : 18,
+
+	/** Indicates that the condition checks that message size should be equal to or more than given size in this condition.
+	 * @property
+	 * @type Number
+	 */
+	ATLEAST_SIZE: 19,
+
+	/**
+	 * Indicates that the condition checks that message size should be equal to or lesser than given size in this condition.
+	 * @property
+	 * @type Number
+	 */
+	ATMOST_SIZE: 20
 });

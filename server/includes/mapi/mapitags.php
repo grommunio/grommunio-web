@@ -824,6 +824,10 @@ define('PR_RULE_NAME'                                 ,mapi_prop_tag(PT_TSTRING,
 define('PR_RULE_LEVEL'                                ,mapi_prop_tag(PT_LONG,        0x6670+0x13));
 define('PR_RULE_PROVIDER_DATA'                        ,mapi_prop_tag(PT_BINARY,      0x6670+0x14));
 
+//custom properties to hold size units
+define('PR_RULE_ATLEAST_MESSAGE_SIZEUNIT'             ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x15));
+define('PR_RULE_ATMOST_MESSAGE_SIZEUNIT'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x17));
+
 // edkmdb, ICS properties
 define('PR_SOURCE_KEY'								  ,mapi_prop_tag(PT_BINARY, 	0x65E0+0x00));
 define('PR_PARENT_SOURCE_KEY'						  ,mapi_prop_tag(PT_BINARY, 	0x65E0+0x01));

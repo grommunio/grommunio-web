@@ -1257,7 +1257,8 @@
 				$properties["rule_provider_data"] = PR_RULE_PROVIDER_DATA;
 				$properties["rule_level"] = PR_RULE_LEVEL;
 				$properties["rule_user_flags"] = PR_RULE_USER_FLAGS;
-
+				$properties["rule_msg_atleast_size_unit"] = PR_RULE_ATLEAST_MESSAGE_SIZEUNIT;
+				$properties["rule_msg_atmost_size_unit"] = PR_RULE_ATMOST_MESSAGE_SIZEUNIT;
 				$this->mapping[$this->storeMapping]['rules'] = $properties;
 			}
 
