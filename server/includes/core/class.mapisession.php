@@ -661,6 +661,8 @@
 		function getOtherUserStore()
 		{
 			$otherusers = $this->retrieveOtherUsersFromSettings();
+			$otheUsersStores = Array();
+
 			foreach($otherusers as $username=>$folder) {
 				if (isset($this->userstores[$username])) {
 					continue;
@@ -670,7 +672,11 @@
 					try {
 						$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
-						$this->openMessageStore($user_entryid, $username);
+						$sharedStore =  $this->openMessageStore($user_entryid, $username);
+						if($sharedStore !== false) {
+							array_push($otheUsersStores ,$sharedStore);
+						}
+
 						$this->userstores[$username] = $user_entryid;
 
 						// Check if an entire store will be loaded, if so load the archive store as well
@@ -692,6 +698,7 @@
 					}
 				}
 			}
+			return $otheUsersStores;
 		}
 
 		/**
