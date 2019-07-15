@@ -100,1111 +100,1135 @@ msgid "Saturday"
 msgstr "Laugardagur"
 
 msgid "Sun"
-msgstr ""
+msgstr "Sun"
 
 msgid "Mon"
-msgstr ""
+msgstr "Mán"
 
 msgid "Tue"
-msgstr ""
+msgstr "Þri"
 
 msgid "Wed"
-msgstr ""
+msgstr "Mið"
 
 msgid "Thu"
-msgstr ""
+msgstr "Fim"
 
 msgid "Fri"
-msgstr ""
+msgstr "Fös"
 
 msgid "Sat"
-msgstr ""
+msgstr "Lau"
 
 msgid "January"
-msgstr ""
+msgstr "Janúar"
 
 msgid "February"
-msgstr ""
+msgstr "Febrúar"
 
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 msgid "April"
-msgstr ""
+msgstr "Apríl"
 
 msgid "May"
-msgstr ""
+msgstr "Maí"
 
 msgid "June"
-msgstr ""
+msgstr "Júní"
 
 msgid "July"
-msgstr ""
+msgstr "Júlí"
 
 msgid "August"
-msgstr ""
+msgstr "Ágúst"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "October"
-msgstr ""
+msgstr "Október"
 
 msgid "November"
-msgstr ""
+msgstr "Nóvember"
 
 msgid "December"
-msgstr ""
+msgstr "Desember"
 
 msgid "Page {A} of {0}"
-msgstr ""
+msgstr "Síða {A} af {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr ""
+msgstr "Sýni skeyti {0} - {1} af {2}"
 
 msgid "No messages to display"
-msgstr ""
+msgstr "Engin skeyti til að sýna"
 
 msgid "First Page"
-msgstr ""
+msgstr "Fyrsta síða"
 
 msgid "Previous Page"
-msgstr ""
+msgstr "Fyrri síða"
 
 msgid "Next Page"
-msgstr ""
+msgstr "Næsta síða"
 
 msgid "Last Page"
-msgstr ""
+msgstr "Síðasta síða"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Glæða"
 
 msgid "Today"
-msgstr ""
+msgstr "Í dag"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Hætta við"
 
 msgid "{0} (Spacebar)"
-msgstr ""
+msgstr "{0} (Bilslá)"
 
 msgid "This date is before the minimum date"
-msgstr ""
+msgstr "Þessi dagsetning er eldri en lágmarksdagsetning"
 
 msgid "This date is after the maximum date"
-msgstr ""
+msgstr "Þessi dagsetning er yngri en hámarksdagsetning"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr ""
+msgstr "d/m/Y"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Óvirkt"
 
 msgid "Next Month (Control+Right)"
-msgstr ""
+msgstr "Næsti mánuður (Ctrl+Hægri)"
 
 msgid "Previous Month (Control+Left)"
-msgstr ""
+msgstr "Fyrri mánuður (Ctrl+Vinstri)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr ""
+msgstr "Velja mánuð (Ctrl+Upp/Niður til að breyta árum)"
 
 msgid "Sort Ascending"
-msgstr ""
+msgstr "Stígandi röð"
 
 msgid "Sort Descending"
-msgstr ""
+msgstr "Fallandi röð"
 
 msgid "Columns"
-msgstr ""
+msgstr "Dálkar"
 
 msgid "Group By This Field"
-msgstr ""
+msgstr "Hópa saman eftir þessum reit"
 
 msgid "Show in Groups"
-msgstr ""
+msgstr "Sýna í hópum"
 
 msgid "(None)"
-msgstr ""
+msgstr "(Ekkert)"
 
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 msgid "Yes"
-msgstr ""
+msgstr "Já"
 
 msgid "No"
-msgstr ""
+msgstr "Nei"
 
 msgid "Loading"
-msgstr ""
+msgstr "Hleð"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "Gildið í þessum reit er ógilt"
 
 msgid "The minimum length for this field is {0}"
-msgstr ""
+msgstr "Lágmarkslengd fyrir þennan reit er {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr ""
+msgstr "Hámarkslengd fyrir þennan reit er {0}"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Nauðsynlegt að fylla í þennan reit"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "Lágmarksgildið fyrir þennan reit er {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "Hámarksgildið fyrir þennan reit er {0}"
 
 msgid "{0} is not a valid number"
-msgstr ""
+msgstr "{0} er ekki gild tala"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr ""
+msgstr "Dagsetningin í þessum reit þarf að vera sú sama og eða síðari en {0}"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr ""
+msgstr "Dagsetningin í þessum reit þarf að vera sú sama og eða eldri en {0}"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr ""
+msgstr "{0} er ekki gild dagsetning - hún þarf að fylgja sniðinu {1}"
 
 msgid "You must select at least one item in this group"
-msgstr ""
+msgstr "Þú verður að velja að minnsta kosti eitt atriði í þessum hóp"
 
 msgid "You must select one item in this group"
-msgstr ""
+msgstr "Þú verður að velja eitt atriði í þessum hóp"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr ""
+msgstr "Tíminn í þessum reit verður að vera sá sami og eða síðari en {0}"
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr ""
+msgstr "Tíminn í þessum reit verður að vera sá sami og eða fyrri en {0}"
 
 msgid "{0} is not a valid time"
-msgstr ""
+msgstr "{0} er ekki gildur tími"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
-msgstr ""
+msgstr "G:i"
 
 msgid "Name"
-msgstr ""
+msgstr "Nafn"
 
 msgid "Value"
-msgstr ""
+msgstr "Gildi"
 
 msgid "true"
-msgstr ""
+msgstr "satt"
 
 msgid "false"
-msgstr ""
+msgstr "ósatt"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
 msgstr ""
+"Þessi reitur ætti að innihalda tölvupóstfang á sniðinu \"notandi@lén.is\""
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr ""
+msgstr "Þessi reitur ætti að vera vefslóð á sniðinu \"{0}\""
 
 msgid "This field should only contain letters and _"
-msgstr ""
+msgstr "Þessi reitur ætti einungis að innihalda bókstafi og _"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr ""
+msgstr "Þessi reitur ætti einungis að innihalda bókstafi, tölustafi og _"
 
 msgid "Email Addresses"
-msgstr ""
+msgstr "Tölvupóstföng"
 
 msgid "Email addresses"
-msgstr ""
+msgstr "Tölvupóstföng"
 
 msgid "Group details"
-msgstr ""
+msgstr "Nánari hópslýsing"
 
 msgid "General"
-msgstr ""
+msgstr "Almennt"
 
 msgid "Display Name"
-msgstr ""
+msgstr "Þekkjanlegt nafn"
 
 msgid "Alias"
-msgstr ""
+msgstr "Samnefni"
 
 msgid "Owner"
-msgstr ""
+msgstr "Eigandi"
 
 msgid "Notes"
-msgstr ""
+msgstr "Minnisatriði"
 
 msgid "Members"
-msgstr ""
+msgstr "Meðlimir"
 
 msgid "Email Address"
-msgstr ""
+msgstr "Tölvupóstfang"
 
 msgid "Account"
-msgstr ""
+msgstr "Notandaaðgangur"
 
 msgid "Member Of"
-msgstr ""
+msgstr "Meðlimur í"
 
 msgid "Group Membership"
-msgstr ""
+msgstr "Hópaskráning"
 
 msgid "Address Book"
-msgstr ""
+msgstr "Vistfangaskrá"
 
 msgid "User details"
-msgstr ""
+msgstr "Nánari notandalýsing"
 
 msgid "First"
-msgstr ""
+msgstr "Fyrsta"
 
 msgid "Initial"
-msgstr ""
+msgstr "Upphaflegt"
 
 msgid "Display"
-msgstr ""
+msgstr "Sýna"
 
 msgid "Last"
-msgstr ""
+msgstr "Síðasta"
 
 msgid "Address"
-msgstr ""
+msgstr "Vistfang"
 
 msgid "City"
-msgstr ""
+msgstr "Sveitarfélag"
 
 msgid "State"
-msgstr ""
+msgstr "Sýsla/Fylki"
 
 msgid "Zip Code"
-msgstr ""
+msgstr "Póstnúmer"
 
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgid "Title"
-msgstr ""
+msgstr "Titill"
 
 msgid "Company"
-msgstr ""
+msgstr "Fyrirtæki"
 
 msgid "Department"
-msgstr ""
+msgstr "Deild"
 
 msgid "Office"
-msgstr ""
+msgstr "Skrifstofa"
 
 msgid "Assistant"
-msgstr ""
+msgstr "Aðstoðarmanneskja"
 
 msgid "Phone"
-msgstr ""
+msgstr "Sími"
 
 msgid "Organization"
-msgstr ""
+msgstr "Skipulagsheild"
 
 msgid "Manager"
-msgstr ""
+msgstr "Stjórnandi"
 
 msgid "Direct reports"
-msgstr ""
+msgstr "Beinar skýrslur"
 
 msgid "Phone numbers"
-msgstr ""
+msgstr "Símanúmer"
 
 msgid "Business"
-msgstr ""
+msgstr "Viðskipti"
 
 msgid "Business2"
-msgstr ""
+msgstr "Viðskipti2"
 
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 msgid "Home"
-msgstr ""
+msgstr "Aðsetur"
 
 msgid "Home2"
-msgstr ""
+msgstr "Aðsetur2"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Farsími"
 
 msgid "Pager"
-msgstr ""
+msgstr "Sendiboði"
 
 msgid "No user selected"
-msgstr ""
+msgstr "Enginn notandi valinn"
 
 msgid "You must select one or more users."
-msgstr ""
+msgstr "Þú verður að velja einn eða fleiri notendur."
 
 msgid "You must select a user."
-msgstr ""
+msgstr "Þú verður að velja notanda."
 
 msgid "Select"
-msgstr ""
+msgstr "Velja"
 
 msgid "Show Details"
-msgstr ""
+msgstr "Sýna nánari lýsingu"
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "Notaðu leitarslána til að fá niðurstöður"
 
 msgid "There are no items to show in this list"
-msgstr ""
+msgstr "Það eru engin atriði til að sýna í þessum lista"
 
 msgid "Show Names from the"
-msgstr ""
+msgstr "Sýna nöfn frá"
 
 msgid "Search..."
-msgstr ""
+msgstr "Leita..."
 
 msgid "Sort by: Icon"
-msgstr ""
+msgstr "Raða eftir teikni"
 
 msgid "Sort by: Name"
-msgstr ""
+msgstr "Raða eftir nafni"
 
 msgid "Sort by: Display Name"
-msgstr ""
+msgstr "Raða eftir þekkjanlegu nafni"
 
 msgid "File as"
-msgstr ""
+msgstr "Skrá sem"
 
 msgid "Sort by: File As"
-msgstr ""
+msgstr "Raða eftir skráðu sem"
 
 msgid "First Name"
-msgstr ""
+msgstr "Fornafn"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "Raða eftir fornafni"
 
 msgid "Last Name"
-msgstr ""
+msgstr "Eftirnafn"
 
 msgid "Sort by: Last Name"
-msgstr ""
+msgstr "Raða eftir eftirnafni"
 
 msgid "Sort by: Email Address"
-msgstr ""
+msgstr "Raða eftir tölvupóstfangi"
 
 msgid "Sort by: Department"
-msgstr ""
+msgstr "Raða eftir deild"
 
 msgid "Office Phone"
-msgstr ""
+msgstr "Skrifstofusími"
 
 msgid "Sort by: Office Phone"
-msgstr ""
+msgstr "Raða eftir skrifstofusíma"
 
 msgid "Sort by: Mobile"
-msgstr ""
+msgstr "Raða eftir farsíma"
 
 msgid "Home Phone"
-msgstr ""
+msgstr "Heimasími"
 
 msgid "Sort by: Home Phone"
-msgstr ""
+msgstr "Raða eftir heimasíma"
 
 msgid "Sort by: Pager"
-msgstr ""
+msgstr "Raða eftir sendiboða"
 
 msgid "Location"
-msgstr ""
+msgstr "Staðsetning"
 
 msgid "Sort by: Location"
-msgstr ""
+msgstr "Raða eftir staðsetningu"
 
 msgid "Sort by: Fax"
-msgstr ""
+msgstr "Raða eftir faxi"
 
 msgid "No preview"
-msgstr ""
+msgstr "Engin forsýn"
 
 msgid "Right preview"
-msgstr ""
+msgstr "Hægri forsýn"
 
 msgid "Bottom preview"
-msgstr ""
+msgstr "Neðanverð forsýn"
 
 msgid "Any date"
-msgstr ""
+msgstr "Hvaða dagsetning sem er"
 
 msgid "Past week"
-msgstr ""
+msgstr "Síðasta vika"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "Síðustu 2 vikur"
 
 msgid "Past month"
-msgstr ""
+msgstr "Síðasti mánuður"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "Síðustu 6 mánuðir"
 
 msgid "Past year"
-msgstr ""
+msgstr "Síðasta ár"
 
 msgid "Custom date"
-msgstr ""
+msgstr "Sérstök dagsetning"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Bæta við í uppáhald"
 
 msgid "Add"
-msgstr ""
+msgstr "Bæta við"
 
 msgid "Empty folder name"
-msgstr ""
+msgstr "Tómt möppuheiti"
 
 msgid "You must specify a name."
-msgstr ""
+msgstr "Þú verður að tilgreina nafn."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Bæta möppu við í uppáhald miðað við leitina þína"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Möppuheiti"
 
 msgid "Select Category"
-msgstr ""
+msgstr "Velja flokk"
 
 msgid "Apply"
-msgstr ""
+msgstr "Nota"
 
 msgid "All folders are selected"
-msgstr ""
+msgstr "Allar möppur eru valdar"
 
 msgid "Reply"
-msgstr ""
+msgstr "Svara"
 
 msgid "Reply All"
-msgstr ""
+msgstr "Svara öllum"
 
 msgid "Forward"
-msgstr ""
+msgstr "Áframsenda"
 
 msgid "Edit as New"
-msgstr ""
+msgstr "Breyta sem nýjum"
 
 msgid "Search tools"
-msgstr ""
+msgstr "Leitartól"
 
 msgid "Folders"
-msgstr ""
+msgstr "Möppur"
 
 msgid "Include subfolders"
-msgstr ""
+msgstr "Taka undirmöppur með"
 
 msgid "Show.."
-msgstr ""
+msgstr "Sýna.."
 
 msgid "Mails"
-msgstr ""
+msgstr "Tölvupóstar"
 
 msgid "Appointments"
-msgstr ""
+msgstr "Mót"
 
 msgid "Contacts"
-msgstr ""
+msgstr "Tengiliðir"
 
 msgid "Tasks"
-msgstr ""
+msgstr "Verk"
 
 msgid "Filter.."
-msgstr ""
+msgstr "Sía.."
 
 msgid "Unread"
-msgstr ""
+msgstr "Ólesið"
 
 msgid "Attachments"
-msgstr ""
+msgstr "Viðhengi"
 
 msgid "Date"
-msgstr ""
+msgstr "Dagsetning"
 
 msgctxt "search.date"
 msgid "From"
-msgstr ""
+msgstr "Frá"
 
 msgctxt "search.date"
 msgid "To"
-msgstr ""
+msgstr "Til"
 
 msgid "Filter category.."
-msgstr ""
+msgstr "Sía flokka.."
 
 msgid "Search.."
-msgstr ""
+msgstr "Leita.."
 
 msgid "Sender"
-msgstr ""
+msgstr "Sendandi"
 
 msgid "Recipients"
-msgstr ""
+msgstr "Móttakendur"
 
 msgid "Subject"
-msgstr ""
+msgstr "Málefni"
 
 msgid "Body & Attachments"
-msgstr ""
+msgstr "Innihald og viðhengi"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Uppáhald"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Bæta möppu við í uppáhald út frá þessari leit"
 
 msgid "Select Folder"
-msgstr ""
+msgstr "Velja möppu"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Eyða leitarmöppu"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "Raða eftir dagsetningu"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "Hleð leitarniðurstöðum"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "Röðunarábending"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Þú getur raðað eftir dagsetningu ef þú þrengir leitarniðurstöður. Virkjaðu "
+"síur eða lagfærðu leitarorðin."
 
 msgid "Did you mean"
-msgstr ""
+msgstr "Varstu að meina"
 
 msgid "With"
-msgstr ""
+msgstr "Með"
 
 msgid "To"
-msgstr ""
+msgstr "Til"
 
 msgid "No date"
-msgstr ""
+msgstr "Engin dagsetning"
 
 msgid "Error"
-msgstr ""
+msgstr "Villa"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
 "may have been moved or deleted."
 msgstr ""
+"Gat ekki samþykkt fundarboð þar sem fundurinn er ekki aðgengilegur í "
+"dagatali; Hann gæti hafa verið fluttur eða honum eytt."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
+"Gat ekki skoðað fundarboð þar sem fundurinn er ekki aðgengilegur í dagatali; "
+"Hann gæti hafa verið fluttur eða honum eytt."
 
 msgid "Required"
-msgstr ""
+msgstr "Nauðsynlegt"
 
 msgid "Optional"
-msgstr ""
+msgstr "Valkvætt"
 
 msgid "Resource"
-msgstr ""
+msgstr "Aðföng"
 
 msgid "Could not open store."
-msgstr ""
+msgstr "Gat ekki opnað geymslu."
 
 msgid "Could not open default calendar folder."
-msgstr ""
+msgstr "Gat ekki opnað sjálfgefna dagatalsmöppu."
 
 msgid "workday"
-msgstr ""
+msgstr "vinnudagur"
 
 msgid "day"
-msgstr ""
+msgstr "dagur"
 
 msgid "days"
-msgstr ""
+msgstr "dagar"
 
 msgid "week"
-msgstr ""
+msgstr "vika"
 
 msgid "weeks"
-msgstr ""
+msgstr "vikur"
 
 msgid " on "
-msgstr ""
+msgstr " á "
 
 msgid "month"
-msgstr ""
+msgstr "mánuður"
 
 msgid "months"
-msgstr ""
+msgstr "mánuðir"
 
 msgid "year"
-msgstr ""
+msgstr "ár"
 
 msgid "years"
-msgstr ""
+msgstr "ár"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Tíðni: 1 {0} með upphaf {1} frá {2} til {3}."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr ""
+msgstr "Tíðni: {0} {1} með upphaf {2} frá {3} til {4}."
 
 msgid "Occurs every {0} effective {1}."
-msgstr ""
+msgstr "Tíðni: 1 {0} með upphaf {1}."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr ""
+msgstr "Tíðni: {0} {1} með upphaf {2}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tíðni: 1 {0} með upphaf {1} í {2} skipti frá {3} til {4}."
+msgstr[1] "Tíðni: 1 {0} með upphaf {1} í {2} skipti frá {3} til {4}."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tíðni: {0} {1} með upphaf {2} í {3} skipti frá {4} til {5}."
+msgstr[1] "Tíðni: {0} {1} með upphaf {2} í {3} skipti frá {4} til {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tíðni: 1 {0} með upphaf {1} í {2} skipti."
+msgstr[1] "Tíðni: 1 {0} með upphaf {1} í {2} skipti."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tíðni: {0} {1} með upphaf {2} í {3} skipti."
+msgstr[1] "Tíðni: {0} {1} með upphaf {2} í {3} skipti."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Tíðni: 1 {0} með upphaf {1} þar til {2} frá {3} til {4}."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr ""
+msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3} frá {4} til {5}."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr ""
+msgstr "Tíðni: 1 {0} með upphaf {1} þar til {2}."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr ""
+msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3}."
 
 msgid "When"
-msgstr ""
+msgstr "Hvenær"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
-msgstr ""
+msgstr "l jS F Y G:i"
 
 msgid "Where"
-msgstr ""
+msgstr "Hvar"
 
 msgid "New Meeting Time Proposed"
-msgstr ""
+msgstr "Nýr fundartími lagður til"
 
 msgid "and "
-msgstr ""
+msgstr "og "
 
 msgid "Sort by: Attachment"
-msgstr ""
+msgstr "Raða eftir viðhengi"
 
 msgid "Sort by: Recurring"
-msgstr ""
+msgstr "Raða eftir endurtekningu"
 
 msgid "Sort by: Subject"
-msgstr ""
+msgstr "Raða eftir málefni"
 
 msgid "Startdate"
-msgstr ""
+msgstr "Upphafsdagur"
 
 msgid "Sort by: Startdate"
-msgstr ""
+msgstr "Raða eftir upphafsdegi"
 
 msgid "Enddate"
-msgstr ""
+msgstr "Lokadagur"
 
 msgid "Sort by: Enddate"
-msgstr ""
+msgstr "Raða eftir lokadegi"
 
 msgid "Organizer"
-msgstr ""
+msgstr "Skipuleggjandi"
 
 msgid "Required Attendee"
-msgstr ""
+msgstr "Nauðsynlegur þátttakandi"
 
 msgid "Optional Attendee"
-msgstr ""
+msgstr "Valkvæður þátttakandi"
 
 msgid "Show Time As"
-msgstr ""
+msgstr "Sýna tíma sem"
 
 msgid "Start Date"
-msgstr ""
+msgstr "Upphafsdagur"
 
 msgid "End Date"
-msgstr ""
+msgstr "Lokadagur"
 
 msgid "Recurrence pattern"
-msgstr ""
+msgstr "Endurtekningarmynstur"
 
 msgid "All Day Event"
-msgstr ""
+msgstr "Heilsdagsatburður"
 
 msgid "Add Shared Calendar"
-msgstr ""
+msgstr "Bæta við deildu dagatali"
 
 msgid "Day"
-msgstr ""
+msgstr "Dagur"
 
 msgid "Workweek"
-msgstr ""
+msgstr "Vinnuvika"
 
 msgid "Week"
-msgstr ""
+msgstr "Vika"
 
 msgid "Month"
-msgstr ""
+msgstr "Mánuður"
 
 msgid "List"
-msgstr ""
+msgstr "Listi"
 
 msgid "Appointment"
-msgstr ""
+msgstr "Mót"
 
 msgid "Meeting request"
-msgstr ""
+msgstr "Fundarboð"
 
 msgid "Print selected appointment"
-msgstr ""
+msgstr "Prenta valið mót"
 
 msgid "Print overview"
-msgstr ""
+msgstr "Prenta yfirlit"
 
 msgid "Print"
-msgstr ""
+msgstr "Prenta"
 
 msgid "No appointment selected"
-msgstr ""
+msgstr "Ekkert mót valið"
 
 msgid "Create Appointment"
-msgstr ""
+msgstr "Mæla sér mót við"
 
 msgid "Calendar"
-msgstr ""
+msgstr "Dagatal"
 
 msgid "Create in other calendar"
-msgstr ""
+msgstr "Búa til í öðru dagatali"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Valið dagatal hefur einungis lesréttindi. Þú getur í staðinn búið til "
+"viðfangið í þínu eigin dagatali."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Hvað viltu?"
 
 msgid "Own calendar"
-msgstr ""
+msgstr "Eigið dagatal"
 
 msgid "F Y"
-msgstr ""
+msgstr "F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr ""
+msgstr "l"
 
 msgid "All text fields"
-msgstr ""
+msgstr "Allir textareitir"
 
 msgid "Body"
-msgstr ""
+msgstr "Innihald"
 
 msgid "Subject or Sender"
-msgstr ""
+msgstr "Málefni eða sendandi"
 
 msgid "To or cc"
-msgstr ""
+msgstr "Til eða í afriti (cc)"
 
 msgid "Meeting"
-msgstr ""
+msgstr "Fundur"
 
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr ""
+msgstr "Aðföngin eru frátekin"
 
 msgid "Send update"
-msgstr ""
+msgstr "Senda breytingu"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
-msgstr ""
+msgstr "Breytingarskilaboð verða send öllum móttakendum, viltu halda áfram?"
 
 msgid "Send update to attendees"
-msgstr ""
+msgstr "Senda breytingu til þátttakenda"
 
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
-msgstr ""
+msgstr "Þú hefur gert breytingu á þátttakendalista. Veldu eitt af eftirtöldu"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
+"Senda breytingu einungis til þátttakenda sem var bætt við eða fjarlægðir."
 
 msgid "Send updates to all attendees."
-msgstr ""
+msgstr "Senda breytingu til allra þátttakenda."
 
 msgid "Busy attendees"
-msgstr ""
+msgstr "Uppteknir þátttakendur"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
+"Einn eða fleiri þátttakendur eru uppteknir. Ertu viss um að þú viljir bjóða "
+"þeim?"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Tímaáætlun"
 
 msgid "Tracking"
-msgstr ""
+msgstr "Eftirfylgni"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr ""
+msgstr "Ekki náðist að finna út úr öllum þátttakendum."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
 msgstr ""
+"Samþykkir þátttakendur: {0}. Mögulegir þátttakendur: {1}. Þátttakendur sem "
+"höfnuðu: {2}."
 
 msgctxt "calendar.dialog"
 msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
+"{0} þátttakendur lögðu til nýjan tíma fyrir fundinn. Smelltu á "
+"Tímaáætlunarflipann fyrir nánari upplýsingar."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr ""
+msgstr "Þú lagðir til nýjan tíma fyrir þennan fund: {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr ""
+msgstr "{0} lagði til nýjan tíma fyrir þennan fund: {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr ""
+msgstr "Samþykkti þann {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr ""
+msgstr "{0} samþykkti þann {1}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr ""
+msgstr "Mögulegt samþykki þann {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr ""
+msgstr "{0} samþykkti mögulega þann {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr ""
+msgstr "Þetta mót átti sér stað í fortíðinni."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr ""
+msgstr "Vinsamlegast svaraðu."
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr ""
+msgstr "Engin svör hafa borist fyrir þennan fund."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
-msgstr ""
+msgstr "Fundinum hefur verið aflýst."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr ""
+msgstr "Fundarboð hafa ekki verið send fyrir þennan fund."
 
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
+"Vinsamlegast taktu eftir að allar breytingar sem þú gerir yfirskrifast þegar "
+"fundarboðið er uppfært af skipuleggjandanum"
 
 msgid "Create in"
-msgstr ""
+msgstr "Búa til í"
 
 msgid "Time"
-msgstr ""
+msgstr "Tími"
 
 msgid "until"
-msgstr ""
+msgstr "þar til"
 
 msgid "Recurrence"
-msgstr ""
+msgstr "Endurtekning"
 
 msgid "Reminder"
-msgstr ""
+msgstr "Áminning"
 
 msgid "Show as"
-msgstr ""
+msgstr "Sýna sem"
 
 msgid "Warning"
-msgstr ""
+msgstr "Viðvörun"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr ""
+msgstr "Viðhengjum getur ekki verið breytt fyrir ákveðið skipti"
 
 msgid "Type your message here..."
-msgstr ""
+msgstr "Skrifaðu skilaboðin þín hér..."
 
 msgid "Update location"
-msgstr ""
+msgstr "Uppfæra staðsetningu"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr ""
+msgstr "Viltu uppfæra staðsetninguna \"{0}\" og nota í staðinn \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y G:i"
-msgstr ""
+msgstr "jS F Y G:i"
 
 msgid "None"
-msgstr ""
+msgstr "Ekkert"
 
 msgid "Send"
-msgstr ""
+msgstr "Senda"
 
 msgid "Save"
-msgstr ""
+msgstr "Vista"
 
 msgid "Close"
-msgstr ""
+msgstr "Loka"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eyða"
 
 msgid "Add attachment"
-msgstr ""
+msgstr "Bæta við viðhengi"
 
 msgid "Check names"
-msgstr ""
+msgstr "Athuga nöfn"
 
 msgid "Invite attendees"
-msgstr ""
+msgstr "Bjóða þátttakendum"
 
 msgid "Cancel invitation"
-msgstr ""
+msgstr "Hætta við fundarboð"
 
 msgid "High priority"
-msgstr ""
+msgstr "Hár forgangur"
 
 msgid "Mark this appointment as high priority"
-msgstr ""
+msgstr "Merkja þetta mót svo það sé í háum forgangi"
 
 msgid "Low priority"
-msgstr ""
+msgstr "Lágur forgangur"
 
 msgid "Mark this appointment as low priority"
-msgstr ""
+msgstr "Merkja þetta mót svo það sé í lágum forgangi"
 
 msgid "Categories"
-msgstr ""
+msgstr "Flokkar"
 
 msgid "Open the categories dialog"
-msgstr ""
+msgstr "Opna flokkaglugga"
 
 msgid "Private"
-msgstr ""
+msgstr "Óopinbert"
 
 msgid "Mark this appointment as private"
-msgstr ""
+msgstr "Merkja þetta mót sem óopinbert"
 
 msgid "Proposed Date and Time"
-msgstr ""
+msgstr "Leggja til dagsetningu og tíma"
 
 msgid "Duration"
-msgstr ""
+msgstr "Tímalengd"
 
 msgid "Proposed By"
-msgstr ""
+msgstr "Lagt til af"
 
 msgid "Current Meeting Time"
-msgstr ""
+msgstr "Núverandi fundartími"
 
 msgid "Show only working hours"
-msgstr ""
+msgstr "Sýna einungis vinnutíma"
 
 msgid "Propose New Time"
-msgstr ""
+msgstr "Leggja til nýjan tíma"
 
 msgid "Start time"
-msgstr ""
+msgstr "Upphafstími"
 
 msgid "End time"
-msgstr ""
+msgstr "Lokatími"
 
 msgid "Comment"
-msgstr ""
+msgstr "Athugasemd"
 
 msgid "Send Meeting Request Cancellation"
-msgstr ""
+msgstr "Senda afboðun fundar"
 
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
-msgstr ""
+msgstr "Þessi fundur verður afboðaður. Viltu láta fylgja texta með afboðuninni?"
 
 msgid "Edit the cancellation before Sending."
-msgstr ""
+msgstr "Breyta afboðuninni fyrir sendingu."
 
 msgid "Send the cancellation now."
-msgstr ""
+msgstr "Senda afboðunina núna."
 
 msgid "Send Meeting Request Confirmation"
-msgstr ""
+msgstr "Senda staðfestingu fundarboðs"
 
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
+"Þessi fundur verður samþykktur og settur í dagatalið þitt. Viltu láta texta "
+"fylgja svarinu þínu?"
 
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
+"Þessi fundur verður merktur sem mögulega samþykktur í dagatalinu þínu. Viltu "
+"láta texta fylgja svarinu þínu?"
 
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
+"Þessum fundi verður hafnað og fundarboðið sett í möppu með eyddum skeytum. "
+"Viltu láta texta fylgja svarinu þínu?"
 
 msgid "Edit the response before sending"
-msgstr ""
+msgstr "Breyta svarinu áður en þú sendir það"
 
 msgid "Send the response now."
-msgstr ""
+msgstr "Senda svarið núna."
 
 msgid "Don't send a response."
-msgstr ""
+msgstr "Ekki senda svar."
 
 msgid "The following responses for this meeting have been received"
-msgstr ""
+msgstr "Eftirfarandi svör við þessum fundi hafa borist"
 
 msgid "Attendance"
-msgstr ""
+msgstr "Þátttaka"
 
 msgid "Response"
-msgstr ""
+msgstr "Svar"
 
 msgid "New appointment"
 msgstr ""
