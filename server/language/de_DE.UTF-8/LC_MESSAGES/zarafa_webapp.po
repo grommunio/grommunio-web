@@ -1667,7 +1667,7 @@ msgid "Don't move"
 msgstr "Nicht verschieben"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Zur Tagesansicht wechseln um alle Termine zu sehen"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2770,9 +2770,8 @@ msgstr "Falls die Nachricht"
 msgid "Do the following"
 msgstr "Folgende Aktion ausführen"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "Optionen"
+msgstr "Ausnahmen"
 
 msgid "Apply only when Out of Office is active"
 msgstr "Nur anwenden wenn Abwesenheitsbenachrichtigung aktiv ist"
@@ -2780,13 +2779,11 @@ msgstr "Nur anwenden wenn Abwesenheitsbenachrichtigung aktiv ist"
 msgid "Stop processing more rules"
 msgstr "Keine weiteren Regeln anwenden"
 
-#, fuzzy
 msgid "Add exception"
-msgstr "Aktion hinzufügen"
+msgstr "Ausnahme hinzufügen"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "Aktion entfernen"
+msgstr "Ausnahme entfernen"
 
 msgid "Specify Words or Phrases"
 msgstr "Wort oder Satz definieren"
