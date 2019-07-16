@@ -36,6 +36,11 @@ $serverConfig = array(
 		<?php
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
+
+			// Load OIDC JavaScript for refreshing of the token.
+			if (OIDC_ISS !== "") {
+				require_once(BASE_PATH . 'client/oidc.js.php');
+			}
 		?>
 	</head>
 
