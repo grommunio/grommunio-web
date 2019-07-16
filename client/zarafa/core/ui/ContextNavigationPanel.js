@@ -14,6 +14,12 @@ Zarafa.core.ui.ContextNavigationPanel = Ext.extend(Ext.Panel, {
 	context: null,
 
 	/**
+	 * @cfg {Boolean} true to avoid to {@link Zarafa.core.ui.NavigationPanel#getAllFoldersPanel show all folders} Panel.
+	 * even if {@link Zarafa.core.ui.NavigationPanel#showFolderList showFolderList} config is true
+	 */
+	restrictToShowAllFolderList : false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration object
 	 */
