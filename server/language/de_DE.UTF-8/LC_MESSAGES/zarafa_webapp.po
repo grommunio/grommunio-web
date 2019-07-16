@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-05 14:35+0200\n"
+"POT-Creation-Date: 2019-07-16 10:32+0200\n"
 "PO-Revision-Date: 2019-06-24 13:31+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2714,6 +2714,13 @@ msgstr "erhalten nach dem"
 
 msgid "is received before"
 msgstr "erhalten vor dem"
+
+msgid "at least message size"
+msgstr ""
+
+#, fuzzy
+msgid "at most message size"
+msgstr "Keine Nachricht ausgewählt"
 
 msgid "has my name in the To field"
 msgstr "enthält meinen Namen im An-Feld"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 19:25+0000\n"
+"POT-Creation-Date: 2019-07-16 10:32+0200\n"
 "PO-Revision-Date: 2019-07-07 19:37+0000\n"
 "Last-Translator: trickvi <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2455,6 +2455,12 @@ msgid "is received after"
 msgstr ""
 
 msgid "is received before"
+msgstr ""
+
+msgid "at least message size"
+msgstr ""
+
+msgid "at most message size"
 msgstr ""
 
 msgid "has my name in the To field"
