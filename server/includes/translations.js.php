@@ -285,18 +285,6 @@ function pgettext(msgctxt, msgid)
 	var domain, msgid_plural, count;
 	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
 }
-/**
- * Gettext function.
- * @param domain {string} The Domain
- * @param msgctxt {string} The Context
- * @param msgid {string} The message
- * @return {string} The translation
- */
-function dpgettext(domain, msgctxt, msgid)
-{
-	var msgid_plural, count;
-	return Translations.getTranslation(domain, msgctxt, msgid, msgid_plural, count);
-}
 
 // npgettext, plural and context
 /**
