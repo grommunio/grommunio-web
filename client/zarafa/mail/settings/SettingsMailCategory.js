@@ -29,7 +29,8 @@ Zarafa.mail.settings.SettingsMailCategory = Ext.extend(Zarafa.settings.ui.Settin
 		var items = [{
 				xtype : 'zarafa.settingsmailwidget'
 			},{
-				xtype : 'zarafa.settingscomposewidget'
+				xtype : 'zarafa.settingscomposewidget',
+				settingsContext : config.settingsContext
 			},
 			container.populateInsertionPoint('context.settings.category.mail.aftercomposesettings', this),
 			{

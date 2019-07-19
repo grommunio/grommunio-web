@@ -93,11 +93,15 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 *
 	 * @param {Zarafa.core.mapi.RecipientType} recipientType (optional) The recipient type which should
 	 * be applied to this recipient. Defaults to {@link Zarafa.core.mapi.RecipientType#MAPI_TO}.
+	 * @param {Zarafa.core.data.RecordCustomObjectType} recordType The custom record type. It can be either
+	 * {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_RECIPIENT} or {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_CC_RECIPIENT}
+	 * in most of the case.
+	 *
 	 * @return {Zarafa.core.data.IPMRecipientRecord} The recipientRecord for this addressbook item
 	 */
-	convertToRecipient : function(recipientType)
+	convertToRecipient : function(recipientType, recordType)
 	{
-		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
+		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(recordType || Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
 			entryid : this.get('entryid'),
 			search_key : this.get('search_key'),
 			object_type : this.get('object_type'),

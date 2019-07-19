@@ -301,11 +301,26 @@ Zarafa.common.Actions = {
 	 */
 	openSendAsRecipientContent : function(record, config)
 	{
+		var componentType = Zarafa.core.data.SharedComponentType['common.managecc.dialog.managecceditcontentpanel'];
+		this.openEditRecipientContent(componentType, record);
+	},
+
+	/**
+	 * Opens a {@link @link Zarafa.common.sendas.dialogs.SendAsEditContentPanel SendAsEditContentPanel} Or
+	 * {@link Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel ManageCcEditContentPanel} Or
+	 * {@link Zarafa.common.recipientfield.ui.EditRecipientContentPanel EditRecipientContentPanel} for editing
+	 * user name and email address for a sendAs, manageCc and external recipients respectively.
+	 *
+	 * @param {Number} componentType A component type taken from the enumeration {@link Zarafa.core.data.SharedComponentType}
+	 * @param {Zarafa.core.data.MAPIRecord} record The record(s) loaded in the component
+	 * @param {Object} config Configuration object
+	 */
+	openEditRecipientContent : function(componentType, record, config)
+	{
 		if(!record) {
 			// can not continue without a record
 			return;
 		}
-		var componentType = Zarafa.core.data.SharedComponentType['common.sendas.dialog.sendaseditcontentpanel'];
 
 		config = config || {};
 		Ext.apply(config, {

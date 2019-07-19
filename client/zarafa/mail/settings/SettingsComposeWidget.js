@@ -201,6 +201,10 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 					},
 					plugins: ['zarafa.numberspinner']
 				}]
+			},{
+				xtype : 'zarafa.manageccpanel',
+				ref : 'manageCcPanel',
+				settingsContext : config.settingsContext
 			}]
 		});
 
@@ -282,6 +286,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		this.autoSaveBox.setValue(enabled);
 		this.autoSaveTimeSpinner.setValue(settingsModel.get(this.autoSaveTimeSpinner.name) / 60);
 
+		this.manageCcPanel.update(settingsModel);
 	},
 
 	/**
@@ -306,6 +311,8 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 		settingsModel.set(this.readBox.name, this.readBox.getValue());
 		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
 		settingsModel.endEdit();
+
+		this.manageCcPanel.updateSettings(settingsModel);
 	},
 
 	/**

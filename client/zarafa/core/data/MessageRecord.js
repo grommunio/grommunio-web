@@ -406,6 +406,44 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 		});
 
 		return sender;
+	},
+
+	/**
+	 * Function is used to set the default Cc recipient in New or Reply mail as per the user
+	 * configured in settings.
+	 */
+	setDefaultCcRecipients : function ()
+	{
+		var actionType = this.getMessageAction('action_type');
+		var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
+		var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY;
+
+		// return if mail is not reply or new mail.
+		if (isCreateAction === false && isReplyAction === false) {
+			return;
+		}
+
+		var settingsModel = container.getSettingsModel();
+		var defaultCcRecipients  = settingsModel.get('zarafa/v1/contexts/mail/cc_recipients', []);
+		var recipientStore = this.getRecipientStore();
+
+		for (var i = 0; i < defaultCcRecipients.length; i++) {
+			var recipient = defaultCcRecipients[i];
+			if (recipientStore.isRecipientExists(recipient) || isCreateAction && !recipient['new_mail'] || isReplyAction && !recipient['reply_mail']) {
+				continue;
+			}
+
+			var recipientData = Ext.apply({}, recipient);
+
+			// Create a new recipient containing all data from the original.
+			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipientData);
+
+			// We have copied the 'rowid' as well, but new recipients
+			// shouldn't have this property as it will be filled in by PHP.
+			record.set('rowid', undefined);
+
+			recipientStore.add(record);
+		}
 	}
 });
 

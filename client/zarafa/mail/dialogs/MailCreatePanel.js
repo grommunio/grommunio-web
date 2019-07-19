@@ -283,6 +283,10 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			}
 		}
 
+		if (contentReset) {
+			record.setDefaultCcRecipients();
+		}
+
 		this.updateExtraInfoPanel();
 	},
 
