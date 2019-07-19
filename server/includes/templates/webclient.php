@@ -72,6 +72,11 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
 			$iconsetStylesheet = Iconsets::getActiveStylesheet();
+
+			// Load OIDC JavaScript for refreshing of the token.
+			if (OIDC_ISS !== "") {
+				require_once(BASE_PATH . 'client/oidc.js.php');
+			}
 		?>
 		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>

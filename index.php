@@ -256,11 +256,6 @@
 		die();
 	}
 
-	// Load OIDC JavaScript for refreshing of the token.
-	if (OIDC_ISS !== "") {
-		require_once(BASE_PATH . 'client/oidc.js.php');
-	}
-
 	if (!DISABLE_WELCOME_SCREEN && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
 
 		// These hooks are defined twice (also when there is a "load" argument supplied)
