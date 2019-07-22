@@ -8,24 +8,24 @@ Ext.namespace('Zarafa.common.rules.data');
  * @singleton
  */
 Zarafa.common.rules.data.ActionProfiles = [{
-	name : _('Move the message to folder ...'),
+	name : _('Move the message to folder...'),
 	value : Zarafa.common.rules.data.ActionFlags.MOVE
 },{
-	name : _('Copy the message to folder ...'),
+	name : _('Copy the message to folder...'),
 	value : Zarafa.common.rules.data.ActionFlags.COPY
 },{
 	name : _('Delete the message'),
 	value : Zarafa.common.rules.data.ActionFlags.DELETE
 },{
-	name : _('Redirect the message to ...'),
+	name : _('Redirect the message to...'),
 	value : Zarafa.common.rules.data.ActionFlags.REDIRECT
 },{
-	name : _('Forward the message to ...'),
+	name : _('Forward the message to...'),
 	value : Zarafa.common.rules.data.ActionFlags.FORWARD
 },{
-	name : _('Forward the message as attachment to ...'),
+	name : _('Forward the message as attachment to...'),
 	value : Zarafa.common.rules.data.ActionFlags.FORWARD_ATTACH
 }, {
-	name : _('Mark the message as read ...'),
+	name : _('Mark the message as read...'),
 	value : Zarafa.common.rules.data.ActionFlags.MARK_AS_READ
 }];
