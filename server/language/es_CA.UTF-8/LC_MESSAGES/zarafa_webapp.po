@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2647,54 +2647,63 @@ msgstr "Tamaño"
 msgid "Sort by: Size"
 msgstr "Ordenar por. Tamaño"
 
-msgid "Move the message to folder ..."
-msgstr ""
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Marcar todos los mensajes como leídos"
 
-msgid "Copy the message to folder ..."
-msgstr ""
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Marcar todos los mensajes como leídos"
 
 msgid "Delete the message"
 msgstr ""
 
-msgid "Redirect the message to ..."
-msgstr ""
-
-msgid "Forward the message to ..."
-msgstr ""
-
-msgid "Forward the message as attachment to ..."
-msgstr ""
-
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Redirect the message to..."
 msgstr "Marcar todos los mensajes como leídos"
 
-msgid "is received from ..."
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "Marcar todos los mensajes como leídos"
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "Marcar todos los mensajes como leídos"
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "Marcar todos los mensajes como leídos"
+
+msgid "is received from..."
 msgstr ""
 
-msgid "includes these words in the sender's address ..."
+msgid "includes these words in the sender's address..."
 msgstr ""
 
-msgid "includes these words in the recipient's address ..."
+msgid "includes these words in the recipient's address..."
 msgstr ""
 
-msgid "includes these words in the subject ..."
+msgid "includes these words in the subject..."
 msgstr ""
 
-msgid "includes these words in the body ..."
+msgid "includes these words in the body..."
 msgstr ""
 
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the transport-headers..."
 msgstr ""
 
-msgid "has importance ..."
-msgstr ""
+# 80%
+#, fuzzy
+msgid "has importance..."
+msgstr "Importacia"
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to ..."
-msgstr ""
+# 75%
+#, fuzzy
+msgid "is sent to..."
+msgstr "Enviar"
 
 msgid "is sent only to me"
 msgstr ""
@@ -2708,21 +2717,21 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity"
-msgstr ""
-
-msgid "is received after"
-msgstr ""
-
-msgid "is received before"
-msgstr ""
-
-msgid "at least message size"
-msgstr ""
-
 #, fuzzy
-msgid "at most message size"
-msgstr "No seleccionado mensaje"
+msgid "has sensitivity..."
+msgstr "Sensibilidad"
+
+msgid "is received after..."
+msgstr ""
+
+msgid "is received before..."
+msgstr ""
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr ""

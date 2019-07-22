@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -2618,62 +2618,74 @@ msgstr "Koko"
 msgid "Sort by: Size"
 msgstr "Järjestä: Koko"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "Siirrä viesti kansioon ..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "Kopioi viesti kansioon ..."
 
 msgid "Delete the message"
 msgstr "Poista viesti"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr "Ohjaa viesti käyttäjälle ..."
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr "Välitä viesti käyttäjälle ..."
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr "Välitä viesti liitteenä käyttäjälle ..."
 
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Mark the message as read..."
 msgstr "Välitä viesti käyttäjälle ..."
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr "on vastaanotettu kohteesta ..."
 
-msgid "includes these words in the sender's address ..."
-msgstr ""
-
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the recipient's address ..."
-msgstr "aihe sisältää sanat ..."
-
-msgid "includes these words in the subject ..."
+msgid "includes these words in the sender's address..."
 msgstr "aihe sisältää sanat ..."
 
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the body ..."
+msgid "includes these words in the recipient's address..."
+msgstr "aihe sisältää sanat ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
 msgstr "aihe sisältää sanat ..."
 
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the body..."
 msgstr "aihe sisältää sanat ..."
 
-msgid "has importance ..."
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "aihe sisältää sanat ..."
+
+#, fuzzy
+msgid "has importance..."
 msgstr "on tärkeydeltään ..."
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr "on lähetetty vastaanottajalle ..."
 
 msgid "is sent only to me"
@@ -2688,21 +2700,23 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity"
-msgstr ""
-
-msgid "is received after"
-msgstr ""
-
-msgid "is received before"
-msgstr ""
-
-msgid "at least message size"
-msgstr ""
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "Herkkyys"
 
 #, fuzzy
-msgid "at most message size"
-msgstr "Viestiä ei ole valittu"
+msgid "is received after..."
+msgstr "on vastaanotettu kohteesta ..."
+
+#, fuzzy
+msgid "is received before..."
+msgstr "on vastaanotettu kohteesta ..."
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr ""

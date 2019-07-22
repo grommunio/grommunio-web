@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2535,62 +2535,74 @@ msgstr "大小"
 msgid "Sort by: Size"
 msgstr "依大小排序"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "移動郵件到資料夾..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "複制郵件到資料夾..."
 
 msgid "Delete the message"
 msgstr "刪除郵件"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr "重新轉寄郵件到..."
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr "轉送郵件到..."
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr "轉送附檔到..."
 
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Mark the message as read..."
 msgstr "轉送郵件到..."
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr "接收到來自..."
 
-msgid "includes these words in the sender's address ..."
-msgstr ""
-
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the recipient's address ..."
-msgstr "主旨包含這些字"
-
-msgid "includes these words in the subject ..."
+msgid "includes these words in the sender's address..."
 msgstr "主旨包含這些字"
 
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the body ..."
+msgid "includes these words in the recipient's address..."
+msgstr "主旨包含這些字"
+
+#, fuzzy
+msgid "includes these words in the subject..."
 msgstr "主旨包含這些字"
 
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the body..."
 msgstr "主旨包含這些字"
 
-msgid "has importance ..."
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "主旨包含這些字"
+
+#, fuzzy
+msgid "has importance..."
 msgstr "has importance ..."
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr "傳送到..."
 
 msgid "is sent only to me"
@@ -2605,21 +2617,23 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity"
-msgstr ""
-
-msgid "is received after"
-msgstr ""
-
-msgid "is received before"
-msgstr ""
-
-msgid "at least message size"
-msgstr ""
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "敏感度"
 
 #, fuzzy
-msgid "at most message size"
-msgstr "沒有選擇的郵件"
+msgid "is received after..."
+msgstr "接收到來自..."
+
+#, fuzzy
+msgid "is received before..."
+msgstr "接收到來自..."
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr ""

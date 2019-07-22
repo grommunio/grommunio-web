@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2019-06-24 13:31+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2642,56 +2642,70 @@ msgstr "Größe"
 msgid "Sort by: Size"
 msgstr "Sortieren nach: Größe"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "Nachricht in Ordner verschieben ..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "Nachricht in Ordner kopieren ..."
 
 msgid "Delete the message"
 msgstr "Nachricht löschen"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr "Nachricht umleiten an ..."
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr "Nachricht weiterleiten an ..."
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr "Nachricht als Anhang weiterleiten an ..."
 
-msgid "Mark the message as read ..."
+#, fuzzy
+msgid "Mark the message as read..."
 msgstr "Nachricht als gelesen markieren ..."
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr "Erhalten von ..."
 
-msgid "includes these words in the sender's address ..."
+#, fuzzy
+msgid "includes these words in the sender's address..."
 msgstr "Enthält die folgenden Wörter in der Absenderadresse ..."
 
-msgid "includes these words in the recipient's address ..."
+#, fuzzy
+msgid "includes these words in the recipient's address..."
 msgstr "enthält die folgenden Wörter in der Empfängeradresse ..."
 
-msgid "includes these words in the subject ..."
+#, fuzzy
+msgid "includes these words in the subject..."
 msgstr "enthält diese Wörter im Betreff ..."
 
 # 84%
 # 100%
-msgid "includes these words in the body ..."
+#, fuzzy
+msgid "includes these words in the body..."
 msgstr "enthält diese Wörter im Text ..."
 
 # 84%
 # 100%
-msgid "includes these words in the transport-headers ..."
+#, fuzzy
+msgid "includes these words in the transport-headers..."
 msgstr "enthält diese Wörter in den transport-headern ..."
 
-msgid "has importance ..."
+#, fuzzy
+msgid "has importance..."
 msgstr "Wichtigkeit ..."
 
 msgid "has an attachment"
 msgstr "enthält einen Anhang"
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr "Gesendet an ..."
 
 msgid "is sent only to me"
@@ -2706,21 +2720,23 @@ msgstr "enthält meinen Namen nicht im An- oder CC-Feld"
 msgid "has my name in the To or Cc field"
 msgstr "enthält meinen Namen im An- oder CC-Feld"
 
-msgid "has sensitivity"
+#, fuzzy
+msgid "has sensitivity..."
 msgstr "ist vertraulich"
 
-msgid "is received after"
+#, fuzzy
+msgid "is received after..."
 msgstr "erhalten nach dem"
 
-msgid "is received before"
+#, fuzzy
+msgid "is received before..."
 msgstr "erhalten vor dem"
 
-msgid "at least message size"
+msgid "size is at least..."
 msgstr ""
 
-#, fuzzy
-msgid "at most message size"
-msgstr "Keine Nachricht ausgewählt"
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr "enthält meinen Namen im An-Feld"

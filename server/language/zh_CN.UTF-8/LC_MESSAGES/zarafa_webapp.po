@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2017-10-05 20:36+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.kopano.io/projects/"
@@ -2485,54 +2485,63 @@ msgstr ""
 msgid "Sort by: Size"
 msgstr ""
 
-msgid "Move the message to folder ..."
-msgstr ""
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "标记为未读"
 
-msgid "Copy the message to folder ..."
-msgstr ""
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "标记为未读"
 
 msgid "Delete the message"
 msgstr ""
 
-msgid "Redirect the message to ..."
-msgstr ""
-
-msgid "Forward the message to ..."
-msgstr ""
-
-msgid "Forward the message as attachment to ..."
-msgstr ""
-
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Redirect the message to..."
 msgstr "标记为未读"
 
-msgid "is received from ..."
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "标记为未读"
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "标记为未读"
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "标记为未读"
+
+msgid "is received from..."
 msgstr ""
 
-msgid "includes these words in the sender's address ..."
+msgid "includes these words in the sender's address..."
 msgstr ""
 
-msgid "includes these words in the recipient's address ..."
+msgid "includes these words in the recipient's address..."
 msgstr ""
 
-msgid "includes these words in the subject ..."
+msgid "includes these words in the subject..."
 msgstr ""
 
-msgid "includes these words in the body ..."
+msgid "includes these words in the body..."
 msgstr ""
 
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the transport-headers..."
 msgstr ""
 
-msgid "has importance ..."
-msgstr ""
+# 80%
+#, fuzzy
+msgid "has importance..."
+msgstr "重要的"
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to ..."
-msgstr ""
+# 75%
+#, fuzzy
+msgid "is sent to..."
+msgstr "已发送"
 
 msgid "is sent only to me"
 msgstr ""
@@ -2546,19 +2555,19 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity"
+msgid "has sensitivity..."
 msgstr ""
 
-msgid "is received after"
+msgid "is received after..."
 msgstr ""
 
-msgid "is received before"
+msgid "is received before..."
 msgstr ""
 
-msgid "at least message size"
+msgid "size is at least..."
 msgstr ""
 
-msgid "at most message size"
+msgid "size is at most..."
 msgstr ""
 
 msgid "has my name in the To field"

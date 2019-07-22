@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2602,58 +2602,70 @@ msgstr "Размер"
 msgid "Sort by: Size"
 msgstr "Сортировка по: Размеру"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "Переместить сообщение в каталог..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "Скопировать сообщение в каталог..."
 
 msgid "Delete the message"
 msgstr "Удалить сообщение"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr "Перенаправить сообщение..."
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr "Переслать сообщение..."
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr "Переслать сообщение как вложение..."
 
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Mark the message as read..."
 msgstr "Переслать сообщение..."
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr "Получено от..."
 
-msgid "includes these words in the sender's address ..."
+#, fuzzy
+msgid "includes these words in the sender's address..."
 msgstr "содержит слова в адресе отправителя ..."
 
 #, fuzzy
-msgid "includes these words in the recipient's address ..."
+msgid "includes these words in the recipient's address..."
 msgstr "содержит слова в адресе отправителя ..."
 
-msgid "includes these words in the subject ..."
+#, fuzzy
+msgid "includes these words in the subject..."
 msgstr "содержит слова в теме письма..."
 
 # 84%
 # 100%
-msgid "includes these words in the body ..."
+#, fuzzy
+msgid "includes these words in the body..."
 msgstr "содержит слова в теле письма..."
 
 # 84%
 # 100%
-msgid "includes these words in the transport-headers ..."
+#, fuzzy
+msgid "includes these words in the transport-headers..."
 msgstr "содержит слова в технических заголовках письма..."
 
-msgid "has importance ..."
+#, fuzzy
+msgid "has importance..."
 msgstr "имеет важность..."
 
 msgid "has an attachment"
 msgstr "имеет вложение"
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr "отправлено ..."
 
 msgid "is sent only to me"
@@ -2669,21 +2681,23 @@ msgstr "моё имя в поле кому(To) или копия(Cc)"
 msgid "has my name in the To or Cc field"
 msgstr "моё имя в поле кому(To) или копия(Cc)"
 
-msgid "has sensitivity"
+#, fuzzy
+msgid "has sensitivity..."
 msgstr "установлен уровень конфиденциальности"
 
-msgid "is received after"
+#, fuzzy
+msgid "is received after..."
 msgstr "получено после"
 
-msgid "is received before"
+#, fuzzy
+msgid "is received before..."
 msgstr "получено до"
 
-msgid "at least message size"
+msgid "size is at least..."
 msgstr ""
 
-#, fuzzy
-msgid "at most message size"
-msgstr "Сообщения не выбраны"
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr "моё имя в поле Кому(To)"

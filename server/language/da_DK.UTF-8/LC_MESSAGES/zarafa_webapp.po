@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2517,55 +2517,66 @@ msgstr "Størrelse"
 msgid "Sort by: Size"
 msgstr "Sorter efter: Størrelse"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "Flyt meddelelsen til mappen ..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "Kopier meddelelsen til mappen ..."
 
 msgid "Delete the message"
 msgstr "Slet denne meddelelse"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr "Viderestil meddelelsen til ..."
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr "Videresend meddelelsen til ..."
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr "Videresend meddelelsen som vedhæftning til ..."
 
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Mark the message as read..."
 msgstr "Videresend meddelelsen til ..."
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr "er modtaget fra ..."
 
-msgid "includes these words in the sender's address ..."
+#, fuzzy
+msgid "includes these words in the sender's address..."
 msgstr "inkluder disse ord i afsenderens adresse ..."
 
 #, fuzzy
-msgid "includes these words in the recipient's address ..."
+msgid "includes these words in the recipient's address..."
 msgstr "inkluder disse ord i afsenderens adresse ..."
 
-msgid "includes these words in the subject ..."
+#, fuzzy
+msgid "includes these words in the subject..."
 msgstr "inkluder disse ord i emnet ..."
 
-msgid "includes these words in the body ..."
+#, fuzzy
+msgid "includes these words in the body..."
 msgstr "inkluder disse ord i brevkroppen ..."
 
 #, fuzzy
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the transport-headers..."
 msgstr "inkluder disse ord i brevkroppen ..."
 
-msgid "has importance ..."
+#, fuzzy
+msgid "has importance..."
 msgstr "har vigtighed ..."
 
 msgid "has an attachment"
 msgstr "har en vedhæftning"
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr "er sendt til ..."
 
 msgid "is sent only to me"
@@ -2581,21 +2592,23 @@ msgstr "har mit navn i Til eller Cc-feltet"
 msgid "has my name in the To or Cc field"
 msgstr "har mit navn i Til eller Cc-feltet"
 
-msgid "has sensitivity"
+#, fuzzy
+msgid "has sensitivity..."
 msgstr "har fortrolighed"
 
-msgid "is received after"
+#, fuzzy
+msgid "is received after..."
 msgstr "er modtaget efter"
 
-msgid "is received before"
+#, fuzzy
+msgid "is received before..."
 msgstr "er modtaget før"
 
-msgid "at least message size"
+msgid "size is at least..."
 msgstr ""
 
-#, fuzzy
-msgid "at most message size"
-msgstr "Ingen meddelelse er valgt"
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr "har mit navn i Til-feltet"

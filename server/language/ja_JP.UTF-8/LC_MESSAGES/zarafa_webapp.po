@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-16 10:32+0200\n"
+"POT-Creation-Date: 2019-07-22 17:12+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2566,61 +2566,74 @@ msgstr "サイズ"
 msgid "Sort by: Size"
 msgstr "並べ替え順 : サイズ"
 
-msgid "Move the message to folder ..."
+#, fuzzy
+msgid "Move the message to folder..."
 msgstr "メッセージをフォルダに移動しています..."
 
-msgid "Copy the message to folder ..."
+#, fuzzy
+msgid "Copy the message to folder..."
 msgstr "メッセージをフォルダーにコピーしています ..."
 
 msgid "Delete the message"
 msgstr "メッセージを削除します。"
 
-msgid "Redirect the message to ..."
+#, fuzzy
+msgid "Redirect the message to..."
 msgstr " ...にメッセージをリダイレクトします。"
 
-msgid "Forward the message to ..."
+#, fuzzy
+msgid "Forward the message to..."
 msgstr " ...にメッセージを転送します。"
 
-msgid "Forward the message as attachment to ..."
+#, fuzzy
+msgid "Forward the message as attachment to..."
 msgstr " ...にこのメッセージを添付ファイルとして転送します。"
 
 #, fuzzy
-msgid "Mark the message as read ..."
+msgid "Mark the message as read..."
 msgstr " ...にメッセージを転送します。"
 
-msgid "is received from ..."
+#, fuzzy
+msgid "is received from..."
 msgstr " ...から受信します。"
 
-msgid "includes these words in the sender's address ..."
-msgstr ""
-
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the recipient's address ..."
-msgstr "件名にこれらの言葉が含まれています。"
-
-msgid "includes these words in the subject ..."
-msgstr "件名にこれらの言葉が含まれています。"
-
-# 84%
-# 100%
-msgid "includes these words in the body ..."
+msgid "includes these words in the sender's address..."
 msgstr "件名にこれらの言葉が含まれています。"
 
 # 84%
 # 100%
 #, fuzzy
-msgid "includes these words in the transport-headers ..."
+msgid "includes these words in the recipient's address..."
 msgstr "件名にこれらの言葉が含まれています。"
 
-msgid "has importance ..."
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "件名にこれらの言葉が含まれています。"
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "件名にこれらの言葉が含まれています。"
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "件名にこれらの言葉が含まれています。"
+
+#, fuzzy
+msgid "has importance..."
 msgstr "重要度 ..."
 
 msgid "has an attachment"
 msgstr ""
 
-msgid "is sent to ..."
+#, fuzzy
+msgid "is sent to..."
 msgstr " ...に送信する"
 
 msgid "is sent only to me"
@@ -2635,21 +2648,23 @@ msgstr ""
 msgid "has my name in the To or Cc field"
 msgstr ""
 
-msgid "has sensitivity"
-msgstr ""
-
-msgid "is received after"
-msgstr ""
-
-msgid "is received before"
-msgstr ""
-
-msgid "at least message size"
-msgstr ""
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "秘密度"
 
 #, fuzzy
-msgid "at most message size"
-msgstr "メッセージが選択されていません"
+msgid "is received after..."
+msgstr " ...から受信します。"
+
+#, fuzzy
+msgid "is received before..."
+msgstr " ...から受信します。"
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
 
 msgid "has my name in the To field"
 msgstr ""
