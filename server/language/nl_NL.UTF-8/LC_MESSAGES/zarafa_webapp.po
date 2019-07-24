@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-22 17:12+0200\n"
-"PO-Revision-Date: 2019-07-05 14:09+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2019-07-24 07:17+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -2640,71 +2640,57 @@ msgstr "Grootte"
 msgid "Sort by: Size"
 msgstr "Sorteer op: Grootte"
 
-#, fuzzy
 msgid "Move the message to folder..."
-msgstr "Verplaats bericht naar map ..."
+msgstr "Verplaats bericht naar map..."
 
-#, fuzzy
 msgid "Copy the message to folder..."
-msgstr "Kopieer bericht naar map ..."
+msgstr "Kopieer bericht naar map..."
 
 msgid "Delete the message"
 msgstr "Verwijder het bericht"
 
-#, fuzzy
 msgid "Redirect the message to..."
-msgstr "Leid het bericht om naar ..."
+msgstr "Leid het bericht om naar..."
 
-#, fuzzy
 msgid "Forward the message to..."
-msgstr "Stuur het bericht door naar ..."
+msgstr "Stuur het bericht door naar..."
 
-#, fuzzy
 msgid "Forward the message as attachment to..."
-msgstr "Stuur het bericht als bijlage door naar ..."
+msgstr "Stuur het bericht als bijlage door naar..."
 
-#, fuzzy
 msgid "Mark the message as read..."
-msgstr "Markeer het bericht als gelezen ..."
+msgstr "Markeer het bericht als gelezen..."
 
-#, fuzzy
 msgid "is received from..."
-msgstr "is ontvangen van ..."
+msgstr "is ontvangen van..."
 
-#, fuzzy
 msgid "includes these words in the sender's address..."
-msgstr "Gebruik deze woorden in het adres van de afzender ..."
+msgstr "Gebruik deze woorden in het adres van de afzender..."
 
-#, fuzzy
 msgid "includes these words in the recipient's address..."
-msgstr "Gebruik deze woorden in het adres van de afzender ..."
+msgstr "Gebruik deze woorden in het adres van de afzender..."
 
-#, fuzzy
 msgid "includes these words in the subject..."
-msgstr "bevat deze woorden in het onderwerp ..."
+msgstr "bevat deze woorden in het onderwerp..."
 
 # 84%
 # 100%
-#, fuzzy
 msgid "includes these words in the body..."
 msgstr "bevat deze woorden in de inhoud..."
 
 # 84%
 # 100%
-#, fuzzy
 msgid "includes these words in the transport-headers..."
 msgstr "bevat deze woorden in de transport-headers..."
 
-#, fuzzy
 msgid "has importance..."
-msgstr "heeft belangrijkheid ..."
+msgstr "heeft belangrijkheid..."
 
 msgid "has an attachment"
 msgstr "bevat bijlage"
 
-#, fuzzy
 msgid "is sent to..."
-msgstr "is verzonden aan ..."
+msgstr "is verzonden aan..."
 
 msgid "is sent only to me"
 msgstr "is alleen naar mij verzonden"
@@ -2718,23 +2704,20 @@ msgstr "heeft mijn naam niet in de Aan of CC veld"
 msgid "has my name in the To or Cc field"
 msgstr "bevat mijn naam in het Aan of CC veld"
 
-#, fuzzy
 msgid "has sensitivity..."
-msgstr "heeft gevoeligheid"
+msgstr "heeft gevoeligheid..."
 
-#, fuzzy
 msgid "is received after..."
-msgstr "is ontvangen na"
+msgstr "is ontvangen na..."
 
-#, fuzzy
 msgid "is received before..."
-msgstr "is ontvangen voor"
+msgstr "is ontvangen voor..."
 
 msgid "size is at least..."
-msgstr ""
+msgstr "grootte is ten minste..."
 
 msgid "size is at most..."
-msgstr ""
+msgstr "grootte is maximaal..."
 
 msgid "has my name in the To field"
 msgstr "bevat mijn naam in het Aan veld"
