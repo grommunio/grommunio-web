@@ -20,11 +20,11 @@ Zarafa.common.rules.dialogs.ReceivedBeforeLink = Ext.extend(Zarafa.common.rules.
 			return this.condition;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var value = this.receivedDate.getValue().getTime()/1000;
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
 
-		return RestrictionFactory.dataResProperty('PR_MESSAGE_DELIVERY_TIME', Restrictions.RELOP_LT, value);
+		return conditionDefinition({value : value});
 	}
 });
 

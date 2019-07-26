@@ -24,10 +24,9 @@ Zarafa.common.rules.dialogs.NoneLink = Ext.extend(Zarafa.common.rules.dialogs.Ba
 			return false;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-
-		// An PR_MESSAGE_CLASS must always exists, therefore this rule is always true.
-		return RestrictionFactory.dataResExist('PR_MESSAGE_CLASS');
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition();
 	}
 });
 

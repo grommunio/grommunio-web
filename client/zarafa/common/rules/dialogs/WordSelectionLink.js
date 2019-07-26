@@ -247,61 +247,9 @@ Zarafa.common.rules.dialogs.WordSelectionLink = Ext.extend(Ext.BoxComponent, {
 			return false;
 		}
 
-		var conditions = [];
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
-
-		switch (this.conditionFlag) {
-			case Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS:
-			case Zarafa.common.rules.data.ConditionFlags.RECIPIENT_WORDS:
-				var isSenderWordsRule = this.conditionFlag === Zarafa.common.rules.data.ConditionFlags.SENDER_WORDS;
-				this.store.each(function(word) {
-					var value = Zarafa.core.Util.stringToHex(word.get('words'));
-
-					 if (isSenderWordsRule) {
-						 conditions.push(RestrictionFactory.dataResContent('PR_SENDER_SEARCH_KEY', Restrictions.FL_SUBSTRING, value));
-					 } else {
-					 	conditions.push(
-							 RestrictionFactory.createResSubRestriction(
-								 'PR_MESSAGE_RECIPIENTS',
-								 RestrictionFactory.dataResContent(
-									 'PR_SMTP_ADDRESS',
-									 Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE,
-									 word.get('words')
-								 )
-							 )
-						 );
-					 }
-				}, this);
-				break;
-			case Zarafa.common.rules.data.ConditionFlags.SUBJECT_WORDS:
-				this.store.each(function(word) {
-					conditions.push(RestrictionFactory.dataResContent('PR_SUBJECT', Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE, word.get('words')));
-				}, this);
-				break;
-			case Zarafa.common.rules.data.ConditionFlags.BODY_WORDS:
-				this.store.each(function(word) {
-					conditions.push(RestrictionFactory.dataResContent('PR_BODY', Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE, word.get('words')));
-				}, this);
-				break;
-			case Zarafa.common.rules.data.ConditionFlags.TRANSPORTHEADER_WORDS:
-				this.store.each(function(word) {
-					conditions.push(RestrictionFactory.dataResContent('PR_TRANSPORT_MESSAGE_HEADERS', Restrictions.FL_SUBSTRING | Restrictions.FL_IGNORECASE, word.get('words')));
-				}, this);
-				break;
-			default:
-				// Invalid conditionFlag
-				return false;
-		}
-
-		// If there was only 1 word condtion, we don't need to convert
-		// it to a OR subrestriction. If we have more then 1 word condtion,
-		// then we should create the OR restriction.
-		if (conditions.length === 1) {
-			return conditions[0];
-		} else {
-			return Zarafa.core.data.RestrictionFactory.createResOr(conditions);
-		}
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({store : this.store});
 	},
 
 	/**

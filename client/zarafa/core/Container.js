@@ -798,5 +798,17 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 		var baseURL = container.getBaseURL();
 
 		return baseURL.substring(0, baseURL.lastIndexOf('index.php'));
+	},
+
+	/**
+	 * Returns instance of factory registered with {@link Zarafa.common.data.AbstractRulesFactory} factory
+	 * depending on factoryType given in the parameter.
+	 *
+	 * @param {Zarafa.common.data.RulesFactoryType} factoryType type of the required factory.
+	 * @return {Object} factory instance based on factoryType.
+	 */
+	getRulesFactoryByType : function(factoryType)
+	{
+		return Zarafa.common.data.AbstractRulesFactory.getFactoryById(factoryType);
 	}
 });

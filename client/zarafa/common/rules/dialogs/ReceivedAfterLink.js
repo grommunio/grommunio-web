@@ -49,7 +49,7 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 			this.receivedDate.setValue(new Date());
 		}
 
-		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.call(this, arguments);
+		Zarafa.common.rules.dialogs.ReceivedAfterLink.superclass.setCondition.apply(this, arguments);
 	},
 
 	/**
@@ -62,15 +62,15 @@ Zarafa.common.rules.dialogs.ReceivedAfterLink = Ext.extend(Zarafa.common.rules.d
 			return this.condition;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var date = this.receivedDate.getValue();
 		date.setHours(23);
 		date.setMinutes(59);
 		date.setSeconds(59);
 		var value = date.getTime() / 1000;
 
-		return RestrictionFactory.dataResProperty('PR_MESSAGE_DELIVERY_TIME', Restrictions.RELOP_GT, value);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({value : value});
 	}
 });
 

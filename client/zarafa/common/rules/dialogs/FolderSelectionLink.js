@@ -165,36 +165,9 @@ Zarafa.common.rules.dialogs.FolderSelectionLink = Ext.extend(Ext.BoxComponent, {
 			return this.action;
 		}
 
-		var action = {};
-
-		// No folder selected, this means
-		// we can't create an action.
-		if (!this.folder) {
-			return false;
-		}
-
-		// Set the folder properties.
-		action.folderentryid = this.folder.get('entryid');
-		action.storeentryid = this.folder.get('store_entryid');
-
-		// Fill in the additional properties required for the action.
-		switch (this.actionFlag) {
-			case Zarafa.common.rules.data.ActionFlags.MOVE:
-				action.action = Zarafa.core.mapi.RuleActions.OP_MOVE;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			case Zarafa.common.rules.data.ActionFlags.COPY:
-				action.action = Zarafa.core.mapi.RuleActions.OP_COPY;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		return action;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition({folder : this.folder});
 	},
 
 	/**

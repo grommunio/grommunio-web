@@ -65,7 +65,7 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 				{ xtype: 'menuseparator' },
 				this.createContextActionItems(config),
 				{ xtype: 'menuseparator' },
-				this.createContextOptionItems()
+				this.createContextOptionItems(config.records)
 			]
 		});
 
@@ -243,9 +243,21 @@ Zarafa.mail.ui.MailGridContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalM
 	 * @return {Zarafa.core.ui.menu.ConditionalItem[]} The list of Option context menu items
 	 * @private
 	 */
-	createContextOptionItems : function()
+	createContextOptionItems : function(records)
 	{
-		return[container.populateInsertionPoint('context.mail.contextmenu.topoptions', this),{
+		return[{
+			xtype: 'zarafa.conditionalitem',
+			text : _('Rules'),
+			singleSelectOnly: true,
+			cls: 'k-unclickable',
+			iconCls : 'zarafa-settings-category-rules',
+			hideOnClick: false,
+			menu: {
+				xtype: 'zarafa.rulescontextmenu',
+				records : records
+			}
+		},
+		container.populateInsertionPoint('context.mail.contextmenu.topoptions', this), {
 			xtype: 'zarafa.conditionalitem',
 			text : _('Print'),
 			iconCls : 'icon_print',
