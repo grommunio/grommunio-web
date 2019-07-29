@@ -129,22 +129,22 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	}
 }
 
-	/****************************************************************************
-	 * Icons in the 'Show columns' menu
-	 ****************************************************************************/
-	.x-menu{
-		.x-menu-check-item {
-			/* check/uncheck images are 14 px wide */
-			padding-left: $padding-small + 14px + $padding-medium;
+/****************************************************************************
+* Icons in the 'Show columns' menu
+****************************************************************************/
+.x-menu{
+	.x-menu-check-item {
+		/* check/uncheck images are 14 px wide */
+		padding-left: $padding-small + 14px + $padding-medium;
 
-			.x-menu-item-text {
-				p {
-					padding-left: 20px;
-					background-position: 2px center !important;
-				}
+		.x-menu-item-text {
+			p {
+				padding-left: 20px;
+				background-position: 2px center !important;
 			}
 		}
 	}
+}
 
 /******************************************************************************
  * Empty text
@@ -241,7 +241,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	}
 }
 
-
 .x-grid3-row-over {
 	background: $grid-hover-color;
 	border-color: $grey; /* Ext wants to make the hovered border darker, we don't */
@@ -253,6 +252,11 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-grid3-row.x-grid3-row-selected {
 	border: 1px solid $grid-active-color;
 	border-top: 0px;
+}
+
+/* Flags */
+.x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag {
+	background-image: none !important;
 }
 
 /* Mail grid */
@@ -377,7 +381,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 
 /* Unread borders */
 .k-unreadborders {
-	
+
 	/* Header should be moved to the right for alignment */
 	.x-grid3-header {
 		padding-left: $padding-small;
