@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-07-07 19:37+0000\n"
-"Last-Translator: trickvi <ME@TRICKVI.IS>\n"
+"PO-Revision-Date: 2019-07-30 23:39+0000\n"
+"Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/is/>\n"
 "Language: is_IS\n"
@@ -614,7 +614,7 @@ msgid "Mails"
 msgstr "Tölvupóstar"
 
 msgid "Appointments"
-msgstr "Mót"
+msgstr "Tímabókanir"
 
 msgid "Contacts"
 msgstr "Tengiliðir"
@@ -888,13 +888,13 @@ msgid "List"
 msgstr "Listi"
 
 msgid "Appointment"
-msgstr "Mót"
+msgstr "Tímabókun"
 
 msgid "Meeting request"
 msgstr "Fundarboð"
 
 msgid "Print selected appointment"
-msgstr "Prenta valið mót"
+msgstr "Prenta valda tímabókun"
 
 msgid "Print overview"
 msgstr "Prenta yfirlit"
@@ -903,10 +903,10 @@ msgid "Print"
 msgstr "Prenta"
 
 msgid "No appointment selected"
-msgstr "Ekkert mót valið"
+msgstr "Engin tímabókun valin"
 
 msgid "Create Appointment"
-msgstr "Mæla sér mót við"
+msgstr "Bóka tíma"
 
 msgid "Calendar"
 msgstr "Dagatal"
@@ -1032,7 +1032,7 @@ msgstr "{0} samþykkti mögulega þann {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr "Þetta mót átti sér stað í fortíðinni."
+msgstr "Þessi tímabókun átti sér stað í fortíðinni."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
@@ -1127,13 +1127,13 @@ msgid "High priority"
 msgstr "Hár forgangur"
 
 msgid "Mark this appointment as high priority"
-msgstr "Merkja þetta mót svo það sé í háum forgangi"
+msgstr "Merkja þessa tímabókun svo hún sé í háum forgangi"
 
 msgid "Low priority"
 msgstr "Lágur forgangur"
 
 msgid "Mark this appointment as low priority"
-msgstr "Merkja þetta mót svo það sé í lágum forgangi"
+msgstr "Merkja þessa tímabókun svo hún sé í lágum forgangi"
 
 msgid "Categories"
 msgstr "Flokkar"
@@ -1145,7 +1145,7 @@ msgid "Private"
 msgstr "Óopinbert"
 
 msgid "Mark this appointment as private"
-msgstr "Merkja þetta mót sem óopinbert"
+msgstr "Merkja þessa tímabókun sem óopinbera"
 
 msgid "Proposed Date and Time"
 msgstr "Leggja til dagsetningu og tíma"
@@ -1232,946 +1232,995 @@ msgid "Response"
 msgstr "Svar"
 
 msgid "New appointment"
-msgstr ""
+msgstr "Ný tímabókun"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "Búa til atriði"
 
 msgid "New meeting request"
-msgstr ""
+msgstr "Nýtt fundarboð"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "Færa dagatalstímabil fram og til baka"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Afrita valið atriði"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Líma valið atriði"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
-msgstr ""
+msgstr "Upphaf"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr ""
+msgstr "Lok"
 
 msgid "Printed by: "
-msgstr ""
+msgstr "Umbeiðandi prentunar: "
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr ""
+msgstr "Prentunardagsetning: "
 
 msgid "Location: "
-msgstr ""
+msgstr "Staðsetning: "
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr ""
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr ""
+msgstr "l jS F"
 
 msgid "Organiser"
-msgstr ""
+msgstr "Skipuleggjandi"
 
 msgid "Meeting status"
-msgstr ""
+msgstr "Mætingarlisti"
 
 msgid "Required Attendees"
-msgstr ""
+msgstr "Nauðsynlegir þátttakendur"
 
 msgid "Optional Attendees"
-msgstr ""
+msgstr "Valkvæðir þátttakendur"
 
 msgid "Resources"
-msgstr ""
+msgstr "Aðföng"
 
 msgid "Sensitivity"
-msgstr ""
+msgstr "Öryggi"
 
 msgid "Importance"
-msgstr ""
+msgstr "Mikilvægi"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 msgid "j"
-msgstr ""
+msgstr "j"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
-msgstr ""
+msgstr "l d/m/Y"
 
 msgid "General calendar settings"
-msgstr ""
+msgstr "Almennar dagatalsstillingar"
 
 msgid "First day of the week"
-msgstr ""
+msgstr "Fyrsti dagur vikunnar"
 
 msgid "Start of workday"
-msgstr ""
+msgstr "Upphaf vinnudags"
 
 msgid "End of workday"
-msgstr ""
+msgstr "Lok vinnudags"
 
 msgid "Calendar resolution"
-msgstr ""
+msgstr "Nákvæmni dagatals"
 
 msgid "Default appointment duration {A} minutes"
-msgstr ""
+msgstr "Sjálfgefin lengd tímabókana: {A} mínútur"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "Tímalengd verður að vera milli 1 og 120 mínútur."
 
 msgid "Working days"
-msgstr ""
+msgstr "Vinnudagar"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr ""
+msgstr "Sýna bókaða daga með feitletrun í dagsetningarvali"
 
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
+"Upplýsingar um laust/bókað er notað af fólki sem sendir fundarboð til að sjá "
+"hvort þú sért laus á fundartímanum."
 
 msgid "Free/Busy publishing"
-msgstr ""
+msgstr "Birting laust/bókað"
 
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
+msgstr "Birta {0} mánuð(i) af upplýsingum um laust/bókað á netþjóninum."
 
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
+"Þú getur aðeins birt laust/bókað tímabil frá 0 og upp í 36 mánuði. 0 þýðir "
+"að upplýsingarnar eru ekki birtar."
 
 msgid "Side-by-side mode"
-msgstr ""
+msgstr "Hlið við hlið"
 
 msgid "Overlay mode"
-msgstr ""
+msgstr "Með yfirlögn"
 
 msgid "Calendar view settings"
-msgstr ""
+msgstr "Stillingar dagatalssýnar"
 
 msgid "View multiple calendars in"
-msgstr ""
+msgstr "Skoða mörg dagatöl"
 
 msgid "Reminder settings"
-msgstr ""
+msgstr "Áminningarstillingar"
 
 msgid "Enable reminder for new appointments"
-msgstr ""
+msgstr "Virkja áminningar fyrir nýjar tímabókanir"
 
 msgid "Default reminder time"
-msgstr ""
+msgstr "Sjálfgefinn tími áminninga"
 
 msgid "Default all-day appointment reminder time"
-msgstr ""
+msgstr "Sjálfgefinn tími áminninga heilsdagsbókana"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr ""
+msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} valið atriði"
+msgstr[1] "{0} valin atriði"
 
 msgid "New Appointment"
-msgstr ""
+msgstr "Ný tímabókun"
 
 msgid "New Meeting Request"
-msgstr ""
+msgstr "Nýtt fundarboð"
 
 msgid "Open"
-msgstr ""
+msgstr "Opið"
 
 msgid "Copy/Move"
-msgstr ""
+msgstr "Afrita/Færa"
 
 msgid "Accept"
-msgstr ""
+msgstr "Samþykkja"
 
 msgid "Tentative"
-msgstr ""
+msgstr "Mögulegt"
 
 msgid "Decline"
-msgstr ""
+msgstr "Hafna"
 
 msgid "Send to..."
-msgstr ""
+msgstr "Senda til..."
 
 msgid "Export as"
-msgstr ""
+msgstr "Flytja út sem"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Tilvik"
 
 msgid "Series"
-msgstr ""
+msgstr "Fundaröð"
 
 msgid "Appointment not found"
-msgstr ""
+msgstr "Tímabókun fannst ekki"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr ""
+msgstr "Þessi tímabókun hefur verið færð eða henni eytt, viltu halda áfram?"
 
 msgid "All Day"
-msgstr ""
+msgstr "Heill dagur"
 
 msgid "Sort by: All Day"
-msgstr ""
+msgstr "Raða eftir heilsdagsviðburðum"
 
 msgid "Icon"
-msgstr ""
+msgstr "Teikn"
 
 msgid "Recurring"
-msgstr ""
+msgstr "Endurtekning"
 
 msgid "Sort by: Duration"
-msgstr ""
+msgstr "Raða eftir tímalengd"
 
 msgid "Meeting Status"
-msgstr ""
+msgstr "Fundarstaða"
 
 msgid "Sort by: Meeting Status"
-msgstr ""
+msgstr "Raða eftir fundarstöðu"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "Raða eftir hvernig sýnt"
 
 msgid "Sort by: Categories"
-msgstr ""
+msgstr "Raða eftir flokkum"
 
 msgid "Created On"
-msgstr ""
+msgstr "Sköpunardagsetning"
 
 msgid "Sort by: Created On"
-msgstr ""
+msgstr "Raða eftir sköpunardagsetningu"
 
 msgid "Due By"
-msgstr ""
+msgstr "Lokadagsetning"
 
 msgid "Sort by: Due By"
-msgstr ""
+msgstr "Raða eftir lokadagsetningu"
 
 msgid "Label"
-msgstr ""
+msgstr "Merki"
 
 msgid "Sort by: Label"
-msgstr ""
+msgstr "Raða eftir merki"
 
 msgid "Sort by: Organizer"
-msgstr ""
+msgstr "Raða eftir skipuleggjanda"
 
 msgid "Sort by: Required Attendee"
-msgstr ""
+msgstr "Raða eftir nauðsynlegum þátttakanda"
 
 msgid "Sort by: Optional Attendee"
-msgstr ""
+msgstr "Raða eftir valkvæðum þátttakanda"
 
 msgid "Sort by: Resources"
-msgstr ""
+msgstr "Raða eftir aðföngum"
 
 msgid "Recurring Startdate"
-msgstr ""
+msgstr "Upphafsdagur endurtekningar"
 
 msgid "Sort by: Recurring Startdate"
-msgstr ""
+msgstr "Raða eftir upphafsdegi endurtekningar"
 
 msgid "Recurring Enddate"
-msgstr ""
+msgstr "Lokadagur endurtekningar"
 
 msgid "Sort by: Recurring Enddate"
-msgstr ""
+msgstr "Raða eftir lokadegi endurtekningar"
 
 msgid "Recurring Pattern"
-msgstr ""
+msgstr "Endurtekningarmynstur"
 
 msgid "Sort by: Recurring Pattern"
-msgstr ""
+msgstr "Raða eftir endurtekningarmynstri"
 
 msgid "Sort by: Reminder"
-msgstr ""
+msgstr "Raða eftir ámminingu"
 
 msgid "Sort by: Sensitivity"
-msgstr ""
+msgstr "Raða eftir öryggi"
 
 msgid "Loading appointments"
-msgstr ""
+msgstr "Hleð tímabókunum"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F G:i"
-msgstr ""
+msgstr "jS F G:i"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
-msgstr ""
+msgstr "jS F Y"
 
 msgid "Update recipients"
-msgstr ""
+msgstr "Uppfæra viðtakendur"
 
 msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr ""
+msgstr "Fundartímanum hefur verið breytt. Veldu eitt af eftirtöldu:"
 
 msgid "Save changes and send an update to all recipients"
-msgstr ""
+msgstr "Vista breytingar og senda uppfærslu til allra viðtakenda"
 
 msgid "Open meeting request with changes"
-msgstr ""
+msgstr "Opna fundarboð með breytingum"
 
 msgid "Copy"
-msgstr ""
+msgstr "Afrita"
 
 msgid "Kopano Webapp"
-msgstr ""
+msgstr "Kopano vefviðmót"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
+"Vinsamlegast athugið að breytingar sem þú gerir verða yfirskrifaðar þegar "
+"fundarboðið er uppfært af skipuleggjanda. Viltu færa þennan fund?"
 
 msgid "Move"
-msgstr ""
+msgstr "Færa"
 
 msgid "Don't move"
-msgstr ""
+msgstr "Ekki færa"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Breyta dagasýn til að sjá allar tímabókanir"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
-msgstr ""
+msgstr "Tillaga"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
-msgstr ""
+msgstr "Hvenær"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Location"
-msgstr ""
+msgstr "Staðsetning"
 
 msgid "Remove From Calendar"
-msgstr ""
+msgstr "Fjarlægja úr dagatali"
 
 msgid "No Response Required"
-msgstr ""
+msgstr "Ekki þörf á svari"
 
 msgid "Accept Meeting Request"
-msgstr ""
+msgstr "Samþykkja fundarboð"
 
 msgid "Tentatively Accept Meeting Request"
-msgstr ""
+msgstr "Segja kannski við fundarboði"
 
 msgid "Decline Meeting Request"
-msgstr ""
+msgstr "Hafna fundarboði"
 
 msgid "Propose New Time for Meeting Request"
-msgstr ""
+msgstr "Leggja til nýja tímasetningu fyrir fundinn"
 
 msgid "View All Proposals"
-msgstr ""
+msgstr "Skoða allar tillögur"
 
 msgid "Accept Proposal"
-msgstr ""
+msgstr "Samþykkja tillögu"
 
 msgid "Accept Proposed Time"
-msgstr ""
+msgstr "Samþykkja tillögu að tíma"
 
 msgid "View in calendar"
-msgstr ""
+msgstr "Skoða í dagatali"
 
 msgid "No additional response required"
-msgstr ""
+msgstr "Ekki þörf á fleiri svörum"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr ""
+"Dagatalið þitt hefur sjálfvirkt verið uppfært. Þessu fundarboði verður núna "
+"eytt."
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G"
-msgstr ""
+msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
-msgstr ""
+msgstr "Útprentun fjölda atriða er ekki studd í augnablikinu."
 
 msgid "Printing of this item is not yet available"
-msgstr ""
+msgstr "Útprentun þessa atriðis er ekki möguleg"
 
 msgid "Item type: "
-msgstr ""
+msgstr "Gerð atriðis: "
 
 msgid "Printing of this view is not yet available"
-msgstr ""
+msgstr "Útprentun á þessari sýn er ekki möguleg"
 
 msgid "Recurring Message"
-msgstr ""
+msgstr "Endurtekin skilaboð"
 
 msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
 "series?"
 msgstr ""
+"Þetta eru endurtekin skilaboð. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
 
 msgid "Recurring Appointment"
-msgstr ""
+msgstr "Endurtekin tímabókun"
 
 msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
 "the series?"
 msgstr ""
+"Þetta er endurtekin tímabókun. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
 
 msgid "Recurring Meeting Request"
-msgstr ""
+msgstr "Endurtekið fundarboð"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
 msgstr ""
+"Þetta er endurtekið fundarboð. Viltu opna aðeins þetta tilvik eða alla "
+"tímaröðina?"
 
 msgid "Recurring Task Request"
-msgstr ""
+msgstr "Endurtekið verk"
 
 msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
+"Þetta er endurtekið verk. Viltu opna aðeins þetta tilvik eða alla tímaröðina?"
 
 msgid "Open this occurrence"
-msgstr ""
+msgstr "Opna þetta tilvik"
 
 msgid "Open the series"
-msgstr ""
+msgstr "Opna tímaröðina"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Líma endurtekningu {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Endurtekning fyrir: {0}. Viltu líma aðeins þetta tilvik eða alla tímaröðina?"
 
 msgid "message"
-msgstr ""
+msgstr "skilaboð"
 
 msgid "meeting request"
-msgstr ""
+msgstr "fundarboð"
 
 msgid "appointment"
-msgstr ""
+msgstr "tímabókun"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Líma eingöngu þetta tilvik"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Líma tímaröð..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
+"Þetta eru endurtekin skilaboð. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"Þetta er endurtekin tímabókun. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
 msgstr ""
+"Þetta er endurtekið fundarboð. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
 
 msgid ""
 "This is a recurring task request. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
+"Þetta er endurtekið verk. Viltu eyða aðeins þessu tilviki eða allri "
+"tímaröðinni?"
 
 msgid "Delete this occurrence"
-msgstr ""
+msgstr "Eyða þessu tilviki"
 
 msgid "Delete the series"
-msgstr ""
+msgstr "Eyða tímaröðinni"
 
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Staðfesta eyðingu"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr ""
+msgstr "Þetta \"{0}\" fundarboð hefur nú þegar verið samþykkt."
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr ""
+msgstr "Þú hefur ekki svarað fundarboði \"{0}\"."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr ""
+msgstr "Eyða og senda svar til skipuleggjanda fundarins"
 
 msgid "Delete without sending"
-msgstr ""
+msgstr "Eyða án þess að senda"
 
 msgid "Notify recipients"
-msgstr ""
+msgstr "Láta þátttakendur vita"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 msgstr ""
+"Skilaboð um að hætt sé við verða send til allra þátttakenda, viltu halda "
+"áfram?"
 
 msgid "Delete Incomplete Task"
-msgstr ""
+msgstr "Eyða ókláruðu verki"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "Verkið \"{0}\" er óklárað. Hvað viltu gera?"
 
 msgid "Decline and delete"
-msgstr ""
+msgstr "Hafna og eyða"
 
 msgid "Mark complete and delete"
-msgstr ""
+msgstr "Merkja sem klárað og eyða"
 
 msgid "Notify sender"
-msgstr ""
+msgstr "Láta sendanda vita"
 
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
 msgstr ""
+"Sendandi þessa tölvupósts óskar eftir leskvittun. Viltu láta sendandann vita?"
 
 msgid "Import"
-msgstr ""
+msgstr "Lesa inn"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Tókst að lesa inn í: {0}"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Mistókst að lesa inn í: {0}"
 
 msgid "Import error"
-msgstr ""
+msgstr "Innlestrarvilla"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Tókst ekki að lesa inn \"{0}\". Þessi skrá er ekki gild"
 
 msgid "Cc"
-msgstr ""
+msgstr "Afrit"
 
 msgid "Bcc"
-msgstr ""
+msgstr "Dulið afrit"
 
 msgid "From"
-msgstr ""
+msgstr "Frá"
 
 msgid "Insert item"
-msgstr ""
+msgstr "Setja inn"
 
 msgid "Insert as"
-msgstr ""
+msgstr "Setja inn sem"
 
 msgid "Text only"
-msgstr ""
+msgstr "Eingöngu texta"
 
 msgid "Attachment"
-msgstr ""
+msgstr "Viðhengi"
 
 msgid "Attach Item"
-msgstr ""
+msgstr "Hengja við"
 
 msgid "No message selected"
-msgstr ""
+msgstr "Engin skilaboð valin"
 
 msgid "Import to"
-msgstr ""
+msgstr "Lesa inn í"
 
 msgid "New folder"
-msgstr ""
+msgstr "Ný mappa"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "Hlaða niður sem ZIP skrá"
 
 msgid "Continue"
-msgstr ""
+msgstr "Halda áfram"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
+"Skráarsnið þessara viðhengja eru ekki studd og þeim getur ekki verið bætt í "
+"ZIP skrána:"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "Viltu halda áfram að hlaða niður án þess að bæta við þessum skrám?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
 msgstr ""
+"Alltaf halda áfram að hlaða niður ZIP skrám án þess að bæta við óstuddum "
+"skráarsniðum."
 
 msgid "File upload"
-msgstr ""
+msgstr "Skráarupphal"
 
 msgid "Attach item"
-msgstr ""
+msgstr "Hengja við"
 
 msgid "Preview"
-msgstr ""
+msgstr "Forsýn"
 
 msgid "Download"
-msgstr ""
+msgstr "Niðurhal"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "Hala öllu niður sem ZIP skrá"
 
 msgid "Import to folder"
-msgstr ""
+msgstr "Lesa inn í möppu"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Til að nota vCard innlestur þarf að uppfæra í Kopano Core útgáfu 8.3 eða "
+"nýrri."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Til að nota ICS/VCS innlestur þarf að uppfæra í Kopano Core útgáfu 8.3 eða "
+"nýrri."
 
 msgid "Attachment error"
-msgstr ""
+msgstr "Viðhengisvilla"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "Gat ekki búið til ZIP skrá. Skráarstærð takmarkast við 30MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Gat ekki halað niður"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "Myndasnið er ekki stutt. "
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "Studd snið fyrir tengiliðamyndir eru"
 
 msgid "Attachment Error"
-msgstr ""
+msgstr "Viðhengisvilla"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Umsjón flokka"
 
 msgid "New"
-msgstr ""
+msgstr "Búa til"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Eyða flokki"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
+"Ertu viss um að þú viljir eyða flokknum \"{0}\"? Atriði tengd þessum flokki "
+"verða ekki fyrir neinum breytingum."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Endurnefna flokk"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Flokkur sem heitir \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Búa til nýjan flokk"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Festa sem flýtileið"
 
 msgid "Create"
-msgstr ""
+msgstr "Búa til"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Þú verður fyrst að virkja breytingarnar sem þú hefur gert á flokkum áður en "
+"þú getur búið til þennan flokk."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Þú ert nú þegar með flokk sem heitir '{0}'. Vinsamlegast veldu annað nafn."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Þú ert nú þegar með flokk sem heitir '{0}' í óvirkjuðum breytingum. "
+"Vinsamlegast veldu annað nafn."
 
 msgid "Rename"
-msgstr ""
+msgstr "Endurnefna"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Þetta er í fyrsta skiptið sem þú hefur notað flokkinn \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Viltu endurnefna?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"Flokkurinn \"{0}\" er nú þegar til. Viltu sameina flokkana \"{1}\" og \"{2}\""
+"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Sameina"
 
 msgid "Remove"
-msgstr ""
+msgstr "Fjarlægja"
 
 msgid "Check Names"
-msgstr ""
+msgstr "Athuga nöfn"
 
 msgid "Select an address to use"
-msgstr ""
+msgstr "Veldu viðfang til að nota"
 
 msgid "Email"
-msgstr ""
+msgstr "Tölvupóstur"
 
 msgid "More than one '{0}' found."
-msgstr ""
+msgstr "Fleiri en eitt stykki fannst af: '{0}'."
 
 msgid "Alert"
-msgstr ""
+msgstr "Viðvörun"
 
 msgid "Please select a recipient"
-msgstr ""
+msgstr "Vinsamlegast veldur móttakanda"
 
 msgid "Mail and Post"
-msgstr ""
+msgstr "Tölvupóstur og sending"
 
 msgid "Contact"
-msgstr ""
+msgstr "Tengiliður"
 
 msgid "Journal"
-msgstr ""
+msgstr "Dagbók"
 
 msgid "Note"
-msgstr ""
+msgstr "Athugasemd"
 
 msgid "Task"
-msgstr ""
+msgstr "Verk"
 
 msgid "Inbox"
-msgstr ""
+msgstr "Innhólf"
 
 msgid "Entire Inbox"
-msgstr ""
+msgstr "Allt innhólfið"
 
 msgid "Secretary"
-msgstr ""
+msgstr "Ritari"
 
 msgid "Only read"
-msgstr ""
+msgstr "Aðeins lesaðgangur"
 
 msgid "Delegate Permissions"
-msgstr ""
+msgstr "Útdeila réttindum"
 
 msgid "This delegate has the following permissions"
-msgstr ""
+msgstr "Þessi rétthafi hefur eftirfarandi réttindi"
 
 msgid "Delegate can see my private items."
-msgstr ""
+msgstr "Rétthafi getur séð einkaupplýsingar."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr ""
+"Rétthafi fær afrit af öllum fundartengdum skilaboðum sem eru send til mín."
 
 msgid "Other"
-msgstr ""
+msgstr "Annað"
 
 msgid "No delegates configured"
-msgstr ""
+msgstr "Engir rétthafar uppsettir"
 
 msgid "Loading delegates"
-msgstr ""
+msgstr "Hleð rétthöfum"
 
 msgid "Please select a delegate."
-msgstr ""
+msgstr "Vinsamlegast veldu rétthafa."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Rétthafar geta sent fyrir þína hönd."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Ef þú vilt aðeins stilla möppuréttindi, hægri smelltu á möppu til að opna "
+"samhengisháða vlmynd og smelltu á \"Deila möppu...\""
 
 msgid "Permission"
-msgstr ""
+msgstr "Réttindi"
 
 msgid "Duplicate delegate"
-msgstr ""
+msgstr "Fjölfalda rétthafa"
 
 msgid "Delegate already exists in the list."
-msgstr ""
+msgstr "Rétthafinn er nú þegar á listanum."
 
 msgid "Copy/Move Folder"
-msgstr ""
+msgstr "Afrita/færa möppu"
 
 msgid "Copy/Move Messages"
-msgstr ""
+msgstr "Afrita/færa skilaboð"
 
 msgid "Destination folder"
-msgstr ""
+msgstr "Móttökumappa"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Það eru {0} skilaboð valin."
+msgstr[1] "Það eru {0} skilaboð valin."
 
 msgid "Folder '{0}' selected."
-msgstr ""
+msgstr "Mappa '{0}' valin."
 
 msgid "Kopano WebApp"
-msgstr ""
+msgstr "Kopano vefviðmót"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Ekki sýna þessi skilaboð aftur."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
-msgstr ""
+msgstr "Merkja með sérhönnuðu merki"
 
 msgid "Start date"
-msgstr ""
+msgstr "Upphafsdagsetning"
 
 msgid "End date"
-msgstr ""
+msgstr "Lokadagsetning"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Á morgun"
 
 msgid "This week"
-msgstr ""
+msgstr "Í þessari viku"
 
 msgid "Next week"
-msgstr ""
+msgstr "Í næstu viku"
 
 msgid "Custom"
-msgstr ""
+msgstr "Sértilgreint"
 
 msgid "Set reminder"
-msgstr ""
+msgstr "Stilla áminningu"
 
 msgid "Complete"
-msgstr ""
+msgstr "Klárað"
 
 msgid "today"
-msgstr ""
+msgstr "í dag"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "á morgun"
 
 msgid "this week"
-msgstr ""
+msgstr "í þessari viku"
 
 msgid "next week"
-msgstr ""
+msgstr "í næstu viku"
 
 msgid "Edit recipient"
-msgstr ""
+msgstr "Breyta móttakanda"
 
 msgid "Copy email address"
-msgstr ""
+msgstr "Afrita tölvupóstfang"
 
 msgid "Set as required"
-msgstr ""
+msgstr "Setja sem nauðsyn"
 
 msgid "Set as optional"
-msgstr ""
+msgstr "Setja sem val"
 
 msgid "Set as resource"
-msgstr ""
+msgstr "Setja sem aðfang"
 
 msgid "Select attendees"
-msgstr ""
+msgstr "Velja þátttakendur"
 
 msgid "Suggested Times"
-msgstr ""
+msgstr "Tímatillögur"
 
 msgid "Busy"
-msgstr ""
+msgstr "Bókað"
 
 msgid "Out of Office"
-msgstr ""
+msgstr "Ekki við"
 
 msgid "No Information"
-msgstr ""
+msgstr "Engar upplýsingar"
 
 msgid "Show non-working hours"
-msgstr ""
+msgstr "Sýna klukkutíma utan vinnutíma"
 
 msgid "Hide non-working hours"
-msgstr ""
+msgstr "Fela klukkutíma utan vinnutíma"
 
 msgid "No freebusy information available for this date"
-msgstr ""
+msgstr "Engar upplýsingar um laust/bókað fyrir þessa dagsetningu"
 
 msgid "No suggestions available"
-msgstr ""
+msgstr "Engar tillögur"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "Breyta milli samhengis, t.d. innhólf, dagatal o.s.frv."
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "Grunnstikl"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "Breyta milli mismunandi sýna"
 
 msgid "New item"
-msgstr ""
+msgstr "Nýtt atriði"
 
 msgid "All views"
-msgstr ""
+msgstr "Allar sýnir"
 
 msgid "Close tab"
-msgstr ""
+msgstr "Loka flipa"
 
 msgid "Print item"
-msgstr ""
+msgstr "Prenta út"
 
 msgid "Items"
-msgstr ""
+msgstr "Atriði"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "Vista atriði, t.d. tölvupóst, tengilið o.s.frv."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "Senda atriði, t.d. tölvupóst, fundarboð o.s.frv."
 
 msgid "Select all items"
-msgstr ""
+msgstr "Velja öll atriði"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "Lengja valið að fyrsta atriði listans"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "Lengja valið að síðasta atriði listans"
 
 msgid "Open selected item"
-msgstr ""
+msgstr "Opna valið atriði"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "Opna glugga til að flokka valið atriði"
 
 msgid "Print list"
-msgstr ""
+msgstr "Prenta lista"
 
 msgid "Print selected item"
-msgstr ""
+msgstr "Prenta valið atriði"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "Opna afritunar/færsluglugga"
 
 msgid "Delete selected item"
-msgstr ""
+msgstr "Eyða völdu atriði"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
+"Eyða völdu atriði án þess að færa það í möppu með eyddum atriðum. Endurheimt "
+"verður þá ekki möguleg."
 
 msgid "Add/Edit Cc recipient"
 msgstr ""
@@ -2228,534 +2277,541 @@ msgid "Duplicate recipients"
 msgstr "Móttakendur"
 
 msgid "Kopano WebApp print"
-msgstr ""
+msgstr "Útprentun úr Kopano vefviðmóti"
 
 msgid "Display name"
-msgstr ""
+msgstr "Þekkjanlegt nafn"
 
 msgid "Email address"
-msgstr ""
+msgstr "Tölvupóstfang"
 
 msgid "Expand distribution list"
-msgstr ""
+msgstr "Þenja póstlista"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
+"Póstlistanum verður skipt út fyrir meðlimi hans. Þú getur ekki sett hann "
+"saman aftur."
 
 msgid "Edit Recipient"
-msgstr ""
+msgstr "Breyta móttakanda"
 
 msgid "Send email"
-msgstr ""
+msgstr "Senda tölvupóst"
 
 msgid "Delete recipient from suggestion list"
-msgstr ""
+msgstr "Eyða móttakanda úr tillögulista"
 
 msgid "View recipient"
-msgstr ""
+msgstr "Skoða móttakanda"
 
 msgid "Weekday"
-msgstr ""
+msgstr "Vikudagur"
 
 msgid "Weekend Day"
-msgstr ""
+msgstr "Helgardagur"
 
 msgid "1st"
-msgstr ""
+msgstr "1."
 
 msgid "2nd"
-msgstr ""
+msgstr "2."
 
 msgid "3rd"
-msgstr ""
+msgstr "3."
 
 msgid "4th"
-msgstr ""
+msgstr "4."
 
 msgid "last"
-msgstr ""
+msgstr "síðast"
 
 msgid "Every {A} day(s)"
-msgstr ""
+msgstr "Á {A} dags/daga fresti"
 
 msgid "Every weekday"
-msgstr ""
+msgstr "Á hverjum vikudegi"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr ""
+msgstr "Endurframleiða nýtt verk {A} degi/dögum eftir að verkið klárast"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr ""
+msgstr "Dagur {A} á {B} mánaða(r) fresti"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr ""
+msgstr "{A} {B} á {C} mánaða(r) fresti"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr ""
+msgstr "Endurframleiða nýtt verk {A} mánuði/mánuðum eftir að verkið klárast"
 
 msgid "Appointment Recurrence"
-msgstr ""
+msgstr "Endurtekning tímabókunar"
 
 msgid "Remove Recurrence"
-msgstr ""
+msgstr "Fjarlægja endurtekningu"
 
 msgid "Reset recurring"
-msgstr ""
+msgstr "Endurstilla endurtekningu"
 
 msgid "This will reset every exception. Do you want to continue?"
-msgstr ""
+msgstr "Þetta endurstillir öll frávik. Viltu halda áfram?"
 
 msgid "Task Recurrence"
-msgstr ""
+msgstr "Endurtekning verks"
 
 msgid "Daily"
-msgstr ""
+msgstr "Daglegt"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Vikulegt"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Mánaðarlegt"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Árlegt"
 
 msgid "Range of recurrence"
-msgstr ""
+msgstr "Tímabil endurtekningar"
 
 msgid "No end date"
-msgstr ""
+msgstr "Engin lokadagsetning"
 
 msgid "End after {A} occurrences"
-msgstr ""
+msgstr "Hætta eftir {A} endurtekningar"
 
 msgid "End by {A}"
-msgstr ""
+msgstr "Hætta eftir {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr ""
+msgstr "Tímalengd endutekningar: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr ""
+msgstr "Á {A} viku/vikna fresti á"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr ""
+msgstr "Endurframleiða nýtt verk {A} viku(m) eftir að verk klárast"
 
 msgid "Every {A} {B}"
-msgstr ""
+msgstr "Á {A} {B} fresti"
 
 msgid "The {A} {B} of {C}"
-msgstr ""
+msgstr "Þann {A} {B} af {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr ""
+msgstr "Endurframleiða nýtt verk {A} ári/árum eftir að verk klárast"
 
 msgid "Info"
-msgstr ""
+msgstr "Upplýsingar"
 
 msgid "Not supported at the moment."
-msgstr ""
+msgstr "Ekki stutt í augnablikinu."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Það er {0} áminning"
+msgstr[1] "Það eru {0} áminningar"
 
 msgid "Reminders"
-msgstr ""
+msgstr "Áminningar"
 
 msgid "There are no reminders"
-msgstr ""
+msgstr "Það eru engar áminningar"
 
 msgid "Due In"
-msgstr ""
+msgstr "Lok eftir"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr ""
+msgstr "Lok"
 
 msgid "Reminder time"
-msgstr ""
+msgstr "Áminningartími"
 
 msgid "Dismiss All"
-msgstr ""
+msgstr "Hunsa allt"
 
 msgid "Open Item"
-msgstr ""
+msgstr "Opna atriði"
 
 msgid "Dismiss"
-msgstr ""
+msgstr "Hunsa"
 
 msgid "Click Snooze to be reminded again in"
-msgstr ""
+msgstr "Smella á \"Svæfa\" til að fá aðra áminningu eftir"
 
 msgid "Snooze"
-msgstr ""
+msgstr "Svæfa"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} áminning valin."
+msgstr[1] "{0} áminningar valdar."
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "Endurheimta mjúkeydd atriði"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "Endurheimta úr {0}"
 
 msgid "Restore"
-msgstr ""
+msgstr "Endurheimta"
 
 msgid "Restore All"
-msgstr ""
+msgstr "Endurheimta allt"
 
 msgid "Permanent Delete"
-msgstr ""
+msgstr "Eyða alveg"
 
 msgid "Delete All"
-msgstr ""
+msgstr "Eyða öllu"
 
 msgid "Messages"
-msgstr ""
+msgstr "Skilaboð"
 
 msgid "Delete all items"
-msgstr ""
+msgstr "Eyða öllum atriðum"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir eyða öllum atriðum?"
 
 msgid "Restore all items"
-msgstr ""
+msgstr "Endurheimta öll atriði"
 
 msgid "Are you sure you want to restore all items?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir endurheimta öll atriði?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} endurheimtanlegt atriði í heildina"
+msgstr[1] "{0} endurheimtanleg atriði í heildina"
 
 msgid "Deleted On"
-msgstr ""
+msgstr "Eyðingardagsetning"
 
 msgid "Sort by: Deleted On"
-msgstr ""
+msgstr "Raða eftir eyðingardagsetningu"
 
 msgid "Item Count"
-msgstr ""
+msgstr "Atriðafjöldi"
 
 msgid "Sort by: Item Count"
-msgstr ""
+msgstr "Raða eftir atriðafjölda"
 
 msgid "Sort by: From"
-msgstr ""
+msgstr "Raða eftir sendanda"
 
 msgid "Received"
-msgstr ""
+msgstr "Móttekið"
 
 msgid "Sort by: Received"
-msgstr ""
+msgstr "Raða eftir móttökudagsetningu"
 
 msgid "Size"
-msgstr ""
+msgstr "Stærð"
 
 msgid "Sort by: Size"
-msgstr ""
+msgstr "Raða eftir stærð"
 
 msgid "Move the message to folder..."
-msgstr ""
+msgstr "Færa skilaboðin í möppuna..."
 
 msgid "Copy the message to folder..."
-msgstr ""
+msgstr "Afrita skilaboðin í möppuna..."
 
 msgid "Delete the message"
-msgstr ""
+msgstr "Eyða skilaboðunum"
 
 msgid "Redirect the message to..."
-msgstr ""
+msgstr "Beina skilaboðunum til..."
 
 msgid "Forward the message to..."
-msgstr ""
+msgstr "Áframsenda skilaboiðin til..."
 
 msgid "Forward the message as attachment to..."
-msgstr ""
+msgstr "Áframsenda skilaboðin sem viðhengi til..."
 
 msgid "Mark the message as read..."
-msgstr ""
+msgstr "Merkja skilaboðin sem lesin..."
 
 msgid "is received from..."
-msgstr ""
+msgstr "koma frá..."
 
 msgid "includes these words in the sender's address..."
-msgstr ""
+msgstr "inniheldur þessi orð í tölvupóstfangi sendanda..."
 
 msgid "includes these words in the recipient's address..."
-msgstr ""
+msgstr "inniheldur þessi orð í tölvupóstfangi móttakanda..."
 
 msgid "includes these words in the subject..."
-msgstr ""
+msgstr "inniheldur þessi orð í málefni..."
 
 msgid "includes these words in the body..."
-msgstr ""
+msgstr "inniheldur þessi orð í meginmáli..."
 
 msgid "includes these words in the transport-headers..."
-msgstr ""
+msgstr "inniheldur þessi orð í flutningshausum (transport-headers)..."
 
 msgid "has importance..."
-msgstr ""
+msgstr "hefur mikilvægi..."
 
 msgid "has an attachment"
-msgstr ""
+msgstr "hefur viðhengi"
 
 msgid "is sent to..."
-msgstr ""
+msgstr "er sent til..."
 
 msgid "is sent only to me"
-msgstr ""
+msgstr "er eingöngu sent til mín"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "hefur nafnið mitt í afritsreit (cc)"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "hefur nafnið mitt hvorki í til- eða afritsreit (to/cc)"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "hefur nafnið mitt í til- eða afritsreit (to/cc)"
 
 msgid "has sensitivity..."
-msgstr ""
+msgstr "hefur öryggisstig..."
 
 msgid "is received after..."
-msgstr ""
+msgstr "er móttekið eftir..."
 
 msgid "is received before..."
-msgstr ""
+msgstr "er móttekið fyrir..."
 
 msgid "size is at least..."
-msgstr ""
+msgstr "stærð er að minnsta kosti..."
 
 msgid "size is at most..."
-msgstr ""
+msgstr "stærð er í mesta lagi..."
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "hefur nafnið mitt í tilreit (to)"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "er móttekið (öll skilaboð)"
 
 msgid "Select one..."
-msgstr ""
+msgstr "Veldu eitt..."
 
 msgid "Unknown condition"
-msgstr ""
+msgstr "Óþekkt skilyrði"
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
+msgstr "Skilyrðin fyrir þessa reglu eru óþekkt"
 
 msgid "Unnamed folder"
-msgstr ""
+msgstr "Mappa án titils"
 
 msgid "Add action"
-msgstr ""
+msgstr "Bæta við aðgerð"
 
 msgid "Remove action"
-msgstr ""
+msgstr "Fjarlægja aðgerð"
 
 msgid "Unknown action"
-msgstr ""
+msgstr "Óþekkt aðgerð"
 
 msgid "This action for the current rule is unknown"
-msgstr ""
+msgstr "Þessi aðgerð fyrir regluna er óþekkt"
 
 msgid "Add condition"
-msgstr ""
+msgstr "Bæta við skilyrði"
 
 msgid "Remove condition"
-msgstr ""
+msgstr "Fjarlægja skilyrði"
 
 msgid "Inbox Rule"
-msgstr ""
+msgstr "Innhólfsregla"
 
 msgid "Rule name"
-msgstr ""
+msgstr "Nafn reglu"
 
 msgid "When the message"
-msgstr ""
+msgstr "Þegar skilaboðin"
 
 msgid "Do the following"
-msgstr ""
+msgstr "Gerðu eftirfarandi"
 
 msgid "Exceptions"
-msgstr ""
+msgstr "Frávik"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Framkvæma aðeins þegar Ekki við er virkt"
 
 msgid "Stop processing more rules"
-msgstr ""
+msgstr "Hætta að vinna úr reglum"
 
 msgid "Add exception"
-msgstr ""
+msgstr "Bæta við fráviki"
 
 msgid "Remove exception"
-msgstr ""
+msgstr "Fjarlægja frávik"
 
 msgid "Specify Words or Phrases"
-msgstr ""
+msgstr "Tilgreina orð eða setningar"
 
 msgid "Edit"
-msgstr ""
+msgstr "Breyta"
 
 msgid "and"
-msgstr ""
+msgstr "og"
 
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
+"Póstlistar eru ekki studdir í reglum, viltu skipta út póstlistanum fyrir "
+"meðlimi hans?"
 
 msgid "or"
-msgstr ""
+msgstr "eða"
 
 msgid "No rule exists"
-msgstr ""
+msgstr "Engin regla tilgreind"
 
 msgid "Active"
-msgstr ""
+msgstr "Virkt"
 
 msgid "Out of office"
-msgstr ""
+msgstr "Ekki við"
 
 msgid "Rule"
-msgstr ""
+msgstr "Regla"
 
 msgid "Loading rules"
-msgstr ""
+msgstr "Hleð reglum"
 
 msgid "Please select a rule."
-msgstr ""
+msgstr "Vinsamlegast veldu reglu."
 
 msgid "Rule already has highest priority."
-msgstr ""
+msgstr "Reglan hefur nú þegar hæsta forgang."
 
 msgid "Rule already has lowest priority."
-msgstr ""
+msgstr "Reglan hefur nú þegar lægsta forgang."
 
 msgid "myself"
-msgstr ""
+msgstr "mig"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "Uppfæra reglur fyrir"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Framkvæma breytingar"
 
 msgid "Do you wish to apply the changes?"
-msgstr ""
+msgstr "Viltu framkvæma breytingarnar?"
 
 msgid "All folders"
-msgstr ""
+msgstr "Allar möppur"
 
 msgid "Other..."
-msgstr ""
+msgstr "Annað..."
 
 msgid "Search in.."
-msgstr ""
+msgstr "Leita í..."
 
 msgid "Folder does not exist"
-msgstr ""
+msgstr "Mappan er ekki til"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"Mappan sem þú leitar í er ekki lengur til. Vinsamlegast veldu aðra möppu"
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "Bæta við/breyta sendanda"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Póstfang sendanda ekki stillt"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Hleð póstföngum sendenda"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Vinsamlegast veldu póstfangafærslu sendanda."
 
 msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
 msgstr ""
+"Stjórnaðu tölvupóstföngum sem þú getur sett í póstfang sendanda þegar þú "
+"sendir póst."
 
 msgid "View"
-msgstr ""
+msgstr "Skoða"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "Vinsamlegast veldu færslu fyrir senda sem."
 
 msgid "Delegates"
-msgstr ""
+msgstr "Rétthafar"
 
 msgid "Delegate settings"
-msgstr ""
+msgstr "Stillingar rétthafa"
 
 msgid "Rules"
-msgstr ""
+msgstr "Reglur"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Póstföng sendenda"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Stillingar póstfanga sendenda"
 
 msgid "Full name"
-msgstr ""
+msgstr "Fullt nafn"
 
 msgid "Job Title"
-msgstr ""
+msgstr "Starfstitill"
 
 msgid "Phone Numbers"
-msgstr ""
+msgstr "Símanúmer"
 
 msgid "Business Fax"
-msgstr ""
+msgstr "Faxnúmer"
 
 msgid "Webpage"
-msgstr ""
+msgstr "Vefsíða"
 
 msgid "IM Address"
-msgstr ""
+msgstr "Spjallslóð"
 
 msgid "D, d-m-Y, G:i"
-msgstr ""
+msgstr "D, d-m-Y, G:i"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} valin lína"
+msgstr[1] "{0} valdar línur"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Áminning er stillt á: {0}, {1}"
 
 msgid "d-m-Y"
-msgstr ""
+msgstr "d-m-Y"
 
 msgid "l d/m/Y G:i"
-msgstr ""
+msgstr "l d/m/Y G:i"
 
 msgid "d-m-Y G:i"
-msgstr ""
+msgstr "d-m-Y G:i"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Óþekkt"
 
 msgid "Meeting Organizer"
-msgstr ""
+msgstr "Fundarskipuleggjandi"
 
 msgid "{0} overdue"
 msgstr ""
@@ -5500,7 +5556,7 @@ msgid "a meeting request"
 msgstr ""
 
 msgid "an appointment"
-msgstr ""
+msgstr "tímabókun"
 
 msgid "You have insufficient privileges to move "
 msgstr ""
