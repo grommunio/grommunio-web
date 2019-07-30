@@ -71,20 +71,7 @@ class FileLoader {
 	 */
 	public function getExtjsCSSFiles($load)
 	{
-		$cssLoadingSequence = array();
-
-		if ($load == LOAD_RELEASE) {
-			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
-			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-		} else if ($load == LOAD_DEBUG) {
-			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
-			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-		} else {
-			$cssLoadingSequence[] = "client/extjs/resources/css/ext-all.css";
-			$cssLoadingSequence[] = "client/extjs/ux/css/ux-all.css";
-		}
-
-		return $cssLoadingSequence;
+		return array("client/extjs/resources/css/ext-all-ux.css");
 	}
 
 	/**
