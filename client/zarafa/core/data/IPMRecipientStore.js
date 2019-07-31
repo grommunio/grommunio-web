@@ -512,5 +512,30 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 		}
 
 		return hasBcc;
+	},
+
+	/**
+	 * Check the given recipient was exists in recipient store.
+	 *
+	 * @param {Zarafa.core.data.IPMRecipientRecord} record The recipient record which need to check.
+	 * @param {Ext.Function} callbackFn (optional) The callbackFn function used to check the give recipient
+	 * is already exists in recipient store.
+	 * @param {Object} scope (optional) The scope in which given callbackFn will be executed.
+	 * @returns {boolean} true if recipient already exists in recipient store else false.
+	 */
+	isRecipientExists : function(record, callbackFn, scope)
+	{
+		var records = this.getRange();
+		if (Ext.isFunction(callbackFn)) {
+			return records.some(callbackFn, scope || this)
+		} else {
+			var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
+			return records.some(function(recipient) {
+				if (recipient.isOneOff()) {
+					return recipient.get('entryid') === entryid;
+				}
+				return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
+			}, scope || this);
+		}
 	}
 });

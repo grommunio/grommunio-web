@@ -50,6 +50,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.attachitem.textrenderer');
 		Zarafa.core.data.SharedComponentType.addProperty('common.attachment.dialog.importtofolder');
 		Zarafa.core.data.SharedComponentType.addProperty('common.sendas.dialog.sendaseditcontentpanel');
+		Zarafa.core.data.SharedComponentType.addProperty('common.managecc.dialog.managecceditcontentpanel');
 		Zarafa.core.data.SharedComponentType.addProperty('common.categories.dialogs.newcategory');
 		Zarafa.core.data.SharedComponentType.addProperty('common.categories.dialogs.renamecategory');
 		Zarafa.core.data.SharedComponentType.addProperty('common.flags.dialogs.customflag');
@@ -91,6 +92,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.reminder.remindergrid']:
 			case Zarafa.core.data.SharedComponentType['common.rules.dialog.ruleswordsedit']:
 			case Zarafa.core.data.SharedComponentType['common.sendas.dialog.sendaseditcontentpanel']:
+			case Zarafa.core.data.SharedComponentType['common.managecc.dialog.managecceditcontentpanel']:
 			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.newcategory']:
 			case Zarafa.core.data.SharedComponentType['common.categories.dialogs.renamecategory']:
 			case Zarafa.core.data.SharedComponentType['common.flags.dialogs.customflag']:
@@ -102,7 +104,9 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				}
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-				if (record instanceof Zarafa.core.data.IPMRecipientRecord || record instanceof Zarafa.core.data.IPMAttachmentRecord) {
+				if (record instanceof Zarafa.core.data.IPMRecipientRecord ||
+					record instanceof Zarafa.core.data.IPMAttachmentRecord ||
+					record instanceof Zarafa.common.manageCc.data.IPMCcRecipientRecord) {
 					bid = 1;
 				}
 				break;
@@ -175,6 +179,9 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.rules.dialog.ruleswordsedit']:
 				component = Zarafa.common.rules.dialogs.RulesWordsEditContentPanel;
 				break;
+			case Zarafa.core.data.SharedComponentType['common.managecc.dialog.managecceditcontentpanel']:
+				component = Zarafa.common.manageCc.dialogs.ManageCcEditContentPanel;
+				break;
 			case Zarafa.core.data.SharedComponentType['common.sendas.dialog.sendaseditcontentpanel']:
 				component = Zarafa.common.sendas.dialogs.SendAsEditContentPanel;
 				break;
@@ -208,10 +215,11 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 				component = Zarafa.common.freebusy.ui.FreebusyTimelineHeaderContextMenu;
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-				if (record instanceof Zarafa.core.data.IPMRecipientRecord) {
+				if(record instanceof Zarafa.common.manageCc.data.IPMCcRecipientRecord){
+					component = Zarafa.common.manageCc.ui.ManageCcGridContextMenu;
+				} else if (record instanceof Zarafa.core.data.IPMRecipientRecord) {
 					component = Zarafa.common.recipientfield.ui.RecipientContextMenu;
-				}
-				else if (record instanceof Zarafa.core.data.IPMAttachmentRecord){
+				} else if (record instanceof Zarafa.core.data.IPMAttachmentRecord) {
 					component = Zarafa.common.attachment.ui.AttachmentContextMenu;
 				}
 				break;

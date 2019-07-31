@@ -647,7 +647,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										 */
 										'use_html_editor' : true
 									}
-								}
+								},
+
+								/**
+								 * zarafa/v1/contexts/mail/cc_recipients
+								 * @property
+								 * @type Array
+								 */
+								'cc_recipients':[]
 							},
 
 							'task' : {
