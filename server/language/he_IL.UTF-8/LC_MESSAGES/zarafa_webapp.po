@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -2368,6 +2368,68 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "ערוך נמען"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "ערוך נמען"
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "לא ניתן היה להגיע לכל הנמענים"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "ערוך נמען"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "השב לכולם"
+
+msgid "New Mail"
+msgstr "דואר חדש"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "אנא בחר מען"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "ערוך נמען"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "ערוך נמען"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "הווב אפ של זראפה"
 
@@ -4031,9 +4093,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "ישנה הודעה {0} שלא נקראה בתיקיה {1}"
 msgstr[1] "ישנן {0} הודעות שלא נקראו בתיקיה {1}"
-
-msgid "New Mail"
-msgstr "דואר חדש"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

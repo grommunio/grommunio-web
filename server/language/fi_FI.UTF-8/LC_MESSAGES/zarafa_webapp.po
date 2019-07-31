@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -2353,6 +2353,71 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Muokkaa vastaanottajia"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Muokkaa vastaanottajia"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Käyttäjä on jo olemassa"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Allekirjoitus uusiin viesteihin"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Allekirjoitus uusiin viesteihin"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Allekirjoituksia ei asetettu"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Muokkaa vastaanottajia"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Vastaa kaikille"
+
+msgid "New Mail"
+msgstr "Uusi viesti"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Valitse vastaanottaja"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Muokkaa vastaanottajia"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Seuraavia vastaanottajia ei tavoitettu"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Muokkaa vastaanottajia"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -4019,9 +4084,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Kansiossa {1} on {0} lukematon viesti"
 msgstr[1] "Kansiossa {1} on {0} lukematonta viestiä"
-
-msgid "New Mail"
-msgstr "Uusi viesti"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

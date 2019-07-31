@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2304,6 +2304,71 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "受信者を編集します。"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "受信者を編集します。"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "ユーザーは既に登録されています。"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "新しいメッセージの署名"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "新しいメッセージの署名"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "署名が設定されていません。"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "受信者を編集します。"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "全員へ返信"
+
+msgid "New Mail"
+msgstr "新しいメール"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "受信者を選択して下さい。"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "受信者を編集します。"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "次の受信者に送信することができませんでした。"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "受信者を編集します。"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -3971,9 +4036,6 @@ msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
-
-msgid "New Mail"
-msgstr "新しいメール"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

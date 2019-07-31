@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.kopano.io/projects/"
@@ -2361,6 +2361,70 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Editar destinatário"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Editar destinatário"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Usuário já existe"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Assinatura para novas mensagens"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Assinatura para novas mensagens"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nenhuma assinatura configurada"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Editar destinatário"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Responder a todos"
+
+msgid "New Mail"
+msgstr "Novo E-mail"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Por favor, selecione um destinatário"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Editar destinatário"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Os seguintes destinatários não puderam ser localizados"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Editar destinatário"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -4008,9 +4072,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Existe {0} mensagem não lida na pasta {1}"
 msgstr[1] "Existem {0} mensagens não lidas na pasta {1}"
-
-msgid "New Mail"
-msgstr "Novo E-mail"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

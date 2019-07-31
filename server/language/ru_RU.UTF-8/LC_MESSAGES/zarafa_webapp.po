@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2340,6 +2340,70 @@ msgstr ""
 "элементы можно восстановить."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Изменить получателя"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Изменить получателя"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Пользователь уже существует"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Подпись для новых писем"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Подпись для новых писем"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Подписи не настроены"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Изменить получателя"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Ответить всем"
+
+msgid "New Mail"
+msgstr "Новая почта"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Выберите получателя"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Изменить получателя"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Не удалось обнаружить следующих получателей"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Изменить получателя"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -3977,9 +4041,6 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0} непрочитанное сообщение в каталоге {1}"
 msgstr[1] "{0} непрочитанных сообщения в каталоге {1}"
 msgstr[2] "{0} непрочитанных сообщений в каталоге {1}"
-
-msgid "New Mail"
-msgstr "Новая почта"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

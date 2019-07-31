@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:01+0200\n"
 "Last-Translator: Tomislav <tomislav.malnar@tzv-gredelj.hr>\n"
 "Language-Team: Kopano Webapp Croatian (Croatia) <https://translate.kopano.io/"
@@ -2175,6 +2175,56 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+msgid "Add/Edit Cc recipient"
+msgstr ""
+
+msgid "Duplicate recipient"
+msgstr ""
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr ""
+
+msgid "Loading Cc recipients"
+msgstr ""
+
+msgid "Reply Mail"
+msgstr ""
+
+msgid "New Mail"
+msgstr ""
+
+msgid "Please select a Cc recipient record."
+msgstr ""
+
+msgid "Manage Cc recipients"
+msgstr ""
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+msgid "Duplicate recipients"
+msgstr ""
+
 msgid "Kopano WebApp print"
 msgstr ""
 
@@ -3686,9 +3736,6 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-msgid "New Mail"
-msgstr ""
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

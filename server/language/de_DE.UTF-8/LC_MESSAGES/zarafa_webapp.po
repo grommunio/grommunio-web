@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:21+0000\n"
 "Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2372,6 +2372,71 @@ msgstr ""
 "Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Empfänger bearbeiten"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Empfänger aktualisieren"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Der Benutzer existiert bereits"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Signatur für neue Nachrichten"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Signatur für neue Nachrichten"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Keine Vertreter konfiguriert"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Empfänger bearbeiten"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Allen antworten"
+
+msgid "New Mail"
+msgstr "Neue E-Mail"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Bitte wählen Sie einen Empfänger aus"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Empfänger aktualisieren"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Empfänger aktualisieren"
+
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp drucken"
 
@@ -4028,9 +4093,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
 msgstr[1] "Im Ordner {1} befinden sich {0} ungelesene Nachrichten"
-
-msgid "New Mail"
-msgstr "Neue E-Mail"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

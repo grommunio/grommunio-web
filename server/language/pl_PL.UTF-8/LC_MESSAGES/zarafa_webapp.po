@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-05-15 09:38+0000\n"
 "Last-Translator: Pawel <p.debik@kopano.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2274,6 +2274,68 @@ msgstr ""
 "obiekty. Wciąż można przywrócić usunięty element."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Edytuj odbiorcę"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Edytuj odbiorcę"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Ten użytkownik już istnieje"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Sygnatura dla nowych wiadomości"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Sygnatura dla nowych wiadomości"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nie skonfigurowano sygnatur"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Edytuj odbiorcę"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Odpowiedz wszystkim"
+
+msgid "New Mail"
+msgstr "Nowy e-mail"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Wybierz odbiorcę"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Edytuj odbiorcę"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Ten odbiorca nie jest dostępny"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Edytuj odbiorcę"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -3889,9 +3951,6 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "W folderze {1} znajduje się {0} nieprzeczytana wiadomość"
 msgstr[1] "W folderze {1} znajduje się {0} nieprzeczytanych wiadomości"
 msgstr[2] ""
-
-msgid "New Mail"
-msgstr "Nowy e-mail"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

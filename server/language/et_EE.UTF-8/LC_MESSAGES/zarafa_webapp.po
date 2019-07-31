@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -2281,6 +2281,65 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Vastus puudub"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Keeldutud"
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Kõiki saajaid ei suudetud tuvastada"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Palun täpsusta saaja"
+
+msgid "Reply Mail"
+msgstr ""
+
+msgid "New Mail"
+msgstr ""
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Palun täpsusta saaja"
+
+# 80%
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Palun täpsusta saaja"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Keeldutud"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano veebirakendus"
 
@@ -3958,9 +4017,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "New Mail"
-msgstr ""
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

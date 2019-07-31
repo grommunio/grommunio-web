@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
@@ -2361,6 +2361,70 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Modifier un destinataire"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Modifier un destinataire"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "L'utilisateur existe déjà"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Signature pour les nouveaux messages"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Signature pour les nouveaux messages"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Aucune signature configurée"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Modifier un destinataire"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Répondre à tous"
+
+msgid "New Mail"
+msgstr "Nouveau courriel"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Veuillez sélectionner un destinataire"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Modifier un destinataire"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Le(s) destinataire(s) suivant(s) n'a(ont) pas pu être contacté(s)"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Modifier un destinataire"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "WebApp Kopano"
 
@@ -4071,9 +4135,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Il y a {0} message non-lu dans le dossier {1}"
 msgstr[1] "Il y a {0} messages non-lus dans le dossier {1}"
-
-msgid "New Mail"
-msgstr "Nouveau courriel"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

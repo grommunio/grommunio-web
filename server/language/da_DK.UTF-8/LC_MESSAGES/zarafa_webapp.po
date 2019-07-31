@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2266,6 +2266,67 @@ msgstr ""
 "De slettede elementer kan alligevel blive genoprettet."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Brugeren eksistere allerede"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Signaturer for nye meddelelser"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Signaturer for nye meddelelser"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Ingen signatur er konfigureret"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Ret modtager"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Svar alle"
+
+msgid "New Mail"
+msgstr "Ny mail"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Vælg en modtager"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Ret modtager"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Ret modtager"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -3870,9 +3931,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Der er {0} ulæst meddelelse i mappen {1}"
 msgstr[1] "Der er {0} ulæste meddelelser i mappen {1}"
-
-msgid "New Mail"
-msgstr "Ny mail"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

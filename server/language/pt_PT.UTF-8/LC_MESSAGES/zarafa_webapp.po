@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-05-31 09:40+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
@@ -2224,6 +2224,68 @@ msgstr ""
 "Eliminar o item selecionado sem o mover para a pasta Itens Eliminados. O "
 "item poderá ser recuperado na mesma."
 
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Editar destinatário"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Atualizar destinatários"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Utilizador já existe"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Assinatura para novas mensagens"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Assinatura para novas mensagens"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Sem delegados configurados"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Editar destinatário"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Responder a todos"
+
+msgid "New Mail"
+msgstr "Nova mensagem"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Por favor selecione um destinatário"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Atualizar destinatários"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Não foi possível entregar aos seguintes destinatários"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Atualizar destinatários"
+
 msgid "Kopano WebApp print"
 msgstr "Impressão Kopano WebApp"
 
@@ -3781,9 +3843,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
 msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
-
-msgid "New Mail"
-msgstr "Nova mensagem"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

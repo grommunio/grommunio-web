@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -2387,6 +2387,71 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Uporabnik že obstaja"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Podpis za novo sporočilo"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Podpis za novo sporočilo"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Ni nastavljenih podpisov"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Uredi prejemnika"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Odgovori vsem"
+
+msgid "New Mail"
+msgstr "Novo sporočilo"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Prosim izberite prejemnika"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Uredi prejemnika"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Naslednji prejemnik (ki) niso bili doseženi"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano Spletna aplikacija"
 
@@ -4101,9 +4166,6 @@ msgstr[0] "Imate {0} neprebranih sporočil v mapi {0}"
 msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
 msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
 msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
-
-msgid "New Mail"
-msgstr "Novo sporočilo"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

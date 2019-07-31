@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
 "Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
 "Language-Team: Italian (Italy) <http://translate.kopano.io/projects/kopano/"
@@ -2372,6 +2372,71 @@ msgstr ""
 "puo` essere ripristinato."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Modifica destinatario"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Modifica destinatario"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "L'utente esiste già"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Firma per i nuovi messaggi"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Firma per i nuovi messaggi"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nessuna fima configurata"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Modifica destinatario"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Rispondi a tutti"
+
+msgid "New Mail"
+msgstr "Nuovo messaggio"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Specificare un destinatario"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Modifica destinatario"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Impossibile contattare i seguenti destinatari"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Modifica destinatario"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -4060,9 +4125,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "E' presente {0} messaggio non letto nella cartella {1}"
 msgstr[1] "Sono presenti {0} messaggi non letti nella cartella {1}"
-
-msgid "New Mail"
-msgstr "Nuovo messaggio"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

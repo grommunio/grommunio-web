@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
 "Language-Team: Arabic (Algeria) <https://translate.kopano.io/projects/kopano/"
@@ -2232,6 +2232,63 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "المستلمين"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "المستلمين"
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "المستلمين"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "المستلمين"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "رد الكل"
+
+msgid "New Mail"
+msgstr ""
+
+msgid "Please select a Cc recipient record."
+msgstr ""
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "المستلمين"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "المستلمين"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "كوبانو"
 
@@ -3762,9 +3819,6 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
-
-msgid "New Mail"
-msgstr ""
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

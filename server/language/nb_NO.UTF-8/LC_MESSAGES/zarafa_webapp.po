@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-06-25 13:44+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
@@ -2319,6 +2319,69 @@ msgstr ""
 "Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
 "slettede elementene kan allikevel bli gjenopprettet."
 
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Rediger mottaker"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Oppdater mottaker"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Bruker finnes allerede"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Signatur for nye meldinger"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Signatur for nye meldinger"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Ingen representant er konfigurert"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Rediger mottaker"
+
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Svar til alle"
+
+# 87%
+msgid "New Mail"
+msgstr "Ny e-post"
+
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Vennligst velg en mottaker"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Oppdater mottaker"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "De følgende mottakere kunne ikke nåes"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Oppdater mottaker"
+
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp utskrift"
 
@@ -3921,10 +3984,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Det er {0} ulest melding i mappen {1}"
 msgstr[1] "Det er {0} uleste meldinger i mappen {1}"
-
-# 87%
-msgid "New Mail"
-msgstr "Ny e-post"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

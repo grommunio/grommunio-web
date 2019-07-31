@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2387,6 +2387,71 @@ msgstr ""
 "törölt elem még visszaállítható marad."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "A felhasználó már létezik"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Új üzenetek aláírása"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Új üzenetek aláírása"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nincs aláírás beállítva"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Címzett szerkesztése"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Válasz mindenkinek"
+
+msgid "New Mail"
+msgstr "Új levél"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Kérjem válasszon címzettet"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Címzett szerkesztése"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Címzett szerkesztése"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -4066,9 +4131,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0} olvasatlan üzenete van a {1} mappában"
 msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
-
-msgid "New Mail"
-msgstr "Új levél"
 
 # 80%
 # 100%

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-08-24 20:49+0200\n"
 "Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
 "Language-Team: Arabic <https://translate.kopano.io/projects/kopano/kopano-"
@@ -2213,6 +2213,56 @@ msgid ""
 "deleted item can still be restored."
 msgstr ""
 
+msgid "Add/Edit Cc recipient"
+msgstr ""
+
+msgid "Duplicate recipient"
+msgstr ""
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr ""
+
+msgid "Loading Cc recipients"
+msgstr ""
+
+msgid "Reply Mail"
+msgstr ""
+
+msgid "New Mail"
+msgstr ""
+
+msgid "Please select a Cc recipient record."
+msgstr ""
+
+msgid "Manage Cc recipients"
+msgstr ""
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+msgid "Duplicate recipients"
+msgstr ""
+
 msgid "Kopano WebApp print"
 msgstr ""
 
@@ -3735,9 +3785,6 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
-
-msgid "New Mail"
-msgstr ""
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"

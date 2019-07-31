@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2277,6 +2277,71 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "編輯收件者"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "編輯收件者"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "使用者已存在"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "新郵件簽名檔"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "新郵件簽名檔"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "沒有設定簽名檔"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "編輯收件者"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "回覆所有人"
+
+msgid "New Mail"
+msgstr "新郵件"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "請選擇一個收件人"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "編輯收件者"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "The following recipient(s) could not be reached"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "編輯收件者"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -3903,9 +3968,6 @@ msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
-
-msgid "New Mail"
-msgstr "新郵件"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2013-02-22 23:00+0200\n"
 "Last-Translator: Manuel <info@picholeiro.info>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2379,6 +2379,70 @@ msgid ""
 msgstr ""
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Editar recipiente"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Editar recipiente"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Ya existe este Usuario"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Firma para nuevos mensajes"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Firma para nuevos mensajes"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Firmas no configuradas"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Editar recipiente"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Responder a todos"
+
+msgid "New Mail"
+msgstr "Nuevo Correo"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Por favor, especifique un destinatario"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Editar recipiente"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Editar recipiente"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
 
@@ -4069,9 +4133,6 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Hay {0} mensaje no leido en la carpeta {1}"
 msgstr[1] "Hay {0} mensajes no leidos en la carpeta {1}"
-
-msgid "New Mail"
-msgstr "Nuevo Correo"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".

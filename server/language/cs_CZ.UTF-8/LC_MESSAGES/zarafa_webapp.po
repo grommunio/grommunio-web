@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 17:12+0200\n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2360,6 +2360,71 @@ msgstr ""
 "položky. Vymazaná položka může být obnovena."
 
 #, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Uživatel již existuje"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Podpisy pro nové zprávy"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Podpisy pro nové zprávy"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nejsou nastaveny podpisy"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Upravit příjemce"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Odpovědět všem"
+
+msgid "New Mail"
+msgstr "Nová zpráva"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Vyberte prosím příjemce"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Upravit příjemce"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Upravit příjemce"
+
+#, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Vytisknout Kopano WebbApp"
 
@@ -4030,9 +4095,6 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
 msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
 msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
-
-msgid "New Mail"
-msgstr "Nová zpráva"
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
