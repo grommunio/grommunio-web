@@ -309,7 +309,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		// Initialize HTML body
-		respondData.body = origRecord.getBody(true);
+		respondData.body = this.cleanupOutlookMess(origRecord.getBody(true));
 		respondData.signatureData = this.getSignatureData(true, signatureId);
 		respondData.fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		respondData.fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();
@@ -337,6 +337,61 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		respondData.body = newText;
 
 		record.set('body', Zarafa.mail.data.Templates.plaintextQuotedTemplate.apply(respondData));
+	},
+
+	/**
+	 * Removes some weird styling that Outlook creates for lists.
+	 *
+	 * @param {String} body The text that should be cleaned up
+	 * @return {String} The cleaned up text
+	 */
+	cleanupOutlookMess: function(body) {
+		// clean up some weird Outlook styling
+		const el = document.createElement('div');
+		el.innerHTML = body;
+		const paragraphs = el.querySelectorAll('p'); //MsoListParagraph
+		for (let i=0; i<paragraphs.length; i++) {
+			const p = Ext.fly(paragraphs[i]);
+
+			// First check for MsoListParagraph elements created by Outlook 2013
+			if (p.hasClass('MsoListParagraph')) {
+				p.setStyle({
+					'text-indent': 0
+				});
+			}
+
+			// Remove generic browser margins from paragraphs
+			if (!p.getStyle('margin')) {
+				p.setStyle({
+					margin: 0
+				});
+			}
+
+			// Try to find and remove the 'non-breaking spaces' that Outlook
+			// adds after the numbers and bullets of lists
+			var all = paragraphs[i].querySelectorAll('*');
+			for (let j=0; j<all.length; j++) {
+				if (all[j].innerText && all[j].innerText.trimEnd() === '') {
+					all[j].innerHTML = '&nbsp;';
+				}
+
+				if (/^\d+\.(&nbsp;)+$/.test(all[j].innerHTML)) {
+					all[j].innerHTML = all[j].innerHTML.replace(/(&nbsp;)+/, '&nbsp;');
+				}
+			}
+
+			var font = paragraphs[i].querySelector('font[face="Symbol"]');
+			if (font) {
+				font = font.querySelectorAll('font');
+				for (let j=0; j<font.length; j++) {
+					if (font[j].innerText.trimEnd() === '') {
+						font[j].innerHTML = '&nbsp;';
+					}
+				}
+			}
+		}
+
+		return el.innerHTML;
 	},
 
 	/**
