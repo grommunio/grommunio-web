@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-06-25 13:44+0000\n"
+"PO-Revision-Date: 2019-08-01 07:08+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1621,7 +1621,7 @@ msgid "Don't move"
 msgstr "Ikke flytt"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Bytt til Dagsoversikt for å se alle avtaler"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -2629,65 +2629,51 @@ msgstr "Størrelse"
 msgid "Sort by: Size"
 msgstr "Sorter på: størrelse"
 
-#, fuzzy
 msgid "Move the message to folder..."
 msgstr "Flytt melding til mappe ..."
 
-#, fuzzy
 msgid "Copy the message to folder..."
 msgstr "Kopier melding til mappe ..."
 
 msgid "Delete the message"
 msgstr "Slett meldingen"
 
-#, fuzzy
 msgid "Redirect the message to..."
 msgstr "Omdiriger meldingen til ..."
 
-#, fuzzy
 msgid "Forward the message to..."
 msgstr "Videresend meldingen til ..."
 
-#, fuzzy
 msgid "Forward the message as attachment to..."
 msgstr "Videresend meldingen som vedlegg til ..."
 
-#, fuzzy
 msgid "Mark the message as read..."
 msgstr "Marker meldingen som lest ..."
 
-#, fuzzy
 msgid "is received from..."
 msgstr "er mottatt fra ..."
 
-#, fuzzy
 msgid "includes these words in the sender's address..."
 msgstr "inneholder følgende ord i avsenders adresse ..."
 
-#, fuzzy
 msgid "includes these words in the recipient's address..."
 msgstr "inneholder følgende ord i mottakers adresse ..."
 
-#, fuzzy
 msgid "includes these words in the subject..."
 msgstr "inneholder følgende ord i emnefeltet ..."
 
-#, fuzzy
 msgid "includes these words in the body..."
 msgstr "inneholder følgende ord i meldingsteksten ..."
 
-#, fuzzy
 msgid "includes these words in the transport-headers..."
 msgstr "inkluder disse ordene i transport-headers ..."
 
-#, fuzzy
 msgid "has importance..."
 msgstr "har viktighet ..."
 
 msgid "has an attachment"
 msgstr "har et vedlegg"
 
-#, fuzzy
 msgid "is sent to..."
 msgstr "er sendt til ..."
 
@@ -2703,23 +2689,20 @@ msgstr "inneholder ikke mitt navn i Til eller Cc-feltet"
 msgid "has my name in the To or Cc field"
 msgstr "har mitt navn i Til eller Cc-feltet"
 
-#, fuzzy
 msgid "has sensitivity..."
-msgstr "har fortrolighet"
+msgstr "har fortrolighet..."
 
-#, fuzzy
 msgid "is received after..."
-msgstr "er mottatt etter"
+msgstr "er mottatt etter..."
 
-#, fuzzy
 msgid "is received before..."
-msgstr "er mottatt før"
+msgstr "er mottatt før..."
 
 msgid "size is at least..."
-msgstr ""
+msgstr "minimum størrelse..."
 
 msgid "size is at most..."
-msgstr ""
+msgstr "maksimum størrelse..."
 
 msgid "has my name in the To field"
 msgstr "har mitt navn i Til-feltet"
@@ -2771,9 +2754,8 @@ msgstr "Når meldingen"
 msgid "Do the following"
 msgstr "Gjør følgende"
 
-#, fuzzy
 msgid "Exceptions"
-msgstr "Alternativer"
+msgstr "Unntak"
 
 msgid "Apply only when Out of Office is active"
 msgstr "Bruk kun når Fraværende er aktivert"
@@ -2781,13 +2763,11 @@ msgstr "Bruk kun når Fraværende er aktivert"
 msgid "Stop processing more rules"
 msgstr "Stopp behandlingen av flere regler"
 
-#, fuzzy
 msgid "Add exception"
-msgstr "Legg til handling"
+msgstr "Legg til unntak"
 
-#, fuzzy
 msgid "Remove exception"
-msgstr "Fjern handling"
+msgstr "Fjern unntak"
 
 msgid "Specify Words or Phrases"
 msgstr "Angi ord eller uttrykk"
