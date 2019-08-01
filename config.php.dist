@@ -267,9 +267,9 @@
 	// /usr/share/kopano-webapp/server/language .
 	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;en_US;es_CA;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_TW");
 
-	// Defines the default time zone, change e.g. to "Europe/London" when needed
+	// Defines the default time zone
 	if(!ini_get('date.timezone')) {
-		date_default_timezone_set('Europe/London');
+		date_default_timezone_set('Europe/Amsterdam');
 	}
 
 	/**************************************\
