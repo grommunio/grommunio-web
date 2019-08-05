@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-07-24 07:21+0000\n"
-"Last-Translator: Felix <f.bartels@kopano.com>\n"
+"PO-Revision-Date: 2019-08-05 07:52+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -2372,70 +2372,60 @@ msgstr ""
 "Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
 "zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Empfänger bearbeiten"
+msgstr "Cc Empfänger Hinzufügen/bearbeiten"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Empfänger aktualisieren"
+msgstr "Doppelter Empfänger"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Der Benutzer existiert bereits"
+msgstr "Der Empfänger existiert bereits."
 
-#, fuzzy
 msgid "Disable for new mail"
-msgstr "Signatur für neue Nachrichten"
+msgstr "Für neue E-Mails abschalten"
 
-#, fuzzy
 msgid "Enable for new mail"
-msgstr "Signatur für neue Nachrichten"
+msgstr "Für neue E-Mails einschalten"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Für Antworten ausschalten"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Für Antworten einschalten"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Keine Vertreter konfiguriert"
+msgstr "Kein Cc Empfänger konfiguriert"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Empfänger bearbeiten"
+msgstr "Lade Cc Empfänger"
 
 # 88%
 # 100%
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Allen antworten"
+msgstr "Auf E-Mail antworten"
 
 msgid "New Mail"
 msgstr "Neue E-Mail"
 
 # 80%
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Bitte wählen Sie einen Empfänger aus"
+msgstr "Bitte wählen Sie einen Cc Empfänger aus."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Empfänger aktualisieren"
+msgstr "Cc Empfänger verwalten"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Cc Empfänger können verwendet werden, um einen standard Cc Benutzer für neue "
+"E-Mails, Antworten oder beides festzulegen."
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
+msgstr "Die folgenden Empfänger existieren bereits"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Empfänger aktualisieren"
+msgstr "Doppelte Empfänger"
 
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp drucken"
