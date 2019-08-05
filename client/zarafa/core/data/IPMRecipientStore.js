@@ -500,7 +500,7 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	hasBccRecipients : function(recipients)
 	{
 		var hasBcc = false;
-		
+
 		recipients = recipients || this.data.items;
 
 		for (var i = 0, len = recipients.length; i < len; i++) {
@@ -527,15 +527,15 @@ Zarafa.core.data.IPMRecipientStore = Ext.extend(Zarafa.core.data.MAPISubStore, {
 	{
 		var records = this.getRange();
 		if (Ext.isFunction(callbackFn)) {
-			return records.some(callbackFn, scope || this)
-		} else {
-			var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
-			return records.some(function(recipient) {
-				if (recipient.isOneOff()) {
-					return recipient.get('entryid') === entryid;
-				}
-				return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
-			}, scope || this);
+			return records.some(callbackFn, scope || this);
 		}
+
+		var entryid = record instanceof Ext.data.Record ? record.get('entryid') : record['entryid'];
+		return records.some(function(recipient) {
+			if (recipient.isOneOff()) {
+				return recipient.get('entryid') === entryid;
+			}
+			return Zarafa.core.EntryId.compareEntryIds(recipient.get('entryid'), entryid);
+		}, scope || this);
 	}
 });
