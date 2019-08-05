@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-07-24 07:17+0000\n"
+"PO-Revision-Date: 2019-08-05 08:35+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -2378,70 +2378,60 @@ msgstr ""
 "Verwijder geselecteerde item zonder het te verplaatsen naar de Verwijderde "
 "Items map. Het verwijderde item kan nog steeds worden hersteld."
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Bewerk geadresseerde"
+msgstr "Toevoegen/Wijzigen Cc ontvanger"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Update genodigden"
+msgstr "Identieke ontvanger"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Gebruiker bestaat al"
+msgstr "Ontvanger bestaat al."
 
-#, fuzzy
 msgid "Disable for new mail"
-msgstr "Handtekening voor nieuwe berichten"
+msgstr "Schakel uit voor nieuwe email"
 
-#, fuzzy
 msgid "Enable for new mail"
-msgstr "Handtekening voor nieuwe berichten"
+msgstr "Zet aan voor nieuwe email"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Schakel uit voor antwoorden"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Zet aan voor antwoorden"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Geen gemachtigen geconfigureerd"
+msgstr "Geen Cc ontvanger geconfigureerd"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Bewerk geadresseerde"
+msgstr "Laden van Cc ontvangers"
 
 # 88%
 # 100%
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Allen beantwoorden"
+msgstr "Beantwoorden"
 
 msgid "New Mail"
-msgstr "Nieuwe E-mail"
+msgstr "Nieuwe email"
 
 # 80%
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Geef een geadresseerde op"
+msgstr "Selecteer een Cc ontvanger."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Update genodigden"
+msgstr "Beheer Cc ontvangers"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Cc ontvangers kunnen gebruikt worden om een gebruiker toe te voegen in het "
+"Cc veld, in nieuwe mail, antwoorden of beide."
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
+msgstr "De volgende geadresseerden bestaan al"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Update genodigden"
+msgstr "Ontvanger bestaat al"
 
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp printen"
