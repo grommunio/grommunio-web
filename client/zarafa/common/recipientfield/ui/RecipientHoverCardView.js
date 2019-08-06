@@ -65,7 +65,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 			width: 250,
 			height: 100,
 			border: false,
-			items: this.getHoverCardItems(config.records),
+			items: this.getHoverCardItems(config),
 			buttonAlign: 'left',
 			buttons: this.getHoverCardButtons(config.records)
 		});
@@ -92,11 +92,12 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 
 	/**
 	 * Helper function which will return hover card items.
-	 * @param {Ext.data.Record} record which will show in hover card view.
+	 * @param {Object} config The config object contains the record which going to show in hover card.
 	 * @return {Array} items The hover card items.
 	 */
-	getHoverCardItems: function (record)
+	getHoverCardItems: function (config)
 	{
+		var record = config.records;
 		var emailAddress = record.get('smtp_address') || record.get('email_address');
 		var toolTip = emailAddress.length > this.ellipsisStringEndLength ? emailAddress : '';
 		return [{
@@ -129,8 +130,35 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 				handler: this.copyEmail,
 				tooltip: _('Copy email address'),
 				scope: this
+			}, {
+				xtype: 'zarafa.recipienthovercardbutton',
+				iconCls: 'icon_copy_all',
+				hidden: this.hideButton(config.recipientView, record),
+				handler: this.copyEmail,
+				name : 'copyEmailAddresses',
+				tooltip: _('Copy email addresses'),
+				scope: this
 			}]
 		}];
+	},
+
+	/**
+	 * Helper function which used to hide the 'Copy email addresses' button from hover card if selected recipient was not resolved
+	 * or only one recipient is in selected field (TO, Cc or Bcc).
+	 *
+	 * @param {Ext.DataView} recipientView The recipientView can be {@link Zarafa.common.ui.messagepanel.RecipientLinks RecipientLinks} or
+	 * {@link Zarafa.common.ui.messagepanel.SentInfoLinks SentInfoLinks}.
+	 * @param {Ext.data.Record} record which will show in hover card view.
+	 * @return {Boolean} return true if selected recipient is not resolved or field has only one recipient else false.
+	 */
+	hideButton : function(recipientView, record)
+	{
+		if (!record.isResolved()) {
+			return true;
+		}
+
+		var recipients =  Zarafa.common.Actions.getRecipientsByType(recipientView.getStore(), record.get('recipient_type'));
+		return recipients.length === 1;
 	},
 
 	/**
@@ -230,12 +258,16 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	},
 
 	/**
-	 * Handler for the "Copy email address" option. This will
-	 * copy email address of the resolved recipient.
+	 * Handler for the "Copy email address" and 'Copy email addresses' option. This will
+	 * copy email address(es) of the resolved recipient(s).
+ 	 * @param {Zarafa.common.recipientfield.ui.RecipientHoverCardButton} item The item can be
+	 * 'Copy email address' or 'Copy email addresses' button in hover card.
 	 */
-	copyEmail : function ()
+	copyEmail : function (item)
 	{
-		Zarafa.common.Actions.copyEmailAddress(this.records);
+		var store = this.recipientView.getStore();
+		var copyAll = item.name === 'copyEmailAddresses';
+		Zarafa.common.Actions.copyEmailAddress(this.records, store, copyAll);
 	},
 
 	/**
