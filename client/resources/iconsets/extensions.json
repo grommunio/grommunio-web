@@ -112,8 +112,11 @@
 	".icon_signature": ".zarafa-settings-favorite-signatures",
 
 	".icon_category_add_hover": [
-		".k-category-add:hover",
+		".x-grid3-row-over .k-category-add",
 		".k-category-filter .k-category-add-button.x-btn-over .k-category-add-button-icon"
+	],
+	".icon_categories": [
+		".x-grid3-row-over .k-category-add:hover"
 	],
 
 	".icon_pencil": ".k-grid-button-edit",
