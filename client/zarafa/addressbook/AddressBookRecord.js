@@ -101,7 +101,9 @@ Zarafa.addressbook.AddressBookRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 	 */
 	convertToRecipient : function(recipientType, recordType)
 	{
-		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(recordType || Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, {
+		var recordCustomObjectType = Zarafa.core.data.RecordCustomObjectType;
+		recordType = recordCustomObjectType.get(recordType) ? recordType : recordCustomObjectType.ZARAFA_RECIPIENT;
+		var recipientRecord = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(recordType, {
 			entryid : this.get('entryid'),
 			search_key : this.get('search_key'),
 			object_type : this.get('object_type'),
