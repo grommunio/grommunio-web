@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-08-07 00:14+0000\n"
+"PO-Revision-Date: 2019-08-07 12:36+0000\n"
 "Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/is/>\n"
@@ -4718,273 +4718,281 @@ msgid "Reloading, Please wait."
 msgstr "Endurhleð. Vinsamlegast bíðið."
 
 msgid "Setting"
-msgstr ""
+msgstr "Stilling"
 
 msgid "The setting '{0}' can not be edited"
-msgstr ""
+msgstr "Stillingunni '{0}' getur ekki verið breytt"
 
 msgid "Version information"
-msgstr ""
+msgstr "Útgáfuupplýsingar"
 
 msgid "WebApp"
-msgstr ""
+msgstr "Kopano vefviðmót"
 
 msgid "Kopano Core"
-msgstr ""
+msgstr "Kopano kjarni"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Staðfesting á eyðingu"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "Eyðing atriðisins/atriðanna mun einnig eyða upprunalegu atriði/atriðum."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Viltu eyða atriðinu/atriðunum?"
 
 msgid "Sort by: Priority"
-msgstr ""
+msgstr "Raða eftir forgangi"
 
 msgid "Status"
-msgstr ""
+msgstr "Staða"
 
 msgid "Sort by: Status"
-msgstr ""
+msgstr "Raða eftir stöðu"
 
 msgid "Due Date"
-msgstr ""
+msgstr "Skiladagur"
 
 msgid "Sort by: Due Date"
-msgstr ""
+msgstr "Raða eftir skiladegi"
 
 msgid "% Completed"
-msgstr ""
+msgstr "% kláruð"
 
 msgid "Sort by: Percent Completed"
-msgstr ""
+msgstr "Raða eftir hlutfalli kláraðra"
 
 msgid "Task Status"
-msgstr ""
+msgstr "Staða verks"
 
 msgid "Percent Complete"
-msgstr ""
+msgstr "Hlutfall kláraðra"
 
 msgid "Total Work"
-msgstr ""
+msgstr "Heildarvinna"
 
 msgid "Actual Work"
-msgstr ""
+msgstr "Raunveruleg vinna"
 
 msgid "Companies"
-msgstr ""
+msgstr "Fyrirtæki"
 
 msgid "Billing Information"
-msgstr ""
+msgstr "Reikningsupplýsingar"
 
 msgid "Mileage"
-msgstr ""
+msgstr "Nýting"
 
 msgid "Accepting Task"
-msgstr ""
+msgstr "Samþykki verk"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "Hafna verki"
 
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
+"Þetta verk verður samþykkt og fært í verkskrána þína. Viltu láta "
+"athugasemdir fylgja með svarinu þínu?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
+"Þessu verki verður hafnað og fært í möppu með eyddum atriðum. Viltu breyta "
+"svarinu þínu áður en þú sendir það?"
 
 msgid "Send the response now"
-msgstr ""
+msgstr "Senda svarið núna"
 
 msgid "Date Complete"
-msgstr ""
+msgstr "Dagsetning þegar klárað"
 
 msgid "Update List"
-msgstr ""
+msgstr "Uppfæra lista"
 
 msgid "Create Unassigned Copy"
-msgstr ""
+msgstr "Búa til óúthlutað afrit"
 
 msgid "copy"
-msgstr ""
+msgstr "afrita"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Gat ekki sent verkbeiðni"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "Þú getur ekki sent verkbeiðni til þín."
 
 msgid "Multiple recipients"
-msgstr ""
+msgstr "Margir móttakendur"
 
 msgid "A task request can only have one recipient."
-msgstr ""
+msgstr "Verkbeiðni getur aðeins haft einn móttakanda."
 
 msgid "Due date"
-msgstr ""
+msgstr "Skiladagur"
 
 msgid "Priority"
-msgstr ""
+msgstr "Forgangur"
 
 msgid "% Complete"
-msgstr ""
+msgstr "% kláruð"
 
 msgid "Track progress"
-msgstr ""
+msgstr "Framgangseftirfylgni"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "Geyma uppfært afrit af verki og taka við sjálfvirkum stöðuskýrslum"
 
 msgid "Send task to assignees"
-msgstr ""
+msgstr "Senda verk til verktaka"
 
 msgid "Restore to Task List"
-msgstr ""
+msgstr "Endurheimta verkskrá"
 
 msgid "Delete this task"
-msgstr ""
+msgstr "Eyða þessu verki"
 
 msgid "Add attachments to this task"
-msgstr ""
+msgstr "Bæta viðhengjum við þetta verk"
 
 msgid "Mark as Complete"
-msgstr ""
+msgstr "Merkja sem klárað"
 
 msgid "Mark this task as complete"
-msgstr ""
+msgstr "Merkja þetta verk sem klárað"
 
 msgid "Print this task"
-msgstr ""
+msgstr "Prenta þetta verk"
 
 msgid "Assign Task"
-msgstr ""
+msgstr "Úthluta verki"
 
 msgid "Cancel Assignment"
-msgstr ""
+msgstr "Hætta við úthlutun"
 
 msgid "Mark this task as private"
-msgstr ""
+msgstr "Merkja þetta sem einkaverk"
 
 msgid "New task"
-msgstr ""
+msgstr "Nýtt verk"
 
 msgid "Completed"
-msgstr ""
+msgstr "Klárað"
 
 msgid "Percent complete"
-msgstr ""
+msgstr "Hlutfall kláraðra"
 
 msgid "Total work"
-msgstr ""
+msgstr "Heildarvinna"
 
 msgid "{totalwork} hours"
-msgstr ""
+msgstr "{totalwork} klukkutímar"
 
 msgid "Actual work"
-msgstr ""
+msgstr "Raunveruleg vinna"
 
 msgid "{actualwork} hours"
-msgstr ""
+msgstr "{actualwork} klukkutímar"
 
 msgid "Open Shared Tasks"
-msgstr ""
+msgstr "Opna sameiginleg verk"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Einföld sýn"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Ítarleg sýn"
 
 msgid "Task request"
-msgstr ""
+msgstr "Verkbeiðni"
 
 msgid "Print selected task"
-msgstr ""
+msgstr "Prenta valið verk"
 
 msgid "Print task list"
-msgstr ""
+msgstr "Prenta verkskrá"
 
 msgid "No task selected"
-msgstr ""
+msgstr "Ekkert verk valið"
 
 msgid "Create task"
-msgstr ""
+msgstr "Búa til verk"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "Merkja sem klárað"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "Merkja sem óklárað"
 
 msgid "Remove from To-Do List"
-msgstr ""
+msgstr "Fjarlægja úr aðgerðalista"
 
 msgid "Changes to assigned task"
-msgstr ""
+msgstr "Breytingar á úthlutuðu verki"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
+"Vinsamlegast athugaðu að úthlutuð verk verða yfirskrifuð þegar verktakinn "
+"gerir breytingar."
 
 msgid "Sort by: Complete"
-msgstr ""
+msgstr "Raða eftir kláruðum verkum"
 
 msgid "Reminder Time"
-msgstr ""
+msgstr "Áminningartímasetning"
 
 msgid "Sort by: Reminder Time"
-msgstr ""
+msgstr "Raða eftir áminningartímasetningu"
 
 msgid "Assigned To"
-msgstr ""
+msgstr "Úthlutað til"
 
 msgid "Sort by: Assignee"
-msgstr ""
+msgstr "Raða eftir verktaka"
 
 msgid "Sort by: Start Date"
-msgstr ""
+msgstr "Raða eftir upphafsdegi"
 
 msgid "Sort by: Owner"
-msgstr ""
+msgstr "Raða eftir eiganda"
 
 msgid "Sort by: Percentage Completed"
-msgstr ""
+msgstr "Raða eftir hlutfalli kláraðra"
 
 msgid "Assigned task changes"
-msgstr ""
+msgstr "Breytingar úthlutaðs verks"
 
 msgid "Loading tasks"
-msgstr ""
+msgstr "Hleð verkum"
 
 msgid "Date completed"
-msgstr ""
+msgstr "Dagsetning þegar klárað"
 
 msgid "hours"
-msgstr ""
+msgstr "klukkutímar"
 
 msgid "Billing information"
-msgstr ""
+msgstr "Reikningsupplýsingar"
 
 msgid "Update list"
-msgstr ""
+msgstr "Uppfæra lista"
 
 msgid "D d-m-Y"
-msgstr ""
+msgstr "D d-m-Y"
 
 msgid "Import / Export"
-msgstr ""
+msgstr "Flytja inn/út"
 
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
 msgstr ""
+"Dagatal, tengiliðir og póstar geta ekki verið fluttir inn og út í Kopano "
+"vefviðmótinu."
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
