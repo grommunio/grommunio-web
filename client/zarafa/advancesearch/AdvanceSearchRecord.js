@@ -12,7 +12,8 @@ Ext.namespace('Zarafa.advancesearch');
  */
 Zarafa.advancesearch.AdvanceSearchRecordFields = [
 	{name: 'searchdate', type: 'date', dateFormat: 'timestamp', defaultValue: null, sortDir : 'DESC'},
-	{name: 'task_duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null, sortDir : 'DESC'}
+	{name: 'duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null, sortDir : 'DESC'},
+	{name: 'task_duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null, sortDir : 'DESC'},
 ];
 
 Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Search', Zarafa.advancesearch.AdvanceSearchRecordFields);
