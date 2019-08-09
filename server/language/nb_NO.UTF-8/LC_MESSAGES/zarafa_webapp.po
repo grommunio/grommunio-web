@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-08-01 07:08+0000\n"
+"PO-Revision-Date: 2019-08-09 15:50+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
 "/kopano-webapp/nb_NO/>\n"
@@ -2319,68 +2319,58 @@ msgstr ""
 "Slett merkede elementer uten å først flytte dem til Slette Elementer. De "
 "slettede elementene kan allikevel bli gjenopprettet."
 
-#, fuzzy
 msgid "Add/Edit Cc recipient"
-msgstr "Rediger mottaker"
+msgstr "Legg til/Rediger kopi-mottaker"
 
-#, fuzzy
 msgid "Duplicate recipient"
-msgstr "Oppdater mottaker"
+msgstr "Duplikat mottaker"
 
-#, fuzzy
 msgid "Recipient already exists."
-msgstr "Bruker finnes allerede"
+msgstr "Mottaker finnes allerede."
 
-#, fuzzy
 msgid "Disable for new mail"
-msgstr "Signatur for nye meldinger"
+msgstr "Deaktiver for nye e-post"
 
-#, fuzzy
 msgid "Enable for new mail"
-msgstr "Signatur for nye meldinger"
+msgstr "Aktiver for ny e-post"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "Deaktiver for svar"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "Aktiver for svar"
 
-#, fuzzy
 msgid "No Cc recipient configured"
-msgstr "Ingen representant er konfigurert"
+msgstr "Ingen kopi-mottakere er konfigurert"
 
-#, fuzzy
 msgid "Loading Cc recipients"
-msgstr "Rediger mottaker"
+msgstr "Laster inn kopi-mottaker"
 
-#, fuzzy
 msgid "Reply Mail"
-msgstr "Svar til alle"
+msgstr "Svar på e-post"
 
 # 87%
 msgid "New Mail"
 msgstr "Ny e-post"
 
-#, fuzzy
 msgid "Please select a Cc recipient record."
-msgstr "Vennligst velg en mottaker"
+msgstr "Vennligst velg en kopi-mottaker."
 
-#, fuzzy
 msgid "Manage Cc recipients"
-msgstr "Oppdater mottaker"
+msgstr "Behandle kopi-mottakere"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Kopi-mottakere kan settes som standard kopi-mottakere på ny e-post, ved "
+"svar, eller begge deler."
 
-#, fuzzy
 msgid "Following recipients are already exists"
-msgstr "De følgende mottakere kunne ikke nåes"
+msgstr "De følgende mottakere finnes allerede"
 
-#, fuzzy
 msgid "Duplicate recipients"
-msgstr "Oppdater mottaker"
+msgstr "Duplikate mottakere"
 
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp utskrift"
