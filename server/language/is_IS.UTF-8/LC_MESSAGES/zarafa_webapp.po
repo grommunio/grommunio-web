@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2019-08-07 12:36+0000\n"
+"PO-Revision-Date: 2019-08-09 23:42+0000\n"
 "Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/is/>\n"
@@ -652,7 +652,7 @@ msgid "Sender"
 msgstr "Sendandi"
 
 msgid "Recipients"
-msgstr "Móttakendur"
+msgstr "Viðtakendur"
 
 msgid "Subject"
 msgstr "Málefni"
@@ -958,7 +958,7 @@ msgstr "Senda breytingu"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
-msgstr "Breytingarskilaboð verða send öllum móttakendum, viltu halda áfram?"
+msgstr "Breytingarskilaboð verða send öllum viðtakendum, viltu halda áfram?"
 
 msgid "Send update to attendees"
 msgstr "Senda breytingu til þátttakenda"
@@ -1210,8 +1210,8 @@ msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Þessum fundi verður hafnað og fundarboðið sett í möppu með eyddum skeytum. "
-"Viltu láta texta fylgja svarinu þínu?"
+"Þessum fundi verður hafnað og fundarboðið sett í ruslakörfuna. Viltu láta "
+"texta fylgja svarinu þínu?"
 
 msgid "Edit the response before sending"
 msgstr "Breyta svarinu áður en þú sendir það"
@@ -1741,13 +1741,13 @@ msgid "Delete without sending"
 msgstr "Eyða án þess að senda"
 
 msgid "Notify recipients"
-msgstr "Láta þátttakendur vita"
+msgstr "Láta viðtakendur vita"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
 "continue?"
 msgstr ""
-"Skilaboð um að hætt sé við verða send til allra þátttakenda, viltu halda "
+"Skilaboð um að hætt sé við verða send til allra viðtakenda, viltu halda "
 "áfram?"
 
 msgid "Delete Incomplete Task"
@@ -1978,7 +1978,7 @@ msgid "Alert"
 msgstr "Viðvörun"
 
 msgid "Please select a recipient"
-msgstr "Vinsamlegast veldur móttakanda"
+msgstr "Vinsamlegast veldu viðtakanda"
 
 msgid "Mail and Post"
 msgstr "Tölvupóstur og sending"
@@ -2117,7 +2117,7 @@ msgid "next week"
 msgstr "í næstu viku"
 
 msgid "Edit recipient"
-msgstr "Breyta móttakanda"
+msgstr "Breyta viðtakanda"
 
 msgid "Copy email address"
 msgstr "Afrita tölvupóstfang"
@@ -2219,17 +2219,17 @@ msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"Eyða völdu atriði án þess að færa það í möppu með eyddum atriðum. Endurheimt "
-"verður þá ekki möguleg."
+"Eyða völdu atriði án þess að færa það í ruslakörfuna. Endurheimt verður þá "
+"ekki möguleg."
 
 msgid "Add/Edit Cc recipient"
-msgstr "Bæta við/Breyta móttakanda afrits"
+msgstr "Bæta við/breyta viðtakanda afrits"
 
 msgid "Duplicate recipient"
-msgstr "Fjölfalda móttakanda"
+msgstr "Fjölfalda viðtakanda"
 
 msgid "Recipient already exists."
-msgstr "Móttakandi er þegar til."
+msgstr "Viðtakandi er þegar til."
 
 msgid "Disable for new mail"
 msgstr "Afvirkja fyrir nýjan póst"
@@ -2244,10 +2244,10 @@ msgid "Enable for replies"
 msgstr "Virkja fyrir svör"
 
 msgid "No Cc recipient configured"
-msgstr "Engin móttakandi afrits skráður"
+msgstr "Engin viðtakandi afrits skráður"
 
 msgid "Loading Cc recipients"
-msgstr "Hleð móttakendum afrits"
+msgstr "Hleð viðtakendum afrits"
 
 msgid "Reply Mail"
 msgstr "Svarpóstur"
@@ -2256,23 +2256,23 @@ msgid "New Mail"
 msgstr "Nýr póstur"
 
 msgid "Please select a Cc recipient record."
-msgstr "Vinsamlegast veldu skráningu á móttakanda afrits."
+msgstr "Vinsamlegast veldu skráningu á viðtakanda afrits."
 
 msgid "Manage Cc recipients"
-msgstr "Umsjón móttakenda afrits"
+msgstr "Umsjón viðtakenda afrits"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
-"Móttakendur afrits geta verið nýttir til að senda afrit á þá í nýjum pósti, "
+"Viðtakendur afrits geta verið nýttir til að senda afrit á þá í nýjum pósti, "
 "svörum eða báðum tilvikum."
 
 msgid "Following recipients are already exists"
-msgstr "Eftirfarandi móttakendur eru nú þegar til"
+msgstr "Eftirfarandi viðtakendur eru nú þegar til"
 
 msgid "Duplicate recipients"
-msgstr "Fjölfalda móttakendur"
+msgstr "Fjölfalda viðtakendur"
 
 msgid "Kopano WebApp print"
 msgstr "Útprentun úr Kopano vefviðmóti"
@@ -2294,16 +2294,16 @@ msgstr ""
 "saman aftur."
 
 msgid "Edit Recipient"
-msgstr "Breyta móttakanda"
+msgstr "Breyta viðtakanda"
 
 msgid "Send email"
 msgstr "Senda tölvupóst"
 
 msgid "Delete recipient from suggestion list"
-msgstr "Eyða móttakanda úr tillögulista"
+msgstr "Eyða viðtakanda úr tillögulista"
 
 msgid "View recipient"
-msgstr "Skoða móttakanda"
+msgstr "Skoða viðtakanda"
 
 msgid "Weekday"
 msgstr "Vikudagur"
@@ -2490,7 +2490,7 @@ msgstr[0] "{0} endurheimtanlegt atriði í heildina"
 msgstr[1] "{0} endurheimtanleg atriði í heildina"
 
 msgid "Deleted On"
-msgstr "Eyðingardagsetning"
+msgstr "Eytt"
 
 msgid "Sort by: Deleted On"
 msgstr "Raða eftir eyðingardagsetningu"
@@ -2544,7 +2544,7 @@ msgid "includes these words in the sender's address..."
 msgstr "inniheldur þessi orð í tölvupóstfangi sendanda..."
 
 msgid "includes these words in the recipient's address..."
-msgstr "inniheldur þessi orð í tölvupóstfangi móttakanda..."
+msgstr "inniheldur þessi orð í tölvupóstfangi viðtakanda..."
 
 msgid "includes these words in the subject..."
 msgstr "inniheldur þessi orð í málefni..."
@@ -2970,7 +2970,7 @@ msgid "Assigned by {0} on {1}."
 msgstr "Úthlutað af {0} {1}."
 
 msgid "Waiting for response from recipient"
-msgstr "Bíð eftir svari frá móttakanda"
+msgstr "Bíð eftir svari frá viðtakanda"
 
 msgid "Accepted by {0} on {1}."
 msgstr "Samþykkt af {0} {1}."
@@ -3022,7 +3022,7 @@ msgstr "Flokkar"
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr "Móttakendur"
+msgstr "Viðtakendur"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
@@ -3651,13 +3651,13 @@ msgid "Sent successfully"
 msgstr "Sending tókst"
 
 msgid "No recipient"
-msgstr "Enginn móttakandi"
+msgstr "Enginn viðtakandi"
 
 msgid "Please specify at least one recipient"
-msgstr "Vinsamlegast tilgreindu að minnsta kosti einn móttakanda"
+msgstr "Vinsamlegast tilgreindu að minnsta kosti einn viðtakanda"
 
 msgid "Please specify a recipient"
-msgstr "Vinsamlegast tilgreindu móttakanda"
+msgstr "Vinsamlegast tilgreindu viðtakanda"
 
 msgid "The attached files are not uploaded yet."
 msgstr "Viðhengjum hefur ekki enn verið halað upp."
@@ -3681,10 +3681,10 @@ msgid "Send this message without a subject?"
 msgstr "Viltu senda þessi skilaboð án málefnis?"
 
 msgid "Unresolved recipients"
-msgstr "Óskýrir móttakendur"
+msgstr "Óskýrir viðtakendur"
 
 msgid "Not all recipients could be resolved"
-msgstr "Móttakendur eru ekki allir skýrir"
+msgstr "Viðtakendur eru ekki allir skýrir"
 
 msgid "Collapse hierarchy"
 msgstr "Loka stigveldi"
@@ -4001,7 +4001,7 @@ msgid "Empty Junk Email"
 msgstr "Tæma ruslpóst"
 
 msgid "Empty Deleted Items"
-msgstr "Tæma eyddum atriðum"
+msgstr "Tæma ruslakörfu"
 
 msgid "Rename Folder"
 msgstr "Endurnefna möppu"
@@ -4065,8 +4065,8 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
-"Ertu viss um að þú viljir eyða möppunni \"{0}\" og færa innihaldið í möppuna "
-"með eyddum atriðum?"
+"Ertu viss um að þú viljir eyða möppunni \"{0}\" og færa innihaldið í "
+"ruslakörfuna?"
 
 msgid "Delete folder"
 msgstr "Eyða möppu"
@@ -4195,7 +4195,7 @@ msgid "Set read receipt"
 msgstr "Stilla lestrarkvittun"
 
 msgid "Request read receipt from recipients"
-msgstr "Óska eftir lestrarkvittun frá móttakendum"
+msgstr "Óska eftir lestrarkvittun frá viðtakendum"
 
 msgid "Show Bcc"
 msgstr "Sýna dulið afrit"
@@ -4800,8 +4800,8 @@ msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Þessu verki verður hafnað og fært í möppu með eyddum atriðum. Viltu breyta "
-"svarinu þínu áður en þú sendir það?"
+"Þessu verki verður hafnað og það fært í ruslakörfuna. Viltu breyta svarinu "
+"þínu áður en þú sendir það?"
 
 msgid "Send the response now"
 msgstr "Senda svarið núna"
@@ -4825,10 +4825,10 @@ msgid "You cannot send a task request to yourself."
 msgstr "Þú getur ekki sent verkbeiðni til þín."
 
 msgid "Multiple recipients"
-msgstr "Margir móttakendur"
+msgstr "Margir viðtakendur"
 
 msgid "A task request can only have one recipient."
-msgstr "Verkbeiðni getur aðeins haft einn móttakanda."
+msgstr "Verkbeiðni getur aðeins haft einn viðtakanda."
 
 msgid "Due date"
 msgstr "Skiladagur"
@@ -4998,400 +4998,414 @@ msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Hægrismelltu á möppu og veldu innflutningstakkann. Auk þess geta atriði "
+"verið flutt inn í gegnum viðhengisvalmyndina."
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Útflutning er hægt að framkvæma í gegnum valmynd atriðis."
 
 msgid "Icon packs"
-msgstr ""
+msgstr "Teiknapakkar"
 
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Þú getur núna valið milli mismunandi teikna. Breeze-teikn eru sjálfgefið "
+"virkjuð en ef þú vilt klassísk teikn getur þú breytt því í stillingum."
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Farðu í stillingarnar þínar og opnaðu almenna flipann til að velja "
+"teiknapakka sem þér líkar."
 
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "Vinstri: Breeze - Hægri: Klassískt"
 
 msgid "What's new"
-msgstr ""
+msgstr "Hvað er nýtt"
 
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "Ekki sýna mér tilkynningu um nýja virkni aftur."
 
 msgid "Skip"
-msgstr ""
+msgstr "Sleppa"
 
 msgid "Previous"
-msgstr ""
+msgstr "Fyrri"
 
 msgid "Next"
-msgstr ""
+msgstr "Næsta"
 
 msgid "The server reported an unknown error on your request."
-msgstr ""
+msgstr "Vefþjónninn tilkynnti óþekkta villu í beiðninni þinni."
 
 msgid "The server reported an unspecified error on your request."
-msgstr ""
+msgstr "Vefþjónninn tilkynnti ótilgreinda villu í beiðninni þinni."
 
 msgid "The session has expired, reauthentication is required."
-msgstr ""
+msgstr "Setan þín er útrunnin, þú þarft að endurauðkenna þig."
 
 msgid ""
 "The session in the current browser window has been closed from another "
 "browser window or tab."
-msgstr ""
+msgstr "Setunni þinni í vafranum var lokað úr öðrum vafraglugga eða flipa."
 
 msgid "Session expired"
-msgstr ""
+msgstr "Útrunnin seta"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr ""
+msgstr "Viltu flytjast yfir á innskráningarsíðu?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
+"Endurauðkenning nauðsynleg, smelltu hér til að fara aftur á "
+"innskráningarsíðu."
 
 msgid "Connection problem"
-msgstr ""
+msgstr "Tengivilla"
 
 msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr ""
+msgstr "Gat ekki tengst netþjóni, reyni aftur eftir {0} sekúndu(r)"
 
 msgid "Click to retry now"
-msgstr ""
+msgstr "Smelltu til að reyna núna"
 
 msgid "Connection restored"
-msgstr ""
+msgstr "Tengingu komið á að nýju"
 
 msgid "Connection with server has been restored"
-msgstr ""
+msgstr "Tengingin við netþjóninn hefur verið endurheimt"
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "HTTP {0}"
-msgstr ""
+msgstr "HTTP kóði {0}"
 
 msgid "Invalid data received from the server"
-msgstr ""
+msgstr "Ógild gögn bárust frá netþjóninum"
 
 msgid "Missing store"
-msgstr ""
+msgstr "Geymslu vantar"
 
 msgid "The default store is missing from the hierarchy."
-msgstr ""
+msgstr "Sjálfvirku geymsluna vantar í stigveldið."
 
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr ""
+"Það er óvíst hvort öll virkni í Kopano vefviðmótinu er eins og hún á að vera "
+"vegna þessa."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
-msgstr ""
+msgstr "Innhólf"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr ""
+msgstr "Úthólf"
 
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr ""
+msgstr "Sendingar"
 
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr ""
+msgstr "Ruslakarfa"
 
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
-msgstr ""
+msgstr "Dagatal"
 
 msgctxt "hierarchy.foldername"
 msgid "Contacts"
-msgstr ""
+msgstr "Tengiliðir"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr ""
+msgstr "Óklárað"
 
 msgctxt "hierarchy.foldername"
 msgid "Journal"
-msgstr ""
+msgstr "Dagbók"
 
 msgctxt "hierarchy.foldername"
 msgid "Notes"
-msgstr ""
+msgstr "Minnisatriði"
 
 msgctxt "hierarchy.foldername"
 msgid "Tasks"
-msgstr ""
+msgstr "Verkskrá"
 
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr ""
+msgstr "Ruslpóstur"
 
 msgid "Missing folders"
-msgstr ""
+msgstr "Möppur sem vantar"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eftirfarandi möppu vantar í stigveldið: {0}"
+msgstr[1] "Eftirfarandi möppur vantar í stigveldið: {0}"
 
 msgid "Loading model from server failed"
-msgstr ""
+msgstr "Mistókst að hlaða líkani frá netþjóni"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr ""
+msgstr "Þú hefur stillt þig sem ekki í vinnu. Viltu afvirkja stillinguna?"
 
 msgid "Out of office off"
-msgstr ""
+msgstr "Stilling sem ekki í vinnu afvirkjuð"
 
 msgid "Out of office has been turned off"
-msgstr ""
+msgstr "Stilling sem ekki í vinnu hefur verið afvirkjuð"
 
 msgid "Send Fax"
-msgstr ""
+msgstr "Senda bréfsíma"
 
 msgid "Contact Fax"
-msgstr ""
+msgstr "Bréfsímanúmer tengiliðs"
 
 msgid "Widget height"
-msgstr ""
+msgstr "Græjuhæð"
 
 msgid "pixels"
-msgstr ""
+msgstr "pixlar"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Endurhleðslutímabil"
 
 msgid "seconds"
-msgstr ""
+msgstr "sekúndur"
 
 msgid "Loading appointments..."
-msgstr ""
+msgstr "Hleð tímabókunum..."
 
 msgid "No appointments"
-msgstr ""
+msgstr "Engar tímabókanir"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Fjöldi daga"
 
 msgid "Today {0} - {1}"
-msgstr ""
+msgstr "Í dag {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Í dag (heill dagur)"
 
 msgid "{0} - {1}"
-msgstr ""
+msgstr "{0} - {1}"
 
 msgid "d/m/y G:i"
-msgstr ""
+msgstr "d/m/y G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (heill dagur)"
 
 msgid "d/m/y"
-msgstr ""
+msgstr "d/m/y"
 
 msgid "Upcoming Appointments"
-msgstr ""
+msgstr "Næstu tímabókanir"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Dagsetningarval"
 
 msgid "No unread mail."
-msgstr ""
+msgstr "Enginn ólesinn póstur."
 
 msgid "Unread Mail"
-msgstr ""
+msgstr "Ólesinn póstur"
 
 msgid "No tasks."
-msgstr ""
+msgstr "Engin verk."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Verkskrá / Aðgerðalisti"
 
 msgid "Google Maps"
-msgstr ""
+msgstr "Kort frá Google"
 
 #. TRANSLATORS: The map of earth
 msgid "Map"
-msgstr ""
+msgstr "Kort"
 
 msgid "Move currently selected message(s) to {0}"
-msgstr ""
+msgstr "Færa valin skilaboð til {0}"
 
 msgid "Move to {0}"
-msgstr ""
+msgstr "Færa til {0}"
 
 msgid "Move current message to {0}"
-msgstr ""
+msgstr "Færa núverandi skilaboð til {0}"
 
 msgid "Personal Inbox Manager"
-msgstr ""
+msgstr "Persónulegur innhólfsstjórnandi"
 
 msgid "Personal Inbox Management Settings"
-msgstr ""
+msgstr "Stillingar fyrir persónulegan innhólfsstjórnanda"
 
 msgid "Select another folder"
-msgstr ""
+msgstr "Velja aðra möppu"
 
 msgid "E-mails are moved to {0}"
-msgstr ""
+msgstr "Tölvupóstar eru færðir til {0}"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "Opna í nýjum flipa"
 
 msgid "Quick Appointment"
-msgstr ""
+msgstr "Skyndibókun"
 
 msgid "Quick Contact"
-msgstr ""
+msgstr "Skynditengiliður"
 
 msgid "Quick Mail"
-msgstr ""
+msgstr "Skyndipóstur"
 
 msgid "Quick Note"
-msgstr ""
+msgstr "Skyndiminnisatriði"
 
 msgid "none"
-msgstr ""
+msgstr "ekkert"
 
 msgid "Quick Task"
-msgstr ""
+msgstr "Skyndiverk"
 
 msgid "Title Counter Plugin"
-msgstr ""
+msgstr "Titilstalningaríbót"
 
 msgid "Help"
-msgstr ""
+msgstr "Hjálp"
 
 msgid "WebApp Manual"
-msgstr ""
+msgstr "Leiðbeiningar Kopano vefviðmóts"
 
 msgid "INSERT"
-msgstr ""
+msgstr "SETJA INN"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "Raða eftir context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
-msgstr ""
+msgstr "ZForritari"
 
 msgid "Charm pink"
-msgstr ""
+msgstr "Sjarmerandi bleikt"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "Kadmínrautt"
 
 msgid "Apricot"
-msgstr ""
+msgstr "Apríkósa"
 
 msgid "California"
-msgstr ""
+msgstr "Kalifornía"
 
 msgid "Soft green"
-msgstr ""
+msgstr "Mjúkgrænt"
 
 msgid "Mint"
-msgstr ""
+msgstr "Mynta"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "Perlusjór"
 
 msgid "Kopano blue"
-msgstr ""
+msgstr "Kopano-blátt"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "Barnablátt"
 
 msgid "Mauve"
-msgstr ""
+msgstr "Fjólubleikt"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "Silfursandur"
 
 msgid "Competition"
-msgstr ""
+msgstr "Keppni"
 
 msgid "Gifts"
-msgstr ""
+msgstr "Gjafir"
 
 msgid "Goals/Objectives"
-msgstr ""
+msgstr "Markmið/takmark"
 
 msgid "Holiday Cards"
-msgstr ""
+msgstr "Hátíðakort"
 
 msgid "Hot Contacts"
-msgstr ""
+msgstr "Vinsælir tengiliðir"
 
 msgid "Ideas"
-msgstr ""
+msgstr "Hugmyndir"
 
 msgid "International"
-msgstr ""
+msgstr "Alþjóðlegt"
 
 msgid "Key Customer"
-msgstr ""
+msgstr "Lykilviðskiptavinur"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Ýmislegt"
 
 msgid "Phone Calls"
-msgstr ""
+msgstr "Símtöl"
 
 msgid "Strategies"
-msgstr ""
+msgstr "Áætlanir"
 
 msgid "Suppliers"
-msgstr ""
+msgstr "Birgjar"
 
 msgid "Time & Expenses"
-msgstr ""
+msgstr "Tími og kostnaður"
 
 msgid "VIP"
-msgstr ""
+msgstr "Mikilmenni"
 
 msgid "Waiting"
-msgstr ""
+msgstr "Bíð"
 
 msgid "You have been automatically logged out"
-msgstr ""
+msgstr "Þú lentir í sjálfvirkri útskráningu"
 
 msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
+"Því miður er aðgangur að Kopano vefviðmóti ekki til fyrir þennan "
+"notandaaðgang. Vinsamlegast ræddu við kerfisstjórn."
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr ""
+msgstr "Get ekki bætt gögnum á brautina, samagerð aðgerðar er til á brautinni"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
+msgstr "Svargögn umbeðin frá braut en hún hefur engin gögn."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr ""
+msgstr "Óþekkt forritseining '%s' með auðkenni '%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
+"Netþjónninn lenti í einhverjum vandræðum þannig að það var ekki hægt að "
+"meðhöndla beiðnina."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr ""
+msgstr "Óþekktur tilkynnandi '%s'"
 
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Óþekkt villa kom upp"
 
 msgid "To-Do List"
-msgstr ""
+msgstr "Aðgerðalisti"
 
 #. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
 #. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
@@ -5399,234 +5413,241 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
+msgstr "%1$s sem %2$s á"
 
 msgid "Error retrieving existing settings"
-msgstr ""
+msgstr "Villa við að sækja núverandi stillingar"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Villa við að sækja fastar stillingar"
 
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr ""
+msgstr "Innskráning mistókst. Athugaðu notandanafn og lykilorð og reyndu aftur."
 
 msgid "Cannot connect to Kopano Core."
-msgstr ""
+msgstr "Gat ekki tengst Kopano kjarnanum."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Innskráning mistókst vegna tvöfaldrar setu. Þessi villa var sjálfvirkt "
+"löguð, vinsamlegast reyndu að skrá þig inn aftur."
 
 msgid "Unknown MAPI Error"
-msgstr ""
+msgstr "Óþekkt MAPI-villa"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Smelltu á tengilinn til að opna vefslóðina í nýjum glugga."
 
 msgid "This external link will open in a new window"
-msgstr ""
+msgstr "Þessi ytri tengill mun opnast í nýjum glugga"
 
 msgid "Destination folder not found."
-msgstr ""
+msgstr "Móttökumappan fannst ekki."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml-skrá er gölluð"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "Mistókst að flytja inn Eml-viðhengi"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "Mistókst að flytja inn vcf-viðhengi"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Gat ekki flutt inn '%s' í '%s'. "
 
 msgid "There is no appointment found in this file."
-msgstr ""
+msgstr "Það fannst engin tímabókun í þessari skrá."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "Skráin er gölluð."
 
 msgid "The file is invalid."
-msgstr ""
+msgstr "Skráin er ógild."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "Gat ekki flutt inn '%s'. "
 
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "Láttu kerfisstjórn vita ef vandamálið heldur áfram."
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "Mistókst að flytja inn viðhengi"
 
 msgid "Embedded attachment not found."
-msgstr ""
+msgstr "Ílagsviðhengi fannst ekki."
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "Mistókst að útbúa Zip-skrá"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "Viðhengjum getur ekki verið halað niður"
 
 msgid "Could not find attachment."
-msgstr ""
+msgstr "Viðhengi fannst ekki."
 
 msgid "Operation failed"
-msgstr ""
+msgstr "Aðgerð mistókst"
 
 msgid "Sticky Note"
-msgstr ""
+msgstr "Klístrað minnisatriði"
 
 msgid "Task Request"
-msgstr ""
+msgstr "Verkbeiðni"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "Fann ekki skilaboð, þau hafa annaðhvort verið flutt eða þeim eytt."
 
 msgid "Action is not performed correctly."
-msgstr ""
+msgstr "Framkvæmdi aðgerðina ekki rétt."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Þú ert ekki með réttindin til að opna þetta."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Innskráning mistókst. Vinsamlegast athugaðu nafnið/lykilorðið þitt."
 
 msgid "Can not connect to Kopano Core."
-msgstr ""
+msgstr "Gat ekki tengst Kopano kjarnanum."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Gat ekki opnað einingu með tilgreindu auðkenni."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Skilaboðin hafa enga viðtakendur."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Fann ekki einingu."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Aðgerð mistókst: Netþjónninn hefur ekki nægilegt minni."
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
-msgstr ""
+msgstr "Óþekkt MAPI-villa: %s"
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Kannski"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Tillaga að nýrri tímasetningu"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr ""
+msgstr "Endurtekið á %s fresti með upphaf %s frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr ""
+msgstr "Endurtekið á %s %s fresti með upphaf %s frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr ""
+msgstr "Endurtekið á %s fresti með upphaf %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr ""
+msgstr "Endurtekið á %s %s fresti með upphaf %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið á %s fresti með upphaf %s %s sinni frá %s til %s."
+msgstr[1] "Endurtekið á %s fresti með upphaf %s %s sinnum frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið á %s %s fresti með upphaf %s %s sinni frá %s til %s."
+msgstr[1] "Endurtekið á %s %s fresti með upphaf %s %s sinnum frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið á %s fresti með upphaf %s %s sinni."
+msgstr[1] "Endurtekið á %s fresti með upphaf %s %s sinnum."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið á %s %s fresti með upphaf %s %s sinni."
+msgstr[1] "Endurtekið á %s %s fresti með upphaf %s %s sinnum."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s frá %s til %s."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr ""
+msgstr "Endurtekið á %s fresti með upphaf %s og lýkur %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr ""
+msgstr "Endurtekið á %s %s fresti með upphaf %s og lýkur %s."
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Verk samþykkt:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Verki hafnað:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Verk uppfært:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Verk klárað:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Tengiliður fannst ekki"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Get ekki sýnt tengiliðaupplýsingar því netþjónninn getur ekki náð í "
+"upplýsingarnar."
 
 msgid "Could not handle this type of object."
-msgstr ""
+msgstr "Gat ekki meðhöndlað þessa gerð af einingu."
 
 msgid "Could not open this object."
-msgstr ""
+msgstr "Gat ekki opnað þessa einingu."
 
 msgid "Could not open occurrence."
-msgstr ""
+msgstr "Gat ekki opnað tilvikið."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr ""
+"Gat ekki opnað tilvikið, tilgreinda tilvikinu hefur örugglega verið eytt."
 
 msgid "a meeting request"
-msgstr ""
+msgstr "fundarboð"
 
 msgid "an appointment"
 msgstr "tímabókun"
 
 msgid "You have insufficient privileges to move "
-msgstr ""
+msgstr "Þú hefur ekki næg réttindi til að færa "
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "Ónæg réttindi"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
+"Get ekki stillt áminningu sem á að birtast fyrir fyrri tilvik. Endurstilltu "
+"áminningu til að vista breytingar"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr ""
+msgstr "Tvær endurtekningar geta ekki átt sér stað sama daginn"
 
 #, php-format
 msgid ""
@@ -5635,126 +5656,136 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
+"Þú merktir '%s' sem aðföng. Þú getur ekki bókað fund með '%s' því þú hefur "
+"ekki tilskilin réttindi fyrir þann aðgang. Sláðu inn nafnið annaðhvort sem "
+"nauðsynlegan eða valkvæðan þáttakanda, þú getur líka tala við kerfisstjórn "
+"um að veita þér réttindi til að bóka '%s'."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
 msgstr ""
+"'%s' hefur hafnað fundarboðinu því '%s' samþykkir ekki sjálfvirkt fundarboð."
 
 #, php-format
 msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
+"'%s' hefur hafnað fundarboðinu þínum því það endurtekur sig. Þú verður að "
+"bóka hvern fund fyrir sig með þessum aðföngum."
 
 #, php-format
 msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
+"'%s' er nú þegar bókað á þessum tíma. Þú verður að velja annan tíma eða "
+"finna önnur aðföng."
 
 msgid "Meeting was not scheduled."
-msgstr ""
+msgstr "Fundurinn er ekki bókaður."
 
 msgid "Meeting could not be sent."
-msgstr ""
+msgstr "Gat ekki sent fund."
 
 msgid "Meeting could not be saved."
-msgstr ""
+msgstr "Gat ekki vistað fundinn."
 
 msgid "Private Appointment"
-msgstr ""
+msgstr "Einkatímabókun"
 
 #, php-format
 msgid "%s's Birthday"
-msgstr ""
+msgstr "Afmælisdagur %s"
 
 #, php-format
 msgid "%s's Anniversary"
-msgstr ""
+msgstr "Afmæli %s"
 
 msgid "Unknown user/group"
-msgstr ""
+msgstr "Óþekktur notandi/hópur"
 
 msgid "Could not save delegate information."
-msgstr ""
+msgstr "Gat ekki vistað rétthafaupplýsingar."
 
 msgid "Could not delete delegate."
-msgstr ""
+msgstr "Gat ekki eytt rétthafa."
 
 msgid "Can not get list of delegates."
-msgstr ""
+msgstr "Gat ekki sótt rétthafalista."
 
 msgid "Could not load the hierarchy."
-msgstr ""
+msgstr "Gat ekki hlaðið stigveldinu."
 
 msgid "Could not load folder properties."
-msgstr ""
+msgstr "Gat ekki hlaðið möppueigindum."
 
 msgid "Could not remove folder from favorites."
-msgstr ""
+msgstr "Gat ekki tekið möppu úr uppáhaldi."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að eyða möppu."
 
 msgid "Could not delete folder."
-msgstr ""
+msgstr "Gat ekki eytt möppu."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að afrita möppu."
 
 msgid "Could not copy folder."
-msgstr ""
+msgstr "Gat ekki afritað möppu."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að færa möppu."
 
 msgid "Could not move folder."
-msgstr ""
+msgstr "Gat ekki fært möppu."
 
 msgid "You have insufficient privileges to delete items."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að eyða atriðum."
 
 msgid "Could not empty folder."
-msgstr ""
+msgstr "Gat ekki tæmt möppu."
 
 msgid "Could not perform action correctly."
-msgstr ""
+msgstr "Gat ekki framkvæmt aðgerðina rétt."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
+"Uppáhaldsmappa með sama nafni er nú þegar til, vinsamlegast veldu annað nafn."
 
 msgid "Could not add folder to favorites."
-msgstr ""
+msgstr "Gat ekki sett möppu í uppáhald."
 
 msgid "You have insufficient privileges to set permissions for this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að stilla réttindi á þessa möppu."
 
 msgid "Could not set folder permissions."
-msgstr ""
+msgstr "Gat ekki stillt möppuréttindi."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að endurnefna möppuna."
 
 msgid "A folder with this name already exists. Use another name."
-msgstr ""
+msgstr "Mappa með þessu nafni er nú þegar til. Vinsamlegast veldu annað nafn."
 
 msgid "Could not rename folder."
-msgstr ""
+msgstr "Gat ekki endurnefnt möppu."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að búa til þessa möppu."
 
 msgid "Could not create folder."
-msgstr ""
+msgstr "Gat ekki búið til möppu."
 
 msgid "Could not close shared folder."
-msgstr ""
+msgstr "Gat ekki lokað sameiginlegri möppu."
 
 msgid "User could not be resolved."
-msgstr ""
+msgstr "Notandi er óskýr."
 
 #, php-format
 msgid ""
@@ -5762,87 +5793,94 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
+"Þú ert ekki með réttindi til að opna þessa %1$s möppu. Eigandi möppunnar "
+"getur stillt þetta í réttindaflipanum í eigindum möppunnar (hægrismellur á "
+"%1$s möppuna > eigindi > réttindi)."
 
 msgid "unknown"
-msgstr ""
+msgstr "óþekkt"
 
 msgid "Could not move folder"
-msgstr ""
+msgstr "Gat ekki fært möppu"
 
 msgid "Could not copy folder"
-msgstr ""
+msgstr "Gat ekki afritað möppu"
 
 msgid "You have insufficient privileges to open this message."
-msgstr ""
+msgstr "Þú hefur ekki réttindi til að opna þessi skilaboð."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
+"Fann ekki skilaboð, þau gætu hafa verið færð, þeim eytt eða að þú hefur ekki "
+"réttindi til að opna skilaboðin."
 
 msgid "Could not open message."
-msgstr ""
+msgstr "Gat ekki opnað skilaboð."
 
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að hafna þessu fundarboði"
 
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að samþykkja þetta fundarboð"
 
 msgid "Could not copy message"
-msgstr ""
+msgstr "Gat ekki afritað skilaboð"
 
 msgid "Could not move message"
-msgstr ""
+msgstr "Gat ekki fært skilaboð"
 
 msgid "You have insufficient privileges to save items in this folder"
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að vista í þessa möppu"
 
 msgid "Could not save message"
-msgstr ""
+msgstr "Gat ekki vistað skilaboð"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að fjarlægja atriði úr dagatalinu."
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Skilaboðin eru ekki lengur í sendingarbiðröð, vanalega vegna þess að þau "
+"hafa þegar verið send."
 
 msgid "Message cannot be aborted"
-msgstr ""
+msgstr "Ekki hægt að hætta við skilaboð"
 
 msgid "You have insufficient privileges to delete items in this folder"
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að eyða atriðum í þessari möppu"
 
 msgid "You have insufficient privileges to attach item as an attachment."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að bæta við viðhengi."
 
 msgid "Could not attach item as an attachment."
-msgstr ""
+msgstr "Gat ekki bætt við viðhengi."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að slá eignarhaldi á verkbeiðni."
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr ""
+msgstr "Gat ekki slegið eignarhaldi á verkbeiðni."
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að samþykkja þessa verkbeiðni."
 
 msgid "Could not accept Task Request."
-msgstr ""
+msgstr "Gat ekki samþykkt verkbeiðni."
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að hafna þessari verkbeiðni."
 
 msgid "Could not decline Task Request."
-msgstr ""
+msgstr "Gat ekki hafnað verkbeiðni."
 
 msgid "Conflicts with another appointment."
-msgstr ""
+msgstr "Árekstur við aðra tímabókun."
 
 #, php-format
 msgid ""
@@ -5850,188 +5888,191 @@ msgid ""
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
-msgstr[0] ""
+msgstr[0] "%s tilvik af þessari endurteknu tímabókun rekst á við aðra tímabókun."
 msgstr[1] ""
+"%s tilvik af þessari endurteknu tímabókun rekst á við aðrar tímabókanir."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr ""
+msgstr "Skilaboðin náðu ekki til einhverra eða allra viðtakenda"
 
 msgid "The following recipient(s) could not be reached"
-msgstr ""
+msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að sjá innihaldið í þessari möppu."
 
 msgid "Could not load the contents of this folder."
-msgstr ""
+msgstr "Gat ekki hlaðið innihaldi möppunnar."
 
 msgid "Error in search, please try again"
-msgstr ""
+msgstr "Villa í leit, vinsamlegast reyndu aftur"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "Gat ekki leitað, engin réttindi til að búa til leitarmöppu."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Gat ekki leitað, leitarmappa fannst ekki."
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "Gat ekki leitað, geymslan leyfir kannski ekki leit."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Villa við að búa til leitarmöppu."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að leita í þessari möppu."
 
 msgid "Could not update search results."
-msgstr ""
+msgstr "Gat ekki uppfært leitarniðurstöður."
 
 msgid "Could not stop search operation."
-msgstr ""
+msgstr "Gat ekki stöðvað leit."
 
 msgid "You have insufficient privileges to save this message."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að vista þessi skilaboð."
 
 msgid "Could not save message."
-msgstr ""
+msgstr "Gat ekki vistað skilaboð."
 
 msgid "You have insufficient privileges to delete this message."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að eyða þessum skilaboðum."
 
 msgid "Could not delete message."
-msgstr ""
+msgstr "Gat ekki eytt skilaboðum."
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að afboða fundinn."
 
 msgid "Could not cancel Meeting Request."
-msgstr ""
+msgstr "Gat ekki afboðað fund."
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að hafna þessu fundarboði."
 
 msgid "Could not decline Meeting Request."
-msgstr ""
+msgstr "Gat ekki hafnað fundarboði."
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að samþykkja þetta fundarboð."
 
 msgid "Could not accept Meeting Request."
-msgstr ""
+msgstr "Gat ekki samþykkt fundarboð."
 
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr ""
+msgstr "Þú ert ekki með réttindi til að hætta við fundarboðið."
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr ""
+msgstr "Gat ekki hætt við fundarboð."
 
 msgid "You can not continue search operation on this folder."
-msgstr ""
+msgstr "Þú getur ekki haldið áfram með leitina í þessari möppu."
 
 msgid "Error in search, please try again."
-msgstr ""
+msgstr "Villa við leit, vinsamlegast reyndu aftur."
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "Villa við víkkun póstlista."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr ""
+msgstr "Þessi skilaboðageymsla hefur náð algjörri hámarksstærð."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
+"Til að minnka gagnamagnið í geymslunni, veldu nokkur atriði sem þú þarft "
+"ekki lengur, eyddu þeim eða hreinsaðu ruslakörfuna þína."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr ""
+msgstr "Þessi skilaboðageymsla hefur náð hámarksstærð."
 
 msgid "Could not process request data properly."
-msgstr ""
+msgstr "Gat ekki meðhöndlað gagnabeiðnina almennilega."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr ""
+msgstr "Óþekkt gerð aðgerðar tilgreind - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr ""
+msgstr "Get ekki svæft áminningu. Þú færð aðra áminningu."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr ""
+msgstr "Gat ekki hunsað áminningu. Þú færð aðra áminningu."
 
 msgid "You have insufficient privileges to perform this action."
-msgstr ""
+msgstr "Þú hefur ekki réttindi til að framkvæma þessa aðgerð."
 
 msgid "Could not resolve user."
-msgstr ""
+msgstr "Notandinn er óskýr."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "Það má ekki stilla póstsíur í geymslum annarra notenda."
 
 msgid "Untitled rule"
-msgstr ""
+msgstr "Ónefnd regla"
 
 msgid "Could not load rules."
-msgstr ""
+msgstr "Gat ekki hlaðið reglum."
 
 msgid "Could not save rules."
-msgstr ""
+msgstr "Gat ekki vistað reglur."
 
 msgid "Task Request:"
-msgstr ""
+msgstr "Verkbeiðni:"
 
 msgid "Welcome"
-msgstr ""
+msgstr "Gaman að sjá þig"
 
 msgid "Username"
-msgstr ""
+msgstr "Notandanafn"
 
 msgid "Password"
-msgstr ""
+msgstr "Lykilorð"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Innskrá"
 
 msgid "File is not imported successfully"
-msgstr ""
+msgstr "Tókst ekki að flytja inn skrá"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Gat ekki flutt inn '%s'"
 
 msgid "The EML is not valid"
-msgstr ""
+msgstr "Eml-skrá er ekki gild"
 
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr ""
+msgstr "Hámarksstafladýpt er náð"
 
 msgid "Control character error, possibly incorrectly encoded"
-msgstr ""
+msgstr "Stjórnstafsvilla, líklegast ekki rétt kótað"
 
 msgid "Invalid or malformed JSON"
-msgstr ""
+msgstr "Ógilt eða gallað JSON"
 
 msgid "Syntax error"
-msgstr ""
+msgstr "Villa í málskipan"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr ""
+msgstr "Gallaðir UTF-8 stafir, líklegast ekki rétt kótaðir"
 
 #, php-format
 msgid "JSON Error: - %s"
-msgstr ""
+msgstr "JSON-villa: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
+msgstr "Lenti í villum við að kóta/afkóta JSON gögn."
