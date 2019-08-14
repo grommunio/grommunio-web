@@ -129,6 +129,17 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 					Ext.apply( { store : this.store }, this.initialConfig.loadMask ) );
 		}
 
+		// Fixme: workaround fix for FF of ubuntu.
+		if (Ext.isLinux && Ext.isGecko) {
+			this.on('keydown', function (e) {
+				var keyCode = e.keyCode;
+				if (keyCode === Ext.EventObject.DOWN || keyCode === Ext.EventObject.UP) {
+					this.selModel.onKeyPress(e, keyCode === Ext.EventObject.DOWN ? 'down' : 'up');
+					e.preventDefault();
+				}
+			}, this);
+		}
+
 		this.mon(this.store, 'write', this.onWriteRecord, this);
 
 		this.on('viewready', this.onViewReady, this);
