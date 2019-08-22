@@ -156,7 +156,8 @@ Zarafa.hierarchy.Actions = {
 	{
 		var componentType = Zarafa.core.data.SharedComponentType['hierarchy.dialog.folderselection'];
 		config = Ext.applyIf(config || {}, {
-			modal: true
+			modal: true,
+			folder: container.getHierarchyStore().getDefaultFolder('inbox')
 		});
 
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
