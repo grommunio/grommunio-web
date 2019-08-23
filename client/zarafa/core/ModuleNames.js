@@ -180,6 +180,16 @@ Zarafa.core.ModuleNames =
 	},
 
 	/**
+	 * Module information for Out of office settings
+	 * @property
+	 * @type Mixed
+	 */
+	'OUTOFOFFICESETTINGS' : {
+		list : 'outofofficesettingsmodule',
+		item : 'outofofficesettingsmodule'
+	},
+
+	/**
 	 * Module information for Restore Soft Deleted Items
 	 * @property
 	 * @type Mixed

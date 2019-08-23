@@ -805,8 +805,10 @@ Ext.apply(Zarafa, {
 
 		Zarafa.whatsnew.Actions.openWhatsNewDialog();
 
-		// Check if user is out of office and ask them if they want to switch it off
-		this.checkOof();
+		// We need to register the event handler for outOfOfficeStore on load to check if user is out of office
+		// and ask them if they want to switch it off.
+		var oofStore = container.getOutOfOfficeStore();
+		oofStore.on('load', this.onOofStoreLoad, this, { single: true });
 
 		// Initialize context - check if there is one selected in settings
 		this.initContext();
@@ -1010,27 +1012,46 @@ Ext.apply(Zarafa, {
 	},
 
 	/**
-	 * Check if user is out of office
-	 * If so, ask them if they want to switch OOF off
+	 * Event handler called when load is received in outofoffice store.
+	 * This will check if user is out of office If so, ask them if they want to switch OOF off.
+	 *
+	 * @param {Zarafa.common.outofoffice.data.OofStore} store The store which was loaded
+	 * @param {Zarafa.common.outofoffice.data.OofRecord} records The records which were loaded by the store
+	 * @param {Object} options The options which were originally passed to {@link Ext.data.Store#load}.
 	 * @private
 	 */
-	checkOof : function()
+	onOofStoreLoad : function(store, records, options)
 	{
 		var oof = false;
 
-		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/set') === true) {
-			var oofFrom = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/from');
-			var oofUntil = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/until');
+		var loginUserEntryId = container.getUser().getEntryId();
+		var oofUserSettings;
+
+		// If logged in user is out of office then only this will give the user's out of office settings information.
+		for (var i=0; i< records.length; i++) {
+			if (Zarafa.core.EntryId.compareEntryIds(records[i].get('entryid'), loginUserEntryId)) {
+				oofUserSettings = records[i];
+				break;
+			}
+		}
+
+		if (oofUserSettings) {
+			var oofFrom = oofUserSettings.get('from');
+			var oofUntil = oofUserSettings.get('until');
+			var isOofSet = oofUserSettings.get('set');
 			var date = new Date().getTime()/1000;
 
-			// Check if current date fall within the time span of OOF start-date and end-date, if configured.
-			if (oofFrom <= date) {
-				// Check if end-date is configured, no need to check otherwise
-				if(oofUntil === 0 || oofUntil > date) {
-					oof = true;
-				} else {
-					// Current date falls out of the configured time span, so disable the OOF
-					container.getSettingsModel().set('zarafa/v1/contexts/mail/outofoffice/set', false);
+			if (isOofSet) {
+				// Check if current date fall within the time span of OOF start-date and end-date, if configured.
+				if (oofFrom <= date) {
+					// Check if end-date is configured, no need to check otherwise
+					if(oofUntil === 0 || oofUntil > date) {
+						oof = true;
+					} else {
+						// Current date falls out of the configured time span, so disable the OOF
+						oofUserSettings.set('set', false);
+						store.save();
+					}
 				}
 			}
 		}
@@ -1041,7 +1062,7 @@ Ext.apply(Zarafa, {
 				msg: _('Out of Office is currently activated. Would you like to turn it off?'),
 				buttons: Ext.MessageBox.YESNO,
 				fn: this.onOofConfirm,
-				scope: this
+				scope: oofUserSettings
 			});
 		}
 	},
@@ -1055,7 +1076,8 @@ Ext.apply(Zarafa, {
 	onOofConfirm : function(button)
 	{
 		if (button === 'yes') {
-			container.getSettingsModel().set('zarafa/v1/contexts/mail/outofoffice/set', false);
+			this.set('set', false);
+			this.save();
 			container.getNotifier().notify('info.saved', _('Out of office off'), _('Out of office has been turned off'));
 		}
 	},

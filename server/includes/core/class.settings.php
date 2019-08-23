@@ -35,12 +35,6 @@
 		private $persistentSettings;
 
 		/**
-		 *  Array External settings which are stored outside of settings property and are managed differently,
-		 * Out of office settings are one of them
-		 */
-		private $externalSettings;
-
-		/**
 		 *  Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
 		 * add/update new settings, if this is false then it will indicate that there was some problem
 		 * initializing $this->settings object and we shouldn't continue saving new settings as that will
@@ -318,16 +312,11 @@
 		 * and old webaccess uses string property PR_EC_WEBACCESS_SETTINGS which contains settings in
 		 * the format of PHP's serialized data.
 		 *
-		 * Additionally, there are also settings in PR_EC_OUTOFOFFICE_* which are retrieved in this function also.
-		 *
 		 * This function returns nothing, but populates the 'settings' property of the class.
 		 * @access private
 		 */
 		function retrieveSettings()
 		{
-			// We retrieve the 'external' settings, this will serve as base
-			$this->retrieveExternalSettings();
-
 			// first check if property exist and we can open that using mapi_openproperty
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBACCESS_SETTINGS_JSON));
 
@@ -346,8 +335,6 @@
 				// Get and apply the System Administrator default settings
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
 				$settings = array_replace_recursive($sysadminSettings, $settings['settings']);
-				// Finally merge the settings with the external settings which were obtained
-				// at the start of this function.
 				$this->settings = array_replace_recursive($settings, $this->settings);
 			} elseif (DISABLE_WELCOME_SCREEN) {
 				/*
@@ -453,12 +440,8 @@
 				$this->Init();
 			}
 
-			$this->saveExternalSettings();
-
-			$externalSetting = false;
 			if (isset($this->settings['zarafa']['v1'])) {
-				// Temporarily remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
-				$externalSetting = $this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'];
+				// Remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
 				unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
 			}
 
@@ -484,11 +467,6 @@
 				$this->settings_string = $settings;
 				$this->modified = array();
 			}
-
-			// Put the external settings back
-			if ($externalSetting) {
-				$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'] = $externalSetting;
-			}
 		}
 
 		/**
@@ -510,96 +488,6 @@
 
 				// Settings saved, update settings string and modified array
 				$this->persistentSettingsString = $persistentSettings;
-			}
-		}
-
-		/**
-		 * Read 'external' settings from PR_EC_OUTOFOFFICE_*
-		 *
-		 * Internal function to retrieve the 'external' settings from the store, these settings are normal properties on the store
-		 * @access private
-		 */
-		function retrieveExternalSettings()
-		{
-			$props = mapi_getprops($this->store, array(PR_EC_OUTOFOFFICE, PR_EC_OUTOFOFFICE_MSG, PR_EC_OUTOFOFFICE_SUBJECT, PR_EC_OUTOFOFFICE_FROM, PR_EC_OUTOFOFFICE_UNTIL));
-
-			if (!isset($props[PR_EC_OUTOFOFFICE])) {
-				$props[PR_EC_OUTOFOFFICE] = false;
-			}
-			if (!isset($props[PR_EC_OUTOFOFFICE_MSG])) {
-				$props[PR_EC_OUTOFOFFICE_MSG] = '';
-			}
-			if (!isset($props[PR_EC_OUTOFOFFICE_SUBJECT])) {
-				$props[PR_EC_OUTOFOFFICE_SUBJECT] = '';
-			}
-			if (!isset($props[PR_EC_OUTOFOFFICE_FROM])) {
-				$props[PR_EC_OUTOFOFFICE_FROM] = 0;
-			}
-			if (!isset($props[PR_EC_OUTOFOFFICE_UNTIL])) {
-				$props[PR_EC_OUTOFOFFICE_UNTIL] = 0;
-			}
-
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']['set'] = $props[PR_EC_OUTOFOFFICE];
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']['message'] = $props[PR_EC_OUTOFOFFICE_MSG];
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']['subject'] = $props[PR_EC_OUTOFOFFICE_SUBJECT];
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']['from'] = $props[PR_EC_OUTOFOFFICE_FROM];
-			$this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']['until'] = $props[PR_EC_OUTOFOFFICE_UNTIL];
-
-			// Save the properties
-			$this->externalSettings = $props;
-		}
-
-		/**
-		 * Internal function to save the 'external' settings to the correct properties on the store
-		 *
-		 * Writes some properties to the PR_EC_OUTOFOFFICE_* properties
-		 * @access private
-		 */
-		function saveExternalSettings()
-		{
-			$props = array();
-
-			if (!isset($this->settings['zarafa']) || !isset($this->settings['zarafa']['v1']) ||
-			    !isset($this->settings['zarafa']['v1']['contexts']) || !isset($this->settings['zarafa']['v1']['contexts']['mail']) ||
-			    !isset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'])) {
-				return;
-			}
-
-			$oof = $this->settings['zarafa']['v1']['contexts']['mail']['outofoffice'];
-
-			$enable = $oof['set'] == true;
-			if ($this->externalSettings[PR_EC_OUTOFOFFICE] != $enable) {
-				$props[PR_EC_OUTOFOFFICE] = $enable;
-			}
-
-			$msg = $oof['message'];
-			if ($this->externalSettings[PR_EC_OUTOFOFFICE_MSG] != $msg) {
-				$props[PR_EC_OUTOFOFFICE_MSG] = $msg;
-			}
-
-			$subject = $oof['subject'];
-			if ($this->externalSettings[PR_EC_OUTOFOFFICE_SUBJECT] != $subject) {
-				$props[PR_EC_OUTOFOFFICE_SUBJECT] = $subject;
-			}
-
-			$from = $oof['from'];
-			if ($this->externalSettings[PR_EC_OUTOFOFFICE_FROM] != $from) {
-				$props[PR_EC_OUTOFOFFICE_FROM] = $from;
-			}
-
-			$until = $oof['until'];
-			if ($this->externalSettings[PR_EC_OUTOFOFFICE_UNTIL] != $until) {
-				// Until is not set, so remove the property else we have to set it to 2999
-				if ($until === 0) {
-					mapi_deleteprops($this->store, array(PR_EC_OUTOFOFFICE_UNTIL));
-				} else {
-					$props[PR_EC_OUTOFOFFICE_UNTIL] = $until;
-				}
-			}
-
-			if (!empty($props))	{
-				mapi_setprops($this->store, $props);
-				mapi_savechanges($this->store);
 			}
 		}
 

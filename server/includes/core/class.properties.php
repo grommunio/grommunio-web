@@ -130,6 +130,28 @@
 		}
 
 		/**
+		 * Returns the properties for Out of office settings in a message
+		 * @return array properties for Out of office settings.
+		 */
+		function getOutOfOfficeProperties()
+		{
+			$this->Init();
+
+			if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
+				$properties["set"] = PR_EC_OUTOFOFFICE;
+				$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
+				$properties["store_entryid"] = PR_ENTRYID;
+				$properties["message"] = PR_EC_OUTOFOFFICE_MSG;
+				$properties["subject"] = PR_EC_OUTOFOFFICE_SUBJECT;
+				$properties["from"] = PR_EC_OUTOFOFFICE_FROM;
+				$properties["until"] = PR_EC_OUTOFOFFICE_UNTIL;
+				$this->mapping[$this->storeMapping]['oofsettings'] = getPropIdsFromStrings($this->store, $properties);
+			}
+
+			return $this->mapping[$this->storeMapping]['oofsettings'];
+		}
+
+		/**
 		 * Returns the properties for a meeting request
 		 */
 		function getMeetingrequestProperties()

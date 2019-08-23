@@ -288,6 +288,15 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	},
 
 	/**
+	 * Returns the global {@link Zarafa.common.outofoffice.data.OofStore OofStore} instance.
+	 * @return {Zarafa.common.outofoffice.data.OofStore} the global {@link Zarafa.common.outofoffice.data.OofStore} instance.
+	 */
+	getOutOfOfficeStore : function()
+	{
+		return this.outOfOfficeStore || (this.outOfOfficeStore = new Zarafa.common.outofoffice.data.OofStore());
+	},
+
+	/**
 	 * Returns the global {@link Zarafa.settings.SettingsModel SettingsModel} instance.
 	 * @return {Zarafa.settings.SettingsModel} the global {@link Zarafa.settings.SettingsModel SettingsModel} instance.
 	 */
