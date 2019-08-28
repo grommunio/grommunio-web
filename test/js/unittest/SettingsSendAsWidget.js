@@ -1,7 +1,7 @@
 /*
  * Test SettingsSendAsWidget.
  */
-describe('SettingsSendAsWidget', function() {
+xdescribe('SettingsSendAsWidget', function() {
 	var widget;
 	var settingsModel;
 
