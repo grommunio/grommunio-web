@@ -2,7 +2,7 @@
 /**
  * contactfax Plugin
  *
- * Open a new 'create mail' dialog with contact's fax number postfixed with domain name 
+ * Open a new 'create mail' dialog with contact's fax number postfixed with domain name
  * configured in Plugin Setting in the TO field of the email.
  *
  */
@@ -43,8 +43,7 @@ class Plugincontactfax extends Plugin {
 				'v1' => Array(
 					'plugins' => Array(
 						'contactfax' => Array(
-							'enable' => PLUGIN_CONTACTFAXPLUGIN_USER_DEFAULT_ENABLE,
-							'faxdomain' => PLUGIN_CONTACTFAXPLUGIN_FAX_DOMAIN_NAME
+							'faxdomain' => PLUGIN_CONTACTFAXPLUGIN_FAX_DOMAIN_NAME,
 						)
 					)
 				)

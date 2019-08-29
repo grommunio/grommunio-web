@@ -113,7 +113,6 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'zdeveloper',
-		displayName : _('ZDeveloper'),
 		pluginConstructor : Zarafa.plugins.zdeveloper.ZDeveloperPlugin
 	}));
 });

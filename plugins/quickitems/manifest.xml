@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2">
+<plugin version="2.1">
 	<info>
-		<version>0.2</version>
-		<name>quickitems</name>
+		<version>0.3</version>
 		<title>Quick Items</title>
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>

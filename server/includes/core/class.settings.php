@@ -35,15 +35,15 @@
 		private $persistentSettings;
 
 		/**
-		 *  Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
+		 * Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
 		 * add/update new settings, if this is false then it will indicate that there was some problem
 		 * initializing $this->settings object and we shouldn't continue saving new settings as that will
 		 * lose all existing settings of the user
 		 */
-		private $init;
+		private $initialized;
 
 		/**
-		 *  Array Settings that are defined by system admin
+		 *  Array of settings that are defined by the admin
 		 */
 		private $sysAdminDefaults;
 
@@ -67,6 +67,9 @@
 		 */
 		private $modified;
 
+		/**
+		 * Constructor
+		 */
 		function __construct()
 		{
 			$this->settings = array();
@@ -74,20 +77,20 @@
 			$this->sysAdminDefaults = array();
 			$this->settings_string = '';
 			$this->modified = array();
-			$this->init = false;
+			$this->initialized = false;
+			$this->loadSettings();
 		}
 
 		/**
-		 * Initialise the settings class
+		 * Retrieves the normal settings and the persistent settings if not done yet.
 		 *
-		 * Opens the default store and gets the settings. This is done only once. Therefore
-		 * changes written to the settings after the first Init() call will be invisible to this
-		 * instance of the Settings class
-		 * @access private
+		 * @return Boolean True if the settings have been successfully initialized,
+		 * false otherwise.
 		 */
-		function Init()
-		{
-			$GLOBALS['PluginManager']->triggerHook('server.core.settings.init.before', Array('settingsObj' => $this));
+		function loadSettings() {
+			if ($this->initialized) {
+				return true;
+			}
 
 			$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
 
@@ -97,10 +100,12 @@
 				$this->retrievePersistentSettings();
 
 				// this object will only be initialized when we are able to retrieve existing settings correctly
-				$this->init = true;
+				$this->initialized = true;
 			} catch (SettingsException $e) {
 				$e->setHandled();
 			}
+
+			return $this->initialized;
 		}
 
 		/**
@@ -116,8 +121,8 @@
 		 */
 		function get($path=null, $default=null, $persistent=false)
 		{
-			if (!$this->init) {
-				$this->Init();
+			if (!$this->loadSettings()) {
+				return null;
 			}
 
 			$settings = !!$persistent ? $this->persistentSettings : $this->settings;
@@ -169,8 +174,8 @@
 		 */
 		function set($path, $value, $autoSave = false, $persistent=false)
 		{
-			if (!$this->init) {
-				$this->Init();
+			if (!$this->loadSettings()) {
+				return;
 			}
 
 			if ( !!$persistent ){
@@ -236,8 +241,8 @@
 		 */
 		function delete($path, $autoSave = false)
 		{
-			if (!$this->init) {
-				$this->Init();
+			if (!$this->loadSettings()) {
+				return;
 			}
 
 			$this->modified[$path] = '';
@@ -278,8 +283,8 @@
 		 */
 		function getJSON()
 		{
-			if (!$this->init) {
-				$this->Init();
+			if (!$this->loadSettings()) {
+				return '{}';
 			}
 
 			return json_encode($this->settings);
@@ -294,8 +299,8 @@
 		 */
 		function getPersistentSettingsJSON()
 		{
-			if (!$this->init) {
-				$this->Init();
+			if (!$this->loadSettings()) {
+				return '{}';
 			}
 
 			return json_encode($this->persistentSettings);
@@ -331,21 +336,9 @@
 						throw new SettingsException(_('Error retrieving existing settings'));
 					}
 				}
-
-				// Get and apply the System Administrator default settings
-				$sysadminSettings = $this->getDefaultSysAdminSettings();
-				$settings = array_replace_recursive($sysadminSettings, $settings['settings']);
-				$this->settings = array_replace_recursive($settings, $this->settings);
-			} elseif (DISABLE_WELCOME_SCREEN) {
-				/*
-				 * if DISABLE_WELCOME_SCREEN is true and PR_EC_WEBACCESS_SETTINGS_JSON is not exists at that time, We
-				 * just append the admin settings to settings array. Normally system admin settings
-				 * contains plugin default enable/disable and other plugins related settings information which required
-				 * while webapp loading time.
-				 */
-				$sysadminSettings = $this->getDefaultSysAdminSettings();
-				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
 			}
+
+			$this->settings = $settings['settings'];
 		}
 
 		/**
@@ -386,21 +379,64 @@
 		}
 
 		/**
-		 * Retrieves the default settings as defined by the System Administrator.
-		 * @return Array Settings object
+		 * Merge the admin settings with the user settings. User settings take prevalence.
 		 */
-		function getDefaultSysAdminSettings()
+		function mergeSysAdminSettings()
 		{
-			return $this->sysAdminDefaults;
+			$sysadminSettings = $this->getDefaultSysAdminSettings();
+			$this->settings = array_replace_recursive($sysadminSettings, $this->settings);
 		}
 
 		/**
-		 * Applies the default settings defined by the System Administrator to the sysAdminDefaults
-		 * property.
+		 * Retrieves the default settings as defined by the System Administrator.
+		 * Note: The sysadmin 'enable' setting per plugin will be taken from the WebApp's
+		 * config.php (DEFAULT_ENABLED_PLUGINS_LIST) and not from the settings that
+		 * are injected by the plugin itself. (that behaviour is deprecated)
+		 *
+		 * @return Array SysAdmin Settings object
+		 */
+		function getDefaultSysAdminSettings()
+		{
+			$allPlugins = $GLOBALS['PluginManager']->getPluginNames();
+			$pluginDefaultEnableSettings = array('zarafa' => array('v1' => array('plugins' => array())));
+
+			$defaultEnabledPlugins = $GLOBALS['PluginManager']->expandPluginList(DEFAULT_ENABLED_PLUGINS_LIST);
+
+			forEach ($allPlugins as $p) {
+				$pluginDefaultEnableSettings['zarafa']['v1']['plugins'][$p] = array('enable' => in_array($p, $defaultEnabledPlugins));
+			}
+
+			return array_replace_recursive($this->sysAdminDefaults, $pluginDefaultEnableSettings);
+		}
+
+		/**
+		 * Applies the given settings to the sysAdminDefaults object. This function is used by plugins to
+		 * inject their admin settings into the WebApp. Only plugin settings are processed, i.e. settings in
+		 * the 'zarafa/v1/plugins' namespace. The 'enable' settings of plugins are filtered out. Those should
+		 * not be set in the plugins config file anymore, but in the WebApp's config file. (DEFAULT_ENABLED_PLUGINS_LIST)
 		 * @param Array $settings The default settings
 		 */
 		function addSysAdminDefaults($settings)
 		{
+			// Only allow plugin settings to be injected
+			if (
+				!isset($settings) || !is_array($settings) ||
+				!isset($settings['zarafa']) || !is_array($settings['zarafa']) ||
+				!isset($settings['zarafa']['v1']) || !is_array($settings['zarafa']['v1']) ||
+				!isset($settings['zarafa']['v1']['plugins']) || !is_array($settings['zarafa']['v1']['plugins'])
+			) {
+				return;
+			}
+			$settings = array('zarafa' => array('v1' => array('plugins' => $settings['zarafa']['v1']['plugins'])));
+
+			// Filter out plugin 'enable' settings because we will not let plugins inject those.
+			// Instead admins should define default enabled plugins in the WebApp's config.php.
+			foreach ($settings['zarafa']['v1']['plugins'] as $pluginName => $pluginSettings) {
+				if (isset($pluginSettings) && is_array($pluginSettings) && isset($pluginSettings['enable'])) {
+					unset($pluginSettings['enable']);
+				}
+			}
+
 			$this->sysAdminDefaults = array_replace_recursive($this->sysAdminDefaults, $settings);
 		}
 
@@ -436,9 +472,11 @@
 		 */
 		function saveSettings()
 		{
+			/*
 			if (!$this->init) {
 				$this->Init();
 			}
+			*/
 
 			if (isset($this->settings['zarafa']['v1'])) {
 				// Remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON

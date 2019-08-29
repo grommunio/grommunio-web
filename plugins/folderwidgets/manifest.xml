@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2">
+<plugin version="2.1">
 	<info>
-		<version>0.2</version>
-		<name>folderwidgets</name>
+		<version>0.3</version>
 		<title>Folder widgets</title>
 		<author>Kopano</author>
 		<authorURL>http://www.kopano.com</authorURL>
-		<description>A collection of widgets which can show the contents of some of the default folders for a user.</description>
+		<description>A collection of widgets that show the contents of some of the default folders for a user.</description>
 	</info>
 	<components>
 		<component>

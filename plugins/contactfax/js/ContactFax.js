@@ -4,11 +4,11 @@ Ext.namespace('Zarafa.plugins.contactfax');
  * @class Zarafa.plugins.contactfax.ContactFax
  * @extends Zarafa.core.Plugin
  *
- * Plugin is used to create a new item in the context menu of a contact in the Contacts context, which should only be 
+ * Plugin is used to create a new item in the context menu of a contact in the Contacts context, which should only be
  * enabled for contacts where the fax number is not empty. Clicking this item will open a new 'create mail' dialog with
- * that contact's fax numbers in the TO field of the email. fax numbers are postfixed with the domain name configured 
+ * that contact's fax numbers in the TO field of the email. fax numbers are postfixed with the domain name configured
  * from Plugin Settings.
- * 
+ *
  */
 Zarafa.plugins.contactfax.ContactFax = Ext.extend(Zarafa.core.Plugin, {
 	/**
@@ -29,7 +29,7 @@ Zarafa.plugins.contactfax.ContactFax = Ext.extend(Zarafa.core.Plugin, {
 	},
 
 	/**
-	 * Function gets the {@link Zarafa.mail.MailContextModel MailContextModel} attached to 
+	 * Function gets the {@link Zarafa.mail.MailContextModel MailContextModel} attached to
 	 * {@link Zarafa.mail.MailContext MailContext}.
 	 * @return {Zarafa.mail.MailContextModel} Mail context model
 	 */
@@ -50,7 +50,7 @@ Zarafa.plugins.contactfax.ContactFax = Ext.extend(Zarafa.core.Plugin, {
 	 * Convert this contact record into a {@link Zarafa.core.data.IPMRecipientRecord recipient}
 	 * which can be used for composing new fax mails. If multiple fax numbers are present in contact
 	 * then it will create multiple {@link Zarafa.core.data.IPMRecipientRecord IPMRecipientRecord}
-	 * along with domain name appended at the end of each fax number as per the configuration of 
+	 * along with domain name appended at the end of each fax number as per the configuration of
 	 * Plugin Settings.
 	 *
 	 * @param {Zarafa.core.mapi.RecipientType} recipientType (optional) The recipient type which should
@@ -86,7 +86,7 @@ Zarafa.plugins.contactfax.ContactFax = Ext.extend(Zarafa.core.Plugin, {
 		return recipientRecords;
 
 	},
-	
+
 	/**
 	 * Opens a {@link Zarafa.mail.dialogs.MailCreateContentPanel MailCreateContentPanel} for the given non-recipient
 	 * objects. This will convert the object into a valid Recipient Record and add it to the new mail.
@@ -154,7 +154,6 @@ Zarafa.plugins.contactfax.ContactFax = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'contactfax',
-		displayName : _('Contact Fax'),
 		pluginConstructor : Zarafa.plugins.contactfax.ContactFax
 	}));
 });

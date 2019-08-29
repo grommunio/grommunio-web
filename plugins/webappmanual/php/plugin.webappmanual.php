@@ -45,7 +45,6 @@ class Pluginwebappmanual extends Plugin {
 					'plugins' => Array(
 						'webappmanual' => Array(
 							'url' => PLUGIN_WEBAPPMANUAL_URL,
-							'enable' => PLUGIN_WEBAPPMANUAL_USER_DEFAULT_ENABLE
 						)
 					)
 				)
