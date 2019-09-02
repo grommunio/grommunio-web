@@ -1160,17 +1160,46 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Copy email address of the given recipient.
+	 * Helper function which used to get the all recipient based or the recipient type. The recipient type can be
+	 * {@link Zarafa.core.mapi.RecipientType.MAPI_TO To}, {@link Zarafa.core.mapi.RecipientType.MAPI_CC Cc} or
+	 * {@link Zarafa.core.mapi.RecipientType.MAPI_BCC BCc}.
+	 *
+	 * @param {Zarafa.core.data.IPMRecipientStore} store The {@link Zarafa.core.data.IPMRecipientStore store} which contains the recipients.
+	 * @param {Number} recipientType The recipientType it can be {@link Zarafa.core.mapi.RecipientType.MAPI_TO To},
+	 * {@link Zarafa.core.mapi.RecipientType.MAPI_CC Cc} or {@link Zarafa.core.mapi.RecipientType.MAPI_BCC BCc}.
+	 *
+	 * @returns {Zarafa.core.dat.IPMRecipientRecord[]} same record type of records from given store.
+	 */
+	getRecipientsByType : function(store, recipientType)
+	{
+		return store.getRange().filter(function(item){
+			return item.get('recipient_type') === recipientType;
+		}, this);
+	},
+
+	/**
+	 * Copy email address(es) of the given recipient or type of recipient.
 	 *
 	 * @param {Zarafa.core.dat.IPMRecipientRecord} record The record is resolved
-	 * recipient.
+	 * @param {Zarafa.core.data.IPMRecipientStore} store The {@link Zarafa.core.data.IPMRecipientStore store} which contains the recipients.
+	 * @param {Boolean} copyAll The copyAll true to copy all the recipients from TO,Cc or BCc fileds
 	 */
-	copyEmailAddress : function (record)
+	copyEmailAddress : function (record, store, copyAll)
 	{
-		var email = record.get('smtp_address') || record.get('email_address');
-		if(Ext.isEmpty(email)) {
-			return;
+		var email;
+		if (copyAll) {
+			var recipients = this.getRecipientsByType(store, record.get('recipient_type'));
+			email = recipients.map(function(item){
+				return item.get('smtp_address') || item.get('email_address');
+			}).join(',');
+
+		} else {
+			email = record.get('smtp_address') || record.get('email_address');
+			if(Ext.isEmpty(email)) {
+				return;
+			}
 		}
+
 		Zarafa.core.Util.copyToClipboard(email);
 	},
 

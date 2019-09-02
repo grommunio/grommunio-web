@@ -60,6 +60,14 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 				scope: this
 			},{
 				xtype: 'zarafa.conditionalitem',
+				text: _('Copy email addresses'),
+				iconCls : 'icon_copy_all',
+				beforeShow : this.onMenuItemBeforeShow,
+				name : 'copyEmailAddresses',
+				handler: this.copyEmail,
+				scope: this
+			},{
+				xtype: 'zarafa.conditionalitem',
 				text: _('Send email'),
 				iconCls : 'icon_new_email',
 				handler: this.onEmailRecipient,
@@ -100,12 +108,34 @@ Zarafa.common.recipientfield.ui.RecipientContextMenu = Ext.extend(Zarafa.core.ui
 	},
 
 	/**
-	 * Handler for the "Copy email address" option. This will
-	 * copy email address of the resolved recipient.
+	 * Event handler which determines if menu items should be visible or not.
+	 * It will hide the menu item if only one recipient on selected filed (To, Cc, BCc).
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
 	 */
-	copyEmail : function ()
+	onMenuItemBeforeShow : function(item)
 	{
-		Zarafa.common.Actions.copyEmailAddress(this.records);
+		var record = this.records;
+		// Hide the context menu if selected recipient is not resolved.
+		if (!record.isResolved()) {
+			item.setVisible(false);
+			return;
+		}
+
+		var recipients =  Zarafa.common.Actions.getRecipientsByType(record.store, record.get('recipient_type'));
+		item.setVisible(recipients.length !== 1);
+	},
+
+	/**
+	 * Handler for the "Copy email address" and 'Copy email addresses' option. This will
+	 * copy email address(es) of the resolved recipient(s).
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item which was clicked.
+	 */
+	copyEmail : function (item)
+	{
+		var copyAll = item.name === 'copyEmailAddresses';
+		Zarafa.common.Actions.copyEmailAddress(this.records, this.records.store, copyAll);
 	},
 
 	/**
