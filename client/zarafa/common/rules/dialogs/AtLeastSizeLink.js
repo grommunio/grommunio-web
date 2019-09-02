@@ -114,8 +114,11 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
      */
     setCondition : function(conditionFlag, condition, sizeUnit)
     {
-        if (condition && sizeUnit) {
+        if (condition) {
            var conditionSizeValue = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_MESSAGE_SIZE'];
+           // If Condition/Exception were added from OUTLOOK, sizeUnit param will be undefined.
+           // For that case select 'KB' as default unit like in OUTLOOK.
+           var sizeUnit = sizeUnit ? sizeUnit : Zarafa.common.data.SizeUnits.KB;
            this.sizeValue = Zarafa.core.Util.convertBytesToKBorMB(conditionSizeValue, sizeUnit);
            this.comboValue = sizeUnit;
         }
@@ -164,19 +167,27 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
     },
 
     /**
-     * This function set 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' record property
+     * This function set 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' or
+     * 'rule_exception_atmost_size_unit' / 'rule_exception_atleast_size_unit' record property
      * with currently selected size unit comboValue.
      * @param {Zarafa.common.rules.data.RulesRecord} record which needs to be updated.
-     * @param {Boolean} overwrite should be true to reset 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' property in record.
+     * @param {Boolean} overwrite should be true to reset 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' or
+     * rule_exception_atmost_size_unit' / 'rule_exception_atleast_size_unit' property in record.
+     * @param {Boolean} isException which will indicate whether this is Exception component or Condition component.
      * */
-    setSizeUnit : function(record, overwrite)
+    setSizeUnit : function(record, overwrite, isException)
     {
-        var sizeunit;
-        if (this.atMostSizeLink) {
-            sizeunit = record.get('rule_msg_atmost_size_unit');
+        var sizeunit, atleastSizeProp, atmostSizeProp;
+
+        if (isException) {
+            atleastSizeProp = 'rule_exception_atleast_size_unit';
+            atmostSizeProp = 'rule_exception_atmost_size_unit';
         } else {
-            sizeunit = record.get('rule_msg_atleast_size_unit');
+            atleastSizeProp = 'rule_msg_atleast_size_unit';
+            atmostSizeProp = 'rule_msg_atmost_size_unit';
         }
+
+        sizeunit = this.atMostSizeLink ? record.get(atmostSizeProp) : record.get(atleastSizeProp);
 
         // For the case where we have multiple atleast or atmost size condition,
         // if value already exists than concat that value with ";" and new value.
@@ -186,11 +197,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
             sizeunit =  this.comboValue;
         }
 
-        if (this.atMostSizeLink) {
-            record.set('rule_msg_atmost_size_unit',sizeunit);
-        } else {
-            record.set('rule_msg_atleast_size_unit',sizeunit);
-        }
+        this.atMostSizeLink ? record.set(atmostSizeProp, sizeunit) : record.set(atleastSizeProp, sizeunit);
     },
 
     /**

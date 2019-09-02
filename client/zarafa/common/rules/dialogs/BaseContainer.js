@@ -364,6 +364,7 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * onto the {@link Ext.Container} which was created by {@link #addComboBoxContainer}.
      * @param {Ext.Container} panel The container on which the condition will be loaded
      * @param {Object} condition The condition which should be loaded
+     * @param {Zarafa.common.data.SizeUnits} sizeUnit selected size unit for the atleast and atmost size condition components.
      * @private
      */
     applyCondition : function(panel, condition, sizeUnit)

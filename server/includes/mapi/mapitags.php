@@ -827,6 +827,9 @@ define('PR_RULE_PROVIDER_DATA'                        ,mapi_prop_tag(PT_BINARY, 
 //custom properties to hold size units
 define('PR_RULE_ATLEAST_MESSAGE_SIZEUNIT'             ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x15));
 define('PR_RULE_ATMOST_MESSAGE_SIZEUNIT'              ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x17));
+//custom properties which holds size units for exceptions
+define('PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT'   ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x18));
+define('PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT'    ,mapi_prop_tag(PT_STRING8,     PR_EC_BASE+0x19));
 
 // edkmdb, ICS properties
 define('PR_SOURCE_KEY'								  ,mapi_prop_tag(PT_BINARY, 	0x65E0+0x00));
