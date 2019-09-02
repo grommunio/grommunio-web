@@ -244,6 +244,14 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 	},
 
 	/**
+	 * @return {Boolean} true if the folder is the contact folder else false.
+	 */
+	isContactFolder : function()
+	{
+		return Zarafa.core.ContainerClass.isClass(this.get('container_class'), 'IPF.Contact', true);
+	},
+
+	/**
 	 * @return {Boolean} true if the folder is search folder else false.
 	 */
 	isSearchFolder : function()

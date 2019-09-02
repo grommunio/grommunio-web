@@ -231,10 +231,9 @@ class UploadAttachment
 	 *
 	 * @param String $attachTempName A temporary file name of server location where it actually saved/available.
 	 * @param String $filename An actual file name.
-	 * @param String $fileType An actual file type.
 	 * @return Boolean true if the import is successful, false otherwise.
 	 */
-	function importFiles($attachTempName, $filename, $fileType)
+	function importFiles($attachTempName, $filename)
 	{
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
 		$handle = fopen($filepath, "r");
@@ -247,10 +246,165 @@ class UploadAttachment
 		fclose($handle);
 		unlink($filepath);
 
-		if ($fileType) {
-			return $this->importICSFile($attachmentStream, $filename);
-		} else {
-			return $this->importEMLFile($attachmentStream, $filename);
+		$extention = pathinfo($filename, PATHINFO_EXTENSION);
+
+		switch (strtoupper($extention)) {
+			case 'EML':
+				return $this->importEMLFile($attachmentStream, $filename);
+				break;
+			case 'ICS':
+			case 'VCS':
+				return $this->importICSFile($attachmentStream, $filename);
+				break;
+			case 'VCF':
+				return $this->importVCFFile($attachmentStream, $filename);
+				break;
+		}
+	}
+
+	/**
+	 * Function reads content of the given file and convert the same into
+	 * a webapp contact into respective destination folder.
+	 *
+	 * @param String $attachmentStream The attachment as a stream.
+	 * @param String $filename An actual file name.
+	 * @return Boolean true if the import is successful, false otherwise.
+	 */
+	function importVCFFile($attachmentStream, $filename)
+	{
+		$this->destinationFolder = $this->getDestinationFolder();
+
+		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+
+		try {
+			// Convert vCard 1.0 to a MAPI contact.
+			$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $store, $newMessage, $attachmentStream);
+		} catch(Exception $e) {
+			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_DISPLAY_NAME, PR_MDB_PROVIDER));
+			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
+			if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
+				$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
+				$publicStoreName = mapi_getprops($publicStore, array(PR_DISPLAY_NAME));
+				$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
+			} else if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
+				$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
+				$sharedStoreOwnerName = mapi_getprops($otherStore, array(PR_MAILBOX_OWNER_NAME));
+				$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
+			}
+
+			$message = sprintf(_("Unable to import '%s' to '%s'. "), $filename, $fullyQualifiedFolderName);
+			if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
+				$message .= _("There is no contact found in this file.");
+			} else if ($e->getCode() === MAPI_E_CORRUPT_DATA) {
+				$message .= _("The file is corrupt.");
+			} else if ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
+				$message .= _("The file is invalid.");
+			} else {
+				$message = sprintf(_("Unable to import '%s'. "), $filename) . _("Please contact your system administrator if the problem persists.");
+			}
+
+			$e = new ZarafaException($message);
+			$e->setTitle(_("Import error"));
+			throw $e;
+		}
+		if($ok === true) {
+			// As vcf file does not contains fileas, business_address etc property we need to set it manually.
+			// something similar mention in this ticket KC-1509.
+			$this->processContactData($store, $newMessage);
+
+			mapi_message_savechanges($newMessage);
+			return bin2hex(mapi_getprops($newMessage, array(PR_ENTRYID))[PR_ENTRYID]);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Helper function which generate the information like 'fileAs','display name' and
+	 * 'business address' using existing information.
+	 *
+	 * @param object $store Message Store Object
+	 * @param Object $newMessage The newly imported contact from .vcf file.
+	 */
+	function processContactData($store, $newMessage)
+	{
+		$properties = array();
+		$properties["subject"] = PR_SUBJECT;
+		$properties["fileas"] = "PT_STRING8:PSETID_Address:0x8005";
+		$properties["display_name"] = PR_DISPLAY_NAME;
+		$properties["address_book_mv"] = "PT_MV_LONG:PSETID_Address:0x8028";
+		$properties["address_book_long"] = "PT_LONG:PSETID_Address:0x8029";
+		$properties["business_address"] = "PT_STRING8:PSETID_Address:0x801b";
+		$properties["email_address_entryid_1"] = "PT_BINARY:PSETID_Address:0x8085";
+		$properties["email_address_display_name_1"] = "PT_STRING8:PSETID_Address:0x8080";
+		$properties["business_address_street"] = "PT_STRING8:PSETID_Address:0x8045";
+		$properties["business_address_city"] = "PT_STRING8:PSETID_Address:0x8046";
+		$properties["business_address_state"] = "PT_STRING8:PSETID_Address:0x8047";
+		$properties["business_address_postal_code"] = "PT_STRING8:PSETID_Address:0x8048";
+		$properties["business_address_country"] = "PT_STRING8:PSETID_Address:0x8049";
+
+		$properties = getPropIdsFromStrings($store, $properties);
+
+		$contactProps = mapi_getprops($newMessage, $properties);
+
+		$props = array();
+
+		// Addresses field value.
+		if (isset($contactProps[$properties["business_address_city"]]) && !empty($contactProps[$properties["business_address_city"]])) {
+			$businessAddressCity = utf8_decode($contactProps[$properties["business_address_city"]]);
+
+			$businessAddress = $contactProps[$properties["business_address_street"]] . "\n";
+			$businessAddress .= $businessAddressCity . " ";
+			$businessAddress .= $contactProps[$properties["business_address_state"]] . " " . $contactProps[$properties["business_address_postal_code"]] . "\n";
+			$businessAddress .= $contactProps[$properties["business_address_country"]]. "\n";
+
+			$props[$properties["business_address_city"]] = $businessAddressCity;
+			$props[$properties["business_address"]] = $businessAddress;
+		}
+
+		// File as field value generator.
+		if (isset($contactProps[PR_DISPLAY_NAME])) {
+			$displayName = isset($contactProps[PR_DISPLAY_NAME]) ? utf8_decode($contactProps[PR_DISPLAY_NAME]) : " ";
+			$displayName = str_replace("\xA0"," ", $displayName);
+			$str = explode(" ", $displayName);
+			$prefix = [_('Dr.'), _('Miss'), _('Mr.'), _('Mrs.'), _('Ms.'),_('Prof.')];
+			$suffix = ['I', 'II', 'III', _('Jr.'), _('Sr.')];
+
+			foreach ($str as $index => $value) {
+				$value = preg_replace('/[^.A-Za-z0-9\-]/', '', $value);
+				if (array_search($value, $prefix,true) !== false) {
+					$props[PR_DISPLAY_NAME_PREFIX] = $value;
+					unset($str[$index]);
+				} else if (array_search($value, $suffix, true) !== false) {
+					$props[PR_GENERATION] = $value;
+					unset($str[$index]);
+				}
+			}
+
+			$surname = array_slice($str, count($str) - 1);
+			$remainder = array_slice($str, 0, count($str) - 1);
+			$fileAs = $surname[0] . ', ';
+			if (!empty($remainder)) {
+				$fileAs .= join(" ", $remainder);
+				if (count($remainder) > 1) {
+					$middleName = $remainder[count($remainder) - 1];
+					$props[PR_MIDDLE_NAME] = $middleName;
+				}
+			}
+
+			// Email fieldset information.
+			if (isset($contactProps[$properties["email_address_display_name_1"]])) {
+				$emailAddressDisplayNameOne = $fileAs . " ";
+				$emailAddressDisplayNameOne .= $contactProps[$properties["email_address_display_name_1"]];
+				$props[$properties["email_address_display_name_1"]] = $emailAddressDisplayNameOne;
+				$props[$properties["address_book_long"]] = 1;
+				$props[$properties["address_book_mv"]] = array(0 => 0);
+			}
+
+			$props[$properties["fileas"]] = $fileAs;
+			$props[PR_DISPLAY_NAME] = $displayName;
+			mapi_setprops($newMessage, $props);
 		}
 	}
 
