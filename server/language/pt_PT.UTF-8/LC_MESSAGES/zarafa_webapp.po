@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2019-08-05 12:17+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -2296,6 +2296,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Editar Destinatário"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Copiar endereço de E-mail"
+
 msgid "Send email"
 msgstr "Enviar mensagem"
 
@@ -4355,6 +4359,9 @@ msgstr "Aba WebApp"
 
 msgid "Browser window"
 msgstr "Nova janela"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Estou no escritório neste momento"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
 "Last-Translator: Zoran <zolo@intelego.net>\n"
 "Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
@@ -2476,6 +2476,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Uredi prejemnika"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Nov elektronski naslov"
+
 msgid "Send email"
 msgstr "Pošlji sporočilo"
 
@@ -4763,6 +4767,9 @@ msgstr "Spletna aplikacija"
 #, fuzzy
 msgid "Browser window"
 msgstr "Brskanje"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Trenutno sem v pisarni"

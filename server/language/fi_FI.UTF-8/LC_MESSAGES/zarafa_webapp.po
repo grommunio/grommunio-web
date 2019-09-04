@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
 "Last-Translator: Verkkotaito <Kopano@verkkotaito.fi>\n"
 "Language-Team: Finnish (Finland) <https://translate.kopano.io/projects/"
@@ -2442,6 +2442,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Muokkaa vastaanottajia"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Uusi sähköpostiosoite"
+
 msgid "Send email"
 msgstr "Lähetä sähköposti"
 
@@ -4678,6 +4682,9 @@ msgstr "WebApp"
 #, fuzzy
 msgid "Browser window"
 msgstr "Selaa"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Olen toimistolla"

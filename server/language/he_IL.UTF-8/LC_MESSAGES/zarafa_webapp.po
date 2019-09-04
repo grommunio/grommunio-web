@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: Maria <m.ulyashyn@Kopano.com>\n"
 "Language-Team: Hebrew <https://translate.kopano.io/projects/kopano/kopano-"
@@ -2456,6 +2456,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "ערוך נמען"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "כתובת דואר אלקטרוני חדשה"
+
 msgid "Send email"
 msgstr "שלח דואר"
 
@@ -4691,6 +4695,9 @@ msgstr ""
 #, fuzzy
 msgid "Browser window"
 msgstr "דפדף"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr ""

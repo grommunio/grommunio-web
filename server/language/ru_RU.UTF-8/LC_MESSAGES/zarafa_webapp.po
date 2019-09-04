@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2018-10-25 09:39+0000\n"
 "Last-Translator: Sotneo <kerovsot@gmail.com>\n"
 "Language-Team: Russian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2430,6 +2430,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Изменить получателя"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Скопировать электронную почту"
+
 msgid "Send email"
 msgstr "Отправить письмо"
 
@@ -4620,6 +4624,9 @@ msgstr "Вкладка WebApp"
 
 msgid "Browser window"
 msgstr "Окно браузера"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Включён статус «Я доступен»"

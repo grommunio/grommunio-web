@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2019-08-09 15:50+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2396,6 +2396,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Rediger mottaker"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Kopier e-postadresse"
+
 # 81%
 msgid "Send email"
 msgstr "Send e-post"
@@ -4512,6 +4516,9 @@ msgstr "WebApp fane"
 
 msgid "Browser window"
 msgstr "Nettleservindu"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Jeg er på kontoret"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webbapp Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2018-03-19 16:32+0000\n"
 "Last-Translator: Zoltan Kiss <zoltan.kiss@serverside.hu>\n"
 "Language-Team: Hungarian <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2480,6 +2480,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Címzett szerkesztése"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "E-mail cím másolása"
+
 # 90%
 msgid "Send email"
 msgstr "Email küldése"
@@ -4724,6 +4728,9 @@ msgstr "WebApp fül"
 
 msgid "Browser window"
 msgstr "Böngésző ablak"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Jelenleg házon belül tartózkodom"

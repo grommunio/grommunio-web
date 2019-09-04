@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-07-06 15:09+0000\n"
 "Last-Translator: Jaan <kopano-translation@janesmae.com>\n"
 "Language-Team: Estonian (Estonia) <https://translate.kopano.io/projects/"
@@ -2369,6 +2369,12 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
+# 87%
+# 100%
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "E-posti aadressid"
+
 msgid "Send email"
 msgstr ""
 
@@ -4594,6 +4600,9 @@ msgid "WebApp tab"
 msgstr ""
 
 msgid "Browser window"
+msgstr ""
+
+msgid "Update Out of Office settings for"
 msgstr ""
 
 msgid "I am currently in the office"

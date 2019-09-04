@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
 "Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
 "Language: tr_TR\n"
@@ -2461,6 +2461,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Alıcı düzenle"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Yeni e-posta adresi"
+
 msgid "Send email"
 msgstr "E-posta gönder"
 
@@ -4725,6 +4729,9 @@ msgstr "WebApp sekmesi"
 
 msgid "Browser window"
 msgstr "tarayıcı penceresi"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Şu anda ofisteyim"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2394,6 +2394,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "受信者を編集します。"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "新しいメールアドレス"
+
 # 81%
 msgid "Send email"
 msgstr "送信メール"
@@ -4623,6 +4627,9 @@ msgstr "WebAppタブ"
 
 msgid "Browser window"
 msgstr "参照"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "在席中"

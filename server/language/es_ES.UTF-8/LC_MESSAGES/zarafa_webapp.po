@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
 "Last-Translator: Pascual <pascual.gadea@dulcesol.es>\n"
 "Language-Team: Spanish (Spain) <http://translate.kopano.io/projects/kopano/"
@@ -2466,6 +2466,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Editar recipiente"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Nueva dirección de correo electrónico"
+
 msgid "Send email"
 msgstr "Enviar Correo Electrónico"
 
@@ -4758,6 +4762,9 @@ msgstr "WebApp"
 #, fuzzy
 msgid "Browser window"
 msgstr "Examinar"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "En la oficina"

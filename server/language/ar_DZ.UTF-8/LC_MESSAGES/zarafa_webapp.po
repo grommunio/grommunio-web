@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: Moamen Zarkawie <moamen.zarkawie@gmail.com>\n"
 "Language-Team: Arabic (Algeria) <https://translate.kopano.io/projects/kopano/"
@@ -2309,6 +2309,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "عناوين البريد الالكتروني"
+
 msgid "Send email"
 msgstr ""
 
@@ -4368,6 +4372,9 @@ msgid "WebApp tab"
 msgstr ""
 
 msgid "Browser window"
+msgstr ""
+
+msgid "Update Out of Office settings for"
 msgstr ""
 
 msgid "I am currently in the office"

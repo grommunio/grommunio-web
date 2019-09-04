@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
 "Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
 "Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2450,6 +2450,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Upravit Příjemce"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Nová e-mailová adresa"
+
 msgid "Send email"
 msgstr "Odeslat zprávu"
 
@@ -4690,6 +4694,9 @@ msgstr "WebApp"
 #, fuzzy
 msgid "Browser window"
 msgstr "Prohlížet"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Jsem právě v kanceláři"

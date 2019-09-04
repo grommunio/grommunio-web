@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
 "Last-Translator: jengelh <jengelh@inai.de>\n"
 "Language-Team: Danish <http://translate.kopano.io/projects/kopano/kopano-"
@@ -2350,6 +2350,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Ret modtager"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "Ny email adresse"
+
 msgid "Send email"
 msgstr "Send email"
 
@@ -4505,6 +4509,9 @@ msgstr "WebApp fane"
 
 msgid "Browser window"
 msgstr "Browser vindue"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "Jeg er på kontoret"

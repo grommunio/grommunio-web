@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"POT-Creation-Date: 2019-09-04 11:34+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
 "Last-Translator: Evan <evan@ulink.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
@@ -2365,6 +2365,10 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "編輯收件者"
 
+#, fuzzy
+msgid "Copy email addresses"
+msgstr "新增電子郵件地址"
+
 msgid "Send email"
 msgstr "傳送郵件"
 
@@ -4555,6 +4559,9 @@ msgstr "WebApp"
 #, fuzzy
 msgid "Browser window"
 msgstr "瀏覽器"
+
+msgid "Update Out of Office settings for"
+msgstr ""
 
 msgid "I am currently in the office"
 msgstr "我現在在辦公室"
