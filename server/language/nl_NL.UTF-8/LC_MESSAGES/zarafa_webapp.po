@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-04 11:34+0200\n"
-"PO-Revision-Date: 2019-08-05 08:35+0000\n"
+"PO-Revision-Date: 2019-09-04 09:39+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -2461,9 +2461,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Bewerk Geadresseerde"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Emailadres kopiëren"
+msgstr "Emailadressen kopiëren"
 
 msgid "Send email"
 msgstr "Verzend e-mail"
@@ -4699,7 +4698,7 @@ msgid "Browser window"
 msgstr "Browser venster"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Update afwezigheid settings voor"
 
 msgid "I am currently in the office"
 msgstr "Ik ben nu aanwezig"
