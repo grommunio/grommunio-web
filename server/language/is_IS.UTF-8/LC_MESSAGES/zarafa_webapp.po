@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-04 11:34+0200\n"
-"PO-Revision-Date: 2019-09-09 01:15+0000\n"
+"PO-Revision-Date: 2019-09-09 01:18+0000\n"
 "Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/is/>\n"
@@ -2141,7 +2141,7 @@ msgid "Busy"
 msgstr "Bókað"
 
 msgid "Out of Office"
-msgstr "Ekki við"
+msgstr "Fjarverandi"
 
 msgid "No Information"
 msgstr "Engar upplýsingar"
@@ -2646,7 +2646,7 @@ msgid "Exceptions"
 msgstr "Frávik"
 
 msgid "Apply only when Out of Office is active"
-msgstr "Framkvæma aðeins þegar Ekki við er virkt"
+msgstr "Framkvæma aðeins þegar Fjarverandi er virkt"
 
 msgid "Stop processing more rules"
 msgstr "Hætta að vinna úr reglum"
@@ -2683,7 +2683,7 @@ msgid "Active"
 msgstr "Virkt"
 
 msgid "Out of office"
-msgstr "Ekki við"
+msgstr "Fjarverandi"
 
 msgid "Rule"
 msgstr "Regla"
@@ -4377,12 +4377,13 @@ msgstr ""
 "Sjálfkrafa svara hverjum sendanda, einu sinni á dag, með eftirfarandi texta"
 
 msgid "User is currently out of office."
-msgstr "Notandi er í fríi frá vinnu."
+msgstr "Notandi er fjarverandi frá vinnustað."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
-"Tíminn sem þú skráðir er á undan vinnufríi. Vinsamlegast endurstilltu tímann."
+"Tíminn sem þú skráðir er á undan tímasetningu fjarveru. Vinsamlegast "
+"endurstilltu tímann."
 
 msgid "Signatures"
 msgstr "Undirskriftir"
@@ -5162,13 +5163,13 @@ msgid "Loading model from server failed"
 msgstr "Mistókst að hlaða líkani frá netþjóni"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Þú hefur stillt þig sem ekki í vinnu. Viltu afvirkja stillinguna?"
+msgstr "Þú hefur stillt þig sem fjarverandi. Viltu afvirkja stillinguna?"
 
 msgid "Out of office off"
-msgstr "Stilling sem ekki í vinnu afvirkjuð"
+msgstr "Stilling sem fjarverandi afvirkjuð"
 
 msgid "Out of office has been turned off"
-msgstr "Stilling sem ekki í vinnu hefur verið afvirkjuð"
+msgstr "Stilling sem fjarverandi hefur verið afvirkjuð"
 
 msgid "Send Fax"
 msgstr "Senda bréfsíma"
