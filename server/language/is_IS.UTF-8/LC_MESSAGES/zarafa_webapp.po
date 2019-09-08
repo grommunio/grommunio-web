@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-04 11:34+0200\n"
-"PO-Revision-Date: 2019-08-09 23:42+0000\n"
+"PO-Revision-Date: 2019-09-09 01:15+0000\n"
 "Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
 "Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/is/>\n"
@@ -2296,9 +2296,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr "Breyta viðtakanda"
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Afrita tölvupóstfang"
+msgstr "Afrita tölvupóstföng"
 
 msgid "Send email"
 msgstr "Senda tölvupóst"
@@ -4362,7 +4361,7 @@ msgid "Browser window"
 msgstr "Vafragluggi"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Uppfæra fjarverustillingar fyrir"
 
 msgid "I am currently in the office"
 msgstr "Ég er í vinnunni"
