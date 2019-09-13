@@ -200,7 +200,8 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 		var senderElem = Ext.get(this.senderElem);
 		Zarafa.core.data.UIFactory.openHoverCard(recipient, {
 			position: evt.getXY(),
-			recipientView : senderElem
+			recipientView : senderElem,
+			store:this.record.getSubStore('reply-to')
 		});
 	},
 
@@ -248,10 +249,12 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 	{
 		this.timer = setTimeout(function (scope) {
 			var recipient = scope.convertSenderToRecord(node);
+			recipient.set('recipient_type', Zarafa.core.mapi.RecipientType.MAPI_TO);
 			var senderElem = Ext.get(scope.senderElem);
 			Zarafa.core.data.UIFactory.openHoverCard(recipient, {
 				position: e.getXY(),
-				recipientView : senderElem
+				recipientView : senderElem,
+				store : scope.record.getSubStore('reply-to')
 			});
 		}, 700, this);
 	},

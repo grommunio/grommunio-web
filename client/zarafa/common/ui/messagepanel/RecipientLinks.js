@@ -336,7 +336,8 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 		var recipientRecord = this.createRecipientFromNode(node);
 		Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
 			position: e.getXY(),
-			recipientView : dataView
+			recipientView : dataView,
+			store:this.getStore()
 		});
 	},
 
@@ -400,7 +401,8 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 			var recipientRecord = scope.createRecipientFromNode(node);
 			Zarafa.core.data.UIFactory.openHoverCard(recipientRecord, {
 				position: e.getXY(),
-				recipientView : dataView
+				recipientView : dataView,
+				store : scope.getStore()
 			});
 		}, 700, this);
 	}
