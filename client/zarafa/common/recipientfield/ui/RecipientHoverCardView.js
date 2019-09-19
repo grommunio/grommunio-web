@@ -133,7 +133,7 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 			}, {
 				xtype: 'zarafa.recipienthovercardbutton',
 				iconCls: 'icon_copy_all',
-				hidden: this.hideButton(config.recipientView, record),
+				hidden: this.hideButton(config.store, record),
 				handler: this.copyEmail,
 				name : 'copyEmailAddresses',
 				tooltip: _('Copy email addresses'),
@@ -146,18 +146,18 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	 * Helper function which used to hide the 'Copy email addresses' button from hover card if selected recipient was not resolved
 	 * or only one recipient is in selected field (TO, Cc or Bcc).
 	 *
-	 * @param {Ext.DataView} recipientView The recipientView can be {@link Zarafa.common.ui.messagepanel.RecipientLinks RecipientLinks} or
+	 * @param {Ext.data.Store} store The store can be {@link Zarafa.common.ui.messagepanel.RecipientLinks RecipientLinks} or
 	 * {@link Zarafa.common.ui.messagepanel.SentInfoLinks SentInfoLinks}.
 	 * @param {Ext.data.Record} record which will show in hover card view.
 	 * @return {Boolean} return true if selected recipient is not resolved or field has only one recipient else false.
 	 */
-	hideButton : function(recipientView, record)
+	hideButton : function(store, record)
 	{
-		if (!record.isResolved()) {
+		if (!record.isResolved() || store.getCount() <= 1) {
 			return true;
 		}
 
-		var recipients =  Zarafa.common.Actions.getRecipientsByType(recipientView.getStore(), record.get('recipient_type'));
+		var recipients =  Zarafa.common.Actions.getRecipientsByType(store, record.get('recipient_type'));
 		return recipients.length === 1;
 	},
 
@@ -265,9 +265,8 @@ Zarafa.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Window, 
 	 */
 	copyEmail : function (item)
 	{
-		var store = this.recipientView.getStore();
 		var copyAll = item.name === 'copyEmailAddresses';
-		Zarafa.common.Actions.copyEmailAddress(this.records, store, copyAll);
+		Zarafa.common.Actions.copyEmailAddress(this.records, this.store, copyAll);
 	},
 
 	/**
