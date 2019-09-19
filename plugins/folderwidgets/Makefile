@@ -1,6 +1,6 @@
 include ../shared.mk
 
-JSFILES = js/AbstractFolderWidget.js js/AppointmentsWidget.js js/MailWidget.js js/TasksWidget.js
+JSFILES = js/AbstractFolderWidget.js js/AppointmentsWidget.js js/MailWidget.js js/TasksWidget.js js/DatepickerWidget.js
 
 COPYFILES = LICENSE.txt manifest.xml \
 	$(wildcard resources/css/*.css resources/images/*.svg) \
