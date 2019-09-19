@@ -9,7 +9,7 @@ msgid "Value must be between 0% to 100%"
 msgstr "Der Wert muss zwischen 0% und 100% liegen"
 
 msgid "Number must be higher than zero"
-msgstr "Zahl muss größer als Null sein"
+msgstr "Zahl muss grer als Null sein"
 
 msgid "More options"
 msgstr "Weitere Optionen"
@@ -113,7 +113,7 @@ msgid "February"
 msgstr "Februar"
 
 msgid "March"
-msgstr "März"
+msgstr "Mrz"
 
 msgid "April"
 msgstr "April"
@@ -158,7 +158,7 @@ msgid "Previous Page"
 msgstr "Vorherige Seite"
 
 msgid "Next Page"
-msgstr "Nächste Seite"
+msgstr "Nchste Seite"
 
 msgid "Last Page"
 msgstr "Letzte Seite"
@@ -192,13 +192,13 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 msgid "Next Month (Control+Right)"
-msgstr "Nächster Monat (Strg+Rechts)"
+msgstr "Nchster Monat (Strg+Rechts)"
 
 msgid "Previous Month (Control+Left)"
 msgstr "Vorheriger Monat (Strg+Links)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr "Monat auswählen (Strg+Hoch/Runter um Jahr zu wählen)"
+msgstr "Monat auswhlen (Strg+Hoch/Runter um Jahr zu whlen)"
 
 msgid "Sort Ascending"
 msgstr "Aufsteigend sortieren"
@@ -231,25 +231,25 @@ msgid "Loading"
 msgstr "Laden"
 
 msgid "The value in this field is invalid"
-msgstr "Der Wert dieses Feldes ist ungültig"
+msgstr "Der Wert dieses Feldes ist ungltig"
 
 msgid "The minimum length for this field is {0}"
-msgstr "Die minimal erlaubte Länge dieses Feldes ist {0}"
+msgstr "Die minimal erlaubte Lnge dieses Feldes ist {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr "Die maximal erlaubte Länge dieses Feldes ist {0}"
+msgstr "Die maximal erlaubte Lnge dieses Feldes ist {0}"
 
 msgid "This field is required"
-msgstr "Dieses Feld ist auszufüllen"
+msgstr "Dieses Feld ist auszufllen"
 
 msgid "The minimum value for this field is {0}"
 msgstr "Der kleinste erlaubte Wert dieses Feldes ist {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr "Der größte erlaubte Wert dieses Feldes ist {0}"
+msgstr "Der grte erlaubte Wert dieses Feldes ist {0}"
 
 msgid "{0} is not a valid number"
-msgstr "{0} ist keine gültige Nummer"
+msgstr "{0} ist keine gltige Nummer"
 
 msgid "The date in this field must be equal to or after {0}"
 msgstr "Das Datum in diesem Feld muss identisch mit oder nach {0} sein"
@@ -258,13 +258,13 @@ msgid "The date in this field must be equal to or before {0}"
 msgstr "Das Datum in diesem Feld muss identisch mit oder vor {0} sein"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr "{0} ist keine gültige Datumsangabe - es muss im Format {1} sein"
+msgstr "{0} ist keine gltige Datumsangabe - es muss im Format {1} sein"
 
 msgid "You must select at least one item in this group"
-msgstr "Sie müssen mindestens ein Element dieser Gruppe auswählen"
+msgstr "Sie mssen mindestens ein Element dieser Gruppe auswhlen"
 
 msgid "You must select one item in this group"
-msgstr "Sie müssen ein Element der Gruppe auswählen"
+msgstr "Sie mssen ein Element der Gruppe auswhlen"
 
 msgid "The time in this field must be equal to or after {0}"
 msgstr "Die Zeit in diesem Feld muss identisch mit oder nach {0} sein"
@@ -273,7 +273,7 @@ msgid "The time in this field must be equal to or before {0}"
 msgstr "Die Zeit in diesem Feld muss identisch mit oder vor {0} sein"
 
 msgid "{0} is not a valid time"
-msgstr "{0} ist keine gültige Zeitangabe"
+msgstr "{0} ist keine gltige Zeitangabe"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
@@ -389,7 +389,7 @@ msgid "Department"
 msgstr "Abteilung"
 
 msgid "Office"
-msgstr "Büro"
+msgstr "Bro"
 
 msgid "Assistant"
 msgstr "Assistent"
@@ -410,11 +410,11 @@ msgid "Phone numbers"
 msgstr "Telefonnummern"
 
 msgid "Business"
-msgstr "Geschäft"
+msgstr "Geschft"
 
 # 88%
 msgid "Business2"
-msgstr "Geschäftlich 2"
+msgstr "Geschftlich 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -434,16 +434,16 @@ msgstr "Pager"
 # 75%
 # 100%
 msgid "No user selected"
-msgstr "Kein Benutzer ausgewählt"
+msgstr "Kein Benutzer ausgewhlt"
 
 msgid "You must select one or more users."
-msgstr "Sie müssen einen oder mehrere Benutzer auswählen."
+msgstr "Sie mssen einen oder mehrere Benutzer auswhlen."
 
 msgid "You must select a user."
-msgstr "Sie müssen einen Nutzer auswählen."
+msgstr "Sie mssen einen Nutzer auswhlen."
 
 msgid "Select"
-msgstr "Auswählen"
+msgstr "Auswhlen"
 
 msgid "Show Details"
 msgstr "Details anzeigen"
@@ -505,10 +505,10 @@ msgid "Sort by: Department"
 msgstr "Sortieren nach: Abteilung"
 
 msgid "Office Phone"
-msgstr "Telefon Büro"
+msgstr "Telefon Bro"
 
 msgid "Sort by: Office Phone"
-msgstr "Sortieren nach: Telefon Büro"
+msgstr "Sortieren nach: Telefon Bro"
 
 msgid "Sort by: Mobile"
 msgstr "Sortieren nach: Mobilnummer"
@@ -570,31 +570,31 @@ msgid "Custom date"
 msgstr "Benutzerdefiniertes Datum"
 
 msgid "Add to favorites"
-msgstr "Zu Favoriten hinzufügen"
+msgstr "Zu Favoriten hinzufgen"
 
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "Hinzufgen"
 
 msgid "Empty folder name"
 msgstr "Leerer Ordnername"
 
 msgid "You must specify a name."
-msgstr "Sie müssen einen Namen angeben."
+msgstr "Sie mssen einen Namen angeben."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
+msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufgen"
 
 msgid "Folder name"
 msgstr "Ordnername"
 
 msgid "Select Category"
-msgstr "Kategorie auswählen"
+msgstr "Kategorie auswhlen"
 
 msgid "Apply"
-msgstr "Übernehmen"
+msgstr "bernehmen"
 
 msgid "All folders are selected"
-msgstr "Alle Ordner ausgewählt"
+msgstr "Alle Ordner ausgewhlt"
 
 msgid "Reply"
 msgstr "Antworten"
@@ -641,7 +641,7 @@ msgid "Unread"
 msgstr "Ungelesen"
 
 msgid "Attachments"
-msgstr "Anhänge"
+msgstr "Anhnge"
 
 msgid "Date"
 msgstr "Datum"
@@ -664,26 +664,26 @@ msgid "Sender"
 msgstr "Absender"
 
 msgid "Recipients"
-msgstr "Empfänger"
+msgstr "Empfnger"
 
 msgid "Subject"
 msgstr "Betreff"
 
 msgid "Body & Attachments"
-msgstr "Text & Anhängen"
+msgstr "Text & Anhngen"
 
 msgid "Favorites"
 msgstr "Favoriten"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
+msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufgen"
 
 # 76%
 msgid "Select Folder"
-msgstr "Ordner auswählen"
+msgstr "Ordner auswhlen"
 
 msgid "Delete search folder"
-msgstr "Suchordner löschen"
+msgstr "Suchordner lschen"
 
 # 81%
 # 75%
@@ -703,7 +703,7 @@ msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
-"Sie können nach Datum sortieren, wenn Sie Ihre Suche verfeinern. Verwenden "
+"Sie knnen nach Datum sortieren, wenn Sie Ihre Suche verfeinern. Verwenden "
 "Sie die Filter oder einen anderen Suchbegriff."
 
 msgid "Did you mean"
@@ -726,17 +726,17 @@ msgid ""
 "may have been moved or deleted."
 msgstr ""
 "Konnte Vorschlag nicht akzeptieren, da dieses Meeting nicht im Kalender "
-"verfügbar ist; Sie könnte verschoben oder gelöscht worden sein."
+"verfgbar ist; Sie knnte verschoben oder gelscht worden sein."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
-"Die Vorschläge können nicht angezeigt werden, da diese Besprechung nicht im "
-"Kalender verfügbar ist; sie könnte verschoben oder gelöscht worden sein."
+"Die Vorschlge knnen nicht angezeigt werden, da diese Besprechung nicht im "
+"Kalender verfgbar ist; sie knnte verschoben oder gelscht worden sein."
 
 msgid "Required"
-msgstr "Benötigt"
+msgstr "Bentigt"
 
 # 75%
 msgid "Optional"
@@ -746,10 +746,10 @@ msgid "Resource"
 msgstr "Ressource"
 
 msgid "Could not open store."
-msgstr "Das Postfach konnte nicht geöffnet werden."
+msgstr "Das Postfach konnte nicht geffnet werden."
 
 msgid "Could not open default calendar folder."
-msgstr "Der Standardkalender konnte nicht geöffnet werden."
+msgstr "Der Standardkalender konnte nicht geffnet werden."
 
 msgid "workday"
 msgstr "Arbeitstag"
@@ -804,10 +804,9 @@ msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
 msgid_plural ""
 "Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
 msgstr[0] ""
-"Findet jeden {0} statt, beginnend am {1} für {2} Wiederholung von {2} bis "
-"{3}."
+"Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholung von {2} bis {3}."
 msgstr[1] ""
-"Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen von {2} bis "
+"Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholungen von {2} bis "
 "{3}."
 
 # 88%
@@ -815,22 +814,20 @@ msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
 msgstr[0] ""
-"Findet jeden {0} statt, beginnend am {1} für {2} Wiederholung von {2} bis "
-"{3}."
+"Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholung von {2} bis {3}."
 msgstr[1] ""
-"Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen von {2} bis "
+"Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholungen von {2} bis "
 "{3}."
 
 msgid "Occurs every {0} effective {1} for {2} occurence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurences."
-msgstr[0] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholung."
-msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen."
+msgstr[0] "Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholung."
+msgstr[1] "Findet jeden {0} statt, beginnend am {1} fr {2} Wiederholungen."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
-msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Wiederholung."
-msgstr[1] ""
-"Findet jeden {0} {1} statt, beginnend am {2} für {2} Wiederholungen."
+msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} fr {3} Wiederholung."
+msgstr[1] "Findet jeden {0} {1} statt, beginnend am {2} fr {2} Wiederholungen."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Findet jeden {0} statt, beginnend am {1} bis {2} von {3} bis {4}."
@@ -911,14 +908,14 @@ msgid "Recurrence pattern"
 msgstr "Serienmuster"
 
 msgid "All Day Event"
-msgstr "Ganztägiges Ereignis"
+msgstr "Ganztgiges Ereignis"
 
 # 81%
 # 86%
 # 76%
 # 100%
 msgid "Add Shared Calendar"
-msgstr "Gemeinsame Kalender öffnen"
+msgstr "Gemeinsame Kalender ffnen"
 
 msgid "Day"
 msgstr "Tag"
@@ -942,16 +939,16 @@ msgid "Meeting request"
 msgstr "Terminanfrage"
 
 msgid "Print selected appointment"
-msgstr "Ausgewählten Termin drucken"
+msgstr "Ausgewhlten Termin drucken"
 
 msgid "Print overview"
-msgstr "Übersicht drucken"
+msgstr "bersicht drucken"
 
 msgid "Print"
 msgstr "Drucken"
 
 msgid "No appointment selected"
-msgstr "Kein Termin ausgewählt"
+msgstr "Kein Termin ausgewhlt"
 
 msgid "Create Appointment"
 msgstr "Termin erstellen"
@@ -966,11 +963,11 @@ msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
-"Sie haben auf den ausgewählten Kalender nur Leserechte. Sie können Element "
+"Sie haben auf den ausgewhlten Kalender nur Leserechte. Sie knnen Element "
 "stattdessen in Ihrem eigenen Kalender anlegen."
 
 msgid "What would you like?"
-msgstr "Was möchten Sie?"
+msgstr "Was mchten Sie?"
 
 msgid "Own calendar"
 msgstr "Eigener Kalender"
@@ -1007,7 +1004,7 @@ msgstr "Update verschicken"
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr ""
-"Eine Aktualisierungsmitteilung wird an alle Empfänger gesendet. Möchten Sie "
+"Eine Aktualisierungsmitteilung wird an alle Empfnger gesendet. Mchten Sie "
 "fortfahren?"
 
 msgid "Send update to attendees"
@@ -1016,22 +1013,21 @@ msgstr "Aktualisierung an Teilnehmer versenden"
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
 msgstr ""
-"Sie haben Veränderungen an der Liste der Teilnehmer durchgeführt, Bitte "
-"wählen Sie eine der folgenden Optionen"
+"Sie haben Vernderungen an der Liste der Teilnehmer durchgefhrt, Bitte whlen "
+"Sie eine der folgenden Optionen"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr ""
-"Aktualisierung nur an hinzugefügte oder gelöschte Teilnehmer versenden."
+msgstr "Aktualisierung nur an hinzugefgte oder gelschte Teilnehmer versenden."
 
 msgid "Send updates to all attendees."
 msgstr "Aktualisierung an alle Teilnehmer versenden."
 
 msgid "Busy attendees"
-msgstr "beschäftigte Teilnehmer"
+msgstr "beschftigte Teilnehmer"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
-"Ein oder mehrere Teilnehmer der Einladung sind beschäftigt. Soll die "
+"Ein oder mehrere Teilnehmer der Einladung sind beschftigt. Soll die "
 "Einladung trotzdem versendet werden?"
 
 msgid "Scheduling"
@@ -1043,7 +1039,7 @@ msgstr "Verfolgen"
 # 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "Nicht alle Teilnehmer konnten aufgelöst werden."
+msgstr "Nicht alle Teilnehmer konnten aufgelst werden."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
@@ -1055,17 +1051,17 @@ msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
-"{0} Teilnehmer haben eine neue Zeit vorgeschlagen. Klicken Sie für Details "
+"{0} Teilnehmer haben eine neue Zeit vorgeschlagen. Klicken Sie fr Details "
 "auf den Planungstab."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr "Sie haben für die Besprechung die neue Zeit {0} vorgeschlagen"
+msgstr "Sie haben fr die Besprechung die neue Zeit {0} vorgeschlagen"
 
 # 91%
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0} hat für die Besprechung am {1} eine neue Zeit vorgeschlagen"
+msgstr "{0} hat fr die Besprechung am {1} eine neue Zeit vorgeschlagen"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1094,7 +1090,7 @@ msgstr "Bitte antworten."
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr "Für diese Besprechungsanfrage sind noch keine Antworten eingegangen."
+msgstr "Fr diese Besprechungsanfrage sind noch keine Antworten eingegangen."
 
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
@@ -1102,14 +1098,14 @@ msgstr "Die Besprechung wurde abgesagt."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr "Für diese Besprechungsanfrage wurden keine Einladungen verschickt."
+msgstr "Fr diese Besprechungsanfrage wurden keine Einladungen verschickt."
 
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
 msgstr ""
-"Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
+"Bitte beachten Sie, dass alle von Ihnen gemachten nderungen berschrieben "
 "werden, wenn der Organisator den Termin aktualisiert"
 
 msgid "Create in"
@@ -1134,10 +1130,10 @@ msgid "Warning"
 msgstr "Warnung"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr "In einer einzelnen Wiederholung kann ein Anhang nicht geändert werden"
+msgstr "In einer einzelnen Wiederholung kann ein Anhang nicht gendert werden"
 
 msgid "Type your message here..."
-msgstr "Fügen Sie hier Notizen ein ..."
+msgstr "Fgen Sie hier Notizen ein ..."
 
 msgid "Update location"
 msgstr "Ort aktualisieren"
@@ -1164,16 +1160,16 @@ msgid "Save"
 msgstr "Speichern"
 
 msgid "Close"
-msgstr "Schließen"
+msgstr "Schlieen"
 
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Lschen"
 
 msgid "Add attachment"
-msgstr "Datei anhängen"
+msgstr "Datei anhngen"
 
 msgid "Check names"
-msgstr "Namen überprüfen"
+msgstr "Namen berprfen"
 
 msgid "Invite attendees"
 msgstr "Teilnehmer einladen"
@@ -1182,24 +1178,24 @@ msgid "Cancel invitation"
 msgstr "Einladung absagen"
 
 msgid "High priority"
-msgstr "Hohe Priorität"
+msgstr "Hohe Prioritt"
 
 # 76%
 msgid "Mark this appointment as high priority"
-msgstr "Diesen Termin mit hoher Priorität markieren"
+msgstr "Diesen Termin mit hoher Prioritt markieren"
 
 msgid "Low priority"
-msgstr "Niedrige Priorität"
+msgstr "Niedrige Prioritt"
 
 # 78%
 msgid "Mark this appointment as low priority"
-msgstr "Diesen Termin mit niedriger Priorität markieren"
+msgstr "Diesen Termin mit niedriger Prioritt markieren"
 
 msgid "Categories"
 msgstr "Kategorien"
 
 msgid "Open the categories dialog"
-msgstr "Kategoriendialog öffnen"
+msgstr "Kategoriendialog ffnen"
 
 msgid "Private"
 msgstr "Privat"
@@ -1241,7 +1237,7 @@ msgstr "Absage der Besprechungsanfrage senden"
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
-msgstr "Diese Besprechung wird abgesagt. Möchten Sie einen Kommentar angeben?"
+msgstr "Diese Besprechung wird abgesagt. Mchten Sie einen Kommentar angeben?"
 
 msgid "Edit the cancellation before Sending."
 msgstr "Absage vor dem Senden bearbeiten."
@@ -1250,21 +1246,21 @@ msgid "Send the cancellation now."
 msgstr "Absage jetzt senden."
 
 msgid "Send Meeting Request Confirmation"
-msgstr "Bestätigung der Besprechungsanfrage senden"
+msgstr "Besttigung der Besprechungsanfrage senden"
 
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
 "Sie haben dieser Besprechungsanfrage mit Zugesagt. Die Besprechung wird in "
-"den Kalender verschoben. Möchten Sie Ihre Antwort vor dem Senden bearbeiten?"
+"den Kalender verschoben. Mchten Sie Ihre Antwort vor dem Senden bearbeiten?"
 
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
 "Sie haben dieser Besprechungsanfrage mit Vorbehalt zugesagt. Die Besprechung "
-"wird in den Kalender verschoben. Möchten Sie Ihre Antwort vor dem Senden "
+"wird in den Kalender verschoben. Mchten Sie Ihre Antwort vor dem Senden "
 "bearbeiten?"
 
 msgid ""
@@ -1272,7 +1268,7 @@ msgid ""
 "want to include comments with your response?"
 msgstr ""
 "Sie haben diese Besprechungsanfrage abgelehnt. Die Besprechung wird in den "
-"Ordner \"Gelöschte Objekte\" verschoben. Möchten Sie Ihre Antwort vor dem "
+"Ordner \"Gelschte Objekte\" verschoben. Mchten Sie Ihre Antwort vor dem "
 "Senden bearbeiten?"
 
 msgid "Edit the response before sending"
@@ -1308,13 +1304,13 @@ msgid "New meeting request"
 msgstr "Neue Terminanfrage"
 
 msgid "Switch calendar range back and forth"
-msgstr "Kalenderblätter wechseln"
+msgstr "Kalenderbltter wechseln"
 
 msgid "Copy selected item"
 msgstr "Selektion kopieren"
 
 msgid "Paste selected item"
-msgstr "Selektion einfügen"
+msgstr "Selektion einfgen"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1396,10 +1392,10 @@ msgid "End of workday"
 msgstr "Ende des Arbeitstages"
 
 msgid "Calendar resolution"
-msgstr "Kalenderauflösung"
+msgstr "Kalenderauflsung"
 
 msgid "Default appointment duration {A} minutes"
-msgstr "Standardzeit für {A} Minuten"
+msgstr "Standardzeit fr {A} Minuten"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
@@ -1414,27 +1410,27 @@ msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Die Frei/Gebucht Informationen können von Benutzern verwendet werden um zu "
-"sehen wann Sie verfügbar sind."
+"Die Frei/Gebucht Informationen knnen von Benutzern verwendet werden um zu "
+"sehen wann Sie verfgbar sind."
 
 msgid "Free/Busy publishing"
-msgstr "Frei/Gebucht Veröffentlichung"
+msgstr "Frei/Gebucht Verffentlichung"
 
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr "Frei-/Gebucht Informationen für {A} Monat(e) veröffentlichen."
+msgstr "Frei-/Gebucht Informationen fr {A} Monat(e) verffentlichen."
 
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
-"Sie können Ihre Informationen nur für 0 bis 36 Monate veröffentlichen. 0 "
-"bedeutet Frei-/Gebucht Informationen werden nicht veröffentlicht."
+"Sie knnen Ihre Informationen nur fr 0 bis 36 Monate verffentlichen. 0 "
+"bedeutet Frei-/Gebucht Informationen werden nicht verffentlicht."
 
 msgid "Side-by-side mode"
 msgstr "Seite-an-Seite-Modus"
 
 msgid "Overlay mode"
-msgstr "Überlagerter Modus"
+msgstr "berlagerter Modus"
 
 msgid "Calendar view settings"
 msgstr "Kalenderansichtseinstellungen"
@@ -1446,13 +1442,13 @@ msgid "Reminder settings"
 msgstr "Erinnerungseinstellungen"
 
 msgid "Enable reminder for new appointments"
-msgstr "Erinnerungen für neue Termine einschalten"
+msgstr "Erinnerungen fr neue Termine einschalten"
 
 msgid "Default reminder time"
 msgstr "Standarderinnerungszeit"
 
 msgid "Default all-day appointment reminder time"
-msgstr "Standarderinnerungszeit für ganztägige Termine"
+msgstr "Standarderinnerungszeit fr ganztgige Termine"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
@@ -1460,8 +1456,8 @@ msgstr "j."
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] "{0} ausgwähltes Element"
-msgstr[1] "{0} ausgewählte Elemente"
+msgstr[0] "{0} ausgwhltes Element"
+msgstr[1] "{0} ausgewhlte Elemente"
 
 msgid "New Appointment"
 msgstr "Neuer Termin"
@@ -1470,7 +1466,7 @@ msgid "New Meeting Request"
 msgstr "Neue Terminanfrage"
 
 msgid "Open"
-msgstr "Öffnen"
+msgstr "ffnen"
 
 msgid "Copy/Move"
 msgstr "Kopieren/Verschieben"
@@ -1503,13 +1499,13 @@ msgid "Appointment not found"
 msgstr "Termin wurde nicht gefunden"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr "Dieser Termin wurde verschoben oder gelöscht, möchten Sie fortfahren?"
+msgstr "Dieser Termin wurde verschoben oder gelscht, mchten Sie fortfahren?"
 
 msgid "All Day"
-msgstr "Ganztägige Ereignisse"
+msgstr "Ganztgige Ereignisse"
 
 msgid "Sort by: All Day"
-msgstr "Sortieren nach: Ganztägig"
+msgstr "Sortieren nach: Ganztgig"
 
 msgid "Icon"
 msgstr "Symbol"
@@ -1544,11 +1540,11 @@ msgid "Sort by: Created On"
 msgstr "Sortieren nach: Erstellt"
 
 msgid "Due By"
-msgstr "Fällig am"
+msgstr "Fllig am"
 
 # 76%
 msgid "Sort by: Due By"
-msgstr "Sortieren nach: Fälligkeit"
+msgstr "Sortieren nach: Flligkeit"
 
 msgid "Label"
 msgstr "Beschriftung"
@@ -1613,18 +1609,18 @@ msgid "jS F Y"
 msgstr "j. F Y"
 
 msgid "Update recipients"
-msgstr "Empfänger aktualisieren"
+msgstr "Empfnger aktualisieren"
 
 msgid "The time of the meeting has changed. Choose one of the following:"
 msgstr ""
-"Die Uhrzeit der Besprechung hat sich geändert. Wählen Sie eine der folgenden "
+"Die Uhrzeit der Besprechung hat sich gendert. Whlen Sie eine der folgenden "
 "Optionen:"
 
 msgid "Save changes and send an update to all recipients"
-msgstr "Änderungen speichern und die Aktualisierung an alle Teilnehmer senden"
+msgstr "nderungen speichern und die Aktualisierung an alle Teilnehmer senden"
 
 msgid "Open meeting request with changes"
-msgstr "Besprechungsanfrage mit den Änderungen öffnen"
+msgstr "Besprechungsanfrage mit den nderungen ffnen"
 
 msgid "Copy"
 msgstr "Kopieren"
@@ -1636,8 +1632,8 @@ msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
-"Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
-"werden, wenn der Organisator den Termin aktualisiert. Möchten Sie den Termin "
+"Bitte beachten Sie, dass alle von Ihnen gemachten nderungen berschrieben "
+"werden, wenn der Organisator den Termin aktualisiert. Mchten Sie den Termin "
 "dennoch verschieben?"
 
 msgid "Move"
@@ -1682,10 +1678,10 @@ msgid "Decline Meeting Request"
 msgstr "Besprechungsanfrage ablehnen"
 
 msgid "Propose New Time for Meeting Request"
-msgstr "Neue Zeit für die Besprechungsanfrage vorschlagen"
+msgstr "Neue Zeit fr die Besprechungsanfrage vorschlagen"
 
 msgid "View All Proposals"
-msgstr "Alle Vorschläge anzeigen"
+msgstr "Alle Vorschlge anzeigen"
 
 msgid "Accept Proposal"
 msgstr "Vorschlag akzeptieren"
@@ -1704,7 +1700,7 @@ msgid ""
 "be deleted."
 msgstr ""
 "Ihr Kalender wurde automatisch aktualisiert. Die Besprechungsanfrage wird "
-"jetzt gelöscht."
+"jetzt gelscht."
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G"
@@ -1714,14 +1710,14 @@ msgid "Printing of multiple items has not been implemented."
 msgstr "Das Drucken mehrerer Elemente ist noch nicht implementiert."
 
 msgid "Printing of this item is not yet available"
-msgstr "Drucken ist für dieses Element noch nicht möglich"
+msgstr "Drucken ist fr dieses Element noch nicht mglich"
 
 msgid "Item type: "
 msgstr "Art des Elements: "
 
 # 92%
 msgid "Printing of this view is not yet available"
-msgstr "Drucken ist für diese Ansicht noch nicht möglich"
+msgstr "Drucken ist fr diese Ansicht noch nicht mglich"
 
 msgid "Recurring Message"
 msgstr "Wiederkehrende Nachricht"
@@ -1730,7 +1726,7 @@ msgid ""
 "This is a recurring message. Do you want to open only this occurrence or the "
 "series?"
 msgstr ""
-"Dies ist eine Seriennachricht. Wollen Sie nur diese Nachricht öffnen, oder "
+"Dies ist eine Seriennachricht. Wollen Sie nur diese Nachricht ffnen, oder "
 "die Serie?"
 
 msgid "Recurring Appointment"
@@ -1740,18 +1736,18 @@ msgid ""
 "This is a recurring appointment. Do you want to open only this occurrence or "
 "the series?"
 msgstr ""
-"Dies ist ein Serientermin. Möchten Sie nur diesen Termin öffnen, oder die "
+"Dies ist ein Serientermin. Mchten Sie nur diesen Termin ffnen, oder die "
 "Serie?"
 
 # 80%
 msgid "Recurring Meeting Request"
-msgstr "Besprechungsanfrage für einen Serientermin"
+msgstr "Besprechungsanfrage fr einen Serientermin"
 
 msgid ""
 "This is a recurring meeting request. Do you want to open only this "
 "occurrence or the series?"
 msgstr ""
-"Dies ist eine Serieneinladung. Möchten Sie nur diese Einladung öffnen, oder "
+"Dies ist eine Serieneinladung. Mchten Sie nur diese Einladung ffnen, oder "
 "die Serie?"
 
 msgid "Recurring Task Request"
@@ -1761,25 +1757,25 @@ msgid ""
 "This is a recurring task request. Do you want to open only this occurrence "
 "or the series?"
 msgstr ""
-"Dies ist eine Serienaufgabe. Möchten Sie nur diese Aufgabe öffnen, oder die "
+"Dies ist eine Serienaufgabe. Mchten Sie nur diese Aufgabe ffnen, oder die "
 "Serie?"
 
 # 95%
 msgid "Open this occurrence"
-msgstr "Dieses Serienelement öffnen"
+msgstr "Dieses Serienelement ffnen"
 
 msgid "Open the series"
-msgstr "Die Serie öffnen"
+msgstr "Die Serie ffnen"
 
 msgid "Paste Recurring {0}"
-msgstr "Serientermin {0} einfügen"
+msgstr "Serientermin {0} einfgen"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
-"Dies ist ein wiederkehrender {0}. Möchten Sie nur diese Wiederholung, oder "
-"die Serie einfügen?"
+"Dies ist ein wiederkehrender {0}. Mchten Sie nur diese Wiederholung, oder "
+"die Serie einfgen?"
 
 msgid "message"
 msgstr "Nachricht"
@@ -1791,48 +1787,48 @@ msgid "appointment"
 msgstr "Termin"
 
 msgid "Paste this occurrence only"
-msgstr "Nur diese Wiederholung einfügen"
+msgstr "Nur diese Wiederholung einfgen"
 
 msgid "Paste the series..."
-msgstr "Die Terminserie einfügen..."
+msgstr "Die Terminserie einfgen..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
 "the series?"
 msgstr ""
-"Dies ist eine Nachrichtserie. Wollen Sie nur diese Nachricht löschen, oder "
+"Dies ist eine Nachrichtserie. Wollen Sie nur diese Nachricht lschen, oder "
 "die Serie?"
 
 msgid ""
 "This is a recurring appointment. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
-"Dies ist ein Serientermin. Möchten Sie nur diesen Termin löschen, oder die "
+"Dies ist ein Serientermin. Mchten Sie nur diesen Termin lschen, oder die "
 "Serie?"
 
 msgid ""
 "This is a recurring meeting request. Do you want to delete only this "
 "occurrence or the series?"
 msgstr ""
-"Dies ist eine Serieneinladung. Möchten Sie nur diese Einladung löschen, oder "
+"Dies ist eine Serieneinladung. Mchten Sie nur diese Einladung lschen, oder "
 "die Serie?"
 
 msgid ""
 "This is a recurring task request. Do you want to delete only this occurrence "
 "or the series?"
 msgstr ""
-"Dies ist eine Serienaufgabe. Möchten Sie nur diese Aufgabe löschen, oder die "
+"Dies ist eine Serienaufgabe. Mchten Sie nur diese Aufgabe lschen, oder die "
 "Serie?"
 
 # 95%
 msgid "Delete this occurrence"
-msgstr "Dieses Serienelement löschen"
+msgstr "Dieses Serienelement lschen"
 
 msgid "Delete the series"
-msgstr "Diese Serie löschen"
+msgstr "Diese Serie lschen"
 
 msgid "Confirm Delete"
-msgstr "Löschen bestätigen"
+msgstr "Lschen besttigen"
 
 msgid "This \"{0}\" meeting was already accepted."
 msgstr "Die \"{0}\" Besprechungsanfrage war schon akzeptiert."
@@ -1841,13 +1837,13 @@ msgid "You have not responded to the meeting request \"{0}\"."
 msgstr "Sie haben noch nicht auf die Besprechungsanfrage \"{0}\" geantwortet."
 
 msgid "Delete and send a response to the meeting organizer"
-msgstr "Löschen und dem Organisator eine Antwort schicken"
+msgstr "Lschen und dem Organisator eine Antwort schicken"
 
 msgid "Delete without sending"
-msgstr "Löschen ohne Antwort"
+msgstr "Lschen ohne Antwort"
 
 msgid "Notify recipients"
-msgstr "Empfänger benachrichtigen"
+msgstr "Empfnger benachrichtigen"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1855,16 +1851,16 @@ msgid ""
 msgstr "Eine Absage wird an alle Teilnehmer gesendet. Wollen Sie fortfahren?"
 
 msgid "Delete Incomplete Task"
-msgstr "Unfertige Aufgabe löschen"
+msgstr "Unfertige Aufgabe lschen"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr "Die Aufgabe \"{0}\" ist noch nicht abgeschlossen. Was möchten Sie tun?"
+msgstr "Die Aufgabe \"{0}\" ist noch nicht abgeschlossen. Was mchten Sie tun?"
 
 msgid "Decline and delete"
-msgstr "Ablehnen und löschen"
+msgstr "Ablehnen und lschen"
 
 msgid "Mark complete and delete"
-msgstr "Als fertig markieren und löschen"
+msgstr "Als fertig markieren und lschen"
 
 # 77%
 msgid "Notify sender"
@@ -1873,10 +1869,10 @@ msgstr "Absender benachrichtigen"
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
-msgstr "Der Absender hat eine Lesebestätigung angefordert. Bestätigung senden?"
+msgstr "Der Absender hat eine Lesebesttigung angefordert. Besttigung senden?"
 
 msgid "Import"
-msgstr "Einfügen"
+msgstr "Einfgen"
 
 msgid "Successfully imported item(s) to {0}"
 msgstr "Erfolgreich importierte Elemente in {0}"
@@ -1888,7 +1884,7 @@ msgid "Import error"
 msgstr "Importfehler"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "Import von {0} nicht möglich. Die Datei ist ungültig"
+msgstr "Import von {0} nicht mglich. Die Datei ist ungltig"
 
 msgid "Cc"
 msgstr "CC"
@@ -1900,10 +1896,10 @@ msgid "From"
 msgstr "Von"
 
 msgid "Insert item"
-msgstr "Element einfügen"
+msgstr "Element einfgen"
 
 msgid "Insert as"
-msgstr "Einfügen als"
+msgstr "Einfgen als"
 
 msgid "Text only"
 msgstr "Nur-Text"
@@ -1913,13 +1909,13 @@ msgid "Attachment"
 msgstr "Anhang"
 
 msgid "Attach Item"
-msgstr "Element anhängen"
+msgstr "Element anhngen"
 
 msgid "No message selected"
-msgstr "Keine Nachricht ausgewählt"
+msgstr "Keine Nachricht ausgewhlt"
 
 msgid "Import to"
-msgstr "Einfügen in"
+msgstr "Einfgen in"
 
 # 90%
 # 100%
@@ -1936,22 +1932,21 @@ msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
 msgstr ""
-"Diese Anhänge haben einen nicht unterstützten Dateityp und können keiner ZIP-"
-"Datei hinzugefügt werden:"
+"Diese Anhnge haben einen nicht untersttzten Dateityp und knnen keiner ZIP-"
+"Datei hinzugefgt werden:"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr "Möchten Sie die ZIP-Datei dennoch herunterladen?"
+msgstr "Mchten Sie die ZIP-Datei dennoch herunterladen?"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
-"Immer ZIP-Datei herunterladen und nicht unterstützte Typen überspringen."
+msgstr "Immer ZIP-Datei herunterladen und nicht untersttzte Typen berspringen."
 
 msgid "File upload"
 msgstr "Dateiupload"
 
 msgid "Attach item"
-msgstr "Element anhängen"
+msgstr "Element anhngen"
 
 msgid "Preview"
 msgstr "Vorschau"
@@ -1963,20 +1958,20 @@ msgid "Download all as ZIP"
 msgstr "Alle als ZIP-Datei herunterladen"
 
 msgid "Import to folder"
-msgstr "Einfügen in Ordner"
+msgstr "Einfgen in Ordner"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
-"Um das vCard Import Feature zu verwenden müssen Sie Kopano Core auf die "
+"Um das vCard Import Feature zu verwenden mssen Sie Kopano Core auf die "
 "Version 8.3 oder neuer updaten."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
-"Um das vCard Import Feature zu verwenden müssen Sie Kopano Core auf die "
+"Um das vCard Import Feature zu verwenden mssen Sie Kopano Core auf die "
 "Version 8.3 oder neuer updaten."
 
 msgid "Attachment error"
@@ -1984,16 +1979,16 @@ msgstr "Problem mit dem Anhang"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr ""
-"ZIP-Datei konnte nicht erstellt werden. Die maximal erlaubte Größe ist 30 MB."
+"ZIP-Datei konnte nicht erstellt werden. Die maximal erlaubte Gre ist 30 MB."
 
 msgid "Unable to download"
-msgstr "Download nicht möglich"
+msgstr "Download nicht mglich"
 
 msgid "Picture format is not supported. "
-msgstr "Bildformat wird nicht unterstützt. "
+msgstr "Bildformat wird nicht untersttzt. "
 
 msgid "Supported format for contact pictures are"
-msgstr "Die folgenden Formate werden für Kontaktbilder unterstützt"
+msgstr "Die folgenden Formate werden fr Kontaktbilder untersttzt"
 
 # 93%
 # 100%
@@ -2007,13 +2002,13 @@ msgid "New"
 msgstr "Neu"
 
 msgid "Delete Category"
-msgstr "Kategorie löschen"
+msgstr "Kategorie lschen"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
-"Möchten Sie die Kategorie \"{0}\" wirklich löschen? Dies hat keinen Einfluss "
+"Mchten Sie die Kategorie \"{0}\" wirklich lschen? Dies hat keinen Einfluss "
 "auf Elemente mit dieser Kategorie."
 
 msgid "Rename Category"
@@ -2026,7 +2021,7 @@ msgid "Create New Category"
 msgstr "Neue Kategorie erstellen"
 
 msgid "Pin to quick access"
-msgstr "Für schnellen Zugriff anheften"
+msgstr "Fr schnellen Zugriff anheften"
 
 msgid "Create"
 msgstr "Erstellen"
@@ -2035,8 +2030,8 @@ msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
-"Sie müssen zuerst die Änderungen übernehmen, bevor Sie die Kategorie "
-"speichern können."
+"Sie mssen zuerst die nderungen bernehmen, bevor Sie die Kategorie speichern "
+"knnen."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
@@ -2048,7 +2043,7 @@ msgid ""
 "another name."
 msgstr ""
 "Sie haben bereits eine Kategorie mit den Namen \"{0}\" in Ihren ausstehenden "
-"Änderungen. Bitte verwenden Sie einen anderen Namen."
+"nderungen. Bitte verwenden Sie einen anderen Namen."
 
 msgid "Rename"
 msgstr "Umbenennen"
@@ -2057,27 +2052,27 @@ msgid "This is the first time you have used \"{0}\" category."
 msgstr "Dies ist das erste Mal, dass Sie die Kategorie \"{0}\" benutzen."
 
 msgid "Do you want to rename it?"
-msgstr "Möchten Sie diese umbenennen?"
+msgstr "Mchten Sie diese umbenennen?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
-"Die Kategorie \"{0}\" existiert bereits. Möchten Sie die Kategorien \"{1}\" "
-"und \"{2}\" zusammenführen?"
+"Die Kategorie \"{0}\" existiert bereits. Mchten Sie die Kategorien \"{1}\" "
+"und \"{2}\" zusammenfhren?"
 
 msgid "Merge"
-msgstr "Zusammenführen"
+msgstr "Zusammenfhren"
 
 msgid "Remove"
 msgstr "Entfernen"
 
 # 90%
 msgid "Check Names"
-msgstr "Namen überprüfen"
+msgstr "Namen berprfen"
 
 msgid "Select an address to use"
-msgstr "Wählen Sie die Adresse aus, die Sie verwenden möchten"
+msgstr "Whlen Sie die Adresse aus, die Sie verwenden mchten"
 
 msgid "Email"
 msgstr "E-Mail"
@@ -2090,7 +2085,7 @@ msgstr "Achtung"
 
 # 80%
 msgid "Please select a recipient"
-msgstr "Bitte wählen Sie einen Empfänger aus"
+msgstr "Bitte whlen Sie einen Empfnger aus"
 
 msgid "Mail and Post"
 msgstr "E-Mail und Bereitstellung"
@@ -2116,7 +2111,7 @@ msgid "Entire Inbox"
 msgstr "Gesamtes Postfach"
 
 msgid "Secretary"
-msgstr "Sekretär(in)"
+msgstr "Sekretr(in)"
 
 msgid "Only read"
 msgstr "Nur lesen"
@@ -2128,12 +2123,12 @@ msgid "This delegate has the following permissions"
 msgstr "Dieser Stellvertreter hat folgende Berechtigungen"
 
 msgid "Delegate can see my private items."
-msgstr "Der Stellvertreter kann private Einträge sehen."
+msgstr "Der Stellvertreter kann private Eintrge sehen."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr ""
-"Der Stellvertreter erhält Kopien von einladungsrelevanten Nachrichten, die "
-"an mich verschickt wurden."
+"Der Stellvertreter erhlt Kopien von einladungsrelevanten Nachrichten, die an "
+"mich verschickt wurden."
 
 msgid "Other"
 msgstr "Andere"
@@ -2145,7 +2140,7 @@ msgid "Loading delegates"
 msgstr "Lade Stellvertreter"
 
 msgid "Please select a delegate."
-msgstr "Bitte wählen Sie einen Stellvertreter."
+msgstr "Bitte whlen Sie einen Stellvertreter."
 
 msgid "Delegates can send items on your behalf."
 msgstr "Ein Vertreter kann Nachrichten in deinem Auftrag versenden."
@@ -2154,8 +2149,8 @@ msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
-"Wenn Sie lediglich Ordnerfreigaben erstellen wollen können Sie dies auch im "
-"Kontextmenü des Ordner unter \"Ordner freigeben\" verwalten"
+"Wenn Sie lediglich Ordnerfreigaben erstellen wollen knnen Sie dies auch im "
+"Kontextmen des Ordner unter \"Ordner freigeben\" verwalten"
 
 # 90%
 msgid "Permission"
@@ -2178,11 +2173,11 @@ msgstr "Zielverzeichnis"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "Es ist {0} Nachricht ausgewählt."
-msgstr[1] "Es sind {0} Nachrichten ausgewählt."
+msgstr[0] "Es ist {0} Nachricht ausgewhlt."
+msgstr[1] "Es sind {0} Nachrichten ausgewhlt."
 
 msgid "Folder '{0}' selected."
-msgstr "Ordner \"{0}\" ausgewählt."
+msgstr "Ordner \"{0}\" ausgewhlt."
 
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
@@ -2211,7 +2206,7 @@ msgid "This week"
 msgstr "Diese Woche"
 
 msgid "Next week"
-msgstr "Nächste Woche"
+msgstr "Nchste Woche"
 
 # 87%
 msgid "Custom"
@@ -2233,10 +2228,10 @@ msgid "this week"
 msgstr "Diese Woche"
 
 msgid "next week"
-msgstr "Nächste Woche"
+msgstr "Nchste Woche"
 
 msgid "Edit recipient"
-msgstr "Empfänger bearbeiten"
+msgstr "Empfnger bearbeiten"
 
 msgid "Copy email address"
 msgstr "E-Mail-Adresse kopieren"
@@ -2252,7 +2247,7 @@ msgid "Set as resource"
 msgstr "Als Ressource kennzeichnen"
 
 msgid "Select attendees"
-msgstr "Teilnehmer auswählen"
+msgstr "Teilnehmer auswhlen"
 
 msgid "Suggested Times"
 msgstr "Vorgeschlagene Zeiten"
@@ -2268,7 +2263,7 @@ msgstr "Keine Information"
 
 # 82%
 msgid "Show non-working hours"
-msgstr "Stunden außerhalb der Arbeitszeit anzeigen"
+msgstr "Stunden auerhalb der Arbeitszeit anzeigen"
 
 # 82%
 # 81%
@@ -2277,10 +2272,10 @@ msgstr "Nur meine Arbeitsstunden anzeigen"
 
 msgid "No freebusy information available for this date"
 msgstr ""
-"Für dieses Datum sind keine Belegungsinformationen (frei/gebucht) vorhanden"
+"Fr dieses Datum sind keine Belegungsinformationen (frei/gebucht) vorhanden"
 
 msgid "No suggestions available"
-msgstr "Keine Vorschläge vorhanden"
+msgstr "Keine Vorschlge vorhanden"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
 msgstr ""
@@ -2299,7 +2294,7 @@ msgid "All views"
 msgstr "Alle Ansichten"
 
 msgid "Close tab"
-msgstr "Tab schließen"
+msgstr "Tab schlieen"
 
 msgid "Print item"
 msgstr "Element drucken"
@@ -2314,7 +2309,7 @@ msgid "Send an item e.g. mail, meeting request, etc."
 msgstr "Element senden, z.B. E-Mail, Termineinladung, usw."
 
 msgid "Select all items"
-msgstr "Alle Elemente auswählen"
+msgstr "Alle Elemente auswhlen"
 
 msgid "Extend the selection to the first item in the list"
 msgstr "Erweitern Sie die Auswahl auf das erste Element in der Liste"
@@ -2324,60 +2319,60 @@ msgstr "Erweitern Sie die Auswahl auf das letzte Element in der Liste"
 
 # 77%
 msgid "Open selected item"
-msgstr "Ausgewähltes Element öffnen"
+msgstr "Ausgewhltes Element ffnen"
 
 msgid "Open dialog to categorize selected item"
-msgstr "Dialog zur Kategorisierung öffnen"
+msgstr "Dialog zur Kategorisierung ffnen"
 
 msgid "Print list"
 msgstr "Liste drucken"
 
 # 78%
 msgid "Print selected item"
-msgstr "Ausgewähltes Element drucken"
+msgstr "Ausgewhltes Element drucken"
 
 msgid "Open copy/move dialog"
-msgstr "Kopieren/Verschieben-Dialog öffnen"
+msgstr "Kopieren/Verschieben-Dialog ffnen"
 
 # 77%
 # 75%
 # 100%
 msgid "Delete selected item"
-msgstr "Ausgewähltes Element löschen"
+msgstr "Ausgewhltes Element lschen"
 
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
 msgstr ""
-"Das ausgewählte Element löschen, ohne es in den Ordner \"Gelöschte Objekte\" "
-"zu verschieben. Das gelöschte Element kann wiederhergestellt werden."
+"Das ausgewhlte Element lschen, ohne es in den Ordner \"Gelschte Objekte\" zu "
+"verschieben. Das gelschte Element kann wiederhergestellt werden."
 
 msgid "Add/Edit Cc recipient"
-msgstr "Cc Empfänger Hinzufügen/bearbeiten"
+msgstr "Cc Empfnger Hinzufgen/bearbeiten"
 
 msgid "Duplicate recipient"
-msgstr "Doppelter Empfänger"
+msgstr "Doppelter Empfnger"
 
 msgid "Recipient already exists."
-msgstr "Der Empfänger existiert bereits."
+msgstr "Der Empfnger existiert bereits."
 
 msgid "Disable for new mail"
-msgstr "Für neue E-Mails abschalten"
+msgstr "Fr neue E-Mails abschalten"
 
 msgid "Enable for new mail"
-msgstr "Für neue E-Mails einschalten"
+msgstr "Fr neue E-Mails einschalten"
 
 msgid "Disable for replies"
-msgstr "Für Antworten ausschalten"
+msgstr "Fr Antworten ausschalten"
 
 msgid "Enable for replies"
-msgstr "Für Antworten einschalten"
+msgstr "Fr Antworten einschalten"
 
 msgid "No Cc recipient configured"
-msgstr "Kein Cc Empfänger konfiguriert"
+msgstr "Kein Cc Empfnger konfiguriert"
 
 msgid "Loading Cc recipients"
-msgstr "Lade Cc Empfänger"
+msgstr "Lade Cc Empfnger"
 
 # 88%
 # 100%
@@ -2389,23 +2384,23 @@ msgstr "Neue E-Mail"
 
 # 80%
 msgid "Please select a Cc recipient record."
-msgstr "Bitte wählen Sie einen Cc Empfänger aus."
+msgstr "Bitte whlen Sie einen Cc Empfnger aus."
 
 msgid "Manage Cc recipients"
-msgstr "Cc Empfänger verwalten"
+msgstr "Cc Empfnger verwalten"
 
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
-"Cc Empfänger können verwendet werden, um einen standard Cc Benutzer für neue "
-"E-Mails, Antworten oder beides festzulegen."
+"Cc Empfnger knnen verwendet werden, um einen standard Cc Benutzer fr neue E-"
+"Mails, Antworten oder beides festzulegen."
 
 msgid "Following recipients are already exists"
-msgstr "Die folgenden Empfänger existieren bereits"
+msgstr "Die folgenden Empfnger existieren bereits"
 
 msgid "Duplicate recipients"
-msgstr "Doppelte Empfänger"
+msgstr "Doppelte Empfnger"
 
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp drucken"
@@ -2427,12 +2422,12 @@ msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
 msgstr ""
-"Die Verteilerliste wird durch ihre Mitglieder ersetzt. Sie kann anschließend "
+"Die Verteilerliste wird durch ihre Mitglieder ersetzt. Sie kann anschlieend "
 "nicht mehr zusammengeklappt werden."
 
 # 92%
 msgid "Edit Recipient"
-msgstr "Empfänger bearbeiten"
+msgstr "Empfnger bearbeiten"
 
 msgid "Copy email addresses"
 msgstr "E-Mail-Adresse kopieren"
@@ -2441,10 +2436,10 @@ msgid "Send email"
 msgstr "E-Mail senden"
 
 msgid "Delete recipient from suggestion list"
-msgstr "Empfänger von der Liste mit Empfehlungen löschen"
+msgstr "Empfnger von der Liste mit Empfehlungen lschen"
 
 msgid "View recipient"
-msgstr "Empfänger anzeigen"
+msgstr "Empfnger anzeigen"
 
 msgid "Weekday"
 msgstr "Arbeitstag"
@@ -2497,27 +2492,27 @@ msgid "Remove Recurrence"
 msgstr "Serie entfernen"
 
 msgid "Reset recurring"
-msgstr "Terminserie zurücksetzen"
+msgstr "Terminserie zurcksetzen"
 
 msgid "This will reset every exception. Do you want to continue?"
 msgstr ""
-"Diese Aktion wird jede Ausnahme dieser Terminserie rückgängig machen. "
-"Möchten Sie wirklich fortfahren?"
+"Diese Aktion wird jede Ausnahme dieser Terminserie rckgngig machen. Mchten "
+"Sie wirklich fortfahren?"
 
 msgid "Task Recurrence"
 msgstr "Aufgabenserie"
 
 msgid "Daily"
-msgstr "Täglich"
+msgstr "Tglich"
 
 msgid "Weekly"
-msgstr "Wöchentlich"
+msgstr "Wchentlich"
 
 msgid "Monthly"
 msgstr "Monatlich"
 
 msgid "Yearly"
-msgstr "Jährlich"
+msgstr "Jhrlich"
 
 msgid "Range of recurrence"
 msgstr "Seriendauer"
@@ -2560,7 +2555,7 @@ msgid "Info"
 msgstr "Informationen"
 
 msgid "Not supported at the moment."
-msgstr "Wird momentan nicht unterstützt."
+msgstr "Wird momentan nicht untersttzt."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
@@ -2575,24 +2570,24 @@ msgid "There are no reminders"
 msgstr "Es gibt keine Erinnerungen"
 
 msgid "Due In"
-msgstr "Fällig in"
+msgstr "Fllig in"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
-msgstr "Fällig"
+msgstr "Fllig"
 
 # 92%
 msgid "Reminder time"
 msgstr "Erinnerungszeit"
 
 msgid "Dismiss All"
-msgstr "Alle schließen"
+msgstr "Alle schlieen"
 
 msgid "Open Item"
-msgstr "Element öffnen"
+msgstr "Element ffnen"
 
 msgid "Dismiss"
-msgstr "Schließen"
+msgstr "Schlieen"
 
 msgid "Click Snooze to be reminded again in"
 msgstr "Erneut erinnern in"
@@ -2603,11 +2598,11 @@ msgstr "Erneut erinnern"
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] "{0} Erinnerung ausgewählt."
-msgstr[1] "{0} Erinnerungen ausgewählt."
+msgstr[0] "{0} Erinnerung ausgewhlt."
+msgstr[1] "{0} Erinnerungen ausgewhlt."
 
 msgid "Restore Softdeleted Items"
-msgstr "Gelöschte Elemente wiederherstellen"
+msgstr "Gelschte Elemente wiederherstellen"
 
 msgid "Restore From {0}"
 msgstr "Von {0} wiederherstellen"
@@ -2619,10 +2614,10 @@ msgid "Restore All"
 msgstr "Alle wiederherstellen"
 
 msgid "Permanent Delete"
-msgstr "Endgültig löschen"
+msgstr "Endgltig lschen"
 
 msgid "Delete All"
-msgstr "Alles löschen"
+msgstr "Alles lschen"
 
 # 75%
 # 100%
@@ -2630,16 +2625,16 @@ msgid "Messages"
 msgstr "Nachrichten"
 
 msgid "Delete all items"
-msgstr "Alle Elemente löschen"
+msgstr "Alle Elemente lschen"
 
 msgid "Are you sure you want to permanently delete all items?"
-msgstr "Sind Sie sicher, dass Sie alle Elemente endgültig löschen möchten?"
+msgstr "Sind Sie sicher, dass Sie alle Elemente endgltig lschen mchten?"
 
 msgid "Restore all items"
 msgstr "Alle Elemente wiederherstellen"
 
 msgid "Are you sure you want to restore all items?"
-msgstr "Sind Sie sicher, dass Sie alle Elemente wiederherstellen möchten?"
+msgstr "Sind Sie sicher, dass Sie alle Elemente wiederherstellen mchten?"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
@@ -2647,13 +2642,13 @@ msgstr[0] "Insgesamt {0} wiederherstellbares Element"
 msgstr[1] "Insgesamt {0} wiederherstellbare Elemente"
 
 msgid "Deleted On"
-msgstr "Gelöscht am"
+msgstr "Gelscht am"
 
 # 81%
 # 84%
 # 78%
 msgid "Sort by: Deleted On"
-msgstr "Sortieren nach: Gelöscht am"
+msgstr "Sortieren nach: Gelscht am"
 
 msgid "Item Count"
 msgstr "Anzahl Elemente"
@@ -2672,13 +2667,13 @@ msgid "Sort by: Received"
 msgstr "Sortieren nach: Erhalten"
 
 msgid "Size"
-msgstr "Größe"
+msgstr "Gre"
 
 # 81%
 # 75%
 # 76%
 msgid "Sort by: Size"
-msgstr "Sortieren nach: Größe"
+msgstr "Sortieren nach: Gre"
 
 msgid "Move the message to folder..."
 msgstr "Nachricht in Ordner verschieben..."
@@ -2687,7 +2682,7 @@ msgid "Copy the message to folder..."
 msgstr "Nachricht in Ordner kopieren..."
 
 msgid "Delete the message"
-msgstr "Nachricht löschen"
+msgstr "Nachricht lschen"
 
 msgid "Redirect the message to..."
 msgstr "Nachricht umleiten an..."
@@ -2705,29 +2700,29 @@ msgid "is received from..."
 msgstr "Erhalten von..."
 
 msgid "includes these words in the sender's address..."
-msgstr "Enthält die folgenden Wörter in der Absenderadresse..."
+msgstr "Enthlt die folgenden Wrter in der Absenderadresse..."
 
 msgid "includes these words in the recipient's address..."
-msgstr "Enthält die folgenden Wörter in der Empfängeradresse..."
+msgstr "Enthlt die folgenden Wrter in der Empfngeradresse..."
 
 msgid "includes these words in the subject..."
-msgstr "Enthält diese Wörter im Betreff..."
+msgstr "Enthlt diese Wrter im Betreff..."
 
 # 84%
 # 100%
 msgid "includes these words in the body..."
-msgstr "Enthält diese Wörter im Text..."
+msgstr "Enthlt diese Wrter im Text..."
 
 # 84%
 # 100%
 msgid "includes these words in the transport-headers..."
-msgstr "Enthält diese Wörter in den Transportkopf..."
+msgstr "Enthlt diese Wrter in den Transportkopf..."
 
 msgid "has importance..."
 msgstr "als wichtig markiert..."
 
 msgid "has an attachment"
-msgstr "enthält einen Anhang"
+msgstr "enthlt einen Anhang"
 
 msgid "is sent to..."
 msgstr "wurde gesendet an ..."
@@ -2736,13 +2731,13 @@ msgid "is sent only to me"
 msgstr "Nur an mich gesendet"
 
 msgid "has my name in the Cc field"
-msgstr "enthält meinen Namen im CC-Feld"
+msgstr "enthlt meinen Namen im CC-Feld"
 
 msgid "does not have my name in the To or Cc field"
-msgstr "enthält meinen Namen nicht im An- oder CC-Feld"
+msgstr "enthlt meinen Namen nicht im An- oder CC-Feld"
 
 msgid "has my name in the To or Cc field"
-msgstr "enthält meinen Namen im An- oder CC-Feld"
+msgstr "enthlt meinen Namen im An- oder CC-Feld"
 
 msgid "has sensitivity..."
 msgstr "ist vertraulich..."
@@ -2754,31 +2749,31 @@ msgid "is received before..."
 msgstr "wurde empfangen vor dem..."
 
 msgid "size is at least..."
-msgstr "hat mindestens die folgende Grö­ße..."
+msgstr "hat mindestens die folgende Gre..."
 
 msgid "size is at most..."
-msgstr "hat maximal die folgende Grö­ße..."
+msgstr "hat maximal die folgende Gre..."
 
 msgid "has my name in the To field"
-msgstr "enthält meinen Namen im An-Feld"
+msgstr "enthlt meinen Namen im An-Feld"
 
 msgid "is received (all messages)"
 msgstr "wurde empfangen (alle Nachrichten)"
 
 msgid "Select one..."
-msgstr "Auswählen ..."
+msgstr "Auswhlen ..."
 
 msgid "Unknown condition"
 msgstr "Unbekannte Bedingung"
 
 msgid "This condition for the current rule is unknown"
-msgstr "Die Bedingung für die ausgewählte Regel ist unbekannt"
+msgstr "Die Bedingung fr die ausgewhlte Regel ist unbekannt"
 
 msgid "Unnamed folder"
 msgstr "Unbenannter Ordner"
 
 msgid "Add action"
-msgstr "Aktion hinzufügen"
+msgstr "Aktion hinzufgen"
 
 msgid "Remove action"
 msgstr "Aktion entfernen"
@@ -2787,10 +2782,10 @@ msgid "Unknown action"
 msgstr "Unbekannte Aktion"
 
 msgid "This action for the current rule is unknown"
-msgstr "Die Aktion ist für die ausgewählte Regel unbekannt"
+msgstr "Die Aktion ist fr die ausgewhlte Regel unbekannt"
 
 msgid "Add condition"
-msgstr "Bedingung hinzufügen"
+msgstr "Bedingung hinzufgen"
 
 msgid "Remove condition"
 msgstr "Bedingung entfernen"
@@ -2805,7 +2800,7 @@ msgid "When the message"
 msgstr "Falls die Nachricht"
 
 msgid "Do the following"
-msgstr "Folgende Aktion ausführen"
+msgstr "Folgende Aktion ausfhren"
 
 msgid "Exceptions"
 msgstr "Ausnahmen"
@@ -2817,7 +2812,7 @@ msgid "Stop processing more rules"
 msgstr "Keine weiteren Regeln anwenden"
 
 msgid "Add exception"
-msgstr "Ausnahme hinzufügen"
+msgstr "Ausnahme hinzufgen"
 
 msgid "Remove exception"
 msgstr "Ausnahme entfernen"
@@ -2835,8 +2830,8 @@ msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
 msgstr ""
-"Verteilerlisten werden innerhalb von Regeln nicht unterstützt. Möchten Sie "
-"diese durch die einzelnen Empfänger ersetzen?"
+"Verteilerlisten werden innerhalb von Regeln nicht untersttzt. Mchten Sie "
+"diese durch die einzelnen Empfnger ersetzen?"
 
 msgid "or"
 msgstr "oder"
@@ -2860,25 +2855,25 @@ msgstr "Lade Regeln"
 
 # 76%
 msgid "Please select a rule."
-msgstr "Bitte wählen Sie eine Regel aus."
+msgstr "Bitte whlen Sie eine Regel aus."
 
 msgid "Rule already has highest priority."
-msgstr "Die Regel hat schon die höchste Priorität."
+msgstr "Die Regel hat schon die hchste Prioritt."
 
 msgid "Rule already has lowest priority."
-msgstr "Die Regel hat schon die niedrigste Priorität."
+msgstr "Die Regel hat schon die niedrigste Prioritt."
 
 msgid "myself"
 msgstr "mich selbst"
 
 msgid "Update rules for"
-msgstr "Regeln ändern für"
+msgstr "Regeln ndern fr"
 
 msgid "Apply changes"
-msgstr "Änderungen übernehmen"
+msgstr "nderungen bernehmen"
 
 msgid "Do you wish to apply the changes?"
-msgstr "Möchten Sie die Änderungen übernehmen?"
+msgstr "Mchten Sie die nderungen bernehmen?"
 
 msgid "All folders"
 msgstr "Alle Ordner"
@@ -2896,11 +2891,11 @@ msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
-"Der Ordner, in dem Sie suchen wollen, existiert nicht mehr. Bitte wählen Sie "
+"Der Ordner, in dem Sie suchen wollen, existiert nicht mehr. Bitte whlen Sie "
 "einen anderen"
 
 msgid "Add/Edit sender"
-msgstr "Versender hinzufügen/ändern"
+msgstr "Versender hinzufgen/ndern"
 
 msgid "No from addresses configured"
 msgstr "Keine Adresse konfiguriert"
@@ -2909,18 +2904,18 @@ msgid "Loading from addresses"
 msgstr "Lade Absenderadressen"
 
 msgid "Please select a from address record."
-msgstr "Bitte wählen Sie eine Absenderadresse."
+msgstr "Bitte whlen Sie eine Absenderadresse."
 
 msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
-msgstr "Verwalten Sie die Adresse mit denen Sie E-Mails versenden können."
+msgstr "Verwalten Sie die Adresse mit denen Sie E-Mails versenden knnen."
 
 msgid "View"
 msgstr "Ansicht"
 
 msgid "Please select a sendas record."
-msgstr "Bitte wählen Sie einen \"Senden als\"-Eintrag."
+msgstr "Bitte whlen Sie einen \"Senden als\"-Eintrag."
 
 msgid "Delegates"
 msgstr "Stellvertreter"
@@ -2937,12 +2932,12 @@ msgid "From Addresses"
 msgstr "Absenderadressen"
 
 msgid "From Addresses settings"
-msgstr "Einstellung für Absenderadressen"
+msgstr "Einstellung fr Absenderadressen"
 
 # 88%
 # 100%
 msgid "Full name"
-msgstr "Vollständiger Name"
+msgstr "Vollstndiger Name"
 
 msgid "Job Title"
 msgstr "Position"
@@ -2954,7 +2949,7 @@ msgstr "Telefonnummern"
 # 80%
 # 75%
 msgid "Business Fax"
-msgstr "Fax geschäftlich"
+msgstr "Fax geschftlich"
 
 msgid "Webpage"
 msgstr "Webseite"
@@ -2968,8 +2963,8 @@ msgstr "D, d.m.Y G:i"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
-msgstr[0] "{0} ausgewählte Zeile"
-msgstr[1] "{0} ausgewählte Zeilen"
+msgstr[0] "{0} ausgewhlte Zeile"
+msgstr[1] "{0} ausgewhlte Zeilen"
 
 msgid "Reminder is set on: {0}, {1}"
 msgstr "Erinnerung ist auf {0}, {1} gesetzt"
@@ -2990,7 +2985,7 @@ msgid "Meeting Organizer"
 msgstr "Organisator"
 
 msgid "{0} overdue"
-msgstr "{0} überfällig"
+msgstr "{0} berfllig"
 
 msgid "Loading..."
 msgstr "Laden ..."
@@ -3002,16 +2997,16 @@ msgstr "Fehlgeschlagen"
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
 msgid "Attachments"
-msgstr "Anhänge"
+msgstr "Anhnge"
 
 msgid "Download Pictures"
 msgstr "Bilder herunterladen"
 
 msgid "Add Sender to Safe Senders List"
-msgstr "Den Sender der Liste der sicheren Absender hinzufügen"
+msgstr "Den Sender der Liste der sicheren Absender hinzufgen"
 
 msgid "Add Domain to Safe Senders List"
-msgstr "Die Domain der Liste der sicheren Absender hinzufügen"
+msgstr "Die Domain der Liste der sicheren Absender hinzufgen"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
@@ -3035,7 +3030,7 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, WebApp "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Hier klicken, um die Bilder herunterzuladen. Um die Privatsphäre zu schützen "
+"Hier klicken, um die Bilder herunterzuladen. Um die Privatsphre zu schtzen "
 "hat WebApp den automatischen Download mancher Bilder in dieser Nachricht "
 "unterbunden."
 
@@ -3044,7 +3039,7 @@ msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
 msgstr ""
-"Diese Nachricht ist beschädigt und wird daher nicht richtig angezeigt. Bitte "
+"Diese Nachricht ist beschdigt und wird daher nicht richtig angezeigt. Bitte "
 "klicken Sie hier, um dies zu reparieren."
 
 msgctxt "mail.previewpanel"
@@ -3081,7 +3076,7 @@ msgid ""
 "meeting."
 msgstr ""
 "{0} hat im Auftrag von {1} vorbehaltlich akzeptiert und hat eine neue Zeit "
-"für diese Anfrage vorgeschlagen."
+"fr diese Anfrage vorgeschlagen."
 
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
@@ -3090,14 +3085,14 @@ msgstr "{0} hat abgelehnt und eine neue Zeit vorgeschlagen."
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
 msgstr ""
-"{0} hat im Auftrag von {1} abgelehnt und hat eine neue Zeit für diese "
-"Anfrage vorgeschlagen."
+"{0} hat im Auftrag von {1} abgelehnt und hat eine neue Zeit fr diese Anfrage "
+"vorgeschlagen."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
 msgstr ""
-"Der Termin ist nicht im Kalender eingetragen. Er wurde möglicherweise "
-"verschoben oder gelöscht."
+"Der Termin ist nicht im Kalender eingetragen. Er wurde mglicherweise "
+"verschoben oder gelscht."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3105,11 +3100,11 @@ msgid ""
 "open the latest update or open the item from the calendar."
 msgstr ""
 "Die Besprechungsanfrage wurde nach dem Senden aktualisiert. Sie sollten die "
-"neueste Anfrage öffnen, oder den Termin im Kalender öffnen."
+"neueste Anfrage ffnen, oder den Termin im Kalender ffnen."
 
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr "Als Organisator müssen Sie nicht auf die Besprechungsanfrage antworten"
+msgstr "Als Organisator mssen Sie nicht auf die Besprechungsanfrage antworten"
 
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
@@ -3129,11 +3124,11 @@ msgstr "Bitte antworten."
 
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr "Dies ist eine Aktualisierung für eine zuvor gesendete Termineinladung."
+msgstr "Dies ist eine Aktualisierung fr eine zuvor gesendete Termineinladung."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "Empfangen für {0}."
+msgstr "Empfangen fr {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
@@ -3155,7 +3150,7 @@ msgid "Assigned by {0} on {1}."
 msgstr "Von {0} am {1} zugewiesen."
 
 msgid "Waiting for response from recipient"
-msgstr "Warte auf Antwort von Empfänger"
+msgstr "Warte auf Antwort von Empfnger"
 
 msgid "Accepted by {0} on {1}."
 msgstr "Von {0} am {1} akzeptiert."
@@ -3181,7 +3176,7 @@ msgstr "Nachricht reparieren"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
-"Es wird nun versucht, eine beschädigte Nachricht zu reparieren. Möchten Sie "
+"Es wird nun versucht, eine beschdigte Nachricht zu reparieren. Mchten Sie "
 "fortfahren?"
 
 msgid "d-m-Y g:i a"
@@ -3212,7 +3207,7 @@ msgstr "Kategorien"
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "Recipients"
-msgstr "Empfänger"
+msgstr "Empfnger"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
 msgctxt "mail.previewpanel"
@@ -3262,7 +3257,7 @@ msgid "Sort by: Job Title"
 msgstr "Nach Position sortieren"
 
 msgid "Full Name"
-msgstr "Vollständiger Name"
+msgstr "Vollstndiger Name"
 
 msgid "Department Name"
 msgstr "Abteilung"
@@ -3271,17 +3266,17 @@ msgid "Home Address"
 msgstr "Privatadresse"
 
 msgid "Business Address"
-msgstr "Geschäftsadresse"
+msgstr "Geschftsadresse"
 
 msgid "Other Address"
 msgstr "Weitere Adresse"
 
 msgid "Business Phone"
-msgstr "Telefon geschäftlich"
+msgstr "Telefon geschftlich"
 
 # 87%
 msgid "Business 2 Phone"
-msgstr "Geschäftlich 2"
+msgstr "Geschftlich 2"
 
 # 88%
 msgid "Assistant Phone"
@@ -3301,7 +3296,7 @@ msgid "Radio"
 msgstr "Funkruf"
 
 msgid "Callback Phone"
-msgstr "Rückruftelefon"
+msgstr "Rckruftelefon"
 
 msgid "Other Phone"
 msgstr "Andere Telefonnummern"
@@ -3369,7 +3364,7 @@ msgstr "Name der Verteilerliste"
 # 78%
 # 75%
 msgid "Open Shared Contacts"
-msgstr "Gemeinsame Kontakte öffnen"
+msgstr "Gemeinsame Kontakte ffnen"
 
 msgid "Business Cards"
 msgstr "Visitenkarte"
@@ -3378,14 +3373,14 @@ msgid "Phone List"
 msgstr "Telefonliste"
 
 msgid "Add to contacts"
-msgstr "Zu Kontakten hinzufügen"
+msgstr "Zu Kontakten hinzufgen"
 
 # 77%
 msgid "Print selected contact"
 msgstr "Diesen Kontakt drucken"
 
 msgid "No contact selected"
-msgstr "Kein Kontakt ausgewählt"
+msgstr "Kein Kontakt ausgewhlt"
 
 msgid "Distribution list"
 msgstr "Verteilerliste"
@@ -3394,7 +3389,7 @@ msgid "Dr."
 msgstr "Dr."
 
 msgid "Miss"
-msgstr "Fräulein"
+msgstr "Frulein"
 
 msgid "Mr."
 msgstr "Herr"
@@ -3418,10 +3413,10 @@ msgid "Phone number"
 msgstr "Telefonnummer"
 
 msgid "Check address"
-msgstr "Adresse überprüfen"
+msgstr "Adresse berprfen"
 
 msgid "Street"
-msgstr "Straße"
+msgstr "Strae"
 
 msgid "State/Province"
 msgstr "Bundesland/Kanton"
@@ -3434,14 +3429,14 @@ msgstr "Land/Region"
 
 # 88%
 msgid "Show this again when address is incomplete or unclear."
-msgstr "Diesen Dialog einblenden, wenn Name unvollständig oder unklar ist."
+msgstr "Diesen Dialog einblenden, wenn Name unvollstndig oder unklar ist."
 
 msgid "Details"
 msgstr "Details"
 
 # 93%
 msgid "Office location"
-msgstr "Bürostandort"
+msgstr "Brostandort"
 
 # 78%
 msgid "Manager's name"
@@ -3469,14 +3464,14 @@ msgid "Addresses"
 msgstr "Adressen"
 
 msgid "Additional information"
-msgstr "Zusätzliche Informationen"
+msgstr "Zustzliche Informationen"
 
 # 80%
 msgid "Business 2"
-msgstr "Geschäftlich 2"
+msgstr "Geschftlich 2"
 
 msgid "Callback"
-msgstr "Rückruf"
+msgstr "Rckruf"
 
 # 75%
 msgid "Car"
@@ -3487,23 +3482,23 @@ msgid "Home 2"
 msgstr "Privat 2"
 
 msgid "Primary"
-msgstr "Primär"
+msgstr "Primr"
 
 msgid "TTY/TDD"
 msgstr "Texttelefon"
 
 # 80%
 msgid "Check full name"
-msgstr "Namen überprüfen"
+msgstr "Namen berprfen"
 
 msgid "Middle"
 msgstr "Weitere Vornamen"
 
 msgid "Show this again when name is incomplete or unclear."
-msgstr "Dies wieder anzeigen, wenn der Name unvollständig oder unklar ist."
+msgstr "Dies wieder anzeigen, wenn der Name unvollstndig oder unklar ist."
 
 msgid "Check phone number"
-msgstr "Telefonnummer prüfen"
+msgstr "Telefonnummer prfen"
 
 # 80%
 msgid "Country/Region code"
@@ -3521,11 +3516,11 @@ msgid "Extension"
 msgstr "Durchwahl"
 
 msgid "Add Attachment"
-msgstr "Anhang hinzufügen"
+msgstr "Anhang hinzufgen"
 
 # 81%
 msgid "Add attachments to this contact"
-msgstr "Diesem Kontakt Anhänge hinzufügen"
+msgstr "Diesem Kontakt Anhnge hinzufgen"
 
 # 75%
 msgid "Mark this contact as private"
@@ -3542,16 +3537,16 @@ msgid "New email address"
 msgstr "Neue E-Mail-Adresse"
 
 msgid "Please enter a valid email address"
-msgstr "Bitte geben sie ein gültige E-Mail-Adresse ein"
+msgstr "Bitte geben sie ein gltige E-Mail-Adresse ein"
 
 msgid "Select Members"
-msgstr "Mitglieder auswählen"
+msgstr "Mitglieder auswhlen"
 
 msgid "Add New"
-msgstr "Hinzufügen"
+msgstr "Hinzufgen"
 
 msgid "Type your note here..."
-msgstr "Fügen Sie hier Notizen ein ..."
+msgstr "Fgen Sie hier Notizen ein ..."
 
 msgid "New contact"
 msgstr "Neuer Kontakt"
@@ -3582,7 +3577,7 @@ msgid "Work"
 msgstr "Arbeit"
 
 msgid "Sort by: Full Name"
-msgstr "Sortieren nach: Vollständiger Name"
+msgstr "Sortieren nach: Vollstndiger Name"
 
 msgid "Sort by: Email Address 2"
 msgstr "Sortieren nach: E-Mail Adresse 2"
@@ -3597,19 +3592,19 @@ msgid "Sort by: Mobile Phone"
 msgstr "Sortieren nach: Mobiltelefon"
 
 msgid "Sort by: Business Phone"
-msgstr "Sortieren nach: Telefon geschäftlich"
+msgstr "Sortieren nach: Telefon geschftlich"
 
 msgid "Sort by: Business Fax"
-msgstr "Sortieren nach: Fax geschäftlich"
+msgstr "Sortieren nach: Fax geschftlich"
 
 msgid "Sort by: Department Name"
 msgstr "Sortieren nach: Abteilung"
 
 msgid "Office Location"
-msgstr "Bürostandort"
+msgstr "Brostandort"
 
 msgid "Sort by: Office Location"
-msgstr "Sortieren nach: Bürostandort"
+msgstr "Sortieren nach: Brostandort"
 
 msgid "Sort by: Profession"
 msgstr "Sortieren nach: Beruf"
@@ -3639,13 +3634,13 @@ msgid "Sort by: Anniversary"
 msgstr "Nach Jahrestag sortieren"
 
 msgid "Sort by: Business Address"
-msgstr "Sortieren nach: Geschäftsadresse"
+msgstr "Sortieren nach: Geschftsadresse"
 
 msgid "Sort by: Home Address"
 msgstr "Sortieren nach: Privatadresse"
 
 msgid "Sort by: Office Address"
-msgstr "Sortieren nach: Büroadresse"
+msgstr "Sortieren nach: Broadresse"
 
 msgid "Mailing Address"
 msgstr "Postanschrift"
@@ -3668,13 +3663,13 @@ msgstr "Sortieren nach: Telefon Assistent"
 
 # 87%
 msgid "Business Phone 2"
-msgstr "Telefon Geschäftlich 2"
+msgstr "Telefon Geschftlich 2"
 
 msgid "Sort by: Business Phone 2"
-msgstr "Sortieren nach: Telefon Geschäftlich 2"
+msgstr "Sortieren nach: Telefon Geschftlich 2"
 
 msgid "Sort by: Callback"
-msgstr "Sortieren nach: Rückruf"
+msgstr "Sortieren nach: Rckruf"
 
 # 78%
 msgid "Sort by: Car Phone"
@@ -3719,7 +3714,7 @@ msgid "Sort by: Telex Phone"
 msgstr "Sortieren nach: Telefon Telex"
 
 msgid "Change Picture"
-msgstr "Bild ändern"
+msgstr "Bild ndern"
 
 msgid "Remove Picture"
 msgstr "Bild entfernen"
@@ -3728,14 +3723,14 @@ msgid "VCF file(s)"
 msgstr "VCF Datei(en)"
 
 msgid "Open in new browser window"
-msgstr "In einem eigenen Fenster öffnen"
+msgstr "In einem eigenen Fenster ffnen"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
 msgstr ""
 "Ihr Browser scheint ein oder mehrere Pop-Up-Fenster blockiert zu haben. "
-"Bitte überprüfen Sie die Einstellungen Ihres Browsers."
+"Bitte berprfen Sie die Einstellungen Ihres Browsers."
 
 msgid "Untitled"
 msgstr "Unbenannt"
@@ -3744,7 +3739,7 @@ msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
 "the message"
 msgstr ""
-"Der Anhang konnte nicht hochgeladen werden. Es sind nur {0} Anhänge erlaubt"
+"Der Anhang konnte nicht hochgeladen werden. Es sind nur {0} Anhnge erlaubt"
 
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
@@ -3756,22 +3751,22 @@ msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
-"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgröße ist "
-"{0}, erlaubt sind maximal {1}"
+"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgre ist {0}, "
+"erlaubt sind maximal {1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
 msgstr ""
-"Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhänge "
-"hochzuladen, während nur {1} Anhänge erlaubt sind."
+"Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhnge "
+"hochzuladen, whrend nur {1} Anhnge erlaubt sind."
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
 msgstr ""
-"Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhänge "
-"hochzuladen, während nur {1} Anhänge erlaubt sind."
+"Anlage konnte nicht hochgeladen werden. Sie versuchen, {0} Anhnge "
+"hochzuladen, whrend nur {1} Anhnge erlaubt sind."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -3789,7 +3784,7 @@ msgid "Important"
 msgstr "Wichtig"
 
 msgid "Personal"
-msgstr "Persönlich"
+msgstr "Persnlich"
 
 msgid "Holiday"
 msgstr "Feiertag"
@@ -3827,13 +3822,13 @@ msgid "Blue"
 msgstr "Blau"
 
 msgid "Green"
-msgstr "Grün"
+msgstr "Grn"
 
 msgid "Pink"
 msgstr "Pink"
 
 msgid "White"
-msgstr "Weiß"
+msgstr "Wei"
 
 msgid "Yellow"
 msgstr "Gelb"
@@ -3864,7 +3859,7 @@ msgstr "Wartet auf jemand anderen"
 
 # 87%
 msgid "Deferred"
-msgstr "Zurückgestellt"
+msgstr "Zurckgestellt"
 
 msgid "Dark"
 msgstr "Dunkel"
@@ -3898,22 +3893,22 @@ msgid "Sent successfully"
 msgstr "Erfolgreich gesendet"
 
 msgid "No recipient"
-msgstr "Kein Empfänger"
+msgstr "Kein Empfnger"
 
 msgid "Please specify at least one recipient"
-msgstr "Bitte geben Sie mindestens einen Empfänger an"
+msgstr "Bitte geben Sie mindestens einen Empfnger an"
 
 msgid "Please specify a recipient"
-msgstr "Bitte geben Sie einen Empfänger an"
+msgstr "Bitte geben Sie einen Empfnger an"
 
 msgid "The attached files are not uploaded yet."
-msgstr "Die Anhänge wurden noch nicht vollständig hochgeladen."
+msgstr "Die Anhnge wurden noch nicht vollstndig hochgeladen."
 
 msgid "Do you want to send this message without attachments?"
-msgstr "Möchten Sie die E-Mail ohne Anhänge versenden?"
+msgstr "Mchten Sie die E-Mail ohne Anhnge versenden?"
 
 msgid "Attachments not uploaded yet"
-msgstr "Anhänge sind noch nicht hochgeladen"
+msgstr "Anhnge sind noch nicht hochgeladen"
 
 msgid "Don't Send"
 msgstr "nicht senden"
@@ -3928,10 +3923,10 @@ msgid "Send this message without a subject?"
 msgstr "Diese Nachricht ohne einen Betreff verschicken?"
 
 msgid "Unresolved recipients"
-msgstr "Unaufgelöste Empfänger"
+msgstr "Unaufgelste Empfnger"
 
 msgid "Not all recipients could be resolved"
-msgstr "Nicht alle Empfänger konnten aufgelöst werden"
+msgstr "Nicht alle Empfnger konnten aufgelst werden"
 
 # 86%
 msgid "Collapse hierarchy"
@@ -3969,22 +3964,22 @@ msgstr "Erfolgreich gespeichert"
 msgid ""
 "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr ""
-"Alle ungespeicherten Änderungen gehen verloren. Sind sie sicher, dass Sie "
-"dieses Fenster schließen wollen?"
+"Alle ungespeicherten nderungen gehen verloren. Sind sie sicher, dass Sie "
+"dieses Fenster schlieen wollen?"
 
 msgid "Kopano Content Panel"
-msgstr "Kopano-Übersichtsseite"
+msgstr "Kopano-bersichtsseite"
 
 msgid "Delete item"
-msgstr "Element löschen"
+msgstr "Element lschen"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr ""
-"Dieses Element wurde zwischenzeitlich verändert. Wollen Sie es wirklich "
-"löschen?"
+"Dieses Element wurde zwischenzeitlich verndert. Wollen Sie es wirklich "
+"lschen?"
 
 msgid "Unsaved changes"
-msgstr "Ungespeicherte Änderungen"
+msgstr "Ungespeicherte nderungen"
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Willkommen bei Kopano WebApp"
@@ -3993,7 +3988,7 @@ msgid "This is the first time you are using WebApp. "
 msgstr "Sie verwenden WebApp zum ersten Mal. "
 
 msgid "Please check the following settings before continuing."
-msgstr "Bitte überprüfen Sie die folgenden Einstellungen bevor Sie fortfahren."
+msgstr "Bitte berprfen Sie die folgenden Einstellungen bevor Sie fortfahren."
 
 msgid "Add widgets"
 msgstr "Alle Widgets"
@@ -4014,7 +4009,7 @@ msgid "Expand widget"
 msgstr "Widget erweitern"
 
 msgid "Add new widget"
-msgstr "Widgets hinzufügen"
+msgstr "Widgets hinzufgen"
 
 msgid "Collapse widget panel"
 msgstr "Widgets verstecken"
@@ -4023,7 +4018,7 @@ msgid "Expand widget panel"
 msgstr "Widgets anzeigen"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr "Ihre Änderungen werden beim Schließen dieser Seite verloren gehen."
+msgstr "Ihre nderungen werden beim Schlieen dieser Seite verloren gehen."
 
 # 75%
 # 83%
@@ -4035,27 +4030,27 @@ msgid "D d-m"
 msgstr "D, d.m.Y"
 
 msgid "Insufficient permissions"
-msgstr "Nicht genügend Berechtigungen"
+msgstr "Nicht gengend Berechtigungen"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
 msgstr ""
-"Keine ausreichenden Berechtigungen, um dieses Postfach zu öffnen. Wollen Sie "
+"Keine ausreichenden Berechtigungen, um dieses Postfach zu ffnen. Wollen Sie "
 "es aus der Hierarchie entfernen?"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
 msgstr ""
-"Keine ausreichenden Berechtigungen, um diesen Ordner zu öffnen. Wollen Sie "
+"Keine ausreichenden Berechtigungen, um diesen Ordner zu ffnen. Wollen Sie "
 "ihn aus der Hierarchie entfernen?"
 
 msgid "Insufficient Permissions"
-msgstr "Nicht genügend Berechtigungen"
+msgstr "Nicht gengend Berechtigungen"
 
 msgid "Not enough permissions to open this folder."
-msgstr "Keine ausreichenden Berechtigungen, um diesen Ordner zu öffnen."
+msgstr "Keine ausreichenden Berechtigungen, um diesen Ordner zu ffnen."
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4085,16 +4080,16 @@ msgid "No rights"
 msgstr "Keine Rechte"
 
 msgid "Unable to import:"
-msgstr "Import nicht möglich:"
+msgstr "Import nicht mglich:"
 
 msgid "The files are not valid"
-msgstr "Die Dateien sind ungültig"
+msgstr "Die Dateien sind ungltig"
 
 msgid "Create New Folder"
 msgstr "Einen neuen Ordner erstellen"
 
 msgid "Folder contains"
-msgstr "Ordner enthält"
+msgstr "Ordner enthlt"
 
 msgid "Calendar Items"
 msgstr "Kalender"
@@ -4121,7 +4116,7 @@ msgid "No destination"
 msgstr "Kein Ziel"
 
 msgid "You must select a destination folder."
-msgstr "Sie müssen einen Zielordner angeben."
+msgstr "Sie mssen einen Zielordner angeben."
 
 msgid "Properties"
 msgstr "Eigenschaften"
@@ -4133,10 +4128,10 @@ msgid "Description"
 msgstr "Name"
 
 msgid "Folder size"
-msgstr "Ordnergröße"
+msgstr "Ordnergre"
 
 msgid "Folder containing {0} Items"
-msgstr "Ordner enthält {0} Elemente"
+msgstr "Ordner enthlt {0} Elemente"
 
 msgid "Permissions"
 msgstr "Berechtigungen"
@@ -4148,22 +4143,22 @@ msgid "Profile"
 msgstr "Profil"
 
 msgid "Create items"
-msgstr "Einträge anlegen"
+msgstr "Eintrge anlegen"
 
 msgid "Read items"
-msgstr "Einträge lesen"
+msgstr "Eintrge lesen"
 
 msgid "Create subfolders"
 msgstr "Unterordner erstellen"
 
 msgid "Folder permissions"
-msgstr "Berechtigungen für Ordner"
+msgstr "Berechtigungen fr Ordner"
 
 msgid "Folder visible"
 msgstr "Ordner anzeigen"
 
 msgid "Edit items"
-msgstr "Einträge ändern"
+msgstr "Eintrge ndern"
 
 msgid "Own"
 msgstr "Eigene"
@@ -4172,7 +4167,7 @@ msgid "All"
 msgstr "Alle"
 
 msgid "Delete items"
-msgstr "Einträge löschen"
+msgstr "Eintrge lschen"
 
 msgid "User already exists"
 msgstr "Der Benutzer existiert bereits"
@@ -4182,19 +4177,19 @@ msgstr "Die Gruppe existiert bereits"
 
 # 90%
 msgid "Folder Size"
-msgstr "Ordnergröße"
+msgstr "Ordnergre"
 
 msgid "Folder Name"
 msgstr "Ordnername"
 
 msgid "Size (without subfolders)"
-msgstr "Größe (ohne Unterordner)"
+msgstr "Gre (ohne Unterordner)"
 
 msgid "Total size (including subfolders)"
-msgstr "Gesamtgröße (mit Unterordnern)"
+msgstr "Gesamtgre (mit Unterordnern)"
 
 msgid "Loading subfolder sizes"
-msgstr "Lade Größen der Unterordner"
+msgstr "Lade Gren der Unterordner"
 
 msgid "No subfolders present"
 msgstr "Keine Unterordner vorhanden"
@@ -4207,49 +4202,49 @@ msgid "Sort by: Name of the subfolder"
 msgstr "Sortieren nach: Name des Unterordners"
 
 msgid "Sort by: Size (without subfolders)"
-msgstr "Sortieren nach: Größe (ohne Unterverzeichnisse)"
+msgstr "Sortieren nach: Gre (ohne Unterverzeichnisse)"
 
 msgid "Total size"
-msgstr "Gesamtgröße"
+msgstr "Gesamtgre"
 
 # 78%
 msgid "Sort by: Total size (including subfolders)"
-msgstr "Sortieren nach: Gesamtgröße (mit Unterordnern)"
+msgstr "Sortieren nach: Gesamtgre (mit Unterordnern)"
 
 # 81%
 # 86%
 msgid "Open Shared Folders"
-msgstr "Gemeinsame Ordner öffnen"
+msgstr "Gemeinsame Ordner ffnen"
 
 msgid "Unresolved user"
-msgstr "Benutzer kann nicht aufgelöst werden"
+msgstr "Benutzer kann nicht aufgelst werden"
 
 msgid "Username '{0}' could not be resolved."
 msgstr "Der Benutzername \"{0}\" konnte nicht gefunden werden."
 
 msgid "Invalid user"
-msgstr "Ungültiger Benutzer"
+msgstr "Ungltiger Benutzer"
 
 msgid "Username '{0}' is not a valid user."
-msgstr "Benutzername \"{0}\" ist kein gültiger Benutzer."
+msgstr "Benutzername \"{0}\" ist kein gltiger Benutzer."
 
 msgid "Own store"
 msgstr "Eigener Store"
 
 msgid "It is not possible to open your own store twice."
-msgstr "Es ist nicht möglich, den eigenen Store doppelt zu öffnen."
+msgstr "Es ist nicht mglich, den eigenen Store doppelt zu ffnen."
 
 msgid "Folder already open"
-msgstr "Der Ordner ist bereits geöffnet"
+msgstr "Der Ordner ist bereits geffnet"
 
 msgid "This shared folder is already open."
-msgstr "Der freigegebene Ordner ist bereits geöffnet."
+msgstr "Der freigegebene Ordner ist bereits geffnet."
 
 msgid "No user"
 msgstr "Kein Benutzer"
 
 msgid "You must specify a user"
-msgstr "Sie müssen einen Benutzer angeben"
+msgstr "Sie mssen einen Benutzer angeben"
 
 msgid "Folder type"
 msgstr "Ordnertyp"
@@ -4258,7 +4253,7 @@ msgid "Show subfolders"
 msgstr "Unterordner anzeigen"
 
 msgid "Open shared folder/store"
-msgstr "Gemeinsamen Ordner oder Postfach öffnen"
+msgstr "Gemeinsamen Ordner oder Postfach ffnen"
 
 msgid "Empty folder"
 msgstr "Ordner leeren"
@@ -4268,7 +4263,7 @@ msgstr "Junk-E-Mail Ordner leeren"
 
 # 92%
 msgid "Empty Deleted Items"
-msgstr "Gelöschte Objekte leeren"
+msgstr "Gelschte Objekte leeren"
 
 msgid "Rename Folder"
 msgstr "Ordner umbenennen"
@@ -4280,13 +4275,13 @@ msgid "Mark All Messages Read"
 msgstr "Alle Nachrichten als gelesen markieren"
 
 msgid "Delete Folder"
-msgstr "Ordner löschen"
+msgstr "Ordner lschen"
 
 msgid "Close store"
-msgstr "Postfach schließen"
+msgstr "Postfach schlieen"
 
 msgid "Close folder"
-msgstr "Ordner schließen"
+msgstr "Ordner schlieen"
 
 msgid "Reload"
 msgstr "Neu laden"
@@ -4297,10 +4292,10 @@ msgstr "Elemente wiederherstellen"
 # 76%
 # 100%
 msgid "Select color"
-msgstr "Farbe auswählen"
+msgstr "Farbe auswhlen"
 
 msgid "Add to Favorites"
-msgstr "Den Favoriten hinzufügen"
+msgstr "Den Favoriten hinzufgen"
 
 msgid "Remove From Favorites"
 msgstr "Aus den Favoriten entfernen"
@@ -4330,17 +4325,17 @@ msgid ""
 "the \"{0}\" folder?"
 msgstr ""
 "Sind Sie sicher, dass Sie alle Elemente und Unterordner des Ordners \"{0}\" "
-"endgültig löschen wollen?"
+"endgltig lschen wollen?"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
-"Soll der Ordner \"{0}\" gelöscht und dessen gesamter Inhalt in den Ordner "
-"\"Gelöschte Objekte\" verschoben werden?"
+"Soll der Ordner \"{0}\" gelscht und dessen gesamter Inhalt in den Ordner "
+"\"Gelschte Objekte\" verschoben werden?"
 
 msgid "Delete folder"
-msgstr "Ordner löschen"
+msgstr "Ordner lschen"
 
 msgid "Are you sure you want to empty {0}?"
 msgstr "Sind Sie sicher, dass {0} geleert werden soll?"
@@ -4370,10 +4365,10 @@ msgid "Red"
 msgstr "Rot"
 
 msgid "Original message"
-msgstr "Ursprüngliche Nachricht"
+msgstr "Ursprngliche Nachricht"
 
 msgid "Schedule mail to be sent out"
-msgstr "E-Mail für den Versand einplanen"
+msgstr "E-Mail fr den Versand einplanen"
 
 msgid "Scheduled Items"
 msgstr "Geplante E-Mails"
@@ -4399,10 +4394,10 @@ msgstr "zu einer definierten Zeit"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr ""
 "Die eingegebene Zeit liegt in der Vergangenheit. Bitte planen Sie eine "
-"andere Zeit für den Versand."
+"andere Zeit fr den Versand."
 
 msgid "today  at "
-msgstr "heute um "
+msgstr "heuteum "
 
 msgid "tomorrow  at "
 msgstr "morgen um "
@@ -4438,7 +4433,7 @@ msgstr ""
 "Diese Nachricht wird beim Absenden als zur Nachverfolgung gekennzeichnet."
 
 msgid "Send Later"
-msgstr "Später verschicken"
+msgstr "Spter verschicken"
 
 msgid "Schedule your mail to be sent on a specific date and time"
 msgstr ""
@@ -4447,16 +4442,16 @@ msgstr ""
 
 # 86%
 msgid "Add attachments to this email"
-msgstr "Dieser E-Mail einen Anhang hinzufügen"
+msgstr "Dieser E-Mail einen Anhang hinzufgen"
 
 msgid "Add signature"
-msgstr "Signatur hinzufügen"
+msgstr "Signatur hinzufgen"
 
 msgid "Options"
 msgstr "Optionen"
 
 msgid "Open options dialog"
-msgstr "Optionsdialog öffnen"
+msgstr "Optionsdialog ffnen"
 
 msgid "Set flag"
 msgstr "Zur Nachverfolgung kennzeichnen"
@@ -4465,16 +4460,16 @@ msgid "Set flag on this email"
 msgstr "Diese E-Mail zur Nachverfolgung kennzeichnen"
 
 msgid "Mark this mail as high priority"
-msgstr "Nachricht als mit hoher Priorität markieren"
+msgstr "Nachricht als mit hoher Prioritt markieren"
 
 msgid "Mark this mail as low priority"
-msgstr "Nachricht als mit niedriger Priorität markieren"
+msgstr "Nachricht als mit niedriger Prioritt markieren"
 
 msgid "Set read receipt"
-msgstr "Lesebestätigung einstellen"
+msgstr "Lesebesttigung einstellen"
 
 msgid "Request read receipt from recipients"
-msgstr "Eine Lesebestätigung von den Empfängern fordern"
+msgstr "Eine Lesebesttigung von den Empfngern fordern"
 
 msgid "Show Bcc"
 msgstr "BCC anzeigen"
@@ -4489,7 +4484,7 @@ msgid "No signatures configured"
 msgstr "Keine Signaturen konfiguriert"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr "Es kann nicht gespeichert werden, während ein Anhang hochlädt"
+msgstr "Es kann nicht gespeichert werden, whrend ein Anhang hochldt"
 
 msgid "Miscellaneous Options"
 msgstr "Verschiedene Optionen"
@@ -4507,7 +4502,7 @@ msgid "Tracking Options"
 msgstr "Nachverfolgungsoptionen"
 
 msgid "Request a read receipt for this message."
-msgstr "Eine Lesebestätigung für diese Nachricht anfordern."
+msgstr "Eine Lesebesttigung fr diese Nachricht anfordern."
 
 msgid "no subject"
 msgstr "kein Betreff"
@@ -4541,21 +4536,21 @@ msgid "Toggle read/unread"
 msgstr "Zwischen gelesen und ungelesen wechseln"
 
 msgid "Toggle red/complete flag"
-msgstr "Nachverfolgung ändern"
+msgstr "Nachverfolgung ndern"
 
 # 81%
 # 86%
 # 78%
 # 76%
 msgid "Open Shared Mails"
-msgstr "Gemeinsame E-Mails öffnen"
+msgstr "Gemeinsame E-Mails ffnen"
 
 msgid "Print single email"
 msgstr "Einzelne E-Mail drucken"
 
 # 78%
 msgid "Print selected email"
-msgstr "Ausgewähltes Element drucken"
+msgstr "Ausgewhltes Element drucken"
 
 msgid "Filter"
 msgstr "Filter"
@@ -4585,22 +4580,22 @@ msgid "Default font"
 msgstr "Standardschriftart"
 
 msgid "Default font size"
-msgstr "Voreingestellte Schriftgröße"
+msgstr "Voreingestellte Schriftgre"
 
 msgid "Always request a read receipt"
-msgstr "Immer eine Empfangsbestätigung anfordern"
+msgstr "Immer eine Empfangsbesttigung anfordern"
 
 # 93%
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "{A} Entwürfe alle {B} Minute(n) automatisch speichern"
+msgstr "{A} Entwrfe alle {B} Minute(n) automatisch speichern"
 
 msgid "Incoming mail"
 msgstr "Eingehende E-Mail"
 
 msgid "How to respond to requests for read receipts"
-msgstr "Wie auf Lesebestätigungen geantwortet werden soll"
+msgstr "Wie auf Lesebesttigungen geantwortet werden soll"
 
 msgid "Always send a response"
 msgstr "Immer eine Antwort senden"
@@ -4635,15 +4630,15 @@ msgstr "Position des Vorschaufensters"
 
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
 msgstr ""
-"Englische Abkürzungen für Weiterleiten (FW:) und Antworten (AW:) benutzen"
+"Englische Abkrzungen fr Weiterleiten (FW:) und Antworten (AW:) benutzen"
 
 msgid "Close original message on reply or forward"
 msgstr ""
-"Ursprüngliche Nachricht schließen, wenn diese beantwortet oder "
-"weitergeleitet wird"
+"Ursprngliche Nachricht schlieen, wenn diese beantwortet oder weitergeleitet "
+"wird"
 
 msgid "Open or compose a mail item in a"
-msgstr "Zum Öffnen oder Erstellen von E-Mails"
+msgstr "Zum ffnen oder Erstellen von E-Mails"
 
 msgid "WebApp tab"
 msgstr "WebApp-Reiter"
@@ -4652,44 +4647,44 @@ msgid "Browser window"
 msgstr "Browserfenster"
 
 msgid "Update Out of Office settings for"
-msgstr "Abwesenheitseinstellungen aktualisieren für"
+msgstr "Abwesenheitseinstellungen aktualisieren fr"
 
 msgid "I am currently in the office"
-msgstr "Ich bin zur Zeit im Büro"
+msgstr "Ich bin zur Zeit im Bro"
 
 msgid "I am out of the office from"
-msgstr "Ich bin nicht im Büro vom"
+msgstr "Ich bin nicht im Bro vom"
 
 msgid "I will be back on"
-msgstr "Ich werde zurück sein am"
+msgstr "Ich werde zurck sein am"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
 
 msgid "User is currently out of office."
-msgstr "Der Benutzer ist zur Zeit nicht im Büro."
+msgstr "Der Benutzer ist zur Zeit nicht im Bro."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
-"Die eingegebene Zeit ist vor der der Verlassens des Büros. Bitte geben Sie "
-"eine spätere Zeit ein."
+"Die eingegebene Zeit ist vor der der Verlassens des Bros. Bitte geben Sie "
+"eine sptere Zeit ein."
 
 msgid "Signatures"
 msgstr "Signaturen"
 
 msgid "Signature for new messages"
-msgstr "Signatur für neue Nachrichten"
+msgstr "Signatur fr neue Nachrichten"
 
 msgid "Signature for replies and forwards"
-msgstr "Signatur für Antworten und Weiterleitungen"
+msgstr "Signatur fr Antworten und Weiterleitungen"
 
 msgid "Save Signature"
 msgstr "Signaturen speichern"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr ""
-"Sie haben ungespeicherte Änderungen. Möchten Sie ihre Änderungen speichern?"
+"Sie haben ungespeicherte nderungen. Mchten Sie ihre nderungen speichern?"
 
 # 76%
 msgid "New signature"
@@ -4710,10 +4705,10 @@ msgid "Sort by: Sent"
 msgstr "Sortieren nach: Gesendet"
 
 msgid "Modified"
-msgstr "Geändert"
+msgstr "Gendert"
 
 msgid "Sort by: Modified"
-msgstr "Sortieren nach: Geändert"
+msgstr "Sortieren nach: Gendert"
 
 msgid "Flag"
 msgstr "Flagge"
@@ -4724,7 +4719,7 @@ msgstr "Nach Flagge sortieren"
 # 85%
 # 100%
 msgid "Older"
-msgstr "Älter"
+msgstr "lter"
 
 msgid "Yesterday"
 msgstr "Gestern"
@@ -4748,13 +4743,13 @@ msgid "Medium"
 msgstr "Mittel"
 
 msgid "Large"
-msgstr "Groß"
+msgstr "Gro"
 
 msgid "Very large"
-msgstr "Sehr groß"
+msgstr "Sehr gro"
 
 msgid "Huge"
-msgstr "Enorm groß"
+msgstr "Enorm gro"
 
 msgid "Follow up"
 msgstr "Nachverfolgung"
@@ -4782,7 +4777,7 @@ msgstr "Neue Notiz"
 # 86%
 # 78%
 msgid "Open Shared Notes"
-msgstr "Gemeinsame Notizen öffnen"
+msgstr "Gemeinsame Notizen ffnen"
 
 # 70%
 msgid "Sticky note"
@@ -4792,12 +4787,12 @@ msgstr "Gepinnte Notiz"
 # 84%
 # 100%
 msgid "Print selected note"
-msgstr "Ausgewähltes Element drucken"
+msgstr "Ausgewhltes Element drucken"
 
 # 75%
 # 100%
 msgid "No note selected"
-msgstr "Keine Notiz ausgewählt"
+msgstr "Keine Notiz ausgewhlt"
 
 msgid "Icons"
 msgstr "Symbole"
@@ -4829,8 +4824,8 @@ msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
 "be lost."
 msgstr ""
-"Bitte laden Sie die WebApp neu, um die Änderungen zu übernehmen. "
-"Ungespeicherte Änderungen gehen verloren."
+"Bitte laden Sie die WebApp neu, um die nderungen zu bernehmen. "
+"Ungespeicherte nderungen gehen verloren."
 
 msgid "Reload WebApp"
 msgstr "WebApp neu laden"
@@ -4855,7 +4850,7 @@ msgid "Theme"
 msgstr "Theme"
 
 msgid "Select Default Folder"
-msgstr "Standardordner auswählen"
+msgstr "Standardordner auswhlen"
 
 msgid "Advanced"
 msgstr "Erweitert"
@@ -4870,13 +4865,13 @@ msgid "Restore to defaults"
 msgstr "Standardeinstellungen wiederherstellen"
 
 msgid "Delete settings"
-msgstr "Einstellungen löschen"
+msgstr "Einstellungen lschen"
 
 msgid "{0} Iconset"
 msgstr "{0} Symbol-Set"
 
 msgid "About"
-msgstr "Über"
+msgstr "ber"
 
 msgid "I want to display date and time in this format:"
 msgstr "Datum und Zeit in diesem Format anzeigen:"
@@ -4904,7 +4899,7 @@ msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
 
 msgid "I want to navigate through my items by using."
-msgstr "Meine Elemente möchte ich:"
+msgstr "Meine Elemente mchte ich:"
 
 msgid "Infinite Scroll"
 msgstr "in einer kompletten Liste sehen"
@@ -4913,7 +4908,7 @@ msgstr "in einer kompletten Liste sehen"
 # 100%
 msgid "WebApp automatically loads additional items when you scroll down"
 msgstr ""
-"WebApp lädt automatisch neue Elemente nach während Sie nach unten scrollen"
+"WebApp ldt automatisch neue Elemente nach whrend Sie nach unten scrollen"
 
 msgid "Pagination"
 msgstr "in einer Seitenansicht sehen"
@@ -4922,8 +4917,8 @@ msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
-"WebApp zeigt eine fest Anzahl Elemente pro Seite und Sie können durch diese "
-"blättern"
+"WebApp zeigt eine fest Anzahl Elemente pro Seite und Sie knnen durch diese "
+"blttern"
 
 msgid "Load items in blocks of {A}"
 msgstr "Einen Block von {A} Elemente laden"
@@ -4947,7 +4942,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Alle Tastenkombinationen nutzen"
 
 msgid "This change requires a reload of the WebApp"
-msgstr "Diese Änderung erfordert ein Neuladen von WebApp"
+msgstr "Diese nderung erfordert ein Neuladen von WebApp"
 
 msgid "Discard"
 msgstr "Verwerfen"
@@ -4956,7 +4951,7 @@ msgid "Plugins"
 msgstr "Plugins"
 
 msgid "Available plugins"
-msgstr "verfügbare Plugins"
+msgstr "verfgbare Plugins"
 
 msgid ""
 "The following plugins are available in the WebApp. It is possible to select "
@@ -4964,10 +4959,10 @@ msgid ""
 "enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
 "in order for the changes to take effect."
 msgstr ""
-"Folgende Plugins sind in WebApp verfügbar. Es ist möglich, einzelne Plugins "
-"zu aktivieren und/oder zu deaktivieren, um anzuzeigen, welche Plugins "
-"benutzt werden sollen. Wenn ein Plugin aktiviert oder deaktiviert wird, muss "
-"WebApp neu geladen werden, um die Änderungen zu aktivieren."
+"Folgende Plugins sind in WebApp verfgbar. Es ist mglich, einzelne Plugins zu "
+"aktivieren und/oder zu deaktivieren, um anzuzeigen, welche Plugins benutzt "
+"werden sollen. Wenn ein Plugin aktiviert oder deaktiviert wird, muss WebApp "
+"neu geladen werden, um die nderungen zu aktivieren."
 
 msgid "No plugins available"
 msgstr "Keine Plugins vorhanden"
@@ -4992,46 +4987,45 @@ msgstr "{0} des Postfachs sind belegt."
 
 msgid "You have exceeded hard quota, you can not send or recieve mails."
 msgstr ""
-"Sie haben die Hard-Quota überschritten und können keine E-Mails mehr "
-"empfangen oder verschicken."
+"Sie haben die Hard-Quota berschritten und knnen keine E-Mails mehr empfangen "
+"oder verschicken."
 
 msgid "At {0} you won't be able to send mails."
-msgstr "Ab {0} können Sie keine E-Mails mehr senden."
+msgstr "Ab {0} knnen Sie keine E-Mails mehr senden."
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to recieve mails."
 msgstr ""
-"Sie haben die Soft-Quota überschritten und können keine E-Mails mehr "
-"versenden. Ab {0} können Sie auch keine E-Mails mehr empfangen."
+"Sie haben die Soft-Quota berschritten und knnen keine E-Mails mehr "
+"versenden. Ab {0} knnen Sie auch keine E-Mails mehr empfangen."
 
 msgid "At {0} you won't be able to send or recieve mails."
-msgstr "Ab {0} können Sie keine E-Mails mehr versenden oder empfangen."
+msgstr "Ab {0} knnen Sie keine E-Mails mehr versenden oder empfangen."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
-"Sie haben die Soft-Quota überschritten und können keine E-Mails mehr "
-"versenden."
+"Sie haben die Soft-Quota berschritten und knnen keine E-Mails mehr versenden."
 
 msgid "Reset settings"
-msgstr "Einstellungen zurücksetzen"
+msgstr "Einstellungen zurcksetzen"
 
 msgid "Reset settings to their original defaults."
-msgstr "Einstellungen in den Auslieferungszustand zurücksetzen."
+msgstr "Einstellungen in den Auslieferungszustand zurcksetzen."
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
-"Dies Aktion wird alle derzeit geöffneten gemeinsamen Ordner schließen und "
-"alle Einstellungen in ihren Ursprungszustand zurücksetzen."
+"Dies Aktion wird alle derzeit geffneten gemeinsamen Ordner schlieen und alle "
+"Einstellungen in ihren Ursprungszustand zurcksetzen."
 
 msgid ""
 "WebApp will automatically reload in order for these changes to take effect"
-msgstr "WebApp wird automatisch neu starten, um die Änderungen zu übernehmen"
+msgstr "WebApp wird automatisch neu starten, um die nderungen zu bernehmen"
 
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Zurcksetzen"
 
 msgid "Reloading, Please wait."
 msgstr "Webapp wird neu geladen. Bitte warten."
@@ -5053,19 +5047,19 @@ msgid "Kopano Core"
 msgstr "Kopano Core"
 
 msgid "Delete confirmation"
-msgstr "Bestätigung löschen"
+msgstr "Besttigung lschen"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr ""
-"Wenn Sie diese Elemente löschen, werden auch die ursprünglichen Elemente "
-"gelöscht."
+"Wenn Sie diese Elemente lschen, werden auch die ursprnglichen Elemente "
+"gelscht."
 
 msgid "Do you want to delete the item(s)?"
-msgstr "Möchten Sie diese Elemente löschen?"
+msgstr "Mchten Sie diese Elemente lschen?"
 
 # 82%
 msgid "Sort by: Priority"
-msgstr "Nach Priorität sortieren"
+msgstr "Nach Prioritt sortieren"
 
 msgid "Status"
 msgstr "Status"
@@ -5075,13 +5069,13 @@ msgid "Sort by: Status"
 msgstr "Sortieren nach: Status"
 
 msgid "Due Date"
-msgstr "Fälligkeitsdatum"
+msgstr "Flligkeitsdatum"
 
 msgid "Sort by: Due Date"
-msgstr "Sortieren nach: Fälligkeitsdatum"
+msgstr "Sortieren nach: Flligkeitsdatum"
 
 msgid "% Completed"
-msgstr "% Vollständig"
+msgstr "% Vollstndig"
 
 msgid "Sort by: Percent Completed"
 msgstr "Sortieren nach: Prozent erledigt"
@@ -5119,14 +5113,14 @@ msgid ""
 "include comments with your response?"
 msgstr ""
 "Sie haben dieser Aufgabe zugesagt. Die Aufgabe wird in den Aufgabenordner "
-"verschoben. Möchten Sie Ihre Antwort vor dem Senden bearbeiten?"
+"verschoben. Mchten Sie Ihre Antwort vor dem Senden bearbeiten?"
 
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"Diese Aufgabe wird abgelehnt und in den Ordner \"Gelöschte Objekte\" "
-"verschoben. Möchten Sie die Antwort vor dem Senden bearbeiten?"
+"Diese Aufgabe wird abgelehnt und in den Ordner \"Gelschte Objekte\" "
+"verschoben. Mchten Sie die Antwort vor dem Senden bearbeiten?"
 
 msgid "Send the response now"
 msgstr "Antwort jetzt senden"
@@ -5147,23 +5141,23 @@ msgid "Unable to send task request"
 msgstr "Konnte delegierte Aufgabe nicht senden"
 
 msgid "You cannot send a task request to yourself."
-msgstr "Sie können sich selbst keine Aufgabe zuweisen."
+msgstr "Sie knnen sich selbst keine Aufgabe zuweisen."
 
 msgid "Multiple recipients"
-msgstr "Mehrere Empfänger"
+msgstr "Mehrere Empfnger"
 
 msgid "A task request can only have one recipient."
-msgstr "Sie können eine Aufgabe nur an einen Empfänger zuweisen."
+msgstr "Sie knnen eine Aufgabe nur an einen Empfnger zuweisen."
 
 # 87%
 msgid "Due date"
-msgstr "Fälligkeitsdatum"
+msgstr "Flligkeitsdatum"
 
 msgid "Priority"
-msgstr "Priorität"
+msgstr "Prioritt"
 
 msgid "% Complete"
-msgstr "% Vollständig"
+msgstr "% Vollstndig"
 
 msgid "Track progress"
 msgstr "Fortschritt beobachten"
@@ -5183,16 +5177,16 @@ msgstr "In der Aufgabenliste wiederherstellen"
 # 76%
 # 100%
 msgid "Delete this task"
-msgstr "Dieses Element löschen"
+msgstr "Dieses Element lschen"
 
 msgid "Add attachments to this task"
-msgstr "Dieser Aufgabe einen Anhang hinzufügen"
+msgstr "Dieser Aufgabe einen Anhang hinzufgen"
 
 msgid "Mark as Complete"
-msgstr "Als vollständig markieren"
+msgstr "Als vollstndig markieren"
 
 msgid "Mark this task as complete"
-msgstr "Diese Aufgabe als vollständig markieren"
+msgstr "Diese Aufgabe als vollstndig markieren"
 
 # 75%
 # 100%
@@ -5239,7 +5233,7 @@ msgstr "{Ist-Aufwand} Stunden"
 # 78%
 # 76%
 msgid "Open Shared Tasks"
-msgstr "Gemeinsame Aufgaben öffnen"
+msgstr "Gemeinsame Aufgaben ffnen"
 
 msgid "Simple view"
 msgstr "Einfache Ansicht"
@@ -5259,7 +5253,7 @@ msgid "Print task list"
 msgstr "Aufgabenliste drucken"
 
 msgid "No task selected"
-msgstr "Keine Aufgabe ausgewählt"
+msgstr "Keine Aufgabe ausgewhlt"
 
 msgid "Create task"
 msgstr "Aufgabe erstellen"
@@ -5274,14 +5268,14 @@ msgid "Remove from To-Do List"
 msgstr "Aus der To-Do Liste entfernen"
 
 msgid "Changes to assigned task"
-msgstr "Änderungen an delegierter Aufgabe"
+msgstr "nderungen an delegierter Aufgabe"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
 msgstr ""
-"Bitte beachten Sie, dass alle von Ihnen gemachten Änderungen überschrieben "
-"werden, wenn der Zuständige die Aufgabe aktualisiert."
+"Bitte beachten Sie, dass alle von Ihnen gemachten nderungen berschrieben "
+"werden, wenn der Zustndige die Aufgabe aktualisiert."
 
 msgid "Sort by: Complete"
 msgstr "Sortieren nach: Erledigt"
@@ -5313,7 +5307,7 @@ msgid "Sort by: Percentage Completed"
 msgstr "Sortieren nach: Prozent erledigt"
 
 msgid "Assigned task changes"
-msgstr "Änderung an delegierter Aufgabe"
+msgstr "nderung an delegierter Aufgabe"
 
 msgid "Loading tasks"
 msgstr "Lade Aufgaben"
@@ -5341,18 +5335,18 @@ msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
 msgstr ""
-"Kalender-, Kontakt- und E-Mail-Elemente können in WebApp importiert und "
+"Kalender-, Kontakt- und E-Mail-Elemente knnen in WebApp importiert und "
 "exportiert werden."
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
-"Rechtsklicken Sie auf einen Ordner und wählen Import. Zusätzlich können "
-"Elemente über das Kontextmenü für Anhänge importiert werden."
+"Rechtsklicken Sie auf einen Ordner und whlen Import. Zustzlich knnen "
+"Elemente ber das Kontextmen fr Anhnge importiert werden."
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr "Elemente können über deren Kontextmenü exportiert werden."
+msgstr "Elemente knnen ber deren Kontextmen exportiert werden."
 
 msgid "Icon packs"
 msgstr "Symbol Pakete"
@@ -5362,16 +5356,16 @@ msgid ""
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
-"Sie können ab jetzt verschiedene Symbole auswählen. Standardmäßig sind die "
-"neuen \"Breeze\"-Symbole aktiviert, wenn Sie aber die klassischen Symbole "
+"Sie knnen ab jetzt verschiedene Symbole auswhlen. Standardmig sind die neuen "
+"\"Breeze\"-Symbole aktiviert, wenn Sie aber die klassischen Symbole "
 "bevorzugen, kann dies in den Einstellungen konfiguriert werden."
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
-"Wechseln Sie in den Einstellungen auf den Reiter \"Allgemein\" und wählen "
-"das Symbolpaket das Ihnen zusagt."
+"Wechseln Sie in den Einstellungen auf den Reiter \"Allgemein\" und whlen das "
+"Symbolpaket das Ihnen zusagt."
 
 msgid "Left: Breeze - Right: Classic"
 msgstr "Links: Breeze - Rechts: Klassisch"
@@ -5383,21 +5377,21 @@ msgid "Don't show me new features again."
 msgstr "Neue Funktionen nicht mehr vorstellen."
 
 msgid "Skip"
-msgstr "Überspringen"
+msgstr "berspringen"
 
 msgid "Previous"
-msgstr "Zurück"
+msgstr "Zurck"
 
 msgid "Next"
 msgstr "Weiter"
 
 msgid "The server reported an unknown error on your request."
-msgstr "Der Server hat Ihre Anfrage mit unbekanntem Fehler zurückgewiesen."
+msgstr "Der Server hat Ihre Anfrage mit unbekanntem Fehler zurckgewiesen."
 
 msgid "The server reported an unspecified error on your request."
 msgstr ""
-"Der Server hat Ihre Anfrage mit einem nicht näher beschriebenen Fehler "
-"zurückgewiesen."
+"Der Server hat Ihre Anfrage mit einem nicht nher beschriebenen Fehler "
+"zurckgewiesen."
 
 msgid "The session has expired, reauthentication is required."
 msgstr "Ihre Sitzung ist ausgelaufen, bitte melden Sie sich erneut an."
@@ -5413,7 +5407,7 @@ msgid "Session expired"
 msgstr "Sitzung abgelaufen"
 
 msgid "Do you wish to be redirected to the logon page?"
-msgstr "Möchten Sie zur Login-Seite weitergeleitet werden?"
+msgstr "Mchten Sie zur Login-Seite weitergeleitet werden?"
 
 msgid "Reauthentication required, click here to go to back to logon page."
 msgstr ""
@@ -5442,7 +5436,7 @@ msgid "HTTP {0}"
 msgstr "HTTP {0}"
 
 msgid "Invalid data received from the server"
-msgstr "Ungültige Daten vom Server empfangen"
+msgstr "Ungltige Daten vom Server empfangen"
 
 msgid "Missing store"
 msgstr "Fehlender Store"
@@ -5453,7 +5447,7 @@ msgstr "Der Standard-Store fehlt in der Hierarchie."
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
 msgstr ""
-"Die vollständige Funktionalität von WebApp kann dadurch beeinträchtigt sein."
+"Die vollstndige Funktionalitt von WebApp kann dadurch beeintrchtigt sein."
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5471,7 +5465,7 @@ msgstr "Gesendete Objekte"
 # 92%
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr "Gelöschte Objekte"
+msgstr "Gelschte Objekte"
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5485,7 +5479,7 @@ msgstr "Kontakte"
 
 msgctxt "hierarchy.foldername"
 msgid "Drafts"
-msgstr "Entwürfe"
+msgstr "Entwrfe"
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5519,7 +5513,7 @@ msgstr "Das Laden des Moduls vom Server ist fehlgeschlagen"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr ""
-"Abwesenheitsnotiz ist momentan eingeschaltet. Möchten Sie diese abschalten?"
+"Abwesenheitsnotiz ist momentan eingeschaltet. Mchten Sie diese abschalten?"
 
 msgid "Out of office off"
 msgstr "Abwesenheitsnotiz aus"
@@ -5534,7 +5528,7 @@ msgid "Contact Fax"
 msgstr "Fax kontaktieren"
 
 msgid "Widget height"
-msgstr "Höhe des Widget"
+msgstr "Hhe des Widget"
 
 msgid "pixels"
 msgstr "Pixel"
@@ -5560,7 +5554,7 @@ msgid "Today {0} - {1}"
 msgstr "Heute: {0} - {1}"
 
 msgid "Today (all day)"
-msgstr "Heute (ganztägig)"
+msgstr "Heute (ganztgig)"
 
 # 100%
 msgid "{0} - {1}"
@@ -5570,7 +5564,7 @@ msgid "d/m/y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (ganztägig)"
+msgstr "{0} - {1} (ganztgig)"
 
 msgid "d/m/y"
 msgstr "d.m.Y"
@@ -5601,7 +5595,7 @@ msgid "Map"
 msgstr "Karte"
 
 msgid "Move currently selected message(s) to {0}"
-msgstr "Derzeit ausgewählte Nachrichten nach {0} verschieben"
+msgstr "Derzeit ausgewhlte Nachrichten nach {0} verschieben"
 
 msgid "Move to {0}"
 msgstr "Nach {0} verschieben"
@@ -5610,19 +5604,19 @@ msgid "Move current message to {0}"
 msgstr "Derzeitige Nachricht nach {0} verschieben"
 
 msgid "Personal Inbox Manager"
-msgstr "Persönlicher Inbox Manager"
+msgstr "Persnlicher Inbox Manager"
 
 msgid "Personal Inbox Management Settings"
 msgstr "PIM Einstellungen"
 
 msgid "Select another folder"
-msgstr "Einen Ordner auswählen"
+msgstr "Einen Ordner auswhlen"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-Mails werden verschoben nach {0}"
 
 msgid "Open in new tab"
-msgstr "In neuem Tab öffnen"
+msgstr "In neuem Tab ffnen"
 
 msgid "Quick Appointment"
 msgstr "Schnelltermin"
@@ -5643,7 +5637,7 @@ msgid "Quick Task"
 msgstr "Schnellaufgabe"
 
 msgid "Title Counter Plugin"
-msgstr "Zähler für ungelesene Nachrichten"
+msgstr "Zhler fr ungelesene Nachrichten"
 
 msgid "Help"
 msgstr "Hilfe"
@@ -5673,7 +5667,7 @@ msgid "California"
 msgstr "California"
 
 msgid "Soft green"
-msgstr "Hellgrün"
+msgstr "Hellgrn"
 
 msgid "Mint"
 msgstr "Minze"
@@ -5700,13 +5694,13 @@ msgid "Gifts"
 msgstr "Geschenke"
 
 msgid "Goals/Objectives"
-msgstr "Ziele/Grundsätze"
+msgstr "Ziele/Grundstze"
 
 msgid "Holiday Cards"
 msgstr "Urlaubskarten"
 
 msgid "Hot Contacts"
-msgstr "Häufige Kontakte"
+msgstr "Hufige Kontakte"
 
 msgid "Ideas"
 msgstr "Ideen"
@@ -5745,12 +5739,12 @@ msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
-"Der Zugriff auf die WebApp ist mit diesem Benutzer nicht möglich. Bitte "
+"Der Zugriff auf die WebApp ist mit diesem Benutzer nicht mglich. Bitte "
 "wenden Sie sich an Ihren Administrator."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
-"Kann Daten nicht zum Bus hinzufügen. Der selbe Aktionstyp ist auf dem Bus "
+"Kann Daten nicht zum Bus hinzufgen. Der selbe Aktionstyp ist auf dem Bus "
 "bereits vorhanden"
 
 msgid "Response data requested from bus but it doesn't have any data."
@@ -5763,7 +5757,7 @@ msgstr "Unbekanntes Modul \"%s\" mit ID \"%s\""
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
 msgstr ""
-"Der Server hat Probleme gemeldet, es war nicht möglich die Anfrage zu "
+"Der Server hat Probleme gemeldet, es war nicht mglich die Anfrage zu "
 "verarbeiten."
 
 #, php-format
@@ -5793,8 +5787,7 @@ msgstr "Fehler beim Laden der bestehenden Einstellungen"
 # 93%
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
-"Login fehlgeschlagen. Überprüfen Sie Ihren Benutzernamen und/oder Ihr "
-"Passwort."
+"Login fehlgeschlagen. berprfen Sie Ihren Benutzernamen und/oder Ihr Passwort."
 
 # 83%
 msgid "Cannot connect to Kopano Core."
@@ -5811,10 +5804,10 @@ msgid "Unknown MAPI Error"
 msgstr "Unbekannter MAPI-Fehler"
 
 msgid "Click the link to open the URL in a new window."
-msgstr "Klicken Sie auf den Link, um die URL in einem neuen Fenster zu öffnen."
+msgstr "Klicken Sie auf den Link, um die URL in einem neuen Fenster zu ffnen."
 
 msgid "This external link will open in a new window"
-msgstr "Der externe Link wird in einem neuen Fenster geöffnet"
+msgstr "Der externe Link wird in einem neuen Fenster geffnet"
 
 msgid "Destination folder not found."
 msgstr "Zielverzeichnis konnte nicht gefunden werden."
@@ -5836,10 +5829,10 @@ msgid "There is no appointment found in this file."
 msgstr "Es gibt keine Termine in dieser Datei."
 
 msgid "The file is corrupt."
-msgstr "Die Datei ist beschädigt."
+msgstr "Die Datei ist beschdigt."
 
 msgid "The file is invalid."
-msgstr "Die Datei ist ungültig."
+msgstr "Die Datei ist ungltig."
 
 #, php-format
 msgid "Unable to import '%s'. "
@@ -5861,7 +5854,7 @@ msgid "ZIP is not created successfully"
 msgstr "ZIP-Datei konnte nicht erstellt werden"
 
 msgid "Attachments can not be downloaded"
-msgstr "Anhänge konnten nicht heruntergeladen werden"
+msgstr "Anhnge konnten nicht heruntergeladen werden"
 
 # 82%
 # 100%
@@ -5887,35 +5880,35 @@ msgstr "Aufgabenanfrage"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 "Nachricht konnte nicht gefunden wurden. Sie wurde zwischenzeitlich entweder "
-"verschoben oder gelöscht."
+"verschoben oder gelscht."
 
 msgid "Action is not performed correctly."
-msgstr "Aktion wurde nicht korrekt ausgeführt."
+msgstr "Aktion wurde nicht korrekt ausgefhrt."
 
 # 94%
 # 90%
 msgid "You have insufficient privileges to open this object."
-msgstr "Sie haben nicht genügend Berechtigungen, um dieses Objekt zu öffnen."
+msgstr "Sie haben nicht gengend Berechtigungen, um dieses Objekt zu ffnen."
 
 # 93%
 msgid "Logon Failed. Please check your name/password."
-msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
+msgstr "Login fehlgeschlagen. Prfen Sie Benutzernamen und Passwort."
 
 # 83%
 msgid "Can not connect to Kopano Core."
 msgstr "Konnte keine Verbindung mit Kopano Core aufbauen."
 
 msgid "Can not open object with provided id."
-msgstr "Das Element mit der angegebenen ID kann nicht geöffnet werden."
+msgstr "Das Element mit der angegebenen ID kann nicht geffnet werden."
 
 msgid "There are no recipients in the message."
-msgstr "Es sind keine Empfänger angegeben."
+msgstr "Es sind keine Empfnger angegeben."
 
 msgid "Can not find object."
 msgstr "Das Element konnte nicht gefunden werden."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr "Operation fehlgeschlagen: Server besitzt nicht genügend Speicher."
+msgstr "Operation fehlgeschlagen: Server besitzt nicht gengend Speicher."
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
@@ -5954,9 +5947,9 @@ msgstr "Findet jeden %s %s statt, beginnend am %s."
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
 msgstr[0] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
+"Findet jeden %s statt, beginnend am %s fr %s Wiederholung von %s bis %s."
 msgstr[1] ""
-"Findet jeden %s statt, beginnend am %s für %s Wiederholungen von %s bis %s."
+"Findet jeden %s statt, beginnend am %s fr %s Wiederholungen von %s bis %s."
 
 # 96%
 # 76%
@@ -5965,24 +5958,23 @@ msgstr[1] ""
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
 msgstr[0] ""
-"Findet jeden %s %s statt, beginnend am %s für %s Wiederholung von %s bis %s."
+"Findet jeden %s %s statt, beginnend am %s fr %s Wiederholung von %s bis %s."
 msgstr[1] ""
-"Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen von %s bis "
-"%s."
+"Findet jeden %s %s statt, beginnend am %s fr %s Wiederholungen von %s bis %s."
 
 # 81%
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Findet jeden %s statt, beginnend am %s für %s Wiederholung."
-msgstr[1] "Findet jeden %s statt, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s statt, beginnend am %s fr %s Wiederholung."
+msgstr[1] "Findet jeden %s statt, beginnend am %s fr %s Wiederholungen."
 
 # 77%
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholung."
-msgstr[1] "Findet jeden %s %s statt, beginnend am %s für %s Wiederholungen."
+msgstr[0] "Findet jeden %s %s statt, beginnend am %s fr %s Wiederholung."
+msgstr[1] "Findet jeden %s %s statt, beginnend am %s fr %s Wiederholungen."
 
 # 96%
 # 76%
@@ -6036,14 +6028,13 @@ msgid "Could not handle this type of object."
 msgstr "Der Typ dieses Objekts konnte nicht verarbeitet werden."
 
 msgid "Could not open this object."
-msgstr "Das Objekt kann nicht geöffnet werden."
+msgstr "Das Objekt kann nicht geffnet werden."
 
 msgid "Could not open occurrence."
-msgstr "Konnte Serientermin nicht öffnen."
+msgstr "Konnte Serientermin nicht ffnen."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr ""
-"Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
+msgstr "Konnte Serientermin nicht ffnen. Dieser wurde wahrscheinlich gelscht."
 
 # 89%
 # 100%
@@ -6060,17 +6051,17 @@ msgstr "neuer Termin"
 # 79%
 # 100%
 msgid "You have insufficient privileges to move "
-msgstr "Sie haben nicht genügend Berechtigungen zum verschieben von "
+msgstr "Sie haben nicht gengend Berechtigungen zum verschieben von "
 
 msgid "Insufficient privileges"
-msgstr "Nicht genügend Berechtigungen"
+msgstr "Nicht gengend Berechtigungen"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
 msgstr ""
 "Eine Erinnerung kann nicht vor dem vorhergehenden Serienelement gesetzt "
-"werden. Setzen Sie die Erinnerung zurück, um die Änderung zu speichern"
+"werden. Setzen Sie die Erinnerung zurck, um die nderung zu speichern"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Eine Wiederholung kann nicht zweimal am selben Tag gesetzt werden"
@@ -6082,11 +6073,11 @@ msgid ""
 "enter the name as a required or optional attendee or talk to your "
 "administrator about giving you permission to schedule '%s'."
 msgstr ""
-"Sie haben \"%s\" als Ressource markiert. Sie können kein Meeting mit \"%s\" "
-"planen, da Sie nicht über die nötigen Berechtigungen für dieses Konto "
-"verfügen. Geben Sie den Namen entweder als erforderlichen oder optionalen "
-"Teilnehmer an, oder wenden Sie sich an ihren Administrator, um die "
-"Berechtigung zu erhalten, \"%s\" einzuplanen."
+"Sie haben \"%s\" als Ressource markiert. Sie knnen kein Meeting mit \"%s\" "
+"planen, da Sie nicht ber die ntigen Berechtigungen fr dieses Konto verfgen. "
+"Geben Sie den Namen entweder als erforderlichen oder optionalen Teilnehmer "
+"an, oder wenden Sie sich an ihren Administrator, um die Berechtigung zu "
+"erhalten, \"%s\" einzuplanen."
 
 #, php-format
 msgid ""
@@ -6101,7 +6092,7 @@ msgid ""
 "'%s' has declined your meeting because it is recurring. You must book each "
 "meeting separately with this resource."
 msgstr ""
-"\"%s\" hat Ihre Anfrage abgelehnt, da sie wiederkehrend ist. Sie müssen jede "
+"\"%s\" hat Ihre Anfrage abgelehnt, da sie wiederkehrend ist. Sie mssen jede "
 "Anfrage mit dieser Ressource separat stellen."
 
 #, php-format
@@ -6109,7 +6100,7 @@ msgid ""
 "'%s' is already booked for this specified time. You must use another time or "
 "find another resource."
 msgstr ""
-"\"%s\" ist bereits für die angegebene Zeit gebucht. Sie müssen eine andere "
+"\"%s\" ist bereits fr die angegebene Zeit gebucht. Sie mssen eine andere "
 "Zeit anfragen oder eine andere Ressource nutzen."
 
 msgid "Meeting was not scheduled."
@@ -6141,7 +6132,7 @@ msgstr "Konnte Stellvertreter-Information nicht speichern."
 # 78%
 # 80%
 msgid "Could not delete delegate."
-msgstr "Der Stellvertreter konnte nicht gelöscht werden."
+msgstr "Der Stellvertreter konnte nicht gelscht werden."
 
 msgid "Can not get list of delegates."
 msgstr "Konnte Liste der Stellvertreter nicht abrufen."
@@ -6157,51 +6148,51 @@ msgid "Could not remove folder from favorites."
 msgstr "Der Ordner konnte nicht aus den Favoriten entfernt werden."
 
 msgid "You have insufficient privileges to delete folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um den Ordner zu löschen."
+msgstr "Sie haben nicht gengend Berechtigungen, um den Ordner zu lschen."
 
 msgid "Could not delete folder."
-msgstr "Der Ordner konnte nicht gelöscht werden."
+msgstr "Der Ordner konnte nicht gelscht werden."
 
 msgid "You have insufficient privileges to copy folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um den Ordner zu kopieren."
+msgstr "Sie haben nicht gengend Berechtigungen, um den Ordner zu kopieren."
 
 msgid "Could not copy folder."
 msgstr "Der Ordner konnte nicht kopiert werden."
 
 msgid "You have insufficient privileges to move this folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um den Ordner zu verschieben."
+msgstr "Sie haben nicht gengend Berechtigungen, um den Ordner zu verschieben."
 
 msgid "Could not move folder."
 msgstr "Der Ordner konnte nicht verschoben werden."
 
 msgid "You have insufficient privileges to delete items."
-msgstr "Sie haben nicht genügend Berechtigungen, um Elemente zu löschen."
+msgstr "Sie haben nicht gengend Berechtigungen, um Elemente zu lschen."
 
 msgid "Could not empty folder."
 msgstr "Der Ordner konnte nicht geleert werden."
 
 msgid "Could not perform action correctly."
-msgstr "Die Aktion konnte nicht ausgeführt werden."
+msgstr "Die Aktion konnte nicht ausgefhrt werden."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
 msgstr ""
-"Es gibt bereits einen Favoritenordner mit diesem Namen. Bitte wählen Sie "
+"Es gibt bereits einen Favoritenordner mit diesem Namen. Bitte whlen Sie "
 "einen anderen Namen."
 
 msgid "Could not add folder to favorites."
-msgstr "Der Ordner konnte den Favoriten nicht hinzugefügt werden."
+msgstr "Der Ordner konnte den Favoriten nicht hinzugefgt werden."
 
 msgid "You have insufficient privileges to set permissions for this folder."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um Berechtigungen für den Ordner zu "
+"Sie haben nicht gengend Berechtigungen, um Berechtigungen fr den Ordner zu "
 "vergeben."
 
 msgid "Could not set folder permissions."
 msgstr "Die Ordnerberechtigungen konnten nicht gesetzt werden."
 
 msgid "You have insufficient privileges to rename this folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um den Ordner umzubenennen."
+msgstr "Sie haben nicht gengend Berechtigungen, um den Ordner umzubenennen."
 
 msgid "A folder with this name already exists. Use another name."
 msgstr ""
@@ -6212,7 +6203,7 @@ msgid "Could not rename folder."
 msgstr "Der Ordner konnte nicht umbenannt werden."
 
 msgid "You have insufficient privileges to create this folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um den Ordner zu erstellen."
+msgstr "Sie haben nicht gengend Berechtigungen, um den Ordner zu erstellen."
 
 msgid "Could not create folder."
 msgstr "Der Ordner konnte nicht erstellt werden."
@@ -6229,8 +6220,8 @@ msgid ""
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
 msgstr ""
-"Sie haben keine ausrechenden Berechtigungen, um den Ordner %1$s zu öffnen. "
-"Der Ersteller des Ordners kann diese über den \"Berechtigungen\"-Tab in den "
+"Sie haben keine ausrechenden Berechtigungen, um den Ordner %1$s zu ffnen. "
+"Der Ersteller des Ordners kann diese ber den \"Berechtigungen\"-Tab in den "
 "Ordnereigenschaften festlegen (Rechtsklick auf den %1$s Ordner > "
 "Eigenschaften > Berechtigungen)."
 
@@ -6248,33 +6239,32 @@ msgstr "Der Ordner konnte nicht kopiert werden"
 
 # 81%
 msgid "You have insufficient privileges to open this message."
-msgstr "Sie haben nicht genügend Berechtigungen, um die Nachricht zu öffnen."
+msgstr "Sie haben nicht gengend Berechtigungen, um die Nachricht zu ffnen."
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
 msgstr ""
 "Nachricht konnte nicht gefunden werden. Sie wurde zwischenzeitlich entweder "
-"verschoben, gelöscht, oder Sie haben keine Zugriffsrechte mehr."
+"verschoben, gelscht, oder Sie haben keine Zugriffsrechte mehr."
 
 # 78%
 msgid "Could not open message."
-msgstr "Die Nachricht konnte nicht geöffnet werden."
+msgstr "Die Nachricht konnte nicht geffnet werden."
 
 # 75%
 # 80%
 # 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Besprechungsanfrage "
-"abzulehnen"
+"Sie haben nicht gengend Berechtigungen, um die Besprechungsanfrage abzulehnen"
 
 # 75%
 # 89%
 # 98%
 msgid "You have insufficient privileges to accept this Meeting Request"
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um der Besprechungsanfrage zuzusagen"
+"Sie haben nicht gengend Berechtigungen, um der Besprechungsanfrage zuzusagen"
 
 # 78%
 # 82%
@@ -6290,7 +6280,7 @@ msgstr "Die Nachricht konnte nicht verschoben werden"
 # 81%
 msgid "You have insufficient privileges to save items in this folder"
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um Elemente in dem Ordner zu "
+"Sie haben nicht gengend Berechtigungen, um Elemente in dem Ordner zu "
 "speichern"
 
 # 78%
@@ -6301,7 +6291,7 @@ msgstr "Die Nachricht konnte nicht gespeichert werden"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um den Kalendereintrag zu löschen."
+"Sie haben nicht gengend Berechtigungen, um den Kalendereintrag zu lschen."
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
@@ -6317,31 +6307,30 @@ msgstr "Der Vorgang kann nicht abgebrochen werden"
 msgid "You have insufficient privileges to delete items in this folder"
 msgstr ""
 "Sie haben keine ausreichenden Berechtigungen, um Elemente in diesem Ordner "
-"zu löschen"
+"zu lschen"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um ein Element als Anhang "
-"anzuhängen."
+"Sie haben nicht gengend Berechtigungen, um ein Element als Anhang anzuhngen."
 
 msgid "Could not attach item as an attachment."
-msgstr "Das Element konnte nicht als Anhang angehängt werden."
+msgstr "Das Element konnte nicht als Anhang angehngt werden."
 
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Besitzrechte der "
-"Aufgabenanfrage zurückzufordern."
+"Sie haben nicht gengend Berechtigungen, um die Besitzrechte der "
+"Aufgabenanfrage zurckzufordern."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr ""
-"Die Besitzrechte der Aufgabenanfrage konnten nicht zurückgefordert werden."
+"Die Besitzrechte der Aufgabenanfrage konnten nicht zurckgefordert werden."
 
 # 75%
 msgid "You have insufficient privileges to accept this Task Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Aufgabenanfrage zu "
+"Sie haben nicht gengend Berechtigungen, um die Aufgabenanfrage zu "
 "akzeptieren."
 
 # 78%
@@ -6352,7 +6341,7 @@ msgstr "Der Aufgabenanfrage konnte nicht akzeptiert werden."
 # 90%
 msgid "You have insufficient privileges to decline this Task Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Aufgabenanfrage abzulehnen."
+"Sie haben nicht gengend Berechtigungen, um die Aufgabenanfrage abzulehnen."
 
 # 79%
 msgid "Could not decline Task Request."
@@ -6374,37 +6363,37 @@ msgstr[1] ""
 "%s Zeitpunkte dieses wiederkehrenden Termins kollidiert mit anderen Terminen."
 
 msgid "Your message did not reach some or all of the intended recipients"
-msgstr "Die Nachricht hat einen oder mehrere Empfänger nicht erreicht"
+msgstr "Die Nachricht hat einen oder mehrere Empfnger nicht erreicht"
 
 msgid "The following recipient(s) could not be reached"
-msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
+msgstr "Der/die folgenden Empfnger konnten nicht erreicht werden"
 
 # 81%
 # 80%
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um Elemente in diesem Ordner "
+"Sie haben nicht gengend Berechtigungen, um Elemente in diesem Ordner "
 "anzuzeigen."
 
 msgid "Could not load the contents of this folder."
 msgstr "Konnte den Inhalt diesen Ordners nicht laden."
 
 msgid "Error in search, please try again"
-msgstr "Fehler in der Suche. Führen Sie die Suche nochmals durch"
+msgstr "Fehler in der Suche. Fhren Sie die Suche nochmals durch"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
-"Die Suchanfrage kann nicht ausgeführt werden, da Sie kein Recht zum Anlegen "
+"Die Suchanfrage kann nicht ausgefhrt werden, da Sie kein Recht zum Anlegen "
 "von Suchordnern haben."
 
 msgid "Unable to perform search query, search folder not found."
 msgstr ""
-"Die Suchanfrage kann nicht ausgeführt werden, da der Suchordner nicht "
+"Die Suchanfrage kann nicht ausgefhrt werden, da der Suchordner nicht "
 "gefunden wurde."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
-"Die Suchanfrage kann nicht ausgeführt werden, da das Postfach keine Suchen "
+"Die Suchanfrage kann nicht ausgefhrt werden, da das Postfach keine Suchen "
 "erlaubt."
 
 msgid "Error in creating search folder."
@@ -6412,8 +6401,7 @@ msgstr "Fehler beim Erstellen des Suchordners."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr ""
-"Sie haben nicht genügend Berechtigungen, um in diesem Ordner zu suchen."
+msgstr "Sie haben nicht gengend Berechtigungen, um in diesem Ordner zu suchen."
 
 msgid "Could not update search results."
 msgstr "Die Suchergebnisse konnten nicht aktualisiert werden."
@@ -6423,8 +6411,7 @@ msgstr "Die Suche konnte nicht gestoppt werden."
 
 # 83%
 msgid "You have insufficient privileges to save this message."
-msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Nachricht zu speichern."
+msgstr "Sie haben nicht gengend Berechtigungen, um die Nachricht zu speichern."
 
 # 78%
 # 82%
@@ -6433,19 +6420,18 @@ msgstr "Die Nachricht konnte nicht gespeichert werden."
 
 # 83%
 msgid "You have insufficient privileges to delete this message."
-msgstr "Sie haben nicht genügend Berechtigungen, um die Nachricht zu löschen."
+msgstr "Sie haben nicht gengend Berechtigungen, um die Nachricht zu lschen."
 
 # 78%
 # 80%
 msgid "Could not delete message."
-msgstr "Die Nachricht konnte nicht gelöscht werden."
+msgstr "Die Nachricht konnte nicht gelscht werden."
 
 # 75%
 # 82%
 msgid "You have insufficient privileges to cancel this Meeting Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Besprechungsanfrage "
-"abzusagen."
+"Sie haben nicht gengend Berechtigungen, um die Besprechungsanfrage abzusagen."
 
 msgid "Could not cancel Meeting Request."
 msgstr "Die Besprechungsanfrage konnte nicht abgesagt werden."
@@ -6454,7 +6440,7 @@ msgstr "Die Besprechungsanfrage konnte nicht abgesagt werden."
 # 80%
 msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Besprechungsanfrage "
+"Sie haben nicht gengend Berechtigungen, um die Besprechungsanfrage "
 "abzulehnen."
 
 msgid "Could not decline Meeting Request."
@@ -6464,7 +6450,7 @@ msgstr "Die Besprechungsanfrage konnte nicht abgelehnt werden."
 # 89%
 msgid "You have insufficient privileges to accept this Meeting Request."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um der Besprechunsanfrage zuzusagen."
+"Sie haben nicht gengend Berechtigungen, um der Besprechunsanfrage zuzusagen."
 
 msgid "Could not accept Meeting Request."
 msgstr "Der Besprechungsanfrage konnte nicht zugesagt werden."
@@ -6474,34 +6460,33 @@ msgstr "Der Besprechungsanfrage konnte nicht zugesagt werden."
 # 77%
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
 msgstr ""
-"Sie haben nicht genügend Berechtigungen, um die Besprechungsanfrage "
-"abzusagen."
+"Sie haben nicht gengend Berechtigungen, um die Besprechungsanfrage abzusagen."
 
 msgid "Could not cancel Meeting Request invitations."
 msgstr "Die Besprechungsanfrage konnte nicht abgesagt werden."
 
 msgid "You can not continue search operation on this folder."
-msgstr "Sie können in diesem Ordner nicht weiter suchen."
+msgstr "Sie knnen in diesem Ordner nicht weiter suchen."
 
 msgid "Error in search, please try again."
-msgstr "Fehler in der Suche. Führen Sie die Suche nochmals durch."
+msgstr "Fehler in der Suche. Fhren Sie die Suche nochmals durch."
 
 msgid "Error in distribution list expansion."
 msgstr "Die Verteilerliste konnte nicht erweitert werden."
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr "Das Hard Quota des Postfaches wurde überschritten."
+msgstr "Das Hard Quota des Postfaches wurde berschritten."
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
-"Um Speicherplatz in Ihrem Postfach freizugeben können Sie Elemente die Sie "
-"nicht länger benötigen löschen. Bitte denken Sie daran anschließend Ihre "
-"\"gelöschten Objekte\" zu leeren."
+"Um Speicherplatz in Ihrem Postfach freizugeben knnen Sie Elemente die Sie "
+"nicht lnger bentigen lschen. Bitte denken Sie daran anschlieend Ihre "
+"\"gelschten Objekte\" zu leeren."
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr "Das Soft Quota des Postfaches wurde überschritten."
+msgstr "Das Soft Quota des Postfaches wurde berschritten."
 
 msgid "Could not process request data properly."
 msgstr "Die angeforderten Daten konnten nicht korrekt verarbeitet werden."
@@ -6513,24 +6498,24 @@ msgstr "Unbekannter Aktionstyp angegeben - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr ""
-"Die Erinnerung konnte nicht unterdrückt werden. Sie könnten erneut erinnert "
+"Die Erinnerung konnte nicht unterdrckt werden. Sie knnten erneut erinnert "
 "werden."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr ""
-"Die Erinnerung konnte nicht geschlossen werden. Sie könnten erneut erinnert "
+"Die Erinnerung konnte nicht geschlossen werden. Sie knnten erneut erinnert "
 "werden."
 
 # 78%
 msgid "You have insufficient privileges to perform this action."
-msgstr "Sie haben nicht genügend Berechtigungen, um diese Aktion auszuführen."
+msgstr "Sie haben nicht gengend Berechtigungen, um diese Aktion auszufhren."
 
 msgid "Could not resolve user."
-msgstr "Benutzer kann nicht aufgelöst werden."
+msgstr "Benutzer kann nicht aufgelst werden."
 
 msgid "Setting mail filters on the stores of other users is not allowed."
 msgstr ""
-"Es ist nicht zulässig, E-Mail-Filter auf die Stores anderer Benutzer zu "
+"Es ist nicht zulssig, E-Mail-Filter auf die Stores anderer Benutzer zu "
 "setzen."
 
 msgid "Untitled rule"
@@ -6568,10 +6553,10 @@ msgstr "Die Datei konnte nicht erfolgreich importiert werden"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr "Import von '%s' nicht möglich"
+msgstr "Import von '%s' nicht mglich"
 
 msgid "The EML is not valid"
-msgstr "Die EML Datei ist ungültig"
+msgstr "Die EML Datei ist ungltig"
 
 msgid "GB"
 msgstr "GB"
@@ -6586,19 +6571,19 @@ msgid "B"
 msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr "Die maximale Stack-Tiefe wurde überschritten"
+msgstr "Die maximale Stack-Tiefe wurde berschritten"
 
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "Kontrollzeichenfehler, wahrscheinlich falsch kodiert"
 
 msgid "Invalid or malformed JSON"
-msgstr "Ungültiges oder korruptes JSON"
+msgstr "Ungltiges oder korruptes JSON"
 
 msgid "Syntax error"
 msgstr "Syntaxfehler"
 
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "Ungültige UTF-8-Zeichen. Input ist wahrscheinlich falsch kodiert"
+msgstr "Ungltige UTF-8-Zeichen. Input ist wahrscheinlich falsch kodiert"
 
 #, php-format
 msgid "JSON Error: - %s"
