@@ -51,7 +51,7 @@
         function getOofSettings()
         {
            $otherStores = $this->getOwnerPermissionStores();
-           array_push($otherStores, $GLOBALS['mapisession']->getDefaultMessageStore());
+           array_unshift($otherStores, $GLOBALS['mapisession']->getDefaultMessageStore());
 
            $oofSettings = Array();
            foreach ($otherStores as $storeEntryId => $storeObj) {
