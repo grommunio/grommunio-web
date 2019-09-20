@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-20 12:16+0000\n"
+"PO-Revision-Date: 2019-09-20 12:40+0000\n"
+"Last-Translator: Roger <roger.meier@4synergy.com>\n"
+"Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/de_CH/>\n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
 msgstr "Wo"
@@ -9,7 +25,7 @@ msgid "Value must be between 0% to 100%"
 msgstr "Der Wert muss zwischen 0% und 100% liegen"
 
 msgid "Number must be higher than zero"
-msgstr "Zahl muss grer als Null sein"
+msgstr "Zahl muss grösser als Null sein"
 
 msgid "More options"
 msgstr "Weitere Optionen"
@@ -113,7 +129,7 @@ msgid "February"
 msgstr "Februar"
 
 msgid "March"
-msgstr "Mrz"
+msgstr "März"
 
 msgid "April"
 msgstr "April"
@@ -158,7 +174,7 @@ msgid "Previous Page"
 msgstr "Vorherige Seite"
 
 msgid "Next Page"
-msgstr "Nchste Seite"
+msgstr "Nächste Seite"
 
 msgid "Last Page"
 msgstr "Letzte Seite"
@@ -192,13 +208,13 @@ msgid "Disabled"
 msgstr "Deaktiviert"
 
 msgid "Next Month (Control+Right)"
-msgstr "Nchster Monat (Strg+Rechts)"
+msgstr "Nächster Monat (Ctrl+Rechts)"
 
 msgid "Previous Month (Control+Left)"
-msgstr "Vorheriger Monat (Strg+Links)"
+msgstr "Vorheriger Monat (Ctrl+Links)"
 
 msgid "Choose a month (Control+Up/Down to move years)"
-msgstr "Monat auswhlen (Strg+Hoch/Runter um Jahr zu whlen)"
+msgstr "Monat auswhlen (Ctrl+Hoch/Runter um Jahr zu wählen)"
 
 msgid "Sort Ascending"
 msgstr "Aufsteigend sortieren"
@@ -231,25 +247,25 @@ msgid "Loading"
 msgstr "Laden"
 
 msgid "The value in this field is invalid"
-msgstr "Der Wert dieses Feldes ist ungltig"
+msgstr "Der Wert dieses Feldes ist ungültig"
 
 msgid "The minimum length for this field is {0}"
-msgstr "Die minimal erlaubte Lnge dieses Feldes ist {0}"
+msgstr "Die minimal erlaubte Länge dieses Feldes ist {0}"
 
 msgid "The maximum length for this field is {0}"
-msgstr "Die maximal erlaubte Lnge dieses Feldes ist {0}"
+msgstr "Die maximal erlaubte Länge dieses Feldes ist {0}"
 
 msgid "This field is required"
-msgstr "Dieses Feld ist auszufllen"
+msgstr "Dieses Feld ist auszufüllen"
 
 msgid "The minimum value for this field is {0}"
 msgstr "Der kleinste erlaubte Wert dieses Feldes ist {0}"
 
 msgid "The maximum value for this field is {0}"
-msgstr "Der grte erlaubte Wert dieses Feldes ist {0}"
+msgstr "Der grösste erlaubte Wert dieses Feldes ist {0}"
 
 msgid "{0} is not a valid number"
-msgstr "{0} ist keine gltige Nummer"
+msgstr "{0} ist keine gültige Nummer"
 
 msgid "The date in this field must be equal to or after {0}"
 msgstr "Das Datum in diesem Feld muss identisch mit oder nach {0} sein"
@@ -258,7 +274,7 @@ msgid "The date in this field must be equal to or before {0}"
 msgstr "Das Datum in diesem Feld muss identisch mit oder vor {0} sein"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
-msgstr "{0} ist keine gltige Datumsangabe - es muss im Format {1} sein"
+msgstr "{0} ist keine gültige Datumsangabe - es muss im Format {1} sein"
 
 msgid "You must select at least one item in this group"
 msgstr "Sie mssen mindestens ein Element dieser Gruppe auswhlen"
@@ -273,7 +289,7 @@ msgid "The time in this field must be equal to or before {0}"
 msgstr "Die Zeit in diesem Feld muss identisch mit oder vor {0} sein"
 
 msgid "{0} is not a valid time"
-msgstr "{0} ist keine gltige Zeitangabe"
+msgstr "{0} ist keine gültige Zeitangabe"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
@@ -410,11 +426,11 @@ msgid "Phone numbers"
 msgstr "Telefonnummern"
 
 msgid "Business"
-msgstr "Geschft"
+msgstr "Geschäft"
 
 # 88%
 msgid "Business2"
-msgstr "Geschftlich 2"
+msgstr "Geschäftlich 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -434,16 +450,16 @@ msgstr "Pager"
 # 75%
 # 100%
 msgid "No user selected"
-msgstr "Kein Benutzer ausgewhlt"
+msgstr "Kein Benutzer ausgewählt"
 
 msgid "You must select one or more users."
-msgstr "Sie mssen einen oder mehrere Benutzer auswhlen."
+msgstr "Sie müssen einen oder mehrere Benutzer auswhlen."
 
 msgid "You must select a user."
-msgstr "Sie mssen einen Nutzer auswhlen."
+msgstr "Sie müssen einen Nutzer auswählen."
 
 msgid "Select"
-msgstr "Auswhlen"
+msgstr "Auswählen"
 
 msgid "Show Details"
 msgstr "Details anzeigen"
@@ -505,10 +521,10 @@ msgid "Sort by: Department"
 msgstr "Sortieren nach: Abteilung"
 
 msgid "Office Phone"
-msgstr "Telefon Bro"
+msgstr "Telefon Büro"
 
 msgid "Sort by: Office Phone"
-msgstr "Sortieren nach: Telefon Bro"
+msgstr "Sortieren nach: Telefon Büro"
 
 msgid "Sort by: Mobile"
 msgstr "Sortieren nach: Mobilnummer"
@@ -573,16 +589,16 @@ msgid "Add to favorites"
 msgstr "Zu Favoriten hinzufgen"
 
 msgid "Add"
-msgstr "Hinzufgen"
+msgstr "Hinzufügen"
 
 msgid "Empty folder name"
 msgstr "Leerer Ordnername"
 
 msgid "You must specify a name."
-msgstr "Sie mssen einen Namen angeben."
+msgstr "Sie müssen einen Namen angeben."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufgen"
+msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
 
 msgid "Folder name"
 msgstr "Ordnername"
@@ -591,10 +607,10 @@ msgid "Select Category"
 msgstr "Kategorie auswhlen"
 
 msgid "Apply"
-msgstr "bernehmen"
+msgstr "Übernehmen"
 
 msgid "All folders are selected"
-msgstr "Alle Ordner ausgewhlt"
+msgstr "Alle Ordner ausgewählt"
 
 msgid "Reply"
 msgstr "Antworten"
@@ -641,7 +657,7 @@ msgid "Unread"
 msgstr "Ungelesen"
 
 msgid "Attachments"
-msgstr "Anhnge"
+msgstr "Anhänge"
 
 msgid "Date"
 msgstr "Datum"
@@ -664,26 +680,26 @@ msgid "Sender"
 msgstr "Absender"
 
 msgid "Recipients"
-msgstr "Empfnger"
+msgstr "Empfänger"
 
 msgid "Subject"
 msgstr "Betreff"
 
 msgid "Body & Attachments"
-msgstr "Text & Anhngen"
+msgstr "Text & Anhängen"
 
 msgid "Favorites"
 msgstr "Favoriten"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufgen"
+msgstr "Einen Ordner basierend auf dieser Suche zu den Favoriten hinzufügen"
 
 # 76%
 msgid "Select Folder"
 msgstr "Ordner auswhlen"
 
 msgid "Delete search folder"
-msgstr "Suchordner lschen"
+msgstr "Suchordner löschen"
 
 # 81%
 # 75%
@@ -703,7 +719,7 @@ msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
-"Sie knnen nach Datum sortieren, wenn Sie Ihre Suche verfeinern. Verwenden "
+"Sie können nach Datum sortieren, wenn Sie Ihre Suche verfeinern. Verwenden "
 "Sie die Filter oder einen anderen Suchbegriff."
 
 msgid "Did you mean"
@@ -726,17 +742,17 @@ msgid ""
 "may have been moved or deleted."
 msgstr ""
 "Konnte Vorschlag nicht akzeptieren, da dieses Meeting nicht im Kalender "
-"verfgbar ist; Sie knnte verschoben oder gelscht worden sein."
+"verfügbar ist; Sie könnte verschoben oder gelöscht worden sein."
 
 msgid ""
 "Could not view proposal as this meeting is not available in calendar; It may "
 "have been moved or deleted."
 msgstr ""
-"Die Vorschlge knnen nicht angezeigt werden, da diese Besprechung nicht im "
-"Kalender verfgbar ist; sie knnte verschoben oder gelscht worden sein."
+"Die Vorschläge können nicht angezeigt werden, da diese Besprechung nicht im "
+"Kalender verfügbar ist; sie könnte verschoben oder gelöscht worden sein."
 
 msgid "Required"
-msgstr "Bentigt"
+msgstr "Benötigt"
 
 # 75%
 msgid "Optional"
@@ -746,7 +762,7 @@ msgid "Resource"
 msgstr "Ressource"
 
 msgid "Could not open store."
-msgstr "Das Postfach konnte nicht geffnet werden."
+msgstr "Das Postfach konnte nicht geöffnet werden."
 
 msgid "Could not open default calendar folder."
 msgstr "Der Standardkalender konnte nicht geffnet werden."
