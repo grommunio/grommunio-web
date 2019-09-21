@@ -98,20 +98,30 @@
         function getOwnerPermissionStores()
         {
             $stores = $GLOBALS['mapisession']->getOtherUserStore();
-            $loggedInUserid = mapi_getprops( $GLOBALS['mapisession']->getDefaultMessageStore(), array(PR_USER_ENTRYID));
 
             // $sharedOwnerStores array will contains store of users who has given 'owner' permission.
+            // Or store of users which can be fully accessible by default user in case of 'Admin User'.
             $sharedOwnerStores = array();
 
             foreach ($stores as $storeEntryId => $storeObj) {
-                $grants = mapi_zarafa_getpermissionrules($storeObj, ACCESS_TYPE_GRANT);
-
-                // Check if user has given 'owner' permission to the logged in user.
-                foreach ($grants as $index => $users) {
-                    if ($users['userid'] === $loggedInUserid[PR_USER_ENTRYID] && $users['rights'] === ecRightsAll ) {
-                        $sharedOwnerStores[$storeEntryId] = $storeObj;
-                        break;
+                $subTree = mapi_getprops($storeObj, array(PR_IPM_SUBTREE_ENTRYID));
+                try {
+                    $subtreeObj = mapi_msgstore_openentry($storeObj, $subTree[PR_IPM_SUBTREE_ENTRYID]);
+                } catch (MAPIException $e) {
+                    // we don't have rights to open folder, so don't include User's store.
+                    if ($e->getCode() === MAPI_E_NO_ACCESS) {
+                        continue;
                     }
+                    // rethrow other errors
+                    throw $e;
+                }
+
+                $permission = mapi_getprops($subtreeObj, array(PR_RIGHTS));
+                $hasSufficientPermission = $permission[PR_RIGHTS]&ecRightsSecretary === ecRightsSecretary;
+
+                // If User store's IPM subtree has rights higher than 'secretary' then include that User's store.
+                if ($hasSufficientPermission) {
+                    $sharedOwnerStores[$storeEntryId] = $storeObj;
                 }
             }
 
