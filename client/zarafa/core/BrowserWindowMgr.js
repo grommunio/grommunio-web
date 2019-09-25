@@ -188,14 +188,14 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Object} config The configuration object which must be
 
 	 */
-	register : function(browserWindowObject,component,config)
+	register : function(browserWindowObject, component, config)
 	{
 		var uniqueWindowName = browserWindowObject.name;
 		if (uniqueWindowName != 'mainBrowserWindow') {
 			this.initComponent(uniqueWindowName, component, config);
 
 			// add entryid along with the window object to identify browser window of particular record.
-			var entryid = this.getEntryId(config.record);
+			var entryid = this.getWindowId(config.record);
 			if (!Ext.isEmpty(entryid)) {
 				browserWindowObject.entryid = entryid;
 			}
@@ -392,7 +392,11 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 */
 	onSeparateWindowUnload : function(browserWindowObject, componentInstance, mainContainer)
 	{
-		Ext.defer(this.onWindowRefreshOrClose, 50, this, [browserWindowObject,componentInstance,browserWindowObject.name]);
+		Ext.defer(this.onWindowRefreshOrClose, 50, this, [browserWindowObject, componentInstance, browserWindowObject.name]);
+
+		// Remove the panel from the ContentPanelMgr
+		Zarafa.core.data.ContentPanelMgr.unregister(componentInstance);
+
 		mainContainer.destroy();
 	},
 
@@ -681,8 +685,9 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 */
 	getOpenedWindow: function (record)
 	{
+		var entryid = this.getWindowId(record);
+
 		return this.browserWindows.find(function (browserWindow) {
-			var entryid = this.getEntryId(record);
 			return Zarafa.core.EntryId.compareEntryIds(browserWindow.entryid, entryid);
 		}, this);
 	},
@@ -694,8 +699,16 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 	 * @param {Zarafa.core.data.MAPIRecord} record The mapi record.
 	 * @returns {String} entryid Return entryid of record.
 	 */
-	getEntryId: function (record)
+	getWindowId: function (record)
 	{
+		// When we have more than one record (e.g. for the reminder dialog), we
+		// will concatenate the entryids to generate an id
+		if (Array.isArray(record)) {
+			return record.map(function(r) {
+				return r.get('entryid') || r.get('id');
+			}).sort().join('-');
+		}
+
 		return Array.isArray(record.get('attach_num')) ? record.id : record.get('entryid');
 	},
 

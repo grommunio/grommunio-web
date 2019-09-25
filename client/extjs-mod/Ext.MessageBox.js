@@ -4,7 +4,7 @@ Ext.namespace('Ext.MessageBox');
  * avoid using static/local variables.
  * Making this as a proper class with converting all the local
  * variables into properties and config options.
- * 
+ *
  * @class Ext.MessageBox
  * <p>Utility class for generating different styles of message boxes.  The alias Ext.Msg can also be used.<p/>
  * <p>Note that the MessageBox is asynchronous.  Unlike a regular JavaScript <code>alert</code> (which will halt
@@ -33,7 +33,7 @@ Ext.Msg.show({
    icon: Ext.MessageBox.QUESTION
 });
 </code></pre>
- * 
+ *
  */
 Ext.MessageBox = Ext.extend(Object, {
 	/**
@@ -160,7 +160,7 @@ Ext.MessageBox = Ext.extend(Object, {
 	textboxEl : undefined,
 	textareaEl : undefined,
 	progressBar : undefined,
-	pp : undefined, 
+	pp : undefined,
 	iconEl : undefined,
 	spacerEl : undefined,
 	buttons : undefined,
@@ -204,7 +204,7 @@ Ext.MessageBox = Ext.extend(Object, {
 		if(this.opt && this.opt.cls){
 			this.dlg.el.removeClass(this.opt.cls);
 		}
-		this.progressBar.reset();        
+		this.progressBar.reset();
 	},
 
 	// private
@@ -248,87 +248,93 @@ Ext.MessageBox = Ext.extend(Object, {
 	 * @return {Ext.Window} The window
 	 */
 	getDialog : function(titleText){
-		if(!this.dlg){
-			var btns = [];
-			
-			this.buttons = {};
-			Ext.each(this.buttonNames, function(name){
-				btns.push(this.buttons[name] = new Ext.Button({
-					text: this.buttonText[name],
-					handler: this.handleButton.createDelegate(this, [name]),
-					hideMode: 'offsets'
-				}));
-			}, this);
-			this.dlg = new Ext.Window({
-				autoCreate : true,
-				title:titleText,
-				resizable:false,
-				constrain:true,
-				constrainHeader:true,
-				minimizable : false,
-				maximizable : false,
-				stateful: false,
-				modal: true,
-				shim:true,
-				buttonAlign:"center",
-				width:400,
-				height:100,
-				minHeight: 80,
-				plain:true,
-				footer:true,
-				closable:true,
-				close : function(){
-					if(this.opt && this.opt.buttons && this.opt.buttons.no && !this.opt.buttons.cancel){
-						this.handleButton("no");
-					}else{
-						this.handleButton("cancel");
-					}
-				}.createDelegate(this),
-				fbar: new Ext.Toolbar({
-					items: btns,
-					enableOverflow: false
-				})
-			});
-			// Get proper browser window to render the message box into body element of the same.
-			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
-			this.dlg.render(activeWindow.document.body);
-			this.dlg.getEl().addClass('x-window-dlg');
-			this.mask = this.dlg.mask;
-			this.bodyEl = this.dlg.body.createChild({
-				html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" /><textarea class="ext-mb-textarea"></textarea></div></div>'
-			});
-			this.iconEl = Ext.get(this.bodyEl.dom.firstChild);
-			var contentEl = this.bodyEl.dom.childNodes[1];
-			this.msgEl = Ext.get(contentEl.firstChild);
-			this.textboxEl = Ext.get(contentEl.childNodes[2].firstChild);
-			this.textboxEl.enableDisplayMode();
-			this.textboxEl.addKeyListener([10,13], function(){
-				if(this.dlg.isVisible() && this.opt && this.opt.buttons){
-					if(this.opt.buttons.ok){
-						this.handleButton("ok");
-					}else if(this.opt.buttons.yes){
-						this.handleButton("yes");
-					}
-				}
-			}, this);
-			this.textareaEl = Ext.get(contentEl.childNodes[2].childNodes[1]);
-			this.textareaEl.enableDisplayMode();
-			this.progressBar = new Ext.ProgressBar({
-				renderTo:this.bodyEl
-			});
-			this.bodyEl.createChild({cls:'x-clear'});
-
-			/**
-			 * register browser window with the object of {@Link Ext.MessageBox.browserWindowsMessageBoxProps props}
-			 * which should be unique for all browser window.
-			 */
-			this.browserWindowsMessageBox.add(activeWindow.name,Ext.copyTo({}, this,this.browserWindowsMessageBoxProps ));
-			this.activeWindowName = activeWindow.name;
-		} else {
+		if (this.dlg) {
 			this.textboxEl.enableDisplayMode();
 			this.textareaEl.enableDisplayMode();
 			this.browserWindowsMessageBox.replace(this.activeWindowName, Ext.copyTo({}, this, this.browserWindowsMessageBoxProps));
+
+			return this.dlg;
 		}
+
+		var btns = [];
+
+		this.buttons = {};
+		Ext.each(this.buttonNames, function(name){
+			btns.push(this.buttons[name] = new Ext.Button({
+				text: this.buttonText[name],
+				handler: this.handleButton.createDelegate(this, [name]),
+				hideMode: 'offsets'
+			}));
+		}, this);
+
+		// Get proper browser window to render the message box into body element of the same.
+		var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+
+		this.dlg = new Ext.Window({
+			autoCreate : true,
+			title:titleText,
+			resizable:false,
+			constrain:true,
+			constrainHeader:true,
+			minimizable : false,
+			maximizable : false,
+			stateful: false,
+			modal: true,
+			shim:true,
+			buttonAlign:"center",
+			width:400,
+			height:100,
+			minHeight: 80,
+			plain:true,
+			footer:true,
+			closable:true,
+			close : function(){
+				if(this.opt && this.opt.buttons && this.opt.buttons.no && !this.opt.buttons.cancel){
+					this.handleButton("no");
+				}else{
+					this.handleButton("cancel");
+				}
+			}.createDelegate(this),
+			fbar: new Ext.Toolbar({
+				items: btns,
+				enableOverflow: false
+			})
+		});
+
+		this.dlg.render(activeWindow.document.body);
+		this.dlg.getEl().addClass('x-window-dlg');
+		this.mask = this.dlg.mask;
+		this.bodyEl = this.dlg.body.createChild({
+			html:'<div class="ext-mb-icon"></div><div class="ext-mb-content"><span class="ext-mb-text"></span><br /><div class="ext-mb-fix-cursor"><input type="text" class="ext-mb-input" /><textarea class="ext-mb-textarea"></textarea></div></div>'
+		});
+		this.iconEl = Ext.get(this.bodyEl.dom.firstChild);
+		var contentEl = this.bodyEl.dom.childNodes[1];
+		this.msgEl = Ext.get(contentEl.firstChild);
+		this.textboxEl = Ext.get(contentEl.childNodes[2].firstChild);
+		this.textboxEl.enableDisplayMode();
+		this.textboxEl.addKeyListener([10,13], function(){
+			if(this.dlg.isVisible() && this.opt && this.opt.buttons){
+				if(this.opt.buttons.ok){
+					this.handleButton("ok");
+				}else if(this.opt.buttons.yes){
+					this.handleButton("yes");
+				}
+			}
+		}, this);
+		this.textareaEl = Ext.get(contentEl.childNodes[2].childNodes[1]);
+		this.textareaEl.enableDisplayMode();
+		this.progressBar = new Ext.ProgressBar({
+			renderTo:this.bodyEl
+		});
+		this.bodyEl.createChild({cls:'x-clear'});
+
+		/**
+		 * register browser window with the object of {@Link Ext.MessageBox.browserWindowsMessageBoxProps props}
+		 * which should be unique for all browser window.
+		 */
+		this.browserWindowsMessageBox.add(activeWindow.name,Ext.copyTo({}, this,this.browserWindowsMessageBoxProps ));
+		this.activeWindowName = activeWindow.name;
+
 		return this.dlg;
 	},
 
@@ -350,7 +356,7 @@ Ext.MessageBox = Ext.extend(Object, {
 			fw = this.dlg.getFrameWidth('lr'),
 			bw = this.dlg.body.getFrameWidth('lr'),
 			w;
-			
+
 		w = Math.max(Math.min(this.opt.width || iw+mw+fw+bw, this.opt.maxWidth || this.maxWidth),
 				Math.max(this.opt.minWidth || this.minWidth, this.bwidth || 0));
 
@@ -361,7 +367,7 @@ Ext.MessageBox = Ext.extend(Object, {
 			this.progressBar.setSize(w-iw-fw-bw);
 		}
 		if(Ext.isIE9m && w == this.bwidth){
-			w += 4; //Add offset when the content width is smaller than the buttons.    
+			w += 4; //Add offset when the content width is smaller than the buttons.
 		}
 		this.msgEl.update(text || '&#160;');
 		this.dlg.setSize(w, 'auto').center();
@@ -407,7 +413,7 @@ Ext.MessageBox = Ext.extend(Object, {
 				// unghost is a private function, but i saw no better solution
 				// to fix the locking problem when dragging while it closes
 				this.dlg.unghost(false, false);
-			} 
+			}
 		}
 		return this;
 	},
@@ -482,35 +488,39 @@ icon: Ext.MessageBox.INFO
 	 * @return {Ext.MessageBox} this
 	 */
 	show : function(options){
-		if(this.isVisible()){
+		if (this.isVisible()) {
 			this.hide();
 		}
+
 		this.opt = options;
 		var d = this.getDialog(this.opt.title || "&#160;");
+		if ( !this.opt.maxWidth ) {
+			this.opt.maxWidth = Math.max(Zarafa.core.BrowserWindowMgr.getOwnerWindow(d).innerWidth - 20, 200);
+		}
 
 		d.setTitle(this.opt.title || "&#160;");
 		var allowClose = (this.opt.closable !== false && this.opt.progress !== true && this.opt.wait !== true);
 		d.tools.close.setDisplayed(allowClose);
 		this.activeTextEl = this.textboxEl;
 		this.opt.prompt = this.opt.prompt || (this.opt.multiline ? true : false);
-		if(this.opt.prompt){
-			if(this.opt.multiline){
+		if (this.opt.prompt){
+			if (this.opt.multiline) {
 				this.textboxEl.hide();
 				this.textareaEl.show();
 				this.textareaEl.setHeight(Ext.isNumber(this.opt.multiline) ? this.opt.multiline : this.defaultTextHeight);
 				this.activeTextEl = this.textareaEl;
-			}else{
+			} else {
 				this.textboxEl.show();
 				this.textareaEl.hide();
 			}
-		}else{
+		} else {
 			this.textboxEl.hide();
 			this.textareaEl.hide();
 		}
 		this.activeTextEl.dom.value = this.opt.value || "";
-		if(this.opt.prompt){
+		if (this.opt.prompt){
 			d.focusEl = this.activeTextEl;
-		}else{
+		} else {
 			var bs = this.opt.buttons;
 			var db = null;
 			if(bs && bs.ok){
@@ -523,11 +533,11 @@ icon: Ext.MessageBox.INFO
 			}
 		}
 
-		if(Ext.isDefined(this.opt.iconCls)){
-		  d.setIconClass(this.opt.iconCls);
+		if (Ext.isDefined(this.opt.iconCls)) {
+			d.setIconClass(this.opt.iconCls);
 		}
-		
-		// Workaround when old icon is still set by a plugin(external or internal)	
+
+		// Workaround when old icon is still set by a plugin(external or internal)
 		// If the window is called with legacy icon we set an empty icon
 		// and add the similar cls instead.
 		// Log a message in the console that this icon is deprecated
@@ -558,18 +568,18 @@ icon: Ext.MessageBox.INFO
 			this.iconEl.addClass('x-hidden');
 			this.iconEl.removeClass('ext-mb-icon');
 		}
-		
+
 		this.bwidth = this.updateButtons(this.opt.buttons);
 		this.progressBar.setVisible(this.opt.progress === true || this.opt.wait === true);
 		this.updateProgress(0, this.opt.progressText);
 		this.updateText(this.opt.msg);
-		if(this.opt.cls){
+		if (this.opt.cls) {
 			d.el.addClass(this.opt.cls);
 		}
 		d.proxyDrag = this.opt.proxyDrag === true;
 		d.modal = this.opt.modal !== false;
 		d.mask = this.opt.modal !== false ? this.mask : false;
-		if(!d.isVisible()){
+		if (!d.isVisible()) {
 			// force it to the end of the z-index stack so it gets a cursor in FF
 			// Get proper browser window to render the message box into body element of the same.
 			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();

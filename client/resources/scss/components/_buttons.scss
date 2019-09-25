@@ -209,7 +209,9 @@ $normal-button-bgcolor-hover	: $grey2;
 
     /* For popup or windows or MessageBox, the first button is styled green */
     /* Extra class .xpanel-footer necessary for "Create Mail => Insert Item" pagination buttons */
-    .x-window {
+	.x-window,
+	/* The reminder panel can be shown in a popout instead of an x-window */
+	.k-reminderpanel {
     	.x-panel-footer,
     	.x-window-footer {
     		.x-toolbar-left-row,
@@ -293,7 +295,7 @@ $normal-button-bgcolor-hover	: $grey2;
 				}
 			}
 		}
-    }
+	}
 
 	/* Drag & Drop icon override, select mail drag to folder hiearchy. */
 	.x-tree-drop-ok-append .x-dd-drop-icon,
