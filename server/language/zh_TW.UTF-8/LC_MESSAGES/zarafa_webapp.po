@@ -1478,7 +1478,6 @@ msgstr "依敏感性排序"
 msgid "Loading appointments"
 msgstr "會議載入中"
 
-# 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "jS F G:i"
@@ -1528,7 +1527,7 @@ msgstr "建議"
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
-msgstr "當"
+msgstr "時間"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
