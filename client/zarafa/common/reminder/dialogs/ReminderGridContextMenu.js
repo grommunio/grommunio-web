@@ -63,7 +63,7 @@ Zarafa.common.reminder.dialogs.ReminderGridContextMenu = Ext.extend(Zarafa.core.
 	 */
 	onContextItemOpen : function()
 	{
-		Zarafa.common.Actions.openReminderRecord(this.records);
+		Zarafa.common.Actions.openReminderRecord(this.records[0]);
 	}
 });
 

@@ -69,6 +69,7 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			xtype : 'zarafa.reminderpanel',
+			cls: 'k-reminderpanel',
 			layout: {
 				type : 'vbox',
 				align : 'stretch',
@@ -94,6 +95,15 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 				compiled: true
 			});
 		}
+
+		// Set the focus to the dismissAllButton when the parent window is shown
+		// This is already done in the afterrender handler of the button itself, but
+		// Ext will focus the focus element of the dialog when it is shown. (We need
+		// the focus action also on the afterrender event of the button because the
+		// show event is not fired for the popped out reminder panel)
+		// defer the action 10ms because Ext does the same to focus the focus element
+		// of the dialog in its show event handler.
+		this.ownerCt.on('show', this.dismissAllButton.focus, this.dismissAllButton, {delay: 10});
 	},
 
 	/**
@@ -148,7 +158,11 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 				text	: _('Dismiss All'),
 				handler	: this.onDismissAll,
 				ref: '../../dismissAllButton',
-				scope	: this
+				scope	: this,
+				listeners: {
+					// A listener to focus the button in a popped out panel
+					afterrender: function(btn){ btn.focus(); }
+				}
 			},{
 				text	: _('Open Item'),
 				handler	: this.onOpenItem,

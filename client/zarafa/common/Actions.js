@@ -456,10 +456,18 @@ Zarafa.common.Actions = {
 		var componentType = Zarafa.core.data.SharedComponentType['common.dialog.reminder'];
 		var component = container.getSharedComponent(componentType, records);
 
-		config = Ext.applyIf(config || {}, {
-			modal : false,
-			manager : Ext.WindowMgr
-		});
+		if ( window.showReminderPanelInPopout ) {
+			config = Ext.applyIf(config || {}, {
+				layerType: 'separateWindows',
+				width: 450,
+				height: 500
+			});
+		} else {
+			config = Ext.applyIf(config || {}, {
+				modal : false,
+				manager : Ext.WindowMgr
+			});
+		}
 
 		// check if panel is already open
 		var contentPanelInstances = Zarafa.core.data.ContentPanelMgr.getContentPanelInstances(component);
@@ -477,6 +485,7 @@ Zarafa.common.Actions = {
 
 			if(records.length > 0) {
 				// there are reminders to show, so give focus to existing reminder dialog
+				Zarafa.core.BrowserWindowMgr.getOwnerWindow(reminderDialog).focus();
 				reminderDialog.focus();
 			} else {
 				// no reminders to show, close existing dialog
@@ -503,6 +512,12 @@ Zarafa.common.Actions = {
 		if (record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
 			store.dismissReminders(dismissReminders);
+		}
+
+		// Set the focus to the main window because the reminder panel
+		// could be shown in a separate window in DeskApp
+		if (Zarafa.isDeskApp && window.global && window.global.DA && window.global.DA.winWebApp) {
+			window.global.DA.winWebApp.focus();
 		}
 	},
 
@@ -1059,7 +1074,7 @@ Zarafa.common.Actions = {
 				record.setReadFlags(read);
 				saveRecords.push(record);
 			}
-		}	
+		}
 
 		if (!Ext.isEmpty(saveRecords)) {
 			saveRecords[0].store.save(saveRecords);
