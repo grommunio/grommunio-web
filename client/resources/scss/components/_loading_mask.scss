@@ -1,0 +1,22 @@
+/* loading mask  */
+.x-mask-loading {
+	background-image: none;
+	background-color:#ebeaeb;
+	border-color:#d3d2d2;
+}
+.x-mask-row {
+	background-color:#ffffff;
+}
+.x-mask-loading > div {
+	border-color:#d3d2d2;
+}
+
+.x-mask-error {
+	background-image: none;
+	background-color:#ebeaeb;
+	border-color:#d3d2d2;
+}
+.x-mask-error > div {
+	cursor: default;
+	border-color:#d3d2d2;
+}

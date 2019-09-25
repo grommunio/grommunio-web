@@ -1,0 +1,6543 @@
+# Kopano Webapp Czech translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Czech\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"PO-Revision-Date: 2019-01-16 14:37+0000\n"
+"Last-Translator: Luba <luba.neuwirth@maincube.net>\n"
+"Language-Team: Czech <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/cs/>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "Týden"
+
+msgid "Now"
+msgstr "Nyní"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Hodnota musí být mezi 0% a 100%"
+
+msgid "Number must be higher than zero"
+msgstr "Číslice musí být vyšší než nula"
+
+msgid "More options"
+msgstr "Více možností"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} byte"
+msgstr[1] "{0} byty"
+msgstr[2] "{0} bytů"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+msgstr[2] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+msgstr[2] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+msgstr[2] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+msgstr[2] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} minuta"
+msgstr[1] "{0} minuty"
+msgstr[2] "{0} minut"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} hodina"
+msgstr[1] "{0} hodiny"
+msgstr[2] "{0} hodin"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} den"
+msgstr[1] "{0} dny"
+msgstr[2] "{0} dní"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} týden"
+msgstr[1] "{0} týdny"
+msgstr[2] "{0} týdnů"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr ""
+"Nechť již hříšné saxofony ďáblů rozzvučí síň úděsnými tóny waltzu, tanga a "
+"quickstepu"
+
+msgid "Sunday"
+msgstr "neděle"
+
+msgid "Monday"
+msgstr "pondělí"
+
+msgid "Tuesday"
+msgstr "úterý"
+
+msgid "Wednesday"
+msgstr "středa"
+
+msgid "Thursday"
+msgstr "čtvrtek"
+
+msgid "Friday"
+msgstr "pátek"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Sun"
+msgstr "ne"
+
+msgid "Mon"
+msgstr "po"
+
+msgid "Tue"
+msgstr "út"
+
+msgid "Wed"
+msgstr "st"
+
+msgid "Thu"
+msgstr "čt"
+
+msgid "Fri"
+msgstr "pá"
+
+msgid "Sat"
+msgstr "so"
+
+msgid "January"
+msgstr "leden"
+
+msgid "February"
+msgstr "únor"
+
+msgid "March"
+msgstr "březen"
+
+msgid "April"
+msgstr "duben"
+
+msgid "May"
+msgstr "květen"
+
+msgid "June"
+msgstr "červen"
+
+msgid "July"
+msgstr "červenec"
+
+msgid "August"
+msgstr "srpen"
+
+msgid "September"
+msgstr "září"
+
+msgid "October"
+msgstr "říjen"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "December"
+msgstr "prosinec"
+
+msgid "Page {A} of {0}"
+msgstr "Strana {A} z {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Zobrazené zprávy {0} - {1} z {2}"
+
+msgid "No messages to display"
+msgstr "Žádné zprávy k zobrazení"
+
+msgid "First Page"
+msgstr "První strana"
+
+msgid "Previous Page"
+msgstr "Předchozí strana"
+
+msgid "Next Page"
+msgstr "Další strana"
+
+msgid "Last Page"
+msgstr "Poslední strana"
+
+msgid "Refresh"
+msgstr "Obnovit"
+
+msgid "Today"
+msgstr "Dnes"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Mezerník)"
+
+msgid "This date is before the minimum date"
+msgstr "Toto datum je před minimálním datem"
+
+msgid "This date is after the maximum date"
+msgstr "Toto datum je po maximálním datu"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d. m. Y"
+
+msgid "Disabled"
+msgstr "Vypnuto"
+
+msgid "Next Month (Control+Right)"
+msgstr "Příští měsíc (Ctrl+Vpravo)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Předchozí měsíc (Ctrl+Vlevo)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Vybrat měsíc (Ctrl+Nahoru/Dolů k nastavení roku)"
+
+msgid "Sort Ascending"
+msgstr "Třídit vzestupně"
+
+msgid "Sort Descending"
+msgstr "Třídit sestupně"
+
+msgid "Columns"
+msgstr "Sloupce"
+
+msgid "Group By This Field"
+msgstr "Třídit podle tohoto pole"
+
+msgid "Show in Groups"
+msgstr "Ukázat ve skupinách"
+
+msgid "(None)"
+msgstr "(Žádný)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Loading"
+msgstr "Načítání"
+
+msgid "The value in this field is invalid"
+msgstr "Toto pole je neplatné"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Minimální délka pro toto pole je {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Maximální délka pro toto pole je {0}"
+
+msgid "This field is required"
+msgstr "Toto pole je povinné"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Minimální hodnota pro toto pole je {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Maximální hodnota pro toto pole je {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} není platné číslo"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "Údaj v tomto poli musí být stejný nebo následující {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "Údaj v tomto poli musí být stejný nebo předcházející {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} není platný údaj - musí být ve formátu {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Musíte vybrat nejméně jednu položku z této skupiny"
+
+msgid "You must select one item in this group"
+msgstr "Musíte vybrat jednu položku z této skupiny"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "Čas v tomto poli musí být stejný nebo následující {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "Čas v tomto poli musí být stejný nebo předcházející {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} není platný čas"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Jméno"
+
+msgid "Value"
+msgstr "Hodnota"
+
+msgid "true"
+msgstr "správně"
+
+msgid "false"
+msgstr "špatně"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"V tomto poli má být e-mailová adresa ve formátu \"uživatel@example.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "V tomto poli má být URL ve formátu \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "Toto pole má obsahovat pouze písmena a _"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Toto pole má obsahovat pouze písmena, čísla a _"
+
+#, fuzzy
+msgid "Email Addresses"
+msgstr "E-mailové adresy"
+
+#, fuzzy
+msgid "Email addresses"
+msgstr "E-mailové adresy"
+
+msgid "Group details"
+msgstr "Podrobnosti o skupině"
+
+msgid "General"
+msgstr "Obecný"
+
+msgid "Display Name"
+msgstr "Zobrazené jméno"
+
+msgid "Alias"
+msgstr "Přezdívka"
+
+msgid "Owner"
+msgstr "Vlastník"
+
+msgid "Notes"
+msgstr "Poznámky"
+
+msgid "Members"
+msgstr "Členové"
+
+msgid "Email Address"
+msgstr "E-mailová adresa"
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "Member Of"
+msgstr "Člen"
+
+msgid "Group Membership"
+msgstr "Členství ve skupině"
+
+msgid "Address Book"
+msgstr "Adresář"
+
+msgid "User details"
+msgstr "Detaily uživatele"
+
+msgid "First"
+msgstr "První"
+
+msgid "Initial"
+msgstr "Výchozí"
+
+msgid "Display"
+msgstr "Zobrazit"
+
+# 75%
+msgid "Last"
+msgstr "Poslední"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "City"
+msgstr "Město"
+
+msgid "State"
+msgstr "Stát"
+
+msgid "Zip Code"
+msgstr "PSČ"
+
+msgid "Country"
+msgstr "Země"
+
+msgid "Title"
+msgstr "Titul"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Department"
+msgstr "Oddělení"
+
+msgid "Office"
+msgstr "Kancelář"
+
+msgid "Assistant"
+msgstr "Asistent"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Organization"
+msgstr "Organizace"
+
+msgid "Manager"
+msgstr "Manažer"
+
+msgid "Direct reports"
+msgstr "Podřízení"
+
+msgid "Phone numbers"
+msgstr "Telefonní čísla"
+
+msgid "Business"
+msgstr "Firemní"
+
+# 88%
+msgid "Business2"
+msgstr "Firemní2"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Home"
+msgstr "Domů"
+
+msgid "Home2"
+msgstr "Domů2"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Pager"
+msgstr "Pager"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Žádná úloha není zvolena"
+
+msgid "You must select one or more users."
+msgstr "Musíte vybrat jednoho či více uživatelů."
+
+msgid "You must select a user."
+msgstr "Musíte vybrat uživatele."
+
+msgid "Select"
+msgstr "Vybrat"
+
+msgid "Show Details"
+msgstr "Ukázat detaily"
+
+msgid "Use the search bar to get results"
+msgstr "Chcete-li získat výsledky, použijte vyhledávací panel"
+
+msgid "There are no items to show in this list"
+msgstr "V tomto náhledu není žádná položka k zobrazení"
+
+msgid "Show Names from the"
+msgstr "Ukázat jména od"
+
+msgid "Search..."
+msgstr "Hledat..."
+
+msgid "Sort by: Icon"
+msgstr "Třídit podle: Ikony"
+
+# 76%
+msgid "Sort by: Name"
+msgstr "Třídit podle: Jméno"
+
+msgid "Sort by: Display Name"
+msgstr "Třídit podle: Zobrazené jméno"
+
+msgid "File as"
+msgstr "Soubor jako"
+
+# 75%
+msgid "Sort by: File As"
+msgstr "Třídit podle: Soubor jako"
+
+# 80%
+msgid "First Name"
+msgstr "Jméno"
+
+msgid "Sort by: First Name"
+msgstr "Třídit podle křestního jména"
+
+# 77%
+msgid "Last Name"
+msgstr "Příjmení"
+
+# 76%
+msgid "Sort by: Last Name"
+msgstr "Třídit podle: Příjmení"
+
+msgid "Sort by: Email Address"
+msgstr "Třídit podle: E-mailová adresa"
+
+msgid "Sort by: Department"
+msgstr "Třídit podle: Oddělení"
+
+msgid "Office Phone"
+msgstr "Firemní telefon"
+
+msgid "Sort by: Office Phone"
+msgstr "Třídit podle: Firemní telefon"
+
+msgid "Sort by: Mobile"
+msgstr "Třídit podle: Mobil"
+
+msgid "Home Phone"
+msgstr "Soukromý telefon"
+
+msgid "Sort by: Home Phone"
+msgstr "Třídit podle: Soukromý telefon"
+
+# 78%
+msgid "Sort by: Pager"
+msgstr "Třídit podle: Pager"
+
+msgid "Location"
+msgstr "Místo"
+
+msgid "Sort by: Location"
+msgstr "Třídit podle: Místo"
+
+msgid "Sort by: Fax"
+msgstr "Třídit podle: Fax"
+
+msgid "No preview"
+msgstr "Bez náhledu"
+
+msgid "Right preview"
+msgstr "Náhled zprava"
+
+msgid "Bottom preview"
+msgstr "Náhled zdola"
+
+msgid "Any date"
+msgstr "Všechny datumy"
+
+msgid "Past week"
+msgstr "Minulý týden"
+
+msgid "Past 2 weeks"
+msgstr "Minulé 2 tydny"
+
+msgid "Past month"
+msgstr "Minulý měsíc"
+
+msgid "Past 6 month"
+msgstr "Uplynulých 6 měsíců"
+
+msgid "Past year"
+msgstr "Minulý rok"
+
+msgid "Custom date"
+msgstr "Výbrat datumy"
+
+msgid "Add to favorites"
+msgstr "Přidat k oblíbeným"
+
+msgid "Add"
+msgstr "Přidat"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Vyprázdnit složku"
+
+msgid "You must specify a name."
+msgstr "Musíte uvést název."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
+
+msgid "Folder name"
+msgstr "Název složky"
+
+msgid "Select Category"
+msgstr "Nastavit kategorii"
+
+msgid "Apply"
+msgstr "Použít"
+
+#, fuzzy
+msgid "All folders are selected"
+msgstr "Vybrána složka '{0}'."
+
+msgid "Reply"
+msgstr "Odpovědět"
+
+msgid "Reply All"
+msgstr "Odpovědět všem"
+
+msgid "Forward"
+msgstr "Přeposlat"
+
+#, fuzzy
+msgid "Edit as New"
+msgstr "Upravit jako novou zprávu"
+
+msgid "Search tools"
+msgstr "Vyhledávací nástroje"
+
+# 85%
+# 100%
+msgid "Folders"
+msgstr "Složky"
+
+msgid "Include subfolders"
+msgstr "Vytvořit podsložky"
+
+msgid "Show.."
+msgstr "Ukázat.."
+
+msgid "Mails"
+msgstr "Zprávy"
+
+msgid "Appointments"
+msgstr "Schůzky"
+
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgid "Tasks"
+msgstr "Úkoly"
+
+msgid "Filter.."
+msgstr "Filtrovat.."
+
+msgid "Unread"
+msgstr "Nepřečtené"
+
+msgid "Attachments"
+msgstr "Přílohy"
+
+msgid "Date"
+msgstr "Datum"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "Od"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "Komu"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Filtrovat.."
+
+msgid "Search.."
+msgstr "Hledat v.."
+
+msgid "Sender"
+msgstr "Odesílatel"
+
+msgid "Recipients"
+msgstr "Příjemci"
+
+msgid "Subject"
+msgstr "Předmět"
+
+msgid "Body & Attachments"
+msgstr "Obsah zprávy & přílohy"
+
+msgid "Favorites"
+msgstr "Oblíbené"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "Přidejte složku do oblíbených na základě vašeho vyhledávacího dotazu"
+
+# 76%
+msgid "Select Folder"
+msgstr "Vybrat složku"
+
+msgid "Delete search folder"
+msgstr "Odstranit složku vyhledávání"
+
+msgid "Sort by: Date"
+msgstr "Seřadit podle: data"
+
+msgid "Loading Search results"
+msgstr "Nahrávání výsledků vyhledávání"
+
+msgid "Sorting tip"
+msgstr "Tip pro třídění"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+"Pokud zúžíte výsledky vyhledávání, můžete je seřadit podle data. Povolte "
+"filtry, nebo upravte zadání."
+
+msgid "Did you mean"
+msgstr "Mysleli jste tím"
+
+#, fuzzy
+msgid "With"
+msgstr "S"
+
+msgid "To"
+msgstr "Komu"
+
+msgid "No date"
+msgstr "Bez data"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Nelze přijmout návrh, neboť tato schůzka je nedostupná v kalendáři. Mohla "
+"být přesunuta nebo odstraněna."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Nelze zobrazit návrh, neboť tato schůzka není dostupná v kalendáři. Mohla "
+"být přesunuta nebo odstraněna."
+
+msgid "Required"
+msgstr "Povinný"
+
+msgid "Optional"
+msgstr "Nepovinné"
+
+msgid "Resource"
+msgstr "Zdroj"
+
+msgid "Could not open store."
+msgstr "Nelze otevřít úložiště."
+
+msgid "Could not open default calendar folder."
+msgstr "Nelze otevřít výchozí složku kalendáře."
+
+msgid "workday"
+msgstr "pracovní den"
+
+msgid "day"
+msgstr "den"
+
+msgid "days"
+msgstr "dny"
+
+msgid "week"
+msgstr "týden"
+
+msgid "weeks"
+msgstr "týdny"
+
+msgid " on "
+msgstr " v "
+
+msgid "month"
+msgstr "měsíc"
+
+msgid "months"
+msgstr "měsíce"
+
+msgid "year"
+msgstr "rok"
+
+msgid "years"
+msgstr "roky"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Opakuje se vždy {0} počínaje {1} od {2} do {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Opakuje se vždy {0} {1} počínaje {2} od {3} do {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Opakuje se vždy {0} počínaje {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Opakuje se vždy {0} {1} počínaje {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
+msgstr[0] "Opakuje se vždy {0} počínaje {1}, {2}-krát, od {3} do {4}."
+msgstr[1] "Opakuje se vždy {0} počínaje {1}, {2}-krát, od {3} do {4}."
+msgstr[2] "Opakuje se vždy {0} počínaje {1}, {2}-krát, od {3} do {4}."
+
+# 88%
+msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
+msgstr[0] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát, od {4} do {5}."
+msgstr[1] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát, od {4} do {5}."
+msgstr[2] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát, od {4} do {5}."
+
+# 77%
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] "Opakuje se vždy {0} počínaje {1}, {2}-krát."
+msgstr[1] "Opakuje se vždy {0} počínaje {1}, {2}-krát."
+msgstr[2] "Opakuje se vždy {0} počínaje {1}, {2}-krát."
+
+# 79%
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát."
+msgstr[1] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát."
+msgstr[2] "Opakuje se vždy {0} {1} počínaje {2}, {3}-krát."
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Opakuje se vždy {0} počínaje {1} do {2}, od {3} do {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Opakuje se vždy {0} {1} počínaje {2} do {3}, od {4} do {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Opakuje se vždy {0} počínaje {1} do {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Opakuje se vždy {0} {1} počínaje {2} do {3}."
+
+msgid "When"
+msgstr "Kdy"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y G:i"
+msgstr "l j. F Y G:i"
+
+msgid "Where"
+msgstr "Kde"
+
+msgid "New Meeting Time Proposed"
+msgstr "Nově navrhovaný čas schůzky"
+
+# 75%
+# 100%
+msgid "and "
+msgstr "a "
+
+msgid "Sort by: Attachment"
+msgstr "Třídit podle: Příloha"
+
+msgid "Sort by: Recurring"
+msgstr "Třídit podle: Opakující se"
+
+msgid "Sort by: Subject"
+msgstr "Třídit podle: Předmět"
+
+msgid "Startdate"
+msgstr "Počáteční datum"
+
+# 89%
+msgid "Sort by: Startdate"
+msgstr "Třídit podle: Počáteční datum"
+
+msgid "Enddate"
+msgstr "Konečné datum"
+
+msgid "Sort by: Enddate"
+msgstr "Třídit podle: Konečné datum"
+
+msgid "Organizer"
+msgstr "Organizátor"
+
+msgid "Required Attendee"
+msgstr "Povinná účast"
+
+msgid "Optional Attendee"
+msgstr "Nepovinná účast"
+
+msgid "Show Time As"
+msgstr "Ukázat čas jako"
+
+msgid "Start Date"
+msgstr "Počáteční datum"
+
+# 87%
+msgid "End Date"
+msgstr "Konečné datum"
+
+msgid "Recurrence pattern"
+msgstr "Pravidla opakování"
+
+msgid "All Day Event"
+msgstr "Celodenní akce"
+
+# 76%
+# 100%
+msgid "Add Shared Calendar"
+msgstr "Otevřít sdílený kalendář"
+
+msgid "Day"
+msgstr "Den"
+
+msgid "Workweek"
+msgstr "Pracovní týden"
+
+msgid "Week"
+msgstr "Týden"
+
+msgid "Month"
+msgstr "Měsíc"
+
+msgid "List"
+msgstr "Seznam"
+
+msgid "Appointment"
+msgstr "Termín"
+
+msgid "Meeting request"
+msgstr "Žádost o schůzku"
+
+msgid "Print selected appointment"
+msgstr "Tisknout vybraný termín"
+
+msgid "Print overview"
+msgstr "Náhled tisku"
+
+msgid "Print"
+msgstr "Tisk"
+
+msgid "No appointment selected"
+msgstr "Nebyl vybrán termín"
+
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Soukromá schůzka"
+
+msgid "Calendar"
+msgstr "Kalendář"
+
+msgid "Create in other calendar"
+msgstr "Vytvořit v jiném kalendáři"
+
+#, fuzzy
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+"Vybraný kalendář má oprávnění jen pro čtení. Namísto toho můžete vytvořit "
+"položku ve svém vlastním kalendáři."
+
+#, fuzzy
+msgid "What would you like?"
+msgstr "Požadovaná akce"
+
+msgid "Own calendar"
+msgstr "Můj kalendář"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Všechna pole textu"
+
+msgid "Body"
+msgstr "Obsah zprávy"
+
+msgid "Subject or Sender"
+msgstr "Předmět nebo Odesílatel"
+
+msgid "To or cc"
+msgstr "Adresát"
+
+msgid "Meeting"
+msgstr "Schůzka"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Zdroje byly naplánovány."
+
+#, fuzzy
+msgid "Send update"
+msgstr "Konečné datum"
+
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr "Aktualizace bude odeslána všem příjemcům, přejete si pokračovat?"
+
+msgid "Send update to attendees"
+msgstr "Odeslat aktualizace účastníkům"
+
+msgid ""
+"You have made changes to the list of attendees, Choose one of the following"
+msgstr "Změněn seznam účastníků, vyberte jednoho z následujících"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Odeslat aktualizace pouze přidaným nebo odebraným účastníkům."
+
+msgid "Send updates to all attendees."
+msgstr "Odeslat aktualizace všem účastníkům."
+
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Pozvat účastníky"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"Jeden či více pozvaných účastníků je zaneprázdněno. Chcete přesto pozvat?"
+
+msgid "Scheduling"
+msgstr "Plánování"
+
+msgid "Tracking"
+msgstr "Sledování"
+
+# 75%
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Nelze identifikovat všechny účastníky."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} účastníků přijalo, {1} předběžně přijalo, {2} odmítnulo."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} účastníků navrhuje nový čas pro tuto schůzku. Klikněte na plánovací "
+"záložku pro detaily."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Navrhli jste nový čas pro tuto schůzku {0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} navrhl nový čas pro tuto schůzku {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Přijato na {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Přijal {0} na {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Předběžně přijato na {0}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Předběžně přijato od {0} na {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Tato schůzka již proběhla."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Prosím o odpověď."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Nebyly doručeny žádné potvrzení této schůzky."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Schůzka byla zrušena."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Pozvání na tuto schůzku nebyly odeslány."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
+"organizatorem v případě aktualizace této žádosti o schůzku"
+
+#, fuzzy
+msgid "Create in"
+msgstr "Vytvořit v"
+
+msgid "Time"
+msgstr "Čas"
+
+msgid "until"
+msgstr "do"
+
+msgid "Recurrence"
+msgstr "Opakování"
+
+msgid "Reminder"
+msgstr "Připomínka"
+
+msgid "Show as"
+msgstr "Ukázat jako"
+
+msgid "Warning"
+msgstr "Varování"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Přílohy nemohou být modifikovány pro jedno opakování"
+
+msgid "Type your message here..."
+msgstr "Zde napište svou zprávu..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Aktualizovat seznam"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Přejete si aktualizovat místo\"{0}\" novým místem \"{1}\"?"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y G:i"
+msgstr "j. F Y G:i"
+
+msgid "None"
+msgstr "Žádný"
+
+# 75%
+msgid "Send"
+msgstr "Odeslat"
+
+# 80%
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Delete"
+msgstr "Odstranit"
+
+msgid "Add attachment"
+msgstr "Přidat přílohu"
+
+msgid "Check names"
+msgstr "Ověřit jména"
+
+msgid "Invite attendees"
+msgstr "Pozvat účastníky"
+
+msgid "Cancel invitation"
+msgstr "Zrušit pozvánky"
+
+msgid "High priority"
+msgstr "Vysoká priorita"
+
+# 76%
+msgid "Mark this appointment as high priority"
+msgstr "Označit tuto schůzku jako vysoce prioritní"
+
+msgid "Low priority"
+msgstr "Nízká priorita"
+
+# 78%
+msgid "Mark this appointment as low priority"
+msgstr "Označit tuto schůzku jako méně prioritní"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Open the categories dialog"
+msgstr "Otevřít volby kategorií"
+
+msgid "Private"
+msgstr "Soukromé"
+
+msgid "Mark this appointment as private"
+msgstr "Označit tuto schůzku jako soukromou"
+
+msgid "Proposed Date and Time"
+msgstr "Navrhované datum a čas"
+
+msgid "Duration"
+msgstr "Délka trvání"
+
+msgid "Proposed By"
+msgstr "Navrženo"
+
+msgid "Current Meeting Time"
+msgstr "Aktuální čas schůzky"
+
+msgid "Show only working hours"
+msgstr "Ukázat pouze pracovní dobu"
+
+msgid "Propose New Time"
+msgstr "Navrhnout nový čas"
+
+msgid "Start time"
+msgstr "Začátek"
+
+msgid "End time"
+msgstr "Konec"
+
+msgid "Comment"
+msgstr "Komentář"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Odeslat zrušení žádosti o schůzku"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr "Tato schůzka bude zrušena. Přejete si připojit komentář?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Upravit zrušení před odesláním."
+
+msgid "Send the cancellation now."
+msgstr "Odeslat zrušení nyní."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Poslat potvrzení žádosti o schůzku"
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Tato schůzka byla přijata a bude přesunuta do vašeho kalendáře. Přejete si "
+"připojit komentář k vaší odpovědi?"
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Tato schůzka byla předběžně přijata a bude přesunuta do vašeho kalendáře. "
+"Přejete si připojit komentář k vaší odpovedi?"
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Tato schůzka byla zrušena a bude přesunuta do složky Odstraněné položky. "
+"Přejete si připojit komentář k vaší odpovědi?"
+
+msgid "Edit the response before sending"
+msgstr "Upravit odpověď před odesláním"
+
+msgid "Send the response now."
+msgstr "Odeslat odpověď nyní."
+
+msgid "Don't send a response."
+msgstr "Neodesílat odpověď."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Byly přijaty následující odpovědi na tuto schůzku"
+
+msgid "Attendance"
+msgstr "Účast"
+
+msgid "Response"
+msgstr "Odpověď"
+
+# 93%
+# 100%
+msgid "New appointment"
+msgstr "Nový termín"
+
+msgid "Creating an item"
+msgstr "Vytvoření položky"
+
+# 89%
+# 100%
+msgid "New meeting request"
+msgstr "Nová žádost o schůzku"
+
+msgid "Switch calendar range back and forth"
+msgstr "Přepnout rozsah kalendáře"
+
+msgid "Copy selected item"
+msgstr "Kopírovat vybranou položku"
+
+msgid "Paste selected item"
+msgstr "Vložit vybranou položku"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Začátek"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Konec"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Třídit podle: Komu"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Vytisknout tuto poznámku"
+
+#, fuzzy
+msgid "Location: "
+msgstr "Místo"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j. F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l j. F"
+
+# 88%
+msgid "Organiser"
+msgstr "Organizátor"
+
+# 92%
+msgid "Meeting status"
+msgstr "Status schůzky"
+
+# 94%
+msgid "Required Attendees"
+msgstr "Povinní účastníci"
+
+# 94%
+msgid "Optional Attendees"
+msgstr "Nepovinní účastníci"
+
+# 88%
+msgid "Resources"
+msgstr "Zdroje"
+
+msgid "Sensitivity"
+msgstr "Důvěrnost"
+
+# 80%
+msgid "Importance"
+msgstr "Důležitost"
+
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j."
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l d/m/Y"
+msgstr "l d. m. Y"
+
+msgid "General calendar settings"
+msgstr "Všeobecné nastavení kalendáře"
+
+msgid "First day of the week"
+msgstr "První den týdne"
+
+msgid "Start of workday"
+msgstr "Začátek pracovního dne"
+
+msgid "End of workday"
+msgstr "Konec pracovního dne"
+
+msgid "Calendar resolution"
+msgstr "Rozlišení kalendáře"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "Výchozí doba trvání události {A} minut"
+
+#, fuzzy
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Doba trvání musí být mezi 1 a 120 minutami."
+
+msgid "Working days"
+msgstr "Pracovní dny"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Zobrazit tučně 'již obsazené' data při výběru termínu"
+
+#, fuzzy
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"Informace o dostupnosti je používána ostatními uživateli při tvorbě žádosti "
+"o schůzku,"
+
+#, fuzzy
+msgid "Free/Busy publishing"
+msgstr "Práva náhledu dostupnosti"
+
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "Zveřejnit informace o vaší dostupnosti na serveru během {A} měsíce(ů)."
+
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr "Můžete zveřejnit dostupnost pouze na období od 1 do 36 měsíců."
+
+msgid "Side-by-side mode"
+msgstr "Režim vedle sebe"
+
+msgid "Overlay mode"
+msgstr "Režim překrývání"
+
+msgid "Calendar view settings"
+msgstr "Náhled kalendáře"
+
+msgid "View multiple calendars in"
+msgstr "Zobrazit více kalendářů"
+
+msgid "Reminder settings"
+msgstr "Nastavení připomínky"
+
+msgid "Enable reminder for new appointments"
+msgstr "Zapnout připomínky pro nové schůzky"
+
+msgid "Default reminder time"
+msgstr "Výchozí doba připomínky"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Výchozí doba připomínky pro celodenní události"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j."
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} vybraná položka"
+msgstr[1] "{0} vybrané položky"
+msgstr[2] "{0} vybraných položek"
+
+msgid "New Appointment"
+msgstr "Nový termín"
+
+msgid "New Meeting Request"
+msgstr "Nová žádost o schůzku"
+
+msgid "Open"
+msgstr "Otevřít"
+
+msgid "Copy/Move"
+msgstr "Kopírovat/Přesunout"
+
+msgid "Accept"
+msgstr "Přijmout"
+
+msgid "Tentative"
+msgstr "Předběžně"
+
+msgid "Decline"
+msgstr "Odmítnout"
+
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Odeslat"
+
+#, fuzzy
+msgid "Export as"
+msgstr "Exportovat jako"
+
+# 80%
+# 100%
+#, fuzzy
+msgid "Occurrence"
+msgstr "Opakování"
+
+msgid "Series"
+msgstr "série"
+
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Termín"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
+
+msgid "All Day"
+msgstr "Celodenní"
+
+msgid "Sort by: All Day"
+msgstr "Třídit podle: Celodenní"
+
+msgid "Icon"
+msgstr "Ikona"
+
+msgid "Recurring"
+msgstr "Opakování"
+
+# 82%
+msgid "Sort by: Duration"
+msgstr "Třídit podle: Trvání"
+
+msgid "Meeting Status"
+msgstr "Status schůzky"
+
+msgid "Sort by: Meeting Status"
+msgstr "Třídit podle: Stav schůzky"
+
+msgid "Sort by: Show as"
+msgstr "Třídit podle: Ukázat jako"
+
+msgid "Sort by: Categories"
+msgstr "Třídit podle: Kategorie"
+
+msgid "Created On"
+msgstr "Vytvořeno"
+
+# 84%
+msgid "Sort by: Created On"
+msgstr "Třídit podle: Vytvořeno"
+
+msgid "Due By"
+msgstr "Termín dokončení"
+
+# 76%
+msgid "Sort by: Due By"
+msgstr "Třídit podle: Termín dokončení"
+
+msgid "Label"
+msgstr "Označení"
+
+# 76%
+# 78%
+msgid "Sort by: Label"
+msgstr "Třídit podle: Označení"
+
+msgid "Sort by: Organizer"
+msgstr "Třídit podle: Organizátor"
+
+msgid "Sort by: Required Attendee"
+msgstr "Třídit podle: Povinná účast"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Třídit podle: Nepovinná účast"
+
+msgid "Sort by: Resources"
+msgstr "Třídit podle: Zdroje"
+
+msgid "Recurring Startdate"
+msgstr "Začátek opakování"
+
+msgid "Sort by: Recurring Startdate"
+msgstr "Třídit podle: Začátek opakování"
+
+msgid "Recurring Enddate"
+msgstr "Konec opakování"
+
+msgid "Sort by: Recurring Enddate"
+msgstr "Třídit podle: Konec opakování"
+
+msgid "Recurring Pattern"
+msgstr "Předloha opakování"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Třídit podle: Předloha opakování"
+
+# 77%
+msgid "Sort by: Reminder"
+msgstr "Třídit podle: Připomínka"
+
+msgid "Sort by: Sensitivity"
+msgstr "Třídit podle: Důvěrnost"
+
+msgid "Loading appointments"
+msgstr "Načítání schůzek"
+
+# 80%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F G:i"
+msgstr "j. F G:i"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j. F Y"
+
+#, fuzzy
+msgid "Update recipients"
+msgstr "Upravit příjemce"
+
+msgid "The time of the meeting has changed. Choose one of the following:"
+msgstr "Čas schůzky se změnil. Vyberte jedno z následujících:"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Uložit změny a odesat aktualizaci všem příjemcům"
+
+msgid "Open meeting request with changes"
+msgstr "Otevřít změněnu žádost o schůzku"
+
+msgid "Copy"
+msgstr "Kopírovat"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebbApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
+"organizatorem v případě aktualizace této žádosti o schůzku"
+
+msgid "Move"
+msgstr "Přesunout"
+
+msgid "Don't move"
+msgstr ""
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Navržené"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Kdy"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Místo"
+
+msgid "Remove From Calendar"
+msgstr "Odstranit z kalendáře"
+
+msgid "No Response Required"
+msgstr "Odpověď není nutná"
+
+msgid "Accept Meeting Request"
+msgstr "Přijmout žádost o schůzku"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Předběžně přijmout žádost o schůzku"
+
+msgid "Decline Meeting Request"
+msgstr "Odmítnout žádost o schůzku"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Navrhnout nový termín pro schůzku"
+
+msgid "View All Proposals"
+msgstr "Přehled všech návrhů"
+
+msgid "Accept Proposal"
+msgstr "Přijmout návrh"
+
+msgid "Accept Proposed Time"
+msgstr "Přijmout navrhovaný čas"
+
+#, fuzzy
+msgid "View in calendar"
+msgstr "Zobrazit v kalendáři"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Odpověď není nutná"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Váš kalendář bude automaticky aktualizován. Tato žádost o schůzku bude "
+"odstraněna."
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G"
+msgstr "G"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Tisk více položek nelze provádět."
+
+msgid "Printing of this item is not yet available"
+msgstr "Tisk této položky není zatím dostupný"
+
+msgid "Item type: "
+msgstr "Typ položky: "
+
+msgid "Printing of this view is not yet available"
+msgstr "Tisk tohoto náhledu není zatím dostupný"
+
+msgid "Recurring Message"
+msgstr "Opakovaná zpráva"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Toto je opakovaná zpráva. Přejete si otevřít pouze tuto, anebo celou sérii?"
+
+msgid "Recurring Appointment"
+msgstr "Opakovaný termín"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Toto je opakovaný termín. Přejete si otevřít pouze tento, anebo celou sérii?"
+
+# 80%
+msgid "Recurring Meeting Request"
+msgstr "Opakovaná žádost o schůzku"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Toto je opakovaná žádost o schůzku. Přejete si otevřít pouze tuto, anebo "
+"celou sérii?"
+
+msgid "Recurring Task Request"
+msgstr "Opakované zadání úkolu"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Toto je opakované zadání úkolu. Přejete si otevřít pouze toto, anebo celou "
+"sérii?"
+
+msgid "Open this occurrence"
+msgstr "Otevřít pouze toto"
+
+msgid "Open the series"
+msgstr "Otevřít celou sérii"
+
+#, fuzzy
+msgid "Paste Recurring {0}"
+msgstr "Vložit opakující se {0}"
+
+#, fuzzy
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr "Toto je opakující se {0}. Chcete vložit pouze tento výskyt nebo sérii?"
+
+msgid "message"
+msgstr "zpráva"
+
+msgid "meeting request"
+msgstr "Žádost o schůzku"
+
+msgid "appointment"
+msgstr "událost"
+
+#, fuzzy
+msgid "Paste this occurrence only"
+msgstr "Vložte pouze tento výskyt"
+
+#, fuzzy
+msgid "Paste the series..."
+msgstr "vložte sérii"
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Toto je opakovaná zpráva. Chcete odstranit pouze tuto, anebo celou sérii?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Toto je opakovaná schůzka. Chcete odstranit pouze tuto, anebo celou sérii?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Toto je opakovaná žádost o schůzku. Chcete odstranit pouze tuto, anebo celou "
+"sérii?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Toto je opakované zadání úkolu. Chcete odstranit pouze toto, anebo celou "
+"sérii?"
+
+msgid "Delete this occurrence"
+msgstr "Odstranit pouze toto"
+
+msgid "Delete the series"
+msgstr "Odstranit celou sérii"
+
+msgid "Confirm Delete"
+msgstr "Potvrdit odstranění"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Tato \"{0}\" schůzka již byla akceptována."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Neodpověděli jste na žádost o schůzku \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Odstranit a poslat odpověď organizátorovi schůzky"
+
+msgid "Delete without sending"
+msgstr "Odstranit bez odesílání"
+
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Upravit příjemce"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr "Zpráva o zrušení bude odeslána všem příjemcům. Přejete si pokračovat?"
+
+msgid "Delete Incomplete Task"
+msgstr "Smazat nekompletní úlohu"
+
+#, fuzzy
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "Úkol \"{0}\" nebyl dokončen. Co chcete dělat?"
+
+#, fuzzy
+msgid "Decline and delete"
+msgstr "Odmítnout žádost o schůzku"
+
+#, fuzzy
+msgid "Mark complete and delete"
+msgstr "Označit jako dokončené a odstranit"
+
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Třídit podle: Připomínka"
+
+#, fuzzy
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"Odesílatel této zprávy žádá potvrzení o přečtení této zprávy. Přejete si "
+"potvrzení odeslat?"
+
+#, fuzzy
+msgid "Import"
+msgstr "Importovat"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "Položky byly úspěšně importovány do {0}"
+
+#, fuzzy
+msgid "Failed to import item(s) to {0}"
+msgstr "Nepodařilo se importovat položku(y) do {0}"
+
+#, fuzzy
+msgid "Import error"
+msgstr "Důležitý"
+
+#, fuzzy
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "Nelze importovat \"{0}\". Soubor není platný"
+
+# 100%
+msgid "Cc"
+msgstr "Kopie"
+
+msgid "Bcc"
+msgstr "Skrytá kopie"
+
+msgid "From"
+msgstr "Od"
+
+msgid "Insert item"
+msgstr "Vložit položku"
+
+msgid "Insert as"
+msgstr "Vložit jako"
+
+msgid "Text only"
+msgstr "Jen text"
+
+# 90%
+msgid "Attachment"
+msgstr "Příloha"
+
+msgid "Attach Item"
+msgstr "Přiložit položku"
+
+msgid "No message selected"
+msgstr "Nebyla vybrána žádná zpráva"
+
+#, fuzzy
+msgid "Import to"
+msgstr "Importovat do"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Nová složka"
+
+msgid "Download as ZIP"
+msgstr "Stáhnout jako ZIP"
+
+msgid "Continue"
+msgstr "Pokračovat"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+"Tyto přílohy mají nepodporovaný typ souboru a nelze je přidat do souboru ZIP:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Chtěli byste pokračovat ve stahování bez přidání těchto souborů?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"Vždy pokračovat ve stahování souborů ZIP bez přidání nepodporovaných typů "
+"souborů."
+
+msgid "File upload"
+msgstr "Nahrát soubor"
+
+msgid "Attach item"
+msgstr "Přidat přílohu"
+
+msgid "Preview"
+msgstr "Náhled"
+
+msgid "Download"
+msgstr "Stáhnout"
+
+msgid "Download all as ZIP"
+msgstr "Stáhnout vše jako ZIP"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Importovat do složky"
+
+#, fuzzy
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+"Chcete-li použít funkci importu vCard, upgradujte Kopano Core na verzi 8.3 "
+"nebo vyšší."
+
+#, fuzzy
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+"Chcete-li použít funkci importu ICS/VCS, upgradujte Kopano Core na verzi 8.3 "
+"nebo vyšší."
+
+msgid "Attachment error"
+msgstr "Chyba přílohy"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "Nelze vytvořit ZIP, maximální povolená velikost je 30 MB."
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr "Formát obrázku není podporován. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Podporovaný formát pro kontaktní obrázky je"
+
+# 93%
+# 100%
+msgid "Attachment Error"
+msgstr "Chyba přílohy"
+
+#, fuzzy
+msgid "Manage Categories"
+msgstr "Spravovat kategorie"
+
+msgid "New"
+msgstr "Nové"
+
+msgid "Delete Category"
+msgstr "Odstranit kategorii"
+
+#, fuzzy
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+"Opravdu chcete smazat kategorii \"{0}\"? Položky, které již byly přiřazeny "
+"do této kategorie, nebudou ovlivněny."
+
+msgid "Rename Category"
+msgstr "Přejmenovat kategorii"
+
+#, fuzzy
+msgid "A category named \""
+msgstr "Kategorie s názvem \""
+
+#, fuzzy
+msgid "Create New Category"
+msgstr "Vytvořit novou kategorii"
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+"Předtím než vytvoříte tuto kategorii, musíte aplikovat změny, které jste "
+"provedli v kategoriích."
+
+#, fuzzy
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Máte již kategorii s názvem \"{0}\". Použijte prosím jiné jméno."
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr "Přejmenovat"
+
+#, fuzzy
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "Kategorie \"{0}\" byla použita poprvé"
+
+msgid "Do you want to rename it?"
+msgstr "Chcete ji přejmenovat?"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+"Kategorie \"{0}\" již existuje. Chcete sloučit kategorie \"{1}\" a \"{2}\"?"
+
+msgid "Merge"
+msgstr "Sloučit"
+
+msgid "Remove"
+msgstr "Odstranit"
+
+# 90%
+msgid "Check Names"
+msgstr "Zkontrolovat jména"
+
+msgid "Select an address to use"
+msgstr "Vyberte adresu"
+
+# 83%
+msgid "Email"
+msgstr "E-mail"
+
+msgid "More than one '{0}' found."
+msgstr "Nalezeno více než jeden '{0}' ."
+
+msgid "Alert"
+msgstr "Varování"
+
+# 80%
+msgid "Please select a recipient"
+msgstr "Vyberte prosím příjemce"
+
+msgid "Mail and Post"
+msgstr "Pošta"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Journal"
+msgstr "Deník"
+
+msgid "Note"
+msgstr "Poznámka"
+
+msgid "Task"
+msgstr "Úkol"
+
+msgid "Inbox"
+msgstr "Doručená pošta"
+
+msgid "Entire Inbox"
+msgstr "Všechna doručená pošta"
+
+msgid "Secretary"
+msgstr "Sekretář(ka)"
+
+msgid "Only read"
+msgstr "Pouze ke čtení"
+
+msgid "Delegate Permissions"
+msgstr "Oprávnění zástupce"
+
+msgid "This delegate has the following permissions"
+msgstr "Tento zástupce má následující oprávnění"
+
+msgid "Delegate can see my private items."
+msgstr "Zástupce může sledovat moje soukromé položky."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr "Zástupce dostává kopie zpráv týkajících se schůzek odeslaných mně."
+
+msgid "Other"
+msgstr "Další"
+
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Nejsou nastaveny podpisy"
+
+msgid "Loading delegates"
+msgstr "Načítání zástupců"
+
+msgid "Please select a delegate."
+msgstr "Vyberte prosím zástupce."
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+# 90%
+msgid "Permission"
+msgstr "Oprávnění"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Odmítnout žádost o schůzku"
+
+msgid "Delegate already exists in the list."
+msgstr "Zástupce je již na seznamu."
+
+msgid "Copy/Move Folder"
+msgstr "Kopírovat/Přesunout složku"
+
+msgid "Copy/Move Messages"
+msgstr "Kopírovat/Přesunout zprávu"
+
+msgid "Destination folder"
+msgstr "Cílová složka"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "Je vybrána {0} zpráva."
+msgstr[1] "Jsou vybrány {0} zprávy."
+msgstr[2] "Je vybráno {0} zpráv."
+
+msgid "Folder '{0}' selected."
+msgstr "Vybrána složka '{0}'."
+
+msgid "Kopano WebApp"
+msgstr "Kopano WebbApp"
+
+msgid "Do not show this message again."
+msgstr "Tuto zprávu již nezobrazovat."
+
+msgid "ICS"
+msgstr "ICS"
+
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Nastavit štítek"
+
+msgid "Start date"
+msgstr "Počáteční datum"
+
+msgid "End date"
+msgstr "Konečné datum"
+
+msgid "Tomorrow"
+msgstr "Zítra"
+
+msgid "This week"
+msgstr "Tento týden"
+
+msgid "Next week"
+msgstr "Příští týden"
+
+#, fuzzy
+msgid "Custom"
+msgstr "Výbrat datumy"
+
+msgid "Set reminder"
+msgstr "Nastavit připomenutí"
+
+msgid "Complete"
+msgstr "Dokončeno"
+
+msgid "today"
+msgstr "dnes"
+
+msgid "tomorrow"
+msgstr "zítra"
+
+msgid "this week"
+msgstr "tento týden"
+
+msgid "next week"
+msgstr "příští týden"
+
+msgid "Edit recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nová e-mailová adresa"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Toto pole je povinné"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Nepovinné"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Třídit podle: Zdroje"
+
+msgid "Select attendees"
+msgstr "Vybrat účastníky"
+
+msgid "Suggested Times"
+msgstr "Navrhované časy"
+
+msgid "Busy"
+msgstr "Nedostupný"
+
+msgid "Out of Office"
+msgstr "Mimo kancelář"
+
+msgid "No Information"
+msgstr "Žádné informace"
+
+# 82%
+msgid "Show non-working hours"
+msgstr "Ukázat čas mimo pracovní dobu"
+
+msgid "Hide non-working hours"
+msgstr "Skrýt čas mimo pracovní dobu"
+
+msgid "No freebusy information available for this date"
+msgstr "Žádné informace o dostupnosti k tomto datu"
+
+msgid "No suggestions available"
+msgstr "Žádné dostupné návrhy"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Přepnout mezi kontexty, např. doručená pošta, kalendář, atd."
+
+msgid "Basic navigation"
+msgstr "Základní navigace"
+
+msgid "Switch between different views"
+msgstr "Přepnout mezi růzými náhledy"
+
+msgid "New item"
+msgstr "Nová položka"
+
+msgid "All views"
+msgstr "Všechny náhledy"
+
+msgid "Close tab"
+msgstr "Zavřít záložku"
+
+msgid "Print item"
+msgstr "Tisknout položku"
+
+msgid "Items"
+msgstr "Položky"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Uložit položku, např. pošta, kontakt, atd."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Odeslat položku, např. pošta, žádost o schůzku, atd."
+
+msgid "Select all items"
+msgstr "Vybrat všechny položky"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Rozšířit výběr na první položku v seznamu"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Rozšířit výběr na poslední položku v seznamu"
+
+# 77%
+msgid "Open selected item"
+msgstr "Otevřít vybranou položku"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Otevřít okno pro kategorizaci vybrané položky"
+
+msgid "Print list"
+msgstr "Tisknout seznam"
+
+# 78%
+msgid "Print selected item"
+msgstr "Tisknout vybrané položky"
+
+msgid "Open copy/move dialog"
+msgstr "Otevřít okno na kopírování/přesunování"
+
+# 77%
+# 75%
+# 100%
+msgid "Delete selected item"
+msgstr "Odstranit vybranou položku"
+
+#, fuzzy
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+"Odstranit vybranou položku, aniž byste ji přesunuli do složky Odstraněné "
+"položky. Vymazaná položka může být obnovena."
+
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Uživatel již existuje"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Podpisy pro nové zprávy"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Podpisy pro nové zprávy"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Nejsou nastaveny podpisy"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Upravit příjemce"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Odpovědět všem"
+
+msgid "New Mail"
+msgstr "Nová zpráva"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Vyberte prosím příjemce"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Upravit příjemce"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Vytisknout Kopano WebbApp"
+
+# 91%
+msgid "Display name"
+msgstr "Zobrazené jméno"
+
+msgid "Email address"
+msgstr "E-mailová adresa"
+
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Nový distribuční seznam"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"Distribuční seznam bude nahrazen jeho členy. Nebude možné ho znovu zbalit."
+
+msgid "Edit Recipient"
+msgstr "Upravit Příjemce"
+
+msgid "Send email"
+msgstr "Odeslat zprávu"
+
+#, fuzzy
+msgid "Delete recipient from suggestion list"
+msgstr "Odstranit distribuční seznam."
+
+msgid "View recipient"
+msgstr "Zobrazit příjemce"
+
+msgid "Weekday"
+msgstr "Všední den"
+
+msgid "Weekend Day"
+msgstr "Víkend"
+
+msgid "1st"
+msgstr "1."
+
+msgid "2nd"
+msgstr "2."
+
+msgid "3rd"
+msgstr "3."
+
+msgid "4th"
+msgstr "4."
+
+# 75%
+msgid "last"
+msgstr "poslední"
+
+msgid "Every {A} day(s)"
+msgstr "Každý {A} den/dny"
+
+msgid "Every weekday"
+msgstr "Každý všední den"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Znovu vytvořit nový úkol {A} den/dny po dokončení každého úkolu"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Den {A} každého {B} měsíce(ů)"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "{A} {B} každé {C} měsíce(ů)"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Znovu vytvořit nový úkol {A} měsíc(e) po dokončení každého úkolu"
+
+msgid "Appointment Recurrence"
+msgstr "Opakování termínu"
+
+msgid "Remove Recurrence"
+msgstr "Odstranit opakování"
+
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Opakování"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
+
+msgid "Task Recurrence"
+msgstr "Opakování úkolu"
+
+msgid "Daily"
+msgstr "Denně"
+
+msgid "Weekly"
+msgstr "Týdně"
+
+msgid "Monthly"
+msgstr "Měsíčně"
+
+msgid "Yearly"
+msgstr "Ročně"
+
+msgid "Range of recurrence"
+msgstr "Rozsah opakování"
+
+msgid "No end date"
+msgstr "Žádné konečné datum"
+
+msgid "End after {A} occurrences"
+msgstr "Ukončit po {A} událostech"
+
+msgid "End by {A}"
+msgstr "Ukončit k {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Trvání události: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Každý {A} týden(y) na"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Znovu vytvořit nový úkol {A} týden(y) po každém dokončení úkolu"
+
+msgid "Every {A} {B}"
+msgstr "Každý {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "{A} {B} v {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Znovu vytvořit úkol {A} rok(y) po jeho dokončení"
+
+msgid "Info"
+msgstr "Informace"
+
+msgid "Not supported at the moment."
+msgstr "Momentálně nepodporováno."
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Existuje {0} připomínka"
+msgstr[1] "Existuje {0} připomínka"
+msgstr[2] "Existuje {0} připomínka"
+
+# 88%
+msgid "Reminders"
+msgstr "Připomínky"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Existuje {0} připomínka"
+
+msgid "Due In"
+msgstr "Dokončit během"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "K dokončení"
+
+# 92%
+msgid "Reminder time"
+msgstr "Čas připomínky"
+
+msgid "Dismiss All"
+msgstr "Zrušit všechny"
+
+msgid "Open Item"
+msgstr "Otevřít Položku"
+
+msgid "Dismiss"
+msgstr "Zavřít"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Klikněte na Odložit pro opakované připomenutí za"
+
+msgid "Snooze"
+msgstr "Odložit"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} připomínka vybrána."
+msgstr[1] "{0} připomínky vybrány."
+msgstr[2] "{0} připomínek vybráno."
+
+msgid "Restore Softdeleted Items"
+msgstr "Obnovit smazané položky"
+
+msgid "Restore From {0}"
+msgstr "Obnovit z {0}"
+
+msgid "Restore"
+msgstr "Obnovit"
+
+msgid "Restore All"
+msgstr "Obnovit vše"
+
+msgid "Permanent Delete"
+msgstr "Odstranit trvale"
+
+msgid "Delete All"
+msgstr "Vymazat vše"
+
+# 75%
+# 100%
+msgid "Messages"
+msgstr "Zprávy"
+
+#, fuzzy
+msgid "Delete all items"
+msgstr "Vybrat všechny položky"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Jse si jist, že chcete trvale vymazat všechny položky?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Obnovit položky"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Jste si jist, že chcete obnovit všechny položky?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Celkem {0} obnovitelná položka"
+msgstr[1] "Celkem {0} obnovitelné položky"
+msgstr[2] "Celkem {0} obnovitelných položek"
+
+msgid "Deleted On"
+msgstr "Smazáno na"
+
+# 84%
+# 78%
+msgid "Sort by: Deleted On"
+msgstr "Třídit podle: Smazáno na"
+
+msgid "Item Count"
+msgstr "Počet položek"
+
+msgid "Sort by: Item Count"
+msgstr "Třídit podle: Počet Položek"
+
+# 76%
+msgid "Sort by: From"
+msgstr "Třídit podle: Od"
+
+msgid "Received"
+msgstr "Přijato"
+
+msgid "Sort by: Received"
+msgstr "Třídit podle: Přijaté"
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Sort by: Size"
+msgstr "Třídit podle: Velikost"
+
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Přesunout zprávu do složky ..."
+
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Kopírovat zprávu do složky ..."
+
+msgid "Delete the message"
+msgstr "Vymazat zprávu"
+
+#, fuzzy
+msgid "Redirect the message to..."
+msgstr "Přesměrovat zprávu k ..."
+
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "Přeposlat zprávu k ..."
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "Přeposlat zprávu jako přílohu k ..."
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "Přeposlat zprávu k ..."
+
+#, fuzzy
+msgid "is received from..."
+msgstr "je přijato od..."
+
+#, fuzzy
+msgid "includes these words in the sender's address..."
+msgstr "obsahuje tato slova v adese odesílatele ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address..."
+msgstr "obsahuje tato slova v adese odesílatele ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "obsahuje tato slova v předmětu ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "obsahuje tato slova v obsahu ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "obsahuje tato slova v obsahu ..."
+
+#, fuzzy
+msgid "has importance..."
+msgstr "má důležitost ..."
+
+msgid "has an attachment"
+msgstr ""
+
+#, fuzzy
+msgid "is sent to..."
+msgstr "je poslán ..."
+
+msgid "is sent only to me"
+msgstr "je poslán pouze mně"
+
+msgid "has my name in the Cc field"
+msgstr ""
+
+msgid "does not have my name in the To or Cc field"
+msgstr ""
+
+msgid "has my name in the To or Cc field"
+msgstr ""
+
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "Důvěrnost"
+
+#, fuzzy
+msgid "is received after..."
+msgstr "je přijato od..."
+
+#, fuzzy
+msgid "is received before..."
+msgstr "je přijato od..."
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr ""
+
+msgid "is received (all messages)"
+msgstr ""
+
+msgid "Select one..."
+msgstr "Vybrat jednu..."
+
+msgid "Unknown condition"
+msgstr "Neznámá podmínka"
+
+msgid "This condition for the current rule is unknown"
+msgstr "Tato podmínka pro aktuální pravidlo je neznámá"
+
+msgid "Unnamed folder"
+msgstr "Nepojmenovaná složka"
+
+msgid "Add action"
+msgstr "Přidat akci"
+
+msgid "Remove action"
+msgstr "Odstranit akci"
+
+msgid "Unknown action"
+msgstr "Neznámá akce"
+
+msgid "This action for the current rule is unknown"
+msgstr "Tato akce pro aktuální pravidlo je neznámá"
+
+msgid "Add condition"
+msgstr "Přidat podmínku"
+
+msgid "Remove condition"
+msgstr "Odstranit podmínku"
+
+msgid "Inbox Rule"
+msgstr "Pravidlo pro doručenou poštu"
+
+msgid "Rule name"
+msgstr "Název pravidla"
+
+msgid "When the message"
+msgstr "Jestliže zpráva"
+
+msgid "Do the following"
+msgstr "Provést následující"
+
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Možnosti"
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr "Zastavit zpracování dalších pravidel"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Přidat akci"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Odstranit akci"
+
+msgid "Specify Words or Phrases"
+msgstr "Specifikovat slova nebo fráze"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "and"
+msgstr "a"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"Distribuční seznamy nejsou podporovány v pravidlech, chtěli byste nahradit "
+"distribuční seznam s jeho členy?"
+
+msgid "or"
+msgstr "nebo"
+
+msgid "No rule exists"
+msgstr "Žádné pravidlo neexistuje"
+
+msgid "Active"
+msgstr "Aktivní"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Mimo kancelář"
+
+# 80%
+msgid "Rule"
+msgstr "Pravidlo"
+
+# 76%
+msgid "Loading rules"
+msgstr "Načítání pravidel"
+
+# 76%
+msgid "Please select a rule."
+msgstr "Vyberte prosím pravidlo."
+
+msgid "Rule already has highest priority."
+msgstr "Pravidlo již má nejvyšší prioritu."
+
+msgid "Rule already has lowest priority."
+msgstr "Pravidlo již má nejnižší prioritu."
+
+msgid "myself"
+msgstr ""
+
+msgid "Update rules for"
+msgstr ""
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr "Chcete použít tyto změny?"
+
+#, fuzzy
+msgid "All folders"
+msgstr "Všechny moje složky"
+
+#, fuzzy
+msgid "Other..."
+msgstr "Další"
+
+#, fuzzy
+msgid "Search in.."
+msgstr "Hledat v.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Obsah složky"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr ""
+
+msgid "No from addresses configured"
+msgstr ""
+
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
+
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
+
+msgid "View"
+msgstr "Zobrazit"
+
+msgid "Please select a sendas record."
+msgstr "Prosím zvolte položku \"odeslat jako\"."
+
+msgid "Delegates"
+msgstr "Zástupce"
+
+# 88%
+msgid "Delegate settings"
+msgstr "Nastavení zástupce"
+
+# 80%
+#, fuzzy
+msgid "Rules"
+msgstr "Pravidlo"
+
+msgid "From Addresses"
+msgstr ""
+
+msgid "From Addresses settings"
+msgstr ""
+
+msgid "Full name"
+msgstr "Celé jméno"
+
+msgid "Job Title"
+msgstr "Pozice"
+
+msgid "Phone Numbers"
+msgstr "Telefonní čísla"
+
+msgid "Business Fax"
+msgstr "Fax do zaměstnání"
+
+msgid "Webpage"
+msgstr "Webová stránka"
+
+msgid "IM Address"
+msgstr "IM adresa"
+
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-r"
+
+# 76%
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} vybraný řádek"
+msgstr[1] "{0} vybrané řádky"
+msgstr[2] "{0} vybraných řádků"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-r"
+
+msgid "l d/m/Y G:i"
+msgstr "l d. m. Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-r"
+
+msgid "Unknown"
+msgstr "Neznámý"
+
+# 88%
+msgid "Meeting Organizer"
+msgstr "Organizátor schůzky"
+
+msgid "{0} overdue"
+msgstr "{0} zpožděný"
+
+msgid "Loading..."
+msgstr "Načítám..."
+
+msgid "Failed"
+msgstr "Selhalo"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Přílohy"
+
+msgid "Download Pictures"
+msgstr "Stáhnout obrázky"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Přidat odesílatele na seznam ověřených odesílatelů"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Přidat doménu na seznam ověřených odesílatelů"
+
+# Examples/Příklady:
+# Tato zpráva byla odeslána jako velmi důležitá.
+# Tato zpráva byla odeslána jako méně důležitá.
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Tato zpráva byla odeslána s důležitostí {0}."
+
+# Examples/Příklady:
+# Považujte prosím za osobní.
+# Považujte prosím za soukromé.
+# Považujte prosím za důvěrné.
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Považujte prosím za {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+"Kliknout zde pro stažení obrázků. WebApp blokuje automatické stahování "
+"některých obrázků pro vyšší ochranu soukromí."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Tato zpráva je poškozená a nebude zobrazena správně, klikněte zde pro opravu."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} přijal(a)."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} přijalo v zastoupení {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} předběžně přijal(a)."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} předběžně přijal(a) v zastoupení {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} zamítnul(a)."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} zamítnul(a) v zastoupení {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} předběžně přija(a) a navrhl(a) nový čas této schůzky."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} předběžně přijal(a) v zastoupení {1} a navrhl(a) nový čas této schůzky."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} zamítnul(a) a navrhl(a) nový čas této schůzky."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} zamítul(a) v zastoupení {1} a navrhl(a) nový čas této schůzky."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Tato schůzka není v kalendáři; mohla být přesunuta nebo odstraněna."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Tato žádost o schůzku byla aktualizována po jejím odeslání. Otevřete "
+"poslední aktualizaci nebo příslušnou položku v kalendáři."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Jako organizátor schůzky nemusíte odpovídat na pozvánku"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Schůzka byla aktualizována poté, co účastník odeslal tuto odpověď"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Tato schůzka již proběhla."
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Prosím o odpověď."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Toto je aktualizace dříve odeslané žádosti o schůzku."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Přijato pro {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Odpověděl(a) jste na tuto zprávu dne {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Přeposlal(a) jste tuto zprávu dne {0}."
+
+#, fuzzy
+msgid "Assigned by {0} on {1}."
+msgstr "Přijal {0} na {1}"
+
+#, fuzzy
+msgid "Waiting for response from recipient"
+msgstr "Žádat potvrzení o přečtení od příjemců"
+
+#, fuzzy
+msgid "Accepted by {0} on {1}."
+msgstr "Přijal {0} na {1}"
+
+#, fuzzy
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} přijalo v zastoupení {1}."
+
+#, fuzzy
+msgid "Declined by {0} on {1}."
+msgstr "Přijal {0} na {1}"
+
+#, fuzzy
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} zamítnul(a) v zastoupení {1}."
+
+msgid "Last update sent on {0}."
+msgstr ""
+
+#, fuzzy
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} přijalo v zastoupení {1}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "zpráva"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "Nyní proběhne pokus o opravu poškozené zprávy, chcete pokračovat?"
+
+#, fuzzy
+msgid "d-m-Y g:i a"
+msgstr "d-m-r"
+
+msgid "The matching task was not found in your task list."
+msgstr ""
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Komu"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Kopie"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Skrytá kopie"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Příjemci"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "v zastoupení za"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr "Odesláno"
+
+# 100%
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Žádný"
+
+#, fuzzy
+msgid "Pop-out"
+msgstr "Pop-out"
+
+#, fuzzy
+msgid "Mark as read"
+msgstr "Označit jako nepřečtené"
+
+#, fuzzy
+msgid "Mark as unread"
+msgstr "Označit jako nepřečtené"
+
+msgid "in"
+msgstr ""
+
+msgid "Root"
+msgstr "Kořen"
+
+msgid "File As"
+msgstr "Soubor jako"
+
+msgid "Company Name"
+msgstr "Název společnosti"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Třídit podle: Název společnosti"
+
+msgid "Sort by: Job Title"
+msgstr "Třídit podle: Pozice"
+
+msgid "Full Name"
+msgstr "Celé jméno"
+
+msgid "Department Name"
+msgstr "Oddělení"
+
+msgid "Home Address"
+msgstr "Adresa domů"
+
+msgid "Business Address"
+msgstr "Adresa do zaměstnání"
+
+msgid "Other Address"
+msgstr "Další adresa"
+
+msgid "Business Phone"
+msgstr "Telefon do zaměstnání"
+
+# 87%
+msgid "Business 2 Phone"
+msgstr "Telefon 2 do zaměstnání"
+
+# 88%
+#, fuzzy
+msgid "Assistant Phone"
+msgstr "Telefon asistenta"
+
+msgid "Company Main Phone"
+msgstr "Hlavní telefon společnosti"
+
+# 83%
+msgid "Home 2 Phone"
+msgstr "Telefon domů 2"
+
+msgid "Car Phone"
+msgstr "Auto-telefon"
+
+msgid "Radio"
+msgstr "Radiotelefon"
+
+msgid "Callback Phone"
+msgstr "Callback telefon"
+
+msgid "Other Phone"
+msgstr "Další telefon"
+
+msgid "Primary Phone"
+msgstr "Primární telefon"
+
+msgid "Telex"
+msgstr "Telex"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD telefon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Další fax"
+
+msgid "Home Fax"
+msgstr "Fax domů"
+
+# 94%
+#, fuzzy
+msgid "Email Display As"
+msgstr "Ukázat E-mail jako"
+
+msgid "Email 2"
+msgstr "E-mail 2"
+
+# 89%
+#, fuzzy
+msgid "Email2 Display As"
+msgstr "E-mail 2 ukázat jako "
+
+msgid "Email 3"
+msgstr "E-mail 3"
+
+# 89%
+#, fuzzy
+msgid "Email3 Display As"
+msgstr "E-mail 3 ukázat jako"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Narozeniny"
+
+msgid "Wedding Anniversary"
+msgstr "Výročí svatby"
+
+msgid "Spouse/Partner"
+msgstr "Choť/Partner"
+
+msgid "Profession"
+msgstr "Povolání"
+
+msgid "Assistant's Name"
+msgstr "Jméno asistenta"
+
+# 77%
+msgid "Distribution List Name"
+msgstr "Název distribučního seznamu"
+
+# 75%
+msgid "Open Shared Contacts"
+msgstr "Otevřít sdílené kontakty"
+
+msgid "Business Cards"
+msgstr "Vizitky"
+
+msgid "Phone List"
+msgstr "Telefonní seznam"
+
+msgid "Add to contacts"
+msgstr "Přidat do kontaktů"
+
+# 77%
+msgid "Print selected contact"
+msgstr "Tisknout vybraný kontakt"
+
+msgid "No contact selected"
+msgstr "Nevybrán žádný kontakt"
+
+msgid "Distribution list"
+msgstr "Distribuční seznam"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Slečna"
+
+msgid "Mr."
+msgstr "Pan"
+
+msgid "Mrs."
+msgstr "Paní"
+
+msgid "Ms."
+msgstr "Paní"
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Ml."
+
+msgid "Sr."
+msgstr "St."
+
+msgid "Phone number"
+msgstr "Telefonní číslo"
+
+msgid "Check address"
+msgstr "Ověřit adresu"
+
+msgid "Street"
+msgstr "Ulice"
+
+msgid "State/Province"
+msgstr "Stát/Kraj"
+
+msgid "Zip/Postal code"
+msgstr "PSČ"
+
+msgid "Country/Region"
+msgstr "Země/Region"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Ukázat toto znovu, pokud je adresa nekompletní nebo nejasná."
+
+msgid "Details"
+msgstr "Detaily"
+
+msgid "Office location"
+msgstr "Umístění kanceláře"
+
+msgid "Manager's name"
+msgstr "Jméno manažera"
+
+msgid "Assistant's name"
+msgstr "Jméno asistenta"
+
+msgid "Nickname"
+msgstr "Přezdívka"
+
+msgid "Suffix"
+msgstr "Přípona"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Výročí"
+
+msgid "Photo"
+msgstr "Fotografie"
+
+msgid "Addresses"
+msgstr "Adresy"
+
+msgid "Additional information"
+msgstr "Dodatečné informace"
+
+# 80%
+msgid "Business 2"
+msgstr "Zaměstnání 2"
+
+msgid "Callback"
+msgstr "Císlo pro zpětné volání"
+
+msgid "Car"
+msgstr "Auto"
+
+msgid "Home 2"
+msgstr "Domů 2"
+
+msgid "Primary"
+msgstr "Primární"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Ověřit celé jméno"
+
+msgid "Middle"
+msgstr "Střední"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Ukázat toto znovu, pokud je jméno nekompletní nebo nejasné."
+
+msgid "Check phone number"
+msgstr "Ověřit telefonní číslo"
+
+msgid "Country/Region code"
+msgstr "Kód země/regionu"
+
+msgid "City/Area code"
+msgstr "Kód města/oblasti"
+
+msgid "Local number"
+msgstr "Místní číslo"
+
+msgid "Extension"
+msgstr "Linka"
+
+msgid "Add Attachment"
+msgstr "Přidat Přílohu"
+
+# 81%
+#, fuzzy
+msgid "Add attachments to this contact"
+msgstr "Přidat přílohy k tomuto kontaktu."
+
+# 75%
+#, fuzzy
+msgid "Mark this contact as private"
+msgstr "Označit tento kontakt jako soukromý."
+
+msgid "Distribution List"
+msgstr "Distribuční seznam"
+
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "Označit tento Distribuční seznam jako soukromý."
+
+#, fuzzy
+msgid "New email address"
+msgstr "Nová e-mailová adresa"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Prosím vložte platnou e-mailovou adresu!"
+
+msgid "Select Members"
+msgstr "Vybrat členy"
+
+msgid "Add New"
+msgstr "Přidat Nové"
+
+msgid "Type your note here..."
+msgstr "Zde napište poznámku..."
+
+msgid "New contact"
+msgstr "Nový kontakt"
+
+# 78%
+# 100%
+msgid "New distribution list"
+msgstr "Nový distribuční seznam"
+
+#, fuzzy
+msgid "Email 2 Display As"
+msgstr "E-mail 2 ukázat jako"
+
+#, fuzzy
+msgid "Email 3 Display As"
+msgstr "E-mail 3 ukázat jako"
+
+msgid "Assistent"
+msgstr "Asistent"
+
+msgid "Loading contacts"
+msgstr "Načítání kontaktů"
+
+msgid "Group"
+msgstr "Skupina"
+
+msgid "Work"
+msgstr "Práce"
+
+msgid "Sort by: Full Name"
+msgstr "Třídit podle: Celé jméno"
+
+msgid "Sort by: Email Address 2"
+msgstr "Třídit podle: E-mailová adresa 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "Třídit podle: E-mailová adresa 3"
+
+msgid "Mobile Phone"
+msgstr "Mobilní telefon"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Třídit podle: Mobilní telefon"
+
+msgid "Sort by: Business Phone"
+msgstr "Třídit podle: Telefon do zaměstnání"
+
+msgid "Sort by: Business Fax"
+msgstr "Třídit podle: Fax do zaměstnání"
+
+msgid "Sort by: Department Name"
+msgstr "Třídit podle: Oddělení"
+
+msgid "Office Location"
+msgstr "Umístění kanceláře"
+
+msgid "Sort by: Office Location"
+msgstr "Třídit podle: Umístění kanceláře"
+
+msgid "Sort by: Profession"
+msgstr "Třídit podle: Povolání"
+
+msgid "Manager Name"
+msgstr "Jméno manažera"
+
+msgid "Sort by: Manager Name"
+msgstr "Třídit podle: Jméno manažera"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Třídit podle: Jméno asistenta"
+
+msgid "Sort by: Nickname"
+msgstr "Třídit podle: Přezdívka"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Třídit podle: Choť/Partner"
+
+msgid "Sort by: Birthday"
+msgstr "Třídit podle: Narozeniny"
+
+msgid "Sort by: Anniversary"
+msgstr "Třídit podle: Výročí"
+
+msgid "Sort by: Business Address"
+msgstr "Třídit podle: Adresa do zaměstnání"
+
+msgid "Sort by: Home Address"
+msgstr "Třídit podle: Adresa domů"
+
+msgid "Sort by: Office Address"
+msgstr "Třídit podle: Adresa do kanceláře"
+
+msgid "Mailing Address"
+msgstr "Poštovní adresa"
+
+msgid "Sort by: Mailing Address"
+msgstr "Třídit podle: Poštovní adresa"
+
+msgid "Sort by: IM Address"
+msgstr "Třídit podle: IM adresa"
+
+# 75%
+msgid "Sort by: Webpage"
+msgstr "Třídit podle: Webová stránka"
+
+msgid "Assistant's Phone"
+msgstr "Telefon asistenta"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Třídit podle: Telefon asistenta"
+
+msgid "Business Phone 2"
+msgstr "Telefon do zaměstnání 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Třídit podle: Telefon do zaměstnání 2"
+
+msgid "Sort by: Callback"
+msgstr "Třídit podle: Callback"
+
+msgid "Sort by: Car Phone"
+msgstr "Třídit podle: Auto-telefon"
+
+msgid "Company Phone"
+msgstr "Telefon společnosti"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Třídit podle: Hlavní telefon společnosti"
+
+msgid "Home Phone 2"
+msgstr "Telefon domů 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Třídit podle: Telefon domů 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Třídit podle: Fax domů"
+
+# 76%
+msgid "Sort by: ISDN"
+msgstr "Třídit podle: ISDN"
+
+msgid "Sort by: Other Phone"
+msgstr "Třídit podle: Další telefon"
+
+msgid "Radio Phone"
+msgstr "Radiotelefon"
+
+msgid "Sort by: Radio Phone"
+msgstr "Třídit podle: Radiotelefon"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Třídit podle: TTY/TDD telefon"
+
+msgid "Sort by: Telex Phone"
+msgstr "Třídit podle: Telex"
+
+msgid "Change Picture"
+msgstr "Změnit obrázek"
+
+msgid "Remove Picture"
+msgstr "Odstranit obrázek"
+
+msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
+msgstr "Otevřit v novém okně prohlížeče"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from WebApp."
+msgstr ""
+"Váš prohlížeč zablokoval jedno nebo více pop-up oken. Prosím povolte pop-up "
+"okna z tohoto WebAppu."
+
+msgid "Untitled"
+msgstr "Nepojmenovaný"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr "Nelze uložit přílohu, pouze {0} přílohy mohou být přidány do zprávy"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Nelze uložit přílohu, příloha má {0}, zatímco povolené maximum je {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Nelze uložit přílohu, velikost celkové přílohy je {0}, zatímco povolené "
+"maximum je {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Nelze uložit přílohu, celkem příloha má {0}, zatímco povolené maximum v "
+"jednom požadavku je {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Nelze uložit přílohu, celkem příloh je {0} souborů, zatímco povolené maximum "
+"v jednom požadavku je {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} v zastoupení {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "j. F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Důležitý"
+
+msgid "Personal"
+msgstr "Osobní"
+
+msgid "Holiday"
+msgstr "Dovolená"
+
+msgid "Travel Required"
+msgstr "Cestování nutné"
+
+msgid "Preparation Required"
+msgstr "Příprava nutná"
+
+msgid "Special Date"
+msgstr "Výjimečné datum"
+
+msgid "Phone Interview"
+msgstr "Telefonní pohovor"
+
+msgid "Free"
+msgstr "Volný"
+
+msgid "Low"
+msgstr "Nízký"
+
+msgid "Normal"
+msgstr "Normální"
+
+msgid "High"
+msgstr "Vysoký"
+
+msgid "Canceled"
+msgstr "Zrušeno"
+
+msgid "Blue"
+msgstr "Modrá"
+
+msgid "Green"
+msgstr "Zelená"
+
+msgid "Pink"
+msgstr "Růžová"
+
+msgid "White"
+msgstr "Bílá"
+
+msgid "Yellow"
+msgstr "Žlutá"
+
+msgid "No response"
+msgstr "Žádná odpověď"
+
+msgid "Not responded"
+msgstr "Nezodpovězeno"
+
+msgid "Accepted"
+msgstr "Přijato"
+
+msgid "Declined"
+msgstr "Zamítnuto"
+
+msgid "Confidential"
+msgstr "Tajné"
+
+msgid "Not Started"
+msgstr "Nezačalo"
+
+msgid "In Progress"
+msgstr "Probíhá"
+
+msgid "Wait for other person"
+msgstr "Čekat na jinou osobu"
+
+# 87%
+msgid "Deferred"
+msgstr "Odloženo"
+
+msgid "Dark"
+msgstr "Tmavý"
+
+msgid "High Contrast"
+msgstr "Vysoký kontrast"
+
+msgid "Lime"
+msgstr ""
+
+msgid "Orange"
+msgstr "Oranžová"
+
+msgid "Purple"
+msgstr "Fialová"
+
+msgid "Logout"
+msgstr "Odhlásit"
+
+msgid "Switch view"
+msgstr "Přepnout náhled"
+
+#, fuzzy
+msgid "Widgets"
+msgstr "Přidat prvky"
+
+#, fuzzy
+msgid "Sending..."
+msgstr "Odesílání"
+
+msgid "Sent successfully"
+msgstr "Odesláno úspěšně"
+
+#, fuzzy
+msgid "No recipient"
+msgstr "Upravit příjemce"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Uveďte prosím příjemce"
+
+msgid "Please specify a recipient"
+msgstr "Uveďte prosím příjemce"
+
+msgid "The attached files are not uploaded yet."
+msgstr ""
+
+msgid "Do you want to send this message without attachments?"
+msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Přidat přílohy k tomuto kontaktu."
+
+msgid "Don't Send"
+msgstr ""
+
+msgid "Send Anyway"
+msgstr ""
+
+#, fuzzy
+msgid "No subject"
+msgstr "žádný předmět"
+
+msgid "Send this message without a subject?"
+msgstr "Odeslat tuto zprávu bez uvedení předmětu?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Upravit příjemce"
+
+msgid "Not all recipients could be resolved"
+msgstr "Ne všechny příjemce lze rozlišit"
+
+#, fuzzy
+msgid "Collapse hierarchy"
+msgstr "Nelze načíst hierarchii."
+
+msgid "Expand hierarchy"
+msgstr ""
+
+msgid "Folders List"
+msgstr "Seznam složek"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Ukázat detaily"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Detaily"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
+
+msgid "Saving"
+msgstr "Ukládání"
+
+msgid "Saved"
+msgstr "Uloženo"
+
+msgid "Saved successfully"
+msgstr "Uloženo úspěšně"
+
+#, fuzzy
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Zavřením tohoto okna přijdete o všechna neuložená data. Opravdu chcete "
+"zavřít?"
+
+msgid "Kopano Content Panel"
+msgstr "Hlavní panel"
+
+#, fuzzy
+msgid "Delete item"
+msgstr "Odstranit položky"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to Kopano WebApp"
+msgstr "Vítejte v Kopano WebAPP"
+
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
+msgstr ""
+
+msgid "Add widgets"
+msgstr "Přidat prvky"
+
+msgid "No widgets installed."
+msgstr "Nejsou nainstalovány žádné prvky."
+
+msgid "Configure widget"
+msgstr "Nastavit prvek"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Odstranit obrázek"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Nelze načíst hierarchii."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Přidat prvky"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Přidat prvky"
+
+msgid "Collapse widget panel"
+msgstr ""
+
+msgid "Expand widget panel"
+msgstr ""
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr ""
+
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "j. F G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-r"
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Nedostatečná práva"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Není k dispozici oprávnění k otevření tohoto úložiště, přejete si odstranit "
+"je ze systému?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Není k dispozici oprávnění k otevření této složky, přejete si odstranit ji "
+"ze systému?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Nedostatečná práva"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Není k dispozici oprávnění otevřít tuto složku."
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
+msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
+msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
+msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
+msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
+
+# 100%
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
+msgid "{0} in {1}"
+msgstr "{0} v {1}"
+
+# 100%
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
+msgid "{0} of {1}"
+msgstr "{0} z {1}"
+
+msgid "Full control"
+msgstr "Úplné řízení"
+
+msgid "No rights"
+msgstr "Žádné oprávnění"
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
+
+msgid "Create New Folder"
+msgstr "Vytvořit novou složku"
+
+msgid "Folder contains"
+msgstr "Obsah složky"
+
+msgid "Calendar Items"
+msgstr "Položky kalendáře"
+
+msgid "Mail and Post Items"
+msgstr "Položky pošty"
+
+msgid "Contacts Items"
+msgstr "Položky kontaktů"
+
+msgid "Note Items"
+msgstr "Položky Poznámek"
+
+msgid "Task Items"
+msgstr "Položky Úkolů"
+
+msgid "Select where to place the folder"
+msgstr "Vyberte umístění složky"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Název složky"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Žádné informace"
+
+msgid "You must select a destination folder."
+msgstr "Musíte označit cílovou složku."
+
+msgid "Properties"
+msgstr "Vlastnosti"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Folder size"
+msgstr "Velikost složky"
+
+msgid "Folder containing {0} Items"
+msgstr "Složka obsahuje {0} položek"
+
+msgid "Permissions"
+msgstr "Oprávnění"
+
+msgid "No permissions granted"
+msgstr "Není poskytnuto oprávnění"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Create items"
+msgstr "Vytvořit položky"
+
+msgid "Read items"
+msgstr "Číst položky"
+
+msgid "Create subfolders"
+msgstr "Vytvořit podsložky"
+
+msgid "Folder permissions"
+msgstr "Oprávnění pro složky"
+
+msgid "Folder visible"
+msgstr "Viditelná složka"
+
+msgid "Edit items"
+msgstr "Upravit položky"
+
+msgid "Own"
+msgstr "Vlastní"
+
+msgid "All"
+msgstr "Všechny"
+
+msgid "Delete items"
+msgstr "Odstranit položky"
+
+msgid "User already exists"
+msgstr "Uživatel již existuje"
+
+msgid "Group already exists"
+msgstr "Skupina již existuje"
+
+# 90%
+msgid "Folder Size"
+msgstr "Velikost složky"
+
+msgid "Folder Name"
+msgstr "Název složky"
+
+msgid "Size (without subfolders)"
+msgstr "Velikost (kromě podsložek)"
+
+msgid "Total size (including subfolders)"
+msgstr "Celková velikost (včetně podsložek)"
+
+msgid "Loading subfolder sizes"
+msgstr "Načítání velikosti podsložek"
+
+msgid "No subfolders present"
+msgstr "Žádné podsložky"
+
+msgid "Subfolder"
+msgstr "Podsložka"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Třídit podle: Název podsložky"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Třídit podle: Velikost (kromě podsložek)"
+
+msgid "Total size"
+msgstr "Celková velikost"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Třídit podle: Celková velikost (včetně podsložek)"
+
+# 78%
+msgid "Open Shared Folders"
+msgstr "Otevřít Sdílené složky"
+
+msgid "Unresolved user"
+msgstr ""
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Jméno uživatele '{0}' nebylo možné rozpoznat."
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr "Uživatel '{0}' není platným uživatelem."
+
+#, fuzzy
+msgid "Own store"
+msgstr "Obnovit"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
+msgstr "Nelze otevřít vaše vlastní úložiště dvakrát"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Tato sdílená složka je již otevřena."
+
+msgid "This shared folder is already open."
+msgstr "Tato sdílená složka je již otevřena."
+
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Musíte uvést jméno uživatele."
+
+msgid "Folder type"
+msgstr "Typ složky"
+
+# 75%
+msgid "Show subfolders"
+msgstr "Ukázat podsložky"
+
+msgid "Open shared folder/store"
+msgstr ""
+
+#, fuzzy
+msgid "Empty folder"
+msgstr "Vyprázdnit složku"
+
+msgid "Empty Junk Email"
+msgstr ""
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Odstraněné položky"
+
+msgid "Rename Folder"
+msgstr "Přejmenovat složku"
+
+msgid "New Folder"
+msgstr "Nová složka"
+
+msgid "Mark All Messages Read"
+msgstr "Označit všechny přečtené zprávy"
+
+msgid "Delete Folder"
+msgstr "Odstranit složku"
+
+msgid "Close store"
+msgstr "Zavřít úložiště"
+
+msgid "Close folder"
+msgstr "Zavřít složku"
+
+msgid "Reload"
+msgstr "Znovu načíst"
+
+msgid "Restore items"
+msgstr "Obnovit položky"
+
+# 76%
+# 100%
+#, fuzzy
+msgid "Select color"
+msgstr "Vybrat složku"
+
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "Přidat do složky Oblíbené"
+
+#, fuzzy
+msgid "Remove From Favorites"
+msgstr "Odstranit z kalendáře"
+
+#, fuzzy
+msgid "Share folder..."
+msgstr "Výchozí adresář"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Důležitý"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Nový termín"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Vlastnosti"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Vlastnosti"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Určitě chcete navždy odstranit všechny položky a podsložky ve složce \"{0}\"?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Určitě chcete odstranit složku \"{0}\" a přesunout její obsah do složky "
+"Odstraněné položky?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Odstranit složku"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Opravdu chcete vyprázdnit {0}?"
+
+msgid "Show all folders"
+msgstr "Všechny složky"
+
+msgid "CC"
+msgstr "Kopie"
+
+msgid "BCC"
+msgstr "Skrytá kopie"
+
+msgid "Sort by: Importance"
+msgstr "Třídit podle: Důležitost"
+
+# 76%
+msgid "Sort by: To"
+msgstr "Třídit podle: Komu"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Odesláno"
+
+msgid "Red"
+msgstr "Červená"
+
+msgid "Original message"
+msgstr "Původní zpráva"
+
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+msgid "Scheduled Items"
+msgstr ""
+
+msgid "Your message will be sent at "
+msgstr ""
+
+msgid "Go to your Outbox to edit your email."
+msgstr ""
+
+msgid "hour(s)"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "month(s)"
+msgstr ""
+
+msgid "at a specific time"
+msgstr ""
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr ""
+
+msgid "today  at "
+msgstr ""
+
+msgid "tomorrow  at "
+msgstr ""
+
+msgid "{0} at "
+msgstr ""
+
+msgid "at {0}"
+msgstr ""
+
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
+msgid "Saving..."
+msgstr ""
+
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "Zpráva byla uložena o {0}."
+
+msgid "g:i A"
+msgstr ""
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Načítání pošty"
+
+msgid "Message Options"
+msgstr "Možnosti zpráv"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr ""
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr ""
+
+# 86%
+msgid "Add attachments to this email"
+msgstr "Přidat přílohy k této zprávě"
+
+msgid "Add signature"
+msgstr "Přidat podpis"
+
+# 75%
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Open options dialog"
+msgstr "Otevřít dialog možností"
+
+msgid "Set flag"
+msgstr "Nastavit štítek"
+
+msgid "Set flag on this email"
+msgstr "Nastavit štítek na tuto zprávu"
+
+msgid "Mark this mail as high priority"
+msgstr ""
+
+msgid "Mark this mail as low priority"
+msgstr ""
+
+msgid "Set read receipt"
+msgstr "Nastavit potvrzení o přečtení"
+
+msgid "Request read receipt from recipients"
+msgstr "Žádat potvrzení o přečtení od příjemců"
+
+msgid "Show Bcc"
+msgstr "Ukázat Skryté kopie"
+
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Ukázat Skryté kopie"
+
+#, fuzzy
+msgid "Show From field"
+msgstr "Ukázat Od koho"
+
+msgid "No signatures configured"
+msgstr "Nejsou nastaveny podpisy"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr "Různé možnosti"
+
+msgid "Internet Headers"
+msgstr "Záhlaví internetu"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Message Settings"
+msgstr "Nastavení zpráv"
+
+msgid "Tracking Options"
+msgstr "Možnosti sledování"
+
+msgid "Request a read receipt for this message."
+msgstr "Požadavek potvrzení o přečtení pro tuto zprávu."
+
+msgid "no subject"
+msgstr "žádný předmět"
+
+msgid "Set Category"
+msgstr "Nastavit Kategorii"
+
+msgid "Pop-Out"
+msgstr "Pop-out"
+
+msgid "Mark Read"
+msgstr "Označit jako přečtené"
+
+msgid "Mark Unread"
+msgstr "Označit jako nepřečtené"
+
+# 87%
+# 100%
+#, fuzzy
+msgid "New mail"
+msgstr "Nová zpráva"
+
+msgid "Mail"
+msgstr "Pošta"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply all"
+msgstr "Odpovědět všem"
+
+msgid "Toggle read/unread"
+msgstr ""
+
+msgid "Toggle red/complete flag"
+msgstr ""
+
+# 82%
+msgid "Open Shared Mails"
+msgstr "Otevřít sdílenou poštu"
+
+#, fuzzy
+msgid "Print single email"
+msgstr "Tisknout jedinou zprávu"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Tisknout vybrané položky"
+
+#, fuzzy
+msgid "Filter"
+msgstr "Filtrovat.."
+
+msgid "FW"
+msgstr "FW"
+
+msgid "RE"
+msgstr "RE"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Běžný text"
+
+msgid "Compose mail settings"
+msgstr "Vytvořit nastavení pošty"
+
+msgid "Compose mail in this format"
+msgstr "Vytvořit poštu v tomto formátu"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Upravit"
+
+msgid "Default font"
+msgstr ""
+
+msgid "Default font size"
+msgstr ""
+
+msgid "Always request a read receipt"
+msgstr "Vždy vyžádat potvrzení o přečtení"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr ""
+
+msgid "Incoming mail"
+msgstr "Doručená pošta"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Jak odpovídat na požadavek potvrzení o přečtení"
+
+msgid "Always send a response"
+msgstr "Vždy odeslat odpověď"
+
+msgid "Never send a response"
+msgstr "Nikdy neodesílat odpověď"
+
+msgid "Ask me before sending a response"
+msgstr "Dotázat se před odesláním odpovědi"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Zpráva označená automaticky jako přečtená za {B} sekund(y)"
+
+msgid "Off"
+msgstr "Vypnuto"
+
+msgid "Right"
+msgstr "Vpravo"
+
+msgid "Bottom"
+msgstr "Dole"
+
+msgid "General mail settings"
+msgstr "Hlavní nastavení pošty"
+
+# 83%
+# 100%
+#, fuzzy
+msgid "Location of preview pane"
+msgstr "Panel náhledu umístění"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr ""
+
+msgid "Open or compose a mail item in a"
+msgstr ""
+
+#, fuzzy
+msgid "WebApp tab"
+msgstr "WebApp"
+
+#, fuzzy
+msgid "Browser window"
+msgstr "Prohlížet"
+
+msgid "I am currently in the office"
+msgstr "Jsem právě v kanceláři"
+
+#, fuzzy
+msgid "I am out of the office from"
+msgstr "Jsem právě mimo kancelář"
+
+msgid "I will be back on"
+msgstr ""
+
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+"Automatická odpověď, každému odesilateli pouze jednou, s následujícím textem"
+
+msgid "User is currently out of office."
+msgstr "Uživatel je právě mimo kancelář."
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Signatures"
+msgstr "Podpisy"
+
+msgid "Signature for new messages"
+msgstr "Podpisy pro nové zprávy"
+
+msgid "Signature for replies and forwards"
+msgstr "Podpis pro odpovědi a přeposlané zprávy"
+
+#, fuzzy
+msgid "Save Signature"
+msgstr "Podpisy"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "Změny nebyly uloženy. Přejete si uložit změny?"
+
+msgid "New signature"
+msgstr "Nový podpis"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr ""
+
+# 76%
+msgid "Sort by: Sent"
+msgstr "Třídit podle: Odeslané"
+
+msgid "Modified"
+msgstr ""
+
+msgid "Sort by: Modified"
+msgstr ""
+
+msgid "Flag"
+msgstr ""
+
+msgid "Sort by: flag"
+msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "Složka"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "Minulý týden"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "Minulý měsíc"
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr ""
+
+msgid "Move to Junk Folder"
+msgstr "Přesunout do složky Nevyžádané"
+
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "Odeslat"
+
+msgid "Loading mail"
+msgstr "Načítání pošty"
+
+#, fuzzy
+msgid "Print note"
+msgstr "Vytisknout tuto poznámku"
+
+msgid "Color"
+msgstr "Barva"
+
+msgid "New note"
+msgstr ""
+
+msgid "Open Shared Notes"
+msgstr "Otevřít sdílené poznámky"
+
+msgid "Sticky note"
+msgstr "Rychlá poznámka"
+
+# 78%
+# 84%
+# 100%
+#, fuzzy
+msgid "Print selected note"
+msgstr "Tisknout vybrané úlohy"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No note selected"
+msgstr "Žádná úloha není zvolena"
+
+msgid "Icons"
+msgstr "Ikony"
+
+msgid "List view"
+msgstr "Seřadit náhled"
+
+msgid "List Last Seven Days"
+msgstr "Seřadit posledních sedm dní"
+
+msgid "Created"
+msgstr ""
+
+msgid "Sort by: Created"
+msgstr "Třídit podle: Vytvořené"
+
+msgid "Sort by: Color"
+msgstr "Třídit podle: Barva"
+
+msgid "Loading Notes"
+msgstr "Načítání poznámek"
+
+msgid "Loading notes"
+msgstr "Načítání poznámek"
+
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
+msgstr ""
+
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebbApp"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Account information - {0}"
+msgstr "Informace o účtu - {0}"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Startup folder"
+msgstr "Výchozí adresář"
+
+msgid "Theme"
+msgstr ""
+
+msgid "Select Default Folder"
+msgstr ""
+
+msgid "Advanced"
+msgstr "Pokročilé"
+
+msgid "Advanced settings"
+msgstr "Pokročilé nastavení"
+
+msgid "Edit setting"
+msgstr "Upravit nastavení"
+
+msgid "Restore to defaults"
+msgstr "Nastavit výchozí"
+
+msgid "Delete settings"
+msgstr "Odstranit nastavení"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikony"
+
+msgid "About"
+msgstr ""
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
+
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Nastavení zástupce"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Přidat k oblíbeným"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr ""
+
+msgid "I want to navigate through my items by using."
+msgstr ""
+
+msgid "Infinite Scroll"
+msgstr ""
+
+msgid "WebApp automatically loads additional items when you scroll down"
+msgstr ""
+
+#, fuzzy
+msgid "Pagination"
+msgstr "Organizace"
+
+msgid ""
+"WebApp displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+
+msgid "Load items in blocks of {A}"
+msgstr ""
+
+msgid "Load {A} items per page."
+msgstr ""
+
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+msgid "Part of basic keyboard shortcuts"
+msgstr ""
+
+msgid "Keyboard shortcuts off"
+msgstr ""
+
+msgid "Basic keyboard shortcuts on"
+msgstr ""
+
+msgid "All keyboard shortcuts on"
+msgstr ""
+
+msgid "This change requires a reload of the WebApp"
+msgstr "Tato změna vyžaduje nové načtení WebApp"
+
+msgid "Discard"
+msgstr "Vyřadit"
+
+msgid "Plugins"
+msgstr "Zásuvné moduly"
+
+msgid "Available plugins"
+msgstr ""
+
+msgid ""
+"The following plugins are available in the WebApp. It is possible to select "
+"and/or deselect different plugins to indicate which plugins should be "
+"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"in order for the changes to take effect."
+msgstr ""
+
+msgid "No plugins available"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "This plugin cannot be disabled"
+msgstr ""
+
+msgid "This plugin cannot be enabled"
+msgstr ""
+
+msgid "Mailbox Usage"
+msgstr "Používání Poštovní schránky"
+
+msgid "Quota information is not set on the user's store."
+msgstr "V úložišti uživatele není nastavena informační kvóta."
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} z kapacity poštovní chránky je použito."
+
+msgid "You have exceeded hard quota, you can not send or recieve mails."
+msgstr "Překročili jste tvrdou kvótu, nemůžete odesílat ani přijímat zprávy."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "Na {0} nebudete moci odesílat zprávy."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to recieve mails."
+msgstr ""
+"Nemůžete odesílat zprávy, neboť jste překročili měkkou kvótu, na {0} "
+"nebudete moci přijímat zprávy."
+
+msgid "At {0} you won't be able to send or recieve mails."
+msgstr "Na {0} nebudete moci posílat ani přijímat zprávy."
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Nemůžete odesílat zprávy, neboť jste překročili měkkou kvótu."
+
+#, fuzzy
+msgid "Reset settings"
+msgstr "Odstranit nastavení"
+
+msgid "Reset settings to their original defaults."
+msgstr ""
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reloading, Please wait."
+msgstr ""
+
+msgid "Setting"
+msgstr "Nastavení"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "Nastavení '{0}' nelze upravovat"
+
+msgid "Version information"
+msgstr "Informace o verzi"
+
+msgid "WebApp"
+msgstr "WebApp"
+
+#, fuzzy
+msgid "Kopano Core"
+msgstr "Kopano"
+
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
+
+msgid "Sort by: Priority"
+msgstr "Třídit podle: Priority"
+
+msgid "Status"
+msgstr "Stav"
+
+msgid "Sort by: Status"
+msgstr "Třídit podle: Stavu"
+
+msgid "Due Date"
+msgstr "Datum dokončení"
+
+msgid "Sort by: Due Date"
+msgstr "Třídit podle: Datum dokončení"
+
+msgid "% Completed"
+msgstr "% Dokončeno"
+
+msgid "Sort by: Percent Completed"
+msgstr "Třídit podle: Dokončeno procent"
+
+msgid "Task Status"
+msgstr ""
+
+# 93%
+msgid "Percent Complete"
+msgstr "Dokončeno procent"
+
+msgid "Total Work"
+msgstr "Úhrn práce"
+
+msgid "Actual Work"
+msgstr "Skutečná práce"
+
+msgid "Companies"
+msgstr "Společnosti"
+
+msgid "Billing Information"
+msgstr "Fakturační informace"
+
+msgid "Mileage"
+msgstr "Vzdálenost"
+
+#, fuzzy
+msgid "Accepting Task"
+msgstr "Průběžné úkoly"
+
+msgid "Declining Task"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Tato schůzka byla přijata a bude přesunuta do vašeho kalendáře. Přejete si "
+"připojit komentář k vaší odpovědí?"
+
+#, fuzzy
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Tato schůzka byla zrušena a bude přesunuta do složky odstraněné položky. "
+"Přejete si připojit komentář k vaší odpovědí?"
+
+#, fuzzy
+msgid "Send the response now"
+msgstr "Odeslat odpověď nyní."
+
+msgid "Date Complete"
+msgstr "Datum dokončení"
+
+msgid "Update List"
+msgstr "Aktualizovat seznam"
+
+msgid "Create Unassigned Copy"
+msgstr "Vytvořit nepřidělenou kopii"
+
+msgid "copy"
+msgstr ""
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Zobrazit příjemce"
+
+#, fuzzy
+msgid "A task request can only have one recipient."
+msgstr "Vždy vyžádat potvrzení o přečtení"
+
+msgid "Due date"
+msgstr "Datum dokončení"
+
+msgid "Priority"
+msgstr "Priorita"
+
+msgid "% Complete"
+msgstr "% Dokončeno"
+
+#, fuzzy
+msgid "Track progress"
+msgstr "Probíhá"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+
+#, fuzzy
+msgid "Send task to assignees"
+msgstr "Odeslat úkol pověřené osobě"
+
+#, fuzzy
+msgid "Restore to Task List"
+msgstr "Nastavit výchozí"
+
+# 94%
+# 76%
+# 100%
+#, fuzzy
+msgid "Delete this task"
+msgstr "Smazat tuto položku."
+
+msgid "Add attachments to this task"
+msgstr "Přidat přílohy k tomuto úkolu"
+
+msgid "Mark as Complete"
+msgstr "Označit jako Dokončené"
+
+msgid "Mark this task as complete"
+msgstr "Označit tento úkol jako dokončený"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "Print this task"
+msgstr "Tisknout tuto zprávu"
+
+msgid "Assign Task"
+msgstr "Přidělit úkol"
+
+msgid "Cancel Assignment"
+msgstr "Zrušit přidělení"
+
+# 75%
+# 79%
+# 100%
+#, fuzzy
+msgid "Mark this task as private"
+msgstr "Označit tento kontakt jako soukromý."
+
+msgid "New task"
+msgstr ""
+
+#, fuzzy
+msgid "Completed"
+msgstr "Dokončeno"
+
+msgid "Percent complete"
+msgstr "Dokončeno procent"
+
+msgid "Total work"
+msgstr "Celková práce"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} hodin"
+
+msgid "Actual work"
+msgstr "Vlastní práce"
+
+msgid "{actualwork} hours"
+msgstr "{vlastní práce} hodin"
+
+msgid "Open Shared Tasks"
+msgstr "Otevřít sdílené úkoly"
+
+msgid "Simple view"
+msgstr ""
+
+msgid "Detailed view"
+msgstr ""
+
+# 92%
+# 100%
+#, fuzzy
+msgid "Task request"
+msgstr "Zadání úkolu:"
+
+msgid "Print selected task"
+msgstr "Tisknout vybrané úlohy"
+
+msgid "Print task list"
+msgstr "Tisknout seznam úloh"
+
+msgid "No task selected"
+msgstr "Žádná úloha není zvolena"
+
+msgid "Create task"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr ""
+
+msgid "Mark Incomplete"
+msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Odstranit z kalendáře"
+
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Odeslat úkol pověřené osobě"
+
+#, fuzzy
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány "
+"organizatorem v případě aktualizace této žádosti o schůzku"
+
+msgid "Sort by: Complete"
+msgstr "Třídit podle: Dokončené"
+
+msgid "Reminder Time"
+msgstr "Čas připomínky"
+
+msgid "Sort by: Reminder Time"
+msgstr "Třídit podle: Čas připomínky"
+
+msgid "Assigned To"
+msgstr "Příděleno"
+
+msgid "Sort by: Assignee"
+msgstr "Třídit podle: Přidělení"
+
+msgid "Sort by: Start Date"
+msgstr "Třídit podle: Počáteční datum"
+
+msgid "Sort by: Owner"
+msgstr "Třídit podle: Vlastník"
+
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Třídit podle: Dokončeno procent"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Přidělit úkol"
+
+msgid "Loading tasks"
+msgstr "Načítání úkolů"
+
+#, fuzzy
+msgid "Date completed"
+msgstr "Datum dokončení"
+
+msgid "hours"
+msgstr "hodin"
+
+#, fuzzy
+msgid "Billing information"
+msgstr "Fakturační informace"
+
+#, fuzzy
+msgid "Update list"
+msgstr "Aktualizovat seznam"
+
+#, fuzzy
+msgid "D d-m-Y"
+msgstr "d-m-r"
+
+#, fuzzy
+msgid "Import / Export"
+msgstr "Důležitý"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Ikony"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "The server reported an unknown error on your request."
+msgstr "Server na váš dotaz hlásí neznámou chybu."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Server na váš dotaz hlásí nespecifikovanou chybu."
+
+msgid "The session has expired, reauthentication is required."
+msgstr ""
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+
+msgid "Session expired"
+msgstr ""
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr ""
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+
+msgid "Connection problem"
+msgstr ""
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr ""
+
+msgid "Click to retry now"
+msgstr ""
+
+msgid "Connection restored"
+msgstr ""
+
+msgid "Connection with server has been restored"
+msgstr ""
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Ze serveru přicházejí neplatné údaje"
+
+msgid "Missing store"
+msgstr ""
+
+msgid "The default store is missing from the hierarchy."
+msgstr ""
+
+msgid ""
+"Not all functionality of WebApp might be working properly because of this."
+msgstr ""
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Doručená pošta"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Odstraněné položky"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalendář"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr ""
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Žurnál"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Poznámky"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Úkoly"
+
+# 83%
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "E-mail"
+
+msgid "Missing folders"
+msgstr ""
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Loading model from server failed"
+msgstr "Selhalo načítání ze serveru"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr ""
+
+msgid "Out of office off"
+msgstr ""
+
+msgid "Out of office has been turned off"
+msgstr ""
+
+msgid "Send Fax"
+msgstr "Poslat fax"
+
+msgid "Contact Fax"
+msgstr ""
+
+#, fuzzy
+msgid "Widget height"
+msgstr "Přidat prvky"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Načítání schůzek"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nový termín"
+
+msgid "Number of days"
+msgstr ""
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Dnes: {A} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d. m. Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d. m. Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Načítání schůzek"
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "No unread mail."
+msgstr "Žádná nepřečtená pošta."
+
+msgid "Unread Mail"
+msgstr "Nepřečtená pošta"
+
+msgid "No tasks."
+msgstr "Žádné úkoly."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+msgid "Google Maps"
+msgstr ""
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr "Mapa světa"
+
+msgid "Move currently selected message(s) to {0}"
+msgstr "Přesunout aktuálně vybranou zprávu(y) k {0}"
+
+msgid "Move to {0}"
+msgstr "Přesunout k {0}"
+
+msgid "Move current message to {0}"
+msgstr "Přesunout aktuální zprávu k {0}"
+
+msgid "Personal Inbox Manager"
+msgstr ""
+
+msgid "Personal Inbox Management Settings"
+msgstr "Nastavení osobní schránky"
+
+msgid "Select another folder"
+msgstr "Vybrat jinou složku"
+
+msgid "E-mails are moved to {0}"
+msgstr "Zprávy byly přesunuty k {0}"
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Otevřit v novém okně prohlížeče"
+
+msgid "Quick Appointment"
+msgstr "Rychlá schůzka"
+
+msgid "Quick Contact"
+msgstr "Rychlý kontakt"
+
+msgid "Quick Mail"
+msgstr "Rychlá pošta"
+
+msgid "Quick Note"
+msgstr "Rychlá poznámka"
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Rychlý úkol"
+
+msgid "Title Counter Plugin"
+msgstr ""
+
+msgid "Help"
+msgstr "Nápověda"
+
+msgid "WebApp Manual"
+msgstr ""
+
+msgid "INSERT"
+msgstr "VLOŽIT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
+msgid "Charm pink"
+msgstr ""
+
+msgid "Cadmium red"
+msgstr ""
+
+msgid "Apricot"
+msgstr ""
+
+msgid "California"
+msgstr ""
+
+msgid "Soft green"
+msgstr ""
+
+msgid "Mint"
+msgstr ""
+
+msgid "Pearl aqua"
+msgstr ""
+
+msgid "Kopano blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr ""
+
+msgid "Mauve"
+msgstr ""
+
+msgid "Silver sand"
+msgstr ""
+
+msgid "Competition"
+msgstr "Soutěž"
+
+msgid "Gifts"
+msgstr "Dárky"
+
+msgid "Goals/Objectives"
+msgstr "Cíle/Záměry"
+
+msgid "Holiday Cards"
+msgstr "Pohlednice"
+
+msgid "Hot Contacts"
+msgstr "Důležité kontakty"
+
+msgid "Ideas"
+msgstr "Nápady"
+
+msgid "International"
+msgstr "Mezinárodní"
+
+msgid "Key Customer"
+msgstr "Klíčový zákazník"
+
+msgid "Miscellaneous"
+msgstr "Různé"
+
+msgid "Phone Calls"
+msgstr "Telefonní hovory"
+
+msgid "Strategies"
+msgstr "Plány"
+
+msgid "Suppliers"
+msgstr "Dodavatelé"
+
+msgid "Time & Expenses"
+msgstr "Čas & Výdaje"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Očekávání"
+
+msgid "You have been automatically logged out"
+msgstr "Byli jste automaticky odhlášeni"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+"Nelze přidat údaje do sběrnice, stejný typ akce je přítomen ve sběrnici"
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "Na dotaz sběrnice hlásí, že zde nejsou žádné údaje."
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "Neznámý modul '%s' s id '%s'"
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+"Server zjistil nějaký problém, proto nebyl schopen zpracovat požadavek."
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "Neznámý oznamovatel '%s'"
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+#, fuzzy
+msgid "To-Do List"
+msgstr "Telefonní seznam"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$s z %2$s"
+
+msgid "Error retrieving existing settings"
+msgstr "Chyba načítání současného nastavení"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+#, fuzzy
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
+
+#, fuzzy
+msgid "Cannot connect to Kopano Core."
+msgstr "Nelze se připojit k Kopano serveru."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+#, fuzzy
+msgid "Unknown MAPI Error"
+msgstr "Neznámá MAPI chyba: %s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
+
+msgid "This external link will open in a new window"
+msgstr "Tento externí odkaz se otevře v novém okně"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Cílová složka"
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Tato schůzka již proběhla."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "{0} není platný čas"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Přidat přílohy k tomuto kontaktu."
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+# 82%
+# 100%
+#, fuzzy
+msgid "Could not find attachment."
+msgstr "Nelze nahrát přílohu"
+
+msgid "Operation failed"
+msgstr ""
+
+# 90%
+# 100%
+#, fuzzy
+msgid "Sticky Note"
+msgstr "Rychlá poznámka"
+
+# 92%
+# 100%
+#, fuzzy
+msgid "Task Request"
+msgstr "Zadání úkolu:"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Action is not performed correctly."
+msgstr "Akce nebyla provedena správně."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Nemáte oprávnění otevřít tento předmět."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
+
+#, fuzzy
+msgid "Can not connect to Kopano Core."
+msgstr "Nelze se připojit k Kopano serveru."
+
+msgid "Can not open object with provided id."
+msgstr "Nelze otevřít předmět s uvedenou identifikací."
+
+msgid "There are no recipients in the message."
+msgstr "Zpráva neobsahuje žádné příjemce."
+
+msgid "Can not find object."
+msgstr "Předmět nenalezen."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr ""
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Neznámá MAPI chyba: %s"
+
+msgid "Tentatively accepted"
+msgstr "Předběžně přijato"
+
+msgid "New Time Proposed"
+msgstr "Navržen nový čas"
+
+# 78%
+# 76%
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Opakuje se vždy v %s počínaje %s od %s do %s."
+
+# 78%
+# 76%
+# 93%
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Opakuje se vždy v %s %s počínaje %s od %s do %s."
+
+# 80%
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Opakuje se vždy v %s počínaje %s."
+
+# 75%
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Opakuje se vždy v %s %s počínaje %s."
+
+# 76%
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr[0] "Opakuje se vždy v %s počínaje %s, %s-krát, od %s do %s."
+msgstr[1] "Opakuje se vždy v %s počínaje %s, %s-krát, od %s do %s."
+msgstr[2] "Opakuje se vždy v %s počínaje %s, %s-krát, od %s do %s."
+
+# 76%
+# 95%
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
+msgstr[0] "Opakuje se vždy v %s %s počínaje %s, %s-krát, od %s do %s."
+msgstr[1] "Opakuje se vždy v %s %s počínaje %s, %s-krát, od %s do %s."
+msgstr[2] "Opakuje se vždy v %s %s počínaje %s, %s-krát, od %s do %s."
+
+# 77%
+# 81%
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence."
+msgid_plural "Occurs every %s effective %s for %s occurences."
+msgstr[0] "Opakuje se vždy v %s počínaje %s, %s-krát."
+msgstr[1] "Opakuje se vždy v %s počínaje %s, %s-krát."
+msgstr[2] "Opakuje se vždy v %s počínaje %s, %s-krát."
+
+# 77%
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence."
+msgid_plural "Occurs every %s %s effective %s for %s occurences."
+msgstr[0] "Opakuje se vždy v %s %s počínaje %s, %s-krát."
+msgstr[1] "Opakuje se vždy v %s %s počínaje %s, %s-krát."
+msgstr[2] "Opakuje se vždy v %s %s počínaje %s, %s-krát."
+
+# 76%
+# 75%
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Opakuje se vždy v %s počínaje %s až do %s od %s do %s."
+
+# 76%
+# 75%
+# 94%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Opakuje se vždy v %s %s počínaje %s až do %s od %s do %s."
+
+# 78%
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Opakuje se vždy v %s počínaje %s do %s."
+
+# 78%
+# 92%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Opakuje se vždy v %s %s počínaje %s do %s."
+
+msgid "Task Accepted:"
+msgstr "Úkol přijal:"
+
+msgid "Task Declined:"
+msgstr "Úkol odmítl:"
+
+msgid "Task Updated:"
+msgstr "Úkol aktualizován:"
+
+msgid "Task Completed:"
+msgstr "Úkol dokončen:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr "Nelze zpracovat tento typ objektu."
+
+msgid "Could not open this object."
+msgstr "Nelze otevřít tento objekt."
+
+msgid "Could not open occurrence."
+msgstr "Výskyt nelze otevřít."
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr "Nelze otevřít výskyt, specifický výskyt je pravděpodobně odstraněn."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "žádost o schůzku"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "termín"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "Nemáte dostatečná práva přesunout "
+
+msgid "Insufficient privileges"
+msgstr "Nedostatečná práva"
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+"Nelze nastavit připomínku, než se objeví předešlé opakování. Obnovte "
+"připomínku a uložte změnu"
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "Dva výskyty nejsou možné ve stejný den"
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+"Označili jste '%s' jako zdroj. Nelze naplánovat schůzku s '%s', protože "
+"nemáte oprávnění pro tento účet. Buď zadejte název jako povinné či volitelné "
+"účastníkem, nebo se obraťte na svého správce ohledně povolení naplánovat "
+"'%s'."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+"'%s' odmítá vaši schůzku, protože '%s' automaticky nepřijímá žádosti o "
+"schůzku."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+"'%s' odmítá vaši schůzku, protože je opakovaná. Musíte tímto způsobem "
+"rezervovat každou schůzku zvlášť."
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+"'%s' je již v tomto čase rezervován. Musíte udat jiný čas nebo najít jiný "
+"způsob."
+
+msgid "Meeting was not scheduled."
+msgstr "Schůzka nebyla naplánována."
+
+msgid "Meeting could not be sent."
+msgstr "Schůzku nelze odeslat."
+
+msgid "Meeting could not be saved."
+msgstr "Schůzku nelze uložit."
+
+msgid "Private Appointment"
+msgstr "Soukromá schůzka"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "%s's Narozeniny"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "%s's Výročí"
+
+msgid "Unknown user/group"
+msgstr "Neznámý uživatel/skupina"
+
+msgid "Could not save delegate information."
+msgstr "Nelze uložit informace účastníka."
+
+# 78%
+# 80%
+msgid "Could not delete delegate."
+msgstr "Nelze odstranit účastníka."
+
+msgid "Can not get list of delegates."
+msgstr "Nelze získat seznam účastníků."
+
+msgid "Could not load the hierarchy."
+msgstr "Nelze načíst hierarchii."
+
+msgid "Could not load folder properties."
+msgstr "Nelze načíst vlastnosti složky."
+
+#, fuzzy
+msgid "Could not remove folder from favorites."
+msgstr "Nelze přidat složku do oblíbených."
+
+msgid "You have insufficient privileges to delete folder."
+msgstr "Nejste oprávněni odstranit složku."
+
+# 78%
+# 80%
+# 76%
+# 83%
+msgid "Could not delete folder."
+msgstr "Nelze smazat složku."
+
+msgid "You have insufficient privileges to copy folder."
+msgstr "Nejste oprávněni kopírovat složku."
+
+# 95%
+msgid "Could not copy folder."
+msgstr "Nelze kopírovat složku."
+
+msgid "You have insufficient privileges to move this folder."
+msgstr "Nejste oprávněni přesunout tuto složku."
+
+# 95%
+msgid "Could not move folder."
+msgstr "Nelze přesunout složku."
+
+msgid "You have insufficient privileges to delete items."
+msgstr "Nejste oprávněni odstranit položky."
+
+# 82%
+msgid "Could not empty folder."
+msgstr "Nelze vyprázdnit složku."
+
+msgid "Could not perform action correctly."
+msgstr "Nelze provést akci správně."
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr "Nelze přidat složku do oblíbených."
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr "Nejste oprávněni nastavit povolení pro tuto složku."
+
+msgid "Could not set folder permissions."
+msgstr "Nelze nastavit povolení složky."
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr "Neste oprávněni přejmenovat tuto složku."
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Složka s tímto názvem již existuje. Použijte jiný název."
+
+# 75%
+msgid "Could not rename folder."
+msgstr "Nelze přejmenovat složku."
+
+msgid "You have insufficient privileges to create this folder."
+msgstr "Nemáte oprávnění vytvořit tuto složku."
+
+# 75%
+msgid "Could not create folder."
+msgstr "Nelze vytvořit složku."
+
+msgid "Could not close shared folder."
+msgstr "Nelze zavřít sdílenou složku."
+
+msgid "User could not be resolved."
+msgstr "Uživatel není rozpoznán."
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+# 85%
+msgid "unknown"
+msgstr "neznámé"
+
+msgid "Could not move folder"
+msgstr "Nelze přesunout složku"
+
+msgid "Could not copy folder"
+msgstr "Nelze zkopírovat složku"
+
+msgid "You have insufficient privileges to open this message."
+msgstr "Nemáte oprávnění otevřít tuto zprávu."
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+# 78%
+msgid "Could not open message."
+msgstr "Nelze otevřít zprávu."
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Nemáte oprávnění odmítnout tuto žádost o schůzku"
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Nemáte oprávnění přijmout tuto žádost o schůzku"
+
+# 78%
+# 82%
+msgid "Could not copy message"
+msgstr "Nelze kopírovat zprávu"
+
+# 78%
+# 82%
+msgid "Could not move message"
+msgstr "Nelze přesunout zprávu"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Nemáte oprávnění uložit položky v této složce"
+
+# 78%
+msgid "Could not save message"
+msgstr "Nelze uložit zprávu"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Nemáte oprávnění odstranit položku z kalendáře."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
+msgstr ""
+
+#, fuzzy
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Nemáte oprávnění uložit položky v této složce"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Nemáte oprávnění připojit položku jako přílohu."
+
+msgid "Could not attach item as an attachment."
+msgstr "Nelze připojit položku jako přílohu."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr "Nemáte oprávnění znovu nabýt odpovědnosti pro zadání úkolu."
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Nelze znovu získat oprávnění vlastníka pro zadání úkolu."
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "Nemáte oprávnění přijmout toto zadání úkolu."
+
+msgid "Could not accept Task Request."
+msgstr "Nelze přijmout zadání úkolu."
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "Nemáte oprávnění odmítnout toto zadání úkolu."
+
+msgid "Could not decline Task Request."
+msgstr "Nelze odmítnout zadání úkolu."
+
+msgid "Conflicts with another appointment."
+msgstr "V rozporu s další schůzkou."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] "%s opakování této schůzky je v rozporu s jinou schůzkou."
+msgstr[1] "%s opakování této schůzky je v rozporu s jinou schůzkou."
+msgstr[2] "%s opakování této schůzky je v rozporu s jinou schůzkou."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příjemcům"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr "Nejste oprávněni seznámit se s obsahem této složky."
+
+msgid "Could not load the contents of this folder."
+msgstr "Nelze načíst obsah této složky."
+
+msgid "Error in search, please try again"
+msgstr "Vyhledávání selhalo, zkuste prosím znovu"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr "Nemáte oprávnění provádět vyhledávání v této složce."
+
+msgid "Could not update search results."
+msgstr "Nelze aktualizovat výsledky vyhledávání."
+
+msgid "Could not stop search operation."
+msgstr "Nelze zastavit vyhedávací operaci."
+
+msgid "You have insufficient privileges to save this message."
+msgstr "Nemáte oprávnění uložit tuto zprávu."
+
+# 78%
+# 82%
+msgid "Could not save message."
+msgstr "Nelze uložit zprávu."
+
+msgid "You have insufficient privileges to delete this message."
+msgstr "Nemáte oprávnění smazat tuto zprávu."
+
+# 78%
+# 80%
+msgid "Could not delete message."
+msgstr "Nelze smazat zprávu."
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr "Nemáte oprávnění zrušit tuto Žádost o schůzku."
+
+msgid "Could not cancel Meeting Request."
+msgstr "Nelze zrušit Žádost o schůzku."
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Nemáte oprávnění odmítnout tuto Žádost o schůzku."
+
+msgid "Could not decline Meeting Request."
+msgstr "Nelze odmítnout Žádost o schůzku."
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Nemáte oprávnění přijmout tuto Žádost o schůzku."
+
+msgid "Could not accept Meeting Request."
+msgstr "Nelze přijmout Žádost o schůzku."
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr "Nemáte oprávnění odmítnout pozvánku s žádostí o schůzku."
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "Nelze odmítnout pozvánky s žádostí o schůzku."
+
+msgid "You can not continue search operation on this folder."
+msgstr "Nelze pokračovat v hledání v této složce."
+
+msgid "Error in search, please try again."
+msgstr "Chyba v hledání, zkuste prosím znovu."
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "Překročen limit tvrdé kvóty pro úložiště zpráv."
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+"Chcete-li snížit množství dat v tomto úložišti zpráv, vyberte některé "
+"položky, které již nepotřebujete a přesuňte je do složky Odstraněná pošta."
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "Překročen limit měkké kvóty pro úložiště zpráv."
+
+msgid "Could not process request data properly."
+msgstr "Nelze správně zpracovat požadované údaje."
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr "Neznámá akce specifikovaná - %s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "Nelze odložit připomínku. Můžete být upomenuti znovu."
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr "Nelze zrušit připomínku. Můžete být upomenuti znovu."
+
+msgid "You have insufficient privileges to perform this action."
+msgstr "Nemáte oprávnění provést tuto akci."
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr "Nepojmenované pravidlo"
+
+# 78%
+# 80%
+# 76%
+# 77%
+msgid "Could not load rules."
+msgstr "Nelze nahrát pravidla."
+
+# 78%
+# 80%
+# 76%
+# 77%
+# 95%
+msgid "Could not save rules."
+msgstr "Nelze uložit pravidla."
+
+msgid "Task Request:"
+msgstr "Zadání úkolu:"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Sign in"
+msgstr ""
+
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Odesláno úspěšně"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} není platný čas"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "B"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "Maximální rozsah zásobníku byl překročen"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "Chyba kontrolního znaku, možné nesprávné kódování"
+
+msgid "Invalid or malformed JSON"
+msgstr "Neplatné nebo poškozené JSON"
+
+msgid "Syntax error"
+msgstr "Syntaktická chyba"
+
+#, fuzzy
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "Chyba kontrolního znaku, možné nesprávné kódování"
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON Chyba: - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "Došlo k problému při kódování/dekódování JSON údajů."

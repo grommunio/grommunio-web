@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>filepreviewer</name>
+		<title>File previewer plugin</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>File previewer plugin</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.filepreviewer.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/filepreviewer.js</clientfile>
+					<clientfile load="debug">js/filepreviewer-debug.js</clientfile>
+					<clientfile load="source">js/FileviewerPlugin.js</clientfile>
+					<clientfile load="source">js/ViewerPanel.js</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

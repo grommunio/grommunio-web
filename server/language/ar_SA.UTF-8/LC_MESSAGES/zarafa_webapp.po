@@ -1,0 +1,5929 @@
+# Kopano Webapp Arabic (Saudi Arabia) translation.
+# Copyright (C) 2018
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Arabic (Saudi Arabia)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"PO-Revision-Date: 2018-08-24 21:03+0200\n"
+"Last-Translator: Carsten Schoenert <c.schoenert@t-online.de>\n"
+"Language-Team: Arabic (Saudi Arabia) <https://translate.kopano.io/projects/"
+"kopano/kopano-webapp/ar_SA/>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 2.1.1\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "Value must be between 0% to 100%"
+msgstr ""
+
+msgid "Number must be higher than zero"
+msgstr ""
+
+msgid "More options"
+msgstr ""
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+msgid "Page {A} of {0}"
+msgstr ""
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr ""
+
+msgid "No messages to display"
+msgstr ""
+
+msgid "First Page"
+msgstr ""
+
+msgid "Previous Page"
+msgstr ""
+
+msgid "Next Page"
+msgstr ""
+
+msgid "Last Page"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "{0} (Spacebar)"
+msgstr ""
+
+msgid "This date is before the minimum date"
+msgstr ""
+
+msgid "This date is after the maximum date"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Next Month (Control+Right)"
+msgstr ""
+
+msgid "Previous Month (Control+Left)"
+msgstr ""
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr ""
+
+msgid "Sort Ascending"
+msgstr ""
+
+msgid "Sort Descending"
+msgstr ""
+
+msgid "Columns"
+msgstr ""
+
+msgid "Group By This Field"
+msgstr ""
+
+msgid "Show in Groups"
+msgstr ""
+
+msgid "(None)"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "The value in this field is invalid"
+msgstr ""
+
+msgid "The minimum length for this field is {0}"
+msgstr ""
+
+msgid "The maximum length for this field is {0}"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
+msgid "The minimum value for this field is {0}"
+msgstr ""
+
+msgid "The maximum value for this field is {0}"
+msgstr ""
+
+msgid "{0} is not a valid number"
+msgstr ""
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr ""
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr ""
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr ""
+
+msgid "You must select at least one item in this group"
+msgstr ""
+
+msgid "You must select one item in this group"
+msgstr ""
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr ""
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr ""
+
+msgid "{0} is not a valid time"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "true"
+msgstr ""
+
+msgid "false"
+msgstr ""
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr ""
+
+msgid "This field should only contain letters and _"
+msgstr ""
+
+msgid "This field should only contain letters, numbers and _"
+msgstr ""
+
+msgid "Email Addresses"
+msgstr ""
+
+msgid "Email addresses"
+msgstr ""
+
+msgid "Group details"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Display Name"
+msgstr ""
+
+msgid "Alias"
+msgstr ""
+
+msgid "Owner"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Members"
+msgstr ""
+
+msgid "Email Address"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Member Of"
+msgstr ""
+
+msgid "Group Membership"
+msgstr ""
+
+msgid "Address Book"
+msgstr ""
+
+msgid "User details"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Initial"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "Zip Code"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Company"
+msgstr ""
+
+msgid "Department"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
+msgid "Assistant"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Manager"
+msgstr ""
+
+msgid "Direct reports"
+msgstr ""
+
+msgid "Phone numbers"
+msgstr ""
+
+msgid "Business"
+msgstr ""
+
+msgid "Business2"
+msgstr ""
+
+msgid "Fax"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Home2"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Pager"
+msgstr ""
+
+msgid "No user selected"
+msgstr ""
+
+msgid "You must select one or more users."
+msgstr ""
+
+msgid "You must select a user."
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Show Details"
+msgstr ""
+
+msgid "Use the search bar to get results"
+msgstr ""
+
+msgid "There are no items to show in this list"
+msgstr ""
+
+msgid "Show Names from the"
+msgstr ""
+
+msgid "Search..."
+msgstr ""
+
+msgid "Sort by: Icon"
+msgstr ""
+
+msgid "Sort by: Name"
+msgstr ""
+
+msgid "Sort by: Display Name"
+msgstr ""
+
+msgid "File as"
+msgstr ""
+
+msgid "Sort by: File As"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Sort by: First Name"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "Sort by: Last Name"
+msgstr ""
+
+msgid "Sort by: Email Address"
+msgstr ""
+
+msgid "Sort by: Department"
+msgstr ""
+
+msgid "Office Phone"
+msgstr ""
+
+msgid "Sort by: Office Phone"
+msgstr ""
+
+msgid "Sort by: Mobile"
+msgstr ""
+
+msgid "Home Phone"
+msgstr ""
+
+msgid "Sort by: Home Phone"
+msgstr ""
+
+msgid "Sort by: Pager"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Sort by: Location"
+msgstr ""
+
+msgid "Sort by: Fax"
+msgstr ""
+
+msgid "No preview"
+msgstr ""
+
+msgid "Right preview"
+msgstr ""
+
+msgid "Bottom preview"
+msgstr ""
+
+msgid "Any date"
+msgstr ""
+
+msgid "Past week"
+msgstr ""
+
+msgid "Past 2 weeks"
+msgstr ""
+
+msgid "Past month"
+msgstr ""
+
+msgid "Past 6 month"
+msgstr ""
+
+msgid "Past year"
+msgstr ""
+
+msgid "Custom date"
+msgstr ""
+
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Empty folder name"
+msgstr ""
+
+msgid "You must specify a name."
+msgstr ""
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
+msgid "Select Category"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "All folders are selected"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Reply All"
+msgstr ""
+
+msgid "Forward"
+msgstr ""
+
+msgid "Edit as New"
+msgstr ""
+
+msgid "Search tools"
+msgstr ""
+
+msgid "Folders"
+msgstr ""
+
+msgid "Include subfolders"
+msgstr ""
+
+msgid "Show.."
+msgstr ""
+
+msgid "Mails"
+msgstr ""
+
+msgid "Appointments"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "Filter.."
+msgstr ""
+
+msgid "Unread"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgctxt "search.date"
+msgid "From"
+msgstr ""
+
+msgctxt "search.date"
+msgid "To"
+msgstr ""
+
+msgid "Filter category.."
+msgstr ""
+
+msgid "Search.."
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Recipients"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Body & Attachments"
+msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
+msgid "Select Folder"
+msgstr ""
+
+msgid "Delete search folder"
+msgstr ""
+
+msgid "Sort by: Date"
+msgstr ""
+
+msgid "Loading Search results"
+msgstr ""
+
+msgid "Sorting tip"
+msgstr ""
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+
+msgid "Did you mean"
+msgstr ""
+
+msgid "With"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "No date"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Optional"
+msgstr ""
+
+msgid "Resource"
+msgstr ""
+
+msgid "Could not open store."
+msgstr ""
+
+msgid "Could not open default calendar folder."
+msgstr ""
+
+msgid "workday"
+msgstr ""
+
+msgid "day"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "week"
+msgstr ""
+
+msgid "weeks"
+msgstr ""
+
+msgid " on "
+msgstr ""
+
+msgid "month"
+msgstr ""
+
+msgid "months"
+msgstr ""
+
+msgid "year"
+msgstr ""
+
+msgid "years"
+msgstr ""
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr ""
+
+msgid "When"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y G:i"
+msgstr ""
+
+msgid "Where"
+msgstr ""
+
+msgid "New Meeting Time Proposed"
+msgstr ""
+
+msgid "and "
+msgstr ""
+
+msgid "Sort by: Attachment"
+msgstr ""
+
+msgid "Sort by: Recurring"
+msgstr ""
+
+msgid "Sort by: Subject"
+msgstr ""
+
+msgid "Startdate"
+msgstr ""
+
+msgid "Sort by: Startdate"
+msgstr ""
+
+msgid "Enddate"
+msgstr ""
+
+msgid "Sort by: Enddate"
+msgstr ""
+
+msgid "Organizer"
+msgstr ""
+
+msgid "Required Attendee"
+msgstr ""
+
+msgid "Optional Attendee"
+msgstr ""
+
+msgid "Show Time As"
+msgstr ""
+
+msgid "Start Date"
+msgstr ""
+
+msgid "End Date"
+msgstr ""
+
+msgid "Recurrence pattern"
+msgstr ""
+
+msgid "All Day Event"
+msgstr ""
+
+msgid "Add Shared Calendar"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Workweek"
+msgstr ""
+
+msgid "Week"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "List"
+msgstr ""
+
+msgid "Appointment"
+msgstr ""
+
+msgid "Meeting request"
+msgstr ""
+
+msgid "Print selected appointment"
+msgstr ""
+
+msgid "Print overview"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "No appointment selected"
+msgstr ""
+
+msgid "Create Appointment"
+msgstr ""
+
+msgid "Calendar"
+msgstr ""
+
+msgid "Create in other calendar"
+msgstr ""
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+msgid "Own calendar"
+msgstr ""
+
+msgid "F Y"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr ""
+
+msgid "All text fields"
+msgstr ""
+
+msgid "Body"
+msgstr ""
+
+msgid "Subject or Sender"
+msgstr ""
+
+msgid "To or cc"
+msgstr ""
+
+msgid "Meeting"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr ""
+
+msgid "Send update"
+msgstr ""
+
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr ""
+
+msgid "Send update to attendees"
+msgstr ""
+
+msgid ""
+"You have made changes to the list of attendees, Choose one of the following"
+msgstr ""
+
+msgid "Send updates to only added or deleted attendees."
+msgstr ""
+
+msgid "Send updates to all attendees."
+msgstr ""
+
+msgid "Busy attendees"
+msgstr ""
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+
+msgid "Scheduling"
+msgstr ""
+
+msgid "Tracking"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr ""
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+
+msgid "Create in"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "until"
+msgstr ""
+
+msgid "Recurrence"
+msgstr ""
+
+msgid "Reminder"
+msgstr ""
+
+msgid "Show as"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr ""
+
+msgid "Type your message here..."
+msgstr ""
+
+msgid "Update location"
+msgstr ""
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y G:i"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Add attachment"
+msgstr ""
+
+msgid "Check names"
+msgstr ""
+
+msgid "Invite attendees"
+msgstr ""
+
+msgid "Cancel invitation"
+msgstr ""
+
+msgid "High priority"
+msgstr ""
+
+msgid "Mark this appointment as high priority"
+msgstr ""
+
+msgid "Low priority"
+msgstr ""
+
+msgid "Mark this appointment as low priority"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Open the categories dialog"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Mark this appointment as private"
+msgstr ""
+
+msgid "Proposed Date and Time"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Proposed By"
+msgstr ""
+
+msgid "Current Meeting Time"
+msgstr ""
+
+msgid "Show only working hours"
+msgstr ""
+
+msgid "Propose New Time"
+msgstr ""
+
+msgid "Start time"
+msgstr ""
+
+msgid "End time"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Send Meeting Request Cancellation"
+msgstr ""
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+
+msgid "Edit the cancellation before Sending."
+msgstr ""
+
+msgid "Send the cancellation now."
+msgstr ""
+
+msgid "Send Meeting Request Confirmation"
+msgstr ""
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+
+msgid "Edit the response before sending"
+msgstr ""
+
+msgid "Send the response now."
+msgstr ""
+
+msgid "Don't send a response."
+msgstr ""
+
+msgid "The following responses for this meeting have been received"
+msgstr ""
+
+msgid "Attendance"
+msgstr ""
+
+msgid "Response"
+msgstr ""
+
+msgid "New appointment"
+msgstr ""
+
+msgid "Creating an item"
+msgstr ""
+
+msgid "New meeting request"
+msgstr ""
+
+msgid "Switch calendar range back and forth"
+msgstr ""
+
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr ""
+
+msgid "Printed by: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr ""
+
+msgid "Location: "
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr ""
+
+msgid "Organiser"
+msgstr ""
+
+msgid "Meeting status"
+msgstr ""
+
+msgid "Required Attendees"
+msgstr ""
+
+msgid "Optional Attendees"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Sensitivity"
+msgstr ""
+
+msgid "Importance"
+msgstr ""
+
+msgid "M j"
+msgstr ""
+
+msgid "j"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l d/m/Y"
+msgstr ""
+
+msgid "General calendar settings"
+msgstr ""
+
+msgid "First day of the week"
+msgstr ""
+
+msgid "Start of workday"
+msgstr ""
+
+msgid "End of workday"
+msgstr ""
+
+msgid "Calendar resolution"
+msgstr ""
+
+msgid "Default appointment duration {A} minutes"
+msgstr ""
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Working days"
+msgstr ""
+
+msgid "Show busy dates as bold in the date picker"
+msgstr ""
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+
+msgid "Free/Busy publishing"
+msgstr ""
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr ""
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+
+msgid "Side-by-side mode"
+msgstr ""
+
+msgid "Overlay mode"
+msgstr ""
+
+msgid "Calendar view settings"
+msgstr ""
+
+msgid "View multiple calendars in"
+msgstr ""
+
+msgid "Reminder settings"
+msgstr ""
+
+msgid "Enable reminder for new appointments"
+msgstr ""
+
+msgid "Default reminder time"
+msgstr ""
+
+msgid "Default all-day appointment reminder time"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr ""
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "New Appointment"
+msgstr ""
+
+msgid "New Meeting Request"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Copy/Move"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Tentative"
+msgstr ""
+
+msgid "Decline"
+msgstr ""
+
+msgid "Send to..."
+msgstr ""
+
+msgid "Export as"
+msgstr ""
+
+msgid "Occurrence"
+msgstr ""
+
+msgid "Series"
+msgstr ""
+
+msgid "Appointment not found"
+msgstr ""
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr ""
+
+msgid "All Day"
+msgstr ""
+
+msgid "Sort by: All Day"
+msgstr ""
+
+msgid "Icon"
+msgstr ""
+
+msgid "Recurring"
+msgstr ""
+
+msgid "Sort by: Duration"
+msgstr ""
+
+msgid "Meeting Status"
+msgstr ""
+
+msgid "Sort by: Meeting Status"
+msgstr ""
+
+msgid "Sort by: Show as"
+msgstr ""
+
+msgid "Sort by: Categories"
+msgstr ""
+
+msgid "Created On"
+msgstr ""
+
+msgid "Sort by: Created On"
+msgstr ""
+
+msgid "Due By"
+msgstr ""
+
+msgid "Sort by: Due By"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Sort by: Label"
+msgstr ""
+
+msgid "Sort by: Organizer"
+msgstr ""
+
+msgid "Sort by: Required Attendee"
+msgstr ""
+
+msgid "Sort by: Optional Attendee"
+msgstr ""
+
+msgid "Sort by: Resources"
+msgstr ""
+
+msgid "Recurring Startdate"
+msgstr ""
+
+msgid "Sort by: Recurring Startdate"
+msgstr ""
+
+msgid "Recurring Enddate"
+msgstr ""
+
+msgid "Sort by: Recurring Enddate"
+msgstr ""
+
+msgid "Recurring Pattern"
+msgstr ""
+
+msgid "Sort by: Recurring Pattern"
+msgstr ""
+
+msgid "Sort by: Reminder"
+msgstr ""
+
+msgid "Sort by: Sensitivity"
+msgstr ""
+
+msgid "Loading appointments"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F G:i"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr ""
+
+msgid "Update recipients"
+msgstr ""
+
+msgid "The time of the meeting has changed. Choose one of the following:"
+msgstr ""
+
+msgid "Save changes and send an update to all recipients"
+msgstr ""
+
+msgid "Open meeting request with changes"
+msgstr ""
+
+msgid "Copy"
+msgstr ""
+
+msgid "Kopano Webapp"
+msgstr ""
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid "Don't move"
+msgstr ""
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr ""
+
+msgid "Remove From Calendar"
+msgstr ""
+
+msgid "No Response Required"
+msgstr ""
+
+msgid "Accept Meeting Request"
+msgstr ""
+
+msgid "Tentatively Accept Meeting Request"
+msgstr ""
+
+msgid "Decline Meeting Request"
+msgstr ""
+
+msgid "Propose New Time for Meeting Request"
+msgstr ""
+
+msgid "View All Proposals"
+msgstr ""
+
+msgid "Accept Proposal"
+msgstr ""
+
+msgid "Accept Proposed Time"
+msgstr ""
+
+msgid "View in calendar"
+msgstr ""
+
+msgid "No additional response required"
+msgstr ""
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G"
+msgstr ""
+
+msgid "Printing of multiple items has not been implemented."
+msgstr ""
+
+msgid "Printing of this item is not yet available"
+msgstr ""
+
+msgid "Item type: "
+msgstr ""
+
+msgid "Printing of this view is not yet available"
+msgstr ""
+
+msgid "Recurring Message"
+msgstr ""
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "Recurring Appointment"
+msgstr ""
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+
+msgid "Recurring Meeting Request"
+msgstr ""
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+
+msgid "Recurring Task Request"
+msgstr ""
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+
+msgid "Open this occurrence"
+msgstr ""
+
+msgid "Open the series"
+msgstr ""
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+
+msgid "Delete this occurrence"
+msgstr ""
+
+msgid "Delete the series"
+msgstr ""
+
+msgid "Confirm Delete"
+msgstr ""
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr ""
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr ""
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr ""
+
+msgid "Delete without sending"
+msgstr ""
+
+msgid "Notify recipients"
+msgstr ""
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+
+msgid "Delete Incomplete Task"
+msgstr ""
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr ""
+
+msgid "Decline and delete"
+msgstr ""
+
+msgid "Mark complete and delete"
+msgstr ""
+
+msgid "Notify sender"
+msgstr ""
+
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+msgid "Import error"
+msgstr ""
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr ""
+
+msgid "Cc"
+msgstr ""
+
+msgid "Bcc"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "Insert item"
+msgstr ""
+
+msgid "Insert as"
+msgstr ""
+
+msgid "Text only"
+msgstr ""
+
+msgid "Attachment"
+msgstr ""
+
+msgid "Attach Item"
+msgstr ""
+
+msgid "No message selected"
+msgstr ""
+
+msgid "Import to"
+msgstr ""
+
+msgid "New folder"
+msgstr ""
+
+msgid "Download as ZIP"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr ""
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+
+msgid "File upload"
+msgstr ""
+
+msgid "Attach item"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download all as ZIP"
+msgstr ""
+
+msgid "Import to folder"
+msgstr ""
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr ""
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr ""
+
+msgid "Supported format for contact pictures are"
+msgstr ""
+
+msgid "Attachment Error"
+msgstr ""
+
+msgid "Manage Categories"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Check Names"
+msgstr ""
+
+msgid "Select an address to use"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "More than one '{0}' found."
+msgstr ""
+
+msgid "Alert"
+msgstr ""
+
+msgid "Please select a recipient"
+msgstr ""
+
+msgid "Mail and Post"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Journal"
+msgstr ""
+
+msgid "Note"
+msgstr ""
+
+msgid "Task"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Entire Inbox"
+msgstr ""
+
+msgid "Secretary"
+msgstr ""
+
+msgid "Only read"
+msgstr ""
+
+msgid "Delegate Permissions"
+msgstr ""
+
+msgid "This delegate has the following permissions"
+msgstr ""
+
+msgid "Delegate can see my private items."
+msgstr ""
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "No delegates configured"
+msgstr ""
+
+msgid "Loading delegates"
+msgstr ""
+
+msgid "Please select a delegate."
+msgstr ""
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+msgid "Permission"
+msgstr ""
+
+msgid "Duplicate delegate"
+msgstr ""
+
+msgid "Delegate already exists in the list."
+msgstr ""
+
+msgid "Copy/Move Folder"
+msgstr ""
+
+msgid "Copy/Move Messages"
+msgstr ""
+
+msgid "Destination folder"
+msgstr ""
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Folder '{0}' selected."
+msgstr ""
+
+msgid "Kopano WebApp"
+msgstr ""
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "ICS"
+msgstr ""
+
+msgid "Set custom flag"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "End date"
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Set reminder"
+msgstr ""
+
+msgid "Complete"
+msgstr ""
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
+
+msgid "Edit recipient"
+msgstr ""
+
+msgid "Copy email address"
+msgstr ""
+
+msgid "Set as required"
+msgstr ""
+
+msgid "Set as optional"
+msgstr ""
+
+msgid "Set as resource"
+msgstr ""
+
+msgid "Select attendees"
+msgstr ""
+
+msgid "Suggested Times"
+msgstr ""
+
+msgid "Busy"
+msgstr ""
+
+msgid "Out of Office"
+msgstr ""
+
+msgid "No Information"
+msgstr ""
+
+msgid "Show non-working hours"
+msgstr ""
+
+msgid "Hide non-working hours"
+msgstr ""
+
+msgid "No freebusy information available for this date"
+msgstr ""
+
+msgid "No suggestions available"
+msgstr ""
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr ""
+
+msgid "Basic navigation"
+msgstr ""
+
+msgid "Switch between different views"
+msgstr ""
+
+msgid "New item"
+msgstr ""
+
+msgid "All views"
+msgstr ""
+
+msgid "Close tab"
+msgstr ""
+
+msgid "Print item"
+msgstr ""
+
+msgid "Items"
+msgstr ""
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr ""
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr ""
+
+msgid "Select all items"
+msgstr ""
+
+msgid "Extend the selection to the first item in the list"
+msgstr ""
+
+msgid "Extend the selection to the last item in the list"
+msgstr ""
+
+msgid "Open selected item"
+msgstr ""
+
+msgid "Open dialog to categorize selected item"
+msgstr ""
+
+msgid "Print list"
+msgstr ""
+
+msgid "Print selected item"
+msgstr ""
+
+msgid "Open copy/move dialog"
+msgstr ""
+
+msgid "Delete selected item"
+msgstr ""
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+
+msgid "Add/Edit Cc recipient"
+msgstr ""
+
+msgid "Duplicate recipient"
+msgstr ""
+
+msgid "Recipient already exists."
+msgstr ""
+
+msgid "Disable for new mail"
+msgstr ""
+
+msgid "Enable for new mail"
+msgstr ""
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+msgid "No Cc recipient configured"
+msgstr ""
+
+msgid "Loading Cc recipients"
+msgstr ""
+
+msgid "Reply Mail"
+msgstr ""
+
+msgid "New Mail"
+msgstr ""
+
+msgid "Please select a Cc recipient record."
+msgstr ""
+
+msgid "Manage Cc recipients"
+msgstr ""
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+msgid "Following recipients are already exists"
+msgstr ""
+
+msgid "Duplicate recipients"
+msgstr ""
+
+msgid "Kopano WebApp print"
+msgstr ""
+
+msgid "Display name"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Expand distribution list"
+msgstr ""
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+
+msgid "Edit Recipient"
+msgstr ""
+
+msgid "Send email"
+msgstr ""
+
+msgid "Delete recipient from suggestion list"
+msgstr ""
+
+msgid "View recipient"
+msgstr ""
+
+msgid "Weekday"
+msgstr ""
+
+msgid "Weekend Day"
+msgstr ""
+
+msgid "1st"
+msgstr ""
+
+msgid "2nd"
+msgstr ""
+
+msgid "3rd"
+msgstr ""
+
+msgid "4th"
+msgstr ""
+
+msgid "last"
+msgstr ""
+
+msgid "Every {A} day(s)"
+msgstr ""
+
+msgid "Every weekday"
+msgstr ""
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr ""
+
+msgid "Day {A} of every {B} month(s)"
+msgstr ""
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr ""
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr ""
+
+msgid "Appointment Recurrence"
+msgstr ""
+
+msgid "Remove Recurrence"
+msgstr ""
+
+msgid "Reset recurring"
+msgstr ""
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr ""
+
+msgid "Task Recurrence"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Range of recurrence"
+msgstr ""
+
+msgid "No end date"
+msgstr ""
+
+msgid "End after {A} occurrences"
+msgstr ""
+
+msgid "End by {A}"
+msgstr ""
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr ""
+
+msgid "Every {A} week(s) on"
+msgstr ""
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr ""
+
+msgid "Every {A} {B}"
+msgstr ""
+
+msgid "The {A} {B} of {C}"
+msgstr ""
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Not supported at the moment."
+msgstr ""
+
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Reminders"
+msgstr ""
+
+msgid "There are no reminders"
+msgstr ""
+
+msgid "Due In"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr ""
+
+msgid "Reminder time"
+msgstr ""
+
+msgid "Dismiss All"
+msgstr ""
+
+msgid "Open Item"
+msgstr ""
+
+msgid "Dismiss"
+msgstr ""
+
+msgid "Click Snooze to be reminded again in"
+msgstr ""
+
+msgid "Snooze"
+msgstr ""
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Restore Softdeleted Items"
+msgstr ""
+
+msgid "Restore From {0}"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Restore All"
+msgstr ""
+
+msgid "Permanent Delete"
+msgstr ""
+
+msgid "Delete All"
+msgstr ""
+
+msgid "Messages"
+msgstr ""
+
+msgid "Delete all items"
+msgstr ""
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr ""
+
+msgid "Restore all items"
+msgstr ""
+
+msgid "Are you sure you want to restore all items?"
+msgstr ""
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Deleted On"
+msgstr ""
+
+msgid "Sort by: Deleted On"
+msgstr ""
+
+msgid "Item Count"
+msgstr ""
+
+msgid "Sort by: Item Count"
+msgstr ""
+
+msgid "Sort by: From"
+msgstr ""
+
+msgid "Received"
+msgstr ""
+
+msgid "Sort by: Received"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Sort by: Size"
+msgstr ""
+
+msgid "Move the message to folder..."
+msgstr ""
+
+msgid "Copy the message to folder..."
+msgstr ""
+
+msgid "Delete the message"
+msgstr ""
+
+msgid "Redirect the message to..."
+msgstr ""
+
+msgid "Forward the message to..."
+msgstr ""
+
+msgid "Forward the message as attachment to..."
+msgstr ""
+
+msgid "Mark the message as read..."
+msgstr ""
+
+msgid "is received from..."
+msgstr ""
+
+msgid "includes these words in the sender's address..."
+msgstr ""
+
+msgid "includes these words in the recipient's address..."
+msgstr ""
+
+msgid "includes these words in the subject..."
+msgstr ""
+
+msgid "includes these words in the body..."
+msgstr ""
+
+msgid "includes these words in the transport-headers..."
+msgstr ""
+
+msgid "has importance..."
+msgstr ""
+
+msgid "has an attachment"
+msgstr ""
+
+msgid "is sent to..."
+msgstr ""
+
+msgid "is sent only to me"
+msgstr ""
+
+msgid "has my name in the Cc field"
+msgstr ""
+
+msgid "does not have my name in the To or Cc field"
+msgstr ""
+
+msgid "has my name in the To or Cc field"
+msgstr ""
+
+msgid "has sensitivity..."
+msgstr ""
+
+msgid "is received after..."
+msgstr ""
+
+msgid "is received before..."
+msgstr ""
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr ""
+
+msgid "is received (all messages)"
+msgstr ""
+
+msgid "Select one..."
+msgstr ""
+
+msgid "Unknown condition"
+msgstr ""
+
+msgid "This condition for the current rule is unknown"
+msgstr ""
+
+msgid "Unnamed folder"
+msgstr ""
+
+msgid "Add action"
+msgstr ""
+
+msgid "Remove action"
+msgstr ""
+
+msgid "Unknown action"
+msgstr ""
+
+msgid "This action for the current rule is unknown"
+msgstr ""
+
+msgid "Add condition"
+msgstr ""
+
+msgid "Remove condition"
+msgstr ""
+
+msgid "Inbox Rule"
+msgstr ""
+
+msgid "Rule name"
+msgstr ""
+
+msgid "When the message"
+msgstr ""
+
+msgid "Do the following"
+msgstr ""
+
+msgid "Exceptions"
+msgstr ""
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr ""
+
+msgid "Add exception"
+msgstr ""
+
+msgid "Remove exception"
+msgstr ""
+
+msgid "Specify Words or Phrases"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "and"
+msgstr ""
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "No rule exists"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Out of office"
+msgstr ""
+
+msgid "Rule"
+msgstr ""
+
+msgid "Loading rules"
+msgstr ""
+
+msgid "Please select a rule."
+msgstr ""
+
+msgid "Rule already has highest priority."
+msgstr ""
+
+msgid "Rule already has lowest priority."
+msgstr ""
+
+msgid "myself"
+msgstr ""
+
+msgid "Update rules for"
+msgstr ""
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr ""
+
+msgid "All folders"
+msgstr ""
+
+msgid "Other..."
+msgstr ""
+
+msgid "Search in.."
+msgstr ""
+
+msgid "Folder does not exist"
+msgstr ""
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr ""
+
+msgid "No from addresses configured"
+msgstr ""
+
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
+
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Please select a sendas record."
+msgstr ""
+
+msgid "Delegates"
+msgstr ""
+
+msgid "Delegate settings"
+msgstr ""
+
+msgid "Rules"
+msgstr ""
+
+msgid "From Addresses"
+msgstr ""
+
+msgid "From Addresses settings"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Job Title"
+msgstr ""
+
+msgid "Phone Numbers"
+msgstr ""
+
+msgid "Business Fax"
+msgstr ""
+
+msgid "Webpage"
+msgstr ""
+
+msgid "IM Address"
+msgstr ""
+
+msgid "D, d-m-Y, G:i"
+msgstr ""
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr ""
+
+msgid "l d/m/Y G:i"
+msgstr ""
+
+msgid "d-m-Y G:i"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Meeting Organizer"
+msgstr ""
+
+msgid "{0} overdue"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr ""
+
+msgid "Download Pictures"
+msgstr ""
+
+msgid "Add Sender to Safe Senders List"
+msgstr ""
+
+msgid "Add Domain to Safe Senders List"
+msgstr ""
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr ""
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr ""
+
+msgid "Assigned by {0} on {1}."
+msgstr ""
+
+msgid "Waiting for response from recipient"
+msgstr ""
+
+msgid "Accepted by {0} on {1}."
+msgstr ""
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr ""
+
+msgid "Declined by {0} on {1}."
+msgstr ""
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr ""
+
+msgid "Last update sent on {0}."
+msgstr ""
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr ""
+
+msgid "Fix message"
+msgstr ""
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr ""
+
+msgid "d-m-Y g:i a"
+msgstr ""
+
+msgid "The matching task was not found in your task list."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr ""
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr ""
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr ""
+
+msgid "Pop-out"
+msgstr ""
+
+msgid "Mark as read"
+msgstr ""
+
+msgid "Mark as unread"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "Root"
+msgstr ""
+
+msgid "File As"
+msgstr ""
+
+msgid "Company Name"
+msgstr ""
+
+msgid "Sort by: Company Name"
+msgstr ""
+
+msgid "Sort by: Job Title"
+msgstr ""
+
+msgid "Full Name"
+msgstr ""
+
+msgid "Department Name"
+msgstr ""
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Business Address"
+msgstr ""
+
+msgid "Other Address"
+msgstr ""
+
+msgid "Business Phone"
+msgstr ""
+
+msgid "Business 2 Phone"
+msgstr ""
+
+msgid "Assistant Phone"
+msgstr ""
+
+msgid "Company Main Phone"
+msgstr ""
+
+msgid "Home 2 Phone"
+msgstr ""
+
+msgid "Car Phone"
+msgstr ""
+
+msgid "Radio"
+msgstr ""
+
+msgid "Callback Phone"
+msgstr ""
+
+msgid "Other Phone"
+msgstr ""
+
+msgid "Primary Phone"
+msgstr ""
+
+msgid "Telex"
+msgstr ""
+
+msgid "TTY/TDD Phone"
+msgstr ""
+
+msgid "ISDN"
+msgstr ""
+
+msgid "Other Fax"
+msgstr ""
+
+msgid "Home Fax"
+msgstr ""
+
+msgid "Email Display As"
+msgstr ""
+
+msgid "Email 2"
+msgstr ""
+
+msgid "Email2 Display As"
+msgstr ""
+
+msgid "Email 3"
+msgstr ""
+
+msgid "Email3 Display As"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr ""
+
+msgid "Wedding Anniversary"
+msgstr ""
+
+msgid "Spouse/Partner"
+msgstr ""
+
+msgid "Profession"
+msgstr ""
+
+msgid "Assistant's Name"
+msgstr ""
+
+msgid "Distribution List Name"
+msgstr ""
+
+msgid "Open Shared Contacts"
+msgstr ""
+
+msgid "Business Cards"
+msgstr ""
+
+msgid "Phone List"
+msgstr ""
+
+msgid "Add to contacts"
+msgstr ""
+
+msgid "Print selected contact"
+msgstr ""
+
+msgid "No contact selected"
+msgstr ""
+
+msgid "Distribution list"
+msgstr ""
+
+msgid "Dr."
+msgstr ""
+
+msgid "Miss"
+msgstr ""
+
+msgid "Mr."
+msgstr ""
+
+msgid "Mrs."
+msgstr ""
+
+msgid "Ms."
+msgstr ""
+
+msgid "Prof."
+msgstr ""
+
+msgid "Jr."
+msgstr ""
+
+msgid "Sr."
+msgstr ""
+
+msgid "Phone number"
+msgstr ""
+
+msgid "Check address"
+msgstr ""
+
+msgid "Street"
+msgstr ""
+
+msgid "State/Province"
+msgstr ""
+
+msgid "Zip/Postal code"
+msgstr ""
+
+msgid "Country/Region"
+msgstr ""
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Office location"
+msgstr ""
+
+msgid "Manager's name"
+msgstr ""
+
+msgid "Assistant's name"
+msgstr ""
+
+msgid "Nickname"
+msgstr ""
+
+msgid "Suffix"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr ""
+
+msgid "Photo"
+msgstr ""
+
+msgid "Addresses"
+msgstr ""
+
+msgid "Additional information"
+msgstr ""
+
+msgid "Business 2"
+msgstr ""
+
+msgid "Callback"
+msgstr ""
+
+msgid "Car"
+msgstr ""
+
+msgid "Home 2"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "TTY/TDD"
+msgstr ""
+
+msgid "Check full name"
+msgstr ""
+
+msgid "Middle"
+msgstr ""
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr ""
+
+msgid "Check phone number"
+msgstr ""
+
+msgid "Country/Region code"
+msgstr ""
+
+msgid "City/Area code"
+msgstr ""
+
+msgid "Local number"
+msgstr ""
+
+msgid "Extension"
+msgstr ""
+
+msgid "Add Attachment"
+msgstr ""
+
+msgid "Add attachments to this contact"
+msgstr ""
+
+msgid "Mark this contact as private"
+msgstr ""
+
+msgid "Distribution List"
+msgstr ""
+
+msgid "Mark this Distribution list as private"
+msgstr ""
+
+msgid "New email address"
+msgstr ""
+
+msgid "Please enter a valid email address"
+msgstr ""
+
+msgid "Select Members"
+msgstr ""
+
+msgid "Add New"
+msgstr ""
+
+msgid "Type your note here..."
+msgstr ""
+
+msgid "New contact"
+msgstr ""
+
+msgid "New distribution list"
+msgstr ""
+
+msgid "Email 2 Display As"
+msgstr ""
+
+msgid "Email 3 Display As"
+msgstr ""
+
+msgid "Assistent"
+msgstr ""
+
+msgid "Loading contacts"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Work"
+msgstr ""
+
+msgid "Sort by: Full Name"
+msgstr ""
+
+msgid "Sort by: Email Address 2"
+msgstr ""
+
+msgid "Sort by: Email Address 3"
+msgstr ""
+
+msgid "Mobile Phone"
+msgstr ""
+
+msgid "Sort by: Mobile Phone"
+msgstr ""
+
+msgid "Sort by: Business Phone"
+msgstr ""
+
+msgid "Sort by: Business Fax"
+msgstr ""
+
+msgid "Sort by: Department Name"
+msgstr ""
+
+msgid "Office Location"
+msgstr ""
+
+msgid "Sort by: Office Location"
+msgstr ""
+
+msgid "Sort by: Profession"
+msgstr ""
+
+msgid "Manager Name"
+msgstr ""
+
+msgid "Sort by: Manager Name"
+msgstr ""
+
+msgid "Sort by: Assistant's Name"
+msgstr ""
+
+msgid "Sort by: Nickname"
+msgstr ""
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr ""
+
+msgid "Sort by: Birthday"
+msgstr ""
+
+msgid "Sort by: Anniversary"
+msgstr ""
+
+msgid "Sort by: Business Address"
+msgstr ""
+
+msgid "Sort by: Home Address"
+msgstr ""
+
+msgid "Sort by: Office Address"
+msgstr ""
+
+msgid "Mailing Address"
+msgstr ""
+
+msgid "Sort by: Mailing Address"
+msgstr ""
+
+msgid "Sort by: IM Address"
+msgstr ""
+
+msgid "Sort by: Webpage"
+msgstr ""
+
+msgid "Assistant's Phone"
+msgstr ""
+
+msgid "Sort by: Assistant's Phone"
+msgstr ""
+
+msgid "Business Phone 2"
+msgstr ""
+
+msgid "Sort by: Business Phone 2"
+msgstr ""
+
+msgid "Sort by: Callback"
+msgstr ""
+
+msgid "Sort by: Car Phone"
+msgstr ""
+
+msgid "Company Phone"
+msgstr ""
+
+msgid "Sort by: Company Main Phone"
+msgstr ""
+
+msgid "Home Phone 2"
+msgstr ""
+
+msgid "Sort by: Home Phone 2"
+msgstr ""
+
+msgid "Sort by: Home Fax"
+msgstr ""
+
+msgid "Sort by: ISDN"
+msgstr ""
+
+msgid "Sort by: Other Phone"
+msgstr ""
+
+msgid "Radio Phone"
+msgstr ""
+
+msgid "Sort by: Radio Phone"
+msgstr ""
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr ""
+
+msgid "Sort by: Telex Phone"
+msgstr ""
+
+msgid "Change Picture"
+msgstr ""
+
+msgid "Remove Picture"
+msgstr ""
+
+msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
+msgstr ""
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from WebApp."
+msgstr ""
+
+msgid "Untitled"
+msgstr ""
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr ""
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr ""
+
+msgid "Y"
+msgstr ""
+
+msgid "Important"
+msgstr ""
+
+msgid "Personal"
+msgstr ""
+
+msgid "Holiday"
+msgstr ""
+
+msgid "Travel Required"
+msgstr ""
+
+msgid "Preparation Required"
+msgstr ""
+
+msgid "Special Date"
+msgstr ""
+
+msgid "Phone Interview"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "Canceled"
+msgstr ""
+
+msgid "Blue"
+msgstr ""
+
+msgid "Green"
+msgstr ""
+
+msgid "Pink"
+msgstr ""
+
+msgid "White"
+msgstr ""
+
+msgid "Yellow"
+msgstr ""
+
+msgid "No response"
+msgstr ""
+
+msgid "Not responded"
+msgstr ""
+
+msgid "Accepted"
+msgstr ""
+
+msgid "Declined"
+msgstr ""
+
+msgid "Confidential"
+msgstr ""
+
+msgid "Not Started"
+msgstr ""
+
+msgid "In Progress"
+msgstr ""
+
+msgid "Wait for other person"
+msgstr ""
+
+msgid "Deferred"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "High Contrast"
+msgstr ""
+
+msgid "Lime"
+msgstr ""
+
+msgid "Orange"
+msgstr ""
+
+msgid "Purple"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Switch view"
+msgstr ""
+
+msgid "Widgets"
+msgstr ""
+
+msgid "Sending..."
+msgstr ""
+
+msgid "Sent successfully"
+msgstr ""
+
+msgid "No recipient"
+msgstr ""
+
+msgid "Please specify at least one recipient"
+msgstr ""
+
+msgid "Please specify a recipient"
+msgstr ""
+
+msgid "The attached files are not uploaded yet."
+msgstr ""
+
+msgid "Do you want to send this message without attachments?"
+msgstr ""
+
+msgid "Attachments not uploaded yet"
+msgstr ""
+
+msgid "Don't Send"
+msgstr ""
+
+msgid "Send Anyway"
+msgstr ""
+
+msgid "No subject"
+msgstr ""
+
+msgid "Send this message without a subject?"
+msgstr ""
+
+msgid "Unresolved recipients"
+msgstr ""
+
+msgid "Not all recipients could be resolved"
+msgstr ""
+
+msgid "Collapse hierarchy"
+msgstr ""
+
+msgid "Expand hierarchy"
+msgstr ""
+
+msgid "Folders List"
+msgstr ""
+
+msgid "Copy Details"
+msgstr ""
+
+msgid "Hide Details"
+msgstr ""
+
+msgid "Loaded {0} of {1}"
+msgstr ""
+
+msgid "Saving"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Saved successfully"
+msgstr ""
+
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+
+msgid "Kopano Content Panel"
+msgstr ""
+
+msgid "Delete item"
+msgstr ""
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr ""
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to Kopano WebApp"
+msgstr ""
+
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+
+msgid "Please check the following settings before continuing."
+msgstr ""
+
+msgid "Add widgets"
+msgstr ""
+
+msgid "No widgets installed."
+msgstr ""
+
+msgid "Configure widget"
+msgstr ""
+
+msgid "Remove widget"
+msgstr ""
+
+msgid "Collapse widget"
+msgstr ""
+
+msgid "Expand widget"
+msgstr ""
+
+msgid "Add new widget"
+msgstr ""
+
+msgid "Collapse widget panel"
+msgstr ""
+
+msgid "Expand widget panel"
+msgstr ""
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr ""
+
+msgid "D G:i"
+msgstr ""
+
+msgid "D d-m"
+msgstr ""
+
+msgid "Insufficient permissions"
+msgstr ""
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+
+msgid "Insufficient Permissions"
+msgstr ""
+
+msgid "Not enough permissions to open this folder."
+msgstr ""
+
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] ""
+msgstr[1] ""
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
+msgid "{0} in {1}"
+msgstr ""
+
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
+msgid "{0} of {1}"
+msgstr ""
+
+msgid "Full control"
+msgstr ""
+
+msgid "No rights"
+msgstr ""
+
+msgid "Unable to import:"
+msgstr ""
+
+msgid "The files are not valid"
+msgstr ""
+
+msgid "Create New Folder"
+msgstr ""
+
+msgid "Folder contains"
+msgstr ""
+
+msgid "Calendar Items"
+msgstr ""
+
+msgid "Mail and Post Items"
+msgstr ""
+
+msgid "Contacts Items"
+msgstr ""
+
+msgid "Note Items"
+msgstr ""
+
+msgid "Task Items"
+msgstr ""
+
+msgid "Select where to place the folder"
+msgstr ""
+
+msgid "No folder name"
+msgstr ""
+
+msgid "No destination"
+msgstr ""
+
+msgid "You must select a destination folder."
+msgstr ""
+
+msgid "Properties"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Folder size"
+msgstr ""
+
+msgid "Folder containing {0} Items"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
+msgid "No permissions granted"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Create items"
+msgstr ""
+
+msgid "Read items"
+msgstr ""
+
+msgid "Create subfolders"
+msgstr ""
+
+msgid "Folder permissions"
+msgstr ""
+
+msgid "Folder visible"
+msgstr ""
+
+msgid "Edit items"
+msgstr ""
+
+msgid "Own"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Delete items"
+msgstr ""
+
+msgid "User already exists"
+msgstr ""
+
+msgid "Group already exists"
+msgstr ""
+
+msgid "Folder Size"
+msgstr ""
+
+msgid "Folder Name"
+msgstr ""
+
+msgid "Size (without subfolders)"
+msgstr ""
+
+msgid "Total size (including subfolders)"
+msgstr ""
+
+msgid "Loading subfolder sizes"
+msgstr ""
+
+msgid "No subfolders present"
+msgstr ""
+
+msgid "Subfolder"
+msgstr ""
+
+msgid "Sort by: Name of the subfolder"
+msgstr ""
+
+msgid "Sort by: Size (without subfolders)"
+msgstr ""
+
+msgid "Total size"
+msgstr ""
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr ""
+
+msgid "Open Shared Folders"
+msgstr ""
+
+msgid "Unresolved user"
+msgstr ""
+
+msgid "Username '{0}' could not be resolved."
+msgstr ""
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr ""
+
+msgid "Own store"
+msgstr ""
+
+msgid "It is not possible to open your own store twice."
+msgstr ""
+
+msgid "Folder already open"
+msgstr ""
+
+msgid "This shared folder is already open."
+msgstr ""
+
+msgid "No user"
+msgstr ""
+
+msgid "You must specify a user"
+msgstr ""
+
+msgid "Folder type"
+msgstr ""
+
+msgid "Show subfolders"
+msgstr ""
+
+msgid "Open shared folder/store"
+msgstr ""
+
+msgid "Empty folder"
+msgstr ""
+
+msgid "Empty Junk Email"
+msgstr ""
+
+msgid "Empty Deleted Items"
+msgstr ""
+
+msgid "Rename Folder"
+msgstr ""
+
+msgid "New Folder"
+msgstr ""
+
+msgid "Mark All Messages Read"
+msgstr ""
+
+msgid "Delete Folder"
+msgstr ""
+
+msgid "Close store"
+msgstr ""
+
+msgid "Close folder"
+msgstr ""
+
+msgid "Reload"
+msgstr ""
+
+msgid "Restore items"
+msgstr ""
+
+msgid "Select color"
+msgstr ""
+
+msgid "Add to Favorites"
+msgstr ""
+
+msgid "Remove From Favorites"
+msgstr ""
+
+msgid "Share folder..."
+msgstr ""
+
+msgid "Import emails"
+msgstr ""
+
+msgid "Import appointments"
+msgstr ""
+
+msgid "Properties of {0}"
+msgstr ""
+
+msgid "Share {0} with..."
+msgstr ""
+
+msgid "Properties of {0} - {1}"
+msgstr ""
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+
+msgid "Delete folder"
+msgstr ""
+
+msgid "Are you sure you want to empty {0}?"
+msgstr ""
+
+msgid "Show all folders"
+msgstr ""
+
+msgid "CC"
+msgstr ""
+
+msgid "BCC"
+msgstr ""
+
+msgid "Sort by: Importance"
+msgstr ""
+
+msgid "Sort by: To"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr ""
+
+msgid "Red"
+msgstr ""
+
+msgid "Original message"
+msgstr ""
+
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+msgid "Scheduled Items"
+msgstr ""
+
+msgid "Your message will be sent at "
+msgstr ""
+
+msgid "Go to your Outbox to edit your email."
+msgstr ""
+
+msgid "hour(s)"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "month(s)"
+msgstr ""
+
+msgid "at a specific time"
+msgstr ""
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr ""
+
+msgid "today  at "
+msgstr ""
+
+msgid "tomorrow  at "
+msgstr ""
+
+msgid "{0} at "
+msgstr ""
+
+msgid "at {0}"
+msgstr ""
+
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
+msgid "Saving..."
+msgstr ""
+
+msgid "Saved at {0}"
+msgstr ""
+
+msgid "g:i A"
+msgstr ""
+
+msgid "Saving failed"
+msgstr ""
+
+msgid "Message Options"
+msgstr ""
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr ""
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr ""
+
+msgid "Add attachments to this email"
+msgstr ""
+
+msgid "Add signature"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Open options dialog"
+msgstr ""
+
+msgid "Set flag"
+msgstr ""
+
+msgid "Set flag on this email"
+msgstr ""
+
+msgid "Mark this mail as high priority"
+msgstr ""
+
+msgid "Mark this mail as low priority"
+msgstr ""
+
+msgid "Set read receipt"
+msgstr ""
+
+msgid "Request read receipt from recipients"
+msgstr ""
+
+msgid "Show Bcc"
+msgstr ""
+
+msgid "Show Bcc field"
+msgstr ""
+
+msgid "Show From field"
+msgstr ""
+
+msgid "No signatures configured"
+msgstr ""
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr ""
+
+msgid "Internet Headers"
+msgstr ""
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Message Settings"
+msgstr ""
+
+msgid "Tracking Options"
+msgstr ""
+
+msgid "Request a read receipt for this message."
+msgstr ""
+
+msgid "no subject"
+msgstr ""
+
+msgid "Set Category"
+msgstr ""
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr ""
+
+msgid "Mark Unread"
+msgstr ""
+
+msgid "New mail"
+msgstr ""
+
+msgid "Mail"
+msgstr ""
+
+msgid "Reply all"
+msgstr ""
+
+msgid "Toggle read/unread"
+msgstr ""
+
+msgid "Toggle red/complete flag"
+msgstr ""
+
+msgid "Open Shared Mails"
+msgstr ""
+
+msgid "Print single email"
+msgstr ""
+
+msgid "Print selected email"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "FW"
+msgstr ""
+
+msgid "RE"
+msgstr ""
+
+msgid "HTML"
+msgstr ""
+
+msgid "Plain Text"
+msgstr ""
+
+msgid "Compose mail settings"
+msgstr ""
+
+msgid "Compose mail in this format"
+msgstr ""
+
+msgid "Editor"
+msgstr ""
+
+msgid "Default font"
+msgstr ""
+
+msgid "Default font size"
+msgstr ""
+
+msgid "Always request a read receipt"
+msgstr ""
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr ""
+
+msgid "Incoming mail"
+msgstr ""
+
+msgid "How to respond to requests for read receipts"
+msgstr ""
+
+msgid "Always send a response"
+msgstr ""
+
+msgid "Never send a response"
+msgstr ""
+
+msgid "Ask me before sending a response"
+msgstr ""
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "General mail settings"
+msgstr ""
+
+msgid "Location of preview pane"
+msgstr ""
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr ""
+
+msgid "Open or compose a mail item in a"
+msgstr ""
+
+msgid "WebApp tab"
+msgstr ""
+
+msgid "Browser window"
+msgstr ""
+
+msgid "I am currently in the office"
+msgstr ""
+
+msgid "I am out of the office from"
+msgstr ""
+
+msgid "I will be back on"
+msgstr ""
+
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr ""
+
+msgid "User is currently out of office."
+msgstr ""
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Signatures"
+msgstr ""
+
+msgid "Signature for new messages"
+msgstr ""
+
+msgid "Signature for replies and forwards"
+msgstr ""
+
+msgid "Save Signature"
+msgstr ""
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr ""
+
+msgid "New signature"
+msgstr ""
+
+msgid "EML file(s)"
+msgstr ""
+
+msgid "ZIP file"
+msgstr ""
+
+msgid "max. "
+msgstr ""
+
+msgid "Sort by: Sent"
+msgstr ""
+
+msgid "Modified"
+msgstr ""
+
+msgid "Sort by: Modified"
+msgstr ""
+
+msgid "Flag"
+msgstr ""
+
+msgid "Sort by: flag"
+msgstr ""
+
+msgid "Older"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last Week"
+msgstr ""
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+msgid "Last Month"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr ""
+
+msgid "Move to Junk Folder"
+msgstr ""
+
+msgid "Send to"
+msgstr ""
+
+msgid "Loading mail"
+msgstr ""
+
+msgid "Print note"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "New note"
+msgstr ""
+
+msgid "Open Shared Notes"
+msgstr ""
+
+msgid "Sticky note"
+msgstr ""
+
+msgid "Print selected note"
+msgstr ""
+
+msgid "No note selected"
+msgstr ""
+
+msgid "Icons"
+msgstr ""
+
+msgid "List view"
+msgstr ""
+
+msgid "List Last Seven Days"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Sort by: Created"
+msgstr ""
+
+msgid "Sort by: Color"
+msgstr ""
+
+msgid "Loading Notes"
+msgstr ""
+
+msgid "Loading notes"
+msgstr ""
+
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
+msgstr ""
+
+msgid "Reload WebApp"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Account information - {0}"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Startup folder"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "Select Default Folder"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Advanced settings"
+msgstr ""
+
+msgid "Edit setting"
+msgstr ""
+
+msgid "Restore to defaults"
+msgstr ""
+
+msgid "Delete settings"
+msgstr ""
+
+msgid "{0} Iconset"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
+
+msgid "Favorite settings"
+msgstr ""
+
+msgid "Hide favorites"
+msgstr ""
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr ""
+
+msgid "I want to navigate through my items by using."
+msgstr ""
+
+msgid "Infinite Scroll"
+msgstr ""
+
+msgid "WebApp automatically loads additional items when you scroll down"
+msgstr ""
+
+msgid "Pagination"
+msgstr ""
+
+msgid ""
+"WebApp displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+
+msgid "Load items in blocks of {A}"
+msgstr ""
+
+msgid "Load {A} items per page."
+msgstr ""
+
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+msgid "Part of basic keyboard shortcuts"
+msgstr ""
+
+msgid "Keyboard shortcuts off"
+msgstr ""
+
+msgid "Basic keyboard shortcuts on"
+msgstr ""
+
+msgid "All keyboard shortcuts on"
+msgstr ""
+
+msgid "This change requires a reload of the WebApp"
+msgstr ""
+
+msgid "Discard"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Available plugins"
+msgstr ""
+
+msgid ""
+"The following plugins are available in the WebApp. It is possible to select "
+"and/or deselect different plugins to indicate which plugins should be "
+"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"in order for the changes to take effect."
+msgstr ""
+
+msgid "No plugins available"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "This plugin cannot be disabled"
+msgstr ""
+
+msgid "This plugin cannot be enabled"
+msgstr ""
+
+msgid "Mailbox Usage"
+msgstr ""
+
+msgid "Quota information is not set on the user's store."
+msgstr ""
+
+msgid "{0} of mailbox space is used."
+msgstr ""
+
+msgid "You have exceeded hard quota, you can not send or recieve mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send mails."
+msgstr ""
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to recieve mails."
+msgstr ""
+
+msgid "At {0} you won't be able to send or recieve mails."
+msgstr ""
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr ""
+
+msgid "Reset settings"
+msgstr ""
+
+msgid "Reset settings to their original defaults."
+msgstr ""
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reloading, Please wait."
+msgstr ""
+
+msgid "Setting"
+msgstr ""
+
+msgid "The setting '{0}' can not be edited"
+msgstr ""
+
+msgid "Version information"
+msgstr ""
+
+msgid "WebApp"
+msgstr ""
+
+msgid "Kopano Core"
+msgstr ""
+
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
+
+msgid "Sort by: Priority"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Sort by: Status"
+msgstr ""
+
+msgid "Due Date"
+msgstr ""
+
+msgid "Sort by: Due Date"
+msgstr ""
+
+msgid "% Completed"
+msgstr ""
+
+msgid "Sort by: Percent Completed"
+msgstr ""
+
+msgid "Task Status"
+msgstr ""
+
+msgid "Percent Complete"
+msgstr ""
+
+msgid "Total Work"
+msgstr ""
+
+msgid "Actual Work"
+msgstr ""
+
+msgid "Companies"
+msgstr ""
+
+msgid "Billing Information"
+msgstr ""
+
+msgid "Mileage"
+msgstr ""
+
+msgid "Accepting Task"
+msgstr ""
+
+msgid "Declining Task"
+msgstr ""
+
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+
+msgid "Send the response now"
+msgstr ""
+
+msgid "Date Complete"
+msgstr ""
+
+msgid "Update List"
+msgstr ""
+
+msgid "Create Unassigned Copy"
+msgstr ""
+
+msgid "copy"
+msgstr ""
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr ""
+
+msgid "Multiple recipients"
+msgstr ""
+
+msgid "A task request can only have one recipient."
+msgstr ""
+
+msgid "Due date"
+msgstr ""
+
+msgid "Priority"
+msgstr ""
+
+msgid "% Complete"
+msgstr ""
+
+msgid "Track progress"
+msgstr ""
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+
+msgid "Send task to assignees"
+msgstr ""
+
+msgid "Restore to Task List"
+msgstr ""
+
+msgid "Delete this task"
+msgstr ""
+
+msgid "Add attachments to this task"
+msgstr ""
+
+msgid "Mark as Complete"
+msgstr ""
+
+msgid "Mark this task as complete"
+msgstr ""
+
+msgid "Print this task"
+msgstr ""
+
+msgid "Assign Task"
+msgstr ""
+
+msgid "Cancel Assignment"
+msgstr ""
+
+msgid "Mark this task as private"
+msgstr ""
+
+msgid "New task"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Percent complete"
+msgstr ""
+
+msgid "Total work"
+msgstr ""
+
+msgid "{totalwork} hours"
+msgstr ""
+
+msgid "Actual work"
+msgstr ""
+
+msgid "{actualwork} hours"
+msgstr ""
+
+msgid "Open Shared Tasks"
+msgstr ""
+
+msgid "Simple view"
+msgstr ""
+
+msgid "Detailed view"
+msgstr ""
+
+msgid "Task request"
+msgstr ""
+
+msgid "Print selected task"
+msgstr ""
+
+msgid "Print task list"
+msgstr ""
+
+msgid "No task selected"
+msgstr ""
+
+msgid "Create task"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr ""
+
+msgid "Mark Incomplete"
+msgstr ""
+
+msgid "Remove from To-Do List"
+msgstr ""
+
+msgid "Changes to assigned task"
+msgstr ""
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+
+msgid "Sort by: Complete"
+msgstr ""
+
+msgid "Reminder Time"
+msgstr ""
+
+msgid "Sort by: Reminder Time"
+msgstr ""
+
+msgid "Assigned To"
+msgstr ""
+
+msgid "Sort by: Assignee"
+msgstr ""
+
+msgid "Sort by: Start Date"
+msgstr ""
+
+msgid "Sort by: Owner"
+msgstr ""
+
+msgid "Sort by: Percentage Completed"
+msgstr ""
+
+msgid "Assigned task changes"
+msgstr ""
+
+msgid "Loading tasks"
+msgstr ""
+
+msgid "Date completed"
+msgstr ""
+
+msgid "hours"
+msgstr ""
+
+msgid "Billing information"
+msgstr ""
+
+msgid "Update list"
+msgstr ""
+
+msgid "D d-m-Y"
+msgstr ""
+
+msgid "Import / Export"
+msgstr ""
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+msgid "Icon packs"
+msgstr ""
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "The server reported an unknown error on your request."
+msgstr ""
+
+msgid "The server reported an unspecified error on your request."
+msgstr ""
+
+msgid "The session has expired, reauthentication is required."
+msgstr ""
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+
+msgid "Session expired"
+msgstr ""
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr ""
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+
+msgid "Connection problem"
+msgstr ""
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr ""
+
+msgid "Click to retry now"
+msgstr ""
+
+msgid "Connection restored"
+msgstr ""
+
+msgid "Connection with server has been restored"
+msgstr ""
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr ""
+
+msgid "Invalid data received from the server"
+msgstr ""
+
+msgid "Missing store"
+msgstr ""
+
+msgid "The default store is missing from the hierarchy."
+msgstr ""
+
+msgid ""
+"Not all functionality of WebApp might be working properly because of this."
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr ""
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr ""
+
+msgid "Missing folders"
+msgstr ""
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Loading model from server failed"
+msgstr ""
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr ""
+
+msgid "Out of office off"
+msgstr ""
+
+msgid "Out of office has been turned off"
+msgstr ""
+
+msgid "Send Fax"
+msgstr ""
+
+msgid "Contact Fax"
+msgstr ""
+
+msgid "Widget height"
+msgstr ""
+
+msgid "pixels"
+msgstr ""
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Loading appointments..."
+msgstr ""
+
+msgid "No appointments"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "Today {0} - {1}"
+msgstr ""
+
+msgid "Today (all day)"
+msgstr ""
+
+msgid "{0} - {1}"
+msgstr ""
+
+msgid "d/m/y G:i"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+msgid "d/m/y"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr ""
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "No unread mail."
+msgstr ""
+
+msgid "Unread Mail"
+msgstr ""
+
+msgid "No tasks."
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+msgid "Google Maps"
+msgstr ""
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr ""
+
+msgid "Move currently selected message(s) to {0}"
+msgstr ""
+
+msgid "Move to {0}"
+msgstr ""
+
+msgid "Move current message to {0}"
+msgstr ""
+
+msgid "Personal Inbox Manager"
+msgstr ""
+
+msgid "Personal Inbox Management Settings"
+msgstr ""
+
+msgid "Select another folder"
+msgstr ""
+
+msgid "E-mails are moved to {0}"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
+msgid "Quick Appointment"
+msgstr ""
+
+msgid "Quick Contact"
+msgstr ""
+
+msgid "Quick Mail"
+msgstr ""
+
+msgid "Quick Note"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr ""
+
+msgid "Title Counter Plugin"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "WebApp Manual"
+msgstr ""
+
+msgid "INSERT"
+msgstr ""
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
+msgid "Charm pink"
+msgstr ""
+
+msgid "Cadmium red"
+msgstr ""
+
+msgid "Apricot"
+msgstr ""
+
+msgid "California"
+msgstr ""
+
+msgid "Soft green"
+msgstr ""
+
+msgid "Mint"
+msgstr ""
+
+msgid "Pearl aqua"
+msgstr ""
+
+msgid "Kopano blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr ""
+
+msgid "Mauve"
+msgstr ""
+
+msgid "Silver sand"
+msgstr ""
+
+msgid "Competition"
+msgstr ""
+
+msgid "Gifts"
+msgstr ""
+
+msgid "Goals/Objectives"
+msgstr ""
+
+msgid "Holiday Cards"
+msgstr ""
+
+msgid "Hot Contacts"
+msgstr ""
+
+msgid "Ideas"
+msgstr ""
+
+msgid "International"
+msgstr ""
+
+msgid "Key Customer"
+msgstr ""
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Phone Calls"
+msgstr ""
+
+msgid "Strategies"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Time & Expenses"
+msgstr ""
+
+msgid "VIP"
+msgstr ""
+
+msgid "Waiting"
+msgstr ""
+
+msgid "You have been automatically logged out"
+msgstr ""
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr ""
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr ""
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr ""
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr ""
+
+msgid "An unexpected error has occurred"
+msgstr ""
+
+msgid "To-Do List"
+msgstr ""
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "Error retrieving existing settings"
+msgstr ""
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr ""
+
+msgid "Cannot connect to Kopano Core."
+msgstr ""
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+msgid "Unknown MAPI Error"
+msgstr ""
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
+
+msgid "This external link will open in a new window"
+msgstr ""
+
+msgid "Destination folder not found."
+msgstr ""
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+msgid "There is no appointment found in this file."
+msgstr ""
+
+msgid "The file is corrupt."
+msgstr ""
+
+msgid "The file is invalid."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+msgid "Embedded attachment not found."
+msgstr ""
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+msgid "Could not find attachment."
+msgstr ""
+
+msgid "Operation failed"
+msgstr ""
+
+msgid "Sticky Note"
+msgstr ""
+
+msgid "Task Request"
+msgstr ""
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "You have insufficient privileges to open this object."
+msgstr ""
+
+msgid "Logon Failed. Please check your name/password."
+msgstr ""
+
+msgid "Can not connect to Kopano Core."
+msgstr ""
+
+msgid "Can not open object with provided id."
+msgstr ""
+
+msgid "There are no recipients in the message."
+msgstr ""
+
+msgid "Can not find object."
+msgstr ""
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr ""
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr ""
+
+msgid "Tentatively accepted"
+msgstr ""
+
+msgid "New Time Proposed"
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence."
+msgid_plural "Occurs every %s effective %s for %s occurences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence."
+msgid_plural "Occurs every %s %s effective %s for %s occurences."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr ""
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr ""
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr ""
+
+msgid "Could not open this object."
+msgstr ""
+
+msgid "Could not open occurrence."
+msgstr ""
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+
+msgid "a meeting request"
+msgstr ""
+
+msgid "an appointment"
+msgstr ""
+
+msgid "You have insufficient privileges to move "
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr ""
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+
+msgid "Meeting was not scheduled."
+msgstr ""
+
+msgid "Meeting could not be sent."
+msgstr ""
+
+msgid "Meeting could not be saved."
+msgstr ""
+
+msgid "Private Appointment"
+msgstr ""
+
+#, php-format
+msgid "%s's Birthday"
+msgstr ""
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr ""
+
+msgid "Unknown user/group"
+msgstr ""
+
+msgid "Could not save delegate information."
+msgstr ""
+
+msgid "Could not delete delegate."
+msgstr ""
+
+msgid "Can not get list of delegates."
+msgstr ""
+
+msgid "Could not load the hierarchy."
+msgstr ""
+
+msgid "Could not load folder properties."
+msgstr ""
+
+msgid "Could not remove folder from favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to delete folder."
+msgstr ""
+
+msgid "Could not delete folder."
+msgstr ""
+
+msgid "You have insufficient privileges to copy folder."
+msgstr ""
+
+msgid "Could not copy folder."
+msgstr ""
+
+msgid "You have insufficient privileges to move this folder."
+msgstr ""
+
+msgid "Could not move folder."
+msgstr ""
+
+msgid "You have insufficient privileges to delete items."
+msgstr ""
+
+msgid "Could not empty folder."
+msgstr ""
+
+msgid "Could not perform action correctly."
+msgstr ""
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr ""
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+
+msgid "Could not set folder permissions."
+msgstr ""
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not rename folder."
+msgstr ""
+
+msgid "You have insufficient privileges to create this folder."
+msgstr ""
+
+msgid "Could not create folder."
+msgstr ""
+
+msgid "Could not close shared folder."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "unknown"
+msgstr ""
+
+msgid "Could not move folder"
+msgstr ""
+
+msgid "Could not copy folder"
+msgstr ""
+
+msgid "You have insufficient privileges to open this message."
+msgstr ""
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+msgid "Could not open message."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr ""
+
+msgid "Could not copy message"
+msgstr ""
+
+msgid "Could not move message"
+msgstr ""
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr ""
+
+msgid "Could not save message"
+msgstr ""
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr ""
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+msgid "Message cannot be aborted"
+msgstr ""
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr ""
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr ""
+
+msgid "Could not attach item as an attachment."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr ""
+
+msgid "Could not accept Task Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr ""
+
+msgid "Could not decline Task Request."
+msgstr ""
+
+msgid "Conflicts with another appointment."
+msgstr ""
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr ""
+
+msgid "The following recipient(s) could not be reached"
+msgstr ""
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+
+msgid "Could not load the contents of this folder."
+msgstr ""
+
+msgid "Error in search, please try again"
+msgstr ""
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+
+msgid "Could not update search results."
+msgstr ""
+
+msgid "Could not stop search operation."
+msgstr ""
+
+msgid "You have insufficient privileges to save this message."
+msgstr ""
+
+msgid "Could not save message."
+msgstr ""
+
+msgid "You have insufficient privileges to delete this message."
+msgstr ""
+
+msgid "Could not delete message."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+
+msgid "Could not cancel Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+
+msgid "Could not decline Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+
+msgid "Could not accept Meeting Request."
+msgstr ""
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr ""
+
+msgid "You can not continue search operation on this folder."
+msgstr ""
+
+msgid "Error in search, please try again."
+msgstr ""
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr ""
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr ""
+
+msgid "Could not process request data properly."
+msgstr ""
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr ""
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr ""
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+
+msgid "You have insufficient privileges to perform this action."
+msgstr ""
+
+msgid "Could not resolve user."
+msgstr ""
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr ""
+
+msgid "Could not load rules."
+msgstr ""
+
+msgid "Could not save rules."
+msgstr ""
+
+msgid "Task Request:"
+msgstr ""
+
+msgid "Welcome"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "File is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+msgid "The EML is not valid"
+msgstr ""
+
+msgid "GB"
+msgstr ""
+
+msgid "MB"
+msgstr ""
+
+msgid "KB"
+msgstr ""
+
+msgid "B"
+msgstr ""
+
+msgid "The maximum stack depth has been exceeded"
+msgstr ""
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr ""
+
+msgid "Invalid or malformed JSON"
+msgstr ""
+
+msgid "Syntax error"
+msgstr ""
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr ""
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr ""
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr ""
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""

@@ -1,0 +1,177 @@
+.x-toolbar {
+  background-image: none;
+  background-color: $background-color-toolbar;
+  border-color: $grey;
+  line-height: $font-default-line-height;
+  padding: ($toolbar-height - $button-small-height)/2 $padding-medium $padding-medium;
+}
+
+.x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
+	border-width: 0 0 1px;
+	border-color: $grey;
+}
+.x-panel-noborder .x-panel-tbar-noborder .x-toolbar .x-toolbar {
+	border-width: 0;
+}
+
+.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar, .k-search-toolbar-panel .x-toolbar {
+	padding: ($toolbar-height - $button-small-height - 2px - 1px)/2 $padding-medium; /* we need to substract 2px extra to account for the borders around the buttons */
+	border: none;
+	border-bottom: 1px solid $grey;
+}
+
+/* global search input field */
+.zarafa-searchfield {
+	padding-top: 0px !important;
+	max-width: 350px;
+	border-right: 1px solid transparent;
+}
+
+/* seperator In ExtJS it's tbseperator, used in for example create new mail dialog*/
+.x-toolbar .xtb-sep {
+	background-image: none;
+	border-left: 1px solid $seperator-color-toolbar;
+}
+
+/* exception for the (hacked) search toolbar which has a toolbar in a toobar */
+.x-toolbar {
+	.x-toolbar {
+		padding: 0;
+	}
+
+	.x-toolbar.zarafa-paging-toolbar,
+	.zarafa-loaded-mail-info {
+		padding: 0 $padding-extra-extra-large;
+	}
+}
+
+.x-panel-tbar .x-toolbar .x-toolbar-cell .x-form-field {
+	padding: 0 $padding-medium !important;
+	height: $button-small-height - 2px !important;
+}
+
+/**********************************************************
+ * Toolbar buttons
+ *********************************************************/
+	.x-toolbar {
+		.x-btn {
+			.x-btn-small {
+				margin-right: $padding-small;
+				border-radius: 2px;
+			}
+		}
+
+		.x-btn:not(.zarafa-action):not(.x-btn-noicon) {
+			background-color: transparent !important;
+
+			.x-btn-small {
+				background-color: transparent;
+				box-shadow: none;
+				border: 1px solid transparent;
+			}
+		}
+
+		.x-btn.x-btn-over:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small,
+		.x-btn.x-btn-pressed:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+			border: 1px solid $grey2;
+		}
+		.x-btn.x-btn-over.x-btn-click:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+			background-color: $grey3;
+		}
+		.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small{
+			border: 1px solid $sky-blue;
+		}
+
+		/* split button */
+		.x-btn .x-btn-small .x-btn-split button.x-btn-text{
+			border: none;
+			border-right: 1px solid $grey;
+		}
+
+		.x-toolbar-right-row td:last-child .x-btn:not(.zarafa-action) {
+			.x-btn-small {
+				margin-right: 0;
+			}
+		}
+
+		.x-btn.zarafa-action {
+			margin-right: $padding-small;
+		}
+
+		.x-item-disabled {
+			opacity: 0.4;
+		}
+
+		.x-btn.zarafa-more-options-btn {
+			.x-btn-split {
+				padding-right: 0px;
+				background-image: none !important;
+			}
+
+			.icon_more.x-btn-text {
+				border-right: none !important;
+			}
+		}
+
+		.x-btn.k-filter-options-btn {
+			.x-btn-small {
+				button {
+					min-width: 0px !important;
+				}
+			}
+			.x-btn-split {
+				padding-right: 0px;
+				background-image: none !important;
+			}
+
+			.icon_filter.x-btn-text {
+				border-right: none !important;
+				span {
+					padding-left: 5px;
+				}
+			}
+		}
+
+		/* Meeting/Task request buttongroup */
+		.x-btn-group.zarafa-mr-buttons, .k-tr-buttons {
+			.x-btn-group-tl,
+			.x-btn-group-bl {
+				display: none;
+			}
+
+			.x-btn-group-mc {
+				padding: 0;
+			}
+		}
+	}
+
+	/* Paging toolbar */
+	.x-toolbar.zarafa-paging-toolbar {
+		.x-btn {
+			.x-btn-small {
+				background-color: transparent !important;
+
+				button.x-btn-text {
+					width: 18px;
+				}
+			}
+		}
+		.x-btn.x-btn-over.x-btn-click {
+			.x-btn-small {
+				button.x-btn-text {
+					background-color: $grey3;
+				}
+			}
+		}
+
+		.x-btn-page-next {
+			margin-left: $padding-small;
+		}
+	}
+
+/* Insert item dialog */
+.k-insert-item-dialog .x-toolbar { 
+        border-bottom: none !important;
+	padding-left: 0 !important;
+}
+

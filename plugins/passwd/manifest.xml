@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.3</version>
+		<name>Passwd</name>
+		<title>Password Change Plugin</title>
+		<author>Saket Patel</author>
+		<authorURL>https://github.com/silentsakky</authorURL>
+		<description>Change your password from webapp</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.passwd.php</serverfile>
+					<serverfile type="module" module="passwdmodule">php/class.passwdmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/passwd.js</clientfile>
+					<clientfile load="debug">js/passwd-debug.js</clientfile>
+
+					<clientfile load="source">js/PasswdPlugin.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPasswdCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsPasswdWidget.js</clientfile>
+					<clientfile load="source">js/settings/PasswdPanel.js</clientfile>
+					<clientfile load="source">js/data/PasswdResponseHandler.js</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+					<clientfile load="source">js/external/PasswordMeter.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile>resources/css/passwd.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

@@ -1,0 +1,183 @@
+/* Safari hack for radio buttons that get cut off */
+body.Safari input[type="radio"] {
+	margin-left: 1px;
+}
+
+.x-form-item {
+	margin-bottom: $padding-small;
+}
+
+.x-form-invalid, textarea.x-form-invalid,
+.x-form-text.x-form-invalid, textarea.x-form-field.x-form-invalid,
+.x-form-invalid.x-form-composite .x-form-invalid {
+	border-color: $red1;
+	background: $red2;
+}
+.x-form-invalid.x-form-text + .x-form-trigger {
+	border-color: $red1;
+}
+.x-form-invalid.x-form-composite {
+	background: transparent !important;
+}
+
+/* inputs and textareas */
+.x-form-text, textarea.x-form-field {
+	background: white;
+	border: 1px solid $grey;
+	padding: $padding-medium;
+}
+.x-form-text {
+	padding: 0 $padding-medium;
+}
+.x-form-text.x-form-focus:not(.x-trigger-noedit) {
+	border-color: $sky-blue !important;
+}
+
+.x-form-field-wrap.x-trigger-wrap-focus:not(.x-freebusy-userlist-container) {
+	border-color: $sky-blue;
+
+	input.x-form-text.x-form-field.x-form-focus {
+		border-color: $sky-blue !important;
+	}
+}
+
+.x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-strict .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input),
+.ext-strict .ext-webkit .x-small-editor .x-form-text:not(.x-zarafa-boxfield):not(.x-zarafa-boxfield-input)
+{
+	line-height: $button-small-height;
+	height: $button-small-height - 2 !important; /* subtract 2 for the border-width */
+}
+
+/* combobox and spinner field */
+.x-form-field-trigger-wrap,
+.x-form-field-wrap {
+	.x-form-text {
+		line-height: $button-small-height - 2px;
+		height: $button-small-height - 2px;
+	}
+
+	.x-form-trigger,
+	.x-form-spinner-trigger {
+		height : $button-small-height - 2px !important;
+		width: $trigger-width;
+		border: 1px solid $grey;
+		border-left: none;
+		background-color: $grey3 !important;
+	}
+	.x-form-trigger-over,
+	.x-form-spinner-trigger-over {
+		background-color: $grey4 !important;
+	}
+
+	.x-form-spinner-splitter {
+		display: none !important;
+	}
+}
+
+.x-combo-list {
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.6);
+	border-color: #b6b6b6;
+}
+
+.x-combo-list-inner{
+	padding: $padding-small 0;
+
+	.x-combo-list-item {
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		line-height: $padding-extra-extra-large;
+		padding: $padding-medium $padding-large;
+		margin: 0 $padding-small;
+		border: none !important;
+	}
+
+	.x-combo-list-item:hover{
+		background-color: $grey4;
+	}
+}
+
+.x-combo-list-item.k-combo-list-item-header {
+	font-weight: bold;
+	font-style: italic;
+}
+.x-combo-list-item.x-combo-selected.k-combo-list-item-header {
+	background: transparent;
+	border-color: transparent !important;
+	cursor: default;
+}
+
+/* fieldsets */
+.x-fieldset {
+	border-radius: 0;
+	border: 1px solid $grey;
+	padding: $padding-large $padding-medium;
+	margin: 0;
+
+	legend {
+		font-weight: normal;
+		color: $font-color-dark;
+	}
+}
+
+/* checkbox */
+.x-form-check-wrap input{
+	vertical-align: text-bottom;
+}
+.x-form-item .x-form-cb-label {
+	top: 0;
+	margin-left: $padding-small;
+}
+
+.zarafa-delayeddelivery-invalid-date {
+	color: $red;
+}
+
+.zarafa-radiodatetime-datetimefield {
+	background-position-y: 24px;
+}
+
+.zarafa-delayeddeliverypanel {
+	.x-panel-body {
+		padding: 15px !important;
+	}
+}
+
+.zarafa-delayeddeliverypanel-fields {
+	margin: 0 0 10px 5px !important;
+}
+
+.zarafa-delayeddeliverypanel-radiospinnerfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	.x-form-display-field {
+		top: 2px !important;
+	}
+	.x-form-check-wrap {
+		top: 3px !important;
+		-webkit-padding-before: 1px !important;
+		label {
+			margin-left: 10px !important;
+		}
+	}
+}
+
+.zarafa-delayeddeliverypanel-radiodatetimefield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	.x-form-check-wrap {
+		top: 3px !important;
+		-webkit-padding-before: 3px !important;
+	}
+}
+
+.zarafa-delayeddeliverypanel-displayfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	margin-left: 28px !important;
+}
+
+.ext-gecko3.ext-linux .zarafa-delayeddeliverypanel-displayfield {
+	@extend .zarafa-delayeddeliverypanel-fields;
+	margin-left: 32px !important;
+}

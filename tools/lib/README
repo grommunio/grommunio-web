@@ -1,0 +1,20 @@
+# The libraries in this folder are used for the following purposes:
+
+# UTILITIES
+## ant-contrib-1.0b3.jar
+##	The contrib package (http://ant-contrib.sourceforge.net/) adds
+##	functionalities to ant which are generaly needed by all build.xml
+##	files within the WebApp
+
+# COMPILING
+## compiler.jar
+##	The Closure Compiler (http://code.google.com/p/closure-compiler/) which
+##	is used to compress Javascript files into a minimized version
+
+# TESTING
+## JsTestDriver.jar
+##	The JsTestDriver (http://code.google.com/p/js-test-driver/) which
+##	is used to run the Javascript unittests in a browser
+## coverage.jar
+##	Plugin for JsTestDriver (http://code.google.com/p/js-test-driver/) which
+##	adds coverage measurements to the tested unittests

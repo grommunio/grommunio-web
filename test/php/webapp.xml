@@ -1,0 +1,34 @@
+<testsuites>
+  <testsuite name="WebApp">
+    <directory>tests/appointments/</directory>
+    <directory>tests/core/</directory>
+    <directory>tests/contact/</directory>
+    <directory>tests/entryid/</directory>
+    <directory>tests/note/</directory>
+    <directory>tests/plugins/</directory>
+    <directory>tests/reminders/</directory>
+    <directory>tests/resolvenames/</directory>
+    <directory>tests/restore/</directory>
+    <directory>tests/settings/</directory>
+    <directory>tests/task/</directory>
+    <directory>tests/freebusy/</directory>
+    <directory>tests/hierarchy/</directory>
+    <directory>tests/addressbook/</directory>
+    <directory>tests/language/</directory>
+    <directory>tests/meetings/</directory>
+  </testsuite>
+  <logging>
+    <log type="coverage-html" target="htmlcov" lowUpperBound="35" highLowerBound="70"/>
+    <log type="coverage-clover" target="coverage.xml"/>
+    <log type="junit" target="webapp-phptests.xml" logIncompleteSkipped="false"/>
+  </logging>
+  <!-- blacklist tests for coverage -->
+  <filter>
+	  <whitelist>
+		  <directory suffix=".php">../../deploy/server/</directory>
+	  </whitelist>
+	  <blacklist>
+		  <directory>tests</directory>
+	  </blacklist>
+  </filter>
+</testsuites>

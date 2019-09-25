@@ -1,0 +1,6677 @@
+# Kopano Webapp Slovenian (Slovenia) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"PO-Revision-Date: 2017-10-05 20:30+0200\n"
+"Last-Translator: Zoran <zolo@intelego.net>\n"
+"Language-Team: Slovenian (Slovenia) <https://translate.kopano.io/projects/"
+"kopano/kopano-webapp/sl/>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr ""
+
+msgid "Now"
+msgstr "Zdaj"
+
+msgid "Value must be between 0% to 100%"
+msgstr ""
+
+msgid "Number must be higher than zero"
+msgstr ""
+
+#, fuzzy
+msgid "More options"
+msgstr "Možnosti sporočila"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} bajt"
+msgstr[1] "{0} bajtov"
+msgstr[2] "{0} bajtov"
+msgstr[3] "{0} bajtov"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+msgstr[2] "{0} KB"
+msgstr[3] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+msgstr[2] "{0} MB"
+msgstr[3] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+msgstr[2] "{0} GB"
+msgstr[3] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+msgstr[2] "{0} TB"
+msgstr[3] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} minuta"
+msgstr[1] "{0} minut"
+msgstr[2] "{0} minut"
+msgstr[3] "{0} minut"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} ura"
+msgstr[1] "{0} ur"
+msgstr[2] "{0} ur"
+msgstr[3] "{0} ur"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} dan"
+msgstr[1] "{0} dni"
+msgstr[2] "{0} dni"
+msgstr[3] "{0} dni"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} teden"
+msgstr[1] "{0} tednov"
+msgstr[2] "{0} tednov"
+msgstr[3] "{0} tednov"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Hitra rjava lisica skače čez lenega psa"
+
+msgid "Sunday"
+msgstr "Nedelja"
+
+msgid "Monday"
+msgstr "Ponedeljek"
+
+msgid "Tuesday"
+msgstr "Torek"
+
+msgid "Wednesday"
+msgstr "Sreda"
+
+msgid "Thursday"
+msgstr "Četrtek"
+
+msgid "Friday"
+msgstr "Petek"
+
+msgid "Saturday"
+msgstr "Sobota"
+
+msgid "Sun"
+msgstr "Ned"
+
+msgid "Mon"
+msgstr "Pon"
+
+msgid "Tue"
+msgstr "Tor"
+
+msgid "Wed"
+msgstr "Sre"
+
+msgid "Thu"
+msgstr "Čet"
+
+msgid "Fri"
+msgstr "Pet"
+
+msgid "Sat"
+msgstr "Sob"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Marec"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Junij"
+
+msgid "July"
+msgstr "Julij"
+
+msgid "August"
+msgstr "Avgust"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Page {A} of {0}"
+msgstr "Stran {A} od {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Prikazana sporočila {0} - {1} od {2}"
+
+msgid "No messages to display"
+msgstr "Ni sporočil za prikaz"
+
+msgid "First Page"
+msgstr "Prva stran"
+
+msgid "Previous Page"
+msgstr "Prejšnja stran"
+
+msgid "Next Page"
+msgstr "Naslednja stran"
+
+msgid "Last Page"
+msgstr "Zadnja stran"
+
+msgid "Refresh"
+msgstr "Osveži"
+
+msgid "Today"
+msgstr "Danes"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Prekliči"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Presledek)"
+
+msgid "This date is before the minimum date"
+msgstr "Ta datum je pred najnižjim datumom"
+
+msgid "This date is after the maximum date"
+msgstr "Ta datum je po najkasnejšem datumu"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "Onemogočeno"
+
+msgid "Next Month (Control+Right)"
+msgstr "Naslednji mesec (Ctrl+desni puščica)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Prejšnji mesec (Ctrl+leva puščica)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr ""
+"Izberi mesec (Ctrl+puščica navzgor/puščica navzdol za premikanje letnic)"
+
+msgid "Sort Ascending"
+msgstr "Razvrsti naraščajoče"
+
+msgid "Sort Descending"
+msgstr "Razvrsti padajoče"
+
+msgid "Columns"
+msgstr "Stolpci"
+
+msgid "Group By This Field"
+msgstr "Skupine po tem polju"
+
+msgid "Show in Groups"
+msgstr "Prikaži po skupinah"
+
+msgid "(None)"
+msgstr "(Nobena)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Loading"
+msgstr "Nalaganje"
+
+msgid "The value in this field is invalid"
+msgstr "Vrednost v tem polju je neveljavna"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Minimalna dolžina tega polja je {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Maksimalna dolžina tega polja je {0}"
+
+msgid "This field is required"
+msgstr "To je obvezno polje"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Minimalna vrednost tega polja je {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Maksimalna vrednost tega polja je {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} ni veljavno število"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "Datum v tem polju mora biti enak ali po {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "Datum v tem polju mora biti enak ali pred {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} ni veljaven datum - biti mora v formatu {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "Izbrati morate najmanj eto stvar v tej skupini"
+
+msgid "You must select one item in this group"
+msgstr "Izbrati morate eno stvar v tej skupini"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "Čas v tem polju mora biti enak ali po {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "Čas v tem polju mora biti enak ali pred {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} ni veljaven čas"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "Value"
+msgstr "Vrednost"
+
+msgid "true"
+msgstr "pravilno"
+
+msgid "false"
+msgstr "napačno"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr ""
+"To polje mora biti elektronski naslov v formatu \"uporabnik@example.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "To polje mora biti URL naslov v formatu \"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "To polje mora vsebovati samo črke in _"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "To polje mora vsebovati samo črke, številke in _"
+
+#, fuzzy
+msgid "Email Addresses"
+msgstr "Elektronski naslov"
+
+#, fuzzy
+msgid "Email addresses"
+msgstr "Elektronski naslovi"
+
+msgid "Group details"
+msgstr "Podrobnosti skupine"
+
+msgid "General"
+msgstr "Splošno"
+
+msgid "Display Name"
+msgstr "Prikazovalno ime"
+
+msgid "Alias"
+msgstr "Vzdevek"
+
+msgid "Owner"
+msgstr "Lastnik"
+
+msgid "Notes"
+msgstr "Zapiski"
+
+msgid "Members"
+msgstr "Člani"
+
+msgid "Email Address"
+msgstr "Elektronski naslov"
+
+msgid "Account"
+msgstr "Račun"
+
+msgid "Member Of"
+msgstr "Član"
+
+msgid "Group Membership"
+msgstr "Skupinsko članstvo"
+
+msgid "Address Book"
+msgstr "Imenik"
+
+msgid "User details"
+msgstr "Podrobnosti o uporabniku"
+
+msgid "First"
+msgstr "Prvi"
+
+msgid "Initial"
+msgstr "Začetnica"
+
+msgid "Display"
+msgstr "Prikaz"
+
+# 75%
+msgid "Last"
+msgstr "Zadnji"
+
+msgid "Address"
+msgstr "Naslov"
+
+msgid "City"
+msgstr "Mesto"
+
+msgid "State"
+msgstr "Država"
+
+msgid "Zip Code"
+msgstr "Poštna številka"
+
+msgid "Country"
+msgstr "Država"
+
+msgid "Title"
+msgstr "Naziv"
+
+msgid "Company"
+msgstr "Podjetje"
+
+msgid "Department"
+msgstr "Oddelek"
+
+msgid "Office"
+msgstr "Pisarna"
+
+msgid "Assistant"
+msgstr "Asistent"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Organization"
+msgstr "Organizacija"
+
+msgid "Manager"
+msgstr "Direktor"
+
+msgid "Direct reports"
+msgstr "Direktna poročila"
+
+msgid "Phone numbers"
+msgstr "Telefonske številke"
+
+msgid "Business"
+msgstr "Posel"
+
+# 88%
+msgid "Business2"
+msgstr "Posel2"
+
+msgid "Fax"
+msgstr "Faks"
+
+msgid "Home"
+msgstr "Doma"
+
+msgid "Home2"
+msgstr "Doma2"
+
+msgid "Mobile"
+msgstr "Mobilni telefon"
+
+msgid "Pager"
+msgstr "Pozivnik"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Izbrana ni nobena naloga"
+
+msgid "You must select one or more users."
+msgstr "Izbrati morate enega ali več uporabnikov."
+
+msgid "You must select a user."
+msgstr "Izbrati morate uporabnika."
+
+msgid "Select"
+msgstr "Izberi"
+
+msgid "Show Details"
+msgstr "Pokaži podrobnosti"
+
+msgid "Use the search bar to get results"
+msgstr ""
+
+#, fuzzy
+msgid "There are no items to show in this list"
+msgstr "V tem pogledu ni elementov za prikaz"
+
+msgid "Show Names from the"
+msgstr "Pokaži imena iz"
+
+msgid "Search..."
+msgstr ""
+
+msgid "Sort by: Icon"
+msgstr "Razvrsti po: Ikoni"
+
+# 76%
+msgid "Sort by: Name"
+msgstr "Razvrsti po: Ime"
+
+# 76%
+msgid "Sort by: Display Name"
+msgstr "Razvrsti po: Prikazno ime"
+
+msgid "File as"
+msgstr "Datoteka kot"
+
+# 75%
+msgid "Sort by: File As"
+msgstr "Razvrsti po: Datoteka kot"
+
+# 80%
+msgid "First Name"
+msgstr "Ime"
+
+msgid "Sort by: First Name"
+msgstr ""
+
+# 77%
+msgid "Last Name"
+msgstr "Priimek"
+
+# 76%
+#, fuzzy
+msgid "Sort by: Last Name"
+msgstr "Razvrsti po: Ime"
+
+msgid "Sort by: Email Address"
+msgstr "Razvrsti po: Elektronski naslov"
+
+msgid "Sort by: Department"
+msgstr "Razvrsti po: Oddelek"
+
+msgid "Office Phone"
+msgstr "Telefon v pisarni"
+
+msgid "Sort by: Office Phone"
+msgstr "Razvrsti po: Telefon v pisarni"
+
+#, fuzzy
+msgid "Sort by: Mobile"
+msgstr "Razvrsti po: Naziv"
+
+msgid "Home Phone"
+msgstr "Domači telefon"
+
+msgid "Sort by: Home Phone"
+msgstr "Razvrsti po: Domači telefon"
+
+# 78%
+msgid "Sort by: Pager"
+msgstr "Razvrsti po: Pozivnik"
+
+msgid "Location"
+msgstr "Lokacija"
+
+msgid "Sort by: Location"
+msgstr "Razvrsti po: Lokaciji"
+
+# 76%
+msgid "Sort by: Fax"
+msgstr "Razvrsti po: Faks"
+
+msgid "No preview"
+msgstr "Ni predogleda"
+
+msgid "Right preview"
+msgstr "Desni predogled"
+
+msgid "Bottom preview"
+msgstr "Spodnji predogled"
+
+#, fuzzy
+msgid "Any date"
+msgstr "Datum zaključka"
+
+msgid "Past week"
+msgstr ""
+
+msgid "Past 2 weeks"
+msgstr ""
+
+msgid "Past month"
+msgstr ""
+
+msgid "Past 6 month"
+msgstr ""
+
+msgid "Past year"
+msgstr ""
+
+#, fuzzy
+msgid "Custom date"
+msgstr "Datum zapadlosti"
+
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Dodaj"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Izprazni mapo"
+
+msgid "You must specify a name."
+msgstr "Specificirati morate ime."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
+#, fuzzy
+msgid "Select Category"
+msgstr "Nastavi kategorijo"
+
+msgid "Apply"
+msgstr "Uporabi"
+
+#, fuzzy
+msgid "All folders are selected"
+msgstr "Izbrana '{0}' mapa."
+
+msgid "Reply"
+msgstr "Odgovor"
+
+msgid "Reply All"
+msgstr "Odgovori vsem"
+
+msgid "Forward"
+msgstr "Posreduj"
+
+#, fuzzy
+msgid "Edit as New"
+msgstr "Uredi nastavitve"
+
+msgid "Search tools"
+msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Folders"
+msgstr "Mapa"
+
+#, fuzzy
+msgid "Include subfolders"
+msgstr "Ustvari podmape"
+
+#, fuzzy
+msgid "Show.."
+msgstr "Pokaži"
+
+#, fuzzy
+msgid "Mails"
+msgstr "Pošta"
+
+#, fuzzy
+msgid "Appointments"
+msgstr "Sestanek"
+
+# 100%
+msgid "Contacts"
+msgstr "Kontakti"
+
+msgid "Tasks"
+msgstr "Naloge"
+
+msgid "Filter.."
+msgstr ""
+
+msgid "Unread"
+msgstr "Neprebrano"
+
+msgid "Attachments"
+msgstr "Priloge"
+
+msgid "Date"
+msgstr "Datum"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "Od"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "Za"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "Nastavi kategorijo"
+
+#, fuzzy
+msgid "Search.."
+msgstr "Marec"
+
+msgid "Sender"
+msgstr "Pošiljatelj"
+
+#, fuzzy
+msgid "Recipients"
+msgstr "Prejemniki"
+
+msgid "Subject"
+msgstr "Zadeva"
+
+#, fuzzy
+msgid "Body & Attachments"
+msgstr "Priloge"
+
+msgid "Favorites"
+msgstr "Priljubljene"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
+msgid "Select Folder"
+msgstr "Izberi mapo"
+
+msgid "Delete search folder"
+msgstr ""
+
+msgid "Sort by: Date"
+msgstr ""
+
+msgid "Loading Search results"
+msgstr ""
+
+msgid "Sorting tip"
+msgstr ""
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+
+msgid "Did you mean"
+msgstr ""
+
+msgid "With"
+msgstr ""
+
+msgid "To"
+msgstr "Za"
+
+msgid "No date"
+msgstr ""
+
+msgid "Error"
+msgstr "Napaka"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Ne morem sprejeti predloga, ker ta sestanek ni na voljo v koledarju; Mogoče "
+"je bil prestavljen ali izbrisan."
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Ne morem pogledati predloga, ker ta sestanek ni na voljo v koledarju; Mogoče "
+"je bil prestavljen ali izbrisan."
+
+msgid "Required"
+msgstr "Zahtevano"
+
+msgid "Optional"
+msgstr "Neobvezno"
+
+msgid "Resource"
+msgstr "Vir"
+
+msgid "Could not open store."
+msgstr "Ne morem odpreti hrambe."
+
+msgid "Could not open default calendar folder."
+msgstr "Ne morem odpreti privzete mape koledarja."
+
+msgid "workday"
+msgstr "delovni dan"
+
+msgid "day"
+msgstr "dan"
+
+msgid "days"
+msgstr "dni"
+
+msgid "week"
+msgstr "teden"
+
+msgid "weeks"
+msgstr "tedni"
+
+msgid " on "
+msgstr ""
+
+msgid "month"
+msgstr "mesec"
+
+msgid "months"
+msgstr "mesecev"
+
+msgid "year"
+msgstr "leto"
+
+msgid "years"
+msgstr "let"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Pojavi se vsakih {0} efektivno {1} od {2} do {3}."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Pojavi se vsakih {0} {1} efektivno {2} od {3} to {4}."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Pojavi se vsakih {0} efektivno {1}."
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Pojavi se vsakih {0} {1} efektivno {2}."
+
+msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
+msgstr[0] ""
+"Pojavi se vsakih {0} efektivno {1} za {2} pojavljanje od {3} do {4}."
+msgstr[1] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj od {3} do {4}."
+msgstr[2] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj od {3} do {4}."
+msgstr[3] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj od {3} do {4}."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
+msgstr[0] ""
+"Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanje od {4} do {5}."
+msgstr[1] ""
+"Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj od {4} do {5}."
+msgstr[2] ""
+"Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj od {4} do {5}."
+msgstr[3] ""
+"Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj od {4} do {5}."
+
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanje."
+msgstr[1] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj."
+msgstr[2] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj."
+msgstr[3] "Pojavi se vsakih {0} efektivno {1} za {2} pojavljanj."
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] "Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanje."
+msgstr[1] "Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj."
+msgstr[2] "Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj."
+msgstr[3] "Pojavi se vsakih {0} {1} efektivno {2} za {3} pojavljanj."
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Pojavi se vsakih {0} efektivno {1} dokler {2} od {3} do {4}."
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Pojavi se vsakih {0} {1} efektivno {2} dokler {3} od {4} do {5}."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Pojavi se vsakih {0} efektivno {1} dokler {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Pojavi se vsakih {0} {1} efektivno {2} dokler {3}."
+
+msgid "When"
+msgstr "Ko"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y G:i"
+msgstr "1 jS F Y G:i"
+
+msgid "Where"
+msgstr "Kje"
+
+msgid "New Meeting Time Proposed"
+msgstr "Predlagan novi čas sestanka"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "and "
+msgstr "in"
+
+msgid "Sort by: Attachment"
+msgstr "Razvrsti po: Prilogi"
+
+msgid "Sort by: Recurring"
+msgstr "Razvrsti po: Ponavljajoče"
+
+msgid "Sort by: Subject"
+msgstr "Razvrsti po: Predmetu"
+
+# 90%
+msgid "Startdate"
+msgstr "Datum začetka"
+
+# 89%
+msgid "Sort by: Startdate"
+msgstr "Razvrsti po: Času začetka"
+
+# 87%
+msgid "Enddate"
+msgstr "Datum zaključka"
+
+msgid "Sort by: Enddate"
+msgstr "Razvrsti po: Času zaključka"
+
+msgid "Organizer"
+msgstr "Organizator"
+
+msgid "Required Attendee"
+msgstr "Obvezen udeleženec"
+
+msgid "Optional Attendee"
+msgstr "Neobvezen udeleženec"
+
+msgid "Show Time As"
+msgstr "Prikaži čas kot"
+
+msgid "Start Date"
+msgstr "Začetni datum"
+
+# 87%
+#, fuzzy
+msgid "End Date"
+msgstr "Datum zaključka"
+
+msgid "Recurrence pattern"
+msgstr "Vzorec ponavljanja"
+
+msgid "All Day Event"
+msgstr "Celodnevni dogodek"
+
+# 76%
+# 100%
+#, fuzzy
+msgid "Add Shared Calendar"
+msgstr "Odpri koledarje v skupni rabi"
+
+msgid "Day"
+msgstr "Dan"
+
+msgid "Workweek"
+msgstr "Delovni teden"
+
+msgid "Week"
+msgstr "Teden"
+
+msgid "Month"
+msgstr "Mesec"
+
+msgid "List"
+msgstr "Seznam"
+
+msgid "Appointment"
+msgstr "Sestanek"
+
+msgid "Meeting request"
+msgstr "Zahteva za sestanek"
+
+msgid "Print selected appointment"
+msgstr "Natisni izbrani sestanek"
+
+msgid "Print overview"
+msgstr "Natisni pregled"
+
+msgid "Print"
+msgstr "Natisni"
+
+msgid "No appointment selected"
+msgstr "Ni izbranih sestankov"
+
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Zasebni sestanek"
+
+# 100%
+msgid "Calendar"
+msgstr "Koledar"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "Poglej večkratne koledarje v"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "Poglej večkratne koledarje v"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Vsa tekstovna polja"
+
+msgid "Body"
+msgstr "Telo"
+
+msgid "Subject or Sender"
+msgstr "Zadeva ali pošiljatelj"
+
+msgid "To or cc"
+msgstr "Za ali kp"
+
+msgid "Meeting"
+msgstr "Sestanek"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Načrtovani so bili viri."
+
+#, fuzzy
+msgid "Send update"
+msgstr "Datum zaključka"
+
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr ""
+"Spremenjeno sporočilo bo poslano vsem prejemnikom, ali želite nadaljevati?"
+
+msgid "Send update to attendees"
+msgstr "Pošlji spremembe udeležencem"
+
+msgid ""
+"You have made changes to the list of attendees, Choose one of the following"
+msgstr ""
+"V listi povabljencev ste naredili spremembe, izberite nekaj od naslednjega"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Pošlji posodobitve samo popravljenim ali izbrisanim povabljencem."
+
+# 80%
+msgid "Send updates to all attendees."
+msgstr "Pošlji spremembe vsem udeležencem."
+
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Povabi udeležence"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"Eden ali več povabljencev, ki ste jih povabili, so zasedeni. Ali ste "
+"prepričani, da jih želite povabiti?"
+
+msgid "Scheduling"
+msgstr "Razporejanje"
+
+msgid "Tracking"
+msgstr "Sledenje"
+
+# 75%
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Nismo mogli rešiti vseh udeležencev."
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} udeležencev sprejeto, {1} pogojno sprejeto, {2} zavrnjeno."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} udeležencev je predlagalo novi čas tega sestanka. Pritisni zavihek za "
+"razporejanje za ogled podrobnosti."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Predlagali ste novi čas za ta sestanek ob {0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} predlagal novi čas za ta sestanek ob {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Sprejeto na {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "Sprejeto od {0} na {1}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Pogojno sprejeto na {0}"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "Pogojno sprejeto od {0} na {1}"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Ta sestanek se pojavlja v preteklosti."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Prosim odgovori."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Za ta sestanek ni bilo prejetih nobenih odgovorov."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Sestanek je bil odpovedan."
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Za ta sestanek ni bilo poslanih povabil."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+
+#, fuzzy
+msgid "Create in"
+msgstr "Ustvarjeno"
+
+msgid "Time"
+msgstr "Čas"
+
+msgid "until"
+msgstr ""
+
+msgid "Recurrence"
+msgstr "Ponavljanje"
+
+msgid "Reminder"
+msgstr "Opomnik"
+
+msgid "Show as"
+msgstr "Pokaži kot"
+
+msgid "Warning"
+msgstr "Opozorilo"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Priloge ne morejo biti spremenjene za enkratno pojavljanje"
+
+msgid "Type your message here..."
+msgstr ""
+
+#, fuzzy
+msgid "Update location"
+msgstr "Posodobi listo"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "Ali želite spremeniti lokacijo \"{0}\" z novo lokacijo \"{1}\"?"
+
+# 83%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y G:i"
+msgstr "jS F Y G:i"
+
+msgid "None"
+msgstr "Nič"
+
+# 75%
+msgid "Send"
+msgstr "Pošlji"
+
+# 80%
+msgid "Save"
+msgstr "Shrani"
+
+msgid "Close"
+msgstr "Zapri"
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Add attachment"
+msgstr "Dodaj prilogo"
+
+msgid "Check names"
+msgstr "Preveri imena"
+
+msgid "Invite attendees"
+msgstr "Povabi udeležence"
+
+msgid "Cancel invitation"
+msgstr "Prekliči povabilo"
+
+msgid "High priority"
+msgstr "Visoka pomembnost"
+
+# 76%
+msgid "Mark this appointment as high priority"
+msgstr "Označi ta sestanek kot zelo pomemben"
+
+msgid "Low priority"
+msgstr "Nizka pomembnost"
+
+# 78%
+msgid "Mark this appointment as low priority"
+msgstr "Označi ta sestanek kot nizko pomemben"
+
+msgid "Categories"
+msgstr "Kategorije"
+
+msgid "Open the categories dialog"
+msgstr "Odpri dialog kategorij"
+
+msgid "Private"
+msgstr "Zasebno"
+
+msgid "Mark this appointment as private"
+msgstr "Označi ta sestanek kot zaseben"
+
+msgid "Proposed Date and Time"
+msgstr "Predlagan datum in čas"
+
+msgid "Duration"
+msgstr "Trajanje"
+
+msgid "Proposed By"
+msgstr "Predlagal"
+
+msgid "Current Meeting Time"
+msgstr "Trenutni čas sestanka"
+
+msgid "Show only working hours"
+msgstr "Pokaži samo delovne ure"
+
+msgid "Propose New Time"
+msgstr "Predlagaj novi čas"
+
+msgid "Start time"
+msgstr "Začetni čas"
+
+msgid "End time"
+msgstr "Čas zaključka"
+
+msgid "Comment"
+msgstr "Komentar"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "Pošlji preklic zahteve po sestanku"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Ta sestanek bo preklican. Ali želite vključiti komentarje v Vaš preklic?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Uredi preklic pred pošiljanjem."
+
+msgid "Send the cancellation now."
+msgstr "Pošlji preklic sedaj."
+
+# 84%
+msgid "Send Meeting Request Confirmation"
+msgstr "Pošlji potrditev zahtevka za sestanek"
+
+#, fuzzy
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Ta sestanek je bil potrjen in bo premaknjen v Vaš koledar. Ali želite "
+"vključiti komentarje z Vašim odzivom?"
+
+#, fuzzy
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Ta sestanek je bil pogojno sprejet in bo premaknjen v Vaš koledar. Ali "
+"želite vključiti komentarje z Vašim odzivom?"
+
+#, fuzzy
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Ta sestanek je bil zavrnjen in bo premaknjen v mapo Izbrisani predmeti. Ali "
+"želite vključiti komentarje z Vašim odzivom?"
+
+#, fuzzy
+msgid "Edit the response before sending"
+msgstr "Uredi odziv pred pošiljanjem."
+
+msgid "Send the response now."
+msgstr "Pošlji odziv sedaj."
+
+msgid "Don't send a response."
+msgstr "Ne pošlji odziva."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Prejeti so bili naslednji odgovori za ta sestanek"
+
+msgid "Attendance"
+msgstr "Udeležba"
+
+msgid "Response"
+msgstr "Odgovor"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "New appointment"
+msgstr "Novi sestanek"
+
+msgid "Creating an item"
+msgstr "Ustvarjanje elementa"
+
+# 89%
+# 100%
+#, fuzzy
+msgid "New meeting request"
+msgstr "Nova zahteva za sestanek"
+
+msgid "Switch calendar range back and forth"
+msgstr "Menjaj strani koledarja"
+
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Začetek"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Konec"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Razvrsti po: Za"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Natisni to opombo"
+
+#, fuzzy
+msgid "Location: "
+msgstr "Lokacija"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "1 jS F Y"
+
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "1 jS F"
+
+# 88%
+msgid "Organiser"
+msgstr "Organizator"
+
+# 92%
+msgid "Meeting status"
+msgstr "Status sestanka"
+
+# 94%
+msgid "Required Attendees"
+msgstr "Zahtevani udeleženci"
+
+# 94%
+msgid "Optional Attendees"
+msgstr "Neobvezni udeleženci"
+
+msgid "Resources"
+msgstr "Viri"
+
+msgid "Sensitivity"
+msgstr "Občutljivost"
+
+# 80%
+msgid "Importance"
+msgstr "Pomembnost"
+
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "jS"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l d/m/Y"
+msgstr "1 d/m/L"
+
+msgid "General calendar settings"
+msgstr "Splošne nastavitve koledarja"
+
+msgid "First day of the week"
+msgstr "Prvi dan v tednu"
+
+msgid "Start of workday"
+msgstr "Začetek delovnega dne"
+
+msgid "End of workday"
+msgstr "Zaključek delovnega dne"
+
+msgid "Calendar resolution"
+msgstr "Resolucija koledarja"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Privzeti čas opomnika za celodnevni sestanek"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Working days"
+msgstr "Delovniki"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "V zbirniku datumov prikaži zasedene datume krepko"
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+
+msgid "Free/Busy publishing"
+msgstr ""
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr ""
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr ""
+
+msgid "Side-by-side mode"
+msgstr "Način drug-ob-drugem"
+
+msgid "Overlay mode"
+msgstr "Način prekrivanja"
+
+msgid "Calendar view settings"
+msgstr "Nastavitve pogleda koledarja"
+
+msgid "View multiple calendars in"
+msgstr "Poglej večkratne koledarje v"
+
+msgid "Reminder settings"
+msgstr "Nastavitve opomnika"
+
+msgid "Enable reminder for new appointments"
+msgstr "Onemogoči opomnik za nove sestanke"
+
+msgid "Default reminder time"
+msgstr "Privzet čas opomnika"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Privzeti čas opomnika za celodnevni sestanek"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "jS"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} izbrani predmet"
+msgstr[1] "{0} izbrani predmeti"
+msgstr[2] "{0} izbrani predmeti"
+msgstr[3] "{0} izbrani predmeti"
+
+msgid "New Appointment"
+msgstr "Novi sestanek"
+
+msgid "New Meeting Request"
+msgstr "Nova zahteva za sestanek"
+
+msgid "Open"
+msgstr "Odpri"
+
+msgid "Copy/Move"
+msgstr "Kopiraj/Premakni"
+
+# 75%
+msgid "Accept"
+msgstr "Sprejmi"
+
+msgid "Tentative"
+msgstr "Pogojno"
+
+# 87%
+msgid "Decline"
+msgstr "Zavrni"
+
+# 75%
+#, fuzzy
+msgid "Send to..."
+msgstr "Pošlji"
+
+msgid "Export as"
+msgstr ""
+
+# 80%
+# 100%
+#, fuzzy
+msgid "Occurrence"
+msgstr "Ponavljanje"
+
+msgid "Series"
+msgstr ""
+
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Sestanek"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
+
+#, fuzzy
+msgid "All Day"
+msgstr "Celodnevni dogodek"
+
+msgid "Sort by: All Day"
+msgstr "Razvrsti po: Celi dan"
+
+#, fuzzy
+msgid "Icon"
+msgstr "Ikone"
+
+#, fuzzy
+msgid "Recurring"
+msgstr "Ponavljanje"
+
+msgid "Sort by: Duration"
+msgstr "Razvrsti po: Trajanju"
+
+msgid "Meeting Status"
+msgstr "Status sestanka"
+
+msgid "Sort by: Meeting Status"
+msgstr "Razvrsti po: Statusu sestanka"
+
+msgid "Sort by: Show as"
+msgstr ""
+
+msgid "Sort by: Categories"
+msgstr "Razvrsti po: Kategorijah"
+
+msgid "Created On"
+msgstr "Ustvarjeno"
+
+# 84%
+msgid "Sort by: Created On"
+msgstr "Razvrsti po: Ustvarjen"
+
+msgid "Due By"
+msgstr "Zapadlo"
+
+# 76%
+msgid "Sort by: Due By"
+msgstr "Razvrsti po: Zapadlosti"
+
+msgid "Label"
+msgstr "Oznaka"
+
+msgid "Sort by: Label"
+msgstr "Razvrsti po: Oznaki"
+
+msgid "Sort by: Organizer"
+msgstr "Razvrsti po: Organizatorju"
+
+msgid "Sort by: Required Attendee"
+msgstr "Razvrsti po: Obvezen udeleženec"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Razvrsti po: Neobvezen udeleženec"
+
+msgid "Sort by: Resources"
+msgstr "Razvrsti po: Viri"
+
+msgid "Recurring Startdate"
+msgstr "Ponavljajoči datum začetka"
+
+msgid "Sort by: Recurring Startdate"
+msgstr "Razvrsti po: Ponavljajoči datum začetka"
+
+msgid "Recurring Enddate"
+msgstr "Ponavljajoči datum zaključka"
+
+msgid "Sort by: Recurring Enddate"
+msgstr "Razvrsti po: Ponavljajoči datum zaključka"
+
+# 77%
+msgid "Recurring Pattern"
+msgstr "Vzorec ponavljanja"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Razvrsti po: Vzorec ponavljanja"
+
+# 77%
+msgid "Sort by: Reminder"
+msgstr "Razvrsti po: Opomnik"
+
+msgid "Sort by: Sensitivity"
+msgstr "Razvrsti po: Občutljivost"
+
+msgid "Loading appointments"
+msgstr "Nalagam sestanke"
+
+# 83%
+# 80%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F G:i"
+msgstr "jS F G:i"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+#, fuzzy
+msgid "Update recipients"
+msgstr "Uredi prejemnika"
+
+msgid "The time of the meeting has changed. Choose one of the following:"
+msgstr "Čas sestanka je bil spremenjen. Izberi nekaj od naslednjega:"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Shrani spremembe in pošlji posodobitev vsem prejemnikom"
+
+msgid "Open meeting request with changes"
+msgstr "Odpri zahtevo za sestanek s spremembami"
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano Spletna aplikacija"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+
+msgid "Move"
+msgstr "Premakni"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "Ne pošlji"
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Predlagan"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Kdaj"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Lokacija"
+
+msgid "Remove From Calendar"
+msgstr "Odstrani s koledarja"
+
+msgid "No Response Required"
+msgstr "Ni zahtevanega odziva"
+
+msgid "Accept Meeting Request"
+msgstr "Sprejmi zahtevo za sestanek"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Pogojno sprejmi zahtevo za sestanek"
+
+msgid "Decline Meeting Request"
+msgstr "Zavrni zahtevo za sestanek"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Predlagaj novi čas za zahtevo za sestanek"
+
+msgid "View All Proposals"
+msgstr "Poglej vse predloge"
+
+msgid "Accept Proposal"
+msgstr "Sprejmi predlog"
+
+msgid "Accept Proposed Time"
+msgstr "Sprejmi predlagan čas"
+
+#, fuzzy
+msgid "View in calendar"
+msgstr "Poglej večkratne koledarje v"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Ni zahtevanega odziva"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Vaš koledar je bil avtomatsko posodobljen. Ta zahteva za sestanek bo sedaj "
+"izbrisana."
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G"
+msgstr "G"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Tiskanje večih predmetov ni bilo implementirano."
+
+msgid "Printing of this item is not yet available"
+msgstr "Tiskanje tega predmeta še ni na voljo"
+
+msgid "Item type: "
+msgstr "Tip predmeta:"
+
+msgid "Printing of this view is not yet available"
+msgstr "Tiskanje tega pogleda še ni na voljo"
+
+msgid "Recurring Message"
+msgstr "Ponavljajoče sporočilo"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"To je ponavljajoče sporočilo. Ali želite odpreti samo to ponavljanje ali "
+"serijo ponavljanj?"
+
+msgid "Recurring Appointment"
+msgstr "Ponavljajoč sestanek"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"To je ponavljajoč sestanek. Ali želite odpreti samo to ponavljanje ali "
+"serijo ponavljanj?"
+
+# 80%
+msgid "Recurring Meeting Request"
+msgstr "Zahteva za ponavljajoč sestanek"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"To je zahteva za ponavljajoč sestanek. Ali želite odpreti samo to "
+"ponavljanje ali celo serijo ponavljanj?"
+
+msgid "Recurring Task Request"
+msgstr "Zahtevek za ponavljajočo nalogo"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"To je zahteva za ponavljajočo nalogo. Ali želite odpreti samo to ponavljanje "
+"ali celo serijo ponavljanj?"
+
+msgid "Open this occurrence"
+msgstr "Odpri to ponavljanje"
+
+msgid "Open the series"
+msgstr "Odpri serijo ponavljanj"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"To je ponavljajoče sporočilo. Ali želite izbrisati samo to ponavljanje ali "
+"serijo ponavljanj?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"To je ponavljajoč sestanek. Ali želite izbrisati samo to ponavljanje ali "
+"serijo ponavljanj?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"To je zahteva za ponavljajoč sestanek. Ali želite izbrisati samo to "
+"ponavljanje ali serijo ponavljanj?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"To je zahteva za ponavljajočo nalogo. Ali želite izbrisati samo to "
+"ponavljanje ali serijo ponavljanj?"
+
+msgid "Delete this occurrence"
+msgstr "Izbriši to ponavljanje"
+
+msgid "Delete the series"
+msgstr "Izbriši to serijo ponavljanj"
+
+msgid "Confirm Delete"
+msgstr "Potrdi brisanje"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Ta \"{0}\" sestanek je že bil sprejet."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Niste se odzvali na zahtevo za sestanek \"{0}\"."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Izbriši in pošlji odziv organizatorju sestanka"
+
+msgid "Delete without sending"
+msgstr "Izbriši brez pošiljanja"
+
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Uredi prejemnika"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"Sporočilo o preklicu bo poslano vsem prejemnikom, ali želite nadaljevati?"
+
+#, fuzzy
+msgid "Delete Incomplete Task"
+msgstr "Dokončane naloge"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr ""
+
+#, fuzzy
+msgid "Decline and delete"
+msgstr "Zavrni zahtevo za sestanek"
+
+#, fuzzy
+msgid "Mark complete and delete"
+msgstr "Označi kot dokončano"
+
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Razvrsti po: Opomnik"
+
+#, fuzzy
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"Pošiljatelj tega sporočila želi biti obveščen kdaj berete to sporočilo. Ali "
+"želite obvestiti pošiljatelja?"
+
+#, fuzzy
+msgid "Import"
+msgstr "Pomembno"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Pomembno"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr ""
+
+msgid "Cc"
+msgstr "Kp"
+
+msgid "Bcc"
+msgstr "Skp"
+
+msgid "From"
+msgstr "Od"
+
+msgid "Insert item"
+msgstr "Vstavi predmet"
+
+msgid "Insert as"
+msgstr "Vstavi kot"
+
+msgid "Text only"
+msgstr "Samo besedilo"
+
+# 90%
+msgid "Attachment"
+msgstr "Priloga"
+
+# 90%
+msgid "Attach Item"
+msgstr "Pripni datoteko"
+
+msgid "No message selected"
+msgstr "Nobeno sporočilo ni izbrano"
+
+#, fuzzy
+msgid "Import to"
+msgstr "Pomembno"
+
+# 90%
+# 100%
+#, fuzzy
+msgid "New folder"
+msgstr "Nova mapa"
+
+msgid "Download as ZIP"
+msgstr ""
+
+msgid "Continue"
+msgstr "Nadaljuj"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr ""
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr ""
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+
+msgid "File upload"
+msgstr "Nalaganje datoteke"
+
+msgid "Attach item"
+msgstr "Pripni datoteko"
+
+msgid "Preview"
+msgstr "Predogled"
+
+msgid "Download"
+msgstr "Naloži"
+
+msgid "Download all as ZIP"
+msgstr ""
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Izprazni mapo"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Napaka priloge"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr ""
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr "Format slike ni podprt"
+
+msgid "Supported format for contact pictures are"
+msgstr "Podprti formati za kontaktne slike so"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "Attachment Error"
+msgstr "Napaka priloge"
+
+msgid "Manage Categories"
+msgstr ""
+
+msgid "New"
+msgstr "Novo"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Odstrani"
+
+# 90%
+msgid "Check Names"
+msgstr "Preveri imena"
+
+msgid "Select an address to use"
+msgstr "Izberi naslov za uporabo"
+
+# 83%
+msgid "Email"
+msgstr "Elektronsko sporočilo"
+
+msgid "More than one '{0}' found."
+msgstr "Več kot en '{0}' je bil najden."
+
+msgid "Alert"
+msgstr "Opozorilo"
+
+# 80%
+msgid "Please select a recipient"
+msgstr "Prosim izberite prejemnika"
+
+msgid "Mail and Post"
+msgstr "Sporočila in pošta"
+
+# 87%
+msgid "Contact"
+msgstr "Kontakt"
+
+# 100%
+msgid "Journal"
+msgstr "Dnevnik"
+
+msgid "Note"
+msgstr "Opomba"
+
+msgid "Task"
+msgstr "Naloga"
+
+# 100%
+msgid "Inbox"
+msgstr "Prejeto"
+
+msgid "Entire Inbox"
+msgstr "Celotna mapa prejeto"
+
+msgid "Secretary"
+msgstr "Tajnica"
+
+msgid "Only read"
+msgstr "Samo za branje"
+
+msgid "Delegate Permissions"
+msgstr "Dovoljenja člana"
+
+msgid "This delegate has the following permissions"
+msgstr "Ta član ima naslednja dovoljenja"
+
+msgid "Delegate can see my private items."
+msgstr "Član lahko vidi moje privatne predmete."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr "Član prejema kopije sestankov-povezanih sporočil poslanih meni."
+
+msgid "Other"
+msgstr "Drugi"
+
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Ni nastavljenih podpisov"
+
+msgid "Loading delegates"
+msgstr "Nalaganje članov"
+
+msgid "Please select a delegate."
+msgstr "Prosim izberite člana."
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+msgid "Permission"
+msgstr "Dovoljenje"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Zavrni zahtevo za sestanek"
+
+msgid "Delegate already exists in the list."
+msgstr "Član že obstaja na listi."
+
+msgid "Copy/Move Folder"
+msgstr "Kopiraj/premakni mapo"
+
+msgid "Copy/Move Messages"
+msgstr "Kopiraj/Premakni sporočila"
+
+msgid "Destination folder"
+msgstr "Ciljna mapa"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "Izbrano je {0} sporočilo."
+msgstr[1] "Izbranih je {0} sporočil."
+msgstr[2] "Izbranih je {0} sporočil."
+msgstr[3] "Izbranih je {0} sporočil."
+
+msgid "Folder '{0}' selected."
+msgstr "Izbrana '{0}' mapa."
+
+msgid "Kopano WebApp"
+msgstr "Kopano Spletna aplikacija"
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "ICS"
+msgstr ""
+
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Nastavi zastavico"
+
+msgid "Start date"
+msgstr "Datum začetka"
+
+msgid "End date"
+msgstr "Datum zaključka"
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+#, fuzzy
+msgid "Custom"
+msgstr "Datum zapadlosti"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Opomnik"
+
+msgid "Complete"
+msgstr "Končano"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
+
+msgid "Edit recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Nov elektronski naslov"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "To je obvezno polje"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Neobvezno"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Razvrsti po: Viri"
+
+msgid "Select attendees"
+msgstr "Izberi udeležence"
+
+msgid "Suggested Times"
+msgstr "Predlagane ure"
+
+msgid "Busy"
+msgstr "Zasedeno"
+
+msgid "Out of Office"
+msgstr "Odsoten"
+
+msgid "No Information"
+msgstr "Ni informacije"
+
+# 82%
+msgid "Show non-working hours"
+msgstr "Pokaži proste ure"
+
+# 82%
+# 81%
+msgid "Hide non-working hours"
+msgstr "Skrij proste ure"
+
+msgid "No freebusy information available for this date"
+msgstr "Informacije prosto-zasedeno niso na voljo za ta datum"
+
+msgid "No suggestions available"
+msgstr "Ni na voljo predlogov"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Menjaj med različnimi konteksti kot npr. Prejeto, koledar, itd.."
+
+msgid "Basic navigation"
+msgstr "Osnovna navigacija"
+
+msgid "Switch between different views"
+msgstr "Menjaj med različnimi pogledi"
+
+msgid "New item"
+msgstr "Nova postavka"
+
+msgid "All views"
+msgstr "Vsi pogledi"
+
+msgid "Close tab"
+msgstr ""
+
+msgid "Print item"
+msgstr "Natisni predmet"
+
+msgid "Items"
+msgstr "Predmeti"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "Shrani predmet kot npr. elektronsko pošto, stik itd."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "Pošlji predmet kot npr. elektronsko pošto, prošnja za sestanek itd."
+
+msgid "Select all items"
+msgstr "Izberi vse predmete"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "Razširi izbrano do prvega predmeta na seznamu"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "Razširi izbrano do zadnjega predmeta na seznamu"
+
+# 77%
+#, fuzzy
+msgid "Open selected item"
+msgstr "{0} izbrani predmet"
+
+msgid "Open dialog to categorize selected item"
+msgstr "Odpri dialog za kategorizacijo izbranega predmeta"
+
+msgid "Print list"
+msgstr "Natisni seznam"
+
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "Natisni izbrano nalogo"
+
+msgid "Open copy/move dialog"
+msgstr "Odpri/premakni dialog"
+
+# 77%
+# 75%
+# 100%
+#, fuzzy
+msgid "Delete selected item"
+msgstr "{0} izbrani predmet"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Uporabnik že obstaja"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Podpis za novo sporočilo"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Podpis za novo sporočilo"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Ni nastavljenih podpisov"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Uredi prejemnika"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Odgovori vsem"
+
+msgid "New Mail"
+msgstr "Novo sporočilo"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Prosim izberite prejemnika"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Uredi prejemnika"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Naslednji prejemnik (ki) niso bili doseženi"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano Spletna aplikacija"
+
+# 91%
+msgid "Display name"
+msgstr "Prikazovalno ime"
+
+msgid "Email address"
+msgstr "Elektronski naslov"
+
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "Natisni distribucijski seznam"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+
+msgid "Edit Recipient"
+msgstr "Uredi prejemnika"
+
+msgid "Send email"
+msgstr "Pošlji sporočilo"
+
+#, fuzzy
+msgid "Delete recipient from suggestion list"
+msgstr "Izbriši distribucijski seznam."
+
+msgid "View recipient"
+msgstr "Poglej prejemnika"
+
+msgid "Weekday"
+msgstr "Dan v tednu"
+
+msgid "Weekend Day"
+msgstr "Vikend"
+
+msgid "1st"
+msgstr "1."
+
+msgid "2nd"
+msgstr "2."
+
+msgid "3rd"
+msgstr "3."
+
+msgid "4th"
+msgstr "4."
+
+# 75%
+msgid "last"
+msgstr "zadnji"
+
+msgid "Every {A} day(s)"
+msgstr "Vsakih {A} dan (dni)"
+
+msgid "Every weekday"
+msgstr "Vsak delovnik"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "Obnovi novo nalogo {A} dan(dni) po tem, ko je vsaka naloga končana"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Dan {A} od vsakih {B} mesec(mesecev)"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "{A} od vsakih {B} mesec(mesecev)"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr ""
+"Obnovi novo nalogo {A} mesec (mesecev) po tem, ko je vsaka naloga končana"
+
+msgid "Appointment Recurrence"
+msgstr "Ponavljanje sestanka"
+
+msgid "Remove Recurrence"
+msgstr "Odstrani ponavljanje"
+
+#, fuzzy
+msgid "Reset recurring"
+msgstr "Ponavljanje"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Ta sestanek je bil premaknjen ali izbrisan, ali želite nadaljevati?"
+
+msgid "Task Recurrence"
+msgstr "Ponavljanje opravila"
+
+msgid "Daily"
+msgstr "Dnevno"
+
+msgid "Weekly"
+msgstr "Tedensko"
+
+msgid "Monthly"
+msgstr "Mesečno"
+
+msgid "Yearly"
+msgstr "Letno"
+
+msgid "Range of recurrence"
+msgstr "Obseg ponovitve"
+
+msgid "No end date"
+msgstr "Brez končnega datuma"
+
+msgid "End after {A} occurrences"
+msgstr "Konec po {A} ponovitvah"
+
+msgid "End by {A}"
+msgstr "Konec pri {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Trajanje ponovitve: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Vsakih {A} teden (tednov) na "
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr ""
+"Obnovi novo nalogo {A} teden (tednov) po tem, ko je vsaka naloga končana"
+
+msgid "Every {A} {B}"
+msgstr "Vsakih {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "{A} {B} od {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Obnovi novo nalogo {A} leto(let) po tem ko je vsaka naloga končana."
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Not supported at the moment."
+msgstr "Trenutno ni podprto."
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "Tukaj je {0} opomnik"
+msgstr[1] "Tukaj je {0} opomnik"
+msgstr[2] "Tukaj je {0} opomnik"
+msgstr[3] "Tukaj je {0} opomnik"
+
+# 88%
+msgid "Reminders"
+msgstr "Opomniki"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "Tukaj je {0} opomnik"
+
+msgid "Due In"
+msgstr "Zapade"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Zaradi"
+
+# 92%
+msgid "Reminder time"
+msgstr "Čas opomnika"
+
+msgid "Dismiss All"
+msgstr "Opusti vse"
+
+msgid "Open Item"
+msgstr "Odpri predmet"
+
+msgid "Dismiss"
+msgstr "Opusti"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Pritisni dremež za ponovno opominjanje"
+
+msgid "Snooze"
+msgstr "Dremež"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} opomnik je izbran."
+msgstr[1] "{0} opomniki so izbrani."
+msgstr[2] "{0} opomniki so izbrani."
+msgstr[3] "{0} opomniki so izbrani."
+
+msgid "Restore Softdeleted Items"
+msgstr "Obnovi izbrisane predmete"
+
+msgid "Restore From {0}"
+msgstr "Obnoviti od {0}"
+
+msgid "Restore"
+msgstr "Obnovi"
+
+msgid "Restore All"
+msgstr "Obnovi vse"
+
+msgid "Permanent Delete"
+msgstr "Trajno izbriši"
+
+msgid "Delete All"
+msgstr "Izbriši vse"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "Messages"
+msgstr "sporočilo"
+
+#, fuzzy
+msgid "Delete all items"
+msgstr "Izberi vse predmete"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Ali želite permanentno izbrisati vse predmete?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Obnovi predmete"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Ali želite permanentno izbrisati vse predmete?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "Skupaj {0} obnovljiv predmet"
+msgstr[1] "Skupaj {0} obnovljivih predmetov"
+msgstr[2] "Skupaj {0} obnovljivih predmetov"
+msgstr[3] "Skupaj {0} obnovljivih predmetov"
+
+msgid "Deleted On"
+msgstr "Izbrisano na"
+
+# 84%
+# 78%
+msgid "Sort by: Deleted On"
+msgstr "Razvrsti po: Izbrisan na"
+
+msgid "Item Count"
+msgstr "Število postavk"
+
+msgid "Sort by: Item Count"
+msgstr "Razvrsti po: Število artiklov"
+
+# 76%
+msgid "Sort by: From"
+msgstr "Razvrsti po: Od"
+
+msgid "Received"
+msgstr "Prejeto"
+
+msgid "Sort by: Received"
+msgstr "Razvrsti po: Prejeto"
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Sort by: Size"
+msgstr "Razvrsti po: Velikosti"
+
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Premakni sporočilo v mapo ..."
+
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Kopiraj sporočilo v mapo ..."
+
+msgid "Delete the message"
+msgstr "Izbriši sporočilo"
+
+#, fuzzy
+msgid "Redirect the message to..."
+msgstr "Preusmeri sporočilo na ..."
+
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "Posreduj sporočilo do ..."
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "Posreduj sporočilo kot prilogo do ..."
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "Posreduj sporočilo do ..."
+
+#, fuzzy
+msgid "is received from..."
+msgstr "je prejeto od ..."
+
+#, fuzzy
+msgid "includes these words in the sender's address..."
+msgstr "Vsebuje te besede v naslovu pošiljatelja ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address..."
+msgstr "Vsebuje te besede v naslovu pošiljatelja ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "vsebuje te besede v predmetu ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "vsebuje te besede v predmetu ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "vsebuje te besede v predmetu ..."
+
+#, fuzzy
+msgid "has importance..."
+msgstr "ima pomembnost ..."
+
+msgid "has an attachment"
+msgstr ""
+
+#, fuzzy
+msgid "is sent to..."
+msgstr "je poslano ..."
+
+msgid "is sent only to me"
+msgstr "je poslano samo meni"
+
+msgid "has my name in the Cc field"
+msgstr ""
+
+msgid "does not have my name in the To or Cc field"
+msgstr ""
+
+msgid "has my name in the To or Cc field"
+msgstr ""
+
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "Občutljivost"
+
+#, fuzzy
+msgid "is received after..."
+msgstr "je prejeto od ..."
+
+#, fuzzy
+msgid "is received before..."
+msgstr "je prejeto od ..."
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr ""
+
+msgid "is received (all messages)"
+msgstr ""
+
+msgid "Select one..."
+msgstr "Izberi eno ..."
+
+msgid "Unknown condition"
+msgstr "Neznano stanje"
+
+msgid "This condition for the current rule is unknown"
+msgstr "To stanje za trenutno pravilo je neznano"
+
+msgid "Unnamed folder"
+msgstr "Neimenovana mapa"
+
+msgid "Add action"
+msgstr "Dodaj dejanje"
+
+msgid "Remove action"
+msgstr "Odstrani dejanje"
+
+msgid "Unknown action"
+msgstr "Neznano dejanje"
+
+msgid "This action for the current rule is unknown"
+msgstr "To dejanje za obstoječe pravilo je neznano"
+
+msgid "Add condition"
+msgstr "Dodaj stanje"
+
+msgid "Remove condition"
+msgstr "Odstrani stanje"
+
+msgid "Inbox Rule"
+msgstr "Pravilo prejetih sporočil"
+
+msgid "Rule name"
+msgstr "Ime pravila"
+
+msgid "When the message"
+msgstr "Ko sporočilo"
+
+msgid "Do the following"
+msgstr "Naredi naslednje"
+
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Možnosti"
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr "Prenehaj ustvarjati pravila"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "Dodaj dejanje"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "Odstrani dejanje"
+
+msgid "Specify Words or Phrases"
+msgstr "Specificiraj besede ali fraze"
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "and"
+msgstr "in"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+
+msgid "or"
+msgstr "ali"
+
+msgid "No rule exists"
+msgstr "Ni nobenega pravila"
+
+msgid "Active"
+msgstr "Aktiven"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Odsoten"
+
+# 80%
+msgid "Rule"
+msgstr "Pravilo"
+
+# 76%
+msgid "Loading rules"
+msgstr "Nalaganje pravil"
+
+msgid "Please select a rule."
+msgstr "Prosim izberite pravilo."
+
+msgid "Rule already has highest priority."
+msgstr "Pravilo že ima najvišjo prioriteto."
+
+msgid "Rule already has lowest priority."
+msgstr "Pravilo že ima najnižjo prioriteto."
+
+msgid "myself"
+msgstr ""
+
+msgid "Update rules for"
+msgstr ""
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr "Ali želite uporabiti spremembe?"
+
+#, fuzzy
+msgid "All folders"
+msgstr "Pokaži vse mape"
+
+#, fuzzy
+msgid "Other..."
+msgstr "Drugi"
+
+#, fuzzy
+msgid "Search in.."
+msgstr "Marec"
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Mapa vsebuje"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr ""
+
+msgid "No from addresses configured"
+msgstr ""
+
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
+
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
+
+msgid "View"
+msgstr "Pogled"
+
+msgid "Please select a sendas record."
+msgstr "Prosim izberite vpis \"Poslati kot\"."
+
+msgid "Delegates"
+msgstr "Udeleženci"
+
+# 88%
+msgid "Delegate settings"
+msgstr "Nastavitve udeležencev"
+
+# 80%
+#, fuzzy
+msgid "Rules"
+msgstr "Pravilo"
+
+msgid "From Addresses"
+msgstr ""
+
+msgid "From Addresses settings"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Job Title"
+msgstr "Naziv"
+
+# 92%
+msgid "Phone Numbers"
+msgstr "Telefonske številke"
+
+# 80%
+# 75%
+msgid "Business Fax"
+msgstr "Poslovni faks"
+
+msgid "Webpage"
+msgstr "Spletna stran"
+
+# 75%
+msgid "IM Address"
+msgstr "IM naslov"
+
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-Y"
+
+# 76%
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} izbrana vrstica"
+msgstr[1] "{0} izbrane vrstice"
+msgstr[2] "{0} izbrane vrstice"
+msgstr[3] "{0} izbrane vrstice"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
+msgid "l d/m/Y G:i"
+msgstr "l d/m/Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-Y"
+
+msgid "Unknown"
+msgstr "Neznan"
+
+# 88%
+msgid "Meeting Organizer"
+msgstr "Organizator sestanka"
+
+msgid "{0} overdue"
+msgstr "{0} zapadlo"
+
+msgid "Loading..."
+msgstr "Nalaganje..."
+
+msgid "Failed"
+msgstr "Neuspešno"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Priloge"
+
+msgid "Download Pictures"
+msgstr "Naloži fotografije"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Dodaj pošiljatelja na listo varnih pošiljateljev"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Dodaj domeno za shranjevanje seznama pošiljatelja"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "To sporočilo je bilo poslano z {0} pomembnostjo."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "Prosim obravnavajte to kot {0}."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+"Kliknite tukaj za nalaganje slik. Zaradi zaščite vaše zasebnosti, je WebApp "
+"preprečila avtomatično nalaganje nekaterih slik v tem sporočilu."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"To spročilo je pokvarjeno in ne bo pravilno prikazano. Kliknite tukaj, da ga "
+"popravite."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} je potrdil."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0} je prejel v imenu {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} je pogojno sprejel."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0} je pogojno sprejel v imenu {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} je zavrnil."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0} je zavrnil v imenu {1}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0} je pogojno sprejel in predlagal novo uro za ta sestanek."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{0} je pogojno sprejel v imenu {1} in predlagal novo uro za ta sestanek."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} je zavrnil in predlagal novo uro za ta sestanek."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0} je zavrnil v imenu {1} in predlagal novo uro za ta sestanek."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Tega sestanka ni v koledarju; mogoče je bil premaknjen ali izbrisan."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Ta zahteva za sestanek je bila posodobljena po tem, ko je bilo poslano to "
+"sporočilo. Odpreti morate zadnjo posodobitev ali pa odprite predmet iz "
+"koledarja."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Kot organizatorju se vam ni potrebno odzivati na sestanek."
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Sestanek je bil posodobljen po tem, ko je udeleženec poslal ta odziv"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Ta sestanek se pojavlja v preteklosti."
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Prosim za odziv."
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "To je posodobitev prej poslane zahteve za sestanek."
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "Prejeto za {0}."
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr ""
+
+#, fuzzy
+msgid "Assigned by {0} on {1}."
+msgstr "Sprejeto od {0} na {1}"
+
+#, fuzzy
+msgid "Waiting for response from recipient"
+msgstr "Zahtevaj potrdilo o branju od prejemnikov"
+
+#, fuzzy
+msgid "Accepted by {0} on {1}."
+msgstr "Sprejeto od {0} na {1}"
+
+#, fuzzy
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0} je prejel v imenu {1}."
+
+#, fuzzy
+msgid "Declined by {0} on {1}."
+msgstr "Sprejeto od {0} na {1}"
+
+#, fuzzy
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0} je zavrnil v imenu {1}."
+
+msgid "Last update sent on {0}."
+msgstr ""
+
+#, fuzzy
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0} je prejel v imenu {1}."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Originalno sporočilo"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr ""
+"Poskušamo popraviti pokvarjeno elektronsko sporočilo, ali želite nadaljevati?"
+
+#, fuzzy
+msgid "d-m-Y g:i a"
+msgstr "d-m-Y"
+
+msgid "The matching task was not found in your task list."
+msgstr ""
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Za"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Kp"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Skp"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Prejemniki"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "v imenu"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr "Poslano"
+
+# 100%
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Noben"
+
+msgid "Pop-out"
+msgstr ""
+
+#, fuzzy
+msgid "Mark as read"
+msgstr "Označi neprebrano"
+
+#, fuzzy
+msgid "Mark as unread"
+msgstr "Označi neprebrano"
+
+msgid "in"
+msgstr ""
+
+msgid "Root"
+msgstr "Root"
+
+msgid "File As"
+msgstr "Datoteka kot"
+
+msgid "Company Name"
+msgstr "Ime podjetja"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Razvrsti po: Ime podjetja"
+
+msgid "Sort by: Job Title"
+msgstr "Razvrsti po: Naziv"
+
+msgid "Full Name"
+msgstr "Polno ime"
+
+msgid "Department Name"
+msgstr "Ime oddelka"
+
+msgid "Home Address"
+msgstr "Domači naslov"
+
+msgid "Business Address"
+msgstr "Poslovni naslov"
+
+msgid "Other Address"
+msgstr "Drugi naslov"
+
+msgid "Business Phone"
+msgstr "Poslovni telefon"
+
+# 87%
+#, fuzzy
+msgid "Business 2 Phone"
+msgstr "Poslovni telefon"
+
+# 76%
+# 88%
+#, fuzzy
+msgid "Assistant Phone"
+msgstr "Telefon asistenta"
+
+msgid "Company Main Phone"
+msgstr "Centrala podjetja"
+
+# 83%
+#, fuzzy
+msgid "Home 2 Phone"
+msgstr "Domači telefon"
+
+msgid "Car Phone"
+msgstr "Telefon v avtomobilu"
+
+msgid "Radio"
+msgstr "Radio"
+
+msgid "Callback Phone"
+msgstr "Telefon za povratni klic"
+
+msgid "Other Phone"
+msgstr "Drugi telefon"
+
+msgid "Primary Phone"
+msgstr "Glavni telefon"
+
+msgid "Telex"
+msgstr "Teleks"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD Telefon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Drugi faks"
+
+msgid "Home Fax"
+msgstr "Domači faks"
+
+# 94%
+#, fuzzy
+msgid "Email Display As"
+msgstr "Prikazno ime elektronskega sporočila"
+
+# 75%
+# 87%
+msgid "Email 2"
+msgstr "Elektronski naslov 2"
+
+# 89%
+#, fuzzy
+msgid "Email2 Display As"
+msgstr "Prikazno ime elektronskega sporočila"
+
+# 75%
+# 87%
+msgid "Email 3"
+msgstr "Elektronski naslov 3"
+
+# 89%
+#, fuzzy
+msgid "Email3 Display As"
+msgstr "Prikazno ime elektronskega sporočila 3"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Rojstni dan"
+
+msgid "Wedding Anniversary"
+msgstr "Obletnica poroke"
+
+msgid "Spouse/Partner"
+msgstr "Zakonec/Partner"
+
+msgid "Profession"
+msgstr "Poklic"
+
+msgid "Assistant's Name"
+msgstr "Ime asistenta"
+
+# 94%
+# 77%
+#, fuzzy
+msgid "Distribution List Name"
+msgstr "Distribucijski seznam"
+
+# 75%
+msgid "Open Shared Contacts"
+msgstr "Odpri kontakte v skupni rabi"
+
+msgid "Business Cards"
+msgstr "Vizitke"
+
+msgid "Phone List"
+msgstr "Seznam telefonskih številk"
+
+msgid "Add to contacts"
+msgstr "Dodaj h kontaktom"
+
+# 77%
+msgid "Print selected contact"
+msgstr "Natisni izbrani kontak"
+
+msgid "No contact selected"
+msgstr "Ni izbranega kontakta"
+
+msgid "Distribution list"
+msgstr "Seznam prejemnikov"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Gdč."
+
+msgid "Mr."
+msgstr "G."
+
+msgid "Mrs."
+msgstr "Ga."
+
+msgid "Ms."
+msgstr "Gdč."
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Ml"
+
+msgid "Sr."
+msgstr "Sr"
+
+msgid "Phone number"
+msgstr "Telefonska številka"
+
+msgid "Check address"
+msgstr "Preveri naslov"
+
+msgid "Street"
+msgstr "Ulica"
+
+msgid "State/Province"
+msgstr "Država/provinca"
+
+msgid "Zip/Postal code"
+msgstr "Koda Zip/pošta"
+
+msgid "Country/Region"
+msgstr "Država/regija"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Prikaži to sporočilo, ko bo naslov nepopoln ali nejasen."
+
+msgid "Details"
+msgstr "Podrobnosti"
+
+# 93%
+msgid "Office location"
+msgstr "Lokacija pisarne"
+
+# 78%
+msgid "Manager's name"
+msgstr "Ime direktorja"
+
+# 93%
+msgid "Assistant's name"
+msgstr "Ime asistenta"
+
+msgid "Nickname"
+msgstr "Vzdevek"
+
+msgid "Suffix"
+msgstr "Končnice"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Obletnica"
+
+msgid "Photo"
+msgstr "Slika"
+
+# 77%
+msgid "Addresses"
+msgstr "Naslovi"
+
+msgid "Additional information"
+msgstr "Dodatne informacije"
+
+# 80%
+msgid "Business 2"
+msgstr "Posel 2"
+
+msgid "Callback"
+msgstr "Povratni klic"
+
+msgid "Car"
+msgstr "Avto"
+
+# 83%
+msgid "Home 2"
+msgstr "Doma 2"
+
+msgid "Primary"
+msgstr "Primarni"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Preveri polno ime"
+
+msgid "Middle"
+msgstr "Srednje"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Prikaži to sporočilo, ko je ime nepopolno ali nejasno."
+
+msgid "Check phone number"
+msgstr "Preveri telefonsko številko"
+
+msgid "Country/Region code"
+msgstr "Koda države/regije"
+
+msgid "City/Area code"
+msgstr "Koda mesta/območja"
+
+msgid "Local number"
+msgstr "Lokalna številka"
+
+msgid "Extension"
+msgstr "Podaljšanje"
+
+msgid "Add Attachment"
+msgstr "Dodaj prilogo"
+
+# 81%
+#, fuzzy
+msgid "Add attachments to this contact"
+msgstr "Dodaj priloge k tem kontaktu."
+
+# 75%
+#, fuzzy
+msgid "Mark this contact as private"
+msgstr "Označi ta kontakt kot zaseben."
+
+# 94%
+msgid "Distribution List"
+msgstr "Distribucijski seznam"
+
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "Označi ta distribucijski seznam kot zaseben."
+
+#, fuzzy
+msgid "New email address"
+msgstr "Nov elektronski naslov"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Prosim vnesite veljavni elektronski naslov!"
+
+msgid "Select Members"
+msgstr "Izberi člane"
+
+msgid "Add New"
+msgstr "Dodaj novo"
+
+msgid "Type your note here..."
+msgstr ""
+
+msgid "New contact"
+msgstr ""
+
+# 78%
+# 100%
+#, fuzzy
+msgid "New distribution list"
+msgstr "Natisni distribucijski seznam"
+
+#, fuzzy
+msgid "Email 2 Display As"
+msgstr "Prikazno ime elektronskega sporočila"
+
+#, fuzzy
+msgid "Email 3 Display As"
+msgstr "Prikazno ime elektronskega sporočila 3"
+
+# 88%
+msgid "Assistent"
+msgstr "Asistent"
+
+msgid "Loading contacts"
+msgstr "Nalaganje kontaktov"
+
+msgid "Group"
+msgstr "Skupina"
+
+msgid "Work"
+msgstr "Delo"
+
+msgid "Sort by: Full Name"
+msgstr "Razvrsti po: Polno ime"
+
+msgid "Sort by: Email Address 2"
+msgstr "Razvrsti po: Elektronski naslov 2"
+
+msgid "Sort by: Email Address 3"
+msgstr "Razvrsti po: Elektronski naslov 3"
+
+msgid "Mobile Phone"
+msgstr "Mobilni telefon"
+
+msgid "Sort by: Mobile Phone"
+msgstr "Razvrsti po: Mobilni telefon"
+
+msgid "Sort by: Business Phone"
+msgstr "Razvrsti po: Poslovni telefon"
+
+msgid "Sort by: Business Fax"
+msgstr "Razvrsti po: Poslovni faks"
+
+msgid "Sort by: Department Name"
+msgstr "Razvrsti po: Ime oddelka"
+
+msgid "Office Location"
+msgstr "Lokacija pisarne"
+
+msgid "Sort by: Office Location"
+msgstr "Razvrsti po: Lokacija pisarne"
+
+msgid "Sort by: Profession"
+msgstr "Razvrsti po: Poklic"
+
+msgid "Manager Name"
+msgstr "Ime direktorja"
+
+msgid "Sort by: Manager Name"
+msgstr "Razvrsti po: Ime direktorja"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Razvrsti po: Ime asistenta"
+
+# 76%
+msgid "Sort by: Nickname"
+msgstr "Razvrsti po: Vzdevek"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Razvrsti po: Zakonec/Partner"
+
+msgid "Sort by: Birthday"
+msgstr "Razvrsti po: Rojstni dan"
+
+msgid "Sort by: Anniversary"
+msgstr "Razvrsti po: Obletnica"
+
+msgid "Sort by: Business Address"
+msgstr "Razvrsti po: Poslovni naslov"
+
+# 80%
+msgid "Sort by: Home Address"
+msgstr "Razvrsti po: Domači naslov"
+
+# 78%
+msgid "Sort by: Office Address"
+msgstr "Razvrsti po: Naslov v pisarni"
+
+msgid "Mailing Address"
+msgstr "Elektronski naslov"
+
+# 79%
+msgid "Sort by: Mailing Address"
+msgstr "Razvrsti po: Elektronski naslov"
+
+# 85%
+msgid "Sort by: IM Address"
+msgstr "Razvrsti po: IM Naslov"
+
+# 75%
+msgid "Sort by: Webpage"
+msgstr "Razvrsti po: Spletna stran"
+
+# 76%
+msgid "Assistant's Phone"
+msgstr "Telefon asistenta"
+
+# 84%
+msgid "Sort by: Assistant's Phone"
+msgstr "Razvrsti po: Telefon asistenta"
+
+# 87%
+msgid "Business Phone 2"
+msgstr "Telefon 2"
+
+# 92%
+msgid "Sort by: Business Phone 2"
+msgstr "Razvrsti po: Telefon 2"
+
+msgid "Sort by: Callback"
+msgstr "Razvrsti po: Telefon za povratni klic"
+
+# 78%
+msgid "Sort by: Car Phone"
+msgstr "Razvrsti po: Telefon v avtomobilu"
+
+msgid "Company Phone"
+msgstr "Telefon podjetja"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Razvrsti po: Telefon podjetja"
+
+# 83%
+msgid "Home Phone 2"
+msgstr "Domači telefon 2"
+
+# 90%
+msgid "Sort by: Home Phone 2"
+msgstr "Razvrsti po: Domači telefon 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Razvrsti po : Domači faks"
+
+# 76%
+msgid "Sort by: ISDN"
+msgstr "Razvrsti po: ISDN"
+
+# 80%
+msgid "Sort by: Other Phone"
+msgstr "Razvrsti po: Drugi telefon"
+
+msgid "Radio Phone"
+msgstr "Radio telefon"
+
+# 76%
+msgid "Sort by: Radio Phone"
+msgstr "Razvrsti po: Radio telefon"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Razvrsti po: TTY/TDD Telefon"
+
+# 80%
+msgid "Sort by: Telex Phone"
+msgstr "Razvrsti po: Teleks"
+
+msgid "Change Picture"
+msgstr "Spremeni sliko"
+
+msgid "Remove Picture"
+msgstr "Odstrani sliko"
+
+msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
+msgstr ""
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from WebApp."
+msgstr ""
+
+msgid "Untitled"
+msgstr "Nenaslovljen"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr ""
+"Ne morem naložiti priloge, samo {0} prilog je dovoljeno priložiti k sporočilu"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Ne morem naložiti priloge, priloga je {0} medtem ko je maksimum {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr ""
+"Ne morem naložiti priloge, skupna velikost priloge je {0} medtem ko je "
+"dovoljena velikost {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Ne morem naložiti priloge. Skupno število priloge je {0} medtem ko je "
+"dovoljeno število prilog {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Ne morem naložiti priloge. Skupno število priloge je {0} datotek medtem ko "
+"je dovoljeno število datotek {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} v imenu {1}"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "jS F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Pomembno"
+
+msgid "Personal"
+msgstr "Osebno"
+
+msgid "Holiday"
+msgstr "Počitnice"
+
+msgid "Travel Required"
+msgstr "Zahtevano potovanje"
+
+msgid "Preparation Required"
+msgstr "Zahtevana priprava"
+
+msgid "Special Date"
+msgstr "Poseben datum"
+
+msgid "Phone Interview"
+msgstr "Telefonski razgovor"
+
+msgid "Free"
+msgstr "Prosto"
+
+msgid "Low"
+msgstr "Nizko"
+
+msgid "Normal"
+msgstr "Običajno"
+
+msgid "High"
+msgstr "Visoko"
+
+msgid "Canceled"
+msgstr "Odpovedano"
+
+msgid "Blue"
+msgstr "Modra"
+
+msgid "Green"
+msgstr "Zelena"
+
+msgid "Pink"
+msgstr "Roza"
+
+msgid "White"
+msgstr "Bela"
+
+msgid "Yellow"
+msgstr "Rumena"
+
+msgid "No response"
+msgstr "Ni odziva"
+
+msgid "Not responded"
+msgstr "Se ni odzval"
+
+msgid "Accepted"
+msgstr "Sprejeto"
+
+msgid "Declined"
+msgstr "Zavrnjeno"
+
+msgid "Confidential"
+msgstr "Zaupno"
+
+msgid "Not Started"
+msgstr "Se še ni pričelo"
+
+msgid "In Progress"
+msgstr "V teku"
+
+msgid "Wait for other person"
+msgstr "Počakaj na drugo osebo"
+
+# 87%
+msgid "Deferred"
+msgstr "Odloženo"
+
+msgid "Dark"
+msgstr ""
+
+#, fuzzy
+msgid "High Contrast"
+msgstr "Vroči kontakti"
+
+msgid "Lime"
+msgstr ""
+
+msgid "Orange"
+msgstr "Oranžna"
+
+msgid "Purple"
+msgstr "Vijolična"
+
+msgid "Logout"
+msgstr "Odjava"
+
+msgid "Switch view"
+msgstr "Preklopi pogled"
+
+#, fuzzy
+msgid "Widgets"
+msgstr "Dodaj pripomočke"
+
+#, fuzzy
+msgid "Sending..."
+msgstr "Pošiljanje"
+
+msgid "Sent successfully"
+msgstr "Pošiljanje uspešno"
+
+#, fuzzy
+msgid "No recipient"
+msgstr "Uredi prejemnika"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Prosim specificirajte prejemnika"
+
+msgid "Please specify a recipient"
+msgstr "Prosim specificirajte prejemnika"
+
+msgid "The attached files are not uploaded yet."
+msgstr "Priložene datoteke še niso bile naložene."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Ali želite poslati to sporočilo brez prilog?"
+
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Priložene datoteke še niso bile naložene."
+
+msgid "Don't Send"
+msgstr "Ne pošlji"
+
+msgid "Send Anyway"
+msgstr "Pošlji v vsakem primeru"
+
+#, fuzzy
+msgid "No subject"
+msgstr "ni predmeta"
+
+msgid "Send this message without a subject?"
+msgstr "Ali naj pošljem to sporočilo brez zadeve?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Uredi prejemnika"
+
+msgid "Not all recipients could be resolved"
+msgstr "Vsi prejeniki niso bili rešeni"
+
+#, fuzzy
+msgid "Collapse hierarchy"
+msgstr "Nalaganje hierarhije je bilo neuspešno."
+
+msgid "Expand hierarchy"
+msgstr ""
+
+msgid "Folders List"
+msgstr "Seznam map"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Pokaži podrobnosti"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Podrobnosti"
+
+msgid "Loaded {0} of {1}"
+msgstr ""
+
+msgid "Saving"
+msgstr "Shranjevanje"
+
+msgid "Saved"
+msgstr "Shranjeno"
+
+msgid "Saved successfully"
+msgstr "Uspešno shranjeno"
+
+#, fuzzy
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Izgubili boste vse neshranjene spremembe. Ali ste prepričani, da želite "
+"zapreti to okno?"
+
+msgid "Kopano Content Panel"
+msgstr "Zarafin panel vsebine"
+
+# 92%
+#, fuzzy
+msgid "Delete item"
+msgstr "Izbriši predmete"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Ta predmet je bil spremenjen. Ali ga želite izbrisati?"
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to Kopano WebApp"
+msgstr "Dobrodošli v spletni aplikaciji Kopano"
+
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+"Prvič uporabljate WebApp. <br />Prosim, da preverite naslednje nastavitve "
+"preden nadaljujete."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
+msgstr ""
+"Prvič uporabljate WebApp. <br />Prosim, da preverite naslednje nastavitve "
+"preden nadaljujete."
+
+msgid "Add widgets"
+msgstr "Dodaj pripomočke"
+
+msgid "No widgets installed."
+msgstr "Ni naloženih pripomočkov."
+
+msgid "Configure widget"
+msgstr "Configure widget"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "Odstrani sliko"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "Nalaganje hierarhije je bilo neuspešno."
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "Dodaj pripomočke"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Dodaj pripomočke"
+
+msgid "Collapse widget panel"
+msgstr ""
+
+msgid "Expand widget panel"
+msgstr ""
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr ""
+
+# 83%
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "jS F G:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-Y"
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "Dovoljenja mape"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Nimate dovolj dovoljenj za odpiranje te shrambe, ali jo želite izbrisati iz "
+"hierarhije?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Nimate dovolj dovoljenj za odpiranje te mape, ali jo želite izbrisati iz "
+"hierarhije?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "Dovoljenja člana"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Nimate dovolj dovoljenj za odpiranje te mape."
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
+msgid "{0} in {1}"
+msgstr "{0} v {1}"
+
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
+msgid "{0} of {1}"
+msgstr "{0} od {1}"
+
+msgid "Full control"
+msgstr "Popolni nadzor"
+
+msgid "No rights"
+msgstr "Ni pravic"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "Priložene datoteke še niso bile naložene."
+
+msgid "Create New Folder"
+msgstr "Ustvari novo mapo"
+
+msgid "Folder contains"
+msgstr "Mapa vsebuje"
+
+msgid "Calendar Items"
+msgstr "Predmeti v koledarju"
+
+msgid "Mail and Post Items"
+msgstr "Predmeti elektronske pošte in pošte"
+
+msgid "Contacts Items"
+msgstr "Predmeti kontaktov"
+
+msgid "Note Items"
+msgstr "Opozorilni predmeti"
+
+msgid "Task Items"
+msgstr "Predmeti nalog"
+
+msgid "Select where to place the folder"
+msgstr "Izberi kam naj shranim mapo"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Ima mape"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Ni informacije"
+
+msgid "You must select a destination folder."
+msgstr "Izbrati morate mapo."
+
+msgid "Properties"
+msgstr "Lastnosti"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Folder size"
+msgstr "Velikost mape"
+
+msgid "Folder containing {0} Items"
+msgstr "Mapa vsebuje {0} predmetov"
+
+msgid "Permissions"
+msgstr "Dovoljenja"
+
+msgid "No permissions granted"
+msgstr "Ni odobrenih dovoljenj"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Create items"
+msgstr "Ustvari predmete"
+
+msgid "Read items"
+msgstr "Preberi predmete"
+
+msgid "Create subfolders"
+msgstr "Ustvari podmape"
+
+msgid "Folder permissions"
+msgstr "Dovoljenja mape"
+
+msgid "Folder visible"
+msgstr "Vidna mapa"
+
+msgid "Edit items"
+msgstr "Uredi predmete"
+
+msgid "Own"
+msgstr "Lastne"
+
+msgid "All"
+msgstr "Vse"
+
+# 92%
+msgid "Delete items"
+msgstr "Izbriši predmete"
+
+msgid "User already exists"
+msgstr "Uporabnik že obstaja"
+
+msgid "Group already exists"
+msgstr "Skupina že obstaja"
+
+msgid "Folder Size"
+msgstr "Velikost mape"
+
+msgid "Folder Name"
+msgstr "Ima mape"
+
+msgid "Size (without subfolders)"
+msgstr "Velikost (brez podmap)"
+
+msgid "Total size (including subfolders)"
+msgstr "Skupna velikost (skupaj s podmapami)"
+
+msgid "Loading subfolder sizes"
+msgstr "Nalaganje velikosti podmap"
+
+msgid "No subfolders present"
+msgstr "Ni prisotnih podmap"
+
+msgid "Subfolder"
+msgstr "Podmapa"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Razvrsti po: Ime podmape"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Razvrsti po: Velikost (brez podmap)"
+
+msgid "Total size"
+msgstr "Skupna velikost"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Razvrsti po: Skupna velikost (skupaj s podmapami)"
+
+# 78%
+msgid "Open Shared Folders"
+msgstr "Odpri mape v skupni rabi"
+
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Uporabnika ni bilo mogoče rešiti."
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Uporabniško ime '{0}' ni prepoznano."
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr "Uporabniško ime '{0}' ni veljaven uporabnik."
+
+#, fuzzy
+msgid "Own store"
+msgstr "Manjkajoče shranjevanje"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
+msgstr "Vaše hrambe ni možno odpreti dvakrat"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Ta mapa v skupni rabi je že odprta."
+
+msgid "This shared folder is already open."
+msgstr "Ta mapa v skupni rabi je že odprta."
+
+msgid "No user"
+msgstr ""
+
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Specificirati morate uporabniško ime."
+
+msgid "Folder type"
+msgstr "Tip mape"
+
+msgid "Show subfolders"
+msgstr "Pokaži podmape"
+
+msgid "Open shared folder/store"
+msgstr "Odpri mapo v skupni rabi/hrambo"
+
+#, fuzzy
+msgid "Empty folder"
+msgstr "Izprazni mapo"
+
+#, fuzzy
+msgid "Empty Junk Email"
+msgstr "Nezaželjena pošta"
+
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "Izbrisani predmeti"
+
+msgid "Rename Folder"
+msgstr "Preimenuj mapo"
+
+msgid "New Folder"
+msgstr "Nova mapa"
+
+msgid "Mark All Messages Read"
+msgstr "Označi vsa sporočila kot prebrana"
+
+msgid "Delete Folder"
+msgstr "Izbriši mapo"
+
+msgid "Close store"
+msgstr "Zapri hrambo"
+
+msgid "Close folder"
+msgstr "Zapri mapo"
+
+msgid "Reload"
+msgstr "Ponovno naloži"
+
+msgid "Restore items"
+msgstr "Obnovi predmete"
+
+# 76%
+# 100%
+#, fuzzy
+msgid "Select color"
+msgstr "Izberi mapo"
+
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "Dodaj v mapo priljubljeno"
+
+#, fuzzy
+msgid "Remove From Favorites"
+msgstr "Odstrani s koledarja"
+
+#, fuzzy
+msgid "Share folder..."
+msgstr "Zagonska mapa"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Pomembno"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Novi sestanek"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Lastnosti"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Lastnosti"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"Ali ste prepričani, da želite trajno izbrisati vse te predmete in podmape v "
+"\"{0}\" mapi?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"Ali ste prepričani, da želite izbrisati mapo \"{0}\" in premakniti vsebino v "
+"mapo Izbrisano?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Izbriši mapo"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "Ali ste prepričani, da želite izprazniti {0}\"?"
+
+msgid "Show all folders"
+msgstr "Pokaži vse mape"
+
+msgid "CC"
+msgstr "Kp"
+
+msgid "BCC"
+msgstr "Skp"
+
+msgid "Sort by: Importance"
+msgstr "Razvrsti po: Pomembnost"
+
+# 76%
+msgid "Sort by: To"
+msgstr "Razvrsti po: Za"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Poslano"
+
+msgid "Red"
+msgstr "Beri"
+
+msgid "Original message"
+msgstr "Originalno sporočilo"
+
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+msgid "Scheduled Items"
+msgstr ""
+
+msgid "Your message will be sent at "
+msgstr ""
+
+msgid "Go to your Outbox to edit your email."
+msgstr ""
+
+msgid "hour(s)"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "month(s)"
+msgstr ""
+
+msgid "at a specific time"
+msgstr ""
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr ""
+
+msgid "today  at "
+msgstr ""
+
+msgid "tomorrow  at "
+msgstr ""
+
+msgid "{0} at "
+msgstr ""
+
+msgid "at {0}"
+msgstr ""
+
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
+msgid "Saving..."
+msgstr "Shranjujem ..."
+
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "Sporočilo je bilo shranjeno dne {0}."
+
+msgid "g:i A"
+msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "Shranjevanje sporočila ni uspelo."
+
+msgid "Message Options"
+msgstr "Možnosti sporočila"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr ""
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr ""
+
+# 86%
+msgid "Add attachments to this email"
+msgstr "Dodaj priloge k tem sporočilu"
+
+msgid "Add signature"
+msgstr "Dodaj podpis"
+
+# 75%
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Open options dialog"
+msgstr "Odpri dialog Možnosti"
+
+msgid "Set flag"
+msgstr "Nastavi zastavico"
+
+msgid "Set flag on this email"
+msgstr "Nastavi zastavico v tem sporočilu"
+
+msgid "Mark this mail as high priority"
+msgstr "Označi to sporočilo kot visoko prioritetno"
+
+msgid "Mark this mail as low priority"
+msgstr "Označi to sporočilo kot manj pomembno"
+
+msgid "Set read receipt"
+msgstr "Nastavi potrdilo o branju"
+
+msgid "Request read receipt from recipients"
+msgstr "Zahtevaj potrdilo o branju od prejemnikov"
+
+msgid "Show Bcc"
+msgstr "Pokaži Skp"
+
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Pokaži Skp"
+
+#, fuzzy
+msgid "Show From field"
+msgstr "Pokaži Od"
+
+msgid "No signatures configured"
+msgstr "Ni nastavljenih podpisov"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr "Razne možnosti"
+
+msgid "Internet Headers"
+msgstr "Internetne glave"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Message Settings"
+msgstr "Nastavitve sporočila"
+
+msgid "Tracking Options"
+msgstr "Možnosti sledenja"
+
+msgid "Request a read receipt for this message."
+msgstr "Zahtevaj potrdilo o branju za to sporočilo."
+
+msgid "no subject"
+msgstr "ni predmeta"
+
+msgid "Set Category"
+msgstr "Nastavi kategorijo"
+
+msgid "Pop-Out"
+msgstr ""
+
+msgid "Mark Read"
+msgstr "Označi prebrano"
+
+msgid "Mark Unread"
+msgstr "Označi neprebrano"
+
+# 87%
+# 100%
+#, fuzzy
+msgid "New mail"
+msgstr "Novo sporočilo"
+
+msgid "Mail"
+msgstr "Pošta"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply all"
+msgstr "Odgovori vsem"
+
+msgid "Toggle read/unread"
+msgstr "Menjaj med prebrano/neprebrano"
+
+msgid "Toggle red/complete flag"
+msgstr "Nastavi zasledovanje"
+
+# 82%
+msgid "Open Shared Mails"
+msgstr "Odprta pošta v skupni rabi"
+
+#, fuzzy
+msgid "Print single email"
+msgstr "Natisni posamezno elektronsko sporočilo"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Natisni izbrano nalogo"
+
+msgid "Filter"
+msgstr ""
+
+msgid "FW"
+msgstr "Posreduj"
+
+msgid "RE"
+msgstr "Ponovno"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Navaden tekst"
+
+msgid "Compose mail settings"
+msgstr "Sestavi nastavitve sporočila"
+
+msgid "Compose mail in this format"
+msgstr "Sestavi sporočilo v tem formatu"
+
+#, fuzzy
+msgid "Editor"
+msgstr "Uredi"
+
+msgid "Default font"
+msgstr "Privzeta pisava"
+
+msgid "Default font size"
+msgstr "Privzeta velikost pisave"
+
+msgid "Always request a read receipt"
+msgstr "Vedno zahtevaj potrdilo o branju"
+
+# 93%
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+#, fuzzy
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Avtomatsko shranjevanje neposlanih sporočil vsakih : {B} minut"
+
+msgid "Incoming mail"
+msgstr "Dohodna pošta"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Kako se odzvati na zahteve o potrdilu o branju"
+
+msgid "Always send a response"
+msgstr "Vedno pošlji odziv"
+
+msgid "Never send a response"
+msgstr "Nikoli ne pošlji odziva"
+
+msgid "Ask me before sending a response"
+msgstr "Vprašaj me pred pošiljanjem odziva"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}Avtomatično označi sporočilo kot prebrano po {B} sekundah(s) "
+
+msgid "Off"
+msgstr "Izklopljeno"
+
+msgid "Right"
+msgstr "Desno"
+
+msgid "Bottom"
+msgstr "Na dno"
+
+msgid "General mail settings"
+msgstr "Splošne nastavitve sporočila"
+
+# 83%
+# 100%
+#, fuzzy
+msgid "Location of preview pane"
+msgstr "Lokacija panela predogleda"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr ""
+
+msgid "Open or compose a mail item in a"
+msgstr ""
+
+#, fuzzy
+msgid "WebApp tab"
+msgstr "Spletna aplikacija"
+
+#, fuzzy
+msgid "Browser window"
+msgstr "Brskanje"
+
+msgid "I am currently in the office"
+msgstr "Trenutno sem v pisarni"
+
+#, fuzzy
+msgid "I am out of the office from"
+msgstr "Trenutno sem odsoten-a"
+
+msgid "I will be back on"
+msgstr ""
+
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr "Samodejni odgovor enkrat vsakemu pošiljatelju z naslednjim sporočilom"
+
+msgid "User is currently out of office."
+msgstr "Uporabnik je trenutno odsoten."
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Signatures"
+msgstr "Podpisi"
+
+msgid "Signature for new messages"
+msgstr "Podpis za novo sporočilo"
+
+msgid "Signature for replies and forwards"
+msgstr "Podpis za odgovore in posredovanja"
+
+#, fuzzy
+msgid "Save Signature"
+msgstr "Podpisi"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "Imate neshranjene spremembe. Ali želite shraniti spremembe?"
+
+msgid "New signature"
+msgstr "Nov podpis"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr ""
+
+# 76%
+msgid "Sort by: Sent"
+msgstr "Razvrsti po: Poslano"
+
+msgid "Modified"
+msgstr ""
+
+msgid "Sort by: Modified"
+msgstr ""
+
+msgid "Flag"
+msgstr ""
+
+msgid "Sort by: flag"
+msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "Mapa"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "Zadnja stran"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "Mesec"
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr ""
+
+msgid "Move to Junk Folder"
+msgstr "Premakni v mapo Vsiljena pošta"
+
+# 75%
+#, fuzzy
+msgid "Send to"
+msgstr "Pošlji"
+
+msgid "Loading mail"
+msgstr "Nalaganje sporočila"
+
+#, fuzzy
+msgid "Print note"
+msgstr "Natisni to opombo"
+
+msgid "Color"
+msgstr "Barva"
+
+msgid "New note"
+msgstr "Nova opomba"
+
+msgid "Open Shared Notes"
+msgstr "Odpri zapiske v skupni rabi"
+
+msgid "Sticky note"
+msgstr "Lepljive opombe"
+
+# 78%
+# 84%
+# 100%
+#, fuzzy
+msgid "Print selected note"
+msgstr "Natisni izbrano nalogo"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No note selected"
+msgstr "Izbrana ni nobena naloga"
+
+msgid "Icons"
+msgstr "Ikone"
+
+msgid "List view"
+msgstr "Pregled seznama"
+
+msgid "List Last Seven Days"
+msgstr "Preglej zadnjih sedem dni"
+
+msgid "Created"
+msgstr "Ustvarjen"
+
+msgid "Sort by: Created"
+msgstr "Razvrsti po: Ustvarjen"
+
+msgid "Sort by: Color"
+msgstr "Razvrsti po: Barvi"
+
+msgid "Loading Notes"
+msgstr "Nalaganje zapiskov"
+
+msgid "Loading notes"
+msgstr "Nalagam zapiske"
+
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
+msgstr ""
+
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano Spletna aplikacija"
+
+msgid "Settings"
+msgstr "Nastavitve"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Account information - {0}"
+msgstr "Podatki o računu - {0}"
+
+msgid "Language"
+msgstr "Jezik"
+
+msgid "Startup folder"
+msgstr "Zagonska mapa"
+
+msgid "Theme"
+msgstr ""
+
+msgid "Select Default Folder"
+msgstr "Izberi standardno mapo"
+
+msgid "Advanced"
+msgstr "Napredno"
+
+msgid "Advanced settings"
+msgstr "Napredne nastavitve"
+
+msgid "Edit setting"
+msgstr "Uredi nastavitve"
+
+msgid "Restore to defaults"
+msgstr "Povrni na privzeto"
+
+msgid "Delete settings"
+msgstr "Izbriši nastavitve"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Ikone"
+
+msgid "About"
+msgstr "O"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
+
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Nastavitve udeležencev"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Priljubljene"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr ""
+
+msgid "I want to navigate through my items by using."
+msgstr ""
+
+msgid "Infinite Scroll"
+msgstr ""
+
+msgid "WebApp automatically loads additional items when you scroll down"
+msgstr ""
+
+#, fuzzy
+msgid "Pagination"
+msgstr "Organizacija"
+
+msgid ""
+"WebApp displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+
+msgid "Load items in blocks of {A}"
+msgstr ""
+
+msgid "Load {A} items per page."
+msgstr ""
+
+msgid "Keyboard Shortcuts"
+msgstr "Bližnjice na tipkovnici"
+
+#, fuzzy
+msgid "Part of basic keyboard shortcuts"
+msgstr "Aktivirajte bližnjice na tipkovnici"
+
+#, fuzzy
+msgid "Keyboard shortcuts off"
+msgstr "Bližnjice na tipkovnici"
+
+#, fuzzy
+msgid "Basic keyboard shortcuts on"
+msgstr "Bližnjice na tipkovnici"
+
+#, fuzzy
+msgid "All keyboard shortcuts on"
+msgstr "Bližnjice na tipkovnici"
+
+msgid "This change requires a reload of the WebApp"
+msgstr "Ta sprememba zahteva ponovno naložitev spletne aplikacije"
+
+msgid "Discard"
+msgstr "Zavrži"
+
+msgid "Plugins"
+msgstr "Vstavki"
+
+msgid "Available plugins"
+msgstr "Vtičniki na voljo"
+
+msgid ""
+"The following plugins are available in the WebApp. It is possible to select "
+"and/or deselect different plugins to indicate which plugins should be "
+"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"in order for the changes to take effect."
+msgstr ""
+"V Web aplikaciji so na voljo naslednji vtičniki. Možnost imate izbrati in/"
+"ali preklicati različne vtičnike da nakažete kateri vtičniki naj bodo "
+"omogočeni. Če je kateri vtičnik omogočen ali onemogočen, mora biti Web "
+"aplikacija ponovno naložena, da bodo spremembe zaznane."
+
+msgid "No plugins available"
+msgstr "Na voljo ni nobenega vtičnika"
+
+msgid "Version"
+msgstr ""
+
+msgid "This plugin cannot be disabled"
+msgstr "Tega vtičnika ne morete onemogočiti"
+
+msgid "This plugin cannot be enabled"
+msgstr ""
+
+msgid "Mailbox Usage"
+msgstr "Uporaba nabiralnika"
+
+msgid "Quota information is not set on the user's store."
+msgstr "Informacijska kvota ni nastavljenja na uporabnikovo shranjevanje."
+
+msgid "{0} of mailbox space is used."
+msgstr "{0} prostora v nabiralniku je uporabljeno."
+
+msgid "You have exceeded hard quota, you can not send or recieve mails."
+msgstr ""
+"Presegli ste dovoljeno kvoto, ne morete pošiljati ali prejemati elektronskih "
+"sporočil."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "Na {0} ne boste mogli pošiljati elektronskih sporočil."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to recieve mails."
+msgstr ""
+"Ne morete pošiljati elektronskih sporočil zaradi presega mehke kvote, na {0} "
+"ne boste več mogli prejemati elektronski sporočil."
+
+msgid "At {0} you won't be able to send or recieve mails."
+msgstr "Na {0} ne boste mogli pošiljati ali prejemati elektronskih sporočil."
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr ""
+"Ne morete pošiljati elektronskih sporočil, ker ste presegli mehko kvoto."
+
+#, fuzzy
+msgid "Reset settings"
+msgstr "Izbriši nastavitve"
+
+#, fuzzy
+msgid "Reset settings to their original defaults."
+msgstr "Nastavite WebApp nastavitve na privzete nastavitve."
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
+msgstr "WebApp se bo avtomacko ponovno zagnal, da se spremembe aktivirajo."
+
+msgid "Reset"
+msgstr "resetirati"
+
+#, fuzzy
+msgid "Reloading, Please wait."
+msgstr "WebApp se ponovno nalaga, prosim počakajte."
+
+msgid "Setting"
+msgstr "Nastavitve"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "Nastavitev '{0}' ne more biti spremenjena"
+
+msgid "Version information"
+msgstr "Informacije o različici"
+
+msgid "WebApp"
+msgstr "Spletna aplikacija"
+
+#, fuzzy
+msgid "Kopano Core"
+msgstr "Kopano"
+
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
+
+msgid "Sort by: Priority"
+msgstr "Razvrsti po: Prednosti"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Sort by: Status"
+msgstr "Razvrsti po: Statusu"
+
+msgid "Due Date"
+msgstr "Datum zapadlosti"
+
+msgid "Sort by: Due Date"
+msgstr "Razvrsti po: Datumu zapadlosti"
+
+msgid "% Completed"
+msgstr "% Dokončano"
+
+msgid "Sort by: Percent Completed"
+msgstr "Razvrsti po: Dokončanem procentu"
+
+msgid "Task Status"
+msgstr "Status naloge"
+
+# 93%
+msgid "Percent Complete"
+msgstr "Dokončan procent"
+
+msgid "Total Work"
+msgstr "Skupno delo"
+
+msgid "Actual Work"
+msgstr "Dejansko delo"
+
+msgid "Companies"
+msgstr "Podjetja"
+
+msgid "Billing Information"
+msgstr "Podatki o računu"
+
+msgid "Mileage"
+msgstr "Kilometrina"
+
+#, fuzzy
+msgid "Accepting Task"
+msgstr "Aktivne naloge"
+
+msgid "Declining Task"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Ta sestanek je bil potrjen in bo premaknjen v Vaš koledar. Ali želite "
+"vključiti komentarje z Vašim odzivom?"
+
+#, fuzzy
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Ta sestanek je bil zavrnjen in bo premaknjen v mapo Izbrisani predmeti. Ali "
+"želite vključiti komentarje z Vašim odzivom?"
+
+#, fuzzy
+msgid "Send the response now"
+msgstr "Pošlji odziv sedaj."
+
+msgid "Date Complete"
+msgstr "Datum zaključka"
+
+msgid "Update List"
+msgstr "Posodobi listo"
+
+msgid "Create Unassigned Copy"
+msgstr "Ustvari nedodeljeno kopijo"
+
+msgid "copy"
+msgstr ""
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Poglej prejemnika"
+
+#, fuzzy
+msgid "A task request can only have one recipient."
+msgstr "Vedno zahtevaj potrdilo o branju"
+
+msgid "Due date"
+msgstr "Datum zapadlosti"
+
+msgid "Priority"
+msgstr "Prednost"
+
+msgid "% Complete"
+msgstr "% Dokončano"
+
+#, fuzzy
+msgid "Track progress"
+msgstr "V teku"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+
+#, fuzzy
+msgid "Send task to assignees"
+msgstr "Pošlji nalogo pooblaščencu"
+
+#, fuzzy
+msgid "Restore to Task List"
+msgstr "Povrni na privzeto"
+
+# 94%
+# 76%
+# 100%
+#, fuzzy
+msgid "Delete this task"
+msgstr "Izbriši ta predmet"
+
+msgid "Add attachments to this task"
+msgstr "Dodaj priloge k tej nalogi"
+
+msgid "Mark as Complete"
+msgstr "Označi kot dokončano"
+
+msgid "Mark this task as complete"
+msgstr "Označi to nalogo kot končano"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "Print this task"
+msgstr "Natisni to sporočilo"
+
+msgid "Assign Task"
+msgstr "Dodeli nalogo"
+
+msgid "Cancel Assignment"
+msgstr "Prekliči dodelitev"
+
+# 75%
+# 79%
+# 100%
+#, fuzzy
+msgid "Mark this task as private"
+msgstr "Označi ta kontakt kot zaseben."
+
+msgid "New task"
+msgstr "Nova naloga"
+
+#, fuzzy
+msgid "Completed"
+msgstr "Končano"
+
+msgid "Percent complete"
+msgstr "Dokončan procent"
+
+msgid "Total work"
+msgstr "Skupno delo"
+
+msgid "{totalwork} hours"
+msgstr "{skupno delo} ure"
+
+msgid "Actual work"
+msgstr "Dejansko delo"
+
+msgid "{actualwork} hours"
+msgstr "{dejansko delo} ure"
+
+msgid "Open Shared Tasks"
+msgstr "Odprte naloge v skupni rabi"
+
+msgid "Simple view"
+msgstr ""
+
+msgid "Detailed view"
+msgstr ""
+
+# 92%
+# 100%
+#, fuzzy
+msgid "Task request"
+msgstr "Zahtevek za nalogo:"
+
+msgid "Print selected task"
+msgstr "Natisni izbrano nalogo"
+
+msgid "Print task list"
+msgstr "Natisni spisek nalog"
+
+msgid "No task selected"
+msgstr "Izbrana ni nobena naloga"
+
+msgid "Create task"
+msgstr ""
+
+msgid "Mark Complete"
+msgstr ""
+
+msgid "Mark Incomplete"
+msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "Odstrani s koledarja"
+
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Pošlji nalogo pooblaščencu"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+
+msgid "Sort by: Complete"
+msgstr "Razvrsti po: Dokončano"
+
+msgid "Reminder Time"
+msgstr "Čas opomnika"
+
+msgid "Sort by: Reminder Time"
+msgstr "Razvrsti po: Času opomnika"
+
+msgid "Assigned To"
+msgstr "Dodeljeno"
+
+msgid "Sort by: Assignee"
+msgstr "Razvrsti po: Pooblaščencu"
+
+msgid "Sort by: Start Date"
+msgstr "Razvrsti po: Času začetka"
+
+msgid "Sort by: Owner"
+msgstr "Razvrsti po: Lastniku"
+
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Razvrsti po: Dokončanem procentu"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Dodeli nalogo"
+
+msgid "Loading tasks"
+msgstr "Nalaganje nalog"
+
+#, fuzzy
+msgid "Date completed"
+msgstr "Datum dokončanja"
+
+msgid "hours"
+msgstr "ur"
+
+#, fuzzy
+msgid "Billing information"
+msgstr "Podatki o računu"
+
+#, fuzzy
+msgid "Update list"
+msgstr "Posodobi listo"
+
+#, fuzzy
+msgid "D d-m-Y"
+msgstr "d-m-Y"
+
+#, fuzzy
+msgid "Import / Export"
+msgstr "Pomembno"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Ikone"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "The server reported an unknown error on your request."
+msgstr "Server je javil neznano napako na vašo zahtevo."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Server je javil nespecificirano napako na vašo zahtevo."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Seja je potekla, zahtevana je ponovna avtentifikacija."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"Seja v trenutnem oknu brskalnika je bila zaprta z drugim oknom brskalnika "
+"ali zavihkom."
+
+msgid "Session expired"
+msgstr "Seja je potekla"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Ali želite, da vas preusmerimo na prijavno stran?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"Zahtevana ponovna avtentifikacija, pritisnite tukaj za vrnitev na prijavno "
+"stran."
+
+msgid "Connection problem"
+msgstr "Težave s povezavo"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "Ne morem se povezati s serverjem, ponovni poskus v {0} sekund (s)"
+
+msgid "Click to retry now"
+msgstr "Pritisni za obnovitev zdaj"
+
+msgid "Connection restored"
+msgstr "Povezava obnovljena"
+
+msgid "Connection with server has been restored"
+msgstr "Povezava s serverjem je bila obnovljena"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Neveljaven podatek je bil prejet iz serverja"
+
+msgid "Missing store"
+msgstr "Manjkajoče shranjevanje"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Privzeto shranjevanje manjka v hierarhiji."
+
+msgid ""
+"Not all functionality of WebApp might be working properly because of this."
+msgstr ""
+"Možnost je, da ne delujejo funkcije spletne aplikacije ne delujejo pravilno "
+"zaradi tega."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Prejeto"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Poslano"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Poslani predmeti"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Izbrisani predmeti"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Koledar"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakti"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Osnutki"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Dnevnik"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Zapiski"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Naloge"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Nezaželjena pošta"
+
+msgid "Missing folders"
+msgstr "Manjkajoče mape"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Naslednje obvezno polje manjka v hierarhiji: {0}"
+msgstr[1] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
+msgstr[2] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
+msgstr[3] "Naslednja obvezna polja manjkajo v hierarhiji: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Nalaganje vzorca iz serverja je spodletelo"
+
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Odsotnost je vključena. Ali jo želite izključiti?"
+
+msgid "Out of office off"
+msgstr "Odsotnost izključena"
+
+msgid "Out of office has been turned off"
+msgstr "Odsotnost je bila izključena"
+
+msgid "Send Fax"
+msgstr "Pošlji faks"
+
+msgid "Contact Fax"
+msgstr "Kontakt faksa"
+
+#, fuzzy
+msgid "Widget height"
+msgstr "Dodaj pripomočke"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Nalagam sestanke"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Novi sestanek"
+
+msgid "Number of days"
+msgstr ""
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Danes: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d/m/Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Nalagam sestanke"
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "No unread mail."
+msgstr "Ni neprebranih sporočil."
+
+msgid "Unread Mail"
+msgstr "Neprebrano sporočilo"
+
+msgid "No tasks."
+msgstr "Ni nalog."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+msgid "Google Maps"
+msgstr "Google Maps"
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr "Zemljevid"
+
+msgid "Move currently selected message(s) to {0}"
+msgstr "Premakni trenutno izbrano-a sporočilo-a v {0}"
+
+msgid "Move to {0}"
+msgstr "Premakni v {0}"
+
+msgid "Move current message to {0}"
+msgstr "Premakni trenutno sporočilo v {0}"
+
+msgid "Personal Inbox Manager"
+msgstr "Osebni upravljalec s prejetimi sporočili"
+
+msgid "Personal Inbox Management Settings"
+msgstr "Osebne nastavitve upravljanja prejete pošte"
+
+msgid "Select another folder"
+msgstr "Izberi drugo mapo"
+
+msgid "E-mails are moved to {0}"
+msgstr "Elektronska sporočila so prestavljena v {0}"
+
+msgid "Open in new tab"
+msgstr ""
+
+msgid "Quick Appointment"
+msgstr "Hitri sestanek"
+
+msgid "Quick Contact"
+msgstr "Hitri kontakt"
+
+msgid "Quick Mail"
+msgstr "Hitra pošta"
+
+msgid "Quick Note"
+msgstr "Hitri zapisek"
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hitra naloga"
+
+msgid "Title Counter Plugin"
+msgstr "Števec neprebranih sporočil"
+
+msgid "Help"
+msgstr "Pomoč"
+
+msgid "WebApp Manual"
+msgstr "Navodila za Web aplikacijo"
+
+msgid "INSERT"
+msgstr "VSTAVI"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Razvrsti po: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZRazvijalec"
+
+msgid "Charm pink"
+msgstr ""
+
+msgid "Cadmium red"
+msgstr ""
+
+msgid "Apricot"
+msgstr ""
+
+msgid "California"
+msgstr ""
+
+msgid "Soft green"
+msgstr ""
+
+msgid "Mint"
+msgstr ""
+
+msgid "Pearl aqua"
+msgstr ""
+
+msgid "Kopano blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr ""
+
+msgid "Mauve"
+msgstr ""
+
+msgid "Silver sand"
+msgstr ""
+
+msgid "Competition"
+msgstr "Konkurenca"
+
+msgid "Gifts"
+msgstr "Darila"
+
+msgid "Goals/Objectives"
+msgstr "Cilji"
+
+msgid "Holiday Cards"
+msgstr "Počitniške razglednice"
+
+msgid "Hot Contacts"
+msgstr "Vroči kontakti"
+
+msgid "Ideas"
+msgstr "Zamisli"
+
+msgid "International"
+msgstr "Mednarodno"
+
+msgid "Key Customer"
+msgstr "Ključna stranka"
+
+msgid "Miscellaneous"
+msgstr "Razno"
+
+msgid "Phone Calls"
+msgstr "Telefonski klici"
+
+msgid "Strategies"
+msgstr "Strategije"
+
+msgid "Suppliers"
+msgstr "Dobavitelji"
+
+msgid "Time & Expenses"
+msgstr "Čas & Stroški"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Čakanje"
+
+msgid "You have been automatically logged out"
+msgstr "Avtomatično ste bili odjavljeni"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr "Ne morem dodati podatkov v bus, enak tip ukrepa je prisoten v bus"
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "Zahtevan odziv podatkov iz bus ampak ne vsebuje nobenih podatkov."
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "Neznan modul '%s' z id '%s'"
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr "Server se je srečal s problemom, za to ni mogel izpolniti zahteve."
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "Neznano obvestilo '%s'"
+
+msgid "An unexpected error has occurred"
+msgstr "Pojavila se je nepričakovana napaka"
+
+#, fuzzy
+msgid "To-Do List"
+msgstr "Seznam telefonskih številk"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$s od %2$s"
+
+msgid "Error retrieving existing settings"
+msgstr "Napaka pri pridobivanju obstoječih nastavitev"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+#, fuzzy
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
+
+#, fuzzy
+msgid "Cannot connect to Kopano Core."
+msgstr "Ne morem se povezati na Kopano server."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+#, fuzzy
+msgid "Unknown MAPI Error"
+msgstr "Neznana MAPI napaka: %s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
+
+msgid "This external link will open in a new window"
+msgstr "Ta zunanji link se bo odprl v novem oknu"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Ciljna mapa"
+
+msgid "Eml is corrupted"
+msgstr ""
+
+msgid "The eml Attachment is not imported successfully"
+msgstr ""
+
+msgid "The vcf attachment is not imported successfully"
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Ta sestanek se pojavlja v preteklosti."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Priložene datoteke še niso bile naložene."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+msgid "Attachment is not imported successfully"
+msgstr ""
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Dodaj priloge k tem kontaktu."
+
+msgid "ZIP is not created successfully"
+msgstr ""
+
+msgid "Attachments can not be downloaded"
+msgstr ""
+
+# 82%
+# 100%
+#, fuzzy
+msgid "Could not find attachment."
+msgstr "Ne morem naložiti priloge."
+
+msgid "Operation failed"
+msgstr ""
+
+# 90%
+# 100%
+#, fuzzy
+msgid "Sticky Note"
+msgstr "Lepljive opombe"
+
+# 92%
+# 100%
+#, fuzzy
+msgid "Task Request"
+msgstr "Zahtevek za nalogo:"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr ""
+
+msgid "Action is not performed correctly."
+msgstr "Dejanje ni bilo pravilno narejeno."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Nimate dovolj dovoljenj za odprtje tega predmeta."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
+
+#, fuzzy
+msgid "Can not connect to Kopano Core."
+msgstr "Ne morem se povezati na Kopano server."
+
+msgid "Can not open object with provided id."
+msgstr "Z danim id ne morem odpreti predmeta."
+
+msgid "There are no recipients in the message."
+msgstr "V tem sporočilu ni prejemnikov."
+
+msgid "Can not find object."
+msgstr "Ne morem najti predmeta."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr ""
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Neznana MAPI napaka: %s"
+
+msgid "Tentatively accepted"
+msgstr "Pogojno sprejeto"
+
+msgid "New Time Proposed"
+msgstr "Predlagan novi čas"
+
+# 78%
+# 76%
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Pojavi se vsakih %s efektivno %s od %s do %s."
+
+# 77%
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Pojavi se vsakih %s %s efektivno %s od %s do  %s."
+
+# 80%
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Pojavi se vsakih %s efektivno %s."
+
+# 75%
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Pojavi se vsakih %s %s efektivno %s."
+
+# 76%
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr[0] "Pojavi se vsakih %s efektivno %s za %s pojavljanje od %s do %s."
+msgstr[1] "Pojavi se vsakih %s efektivno %s za %s pojavljanj od %s do %s."
+msgstr[2] "Pojavi se vsakih %s efektivno %s za %s pojavljanj od %s do %s."
+msgstr[3] "Pojavi se vsakih %s efektivno %s za %s pojavljanj od %s do %s."
+
+# 76%
+# 95%
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
+msgstr[0] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanje od %s do %s."
+msgstr[1] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj od %s do %s."
+msgstr[2] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj od %s do %s."
+msgstr[3] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj od %s do %s."
+
+# 81%
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence."
+msgid_plural "Occurs every %s effective %s for %s occurences."
+msgstr[0] "Pojavi se vsakih %s efektivno %s za %s pojavljanje."
+msgstr[1] "Pojavi se vsakih %s efektivno %s za %s pojavljanj."
+msgstr[2] "Pojavi se vsakih %s efektivno %s za %s pojavljanj."
+msgstr[3] "Pojavi se vsakih %s efektivno %s za %s pojavljanj."
+
+# 77%
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence."
+msgid_plural "Occurs every %s %s effective %s for %s occurences."
+msgstr[0] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanje."
+msgstr[1] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj."
+msgstr[2] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj."
+msgstr[3] "Pojavi se vsakih %s %s efektivno %s za %s pojavljanj."
+
+# 76%
+# 75%
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Pojavi se vsakih %s efektivno %s dokler %s od %s do %s."
+
+# 76%
+# 75%
+# 94%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Pojavi se vsakih %s %s efektivno %s dokler %s od %s do %s."
+
+# 78%
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Pojavi se vsakih %s efektivno %s dokler %s."
+
+# 78%
+# 92%
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Pojavi se vsakih %s %s efektivno %s dokler %s."
+
+msgid "Task Accepted:"
+msgstr "Naloga sprejeta:"
+
+msgid "Task Declined:"
+msgstr "Naloga zavrnjena:"
+
+msgid "Task Updated:"
+msgstr "Naloga posodobljena:"
+
+msgid "Task Completed:"
+msgstr "Naloga dokončana:"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr "Te vrste predmeta ni bilo mogoče prenesti."
+
+msgid "Could not open this object."
+msgstr "Tega predmeta ni bilo mogoče odpreti."
+
+msgid "Could not open occurrence."
+msgstr "Pojavljanja ni bilo mogoče odpreti."
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr ""
+"Pojavljanja ni bilo mogoče odpreti, dotično pojavljanje je najverjetneje "
+"izbrisano."
+
+# 89%
+# 100%
+# 84%
+#, fuzzy
+msgid "a meeting request"
+msgstr "Nova zahteva za sestanek"
+
+# 93%
+# 100%
+# 80%
+#, fuzzy
+msgid "an appointment"
+msgstr "Novi sestanek"
+
+# 77%
+# 79%
+# 100%
+#, fuzzy
+msgid "You have insufficient privileges to move "
+msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
+
+msgid "Insufficient privileges"
+msgstr ""
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+"Opomnika ne morem nastaviti, da bi se pojavil pred prejšnjim pojavljanjem. "
+"Resetirajte opomnik za shranjevanje sprememb"
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "Dve pojavljanji se ne moreta pojaviti na isti dan"
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+"Označili ste '%s' kot izvor. sestanka ne morete načrtvovati z '%s' ker "
+"nimate primernih dovoljenje za ta račun. Lahko vnesete ime kot zahtevano ali "
+"pa kot nezahtevanega člana, ali pa govorite z administratorjem, da vam "
+"dodeli dovoljenja za načrtovanje '%s'."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+"'%s' je zavrnil vaš sestanek ker '%s ne prejema zahtevkov za sestanke "
+"avtomatično."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+"'%s'je zavrnil vaš sestanek zato ker se ponavlja. Pri tem viru morate "
+"rezervirati vsak sestanek posebej."
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+"'%s' je že rezerviran za ta čas. Uporabite drugo uro ali najdite drug vir."
+
+msgid "Meeting was not scheduled."
+msgstr "Sestanek ni bil načrtovan."
+
+msgid "Meeting could not be sent."
+msgstr "Sestanek ni bil poslan."
+
+msgid "Meeting could not be saved."
+msgstr "Sestanek ni bil shranjen."
+
+msgid "Private Appointment"
+msgstr "Zasebni sestanek"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "%s's rojstni dan"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "%s obletnica"
+
+msgid "Unknown user/group"
+msgstr "Neznan uporabnik/skupina"
+
+msgid "Could not save delegate information."
+msgstr "Informacij o članu ni bilo mogoče shraniti."
+
+# 78%
+# 80%
+msgid "Could not delete delegate."
+msgstr "Ne morem ibrisati člana."
+
+msgid "Can not get list of delegates."
+msgstr "Ne morem pridobiti liste članov."
+
+msgid "Could not load the hierarchy."
+msgstr "Nalaganje hierarhije je bilo neuspešno."
+
+msgid "Could not load folder properties."
+msgstr "Nalaganje lastnosti mape je bilo neuspešno."
+
+#, fuzzy
+msgid "Could not remove folder from favorites."
+msgstr "Mape ni bilo mogoče dodati pod najljubše."
+
+# 77%
+msgid "You have insufficient privileges to delete folder."
+msgstr "Nimate dovolj dovoljenj za odpiranje te mape."
+
+msgid "Could not delete folder."
+msgstr "Ne morem izbrisati mape."
+
+# 77%
+msgid "You have insufficient privileges to copy folder."
+msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
+
+msgid "Could not copy folder."
+msgstr "Ne morem kopirati mape."
+
+# 84%
+msgid "You have insufficient privileges to move this folder."
+msgstr "Nimate dovolj dovoljenj za premikanje te mape."
+
+msgid "Could not move folder."
+msgstr "Ne morem premakniti mape."
+
+# 77%
+msgid "You have insufficient privileges to delete items."
+msgstr "Nimate dovolj dovoljenj za brisanje predmetov."
+
+msgid "Could not empty folder."
+msgstr "Ne morem izprazniti mape."
+
+msgid "Could not perform action correctly."
+msgstr "Dejanja ni bilo mogoče izpeljati pravilno.."
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr "Mape ni bilo mogoče dodati pod najljubše."
+
+# 90%
+# 76%
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr "Nimate dovolj dovoljenj za nastavljanje dovoljenj za to mapo."
+
+msgid "Could not set folder permissions."
+msgstr "Dovoljenj za to mapo ni bilo mogoče nastaviti."
+
+# 81%
+msgid "You have insufficient privileges to rename this folder."
+msgstr "Nimate dovolj dovoljenj preimenovanje te mape."
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Mapa s tem imenom že obstaja. Uporabite drugo ime."
+
+msgid "Could not rename folder."
+msgstr "Mape ni bilo mogoče preimenovati."
+
+# 81%
+msgid "You have insufficient privileges to create this folder."
+msgstr "Nimate dovolj dovoljenj za ustvarjanje te mape.."
+
+msgid "Could not create folder."
+msgstr "Mape ni bilo mogoče ustvariti."
+
+msgid "Could not close shared folder."
+msgstr "Mape v skupni rabi ni bilo mogoče zapreti."
+
+msgid "User could not be resolved."
+msgstr "Uporabnika ni bilo mogoče rešiti."
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+
+# 85%
+msgid "unknown"
+msgstr "neznan"
+
+msgid "Could not move folder"
+msgstr "Mape ni bilo mogoče premakniti"
+
+msgid "Could not copy folder"
+msgstr "Mape ni bilo mogoče kopirati"
+
+# 87%
+msgid "You have insufficient privileges to open this message."
+msgstr "Nimate dovolj dovoljenj za odpiranje tega sporočila."
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+
+# 78%
+msgid "Could not open message."
+msgstr "Ne morem odpreti sporočila."
+
+# 75%
+# 78%
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Nimate dovolj dovoljenj za zavrnitev zahtevka za sestanek."
+
+# 75%
+# 87%
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Nimate dovolj dovoljenj za sprejetje zahtevka za sestanek."
+
+# 78%
+# 82%
+msgid "Could not copy message"
+msgstr "Ne morem kopirati sporočila."
+
+# 78%
+# 82%
+msgid "Could not move message"
+msgstr "Ne morem premakniti sporočila."
+
+# 81%
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Nimate dovolj dovoljenj za shranjevanje predmetov v to mapo."
+
+# 78%
+msgid "Could not save message"
+msgstr "Ne morem shraniti sporočila."
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Nimate dovolj dovoljenj za premikanje predmetov iz koledarja."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "Tega vtičnika ne morete onemogočiti"
+
+# 81%
+#, fuzzy
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Nimate dovolj dovoljenj za shranjevanje predmetov v to mapo."
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Nimate dovolj dovoljenj za prilaganje predmetov kot prilogo."
+
+msgid "Could not attach item as an attachment."
+msgstr "Predmeta ni bilo mogoče priložiti kot prilogo."
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+"Nimate dovolj dovoljenj za povračilo lastništva za zahtevek za nalogo. "
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Povračilo lastništva za zahtevek naloge ni bilo mogoče."
+
+# 75%
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "Nimate dovolj dovoljenj sprejetje tega zahtevka za nalogo."
+
+msgid "Could not accept Task Request."
+msgstr "Sprejetje zahtevka za nalogo ni bilo mogoče."
+
+# 75%
+# 90%
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "Nimate dovolj dovoljenj za zavrnitev zahtevka za to nalogo.."
+
+msgid "Could not decline Task Request."
+msgstr "Zavrnitev zahtevka za nalogo ni bila mogoča."
+
+msgid "Conflicts with another appointment."
+msgstr "Konflikt z drugim sestankom."
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+"%s pojavljanje tega ponavljajočega sestanka je v konfliktu z drugim "
+"sestankom."
+msgstr[1] ""
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+msgstr[2] ""
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+msgstr[3] ""
+"%s pojavljanj tega ponavljajočega sestanka je v konfliktu z drugimi sestanki."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "Vaše sporočilo ni doseglo nekaterih ali vseh nameravanih prejemnikov"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Naslednji prejemnik (ki) niso bili doseženi"
+
+# 90%
+# 76%
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr "Nimate dovolj dovoljenj za pregledovanje vsebine te mape."
+
+msgid "Could not load the contents of this folder."
+msgstr "Vsebine te mape ni bilo mogoče naložiti."
+
+msgid "Error in search, please try again"
+msgstr "Napaka pri iskanju, prosim poizkusite ponovno"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr "Nimate dovolj dovoljenj za izvedbo postopka iskanja v tej mapi."
+
+msgid "Could not update search results."
+msgstr "Posodobitev rezultatov iskanja ni bila mogoča."
+
+msgid "Could not stop search operation."
+msgstr "Operacije iskanja ni bilo mogoče ustaviti."
+
+# 79%
+msgid "You have insufficient privileges to save this message."
+msgstr "Nimate dovolj dovoljenj za shranjevanje tega sporočila."
+
+# 78%
+# 82%
+msgid "Could not save message."
+msgstr "Ne morem shraniti sporočila."
+
+# 78%
+msgid "You have insufficient privileges to delete this message."
+msgstr "Nimate dovolj dovoljenj za brisanje tega sporočila."
+
+# 78%
+# 80%
+msgid "Could not delete message."
+msgstr "Ne morem izbrisati sporočila."
+
+# 75%
+# 82%
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr "Nimate dovolj dovoljenj za preklic tega zahtevka za sestanek."
+
+msgid "Could not cancel Meeting Request."
+msgstr "Zahtevka za sestanek ni bilo mogoče preklicati."
+
+# 75%
+# 80%
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Nimate dovolj dovoljenj za zavrnitev tega zahtevka za sestanek."
+
+msgid "Could not decline Meeting Request."
+msgstr "Zahtevka za sestanek ni bilo mogoče zavrniti."
+
+# 75%
+# 89%
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Nimate dovolj dovoljenj za sprejetje tega zahtevka za sestanek."
+
+msgid "Could not accept Meeting Request."
+msgstr "Zahtevka za sestanek ni bilo mogoče sprejeti."
+
+# 75%
+# 82%
+# 77%
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr "Nimate dovolj dovoljenj za preklic povabila zahtevka za sestanek."
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "Povabila zahtevka za sestanek ni bilo mogoče preklicati."
+
+msgid "You can not continue search operation on this folder."
+msgstr "V tej mapi ne morete nadaljevati operacije iskanja."
+
+msgid "Error in search, please try again."
+msgstr "Napaka v iskanju, prosim poskusite ponovno."
+
+msgid "Error in distribution list expansion."
+msgstr ""
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "Hramba sporočil je presegla limit trde kvote."
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+"Za zmanjšanje količine podatkov v tej hrambi sporočil izberite nekaj "
+"predmetov, ki jih ne potrebujete, jih izbrišite in izpraznite mapo Izbrisani "
+"elementi."
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "Hramba sporočil je presegla limit mehke kvote."
+
+msgid "Could not process request data properly."
+msgstr "Zahtevka za obdelavo podatkov ni bilo mogoče izvesti pravilno."
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr "Neznan tip ukrepa je bil specificiran - %s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "Opomnika ne morem dati v dremež. Verjetno boste še enkrat opomnjeni."
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr ""
+"Opomnika ni bilo mogoče opustiti. Najverjetneje boste še enkrat opomnjeni."
+
+# 78%
+msgid "You have insufficient privileges to perform this action."
+msgstr "Nimate dovolj dovoljenj za ivedbo tega dejanja."
+
+msgid "Could not resolve user."
+msgstr "Uporabnika ni bilo mogoče rešiti."
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr "Neimenovano pravilo"
+
+msgid "Could not load rules."
+msgstr "Pravil ni bilo mogoče naložiti."
+
+msgid "Could not save rules."
+msgstr "Pravil ni bilo mogoče shraniti."
+
+msgid "Task Request:"
+msgstr "Zahtevek za nalogo:"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "Username"
+msgstr "Uporabniško ime"
+
+msgid "Password"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "Pošiljanje uspešno"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} ni veljaven čas"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "B"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "Presežena je bila maksimalna globina nalaganja"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "Napaka kontrolnega znaka,najverjetneje nepravilno kodiranje"
+
+msgid "Invalid or malformed JSON"
+msgstr "Neveljaven ali nepravilen JSON"
+
+msgid "Syntax error"
+msgstr "Napaka v sintaksi"
+
+#, fuzzy
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "Napaka kontrolnega znaka,najverjetneje nepravilno kodiranje"
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON napaka: - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "Pojavil se je problem pri kodiranju/dekodiranje JSON podatkov."
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""

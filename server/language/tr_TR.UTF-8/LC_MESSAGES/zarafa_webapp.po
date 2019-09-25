@@ -1,0 +1,6646 @@
+# Kopano Webapp Turkish translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Turkish\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"PO-Revision-Date: 2017-10-03 21:34+0200\n"
+"Last-Translator: Smart <sadi.tanis@smartdata.com.tr>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Langauge-Team: Turkish <https://translate.kopano.io/projects/kopano/kopano-"
+"webapp/tr/>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "h"
+
+msgid "Now"
+msgstr "Şimdi"
+
+msgid "Value must be between 0% to 100%"
+msgstr "Değer %0 ile %100 arasında olmalıdır"
+
+msgid "Number must be higher than zero"
+msgstr "Rakam sıfırdan büyük olmalıdır"
+
+msgid "More options"
+msgstr "Daha fazla seçenek"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} byte"
+msgstr[1] "{0} bytes"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+msgstr[1] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+msgstr[1] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+msgstr[1] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+msgstr[1] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} dakka"
+msgstr[1] "{0} dakka"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} saat"
+msgstr[1] "{0} saat"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} gün"
+msgstr[1] "{0} gün"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} hafta"
+msgstr[1] "{0} hafta"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Tembel köpeğin üstünden hızlı kahverengi tilki atlar"
+
+msgid "Sunday"
+msgstr "Pazar"
+
+msgid "Monday"
+msgstr "Pazartesi"
+
+msgid "Tuesday"
+msgstr "Salı"
+
+msgid "Wednesday"
+msgstr "Çarşamba"
+
+msgid "Thursday"
+msgstr "Perşembe"
+
+msgid "Friday"
+msgstr "Cuma"
+
+msgid "Saturday"
+msgstr "Cumartesi"
+
+msgid "Sun"
+msgstr "Paz"
+
+msgid "Mon"
+msgstr "Pzt"
+
+msgid "Tue"
+msgstr "Sal"
+
+msgid "Wed"
+msgstr "Çar"
+
+msgid "Thu"
+msgstr "Per"
+
+msgid "Fri"
+msgstr "Cum"
+
+msgid "Sat"
+msgstr "Cmt"
+
+msgid "January"
+msgstr "Ocak"
+
+msgid "February"
+msgstr "Şubat"
+
+msgid "March"
+msgstr "Mart"
+
+msgid "April"
+msgstr "Nisan"
+
+msgid "May"
+msgstr "Mayıs"
+
+msgid "June"
+msgstr "Haziran"
+
+msgid "July"
+msgstr "Temmuz"
+
+msgid "August"
+msgstr "Ağustos"
+
+msgid "September"
+msgstr "Eylül"
+
+msgid "October"
+msgstr "Ekim"
+
+msgid "November"
+msgstr "Kasım"
+
+msgid "December"
+msgstr "Aralık"
+
+msgid "Page {A} of {0}"
+msgstr "Sayfa {A} {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "Gösterilen mesajlar {0} - {1} {2}"
+
+msgid "No messages to display"
+msgstr "Gösterilecek mesaj yok"
+
+msgid "First Page"
+msgstr "Birinci sayfa"
+
+msgid "Previous Page"
+msgstr "Önceki sayfa"
+
+msgid "Next Page"
+msgstr "Sonraki sayfa"
+
+msgid "Last Page"
+msgstr "Son sayfa"
+
+msgid "Refresh"
+msgstr "Yenileme"
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "OK"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Iptal et"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (Ara çubuk)"
+
+msgid "This date is before the minimum date"
+msgstr "Seçilen tarih başlangic tarihten öncedir"
+
+msgid "This date is after the maximum date"
+msgstr "Bu tarih maksimum tarihten sonradır"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+msgid "Disabled"
+msgstr "Kapali"
+
+msgid "Next Month (Control+Right)"
+msgstr "Gelecek ay (Ctrl + Sağ)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "Geçen ay (Ctrl + Sol)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "Bir ay seçin (Ctrl+Yukarı/Aşağı yıl taşımak için)"
+
+msgid "Sort Ascending"
+msgstr "Artan sıralama"
+
+msgid "Sort Descending"
+msgstr "Azalan sıralama"
+
+msgid "Columns"
+msgstr "kolon"
+
+msgid "Group By This Field"
+msgstr "Bu alanı gruplandır"
+
+msgid "Show in Groups"
+msgstr "Grupları göster"
+
+msgid "(None)"
+msgstr "(Yok)"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayir"
+
+msgid "Loading"
+msgstr "Yükleniyor"
+
+msgid "The value in this field is invalid"
+msgstr "Bu alandaki değer geçersiz"
+
+msgid "The minimum length for this field is {0}"
+msgstr "Bu alan icin en kücük boy {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "Bu alan icin en büyük boy {0}"
+
+msgid "This field is required"
+msgstr "Bu alan gereklidir"
+
+# 85%
+msgid "The minimum value for this field is {0}"
+msgstr "Bu alan icin en minimum değer {0}"
+
+# 85%
+msgid "The maximum value for this field is {0}"
+msgstr "Bu alan icin en maksimum değer {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} geçerli bir sayı değil"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "Bu alandaki tarih {0} eşit veya daha sonra olmalıdır"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "Bu alandaki tarih {0} önce veya o gün olmalıdır"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} geçerli bir tarih değil - formatı {1} olmalıdır"
+
+msgid "You must select at least one item in this group"
+msgstr "Bu gruptan en az 1 öğe seçmelisindir"
+
+msgid "You must select one item in this group"
+msgstr "Bu gruptan 1 öğe seçmelisindir"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "Bu alandaki saat {0} önce veya o saatte olmalıdır"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "Bu alandaki saat {0} önce veya o saatten sonra olmalıdır"
+
+msgid "{0} is not a valid time"
+msgstr "{0} geçerli bir zaman değil"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "Isim"
+
+msgid "Value"
+msgstr "Değer"
+
+msgid "true"
+msgstr "Doğru"
+
+msgid "false"
+msgstr "Yanlış"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr "Bu alanda \"kullanıcı@example.com\" gibi bir e-posta adresi olmalıdır"
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "Bu alan, \"{0}\" biçiminde bir URL olmalıdır"
+
+msgid "This field should only contain letters and _"
+msgstr "Bu alan sadece harf ve _ içermeli"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "Bu alan sadece harf, rakam ve _ içermeli"
+
+#, fuzzy
+msgid "Email Addresses"
+msgstr "E-posta Adresleri"
+
+#, fuzzy
+msgid "Email addresses"
+msgstr "E-posta adresleri"
+
+msgid "Group details"
+msgstr "Grup detaylari"
+
+msgid "General"
+msgstr "Genel"
+
+msgid "Display Name"
+msgstr "Ad Görüntüsü"
+
+msgid "Alias"
+msgstr "Takma ad"
+
+msgid "Owner"
+msgstr "Sahibi"
+
+msgid "Notes"
+msgstr "Notlar"
+
+msgid "Members"
+msgstr "Üyeler"
+
+msgid "Email Address"
+msgstr "E-posta adresi"
+
+msgid "Account"
+msgstr "Hesap"
+
+msgid "Member Of"
+msgstr "Üyesi"
+
+msgid "Group Membership"
+msgstr "Grup üyelik"
+
+msgid "Address Book"
+msgstr "Adres rehberi"
+
+msgid "User details"
+msgstr "Kullanıcı detaylar"
+
+msgid "First"
+msgstr "Isim"
+
+msgid "Initial"
+msgstr "Baş harf"
+
+msgid "Display"
+msgstr "Görüntüle"
+
+msgid "Last"
+msgstr "Soyadı"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "City"
+msgstr "Şehir"
+
+msgid "State"
+msgstr "İL"
+
+msgid "Zip Code"
+msgstr "Posta Kodu"
+
+msgid "Country"
+msgstr "Ülke"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Company"
+msgstr "Şirket"
+
+msgid "Department"
+msgstr "Bölüm"
+
+msgid "Office"
+msgstr "Ofis"
+
+msgid "Assistant"
+msgstr "Asistan"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Organization"
+msgstr "Organizasyon"
+
+msgid "Manager"
+msgstr "Yönetici"
+
+msgid "Direct reports"
+msgstr "Doğrudan raporlar"
+
+msgid "Phone numbers"
+msgstr "Telefon numaraları"
+
+msgid "Business"
+msgstr "Şirket"
+
+# 88%
+msgid "Business2"
+msgstr "Şirket2"
+
+msgid "Fax"
+msgstr "Faks"
+
+msgid "Home"
+msgstr "Ev"
+
+# 80%
+msgid "Home2"
+msgstr "Ev2"
+
+msgid "Mobile"
+msgstr "Cep telefonu"
+
+msgid "Pager"
+msgstr "Ҫağrı cihazı"
+
+# 75%
+# 100%
+#, fuzzy
+msgid "No user selected"
+msgstr "Not seçilmedi"
+
+msgid "You must select one or more users."
+msgstr "Bir veya daha fazla kullanıcı seçmelisiniz."
+
+msgid "You must select a user."
+msgstr "Bir kullanıcı seçmelisiniz."
+
+msgid "Select"
+msgstr "Seç"
+
+msgid "Show Details"
+msgstr "Detaylar göster"
+
+msgid "Use the search bar to get results"
+msgstr ""
+
+#, fuzzy
+msgid "There are no items to show in this list"
+msgstr "Bu görünümde gösterilecek öğe bulunmamaktadir"
+
+msgid "Show Names from the"
+msgstr "İsimleri göster"
+
+msgid "Search..."
+msgstr ""
+
+msgid "Sort by: Icon"
+msgstr "Sıralama: Simge"
+
+# 76%
+msgid "Sort by: Name"
+msgstr "Sıralama: Ad"
+
+# 76%
+msgid "Sort by: Display Name"
+msgstr "Sıralama: Oturum Adı"
+
+msgid "File as"
+msgstr "Dosya olarak"
+
+msgid "Sort by: File As"
+msgstr "Sıralama: Dosya Olarak"
+
+# 80%
+msgid "First Name"
+msgstr "Adı"
+
+msgid "Sort by: First Name"
+msgstr ""
+
+# 77%
+msgid "Last Name"
+msgstr "Soyadı"
+
+# 76%
+msgid "Sort by: Last Name"
+msgstr "Sıralama: Soyad"
+
+msgid "Sort by: Email Address"
+msgstr "Sıralama: E-posta adresi"
+
+msgid "Sort by: Department"
+msgstr "Sıralama: Bölüm"
+
+msgid "Office Phone"
+msgstr "İş Telefonu"
+
+msgid "Sort by: Office Phone"
+msgstr "Sıralama:İş Telefonu"
+
+msgid "Sort by: Mobile"
+msgstr "Sıralama: cep telefonu"
+
+msgid "Home Phone"
+msgstr "Ev telefonu"
+
+# 76%
+msgid "Sort by: Home Phone"
+msgstr "Sıralama: Ev Telefonu"
+
+# 76%
+# 78%
+msgid "Sort by: Pager"
+msgstr "Sıralama: Pager"
+
+msgid "Location"
+msgstr "Konum"
+
+# 80%
+# 76%
+msgid "Sort by: Location"
+msgstr "Sıralama: Konum"
+
+# 76%
+msgid "Sort by: Fax"
+msgstr "Sıralama: Faks"
+
+msgid "No preview"
+msgstr "Önizleme yok"
+
+msgid "Right preview"
+msgstr "Sağ önizleme"
+
+msgid "Bottom preview"
+msgstr "Alt önizleme"
+
+# 87%
+msgid "Any date"
+msgstr "herhangi bir tarih"
+
+msgid "Past week"
+msgstr "geçen hafta"
+
+msgid "Past 2 weeks"
+msgstr "son 2 hafta"
+
+msgid "Past month"
+msgstr "geçen ay"
+
+msgid "Past 6 month"
+msgstr "son 6 ay"
+
+msgid "Past year"
+msgstr "geçen sene"
+
+# 87%
+msgid "Custom date"
+msgstr "özel tarih"
+
+msgid "Add to favorites"
+msgstr ""
+
+msgid "Add"
+msgstr "Ekle"
+
+#, fuzzy
+msgid "Empty folder name"
+msgstr "Klasörü boşalt"
+
+msgid "You must specify a name."
+msgstr "Bir isim belirtmelisiniz."
+
+msgid "Add a folder to favorites based on your search query"
+msgstr ""
+
+msgid "Folder name"
+msgstr ""
+
+#, fuzzy
+msgid "Select Category"
+msgstr "Kategori ayarla"
+
+msgid "Apply"
+msgstr "Uygula"
+
+#, fuzzy
+msgid "All folders are selected"
+msgstr "Klasör '{0}' seçildi."
+
+msgid "Reply"
+msgstr "Yanıtla"
+
+msgid "Reply All"
+msgstr "Hepsini yanıtla"
+
+msgid "Forward"
+msgstr "İlet"
+
+#, fuzzy
+msgid "Edit as New"
+msgstr "Yeni mesaj olarak düzenle"
+
+msgid "Search tools"
+msgstr "arama araçları"
+
+# 85%
+# 100%
+msgid "Folders"
+msgstr "klasörler"
+
+#, fuzzy
+msgid "Include subfolders"
+msgstr "Alt klasörler oluştur"
+
+msgid "Show.."
+msgstr "göster.."
+
+msgid "Mails"
+msgstr "E-posta"
+
+# 91%
+#, fuzzy
+msgid "Appointments"
+msgstr "Randevular"
+
+msgid "Contacts"
+msgstr "Kişiler"
+
+msgid "Tasks"
+msgstr "Görevler"
+
+msgid "Filter.."
+msgstr "filtrele.."
+
+msgid "Unread"
+msgstr "Okunmamış"
+
+msgid "Attachments"
+msgstr "Eklenti"
+
+msgid "Date"
+msgstr "Tarih"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "From"
+msgstr "Kimden"
+
+#, fuzzy
+msgctxt "search.date"
+msgid "To"
+msgstr "Kime"
+
+#, fuzzy
+msgid "Filter category.."
+msgstr "filtrele.."
+
+msgid "Search.."
+msgstr "ara.."
+
+msgid "Sender"
+msgstr "Gönderen"
+
+msgid "Recipients"
+msgstr "alıcılar"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Body & Attachments"
+msgstr "esas kısım ve ekleri"
+
+msgid "Favorites"
+msgstr "Favoriler"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr ""
+
+# 76%
+msgid "Select Folder"
+msgstr "Klasörü sil"
+
+msgid "Delete search folder"
+msgstr ""
+
+msgid "Sort by: Date"
+msgstr "Sıralama: tarih"
+
+msgid "Loading Search results"
+msgstr "ara sonuçları yükleniyor"
+
+#, fuzzy
+msgid "Sorting tip"
+msgstr "sıralama yapılamıyor"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr ""
+
+msgid "Did you mean"
+msgstr "ne demek istediniz"
+
+msgid "With"
+msgstr ""
+
+msgid "To"
+msgstr "Kime"
+
+msgid "No date"
+msgstr ""
+
+msgid "Error"
+msgstr "Hata"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr ""
+"Teklif kabul edilemiyor çünkü bu toplantı takvimde mevcut değil; Taşınmış "
+"veya silinmiş olunabilir"
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr ""
+"Toplantı takvim'de yer almadığı için öneri görüntülenemedi; taşınmış veya "
+"silinmiş olabilir."
+
+msgid "Required"
+msgstr "Gerekli"
+
+msgid "Optional"
+msgstr "Seçimsel"
+
+msgid "Resource"
+msgstr "Kaynak"
+
+msgid "Could not open store."
+msgstr "Mağaza açılınamıyor."
+
+msgid "Could not open default calendar folder."
+msgstr "Varsayılan takvim klasörü açılamadı."
+
+msgid "workday"
+msgstr "iş günü"
+
+msgid "day"
+msgstr "gün"
+
+msgid "days"
+msgstr "gün"
+
+msgid "week"
+msgstr "hafta"
+
+msgid "weeks"
+msgstr "hafta"
+
+msgid " on "
+msgstr ""
+
+msgid "month"
+msgstr "ay"
+
+msgid "months"
+msgstr "ay"
+
+msgid "year"
+msgstr "yıl"
+
+msgid "years"
+msgstr "yıl"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Her {0} {1} gerçekleşir, saat {2} - {3} arası."
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Her {0} {1} gerçekleşir, başlangıç: {2} saat {3} - {4} arası."
+
+msgid "Occurs every {0} effective {1}."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}"
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}"
+
+# 78%
+# 76%
+msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
+msgstr[0] ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+msgstr[1] ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+
+# 80%
+# 78%
+msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
+msgstr[0] ""
+"Her {0} {1} gerçekleşir, başlangıç: {2} {3} oluşum var, saat {4} - {5} arası."
+msgstr[1] ""
+"Her {0} {1} gerçekleşir, başlangıç: {2} {3} oluşum var, saat {4} - {5} arası."
+
+# 77%
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+msgstr[1] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+
+# 79%
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] "Her {0} {1} gerçekleşir, başlangıç: {2} {3} oluşum var"
+msgstr[1] "Her {0} {1} gerçekleşir, başlangıç: {2} {3} oluşum var"
+
+# 78%
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}, saat {3} - {4} arası."
+
+# 80%
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr ""
+"Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}, saat {4} - {5} arası."
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Her {0} {1} gerçekleşir, başlangıç: {2}, bitiş: {3}."
+
+# 100%
+msgid "When"
+msgstr "Ne zaman"
+
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y G:i"
+msgstr "l j F Y G:i"
+
+msgid "Where"
+msgstr "Konum"
+
+msgid "New Meeting Time Proposed"
+msgstr "Önerilen Yeni Toplantı Saati"
+
+msgid "and "
+msgstr ""
+
+msgid "Sort by: Attachment"
+msgstr "Sıralama: Ek"
+
+msgid "Sort by: Recurring"
+msgstr "Sıralama: Tekrarlanan"
+
+msgid "Sort by: Subject"
+msgstr "Sıralama: Konu"
+
+# 80%
+msgid "Startdate"
+msgstr "Başlangıç ​​tarihi"
+
+# 89%
+msgid "Sort by: Startdate"
+msgstr "Sıralama: Başlangıç Tarihi"
+
+msgid "Enddate"
+msgstr "Bitiş tarihi"
+
+msgid "Sort by: Enddate"
+msgstr "Sıralama: Bitiş Tarihi"
+
+msgid "Organizer"
+msgstr "Düzenleyici"
+
+msgid "Required Attendee"
+msgstr "Gerekli Katılımcı"
+
+msgid "Optional Attendee"
+msgstr "Seçimsel Katılımcı"
+
+msgid "Show Time As"
+msgstr "Zaman olarak göster"
+
+msgid "Start Date"
+msgstr "Başlangıç ​​Tarihi"
+
+# 87%
+msgid "End Date"
+msgstr "bitiş tarihi"
+
+msgid "Recurrence pattern"
+msgstr "Tekrarlama Düzeni"
+
+msgid "All Day Event"
+msgstr "Tüm gün etkinlik"
+
+# 78%
+# 76%
+# 100%
+msgid "Add Shared Calendar"
+msgstr "paylaşılan takvim ekle"
+
+msgid "Day"
+msgstr "Gün"
+
+msgid "Workweek"
+msgstr "İş haftasi"
+
+msgid "Week"
+msgstr "Hafta"
+
+msgid "Month"
+msgstr "Ay"
+
+msgid "List"
+msgstr "Liste"
+
+# 91%
+msgid "Appointment"
+msgstr "Randevular"
+
+msgid "Meeting request"
+msgstr "Toplanti isteği"
+
+msgid "Print selected appointment"
+msgstr "Seçtiniz randevuyu yazdır"
+
+msgid "Print overview"
+msgstr "Görünümü yazdır"
+
+msgid "Print"
+msgstr "Yazdır"
+
+msgid "No appointment selected"
+msgstr "Seçilmiş randevu yok"
+
+#, fuzzy
+msgid "Create Appointment"
+msgstr "Özel Randevu"
+
+msgid "Calendar"
+msgstr "Takvim"
+
+#, fuzzy
+msgid "Create in other calendar"
+msgstr "takvim'de görüntüle"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr ""
+
+msgid "What would you like?"
+msgstr ""
+
+#, fuzzy
+msgid "Own calendar"
+msgstr "takvim'de görüntüle"
+
+msgid "F Y"
+msgstr "F Y"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "l"
+
+msgid "All text fields"
+msgstr "Tüm metin alanlari"
+
+msgid "Body"
+msgstr "Gövde"
+
+msgid "Subject or Sender"
+msgstr "Konu veya gönderen"
+
+msgid "To or cc"
+msgstr "Kime veya cc"
+
+msgid "Meeting"
+msgstr "Toplantı"
+
+#, fuzzy
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "Kaynaklar planlanmıştır."
+
+# 87%
+#, fuzzy
+msgid "Send update"
+msgstr "Bitiş tarihi"
+
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr ""
+"Bir güncelleme mesajı tüm alıcılara gönderilecek, devam etmek istiyor "
+"musunuz?"
+
+msgid "Send update to attendees"
+msgstr "katılımcılara güncelleme gönder"
+
+msgid ""
+"You have made changes to the list of attendees, Choose one of the following"
+msgstr ""
+"Katılımcı listesinde değişiklik yaptınız, aşağıdakiler arasından seçiniz"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
+
+msgid "Send updates to all attendees."
+msgstr "Güncellemeleri tüm katılımcılara gönder."
+
+#, fuzzy
+msgid "Busy attendees"
+msgstr "Katıllimcılar davet et"
+
+#, fuzzy
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr ""
+"Davet ettiğiniz bir veya daha fazla katılımcı meşgul. Davet etmek "
+"istediğinize eminmisiniz?"
+
+msgid "Scheduling"
+msgstr "Zamanlama"
+
+msgid "Tracking"
+msgstr "Yanıtları izle"
+
+# 75%
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "Bütün alıcılar eşleştirilmedi"
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} Katılımcı kabul etti, {1} geçici kabul etti, {2} reddetti."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr ""
+"{0} katılımcılar bu toplantı için yeni bir zaman önerdi. Detaylar için "
+"Zamanlama sekmesini tıklayın."
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "Bu toplantı için yeni bir zaman önerildi {0}"
+
+# 91%
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0} bu toplantı için yeni bir zaman önerdi {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "Kabul edildi {0}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "{0} {1} tarihte kabul etti"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "Geçici kabul edilen {0}"
+
+# 76%
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "{0} {1} geçici kabul etti"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "Bu toplantı geçmişte."
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "Lütfen yanıt verin."
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "Bu toplantı için yanıtlar alınmamıştır."
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "Toplantı iptal edildi"
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "Bu toplantı için davetiyeler gönderilmemiştir."
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr ""
+"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
+"değişikliklerin üzerine yazılacaktır"
+
+#, fuzzy
+msgid "Create in"
+msgstr "Oluşturulma"
+
+msgid "Time"
+msgstr "Zaman"
+
+msgid "until"
+msgstr "kadar"
+
+msgid "Recurrence"
+msgstr "Tekrarlama"
+
+msgid "Reminder"
+msgstr "Hatırlatma"
+
+msgid "Show as"
+msgstr "Göster"
+
+msgid "Warning"
+msgstr "Uyarı"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "Ekler tek bir olay için modifiye edilemez"
+
+msgid "Type your message here..."
+msgstr "Mesajınızı buraya yazın..."
+
+#, fuzzy
+msgid "Update location"
+msgstr "Listeyi Güncelle"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr ""
+"Bulunduğunuz konumu \"{0}\" yeni konumla güncelleştirmek istiyormusunuz "
+"\"{1}\"?"
+
+# 90%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y G:i"
+msgstr "j F Y G:i"
+
+# 75%
+msgid "None"
+msgstr "Yok"
+
+msgid "Send"
+msgstr "Gönder"
+
+# 80%
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Add attachment"
+msgstr "Eklenti ekle"
+
+msgid "Check names"
+msgstr "Adı kontrol et"
+
+msgid "Invite attendees"
+msgstr "Katıllimcılar davet et"
+
+msgid "Cancel invitation"
+msgstr "Davetiyeyi iptal et"
+
+msgid "High priority"
+msgstr "Yüksek öncelik"
+
+# 76%
+msgid "Mark this appointment as high priority"
+msgstr "Bu randevuyu 'öncelik: yüksek' olarak işaretle"
+
+msgid "Low priority"
+msgstr "Düşük öncelik"
+
+# 78%
+msgid "Mark this appointment as low priority"
+msgstr "Bu randevuyu 'öncelik: düşük' olarak işaretle"
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+# 96%
+msgid "Open the categories dialog"
+msgstr "Kategoriler iletişimi açın."
+
+msgid "Private"
+msgstr "Özel"
+
+msgid "Mark this appointment as private"
+msgstr "Bu randevuyu özel olarak işaretle"
+
+msgid "Proposed Date and Time"
+msgstr "Önerilen Tarih ve Saat"
+
+msgid "Duration"
+msgstr "Süre"
+
+msgid "Proposed By"
+msgstr "tarafından Önerilen"
+
+msgid "Current Meeting Time"
+msgstr "Toplantı saati"
+
+msgid "Show only working hours"
+msgstr "Sadece çalişma saatlerini göster"
+
+msgid "Propose New Time"
+msgstr "Önerecek yeni zaman"
+
+msgid "Start time"
+msgstr "Başlangıç zamanı"
+
+msgid "End time"
+msgstr "Bitiş zamanı"
+
+msgid "Comment"
+msgstr "Yorum"
+
+# 84%
+msgid "Send Meeting Request Cancellation"
+msgstr "Toplantı isteği iptali gönder"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr ""
+"Bu toplantı iptal edildi. İptaliniz hakkında yorum yazmak ister misiniz?"
+
+msgid "Edit the cancellation before Sending."
+msgstr "Göndermeden önce iptali düzenle"
+
+msgid "Send the cancellation now."
+msgstr "İptali şimdi gönder."
+
+msgid "Send Meeting Request Confirmation"
+msgstr "Toplantı isteği onayı gönder"
+
+#, fuzzy
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Davetiye kabul edilmiştir ve takvimine geçiriliyor. Yanıta yorum eklemek "
+"istiyor musunuz?"
+
+#, fuzzy
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Bu toplantı geçici olarak kabul edilmiştir ve takvime geçiriliyor. Yanıta "
+"yorum eklemek istiyor musunuz?"
+
+#, fuzzy
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr ""
+"Bu toplantı reddetilmiştir ve silinmiş öğelere geçiriliyor. Yanıta yorum "
+"eklemek istiyor musunuz?"
+
+#, fuzzy
+msgid "Edit the response before sending"
+msgstr "Yanıtı göndermeden düzenle"
+
+msgid "Send the response now."
+msgstr "Yanıtı şimdi gönder"
+
+msgid "Don't send a response."
+msgstr "Yanıt göndermeyin."
+
+msgid "The following responses for this meeting have been received"
+msgstr "Bu toplantı için alınmış olan yanıtlar"
+
+msgid "Attendance"
+msgstr "Varlık"
+
+msgid "Response"
+msgstr "Yanıt ver"
+
+# 93%
+# 100%
+msgid "New appointment"
+msgstr "Yeni randevu"
+
+msgid "Creating an item"
+msgstr "öğe oluşturma"
+
+# 89%
+# 100%
+msgid "New meeting request"
+msgstr "Yeni toplantı isteği"
+
+msgid "Switch calendar range back and forth"
+msgstr "takvim aralığını ileri geri değiştir"
+
+msgid "Copy selected item"
+msgstr ""
+
+msgid "Paste selected item"
+msgstr ""
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "Başlangıç"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "Son"
+
+# 76%
+#, fuzzy
+msgid "Printed by: "
+msgstr "Sıralama: Kime"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "Printed on: "
+msgstr "Bu notu yazdır"
+
+#, fuzzy
+msgid "Location: "
+msgstr "Konum"
+
+# 87%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "l j F Y"
+
+# 87%
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "l j F"
+
+# 88%
+msgid "Organiser"
+msgstr "Düzenleyici"
+
+# 92%
+msgid "Meeting status"
+msgstr "Toplantı Durumu"
+
+# 94%
+msgid "Required Attendees"
+msgstr "Gerekli katılımcı"
+
+# 94%
+msgid "Optional Attendees"
+msgstr "Seçimsel katılımcı"
+
+# 88%
+msgid "Resources"
+msgstr "Kaynak"
+
+msgid "Sensitivity"
+msgstr "Hassaslık"
+
+# 80%
+msgid "Importance"
+msgstr "Önemli"
+
+msgid "M j"
+msgstr ""
+
+#, fuzzy
+msgid "j"
+msgstr "j"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l d/m/Y"
+msgstr "l d-m-Y"
+
+msgid "General calendar settings"
+msgstr "Genel takvim ayarları"
+
+msgid "First day of the week"
+msgstr "Haftanın birinci günü"
+
+msgid "Start of workday"
+msgstr "Iş gününün başlangıcı"
+
+msgid "End of workday"
+msgstr "Iş gününün sonu"
+
+msgid "Calendar resolution"
+msgstr "Takvim çözünürlük"
+
+#, fuzzy
+msgid "Default appointment duration {A} minutes"
+msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
+
+#, fuzzy
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "Değer %0 ile %100 arasında olmalıdır"
+
+msgid "Working days"
+msgstr "iş günü"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "Tarih seçiminde meşgul günleri kalın göster"
+
+#, fuzzy
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr ""
+"müsait / meşgul bilgisi toplantı isteği gönderen kişiler tarafından "
+"kullanılıyor, "
+
+#, fuzzy
+msgid "Free/Busy publishing"
+msgstr "müsait / meşgul izni"
+
+#, fuzzy
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "{A} ay takvim serbest/meşgul bilgisini sunucuda yayımla."
+
+#, fuzzy
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr "sadece 1 ila 36 aylık müsait / meşgul periodu yayımlayabilirsin."
+
+msgid "Side-by-side mode"
+msgstr "Yan yana modu"
+
+msgid "Overlay mode"
+msgstr "Kaplama modu"
+
+# 76%
+msgid "Calendar view settings"
+msgstr "Takvim görünüm ayarları"
+
+msgid "View multiple calendars in"
+msgstr "Birden fazla takvim görüntüle"
+
+msgid "Reminder settings"
+msgstr "Hatırlatma ayarları"
+
+msgid "Enable reminder for new appointments"
+msgstr "Yeni randevular için hatırlatma etkinleştirin"
+
+msgid "Default reminder time"
+msgstr "Varsayılan hatırlatma zamanı"
+
+msgid "Default all-day appointment reminder time"
+msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0} Seçili öğe"
+msgstr[1] "{0} Seçili öğe"
+
+msgid "New Appointment"
+msgstr "Yeni randevu"
+
+msgid "New Meeting Request"
+msgstr "Yeni toplanti isteği"
+
+msgid "Open"
+msgstr "Aç"
+
+msgid "Copy/Move"
+msgstr "kopyala/kaydır"
+
+# 75%
+msgid "Accept"
+msgstr "Kabul et"
+
+msgid "Tentative"
+msgstr "Geçici"
+
+# 87%
+msgid "Decline"
+msgstr "Reddedildi"
+
+#, fuzzy
+msgid "Send to..."
+msgstr "Gönder"
+
+msgid "Export as"
+msgstr ""
+
+# 80%
+# 100%
+msgid "Occurrence"
+msgstr "Tekrarlama"
+
+msgid "Series"
+msgstr "seri"
+
+# 91%
+#, fuzzy
+msgid "Appointment not found"
+msgstr "Randevular"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
+
+msgid "All Day"
+msgstr "tüm gün"
+
+msgid "Sort by: All Day"
+msgstr "Sıralama: Tüm Gün"
+
+msgid "Icon"
+msgstr "simge"
+
+msgid "Recurring"
+msgstr "tekrar eden"
+
+# 80%
+# 76%
+# 82%
+msgid "Sort by: Duration"
+msgstr "Sıralama: Süre"
+
+msgid "Meeting Status"
+msgstr "Toplantı Durumu"
+
+msgid "Sort by: Meeting Status"
+msgstr "Sıralama: Toplantı Durumu"
+
+msgid "Sort by: Show as"
+msgstr "Sıralama: gösteriş türü"
+
+msgid "Sort by: Categories"
+msgstr "Sıralama: Kategoriler"
+
+msgid "Created On"
+msgstr "Oluşturulma"
+
+# 84%
+msgid "Sort by: Created On"
+msgstr "Sıralama: Yazilim Tarihi"
+
+msgid "Due By"
+msgstr "Bitiyor"
+
+# 76%
+msgid "Sort by: Due By"
+msgstr "Sıralama: Vadesi Geçcmiş"
+
+msgid "Label"
+msgstr "Etiket"
+
+# 76%
+# 78%
+msgid "Sort by: Label"
+msgstr "Sıralama: Etiket"
+
+msgid "Sort by: Organizer"
+msgstr "Sıralama: Düzenleyici"
+
+msgid "Sort by: Required Attendee"
+msgstr "Sıralama: Gerekli Katılımcı"
+
+msgid "Sort by: Optional Attendee"
+msgstr "Sıralama: Seçimsel Katılımcı"
+
+msgid "Sort by: Resources"
+msgstr "Sıralama: Kaynak"
+
+msgid "Recurring Startdate"
+msgstr "Dönüşümlü Başlangıç Tarihi"
+
+msgid "Sort by: Recurring Startdate"
+msgstr "Sıralama: Dönüşümlü Başlangıç Tarihi"
+
+msgid "Recurring Enddate"
+msgstr "Dönüşümlü Bitiş tarihi"
+
+msgid "Sort by: Recurring Enddate"
+msgstr "Sıralama: Dönüşümlü Bitiş tarihi"
+
+msgid "Recurring Pattern"
+msgstr "Yineleme Düzeni"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "Sıralama: Yineleme Düzeni"
+
+# 77%
+msgid "Sort by: Reminder"
+msgstr "Sıralama: Hatırlatma Zamanı"
+
+msgid "Sort by: Sensitivity"
+msgstr "Sıralama: Önem Derecesi"
+
+msgid "Loading appointments"
+msgstr "Randevular yükleniyor"
+
+# 90%
+# 80%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F G:i"
+msgstr "F j, Y, g:i"
+
+# 83%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j F Y"
+
+#, fuzzy
+msgid "Update recipients"
+msgstr "Alıcı düzenle"
+
+msgid "The time of the meeting has changed. Choose one of the following:"
+msgstr "Toplantı saati değişti. Aşağıdakiler arasından seç:"
+
+msgid "Save changes and send an update to all recipients"
+msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
+
+msgid "Open meeting request with changes"
+msgstr "değişiklik yapılan toplantı isteğini aç"
+
+msgid "Copy"
+msgstr "Kopyala"
+
+#, fuzzy
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
+
+#, fuzzy
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr ""
+"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
+"değişikliklerin üzerine yazılacaktır"
+
+msgid "Move"
+msgstr "Kaydır"
+
+#, fuzzy
+msgid "Don't move"
+msgstr "gönderme"
+
+msgid "Switch to day view to see all appointments"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "Önerilen"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "Ne zaman"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "Konum"
+
+msgid "Remove From Calendar"
+msgstr "Takvimden Sil"
+
+msgid "No Response Required"
+msgstr "Cevaba gerek yok"
+
+msgid "Accept Meeting Request"
+msgstr "Toplantı isteği kabul et"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Toplantı isteği geçici kabul et"
+
+msgid "Decline Meeting Request"
+msgstr "Toplanti isteği reddet"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Toplanti isteği için önerecek yeni zaman"
+
+msgid "View All Proposals"
+msgstr "Tüm teklifleri görüntüle"
+
+msgid "Accept Proposal"
+msgstr "Teklifi kabul et"
+
+msgid "Accept Proposed Time"
+msgstr "Önerilmiş yeni zamanı kabul et"
+
+msgid "View in calendar"
+msgstr "takvim'de görüntüle"
+
+#, fuzzy
+msgid "No additional response required"
+msgstr "Cevaba gerek yok"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr ""
+"Takviminiz otomatik olarak güncellendi. Bu toplantı isteği artık silinecek."
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G"
+msgstr "G"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "Birden fazla öğe baskı uygulamaya konmamıştır."
+
+msgid "Printing of this item is not yet available"
+msgstr "Bu öğe basımı henüz mevcut değil"
+
+msgid "Item type: "
+msgstr "Öğe türü: "
+
+msgid "Printing of this view is not yet available"
+msgstr "Bu görüşü yazdırmak henüz mümkün değildir"
+
+msgid "Recurring Message"
+msgstr "Dönüşümlü Mesaj"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr ""
+"Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı açmak istiyor musunuz?"
+
+msgid "Recurring Appointment"
+msgstr "Dönüşümlü Randevu"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr ""
+"Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı açmak istiyor musunuz?"
+
+# 80%
+msgid "Recurring Meeting Request"
+msgstr "Dönüşümlü toplantı İsteği"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr ""
+"Bu bir dönüşümlü toplantı İsteği. Seriden yalnızca bu olayı açmak istiyor "
+"musunuz?"
+
+msgid "Recurring Task Request"
+msgstr "Dönüşümlü Görev isteği"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr ""
+"Bu bir dönüşümlü Görev isteği. Seriden yalnızca bu olayı açmak istiyor "
+"musunuz?"
+
+msgid "Open this occurrence"
+msgstr "Bu olayı aç"
+
+msgid "Open the series"
+msgstr "Bu seriyi aç"
+
+msgid "Paste Recurring {0}"
+msgstr ""
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr ""
+
+msgid "message"
+msgstr ""
+
+msgid "meeting request"
+msgstr ""
+
+msgid "appointment"
+msgstr ""
+
+msgid "Paste this occurrence only"
+msgstr ""
+
+msgid "Paste the series..."
+msgstr ""
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr ""
+"Bu bir dönüşümlü mesaj. Seriden yalnızca bu olayı silmek istiyor musunuz?"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Bu bir dönüşümlü randevu. Seriden yalnızca bu olayı silmek istiyor musunuz?"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr ""
+"Bu bir dönüşümlü toplanti isteği. Seriden yalnızca bu olayı silmek istiyor "
+"musunuz?"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr ""
+"Bu bir dönüşümlü görev isteği. Seriden yalnızca bu olayı silmek istiyor "
+"musunuz?"
+
+msgid "Delete this occurrence"
+msgstr "Bu oluşumu sil"
+
+msgid "Delete the series"
+msgstr "Bu seriyi sil"
+
+msgid "Confirm Delete"
+msgstr "Silmeyi onayla"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "Bu \"{0}\" toplantı kabul edilmiş durumda."
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "Bu toplantı isteğine \"{0}\" yanıt alamadık."
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "Toplantıyı sil ve düzenleyene bir yanıt gönder"
+
+msgid "Delete without sending"
+msgstr "Göndermeden sil"
+
+#, fuzzy
+msgid "Notify recipients"
+msgstr "Alıcı düzenle"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr ""
+"Bir iptal ileti tüm alıcılara gönderilecek, devam etmek istiyor musunuz?"
+
+#, fuzzy
+msgid "Delete Incomplete Task"
+msgstr "Tamamlanan Görevler"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr ""
+
+#, fuzzy
+msgid "Decline and delete"
+msgstr "Toplanti isteği reddet"
+
+#, fuzzy
+msgid "Mark complete and delete"
+msgstr "Tamamlanmış İşaretle"
+
+# 77%
+#, fuzzy
+msgid "Notify sender"
+msgstr "Sıralama: Hatırlatma Zamanı"
+
+#, fuzzy
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr ""
+"Bu mesajın göndereni bu mesajı okuduğunuzda bildirilmesini istedi. Göndereni "
+"bildirmek istiyor musunuz?"
+
+#, fuzzy
+msgid "Import"
+msgstr "Önemli"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr ""
+
+msgid "Failed to import item(s) to {0}"
+msgstr ""
+
+#, fuzzy
+msgid "Import error"
+msgstr "Önemli"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr ""
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Bcc"
+msgstr "Bcc"
+
+msgid "From"
+msgstr "Kimden"
+
+msgid "Insert item"
+msgstr "öğe ekle"
+
+msgid "Insert as"
+msgstr "olarak ekle"
+
+msgid "Text only"
+msgstr "yalnızca metin"
+
+# 90%
+msgid "Attachment"
+msgstr "ek"
+
+msgid "Attach Item"
+msgstr "öğe ekle"
+
+msgid "No message selected"
+msgstr "Hiçbir mesaj seçilmedi"
+
+#, fuzzy
+msgid "Import to"
+msgstr "Önemli"
+
+# 90%
+# 100%
+msgid "New folder"
+msgstr "Yeni klasör"
+
+msgid "Download as ZIP"
+msgstr "ZIP olarak indir"
+
+msgid "Continue"
+msgstr "Devam et"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr "Bu eklerin dosya tipi desteklenmiyor ve ZIP dosyasına eklenememekte:"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "Bu dosyaları eklemeden indirmeye devam etmek istiyor musunuz?"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr ""
+"ZIP dosyalarının indirmesine her zaman desteklenmeyen dosya türlerini "
+"eklemeden devam et."
+
+msgid "File upload"
+msgstr "Dosya ekle"
+
+msgid "Attach item"
+msgstr "öğe ekle"
+
+msgid "Preview"
+msgstr "Önizleme"
+
+msgid "Download"
+msgstr "Indir"
+
+msgid "Download all as ZIP"
+msgstr "tümünü ZIP olarak indir"
+
+#, fuzzy
+msgid "Import to folder"
+msgstr "Klasörü boşalt"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "Eklenti hatası"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "ZIP oluşturulamıyor, izin verilen maksimum boyut 30 MB."
+
+msgid "Unable to download"
+msgstr ""
+
+msgid "Picture format is not supported. "
+msgstr "resim formatı desteklenmiyor. "
+
+msgid "Supported format for contact pictures are"
+msgstr "Kişi resimleri için desteklenen format"
+
+# 93%
+# 100%
+msgid "Attachment Error"
+msgstr "Eklenti hatası"
+
+msgid "Manage Categories"
+msgstr ""
+
+msgid "New"
+msgstr "Yeni"
+
+msgid "Delete Category"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr ""
+
+msgid "Rename Category"
+msgstr ""
+
+msgid "A category named \""
+msgstr ""
+
+msgid "Create New Category"
+msgstr ""
+
+msgid "Pin to quick access"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr ""
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr ""
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr ""
+
+msgid "Do you want to rename it?"
+msgstr ""
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Remove"
+msgstr "Sil"
+
+# 90%
+msgid "Check Names"
+msgstr "Adı kontrol et"
+
+msgid "Select an address to use"
+msgstr "Kullanmak için bir adres seçin"
+
+msgid "Email"
+msgstr "E-posta"
+
+msgid "More than one '{0}' found."
+msgstr "Birden fazla '{0}' bulundu."
+
+msgid "Alert"
+msgstr "Uyarı"
+
+# 80%
+msgid "Please select a recipient"
+msgstr "Bir alıcı belirtin"
+
+msgid "Mail and Post"
+msgstr "Posta ve Mesaj"
+
+msgid "Contact"
+msgstr "Kişiler"
+
+msgid "Journal"
+msgstr "Günlük"
+
+msgid "Note"
+msgstr "Not"
+
+msgid "Task"
+msgstr "Görevler"
+
+msgid "Inbox"
+msgstr "Gelen Kutusu"
+
+msgid "Entire Inbox"
+msgstr "Tüm Klasörler"
+
+msgid "Secretary"
+msgstr "Sekreter"
+
+msgid "Only read"
+msgstr "Sadece oku"
+
+msgid "Delegate Permissions"
+msgstr "Delege izinleri"
+
+msgid "This delegate has the following permissions"
+msgstr "Bu delege aşağıdaki izinlere sahip"
+
+msgid "Delegate can see my private items."
+msgstr "Delege özel öğeleri görebilir."
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr "Delege bana gönderilen toplantı ile ilgili mesajlar kopyalarını alır."
+
+msgid "Other"
+msgstr "Diyeri"
+
+#, fuzzy
+msgid "No delegates configured"
+msgstr "Yapılandırılmış imzalar yok"
+
+msgid "Loading delegates"
+msgstr "Delegeler yükleniyor"
+
+msgid "Please select a delegate."
+msgstr "Lütfen delege seҫiniz."
+
+msgid "Delegates can send items on your behalf."
+msgstr ""
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr ""
+
+# 90%
+msgid "Permission"
+msgstr "İzinler"
+
+#, fuzzy
+msgid "Duplicate delegate"
+msgstr "Toplanti isteği reddet"
+
+msgid "Delegate already exists in the list."
+msgstr "Delege listesinde zaten var."
+
+msgid "Copy/Move Folder"
+msgstr "Kopyala / Klasör Taşı"
+
+msgid "Copy/Move Messages"
+msgstr "Kopyala / Taşı Mesajlar"
+
+msgid "Destination folder"
+msgstr "Hedef klasör"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "{0} mesaj seçilmiş bulunmaktadır"
+msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
+
+msgid "Folder '{0}' selected."
+msgstr "Klasör '{0}' seçildi."
+
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
+
+msgid "Do not show this message again."
+msgstr ""
+
+msgid "ICS"
+msgstr ""
+
+#, fuzzy
+msgid "Set custom flag"
+msgstr "Bayrak"
+
+# 90%
+msgid "Start date"
+msgstr "Başlangıç ​​tarihi"
+
+# 87%
+msgid "End date"
+msgstr "Bitiş tarihi"
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "This week"
+msgstr ""
+
+msgid "Next week"
+msgstr ""
+
+# 87%
+#, fuzzy
+msgid "Custom"
+msgstr "özel tarih"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "Hatırlatma"
+
+msgid "Complete"
+msgstr "Tamamlandı"
+
+msgid "today"
+msgstr ""
+
+msgid "tomorrow"
+msgstr ""
+
+msgid "this week"
+msgstr ""
+
+msgid "next week"
+msgstr ""
+
+msgid "Edit recipient"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Copy email address"
+msgstr "Yeni e-posta adresi"
+
+#, fuzzy
+msgid "Set as required"
+msgstr "Bu alan gereklidir"
+
+#, fuzzy
+msgid "Set as optional"
+msgstr "Seçimsel"
+
+#, fuzzy
+msgid "Set as resource"
+msgstr "Sıralama: Kaynak"
+
+msgid "Select attendees"
+msgstr "Katılımcı seçin"
+
+msgid "Suggested Times"
+msgstr "Önerilen Saatler"
+
+msgid "Busy"
+msgstr "Meşgul"
+
+msgid "Out of Office"
+msgstr "Ofis dışında"
+
+msgid "No Information"
+msgstr "Bilgi yok"
+
+# 82%
+msgid "Show non-working hours"
+msgstr "Mesai saatleri dışındakilerinide göster"
+
+# 82%
+# 81%
+msgid "Hide non-working hours"
+msgstr "Sadece mesai saatlerini göster"
+
+msgid "No freebusy information available for this date"
+msgstr "Bu tarih için serbest meşgul bilgileri mevcut değil"
+
+msgid "No suggestions available"
+msgstr "Öneri yok"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "Farklı içerikler arasında geçiş yap, örn. gelen kutusu, takvim, vb."
+
+msgid "Basic navigation"
+msgstr "temel navigasyon"
+
+msgid "Switch between different views"
+msgstr "Farklı görünümler arasında geçiş"
+
+msgid "New item"
+msgstr "Yeni madde"
+
+msgid "All views"
+msgstr "Tüm görünümler"
+
+msgid "Close tab"
+msgstr "sekmeyi kapat"
+
+msgid "Print item"
+msgstr "öğeyi yazdır"
+
+msgid "Items"
+msgstr "Öğeler"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "öğe kaydet, örn. e-posta, kişi, vb."
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "öğe gönder, örn. e-posta, toplantı isteği, vb."
+
+msgid "Select all items"
+msgstr "Tüm öğeleri seç"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "seçimi listedeki ilk öğeye yapılandır"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "seçimi listedeki son öğeye yapılandır"
+
+# 77%
+msgid "Open selected item"
+msgstr "seçili öğeyi aç"
+
+msgid "Open dialog to categorize selected item"
+msgstr "seçili öğeyi kategorilemek için pencere aç"
+
+msgid "Print list"
+msgstr "listeyi yazdır"
+
+# 78%
+msgid "Print selected item"
+msgstr "Seçili öğeyi yazdır"
+
+msgid "Open copy/move dialog"
+msgstr "kopyala/taşı penceresini aç"
+
+# 77%
+# 75%
+# 100%
+msgid "Delete selected item"
+msgstr "Seçili öğeyi sil"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr ""
+
+#, fuzzy
+msgid "Add/Edit Cc recipient"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Duplicate recipient"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Recipient already exists."
+msgstr "Kullanıcı zaten var"
+
+#, fuzzy
+msgid "Disable for new mail"
+msgstr "Yeni mesajlar için imza"
+
+#, fuzzy
+msgid "Enable for new mail"
+msgstr "Yeni mesajlar için imza"
+
+msgid "Disable for replies"
+msgstr ""
+
+msgid "Enable for replies"
+msgstr ""
+
+#, fuzzy
+msgid "No Cc recipient configured"
+msgstr "Yapılandırılmış imzalar yok"
+
+#, fuzzy
+msgid "Loading Cc recipients"
+msgstr "Alıcı düzenle"
+
+# 88%
+# 100%
+#, fuzzy
+msgid "Reply Mail"
+msgstr "Hepsini yanıtla"
+
+msgid "New Mail"
+msgstr "Yeni E-posta"
+
+# 80%
+#, fuzzy
+msgid "Please select a Cc recipient record."
+msgstr "Bir alıcı belirtin"
+
+#, fuzzy
+msgid "Manage Cc recipients"
+msgstr "Alıcı düzenle"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr ""
+
+#, fuzzy
+msgid "Following recipients are already exists"
+msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
+
+#, fuzzy
+msgid "Duplicate recipients"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
+
+# 91%
+msgid "Display name"
+msgstr "Ad Görüntüsü"
+
+# 92%
+msgid "Email address"
+msgstr "E-posta adres"
+
+# 78%
+# 100%
+#, fuzzy
+msgid "Expand distribution list"
+msgstr "yeni dağıtım listesi"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr ""
+"dağıtım listesi üyeleri ile değiştirilecektir. Listeyi tekrar "
+"daraltamayacaksınız."
+
+# 92%
+msgid "Edit Recipient"
+msgstr "Alıcı düzenle"
+
+msgid "Send email"
+msgstr "E-posta gönder"
+
+#, fuzzy
+msgid "Delete recipient from suggestion list"
+msgstr "Bu dağıtım listesini sil"
+
+msgid "View recipient"
+msgstr "Alıcı bilgileri"
+
+msgid "Weekday"
+msgstr "hafta içi gün"
+
+msgid "Weekend Day"
+msgstr "Haftasonu"
+
+msgid "1st"
+msgstr "Birinci"
+
+msgid "2nd"
+msgstr "İkinci"
+
+msgid "3rd"
+msgstr "Üçüncü"
+
+msgid "4th"
+msgstr "Dördüncü"
+
+# 75%
+msgid "last"
+msgstr "Sonuncu"
+
+msgid "Every {A} day(s)"
+msgstr "Her {A} gün"
+
+msgid "Every weekday"
+msgstr "Hafta içi her gün"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "{A} her görevi gün sonra (lar) tamamlanır yeni görev yenilenmek"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "Her {B} ayda bir {A} gün"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "Her {C} ayda bir {A} {B}"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "Her görev tamamlandıktan sonra yeni görev {A} ay(lar) yeniden oluştur"
+
+msgid "Appointment Recurrence"
+msgstr "Randevu tekrarlama"
+
+msgid "Remove Recurrence"
+msgstr "Tekrarlamayı kaldır"
+
+#, fuzzy
+msgid "Reset recurring"
+msgstr "tekrar eden"
+
+#, fuzzy
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "Bu randevu taşındı veya silindi, devam etmek istiyor musun?"
+
+msgid "Task Recurrence"
+msgstr "Görev Tekrarlama"
+
+msgid "Daily"
+msgstr "Günlük"
+
+msgid "Weekly"
+msgstr "Haftalık"
+
+msgid "Monthly"
+msgstr "Aylık"
+
+msgid "Yearly"
+msgstr "Yıllık"
+
+msgid "Range of recurrence"
+msgstr "Yineleme aralığı"
+
+msgid "No end date"
+msgstr "Bitiş tarihi yok"
+
+msgid "End after {A} occurrences"
+msgstr "{A} olaylardan sonra bitir"
+
+msgid "End by {A}"
+msgstr "Bitiş {A}"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "Oluşum süresi: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "Her {A} haftada bu zaman"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr ""
+"{A} her görev sonrası hafta (lar) tamamlanır yeni görev yeniden oluştur"
+
+msgid "Every {A} {B}"
+msgstr "Her {A} {B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "{A} {B} / {C}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "Her görev tamamlandığında yeni görev yenilenmek {A} yıl (lar) sonra"
+
+msgid "Info"
+msgstr "Bilgi"
+
+msgid "Not supported at the moment."
+msgstr "Şu anda desteklenmiyor."
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "{0} hatırlatma var"
+msgstr[1] "{0} hatırlatma var"
+
+# 88%
+msgid "Reminders"
+msgstr "Hatırlatmalar"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "{0} hatırlatma var"
+
+msgid "Due In"
+msgstr "Bitiyor"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "Bitiyor"
+
+# 92%
+msgid "Reminder time"
+msgstr "Hatırlatma zamanı"
+
+msgid "Dismiss All"
+msgstr "Hepsini reddet"
+
+msgid "Open Item"
+msgstr "Öğeyi aç"
+
+msgid "Dismiss"
+msgstr "Reddet"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "Tekrar hatırlatılması iҫin ertelemeye tıklayın"
+
+msgid "Snooze"
+msgstr "Geciktirme"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "{0} hatırlatma seçildi"
+msgstr[1] "{0} hatırlatmalar seçildi"
+
+msgid "Restore Softdeleted Items"
+msgstr "geçici silinmiş öğeleri geri yükle"
+
+msgid "Restore From {0}"
+msgstr "{0} 'den itibaren geri yükle"
+
+msgid "Restore"
+msgstr "eski durumuna getir"
+
+msgid "Restore All"
+msgstr "Hepsini eski duruma getir"
+
+msgid "Permanent Delete"
+msgstr "Daimi Sil"
+
+msgid "Delete All"
+msgstr "tümünü sil"
+
+# 75%
+# 100%
+msgid "Messages"
+msgstr "mesajlar"
+
+#, fuzzy
+msgid "Delete all items"
+msgstr "Tüm öğeleri seç"
+
+#, fuzzy
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "Tüm öğeleri kalıcı olarak silmek istediğinizden emin misiniz?"
+
+#, fuzzy
+msgid "Restore all items"
+msgstr "Eski durumuna getir"
+
+#, fuzzy
+msgid "Are you sure you want to restore all items?"
+msgstr "Tüm öğeleri geri yüklemek istediğinizden emin misiniz?"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "toplam {0} kurtarılabilir öğe"
+msgstr[1] ""
+
+msgid "Deleted On"
+msgstr "Sil"
+
+# 84%
+# 78%
+msgid "Sort by: Deleted On"
+msgstr "Sıralama: Silinme tarihi"
+
+msgid "Item Count"
+msgstr "öğe sayımı"
+
+msgid "Sort by: Item Count"
+msgstr "Sıralama: Öğe sayımı"
+
+# 76%
+msgid "Sort by: From"
+msgstr "Sıralama: Kimden"
+
+msgid "Received"
+msgstr "Alındı"
+
+msgid "Sort by: Received"
+msgstr "Sıralama: Alınan"
+
+msgid "Size"
+msgstr "Boyut"
+
+# 75%
+# 76%
+msgid "Sort by: Size"
+msgstr "Sıralama: Boyut"
+
+#, fuzzy
+msgid "Move the message to folder..."
+msgstr "Klasöre mesaj taşıyın ..."
+
+#, fuzzy
+msgid "Copy the message to folder..."
+msgstr "Klasörüne mesajı kopyala ..."
+
+msgid "Delete the message"
+msgstr "Mesajı sil"
+
+#, fuzzy
+msgid "Redirect the message to..."
+msgstr "mesajı yönlendir ..."
+
+#, fuzzy
+msgid "Forward the message to..."
+msgstr "mesajı ilet ..."
+
+#, fuzzy
+msgid "Forward the message as attachment to..."
+msgstr "mesajı ek olarak ilet ..."
+
+#, fuzzy
+msgid "Mark the message as read..."
+msgstr "mesajı ilet ..."
+
+#, fuzzy
+msgid "is received from..."
+msgstr "alındığı kişi ..."
+
+#, fuzzy
+msgid "includes these words in the sender's address..."
+msgstr "gönderen adresi bu kelimeleri içeren ..."
+
+#, fuzzy
+msgid "includes these words in the recipient's address..."
+msgstr "gönderen adresi bu kelimeleri içeren ..."
+
+#, fuzzy
+msgid "includes these words in the subject..."
+msgstr "konu bu kelimeleri içeren ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the body..."
+msgstr "esas kısım bu kelimeleri içeren ..."
+
+# 84%
+# 100%
+#, fuzzy
+msgid "includes these words in the transport-headers..."
+msgstr "esas kısım bu kelimeleri içeren ..."
+
+#, fuzzy
+msgid "has importance..."
+msgstr "öneme sahiptir ..."
+
+msgid "has an attachment"
+msgstr "ek var"
+
+#, fuzzy
+msgid "is sent to..."
+msgstr "gönderilir ..."
+
+msgid "is sent only to me"
+msgstr "yalnızca bana gönderilen"
+
+msgid "has my name in the Cc field"
+msgstr "CC alanında adım olan"
+
+#, fuzzy
+msgid "does not have my name in the To or Cc field"
+msgstr "alıcı veya CC alanında adım olan"
+
+msgid "has my name in the To or Cc field"
+msgstr "alıcı veya CC alanında adım olan"
+
+#, fuzzy
+msgid "has sensitivity..."
+msgstr "Hassaslığı var"
+
+#, fuzzy
+msgid "is received after..."
+msgstr "sonra alınır"
+
+#, fuzzy
+msgid "is received before..."
+msgstr "önce alınır"
+
+msgid "size is at least..."
+msgstr ""
+
+msgid "size is at most..."
+msgstr ""
+
+msgid "has my name in the To field"
+msgstr "alıcı alanında adım olan"
+
+msgid "is received (all messages)"
+msgstr ""
+
+msgid "Select one..."
+msgstr "birini seç ..."
+
+msgid "Unknown condition"
+msgstr "bilinmeyen koşul"
+
+msgid "This condition for the current rule is unknown"
+msgstr "güncel kuralın bu koşulu bilinmiyor"
+
+msgid "Unnamed folder"
+msgstr "isimsiz klasör"
+
+msgid "Add action"
+msgstr "eylem ekle"
+
+msgid "Remove action"
+msgstr "eylem sil"
+
+msgid "Unknown action"
+msgstr "bilinmeyen eylem"
+
+msgid "This action for the current rule is unknown"
+msgstr "güncel kuralın bu eylemi bilinmiyor"
+
+msgid "Add condition"
+msgstr "koşul ekle"
+
+msgid "Remove condition"
+msgstr "koşul sil"
+
+msgid "Inbox Rule"
+msgstr "'gelen kutusu' kuralı"
+
+msgid "Rule name"
+msgstr "kural adı"
+
+msgid "When the message"
+msgstr "mesaj"
+
+msgid "Do the following"
+msgstr "aşağıdakileri yapın"
+
+# 75%
+#, fuzzy
+msgid "Exceptions"
+msgstr "Ayarlar"
+
+msgid "Apply only when Out of Office is active"
+msgstr ""
+
+msgid "Stop processing more rules"
+msgstr "Daha fazla kural işlemeyi durdur"
+
+#, fuzzy
+msgid "Add exception"
+msgstr "eylem ekle"
+
+#, fuzzy
+msgid "Remove exception"
+msgstr "eylem sil"
+
+msgid "Specify Words or Phrases"
+msgstr "kelime ve cümleler belirle"
+
+msgid "Edit"
+msgstr "düzenle"
+
+msgid "and"
+msgstr "ve"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"distribution list with its members?"
+msgstr ""
+"dağıtım listeleri kurallar içerisinde desteklenmemekte, dağıtım listesini "
+"üyelerle değiştirmek ister misiniz?"
+
+msgid "or"
+msgstr "veya"
+
+msgid "No rule exists"
+msgstr "kural yok"
+
+msgid "Active"
+msgstr "aktif"
+
+#, fuzzy
+msgid "Out of office"
+msgstr "Ofis dışında"
+
+# 80%
+msgid "Rule"
+msgstr "kural"
+
+# 76%
+msgid "Loading rules"
+msgstr "kurallar yükleniyor"
+
+# 76%
+msgid "Please select a rule."
+msgstr "Lütfen bir kural seҫiniz."
+
+msgid "Rule already has highest priority."
+msgstr "Kural halihazırda en yüksek önceliğe sahiptir."
+
+msgid "Rule already has lowest priority."
+msgstr "Kural halihazırda en düşük önceliğe sahiptir."
+
+msgid "myself"
+msgstr ""
+
+msgid "Update rules for"
+msgstr ""
+
+msgid "Apply changes"
+msgstr ""
+
+msgid "Do you wish to apply the changes?"
+msgstr "Değişiklikleri uygulamak istiyor musunuz?"
+
+#, fuzzy
+msgid "All folders"
+msgstr "tüm klasörlerim"
+
+#, fuzzy
+msgid "Other..."
+msgstr "Diyeri"
+
+#, fuzzy
+msgid "Search in.."
+msgstr "ara.."
+
+#, fuzzy
+msgid "Folder does not exist"
+msgstr "Klasör içerir"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr ""
+
+msgid "Add/Edit sender"
+msgstr "Gönderen ekle / düzenle"
+
+msgid "No from addresses configured"
+msgstr ""
+
+msgid "Loading from addresses"
+msgstr ""
+
+msgid "Please select a from address record."
+msgstr ""
+
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr ""
+
+msgid "View"
+msgstr "görünüm"
+
+msgid "Please select a sendas record."
+msgstr "Lütfen 'farklı gönder' kaydı seçiniz."
+
+msgid "Delegates"
+msgstr "Delegeler"
+
+# 88%
+msgid "Delegate settings"
+msgstr "Delege ayarları"
+
+# 80%
+#, fuzzy
+msgid "Rules"
+msgstr "kural"
+
+msgid "From Addresses"
+msgstr ""
+
+msgid "From Addresses settings"
+msgstr ""
+
+msgid "Full name"
+msgstr "ad ve soyad"
+
+msgid "Job Title"
+msgstr "İş unvanı"
+
+# 92%
+msgid "Phone Numbers"
+msgstr "Telefon numaraları"
+
+# 80%
+# 75%
+msgid "Business Fax"
+msgstr "Şirket faks"
+
+msgid "Webpage"
+msgstr "Web sayfası"
+
+# 75%
+msgid "IM Address"
+msgstr "IM- Adres"
+
+#, fuzzy
+msgid "D, d-m-Y, G:i"
+msgstr "d-m-Y"
+
+# 76%
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0} seçili satır"
+msgstr[1] "{0} seçili satır"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr ""
+
+msgid "d-m-Y"
+msgstr "d-m-Y"
+
+msgid "l d/m/Y G:i"
+msgstr "l d-m-Y G:i"
+
+#, fuzzy
+msgid "d-m-Y G:i"
+msgstr "d-m-Y"
+
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+# 88%
+msgid "Meeting Organizer"
+msgstr "Toplantı düzenleyen"
+
+msgid "{0} overdue"
+msgstr "{0} vadesi geçmiş"
+
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+msgid "Failed"
+msgstr "Başarısız oldu"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "Eklenti"
+
+msgid "Download Pictures"
+msgstr "Resimleri indir"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "Güvenli gönderenler listesine gönderici ekle"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "Güvenli gönderenler listesine domain ekle"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "Bu mesaj {0} önemi ile gönderildi."
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "{0} olarak bu metni davranın."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr ""
+"Resimleri yüklemek için burayı tıklayınız. Gizliliğinizi korunmasına "
+"yardımcı olmak için, WebApp bu iletideki bazı resimlerin otomatik olarak "
+"yüklenmesini engelledi ."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr ""
+"Bu mesaj bozuk ve doğru görüntülenemiyor, düzeltmek için buraya tıklayınız."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0} kabul ettti"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{1} adına {0} kabul etti."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0} geçici kabul etti."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{1} adına {0} geçici kabul etti."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0} reddetti."
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{1} adına {0} redetti"
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr ""
+"{0} geçici olarak kabul edildi ve bu toplantı için yeni bir zaman önerildi."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr ""
+"{1} adına {0} geçici kabul etti ve bu toplantı için yeni bir saat önerdi."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} reddetti ve bu toplantı için yeni bir zaman önerdi."
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{1} adına {0} reddetti ve bu toplantı için yeni bir saat önerdi."
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "Bu toplantı Takvim içinde değil, taşınmış veya silinmiş olunabilir."
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr ""
+"Bu mesaj gönderildikten sonra toplantı isteği güncellendi. En son "
+"güncellenmişi açmak gerek veya takvimden öğeyi açmak gerekir."
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "Toplantıyı düzenleyen kişi olarak, toplantıya yanıt gerekmez"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "Katılımcının bu yanıtı gönderdikten sonra toplantı güncellendi"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "Bu randevu geçmişte"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "Lütfen yanıt verin"
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "Bu daha önce gönderilen toplantı isteğinin bir güncelleşmiş şekli"
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "{0} için alınan"
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "Bu mesajı {0}'dan cevapladınız."
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "Bu mesajı {0} ilettiniz."
+
+#, fuzzy
+msgid "Assigned by {0} on {1}."
+msgstr "{0} {1} tarihte kabul etti"
+
+#, fuzzy
+msgid "Waiting for response from recipient"
+msgstr "Alıcılardan okundu isteyi isteyin"
+
+#, fuzzy
+msgid "Accepted by {0} on {1}."
+msgstr "{0} {1} tarihte kabul etti"
+
+#, fuzzy
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{1} adına {0} kabul etti."
+
+#, fuzzy
+msgid "Declined by {0} on {1}."
+msgstr "{0} {1} tarihte kabul etti"
+
+#, fuzzy
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{1} adına {0} redetti"
+
+msgid "Last update sent on {0}."
+msgstr ""
+
+#, fuzzy
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{1} adına {0} kabul etti."
+
+#, fuzzy
+msgid "Fix message"
+msgstr "Orijinal mesaj"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr ""
+"Bozuk bir e-posta mesajını düzeltmeye çalışacağız, devam etmek istiyor "
+"musunuz?"
+
+#, fuzzy
+msgid "d-m-Y g:i a"
+msgstr "d-m-Y"
+
+msgid "The matching task was not found in your task list."
+msgstr ""
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "Kime"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "Cc"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "Bcc"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr ""
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "Alıcılar"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "adına yazıyorum"
+
+# 100%
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr "Gönderildi"
+
+# 75%
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "Hiç"
+
+#, fuzzy
+msgid "Pop-out"
+msgstr "açılır pencere"
+
+#, fuzzy
+msgid "Mark as read"
+msgstr "Okunmamış İşaretle"
+
+#, fuzzy
+msgid "Mark as unread"
+msgstr "Okunmamış İşaretle"
+
+msgid "in"
+msgstr ""
+
+msgid "Root"
+msgstr "Temel"
+
+# 85%
+msgid "File As"
+msgstr "Dosya olarak"
+
+msgid "Company Name"
+msgstr "Şirket adı"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Sıralama: Şirket adı"
+
+msgid "Sort by: Job Title"
+msgstr "Sıralama: İş unvanı"
+
+msgid "Full Name"
+msgstr "Adı"
+
+msgid "Department Name"
+msgstr "Bölüm Adı"
+
+msgid "Home Address"
+msgstr "Ev adresi"
+
+msgid "Business Address"
+msgstr "Iş Adresi"
+
+msgid "Other Address"
+msgstr "Diyer adres"
+
+msgid "Business Phone"
+msgstr "İş Telefonu"
+
+# 87%
+msgid "Business 2 Phone"
+msgstr "İş Telefonu 2"
+
+# 88%
+msgid "Assistant Phone"
+msgstr "Asistan telefonu"
+
+msgid "Company Main Phone"
+msgstr "şirket ana telefon"
+
+# 83%
+msgid "Home 2 Phone"
+msgstr "Ev telefonu 2"
+
+msgid "Car Phone"
+msgstr "Araç Telefonu"
+
+msgid "Radio"
+msgstr "Radyo"
+
+msgid "Callback Phone"
+msgstr "Geri arama telefonu"
+
+msgid "Other Phone"
+msgstr "Diğer Telefon"
+
+msgid "Primary Phone"
+msgstr "birincil telefon"
+
+msgid "Telex"
+msgstr "Teleks"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD-Telefon"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "Diyer Faks"
+
+msgid "Home Fax"
+msgstr "Ev faks"
+
+# 94%
+msgid "Email Display As"
+msgstr "E-posta görüntüleme biçimi"
+
+# 75%
+# 87%
+msgid "Email 2"
+msgstr "E-posta 2"
+
+# 89%
+msgid "Email2 Display As"
+msgstr "E-posta 2 görüntüleme biçimi"
+
+# 75%
+# 87%
+msgid "Email 3"
+msgstr "E-posta 3"
+
+# 89%
+msgid "Email3 Display As"
+msgstr "E-posta 3 görüntüleme biçimi"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "Doğum günü"
+
+msgid "Wedding Anniversary"
+msgstr "evlilik yıldönümü"
+
+msgid "Spouse/Partner"
+msgstr "Eş / Partner"
+
+msgid "Profession"
+msgstr "Meslek"
+
+msgid "Assistant's Name"
+msgstr "Asistan adı"
+
+# 94%
+# 77%
+msgid "Distribution List Name"
+msgstr "dağıtım listesi adı"
+
+# 75%
+msgid "Open Shared Contacts"
+msgstr "Paylastığım kişileri aç"
+
+msgid "Business Cards"
+msgstr "Kartvizitler"
+
+msgid "Phone List"
+msgstr "Telefon listesi"
+
+msgid "Add to contacts"
+msgstr "kişilere ekle"
+
+# 77%
+msgid "Print selected contact"
+msgstr "Seçtiğim kişiyi yazdır"
+
+msgid "No contact selected"
+msgstr "Seçilen kişi yok"
+
+msgid "Distribution list"
+msgstr "Dağıtım listesi"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "Bayan"
+
+msgid "Mr."
+msgstr "Bay"
+
+msgid "Mrs."
+msgstr "Bayan"
+
+msgid "Ms."
+msgstr "Bayan"
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "Jr."
+
+msgid "Sr."
+msgstr "Sr."
+
+# 92%
+msgid "Phone number"
+msgstr "Telefon numara"
+
+msgid "Check address"
+msgstr "Adresi kontrol et"
+
+msgid "Street"
+msgstr "Sokak"
+
+msgid "State/Province"
+msgstr "Eyalet / İl"
+
+msgid "Zip/Postal code"
+msgstr "Posta kodu"
+
+msgid "Country/Region"
+msgstr "Ülke / Bölge"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "Adresi eksik veya belirsiz olduğunda tekrar göster."
+
+msgid "Details"
+msgstr "Ayrıntılar"
+
+msgid "Office location"
+msgstr "Ofis konumu"
+
+msgid "Manager's name"
+msgstr "Yönetici adı"
+
+msgid "Assistant's name"
+msgstr "Asistan adı"
+
+msgid "Nickname"
+msgstr "Takma ad"
+
+msgid "Suffix"
+msgstr "Sonek"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "Yıldönümü"
+
+msgid "Photo"
+msgstr "Fotoğraf"
+
+# 77%
+msgid "Addresses"
+msgstr "Adres"
+
+msgid "Additional information"
+msgstr "Ek bilgiler"
+
+# 80%
+msgid "Business 2"
+msgstr "Şirket 2"
+
+msgid "Callback"
+msgstr "Geri çağırım"
+
+msgid "Car"
+msgstr "Araba"
+
+# 80%
+# 83%
+msgid "Home 2"
+msgstr "Ev 2"
+
+msgid "Primary"
+msgstr "Birinci"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "Tam adını kontrol edin"
+
+msgid "Middle"
+msgstr "Orta"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "Adı eksik veya belirsiz olduğunda tekrar göster."
+
+msgid "Check phone number"
+msgstr "Telefon numaranı kontrol et"
+
+msgid "Country/Region code"
+msgstr "Ülke / Bölge kodu"
+
+msgid "City/Area code"
+msgstr "Şehir / Bölge kodu"
+
+msgid "Local number"
+msgstr "Yerel numara"
+
+msgid "Extension"
+msgstr "Uzantı"
+
+msgid "Add Attachment"
+msgstr "Eklenti ekle"
+
+# 81%
+#, fuzzy
+msgid "Add attachments to this contact"
+msgstr "Bu kişiye eklentiler ekleyin"
+
+# 75%
+#, fuzzy
+msgid "Mark this contact as private"
+msgstr "Bu kişiyi özel olarak işaretle."
+
+# 94%
+msgid "Distribution List"
+msgstr "Dağıtım listesi"
+
+#, fuzzy
+msgid "Mark this Distribution list as private"
+msgstr "Bu dağıtım listesini özel olarak işaretle"
+
+#, fuzzy
+msgid "New email address"
+msgstr "Yeni e-posta adresi"
+
+#, fuzzy
+msgid "Please enter a valid email address"
+msgstr "Geçerli bir e-posta adresine giriniz !"
+
+msgid "Select Members"
+msgstr "Üye seçin"
+
+msgid "Add New"
+msgstr "Yeni ekle"
+
+msgid "Type your note here..."
+msgstr "notunu buraya yaz..."
+
+msgid "New contact"
+msgstr "yeni kişi"
+
+# 78%
+# 100%
+msgid "New distribution list"
+msgstr "yeni dağıtım listesi"
+
+#, fuzzy
+msgid "Email 2 Display As"
+msgstr "E-posta 2 olarak göster"
+
+#, fuzzy
+msgid "Email 3 Display As"
+msgstr "E-posta 3 olarak göster"
+
+# 88%
+msgid "Assistent"
+msgstr "Asistan"
+
+msgid "Loading contacts"
+msgstr "Kişiler yükleniyor"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Work"
+msgstr "İş"
+
+msgid "Sort by: Full Name"
+msgstr "Sıralama: Ad"
+
+# 91%
+msgid "Sort by: Email Address 2"
+msgstr "Sıralama: E-posta 2"
+
+# 91%
+msgid "Sort by: Email Address 3"
+msgstr "Sıralama: E-posta 3"
+
+msgid "Mobile Phone"
+msgstr "Cep Telefonu"
+
+# 80%
+msgid "Sort by: Mobile Phone"
+msgstr "Sıralama: Cep Telefonu"
+
+msgid "Sort by: Business Phone"
+msgstr "Sıralama: İş Telefonu"
+
+msgid "Sort by: Business Fax"
+msgstr "Sıralama: Şirket faks"
+
+# 79%
+msgid "Sort by: Department Name"
+msgstr "Sıralama: Bölüm Adı"
+
+msgid "Office Location"
+msgstr "Ofis Konum"
+
+msgid "Sort by: Office Location"
+msgstr "Sıralama: Ofis Konum"
+
+msgid "Sort by: Profession"
+msgstr "Sıralama: Meslek"
+
+msgid "Manager Name"
+msgstr "Yönetici adı"
+
+msgid "Sort by: Manager Name"
+msgstr "Sıralama: Yönetici adı"
+
+msgid "Sort by: Assistant's Name"
+msgstr "Sıralama: Asistan adı"
+
+# 76%
+msgid "Sort by: Nickname"
+msgstr "Sıralama: Takma ad"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "Sıralama: Eş / Partner"
+
+msgid "Sort by: Birthday"
+msgstr "Sıralama: Doğum Günü"
+
+msgid "Sort by: Anniversary"
+msgstr "Sıralama: Yıldönümü"
+
+msgid "Sort by: Business Address"
+msgstr "Sıralama: Iş Adresi"
+
+# 80%
+msgid "Sort by: Home Address"
+msgstr "Sıralama: Ev adresi"
+
+# 78%
+msgid "Sort by: Office Address"
+msgstr "Sıralama: Iş Adresi"
+
+msgid "Mailing Address"
+msgstr "Posta adres"
+
+# 79%
+msgid "Sort by: Mailing Address"
+msgstr "Sıralama: Posta adres"
+
+# 85%
+msgid "Sort by: IM Address"
+msgstr "Sıralama: IM-adres"
+
+msgid "Sort by: Webpage"
+msgstr "Sıralama: Web sayfası"
+
+msgid "Assistant's Phone"
+msgstr "Asistan telefonu"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "Sıralama: Asistan telefonu"
+
+msgid "Business Phone 2"
+msgstr "Iş Telefonu 2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "Sıralama: Iş Telefonu 2"
+
+msgid "Sort by: Callback"
+msgstr "Sıralama:Geri arama telefonu"
+
+msgid "Sort by: Car Phone"
+msgstr "Sıralama: Araç Telefonu"
+
+msgid "Company Phone"
+msgstr "Şirket Telefonu"
+
+msgid "Sort by: Company Main Phone"
+msgstr "Sıralama: Şirket Ana Telefon"
+
+msgid "Home Phone 2"
+msgstr "Ev telefonu 2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "Sıralama: Ev telefonu 2"
+
+msgid "Sort by: Home Fax"
+msgstr "Sıralama: Ev faks"
+
+# 76%
+msgid "Sort by: ISDN"
+msgstr "Sıralama: ISDN"
+
+# 76%
+msgid "Sort by: Other Phone"
+msgstr "Sıralama: Diğer Telefon"
+
+msgid "Radio Phone"
+msgstr "Telsiz telefon"
+
+# 76%
+msgid "Sort by: Radio Phone"
+msgstr "Sıralama: Telsiz telefon"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "Sıralama: TTY/TDD-Telefon"
+
+msgid "Sort by: Telex Phone"
+msgstr "Sıralama: Teleks Telefon"
+
+msgid "Change Picture"
+msgstr "resmi değiştir"
+
+msgid "Remove Picture"
+msgstr "resmi kaldır"
+
+msgid "VCF file(s)"
+msgstr ""
+
+msgid "Open in new browser window"
+msgstr "Yeni tarayıcı penceresinde aç"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from WebApp."
+msgstr ""
+"Tarayıcınız bir veya daha fazla pop-up'ı engelledi gibi görünüyor. Lütfen "
+"WebApp pop-up'larına daima izin vermek için tarayıcınızın ayarlarını "
+"değiştirin."
+
+msgid "Untitled"
+msgstr "Başlıksız"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr "Ek yüklenemiyor, mesaja sadece {0} ek eklenebiliyor"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "Ek yüklenemiyor. Ek {0}, izin verilen maksimum ise {1}."
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr "Ek yüklenemiyor. Toplam ek boyutu {0}, izin verilen maksimum ise {1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr ""
+"Ek yüklenemiyor. Toplam ek {0}, tekil isteklerde izin verilen maksimum ek "
+"ise {1}."
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr ""
+"Ek yüklenemiyor. Toplam ek sayısı {0}. tekil istekle izin verilen maksimum "
+"sayı {1}."
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0} {1} adına"
+
+# 75%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "j F"
+
+msgid "Y"
+msgstr "Y"
+
+msgid "Important"
+msgstr "Önemli"
+
+msgid "Personal"
+msgstr "Kişisel"
+
+msgid "Holiday"
+msgstr "Tatil"
+
+msgid "Travel Required"
+msgstr "Gerekli seyahat"
+
+msgid "Preparation Required"
+msgstr "Hazırlık gerekli"
+
+msgid "Special Date"
+msgstr "Özel tarih"
+
+msgid "Phone Interview"
+msgstr "Telefon röportajı"
+
+msgid "Free"
+msgstr "Serbest"
+
+msgid "Low"
+msgstr "Düşük"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "High"
+msgstr "Yüksek"
+
+# 75%
+msgid "Canceled"
+msgstr "Iptal et"
+
+msgid "Blue"
+msgstr "Mavi"
+
+msgid "Green"
+msgstr "Yeşil"
+
+msgid "Pink"
+msgstr "Pembe"
+
+msgid "White"
+msgstr "Beyaz"
+
+msgid "Yellow"
+msgstr "Sarı"
+
+msgid "No response"
+msgstr "Cevap yok"
+
+msgid "Not responded"
+msgstr "Cevap gelmedi"
+
+msgid "Accepted"
+msgstr "Kabul edildi"
+
+msgid "Declined"
+msgstr "Reddedildi"
+
+msgid "Confidential"
+msgstr "Güvenilir"
+
+msgid "Not Started"
+msgstr "Başlatılmadı"
+
+msgid "In Progress"
+msgstr "Devam etmekte"
+
+msgid "Wait for other person"
+msgstr "Diğer kişi için bekleyin"
+
+# 87%
+msgid "Deferred"
+msgstr "Ertelendi"
+
+msgid "Dark"
+msgstr "koyu"
+
+msgid "High Contrast"
+msgstr "yüksek kontrast"
+
+msgid "Lime"
+msgstr "kireç"
+
+msgid "Orange"
+msgstr "Turuncu"
+
+msgid "Purple"
+msgstr "Mor"
+
+msgid "Logout"
+msgstr "Oturumu kapat"
+
+msgid "Switch view"
+msgstr "Görünüm değiştir"
+
+#, fuzzy
+msgid "Widgets"
+msgstr "Parçacık ekle"
+
+#, fuzzy
+msgid "Sending..."
+msgstr "Gönder"
+
+# 94%
+msgid "Sent successfully"
+msgstr "Başarıyla gönderildi"
+
+#, fuzzy
+msgid "No recipient"
+msgstr "Alıcı düzenle"
+
+#, fuzzy
+msgid "Please specify at least one recipient"
+msgstr "Bir alıcı belirtin"
+
+msgid "Please specify a recipient"
+msgstr "Bir alıcı belirtin"
+
+msgid "The attached files are not uploaded yet."
+msgstr "Eklenen dosyalar henüz yüklenmedi."
+
+msgid "Do you want to send this message without attachments?"
+msgstr "Bu mesajı eksiz göndermek istiyor musunuz?"
+
+#, fuzzy
+msgid "Attachments not uploaded yet"
+msgstr "Ekler indirilemiyor"
+
+msgid "Don't Send"
+msgstr "gönderme"
+
+msgid "Send Anyway"
+msgstr "her neyse gönder"
+
+#, fuzzy
+msgid "No subject"
+msgstr "konu yok"
+
+msgid "Send this message without a subject?"
+msgstr "Bu mesajı konusuz gönder?"
+
+#, fuzzy
+msgid "Unresolved recipients"
+msgstr "Alıcı düzenle"
+
+msgid "Not all recipients could be resolved"
+msgstr "Bütün alıcılar eşleştirilmedi"
+
+msgid "Collapse hierarchy"
+msgstr "Hiyerarşi daralt"
+
+msgid "Expand hierarchy"
+msgstr "Hiyerarşi genişlet"
+
+msgid "Folders List"
+msgstr "Klasör listesi"
+
+#, fuzzy
+msgid "Copy Details"
+msgstr "Detaylar göster"
+
+#, fuzzy
+msgid "Hide Details"
+msgstr "Ayrıntılar"
+
+msgid "Loaded {0} of {1}"
+msgstr "{1} den {0} yüklendi"
+
+msgid "Saving"
+msgstr "Kaydet"
+
+msgid "Saved"
+msgstr "Kaydedildi"
+
+# 94%
+msgid "Saved successfully"
+msgstr "Başarıyla kaydedildi"
+
+#, fuzzy
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr ""
+"Kaydedilmemiş değişiklikleri kaybedeceksiniz. Pencereyi kapatmak "
+"istediğinizden emin misiniz?"
+
+msgid "Kopano Content Panel"
+msgstr "Kopano Content Panel"
+
+#, fuzzy
+msgid "Delete item"
+msgstr "Öğeleri sil"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
+
+msgid "Unsaved changes"
+msgstr ""
+
+msgid "Welcome to Kopano WebApp"
+msgstr "Kopano WebApp'e hoşgeldiniz"
+
+#, fuzzy
+msgid "This is the first time you are using WebApp. "
+msgstr ""
+"WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
+"aşağıdaki ayarları kontrol edin."
+
+#, fuzzy
+msgid "Please check the following settings before continuing."
+msgstr ""
+"WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
+"aşağıdaki ayarları kontrol edin."
+
+msgid "Add widgets"
+msgstr "Parçacık ekle"
+
+msgid "No widgets installed."
+msgstr "Widget kurulmamış"
+
+msgid "Configure widget"
+msgstr "Widget yapılandır"
+
+#, fuzzy
+msgid "Remove widget"
+msgstr "resmi kaldır"
+
+#, fuzzy
+msgid "Collapse widget"
+msgstr "widget panosunu daralt"
+
+#, fuzzy
+msgid "Expand widget"
+msgstr "widget panosunu genişlet"
+
+#, fuzzy
+msgid "Add new widget"
+msgstr "Parçacık ekle"
+
+msgid "Collapse widget panel"
+msgstr "widget panosunu daralt"
+
+msgid "Expand widget panel"
+msgstr "widget panosunu genişlet"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "Bu sayfadan şimdi çıkarsanız değişiklikleriniz kaybolacaktır."
+
+# 90%
+# 80%
+#, fuzzy
+msgid "D G:i"
+msgstr "F j, Y, g:i"
+
+#, fuzzy
+msgid "D d-m"
+msgstr "d-m-Y"
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "yetersiz yetki"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr ""
+"Bu mağazayı açmak için yeterli izininiz yok, hiyerarşi kaldırmak "
+"istiyorsunuz?"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr ""
+"Bu klasör açmak için yeterli izininiz yok, hiyerarşi kaldırmak istiyorsunuz?"
+
+#, fuzzy
+msgid "Insufficient Permissions"
+msgstr "yetersiz yetki"
+
+msgid "Not enough permissions to open this folder."
+msgstr "Bu dizini görmek için yeterli izniniz yok"
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
+
+# 100%
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
+msgid "{0} in {1}"
+msgstr "{0} - {1}"
+
+# 100%
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
+msgid "{0} of {1}"
+msgstr "{0} {1}"
+
+msgid "Full control"
+msgstr "Tam Denetim"
+
+msgid "No rights"
+msgstr "Hiçbir hak"
+
+msgid "Unable to import:"
+msgstr ""
+
+#, fuzzy
+msgid "The files are not valid"
+msgstr "Eklenen dosyalar henüz yüklenmedi."
+
+msgid "Create New Folder"
+msgstr "Yeni klasör oluştur"
+
+msgid "Folder contains"
+msgstr "Klasör içerir"
+
+msgid "Calendar Items"
+msgstr "Takvim öğeleri"
+
+msgid "Mail and Post Items"
+msgstr "Posta ve Mesaj Öğeler"
+
+msgid "Contacts Items"
+msgstr "Kişi Öğeler"
+
+msgid "Note Items"
+msgstr "Not Öğeler"
+
+msgid "Task Items"
+msgstr "Görev Öğeler"
+
+msgid "Select where to place the folder"
+msgstr "Klasörün yerleştirileceği yeri seç"
+
+#, fuzzy
+msgid "No folder name"
+msgstr "Klasör adı"
+
+#, fuzzy
+msgid "No destination"
+msgstr "Bilgi yok"
+
+msgid "You must select a destination folder."
+msgstr "Bir hedef klasörü seçmelisiniz."
+
+msgid "Properties"
+msgstr "Özellikleri"
+
+msgid "Type"
+msgstr "Tür"
+
+msgid "Description"
+msgstr "Açıklama"
+
+msgid "Folder size"
+msgstr "Klasör boyutu"
+
+msgid "Folder containing {0} Items"
+msgstr "{0} öğeler içeren klasör"
+
+msgid "Permissions"
+msgstr "Izinler"
+
+msgid "No permissions granted"
+msgstr "Verilen İzin yok"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Create items"
+msgstr "Öğe oluştur"
+
+msgid "Read items"
+msgstr "Öğeleri oku"
+
+msgid "Create subfolders"
+msgstr "Alt klasörler oluştur"
+
+msgid "Folder permissions"
+msgstr "Klasör Izin düzeyleri"
+
+msgid "Folder visible"
+msgstr "Klasör görülebilir"
+
+msgid "Edit items"
+msgstr "Öğeleri düzenleme"
+
+msgid "Own"
+msgstr "Kendi"
+
+msgid "All"
+msgstr "Hepsi"
+
+msgid "Delete items"
+msgstr "Öğeleri sil"
+
+msgid "User already exists"
+msgstr "Kullanıcı zaten var"
+
+msgid "Group already exists"
+msgstr "Grup zaten var"
+
+# 90%
+msgid "Folder Size"
+msgstr "Klasör boyutu"
+
+msgid "Folder Name"
+msgstr "Klasör adı"
+
+msgid "Size (without subfolders)"
+msgstr "Boyut (alt klasörler olmadan)"
+
+msgid "Total size (including subfolders)"
+msgstr "Büyüklük (alt klasörler dahil)"
+
+msgid "Loading subfolder sizes"
+msgstr "Alt boyutları yükleniyor"
+
+msgid "No subfolders present"
+msgstr "Hiçbir alt klasör yok"
+
+msgid "Subfolder"
+msgstr "Alt klasör"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "Sıralamak: Alt klasör adı"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "Sıralamak:Boyut (alt klasörler hariç)"
+
+msgid "Total size"
+msgstr "Toplam büyüklüğü"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "Sıralama: Toplam büyüklüğü (alt klasörler dahil)"
+
+# 78%
+msgid "Open Shared Folders"
+msgstr "Paylastığım klasörü aç"
+
+#, fuzzy
+msgid "Unresolved user"
+msgstr "Kullanıcı çözümlenemedi."
+
+msgid "Username '{0}' could not be resolved."
+msgstr "Kullanıcı adı '{0}' çözülemedi."
+
+msgid "Invalid user"
+msgstr ""
+
+msgid "Username '{0}' is not a valid user."
+msgstr "Kullanıcı ad '{0}' geçerli bir kullanıcı değil."
+
+#, fuzzy
+msgid "Own store"
+msgstr "mağaza eksik"
+
+#, fuzzy
+msgid "It is not possible to open your own store twice."
+msgstr "Kendi mağazanı iki defa açmak mümkün değildir"
+
+#, fuzzy
+msgid "Folder already open"
+msgstr "Bu paylaşılan klasör zaten açık."
+
+msgid "This shared folder is already open."
+msgstr "Bu paylaşılan klasör zaten açık."
+
+msgid "No user"
+msgstr ""
+
+# 85%
+#, fuzzy
+msgid "You must specify a user"
+msgstr "Bir kullanıcı adı belirtmelisiniz."
+
+msgid "Folder type"
+msgstr "Klasör türü"
+
+# 75%
+msgid "Show subfolders"
+msgstr "Alt klasörleri göster"
+
+#, fuzzy
+msgid "Open shared folder/store"
+msgstr "paylaşılan klasör/mağaza aç"
+
+#, fuzzy
+msgid "Empty folder"
+msgstr "Klasörü boşalt"
+
+#, fuzzy
+msgid "Empty Junk Email"
+msgstr "istenmeyen e-posta"
+
+# 92%
+#, fuzzy
+msgid "Empty Deleted Items"
+msgstr "silinen öğeler"
+
+msgid "Rename Folder"
+msgstr "Klasörü yeniden adlandırma"
+
+msgid "New Folder"
+msgstr "Yeni klasör"
+
+msgid "Mark All Messages Read"
+msgstr "Tüm Mesajları Okunmuş İşaretle"
+
+msgid "Delete Folder"
+msgstr "Klasörü sil"
+
+msgid "Close store"
+msgstr "Store Kapat"
+
+msgid "Close folder"
+msgstr "Klasörü kapat"
+
+msgid "Reload"
+msgstr "Yeniden yükle"
+
+msgid "Restore items"
+msgstr "Eski durumuna getir"
+
+# 76%
+# 100%
+msgid "Select color"
+msgstr "renk seç"
+
+msgid "Add to Favorites"
+msgstr "favorilere ekle"
+
+msgid "Remove From Favorites"
+msgstr "favorilerden sil"
+
+#, fuzzy
+msgid "Share folder..."
+msgstr "Başlangıҫ klasör"
+
+#, fuzzy
+msgid "Import emails"
+msgstr "Önemli"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "Import appointments"
+msgstr "Yeni randevu"
+
+#, fuzzy
+msgid "Properties of {0}"
+msgstr "Özellikleri"
+
+msgid "Share {0} with..."
+msgstr ""
+
+#, fuzzy
+msgid "Properties of {0} - {1}"
+msgstr "Özellikleri"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr ""
+"\"{0}\" Klasördeki öğeleri ve alt klasörleri silmek istediğinize eminmisiniz?"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr ""
+"\"{0}\" Klasör iҫindeki tüm içeriğini silinmiş öğelere taşımak istediğinize "
+"eminmisiniz?"
+
+#, fuzzy
+msgid "Delete folder"
+msgstr "Klasörü sil"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "{0} Boşaltmak istediğinizden emin misiniz?"
+
+msgid "Show all folders"
+msgstr "Tüm klasörleri göster"
+
+msgid "CC"
+msgstr "CC"
+
+msgid "BCC"
+msgstr "Gizli kopya"
+
+msgid "Sort by: Importance"
+msgstr "Sıralama: Önemi"
+
+# 76%
+msgid "Sort by: To"
+msgstr "Sıralama: Kime"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "Gönderildi"
+
+msgid "Red"
+msgstr "Kırmızı"
+
+msgid "Original message"
+msgstr "Orijinal mesaj"
+
+msgid "Schedule mail to be sent out"
+msgstr ""
+
+msgid "Scheduled Items"
+msgstr ""
+
+msgid "Your message will be sent at "
+msgstr ""
+
+msgid "Go to your Outbox to edit your email."
+msgstr ""
+
+msgid "hour(s)"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "month(s)"
+msgstr ""
+
+msgid "at a specific time"
+msgstr ""
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr ""
+
+msgid "today  at "
+msgstr ""
+
+msgid "tomorrow  at "
+msgstr ""
+
+msgid "{0} at "
+msgstr ""
+
+msgid "at {0}"
+msgstr ""
+
+msgid "Your email will be sent {0}{1}"
+msgstr ""
+
+msgid "Saving..."
+msgstr "kaydediliyor..."
+
+#, fuzzy
+msgid "Saved at {0}"
+msgstr "mesaj {0}'da kaydedildi."
+
+msgid "g:i A"
+msgstr "g:i A"
+
+#, fuzzy
+msgid "Saving failed"
+msgstr "işlem başarısız"
+
+msgid "Message Options"
+msgstr "Mesaj ayarları"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr ""
+
+msgid "Send Later"
+msgstr ""
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr ""
+
+# 86%
+msgid "Add attachments to this email"
+msgstr "Bu e-postaya eklentiler ekleyin"
+
+msgid "Add signature"
+msgstr "Imza ekle"
+
+# 75%
+msgid "Options"
+msgstr "Ayarlar"
+
+msgid "Open options dialog"
+msgstr "Seçenekler penceresini açın"
+
+msgid "Set flag"
+msgstr "Bayrak"
+
+msgid "Set flag on this email"
+msgstr "Bu mesaja bayrak koy"
+
+msgid "Mark this mail as high priority"
+msgstr "e-posta'yı 'öncelik: yüksek' olarak işaretle"
+
+msgid "Mark this mail as low priority"
+msgstr "e-posta'yı 'öncelik: düşük' olarak işaretle"
+
+msgid "Set read receipt"
+msgstr "Okundu bilgi isteme"
+
+msgid "Request read receipt from recipients"
+msgstr "Alıcılardan okundu isteyi isteyin"
+
+msgid "Show Bcc"
+msgstr "Bcc göster"
+
+#, fuzzy
+msgid "Show Bcc field"
+msgstr "Bcc göster"
+
+#, fuzzy
+msgid "Show From field"
+msgstr "Gönderen göster"
+
+msgid "No signatures configured"
+msgstr "Yapılandırılmış imzalar yok"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr ""
+
+msgid "Miscellaneous Options"
+msgstr "Diyer ayarlar"
+
+msgid "Internet Headers"
+msgstr "İnternet Başlıkları"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Message Settings"
+msgstr "Mesaj ayarları"
+
+msgid "Tracking Options"
+msgstr "Izleme ayarları"
+
+msgid "Request a read receipt for this message."
+msgstr "Bu ileti için okundu bilgisi istemek."
+
+msgid "no subject"
+msgstr "konu yok"
+
+msgid "Set Category"
+msgstr "Kategori ayarla"
+
+msgid "Pop-Out"
+msgstr "açılır pencere"
+
+msgid "Mark Read"
+msgstr "Okunmuş İşaretle"
+
+msgid "Mark Unread"
+msgstr "Okunmamış İşaretle"
+
+# 87%
+# 100%
+msgid "New mail"
+msgstr "yeni e-posta"
+
+msgid "Mail"
+msgstr "E-posta"
+
+# 88%
+# 100%
+msgid "Reply all"
+msgstr "Hepsini yanıtla"
+
+msgid "Toggle read/unread"
+msgstr "okundu/okunmadı arasında geçiş yap"
+
+msgid "Toggle red/complete flag"
+msgstr "kırmızı/tamamlandı işareti arasında geçiş yap"
+
+# 76%
+msgid "Open Shared Mails"
+msgstr "Paylastığım mesajları aç"
+
+#, fuzzy
+msgid "Print single email"
+msgstr "Tek bir e-posta yazdır"
+
+# 78%
+#, fuzzy
+msgid "Print selected email"
+msgstr "Seçili öğeyi yazdır"
+
+#, fuzzy
+msgid "Filter"
+msgstr "filtrele.."
+
+msgid "FW"
+msgstr "İLT"
+
+msgid "RE"
+msgstr "YNT"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "Düz Metin"
+
+msgid "Compose mail settings"
+msgstr "Posta ayarlarını düzenleyin"
+
+msgid "Compose mail in this format"
+msgstr "Bu biçimde posta oluştur"
+
+#, fuzzy
+msgid "Editor"
+msgstr "düzenle"
+
+msgid "Default font"
+msgstr "Varsayılan yazı tipi"
+
+msgid "Default font size"
+msgstr "Varsayılan yazı boyutu"
+
+msgid "Always request a read receipt"
+msgstr "Her zaman okundu bilgisi istemek"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "gönderilemeyen e-postaları her {B} dakika {A}otomatik kaydet"
+
+msgid "Incoming mail"
+msgstr "Gelen mesaj"
+
+msgid "How to respond to requests for read receipts"
+msgstr "Nasıl okundu bilgisi isteklerine yanıt vermek için"
+
+msgid "Always send a response"
+msgstr "Her zaman yanıt gönder"
+
+msgid "Never send a response"
+msgstr "Asla yanıt gönderme"
+
+msgid "Ask me before sending a response"
+msgstr "Yanıt vermeden önce sor"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A} Otomatik bütün iletileri okunmuş göster {B} saniye sonra"
+
+msgid "Off"
+msgstr "Kapalı"
+
+msgid "Right"
+msgstr "Sağ"
+
+msgid "Bottom"
+msgstr "Alt"
+
+msgid "General mail settings"
+msgstr "Genel mesaj ayarları"
+
+# 83%
+# 100%
+msgid "Location of preview pane"
+msgstr "önizleme paneli konumu"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr ""
+
+msgid "Close original message on reply or forward"
+msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
+
+#, fuzzy
+msgid "Open or compose a mail item in a"
+msgstr "Bir e-posta öğesini ... içinde açın veya oluşturun"
+
+msgid "WebApp tab"
+msgstr "WebApp sekmesi"
+
+msgid "Browser window"
+msgstr "tarayıcı penceresi"
+
+msgid "I am currently in the office"
+msgstr "Şu anda ofisteyim"
+
+msgid "I am out of the office from"
+msgstr "...itibariyle ofis dışındayım"
+
+msgid "I will be back on"
+msgstr "...geri döneceğim"
+
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr "Her gönderene bir kere otomatik metin yanıtla"
+
+msgid "User is currently out of office."
+msgstr "Kullanıcı şu anda ofis dışında"
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+"Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden "
+"planlayın."
+
+msgid "Signatures"
+msgstr "Imzalar"
+
+msgid "Signature for new messages"
+msgstr "Yeni mesajlar için imza"
+
+msgid "Signature for replies and forwards"
+msgstr "Yanıtlar ve iletimler için İmza"
+
+#, fuzzy
+msgid "Save Signature"
+msgstr "Imzalar"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr ""
+"Kaydetmediniz değişiklikler var. Değişiklikleri kaydetmek ister misiniz?"
+
+msgid "New signature"
+msgstr "Yeni imza"
+
+msgid "EML file(s)"
+msgstr ""
+
+#, fuzzy
+msgid "ZIP file"
+msgstr "Profil"
+
+msgid "max. "
+msgstr "en çok "
+
+# 75%
+msgid "Sort by: Sent"
+msgstr "Sıralama: Yollanan"
+
+msgid "Modified"
+msgstr "değiştirilmiş"
+
+msgid "Sort by: Modified"
+msgstr "Sıralama: Değiştirilmiş"
+
+msgid "Flag"
+msgstr ""
+
+msgid "Sort by: flag"
+msgstr ""
+
+# 85%
+# 100%
+#, fuzzy
+msgid "Older"
+msgstr "klasörler"
+
+msgid "Yesterday"
+msgstr ""
+
+#, fuzzy
+msgid "Last Week"
+msgstr "geçen hafta"
+
+msgid "Two Weeks Ago"
+msgstr ""
+
+msgid "Three Weeks Ago"
+msgstr ""
+
+#, fuzzy
+msgid "Last Month"
+msgstr "geçen ay"
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Very large"
+msgstr ""
+
+msgid "Huge"
+msgstr ""
+
+msgid "Follow up"
+msgstr ""
+
+msgid "Move to Junk Folder"
+msgstr "Önemsiz klasöre taşı"
+
+#, fuzzy
+msgid "Send to"
+msgstr "Gönder"
+
+msgid "Loading mail"
+msgstr "Mesaj yükleniyor"
+
+#, fuzzy
+msgid "Print note"
+msgstr "Bu notu yazdır"
+
+msgid "Color"
+msgstr "Renk"
+
+msgid "New note"
+msgstr "yeni not"
+
+msgid "Open Shared Notes"
+msgstr "Paylastığım notlari aç"
+
+msgid "Sticky note"
+msgstr "Not kağıtı"
+
+# 78%
+# 84%
+# 100%
+msgid "Print selected note"
+msgstr "Seçili notu yazdır"
+
+# 75%
+# 100%
+msgid "No note selected"
+msgstr "Not seçilmedi"
+
+msgid "Icons"
+msgstr "Simgeler"
+
+msgid "List view"
+msgstr "Liste görünüm"
+
+msgid "List Last Seven Days"
+msgstr "Son yedi günü listele"
+
+msgid "Created"
+msgstr "oluşturuldu"
+
+msgid "Sort by: Created"
+msgstr "Sıralama: Yazilimtarihi"
+
+msgid "Sort by: Color"
+msgstr "Sıralama: Renk"
+
+msgid "Loading Notes"
+msgstr "Notlar yükleniyor"
+
+msgid "Loading notes"
+msgstr "Notlar yükleniyor"
+
+#, fuzzy
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
+msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyin."
+
+#, fuzzy
+msgid "Reload WebApp"
+msgstr "Kopano WebApp"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Basic"
+msgstr "temel"
+
+msgid "Account information - {0}"
+msgstr "Hesap bilgileri - {0}"
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Startup folder"
+msgstr "Başlangıҫ klasör"
+
+msgid "Theme"
+msgstr "tema"
+
+msgid "Select Default Folder"
+msgstr "varsayılan klasör seç"
+
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgid "Advanced settings"
+msgstr "Gelişmiş ayarlar"
+
+msgid "Edit setting"
+msgstr "Ayar düzenle"
+
+msgid "Restore to defaults"
+msgstr "Eski durumuna getir"
+
+msgid "Delete settings"
+msgstr "Ayarları sil"
+
+#, fuzzy
+msgid "{0} Iconset"
+msgstr "Simgeler"
+
+msgid "About"
+msgstr "hakkında"
+
+msgid "I want to display date and time in this format:"
+msgstr ""
+
+msgid "Short"
+msgstr ""
+
+msgid "Long"
+msgstr ""
+
+# 88%
+#, fuzzy
+msgid "Favorite settings"
+msgstr "Delege ayarları"
+
+#, fuzzy
+msgid "Hide favorites"
+msgstr "Favoriler"
+
+msgid "Unpin favorites from top"
+msgstr ""
+
+msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Inbox navigation"
+msgstr "gelen kutusu navigasyonu"
+
+msgid "I want to navigate through my items by using."
+msgstr "...kullanarak öğelerim arasında gezinmek istiyorum."
+
+msgid "Infinite Scroll"
+msgstr "sonsuz kaydırma"
+
+msgid "WebApp automatically loads additional items when you scroll down"
+msgstr "WebApp, aşağı kaydırdığınızda ek öğeleri otomatik olarak yükler"
+
+msgid "Pagination"
+msgstr "sayfalandırma"
+
+msgid ""
+"WebApp displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr ""
+"WebApp öğeleri sayfalarda görüntüler ve gezinmek için navigasyonu "
+"kullanabilirsiniz"
+
+msgid "Load items in blocks of {A}"
+msgstr "öğeleri {A}'lı bloklarla yükle"
+
+msgid "Load {A} items per page."
+msgstr "sayfa başına {A} öğe yükle."
+
+msgid "Keyboard Shortcuts"
+msgstr "Klavye kısayolları"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "Temel klavye kısayolları parçası"
+
+msgid "Keyboard shortcuts off"
+msgstr "klavye kısayolları kapalı"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "temel klavye kısayolları açık"
+
+msgid "All keyboard shortcuts on"
+msgstr "Tüm klavye kısayolları açık"
+
+msgid "This change requires a reload of the WebApp"
+msgstr "Bu değişiklik WebApp yeniden açarsan etkili olur"
+
+msgid "Discard"
+msgstr "Geri al"
+
+msgid "Plugins"
+msgstr "Eklentiler"
+
+msgid "Available plugins"
+msgstr "mevcut eklentiler"
+
+msgid ""
+"The following plugins are available in the WebApp. It is possible to select "
+"and/or deselect different plugins to indicate which plugins should be "
+"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"in order for the changes to take effect."
+msgstr ""
+"Aşağıdaki eklentiler WebApp'de bulunmaktadır. Hangi eklentilerin "
+"etkinleştirileceğini belirtmek için farklı eklentileri seçmek ve / veya "
+"seçimi kaldırmak mümkündür. Herhangi bir eklenti etkinleştirildiğinde veya "
+"devre dışı bırakıldığında, WebApp'in değişikliklerin etkili olması için "
+"yeniden yüklenmesi gerekir."
+
+msgid "No plugins available"
+msgstr "Eklenti yok"
+
+msgid "Version"
+msgstr "versiyon"
+
+msgid "This plugin cannot be disabled"
+msgstr "Bu eklenti görüntülenemiyor"
+
+msgid "This plugin cannot be enabled"
+msgstr "eklenti etkinleştirilemiyor"
+
+msgid "Mailbox Usage"
+msgstr "Posta kutusu kullanımı"
+
+msgid "Quota information is not set on the user's store."
+msgstr "Kota bilgileri kullanıcının oturumunda ayarlı değil."
+
+msgid "{0} of mailbox space is used."
+msgstr "Posta kutusu alanının {0} kadarı kullanıldı."
+
+msgid "You have exceeded hard quota, you can not send or recieve mails."
+msgstr "Sabit kotayı aştınız, posta gönderemezsiniz ve alamazsınız."
+
+msgid "At {0} you won't be able to send mails."
+msgstr "{0}'den sonra postalar göndermek mümkün olmayacaktır."
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to recieve mails."
+msgstr ""
+"Posta göndermek artik mümkün deyil cünkü yumuşak kotanızı aştınız, {0}'de "
+"ileti alamayacaksınız."
+
+msgid "At {0} you won't be able to send or recieve mails."
+msgstr "{0}'de ileti gönderemeyecek ve de alamayacaksınız"
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "Ileti gönderilmiyor çünkü yumuşak kutunuzu aştınız"
+
+#, fuzzy
+msgid "Reset settings"
+msgstr "Ayarları sil"
+
+#, fuzzy
+msgid "Reset settings to their original defaults."
+msgstr "WebApp ayarlarını varsayılan değerlerine sıfırlar"
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
+msgstr ""
+"WebApp, bu değişikliklerin yürürlüğe girmesi için otomatik olarak yeniden "
+"başlar"
+
+msgid "Reset"
+msgstr "sıfırla"
+
+#, fuzzy
+msgid "Reloading, Please wait."
+msgstr "Webapp yeniden yükleniyor, lütfen bekleyin."
+
+msgid "Setting"
+msgstr "Ayar"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "Bu ayar '{0}' düzenlenemez"
+
+msgid "Version information"
+msgstr "Sürüm bilgileri"
+
+msgid "WebApp"
+msgstr "WebApp"
+
+msgid "Kopano Core"
+msgstr "Kopano sunucusu"
+
+msgid "Delete confirmation"
+msgstr ""
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr ""
+
+msgid "Do you want to delete the item(s)?"
+msgstr ""
+
+msgid "Sort by: Priority"
+msgstr "Sıralama: Öncelik"
+
+msgid "Status"
+msgstr "Durum"
+
+msgid "Sort by: Status"
+msgstr "Sıralama: Durum"
+
+msgid "Due Date"
+msgstr "Bitiş Tarihi"
+
+msgid "Sort by: Due Date"
+msgstr "Sıralama: Bitiş Tarihi"
+
+msgid "% Completed"
+msgstr "% Tamamlandı"
+
+msgid "Sort by: Percent Completed"
+msgstr "Sıralama: Yüzde Tamamlandı"
+
+msgid "Task Status"
+msgstr "görev durumu"
+
+# 93%
+msgid "Percent Complete"
+msgstr "tamamlanma yüzdesi"
+
+msgid "Total Work"
+msgstr "Toplam Zaman"
+
+# 90%
+msgid "Actual Work"
+msgstr "Fiili Ҫalışma"
+
+msgid "Companies"
+msgstr "Şirketler"
+
+msgid "Billing Information"
+msgstr "Fatura bilgileri"
+
+msgid "Mileage"
+msgstr "İlerleme"
+
+#, fuzzy
+msgid "Accepting Task"
+msgstr "Etkin Görevler"
+
+msgid "Declining Task"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr ""
+"Davetiye kabul edilmiştir ve takvimine geçiriliyor. Yanıta yorum eklemek "
+"istiyor musunuz?"
+
+#, fuzzy
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr ""
+"Bu toplantı reddetilmiştir ve silinmiş öğelere geçiriliyor. Yanıta yorum "
+"eklemek istiyor musunuz?"
+
+#, fuzzy
+msgid "Send the response now"
+msgstr "Yanıtı şimdi gönder"
+
+# 92%
+msgid "Date Complete"
+msgstr "Tarih Tamamlandı"
+
+msgid "Update List"
+msgstr "Listeyi Güncelle"
+
+msgid "Create Unassigned Copy"
+msgstr "Atanmamış Kopya oluştur"
+
+msgid "copy"
+msgstr ""
+
+msgid "Unable to send task request"
+msgstr ""
+
+msgid "You cannot send a task request to yourself."
+msgstr ""
+
+#, fuzzy
+msgid "Multiple recipients"
+msgstr "Alıcı bilgileri"
+
+#, fuzzy
+msgid "A task request can only have one recipient."
+msgstr "Her zaman okundu bilgisi istemek"
+
+# 87%
+msgid "Due date"
+msgstr "Bitiş tarihi"
+
+msgid "Priority"
+msgstr "Öncelik"
+
+# 90%
+msgid "% Complete"
+msgstr "% Tamamlandı"
+
+#, fuzzy
+msgid "Track progress"
+msgstr "Devam etmekte"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr ""
+
+#, fuzzy
+msgid "Send task to assignees"
+msgstr "Görevi ataya gönder"
+
+#, fuzzy
+msgid "Restore to Task List"
+msgstr "Eski durumuna getir"
+
+# 94%
+# 76%
+# 100%
+msgid "Delete this task"
+msgstr "Bu görevi sil"
+
+msgid "Add attachments to this task"
+msgstr "Bu göreve eklentiler ekleyin"
+
+msgid "Mark as Complete"
+msgstr "Tamamlanmış İşaretle"
+
+msgid "Mark this task as complete"
+msgstr "Bu görevi tamamlanmış işaretle"
+
+# 75%
+# 100%
+msgid "Print this task"
+msgstr "Bu görevi yazdır"
+
+msgid "Assign Task"
+msgstr "Görev ver"
+
+msgid "Cancel Assignment"
+msgstr "Atamayı iptal et"
+
+# 75%
+# 79%
+# 100%
+msgid "Mark this task as private"
+msgstr "Bu görevi özel olarak işaretle"
+
+msgid "New task"
+msgstr "yeni görev"
+
+#, fuzzy
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Percent complete"
+msgstr "Yüzde kaç tamamlama"
+
+# 90%
+msgid "Total work"
+msgstr "Toplam Zaman"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork} saatler"
+
+msgid "Actual work"
+msgstr "Fiili çalışma"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork} saatler"
+
+# 76%
+msgid "Open Shared Tasks"
+msgstr "Paylastığım Notlari Aç"
+
+msgid "Simple view"
+msgstr ""
+
+msgid "Detailed view"
+msgstr ""
+
+# 92%
+# 100%
+#, fuzzy
+msgid "Task request"
+msgstr "Görev isteği"
+
+msgid "Print selected task"
+msgstr "Seçtiğin görevleri yazdır"
+
+msgid "Print task list"
+msgstr "Görevleri yazdır"
+
+msgid "No task selected"
+msgstr "Seçilen görev yok"
+
+msgid "Create task"
+msgstr "görev oluştur"
+
+msgid "Mark Complete"
+msgstr ""
+
+msgid "Mark Incomplete"
+msgstr ""
+
+#, fuzzy
+msgid "Remove from To-Do List"
+msgstr "favorilerden sil"
+
+#, fuzzy
+msgid "Changes to assigned task"
+msgstr "Görevi ataya gönder"
+
+#, fuzzy
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr ""
+"Toplantı isteği düzenleyen tarafından güncellendiğinde yapacağınız "
+"değişikliklerin üzerine yazılacaktır"
+
+msgid "Sort by: Complete"
+msgstr "Sıralama: Tamamlanan"
+
+msgid "Reminder Time"
+msgstr "Hatırlatma Zamanı"
+
+msgid "Sort by: Reminder Time"
+msgstr "Sıralama: Hatırlatma Zamanı"
+
+msgid "Assigned To"
+msgstr "Atanan"
+
+msgid "Sort by: Assignee"
+msgstr "Sıralama: Atanan"
+
+msgid "Sort by: Start Date"
+msgstr "Sıralama: Başlangıç Tarihi"
+
+# 76%
+# 78%
+msgid "Sort by: Owner"
+msgstr "Sıralama: Sahibi"
+
+#, fuzzy
+msgid "Sort by: Percentage Completed"
+msgstr "Sıralama: Yüzde Tamamlandı"
+
+#, fuzzy
+msgid "Assigned task changes"
+msgstr "Görev ver"
+
+msgid "Loading tasks"
+msgstr "Görevler yükleniyor"
+
+#, fuzzy
+msgid "Date completed"
+msgstr "Tarih Tamamlandı"
+
+msgid "hours"
+msgstr "saat"
+
+#, fuzzy
+msgid "Billing information"
+msgstr "Fatura bilgileri"
+
+#, fuzzy
+msgid "Update list"
+msgstr "Listeyi Güncelle"
+
+#, fuzzy
+msgid "D d-m-Y"
+msgstr "d-m-Y"
+
+#, fuzzy
+msgid "Import / Export"
+msgstr "Önemli"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
+msgstr ""
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr ""
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr ""
+
+#, fuzzy
+msgid "Icon packs"
+msgstr "Simgeler"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr ""
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr ""
+
+msgid "Left: Breeze - Right: Classic"
+msgstr ""
+
+msgid "What's new"
+msgstr ""
+
+msgid "Don't show me new features again."
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "The server reported an unknown error on your request."
+msgstr "Sunucu isteğinize bilinmeyen bir hata bildirdi."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Sunucu isteğinizi belirtilmemiş bir hata bildirdi."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Oturum sona erdi, yeniden kimlik doğrulama gerekiyor."
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr ""
+"Geçerli tarayıcı penceresindeki oturum başka bir tarayıcı penceresinden veya "
+"sekmesinden kapatıldı."
+
+msgid "Session expired"
+msgstr "oturum süresi doldu"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Oturum açma sayfasına yönlendirilmek istiyor musunuz?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr ""
+"Yeniden doğrulama gerekli, oturum açma sayfasına dönmek için buraya tıklayın."
+
+msgid "Connection problem"
+msgstr "bağlantı problemi"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "sunucuya bağlanılamadı, {0} saniye içinde tekrar deneniyor"
+
+msgid "Click to retry now"
+msgstr "şimdi yeniden denemek için tıklayın"
+
+msgid "Connection restored"
+msgstr "bağlantı yeniden sağlandı"
+
+msgid "Connection with server has been restored"
+msgstr "Sunucu ile bağlantı yeniden sağlandı"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Sunucudan geçersiz bilgi alındı"
+
+#, fuzzy
+msgid "Missing store"
+msgstr "mağaza eksik"
+
+#, fuzzy
+msgid "The default store is missing from the hierarchy."
+msgstr "Varsayılan mağaza hiyerarşide bulunmuyor."
+
+msgid ""
+"Not all functionality of WebApp might be working properly because of this."
+msgstr "WebApp'in bazı işlevleri bu nedenle düzgün çalışmayabilir."
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Gelen Kutusu"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "giden kutusu"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "gönderilen öğeler"
+
+# 92%
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "silinen öğeler"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Takvim"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kişiler"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "taslaklar"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Günlük"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Notlar"
+
+# 100%
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Görevler"
+
+#, fuzzy
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "istenmeyen e-posta"
+
+msgid "Missing folders"
+msgstr "eksik klasörler"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "aşağıdaki gerekli klasör hiyerarşide eksik: {0}"
+msgstr[1] ""
+
+msgid "Loading model from server failed"
+msgstr "Sunucudan model yüklenmesi başarısız"
+
+#, fuzzy
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Ofis dışı bildirimi aktif. Kapatmak ister misiniz?"
+
+msgid "Out of office off"
+msgstr "ofis dışı bildirimi kapalı"
+
+msgid "Out of office has been turned off"
+msgstr "ofis dışı bildirimi kapatılmıştır"
+
+msgid "Send Fax"
+msgstr "faks gönder"
+
+msgid "Contact Fax"
+msgstr "kişi faksı"
+
+#, fuzzy
+msgid "Widget height"
+msgstr "Parçacık ekle"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Randevular yükleniyor"
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Yeni randevu"
+
+msgid "Number of days"
+msgstr ""
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Bugün: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+#, fuzzy
+msgid "d/m/y G:i"
+msgstr "l d-m-Y G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Randevular yükleniyor"
+
+msgid "Datepicker"
+msgstr ""
+
+msgid "No unread mail."
+msgstr "okunmamış e-posta yok."
+
+msgid "Unread Mail"
+msgstr "okunmamış e-posta"
+
+msgid "No tasks."
+msgstr "Görev yok."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
+msgid "Google Maps"
+msgstr "google maps"
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr "harita"
+
+msgid "Move currently selected message(s) to {0}"
+msgstr "Seçili olan mesajları {0} taşı"
+
+msgid "Move to {0}"
+msgstr "{0}'a taşı"
+
+msgid "Move current message to {0}"
+msgstr "Seçili olan mesajı {0}'a taşı"
+
+msgid "Personal Inbox Manager"
+msgstr "kişisel 'gelen kutusu' yöneticisi"
+
+msgid "Personal Inbox Management Settings"
+msgstr "kişisel 'gelen kutusu' yönetim ayarları"
+
+msgid "Select another folder"
+msgstr "Başka bir klasör seçin"
+
+msgid "E-mails are moved to {0}"
+msgstr "E-postalar {0}'a taşınıyor"
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Yeni tarayıcı penceresinde aç"
+
+msgid "Quick Appointment"
+msgstr "Hızlı randevu"
+
+msgid "Quick Contact"
+msgstr "Hızlı kişi yap"
+
+msgid "Quick Mail"
+msgstr "Hızlı mesaj"
+
+msgid "Quick Note"
+msgstr "Hızlı Not"
+
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hızlı görev"
+
+msgid "Title Counter Plugin"
+msgstr "başlık sayaç eklentisi"
+
+msgid "Help"
+msgstr "yardım"
+
+msgid "WebApp Manual"
+msgstr "WebApp kılavuzu"
+
+msgid "INSERT"
+msgstr "ekle"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sıralama: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "zdeveloper"
+
+msgid "Charm pink"
+msgstr "Cazibeli pembe"
+
+msgid "Cadmium red"
+msgstr "Kadmiyum kırmızı"
+
+msgid "Apricot"
+msgstr "kayısı"
+
+msgid "California"
+msgstr "Kaliforniya"
+
+msgid "Soft green"
+msgstr "hafif yeşil"
+
+msgid "Mint"
+msgstr "Nane"
+
+msgid "Pearl aqua"
+msgstr "inci su"
+
+msgid "Kopano blue"
+msgstr "kopano mavisi"
+
+msgid "Baby blue"
+msgstr "bebek mavisi"
+
+msgid "Mauve"
+msgstr "leylak"
+
+msgid "Silver sand"
+msgstr "gümüş kum"
+
+msgid "Competition"
+msgstr "Rekabet"
+
+msgid "Gifts"
+msgstr "Hediyeler"
+
+msgid "Goals/Objectives"
+msgstr "Amaçlar / Hedefler"
+
+msgid "Holiday Cards"
+msgstr "Tatil kartları"
+
+msgid "Hot Contacts"
+msgstr "Önemli Kişiler"
+
+msgid "Ideas"
+msgstr "Fikirler"
+
+msgid "International"
+msgstr "Uluslararası"
+
+msgid "Key Customer"
+msgstr "Önemli Müşteri"
+
+msgid "Miscellaneous"
+msgstr "Çeşilti"
+
+msgid "Phone Calls"
+msgstr "Telefon Görüşmeleri"
+
+msgid "Strategies"
+msgstr "Stratejiler"
+
+msgid "Suppliers"
+msgstr "Tedarikçiler"
+
+msgid "Time & Expenses"
+msgstr "Zaman ve Maliyet"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "Bekleme"
+
+msgid "You have been automatically logged out"
+msgstr "Otomatik olarak çıkış yapıldı"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr ""
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr "Otobüs veri eklemek değil, aynı eylem türü otobüs mevcuttur"
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "Yanıt verileri istendi ancak herhangi bir veri yoktur."
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "Bilinmeyen modülü '% s' id '% s'"
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+"Sunucu bazı sorunla karşılaştı, bu nedenle isteği işlemek mümkün değildi."
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "Bilinmeyen bildirici '%s'"
+
+msgid "An unexpected error has occurred"
+msgstr "Beklenmeyen bir hata oluştu"
+
+#, fuzzy
+msgid "To-Do List"
+msgstr "Telefon listesi"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%1$s of %2$s"
+
+msgid "Error retrieving existing settings"
+msgstr "Varolan ayarları alırken hata"
+
+msgid "Error retrieving existing persistent settings"
+msgstr ""
+
+# 93%
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr ""
+"Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar deneyin."
+
+# 83%
+msgid "Cannot connect to Kopano Core."
+msgstr "Kopano sunucuya bağlanamıyor."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr ""
+
+msgid "Unknown MAPI Error"
+msgstr "Bilinmeyen MAPI hatası"
+
+msgid "Click the link to open the URL in a new window."
+msgstr ""
+
+msgid "This external link will open in a new window"
+msgstr "Bu dış bağlantı yeni bir pencerede açılacaktır"
+
+#, fuzzy
+msgid "Destination folder not found."
+msgstr "Hedef klasör"
+
+msgid "Eml is corrupted"
+msgstr ""
+
+#, fuzzy
+msgid "The eml Attachment is not imported successfully"
+msgstr "ZIP oluşturma başarısız"
+
+#, fuzzy
+msgid "The vcf attachment is not imported successfully"
+msgstr "ZIP oluşturma başarısız"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+#, fuzzy
+msgid "There is no appointment found in this file."
+msgstr "Bu toplantı geçmişte."
+
+msgid "The file is corrupt."
+msgstr ""
+
+#, fuzzy
+msgid "The file is invalid."
+msgstr "Eklenen dosyalar henüz yüklenmedi."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr ""
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr ""
+
+#, fuzzy
+msgid "Attachment is not imported successfully"
+msgstr "ZIP oluşturma başarısız"
+
+# 81%
+#, fuzzy
+msgid "Embedded attachment not found."
+msgstr "Bu kişiye eklentiler ekleyin"
+
+msgid "ZIP is not created successfully"
+msgstr "ZIP oluşturma başarısız"
+
+msgid "Attachments can not be downloaded"
+msgstr "Ekler indirilemiyor"
+
+# 82%
+# 100%
+msgid "Could not find attachment."
+msgstr "Eklenti bulunamadı."
+
+msgid "Operation failed"
+msgstr "işlem başarısız"
+
+# 90%
+# 100%
+msgid "Sticky Note"
+msgstr "Not kağıtı"
+
+# 92%
+# 100%
+msgid "Task Request"
+msgstr "Görev isteği"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr "İleti bulunamadı, taşındı veya silindi."
+
+msgid "Action is not performed correctly."
+msgstr "Eylem doğru yapılmaz."
+
+# 90%
+msgid "You have insufficient privileges to open this object."
+msgstr "Bu nesneyi açmak için yeterli yetkiye sahip değilsiniz."
+
+# 93%
+msgid "Logon Failed. Please check your name/password."
+msgstr "Oturum açma başarısız. Lütfen adınızı / şifrenizi kontrol edin."
+
+# 83%
+msgid "Can not connect to Kopano Core."
+msgstr "Kopano sunucuya bağlanamıyor."
+
+msgid "Can not open object with provided id."
+msgstr "nesne paylaşılan id ile açılamıyor."
+
+msgid "There are no recipients in the message."
+msgstr "Mesajda alıcı yok."
+
+msgid "Can not find object."
+msgstr "Nesne bulunamıyor."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "Bilinmeyen MAPI hatası: %s"
+
+msgid "Tentatively accepted"
+msgstr "Geçici olarak kabul edildi"
+
+msgid "New Time Proposed"
+msgstr "yeni zaman önerildi"
+
+# 78%
+# 76%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Her %s gerçekleşir, efektif %s, başlangıç: %s, bitiş: %s."
+
+# 77%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Her %s %s gerçekleşir, efektif %s, başlangıç: %s, bitiş: %s."
+
+# 80%
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Her %s gerçekleşir, efektif %s."
+
+# 75%
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Her %s %s gerçekleşir, efektif %s."
+
+# 78%
+# 76%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr[0] ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+msgstr[1] ""
+
+# 78%
+# 76%
+# 95%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
+msgstr[0] ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+msgstr[1] ""
+
+# 77%
+# 81%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s for %s occurence."
+msgid_plural "Occurs every %s effective %s for %s occurences."
+msgstr[0] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+msgstr[1] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+
+# 77%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s for %s occurence."
+msgid_plural "Occurs every %s %s effective %s for %s occurences."
+msgstr[0] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+msgstr[1] "Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var."
+
+# 78%
+# 76%
+# 75%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+
+# 78%
+# 76%
+# 75%
+# 94%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr ""
+"Her {0} gerçekleşir, başlangıç: {1} {2} oluşum var, saat {3} - {4} arası."
+
+# 78%
+#, fuzzy, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
+
+# 78%
+# 92%
+#, fuzzy, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Her {0} gerçekleşir, başlangıç: {1}, bitiş: {2}."
+
+msgid "Task Accepted:"
+msgstr "Görev Kabul:"
+
+msgid "Task Declined:"
+msgstr "Görev Reddedildi:"
+
+msgid "Task Updated:"
+msgstr "Görev güncellendi"
+
+msgid "Task Completed:"
+msgstr "Görev tamamlandı"
+
+msgid "Contact not found"
+msgstr ""
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr ""
+
+msgid "Could not handle this type of object."
+msgstr "Bu nesne türü halledilmiyor"
+
+msgid "Could not open this object."
+msgstr "Bu nesne açılamadı."
+
+msgid "Could not open occurrence."
+msgstr "Olay açılamadı."
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr "Olay açılamadı, bu spesifik olay muhtemelen silindi."
+
+# 89%
+# 100%
+# 84%
+msgid "a meeting request"
+msgstr "bir toplantı isteği"
+
+# 93%
+# 100%
+# 80%
+msgid "an appointment"
+msgstr "bir randevu"
+
+# 79%
+# 100%
+msgid "You have insufficient privileges to move "
+msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
+
+msgid "Insufficient privileges"
+msgstr "yetersiz yetki"
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr ""
+"Hatırlatma ayarlanamıyor olaydan önce. Değişikleri kaydetmek için "
+"hatırlatmayı sıfırla"
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "İki oluşumlar aynı gün oluşamaz"
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+"Bir kaynak olarak '% s' işaretlenmiş. Bu hesap için uygun olanı izinlere "
+"sahip değilsiniz, çünkü '% s' ile bir toplantı zamanlama olamaz. Ya zorunlu "
+"veya isteğe bağlı katılımcı olarak adını girin veya program '% s' için izin "
+"verme konusunda yöneticinizle konuşun."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr ""
+"'% s' toplantı isteklerini kabul etmedi, çünkü '% s' otomatik toplantı "
+"isteğini kabul etmiyor."
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr ""
+"'% s' toplantı isteklerini kabul etmedi, çünkü tekrarlanıyor. Bu kaynakta "
+"her toplantıya ayrı rezervasyon gerekir."
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr ""
+"'%s' belirtilen süre iҫin rezervasyon doldu. Başka bir saat veya başka bir "
+"kaynak bulmak gerekir"
+
+msgid "Meeting was not scheduled."
+msgstr "Toplantı planlanmış değildi."
+
+msgid "Meeting could not be sent."
+msgstr "Toplantı gönderilemedi."
+
+msgid "Meeting could not be saved."
+msgstr "Toplantı kaydedilemedi"
+
+msgid "Private Appointment"
+msgstr "Özel Randevu"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "% s Doğum günü"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "% s Yıldönümü"
+
+msgid "Unknown user/group"
+msgstr "Bilinmeyen kullanıcı / grup"
+
+msgid "Could not save delegate information."
+msgstr "Temsilci bilgileri kaydedilemedi."
+
+# 78%
+# 80%
+#, fuzzy
+msgid "Could not delete delegate."
+msgstr "Mesaj silinmiyor"
+
+# 78%
+# 80%
+msgid "Can not get list of delegates."
+msgstr "Temsilci listesi alınamadı."
+
+msgid "Could not load the hierarchy."
+msgstr "Hiyerarşi yüklenemedi."
+
+msgid "Could not load folder properties."
+msgstr "Klasör özellikleri yüklenemedi."
+
+msgid "Could not remove folder from favorites."
+msgstr "Klasör favorilerden silinemiyor."
+
+msgid "You have insufficient privileges to delete folder."
+msgstr "Bu klasörü silmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not delete folder."
+msgstr "Klasör silinemedi."
+
+msgid "You have insufficient privileges to copy folder."
+msgstr "Bu klasöre kopyalamak için yeterli ayrıcalıklara sahip deyilsiniz"
+
+msgid "Could not copy folder."
+msgstr "Klasör kopyalanmadı"
+
+msgid "You have insufficient privileges to move this folder."
+msgstr "Bu klasöre taşımak için yeterli ayrıcalıklara sahip deyilsiniz"
+
+msgid "Could not move folder."
+msgstr "Klasör kaydırılmıyor"
+
+msgid "You have insufficient privileges to delete items."
+msgstr "Bu öğeleri silmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not empty folder."
+msgstr "Klasör boşaltılmıyor"
+
+msgid "Could not perform action correctly."
+msgstr "Doğru eylemi gerçekleştiremedi."
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr ""
+
+msgid "Could not add folder to favorites."
+msgstr "Klasör favorilere eklenilmiyor"
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr ""
+"Bu klasörün izinlerini ayarlamak için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not set folder permissions."
+msgstr "Klasör izinleri ayarlanmıyor"
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr ""
+"Bu klasörü yeniden adlandırmak için yeterli ayrıcalıklara sahip deyilsiniz"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Bu isimde bir klasör zaten var. Başka bir isim kullanın."
+
+msgid "Could not rename folder."
+msgstr "Klasörü yeniden adlandırılmıyor"
+
+msgid "You have insufficient privileges to create this folder."
+msgstr "Bu klasörü oluşturmak için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not create folder."
+msgstr "Klasör oluşturulamadı."
+
+msgid "Could not close shared folder."
+msgstr "Paylaşılan klasör kapatılamadı."
+
+msgid "User could not be resolved."
+msgstr "Kullanıcı çözülemedi."
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr ""
+"%1$s klasörünü açmak için yeterli yetkiye sahip değilsiniz. Klasör sahibi, "
+"bunları klasör özelliklerinin 'izinler' sekmesini kullanarak (%1$s klasörü "
+"sağ tıklayın > özellikler > izinler) ayarlayabilir."
+
+# 85%
+msgid "unknown"
+msgstr "Bilinmeyen"
+
+# 95%
+msgid "Could not move folder"
+msgstr "Klasör taşınamıyor"
+
+# 95%
+msgid "Could not copy folder"
+msgstr "Klasör kopyalanamadı"
+
+# 92%
+msgid "You have insufficient privileges to open this message."
+msgstr "Bu mesaji açmak için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr ""
+"İleti bulunamadı. Taşındı,silindi veya bu iletiyi açmak için erişiminiz yok."
+
+# 78%
+msgid "Could not open message."
+msgstr "Mesaj açılınamıyor."
+
+# 98%
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "Bu toplantı isteğini reddetmek için yeterli yetkiye sahip değilsiniz"
+
+# 98%
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "Bu toplantı isteğini kabul etmek için yeterli yetkiye sahip değilsiniz"
+
+# 78%
+# 82%
+msgid "Could not copy message"
+msgstr "Mesaj kopyalanmıyor"
+
+# 78%
+# 82%
+msgid "Could not move message"
+msgstr "Mesaj kaydırılmıyor"
+
+# 81%
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "Bu klasöre öğe kaydetmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+# 78%
+msgid "Could not save message"
+msgstr "Mesaj kaydedilmedi"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "Bu takvimden öğeyi silmek için yeterli yetkiye sahip değilsiniz."
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr ""
+
+#, fuzzy
+msgid "Message cannot be aborted"
+msgstr "eklenti etkinleştirilemiyor"
+
+# 81%
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "Bu klasörde öğe silmek için yeterli yetkiye sahip değilsiniz"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "Eklenti eklemek için yeterli ayrıcalıklara sahip deyilsiniz"
+
+msgid "Could not attach item as an attachment."
+msgstr "Öğe eklenti olarak eklenemedi"
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr ""
+"Yeniden görev İsteğinin sahibi olmak için yeterli ayrıcalıklara sahip "
+"deyilsiniz"
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "Yeniden görev İsteğinin sahibi olunamıyor"
+
+# 89%
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr ""
+"Bu toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+# 78%
+msgid "Could not accept Task Request."
+msgstr "Toplantı İsteği kabul edilmiyor"
+
+# 89%
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr ""
+"Bu Toplantı isteği reddetmek için yeterli ayrıcalıklara sahip deyilsiniz"
+
+# 79%
+msgid "Could not decline Task Request."
+msgstr "Toplantı isteği reddettilmiyor"
+
+msgid "Conflicts with another appointment."
+msgstr "bir diğer toplantı ile çelişiyor."
+
+#, fuzzy, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] ""
+"Bu yinelenen randevu %s gerçekleşmesi bir diğer randevu ile çakışıyor."
+msgstr[1] ""
+"Bu yinelenen randevu %s gerçekleşmesi bir diğer randevu ile çakışıyor."
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "İletiniz, belirtilen alıcıların bazılarına veya tümüne ulaşmadı"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr ""
+"Bu klasörün içeriğini görmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not load the contents of this folder."
+msgstr "Bu klasörün içeriğini yükleyemedi"
+
+msgid "Error in search, please try again"
+msgstr "Arama hatası, lütfen tekrar deneyin"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr ""
+
+msgid "Unable to perform search query, search folder not found."
+msgstr ""
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr ""
+
+msgid "Error in creating search folder."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr ""
+"Bu klasörde arama işlemi gerçekleştirmek için yeterli ayrıcalıklara sahip "
+"deyilsiniz"
+
+msgid "Could not update search results."
+msgstr "Arama sonuçları güncelleştirilemedi."
+
+msgid "Could not stop search operation."
+msgstr "Arama işlemi tutamadı."
+
+msgid "You have insufficient privileges to save this message."
+msgstr "Bu iletiyi kaydetmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+# 78%
+# 82%
+msgid "Could not save message."
+msgstr "Mesaj kaydedilmiyor."
+
+msgid "You have insufficient privileges to delete this message."
+msgstr "Bu mesajı silmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+# 78%
+# 80%
+msgid "Could not delete message."
+msgstr "Mesaj silinmiyor"
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr ""
+"Bu Toplantı İsteği iptal etmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not cancel Meeting Request."
+msgstr "Toplantı İsteği iptal edilemedi."
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr ""
+"Bu Toplantı isteği reddetmek için yeterli ayrıcalıklara sahip deyilsiniz"
+
+msgid "Could not decline Meeting Request."
+msgstr "Toplantı isteği reddettilmiyor"
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr ""
+"Bu Toplantı İsteğini kabul etmek için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not accept Meeting Request."
+msgstr "Toplantı İsteği kabul edilmiyor"
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr ""
+"Toplantı İsteği daveti iptal etmek için yeterli ayrıcalıklara sahip "
+"deyilsiniz."
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "Toplanti isteği iptal edilemedi"
+
+msgid "You can not continue search operation on this folder."
+msgstr "Klasörde arama işlemi devam edilemedi"
+
+# 97%
+msgid "Error in search, please try again."
+msgstr "Arama hatası, lütfen tekrar deneyin"
+
+msgid "Error in distribution list expansion."
+msgstr "Dağıtım listesi genişletme hatası."
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "İleti deposu sabit kota sınırını aştı."
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr ""
+"Bu ileti deposundaki veri miktarını azaltmak için artık gereksinim "
+"duymadığınız bazı öğeleri seçin, bunları silin ve Silinmiş Öğeler "
+"klasörünüzü temizleyin."
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "Ileti deposu yumuşak kota sınırını aştı."
+
+msgid "Could not process request data properly."
+msgstr "Istek iyi işlenmedi"
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr "Bilinmeyen eylem tipi -% s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "Hatırlatıcıyı erteleyemezsiniz. Yeniden hatırlatılabilirsiniz."
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr "Hatırlatıcıyı kapatamazsınız. Yeniden hatırlatılabilirsiniz."
+
+# 80%
+msgid "You have insufficient privileges to perform this action."
+msgstr "Bu mağazayı açmak için yeterli ayrıcalıklara sahip deyilsiniz."
+
+msgid "Could not resolve user."
+msgstr "Kullanıcı çözümlenemedi."
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr ""
+
+msgid "Untitled rule"
+msgstr "Başlıksız kural"
+
+# 83%
+# 77%
+# 76%
+msgid "Could not load rules."
+msgstr "kurallar yüklenemedi."
+
+# 83%
+# 77%
+# 95%
+msgid "Could not save rules."
+msgstr "kurallar kaydedilemedi."
+
+msgid "Task Request:"
+msgstr "Görev isteği"
+
+msgid "Welcome"
+msgstr "Hoşgeldiniz"
+
+msgid "Username"
+msgstr "kullanıcı adı"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Sign in"
+msgstr "oturum aç"
+
+#, fuzzy
+msgid "File is not imported successfully"
+msgstr "ZIP oluşturma başarısız"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr ""
+
+#, fuzzy
+msgid "The EML is not valid"
+msgstr "{0} geçerli bir zaman değil"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "B"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "Azami yığın boyutu aşıldı"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
+
+msgid "Invalid or malformed JSON"
+msgstr "Geçersiz veya hatalı JSON"
+
+msgid "Syntax error"
+msgstr "Sözdizimi hatası"
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON-Hata: - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "Bazı sorun kodlama / kod çözme JSON veri karşılaştı."
+
+msgid "Desktop Notifications Plugin"
+msgstr ""
+
+msgid "Desktop Notifications"
+msgstr ""
+
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr ""

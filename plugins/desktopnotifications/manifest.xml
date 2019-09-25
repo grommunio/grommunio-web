@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.1</version>
+		<name>desktopnotifications</name>
+		<title>Desktop Notifications Plugin</title>
+		<author>Kopano</author>
+		<authorURL>http://kopano.com</authorURL>
+		<description>Allow the user to Desktop Notifications for different type of actions.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.desktopnotifications.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/desktopnotifications.js</clientfile>
+					<clientfile load="debug">js/desktopnotifications-debug.js</clientfile>
+					<clientfile load="source">js/DesktopNotificationsPlugin.js</clientfile>
+					<clientfile load="source">js/settings/SettingsNotificationsCategory.js</clientfile>
+					<clientfile load="source">js/settings/SettingsNotificationsWidget.js</clientfile>
+					<clientfile load="source">js/DesktopNotifications.js</clientfile>
+					<clientfile load="source">js/DesktopNotifier.js</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/desktopnotifications.css</resourcefile>
+					<resourcefile load="source">resources/desktopnotifications.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

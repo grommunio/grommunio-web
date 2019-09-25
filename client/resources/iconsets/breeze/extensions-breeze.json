@@ -1,0 +1,32 @@
+{
+	".icon_mail_read": [
+		".icon_mail_nondelivery_receipt",
+		".icon_mail_report_ndr"
+	],
+	".icon_mail_unread": [
+		".mail_unread .icon_mail_nondelivery_receipt",
+		".mail_unread .icon_mail_report_ndr"
+	],
+	".icon_rules": ".zarafa-settings-category-rules",
+	".icon_cogwheel_s": [
+		".x-grid3-hd-btn"
+	],
+	".folder_public": [
+		".icon_folder_shared_store",
+		".icon_folder_public_store",
+		".icon_folder_shared_undefined",
+		".icon_share"
+	],
+	".folder": [
+		".folder_bw",
+		".icon_folder",
+		".icon_folder_note",
+		".icon_folder_folder",
+		".icon_folder_default_publicfolders",
+		".icon_folder_default_syncissues",
+		".icon_folder_default_conflicts",
+		".icon_folder_default_localfailures",
+		".icon_folder_default_serverfailures",
+		".icon_open"
+	]
+}

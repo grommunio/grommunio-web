@@ -1,0 +1,9 @@
+/* Icon image for contextmenu item and top menu icon */
+.icon_pim_setup {
+	background-image:url(../icons/pim_folder_icon.png) !important;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+

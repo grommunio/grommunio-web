@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>contactfax</name>
+		<title>Contact Fax Plugin</title>
+		<author>Kopano</author>
+		<authorURL>https://www.kopano.com</authorURL>
+		<description>Open a new 'create mail' dialog with contact's fax number in the TO field of the email.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.contactfax.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/contactfax.js</clientfile>
+					<clientfile load="debug">js/contactfax-debug.js</clientfile>
+					<clientfile load="source">js/ContactFax.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/contactfax.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

@@ -1,0 +1,53 @@
+<!-- The <plugin> element. This is the root element for the document -->
+<!ELEMENT plugin (info,config?,dependencies?,translations?,components)>
+
+	<!-- The <info> element. Positioned inside the <plugin> and/or <component> elements. Provides meta information -->
+	<!ELEMENT info (version?,name,title?,author?,authorURL?,description?)>
+		<!ELEMENT version (#PCDATA)>
+		<!ELEMENT name (#PCDATA)>
+		<!ELEMENT title (#PCDATA)>
+		<!ELEMENT author (#PCDATA)>
+		<!ELEMENT authorURL (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>
+
+	<!-- The <config> element. Positioned inside the <plugin> element. Provides the location of the configuration file(s) -->
+	<!ELEMENT config (configfile+)>
+		<!ELEMENT configfile (#PCDATA)>
+
+	<!-- The <dependencies> element. Positioned inside the <plugin> element. Provides the plugin dependencies -->
+	<!ELEMENT dependencies (depends+)>
+		<!ELEMENT depends (dependsname)>
+			<!ELEMENT dependsname (#PCDATA)>
+
+	<!-- The <translations> element. Positioned inside the <plugin> element. Provides the translations information -->
+	<!ELEMENT translations (translationsdir+)>
+		<!ELEMENT translationsdir (#PCDATA)>
+
+	<!-- The <components> element. Positioned inside the <plugin> element. Provides the components -->
+	<!ELEMENT components (component+)>
+		<!ELEMENT component (info?,files)>
+			<!ELEMENT files (server?,client?,resources?)>
+				<!ELEMENT server (serverfile+)>
+					<!ELEMENT serverfile (#PCDATA)>
+				<!ELEMENT client (clientfile+)>
+					<!ELEMENT clientfile (#PCDATA)>
+				<!ELEMENT resources (resourcefile+)>
+					<!ELEMENT resourcefile (#PCDATA)>
+
+<!-- The attributes for the <plugin> element. -->
+<!ATTLIST plugin version CDATA #REQUIRED>
+
+<!-- The attributes for the <depends> element. -->
+<!ATTLIST depends type (depends|requires|recommends|suggests) "depends">
+
+<!-- The attributes for the <serverfile> element. -->
+<!ATTLIST serverfile load (release|debug|source) "release">
+<!ATTLIST serverfile type (plugin|module|notifier) "plugin">
+<!ATTLIST serverfile module CDATA #IMPLIED> 
+<!ATTLIST serverfile notifier CDATA #IMPLIED> 
+
+<!-- The attributes for the <clientfile> element. -->
+<!ATTLIST clientfile load (release|debug|source) "release">
+
+<!-- The attributes for the <resourcefile> element. -->
+<!ATTLIST resourcefile load (release|debug|source) "release">

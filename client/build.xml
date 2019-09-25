@@ -1,0 +1,402 @@
+<project default="all">
+
+	<property name="root-folder" value="${basedir}/.."/>
+	<property name="target-folder" value="${root-folder}/deploy/client"/>
+	<property name="tools-folder" value="${root-folder}/tools"/>
+	<property name="doc-folder" value="${root-folder}/doc/client"/>
+
+	<import file="${tools-folder}/antutil.xml"/>
+
+	<typedef file="${tools-folder}/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/tools.jar"/>
+		</classpath>
+	</typedef>
+
+	<!-- The ExtJs distribution files -->
+	<property name="extjs-folder" value="extjs"/>
+	<property name="extjs-base-debugfile" value="ext-base-debug.js"/>
+	<property name="extjs-base-file" value="ext-base.js"/>
+	<property name="extjs-all-debugfile" value="ext-all-debug.js"/>
+	<property name="extjs-all-file" value="ext-all.js"/>
+	<property name="extjs-base-all-file" value="ext-base-all.js"/>
+
+	<!-- The Ext-Ux distribution files -->
+	<property name="ux-folder" value="extjs/ux"/>
+	<property name="ux-all-debugfile" value="ux-all-debug.js"/>
+	<property name="ux-all-file" value="ux-all.js"/>
+
+	<!-- The TinyMCE distribution files -->
+	<property name="tinymce-folder" value="tinymce"/>
+
+	<!-- The TinyMCE external plugins files -->
+	<property name="tinymce-plugins-folder" value="tinymce-plugins"/>
+
+	<!-- The TinyMCE language files -->
+	<property name="tinymce-languages-folder" value="tinymce-languages"/>
+
+	<!-- The Ext-Mod distribution files -->
+	<property name="extjs-mod-folder" value="extjs-mod"/>
+	<property name="extjs-mod-debugfile" value="extjs-mod-debug.js"/>
+	<property name="extjs-mod-file" value="extjs-mod.js"/>
+
+	<!-- Third-party plugins for the Ext.ux namespace -->
+	<property name="thirdparty-folder" value="third-party"/>
+	<property name="thirdparty-debugfile" value="ux-thirdparty-debug.js"/>
+	<property name="thirdparty-file" value="ux-thirdparty.js"/>
+
+	<!-- The fingerprint script -->
+	<property name="fingerprint-folder" value=""/>
+	<property name="fingerprint-debugfile" value="fingerprint-debug.js"/>
+	<property name="fingerprint-file" value="fingerprint.js"/>
+
+	<!-- The OIDC files -->
+	<property name="oidc-folder" value="oidc"/>
+
+	<!-- The kopano oidc script -->
+	<property name="resize-folder" value=""/>
+	<property name="resize-debugfile" value="resize-debug.js"/>
+	<property name="resize-file" value="resize.js"/>
+
+	<!-- The kopano oidc script -->
+	<property name="oidc-kopano-folder" value=""/>
+	<property name="oidc-kopano-debugfile" value="oidc-kopano-debug.js"/>
+	<property name="oidc-kopano-file" value="oidc-kopano.js"/>
+
+	<!-- Third-party plugins CSS files -->
+	<property name="thirdparty-css-folder" value="${thirdparty-folder}/resources/css"/>
+	<property name="thirdparty-css-file" value="ux-thirdparty.css"/>
+
+	<!-- The Kopano distribution files -->
+	<property name="kopano-folder" value=""/>
+	<property name="kopano-debugfile" value="kopano-debug.js"/>
+	<property name="kopano-file" value="kopano.js"/>
+
+	<!-- The Kopano CSS files -->
+	<property name="kopano-css-folder" value="resources/css"/>
+	<property name="kopano-scss-folder" value="resources/scss"/>
+
+	<!-- The Kopano images -->
+	<property name="kopano-images-folder" value="resources/images"/>
+
+	<!-- The Kopano themes -->
+	<property name="kopano-themes-folder" value="zarafa/core/themes"/>
+	<property name="kopano-themes-target-folder" value="themes"/>
+
+	<!-- The Kopano iconsets -->
+	<property name="kopano-iconsets-folder" value="resources/iconsets"/>
+	<property name="kopano-iconsets-target-folder" value="resources/iconsets"/>
+
+	<!-- Meta target -->
+	<target name="all" depends="prepare, concat, compress"/>
+
+	<!-- Clean -->
+	<target name="clean">
+		<delete dir="${doc-folder}"/>
+
+		<delete includeemptydirs="true" failonerror="false">
+			<!-- Delete the ExtJs files -->
+			<fileset dir="${target-folder}/${extjs-folder}">
+				<include name="${extjs-base-file}"/>
+				<include name="${extjs-base-debugfile}"/>
+				<include name="${extjs-all-file}"/>
+				<include name="${extjs-all-debugfile}"/>
+			</fileset>
+			<!-- Delete the Ext-Ux files -->
+			<fileset dir="${target-folder}/${ux-folder}">
+				<include name="${ux-all-debugfile}"/>
+				<include name="${ux-all-file}"/>
+			</fileset>
+
+            <!-- Delete the TinyMCE files -->
+            <fileset dir="${target-folder}/${tinymce-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
+            <!-- Delete the TinyMCE external plugins -->
+            <fileset dir="${target-folder}/${tinymce-plugins-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
+            <!-- Delete the TinyMCE language files -->
+            <fileset dir="${target-folder}/${tinymce-languages-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
+            <!-- Delete the fingerprint script -->
+            <fileset dir="${target-folder}/${fingerprint-folder}">
+                <include name="${fingerprint-file}"/>
+            </fileset>
+
+            <!-- Delete the resize script -->
+            <fileset dir="${target-folder}/${resize-folder}">
+                <include name="${resize-file}"/>
+            </fileset>
+
+            <!-- Delete the kopano oidc script -->
+            <fileset dir="${target-folder}/${oidc-kopano-folder}">
+                <include name="${oidc-kopano-file}"/>
+            </fileset>
+
+            <!-- Delete the OIDC files -->
+            <fileset dir="${target-folder}/${oidc-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+
+			<!-- Delete the Extjs-mod files -->
+			<fileset dir="${target-folder}/${extjs-mod-folder}">
+				<include name="${extjs-mod-debugfile}"/>
+				<include name="${extjs-mod-file}"/>
+			</fileset>
+			<!-- Delete the third-party files -->
+			<fileset dir="${target-folder}/${thirdparty-folder}">
+				<include name="${thirdparty-file}"/>
+				<include name="${thirdparty-debugfile}"/>
+			</fileset>
+			<!-- Delete the Kopano files -->
+			<fileset dir="${target-folder}/${kopano-folder}">
+				<include name="${kopano-file}"/>
+				<include name="${kopano-debugfile}"/>
+			</fileset>
+		</delete>
+
+		<!-- Delete the Kopano themes and iconsets -->
+		<delete dir="${target-folder}/${kopano-themes-target-folder}"/>
+		<delete dir="${target-folder}/${kopano-iconsets-target-folder}"/>
+	</target>
+
+	<!-- Prepare build, copy ExtJs files to target folder -->
+	<target name="prepare">
+		<!-- Copy files which will not be compiled, but are needed for compilation of the other components -->
+		<mkdir dir="${target-folder}/${extjs-folder}"/>
+		<!-- Concatenate small files so we have to load less files -->
+		<concat destfile="${target-folder}/${extjs-folder}/${extjs-base-all-file}">
+			<filelist dir="${extjs-folder}">
+				<file name="${extjs-base-file}"/>
+				<file name="${extjs-all-file}"/>
+			</filelist>
+		</concat>
+
+		<copy todir="${target-folder}/${extjs-folder}">
+			<fileset dir="${extjs-folder}">
+				<include name="${extjs-base-debugfile}"/>
+				<include name="${extjs-all-debugfile}"/>
+			</fileset>
+		</copy>
+		<copy todir="${target-folder}/${ux-folder}">
+			<fileset dir="${ux-folder}">
+				<include name="${ux-all-debugfile}"/>
+				<include name="${ux-all-file}"/>
+			</fileset>
+		</copy>
+        <copy file="${fingerprint-file}" tofile="${target-folder}/${fingerprint-folder}/${fingerprint-debugfile}"></copy>
+        <copy file="${resize-file}" tofile="${target-folder}/${resize-folder}/${resize-debugfile}"></copy>
+        <copy file="${oidc-kopano-file}" tofile="${target-folder}/${oidc-kopano-folder}/${oidc-kopano-debugfile}"></copy>
+        <copy todir="${target-folder}/${oidc-folder}">
+            <fileset dir="${oidc-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${target-folder}/${tinymce-folder}">
+            <fileset dir="${tinymce-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${target-folder}/${tinymce-plugins-folder}">
+            <fileset dir="${tinymce-plugins-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${target-folder}/${tinymce-languages-folder}">
+            <fileset dir="${tinymce-languages-folder}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+	</target>
+
+	<!-- Concatenates JavaScript files with automatic dependency generation -->
+	<target name="concat" depends="prepare">
+		<!-- Concatenate Extjs-mod file -->
+		<mkdir dir="${target-folder}/${extjs-mod-folder}"/>
+		<echo message="Concatenating: ${extjs-mod-debugfile}"/>
+		<zConcat outputFolder="${target-folder}/${extjs-mod-folder}" outputFile="${extjs-mod-debugfile}">
+			<concatfiles>
+				<fileset dir="${extjs-mod-folder}" includes="**/*.js" />
+			</concatfiles>
+		</zConcat>
+
+		<!-- Concatenate third-party file -->
+		<mkdir dir="${target-folder}/${thirdparty-folder}"/>
+		<echo message="Concatenating: ${thirdparty-debugfile}"/>
+		<zConcat outputFolder="${target-folder}/${thirdparty-folder}" outputFile="${thirdparty-debugfile}">
+			<concatfiles>
+				<fileset dir="${thirdparty-folder}" includes="**/*.js" />
+			</concatfiles>
+		</zConcat>
+
+		<!-- Concatenate zarafa file -->
+		<mkdir dir="${target-folder}/${kopano-folder}"/>
+		<echo message="Concatenating: ${kopano-debugfile}"/>
+		<zConcat outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-debugfile}" prioritize="\w+, Zarafa.core.*, Zarafa.common.*, Zarafa.*">
+			<concatfiles>
+				<fileset dir="zarafa" includes="**/*.js" />
+			</concatfiles>
+		</zConcat>
+	</target>
+
+	<!-- Compress JavaScript -->
+	<target name="compress" depends="concat">
+		<echo message="Compiling: ${extjs-mod-file}" />
+		<zCompile inputFolder="${target-folder}/${extjs-mod-folder}" inputFile="${extjs-mod-debugfile}" outputFolder="${target-folder}/${extjs-mod-folder}" outputFile="${extjs-mod-file}">
+			<externs>
+				var Ext = {};
+				<!-- Zarafa is added as runtime dependency only,
+				     extjs-mod is not allowed to have a #dependsFile for Kopano files
+				     but within functions it is allowed to call Zarafa
+				-->
+				var Zarafa = {};
+				var container = {};
+				var _ = function(key, domain) {};
+				var dgettext = function(domain, msgid) {};
+				var dngettext = function(domain, msgid, msgid_plural, count) {};
+				var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
+				var dpgettext = function(domain, msgctxt, msgid) {};
+				var ngettext = function(msgid, msgid_plural, count) {};
+				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
+				var pgettext = function(msgctxt, msgid) {};
+			</externs>
+		</zCompile>
+
+		<echo message="Compiling: ${fingerprint-file}" />
+		<zCompile inputFolder="${target-folder}/${fingerprint-folder}" inputFile="${fingerprint-debugfile}" outputFolder="${target-folder}/${fingerprint-folder}" outputFile="${fingerprint-file}" createSourceMap="false" warningLevel="default">
+			<externs>
+				var Ext = {};
+				var console = {};
+			</externs>
+		</zCompile>
+
+		<echo message="Compiling: ${resize-file}" />
+		<zCompile inputFolder="${target-folder}/${resize-folder}" inputFile="${resize-debugfile}" outputFolder="${target-folder}/${resize-folder}" outputFile="${resize-file}" createSourceMap="false" warningLevel="default">
+			<externs>
+			</externs>
+		</zCompile>
+
+		<echo message="Compiling: ${oidc-kopano-file}" />
+		<zCompile inputFolder="${target-folder}/${oidc-kopano-folder}" inputFile="${oidc-kopano-debugfile}" outputFolder="${target-folder}/${oidc-kopano-folder}" outputFile="${oidc-kopano-file}" createSourceMap="false" warningLevel="default">
+			<externs>
+				var Oidc = {};
+			</externs>
+		</zCompile>
+
+		<echo message="Compiling: ${thirdparty-file}" />
+		<zCompile inputFolder="${target-folder}/${thirdparty-folder}" inputFile="${thirdparty-debugfile}" outputFolder="${target-folder}/${thirdparty-folder}" outputFile="${thirdparty-file}" warningLevel="QUIET">
+			<externs>
+				var Ext = {};
+				var console = {};
+				var exports = {};
+				var module = {};
+				var define = {};
+				var global = {};
+				var require = {};
+				var Proxy = {};
+			</externs>
+		</zCompile>
+
+		<echo message="Compiling: ${kopano-file}" />
+		<zCompile inputFolder="${target-folder}/${kopano-folder}" inputFile="${kopano-debugfile}" outputFolder="${target-folder}/${kopano-folder}" outputFile="${kopano-file}" checkRegExp="off">
+			<externs>
+				var FormData = {};
+				var Ext = {};
+				var Zarafa = {};
+				var container = {};
+				var settings = {};
+				var languages = [];
+				var serverconfig = {};
+				var user = {};
+				var version = {};
+				var urlActionData = {};
+				var console = {};
+				var _ = function(key, domain) {};
+				var dgettext = function(domain, msgid) {};
+				var dngettext = function(domain, msgid, msgid_plural, count) {};
+				var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
+				var dpgettext = function(domain, msgctxt, msgid) {};
+				var ngettext = function(msgid, msgid_plural, count) {};
+				var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
+				var pgettext = function(msgctxt, msgid) {};
+				var resizeLoginBox = function() {};
+				var userManager = {};
+                var tinymce = {};
+				var Tokenizr = {};
+			</externs>
+		</zCompile>
+	</target>
+
+	<!-- Install all files into the target folder -->
+	<target name="deploy" depends="compress">
+		<mkdir dir="${target-folder}"/>
+
+		<!-- copy files -->
+		<copy todir="${target-folder}">
+			<fileset dir=".">
+				<include name="resources/fonts/"/>
+				<include name="third-party/resources/**/*.*"/>
+				<!-- Don't copy the entire extjs resources folder,
+				     we want to loose all individual CSS files -->
+				<include name="extjs/resources/*.*"/>
+				<include name="extjs/resources/images/**/*.*"/>
+				<include name="extjs/resources/css/ext-all*.css"/>
+				<include name="extjs/ux/css/ux-all*.css"/>
+				<include name="extjs/ux/images/**/*.*"/>
+				<include name="*.php"/>
+				<!-- exclude the ant script -->
+				<exclude name="build.xml"/>
+				<!-- CSS is generated during build -->
+				<exclude name="third-party/resources/css/*.*"/>
+			</fileset>
+		</copy>
+
+		<!-- copy css files (including sourcemaps) -->
+		<copy todir="${target-folder}/${kopano-css-folder}">
+			<fileset dir="${kopano-css-folder}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- copy scss files (used by the sourcemaps) -->
+		<copy todir="${target-folder}/${kopano-scss-folder}">
+			<fileset dir="${kopano-scss-folder}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<!-- Copy the images -->
+		<echo message="Copying ${kopano-images-folder}"/>
+		<copy todir="${target-folder}/${kopano-images-folder}" includeEmptyDirs="false">
+			<fileset dir="${kopano-images-folder}">
+				<include name="**/*"/>
+				<exclude name="app-icons/"/>
+				<exclude name="app-icons.extensions.json"/>
+			</fileset>
+		</copy>
+
+		<!-- Copy the themes -->
+		<echo message="Copying ${kopano-themes-folder} to ${target-folder}/${kopano-themes-target-folder}"/>
+		<copy todir="${target-folder}/${kopano-themes-target-folder}" includeEmptyDirs="false">
+			<fileset dir="${kopano-themes-folder}">
+				<exclude name="**/*.js"/>
+			</fileset>
+		</copy>
+
+		<!-- Copy the iconsets -->
+		<echo message="Copying ${kopano-iconsets-folder} to ${target-folder}/${kopano-iconsets-target-folder}"/>
+		<copy todir="${target-folder}/${kopano-iconsets-target-folder}" includeEmptyDirs="false">
+			<fileset dir="${kopano-iconsets-folder}">
+				<exclude name="extensions.json"/>
+				<exclude name="breeze/extensions-breeze.json"/>
+				<exclude name="**/src/**/*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

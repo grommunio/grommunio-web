@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.2</version>
+		<name>webappmanual</name>
+		<title>WebApp Manual</title>
+		<author>Kopano</author>
+		<authorURL>https://www.kopano.com</authorURL>
+		<description>Adds a button in the top menu bar, which directs the user to the user manual of the WebApp.</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.webappmanual.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/webappmanual.js</clientfile>
+					<clientfile load="debug">js/webappmanual-debug.js</clientfile>
+					<clientfile load="source">js/ManualPlugin.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

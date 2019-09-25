@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.1</version>
+		<name>plugin2</name>
+		<title>Plugin Two</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.io</authorURL>
+		<description>Plugin Two</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.plugin2.php</serverfile>
+					<serverfile type="module" module="pluginplugin2module">php/class.pluginplugin2module.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/plugin2.js</clientfile>
+					<clientfile load="debug">js/plugin2-debug.js</clientfile>
+					<clientfile load="source">js/Plugin2.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

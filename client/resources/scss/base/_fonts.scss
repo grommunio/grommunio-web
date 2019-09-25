@@ -1,0 +1,52 @@
+/* The font */
+
+$font-default-line-height		: 20px;
+$font-default-size			: 13px;
+$font-default-color			: #000000;
+
+$font-size-large			: 15px;
+$font-line-height-large			: 20px;
+
+$font-size-extra-large			: 18px;
+$font-line-height-extra-large		: 25px;
+
+$font-line-height-small			: 15px;
+$font-line-height-mail-grid-compact : $font-default-size + 2px;
+
+@mixin basefont($size){
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: $size;
+}
+
+/* Set our preferred font on the body and all selectors that Ext has used to change the default font */
+body,
+.x-panel-header,
+.x-panel-mc,
+.x-panel-tl .x-panel-header,
+.x-form-item,
+.x-form-field,
+.x-small-editor .x-form-field,
+.ext-webkit .x-small-editor .x-form-field,
+.x-toolbar td, .x-toolbar span, .x-toolbar input, .x-toolbar div, .x-toolbar select, .x-toolbar label,
+.x-tree-node,
+.x-tab-strip span.x-tab-strip-text,
+.x-grid3-hd-row td,
+.x-grid3-row td, .x-grid3-summary-row td,
+.x-grid-empty,
+.x-menu-list-item,
+.x-tip .x-tip-mc,
+.x-tip .x-tip-body,
+.x-window-tl .x-window-header,
+.x-window-dlg .ext-mb-text, .x-window-dlg,
+.x-window-mc,
+.x-btn button,
+.x-date-mp-btns button,
+.x-dd-drag-ghost,
+.ext-el-mask-msg div,
+.x-date-inner a,
+.x-date-mp td,
+.x-fieldset legend,
+.loading-indicator
+{
+	@include basefont($font-default-size);
+}

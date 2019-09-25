@@ -1,0 +1,307 @@
+<?php
+	// The config file for the webapp.
+	// All possible web client settings can be set in this file. Some settings
+	// (language) can also be set per user or logon.
+
+	// Comment next line to disable the config check (or set FALSE to log the config errors)
+	define("CONFIG_CHECK", TRUE);
+
+	// Use these options to optionally disable some PHP configuration checks.
+	// WARNING: these checks will disable checks regarding the security of the WebApp site configuration,
+	// only change them if you know the consequences - improper use will lead to an insecure installation!
+	define("CONFIG_CHECK_COOKIES_HTTP", FALSE);
+	define("CONFIG_CHECK_COOKIES_SSL", FALSE);
+
+	// Depending on your setup, it might be advisable to change the lines below to one defined with your
+	// default socket location.
+	// Normally "default:" points to the default setting ("file:///var/run/kopano/server.sock")
+	// Examples: define("DEFAULT_SERVER", "default:");
+	//           define("DEFAULT_SERVER", "http://localhost:236/kopano");
+	//           define("DEFAULT_SERVER", "https://localhost:237/kopano");
+	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock");
+	define("DEFAULT_SERVER", "default:");
+
+	// OIDC Server Configuration, introduced in 8.7.0
+	define('OIDC_ISS', '');
+	define('OIDC_CLIENT_ID', '');
+	define('OIDC_SCOPE', 'openid profile email kopano/gc');
+
+	// Name of the cookie that is used for the session
+	define("COOKIE_NAME", "KOPANO_WEBAPP");
+
+	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
+	define("INSECURE_COOKIES", true);
+
+	// The timeout (in seconds) for the session. User will be logged out of WebApp
+	// when he has not actively used the WebApp for this time.
+	// Set to 0 (or remove) for no timeout during browser session.
+	define('CLIENT_TIMEOUT', 0);
+
+	// Defines the domains from which cross domain authentication requests
+	// are allowed. E.g. if WebMeetings runs under a different domain than
+	// the WebApp then add this domain here. Add http(s):// to the domains
+	// and separate domains with spaces.
+	// Set to empty string (default) to only allow authentication requests
+	// from within the same domain.
+	// Set to "*" to allow authentication requests from any domain. (not
+	// recommended)
+	define('CROSS_DOMAIN_AUTHENTICATION_ALLOWED_DOMAINS', "");
+
+	// Defines the domains to which redirection after login is allowed.
+	// Add http(s):// to the domains and separate domains with spaces.
+	// Note: The domain under which WebApp runs, is always allowed and does
+	// not need to be added here.
+	define('REDIRECT_ALLOWED_DOMAINS', '');
+
+	// Defines the base url and end with a slash.
+	$base_url = dirname($_SERVER["PHP_SELF"]);
+	if(substr($base_url,-1)!="/") $base_url .="/";
+	define("BASE_URL", $base_url);
+
+	// Defines the temp path (absolute). Here uploaded attachments will be saved.
+	// The web client doesn't work without this directory.
+	define("TMP_PATH", "/var/lib/kopano-webapp/tmp");
+
+	// Define the path to the plugin directory (No slash at the end)
+	define("PATH_PLUGIN_DIR", "plugins");
+
+	// Enable the plugins
+	define("ENABLE_PLUGINS", true);
+
+	// Define list of disabled plugins separated by semicolon
+	define("DISABLED_PLUGINS_LIST", '');
+
+	// Define a list of plugins that cannot be disabled by users.
+	// Plugins should be seperated by a semicolon (;). A wildcard (*)
+	// can be used to identify multiple plugins.
+	define("ALWAYS_ENABLED_PLUGINS_LIST", 'passwd');
+	
+	//this path is used for client(domain) define data such as themes, icons ...
+	//do not delete this!
+	define("APPDATA_DIR", "appdata");
+	
+	//this path is used for sqlite3 full text index for ervery user
+	define("SQLITE_INDEX_PATH", "/storage/sqlite-index");
+	
+	//define the type of full-text search engine in sqlite
+	define("SQLITE_FTS_ENGINE", "fts4");
+	
+	//define the tokenizer for sqlite full text search engine
+	//can be simple,unicode61,icu,ascii,porter ...
+	define("SQLITE_FTS_TOKENIZER", "icu");
+	
+	//do not delete this!
+	define("CUSTOM_THEME_SUBDIR", "kopano-webapp/theme");
+
+	// General WebApp theme. This will be loaded by default for every user
+	// (if the theme is installed as a plugin)
+	// Users can override the 'logged-in' theme in the settings.
+	define("THEME", '');
+
+	// General WebApp icon set. This will be loaded by default for every user.
+	// Users can override the iconset in the settings.
+	define("ICONSET", 'breeze');
+
+	// The title that will be shown in the title bar of the browser
+	define("WEBAPP_TITLE", 'Steep WebApp');
+
+	// Set addressbook for GAB not to show any users unless searching for a specific user
+	define("DISABLE_FULL_GAB", false);
+
+	// Set true to hide public contact folders in address-book folder list,
+	// false will show public contact folders in address-book folder list.
+	define("DISABLE_PUBLIC_CONTACT_FOLDERS", true);
+
+	// Set true to show public folders in hierarchy, false will disable public folders in hierarchy.
+	define('ENABLE_PUBLIC_FOLDERS', true);
+
+	// Set true to hide shared contact folders in address-book folder list,
+	// false will show shared contact folders in address-book folder list.
+	define("DISABLE_SHARED_CONTACT_FOLDERS", true);
+
+	// Set to true to give users the possiblity to edit, create, and delete mail filters on the store
+	// of other users. The user needs owner permissions on the store of the other user.
+	define('ENABLE_SHARED_RULES', false);
+
+	// Booking method (true = direct booking, false = send meeting request)
+	define('ENABLE_DIRECT_BOOKING', true);
+
+	// Enable GZIP compression for responses
+	define('ENABLE_RESPONSE_COMPRESSION', true);
+
+	// When set to true this disables the welcome screen to be shown for first time users.
+	define('DISABLE_WELCOME_SCREEN', false);
+
+	// Set to true to disable the "What's new dialog" that will be shown to users to introduce new features.
+	define('DISABLE_WHATS_NEW_DIALOG', false);
+
+	// When set to false it will disable showing of advanced settings.
+	define('ENABLE_ADVANCED_SETTINGS', false);
+
+	// Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
+	define('FREEBUSY_LOAD_START_OFFSET', 7);
+
+	// Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
+	define('FREEBUSY_LOAD_END_OFFSET', 90);
+
+	// Maximum eml files to be included in a single ZIP archive
+	define('MAX_EML_FILES_IN_ZIP', 50);
+
+	// Set true to default soft delete the shared store items
+	define('ENABLE_DEFAULT_SOFT_DELETE', false);
+
+	// Additional color schemes for the calendars can be added by uncommenting and editing the following define.
+	// The format is the same as the format of COLOR_SCHEMES which is defined in default.php
+	// To change the default colors, COLOR_SCHEMES can also be defined here.
+	// Note: Every color should have a unique name, because it is used to identify the color
+	// define('ADDITIONAL_COLOR_SCHEMES', json_encode(array(
+	// 		array(
+	//			'name' => 'pink',
+	//			'displayName' => _('Pink'),
+	//			'base' => '#ff0099'
+	//		)
+	// )));
+
+	// Additional categories can be added by uncommenting and editing the following define.
+	// The format is the same as the format of DEFAULT_CATEGORIES which is defined in default.php
+	// To change the default categories, DEFAULT_CATEGORIES can also be defined here.
+	// Note: Every category should have a unique name, because it is used to identify the category
+	// define('ADDITIONAL_CATEGORIES', json_encode(array(
+	// 		array(
+	//			'name' => _('Family'),
+	//			'color' => '#000000',
+	//			'quickAccess' => true,
+	//			'sortIndex' => 10
+	//		)
+	// )));
+
+	// Additional Prefix for the Contact name can be added by uncommenting and editing the following define.
+	// define('CONTACT_PREFIX', json_encode(array(
+	//  	array(_('Er.')),
+	//  	array(_('Gr.'))
+	// )));
+
+	// Additional Suffix for the Contact name can be added by uncommenting and editing the following define.
+	// define('CONTACT_SUFFIX', json_encode(array(
+	//  	array(_('A')),
+	//  	array(_('B'))
+	// )));
+
+	// Define the polling interval in minutes for unread mail in shared stores.
+	define('SHARED_STORE_POLLING_INTERVAL', 15);
+
+	// Define the amount of emails to load in the background, in batches of 10 emails per request every x seconds
+	// defined by PREFETCH_EMAIL_INTERVAL until the defined amount of items is loaded. Setting this value to zero
+	// disables this feature.
+	define('PREFETCH_EMAIL_COUNT', 0);
+
+	// Define the interval between loading of new emails in the background.
+	define('PREFETCH_EMAIL_INTERVAL', 30);
+	
+	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
+	define('DISABLE_HTMLBODY_FILTER', true);
+
+	/**************************************\
+	* Memory usage and timeouts            *
+	\**************************************/
+
+	// This sets the maximum time in seconds that is allowed to run before it is terminated by the parser.
+	ini_set('max_execution_time', 300); // 5 minutes
+
+	// BLOCK_SIZE (in bytes) is used for attachments by mapi_stream_read/mapi_stream_write
+	define('BLOCK_SIZE', 1048576);
+
+	// Time that static files may exist in the client's cache (13 weeks)
+	define('EXPIRES_TIME', 60*60*24*7*13);
+
+	// Time that the state files are allowed to survive (in seconds)
+	// For filesystems on which relatime is used, this value should be larger then the relatime_interval
+	// for kernels 2.6.30 and above relatime is enabled by default, and the relatime_interval is set to
+	// 24 hours.
+	define('STATE_FILE_MAX_LIFETIME', 28*60*60);
+
+	// Time that attachments are allowed to survive (in seconds)
+	define('UPLOADED_ATTACHMENT_MAX_LIFETIME', 6*60*60);
+
+	/**********************************************************************************
+	 *  Logging settings
+	 *
+	 *  Possible LOG_USER_LEVEL values are:
+	 *  LOGLEVEL_OFF            - no logging
+	 *  LOGLEVEL_FATAL          - log only critical errors
+	 *  LOGLEVEL_ERROR          - logs events which might require corrective actions
+	 *  LOGLEVEL_WARN           - might lead to an error or require corrective actions in the future
+	 *  LOGLEVEL_INFO           - usually completed actions
+	 *  LOGLEVEL_DEBUG          - debugging information, typically only meaningful to developers
+	 *
+	 *  The verbosity increases from top to bottom. More verbose levels include less verbose
+	 *  ones, e.g. setting to LOGLEVEL_DEBUG will also output LOGLEVEL_FATAL, LOGLEVEL_ERROR,
+	 *  LOGLEVEL_WARN and LOGLEVEL_INFO level entries.
+	 *
+	 **************************************************************************************/
+	define('LOG_USER_LEVEL', LOGLEVEL_DEBUG);
+
+	// To save e.g. user activity data only for selected users, provide the username followed by semicolon.
+	// The data will be saved into a dedicated file per user in the LOG_FILE_DIR
+	// Users have to be encapsulated in quotes, several users are semicolon separated, like:
+	// define('LOG_USERS', 'user1;user2;user3');
+	define('LOG_USERS', '');
+
+	// Location to the log directory
+	// e.g /var/log/webapp-userslog/users/
+	define('LOG_FILE_DIR', '');
+
+	/**************************************\
+	* Languages                            *
+	\**************************************/
+
+	// Location to the translations
+	define("LANGUAGE_DIR", "server/language/");
+
+	// Defines the default interface language. This can be overridden by the user.
+	if (isset($_ENV['LANG']) && $_ENV['LANG']!="C"){
+		define('LANG', $_ENV["LANG"]); // This means the server environment language determines the web client language.
+	}else{
+		define('LANG', 'en_US.UTF-8'); // default fallback language
+	}
+	
+	// List of languages that should be enabled in the logon
+	// screen's language drop down.  Languages should be specified
+	// using <languagecode>_<regioncode>[.UTF-8], and separated with
+	// semicolon.  A list of available languages can be found in
+	// the manual or by looking at the list of directories in
+	// /usr/share/kopano-webapp/server/language .
+	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;en_US;es_CA;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
+	
+	//Define the default time zone
+	if(!ini_get('date.timezone')) {
+		date_default_timezone_set("Asia/Shanghai");
+	}
+	
+	/**************************************\
+	* Powerpaste                           *
+	\**************************************/
+
+	// Options for TinyMCE's powerpaste plugin, see https://www.tiny.cloud/docs/plugins/powerpaste/#configurationoptions
+	// for more details.
+	define('POWERPASTE_WORD_IMPORT', 'merge');
+	define('POWERPASTE_HTML_IMPORT', 'merge');
+	define('POWERPASTE_ALLOW_LOCAL_IMAGES', true);
+
+	/**************************************\
+	* Debugging                            *
+	\**************************************/
+
+	// Do not log errors into stdout, since this generates faulty JSON responses.
+	ini_set("display_errors", false);
+
+	ini_set("log_errors", true);
+	error_reporting(E_ERROR);
+
+	if (file_exists('debug.php')){
+		include_once('debug.php');
+	}else{
+		// define empty dump function in case we still use it somewhere
+		function dump(){}
+	}
+?>

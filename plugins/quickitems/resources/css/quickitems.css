@@ -1,0 +1,34 @@
+#quickappt.zarafa-widget-item {
+	background-image: url("../images/newAppointment.svg");
+	background-size: 70px;
+	background-repeat: no-repeat;
+	background-position: 7px 10px;
+}
+
+#quicktask.zarafa-widget-item {
+	background-image: url("../images/newTask.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+}
+
+#quickcontact.zarafa-widget-item {
+	background-image: url("../images/newContact.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 10px 10px;
+}
+
+#quickmail.zarafa-widget-item {
+	background-image: url("../images/newMail.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 6px 15px;
+}
+
+#quicknote.zarafa-widget-item {
+	background-image: url("../images/newNote.svg");
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+}

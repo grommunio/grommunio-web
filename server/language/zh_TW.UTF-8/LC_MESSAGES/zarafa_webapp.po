@@ -1,0 +1,5986 @@
+# Kopano Webapp Chinese (Taiwan) translation.
+# Copyright (C) 2017
+# This file is distributed under the same license as the kopano-webapp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-31 17:06+0200\n"
+"PO-Revision-Date: 2017-10-05 20:40+0200\n"
+"Last-Translator: Evan <evan@ulink.com.tw>\n"
+"Language-Team: Chinese (Taiwan) <https://translate.kopano.io/projects/kopano/"
+"kopano-webapp/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
+msgid "Wk"
+msgstr "週"
+
+msgid "Now"
+msgstr "現在"
+
+msgid "Value must be between 0% to 100%"
+msgstr "值必須介於0%到100%"
+
+msgid "Number must be higher than zero"
+msgstr "數值必須大於0"
+
+msgid "More options"
+msgstr "更多選項"
+
+msgid "{0} byte"
+msgid_plural "{0} bytes"
+msgstr[0] "{0} bytes"
+
+msgid "{0} KB"
+msgid_plural "{0} KB"
+msgstr[0] "{0} KB"
+
+msgid "{0} MB"
+msgid_plural "{0} MB"
+msgstr[0] "{0} MB"
+
+msgid "{0} GB"
+msgid_plural "{0} GB"
+msgstr[0] "{0} GB"
+
+msgid "{0} TB"
+msgid_plural "{0} TB"
+msgstr[0] "{0} TB"
+
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] "{0} 分鐘"
+
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] "{0} 小時"
+
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] "{0} 天"
+
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] "{0} 週"
+
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "The quick brown fox jumps over the lazy dog"
+
+msgid "Sunday"
+msgstr "日"
+
+msgid "Monday"
+msgstr "壹"
+
+msgid "Tuesday"
+msgstr "二"
+
+msgid "Wednesday"
+msgstr "三"
+
+msgid "Thursday"
+msgstr "四"
+
+msgid "Friday"
+msgstr "五"
+
+msgid "Saturday"
+msgstr "六"
+
+msgid "Sun"
+msgstr "星期日"
+
+msgid "Mon"
+msgstr "星期壹"
+
+msgid "Tue"
+msgstr "星期二"
+
+msgid "Wed"
+msgstr "星期三"
+
+msgid "Thu"
+msgstr "星期四"
+
+msgid "Fri"
+msgstr "星期五"
+
+msgid "Sat"
+msgstr "星期六"
+
+msgid "January"
+msgstr "1月"
+
+msgid "February"
+msgstr "2月"
+
+msgid "March"
+msgstr "3月"
+
+msgid "April"
+msgstr "4月"
+
+msgid "May"
+msgstr "5月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "July"
+msgstr "7月"
+
+msgid "August"
+msgstr "8月"
+
+msgid "September"
+msgstr "9月"
+
+msgid "October"
+msgstr "10月"
+
+msgid "November"
+msgstr "11月"
+
+msgid "December"
+msgstr "12月"
+
+msgid "Page {A} of {0}"
+msgstr "頁 {A} 共 {0}"
+
+msgid "Displaying messages {0} - {1} of {2}"
+msgstr "顯示郵件 {0} - {1} 共 {2}"
+
+msgid "No messages to display"
+msgstr "沒有郵件顯示"
+
+msgid "First Page"
+msgstr "第壹頁"
+
+msgid "Previous Page"
+msgstr "上壹頁"
+
+msgid "Next Page"
+msgstr "下壹頁"
+
+msgid "Last Page"
+msgstr "最後壹頁"
+
+msgid "Refresh"
+msgstr "重新整理"
+
+msgid "Today"
+msgstr "今天"
+
+msgid "OK"
+msgstr "確定"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "{0} (Spacebar)"
+msgstr "{0} (空白鍵)"
+
+msgid "This date is before the minimum date"
+msgstr "這個日期超過了最小的日期"
+
+msgid "This date is after the maximum date"
+msgstr "這個日期超過了最大日期"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "d/m/Y"
+msgstr "Y/m/d"
+
+msgid "Disabled"
+msgstr "停用"
+
+msgid "Next Month (Control+Right)"
+msgstr "下壹個月 (Control+Right)"
+
+msgid "Previous Month (Control+Left)"
+msgstr "上壹個月 (Control+Left)"
+
+msgid "Choose a month (Control+Up/Down to move years)"
+msgstr "選擇壹個月份 (Control+Up/Down移動年份)"
+
+msgid "Sort Ascending"
+msgstr "按升序排序"
+
+msgid "Sort Descending"
+msgstr "按降冪排序"
+
+msgid "Columns"
+msgstr "列"
+
+msgid "Group By This Field"
+msgstr "按欄位分組"
+
+msgid "Show in Groups"
+msgstr "用分組顯示"
+
+msgid "(None)"
+msgstr "(空)"
+
+msgid "Ok"
+msgstr "確定"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Loading"
+msgstr "載入中"
+
+msgid "The value in this field is invalid"
+msgstr "這個欄位的值無效"
+
+msgid "The minimum length for this field is {0}"
+msgstr "這個欄位最小長度為 {0}"
+
+msgid "The maximum length for this field is {0}"
+msgstr "這個欄位最大長度為 {0}"
+
+msgid "This field is required"
+msgstr "必要的欄位"
+
+msgid "The minimum value for this field is {0}"
+msgstr "這個欄位最小值 {0}"
+
+msgid "The maximum value for this field is {0}"
+msgstr "這個欄位最大值 {0}"
+
+msgid "{0} is not a valid number"
+msgstr "{0} 不是壹個有效的數字"
+
+msgid "The date in this field must be equal to or after {0}"
+msgstr "這欄位的日期必須大於或等於 {0}"
+
+msgid "The date in this field must be equal to or before {0}"
+msgstr "這欄位的日期必須小於或等於 {0}"
+
+msgid "{0} is not a valid date - it must be in the format {1}"
+msgstr "{0} 不是壹個有效的日期 - 必須符合格式 {1}"
+
+msgid "You must select at least one item in this group"
+msgstr "在這個群組內您至少須選擇壹個選項"
+
+msgid "You must select one item in this group"
+msgstr "在這個群組內您必須選擇壹個選項"
+
+msgid "The time in this field must be equal to or after {0}"
+msgstr "這欄位的時間必須大於或等於 {0}"
+
+msgid "The time in this field must be equal to or before {0}"
+msgstr "這欄位的時間必須小於或等於 {0}"
+
+msgid "{0} is not a valid time"
+msgstr "{0} 不是壹個有效的時間"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G:i"
+msgstr "G:i"
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "Value"
+msgstr "值"
+
+msgid "true"
+msgstr "正確"
+
+msgid "false"
+msgstr "錯誤"
+
+msgid ""
+"This field should be an e-mail address in the format \"user@example.com\""
+msgstr "這個欄位必須是電子郵件格式\"user@example.com\""
+
+msgid "This field should be a URL in the format \"{0}\""
+msgstr "這個欄位必須是壹個URL格式\"{0}\""
+
+msgid "This field should only contain letters and _"
+msgstr "這個欄位只有字母和_"
+
+msgid "This field should only contain letters, numbers and _"
+msgstr "這個欄位只有字母、數字和_"
+
+#, fuzzy
+msgid "Email Addresses"
+msgstr "電子郵件地址"
+
+#, fuzzy
+msgid "Email addresses"
+msgstr "電子郵件地址"
+
+msgid "Group details"
+msgstr "群組詳情"
+
+msgid "General"
+msgstr "壹般"
+
+msgid "Display Name"
+msgstr "顯示名稱"
+
+msgid "Alias"
+msgstr "別名"
+
+msgid "Owner"
+msgstr "擁有者"
+
+msgid "Notes"
+msgstr "筆記"
+
+msgid "Members"
+msgstr "成員"
+
+msgid "Email Address"
+msgstr "電子郵件地址"
+
+msgid "Account"
+msgstr "帳號"
+
+msgid "Member Of"
+msgstr "成員"
+
+msgid "Group Membership"
+msgstr "群組成員"
+
+msgid "Address Book"
+msgstr "通訊錄"
+
+msgid "User details"
+msgstr "使用者詳情"
+
+msgid "First"
+msgstr "名"
+
+msgid "Initial"
+msgstr "中間名"
+
+msgid "Display"
+msgstr "顯示"
+
+msgid "Last"
+msgstr "姓"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "City"
+msgstr "城市"
+
+msgid "State"
+msgstr "州"
+
+msgid "Zip Code"
+msgstr "郵遞區號"
+
+msgid "Country"
+msgstr "國家"
+
+msgid "Title"
+msgstr "職務"
+
+msgid "Company"
+msgstr "公司"
+
+msgid "Department"
+msgstr "部門"
+
+msgid "Office"
+msgstr "辦公室"
+
+msgid "Assistant"
+msgstr "助理"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Organization"
+msgstr "組織"
+
+msgid "Manager"
+msgstr "管理者"
+
+msgid "Direct reports"
+msgstr "直接報告人"
+
+msgid "Phone numbers"
+msgstr "電話號碼"
+
+msgid "Business"
+msgstr "公司"
+
+msgid "Business2"
+msgstr "公司2"
+
+msgid "Fax"
+msgstr "傳真"
+
+msgid "Home"
+msgstr "住家"
+
+msgid "Home2"
+msgstr "住家2"
+
+msgid "Mobile"
+msgstr "行動電話"
+
+msgid "Pager"
+msgstr "呼叫器"
+
+
+msgid "No user selected"
+msgstr "沒有選擇使用者"
+
+msgid "You must select one or more users."
+msgstr "您必須選擇壹個或多個使用者"
+
+msgid "You must select a user."
+msgstr "您必須選擇壹個使用者"
+
+msgid "Select"
+msgstr "選擇"
+
+msgid "Show Details"
+msgstr "顯示詳情"
+
+msgid "Use the search bar to get results"
+msgstr "使用搜尋條獲取結果"
+
+msgid "There are no items to show in this list"
+msgstr "當前清單沒有項目可顯示"
+
+msgid "Show Names from the"
+msgstr "顯示名稱從"
+
+msgid "Search..."
+msgstr "搜尋..."
+
+msgid "Sort by: Icon"
+msgstr "依圖標排序"
+
+msgid "Sort by: Name"
+msgstr "依名稱排序"
+
+msgid "Sort by: Display Name"
+msgstr "依顯示名稱排序"
+
+msgid "File as"
+msgstr "檔案為"
+
+msgid "Sort by: File As"
+msgstr "依檔案排序"
+
+msgid "First Name"
+msgstr "名"
+
+msgid "Sort by: First Name"
+msgstr "按名字排序"
+
+msgid "Last Name"
+msgstr "姓氏"
+
+msgid "Sort by: Last Name"
+msgstr "依姓氏排序"
+
+msgid "Sort by: Email Address"
+msgstr "依電子郵件地址排序"
+
+msgid "Sort by: Department"
+msgstr "依部門排序"
+
+msgid "Office Phone"
+msgstr "辦公室電話"
+
+msgid "Sort by: Office Phone"
+msgstr "依辦公室電話排序"
+
+msgid "Sort by: Mobile"
+msgstr "依行動電話排序"
+
+msgid "Home Phone"
+msgstr "住家電話"
+
+msgid "Sort by: Home Phone"
+msgstr "依住家電話排序"
+
+msgid "Sort by: Pager"
+msgstr "依呼叫器排序"
+
+msgid "Location"
+msgstr "位置"
+
+msgid "Sort by: Location"
+msgstr "依位置排序"
+
+msgid "Sort by: Fax"
+msgstr "依傳真排序"
+
+msgid "No preview"
+msgstr "關閉預覽"
+
+msgid "Right preview"
+msgstr "右側預覽"
+
+msgid "Bottom preview"
+msgstr "底部預覽"
+
+msgid "Any date"
+msgstr "任意日期"
+
+msgid "Past week"
+msgstr "上壹週"
+
+msgid "Past 2 weeks"
+msgstr "兩週前"
+
+msgid "Past month"
+msgstr "上月"
+
+msgid "Past 6 month"
+msgstr "半年前"
+
+msgid "Past year"
+msgstr "去年"
+
+msgid "Custom date"
+msgstr "自定義日期"
+
+msgid "Add to favorites"
+msgstr "加入到我的最愛"
+
+msgid "Add"
+msgstr "新增"
+
+msgid "Empty folder name"
+msgstr "清空資料夾"
+
+msgid "You must specify a name."
+msgstr "必須指定壹個名稱"
+
+msgid "Add a folder to favorites based on your search query"
+msgstr "根據您的搜尋結果將資料夾加入我的最愛"
+
+msgid "Folder name"
+msgstr "資料夾名"
+
+msgid "Select Category"
+msgstr "選擇分類"
+
+msgid "Apply"
+msgstr "套用"
+
+msgid "All folders are selected"
+msgstr "已選擇了所有的資料夾"
+
+msgid "Reply"
+msgstr "回覆"
+
+msgid "Reply All"
+msgstr "回覆所有人"
+
+msgid "Forward"
+msgstr "轉寄"
+
+msgid "Edit as New"
+msgstr "編輯新項目"
+
+msgid "Search tools"
+msgstr "搜尋工具"
+
+msgid "Folders"
+msgstr "資料夾"
+
+msgid "Include subfolders"
+msgstr "包含子資料夾"
+
+msgid "Show.."
+msgstr "顯示"
+
+msgid "Mails"
+msgstr "郵件"
+
+msgid "Appointments"
+msgstr "約會"
+
+msgid "Contacts"
+msgstr "聯絡人"
+
+msgid "Tasks"
+msgstr "任務"
+
+msgid "Filter.."
+msgstr "過濾條件"
+
+msgid "Unread"
+msgstr "未讀"
+
+msgid "Attachments"
+msgstr "附檔"
+
+msgid "Date"
+msgstr "日期"
+
+msgctxt "search.date"
+msgid "From"
+msgstr "寄件者"
+
+msgctxt "search.date"
+msgid "To"
+msgstr "收件人"
+
+msgid "Filter category.."
+msgstr "設定分類"
+
+msgid "Search.."
+msgstr "搜尋"
+
+msgid "Sender"
+msgstr "寄件者"
+
+msgid "Recipients"
+msgstr "收件人"
+
+msgid "Subject"
+msgstr "主旨"
+
+msgid "Body & Attachments"
+msgstr "正文和附檔內容"
+
+msgid "Favorites"
+msgstr "我的最愛"
+
+msgid "Add a folder to favorites based on this search query"
+msgstr "根據本次搜尋結果將資料夾加入我的最愛"
+
+msgid "Select Folder"
+msgstr "選擇資料夾"
+
+msgid "Delete search folder"
+msgstr "刪除搜尋資料夾"
+
+msgid "Sort by: Date"
+msgstr "根據日期排序"
+
+msgid "Loading Search results"
+msgstr "正在加載搜尋結果"
+
+msgid "Sorting tip"
+msgstr "正在排序提示"
+
+msgid ""
+"You can sort by date if you narrow down your search results. Enable filters "
+"or adjust your input."
+msgstr "您可以根據日期排序搜尋搜尋結果。如果您希望壓縮搜尋結果，請使用過濾條件或者調整您的輸入"
+
+msgid "Did you mean"
+msgstr "您的意思是否是"
+
+msgid "With"
+msgstr "和"
+
+msgid "To"
+msgstr "收件人"
+
+msgid "No date"
+msgstr "無日期"
+
+msgid "Error"
+msgstr "錯誤"
+
+msgid "Success"
+msgstr "成功"
+
+msgid ""
+"Could not accept proposal as this meeting is not available in calendar; It "
+"may have been moved or deleted."
+msgstr "無法接受此會議建議，因為無法在您的行事曆中找到此會議，可能已移動或刪除了"
+
+msgid ""
+"Could not view proposal as this meeting is not available in calendar; It may "
+"have been moved or deleted."
+msgstr "無法在行事曆上檢視此會議的建議；可能已移動或刪除了"
+
+msgid "Required"
+msgstr "必須的"
+
+msgid "Optional"
+msgstr "可選的"
+
+msgid "Resource"
+msgstr "資源"
+
+msgid "Could not open store."
+msgstr "無法開啟儲存庫"
+
+msgid "Could not open default calendar folder."
+msgstr "無法開啟預設行事曆資料夾"
+
+msgid "workday"
+msgstr "工作日"
+
+msgid "day"
+msgstr "天"
+
+msgid "days"
+msgstr "天"
+
+msgid "week"
+msgstr "週"
+
+msgid "weeks"
+msgstr "週"
+
+msgid " on "
+msgstr " 在 "
+
+msgid "month"
+msgstr "月"
+
+msgid "months"
+msgstr "月"
+
+msgid "year"
+msgstr "年"
+
+msgid "years"
+msgstr "年"
+
+msgid "Occurs every {0} effective {1} from {2} to {3}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
+msgid_plural ""
+"Occurs every {0} effective {1} for {2} occurences from {3} to {4}."
+msgstr[0] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
+msgid_plural ""
+"Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
+msgstr[0] ""
+
+msgid "Occurs every {0} effective {1} for {2} occurence."
+msgid_plural "Occurs every {0} effective {1} for {2} occurences."
+msgstr[0] ""
+
+msgid "Occurs every {0} {1} effective {2} for {3} occurence."
+msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
+msgstr[0] ""
+
+msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr ""
+
+msgid "Occurs every {0} effective {1} until {2}."
+msgstr ""
+
+msgid "Occurs every {0} {1} effective {2} until {3}."
+msgstr ""
+
+msgid "When"
+msgstr "時間"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y G:i"
+msgstr "Y年Fj日 D G:i"
+
+msgid "Where"
+msgstr "地點"
+
+msgid "New Meeting Time Proposed"
+msgstr "建議新的會議時間"
+
+msgid "and "
+msgstr "和"
+
+msgid "Sort by: Attachment"
+msgstr "依附檔排序"
+
+msgid "Sort by: Recurring"
+msgstr "依循環周期排序"
+
+msgid "Sort by: Subject"
+msgstr "依主旨排序"
+
+msgid "Startdate"
+msgstr "開始日期"
+
+msgid "Sort by: Startdate"
+msgstr "依開始日期排序"
+
+msgid "Enddate"
+msgstr "結束日期"
+
+msgid "Sort by: Enddate"
+msgstr "依結束日期排序"
+
+msgid "Organizer"
+msgstr "組織者"
+
+msgid "Required Attendee"
+msgstr "必要的與會者"
+
+msgid "Optional Attendee"
+msgstr "可選的與會者"
+
+msgid "Show Time As"
+msgstr "顯示時間為"
+
+msgid "Start Date"
+msgstr "開始日期"
+
+msgid "End Date"
+msgstr "結束日期"
+
+msgid "Recurrence pattern"
+msgstr "循環周期模式"
+
+msgid "All Day Event"
+msgstr "全天事件"
+
+msgid "Add Shared Calendar"
+msgstr "添加共用行事曆"
+
+msgid "Day"
+msgstr "天"
+
+msgid "Workweek"
+msgstr "工作週"
+
+msgid "Week"
+msgstr "週"
+
+msgid "Month"
+msgstr "月"
+
+msgid "List"
+msgstr "清單"
+
+msgid "Appointment"
+msgstr "約會"
+
+msgid "Meeting request"
+msgstr "會議邀請"
+
+msgid "Print selected appointment"
+msgstr "列印選擇的約會"
+
+msgid "Print overview"
+msgstr "預覽列印"
+
+msgid "Print"
+msgstr "列印"
+
+msgid "No appointment selected"
+msgstr "沒有選擇的約會"
+
+msgid "Create Appointment"
+msgstr "新建約會"
+
+msgid "Calendar"
+msgstr "行事曆"
+
+msgid "Create in other calendar"
+msgstr "在其它行事曆中創建"
+
+msgid ""
+"The selected calendar has \"read-only\" permissions. Instead you can create "
+"an item in your own calendar."
+msgstr "您對所選的行事曆僅擁有只讀權限，您可以在您自己的行事曆中創建條目"
+
+msgid "What would you like?"
+msgstr "您想做什麼？"
+
+msgid "Own calendar"
+msgstr "擁有行事曆"
+
+msgid "F Y"
+msgstr "Y年F"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l"
+msgstr "D"
+
+msgid "All text fields"
+msgstr "所有文字欄位"
+
+msgid "Body"
+msgstr "內文"
+
+msgid "Subject or Sender"
+msgstr "主旨或寄件者"
+
+msgid "To or cc"
+msgstr "收件人或副本"
+
+msgid "Meeting"
+msgstr "會議"
+
+msgctxt "calendar.dialog"
+msgid "Resources have been planned"
+msgstr "資源已被預約"
+
+msgid "Send update"
+msgstr "發送更新"
+
+msgid ""
+"An update message will be sent to all recipients, do you wish to continue?"
+msgstr "更新郵件會傳送到所有收件人，您想要繼續嗎？"
+
+msgid "Send update to attendees"
+msgstr "傳送更新給與會者"
+
+msgid ""
+"You have made changes to the list of attendees, Choose one of the following"
+msgstr "您已經更改了與會者清單，請選擇下列選項"
+
+msgid "Send updates to only added or deleted attendees."
+msgstr "僅傳送更新到新增加或移除的與會者"
+
+msgid "Send updates to all attendees."
+msgstr "傳送更新到所有與會者"
+
+msgid "Busy attendees"
+msgstr "狀態為“忙”的與會者"
+
+msgid "One or more attendees are busy. Are you sure to invite?"
+msgstr "您邀請的壹個或多個與會者處於“忙”狀態，確定要邀請？"
+
+msgid "Scheduling"
+msgstr "排程"
+
+msgid "Tracking"
+msgstr "追蹤"
+
+msgctxt "calendar.dialog"
+msgid "Not all attendees could be resolved."
+msgstr "並非所有與會者地址都能解析成功"
+
+msgctxt "calendar.dialog"
+msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
+msgstr "{0} 接受, {1} 暫時接受, {2} 拒絕."
+
+msgctxt "calendar.dialog"
+msgid ""
+"{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
+"for details."
+msgstr "{0} 與會者建議了新的時間. 點選排程助手檢視詳情"
+
+msgctxt "calendar.dialog"
+msgid "You proposed a new time for this meeting on {0}"
+msgstr "您建議了新的會議時間{0}"
+
+msgctxt "calendar.dialog"
+msgid "{0} proposed a new time for this meeting on {1}"
+msgstr "{0}建議此會議新的時間在 {1}"
+
+msgctxt "calendar.dialog"
+msgid "Accepted on {0}"
+msgstr "在{0}接受"
+
+msgctxt "calendar.dialog"
+msgid "Accepted by {0} on {1}"
+msgstr "被{0}在{1}接受"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted on {0}"
+msgstr "暫時在{0}接受"
+
+msgctxt "calendar.dialog"
+msgid "Tentatively Accepted by {0} on {1}"
+msgstr "被{0}暫時在{1}接受"
+
+msgctxt "calendar.dialog"
+msgid "This appointment occurs in the past."
+msgstr "此約會在過去的時間發生"
+
+msgctxt "calendar.dialog"
+msgid "Please respond."
+msgstr "請回應"
+
+msgctxt "calendar.dialog"
+msgid "No responses have been received for this meeting."
+msgstr "此會議沒有接收到任何回應"
+
+msgctxt "calendar.dialog"
+msgid "Meeting has been canceled."
+msgstr "會議已被取消"
+
+msgctxt "calendar.dialog"
+msgid "Invitations have not been sent for this meeting."
+msgstr "此會議邀請尚未傳送"
+
+msgctxt "calendar.dialog"
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer"
+msgstr "請註意當組織者更新次會議後，您所做的任何修改都會被覆蓋"
+
+#, fuzzy
+msgid "Create in"
+msgstr "建立於"
+
+msgid "Time"
+msgstr "時間"
+
+msgid "until"
+msgstr "直至"
+
+msgid "Recurrence"
+msgstr "循環週期"
+
+msgid "Reminder"
+msgstr "提醒"
+
+msgid "Show as"
+msgstr "顯示成"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Attachments cannot be modified for a single occurence"
+msgstr "無法將循環週期中的單次事件修改附檔"
+
+msgid "Type your message here..."
+msgstr "請在此處輸入您的消息"
+
+#, fuzzy
+msgid "Update location"
+msgstr "更新位置"
+
+msgid ""
+"Do you want to update the location \"{0}\" with the new location \"{1}\"?"
+msgstr "您想要更新此位置“{0}” 到新的位置“{1}”嗎？"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y G:i"
+msgstr "Y年Fj日 G:i"
+
+msgid "None"
+msgstr "無"
+
+msgid "Send"
+msgstr "傳送"
+
+msgid "Save"
+msgstr "儲存"
+
+msgid "Close"
+msgstr "關閉"
+
+msgid "Delete"
+msgstr "刪除"
+
+msgid "Add attachment"
+msgstr "新增附檔"
+
+msgid "Check names"
+msgstr "檢查名稱"
+
+msgid "Invite attendees"
+msgstr "邀請與會者"
+
+msgid "Cancel invitation"
+msgstr "取消邀請"
+
+msgid "High priority"
+msgstr "高優先性"
+
+msgid "Mark this appointment as high priority"
+msgstr "標示此約會為高優先性"
+
+msgid "Low priority"
+msgstr "低優先性"
+
+msgid "Mark this appointment as low priority"
+msgstr "標示此約會為低優先性"
+
+msgid "Categories"
+msgstr "分類"
+
+msgid "Open the categories dialog"
+msgstr "開啟分類對話框"
+
+msgid "Private"
+msgstr "私人的"
+
+msgid "Mark this appointment as private"
+msgstr "標示此約會為私人"
+
+msgid "Proposed Date and Time"
+msgstr "建議的日期與時間"
+
+msgid "Duration"
+msgstr "持續時間"
+
+msgid "Proposed By"
+msgstr "建議人: "
+
+msgid "Current Meeting Time"
+msgstr "目前會議時間"
+
+msgid "Show only working hours"
+msgstr "只顯示工作小時"
+
+msgid "Propose New Time"
+msgstr "建議新的時間"
+
+msgid "Start time"
+msgstr "開始時間"
+
+msgid "End time"
+msgstr "結束時間"
+
+msgid "Comment"
+msgstr "備註"
+
+msgid "Send Meeting Request Cancellation"
+msgstr "傳送會議取消通知"
+
+msgid ""
+"This meeting will be cancelled. Do you want to include comments with your "
+"cancellation?"
+msgstr "此會議已取消。您要在您的取消上包含備註嗎？"
+
+msgid "Edit the cancellation before Sending."
+msgstr "在傳送前先編輯取消內容"
+
+msgid "Send the cancellation now."
+msgstr "立即傳送取消通知"
+
+msgid "Send Meeting Request Confirmation"
+msgstr "傳送會議邀請確認"
+
+msgid ""
+"This meeting will be accepted and moved to your calendar. Do you want to "
+"include comments with your response?"
+msgstr "此會議已被接受並且會移入您的行事曆，是否要在您的回應中包含備註？"
+
+msgid ""
+"This meeting will be tentatively accepted and moved to your calendar. Do you "
+"want to include comments with your response?"
+msgstr "此會議已被暫時的接受並且會移入您的行事曆，是否要在您的回應中包含備註？？"
+
+msgid ""
+"This meeting will be declined and moved to your Deleted Items folder. Do you "
+"want to include comments with your response?"
+msgstr "此會議已被拒絕並且會移到刪除項目資料夾，是否要在您的回應中包含備註？"
+
+msgid "Edit the response before sending"
+msgstr "傳送前先編輯回應"
+
+msgid "Send the response now."
+msgstr "現在傳送回應"
+
+msgid "Don't send a response."
+msgstr "不傳送回應"
+
+msgid "The following responses for this meeting have been received"
+msgstr "此會議已接收到以下的回應"
+
+msgid "Attendance"
+msgstr "出席"
+
+msgid "Response"
+msgstr "回應"
+
+msgid "New appointment"
+msgstr "新增約會"
+
+msgid "Creating an item"
+msgstr "新增項目"
+
+msgid "New meeting request"
+msgstr "新增會議邀請"
+
+msgid "Switch calendar range back and forth"
+msgstr "前後切換行事曆範圍"
+
+msgid "Copy selected item"
+msgstr "複製所選項目"
+
+msgid "Paste selected item"
+msgstr "粘貼所選項目"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Start"
+msgstr "開始"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "End"
+msgstr "結束"
+
+msgid "Printed by: "
+msgstr "列印: "
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Printed on: "
+msgstr "列印於"
+
+msgid "Location: "
+msgstr "位置: "
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F Y"
+msgstr "Y年Fj日 D"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l jS F"
+msgstr "Fj日 D"
+
+msgid "Organiser"
+msgstr "組織者"
+
+msgid "Meeting status"
+msgstr "會議狀態"
+
+msgid "Required Attendees"
+msgstr "期望與會者"
+
+msgid "Optional Attendees"
+msgstr "可選與會者"
+
+msgid "Resources"
+msgstr "資源"
+
+msgid "Sensitivity"
+msgstr "敏感度"
+
+msgid "Importance"
+msgstr "重要性"
+
+msgid "M j"
+msgstr "M月j"
+
+msgid "j"
+msgstr "j日"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "l d/m/Y"
+msgstr "Y/m/d D"
+
+msgid "General calendar settings"
+msgstr "壹般行事曆設定"
+
+msgid "First day of the week"
+msgstr "壹週的第壹天"
+
+msgid "Start of workday"
+msgstr "工作日開始於"
+
+msgid "End of workday"
+msgstr "工作日結束於"
+
+msgid "Calendar resolution"
+msgstr "行事曆分辨率"
+
+msgid "Default appointment duration {A} minutes"
+msgstr "預設約會持續{A}分鐘"
+
+msgid "Duration must be between 1 and 120 minutes."
+msgstr "持續時間必須介於1至120分鐘"
+
+msgid "Working days"
+msgstr "工作日"
+
+msgid "Show busy dates as bold in the date picker"
+msgstr "在日期選擇上顯示粗體的繁忙日期"
+
+msgid ""
+"Free/Busy information is used by people sending meeting requests, to "
+"determine when you are available for meetings."
+msgstr "忙閒咨詢被用來確定您是否有時間參加會議"
+
+msgid "Free/Busy publishing"
+msgstr "忙閒時間公佈"
+
+msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
+msgstr "在伺服器上公佈{A}月行事曆中的忙閒咨詢"
+
+msgid ""
+"You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
+"Busy information is not published."
+msgstr "您僅可公佈0至36個月的忙閒咨詢，0表示忙閒咨詢不公佈"
+
+msgid "Side-by-side mode"
+msgstr "並列模式"
+
+msgid "Overlay mode"
+msgstr "覆疊模式"
+
+msgid "Calendar view settings"
+msgstr "行事曆檢視設定"
+
+msgid "View multiple calendars in"
+msgstr "檢視多重行事曆在"
+
+msgid "Reminder settings"
+msgstr "提醒設定"
+
+msgid "Enable reminder for new appointments"
+msgstr "啟用新的約會提醒"
+
+msgid "Default reminder time"
+msgstr "預設提醒時間"
+
+msgid "Default all-day appointment reminder time"
+msgstr "預設全天約會提醒時間"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS"
+msgstr "j日"
+
+msgid "{0} selected item"
+msgid_plural "{0} selected items"
+msgstr[0] "{0}被選項目"
+
+msgid "New Appointment"
+msgstr "新增約會"
+
+msgid "New Meeting Request"
+msgstr "新增會議"
+
+msgid "Open"
+msgstr "開啟"
+
+msgid "Copy/Move"
+msgstr "複製/移動"
+
+msgid "Accept"
+msgstr "接受"
+
+msgid "Tentative"
+msgstr "暫定"
+
+msgid "Decline"
+msgstr "拒絕"
+
+msgid "Send to..."
+msgstr "傳送至"
+
+msgid "Export as"
+msgstr "導出為"
+
+msgid "Occurrence"
+msgstr "循環單項"
+
+msgid "Series"
+msgstr "系列"
+
+msgid "Appointment not found"
+msgstr "無法找到約會"
+
+msgid "This appointment has been moved or deleted, do you want to continue?"
+msgstr "此約會已搬移或刪除，您要繼續嗎？"
+
+msgid "All Day"
+msgstr "全天"
+
+msgid "Sort by: All Day"
+msgstr "依全天事件排序"
+
+msgid "Icon"
+msgstr "圖標"
+
+msgid "Recurring"
+msgstr "循環週期"
+
+msgid "Sort by: Duration"
+msgstr "依持續時間排序"
+
+msgid "Meeting Status"
+msgstr "會議狀態"
+
+msgid "Sort by: Meeting Status"
+msgstr "依會議狀態排序"
+
+msgid "Sort by: Show as"
+msgstr "依顯示為排序"
+
+msgid "Sort by: Categories"
+msgstr "依分類排序"
+
+msgid "Created On"
+msgstr "建立於"
+
+msgid "Sort by: Created On"
+msgstr "依建立日期排序"
+
+msgid "Due By"
+msgstr "到期日期"
+
+msgid "Sort by: Due By"
+msgstr "依到期日期排序"
+
+msgid "Label"
+msgstr "標籤"
+
+msgid "Sort by: Label"
+msgstr "依標籤排序"
+
+msgid "Sort by: Organizer"
+msgstr "依組織者排序"
+
+msgid "Sort by: Required Attendee"
+msgstr "依期望與會者排序"
+
+msgid "Sort by: Optional Attendee"
+msgstr "依可選與會者排序"
+
+msgid "Sort by: Resources"
+msgstr "依資源排序"
+
+msgid "Recurring Startdate"
+msgstr "週期性開始日期"
+
+msgid "Sort by: Recurring Startdate"
+msgstr "依週期性開始日期排序"
+
+msgid "Recurring Enddate"
+msgstr "週期性結束日期"
+
+msgid "Sort by: Recurring Enddate"
+msgstr "依週期性結束日期排序"
+
+msgid "Recurring Pattern"
+msgstr "循環模式"
+
+msgid "Sort by: Recurring Pattern"
+msgstr "依循環模式排序"
+
+msgid "Sort by: Reminder"
+msgstr "依提醒時間排序"
+
+msgid "Sort by: Sensitivity"
+msgstr "依敏感性排序"
+
+msgid "Loading appointments"
+msgstr "會議載入中"
+
+# 80%
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#, fuzzy
+msgid "jS F G:i"
+msgstr "Y年Fj日 G:i"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "Y年Fj日"
+
+msgid "Update recipients"
+msgstr "更新收件人"
+
+msgid "The time of the meeting has changed. Choose one of the following:"
+msgstr "會議時間已更改，請選擇: "
+
+msgid "Save changes and send an update to all recipients"
+msgstr "儲存變動並傳送更新之所有的收件人"
+
+msgid "Open meeting request with changes"
+msgstr "打開更改後的會議邀請"
+
+msgid "Copy"
+msgstr "複製"
+
+msgid "Kopano Webapp"
+msgstr "晶格WebApp"
+
+msgid ""
+"Please note that any changes you make will be overwritten when this meeting "
+"request is updated by the organizer. Would you like to move this meeting?"
+msgstr "請註意，當會議組織者更新會議時，任何您所做的修改都將被覆蓋。您確定要移動此會議嗎？"
+
+msgid "Move"
+msgstr "移動"
+
+msgid "Don't move"
+msgstr "不移動"
+
+msgid "Switch to day view to see all appointments"
+msgstr "切換至每日視圖以便檢視所有的約會"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
+msgctxt "mail.previewpanel"
+msgid "Proposed"
+msgstr "建議"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "When"
+msgstr "當"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Location"
+msgstr "位置"
+
+msgid "Remove From Calendar"
+msgstr "從行事曆上移除"
+
+msgid "No Response Required"
+msgstr "不需要回應"
+
+msgid "Accept Meeting Request"
+msgstr "接受會議邀請"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "暫時接受會議邀請"
+
+msgid "Decline Meeting Request"
+msgstr "拒絕會議邀請"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "建議新的會議邀請時間"
+
+msgid "View All Proposals"
+msgstr "檢視所有建議"
+
+msgid "Accept Proposal"
+msgstr "接受建議"
+
+msgid "Accept Proposed Time"
+msgstr "接受建議時間"
+
+msgid "View in calendar"
+msgstr "在行事曆檢視"
+
+msgid "No additional response required"
+msgstr "不需要額外的回應"
+
+msgid ""
+"Your calendar has been updated automatically. This meeting request will now "
+"be deleted."
+msgstr "您的行事曆已自動更新。此會議邀請將會刪除"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "G"
+msgstr "G"
+
+msgid "Printing of multiple items has not been implemented."
+msgstr "尚未實現列印多個項目"
+
+msgid "Printing of this item is not yet available"
+msgstr "列印此項目的功能尚未實現"
+
+msgid "Item type: "
+msgstr "項目種類"
+
+msgid "Printing of this view is not yet available"
+msgstr "列印此視圖的功能尚未實現"
+
+msgid "Recurring Message"
+msgstr "循環周期訊息"
+
+msgid ""
+"This is a recurring message. Do you want to open only this occurrence or the "
+"series?"
+msgstr "這是壹個循環周期訊息，您想打開壹個還是整個序列？"
+
+msgid "Recurring Appointment"
+msgstr "重複約會"
+
+msgid ""
+"This is a recurring appointment. Do you want to open only this occurrence or "
+"the series?"
+msgstr "這是壹個循環周期約會，您想打開壹個還是整個序列？"
+
+msgid "Recurring Meeting Request"
+msgstr "重覆週期會議邀請"
+
+msgid ""
+"This is a recurring meeting request. Do you want to open only this "
+"occurrence or the series?"
+msgstr "這是壹個循環周期會議，您想打開壹個還是整個序列？"
+
+msgid "Recurring Task Request"
+msgstr "循環周期任務分配"
+
+msgid ""
+"This is a recurring task request. Do you want to open only this occurrence "
+"or the series?"
+msgstr "這是壹個循環周期任務，您想打開壹個還是整個序列？"
+
+msgid "Open this occurrence"
+msgstr "僅此項目"
+
+msgid "Open the series"
+msgstr "整個序列"
+
+msgid "Paste Recurring {0}"
+msgstr "粘貼循環周期"
+
+msgid ""
+"This is a recurring {0}. Do you want to paste only this occurrence or the "
+"series?"
+msgstr "這是壹個循環周期的{0}。您想打開壹個還是整個序列？"
+
+msgid "message"
+msgstr "訊息"
+
+msgid "meeting request"
+msgstr "會議邀請"
+
+msgid "appointment"
+msgstr "約會"
+
+msgid "Paste this occurrence only"
+msgstr "僅粘貼此項目"
+
+msgid "Paste the series..."
+msgstr "粘貼整個序列"
+
+msgid ""
+"This is a recurring message. Do you want to delete only this occurrence or "
+"the series?"
+msgstr "這是壹個循環周期訊息，您想刪除壹個還是整個序列？"
+
+msgid ""
+"This is a recurring appointment. Do you want to delete only this occurrence "
+"or the series?"
+msgstr "這是壹個循環周期約會，您想刪除壹個還是整個序列？"
+
+msgid ""
+"This is a recurring meeting request. Do you want to delete only this "
+"occurrence or the series?"
+msgstr "這是壹個循環周期會議，您想刪除壹個還是整個序列？"
+
+msgid ""
+"This is a recurring task request. Do you want to delete only this occurrence "
+"or the series?"
+msgstr "這是壹個循環周期任務，您想刪除壹個還是整個序列？"
+
+msgid "Delete this occurrence"
+msgstr "刪除此項目"
+
+msgid "Delete the series"
+msgstr "刪除整個序列"
+
+msgid "Confirm Delete"
+msgstr "確定刪除"
+
+msgid "This \"{0}\" meeting was already accepted."
+msgstr "已接受會議“{0}”"
+
+msgid "You have not responded to the meeting request \"{0}\"."
+msgstr "您尚未回復會議“{0}”的請求"
+
+msgid "Delete and send a response to the meeting organizer"
+msgstr "刪除並回復給會議組織者"
+
+msgid "Delete without sending"
+msgstr "刪除且不發送回復"
+
+msgid "Notify recipients"
+msgstr "通知收件人"
+
+msgid ""
+"A cancellation message will be sent to all recipients, do you wish to "
+"continue?"
+msgstr "取消郵件將發送給所有接收者，您是否要繼續？"
+
+msgid "Delete Incomplete Task"
+msgstr "刪除未完成的任務"
+
+msgid "The task \"{0}\" has not been completed. What do you want to do?"
+msgstr "任務“{0}”還未完成。請選擇您的意圖？"
+
+msgid "Decline and delete"
+msgstr "拒絕並刪除"
+
+msgid "Mark complete and delete"
+msgstr "標示已完成並刪除"
+
+msgid "Notify sender"
+msgstr "通知發件方"
+
+msgid ""
+"The sender of this email has requested a read receipt. Do you wish to notify "
+"the sender?"
+msgstr "此郵件寄件者希望已讀回執，您希望通知寄件者嗎？"
+
+msgid "Import"
+msgstr "重要"
+
+msgid "Successfully imported item(s) to {0}"
+msgstr "成功導入項目至{0}"
+
+msgid "Failed to import item(s) to {0}"
+msgstr "導入項目至{0}失敗"
+
+msgid "Import error"
+msgstr "導入錯誤"
+
+msgid "Unable to import \"{0}\". The file is not valid"
+msgstr "無法導入{0}，檔案無效"
+
+msgid "Cc"
+msgstr "副本"
+
+msgid "Bcc"
+msgstr "密件副本"
+
+msgid "From"
+msgstr "寄件者"
+
+msgid "Insert item"
+msgstr "插入條目"
+
+msgid "Insert as"
+msgstr "插入為"
+
+msgid "Text only"
+msgstr "僅文本"
+
+msgid "Attachment"
+msgstr "附檔"
+
+msgid "Attach Item"
+msgstr "附加項目"
+
+msgid "No message selected"
+msgstr "沒有選擇郵件"
+
+msgid "Import to"
+msgstr "導入到"
+
+msgid "New folder"
+msgstr "新建資料夾"
+
+msgid "Download as ZIP"
+msgstr "下載ZIP"
+
+msgid "Continue"
+msgstr "繼續"
+
+msgid ""
+"These attachments have an unsupported file type and can not be added to the "
+"ZIP file:"
+msgstr "附檔包含未知類型的檔案，無法添加至ZIP檔案"
+
+msgid "Would you like to continue downloading without adding these files?"
+msgstr "您想繼續下載嗎？"
+
+msgid ""
+"Always continue download of ZIP files without adding unsupported file types."
+msgstr "總是下載ZIP檔案，即使未支持的檔案未被包含在內"
+
+msgid "File upload"
+msgstr "檔案上傳"
+
+msgid "Attach item"
+msgstr "附加項目"
+
+msgid "Preview"
+msgstr "預覽"
+
+msgid "Download"
+msgstr "下載"
+
+msgid "Download all as ZIP"
+msgstr "打包成ZIP下載"
+
+msgid "Import to folder"
+msgstr "導入至資料夾"
+
+msgid ""
+"In order to use the vCard import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid ""
+"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"version 8.3 or higher."
+msgstr ""
+
+msgid "Attachment error"
+msgstr "附檔錯誤"
+
+msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
+msgstr "無法創建ZIP，最大允許值為30M"
+
+msgid "Unable to download"
+msgstr "無法下載"
+
+msgid "Picture format is not supported. "
+msgstr "圖片格式不被支援"
+
+msgid "Supported format for contact pictures are"
+msgstr "系統支援的聯絡人圖片格式為"
+
+msgid "Attachment Error"
+msgstr "附檔錯誤"
+
+msgid "Manage Categories"
+msgstr "管理分類"
+
+msgid "New"
+msgstr "新增"
+
+msgid "Delete Category"
+msgstr "刪除分類"
+
+msgid ""
+"Are you sure you want to delete the category \"{0}\"? Items already assigned "
+"this category won't be affected."
+msgstr "確定要刪除分類“{0}”？已被歸類至此分類的項目將不受影響"
+
+msgid "Rename Category"
+msgstr "重命名分類"
+
+msgid "A category named \""
+msgstr "壹個分類被命名為”"
+
+msgid "Create New Category"
+msgstr "創建新分類"
+
+msgid "Pin to quick access"
+msgstr "固定到快速訪問"
+
+msgid "Create"
+msgstr "創建"
+
+msgid ""
+"You must apply the changes you have made to the categories before you can "
+"create this category."
+msgstr "請先儲存更改，然後再創建此分類"
+
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "名為“{0}”的分類已存在，請選擇其它名稱"
+
+msgid ""
+"You already have a category named '{0}' in your pending changes. Please use "
+"another name."
+msgstr "名為“{0}”的分類已存在於未決變更中，請選擇其它名稱"
+
+msgid "Rename"
+msgstr "重命名"
+
+msgid "This is the first time you have used \"{0}\" category."
+msgstr "這是您首次使用分類“{0}”"
+
+msgid "Do you want to rename it?"
+msgstr "您希望將其重命名嗎？"
+
+msgid ""
+"The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
+"\"{2}\" categories?"
+msgstr "分類“{0}”已存在，是否合併分類“{1}”和“{2}”？"
+
+msgid "Merge"
+msgstr "合併"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Check Names"
+msgstr "檢查名稱"
+
+msgid "Select an address to use"
+msgstr "選擇壹個地址"
+
+msgid "Email"
+msgstr "電子郵件"
+
+msgid "More than one '{0}' found."
+msgstr "發現超過{0}條記錄"
+
+msgid "Alert"
+msgstr "警告"
+
+msgid "Please select a recipient"
+msgstr "請選擇壹個收件人"
+
+msgid "Mail and Post"
+msgstr "郵件和郵局"
+
+msgid "Contact"
+msgstr "聯絡人"
+
+msgid "Journal"
+msgstr "日誌"
+
+msgid "Note"
+msgstr "筆記"
+
+msgid "Task"
+msgstr "任務"
+
+msgid "Inbox"
+msgstr "收件夾"
+
+msgid "Entire Inbox"
+msgstr "全部收件夾"
+
+msgid "Secretary"
+msgstr "祕書"
+
+msgid "Only read"
+msgstr "唯讀"
+
+msgid "Delegate Permissions"
+msgstr "代理人權限"
+
+msgid "This delegate has the following permissions"
+msgstr "此代理人具有以下權限"
+
+msgid "Delegate can see my private items."
+msgstr "代理人可以看到我私人項目"
+
+msgid "Delegate receives copies of meeting-related messages sent to me."
+msgstr "代理人接收發送給我的會議相關的訊息副本"
+
+msgid "Other"
+msgstr "其它"
+
+msgid "No delegates configured"
+msgstr "沒有設定代理人"
+
+msgid "Loading delegates"
+msgstr "載入代理人"
+
+msgid "Please select a delegate."
+msgstr "請選擇壹個代理人"
+
+msgid "Delegates can send items on your behalf."
+msgstr "代理人能以您的名義發送項目"
+
+msgid ""
+"If you only want to set folder permissions, right-click on a folder to open "
+"the context menu and click on \"Share Folder...\""
+msgstr "如果您僅僅希望設置資料夾權限，在資料夾上點擊鼠標右鍵，打開上下文菜單，選擇“共享資料夾”"
+
+msgid "Permission"
+msgstr "權限"
+
+msgid "Duplicate delegate"
+msgstr "重複代理人"
+
+msgid "Delegate already exists in the list."
+msgstr "代理人在清單中已經存在"
+
+msgid "Copy/Move Folder"
+msgstr "複製/移動資料夾"
+
+msgid "Copy/Move Messages"
+msgstr "複製/移動郵件"
+
+msgid "Destination folder"
+msgstr "目標資料夾"
+
+msgid "There is {0} message selected."
+msgid_plural "There are {0} messages selected."
+msgstr[0] "選擇了{0}封郵件"
+
+msgid "Folder '{0}' selected."
+msgstr "選擇了資料夾”{0}“"
+
+msgid "Kopano WebApp"
+msgstr "晶格WebApp"
+
+msgid "Do not show this message again."
+msgstr "不要再顯示此郵件"
+
+msgid "ICS"
+msgstr ""
+
+#, fuzzy
+msgid "Set custom flag"
+msgstr "設定自定義旗標"
+
+msgid "Start date"
+msgstr "開始日期"
+
+msgid "End date"
+msgstr "結束日期"
+
+msgid "Tomorrow"
+msgstr "明天"
+
+msgid "This week"
+msgstr "本週"
+
+msgid "Next week"
+msgstr "下週"
+
+msgid "Custom"
+msgstr "自定義"
+
+#, fuzzy
+msgid "Set reminder"
+msgstr "設置提醒"
+
+msgid "Complete"
+msgstr "完成"
+
+msgid "today"
+msgstr "今日"
+
+msgid "tomorrow"
+msgstr "明日"
+
+msgid "this week"
+msgstr "本週"
+
+msgid "next week"
+msgstr "下週"
+
+msgid "Edit recipient"
+msgstr "編輯收件人"
+
+msgid "Copy email address"
+msgstr "複製電子郵件地址"
+
+msgid "Set as required"
+msgstr "設為必須"
+
+msgid "Set as optional"
+msgstr "設為可選"
+
+msgid "Set as resource"
+msgstr "設為資源"
+
+msgid "Select attendees"
+msgstr "選擇出席人員"
+
+msgid "Suggested Times"
+msgstr "建議時間"
+
+msgid "Busy"
+msgstr "繁忙"
+
+msgid "Out of Office"
+msgstr "不在辦公室"
+
+msgid "No Information"
+msgstr "無相關資訊"
+
+msgid "Show non-working hours"
+msgstr "顯示非工作時間"
+
+msgid "Hide non-working hours"
+msgstr "隱藏非工作時間"
+
+msgid "No freebusy information available for this date"
+msgstr "這個日期沒有忙閑資訊"
+
+msgid "No suggestions available"
+msgstr "沒有建議"
+
+msgid "Switch between different contexts e.g. inbox, calendar, etc."
+msgstr "在不同的上下文間切換，例如: 收件箱，日程表等"
+
+msgid "Basic navigation"
+msgstr "基本導航"
+
+msgid "Switch between different views"
+msgstr "在不同的視圖間切換"
+
+msgid "New item"
+msgstr "新增項目"
+
+msgid "All views"
+msgstr "所有視圖"
+
+msgid "Close tab"
+msgstr "關閉標簽"
+
+msgid "Print item"
+msgstr "列印項目"
+
+msgid "Items"
+msgstr "項目"
+
+msgid "Save an item e.g. mail, contact, etc."
+msgstr "儲存項目，例如: 郵件，聯絡人等"
+
+msgid "Send an item e.g. mail, meeting request, etc."
+msgstr "傳送壹個項目，例如: 郵件，會議邀請等"
+
+msgid "Select all items"
+msgstr "選擇所有項目"
+
+msgid "Extend the selection to the first item in the list"
+msgstr "擴充選擇至清單中的第壹個項目"
+
+msgid "Extend the selection to the last item in the list"
+msgstr "擴充選擇至清單中的最後壹個項目"
+
+msgid "Open selected item"
+msgstr "打開所選項目"
+
+msgid "Open dialog to categorize selected item"
+msgstr "打開對話框並分類所選項目"
+
+msgid "Print list"
+msgstr "列印清單"
+
+msgid "Print selected item"
+msgstr "列印此項目"
+
+msgid "Open copy/move dialog"
+msgstr "打開復制/移動對話框"
+
+msgid "Delete selected item"
+msgstr "刪除所選項目"
+
+msgid ""
+"Delete selected item without moving it to the Deleted Items folder. The "
+"deleted item can still be restored."
+msgstr "直接刪除所選項目而不是將其移至已刪除資料夾"
+
+msgid "Add/Edit Cc recipient"
+msgstr "添加/編輯副本收件人"
+
+msgid "Duplicate recipient"
+msgstr "重復收件人"
+
+msgid "Recipient already exists."
+msgstr "收件人已存在"
+
+msgid "Disable for new mail"
+msgstr "禁止新建郵件"
+
+msgid "Enable for new mail"
+msgstr "允許新建郵件"
+
+msgid "Disable for replies"
+msgstr "禁止回復"
+
+msgid "Enable for replies"
+msgstr "允許回復"
+
+msgid "No Cc recipient configured"
+msgstr "未設定副本收件人"
+
+msgid "Loading Cc recipients"
+msgstr "載入副本收件人"
+
+msgid "Reply Mail"
+msgstr "回復郵件"
+
+msgid "New Mail"
+msgstr "新建郵件"
+
+msgid "Please select a Cc recipient record."
+msgstr "請指定壹個副本收件人"
+
+msgid "Manage Cc recipients"
+msgstr "編輯收件人"
+
+msgid ""
+"Cc recipients can be used to set a default Cc user in new mail, replies or "
+"both."
+msgstr "副本收件人能被用作新郵件或回復郵件中的默認副本使用者"
+
+msgid "Following recipients are already exists"
+msgstr "下列收件人已存在"
+
+msgid "Duplicate recipients"
+msgstr "重復收件人"
+
+msgid "Kopano WebApp print"
+msgstr "晶格WebApp列印"
+
+msgid "Display name"
+msgstr "顯示名稱"
+
+msgid "Email address"
+msgstr "電子郵件地址"
+
+msgid "Expand distribution list"
+msgstr "展開分發清單"
+
+msgid ""
+"Distribution list will be replaced with its members. You will not be able to "
+"collapse it again."
+msgstr "分發清單將被替換為它的成員，此行為不可逆"
+
+msgid "Edit Recipient"
+msgstr "編輯收件人"
+
+msgid "Send email"
+msgstr "傳送郵件"
+
+msgid "Delete recipient from suggestion list"
+msgstr "刪除從建議清單中收件人"
+
+msgid "View recipient"
+msgstr "瀏覽收件人"
+
+msgid "Weekday"
+msgstr "周壹至周五工作日"
+
+msgid "Weekend Day"
+msgstr "週末"
+
+msgid "1st"
+msgstr "第1"
+
+msgid "2nd"
+msgstr "第2"
+
+msgid "3rd"
+msgstr "第3"
+
+msgid "4th"
+msgstr "第4"
+
+msgid "last"
+msgstr "最後"
+
+msgid "Every {A} day(s)"
+msgstr "每個 {A} 天"
+
+msgid "Every weekday"
+msgstr "每周"
+
+msgid "Regenerate new task {A} day(s) after each task is completed"
+msgstr "當任務完成後重新生成{A}天任務"
+
+msgid "Day {A} of every {B} month(s)"
+msgstr "每個{B}月(s)，第{A}天"
+
+msgid "The {A} {B} of every {C} month(s)"
+msgstr "每個{C}月(s)的{A} {B}"
+
+msgid "Regenerate new task {A} month(s) after each task is completed"
+msgstr "當任務完成後重新生成{A}月任務"
+
+msgid "Appointment Recurrence"
+msgstr "約會循環"
+
+msgid "Remove Recurrence"
+msgstr "移除循環"
+
+msgid "Reset recurring"
+msgstr "重設周期"
+
+msgid "This will reset every exception. Do you want to continue?"
+msgstr "此操作將重置所有的特列，是否繼續？"
+
+msgid "Task Recurrence"
+msgstr "任務循環周期"
+
+msgid "Daily"
+msgstr "每天"
+
+msgid "Weekly"
+msgstr "每週"
+
+msgid "Monthly"
+msgstr "每月"
+
+msgid "Yearly"
+msgstr "每年"
+
+msgid "Range of recurrence"
+msgstr "重複範圍"
+
+msgid "No end date"
+msgstr "無結束日期"
+
+msgid "End after {A} occurrences"
+msgstr "在{A}次循環後結束"
+
+msgid "End by {A}"
+msgstr "直至{A}結束"
+
+#. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
+#. For example: 'Occurence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurence duration: 1 hour'
+msgid "Occurrence duration: {D} {H} {M}"
+msgstr "循環單項持續時間: {D} {H} {M}"
+
+msgid "Every {A} week(s) on"
+msgstr "每{A}周"
+
+msgid "Regenerate new task {A} week(s) after each task is completed"
+msgstr "Regenerate new task {A} week(s) after each task is completed"
+
+msgid "Every {A} {B}"
+msgstr "每{A}和{B}"
+
+msgid "The {A} {B} of {C}"
+msgstr "{C}的{A}和{B}"
+
+msgid "Regenerate new task {A} year(s) after each task is completed"
+msgstr "當任務完成後重新生成{A}年任務"
+
+msgid "Info"
+msgstr "資訊"
+
+msgid "Not supported at the moment."
+msgstr "此時不支援"
+
+#, fuzzy
+msgid "There is {0} reminder"
+msgid_plural "There are {0} reminders"
+msgstr[0] "有{0}提醒"
+
+# 88%
+msgid "Reminders"
+msgstr "提醒"
+
+#, fuzzy
+msgid "There are no reminders"
+msgstr "有{0}提醒"
+
+msgid "Due In"
+msgstr "期限為"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Due"
+msgstr "到期時間"
+
+# 92%
+msgid "Reminder time"
+msgstr "提醒時間"
+
+msgid "Dismiss All"
+msgstr "全部解除"
+
+msgid "Open Item"
+msgstr "開啟項目"
+
+msgid "Dismiss"
+msgstr "解除"
+
+msgid "Click Snooze to be reminded again in"
+msgstr "點擊延期將為您再提醒壹次"
+
+msgid "Snooze"
+msgstr "延期"
+
+msgctxt "reminder.dialog"
+msgid "{0} reminder is selected."
+msgid_plural "{0} reminders are selected."
+msgstr[0] "選擇了{0}條提醒"
+
+msgid "Restore Softdeleted Items"
+msgstr "復原軟刪除項目"
+
+msgid "Restore From {0}"
+msgstr "從{0}中復原"
+
+msgid "Restore"
+msgstr "復原"
+
+msgid "Restore All"
+msgstr "全部復原"
+
+msgid "Permanent Delete"
+msgstr "永久刪除"
+
+msgid "Delete All"
+msgstr "刪除所有"
+
+msgid "Messages"
+msgstr "郵件"
+
+msgid "Delete all items"
+msgstr "刪除項目"
+
+msgid "Are you sure you want to permanently delete all items?"
+msgstr "您確定要永久刪除\"{0}\"資料夾中所有項目及子資料夾？"
+
+msgid "Restore all items"
+msgstr "復原項目"
+
+msgid "Are you sure you want to restore all items?"
+msgstr "確定要復原所有項目嗎？"
+
+msgid "Total {0} recoverable item"
+msgid_plural "Total {0} recoverable items"
+msgstr[0] "共{0}個可復原項目"
+
+msgid "Deleted On"
+msgstr "刪除日期"
+
+msgid "Sort by: Deleted On"
+msgstr "依建刪除日期排序"
+
+msgid "Item Count"
+msgstr "項目總數"
+
+msgid "Sort by: Item Count"
+msgstr "依項目總數排序"
+
+msgid "Sort by: From"
+msgstr "依寄件者排序"
+
+msgid "Received"
+msgstr "接收時間"
+
+msgid "Sort by: Received"
+msgstr "依接收時間排序"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Sort by: Size"
+msgstr "依大小排序"
+
+msgid "Move the message to folder..."
+msgstr "移動郵件到資料夾..."
+
+msgid "Copy the message to folder..."
+msgstr "複制郵件到資料夾..."
+
+msgid "Delete the message"
+msgstr "刪除郵件"
+
+msgid "Redirect the message to..."
+msgstr "重新轉寄郵件到..."
+
+msgid "Forward the message to..."
+msgstr "轉送郵件到..."
+
+msgid "Forward the message as attachment to..."
+msgstr "轉送附檔到..."
+
+msgid "Mark the message as read..."
+msgstr "將郵件設定旗標為已讀..."
+
+msgid "is received from..."
+msgstr "來自於...."
+
+msgid "includes these words in the sender's address..."
+msgstr "寄件人地址中包含這些字..."
+
+msgid "includes these words in the recipient's address..."
+msgstr "收件人地址中包含這些字..."
+
+msgid "includes these words in the subject..."
+msgstr "主旨包含這些字..."
+
+msgid "includes these words in the body..."
+msgstr "正文包含這些字..."
+
+msgid "includes these words in the transport-headers..."
+msgstr "郵件頭中包含這些字..."
+
+msgid "has importance..."
+msgstr "重要郵件 ..."
+
+msgid "has an attachment"
+msgstr "擁有附檔"
+
+msgid "is sent to..."
+msgstr "傳送到..."
+
+msgid "is sent only to me"
+msgstr "只傳送給我"
+
+msgid "has my name in the Cc field"
+msgstr "在副本中有我的名字"
+
+msgid "does not have my name in the To or Cc field"
+msgstr "收件人或副本欄中沒有我的名字"
+
+msgid "has my name in the To or Cc field"
+msgstr "收件人或副本欄中有我的名字"
+
+msgid "has sensitivity..."
+msgstr "敏感郵件..."
+
+msgid "is received after..."
+msgstr "接收時間晚於..."
+
+msgid "is received before..."
+msgstr "接收時間早於..."
+
+msgid "size is at least..."
+msgstr "郵件不小於..."
+
+msgid "size is at most..."
+msgstr "郵件不大於..."
+
+msgid "has my name in the To field"
+msgstr "收件人欄中有我的名字"
+
+msgid "is received (all messages)"
+msgstr "所有郵件"
+
+msgid "Select one..."
+msgstr "選擇壹個..."
+
+msgid "Unknown condition"
+msgstr "未知條件"
+
+msgid "This condition for the current rule is unknown"
+msgstr "現有規則未知此條件"
+
+msgid "Unnamed folder"
+msgstr "未命名的資料夾"
+
+msgid "Add action"
+msgstr "新增動作"
+
+msgid "Remove action"
+msgstr "移除動作"
+
+msgid "Unknown action"
+msgstr "未知動作"
+
+msgid "This action for the current rule is unknown"
+msgstr "現有規則未知此動作"
+
+msgid "Add condition"
+msgstr "添加條件"
+
+msgid "Remove condition"
+msgstr "移除條件"
+
+msgid "Inbox Rule"
+msgstr "收件夾規則"
+
+msgid "Rule name"
+msgstr "規則名稱"
+
+msgid "When the message"
+msgstr "當郵件"
+
+msgid "Do the following"
+msgstr "執行下列動作"
+
+msgid "Exceptions"
+msgstr "特例"
+
+msgid "Apply only when Out of Office is active"
+msgstr "僅當我外出時有效"
+
+msgid "Stop processing more rules"
+msgstr "停止處理剩余的規則"
+
+msgid "Add exception"
+msgstr "新增特例"
+
+msgid "Remove exception"
+msgstr "移除特例"
+
+msgid "Specify Words or Phrases"
+msgstr "設定詞或句子"
+
+msgid "Edit"
+msgstr "編輯"
+
+msgid "and"
+msgstr "和"
+
+msgid ""
+"Distribution lists are not supported in rules, would you like to replace the "
+"規則不支持分發清單，是否將其替換為內部成員？"
+msgstr ""
+
+msgid "or"
+msgstr "或"
+
+msgid "No rule exists"
+msgstr "沒有規則存在"
+
+msgid "Active"
+msgstr "啟動"
+
+msgid "Out of office"
+msgstr "外出"
+
+msgid "Rule"
+msgstr "規則"
+
+msgid "Loading rules"
+msgstr "載入規則"
+
+msgid "Please select a rule."
+msgstr "請選擇壹條規則"
+
+msgid "Rule already has highest priority."
+msgstr "此規則已經是最高優先權"
+
+msgid "Rule already has lowest priority."
+msgstr "此規則已經是最低優先權"
+
+msgid "myself"
+msgstr "我自己"
+
+msgid "Update rules for"
+msgstr "更新規則為"
+
+msgid "Apply changes"
+msgstr "應用"
+
+msgid "Do you wish to apply the changes?"
+msgstr "您要套用此改變嗎？"
+
+msgid "All folders"
+msgstr "顯示所有資料夾"
+
+msgid "Other..."
+msgstr "其它"
+
+msgid "Search in.."
+msgstr "搜尋"
+
+msgid "Folder does not exist"
+msgstr "資料夾不存在"
+
+msgid ""
+"The folder you are searching through no longer exists. Please select another "
+"folder"
+msgstr "您所搜尋的資料已不存在，請選擇其它的資料"
+
+msgid "Add/Edit sender"
+msgstr "添加/編輯發件人"
+
+msgid "No from addresses configured"
+msgstr "寄件人地址未設定"
+
+msgid "Loading from addresses"
+msgstr "加載寄件人地址"
+
+msgid "Please select a from address record."
+msgstr "請選擇壹條寄件地址記錄"
+
+msgid ""
+"Manage the email addresses you can use as sender address when sending an "
+"email."
+msgstr "管理郵件地址以便於您可以使用其作為寄件人地址"
+
+msgid "View"
+msgstr "檢視"
+
+msgid "Please select a sendas record."
+msgstr "請選擇壹條以他人身份傳送的記錄"
+
+msgid "Delegates"
+msgstr "代理人"
+
+msgid "Delegate settings"
+msgstr "代理人設定"
+
+msgid "Rules"
+msgstr "規則"
+
+msgid "From Addresses"
+msgstr "寄件人地址"
+
+msgid "From Addresses settings"
+msgstr "寄件人地址設定"
+
+msgid "Full name"
+msgstr "全名"
+
+msgid "Job Title"
+msgstr "工作職稱"
+
+msgid "Phone Numbers"
+msgstr "電話號碼"
+
+msgid "Business Fax"
+msgstr "公司傳真"
+
+msgid "Webpage"
+msgstr "網站"
+
+msgid "IM Address"
+msgstr "即時通訊地址"
+
+msgid "D, d-m-Y, G:i"
+msgstr "Y年m月d日 G:i, D"
+
+msgid "{0} selected row"
+msgid_plural "{0} selected rows"
+msgstr[0] "{0}條被選記錄"
+
+msgid "Reminder is set on: {0}, {1}"
+msgstr "設定提醒時間為: {0}, {1}"
+
+msgid "d-m-Y"
+msgstr "Y年m月d日"
+
+msgid "l d/m/Y G:i"
+msgstr "Y/m/d G:i l"
+
+msgid "d-m-Y G:i"
+msgstr "Y年m月d日 G:i"
+
+msgid "Unknown"
+msgstr "未知的"
+
+msgid "Meeting Organizer"
+msgstr "會議組織者"
+
+msgid "{0} overdue"
+msgstr "{0}過期"
+
+msgid "Loading..."
+msgstr "讀取中..."
+
+msgid "Failed"
+msgstr "失敗"
+
+#. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
+msgctxt "mail.previewpanel"
+msgid "Attachments"
+msgstr "附檔"
+
+msgid "Download Pictures"
+msgstr "下載圖片"
+
+msgid "Add Sender to Safe Senders List"
+msgstr "添加寄件人至可信寄件人清單"
+
+msgid "Add Domain to Safe Senders List"
+msgstr "新增網域到可信寄件者清單"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
+#. importance the message was sent. For example:
+#. 'This message was sent with high importance.'
+#. 'This message was sent with low importance.'
+msgctxt "mail.previewpanel"
+msgid "This message was sent with {0} importance."
+msgstr "此郵件傳送時被設為{0}重要性"
+
+#. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
+#. sensitivity level applies to the message. For example:
+#. 'Please treat this as Personal.'
+#. 'Please treat this as Private.'
+#. 'Please treat this as Confidential.'
+msgctxt "mail.previewpanel"
+msgid "Please treat this as {0}."
+msgstr "請將此郵件視為{0}"
+
+msgctxt "mail.previewpanel"
+msgid ""
+"Click here to download pictures. To help protect your privacy, WebApp "
+"prevented automatic download of some pictures in this message."
+msgstr "點擊下載圖片.為了幫助保護您的隱私,WebApp不會自動下載圖片"
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This message is corrupt and will not be displayed correctly, Click here to "
+"fix it."
+msgstr "此消息中包含錯誤，因此不能被正確顯現，點擊此處修正錯誤"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted."
+msgstr "{0}已接受"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has accepted on behalf of {1}."
+msgstr "{0}已代表{1}接受"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted."
+msgstr "{0}已暫時接受"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has tentatively accepted on behalf of {1}."
+msgstr "{0}已代表{1}暫時接受"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined."
+msgstr "{0}已拒絕"
+
+msgctxt "mail.previewpanel"
+msgid "{0} has declined on behalf of {1}."
+msgstr "{0}已代表{1}拒絕"
+
+msgctxt "mail.previewpanel"
+msgid "{0} tentatively accepted and proposed a new time for this meeting."
+msgstr "{0}已暫時接受並為此會議建議了新的時間"
+
+msgctxt "mail.previewpanel"
+msgid ""
+"{0} tentatively accepted on behalf of {1} and proposed a new time for this "
+"meeting."
+msgstr "{0}已代表{1}暫時接受並為此會議建議了新的時間"
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined and proposed a new time for this meeting."
+msgstr "{0} 已婉拒並於本次會議提出了壹個新的時間"
+
+msgctxt "mail.previewpanel"
+msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
+msgstr "{0}已拒絕並為此會議建議了新的時間"
+
+msgctxt "mail.previewpanel"
+msgid "This meeting is not in the Calendar; it may have been moved or deleted."
+msgstr "這會議不在行事曆中;它可能被移除或是刪除"
+
+msgctxt "mail.previewpanel"
+msgid ""
+"This meeting request was updated after this message was sent. You should "
+"open the latest update or open the item from the calendar."
+msgstr "此次會議邀請在被傳送以後已被更新，請打開最新的更新或從日程表中打開此項目"
+
+msgctxt "mail.previewpanel"
+msgid "As the meeting organizer, you do not need to respond to the meeting"
+msgstr "作為會議組織者，不需要回復會議"
+
+msgctxt "mail.previewpanel"
+msgid "The meeting was updated after the attendee sent this response"
+msgstr "與會者傳送回應後，此會議已被更新"
+
+msgctxt "mail.previewpanel"
+msgid "This appointment occurs in the past."
+msgstr "此約會在過去的時間發生"
+
+# 100%
+msgctxt "mail.previewpanel"
+msgid "Please respond."
+msgstr "請回應"
+
+msgctxt "mail.previewpanel"
+msgid "This is an update of a previously sent meeting request."
+msgstr "這是以前傳送的會議邀請的更新"
+
+msgctxt "mail.previewpanel"
+msgid "Received for {0}."
+msgstr "從{0}接收"
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message."
+msgstr "您已回復此郵件"
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message."
+msgstr "您已轉發此郵件"
+
+msgctxt "mail.previewpanel"
+msgid "You replied to this message on {0}."
+msgstr "您在{0}回復了此郵件"
+
+msgctxt "mail.previewpanel"
+msgid "You forwarded this message on {0}."
+msgstr "您在{0}轉發了此郵件"
+
+msgid "Assigned by {0} on {1}."
+msgstr "{1}由{0}分配"
+
+msgid "Waiting for response from recipient"
+msgstr "等待收件人的回應"
+
+msgid "Accepted by {0} on {1}."
+msgstr "{1}由{0}接受"
+
+msgid "{0} has accepted on behalf of {1} {2}."
+msgstr "{0}以{1} {2}的名義接受了邀請"
+
+msgid "Declined by {0} on {1}."
+msgstr "{1}由{0}拒絕"
+
+msgid "{0} has declined on behalf of {1} {2}."
+msgstr "{0}以{1} {2}的名義拒絕了邀請"
+
+msgid "Last update sent on {0}."
+msgstr "{0}傳送了最後壹次更新"
+
+msgid "{0} has updated on behalf of {1} {2}."
+msgstr "{0}以{1} {2}的名義更新了會議"
+
+msgid "Fix message"
+msgstr "修復郵件"
+
+msgid ""
+"We are going to try to fix a corrupted mail message, do you wish to continue?"
+msgstr "我們嘗試修正格式損壞的郵件，是否要繼續？"
+
+msgid "d-m-Y g:i a"
+msgstr "Y年m月d日 g:i a"
+
+msgid "The matching task was not found in your task list."
+msgstr "未在任務清單中匹配到此任務"
+
+msgctxt "mail.previewpanel"
+msgid "To"
+msgstr "收件人"
+
+msgctxt "mail.previewpanel"
+msgid "Cc"
+msgstr "副本"
+
+msgctxt "mail.previewpanel"
+msgid "Bcc"
+msgstr "密件副本"
+
+msgctxt "mail.previewpanel"
+msgid "Categories"
+msgstr "分類"
+
+#. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
+msgctxt "mail.previewpanel"
+msgid "Recipients"
+msgstr "收件人"
+
+#. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
+msgctxt "mail.previewpanel"
+msgid "on behalf of"
+msgstr "代表人"
+
+#. TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent.
+msgctxt "mail.previewpanel"
+msgid "Sent"
+msgstr "傳送日期"
+
+#. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
+msgctxt "mail.previewpanel"
+msgid "None"
+msgstr "無"
+
+msgid "Pop-out"
+msgstr "彈出"
+
+msgid "Mark as read"
+msgstr "標示已閱讀"
+
+msgid "Mark as unread"
+msgstr "標示未閱讀"
+
+msgid "in"
+msgstr "在"
+
+msgid "Root"
+msgstr "根"
+
+msgid "File As"
+msgstr "檔案為"
+
+msgid "Company Name"
+msgstr "公司名稱"
+
+msgid "Sort by: Company Name"
+msgstr "依公司名稱排序"
+
+msgid "Sort by: Job Title"
+msgstr "依工作職稱排序"
+
+msgid "Full Name"
+msgstr "全名"
+
+msgid "Department Name"
+msgstr "部門名稱"
+
+msgid "Home Address"
+msgstr "住家地址"
+
+msgid "Business Address"
+msgstr "公司地址"
+
+msgid "Other Address"
+msgstr "其他地址"
+
+msgid "Business Phone"
+msgstr "公司電話"
+
+msgid "Business 2 Phone"
+msgstr "公司電話"
+
+msgid "Assistant Phone"
+msgstr "助理電話"
+
+msgid "Company Main Phone"
+msgstr "公司總機"
+
+msgid "Home 2 Phone"
+msgstr "住家電話"
+
+msgid "Car Phone"
+msgstr "車用電話"
+
+msgid "Radio"
+msgstr "無線電"
+
+msgid "Callback Phone"
+msgstr "回撥電話"
+
+msgid "Other Phone"
+msgstr "其他電話"
+
+msgid "Primary Phone"
+msgstr "首要電話"
+
+msgid "Telex"
+msgstr "電報"
+
+msgid "TTY/TDD Phone"
+msgstr "TTY/TDD電話"
+
+msgid "ISDN"
+msgstr "ISDN"
+
+msgid "Other Fax"
+msgstr "其他傳真"
+
+msgid "Home Fax"
+msgstr "住家傳真"
+
+msgid "Email Display As"
+msgstr "電子郵件顯示為"
+
+msgid "Email 2"
+msgstr "電子郵件2"
+
+msgid "Email2 Display As"
+msgstr "電子郵件2顯示為"
+
+msgid "Email 3"
+msgstr "電子郵件3"
+
+msgid "Email3 Display As"
+msgstr "電子郵件3顯示為"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Birthday"
+msgstr "生日"
+
+msgid "Wedding Anniversary"
+msgstr "結婚紀念日"
+
+msgid "Spouse/Partner"
+msgstr "配偶"
+
+msgid "Profession"
+msgstr "專業"
+
+msgid "Assistant's Name"
+msgstr "助理名稱"
+
+msgid "Distribution List Name"
+msgstr "分發清單名稱"
+
+msgid "Open Shared Contacts"
+msgstr "開啟共用聯絡人"
+
+msgid "Business Cards"
+msgstr "名片"
+
+msgid "Phone List"
+msgstr "電話清單"
+
+msgid "Add to contacts"
+msgstr "添加到聯絡人"
+
+msgid "Print selected contact"
+msgstr "列印選擇的聯絡人"
+
+msgid "No contact selected"
+msgstr "沒有選擇的聯絡人"
+
+msgid "Distribution list"
+msgstr "分發清單"
+
+msgid "Dr."
+msgstr "Dr."
+
+msgid "Miss"
+msgstr "小姐"
+
+msgid "Mr."
+msgstr "先生"
+
+msgid "Mrs."
+msgstr "夫人"
+
+msgid "Ms."
+msgstr "女士"
+
+msgid "Prof."
+msgstr "Prof."
+
+msgid "Jr."
+msgstr "小"
+
+msgid "Sr."
+msgstr "老"
+
+msgid "Phone number"
+msgstr "電話號碼"
+
+msgid "Check address"
+msgstr "檢查地址"
+
+msgid "Street"
+msgstr "街"
+
+msgid "State/Province"
+msgstr "州/省"
+
+msgid "Zip/Postal code"
+msgstr "郵遞區號"
+
+msgid "Country/Region"
+msgstr "國家/地區"
+
+msgid "Show this again when address is incomplete or unclear."
+msgstr "當地址不完整或不清楚時再次顯示"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Office location"
+msgstr "辦公室位置"
+
+msgid "Manager's name"
+msgstr "主管名稱"
+
+msgid "Assistant's name"
+msgstr "助理名稱"
+
+msgid "Nickname"
+msgstr "暱稱"
+
+msgid "Suffix"
+msgstr "後綴"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Anniversary"
+msgstr "紀念日"
+
+msgid "Photo"
+msgstr "相片"
+
+msgid "Addresses"
+msgstr "地址"
+
+msgid "Additional information"
+msgstr "額外資訊"
+
+msgid "Business 2"
+msgstr "公司2"
+
+msgid "Callback"
+msgstr "回撥"
+
+msgid "Car"
+msgstr "車"
+
+msgid "Home 2"
+msgstr "住家2"
+
+msgid "Primary"
+msgstr "主要的"
+
+msgid "TTY/TDD"
+msgstr "TTY/TDD"
+
+msgid "Check full name"
+msgstr "檢查全名"
+
+msgid "Middle"
+msgstr "中間"
+
+msgid "Show this again when name is incomplete or unclear."
+msgstr "當名稱不完整或不清楚時再次顯示"
+
+msgid "Check phone number"
+msgstr "檢查電話號碼"
+
+msgid "Country/Region code"
+msgstr "國家/區域 代碼"
+
+msgid "City/Area code"
+msgstr "城市/地區代碼"
+
+msgid "Local number"
+msgstr "本地區號"
+
+msgid "Extension"
+msgstr "分機"
+
+msgid "Add Attachment"
+msgstr "新增附檔"
+
+msgid "Add attachments to this contact"
+msgstr "新增附檔到此聯絡人"
+
+msgid "Mark this contact as private"
+msgstr "標示此聯絡人為私人"
+
+msgid "Distribution List"
+msgstr "分發清單"
+
+msgid "Mark this Distribution list as private"
+msgstr "標示此分發清單為私人"
+
+msgid "New email address"
+msgstr "新增電子郵件地址"
+
+msgid "Please enter a valid email address"
+msgstr "請輸入有效的電子郵件地址"
+
+msgid "Select Members"
+msgstr "選擇成員"
+
+msgid "Add New"
+msgstr "新增新的"
+
+msgid "Type your note here..."
+msgstr "請在此處輸入您的便簽內容..."
+
+msgid "New contact"
+msgstr "新建聯絡人"
+
+msgid "New distribution list"
+msgstr "列印分發清單清單"
+
+msgid "Email 2 Display As"
+msgstr "電子郵件2顯示為"
+
+msgid "Email 3 Display As"
+msgstr "電子郵件3顯示為"
+
+msgid "Assistent"
+msgstr "助理"
+
+msgid "Loading contacts"
+msgstr "載入聯絡人中"
+
+msgid "Group"
+msgstr "群組"
+
+msgid "Work"
+msgstr "工作"
+
+msgid "Sort by: Full Name"
+msgstr "依全稱排序"
+
+msgid "Sort by: Email Address 2"
+msgstr "依電子郵件2排序"
+
+msgid "Sort by: Email Address 3"
+msgstr "依電子郵件3排序"
+
+msgid "Mobile Phone"
+msgstr "行動電話"
+
+msgid "Sort by: Mobile Phone"
+msgstr "依行動電話排序"
+
+msgid "Sort by: Business Phone"
+msgstr "依公司電話排序"
+
+msgid "Sort by: Business Fax"
+msgstr "依公司傳真排序"
+
+msgid "Sort by: Department Name"
+msgstr "依部門名稱排序"
+
+msgid "Office Location"
+msgstr "辦公室位置"
+
+msgid "Sort by: Office Location"
+msgstr "依辦公室位置排序"
+
+msgid "Sort by: Profession"
+msgstr "依專業排序"
+
+msgid "Manager Name"
+msgstr "主管名稱"
+
+msgid "Sort by: Manager Name"
+msgstr "依主管名稱排序"
+
+msgid "Sort by: Assistant's Name"
+msgstr "依助理名稱排序"
+
+msgid "Sort by: Nickname"
+msgstr "依暱稱排序"
+
+msgid "Sort by: Spouse/Partner Name"
+msgstr "依配偶名稱排序"
+
+msgid "Sort by: Birthday"
+msgstr "依生日排序"
+
+msgid "Sort by: Anniversary"
+msgstr "依紀念日排序"
+
+msgid "Sort by: Business Address"
+msgstr "依公司地址排序"
+
+msgid "Sort by: Home Address"
+msgstr "依住家地址排序"
+
+msgid "Sort by: Office Address"
+msgstr "依辦公室地址排序"
+
+msgid "Mailing Address"
+msgstr "郵寄地址"
+
+msgid "Sort by: Mailing Address"
+msgstr "依郵寄地址排序"
+
+msgid "Sort by: IM Address"
+msgstr "依即時通訊地址排序"
+
+msgid "Sort by: Webpage"
+msgstr "依網站排序"
+
+msgid "Assistant's Phone"
+msgstr "助理電話"
+
+msgid "Sort by: Assistant's Phone"
+msgstr "依助理電話排序"
+
+msgid "Business Phone 2"
+msgstr "公司電話2"
+
+msgid "Sort by: Business Phone 2"
+msgstr "依公司電話2排序"
+
+msgid "Sort by: Callback"
+msgstr "依回撥電話排序"
+
+msgid "Sort by: Car Phone"
+msgstr "依車用電話排序"
+
+msgid "Company Phone"
+msgstr "公司電話"
+
+msgid "Sort by: Company Main Phone"
+msgstr "依公司主要電話排序"
+
+msgid "Home Phone 2"
+msgstr "住家電話2"
+
+msgid "Sort by: Home Phone 2"
+msgstr "依住家電話2排序"
+
+msgid "Sort by: Home Fax"
+msgstr "依住家傳真排序"
+
+msgid "Sort by: ISDN"
+msgstr "依ISDN排序"
+
+msgid "Sort by: Other Phone"
+msgstr "依其他電話排序"
+
+msgid "Radio Phone"
+msgstr "無線電話"
+
+msgid "Sort by: Radio Phone"
+msgstr "依無線電話排序"
+
+msgid "Sort by: TTY/TDD Phone"
+msgstr "依TTY/TDD電話排序"
+
+msgid "Sort by: Telex Phone"
+msgstr "依電報排序"
+
+msgid "Change Picture"
+msgstr "更改相片"
+
+msgid "Remove Picture"
+msgstr "移除相片"
+
+msgid "VCF file(s)"
+msgstr "VCF檔案"
+
+msgid "Open in new browser window"
+msgstr "在新瀏覽視窗中打開"
+
+msgid ""
+"Your browser seems to have blocked one or more pop-ups. Please change your "
+"browser's settings to always allow pop-ups from WebApp."
+msgstr "您的瀏覽器已阻止彈出窗口，請瀏覽器更改設定以允許窗口彈出"
+
+msgid "Untitled"
+msgstr "未命名"
+
+msgid ""
+"Cannot upload attachment, only {0} attachments are allowed to be added to "
+"the message"
+msgstr "無法上傳附檔，僅允許添加{0}個附檔"
+
+msgid ""
+"Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
+msgstr "未能上傳附檔，允許的最大的附檔數是{1}，當前附檔數為{0}"
+
+msgid ""
+"Cannot upload attachment, the total attachment size is {0} while the allowed "
+"maximum is {1}"
+msgstr "無法上傳附檔，全部附檔大小{0}只允許最大{1}"
+
+msgid ""
+"Cannot upload attachment, total attachment is {0} while the allowed maximum "
+"attachment in single request is {1}."
+msgstr "未能上傳附檔，單個邀請中允許的最大的總附檔大小為{1}，當前總附檔大小為{0}"
+
+msgid ""
+"Cannot upload attachment, total attachments are {0} files while the maximum "
+"{1} files are allowed in single request."
+msgstr "未能上傳附檔，單個邀請中允許的最大的附檔數是{1}，當前附檔數為{0}"
+
+#. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
+msgid "{0} on behalf of {1}"
+msgstr "{0}代表{1} "
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F"
+msgstr "Fj日"
+
+msgid "Y"
+msgstr "Y年"
+
+msgid "Important"
+msgstr "重要的"
+
+msgid "Personal"
+msgstr "個人的"
+
+msgid "Holiday"
+msgstr "假日"
+
+msgid "Travel Required"
+msgstr "需要出差"
+
+msgid "Preparation Required"
+msgstr "需要準備"
+
+msgid "Special Date"
+msgstr "特別日"
+
+msgid "Phone Interview"
+msgstr "電話面試"
+
+msgid "Free"
+msgstr "空閒"
+
+msgid "Low"
+msgstr "低"
+
+msgid "Normal"
+msgstr "壹般"
+
+msgid "High"
+msgstr "高"
+
+msgid "Canceled"
+msgstr "取消"
+
+msgid "Blue"
+msgstr "藍色"
+
+msgid "Green"
+msgstr "綠色"
+
+msgid "Pink"
+msgstr "粉紅色"
+
+msgid "White"
+msgstr "白色"
+
+msgid "Yellow"
+msgstr "黃色"
+
+msgid "No response"
+msgstr "沒有回應"
+
+msgid "Not responded"
+msgstr "不回應"
+
+msgid "Accepted"
+msgstr "接受"
+
+msgid "Declined"
+msgstr "拒絕"
+
+msgid "Confidential"
+msgstr "機密的"
+
+msgid "Not Started"
+msgstr "尚未開始"
+
+msgid "In Progress"
+msgstr "進行中"
+
+msgid "Wait for other person"
+msgstr "等待其他人"
+
+msgid "Deferred"
+msgstr "延期"
+
+msgid "Dark"
+msgstr ""
+
+#, fuzzy
+msgid "High Contrast"
+msgstr "最近聯絡人"
+
+msgid "Lime"
+msgstr ""
+
+msgid "Orange"
+msgstr "橘色"
+
+msgid "Purple"
+msgstr "紫色"
+
+msgid "Logout"
+msgstr "登出"
+
+msgid "Switch view"
+msgstr "切換檢視"
+
+msgid "Widgets"
+msgstr "新增小工具"
+
+msgid "Sending..."
+msgstr "傳送中..."
+
+msgid "Sent successfully"
+msgstr "傳送成功"
+
+msgid "No recipient"
+msgstr "沒有收件人"
+
+msgid "Please specify at least one recipient"
+msgstr "請選擇至少壹個收件人"
+
+msgid "Please specify a recipient"
+msgstr "請選擇壹個收件人"
+
+msgid "The attached files are not uploaded yet."
+msgstr "附加的檔案尚未被上傳"
+
+msgid "Do you want to send this message without attachments?"
+msgstr "是否在未帶附檔的情況下傳送郵件？"
+
+msgid "Attachments not uploaded yet"
+msgstr "附檔尚未上傳"
+
+msgid "Don't Send"
+msgstr "不傳送"
+
+msgid "Send Anyway"
+msgstr "仍然傳送"
+
+msgid "No subject"
+msgstr "無主旨"
+
+msgid "Send this message without a subject?"
+msgstr "要傳送沒有主旨的郵件嗎？"
+
+msgid "Unresolved recipients"
+msgstr "未能解析的收件人"
+
+msgid "Not all recipients could be resolved"
+msgstr "不是所有收件人地址能夠解析成功"
+
+msgid "Collapse hierarchy"
+msgstr "折疊階層"
+
+msgid "Expand hierarchy"
+msgstr "展開階層"
+
+msgid "Folders List"
+msgstr "資料夾清單"
+
+msgid "Copy Details"
+msgstr "復制詳細信息"
+
+msgid "Hide Details"
+msgstr "隱藏詳細信息"
+
+msgid "Loaded {0} of {1}"
+msgstr "已加載{1}中{0}"
+
+msgid "Saving"
+msgstr "儲存中"
+
+msgid "Saved"
+msgstr "已儲存"
+
+msgid "Saved successfully"
+msgstr "儲存成功"
+
+msgid ""
+"You will lose all unsaved work. Are you sure you want to close this window?"
+msgstr "您將失去所有改變。您確定要關閉此視窗嗎？"
+
+msgid "Kopano Content Panel"
+msgstr "Steep內容面板"
+
+msgid "Delete item"
+msgstr "刪除項目"
+
+msgid "This item has been changed. Are you sure you want to delete it?"
+msgstr "項目已被變更，是否繼續刪除？"
+
+msgid "Unsaved changes"
+msgstr "未儲存變更"
+
+msgid "Welcome to Kopano WebApp"
+msgstr "歡迎來到晶格WebApp"
+
+msgid "This is the first time you are using WebApp. "
+msgstr "這是您首次使用WebApp"
+
+msgid "Please check the following settings before continuing."
+msgstr "請檢查下列配置，以便您更好地使用WebApp"
+
+msgid "Add widgets"
+msgstr "新增小工具"
+
+msgid "No widgets installed."
+msgstr "沒有安裝小工具"
+
+msgid "Configure widget"
+msgstr "配置小工具"
+
+msgid "Remove widget"
+msgstr "移除小工具"
+
+msgid "Collapse widget"
+msgstr "折疊小工具"
+
+msgid "Expand widget"
+msgstr "展開小工具"
+
+msgid "Add new widget"
+msgstr "新增小工具"
+
+msgid "Collapse widget panel"
+msgstr "折疊小工具面板"
+
+msgid "Expand widget panel"
+msgstr "展開小工具面板"
+
+msgid "Your changes will be lost if you leave this page now."
+msgstr "如您離開當前頁面，您所做的改變都將丟失"
+
+msgid "D G:i"
+msgstr "D G:i"
+
+msgid "D d-m"
+msgstr "m月d日 D"
+
+msgid "Insufficient permissions"
+msgstr "權限不足"
+
+msgid ""
+"Not enough permissions to open this store, do you want to remove it from the "
+"hierarchy?"
+msgstr "沒有權限開啟此儲存庫，您要從您的清單移除嗎？"
+
+msgid ""
+"Not enough permissions to open this folder, do you want to remove it from "
+"the hierarchy?"
+msgstr "沒有足夠的權限來開啟這個檔案夾，您想要從此階層移除嗎？"
+
+msgid "Insufficient Permissions"
+msgstr "權限不足"
+
+msgid "Not enough permissions to open this folder."
+msgstr "沒有足夠的權限來開啟這個檔案夾"
+
+#, fuzzy
+msgid "There is {0} unread message in the folder {1} of {2}"
+msgid_plural "There are {0} unread messages in the folder {1} of {2}"
+msgstr[0] "有{0}未讀的郵件在{2}的資料夾中{1}"
+
+msgid "There is {0} unread message in the folder {1}"
+msgid_plural "There are {0} unread messages in the folder {1}"
+msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
+
+#. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
+msgid "{0} in {1}"
+msgstr "{1}中的資料夾“{0}”"
+
+#. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME of USERNAME".
+msgid "{0} of {1}"
+msgstr "{1}的資料夾“{0}”"
+
+msgid "Full control"
+msgstr "完全控制"
+
+msgid "No rights"
+msgstr "沒有權限"
+
+msgid "Unable to import:"
+msgstr "未能導入:"
+
+msgid "The files are not valid"
+msgstr "這些檔案無效"
+
+msgid "Create New Folder"
+msgstr "建立新資料夾"
+
+msgid "Folder contains"
+msgstr "資料夾包含"
+
+msgid "Calendar Items"
+msgstr "日曆項目"
+
+msgid "Mail and Post Items"
+msgstr "郵件和郵箱項目"
+
+msgid "Contacts Items"
+msgstr "聯絡項目"
+
+msgid "Note Items"
+msgstr "註解項目"
+
+msgid "Task Items"
+msgstr "任務項目"
+
+msgid "Select where to place the folder"
+msgstr "選擇放置資料夾的位置"
+
+msgid "No folder name"
+msgstr "無資料夾名稱"
+
+msgid "No destination"
+msgstr "無相目標地址"
+
+msgid "You must select a destination folder."
+msgstr "您必須選擇壹個目標資料夾"
+
+msgid "Properties"
+msgstr "屬性"
+
+msgid "Type"
+msgstr "類型"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Folder size"
+msgstr "資料夾大小"
+
+msgid "Folder containing {0} Items"
+msgstr "資料夾內含{0}項目"
+
+msgid "Permissions"
+msgstr "權限"
+
+msgid "No permissions granted"
+msgstr "沒有授予權限"
+
+msgid "Profile"
+msgstr "賬戶配置"
+
+msgid "Create items"
+msgstr "建立新項目"
+
+msgid "Read items"
+msgstr "讀取項目"
+
+msgid "Create subfolders"
+msgstr "建立子資料夾"
+
+msgid "Folder permissions"
+msgstr "資料夾權限"
+
+msgid "Folder visible"
+msgstr "已有的資料夾"
+
+msgid "Edit items"
+msgstr "編輯項目"
+
+msgid "Own"
+msgstr "自己的"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Delete items"
+msgstr "刪除項目"
+
+msgid "User already exists"
+msgstr "使用者已存在"
+
+msgid "Group already exists"
+msgstr "群組已存在"
+
+msgid "Folder Size"
+msgstr "資料夾大小"
+
+msgid "Folder Name"
+msgstr "資料夾名稱"
+
+msgid "Size (without subfolders)"
+msgstr "大小(無子資料夾)"
+
+msgid "Total size (including subfolders)"
+msgstr "全部大小(包括子資料夾)"
+
+msgid "Loading subfolder sizes"
+msgstr "載入子資料夾大小中"
+
+msgid "No subfolders present"
+msgstr "目前無子資料夾"
+
+msgid "Subfolder"
+msgstr "子資料夾"
+
+msgid "Sort by: Name of the subfolder"
+msgstr "排序方式: 依子資料夾名稱"
+
+msgid "Sort by: Size (without subfolders)"
+msgstr "排序方式: 依大小 (無子資料夾)"
+
+msgid "Total size"
+msgstr "全部大小"
+
+msgid "Sort by: Total size (including subfolders)"
+msgstr "排序方式: 全部大小 (包括子資料夾)"
+
+msgid "Open Shared Folders"
+msgstr "開啟共用資料夾"
+
+msgid "Unresolved user"
+msgstr "無法解析使用者"
+
+msgid "Username '{0}' could not be resolved."
+msgstr "無法解析使用者”{0}“"
+
+msgid "Invalid user"
+msgstr "無效使用者"
+
+msgid "Username '{0}' is not a valid user."
+msgstr "“{0}”不是有效的使用者"
+
+msgid "Own store"
+msgstr "擁有儲存庫"
+
+msgid "It is not possible to open your own store twice."
+msgstr "不能重複開啟自己的儲存庫"
+
+msgid "Folder already open"
+msgstr "此共享資料夾已開啟"
+
+msgid "This shared folder is already open."
+msgstr "此共享資料夾已開啟"
+
+msgid "No user"
+msgstr "沒有使用者"
+
+msgid "You must specify a user"
+msgstr "您必須指定壹個使用者名稱"
+
+msgid "Folder type"
+msgstr "資料夾種類"
+
+msgid "Show subfolders"
+msgstr "顯示子資料夾"
+
+msgid "Open shared folder/store"
+msgstr "打開共用資料夾/存儲庫"
+
+msgid "Empty folder"
+msgstr "清空資料夾"
+
+msgid "Empty Junk Email"
+msgstr "清空垃圾郵件"
+
+msgid "Empty Deleted Items"
+msgstr "清空已刪除郵件"
+
+msgid "Rename Folder"
+msgstr "重新命名資料夾"
+
+msgid "New Folder"
+msgstr "新資料夾"
+
+msgid "Mark All Messages Read"
+msgstr "標記所有郵件為讀取"
+
+msgid "Delete Folder"
+msgstr "刪除資料夾"
+
+msgid "Close store"
+msgstr "關閉存儲庫"
+
+msgid "Close folder"
+msgstr "關閉資料夾"
+
+msgid "Reload"
+msgstr "重載"
+
+msgid "Restore items"
+msgstr "恢復項目"
+
+msgid "Select color"
+msgstr "選擇顏色"
+
+msgid "Add to Favorites"
+msgstr "新增至我的最愛資料夾"
+
+msgid "Remove From Favorites"
+msgstr "從最愛資料夾中移除"
+
+msgid "Share folder..."
+msgstr "共用資料夾"
+
+msgid "Import emails"
+msgstr "導入郵件"
+
+msgid "Import appointments"
+msgstr "導入約會"
+
+msgid "Properties of {0}"
+msgstr "{0}的屬性"
+
+msgid "Share {0} with..."
+msgstr "和{0}共用..."
+
+msgid "Properties of {0} - {1}"
+msgstr "{0} - {1}的屬性"
+
+msgid ""
+"Are you sure you want to permanently delete all the items and subfolders in "
+"the \"{0}\" folder?"
+msgstr "您確定要永久刪除“{0}”資料夾中所有項目及子資料夾？"
+
+msgid ""
+"Are you sure you want to delete the folder \"{0}\" and move all of its "
+"contents into the Deleted Items folder?"
+msgstr "您確定要刪除此檔案夾“{0}”並將所有檔案夾中的資料移至已刪除的郵件？"
+
+msgid "Delete folder"
+msgstr "刪除資料夾"
+
+msgid "Are you sure you want to empty {0}?"
+msgstr "您確定要清空{0}？"
+
+msgid "Show all folders"
+msgstr "顯示所有資料夾"
+
+msgid "CC"
+msgstr "副本"
+
+msgid "BCC"
+msgstr "密件副本"
+
+msgid "Sort by: Importance"
+msgstr "依重要性排序"
+
+msgid "Sort by: To"
+msgstr "依收件人排序"
+
+#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+msgid "Sent"
+msgstr "已傳送"
+
+msgid "Red"
+msgstr "紅色"
+
+msgid "Original message"
+msgstr "原始郵件"
+
+msgid "Schedule mail to be sent out"
+msgstr "定時傳送郵件"
+
+msgid "Scheduled Items"
+msgstr "定時項目"
+
+msgid "Your message will be sent at "
+msgstr "您的郵件的預定傳送時間為"
+
+msgid "Go to your Outbox to edit your email."
+msgstr "請至發件箱編輯您的郵件"
+
+msgid "hour(s)"
+msgstr "小時"
+
+msgid "day(s)"
+msgstr "天"
+
+msgid "month(s)"
+msgstr "月"
+
+msgid "at a specific time"
+msgstr "特定的時間"
+
+msgid "The time you entered is in the past. Please reschedule your mail."
+msgstr "您輸入的時間已成為過去，請重新安排您的時間"
+
+msgid "today  at "
+msgstr "今天的"
+
+msgid "tomorrow  at "
+msgstr "明天的"
+
+msgid "{0} at "
+msgstr "{0}的"
+
+msgid "at {0}"
+msgstr "在{0}"
+
+msgid "Your email will be sent {0}{1}"
+msgstr "您的郵件將於{0}{1}傳送"
+
+msgid "Saving..."
+msgstr "儲存..."
+
+msgid "Saved at {0}"
+msgstr "儲存於{0}"
+
+msgid "g:i A"
+msgstr "g:i A"
+
+msgid "Saving failed"
+msgstr "載入失敗"
+
+msgid "Message Options"
+msgstr "郵件選項"
+
+msgid "This message will be flagged for follow up when it is sent."
+msgstr "將在郵件傳送時設定旗標該郵件為需後繼處理"
+
+msgid "Send Later"
+msgstr "以後傳送"
+
+msgid "Schedule your mail to be sent on a specific date and time"
+msgstr "定時發送您的郵件"
+
+msgid "Add attachments to this email"
+msgstr "新增附檔到此郵件"
+
+msgid "Add signature"
+msgstr "新增簽名"
+
+msgid "Options"
+msgstr "選項"
+
+msgid "Open options dialog"
+msgstr "開啟選項對話框"
+
+msgid "Set flag"
+msgstr "設定旗標"
+
+msgid "Set flag on this email"
+msgstr "設定旗標在此郵件"
+
+msgid "Mark this mail as high priority"
+msgstr "標記此郵件為高優先性"
+
+msgid "Mark this mail as low priority"
+msgstr "標記此郵件為低優先性"
+
+msgid "Set read receipt"
+msgstr "設定讀取回條"
+
+msgid "Request read receipt from recipients"
+msgstr "要求收件人讀取回條"
+
+msgid "Show Bcc"
+msgstr "顯示密件副本"
+
+msgid "Show Bcc field"
+msgstr "顯示密件副本欄"
+
+msgid "Show From field"
+msgstr "顯示寄件者"
+
+msgid "No signatures configured"
+msgstr "沒有設定簽名檔"
+
+msgid "Cannot save while attachment is being uploaded"
+msgstr "正在上傳附檔，未能儲存郵件"
+
+msgid "Miscellaneous Options"
+msgstr "其它選項"
+
+msgid "Internet Headers"
+msgstr "郵件標頭"
+
+msgid "EntryID"
+msgstr ""
+
+msgid "Message Settings"
+msgstr "郵件設定"
+
+msgid "Tracking Options"
+msgstr "追蹤選項"
+
+msgid "Request a read receipt for this message."
+msgstr "要求此封郵件的讀取回條"
+
+msgid "no subject"
+msgstr "無主旨"
+
+msgid "Set Category"
+msgstr "設定分類"
+
+msgid "Pop-Out"
+msgstr "彈出框"
+
+msgid "Mark Read"
+msgstr "標示已閱讀"
+
+msgid "Mark Unread"
+msgstr "標示未閱讀"
+
+msgid "New mail"
+msgstr "新郵件"
+
+msgid "Mail"
+msgstr "郵件"
+
+msgid "Reply all"
+msgstr "回復所有人"
+
+msgid "Toggle read/unread"
+msgstr "切換已閱讀/未閱讀"
+
+msgid "Toggle red/complete flag"
+msgstr "切換紅色/已完成旗標"
+
+msgid "Open Shared Mails"
+msgstr "開啟共用郵件"
+
+msgid "Print single email"
+msgstr "列印單壹郵件"
+
+msgid "Print selected email"
+msgstr "列印此郵件"
+
+msgid "Filter"
+msgstr "過濾"
+
+msgid "FW"
+msgstr "轉寄"
+
+msgid "RE"
+msgstr "回覆"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "Plain Text"
+msgstr "純文字"
+
+msgid "Compose mail settings"
+msgstr "編輯郵件設定"
+
+msgid "Compose mail in this format"
+msgstr "編輯郵件格式"
+
+msgid "Editor"
+msgstr "編輯器"
+
+msgid "Default font"
+msgstr "預設字型"
+
+msgid "Default font size"
+msgstr "預設文字大小"
+
+msgid "Always request a read receipt"
+msgstr "總是要求讀取回條"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of minutes which the user will type in.
+msgid "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}每隔{B}分鐘自動儲存未傳送郵件"
+
+msgid "Incoming mail"
+msgstr "收到的郵件"
+
+msgid "How to respond to requests for read receipts"
+msgstr "如何回應讀取回條"
+
+msgid "Always send a response"
+msgstr "總是傳送回條"
+
+msgid "Never send a response"
+msgstr "不傳送回條"
+
+msgid "Ask me before sending a response"
+msgstr "詢問我是否傳送回條"
+
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Automatically mark mail as read after {B} second(s)"
+msgstr "{A}在{B}秒後自動標示已讀取"
+
+msgid "Off"
+msgstr "關閉"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Bottom"
+msgstr "底"
+
+msgid "General mail settings"
+msgstr "壹般郵件設定"
+
+msgid "Location of preview pane"
+msgstr "預覽面板位置"
+
+msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
+msgstr "使用英文簡寫FW:(轉寄)和RE:(回復)"
+
+msgid "Close original message on reply or forward"
+msgstr "轉寄或回復時關閉原郵件"
+
+msgid "Open or compose a mail item in a"
+msgstr "打開或撰寫郵件時，郵件處於"
+
+msgid "WebApp tab"
+msgstr "新標簽"
+
+msgid "Browser window"
+msgstr "瀏覽器新視窗"
+
+msgid "I am currently in the office"
+msgstr "我現在在辦公室"
+
+msgid "I am out of the office"
+msgstr "我現在不在辦公室"
+
+msgid "only valid during this time range"
+msgstr "只在以下時間範圍內答復"
+
+msgid "Automatically reply once for each sender with the following messages"
+msgstr "自動回復內容"
+
+msgid "Inside My Orgnization"
+msgstr "在我的組織內"
+
+msgid "Outside My Orgnization"
+msgstr "在我的組織外"
+
+msgid "Auto-reply to people outside my orgnization"
+msgstr "自動答復我組之外的人"
+
+msgid "My contacts only"
+msgstr "只答復我的聯系人"
+
+msgid "Anyone outside my orgnization"
+msgstr "答復我組織外的任何人"
+
+msgid "User is currently out of office."
+msgstr "使用者現在不在辦公室"
+
+msgid ""
+"The time you entered is before the out of office date. Please reschedule."
+msgstr "您輸入的外出時間已失效，請重新設定"
+
+msgid "Signatures"
+msgstr "簽名檔"
+
+msgid "Signature for new messages"
+msgstr "新郵件簽名檔"
+
+msgid "Signature for replies and forwards"
+msgstr "回覆和轉寄簽名檔"
+
+msgid "Save Signature"
+msgstr "儲存簽名檔"
+
+msgid "You have unsaved changes. Do you wish to save the changes?"
+msgstr "您尚未儲存設定，您想要儲存此設定嗎？"
+
+msgid "New signature"
+msgstr "新簽名檔"
+
+msgid "EML file(s)"
+msgstr "EML檔案"
+
+msgid "ZIP file"
+msgstr "ZIP檔案"
+
+msgid "max. "
+msgstr "最大."
+
+msgid "Sort by: Sent"
+msgstr "依傳送日期排序"
+
+msgid "Modified"
+msgstr "修改時間"
+
+msgid "Sort by: Modified"
+msgstr "依修改時間排序"
+
+msgid "Flag"
+msgstr "旗標"
+
+msgid "Sort by: flag"
+msgstr "依旗標排序"
+
+msgid "Older"
+msgstr "舊的"
+
+msgid "Yesterday"
+msgstr "昨天的"
+
+msgid "Last Week"
+msgstr "上周"
+
+msgid "Two Weeks Ago"
+msgstr "兩周前"
+
+msgid "Three Weeks Ago"
+msgstr "三周前"
+
+msgid "Last Month"
+msgstr "上月"
+
+msgid "Small"
+msgstr "小"
+
+msgid "Medium"
+msgstr "中"
+
+msgid "Large"
+msgstr "大"
+
+msgid "Very large"
+msgstr "很大"
+
+msgid "Huge"
+msgstr "巨大"
+
+msgid "Follow up"
+msgstr "後繼旗標"
+
+msgid "Move to Junk Folder"
+msgstr "移動到垃圾郵件資料夾"
+
+msgid "Send to"
+msgstr "傳送至"
+
+msgid "Loading mail"
+msgstr "載入郵件中"
+
+msgid "Print note"
+msgstr "列印此筆記"
+
+msgid "Color"
+msgstr "顏色"
+
+msgid "New note"
+msgstr "新建筆記"
+
+msgid "Open Shared Notes"
+msgstr "開啟共用筆記"
+
+msgid "Sticky note"
+msgstr "便條"
+
+msgid "Print selected note"
+msgstr "列印此任務"
+
+msgid "No note selected"
+msgstr "沒有選擇的筆記"
+
+msgid "Icons"
+msgstr "圖標"
+
+msgid "List view"
+msgstr "清單檢視"
+
+msgid "List Last Seven Days"
+msgstr "最近七天"
+
+msgid "Created"
+msgstr "建立日期"
+
+msgid "Sort by: Created"
+msgstr "依建立日期排序"
+
+msgid "Sort by: Color"
+msgstr "依顏色排序"
+
+msgid "Loading Notes"
+msgstr "載入筆記中"
+
+msgid "Loading notes"
+msgstr "載入筆記"
+
+msgid ""
+"You must reload WebApp for the changes to take effect. Unsaved changes will "
+"be lost."
+msgstr "為使您所做的改變生效，請重新加載WebApp，將丟失所有未儲存的修改"
+
+msgid "Reload WebApp"
+msgstr "重新載入WebApp"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Account information - {0}"
+msgstr "帳號資訊- {0}"
+
+msgid "Profile Picture"
+msgstr "頭像"
+
+msgid "Language"
+msgstr "語言"
+
+msgid "Startup folder"
+msgstr "開始資料夾"
+
+msgid "Theme"
+msgstr "主題"
+
+msgid "Select Default Folder"
+msgstr "選擇預設資料夾"
+
+msgid "Advanced"
+msgstr "進階"
+
+msgid "Advanced settings"
+msgstr "進階設定"
+
+msgid "Edit setting"
+msgstr "編輯設定"
+
+msgid "Restore to defaults"
+msgstr "回復預設值"
+
+msgid "Delete settings"
+msgstr "刪除設定"
+
+msgid "{0} Iconset"
+msgstr "{0}圖標集"
+
+msgid "About"
+msgstr "關於"
+
+msgid "I want to display date and time in this format:"
+msgstr "我希望將時間顯示為如下格式:"
+
+msgid "Short"
+msgstr "短格式"
+
+msgid "Long"
+msgstr "長格式"
+
+msgid "Favorite settings"
+msgstr "我的最愛設定"
+
+msgid "Hide favorites"
+msgstr "隱藏我的最愛"
+
+msgid "Unpin favorites from top"
+msgstr "從頂部解除我的最愛固定"
+
+msgid "Give unread items a colored border"
+msgstr "未讀郵件顯示彩色邊框"
+
+msgid "Inbox navigation"
+msgstr "收件夾導航"
+
+msgid "I want to navigate through my items by using."
+msgstr "我希望瀏項目時使用"
+
+msgid "Infinite Scroll"
+msgstr "無限滾動條"
+
+msgid "WebApp automatically loads additional items when you scroll down"
+msgstr "當您下拉滾動條時，WebApp將會為您自動加載項目"
+
+msgid "Pagination"
+msgstr "分頁器"
+
+msgid ""
+"WebApp displays items on pages and you can use navigation controls to "
+"navigate"
+msgstr "WebApp將為您按頁顯示項目，您將可以使用導航控件進行瀏覽"
+
+msgid "Load items in blocks of {A}"
+msgstr "每次載入{A}項目"
+
+msgid "Load {A} items per page."
+msgstr "每頁載入{A}項目"
+
+msgid "Keyboard Shortcuts"
+msgstr "鍵盤快捷鍵"
+
+msgid "Part of basic keyboard shortcuts"
+msgstr "基本鍵盤快捷鍵部分"
+
+msgid "Keyboard shortcuts off"
+msgstr "關閉快捷鍵"
+
+msgid "Basic keyboard shortcuts on"
+msgstr "打開基本快捷鍵功能"
+
+msgid "All keyboard shortcuts on"
+msgstr "打開所有鍵盤快捷鍵功能"
+
+msgid "This change requires a reload of the WebApp"
+msgstr "需要重新載入WebApp"
+
+msgid "Discard"
+msgstr "丟棄"
+
+msgid "Plugins"
+msgstr "模組"
+
+msgid "Available plugins"
+msgstr "有效的模組"
+
+msgid ""
+"The following plugins are available in the WebApp. It is possible to select "
+"and/or deselect different plugins to indicate which plugins should be "
+"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
+"in order for the changes to take effect."
+msgstr "下列模組在WebApp中有效，您可以選擇或取消這些模組。當您更改模組設定以後，您必須重新加載WebApp以便這些設定能夠生效"
+
+msgid "No plugins available"
+msgstr "無有效模組"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "This plugin cannot be disabled"
+msgstr "無法禁用此模組"
+
+msgid "This plugin cannot be enabled"
+msgstr "無法啟用此模組"
+
+msgid "Mailbox Usage"
+msgstr "信箱使用情況"
+
+msgid "Quota information is not set on the user's store."
+msgstr "此使用者未設定容量配額"
+
+msgid "{0} of mailbox space is used."
+msgstr "已使用{0}信箱空間"
+
+msgid "You have exceeded hard quota, you can not send or recieve mails."
+msgstr "您已達到信箱容量限制，您不能再傳送或接收郵件"
+
+msgid "At {0} you won't be able to send mails."
+msgstr "當{0}時，您不能傳送郵件"
+
+msgid ""
+"You can not send mails as you have exceeded soft quota, at {0} you won't be "
+"able to recieve mails."
+msgstr "由於已達信箱容量警示您不能傳送郵件，在{0}您將不能接收郵件"
+
+msgid "At {0} you won't be able to send or recieve mails."
+msgstr "在{0}您將不能傳送或接收郵件"
+
+msgid "You can not send mails as you have exceeded soft quota."
+msgstr "由於達到信箱容量警示，您不能傳送郵件"
+
+msgid "Reset settings"
+msgstr "重置設定"
+
+msgid "Reset settings to their original defaults."
+msgstr "重置設定至初始預設出狀態"
+
+msgid ""
+"This will close all opened shared stores and resets all settings to the "
+"default value."
+msgstr "此操作將關閉所有的共用存儲庫並將所有設定至重置至初始狀態"
+
+msgid ""
+"WebApp will automatically reload in order for these changes to take effect"
+msgstr "WebApp將會自動重新載入以便於將這些設定生效"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Reloading, Please wait."
+msgstr "重新載入中，請稍等"
+
+msgid "Setting"
+msgstr "設定"
+
+msgid "The setting '{0}' can not be edited"
+msgstr "無法編輯設定“{0}”"
+
+msgid "Version information"
+msgstr "版本資訊"
+
+msgid "WebApp"
+msgstr ""
+
+msgid "Kopano Core"
+msgstr "Steep Zcore"
+
+msgid "Delete confirmation"
+msgstr "刪除確認"
+
+msgid "Deleting the item(s) will also delete the original item(s)."
+msgstr "刪除這些項目同時也將刪除原始項目"
+
+msgid "Do you want to delete the item(s)?"
+msgstr "確定要刪除這些項目嗎？"
+
+msgid "Sort by: Priority"
+msgstr "依優先性排序"
+
+msgid "Status"
+msgstr "狀態"
+
+msgid "Sort by: Status"
+msgstr "依狀態排序"
+
+msgid "Due Date"
+msgstr "結束日期"
+
+msgid "Sort by: Due Date"
+msgstr "依結束日期排序"
+
+msgid "% Completed"
+msgstr "%完成"
+
+msgid "Sort by: Percent Completed"
+msgstr "依完成百分比排序"
+
+msgid "Task Status"
+msgstr "任務狀態"
+
+msgid "Percent Complete"
+msgstr "完成百分比"
+
+msgid "Total Work"
+msgstr "全部工作"
+
+msgid "Actual Work"
+msgstr "實際工作"
+
+msgid "Companies"
+msgstr "公司"
+
+msgid "Billing Information"
+msgstr "帳目資訊"
+
+msgid "Mileage"
+msgstr "裏程數"
+
+msgid "Accepting Task"
+msgstr "接受任務"
+
+msgid "Declining Task"
+msgstr "拒絕任務"
+
+msgid ""
+"This task will be accepted and moved to your task folder. Do you want to "
+"include comments with your response?"
+msgstr "此會議將被接受並且會移入您的行事曆，您要包含您的回應意見嗎？"
+
+msgid ""
+"This task will be declined and moved into the Deleted Items folder. Do you "
+"want to edit the response before sending it?"
+msgstr "此會議將被拒絕並且會移到刪除項目資料夾，您要包含您的回應意見嗎？"
+
+msgid "Send the response now"
+msgstr "現在傳送回應"
+
+msgid "Date Complete"
+msgstr "完成日期"
+
+msgid "Update List"
+msgstr "更新清單"
+
+msgid "Create Unassigned Copy"
+msgstr "建立未指定的副本"
+
+msgid "copy"
+msgstr "復制"
+
+msgid "Unable to send task request"
+msgstr "未能傳送任務請求"
+
+msgid "You cannot send a task request to yourself."
+msgstr "您不能給自己傳送任務分配"
+
+msgid "Multiple recipients"
+msgstr "多個收件人"
+
+msgid "A task request can only have one recipient."
+msgstr "任務請求只能又壹個收件人"
+
+msgid "Due date"
+msgstr "到期日"
+
+msgid "Priority"
+msgstr "優先性"
+
+msgid "% Complete"
+msgstr "% 完成"
+
+msgid "Track progress"
+msgstr "追蹤進程"
+
+msgid "Keep updated copy of task and receive automated status reports"
+msgstr "保留任務的更新副本並接收自動化狀態報告"
+
+msgid "Send task to assignees"
+msgstr "傳送任務到受托人"
+
+msgid "Restore to Task List"
+msgstr "恢復至任務清單"
+
+msgid "Delete this task"
+msgstr "刪除此任務"
+
+msgid "Add attachments to this task"
+msgstr "新增附檔到此任務"
+
+msgid "Mark as Complete"
+msgstr "標示已完成"
+
+msgid "Mark this task as complete"
+msgstr "標示此任務完成"
+
+msgid "Print this task"
+msgstr "列印此任務"
+
+msgid "Assign Task"
+msgstr "分配任務"
+
+msgid "Cancel Assignment"
+msgstr "取消任務"
+
+msgid "Mark this task as private"
+msgstr "標示此任務為私人"
+
+msgid "New task"
+msgstr "新建任務"
+
+msgid "Completed"
+msgstr "已完成"
+
+msgid "Percent complete"
+msgstr "完成百分比"
+
+msgid "Total work"
+msgstr "全部工作"
+
+msgid "{totalwork} hours"
+msgstr "{totalwork}小時"
+
+msgid "Actual work"
+msgstr "實際工作"
+
+msgid "{actualwork} hours"
+msgstr "{actualwork}小時"
+
+msgid "Open Shared Tasks"
+msgstr "開啟共用任務"
+
+msgid "Simple view"
+msgstr "簡單檢視"
+
+msgid "Detailed view"
+msgstr "詳細檢視"
+
+msgid "Task request"
+msgstr "任務請求"
+
+msgid "Print selected task"
+msgstr "列印所選任務"
+
+msgid "Print task list"
+msgstr "列印任務清單"
+
+msgid "No task selected"
+msgstr "沒有選擇的任務"
+
+msgid "Create task"
+msgstr "創建任務"
+
+msgid "Mark Complete"
+msgstr "標記完成"
+
+msgid "Mark Incomplete"
+msgstr "標記未完成"
+
+msgid "Remove from To-Do List"
+msgstr "從待辦清單移除"
+
+msgid "Changes to assigned task"
+msgstr "傳送任務到委派者"
+
+msgid ""
+"Please note that assigned task(s) will be overwritten when the assignee "
+"makes changes."
+msgstr "請註意如受托人做出變更，該已分配任務將會被覆蓋"
+
+msgid "Sort by: Complete"
+msgstr "依完成排序"
+
+msgid "Reminder Time"
+msgstr "提醒時間"
+
+msgid "Sort by: Reminder Time"
+msgstr "依提醒時間排序"
+
+msgid "Assigned To"
+msgstr "指派給"
+
+msgid "Sort by: Assignee"
+msgstr "依委派者排序"
+
+msgid "Sort by: Start Date"
+msgstr "依開始日期排序"
+
+msgid "Sort by: Owner"
+msgstr "依擁有者排序"
+
+msgid "Sort by: Percentage Completed"
+msgstr "依完成百分比排序"
+
+msgid "Assigned task changes"
+msgstr "分配的任務已改變"
+
+msgid "Loading tasks"
+msgstr "載入任務中"
+
+msgid "Date completed"
+msgstr "完成日期"
+
+msgid "hours"
+msgstr "小時"
+
+msgid "Billing information"
+msgstr "帳目資訊"
+
+msgid "Update list"
+msgstr "更新清單"
+
+msgid "D d-m-Y"
+msgstr "Y年m月d日 D"
+
+msgid "Import / Export"
+msgstr "導入/導出"
+
+msgid ""
+"Calendar, contact and mail items can be imported and exported from and to "
+"WebApp."
+msgstr "日程表、聯絡人及郵件項目可以通過WebApp導入或導出"
+
+msgid ""
+"Right-click a folder and select the import button. Additionally, items can "
+"be imported from the attachment context menu."
+msgstr "點擊資料夾夾鼠標右鍵並選擇導入選項，另外項目也可以通過附檔上下文菜單導入"
+
+msgid "Exporting can be done from the context menu of an item."
+msgstr "導出可以通過每個項目的上下文菜單進行"
+
+msgid "Icon packs"
+msgstr "圖標包"
+
+msgid ""
+"You can now choose between different icons. By default the new Breeze icons "
+"are enabled, but if you prefer the classic icons you can change this in the "
+"settings."
+msgstr "您現在可以選擇不同的圖標集，系統使用Breeze為默認圖標集，如果您傾向於使用Classic圖標集，請在設置中進行改變"
+
+msgid ""
+"Go to your settings, open the general tab and select an icon pack to your "
+"liking."
+msgstr "進入設置，打開壹般標簽並選擇您喜歡的圖標包"
+
+msgid "Left: Breeze - Right: Classic"
+msgstr "左: Breeze - 右: Classic"
+
+msgid "What's new"
+msgstr "精選"
+
+msgid "Don't show me new features again."
+msgstr "請不要再向我展示新功能"
+
+msgid "Skip"
+msgstr "跳過"
+
+msgid "Previous"
+msgstr "向前"
+
+msgid "Next"
+msgstr "向後"
+
+msgid "The server reported an unknown error on your request."
+msgstr "對於您的請求，系統發生壹個未知的錯誤"
+
+msgid "The server reported an unspecified error on your request."
+msgstr "對於您的請求，系統發生壹個未指定的錯誤"
+
+msgid "The session has expired, reauthentication is required."
+msgstr "作業階段已終止,需要重新認証"
+
+msgid ""
+"The session in the current browser window has been closed from another "
+"browser window or tab."
+msgstr "在此瀏覽器視窗的session已被其他瀏覽器視窗或頁籤關閉"
+
+msgid "Session expired"
+msgstr "連線愈時"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "您要重新連到登入畫面嗎？"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "需要重新認証，請點選這裡回到登入畫面"
+
+msgid "Connection problem"
+msgstr "連線問題"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "無法連線到伺服器，{0}秒後重試連線"
+
+msgid "Click to retry now"
+msgstr "現在點擊重試"
+
+msgid "Connection restored"
+msgstr "連線回復"
+
+msgid "Connection with server has been restored"
+msgstr "已連線到伺服器"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "伺服器接收到無效的數據"
+
+msgid "Missing store"
+msgstr "遺失的儲存庫"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "清單中缺失預設存儲庫"
+
+msgid ""
+"Not all functionality of WebApp might be working properly because of this."
+msgstr "WebApp工作異常，原因如下:"
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "收件夾"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "寄件夾"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "已傳送"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "已刪除郵件"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "行事曆"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "聯絡人"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "草稿"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "日記"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "筆記"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "任務"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "垃圾郵件"
+
+msgid "Missing folders"
+msgstr "遺失的資料夾"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "無法在清單中找到必須的資料夾: {0}"
+
+msgid "Loading model from server failed"
+msgstr "伺服器載入模組失敗"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "外出回復已啟動，您要關閉嗎？"
+
+msgid "Out of office off"
+msgstr "關閉外出回復"
+
+msgid "Out of office has been turned off"
+msgstr "外出回復已關閉"
+
+msgid "Send Fax"
+msgstr "傳送傳真"
+
+msgid "Contact Fax"
+msgstr "聯絡人傳真"
+
+msgid "Widget height"
+msgstr "小工具高度"
+
+msgid "pixels"
+msgstr "像素"
+
+msgid "Reload interval"
+msgstr "重新加載間隔"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "Loading appointments..."
+msgstr "載入約會中"
+
+msgid "No appointments"
+msgstr "無約會"
+
+msgid "Number of days"
+msgstr "天數"
+
+msgid "Today {0} - {1}"
+msgstr "今日 {1} {0}"
+
+msgid "Today (all day)"
+msgstr "今天(全天)"
+
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y G:i"
+msgstr "Y/m/d l G:i"
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (全天)"
+
+msgid "d/m/y"
+msgstr "y/m/d"
+
+msgid "Upcoming Appointments"
+msgstr "即將到來的約會"
+
+msgid "Datepicker"
+msgstr "日期選擇"
+
+msgid "No unread mail."
+msgstr "沒有未讀郵件"
+
+msgid "Unread Mail"
+msgstr "未讀郵件"
+
+msgid "No tasks."
+msgstr "沒有任務"
+
+msgid "Tasks / To-Do"
+msgstr "任務/待辦事項"
+
+msgid "Google Maps"
+msgstr "Google地圖"
+
+#. TRANSLATORS: The map of earth
+msgid "Map"
+msgstr "地圖"
+
+msgid "Move currently selected message(s) to {0}"
+msgstr "搬移選擇的郵件到{0}"
+
+msgid "Move to {0}"
+msgstr "搬移到{0}"
+
+msgid "Move current message to {0}"
+msgstr "搬移目前的郵件到{0}"
+
+msgid "Personal Inbox Manager"
+msgstr "個人收件夾管理"
+
+msgid "Personal Inbox Management Settings"
+msgstr "個人收件夾管理設定"
+
+msgid "Select another folder"
+msgstr "選擇其他的資料夾"
+
+msgid "E-mails are moved to {0}"
+msgstr "電子郵件搬移到{0}"
+
+msgid "Open in new tab"
+msgstr "在新標簽中打開"
+
+msgid "Quick Appointment"
+msgstr "快速創建約會"
+
+msgid "Quick Contact"
+msgstr "快速創建聯絡人"
+
+msgid "Quick Mail"
+msgstr "快速創建郵件"
+
+msgid "Quick Note"
+msgstr "快速創建筆記"
+
+msgid "none"
+msgstr "無"
+
+msgid "Quick Task"
+msgstr "新增任務"
+
+msgid "Title Counter Plugin"
+msgstr "標計數器插件"
+
+msgid "Help"
+msgstr "說明"
+
+msgid "WebApp Manual"
+msgstr "WebApp操作手冊"
+
+msgid "INSERT"
+msgstr "插入"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "依context.mail.griddefaultcolumn排列"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
+msgid "Charm pink"
+msgstr ""
+
+msgid "Cadmium red"
+msgstr ""
+
+msgid "Apricot"
+msgstr ""
+
+msgid "California"
+msgstr ""
+
+msgid "Soft green"
+msgstr ""
+
+msgid "Mint"
+msgstr ""
+
+msgid "Pearl aqua"
+msgstr ""
+
+msgid "Kopano blue"
+msgstr ""
+
+msgid "Baby blue"
+msgstr ""
+
+msgid "Mauve"
+msgstr ""
+
+msgid "Silver sand"
+msgstr ""
+
+msgid "Competition"
+msgstr "競爭"
+
+msgid "Gifts"
+msgstr "禮物"
+
+msgid "Goals/Objectives"
+msgstr "目標/宗旨"
+
+msgid "Holiday Cards"
+msgstr "假日卡片"
+
+msgid "Hot Contacts"
+msgstr "最近聯絡人"
+
+msgid "Ideas"
+msgstr "理念"
+
+msgid "International"
+msgstr "國際的"
+
+msgid "Key Customer"
+msgstr "重要客戶"
+
+msgid "Miscellaneous"
+msgstr "其他"
+
+msgid "Phone Calls"
+msgstr "電話呼叫"
+
+msgid "Strategies"
+msgstr "策略"
+
+msgid "Suppliers"
+msgstr "供應商"
+
+msgid "Time & Expenses"
+msgstr "時間與費用"
+
+msgid "VIP"
+msgstr "VIP"
+
+msgid "Waiting"
+msgstr "等待中"
+
+msgid "You have been automatically logged out"
+msgstr "您已自動登出"
+
+msgid ""
+"Sorry, access to WebApp is not available with this user account. Please "
+"contact your system administrator."
+msgstr "很抱歉，您所使用的賬戶無法登錄WebApp，請聯系系統管理員"
+
+msgid "Can't add data to bus, same action type is present in bus"
+msgstr "無法將數據添加至總線，同類型的行為已被添加至總線"
+
+msgid "Response data requested from bus but it doesn't have any data."
+msgstr "無法從總線獲取任何相關數據"
+
+#, php-format
+msgid "Unknown module '%s' with id '%s'"
+msgstr "未知模組“%s”，id咨詢“%s”"
+
+msgid ""
+"Server encountered some problem, so it was not able to handle the request."
+msgstr ""
+"伺服器出現故障，未能處理您的請求"
+
+#, php-format
+msgid "Unknown notifier '%s'"
+msgstr "未知的通知器“%s”"
+
+msgid "An unexpected error has occurred"
+msgstr "出現異常錯誤"
+
+#, fuzzy
+msgid "To-Do List"
+msgstr "待辦事項清單"
+
+#. TRANSLATORS: This indicates that the opened folder belongs to a particular user,
+#. * for example: 'Calendar of Holiday', in this case %1$s is 'Calendar' (the foldername)
+#. * and %2$s is 'Holiday' (the username).
+#.
+#, php-format
+msgid "%1$s of %2$s"
+msgstr "%2$s的%1$s"
+
+msgid "Error retrieving existing settings"
+msgstr "未能讀取存儲的設置"
+
+msgid "Error retrieving existing persistent settings"
+msgstr "未能讀取存儲的永久設置"
+
+msgid "Logon failed. Please verify your credentials and try again."
+msgstr "登錄失敗，請檢查您的用戶名和密碼並重新嘗試"
+
+msgid "Cannot connect to Kopano Core."
+msgstr "無法連線到steep server."
+
+msgid ""
+"Login did not work due to a duplicate session. The issue was automatically "
+"resolved, please log in again."
+msgstr "無法連線到steep server"
+
+msgid "Unknown MAPI Error"
+msgstr "未知的MAPI Error: %s"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "點擊鏈接並在新視窗中打開URL"
+
+msgid "This external link will open in a new window"
+msgstr "此外部鏈接將在新視窗中打開"
+
+msgid "Destination folder not found."
+msgstr "未發現目標資料夾"
+
+msgid "Eml is corrupted"
+msgstr "eml文件格式損壞"
+
+msgid "The eml Attachment is not imported successfully"
+msgstr "eml附檔未被成功導入"
+
+msgid "The vcf attachment is not imported successfully"
+msgstr "vcf附檔未被成功導入"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "未能導入“%s”至“%s”"
+
+msgid "There is no appointment found in this file."
+msgstr "未在檔案中找到約會"
+
+msgid "The file is corrupt."
+msgstr "檔案格式已損壞"
+
+msgid "The file is invalid."
+msgstr "無效檔案"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "未能導入“%s”"
+
+msgid "Please contact your system administrator if the problem persists."
+msgstr "如問題仍然存在，請聯系管理員"
+
+msgid "Attachment is not imported successfully"
+msgstr "附檔未被成功導入"
+
+msgid "Embedded attachment not found."
+msgstr "未發現內嵌附檔"
+
+msgid "ZIP is not created successfully"
+msgstr "未能成功創建ZIP檔案"
+
+msgid "Attachments can not be downloaded"
+msgstr "未能成功下載附檔"
+
+msgid "Could not find attachment."
+msgstr "無法找到附檔"
+
+msgid "Operation failed"
+msgstr "作業失敗"
+
+msgid "Sticky Note"
+msgstr "便條"
+
+msgid "Task Request"
+msgstr "任務請求"
+
+msgid "Could not find message, either it has been moved or deleted."
+msgstr "未能找到郵件，可能已被刪除或移動"
+
+msgid "Action is not performed correctly."
+msgstr "操作不正確"
+
+msgid "You have insufficient privileges to open this object."
+msgstr "您沒有足夠的權限打開此物件"
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "登錄失敗，請檢查用戶名和密碼"
+
+msgid "Can not connect to Kopano Core."
+msgstr "無法連線到steep server."
+
+msgid "Can not open object with provided id."
+msgstr "無法使用提供的ID打開物件"
+
+msgid "There are no recipients in the message."
+msgstr "此郵件沒有收件人"
+
+msgid "Can not find object."
+msgstr "找不到物件"
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "操作失敗:伺服器內存不足"
+
+#, php-format
+msgid "Unknown MAPI Error: %s"
+msgstr "未知的MAPI Error: %s"
+
+msgid "Tentatively accepted"
+msgstr "暫時接受"
+
+msgid "New Time Proposed"
+msgstr "建議新時間"
+
+#, php-format
+msgid "Occurs every %s effective %s from %s to %s."
+msgstr "Occurs every %s effective %s from %s to %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s from %s to %s."
+msgstr "Occurs every %s %s effective %s from %s to %s."
+
+#, php-format
+msgid "Occurs every %s effective %s."
+msgstr "Occurs every %s effective %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s."
+msgstr "Occurs every %s %s effective %s"
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
+msgstr[0] "Occurs every %s effective %s for %s occurences from %s to %s."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
+msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
+msgstr[0] "Occurs every %s %s effective %s for %s occurences %s to %s."
+
+#, php-format
+msgid "Occurs every %s effective %s for %s occurence."
+msgid_plural "Occurs every %s effective %s for %s occurences."
+msgstr[0] "Occurs every %s effective %s for %s occurences."
+
+#, php-format
+msgid "Occurs every %s %s effective %s for %s occurence."
+msgid_plural "Occurs every %s %s effective %s for %s occurences."
+msgstr[0] "Occurs every %s %s effective %s for %s occurences"
+
+#, php-format
+msgid "Occurs every %s effective %s until %s from %s to %s."
+msgstr "Occurs every %s effective %s until %s from %s to %s"
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s from %s to %s."
+msgstr "Occurs every %s %s effective %s until %s from %s to %s"
+
+#, php-format
+msgid "Occurs every %s effective %s until %s."
+msgstr "Occurs every %s effective %s until %s"
+
+#, php-format
+msgid "Occurs every %s %s effective %s until %s."
+msgstr "Occurs every %s %s effective %s until %s"
+
+msgid "Task Accepted:"
+msgstr "已確認任務"
+
+msgid "Task Declined:"
+msgstr "已拒絕任務"
+
+msgid "Task Updated:"
+msgstr "任務已更新:"
+
+msgid "Task Completed:"
+msgstr "任務已完成:"
+
+msgid "Contact not found"
+msgstr "未發現聯絡人"
+
+msgid ""
+"Contact information could not be displayed because the server had trouble "
+"retrieving the information."
+msgstr "未能正確顯示聯絡人信息，伺服器未能正確讀取聯絡人信息"
+
+msgid "Could not handle this type of object."
+msgstr "無法處理此類型的物件"
+
+msgid "Could not open this object."
+msgstr "無法開啟物件"
+
+msgid "Could not open occurrence."
+msgstr "無法開啟循環單項"
+
+msgid "Could not open occurrence, specific occurrence is probably deleted."
+msgstr "未能打開循環單項，可能已被刪除"
+
+msgid "a meeting request"
+msgstr "會議請求"
+
+msgid "an appointment"
+msgstr "約會"
+
+msgid "You have insufficient privileges to move "
+msgstr "您沒有足夠的權限進行移動作業"
+
+msgid "Insufficient privileges"
+msgstr "權限不足"
+
+msgid ""
+"Cannot set a reminder to appear before the previous occurrence. Reset "
+"reminder to save the change"
+msgstr "未能在上壹個循環單項之前設置提醒，請重置提醒並存儲改動"
+
+msgid "Two occurrences cannot occur on the same day"
+msgstr "兩個循環單項不能出現在同壹"
+
+#, php-format
+msgid ""
+"You marked '%s' as a resource. You cannot schedule a meeting with '%s' "
+"because you do not have the appropiate permissions for that account. Either "
+"enter the name as a required or optional attendee or talk to your "
+"administrator about giving you permission to schedule '%s'."
+msgstr ""
+"“%s”已被您標註為資源，您不能將“%s”安排至會議因為您沒有足夠的權限，"
+"您可以將名字輸入與會者名單或向管理員請求權限以便於安排“%s”"
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because '%s' does not automatically accept "
+"meeting requests."
+msgstr "'%s' 已經拒決您的會議因為 '%s'不會自動接受"
+
+#, php-format
+msgid ""
+"'%s' has declined your meeting because it is recurring. You must book each "
+"meeting separately with this resource."
+msgstr "“%s”已拒絕您的會議邀請，因為您發送的是壹個循環周期，請為每個循環單項單獨預定資源"
+
+#, php-format
+msgid ""
+"'%s' is already booked for this specified time. You must use another time or "
+"find another resource."
+msgstr "此'%s'已被預約。您必須選擇其他時間或是其他資源"
+
+msgid "Meeting was not scheduled."
+msgstr "會議尚未被安排時間"
+
+msgid "Meeting could not be sent."
+msgstr "會議未能發出"
+
+msgid "Meeting could not be saved."
+msgstr "會議未能保存"
+
+msgid "Private Appointment"
+msgstr "私人約會"
+
+#, php-format
+msgid "%s's Birthday"
+msgstr "%s的生日"
+
+#, php-format
+msgid "%s's Anniversary"
+msgstr "%s的紀念日"
+
+msgid "Unknown user/group"
+msgstr "未知的使用者/群組"
+
+msgid "Could not save delegate information."
+msgstr "無法儲存代理人資訊"
+
+msgid "Could not delete delegate."
+msgstr "無法刪除代理人"
+
+msgid "Can not get list of delegates."
+msgstr "無法列出代理人清單"
+
+msgid "Could not load the hierarchy."
+msgstr "無法讀取階層"
+
+msgid "Could not load folder properties."
+msgstr "無法讀取資料夾屬性"
+
+msgid "Could not remove folder from favorites."
+msgstr "無法從我的最愛刪除"
+
+msgid "You have insufficient privileges to delete folder."
+msgstr "您沒有足夠的權限刪除資料夾"
+
+msgid "Could not delete folder."
+msgstr "無法刪除資料夾"
+
+msgid "You have insufficient privileges to copy folder."
+msgstr "您沒有足夠的權限複製資料夾"
+
+msgid "Could not copy folder."
+msgstr "無法複製資料夾"
+
+msgid "You have insufficient privileges to move this folder."
+msgstr "您沒有足夠的權限移動資料夾"
+
+msgid "Could not move folder."
+msgstr "無法移動資料夾"
+
+msgid "You have insufficient privileges to delete items."
+msgstr "您沒有足夠的權限刪除項目"
+
+msgid "Could not empty folder."
+msgstr "無法清空資料夾"
+
+msgid "Could not perform action correctly."
+msgstr "無法正確執行操作"
+
+msgid ""
+"A favorite folder with this name already exists, please use another name."
+msgstr "我的最愛中已存在此名稱，請選用其它的名稱"
+
+msgid "Could not add folder to favorites."
+msgstr "無法新增資料夾到我的最愛"
+
+msgid "You have insufficient privileges to set permissions for this folder."
+msgstr "您沒有足夠的權限設定此資料夾權限"
+
+msgid "Could not set folder permissions."
+msgstr "無法設定資料夾權限"
+
+msgid "You have insufficient privileges to rename this folder."
+msgstr "您沒有足夠的權限重新命名此資料夾"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "資料夾名稱已存在.請重新命名"
+
+msgid "Could not rename folder."
+msgstr "無法重新命名資料夾"
+
+msgid "You have insufficient privileges to create this folder."
+msgstr "您沒有足夠的權限新增資料夾"
+
+msgid "Could not create folder."
+msgstr "無法新增資料夾"
+
+msgid "Could not close shared folder."
+msgstr "無法關閉分享資料夾"
+
+msgid "User could not be resolved."
+msgstr "使用者無法辨析"
+
+#, php-format
+msgid ""
+"You have insufficient privileges to open this %1$s folder. The folder owner "
+"can set these using the 'permissions'-tab of the folder properties (right "
+"click the %1$s folder > properties > permissions)."
+msgstr "您沒有足夠的權限打開資料夾%1$s。請在資料夾所有者設置合適的權限後重新嘗試"
+
+# 85%
+msgid "unknown"
+msgstr "未知的"
+
+msgid "Could not move folder"
+msgstr "無法移動資料夾"
+
+msgid "Could not copy folder"
+msgstr "無法複製資料夾"
+
+msgid "You have insufficient privileges to open this message."
+msgstr "您沒有足夠權限開啟此訊息"
+
+msgid ""
+"Could not find message, either it has been moved or deleted or you don't "
+"have access to open this message."
+msgstr "未能打開該郵件，可能已被移動或刪除，或者您沒有足夠的權限"
+
+msgid "Could not open message."
+msgstr "無法開啟儲存庫"
+
+msgid "You have insufficient privileges to decline this Meeting Request"
+msgstr "您沒有足夠權限拒絕此會議邀請"
+
+msgid "You have insufficient privileges to accept this Meeting Request"
+msgstr "您沒有足夠權限接受此會議邀請"
+
+msgid "Could not copy message"
+msgstr "無法複製郵件"
+
+msgid "Could not move message"
+msgstr "無法搬移郵件"
+
+msgid "You have insufficient privileges to save items in this folder"
+msgstr "您沒有足夠權限在此資料夾中儲存項目"
+
+msgid "Could not save message"
+msgstr "無法儲存郵件"
+
+msgid "You have insufficient privileges to remove item from the calendar."
+msgstr "您沒有足夠權限搬移此行事曆項目"
+
+msgid ""
+"Message is no longer in the outgoing queue, typically because it has already "
+"been sent."
+msgstr "郵件已不存在與傳送隊列中，可能已被傳送"
+
+msgid "Message cannot be aborted"
+msgstr "無法取消郵件"
+
+msgid "You have insufficient privileges to delete items in this folder"
+msgstr "您沒有足夠權限在此資料夾中刪除項目"
+
+msgid "You have insufficient privileges to attach item as an attachment."
+msgstr "您沒有權限新增附檔到此項目"
+
+msgid "Could not attach item as an attachment."
+msgstr "未能將項目附加至附檔"
+
+msgid ""
+"You have insufficient privileges to reclaim the ownership for the Task "
+"Request."
+msgstr "您沒有足夠的權限拿回此任務的所有權"
+
+msgid "Could not reclaim the ownership for the Task Request."
+msgstr "未能拿回此任務的所有權"
+
+msgid "You have insufficient privileges to accept this Task Request."
+msgstr "您沒有足夠的權限接受任務分配"
+
+msgid "Could not accept Task Request."
+msgstr "未能接受任務分配"
+
+msgid "You have insufficient privileges to decline this Task Request."
+msgstr "您沒有足夠的權限拒絕任務分配"
+
+msgid "Could not decline Task Request."
+msgstr "未能拒絕任務分配"
+
+msgid "Conflicts with another appointment."
+msgstr "與其它的約會沖突"
+
+#, php-format
+msgid ""
+"%s occurrence of this recurring appointment conflicts with other appointment."
+msgid_plural ""
+"%s occurrences of this recurring appointment conflicts with other "
+"appointments."
+msgstr[0] "循環周期中的單次循環%s與其它約會沖突"
+
+msgid "Your message did not reach some or all of the intended recipients"
+msgstr "您的郵件未到達某些或所有收件人"
+
+msgid "The following recipient(s) could not be reached"
+msgstr "下列收件人未收到郵件"
+
+msgid "You have insufficient privileges to see the contents of this folder."
+msgstr "您沒有足夠的權限來檢視該資料夾中的內容"
+
+msgid "Could not load the contents of this folder."
+msgstr "無法載入資料夾內容"
+
+msgid "Error in search, please try again"
+msgstr "搜尋錯誤，請重試"
+
+msgid "Unable to perform search query, no permissions to create search folder."
+msgstr "未能執行搜尋，沒有權限創建搜尋資料夾"
+
+msgid "Unable to perform search query, search folder not found."
+msgstr "未能執行搜尋，沒有找到搜尋資料夾"
+
+msgid "Unable to perform search query, store might not support searching."
+msgstr "未能執行搜尋，存儲庫可能不支持搜尋"
+
+msgid "Error in creating search folder."
+msgstr "創建搜尋資料夾失敗"
+
+msgid ""
+"You have insufficient privileges to perform search operation in this folder."
+msgstr "您沒有足夠的權限搜尋此資料夾"
+
+msgid "Could not update search results."
+msgstr "無法更新的搜尋結果"
+
+msgid "Could not stop search operation."
+msgstr "無法停止搜尋操作"
+
+msgid "You have insufficient privileges to save this message."
+msgstr "您沒有足夠的權限儲存此訊息"
+
+msgid "Could not save message."
+msgstr "無法儲存郵件"
+
+msgid "You have insufficient privileges to delete this message."
+msgstr "您沒有足夠的權限刪除此訊息"
+
+msgid "Could not delete message."
+msgstr "無法刪除郵件"
+
+msgid "You have insufficient privileges to cancel this Meeting Request."
+msgstr "您沒有足夠的權限取消此會議邀請"
+
+msgid "Could not cancel Meeting Request."
+msgstr "無法取消會議邀請"
+
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "您沒有足夠的權限拒絕此會議邀請"
+
+msgid "Could not decline Meeting Request."
+msgstr "無法拒絕會議邀請"
+
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "您沒有足夠的權限接受此會議邀請"
+
+msgid "Could not accept Meeting Request."
+msgstr "無法接受此會議邀請"
+
+msgid "You have insufficient privileges to cancel Meeting Request invitation."
+msgstr "您沒有足夠的權限，取消會議邀請邀請"
+
+msgid "Could not cancel Meeting Request invitations."
+msgstr "無法取消會議邀請邀請"
+
+msgid "You can not continue search operation on this folder."
+msgstr "您不能在此資料夾上作搜尋"
+
+msgid "Error in search, please try again."
+msgstr "搜尋錯誤,請重試"
+
+msgid "Error in distribution list expansion."
+msgstr "展開分發列表出錯"
+
+msgid "The message store has exceeded its hard quota limit."
+msgstr "訊息儲存空間已超過配置空間"
+
+msgid ""
+"To reduce the amount of data in this message store, select some items that "
+"you no longer need, delete them and cleanup your Deleted Items folder."
+msgstr "請刪除不必要的郵件及其它項目並清空已刪除檔案夾，以便在存儲庫中騰出可用空間"
+
+msgid "The message store has exceeded its soft quota limit."
+msgstr "訊息儲存空間已超過軟體配置空間"
+
+msgid "Could not process request data properly."
+msgstr "無法正確處理資料"
+
+#, php-format
+msgid "Unknown action type specified - %s"
+msgstr "未知的操作類型 - %s"
+
+msgid "Cannot snooze the reminder. You may be reminded again."
+msgstr "無法延遲提醒.您會再被提醒壹次"
+
+msgid "Cannot dismiss the reminder. You may be reminded again."
+msgstr "不能排除提醒.您會再被提醒壹次"
+
+msgid "You have insufficient privileges to perform this action."
+msgstr "您沒有足夠的權限執行此動作"
+
+msgid "Could not resolve user."
+msgstr "未能解析使用者"
+
+msgid "Setting mail filters on the stores of other users is not allowed."
+msgstr "不允許在其他用戶的存儲庫上設置過濾條件"
+
+msgid "Untitled rule"
+msgstr "無標題規則"
+
+msgid "Could not load rules."
+msgstr "無法載入規則"
+
+msgid "Could not save rules."
+msgstr "無法儲存規則"
+
+msgid "Task Request:"
+msgstr "任務請求:"
+
+msgid "Welcome"
+msgstr "歡迎使用"
+
+msgid "Username"
+msgstr "使用者名稱"
+
+msgid "Password"
+msgstr "密碼"
+
+msgid "Sign in"
+msgstr "登錄"
+
+msgid "File is not imported successfully"
+msgstr "檔案未能成功導入"
+
+#, php-format
+msgid "Unable to import '%s'"
+msgstr "未能導入“%s"
+
+msgid "The EML is not valid"
+msgstr "無效eml"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "KB"
+msgstr "KB"
+
+msgid "B"
+msgstr "B"
+
+msgid "The maximum stack depth has been exceeded"
+msgstr "超出了最大棧深度"
+
+msgid "Control character error, possibly incorrectly encoded"
+msgstr "控制字符出錯，可能未被正確編碼"
+
+msgid "Invalid or malformed JSON"
+msgstr "無效或錯誤的JSON"
+
+msgid "Syntax error"
+msgstr "語法錯誤"
+
+msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
+msgstr "非法UTF-8字符，可能未被正確編碼"
+
+#, php-format
+msgid "JSON Error: - %s"
+msgstr "JSON錯誤: - %s"
+
+msgid "Some problem encountered when encoding/decoding JSON data."
+msgstr "解碼或編碼JSON數據時出錯"
+
+msgid "No data received."
+msgstr "未接收到數據"
+
+msgid "Account is empty."
+msgstr "賬戶為空"
+
+msgid "Current password is empty."
+msgstr "當前密碼為空"
+
+msgid "New password is empty."
+msgstr "新密碼為空"
+
+msgid "New passwords do not match."
+msgstr "輸入的兩次新密碼不壹致"
+
+msgid "Password is changed successfully."
+msgstr "密碼已成功更改"
+
+msgid "Password is not changed."
+msgstr "無法更改密碼"
+
+msgid ""
+"Password is weak. Password should contain capital, non-capital letters and "
+"numbers. Password should have 8 to 20 characters."
+msgstr "您的新密碼過於簡單，密碼必須在8至20個字符之間，並且需要包含數字、大寫和非大寫字母"
+
+msgid "Current password does not match."
+msgstr "當前密碼不匹配"
+
+msgid "An unknown error occurred while changing password."
+msgstr "更改密碼時出現未知錯誤"
+
+msgid "Change Password"
+msgstr "更改密碼"
+
+msgid "Current password"
+msgstr "當前密碼"
+
+msgid "New password"
+msgstr "新密碼"
+
+msgid "Retype new password"
+msgstr "再次輸入新密碼"
+
+msgid "Your password is wrong or you have insufficent permission to change password"
+msgstr "當前密碼不匹配或者您被禁止更改密碼"
+
+msgid "Desktop Notifications Plugin"
+msgstr "桌面通知插件"
+
+msgid "Desktop Notifications"
+msgstr "桌面通知"
+
+msgid "Desktop Notifications Settings"
+msgstr "桌面通知設置"
+
+msgid "We need permissions to enable desktop notifications."
+msgstr "我們需要權限以允許瀏覽器向您顯示通知"
+
+msgid "Request Permissions"
+msgstr "請求權限"
+
+msgid "Enable desktop notifications for new mail"
+msgstr "允許在桌面顯示新郵件通知"
+
+msgid "Enable desktop notifications for reminders"
+msgstr "允許在桌面顯示提醒"
+
+msgid "{A} Autohide desktop notification after second(s) {B}"
+msgstr "{A}自動隱藏桌面通知的秒數{B}"

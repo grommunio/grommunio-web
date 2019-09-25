@@ -1,0 +1,27 @@
+/* different padding sizes (and margins) used in the WebApp */ 
+$padding-small						: 3px;
+$padding-medium						: 6px;
+$padding-large						: 9px;
+$padding-extra-large				: 12px;
+$padding-extra-extra-large			: 18px;
+
+/* sizes of the buttons */
+$button-small-height				: 24px;
+$button-small-icon-height			: $button-small-height;
+$button-small-icon-width			: $button-small-icon-height;
+$button-small-text-min-width		: 84px;
+$button-small-icon-text-min-width	: $button-small-text-min-width;
+$button-large-icon-height			: 36px;
+$button-large-icon-width 			: $button-large-icon-height;
+
+$header-height						: 36px;
+$toolbar-height						: 36px;
+
+$grid-header-height					: 36px;
+
+/* triggers of comboboxes and up-down inputs */
+$trigger-width 						: 14px;
+
+/* settings */
+$settings-category-tab-height		: 30px;
+$settings-category-tab-icon-strip-width	: 36px;

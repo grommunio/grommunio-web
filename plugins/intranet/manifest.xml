@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.1</version>
+		<name>intranet</name>
+		<title>Intranetr</title>
+		<author>Ronald Toussaint</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>The intranet plugin adds a button to the top menu bar that opens a webpage inside the WebApp</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.intranet.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/intranet.js</clientfile>
+					<clientfile load="debug">js/intranet-debug.js</clientfile>
+					<clientfile load="source">js/IntranetPlugin.js</clientfile>
+					<clientfile load="source">js/ui/ContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/Panel.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/intranet.css</resourcefile>
+					<resourcefile load="debug">resources/css/intranet.css</resourcefile>
+					<resourcefile load="source">resources/css/intranet.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

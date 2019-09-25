@@ -1,0 +1,69 @@
+$thumbicon-height: 27px;
+$thumbicon-width: 26px;
+$thumb-height: $thumbicon-height + 2*$font-line-height-small + 3*$padding-medium;
+$thumb-width: $thumb-height;
+
+/* Sticky note colors */
+$stickynote-yellow: #FF9;
+$stickynote-blue: #DEF1FF;
+$stickynote-green: #CBF0BB;
+$stickynote-pink: #FFDBFB;
+$stickynote-white: #FFF;
+
+.zarafa-note-iconview-thumb {
+	float: left;
+	height: $thumb-height;
+	width: $thumb-width;
+	padding: $padding-medium;
+	box-sizing: border-box;
+	margin: $padding-medium;
+	overflow: hidden;
+	border: 1px solid transparent;
+	
+	.zarafa-note-iconview-icon {
+		margin-left: ($thumb-width - $thumbicon-width)/2 - $padding-medium;
+		margin-bottom: $padding-medium;
+		height: $thumbicon-height;
+		width: $thumbicon-width;
+	}
+
+	.zarafa-note-iconview-subject {
+		text-align: center;
+		height: 2*$font-line-height-small;
+		width: $thumb-width - 2*$padding-medium;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: $font-line-height-small;
+	}
+}
+
+.zarafa-note-iconview-over {
+	background-color: $grey4;
+	border-color: $grey2;
+}
+.zarafa-note-iconview-selected	{
+	 background-color: $light-blue;
+	 border-color: $light-blue;
+}
+
+/* New note background color */
+.x-form-textarea.stickynote_dialog_yellow {
+	background: $stickynote-yellow none repeat scroll 0 0;
+}
+
+.x-form-textarea.stickynote_dialog_blue {
+	background: $stickynote-blue none repeat scroll 0 0;
+}
+
+.x-form-textarea.stickynote_dialog_green {
+	background: $stickynote-green none repeat scroll 0 0;
+}
+
+.x-form-textarea.stickynote_dialog_pink {
+	background: $stickynote-pink none repeat scroll 0 0;
+}
+
+/* FIXME: remove since default background is white? */
+.x-form-textarea.stickynote_dialog_white {
+	background: $stickynote-white none repeat scroll 0 0;
+}

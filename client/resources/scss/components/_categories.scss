@@ -1,0 +1,168 @@
+$category-block-height : $font-default-size + 2px;
+
+.k-category-block {
+	color: $font-color-dark;
+	padding: 0 $padding-medium;
+	line-height: $category-block-height;
+	background-color: $grey;
+	margin-right: $padding-small;
+	margin-bottom: $padding-small;
+	display: inline-block;
+	white-space: nowrap;
+	min-width: 2em;
+	max-width: 10em;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: normal;
+	cursor: default;
+}
+.k-category-block.zarafa-dark {
+	color: $font-color-light;
+}
+body .k-category-block {
+	font-size: $font-default-size - 2px !important;
+}
+.x-grid3-cell-inner > .k-category-block {
+	margin-bottom: 0;
+}
+.zarafa-appointment-tooltip .k-category-block {
+	max-width: 236px - 2 * $padding-medium - $padding-small;
+}
+
+/* In the mail grid */
+.grid_compact_left {
+	padding-left: 29px;
+}
+.k-category-container {
+	float: right;
+	max-width: 50%;
+	max-height: 2 * ($category-block-height + $padding-small);
+	text-align: right;
+	padding-top: $padding-small;
+	margin-bottom: -3px;
+}
+
+/* The add category button in the mail grid */
+.k-category-add-container {
+	float: right;
+	padding-top: $padding-small;
+}
+.k-category-add {
+	display: block;
+	visibility: hidden;
+	width: 21px;
+	height: $category-block-height;
+	cursor: pointer;
+}
+.x-grid3-row-over .k-category-add {
+	visibility: visible;
+}
+
+/* In the (pre) view panel */
+.k-preview-header-categories {
+	margin-top: $padding-medium;
+	max-height: 3 * ( $category-block-height + $padding-small ); /* show max. 3 lines */
+	overflow: auto;
+}
+
+/* In the context menu */
+.k-category-in-menu {
+	max-width: 10em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+/* The "Create new category dialog" */
+.k-newcategorypanel {
+	.k-colorpicker {
+		padding-right: $padding-medium;
+	}
+
+	.k-pin-check {
+		margin-top: $padding-extra-large;
+
+		input {
+			margin-left: $padding-small;
+		}
+
+		label{
+			margin-left: $padding-extra-large;
+		}
+	}
+}
+
+/* The "Rename category dialog" */
+.k-renamecategorypanel {
+	.k-colorpicker {
+		padding-right: $padding-medium;
+	}
+}
+
+/** Search category filter **/
+.k-category-filter {
+	.k-category-add-container {
+		float: left !important;
+	}
+
+	.k-category-container {
+		float: left;
+		max-width: 80%;
+		text-align: left;
+		max-height: none;
+	}
+
+	.k-category-add-button, .k-category-filter-label {
+		float: left;
+
+		.x-btn-small {
+			display: block;
+			background: transparent !important;
+			cursor: pointer;
+			box-shadow: none !important;
+			margin-right: $padding-small;
+		}
+	}
+
+	.k-category-add-button.x-btn-over {
+		.x-btn-small {
+			border: 1px solid #dadada;
+		}
+	}
+
+	.k-category-block {
+		max-width: 14em;
+		margin-top: $padding-small;
+		padding: 0 $padding-small;
+	}
+
+	.k-category-close {
+		display: inline-block;
+		cursor: pointer;
+		padding-right: $padding-medium;
+		width: 7px;
+		height: 7px;
+	}
+
+	.k-category-add-button-icon {
+		width: $padding-extra-extra-large !important;
+		height: $padding-extra-extra-large !important;
+	}
+
+	.k-category-filter-label {
+		.x-btn-small {
+			background: $grey5 !important;
+			margin-top: $padding-small;
+			text-align: center;
+		}
+
+		.x-btn-text, .x-btn-click {
+			color: $white !important;
+			height: $padding-extra-large + 2px !important;
+			padding: 0 !important;
+			font-size: $font-default-size - 2px !important
+		}
+	}
+}

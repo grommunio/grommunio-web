@@ -1,0 +1,93 @@
+<?php
+// DB config.php setup
+
+if (!class_exists('\PHPUnit_Framework_TestCase') && class_exists('\PHPUnit\Framework\TestCase')) {
+    class_alias('\PHPUnit\Framework\TestCase', '\PHPUnit_Framework_TestCase');
+    class_alias('\PHPUnit\Framework\Constraint\IsType', '\PHPUnit_Framework_Constraint_IsType');
+}
+
+// BLOCK_SIZE (in bytes) is used for attachments by mapi_stream_read/mapi_stream_write
+define('BLOCK_SIZE', 1048576);
+
+// Default Kopano server to connect to.
+define("DEFAULT_SERVER",	"default:");
+
+// Load the defines for the webapp.
+include(__DIR__ . '/../../deploy/' . 'init.php');
+
+// Defines the base url and end with a slash.
+$base_url = dirname($_SERVER["PHP_SELF"]);
+if(substr($base_url,-1)!="/") $base_url .="/";
+define("BASE_URL", $base_url);
+
+// Defines the path in which the plugins can be found
+define('PATH_PLUGIN_DIR', getcwd()  . '/mockdata/plugins');
+
+// Defines the path in which the plugin configuration files can be found
+define('PATH_PLUGIN_CONFIG_DIR', getcwd() . '/config/plugins/');
+
+// Defines the Language directory
+define('LANGUAGE_DIR', BASE_PATH . 'server/language/');
+
+// Defines the temp directory in which the statefiles will be created
+define('TMP_PATH', sys_get_temp_dir() . '/webapp-phptests');
+
+// Defines the shared contact folders will be shown in address-book folder list
+define('DISABLE_SHARED_CONTACT_FOLDERS', false);
+
+// Expand the existing include path with all the new stuff.
+set_include_path(BASE_PATH . PATH_SEPARATOR . get_include_path());
+
+// include debug file from test system not from webapp, so test system can provide more stricter debug files
+if (file_exists(getcwd() . '/debug.php')){
+	include(getcwd() . '/debug.php');
+}else{
+	// define empty dump function in case we still use it somewhere
+	function dump() {}
+}
+
+// Make error reporting strict
+error_reporting(E_ALL | E_STRICT);
+
+// Request some extra memory for large tests
+ini_set('memory_limit', '256M');
+
+// Defines the default time zone, change e.g. to "Europe/London"
+ini_set('date.timezone', 'Europe/London');
+
+// Required for mapi_zarafa_logon
+$_SERVER['HTTP_USER_AGENT'] = 'phpunit';
+
+# Users
+define('KOPANO_USER1_NAME', 'user1');
+define('KOPANO_USER1_PASSWORD', 'user1');
+define('KOPANO_USER1_DISPLAY_NAME', 'Jonas Brekke');
+define('KOPANO_USER1_EMAIL_ADDRESS', 'user1@farmer.lan');
+define('KOPANO_USER2_NAME', 'user2');
+define('KOPANO_USER2_PASSWORD', 'user2');
+define('KOPANO_USER2_DISPLAY_NAME', 'Timmothy Schöwalter');
+define('KOPANO_USER2_EMAIL_ADDRESS', 'user2@farmer.lan');
+define('KOPANO_USER3_NAME', 'user3');
+define('KOPANO_USER3_PASSWORD', 'user3');
+define('KOPANO_USER3_DISPLAY_NAME', 'Marijn Peters');
+define('KOPANO_USER3_EMAIL_ADDRESS', 'user3@farmer.lan');
+define('KOPANO_USER4_NAME', 'user4');
+define('KOPANO_USER4_PASSWORD', 'user4');
+define('KOPANO_USER4_DISPLAY_NAME', 'Henk de Vries');
+define('KOPANO_USER4_EMAIL_ADDRESS', 'user4@farmer.lan');
+define('KOPANO_USER5_NAME', 'user5');
+define('KOPANO_USER5_PASSWORD', 'user5');
+define('KOPANO_USER5_DISPLAY_NAME', 'Joep Goderts');
+define('KOPANO_USER5_EMAIL_ADDRESS', 'user5@farmer.lan');
+
+# Groups
+define('KOPANO_GROUP1_NAME', 'group1');
+define('KOPANO_GROUP1_DISPLAY_NAME', 'group1');
+define('KOPANO_GROUP1_EMAIL_ADDRESS', 'group1@farmer.lan');
+
+# Resolve stuff
+define('KOPANO_RESOLVE_CHARACTER', 'j');
+define('KOPANO_RESOLVE_CHARACTER_USERS', 'KOPANO_USER1;KOPANO_USER5');
+define('KOPANO_RESOLVE_STRING', 'user4');
+define('KOPANO_RESOLVE_STRING_USERS', 'KOPANO_USER4');
+?>
