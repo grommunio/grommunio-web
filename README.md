@@ -60,9 +60,9 @@ ipcrm -M 0x950412de
 #compile and install webapp
 ```
 make
-cp -R deploy /var/kopano-webapp
-mkdir -p /var/lib/kopano-webapp/tmp
-ln -s /app-data /var/kopano-webapp/appdata
+cp -R deploy /var/steep-webapp
+mkdir -p /var/lib/steep-webapp/tmp
+ln -s /app-data /var/steep-webapp/appdata
 ```
 
 #custom the system-wide theme
