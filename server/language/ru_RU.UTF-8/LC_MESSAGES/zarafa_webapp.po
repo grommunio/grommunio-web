@@ -5746,7 +5746,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Войти не удалось. Проверьте ваши имя и пароль."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Невозможно подключиться к серверу Kopano."
 
 msgid ""

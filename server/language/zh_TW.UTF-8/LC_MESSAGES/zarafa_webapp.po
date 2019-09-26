@@ -5289,7 +5289,7 @@ msgstr "未能讀取存儲的永久設置"
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "登錄失敗，請檢查您的用戶名和密碼並重新嘗試"
 
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "無法連線到steep server."
 
 msgid ""

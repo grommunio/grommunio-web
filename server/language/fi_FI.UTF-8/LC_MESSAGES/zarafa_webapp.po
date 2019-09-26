@@ -5812,7 +5812,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Sisäänkirjautuminen epäonnistui Tarkista nimesi/salasanasi."
 
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Yhteyttä Kopanon palvelimeen ei saada."
 
 msgid ""

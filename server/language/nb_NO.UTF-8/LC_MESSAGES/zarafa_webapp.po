@@ -5629,7 +5629,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Kunne ikke koble til Kopano Core."
 
 msgid ""

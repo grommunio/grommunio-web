@@ -5871,7 +5871,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Non e` possibile collegarsi con Kopano Core."
 
 msgid ""

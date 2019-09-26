@@ -5457,7 +5457,7 @@ msgstr ""
 "Início de sessão falhou. Por favor verifique o seu utilizador/password e "
 "volte a tentar."
 
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Não é possível ligar ao Kopano Core."
 
 msgid ""

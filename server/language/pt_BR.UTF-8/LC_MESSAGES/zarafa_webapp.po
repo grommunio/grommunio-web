@@ -5804,7 +5804,7 @@ msgstr "Falha ao registrar. Por favor, verifique o seu nome/senha."
 
 # 83%
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Não foi possível conectar no servidor Kopano."
 
 msgid ""

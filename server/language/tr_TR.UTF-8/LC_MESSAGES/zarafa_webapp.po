@@ -5870,7 +5870,7 @@ msgstr ""
 "Oturum açma başarısız. Lütfen kimlik bilgilerinizi doğrulayıp tekrar deneyin."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Kopano sunucuya bağlanamıyor."
 
 msgid ""

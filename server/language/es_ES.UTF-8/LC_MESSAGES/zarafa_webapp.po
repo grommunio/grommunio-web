@@ -5904,7 +5904,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Registro fallido. Por favor compruebe su nombre/contraseña."
 
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "No se ha podido conectar con el servidor de Kopano."
 
 msgid ""

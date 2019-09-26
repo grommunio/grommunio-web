@@ -5890,7 +5890,7 @@ msgstr ""
 "d'identification et réessayer à nouveau."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Impossible de se connecter au Système Central Kopano."
 
 msgid ""

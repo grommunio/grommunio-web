@@ -5841,7 +5841,7 @@ msgstr "Inloggen mislukt. Controleer inloggegevens en probeer opnieuw."
 
 # 94%
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Kan niet verbinden met Kopano Core."
 
 msgid ""

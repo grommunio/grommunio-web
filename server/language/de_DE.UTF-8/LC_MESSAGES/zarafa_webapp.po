@@ -5821,7 +5821,7 @@ msgstr ""
 "Passwort."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Konnte keine Verbindung zum Kopano-Server aufbauen."
 
 msgid ""

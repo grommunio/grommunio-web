@@ -5848,7 +5848,7 @@ msgstr ""
 "Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jelszavát."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Nem sikerült csatlakozni a Kopano szerverhez."
 
 msgid ""

@@ -5590,7 +5590,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Login fejlede. Check venligst dit brugernavn/adgangskode og prøv igen."
 
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Kunne ikke forbinde til Kopano Core."
 
 msgid ""

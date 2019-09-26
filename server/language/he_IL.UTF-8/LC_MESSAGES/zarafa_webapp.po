@@ -5830,7 +5830,7 @@ msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא של�
 
 # 83%
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "לא ניתן להתחבר לשרת של Kopano."
 
 msgid ""

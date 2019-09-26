@@ -5896,7 +5896,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
 
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Steep Core."
 msgstr "Ne morem se povezati na Kopano server."
 
 msgid ""
