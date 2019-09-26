@@ -4244,18 +4244,6 @@
 		function getEmailAddressFromEntryID($entryid) {
 			try {
 				$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $entryid);
-				if(!isset($mailuser)) {
-					return "";
-				}
-
-				$abprops = mapi_getprops($mailuser, array(PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS));
-				if(isset($abprops[PR_SMTP_ADDRESS])) {
-					return $abprops[PR_SMTP_ADDRESS];
-				} else if(isset($abprops[PR_EMAIL_ADDRESS])) {
-					return $abprops[PR_EMAIL_ADDRESS];
-				} else {
-					return "";
-				}
 			} catch (MAPIException $e) {
 				// if any invalid entryid is passed in this function then it should silently ignore it
 				// and continue with execution
@@ -4263,6 +4251,19 @@
 					$e->setHandled();
 					return "";
 				}
+			}
+
+			if(!isset($mailuser)) {
+				return "";
+			}
+
+			$abprops = mapi_getprops($mailuser, array(PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS));
+			if(isset($abprops[PR_SMTP_ADDRESS])) {
+				return $abprops[PR_SMTP_ADDRESS];
+			} else if(isset($abprops[PR_EMAIL_ADDRESS])) {
+				return $abprops[PR_EMAIL_ADDRESS];
+			} else {
+				return "";
 			}
 		}
 
