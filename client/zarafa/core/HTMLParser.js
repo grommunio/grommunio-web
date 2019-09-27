@@ -15,7 +15,7 @@ Zarafa.core.HTMLParser = (function() {
 	var stripScriptsRe = /<script[^>]*>[\s\S]*?<\/script[^>]*>/gim;
 
 	// regular expression to convert <br /> tags to newlines
-	var br2nlRe = /<br\s*?\/*?>/gim;
+	var br2nlRe = /<br\s*[a-z]*\s*=*\s*"*.*?\/>/igm;
 
 	// regular expression to convert \r\n, \n or \r tags to <br />
 	var nl2brRe = /\r\n|\n|\r/gim;
