@@ -2748,6 +2748,12 @@ msgstr "下載圖片"
 msgid "Safe Sender List"
 msgstr "可信寄件人清單"
 
+msgid "Safe Senders"
+msgstr "可信寄件人清單"
+
+msgid "Safe Senders List Is Empty"
+msgstr "可信寄件人清單為空"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "添加寄件人至可信寄件人清單，允許自動下載圖片"
 

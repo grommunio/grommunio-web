@@ -2765,6 +2765,12 @@ msgstr ""
 msgid "Safe Sender List"
 msgstr ""
 
+msgid "Safe Senders"
+msgstr ""
+
+msgid "Safe Senders List Is Empty"
+msgstr ""
+
 msgid "Add Sender to Safe Senders List"
 msgstr ""
 
