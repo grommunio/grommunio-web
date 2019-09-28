@@ -7,11 +7,11 @@ COPYFILES = LICENSE.txt manifest.xml \
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
-all: $(COPYFILESDEST) $(JSDEPLOY)/safesendersettings.js
+all: $(COPYFILESDEST) $(JSDEPLOY)/SafeSenders.js
 
-$(JSDEPLOY)/safesendersettings.js: $(JSFILES)
+$(JSDEPLOY)/SafeSenders.js: $(JSFILES)
 	mkdir -p $(DESTDIR)/js
-	cat $(JSFILES) > $(JSDEPLOY)/safesendersettings-debug.js
+	cat $(JSFILES) > $(JSDEPLOY)/SafeSenders-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/js/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
