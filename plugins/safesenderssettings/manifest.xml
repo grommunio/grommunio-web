@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.2</version>
+		<name>safesenderssettings</name>
+		<title>Safe sender settingswidget</title>
+		<author>MartyBum, cloned from Jelle van der Waa</author>
+		<description>Adds a settings category to configure your safe senders</description>
+	</info>
+	<components>
+		<component>
+			<files>
+				<client>
+					<clientfile load="source">js/SafeSenders.js</clientfile>
+					<clientfile load="source">js/settings/SettingsSafesendersWidget.js</clientfile>
+					<clientfile load="release">js/SafeSenders.js</clientfile>
+					<clientfile load="release">js/settings/SettingsSafesendersWidget.js</clientfile>
+					<clientfile load="debug">js/SafeSenders.js</clientfile>
+					<clientfile load="debug">js/settings/SettingsSafesendersWidget.js</clientfile>
+				</client>
+			</files>
+		</component>
+	</components>
+</plugin>

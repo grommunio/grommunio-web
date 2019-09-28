@@ -1,4 +1,4 @@
-SUBDIRS = contactfax desktopnotifications filepreviewer folderwidgets gmaps intranet passwd pimfolder quickitems titlecounter webappmanual zdeveloper
+SUBDIRS = contactfax desktopnotifications filepreviewer folderwidgets gmaps intranet passwd pimfolder quickitems safesenderssettings titlecounter webappmanual zdeveloper
 
 .PHONY: subdirs $(SUBDIRS)
 

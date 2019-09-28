@@ -1,7 +1,5 @@
 include ../shared.mk
 
-MSGFMT ?= msgfmt
-
 JSFILES = js/ABOUT.js js/PasswdPlugin.js \
 	js/data/PasswdResponseHandler.js \
 	js/external/PasswordMeter.js \

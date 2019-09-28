@@ -2762,6 +2762,9 @@ msgstr ""
 msgid "Download Pictures"
 msgstr ""
 
+msgid "Safe Sender List"
+msgstr ""
+
 msgid "Add Sender to Safe Senders List"
 msgstr ""
 

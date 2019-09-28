@@ -2737,11 +2737,14 @@ msgstr "附件"
 msgid "Download Pictures"
 msgstr "下载图片"
 
+msgid "Safe Sender List"
+msgstr "可信发件人列表"
+
 msgid "Add Sender to Safe Senders List"
-msgstr "添加发件人至可信发件人列表"
+msgstr "添加发件人至可信发件人列表，允许自动下载图片"
 
 msgid "Add Domain to Safe Senders List"
-msgstr "添加域名至可信发件人列表"
+msgstr "添加域名至可信发件人列表，允许自动下载图片"
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates with which
 #. importance the message was sent. For example:
