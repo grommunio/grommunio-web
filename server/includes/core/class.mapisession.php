@@ -353,6 +353,48 @@
 			}
 		}
 		
+		function getGivenName()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getInitials()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getSurname()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getStreetAddress()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getLocality()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getStateOrProvince()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getPostalCode()
+		{
+			//TODO
+			return "";
+		}
+		
 		function getTitle()
 		{
 			$this->retrieveUserData();
@@ -369,6 +411,72 @@
 		{
 			$this->retrieveUserData();
 			return array_key_exists("department_name",$this->session_info)? $this->session_info["department_name"]:false;
+		}
+		
+		function getOfficeLocation()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getAssistant()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getAssistantTelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getOfficeTelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getBusinessTelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getBusiness2TelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getPrimaryFaxNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getHomeTelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getHome2TelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getMobileTelephoneNumber()
+		{
+			//TODO
+			return "";
+		}
+		
+		function getPagerTelephoneNumber()
+		{
+			//TODO
+			return "";
 		}
 		
 		/**
