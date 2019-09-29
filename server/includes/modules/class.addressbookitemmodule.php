@@ -47,7 +47,7 @@
 
 						// If userStore not found it means user is not exists in address book
 						if($userStore === false) {
-							$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted (e.g. kopano-contact deleted from LDAP)";
+							$msg = "The contact \"%s\" could not be displayed because it could not be retrieved or has been deleted";
 
 							error_log(sprintf($msg, $action["message_action"]["username"]));
 
