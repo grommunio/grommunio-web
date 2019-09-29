@@ -15,7 +15,6 @@
 					<clientfile load="source">js/SafeSenders.js</clientfile>
 					<clientfile load="source">js/settings/SettingsSafesendersWidget.js</clientfile>
 					<clientfile load="release">js/SafeSenders.js</clientfile>
-					<clientfile load="release">js/settings/SettingsSafesendersWidget.js</clientfile>
 					<clientfile load="debug">js/SafeSenders.js</clientfile>
 					<clientfile load="debug">js/settings/SettingsSafesendersWidget.js</clientfile>
 				</client>
