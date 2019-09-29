@@ -395,6 +395,12 @@
 			return "";
 		}
 		
+		function getCountry()
+		{
+			//TODO
+			return "";
+		}
+		
 		function getTitle()
 		{
 			$this->retrieveUserData();
