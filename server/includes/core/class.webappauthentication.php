@@ -171,9 +171,9 @@ class WebAppAuthentication
 				if (isset($companyname)) {
 					 setcookie('webapp_title', $companyname, time()+31536000, '/');
 				}
+				error_log('Steep WebApp user: ' . $username . ': authentication succesfull at MAPI');
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
-				// Print error message to error_log of webserver
-				error_log('Kopano WebApp user: ' . $username . ': authentication failure at MAPI');
+				error_log('Steep WebApp user: ' . $username . ': authentication failure at MAPI');
 			}
 		}
 
