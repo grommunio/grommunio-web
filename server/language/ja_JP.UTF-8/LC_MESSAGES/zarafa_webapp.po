@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Japanese\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
-"PO-Revision-Date: 2018-02-06 18:06+0000\n"
-"Last-Translator: jengelh <jengelh@inai.de>\n"
+"PO-Revision-Date: 2019-09-30 18:06+0000\n"
+"Last-Translator: caoguochang <caoguochang@ee-post.com>\n"
 "Language-Team: Japanese <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/ja/>\n"
 "Language: ja_JP\n"
@@ -20,16 +20,16 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr ""
+msgstr "週"
 
 msgid "Now"
 msgstr "現在"
 
 msgid "Value must be between 0% to 100%"
-msgstr ""
+msgstr "0% から 100%までの値が必要です"
 
 msgid "Number must be higher than zero"
-msgstr ""
+msgstr "０より大きい値が必要です"
 
 msgid "More options"
 msgstr "詳細オプション"
@@ -60,7 +60,7 @@ msgstr[0] "{0}分"
 
 msgid "{0} hour"
 msgid_plural "{0} hours"
-msgstr[0] "{0}時間"
+msgstr[0] "{0}時"
 
 msgid "{0} day"
 msgid_plural "{0} days"
@@ -102,25 +102,25 @@ msgid "Saturday"
 msgstr "土曜日"
 
 msgid "Sun"
-msgstr ""
+msgstr "日曜日"
 
 msgid "Mon"
-msgstr ""
+msgstr "月曜日"
 
 msgid "Tue"
-msgstr ""
+msgstr "火曜日"
 
 msgid "Wed"
-msgstr ""
+msgstr "水曜日"
 
 msgid "Thu"
-msgstr ""
+msgstr "木曜日"
 
 msgid "Fri"
-msgstr ""
+msgstr "金曜日"
 
 msgid "Sat"
-msgstr ""
+msgstr "土曜日"
 
 msgid "January"
 msgstr "1月"
@@ -180,7 +180,7 @@ msgid "Last Page"
 msgstr "最後のページ"
 
 msgid "Refresh"
-msgstr "再表示"
+msgstr "更新"
 
 msgid "Today"
 msgstr "今日"
@@ -223,10 +223,10 @@ msgid "Sort Descending"
 msgstr "降順に並べ替え"
 
 msgid "Columns"
-msgstr "項目"
+msgstr "列"
 
 msgid "Group By This Field"
-msgstr "この項目でグループ化"
+msgstr "このフィールドでグループ化"
 
 msgid "Show in Groups"
 msgstr "グループ化表示"
@@ -268,10 +268,10 @@ msgid "{0} is not a valid number"
 msgstr "{0}は有効な数字ではありません。"
 
 msgid "The date in this field must be equal to or after {0}"
-msgstr "この日付は{0}以降か同じでなければいけません。"
+msgstr "この日付は{0}以降になければいけません。"
 
 msgid "The date in this field must be equal to or before {0}"
-msgstr "この日付は{0}より以前か同じでなければいけません。"
+msgstr "この日付は{0}より以前になければいけません。"
 
 msgid "{0} is not a valid date - it must be in the format {1}"
 msgstr "{0}は有効な日付ではありません。{1}形式でなければいけません。"
@@ -283,10 +283,10 @@ msgid "You must select one item in this group"
 msgstr "このグループから１つ選択して下さい。"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr "時間は{0}以降か同じでなければいけません。"
+msgstr "時間は{0}以降になければいけません。"
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr "時間は{0}以前か同じでなければいけません。"
+msgstr "時間は{0}以前になければいけません。"
 
 msgid "{0} is not a valid time"
 msgstr "{0}は有効な時間ではありません。"
@@ -309,16 +309,16 @@ msgstr "偽"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
-msgstr "この項目はメールアドレスです。（例:user@example.com）"
+msgstr "メールアドレスが必要です。（例:user@example.com）"
 
 msgid "This field should be a URL in the format \"{0}\""
-msgstr "URL（フォマット:{0}）"
+msgstr "URLが必要です“{0}”"
 
 msgid "This field should only contain letters and _"
-msgstr "文字のみ"
+msgstr "文字列あるいは_が必要です"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr "文字と数字のみ"
+msgstr "文字列と数字あるいは_が必要です"
 
 # 81%
 #, fuzzy
@@ -422,7 +422,7 @@ msgid "Manager"
 msgstr "マネージャー"
 
 msgid "Direct reports"
-msgstr "部下"
+msgstr "直接報告者"
 
 msgid "Phone numbers"
 msgstr "電話番号"
@@ -454,7 +454,7 @@ msgstr "ポケベル"
 # 100%
 #, fuzzy
 msgid "No user selected"
-msgstr "タスクが選択されていません"
+msgstr "ユーザーが選択されていません"
 
 msgid "You must select one or more users."
 msgstr "１つもしくは複数のユーザーを選択して下さい。"
@@ -469,7 +469,7 @@ msgid "Show Details"
 msgstr "詳細を表示"
 
 msgid "Use the search bar to get results"
-msgstr ""
+msgstr "検索バーで結果を取得します"
 
 #, fuzzy
 msgid "There are no items to show in this list"
@@ -479,7 +479,7 @@ msgid "Show Names from the"
 msgstr "連絡先の取得元"
 
 msgid "Search..."
-msgstr ""
+msgstr "検索..."
 
 msgid "Sort by: Icon"
 msgstr "並べ替え：アイコン"
@@ -500,18 +500,18 @@ msgstr "並べ替え：ファイル"
 
 # 80%
 msgid "First Name"
-msgstr "最初のページ"
+msgstr "ファーストネーム"
 
 msgid "Sort by: First Name"
-msgstr ""
+msgstr "並べ替え：ファーストネーム"
 
 # 77%
 msgid "Last Name"
-msgstr "最後のページ"
+msgstr "ラストネーム"
 
 # 76%
 msgid "Sort by: Last Name"
-msgstr "並べ替え：名前（性）"
+msgstr "並べ替え：ラストネーム"
 
 msgid "Sort by: Email Address"
 msgstr "並べ替え：Emailアドレス"
@@ -558,55 +558,55 @@ msgid "Bottom preview"
 msgstr "下側プレビュー"
 
 msgid "Any date"
-msgstr "終了日"
+msgstr "任意日付"
 
 msgid "Past week"
-msgstr ""
+msgstr "先週"
 
 msgid "Past 2 weeks"
-msgstr ""
+msgstr "先々週"
 
 msgid "Past month"
-msgstr ""
+msgstr "先月"
 
 msgid "Past 6 month"
-msgstr ""
+msgstr "６月前"
 
 msgid "Past year"
-msgstr ""
+msgstr "昨年"
 
 msgid "Custom date"
-msgstr "日付修正"
+msgstr "日付カスタマイズ"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "お気に入り"
 
 msgid "Add"
 msgstr "追加"
 
 #, fuzzy
 msgid "Empty folder name"
-msgstr "フォルダを空にする"
+msgstr "フォルダを空にします"
 
 msgid "You must specify a name."
 msgstr "名前を指定して下さい。"
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "検索結果によりフォルダをお気に入ります"
 
 msgid "Folder name"
-msgstr ""
+msgstr "フォルダ名"
 
 #, fuzzy
 msgid "Select Category"
-msgstr "カテゴリーを設定"
+msgstr "カテゴリーを選択します"
 
 msgid "Apply"
 msgstr "適用"
 
 #, fuzzy
 msgid "All folders are selected"
-msgstr "{0}フォルダが選択されています。"
+msgstr "{0}すべてのフォルダが選択されています。"
 
 msgid "Reply"
 msgstr "返信"
@@ -619,10 +619,10 @@ msgstr "転送"
 
 #, fuzzy
 msgid "Edit as New"
-msgstr "編集設定"
+msgstr "新規項目編集"
 
 msgid "Search tools"
-msgstr ""
+msgstr "検索ツール"
 
 # 85%
 # 100%
@@ -631,7 +631,7 @@ msgstr "フォルダ"
 
 #, fuzzy
 msgid "Include subfolders"
-msgstr "サブフォルダを作成する。"
+msgstr "サブフォルダを含めます。"
 
 msgid "Show.."
 msgstr "表示.."
@@ -650,7 +650,7 @@ msgid "Tasks"
 msgstr "タスク"
 
 msgid "Filter.."
-msgstr ""
+msgstr "フィルター"
 
 msgid "Unread"
 msgstr "未読"
@@ -664,7 +664,7 @@ msgstr "日付"
 #, fuzzy
 msgctxt "search.date"
 msgid "From"
-msgstr "From"
+msgstr "送信者"
 
 #, fuzzy
 msgctxt "search.date"
@@ -673,7 +673,7 @@ msgstr "宛先"
 
 #, fuzzy
 msgid "Filter category.."
-msgstr "カテゴリーを設定"
+msgstr "カテゴリー設定"
 
 msgid "Search.."
 msgstr "検索.."
@@ -694,45 +694,42 @@ msgid "Favorites"
 msgstr "お気に入り"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "検索結果により、フォルダをお気に入ります"
 
 msgid "Select Folder"
-msgstr "フォルダ選択"
+msgstr "フォルダを選択します"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "検索フォルダを削除します"
 
 msgid "Sort by: Date"
-msgstr ""
+msgstr "並べ替え：日付"
 
 msgid "Loading Search results"
-msgstr ""
+msgstr "検索結果を読み込んでいます"
 
 msgid "Sorting tip"
-msgstr ""
+msgstr "ヒントを並べ替えています"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
-msgstr ""
+msgstr "日付で検索結果を並べ替えます。フィルターあるいは入力情報を調整することで、検索結果を絞ります"
 
 msgid "Did you mean"
-msgstr ""
+msgstr "もしかして"
 
 msgid "With"
-msgstr ""
+msgstr "と"
 
 msgid "To"
 msgstr "宛先"
 
 msgid "No date"
-msgstr ""
+msgstr "日付無し"
 
 msgid "Error"
 msgstr "エラー"
-
-msgid "Success"
-msgstr "成功"
 
 msgid ""
 "Could not accept proposal as this meeting is not available in calendar; It "
@@ -758,10 +755,10 @@ msgid "Resource"
 msgstr "リソース"
 
 msgid "Could not open store."
-msgstr "データ領域を開くことができません"
+msgstr "ストアを開けません"
 
 msgid "Could not open default calendar folder."
-msgstr "初期カレンダーフォルダーを開くことができません"
+msgstr "デフォルトのカレンダーフォルダを開けません"
 
 msgid "workday"
 msgstr "平日"
@@ -779,7 +776,7 @@ msgid "weeks"
 msgstr "週"
 
 msgid " on "
-msgstr ""
+msgstr "に"
 
 msgid "month"
 msgstr "月"
@@ -794,16 +791,16 @@ msgid "years"
 msgstr "年"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "毎{0}実施 {1}から{2}まで有効"
+msgstr "{2}から{3}まで有効な{0}ごとに{1}発生します。"
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "毎{0}{1}実施 {3}から{4}まで有効{2}"
+msgstr "{3}から{4}まで有効な{0} {1}ごとに{2}発生します。"
 
 msgid "Occurs every {0} effective {1}."
-msgstr "毎{0}実施　有効{1}"
+msgstr "有効な{0}ごとに{1}発生します。"
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr "毎{0}{1}実施　有効{2}"
+msgstr "有効な{0}{1}ごとに{2}発生します。"
 
 # 76%
 msgid "Occurs every {0} effective {1} for {2} occurence from {3} to {4}."
@@ -844,14 +841,14 @@ msgid "Occurs every {0} {1} effective {2} until {3}."
 msgstr "毎{0}{1}実施　有効{2}"
 
 msgid "When"
-msgstr "日時"
+msgstr "いつ"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y G:i"
 msgstr "Y年Fj日 l G:i"
 
 msgid "Where"
-msgstr "場所"
+msgstr "どこ"
 
 msgid "New Meeting Time Proposed"
 msgstr "新たに会議の時間が設定されました。"
@@ -865,7 +862,7 @@ msgid "Sort by: Attachment"
 msgstr "並べ替え：添付ファイル"
 
 msgid "Sort by: Recurring"
-msgstr "開始日"
+msgstr "並べ替え：再現"
 
 msgid "Sort by: Subject"
 msgstr "並べ替え：件名"
@@ -940,7 +937,7 @@ msgid "Print selected appointment"
 msgstr "選択した予定を印刷"
 
 msgid "Print overview"
-msgstr "概要を印刷"
+msgstr "印刷概要"
 
 msgid "Print"
 msgstr "印刷"
@@ -950,22 +947,22 @@ msgstr "予定が選択されていません"
 
 #, fuzzy
 msgid "Create Appointment"
-msgstr "個人的な予定"
+msgstr "予定作成"
 
 msgid "Calendar"
 msgstr "カレンダー"
 
 #, fuzzy
 msgid "Create in other calendar"
-msgstr "カレンダーを表示"
+msgstr "別のカレンダーにて作成"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
-msgstr ""
+msgstr "選択されたカレンダーに読み取り専用の権限があります。代わりに、独自のカレンダーにアイテムを作成できます"
 
 msgid "What would you like?"
-msgstr ""
+msgstr "何が好きですか"
 
 #, fuzzy
 msgid "Own calendar"
@@ -1000,32 +997,32 @@ msgstr "リソースは計画されました。"
 
 #, fuzzy
 msgid "Send update"
-msgstr "後で送信"
+msgstr "送信更新"
 
 msgid ""
 "An update message will be sent to all recipients, do you wish to continue?"
 msgstr "全受信者に更新したメッセージを送信します。続行しますか？"
 
 msgid "Send update to attendees"
-msgstr "出席者へ更新情報を送信"
+msgstr "出席者へ更新情報を送信します"
 
 msgid ""
 "You have made changes to the list of attendees, Choose one of the following"
 msgstr "出席者リストを変更しました。次の何れかを選択して下さい。"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr "追加もしくは削除した出席者のみ更新情報を送信する"
+msgstr "追加もしくは削除した出席者のみ更新情報を送信します。"
 
 msgid "Send updates to all attendees."
-msgstr "全ての出席者に更新情報を送信する。"
+msgstr "全ての出席者に更新情報を送信します。"
 
 #, fuzzy
 msgid "Busy attendees"
-msgstr "出席者を招待"
+msgstr "忙しい出席者"
 
 #, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "招待した出席者の中に既に予定ありの人がいます。招待しますか？"
+msgstr "1人以上の出席者が忙しい。 招待してもよろしいですか？"
 
 msgid "Scheduling"
 msgstr "スケジュール"
@@ -1036,27 +1033,27 @@ msgstr "トラッキング"
 # 75%
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "全ての受信者の認識ができませんでした。"
+msgstr "すべての参加者が解決できるわけではありません"
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr "{0} 承諾 {1} 仮承諾 {2} 辞退"
+msgstr "{0}人の参加者が同意した、{1}が暫定的に同意した、{2}は拒否されました。"
 
 msgctxt "calendar.dialog"
 msgid ""
 "{0} attendees proposed a new time for this meeting. Click the Scheduling tab "
 "for details."
 msgstr ""
-"{0}名の出席者がこの会議の時間変更を求めています。詳細はスケジュールタブをク"
-"リックして下さい。"
+"{0}出席者がこの会議の新しい時間を提案しました。詳細はスケジュールタブを"
+"クリックして下さい。"
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr "この会議の開催時間を{0}に変更しました。"
+msgstr "この会議の開催時間を新しい時間の{0}に提案しました。"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0}がこの会議の開催時間を{1}に変更しました。"
+msgstr "{0}がこの会議の開催時間を新しい時間の{1}に提案しました。"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1068,11 +1065,11 @@ msgstr "{1}について{0}が承諾しました。"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr "{0}の仮承諾"
+msgstr "{0}で暫定的に承諾しました"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "{1}について{0}が仮承諾しました。"
+msgstr "{1}について{0}が暫定的に承諾しました"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -1080,7 +1077,7 @@ msgstr "この予定はすでに終了しました。"
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
-msgstr "要返答"
+msgstr "回答してください。"
 
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
@@ -1092,13 +1089,13 @@ msgstr "会議がキャンセルされました。"
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr "会議出席依頼が送信されませんでした。"
+msgstr "この会議への招待状は送信されていません。"
 
 msgctxt "calendar.dialog"
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer"
-msgstr ""
+msgstr "主催者がこの会議出席依頼を更新すると、変更内容が上書きされますのでご注意ください"
 
 #, fuzzy
 msgid "Create in"
@@ -1108,7 +1105,7 @@ msgid "Time"
 msgstr "時間"
 
 msgid "until"
-msgstr ""
+msgstr "まで"
 
 msgid "Recurrence"
 msgstr "繰り返し"
@@ -1123,30 +1120,30 @@ msgid "Warning"
 msgstr "警告"
 
 msgid "Attachments cannot be modified for a single occurence"
-msgstr "出席者は単独のイベントの修正をすることはできません。"
+msgstr "単一の発生に対して添付ファイルを変更することができません"
 
 msgid "Type your message here..."
-msgstr ""
+msgstr "ここにメッセージを入力してください"
 
 #, fuzzy
 msgid "Update location"
-msgstr "更新リスト"
+msgstr "場所更新"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr "開催場所{0}を{1}に変更しますか？"
+msgstr "場所{0}を{1}に変更しますか？"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y G:i"
-msgstr "Y年Fj日 G:i"
+msgstr "jS F Y G:i"
 
 # 75%
 msgid "None"
-msgstr "メモ"
+msgstr "無し"
 
 # 75%
 msgid "Send"
-msgstr "送信済"
+msgstr "送信"
 
 # 80%
 msgid "Save"
@@ -1159,7 +1156,7 @@ msgid "Delete"
 msgstr "削除"
 
 msgid "Add attachment"
-msgstr "添付ファイルを追加"
+msgstr "添付を追加"
 
 msgid "Check names"
 msgstr "名前の確認"
@@ -1230,16 +1227,16 @@ msgstr "会議出席依頼のキャンセルを送信する"
 msgid ""
 "This meeting will be cancelled. Do you want to include comments with your "
 "cancellation?"
-msgstr "この会議はキャンセルされました。コメントを追加しますか？"
+msgstr "この会議はキャンセルされます。コメントを追加しますか？"
 
 msgid "Edit the cancellation before Sending."
-msgstr "送信前にキャンセルを編集する。"
+msgstr "送信前にキャンセルを編集します。"
 
 msgid "Send the cancellation now."
-msgstr "キャンセル通知を今すぐ送信"
+msgstr "キャンセル通知を今すぐ送信します"
 
 msgid "Send Meeting Request Confirmation"
-msgstr "会議出席依頼への確認メールを送信する"
+msgstr "会議出席依頼への確認メールを送信します"
 
 #, fuzzy
 msgid ""
@@ -1254,7 +1251,7 @@ msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
-"この会議は仮受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
+"この会議は暫定的に受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
 "か？"
 
 #, fuzzy
@@ -1262,18 +1259,18 @@ msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めます"
+"この会議は拒否され、自分のアイテム削除フォルダに移動します。返信にコメントを含めます"
 "か？"
 
 #, fuzzy
 msgid "Edit the response before sending"
-msgstr "送信前に返信を編集する。"
+msgstr "送信前に返信を編集します。"
 
 msgid "Send the response now."
-msgstr "返信を今すぐ送信"
+msgstr "返信を今すぐ送信します"
 
 msgid "Don't send a response."
-msgstr "返信を送信しない。"
+msgstr "返信を送信しません。"
 
 msgid "The following responses for this meeting have been received"
 msgstr "会議に次の返答を受信しました。"
@@ -1290,7 +1287,7 @@ msgid "New appointment"
 msgstr "新しい予定"
 
 msgid "Creating an item"
-msgstr ""
+msgstr "アイテム作成"
 
 # 89%
 # 100%
@@ -1298,13 +1295,13 @@ msgid "New meeting request"
 msgstr "新しい会議出席依頼"
 
 msgid "Switch calendar range back and forth"
-msgstr ""
+msgstr "カレンダーの範囲を前後に切り替えます"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "選択したアイテムをコピーします"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "選択したアイテムを貼り付けます"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1317,13 +1314,13 @@ msgstr "終了"
 # 76%
 #, fuzzy
 msgid "Printed by: "
-msgstr "並べ替え：宛先"
+msgstr "印刷者："
 
 # 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "Printed on: "
-msgstr "このメモを印刷する"
+msgstr "印刷："
 
 #, fuzzy
 msgid "Location: "
@@ -1331,11 +1328,11 @@ msgstr "場所"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "Y年Fj日 l"
+msgstr "l jS F Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr "F j日 l"
+msgstr "l jS F"
 
 # 88%
 msgid "Organiser"
@@ -1361,11 +1358,11 @@ msgid "Importance"
 msgstr "重要度"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 #, fuzzy
 msgid "j"
-msgstr "j日"
+msgstr "j"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
@@ -1384,42 +1381,42 @@ msgid "End of workday"
 msgstr "（勤務の）最後の曜日"
 
 msgid "Calendar resolution"
-msgstr "カレンダー設定"
+msgstr "カレンダーの解像度"
 
 #, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr "終日予定のリマインダーの初期値"
+msgstr "デフォルトの予定時間{A}分"
 
 msgid "Duration must be between 1 and 120 minutes."
-msgstr ""
+msgstr "期間は1から120分までになければなりません。"
 
 msgid "Working days"
-msgstr ""
+msgstr "勤務日"
 
 msgid "Show busy dates as bold in the date picker"
-msgstr "日付選択時に予定のある日付を太字で表示する。"
+msgstr "日付ピッカーで忙しい日付を太字で表示します"
 
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
-msgstr ""
+msgstr "会議出席依頼の送信者は、会議に出席できる時間を決定するために空き時間情報を使用します。"
 
 msgid "Free/Busy publishing"
-msgstr ""
+msgstr "空き時間情報の公開"
 
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
-msgstr ""
+msgstr "サーバーで{A}か月分のカレンダーの空き時間情報を公開します。"
 
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
-msgstr ""
+msgstr "0～36か月の空き時間情報のみを公開できます。0は空き時間情報が公開されていないことを表します。"
 
 msgid "Side-by-side mode"
-msgstr "左右に並べて表示"
+msgstr "サイドバイサイドモード"
 
 msgid "Overlay mode"
-msgstr "重ねて表示"
+msgstr "オーバーレイモード"
 
 msgid "Calendar view settings"
 msgstr "カレンダー表示の設定"
@@ -1441,7 +1438,7 @@ msgstr "終日予定のリマインダーの初期値"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr "j日"
+msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
@@ -1463,19 +1460,19 @@ msgid "Accept"
 msgstr "承諾"
 
 msgid "Tentative"
-msgstr "仮の予定"
+msgstr "暫定の予定"
 
 # 87%
 msgid "Decline"
-msgstr "辞退する"
+msgstr "拒否"
 
 # 75%
 #, fuzzy
 msgid "Send to..."
-msgstr "送信済"
+msgstr "送信"
 
 msgid "Export as"
-msgstr ""
+msgstr "としてエクスポート"
 
 # 80%
 # 100%
@@ -1483,20 +1480,20 @@ msgid "Occurrence"
 msgstr "繰り返し"
 
 msgid "Series"
-msgstr ""
+msgstr "シリーズ"
 
 #, fuzzy
 msgid "Appointment not found"
-msgstr "予定"
+msgstr "予定が見つかりません"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr "この予定は変更になったか削除されました。続行しますか？"
+msgstr "この予定は移動または削除されました。続行しますか？"
 
 msgid "All Day"
 msgstr "終日イベント"
 
 msgid "Sort by: All Day"
-msgstr "並び替え：繰り返し"
+msgstr "並べ替え：終日"
 
 msgid "Icon"
 msgstr "アイコン"
@@ -1514,10 +1511,10 @@ msgid "Sort by: Meeting Status"
 msgstr "並べ替え：会議ステータス"
 
 msgid "Sort by: Show as"
-msgstr ""
+msgstr "並べ替え：表示"
 
 msgid "Sort by: Categories"
-msgstr "カラー"
+msgstr "並べ替え：カテゴリ"
 
 msgid "Created On"
 msgstr "作成日"
@@ -1552,30 +1549,30 @@ msgid "Sort by: Resources"
 msgstr "並べ替え：リソース"
 
 msgid "Recurring Startdate"
-msgstr "定期的な予定の開始日"
+msgstr "繰り返し開始日"
 
 msgid "Sort by: Recurring Startdate"
-msgstr "並べ替え：定期的な予定の開始日"
+msgstr "並べ替え：繰り返し開始日"
 
 msgid "Recurring Enddate"
-msgstr "定期的な予定の終了日"
+msgstr "繰り返し終了日"
 
 msgid "Sort by: Recurring Enddate"
-msgstr "並べ替え：定期的な予定の終了日"
+msgstr "並べ替え：繰り返し終了日"
 
 # 77%
 msgid "Recurring Pattern"
-msgstr "定期的な予定のパターン"
+msgstr "繰り返しのパターン"
 
 msgid "Sort by: Recurring Pattern"
-msgstr "並べ替え：定期的な予定のパターン"
+msgstr "並べ替え：繰り返しのパターン"
 
 # 77%
 msgid "Sort by: Reminder"
 msgstr "並べ替え：リマインダー"
 
 msgid "Sort by: Sensitivity"
-msgstr "並べ替え：Sensitivity"
+msgstr "並べ替え：感度"
 
 msgid "Loading appointments"
 msgstr "予定を読み込み中"
@@ -1583,11 +1580,11 @@ msgstr "予定を読み込み中"
 # 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F G:i"
-msgstr "Y年Fj日 G:i"
+msgstr "jS F G:i"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
-msgstr "Y年Fj日"
+msgstr "jS F Y"
 
 #, fuzzy
 msgid "Update recipients"
@@ -1600,38 +1597,38 @@ msgid "Save changes and send an update to all recipients"
 msgstr "変更を保存して全受信者に更新を送信する。"
 
 msgid "Open meeting request with changes"
-msgstr "会議の変更依頼を開く。"
+msgstr "会議の変更依頼を開きます。"
 
 msgid "Copy"
 msgstr "コピー"
 
 #, fuzzy
 msgid "Kopano Webapp"
-msgstr "Steep WebApp"
+msgstr "Kopano Webapp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
-msgstr ""
+msgstr "主催者はこの会議出席依頼を更新する時に、変更が上書きされますのでご注意ください。この会議を移動しますか？"
 
 msgid "Move"
 msgstr "移動"
 
 msgid "Don't move"
-msgstr ""
+msgstr "移動しないでください"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "日表示に切り替えて、すべての予定を表示します"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
 msgid "Proposed"
-msgstr "提案先"
+msgstr "提案されました"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
 msgid "When"
-msgstr "日時"
+msgstr "いつ"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -1670,7 +1667,7 @@ msgstr "カレンダーを表示"
 
 #, fuzzy
 msgid "No additional response required"
-msgstr "返信不要"
+msgstr "追加対応が不要"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1736,33 +1733,33 @@ msgstr ""
 
 # 77%
 msgid "Open this occurrence"
-msgstr "このイベントを削除する"
+msgstr "このオカレンスを開きます"
 
 msgid "Open the series"
-msgstr "一連の予定として開く"
+msgstr "シリーズを開きます"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "繰り返し{0}を貼り付けます"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
+msgstr "これは繰り返しの{0}です。 このオカレンスまたはシリーズのみを貼り付けますか？"
 
 msgid "message"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "meeting request"
-msgstr ""
+msgstr "会議依頼"
 
 msgid "appointment"
-msgstr ""
+msgstr "予約"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "オカレンスのみ貼り付けます"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "シリーズを貼り付けます"
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1824,23 +1821,23 @@ msgstr "メッセージのキャンセルは全受信者に送信されます。
 
 #, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "完了したタスク"
+msgstr "未完了のタスクを削除します"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "タスクはまだ完了していません。何をしたいですか？"
 
 #, fuzzy
 msgid "Decline and delete"
-msgstr "会議出席依頼を辞退する"
+msgstr "拒否して削除します"
 
 #, fuzzy
 msgid "Mark complete and delete"
-msgstr "完成フラグを立てる"
+msgstr "完了マークを付けて削除します"
 
 # 77%
 #, fuzzy
 msgid "Notify sender"
-msgstr "並べ替え：リマインダー"
+msgstr "送信者に通知します"
 
 #, fuzzy
 msgid ""
@@ -1855,17 +1852,17 @@ msgid "Import"
 msgstr "重要"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "アイテムを{0}に正常にインポートしました"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "アイテムを{0}にインポートできませんでした"
 
 #, fuzzy
 msgid "Import error"
 msgstr "重要"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "\ "{0} \"をインポートできません。ファイルが無効です"
 
 msgid "Cc"
 msgstr "Cc"
@@ -1905,7 +1902,7 @@ msgid "New folder"
 msgstr "新しいフォルダ"
 
 msgid "Download as ZIP"
-msgstr ""
+msgstr "ZIPとしてダウンロード"
 
 msgid "Continue"
 msgstr "続ける"
@@ -1913,14 +1910,14 @@ msgstr "続ける"
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
 "ZIP file:"
-msgstr ""
+msgstr "これらの添付ファイルにはサポートされていないファイルタイプがあり、ZIPファイルに追加できません。"
 
 msgid "Would you like to continue downloading without adding these files?"
-msgstr ""
+msgstr "これらのファイルを追加せずにダウンロードを続行しますか？"
 
 msgid ""
 "Always continue download of ZIP files without adding unsupported file types."
-msgstr ""
+msgstr "サポートされていないファイルの種類を追加せずに、ZIPファイルのダウンロードを常に続行します。"
 
 msgid "File upload"
 msgstr "ファイルアップロード"
@@ -1935,36 +1932,36 @@ msgid "Download"
 msgstr "ダウンロード"
 
 msgid "Download all as ZIP"
-msgstr ""
+msgstr "すべてをZIPとしてダウンロード"
 
 #, fuzzy
 msgid "Import to folder"
-msgstr "フォルダを空にする"
+msgstr "フォルダーにインポート"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
-msgstr ""
+msgstr "vCardインポート機能を使用するには、Kopano Coreをバージョン8.3以降にアップグレードしてください。"
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
-msgstr ""
+msgstr "ICS / VCSインポート機能を使用するには、Kopano Coreをバージョン8.3以降にアップグレードしてください。"
 
 msgid "Attachment error"
 msgstr "添付ファイルエラー"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
-msgstr ""
+msgstr "ZIPを作成できません。許可される最大サイズは30 MBです。"
 
 msgid "Unable to download"
-msgstr ""
+msgstr "ダウンロードできません"
 
 msgid "Picture format is not supported. "
-msgstr ""
+msgstr "画像形式はサポートされていません。"
 
 msgid "Supported format for contact pictures are"
-msgstr ""
+msgstr "連絡先の写真でサポートされている形式は"
 
 # 93%
 # 100%
@@ -1972,63 +1969,63 @@ msgid "Attachment Error"
 msgstr "添付ファイルエラー"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "カテゴリーを管理します"
 
 msgid "New"
 msgstr "新規作成"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "カテゴリーを削除します"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
-msgstr ""
+msgstr "カテゴリ\ "{0} \"を削除してもよろしいですか？ このカテゴリが既に割り当てられているアイテムは影響がありません。"
 
 msgid "Rename Category"
-msgstr ""
+msgstr "カテゴリの名前を変更します"
 
 msgid "A category named \""
-msgstr ""
+msgstr "\ "という名前のカテゴリ"
 
 msgid "Create New Category"
-msgstr ""
+msgstr "カテゴリを新規作成します"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "クイックアクセスに固定します"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
-msgstr ""
+msgstr "このカテゴリを作成する前に、カテゴリに加えた変更を適用する必要があります。"
 
 msgid "You already have a category named '{0}'. Please use another name."
-msgstr ""
+msgstr "'{0}'という名前のカテゴリが既に存在してあります。 別の名前を使用してください。"
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
-msgstr ""
+msgstr "保留中の変更には'{0}'という名前のカテゴリが既に存在してあります。 別の名前を使用してください。"
 
 msgid "Rename"
-msgstr ""
+msgstr "名前変更"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "\ "{0} \"カテゴリを使用したのはこれが初めてです。"
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "名前を変更しますか？"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
-msgstr ""
+msgstr "カテゴリ\ "{0} \"は既に存在します。 \ "{1} \"と\ "{2} \"カテゴリをマージしますか？"
 
 msgid "Merge"
-msgstr ""
+msgstr "マージ"
 
 msgid "Remove"
 msgstr "削除"
@@ -2038,7 +2035,7 @@ msgid "Check Names"
 msgstr "名前の確認"
 
 msgid "Select an address to use"
-msgstr "使用するアドレスを選択して下さい。"
+msgstr "アドレスを選択し使用します。"
 
 # 83%
 msgid "Email"
@@ -2095,7 +2092,7 @@ msgstr ""
 "自分に送られてきた会議関係のメッセージのコピーを代理人が受け取るようにする。"
 
 msgid "Other"
-msgstr "他"
+msgstr "その他"
 
 #, fuzzy
 msgid "No delegates configured"
@@ -2108,12 +2105,12 @@ msgid "Please select a delegate."
 msgstr "代理人を選択して下さい。"
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "代理人はあなたの代わりにアイテムを送信できます。"
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
-msgstr ""
+msgstr "フォルダーのアクセス許可のみを設定する場合は、フォルダーを右クリックしてコンテキストメニューを開き、[フォルダーの共有...]をクリックします。"
 
 # 90%
 msgid "Permission"
@@ -2121,7 +2118,7 @@ msgstr "許可"
 
 #, fuzzy
 msgid "Duplicate delegate"
-msgstr "会議出席依頼を辞退する"
+msgstr "重複した代理人"
 
 msgid "Delegate already exists in the list."
 msgstr "代理人は既に設定されています。"
@@ -2143,13 +2140,13 @@ msgid "Folder '{0}' selected."
 msgstr "{0}フォルダが選択されています。"
 
 msgid "Kopano WebApp"
-msgstr "Steep WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "このメッセージを次回から表示しない。"
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 #, fuzzy
 msgid "Set custom flag"
@@ -2162,17 +2159,17 @@ msgid "End date"
 msgstr "終了日"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "明日"
 
 msgid "This week"
-msgstr ""
+msgstr "今週"
 
 msgid "Next week"
-msgstr ""
+msgstr "来週"
 
 #, fuzzy
 msgid "Custom"
-msgstr "日付修正"
+msgstr "カスタマイズ"
 
 #, fuzzy
 msgid "Set reminder"
@@ -2182,35 +2179,35 @@ msgid "Complete"
 msgstr "完了"
 
 msgid "today"
-msgstr ""
+msgstr "今日"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "明日"
 
 msgid "this week"
-msgstr ""
+msgstr "今週"
 
 msgid "next week"
-msgstr ""
+msgstr "来週"
 
 msgid "Edit recipient"
 msgstr "受信者を編集します。"
 
 #, fuzzy
 msgid "Copy email address"
-msgstr "新しいメールアドレス"
+msgstr "メールアドレスをコピーします"
 
 #, fuzzy
 msgid "Set as required"
-msgstr "必須項目"
+msgstr "必須項目として設定"
 
 #, fuzzy
 msgid "Set as optional"
-msgstr "任意"
+msgstr "任意として設定"
 
 #, fuzzy
 msgid "Set as resource"
-msgstr "並べ替え：リソース"
+msgstr "リソースとして設定"
 
 msgid "Select attendees"
 msgstr "出席者を選択して下さい。"
@@ -2240,60 +2237,60 @@ msgid "No suggestions available"
 msgstr "提案機能は使えません。"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr ""
+msgstr "異なるコンテキストを切り替える（例： 受信トレイ、カレンダーなど"
 
 msgid "Basic navigation"
-msgstr ""
+msgstr "基本的なナビゲーション"
 
 msgid "Switch between different views"
-msgstr ""
+msgstr "異なるビューを切り替えます"
 
 msgid "New item"
 msgstr "新規アイテム"
 
 msgid "All views"
-msgstr ""
+msgstr "全部ビュー"
 
 msgid "Close tab"
-msgstr ""
+msgstr "タブクローズ"
 
 msgid "Print item"
-msgstr ""
+msgstr "アイテム印刷"
 
 msgid "Items"
 msgstr "項目"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr ""
+msgstr "アイテムを保存します。 例：メール、連絡先など"
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr ""
+msgstr "アイテムを送信します。例： メール、会議出席依頼など"
 
 msgid "Select all items"
-msgstr ""
+msgstr "すべてのアイテムを選択します"
 
 msgid "Extend the selection to the first item in the list"
-msgstr ""
+msgstr "リスト内の最初のアイテムまで選択範囲を広げます"
 
 msgid "Extend the selection to the last item in the list"
-msgstr ""
+msgstr "リスト内の最後のアイテムまで選択を広げます"
 
 # 77%
 msgid "Open selected item"
 msgstr "選択したアイテムを開く"
 
 msgid "Open dialog to categorize selected item"
-msgstr ""
+msgstr "ダイアログを開いて、選択したアイテムを分類します"
 
 msgid "Print list"
-msgstr ""
+msgstr "リスト印刷"
 
 # 78%
 msgid "Print selected item"
 msgstr "選択したタスクを印刷"
 
 msgid "Open copy/move dialog"
-msgstr ""
+msgstr "コピー/移動ダイアログを開く"
 
 # 77%
 # 75%
@@ -2304,7 +2301,7 @@ msgstr "選択したアイテムを削除"
 msgid ""
 "Delete selected item without moving it to the Deleted Items folder. The "
 "deleted item can still be restored."
-msgstr ""
+msgstr "選択したアイテムを[削除済みアイテム]フォルダーに移動せずに削除します。 削除されたアイテムは引き続き復元できます。"
 
 #, fuzzy
 msgid "Add/Edit Cc recipient"
@@ -2312,7 +2309,7 @@ msgstr "受信者を編集します。"
 
 #, fuzzy
 msgid "Duplicate recipient"
-msgstr "受信者を編集します。"
+msgstr "受信者を複製します。"
 
 #, fuzzy
 msgid "Recipient already exists."
@@ -2320,25 +2317,25 @@ msgstr "ユーザーは既に登録されています。"
 
 #, fuzzy
 msgid "Disable for new mail"
-msgstr "新しいメッセージの署名"
+msgstr "新規メールを無効にする"
 
 #, fuzzy
 msgid "Enable for new mail"
-msgstr "新しいメッセージの署名"
+msgstr "新規メールを有効にする"
 
 msgid "Disable for replies"
-msgstr ""
+msgstr "返信を無効にする"
 
 msgid "Enable for replies"
-msgstr ""
+msgstr "返信を有効にする"
 
 #, fuzzy
 msgid "No Cc recipient configured"
-msgstr "署名が設定されていません。"
+msgstr "Cc受信者が配置されていません"
 
 #, fuzzy
 msgid "Loading Cc recipients"
-msgstr "受信者を編集します。"
+msgstr "Cc受信者を読み込みます。"
 
 # 88%
 # 100%
@@ -2361,19 +2358,19 @@ msgstr "受信者を編集します。"
 msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
-msgstr ""
+msgstr "Cc受信者を使用して、デフォルトのCcユーザーとして新しいメール、返信、またはその両方で設定できます。"
 
 #, fuzzy
 msgid "Following recipients are already exists"
-msgstr "次の受信者に送信することができませんでした。"
+msgstr "次の受信者は既に存在します。"
 
 #, fuzzy
 msgid "Duplicate recipients"
-msgstr "受信者を編集します。"
+msgstr "受信者を複製します。"
 
 #, fuzzy
 msgid "Kopano WebApp print"
-msgstr "Steep WebApp印刷"
+msgstr "Kopano WebApp印刷"
 
 # 91%
 msgid "Display name"
@@ -2387,12 +2384,12 @@ msgstr "Emailアドレス"
 # 100%
 #, fuzzy
 msgid "Expand distribution list"
-msgstr "新しい配布リスト"
+msgstr "配布リストを展開します"
 
 msgid ""
 "Distribution list will be replaced with its members. You will not be able to "
 "collapse it again."
-msgstr ""
+msgstr "配布リストはそのメンバーに置き換えられます。 再び折りたたむことはできません。"
 
 msgid "Edit Recipient"
 msgstr "受信者を編集します。"
@@ -2412,7 +2409,7 @@ msgid "Weekday"
 msgstr "平日"
 
 msgid "Weekend Day"
-msgstr "週末の曜日"
+msgstr "休日"
 
 msgid "1st"
 msgstr "第１"
@@ -2514,7 +2511,7 @@ msgid "Info"
 msgstr "情報"
 
 msgid "Not supported at the moment."
-msgstr "サポートされていません。"
+msgstr "現時点ではサポートされていません。"
 
 #, fuzzy
 msgid "There is {0} reminder"
@@ -2527,7 +2524,7 @@ msgstr "リマインダー"
 
 #, fuzzy
 msgid "There are no reminders"
-msgstr "{0}個のリマインダーがあります。"
+msgstr "リマインダーがありません。"
 
 msgid "Due In"
 msgstr "期限"
@@ -2561,19 +2558,19 @@ msgid_plural "{0} reminders are selected."
 msgstr[0] "{0}個のリマインダーが選択されました。"
 
 msgid "Restore Softdeleted Items"
-msgstr ""
+msgstr "ソフト削除済みアイテムを復元します"
 
 msgid "Restore From {0}"
-msgstr ""
+msgstr "{0}から復元します"
 
 msgid "Restore"
-msgstr "リストア"
+msgstr "復元"
 
 msgid "Restore All"
-msgstr "全リストア"
+msgstr "全部復元"
 
 msgid "Permanent Delete"
-msgstr "完全に削除する"
+msgstr "完全に削除"
 
 msgid "Delete All"
 msgstr "全て削除"
@@ -2594,18 +2591,18 @@ msgstr ""
 
 #, fuzzy
 msgid "Restore all items"
-msgstr "アイテムを回復する"
+msgstr "アイテムを全部回復します"
 
 #, fuzzy
 msgid "Are you sure you want to restore all items?"
-msgstr "{0}を空にしますがよろしいですか？"
+msgstr "アイテムを全部回復しますがよろしいですか？"
 
 msgid "Total {0} recoverable item"
 msgid_plural "Total {0} recoverable items"
 msgstr[0] "トータルで{0}個復旧可能なアイテムがあります。"
 
 msgid "Deleted On"
-msgstr "遅延"
+msgstr "削除日"
 
 # 84%
 # 78%
@@ -2623,10 +2620,10 @@ msgid "Sort by: From"
 msgstr "並べ替え：From"
 
 msgid "Received"
-msgstr "承諾"
+msgstr "受け取った"
 
 msgid "Sort by: Received"
-msgstr "並べ替え：受信者"
+msgstr "並べ替え：受け取った"
 
 msgid "Size"
 msgstr "サイズ"
@@ -2659,7 +2656,7 @@ msgstr " ...にこのメッセージを添付ファイルとして転送しま�
 
 #, fuzzy
 msgid "Mark the message as read..."
-msgstr " ...にメッセージを転送します。"
+msgstr " メッセージを既読にする..."
 
 #, fuzzy
 msgid "is received from..."
@@ -2669,13 +2666,13 @@ msgstr " ...から受信します。"
 # 100%
 #, fuzzy
 msgid "includes these words in the sender's address..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgstr "これらの単語を送信者のアドレスに含めます。"
 
 # 84%
 # 100%
 #, fuzzy
 msgid "includes these words in the recipient's address..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgstr "これらの単語を受信者のアドレスに含めます。"
 
 #, fuzzy
 msgid "includes these words in the subject..."
@@ -2685,36 +2682,36 @@ msgstr "件名にこれらの言葉が含まれています。"
 # 100%
 #, fuzzy
 msgid "includes these words in the body..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgstr "本文にこれらの言葉が含まれています。"
 
 # 84%
 # 100%
 #, fuzzy
 msgid "includes these words in the transport-headers..."
-msgstr "件名にこれらの言葉が含まれています。"
+msgstr "これらの単語をtransport-headersに含めます。"
 
 #, fuzzy
 msgid "has importance..."
 msgstr "重要度 ..."
 
 msgid "has an attachment"
-msgstr ""
+msgstr "添付ファイルがあります"
 
 #, fuzzy
 msgid "is sent to..."
 msgstr " ...に送信する"
 
 msgid "is sent only to me"
-msgstr "自分だけに送信された"
+msgstr "自分だけに送信されます"
 
 msgid "has my name in the Cc field"
-msgstr ""
+msgstr "Ccフィールドに自分の名前があります"
 
 msgid "does not have my name in the To or Cc field"
-msgstr ""
+msgstr "[宛先]または[CC]フィールドに自分の名前がありません"
 
 msgid "has my name in the To or Cc field"
-msgstr ""
+msgstr "[To]または[Cc]フィールドに自分の名前があります"
 
 #, fuzzy
 msgid "has sensitivity..."
@@ -2722,23 +2719,23 @@ msgstr "秘密度"
 
 #, fuzzy
 msgid "is received after..."
-msgstr " ...から受信します。"
+msgstr " 後に受信されます"
 
 #, fuzzy
 msgid "is received before..."
-msgstr " ...から受信します。"
+msgstr " 前に受信されます"
 
 msgid "size is at least..."
-msgstr ""
+msgstr "サイズは少なくとも"
 
 msgid "size is at most..."
-msgstr ""
+msgstr "サイズはせいぜい"
 
 msgid "has my name in the To field"
-msgstr ""
+msgstr "[宛先]フィールドに自分の名前があります"
 
 msgid "is received (all messages)"
-msgstr ""
+msgstr "受信されます（すべてのメッセージ）"
 
 msgid "Select one..."
 msgstr "１つ選択"
@@ -2762,7 +2759,7 @@ msgid "Unknown action"
 msgstr "不明なアクション"
 
 msgid "This action for the current rule is unknown"
-msgstr "現在の仕訳ルールのこのアクションは不明です。"
+msgstr "現在のルールのこのアクションは不明です。"
 
 msgid "Add condition"
 msgstr "条件を追加"
@@ -2771,35 +2768,35 @@ msgid "Remove condition"
 msgstr "条件を外す"
 
 msgid "Inbox Rule"
-msgstr "受信箱の仕訳ルール"
+msgstr "受信箱のルール"
 
 msgid "Rule name"
-msgstr "仕訳ルールの名前"
+msgstr "ルールの名前"
 
 msgid "When the message"
 msgstr "メッセージ"
 
 msgid "Do the following"
-msgstr "以下を実行する"
+msgstr "下記実行します"
 
 # オプション
 #, fuzzy
 msgid "Exceptions"
-msgstr "オプション"
+msgstr "例外"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "不在通知がアクティブな場合にのみ適用します"
 
 msgid "Stop processing more rules"
-msgstr "これ以上ルール仕訳を実行するのをやめる。"
+msgstr "他のルールの処理を停止します"
 
 #, fuzzy
 msgid "Add exception"
-msgstr "アクションを追加"
+msgstr "例外追加"
 
 #, fuzzy
 msgid "Remove exception"
-msgstr "アクションを削除"
+msgstr "例外削除"
 
 msgid "Specify Words or Phrases"
 msgstr "単語と文章を特定する。"
@@ -2813,7 +2810,7 @@ msgstr "かつ"
 msgid ""
 "Distribution lists are not supported in rules, would you like to replace the "
 "distribution list with its members?"
-msgstr ""
+msgstr "配布リストはルールでサポートされていません。配布リストをそのメンバーに置き換えますか？"
 
 msgid "or"
 msgstr "もしくは"
@@ -2830,41 +2827,41 @@ msgstr "外出中"
 
 # 80%
 msgid "Rule"
-msgstr "仕訳ルール"
+msgstr "ルール"
 
 # 76%
 msgid "Loading rules"
-msgstr "メモを読み込み中"
+msgstr "ルールを読み込み中"
 
 # 76%
 msgid "Please select a rule."
-msgstr "仕訳ルールを選択して下さい。"
+msgstr "ルールを選択して下さい。"
 
 msgid "Rule already has highest priority."
-msgstr "既にこの仕訳ルールの優先度は最高に設定されています。"
+msgstr "既にこのルールの優先度は最高に設定されています。"
 
 msgid "Rule already has lowest priority."
-msgstr "既にこの仕訳ルールの優先度は最低に設定されています。"
+msgstr "既にこのルールの優先度は最低に設定されています。"
 
 msgid "myself"
-msgstr ""
+msgstr "自分"
 
 msgid "Update rules for"
-msgstr ""
+msgstr "ルールを更新します"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "変更を適用します"
 
 msgid "Do you wish to apply the changes?"
 msgstr "変更を適用してもよろしいですか？"
 
 #, fuzzy
 msgid "All folders"
-msgstr "全フォルダを表示する"
+msgstr "全フォルダ"
 
 #, fuzzy
 msgid "Other..."
-msgstr "他"
+msgstr "その他"
 
 #, fuzzy
 msgid "Search in.."
@@ -2872,35 +2869,35 @@ msgstr "検索.."
 
 #, fuzzy
 msgid "Folder does not exist"
-msgstr "フォルダ内の内容"
+msgstr "フォルダが存在しません"
 
 msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
-msgstr ""
+msgstr "検索しているフォルダーは存在しません。 別のフォルダを選択してください"
 
 msgid "Add/Edit sender"
-msgstr ""
+msgstr "送信者の追加/編集"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "設定された送信元アドレスなし"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "アドレスからの読み込み"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "アドレス記録から選択してください。"
 
 msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
-msgstr ""
+msgstr "メール送信時に送信者アドレスとして使用できるメールアドレスを管理します"
 
 msgid "View"
-msgstr ""
+msgstr "ビュー"
 
 msgid "Please select a sendas record."
-msgstr ""
+msgstr "送信者レコードを選択してください"
 
 msgid "Delegates"
 msgstr "代理人"
@@ -2912,19 +2909,19 @@ msgstr "代理人設定"
 # 80%
 #, fuzzy
 msgid "Rules"
-msgstr "仕訳ルール"
+msgstr "ルール"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "差出人アドレス"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "差出人アドレス設定"
 
 msgid "Full name"
-msgstr ""
+msgstr "フルーネーム"
 
 msgid "Job Title"
-msgstr "役職"
+msgstr "職名"
 
 # 92%
 msgid "Phone Numbers"
@@ -2952,7 +2949,7 @@ msgid_plural "{0} selected rows"
 msgstr[0] "選択行{0}"
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "リマインダーは{0}、{1}に設定されています"
 
 msgid "d-m-Y"
 msgstr "Y/m/d"
@@ -2965,7 +2962,7 @@ msgid "d-m-Y G:i"
 msgstr "Y/m/d"
 
 msgid "Unknown"
-msgstr "未定"
+msgstr "不明"
 
 # 88%
 msgid "Meeting Organizer"
@@ -2987,7 +2984,16 @@ msgid "Attachments"
 msgstr "添付ファイル"
 
 msgid "Download Pictures"
-msgstr "写真のダウンロード"
+msgstr "写真をダウンロードします"
+
+msgid "Safe Sender List"
+msgstr "安全な送信者リストに"
+
+msgid "Safe Senders"
+msgstr "安全な送信者リストに"
+
+msgid "Safe Senders List Is Empty"
+msgstr "安全な送信者リストにが空です"
 
 msgid "Add Sender to Safe Senders List"
 msgstr "送信者を安全な送信者リストに追加する。"
@@ -3010,7 +3016,7 @@ msgstr "このメッセージは重要度{0}で送信されました。"
 #. 'Please treat this as Confidential.'
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
-msgstr "{0}として扱う"
+msgstr "{0}として扱ってください"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3025,23 +3031,23 @@ msgctxt "mail.previewpanel"
 msgid ""
 "This message is corrupt and will not be displayed correctly, Click here to "
 "fix it."
-msgstr ""
+msgstr "このメッセージは破損しているため、正しく表示されません。ここをクリックして修正してください。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr "{0}は承諾しました。"
+msgstr "{0}は受け入れました"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr "{0}が{1}の代わりに受諾しました。"
+msgstr "{0}が{1}の代わりに受け入れました。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr "{0}が仮承諾しました。"
+msgstr "{0}は暫定的に受け入れました"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr "{0}が{1}の代わりに仮受諾しました。"
+msgstr "{0}が{1}の代わりに暫定的に受け入れました。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
@@ -3053,7 +3059,7 @@ msgstr "{0}が{1}の代わりに辞退しました。"
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
-msgstr "{0}は仮承諾し、この会議の新しい日時の申し出ました。"
+msgstr "{0}はこの会議の新しい時間を暫定的に受け入れ、提案しました。"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -3110,65 +3116,65 @@ msgstr "{0}受信しました。"
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "このメッセージに返信しました"
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "このメッセージを転送しました。"
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr ""
+msgstr "{0}にこのメッセージに返信しました"
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr ""
+msgstr "このメッセージを{0}に転送しました。"
 
 #, fuzzy
 msgid "Assigned by {0} on {1}."
-msgstr "{1}について{0}が承諾しました。"
+msgstr "{1}の{0}によって割り当てられました"
 
 #, fuzzy
 msgid "Waiting for response from recipient"
-msgstr "受信者に開封通知を要求する"
+msgstr "受信者からの応答を待っています"
 
 #, fuzzy
 msgid "Accepted by {0} on {1}."
-msgstr "{1}について{0}が承諾しました。"
+msgstr "{1}で{0}に受け入れられました。"
 
 #, fuzzy
 msgid "{0} has accepted on behalf of {1} {2}."
-msgstr "{0}が{1}の代わりに受諾しました。"
+msgstr "{0}は{1} {2}に代わって受け入れました。"
 
 #, fuzzy
 msgid "Declined by {0} on {1}."
-msgstr "{1}について{0}が承諾しました。"
+msgstr "{1}で{0}によって拒否されました"
 
 #, fuzzy
 msgid "{0} has declined on behalf of {1} {2}."
-msgstr "{0}が{1}の代わりに辞退しました。"
+msgstr "{0}は{1} {2}に代わって辞退しました。"
 
 msgid "Last update sent on {0}."
-msgstr ""
+msgstr "{0}に送信された最後の更新"
 
 #, fuzzy
 msgid "{0} has updated on behalf of {1} {2}."
-msgstr "{0}が{1}の代わりに受諾しました。"
+msgstr "{0}は{1} {2}に代わって更新されました。"
 
 #, fuzzy
 msgid "Fix message"
-msgstr "オリジナル本文"
+msgstr "メッセージを修正します"
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
+msgstr "破損したメールメッセージを修正しようとしています。続行しますか？"
 
 #, fuzzy
 msgid "d-m-Y g:i a"
 msgstr "Y/m/d"
 
 msgid "The matching task was not found in your task list."
-msgstr ""
+msgstr "一致するタスクがタスクリストに見つかりませんでした"
 
 # 100%
 msgctxt "mail.previewpanel"
@@ -3187,7 +3193,7 @@ msgstr "Bcc"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "カテゴリ"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3210,21 +3216,21 @@ msgstr "送信"
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
 msgid "None"
-msgstr "メモ"
+msgstr "無し"
 
 msgid "Pop-out"
-msgstr ""
+msgstr "ポップアウト"
 
 #, fuzzy
 msgid "Mark as read"
-msgstr "未読にする"
+msgstr "既読にする"
 
 #, fuzzy
 msgid "Mark as unread"
 msgstr "未読にする"
 
 msgid "in"
-msgstr ""
+msgstr "イン"
 
 msgid "Root"
 msgstr "ルート"
@@ -3240,10 +3246,10 @@ msgid "Sort by: Company Name"
 msgstr "並べ替え：会社名"
 
 msgid "Sort by: Job Title"
-msgstr "並べ替え：役職"
+msgstr "並べ替え：職名"
 
 msgid "Full Name"
-msgstr "氏名"
+msgstr "フルネーム"
 
 msgid "Department Name"
 msgstr "部署名"
@@ -3269,7 +3275,7 @@ msgid "Assistant Phone"
 msgstr "アシスタントの電話番号"
 
 msgid "Company Main Phone"
-msgstr ""
+msgstr "会社のメイン電話"
 
 # 83%
 msgid "Home 2 Phone"
@@ -3288,7 +3294,7 @@ msgid "Other Phone"
 msgstr "他の電話番号"
 
 msgid "Primary Phone"
-msgstr ""
+msgstr "プライマリ電話"
 
 msgid "Telex"
 msgstr "テレックス"
@@ -3354,11 +3360,11 @@ msgid "Phone List"
 msgstr "電話帳"
 
 msgid "Add to contacts"
-msgstr ""
+msgstr "連絡先に登録します"
 
 # 77%
 msgid "Print selected contact"
-msgstr "選択したコンタクトの印刷"
+msgstr "選択したコンタクトを印刷します"
 
 msgid "No contact selected"
 msgstr "コンタクトが選択されていません"
@@ -3429,7 +3435,7 @@ msgid "Nickname"
 msgstr "ニックネーム"
 
 msgid "Suffix"
-msgstr "接尾句"
+msgstr "サフィックス"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
@@ -3464,14 +3470,14 @@ msgid "TTY/TDD"
 msgstr "TTY/TDD"
 
 msgid "Check full name"
-msgstr "氏名の確認"
+msgstr "フルーネームの確認"
 
 msgid "Middle"
-msgstr "中"
+msgstr "中間"
 
 # 88%
 msgid "Show this again when name is incomplete or unclear."
-msgstr "アドレスが不完全か不明な場合に再度表示する"
+msgstr "名前が不完全か不明な場合に再度表示する"
 
 msgid "Check phone number"
 msgstr "電話番号の確認"
@@ -3499,14 +3505,14 @@ msgstr "このコンタクトに添付ファイルを追加する"
 # 75%
 #, fuzzy
 msgid "Mark this contact as private"
-msgstr "この連絡先を個人用にする"
+msgstr "この連絡先を個人用にします"
 
 msgid "Distribution List"
 msgstr "配布リスト"
 
 #, fuzzy
 msgid "Mark this Distribution list as private"
-msgstr "配布リストを個人用にする"
+msgstr "配布リストを個人用にします"
 
 #, fuzzy
 msgid "New email address"
@@ -3523,10 +3529,10 @@ msgid "Add New"
 msgstr "新規追加"
 
 msgid "Type your note here..."
-msgstr ""
+msgstr "ここにメモを入力してください"
 
 msgid "New contact"
-msgstr ""
+msgstr "新しい連絡先"
 
 # 78%
 # 100%
@@ -3535,11 +3541,11 @@ msgstr "新しい配布リスト"
 
 #, fuzzy
 msgid "Email 2 Display As"
-msgstr "メール表示"
+msgstr "メール2表示形式"
 
 #, fuzzy
 msgid "Email 3 Display As"
-msgstr "メール表示"
+msgstr "メール3表示形式"
 
 # 88%
 msgid "Assistent"
@@ -3555,7 +3561,7 @@ msgid "Work"
 msgstr "仕事"
 
 msgid "Sort by: Full Name"
-msgstr "並べ替え：氏名"
+msgstr "並べ替え：フルーネーム"
 
 # 91%
 msgid "Sort by: Email Address 2"
@@ -3694,21 +3700,21 @@ msgid "Sort by: Telex Phone"
 msgstr "並べ替え：テレックス"
 
 msgid "Change Picture"
-msgstr ""
+msgstr "写真変更"
 
 msgid "Remove Picture"
-msgstr ""
+msgstr "画像削除"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "VCFファイル"
 
 msgid "Open in new browser window"
-msgstr ""
+msgstr "新しいブラウザウィンドウで開きます"
 
 msgid ""
 "Your browser seems to have blocked one or more pop-ups. Please change your "
 "browser's settings to always allow pop-ups from WebApp."
-msgstr ""
+msgstr "ブラウザが1つ以上のポップアップをブロックしているようです。 ブラウザの設定を変更して、WebAppからのポップアップを常に許可するようにしてください。"
 
 msgid "Untitled"
 msgstr "タイトル無し"
@@ -3722,26 +3728,26 @@ msgstr ""
 
 msgid ""
 "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
-msgstr ""
+msgstr "添付ファイルをアップロードできません。添付ファイルは{0}で、許可される最大値は{1}です。"
 
 msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
-msgstr "最大値は{1}です。"
+msgstr "添付ファイルをアップロードできません。添付ファイルの合計サイズは{0}で、許可される最大サイズは{1}です。"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
 "attachment in single request is {1}."
-msgstr ""
+msgstr "添付ファイルをアップロードできません。添付ファイルの合計は{0}で、単一リクエストで許可される最大添付ファイルは{1}です。"
 
 msgid ""
 "Cannot upload attachment, total attachments are {0} files while the maximum "
 "{1} files are allowed in single request."
-msgstr ""
+msgstr "添付ファイルをアップロードできません。合計添付ファイルは{0}ファイルですが、1回のリクエストで最大{1}ファイルが許可されています。"
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
-msgstr "{1}の代わりとして{0}"
+msgstr "{1}に代わって{0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
@@ -3769,10 +3775,10 @@ msgid "Special Date"
 msgstr "特別な日"
 
 msgid "Phone Interview"
-msgstr "電話面接"
+msgstr "電話インタビュー"
 
 msgid "Free"
-msgstr "空き"
+msgstr "無料"
 
 msgid "Low"
 msgstr "低"
@@ -3803,10 +3809,10 @@ msgid "Yellow"
 msgstr "黄"
 
 msgid "No response"
-msgstr "返答不要"
+msgstr "返答無し"
 
 msgid "Not responded"
-msgstr "未回答"
+msgstr "応答なし"
 
 # 75%
 msgid "Accepted"
@@ -3832,13 +3838,13 @@ msgid "Deferred"
 msgstr "延期"
 
 msgid "Dark"
-msgstr ""
+msgstr "ダーク"
 
 msgid "High Contrast"
 msgstr "ハイコントラスト"
 
 msgid "Lime"
-msgstr ""
+msgstr "ライム"
 
 msgid "Orange"
 msgstr "オレンジ"
@@ -3850,11 +3856,11 @@ msgid "Logout"
 msgstr "ログアウト"
 
 msgid "Switch view"
-msgstr "ビューを切替"
+msgstr "ビュー切替"
 
 #, fuzzy
 msgid "Widgets"
-msgstr "ウィジェット追加"
+msgstr "ウィジェット"
 
 #, fuzzy
 msgid "Sending..."
@@ -3865,65 +3871,65 @@ msgstr "送信成功"
 
 #, fuzzy
 msgid "No recipient"
-msgstr "受信者を編集します。"
+msgstr "受信者無し"
 
 #, fuzzy
 msgid "Please specify at least one recipient"
-msgstr "受信者を特定して下さい。"
+msgstr "少なくとも1人の受信者を指定してください"
 
 msgid "Please specify a recipient"
 msgstr "受信者を特定して下さい。"
 
 msgid "The attached files are not uploaded yet."
-msgstr ""
+msgstr "添付ファイルはまだアップロードされていません。"
 
 msgid "Do you want to send this message without attachments?"
-msgstr ""
+msgstr "このメッセージを添付ファイルなしで送信しますか？"
 
 # 81%
 #, fuzzy
 msgid "Attachments not uploaded yet"
-msgstr "このコンタクトに添付ファイルを追加する"
+msgstr "添付ファイルはまだアップロードされていません"
 
 msgid "Don't Send"
-msgstr ""
+msgstr "送信しません"
 
 msgid "Send Anyway"
-msgstr ""
+msgstr "とにかく送ります"
 
 #, fuzzy
 msgid "No subject"
-msgstr "件名がありません"
+msgstr "件名無し"
 
 msgid "Send this message without a subject?"
 msgstr "件名が空白ですが送信しますか？"
 
 #, fuzzy
 msgid "Unresolved recipients"
-msgstr "受信者を編集します。"
+msgstr "未解決の受信者"
 
 msgid "Not all recipients could be resolved"
-msgstr "全ての受信者の認識ができませんでした。"
+msgstr "すべての受信者を解決できるわけではありません"
 
 msgid "Collapse hierarchy"
-msgstr "階層情報を広げる"
+msgstr "階層を折りたたみます"
 
 msgid "Expand hierarchy"
-msgstr ""
+msgstr "階層を展開します"
 
 msgid "Folders List"
 msgstr "フォルダー一覧"
 
 #, fuzzy
 msgid "Copy Details"
-msgstr "詳細を表示"
+msgstr "詳細をコピーします"
 
 #, fuzzy
 msgid "Hide Details"
-msgstr "詳細"
+msgstr "詳細を非表示します"
 
 msgid "Loaded {0} of {1}"
-msgstr ""
+msgstr "{1}の{0}をロードしました"
 
 msgid "Saving"
 msgstr "保存中"
@@ -3942,26 +3948,26 @@ msgstr ""
 "しいですか？"
 
 msgid "Kopano Content Panel"
-msgstr "Steepコンテンツパネル"
+msgstr "Kopanoコンテンツパネル"
 
 #, fuzzy
 msgid "Delete item"
 msgstr "アイテム削除"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr ""
+msgstr "この項目は変更されました。 本当に削除しますか？"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "未保存の変更"
 
 msgid "Welcome to Kopano WebApp"
-msgstr "Steep WebAppへようこそ"
+msgstr "Kopano WebAppへようこそ"
 
 msgid "This is the first time you are using WebApp. "
-msgstr ""
+msgstr "WebAppを使用するのはこれが初めてです。"
 
 msgid "Please check the following settings before continuing."
-msgstr ""
+msgstr "続行する前に、次の設定を確認してください。"
 
 msgid "Add widgets"
 msgstr "ウィジェット追加"
@@ -3970,32 +3976,32 @@ msgid "No widgets installed."
 msgstr "ウィジェットがインストールされていません。"
 
 msgid "Configure widget"
-msgstr "ウィジェットを設定する"
+msgstr "ウィジェット配置"
 
 #, fuzzy
 msgid "Remove widget"
-msgstr "削除"
+msgstr "ウィジェット削除"
 
 #, fuzzy
 msgid "Collapse widget"
-msgstr "階層情報を広げる"
+msgstr "ウィジェットを折り畳みます"
 
 #, fuzzy
 msgid "Expand widget"
-msgstr "ウィジェット追加"
+msgstr "ウィジェットを展開します"
 
 #, fuzzy
 msgid "Add new widget"
 msgstr "ウィジェット追加"
 
 msgid "Collapse widget panel"
-msgstr ""
+msgstr "ウィジェットのパネルを折り畳みます"
 
 msgid "Expand widget panel"
-msgstr ""
+msgstr "ウィジェットのパネルを展開します"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr ""
+msgstr "このページから移動すると、変更は失われます。"
 
 # 80%
 #, fuzzy
@@ -4008,37 +4014,36 @@ msgstr "Y/m/d"
 
 #, fuzzy
 msgid "Insufficient permissions"
-msgstr "フォルダ アクセス権"
+msgstr "権限が不十分です"
 
 msgid ""
 "Not enough permissions to open this store, do you want to remove it from the "
 "hierarchy?"
 msgstr ""
-"このデータストアを開くための十分な権限がありません。ヒエラルキーから外します"
+"このストアを開くための十分な権限がありません。階層から削除しますか"
 "か？"
 
 msgid ""
 "Not enough permissions to open this folder, do you want to remove it from "
 "the hierarchy?"
 msgstr ""
-"このフォルダを開くための十分な権限がありません。このヒエラルキーから取り除き"
-"ますか？"
+"このフォルダを開くための十分な権限がありません。階層から削除しますか"
 
 #, fuzzy
 msgid "Insufficient Permissions"
-msgstr "委譲する権限"
+msgstr "不十分な権限"
 
 msgid "Not enough permissions to open this folder."
-msgstr "このフォルダを開く権限がありません。"
+msgstr "このフォルダを開くための権限がありません。"
 
 #, fuzzy
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
+msgstr[0] "{2}のフォルダー{1}に{0}の未読メッセージがあります"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] "{0}件の未読メッセージが{1}フォルダにあります。"
+msgstr[0] "フォルダー{1}に{0}個の未読メッセージがあります"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -4055,22 +4060,22 @@ msgid "No rights"
 msgstr "権限がありません"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "インポートできません："
 
 msgid "The files are not valid"
-msgstr ""
+msgstr "ファイルが無効です"
 
 msgid "Create New Folder"
-msgstr "新しいフォルダを作成する。"
+msgstr "新しいフォルダを作成します。"
 
 msgid "Folder contains"
-msgstr "フォルダ内の内容"
+msgstr "フォルダーが含まれています"
 
 msgid "Calendar Items"
 msgstr "カレンダーアイテム"
 
 msgid "Mail and Post Items"
-msgstr "メール アイテム"
+msgstr "メールおよび送信アイテム"
 
 msgid "Contacts Items"
 msgstr "連絡先 アイテム"
@@ -4086,11 +4091,11 @@ msgstr "フォルダを作成する場所を選択して下さい。"
 
 #, fuzzy
 msgid "No folder name"
-msgstr "フォルダ名"
+msgstr "フォルダ名無し"
 
 #, fuzzy
 msgid "No destination"
-msgstr "情報がありません。"
+msgstr "行き先なし"
 
 msgid "You must select a destination folder."
 msgstr "フォルダの移動先を選択して下さい。"
@@ -4108,7 +4113,7 @@ msgid "Folder size"
 msgstr "フォルダサイズ"
 
 msgid "Folder containing {0} Items"
-msgstr "フォルダフォルダ{0}項目がフォルダ内にあります。"
+msgstr "フォルダに{0}項目が含まれています。"
 
 msgid "Permissions"
 msgstr "許可"
@@ -4138,7 +4143,7 @@ msgid "Edit items"
 msgstr "項目編集"
 
 msgid "Own"
-msgstr "自分の"
+msgstr "自分"
 
 msgid "All"
 msgstr "全て"
@@ -4184,7 +4189,7 @@ msgid "Total size"
 msgstr "トータルサイズ"
 
 msgid "Sort by: Total size (including subfolders)"
-msgstr "並べ替え：サイズ（サブフォルダを含む）"
+msgstr "並べ替え：トータルサイズ（サブフォルダを含む）"
 
 # 78%
 msgid "Open Shared Folders"
@@ -4192,34 +4197,34 @@ msgstr "共有フォルダを開く"
 
 #, fuzzy
 msgid "Unresolved user"
-msgstr "Could not resolve user."
+msgstr "未解決のユーザー"
 
 msgid "Username '{0}' could not be resolved."
-msgstr "ユーザー名 '{0}' は確認できませんでした。"
+msgstr "ユーザー名 '{0}' は解決できませんでした。"
 
 msgid "Invalid user"
-msgstr ""
+msgstr "無効なユーザー"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "ユーザー{0}は有効なユーザーではありません。"
 
 #, fuzzy
 msgid "Own store"
-msgstr "データストアがありません。"
+msgstr "自分のストア"
 
 #, fuzzy
 msgid "It is not possible to open your own store twice."
-msgstr "自分のデータストアを２度開くことはできません。"
+msgstr "自分のストアを２度開くことはできません。"
 
 #, fuzzy
 msgid "Folder already open"
-msgstr "この共有フォルダは既に開いています。"
+msgstr "このフォルダは既に開いています。"
 
 msgid "This shared folder is already open."
 msgstr "この共有フォルダは既に開いています。"
 
 msgid "No user"
-msgstr ""
+msgstr "ユーザー無し"
 
 #, fuzzy
 msgid "You must specify a user"
@@ -4232,7 +4237,7 @@ msgid "Show subfolders"
 msgstr "サブフォルダ表示"
 
 msgid "Open shared folder/store"
-msgstr ""
+msgstr "共有フォルダー/ストアを開く"
 
 #, fuzzy
 msgid "Empty folder"
@@ -4240,12 +4245,12 @@ msgstr "フォルダを空にする"
 
 #, fuzzy
 msgid "Empty Junk Email"
-msgstr "迷惑メール"
+msgstr "迷惑メールを空にする"
 
 # 92%
 #, fuzzy
 msgid "Empty Deleted Items"
-msgstr "削除済みアイテム"
+msgstr "削除済みアイテムを空にする"
 
 msgid "Rename Folder"
 msgstr "フォルダ名を変更"
@@ -4260,7 +4265,7 @@ msgid "Delete Folder"
 msgstr "フォルダ削除"
 
 msgid "Close store"
-msgstr "フォルダを閉じる"
+msgstr "ストアを閉じる"
 
 msgid "Close folder"
 msgstr "フォルダを閉じる"
@@ -4280,43 +4285,43 @@ msgid "Add to Favorites"
 msgstr "お気に入りへ追加する"
 
 msgid "Remove From Favorites"
-msgstr "カレンダーから削除する"
+msgstr "お気に入りから削除する"
 
 #, fuzzy
 msgid "Share folder..."
-msgstr "初期フォルダー"
+msgstr "共有フォルダー"
 
 #, fuzzy
 msgid "Import emails"
-msgstr "重要"
+msgstr "重要なメール"
 
 # 93%
 # 100%
 #, fuzzy
 msgid "Import appointments"
-msgstr "新しい予定"
+msgstr "予定をインポートする"
 
 #, fuzzy
 msgid "Properties of {0}"
-msgstr "プロパティ"
+msgstr "{0}のプロパティ"
 
 msgid "Share {0} with..."
-msgstr ""
+msgstr "{0}を共有..."
 
 #, fuzzy
 msgid "Properties of {0} - {1}"
-msgstr "プロパティ"
+msgstr "{0}-{1}のプロパティ"
 
 msgid ""
 "Are you sure you want to permanently delete all the items and subfolders in "
 "the \"{0}\" folder?"
 msgstr ""
-"{0}フォルダ内のサブフォルダと全てのアイテムを完全削除しますがよろしいですか？"
+"\ "{0} \"フォルダー内のすべてのアイテムとサブフォルダーを完全に削除してもよろしいですか？"
 
 msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
-msgstr "\"{0}\"フォルダを削除し全てゴミ箱に移動しますがよろしいですか？"
+msgstr "フォルダ\ "{0} \"を削除して、その内容をすべて削除済みアイテムフォルダに移動してもよろしいですか？"
 
 #, fuzzy
 msgid "Delete folder"
@@ -4349,20 +4354,20 @@ msgid "Red"
 msgstr "赤"
 
 msgid "Original message"
-msgstr "オリジナル本文"
+msgstr "オリジナルメッセージ"
 
 msgid "Schedule mail to be sent out"
-msgstr "送信される予定されたメール"
+msgstr "メールの送信をスケジュールします"
 
 msgid "Scheduled Items"
-msgstr ""
+msgstr "予定アイテム"
 
 msgid "Your message will be sent at "
 msgstr "メッセージは次の時間に送信されます "
 
 #, fuzzy
 msgid "Go to your Outbox to edit your email."
-msgstr "<b>送信済みフォルダ</b> を開き、メールを編集してください。"
+msgstr "送信トレイに移動してメールを編集します"
 
 msgid "hour(s)"
 msgstr "時間"
@@ -4374,10 +4379,10 @@ msgid "month(s)"
 msgstr "月"
 
 msgid "at a specific time"
-msgstr "次に指定されています"
+msgstr "特定の時間に"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr ""
+msgstr "入力した時刻は過去です。メールのスケジュールを変更してください。"
 
 msgid "today  at "
 msgstr "本日の "
@@ -4412,63 +4417,63 @@ msgid "Message Options"
 msgstr "メッセージのオプション"
 
 msgid "This message will be flagged for follow up when it is sent."
-msgstr ""
+msgstr "このメッセージには、送信時にフォローアップのフラグが立てられます。"
 
 msgid "Send Later"
-msgstr "後で送信"
+msgstr "後で送信します"
 
 #, fuzzy
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "送信される予定されたメール"
+msgstr "特定の日時にメールが送信されるようにスケジュールします"
 
 # 86%
 msgid "Add attachments to this email"
-msgstr "このメールに添付ファイルを追加する"
+msgstr "このメールに添付ファイルを追加します"
 
 msgid "Add signature"
-msgstr "署名を追加する"
+msgstr "署名を追加します"
 
 # オプション
 msgid "Options"
 msgstr "オプション"
 
 msgid "Open options dialog"
-msgstr "オプションダイアログを開く"
+msgstr "オプションダイアログを開きます"
 
 msgid "Set flag"
 msgstr "フラグ設定"
 
 msgid "Set flag on this email"
-msgstr "このメールにフラグを設定する"
+msgstr "このメールにフラグを設定します"
 
 msgid "Mark this mail as high priority"
-msgstr ""
+msgstr "このメールを高優先度にマークします"
 
 msgid "Mark this mail as low priority"
-msgstr ""
+msgstr "このメールを低優先度にマークします"
 
 msgid "Set read receipt"
-msgstr "開封通知を設定する"
+msgstr "開封確認メッセージを設定します"
 
 msgid "Request read receipt from recipients"
-msgstr "受信者に開封通知を要求する"
+msgstr "受信者からの開封確認をリクエストします"
 
 msgid "Show Bcc"
 msgstr "Bccを表示"
 
 #, fuzzy
 msgid "Show Bcc field"
-msgstr "Bccを表示"
+msgstr "Bccフィールドを表示します"
 
 #, fuzzy
 msgid "Show From field"
-msgstr "送信者を表示"
+msgstr "Fromフィールドを表示します"
 
 msgid "No signatures configured"
 msgstr "署名が設定されていません。"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "添付ファイルのアップロード中には保存できません"
 
 msgid "Miscellaneous Options"
 msgstr "その他オプション"
@@ -4477,7 +4482,7 @@ msgid "Internet Headers"
 msgstr "インターネットヘッダー"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Message Settings"
 msgstr "メッセージ設定"
@@ -4486,16 +4491,16 @@ msgid "Tracking Options"
 msgstr "オプション追跡"
 
 msgid "Request a read receipt for this message."
-msgstr "このメッセージへの開封通知を要求する。"
+msgstr "このメッセージの開封確認をリクエストします"
 
 msgid "no subject"
-msgstr "件名がありません"
+msgstr "件名無し"
 
 msgid "Set Category"
 msgstr "カテゴリーを設定"
 
 msgid "Pop-Out"
-msgstr ""
+msgstr "ポップアウト"
 
 msgid "Mark Read"
 msgstr "既読にする"
@@ -4517,10 +4522,10 @@ msgid "Reply all"
 msgstr "全員へ返信"
 
 msgid "Toggle read/unread"
-msgstr ""
+msgstr "既読/未読の切り替え"
 
 msgid "Toggle red/complete flag"
-msgstr ""
+msgstr "赤/完了フラグの切り替え"
 
 # 82%
 msgid "Open Shared Mails"
@@ -4528,15 +4533,15 @@ msgstr "共有メールを開く"
 
 #, fuzzy
 msgid "Print single email"
-msgstr "メールを印刷する"
+msgstr "単一のメールを印刷する"
 
 # 78%
 #, fuzzy
 msgid "Print selected email"
-msgstr "選択したタスクを印刷"
+msgstr "選択したメールを印刷する"
 
 msgid "Filter"
-msgstr ""
+msgstr "フィルタ"
 
 msgid "FW"
 msgstr "FW"
@@ -4551,10 +4556,10 @@ msgid "Plain Text"
 msgstr "テキスト形式"
 
 msgid "Compose mail settings"
-msgstr "メール設定"
+msgstr "メール設定を作成する"
 
 msgid "Compose mail in this format"
-msgstr "この形式でメールを構成する。"
+msgstr "この形式でメールを作成する。"
 
 #, fuzzy
 msgid "Editor"
@@ -4564,36 +4569,36 @@ msgid "Default font"
 msgstr "デフォルトフォント"
 
 msgid "Default font size"
-msgstr ""
+msgstr "デフォルトフォントサイズ"
 
 msgid "Always request a read receipt"
-msgstr "常に開封確認の通知を要求をします。"
+msgstr "常に開封確認を要求をします。"
 
 # 93%
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "{A}自動保存　未送信メール　{B}分毎"
+msgstr "{B}分ごとに未送信メールを{A} 自動保存します"
 
 msgid "Incoming mail"
 msgstr "受信箱"
 
 msgid "How to respond to requests for read receipts"
-msgstr "確認要求に対する応答の処理を設定します。"
+msgstr "開封確認のリクエストに応答する方法"
 
 msgid "Always send a response"
-msgstr "常に開封済みメッセージを送信します。"
+msgstr "常に応答を送信します"
 
 msgid "Never send a response"
-msgstr "開封済みメッセージを送信しない"
+msgstr "応答を送信しません"
 
 msgid "Ask me before sending a response"
-msgstr "返信を送信前に確認する。"
+msgstr "返信を送信前に確認します。"
 
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr "{B}秒後に自動的に既読にする。"
+msgstr "{B}秒後にメールを既読として自動的に{A} マークします"
 
 msgid "Off"
 msgstr "Off"
@@ -4602,7 +4607,7 @@ msgid "Right"
 msgstr "右"
 
 msgid "Bottom"
-msgstr "ボタン"
+msgstr "底"
 
 msgid "General mail settings"
 msgstr "一般メール設定"
@@ -4610,56 +4615,42 @@ msgstr "一般メール設定"
 # 83%
 # 100%
 msgid "Location of preview pane"
-msgstr "プレビュー画面の位置"
+msgstr "プレビューペインの位置"
 
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "転送（FW :)および返信（RE :)に英語の略語を使用します"
 
 msgid "Close original message on reply or forward"
-msgstr ""
+msgstr "返信または転送時に元のメッセージをクローズします"
 
 msgid "Open or compose a mail item in a"
-msgstr ""
+msgstr "aでメールアイテムを開くか作成します"
 
 msgid "WebApp tab"
 msgstr "WebAppタブ"
 
 msgid "Browser window"
-msgstr "参照"
+msgstr "ブラウザウィンドウ"
 
 msgid "I am currently in the office"
-msgstr "在席中"
+msgstr "現在オフィスにいます"
 
-msgid "I am out of the office"
-msgstr "次の時間より外出中"
+msgid "I am out of the office from"
+msgstr "外出中"
 
-msgid "only valid during this time range"
-msgstr ""
+msgid "I will be back on"
+msgstr "戻ってきます"
 
-msgid "Automatically reply once for each sender with the following messages"
-msgstr ""
-
-msgid "Inside My Orgnization"
-msgstr ""
-
-msgid "Outside My Orgnization"
-msgstr ""
-
-msgid "Auto-reply to people outside my orgnization"
-msgstr ""
-
-msgid "My contacts only"
-msgstr ""
-
-msgid "Anyone outside my orgnization"
-msgstr ""
+#, fuzzy
+msgid "Automatically reply once per day, per sender with the following text"
+msgstr "次のテキストを送信者ごとに1日に1回自動的に返信します"
 
 msgid "User is currently out of office."
 msgstr "ユーザーは現在外出中です。"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
-msgstr ""
+msgstr "入力した時間は、不在日の前です。 スケジュールを見直してください。"
 
 msgid "Signatures"
 msgstr "署名"
@@ -4672,7 +4663,7 @@ msgstr "返信と転送の署名"
 
 #, fuzzy
 msgid "Save Signature"
-msgstr "署名"
+msgstr "署名保存"
 
 msgid "You have unsaved changes. Do you wish to save the changes?"
 msgstr "保存されていない変更があります。変更を保存しますか？"
@@ -4681,79 +4672,79 @@ msgid "New signature"
 msgstr "新しい署名"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "EMLファイル"
 
 #, fuzzy
 msgid "ZIP file"
-msgstr "プロファイル"
+msgstr "ZIPファイル"
 
 msgid "max. "
-msgstr ""
+msgstr "最大"
 
 # 76%
 msgid "Sort by: Sent"
-msgstr "並べ替え：送信者"
+msgstr "並べ替え：送信"
 
 msgid "Modified"
-msgstr ""
+msgstr "修正済み"
 
 msgid "Sort by: Modified"
-msgstr ""
+msgstr "並べ替え：修正済み"
 
 msgid "Flag"
-msgstr ""
+msgstr "フラグ"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "並べ替え：フラグ"
 
 # 85%
 # 100%
 #, fuzzy
 msgid "Older"
-msgstr "フォルダ"
+msgstr "年上"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨日"
 
 #, fuzzy
 msgid "Last Week"
-msgstr "最後のページ"
+msgstr "先週"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "2週間前に"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "3週間前に"
 
 #, fuzzy
 msgid "Last Month"
-msgstr "月"
+msgstr "先月"
 
 msgid "Small"
-msgstr ""
+msgstr "小さい"
 
 msgid "Medium"
-msgstr ""
+msgstr "中"
 
 msgid "Large"
-msgstr ""
+msgstr "大"
 
 msgid "Very large"
-msgstr ""
+msgstr "非常に大きい"
 
 msgid "Huge"
-msgstr ""
+msgstr "巨大"
 
 msgid "Follow up"
-msgstr ""
+msgstr "ファローアップ"
 
 msgid "Move to Junk Folder"
-msgstr "迷惑メールフォルダーに移動"
+msgstr "ジャンクフォルダーに移動します"
 
 # 75%
 #, fuzzy
 msgid "Send to"
-msgstr "送信済"
+msgstr "に送信します"
 
 msgid "Loading mail"
 msgstr "メールの読み込み中"
@@ -4767,7 +4758,7 @@ msgid "Color"
 msgstr "色"
 
 msgid "New note"
-msgstr ""
+msgstr "新しいメモ"
 
 msgid "Open Shared Notes"
 msgstr "共有メモを開く"
@@ -4785,7 +4776,7 @@ msgstr "選択したメモを印刷"
 # 100%
 #, fuzzy
 msgid "No note selected"
-msgstr "タスクが選択されていません"
+msgstr "ノートが選択されていません"
 
 msgid "Icons"
 msgstr "アイコン"
@@ -4794,13 +4785,13 @@ msgid "List view"
 msgstr "リスト表示"
 
 msgid "List Last Seven Days"
-msgstr "最後の7日間の一覧"
+msgstr "過去7日間のリスト"
 
 msgid "Created"
 msgstr "作成済み"
 
 msgid "Sort by: Created"
-msgstr "並べ替え：カテゴリー"
+msgstr "並べ替え：作成済み"
 
 msgid "Sort by: Color"
 msgstr "並べ替え：色"
@@ -4814,34 +4805,31 @@ msgstr "メモ読み込み"
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
 "be lost."
-msgstr ""
+msgstr "変更を有効にするには、WebAppをリロードする必要があります。 未保存の変更は失われます"
 
 msgid "Reload WebApp"
-msgstr "再読WebApp"
+msgstr "WebAppをリロードする"
 
 msgid "Settings"
 msgstr "設定"
 
 msgid "Basic"
-msgstr ""
+msgstr "基本"
 
 msgid "Account information - {0}"
 msgstr "アカウント情報 - {0}"
-
-msgid "Profile Picture"
-msgstr "アバター"
 
 msgid "Language"
 msgstr "言語"
 
 msgid "Startup folder"
-msgstr "初期フォルダー"
+msgstr "起動フォルダー"
 
 msgid "Theme"
-msgstr ""
+msgstr "テーマ"
 
 msgid "Select Default Folder"
-msgstr ""
+msgstr "デフォルトフォルダを選択します"
 
 msgid "Advanced"
 msgstr "高度な"
@@ -4853,86 +4841,86 @@ msgid "Edit setting"
 msgstr "編集設定"
 
 msgid "Restore to defaults"
-msgstr "初期設定に戻す"
+msgstr "デフォルトに戻す"
 
 msgid "Delete settings"
 msgstr "設定削除"
 
 #, fuzzy
 msgid "{0} Iconset"
-msgstr "アイコン"
+msgstr "{0}アイコンセット"
 
 msgid "About"
-msgstr "内容"
+msgstr "について"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "この形式で日付と時刻を表示したい："
 
 msgid "Short"
-msgstr ""
+msgstr "短い"
 
 msgid "Long"
-msgstr ""
+msgstr "長い"
 
 # 88%
 #, fuzzy
 msgid "Favorite settings"
-msgstr "代理人設定"
+msgstr "お気に入りの設定"
 
 #, fuzzy
 msgid "Hide favorites"
-msgstr "お気に入り"
+msgstr "お気に入りを隠す"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "お気に入りを上から固定解除します"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "未読アイテムに色付きの境界線を付けます"
 
 msgid "Inbox navigation"
-msgstr ""
+msgstr "受信トレイのナビゲーション"
 
 msgid "I want to navigate through my items by using."
-msgstr ""
+msgstr "アイテムを使用してナビゲートしたい。"
 
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "無限スクロール"
 
 msgid "WebApp automatically loads additional items when you scroll down"
-msgstr ""
+msgstr "WebAppは、下にスクロールすると追加のアイテムを自動的に読み込みます"
 
 #, fuzzy
 msgid "Pagination"
-msgstr "部署"
+msgstr "ページネーション"
 
 msgid ""
 "WebApp displays items on pages and you can use navigation controls to "
 "navigate"
-msgstr ""
+msgstr "WebAppはページにアイテムを表示し、ナビゲーションコントロールを使用してナビゲートできます"
 
 msgid "Load items in blocks of {A}"
-msgstr ""
+msgstr "{A}のブロック内のアイテムをロードします"
 
 msgid "Load {A} items per page."
-msgstr ""
+msgstr "ページごとに{A}個のアイテムをロードします。"
 
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "キーボードショートカット"
 
 msgid "Part of basic keyboard shortcuts"
-msgstr ""
+msgstr "基本的なキーボードショートカットの一部"
 
 msgid "Keyboard shortcuts off"
-msgstr ""
+msgstr "キーボードショートカットがオフ"
 
 msgid "Basic keyboard shortcuts on"
-msgstr ""
+msgstr "基本的なキーボードショートカットがオン"
 
 msgid "All keyboard shortcuts on"
-msgstr ""
+msgstr "すべてのキーボードショートカットがオン"
 
 msgid "This change requires a reload of the WebApp"
-msgstr "この変更を反映するにはWebAppの再表示が必要となります。"
+msgstr "この変更は、WebAppのリロードが必要です"
 
 msgid "Discard"
 msgstr "廃棄"
@@ -4948,78 +4936,76 @@ msgid ""
 "and/or deselect different plugins to indicate which plugins should be "
 "enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
 "in order for the changes to take effect."
-msgstr ""
-"WebAppで次のプラグインの利用が可能です。変更を反映するにはWebAppの再読み込み"
-"が必要となります。"
+msgstr "以下のプラグインは、WebAppで利用可能です。 異なるプラグインを選択および/または選択解除して、有効にするプラグインを示すことができます。 プラグインを有効または無効にした場合、変更を有効にするにはWebAppを再ロードする必要があります。"
 
 msgid "No plugins available"
 msgstr "利用可能なプラグインがありません。"
 
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 msgid "This plugin cannot be disabled"
 msgstr "このプラグインは無効にできません。"
 
 msgid "This plugin cannot be enabled"
-msgstr ""
+msgstr "このプラグインは有効にできません"
 
 msgid "Mailbox Usage"
 msgstr "メールボックスの使用状況"
 
 msgid "Quota information is not set on the user's store."
-msgstr "ユーザーのデータ領域の割り当て情報が設定されていません。"
+msgstr "クォータ情報は、ユーザーのストアに設定されていません。"
 
 msgid "{0} of mailbox space is used."
-msgstr "{0}のメールボックスのスペースが使用済み"
+msgstr "{0}のメールボックスのスペースが使用されました"
 
 msgid "You have exceeded hard quota, you can not send or recieve mails."
-msgstr "ディスク容量の割り当てサイズを超えたのでメールの受送信ができません。"
+msgstr "ハードクォータを超えたため、メールを送信または受信できません。"
 
 msgid "At {0} you won't be able to send mails."
-msgstr "{0}によりメール送信ができません。"
+msgstr "{0}では、メールを送信できません。"
 
 msgid ""
 "You can not send mails as you have exceeded soft quota, at {0} you won't be "
 "able to recieve mails."
-msgstr "{0}のソフト割当量を超えたためメール送信できません。"
+msgstr "ソフトクォータを超えているため、メールを送信できません。{0}では、メールを受信できません。"
 
 msgid "At {0} you won't be able to send or recieve mails."
-msgstr "{0}によりメールの送受信ができません。"
+msgstr "{0}では、メールを送受信できません。"
 
 msgid "You can not send mails as you have exceeded soft quota."
-msgstr "ソフト割当量を超えたためメール送信できません。"
+msgstr "ソフトクォータを超えているため、メールを送信できません。"
 
 #, fuzzy
 msgid "Reset settings"
-msgstr "設定削除"
+msgstr "設定リセット"
 
 msgid "Reset settings to their original defaults."
-msgstr ""
+msgstr "設定を元のデフォルトにリセットします。"
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
-msgstr ""
+msgstr "開いているすべての共有ストアが閉じられ、すべての設定がデフォルト値にリセットされます。"
 
 #, fuzzy
 msgid ""
 "WebApp will automatically reload in order for these changes to take effect"
-msgstr "設定反映を行うためにWebAppは自動的に再起動します"
+msgstr "これらの変更を有効にするために、WebAppは自動的にリロードされます"
 
 msgid "Reset"
 msgstr "リセット"
 
 #, fuzzy
 msgid "Reloading, Please wait."
-msgstr "Webappを再読み込み中です、しばらくお待ちください。"
+msgstr "再読み込みしています。しばらくお待ちください。"
 
 # 87%
 msgid "Setting"
 msgstr "設定"
 
 msgid "The setting '{0}' can not be edited"
-msgstr "'{0}' の設定は編集できません。"
+msgstr "設定 '{0}'は編集できません"
 
 msgid "Version information"
 msgstr "バージョン情報"
@@ -5028,16 +5014,16 @@ msgid "WebApp"
 msgstr "WebApp"
 
 msgid "Kopano Core"
-msgstr "Steep Zcore"
+msgstr "Steep Core"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "確認削除"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr ""
+msgstr "アイテムを削除すると、元のアイテムも削除されます。"
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "アイテムを削除しますか？"
 
 msgid "Sort by: Priority"
 msgstr "並べ替え：優先度"
@@ -5082,34 +5068,32 @@ msgid "Billing Information"
 msgstr "経費情報"
 
 msgid "Mileage"
-msgstr "進捗"
+msgstr "マイレージ"
 
 #, fuzzy
 msgid "Accepting Task"
-msgstr "進行中のタスク"
+msgstr "タスクを受け入れます"
 
 msgid "Declining Task"
-msgstr ""
+msgstr "タスク拒否"
 
 #, fuzzy
 msgid ""
 "This task will be accepted and moved to your task folder. Do you want to "
 "include comments with your response?"
 msgstr ""
-"この会議は受諾され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+"このタスクは受け入れられ、タスクフォルダに移動されます。 応答にコメントを含めますか？"
 
 #, fuzzy
 msgid ""
 "This task will be declined and moved into the Deleted Items folder. Do you "
 "want to edit the response before sending it?"
 msgstr ""
-"この会議は辞退され、自分のカレンダーに移動します。返信にコメントを含めます"
-"か？"
+"このタスクは拒否され、[削除済みアイテム]フォルダーに移動されます。 送信する前に応答を編集しますか？"
 
 #, fuzzy
 msgid "Send the response now"
-msgstr "返信を今すぐ送信"
+msgstr "返信を今すぐ送信します"
 
 msgid "Date Complete"
 msgstr "完了日"
@@ -5118,24 +5102,24 @@ msgid "Update List"
 msgstr "更新リスト"
 
 msgid "Create Unassigned Copy"
-msgstr "依頼前のコピーを作成する"
+msgstr "未割り当てコピーを作成します"
 
 msgid "copy"
-msgstr ""
+msgstr "コピー"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "タスクリクエストを送信できません"
 
 msgid "You cannot send a task request to yourself."
-msgstr ""
+msgstr "自分にタスクリクエストを送信することはできません。"
 
 #, fuzzy
 msgid "Multiple recipients"
-msgstr "受信者を表示します。"
+msgstr "複数の受信者"
 
 #, fuzzy
 msgid "A task request can only have one recipient."
-msgstr "常に開封確認の通知を要求をします。"
+msgstr "１つのタスクリクエストに受信者は1人しか含まれません。"
 
 msgid "Due date"
 msgstr "期限"
@@ -5148,56 +5132,56 @@ msgstr "% 完了"
 
 #, fuzzy
 msgid "Track progress"
-msgstr "進行中"
+msgstr "進捗を追跡します"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr ""
+msgstr "タスクの更新されたコピーを保持し、自動ステータスレポートを受信します"
 
 #, fuzzy
 msgid "Send task to assignees"
-msgstr "代理人にタスクを送信"
+msgstr "代理人にタスクを送信します"
 
 #, fuzzy
 msgid "Restore to Task List"
-msgstr "初期設定に戻す"
+msgstr "タスクリストに復元します"
 
 # 94%
 # 76%
 # 100%
 #, fuzzy
 msgid "Delete this task"
-msgstr "このアイテムを削除"
+msgstr "このアイテムを削除します"
 
 msgid "Add attachments to this task"
-msgstr "このタスクに添付ファイルを追加する"
+msgstr "このタスクに添付ファイルを追加します"
 
 msgid "Mark as Complete"
 msgstr "完成フラグを立てる"
 
 msgid "Mark this task as complete"
-msgstr "当タスクに完了フラグを立てる"
+msgstr "このタスクを完了としてマークします"
 
 # 75%
 # 100%
 #, fuzzy
 msgid "Print this task"
-msgstr "このメールを印刷する"
+msgstr "このタスクを印刷します"
 
 msgid "Assign Task"
 msgstr "アサインタスク"
 
 msgid "Cancel Assignment"
-msgstr "課題をキャンセルする"
+msgstr "割り当てをキャンセルします"
 
 # 75%
 # 79%
 # 100%
 #, fuzzy
 msgid "Mark this task as private"
-msgstr "この連絡先を個人用にする"
+msgstr "このタスクをプライベートとしてマークします"
 
 msgid "New task"
-msgstr ""
+msgstr "新規タスク"
 
 #, fuzzy
 msgid "Completed"
@@ -5219,13 +5203,13 @@ msgid "{actualwork} hours"
 msgstr "実労働時間"
 
 msgid "Open Shared Tasks"
-msgstr "共有タスクを開く"
+msgstr "共有タスクを開きます"
 
 msgid "Simple view"
-msgstr ""
+msgstr "シンプルなビュー"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "詳細ビュー"
 
 # 92%
 # 100%
@@ -5243,26 +5227,26 @@ msgid "No task selected"
 msgstr "タスクが選択されていません"
 
 msgid "Create task"
-msgstr ""
+msgstr "タスク作成します"
 
 msgid "Mark Complete"
-msgstr ""
+msgstr "完了としてマークします"
 
 msgid "Mark Incomplete"
-msgstr ""
+msgstr "未完了としてマークします"
 
 #, fuzzy
 msgid "Remove from To-Do List"
-msgstr "カレンダーから削除する"
+msgstr "To Doリストから削除します"
 
 #, fuzzy
 msgid "Changes to assigned task"
-msgstr "代理人にタスクを送信"
+msgstr "割り当てられたタスクの変更"
 
 msgid ""
 "Please note that assigned task(s) will be overwritten when the assignee "
 "makes changes."
-msgstr ""
+msgstr "担当者が変更を行うと、割り当てられたタスクが上書きされることに注意してください。"
 
 msgid "Sort by: Complete"
 msgstr "並べ替え：完成度"
@@ -5291,7 +5275,7 @@ msgstr "並べ替え：完成度"
 
 #, fuzzy
 msgid "Assigned task changes"
-msgstr "アサインタスク"
+msgstr "割り当てられたタスクの変更"
 
 msgid "Loading tasks"
 msgstr "読み込み中のタスク"
@@ -5305,7 +5289,7 @@ msgstr "時間"
 
 #, fuzzy
 msgid "Billing information"
-msgstr "請求書情報"
+msgstr "課金情報"
 
 #, fuzzy
 msgid "Update list"
@@ -5317,62 +5301,62 @@ msgstr "Y/m/d"
 
 #, fuzzy
 msgid "Import / Export"
-msgstr "重要"
+msgstr "インポート・エクスポート"
 
 msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
-msgstr ""
+msgstr "カレンダー、連絡先、およびメールアイテムは、WebAppとの間でインポートおよびエクスポートできます。"
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
-msgstr ""
+msgstr "フォルダを右クリックして、インポートボタンを選択します。 さらに、添付ファイルのコンテキストメニューからアイテムをインポートできます。"
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "アイテムのコンテキストメニューからエクスポートを実行できます。"
 
 #, fuzzy
 msgid "Icon packs"
-msgstr "アイコン"
+msgstr "アイコンパック"
 
 msgid ""
 "You can now choose between different icons. By default the new Breeze icons "
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
-msgstr ""
+msgstr "異なるアイコンから選択できるようになりました。 デフォルトでは、新しいBreezeアイコンが有効になっていますが、クラシックアイコンを使用する場合、設定で変更できます。"
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
-msgstr ""
+msgstr "設定に移動して、一般タブを開き、お好みに合わせてアイコンパックを選択します。"
 
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "左：ブリーズ-右：クラシック"
 
 msgid "What's new"
-msgstr ""
+msgstr "新着情報"
 
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "今後新しい機能を表示しないでください。"
 
 msgid "Skip"
-msgstr ""
+msgstr "スキップ"
 
 msgid "Previous"
-msgstr ""
+msgstr "前"
 
 msgid "Next"
-msgstr ""
+msgstr "次"
 
 msgid "The server reported an unknown error on your request."
-msgstr "サーバーがあなたのリクエストに対して不明なエラーを検知しました。"
+msgstr "サーバーがリクエストで不明なエラーを報告しました。"
 
 msgid "The server reported an unspecified error on your request."
-msgstr "サーバーがあなたのリクエストに対して詳細不明のエラーを報告しました。"
+msgstr "サーバーは、リクエストで不特定のエラーを報告しました。"
 
 msgid "The session has expired, reauthentication is required."
-msgstr "セッションが切れました。再認証が必要です。"
+msgstr "セッションの有効期限が切れたため、再認証が必要です。"
 
 msgid ""
 "The session in the current browser window has been closed from another "
@@ -5387,9 +5371,7 @@ msgid "Do you wish to be redirected to the logon page?"
 msgstr "ログオンページへリダイレクトしますか？"
 
 msgid "Reauthentication required, click here to go to back to logon page."
-msgstr ""
-"再度、ユーザー認証が必要です。ログオンページに戻るにはここをクリックして下さ"
-"い。"
+msgstr "再度、ユーザー認証が必要です。ログオンページに戻るため、ここをクリックして下さい。"
 
 msgid "Connection problem"
 msgstr "接続の問題"
@@ -5399,7 +5381,7 @@ msgid "Could not connect to server, retrying in {0} second(s)"
 msgstr "サーバーに接続することができませんでした。{0}秒後に再試行します。"
 
 msgid "Click to retry now"
-msgstr "今すぐ再実行ボタンをクリック"
+msgstr "今すぐ再実行ボタンをクリックします"
 
 msgid "Connection restored"
 msgstr "接続が回復しました。"
@@ -5415,23 +5397,23 @@ msgid "Invalid data received from the server"
 msgstr "サーバーから無効な日付を受け取りました。"
 
 msgid "Missing store"
-msgstr "データストアがありません。"
+msgstr "ストアがありません。"
 
 msgid "The default store is missing from the hierarchy."
-msgstr "デフォルトのデータストアがヒエラルキーにありません。"
+msgstr "デフォルトのストアがヒエラルキーにありません。"
 
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
-msgstr "このため、WebAppの全ての機能が正常に動かないかもしれません。"
+msgstr "このため、WebAppの全ての機能が正常に動作しないかもしれません。"
 
 # 100%
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
-msgstr "受信箱"
+msgstr "受信トレイ"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr "送信済み"
+msgstr "送信トレイ"
 
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
@@ -5476,43 +5458,43 @@ msgid "Junk Email"
 msgstr "迷惑メール"
 
 msgid "Missing folders"
-msgstr "見当たらないフォルダ"
+msgstr "フォルダーがありません"
 
 msgid "The following required folder is missing in the hierarchy: {0}"
 msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "次のフォルダが見つかりません。：{0}"
+msgstr[0] "次の必須フォルダーが階層にありません：{0}"
 
 msgid "Loading model from server failed"
-msgstr "Loading model from server failed"
+msgstr "サーバーからモデルをロードできませんでした"
 
 #, fuzzy
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "離籍モードです。解除しますか？"
+msgstr "離籍モードはアクティブされています。 オフにしますか？"
 
 msgid "Out of office off"
-msgstr "離籍モード解除"
+msgstr "離籍モードオフ"
 
 msgid "Out of office has been turned off"
-msgstr "離籍モードが解除されました。"
+msgstr "離籍モードがオフされました。"
 
 msgid "Send Fax"
 msgstr "Fax送信"
 
 msgid "Contact Fax"
-msgstr "Fax"
+msgstr "コンタクトFax"
 
 #, fuzzy
 msgid "Widget height"
-msgstr "ウィジェット追加"
+msgstr "ウィジェットの高さ"
 
 msgid "pixels"
-msgstr ""
+msgstr "ピクセル数"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "リロード間隔"
 
 msgid "seconds"
-msgstr ""
+msgstr "秒"
 
 #, fuzzy
 msgid "Loading appointments..."
@@ -5522,17 +5504,17 @@ msgstr "予定を読み込み中"
 # 100%
 #, fuzzy
 msgid "No appointments"
-msgstr "新しい予定"
+msgstr "予定なし"
 
 msgid "Number of days"
-msgstr ""
+msgstr "日数"
 
 #, fuzzy
 msgid "Today {0} - {1}"
 msgstr "今日: {1} {0}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "今日（終日）"
 
 #, fuzzy
 msgid "{0} - {1}"
@@ -5543,7 +5525,7 @@ msgid "d/m/y G:i"
 msgstr "Y/m/l d G:i"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (終日)"
 
 #, fuzzy
 msgid "d/m/y"
@@ -5551,10 +5533,10 @@ msgstr "Y/m/d"
 
 #, fuzzy
 msgid "Upcoming Appointments"
-msgstr "予定を読み込み中"
+msgstr "今後の予定"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "デイトピッカー"
 
 msgid "No unread mail."
 msgstr "未読メールはありません。"
@@ -5566,7 +5548,7 @@ msgid "No tasks."
 msgstr "タスクがありません。"
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "タスク/ To Do"
 
 msgid "Google Maps"
 msgstr "Googleマップ"
@@ -5576,19 +5558,19 @@ msgid "Map"
 msgstr "地図"
 
 msgid "Move currently selected message(s) to {0}"
-msgstr "現在選択しているメッセージを{0}に移動する。"
+msgstr "現在選択しているメッセージを{0}に移動します。"
 
 msgid "Move to {0}"
-msgstr "{0}に移動する"
+msgstr "{0}に移動します"
 
 msgid "Move current message to {0}"
-msgstr "現在のメッセージを{0}に移動する"
+msgstr "現在のメッセージを{0}に移動します"
 
 msgid "Personal Inbox Manager"
-msgstr "自分の受信箱管理"
+msgstr "個人用受信トレイマネージャー"
 
 msgid "Personal Inbox Management Settings"
-msgstr "個人受信箱の設定"
+msgstr "個人の受信トレイ管理設定"
 
 msgid "Select another folder"
 msgstr "他のフォルダを選択"
@@ -5597,7 +5579,7 @@ msgid "E-mails are moved to {0}"
 msgstr "メールを{0}に移動しました。"
 
 msgid "Open in new tab"
-msgstr ""
+msgstr "新しいタブで開きます"
 
 msgid "Quick Appointment"
 msgstr "クイック予約"
@@ -5612,13 +5594,13 @@ msgid "Quick Note"
 msgstr "クイック メモ"
 
 msgid "none"
-msgstr ""
+msgstr "無し"
 
 msgid "Quick Task"
 msgstr "クイック タスク"
 
 msgid "Title Counter Plugin"
-msgstr ""
+msgstr "タイトルカウンタープラグイン"
 
 msgid "Help"
 msgstr "ヘルプ"
@@ -5630,46 +5612,46 @@ msgid "INSERT"
 msgstr "挿入"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
+msgstr "並べ替え：context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
 msgid "Charm pink"
-msgstr ""
+msgstr "チャームピンク"
 
 msgid "Cadmium red"
-msgstr ""
+msgstr "カドミウムレッド"
 
 msgid "Apricot"
-msgstr ""
+msgstr "アプリコット"
 
 msgid "California"
-msgstr ""
+msgstr "カリフォルニア"
 
 msgid "Soft green"
-msgstr ""
+msgstr "ソフトグリーン"
 
 msgid "Mint"
-msgstr ""
+msgstr "ミント"
 
 msgid "Pearl aqua"
-msgstr ""
+msgstr "パールアクア"
 
 msgid "Kopano blue"
-msgstr ""
+msgstr "コパノブルー"
 
 msgid "Baby blue"
-msgstr ""
+msgstr "ベイビーブルー"
 
 msgid "Mauve"
-msgstr ""
+msgstr "モーブ"
 
 msgid "Silver sand"
-msgstr ""
+msgstr "銀砂"
 
 msgid "Competition"
-msgstr "完了"
+msgstr "コンペティション"
 
 msgid "Gifts"
 msgstr "ギフト"
@@ -5719,14 +5701,13 @@ msgstr "自動的にログアウトしました。"
 msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
-msgstr ""
+msgstr "申し訳ありませんが、このユーザーアカウントではWebAppにアクセスできません。 システム管理者に連絡してください。"
 
 msgid "Can't add data to bus, same action type is present in bus"
-msgstr "Can't add data to bus, same action type is present in bus"
+msgstr "バスにデータを追加できません。同じアクションタイプがバスに存在します"
 
 msgid "Response data requested from bus but it doesn't have any data."
-msgstr ""
-"データが含まれていないため、バスから要求されたデータを返すことができません。"
+msgstr "データが含まれていないため、バスから要求されたデータを返すことができません。"
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -5734,9 +5715,7 @@ msgstr "Id '%s'の不明なモジュール'%s'"
 
 msgid ""
 "Server encountered some problem, so it was not able to handle the request."
-msgstr ""
-"サーバーにいくつかの問題が起こっているため、要求に応えることができませんでし"
-"た。"
+msgstr "サーバーにいくつかの問題が起こっているため、要求に応えることができませんでした。"
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -5761,7 +5740,7 @@ msgid "Error retrieving existing settings"
 msgstr "既存の設定を取得する際にエラーが発生しました。"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "既存の永続設定の取得エラー"
 
 # 93%
 #, fuzzy
@@ -5777,75 +5756,75 @@ msgstr "Steepサーバーに接続できません。"
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
-msgstr ""
+msgstr "セッションが重複したため、ログインが機能しませんでした。 問題は自動的に解決されました。再度ログインしてください。"
 
 #, fuzzy
 msgid "Unknown MAPI Error"
 msgstr "不明なMAPIエラー:%s"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "リンクをクリックして、新しいウィンドウでURLを開きます。"
 
 msgid "This external link will open in a new window"
-msgstr "この外部リンクは新しいウィンドウで開きます。"
+msgstr "この外部リンクは新しいウィンドウで開きます"
 
 #, fuzzy
 msgid "Destination folder not found."
-msgstr "移動先フォルダ"
+msgstr "目的地フォルダーが見つかりません。"
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Emlが破損しています"
 
 msgid "The eml Attachment is not imported successfully"
-msgstr ""
+msgstr "eml添付ファイルは正常にインポートされません"
 
 msgid "The vcf attachment is not imported successfully"
-msgstr ""
+msgstr "vcf添付ファイルは正常にインポートされません"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "「％s」を「％s」にインポートできません。"
 
 #, fuzzy
 msgid "There is no appointment found in this file."
-msgstr "この予定はすでに終了しました。"
+msgstr "このファイルに予定はありません"
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "ファイルが壊れています。"
 
 #, fuzzy
 msgid "The file is invalid."
-msgstr "{0}は有効な時間ではありません。"
+msgstr "ファイルが無効です。"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "'％s'をインポートできません。"
 
 msgid "Please contact your system administrator if the problem persists."
-msgstr ""
+msgstr "問題が解決しない場合、システム管理者に連絡してください。"
 
 msgid "Attachment is not imported successfully"
-msgstr ""
+msgstr "添付ファイルは正常にインポートされません"
 
 # 81%
 #, fuzzy
 msgid "Embedded attachment not found."
-msgstr "このコンタクトに添付ファイルを追加する"
+msgstr "埋め込み添付ファイルが見つかりません。"
 
 msgid "ZIP is not created successfully"
-msgstr ""
+msgstr "ZIPは正常に作成されません"
 
 msgid "Attachments can not be downloaded"
-msgstr ""
+msgstr "添付ファイルをダウンロードできません"
 
 # 82%
 # 100%
 #, fuzzy
 msgid "Could not find attachment."
-msgstr "添付ファイルをアップロードできませんでした。"
+msgstr "添付ファイルが見つかりませんでした。"
 
 msgid "Operation failed"
-msgstr ""
+msgstr "操作に失敗しました"
 
 # 90%
 # 100%
@@ -5860,10 +5839,10 @@ msgid "Task Request"
 msgstr "タスク依頼:"
 
 msgid "Could not find message, either it has been moved or deleted."
-msgstr ""
+msgstr "メッセージが見つかりませんでした。移動または削除されました"
 
 msgid "Action is not performed correctly."
-msgstr "操作は正常に実行されません。"
+msgstr "アクションが正しく実行されません。"
 
 # 90%
 msgid "You have insufficient privileges to open this object."
@@ -5871,32 +5850,31 @@ msgstr "このオブジェクトを開くための十分な権限がありませ
 
 # 93%
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
-"ログオンに失敗しました。ユーザ名とパスワードが正しいかを確認して下さい。"
+msgstr "ログオンに失敗しました。ユーザ名とパスワードが正しいかを確認して下さい。"
 
 # 83%
 #, fuzzy
 msgid "Can not connect to Kopano Core."
-msgstr "Steepサーバーに接続できません。"
+msgstr "Kopano Coreに接続できません。"
 
 msgid "Can not open object with provided id."
-msgstr "そのIDではオブジェクトを開くことができません。"
+msgstr "指定されたIDのオブジェクトを開けません"
 
 msgid "There are no recipients in the message."
-msgstr "宛先が設定されていません。"
+msgstr "メッセージに受信者がありません。"
 
 msgid "Can not find object."
-msgstr "オブジェクトを見つけることができません。"
+msgstr "オブジェクトが見つかりません。"
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "操作に失敗しました：サーバーに十分なメモリがありません"
 
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "不明なMAPIエラー:%s"
 
 msgid "Tentatively accepted"
-msgstr "仮承諾"
+msgstr "暫定的に受け入れられた"
 
 msgid "New Time Proposed"
 msgstr "新しい日時の提示"
@@ -5988,24 +5966,24 @@ msgid "Task Completed:"
 msgstr "完了したタスク:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "連絡先が見つかりません"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
-msgstr ""
+msgstr "サーバーが情報を取得できないため、連絡先情報を表示できませんでした。"
 
 msgid "Could not handle this type of object."
-msgstr "Could not handle this type of object."
+msgstr "このタイプのオブジェクトを処理できませんでした。"
 
 msgid "Could not open this object."
-msgstr "Could not open this object."
+msgstr "このオブジェクトを開けませんでした。"
 
 msgid "Could not open occurrence."
-msgstr "定期的な予定を開くことができません。"
+msgstr "オカレンスを開けませんでした。"
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "この定期的な予定はおそらく削除されたため開くことができません。"
+msgstr "オカレンスを開けませんでした。特定のオカレンスは削除されたかもしれません。"
 
 # 89%
 # 100%
@@ -6022,20 +6000,18 @@ msgstr "予定"
 # 79%
 # 100%
 msgid "You have insufficient privileges to move "
-msgstr "フォルダをコピーするための十分な権限がありません。 "
+msgstr "権限が不十分で移動できません "
 
 msgid "Insufficient privileges"
-msgstr ""
+msgstr "権限が不十分です"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
 "reminder to save the change"
-msgstr ""
-"以前の定期的な予定のリマインダを設定することはできません。変更を保存するため"
-"にリマインダをリセットして下さい。"
+msgstr 前のイベントの前にリマインダーを表示するように設定することはできません。 リマインダーをリセットして変更を保存します"
 
 msgid "Two occurrences cannot occur on the same day"
-msgstr "定期的な予定は同日に実施することはできません。"
+msgstr "同じ日に2回発生することはできません"
 
 #, php-format
 msgid ""
@@ -6053,7 +6029,7 @@ msgstr ""
 msgid ""
 "'%s' has declined your meeting because '%s' does not automatically accept "
 "meeting requests."
-msgstr ""
+msgstr "「％s」は会議を辞退しました。原因：「％s」は会議出席依頼を自動的に受け入れません"
 
 #, php-format
 msgid ""
@@ -6075,10 +6051,10 @@ msgid "Meeting was not scheduled."
 msgstr "会議はスケジュールされていません。"
 
 msgid "Meeting could not be sent."
-msgstr "会議出席依頼は送信できませんでした。"
+msgstr "会議を送信できませんでした。"
 
 msgid "Meeting could not be saved."
-msgstr "会議出席依頼は保存できませんでした。"
+msgstr "会議を保存できませんでした。"
 
 msgid "Private Appointment"
 msgstr "個人的な予定"
@@ -6095,15 +6071,15 @@ msgid "Unknown user/group"
 msgstr "不明なユーザ/グループ"
 
 msgid "Could not save delegate information."
-msgstr "デリゲート（委譲）に関する情報を保存することができませんでした。"
+msgstr "デリゲート（委譲）に関する情報を保存できませんでした。"
 
 # 78%
 # 80%
 msgid "Could not delete delegate."
-msgstr "デリゲート（委譲）の設定を削除できません"
+msgstr "デリゲート（委譲）を削除できません"
 
 msgid "Can not get list of delegates."
-msgstr "デリゲートの一覧を得られませんでした。"
+msgstr "デリゲートの一覧を取得できせん。"
 
 msgid "Could not load the hierarchy."
 msgstr "階層情報を読み込めませんでした。"
@@ -6113,7 +6089,7 @@ msgstr "フォルダプロパティを読み込めませんでした。"
 
 #, fuzzy
 msgid "Could not remove folder from favorites."
-msgstr "お気に入りにフォルダを追加できませんでした。"
+msgstr "お気に入りにフォルダを削除できませんでした。"
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "フォルダを削除するための十分な権限がありません。"
@@ -6144,7 +6120,7 @@ msgstr "正常に動作できませんでした。"
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "お気に入りのフォルダーに既にこの名前を存在します。別の名前を使用してください。"
 
 msgid "Could not add folder to favorites."
 msgstr "お気に入りにフォルダを追加できませんでした。"
@@ -6181,11 +6157,11 @@ msgid ""
 "You have insufficient privileges to open this %1$s folder. The folder owner "
 "can set these using the 'permissions'-tab of the folder properties (right "
 "click the %1$s folder > properties > permissions)."
-msgstr ""
+msgstr "この％1 $ sフォルダーを開くための十分な権限がありません。 フォルダーの所有者は、フォルダーのプロパティの[権限]タブを使用して設定できます（％1 $ sフォルダーを右クリックして、[プロパティ]> [アクセス許可]）。"
 
 # 85%
 msgid "unknown"
-msgstr "不明な"
+msgstr "不明"
 
 msgid "Could not move folder"
 msgstr "フォルダの移動ができませんでした。"
@@ -6195,12 +6171,12 @@ msgstr "フォルダのコピーができませんでした。"
 
 # 92%
 msgid "You have insufficient privileges to open this message."
-msgstr "このメッセージを開くための充分な権限がありません。"
+msgstr "このメッセージを開くための十分な権限がありません。"
 
 msgid ""
 "Could not find message, either it has been moved or deleted or you don't "
 "have access to open this message."
-msgstr ""
+msgstr "メッセージが見つかりませんでした。移動または削除されたか、このメッセージを開くためのアクセス権がありません。"
 
 # 78%
 msgid "Could not open message."
@@ -6208,11 +6184,11 @@ msgstr "メッセージを開くことができませんでした。"
 
 # 98%
 msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "この会議出席依頼を辞退するための充分な権限がありません。"
+msgstr "この会議出席依頼を辞退するための十分な権限がありません。"
 
 # 92%
 msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "この会議出席依頼を承諾するための充分な権限がありません。"
+msgstr "この会議出席依頼を承諾するための十分な権限がありません。"
 
 # 78%
 # 82%
@@ -6233,16 +6209,16 @@ msgid "Could not save message"
 msgstr "メッセージを保存することができません"
 
 msgid "You have insufficient privileges to remove item from the calendar."
-msgstr "カレンダのアイテムを削除するための十分な権限がありません。"
+msgstr "カレンダからアイテムを削除するための十分な権限がありません。"
 
 msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
-msgstr ""
+msgstr "通常、メッセージはすでに送信されているため、送信キューにはありません。"
 
 #, fuzzy
 msgid "Message cannot be aborted"
-msgstr "このプラグインは無効にできません。"
+msgstr "メッセージを中止できません"
 
 # 81%
 #, fuzzy
@@ -6258,30 +6234,30 @@ msgstr "添付ファイルを添付できませんでした。"
 msgid ""
 "You have insufficient privileges to reclaim the ownership for the Task "
 "Request."
-msgstr "タスクの所有者を再要求するための十分な権限がありません。"
+msgstr "タスクリクエストの所有権を取り戻すための十分な権限がありません。"
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr "仕事依頼の所有者を再要求できませんでした。"
+msgstr "タスクリクエストの所有権を取り戻すことができませんでした。"
 
 # 82%
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr "この依頼を承諾するための充分な権限がありません。"
+msgstr "このタスクリクエストを受け入れるための十分な権限がありません。"
 
 # 79%
 # 80%
 msgid "Could not accept Task Request."
-msgstr "タスク依頼を承諾できませんでした。"
+msgstr "タスクリクエストを受け入れられませんでした"
 
 # 89%
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "このタスク依頼を辞退するための充分な権限がありません。"
+msgstr "このタスクリクエストを拒否するための十分な権限がありません。"
 
 # 79%
 msgid "Could not decline Task Request."
-msgstr "タスク依頼を辞退できませんでした。"
+msgstr "タスク依頼を拒否できませんでした。"
 
 msgid "Conflicts with another appointment."
-msgstr "他の予定と重なっています。"
+msgstr "別の予定と競合します。"
 
 #, php-format
 msgid ""
@@ -6289,7 +6265,7 @@ msgid ""
 msgid_plural ""
 "%s occurrences of this recurring appointment conflicts with other "
 "appointments."
-msgstr[0] "%s回の定期的な予定は他の予定と重なっています。"
+msgstr[0] "%s回の定期的な予定は他の予定と競合します。"
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "あなたのメッセージは一部もしくは全ての受信者に届きませんでした。"
@@ -6298,7 +6274,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "次の受信者に送信することができませんでした。"
 
 msgid "You have insufficient privileges to see the contents of this folder."
-msgstr "このフォルダ内の内容を表示するための十分な権限がありません。"
+msgstr "このフォルダ内の内容を閲覧するための十分な権限がありません。"
 
 msgid "Could not load the contents of this folder."
 msgstr "このフォルダ内の内容を読み込めませんでした。"
@@ -6307,29 +6283,29 @@ msgid "Error in search, please try again"
 msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
 
 msgid "Unable to perform search query, no permissions to create search folder."
-msgstr ""
+msgstr "検索クエリを実行できません。検索フォルダーを作成する権限がありません。"
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "検索クエリを実行できません、検索フォルダーが見つかりません"
 
 msgid "Unable to perform search query, store might not support searching."
-msgstr ""
+msgstr "検索クエリを実行できません。ストアが検索をサポートしていない可能性があります"
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "検索フォルダーの作成中にエラーが発生しました。"
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
 msgstr "このフォルダを検索するための十分な権限がありません。"
 
 msgid "Could not update search results."
-msgstr "検索結果をアップロードできませんでした。"
+msgstr "検索結果を更新できませんでした。"
 
 msgid "Could not stop search operation."
 msgstr "検索を中止することができませんでした。"
 
 msgid "You have insufficient privileges to save this message."
-msgstr "このメッセージを保存するための充分な権限がありません。"
+msgstr "このメッセージを保存するための十分な権限がありません。"
 
 # 78%
 # 82%
@@ -6337,7 +6313,7 @@ msgid "Could not save message."
 msgstr "メッセージを保存することができませんでした。"
 
 msgid "You have insufficient privileges to delete this message."
-msgstr "このメッセージを削除するための充分な権限がありません。"
+msgstr "このメッセージを削除するための十分な権限がありません。"
 
 # 78%
 # 80%
@@ -6345,42 +6321,42 @@ msgid "Could not delete message."
 msgstr "メッセージを削除することができませんでした。"
 
 msgid "You have insufficient privileges to cancel this Meeting Request."
-msgstr "この会議出席依頼をキャンセルするための充分な権限がありません。"
+msgstr "この会議出席依頼をキャンセルするための十分な権限がありません。"
 
 msgid "Could not cancel Meeting Request."
 msgstr "会議出席依頼をキャンセルできませんでした。"
 
 msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "この会議出席依頼を辞退するための充分な権限がありません。"
+msgstr "この会議出席依頼を拒否するための十分な権限がありません。"
 
 msgid "Could not decline Meeting Request."
-msgstr "会議出席依頼を辞退できませんでした。"
+msgstr "会議出席依頼を拒否できませんでした。"
 
 msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "この会議出席依頼を承諾するための充分な権限がありません。"
+msgstr "この会議出席依頼を承諾するための十分な権限がありません。"
 
 msgid "Could not accept Meeting Request."
 msgstr "会議出席依頼を承諾できませんでした。"
 
 # 77%
 msgid "You have insufficient privileges to cancel Meeting Request invitation."
-msgstr "この会議出席依頼をキャンセルするための充分な権限がありません。"
+msgstr "会議出席依頼の招待をキャンセルするための十分な権限がありません。"
 
 msgid "Could not cancel Meeting Request invitations."
-msgstr "会議出席依頼をキャンセルできませんでした。"
+msgstr "会議出席依頼の招待をキャンセルできませんでした。"
 
 msgid "You can not continue search operation on this folder."
 msgstr "このフォルダを検索し続けることができません。"
 
 # 97%
 msgid "Error in search, please try again."
-msgstr "検索でエラーが発生しました。もう一度実行して下さい。"
+msgstr "検索にエラーが発生しました。もう一度実行して下さい。"
 
 msgid "Error in distribution list expansion."
-msgstr ""
+msgstr "配布リストの展開エラー"
 
 msgid "The message store has exceeded its hard quota limit."
-msgstr "メッセージのデータディスク容量制限を上回りました。"
+msgstr "メッセージストアがハードクォータ制限を超えました。"
 
 msgid ""
 "To reduce the amount of data in this message store, select some items that "
@@ -6390,14 +6366,14 @@ msgstr ""
 "選択し削除し、削除済みフォルダを整理して下さい。"
 
 msgid "The message store has exceeded its soft quota limit."
-msgstr "メッセージのソフトリミット（容量）を上回りました。"
+msgstr "メッセージストアがソフトクォータ制限を超えました。"
 
 msgid "Could not process request data properly."
-msgstr "適切にデータを要求することができませんでした。"
+msgstr "要求データを適切に処理できませんでした。"
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr "Unknown action type specified - %s"
+msgstr "不明なアクションタイプが指定されました-％s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr ""
@@ -6412,46 +6388,46 @@ msgid "You have insufficient privileges to perform this action."
 msgstr "これを実行するための十分な権限がありません。"
 
 msgid "Could not resolve user."
-msgstr "Could not resolve user."
+msgstr "ユーザーを解決できませんでした。"
 
 msgid "Setting mail filters on the stores of other users is not allowed."
-msgstr ""
+msgstr "他のユーザーのストアにメールフィルターを設定することは許可されていません。"
 
 msgid "Untitled rule"
-msgstr "タイトルなしの仕訳ルール"
+msgstr "無題のルール"
 
 msgid "Could not load rules."
-msgstr "仕訳ルールを読み込めませんでした。"
+msgstr "ルールを読み込めませんでした。"
 
 msgid "Could not save rules."
-msgstr "仕訳ルールを保存できませんでした。"
+msgstr "ルールを保存できませんでした。"
 
 msgid "Task Request:"
 msgstr "タスク依頼:"
 
 msgid "Welcome"
-msgstr ""
+msgstr "ようこそ"
 
 msgid "Username"
 msgstr "ユーザ名"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 msgid "Sign in"
-msgstr ""
+msgstr "サインイン"
 
 #, fuzzy
 msgid "File is not imported successfully"
-msgstr "送信成功"
+msgstr "ファイルは正常にインポートされません"
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "'％s'をインポートできません"
 
 #, fuzzy
 msgid "The EML is not valid"
-msgstr "{0}は有効な時間ではありません。"
+msgstr "EMLが無効です"
 
 msgid "GB"
 msgstr "GB"
@@ -6466,27 +6442,27 @@ msgid "B"
 msgstr "B"
 
 msgid "The maximum stack depth has been exceeded"
-msgstr "maximum stack depthが制限を超えました。"
+msgstr "最大スタック深度を超えました。"
 
 msgid "Control character error, possibly incorrectly encoded"
 msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
 
 msgid "Invalid or malformed JSON"
-msgstr "無効か不正なJSON"
+msgstr "無効または不正なJSON"
 
 msgid "Syntax error"
 msgstr "構文エラー"
 
 #, fuzzy
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
-msgstr "文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
+msgstr "UTF-8文字エラーはおそらく不正なエンコードのためですので調整して下さい。"
 
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSONエラー: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "JSONデータのエンコード/デコードによるいくつかの問題が起こっている。"
+msgstr "JSONデータのエンコード/デコードによるいくつかの問題が起こっています。"
 
 msgid "No data received."
 msgstr "データが受信されません"
