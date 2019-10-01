@@ -21,7 +21,9 @@ Zarafa.common.rules.data.RulesRecordFields = [
 	{name: 'rule_condition', allowBlank : false},
 	{name: 'rule_actions', allowBlank : false},
 	{name: 'rule_msg_atleast_size_unit', type: 'string'},
-	{name: 'rule_msg_atmost_size_unit', type: 'string'}
+	{name: 'rule_msg_atmost_size_unit', type: 'string'},
+	{name: 'rule_exception_atleast_size_unit', type: 'string'},
+	{name: 'rule_exception_atmost_size_unit', type: 'string'}
 ];
 
 /**

@@ -56,6 +56,12 @@ Zarafa.common.rules.data.ExceptionProfiles = [{
     name : _('is received before...'),
     value : Zarafa.common.rules.data.ConditionFlags.RECEIVED_BEFORE
 },{
+    name : _('size is at least...'),
+    value : Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE
+},{
+    name : _('size is at most...'),
+    value : Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE
+},{
     name : _('has my name in the To field'),
     value : Zarafa.common.rules.data.ConditionFlags.SENT_TO_ME
 }];

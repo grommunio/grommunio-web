@@ -1281,6 +1281,8 @@
 				$properties["rule_user_flags"] = PR_RULE_USER_FLAGS;
 				$properties["rule_msg_atleast_size_unit"] = PR_RULE_ATLEAST_MESSAGE_SIZEUNIT;
 				$properties["rule_msg_atmost_size_unit"] = PR_RULE_ATMOST_MESSAGE_SIZEUNIT;
+				$properties["rule_exception_atleast_size_unit"] = PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT;
+				$properties["rule_exception_atmost_size_unit"] = PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT;
 				$this->mapping[$this->storeMapping]['rules'] = $properties;
 			}
 

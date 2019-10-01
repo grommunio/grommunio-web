@@ -59,7 +59,7 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 	},
 
 	/**
-	 * Function that can be used to remove a condition from a rule.
+	 * Function that can be used to remove a condition from a rule dialog.
 	 * This will always remove the last condition.
 	 * @private
 	 */
@@ -150,15 +150,15 @@ Zarafa.common.rules.dialogs.RulesConditionContainer = Ext.extend(Zarafa.common.r
 		var conditions = [];
 		var conditionsValid = true;
 
+		// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
+		var initAtleastCond = true;
+		var initAtmostCond = true;
+
 		for (var i = 0; i < this.boxContainerCount; i++) {
 			var panel = this.get(i);
 			var combo = panel.get(0);
 			var activeItem = panel.get(1).layout.activeItem;
 			var condition = null;
-
-			// initAtleastCond and initAtmostCond are flags for initial atleast and atmost conditions respectively.
-			var initAtleastCond = true;
-			var initAtmostCond = true;
 
 			if (Ext.isFunction(activeItem.getCondition)) {
 				condition = activeItem.getCondition();

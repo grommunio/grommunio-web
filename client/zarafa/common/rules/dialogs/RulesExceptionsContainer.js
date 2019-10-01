@@ -141,13 +141,74 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
             var count = Math.max(1, exceptions.length);
             this.setBoxContainerCount(count);
 
+            var atleastSizeUnit = record.get('rule_exception_atleast_size_unit');
+            var atmostSizeUnit = record.get('rule_exception_atmost_size_unit');
+            var atleastSizes = atleastSizeUnit.split(';');
+            var atmostSizes = atmostSizeUnit.split(';');
+
             for (var i = 0, len = exceptions.length; i < len; i++) {
-                // Apply the exception to the corresponding container
-                if (exceptions[i] && exceptions[i] !== Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION) {
-                    this.applyException(this.get(i), exceptions[i]);
+                var exceptionFlag = this.getExceptionFlagFromCondition(exceptions[i]);
+                var isAtleastSizeException = exceptionFlag === Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE;
+                var isAtmostSizeException = exceptionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE;
+                if (isAtleastSizeException) {
+                    //sending sizeUnits values according to condition in order.
+                    this.applyException(this.get(i), exceptions[i], atleastSizes.shift());
+                } else if (isAtmostSizeException) {
+                    //sending sizeUnits values according to condition in order.
+                    this.applyException(this.get(i), exceptions[i], atmostSizes.shift());
+                } else {
+                    if (exceptions[i] && exceptions[i] !== Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION) {
+                        this.applyException(this.get(i), exceptions[i]);
+                    }
                 }
             }
         }
+    },
+
+    /**
+     * Function that can be used to remove a exception from a rule dialog.
+     * This will always remove the last exception.
+     * @private
+     */
+    removeComboBoxContainer : function()
+    {
+        if (this.boxContainerCount >= 1) {
+            // if removed condition was atleast / atmost size condition then reset the size unit property in the record accordingly.
+            var conditionBoxToRemove = this.get(this.items.getCount() - 2).get(0);
+            var exceptionFlag = conditionBoxToRemove.getValue();
+            if (exceptionFlag === Zarafa.common.rules.data.ConditionFlags.ATMOST_SIZE) {
+                this.record.set('rule_exception_atmost_size_unit', '');
+            } else if (exceptionFlag === Zarafa.common.rules.data.ConditionFlags.ATLEAST_SIZE) {
+                this.record.set('rule_exception_atleast_size_unit', '');
+            }
+
+            this.remove(this.get(this.items.getCount() - 2));
+            this.boxContainerCount--;
+            // Exception is optional. So user can remove all Exceptions but
+            // We need to add empty combo box if all the exceptions are removed.
+            if (this.boxContainerCount < 1) {
+                this.addComboBoxContainer();
+            }
+            this.doLayout();
+        }
+    },
+
+    /**
+     * Read a exception object as located in the {@link Zarafa.common.rules.data.RulesRecord Rule}
+     * and convert it to the corresponding ExceptionFlag which properly represents the exception.
+     * @param {Object} exception The exception which should be converted to a Exception Flag
+     * @return {Zarafa.common.rules.data.ConditionFlags} The Exception Flag
+     * @private
+     */
+    getExceptionFlagFromCondition : function(exception)
+    {
+        if (exception === Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION) {
+            return Zarafa.common.rules.data.ExceptionsConstants.INVALID_EXCEPTION;
+        }
+
+       // We are using ConditionFlags as ExceptionFlags.
+       var condition = exception[1];
+       return this.getConditionFlagFromCondition(condition);
     },
 
     /**
@@ -161,6 +222,10 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
         var exceptionsValid = true;
         var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
 
+        // initAtleastException and initAtmostException are flags for initial atleast and atmost conditions respectively.
+        var initAtleastException = true;
+        var initAtmostException = true;
+
         for (var i = 0; i < this.boxContainerCount; i++) {
             var exception = null;
             var panel = this.get(i);
@@ -169,6 +234,20 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
 
             if (Ext.isFunction(activeItem.getCondition)) {
                 exception = activeItem.getCondition();
+            }
+
+            // For exceptions Atleast and Atmost, for first time in loop 'rule_exception_atleast_size_unit' and
+            // 'rule_exception_atmost_size_unit' props in record will be overwritten.
+            if (activeItem.id.indexOf('atleastsize') >= 0) {
+                activeItem.setSizeUnit(record, initAtleastException, true);
+                if (initAtleastException) {
+                    initAtleastException = false;
+                }
+            } else if (activeItem.id.indexOf('atmostsize') >= 0) {
+                activeItem.setSizeUnit(record, initAtmostException, true);
+                if (initAtmostException) {
+                    initAtmostException = false;
+                }
             }
 
             // If no exceptions exist then mark combobox invalid
@@ -209,13 +288,14 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
      * onto the {@link Ext.Container} which was created by {@link #addComboBoxContainer}.
      * @param {Ext.Container} panel The container on which the exception will be loaded
      * @param {Object} exception The exception which should be loaded
+     * @param {Zarafa.common.data.SizeUnits} sizeUnit selected size unit for the atleast and atmost size exception components.
      * @private
      */
-    applyException : function(panel, exception)
+    applyException : function(panel, exception, sizeUnit)
     {
         // Parsing original condition by removing NOT part of the condition.
         // And sending to {@link Zarafa.common.rules.dialogs.RuleConditionsContainer}
-        Zarafa.common.rules.dialogs.RulesExceptionContainer.superclass.applyCondition.call(this, panel,exception[1]);
+        Zarafa.common.rules.dialogs.RulesExceptionContainer.superclass.applyCondition.call(this, panel, exception[1], sizeUnit);
     }
 
 });
