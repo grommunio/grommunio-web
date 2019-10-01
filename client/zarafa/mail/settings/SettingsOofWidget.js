@@ -41,6 +41,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		var backDate = new Date().getNextWorkWeekDay() || new Date().add(Date.DAY, 1);
 		backDate = backDate.clearTime().add(Date.MINUTE, container.getSettingsModel().get('zarafa/v1/main/start_working_hour'));
 		var oofChecked = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/set');
+		var timerangeChecked = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/timerange');
 		var audienceChecked = container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/external_audience');
 		
 		return {
@@ -89,7 +90,8 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					cellCls : 'zarafa-settings-oof-table-cellpadding',
 					boxLabel : _('only valid during this time range') + ':',
 					hideLabel : true,
-					disabled : true,
+					disabled : !oofChecked,
+					checked : timerangeChecked,
 					listeners : {
 						render : this.onCheckBoxRender,
 						check: this.onTimeRangeChecked,
@@ -106,7 +108,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					fieldLabel : '',
 					width : 200,
 					hideLabel : true,
-					disabled : true,
+					disabled : !oofChecked||!timerangeChecked,
 					dateFormat : _('d/m/Y'),
 					timeFormat : _('G:i'),
 					minValue : new Date(),
@@ -132,7 +134,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 					fieldLabel : '',
 					width : 200,
 					hideLabel : true,
-					disabled : true,
+					disabled : !oofChecked||!timerangeChecked,
 					dateFormat : _('d/m/Y'),
 					timeFormat : _('G:i'),
 					minValue : new Date(),
@@ -241,6 +243,10 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 							hideLabel : true,
 							checked : audienceChecked,
 							ref : '../../../contactsOnlyField',
+							listeners : {
+								check : this.onAudienceChecked,
+								scope : this
+							}
 						}, {
 							xtype : 'radio',
 							name : 'zarafa/v1/contexts/mail/outofoffice/external_audience',
@@ -250,6 +256,10 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 							hideLabel : true,
 							checked : !audienceChecked,
 							ref : '../../../anyoneField',
+							listeners : {
+								check : this.onAudienceChecked,
+								scope : this
+							}
 						}]
 					},{
 						xtype : 'container',
@@ -317,7 +327,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		this.model = settingsModel;
 		
 		var outOfOfficeSetting = settingsModel.get(this.inOfficeField.name);
-		if(outOfOfficeSetting){
+		if (outOfOfficeSetting){
 			this.timeRangeCheckBox.setDisabled(false);
 			var configuredFromSetting = settingsModel.get(this.outOfOfficeDateTimeField.name);
 			var configuredUntilDateSetting = settingsModel.get(this.backDateTimeField.name);
@@ -433,27 +443,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	 * Event handler which is fired when a {@link Ext.form.Radio} in the
 	 * {@link Ext.form.RadioGroup} has been changed. This will toggle the
 	 * visibility of the other fields.
-	 * @param {Ext.form.RadioGroup} group The radio group which fired the event
-	 * @param {Ext.form.Radio} radio The radio which was enabled
-	 * @private
-	 */
-	onRadioChange : function(group, radio)
-	{
-		var set = radio.inputValue === 'true';
-
-		if (this.model) {
-			// FIXME: The settings model should be able to detect if
-			// a change was applied
-			if (this.model.get(group.name) !== set) {
-				this.model.set(group.name, set);
-			}
-		}
-	},
-
-	/**
-	 * Event handler which is fired when a {@link Ext.form.Radio} in the
-	 * {@link Ext.form.RadioGroup} has been changed. This will toggle the
-	 * visibility of the other fields.
 	 * @param {Ext.form.Radio} radio The radio which was enabled
 	 * @param {Boolean} checked True if the radio is currently checked, false otherwise
 	 * @private
@@ -489,6 +478,9 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	{
 		this.outOfOfficeDateTimeField.setDisabled(!checked);
 		this.backDateTimeField.setDisabled(!checked);
+		if (this.model) {
+			this.model.set(checkbox.name, checked);
+		}
 	},
 	
 	onExternalChecked : function(checkbox, checked)
@@ -501,7 +493,21 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		} else {
 			this.extBodyField.disable();
 		}
+		if (this.model) {
+			this.model.set(checkbox.name, checked);
+		}
 	},
+	
+	onAudienceChecked : function(radio, checked)
+	{
+		if (checked === true) {
+			var set = radio.inputValue === 'true';
+			if (this.model) {
+				this.model.set(radio.name, set);
+			}
+		}
+	},
+
 
 	/**
 	 * Event handler which is called when one of the textfields has been changed.
