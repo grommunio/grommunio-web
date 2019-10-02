@@ -106,7 +106,6 @@
 						var dgettext = function(domain, msgid) {};
 						var dngettext = function(domain, msgid, msgid_plural, count) {};
 						var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
-						var dpgettext = function(domain, msgctxt, msgid) {};
 						var ngettext = function(msgid, msgid_plural, count) {};
 						var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
 						var pgettext = function(msgctxt, msgid) {};

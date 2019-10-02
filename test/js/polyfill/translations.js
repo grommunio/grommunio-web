@@ -49,15 +49,6 @@ const pgettext = function(msgctxt, msgid)
 };
 
 /*
- * Implement the dpgettext() function to always return the input
- * string. We have no use for translations (at this point)
- */
-const dpgettext = function(domain, msgctxt, msgid)
-{
-	return msgid;
-};
-
-/*
  * Implement the npgettext() function to always return the input
  * string. We have no use for translations (at this point)
  */
