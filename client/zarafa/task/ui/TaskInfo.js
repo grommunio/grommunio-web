@@ -97,7 +97,7 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 		'<div class="preview-from">' +
 			'<div class="task-info-container">' +
 				'<span class="label minwidth120">'+ _('Date completed') +': </span>' +
-				'<span>' + '{date_completed:this.getFormatedDate}' + '</span>'+
+				'<span>' + '{date_completed:this.getFormattedDate}' + '</span>'+
 			'</div>'+
 			'<div class="task-info-container">' +
 				'<span class="label minwidth120">'+ _('Total work') +': </span>' +
@@ -158,7 +158,7 @@ Zarafa.task.ui.TaskInfo = Ext.extend(Ext.DataView, {
 			});
 			this.taskDetailsTabTpl = new Ext.XTemplate(this.taskDetailsTabTpl, {
 				compiled: true,
-				getFormatedDate : function (value) {
+				getFormattedDate : function (value) {
 					if (Ext.isDate(value)) {
 						return value.format(_("D d-m-Y"));
 					} else {

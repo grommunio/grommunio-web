@@ -134,7 +134,7 @@
 
 			$res['server'] = substr($entryId, $offset);
 
-			$res['min_lenth'] = 64;
+			$res['min_length'] = 64;
 			$res['name'] = 'EID_V0';
 
 			return $res;
