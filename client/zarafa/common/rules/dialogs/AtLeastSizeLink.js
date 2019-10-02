@@ -118,7 +118,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
            var conditionSizeValue = condition[1][Zarafa.core.mapi.Restrictions.VALUE]['PR_MESSAGE_SIZE'];
            // If Condition/Exception were added from OUTLOOK, sizeUnit param will be undefined.
            // For that case select 'KB' as default unit like in OUTLOOK.
-           var sizeUnit = sizeUnit ? sizeUnit : Zarafa.common.data.SizeUnits.KB;
+           sizeUnit = sizeUnit ? sizeUnit : Zarafa.common.data.SizeUnits.KB;
            this.sizeValue = Zarafa.core.Util.convertBytesToKBorMB(conditionSizeValue, sizeUnit);
            this.comboValue = sizeUnit;
         }
@@ -197,7 +197,11 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
             sizeunit =  this.comboValue;
         }
 
-        this.atMostSizeLink ? record.set(atmostSizeProp, sizeunit) : record.set(atleastSizeProp, sizeunit);
+        if (this.atMostSizeLink) {
+		record.set(atmostSizeProp, sizeunit);
+	} else {
+		record.set(atleastSizeProp, sizeunit);
+	}
     },
 
     /**
