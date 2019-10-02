@@ -1910,9 +1910,10 @@
 		 * @param boolean $copyInlineAttachmentsOnly if true then copy only inline attachments.
 		 * @param boolean $saveChanges if true then save all change in mapi message
 		 * @param boolean $send true if this function is called from submitMessage else false.
+		 * @param boolean $isPlainText if true then message body will be generated using PR_BODY otherwise PR_HTML will be used.
 		 * @return mapimessage Saved MAPI message resource
 		 */
-		function saveMessage($store, $entryid, $parententryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $propertiesToDelete = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $saveChanges = true, $send = false)
+		function saveMessage($store, $entryid, $parententryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $propertiesToDelete = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $saveChanges = true, $send = false, $isPlainText = false)
 		{
 			$message = false;
 
@@ -1944,7 +1945,7 @@
 								$subject = $subjectProp[PR_SUBJECT];
 							}
 						}
-						$body = $this->generateBodyHTML($props[PR_BODY], $subject);
+						$body = $this->generateBodyHTML($isPlainText ? $props[PR_BODY] : $props[PR_HTML] , $subject);
 						$property = PR_HTML;
 						$bodyPropertiesToDelete = array(PR_BODY, PR_RTF_COMPRESSED);
 						unset($props[PR_HTML]);
@@ -2595,9 +2596,10 @@
 		 * @param boolean $copyAttachments If set we copy all attachments from the $copyFromMessage.
 		 * @param boolean $copyRecipients If set we copy all recipients from the $copyFromMessage.
 		 * @param boolean $copyInlineAttachmentsOnly if true then copy only inline attachments.
+		 * @param boolean $isPlainText if true then message body will be generated using PR_BODY otherwise PR_HTML will be used in saveMessage() function.
 		 * @return boolean true if action succeeded, false if not
 		 */
-		function submitMessage($store, $entryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false)
+		function submitMessage($store, $entryid, $props, &$messageProps, $recipients = array(), $attachments = array(), $copyFromMessage = false, $copyAttachments = false, $copyRecipients = false, $copyInlineAttachmentsOnly = false, $isPlainText = false)
 		{
 			$result = false;
 			$message = false;
@@ -2705,7 +2707,7 @@
 					}
 
 					// Save the new message properties
-					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true);
+					$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, array(), $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);
 
 					// FIXME: currently message is deleted from original store and new message is created
 					// in current user's store, but message should be moved
@@ -4057,6 +4059,11 @@
 		 * @return string full HTML message
 		 */
 		function generateBodyHTML($body, $title = "Kopano WebApp"){
+			// To avoid case where $body has already HTML page,
+			// we need to filter it to get only body part.
+			$filter = new filter();
+			$body = $filter->safeHTML($body);
+
 			$html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
 					."<html>\n"
 					."<head>\n"
