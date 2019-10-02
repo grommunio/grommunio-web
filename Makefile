@@ -189,7 +189,7 @@ jstest: build
 
 .PHONY: jstestci
 jstestci: build
-	$(NPM) run jsunit -- --reporters junit
+	$(NPM) run jsunit -- --reporters junit || true
 
 .PHONY: jstestcov
 jstestcov: build
