@@ -1377,24 +1377,45 @@ Zarafa.common.Actions = {
 
 		// IF Appointment was updated then there may be chances that VTIMEZONE property exists in ICS/VCS file
 		// VTIMEZONE block must have to DTSTART if not then we consider that ICS/VCS is invalid.
-		// Also check that VEVENT block must have 'DTSTART;TZID' and 'DTEND;TZID' properties.
-		var hasTimeZoneProperlty = splittedContent.search(/VTIMEZONE(\r\n|\n|\r)/);
-		if (hasTimeZoneProperlty != -1) {
+		// Also check that VEVENT block must have 'DTSTART;TZID'/'DTSTART;VALUE' and 'DTEND;TZID'/'DTEND;VALUE' properties.
+		var hasTimeZoneProperty = splittedContent.search(/VTIMEZONE(\r\n|\n|\r)/);
+		if (hasTimeZoneProperty !== -1) {
 			var icsRawHeaders = splittedContent.match(/([^\n=:^]+)/g);
-			var hasStartAndEndDate = icsRawHeaders.indexOf('DTSTART;TZID') !== -1 && icsRawHeaders.indexOf('DTEND;TZID') !== -1;
-			var hasNotStartDate = icsRawHeaders.indexOf('DTSTART') === -1;
+			var hasStartAndEndDate = this.isPropertyExists(icsRawHeaders, ['DTSTART;TZID', 'DTEND;TZID', 'DTSTART;VALUE', 'DTEND;VALUE']);
+			var hasStartDate = this.isPropertyExists(icsRawHeaders, 'DTSTART');
 			// Check that any of the condition is true then we consider that ICS/VCS file is
-			// broken.
-			if (begins.length !== end.length || hasNotStartDate || !hasStartAndEndDate) {
+			// broken
+			if (begins.length !== end.length || !hasStartDate || !hasStartAndEndDate) {
 				this.brokenFiles.push(file);
 			}
 		} else {
-			var hasStartDate = rawHeaders.indexOf("DTSTART;VALUE=DATE:") !== -1 || rawHeaders.indexOf("DTSTART:") !== -1;
-			var hasEndDate = rawHeaders.indexOf("DTEND;VALUE=DATE:") !== -1 || rawHeaders.indexOf("DTEND:") !== -1;
+			var hasStartDate = this.isPropertyExists(rawHeaders, ['DTSTART;VALUE=DATE:', 'DTSTART:']);
+			var hasEndDate = this.isPropertyExists(rawHeaders, ['DTEND;VALUE=DATE:', 'DTEND:']);
 			if (begins.length !== end.length || !hasStartDate || !hasEndDate) {
 				this.brokenFiles.push(file);
 			}
 		}
+	},
+	
+	/**
+	 * Function checks if the given property(s) is present in the given key array or not.
+	 * @param {Array} rawHeaders The keys array of ics/vcs file contains.
+	 * @param {Array/String} propertyName The property(s) in the rawHeader
+	 * @return {boolean} exists True if any property exists, false otherwise.
+	 */
+	isPropertyExists : function(rawHeaders, propertyName)
+	{
+		var exists = false;
+		if (!Array.isArray(propertyName)) {
+			propertyName = [ propertyName ];
+		}
+		propertyName.forEach(function (property) {
+			if (rawHeaders.indexOf(property) === -1) {
+				return;
+			}
+			exists = true;
+		});
+		return exists;
 	},
 
 	/**
