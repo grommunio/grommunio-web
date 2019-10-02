@@ -197,7 +197,11 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
             sizeunit =  this.comboValue;
         }
 
-        this.atMostSizeLink ? record.set(atmostSizeProp, sizeunit) : record.set(atleastSizeProp, sizeunit);
+        if (this.atMostSizeLink) {
+		record.set(atmostSizeProp, sizeunit);
+	} else {
+		record.set(atleastSizeProp, sizeunit);
+	}
     },
 
     /**
