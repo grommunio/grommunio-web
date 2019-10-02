@@ -59,35 +59,6 @@ Zarafa.common.rules.dialogs.RulesExceptionContainer = Ext.extend(Zarafa.common.r
     },
 
     /**
-     * Function that can be used to remove a exceptions from a rule.
-     * This will always remove the last exception.
-     * @override {@link Zarafa.common.rules.dialogs.BaseContainer#removeComboBoxContainer}.
-     * @private
-     */
-    removeComboBoxContainer : function()
-    {
-        if (this.boxContainerCount >= 1) {
-            this.remove(this.get(this.items.getCount() - 2));
-            this.boxContainerCount--;
-
-            if (this.boxContainerCount === 0) {
-                // For resetting exception box.
-                this.addComboBoxContainer();
-                return;
-            } else if (this.boxContainerCount === 1) {
-                var conditionBoxToRemove = this.get(this.items.getCount() - 2).get(0);
-                var conditionFlag = conditionBoxToRemove.getValue();
-
-                // If no exceptions are selected then disable remove exception button.
-                if (typeof(conditionFlag) !== "number") {
-                    this.removeBtn.setDisabled(true);
-                }
-            }
-            this.doLayout();
-        }
-    },
-
-    /**
      * The event handler for the {@link Ext.form.ComboBox#select} event for the combobox for
      * a particular action. This will the corresponding content panel to show the correct
      * content type.
