@@ -131,29 +131,6 @@
 
 	// The user is authenticated! Let's get ready to start the webapp.
 
-	// Check if we need to redirect the user after login (e.g. when using the WebApp
-	// to login to another application with OIDC).
-	if ( isset($_SESSION['continue']) ){
-		$continue = $_SESSION['continue'];
-		unset($_SESSION['continue']);
-
-		if ( isContinueRedirectAllowed($continue) ){
-			// Add the parameter 'wacontinue' to make sure we will not keep redirecting
-			// to ourself.
-			$continue = explode('#', $continue);
-			if ( strpos($continue[0], '?') === false ){
-				$continue[0] .= '?';
-			} else {
-				$continue[0] .= '&';
-			}
-			$continue[0] .= 'wacontinue';
-			$continue = implode('#', $continue);
-
-			header('Location: ' . $continue , true, 302);
-			die();
-		}
-	}
-
 	// If the user just logged in or if url data was stored in the session,
 	// we will redirect to make sure that a browser refresh will not post
 	// the credentials again, and that the url data is taken away from the
