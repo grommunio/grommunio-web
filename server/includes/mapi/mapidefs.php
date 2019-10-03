@@ -482,6 +482,7 @@ define('ecRightsFolderAccess'                    ,0x00000100);
 define('ecRightsFolderVisible'                   ,0x00000400);
 
 define('ecRightsAll'                             ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsCreateSubfolder | ecRightsFolderAccess | ecRightsFolderVisible);
+define('ecRightsSecretary'                       ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsFolderVisible);
 define('ecRightsFullControl'                     ,ecRightsReadAny | ecRightsCreate | ecRightsEditOwned | ecRightsDeleteOwned | ecRightsEditAny | ecRightsDeleteAny | ecRightsCreateSubfolder | ecRightsFolderVisible);
 define('ecRightsDefault'                         ,ecRightsNone | ecRightsFolderVisible);
 define('ecRightsDefaultPublic'                   ,ecRightsReadAny | ecRightsFolderVisible);

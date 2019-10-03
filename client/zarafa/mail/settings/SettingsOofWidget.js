@@ -283,15 +283,13 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 
 			hierarchyStore.getStores().forEach(function(store) {
 				if (store.get('user_name') === user) {
-					// Saving out of office only works with owner permissions on the full store.
+					// Saving out of office only works with equal or more than secretary permissions on the full store.
 					// Note: The WebApp backend will not check the rights and allows saving out of office settings
 					// when the user has folder rights.(because that's what Kopano Core needs).
 					var subtree = store.getSubtreeFolder();
-					var inbox = store.getDefaultFolder('inbox');
-					if (
-						(subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_OWNER) === Zarafa.core.mapi.Rights.RIGHTS_OWNER &&
-						(inbox && inbox.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_FOLDER_ACCESS)
-					) {
+					var hasSufficientPermission = (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_SECRETARY) === Zarafa.core.mapi.Rights.RIGHTS_SECRETARY;
+
+					if (hasSufficientPermission) {
 						data = data.concat({name: store.get('mailbox_owner_name'), value: store.get('store_entryid') });
 					}
 				}
@@ -370,6 +368,7 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		if(this.userCombo) {
 			var defaultUser = this.userCombo.getValue();
 			this.record = this.getOofStore().getById(defaultUser);
+			this.filterUserFromDropDown();
 		} else {
 			this.record = this.getOofStore().getAt(0);
 		}
@@ -405,6 +404,29 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 
 		this.subjectField.setValue(record.get('subject'));
 		this.bodyField.setValue(record.get('message'));
+	},
+
+	/**
+	 * Called by the {@link #updateView} to filter unnecessary Users from comboBox.
+	 * When shared user store's permission gets changed we need to filter those user.
+	 *
+	 * This function will remove users from comboBox which are not in {@config store} to sync with
+	 * the latest shared users. And also hide comboBox when there's no other Users available.
+	 */
+	filterUserFromDropDown : function()
+	{
+		var comboStore = this.userCombo.getStore();
+		var oofStore = this.getOofStore();
+
+		comboStore.each(function(user){
+			var comboUserEntryId = user.get('value');
+			var userIndexOofStore = oofStore.findExact('store_entryid', comboUserEntryId);
+			if (userIndexOofStore < 0) {
+				comboStore.remove(user);
+			}
+		});
+
+		this.userCombo.setVisible(comboStore.getCount() > 1);
 	},
 
 	/**
