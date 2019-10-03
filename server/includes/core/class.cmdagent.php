@@ -89,6 +89,42 @@ class CmdAgent
 		}
 		return json_decode($result['line'], true);
 	}
+	
+	function alloc_app_session($username) {
+		$cmd = "ALLOC " . $username;
+		$result = $this->send(PANDORA_ASESSION_PATH, $cmd);
+		if (false === $result || false == $result['result']) {
+			return false;
+		}
+		return $result['line'];
+	}
+	
+	function set_app_session($username, $session, $val) {
+		$cmd = "SET " . $username . " " . $session . " " . json_encode($val);
+		$result = $this->send(PANDORA_ASESSION_PATH, $cmd);
+		if (false === $result) {
+			return false;
+		}
+		return $result['result'];
+	}
+	
+	function query_app_session($username, $session) {
+		$cmd = "QUERY " . $username . " " . $session . "\r\n";
+		$result = $this->send(PANDORA_ASESSION_PATH, $cmd);
+		if (false === $result || false == $result['result']) {
+			return false;
+		}
+		return json_decode($result['line'], true);
+	}
+	
+	function check_app_session($username, $session) {
+		$cmd = "CHECK " . $username . " " . $session . "\r\n";
+		$result = $this->send(PANDORA_ASESSION_PATH, $cmd);
+		if (false === $result || false == $result['result']) {
+			return false;
+		}
+		return true;
+	}
 }
 
 ?>
