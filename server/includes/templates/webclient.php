@@ -37,8 +37,7 @@ $serverConfig = array_merge($serverConfig, array(
 										),
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 	'prefetch_email_count' => PREFETCH_EMAIL_COUNT,
-	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL,
-	'oidc_enabled' => OIDC_ISS,
+	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL
 ));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
@@ -72,11 +71,6 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			$loader->cssOrder();
 			echo Theming::getStyles($theme);
 			$iconsetStylesheet = Iconsets::getActiveStylesheet();
-
-			// Load OIDC JavaScript for refreshing of the token.
-			if (OIDC_ISS !== "") {
-				require_once(BASE_PATH . 'client/oidc.js.php');
-			}
 		?>
 		<link id="kopano-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>

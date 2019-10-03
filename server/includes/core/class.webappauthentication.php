@@ -319,8 +319,7 @@ class WebAppAuthentication
 			$_POST['username'],
 			$_POST['token'],
 			DEFAULT_SERVER,
-			null, null,
-			EC_PROFILE_FLAGS_OIDC
+			null, null, 0
 		);
 
 		// Store the credentials in the session if logging in was succesfull

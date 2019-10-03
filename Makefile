@@ -13,7 +13,6 @@ DESTDIR ?= deploy
 # Javascript compiler
 
 JSDEPLOY = $(DESTDIR)/client
-OIDCDEPLOY = $(JSDEPLOY)/oidc
 
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
 
@@ -80,12 +79,11 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(JSDEPLOY)/oidc-kopano.js
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
 	cp -r client/extjs $(DESTDIR)/client/
-	cp -r client/oidc $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js
 	rm $(DESTDIR)/client/extjs/ext-all.js
 	rm $(DESTDIR)/client/extjs/resources/css/reset-min.css
@@ -138,12 +136,6 @@ $(JSDEPLOY)/extjs-mod/extjs-mod.js: $(EXTJSMODFILES)
 $(JSDEPLOY)/resize.js: client/resize.js
 	mkdir -p $(JSDEPLOY)
 	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
-	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
-
-$(JSDEPLOY)/oidc-kopano.js: client/oidc-kopano.js
-	mkdir -p $(JSDEPLOY)
-	cp client/oidc.js.php $(JSDEPLOY)/
-	cat client/oidc-kopano.js > $(JSDEPLOY)/oidc-kopano-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)

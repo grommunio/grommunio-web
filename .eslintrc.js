@@ -278,7 +278,6 @@ module.exports = {
 	    "urlActionData": true,
 	    "resizeLoginBox": true,
 	    "tinymce": true,
-	    "userManager": true,
-	    "Oidc": true,
+	    "userManager": true
     }
 };

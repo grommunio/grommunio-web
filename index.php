@@ -42,11 +42,6 @@
 		return $favicon;
 	}
 
-	if (isset($_GET['oidc-silent-refresh'])) {
-		include('server/includes/templates/oidc-silent-refresh.php');
-		die();
-	}
-
 	// If the user wants to logout (and is not using single-signon)
 	// then destroy the session and redirect to this page, so the login page
 	// will be shown
@@ -130,13 +125,7 @@
 		// Set a template variable for the favicon of the login, welcome, and webclient page
 		$theme = Theming::getActiveTheme();
 		$favicon = getFavicon(Theming::getActiveTheme());
-
-		// Include the login template
-		if (OIDC_ISS === "") {
-			include(BASE_PATH . 'server/includes/templates/login.php');
-		} else {
-			include(BASE_PATH . 'server/includes/templates/oidc.php');
-		}
+		include(BASE_PATH . 'server/includes/templates/login.php');
 		die();
 	}
 

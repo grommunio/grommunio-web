@@ -20,11 +20,9 @@
 	//           define("DEFAULT_SERVER", "https://localhost:237/kopano");
 	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock");
 	define("DEFAULT_SERVER", "default:");
-
-	// OIDC Server Configuration, introduced in 8.7.0
-	define('OIDC_ISS', '');
-	define('OIDC_CLIENT_ID', '');
-	define('OIDC_SCOPE', 'openid profile email kopano/gc');
+	
+	//domain socket path of session agent
+	define("PANDORA_ASESSION_PATH", "/var/pandora/token/asession");
 
 	// Name of the cookie that is used for the session
 	define("COOKIE_NAME", "STEEP_WEBAPP");
