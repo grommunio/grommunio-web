@@ -316,94 +316,15 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 			return this.condition;
 		}
 
-		var conditions = [];
-
 		// No recipients selected, this means
 		// we can't create a condition.
 		if (this.store.getCount() === 0) {
 			return false;
 		}
 
-		switch (this.conditionFlag) {
-			case Zarafa.common.rules.data.ConditionFlags.SENT_TO:
-				this.store.each(function(recipient) {
-					if (recipient.isResolved()) {
-						conditions.push(this.createToRestriction(recipient));
-					}
-				}, this);
-				break;
-			case Zarafa.common.rules.data.ConditionFlags.RECEIVED_FROM:
-				this.store.each(function(recipient) {
-					if (recipient.isResolved()) {
-						conditions.push(this.createFromRestriction(recipient));
-					}
-				}, this);
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		// If there was only 1 recipient, we don't need to convert
-		// it to a OR subrestriction. If we have more then 1 recipient,
-		// then we should create the OR restriction.
-		if (conditions.length === 1) {
-			return conditions[0];
-		} else if (conditions.length > 1) {
-			return Zarafa.core.data.RestrictionFactory.createResOr(conditions);
-		} else {
-			return false;
-		}
-	},
-
-	/**
-	 * Convert a {@link Zarafa.core.data.IPMRecipientRecord Recipient} into
-	 * a Restriction used for the {@link #getCondition}.
-	 * @param {Zarafa.core.data.IPMRecipientRecord} recipient The recipient for which
-	 * the restriction should be created
-	 * @return {Object} The restriction
-	 * @private
-	 */
-	createToRestriction : function(recipient)
-	{
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
-
-		return RestrictionFactory.createResSubRestriction('PR_MESSAGE_RECIPIENTS',
-			RestrictionFactory.dataResComment(
-				RestrictionFactory.dataResProperty('PR_SEARCH_KEY', Restrictions.RELOP_EQ, recipient.get('search_key'), '0x00010102'),
-				{
-					'0x60000003' : Zarafa.core.mapi.RecipientType.MAPI_TO,
-					'0x00010102' : recipient.get('search_key'),
-					'0x0001001E' : recipient.get('display_name') + ' <' + recipient.get('smtp_address') + '>',
-					'PR_DISPLAY_TYPE' : recipient.get('display_type')
-				}
-			)
-		);
-	},
-
-	/**
-	 * Convert a {@link Zarafa.core.data.IPMRecipientRecord Recipient} into
-	 * a Restriction used for the {@link #getCondition}.
-	 * @param {Zarafa.core.data.IPMRecipientRecord} recipient The recipient for which
-	 * the restriction should be created
-	 * @return {Object} The restriction
-	 * @private
-	 */
-	createFromRestriction : function(recipient)
-	{
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
-
-		return RestrictionFactory.dataResComment(
-			RestrictionFactory.dataResProperty('PR_SENDER_SEARCH_KEY', Restrictions.RELOP_EQ, recipient.get('search_key'), '0x00010102'),
-			{
-				'0x60000003' : Zarafa.core.mapi.RecipientType.MAPI_TO,
-				'0x00010102' : recipient.get('search_key'),
-				'0x0001001E' : recipient.get('display_name') + ' <' + recipient.get('smtp_address') + '>',
-				'PR_DISPLAY_TYPE' : recipient.get('display_type')
-			}
-		);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({store : this.store});
 	},
 
 	/**
@@ -457,56 +378,9 @@ Zarafa.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, {
 			return this.action;
 		}
 
-		var action = {};
-
-		// No recipients selected, this means
-		// we can't create an action.
-		if (this.store.getCount() === 0) {
-			return false;
-		}
-
-		// Set the Address list in the action
-		action.adrlist = [];
-		this.store.each(function(recipient) {
-			action.adrlist.push({
-				PR_ENTRYID : recipient.get('entryid'),
-				PR_OBJECT_TYPE : recipient.get('object_type'),
-				PR_DISPLAY_NAME : recipient.get('display_name'),
-				PR_DISPLAY_TYPE : recipient.get('display_type'),
-				PR_EMAIL_ADDRESS : recipient.get('email_address') || recipient.get('smtp_address'),
-				PR_SMTP_ADDRESS : recipient.get('smtp_address'),
-				PR_ADDRTYPE : recipient.get('address_type'),
-				PR_RECIPIENT_TYPE : recipient.get('recipient_type'),
-				PR_SEARCH_KEY : recipient.get('search_key')
-			});
-		}, this);
-
-		// Fill in the additional properties required for the action.
-		var ActionFlags = Zarafa.common.rules.data.ActionFlags;
-		var RuleActions = Zarafa.core.mapi.RuleActions;
-		var FlavorFlags = Zarafa.core.mapi.FlavorFlags;
-		switch (this.actionFlag) {
-			case ActionFlags.REDIRECT:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = FlavorFlags.FWD_PRESERVE_SENDER | FlavorFlags.FWD_DO_NOT_MUNGE_MSG;
-				break;
-			case ActionFlags.FORWARD:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = 0;
-				break;
-			case ActionFlags.FORWARD_ATTACH:
-				action.action = RuleActions.OP_FORWARD;
-				action.flags = 0;
-				action.flavor = FlavorFlags.FWD_AS_ATTACHMENT;
-				break;
-			default:
-				// invalid actionFlag
-				return false;
-		}
-
-		return action;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition({store: this.store});
 	},
 
 	/**

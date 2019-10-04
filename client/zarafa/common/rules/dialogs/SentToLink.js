@@ -24,10 +24,9 @@ Zarafa.common.rules.dialogs.SentToLink = Ext.extend(Zarafa.common.rules.dialogs.
 			return false;
 		}
 
-		return Zarafa.core.data.RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME',
-							Zarafa.core.mapi.Restrictions.RELOP_EQ,
-		       					true,
-							'0x0057000B');
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition();
 	}
 });
 

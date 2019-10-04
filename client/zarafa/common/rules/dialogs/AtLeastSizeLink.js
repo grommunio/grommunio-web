@@ -126,7 +126,7 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
         this.msgSize.setValue(this.sizeValue);
         this.sizeCombo.setValue(this.comboValue);
 
-        Zarafa.common.rules.dialogs.AtLeatSizeLink.superclass.setCondition.call(this, arguments);
+        Zarafa.common.rules.dialogs.AtLeatSizeLink.superclass.setCondition.apply(this, arguments);
     },
 
     /**
@@ -157,13 +157,9 @@ Zarafa.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Zarafa.common.rules.dial
         }
 
         var convertedSizeValue = Zarafa.core.Util.convertToBytes(this.sizeValue, this.comboValue);
-        var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-        var Restrictions = Zarafa.core.mapi.Restrictions;
-
-        if (this.atMostSizeLink) {
-            return RestrictionFactory.dataResProperty('PR_MESSAGE_SIZE', Restrictions.RELOP_LE, convertedSizeValue);
-        }
-        return RestrictionFactory.dataResProperty('PR_MESSAGE_SIZE', Restrictions.RELOP_GE, convertedSizeValue);
+        var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+        var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+        return conditionDefinition({value : convertedSizeValue});
     },
 
     /**

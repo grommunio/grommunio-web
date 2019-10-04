@@ -20,9 +20,6 @@ Zarafa.common.rules.dialogs.NameBccLink = Ext.extend(Zarafa.common.rules.dialogs
             return this.condition;
         }
 
-        var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-        var Restrictions = Zarafa.core.mapi.Restrictions;
-
         // Invalid conditionFlag
         if (this.conditionFlag !== Zarafa.common.rules.data.ConditionFlags.NAME_BCC) {
             return false;
@@ -33,12 +30,9 @@ Zarafa.common.rules.dialogs.NameBccLink = Ext.extend(Zarafa.common.rules.dialogs
         // Property value of PR_MESSAGE_RECIP_ME is false for kopano core version below '8.7.2'
         // and true for the version '8.7.2' and above.
         var recipMeValue = versionCompare === -1 ? false : true;
-
-        return RestrictionFactory.createResAnd([
-            RestrictionFactory.dataResProperty('PR_MESSAGE_RECIP_ME', Restrictions.RELOP_EQ, recipMeValue),
-            RestrictionFactory.dataResProperty('PR_MESSAGE_CC_ME', Restrictions.RELOP_EQ, false),
-            RestrictionFactory.dataResProperty('PR_MESSAGE_TO_ME', Restrictions.RELOP_EQ, false)
-        ]);
+        var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+        var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+        return conditionDefinition({value : recipMeValue});
 
     }
 });

@@ -74,17 +74,9 @@ Zarafa.common.rules.dialogs.MarkAsReadLink = Ext.extend(Ext.Container,{
 			return this.action;
 		}
 
-		var action = {};
-
-		if (this.actionFlag === Zarafa.common.rules.data.ActionFlags.MARK_AS_READ) {
-			action.action = Zarafa.core.mapi.RuleActions.OP_MARK_AS_READ;
-			action.flags = 0;
-			action.flavor = 0;
-
-			return action;
-		}
-
-		return false;
+		var actionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.ACTION);
+		var actionDefinition = actionFactory.getActionById(this.actionFlag);
+		return actionDefinition(this.actionFlag);
 	}
 
 });

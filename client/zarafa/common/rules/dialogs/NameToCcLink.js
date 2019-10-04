@@ -25,8 +25,9 @@ Zarafa.common.rules.dialogs.NameToCcLink = Ext.extend(Zarafa.common.rules.dialog
 			return false;
 		}
 
-		return Zarafa.core.data.RestrictionFactory.dataResProperty('PR_MESSAGE_RECIP_ME',
-				Zarafa.core.mapi.Restrictions.RELOP_EQ, true, '0x0059000B');
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition();
 	}
 });
 

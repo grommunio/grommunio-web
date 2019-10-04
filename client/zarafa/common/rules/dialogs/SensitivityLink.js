@@ -61,7 +61,7 @@ Zarafa.common.rules.dialogs.SensitivityLink = Ext.extend(Zarafa.common.rules.dia
 		}
 
 		this.sensitivityCombo.setValue(sensitivity);
-		Zarafa.common.rules.dialogs.SensitivityLink.superclass.setCondition.call(this, arguments);
+		Zarafa.common.rules.dialogs.SensitivityLink.superclass.setCondition.apply(this, arguments);
 	},
 
 	/**
@@ -74,11 +74,11 @@ Zarafa.common.rules.dialogs.SensitivityLink = Ext.extend(Zarafa.common.rules.dia
 			return this.condition;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var value = this.sensitivityCombo.getValue();
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
 
-		return RestrictionFactory.dataResProperty('PR_SENSITIVITY', Restrictions.RELOP_EQ, value);
+		return conditionDefinition({value : value});
 	}
 });
 

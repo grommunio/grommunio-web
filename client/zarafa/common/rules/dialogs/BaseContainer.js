@@ -120,71 +120,70 @@ Zarafa.common.rules.dialogs.BaseContainer = Ext.extend(Ext.Container, {
      * @return {Array} Array of config objects to create a {@link Ext.Container}.
      * @private
      */
-    createContentPanels : function(baseId)
-    {
-        return [{
-            xtype : 'container',
-            id : baseId + '-empty'
-        },{
-            xtype : 'zarafa.userselectionlink',
-            id : baseId + '-from'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-senderwords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-recipientwords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-words'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-bodywords'
-        },{
-            xtype : 'zarafa.wordselectionlink',
-            id : baseId + '-headerwords'
-        },{
-            xtype : 'zarafa.importancelink',
-            id : baseId + '-importance'
-        },{
-            xtype : 'zarafa.userselectionlink',
-            id : baseId + '-to'
-        },{
-            xtype : 'zarafa.senttomelink',
-            id : baseId + '-to-me-only'
-        },{
-            xtype : 'zarafa.senttolink',
-            id : baseId + '-to-me'
-        },{
-            xtype : 'zarafa.attachmentlink',
-            id : baseId + '-attachment'
-        },{
-            xtype : 'zarafa.atleatsizelink',
-            id : baseId + '-atleastsize'
-        },{
-            xtype : 'zarafa.atmostsizelink',
-            id : baseId + '-atmostsize'
-        },{
-            xtype : 'zarafa.sentccmelink',
-            id : baseId + '-cc-me'
-        },{
-            xtype : 'zarafa.namebcclink',
-            id : baseId + '-name-to-bcc'
-        },{
-            xtype : 'zarafa.nametocclink',
-            id : baseId + '-name-to-cc'
-        },{
-            xtype : 'zarafa.sensitivitylink',
-            id : baseId + '-sensitivity'
-        },{
-            xtype : 'zarafa.receivedafterlink',
-            id : baseId + '-received-after'
-        },{
-            xtype : 'zarafa.receivedbeforelink',
-            id : baseId + '-received-before'
-        },{
-            xtype : 'zarafa.nonelink',
-            id : baseId + '-no-condition'
+    createContentPanels : function(baseId) {
+       return [{
+            xtype: 'container',
+            id: baseId + '-empty'
+        }, {
+            xtype: 'zarafa.userselectionlink',
+            id: baseId + '-from'
+        }, {
+            xtype: 'zarafa.wordselectionlink',
+            id: baseId + '-senderwords'
+        }, {
+            xtype: 'zarafa.wordselectionlink',
+            id: baseId + '-recipientwords'
+        }, {
+            xtype: 'zarafa.wordselectionlink',
+            id: baseId + '-words'
+        }, {
+            xtype: 'zarafa.wordselectionlink',
+            id: baseId + '-bodywords'
+        }, {
+            xtype: 'zarafa.wordselectionlink',
+            id: baseId + '-headerwords'
+        }, {
+            xtype: 'zarafa.importancelink',
+            id: baseId + '-importance',
+        }, {
+            xtype: 'zarafa.userselectionlink',
+            id: baseId + '-to'
+        }, {
+            xtype: 'zarafa.senttomelink',
+            id: baseId + '-to-me-only'
+        }, {
+            xtype: 'zarafa.senttolink',
+            id: baseId + '-to-me'
+        }, {
+            xtype: 'zarafa.attachmentlink',
+            id: baseId + '-attachment'
+        }, {
+            xtype: 'zarafa.atleatsizelink',
+            id: baseId + '-atleastsize'
+        }, {
+            xtype: 'zarafa.atmostsizelink',
+            id: baseId + '-atmostsize'
+        }, {
+            xtype: 'zarafa.sentccmelink',
+            id: baseId + '-cc-me'
+        }, {
+            xtype: 'zarafa.namebcclink',
+            id: baseId + '-name-to-bcc'
+        }, {
+            xtype: 'zarafa.nametocclink',
+            id: baseId + '-name-to-cc'
+        }, {
+            xtype: 'zarafa.sensitivitylink',
+            id: baseId + '-sensitivity'
+        }, {
+            xtype: 'zarafa.receivedafterlink',
+            id: baseId + '-received-after'
+        }, {
+            xtype: 'zarafa.receivedbeforelink',
+            id: baseId + '-received-before'
+        }, {
+            xtype: 'zarafa.nonelink',
+            id: baseId + '-no-condition'
         }];
     },
 

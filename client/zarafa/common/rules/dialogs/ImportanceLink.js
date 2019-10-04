@@ -61,7 +61,7 @@ Zarafa.common.rules.dialogs.ImportanceLink = Ext.extend(Zarafa.common.rules.dial
 		}
 
 		this.importanceCombo.setValue(importance);
-		Zarafa.common.rules.dialogs.ImportanceLink.superclass.setCondition.call(this, arguments);
+		Zarafa.common.rules.dialogs.ImportanceLink.superclass.setCondition.apply(this, arguments);
 	},
 
 	/**
@@ -74,11 +74,10 @@ Zarafa.common.rules.dialogs.ImportanceLink = Ext.extend(Zarafa.common.rules.dial
 			return this.condition;
 		}
 
-		var RestrictionFactory = Zarafa.core.data.RestrictionFactory;
-		var Restrictions = Zarafa.core.mapi.Restrictions;
 		var value = this.importanceCombo.getValue();
-
-		return RestrictionFactory.dataResProperty('PR_IMPORTANCE', Restrictions.RELOP_EQ, value);
+		var conditionFactory = container.getRulesFactoryByType(Zarafa.common.data.RulesFactoryType.CONDITION);
+		var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+		return conditionDefinition({value : value});
 	}
 });
 

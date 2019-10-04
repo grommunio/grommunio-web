@@ -36,6 +36,11 @@ $menu-item-height : 30px;
 				.x-menu-item-icon {
 					left: $padding-medium - $padding-small;
 				}
+
+				/* rules menu item */
+				&.k-rules-menu-item {
+					padding-left: $padding-medium;
+				}
 			}
 			a.x-menu-item-arrow {
 				background-position: right center !important;
