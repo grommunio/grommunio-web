@@ -678,5 +678,177 @@ Zarafa.core.Util =
 			input = input / 1024;
 		}
 		return input;
+	},
+	
+	/**
+	 * Function gets the formatted date according to the given/selected language, as formats differ
+	 * according to languages.
+	 * @param {String} value The input date value
+	 * @param {String} language The current language
+	 * @param {String} format The current format of the date
+	 * @return {Array} newDate The date array which is to be set
+	 */
+	getDateByLanguageFormat : function(value, language, format)
+	{
+		if (!Ext.isDefined(language)) {
+			language = container.getSettingsModel().get('zarafa/v1/main/language');
+		}
+		// We extract the language code from the language since the language retrieved
+		// from the settings is in the format 'en_GB.UTF-8'
+		language = language.split('.')[0];
+		
+		var rawValue = value;
+		var formattedDate = [];
+		var newDate = new Date();
+		var regExSpecialChar = /[^0-9a-zA-Z]/g;
+		
+		switch (language) {
+			case 'ja_JP':
+			case 'hu_HU':
+				// For format 'Y/m/d'
+				if (regExSpecialChar.test(rawValue)) {
+					rawValue = rawValue.split(regExSpecialChar);
+					// Since the format is 'Y/m/d', the first part might be the year
+					// In that case, we change the value to maintain the 'd/m/Y' format.
+					if (rawValue[0].length === 4) {
+						[rawValue[0], rawValue[2]] = [rawValue[2], rawValue[0]];
+					}
+					rawValue = rawValue.join('/');
+				}
+				formattedDate = this.getFormattedDate(rawValue, '/');
+				break;
+			case 'de_DE':
+			case 'nb_NO':
+			case 'fi_FI':
+			case 'cs_CZ':
+				// For format 'd.m.Y' and 'd. m. Y.'
+				formattedDate = this.getFormattedDate(rawValue, '.');
+				break;
+			case 'es_CA':
+			case 'es_ES':
+			case 'pl_PL':
+				// For format 'd/m/aa' and 'd/m/r'
+				// We remove alphabets part if any, to maintain the format.
+				rawValue = rawValue.replace(/[a-zA-Z]/g, "");
+				formattedDate = this.getFormattedDate(rawValue, '/');
+				break;
+			case 'nl_NL':
+				// For format 'd-m-Y'
+				formattedDate = this.getFormattedDate(rawValue, '-');
+				break;
+			case 'en_US':
+				// For format 'm/d/Y', since this is a different format, we need to specifically format
+				// the date as the 'getFormattedDate' function supports formats similar to 'd/m/Y'.
+				var result = [];
+				// If the selected language is English(US) but the WebApp is using the local
+				// format 'd/m/Y', then no need to format according to 'm/d/Y' format
+				if (format === 'd/m/Y') {
+					formattedDate = this.getFormattedDate(rawValue, '/');
+					break;
+				}
+				rawValue = rawValue.replace(/[a-zA-Z\s]/g, "");
+				// If the date value has a separator and is not a single digit or two digit day
+				if (regExSpecialChar.test(rawValue) && rawValue.length > 2) {
+					rawValue = rawValue.split(regExSpecialChar);
+					// Since the format is 'm/d/Y', we interchange the day with the month.
+					[result[0], result[1]] = [rawValue[1], rawValue[0]];
+					if (rawValue[0] >= 12) {
+						result = rawValue.slice();
+					}
+					var year = rawValue[2];
+					// Formatting the year if incomplete or incorrect
+					if (year && year.length !== 4) {
+						rawValue[2] = ('20' + year).length === 4 ? '20' + year : newDate.getFullYear().toString();
+					}
+					result[2] = rawValue[2];
+				} else {
+					// If there is no separator, we format the date and then
+					// swap the month with the day if needed (according to 'm/d/Y').
+					result = this.getFormattedDate(rawValue, '/');
+					if (result[0] <= 12 && result[1] <= 12 && rawValue.length > 2) {
+						[result[0], result[1]] = [result[1], result[0]];
+					}
+				}
+				formattedDate = result.slice();
+				break;
+			case 'en_GB':
+			case 'ru_RU':
+			case 'it_IT':
+			case 'pt_BR':
+			case 'tr_TR':
+			case 'sl_SI':
+			case 'zh_TW':
+			case 'fr_FR':
+			case 'da_DR':
+			default:
+				// For format 'd/m/Y'
+				formattedDate = this.getFormattedDate(rawValue, '/');
+				break;
+		}
+		return formattedDate;
+	},
+	
+	/**
+	 * Function corrects the date string if it has no separator or it is incomplete/incorrect.
+	 * @param {String} rawValue The input date value
+	 * @param {String} separator The separator of the date according to the format
+	 * @return {Array} dateArray The date array which is to be set
+	 */
+	getFormattedDate : function(rawValue, separator)
+	{
+		var dateArray, hasNoSeparator = false;
+		var currentFullDate = new Date();
+		var currentYear = currentFullDate.getFullYear();
+		var currentMonth = currentFullDate.getMonth() + 1;
+		var currentDate = currentFullDate.getDate();
+		
+		var regExSeparator = /[^0-9a-zA-Z]/g;
+		if (!regExSeparator.test(rawValue)) {
+			hasNoSeparator = true;
+		}
+		
+		if (hasNoSeparator) {
+			rawValue = rawValue.replace(/[a-zA-Z]/g, "");
+			switch (rawValue.length) {
+				// Example : '06062020' -> '06/06/2020'
+				case 8:
+					rawValue = rawValue.slice(0, 2) + separator + rawValue.slice(2, 4) + separator + rawValue.slice(4);
+					break;
+				// Example : '662020' -> '06/06/2020'
+				case 6:
+					rawValue = rawValue.slice(0, 1) + separator + rawValue.slice(1, 2) + separator + rawValue.slice(2);
+					break;
+				// Example : '06' -> '06/02/2020'
+				case 2:
+					rawValue = rawValue + separator + currentMonth + separator + currentYear;
+					break;
+				// Example : '6' -> '06/02/2020'
+				case 1:
+					rawValue = '0' + rawValue + separator + currentMonth + separator + currentYear;
+					break;
+				default:
+					rawValue = currentDate + separator + currentMonth + separator + currentYear;
+					break;
+			}
+			dateArray = rawValue.split(separator);
+		} else {
+			rawValue = rawValue.replace(/[a-zA-Z\s]/g, "");
+			dateArray = rawValue.split(regExSeparator);
+			
+			// Check for the year value
+			if (dateArray.length > 1 && rawValue.length > 0) {
+				var year = dateArray[2];
+				if (year && year.length !== 4) {
+					dateArray[2] = ('20' + year).length === 4 ? '20' + year : currentYear;
+				}
+			} else {
+				dateArray = [currentDate, currentMonth, currentYear];
+			}
+		}
+		// If value of month part is greater than 12, swap with day.
+		if (dateArray[1] > 12) {
+			[dateArray[0], dateArray[1]] = [dateArray[1], dateArray[0]];
+		}
+		return dateArray;
 	}
 };
