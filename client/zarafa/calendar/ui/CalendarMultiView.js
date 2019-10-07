@@ -24,6 +24,13 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 */
 	context : undefined,
 	/**
+	 * Used to compare the calendar groupings to the previous value. Contains a JSON stringified version
+	 * of the groupings at the previous load.
+	 * @property
+	 * @type String
+	 */
+	cachedGroupingsString: '',
+	/**
 	 * @cfg {Number} tabAreaHeight height in pixels of the tab strip
 	 */
 	tabAreaHeight : 39,
@@ -660,7 +667,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	 * @return {Number} Height in pixels of the header area.
 	 * @private
 	 */
- 	getHeaderAreaHeight : function()
+	getHeaderAreaHeight : function()
 	{
 		// Find the largest header height for all the child calendar views
 		var headerHeight = 0;
@@ -1201,14 +1208,17 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 			return;
 		}
 
-		// Only create the views here the first time, not on every load
-		var calendarsShouldBeManaged = Ext.isEmpty(this.folders);
-
 		this.folders = options.folder || [];
+
 		//always show tab
 		this.showBorder = true;
 
-		if ( calendarsShouldBeManaged ) {
+		// Only create the views here when the groupings have changed
+		// Compare the goupings by caching a stringified version
+		const groupingsString = JSON.stringify(this.model.getGroupings());
+
+		if ( groupingsString !== this.cachedGroupingsString ) {
+			this.cachedGroupingsString = groupingsString;
 			this.manageCalendarViews();
 		}
 

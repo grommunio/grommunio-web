@@ -191,12 +191,16 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		this.sortFolders();
 		this.assignColors();
- 	},
+	},
 
- 	onHierarchyAddFolder : function(hierarchyStore, storeRecord, folder)
+	/**
+	 * Handler for the 'addfolder' event of the {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore}
+	 * Will add color schemes to the calendars.
+	 */
+	onHierarchyAddFolder : function()
 	{
- 		this.assignColors();
- 	},
+		this.assignColors();
+	},
 
 	/**
 	 * Returns the default {@link Zarafa.hierarchy.data.MAPIFolderRecord folder} which is
@@ -387,7 +391,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 			grouped = grouped.concat(group.folders);
 		}, this);
 
-		for (var i = 0, len = grouped.length; i < len; i++) {
+		for (i = 0, len = grouped.length; i < len; i++) {
 			var entryid = grouped[i];
 			var index = entryids.indexOf(entryid);
 
@@ -404,7 +408,7 @@ Zarafa.core.MultiFolderContextModel = Ext.extend(Zarafa.core.ContextModel, {
 
 		// All items remaining in the entryids list, are the new
 		// folders which haven't been assigned to a group yet.
-		for (var i = 0, len = entryids.length; i < len; i++) {
+		for (i = 0, len = entryids.length; i < len; i++) {
 			this.addItemToGroup(entryids[i]);
 		}
 		this.fireEvent('foldergroupingchanged', this, this.groupings, this.active_group);

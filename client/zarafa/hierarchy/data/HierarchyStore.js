@@ -56,19 +56,17 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			/**
 			 * @event addFolder
 			 * Fires when a folder has been created.
-			 * @param {Zarafa.hierarchy.data.HierarchyStore} store
-			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord/Zarafa.hierarchy.data.IPFRecord[]}
-			 * folder record that is added to the hierachy store.
+			 * @param {Zarafa.hierarchy.data.HierarchyStore} store The hierarchy store that fired the event
+			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord The MAPI store that contains the folder that was added
+			 * @param {Zarafa.hierarchy.data.IPFRecord/Zarafa.hierarchy.data.IPFRecord[]} folder folder record that is added to the hierachy store.
 			 */
 			'addFolder',
 			/**
 			 * @event removeFolder
 			 * Fires when a folder has been removed.
-			 * @param {Zarafa.hierarchy.data.HierarchyStore} store
-			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord}
-			 * folder which is removed from the hierarchy store.
+			 * @param {Zarafa.hierarchy.data.HierarchyStore} store This hierarchy store that fired the event
+			 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} storeRecord The MAPI store that contained the folder that was removed
+			 * @param {Zarafa.hierarchy.data.IPFRecord} folder folder which is removed from the hierarchy store.
 			 */
 			'removeFolder',
 			/**
