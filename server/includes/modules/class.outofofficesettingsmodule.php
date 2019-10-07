@@ -68,7 +68,7 @@
                if (!isset($props[PR_EC_OUTOFOFFICE_FROM])) {
                    $props[PR_EC_OUTOFOFFICE_FROM] = 0;
                }
-               if (!isset($props[PR_EC_OUTOFOFFICE_UNTIL])) {
+               if (!isset($props[PR_EC_OUTOFOFFICE_UNTIL]) || $props[PR_EC_OUTOFOFFICE_UNTIL] === FUTURE_ENDDATE) {
                    $props[PR_EC_OUTOFOFFICE_UNTIL] = 0;
                }
 
@@ -139,18 +139,25 @@
          */
         function saveOofSettings($action)
         {
-
             $storeEntryId = $action['store_entryid'];
             $oofSettings = $action['props'];
             $store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeEntryId));
             $props = Conversion::mapXML2MAPI($this->properties, $oofSettings);
 
-            if  (isset($oofSettings['until'])) {
-                // Until is not set, so remove the property else we have to set it to 2999
-                if ($oofSettings['until'] === 0) {
-                    mapi_deleteprops($store, array($this->properties['until']));
-                } else {
-                    $props[$this->properties['until']] = $oofSettings['until'];
+            // If client sent until value as 0 or User set OOF to true but don't set until
+            // then save FUTURE_ENDDATE as until date. Also when OOF is already ON and User
+            // don't change 'until' field then check if 'until' value is available in User's store
+            // and if not then set until date to FUTURE_ENDDATE.
+            // Note: If we remove PR_EC_OUTOFOFFICE_UNTIL property from User's store,
+            // then Kopano Core is setting past value "1970-01-01 00:00:00" as until date.
+            // To avoid this issue and for OOF to work as expected, we are setting until date as FUTURE_ENDDATE.
+            if (isset($oofSettings['until']) && $oofSettings['until'] === 0 ||
+                !isset($oofSettings['until']) && isset($oofSettings['set'])) {
+                $props[$this->properties['until']] = FUTURE_ENDDATE;
+            } else if (!isset($oofSettings['until']) && !isset($oofSettings['set'])) {
+                $untilProp = mapi_getprops($store, array(PR_EC_OUTOFOFFICE_UNTIL));
+                if (!isset($untilProp[PR_EC_OUTOFOFFICE_UNTIL]) || $untilProp[PR_EC_OUTOFOFFICE_UNTIL] === 0) {
+                    $props[$this->properties['until']] = FUTURE_ENDDATE;
                 }
             }
 
