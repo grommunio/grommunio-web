@@ -2934,6 +2934,18 @@ msgstr "A szabály már a legmagasabb prioritású."
 msgid "Rule already has lowest priority."
 msgstr "A szabály már a legalacsonyabb prioritású."
 
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
 msgid "myself"
 msgstr "saját magam"
 

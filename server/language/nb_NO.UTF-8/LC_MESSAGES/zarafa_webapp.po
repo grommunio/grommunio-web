@@ -2805,6 +2805,18 @@ msgstr "Regelen har allerede høyeste prioritet."
 msgid "Rule already has lowest priority."
 msgstr "Regelen har allerede laveste prioritet."
 
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
 msgid "myself"
 msgstr "meg selv"
 
