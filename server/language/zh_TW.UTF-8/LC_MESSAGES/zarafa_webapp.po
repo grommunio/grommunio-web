@@ -2814,6 +2814,18 @@ msgstr "此規則已經是最高優先權"
 msgid "Rule already has lowest priority."
 msgstr "此規則已經是最低優先權"
 
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
 msgid "myself"
 msgstr ""
 

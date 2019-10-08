@@ -2919,6 +2919,18 @@ msgstr "La regola ha già la massima priorità."
 msgid "Rule already has lowest priority."
 msgstr "La regola ha già la minima priorità."
 
+msgid "Always move messages from {0}"
+msgstr ""
+
+msgid "Always move messages that are sent to <recipients>"
+msgstr ""
+
+msgid "Always move messages with this subject"
+msgstr ""
+
+msgid "Create rule..."
+msgstr ""
+
 msgid "myself"
 msgstr "io"
 
