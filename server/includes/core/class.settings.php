@@ -342,6 +342,8 @@
 				}
 				if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
 					$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				} else if (isset($_COOKIE['lang'])) {
+					$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
 				}
 				// Get and apply the System Administrator default settings
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
@@ -358,6 +360,8 @@
 				 */
 				if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
 					$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				} else if (isset($_COOKIE['lang'])) {
+					$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
 				}
 				$sysadminSettings = $this->getDefaultSysAdminSettings();
 				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
