@@ -76,7 +76,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Applies all data from an {@link Zarafa.core.data.IPMRecipientRecord IPMRecipientRecord}
 	 * to this instance. This will update all data.
-	 * 
+	 *
 	 * @param {Zarafa.core.data.IPMRecipientRecord} record The record to apply to this
 	 * @return {Zarafa.core.data.IPMRecipientRecord} this
 	 */
@@ -90,7 +90,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 		this.resolveAttempted = record.resolveAttempted;
 		this.resolveAttemptAmbiguous = record.resolveAttemptAmbiguous;
 		this.dirty = record.dirty;
-		
+
 		this.endEdit(false);
 
 		return this;
@@ -121,12 +121,22 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
-	 * A recipient is resolved when an entryid has been set.
+	 * A recipient has been resolved when an entryid has been set that is not a one-off.
+	 * When a one-off entryid has been set, the email address will be tested with a regexp
+	 * to check its validity.
 	 * @return {Boolean} True if this recipient has been resolved.
 	 */
 	isResolved : function()
 	{
-		return !Ext.isEmpty(this.get('entryid'));
+		if (Ext.isEmpty(this.get('entryid'))) {
+			return false;
+		}
+		if (!this.isOneOff()) {
+			return true;
+		}
+
+		var smtp = this.get('smtp_address');
+		return Zarafa.reSingleEmailAddress.test(smtp);
 	},
 
 	/**
@@ -364,7 +374,7 @@ Zarafa.core.data.IPMRecipientRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Convinience method to get {@link Zarafa.core.mapi.DisplayType} or {@link Zarafa.core.mapi.DisplayTypeEx}
 	 * property value from {@link Zarafa.core.data.IPMRecipientRecord}.
-	 * 
+	 *
 	 * @return {Zarafa.core.mapi.DisplayType|Zarafa.core.mapi.DisplayTypeEx} The display type value.
 	 */
 	getDisplayType : function()

@@ -8,6 +8,31 @@ Ext.namespace('Zarafa');
  */
 Ext.apply(Zarafa, {
 	/**
+	 * The string we use to create the regular expressions for email address validation
+	 *
+	 * @property
+	 * @type {String}
+	 * @private
+	 */
+	emailAddressRegExpString : '(?:[a-zA-Z0-9.!#$%&\'*+\\-/=?^_`{|}~])+@[a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(?:[a-z0-9]{2,15})',
+
+	/**
+	 * A regular expression to test the validity of an email address
+	 *
+	 * @property
+	 * @type {RegExp}
+	 */
+	reSingleEmailAddress : undefined,
+
+	/**
+	 * A regular expression to find email addresses in a string
+	 *
+	 * @property
+	 * @type {RegExp}
+	 */
+	reMultipleEmailAddresses : undefined,
+
+	/**
 	 * Ready flag which indicates that Webapp has been loaded.
 	 * (See {@link #onReady}).
 	 * @property
@@ -170,6 +195,10 @@ Ext.apply(Zarafa, {
 			}
 			container.getRequest().paralyze(Zarafa.core.data.ParalyzeReason.BROWSER_RELOADING);
 		};
+
+		// Initialize the regular expressions that can be used to validate email addresses
+		this.reSingleEmailAddress = new RegExp('^' + this.emailAddressRegExpString + '$');
+		this.reMultipleEmailAddresses = new RegExp('([^,;\\n\\r]*?<{0,1}' + Zarafa.emailAddressRegExpString + ')>{0,1}(?=(?:$|[,;\\n\\r\\s]))', 'g');
 
 		// Create global container object
 		container = new Zarafa.core.Container();
