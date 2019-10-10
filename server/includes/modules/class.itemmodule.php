@@ -695,14 +695,6 @@
 					$moveMessages = true;
 				}
 
-				// drag & drop from a public store to other store should always be copy instead of move
-				$destStoreProps = mapi_getprops($dest_store, array(PR_MDB_PROVIDER));
-				$storeProps = mapi_getprops($store, array(PR_MDB_PROVIDER));
-
-				if($storeProps[PR_MDB_PROVIDER] == ZARAFA_STORE_PUBLIC_GUID && $destStoreProps[PR_MDB_PROVIDER] != ZARAFA_STORE_PUBLIC_GUID) {
-					$moveMessages = false;
-				}
-
 				// if item has some set of props that need to be saved into the newly copied/moved item
 				$copyProps = array();
 				if (isset($action["message_action"]["dropmodifications"])) {
