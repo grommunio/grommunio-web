@@ -299,6 +299,12 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			beforeShow : this.onBeforeShowImportItem,
 			handler : this.onContextImportItem
 		},{
+			text : _('Import contacts'),
+			handler : this.onContextImportItem,
+			name : 'importContacts',
+			iconCls: 'icon_import_attachment',
+			beforeShow : this.onBeforeShowImportItem
+		},{
 			xtype: 'menuseparator'
 		},{
 			text : _('Properties'),
@@ -372,7 +378,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	},
 
 	/**
-	 * Event handler triggered before the 'Import emails' and 'Import appointment'
+	 * Event handler triggered before the 'Import emails', 'Import contacts' and 'Import appointment'
 	 * context menu item show.
 	 *
 	 * @param {Ext.Button} item The item which is going to show.
@@ -384,10 +390,15 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var access = record.get('access') & Zarafa.core.mapi.Access.ACCESS_CREATE_CONTENTS;
 
 		var hasImportSupport;
-		if (item.name === 'importAppointments') {
-			hasImportSupport = record.isCalendarFolder();
-		} else {
-			hasImportSupport = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
+		switch (item.name) {
+			case "importAppointments":
+				hasImportSupport = record.isCalendarFolder();
+			break;
+			case "importContacts" :
+				hasImportSupport = record.isContactFolder();
+			break;
+			default:
+				hasImportSupport = Zarafa.core.ContainerClass.isClass(record.get('container_class'), 'IPF.Note', true);
 		}
 
 		if (
@@ -648,13 +659,23 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 	/**
 	 * Open upload files dialog to import into folder.
 	 *
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The menu item that was clicked on
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} button The menu item that was clicked on
 	 * @private
 	 */
 	onContextImportItem : function(button)
 	{
+		var accept = '.eml';
+		switch (button.name) {
+			case 'importContacts':
+				accept = '.vcf';
+				break;
+			case 'importAppointments':
+				accept = '.ics,.vcs';
+				break;
+		}
+
 		var config = Ext.apply({}, {
-			accept : button.name === 'importAppointments' ? '.ics,.vcs' : '.eml',
+			accept : accept,
 			callback : Zarafa.common.Actions.importItemCallback.createDelegate(Zarafa.common.Actions, [ button.getRecords() ], 1)
 		});
 		Zarafa.common.Actions.openImportContent(this.records, config);

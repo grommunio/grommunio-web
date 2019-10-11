@@ -1311,7 +1311,7 @@ Zarafa.common.Actions = {
 		}
 
 		// Make sure we are processing only eml and ics/vcs files for broken check
-		if (!this.isEmlFile(files[index]) && !this.isICSFile(files[index])) {
+		if (!this.isEmlFile(files[index]) && !this.isICSFile(files[index]) && !this.isVCFFile(files[index])) {
 			this.brokenFiles.push(files[index]);
 			index++;
 			this.readFiles(files, folder, index);
@@ -1348,14 +1348,18 @@ Zarafa.common.Actions = {
 		var rawHeaders = splittedContent.match(/([^\n^:]+:)/g);
 
 		// Restrict the eml files to import in calendar folder.
-		var invalidImportingFolder = (this.isEmlFile(files[index]) && folder.isCalendarFolder()) || (this.isICSFile(files[index]) && !folder.isCalendarFolder());
+		var invalidImportingFolder = (this.isEmlFile(files[index]) && folder.isCalendarFolder()) ||
+			(this.isEmlFile(files[index]) && folder.isContactFolder())||
+			(this.isICSFile(files[index]) && !folder.isCalendarFolder()) ||
+			(this.isICSFile(files[index]) && folder.isContactFolder()) ||
+			(this.isVCFFile(files[index]) && !folder.isContactFolder());
 
 		// Compare if necessary headers are present or not
 		if (Ext.isEmpty(rawHeaders) || invalidImportingFolder) {
 			this.brokenFiles.push(files[index]);
 		} else if (this.isICSFile(files[index])) {
 			this.isBrokenICSVCS(files[index], splittedContent, rawHeaders);
-		} else if(rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1) {
+		} else if (!this.isVCFFile(files[index]) && (rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1)) {
 			this.brokenFiles.push(files[index]);
 		}
 
@@ -1533,6 +1537,27 @@ Zarafa.common.Actions = {
 			}
 			var extension = file.name.substr(i + 1);
 			return extension === 'ics' || extension === 'vcs';
+		}
+	},
+
+	/**
+	 * Helper function to check if given file is of vcf type or not.
+	 * This is required as there is no file type available at all in case of IE11 and edge.
+	 *
+	 * @param {Object} file The file to be checked.
+	 * @return {Boolean} True if the file is of type vcf. false otherwise.
+	 */
+	isVCFFile : function(file)
+	{
+		if (!Ext.isEmpty(file.type)) {
+			// windows system somehow show the file type to x-vcard.
+			return file.type === 'text/vcard' || file.type === 'text/x-vcard';
+		} else {
+			var i = file.name.lastIndexOf('.');
+			if (i === -1) {
+				return false;
+			}
+			return file.name.substr(i + 1) === 'vcf';
 		}
 	}
 };
