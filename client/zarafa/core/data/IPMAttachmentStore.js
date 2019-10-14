@@ -201,6 +201,7 @@ Zarafa.core.data.IPMAttachmentStore = Ext.extend(Zarafa.core.data.MAPISubStore, 
 		if (Ext.isEmpty(entryID) && messageAction) {
 			switch(messageAction.action_type) {
 				case 'forward':
+				case 'edit_as_new':
 					entryID = messageAction.source_entryid;
 					storeEntryId = messageAction.source_store_entryid;
 					break;
