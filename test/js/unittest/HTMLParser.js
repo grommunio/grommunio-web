@@ -295,5 +295,31 @@ describe('HTMLParser', function() {
 			});
 		});
 	});
+
+	describe('Umlaut conversion to plaintext', function() {
+		it('can convert &agrave to à', function() {
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&agrave;')).toEqual('à');
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&#224;')).toEqual('à');
+		});
+
+		it('can convert &Auml to Ä', function() {
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&Auml;')).toEqual('Ä');
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&#196;')).toEqual('Ä');
+		});
+
+		it('can convert &Ouml to Ö', function() {
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&Ouml;')).toEqual('Ö');
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&#214;')).toEqual('Ö');
+		});
+
+		it('can convert &auml to ä', function() {
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&auml;')).toEqual('ä');
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&#228;')).toEqual('ä');
+		});
+
+		it('can convert &#039 to \'', function() {
+			expect(Zarafa.core.HTMLParser.convertHTMLToPlain('&#039;')).toEqual('\'');
+		});
+	});
 });
 
