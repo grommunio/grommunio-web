@@ -173,7 +173,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		this.mon(container, 'folderselect', this.onFolderSelect, this);
 
 		this.mon(container, 'contextswitch', this.reviseCheckboxDisablity, this);
-
+		
 		// TODO This needs to be fixed by lazy loading the stuff in the mainPanel, then we can do container.getNavigationBar()
 		// But at the moment it is instantiated as getMainPanel is run and so we cannot yet get the navigationBar that way
 		var navigationPanel = this.findParentByType('zarafa.navigationpanel');
@@ -261,6 +261,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 		newContext = newContext || container.getCurrentContext();
 		var settingsOrToday = (newContext == container.getContextByName('settings') || newContext == container.getContextByName('today'));
 		this.showAllFoldersCheckbox.setDisabled(settingsOrToday);
+		
+		// Add listener for 'beforefolderchange' event for the new context
+		var model = newContext.getModel();
+		if (Ext.isDefined(model)) {
+			this.mon(model, 'beforefolderchange', this.onBeforeFolderChange, this);
+		}
 	},
 
 	/**
@@ -369,7 +375,57 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			this.model.removeFolder(folder);
 		}
 	},
-
+	
+	/**
+	 * Fires when the {@Link Zarafa.core.ContextModel} fires the
+	 * {@Link Zarafa.core.ContextModel#beforefolderchange} event.
+	 * This will add the folder to be selected in the array
+	 * of selected folders. If 'Show all folders' is checked and the folder
+	 * to be selected does not belong to the current context,
+	 * then the context is switched to the context of the folder to be selected.
+	 * If the webapp is reloaded, the default folder of the current context is selected.
+	 * @param {Array} folders Selected folders as an array of {@link Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
+	 */
+	onBeforeFolderChange : function(folders, folder)
+	{
+		// If the selected folder is a Calendar item,
+		// we don't need to manually select any folder, it is already handled.
+		if (folder.isCalendarFolder()) {
+			return;
+		}
+		
+		var folderToSelect;
+		var folderNode = this.getNodeById(folder.get('entryid'));
+		
+		if (folderNode) {
+			// No need to change the current selection if folder is not selected
+			if (!folderNode.isSelected()) {
+				return;
+			}
+			var previousSiblingFolder = folderNode.previousSibling;
+			var nextSiblingFolder = folderNode.nextSibling;
+		}
+		
+		if (previousSiblingFolder) {
+			folderToSelect = previousSiblingFolder.getFolder();
+		} else if (nextSiblingFolder) {
+			folderToSelect = nextSiblingFolder.getFolder();
+		} else {
+			folderToSelect = folder.getParentFolder();
+		}
+		
+		var context = container.getContextByFolder(folderToSelect);
+		
+		// Check if the context is different, if the context of the folder
+		// to be selected is different, then switch context.
+		if (container.getCurrentContext().getName() !== context.getName()) {
+			container.switchContext(context, folderToSelect);
+			return false;
+		}
+		folders.push(folderToSelect);
+	},
+	
 	/**
 	 * Fires when the {@link Zarafa.core.Container} fires the
 	 * {@link Zarafa.core.Container#folderselect} event. This

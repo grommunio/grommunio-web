@@ -514,7 +514,7 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			msg: msg,
 			buttons: Ext.MessageBox.YESNO,
 			fn: function (buttonClicked) {
-				if (buttonClicked == 'yes') {
+				if (buttonClicked === 'yes') {
 					var record = this.records;
 
 					/**
@@ -531,6 +531,8 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 						store.remove(record);
 					} else {
 						record.moveTo(container.getHierarchyStore().getDefaultFolder('wastebasket'));
+						// Set selection to the appropriate folder after the record has been moved.
+						this.setFolderSelection(record);
 					}
 
 					store.save(record);
@@ -539,7 +541,37 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 			scope: this
 		});
 	},
-
+	
+	/**
+	 * The function checks if the folder to be deleted has any siblings.
+	 * If the folder has a sibling folder, the selection is set on that folder,
+	 * else the parent folder is selected.
+	 */
+	setFolderSelection : function(record)
+	{
+		var folderNode = this.contextNode;
+		var folderToSelect;
+		
+		// No explicit selection is to be done if a folder is not selected
+		// or if the folder is a Calendar item as it is already handled.
+		if (!folderNode.isSelected() || record.isCalendarFolder()) {
+			return;
+		}
+		
+		var previousSiblingNode = folderNode.previousSibling;
+		var nextSiblingNode = folderNode.nextSibling;
+		
+		if (previousSiblingNode) {
+			folderToSelect = previousSiblingNode.getFolder();
+		} else if (nextSiblingNode) {
+			folderToSelect = nextSiblingNode.getFolder();
+		} else {
+			folderToSelect = record.getParentFolder();
+		}
+		
+		container.selectFolder(folderToSelect);
+	},
+	
 	/**
 	 * Fires on selecting 'Emtpy Folder' menu option from {@link Zarafa.hierarchy.ui.ContextMenu ContextMenu}
 	 * Asks user to confirm deletion of all contents of selected folder and if true then calls {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore}
