@@ -96,6 +96,73 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	},
 
 	/**
+	 * Removes some weird styling that Outlook adds to html mails.
+	 *
+	 * @param {String} body The text that should be cleaned up
+	 * @return {String} The cleaned up text
+	 */
+	cleanupOutlookStyles: function(body) {
+		// clean up some weird Outlook styling
+		const el = document.createElement('div');
+		el.innerHTML = body;
+		const paragraphs = el.querySelectorAll('p'); //MsoListParagraph
+		for (let i=0; i<paragraphs.length; i++) {
+			const p = Ext.fly(paragraphs[i]);
+
+			// First check for MsoListParagraph elements created by Outlook 2013
+			if (p.hasClass('MsoListParagraph')) {
+				p.setStyle({
+					'text-indent': 0
+				});
+			}
+
+			// Remove generic browser margins from paragraphs
+			if (!p.getStyle('margin')) {
+				p.setStyle({
+					margin: 0
+				});
+			}
+
+			// Try to find and remove the 'non-breaking spaces' that Outlook
+			// adds after the numbers and bullets of lists
+			var all = paragraphs[i].querySelectorAll('*');
+			for (let j=0; j<all.length; j++) {
+				if (all[j].innerText && all[j].innerText.trim() === '') {
+					all[j].innerHTML = '&nbsp;';
+				}
+
+				if ((/^\d+\.(&nbsp;)+$/).test(all[j].innerHTML)) {
+					all[j].innerHTML = all[j].innerHTML.replace(/(&nbsp;)+/, '&nbsp;');
+				}
+			}
+
+			var font = paragraphs[i].querySelector('font[face="Symbol"]');
+			if (font) {
+				font = font.querySelectorAll('font');
+				for (let j=0; j<font.length; j++) {
+					if (font[j].innerText.trim() === '') {
+						font[j].innerHTML = '&nbsp;';
+					}
+				}
+			}
+		}
+
+		// Remove strange margin on tables
+		const tables = el.querySelectorAll('table.MsoNormalTable');
+		for (let i=0; i<tables.length; i++) {
+			const t = Ext.fly(tables[i]);
+
+			if (parseFloat(t.getStyle('margin-left')) < 0) {
+				t.setStyle({
+					'margin-left': null
+				});
+			}
+		}
+
+		return el.innerHTML;
+	},
+
+	/**
 	 * Function is used to convert a mail record to task record.
 	 * @param {Zarafa.core.IPMFolder} folder The target folder in which the new record must be
 	 * created.

@@ -309,7 +309,7 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		// Initialize HTML body
-		respondData.body = origRecord.getBody(true);
+		respondData.body = origRecord.cleanupOutlookStyles(origRecord.getBody(true));
 		respondData.signatureData = this.getSignatureData(true, signatureId);
 		respondData.fontFamily = container.getSettingsModel().get('zarafa/v1/main/default_font');
 		respondData.fontSize = Zarafa.common.ui.htmleditor.Fonts.getDefaultFontSize();

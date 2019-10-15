@@ -208,6 +208,9 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			// otherwise we have to surround it with HTML tags for displaying plain-text.
 			html = record.get('isHTML');
 			body = record.getBody(html);
+			if (html) {
+				body = record.cleanupOutlookStyles(body);
+			}
 
 			if (!body) {
 				body = '';
