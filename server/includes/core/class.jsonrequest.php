@@ -100,7 +100,7 @@
 				}
 			} catch (Exception $e) {
 				// handle exceptions that are not handled by modules
-				dump($e);
+				dump($e, "[JSON ERROR]: General error");
 
 				$data = array(
 					"error" => array(
