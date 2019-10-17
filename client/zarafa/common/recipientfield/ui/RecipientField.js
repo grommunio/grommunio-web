@@ -142,10 +142,8 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 	{
 		// FIXME: Disallow typing in HTML formatting...
 
-		var regExpStr = /([^,;\n\r]*?<{0,1}(?:[a-zA-Z0-9.!#$%&'*+\-/=?^_`{|}~])+\@[a-z0-9\-]+(?:\.[a-z0-9\-]+)*\.(?:[a-z0-9]{2,15}))>{0,1}(?=(?:$|[,;\n\r\s]))/g;
-
-		// fetch the email addresses form string.
-		var emailAddresses = value.match(regExpStr);
+		// fetch the email addresses from string.
+		var emailAddresses = value.match(Zarafa.reMultipleEmailAddresses);
 		var splitted = [];
 
 		// If string doesn't have email address and
