@@ -845,7 +845,8 @@ msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Wiederholungen."
 msgid "Occurs every {0} {1} effective {2} for {3} occurence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurences."
 msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Wiederholung."
-msgstr[1] "Findet jeden {0} {1} statt, beginnend am {2} für {2} Wiederholungen."
+msgstr[1] ""
+"Findet jeden {0} {1} statt, beginnend am {2} für {2} Wiederholungen."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
 msgstr "Findet jeden {0} statt, beginnend am {1} bis {2} von {3} bis {4}."
@@ -1035,7 +1036,8 @@ msgstr ""
 "wählen Sie eine der folgenden Optionen"
 
 msgid "Send updates to only added or deleted attendees."
-msgstr "Aktualisierung nur an hinzugefügte oder gelöschte Teilnehmer versenden."
+msgstr ""
+"Aktualisierung nur an hinzugefügte oder gelöschte Teilnehmer versenden."
 
 msgid "Send updates to all attendees."
 msgstr "Aktualisierung an alle Teilnehmer versenden."
@@ -3783,8 +3785,8 @@ msgid ""
 "Cannot upload attachment, the total attachment size is {0} while the allowed "
 "maximum is {1}"
 msgstr ""
-"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgrösse ist {0}"
-", erlaubt sind maximal {1}"
+"Der Anhang konnte nicht hochgeladen werden. Die gesamte Anhangsgrösse ist "
+"{0}, erlaubt sind maximal {1}"
 
 msgid ""
 "Cannot upload attachment, total attachment is {0} while the allowed maximum "
@@ -4343,6 +4345,9 @@ msgstr "E-Mails importieren"
 msgid "Import appointments"
 msgstr "Termine importieren"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr "Eigenschaften von {0}"
 
@@ -4363,8 +4368,8 @@ msgid ""
 "Are you sure you want to delete the folder \"{0}\" and move all of its "
 "contents into the Deleted Items folder?"
 msgstr ""
-"Soll der Ordner \"{0}\" gelöscht und dessen gesamter Inhalt in den Ordner \""
-"Gelöschte Objekte\" verschoben werden?"
+"Soll der Ordner \"{0}\" gelöscht und dessen gesamter Inhalt in den Ordner "
+"\"Gelöschte Objekte\" verschoben werden?"
 
 msgid "Delete folder"
 msgstr "Ordner löschen"
@@ -6069,7 +6074,8 @@ msgid "Could not open occurrence."
 msgstr "Konnte Serientermin nicht öffnen."
 
 msgid "Could not open occurrence, specific occurrence is probably deleted."
-msgstr "Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
+msgstr ""
+"Konnte Serientermin nicht öffnen. Dieser wurde wahrscheinlich gelöscht."
 
 # 89%
 # 100%
@@ -6438,7 +6444,8 @@ msgstr "Fehler beim Erstellen des Suchordners."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
-msgstr "Sie haben nicht genügend Berechtigungen, um in diesem Ordner zu suchen."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um in diesem Ordner zu suchen."
 
 msgid "Could not update search results."
 msgstr "Die Suchergebnisse konnten nicht aktualisiert werden."
@@ -6448,7 +6455,8 @@ msgstr "Die Suche konnte nicht gestoppt werden."
 
 # 83%
 msgid "You have insufficient privileges to save this message."
-msgstr "Sie haben nicht genügend Berechtigungen, um die Nachricht zu speichern."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um die Nachricht zu speichern."
 
 # 78%
 # 82%
@@ -6522,8 +6530,8 @@ msgid ""
 "you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr ""
 "Um Speicherplatz in Ihrem Postfach freizugeben können Sie Elemente die Sie "
-"nicht länger benötigen löschen. Bitte denken Sie daran anschliessend Ihre \""
-"gelöschten Objekte\" zu leeren."
+"nicht länger benötigen löschen. Bitte denken Sie daran anschliessend Ihre "
+"\"gelöschten Objekte\" zu leeren."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Das Soft Quota des Postfaches wurde überschritten."
@@ -6590,6 +6598,9 @@ msgstr "Anmelden"
 
 msgid "File is not imported successfully"
 msgstr "Die Datei konnte nicht erfolgreich importiert werden"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

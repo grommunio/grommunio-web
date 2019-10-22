@@ -4312,6 +4312,9 @@ msgstr "Импортировать письма"
 msgid "Import appointments"
 msgstr "Новая встреча"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr "Свойства {0}"
 
@@ -6441,6 +6444,9 @@ msgstr "Вход"
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "Успешно отправлено"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

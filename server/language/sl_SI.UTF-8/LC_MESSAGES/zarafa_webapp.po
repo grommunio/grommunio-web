@@ -4442,6 +4442,9 @@ msgstr "Pomembno"
 msgid "Import appointments"
 msgstr "Novi sestanek"
 
+msgid "Import contacts"
+msgstr ""
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Lastnosti"
@@ -6627,6 +6630,9 @@ msgstr ""
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "Pošiljanje uspešno"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

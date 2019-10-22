@@ -4411,6 +4411,9 @@ msgstr "Important"
 msgid "Import appointments"
 msgstr "Nouveau rendez-vous"
 
+msgid "Import contacts"
+msgstr ""
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Propriétés"
@@ -6631,6 +6634,9 @@ msgstr "Se connecter"
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "Fichier ZIP n'a pas été créé correctement"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

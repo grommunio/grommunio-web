@@ -4212,6 +4212,9 @@ msgstr "Importer e-post"
 msgid "Import appointments"
 msgstr "Importer avtaler"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr "Egenskaper til {0}"
 
@@ -6302,6 +6305,9 @@ msgstr "Logg inn"
 
 msgid "File is not imported successfully"
 msgstr "Filen ble ikke vellykket importert"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

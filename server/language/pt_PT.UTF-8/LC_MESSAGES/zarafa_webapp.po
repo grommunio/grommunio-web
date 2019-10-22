@@ -4062,6 +4062,9 @@ msgstr "Importar mensagens"
 msgid "Import appointments"
 msgstr "Importar compromissos"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr "Propriedades de {0}"
 
@@ -6063,6 +6066,9 @@ msgstr "Iniciar sessão"
 
 msgid "File is not imported successfully"
 msgstr "O ficheiro não foi importado com sucesso"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

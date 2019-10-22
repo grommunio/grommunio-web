@@ -4060,6 +4060,9 @@ msgstr "Flytja inn tölvupósta"
 msgid "Import appointments"
 msgstr "Flytja inn tímabókanir"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr "Eigindi {0}"
 
@@ -6057,6 +6060,9 @@ msgstr "Innskrá"
 
 msgid "File is not imported successfully"
 msgstr "Tókst ekki að flytja inn skrá"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"
