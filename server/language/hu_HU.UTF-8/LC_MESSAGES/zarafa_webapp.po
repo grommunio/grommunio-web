@@ -4406,6 +4406,9 @@ msgstr "Importálás ebbe"
 msgid "Import appointments"
 msgstr "Új találkozó"
 
+msgid "Import contacts"
+msgstr ""
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Tulajdonságok"
@@ -6586,6 +6589,9 @@ msgstr "Bejelentkezés"
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "A csatolmány importálása sikertelen"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

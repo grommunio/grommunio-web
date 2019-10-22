@@ -4027,6 +4027,9 @@ msgstr ""
 msgid "Import appointments"
 msgstr ""
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr ""
 
@@ -6057,6 +6060,9 @@ msgid "Sign in"
 msgstr ""
 
 msgid "File is not imported successfully"
+msgstr ""
+
+msgid "There is no contact found in this file."
 msgstr ""
 
 #, php-format

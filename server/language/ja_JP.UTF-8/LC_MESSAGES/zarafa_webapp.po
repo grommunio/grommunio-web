@@ -4309,6 +4309,9 @@ msgstr "重要"
 msgid "Import appointments"
 msgstr "新しい予定"
 
+msgid "Import contacts"
+msgstr ""
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "プロパティ"
@@ -6445,6 +6448,9 @@ msgstr ""
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "送信成功"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

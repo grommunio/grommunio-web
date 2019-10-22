@@ -4285,6 +4285,9 @@ msgstr "Oluline"
 msgid "Import appointments"
 msgstr "Kontaktide laadimine"
 
+msgid "Import contacts"
+msgstr ""
+
 msgid "Properties of {0}"
 msgstr ""
 
@@ -6323,6 +6326,9 @@ msgstr ""
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "Edukalt saadetud"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

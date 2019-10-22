@@ -4359,6 +4359,9 @@ msgstr "Tärkeä"
 msgid "Import appointments"
 msgstr "Uusi tapaaminen"
 
+msgid "Import contacts"
+msgstr ""
+
 #, fuzzy
 msgid "Properties of {0}"
 msgstr "Ominaisuudet"
@@ -6561,6 +6564,9 @@ msgstr ""
 #, fuzzy
 msgid "File is not imported successfully"
 msgstr "Lähetetty onnistuneesti"
+
+msgid "There is no contact found in this file."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"
