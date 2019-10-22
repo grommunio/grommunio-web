@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2019-09-05 11:33+0000\n"
+"PO-Revision-Date: 2019-10-22 19:47+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2806,16 +2806,16 @@ msgid "Rule already has lowest priority."
 msgstr "Regelen har allerede laveste prioritet."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Alltid flytt meldinger fra {0}"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "Alltid flytt meldinger som er sendt til <mottakere>"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Alltid flytt meldinger med dette emne"
 
 msgid "Create rule..."
-msgstr ""
+msgstr "Lag regel..."
 
 msgid "myself"
 msgstr "meg selv"
@@ -4213,7 +4213,7 @@ msgid "Import appointments"
 msgstr "Importer avtaler"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Importer kontakter"
 
 msgid "Properties of {0}"
 msgstr "Egenskaper til {0}"
@@ -6307,7 +6307,7 @@ msgid "File is not imported successfully"
 msgstr "Filen ble ikke vellykket importert"
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "Fant ingen kontakter i denne filen."
 
 #, php-format
 msgid "Unable to import '%s'"
