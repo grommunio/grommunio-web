@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2019-10-08 11:51+0000\n"
-"Last-Translator: Felix <f.bartels@kopano.com>\n"
+"PO-Revision-Date: 2019-10-22 12:29+0000\n"
+"Last-Translator: Björn <b.neumann@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -4349,7 +4349,7 @@ msgid "Import appointments"
 msgstr "Termine importieren"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Kontakte importieren"
 
 msgid "Properties of {0}"
 msgstr "Eigenschaften von {0}"
@@ -6602,7 +6602,7 @@ msgid "File is not imported successfully"
 msgstr "Die Datei konnte nicht erfolgreich importiert werden"
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "In der Datei wurde kein Kontakt gefunden."
 
 #, php-format
 msgid "Unable to import '%s'"
