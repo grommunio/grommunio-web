@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2019-08-30 11:58+0200\n"
-"Last-Translator: root <root@transdoc.kopano.io>\n"
-"Language-Team: Polish\n"
+"PO-Revision-Date: 2019-08-30 11:45+0200\n"
+"Last-Translator: root <root@podo.kopano.io>\n"
+"Language-Team: Language po\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,6 +199,7 @@ msgstr "Dzisiaj"
 msgid "OK"
 msgstr "OK"
 
+#, fuzzy
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -5637,8 +5638,11 @@ msgstr "Nie można przyjąć ustawień"
 msgid "Error retrieving existing persistent settings"
 msgstr ""
 
+#, fuzzy
 msgid "Logon failed. Please verify your credentials and try again."
-msgstr "Logowanie nie powiodło się. Sprawdź nazwę użytkownika i/lubhasło."
+msgstr ""
+"Logowanie nie powiodło się. Sprawdź swoje dane uwierzytelniające i spróbuj "
+"ponownie."
 
 msgid "Cannot connect to Kopano Core."
 msgstr "Nie można połączyć się z serwerem Kopano."
@@ -6260,9 +6264,11 @@ msgstr "Zapytanie o wykonanie zadania:"
 msgid "Welcome"
 msgstr "Witamy"
 
+#, fuzzy
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
+#, fuzzy
 msgid "Password"
 msgstr "Hasło"
 
