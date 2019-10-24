@@ -638,6 +638,7 @@ msgstr "E-maile"
 msgid "Appointments"
 msgstr "Termin spotkania"
 
+#, fuzzy
 msgid "Contacts"
 msgstr "Kontakty"
 
@@ -1144,9 +1145,11 @@ msgstr "Wysyłanie"
 msgid "Save"
 msgstr "Zapsz"
 
+#, fuzzy
 msgid "Close"
-msgstr "Zamknięty"
+msgstr "Zamknij"
 
+#, fuzzy
 msgid "Delete"
 msgstr "Usuń"
 
@@ -1451,8 +1454,9 @@ msgstr "Otwórz"
 msgid "Copy/Move"
 msgstr "Kopiuj/Przenieś"
 
+#, fuzzy
 msgid "Accept"
-msgstr "Akceptuj"
+msgstr "akceptuj"
 
 msgid "Tentative"
 msgstr "Wstępnie"
@@ -4722,6 +4726,7 @@ msgstr "Aby wdrożyć zmiany proszę ponownie załadować aplikację."
 msgid "Reload WebApp"
 msgstr "Kopano WebApp"
 
+#, fuzzy
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -6026,8 +6031,9 @@ msgstr ""
 "może je określić poprzez kartę 'Uprawnienia' wewłaściwościach folderu (prawy "
 "klawisz na folder %1$s > Właściwości > Uprawnienia)."
 
+#, fuzzy
 msgid "unknown"
-msgstr "nieznany"
+msgstr "Nieznany"
 
 msgid "Could not move folder"
 msgstr "Nie można przenieść folderu"
