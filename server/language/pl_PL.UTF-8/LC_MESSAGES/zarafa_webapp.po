@@ -2934,8 +2934,9 @@ msgstr "Organizator"
 msgid "{0} overdue"
 msgstr "{0} przedawniony"
 
+#, fuzzy
 msgid "Loading..."
-msgstr "Ładuje..."
+msgstr "Ładowanie…"
 
 msgid "Failed"
 msgstr "Nie powiodło się"
@@ -4190,8 +4191,9 @@ msgstr "Zamknij pocztę"
 msgid "Close folder"
 msgstr "Zamknij folder"
 
+#, fuzzy
 msgid "Reload"
-msgstr "Odśwież"
+msgstr "Ładuj ponownie"
 
 msgid "Restore items"
 msgstr "Przywróć elementy"
@@ -6263,6 +6265,7 @@ msgstr "Nazwa użytkownika"
 msgid "Password"
 msgstr "Hasło"
 
+#, fuzzy
 msgid "Sign in"
 msgstr "Zaloguj"
 
