@@ -5242,8 +5242,9 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
+#, fuzzy
 msgid "Next"
-msgstr ""
+msgstr "Dalej"
 
 msgid "The server reported an unknown error on your request."
 msgstr "Serwer cofnął Twoje zapytanie z nieznanym błędem."
