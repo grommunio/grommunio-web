@@ -64,7 +64,10 @@ Zarafa.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 			menuDisabled :true,
 			fixed : true,
 			align  : "center",
-			width: 150
+			width: 150,
+			listeners: {
+				click: this.onCellClick
+			}
 		},{
 			dataIndex : 'new_mail',
 			header : _('New Mail'),
@@ -73,7 +76,10 @@ Zarafa.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 			align  : "center",
 			menuDisabled :true,
 			fixed : true,
-			width: 150
+			width: 150,
+			listeners: {
+				click: this.onCellClick,
+			}
 		},{
 			dataIndex : 'display_name',
 			header : _('Display Name'),
@@ -101,7 +107,6 @@ Zarafa.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 
 		this.on({
 			'viewready': this.onViewReady,
-			'rowcontextmenu': this.onRowContextMenu,
 			'rowdblclick': this.onRowDblClick,
 			scope : this
 		});
@@ -175,18 +180,19 @@ Zarafa.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 			Zarafa.common.Actions.openViewRecipientContent(record);
 		}
 	},
-
+	
 	/**
-	 * Event handler triggered when right click on grid row. It will show the
-	 * {@link Zarafa.common.manageCc.ui.manageCcGridContextMenu manageCcGridContextMenu}.
+	 * Event handler triggered when the icon on the cell of "Reply Mail" or "New Mail" is clicked.
 	 *
-	 * @param {Zarafa.common.manageCc.ui.manageCcGrid} grid The {@link Zarafa.common.manageCc.ui.ManageCcGrid ManageCcGrid}
-	 * @param {Number} rowIndex The index of selected record in grid
-	 * @param {Ext.EventObject} event The event object.
+	 * @param {Object} item The item of {Ext.grid.ColumnModel columnModel} which was clicked.
+	 * @param {Ext.grid.GridPanel} grid the grid of which the row was clicked.
+	 * @param {Number} rowIndex number of the row clicked.
 	 */
-	onRowContextMenu : function (grid, rowIndex, event)
+	onCellClick : function(item, grid, rowIndex)
 	{
-		Zarafa.core.data.UIFactory.openDefaultContextMenu(this.getStore().getAt(rowIndex), { position : event.getXY() });
+		var store = grid.getStore();
+		var record = store.getAt(rowIndex);
+		record.set(item.dataIndex, !record.get(item.dataIndex));
 	},
 
 	/**
