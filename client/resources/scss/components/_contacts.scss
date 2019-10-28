@@ -15,7 +15,8 @@ div.zarafa-contact-cardview-selected {
 
 .zarafa-card-body table tr td.contact-card-label {
 	font-style: italic;
-	padding-right:3px;
+	padding-right: 3px;
+	color: $grey6;
 }
 
 .zarafa-contact-cardview-card {
@@ -24,7 +25,7 @@ div.zarafa-contact-cardview-selected {
 	width: 300px;
 	float: left;
 	background-color : transparent;
-	}
+}
 
 .zarafa-contact-cardview-card .x-panel {
 	box-shadow:0px 1px 4px rgba(0,0,0,0.4);
@@ -50,9 +51,8 @@ div.zarafa-contact-cardview-selected {
 	font-size:1.1em;
 }
 
-.zarafa-contact-cardview-card-title
-{
-	padding:5px;
+.zarafa-contact-cardview-card-title {
+	padding: 5px;
 }
 
 .zarafa-contact-cardview-distlist-card {
@@ -64,8 +64,9 @@ div.zarafa-contact-cardview-selected {
 /* Body of contact cardview */
 .zarafa-card-body {
 	background-color: white !important;
-	border:none;
-	font-weight:normal;
+	border: none;
+	font-weight: normal;
+	padding-bottom: 5px;
 }
 
 .k-recipient-card-view {
