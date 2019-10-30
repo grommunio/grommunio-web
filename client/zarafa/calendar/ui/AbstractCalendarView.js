@@ -1216,12 +1216,11 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Handles layout of the individual divs that make up the border around the calendar view.
+	 * @param {Object} colorScheme the used colorScheme
 	 * @private
 	 */
-	layoutBorder : function()
+	layoutBorder : function(colorScheme)
 	{
-		var selectedFolder = this.getSelectedFolder();
-		var colorScheme = this.contextModel.getColorScheme(selectedFolder.get('entryid'));
 		if (this.parentView.showBorder) {
 			var borderWidth = this.getBorderWidth();
 
@@ -1403,7 +1402,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		}
 
 		// layout border and tab
-		this.layoutBorder();
+		this.layoutBorder(colorScheme);
 
 		// layout body and header containers
 		var dayStripHeight = this.parentView.getHourHeight() * this.parentView.numHours;
