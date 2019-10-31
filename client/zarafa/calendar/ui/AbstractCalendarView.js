@@ -1216,34 +1216,32 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 
 	/**
 	 * Handles layout of the individual divs that make up the border around the calendar view.
+	 * @param {Object} colorScheme the used colorScheme
 	 * @private
 	 */
-	layoutBorder : function()
+	layoutBorder : function(colorScheme)
 	{
-		var selectedFolder = this.getSelectedFolder();
-		var colorScheme = this.contextModel.getColorScheme(selectedFolder.get('entryid'));
 		if (this.parentView.showBorder) {
 			var borderWidth = this.getBorderWidth();
 
 			// border divs in the header area
 			var headerHeight = this.parentView.getHeaderAreaHeight();
+			const styles = {
+				'background-color': colorScheme.header,
+				'border-color': colorScheme.header
+			};
+
 
 			this.headerBorderLeft.dom.className = this.getClassName('border', 'left');
 			this.headerBorderLeft.setLeftTop(this.leftOffset, 0);
 			this.headerBorderLeft.setSize(borderWidth, headerHeight);
-			this.headerBorderLeft.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.headerBorderLeft.applyStyles(styles);
 			this.headerBorderLeft.show();
 
 			this.headerBorderRight.dom.className = this.getClassName('border', 'right');
 			this.headerBorderRight.setLeftTop(this.leftOffset + this.width - borderWidth, 0);
 			this.headerBorderRight.setSize(borderWidth, headerHeight);
-			this.headerBorderRight.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.headerBorderRight.applyStyles(styles);
 			this.headerBorderRight.show();
 
 			// border divs in the body area
@@ -1252,29 +1250,20 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 			this.borderLeft.dom.className = this.getClassName('border', 'left');
 			this.borderLeft.setLeftTop(this.leftOffset, 0);
 			this.borderLeft.setSize(borderWidth, bodyHeight);
-			this.borderLeft.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderLeft.applyStyles(styles);
 			this.borderLeft.show();
 
 			this.borderRight.dom.className = this.getClassName('border', 'right');
 			this.borderRight.setLeftTop(this.leftOffset + this.width - borderWidth, 0);
 			this.borderRight.setSize(borderWidth, bodyHeight);
-			this.borderRight.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderRight.applyStyles(styles);
 			this.borderRight.show();
 
 			// border div in the bottom area
 			this.borderBottom.dom.className = this.getClassName('border', 'bottom');
 			this.borderBottom.setLeftTop(this.leftOffset, 0);
 			this.borderBottom.setSize(this.width, borderWidth);
-			this.borderBottom.applyStyles({
-				'background-color' : colorScheme.header,
-				'border-color' : colorScheme.header
-			});
+			this.borderBottom.applyStyles(styles);
 			this.borderBottom.show();
 		} else {
 			this.headerBorderLeft.hide();
@@ -1403,7 +1392,7 @@ Zarafa.calendar.ui.AbstractCalendarView = Ext.extend(Zarafa.core.ui.View, {
 		}
 
 		// layout border and tab
-		this.layoutBorder();
+		this.layoutBorder(colorScheme);
 
 		// layout body and header containers
 		var dayStripHeight = this.parentView.getHourHeight() * this.parentView.numHours;
