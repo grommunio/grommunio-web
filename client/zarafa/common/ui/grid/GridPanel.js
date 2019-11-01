@@ -231,6 +231,12 @@ Zarafa.common.ui.grid.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 		var itemCount = this.getStore().getCount();
 		if (itemCount > 0) {
 			var sm = this.getSelectionModel();
+			var selections = sm.getSelections();
+
+			if (!Ext.isEmpty(selections)) {
+				return;
+			}
+
 			// check for the next item in store else select the previous item
 			if(rowIndex < itemCount) {
 				sm.selectRow(rowIndex);
