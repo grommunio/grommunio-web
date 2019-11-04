@@ -8,9 +8,25 @@ pipeline {
 	options { buildDiscarder(logRotator(numToKeepStr: '50')) }
 
 	stages {
+		stage('Check which files changed') {
+			agent {
+				label "master"
+			}
+			steps {
+				script {
+					gitChanges = sh(returnStdout: true, script: 'git diff origin/master --name-only')
+				}
+			}
+
+		}
 		stage('Test') {
 			parallel {
 				stage('JS Lint') {
+					when {
+					   expression {
+						   return env.BRANCH_NAME == 'master' || gitChanges.contains('.js')
+					   }
+					}
 					agent {
 						dockerfile {
 							label 'docker'
@@ -27,6 +43,11 @@ pipeline {
 					}
 				}
 				stage('Unittest') {
+					when {
+					   expression {
+						   return env.BRANCH_NAME == 'master' || gitChanges.contains('.js')
+					   }
+					}
 					agent {
 						dockerfile {
 							label 'docker'
@@ -43,6 +64,11 @@ pipeline {
 					}
 				}
 				stage('PHP Lint') {
+					when {
+					   expression {
+						   return env.BRANCH_NAME == 'master' || gitChanges.contains('.php')
+					   }
+					}
 					agent {
 						dockerfile {
 							label 'docker'
