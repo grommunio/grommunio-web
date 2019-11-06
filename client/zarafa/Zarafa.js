@@ -1134,36 +1134,6 @@ Ext.apply(Zarafa, {
 	//
 
 	/**
-	 * This will resize a canvas {@link Ext.Element element}.
-	 * Canvas resizing is more tricky then one would expect. For canvas 2 settings are
-	 * important: the CSS and attribute dimensions.
-	 *
-	 * As one would expect, the CSS dimensions, given through a CSS file, or
-	 * 'style' attribute (controlled by the functions {@link Ext.Element#setWidth setWidth}
-	 * and {@link Ext.Element#setHeight setHeight}) controls how big the element itself
-	 * is. It however does not mean that the drawing area is of the same size. The drawing
-	 * area is controlled by the element attributes 'width' and 'height'.
-	 *
-	 * Now for the fun part, if you use CSS to size of the element to 1000x1000px,
-	 * thus the element looks like:
-	 *   <canvas style="width=1000px; height=1000px;">
-	 * and set the attributes to 50x50px, making the complete element look like:
-	 *   <canvas style="width=1000px; height=1000px;" width="50" height="50">
-	 * you can then draw anything you like on the canvas, but only the first
-	 * 50x50px of the canvas will be resized to the entire element size. Making
-	 * your cute little drawing of a giraffe completely stretched.
-	 *
-	 * @param {Ext.Element} canvas The canvas element which must be resized.
-	 * @param {Number} width The desired width of the canvas element
-	 * @param {Number} height The desired height of the canvas element
-	 */
-	resizeCanvas : function(canvas, width, height)
-	{
-		canvas.setWidth(canvas.dom.width = width);
-		canvas.setHeight(canvas.dom.height = height);
-	},
-
-	/**
 	 * Generate a random string.
 	 * @param {Number} len Length of the string
 	 * @return {String} Random string
