@@ -59,8 +59,8 @@
 		function __construct()
 		{
 			$this->stores = array();
-			$this->defaultstore = 0;
-			$this->publicStore = 0;
+			$this->defaultstore = null;
+			$this->publicStore = null;
 			$this->session = false;
 			$this->ab = false;
 			$this->userstores = array();
