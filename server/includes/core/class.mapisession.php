@@ -539,6 +539,9 @@
 			}
 
 			$this->loadMessageStoresFromSession();
+			if(!isset($this->publicStore)) {
+				return false;
+			}
 			return $this->openMessageStore($this->publicStore, 'Public store');
 		}
 
