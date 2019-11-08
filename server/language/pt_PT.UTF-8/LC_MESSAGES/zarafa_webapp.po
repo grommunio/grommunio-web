@@ -1786,6 +1786,19 @@ msgstr "Erro ao importar"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Não foi possível importar \"{0}\". O ficheiro não é válido"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Permissões insuficientes"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2067,6 +2080,25 @@ msgstr[1] "Existem {0} mensagens selecionadas."
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2230,18 +2262,6 @@ msgstr "Destinatário duplicado"
 
 msgid "Recipient already exists."
 msgstr "Destinatário já existe."
-
-msgid "Disable for new mail"
-msgstr "Desativar para mensagens novas"
-
-msgid "Enable for new mail"
-msgstr "Ativar para mensagens novas"
-
-msgid "Disable for replies"
-msgstr "Desativar para respostas"
-
-msgid "Enable for replies"
-msgstr "Ativar para respostas"
 
 msgid "No Cc recipient configured"
 msgstr "Nenhum destinatário Cc  configurado"
@@ -5657,9 +5677,6 @@ msgstr "um compromisso"
 
 msgid "You have insufficient privileges to move "
 msgstr "Não tem permissões suficientes para mover "
-
-msgid "Insufficient privileges"
-msgstr "Permissões insuficientes"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

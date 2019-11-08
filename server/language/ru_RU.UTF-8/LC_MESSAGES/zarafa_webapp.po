@@ -1888,6 +1888,19 @@ msgstr "Ошибка импорта"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Не удалось импортировать {0}. Недопустимый файл"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Недостаточно прав"
+
 msgid "Cc"
 msgstr "Копия"
 
@@ -2175,6 +2188,25 @@ msgstr[2] "{0} сообщений выбрано."
 msgid "Folder '{0}' selected."
 msgstr "Выбрана папка «{0}»."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2350,20 +2382,6 @@ msgstr "Изменить получателя"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Пользователь уже существует"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Подпись для новых писем"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Подпись для новых писем"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6022,9 +6040,6 @@ msgstr "встреча"
 # 100%
 msgid "You have insufficient privileges to move "
 msgstr "У вас недостаточно прав для перемещения "
-
-msgid "Insufficient privileges"
-msgstr "Недостаточно прав"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

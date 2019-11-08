@@ -1914,6 +1914,19 @@ msgstr "Importante"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2190,6 +2203,25 @@ msgstr[1] "Tem {0} mensagens selecionadas."
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2371,20 +2403,6 @@ msgstr "Editar destinatário"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Usuário já existe"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Assinatura para novas mensagens"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Assinatura para novas mensagens"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6097,9 +6115,6 @@ msgstr "Novo Compromisso"
 #, fuzzy
 msgid "You have insufficient privileges to move "
 msgstr "Você não possui privilégios suficientes para copiar a pasta."
-
-msgid "Insufficient privileges"
-msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

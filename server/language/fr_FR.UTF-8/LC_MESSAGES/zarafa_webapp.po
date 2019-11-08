@@ -1914,6 +1914,19 @@ msgstr "Important"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Vous ne disposez pas des droits nécessaires pour cette action"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2193,6 +2206,25 @@ msgstr[1] "Il y a {0} messages sélectionnés."
 msgid "Folder '{0}' selected."
 msgstr "Dossier '{0}' sélectionné."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "WebApp Kopano"
 
@@ -2371,20 +2403,6 @@ msgstr "Modifier un destinataire"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "L'utilisateur existe déjà"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Signature pour les nouveaux messages"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Signature pour les nouveaux messages"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6166,9 +6184,6 @@ msgstr "un rendez-vous"
 
 msgid "You have insufficient privileges to move "
 msgstr "Vous ne disposez pas des droits nécessaires pour déplacer ce dossier. "
-
-msgid "Insufficient privileges"
-msgstr "Vous ne disposez pas des droits nécessaires pour cette action"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

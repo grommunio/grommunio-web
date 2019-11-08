@@ -1920,6 +1920,19 @@ msgstr "Probleem met importeren"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Kan \"{0}\" niet geïmporteerd worden. Het bestand is niet valide"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Onvoldoende permissie"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2211,6 +2224,25 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2386,18 +2418,6 @@ msgstr "Identieke ontvanger"
 
 msgid "Recipient already exists."
 msgstr "Ontvanger bestaat al."
-
-msgid "Disable for new mail"
-msgstr "Schakel uit voor nieuwe email"
-
-msgid "Enable for new mail"
-msgstr "Zet aan voor nieuwe email"
-
-msgid "Disable for replies"
-msgstr "Schakel uit voor antwoorden"
-
-msgid "Enable for replies"
-msgstr "Zet aan voor antwoorden"
 
 msgid "No Cc recipient configured"
 msgstr "Geen Cc ontvanger geconfigureerd"
@@ -6109,9 +6129,6 @@ msgstr "een afspraak"
 # 100%
 msgid "You have insufficient privileges to move "
 msgstr "U heeft onvoldoende permissie om deze map te verplaatsen: "
-
-msgid "Insufficient privileges"
-msgstr "Onvoldoende permissie"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
