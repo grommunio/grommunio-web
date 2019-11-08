@@ -1831,6 +1831,19 @@ msgstr "重要的"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Cc"
 msgstr "副本"
 
@@ -2106,6 +2119,25 @@ msgstr[0] "選擇了{0} 封郵件"
 msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2287,20 +2319,6 @@ msgstr "編輯收件者"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "使用者已存在"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "新郵件簽名檔"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "新郵件簽名檔"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -5916,9 +5934,6 @@ msgstr "新增約會"
 #, fuzzy
 msgid "You have insufficient privileges to move "
 msgstr "您沒有足夠的權限複製資料夾"
-
-msgid "Insufficient privileges"
-msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

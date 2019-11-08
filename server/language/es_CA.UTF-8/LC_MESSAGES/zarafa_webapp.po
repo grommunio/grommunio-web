@@ -1924,6 +1924,22 @@ msgstr "Importante"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+# 80%
+# 84%
+#, fuzzy
+msgid "Insufficient privileges"
+msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2207,6 +2223,25 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2389,20 +2424,6 @@ msgstr "Editar recipiente"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Ya existe este Usuario"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Firma para nuevos mensajes"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Firma para nuevos mensajes"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6131,12 +6152,6 @@ msgstr "Nueva cita"
 # 80%
 #, fuzzy
 msgid "You have insufficient privileges to move "
-msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
-
-# 80%
-# 84%
-#, fuzzy
-msgid "Insufficient privileges"
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta"
 
 msgid ""

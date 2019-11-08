@@ -1810,6 +1810,19 @@ msgstr ""
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Cc"
 msgstr ""
 
@@ -2076,6 +2089,25 @@ msgstr[5] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "كوبانو"
 
@@ -2240,18 +2272,6 @@ msgid "Duplicate recipient"
 msgstr "المستلمين"
 
 msgid "Recipient already exists."
-msgstr ""
-
-msgid "Disable for new mail"
-msgstr ""
-
-msgid "Enable for new mail"
-msgstr ""
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
 msgstr ""
 
 #, fuzzy
@@ -5656,9 +5676,6 @@ msgid "an appointment"
 msgstr ""
 
 msgid "You have insufficient privileges to move "
-msgstr ""
-
-msgid "Insufficient privileges"
 msgstr ""
 
 msgid ""

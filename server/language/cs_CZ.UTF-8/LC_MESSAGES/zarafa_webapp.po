@@ -1895,6 +1895,19 @@ msgstr "Důležitý"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Nelze importovat \"{0}\". Soubor není platný"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Nedostatečná práva"
+
 # 100%
 msgid "Cc"
 msgstr "Kopie"
@@ -2192,6 +2205,25 @@ msgstr[2] "Je vybráno {0} zpráv."
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebbApp"
 
@@ -2370,20 +2402,6 @@ msgstr "Upravit příjemce"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Uživatel již existuje"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Podpisy pro nové zprávy"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Podpisy pro nové zprávy"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6093,9 +6111,6 @@ msgstr "termín"
 # 100%
 msgid "You have insufficient privileges to move "
 msgstr "Nemáte dostatečná práva přesunout "
-
-msgid "Insufficient privileges"
-msgstr "Nedostatečná práva"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

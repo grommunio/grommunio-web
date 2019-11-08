@@ -1934,6 +1934,19 @@ msgstr "Pomembno"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Cc"
 msgstr "Kp"
 
@@ -2216,6 +2229,25 @@ msgstr[3] "Izbranih je {0} sporočil."
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano Spletna aplikacija"
 
@@ -2397,20 +2429,6 @@ msgstr "Uredi prejemnika"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Uporabnik že obstaja"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Podpis za novo sporočilo"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Podpis za novo sporočilo"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6180,9 +6198,6 @@ msgstr "Novi sestanek"
 #, fuzzy
 msgid "You have insufficient privileges to move "
 msgstr "Nimate dovolj dovoljenj za kopiranje te mape."
-
-msgid "Insufficient privileges"
-msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

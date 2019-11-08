@@ -1786,6 +1786,19 @@ msgstr "Innlestrarvilla"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Tókst ekki að lesa inn \"{0}\". Þessi skrá er ekki gild"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Ónæg réttindi"
+
 msgid "Cc"
 msgstr "Afrit"
 
@@ -2068,6 +2081,25 @@ msgstr[1] "Það eru {0} skilaboð valin."
 msgid "Folder '{0}' selected."
 msgstr "Mappa '{0}' valin."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano vefviðmót"
 
@@ -2230,18 +2262,6 @@ msgstr "Fjölfalda viðtakanda"
 
 msgid "Recipient already exists."
 msgstr "Viðtakandi er þegar til."
-
-msgid "Disable for new mail"
-msgstr "Afvirkja fyrir nýjan póst"
-
-msgid "Enable for new mail"
-msgstr "Virkja fyrir nýjan póst"
-
-msgid "Disable for replies"
-msgstr "Afvirkja fyrir svör"
-
-msgid "Enable for replies"
-msgstr "Virkja fyrir svör"
 
 msgid "No Cc recipient configured"
 msgstr "Engin viðtakandi afrits skráður"
@@ -5659,9 +5679,6 @@ msgstr "tímabókun"
 
 msgid "You have insufficient privileges to move "
 msgstr "Þú hefur ekki næg réttindi til að færa "
-
-msgid "Insufficient privileges"
-msgstr "Ónæg réttindi"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

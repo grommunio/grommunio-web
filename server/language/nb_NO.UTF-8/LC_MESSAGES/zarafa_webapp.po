@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2019-10-22 19:47+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1864,6 +1864,19 @@ msgstr "Feil ved import"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Kunne ikke importere \"{0}\". Filen er ikke gyldig"
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Ikke tilstrekkelige rettigheter"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2152,6 +2165,25 @@ msgstr[1] "Det er {0} meldinger valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappe '{0}' valgt."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2327,18 +2359,6 @@ msgstr "Duplikat mottaker"
 
 msgid "Recipient already exists."
 msgstr "Mottaker finnes allerede."
-
-msgid "Disable for new mail"
-msgstr "Deaktiver for nye e-post"
-
-msgid "Enable for new mail"
-msgstr "Aktiver for ny e-post"
-
-msgid "Disable for replies"
-msgstr "Deaktiver for svar"
-
-msgid "Enable for replies"
-msgstr "Aktiver for svar"
 
 msgid "No Cc recipient configured"
 msgstr "Ingen kopi-mottakere er konfigurert"
@@ -5842,9 +5862,6 @@ msgstr "en avtale"
 # 77%
 msgid "You have insufficient privileges to move "
 msgstr "Du har ikke tilstrekkelige rettigheter til å flytte "
-
-msgid "Insufficient privileges"
-msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

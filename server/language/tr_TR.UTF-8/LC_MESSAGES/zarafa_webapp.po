@@ -1921,6 +1921,19 @@ msgstr "Önemli"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "yetersiz yetki"
+
 msgid "Cc"
 msgstr "Cc"
 
@@ -2197,6 +2210,25 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2378,20 +2410,6 @@ msgstr "Alıcı düzenle"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Kullanıcı zaten var"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Yeni mesajlar için imza"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Yeni mesajlar için imza"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6150,9 +6168,6 @@ msgstr "bir randevu"
 # 100%
 msgid "You have insufficient privileges to move "
 msgstr "taşımak için yeterli yetkiye sahip değilsiniz "
-
-msgid "Insufficient privileges"
-msgstr "yetersiz yetki"
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "

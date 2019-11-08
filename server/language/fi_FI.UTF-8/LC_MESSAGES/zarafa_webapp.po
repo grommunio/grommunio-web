@@ -1906,6 +1906,19 @@ msgstr "Tärkeä"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move these items. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move this item. Would you like to copy "
+"instead?"
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Cc"
 msgstr "Kopio"
 
@@ -2184,6 +2197,25 @@ msgstr[1] "{0} viestiä on valittu."
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "You have insufficient privileges to move following items."
+msgstr ""
+
+msgid "Subject:"
+msgstr ""
+
+msgid "Would you like to copy instead?"
+msgstr ""
+
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
@@ -2363,20 +2395,6 @@ msgstr "Muokkaa vastaanottajia"
 #, fuzzy
 msgid "Recipient already exists."
 msgstr "Käyttäjä on jo olemassa"
-
-#, fuzzy
-msgid "Disable for new mail"
-msgstr "Allekirjoitus uusiin viesteihin"
-
-#, fuzzy
-msgid "Enable for new mail"
-msgstr "Allekirjoitus uusiin viesteihin"
-
-msgid "Disable for replies"
-msgstr ""
-
-msgid "Enable for replies"
-msgstr ""
 
 #, fuzzy
 msgid "No Cc recipient configured"
@@ -6104,9 +6122,6 @@ msgstr "Uusi tapaaminen"
 #, fuzzy
 msgid "You have insufficient privileges to move "
 msgstr "Sinulla ei ole tarpeeksi oikeuksia kansion kopioimiseen."
-
-msgid "Insufficient privileges"
-msgstr ""
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
