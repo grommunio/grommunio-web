@@ -982,5 +982,13 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 			this.subStores[key].destroy();
 		}
 		this.subStores = null;
+	},
+
+	/**
+	 * @returns {boolean} return true only if record has delete access else false.
+	 */
+	hasDeleteAccess : function ()
+	{
+		return (this.get('access') & Zarafa.core.mapi.Access.ACCESS_DELETE) > 0;
 	}
 });

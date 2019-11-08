@@ -543,6 +543,26 @@ Zarafa.hierarchy.data.MAPIFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, 
 			default:
 				return undefined;
 		}
+	},
+
+	/**
+	 * Helper function which used to check folder has create rights.
+	 *
+	 * @returns {Boolean} return true if folder have create rights else false.
+	 */
+	hasCreateRights : function ()
+	{
+		return (this.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_CREATE) > 0;
+	},
+
+	/**
+	 * Helper function which used to check folder has delete rights.
+	 *
+	 * @returns {Boolean} return true if folder have delete rights else false.
+	 */
+	hasDeleteOwnRights : function ()
+	{
+		return (this.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_DELETE_OWNED) > 0;
 	}
 });
 

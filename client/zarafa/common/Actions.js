@@ -1559,5 +1559,59 @@ Zarafa.common.Actions = {
 			}
 			return file.name.substr(i + 1) === 'vcf';
 		}
+	},
+
+	/**
+	 * Helper function which show the {@link Zarafa.common.dialogs.MessageBox#addCustomButtons MessageBox} to ask user to
+	 * copy instead of move records due to lack of record access or folder rights.
+	 *
+	 * @param {Zarafa.core.data.MAPIRecord[]} records The records which is going to copy in targeted folder.
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} targetFolder The target folder on which records is going to copy.
+	 * @param {Zarafa.core.data.ListModuleStore} store The which contains the records.
+	 * @param {String} message The message which we show in message box.
+	 * @param {Object} scope The scope in which this function was called.
+	 */
+	showMessageBox : function(records, targetFolder, store, message, scope)
+	{
+		if (!Ext.isDefined(message)) {
+			if (records.length > 1) {
+				message = _("You have insufficient privileges to move these items. Would you like to copy instead?");
+			} else {
+				message = _("You have insufficient privileges to move this item. Would you like to copy instead?");
+			}
+		}
+
+		Zarafa.common.dialogs.MessageBox.addCustomButtons({
+			title : _('Insufficient privileges'),
+			msg : message,
+			cls: Ext.MessageBox.WARNING_CLS,
+			width:400,
+			dialog: this.dialog,
+			fn : function(button) {
+				if (button === 'copy') {
+					Ext.each(records, function(record, index) {
+						// When we have this panel open and we receive a new email, the records store is
+						// not accessible anymore, so we need to get a new record by the entryid of the old record.
+						if(this.objectType === Zarafa.core.mapi.ObjectType.MAPI_MESSAGE && !record.getStore()) {
+							record = records[index] = store.getById(record.id);
+						}
+						record.copyTo(targetFolder);
+					}, this);
+					store.save(records);
+
+					if (this.dialog) {
+						this.dialog.close();
+					}
+				}
+			},
+			customButton : [{
+				text : _('Copy'),
+				name : 'copy'
+			}, {
+				text : _('Cancel'),
+				name : 'cancel'
+			}],
+			scope: Ext.isDefined(scope) ? scope : this
+		});
 	}
 };
