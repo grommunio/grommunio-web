@@ -83,7 +83,10 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(JSDEPLOY)/oidc-kopano.js
+jsdebug: $(JSDEPLOY)/fingerprint-debug.js $(JSDEPLOY)/kopano-debug.js $(JSDEPLOY)/extjs-mod/extjs-mod-debug.js $(JSDEPLOY)/third-party/ux-thirdparty-debug.js
+	cp -r client/extjs $(DESTDIR)/client/
+
+js: jsdebug $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(JSDEPLOY)/oidc-kopano.js
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
@@ -121,24 +124,33 @@ $(DESTDIR)/version: version
 	cp $< $@
 
 $(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS)
+	mkdir -p $(JSDEPLOY)/extjs
 	cat $+ > $@
 
-$(JSDEPLOY)/fingerprint.js: client/fingerprint.js
+$(JSDEPLOY)/fingerprint-debug.js: client/fingerprint.js
 	mkdir -p $(JSDEPLOY)
 	cat client/fingerprint.js > $(JSDEPLOY)/fingerprint-debug.js
+
+$(JSDEPLOY)/fingerprint.js: $(JSDEPLOY)/fingerprint-debug.js
+	mkdir -p $(JSDEPLOY)
 	$(JSCOMPILER) --js $< --js_output_file $@ $(JSOPTIONS)
 
-$(JSDEPLOY)/kopano.js: $(JSFILES)
-	$(PHP) tools/loadorder.php kopano $(@:.js=-debug.js)
+$(JSDEPLOY)/kopano-debug.js: $(JSFILES)
+	@echo $(@:.js=-debug.js)
+	$(PHP) tools/loadorder.php kopano $@
+
+$(JSDEPLOY)/kopano.js: $(JSDEPLOY)/kopano-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
 		--create_source_map $@.map \
 		$(JSOPTIONS)
 
-$(JSDEPLOY)/extjs-mod/extjs-mod.js: $(EXTJSMODFILES)
+$(JSDEPLOY)/extjs-mod/extjs-mod-debug.js: $(EXTJSMODFILES)
 	mkdir -p $(JSDEPLOY)/extjs-mod
-	$(PHP) tools/loadorder.php extjs $(@:.js=-debug.js)
+	$(PHP) tools/loadorder.php extjs $@
+
+$(JSDEPLOY)/extjs-mod/extjs-mod.js: $(JSDEPLOY)/extjs-mod/extjs-mod-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/extjs-mod/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
@@ -155,10 +167,12 @@ $(JSDEPLOY)/oidc-kopano.js: client/oidc-kopano.js
 	cat client/oidc-kopano.js > $(JSDEPLOY)/oidc-kopano-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
 
-$(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
+$(JSDEPLOY)/third-party/ux-thirdparty-debug.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
 	# concatenate using cat
-	cat $^ > $(@:.js=-debug.js)
+	cat $^ > $@
+
+$(JSDEPLOY)/third-party/ux-thirdparty.js: $(JSDEPLOY)/third-party/ux-thirdparty-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
 		--source_map_location_mapping=$(JSDEPLOY)/\| \
 		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
@@ -184,15 +198,15 @@ lintci: vendor
 	$(NPM) run lint -- --quiet -f junit -o eslint.xml client/zarafa/ || true
 
 .PHONY: jstest
-jstest: build
+jstest: vendor jsdebug
 	$(NPM) run jsunit
 
 .PHONY: jstestci
-jstestci: build
+jstestci: vendor jsdebug
 	$(NPM) run jsunit -- --reporters junit || true
 
 .PHONY: jstestcov
-jstestcov: build
+jstestcov: vendor jsdebug
 	$(NPM) run jsunit -- --reporters coverage
 
 open-coverage: jstestcov
