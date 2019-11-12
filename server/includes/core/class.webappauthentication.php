@@ -196,7 +196,7 @@ class WebAppAuthentication
 		$encryptionStore = EncryptionStore::getInstance();
 
 		if (kc_session_save($session, $data) === NOERROR) {
-			$encryptionStore->add('savedsession', bin2hex($data));
+			$encryptionStore->add('savedsession', $data);
 		}
 
 	}
@@ -213,7 +213,7 @@ class WebAppAuthentication
 			return false;
 		}
 
-		if (kc_session_restore(hex2bin($encryptionStore->get('savedsession')), $session) === NOERROR) {
+		if (kc_session_restore($encryptionStore->get('savedsession'), $session) === NOERROR) {
 			WebAppAuthentication::$_errorCode = NOERROR;
 			WebAppAuthentication::$_authenticated = true;
 			WebAppAuthentication::setMapiSession($session);
