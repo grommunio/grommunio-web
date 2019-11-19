@@ -2216,13 +2216,23 @@ msgid "Folder '{0}' selected."
 msgstr "Cartella '{0}' selezionata."
 
 msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
+"You have insufficient privileges to move this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this folder. Ask the folder owner "
+"to grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
