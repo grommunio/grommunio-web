@@ -293,6 +293,10 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 			var attachNum = parentAttachNum.concat(this.get('attach_num'));
 			var parentRecordEntryId = parentRecord.get('entryid');
 
+			if (Ext.isEmpty(parentRecordEntryId) && parentRecord.hasMessageAction('source_entryid')) {
+				parentRecordEntryId = parentRecord.getMessageAction('source_entryid');
+			}
+
 			return Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, {
 				message_class : messageClass,
 				object_type : Zarafa.core.mapi.ObjectType.MAPI_MESSAGE,
@@ -301,7 +305,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 				// pass entryids of parent record
 				entryid : parentRecordEntryId,
 				store_entryid : parentRecord.get('store_entryid')
-			}, parentRecordEntryId + attachNum.join(''));
+			}, attachNum.join('') + parentRecordEntryId);
 		} else {
 			// Embedded attachment is not saved yet in message, so we can use entryids from the attachment record itself to open the message
 			var originalRecordEntryId = this.get('entryid');
@@ -319,7 +323,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 				// pass entryids of original record from which this embedded attachment record has been made
 				entryid : originalRecordEntryId,
 				store_entryid : this.get('store_entryid')
-			}, originalRecordEntryId + attachNum.join(''));
+			}, attachNum.join('') + originalRecordEntryId);
 		}
 	}
 });
