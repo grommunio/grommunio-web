@@ -1393,8 +1393,8 @@ Zarafa.common.Actions = {
 				this.brokenFiles.push(file);
 			}
 		} else {
-			var hasStartDate = this.isPropertyExists(rawHeaders, ['DTSTART;VALUE=DATE:', 'DTSTART:']);
-			var hasEndDate = this.isPropertyExists(rawHeaders, ['DTEND;VALUE=DATE:', 'DTEND:']);
+			var hasStartDate = this.isPropertyExists(rawHeaders, ['DTSTART;VALUE=DATE:','DTSTART;VALUE=DATE-TIME:', 'DTSTART:']);
+			var hasEndDate = this.isPropertyExists(rawHeaders, ['DTEND;VALUE=DATE:','DTEND;VALUE=DATE-TIME:', 'DTEND:']);
 			if (begins.length !== end.length || !hasStartDate || !hasEndDate) {
 				this.brokenFiles.push(file);
 			}
