@@ -37,6 +37,7 @@ Ext.apply(Array.prototype, {
 	}
 });
 
+/* istanbul ignore if  */
 if (!Array.prototype.find) {
 	/**
 	 * Returns the value of the first element in the array that satisfies
