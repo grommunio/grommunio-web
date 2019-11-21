@@ -139,7 +139,7 @@ Zarafa.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 	 */
 	viewSendAsRecipient : function(record)
 	{
-		Zarafa.common.Actions.openViewRecipientContent(record);
+		Zarafa.common.Actions.openViewRecipientContent(record, {modal:true});
 	}
 });
 
