@@ -2059,8 +2059,20 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		}
 
 		$ab = mapi_openaddressbook($this->session);
+		
+		try {
+			$abitem = mapi_ab_openentry($ab, $entryid);
+		} catch (MAPIException $e) {
+			// If the error is "MAPI_E_UNKNOWN_ENTRYID"
+			// e.g. the user is deleted
+			// we set return ''
+			if ($e->getCode() == MAPI_E_UNKNOWN_ENTRYID) {
+				return '';
+			}
 
-		$abitem = mapi_ab_openentry($ab, $entryid);
+			// Throw the error
+			throw $e;
+		}
 
 		if(!$abitem) {
 			return '';
