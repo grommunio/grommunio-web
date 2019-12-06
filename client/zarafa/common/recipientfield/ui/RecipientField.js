@@ -318,12 +318,12 @@ Zarafa.common.recipientfield.ui.RecipientField = Ext.extend(Zarafa.common.ui.Box
 		if (record.isResolved()) {
 			// Resolved recipients cannot be edited, so we open the "View" dialog for it.
 			Zarafa.common.Actions.openViewRecipientContent(record, {
-				manager : Ext.WindowMgr
+				modal : true
 			});
 		} else {
 			// Unresolved recipients can be edited, so we open the "Create" dialog for it.
 			Zarafa.core.data.UIFactory.openCreateRecord(record, {
-				manager : Ext.WindowMgr
+				modal : true
 			});
 		}
 	},

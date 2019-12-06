@@ -177,7 +177,9 @@ Zarafa.common.manageCc.ui.ManageCcGrid = Ext.extend(Ext.grid.GridPanel, {
 		if(record.isOneOff()) {
 			this.addOrEditManageCcRecipient(record, false);
 		} else {
-			Zarafa.common.Actions.openViewRecipientContent(record);
+			Zarafa.common.Actions.openViewRecipientContent(record, {
+				modal:true
+			});
 		}
 	},
 	
