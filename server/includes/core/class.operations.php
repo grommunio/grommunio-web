@@ -687,17 +687,15 @@
 			foreach ($rows as $row) {
 				try {
 					if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
-						// Find faulty link messages which does not linked to any message. if link message
-						// does not contains store entryid in which actual message is located then it consider as
-						// faulty link message.
-						if(isset($row[PR_WLINK_STORE_ENTRYID]) && empty($row[PR_WLINK_STORE_ENTRYID])) {
-							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
+						$isFavoriteItemFaulty = $this->checkFaultyFavoritesLinkedFolder($faultyLinkMsg, $stores, $row);
+						if ($isFavoriteItemFaulty) {
 							continue;
 						}
 						$props = $this->getFavoriteLinkedFolderProps($row);
 					} else if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.SFInfo") {
 						$props = $this->getFavoritesLinkedSearchFolderProps($row[PR_WB_SF_ID], $finderHierarchyTables);
 						if(empty($props)) {
+							array_push($faultyLinkMsg, $row[PR_ENTRYID]);
 							continue;
 						}
 					}
@@ -712,6 +710,38 @@
 				// remove faulty link messages from common view folder.
 				mapi_folder_deletemessages($commonViewFolder, $faultyLinkMsg);
 			}
+		}
+
+		/**
+		 * Function which checks whether given linked Message is faulty or not.
+		 * It will store faulty linked messages in given &$faultyLinkMsg array.
+		 * Returns true if linked message of favorite item is faulty.
+		 *
+		 * @param array &$faultyLinkMsg reference in which faulty linked messages will be stored.
+		 * @param array $allMessageStores Associative array with entryid -> mapistore of all open stores (private, public, delegate)
+		 * @param object $linkedMessage link message which belongs to associated contains table of IPM_COMMON_VIEWS folder.
+		 * @return true if linked message of favorite item is faulty or false.
+		 */
+		function checkFaultyFavoritesLinkedFolder(&$faultyLinkMsg, $allMessageStores, $linkedMessage)
+		{
+			// Find faulty link messages which does not linked to any message. if link message
+			// does not contains store entryid in which actual message is located then it consider as
+			// faulty link message.
+			if(isset($linkedMessage[PR_WLINK_STORE_ENTRYID]) && empty($linkedMessage[PR_WLINK_STORE_ENTRYID])) {
+				array_push($faultyLinkMsg, $linkedMessage[PR_ENTRYID]);
+				return true;
+			}
+
+			// Check if store of a favorite Item does not exist in Hierarchy then
+			// delete link message of that favorite item.
+			// i.e. If a user is unhooked then remove its favorite items.
+			$storeExist = array_key_exists($linkedMessage[PR_WLINK_STORE_ENTRYID], $allMessageStores);
+			if (!$storeExist) {
+				array_push($faultyLinkMsg, $linkedMessage[PR_ENTRYID]);
+				return true;
+			}
+
+			return false;
 		}
 
 		/**
