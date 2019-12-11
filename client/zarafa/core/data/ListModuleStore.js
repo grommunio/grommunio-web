@@ -761,6 +761,16 @@ myStore.reload(lastOptions);
 						folder.set('content_count', metaData.folder.content_count);
 					}
 				}
+
+				// If the response contained an error, set it on the store
+				// Note: This is not a PHP error. The response was a normal status 200
+				// But the request could not be fullfilled and an error message was
+				// sent with the response (listexceed error).
+				if (metaData.error) {
+					this.error = metaData.error;
+				} else {
+					this.error = false;
+				}
 			}
 		}
 

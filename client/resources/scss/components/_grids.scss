@@ -416,3 +416,16 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 		border-left: 4px solid $grid-active-color !important;
 	}
 }
+
+.k-grid-info {
+	display: none;
+	line-height: $font-default-size + $padding-small;
+	text-align: center;
+	color: $grid-info-font-color;
+    background-color: $grid-info-bg-color;
+	padding: $padding-large;
+	margin: 0px 1px 3px -1px;
+}
+.k-grid-info.k-show {
+	display: block;
+}

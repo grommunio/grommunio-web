@@ -100,16 +100,7 @@
 			}
 
 			$items = array();
-
-			$data['page'] = array();
-			$data['page']['start'] = 0;
-			$data['page']['rowcount'] = 0;
-			$data['page']['totalrowcount'] = 0;
-
 			$data = array();
-
-			$this->sort = array();
-
 			$map = array();
 			$map['fileas'] = $this->properties['account'];
 
@@ -136,10 +127,10 @@
 						"direction" => $sortingDir
 					),
 				);
-			}
 
-			// Parse incoming sort order
-			$this->parseSortOrder($action, $map, true);
+				// Parse incoming sort order
+				$this->parseSortOrder($action, $map, true);
+			}
 
 			$folderType = $action['folderType'];
 
@@ -250,26 +241,42 @@
 					$restriction = Array(
 								RES_AND,
 								Array(
-									$tempRestriction, // restriction for search/alphabet bar
-									$userGroupRestriction // restriction for hiding users/groups
+									// restriction for search/alphabet bar
+									$tempRestriction,
+									// restriction for hiding users/groups
+									$userGroupRestriction,
 					));
 				} else if($tempRestriction) {
-					$restriction = $tempRestriction;							// restriction for search/alphabet bar
+					// restriction for search/alphabet bar
+					$restriction = $tempRestriction;
 				} else {
-					$restriction = $userGroupRestriction;						// restriction for hiding users/groups
+					// restriction for hiding users/groups
+					$restriction = $userGroupRestriction;
 				}
 
 				// Only add restriction when it is used
 				if($restriction) {
 					mapi_table_restrict($table, $restriction, TBL_BATCH);
 				}
-				mapi_table_sort($table, $this->sort, TBL_BATCH);
+				// Only sort when asked for
+				if ( !empty($this->sort) ) {
+					mapi_table_sort($table, $this->sort, TBL_BATCH);
+				}
 
-				$rows = mapi_table_queryallrows($table, $this->properties);
+				$rowCount = mapi_table_getrowcount($table);
 
-				for ($i = 0, $len = count($rows); $i < $len; $i++) {
-					$user_data = array_shift($rows);
+				if ( is_int(MAX_GAB_RESULTS) && MAX_GAB_RESULTS > 0 && $rowCount > MAX_GAB_RESULTS ) {
+					// Create a response that contains an error message that there are too much results
+					$data['error'] = array('code' => 'listexceederror', 'max_gab_users' => MAX_GAB_RESULTS);
+					$rows = mapi_table_queryrows($table, $this->properties, 0, MAX_GAB_RESULTS);
+					$rowCount = MAX_GAB_RESULTS;
+				} else {
+					$rows = mapi_table_queryallrows($table, $this->properties);
+				}
 
+				for ($i = 0, $len = $rowCount; $i < $len; $i++) {
+					// Use array_shift to so we won't double memory usage!
+					$user_data =array_shift($rows);
 					$item = array();
 					$item['entryid'] = bin2hex($user_data[$this->properties['entryid']]);
 					$item['display_name'] = $user_data[$this->properties['display_name']];
@@ -395,13 +402,13 @@
 
 				// todo: fix paging stuff
 				$data['page']['start'] = 0;
-				$data['page']['rowcount'] = mapi_table_getrowcount($table);
+				$data['page']['rowcount'] = $rowCount;
 				$data['page']['totalrowcount'] = $data['page']['rowcount'];
+				$data = array_merge($data, array('item'=>$items));
 			} else {
 				// Provide clue that full GAB is disabled.
 				$data = array_merge($data, array('disable_full_gab' => DISABLE_FULL_GAB));
 			}
-			$data = array_merge($data, array('item'=>$items));
 
 			$this->addActionData('list', $data);
 			$GLOBALS['bus']->addData($this->getResponseData());

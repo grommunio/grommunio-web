@@ -19,6 +19,9 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 		if (response.folder) {
 			this.metaData.folder = Ext.apply({}, response.folder);
 		}
+		if (response.error) {
+			this.metaData.error = response.error;
+		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
 
@@ -67,7 +70,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	},
 
 	/**
-	 * Handles the 'search' response. Gathers the records from the response data, 
+	 * Handles the 'search' response. Gathers the records from the response data,
 	 * converts each entry into a record (using {@link #readRecordsFromResponse})
 	 * and pushes them into the {@link #receivedRecords records list}.
 	 * @param {Object} response The response object belonging to the given command.
@@ -88,7 +91,7 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	},
 
 	/**
-	 * Handles the 'updatesearch' response. Gathers the records from the response data, 
+	 * Handles the 'updatesearch' response. Gathers the records from the response data,
 	 * converts each entry into a record (using {@link #readRecordsFromResponse})
 	 * and pushes them into the {@link #receivedRecords records list}. This is the same
 	 * as {@link #doSearch} with the exception that the items read from the response will be added to

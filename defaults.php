@@ -62,6 +62,13 @@ if(!defined('DISABLE_WHATS_NEW_DIALOG')) define('DISABLE_WHATS_NEW_DIALOG', fals
 if(!defined('DISABLE_FULL_GAB')) define('DISABLE_FULL_GAB', false);
 
 /**
+ * Set a maximum number of (search) results for the addressbook
+ * When more results are found no results will be displayed in the client.
+ * Set to 0 to disable this feature and show all results.
+ */
+if(!defined('MAX_GAB_RESULTS')) define('MAX_GAB_RESULTS', 0);
+
+/**
  * By default we disable the public contact folders, as it is a performance option
  * which, when enabled, may cause delay in loading of address-book
  */

@@ -105,6 +105,11 @@
 	// Set addressbook for GAB not to show any users unless searching for a specific user
 	define("DISABLE_FULL_GAB", false);
 
+	// Set a maximum number of (search) results for the addressbook
+	// When more results are found no results will be displayed in the client.
+	// Set to 0 to disable this feature and show all results.
+	define("MAX_GAB_RESULTS", 0);
+
 	// Set true to hide public contact folders in address-book folder list,
 	// false will show public contact folders in address-book folder list.
 	define("DISABLE_PUBLIC_CONTACT_FOLDERS", true);

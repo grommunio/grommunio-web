@@ -26,7 +26,16 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 			// render rows as they come into viewable area.
 			scrollDelay : false,
 			rowHeight : 31,
-			borderHeight : 1
+			borderHeight : 1,
+			// Overwriting the header template to add space for an inline info message
+			headerTpl: new Ext.Template(
+				'<table border="0" cellspacing="0" cellpadding="0" style="{tstyle}">',
+					'<thead>',
+						'<tr class="x-grid3-hd-row">{cells}</tr>',
+					'</thead>',
+				'</table>',
+				'<div class="k-grid-info"></div>'
+			)
 		});
 
 		Ext.applyIf(config, {
@@ -42,6 +51,7 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 
 		Zarafa.addressbook.ui.AddressBookGrid.superclass.constructor.call(this, config);
 
+		this.mon(this.getStore(), 'beforeload', this.onStoreBeforeLoad, this);
 		this.mon(this.getStore(), 'load', this.onStoreLoad, this);
 
 		this.mon(this, 'beforerender', function(){
@@ -70,9 +80,25 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	},
 
 	/**
+	 * Event handler which is called before the {@link #store} will request a load.
+	 * Will hide the inline grid error.
+	 * @param {Ext.data.Store} store The store which was loaded
+	 * @param {Object} options The options which were used to load the data
+	 * @private
+	 */
+	onStoreBeforeLoad : function(store, options)
+	{
+		var errorEl = this.view.innerHd.querySelector('.k-grid-info');
+		Ext.fly(errorEl).removeClass('k-show');
+		this.view.refresh();
+	},
+
+	/**
 	 * Event handler which is called when the {@link #store} has been loaded. This will
 	 * check what kind of folder has been loaded, and either loads the {@link Zarafa.addressbook.ui.GABColumnModel}
 	 * or {@link Zarafa.addressbook.ui.GABPersonalColumnModel} column model.
+	 * Will also check if there is an error (currently only the listexceederror is implemented)
+	 * while loading and will show an error 'inline' in the grid.
 	 * @param {Ext.data.Store} store The store which was loaded
 	 * @param {Ext.data.Record[]} records The records which were loaded from the store
 	 * @param {Object} options The options which were used to load the data
@@ -90,6 +116,13 @@ Zarafa.addressbook.ui.AddressBookGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		// reconfigure grid with new column model
 		if(this.colModel.name !== columnModel.name) {
 			this.reconfigure(store, columnModel);
+		}
+
+		if ( store.error && store.error.code && store.error.code === 'listexceederror' ) {
+			var errorEl = this.view.innerHd.querySelector('.k-grid-info');
+			errorEl.innerHTML = String.format(_('Showing only the first {0} names. Use search to find more specific results.'), store.error.max_gab_users);
+			Ext.fly(errorEl).addClass('k-show');
+			this.view.refresh();
 		}
 	},
 
