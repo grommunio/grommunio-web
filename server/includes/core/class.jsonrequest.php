@@ -9,10 +9,6 @@
 	*/
 	class JSONRequest
 	{
-		function __construct()
-		{
-		}
-
 		/**
 		 * Execute incoming JSON request
 		 *
@@ -21,7 +17,7 @@
 		 * is therefore called only once for each HTTP request to the server.
 		 *
 		 * @param string $json the json string which is received by the client
-		 * @return string the built json which will be sent back to the client		 
+		 * @return string the built json which will be sent back to the client
 		 * @todo Reduce overhead by outputting created JSON by outputting directly to php://output instead of returning a
 		 *       (possibly huge) string containing the serialized JSON
 		 */

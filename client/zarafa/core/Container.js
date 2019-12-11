@@ -575,16 +575,29 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	registerPlugin : function(info)
 	{
+		// The normal plugins have meta data that we read from the manifest files
+		// We will use that meta data to overwrite the data passed to this function
+		// Plugins should update their manifest and only pass the name, pluginConstructor
+		// and the about properties to this function.
+		const metadata = container.getServerConfig().getPluginsMetaData();
+		if (metadata) {
+			const manifestData = metadata[info.name];
+			if (!Ext.isEmpty(manifestData)) {
+				Ext.apply(info, manifestData);
+			}
+		}
+
+		// TODO: Move this to the php pluginmanager
 		// Get the list of plugins that are always enabled
 		var alwaysEnabledPlugins = this.getServerConfig().getAlwaysEnabledPluginsList().split(';');
 		if ( alwaysEnabledPlugins.indexOf(info.name)>=0 ){
 			info.allowUserDisable = false;
-			info.enable = true;
+			info.enabled = true;
 		}
 
-		this.getPluginsMetaData().push(info);
+		this.pluginsMetaData.push(info);
 		if (info.isEnabled()) {
-			this.getPlugins().push(info.getInstance());
+			this.plugins.push(info.getInstance());
 		}
 	},
 

@@ -23,6 +23,10 @@ class Iconsets {
 				BASE_PATH . PATH_PLUGIN_DIR
 			];
 			foreach ( $baseDirs as $dir ){
+				// Check if the plugins directory exists
+				if (!is_dir($dir)) {
+					continue;
+				}
 				$directoryIterator = new DirectoryIterator($dir);
 				foreach ( $directoryIterator as $info ) {
 					if ( $info->isDot() || !$info->isDir() ) {
@@ -42,6 +46,9 @@ class Iconsets {
 						continue;
 					}
 
+					if ( !isset($props['id']) ) {
+						$props['id'] = $info->getFileName();
+					}
 					if ( !isset($props['display-name']) ) {
 						$props['display-name'] = $info->getFileName();
 					}

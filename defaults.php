@@ -110,6 +110,11 @@ if(!defined('PATH_PLUGIN_CONFIG_DIR')) define('PATH_PLUGIN_CONFIG_DIR', PATH_PLU
 if(!defined('ALWAYS_ENABLED_PLUGINS_LIST')) define('ALWAYS_ENABLED_PLUGINS_LIST', '');
 
 /**
+ * Defines list of initially enabled plugins.
+ */
+if(!defined('DEFAULT_ENABLED_PLUGINS_LIST')) define('DEFAULT_ENABLED_PLUGINS_LIST', 'titlecounter');
+
+/**
  * A theme. When this is not defined or empty or 'default', the default Kopano theme will be loaded.
  * The theme should the (directory)name of a installed theme plugin.
  */

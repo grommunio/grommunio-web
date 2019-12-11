@@ -2,8 +2,7 @@ include ../shared.mk
 
 JSFILES = js/ZDeveloper.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
-	$(wildcard php/*.php)
+COPYFILES = LICENSE.txt manifest.xml
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 

@@ -35,27 +35,30 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}]
 		});
 
-		var plugins = container.getPluginsMetaData();
 		var server = container.getServerConfig();
-		var pluginsVersion = server.getPluginsVersion();
+		var plugins = server.getPluginsMetaData();
 		var versionInfo;
-		for (var i = 0, len = plugins.length; i < len; i++) {
-			var plugin = plugins[i];
-			if (!plugin.isPrivate()) {
-				if( Ext.isEmpty(pluginsVersion[plugin.getName()]) ) {
-					versionInfo = _('Unknown');
-				} else {
-					versionInfo = pluginsVersion[plugin.getName()];
-				}
+		for (let pluginName in plugins) {
+			// eslint-disable-next-line no-prototype-builtins
+			if (plugins.hasOwnProperty(pluginName)) {
+				let plugin = plugins[pluginName];
 
-				store.add(new Ext.data.Record({
-					'name' : plugin.getName(),
-					'display_name' : plugin.getDisplayName(),
-					'version' : versionInfo,
-					'enabled' : plugin.isEnabled(),
-					'allow_disable' : plugin.allowUserDisable,
-					'settings_base' : plugin.getSettingsBase()
-				}));
+				if (plugin.allowUserVisible !== false) {
+					if( Ext.isEmpty(plugin.version) ) {
+						versionInfo = _('Unknown');
+					} else {
+						versionInfo = plugin.version;
+					}
+
+					store.add(new Ext.data.Record({
+						'name' : pluginName,
+						'display_name' : plugin.displayName,
+						'version' : versionInfo,
+						'enabled' : plugin.enabled,
+						'allow_disable' : plugin.allowUserDisable !== false,
+						'settings_base' : 'zarafa/v1/plugins/' + pluginName
+					}));
+				}
 			}
 		}
 

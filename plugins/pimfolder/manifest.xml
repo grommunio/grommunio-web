@@ -1,23 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2">
+<plugin version="2.1">
 	<info>
-		<version>0.2</version>
-		<name>pimfolder</name>
+		<version>0.3</version>
 		<title>Personal Inbox Management</title>
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>
 		<description>Kopano PIM plugin, allows you to set-up a folder quickly moving your mail to another folder; like &quot;Archive&quot; in GTD</description>
 	</info>
-	<config>
-		<configfile>config.php</configfile>
-	</config>
 	<components>
 		<component>
 			<files>
-				<server>
-					<serverfile>php/plugin.pimfolder.php</serverfile>
-				</server>
 				<client>
 					<clientfile load="release">js/pimfolder.js</clientfile>
 					<clientfile load="debug">js/pimfolder-debug.js</clientfile>
