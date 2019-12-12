@@ -11,6 +11,33 @@
 		},
 
 		/**
+		 * Event handler for the load event of {@link Zarafa.core.data.IPMStore store}
+		 * When we have {@link Ext.menu.Menu contextmenu} open and if we receive a new record
+		 * then store and sub store of the selected records are not accessible anymore,so we have
+		 * to get a new records by the entryid of the old records.
+		 *
+		 * @param {Zarafa.core.data.IPMStore} store This store
+		 * @param {Zarafa.core.data.IPMRecord[]} records loaded record set
+		 * @param {Object} options the options (parameters) with which the load was invoked.
+		 * @private
+		 */
+		onLoad : function (store, records, options)
+		{
+			var newRecords = [];
+			Ext.each(this.records, function (record) {
+				record = store.getById(record.id);
+				if(record) {
+					newRecords.push(record);
+				} else {
+					// If the selected record is not in the store anymore then destroy context menu
+					this.destroy();
+				}
+			}, this);
+
+			this.records = newRecords;
+		},
+
+		/**
 		 * Event handler for the {@link #hide} event. It will destroy the menu when it does not have an owner component.
 		 * Since the UIFactory creates a new menu on each contextclick, we must make sure the menu's are also destroyed
 		 * again when they are hidden, or else we will pollute the dom with abandoned menus.

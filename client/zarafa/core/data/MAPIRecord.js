@@ -990,5 +990,23 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	hasDeleteAccess : function ()
 	{
 		return (this.get('access') & Zarafa.core.mapi.Access.ACCESS_DELETE) > 0;
+	},
+
+	/**
+	 * Event handler for the 'datachanged' event of {@link Ext.data.Store store}
+	 * When we have modal dialog open and if we receive a new email then modified, store
+	 * and sub store of the selected records are not accessible anymore,
+	 * so we have to set the modified things from the record along with updated store in modal record.
+	 *
+	 * @param {Zarafa.core.data.ListModuleStore} store This store
+	 * @private
+	 */
+	onDataChange: function (store)
+	{
+		var modalRecord = this.modalRecord;
+		if (Ext.isEmpty(modalRecord.getStore()) && this.isModal()) {
+			modalRecord.applyData(this.record);
+			modalRecord.store = store;
+		}
 	}
 });
