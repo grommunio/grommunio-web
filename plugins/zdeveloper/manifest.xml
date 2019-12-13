@@ -7,6 +7,8 @@
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>
 		<description>Shows all available insertion points in the Kopano WebApp</description>
+		<allowuserdisable>true</allowuserdisable>
+		<allowuservisible>true</allowuservisible>
 	</info>
 	<components>
 		<component>
