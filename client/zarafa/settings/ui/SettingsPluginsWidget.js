@@ -265,9 +265,9 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			p.css += ' zarafa-settings-pluginavailable-fixed';
 			// Add message that this plugin cannot be disabled
 			if ( record.get('enabled') === true ){
-				value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
+				value += ' <span>' + _('This plugin cannot be disabled manually') + '</span>';
 			} else {
-				value += ' <span>' + _('This plugin cannot be enabled') + '</span>';
+				value += ' <span>' + _('This plugin cannot be enabled manually') + '</span>';
 			}
 		}
 
