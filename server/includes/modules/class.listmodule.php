@@ -135,6 +135,8 @@
 			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
 		}
 
+		function updateMessageListData(&$data, $store, $folderEntryid, $action, $actionType){}
+
 		/**
 		 * Function which retrieves a list of messages in a folder
 		 * @param object $store MAPI Message Store Object
@@ -157,6 +159,8 @@
 				$limit = false;
 				if(isset($action['restriction']['limit'])){
 					$limit = $action['restriction']['limit'];
+				} else {
+					$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
 				}
 
 				$isSearchFolder = isset($action['search_folder_entryid']);
@@ -164,6 +168,25 @@
 
 				// Get the table and merge the arrays
 				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
+
+				// Only keep the first message of a conversation
+				if (count($data['item']) && $this->showAsConversations) {
+					$items = array($data['item'][0]);
+					for ( $i=1; $i<count($data['item']); $i++ ) {
+						$exists = false;
+						for ( $j=0; $j<count($items); $j++) {
+							if ($items[$j]['props']['normalized_subject'] === $data['item'][$i]['props']['normalized_subject']) {
+								$exists = true;
+								break;
+							}
+						}
+						if ( !$exists ) {
+							$items[] = $data['item'][$i];
+						}
+					}
+
+					$data['item'] = $items;
+				}
 
 				// If the request come from search folder then no need to send folder information
 				if (!$isSearchFolder) {

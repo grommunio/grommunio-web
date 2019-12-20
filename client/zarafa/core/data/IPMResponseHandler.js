@@ -22,6 +22,9 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 		if (response.error) {
 			this.metaData.error = response.error;
 		}
+		if (response.page) {
+			this.metaData.page = Ext.apply({}, response.page);
+		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},
 
@@ -35,6 +38,9 @@ Zarafa.core.data.IPMResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseH
 	{
 		if (response.folder) {
 			this.metaData.folder = Ext.apply({}, response.folder);
+		}
+		if (response.page) {
+			this.metaData.page = Ext.apply({}, response.page);
 		}
 		this.receivedRecords = this.readRecordsFromResponse(response, 'item');
 	},

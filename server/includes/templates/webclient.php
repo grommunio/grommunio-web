@@ -10,6 +10,7 @@ $serverConfig = array_merge($serverConfig, array(
 	'webapp_title'					=> WEBAPP_TITLE,
 	'using_sso'						=> WebAppAuthentication::isUsingSingleSignOn() ? true : false,
 	'disable_full_gab'				=> DISABLE_FULL_GAB,
+	'enable_conversation_view'		=> ENABLE_CONVERSATION_VIEW,
 	'enable_shared_rules'			=> ENABLE_SHARED_RULES,
 	'always_enabled_plugins'		=> implode(';', $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST)),
 	'disable_whats_new_dialog'		=> DISABLE_WHATS_NEW_DIALOG,

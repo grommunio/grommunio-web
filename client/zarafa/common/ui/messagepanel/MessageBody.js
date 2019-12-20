@@ -192,6 +192,10 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	 */
 	update: function(record)
 	{
+		if ( !this.getEl().dom ) {
+			return;
+		}
+
 		var iframeWindow = this.getEl().dom.contentWindow;
 		var iframeDocument = iframeWindow.document;
 		var iframeDocumentElement = new Ext.Element(iframeDocument);

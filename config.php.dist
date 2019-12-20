@@ -130,6 +130,10 @@
 	// false will show shared contact folders in address-book folder list.
 	define("DISABLE_SHARED_CONTACT_FOLDERS", true);
 
+	// Set to true to give users the option to enable conversation view in their settings
+	// Set to false to hide the setting and disable conversation view for all users
+	define("ENABLE_CONVERSATION_VIEW", false);
+
 	// Set to true to give users the possiblity to edit, create, and delete mail filters on the store
 	// of other users. The user needs owner permissions on the store of the other user.
 	define('ENABLE_SHARED_RULES', false);

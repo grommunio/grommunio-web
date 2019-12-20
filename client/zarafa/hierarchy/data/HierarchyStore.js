@@ -763,15 +763,16 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			// we already obtained created item, and we don't need to reload.
 			if (!timestamp || records[i].lastExecutionTime(Zarafa.core.Actions['list']) < timestamp) {
 				/*
-				 * If this notification come at the time while user live scorlling
+				 * If this notification come at the time while user live scrolling
 				 * then we have to reload the mail store with all mails(limit should
 				 * be total loaded mails in grid).
 				 */
 				if(records[i].lastOptions.actionType === Zarafa.core.Actions['updatelist']) {
 					delete records[i].lastOptions.add;
+					var limit = Ext.isFunction(records[i].containsConversations) && records[i].containsConversations() ? records[i].getConversationCount() : records[i].getCount();
 					Ext.apply(records[i].lastOptions.params.restriction,{
 						start : 0,
-						limit : records[i].getCount()
+						limit : limit
 					});
 					records[i].reload(records[i].lastOptions);
 				} else {

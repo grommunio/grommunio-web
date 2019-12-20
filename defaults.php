@@ -16,6 +16,12 @@ if(!defined('UPLOADED_ATTACHMENT_MAX_LIFETIME')) define('UPLOADED_ATTACHMENT_MAX
 if(!defined('ENABLE_PUBLIC_FOLDERS')) define('ENABLE_PUBLIC_FOLDERS', true);
 
 /**
+ * Set to true to give users the option to enable conversation view in their settings
+ * Set to false to hide the setting and disable conversation view for all users
+ */
+if(!defined('ENABLE_CONVERSATION_VIEW')) define("ENABLE_CONVERSATION_VIEW", false);
+
+/**
  * Set to true to give users the possiblity to edit and create mail filters on the store
  * of other users. The user needs owner permissions on the store and folder permissions on
  * the inbox of the other user.

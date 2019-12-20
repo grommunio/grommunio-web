@@ -34,52 +34,68 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 			}]
 		};
 
+		var items = [{
+			xtype : 'combo',
+			name : 'zarafa/v1/state/contexts/mail/current_view_mode',
+			ref : 'previewCombo',
+			fieldLabel : _('Location of preview pane'),
+			width : 200,
+			store : previewStore,
+			mode: 'local',
+			triggerAction: 'all',
+			displayField: 'name',
+			valueField: 'value',
+			lazyInit: false,
+			forceSelection: true,
+			editable: false,
+			autoSelect: true,
+			listeners : {
+				select : this.onPreviewSelect,
+				scope : this
+			}
+		},{
+			xtype : 'checkbox',
+			name : 'zarafa/v1/contexts/mail/use_english_abbreviations',
+			ref : 'englishAbb',
+			boxLabel : _('Use English abbreviations for forward (FW:) and reply (RE:)'),
+			hideLabel : true,
+			lazyInit : false,
+			hidden: Zarafa.core.Util.inArray(['en_GB', 'en_GB.UTF-8', 'en_US.UTF-8'], container.getSettingsModel().get('zarafa/v1/main/language'), false, false),
+			listeners : {
+				check : this.onCheck,
+				scope : this
+			}
+		},{
+			xtype : 'checkbox',
+			name : 'zarafa/v1/contexts/mail/close_on_respond',
+			ref : 'closeCheck',
+			boxLabel : _('Close original message on reply or forward'),
+			hideLabel : true,
+			lazyInit : false,
+			listeners : {
+				check : this.onCheck,
+				scope : this
+			}
+		}];
+		if (container.getServerConfig().isConversationViewEnabled()) {
+			items.push({
+				xtype : 'checkbox',
+				name : 'zarafa/v1/contexts/mail/enable_conversation_view',
+				ref : 'enableConversations',
+				boxLabel : _('Enable conversation view'),
+				hideLabel : true,
+				lazyInit : false,
+				listeners : {
+					check : this.onCheck,
+					scope : this
+				}
+			});
+		}
+
 		Ext.applyIf(config, {
 			title : _('General mail settings'),
 			layout : 'form',
-			items : [{
-				xtype : 'combo',
-				name : 'zarafa/v1/state/contexts/mail/current_view_mode',
-				ref : 'previewCombo',
-				fieldLabel : _('Location of preview pane'),
-				width : 200,
-				store : previewStore,
-				mode: 'local',
-				triggerAction: 'all',
-				displayField: 'name',
-				valueField: 'value',
-				lazyInit: false,
-				forceSelection: true,
-				editable: false,
-				autoSelect: true,
-				listeners : {
-					select : this.onPreviewSelect,
-					scope : this
-				}
-			},{
-				xtype : 'checkbox',
-				name : 'zarafa/v1/contexts/mail/use_english_abbreviations',
-				ref : 'englishAbb',
-				boxLabel : _('Use English abbreviations for forward (FW:) and reply (RE:)'),
-				hideLabel : true,
-				lazyInit : false,
-				hidden: Zarafa.core.Util.inArray(['en_GB', 'en_GB.UTF-8', 'en_US.UTF-8'], container.getSettingsModel().get('zarafa/v1/main/language'), false, false),
-				listeners : {
-					check : this.onCheck,
-					scope : this
-				}
-			},{
-				xtype : 'checkbox',
-				name : 'zarafa/v1/contexts/mail/close_on_respond',
-				ref : 'closeCheck',
-				boxLabel : _('Close original message on reply or forward'),
-				hideLabel : true,
-				lazyInit : false,
-				listeners : {
-					check : this.onCheck,
-					scope : this
-				}
-			}]
+			items : items
 		});
 
 		// Display the popout settings only if supported.
@@ -133,8 +149,9 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		this.previewCombo.setValue(previewLocation);
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
 		this.englishAbb.setValue(settingsModel.get(this.englishAbb.name));
-
-		// There is popout settings only if supported.
+		if (this.enableConversations) {
+			this.enableConversations.setValue(settingsModel.get(this.enableConversations.name));
+		}
 		if (Zarafa.supportsPopOut()) {
 			this.openingMailField.setValue(settingsModel.get(this.openingMailField.name));
 		}
@@ -150,8 +167,9 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	{
 		settingsModel.set(this.previewCombo.name, this.previewCombo.getValue());
 		settingsModel.set(this.closeCheck.name, this.closeCheck.getValue());
-
-		// There is popout settings only if supported.
+		if (this.enableConversations) {
+			settingsModel.set(this.enableConversations.name, this.enableConversations.getValue());
+		}
 		if (Zarafa.supportsPopOut()) {
 			settingsModel.set(this.openingMailField.name, this.openingMailField.getValue().inputValue);
 		}

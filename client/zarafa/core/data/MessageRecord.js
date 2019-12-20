@@ -25,6 +25,9 @@ Zarafa.core.data.MessageRecordFields = [
 	{name: 'client_submit_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
 	{name: 'transport_message_headers'},
 	{name: 'hide_attachments', type: 'boolean', defaultValue: false},
+	{name: 'conversation_count', type: 'int', defaultValue: 0},
+	{name: 'depth', type: 'int', defaultValue: 0},
+	{name: 'folder_name', type: 'string', defaultValue: ''}
 ];
 
 /**
@@ -44,6 +47,73 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 * @type Boolean
 	 */
 	externalContent : false,
+
+	/**
+	 * Checks if the passed record is a header record, i.e. a fake record that was sent to
+	 * show as header of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is a conversation header record, false otherwise
+	 */
+	isConversationHeaderRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('conversation_count') > 1 && this.get('depth') === 0;
+	},
+
+	/**
+	 * Checks if the passed record is part of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is part of a conversation, false otherwise
+	 */
+	isConversationRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('depth') > 0;
+	},
+
+	/**
+	 * Finds the header record of the conversation of which this record is a part.
+	 * If it is not part of a conversation or if it is a header record itself, the
+	 * record itself will be returned.
+	 *
+	 * @return {Zarafa.core.data.MAPIRecord} The found header record
+	 */
+	getConversationHeaderRecord: function() {
+		if (this.isConversationHeaderRecord() || !this.isConversationRecord()) {
+			return this;
+		}
+
+		var data = this.store.snapshot || this.store.data;
+		var index = data.indexOf(this);
+		do {
+			index--;
+			var record = data.itemAt(index);
+			var isHeaderRecord = record.isConversationHeaderRecord && record.isConversationHeaderRecord();
+		} while (!isHeaderRecord && index >=0);
+
+		return record;
+	},
+
+	/**
+	 * Finds the newest record in a conversation. If this record is not part of a
+	 * conversation, the record itself will be returned.
+	 *
+	 * @return {Zarafa.core.data.MAPIRecord} The found record
+	 */
+	getNewestRecordInConversation: function() {
+		var hdr = this.getConversationHeaderRecord();
+		if (hdr === this && !this.isConversationHeaderRecord()) {
+			return this;
+		}
+
+		var data = this.store.snapshot || this.store.data;
+		var index = data.indexOf(hdr);
+		return data.itemAt(index + 1);
+	},
 
 	/**
 	 * Function will check if {@link Zarafa.core.data.IPMRecord IPMRecord} contains external content

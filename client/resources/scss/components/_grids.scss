@@ -176,10 +176,53 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .x-grid3-row {
 	border-top: none;
 	border-color: $grey;
+
 	.x-grid3-cell-inner {
 		line-height: 100%;
 		padding: $padding-large ($padding-medium + 1px);
 		position: relative;
+	}
+
+	&.line_vertical {
+		background-position: 11.5px top !important;
+		background-repeat: repeat-y !important;
+
+		&.k-depth-0 {
+			background-repeat: no-repeat !important;
+			background-position-y: 12px !important;
+		}
+
+		&.k-last-conversation-item {
+			background-repeat: no-repeat !important;
+			background-position-y: -484px !important;
+		}
+	}
+
+	.k-conversation_header.line_arrow_down_l {
+		background-position: center 12px !important;
+	}
+
+	&.k-depth-1 {
+		.arrow_right_l {
+			background-position: 12px 7px !important;
+		}
+
+		.x-grid3-cell-inner {
+			padding: $padding-small ($padding-medium + 1px);
+			line-height: 20px;
+		}
+
+		.k-icon {
+			float: left;
+			width: 20px;
+			height: 20px;
+			padding-right: $padding-medium;
+			background-position-x: left !important;
+		}
+
+		.x-grid3-row-body {
+			padding-left: 26px;
+		}
 	}
 
 	/*
@@ -188,6 +231,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	 */
 	.x-grid3-cell-inner.x-grid3-col-categories	{
 		text-overflow: clip;
+	}
+
+	.k-from-other-folder.mail-received {
+		font-style: italic;
 	}
 
 	.x-grid3-row-body-tr {
@@ -226,6 +273,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	}
 }
 
+.k-unreadborders .line_vertical {
+	background-position: 15.5px top !important;
+}
+
 .x-grid3-row.x-grid3-row-expanded {
 	.x-grid3-cell-inner {
 		padding-bottom: $padding-large - 4px;
@@ -255,8 +306,9 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 }
 
 /* Flags */
-.x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag {
-	background-image: none !important;
+.x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag,
+.x-grid3-row.k-conversation-header .x-grid3-col.icon_flag {
+		background-image: none !important;
 }
 
 /* Mail grid */

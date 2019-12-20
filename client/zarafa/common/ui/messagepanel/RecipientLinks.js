@@ -293,6 +293,10 @@ Zarafa.common.ui.messagepanel.RecipientLinks = Ext.extend(Ext.DataView, {
 	 */
 	refresh : function()
 	{
+		if ( !this.getTemplateTarget().dom ) {
+			return;
+		}
+
 		this.clearSelections(false, true);
 		var el = this.getTemplateTarget(),
 			records = this.store.getRange();

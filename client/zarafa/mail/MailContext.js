@@ -648,6 +648,12 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	createFilterButton : function(insertionPoint, currentContext)
 	{
+		var showConversations = container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_conversation_view');
+		var hidden = true;
+		if (!showConversations && Ext.isDefined(currentContext)) {
+			hidden = currentContext.getName() !== 'mail';
+		}
+
 		return {
 			xtype: 'splitbutton',
 			cls: 'k-filter-options-btn',
@@ -655,7 +661,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			overflowText: _('Filter'),
 			iconCls: 'icon_filter',
 			ref : 'filterBtn',
-			hidden : Ext.isDefined(currentContext)? currentContext.getName() !== 'mail': true,
+			hidden : hidden,
 			nonEmptySelectOnly: true,
 			model: this.model,
 			menu : {

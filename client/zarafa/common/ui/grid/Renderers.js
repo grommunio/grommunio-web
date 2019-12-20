@@ -37,7 +37,24 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	icon : function(value, p, record)
 	{
-		p.css = Zarafa.common.ui.IconClass.getIconClass(record);
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+
+		if (conversationCount === 0 && depth === 0) {
+			p.css = Zarafa.common.ui.IconClass.getIconClass(record);
+		} else if (conversationCount > 0 && depth === 0) {
+			p.css = 'k-conversation_header';
+
+			if (record.store.openedConversationItems && record.store.isConversationOpened(record)) {
+				p.css += ' arrow_down_l';
+			} else if (record.store.openedConversationItems && !record.store.isConversationOpened(record)) {
+				p.css += ' arrow_right_l';
+			}
+		}
+
+		if (depth > 0) {
+			p.css += ' arrow_right_l';
+		}
 
 		// add extra css class for empty cell
 		p.css += ' zarafa-grid-empty-cell';
@@ -59,6 +76,11 @@ Zarafa.common.ui.grid.Renderers = {
 			return '';
 		}
 
+		var isHeaderRecord = Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord(record);
+		if (isHeaderRecord) {
+			value = Zarafa.common.ui.grid.Renderers.conversationHasAttachement(record);
+		}
+
 		p.css = (value === true) ? 'icon_paperclip' : 'icon_noattachment';
 
 		// add extra css class for empty cell
@@ -67,6 +89,19 @@ Zarafa.common.ui.grid.Renderers = {
 		return '';
 	},
 
+
+	/**
+	 * Helper function that finds if there is a conversation record that has an attachment
+	 *
+	 * @param {Zarafa.core.data.MessageRecord} headerRecord The header record of a conversation
+	 * @return {Boolean} True if a record with an attachment was found, false otherwise
+	 */
+	conversationHasAttachement(headerRecord) {
+		var conversationRecords = headerRecord.store.getConversationItemsFromHeaderRecord(headerRecord);
+		return conversationRecords.some(function(r) {
+			return r.get('hasattach') && r.get('hide_attachments') !== true;
+		});
+	},
 	/**
 	 * Render the cell as Recurrence
 	 *
@@ -159,7 +194,39 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	sender : function(value, p, record)
 	{
+		var retVal = '';
 		var userRecord = false;
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+
+		if (conversationCount > 0 && depth === 0) {
+			// find the records of the conversation
+			var store = record.getStore();
+			var records = store.getConversationItemsFromHeaderRecord(record);
+
+			// Collect all first names of the senders in this conversation
+			return records.filter(function(val, index) {
+				for (let i=0; i<index; i++) {
+					// We will use the value of sent_representing_name to find unique senders.
+					// This means that two persons with the same name in a conversation will be
+					// shown as a single name in the header. Checking with email addresses would
+					// be better, but this changes for ZARAFA users from the username to the
+					// smtp address when a record is opened.
+					if (val.get('sent_representing_name') === records[i].get('sent_representing_name')) {
+						return false;
+					}
+				}
+				return true;
+			}).map(function(val) {
+				if (!val) {
+					return '';
+				}
+				return val.get('sent_representing_name').split(' ')[0];
+			}).join(', ');
+		} else if (depth > 0) {
+			retVal = '<span class="k-icon ' + Zarafa.common.ui.IconClass.getIconClass(record) + '"></span>';
+		}
+
 		// Check which of the 2 properties must be used
 		// FIXME: sent representing seems to be always set...
 		value = record.get('sent_representing_name');
@@ -170,7 +237,8 @@ Zarafa.common.ui.grid.Renderers = {
 			userRecord = record.getSentRepresenting();
 		}
 		var userName = Zarafa.common.ui.grid.Renderers.name(value, p, record);
-		return Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
+
+		return retVal + Zarafa.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
 	},
 
 	/**
@@ -209,6 +277,10 @@ Zarafa.common.ui.grid.Renderers = {
 		if(Ext.isEmpty(value)) {
 			// if value is empty then add extra css class for empty cell
 			p.css += ' zarafa-grid-empty-cell';
+		}
+
+		if (record.get('conversation_count') > 0) {
+			value = record.get('normalized_subject');
 		}
 
 		return Ext.util.Format.htmlEncode(value);
@@ -354,6 +426,18 @@ Zarafa.common.ui.grid.Renderers = {
 
 		if ( meta && meta.css ){
 			p.css += ' ' + meta.css;
+		}
+
+		// Don't show dates for conversation headers
+		if (record.get('depth') === 0 && record.get('conversation_count') > 0) {
+			return '';
+		}
+
+		// TODO: Ugly hack. We shouldn't use the css property for this
+		if (meta && meta.css === 'mail-received' && record.get('depth') > 0 && record.get('folder_name') !== 'inbox') {
+			p.css += ' k-from-other-folder';
+			var folder = container.getHierarchyStore().getFolder(record.get('parent_entryid'));
+			return folder.getDisplayName();
 		}
 
 		if ( !Ext.isDate(value) ){
@@ -551,23 +635,30 @@ Zarafa.common.ui.grid.Renderers = {
 	 */
 	flag : function(value, p, record)
 	{
-		var flagStatus = record.get('flag_status');
-
 		// add extra css class for empty cell
 		p.css += 'zarafa-grid-empty-cell';
+
+		var isHeaderRecord = Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord(record);
+		var flagStatus = record.get('flag_status');
+		var dueDate = record.get('duedate');
+		if (isHeaderRecord) {
+			dueDate = Zarafa.common.ui.grid.Renderers.getConversationDueDate(record);
+		}
 
 		if ( flagStatus === Zarafa.core.mapi.FlagStatus.completed ){
 			p.css += ' icon_flag_complete';
 			return '';
 		}
 
-		if ( !record.isMessageClass('IPM.Task') && flagStatus!==Zarafa.core.mapi.FlagStatus.flagged ){
+		if (
+			(isHeaderRecord && Ext.isEmpty(dueDate)) ||
+			(!isHeaderRecord && !record.isMessageClass('IPM.Task') && flagStatus!==Zarafa.core.mapi.FlagStatus.flagged)
+		){
 			p.css += ' icon_flag';
 			return '<div class="k-followup-flag"></div>';
 		}
 
 		// Now find the color we must show
-		var dueDate = record.get('duedate');
 
 		if ( !dueDate ){
 			p.css += ' icon_flag_red';
@@ -606,6 +697,30 @@ Zarafa.common.ui.grid.Renderers = {
 
 		p.css += ' icon_flag_red';
 		return '';
+	},
+
+	/**
+	 * Helper function that finds the first (in time) due date of all records in a conversation
+	 *
+	 * @param {Zarafa.core.data.MessageRecord} headerRecord The header record of a conversation
+	 * @return {Date} The due date of the conversation
+	 */
+	getConversationDueDate(headerRecord) {
+		var conversationDueDate = null;
+		var conversationRecords = headerRecord.store.getConversationItemsFromHeaderRecord(headerRecord);
+		conversationRecords.forEach(function(r) {
+			var flagStatus = r.get('flag_status');
+			if (!r.isMessageClass('IPM.Task') && flagStatus !== Zarafa.core.mapi.FlagStatus.flagged) {
+				return;
+			}
+
+			var dueDate = r.get('duedate');
+			if (Ext.isEmpty(conversationDueDate) || dueDate < conversationDueDate) {
+				conversationDueDate = dueDate;
+			}
+		});
+
+		return conversationDueDate;
 	},
 
 	/**

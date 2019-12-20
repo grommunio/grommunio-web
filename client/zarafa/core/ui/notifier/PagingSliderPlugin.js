@@ -230,7 +230,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 */
 	getUpdatedPaginationText : function (store)
 	{
-		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRange().length, store.getTotalCount());
+		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRealMailItemCount() + store.removedsentitems, store.getTotalCount());
 		return String.format('<div>{0}</div>', sliderText);
 	}
 });

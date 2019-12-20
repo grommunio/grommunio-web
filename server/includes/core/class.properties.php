@@ -955,6 +955,9 @@
 				// Archiver property
 				$properties["stubbed"] = "PT_BOOLEAN:PSETID_Archive:stubbed";
 
+				// Conversation properties
+				$properties["conversation_topic"] = PR_CONVERSATION_TOPIC;
+
 				// Allowing to hook in and add more properties
 				$GLOBALS['PluginManager']->triggerHook("server.core.properties.mailproperties", array(
 					'properties' =>& $properties

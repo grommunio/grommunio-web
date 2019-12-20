@@ -208,6 +208,10 @@ Zarafa.common.ui.messagepanel.AttachmentLinks = Ext.extend(Ext.DataView, {
 	 */
 	update : function(record, contentReset)
 	{
+		if ( !this.getEl().dom ) {
+			return;
+		}
+
 		if (record && record instanceof Zarafa.core.data.MAPIRecord) {
 			// In case the recordcomponentupdaterplugin is installed
 			// we have a special action to update the component.

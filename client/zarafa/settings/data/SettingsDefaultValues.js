@@ -358,14 +358,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Number
 								 */
 								'polling_interval' : 60 * 5,
-								
+
 								/**
 								 * zarafa/v1/contexts/hierarchy/hide_favorites
 								 * @property
 								 * @type Boolean
 								 */
 								'hide_favorites' : false,
-								
+
 								/**
 								 * zarafa/v1/contexts/hierarchy/scroll_favorites
 								 * @property
@@ -549,6 +549,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Boolean
 								 */
 								'close_on_respond' : true,
+
+								/**
+								 * zarafa/v1/contexts/mail/enable_conversation_view
+								 * @property
+								 * @type Boolean
+								 */
+								'enable_conversation_view' : false,
 
 								/**
 								 * zarafa/v1/contexts/mail/enable_grouping

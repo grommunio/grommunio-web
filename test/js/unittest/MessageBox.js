@@ -1,12 +1,11 @@
 /**
- * Test the custom Message box functionality 
+ * Test the custom Message box functionality
  */
 describe('Custom Message Box', function() {
 	var customMessageBox;
 	var config = {
 		title : 'Custom Message Box',
 		msg : 'this is Custom Message Box',
-		icon: Ext.MessageBox.QUESTION,
 		fn : function() {},
 		customButton : [{
 			text : 'buttonOne',
