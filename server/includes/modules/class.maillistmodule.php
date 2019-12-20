@@ -261,14 +261,18 @@
 
 				// Next iteration should always start where the previous one stopped
 				$start = $this->state->read('firstUnusedInboxItemIndex');
+				if ($start === -1) {
+					// We fetched all items
+					$conversationsLeft = false;
+				}
 
 				// Don't fetch more conversations than requested
 				$limit = min(CONVERSATION_BATCH_COUNT, $count-$totalConversationCount);
 
 				// If something goes wrong we don't want to hang here forever, so we'll use
-				// the counter to do no more than 100 iterations. Anybody who scrolls more
-				// than a 100 times is a fool anyway, or more likely a QA'er. (or both) ;-)
-				if ($c++ > 100) break;
+				// the counter to do no more than 30 iterations. Anybody who scrolls more
+				// than a 30 times is a fool anyway, or more likely a QA'er. (or both) ;-)
+				if ($c++ > 30) break;
 
 			} while ($conversationsLeft && $limit > 0) ;
 
