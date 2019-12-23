@@ -16,7 +16,13 @@
 	class MailListModule extends ListModule
 	{
 		// Temporary var to store the inbox entryid of the processed store
-		private $inboxEntryId;
+		private $_inboxEntryId;
+
+		private $_inbox = NULL;
+
+		private $_inboxTotal = NULL;
+
+		private $_inboxTotalUnread = NULL;
 
 		/**
 		 * Constructor
@@ -66,11 +72,17 @@
 			{
 				if(isset($actionType)) {
 					try {
-						$store = $this->getActionStore($action);
+						$this->store = $this->getActionStore($action);
 						$entryid = $this->getActionEntryID($action);
 
+						// Reset variables
+						$this->_inbox = NULL;
+						$this->_inboxEntryId = NULL;
+						$this->_inboxTotal = NULL;
+						$this->_inboxTotalUnread = NULL;
+
 						$this->currentActionData = array(
-							'store' => $store,
+							'store' => $this->store,
 							'entryid' => $entryid,
 							'actionType' => $actionType,
 							'action' => $action,
@@ -80,18 +92,18 @@
 						{
 							case "list":
 							case "updatelist":
-								$this->getDelegateFolderInfo($store);
-								$this->messageList($store, $entryid, $action, $actionType);
+								$this->getDelegateFolderInfo($this->store);
+								$this->messageList($this->store, $entryid, $action, $actionType);
 								break;
 							case "search":
 								// @FIXME add handling for private items
-								$this->search($store, $entryid, $action, $actionType);
+								$this->search($this->store, $entryid, $action, $actionType);
 								break;
 							case "updatesearch":
-								$this->updatesearch($store, $entryid, $action);
+								$this->updatesearch($this->store, $entryid, $action);
 								break;
 							case "stopsearch":
-								$this->stopSearch($store, $entryid, $action);
+								$this->stopSearch($this->store, $entryid, $action);
 								break;
 							default:
 								$this->handleUnknownActionType($actionType);
@@ -106,6 +118,79 @@
 			$GLOBALS['PluginManager']->triggerHook("server.module.maillistmodule.execute.after", array('moduleObject' =>& $this));
 		}
 
+		/**
+		 * Returns the Inbox folder of the currently used store if found, NULL otherwise
+		 *
+		 * @return Resource The inbox folder of the currently used store
+		 */
+		function getInbox() {
+			if ($this->_inbox === NULL) {
+				try {
+					$this->_inbox = mapi_msgstore_getreceivefolder($this->store);
+				} catch (MAPIException $e) {
+					// don't propagate this error to parent handlers, if store doesn't support it
+					if($e->getCode() === MAPI_E_NO_SUPPORT) {
+						$e->setHandled();
+						return NULL;
+					}
+				}
+			}
+
+			return $this->_inbox;
+		}
+
+		/**
+		 * Returns the entryid of the Inbox folder of the currently used store if found, false otherwise
+		 *
+		 * @return String hexamdecimal representation of the entryid of the Inbox
+		 */
+		function getInboxEntryId() {
+			if ($this->_inboxEntryId === NULL) {
+				$inbox = $this->getInbox();
+				try {
+					$inboxProps = mapi_getprops($inbox, array(PR_ENTRYID));
+					$this->_inboxEntryId = bin2hex($inboxProps[PR_ENTRYID]);
+				} catch (MAPIException $e) {
+					// don't propagate this error to parent handlers, if store doesn't support it
+					if($e->getCode() === MAPI_E_NO_SUPPORT) {
+						$e->setHandled();
+						return false;
+					}
+				}
+			}
+
+			return $this->_inboxEntryId;
+		}
+
+		/**
+		 * Returns the total number of items in the Inbox of the currently used store
+		 *
+		 * @return Integer the number if items in the Inbox folder
+		 */
+		function getInboxTotal($force = false) {
+			if ($this->_inboxTotal === NULL || $force) {
+				$inbox = $this->getInbox();
+				$contentcount = mapi_getprops($inbox, array(PR_CONTENT_COUNT, PR_CONTENT_UNREAD));
+				$this->_inboxTotal = $contentcount[PR_CONTENT_COUNT];
+				$this->_inboxTotalUnread = $contentcount[PR_CONTENT_UNREAD];
+			}
+
+			return $this->_inboxTotal;
+		}
+
+		/**
+		 * Returns the number of unread items in the Inbox of the currently used store.
+		 *
+		 * @return Integer the numer of unread items in the Inbox folder
+		 */
+		function getInboxTotalUnread($force = false) {
+			if ($this->_inboxTotalUnread === NULL || $force) {
+				$this->getIboxTotal($force);
+			}
+
+			return $this->_inboxTotalUnread;
+		}
+
 		function messageList($store, $entryid, $action, $actionType) {
 			// Get the entryid of the inbox
 			// public store doesn't have inbox
@@ -113,7 +198,7 @@
 				$inbox = mapi_msgstore_getreceivefolder($store);
 				$inboxProps = mapi_getprops($inbox, array(PR_ENTRYID));
 				$inboxEntryid = bin2hex($inboxProps[PR_ENTRYID]);
-				$this->inboxEntryId = $inboxEntryid;
+				$this->_inboxEntryId = $inboxEntryid;
 			} catch (MAPIException $e) {
 				// don't propagate this error to parent handlers, if store doesn't support it
 				if($e->getCode() === MAPI_E_NO_SUPPORT) {
@@ -163,21 +248,15 @@
 			}
 
 			$items = $this->getConversations($count);
-			$removedSentItemsCount = $this->state->read('removedSentItemsCount');
 
 			$this->state->close();
 
-			// Open the folder.
-			$folder = mapi_msgstore_openentry($store, $entryid);
 			$folderData = array();
 
 			// Obtain some statistics from the folder contents
-			$contentcount = mapi_getprops($folder, array(PR_CONTENT_COUNT, PR_CONTENT_UNREAD));
-			if (isset($contentcount[PR_CONTENT_COUNT])) {
-				$folderData["content_count"] = $contentcount[PR_CONTENT_COUNT];
-			}
-			if (isset($contentcount[PR_CONTENT_UNREAD])) {
-				$folderData["content_unread"] = $contentcount[PR_CONTENT_UNREAD];
+			if ($this->getInboxTotal()) {
+				$folderData["content_count"] = $this->getInboxTotal();
+				$folderData["content_unread"] = $this->getInboxTotalUnread();
 			}
 
 			$searchFolder = $this->getConversationSearchFolder($store);
@@ -190,8 +269,9 @@
 			// Get the number of 'real' records that is sent back (i.e. without the conversation header records)
 			$itemCount = 0;
 			foreach ($items as $item) {
-				if ($item['props']['depth'] > 0 || $item['props']['conversation_count'] === 0) {
-					$itemCount++;
+				//if ($item['props']['depth'] > 0 || $item['props']['conversation_count'] === 0) {
+				if ($item['props']['folder_name'] === 'inbox') {
+						$itemCount++;
 				}
 			}
 
@@ -201,10 +281,7 @@
 				'page' => array(
 					'start' => 0,
 					'rowcount' => $itemCount,
-					'totalrowcount' => $totalRowCount,
-					// TODO: removedsentitems is not part of pagination info, so it
-					// should probably not be in the page property
-					'removedsentitems' => $removedSentItemsCount,
+					'totalrowcount' => $folderData["content_count"],
 				),
 			);
 
@@ -245,15 +322,14 @@
 				if (count($items) === 0) {
 					break;
 				}
-				$lastItemsFetched = count($items) < CONVERSATION_MAXFETCH;
-
 				$items = $this->groupConversationItems($items, $limit, !($infiniteScrollRequest || $c > 0));
 
 				// addConversationHeaders returns the number of conversations that are contained
 				// in the $items after the headers have been added.
 				$batchConversationCount = $this->addConversationHeaders($items);
+
 				$requestedBatchFetched = $batchConversationCount === $limit;
-				$conversationsLeft = !$lastItemsFetched || $requestedBatchFetched;
+				$remainingInboxItems = $this->getInboxTotal() - $this->state->read('sentInboxItems');
 
 				$totalConversationCount += $batchConversationCount;
 
@@ -263,7 +339,7 @@
 				$start = $this->state->read('firstUnusedInboxItemIndex');
 				if ($start === -1) {
 					// We fetched all items
-					$conversationsLeft = false;
+					$remainingInboxItems = 0;
 				}
 
 				// Don't fetch more conversations than requested
@@ -274,7 +350,7 @@
 				// than a 30 times is a fool anyway, or more likely a QA'er. (or both) ;-)
 				if ($c++ > 30) break;
 
-			} while ($conversationsLeft && $limit > 0) ;
+			} while (!$requestedBatchFetched && $remainingInboxItems > 0 && $limit > 0) ;
 
 			return $conversations;
 		}
@@ -334,7 +410,7 @@
 					$itemData['props']['normalized_subject'] = '';
 				}
 
-				$itemData['props']['folder_name'] = $GLOBALS['entryid']->compareEntryIds($itemData['parent_entryid'], $this->inboxEntryId) ? 'inbox' : 'sent_items';
+				$itemData['props']['folder_name'] = $GLOBALS['entryid']->compareEntryIds($itemData['parent_entryid'], $this->_inboxEntryId) ? 'inbox' : 'sent_items';
 				$itemData['props']['depth'] = 0;
 				$itemData['props']['conversation_count'] = 0;
 				$itemData['props']['tableindex'] = $i + $start;
@@ -358,8 +434,7 @@
 				if (!$skipStoredItems && count($previousUsedItemsAfterFirstUnusedInboxItems)) {
 					foreach ($previousUsedItemsAfterFirstUnusedInboxItems as $p) {
 						if ($GLOBALS['entryid']->compareEntryIds($p, $item['entryid'])) {
-						//if ($p === $item['entryid']) {
-								continue 2;
+							continue 2;
 						}
 					}
 				}
@@ -379,7 +454,6 @@
 			}
 
 			// Remove conversations without inbox items
-			$removedSentItemsCount = 0;
 			$removedConversationsCount = 0;
 			$removedItems = [];
 			$index = 0;
@@ -398,7 +472,6 @@
 				if (!$inboxItemFound) {
 					if ($index < $limit + $removedConversationsCount) {
 						$removedConversationsCount++;
-						$removedSentItemsCount += count($conversation['items']);
 
 						// Store the removed items, because we need them later
 						$removedItems = array_merge($removedItems, $conversation['items']);
@@ -410,8 +483,6 @@
 
 				$index++;
 			}
-
-			$removedSentItemsCount += ($skipStoredItems ? 0 : $this->state->read('removedSentItemsCount'));
 
 			$conversationKeys = array_keys($conversations);
 
@@ -466,11 +537,19 @@
 				$sortedItems = array_merge($sortedItems, array_slice($conversations[$conversationKeys[$counter]]['items'], 0, CONVERSATION_MAXITEMS));
 			}
 
+			// Get the number of inbox items in the conversations
+			$inboxCounter = $skipStoredItems ? 0 : $this->state->read('sentInboxItems');
+			foreach ($sortedItems as $item) {
+				if ($item['props']['folder_name'] === 'inbox') {
+					$inboxCounter++;
+				}
+			}
+
 			// Store the data we need for the next batch in the state
 			$this->state->write('firstUnusedInboxItem', $firstUnusedInboxItem, false);
 			$this->state->write('firstUnusedInboxItemIndex', $firstUnusedInboxItemIndex, false);
 			$this->state->write('usedItemsAfterFirstUnusedInboxItems', $usedItemsAfterFirstUnusedInboxItems, false);
-			$this->state->write('removedSentItemsCount', $removedSentItemsCount, false);
+			$this->state->write('sentInboxItems', $inboxCounter, false);
 			$this->state->flush();
 
 			return $sortedItems;
@@ -565,7 +644,7 @@
 				$msgstore_props = mapi_getprops($store, array(PR_ENTRYID, PR_IPM_SENTMAIL_ENTRYID));
 
 				$foldersToSearch = array(
-					hex2bin($this->inboxEntryId),
+					hex2bin($this->_inboxEntryId),
 					$msgstore_props[PR_IPM_SENTMAIL_ENTRYID],
 				);
 				$res = array(
@@ -576,7 +655,7 @@
 							array(
 								RELOP => RELOP_EQ,
 								ULPROPTAG => PR_PARENT_ENTRYID,
-								VALUE => array(PR_PARENT_ENTRYID => hex2bin($this->inboxEntryId)),
+								VALUE => array(PR_PARENT_ENTRYID => hex2bin($this->_inboxEntryId)),
 							),
 						),
 						array(

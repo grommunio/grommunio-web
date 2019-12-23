@@ -79,7 +79,7 @@
 		/**
 		 * This will call $handleException of updating the MAPIException based in the module data.
 		 * When this is done, $sendFeedback will be called to send the message to the client.
-		 * 
+		 *
 		 * @param object $e Exception object.
 		 * @param string $actionType the action type, sent by the client.
 		 * @param MAPIobject $store Store object of the store.
@@ -97,7 +97,7 @@
 		 * Function does customization of MAPIException based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception.
-		 * 
+		 *
 		 * @param object $e Exception object.
 		 * @param string $actionType the action type, sent by the client.
 		 * @param MAPIobject $store Store object of the message.
@@ -176,7 +176,7 @@
 
 		/**
 		 * Get quota information of user store and check for over qouta restrictions,
-		 * if any qouta (softquota/hardquota) limit is exceeded then it will simply 
+		 * if any qouta (softquota/hardquota) limit is exceeded then it will simply
 		 * return appropriate message string according to quota type(hardquota/softquota).
 		 * @param MAPIobject $store Store object of the store
 		 * @param string $actionType the action type, sent by the client
@@ -198,7 +198,7 @@
 				'quota_soft' => $storeProps[PR_QUOTA_SEND_THRESHOLD],
 				'quota_hard' => $storeProps[PR_QUOTA_RECEIVE_THRESHOLD]
 			);
-	
+
 			if($quotaDetails['quota_hard'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_hard']) {
 				return _('The message store has exceeded its hard quota limit.') . '<br/>' .
 						_('To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder.');
@@ -324,7 +324,7 @@
 		 * Function which returns MAPI Message Store Object. It
 		 * searches in the variable $action for a storeid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable 
+		 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
 		 */
 		function getActionStore($action)
 		{
@@ -348,7 +348,7 @@
 		 * Function which returns a parent entryid. It
 		 * searches in the variable $action for a parententryid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if parententryid is not found in the $action variable 
+		 * @return object MAPI Message Store Object, false if parententryid is not found in the $action variable
 		 */
 		function getActionParentEntryID($action)
 		{
@@ -365,7 +365,7 @@
 		 * Function which returns an entryid. It
 		 * searches in the variable $action for an entryid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable 
+		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable
 		 */
 		function getActionEntryID($action)
 		{
@@ -458,7 +458,7 @@
 		}
 
 		/**
-		 * Saves sessiondata of the module to the state file on disk. 
+		 * Saves sessiondata of the module to the state file on disk.
 		 */
 		function saveSessionData() {
 			if ($this->sessionData !== false) {

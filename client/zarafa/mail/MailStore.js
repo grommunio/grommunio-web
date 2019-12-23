@@ -278,19 +278,22 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	},
 
 	/**
-	 * Returns the number of items in the store without counting conversation headers
+	 * Returns the number of items in this store that have the the folder that this
+	 * store coresponds to as parent folder. (i.e. for conversations it will only
+	 * count the items from the Inbox folder and not the items from te Sent Items
+	 * folder)
 	 *
-	 * @return {Number} The number of items in the store without counting conversation headers
+	 * @return {Number} The number of items
 	 */
 	getRealMailItemCount() {
-		if (!this.containsConversations) {
+		if (!this.containsConversations()) {
 			return this.getRange().length;
 		}
 
 		var count = 0;
 		var items = this.snapshot ? this.snapshot.items : this.getRange();
 		items.forEach(function(item) {
-			if (item.get('depth') > 0 || item.get('conversation_count') === 0) {
+			if (item.get('folder_name') === 'inbox') {
 				count++;
 			}
 		});

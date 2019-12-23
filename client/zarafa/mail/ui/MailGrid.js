@@ -557,7 +557,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	onBeforeLiveScrollStart : function(view, target) {
-		if (this.store.getRealMailItemCount() + this.store.removedsentitems >= this.store.totalLength) {
+		if (this.store.getRealMailItemCount() >= this.store.getTotalCount()) {
 			return false;
 		}
 	},
