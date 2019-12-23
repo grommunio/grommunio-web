@@ -396,15 +396,15 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			return;
 		}
 		// conversation header records can't be changed by clicking on certain cells
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			return;
 		}
 
 		var cm = this.getColumnModel();
 		var column = cm.config[columnIndex];
 		if (
-			column.dataIndex === 'icon_index' && !record.isConversationRecord() ||
-			column.dataIndex === 'sent_representing_name' && record.isConversationRecord() && Ext.fly(e.target).hasClass('k-icon')
+			column.dataIndex === 'icon_index' && !(Ext.isFunction(record.isConversationRecord) && record.isConversationRecord()) ||
+			column.dataIndex === 'sent_representing_name' && Ext.isFunction(record.isConversationRecord) && record.isConversationRecord() && Ext.fly(e.target).hasClass('k-icon')
 		) {
 			Zarafa.common.Actions.markAsRead(record, !record.isRead());
 		} else if(column.dataIndex === 'flag_due_by') {
@@ -426,7 +426,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		// Get the record from the rowIndex
 		var record = this.store.getAt(rowIndex);
 
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			var store = grid.getStore();
 			store.toggleConversation(record);
 
@@ -452,7 +452,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onCellContextMenu : function(grid, rowIndex, cellIndex, event)
 	{
 		var record = this.store.getAt(rowIndex);
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			return false;
 		}
 
@@ -474,7 +474,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowBodyContextMenu : function(grid, rowIndex, event)
 	{
 		var record = this.store.getAt(rowIndex);
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			return false;
 		}
 
@@ -504,7 +504,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	},
 
 	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record) {
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			var store = this.getStore();
 			if (!store.isConversationOpened(record)) {
 				store.expandConversation(record);
@@ -531,7 +531,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		//var conversationCount = record.get('conversation_count');
 		//var depth = record.get('depth');
 
-		if (record.isConversationHeaderRecord()) {
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
 			this.model.setPreviewRecord(undefined);
 		} else if (count === 1 && selectionModel.getSelected() === record) {
 			this.model.setPreviewRecord(record);
