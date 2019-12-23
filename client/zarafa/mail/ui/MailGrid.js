@@ -231,26 +231,24 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			cssClass += ' k-last-conversation-item';
 		}
 
-		if (!this.enableRowBody || depth !== 0) {
-			//return 'x-grid3-row-collapsed ' + cssClass;
+		if (this.enableRowBody) {
+			rowParams.body = '<div class="zarafa-grid-body-container">';
+
+			if (conversationCount === 0 || depth > 0) {
+				// Render the categories
+				cssClass += ' with-categories';
+				var categories = Zarafa.common.categories.Util.getCategories(record);
+				var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
+				rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
+			}
+
+			// Render the subject
+			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
+			var value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record); // The value which must be rendered
+			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
+
+			rowParams.body += '</div>';
 		}
-
-		rowParams.body = '<div class="zarafa-grid-body-container">';
-
-		if (conversationCount === 0 || depth > 0) {
-			// Render the categories
-			cssClass += ' with-categories';
-			var categories = Zarafa.common.categories.Util.getCategories(record);
-			var categoriesHtml = Zarafa.common.categories.Util.getCategoriesHtml(categories);
-			rowParams.body += '<div class="k-category-add-container"><span class="k-category-add"></span></div><div class="k-category-container">' + categoriesHtml + '</div>';
-		}
-
-		// Render the subject
-		var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
-		var value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record); // The value which must be rendered
-		rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
-
-		rowParams.body += '</div>';
 
 		return 'x-grid3-row-expanded ' + cssClass;
 	},
