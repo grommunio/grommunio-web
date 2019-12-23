@@ -40,9 +40,7 @@ Zarafa.common.ui.grid.Renderers = {
 		var conversationCount = record.get('conversation_count');
 		var depth = record.get('depth');
 
-		if (conversationCount === 0 && depth === 0) {
-			p.css = Zarafa.common.ui.IconClass.getIconClass(record);
-		} else if (conversationCount > 0 && depth === 0) {
+		if (conversationCount > 0 && depth === 0) {
 			p.css = 'k-conversation_header';
 
 			if (record.store.openedConversationItems && record.store.isConversationOpened(record)) {
@@ -50,9 +48,11 @@ Zarafa.common.ui.grid.Renderers = {
 			} else if (record.store.openedConversationItems && !record.store.isConversationOpened(record)) {
 				p.css += ' arrow_right_l';
 			}
+		} else if (depth !== 1) {
+			p.css = Zarafa.common.ui.IconClass.getIconClass(record);
 		}
 
-		if (depth > 0) {
+		if (Ext.isNumber(depth) && depth > 0) {
 			p.css += ' arrow_right_l';
 		}
 
