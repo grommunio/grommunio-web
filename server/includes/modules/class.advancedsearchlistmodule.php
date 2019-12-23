@@ -8,6 +8,7 @@
 		 */
 		function __construct($id, $data)
 		{
+			parent::__construct($id, $data);
 			// TODO: create a new method in Properties class that will return only the properties we
 			// need for search list (and perhaps for preview???)
 			$this->properties = $GLOBALS["properties"]->getMailListProperties();
@@ -24,7 +25,7 @@
 					"task_duedate" => "PT_SYSTIME:PSETID_Task:0x8105"));
 			$this->properties = getPropIdsFromStrings($GLOBALS["mapisession"]->getDefaultMessageStore(), $this->properties);
 
-			parent::__construct($id, $data);
+			
 		}
 
 		/**

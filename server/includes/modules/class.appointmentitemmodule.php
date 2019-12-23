@@ -15,9 +15,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getAppointmentProperties();
-
 			parent::__construct($id, $data);
+		
+			$this->properties = $GLOBALS['properties']->getAppointmentProperties();
 
 			$this->plaintext = true;
 			$this->skipCopyProperties = array(

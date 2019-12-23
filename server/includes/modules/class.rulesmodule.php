@@ -22,12 +22,13 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getRulesProperties();
+			parent::__construct($id, $data);
 
 			$this->rulesTable = null;
 			$this->rulesModifyTable = null;
 
-			parent::__construct($id, $data);
+			$this->properties = $GLOBALS['properties']->getRulesProperties();
+
 		}
 
 		/**

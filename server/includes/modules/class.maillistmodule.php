@@ -31,11 +31,10 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getMailListProperties();
-
+			parent::__construct($id, $data);
 			$this->showAsConversations = $this->useConversationView();
 
-			parent::__construct($id, $data);
+			$this->properties = $GLOBALS["properties"]->getMailListProperties();
 		}
 
 		/**
