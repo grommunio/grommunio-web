@@ -169,25 +169,6 @@
 				// Get the table and merge the arrays
 				$data = $GLOBALS["operations"]->getTable($store, $entryid, $this->properties, $this->sort, $this->start, $limit, $this->restriction);
 
-				// Only keep the first message of a conversation
-				if (count($data['item']) && $this->showAsConversations) {
-					$items = array($data['item'][0]);
-					for ( $i=1; $i<count($data['item']); $i++ ) {
-						$exists = false;
-						for ( $j=0; $j<count($items); $j++) {
-							if ($items[$j]['props']['normalized_subject'] === $data['item'][$i]['props']['normalized_subject']) {
-								$exists = true;
-								break;
-							}
-						}
-						if ( !$exists ) {
-							$items[] = $data['item'][$i];
-						}
-					}
-
-					$data['item'] = $items;
-				}
-
 				// If the request come from search folder then no need to send folder information
 				if (!$isSearchFolder) {
 					// Open the folder.
@@ -213,12 +194,13 @@
 					'store' => $store,
 					'entryid' => $entryid,
 					'action' => $action,
-					'data' =>& $data
+					'data' =>& $data,
 				));
 
 				// unset will remove the value but will not regenerate array keys, so we need to
 				// do it here
 				$data["item"] = array_values($data["item"]);
+
 				$this->addActionData($actionType, $data);
 				$GLOBALS["bus"]->addData($this->getResponseData());
 			}
