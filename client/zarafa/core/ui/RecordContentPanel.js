@@ -386,6 +386,12 @@ Zarafa.core.ui.RecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 				if (this.isModal() && !this.showModalWithoutParent) {
 
 					this.modalRecord = record;
+
+					var store = record.getStore();
+					if (Ext.isDefined(store)) {
+						this.mon(store, 'datachanged', this.modalRecord.onDataChange, this);
+					}
+
 					record = record.copy('modal-' + record.id);
 					record.isModalDialogRecord = true;
 

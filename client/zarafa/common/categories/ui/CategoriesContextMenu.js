@@ -62,6 +62,8 @@ Zarafa.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
 		});
 
 		Zarafa.common.categories.ui.CategoriesContextMenu.superclass.constructor.call(this, config);
+
+		this.mon(this.store,'load', this.onLoad, this);
 	},
 
 	/**
