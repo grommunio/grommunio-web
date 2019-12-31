@@ -138,15 +138,39 @@ class BaseException extends Exception
 	}
 
 	/**
-	 * It will return details error message if allowToShowDetailsMessage is set.
+	 * Function returns the JSON request as a string from the backtrace.
+	 *
+	 * @return string The JSON request as a string
+	 */
+	private function getJSONRequest()
+	{
+		$jsonrequest = false;
+		foreach ($this->getTrace() as $frame) {
+			if (in_array('JSONRequest', $frame)) {
+				// If there are multiple requests, we print each one on a new line
+				$jsonrequest = implode(PHP_EOL, $frame['args']);
+			}
+		}
+		return $jsonrequest;
+	}
+
+	/**
+	 * If allowToShowDetailsMessage is set, function will return a detailed error message
+	 * with the MAPIException code, e.g. 'MAPI_E_NO_ACCESS', the JSONRequest and the backtrace as string.
 	 *
 	 * @return string returns details error message.
 	 */
 	public function getDetailsMessage()
 	{
-		return $this->allowToShowDetailsMessage ? $this->__toString() : '';
-	}
+		$request = $this->getJSONRequest();
+		$message = 'MAPIException Code [' . get_mapi_error_name($this->getCode()) . ']'
+			. PHP_EOL . PHP_EOL . 'MAPIException in ' . $this->getFile() . ':' . $this->getLine()
+			. PHP_EOL . PHP_EOL . 'Request:'
+			. PHP_EOL . PHP_EOL . $request === false ? _('Request is not available.') : $request
+			. PHP_EOL . PHP_EOL . 'Stack trace:'
+			. PHP_EOL . PHP_EOL . $this->getTraceAsString();
 
-	// @TODO getTrace and getTraceAsString
+		return $this->allowToShowDetailsMessage ? $message : '';
+	}
 }
 ?>
