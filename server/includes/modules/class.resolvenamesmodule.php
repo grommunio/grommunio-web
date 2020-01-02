@@ -68,12 +68,6 @@
 
 				// check names
 				foreach($resolveRequest as $query) {
-					// If the email address is punycode, we need to convert it to Unicode
-					if (mb_detect_encoding($query['display_name']) === 'ASCII') {
-						$query['display_name'] = idn_to_utf8($query['display_name'], 0, 1);
-						$query['email_address'] = idn_to_utf8($query['email_address'], 0, 1);
-					}
-
 					if (is_array($query) && isset($query['id'])) {
 						$responseEntry = Array();
 						$responseEntry['id'] = $query['id'];
