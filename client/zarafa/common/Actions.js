@@ -1359,6 +1359,8 @@ Zarafa.common.Actions = {
 			this.brokenFiles.push(files[index]);
 		} else if (this.isICSFile(files[index])) {
 			this.isBrokenICSVCS(files[index], splittedContent, rawHeaders);
+		} else if (this.isVCFFile(files[index])) {
+			this.isBrokenVCF(files[index], splittedContent, rawHeaders);
 		} else if (!this.isVCFFile(files[index]) && (rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1)) {
 			this.brokenFiles.push(files[index]);
 		}
@@ -1398,6 +1400,33 @@ Zarafa.common.Actions = {
 			if (begins.length !== end.length || !hasStartDate || !hasEndDate) {
 				this.brokenFiles.push(file);
 			}
+		}
+	},
+	
+	/**
+	 * Helper function to check if the selected vcf file is valid or not.
+	 *
+	 * @param {Object} file The file which contains file information.
+	 * @param {String} splittedContent The formatted content of vcf file.
+	 * @param {Array} rawHeaders The keys array in the vcf file.
+	 */
+	isBrokenVCF : function(file, splittedContent, rawHeaders)
+	{
+		// Every vcf file should start and end with the 'BEGIN:VCARD' and 'END:VCARD' property respectively.
+		var begin = splittedContent.match('BEGIN:VCARD');
+		var end = splittedContent.match('END:VCARD');
+		
+		// The version of the vCard is required and it should be specified immediately after 'BEGIN:' property.
+		var hasVersion = this.isPropertyExists(rawHeaders, ['VERSION:']) && (rawHeaders.indexOf('VERSION:') === 1);
+		
+		// Properties 'FN:' (The formatted name string associated with the vCard object) and
+		// 'N:' (Name of the person, place or thing associated with the vCard object) are required.
+		var hasNameProperties = this.isPropertyExists(rawHeaders, ['FN:', 'N:']);
+		
+		// If any of the above mentioned properties are not present, we consider
+		// the vCard to be invalid.
+		if (!begin || !end || !hasVersion || !hasNameProperties) {
+			this.brokenFiles.push(file);
 		}
 	},
 	
