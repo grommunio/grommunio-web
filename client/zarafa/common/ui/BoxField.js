@@ -2040,6 +2040,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 	/**
 	 * This will clear all {@link #items boxes}. Each box will be
 	 * {@link Zarafa.common.ui.Box#destroy destroyed}, and then removed from {@link #items}
+	 * and will reset size of this BoxField.
 	 * @private
 	 */
 	clearBoxes: function()
@@ -2049,6 +2050,7 @@ Zarafa.common.ui.BoxField = Ext.extend(Ext.form.ComboBox, {
 		});
 
 		this.items.clear();
+		this.sizeContainer();
 	},
 
 	/**
