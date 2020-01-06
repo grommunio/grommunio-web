@@ -511,6 +511,9 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 		},{
 			xtype : 'zarafa.settingsoutofofficecategory',
 			settingsContext : settingsContext
+		},{
+			xtype : 'zarafa.settingssafesendercategory',
+			settingsContext : settingsContext
 		}];
 	},
 
