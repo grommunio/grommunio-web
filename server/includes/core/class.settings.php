@@ -332,7 +332,7 @@
 
 				if(!empty($this->settings_string)) {
 					$settings = json_decode_data($this->settings_string, true);
-					if (empty($settings) || empty($settings['settings'])) {
+					if ((empty($settings) || empty($settings['settings'])) && $this->initialized === true) {
 						throw new SettingsException(_('Error retrieving existing settings'));
 					}
 				}
