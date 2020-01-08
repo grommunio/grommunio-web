@@ -132,6 +132,18 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			ref: 'checkNames',
 			handler: this.onCheckNamesButton,
 			scope: this
+		},{
+			xtype : 'button',
+			overflowText : _('Addressbook'),
+			tooltip : _('Open addressbook'),
+			iconCls : 'icon_small_addressbook',
+			ref : 'addressbookBtn',
+			handler: function() {
+				Zarafa.calendar.Actions.openRecipientSelectionContent(this.record, {
+					defaultRecipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+				});
+			},
+			scope : this
 		}];
 	},
 
@@ -402,6 +414,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 			this.saveAppointment.setVisible(false);
 			this.saveMeeting.setVisible(false);
 			this.checkNames.setVisible(false);
+			this.addressbookBtn.setVisible(false);
 			this.deleteAppointment.setVisible(false);
 			this.inviteAttendees.setVisible(false);
 			this.cancelInvitation.setVisible(false);
@@ -437,6 +450,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.saveMeeting.setVisible(false);
 						this.deleteAppointment.setVisible(true);
 						this.checkNames.setVisible(false);
+						this.addressbookBtn.setVisible(false);
 						this.inviteAttendees.setVisible(true);
 						this.cancelInvitation.setVisible(false);
 						break;
@@ -446,6 +460,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.saveMeeting.setVisible(true);
 						this.deleteAppointment.setVisible(false);
 						this.checkNames.setVisible(true);
+						this.addressbookBtn.setVisible(true);
 						this.inviteAttendees.setVisible(false);
 						this.cancelInvitation.setVisible(true);
 						break;
@@ -457,6 +472,7 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 						this.saveMeeting.setVisible(true);
 						this.deleteAppointment.setVisible(true);
 						this.checkNames.setVisible(false);
+						this.addressbookBtn.setVisible(false);
 						this.inviteAttendees.setVisible(false);
 						this.cancelInvitation.setVisible(false);
 						break;

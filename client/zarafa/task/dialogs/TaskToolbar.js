@@ -39,9 +39,9 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 	},
 
 	/**
-	 * Create all buttons which should be added by default the the 'Actions' Buttons.
-	 * These buttons are used to  send, save add attachments, delete, status of the message. And it contains
-	 * also buttons to check the recipient names .
+	 * Create all buttons which should be added by default to the 'Actions' buttons.
+	 * These buttons are used to send, save, add attachments, delete, view the status of the message. 
+	 * It also contains buttons to check the recipient names.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
 	 * added in the Options section of the {@link Ext.Toolbar Toolbar}.
@@ -133,6 +133,18 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			ref: 'checkNamesBtn',
 			handler: this.onCheckNames,
 			scope: this
+		},{
+			xtype : 'button',
+			overflowText : _('Addressbook'),
+			tooltip : _('Open addressbook'),
+			iconCls : 'icon_small_addressbook',
+			ref : 'addressbookBtn',  
+			handler : function() {
+				Zarafa.task.Actions.openRecipientSelectionContent(this.record, {
+					defaultRecipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+				});
+			},
+			scope : this
 		}];
 	},
 
@@ -155,7 +167,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 
 	/**
 	 * Create all buttons which should be added by default the the `Options` buttons.
-	 * This contains the buttons to aggisn the task set the task as recurrence.
+	 * This contains the buttons to assign the task and set the task as a recurrence.
 	 *
 	 * @return {Array} The {@link Ext.Button Button} elements which should be
 	 * added in the Options section of the {@link Ext.Toolbar Toolbar}.
@@ -416,6 +428,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			this.saveTaskRequest.setVisible(false);
 			this.saveBtn.setVisible(false);
 			this.checkNamesBtn.setVisible(false);
+			this.addressbookBtn.setVisible(false);
 			this.restoreToTaskList.setVisible(false);
 			this.assignTask.setVisible(false);
 			this.cancelAssignmetBtn.setVisible(false);
@@ -480,6 +493,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 					this.saveTaskRequest.setVisible(isVisible);
 					this.saveBtn.setVisible(false);
 					this.checkNamesBtn.setVisible(isVisible);
+					this.addressbookBtn.setVisible(isVisible);
 					this.assignTask.setVisible(false);
 					this.cancelAssignmetBtn.setVisible(isVisible);
 					break;
@@ -489,6 +503,7 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 					this.sendBtn.setVisible(false);
 					this.saveTaskRequest.setVisible(false);
 					this.checkNamesBtn.setVisible(false);
+					this.addressbookBtn.setVisible(false);
 					this.assignTask.setVisible(record.isNormalTask());
 					this.cancelAssignmetBtn.setVisible(false);
 					break;
