@@ -279,7 +279,7 @@ Zarafa.common.ui.grid.Renderers = {
 			p.css += ' zarafa-grid-empty-cell';
 		}
 
-		if (record.get('conversation_count') > 0) {
+		if (Ext.isDefined(record) && record.get('conversation_count') > 0){
 			value = record.get('normalized_subject');
 		}
 
