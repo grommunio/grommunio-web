@@ -88,6 +88,7 @@
 		 * false otherwise.
 		 */
 		function loadSettings() {
+			Log::Write(LOGLEVEL_INFO, "[Settings::loadSettings] function begins.");
 			if ($this->initialized) {
 				return true;
 			}
@@ -102,9 +103,11 @@
 				// this object will only be initialized when we are able to retrieve existing settings correctly
 				$this->initialized = true;
 			} catch (SettingsException $e) {
+				Log::Write(LOGLEVEL_WARN, "[Settings::loadSettings] Exception", $e);
 				$e->setHandled();
 			}
 
+			Log::Write(LOGLEVEL_INFO, "[Settings::loadSettings] settings initialized.");
 			return $this->initialized;
 		}
 
@@ -121,6 +124,8 @@
 		 */
 		function get($path=null, $default=null, $persistent=false)
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::get] Get a setting from the settings repository");
+
 			if (!$this->loadSettings()) {
 				return null;
 			}
@@ -128,6 +133,7 @@
 			$settings = !!$persistent ? $this->persistentSettings : $this->settings;
 
 			if ($path==null) {
+				Log::Write(LOGLEVEL_DEBUG, "[Settings::get] when path is null, returns the settings", false, $settings);
 				return $settings;
 			}
 
@@ -142,6 +148,8 @@
 					$tmp = $tmp[$pointer];
 				}
 			}
+
+			Log::Write(LOGLEVEL_DEBUG, "[Settings::get] Get settings from given path", false, $tmp);
 
 			return $tmp;
 		}
@@ -174,14 +182,19 @@
 		 */
 		function set($path, $value, $autoSave = false, $persistent=false)
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::set] before set settings");
+
 			if (!$this->loadSettings()) {
+				Log::Write(LOGLEVEL_INFO, "[Settings::set] loadSettings function return false");
 				return;
 			}
 
 			if ( !!$persistent ){
 				$this->modifiedPersistent[$path] = $value;
+				Log::Write(LOGLEVEL_DEBUG, "[Settings::set] modified persistent array: ", false, $this->modifiedPersistent);
 			} else {
 				$this->modified[$path] = $value;
+				Log::Write(LOGLEVEL_DEBUG, "[Settings::set] modified array: ", false, $this->modified);
 			}
 
 			$path = explode('/', $path);
@@ -213,6 +226,7 @@
 			if ($autoSave === true) {
 				!!$persistent ? $this->savePersistentSettings() : $this->saveSettings();
 			}
+			Log::Write(LOGLEVEL_INFO, "[Settings::set] setting set successfully");
 		}
 
 		/**
@@ -241,7 +255,10 @@
 		 */
 		function delete($path, $autoSave = false)
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::delete] before deleting settings");
+
 			if (!$this->loadSettings()) {
+				Log::Write(LOGLEVEL_INFO, "[Settings::delete] loadSettings function return false");
 				return;
 			}
 
@@ -273,6 +290,7 @@
 			if ($autoSave === true) {
 				$this->saveSettings();
 			}
+			Log::Write(LOGLEVEL_INFO, "[Settings::delete] completed.");
 		}
 
 		/**
@@ -322,8 +340,11 @@
 		 */
 		function retrieveSettings()
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::retrieveSettings] before retrieve settings.");
+
 			// first check if property exist and we can open that using mapi_openproperty
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBACCESS_SETTINGS_JSON));
+			Log::Write(LOGLEVEL_DEBUG, "Settings::retrieveSettings from store",false, $storeProps);
 
 			$settings = array("settings"=> array());
 			// Check if property exists, if it does not exist then we can continue with empty set of settings
@@ -333,11 +354,13 @@
 				if(!empty($this->settings_string)) {
 					$settings = json_decode_data($this->settings_string, true);
 					if ((empty($settings) || empty($settings['settings'])) && $this->initialized === true) {
+						Log::Write(LOGLEVEL_INFO, "Settings::retrieveSettings Throws Exception : Error retrieving existing settings");
 						throw new SettingsException(_('Error retrieving existing settings'));
 					}
 				}
 			}
 
+			Log::Write(LOGLEVEL_INFO, "[Settings::retrieveSettings] retrieved settings completed.");
 			$this->settings = $settings['settings'];
 		}
 
@@ -351,12 +374,15 @@
 		 */
 		private function retrievePersistentSettings()
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::retrievePersistentSettings] before retrievePersistentSettings.");
+
 			// first check if property exist and we can open that using mapi_openproperty
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON));
 
+			Log::Write(LOGLEVEL_DEBUG, "Settings::retrievePersistentSettings from store",false, $storeProps);
+
 			// Check if property exists, if it does not exist then we can continue with empty set of settings
-			if ( isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON])
-				|| propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
+			if ( isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON]) || propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
 
 				if ( propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
 					$this->persistentSettingsString = streamProperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON);
@@ -367,15 +393,20 @@
 				if ( !empty($this->persistentSettingsString) ) {
 					try{
 						$persistentSettings = json_decode_data($this->persistentSettingsString, true);
-					} catch(Exception $e){}
+					} catch(Exception $e){
+						Log::Write(LOGLEVEL_ERROR, "Settings::retrievePersistentSettings Exception",$e, $this->persistentSettingsString);
+					}
 
 					if ( empty($persistentSettings) || empty($persistentSettings['settings']) ) {
+						Log::Write(LOGLEVEL_ERROR, "Settings::retrievePersistentSettings : Error retrieving existing persistent settings ",false, $this->persistentSettingsString);
+
 						throw new SettingsException(_('Error retrieving existing persistent settings'));
 					}
 
-					$this->persistentSettings =$persistentSettings['settings'];
+					$this->persistentSettings = $persistentSettings['settings'];
 				}
 			}
+			Log::Write(LOGLEVEL_INFO, "[Settings::retrievePersistentSettings] retrieved persistent settings completed.");
 		}
 
 		/**
@@ -460,6 +491,7 @@
 					}
 				}
 			}
+			Log::Write(LOGLEVEL_DEBUG, "[Settings::filterOutSettings] filtered settings.", false, $settings);
 
 			return $settings;
 		}
@@ -472,11 +504,7 @@
 		 */
 		function saveSettings()
 		{
-			/*
-			if (!$this->init) {
-				$this->Init();
-			}
-			*/
+			Log::Write(LOGLEVEL_INFO, "[Settings::saveSettings] before save settings.");
 
 			if (isset($this->settings['zarafa']['v1'])) {
 				// Remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
@@ -500,11 +528,12 @@
 				mapi_stream_commit($stream);
 
 				mapi_savechanges($this->store);
-
+				Log::Write(LOGLEVEL_DEBUG, "[Settings::saveSettings] saved setting into mapi", false, $settings);
 				// Settings saved, update settings_string and modified array
 				$this->settings_string = $settings;
 				$this->modified = array();
 			}
+			Log::Write(LOGLEVEL_INFO, "[Settings::saveSettings] saved settings completed.");
 		}
 
 		/**
@@ -514,6 +543,8 @@
 		 */
 		function savePersistentSettings()
 		{
+			Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] before save persistent settings.");
+
 			$persistentSettings = json_encode(array('settings' => $this->persistentSettings));
 
 			// Check if the settings have been changed.
@@ -524,9 +555,12 @@
 				mapi_stream_commit($stream);
 				mapi_savechanges($this->store);
 
+				Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] saved persistent settings in MAPI.");
+
 				// Settings saved, update settings string and modified array
 				$this->persistentSettingsString = $persistentSettings;
 			}
+			Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] save persistent settings completed.");
 		}
 
 		/**
