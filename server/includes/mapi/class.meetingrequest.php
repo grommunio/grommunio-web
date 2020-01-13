@@ -1931,21 +1931,21 @@ If it is the first time this attendee has proposed a new date/time, increment th
 		switch($status) {
 			case olResponseAccepted:
 				$classpostfix = 'Pos';
-				$subjectprefix = dgettext('zarafa','Accepted');
+				$subjectprefix = _('Accepted');
 				break;
 			case olResponseDeclined:
 				$classpostfix = 'Neg';
-				$subjectprefix = dgettext('zarafa','Declined');
+				$subjectprefix = _('Declined');
 				break;
 			case olResponseTentative:
 				$classpostfix = 'Tent';
-				$subjectprefix = dgettext('zarafa','Tentatively accepted');
+				$subjectprefix = _('Tentatively accepted');
 				break;
 		}
 
 		if (!empty($proposeNewTimeProps)) {
 			// if attendee has proposed new time then change subject prefix
-			$subjectprefix = dgettext('zarafa','New Time Proposed');
+			$subjectprefix = _('New Time Proposed');
 		}
 
 		$props[PR_SUBJECT] = $subjectprefix . ': ' . $messageprops[PR_SUBJECT];
