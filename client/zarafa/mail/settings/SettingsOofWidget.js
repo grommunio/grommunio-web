@@ -500,9 +500,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 		if (this.record.get(group.name) !== set) {
 			this.record.set(group.name, set);
 		}
-
-		this.subjectField.setDisabled(!set);
-		this.bodyField.setDisabled(!set);
 	},
 
 	/**
@@ -522,8 +519,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 				this.record.set(radio.name, set);
 			}
 
-			this.subjectField.setDisabled(!set);
-			this.bodyField.setDisabled(!set);
 			this.outOfOfficeDateTimeField.setDisabled(!set);
 			this.willBeBackCheckBox.setDisabled(!set);
 
