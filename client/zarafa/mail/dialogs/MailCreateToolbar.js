@@ -146,6 +146,17 @@ Zarafa.mail.dialogs.MailCreateToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTo
 			scope : this
 		},{
 			xtype : 'button',
+			overflowText : _('Addressbook'),
+			tooltip : _('Open addressbook'),
+			iconCls : 'icon_small_addressbook',
+			handler: function() {
+					Zarafa.mail.Actions.openRecipientSelectionContent(this.record, {
+						defaultRecipientType : Zarafa.core.mapi.RecipientType.MAPI_TO
+					});
+			},
+			scope : this
+		},{
+			xtype : 'button',
 			overflowText : _('Add signature'),
 			tooltip : _('Add signature'),
 			iconCls : 'icon_signature',
