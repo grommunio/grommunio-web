@@ -97,7 +97,7 @@ pipeline {
 			}
 			steps {
 				sh 'make jstestcov'
-				cobertura coberturaReportFile: 'test/js/coverage/cobertura.xml', conditionalCoverageTargets: '95, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '95, 0, 0', maxNumberOfBuilds: 10, methodCoverageTargets: '95, 0, 0'
+				cobertura coberturaReportFile: 'test/js/coverage/cobertura.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 10
 				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/js/coverage/report-html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 			}
 			post {
