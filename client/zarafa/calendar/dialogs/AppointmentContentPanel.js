@@ -313,7 +313,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 				// then no need to send message to all attendees
 				Ext.MessageBox.show({
 					title: _('Send update'),
-					msg: _('An update message will be sent to all recipients, do you wish to continue?'),
+					msg: _('Do you want to send an update to all recipients?'),
 					cls: Ext.MessageBox.WARNING_CLS,
 					fn: this.sendMeetingUpdate,
 					scope: this,
