@@ -154,6 +154,13 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 			 */
 			'folderchange',
 			/**
+			 * @event beforefolderchange
+			 * Fires before the list of selected folders has changed.
+			 * @param {Array} folders Selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
+			 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder Folder to remove.
+			 */
+			'beforefolderchange',
+			/**
 			 * @event modechange
 			 * Fires when the view mode is changed.
 			 * @param {Zarafa.core.ContextModel} model this model.
@@ -531,8 +538,9 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	/**
 	 * Removes a folder from the selected folder list.
 	 * This function automatically causes the store to
-	 * reload its contents. This method triggers the
-	 * {@link #folderchange} event if the folder was previously in the list.
+	 * reload its contents. This method fires
+	 * {@link #beforefolderchange} and {@link #folderchange} event
+	 * if the folder was previously in the list.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder to remove.
 	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord} the folder if it was removed,
 	 * or undefined otherwise (i.e. it was not in the folder list).
@@ -547,12 +555,14 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 		// Remove the folder from the list.
 		this.folders.remove(localFolder);
-
-		// A ContextModel must always have at least
-		// 1 folder loaded. When the last folder is
-		// being unloaded, loa the default one again.
-		if (Ext.isEmpty(this.folders)) {
-			this.folders.push(this.defaultFolder);
+		
+		if (this.fireEvent('beforefolderchange', this.folders, folder) !== false) {
+			// A ContextModel must always have at least
+			// 1 folder loaded. When the last folder is
+			// being unloaded, load the default one again.
+			if (Ext.isEmpty(this.folders)) {
+				this.folders.push(this.defaultFolder);
+			}
 		}
 
 		this.onFolderChange(this, this.folders);
