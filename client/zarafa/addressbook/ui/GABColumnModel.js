@@ -93,6 +93,14 @@ Zarafa.addressbook.ui.GABColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMo
 			renderer : Ext.util.Format.htmlEncode,
 			width: 250
 		},{
+			dataIndex : 'title',
+			header : _('Job Title'),
+			sortable : true,
+			hidden : true,
+			tooltip : _('Sort by: Job Title'),
+			renderer : Ext.util.Format.htmlEncode,
+			width : 150
+		},{
 			dataIndex : 'department_name',
 			header : _('Department'),
 			sortable : true,
