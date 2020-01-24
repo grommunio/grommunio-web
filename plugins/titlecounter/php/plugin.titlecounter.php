@@ -1,12 +1,11 @@
 <?php
 /**
- * contactfax Plugin
+ * titlecounter Plugin
  *
- * Open a new 'create mail' dialog with contact's fax number postfixed with domain name 
- * configured in Plugin Setting in the TO field of the email.
+ * Plugin will update the title of a tab and browser window.
  *
  */
-class Plugincontactfax extends Plugin {
+class Plugintitlecounter extends Plugin {
 
 	function __construct(){}
 
@@ -42,9 +41,8 @@ class Plugincontactfax extends Plugin {
 			'zarafa' => Array(
 				'v1' => Array(
 					'plugins' => Array(
-						'contactfax' => Array(
-							'enable' => PLUGIN_CONTACTFAXPLUGIN_USER_DEFAULT_ENABLE,
-							'faxdomain' => PLUGIN_CONTACTFAXPLUGIN_FAX_DOMAIN_NAME
+						'titlecounter' => Array(
+							'enable' => PLUGIN_TITLECOUNTER_USER_DEFAULT_ENABLE
 						)
 					)
 				)

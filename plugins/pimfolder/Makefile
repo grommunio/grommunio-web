@@ -2,8 +2,9 @@ include ../shared.mk
 
 JSFILES = js/PimPlugin.js js/PimPluginSettingsWidget.js
 
-COPYFILES = LICENSE.txt manifest.xml \
+COPYFILES = LICENSE.txt manifest.xml config.php \
 	$(wildcard resources/css/*.css resources/icons/*.png) \
+	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 

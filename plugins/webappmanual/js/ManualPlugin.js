@@ -37,7 +37,7 @@ Zarafa.plugins.webappmanual.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Adds a button to the top tab bar for the manual
-	 * @return {Object} The button for the top tabbar
+	 * @return {Object} The button for the top tabbar 
 	 * @private
 	 */
 	createManualMainTab: function()
@@ -74,6 +74,7 @@ Zarafa.plugins.webappmanual.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'webappmanual',
+		displayName : _('WebApp Manual'),
 		pluginConstructor : Zarafa.plugins.webappmanual.ManualPlugin
 	}));
 });

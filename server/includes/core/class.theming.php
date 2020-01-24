@@ -32,12 +32,6 @@ class Theming
 	 */
 	public static function getJsonThemes() {
 		$themes = [];
-
-		// Check if the plugins directory exists
-		if (!is_dir(BASE_PATH . PATH_PLUGIN_DIR)) {
-			return $themes;
-		}
-
 		$directoryIterator = new DirectoryIterator(BASE_PATH . PATH_PLUGIN_DIR);
 		foreach ( $directoryIterator as $info ) {
 			if ($info->isDot() || !$info->isDir()) {

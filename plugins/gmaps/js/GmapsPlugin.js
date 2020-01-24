@@ -47,6 +47,7 @@ Zarafa.plugins.gmaps.GmapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'gmaps',
+		displayName : _('Google Maps'),
 		pluginConstructor : Zarafa.plugins.gmaps.GmapsPlugin
 	}));
 });

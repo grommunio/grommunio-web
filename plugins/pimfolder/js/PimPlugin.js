@@ -3,7 +3,7 @@ Ext.namespace('Zarafa.plugins.pimfolder');
 /**
  * @class Zarafa.plugins.pimfolder.PimPlugin
  * @extends Zarafa.core.Plugin
- *
+ * 
  * This class represents the core functionality of the Personal Inbox
  * Manager plugin (or PIM-folder).  The user gets a new icon in the
  * context menu and in the preview panel, that allows him to move the
@@ -33,7 +33,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * contains the name of the target folder. If no folder is
 	 * configured (or the folder doesn't exist any longer), then the
 	 * button is hidden.
-	 *
+	 * 
 	 * @return {Ext.Button} Button instance
 	 * @private
 	 */
@@ -102,7 +102,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Handler function for the mail context menu. This method allows
 	 * moving multiple messages at once. Calls {@link @moveMailsToFolder}.
-	 *
+	 * 
 	 * @param {Ext.button} btn Reference to the tool bar button.
 	 * @private
 	 */
@@ -113,7 +113,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Move the given records to the configured folder.
-	 *
+	 * 
 	 * @param {Ext.data.Record[]} records The selected e-mails in the list.
 	 * @private
 	 */
@@ -125,7 +125,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 			return;
 		}
 
-		var store;
+		var store = undefined;
 		Ext.each(records, function(record) {
 			store = record.store;
 			record.moveTo(folder);
@@ -157,7 +157,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Return the instance of {@link Zarafa.plugins.pimfolder.PimPluginSettingsWidget}.
-	 *
+	 * 
 	 * @return {Zarafa.plugins.pimfolder.PimPluginSettingswidget} An instance of the settings widget
 	 * @private
 	 */
@@ -173,6 +173,7 @@ Zarafa.plugins.pimfolder.PimPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'pimfolder',
+		displayName : _('Personal Inbox Manager'),
 		pluginConstructor : Zarafa.plugins.pimfolder.PimPlugin
 	}));
 });

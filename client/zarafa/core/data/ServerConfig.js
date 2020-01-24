@@ -248,14 +248,6 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
- 	 * @return {Array} returns the meta data of all installed plugins that are not disabled by the admin.
-	 */
-	getPluginsMetaData : function()
-	{
-		return this.meta.plugins;
-	},
-
-	/**
 	 * @return {Boolean} True if VCF import functionality is supported on backend, false otherwise.
 	 */
 	isVCfImportSupported : function()
