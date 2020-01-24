@@ -599,7 +599,7 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 			text: _('Print selected appointment'),
 			hideOnDisabled: false,
 			singleSelectOnly: true,
-			handler: this.onPrintSelected,
+			handler: this.onPrintSelected.createDelegate(this, [_('No appointment selected')], 2),
 			scope: this
 		},{
 			xtype : 'zarafa.conditionalitem',
@@ -615,22 +615,6 @@ Zarafa.calendar.CalendarContext = Ext.extend(Zarafa.core.Context, {
 		}];
 
 		return defaultItems.concat(items);
-	},
-
-	/**
-	 * Handler invoked when the 'print selected' button in the main toolbar is pressed.
-	 * Prints the selected {@link Zarafa.core.data.MAPIRecord} record. Menu item is disabled if there is no record selected.
-	 * Calls {@link Zarafa.common.Actions#openPrintDialog} openPrintDialog with the selected record.
-	 * @private
-	 */
-	onPrintSelected : function ()
-	{
-		var records = this.getModel().getSelectedRecords();
-		if (Ext.isEmpty(records)) {
-			Ext.MessageBox.alert(_('Print'), _('No appointment selected'));
-			return;
-		}
-		Zarafa.common.Actions.openPrintDialog(records);
 	},
 
 	/**

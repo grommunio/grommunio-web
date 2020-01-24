@@ -124,6 +124,7 @@ Zarafa.core.Context = Ext.extend(Zarafa.core.Plugin, {
 	{
 		return [];
 	},
+
 	/**
 	 * Override this method to define buttons in the dropdown list of the Print button in the main toolbar.
 	 * 
@@ -132,6 +133,36 @@ Zarafa.core.Context = Ext.extend(Zarafa.core.Plugin, {
 	getMainToolbarPrintButtons : function()
 	{
 		return [];
+	},
+
+	/**
+	 * Function will be used as a default handler for "Print" button of {@link Zarafa.core.ui.MainToolbar MainToolbar}.
+	 * It will check if active tab is {@link Zarafa.core.ui.ContextContainer ContextContainer} then it will print the selected record
+	 * else it will print record of activetab panel.
+	 *
+	 *
+	 * @param {Object} button The button which user pressed.
+	 * @param {Ext.EventObject} evt The mouse event
+	 * @param {String} msg message which needs to be shown if no record is found to print.
+	 */
+	onPrintSelected : function (button, evt, msg)
+	{
+		var activeTab = container.getTabPanel().getActiveTab();
+		var records;
+
+		// If main context is opened in active tab
+		// then get selected record and print it.
+		if (activeTab instanceof Zarafa.core.ui.ContextContainer || button.name !== 'defaultPrintBtn') {
+			records = this.getModel().getSelectedRecords();
+			if (Ext.isEmpty(records)) {
+				Ext.MessageBox.alert(_('Print'), Ext.isEmpty(msg) ? _('No item selected') : msg);
+				return;
+			}
+		} else {
+			records = activeTab.record;
+		}
+
+		Zarafa.common.Actions.openPrintDialog(records);
 	},
 
 	/**

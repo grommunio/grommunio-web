@@ -27,6 +27,49 @@ Zarafa.advancesearch.AdvanceSearchContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
+	 * Returns the buttons for the dropdown list of the Print button in the main toolbar.
+	 *
+	 * @return {Ext.Component[]} an array of components
+	 */
+	getMainToolbarPrintButtons : function()
+	{
+		var defaultItems = [{
+			xtype: 'zarafa.conditionalitem',
+			id: 'zarafa-maintoolbar-print-singleitem',
+			overflowText: _('Print single item'),
+			iconCls: 'icon_print',
+			tooltip : _('Print selected item') + ' (Ctrl + P)',
+			plugins : 'zarafa.menuitemtooltipplugin',
+			text: _('Print single item'),
+			hideOnDisabled: false,
+			singleSelectOnly: true,
+			handler: this.onPrintSelected,
+			scope: this
+		}];
+
+		return defaultItems;
+	},
+
+	/**
+	 * Event handler which is fired when the 'print single' item in the dropdown has been pressed
+	 * This calls {@link Zarafa.common.Actions.openPrintDialog} with the previewed {@link Zarafa.core.data.MAPIRecord} record.
+	 *
+	 * @param {Object} button The button which user pressed.
+	 * @param {Ext.EventObject} evt The mouse event
+	 * @private
+	 */
+	onPrintSelected : function (button, evt)
+	{
+		var records = this.getModel().getSelectedRecords();
+		if (Ext.isEmpty(records)) {
+			Ext.MessageBox.alert(_('Print'), _('No item selected'));
+			return;
+		}
+
+		Zarafa.common.Actions.openPrintDialog(records);
+	},
+
+	/**
 	 * Returns the buttons for the dropdown list of the VIEW-button in the main toolbar. It will use the
 	 * main.maintoolbar.view.advancesearch insertion point to allow other plugins to add their items at the end.
 	 *
