@@ -2,9 +2,8 @@
 <!ELEMENT plugin (info,config?,dependencies?,translations?,components)>
 
 	<!-- The <info> element. Positioned inside the <plugin> and/or <component> elements. Provides meta information -->
-	<!ELEMENT info (version?,name,title?,author?,authorURL?,description?,allowuserdisable?,allowuservisible?)>
+	<!ELEMENT info (version?,title,author?,authorURL?,description?,allowuserdisable?,allowuservisible?)>
 		<!ELEMENT version (#PCDATA)>
-		<!ELEMENT name (#PCDATA)>
 		<!ELEMENT title (#PCDATA)>
 		<!ELEMENT author (#PCDATA)>
 		<!ELEMENT authorURL (#PCDATA)>
