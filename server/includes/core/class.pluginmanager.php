@@ -793,7 +793,7 @@ class PluginManager
 	function getClientFiles($load = LOAD_RELEASE){
 		$files = Array();
 
-		$pluginNames = $this->pluginorder;
+		$pluginNames = array_keys($this->plugindata);
 		foreach ($pluginNames as $pluginname) {
 			if (!$this->isPluginEnabled($pluginname)) {
 				continue;
