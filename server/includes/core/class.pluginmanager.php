@@ -976,8 +976,8 @@ class PluginManager
 		} else {
 			// Check older plugins against a list to keep the old default settings
 			$knownPlugins = array(
-				'/^theme/' => array('allowuserdisable' => false, 'allowuservisible' => false),
-				'/^filesbackend/i' => array('allowuserdisable' => false, 'allowuservisible' => true),
+				'/theme*/' => array('allowuserdisable' => false, 'allowuservisible' => false),
+				'/filesbackend*/i' => array('allowuserdisable' => false, 'allowuservisible' => true),
 			);
 			foreach ($knownPlugins as $re => $options) {
 				if (preg_match($re, $dirname)) {
