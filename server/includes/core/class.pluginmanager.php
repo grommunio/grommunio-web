@@ -154,26 +154,13 @@ class PluginManager
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
 		if (!$this->plugindata || !$this->pluginorder) {
-
-			// Read all plugins from the plugins folders.
-			$this->plugindata = $this->readPluginFolder();
-
-			// Remove admin disabled plugins
 			$disabledPlugins = Array();
 			if (!empty($disabled)) {
 				$disabledPlugins = $this->expandPluginList($disabled);
-				foreach ($disabledPlugins as $pluginName) {
-					unset($this->plugindata[$pluginName]);
-				}
 			}
 
-			// Make sure admin enabled plugins are enabled
-			$alwaysEnabledPlugins = $this->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST);
-			foreach ($this->plugindata as $pluginName => $pluginData) {
-				if (in_array($pluginName, $alwaysEnabledPlugins)) {
-					$this->plugindata[$pluginName]['allowUserDisable'] = false;
-				}
-			}
+			// Read all plugins from the plugins folders.
+			$this->plugindata = $this->readPluginFolder($disabledPlugins);
 
 			// Check if any plugins are found or not
 			if (!empty($this->plugindata) ) {
@@ -235,10 +222,13 @@ class PluginManager
 	 * Read all subfolders of the directory referenced to by $this->pluginpath,
 	 * for each subdir, we $this->processPlugin it as a plugin.
 	 *
+	 * @param Array $disabledPlugins The list of disabled plugins, the subfolders
+	 * named as any of the strings inside this list will not be processed.
+	 *
 	 * @return Array The object containing all the processed plugins. The object is a key-value'
 	 * object where the key is the unique name of the plugin, and the value the parsed data.
 	 */
-	function readPluginFolder()
+	function readPluginFolder($disabledPlugins)
 	{
 		$pluginNames = $this->getPluginNames();
 		if (empty($pluginNames)) {
@@ -247,6 +237,11 @@ class PluginManager
 		$data = Array();
 
 		foreach ($pluginNames as $plugin) {
+			// Skip plugins that have been disabled by the admin
+			if (in_array($plugin, $disabledPlugins)) {
+				continue;
+			}
+
 			$pluginData = $this->processPlugin($plugin);
 			if ($pluginData !== false) {
 				$data[$plugin] = $pluginData;
@@ -474,8 +469,14 @@ class PluginManager
 			return false;
 		}
 
-		// Apply the name to the object
-		$plugindata['pluginname'] = $dirname;
+		if ($plugindata) {
+			// Apply the name to the object
+			$plugindata['pluginname'] = $dirname;
+		} else {
+			if (DEBUG_PLUGINS) {
+				dump('[PLUGIN ERROR] Plugin "'.$dirname.'" has an invalid manifest.');
+			}
+		}
 
 		return $plugindata;
 	}
@@ -1192,10 +1193,6 @@ class PluginManager
 	 */
 	function expandPluginList($pluginList)
 	{
-		if (empty($pluginList)) {
-			return [];
-		}
-
 		$pluginNames = explode(';', $pluginList);
 		$pluginList = array();
 		foreach ( $pluginNames as $pluginName ){
