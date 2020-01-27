@@ -92,13 +92,6 @@
 	// Plugin directory name should be used in this list.
 	define("ALWAYS_ENABLED_PLUGINS_LIST", '');
 
-	// Defines the list of initially enabled plugins, separated by semicolon.
-	// The user can disable these plugins is his settings.
-	// Note: Plugins used to have this setting in their own config file, but this
-	// has been deprecated. WebApp will not use those old settings anymore.
-	// Plugin directory name should be used in this list.
-	define('DEFAULT_ENABLED_PLUGINS_LIST', '');
-
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.

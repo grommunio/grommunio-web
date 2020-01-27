@@ -29,9 +29,6 @@ class PluginManager
 	// This folder has same structure as $this->pluginpath
 	var $pluginconfigpath;
 
-	// List of all plugins
-	var $pluginNames;
-
 	// List of all plugins and their data
 	var $plugindata;
 
@@ -121,6 +118,8 @@ class PluginManager
 	}
 
 	/**
+	 * pluginsEnabled
+	 *
 	 * Checks whether the plugins have been enabled by checking if the proper
 	 * configuration keys are set.
 	 * @return boolean Returns true when plugins enabled, false when not.
@@ -130,6 +129,8 @@ class PluginManager
 	}
 
 	/**
+	 * detectPlugins
+	 *
 	 * Detecting the installed plugins either by using the already ready data
 	 * from the state object or otherwise read in all the data and write it into
 	 * the state.
@@ -142,11 +143,11 @@ class PluginManager
 			return false;
 		}
 
-		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
-			// Get the plugindata from the state.
-			$pluginState = new State('plugin');
-			$pluginState->open();
+		// Get the plugindata from the state.
+		$pluginState = new State('plugin');
+		$pluginState->open();
 
+		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
 			$this->plugindata = $pluginState->read("plugindata");
 			$pluginOrder = $pluginState->read("pluginorder");
 			$this->pluginorder = empty($pluginOrder) ? array() : $pluginOrder;
@@ -154,30 +155,17 @@ class PluginManager
 
 		// If no plugindata has been stored yet, get it from the plugins dir.
 		if (!$this->plugindata || !$this->pluginorder) {
-
-			// Read all plugins from the plugins folders.
-			$this->plugindata = $this->readPluginFolder();
-
-			// Remove admin disabled plugins
 			$disabledPlugins = Array();
 			if (!empty($disabled)) {
-				$disabledPlugins = $this->expandPluginList($disabled);
-				foreach ($disabledPlugins as $pluginName) {
-					unset($this->plugindata[$pluginName]);
-				}
+				$disabledPlugins = explode(';', $disabled);
 			}
 
-			// Make sure admin enabled plugins are enabled
-			$alwaysEnabledPlugins = $this->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST);
-			foreach ($this->plugindata as $pluginName => $pluginData) {
-				if (in_array($pluginName, $alwaysEnabledPlugins)) {
-					$this->plugindata[$pluginName]['allowUserDisable'] = false;
-				}
-			}
+			// Read all plugins from the plugins folders.
+			$this->plugindata = $this->readPluginFolder($disabledPlugins);
 
-			// Check if any plugins are found or not
+			// Check if any plugin directories found or not
 			if (!empty($this->plugindata) ) {
-				// Note that we update plugindata and pluginorder based on the configured dependencies.
+				// Not we update plugindata and pluginorder based on the configured dependencies.
 				// Note that each change to plugindata requires the requirements and dependencies
 				// to be recalculated.
 				while (!$this->pluginorder || !$this->validatePluginRequirements()) {
@@ -193,76 +181,55 @@ class PluginManager
 		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
 			$pluginState->write("plugindata", $this->plugindata);
 			$pluginState->write("pluginorder", $this->pluginorder);
-
-			// Free the state again.
-			$pluginState->close();
 		}
+
+		// Free the state again.
+		$pluginState->close();
 	}
 
 	/**
-	 * Finds the names of all plugins by reading the plugin directory. Every subdirectory
-	 * with a file named manifest.xml is considered a plugin.
+	 * readPluginFolder
 	 *
-	 * @return String[] An array with all plugin names
-	 */
-	function getPluginNames() {
-		if (isset($this->pluginNames)) {
-			return $this->pluginNames;
-		}
-
-		$pluginNames = array();
-		$pluginsdir = opendir($this->pluginpath);
-		if (!$pluginsdir) {
-			return $pluginNames;
-		}
-
-		while (($plugin = readdir($pluginsdir)) !== false) {
-			if (
-				$plugin != '.' &&
-				$plugin != '..' &&
-				is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin) &&
-				is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')
-			) {
-				$pluginNames[] = $plugin;
-			}
-		}
-		closedir($pluginsdir);
-
-		return ($this->pluginNames = $pluginNames);
-	}
-
-	/**
 	 * Read all subfolders of the directory referenced to by $this->pluginpath,
 	 * for each subdir, we $this->processPlugin it as a plugin.
 	 *
-	 * @return Array The object containing all the processed plugins. The object is a key-value'
+	 * @param $disabledPlugins Array The list of disabled plugins, the subfolders
+	 * named as any of the strings inside this list will not be processed.
+	 * @returns Array The object containing all the processed plugins. The object is a key-value'
 	 * object where the key is the unique name of the plugin, and the value the parsed data.
 	 */
-	function readPluginFolder()
+	function readPluginFolder($disabledPlugins)
 	{
-		$pluginNames = $this->getPluginNames();
-		if (empty($pluginNames)) {
-			return array();
-		}
 		$data = Array();
 
-		foreach ($pluginNames as $plugin) {
-			$pluginData = $this->processPlugin($plugin);
-			if ($pluginData !== false) {
-				$data[$plugin] = $pluginData;
+		$pluginsdir = opendir($this->pluginpath);
+		if ($pluginsdir) {
+			while(($plugin = readdir($pluginsdir)) !== false){
+				if ($plugin != '.' && $plugin != '..' && !in_array($plugin, $disabledPlugins)){
+					if(is_dir($this->pluginpath . DIRECTORY_SEPARATOR . $plugin)){
+						if(is_file($this->pluginpath . DIRECTORY_SEPARATOR . $plugin . DIRECTORY_SEPARATOR . 'manifest.xml')){
+							$processed = $this->processPlugin($plugin);
+							$data[$processed['pluginname']] = $processed;
+						}
+					}
+				}
 			}
+
+			closedir($pluginsdir);
 		}
 
 		return $data;
 	}
 
 	/**
+	 * validatePluginRequirements
+	 *
 	 * Go over the parsed $this->plugindata and check if all requirements are met.
 	 * This means that for each plugin which defined a "depends" or "requires" plugin
 	 * we check if those plugins are present on the system. If some dependencies are
 	 * not met, the plugin is removed from $this->plugindata.
 	 *
-	 * @return Boolean False if the $this->plugindata was modified by this function
+	 * @return boolean False if the $this->plugindata was modified by this function
 	 */
 	function validatePluginRequirements()
 	{
@@ -280,10 +247,24 @@ class PluginManager
 
 					// We only care about the 'depends' and 'requires'
 					// dependency types. All others are not blocking.
-					foreach ($plugin['dependencies'] as $depends) {
-						if (!$this->pluginExists($depends)) {
+					foreach ($plugin['dependencies'][DEPEND_DEPENDS] as &$depends) {
+						if (!$this->pluginExists($depends['plugin'])) {
 							if (DEBUG_PLUGINS) {
-								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" requires "' . $depends . '" which could not be found');
+								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" requires "' . $depends['plugin'] . '" which could not be found');
+							}
+							unset($this->plugindata[$pluginname]);
+							// Indicate failure, as we have removed a plugin, and the requirements
+							// must be rechecked.
+							$success = false;
+							// Indicate that the plugindata was modified.
+							$modified = true;
+						}
+					}
+
+					foreach ($plugin['dependencies'][DEPEND_REQUIRES] as &$depends) {
+						if (!$this->pluginExists($depends['plugin'])) {
+							if (DEBUG_PLUGINS) {
+								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" requires "' . $depends['plugin'] . '" which could not be found');
 							}
 							unset($this->plugindata[$pluginname]);
 							// Indicate failure, as we have removed a plugin, and the requirements
@@ -305,29 +286,8 @@ class PluginManager
 	}
 
 	/**
-	 * Reads the settings to find out if the given plugin is enabled or not. Also
-	 * checks if all dependecies are enabled.
+	 * buildPluginDependencyOrder
 	 *
-	 * @return Boolean true if enabled, false otherwise
-	 */
-	function isPluginEnabled($name) {
-		if ($this->plugindata[$name]['dependencies']) {
-			$deps = $this->plugindata[$name]['dependencies'];
-			foreach($deps as $dep) {
-				if (!$this->isPluginEnabled($dep)) {
-					return false;
-				}
-			}
-		}
-
-		if (isset($this->plugindata[$name]['allowUserDisable']) && $this->plugindata[$name]['allowUserDisable'] === false) {
-			return true;
-		}
-
-		return $GLOBALS['settings']->get('zarafa/v1/plugins/' . $name . '/enable') === true;
-	}
-
-	/**
 	 * Go over the parsed $this->plugindata and create a ordered list of the plugins, resembling
 	 * the order in which those plugins should be loaded. This goes over all plugins to read
 	 * the 'dependencies' data and ordering those plugins based on the DEPEND_DEPENDS dependency type.
@@ -339,7 +299,6 @@ class PluginManager
 	 */
 	function buildPluginDependencyOrder()
 	{
-
 		$plugins = array_keys($this->plugindata);
 		$ordered = Array();
 		$failedCount = 0;
@@ -356,9 +315,9 @@ class PluginManager
 
 			// Go over all dependencies to see if they have been met.
 			if ($plugin['dependencies']) {
-				for ($i = 0, $len = count($plugin['dependencies']); $i < $len; $i++) {
-					$dependency = $plugin['dependencies'][$i];
-					if (array_search($dependency, $ordered) === FALSE) {
+				for ($i = 0, $len = count($plugin['dependencies'][DEPEND_DEPENDS]); $i < $len; $i++) {
+					$dependency = $plugin['dependencies'][DEPEND_DEPENDS][$i];
+					if (array_search($dependency['plugin'], $ordered) === FALSE) {
 						$accepted = false;
 						break;
 					}
@@ -403,8 +362,10 @@ class PluginManager
 	}
 
 	/**
-	 * This function includes the server plugin classes, instantiates and
-	 * initializes them by calling their init() function.
+	 * initPlugins
+	 *
+	 * This function includes the server plugin classes, instantiate and
+	 * initialize them.
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
@@ -414,22 +375,13 @@ class PluginManager
 			return false;
 		}
 
-		// Merge the admin settings with the normal settings. Plugins
-		// have not been initialized yet, but we do get the WebApp settings
-		// which contain the 'enable' settings of plugins.
-		$GLOBALS['settings']->mergeSysAdminSettings();
-
 		$files = $this->getServerFiles($load);
 		foreach ($files['server'] as $file) {
 			include_once($file);
 		}
 
-		// Include the root files of all the plugins and instantiate the plugin
+		// Inlcude the root files of all the plugins and instantiate the plugin
 		foreach ($this->pluginorder as $plugName) {
-			if (!$this->isPluginEnabled($plugName)) {
-				continue;
-			}
-
 			$pluginClassName = 'Plugin' . $plugName;
 			if(class_exists($pluginClassName)){
 				$this->plugins[$plugName] = new $pluginClassName;
@@ -440,23 +392,16 @@ class PluginManager
 
 		$this->modules = $files['modules'];
 		$this->notifiers = $files['notifiers'];
-
-		// This trigger has been moved from the Settings object to here, because we cannot
-		// trigger it before the plugins have been initialized. (that's when the plugins will register
-		// to this hook). Unfortunately we cannot rename this hook because that would break all
-		// plugins that use this hook.
-		$this->triggerHook('server.core.settings.init.before', Array('settingsObj' => $GLOBALS['settings']));
-
-		// Merge the admin settings again so we will also get the settings injected by plugins
-		$GLOBALS['settings']->mergeSysAdminSettings();
 	}
 
 	/**
+	 * processPlugin
+	 *
 	 * Read in the manifest and get the files that need to be included
 	 * for placing hooks, defining modules, etc.
 	 *
-	 * @param String $dirname name of the directory of the plugin
-	 * @return Array The plugin data read from the given directory
+	 * @param $dirname string name of the directory of the plugin
+	 * @return array The plugin data read from the given directory
 	 */
 	function processPlugin($dirname){
 		// Read XML manifest file of plugin
@@ -470,22 +415,25 @@ class PluginManager
 		}
 
 		$plugindata = $this->extractPluginDataFromXML($xml, $dirname);
-		if ($plugindata === false) {
-			return false;
+		if ($plugindata) {
+			// Apply the name to the object
+			$plugindata['pluginname'] = $dirname;
+		} else {
+			if (DEBUG_PLUGINS) {
+				dump('[PLUGIN ERROR] Plugin "'.$dirname.'" has an invalid manifest.');
+			}
 		}
-
-		// Apply the name to the object
-		$plugindata['pluginname'] = $dirname;
-
 		return $plugindata;
 	}
 
 	/**
+	 * loadSessionData
+	 *
 	 * Loads sessiondata of the plugins from disk.
 	 * To improve performance the data is only loaded if a
 	 * plugin requests (reads or saves) the data.
 	 *
-	 * @param String $pluginname Identifier of the plugin
+	 * @param $pluginname string Identifier of the plugin
 	 */
 	function loadSessionData($pluginname) {
 		// lazy reading of sessionData
@@ -506,9 +454,11 @@ class PluginManager
 	}
 
 	/**
+	 * saveSessionData
+	 *
 	 * Saves sessiondata of the plugins to the disk.
 	 *
-	 * @param String $pluginname Identifier of the plugin
+	 * @param $pluginname string Identifier of the plugin
 	 */
 	function saveSessionData($pluginname) {
 		if ($this->pluginExists($pluginname)) {
@@ -523,9 +473,11 @@ class PluginManager
 	}
 
 	/**
+	 * pluginExists
+	 *
 	 * Checks if plugin exists.
 	 *
-	 * @param String $pluginname Identifier of the plugin
+	 * @param $pluginname string Identifier of the plugin
 	 * @return boolen True when plugin exists, false when it does not.
 	 */
 	function pluginExists($pluginname){
@@ -537,10 +489,12 @@ class PluginManager
 	}
 
 	/**
+	 * getModuleFilePath
+	 *
 	 * Obtain the filepath of the given modulename
 	 *
-	 * @param String $modulename Identifier of the modulename
-	 * @return String The path to the file for the module
+	 * @param $modulename string Identifier of the modulename
+	 * @return string The path to the file for the module
 	 */
 	function getModuleFilePath($modulename)
 	{
@@ -552,10 +506,12 @@ class PluginManager
 	}
 
 	/**
+	 * getNotifierFilePath
+	 *
 	 * Obtain the filepath of the given notifiername
 	 *
-	 * @param String $notifiername Identifier of the notifiername
-	 * @return String The path to the file for the notifier
+	 * @param $notifiername string Identifier of the notifiername
+	 * @return string The path to the file for the notifier
 	 */
 	function getNotifierFilePath($notifiername)
 	{
@@ -567,26 +523,30 @@ class PluginManager
 	}
 
 	/**
+	 * registerHook
+	 *
 	 * This function allows the plugin to register their hooks.
 	 *
-	 * @param String $eventID Identifier of the event where this hook must be triggered.
-	 * @param String $pluginName Name of the plugin that is registering this hook.
+	 * @param $eventID string Identifier of the event where this hook must be triggered.
+	 * @param $pluginName string Name of the plugin that is registering this hook.
 	 */
 	function registerHook($eventID, $pluginName){
 		$this->hooks[ $eventID ][ $pluginName ] = $pluginName;
 	}
 
 	/**
+	 * triggerHook
+	 *
 	 * This function will call all the registered hooks when their event is triggered.
 	 *
-	 * @param String $eventID Identifier of the event that has just been triggered.
-	 * @param mixed $data Usually an array of data that the callback function can modify.
+	 * @param $eventID string Identifier of the event that has just been triggered.
+	 * @param $data mixed (Optional) Usually an array of data that the callback function can modify.
 	 * @return mixed Data that has been changed by plugins.
 	 */
 	function triggerHook($eventID, $data = Array())
 	{
 		if(isset($this->hooks[ $eventID ]) && is_array($this->hooks[ $eventID ])){
-			foreach($this->hooks[ $eventID ] as $pluginname){
+			foreach($this->hooks[ $eventID ] as $key => $pluginname){
 				$this->plugins[ $pluginname ]->execute($eventID, $data);
 			}
 		}
@@ -594,6 +554,8 @@ class PluginManager
 	}
 
 	/**
+	 * getPluginVersion
+	 *
 	 * Function is used to prepare version information array from plugindata.
 	 *
 	 * @return Array The array of plugins version information.
@@ -608,55 +570,8 @@ class PluginManager
 	}
 
 	/**
-	 * Returns the meta data of all installed plugins that are not disabled by the admin.
-	 * Format will be as follows:
-	 * Array(
-	 * 		'pluginname1' => Array(
-	 * 			'enabled'		=> true/false,
-	 * 			'version' 		=> ...,
-	 * 			'title'			=> ...,
-	 * 			'author'		=> ...,
-	 * 			'authorURL'		=> ...,
-	 * 			'description'	=> ...,
-	 * 		),
-	 * 		'pluginname2' => Array(
-	 * 			etc...
-	 * 		),
-	 * );
+	 * getServerFilesForComponent
 	 *
-	 * @return Array Meta data of the installed plugins.
-	 */
-	function getPluginsMetaData()
-	{
-		$meta = Array();
-		foreach ($this->plugindata as $pluginName => $data ) {
-			$meta[$pluginName] = Array(
-				'WAPVersion' => $data['WAPVersion'],
-				'enabled' => $this->isPluginEnabled($pluginName),
-				'version' => $data['version'],
-				'displayName' => isset($data['displayName']) ? $data['displayName'] : $pluginName,
-			);
-
-			if (isset($data['author'])) {
-				$meta[$pluginName]['author'] = $data['author'];
-			}
-			if (isset($data['authorURL'])) {
-				$meta[$pluginName]['authorURL'] = $data['authorURL'];
-			}
-			if (isset($data['description'])) {
-				$meta[$pluginName]['description'] = $data['description'];
-			}
-			if (isset($data['allowUserDisable'])) {
-				$meta[$pluginName]['allowUserDisable'] = $data['allowUserDisable'];
-			}
-			if (isset($data['allowUserVisible'])) {
-				$meta[$pluginName]['allowUserVisible'] = $data['allowUserVisible'];
-			}
-		}
-		return $meta;
-	}
-
-	/**
 	 * Called by getServerFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
 	 * The paths which are returned start at the root of the webapp.
@@ -670,7 +585,7 @@ class PluginManager
 	 * @param Array $component The component to read the serverfiles from
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array list of paths to the files in this component
+	 * @return array list of paths to the files in this component
 	 */
 	function getServerFilesForComponent($pluginname, $component, $load)
 	{
@@ -703,16 +618,18 @@ class PluginManager
 	}
 
 	/**
+	 * getServerFiles
+	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
 	 *
 	 * This calls getServerFilesForComponent() to obtain the files
 	 * for each component inside the requested plugin
 	 *
-	 * @param String $pluginname The name of the plugin for which the server files are requested.
+	 * @param string $pluginname The name of the plugin for which the server files are requested.
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array List of paths to files.
+	 * @return array List of paths to files.
 	 */
 	function getServerFiles($load = LOAD_RELEASE)
 	{
@@ -723,10 +640,6 @@ class PluginManager
 		);
 
 		foreach ($this->pluginorder as $pluginname) {
-			if (!$this->isPluginEnabled($pluginname)) {
-				continue;
-			}
-
 			$plugin = &$this->plugindata[$pluginname];
 			foreach($plugin['components'] as &$component) {
 				if (!empty($component['serverfiles'][$load])) {
@@ -752,6 +665,8 @@ class PluginManager
 	}
 
 	/**
+	 * getClientFilesForComponent
+	 *
 	 * Called by getClientFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
 	 * The paths which are returned start at the root of the webapp.
@@ -765,7 +680,7 @@ class PluginManager
 	 * @param Array $component The component to read the clientfiles from
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array list of paths to the files in this component
+	 * @return array list of paths to the files in this component
 	 */
 	function getClientFilesForComponent($pluginname, $component, $load)
 	{
@@ -780,6 +695,8 @@ class PluginManager
 	}
 
 	/**
+	 * getClientFiles
+	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
 	 *
@@ -788,17 +705,12 @@ class PluginManager
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array List of paths to files.
+	 * @return array List of paths to files.
 	 */
 	function getClientFiles($load = LOAD_RELEASE){
 		$files = Array();
 
-		$pluginNames = $this->pluginorder;
-		foreach ($pluginNames as $pluginname) {
-			if (!$this->isPluginEnabled($pluginname)) {
-				continue;
-			}
-
+		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
 			foreach($plugin['components'] as &$component) {
 				if (!empty($component['clientfiles'][$load])) {
@@ -822,6 +734,8 @@ class PluginManager
 	}
 
 	/**
+	 * getResourceFilesForComponent
+	 *
 	 * Called by getResourceFiles() to return the list of files which are provided
 	 * for the given component in a particular plugin.
 	 * The paths which are returned start at the root of the webapp.
@@ -835,7 +749,7 @@ class PluginManager
 	 * @param Array $component The component to read the resourcefiles from
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array list of paths to the files in this component
+	 * @return array list of paths to the files in this component
 	 */
 	function getResourceFilesForComponent($pluginname, $component, $load)
 	{
@@ -850,6 +764,8 @@ class PluginManager
 	}
 
 	/**
+	 * getResourceFiles
+	 *
 	 * Returning an array of paths to files that need to be included.
 	 * The paths which are returned start at the root of the webapp.
 	 *
@@ -858,17 +774,12 @@ class PluginManager
 	 *
 	 * @param number $load One of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE. This will filter
 	 * the files based on the 'load' attribute.
-	 * @return Array List of paths to files.
+	 * @return array List of paths to files.
 	 */
 	function getResourceFiles($load = LOAD_RELEASE) {
 		$files = Array();
 
-		$pluginNames = array_keys($this->plugindata);
-		foreach ($pluginNames as $pluginname) {
-			if (!$this->isPluginEnabled($pluginname)) {
-				continue;
-			}
-
+		foreach ($this->pluginorder as $pluginname) {
 			$plugin = &$this->plugindata[$pluginname];
 			foreach($plugin['components'] as &$component) {
 				if (!empty($component['resourcefiles'][$load])) {
@@ -892,10 +803,12 @@ class PluginManager
 	}
 
 	/**
+	 * getTranslationFilePaths
+	 *
 	 * Returning an array of paths to to the translations files. This will be
 	 * used by the gettext functionality.
 	 *
-	 * @return Array List of paths to translations.
+	 * @return array List of paths to translations.
 	 */
 	function getTranslationFilePaths(){
 		$paths = Array();
@@ -915,11 +828,13 @@ class PluginManager
 	}
 
 	/**
+	 * extractPluginDataFromXML
+	 *
 	 * Extracts all the data from the Plugin XML manifest.
 	 *
-	 * @param String $xml XML manifest of plugin
-	 * @param String $dirname name of the directory of the plugin
-	 * @return Array Data from XML converted into array that the PluginManager can use.
+	 * @param $xml string XML manifest of plugin
+	 * @param $dirname string name of the directory of the plugin
+	 * @return array Data from XML converted into array that the PluginManager can use.
 	 */
 	function extractPluginDataFromXML($xml, $dirname)
 	{
@@ -931,60 +846,21 @@ class PluginManager
 		);
 
 		// Parse all XML data
-		try {
-			$data = new SimpleXMLElement($xml);
-		} catch (Exception $e) {
-			dump("[PLUGIN ERROR] Plugin $dirname has invalid manifest: ".$e->getMessage());
-			return false;
-		}
+		$data = new SimpleXMLElement($xml);
 
 		// Parse the <plugin> attributes
-
-		// Only major plugin version 2 or higher is supported. Because previous versions of WebApp
-		// only supported major version 2, we use 2.1 for new plugin manifests. In the future (when
-		// nobody uses old WebApp version anymore... ¯\_(ツ)_/¯) we could move to higher major versions.
-		// Version 2.1 introduced the elements <allowuserdisable> and <allowuservisible>
-		if (isset($data['version']) && version_compare((string) $data['version'], '2') === -1) {
+		if (isset($data['version']) && (int) $data['version'] !== 2) {
 			if (DEBUG_PLUGINS) {
-				dump("[PLUGIN ERROR] Plugin $dirname manifest uses version " . $data['version'] . " but versions smaller then 2 are not supported");
+				dump("[PLUGIN ERROR] Plugin $dirname manifest uses version " . $data['version'] . " while only version 2 is supported");
 			}
 			return false;
 		}
-		$plugindata['WAPVersion'] = (string) $data['version'];
 
 		// Parse the <info> element
 		if (isset($data->info->version)) {
 			$plugindata['version'] = (string) $data->info->version;
 		} else {
 			dump("[PLUGIN WARNING] Plugin $dirname has not specified version information in manifest.xml");
-		}
-		if (isset($data->info->title)) {
-			$plugindata['displayName'] = (string) $data->info->title;
-		}
-		if (isset($data->info->author)) {
-			$plugindata['author'] = (string) $data->info->author;
-		}
-		if (isset($data->info->authorURL)) {
-			$plugindata['authorURL'] = (string) $data->info->authorURL;
-		}
-		if (isset($data->info->description)) {
-			$plugindata['description'] = (string) $data->info->description;
-		}
-		if (version_compare((string) $data['version'], 2) === 1) {
-			$plugindata['allowUserDisable'] = isset($data->info->allowuserdisable) && strcasecmp((string) $data->info->allowuserdisable, 'false') === 0 ? false : true;
-			$plugindata['allowUserVisible'] = isset($data->info->allowuservisible) && strcasecmp((string) $data->info->allowuservisible, 'false') === 0 ? false : true;;
-		} else {
-			// Check older plugins against a list to keep the old default settings
-			$knownPlugins = array(
-				'/^theme/' => array('allowuserdisable' => false, 'allowuservisible' => false),
-				'/^filesbackend/i' => array('allowuserdisable' => false, 'allowuservisible' => true),
-			);
-			foreach ($knownPlugins as $re => $options) {
-				if (preg_match($re, $dirname)) {
-					$plugindata['allowUserDisable'] = $options['allowuserdisable'];
-					$plugindata['allowUserVisible'] = $options['allowuservisible'];
-				}
-			}
 		}
 
 		// Parse the <config> element
@@ -993,7 +869,7 @@ class PluginManager
 				if (empty($data->config->configfile)) {
 					dump("[PLUGIN ERROR] Plugin $dirname manifest contains empty configfile declaration");
 				}
-				if (!file_exists($this->pluginpath . DIRECTORY_SEPARATOR . $dirname . DIRECTORY_SEPARATOR . $data->config->configfile)) {
+				if (!file_exists($data->config->configfile)) {
 					dump("[PLUGIN ERROR] Plugin $dirname manifest config file does not exists");
 				}
 			} else {
@@ -1023,15 +899,18 @@ class PluginManager
 
 		// Parse the <dependencies> element
 		if (isset($data->dependencies) && isset($data->dependencies->depends)){
-			$dependencies = Array();
+			$dependencies = Array(
+				DEPEND_DEPENDS => Array(),
+				DEPEND_REQUIRES => Array(),
+				DEPEND_RECOMMENDS => Array(),
+				DEPEND_SUGGESTS => Array()
+			);
 			foreach($data->dependencies->depends as $depends){
 				$type = $this->dependMap[(string)$depends->attributes()->type];
-				// We only care about the 'depends' and 'requires'
-				// dependency types. All others are not blocking.
-				if ($type === DEPEND_DEPENDS || $type === DEPEND_REQUIRES) {
-					$plugin = (string) $depends->dependsname;
-					$dependencies[] = $plugin;
-				}
+				$plugin = (string) $depends->dependsname;
+				$dependencies[$type][] = Array(
+					'plugin' => $plugin
+				);
 			}
 			$plugindata['dependencies'] = $dependencies;
 		}
@@ -1071,7 +950,7 @@ class PluginManager
 							LOAD_RELEASE => Array()
 						);
 						foreach($component->files->server->serverfile as $serverfile) {
-							$load = NULL;
+							$load = LOAD_RELEASE;
 							$type = TYPE_PLUGIN;
 							$module = null;
 							$notifier = null;
@@ -1093,20 +972,13 @@ class PluginManager
 								$notifier = (string) $serverfile['notifier'];
 							}
 							if ($filename){
-								$tmp = Array(
+								$files[$load][] = Array(
 									'file' => $filename,
 									'type' => $type,
 									'load' => $load,
 									'module' => $module,
 									'notifier' => $notifier
 								);
-								if ($load!==NULL) {
-									$files[$load][] = $tmp;
-								} else {
-									$files[LOAD_SOURCE][] = $tmp;
-									$files[LOAD_DEBUG][] = $tmp;
-									$files[LOAD_RELEASE][] = $tmp;
-								}
 							}
 						}
 						$componentdata['serverfiles'][LOAD_SOURCE] = array_merge($componentdata['serverfiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
@@ -1178,24 +1050,15 @@ class PluginManager
 			}
 			return false;
 		}
-
 		return $plugindata;
 	}
 
 	/**
 	 * Expands a string that contains a semicolon separated list of plugins.
-	 * All wildcards (*) will be resolved, duplicates and invalid names will
-	 * be removed and
-	 *
-	 * @param String $pluginList A semicolon separated list of plugins
-	 * @return Array An array of plugin names
+	 * All wildcards (*) will be resolved.
 	 */
 	function expandPluginList($pluginList)
 	{
-		if (empty($pluginList)) {
-			return [];
-		}
-
 		$pluginNames = explode(';', $pluginList);
 		$pluginList = array();
 		foreach ( $pluginNames as $pluginName ){
@@ -1211,8 +1074,10 @@ class PluginManager
 			}
 		}
 
-		// Remove duplicates and return
-		return array_unique($pluginList);
+		// Remove duplicates
+		$pluginList = array_unique($pluginList);
+
+		return implode(';', $pluginList);
 	}
 
 	/**
@@ -1229,7 +1094,9 @@ class PluginManager
 		$retVal = array();
 		$pluginNames = array_keys($this->plugindata);
 		$regExp = '/^' . str_replace('*', '.*?', $pluginNameWithWildcard) . '$/';
+		dump('rexexp = '.$regExp);
 		foreach ( $pluginNames as $pluginName ){
+			dump('checking plugin: '.$pluginName);
 			if ( preg_match($regExp, $pluginName) ){
 				$retVal[] = $pluginName;
 			}

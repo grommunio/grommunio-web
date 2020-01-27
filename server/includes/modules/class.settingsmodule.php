@@ -123,7 +123,6 @@
 					$GLOBALS['settings']->delete($path);
 				}
 
-
 				// Finally save the settings, this can throw exception when it fails saving settings
 				$GLOBALS['settings']->saveSettings();
 

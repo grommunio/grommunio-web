@@ -179,11 +179,6 @@
 	// lose at least one GLOBAL (because globals suck)
 	$GLOBALS['mapisession'] = WebAppAuthentication::getMapiSession();
 
-	$Language = new Language();
-
-	// Create globals settings object (btw: globals suck)
-	$GLOBALS["settings"] = new Settings($Language);
-
 	// Instantiate Plugin Manager and init the plugins (btw: globals suck)
 	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
 	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
@@ -194,6 +189,11 @@
 	ob_start();
 	$GLOBALS['PluginManager']->initPlugins(DEBUG_LOADER);
 	ob_end_clean();
+
+	$Language = new Language();
+
+	// Create globals settings object (btw: globals suck)
+	$GLOBALS["settings"] = new Settings($Language);
 
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();

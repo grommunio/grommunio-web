@@ -23,6 +23,20 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	displayName : '',
 
 	/**
+	 * @cfg {String} settingsName Alternative name for the plugin as used
+	 * in the {@link Zarafa.settings.SettingsModel settings} in which the settings
+	 * for this {@link Zarafa.core.Plugin plugin} are being saved. If not provided,
+	 * then {@link #name} will be used.
+	 */
+	settingsName : '',
+
+	/**
+	 * @cfg {String} iconCls The icon to be used in places where the plugin is referenced
+	 * in UI components.
+	 */
+	iconCls : '',
+
+	/**
 	 * @cfg {String} about The about text. If provided, {@link Zarafa.core.Plugin#registerAboutText}
 	 * will be automatically called during {@link Zarafa.core.Plugin#initPlugin initialization}.
 	 */
@@ -32,7 +46,6 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * @cfg {Boolean} allowUserDisable True if the user is allowed to enable/disable
 	 * the plugin through the settings. To obtain the enabled status, the function
 	 * {@link #isEnabled} should always be referenced.
-	 * @deprecated Should be set in the manifest of the plugin
 	 */
 	allowUserDisable : true,
 
@@ -40,7 +53,6 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	 * @cfg {Boolean} allowUserVisible True if the user is allowed to see the plugin
 	 * in the settings. To obtain the visibility status, the function
 	 * {@link #isPrivate} should always be referenced.
-	 * @deprecated Should be set in the manifest of the plugin
 	 */
 	allowUserVisible : true,
 
@@ -91,9 +103,9 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	{
 		if ( !this.allowUserDisable ){
 			return true;
+		} else {
+			return container.getSettingsModel().get(this.getSettingsBase() + '/enable') === true;
 		}
-
-		return container.getSettingsModel().get(this.getSettingsBase() + '/enable') === true;
 	},
 
 	/**
@@ -121,6 +133,15 @@ Zarafa.core.PluginMetaData = Ext.extend(Object, {
 	getDisplayName : function()
 	{
 		return this.displayName;
+	},
+
+	/**
+	 * Obtain the CSS classname for this plugin
+	 * @return {String} The CSS classname for this plugin
+	 */
+	getIconCls : function()
+	{
+		return this.iconCls;
 	},
 
 	/**

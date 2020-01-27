@@ -35,30 +35,27 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}]
 		});
 
+		var plugins = container.getPluginsMetaData();
 		var server = container.getServerConfig();
-		var plugins = server.getPluginsMetaData();
+		var pluginsVersion = server.getPluginsVersion();
 		var versionInfo;
-		for (let pluginName in plugins) {
-			// eslint-disable-next-line no-prototype-builtins
-			if (plugins.hasOwnProperty(pluginName)) {
-				let plugin = plugins[pluginName];
-
-				if (plugin.allowUserVisible !== false) {
-					if( Ext.isEmpty(plugin.version) ) {
-						versionInfo = _('Unknown');
-					} else {
-						versionInfo = plugin.version;
-					}
-
-					store.add(new Ext.data.Record({
-						'name' : pluginName,
-						'display_name' : plugin.displayName,
-						'version' : versionInfo,
-						'enabled' : plugin.enabled,
-						'allow_disable' : plugin.allowUserDisable !== false,
-						'settings_base' : 'zarafa/v1/plugins/' + pluginName
-					}));
+		for (var i = 0, len = plugins.length; i < len; i++) {
+			var plugin = plugins[i];
+			if (!plugin.isPrivate()) {
+				if( Ext.isEmpty(pluginsVersion[plugin.getName()]) ) {
+					versionInfo = _('Unknown');
+				} else {
+					versionInfo = pluginsVersion[plugin.getName()];
 				}
+
+				store.add(new Ext.data.Record({
+					'name' : plugin.getName(),
+					'display_name' : plugin.getDisplayName(),
+					'version' : versionInfo,
+					'enabled' : plugin.isEnabled(),
+					'allow_disable' : plugin.allowUserDisable,
+					'settings_base' : plugin.getSettingsBase()
+				}));
 			}
 		}
 
@@ -265,9 +262,9 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 			p.css += ' zarafa-settings-pluginavailable-fixed';
 			// Add message that this plugin cannot be disabled
 			if ( record.get('enabled') === true ){
-				value += ' <span>' + _('This plugin cannot be disabled manually') + '</span>';
+				value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
 			} else {
-				value += ' <span>' + _('This plugin cannot be enabled manually') + '</span>';
+				value += ' <span>' + _('This plugin cannot be enabled') + '</span>';
 			}
 		}
 

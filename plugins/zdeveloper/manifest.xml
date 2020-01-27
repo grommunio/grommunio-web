@@ -1,18 +1,23 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2.1">
+<plugin version="2">
 	<info>
-		<version>0.3</version>
+		<version>0.2</version>
+		<name>zdeveloper</name>
 		<title>Kopano Developer Plugin</title>
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>
-		<description>Shows all available insertion points in the Kopano WebApp</description>
-		<allowuserdisable>true</allowuserdisable>
-		<allowuservisible>true</allowuservisible>
+		<description>Shows all available insertion points on screen.</description>
 	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
 	<components>
 		<component>
 			<files>
+				<server>
+					<serverfile>php/plugin.zdeveloper.php</serverfile>
+				</server>
 				<client>
 					<clientfile load="release">js/zdeveloper.js</clientfile>
 					<clientfile load="debug">js/zdeveloper-debug.js</clientfile>

@@ -35,15 +35,15 @@
 		private $persistentSettings;
 
 		/**
-		 * Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
+		 *  Boolean Flag to indicate that settings has been initialized and we can safely call saveSettings to
 		 * add/update new settings, if this is false then it will indicate that there was some problem
 		 * initializing $this->settings object and we shouldn't continue saving new settings as that will
 		 * lose all existing settings of the user
 		 */
-		private $initialized;
+		private $init;
 
 		/**
-		 *  Array of settings that are defined by the admin
+		 *  Array Settings that are defined by system admin
 		 */
 		private $sysAdminDefaults;
 
@@ -67,9 +67,6 @@
 		 */
 		private $modified;
 
-		/**
-		 * Constructor
-		 */
 		function __construct()
 		{
 			$this->settings = array();
@@ -77,21 +74,20 @@
 			$this->sysAdminDefaults = array();
 			$this->settings_string = '';
 			$this->modified = array();
-			$this->initialized = false;
-			$this->loadSettings();
+			$this->init = false;
 		}
 
 		/**
-		 * Retrieves the normal settings and the persistent settings if not done yet.
+		 * Initialise the settings class
 		 *
-		 * @return Boolean True if the settings have been successfully initialized,
-		 * false otherwise.
+		 * Opens the default store and gets the settings. This is done only once. Therefore
+		 * changes written to the settings after the first Init() call will be invisible to this
+		 * instance of the Settings class
+		 * @access private
 		 */
-		function loadSettings() {
-			Log::Write(LOGLEVEL_INFO, "[Settings::loadSettings] function begins.");
-			if ($this->initialized) {
-				return true;
-			}
+		function Init()
+		{
+			$GLOBALS['PluginManager']->triggerHook('server.core.settings.init.before', Array('settingsObj' => $this));
 
 			$this->store = $GLOBALS['mapisession']->getDefaultMessageStore();
 
@@ -101,14 +97,10 @@
 				$this->retrievePersistentSettings();
 
 				// this object will only be initialized when we are able to retrieve existing settings correctly
-				$this->initialized = true;
+				$this->init = true;
 			} catch (SettingsException $e) {
-				Log::Write(LOGLEVEL_WARN, "[Settings::loadSettings] Exception", $e);
 				$e->setHandled();
 			}
-
-			Log::Write(LOGLEVEL_INFO, "[Settings::loadSettings] settings initialized.");
-			return $this->initialized;
 		}
 
 		/**
@@ -124,16 +116,13 @@
 		 */
 		function get($path=null, $default=null, $persistent=false)
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::get] Get a setting from the settings repository");
-
-			if (!$this->loadSettings()) {
-				return null;
+			if (!$this->init) {
+				$this->Init();
 			}
 
 			$settings = !!$persistent ? $this->persistentSettings : $this->settings;
 
 			if ($path==null) {
-				Log::Write(LOGLEVEL_DEBUG, "[Settings::get] when path is null, returns the settings", false, $settings);
 				return $settings;
 			}
 
@@ -148,8 +137,6 @@
 					$tmp = $tmp[$pointer];
 				}
 			}
-
-			Log::Write(LOGLEVEL_DEBUG, "[Settings::get] Get settings from given path", false, $tmp);
 
 			return $tmp;
 		}
@@ -182,19 +169,14 @@
 		 */
 		function set($path, $value, $autoSave = false, $persistent=false)
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::set] before set settings");
-
-			if (!$this->loadSettings()) {
-				Log::Write(LOGLEVEL_INFO, "[Settings::set] loadSettings function return false");
-				return;
+			if (!$this->init) {
+				$this->Init();
 			}
 
 			if ( !!$persistent ){
 				$this->modifiedPersistent[$path] = $value;
-				Log::Write(LOGLEVEL_DEBUG, "[Settings::set] modified persistent array: ", false, $this->modifiedPersistent);
 			} else {
 				$this->modified[$path] = $value;
-				Log::Write(LOGLEVEL_DEBUG, "[Settings::set] modified array: ", false, $this->modified);
 			}
 
 			$path = explode('/', $path);
@@ -226,7 +208,6 @@
 			if ($autoSave === true) {
 				!!$persistent ? $this->savePersistentSettings() : $this->saveSettings();
 			}
-			Log::Write(LOGLEVEL_INFO, "[Settings::set] setting set successfully");
 		}
 
 		/**
@@ -255,11 +236,8 @@
 		 */
 		function delete($path, $autoSave = false)
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::delete] before deleting settings");
-
-			if (!$this->loadSettings()) {
-				Log::Write(LOGLEVEL_INFO, "[Settings::delete] loadSettings function return false");
-				return;
+			if (!$this->init) {
+				$this->Init();
 			}
 
 			$this->modified[$path] = '';
@@ -290,7 +268,6 @@
 			if ($autoSave === true) {
 				$this->saveSettings();
 			}
-			Log::Write(LOGLEVEL_INFO, "[Settings::delete] completed.");
 		}
 
 		/**
@@ -301,8 +278,8 @@
 		 */
 		function getJSON()
 		{
-			if (!$this->loadSettings()) {
-				return '{}';
+			if (!$this->init) {
+				$this->Init();
 			}
 
 			return json_encode($this->settings);
@@ -317,8 +294,8 @@
 		 */
 		function getPersistentSettingsJSON()
 		{
-			if (!$this->loadSettings()) {
-				return '{}';
+			if (!$this->init) {
+				$this->Init();
 			}
 
 			return json_encode($this->persistentSettings);
@@ -340,11 +317,8 @@
 		 */
 		function retrieveSettings()
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::retrieveSettings] before retrieve settings.");
-
 			// first check if property exist and we can open that using mapi_openproperty
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBACCESS_SETTINGS_JSON));
-			Log::Write(LOGLEVEL_DEBUG, "Settings::retrieveSettings from store",false, $storeProps);
 
 			$settings = array("settings"=> array());
 			// Check if property exists, if it does not exist then we can continue with empty set of settings
@@ -353,15 +327,25 @@
 
 				if(!empty($this->settings_string)) {
 					$settings = json_decode_data($this->settings_string, true);
-					if ((empty($settings) || empty($settings['settings'])) && $this->initialized === true) {
-						Log::Write(LOGLEVEL_INFO, "Settings::retrieveSettings Throws Exception : Error retrieving existing settings");
+					if (empty($settings) || empty($settings['settings'])) {
 						throw new SettingsException(_('Error retrieving existing settings'));
 					}
 				}
-			}
 
-			Log::Write(LOGLEVEL_INFO, "[Settings::retrieveSettings] retrieved settings completed.");
-			$this->settings = $settings['settings'];
+				// Get and apply the System Administrator default settings
+				$sysadminSettings = $this->getDefaultSysAdminSettings();
+				$settings = array_replace_recursive($sysadminSettings, $settings['settings']);
+				$this->settings = array_replace_recursive($settings, $this->settings);
+			} elseif (DISABLE_WELCOME_SCREEN) {
+				/*
+				 * if DISABLE_WELCOME_SCREEN is true and PR_EC_WEBACCESS_SETTINGS_JSON is not exists at that time, We
+				 * just append the admin settings to settings array. Normally system admin settings
+				 * contains plugin default enable/disable and other plugins related settings information which required
+				 * while webapp loading time.
+				 */
+				$sysadminSettings = $this->getDefaultSysAdminSettings();
+				$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
+			}
 		}
 
 		/**
@@ -374,15 +358,12 @@
 		 */
 		private function retrievePersistentSettings()
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::retrievePersistentSettings] before retrievePersistentSettings.");
-
 			// first check if property exist and we can open that using mapi_openproperty
 			$storeProps = mapi_getprops($this->store, array(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON));
 
-			Log::Write(LOGLEVEL_DEBUG, "Settings::retrievePersistentSettings from store",false, $storeProps);
-
 			// Check if property exists, if it does not exist then we can continue with empty set of settings
-			if ( isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON]) || propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
+			if ( isset($storeProps[PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON])
+				|| propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
 
 				if ( propIsError(PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY ) {
 					$this->persistentSettingsString = streamProperty($this->store, PR_EC_WEBAPP_PERSISTENT_SETTINGS_JSON);
@@ -393,81 +374,33 @@
 				if ( !empty($this->persistentSettingsString) ) {
 					try{
 						$persistentSettings = json_decode_data($this->persistentSettingsString, true);
-					} catch(Exception $e){
-						Log::Write(LOGLEVEL_ERROR, "Settings::retrievePersistentSettings Exception",$e, $this->persistentSettingsString);
-					}
+					} catch(Exception $e){}
 
 					if ( empty($persistentSettings) || empty($persistentSettings['settings']) ) {
-						Log::Write(LOGLEVEL_ERROR, "Settings::retrievePersistentSettings : Error retrieving existing persistent settings ",false, $this->persistentSettingsString);
-
 						throw new SettingsException(_('Error retrieving existing persistent settings'));
 					}
 
-					$this->persistentSettings = $persistentSettings['settings'];
+					$this->persistentSettings =$persistentSettings['settings'];
 				}
 			}
-			Log::Write(LOGLEVEL_INFO, "[Settings::retrievePersistentSettings] retrieved persistent settings completed.");
-		}
-
-		/**
-		 * Merge the admin settings with the user settings. User settings take prevalence.
-		 */
-		function mergeSysAdminSettings()
-		{
-			$sysadminSettings = $this->getDefaultSysAdminSettings();
-			$this->settings = array_replace_recursive($sysadminSettings, $this->settings);
 		}
 
 		/**
 		 * Retrieves the default settings as defined by the System Administrator.
-		 * Note: The sysadmin 'enable' setting per plugin will be taken from the WebApp's
-		 * config.php (DEFAULT_ENABLED_PLUGINS_LIST) and not from the settings that
-		 * are injected by the plugin itself. (that behaviour is deprecated)
-		 *
-		 * @return Array SysAdmin Settings object
+		 * @return Array Settings object
 		 */
 		function getDefaultSysAdminSettings()
 		{
-			$allPlugins = $GLOBALS['PluginManager']->getPluginNames();
-			$pluginDefaultEnableSettings = array('zarafa' => array('v1' => array('plugins' => array())));
-
-			$defaultEnabledPlugins = $GLOBALS['PluginManager']->expandPluginList(DEFAULT_ENABLED_PLUGINS_LIST);
-
-			forEach ($allPlugins as $p) {
-				$pluginDefaultEnableSettings['zarafa']['v1']['plugins'][$p] = array('enable' => in_array($p, $defaultEnabledPlugins));
-			}
-
-			return array_replace_recursive($this->sysAdminDefaults, $pluginDefaultEnableSettings);
+			return $this->sysAdminDefaults;
 		}
 
 		/**
-		 * Applies the given settings to the sysAdminDefaults object. This function is used by plugins to
-		 * inject their admin settings into the WebApp. Only plugin settings are processed, i.e. settings in
-		 * the 'zarafa/v1/plugins' namespace. The 'enable' settings of plugins are filtered out. Those should
-		 * not be set in the plugins config file anymore, but in the WebApp's config file. (DEFAULT_ENABLED_PLUGINS_LIST)
+		 * Applies the default settings defined by the System Administrator to the sysAdminDefaults
+		 * property.
 		 * @param Array $settings The default settings
 		 */
 		function addSysAdminDefaults($settings)
 		{
-			// Only allow plugin settings to be injected
-			if (
-				!isset($settings) || !is_array($settings) ||
-				!isset($settings['zarafa']) || !is_array($settings['zarafa']) ||
-				!isset($settings['zarafa']['v1']) || !is_array($settings['zarafa']['v1']) ||
-				!isset($settings['zarafa']['v1']['plugins']) || !is_array($settings['zarafa']['v1']['plugins'])
-			) {
-				return;
-			}
-			$settings = array('zarafa' => array('v1' => array('plugins' => $settings['zarafa']['v1']['plugins'])));
-
-			// Filter out plugin 'enable' settings because we will not let plugins inject those.
-			// Instead admins should define default enabled plugins in the WebApp's config.php.
-			foreach ($settings['zarafa']['v1']['plugins'] as $pluginName => $pluginSettings) {
-				if (isset($pluginSettings) && is_array($pluginSettings) && isset($pluginSettings['enable'])) {
-					unset($pluginSettings['enable']);
-				}
-			}
-
 			$this->sysAdminDefaults = array_replace_recursive($this->sysAdminDefaults, $settings);
 		}
 
@@ -491,7 +424,6 @@
 					}
 				}
 			}
-			Log::Write(LOGLEVEL_DEBUG, "[Settings::filterOutSettings] filtered settings.", false, $settings);
 
 			return $settings;
 		}
@@ -504,7 +436,9 @@
 		 */
 		function saveSettings()
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::saveSettings] before save settings.");
+			if (!$this->init) {
+				$this->Init();
+			}
 
 			if (isset($this->settings['zarafa']['v1'])) {
 				// Remove external settings so we don't save the external settings to PR_EC_WEBACCESS_SETTINGS_JSON
@@ -528,12 +462,11 @@
 				mapi_stream_commit($stream);
 
 				mapi_savechanges($this->store);
-				Log::Write(LOGLEVEL_DEBUG, "[Settings::saveSettings] saved setting into mapi", false, $settings);
+
 				// Settings saved, update settings_string and modified array
 				$this->settings_string = $settings;
 				$this->modified = array();
 			}
-			Log::Write(LOGLEVEL_INFO, "[Settings::saveSettings] saved settings completed.");
 		}
 
 		/**
@@ -543,8 +476,6 @@
 		 */
 		function savePersistentSettings()
 		{
-			Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] before save persistent settings.");
-
 			$persistentSettings = json_encode(array('settings' => $this->persistentSettings));
 
 			// Check if the settings have been changed.
@@ -555,12 +486,9 @@
 				mapi_stream_commit($stream);
 				mapi_savechanges($this->store);
 
-				Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] saved persistent settings in MAPI.");
-
 				// Settings saved, update settings string and modified array
 				$this->persistentSettingsString = $persistentSettings;
 			}
-			Log::Write(LOGLEVEL_INFO, "[Settings::savePersistentSettings] save persistent settings completed.");
 		}
 
 		/**

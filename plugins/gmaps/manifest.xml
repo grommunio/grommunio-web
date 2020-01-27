@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2.1">
+<plugin version="2">
 	<info>
-		<version>0.4</version>
-		<title>Google Maps</title>
+		<version>0.3</version>
+		<name>gmaps</name>
+		<title>Google Maps Plugin</title>
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>
 		<description>Shows contact address on google maps.</description>

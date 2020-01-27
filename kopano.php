@@ -71,15 +71,6 @@
 		die();
 	}
 
-	// Create global language object
-	$Language = new Language();
-
-	// Create global settings object
-	$GLOBALS["settings"] = new Settings($Language);
-
-	// Set the correct language
-	$Language->setLanguage($session_lang);
-
 	// Instantiate Plugin Manager
 	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
 	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
@@ -96,6 +87,15 @@
 
 	// Create global operations object
 	$GLOBALS["operations"] = new Operations();
+
+	// Create global language object
+	$Language = new Language();
+
+	// Create global settings object
+	$GLOBALS["settings"] = new Settings($Language);
+
+	// Set the correct language
+	$Language->setLanguage($session_lang);
 
 	// Get the state information for this subsystem
 	$subsystem = sanitizeGetValue('subsystem', 'anonymous', ID_REGEX);

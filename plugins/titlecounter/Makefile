@@ -2,7 +2,8 @@ include ../shared.mk
 
 JSFILES = js/ABOUT.js js/TitleCounter.js
 
-COPYFILES = LICENSE.txt manifest.xml
+COPYFILES = LICENSE.txt manifest.xml config.php \
+	$(wildcard php/*.php)
 
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 

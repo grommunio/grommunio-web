@@ -80,14 +80,14 @@
 			$dateTime = strftime("%d-%b-%Y %H:%M:%S");
 			$log = "[" . $dateTime . "] ";
 			$log .= $this->GetLogLevelString($loglevel);
-			$log .= ' ' . $message . "\r\n";
+			$log .= ' ' . $message;
 
 			if ($detailMessage) {
 				$log .= ' :' . var_export($detailMessage, true) . "\r\n";
 			}
 
 			if ($request) {
-				$log .= ' Request/Data:' . var_export($request, true) . "\r\n";
+				$log .= ' Request:' . var_export($request, true) . "\r\n";
 			}
 
 			return $log;

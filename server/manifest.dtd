@@ -2,15 +2,13 @@
 <!ELEMENT plugin (info,config?,dependencies?,translations?,components)>
 
 	<!-- The <info> element. Positioned inside the <plugin> and/or <component> elements. Provides meta information -->
-	<!ELEMENT info (version?,name?,title?,author?,authorURL?,description?,allowuserdisable?,allowuservisible?)>
+	<!ELEMENT info (version?,name,title?,author?,authorURL?,description?)>
 		<!ELEMENT version (#PCDATA)>
 		<!ELEMENT name (#PCDATA)>
 		<!ELEMENT title (#PCDATA)>
 		<!ELEMENT author (#PCDATA)>
 		<!ELEMENT authorURL (#PCDATA)>
 		<!ELEMENT description (#PCDATA)>
-		<!ELEMENT allowuserdisable (#PCDATA)>
-		<!ELEMENT allowuservisible (#PCDATA)>
 
 	<!-- The <config> element. Positioned inside the <plugin> element. Provides the location of the configuration file(s) -->
 	<!ELEMENT config (configfile+)>
@@ -45,8 +43,8 @@
 <!-- The attributes for the <serverfile> element. -->
 <!ATTLIST serverfile load (release|debug|source) "release">
 <!ATTLIST serverfile type (plugin|module|notifier) "plugin">
-<!ATTLIST serverfile module CDATA #IMPLIED>
-<!ATTLIST serverfile notifier CDATA #IMPLIED>
+<!ATTLIST serverfile module CDATA #IMPLIED> 
+<!ATTLIST serverfile notifier CDATA #IMPLIED> 
 
 <!-- The attributes for the <clientfile> element. -->
 <!ATTLIST clientfile load (release|debug|source) "release">

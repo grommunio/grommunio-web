@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
-<plugin version="2.1">
+<plugin version="2">
 	<info>
-		<version>0.3</version>
-		<title>Contact Fax</title>
+		<version>0.2</version>
+		<name>contactfax</name>
+		<title>Contact Fax Plugin</title>
 		<author>Kopano</author>
 		<authorURL>https://www.kopano.com</authorURL>
 		<description>Open a new 'create mail' dialog with contact's fax number in the TO field of the email.</description>
