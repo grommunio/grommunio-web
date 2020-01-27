@@ -457,6 +457,10 @@ msgstr "選擇"
 msgid "Show Details"
 msgstr "顯示詳細"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -500,6 +504,12 @@ msgstr "依名稱排序"
 
 msgid "Sort by: Email Address"
 msgstr "依電子郵件地址排序"
+
+msgid "Job Title"
+msgstr "工作職稱"
+
+msgid "Sort by: Job Title"
+msgstr "依工作職稱排序"
 
 msgid "Sort by: Department"
 msgstr "依部門排序"
@@ -998,9 +1008,8 @@ msgstr "資源已被預約"
 msgid "Send update"
 msgstr "結束日期"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
-msgstr "更新的郵件會傳送到所有收件人，你想要繼續嗎?"
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
 
 msgid "Send update to attendees"
 msgstr "傳送更新給與會者"
@@ -1153,6 +1162,12 @@ msgstr "新增附件"
 
 msgid "Check names"
 msgstr "檢查名稱"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "邀請與會者"
@@ -2931,9 +2946,6 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid "Job Title"
-msgstr "工作職稱"
-
 msgid "Phone Numbers"
 msgstr "電話號碼"
 
@@ -3234,9 +3246,6 @@ msgstr "公司名稱"
 
 msgid "Sort by: Company Name"
 msgstr "依公司名稱排序"
-
-msgid "Sort by: Job Title"
-msgstr "依工作職稱排序"
 
 msgid "Full Name"
 msgstr "全名"
@@ -4577,9 +4586,6 @@ msgstr "右"
 msgid "Bottom"
 msgstr "底"
 
-msgid "General mail settings"
-msgstr "一般郵件設定"
-
 # 83%
 # 100%
 #, fuzzy
@@ -4591,6 +4597,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "一般郵件設定"
 
 msgid "Open or compose a mail item in a"
 msgstr ""
@@ -5808,6 +5820,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Action is not performed correctly"
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "You have insufficient privileges to open this object"

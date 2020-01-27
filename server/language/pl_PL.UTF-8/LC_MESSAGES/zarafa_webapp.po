@@ -475,6 +475,10 @@ msgstr "Wybierz"
 msgid "Show Details"
 msgstr "Pokaż szczegóły"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Użyj opcji wyszukiwania w celu uzyskania wyników."
 
@@ -516,6 +520,12 @@ msgstr "Sortuj według: Nazwisko"
 
 msgid "Sort by: Email Address"
 msgstr "Sortuj według: Adres e-mail"
+
+msgid "Job Title"
+msgstr "Pozycja"
+
+msgid "Sort by: Job Title"
+msgstr "Sortuj weług pozycji"
 
 msgid "Sort by: Department"
 msgstr "Sortuj według: Dział"
@@ -992,11 +1002,8 @@ msgstr "Zasoby zostały zaplanowane."
 msgid "Send update"
 msgstr "Wyślij później"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Wiadomość aktualizująca zostanie wysłana do wszystkich odbiorców. "
-"Chceszkontynuować?"
 
 msgid "Send update to attendees"
 msgstr "Wyślij aktualizacje do uczestników"
@@ -1158,6 +1165,12 @@ msgstr "Dodaj załącznik"
 
 msgid "Check names"
 msgstr "Sprawdź nazwy"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Zaproś uczestników"
@@ -2920,9 +2933,6 @@ msgstr ""
 msgid "Full name"
 msgstr "Pełna nazwa"
 
-msgid "Job Title"
-msgstr "Pozycja"
-
 msgid "Phone Numbers"
 msgstr "Numery telefonów"
 
@@ -3220,9 +3230,6 @@ msgstr "Firma"
 
 msgid "Sort by: Company Name"
 msgstr "Sortuj według: Firma"
-
-msgid "Sort by: Job Title"
-msgstr "Sortuj weług pozycji"
 
 msgid "Full Name"
 msgstr "Pełna nazwa"
@@ -4557,9 +4564,6 @@ msgstr "Z prawej"
 msgid "Bottom"
 msgstr "Na dole"
 
-msgid "General mail settings"
-msgstr "Ustawienia ogólne e-maila"
-
 msgid "Location of preview pane"
 msgstr "Pozycja okna podglądu"
 
@@ -4569,6 +4573,12 @@ msgstr ""
 msgid "Close original message on reply or forward"
 msgstr ""
 "Zamknij oryginalną wiadomość, jeżeli na nią odpowiedziano lub przesłano dalej"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Ustawienia ogólne e-maila"
 
 msgid "Open or compose a mail item in a"
 msgstr "Otwieranie lub tworzenie e-maili"
@@ -5764,6 +5774,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Akcja nie została wykonana poprawnie."
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Nie masz wystarczających uprawnień, aby otworzyć ten obiekt."

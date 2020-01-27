@@ -468,6 +468,10 @@ msgstr "Sélectionner"
 msgid "Show Details"
 msgstr "Afficher les détails"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Utilisez la barre de recherche pour obtenir des résultats"
 
@@ -514,6 +518,12 @@ msgstr "Trier par : Nom"
 
 msgid "Sort by: Email Address"
 msgstr "Trier par : Adresse électronique"
+
+msgid "Job Title"
+msgstr "Profession"
+
+msgid "Sort by: Job Title"
+msgstr "Trier par : Titre officiel"
 
 msgid "Sort by: Department"
 msgstr "Trier par : Service"
@@ -1003,11 +1013,8 @@ msgstr "Les ressources ont été planifiées."
 msgid "Send update"
 msgstr "Envoyer plus tard"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Un message actualisé sera envoyé à tous les destinataires, désirez-vous "
-"vraiment continuer ?"
 
 msgid "Send update to attendees"
 msgstr "Envoyer la mise à jour aux participants"
@@ -1179,6 +1186,12 @@ msgstr "Ajouter une pièce jointe"
 
 msgid "Check names"
 msgstr "Vérifier les noms"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Inviter des participants"
@@ -3019,9 +3032,6 @@ msgstr ""
 msgid "Full name"
 msgstr "Prénom et Nom"
 
-msgid "Job Title"
-msgstr "Profession"
-
 msgid "Phone Numbers"
 msgstr "Numéros de téléphone"
 
@@ -3338,9 +3348,6 @@ msgstr "Nom de société"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Trier par : Nom de société"
-
-msgid "Sort by: Job Title"
-msgstr "Trier par : Titre officiel"
 
 msgid "Full Name"
 msgstr "Nom et Prénom"
@@ -4753,9 +4760,6 @@ msgstr "Droit"
 msgid "Bottom"
 msgstr "Inférieur"
 
-msgid "General mail settings"
-msgstr "Paramètres de configuration générale du courrier"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4766,6 +4770,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Fermer le  message original lors des réponses ou transferts"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Paramètres de configuration générale du courrier"
 
 msgid "Open or compose a mail item in a"
 msgstr "Ouvrir ou composer un élément de courrier dans un"
@@ -6033,6 +6043,9 @@ msgstr "Impossible de trouver le message, il a été déplacé ou supprimé."
 
 msgid "Action is not performed correctly."
 msgstr "L'opération ne s'est pas déroulée correctement."
+
+msgid "Request is not available."
+msgstr ""
 
 # 94%
 # 90%

@@ -468,6 +468,10 @@ msgstr "Selecionar"
 msgid "Show Details"
 msgstr "Mostrar Detalhes"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -511,6 +515,12 @@ msgstr "Ordenar por: Nome"
 
 msgid "Sort by: Email Address"
 msgstr "Ordenar por: Endereço de E-Mail"
+
+msgid "Job Title"
+msgstr "Função"
+
+msgid "Sort by: Job Title"
+msgstr "Ordenar por: Função"
 
 msgid "Sort by: Department"
 msgstr "Ordenar por: Departamento"
@@ -1030,11 +1040,8 @@ msgstr "Os recursos foram reservados."
 msgid "Send update"
 msgstr "Enviar Mais Tarde"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Uma mensagem de atualização será enviada para todos os participantes. Deseja "
-"continuar?"
 
 msgid "Send update to attendees"
 msgstr "Enviar atualização para todos os participantes"
@@ -1198,6 +1205,12 @@ msgstr "Adicionar anexos"
 
 msgid "Check names"
 msgstr "Conferir nomes"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Convidar participantes"
@@ -3015,9 +3028,6 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid "Job Title"
-msgstr "Função"
-
 msgid "Phone Numbers"
 msgstr "Números de Telefone"
 
@@ -3324,9 +3334,6 @@ msgstr "Nome da Empresa"
 
 msgid "Sort by: Company Name"
 msgstr "Ordenar por: Nome da Empresa"
-
-msgid "Sort by: Job Title"
-msgstr "Ordenar por: Função"
 
 msgid "Full Name"
 msgstr "Nome Completo"
@@ -4689,9 +4696,6 @@ msgstr "À direita"
 msgid "Bottom"
 msgstr "Na parte inferior"
 
-msgid "General mail settings"
-msgstr "Configurações gerais de E-mail"
-
 # 83%
 # 100%
 #, fuzzy
@@ -4703,6 +4707,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Configurações gerais de E-mail"
 
 msgid "Open or compose a mail item in a"
 msgstr ""
@@ -5943,6 +5953,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Ação não foi executada corretamente."
+
+msgid "Request is not available."
+msgstr ""
 
 # 90%
 msgid "You have insufficient privileges to open this object."

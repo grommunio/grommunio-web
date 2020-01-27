@@ -477,6 +477,10 @@ msgstr "Выбрать"
 msgid "Show Details"
 msgstr "Показать подробности"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Используйте строку поиска для получения результатов"
 
@@ -522,6 +526,12 @@ msgstr "Сортировка: По фамилии"
 
 msgid "Sort by: Email Address"
 msgstr "Сортировать по адресу эл. почты"
+
+msgid "Job Title"
+msgstr "Должность"
+
+msgid "Sort by: Job Title"
+msgstr "Сортировать по должности"
 
 msgid "Sort by: Department"
 msgstr "Сортировать по отделу"
@@ -1003,9 +1013,8 @@ msgstr "Ресурсы запланированы"
 msgid "Send update"
 msgstr "Отправить позже"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
-msgstr "Обновление отошлется всем получателям, продолжить?"
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
 
 msgid "Send update to attendees"
 msgstr "Отправить обновление участникам"
@@ -1169,6 +1178,12 @@ msgstr "Добавить вложение"
 
 msgid "Check names"
 msgstr "Проверить имена"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Пригласить участников"
@@ -2995,9 +3010,6 @@ msgstr "Настройки адресов отправки"
 msgid "Full name"
 msgstr "ФИО"
 
-msgid "Job Title"
-msgstr "Должность"
-
 msgid "Phone Numbers"
 msgstr "Номера телефонов"
 
@@ -3291,9 +3303,6 @@ msgstr "Название организации"
 
 msgid "Sort by: Company Name"
 msgstr "Сортировать по названию организации"
-
-msgid "Sort by: Job Title"
-msgstr "Сортировать по должности"
 
 msgid "Full Name"
 msgstr "Полное имя"
@@ -4645,9 +4654,6 @@ msgstr "Справа"
 msgid "Bottom"
 msgstr "Снизу"
 
-msgid "General mail settings"
-msgstr "Общие параметры письма"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4658,6 +4664,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Закрывать текущее письмо при ответе или пересылке"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Общие параметры письма"
 
 msgid "Open or compose a mail item in a"
 msgstr "Открывать или создавать письма в"
@@ -5888,6 +5900,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Операция выполнилась некорректно."
+
+msgid "Request is not available."
+msgstr ""
 
 # 90%
 msgid "You have insufficient privileges to open this object."

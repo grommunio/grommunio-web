@@ -479,6 +479,10 @@ msgstr "Választ"
 msgid "Show Details"
 msgstr "Részletek megjelenítése"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Használja a keresőt, hogy találatokat kapjon"
 
@@ -527,6 +531,12 @@ msgstr "Rendezés: Vezetéknév"
 
 msgid "Sort by: Email Address"
 msgstr "Rendezés: Email cím"
+
+msgid "Job Title"
+msgstr "Beosztás"
+
+msgid "Sort by: Job Title"
+msgstr "Rendezés: Beosztás"
 
 msgid "Sort by: Department"
 msgstr "Rendezés: Osztály"
@@ -1041,10 +1051,8 @@ msgstr "Erőforrások lefoglalása megtörtént."
 msgid "Send update"
 msgstr "Küldés később"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Frissítési üzenet kerül kiküldésre minden résztvevőnek, kívánja folytatni?"
 
 msgid "Send update to attendees"
 msgstr "Frissítés küldése a résztvevőknek"
@@ -1208,6 +1216,12 @@ msgstr "Melléklet hozzáadása"
 
 msgid "Check names"
 msgstr "Nevek ellenőrzése"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Résztvevők meghívása"
@@ -3048,9 +3062,6 @@ msgstr ""
 msgid "Full name"
 msgstr "Teljes név"
 
-msgid "Job Title"
-msgstr "Beosztás"
-
 msgid "Phone Numbers"
 msgstr "Telefonszámok"
 
@@ -3354,9 +3365,6 @@ msgstr "Cégnév"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Rendezés: Cégnév"
-
-msgid "Sort by: Job Title"
-msgstr "Rendezés: Beosztás"
 
 msgid "Full Name"
 msgstr "Teljes név"
@@ -4749,9 +4757,6 @@ msgstr "Jobb"
 msgid "Bottom"
 msgstr "Alsó"
 
-msgid "General mail settings"
-msgstr "Általános levelezési beállítások"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4762,6 +4767,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Zárja be az eredeti üzenetet válasz küldése, vagy továbbítás után"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Általános levelezési beállítások"
 
 msgid "Open or compose a mail item in a"
 msgstr "Levél megnyitásának és írásának módja"
@@ -5990,6 +6001,9 @@ msgstr "Nem található az üzenet, azt vagy áthelyezték, vagy törölték."
 
 msgid "Action is not performed correctly."
 msgstr "A művelet nem jól lett végrehajtva."
+
+msgid "Request is not available."
+msgstr ""
 
 # 94%
 # 90%

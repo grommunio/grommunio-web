@@ -472,6 +472,10 @@ msgstr "Vali"
 msgid "Show Details"
 msgstr "Detailselt"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -526,6 +530,12 @@ msgstr "Sorteeri: ikoon"
 
 msgid "Sort by: Email Address"
 msgstr "Sorteeri: E-post järgi"
+
+msgid "Job Title"
+msgstr ""
+
+msgid "Sort by: Job Title"
+msgstr ""
 
 msgid "Sort by: Department"
 msgstr "Sorteeri: Osakonna järgi"
@@ -1003,8 +1013,7 @@ msgstr ""
 msgid "Send update"
 msgstr "Saadetud"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
 
 msgid "Send update to attendees"
@@ -1160,6 +1169,12 @@ msgid "Add attachment"
 msgstr ""
 
 msgid "Check names"
+msgstr ""
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
 msgstr ""
 
 msgid "Invite attendees"
@@ -2912,9 +2927,6 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid "Job Title"
-msgstr ""
-
 # 92%
 # 100%
 #, fuzzy
@@ -3215,9 +3227,6 @@ msgstr ""
 #, fuzzy
 msgid "Sort by: Company Name"
 msgstr "Sorteeri: Kuvatava nime järgi"
-
-msgid "Sort by: Job Title"
-msgstr ""
 
 msgid "Full Name"
 msgstr "Täisnimi"
@@ -4626,9 +4635,6 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-msgid "General mail settings"
-msgstr ""
-
 msgid "Location of preview pane"
 msgstr ""
 
@@ -4636,6 +4642,12 @@ msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
 msgstr ""
 
 msgid "Close original message on reply or forward"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
 msgstr ""
 
 msgid "Open or compose a mail item in a"
@@ -5840,6 +5852,9 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
 msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Request is not available."
 msgstr ""
 
 msgid "You have insufficient privileges to open this object."

@@ -457,6 +457,10 @@ msgstr "Velja"
 msgid "Show Details"
 msgstr "Sýna nánari lýsingu"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Notaðu leitarslána til að fá niðurstöður"
 
@@ -498,6 +502,12 @@ msgstr "Raða eftir eftirnafni"
 
 msgid "Sort by: Email Address"
 msgstr "Raða eftir tölvupóstfangi"
+
+msgid "Job Title"
+msgstr "Starfstitill"
+
+msgid "Sort by: Job Title"
+msgstr "Raða eftir starfstitli"
 
 msgid "Sort by: Department"
 msgstr "Raða eftir deild"
@@ -956,9 +966,8 @@ msgstr "Aðföngin eru frátekin"
 msgid "Send update"
 msgstr "Senda breytingu"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
-msgstr "Breytingarskilaboð verða send öllum viðtakendum, viltu halda áfram?"
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
 
 msgid "Send update to attendees"
 msgstr "Senda breytingu til þátttakenda"
@@ -1116,6 +1125,12 @@ msgstr "Bæta við viðhengi"
 
 msgid "Check names"
 msgstr "Athuga nöfn"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Bjóða þátttakendum"
@@ -2827,9 +2842,6 @@ msgstr "Stillingar póstfanga sendenda"
 msgid "Full name"
 msgstr "Fullt nafn"
 
-msgid "Job Title"
-msgstr "Starfstitill"
-
 msgid "Phone Numbers"
 msgstr "Símanúmer"
 
@@ -3119,9 +3131,6 @@ msgstr "Fyrirtæki"
 
 msgid "Sort by: Company Name"
 msgstr "Raða eftir nafni fyrirtækis"
-
-msgid "Sort by: Job Title"
-msgstr "Raða eftir starfstitli"
 
 msgid "Full Name"
 msgstr "Fullt nafn"
@@ -4396,9 +4405,6 @@ msgstr "Hægri"
 msgid "Bottom"
 msgstr "Neðst"
 
-msgid "General mail settings"
-msgstr "Almennar póststillingar"
-
 msgid "Location of preview pane"
 msgstr "Staðsetning forsýnarskika"
 
@@ -4407,6 +4413,12 @@ msgstr "Nota enskar skammstafanir fyrir áframsendingu (FW:) og svar (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr "Loka upprunalegum skilaboðum við svar eða áframsendingu"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Almennar póststillingar"
 
 msgid "Open or compose a mail item in a"
 msgstr "Opna eða semja póst atriði í"
@@ -5570,6 +5582,9 @@ msgstr "Fann ekki skilaboð, þau hafa annaðhvort verið flutt eða þeim eytt.
 
 msgid "Action is not performed correctly."
 msgstr "Framkvæmdi aðgerðina ekki rétt."
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Þú ert ekki með réttindin til að opna þetta."
