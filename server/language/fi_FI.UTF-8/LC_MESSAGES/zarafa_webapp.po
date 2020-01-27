@@ -469,6 +469,10 @@ msgstr "Valitse"
 msgid "Show Details"
 msgstr "Näytä tiedot"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -518,6 +522,12 @@ msgstr "Järjestä: Nimi"
 
 msgid "Sort by: Email Address"
 msgstr "Järjestä: Sähköpostiosoite"
+
+msgid "Job Title"
+msgstr "Työnimike"
+
+msgid "Sort by: Job Title"
+msgstr "Järjestä: Työnimike"
 
 msgid "Sort by: Department"
 msgstr "Järjestä: Osasto"
@@ -1025,9 +1035,8 @@ msgstr "Resurssit on suunniteltu."
 msgid "Send update"
 msgstr "Päättymispäivä"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
-msgstr "Päivitysviesti lähetetään kaikille vastaanottajille, haluatko jatkaa?"
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
 
 msgid "Send update to attendees"
 msgstr "Lähetä päivitys osallistujille"
@@ -1188,6 +1197,12 @@ msgstr "Lisää liitetiedosto"
 
 msgid "Check names"
 msgstr "Tarkista nimet"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Kutsu osallistujia"
@@ -3015,9 +3030,6 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid "Job Title"
-msgstr "Työnimike"
-
 msgid "Phone Numbers"
 msgstr "Puhelinnumerot"
 
@@ -3325,9 +3337,6 @@ msgstr "Yrityksen nimi"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Järjestä: Yritysnimi"
-
-msgid "Sort by: Job Title"
-msgstr "Järjestä: Työnimike"
 
 msgid "Full Name"
 msgstr "Koko nimi"
@@ -4700,9 +4709,6 @@ msgstr "Oikea"
 msgid "Bottom"
 msgstr "Alareuna"
 
-msgid "General mail settings"
-msgstr "Yleiset postiasetukset"
-
 # 83%
 # 100%
 #, fuzzy
@@ -4714,6 +4720,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Yleiset postiasetukset"
 
 msgid "Open or compose a mail item in a"
 msgstr ""
@@ -5955,6 +5967,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Toimintoa ei suoritettu oikein."
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Sinulla ei ole tarpeeksi oikeuksia avata kohdetta."

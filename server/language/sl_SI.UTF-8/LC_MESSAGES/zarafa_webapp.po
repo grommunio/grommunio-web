@@ -489,6 +489,10 @@ msgstr "Izberi"
 msgid "Show Details"
 msgstr "Pokaži podrobnosti"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -538,6 +542,12 @@ msgstr "Razvrsti po: Ime"
 
 msgid "Sort by: Email Address"
 msgstr "Razvrsti po: Elektronski naslov"
+
+msgid "Job Title"
+msgstr "Naziv"
+
+msgid "Sort by: Job Title"
+msgstr "Razvrsti po: Naziv"
 
 msgid "Sort by: Department"
 msgstr "Razvrsti po: Oddelek"
@@ -1045,10 +1055,8 @@ msgstr "Načrtovani so bili viri."
 msgid "Send update"
 msgstr "Datum zaključka"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Spremenjeno sporočilo bo poslano vsem prejemnikom, ali želite nadaljevati?"
 
 msgid "Send update to attendees"
 msgstr "Pošlji spremembe udeležencem"
@@ -1211,6 +1219,12 @@ msgstr "Dodaj prilogo"
 
 msgid "Check names"
 msgstr "Preveri imena"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Povabi udeležence"
@@ -3050,9 +3064,6 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid "Job Title"
-msgstr "Naziv"
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Telefonske številke"
@@ -3370,9 +3381,6 @@ msgstr "Ime podjetja"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Razvrsti po: Ime podjetja"
-
-msgid "Sort by: Job Title"
-msgstr "Razvrsti po: Naziv"
 
 msgid "Full Name"
 msgstr "Polno ime"
@@ -4785,9 +4793,6 @@ msgstr "Desno"
 msgid "Bottom"
 msgstr "Na dno"
 
-msgid "General mail settings"
-msgstr "Splošne nastavitve sporočila"
-
 # 83%
 # 100%
 #, fuzzy
@@ -4799,6 +4804,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Splošne nastavitve sporočila"
 
 msgid "Open or compose a mail item in a"
 msgstr ""
@@ -6039,6 +6050,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Dejanje ni bilo pravilno narejeno."
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Nimate dovolj dovoljenj za odprtje tega predmeta."

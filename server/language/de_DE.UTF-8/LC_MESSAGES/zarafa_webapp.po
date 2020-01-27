@@ -468,6 +468,10 @@ msgstr "Auswählen"
 msgid "Show Details"
 msgstr "Details anzeigen"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Nutzen Sie eine Suchanfrage, um Ergebniss zu erhalten"
 
@@ -520,6 +524,12 @@ msgstr "Sortieren nach: Nachname"
 
 msgid "Sort by: Email Address"
 msgstr "Sortieren nach: E-Mail-Adresse"
+
+msgid "Job Title"
+msgstr "Position"
+
+msgid "Sort by: Job Title"
+msgstr "Nach Position sortieren"
 
 msgid "Sort by: Department"
 msgstr "Sortieren nach: Abteilung"
@@ -1024,11 +1034,8 @@ msgstr "Die Ressourcen wurden geplant"
 msgid "Send update"
 msgstr "Update verschicken"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Eine Aktualisierungsmitteilung wird an alle Empfänger gesendet. Möchten Sie "
-"fortfahren?"
 
 msgid "Send update to attendees"
 msgstr "Aktualisierung an Teilnehmer versenden"
@@ -1194,6 +1201,12 @@ msgstr "Datei anhängen"
 
 msgid "Check names"
 msgstr "Namen überprüfen"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Teilnehmer einladen"
@@ -3023,9 +3036,6 @@ msgstr "Einstellung für Absenderadressen"
 msgid "Full name"
 msgstr "Vollständiger Name"
 
-msgid "Job Title"
-msgstr "Position"
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Telefonnummern"
@@ -3336,9 +3346,6 @@ msgstr "Firma"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Sortieren nach: Firma"
-
-msgid "Sort by: Job Title"
-msgstr "Nach Position sortieren"
 
 msgid "Full Name"
 msgstr "Vollständiger Name"
@@ -4707,9 +4714,6 @@ msgstr "Rechts"
 msgid "Bottom"
 msgstr "Unten"
 
-msgid "General mail settings"
-msgstr "Allgemeine E-Mail-Einstellungen"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4723,6 +4727,12 @@ msgid "Close original message on reply or forward"
 msgstr ""
 "Ursprüngliche Nachricht schließen, wenn diese beantwortet oder "
 "weitergeleitet wird"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Allgemeine E-Mail-Einstellungen"
 
 msgid "Open or compose a mail item in a"
 msgstr "Zum Öffnen oder Erstellen von E-Mails"
@@ -5973,6 +5983,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Aktion wurde nicht korrekt ausgeführt."
+
+msgid "Request is not available."
+msgstr ""
 
 # 94%
 # 90%

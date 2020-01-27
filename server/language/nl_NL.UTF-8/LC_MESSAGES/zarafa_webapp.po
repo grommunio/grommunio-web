@@ -477,6 +477,10 @@ msgstr "Selecteer"
 msgid "Show Details"
 msgstr "Toon Details"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Gebruik het zoekveld om resultaten te krijgen"
 
@@ -530,6 +534,12 @@ msgstr "Sorteer op: Achternaam"
 # 86%
 msgid "Sort by: Email Address"
 msgstr "Sorteer op: E-mailadres"
+
+msgid "Job Title"
+msgstr "Functietitel"
+
+msgid "Sort by: Job Title"
+msgstr "Sorteer op: Functietitel"
 
 # 84%
 msgid "Sort by: Department"
@@ -1031,9 +1041,8 @@ msgstr "Resources zijn geboekt"
 msgid "Send update"
 msgstr "Verstuur een update"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
-msgstr "Er wordt een update naar alle ontvangers verstuurd, wilt u doorgaan?"
+msgid "Do you want to send an update to all recipients?"
+msgstr ""
 
 msgid "Send update to attendees"
 msgstr "Verstuur update naar genodigden"
@@ -1197,6 +1206,12 @@ msgstr "Bijlage toevoegen"
 
 msgid "Check names"
 msgstr "Namen controleren"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Nodig deelnemers uit"
@@ -3013,9 +3028,6 @@ msgstr "Afzenders instellingen"
 msgid "Full name"
 msgstr "Volledige naam"
 
-msgid "Job Title"
-msgstr "Functietitel"
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Telefoonnummers"
@@ -3323,9 +3335,6 @@ msgstr "Bedrijfsnaam"
 # 85%
 msgid "Sort by: Company Name"
 msgstr "Sorteer op: Bedrijfsnaam"
-
-msgid "Sort by: Job Title"
-msgstr "Sorteer op: Functietitel"
 
 msgid "Full Name"
 msgstr "Volledige Naam"
@@ -4728,9 +4737,6 @@ msgstr "Rechts"
 msgid "Bottom"
 msgstr "Onder"
 
-msgid "General mail settings"
-msgstr "Algemene e-mailinstellingen"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4742,6 +4748,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Originele bericht sluiten bij reageren of doorsturen"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Algemene e-mailinstellingen"
 
 msgid "Open or compose a mail item in a"
 msgstr "Open of schrijf een mail item in een"
@@ -5981,6 +5993,9 @@ msgstr "Bericht kon niet worden gevonden, het is verplaatst of verwijderd."
 
 msgid "Action is not performed correctly."
 msgstr "Handeling is verkeerd uitgevoerd."
+
+msgid "Request is not available."
+msgstr ""
 
 # 86%
 # 90%

@@ -469,6 +469,10 @@ msgstr "Seç"
 msgid "Show Details"
 msgstr "Detaylar göster"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -516,6 +520,12 @@ msgstr "Sıralama: Soyad"
 
 msgid "Sort by: Email Address"
 msgstr "Sıralama: E-posta adresi"
+
+msgid "Job Title"
+msgstr "İş unvanı"
+
+msgid "Sort by: Job Title"
+msgstr "Sıralama: İş unvanı"
 
 msgid "Sort by: Department"
 msgstr "Sıralama: Bölüm"
@@ -1020,11 +1030,8 @@ msgstr "Kaynaklar planlanmıştır."
 msgid "Send update"
 msgstr "Bitiş tarihi"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Bir güncelleme mesajı tüm alıcılara gönderilecek, devam etmek istiyor "
-"musunuz?"
 
 msgid "Send update to attendees"
 msgstr "katılımcılara güncelleme gönder"
@@ -1192,6 +1199,12 @@ msgstr "Eklenti ekle"
 
 msgid "Check names"
 msgstr "Adı kontrol et"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Katıllimcılar davet et"
@@ -3033,9 +3046,6 @@ msgstr ""
 msgid "Full name"
 msgstr "ad ve soyad"
 
-msgid "Job Title"
-msgstr "İş unvanı"
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Telefon numaraları"
@@ -3354,9 +3364,6 @@ msgstr "Şirket adı"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Sıralama: Şirket adı"
-
-msgid "Sort by: Job Title"
-msgstr "Sıralama: İş unvanı"
 
 msgid "Full Name"
 msgstr "Adı"
@@ -4749,9 +4756,6 @@ msgstr "Sağ"
 msgid "Bottom"
 msgstr "Alt"
 
-msgid "General mail settings"
-msgstr "Genel mesaj ayarları"
-
 # 83%
 # 100%
 msgid "Location of preview pane"
@@ -4762,6 +4766,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr "Yanıt veya iletilerde orijinal mesajı kapat"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Genel mesaj ayarları"
 
 #, fuzzy
 msgid "Open or compose a mail item in a"
@@ -6012,6 +6022,9 @@ msgstr "İleti bulunamadı, taşındı veya silindi."
 
 msgid "Action is not performed correctly."
 msgstr "Eylem doğru yapılmaz."
+
+msgid "Request is not available."
+msgstr ""
 
 # 90%
 msgid "You have insufficient privileges to open this object."

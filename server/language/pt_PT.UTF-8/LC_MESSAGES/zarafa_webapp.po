@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-01-02 11:38+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -461,6 +461,10 @@ msgstr "Selecionar"
 msgid "Show Details"
 msgstr "Mostar detalhes"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr "Use a barra de procura par obter resultados"
 
@@ -502,6 +506,12 @@ msgstr "Ordenar por: Sobrenome"
 
 msgid "Sort by: Email Address"
 msgstr "Ordenar por: Endereço de E-mail"
+
+msgid "Job Title"
+msgstr "Nome do cargo"
+
+msgid "Sort by: Job Title"
+msgstr "Ordenar por: Nome do cargo"
 
 msgid "Sort by: Department"
 msgstr "Ordenar por: Departamento"
@@ -961,11 +971,8 @@ msgstr "Os recursos foram planeados"
 msgid "Send update"
 msgstr "Enviar atualização"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Uma mensagem de atualização vai ser enviada a todos os destinatários. Deseja "
-"continuar?"
 
 msgid "Send update to attendees"
 msgstr "Enviar atualização aos participantes"
@@ -1120,6 +1127,12 @@ msgstr "Adicionar anexo"
 
 msgid "Check names"
 msgstr "Conferir nomes"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Convidar participantes"
@@ -2829,9 +2842,6 @@ msgstr "Definições de endereços"
 msgid "Full name"
 msgstr "Nome completo"
 
-msgid "Job Title"
-msgstr "Nome do cargo"
-
 msgid "Phone Numbers"
 msgstr "Números de Telefone"
 
@@ -3119,9 +3129,6 @@ msgstr "Empresa"
 
 msgid "Sort by: Company Name"
 msgstr "Ordenar por: Empresa"
-
-msgid "Sort by: Job Title"
-msgstr "Ordenar por: Nome do cargo"
 
 msgid "Full Name"
 msgstr "Nome completo"
@@ -4397,9 +4404,6 @@ msgstr "À direita"
 msgid "Bottom"
 msgstr "Na parte inferior"
 
-msgid "General mail settings"
-msgstr "Definições de E-mail gerais"
-
 msgid "Location of preview pane"
 msgstr "Localização do painel de leitura"
 
@@ -4408,6 +4412,12 @@ msgstr "Usar abreviações inglesas para reencaminhar (FW:) e responder (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr "Fechar mensagem original ao responder ou reencaminhar"
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Definições de E-mail gerais"
 
 msgid "Open or compose a mail item in a"
 msgstr "Abrir ou compor um item de E-mail em"
@@ -5570,6 +5580,9 @@ msgstr ""
 
 msgid "Action is not performed correctly."
 msgstr "Ação não foi executada corretamente."
+
+msgid "Request is not available."
+msgstr ""
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Não tem permissões suficientes para abrir este objeto."

@@ -467,6 +467,10 @@ msgstr "Seleccionar"
 msgid "Show Details"
 msgstr "Mostrar Detalles"
 
+msgid ""
+"Showing only the first {0} names. Use search to find more specific results."
+msgstr ""
+
 msgid "Use the search bar to get results"
 msgstr ""
 
@@ -516,6 +520,12 @@ msgstr "Ordenar por: Nombre"
 
 msgid "Sort by: Email Address"
 msgstr "Ordenar por: Dirección de correo electrónico"
+
+msgid "Job Title"
+msgstr "Cargo"
+
+msgid "Sort by: Job Title"
+msgstr "Ordenar por: Empleo"
 
 msgid "Sort by: Department"
 msgstr "Ordenar por: Sección"
@@ -1020,11 +1030,8 @@ msgstr "Los recursos han sido planificados."
 msgid "Send update"
 msgstr "Fecha de finalización"
 
-msgid ""
-"An update message will be sent to all recipients, do you wish to continue?"
+msgid "Do you want to send an update to all recipients?"
 msgstr ""
-"Un mensaje de actualización será enviado a todos los destinatarios, ¿desea "
-"continuar ?"
 
 msgid "Send update to attendees"
 msgstr "Enviar actualización a los asistentes"
@@ -1190,6 +1197,12 @@ msgstr "Añadir adjunto"
 
 msgid "Check names"
 msgstr "Comprobar nombres"
+
+msgid "Addressbook"
+msgstr ""
+
+msgid "Open addressbook"
+msgstr ""
 
 msgid "Invite attendees"
 msgstr "Invitar asistentes"
@@ -3036,9 +3049,6 @@ msgstr ""
 msgid "Full name"
 msgstr "Nombre Completo"
 
-msgid "Job Title"
-msgstr "Cargo"
-
 # 92%
 msgid "Phone Numbers"
 msgstr "Números de Teléfono"
@@ -3349,9 +3359,6 @@ msgstr "Nombre Empresa"
 # 76%
 msgid "Sort by: Company Name"
 msgstr "Ordenar por: Nombre Empresa"
-
-msgid "Sort by: Job Title"
-msgstr "Ordenar por: Empleo"
 
 msgid "Full Name"
 msgstr "Nombre Completo"
@@ -4754,9 +4761,6 @@ msgstr "Derecho"
 msgid "Bottom"
 msgstr "Abajo"
 
-msgid "General mail settings"
-msgstr "Opciones generales de correo"
-
 # 83%
 # 100%
 #, fuzzy
@@ -4768,6 +4772,12 @@ msgstr ""
 
 msgid "Close original message on reply or forward"
 msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "General mail settings"
+msgstr "Opciones generales de correo"
 
 msgid "Open or compose a mail item in a"
 msgstr ""
@@ -6004,6 +6014,9 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
 msgid "Action is not performed correctly."
+msgstr ""
+
+msgid "Request is not available."
 msgstr ""
 
 # 80%
