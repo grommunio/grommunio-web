@@ -32,6 +32,7 @@ Zarafa.calendar.AppointmentRecordFields = [
 	{name: 'private', type: 'boolean', defaultValue: false},
 	{name: 'meeting', type: 'int', defaultValue: Zarafa.core.mapi.MeetingStatus.NONMEETING},
 	{name: 'location', type: 'string'},
+	{name: 'onlinemeetingurl', type: 'string'},
 	{name: 'duration', type: 'int'},
 	{name: 'auxiliary_flags', type: 'int'},
 	{name: 'responsestatus', type: 'int', defaultValue: Zarafa.core.mapi.ResponseStatus.RESPONSE_NONE},

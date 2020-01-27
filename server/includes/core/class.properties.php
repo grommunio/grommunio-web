@@ -298,6 +298,8 @@
 				$properties["reply_time"] = "PT_SYSTIME:PSETID_Appointment:0x8220";
 				$properties["reply_name"] = "PT_STRING8:PSETID_Appointment:0x8230";
 
+				$properties["onlinemeetingurl"] = "PT_STRING8:PS_PUBLIC_STRINGS:OnlineMeetingExternalLink";
+
 				$this->mapping[$this->storeMapping]['appointment'] = getPropIdsFromStrings($this->store, $properties);
 			}
 
