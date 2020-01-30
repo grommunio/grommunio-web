@@ -553,8 +553,8 @@ Zarafa.hierarchy.ui.ContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu
 		var folderToSelect;
 		
 		// No explicit selection is to be done if a folder is not selected
-		// or if the folder is a Calendar item as it is already handled.
-		if (!folderNode.isSelected() || record.isCalendarFolder()) {
+		// or if the folder is a Calendar item and 'Show all folders' is not checked, as it is already handled.
+		if (!folderNode.isSelected() || (!this.contextTree.showAllFoldersCheckbox.checked && record.isCalendarFolder())) {
 			return;
 		}
 		

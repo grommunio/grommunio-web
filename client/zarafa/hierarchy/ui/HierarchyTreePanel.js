@@ -262,7 +262,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			this.ownerCt.getEl().removeClass('fixed-bottombar');
 		}
 	},
-
+	
 	/**
 	 * Fires on {@link Zarafa.core.Container#contextswitch}, or {@link Ext.form.Checkbox#beforerender}.
 	 * Make (@link #showAllFoldersCheckbox) disable if current context is Settings or Zarafa, enable otherwise.
@@ -272,13 +272,12 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 *
 	 * @private
 	 */
-	reviseCheckboxDisablity : function(parameters, oldContext, newContext)
+	reviseCheckboxDisablity: function (parameters, oldContext, newContext)
 	{
-		newContext = newContext || container.getCurrentContext();
+		var newContext = newContext || container.getCurrentContext();
 		var settingsOrToday = (newContext == container.getContextByName('settings') || newContext == container.getContextByName('today'));
 		this.showAllFoldersCheckbox.setDisabled(settingsOrToday);
 		
-		// Add listener for 'beforefolderchange' event for the new context
 		var model = newContext.getModel();
 		if (Ext.isDefined(model)) {
 			this.mon(model, 'beforefolderchange', this.onBeforeFolderChange, this);
@@ -462,30 +461,36 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 * This will add the folder to be selected in the array
 	 * of selected folders. If 'Show all folders' is checked and the folder
 	 * to be selected does not belong to the current context,
-	 * then the context is switched to the context of the folder to be selected.
-	 * If the webapp is reloaded, the default folder of the current context is selected.
+	 * then the context is switched to the context of the folder to be selected, else a sibling folder of the same
+	 * context will be selected. If the webapp is reloaded, the default folder of the current context is selected.
 	 * @param {Array} folders Selected folders as an array of {@link Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
 	 */
-	onBeforeFolderChange : function(folders, folder)
+	onBeforeFolderChange: function (folders, folder)
 	{
-		// If the selected folder is a Calendar item,
-		// we don't need to manually select any folder, it is already handled.
-		if (folder.isCalendarFolder()) {
+		var folderNode, folderToSelect;
+		
+		var isSharedFolder = folder.getMAPIStore().isSharedStore();
+		var showAllCheckBox = this.showAllFoldersCheckbox;
+		var isAllFolderHierarchy = showAllCheckBox.checked && this.showAllFoldersDefaultValue;
+		var isContextHierarchy = !this.showAllFoldersDefaultValue && !showAllCheckBox.checked;
+		
+		// Return if a folder belongs to a shared store, or the folder is a Calendar item
+		// and the 'Show all folders' checkbox is unchecked, or the container class of folder is
+		// not of the current context hierarchy.
+		if (isSharedFolder || (!isAllFolderHierarchy && !isContextHierarchy)
+			|| (isContextHierarchy && (folder.isCalendarFolder() || folder.get('container_class') !== this.IPMFilter))) {
+			return;
+		}
+		folderNode = this.getNodeById(folder.get('entryid'));
+		
+		// No need to change the current selection if folder is not selected.
+		if (!folderNode.isSelected()) {
 			return;
 		}
 		
-		var folderToSelect;
-		var folderNode = this.getNodeById(folder.get('entryid'));
-		
-		if (folderNode) {
-			// No need to change the current selection if folder is not selected
-			if (!folderNode.isSelected()) {
-				return;
-			}
-			var previousSiblingFolder = folderNode.previousSibling;
-			var nextSiblingFolder = folderNode.nextSibling;
-		}
+		var previousSiblingFolder = folderNode.previousSibling;
+		var nextSiblingFolder = folderNode.nextSibling;
 		
 		if (previousSiblingFolder) {
 			folderToSelect = previousSiblingFolder.getFolder();
@@ -503,6 +508,7 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 			container.switchContext(context, folderToSelect);
 			return false;
 		}
+		
 		folders.push(folderToSelect);
 	},
 	
