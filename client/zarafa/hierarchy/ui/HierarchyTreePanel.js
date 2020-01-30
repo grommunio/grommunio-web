@@ -274,11 +274,11 @@ Zarafa.hierarchy.ui.HierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
 	 */
 	reviseCheckboxDisablity: function (parameters, oldContext, newContext)
 	{
-		var newContext = newContext || container.getCurrentContext();
-		var settingsOrToday = (newContext == container.getContextByName('settings') || newContext == container.getContextByName('today'));
+		var context = newContext || container.getCurrentContext();
+		var settingsOrToday = (context == container.getContextByName('settings') || context == container.getContextByName('today'));
 		this.showAllFoldersCheckbox.setDisabled(settingsOrToday);
 		
-		var model = newContext.getModel();
+		var model = context.getModel();
 		if (Ext.isDefined(model)) {
 			this.mon(model, 'beforefolderchange', this.onBeforeFolderChange, this);
 		}
