@@ -270,9 +270,12 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 				handler: this.onMailResponseButton,
 				scope: scope
 			}, {
+				xtype: 'zarafa.conditionalitem',
 				text: _('Download'),
 				iconCls: 'icon_download',
+				hideOnDisabled : false,
 				handler: this.onDownloadMailButton,
+				beforeShow : this.onBeforeShowDownloadButton,
 				scope: scope
 			}]
 		};
@@ -416,6 +419,19 @@ Zarafa.mail.dialogs.ShowMailToolbar = Ext.extend(Zarafa.core.ui.ContentPanelTool
 	onDownloadMailButton : function(button)
 	{
 		Zarafa.common.Actions.openSaveEmlDialog(this.record);
+	},
+
+	/**
+	 * Handler for the beforeshow event of the {@link Zarafa.core.ui.menu.ConditionalItem menuitem}. Will
+	 * disable the menu item if the record is embedded message.
+	 *
+	 * @param {Zarafa.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
+	 */
+	onBeforeShowDownloadButton : function(item)
+	{
+		// embedded messages can not be downloaded
+		item.setDisabled(this.record.isSubMessage());
 	}
 });
 Ext.reg('zarafa.showmailtoolbar', Zarafa.mail.dialogs.ShowMailToolbar);
