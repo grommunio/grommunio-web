@@ -335,6 +335,8 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				ref: '../../dateField',
 				hidden: true,
 				allowBlank : false,
+				onStartChange : this.onStartChange,
+				onEndChange : this.onEndChange,
 				defaultValue : new Zarafa.core.DateRange({
 					allowBlank : false ,
 					startDate : new Date().add(Date.MONTH, -1),
@@ -516,11 +518,69 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 			change : this.onChangeDateField,
 			scope : this
 		});
-
+		
 		this.dateField.mon(this.dateField.startField, 'specialkey', this.onSpecialKey, this);
 		this.dateField.mon(this.dateField.endField, 'specialkey', this.onSpecialKey, this);
 		this.mon(this.searchCategoriesStore, 'add', this.onSearchCategoryUpdate, this);
 		this.mon(this.searchCategoriesStore, 'remove', this.onSearchCategoryUpdate, this);
+	},
+	
+	/**
+	 * Overridden event handler which is called when the start date has been changed.
+	 *
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The old value for the field
+	 */
+	onStartChange : function(field, newValue, oldValue)
+	{
+		var range = this.defaultValue;
+		var oldRange = this.defaultValue.clone();
+		
+		if (range.getStartDate() !== newValue) {
+			if (Ext.isEmpty(newValue)) {
+				range.setStartDate(null);
+			} else {
+				var dueTime = range.getDueTime();
+				// If the start date is after the due date, then set due date same as the start date
+				if (newValue.getTime() > dueTime) {
+					range.set(newValue, newValue.clone());
+				} else {
+					range.setStartDate(newValue);
+				}
+			}
+		}
+		
+		this.fireEvent('change', this, range.clone(), oldRange);
+	},
+	
+	/**
+	 * Overridden handler which is called when the due date has been changed.
+	 *
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The old value for the field
+	 */
+	onEndChange : function(field, newValue, oldValue)
+	{
+		var range = this.defaultValue;
+		var oldRange = this.defaultValue.clone();
+		
+		if (range.getDueDate() !== newValue) {
+			if (Ext.isEmpty(newValue)) {
+				range.set(null, null);
+			} else {
+				var startTime = range.getStartTime();
+				if (newValue.getTime() < startTime) {
+					// If the due date is before the start date, then set start date same as the due date
+					range.set(newValue, newValue.clone());
+				} else {
+					range.setDueDate(newValue);
+				}
+			}
+		}
+		
+		this.fireEvent('change', this, range.clone(), oldRange);
 	},
 
 	/**
