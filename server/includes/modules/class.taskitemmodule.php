@@ -16,9 +16,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getTaskProperties();
-			
 			parent::__construct($id, $data);
+		
+			$this->properties = $GLOBALS["properties"]->getTaskProperties();
 
 			$this->plaintext = true;
 		}

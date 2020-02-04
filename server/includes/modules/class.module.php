@@ -57,6 +57,13 @@
 			$this->sessionData = false;
 
 			$this->createNotifiers();
+
+			// Get the store from $data and set it to properties class.
+			// It is requires for multi server environment where namespace differes.
+			// e.g. 'categories' => -2062020578, 'categories' => -2062610402,
+			if (isset($GLOBALS['properties'])) {
+				$GLOBALS['properties']->setStore($this->getActionStore($this->getActionData($data)));
+			}
 		}
 
 		/**
@@ -324,7 +331,7 @@
 		 * Function which returns MAPI Message Store Object. It
 		 * searches in the variable $action for a storeid.
 		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if storeid is not found in the $action variable
+		 * @return object|array|boolean MAPI Message Store Object or array of MAPI Message Store Objects, false if storeid is not found in the $action variable
 		 */
 		function getActionStore($action)
 		{
@@ -364,8 +371,8 @@
 		/**
 		 * Function which returns an entryid. It
 		 * searches in the variable $action for an entryid.
-		 * @param array $action the XML data retrieved from the client
-		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable
+		 * @param array $action the json data retrieved from the client
+		 * @return object MAPI Message Store Object, false if entryid is not found in the $action variable 
 		 */
 		function getActionEntryID($action)
 		{
@@ -387,6 +394,25 @@
 		}
 
 		/**
+		 * Helper function which used to get the action data from request.
+		 *
+		 * @param array $data list of all actions.
+		 * @return array $action the json data retrieved from the client
+		 */
+		function getActionData($data) 
+		{
+			$actionData = false;
+			foreach($data as $actionType => $action)
+			{
+				if(isset($actionType)) {
+					$actionData = $action;
+				}
+			}
+
+			return $actionData;
+		}
+
+		/**
 		 * Function which adds action data to module, so later it can be retrieved to send.
 		 * @param string $actionType type of action that response data corresponds.
 		 * @return array data object.
@@ -401,7 +427,7 @@
 		/**
 		 * Function which returns response data that will be sent to client. If there isn't any data added
 		 * to response data then it will return a blank array.
-		 * @return object response data.
+		 * @return array response data.
 		 */
 		function getResponseData()
 		{

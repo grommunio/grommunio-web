@@ -11,8 +11,9 @@
          */
         function __construct($id, $data)
         {
-            $this->properties = $GLOBALS["properties"]->getOutOfOfficeProperties();
             parent::__construct($id, $data);
+         
+            $this->properties = $GLOBALS["properties"]->getOutOfOfficeProperties();
         }
 
         /**

@@ -23,9 +23,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
 
 			$this->startdate = false;
 			$this->enddate = false;
@@ -111,6 +111,15 @@
 						$data["item"] = array();
 						for($index = 0, $index2 = count($entryid); $index < $index2; $index++) {
 							$this->getDelegateFolderInfo($store[$index]);
+
+							// Set the active store in properties class and get the props based on active store.
+							// we need to do this because of multi server env where shared store belongs to the different server.
+							// Here name space is different per server. e.g. There is user A and user B and both are belongs to
+							// different server and user B is shared store of user A because of that user A has 'categories' => -2062020578
+							// and user B 'categories' => -2062610402,
+							$GLOBALS["properties"]->setActiveStore($store[$index]);
+							$this->properties = $GLOBALS["properties"]->getAppointmentListProperties();
+							
 							$data["item"] = array_merge($data["item"], $this->getCalendarItems($store[$index], $entryid[$index], $this->startdate, $this->enddate));
 						}
 					} else {

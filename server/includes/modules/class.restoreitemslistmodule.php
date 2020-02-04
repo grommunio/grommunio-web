@@ -11,8 +11,10 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getRestoreItemListProperties();
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS['properties']->getRestoreItemListProperties();
+
 		}
 
 		/**

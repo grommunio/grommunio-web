@@ -13,9 +13,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS['properties']->getMailProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS['properties']->getMailProperties();
 		}
 
 		/**

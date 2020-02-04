@@ -13,9 +13,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getStickyNoteProperties();
-
 			parent::__construct($id, $data);
+
+			$this->properties = $GLOBALS["properties"]->getStickyNoteProperties();
 
 			$this->plaintext = true;
 		}

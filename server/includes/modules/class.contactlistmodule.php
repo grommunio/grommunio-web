@@ -11,9 +11,9 @@
 		 */
 		function __construct($id, $data)
 		{
-			$this->properties = $GLOBALS["properties"]->getContactListProperties();
-
 			parent::__construct($id, $data);
+			
+			$this->properties = $GLOBALS["properties"]->getContactListProperties();
 
 			$this->start = 0;
 		}
