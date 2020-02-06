@@ -179,6 +179,16 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 											 */
 											'value' : 'dropdown'
 										}
+									},
+
+									'proxy': {
+										/**
+										 * zarafa/v1/main/notifier/error/value
+										 * Default plugin for the "Error" user notifications
+										 * @property
+										 * @type String
+										 */
+										'value' : 'messagebox'
 									}
 								},
 
@@ -189,7 +199,17 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 * @property
 									 * @type String
 									 */
-									'value' : 'messagebox'
+									'value' : 'messagebox',
+
+									'console' : {
+										/**
+										 * zarafa/v1/main/notifier/warning/console/value
+										 * Default plugin for the "Warning" console notifications
+										 * @property
+										 * @type String
+										 */
+										'value' : 'console'
+									},
 								},
 
 								'info' : {

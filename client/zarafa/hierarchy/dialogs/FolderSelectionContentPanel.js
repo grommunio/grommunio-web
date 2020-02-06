@@ -49,6 +49,7 @@ Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui
 				xtype: 'zarafa.folderselectionpanel',
 				folder : config.folder,
 				hideTodoList: !!config.hideTodoList,
+				IPMFilter: config.IPMFilter ? config.IPMFilter : undefined,
 				buttonAlign: 'left',
 				buttons : [{
 					text : _('New folder'),

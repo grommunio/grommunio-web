@@ -344,6 +344,7 @@ Ext.apply(Zarafa, {
 	{
 		var message;
 		var detailsMessage = '';
+		var notificationType = 'error.proxy';
 
 		var title = _('Error');
 		if (type === 'response') {
@@ -370,8 +371,15 @@ Ext.apply(Zarafa, {
 					message = _('The server reported an unknown error on your request.');
 					break;
 			}
-			if (!Ext.isEmpty(errorObj.info) && !Ext.isEmpty(errorObj.info.title)) {
-				title = errorObj.info.title;
+			var errorInfoObj = errorObj.info;
+			if (!Ext.isEmpty(errorInfoObj)) {
+				if (!Ext.isEmpty(errorInfoObj.title)) {
+					title = errorInfoObj.title;
+				}
+
+				if (!Ext.isEmpty(errorInfoObj.notification_type)) {
+					notificationType = 'warning.' + errorInfoObj.notification_type;
+				}
 			}
 		} else {
 			message = _('The server reported an unspecified error on your request.');
@@ -380,7 +388,7 @@ Ext.apply(Zarafa, {
 		if (Ext.get('loading')) {
 			this.setErrorLoadingMask(title, message);
 		} else {
-			container.getNotifier().notify('error.proxy', title, message, {
+			container.getNotifier().notify(notificationType, title, message, {
 				details_message : detailsMessage
 			});
 		}

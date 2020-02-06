@@ -16,6 +16,19 @@ Ext.namespace('Zarafa.widgets.folderwidgets');
  * outside of WebApp.
  */
 Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.folderwidgets.AbstractFolderWidget, {
+	/**
+	 * The folder which was selected by the user
+	 * @property
+	 * @type Zarafa.hierarchy.data.MAPIFolderRecord
+	 */
+	folder : undefined,
+
+	/**
+	 * 'entryid' of folder which was selected by the user
+	 * @property
+	 * @type String
+	 */
+	folderId : undefined,
 
 	/**
 	 * @constructor
@@ -37,6 +50,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 				cls: 'k-appointmentwidget',
 				store: store,
 				hideHeaders: true,
+				ref : 'appointmentsGrid',
 				loadMask: {
 					msg: _('Loading appointments...')
 				},
@@ -45,7 +59,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 				}),
 				viewConfig: {
 					deferEmptyText: false,
-					emptyText: '<div class="emptytext">' + _('No appointments') + '</div>',
+					emptyText: '<div class="emptytext">' + _("Please select a calendar via widget settings") + '</div>',
 					forceFit: true,
 					enableRowBody: true,
 					rowSelectorDepth: 15,
@@ -74,6 +88,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 		};
 
 		Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.constructor.call(this, config);
+		this.folderId = this.get('folderId');
 	},
 
 	/**
@@ -97,7 +112,207 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 				scope: this
 			},
 			plugins: ['zarafa.numberspinner']
+		},{
+			xtype: 'zarafa.calendarfolderselectionlink',
+			folder: this.folder,
+			fieldLabel: _('Calendar'),
+			name: 'Calendar',
+			listeners: {
+				'folderupdate': this.onUpdateFolder,
+				scope: this
+			}
 		}];
+	},
+
+	/**
+	 * Initialize the event handlers for the {@link #store} and {@link Zarafa.hierarchy.data.HierarchyStore HierarchyStore}.
+	 * @protected
+	 */
+	initEvents: function () {
+		Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.initEvents.apply(this, arguments);
+
+		// set handlers to update widget state on remove of folder from hierarchy.
+		var hierarchyStore = container.getHierarchyStore();
+		this.mon(hierarchyStore, {
+			'remove': this.onSharedStoreRemove,
+			'removeFolder': this.onSharedStoreRemove,
+			scope: this
+		});
+
+		// Wait for the store to be loaded, so we can activate
+		// the filter task and set empty text if no appointments available.
+		this.mon(this.store, 'load', this.onStoreLoad, this, { single: true });
+		this.mon(this.store, 'exception', this.onStoreException, this);
+	},
+
+	/**
+	 * Handler for {@link #store} for {@link Ext.data.Store#load load} event.
+	 * This will call {@link #startFilterTask} and {@link #setEmptytext} after the {@link #store} load.
+	 * @private
+	 */
+	onStoreLoad : function()
+	{
+		this.startFilterTask();
+		this.setEmptytext();
+	},
+
+	/**
+	 * Handler for {@link #store} for {@link Ext.data.Store#exception exception} event.
+	 * This will remove all records from store and set empty text as error message received from php side.
+	 *
+	 * @param {Misc} misc See {@link Ext.data.DataProxy}#{@link Ext.data.DataProxy#exception exception}
+	 * for description.
+	 * @private
+	 */
+	onStoreException: function(proxy, type, action, options, response, args)
+	{
+		var emptyText;
+		if (response && response.error) {
+			var errObj = response.error;
+
+			if (errObj.info && errObj.info.display_message) {
+				emptyText = String.format(_("{0}"), errObj.info.display_message);
+			}
+		}
+
+		// Empty store so that we can show error message.
+		this.appointmentsGrid.getStore().removeAll();
+		this.setEmptytext(emptyText);
+	},
+
+	/**
+	 * Load the stored calendar folder and retrieve the records.
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} hierarchyStore The store which fired the event
+	 * @private
+	 */
+	onHierarchyLoad: function (hierarchyStore)
+	{
+		if (Ext.isEmpty(this.folderId)) {
+			return;
+		}
+
+		this.folder = hierarchyStore.getFolder(this.folderId);
+		var folderReadRight = Zarafa.core.mapi.Rights.RIGHTS_READ_ANY;
+		if (Ext.isEmpty(this.folder) ||
+			(this.folder.get('rights') & folderReadRight) !== folderReadRight) {
+			// Reset when there is folderId and we can't find folder
+			// or folder has not 'RIGHTS_FOLDER_VISIBLE' rights.
+			// So, we need to reset the state.
+			this.resetWidget();
+			return;
+		}
+
+		this.setWidgetTitle(this.folder);
+		this.reloadStore();
+	},
+
+	/**
+	 * Reset when previously selected folder is not found (e.g. saved states will be cleared on reset settings of webapp).
+	 * This will be called from {@link Zarafa.widgets.folderwidgets.AbstractFolderWidget#onHierarchyLoad onHierarchyLoad}
+	 * when folder is not found and when the 'remove' or 'removeFolder' event fired for hierarchy store.
+	 */
+	resetWidget : function()
+	{
+		this.folder = undefined;
+		this.folderId = undefined;
+		this.set("folderId", undefined);
+		this.appointmentsGrid.getStore().removeAll();
+	},
+
+	/**
+	 * This method will set name of this widget. 
+	 * If folder is not given, it will set default title otherwise it will prepare
+	 * title for widget as per folder given and apply it.
+	 *
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder which is selected to show appointments from.
+	 * @private
+	 */
+	setWidgetTitle : function(folder)
+	{
+		var title = _('Upcoming Appointments');
+		
+		if (folder) {
+			var folderStore = folder.getMAPIStore();
+			var isOwnStore = folderStore.isDefaultStore();
+			var isDefaultFolder = folder.isDefaultFolder();
+
+			var ownerName = folderStore.get('display_name');
+			var folderName = folder.get('display_name');
+			
+			// Do not show ownername for own store folder.
+			// And don't change title for default calendar folder of own store.
+			if (!(isOwnStore && isDefaultFolder)) {
+				if (isOwnStore) {
+					title = String.format(_('Appointments of {0}'), folderName);
+				} else {
+					title = String.format(_('Appointments of {0} - {1}'), folderName, ownerName);
+				}
+			}
+		}
+
+		this.setTitle(title);
+	},
+
+	/**
+	 * This method will set empty text message of this widget.
+	 * If the emptyText param is not provided then it will set 'No appointments' message
+	 * when no appointments are available.
+	 * Or if {@link #folder} has no value (no folder is selected currently) then
+	 * this will display a message to select folder.
+	 *
+	 * @param {String} emptyText which needs to be set as empty text of grid view.
+	 */
+	setEmptytext : function(emptyText)
+	{
+		var gridView = this.appointmentsGrid.getView();
+
+		if (Ext.isEmpty(emptyText)) {
+			emptyText = this.folder ? _('No appointments') : _("Please select a calendar via widget settings");
+		}
+
+		gridView.emptyText = '<div class="emptytext">'+ emptyText +'</div>';
+		gridView.refresh();
+	},
+
+	/**
+	 * Event handler for 'remove' and 'removeFolder' events of {@link Zarafa.hierarchy.data.HierarchyStore Hierarchy}
+	 * This will reset widget if state folder of this widget gets deleted.
+	 * 
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} store hierarchy store after removing record.
+	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} record The record which is removed
+	 * @param {Number} totalRecords total number of records in store.
+	 */
+	onSharedStoreRemove : function(store, record, totalRecords)
+	{
+		var stateFolderId = this.get('folderId');
+		if (!Ext.isEmpty(stateFolderId)) {
+			var stateFolder = store.getFolder(stateFolderId);
+
+			// If deleted folder is state folder or closed shared store includes
+			// state folder then reset this widget.
+			if (Ext.isEmpty(stateFolder)) {
+				this.resetWidget();
+				this.setEmptytext();
+			}
+		}
+	},
+
+	/**
+	 * Event handler for 'folderupdate' event.
+	 * This will update the {@link #folder} , save the folder entryid in state,
+	 * set title of this widget and reload the state with updated folder.
+	 * 
+	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder which is selected to show appointments from.
+	 * @private
+	 */
+	onUpdateFolder: function (folder)
+	{
+		this.folder = folder;
+		this.folderId = folder.get('entryid');
+		this.set("folderId", this.folderId);
+		this.setWidgetTitle(folder);
+		this.reloadStore();
+		this.setEmptytext();
 	},
 
 	/**
@@ -112,19 +327,6 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 	{
 		this.set(field.getName(), newValue);
 		this.reloadStore();
-	},
-
-	/**
-	 * Initialize the event handlers for the {@link #store} and {@link Zarafa.hierarchy.data.HierarchyStore Hierarchy}.
-	 * @protected
-	 */
-	initEvents: function ()
-	{
-		Zarafa.widgets.folderwidgets.AppointmentsWidget.superclass.initEvents.apply(this, arguments);
-
-		// Wait for the store to be loaded, so we can activate
-		// the filter task.
-		this.mon(this.store, 'load', this.startFilterTask, this, {single: true});
 	},
 
 	/**
@@ -160,6 +362,7 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 		this.store.load({
 			folder: this.folder,
 			params: {
+				ignoreException: true,
 				restriction: {
 					startdate: startdate,
 					duedate: duedate

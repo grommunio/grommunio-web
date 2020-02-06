@@ -17,6 +17,7 @@
 					<clientfile load="debug">js/folderwidgets-debug.js</clientfile>
 					<clientfile load="source">js/AbstractFolderWidget.js</clientfile>
 					<clientfile load="source">js/AppointmentsWidget.js</clientfile>
+					<clientfile load="source">js/CalendarFolderSelectionLink.js</clientfile>
 					<clientfile load="source">js/TasksWidget.js</clientfile>
 					<clientfile load="source">js/MailWidget.js</clientfile>
 					<clientfile load="source">js/DatepickerWidget.js</clientfile>
