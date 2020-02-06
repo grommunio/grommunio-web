@@ -14,7 +14,7 @@ Ext.apply(Zarafa, {
 	 * @type {String}
 	 * @private
 	 */
-	emailAddressRegExpString : '(?:[a-zA-Z0-9.!#$%&\'*+\\-/=?^_`{|}~])+@[a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.(?:[a-z0-9]{2,15})',
+	emailAddressRegExpString : '(?:[a-zA-Z0-9.!#$%&\'*+\\-/=?^_`{|}~])+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*\\.(?:[a-zA-Z0-9]{2,15})',
 
 	/**
 	 * A regular expression to test the validity of an email address
