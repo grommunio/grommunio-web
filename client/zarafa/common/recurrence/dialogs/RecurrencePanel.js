@@ -455,6 +455,8 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 
 		this.record.beginEdit();
 		this.record.set('alldayevent', checked);
+		var busyStatus = checked ? container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_allday_busy_status') : Zarafa.core.mapi.BusyStatus.BUSY;
+		this.record.set('busystatus', busyStatus);
 		this.record.set('recurrence_startocc', 0);
 		this.record.set('recurrence_endocc', days * 1440);
 		this.record.endEdit();

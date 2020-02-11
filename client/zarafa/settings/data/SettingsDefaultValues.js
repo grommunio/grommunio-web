@@ -414,6 +414,15 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 */
 								'default_appointment_period' : 30,
 								/**
+								 * zarafa/v1/contexts/calendar/default_allday_busy_status
+								 * The default busy status to be used while creating new all day events.
+								 * default value is {@link Zarafa.core.mapi.BusyStatus#FREE}.
+								 *
+								 * @property
+								 * @type Number
+								 */
+								'default_allday_busy_status' : 0,
+								/**
 								 * zarafa/v1/contexts/calendar/default_reminder
 								 * @property
 								 * @type Boolean

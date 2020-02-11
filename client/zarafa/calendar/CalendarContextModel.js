@@ -228,7 +228,7 @@ Zarafa.calendar.CalendarContextModel = Ext.extend(Zarafa.core.MultiFolderContext
 
 			if(dateRange.isAllDay()) {
 				allDay = true;
-				busyStatus = Zarafa.core.mapi.BusyStatus.FREE;
+				busyStatus = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_allday_busy_status');
 			}
 		}
 

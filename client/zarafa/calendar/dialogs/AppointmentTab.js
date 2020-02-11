@@ -676,6 +676,8 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	{
 		var layout = false;
 
+		var settingsModel = container.getSettingsModel();
+
 		if (contentReset === true || record.isModifiedSinceLastUpdate('meeting')) {
 			switch (record.get('meeting')) {
 				case Zarafa.core.mapi.MeetingStatus.NONMEETING:
@@ -713,7 +715,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			} else {
 				this.datetimePeriod.setEnabledTimeSelection(true);
 				// For normal events, we have to configure the normal period options again
-				this.datetimePeriod.defaultPeriod = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period');
+				this.datetimePeriod.defaultPeriod = settingsModel.get('zarafa/v1/contexts/calendar/default_appointment_period');
 				this.datetimePeriod.defaultPeriodType = Date.MINUTE;
 			}
 		}
@@ -758,10 +760,10 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		if (contentReset === true || record.isModifiedSinceLastUpdate('reminder')) {
 			if (record.get('alldayevent')) {
-				this.comboReminder.setValue(container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_allday_reminder_time'));
-				this.comboBusyStatus.setValue(Zarafa.core.mapi.BusyStatus.FREE);
+				this.comboReminder.setValue(settingsModel.get('zarafa/v1/contexts/calendar/default_allday_reminder_time'));
+				this.comboBusyStatus.setValue(settingsModel.get('zarafa/v1/contexts/calendar/default_allday_busy_status'));
 			} else {
-				this.comboReminder.setValue(container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_reminder_time'));
+				this.comboReminder.setValue(settingsModel.get('zarafa/v1/contexts/calendar/default_reminder_time'));
 				this.comboBusyStatus.setValue(Zarafa.core.mapi.BusyStatus.BUSY);
 			}
 		}
@@ -1305,14 +1307,15 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		if (this.record.get('alldayevent') !== checked) {
 			this.record.beginEdit();
 			this.record.set('alldayevent', checked);
+			var settingsModel = container.getSettingsModel();
 			if (checked) {
 				this.updateStartDueDate(this.record, this.datetimePeriod.getValue());
 
-				this.record.set('reminder_minutes', container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_allday_reminder_time'));
-				this.record.set('busystatus', Zarafa.core.mapi.BusyStatus.FREE);
+				this.record.set('reminder_minutes', settingsModel.get('zarafa/v1/contexts/calendar/default_allday_reminder_time'));
+				this.record.set('busystatus', settingsModel.get('zarafa/v1/contexts/calendar/default_allday_busy_status'));
 			} else {
-				var zoomLevel = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level');
-				var defaultPeriod = container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_appointment_period');
+				var zoomLevel = settingsModel.get('zarafa/v1/contexts/calendar/default_zoom_level');
+				var defaultPeriod = settingsModel.get('zarafa/v1/contexts/calendar/default_appointment_period');
 
 				var startDate = new Date();
 				if(this.record.get('startdate')) {
@@ -1323,7 +1326,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				startDate = startDate.ceil(Date.MINUTE, zoomLevel);
 				var dueDate = startDate.add(Date.MINUTE, defaultPeriod);
 
-				this.record.set('reminder_minutes', container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_reminder_time'));
+				this.record.set('reminder_minutes', settingsModel.get('zarafa/v1/contexts/calendar/default_reminder_time'));
 				this.record.set('busystatus', Zarafa.core.mapi.BusyStatus.BUSY);
 				this.record.set('startdate', startDate);
 				this.record.set('duedate', dueDate);

@@ -158,6 +158,28 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 					}
 				}]
 			},{
+				xtype : 'combo',
+				ref : 'busyStatusCombo',
+				fieldLabel : _('Default status for all day appointment'),
+				name : 'zarafa/v1/contexts/calendar/default_allday_busy_status',
+				store : {
+					xtype : 'jsonstore',
+					fields : [ 'name', 'value' ],
+					data : Zarafa.calendar.data.BusyStatus
+				},
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				autoSelect : true,
+				forceSelection: true,
+				editable: false,
+				listeners : {
+					select : this.onFieldSelect,
+					scope : this
+				}
+			},{
 				xtype : 'checkboxgroup',
 				ref : 'workingDays',
 				fieldLabel : _('Working days'),
@@ -231,6 +253,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 
 		this.weekStartCombo.setValue(settingsModel.get(this.weekStartCombo.name));
 		this.zoomLevelCombo.setValue(settingsModel.get(this.zoomLevelCombo.name));
+		this.busyStatusCombo.setValue(settingsModel.get(this.busyStatusCombo.name));
 		this.boldCheck.setValue(settingsModel.get(this.boldCheck.name));
 
 		this.durationSpinner.setValue(settingsModel.get(this.durationSpinner.name));
@@ -277,6 +300,7 @@ Zarafa.calendar.settings.SettingsCalendarWidget = Ext.extend(Zarafa.settings.ui.
 		this.onWorkTimeChange(this.workingHourPeriod, this.workingHourPeriod.getValue());
 		settingsModel.set(this.weekStartCombo.name, this.weekStartCombo.getValue());
 		settingsModel.set(this.zoomLevelCombo.name, this.zoomLevelCombo.getValue());
+		settingsModel.set(this.busyStatusCombo.name, this.busyStatusCombo.getValue());
 		settingsModel.set(this.boldCheck.name, this.boldCheck.getValue());
 		settingsModel.set(this.durationSpinner.name, duration);
 		settingsModel.set(this.workingDays.name, Ext.pluck(this.workingDays.getValue(), 'inputValue'));
