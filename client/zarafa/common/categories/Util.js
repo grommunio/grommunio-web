@@ -79,16 +79,18 @@ Zarafa.common.categories.Util = {
 		// to the categories.
 		if ( record.get('label') ) {
 			var label = Zarafa.core.mapi.AppointmentLabels.getName(record.get('label'));
-			label = label.replace("_", " ");
-			var index = categories.indexOf(label);
-			if ( index > -1 ){
-				// The set label is also set as a category. A label will always
-				// be added as last category (because that defines the color of
-				// an appointment), so we will remove it from the categories first,
-				// and then add it as last.
-				categories.splice(index, 1);
+			if (label) {
+				label = label.replace("_", " ");
+				var index = categories.indexOf(label);
+				if ( index > -1 ){
+					// The set label is also set as a category. A label will always
+					// be added as last category (because that defines the color of
+					// an appointment), so we will remove it from the categories first,
+					// and then add it as last.
+					categories.splice(index, 1);
+				}
+				categories.push(label);
 			}
-			categories.push(label);
 		}
 
 		// Instantiate the category store only once. If any changes are done to the
