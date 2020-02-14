@@ -66,6 +66,18 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	createDefaultColumns : function()
 	{
 		return [{
+			id : 'column_icon',
+			header : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
+			headerCls: 'zarafa-icon-column icon',
+			dataIndex : 'icon_index',
+			width : 24,
+			hideable: !container.isEnabledConversation(),
+			renderer : Zarafa.common.ui.grid.Renderers.icon,
+			fixed : true,
+			preventColSwitch : container.isEnabledConversation(),
+			tooltip : _('Sort by: Icon'),
+			preventRowSelection : true
+		},{
 			header : '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
 			headerCls: 'zarafa-icon-column importance',
 			dataIndex : 'importance',
@@ -73,16 +85,6 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			renderer : Zarafa.common.ui.grid.Renderers.importance,
 			fixed : true,
 			tooltip : _('Sort by: Importance')
-		},{
-			id : 'column_icon',
-			header : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
-			headerCls: 'zarafa-icon-column icon',
-			dataIndex : 'icon_index',
-			width : 24,
-			renderer : Zarafa.common.ui.grid.Renderers.icon,
-			fixed : true,
-			tooltip : _('Sort by: Icon'),
-			preventRowSelection : true
 		},{
 			header : '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			headerCls: 'zarafa-icon-column attachment',
@@ -178,6 +180,8 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 			width : 24,
 			renderer : Zarafa.common.ui.grid.Renderers.icon,
 			fixed : true,
+			hideable: !container.isEnabledConversation(),
+			preventColSwitch : container.isEnabledConversation(),
 			tooltip : _('Sort by: Icon'),
 			preventRowSelection : true
 		},{
@@ -264,22 +268,33 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 	 */
 	setCompactView : function(compact)
 	{
-		if (this.useCompactView !== compact) {
+		var name;
+		var isEnabledConversation = container.isEnabledConversation();
+		if(compact) {
+			name = isEnabledConversation ? 'conversation_compact' :'compact';
+		} else {
+			name = isEnabledConversation ? 'conversation_default' :'default';
+		}
+
+		if (this.useCompactView !== compact || this.name !== name) {
 			this.useCompactView = compact;
 
 			if (compact) {
-				this.name = 'compact';
 				// Extjs will store the this.columns into this.config after it has constructed
 				// all the columns. At that point this.columns consists of the configuration objects,
 				// while this.columns consists of all the allocated columns.
-				this.defaultColumns = this.config;
+				if (this.name !== "conversation_compact" && this.name !== 'compact') {
+					this.defaultColumns = this.config;
+				}
 				this.columns = this.compactColumns;
 			} else {
-				this.name = 'default';
-				this.compactColumns = this.config;
+				if (this.name !== "conversation_default" && this.name !== 'default') {
+					this.compactColumns = this.config;
+				}
 				this.columns = this.defaultColumns;
 			}
 
+			this.name = name;
 			this.setConfig(this.columns, false);
 		}
 	},

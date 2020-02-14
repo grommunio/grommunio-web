@@ -73,7 +73,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			statefulRelativeDimensions : false,
 			loadMask : this.initLoadMask(),
 			supportLiveScroll : true,
-			viewConfig : this.initViewConfig(),
+			view : new Zarafa.mail.ui.MailGridView(this.initViewConfig()),
 			sm : this.initSelectionModel(),
 			cm : this.initColumnModel(),
 			enableDragDrop : true,
