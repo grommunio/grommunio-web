@@ -379,6 +379,7 @@ Zarafa.core.ui.MainToolbar = Ext.extend(Zarafa.core.ui.Toolbar, {
 				menuItems.push({
 					xtype: 'splitbutton',
 					id: 'zarafa-maintoolbar-print-'+context.getName(),
+					name: 'defaultPrintBtn',
 					scale: 'large',
 					iconCls: 'icon_large_print',
 					tooltip: _('Print') + ' (Ctrl + P)',

@@ -595,25 +595,11 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			text: _('Print single email'),
 			hideOnDisabled: false,
 			singleSelectOnly: true,
-			handler: this.onPrintSingle,
+			handler: this.onPrintSelected.createDelegate(this, [_('No message selected')], 2),
 			scope: this
 		}];
-		return defaultItems.concat(items);
-	},
 
-	/**
-	 * Event handler which is fired when the 'print single' item in the dropdown has been pressed
-	 * This calls {@link Zarafa.common.Actions.openPrintDialog} with the previewed {@link Zarafa.core.data.MAPIRecord} record.
-	 * @private
-	 */
-	onPrintSingle : function()
-	{
-		var records = this.getModel().getSelectedRecords();
-		if (Ext.isEmpty(records)) {
-			Ext.MessageBox.alert(_('Print'), _('No message selected'));
-		} else {
-			Zarafa.common.Actions.openPrintDialog(records);
-		}
+		return defaultItems.concat(items);
 	},
 
 	/**

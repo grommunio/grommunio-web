@@ -63,11 +63,21 @@ Zarafa.advancesearch.dialogs.SearchContentPanel = Ext.extend(Zarafa.core.ui.Cont
 	{
 		var mainToolbar = container.getMainToolbar();
 		var isSearchPanel = activeTab.isXType('zarafa.searchcontentpanel');
+		var contextName = container.getCurrentContext().getName();
 
 		// Toggle the search view button.
 		mainToolbar.get('zarafa-maintoolbar-view-advancesearch').setVisible(isSearchPanel);
 
-		var contextName = container.getCurrentContext().getName();
+		var currentContextPrintBtn = mainToolbar.get('zarafa-maintoolbar-print-'+ contextName);
+
+		// Disable Print button of other context and enable Print button of advance search,
+		// if current active tab is searchPanel.
+		// This condition is required for contexts which does not have "Print" button (i.e. Today context).
+		if (!Ext.isEmpty(currentContextPrintBtn)) {
+			currentContextPrintBtn.setVisible(!isSearchPanel);
+		}
+		mainToolbar.get('zarafa-maintoolbar-print-advancesearch').setVisible(isSearchPanel);
+		
 		switch(contextName) {
 			case 'calendar':
 				// Toggle calendar context view buttons

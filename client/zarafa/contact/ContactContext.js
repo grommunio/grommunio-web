@@ -486,26 +486,11 @@ Zarafa.contact.ContactContext = Ext.extend(Zarafa.core.Context, {
 			text: _('Print selected contact'),
 			hideOnDisabled: false,
 			singleSelectOnly: true,
-			handler: this.onPrintSingle,
+			handler: this.onPrintSelected.createDelegate(this, [_('No contact selected')], 2),
 			scope: this
 		}];
 
 		return defaultItems.concat(items);
-	},
-
-	/**
-	 * Handler for printing the selected {@link Zarafa.core.data.MAPIRecord} record. Menu item is disabled if there is no record selected.
-	 * Calls {@link Zarafa.common.Actions.openPrintDialog} openPrintDialog with the selected record.
-	 * @private
-	 */
-	onPrintSingle : function()
-	{
-		var records = this.getModel().getSelectedRecords();
-		if (Ext.isEmpty(records)) {
-			Ext.MessageBox.alert(_('Print'), _('No contact selected'));
-			return;
-		}
-		Zarafa.common.Actions.openPrintDialog(records);
 	},
 
 	/**
