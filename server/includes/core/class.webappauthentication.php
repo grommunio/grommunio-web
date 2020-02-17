@@ -171,6 +171,9 @@ class WebAppAuthentication
 			);
 
 			if (WebAppAuthentication::$_errorCode === NOERROR ) {
+				if (LOG_SUCCESSFUL_LOGINS) {
+					error_log('Kopano WebApp - ' . $username . ': authentication successful at MAPI');
+				}
 				WebAppAuthentication::$_authenticated = true;
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {

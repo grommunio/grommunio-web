@@ -99,6 +99,9 @@ if(!defined('ABITEMDETAILS_MAX_NUM_DISTLIST_MEMBERS')) define('ABITEMDETAILS_MAX
  */
 if(!defined('ENABLE_DIRECT_BOOKING')) define('ENABLE_DIRECT_BOOKING', true);
 
+/**
+ * Defines enabled languages
+ */
 if(!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES", "bg_BG;ca_ES;da_DK;el_GR;et_EE;fa_IR;gl_ES;hr_HR;ko_KR;lt_LT;pt_PT;si_SI;sv_SE;uk_UA;cs_CZ;de_DE;en_GB;en_US;es_ES;fr_FR;he_IL;it_IT;nl_NL;pt_BR;ru_RU;zh_CN;zh_TW;ja_JP;fi_FI;hu_HU;tr_TR;nb_NO;pl_PL");
 
 /**
@@ -107,7 +110,14 @@ if(!defined('ENABLED_LANGUAGES')) define("ENABLED_LANGUAGES", "bg_BG;ca_ES;da_DK
  */
 if(!defined('REDIRECT_ALLOWED_DOMAINS')) define('REDIRECT_ALLOWED_DOMAINS', '');
 
+/**
+ * Enable plugins
+ */
 if(!defined('ENABLE_PLUGINS')) define('ENABLE_PLUGINS', true);
+
+/**
+ * Defines the plugin directory
+ */
 if(!defined('PATH_PLUGIN_CONFIG_DIR')) define('PATH_PLUGIN_CONFIG_DIR', PATH_PLUGIN_DIR);
 
 /**
@@ -127,28 +137,44 @@ if(!defined('THEME')) define('THEME', '');
  */
 if(!defined('PERSONAL_THEMES_ENABLED')) define('PERSONAL_THEMES_ENABLED', false);
 
-// Use the classic icons as default iconset
+/**
+ * Use the classic icons as default iconset
+ */
 if(!defined('ICONSET')) define('ICONSET', 'breeze');
 
-// Disable/enabled advanced settings
+/**
+ * Disable/enabled advanced settings
+ */
 if(!defined('ENABLE_ADVANCED_SETTINGS')) define('ENABLE_ADVANCED_SETTINGS', false);
 
-// Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
+/**
+ * Freebusy start offset that will be used to load freebusy data in appointments, number is subtracted from current time
+ */
 if(!defined('FREEBUSY_LOAD_START_OFFSET')) define('FREEBUSY_LOAD_START_OFFSET', 7);
 
-// Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
+/** 
+ * Freebusy end offset that will be used to load freebusy data in appointments, number is added to current time
+ */
 if(!defined('FREEBUSY_LOAD_END_OFFSET')) define('FREEBUSY_LOAD_END_OFFSET', 90);
 
-// Maximum eml files to be included in a single ZIP archive
+/**
+ * Maximum eml files to be included in a single ZIP archive
+ */
 if(!defined('MAX_EML_FILES_IN_ZIP')) define('MAX_EML_FILES_IN_ZIP', 50);
 
-// CONTACT_PREFIX used for contact name
+/**
+ * CONTACT_PREFIX used for contact name
+ */
 if (!defined('CONTACT_PREFIX')) define('CONTACT_PREFIX', false);
 
-// CONTACT_SUFFIX used for contact name
+/**
+ * CONTACT_SUFFIX used for contact name
+ */
 if (!defined('CONTACT_SUFFIX')) define('CONTACT_SUFFIX', false);
 
-// Color schemes used for the calendars
+/**
+ * Color schemes used for the calendars
+ */
 if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 	array(
 		'name' => 'pink',
@@ -232,7 +258,7 @@ if (!defined('COLOR_SCHEMES')) define('COLOR_SCHEMES', json_encode(array(
 	)
 )));
 
-/*
+/**
  * Predefined categories. Categories should have at least a name and a color. The
  * quickAccess property can be set to true to 'pin' the category to the menu. (i.e. it
  * will be shown in the categories menu). The sortIndex property can be used to support
@@ -405,25 +431,35 @@ if (!defined('DEFAULT_CATEGORIES')) define('DEFAULT_CATEGORIES', json_encode(arr
 	)
 )));
 
-// Maximum reminder items we can show on client side.
+/**
+ * Maximum reminder items we can show on client side.
+ */
 if(!defined('MAX_NUM_REMINDERS')) define('MAX_NUM_REMINDERS', 99);
 
-// Set true to default soft delete the shared store items
+/**
+ * Set true to default soft delete the shared store items
+ */
 if(!defined('ENABLE_DEFAULT_SOFT_DELETE')) define('ENABLE_DEFAULT_SOFT_DELETE', false);
 
-// Shared store polling timer in minutes
+/**
+ * Shared store polling timer in minutes
+ */
 if(!defined('SHARED_STORE_POLLING_INTERVAL')) define('SHARED_STORE_POLLING_INTERVAL', 15);
 
-// Prefetch email count
+/**
+ * Prefetch email count
+ */
 if(!defined('PREFETCH_EMAIL_COUNT')) define('PREFETCH_EMAIL_COUNT', 10);
 if(!defined('PREFETCH_EMAIL_INTERVAL')) define('PREFETCH_EMAIL_INTERVAL', 30);
 
-// Defaults for powerpaste
+/**
+ * Defaults for powerpaste
+ */
 if(!defined('POWERPASTE_WORD_IMPORT')) define('POWERPASTE_WORD_IMPORT', 'merge');
 if(!defined('POWERPASTE_HTML_IMPORT')) define('POWERPASTE_HTML_IMPORT', 'merge');
 if(!defined('POWERPASTE_ALLOW_LOCAL_IMAGES')) define('POWERPASTE_ALLOW_LOCAL_IMAGES', true);
 
-/*
+/**
  * The following options are taken from the debug.php
  */
 if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);
@@ -434,12 +470,19 @@ if(!defined('DEBUG_PLUGINS')) define('DEBUG_PLUGINS', false);
 if(!defined('DEBUG_PLUGINS_DISABLE_CACHE')) define('DEBUG_PLUGINS_DISABLE_CACHE', false);
 if(!defined('DEBUG_DUMP_FILE')) define('DEBUG_DUMP_FILE', 'debug.txt');
 
-// Defaults for Logger
+/**
+ * Defaults for Logger
+ */
 if(!defined('LOG_USER_LEVEL')) define('LOG_USER_LEVEL', LOGLEVEL_OFF);
 if(!defined('LOG_USERS')) define('LOG_USERS', '');
 if(!defined('LOG_FILE_DIR')) define('LOG_FILE_DIR', '');
 
-// OIDC
+
+if(!defined("LOG_SUCCESSFUL_LOGINS")) define("LOG_SUCCESSFUL_LOGINS", false);
+
+/**
+ * OIDC
+ */
 if(!defined('OIDC_ISS')) define('OIDC_ISS', '');
 if(!defined('OIDC_CLIENT_ID')) define('OIDC_CLIENT_ID', '');
 if(!defined('OIDC_SCOPE')) define('OIDC_SCOPE', 'openid profile email kopano/gc');
