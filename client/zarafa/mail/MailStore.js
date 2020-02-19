@@ -14,6 +14,13 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	openedConversationItems : [],
 
 	/**
+	 * This will contain updated opened conversation item after the deletion of any message from mail grid.
+	 * @property
+	 * @type Array
+	 */
+	updatedOpenedConversationItems : [],
+
+	/**
 	 * @constructor
 	 * @param {Object} config configuration params that should be used to create instance of this store.
 	 */
@@ -177,7 +184,7 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	/**
 	 * Checks if the given record is part of an expanded conversation
 	 *
-	 * @param {Zarafa.mai.MailRecord} record The record that should be checked
+	 * @param {Zarafa.mail.MailRecord} record The record that should be checked
 	 * @return {Boolean} True is the record is part of an expanded conversation,
 	 * false otherwise
 	 */
@@ -186,6 +193,135 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 			// TODO: use the entryid compare function
 			return record.get('entryid') === entryid;
 		});
+	},
+
+	/**
+	 * Function will be called on 'load' event of store. It will filter out deleted headers items
+	 * from newly received data in store. It will manage open/close state of header records
+	 * and filter the store to not show items in conversations that have not been expanded.
+	 *
+	 * @param {Zarafa.mail.MailStore} store which contains message records
+	 * @param {Zarafa.mail.MailRecord[]} records array which holds all the records we received in load request.
+	 */
+	manageOpenConversations : function(store, records) {
+		if(container.isEnabledConversation() === false) {
+			return;
+		}
+
+		if (!Ext.isEmpty(this.updatedOpenedConversationItems)) {
+			this.openedConversationItems = this.updatedOpenedConversationItems.clone();
+			this.updatedOpenedConversationItems = [];
+		}
+
+		for (var i=0; i<records.length-1; i++) {
+			var currentRecord = records[i];
+			var currRecordConversationCount = currentRecord.get('conversation_count');
+			var isCurrentRecordOpened = this.isConversationOpened(currentRecord);
+
+			// Proceed only if currentRecord is Header record.
+			// We only need to alter the open/close state of currentRecord on the basis of its last conversation item's state.
+			// Because there can be newly added items which might not be in openedConversationItems.
+			if (currRecordConversationCount > 0) {
+				var isAnyItemOpened = false;
+				var unOpenedItems = [];
+
+				// Loop through all conversation items of the current conversation.
+				// If any opened item found that means a conversation was opened before.
+				// So, add all unopened items (i.e. newly received mail, restored mail, header record)
+				// into openedConversationItems.
+				for (var j = i ; j <= i + currRecordConversationCount; j++) {
+					var conversationItem = records[j];
+					var isConversationItemOpened = this.isConversationOpened(conversationItem);
+					if (isConversationItemOpened) {
+						isAnyItemOpened = true;
+						continue;
+					}
+					unOpenedItems.push(conversationItem.get('entryid'));
+				}
+
+				// If any conversation item is found open then add unopened items to openedConversationItems.
+				if (isAnyItemOpened) {
+					if (!isCurrentRecordOpened) {
+						this.openedConversationItems.push(currentRecord.get('entryid'));
+					}
+					this.openedConversationItems = this.openedConversationItems.concat(unOpenedItems);
+				} else if(!isAnyItemOpened && isCurrentRecordOpened) {
+					// If no item in conversation group is opened and conversation header is opened
+					// then remove conversation header from openedConversationItems.
+					this.openedConversationItems = this.openedConversationItems.filter(function(entryid){
+						return entryid !== currentRecord.get('entryid');
+					});
+				}
+
+				// Jump to the next record after a conversation finished.
+				i = i + currRecordConversationCount;
+			}
+		}
+
+		this.filterByConversations();
+	},
+
+	/**
+	 * Function will Filter the store to not show items in conversations that have not been expanded
+	 * and will update {@link #updatedOpenedConversationItems} with deleted conversation Header.
+	 *
+	 * @param {Zarafa.mail.MailStore} store which contains message records
+	 * @param {Zarafa.mail.MailRecord} record which is deleted.
+	 */
+	manageDeleteConversations : function(store, record) {
+		if(container.isEnabledConversation() === false) {
+			return;
+		}
+		this.filterByConversations();
+		var deletedHeader = this.willConversationBeDeleted(record);
+		if (deletedHeader) {
+			var deletedHeaderEntryId = deletedHeader.get('entryid');
+			this.updatedOpenedConversationItems = this.openedConversationItems.filter(function(entryid){
+				return deletedHeaderEntryId !== entryid;
+			});
+		}
+	},
+
+	/**
+	 * Function will check if the whole conversation will be deleted on the deletion of given record.
+	 * If conversation is going to be deleted then this will return conversation header record.
+	 *
+	 * @param {Zarafa.mail.MailRecord} record which is deleted.
+	 * @return {Zarafa.mail.MailRecord} conversation header record if conversation is going to be deleted
+	 * else returns false.
+	 */
+	willConversationBeDeleted : function(record) {
+		var index = record.lastIndex;
+
+		// As of now we can not delete the whole conversation at once.
+		// If single item is getting deleted.
+		if (record.get('depth') === 0) {
+			return false;
+		}
+
+		var headerRecord;
+		// get Header record.
+		for (var i = index-1; i>=0; i--) {
+			var currRecord = this.getAt(i);
+			if (currRecord.get('conversation_count') > 0) {
+				headerRecord = currRecord;
+				break;
+			}
+		}
+
+		var leftConversationItems = this.getConversationItemsFromHeaderRecord(headerRecord);
+
+		// if 1 or less item is left means conversation header will be removed in next list request.
+		if (leftConversationItems.length > 1) {
+			for (var i = 0; i<leftConversationItems.length; i++) {
+				// If left item contains inbox item, then this cinversation won't be deleted.
+				if (leftConversationItems[i].get('folder_name') === "inbox") {
+					return false;
+				}
+			}
+		}
+
+		return headerRecord;
 	},
 
 	/**

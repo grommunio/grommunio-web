@@ -117,9 +117,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		var store = this.getStore();
 		store.filterByConversations();
-		this.mon(this.getStore(), 'load', store.filterByConversations, store);
+		this.mon(this.getStore(), 'load', store.manageOpenConversations, store);
 		this.mon(this.getStore(), 'add', store.filterByConversations, store);
-		this.mon(this.getStore(), 'remove', store.filterByConversations, store);
+		this.mon(this.getStore(), 'remove', store.manageDeleteConversations, store);
 
 		this.mon(this.getView(), 'rowupdated', function(view, rowIndex, record) {
 			if (record.get('depth') === 0) {
@@ -227,7 +227,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			cssClass += ' line_vertical';
 		}
 
-		if (store.getCount() === rowIndex + 1 || store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject')) {
+		if (store.getCount() === rowIndex + 1
+			|| store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject')
+			|| store.getAt(rowIndex+1).get('depth') === 0) {
 			cssClass += ' k-last-conversation-item';
 		}
 
