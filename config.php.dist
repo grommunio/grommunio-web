@@ -254,8 +254,8 @@
 
 	// Location of the log directory
 	// e.g /var/log/webapp-userslog/users/
-    // The directory will be created when it does not exist.
-    // Webserver user should have permissions to write in this folder
+	// The directory will be created when it does not exist.
+	// Webserver user should have permissions to write in this folder
 	define('LOG_FILE_DIR', '');
 
 	/**************************************\
@@ -304,6 +304,9 @@
 
 	ini_set("log_errors", true);
 	error_reporting(E_ERROR);
+
+	// Log successful logins
+	define("LOG_SUCCESSFUL_LOGINS", false);
 
 	if (file_exists('debug.php')){
 		include_once('debug.php');
