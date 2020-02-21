@@ -16,7 +16,7 @@ define("DEBUG_PLUGINS", true);
 define("DEBUG_PLUGINS_DISABLE_CACHE", false);
 
 // dump file, must be writable
-define("DEBUG_DUMP_FILE", BASE_PATH . 'debug.txt');
+define("DEBUG_DUMP_FILE", BASE_PATH . "debug.txt");
 
 // The different value types for the DEBUG_LOADER config option
 // This can be any of the following values:
