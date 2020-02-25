@@ -349,5 +349,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getOIDCEnabled : function()
 	{
 		return this.meta.oidc_enabled;
+	},
+
+	/**
+	 * @returns {Boolean} True if conversation is enabled by admin(from config.php) else false.
+	 */
+	getConversationViewCfg : function ()
+	{
+		return this.meta.enable_conversation_view;
 	}
 });

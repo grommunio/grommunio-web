@@ -810,5 +810,17 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	getRulesFactoryByType : function(factoryType)
 	{
 		return Zarafa.common.data.AbstractRulesFactory.getFactoryById(factoryType);
+	},
+
+	/**
+	 * Helper function which used to check the conversation view is enabled or not.
+	 * @return {Boolean} True if conversation view is enabled else false.
+	 */
+	isEnabledConversation: function ()
+	{
+		var enabledConversationView = this.getServerConfig().getConversationViewCfg();
+		var checkEnableConversationView = this.getSettingsModel().get("zarafa/v1/contexts/mail/enable_conversation_view", false);
+
+		return enabledConversationView && checkEnableConversationView;
 	}
 });

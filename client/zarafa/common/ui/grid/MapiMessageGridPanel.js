@@ -44,21 +44,6 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 	supportLiveScroll : false,
 
 	/**
-	 * @constructor
-	 * @param config Configuration structure
-	 */
-	constructor : function(config)
-	{
-		config = config || {};
-
-		Ext.applyIf(config, {
-			view: new Zarafa.common.ui.grid.GridView(config.viewConfig)
-		});
-
-		Zarafa.common.ui.grid.MapiMessageGrid.superclass.constructor.call(this, config);
-	},
-
-	/**
 	 * Initialize event handlers
 	 * @private
 	 */
