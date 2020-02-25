@@ -40,7 +40,7 @@
 			}
 		},
 
-		/*
+		/**
 		 * Fix the getValue function for the DateField, normally Extjs would
 		 * return an empty string ("") when no date was provided, but it more
 		 * logically would be to return null.
@@ -50,7 +50,39 @@
 			var value = orig_getValue.apply(this, arguments);
 			return Ext.isEmpty(value) ? null : value;
 		},
+		
+		/**
+		 * Overridden function to format the date value if incorrect/incomplete.
+		 */
+		beforeBlur : function()
+		{
+			var rawValue = this.getRawValue();
+			if (Ext.isEmpty(rawValue)) {
+				return;
+			}
+			
+			var value = Zarafa.core.Util.getDateByLanguageFormat(rawValue, undefined, this.format);
+			var newDate = new Date();
 
+			var day = value[0];
+			var month = value[1];
+			var year = value[2];
+
+			newDate.setMonth(month ? (month - 1) : newDate.getMonth());
+			newDate.setDate(day ? day : newDate.getDate());
+			newDate.setFullYear(year ? year : newDate.getFullYear());
+			
+			// Compare the new date value with the minimum and maximum value, defined for the current date field.
+			if (Ext.isDefined(newDate) && Ext.isDate(newDate)) {
+				if (newDate > this.maxValue) {
+					newDate = this.maxValue;
+				} else if (newDate < this.minValue) {
+					newDate = this.minValue;
+				}
+				this.setValue(newDate);
+			}
+		},
+		
 		/**
 		* This function prepares raw values for validation purpose only. Here when
 		* field value is null than empty string will be returned because ExtJS by default uses

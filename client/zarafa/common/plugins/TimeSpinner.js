@@ -129,6 +129,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	 */
 	getValue : function()
 	{
+		this.formatTimeString();
 		var stringValue = this.isValidTimeString() ? this.getStringValue() : this.field.value;
 		if (Ext.isEmpty(stringValue) || Ext.isEmpty(this.dateValue)) {
 			return null;
@@ -141,7 +142,83 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 
 		return this.dateValue.clone();
 	},
-
+	
+	/**
+	 * Function which is used to correct the format of the given time string in the spinner.
+	 */
+	formatTimeString : function()
+	{
+		var currentValue = this.getStringValue();
+		var defaultValue = this.field.value;
+		var hours, minutes, timePeriod;
+		
+		if (currentValue === defaultValue) {
+			return;
+		}
+		
+		if (Ext.isEmpty(currentValue)) {
+			return null;
+		}
+		
+		var regExAmPm = /[AaPp][Mm]/g;
+		var regExSpecialChar = /[^0-9]/g;
+		
+		// Check if the current value has 'AM/am' or 'PM/pm'
+		if (regExAmPm.test(currentValue)) {
+			timePeriod = currentValue.match(regExAmPm);
+			currentValue = currentValue.replace(timePeriod,'');
+			timePeriod = timePeriod.toString().toUpperCase();
+		}
+		
+		// Remove all special characters used as separators
+		currentValue = currentValue.replace(regExSpecialChar, '');
+		
+		switch (currentValue.length) {
+			case 4:
+				break;
+			case 3:
+				// If the string has 3 digits, append '0' at the beginning
+				// For example, 900 -> 0900
+				currentValue = '0' + currentValue;
+				break;
+			case 2:
+				// If the string has 2 digits, append '00' at the end
+				// For example, 12 -> 1200
+				currentValue = currentValue + '00';
+				break;
+			case 1:
+				// If the string has 1 digit, append a '0' to the beginning
+				// and '00' at the end.
+				// For example, 8 -> 0800
+				currentValue = '0' + currentValue + '00';
+				break;
+			default:
+				// The defaultValue might be something like '7:00',
+				// so to extract the hours and minutes, we need to change it
+				// to the desired format.
+				currentValue = defaultValue.replace(regExSpecialChar, '');
+				if (currentValue.length === 3) {
+					currentValue = '0' + currentValue;
+				}
+				break;
+		}
+		hours = currentValue.slice(0,2);
+		minutes = currentValue.slice(2,4);
+		
+		var newDate = new Date();
+		// Set the hours and minutes to the new Date object
+		newDate.setHours(hours);
+		newDate.setMinutes(minutes);
+		
+		// Format it according to the current format
+		newDate = newDate.format(this.format);
+		// Replace the time period if given in input by the user
+		if (hours <= 12 && timePeriod) {
+			newDate = newDate.replace(regExAmPm, timePeriod);
+		}
+		this.setStringValue(newDate);
+	},
+	
 	/**
 	 * The default spin action when the value inside the
 	 * {@link Zarafa.common.ui.SpinnerField SpinnerField} must be changed.
