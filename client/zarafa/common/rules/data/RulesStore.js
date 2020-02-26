@@ -190,14 +190,9 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 			options = {};
 		}
 
-		// Add the entryid of the store for which we want the rules
-		this.baseParams.store = this.storeEntryId;
-
-		if (!Ext.isObject(options.params)) {
-			options.params = {'store': this.storeEntryId};
-		} else {
-			options.params['store'] = this.storeEntryId;
-		}
+		options.params = Ext.applyIf(options.params||{},{
+			'store_entryid': this.storeEntryId
+		});
 
 		// By default 'load' must cancel the previous request.
 		if (!Ext.isDefined(options.cancelPreviousRequest)) {
