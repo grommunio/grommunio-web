@@ -564,6 +564,20 @@ msgstr "Järjestä: Sijainti"
 msgid "Sort by: Fax"
 msgstr "Järjestä: Faksi"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "Tulosta valitut tehtävät"
+
+msgid "Print"
+msgstr "Tulosta"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Ei esikatselua"
 
@@ -972,14 +986,11 @@ msgstr "Tapaamispyyntö"
 msgid "Print selected appointment"
 msgstr "Tulosta valittu tapaaminen"
 
-msgid "Print overview"
-msgstr "Tulosta näkymä"
-
-msgid "Print"
-msgstr "Tulosta"
-
 msgid "No appointment selected"
 msgstr "Tapaamista ei valittu"
+
+msgid "Print overview"
+msgstr "Tulosta näkymä"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1433,6 +1444,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Koko päivän kestävien tapaamisten muistutuksen oletusaika"
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2388,11 +2402,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr ""
-
-# 78%
-#, fuzzy
-msgid "Print selected item"
-msgstr "Tulosta valitut tehtävät"
 
 msgid "Open copy/move dialog"
 msgstr ""
@@ -4650,6 +4659,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4762,6 +4783,18 @@ msgstr "Käyttäjä on parhaillaan poissa toimistolta."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5339,11 +5372,11 @@ msgstr "Tehtäväpyyntö:"
 msgid "Print selected task"
 msgstr "Tulosta valitut tehtävät"
 
-msgid "Print task list"
-msgstr "Tulosta tehtävä lista"
-
 msgid "No task selected"
 msgstr "Ei valittuja tehtäviä"
+
+msgid "Print task list"
+msgstr "Tulosta tehtävä lista"
 
 msgid "Create task"
 msgstr ""

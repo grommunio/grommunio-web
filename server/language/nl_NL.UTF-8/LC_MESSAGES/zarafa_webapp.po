@@ -583,6 +583,19 @@ msgstr "Sorteer op: Locatie"
 msgid "Sort by: Fax"
 msgstr "Sorteer op: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Druk geselecteerde item af"
+
+msgid "Print"
+msgstr "Afdrukken"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Geen voorbeeld"
 
@@ -981,14 +994,11 @@ msgstr "Vergaderverzoek"
 msgid "Print selected appointment"
 msgstr "Druk geselecteerde afspraak af"
 
-msgid "Print overview"
-msgstr "Druk overzicht af"
-
-msgid "Print"
-msgstr "Afdrukken"
-
 msgid "No appointment selected"
 msgstr "Geen afspraak geselecteerd"
+
+msgid "Print overview"
+msgstr "Druk overzicht af"
 
 msgid "Create Appointment"
 msgstr "Maak afspraak"
@@ -1441,6 +1451,9 @@ msgstr "Standaard afspraak tijdsduur {A} minuten"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Tijdsduur moet tussen 1 en 120 minuten liggen."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Werkdagen"
@@ -2424,10 +2437,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr "Lijst afdrukken"
-
-# 78%
-msgid "Print selected item"
-msgstr "Druk geselecteerde item af"
 
 msgid "Open copy/move dialog"
 msgstr "Open het dialoogvenster kopiëren/verplaatsen"
@@ -4679,6 +4688,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "AW"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4786,6 +4807,18 @@ msgstr "Gebruiker is nu niet aanwezig."
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr "De ingevulde tijd ligt voor de afwezigheidstijd. Kies een andere tijd."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Handtekeningen"
@@ -5366,11 +5399,11 @@ msgstr "Toegewezen taak"
 msgid "Print selected task"
 msgstr "Druk geselecteerde taak af"
 
-msgid "Print task list"
-msgstr "Druk takenlijst af"
-
 msgid "No task selected"
 msgstr "Geen taak geselecteerd"
+
+msgid "Print task list"
+msgstr "Druk takenlijst af"
 
 msgid "Create task"
 msgstr "Taak aanmaken"

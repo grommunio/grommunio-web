@@ -542,6 +542,18 @@ msgstr ""
 msgid "Sort by: Fax"
 msgstr ""
 
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr ""
 
@@ -904,13 +916,10 @@ msgstr ""
 msgid "Print selected appointment"
 msgstr ""
 
-msgid "Print overview"
-msgstr ""
-
-msgid "Print"
-msgstr ""
-
 msgid "No appointment selected"
+msgstr ""
+
+msgid "Print overview"
 msgstr ""
 
 msgid "Create Appointment"
@@ -1321,6 +1330,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr ""
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2197,9 +2209,6 @@ msgid "Open dialog to categorize selected item"
 msgstr ""
 
 msgid "Print list"
-msgstr ""
-
-msgid "Print selected item"
 msgstr ""
 
 msgid "Open copy/move dialog"
@@ -4238,6 +4247,18 @@ msgstr ""
 msgid "RE"
 msgstr ""
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -4340,6 +4361,18 @@ msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -4857,10 +4890,10 @@ msgstr "Tasques"
 msgid "Print selected task"
 msgstr ""
 
-msgid "Print task list"
+msgid "No task selected"
 msgstr ""
 
-msgid "No task selected"
+msgid "Print task list"
 msgstr ""
 
 msgid "Create task"

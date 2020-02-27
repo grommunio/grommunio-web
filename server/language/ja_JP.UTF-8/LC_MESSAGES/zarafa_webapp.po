@@ -558,6 +558,19 @@ msgstr "並べ替え：場所"
 msgid "Sort by: Fax"
 msgstr "並べ替え：Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "選択したタスクを印刷"
+
+msgid "Print"
+msgstr "印刷"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "プレビュー無し"
 
@@ -946,14 +959,11 @@ msgstr "会議依頼"
 msgid "Print selected appointment"
 msgstr "選択した予定を印刷"
 
-msgid "Print overview"
-msgstr "概要を印刷"
-
-msgid "Print"
-msgstr "印刷"
-
 msgid "No appointment selected"
 msgstr "予定が選択されていません"
+
+msgid "Print overview"
+msgstr "概要を印刷"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1403,6 +1413,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr "終日予定のリマインダーの初期値"
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2341,10 +2354,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr ""
-
-# 78%
-msgid "Print selected item"
-msgstr "選択したタスクを印刷"
 
 msgid "Open copy/move dialog"
 msgstr ""
@@ -4597,6 +4606,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4704,6 +4725,18 @@ msgstr "ユーザーは現在外出中です。"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5280,11 +5313,11 @@ msgstr "タスク依頼:"
 msgid "Print selected task"
 msgstr "選択したタスクの印刷"
 
-msgid "Print task list"
-msgstr "タスク一覧の印刷"
-
 msgid "No task selected"
 msgstr "タスクが選択されていません"
+
+msgid "Print task list"
+msgstr "タスク一覧の印刷"
 
 msgid "Create task"
 msgstr ""

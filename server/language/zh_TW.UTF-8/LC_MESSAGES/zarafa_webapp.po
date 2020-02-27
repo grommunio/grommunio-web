@@ -542,6 +542,20 @@ msgstr "依位置排序"
 msgid "Sort by: Fax"
 msgstr "依傳真排序"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "列印此任務"
+
+msgid "Print"
+msgstr "列印"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "關閉預覽"
 
@@ -945,14 +959,11 @@ msgstr "會議要求"
 msgid "Print selected appointment"
 msgstr "列印選擇的約會"
 
-msgid "Print overview"
-msgstr "預覽列印"
-
-msgid "Print"
-msgstr "列印"
-
 msgid "No appointment selected"
 msgstr "沒有選擇的約會"
+
+msgid "Print overview"
+msgstr "預覽列印"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1385,6 +1396,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr "預設全天約會提醒時間"
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2312,11 +2326,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr ""
-
-# 78%
-#, fuzzy
-msgid "Print selected item"
-msgstr "列印此任務"
 
 msgid "Open copy/move dialog"
 msgstr ""
@@ -4527,6 +4536,18 @@ msgstr "轉寄"
 msgid "RE"
 msgstr "回覆"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4637,6 +4658,18 @@ msgstr "使用者現在不在辦公室"
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5198,11 +5231,11 @@ msgstr "任務要求:"
 msgid "Print selected task"
 msgstr "列印此任務"
 
-msgid "Print task list"
-msgstr "列印任務清單"
-
 msgid "No task selected"
 msgstr "沒有選擇的任務"
+
+msgid "Print task list"
+msgstr "列印任務清單"
 
 msgid "Create task"
 msgstr ""

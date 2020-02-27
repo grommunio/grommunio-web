@@ -563,6 +563,19 @@ msgstr "Sıralama: Konum"
 msgid "Sort by: Fax"
 msgstr "Sıralama: Faks"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Seçili öğeyi yazdır"
+
+msgid "Print"
+msgstr "Yazdır"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Önizleme yok"
 
@@ -966,14 +979,11 @@ msgstr "Toplanti isteği"
 msgid "Print selected appointment"
 msgstr "Seçtiniz randevuyu yazdır"
 
-msgid "Print overview"
-msgstr "Görünümü yazdır"
-
-msgid "Print"
-msgstr "Yazdır"
-
 msgid "No appointment selected"
 msgstr "Seçilmiş randevu yok"
+
+msgid "Print overview"
+msgstr "Görünümü yazdır"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1443,6 +1453,9 @@ msgstr "Tüm gün randevular için varsayılan hatırlatma saatini"
 #, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Değer %0 ile %100 arasında olmalıdır"
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "iş günü"
@@ -2403,10 +2416,6 @@ msgstr "seçili öğeyi kategorilemek için pencere aç"
 
 msgid "Print list"
 msgstr "listeyi yazdır"
-
-# 78%
-msgid "Print selected item"
-msgstr "Seçili öğeyi yazdır"
 
 msgid "Open copy/move dialog"
 msgstr "kopyala/taşı penceresini aç"
@@ -4697,6 +4706,18 @@ msgstr "İLT"
 msgid "RE"
 msgstr "YNT"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4807,6 +4828,18 @@ msgid ""
 msgstr ""
 "Girdiğiniz zaman, ofis dışında olacağınız tarih'ten önce. Lütfen yeniden "
 "planlayın."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Imzalar"
@@ -5389,11 +5422,11 @@ msgstr "Görev isteği"
 msgid "Print selected task"
 msgstr "Seçtiğin görevleri yazdır"
 
-msgid "Print task list"
-msgstr "Görevleri yazdır"
-
 msgid "No task selected"
 msgstr "Seçilen görev yok"
+
+msgid "Print task list"
+msgstr "Görevleri yazdır"
 
 msgid "Create task"
 msgstr "görev oluştur"

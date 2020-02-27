@@ -539,6 +539,18 @@ msgstr "Raða eftir staðsetningu"
 msgid "Sort by: Fax"
 msgstr "Raða eftir faxi"
 
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr "Prenta valið atriði"
+
+msgid "Print"
+msgstr "Prenta"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Engin forsýn"
 
@@ -906,14 +918,11 @@ msgstr "Fundarboð"
 msgid "Print selected appointment"
 msgstr "Prenta valda tímabókun"
 
-msgid "Print overview"
-msgstr "Prenta yfirlit"
-
-msgid "Print"
-msgstr "Prenta"
-
 msgid "No appointment selected"
 msgstr "Engin tímabókun valin"
+
+msgid "Print overview"
+msgstr "Prenta yfirlit"
 
 msgid "Create Appointment"
 msgstr "Bóka tíma"
@@ -1341,6 +1350,9 @@ msgstr "Sjálfgefin lengd tímabókana: {A} mínútur"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Tímalengd verður að vera milli 1 og 120 mínútur."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Vinnudagar"
@@ -2274,9 +2286,6 @@ msgstr "Opna glugga til að flokka valið atriði"
 
 msgid "Print list"
 msgstr "Prenta lista"
-
-msgid "Print selected item"
-msgstr "Prenta valið atriði"
 
 msgid "Open copy/move dialog"
 msgstr "Opna afritunar/færsluglugga"
@@ -4347,6 +4356,18 @@ msgstr "ÁFRAM"
 msgid "RE"
 msgstr "SVAR"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4453,6 +4474,18 @@ msgid ""
 msgstr ""
 "Tíminn sem þú skráðir er á undan tímasetningu fjarveru. Vinsamlegast "
 "endurstilltu tímann."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Undirskriftir"
@@ -4988,11 +5021,11 @@ msgstr "Verkbeiðni"
 msgid "Print selected task"
 msgstr "Prenta valið verk"
 
-msgid "Print task list"
-msgstr "Prenta verkskrá"
-
 msgid "No task selected"
 msgstr "Ekkert verk valið"
+
+msgid "Print task list"
+msgstr "Prenta verkskrá"
 
 msgid "Create task"
 msgstr "Búa til verk"

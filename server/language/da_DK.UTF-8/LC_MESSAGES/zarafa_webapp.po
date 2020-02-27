@@ -546,6 +546,18 @@ msgstr "Sorter efter: Placering"
 msgid "Sort by: Fax"
 msgstr "Sorter efter: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr "Udskriv det valgte element"
+
+msgid "Print"
+msgstr "Udskriv"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Ingen forhåndsvisning"
 
@@ -920,14 +932,11 @@ msgstr "Mødeindkaldelse"
 msgid "Print selected appointment"
 msgstr "Udskriv den valgte aftale"
 
-msgid "Print overview"
-msgstr "Udskriv overblik"
-
-msgid "Print"
-msgstr "Udskriv"
-
 msgid "No appointment selected"
 msgstr "Ingen aftale er valgt"
+
+msgid "Print overview"
+msgstr "Udskriv overblik"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1371,6 +1380,9 @@ msgstr "Standard påmindelses tid for heldags aftaler"
 #, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Værdi skal være mellem 0% og 100%"
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Arbejdsdage"
@@ -2305,9 +2317,6 @@ msgstr "Åbn dialogboks til at kategorisere det valgte element"
 
 msgid "Print list"
 msgstr "Udskriv liste"
-
-msgid "Print selected item"
-msgstr "Udskriv det valgte element"
 
 msgid "Open copy/move dialog"
 msgstr "Åbn kopier/flyt dialogboks"
@@ -4481,6 +4490,18 @@ msgstr "VS"
 msgid "RE"
 msgstr "SV"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4589,6 +4610,18 @@ msgid ""
 msgstr ""
 "Tidspunktet som du har opgivet er før starten af dit fravær. Angiv venligst "
 "et nyt tidspunkt."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Signaturer"
@@ -5133,11 +5166,11 @@ msgstr "Opgaveforespørgsel"
 msgid "Print selected task"
 msgstr "Udskriv den valgte opgave"
 
-msgid "Print task list"
-msgstr "Udskriv opgaveliste"
-
 msgid "No task selected"
 msgstr "Ingen opgave er valgt"
+
+msgid "Print task list"
+msgstr "Udskriv opgaveliste"
 
 msgid "Create task"
 msgstr "Opret opgave"
