@@ -567,6 +567,19 @@ msgstr "Třídit podle: Místo"
 msgid "Sort by: Fax"
 msgstr "Třídit podle: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Tisknout vybrané položky"
+
+msgid "Print"
+msgstr "Tisk"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Bez náhledu"
 
@@ -957,14 +970,11 @@ msgstr "Žádost o schůzku"
 msgid "Print selected appointment"
 msgstr "Tisknout vybraný termín"
 
-msgid "Print overview"
-msgstr "Náhled tisku"
-
-msgid "Print"
-msgstr "Tisk"
-
 msgid "No appointment selected"
 msgstr "Nebyl vybrán termín"
+
+msgid "Print overview"
+msgstr "Náhled tisku"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1417,6 +1427,9 @@ msgstr "Výchozí doba trvání události {A} minut"
 #, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Doba trvání musí být mezi 1 a 120 minutami."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Pracovní dny"
@@ -2394,10 +2407,6 @@ msgstr "Otevřít okno pro kategorizaci vybrané položky"
 
 msgid "Print list"
 msgstr "Tisknout seznam"
-
-# 78%
-msgid "Print selected item"
-msgstr "Tisknout vybrané položky"
 
 msgid "Open copy/move dialog"
 msgstr "Otevřít okno na kopírování/přesunování"
@@ -4662,6 +4671,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4773,6 +4794,18 @@ msgstr "Uživatel je právě mimo kancelář."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5344,11 +5377,11 @@ msgstr "Zadání úkolu:"
 msgid "Print selected task"
 msgstr "Tisknout vybrané úlohy"
 
-msgid "Print task list"
-msgstr "Tisknout seznam úloh"
-
 msgid "No task selected"
 msgstr "Žádná úloha není zvolena"
+
+msgid "Print task list"
+msgstr "Tisknout seznam úloh"
 
 msgid "Create task"
 msgstr ""

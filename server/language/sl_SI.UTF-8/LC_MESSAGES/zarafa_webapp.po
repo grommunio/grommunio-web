@@ -582,6 +582,20 @@ msgstr "Razvrsti po: Lokaciji"
 msgid "Sort by: Fax"
 msgstr "Razvrsti po: Faks"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "Natisni izbrano nalogo"
+
+msgid "Print"
+msgstr "Natisni"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Ni predogleda"
 
@@ -991,14 +1005,11 @@ msgstr "Zahteva za sestanek"
 msgid "Print selected appointment"
 msgstr "Natisni izbrani sestanek"
 
-msgid "Print overview"
-msgstr "Natisni pregled"
-
-msgid "Print"
-msgstr "Natisni"
-
 msgid "No appointment selected"
 msgstr "Ni izbranih sestankov"
+
+msgid "Print overview"
+msgstr "Natisni pregled"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1459,6 +1470,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Privzeti čas opomnika za celodnevni sestanek"
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2421,11 +2435,6 @@ msgstr "Odpri dialog za kategorizacijo izbranega predmeta"
 
 msgid "Print list"
 msgstr "Natisni seznam"
-
-# 78%
-#, fuzzy
-msgid "Print selected item"
-msgstr "Natisni izbrano nalogo"
 
 msgid "Open copy/move dialog"
 msgstr "Odpri/premakni dialog"
@@ -4732,6 +4741,18 @@ msgstr "Posreduj"
 msgid "RE"
 msgstr "Ponovno"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4844,6 +4865,18 @@ msgstr "Uporabnik je trenutno odsoten."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5429,11 +5462,11 @@ msgstr "Zahtevek za nalogo:"
 msgid "Print selected task"
 msgstr "Natisni izbrano nalogo"
 
-msgid "Print task list"
-msgstr "Natisni spisek nalog"
-
 msgid "No task selected"
 msgstr "Izbrana ni nobena naloga"
+
+msgid "Print task list"
+msgstr "Natisni spisek nalog"
 
 msgid "Create task"
 msgstr ""

@@ -575,6 +575,22 @@ msgstr "Sorteeri: Asukoha järgi"
 msgid "Sort by: Fax"
 msgstr "Sorteeri: Faksi järgi"
 
+msgid "Print single item"
+msgstr ""
+
+# 77%
+# 100%
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "Trüki valitud kontakt"
+
+msgid "Print"
+msgstr "Trüki"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr ""
 
@@ -949,13 +965,10 @@ msgstr ""
 msgid "Print selected appointment"
 msgstr ""
 
-msgid "Print overview"
+msgid "No appointment selected"
 msgstr ""
 
-msgid "Print"
-msgstr "Trüki"
-
-msgid "No appointment selected"
+msgid "Print overview"
 msgstr ""
 
 #, fuzzy
@@ -1391,6 +1404,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr ""
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2313,13 +2329,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr ""
-
-# 77%
-# 100%
-# 78%
-#, fuzzy
-msgid "Print selected item"
-msgstr "Trüki valitud kontakt"
 
 msgid "Open copy/move dialog"
 msgstr ""
@@ -4577,6 +4586,18 @@ msgstr ""
 msgid "RE"
 msgstr ""
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr ""
 
@@ -4680,6 +4701,18 @@ msgstr ""
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5239,10 +5272,10 @@ msgstr "Ülesanded"
 msgid "Print selected task"
 msgstr "Trüki valitud kontakt"
 
-msgid "Print task list"
+msgid "No task selected"
 msgstr ""
 
-msgid "No task selected"
+msgid "Print task list"
 msgstr ""
 
 msgid "Create task"

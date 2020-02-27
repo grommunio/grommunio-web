@@ -562,6 +562,20 @@ msgstr "Ordenar por: Ubicación"
 msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+#, fuzzy
+msgid "Print selected item"
+msgstr "Imprimir tareas seleccionadas"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Sin vista previa"
 
@@ -967,14 +981,11 @@ msgstr "Solicitud de Reunión"
 msgid "Print selected appointment"
 msgstr "Imprimir citas seleccionadas"
 
-msgid "Print overview"
-msgstr "Vista previa"
-
-msgid "Print"
-msgstr "Imprimir"
-
 msgid "No appointment selected"
 msgstr "No hay citas seleccionadas"
+
+msgid "Print overview"
+msgstr "Vista previa"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1440,6 +1451,9 @@ msgid "Default appointment duration {A} minutes"
 msgstr "Hora por defecto del recordatorio Todo el Día"
 
 msgid "Duration must be between 1 and 120 minutes."
+msgstr ""
+
+msgid "Default status for all day appointment"
 msgstr ""
 
 msgid "Working days"
@@ -2415,11 +2429,6 @@ msgstr ""
 
 msgid "Print list"
 msgstr ""
-
-# 78%
-#, fuzzy
-msgid "Print selected item"
-msgstr "Imprimir tareas seleccionadas"
 
 msgid "Open copy/move dialog"
 msgstr ""
@@ -4703,6 +4712,18 @@ msgstr "RV"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4813,6 +4834,18 @@ msgstr "Este usuario se encuentra fuera de la oficina."
 
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
+msgstr ""
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
 msgstr ""
 
 msgid "Signatures"
@@ -5388,11 +5421,11 @@ msgstr "Solicitud de Tarea Recurrente"
 msgid "Print selected task"
 msgstr "Imprimir tareas seleccionadas"
 
-msgid "Print task list"
-msgstr "Imprimir lista de tareas"
-
 msgid "No task selected"
 msgstr "No hay tareas seleccionadas"
+
+msgid "Print task list"
+msgstr "Imprimir lista de tareas"
 
 #, fuzzy
 msgid "Create task"

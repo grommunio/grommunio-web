@@ -563,6 +563,19 @@ msgstr "Sortieren nach: Ort"
 msgid "Sort by: Fax"
 msgstr "Sortieren nach: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Ausgewähltes Element drucken"
+
+msgid "Print"
+msgstr "Drucken"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Keine Vorschau"
 
@@ -970,14 +983,11 @@ msgstr "Terminanfrage"
 msgid "Print selected appointment"
 msgstr "Ausgewählten Termin drucken"
 
-msgid "Print overview"
-msgstr "Übersicht drucken"
-
-msgid "Print"
-msgstr "Drucken"
-
 msgid "No appointment selected"
 msgstr "Kein Termin ausgewählt"
+
+msgid "Print overview"
+msgstr "Übersicht drucken"
 
 msgid "Create Appointment"
 msgstr "Termin erstellen"
@@ -1432,6 +1442,9 @@ msgstr "Standardzeit für {A} Minuten"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Arbeitstage"
@@ -2403,10 +2416,6 @@ msgstr "Dialog zur Kategorisierung öffnen"
 
 msgid "Print list"
 msgstr "Liste drucken"
-
-# 78%
-msgid "Print selected item"
-msgstr "Ausgewähltes Element drucken"
 
 msgid "Open copy/move dialog"
 msgstr "Kopieren/Verschieben-Dialog öffnen"
@@ -4635,6 +4644,18 @@ msgstr "WG"
 msgid "RE"
 msgstr "AW"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4746,6 +4767,18 @@ msgid ""
 msgstr ""
 "Die eingegebene Zeit ist vor der der Verlassens des Büros. Bitte geben Sie "
 "eine spätere Zeit ein."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Signaturen"
@@ -5327,11 +5360,11 @@ msgstr "Aufgabendelegation"
 msgid "Print selected task"
 msgstr "Diese Aufgabe drucken"
 
-msgid "Print task list"
-msgstr "Aufgabenliste drucken"
-
 msgid "No task selected"
 msgstr "Keine Aufgabe ausgewählt"
+
+msgid "Print task list"
+msgstr "Aufgabenliste drucken"
 
 msgid "Create task"
 msgstr "Aufgabe erstellen"

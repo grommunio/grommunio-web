@@ -543,6 +543,18 @@ msgstr "Ordenar por: Local"
 msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+msgid "Print selected item"
+msgstr "Imprimir item selecionado"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Sem pré-visualização"
 
@@ -911,14 +923,11 @@ msgstr "Pedido de reunião"
 msgid "Print selected appointment"
 msgstr "Imprimir compromisso selecionado"
 
-msgid "Print overview"
-msgstr "Imprimir vista geral"
-
-msgid "Print"
-msgstr "Imprimir"
-
 msgid "No appointment selected"
 msgstr "Nenhum compromisso selecionado"
+
+msgid "Print overview"
+msgstr "Imprimir vista geral"
 
 msgid "Create Appointment"
 msgstr "Criar Compromisso"
@@ -1342,6 +1351,9 @@ msgstr "Duração por defeito dos compromissos {A} minutos"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Duração tem que ser entre 1 e 120 minutos."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Dias de trabalho"
@@ -2274,9 +2286,6 @@ msgstr "Abrir opções para categorizar itens selecionados"
 
 msgid "Print list"
 msgstr "Imprimir lista"
-
-msgid "Print selected item"
-msgstr "Imprimir item selecionado"
 
 msgid "Open copy/move dialog"
 msgstr "Abrir opções de copiar/mover"
@@ -4346,6 +4355,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4451,6 +4472,18 @@ msgstr "O utilizador está ausente do escritório de momento."
 msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr "A data que inseriu é antes da data de \"fora de escritório\" definida."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Assinaturas"
@@ -4984,11 +5017,11 @@ msgstr "Pedido de tarefa"
 msgid "Print selected task"
 msgstr "Imprimir tarefa selecionada"
 
-msgid "Print task list"
-msgstr "Imprimir lista de tarefas"
-
 msgid "No task selected"
 msgstr "Nenhuma tarefa selecionada"
+
+msgid "Print task list"
+msgstr "Imprimir lista de tarefas"
 
 msgid "Create task"
 msgstr "Criar tarefa"

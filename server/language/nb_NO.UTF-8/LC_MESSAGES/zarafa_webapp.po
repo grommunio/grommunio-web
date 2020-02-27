@@ -554,6 +554,20 @@ msgstr "Sorter på: sted"
 msgid "Sort by: Fax"
 msgstr "Sorter på: faks"
 
+msgid "Print single item"
+msgstr ""
+
+# 77%
+# 84%
+msgid "Print selected item"
+msgstr "Skriv ut valgt notat"
+
+msgid "Print"
+msgstr "Skriv ut"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Ingen forhåndsvisning"
 
@@ -944,14 +958,11 @@ msgstr "Møteinvitasjon"
 msgid "Print selected appointment"
 msgstr "Skriv ut avtalen"
 
-msgid "Print overview"
-msgstr "Skriv ut oversikt"
-
-msgid "Print"
-msgstr "Skriv ut"
-
 msgid "No appointment selected"
 msgstr "Ingen avtale valgt"
+
+msgid "Print overview"
+msgstr "Skriv ut oversikt"
 
 msgid "Create Appointment"
 msgstr "Lag avtale"
@@ -1395,6 +1406,9 @@ msgstr "Standard varighet på avtaler i {A} minutter"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Varighet  må være mellom 1 og 120 minutter."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Arbeidsdager"
@@ -2366,11 +2380,6 @@ msgstr "Åpne dialogen for å kategorisere det valgte elementet"
 
 msgid "Print list"
 msgstr "Skriv ut liste"
-
-# 77%
-# 84%
-msgid "Print selected item"
-msgstr "Skriv ut valgt notat"
 
 msgid "Open copy/move dialog"
 msgstr "Åpne dialogboksen Kopier/flytt"
@@ -4503,6 +4512,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4608,6 +4629,18 @@ msgid ""
 msgstr ""
 "Tidspunktet du har oppgitt er før starten på ditt fravær. Vennligst oppgi "
 "nytt tidspunkt."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Signaturer"
@@ -5155,11 +5188,11 @@ msgstr "Oppgaveforespørsel"
 msgid "Print selected task"
 msgstr "Skriv ut denne oppgaven"
 
-msgid "Print task list"
-msgstr "Skriv ut oppgaveliste"
-
 msgid "No task selected"
 msgstr "Ingen oppgave er valgt"
+
+msgid "Print task list"
+msgstr "Skriv ut oppgaveliste"
 
 msgid "Create task"
 msgstr "Lag oppgave"

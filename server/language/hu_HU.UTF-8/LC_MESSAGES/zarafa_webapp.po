@@ -572,6 +572,19 @@ msgstr "Rendezés: Helyszín"
 msgid "Sort by: Fax"
 msgstr "Rendezés: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Kijelölt elem nyomtatása"
+
+msgid "Print"
+msgstr "Nyomtatás"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Nincs előnézet"
 
@@ -986,14 +999,11 @@ msgstr "Értekezlet összehívása"
 msgid "Print selected appointment"
 msgstr "Kijelölt találkozó nyomtatása"
 
-msgid "Print overview"
-msgstr "Nyomtatási áttekintés"
-
-msgid "Print"
-msgstr "Nyomtatás"
-
 msgid "No appointment selected"
 msgstr "Nincs kiválasztott találkozó"
+
+msgid "Print overview"
+msgstr "Nyomtatási áttekintés"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1456,6 +1466,9 @@ msgstr "Alapértelmezett találkozó időtartam: {A} perc"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Az időtartamnak 1 és 120 perc között kell lennie."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Munkanapok"
@@ -2421,10 +2434,6 @@ msgstr "Dialógusablak nyitása a kiválasztott elem kategorizálásához"
 
 msgid "Print list"
 msgstr "Lista nyomtatása"
-
-# 78%
-msgid "Print selected item"
-msgstr "Kijelölt elem nyomtatása"
 
 msgid "Open copy/move dialog"
 msgstr "Másolás/mozgatás dialógusablak megnyitása"
@@ -4698,6 +4707,18 @@ msgstr "FW"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4808,6 +4829,18 @@ msgid ""
 "The time you entered is before the out of office date. Please reschedule."
 msgstr ""
 "A megadott időpont a házon kívüli dátum előtt van. Adjon meg új időpontot!"
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Aláírások"
@@ -5374,11 +5407,11 @@ msgstr "Feladat kiosztás"
 msgid "Print selected task"
 msgstr "Kijelölt feladatok nyomtatása"
 
-msgid "Print task list"
-msgstr "Feladatlista nyomtatása"
-
 msgid "No task selected"
 msgstr "Nincs kiválasztott feladat"
+
+msgid "Print task list"
+msgstr "Feladatlista nyomtatása"
 
 msgid "Create task"
 msgstr "Feladat létrehozása"

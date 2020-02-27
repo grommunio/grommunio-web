@@ -560,6 +560,19 @@ msgstr "Trier par : Emplacement"
 msgid "Sort by: Fax"
 msgstr "Trier par : Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Imprimer l'élément sélectionnée"
+
+msgid "Print"
+msgstr "Imprimer"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Aucune prévisualisation"
 
@@ -950,14 +963,11 @@ msgstr "Demande de réunion"
 msgid "Print selected appointment"
 msgstr "Imprimer le rendez-vous sélectionné"
 
-msgid "Print overview"
-msgstr "Imprimer l'aperçu"
-
-msgid "Print"
-msgstr "Imprimer"
-
 msgid "No appointment selected"
 msgstr "Aucun rendez-vous sélectionné"
+
+msgid "Print overview"
+msgstr "Imprimer l'aperçu"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1428,6 +1438,9 @@ msgstr ""
 #, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "La valeur doit être comprise entre 0% et 100%"
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Jours de travail"
@@ -2396,10 +2409,6 @@ msgstr "Ouvrir pour catégoriser l'élément sélectionné"
 
 msgid "Print list"
 msgstr "Imprimer la liste"
-
-# 78%
-msgid "Print selected item"
-msgstr "Imprimer l'élément sélectionnée"
 
 msgid "Open copy/move dialog"
 msgstr "Ouvrir la fenêtre copier/coller"
@@ -4700,6 +4709,18 @@ msgstr "TR"
 msgid "RE"
 msgstr "RE"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4812,6 +4833,18 @@ msgid ""
 msgstr ""
 "Le temps inscrit est antérieur à la date d'absence du bureau. Veuillez "
 "replanifier."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Signatures"
@@ -5399,11 +5432,11 @@ msgstr "Tâche Attribution"
 msgid "Print selected task"
 msgstr "Imprimer la tâche sélectionnée"
 
-msgid "Print task list"
-msgstr "Imprimer la liste de tâches"
-
 msgid "No task selected"
 msgstr "Aucune tâche sélectionnée"
+
+msgid "Print task list"
+msgstr "Imprimer la liste de tâches"
 
 msgid "Create task"
 msgstr "Créer une tâche"

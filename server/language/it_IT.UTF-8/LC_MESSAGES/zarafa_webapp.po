@@ -567,6 +567,19 @@ msgstr "Ordina per: Posizione"
 msgid "Sort by: Fax"
 msgstr "Ordina per: Fax"
 
+msgid "Print single item"
+msgstr ""
+
+# 78%
+msgid "Print selected item"
+msgstr "Stampa elemento selezionato"
+
+msgid "Print"
+msgstr "Stampa"
+
+msgid "No item selected"
+msgstr ""
+
 msgid "No preview"
 msgstr "Nessuna anteprima"
 
@@ -963,14 +976,11 @@ msgstr "Richiesta appuntamento"
 msgid "Print selected appointment"
 msgstr "Stampa appuntamento selezionato"
 
-msgid "Print overview"
-msgstr "Stampa panoramica"
-
-msgid "Print"
-msgstr "Stampa"
-
 msgid "No appointment selected"
 msgstr "Nessun appuntamento selezionato"
+
+msgid "Print overview"
+msgstr "Stampa panoramica"
 
 #, fuzzy
 msgid "Create Appointment"
@@ -1426,6 +1436,9 @@ msgstr "Appuntamento predefinito durata {A} minuti"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Il valore deve essere compreso tra 1 e 120 minuti."
+
+msgid "Default status for all day appointment"
+msgstr ""
 
 msgid "Working days"
 msgstr "Giorni lavorativi"
@@ -2405,10 +2418,6 @@ msgstr "Apri finestra di dialogo per categorizzare l'elemento selezionato"
 
 msgid "Print list"
 msgstr "Stampa lista"
-
-# 78%
-msgid "Print selected item"
-msgstr "Stampa elemento selezionato"
 
 msgid "Open copy/move dialog"
 msgstr "Apri finestra di dialogo copia/sposta"
@@ -4693,6 +4702,18 @@ msgstr "I"
 msgid "RE"
 msgstr "R"
 
+msgid "Safe Senders list is empty"
+msgstr ""
+
+msgid "Please select a safe sender record."
+msgstr ""
+
+msgid "Delete all safe senders"
+msgstr ""
+
+msgid "Are you sure you want to delete all safe senders?"
+msgstr ""
+
 msgid "HTML"
 msgstr "HTML"
 
@@ -4804,6 +4825,18 @@ msgid ""
 msgstr ""
 "Le data che hai inserito è antecedente alla data inserita come fuori "
 "ufficio. Seleziona una nuova data."
+
+msgid "Safe Senders"
+msgstr ""
+
+msgid ""
+"Manage safe sender list. To protect your privacy email addresses or domains "
+"can only be added via the \"Add to safe sender list\" functionality in an "
+"opened email."
+msgstr ""
+
+msgid "Delete all"
+msgstr ""
 
 msgid "Signatures"
 msgstr "Firme"
@@ -5387,11 +5420,11 @@ msgstr "Richiesta attività"
 msgid "Print selected task"
 msgstr "Stampa attività selezionata"
 
-msgid "Print task list"
-msgstr "Stampa lista attività"
-
 msgid "No task selected"
 msgstr "Nessuna attività selezionata"
+
+msgid "Print task list"
+msgstr "Stampa lista attività"
 
 msgid "Create task"
 msgstr "Crea attività"
