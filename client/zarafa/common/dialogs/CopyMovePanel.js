@@ -404,6 +404,11 @@ Zarafa.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Function will move all {@link Zarafa.core.data.IPMRecord records}
 	 * and will close the {@link Zarafa.common.dialogs.CopyMovePanel dialog} when it is done.
+	 *
+	 * @param {Zarafa.core.data.IPMRecord[]} records The array of {@link Zarafa.core.data.IPMRecord records} which are
+	 * going to move the selected {@link Zarafa.core.data.IPFRecord folder}.
+	 * @param {Zarafa.core.data.IPFRecord} folder The {@link Zarafa.core.data.IPFRecord folder } in which selected
+	 * {@link Zarafa.core.data.IPMRecord records} are going to move.
 	 * @private
 	 */
 	onMove : function(records, folder)
