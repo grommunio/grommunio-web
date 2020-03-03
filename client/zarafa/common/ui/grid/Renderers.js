@@ -436,8 +436,12 @@ Zarafa.common.ui.grid.Renderers = {
 		// TODO: Ugly hack. We shouldn't use the css property for this
 		if (meta && meta.css === 'mail-received' && record.get('depth') > 0 && record.get('folder_name') !== 'inbox') {
 			p.css += ' k-from-other-folder';
-			var folder = container.getHierarchyStore().getFolder(record.get('parent_entryid'));
-			return folder.getDisplayName();
+
+			// TODO: Above condition should only true when conversation is enabled and record is not belongs to the
+			// inbox folder which means it is sent items folder record, as of now we only support conversation in Inbox.
+			// We can't use folder.getDisplayName() because when user open the only shared store inbox in conversation view
+			// it will throw an error due to unable to find the folder in shared store.
+			return _('Sent Items');
 		}
 
 		if ( !Ext.isDate(value) ){
