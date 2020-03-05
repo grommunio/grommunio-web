@@ -9,6 +9,9 @@
 	// Others can be fetched later
 	//define('CONVERSATION_MAXITEMS', 30);
 	define('CONVERSATION_MAXITEMS', 300000);
+	// Time difference to decide whether to include item in conversation or create a new conversation.
+	// 3 months = 3600*24*30*3
+	define('MAX_TIME_DIFF', 7776000);
 
 	/**
 	 * Mail Module
@@ -439,9 +442,34 @@
 				}
 
 				$sub = $item['props']['normalized_subject'];
+
+				// Don't group mails with empty subject and undelivered mails in conversation.
+				if ($sub === '' || $item['props']['message_class'] === 'REPORT.IPM.Note.NDR') {
+					// Don't include sent items with empty subject.
+					if ($item['props']['folder_name'] === 'sent_items') {
+						continue;
+					}
+					// To avoid grouping of empty subject mails and undelivered mails
+					// and also treat them as a single conversation item,
+					// we need to add the item with unique key in $conversations.
+					// So there will not be more than one item in this conversation key.
+					$sub = $this->createUniqueConversationKey($item);
+				}
+
 				if (isset($conversations[$sub])) {
+					// TODO: fix a case where user replies to an old conversation
+					// Create different conversation group if the time difference is more than MAX_TIME_DIFF
+					// even if normalized subject is same.
+					$timeDiff = abs($conversations[$sub]['date'] - $item['props']['client_submit_time']);
+					if ($timeDiff >= MAX_TIME_DIFF) {
+						$conversationKey = $this->findNearestConversationKey($conversations, $item);
+						$sub = $conversationKey ? $conversationKey : $this->createUniqueConversationKey($item);
+					}
+
 					$conversations[$sub]['items'][] = $item;
-					if ($conversations[$sub]['date'] < $item['props']['client_submit_time']) {
+					// If this is the new item in the conversation group then need to add 'date' for the conversation.
+					// Or check if this is the latest item in conversation group then update the 'date' as this item's 'client_submit_time'
+					if (!isset($conversations[$sub]['date']) || $conversations[$sub]['date'] < $item['props']['client_submit_time']) {
 						$conversations[$sub]['date'] = $item['props']['client_submit_time'];
 					}
 				} else {
@@ -528,10 +556,9 @@
 				}
 			}
 
-
-			// Get the number of requested conversations
 			$sortedItems = [];
 			for ($counter = 0; $counter < min($limit, count($conversationKeys)); $counter++) {
+				// Get the number of requested conversations
 				// Add a maximum of CONVERSATION_MAXITEMS items. Rest can be loaded later.
 				$sortedItems = array_merge($sortedItems, array_slice($conversations[$conversationKeys[$counter]]['items'], 0, CONVERSATION_MAXITEMS));
 			}
@@ -544,6 +571,17 @@
 				}
 			}
 
+			// Update the conversation batch Number
+			$firstConversationGroupItemIndex = $sortedItems[0]['props']['tableindex'];
+			$previousUnusedItemIndex = $this->state->read('firstUnusedInboxItemIndex');
+
+			if ($previousUnusedItemIndex > 0 && $firstConversationGroupItemIndex >= $previousUnusedItemIndex) {
+				$batchNo = $this->state->read('batchNumber');
+				$this->state->write('batchNumber', $batchNo + 1, false);
+			} else {
+				$this->state->write('batchNumber', 0, false);
+			}
+
 			// Store the data we need for the next batch in the state
 			$this->state->write('firstUnusedInboxItem', $firstUnusedInboxItem, false);
 			$this->state->write('firstUnusedInboxItemIndex', $firstUnusedInboxItemIndex, false);
@@ -552,6 +590,59 @@
 			$this->state->flush();
 
 			return $sortedItems;
+		}
+
+		/**
+		 * Helper function which will create a unique conversation key
+		 * to avoid same subject key issue on the basis of a hash value of normalized subject
+		 * and entryid of first $item given as a param.
+		 *
+		 * @param object $item MAPI Message Object for which conversation key is needed.
+		 * @return string conversation key which will use to group items in conversation.
+		 */
+		function createUniqueConversationKey($item) {
+			$sub = $item['props']['normalized_subject'];
+			$prefix = md5($sub) . '/';
+
+			// Append entryId after hash of normalized subject.
+			// Entryid will be unique so it will be first priority to append and
+			// 'tableindex' , random number will be less priority.
+			if (isset($item['entryid'])) {
+				return $prefix . $item['entryid'];
+			} else if (isset($item['props']['tableindex'])) {
+				return $prefix . $item['props']['tableindex'];
+			} else {
+				return $prefix . rand();
+			}
+		}
+
+		/**
+		 * Helper function which will return key of a conversation group which is latest
+		 * with the time of $item given. So that we can add $item in that group.
+		 * Function will return false if there is no key available.
+		 *
+		 * @param Array $conversations array which contains conversation group as key value pair.
+		 * @param Object $item MAPI Message Object for which conversation key is needed.
+		 * @return string conversation key which will use to group items in conversation
+		 * or false if suitable key not found.
+		 */
+		function findNearestConversationKey($conversations, $item) {
+			$sub = md5($item['props']['normalized_subject']);
+			$time = $item['props']['client_submit_time'];
+			$minTimeDiff = MAX_TIME_DIFF;
+			$nearestConversationKey = false;
+
+			foreach ($conversations as $key => $value) {
+				$str = explode('/', $key);
+				$doesSubExist = count($str) === 2 && $str[0] === $sub;
+
+				if ($doesSubExist && abs($value['date']-$time) < $minTimeDiff) {
+					$minTimeDiff = $value['date'];
+					$nearestConversationKey = $key;
+				}
+			}
+
+			return $nearestConversationKey;
 		}
 
 		/**
@@ -573,22 +664,42 @@
 		function addConversationHeaders(&$items) {
 			$conversationCount = 0;
 			$currentNormalizedSubject = false;
+			$currentConversationTimeStamp = false;
 			$currentHeaderIndex = -1;
 			$i = 0;
+
+			// We maintain batch number to make header entryid batch wise unique.
+			$batchNo = $this->state->read('batchNumber');
+			$currentBatchSubjects = array();
 			while ($i < count($items)) {
-				if ($items[$i]['props']['normalized_subject'] !== $currentNormalizedSubject) {
+				// Don't add empty subject mail and undelivered mail in conversation group.
+				// So, depth for those mails must remain '0'.
+				// case handled: when not 2 conversation group with the same subject comes subsequent
+				// and we need to separate those groups because of the time difference.
+				$isNonConversationGroupItem = $currentNormalizedSubject === '' || $items[$i]['props']['message_class'] === 'REPORT.IPM.Note.NDR';
+				$timeDiff = abs($currentConversationTimeStamp - $items[$i]['props']['client_submit_time']);
+				$isDifferentConversationGroup = ($items[$i]['props']['normalized_subject'] === $currentNormalizedSubject) && $timeDiff >= MAX_TIME_DIFF;
+
+				if ($items[$i]['props']['normalized_subject'] !== $currentNormalizedSubject || $isNonConversationGroupItem || $isDifferentConversationGroup) {
 					$conversationCount++;
 					$currentHeaderIndex = $i;
 					$currentNormalizedSubject = $items[$i]['props']['normalized_subject'];
+					$currentConversationTimeStamp = $items[$i]['props']['client_submit_time'];
 				} elseif ($i === $currentHeaderIndex + 1) {
 					// We have a conversation, so add a header
 					$items[$currentHeaderIndex]['props']['depth'] = 1;
 					$items[$i]['props']['depth'] = 1;
 
+					if (isset($currentBatchSubjects[$currentNormalizedSubject])) {
+						$currentBatchSubjects[$currentNormalizedSubject] = ++$currentBatchSubjects[$currentNormalizedSubject];
+					} else {
+						$currentBatchSubjects[$currentNormalizedSubject] = 0;
+					}
+
 					// Create a fake entryid for the headers based on the normalized subject
-					// A number is added because the same normalized subject could be found in
-					// another (later fetched) item batch
-					$id = md5($currentNormalizedSubject) . floor($currentHeaderIndex / CONVERSATION_MAXFETCH);
+					// A batch number and repeated item number is added to make unique entryid
+					// of the groups with the same normalized subject in the same item batch.
+					$id = md5($currentNormalizedSubject) . $batchNo . $currentBatchSubjects[$currentNormalizedSubject];
 
 					// Create a fake header object
 					$header = array(
