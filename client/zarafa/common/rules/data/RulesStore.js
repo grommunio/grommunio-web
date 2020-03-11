@@ -112,13 +112,15 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 
 		var rs = this.getModifiedRecords();
 
+		this.setBaseParam("store_entryid", this.storeEntryId);
+
 		// If there are no modified records in the store, and none where
 		// deleted, we don't need to save anything as there are
 		// no changes.
 		if (rs.length === 0 && this.removed.length === 0) {
-			this.baseParams.store = this.storeEntryId;
 			return;
 		}
+
 
 		// We are going to save all rules in a single batch,
 		// the server will handle all updates/deletes automatically
@@ -128,7 +130,7 @@ Zarafa.common.rules.data.RulesStore = Ext.extend(Zarafa.core.data.MAPIStore, {
 
 		// Add the store entryid to the request.
 		rs.forEach(function(record) {
-			record.addMessageAction("store", this.storeEntryId);
+			record.addMessageAction("store_entryid", this.storeEntryId);
 		}, this);
 
 		// Put all records in the update batch, note that we don't care if this is empty,

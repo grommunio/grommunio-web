@@ -59,13 +59,12 @@ Zarafa.common.rules.data.RulesProxy = Ext.extend(Zarafa.core.data.IPMProxy, {
 			listRequest : true
 		});
 
-		var store = parameters.jsonData.store;
-		// Unwrap the serialized data and pass it as paramters directly
-		parameters = parameters.jsonData[reader.meta.root];
-
 		// When no records are sent, add the store id.
 		if (Ext.isEmpty(records)) {
-			parameters = {store: store};
+			parameters = {store_entryid: parameters.jsonData.store_entryid};
+		} else {
+			// Unwrap the serialized data and pass it as paramters directly
+			parameters = parameters.jsonData[reader.meta.root];
 		}
 
 		Zarafa.common.rules.data.RulesProxy.superclass.createUpdateAction.apply(this, arguments);
