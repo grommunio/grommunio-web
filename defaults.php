@@ -41,6 +41,11 @@ if(!defined("ENABLE_RESPONSE_COMPRESSION")) define("ENABLE_RESPONSE_COMPRESSION"
 if(!defined("DISABLE_HTMLBODY_FILTER")) define("DISABLE_HTMLBODY_FILTER", false);
 
 /**
+ * When set to true this enable the fitlering of the HTML body using DOMPurify.
+ */
+if(!defined("ENABLE_DOMPURIFY_FILTER")) define("ENABLE_DOMPURIFY_FILTER", false);
+
+/**
  * Set to true to load HTML filtered body's from kopano-server instead
  * of letting WebApp sanitize the HTML mail body.
  */

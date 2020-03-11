@@ -325,6 +325,7 @@
 				var pgettext = function(msgctxt, msgid) {};
 				var resizeLoginBox = function() {};
 				var userManager = {};
+				var DOMPurify = {};
                 var tinymce = {};
 				var Tokenizr = {};
 			</externs>

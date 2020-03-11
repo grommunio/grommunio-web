@@ -230,6 +230,25 @@ Ext.apply(Zarafa, {
 		// Set the language object
 		container.setLanguages(languages);
 		delete languages;
+
+		// Set up DOMPurify
+		DOMPurify.setConfig({
+			FORBID_TAGS: ['iframe', 'webview'],
+			WHOLE_DOCUMENT: false
+		});
+
+		DOMPurify.addHook('afterSanitizeAttributes', function(node) {
+			// Set all elements owning target to target=_blank.
+			if ('target' in node) {
+				node.setAttribute('target', '_blank');
+				// prevent https://www.owasp.org/index.php/Reverse_Tabnabbing
+				node.setAttribute('rel', 'noopener noreferrer external');
+			} else if (!node.hasAttribute('target') && (node.hasAttribute('xlink:href') || node.hasAttribute('href'))) {
+				// set non-HTML/MathML links to xlink:show=new
+				node.setAttribute('xlink:show', 'new');
+			}
+		});
+
 	},
 
 	/**

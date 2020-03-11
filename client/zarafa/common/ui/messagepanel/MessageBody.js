@@ -213,7 +213,11 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			html = record.get('isHTML');
 			body = record.getBody(html);
 			if (html) {
-				body = record.cleanupOutlookStyles(body);
+				if (container.getServerConfig().getDOMPurifyEnabled()) {
+					body = DOMPurify.sanitize(record.cleanupOutlookStyles(body));
+				} else {
+					body = record.cleanupOutlookStyles(body);
+				}
 			}
 
 			if (!body) {

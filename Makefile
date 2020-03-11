@@ -92,6 +92,7 @@ js: jsdebug $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/kopano.
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
 	cp -r client/extjs $(DESTDIR)/client/
 	cp -r client/oidc $(DESTDIR)/client/
+	cp -r client/dompurify $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js
 	rm $(DESTDIR)/client/extjs/ext-all.js
 	rm $(DESTDIR)/client/extjs/resources/css/reset-min.css
