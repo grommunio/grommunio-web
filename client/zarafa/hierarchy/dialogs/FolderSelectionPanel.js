@@ -23,15 +23,14 @@ Zarafa.hierarchy.dialogs.FolderSelectionPanel = Ext.extend(Ext.Panel, {
 	 */
 	constructor : function(config)
 	{
-		config = config || {};
-
-		config = Ext.applyIf(config, {
+		config = Ext.applyIf(config || {}, {
 			layout : 'fit',
 			border: false,
 			items: [{
 				xtype : 'zarafa.hierarchytree',
 				ref : 'hierarchyTree',
 				IPMFilter: config.IPMFilter ? config.IPMFilter : undefined,
+				permissionFilter: config.permissionFilter ? config.permissionFilter : undefined,
 				border: true,
 				hideFavorites: true,
 				forceLayout : true,

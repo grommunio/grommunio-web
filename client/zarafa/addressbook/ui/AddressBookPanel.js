@@ -80,9 +80,11 @@ Zarafa.addressbook.ui.AddressBookPanel = Ext.extend(Zarafa.addressbook.ui.Addres
 			sm.selectRow(rowIndex);
 		}
 
+		var selectedFolder = this.getSelectedFolderRecord();
 		Zarafa.core.data.UIFactory.openDefaultContextMenu(sm.getSelections(), {
 			position : event.getXY(),
-			dialog : this.dialog
+			dialog : this.dialog,
+			selectedFolderType : selectedFolder.get('type')
 		});
 	}
 });
