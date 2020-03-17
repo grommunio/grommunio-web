@@ -146,6 +146,10 @@ class WebAppSession
 			return;
 		}
 		
+		if (array_key_exists('HTTP_CONTENT_TYPE', $_SERVER) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') === false) {
+			return;
+		}
+
 		$starttime = $this->getStartTime();
 		// let's add 5 seconds to the CLIENT_TIMEOUT to handle possible latency
 		if ( $starttime && (time()-$starttime > CLIENT_TIMEOUT+5) ){
@@ -159,7 +163,8 @@ class WebAppSession
 			}catch(JSONException $e){
 				// Invalid json sent with the request
 				// Log the error and do nothing is best option
-				dump($e->getDisplayMessage());
+				dump($e->getMessage());
+				return;
 			}
 
 			$isReminderlistRequest = $this->isReminderListRequest($requestJson);

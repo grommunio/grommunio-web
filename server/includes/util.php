@@ -572,7 +572,7 @@
 		}
 
 		if(!empty($errorString)) {
-			throw new JSONException(sprintf(_("JSON Error: - %s") , $errorString), json_last_error(), null, _("Some problem encountered when encoding/decoding JSON data."));
+			throw new JSONException(sprintf(_("JSON Error: - %s") , $errorString), json_last_error(), null);
 		}
 
 		return $data;
