@@ -257,7 +257,8 @@
 							"hresult_name" => get_mapi_error_name($exception->getCode()),
 							"file" => $exception->getFileLine(),
 							"display_message" => $exception->getDisplayMessage(),
-							"details_message" => $exception->getDetailsMessage()
+							"details_message" => $exception->getDetailsMessage(),
+							"notification_type" => $exception->getNotifiactionType()
 						)
 					);
 					return $mapiError;

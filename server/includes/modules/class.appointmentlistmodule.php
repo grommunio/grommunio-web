@@ -73,6 +73,9 @@
 								$this->handleUnknownActionType($actionType);
 						}
 					} catch (MAPIException $e) {
+						if (isset($action['ignoreException']) && $action['ignoreException'] === true) {
+							$e->setNotifiactionType('console');
+						}
 						$this->processException($e, $actionType);
 					}
 				}

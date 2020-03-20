@@ -73,3 +73,13 @@
     padding: 3px 3px 3px 4px;
     margin-left: 16px !important;
 }
+
+.zarafa-folder-link {
+    text-decoration: underline;
+    padding: 4px 0px 0px 5px;
+    cursor:pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}

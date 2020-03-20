@@ -31,6 +31,7 @@ Zarafa.hierarchy.dialogs.FolderSelectionPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype : 'zarafa.hierarchytree',
 				ref : 'hierarchyTree',
+				IPMFilter: config.IPMFilter ? config.IPMFilter : undefined,
 				border: true,
 				hideFavorites: true,
 				forceLayout : true,
