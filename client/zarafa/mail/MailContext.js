@@ -709,7 +709,7 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			filterBtn.btnEl.addClass('k-selection');
 
 			// Add unread filter restriction.
-			options.restriction['filter'] = store.getFilterRestriction(Zarafa.common.data.Filters.UNREAD);
+			options.restriction['filter'] = model.getFilterRestriction(Zarafa.common.data.Filters.UNREAD);
 			store.hasFilterApplied = true;
 		} else {
 			imgTag.removeClass('x-menu-item-icon');

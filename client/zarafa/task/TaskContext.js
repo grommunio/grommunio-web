@@ -47,11 +47,15 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 		config = config || {};
 		Ext.applyIf(config, {
 			current_view : Zarafa.task.data.Views.LIST,
-			current_view_mode : Zarafa.task.data.ViewModes.SIMPLE
+			current_view_mode : Zarafa.task.data.ViewModes.SIMPLE,
+			current_data_mode : Zarafa.task.data.DataModes.ALL
 		});
 
 		// The tab in the top tabbar
 		this.registerInsertionPoint('main.maintabbar.left', this.createMainTab, this);
+
+		//The task filter buttons
+		this.registerInsertionPoint('context.mainpaneltoolbar.item', this.createFilterButtons, this);
 
 		// The "New task" button which is available in all contexts
 		this.registerInsertionPoint('main.maintoolbar.new.item', this.createToolbarNewTaskButton, this);
@@ -318,7 +322,6 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			iconCls: 'icon_task_simple',
 			valueView : Zarafa.task.data.Views.LIST,
 			valueViewMode : Zarafa.task.data.ViewModes.SIMPLE,
-			valueDataMode : Zarafa.task.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
 		},{
@@ -328,7 +331,6 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 			iconCls: 'icon_task_detailed',
 			valueView : Zarafa.task.data.Views.LIST,
 			valueViewMode : Zarafa.task.data.ViewModes.DETAILED,
-			valueDataMode : Zarafa.task.data.DataModes.ALL,
 			handler : this.onContextSelectView,
 			scope : this
 		}];
@@ -345,7 +347,8 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	 */
 	onContextSelectView : function(button)
 	{
-		this.getModel().setDataMode(button.valueDataMode);
+		var model = this.getModel();
+		model.setDataMode(model.getCurrentDataMode());
 		this.switchView(button.valueView, button.valueViewMode);
 	},
 
@@ -507,6 +510,116 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 	{
 		var records = menuItem.getRecords();
 		Zarafa.task.Actions.createTaskFromMail(records, this.getModel());
+	},
+
+	/**
+	 * Create task filter buttons in {@link Zarafa.common.ui.ContextMainPanelToolbar ContextMainPanelToolbar}
+	 *
+	 * @param {String} insertionPoint The insertionPoint text.
+	 * @param {Zarafa.core.Context} currentContext The current context in which this
+	 * insertion point triggered.
+	 * @return {Object} configuration object to create task filter buttons.
+	 */
+	createFilterButtons : function(insertionPoint, currentContext) {
+		var hidden = currentContext.getName() !== 'task';	
+			
+		return [{
+				xtype: 'button',
+				cls: 'k-filter-options-btn',
+				text: '<span>' + _('Active') + '</span>',
+				overflowText: _('Active'),
+				iconCls: 'icon_task_active',
+				model: this.getModel(),
+				hidden: hidden,
+				valueDataMode: Zarafa.task.data.DataModes.ACTIVE,
+				enableToggle: true,
+				toggleGroup: 'taskFilters',
+				toggleHandler: this.onClickToggleHandler,
+				listeners: {
+					afterrender: this.onAfterRenderFilterButtons,
+					scope: this
+				},
+				scope: this
+			}, {
+				xtype: 'button',
+				cls: 'k-filter-options-btn',
+				text: '<span>' + _('Upcoming') + '</span>',
+				overflowText: _('Upcoming'),
+				iconCls: 'icon_calendar',
+				model: this.getModel(),
+				hidden: hidden,
+				valueDataMode: Zarafa.task.data.DataModes.NEXT_7_DAYS,
+				enableToggle: true,
+				toggleGroup: 'taskFilters',
+				toggleHandler: this.onClickToggleHandler,
+				listeners: {
+					afterrender: this.onAfterRenderFilterButtons,
+					scope: this
+				},
+				scope: this
+			}, {
+				xtype: 'button',
+				cls: 'k-filter-options-btn',
+				text: '<span>' + _('Complete') + '</span>',
+				overflowText: _('Complete'),
+				iconCls: 'icon_task_complete',
+				hidden: hidden,
+				model: this.getModel(),
+				valueDataMode: Zarafa.task.data.DataModes.COMPLETED,
+				enableToggle: true,
+				toggleGroup: 'taskFilters',
+				toggleHandler: this.onClickToggleHandler,
+				listeners: {
+					afterrender: this.onAfterRenderFilterButtons,
+					scope: this
+				},
+				scope: this
+			}, {
+				xtype: 'button',
+				cls: 'k-filter-options-btn',
+				text: '<span>' + _('Overdue') + '</span>',
+				overflowText: _('Overdue'),
+				iconCls: 'icon_calendar_appt_newtime',
+				model: this.getModel(),
+				hidden: hidden,
+				valueDataMode: Zarafa.task.data.DataModes.OVERDUE,
+				enableToggle: true,
+				toggleGroup: 'taskFilters',
+				toggleHandler: this.onClickToggleHandler,
+				listeners: {
+					afterrender: this.onAfterRenderFilterButtons,
+					scope: this
+				},
+				scope: this
+			}];
+	},
+
+	/**
+	 * Function sets selection on the button which has the current data mode.
+	 * 
+	 * @param {Object} button The filter button to be selected.
+	 */
+	onAfterRenderFilterButtons : function (button)
+	{
+		if (this.getModel().getCurrentDataMode() === button.valueDataMode) {
+			button.btnEl.addClass('k-selection');
+			button.pressed = true;
+		}
+	},
+
+	/**
+	 * The function handles the toggling of the filter button. If already pressed, 
+	 * it resets the {@link Zarafa.task.data.DataModes datamode} and clears the restriction.
+	 * 
+	 * @param {Object} button The filter button pressed by user. 
+	 * @param {Boolean} state The state of the button, true if pressed. 
+	 */
+	onClickToggleHandler : function (button, state)
+	{
+		var model = this.getModel();
+		button.btnEl.toggleClass('k-selection');
+		model.getStore().hasFilterApplied = state;
+		model.setDataMode(state ? button.valueDataMode : Zarafa.task.data.DataModes.ALL);
 	}
 });
 
