@@ -379,7 +379,7 @@ Zarafa.calendar.dialogs.AppointmentContentPanel = Ext.extend(Zarafa.core.ui.Mess
 		if (this.record.get('request_sent') && !this.isPropertyChanged && this.isRecipientChanged) {
 			Zarafa.common.dialogs.MessageBox.select(
 				_('Send update to attendees'),
-				_('You have made changes to the list of attendees, Choose one of the following') + ':',
+				_('You have made changes to the list of attendees. What would you like to do?'),
 				function(button, radio) {
 					if (button === 'ok') {
 						if (radio.id == 'sendModified') {
