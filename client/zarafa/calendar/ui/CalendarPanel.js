@@ -601,7 +601,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	{
 		Zarafa.common.dialogs.MessageBox.select(
 			_('Update recipients'),
-			_('The time of the meeting has changed. Choose one of the following:'),
+			_('The time of the meeting has changed. What would you like to do?'),
 			function(button, select) {
 				if (button == 'ok') {
 					if (select.id == 'review_changes') {
