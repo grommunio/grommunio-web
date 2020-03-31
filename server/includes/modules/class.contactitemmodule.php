@@ -171,6 +171,13 @@
 				} else {
 					// Contact
 
+					$isCopyGABToContact = isset($action["message_action"])
+					&& isset($action["message_action"]["action_type"])
+					&& $action["message_action"]["action_type"] === "copyToContact";
+
+					if ($isCopyGABToContact) {
+						$this->copyGABRecordProps($action);
+					}
 					// generate one-off entryids for email addresses
 					for($index = 1; $index < 4; $index++)
 					{
@@ -286,10 +293,66 @@
 				if($result) {
 					$GLOBALS['bus']->notify(bin2hex($parententryid), TABLE_SAVE, $messageProps);
 
+					if ($isCopyGABToContact) {
+						$message = mapi_msgstore_openentry($store,$messageProps[PR_ENTRYID]);
+						$messageProps = mapi_getprops($message, $this->properties);
+					}
+
 					$this->addActionData('update', array('item' => Conversion::mapMAPI2XML($this->properties, $messageProps)));
 					$GLOBALS['bus']->addData($this->getResponseData());
 				}
 			}
+		}
+
+		/**
+		 * Function copy the some property from address book record to contact props.
+		 *
+		 * @param array $action the action data, sent by the client
+		 */
+		function copyGABRecordProps(&$action)
+		{
+			$addrbook = $GLOBALS["mapisession"]->getAddressbook();
+			$abitem = mapi_ab_openentry($addrbook, hex2bin($action["message_action"]["source_entryid"]));
+			$abItemProps = mapi_getprops($abitem, array(
+				PR_COMPANY_NAME,
+				PR_ASSISTANT,
+				PR_BUSINESS_TELEPHONE_NUMBER,
+				PR_BUSINESS2_TELEPHONE_NUMBER,
+				PR_HOME2_TELEPHONE_NUMBER,
+				PR_STREET_ADDRESS,
+				PR_LOCALITY,
+				PR_STATE_OR_PROVINCE,
+				PR_POSTAL_CODE,
+				PR_COUNTRY,
+				PR_MOBILE_TELEPHONE_NUMBER,
+			));
+			$action["props"]["company_name"] = isset($abItemProps[PR_COMPANY_NAME]) ? $abItemProps[PR_COMPANY_NAME] : '';
+			$action["props"]["assistant"] = isset($abItemProps[PR_ASSISTANT]) ? $abItemProps[PR_ASSISTANT] : '';
+			$action["props"]["business_telephone_number"] = isset($abItemProps[PR_BUSINESS_TELEPHONE_NUMBER]) ? $abItemProps[PR_BUSINESS_TELEPHONE_NUMBER] : '';
+			$action["props"]["business2_telephone_number"] = isset($abItemProps[PR_BUSINESS2_TELEPHONE_NUMBER]) ? $abItemProps[PR_BUSINESS2_TELEPHONE_NUMBER] : '';
+			$action["props"]["home2_telephone_number"] = isset($abItemProps[PR_HOME2_TELEPHONE_NUMBER]) ? $abItemProps[PR_HOME2_TELEPHONE_NUMBER] : '';
+			$action["props"]["home_address_street"] = isset($abItemProps[PR_STREET_ADDRESS]) ? $abItemProps[PR_STREET_ADDRESS] : '';
+			$action["props"]["home_address_city"] = isset($abItemProps[PR_LOCALITY]) ? $abItemProps[PR_LOCALITY] : '';
+			$action["props"]["home_address_state"] = isset($abItemProps[PR_STATE_OR_PROVINCE]) ? $abItemProps[PR_STATE_OR_PROVINCE] : '';
+			$action["props"]["home_address_postal_code"] = isset($abItemProps[PR_POSTAL_CODE]) ? $abItemProps[PR_POSTAL_CODE] : '';
+			$action["props"]["home_address_country"] = isset($abItemProps[PR_COUNTRY]) ? $abItemProps[PR_COUNTRY] : '';
+
+			$action["props"]["cellular_telephone_number"] = isset($abItemProps[PR_MOBILE_TELEPHONE_NUMBER]) ? $abItemProps[PR_MOBILE_TELEPHONE_NUMBER] : '';
+
+			
+			// Set the home_address property value
+			$props = ["street", "city", "state" , "postal_code", "country"];
+			$homeAddress = "";
+			foreach ($props as $index => $prop) {
+				if (isset($action["props"]["home_address_" . $prop]) && !empty($action["props"]["home_address_" . $prop])) {
+					$homeAddress .= $action["props"]["home_address_" . $prop] . " ";
+					if ($prop == "street" || $prop == "postal_code") {
+						$homeAddress .= PHP_EOL;
+					}
+				}
+			}
+
+			$action["props"]["home_address"] = $homeAddress;
 		}
 
 		/**
