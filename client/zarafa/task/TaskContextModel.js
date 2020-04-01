@@ -85,42 +85,11 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		if (newMode !== oldMode && oldMode === Zarafa.task.data.DataModes.SEARCH) {
 			this.stopSearch();
 		}
-		var restriction = [];
-
-		// also reload the store
-		switch (newMode) {
-			case Zarafa.task.data.DataModes.SEARCH:
-				this.store.clearFilter();
-				break;
-			case Zarafa.task.data.DataModes.ALL:
-				this.store.clearFilter();
-				break;
-			case Zarafa.task.data.DataModes.ACTIVE:
-				restriction = this.prepareRestriction('complete','RELOP_EQ',false);
-				break;
-			case Zarafa.task.data.DataModes.NEXT_7_DAYS:
-				var currentDay = new Date().clearTime();
-				var nextSevenDay = currentDay.clone().add(Date.DAY, 7);
-				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
-					this.prepareRestriction('duedate','RELOP_GT',currentDay.getTime() / 1000),
-					this.prepareRestriction('duedate','RELOP_LT',nextSevenDay.getTime() / 1000)
-				]);
-				break;
-			case Zarafa.task.data.DataModes.OVERDUE:
-				var currentDay = new Date().clearTime();
-				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
-					this.prepareRestriction('duedate','RELOP_LT',currentDay.getTime() / 1000),
-					this.prepareRestriction('complete','RELOP_EQ',false)
-				]);
-				break;
-			case Zarafa.task.data.DataModes.COMPLETED:
-				restriction = this.prepareRestriction('complete','RELOP_EQ',true);
-				break;
-		}
+		
 		this.load({
 			params : {
 				restriction : {
-					task : restriction
+					task : this.getFilterRestriction(newMode)
 				}
 			}
 		});
@@ -195,5 +164,70 @@ Zarafa.task.TaskContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		}
 
 		Zarafa.task.TaskContextModel.superclass.onHierarchyLoad.call(this, hierarchyStore);
+
+	},
+
+	/**
+	 * Function which provides the restriction based on the given {@link Zarafa.task.data.DataModes datemode}
+	 *
+	 * @param {Zarafa.task.data.DataModes} datamode The datamode based on which restriction is prepared.
+	 * @return {Array|false} returns restriction according to filter else false.
+	 */
+
+	getFilterRestriction : function(datamode)
+	{
+		var restriction = [];
+		switch (datamode) {
+			case Zarafa.task.data.DataModes.SEARCH:
+				this.store.clearFilter();
+				break;
+			case Zarafa.task.data.DataModes.ALL:
+				this.store.clearFilter();
+				break;
+			case Zarafa.task.data.DataModes.ACTIVE:
+				restriction = this.prepareRestriction('complete','RELOP_EQ',false);
+				break;
+			case Zarafa.task.data.DataModes.NEXT_7_DAYS:
+				var currentDay = new Date().clearTime();
+				var nextSevenDay = currentDay.clone().add(Date.DAY, 7);
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_GT',currentDay.getTime() / 1000),
+					this.prepareRestriction('duedate','RELOP_LT',nextSevenDay.getTime() / 1000)
+				]);
+				break;
+			case Zarafa.task.data.DataModes.OVERDUE:
+				var currentDay = new Date().clearTime();
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_LT',currentDay.getTime() / 1000),
+					this.prepareRestriction('complete','RELOP_EQ',false)
+				]);
+				break;
+			case Zarafa.task.data.DataModes.COMPLETED:
+				restriction = this.prepareRestriction('complete','RELOP_EQ',true);
+				break;
+		}
+		return restriction;
+	},
+
+	/**
+	 * Function will load the store with given options.
+	 * 
+	 * @param {object} options Object containing options to load 
+	 */
+	load : function(options)
+	{
+		var store = this.getStore();
+		if (this.suspended && store.hasFilterApplied) {
+			store.stopFilter();
+		} else {
+			options = Ext.apply(options || {}, {
+				params : {
+					restriction: {
+						filter: this.getFilterRestriction(this.current_data_mode)
+					}
+				}
+			});
+		}
+		Zarafa.task.TaskContextModel.superclass.load.call(this, options);
 	}
 });

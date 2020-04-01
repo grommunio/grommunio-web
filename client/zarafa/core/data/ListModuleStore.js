@@ -825,41 +825,6 @@ myStore.reload(lastOptions);
 	},
 
 	/**
-	 * Function which provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter}
-	 *
-	 * @param {Zarafa.common.data.Filters} filterType The filterType which needs to perform on store.
-	 * @return {Array|false} RES_BITMASK restriction else false.
-	 */
-	getFilterRestriction : function(filterType)
-	{
-		if (filterType === Zarafa.common.data.Filters.UNREAD) {
-			var unreadFilterRestriction = Zarafa.core.data.RestrictionFactory.dataResBitmask(
-				'PR_MESSAGE_FLAGS',
-				Zarafa.core.mapi.Restrictions.BMR_EQZ,
-				Zarafa.core.mapi.MessageFlags.MSGFLAG_READ);
-
-			var model = container.getCurrentContext().getModel();
-			var previewedRecord = model.getPreviewRecord();
-
-			// Add preview record in filter restriction so we can
-			// make it remains preview in preview panel.
-			if(!Ext.isEmpty(previewedRecord) && this.hasFilterApplied) {
-				return Zarafa.core.data.RestrictionFactory.createResOr([
-					Zarafa.core.data.RestrictionFactory.dataResProperty(
-						'entryid',
-						Zarafa.core.mapi.Restrictions.RELOP_EQ,
-						previewedRecord.get('entryid')
-					),
-					unreadFilterRestriction
-				]);
-			}
-
-			return unreadFilterRestriction;
-		}
-		return false;
-	},
-
-	/**
 	 * Clear the {#hasFilterApplied} flag which used to indicate that filter in
 	 * enabled or not.
 	 */
