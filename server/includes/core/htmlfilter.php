@@ -466,6 +466,16 @@ function sq_getnxtag($body, $offset){
                         $attary[$attname] = "'" . $attval . "'";
                     } else if ($quot == '"'){
                         $regary = sq_findnxreg($body, $pos+1, '\"');
+                        
+                        // Hack alert : Images more then 800 px are not properly extracted from the body by sq_findnxreg 
+                        // so we need to manually retrieve the image src (base64) content and push into $regary.
+                        if ($tagname === "img" && $regary === false) {
+                            $posstion = $pos + 1;
+                            $quoteIndex = sq_findnxstr($body, $posstion, '"');
+                            $imageSrc = substr($body, $posstion, $quoteIndex - ($pos - 1));
+                            $regary = array(($posstion + strlen($imageSrc)), $imageSrc);
+                        }
+
                         if ($regary == false){
                             return Array(false, false, false, $lt, $body_len);
                         }
