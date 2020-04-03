@@ -36,6 +36,21 @@ class LoadReminderTest extends KopanoTest {
 		);
 	}
 
+        /**
+         * Helper function to wait on reminders
+         */
+        private function waitForReminder() {
+              $timeout = 10;
+              while ($timeout > 0) {
+                  $response = $this->user->loadReminders();
+                  if (!empty($response['list']['item'])) {
+                    break;
+                  }
+                  $timeout--;
+                  sleep(1);
+              }
+        }
+
 	/**
 	 * Test loading reminders.
 	 */
@@ -78,7 +93,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+		sleep(1);
 
 		$response = $this->user->loadReminders();
 
@@ -121,11 +136,10 @@ class LoadReminderTest extends KopanoTest {
 				))
 			), false);
 
-			// Wait for the reminder time.
-			sleep(3);
+                        $this->waitForReminder();
 
 			// Obtain the reminder
-			$response = $this->user->loadReminders();
+		        $response = $this->user->loadReminders();
 			$reminder = $response['list']['item'][0];
 
 			// Snooze reminder for 1 minute
@@ -164,7 +178,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+                $this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -225,7 +239,7 @@ class LoadReminderTest extends KopanoTest {
 			), false);
 
 			// Wait for the reminder time.
-			sleep(2);
+                        $this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -267,7 +281,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+                $this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -283,7 +297,7 @@ class LoadReminderTest extends KopanoTest {
 		$this->assertEmpty($response['list']['item'], 'Test that no reminders were returned');
 
 		// Wait a while
-		sleep(4);
+		sleep(1);
 
 		// Check that we still haven't a reminder
 		$response = $this->user->loadReminders();
@@ -311,7 +325,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+                $this->waitForReminder();
 
 		$response = $this->user->loadReminders();
 
@@ -348,7 +362,7 @@ class LoadReminderTest extends KopanoTest {
 			), false);
 
 			// Wait for the reminder time.
-			sleep(2);
+                        $this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -383,7 +397,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+                $this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -437,7 +451,7 @@ class LoadReminderTest extends KopanoTest {
 			), false);
 
 			// Wait for the reminder time.
-			sleep(2);
+                        $this->waitForReminder();
 
 			// Obtain the reminder
 			$response = $this->user->loadReminders();
@@ -472,7 +486,7 @@ class LoadReminderTest extends KopanoTest {
 		), false);
 
 		// Wait for the reminder time.
-		sleep(2);
+                $this->waitForReminder();
 
 		// Obtain the reminder
 		$response = $this->user->loadReminders();
@@ -488,7 +502,7 @@ class LoadReminderTest extends KopanoTest {
 		$this->assertEmpty($response['list']['item'], 'Test that no reminders were returned');
 
 		// Wait a while
-		sleep(4);
+		sleep(1);
 
 		// Check that we still haven't a reminder
 		$response = $this->user->loadReminders();
