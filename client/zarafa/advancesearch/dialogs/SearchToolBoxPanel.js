@@ -870,7 +870,7 @@ Zarafa.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	{
 		switch(checkBoxName) {
 			case 'mail':
-				return ['IPM.Note'];
+				return ['IPM.Note', 'REPORT.IPM.Note'];
 			case 'calendar':
 				return ['IPM.Appointment', 'IPM.Schedule'];
 			case 'contact':
