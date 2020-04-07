@@ -470,10 +470,10 @@ function sq_getnxtag($body, $offset){
                         // Hack alert : Images more then 800 px are not properly extracted from the body by sq_findnxreg 
                         // so we need to manually retrieve the image src (base64) content and push into $regary.
                         if ($tagname === "img" && $regary === false) {
-                            $posstion = $pos + 1;
-                            $quoteIndex = sq_findnxstr($body, $posstion, '"');
-                            $imageSrc = substr($body, $posstion, $quoteIndex - ($pos - 1));
-                            $regary = array(($posstion + strlen($imageSrc)), $imageSrc);
+                            $position = $pos + 1;
+                            $quoteIndex = sq_findnxstr($body, $position, '"');
+                            $imageSrc = substr($body, $position, $quoteIndex - ($pos - 1));
+                            $regary = array(($position + strlen($imageSrc)), $imageSrc);
                         }
 
                         if ($regary == false){
