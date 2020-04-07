@@ -140,59 +140,67 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			style : {
 				paddingBottom : '25px'
 			},
+			defaults:{
+				xtype: 'container',
+				layout: 'form',
+				cellCls: 'zarafa-settings-oof-table-cellpadding'
+			},
 			items : [{
-				xtype : 'radio',
-				name : 'set',
-				hideLabel : true,
-				boxLabel : _('I am out of the office from') + ':',
-				ref : '../outOfOfficeRadio',
-				cellCls : 'zarafa-settings-oof-table-cellpadding',
-				// ExtJs demands inputValue to be a string
-				inputValue : 'true',
-				listeners : {
-					check : this.onRadioChecked,
-					scope : this
-				}
+				items:[{
+					xtype : 'radio',
+					name : 'set',
+					hideLabel : true,
+					boxLabel : _('I am out of the office from') + ':',
+					ref : '../../outOfOfficeRadio',
+					// ExtJs demands inputValue to be a string
+					inputValue : 'true',
+					listeners : {
+						check : this.onRadioChecked,
+						scope : this
+					}
+				}]
 			},{
-				xtype: 'zarafa.datetimefield',
-				ref: '../outOfOfficeDateTimeField',
-				name : 'from',
-				dateFieldConfig : {
-					showNow : true,
-					invalidClass : 'zarafa-settings-oof-invalid'
-				},
-				fieldLabel : '',
-				width : 200,
-				hideLabel : true,
-				dateFormat : _('d/m/Y'),
-				timeFormat : _('G:i'),
-				minValue : new Date(),
-				defaultValue : new Date(),
-				timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
-				listeners : {
-					change : this.onOutOfOfficeChange,
-					scope : this
-				}
+				items:[{
+					xtype: 'zarafa.datetimefield',
+					ref: '../../outOfOfficeDateTimeField',
+					name : 'from',
+					dateFieldConfig : {
+						showNow : true,
+						invalidClass : 'zarafa-settings-oof-invalid'
+					},
+					fieldLabel : '',
+					width : 200,
+					hideLabel : true,
+					dateFormat : _('d/m/Y'),
+					timeFormat : _('G:i'),
+					minValue : new Date(),
+					defaultValue : new Date(),
+					timeIncrement: container.getSettingsModel().get('zarafa/v1/contexts/calendar/default_zoom_level'),
+					listeners : {
+						change : this.onOutOfOfficeChange,
+						scope : this
+					}
+				}]
 			},{
 				xtype : 'displayfield'
 			},{
-				xtype : 'checkbox',
-				disabled : true,
-				name : 'zarafa/v1/contexts/mail/autosave_enable',
-				ref : '../willBeBackCheckBox',
-				cellCls : 'zarafa-settings-oof-table-cellpadding',
-				boxLabel : _('I will be back on') + ':',
-				hideLabel : true,
-				listeners : {
-					render : this.onWillBeBackCheckRender,
-					check : this.onWillBeBackCheck,
-					scope : this
-				}
+				items:[{
+					xtype : 'checkbox',
+					disabled : true,
+					name : 'zarafa/v1/contexts/mail/autosave_enable',
+					ref : '../../willBeBackCheckBox',
+					boxLabel : _('I will be back on') + ':',
+					hideLabel : true,
+					listeners : {
+						render : this.onWillBeBackCheckRender,
+						check : this.onWillBeBackCheck,
+						scope : this
+					}
+				}]
 			},{
 				xtype: 'zarafa.datetimefield',
 				fieldLabel : '',
 				ref: '../backDateTimeField',
-				cellCls : 'zarafa-settings-oof-table-cellpadding',
 				name : 'until',
 				dateFieldConfig : {
 					showNow : true,
