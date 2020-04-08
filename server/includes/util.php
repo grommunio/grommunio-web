@@ -268,6 +268,7 @@
 	 */
 	function browserDependingHTTPHeaderEncode($input)
 	{
+		$input = preg_replace("/\r|\n/", "", $input);
 		if(!isIE11() && !isEdge()) {
 			return $input;
 		} else {
