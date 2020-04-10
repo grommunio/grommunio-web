@@ -115,6 +115,8 @@
 							}
 						}
 					}
+					$this->setConversationIndex($action, $action["props"]);
+
 
 					if($send) {
 						// Allowing to hook in just before the data sent away to be sent to the client
@@ -269,6 +271,53 @@
 
 				$this->sendFeedback($result ? true : false, array(), true);
 			}
+		}
+
+		/**
+		 * Function which is used to set the PR_CONVERSATION_INDEX property to
+		 * first mail of conversation / reply / replyall and forward mails.
+		 *
+		 * @param array $action the action data, sent by the client
+		 * @param Array $props the $props data, which sent by the client.
+		 */
+		function setConversationIndex($action, &$props)
+		{
+			$serverVersion = $GLOBALS['mapisession']->getServerVersion();
+			if (empty($serverVersion)) {
+				$serverVersion =  phpversion('mapi');
+			}
+
+			// Older version of the core does not support 
+			// mapi_createconversationindex function.
+			if(version_compare($serverVersion, '10.0.0') === -1) {
+				error_log(sprintf("Core '%s' version does not support mapi_createconversationindex function", $serverVersion));
+				return;
+			}
+			
+			// Set the conversation index to reply/replyall/forward mail.
+			if(isset($action['message_action']) && isset($action['message_action']['action_type'])) {
+				$actionType = $action['message_action']['action_type'];
+				// As of now we consider the first mail of new conversation 
+				// if mail was created and sent by the 'edit_as_new' and 'forward_attach' message action.
+				if ($actionType !== 'edit_as_new' || $actionType !== 'forward_attach') {
+					$sourceEntryID = hex2bin($action['message_action']['source_entryid']);
+					$sourceStoreEntryID = hex2bin($action['message_action']['source_store_entryid']);
+					$sourceStore = $GLOBALS['mapisession']->openMessageStore($sourceStoreEntryID);
+					$sourceMessage = $GLOBALS['operations']->openMessage($sourceStore, $sourceEntryID);
+					$sourceMsgProps = mapi_getprops($sourceMessage,array(PR_CONVERSATION_INDEX));
+					if(isset($sourceMsgProps[PR_CONVERSATION_INDEX])) {
+						$conversationIndex = mapi_createconversationindex($sourceMsgProps[PR_CONVERSATION_INDEX]);
+						$props["conversation_index"] = bin2hex($conversationIndex);
+					} else {
+						error_log("PR_CONVERSATION_INDEX not found in the message. The message might be created in older version of core or another client");
+					}
+					return;
+				}
+			} 
+			// Set the conversation index for the first mail of the 
+			// new conversation.
+			$conversationIndex = mapi_createconversationindex(null);
+			$props["conversation_index"] = bin2hex($conversationIndex);
 		}
 
 		/**

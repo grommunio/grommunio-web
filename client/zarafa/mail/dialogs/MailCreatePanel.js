@@ -398,6 +398,8 @@ Zarafa.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 
 		record.setBody(this.editorField.getValue(), this.editorField.isHtmlEditor());
 
+		record.setConversationTopic(record.getMessageAction("action_type"));
+
 		record.endEdit();
 	},
 

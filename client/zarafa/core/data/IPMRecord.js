@@ -31,6 +31,7 @@ Zarafa.core.data.IPMRecordFields = [
 	{name: 'subject'},
 	{name: 'object_type', type: 'int', defaultValue: Zarafa.core.mapi.ObjectType.MAPI_MESSAGE},
 	{name: 'normalized_subject'},
+	{name: 'conversation_topic'},
 	{name: 'last_modification_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir : 'DESC'},
 	{name: 'last_verb_execution_time', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'last_verb_executed', type: 'int'},

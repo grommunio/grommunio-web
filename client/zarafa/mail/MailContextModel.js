@@ -257,8 +257,11 @@ Zarafa.mail.MailContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				break;
 		}
 
-		record.set('subject', subjectPrefix + origRecord.get('normalized_subject'));
-		record.set('normalized_subject', origRecord.get('normalized_subject'));
+		record.setConversationTopic(actionType, origRecord);		
+
+		var normalizedSubject = origRecord.get('normalized_subject');
+		record.set('subject', subjectPrefix + normalizedSubject);
+		record.set('normalized_subject', normalizedSubject);
 	},
 
 	/**
