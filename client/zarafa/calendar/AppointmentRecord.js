@@ -237,11 +237,11 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		tmpStart.setHours(startocc / 60);
 		tmpStart.setMinutes(startocc % 60);
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		startocc = tmpStart.format(_('G:i'));
+		startocc = tmpStart.formatDefaultTime();
 		tmpStart.setHours(endocc / 60);
 		tmpStart.setMinutes(endocc % 60);
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		endocc = tmpStart.format(_('G:i'));
+		endocc = tmpStart.formatDefaultTime();
 
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 		start = start.format(_('d/m/Y'));
@@ -324,9 +324,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 			meetingTimeInfo += recurringPattern + '\n';
 		} else {
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += startDate.format(_('l jS F Y G:i')) + ' - ';
+			meetingTimeInfo += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			meetingTimeInfo += dueDate.format(_('l jS F Y G:i')) + '\n';
+			meetingTimeInfo += dueDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
 		}
 
 		meetingTimeInfo += _('Where') + ': '  + meetingLocation + '\n\n';
@@ -406,9 +406,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	{
 		var proposeNewTimeBody = comment + '\n\n\n-----------\n' + _('New Meeting Time Proposed') + ':\n';
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		proposeNewTimeBody += startDate.format(_('l jS F Y G:i')) + ' - ';
+		proposeNewTimeBody += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		proposeNewTimeBody += endDate.format(_('l jS F Y G:i')) + '\n';
+		proposeNewTimeBody += endDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
 
 		return proposeNewTimeBody;
 	},

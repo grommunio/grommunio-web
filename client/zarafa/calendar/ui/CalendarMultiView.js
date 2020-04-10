@@ -61,7 +61,7 @@ Zarafa.calendar.ui.CalendarMultiView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @cfg {Number} timeStripWidth width in pixels of the time strips on the left of the panel.
 	 */
-	timeStripWidth : 60,
+	timeStripWidth : 62,
 	/**
 	 * @cfg {Number} timeStripGap gap in pixels between timestrips (defaults to 0)
 	 */

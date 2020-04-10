@@ -129,13 +129,13 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			},
 			// Format the times for a normal appointment.
 			formatTime : function(start, due)
-			{
+			{		
 				if (start.clearTime(true).getTime() == due.clearTime(true).getTime()) {
 					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					return start.format(_('G:i')) + ' - ' + due.format(_('G:i'));
+					return start.formatDefaultTime() + ' - ' + due.formatDefaultTime();
 				} else {
 					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					return start.format(_('jS F G:i')) + ' - ' + due.format(_('jS F G:i'));
+					return start.formatDefaultTime(_('jS F {0}')) + ' - ' + due.formatDefaultTime(_('jS F {0}'));
 				}
 			},
 			// Format the dates for an allday appointment, this requires the duedate

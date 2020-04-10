@@ -165,7 +165,7 @@ Zarafa.calendar.ui.html.AppointmentProxy = Ext.extend(Zarafa.calendar.ui.Appoint
 			var startDate = dateRange.getStartDate();
 			var dueDate = dateRange.getDueDate();
 
-			var time = String.format('{0} - {1}', startDate.format(_("G:i")), dueDate.format(_("G:i")));
+			var time = String.format('{0} - {1}', startDate.formatDefaultTime(), dueDate.formatDefaultTime());
 
 			if (this.getFirstBodyElement().dom.innerHTML !== time) {
 				this.getFirstBodyElement().dom.innerHTML = time;

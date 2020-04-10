@@ -86,6 +86,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	{
 		Zarafa.calendar.ui.AppointmentView.superclass.init.call(this);
 
+		this.timeFormat = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
 		if (this.record) {
 			this.updateDateRange(this.record);
 		}

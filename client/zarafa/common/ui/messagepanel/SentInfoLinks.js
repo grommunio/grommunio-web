@@ -77,7 +77,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 			'<span class="preview-timestamp-title">' + pgettext('mail.previewpanel', 'Sent') + ':</span>' +
 				'<tpl if="Ext.isDate(values.client_submit_time)">' +
 					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					'{client_submit_time:date(_("l jS F Y G:i"))}' +
+					'{client_submit_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 				'</tpl>' +
 				'<tpl if="!Ext.isDate(values.client_submit_time)">' +
 					/* # TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet). */

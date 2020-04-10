@@ -43,7 +43,7 @@ Zarafa.common.plugins.TimeSpinner = Ext.extend(Zarafa.common.plugins.SpinnerPlug
 	init : function(field)
 	{
 		Zarafa.common.plugins.TimeSpinner.superclass.init.call(this, field);
-
+		
 		// Enforce all default values to the date format.
 		if (Ext.isDefined(field.defaultValue) && !Ext.isDate(field.defaultValue)) {
 			field.defaultValue = Date.parseDate(field.defaultValue, this.format);

@@ -45,9 +45,9 @@ Zarafa.calendar.attachitem.AttachCalendarRenderer = Ext.extend(Zarafa.common.att
 
 		html += this.addHTMLRowGroup({
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
+			'startdate' : '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
+			'duedate' : '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'busystatus' : '{busystatus:busyStatusString}',
 			'alldayevent' : '{alldayevent}'
 		});
@@ -98,9 +98,9 @@ Zarafa.calendar.attachitem.AttachCalendarRenderer = Ext.extend(Zarafa.common.att
 
 		html += this.addPlainRowGroup({
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
+			'startdate' : '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
+			'duedate' : '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'busystatus' : '{busystatus:busyStatusString}',
 			'alldayevent' : '{alldayevent}'
 		});

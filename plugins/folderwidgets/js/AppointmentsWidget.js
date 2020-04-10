@@ -424,14 +424,14 @@ Zarafa.widgets.folderwidgets.AppointmentsWidget = Ext.extend(Zarafa.widgets.fold
 
 		if ( start >= dayStart && end <= dayEnd ) {
 			if ( !allDayEvent ) {
-				return String.format(_('Today {0} - {1}'), start.format(_('G:i')), end.format(_('G:i'))) + recurringIcon + privateIcon;
+				return String.format(_('Today {0} - {1}'), start.formatDefaultTime(), end.formatDefaultTime()) + recurringIcon + privateIcon;
 			}
 
 			return _('Today (all day)') + recurringIcon + privateIcon;
 		}
 
 		if ( !allDayEvent ) {
-			return String.format(_('{0} - {1}'), start.format(_('d/m/y G:i')), end.format(_('d/m/y G:i'))) + recurringIcon + privateIcon;
+			return String.format(_('{0} - {1}'), start.formatDefaultTime(_('d/m/y {0}')), end.formatDefaultTime(_('d/m/y {0}'))) + recurringIcon + privateIcon;
 		}
 
 		return String.format(_('{0} - {1} (all day)'), start.format(_('d/m/y')), end.format(_('d/m/y'))) + recurringIcon + privateIcon;

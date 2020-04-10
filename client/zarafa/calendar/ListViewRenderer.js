@@ -46,8 +46,8 @@ Zarafa.calendar.printer.ListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			+ '<tr>'
 			+ '<td>{values.data.subject:htmlEncode}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td>{values.data.startdate:date("' + _("l jS F Y G:i") + '")}</td>'
-			+ '<td>{values.data.duedate:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td>{values.data.startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
+			+ '<td>{values.data.duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '<td>{[Ext.util.Format.duration(values.data.duration, 1)]}</td>'
 			+ '<td>{values.data.location:htmlEncode}</td>'
 			+ '<td>{values.data.categories:htmlEncode}</td>'
@@ -61,7 +61,7 @@ Zarafa.calendar.printer.ListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		+ '<tr>'
 		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		+ '<td class="right">' + _('Printed on: ') + '{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+		+ '<td class="right">' + _('Printed on: ') + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '"}}</td>'
 		+ '</tr>'
 		+ '</table>\n';
 		return html;

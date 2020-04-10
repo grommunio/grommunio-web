@@ -42,7 +42,7 @@ Zarafa.common.freebusy.ui.SuggestionListView = Ext.extend(Ext.DataView, {
 				formatTime : function(time)
 				{
 					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-					return new Date(time * 1000).format(_('G:i'));
+					return new Date(time * 1000).formatDefaultTime();
 				}
 
 			}),

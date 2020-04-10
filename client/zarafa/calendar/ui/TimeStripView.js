@@ -27,7 +27,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 	/**
 	 * @cfg {String} textTemplate The template to be used for the Hour indications inside the strip.
 	 */
-	textTemplate : '<div>{0}:00</div>',
+	textTemplate : '<div>{0}</div>',
 
 	/**
 	 * The offset all elements must have from the left side of the {@link #container}. This
@@ -174,7 +174,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 			var hour = (i + Math.floor(this.timeDifference) + 24) % 24;
 			var date = new Date(0, 0, 0, hour);
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			this.bodyElements[i].dom.innerHTML = String.format(this.textTemplate, date.format(_("G"))); 
+			this.bodyElements[i].dom.innerHTML = String.format(this.textTemplate, date.formatDefaultTime()); 
 		}
 	},
 	

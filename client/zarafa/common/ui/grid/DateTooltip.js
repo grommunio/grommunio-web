@@ -48,7 +48,7 @@ Zarafa.common.ui.grid.DateTooltip = Ext.extend(Ext.ToolTip, {
 			}
 		});
 
-		var dateString = (new Date(timestamp)).format(_('D, d-m-Y, G:i'));
+		var dateString = (new Date(timestamp)).formatDefaultTime(_('D, d-m-Y, {0}'));
 
         tooltip.body.dom.innerHTML = Ext.util.Format.htmlEncode(dateString);
 	}

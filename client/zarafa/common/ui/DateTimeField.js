@@ -62,6 +62,8 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 
 		Ext.apply(this, config);
 
+		this.timeFormat = config.timeFormat || container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+
 		if (Ext.isDefined(this.defaultValue) && !Ext.isDate(this.defaultValue)) {
 			this.defaultValue = Date.parseDate(this.defaultValue, this.dateFormat + ' ' + this.timeFormat);
 		}

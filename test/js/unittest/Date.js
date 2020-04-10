@@ -640,4 +640,55 @@ describe('Date', function() {
 			});
 		});
 	});
+
+	/*
+	 * Test the formatDefaultTime() function of Date.
+	 */
+	describe('Time format', function() {
+
+		var date;
+		container = new Zarafa.core.Container();
+
+		beforeEach(function() {
+			settingsModel = container.getSettingsModel();
+			settingsModel.initialize({});
+			date = new Date('Mar 26 2017 01:00:00');
+		});
+
+		// The default 24h time format, without any additional format
+		it ('Should show time in \' 24 hour \' format', function(){
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');  
+		
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWENTYFOURHOUR);
+			expect(date.formatDefaultTime()).toEqual('1:00');
+		});
+		
+		// The 12h time format, without any additional format
+		it ('Should show time in \' 12 hour \' format', function(){
+			settingsModel.set('zarafa/v1/main/datetime_time_format', Zarafa.common.data.TimeFormat.TWELVEHOUR); 
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');  
+		
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			expect(date.formatDefaultTime()).toEqual('1:00 AM');
+		});
+
+		// The 24h hour format with added to the specified 'l jS F Y' format
+		it ('Should show time in \' 24 hour \' format with specified format', function(){
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');  
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWENTYFOURHOUR);
+			expect(date.formatDefaultTime('l jS F Y {0}')).toEqual('Sunday 26th March 2017 1:00');
+		});
+
+		// The 12h hour format with added to the specified 'j-m-Y' format
+		it ('Should show time in \' 12 hour \' format with specified format', function(){
+			settingsModel.set('zarafa/v1/main/datetime_time_format', Zarafa.common.data.TimeFormat.TWELVEHOUR); 
+			var timeFormat = settingsModel.get('zarafa/v1/main/datetime_time_format');  
+
+			expect(timeFormat).toEqual(Zarafa.common.data.TimeFormat.TWELVEHOUR);
+			expect(date.formatDefaultTime('j-m-Y {0}')).toEqual('26-03-2017 1:00 AM');
+		});
+	});
+
+
 });
