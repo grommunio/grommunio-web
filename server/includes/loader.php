@@ -33,6 +33,7 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.min.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty.js";
+			$jsLoadingSequence[] = "client/dompurify/purify.min.js";
 		} else if ($load == LOAD_DEBUG) {
 			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
@@ -40,6 +41,7 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/extjs-mod/extjs-mod-debug.js";
 			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
 			$jsLoadingSequence[] = "client/third-party/ux-thirdparty-debug.js";
+			$jsLoadingSequence[] = "client/dompurify/purify.js";
 		} else {
 			$jsLoadingSequence[] = "client/extjs/ext-base-debug.js";
 			$jsLoadingSequence[] = "client/extjs/ext-all-debug.js";
@@ -51,6 +53,7 @@ class FileLoader {
 				)
 			);
 			$jsLoadingSequence[] = "client/tinymce/tinymce.js";
+			$jsLoadingSequence[] = "client/dompurify/purify.js";
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
 				$this->buildJSLoadingSequence(

@@ -357,5 +357,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getConversationViewCfg : function ()
 	{
 		return this.meta.enable_conversation_view;
+	},
+
+	/**
+	 * @returns {Boolean} True if DOMPurify is enabled by admin(from config.php) else false.
+	 */
+	getDOMPurifyEnabled : function ()
+	{
+		return this.meta.enable_dompurify;
 	}
 });
