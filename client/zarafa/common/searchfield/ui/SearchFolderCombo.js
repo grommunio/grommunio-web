@@ -38,26 +38,6 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 	 */
 	constructor : function(config)
 	{
-		this.model = config.model;
-		var defaultStore = container.getHierarchyStore().getDefaultStore();
-		var index = 0;
-		var subtreeEntryid = '';
-		var folderName = '';
-		var folderEntryid = '';
-		// We have to add this check due to some js unit test. Test are
-		// related to when default store/folder not found while loading webapp.
-		if (defaultStore) {
-			subtreeEntryid = defaultStore.getSubtreeFolder().get('entryid');
-			var defaultFolder = this.model.getDefaultFolder();
-			if (defaultFolder) {
-				folderName = defaultFolder.getDisplayName();
-				folderEntryid = defaultFolder.get('entryid');
-				if (defaultFolder.getDefaultFolderKey() !== 'inbox' || defaultFolder.getMAPIStore().isSharedStore()) {
-					index = 1;
-				}
-			}
-		}
-
 		if (!this.tpl) {
 			var tplString =
 				'<tpl for=".">' +
@@ -121,20 +101,7 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			idIndex: 0,
 			idProperty: 'value',
 			fields: ['name', 'value', 'flag', 'include_subfolder'],
-			data : [{
-				'name' : _('All folders'),
-				'value' : subtreeEntryid,
-				'include_subfolder' : true,
-				'flag' : Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS
-			},{
-				'name' : Ext.util.Format.htmlEncode(folderName),
-				'value' : folderEntryid,
-				'include_subfolder' : false,
-				'flag' : Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER
-			},{
-				'name' : _('Other...'),
-				'value' : 'other'
-			}],
+			data : [],
 			autoDestroy: true
 		});
 
@@ -146,17 +113,50 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			displayField: 'name',
 			store: searchFolderStore,
 			triggerAction: 'all',
-			value: searchFolderStore.getAt(index).get('value'),
 			editable: false,
 			width: 100,
 			listWidth : 150,
 			listeners : {
 				expand : this.onExpandComboBox,
+				beforeRender : this.onBeforeRender,
 				scope : this
 			}
 		});
 
 		Zarafa.common.searchfield.ui.SearchFolderCombo.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler which is raised just before the {@link Zarafa.common.searchfield.ui.SearchFolderCombo SearchFolderCombo}
+	 * is being rendered. At this moment data for store will be prepared based on default selected folder 
+	 * and {@link Ext.data.JsonStore searchFolderStore} will be loaded. Also default combobox value will be set.
+	 * @private
+	 */
+	onBeforeRender : function()
+	{
+		var index = 0;
+		var defaultFolder = this.model.getDefaultFolder();
+		if (defaultFolder.getDefaultFolderKey() !== 'inbox' && defaultFolder.getDefaultFolderKey() !== 'publicfolders') {
+			index = 1;
+        }
+		
+		var data = [{
+			'name': _('All folders'),
+			'value': defaultFolder.getMAPIStore().get("subtree_entryid"),
+			'include_subfolder': true,
+			'flag': Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS
+		}, {
+			'name': Ext.util.Format.htmlEncode(defaultFolder.getDisplayName()),
+			'value': defaultFolder.get('entryid'),
+			'include_subfolder': false,
+			'flag': Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER
+		}, {
+			'name': _('Other...'),
+			'value': 'other'
+		}];
+
+		this.store.loadData(data);
+		this.setValue(this.store.getAt(index).get('value'));
 	},
 
 	/**
@@ -274,8 +274,8 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 			}
 		}, this);
 
-		// Select 'All folders' if select folder is 'Inbox' folder of own store.
-		if (folder.getDefaultFolderKey() === 'inbox' && !folder.getMAPIStore().isSharedStore()) {
+		// Select 'All folders' if select folder is 'Inbox' folder of shared/own store or 'Public Folders' of public store.
+		if (folder.getDefaultFolderKey() === 'inbox' || folder.getDefaultFolderKey() === 'publicfolders') {
 			var allFolderRecord = store.getAt(store.find('flag', Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS));
 			this.setValue(allFolderRecord.get('value'));
 		} else {
@@ -284,23 +284,31 @@ Zarafa.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox, {
 	},
 
 	/**
-	 * Function is used to change the current folder with selected folder from hierarchy
-	 * in search folder combo.
+	 * Function is used to change the current folder record with selected folder and 'All folders' record
+	 * with selected folder's IPM_SUBTREE from hierarchy in search folder combo.
 	 *
 	 * @param {Ext.data.JsonStore} store of search folder combo box.
 	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder folder that should be shown by the selected context.
 	 */
 	doChangeCurrentFolder : function(store, folder)
 	{
-		var currentFolder = store.getAt(store.find('flag', Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER));
+		var currentFolderRecord = store.getAt(store.find('flag', Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.CURRENT_SELECTED_FOLDER));
 
-		currentFolder.beginEdit();
-		currentFolder.set("name", folder.getDisplayName());
-		currentFolder.set("value", folder.get('entryid'));
-		currentFolder.set("include_subfolder", false);
-		currentFolder.id = folder.get('entryid');
-		currentFolder.endEdit();
-		currentFolder.commit();
+		currentFolderRecord.beginEdit();
+		currentFolderRecord.set("name", folder.getDisplayName());
+		currentFolderRecord.set("value", folder.get('entryid'));
+		currentFolderRecord.set("include_subfolder", false);
+		currentFolderRecord.id = folder.get('entryid');
+		currentFolderRecord.endEdit();
+		currentFolderRecord.commit();
+
+		var subTreeEntryid = folder.getMAPIStore().get("subtree_entryid");
+		var allFolderRecord = store.getAt(store.find('flag', Zarafa.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS));
+
+		if (!Zarafa.core.EntryId.compareEntryIds(allFolderRecord.get('value'), subTreeEntryid)) {
+			allFolderRecord.set("value", subTreeEntryid);
+			allFolderRecord.id = subTreeEntryid;
+		}
 	},
 
 	/**
