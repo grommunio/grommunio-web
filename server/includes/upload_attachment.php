@@ -57,6 +57,12 @@ class UploadAttachment
 	protected $ignoreExtractAttachid;
 
 	/**
+	 * A string value which stores the module name of the notifier according to the file type.
+	 */
+	protected $notifierModule;
+
+
+	/**
 	 * Constructor
 	 */
 	public function __construct()
@@ -248,15 +254,19 @@ class UploadAttachment
 
 		$extention = pathinfo($filename, PATHINFO_EXTENSION);
 
+		// Set the module id of the notifier according to the file type 
 		switch (strtoupper($extention)) {
 			case 'EML':
+				$this->notifierModule = 'maillistnotifier';
 				return $this->importEMLFile($attachmentStream, $filename);
 				break;
 			case 'ICS':
 			case 'VCS':
+				$this->notifierModule = 'appointmentlistnotifier';
 				return $this->importICSFile($attachmentStream, $filename);
 				break;
 			case 'VCF':
+				$this->notifierModule = 'contactlistnotifier';
 				return $this->importVCFFile($attachmentStream, $filename);
 				break;
 		}
@@ -264,22 +274,21 @@ class UploadAttachment
 
 	/**
 	 * Function reads content of the given file and convert the same into
-	 * a webapp contact into respective destination folder.
+	 * a webapp contact or multiple contacts into respective destination folder.
 	 *
 	 * @param String $attachmentStream The attachment as a stream.
 	 * @param String $filename An actual file name.
-	 * @return Boolean true if the import is successful, false otherwise.
+	 * @return Array The new contact to be imported.
 	 */
 	function importVCFFile($attachmentStream, $filename)
 	{
 		$this->destinationFolder = $this->getDestinationFolder();
-
-		$newMessage = mapi_folder_createmessage($this->destinationFolder);
-		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-
 		try {
 			// Convert vCard 1.0 to a MAPI contact.
-			$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $store, $newMessage, $attachmentStream);
+			$contacts = $this->convertVCFContactsToMapi($this->destinationFolder, $attachmentStream);
+		} catch (ZarafaException $e){
+			$e->setTitle(_("Import error"));
+			throw $e;
 		} catch(Exception $e) {
 			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_DISPLAY_NAME, PR_MDB_PROVIDER));
 			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
@@ -308,16 +317,50 @@ class UploadAttachment
 			$e->setTitle(_("Import error"));
 			throw $e;
 		}
-		if($ok === true) {
-			// As vcf file does not contains fileas, business_address etc property we need to set it manually.
-			// something similar mention in this ticket KC-1509.
-			$this->processContactData($store, $newMessage);
 
-			mapi_message_savechanges($newMessage);
-			return bin2hex(mapi_getprops($newMessage, array(PR_ENTRYID))[PR_ENTRYID]);
+		if (is_array($contacts) && !empty($contacts)) {
+			$newcontact = Array();
+			foreach ($contacts as $contact) {
+				// As vcf file does not contains fileas, business_address etc properties, we need to set it manually.
+				// something similar is mentioned in this ticket KC-1509.
+				$this->processContactData($GLOBALS["mapisession"]->getDefaultMessageStore(), $contact);
+				mapi_message_savechanges($contact);
+				$vcf = bin2hex(mapi_getprops($contact, array(PR_ENTRYID))[PR_ENTRYID]);
+				array_push($newcontact, $vcf);
+			}
+			return $newcontact;
 		}
-
 		return false;
+	}
+
+	/**
+	 * Function checks whether the file to be converted contains a single vCard 
+	 * or multiple vCard entries. It calls the appropriate method and converts the vcf.
+	 * 
+	 * @param Object $destinationFolder The folder which holds the message which we need to import from file.
+	 * @param String $attachmentStream The attachment as a stream.
+	 * @return Array $contacts The array of contact(s) to be imported.
+	 */
+	function convertVCFContactsToMapi($destinationFolder, $attachmentStream)
+	{
+		$contacts = array();
+
+		// If function 'mapi_vcftomapi2' exists, we can use that for both single and multiple vcf files,
+		// but if it doesn't exist, we use the old function 'mapi_vcftomapi' for single vcf file.
+		if (function_exists('mapi_vcftomapi2')) {
+			$contacts = mapi_vcftomapi2($destinationFolder, $attachmentStream);
+		} else if ($_POST['is_single_vcf']) {
+			$newMessage = mapi_folder_createmessage($this->destinationFolder);
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $store, $newMessage, $attachmentStream);
+			if ($ok !== false) {
+				$contacts = $newMessage;
+			}
+		} else {
+			// Throw error related to multiple vcf as the function is not available for importing multiple vcf file.
+			throw new ZarafaException(_("WebApp does not support importing multiple VCF with this version."));
+		}
+		return $contacts;
 	}
 
 	/**
@@ -628,12 +671,14 @@ class UploadAttachment
 	}
 
 	/**
-	 * Helper function to send proper response for import request only.
+	 * Helper function to send proper response for import request only. It sets the appropriate 
+	 * notifier to be sent in the response according to the type of the file to be imported.
 	 */
 	function sendImportResponse($importStatus)
 	{
 		$storeProps = mapi_getprops($this->store, array(PR_ENTRYID));
 		$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_PARENT_ENTRYID, PR_CONTENT_UNREAD));
+		$notifierModuleId = $this->notifierModule . '1';
 
 		$return = Array(
 			'success' => true,
@@ -642,7 +687,9 @@ class UploadAttachment
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
 						'import' => Array(
 							'success'=> true,
-							'items' => $importStatus
+							'items' => Array(
+								$importStatus
+							)
 						)
 					)
 				),
@@ -662,8 +709,8 @@ class UploadAttachment
 						)
 					)
 				),
-				'maillistnotifier' => Array(
-					'maillistnotifier1' => Array(
+				$this->notifierModule => Array(
+					$notifierModuleId => Array(
 						'newobject' => Array(
 							'item' => Array(
 								0 => Array(
@@ -679,7 +726,7 @@ class UploadAttachment
 					)
 				)
 			)
-		);
+		);		
 		echo json_encode($return);
 	}
 
