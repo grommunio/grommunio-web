@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2019-11-20 18:15+0000\n"
+"PO-Revision-Date: 2020-04-16 15:14+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -467,14 +467,15 @@ msgid "Show Details"
 msgstr "Vis detaljer"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Kopier kontakt"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kopier kontakter"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Viser kun de {0} første navnene. Bruk søkefunksjonen for flere resultater."
 
 msgid "Use the search bar to get results"
 msgstr "Bruk søkefeltet for resultater"
@@ -561,7 +562,7 @@ msgid "Sort by: Fax"
 msgstr "Sorter på: faks"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Skriv ut enkeltelement"
 
 # 77%
 # 84%
@@ -572,7 +573,7 @@ msgid "Print"
 msgstr "Skriv ut"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Inget element valgt"
 
 msgid "No preview"
 msgstr "Ingen forhåndsvisning"
@@ -1022,14 +1023,14 @@ msgid "Send update"
 msgstr "Send oppdatering"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Ønsker du å sende en oppdatering til alle mottakere?"
 
 msgid "Send update to attendees"
 msgstr "Send oppdatering til alle deltakere"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Du har gjort endring på listen over deltakere. Hva ønsker du å gjøre?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Send oppdatering kun til deltakere som er lagt til eller slettet."
@@ -1187,10 +1188,10 @@ msgid "Check names"
 msgstr "Kontroller navn"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Adressebok"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Åpne adressebok"
 
 msgid "Invite attendees"
 msgstr "Inviter deltakere"
@@ -4522,16 +4523,16 @@ msgid "RE"
 msgstr "RE"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Liste over klarerte avsendere er tom"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Vennligst velg en klarert avsender."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Slett alle klarerte sendere"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette alle klarerte sendere?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4640,7 +4641,7 @@ msgstr ""
 "nytt tidspunkt."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Klarerte sendere"
 
 msgid ""
 "Manage safe sender list. To protect your privacy email addresses or domains "
@@ -4649,7 +4650,7 @@ msgid ""
 msgstr ""
 
 msgid "Delete all"
-msgstr ""
+msgstr "Slett alt"
 
 msgid "Signatures"
 msgstr "Signaturer"
@@ -5207,10 +5208,10 @@ msgid "Create task"
 msgstr "Lag oppgave"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Kommende"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Forfalt"
 
 msgid "Mark Complete"
 msgstr "Merk som fullført"
@@ -5486,7 +5487,7 @@ msgid "Number of days"
 msgstr "Antall dager"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
 msgstr "Kommende avtaler"
@@ -5821,7 +5822,7 @@ msgid "Action is not performed correctly."
 msgstr "Handlingen ble ikke korrekt utført."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "Forespørselen er ikke tilgjengelig."
 
 # 87%
 msgid "You have insufficient privileges to open this object."
