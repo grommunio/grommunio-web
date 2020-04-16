@@ -479,6 +479,12 @@ msgstr "Választ"
 msgid "Show Details"
 msgstr "Részletek megjelenítése"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1068,8 +1074,8 @@ msgid "Send update to attendees"
 msgstr "Frissítés küldése a résztvevőknek"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Megváltoztatta a résztvevők listáját. Válasszon az alábbiak közül:"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Frissítés küldése csak a hozzáadott vagy törölt résztvevők részére."
@@ -1685,8 +1691,8 @@ msgstr "Y. F j"
 msgid "Update recipients"
 msgstr "Címzett szerkesztése"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Az értekezlet időpontja megváltozott. Válasszon az alábbiak közül:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Változások elmentése, és frissítés elküldése a résztvevőknek"
@@ -3100,6 +3106,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "Y-m-d"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l Y/m/d G:i"
@@ -5416,6 +5425,12 @@ msgstr "Feladatlista nyomtatása"
 msgid "Create task"
 msgstr "Feladat létrehozása"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Befejezettnek jelöl"
 
@@ -5691,14 +5706,30 @@ msgstr "másodperc."
 msgid "Loading appointments..."
 msgstr "Találkozók betöltése"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Találkozók betöltése"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Új találkozó"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5723,10 +5754,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "Y/m/d"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Találkozók betöltése"
 
 msgid "Datepicker"
 msgstr ""
@@ -5908,9 +5935,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Ismeretlen modul '%s'. ID: '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"A kiszolgáló hibákba ütközött, így nem volt képes a kérés kiszolgálására."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6703,7 +6730,3 @@ msgstr "Rossz UTF-8 karakterek, valószínűleg rosszul lettek kódolva"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON hiba: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"Néhány probléma merült fel a JSON adatainak kódolása/dekódolása közben."

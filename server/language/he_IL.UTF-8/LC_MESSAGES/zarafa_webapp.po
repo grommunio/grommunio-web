@@ -477,6 +477,12 @@ msgstr "בחר"
 msgid "Show Details"
 msgstr "הצג פרטים"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1066,7 +1072,7 @@ msgid "Send update to attendees"
 msgstr ""
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
@@ -1691,7 +1697,7 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "ערוך נמען"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
+msgid "The time of the meeting has changed. What would you like to do?"
 msgstr ""
 
 msgid "Save changes and send an update to all recipients"
@@ -3062,6 +3068,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "ש-ח-י"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr ""
@@ -5403,6 +5412,12 @@ msgstr ""
 msgid "Create task"
 msgstr ""
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5680,14 +5695,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "פגישה חדשה"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "מופע חוזר של פגישה"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "פגישה חדשה"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5708,10 +5739,6 @@ msgstr ""
 
 msgid "d/m/y"
 msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "מופע חוזר של פגישה"
 
 msgid "Datepicker"
 msgstr ""
@@ -5892,8 +5919,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Unknown module '%s' with id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
-msgstr "השרת נתקל בבעיה, ולכן לא ניתן היה לטפל בבקשה."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
+msgstr ""
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6637,6 +6665,3 @@ msgstr "שגיאת בקרה, ייתכן שקודד באופן לא נכון"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "שגיאת JSON: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "התרחשו שגיאות מסוימות בעת ההצפנה/פיענוח של נתוני ה JSON."

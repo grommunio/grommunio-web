@@ -464,6 +464,12 @@ msgstr "Vælg"
 msgid "Show Details"
 msgstr "Vis detaljer"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -999,9 +1005,8 @@ msgid "Send update to attendees"
 msgstr "Send opdatering til deltagerne"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"Du har foretaget ændringer til listen af deltagere. Vælg en af følgende"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Send kun opdateringer til tilføjede eller slettede deltagere."
@@ -1582,8 +1587,8 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "Ret modtager"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Tiden for mødet er blevet ændret. Vælg en af følgende:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Gem ændringerne og send en opdatering til alle modtagerne"
@@ -2946,6 +2951,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "I d.m.Y G:i"
@@ -5175,6 +5183,12 @@ msgstr "Udskriv opgaveliste"
 msgid "Create task"
 msgstr "Opret opgave"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Marker som fuldført"
 
@@ -5440,12 +5454,28 @@ msgstr "sekunder."
 msgid "Loading appointments..."
 msgstr "Henter aftaler"
 
-#, fuzzy
-msgid "No appointments"
-msgstr "Ny aftale"
+msgid "Please select a calendar via widget settings"
+msgstr ""
 
 msgid "Number of days"
 msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Henter aftaler"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+#, fuzzy
+msgid "No appointments"
+msgstr "Ny aftale"
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5468,10 +5498,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Henter aftaler"
 
 msgid "Datepicker"
 msgstr ""
@@ -5654,7 +5680,8 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Ukendt modul '%s' med id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
 
 #, php-format
@@ -6321,6 +6348,3 @@ msgstr "Fejlformateret UTF-8 tegn, kan være forkert kodet"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Fejl: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Der er opstået et problem ved indkodning/afkodning af JSON data."

@@ -477,6 +477,12 @@ msgstr "Selecteer"
 msgid "Show Details"
 msgstr "Toon Details"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1058,10 +1064,8 @@ msgid "Send update to attendees"
 msgstr "Verstuur update naar genodigden"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"U heeft wijzigingen gemaakt in de lijst van genodigden, kies een van de "
-"volgende"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Verstuur updates alleen naar toegevoegde of verwijderde genodigden."
@@ -1671,9 +1675,8 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "Update genodigden"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
+msgid "The time of the meeting has changed. What would you like to do?"
 msgstr ""
-"Het tijdstip van de vergadering is veranderd. Kies een van de volgende:"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Bewaar wijzigingen en verstuur een update naar alle genodigden"
@@ -3068,6 +3071,9 @@ msgstr "Herinnering ingesteld voor: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5408,6 +5414,12 @@ msgstr "Druk takenlijst af"
 msgid "Create task"
 msgstr "Taak aanmaken"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Markeer als Voltooid"
 
@@ -5689,13 +5701,29 @@ msgstr "seconden"
 msgid "Loading appointments..."
 msgstr "Afspraken laden..."
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr "Aantal dagen"
+
+msgid "{0}"
+msgstr ""
+
+# 86%
+msgid "Upcoming Appointments"
+msgstr "Aankomende afspraken"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 msgid "No appointments"
 msgstr "Geen afspraken"
-
-msgid "Number of days"
-msgstr "Aantal dagen"
 
 msgid "Today {0} - {1}"
 msgstr "Vandaag: {1} - {0}"
@@ -5715,10 +5743,6 @@ msgstr "{0} - {1} (gehele dag)"
 
 msgid "d/m/y"
 msgstr "d-m-Y"
-
-# 86%
-msgid "Upcoming Appointments"
-msgstr "Aankomende afspraken"
 
 msgid "Datepicker"
 msgstr "Datumkiezer"
@@ -5903,9 +5927,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Onbekende module '%s' met id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"De server kon het verzoek niet afhandelen omdat hij een probleem ondervond."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6698,7 +6722,3 @@ msgstr "Fout in besturingskarakter, mogelijk door foutieve codering"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON-fout: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"Bij het decoderen/coderen van JSON data zijn er enkele problemen voorgekomen."

@@ -489,6 +489,12 @@ msgstr "Izberi"
 msgid "Show Details"
 msgstr "Pokaži podrobnosti"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1073,9 +1079,8 @@ msgid "Send update to attendees"
 msgstr "Pošlji spremembe udeležencem"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"V listi povabljencev ste naredili spremembe, izberite nekaj od naslednjega"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Pošlji posodobitve samo popravljenim ali izbrisanim povabljencem."
@@ -1684,8 +1689,8 @@ msgstr "jS F Y"
 msgid "Update recipients"
 msgstr "Uredi prejemnika"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Čas sestanka je bil spremenjen. Izberi nekaj od naslednjega:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Shrani spremembe in pošlji posodobitev vsem prejemnikom"
@@ -3106,6 +3111,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5471,6 +5479,12 @@ msgstr "Natisni spisek nalog"
 msgid "Create task"
 msgstr ""
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5743,14 +5757,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Nalagam sestanke"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Nalagam sestanke"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Novi sestanek"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5773,10 +5803,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Nalagam sestanke"
 
 msgid "Datepicker"
 msgstr ""
@@ -5957,8 +5983,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Neznan modul '%s' z id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
-msgstr "Server se je srečal s problemom, za to ni mogel izpolniti zahteve."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
+msgstr ""
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6745,6 +6772,3 @@ msgstr "Napaka kontrolnega znaka,najverjetneje nepravilno kodiranje"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON napaka: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Pojavil se je problem pri kodiranju/dekodiranje JSON podatkov."

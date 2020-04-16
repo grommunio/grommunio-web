@@ -479,6 +479,12 @@ msgstr "Vybrat"
 msgid "Show Details"
 msgstr "Ukázat detaily"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1039,8 +1045,8 @@ msgid "Send update to attendees"
 msgstr "Odeslat aktualizace účastníkům"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Změněn seznam účastníků, vyberte jednoho z následujících"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Odeslat aktualizace pouze přidaným nebo odebraným účastníkům."
@@ -1642,8 +1648,8 @@ msgstr "j. F Y"
 msgid "Update recipients"
 msgstr "Upravit příjemce"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Čas schůzky se změnil. Vyberte jedno z následujících:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Uložit změny a odesat aktualizaci všem příjemcům"
@@ -3073,6 +3079,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d-m-r"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d. m. Y G:i"
@@ -5386,6 +5395,12 @@ msgstr "Tisknout seznam úloh"
 msgid "Create task"
 msgstr ""
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5660,14 +5675,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Načítání schůzek"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Načítání schůzek"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Nový termín"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5691,10 +5722,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d. m. Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Načítání schůzek"
 
 msgid "Datepicker"
 msgstr ""
@@ -5877,9 +5904,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Neznámý modul '%s' s id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Server zjistil nějaký problém, proto nebyl schopen zpracovat požadavek."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6636,6 +6663,3 @@ msgstr "Chyba kontrolního znaku, možné nesprávné kódování"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Chyba: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Došlo k problému při kódování/dekódování JSON údajů."

@@ -457,6 +457,12 @@ msgstr "選擇"
 msgid "Show Details"
 msgstr "顯示詳細"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1026,8 +1032,8 @@ msgid "Send update to attendees"
 msgstr "傳送更新給與會者"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "您已經更改了與會者列表，請選擇下列選項"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "傳送更新到新增加或移除的與會者"
@@ -1604,7 +1610,7 @@ msgstr "jS F Y"
 msgid "Update recipients"
 msgstr "編輯收件者"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
+msgid "The time of the meeting has changed. What would you like to do?"
 msgstr ""
 
 msgid "Save changes and send an update to all recipients"
@@ -2981,6 +2987,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5240,6 +5249,12 @@ msgstr "列印任務清單"
 msgid "Create task"
 msgstr ""
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5512,14 +5527,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "載入會議中"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "載入會議中"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "新增約會"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5543,10 +5574,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "載入會議中"
 
 msgid "Datepicker"
 msgstr ""
@@ -5727,9 +5754,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Unknown module '%s' with id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Server encountered some problem, so it was not able to handle the request."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6441,6 +6468,3 @@ msgstr "Control character error, possibly incorrectly encoded"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Error: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Some problem encountered when encoding/decoding JSON data."
