@@ -468,6 +468,12 @@ msgstr "Selecionar"
 msgid "Show Details"
 msgstr "Mostrar Detalhes"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1058,8 +1064,8 @@ msgid "Send update to attendees"
 msgstr "Enviar atualização para todos os participantes"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Você modificou a lista de participantes. Por favor seleciona uma opção"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1664,8 +1670,8 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "Editar destinatário"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "O horário da reunião foi modificado. Por favor selecione uma opção:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Salvar modificações e enviar uma atualização para todos os recipientes"
@@ -3063,6 +3069,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d/m/Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5368,6 +5377,12 @@ msgstr "Imprimir lista de tarefas"
 msgid "Create task"
 msgstr ""
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5643,14 +5658,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Carregando compromissos"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Carregando compromissos"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Novo Compromisso"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5674,10 +5705,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Carregando compromissos"
 
 msgid "Datepicker"
 msgstr ""
@@ -5860,10 +5887,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Módulo desconhecido '%s' com id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"O servidor encontrou um erro e assim não foi possível processar a "
-"solicitação."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6648,6 +6674,3 @@ msgstr "Erro de controle de caráter, possivelmente codificado incorretamente"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "Erro JSON: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Mesmo problema encontrado ao de/codificando dados JSON."

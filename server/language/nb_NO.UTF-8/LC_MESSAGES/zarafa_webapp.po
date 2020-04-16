@@ -466,6 +466,12 @@ msgstr "Velg"
 msgid "Show Details"
 msgstr "Vis detaljer"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1022,8 +1028,8 @@ msgid "Send update to attendees"
 msgstr "Send oppdatering til alle deltakere"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Du har endret på deltakerlisten, velg en av de følgende"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Send oppdatering kun til deltakere som er lagt til eller slettet."
@@ -1621,8 +1627,8 @@ msgstr "j. F Y"
 msgid "Update recipients"
 msgstr "Oppdater mottaker"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Tidspunktet for møtet har blitt endret. Velg en av de følgende:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Lagre endringer og send en oppdatering til alle mottakere"
@@ -2980,6 +2986,9 @@ msgstr "Påminnelser er satt på {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
@@ -5197,6 +5206,12 @@ msgstr "Skriv ut oppgaveliste"
 msgid "Create task"
 msgstr "Lag oppgave"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Merk som fullført"
 
@@ -5464,11 +5479,26 @@ msgstr "sekunder"
 msgid "Loading appointments..."
 msgstr "Laster inn avtaler..."
 
-msgid "No appointments"
-msgstr "Ingen avtaler"
+msgid "Please select a calendar via widget settings"
+msgstr ""
 
 msgid "Number of days"
 msgstr "Antall dager"
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr "Kommende avtaler"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr "Ingen avtaler"
 
 msgid "Today {0} - {1}"
 msgstr "I dag: {0} - {1}"
@@ -5487,9 +5517,6 @@ msgstr "{0} - {1} (hele dagen)"
 
 msgid "d/m/y"
 msgstr "d.m.Y"
-
-msgid "Upcoming Appointments"
-msgstr "Kommende avtaler"
 
 msgid "Datepicker"
 msgstr "Datovelger"
@@ -5675,9 +5702,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Ukjent modul '%s' med id '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Serveren støtte på et problem, så din forespørsel kunne ikke behandles."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6433,6 +6460,3 @@ msgstr "Feilformatert UTF-8 tegn, muligens feilkodet"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON feil: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Et problem oppstod ved omkoding/dekoding av JSON data."

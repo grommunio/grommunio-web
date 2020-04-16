@@ -464,6 +464,12 @@ msgstr "Auswählen"
 msgid "Show Details"
 msgstr "Details anzeigen"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1047,10 +1053,8 @@ msgid "Send update to attendees"
 msgstr "Aktualisierung an Teilnehmer versenden"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"Sie haben Veränderungen an der Liste der Teilnehmer durchgeführt, Bitte "
-"wählen Sie eine der folgenden Optionen"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1657,10 +1661,8 @@ msgstr "j. F Y"
 msgid "Update recipients"
 msgstr "Empfänger aktualisieren"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
+msgid "The time of the meeting has changed. What would you like to do?"
 msgstr ""
-"Die Uhrzeit der Besprechung hat sich geändert. Wählen Sie eine der folgenden "
-"Optionen:"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Änderungen speichern und die Aktualisierung an alle Teilnehmer senden"
@@ -3054,6 +3056,9 @@ msgstr "Erinnerung ist auf {0}, {1} gesetzt"
 
 msgid "d-m-Y"
 msgstr "d.m.Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d.m.Y G:i"
@@ -5369,6 +5374,12 @@ msgstr "Aufgabenliste drucken"
 msgid "Create task"
 msgstr "Aufgabe erstellen"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Als fertig markieren"
 
@@ -5653,13 +5664,28 @@ msgstr "Sekunden"
 msgid "Loading appointments..."
 msgstr "Termine werden geladen..."
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr "Anzahl Tage"
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr "Bevorstehende Termine"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 msgid "No appointments"
 msgstr "Keine Termine"
-
-msgid "Number of days"
-msgstr "Anzahl Tage"
 
 msgid "Today {0} - {1}"
 msgstr "Heute: {0} - {1}"
@@ -5679,9 +5705,6 @@ msgstr "{0} - {1} (ganztägig)"
 
 msgid "d/m/y"
 msgstr "d.m.Y"
-
-msgid "Upcoming Appointments"
-msgstr "Bevorstehende Termine"
 
 msgid "Datepicker"
 msgstr "Datumsauswahl"
@@ -5866,10 +5889,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Unbekanntes Modul \"%s\" mit ID \"%s\""
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Der Server hat Probleme gemeldet, es war nicht möglich die Anfrage zu "
-"verarbeiten."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6712,6 +6734,3 @@ msgstr "Ungültige UTF-8-Zeichen. Input ist wahrscheinlich falsch kodiert"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON Fehler: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Beim codieren/decodieren der JSON-Daten sind Probleme aufgetreten."

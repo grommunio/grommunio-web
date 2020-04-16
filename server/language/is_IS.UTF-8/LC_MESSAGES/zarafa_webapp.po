@@ -457,6 +457,12 @@ msgstr "Velja"
 msgid "Show Details"
 msgstr "Sýna nánari lýsingu"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -982,8 +988,8 @@ msgid "Send update to attendees"
 msgstr "Senda breytingu til þátttakenda"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Þú hefur gert breytingu á þátttakendalista. Veldu eitt af eftirtöldu"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1547,8 +1553,8 @@ msgstr "jS F Y"
 msgid "Update recipients"
 msgstr "Uppfæra viðtakendur"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Fundartímanum hefur verið breytt. Veldu eitt af eftirtöldu:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Vista breytingar og senda uppfærslu til allra viðtakenda"
@@ -2876,6 +2882,9 @@ msgstr "Áminning er stillt á: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5030,6 +5039,12 @@ msgstr "Prenta verkskrá"
 msgid "Create task"
 msgstr "Búa til verk"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Merkja sem klárað"
 
@@ -5294,11 +5309,26 @@ msgstr "sekúndur"
 msgid "Loading appointments..."
 msgstr "Hleð tímabókunum..."
 
-msgid "No appointments"
-msgstr "Engar tímabókanir"
+msgid "Please select a calendar via widget settings"
+msgstr ""
 
 msgid "Number of days"
 msgstr "Fjöldi daga"
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr "Næstu tímabókanir"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr "Engar tímabókanir"
 
 msgid "Today {0} - {1}"
 msgstr "Í dag {0} - {1}"
@@ -5317,9 +5347,6 @@ msgstr "{0} - {1} (heill dagur)"
 
 msgid "d/m/y"
 msgstr "d/m/y"
-
-msgid "Upcoming Appointments"
-msgstr "Næstu tímabókanir"
 
 msgid "Datepicker"
 msgstr "Dagsetningarval"
@@ -5502,10 +5529,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Óþekkt forritseining '%s' með auðkenni '%s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Netþjónninn lenti í einhverjum vandræðum þannig að það var ekki hægt að "
-"meðhöndla beiðnina."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6188,6 +6214,3 @@ msgstr "Gallaðir UTF-8 stafir, líklegast ekki rétt kótaðir"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON-villa: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Lenti í villum við að kóta/afkóta JSON gögn."

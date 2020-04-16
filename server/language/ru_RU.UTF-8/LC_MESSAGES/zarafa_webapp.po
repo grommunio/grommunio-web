@@ -477,6 +477,12 @@ msgstr "Выбрать"
 msgid "Show Details"
 msgstr "Показать подробности"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1030,8 +1036,8 @@ msgid "Send update to attendees"
 msgstr "Отправить обновление участникам"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
-msgstr "Вы изменили список участников, выберите действие"
+"You have made changes to the list of attendees. What would you like to do?"
+msgstr ""
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Отправить обновление только добавленным и удаленным участникам."
@@ -1639,8 +1645,8 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "Изменить получателя"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Время собрания изменилось. Выберите одно из следующих:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Сохранить изменения и отправить обновления все получателям"
@@ -3046,6 +3052,9 @@ msgstr "Напоминание установлено на: {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -5311,6 +5320,12 @@ msgstr "Печать списка задач"
 msgid "Create task"
 msgstr "Создать задачу"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr "Отметить как выполненная"
 
@@ -5587,14 +5602,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Загрузка встреч"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Загрузка встреч"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Новая встреча"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5618,10 +5649,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Загрузка встреч"
 
 msgid "Datepicker"
 msgstr ""
@@ -5806,9 +5833,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Неизвестный модуль «%s» с id «%s»"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"В сервере возникли некоторые проблемы, поэтому он не смог обработать запрос."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6562,7 +6589,3 @@ msgstr ""
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "Ошибка JSON: %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-"Произошли некоторые проблемы при кодировании/декодировании данных JSON."

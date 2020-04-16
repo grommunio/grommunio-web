@@ -469,6 +469,12 @@ msgstr "Seç"
 msgid "Show Details"
 msgstr "Detaylar göster"
 
+msgid "Copy contact"
+msgstr ""
+
+msgid "Copy contacts"
+msgstr ""
+
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
@@ -1047,9 +1053,8 @@ msgid "Send update to attendees"
 msgstr "katılımcılara güncelleme gönder"
 
 msgid ""
-"You have made changes to the list of attendees, Choose one of the following"
+"You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
-"Katılımcı listesinde değişiklik yaptınız, aşağıdakiler arasından seçiniz"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Güncellemeleri sadece eklenen veya silinen katılımcılara gönder."
@@ -1672,8 +1677,8 @@ msgstr "j F Y"
 msgid "Update recipients"
 msgstr "Alıcı düzenle"
 
-msgid "The time of the meeting has changed. Choose one of the following:"
-msgstr "Toplantı saati değişti. Aşağıdakiler arasından seç:"
+msgid "The time of the meeting has changed. What would you like to do?"
+msgstr ""
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Değişiklikleri kaydet ve tüm alıcılara güncelleme gönder"
@@ -3086,6 +3091,9 @@ msgstr ""
 
 msgid "d-m-Y"
 msgstr "d-m-Y"
+
+msgid "Sent Items"
+msgstr ""
 
 msgid "l d/m/Y G:i"
 msgstr "l d-m-Y G:i"
@@ -5431,6 +5439,12 @@ msgstr "Görevleri yazdır"
 msgid "Create task"
 msgstr "görev oluştur"
 
+msgid "Upcoming"
+msgstr ""
+
+msgid "Overdue"
+msgstr ""
+
 msgid "Mark Complete"
 msgstr ""
 
@@ -5712,14 +5726,30 @@ msgstr ""
 msgid "Loading appointments..."
 msgstr "Randevular yükleniyor"
 
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Randevular yükleniyor"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
 # 93%
 # 100%
 #, fuzzy
 msgid "No appointments"
 msgstr "Yeni randevu"
-
-msgid "Number of days"
-msgstr ""
 
 #, fuzzy
 msgid "Today {0} - {1}"
@@ -5743,10 +5773,6 @@ msgstr ""
 #, fuzzy
 msgid "d/m/y"
 msgstr "d/m/Y"
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Randevular yükleniyor"
 
 msgid "Datepicker"
 msgstr ""
@@ -5928,9 +5954,9 @@ msgid "Unknown module '%s' with id '%s'"
 msgstr "Bilinmeyen modülü '% s' id '% s'"
 
 msgid ""
-"Server encountered some problem, so it was not able to handle the request."
+"We encountered a problem. This might be caused by upgrading a plugin. Please "
+"re-login to resolve the issue."
 msgstr ""
-"Sunucu bazı sorunla karşılaştı, bu nedenle isteği işlemek mümkün değildi."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6713,6 +6739,3 @@ msgstr "Kontrol karakter hatası, muhtemelen yanlış kodlandı"
 #, php-format
 msgid "JSON Error: - %s"
 msgstr "JSON-Hata: - %s"
-
-msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr "Bazı sorun kodlama / kod çözme JSON veri karşılaştı."
