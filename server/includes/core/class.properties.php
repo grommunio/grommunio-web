@@ -783,6 +783,7 @@
 				$properties["account"] = PR_ACCOUNT;
 				$properties["address_type"] = PR_ADDRTYPE;
 				$properties["title"] = PR_TITLE;
+				$properties["company_name"] = PR_COMPANY_NAME;
 				$properties["object_type"] = PR_OBJECT_TYPE;
 				$properties["search_key"] = PR_SEARCH_KEY;
 				$properties["office_telephone_number"] = PR_OFFICE_TELEPHONE_NUMBER;
