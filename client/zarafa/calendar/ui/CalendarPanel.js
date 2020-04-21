@@ -334,7 +334,7 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			rangeSelectionModel : this.rangeSelectionModel
 		});
 		this.view = new Zarafa.calendar.ui.CalendarMultiView(this.viewConfig);
-
+		
 		// Hook into events of the view.
 		this.mon(this.view, {
 			'appointmentcalendardrop': this.onAppointmentCalendarDrop,
@@ -429,6 +429,15 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	onAppointmentCalendarDrop : function(multiview, appointment, sourceFolder, targetFolder, dateRange, event)
 	{
 		if (this.fireEvent('beforeappointmentcalendardrop', this, appointment, sourceFolder, targetFolder, dateRange) !== false) {
+			// Check if target folder has not enough rights then show error message.
+			if (!targetFolder.hasCreateRights()) {
+				var message = _("You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+				if (event.ctrlKey) {
+					message = _("You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+				}
+				container.getNotifier().notify('error', _("Insufficient privileges"), message);
+				return false;
+			}
 
 			// Create copy of selected record and update that particular copy with the specific drop location because
 			// if we update orignal record then changes will be reflected to UI as well
@@ -442,17 +451,67 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 				modifiedProps[key] = copyAppointment.get(key);
 			}
 			appointment.addMessageAction('dropmodifications', modifiedProps);
+			
+			var store = appointment.getStore();
+			var isAppointmentFromPublicStore = sourceFolder.getMAPIStore().isPublicStore();
 
-			// Move/Copy the selected record to the new folder.
-			if (event.ctrlKey) {
-				appointment.copyTo(targetFolder);
-			} else {
-				appointment.moveTo(targetFolder);
+			// Note: for public store items (mail, appointments, etc), we are getting wrong PR_ACCESS value on list request.
+			// But we get the right value on open request of that item. So need to add this check for public folders.
+			// For other stores (i.e. own, shared) its working fine. 
+			if (isAppointmentFromPublicStore && !appointment.isOpened()) {
+				const openHandler = function (store, record) {
+					if (!Zarafa.core.EntryId.compareEntryIds(appointment.get('entryid'), record.get('entryid'))) {
+						return;
+					}
+
+					this.onDropCopyOrMoveAppointment(appointment, store, sourceFolder, targetFolder, dateRange, event);
+					store.un('open', openHandler, this);
+				};
+				store.on('open', openHandler, this);
+				appointment.open();
+				return;
 			}
-			appointment.save();
-
-			this.fireEvent('appointmentcalendardrop', this, appointment, sourceFolder, targetFolder, dateRange);
+			
+			this.onDropCopyOrMoveAppointment(appointment, store, sourceFolder, targetFolder, dateRange, event);
 		}
+	},
+
+	/**
+	 * This is helper function of {@link #onAppointmentCalendarDrop} function.
+	 * This will perform copy/move action for given appointment and show messagebox to perform copy action 
+	 * when not enough access rights.
+	 * 
+	 * @param {Zarafa.calendar.AppointmentRecord} appointment the appointment record that was dragged
+	 * @param {Zarafa.calendar.data.AppointmentStore} store the store in which appointment exists. 
+	 * @param {Zarafa.calendar.core.MAPIFolder} sourceFolder source folder
+	 * @param {Zarafa.calendar.core.MAPIFolder} targetFolder target folder
+	 * @param {Zarafa.core.DateRange} dateRange The new daterange for the appointment
+	 * @param {Ext.EventObject} event The original event object
+	 * @private
+	 */
+	onDropCopyOrMoveAppointment : function(appointment, store, sourceFolder, targetFolder, dateRange, event) 
+	{
+		if (event.ctrlKey) {
+			appointment.copyTo(targetFolder);
+		} else {
+			// If user wants to perform 'move' operation and source folder has not delete right
+			// or appointment does not belong to the user then 'move' operation can not be performed.
+			// In that case ask user whether he wants to perform 'copy' operation instead.
+			if (!sourceFolder.hasDeleteOwnRights() || !appointment.hasDeleteAccess()) {
+				// Need to relay 'appointmentcalendardrop' event on click of copy button of messagebox. 
+				const callBack = function() {
+					this.fireEvent('appointmentcalendardrop', this, appointment, sourceFolder, targetFolder, dateRange);
+				};
+				Zarafa.common.Actions.showMessageBox(appointment, targetFolder, store, undefined, this, callBack);
+				return;
+			}
+
+			// If source folder has enough rights or for public store, item belongs to the user 
+			// then perform move operation.
+			appointment.moveTo(targetFolder);
+		}
+		appointment.save();		
+		this.fireEvent('appointmentcalendardrop', this, appointment, sourceFolder, targetFolder,  dateRange);
 	},
 
 	/**

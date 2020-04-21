@@ -1599,8 +1599,9 @@ Zarafa.common.Actions = {
 	 * @param {Zarafa.core.data.ListModuleStore} store The which contains the records.
 	 * @param {String} message The message which we show in message box.
 	 * @param {Object} scope The scope in which this function was called.
+	 * @param {Function} callBack function which needs to be called after performing copy action.
 	 */
-	showMessageBox : function(records, targetFolder, store, message, scope)
+	showMessageBox : function(records, targetFolder, store, message, scope, callBack)
 	{
 		if (!Ext.isDefined(message)) {
 			if (records.length > 1) {
@@ -1630,6 +1631,10 @@ Zarafa.common.Actions = {
 
 					if (this.dialog) {
 						this.dialog.close();
+					}
+
+					if (Ext.isFunction(callBack)) {
+						callBack.call(this);
 					}
 				}
 			},
