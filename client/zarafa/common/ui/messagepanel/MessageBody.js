@@ -214,7 +214,7 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			body = record.getBody(html);
 			if (html) {
 				if (container.getServerConfig().getDOMPurifyEnabled()) {
-					body = DOMPurify.sanitize(record.cleanupOutlookStyles(body));
+					body = record.cleanupOutlookStyles(DOMPurify.sanitize(body));
 				} else {
 					body = record.cleanupOutlookStyles(body);
 				}
