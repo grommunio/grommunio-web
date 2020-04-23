@@ -597,14 +597,14 @@ Ext.apply(Zarafa, {
 		var loading = Ext.get('loading');
 		var errorTitle;
 		var errorMsg;
-
+		var contactAdminMsg = _("Please contact your administrator if this problem persists.");
+		
+		// # TRANSLATORS: Example: HTTP 404	
+		errorTitle = String.format(_('Error HTTP {0}'), xmlHttpRequest.status);
 		if (xmlHttpRequest.status !== 200) {
-			// # TRANSLATORS: Example: HTTP 404
-			errorTitle = String.format(_('HTTP {0}'), xmlHttpRequest.status);
-			errorMsg = xmlHttpRequest.statusText;
+			errorMsg = _('HTTP status text is: ') + xmlHttpRequest.statusText + '.<br>' + contactAdminMsg;
 		} else {
-			errorTitle = _('Error');
-			errorMsg = _('Invalid data received from the server');
+			errorMsg = _('Invalid data received from the server. HTTP status text is: ') + xmlHttpRequest.statusText + '.<br>' + contactAdminMsg;
 		}
 
 		if (loading) {
