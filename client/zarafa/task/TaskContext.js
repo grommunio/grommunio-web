@@ -487,15 +487,26 @@ Zarafa.task.TaskContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * @param {Ext.Component} component The component to which the buttons will be added
-	 * @return {Object} Configuration object containing a ButtonGroup which should be
+	 * @return {Array} Array of configuration objects containing a Buttons which should be
 	 * added in the {@link Ext.Toolbar Toolbar}.
 	 * @private
 	 */
 	createTaskRequestToolbarButtons : function(component)
 	{
-		return {
-			xtype : 'zarafa.taskrequestbuttons'
-		};
+		return [{
+			xtype: 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.ACCEPT,
+			text: _('Accept'),
+			iconCls: 'icon_calendar_appt_accept',
+			responseStatus: Zarafa.core.mapi.TaskMode.ACCEPT
+
+		},{
+			xtype : 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.DECLINE,
+			text : _('Decline'),
+			iconCls : 'icon_calendar_appt_cancelled',
+			responseStatus : Zarafa.core.mapi.TaskMode.DECLINE
+		}];
 	},
 
 	/**
