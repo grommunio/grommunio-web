@@ -55,7 +55,7 @@ class AddressBookItemTest extends KopanoTest {
 
 		$this->assertArrayHasKey('ems_ab_proxy_addresses', $item, 'Test that the returned object contains the \'ems_ab_proxy_addresses\' substore');
 		$this->assertArrayHasKey('item', $item['ems_ab_proxy_addresses'], 'Test that the \'ems_ab_proxy_addresses\' substore contains the \'item\' array');
-		$this->assertCount(1, $item['ems_ab_proxy_addresses']['item'], 'Test that there are items inside the \'ems_ab_proxy_addresses\' substore');
+		$this->assertCount(3, $item['ems_ab_proxy_addresses']['item'], 'Test that there are items inside the \'ems_ab_proxy_addresses\' substore');
 		$this->assertEquals('SMTP:' . KOPANO_USER1_EMAIL_ADDRESS, $item['ems_ab_proxy_addresses']['item'][0]['address'], 'Test that the email address is correctly listed');
 	}
 

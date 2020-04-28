@@ -270,6 +270,7 @@ abstract class KopanoTest extends PHPUnit_Framework_TestCase {
 	 * @param mixed $haystack
 	 * @param string $message
 	 */
+	/*
 	public static function assertCount($expectedCount, $haystack, $message = '')
 	{
 		if(!is_array($haystack)){
@@ -278,6 +279,7 @@ abstract class KopanoTest extends PHPUnit_Framework_TestCase {
 
 		parent::assertCount($expectedCount, $haystack, $message = '');
 	}
+	 */
 
 	/**
 	 * Determine if the entryids are equal

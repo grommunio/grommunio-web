@@ -97,7 +97,6 @@ class IPMUser extends TestUser {
 		parent::cleanFolders();
 
 		// Remove all active search folders
-		$this->logon();
 		try {
 			cleanSearchFolders();
 		} catch (MAPIException $e) {
@@ -301,9 +300,7 @@ class IPMUser extends TestUser {
 	 */
 	private function findItemsInFolder($folder, $restriction, $open = true)
 	{
-		$this->logon();
-
-		$table = mapi_folder_getcontentstable($folder);
+		$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
 
 		// Force the sorting of the table, by default we will sort by the modification time,
 		// so that all callers can be sure the latest changed item will be the first in in
@@ -349,7 +346,6 @@ class IPMUser extends TestUser {
 	{
 		$items = array();
 
-		sleep(0.1);
 		for ($i = 0; $i < $delay; $i++) {
 			$items = $this->findItemsInFolder($folder, $restriction, $open);
 
@@ -550,8 +546,6 @@ class IPMUser extends TestUser {
 	 */
 	public function updateSearch()
 	{
-		$this->logon();
-
 		return $this->execute($this->defaultListModule, array(
 			'updatesearch' => array(
 				'entryid' => bin2hex($this->searchFolderEntryId),
@@ -566,8 +560,6 @@ class IPMUser extends TestUser {
 	 */
 	public function stopSearch()
 	{
-		$this->logon();
-
 		$result = $this->execute($this->defaultListModule, array(
 			'stopsearch' => array(
 				'entryid' => bin2hex($this->searchFolderEntryId),

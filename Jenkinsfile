@@ -86,6 +86,27 @@ pipeline {
 				}
 			}
 		}	
+		stage('PHP Unit tests') {
+			when {
+			   expression {
+				   return env.BRANCH_NAME == 'master' || gitChanges.contains('.php')
+			   }
+			}
+			agent {
+				label "master"
+			}
+			steps {
+				sh 'make -C test/php test EXTRA_LOCAL_ADMIN_USER=$(id -u) DOCKERCOMPOSE_UP_ARGS=--build DOCKERCOMPOSE_EXEC_ARGS="-T -u $(id -u) -e HOME=/workspace" || true'
+				sh 'chown -R $(id -u) test/php || true'
+				junit testResults: 'test/php/webapp-phptests.xml'
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/php/htmlcov', reportFiles: 'index.html', reportName: 'PHP HTML Report', reportTitles: ''])
+			}
+			post {
+				always {
+					 sh 'make -C test/php test-clean'
+				}
+			}
+		}
 		stage('JS Coverage') {
 			agent {
 				dockerfile {
@@ -98,7 +119,7 @@ pipeline {
 			steps {
 				sh 'make jstestcov'
 				cobertura coberturaReportFile: 'test/js/coverage/cobertura.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 10
-				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/js/coverage/report-html', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'test/js/coverage/report-html', reportFiles: 'index.html', reportName: 'JS HTML Report', reportTitles: ''])
 			}
 			post {
 				always {
@@ -106,6 +127,5 @@ pipeline {
 				}
 			}
 		}
-
 	}
 }

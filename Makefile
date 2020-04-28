@@ -221,6 +221,10 @@ phplint:
 phplintci:
 	$(PHPMD) server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml
 
+.PHONY: phptest
+phptest:
+	make -C test/php test
+
 # NPM
 
 .PHONY: vendor

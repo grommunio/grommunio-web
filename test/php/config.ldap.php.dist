@@ -62,28 +62,28 @@ $_SERVER['HTTP_USER_AGENT'] = 'phpunit';
 define('KOPANO_USER1_NAME', 'user1');
 define('KOPANO_USER1_PASSWORD', 'user1');
 define('KOPANO_USER1_DISPLAY_NAME', 'Jonas Brekke');
-define('KOPANO_USER1_EMAIL_ADDRESS', 'user1@farmer.lan');
+define('KOPANO_USER1_EMAIL_ADDRESS', 'user1@kopano.demo');
 define('KOPANO_USER2_NAME', 'user2');
 define('KOPANO_USER2_PASSWORD', 'user2');
 define('KOPANO_USER2_DISPLAY_NAME', 'Timmothy Schöwalter');
-define('KOPANO_USER2_EMAIL_ADDRESS', 'user2@farmer.lan');
+define('KOPANO_USER2_EMAIL_ADDRESS', 'user2@kopano.demo');
 define('KOPANO_USER3_NAME', 'user3');
 define('KOPANO_USER3_PASSWORD', 'user3');
 define('KOPANO_USER3_DISPLAY_NAME', 'Marijn Peters');
-define('KOPANO_USER3_EMAIL_ADDRESS', 'user3@farmer.lan');
+define('KOPANO_USER3_EMAIL_ADDRESS', 'user3@kopano.demo');
 define('KOPANO_USER4_NAME', 'user4');
 define('KOPANO_USER4_PASSWORD', 'user4');
 define('KOPANO_USER4_DISPLAY_NAME', 'Henk de Vries');
-define('KOPANO_USER4_EMAIL_ADDRESS', 'user4@farmer.lan');
+define('KOPANO_USER4_EMAIL_ADDRESS', 'user4@kopano.demo');
 define('KOPANO_USER5_NAME', 'user5');
 define('KOPANO_USER5_PASSWORD', 'user5');
 define('KOPANO_USER5_DISPLAY_NAME', 'Joep Goderts');
-define('KOPANO_USER5_EMAIL_ADDRESS', 'user5@farmer.lan');
+define('KOPANO_USER5_EMAIL_ADDRESS', 'user5@kopano.demo');
 
 # Groups
-define('KOPANO_GROUP1_NAME', 'group1');
-define('KOPANO_GROUP1_DISPLAY_NAME', 'group1');
-define('KOPANO_GROUP1_EMAIL_ADDRESS', 'group1@farmer.lan');
+define('KOPANO_GROUP1_NAME', 'sales');
+define('KOPANO_GROUP1_DISPLAY_NAME', 'sales');
+define('KOPANO_GROUP1_EMAIL_ADDRESS', 'sales@kopano.demo');
 
 # Resolve stuff
 define('KOPANO_RESOLVE_CHARACTER', 'j');

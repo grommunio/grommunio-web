@@ -33,8 +33,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getCalendarPropTags()
 	{
-		$this->logon();
-
 		return $GLOBALS['properties']->getAppointmentProperties();
 	}
 
@@ -48,7 +46,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function saveAppointment($appointment, $open = true)
 	{
-		$this->logon();
 		return $this->saveItem($appointment, $open);
 	}
 
@@ -62,8 +59,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function saveAppointmentOccurence($exception, $entryid, $basedate, $open = true)
 	{
-		$this->logon();
-
 		$appointment = $this->openAppointment($entryid);
 		$item = $appointment['item']['item'];
 
@@ -88,7 +83,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function openAppointment($entryid, $extraProps = array())
 	{
-		$this->logon();
 		return $this->openItem($entryid, $extraProps);
 	}
 
@@ -102,8 +96,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function openAppointmentOccurence($entryid, $basedate, $extraProps = array())
 	{
-		$this->logon();
-
 		if ($extraProps) {
 			$extraProps = array_merge(array( 'basedate' => $basedate ), $extraProps);
 		} else {
@@ -122,7 +114,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function deleteAppointment($entryid, $extraProps = array())
 	{
-		$this->logon();
 		return $this->deleteItem($entryid, $extraProps);
 	}
 
@@ -136,8 +127,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function deleteAppointmentOccurence($entryid, $basedate, $extraProps = array())
 	{
-		$this->logon();
-
 		if (!is_array($extraProps)) {
 			$extraProps = array();
 		}
@@ -159,8 +148,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function copyAppointment($entryid, $extraProps = array(), $move = false)
 	{
-		$this->logon();
-
 		return $this->copyItem($entryid, $extraProps, $move);
 	}
 
@@ -174,7 +161,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function loadAppointments($extraProps = array(), $open = true)
 	{
-		$this->logon();
 		return $this->loadItems($extraProps, $open);
 	}
 
@@ -187,7 +173,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getAppointment($entryid, $open = true)
 	{
-		$this->logon();
 		$items = $this->getItems(Restriction::ResProperty(PR_ENTRYID, $entryid, RELOP_EQ), $open);
 		return array_shift($items);
 	}
@@ -212,7 +197,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getAllAppointments($open = true)
 	{
-		$this->logon();
 		return $this->getItems(Restriction::ResContent(PR_MESSAGE_CLASS, 'IPM.Appointment', FL_SUBSTRING | FL_IGNORECASE), $open);
 	}
 
@@ -225,7 +209,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getDeletedAppointment($entryid, $open = true)
 	{
-		$this->logon();
 		$items = $this->getDeletedItems(Restriction::ResProperty(PR_ENTRYID, $entryid, RELOP_EQ), $open);
 		return array_shift($items);
 	}
@@ -238,7 +221,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getAllDeletedAppointments($open = true)
 	{
-		$this->logon();
 		return $this->getDeletedItems(Restriction::ResContent(PR_MESSAGE_CLASS, 'IPM.Appointment', FL_SUBSTRING | FL_IGNORECASE), $open);
 	}
 
@@ -250,7 +232,6 @@ class CalendarUser extends IPMUser {
 	 */
 	public function getAppointmentProps($items, $tags = array())
 	{
-		$this->logon();
 		return $this->getItemProps($items, $tags);
 	}
 }
