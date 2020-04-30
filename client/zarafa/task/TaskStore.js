@@ -53,6 +53,61 @@ Zarafa.task.TaskStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		} else {
 			Zarafa.task.TaskStore.superclass.onNotifyObjectcreated.apply(this, arguments);
 		}
+	},
+
+	/**
+	 * Function is use to prepare data restriction which is used to check value of properties using logical operators
+	 *
+	 * @param {String} property whose value should be checked.
+	 * @param {Number} operator relational operator that will be used for comparison.
+	 * @param {Mixed} value that should be used for checking.
+	 * @returns {Array} restriction.
+     */
+	prepareRestriction : function (property,operator,value)
+	{
+		return  Zarafa.core.data.RestrictionFactory.dataResProperty(property, Zarafa.core.mapi.Restrictions[operator], value);
+	},
+
+	/**
+	 * Function which provides the restriction based on the given {@link Zarafa.task.data.DataModes datemode}
+	 *
+	 * @param {Zarafa.task.data.DataModes} datamode The datamode based on which restriction is prepared.
+	 * @return {Array|false} returns restriction according to filter else false.
+	 */
+
+	getFilterRestriction : function(datamode)
+	{
+		var restriction = [];
+		switch (datamode) {
+			case Zarafa.task.data.DataModes.SEARCH:
+				this.clearFilter();
+				break;
+			case Zarafa.task.data.DataModes.ALL:
+				this.clearFilter();
+				break;
+			case Zarafa.task.data.DataModes.ACTIVE:
+				restriction = this.prepareRestriction('complete','RELOP_EQ',false);
+				break;
+			case Zarafa.task.data.DataModes.NEXT_7_DAYS:
+				var currentDay = new Date().clearTime();
+				var nextSevenDay = currentDay.clone().add(Date.DAY, 7);
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_GT',currentDay.getTime() / 1000),
+					this.prepareRestriction('duedate','RELOP_LT',nextSevenDay.getTime() / 1000)
+				]);
+				break;
+			case Zarafa.task.data.DataModes.OVERDUE:
+				var currentDay = new Date().clearTime();
+				restriction = Zarafa.core.data.RestrictionFactory.createResAnd([
+					this.prepareRestriction('duedate','RELOP_LT',currentDay.getTime() / 1000),
+					this.prepareRestriction('complete','RELOP_EQ',false)
+				]);
+				break;
+			case Zarafa.task.data.DataModes.COMPLETED:
+				restriction = this.prepareRestriction('complete','RELOP_EQ',true);
+				break;
+		}
+		return restriction;
 	}
 });
 
