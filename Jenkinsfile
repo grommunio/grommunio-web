@@ -103,7 +103,7 @@ pipeline {
 			}
 			post {
 				always {
-					 sh 'make -C test/php test-clean'
+					 sh 'make -C test/php test-kopano-ci-clean'
 				}
 			}
 		}

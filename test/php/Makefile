@@ -28,7 +28,7 @@ test: config.php debug.php
 	$(DOCKERCOMPOSE) up -d $(DOCKERCOMPOSE_UP_ARGS)
 	$(DOCKERCOMPOSE) run $(DOCKERCOMPOSE_EXEC_ARGS) kopano_webapp_test /workspace/test/php/starttest.sh
 
-.PHONY:  test-clean
+.PHONY:  test-kopano-ci-clean
 test-kopano-ci-clean:
 	$(DOCKERCOMPOSE) down -v || true
 
