@@ -276,13 +276,14 @@
 
 				for ($i = 0, $len = $rowCount; $i < $len; $i++) {
 					// Use array_shift to so we won't double memory usage!
-					$user_data =array_shift($rows);
+					$user_data = array_shift($rows);
 					$item = array();
 					$item['entryid'] = bin2hex($user_data[$this->properties['entryid']]);
 					$item['display_name'] = $user_data[$this->properties['display_name']];
 					$item['object_type'] = $user_data[$this->properties['object_type']];
 					$item['display_type'] = $user_data[PR_DISPLAY_TYPE];
 					$item['title'] = $user_data[PR_TITLE];
+					$item['company_name'] = $user_data[PR_COMPANY_NAME];
 
 					// Test whether the GUID in the entryid is from the Contact Provider
 					if($GLOBALS['entryid']->hasContactProviderGUID( bin2hex($user_data[$this->properties['entryid']]) )){
