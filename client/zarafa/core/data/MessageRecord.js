@@ -553,8 +553,8 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	{
 		var actionType = this.getMessageAction('action_type');
 		var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
-		var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY;
-
+		var isReplyAction = actionType === Zarafa.mail.data.ActionTypes.REPLY || actionType === Zarafa.mail.data.ActionTypes.REPLYALL;
+		
 		// return if mail is not reply or new mail.
 		if (isCreateAction === false && isReplyAction === false) {
 			return;
@@ -574,7 +574,7 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 			// Create a new recipient containing all data from the original.
 			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_RECIPIENT, recipientData);
-
+			
 			// We have copied the 'rowid' as well, but new recipients
 			// shouldn't have this property as it will be filled in by PHP.
 			record.set('rowid', undefined);
