@@ -282,10 +282,7 @@
 		 */
 		function setConversationIndex($action, &$props)
 		{
-			$serverVersion = $GLOBALS['mapisession']->getServerVersion();
-			if (empty($serverVersion)) {
-				$serverVersion =  phpversion('mapi');
-			}
+			$serverVersion = phpversion('mapi');
 
 			// Older version of the core does not support 
 			// mapi_createconversationindex function.
@@ -293,7 +290,7 @@
 				error_log(sprintf("Core '%s' version does not support mapi_createconversationindex function", $serverVersion));
 				return;
 			}
-			
+	
 			// Set the conversation index to reply/replyall/forward mail.
 			if(isset($action['message_action']) && isset($action['message_action']['action_type'])) {
 				$actionType = $action['message_action']['action_type'];
