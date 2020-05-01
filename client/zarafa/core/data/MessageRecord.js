@@ -581,6 +581,33 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 			recipientStore.add(record);
 		}
+	},
+	
+	/**
+	 * Set the 'conversation_topic' for the reply/replyall/forward or new mail messages.
+ 	 *
+	 * @param {Zarafa.mail.data.ActionTypes} actionType The actionType used
+	 * for this response.
+ 	 * @param {Zarafa.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @private
+	 */
+	setConversationTopic : function(actionType, origRecord) 
+	{
+		var isActionForwardAsAttachOREditNew = actionType === Zarafa.mail.data.ActionTypes.FORWARD_ATTACH || actionType === Zarafa.mail.data.ActionTypes.EDIT_AS_NEW;
+		if (Ext.isDefined(origRecord)) {
+			if (isActionForwardAsAttachOREditNew) {
+				return;
+			}
+			var conversationTopic = origRecord.get('conversation_topic');
+			this.set('conversation_topic', !Ext.isEmpty(conversationTopic) ? conversationTopic : origRecord.get('normalized_subject'));
+			return;
+		} 
+
+		if (this.isModified("subject") && Ext.isEmpty(this.get("conversation_topic"))) {
+			var conversationTopic = isActionForwardAsAttachOREditNew ? this.get('normalized_subject') : this.get('subject');
+			this.set("conversation_topic", conversationTopic);
+		}
 	}
 });
 

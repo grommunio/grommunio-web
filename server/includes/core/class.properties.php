@@ -1030,7 +1030,8 @@
 
 				// Conversation properties
 				$properties["conversation_topic"] = PR_CONVERSATION_TOPIC;
-
+				$properties["conversation_index"] = PR_CONVERSATION_INDEX;
+				
 				// Allowing to hook in and add more properties
 				$GLOBALS['PluginManager']->triggerHook("server.core.properties.mailproperties", array(
 					'properties' =>& $properties
@@ -1066,7 +1067,7 @@
 			unset($properties['meetingtype']);
 			unset($properties['goid']);
 			unset($properties['goid2']);
-
+			unset($properties["conversation_index"]);
 			return $properties;
 		}
 
