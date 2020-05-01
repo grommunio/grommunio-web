@@ -172,7 +172,18 @@
 .zarafa-compositefield > .x-box-inner {
 	/* this is necessary because otherwise the shadows of the buttons in the new design (2015) will be cut off */
 	overflow: visible;
+	
+	/* we need to align items vertically center in composite field */
+	display: flex;
+	align-items: center;
+
+	/* flex does not work for absolute position, so reset top and bottom of items to align them vertically center */
+	.x-form-item.x-box-item {
+		top: auto !important;
+		bottom: auto !important;
+	} 
 }
+
 .zarafa-resizable-compositefield {
 	padding-bottom: $padding-medium;
 }

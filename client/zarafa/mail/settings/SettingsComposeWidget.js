@@ -164,6 +164,7 @@ Zarafa.mail.settings.SettingsComposeWidget = Ext.extend(Zarafa.settings.ui.Setti
 				}
 			},{
 				xtype: 'zarafa.compositefield',
+				defaultMargins: '0 0 0 0',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				// # TRANSLATORS: The {A} _must_ always be at the start of the translation
 				// # The '{B}' represents the number of minutes which the user will type in.
