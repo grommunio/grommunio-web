@@ -542,6 +542,13 @@ msgstr "Pozice"
 msgid "Sort by: Job Title"
 msgstr "Třídit podle: Pozice"
 
+msgid "Company Name"
+msgstr "Název společnosti"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Třídit podle: Název společnosti"
+
 msgid "Sort by: Department"
 msgstr "Třídit podle: Oddělení"
 
@@ -1644,6 +1651,19 @@ msgstr "j. F G:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Nedostatečná práva"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Upravit příjemce"
@@ -1938,9 +1958,6 @@ msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
-
-msgid "Insufficient privileges"
-msgstr "Nedostatečná práva"
 
 # 100%
 msgid "Cc"
@@ -2247,16 +2264,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3363,13 +3370,6 @@ msgstr "Kořen"
 
 msgid "File As"
 msgstr "Soubor jako"
-
-msgid "Company Name"
-msgstr "Název společnosti"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "Třídit podle: Název společnosti"
 
 msgid "Full Name"
 msgstr "Celé jméno"
@@ -5562,12 +5562,18 @@ msgstr ""
 msgid "Connection with server has been restored"
 msgstr ""
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Ze serveru přicházejí neplatné údaje"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr ""

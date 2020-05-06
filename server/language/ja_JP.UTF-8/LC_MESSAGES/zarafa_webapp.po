@@ -532,6 +532,13 @@ msgstr "役職"
 msgid "Sort by: Job Title"
 msgstr "並べ替え：役職"
 
+msgid "Company Name"
+msgstr "会社名"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "並べ替え：会社名"
+
 msgid "Sort by: Department"
 msgstr "並べ替え：部署"
 
@@ -1620,6 +1627,19 @@ msgstr "Y年Fj日 G:i"
 msgid "jS F Y"
 msgstr "Y年Fj日"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "受信者を編集します。"
@@ -1908,9 +1928,6 @@ msgid ""
 "instead?"
 msgstr ""
 
-msgid "Insufficient privileges"
-msgstr ""
-
 msgid "Cc"
 msgstr "Cc"
 
@@ -2194,16 +2211,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3302,13 +3309,6 @@ msgstr "ルート"
 
 msgid "File As"
 msgstr "ファイル"
-
-msgid "Company Name"
-msgstr "会社名"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "並べ替え：会社名"
 
 msgid "Full Name"
 msgstr "氏名"
@@ -5499,12 +5499,18 @@ msgstr "接続が回復しました。"
 msgid "Connection with server has been restored"
 msgstr "サーバーとの接続が回復しました。"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "サーバーから無効な日付を受け取りました。"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "データストアがありません。"

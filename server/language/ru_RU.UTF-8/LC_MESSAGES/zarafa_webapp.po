@@ -539,6 +539,12 @@ msgstr "Должность"
 msgid "Sort by: Job Title"
 msgstr "Сортировать по должности"
 
+msgid "Company Name"
+msgstr "Название организации"
+
+msgid "Sort by: Company Name"
+msgstr "Сортировать по названию организации"
+
 msgid "Sort by: Department"
 msgstr "Сортировать по отделу"
 
@@ -1641,6 +1647,19 @@ msgstr "D j F Y H:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Недостаточно прав"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Изменить получателя"
@@ -1931,9 +1950,6 @@ msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
-
-msgid "Insufficient privileges"
-msgstr "Недостаточно прав"
 
 msgid "Cc"
 msgstr "Копия"
@@ -2230,16 +2246,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3315,12 +3321,6 @@ msgstr "Корень"
 # 85%
 msgid "File As"
 msgstr "Отображаемое имя"
-
-msgid "Company Name"
-msgstr "Название организации"
-
-msgid "Sort by: Company Name"
-msgstr "Сортировать по названию организации"
 
 msgid "Full Name"
 msgstr "Полное имя"
@@ -5488,12 +5488,18 @@ msgstr "Соединение воостановлено."
 msgid "Connection with server has been restored"
 msgstr "Соединение с сервером восстановлено."
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "С сервера получена некорректная информация"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Хранилище отсутствует."

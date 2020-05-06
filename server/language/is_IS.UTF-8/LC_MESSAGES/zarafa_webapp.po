@@ -515,6 +515,12 @@ msgstr "Starfstitill"
 msgid "Sort by: Job Title"
 msgstr "Raða eftir starfstitli"
 
+msgid "Company Name"
+msgstr "Fyrirtæki"
+
+msgid "Sort by: Company Name"
+msgstr "Raða eftir nafni fyrirtækis"
+
 msgid "Sort by: Department"
 msgstr "Raða eftir deild"
 
@@ -1550,6 +1556,23 @@ msgstr "jS F G:i"
 msgid "jS F Y"
 msgstr "jS F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að færa og afrita þetta atriði. Þú getur "
+"beðið eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Þú hefur ekki nægar heimildir til að afrita þetta atriði. Þú getur beðið "
+"eigandann um réttindin eða haft samband við kerfisstjórn."
+
+msgid "Insufficient privileges"
+msgstr "Ónæg réttindi"
+
 msgid "Update recipients"
 msgstr "Uppfæra viðtakendur"
 
@@ -1832,9 +1855,6 @@ msgid ""
 msgstr ""
 "Þú hefur ekki nægar heimildir til að færa þetta atriði. Viltu frekar afrita "
 "það?"
-
-msgid "Insufficient privileges"
-msgstr "Ónæg réttindi"
 
 msgid "Cc"
 msgstr "Afrit"
@@ -2130,20 +2150,6 @@ msgid ""
 "to grant you permissions or contact your system administrator."
 msgstr ""
 "Þú hefur ekki nægar heimildir til að afrita þessa möppu. Þú getur beðið "
-"eigandann um réttindin eða haft samband við kerfisstjórn."
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Þú hefur ekki nægar heimildir til að færa og afrita þetta atriði. Þú getur "
-"beðið eigandann um réttindin eða haft samband við kerfisstjórn."
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Þú hefur ekki nægar heimildir til að afrita þetta atriði. Þú getur beðið "
 "eigandann um réttindin eða haft samband við kerfisstjórn."
 
 msgid "You have insufficient privileges to move following items."
@@ -3143,12 +3149,6 @@ msgstr "Rót"
 
 msgid "File As"
 msgstr "Skrá sem"
-
-msgid "Company Name"
-msgstr "Fyrirtæki"
-
-msgid "Sort by: Company Name"
-msgstr "Raða eftir nafni fyrirtækis"
 
 msgid "Full Name"
 msgstr "Fullt nafn"
@@ -5205,12 +5205,18 @@ msgstr "Tengingu komið á að nýju"
 msgid "Connection with server has been restored"
 msgstr "Tengingin við netþjóninn hefur verið endurheimt"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP kóði {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Ógild gögn bárust frá netþjóninum"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Geymslu vantar"

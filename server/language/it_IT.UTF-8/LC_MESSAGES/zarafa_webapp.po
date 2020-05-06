@@ -539,6 +539,12 @@ msgstr "Qualifica"
 msgid "Sort by: Job Title"
 msgstr "Ordina per: Qualifica"
 
+msgid "Company Name"
+msgstr "Nome azienda"
+
+msgid "Sort by: Company Name"
+msgstr "Ordina per: Nome azienda"
+
 msgid "Sort by: Department"
 msgstr "Ordina per: Dipartimento"
 
@@ -1657,6 +1663,19 @@ msgstr "jS F Y G:i"
 msgid "jS F Y"
 msgstr "jS F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Permessi insufficienti"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Modifica destinatario"
@@ -1951,9 +1970,6 @@ msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
-
-msgid "Insufficient privileges"
-msgstr "Permessi insufficienti"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2253,16 +2269,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3374,12 +3380,6 @@ msgstr "Principale"
 # 85%
 msgid "File As"
 msgstr "Archivia come"
-
-msgid "Company Name"
-msgstr "Nome azienda"
-
-msgid "Sort by: Company Name"
-msgstr "Ordina per: Nome azienda"
 
 msgid "Full Name"
 msgstr "Nome completo"
@@ -5609,12 +5609,18 @@ msgstr "Connessione ripristinata"
 msgid "Connection with server has been restored"
 msgstr "La connessione con il server è stata ripristinata"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Dati ricevuti dal server non validi"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Store non trovato"

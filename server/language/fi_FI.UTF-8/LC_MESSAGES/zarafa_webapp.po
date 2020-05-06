@@ -535,6 +535,13 @@ msgstr "Työnimike"
 msgid "Sort by: Job Title"
 msgstr "Järjestä: Työnimike"
 
+msgid "Company Name"
+msgstr "Yrityksen nimi"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Järjestä: Yritysnimi"
+
 msgid "Sort by: Department"
 msgstr "Järjestä: Osasto"
 
@@ -1663,6 +1670,19 @@ msgstr "jS F G:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Muokkaa vastaanottajia"
@@ -1951,9 +1971,6 @@ msgid ""
 "instead?"
 msgstr ""
 
-msgid "Insufficient privileges"
-msgstr ""
-
 msgid "Cc"
 msgstr "Kopio"
 
@@ -2240,16 +2257,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3348,13 +3355,6 @@ msgstr "Juuri"
 
 msgid "File As"
 msgstr "Arkistoi"
-
-msgid "Company Name"
-msgstr "Yrityksen nimi"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "Järjestä: Yritysnimi"
 
 msgid "Full Name"
 msgstr "Koko nimi"
@@ -5559,12 +5559,18 @@ msgstr "Yhteys palautettu"
 msgid "Connection with server has been restored"
 msgstr "Yhteys palvelimeen palautettu"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Viallista dataa vastaanotettu palvelimelta"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Puuttuva varasto"

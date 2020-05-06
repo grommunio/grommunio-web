@@ -547,6 +547,14 @@ msgstr "Functietitel"
 msgid "Sort by: Job Title"
 msgstr "Sorteer op: Functietitel"
 
+msgid "Company Name"
+msgstr "Bedrijfsnaam"
+
+# 95%
+# 85%
+msgid "Sort by: Company Name"
+msgstr "Sorteer op: Bedrijfsnaam"
+
 # 84%
 msgid "Sort by: Department"
 msgstr "Sorteer op: Afdeling"
@@ -1672,6 +1680,23 @@ msgstr "j F G:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om dit item te verplaatsen en te kopiëren. Vraag "
+"de eigenaar van de folder om rechten of neem contact op met de administrator."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Je hebt onvoldoende rechten om dit item te kopiëren. Vraag de eigenaar van "
+"de folder om rechten of neem contact op met de administrator."
+
+msgid "Insufficient privileges"
+msgstr "Onvoldoende rechten"
+
 msgid "Update recipients"
 msgstr "Update genodigden"
 
@@ -1962,9 +1987,6 @@ msgid ""
 "instead?"
 msgstr ""
 "Onvoldoende rechten om dit item te verplaatsen. Wil je het item kopiëren?"
-
-msgid "Insufficient privileges"
-msgstr "Onvoldoende rechten"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2270,20 +2292,6 @@ msgid ""
 msgstr ""
 "Je hebt onvoldoende rechten om deze folder te kopiëren. Vraag de eigenaar "
 "van de folder om rechten of neem contact op met de administrator."
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Je hebt onvoldoende rechten om dit item te verplaatsen en te kopiëren. Vraag "
-"de eigenaar van de folder om rechten of neem contact op met de administrator."
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Je hebt onvoldoende rechten om dit item te kopiëren. Vraag de eigenaar van "
-"de folder om rechten of neem contact op met de administrator."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Je hebt onvoldoende rechten om de volgende items te verplaatsen."
@@ -3342,14 +3350,6 @@ msgstr "Root"
 
 msgid "File As"
 msgstr "Opslaan Als"
-
-msgid "Company Name"
-msgstr "Bedrijfsnaam"
-
-# 95%
-# 85%
-msgid "Sort by: Company Name"
-msgstr "Sorteer op: Bedrijfsnaam"
 
 msgid "Full Name"
 msgstr "Volledige Naam"
@@ -5591,12 +5591,18 @@ msgstr "Verbinding is terug"
 msgid "Connection with server has been restored"
 msgstr "De verbinding met de server is terug"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Ongeldige data ontvangen van de server"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Ontbrekende store"

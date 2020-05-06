@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-04-16 15:14+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -528,6 +528,13 @@ msgstr "Stilling"
 
 msgid "Sort by: Job Title"
 msgstr "Sorter på: stilling"
+
+msgid "Company Name"
+msgstr "Firmanavn"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Sorter på: firmanavn"
 
 msgid "Sort by: Department"
 msgstr "Sorter på: avdeling"
@@ -1625,6 +1632,23 @@ msgstr "D., j. F Y H:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å kopiere og flytte denne mappen. "
+"Be om å få tildelt rettigheter fra eier, eller fra systemadministrator."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Du har ikke tilstrekkelige rettigheter til å kopiere dette elementet. Be om "
+"å få tildelt rettigheter fra eier, eller fra systemadministrator."
+
+msgid "Insufficient privileges"
+msgstr "Ikke tilstrekkelige rettigheter"
+
 msgid "Update recipients"
 msgstr "Oppdater mottaker"
 
@@ -1913,9 +1937,6 @@ msgid ""
 msgstr ""
 "Du har ikke tilstrekkelig med rettigheter til å kunne flytte dette "
 "elementet. Vil du kopierer det istedenfor?"
-
-msgid "Insufficient privileges"
-msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid "Cc"
 msgstr "Cc"
@@ -2218,20 +2239,6 @@ msgid ""
 msgstr ""
 "Du har ikke tilstrekkelige rettigheter til å kopiere denne mappen. Be om å "
 "få tildelt rettigheter fra eier, eller fra systemadministrator."
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å kopiere og flytte denne mappen. "
-"Be om å få tildelt rettigheter fra eier, eller fra systemadministrator."
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Du har ikke tilstrekkelige rettigheter til å kopiere dette elementet. Be om "
-"å få tildelt rettigheter fra eier, eller fra systemadministrator."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Du har ikke tilstrekkelige rettigheter til å flytte disse elementene."
@@ -3253,13 +3260,6 @@ msgstr "Basismappe"
 # 85%
 msgid "File As"
 msgstr "Lagre som"
-
-msgid "Company Name"
-msgstr "Firmanavn"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "Sorter på: firmanavn"
 
 msgid "Full Name"
 msgstr "Fullt navn"
@@ -5375,12 +5375,18 @@ msgstr "Forbindelse gjenopptatt"
 msgid "Connection with server has been restored"
 msgstr "Forbindelse til server har blitt gjenopptatt"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Ugyldig data mottatt fra server"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Mangler e-postboks"
