@@ -545,6 +545,12 @@ msgstr ""
 msgid "Sort by: Job Title"
 msgstr ""
 
+msgid "Company Name"
+msgstr ""
+
+msgid "Sort by: Company Name"
+msgstr ""
+
 msgid "Sort by: Department"
 msgstr ""
 
@@ -1567,6 +1573,19 @@ msgstr ""
 msgid "jS F Y"
 msgstr ""
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr ""
+
 msgid "Update recipients"
 msgstr ""
 
@@ -1821,9 +1840,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
-msgstr ""
-
-msgid "Insufficient privileges"
 msgstr ""
 
 msgid "Cc"
@@ -2099,16 +2115,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3097,12 +3103,6 @@ msgid "Root"
 msgstr ""
 
 msgid "File As"
-msgstr ""
-
-msgid "Company Name"
-msgstr ""
-
-msgid "Sort by: Company Name"
 msgstr ""
 
 msgid "Full Name"
@@ -5109,11 +5109,17 @@ msgstr ""
 msgid "Connection with server has been restored"
 msgstr ""
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
 msgstr ""
 
-msgid "Invalid data received from the server"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
 msgstr ""
 
 msgid "Missing store"

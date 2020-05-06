@@ -533,6 +533,12 @@ msgstr "Pozycja"
 msgid "Sort by: Job Title"
 msgstr "Sortuj weług pozycji"
 
+msgid "Company Name"
+msgstr "Firma"
+
+msgid "Sort by: Company Name"
+msgstr "Sortuj według: Firma"
+
 msgid "Sort by: Department"
 msgstr "Sortuj według: Dział"
 
@@ -1606,6 +1612,19 @@ msgstr "D., j. F Y H:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "Niewystarczające uprawnienia"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Edytuj odbiorcę"
@@ -1884,9 +1903,6 @@ msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
-
-msgid "Insufficient privileges"
-msgstr "Niewystarczające uprawnienia"
 
 msgid "Cc"
 msgstr "DW"
@@ -2167,16 +2183,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3241,12 +3247,6 @@ msgstr "Katalog główny"
 
 msgid "File As"
 msgstr "Zachowaj jako"
-
-msgid "Company Name"
-msgstr "Firma"
-
-msgid "Sort by: Company Name"
-msgstr "Sortuj według: Firma"
 
 msgid "Full Name"
 msgstr "Pełna nazwa"
@@ -5378,12 +5378,18 @@ msgstr "Połączenie zostało przywrócone"
 msgid "Connection with server has been restored"
 msgstr "Połączenie z serwerem zostało przywrócone"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Otrzymano nieprawidłowe dane z serwera"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Brakująca poczta"

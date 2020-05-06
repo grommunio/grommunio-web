@@ -533,6 +533,13 @@ msgstr "İş unvanı"
 msgid "Sort by: Job Title"
 msgstr "Sıralama: İş unvanı"
 
+msgid "Company Name"
+msgstr "Şirket adı"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Sıralama: Şirket adı"
+
 msgid "Sort by: Department"
 msgstr "Sıralama: Bölüm"
 
@@ -1673,6 +1680,19 @@ msgstr "F j, Y, g:i"
 msgid "jS F Y"
 msgstr "j F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+
+msgid "Insufficient privileges"
+msgstr "yetersiz yetki"
+
 #, fuzzy
 msgid "Update recipients"
 msgstr "Alıcı düzenle"
@@ -1962,9 +1982,6 @@ msgid ""
 "instead?"
 msgstr ""
 
-msgid "Insufficient privileges"
-msgstr "yetersiz yetki"
-
 msgid "Cc"
 msgstr "Cc"
 
@@ -2249,16 +2266,6 @@ msgstr ""
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
 msgstr ""
 
 msgid "You have insufficient privileges to move following items."
@@ -3374,13 +3381,6 @@ msgstr "Temel"
 # 85%
 msgid "File As"
 msgstr "Dosya olarak"
-
-msgid "Company Name"
-msgstr "Şirket adı"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "Sıralama: Şirket adı"
 
 msgid "Full Name"
 msgstr "Adı"
@@ -5611,12 +5611,18 @@ msgstr "bağlantı yeniden sağlandı"
 msgid "Connection with server has been restored"
 msgstr "Sunucu ile bağlantı yeniden sağlandı"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Sunucudan geçersiz bilgi alındı"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 #, fuzzy
 msgid "Missing store"

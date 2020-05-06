@@ -537,6 +537,13 @@ msgstr "Position"
 msgid "Sort by: Job Title"
 msgstr "Nach Position sortieren"
 
+msgid "Company Name"
+msgstr "Firma"
+
+# 76%
+msgid "Sort by: Company Name"
+msgstr "Sortieren nach: Firma"
+
 msgid "Sort by: Department"
 msgstr "Sortieren nach: Abteilung"
 
@@ -1662,6 +1669,25 @@ msgstr "D., j. F Y H:i"
 msgid "jS F Y"
 msgstr "j. F Y"
 
+msgid ""
+"You have insufficient privileges to move and copy this item. Ask the folder "
+"owner to grant you permissions or contact your system administrator."
+msgstr ""
+"Sie haben nicht genügend Berechtigungen, um diesen Ordner zu verschieben und "
+"zu kopieren. Bitten Sie den Ordnereigentümer, Ihnen Berechtigungen zu "
+"erteilen, oder wenden Sie sich an Ihren Systemadministrator."
+
+msgid ""
+"You have insufficient privileges to copy this item. Ask the folder owner to "
+"grant you permissions or contact your system administrator."
+msgstr ""
+"Sie haben nicht genügend Rechte, um dieses Element zu kopieren. Bitten Sie "
+"den Ordnereigentümer, Ihnen Berechtigungen zu erteilen, oder wenden Sie sich "
+"an Ihren Systemadministrator."
+
+msgid "Insufficient privileges"
+msgstr "Nicht genügend Berechtigungen"
+
 msgid "Update recipients"
 msgstr "Empfänger aktualisieren"
 
@@ -1951,9 +1977,6 @@ msgid ""
 msgstr ""
 "Sie haben nicht genügend Berechtigungen, um dieses Element zu verschieben. "
 "Möchten Sie stattdessen kopieren?"
-
-msgid "Insufficient privileges"
-msgstr "Nicht genügend Berechtigungen"
 
 msgid "Cc"
 msgstr "CC"
@@ -2264,22 +2287,6 @@ msgstr ""
 "Sie haben nicht genügend Berechtigungen, um diesen Ordner zu kopieren. "
 "Bitten Sie den Ordnereigentümer, Ihnen Berechtigungen zu erteilen, oder "
 "wenden Sie sich an Ihren Systemadministrator."
-
-msgid ""
-"You have insufficient privileges to move and copy this item. Ask the folder "
-"owner to grant you permissions or contact your system administrator."
-msgstr ""
-"Sie haben nicht genügend Berechtigungen, um diesen Ordner zu verschieben und "
-"zu kopieren. Bitten Sie den Ordnereigentümer, Ihnen Berechtigungen zu "
-"erteilen, oder wenden Sie sich an Ihren Systemadministrator."
-
-msgid ""
-"You have insufficient privileges to copy this item. Ask the folder owner to "
-"grant you permissions or contact your system administrator."
-msgstr ""
-"Sie haben nicht genügend Rechte, um dieses Element zu kopieren. Bitten Sie "
-"den Ordnereigentümer, Ihnen Berechtigungen zu erteilen, oder wenden Sie sich "
-"an Ihren Systemadministrator."
 
 msgid "You have insufficient privileges to move following items."
 msgstr ""
@@ -3353,13 +3360,6 @@ msgstr "Basisordner"
 # 85%
 msgid "File As"
 msgstr "Ablegen als"
-
-msgid "Company Name"
-msgstr "Firma"
-
-# 76%
-msgid "Sort by: Company Name"
-msgstr "Sortieren nach: Firma"
 
 msgid "Full Name"
 msgstr "Vollständiger Name"
@@ -5573,12 +5573,18 @@ msgstr "Verbindung wiederhergestellt"
 msgid "Connection with server has been restored"
 msgstr "Die Verbindung zum Server wurde wiederhergestellt"
 
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
+msgid "Please contact your administrator if this problem persists."
+msgstr ""
 
-msgid "Invalid data received from the server"
-msgstr "Ungültige Daten vom Server empfangen"
+#. TRANSLATORS: Example: HTTP 404
+msgid "Error HTTP {0}"
+msgstr ""
+
+msgid "HTTP status text is: "
+msgstr ""
+
+msgid "Invalid data received from the server. HTTP status text is: "
+msgstr ""
 
 msgid "Missing store"
 msgstr "Fehlender Store"
