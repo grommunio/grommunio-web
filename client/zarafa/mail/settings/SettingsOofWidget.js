@@ -36,7 +36,6 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			xtype : 'zarafa.settingsoofwidget',
 			title : _('Out of Office'),
 			ref: '../outOfOfficeWidget',
-			iconCls : 'zarafa-settings-favorite-oof',
 			cls : 'zarafa-settings-widget',
 			layout : 'form',
 			labelWidth : 200,
@@ -232,16 +231,12 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 			cls : 'zarafa-settings-oof-subject',
 			anchor: '100%',
 			layout: 'hbox',
+			hideLabel: true,
 			items : [{
-				xtype : 'displayfield',
-				cls : 'label-subject',
-				value : _('Subject') + ':',
-				autoWidth: true
-			},{
 				xtype : 'textfield',
 				name : 'subject',
 				ref : '../subjectField',
-				emptyText : _('Out of Office'),
+				emptyText : _('I am out of office'),
 				flex: 1,
 				listeners : {
 					change : this.onFieldChange,

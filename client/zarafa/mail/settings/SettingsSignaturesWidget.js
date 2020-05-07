@@ -60,7 +60,6 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 
 		Ext.applyIf(config, {
 			title : _('Signatures'),
-			iconCls : 'zarafa-settings-favorite-signatures',
 			items : [{
 				xtype : 'container',
 				layout : 'column',
@@ -106,12 +105,12 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 					xtype : 'container',
 					layout : 'form',
 					columnWidth : 0.5,
-					labelWidth : 200,
+					labelWidth : 150,
 					items : [{
 						xtype : 'combo',
 						ref : '../../newMessageCombo',
 						name : 'zarafa/v1/contexts/mail/signatures/new_message',
-						fieldLabel : _('Signature for new messages'),
+						fieldLabel : _('New messages'),
 						anchor : '100%',
 						store : store,
 						mode: 'local',
@@ -130,7 +129,7 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 						xtype : 'combo',
 						ref : '../../replyMessageCombo',
 						name : 'zarafa/v1/contexts/mail/signatures/replyforward_message',
-						fieldLabel : _('Signature for replies and forwards'),
+						fieldLabel : _('Replies/forwards'),
 						anchor : '100%',
 						store : store,
 						mode: 'local',
@@ -148,14 +147,16 @@ Zarafa.mail.settings.SettingsSignaturesWidget = Ext.extend(Zarafa.settings.ui.Se
 					}]
 				}]
 			},{
-				xtype : 'textfield',
-				name : 'name',
-				fieldLabel : _('Name'),
-				ref : 'nameField',
-				anchor : '100%',
-				listeners : {
-					change : this.onNameFieldChange,
-					 scope : this
+				xtype: 'textfield',
+				name: 'name',
+				cls: 'k-signature-name',
+				hideLabel: true,
+				ref: 'nameField',
+				anchor: '100%',
+				emptyText: _('Signature name:'),
+				listeners: {
+					change: this.onNameFieldChange,
+					scope: this
 				}
 			},{
 				xtype : 'zarafa.editorfield',

@@ -4,12 +4,13 @@
 	.zarafa-settings-category-panel {
 		border-right: 1px solid $grey;
 		padding-top: $padding-medium;
+		z-index: 1;
 
 		.zarafa-settings-category-tab {
-			padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
+			padding: ($settings-category-tab-height - $font-default-line-height) $padding-medium;
 			padding-left: 4px;
 			line-height: $font-default-line-height;
-			cursor:pointer;
+			cursor: pointer;
 			background-position: ($settings-category-tab-icon-strip-width - 16px)/2 center !important;
 		}
 		.zarafa-settings-category-tab.k-with-icon {
@@ -32,20 +33,45 @@
 
 	/* The main settings panel that contains all settings widgets */
 	.zarafa-settings-category-widget-panel {
-		padding: $padding-medium $padding-small;
+		padding: $padding-medium 0 0 0;
+
+		.x-panel .x-panel-header, .x-panel-ghost .x-panel-header {
+			background: transparent;
+			font-size: $font-size-large;
+			font-weight: bold;
+		}
 
 		.zarafa-settings-widget {
 			margin-bottom: $padding-medium;
 
 			.x-panel-header {
-				padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium;
+				padding: ($settings-category-tab-height - $font-default-line-height)/2 $padding-medium*2;
 				line-height: $font-default-line-height;
-				border-top: none;
-				border-bottom: none;
+				border: none;
 			}
 
 			.x-panel-body {
-				padding: $padding-medium;
+				padding: $padding-medium*2;
+				border-left: none;
+				border-right: none;
+			}
+
+			.x-panel-body .x-panel .x-panel-header {
+				font-weight: normal;
+				padding: 15px 0 15px 0;
+			}
+
+			.x-panel-body .x-panel .x-panel-body {
+				border-bottom: none;
+				padding: 0;
+			}
+
+			.x-panel-body .x-panel .x-grid3-header {
+				border-bottom: none;
+			}
+		
+			.x-panel-body .x-panel .x-grid3-scroller {
+				border: 1px solid $grey;
 			}
 
 			.zarafa-quotabar {
@@ -142,12 +168,6 @@
 	background-repeat: no-repeat;
 }
 
-.x-panel-inline-icon.zarafa-settings-favorite-oof, .x-panel-inline-icon.zarafa-settings-favorite-signatures
-{
-	width: 20px;
-	height: 20px;
-}
-
 .zarafa-settings-signatures {
 	margin-right: $padding-large;
 
@@ -156,6 +176,12 @@
  		margin-bottom: -1px;
 	 }
  }
+
+ .k-signature-name, .zarafa-settings-oof-subject input {
+	padding: $padding-medium $padding-medium $padding-medium 2*$padding-medium;
+	font-size: $font-size-large !important;
+ }
+	
  .k-signature-editor textarea {
 	padding: $padding-extra-large;
 	font-family: monospace !important;
@@ -175,10 +201,6 @@
 	border: solid 1px $grey;
 	border-radius: 2px;
 	background-color: white;
-	display: inline-block;
-}
-
-.keyboard-desc {
 	display: inline-block;
 }
 
@@ -203,15 +225,38 @@
 }
 
 /* Plugin list */
-.zarafa-settings-pluginavailable {
-	.zarafa-settings-widget-extrainfo {
-		margin: 0;
+.k-settings-pluginpanel {
+
+	.x-panel-body {
+		padding: 0;
+		border: none;
 	}
-	.zarafa-settings-pluginavailable-fixed {
-		.x-grid3-col-display_name {
-			span {
-				font-style: italic;
-				color: $grey6;
+
+	.x-panel-header {
+		border: none;
+	}
+
+	.zarafa-settings-pluginavailable {
+	
+		.x-panel-body {
+			border-top: none;
+			padding: 0 !important;
+		}
+
+		.k-settings-plugingrid .x-grid3-scroller {
+			border: none !important;
+		}
+
+		.k-settings-plugingrid .x-grid3-row .x-grid3-check-col-td, .x-grid3-row .x-grid3-td-checker {
+			padding-left: 10px;
+		}
+	
+		.zarafa-settings-pluginavailable-fixed {
+			.x-grid3-col-display_name {
+				span {
+					font-style: italic;
+					color: $grey6;
+				}
 			}
 		}
 	}
