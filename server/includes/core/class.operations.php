@@ -3585,10 +3585,15 @@
 					$props['recipient_type'] = $recipientRow[PR_RECIPIENT_TYPE];
 					$props['display_type'] = isset($recipientRow[PR_DISPLAY_TYPE]) ? $recipientRow[PR_DISPLAY_TYPE] : DT_MAILUSER;
 
-					// PR_DISPLAY_TYPE_EX is special property and is not present in ContentsTable so we need to
-					// get it by using OpenEntry
-					$props['display_type_ex'] = DT_MAILUSER;
-					if($props['address_type'] === 'ZARAFA') {
+					
+					$props['display_type_ex'] = DT_REMOTE_MAILUSER;
+					
+					// If recipient found in local contact folder then no need to search in global addressbook.
+					if (!$this->isExternalContactItem($recipientRow[PR_ENTRYID])) {
+						$props['display_type_ex'] = DT_MAILUSER;
+					} else if($props['address_type'] === 'ZARAFA') {
+						// PR_DISPLAY_TYPE_EX is special property and is not present in ContentsTable so we need to
+						// get it by using OpenEntry
 						try {
 							$mailuser = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $recipientRow[PR_ENTRYID]);
 							$userprops = mapi_getprops($mailuser, array(PR_DISPLAY_TYPE_EX));
