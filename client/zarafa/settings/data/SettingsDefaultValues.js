@@ -81,7 +81,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type String
 							 */
-							'default_font' : 'tahoma,arial,helvetica,sans-serif',
+							'default_font' : 'arial,helvetica,sans-serif',
 
 							/**
 							 * zarafa/v1/main/default_font_size
@@ -90,7 +90,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 * @property
 							 * @type Number
 							 */
-							'default_font_size' : 2,
+							'default_font_size' : '2.1',
 
 							/**
 							 * zarafa/v1/main/keycontrols
