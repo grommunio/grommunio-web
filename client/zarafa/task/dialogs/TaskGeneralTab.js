@@ -339,6 +339,7 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				maxValue : 1,
 				listeners :{
 					spin : this.onCompleteSpin,
+					change: this.onCompleteSpin,
 					scope : this
 				}
 			}]
@@ -794,13 +795,13 @@ Zarafa.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.set('complete', false);
 			this.record.set('percent_complete', newValue);
 			this.record.set('date_completed', null);
-		}else if(newValue === 1){
+		}else if(newValue === 1 || newValue > 1){
 			this.record.set('status', Zarafa.core.mapi.TaskStatus.COMPLETE);
 			this.record.set('complete', true);
-			this.record.set('percent_complete', newValue);
+			this.record.set('percent_complete', 1); // 100%
 			this.record.set('date_completed', new Date());
 		}
-		this.setFlagsProperties(newValue === 1);
+		this.setFlagsProperties(newValue === 1 || newValue > 1);
 		this.record.endEdit();
 	},
 
