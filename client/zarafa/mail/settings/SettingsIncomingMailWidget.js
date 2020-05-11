@@ -53,6 +53,7 @@ Zarafa.mail.settings.SettingsIncomingMailWidget = Ext.extend(Zarafa.settings.ui.
 				}
 			},{
 				xtype: 'zarafa.compositefield',
+				defaultMargins: '0 0 0 0',
 				plugins: [ 'zarafa.splitfieldlabeler' ],
 				// # TRANSLATORS: The {A} _must_ always be at the start of the translation
 				// # The '{B}' represents the number of seconds which the user will type in.
