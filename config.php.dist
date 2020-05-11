@@ -30,6 +30,7 @@
 	define("DISABLE_REMOTE_USER_LOGIN", false);
 
 	// OIDC Server Configuration, introduced in Kopano Core 8.7.0
+    // Note: this functionality is still in beta quality.
 	define("OIDC_ISS", "");
 	define("OIDC_CLIENT_ID", "");
 	define("OIDC_SCOPE", "openid profile email kopano/gc");
