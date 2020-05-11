@@ -847,7 +847,13 @@ myStore.reload(lastOptions);
 				this.loadMask.show();
 			}
 		}
-	}
+	},
+
+	/**
+	 * This will provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter} or
+	 * {@link Zarafa.task.data.DataModes datemode}.
+	 */
+	getFilterRestriction : Ext.emptyFn
 
 });
 
