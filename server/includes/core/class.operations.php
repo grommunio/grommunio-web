@@ -1664,36 +1664,25 @@
 				// Get body content
 				// TODO: Move retrieving the body to a separate function.
 				$plaintext = $this->isPlainText($message);
-				$htmlprop = KC_FILTERED_BODY ? PR_EC_BODY_FILTERED : PR_HTML;
-				$tmpProps = mapi_getprops($message, array(PR_BODY, $htmlprop));
-
-				// TODO: Fallback for older Kopano Core < 8.5.0, remove when unsupported.
-				if (KC_FILTERED_BODY  && propIsError($htmlprop, $tmpProps) === MAPI_E_NOT_FOUND) {
-					$htmlprop = PR_HTML;
-					$tmpProps = mapi_getprops($message, array(PR_BODY, $htmlprop));
-				}
+				$tmpProps = mapi_getprops($message, array(PR_BODY, PR_HTML));
 
 				$htmlcontent = '';
 				$plaincontent = '';
 				if (!$plaintext) {
 					$cpprops = mapi_message_getprops($message, array(PR_INTERNET_CPID));
 					$codepage = isset($cpprops[PR_INTERNET_CPID]) ? $cpprops[PR_INTERNET_CPID] : 1252;
-					if (propIsError($htmlprop, $tmpProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-						$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, mapi_message_openproperty($message, $htmlprop));
-					} else if (isset($tmpProps[$htmlprop])) {
-						$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[$htmlprop]);
+					if (propIsError(PR_HTML, $tmpProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
+						$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, mapi_message_openproperty($message, PR_HTML));
+					} else if (isset($tmpProps[PR_HTML])) {
+						$htmlcontent = Conversion::convertCodepageStringToUtf8($codepage, $tmpProps[PR_HTML]);
 					}
 
 					if(!empty($htmlcontent)) {
 						if ($html2text) {
 							$htmlcontent = '';
 						} else {
-							// TODO: remove when KC 8.5.0 is not supported. Instead of checking if KC_FILTERED_BODY is set,
-							// check if the content type is unfiltered.
-							if ($htmlprop === PR_HTML) {
-								$filter = new filter();
-								$htmlcontent = $filter->safeHTML($htmlcontent);
-							}
+							$filter = new filter();
+							$htmlcontent = $filter->safeHTML($htmlcontent);
 							$props["props"]["isHTML"] = true;
 						}
 					}
