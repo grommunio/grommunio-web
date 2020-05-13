@@ -178,7 +178,7 @@ class WebAppAuthentication
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
 				// Print error message to error_log of webserver
-				error_log('Kopano WebApp user: ' . $username . ': authentication failure at MAPI');
+				error_log('Kopano WebApp user: ' . $username . ': authentication failure at ' . getClientIPAddress());
 			}
 		}
 
