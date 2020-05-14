@@ -51,7 +51,103 @@ Zarafa.calendar.dialogs.AppointmentToolbar = Ext.extend(Zarafa.core.ui.ContentPa
 	createActionButtons : function()
 	{
 		return [{
-			xtype : 'zarafa.meetingrequestbuttons'
+			xtype: 'zarafa.meetingrequestbutton',
+			name: Zarafa.calendar.data.MeetingRequestButtonNames.REMOVEFROMCALENDAR,
+			text: _('Remove From Calendar'),
+			overflowText: _('Remove From Calendar'),
+			tooltip: {
+				title: _('Remove From Calendar'),
+				text: _('Remove From Calendar')
+			},
+			cls: 'tb-calendar-btn-remove zarafa-action'
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name: Zarafa.calendar.data.MeetingRequestButtonNames.NORESPONSE,
+			text: _('No Response Required'),
+			overflowText: _('No Response Required'),
+			tooltip: {
+				title: _('No Response Required'),
+				text: _('No Response Required')
+			},
+			cls: 'tb-calendar-btn-no-response-required',
+			iconCls: 'icon_no_response_required'
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name: Zarafa.calendar.data.MeetingRequestButtonNames.ACCEPT,
+			text: _('Accept'),
+			overflowText: _('Accept'),
+			parentScope: this,
+			tooltip: {
+				title: _('Accept'),
+				text: _('Accept Meeting Request')
+			},
+			cls: 'zarafa-action',
+			iconCls: 'icon_calendar_appt_accept',
+			responseStatus: Zarafa.core.mapi.ResponseStatus.RESPONSE_ACCEPTED
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.TENTETIVE,
+			text : _('Tentative'),
+			overflowText : _('Tentative'), 
+			tooltip: {
+				title: _('Tentative'),
+				text: _('Tentatively Accept Meeting Request')
+			},
+			iconCls : 'icon_calendar_appt_tentative',
+			responseStatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_TENTATIVE
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.DECLINE,
+			text : _('Decline'),
+			overflowText : _('Decline'),
+			tooltip: {
+				title: _('Decline'),
+				text: _('Decline Meeting Request')
+			},
+			iconCls : 'icon_calendar_appt_cancelled',
+			responseStatus : Zarafa.core.mapi.ResponseStatus.RESPONSE_DECLINED
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.PROPOSENEWTIME,
+			text : _('Propose New Time'),
+			overflowText : _('Propose New Time'),
+			tooltip: {
+				title: _('Propose New Time'),
+				text: _('Propose New Time for Meeting Request')
+			},
+			iconCls : 'icon_calendar_appt_newtime'
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.VIEWPROPOSALS,
+			text : _('View All Proposals'),
+			overflowText : _('View All Proposals'),
+			tooltip: {
+				title: _('View All Proposals'),
+				text: _('View All Proposals')
+			},
+			iconCls : 'icon_calendar_appt_proposals'
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.ACCEPTPROPOSAL,
+			text : _('Accept Proposal'),
+			overflowText: _('Accept Proposal'),
+			tooltip: {
+				title: _('Accept Proposal'),
+				text: _('Accept Proposed Time')
+			},
+			iconCls : 'icon_calendar_appt_accept'
+		}, {
+			xtype: 'zarafa.meetingrequestbutton',
+			name : Zarafa.calendar.data.MeetingRequestButtonNames.CALENDAR,
+			ref : 'calendarButton',
+			text : _('View in calendar'),
+			overflowText : _('View in calendar'),
+			tooltip: {
+				title: _('View in calendar'),
+				text: _('View in calendar')
+			},
+			cls: 'tb-calendar-btn-calendar zarafa-action',
+			iconCls : 'icon_calendar'
 		},{
 			xtype: 'button',
 			overflowText: _('Send'),

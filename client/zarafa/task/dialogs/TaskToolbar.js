@@ -108,7 +108,17 @@ Zarafa.task.dialogs.TaskToolbar = Ext.extend(Zarafa.core.ui.ContentPanelToolbar,
 			}
 		},{
 			// Task Accept/Decline buttons.
-			xtype : 'zarafa.taskrequestbuttons'
+			xtype: 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.ACCEPT,
+			text: _('Accept'),
+			iconCls: 'icon_calendar_appt_accept',
+			responseStatus: Zarafa.core.mapi.TaskMode.ACCEPT
+		},{
+			xtype : 'zarafa.taskrequestbutton',
+			name: Zarafa.task.data.TaskRequestButtonNames.DECLINE,
+			text : _('Decline'),
+			iconCls : 'icon_calendar_appt_cancelled',
+			responseStatus : Zarafa.core.mapi.TaskMode.DECLINE
 		},{
 			xtype : 'button',
 			ref: 'markCompleteBtn',
