@@ -35,6 +35,7 @@ $menu-item-height : 30px;
 				/* icon size is 20px x 20px, icon images are centered in that box */
 				.x-menu-item-icon {
 					left: $padding-medium - $padding-small;
+					cursor: pointer;
 				}
 
 				/* rules menu item */
@@ -48,6 +49,10 @@ $menu-item-height : 30px;
 			a.zarafa-no-icon {
 				padding-left: $padding-large;
 			}
+		}
+
+		.x-menu-item-text, .x-menu-item .x-unselectable {
+			cursor: pointer;
 		}
 
 		li.x-menu-list-item.x-menu-item-active {
