@@ -449,13 +449,15 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowClick : function(grid, rowIndex, event)
 	{
 		var store = this.store;
+		var keepExisting = event.ctrlKey || event.shiftKey;
 		// Get the record from the rowIndex
 		var record = store.getAt(rowIndex);
 		if (record.isConversationHeaderRecord()) {
 			this.openConversation(record);
-		} else if (!record.isConversationRecord() && this.expandSingleConversation) {
+		} else if (this.expandSingleConversation && !(keepExisting)) {
 			// close all opened conversation when user click on non conversation item.
-			store.collapseAllConversation();
+			var headerRecord = record.isConversationRecord() ? store.getHeaderRecordFromItem(record) : false;
+			store.collapseAllConversation(headerRecord);
 		}
 
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
@@ -568,8 +570,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 				selectionModel.selectRow(rowIndex+1, keepExisting);
 			}
 		}
-		if (this.expandSingleConversation) {
-			store.collapseAllConversation(record);
+		if (this.expandSingleConversation && !keepExisting) {
+			var headerRecord = store.getHeaderRecordFromItem(record);
+			store.collapseAllConversation(headerRecord);
 		}
 	},
 
