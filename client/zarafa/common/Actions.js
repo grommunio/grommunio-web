@@ -37,6 +37,13 @@ Zarafa.common.Actions = {
 	showImported : false,
 
 	/**
+	 * Defines if the imported item is a single or multiple VCF file.
+	 * @property
+	 * @type Boolean
+	 */
+	isSingleVCF : false,
+
+	/**
 	 * Open a {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for
 	 * copying or moving {@link Zarafa.core.data.IPMRecord records} to the
 	 * preferred destination folder.
@@ -1335,6 +1342,7 @@ Zarafa.common.Actions = {
 	checkBroken : function(e, files, index, folder)
 	{
 		var fileContent = e.target.result;
+		var rawHeaderRegEx = /([^\n^:]+:)/g;
 
 		// Get header part to process further
 		var splittedContent = fileContent.split("/\r?\n\r?\n/");
@@ -1344,8 +1352,8 @@ Zarafa.common.Actions = {
 		} else {
 			splittedContent = splittedContent[0];
 		}
-
-		var rawHeaders = splittedContent.match(/([^\n^:]+:)/g);
+		
+		var rawHeaders = splittedContent.match(rawHeaderRegEx);
 
 		// Restrict the eml files to import in calendar folder.
 		var invalidImportingFolder = (this.isEmlFile(files[index]) && folder.isCalendarFolder()) ||
@@ -1360,7 +1368,20 @@ Zarafa.common.Actions = {
 		} else if (this.isICSFile(files[index])) {
 			this.isBrokenICSVCS(files[index], splittedContent, rawHeaders);
 		} else if (this.isVCFFile(files[index])) {
-			this.isBrokenVCF(files[index], splittedContent, rawHeaders);
+			splittedContent = splittedContent.toUpperCase();
+
+			// Check if the file contains multiple vCards, if yes, validate each and every vCard.
+			splittedContent = splittedContent.trim().split(/^\n$/gm);
+			
+			// If there is a single vCard, we need to set the isSingleVCF flag to true.
+			if (splittedContent.length === 1) {
+				this.isSingleVCF = true;
+			}
+			splittedContent.forEach(function(contact) {
+				// We need to check for the rawHeaders in each and every vCard, for proper validation
+				rawHeaders = contact.match(rawHeaderRegEx);
+				this.isBrokenVCF(files[index], contact, rawHeaders);
+			}, this);
 		} else if (!this.isVCFFile(files[index]) && (rawHeaders.indexOf('From:') === -1 || rawHeaders.indexOf('Date:') === -1)) {
 			this.brokenFiles.push(files[index]);
 		}
@@ -1500,6 +1521,7 @@ Zarafa.common.Actions = {
 					// Need to pass 1 and 0 because on php side we get all formData in
 					// string so 'false' can break the import eml feature.
 					filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
+					filesData.append('is_single_vcf', this.isSingleVCF ? 1 : 0);
 				}
 			}
 
@@ -1508,6 +1530,7 @@ Zarafa.common.Actions = {
 			// Need to pass 1 and 0 because on php side we get all formData in
 			// string so 'false' can break the import eml feature.
 			filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
+			filesData.append('is_single_vcf', this.isSingleVCF ? 1 : 0);
 		}
 
 		var url = container.getBaseURL();
