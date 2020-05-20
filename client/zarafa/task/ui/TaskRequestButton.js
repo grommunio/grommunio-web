@@ -121,10 +121,11 @@ Zarafa.task.ui.TaskRequestButton = Ext.extend(Ext.Button, {
 					this.visible = (!isSubMessage && isTaskReceived && isTaskOwner && (isTaskAssigned || isTaskAccepted || record.isTaskUpdated()));
 				}
 			}
+			this.setVisible(this.visible);
+		} else if (record.isModifiedSinceLastUpdate('taskmode')) {
+			this.setVisible(this.visible);
 		}
-
-		this.setVisible(this.visible);
-
+		
 		if (isAcceptbtn && this.isVisible()) {
 			this.getEl().addClass('zarafa-action');
 		}
