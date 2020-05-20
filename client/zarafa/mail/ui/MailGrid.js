@@ -42,6 +42,14 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	unSentFolderTypes : undefined,
 
 	/**
+	 * @cfg {Boolean} expandSingleConversation True if {@link Zarafa.mail.settings.SettingsConversationWidget#enableConversations enabled conversation view }
+	 * and {@link Zarafa.mail.settings.SettingsConversationWidget#singleExpand single expand conversation} user settings enabled False otherwise
+	 *
+	 * By default this will be True.
+	 */
+	expandSingleConversation : true,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -77,6 +85,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			sm : this.initSelectionModel(),
 			cm : this.initColumnModel(),
 			enableDragDrop : true,
+			expandSingleConversation: this.allowExpandOneConversation(),
 			ddGroup : 'dd.mapiitem'
 		});
 
@@ -408,6 +417,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 				// conversation items.
 				if (store.isConversationOpened(record)) {
 					grid.selModel.selectRow(rowIndex + 1, false);
+					if (this.expandSingleConversation) {
+						record.getStore().collapseAllConversation(record);
+					}
 				}
 			}
 			return false;
@@ -436,10 +448,14 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onRowClick : function(grid, rowIndex, event)
 	{
+		var store = this.store;
 		// Get the record from the rowIndex
-		var record = this.store.getAt(rowIndex);
+		var record = store.getAt(rowIndex);
 		if (record.isConversationHeaderRecord()) {
 			this.openConversation(record);
+		} else if (!record.isConversationRecord() && this.expandSingleConversation) {
+			// close all opened conversation when user click on non conversation item.
+			store.collapseAllConversation();
 		}
 
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
@@ -552,6 +568,22 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 				selectionModel.selectRow(rowIndex+1, keepExisting);
 			}
 		}
+		if (this.expandSingleConversation) {
+			store.collapseAllConversation(record);
+		}
+	},
+
+	/**
+	 * Helper function used to check {@link Zarafa.mail.settings.SettingsConversationWidget#enableConversations enabled conversation view }
+	 * and {@link Zarafa.mail.settings.SettingsConversationWidget#singleExpand single expand conversation} user setting enabled.
+	 *
+	 * @return {Boolean} True if {@link Zarafa.mail.settings.SettingsConversationWidget#enableConversations enabled conversation view } and
+	 * {@link Zarafa.mail.settings.SettingsConversationWidget#singleExpand expand single conversation} is enabled else false.
+	 */
+	allowExpandOneConversation : function()
+	{
+		var settingsModel = container.getSettingsModel();
+		return settingsModel.get("zarafa/v1/contexts/mail/enable_conversation_view") && settingsModel.get("zarafa/v1/contexts/mail/expand_single_conversation");
 	},
 
 	/**
