@@ -2,7 +2,6 @@ const userManager = (function(){
 	"use strict"; 
 	var onLogonPage = false;
 	var mgr;
-	var ACCESS_TOKEN_EXPIRED = 0;
 
 	Oidc.Log.logger = console;
 	Oidc.Log.level = Oidc.Log.DEBUG;
@@ -43,26 +42,21 @@ const userManager = (function(){
 		http.send(data);
 	}
 
-	function logOut() {
-		window.onunload = function(){}; // eslint-disable-line no-empty-function
-		window.location = "?logout";
-	}
-
 	/**
-	 * Function which work has middleware for the user manage event handlers.
+	 * Middleware function used to show the proper message box based on the action type.
 	 * 
-	 * @param {Number} actionType The constant action type which used to show the message box.
+	 * @param {String} actionType The constant action type which used to show the message box.
 	 * @param {Function} handler The handler is callback function which called after the 
 	 * user confirmation.  
 	 */
-	function WrapperHandler(actionType, handler) {
+	function wrapperHandler(actionType, handler) {
 		if (window.Zarafa) {
-			if (actionType === ACCESS_TOKEN_EXPIRED) {
+			if (actionType === "ACCESS_TOKEN_EXPIRED") {
 				var options = {
 					title: _('Access token expired'),
 					msg: _('You have been logged out.'),
 					cls: Ext.MessageBox.ERROR_CLS,
-					minWidth: 150,
+					minWidth: 250,
 					fn: handler,
 					buttons: Ext.MessageBox.OK
 				};
@@ -88,7 +82,7 @@ const userManager = (function(){
 		// with action type and callback function which 
 		// signout the webapp.
 		var accessTokenExpiredHandler = function(){
-			WrapperHandler(ACCESS_TOKEN_EXPIRED, function () {
+			wrapperHandler("ACCESS_TOKEN_EXPIRED", function () {
 				mgr.signoutRedirect();
 			});
 		}
@@ -116,14 +110,6 @@ const userManager = (function(){
 			mgr.getUser().then(function(user){
 				postToken(user);
 			});
-		});
-
-		mgr.events.addUserSignedOut(function() {
-			mgr.removeUser();
-		});
-
-		mgr.events.addUserUnloaded(function() {
-			logOut();
 		});
 
 		if (onLogonPage && window.location.hash.startsWith('#oidc-callback')) {
