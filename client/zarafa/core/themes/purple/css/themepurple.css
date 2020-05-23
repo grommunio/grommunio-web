@@ -519,13 +519,13 @@ input.x-form-text.x-form-field.x-form-focus {
 }
 
 /* Selected mail item */
-.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+.theme-purple .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #e9ddf1 !important;
 }
 
 /* Hover selected item */
-.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
-.theme-purple.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+.theme-purple .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-purple .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #e9ddf1 !important;
 }
 

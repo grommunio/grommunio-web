@@ -262,7 +262,7 @@ div.zarafa-contact-cardview-selected,
 .x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a,
 .x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
 	background-color: #fce8ce !important;
-	border-color: #fce8ce;
+	border-color: #fce8ce !important;
 }
 
 /*********************************************************************
@@ -363,9 +363,9 @@ input.x-form-text.x-form-field.x-form-focus {
     background-color: #fce8ce !important;
 }
 
-/*****************************
- * Unread items border styling
- *****************************/
+/*****************************************
+ * Unread and selected item border styling
+ ****************************************/
 
 /* Unread items */
 .theme-orange.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
@@ -374,13 +374,12 @@ input.x-form-text.x-form-field.x-form-focus {
 }
 
 /* Selected mail item */
-.theme-orange.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+.theme-orange .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #fce8ce !important;
 }
 
 /* Hover selected item */
-.theme-orange.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
-.theme-orange.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+.theme-orange .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-orange .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #fce8ce !important;
 }
-

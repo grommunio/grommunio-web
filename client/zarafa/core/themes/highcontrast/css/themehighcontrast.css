@@ -256,13 +256,13 @@ ul.x-tab-strip li .x-tab-right,
  *****************************/
 
 /* Selected mail item */
-.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+.theme-highcontrast .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #b9dcf5 !important;
 }
 
 /* Hover selected item */
-.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
-.theme-highcontrast.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+.theme-highcontrast .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
+.theme-highcontrast .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #b9dcf5 !important;
 }
 
