@@ -397,9 +397,15 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		if (!Ext.isDefined(record)) {
 			return;
 		}
-		// conversation header records can't be changed by clicking on certain cells
-		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
-			return;
+
+		// Expand and collapse the conversation by clicking on arrow icon.
+		if (record.isConversationHeaderRecord() && columnIndex === 0) {
+			var store = grid.getStore();
+			store.toggleConversation(record);
+			if (store.isConversationOpened(record)) {
+				grid.selModel.selectRow(rowIndex + 1, false);
+			}
+			return false;
 		}
 
 		var cm = this.getColumnModel();
@@ -427,11 +433,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	{
 		// Get the record from the rowIndex
 		var record = this.store.getAt(rowIndex);
-
-		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
-			var store = grid.getStore();
-			store.toggleConversation(record);
-
+		if (record.isConversationHeaderRecord()) {
 			return false;
 		}
 
@@ -454,7 +456,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onCellContextMenu : function(grid, rowIndex, cellIndex, event)
 	{
 		var record = this.store.getAt(rowIndex);
-		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
+		if (record.isConversationHeaderRecord()) {
 			return false;
 		}
 
@@ -476,7 +478,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowBodyContextMenu : function(grid, rowIndex, event)
 	{
 		var record = this.store.getAt(rowIndex);
-		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
+		if (record.isConversationHeaderRecord()) {
 			return false;
 		}
 
@@ -496,6 +498,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	onRowDblClick : function(grid, rowIndex, e)
 	{
 		var record = this.getSelectionModel().getSelected();
+
+		var recordClick = grid.getStore().getAt(rowIndex);
+		if (!Ext.isDefined(record) || recordClick.isConversationHeaderRecord()) {
+			return false;
+		}
+
 		// Switch focus to the browser window is record is already opened in browser window.
 		var browserWindow = Zarafa.core.BrowserWindowMgr.getOpenedWindow(record);
 		if (browserWindow) {
@@ -505,20 +513,22 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		}
 	},
 
-	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record) {
-		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
-			var store = this.getStore();
-			if (!store.isConversationOpened(record)) {
-				store.expandConversation(record);
-				selectionModel.selectRow(rowIndex+1, keepExisting);
-			}
-
-			return false;
-		}
+	/**
+	 * Event handler before the row selection performs. If selected record is  
+	 * conversation header then cancel the selection.
+	 * 
+	 * @param {Zarafa.mail.ui.MailRowSelectionModel} selectionModel The selectionModel 
+	 * @param {Number} rowIndex Then index to be selected.
+	 * @param {Boolean} keepExisting False if other selections will be cleared
+	 * @param {Zarafa.core.data.IPMRecord} record The record to be selected
+	 */
+	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record) 
+	{
+		return record.isConversationHeaderRecord() ? false : true;
 	},
 
 	/**
-	 * Event handler which is trigggerd when the user selects a row from the {@link Ext.grid.GridPanel}.
+	 * Event handler which is triggered when the user selects a row from the {@link Ext.grid.GridPanel}.
 	 * This will updates the {@link Zarafa.mail.MailContextModel MailContextModel} with the record which
 	 * was selected in the grid for preview
 	 *

@@ -550,6 +550,21 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 			}
 		}, this);
 		return visible;
+	},
+
+	/**
+	 * Checks if the passed record is a header record, i.e. a fake record that was sent to
+	 * show as header of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is a conversation header record, false otherwise
+	 */
+	isConversationHeaderRecord: function()
+	{
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('conversation_count') > 1 && this.get('depth') === 0;
 	}
 });
 
