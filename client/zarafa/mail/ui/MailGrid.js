@@ -207,45 +207,20 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	viewConfigGetRowClass : function(record, rowIndex, rowParams, store)
 	{
-		var conversationCount = record.get('conversation_count');
-		var depth = record.get('depth');
-
-		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
-		// Conversation headers should get the read/unread info from the items in the conversation
-		if (conversationCount > 1 && depth === 0) {
-			cssClass = 'mail_read';
-			var conversationRecords = store.getConversationItemsFromHeaderRecord(record);
-			conversationRecords.every(function(r) {
-				if (Ext.isFunction(r.isRead) && !r.isRead()) {
-					cssClass = 'mail_unread';
-					return false;
-				}
-				return true;
-			});
-		}
-
-		cssClass += ' k-depth-' + depth;
-		if (depth === 0 && conversationCount > 1) {
-			cssClass += ' k-conversation-header';
-		}
-
-		if (depth === 0 && conversationCount > 1 && store.isConversationOpened(record)) {
-			cssClass += ' line_vertical';
-		}
-		if (depth > 0) {
-			cssClass += ' line_vertical';
-		}
-
-		if (store.getCount() === rowIndex + 1
-			|| store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject')
-			|| store.getAt(rowIndex+1).get('depth') === 0) {
-			cssClass += ' k-last-conversation-item';
-		}
+		var cssClass = this.grid.getConversationCssClasses(record, rowIndex, store);
 
 		if (this.enableRowBody) {
 			rowParams.body = '<div class="zarafa-grid-body-container">';
 
-			if (conversationCount === 0 || depth > 0) {
+			if (record.isConversationHeaderRecord()) {
+				/**
+				 * Add container for conversation header arrow icons.
+				 * 
+				 * Note: This is just a empty container to position the arrow icons background images 
+				 * and to handle on arrow click actions for right preview mode.  
+				 */
+				rowParams.body += '<div class="k-conversation-icon-container"><span class="k-conversation-icon"></span></div>';
+			} else {
 				// Render the categories
 				cssClass += ' with-categories';
 				var categories = Zarafa.common.categories.Util.getCategories(record);
@@ -265,9 +240,56 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
 
 			rowParams.body += '</div>';
+			cssClass += ' k-compact-row';
 		}
 
 		return 'x-grid3-row-expanded ' + cssClass;
+	},
+
+	/**
+	 * Helper function to get css classes related to conversation view.
+	 * 
+	 * @param {Ext.data.Record} record The {@link Ext.data.Record Record} corresponding to the current row.
+	 * @param {Number} rowIndex The row index
+	 * @param {Ext.data.Store} store The Ext.data.Store this grid is bound to
+	 * @return {String} css classes related to conversation item.
+	 */
+	getConversationCssClasses : function(record, rowIndex, store)
+	{
+		var isConversationHeader = record.isConversationHeaderRecord();
+		var depth = record.get('depth');
+		var cssClass = (Ext.isFunction(record.isRead) && !record.isRead() ? 'mail_unread' : 'mail_read');
+
+		// Conversation headers should get the read/unread info from the items in the conversation
+		if (isConversationHeader) {
+			cssClass = 'mail_read';
+			var conversationRecords = store.getConversationItemsFromHeaderRecord(record);
+			conversationRecords.every(function(r) {
+				if (Ext.isFunction(r.isRead) && !r.isRead()) {
+					cssClass = 'mail_unread';
+					return false;
+				}
+				return true;
+			});
+
+			cssClass += ' k-conversation-header';
+
+			cssClass += store.isConversationOpened(record) ? ' line_arrow_down_l' : ' arrow_right_l';
+	
+		} else if (record.isConversationRecord()) {
+			// If its last item of the conversation.
+			if (store.getCount() === rowIndex + 1 ||
+				store.getAt(rowIndex+1).get('normalized_subject') !== record.get('normalized_subject') ||
+				store.getAt(rowIndex+1).get('depth') === 0) {
+				cssClass += ' line_circle_end k-last-conversation-item';
+			} else {
+				cssClass += ' line_circle_l';
+			}
+		}
+
+		cssClass += ' k-depth-' + depth;
+
+		return cssClass;
 	},
 
 	/**
@@ -458,6 +480,11 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		var keepExisting = event.ctrlKey || event.shiftKey;
 		// Get the record from the rowIndex
 		var record = store.getAt(rowIndex);
+		if ( Ext.get(event.target).hasClass('k-conversation-icon') ){
+			this.store.toggleConversation(record);
+			return;
+		}
+
 		if (record.isConversationHeaderRecord()) {
 			this.openConversation(record);
 		} else if (this.expandSingleConversation && !(keepExisting)) {
