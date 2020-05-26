@@ -354,7 +354,7 @@ class UploadAttachment
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $store, $newMessage, $attachmentStream);
 			if ($ok !== false) {
-				$contacts = $newMessage;
+				$contacts = is_array($newMessage) ? $newMessage : [$newMessage];
 			}
 		} else {
 			// Throw error related to multiple vcf as the function is not available for importing multiple vcf file.
