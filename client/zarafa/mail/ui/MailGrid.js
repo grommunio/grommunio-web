@@ -399,11 +399,16 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		}
 
 		// Expand and collapse the conversation by clicking on arrow icon.
-		if (record.isConversationHeaderRecord() && columnIndex === 0) {
-			var store = grid.getStore();
-			store.toggleConversation(record);
-			if (store.isConversationOpened(record)) {
-				grid.selModel.selectRow(rowIndex + 1, false);
+		if (record.isConversationHeaderRecord()) {
+			// toggle the conversation by clicking on the arrow icon of conversation header.
+			if (columnIndex === 0) {
+				var store = this.store;
+				store.toggleConversation(record);
+				// If conversation is open then select first record from the 
+				// conversation items.
+				if (store.isConversationOpened(record)) {
+					grid.selModel.selectRow(rowIndex + 1, false);
+				}
 			}
 			return false;
 		}
@@ -434,7 +439,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		// Get the record from the rowIndex
 		var record = this.store.getAt(rowIndex);
 		if (record.isConversationHeaderRecord()) {
-			return false;
+			this.openConversation(record);
 		}
 
 		if ( Ext.get(event.target).hasClass('k-category-add') ){
@@ -524,7 +529,29 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	onBeforeRowSelect: function(selectionModel, rowIndex, keepExisting, record) 
 	{
-		return record.isConversationHeaderRecord() ? false : true;
+		if (record.isConversationHeaderRecord()) {
+			this.openConversation(record, selectionModel, rowIndex, keepExisting);
+			return false;
+		}
+	},
+
+	/**
+	 * Function will expand the conversation if closed and select the first item of it.
+	 * 
+	 * @param {Zarafa.core.data.IPMRecord} record The record needs to expand.
+	 * @param {Zarafa.mail.ui.MailRowSelectionModel} selectionModel The selectionModel 
+	 * @param {Number} rowIndex Then index to be selected.
+	 * @param {Boolean} keepExisting False if other selections will be cleared
+	 */
+	openConversation : function(record, selectionModel, rowIndex, keepExisting)
+	{
+		var store = this.getStore();
+		if (!store.isConversationOpened(record)) {
+			store.expandConversation(record);
+			if (selectionModel) {
+				selectionModel.selectRow(rowIndex+1, keepExisting);
+			}
+		}
 	},
 
 	/**
