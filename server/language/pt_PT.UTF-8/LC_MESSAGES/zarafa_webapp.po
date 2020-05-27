@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-01-02 11:38+0000\n"
+"PO-Revision-Date: 2020-05-27 16:59+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
-"kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -462,20 +462,22 @@ msgid "Show Details"
 msgstr "Mostar detalhes"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Copiar contacto"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Copiar contactos"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"A mostrar só os {0} primeiros nomes. Use a procura para encontrar resultados "
+"mais específicos."
 
 msgid "Use the search bar to get results"
 msgstr "Use a barra de procura par obter resultados"
 
 msgid "There are no items to show in this list"
-msgstr "Não existem itens para mostrar nesta lista"
+msgstr "Não existem itens para mostrar na lista"
 
 msgid "Show Names from the"
 msgstr "Exibir Nomes de"
@@ -556,7 +558,7 @@ msgid "Sort by: Fax"
 msgstr "Ordenar por: Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Imprimir só um item"
 
 msgid "Print selected item"
 msgstr "Imprimir item selecionado"
@@ -565,7 +567,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Nenhum item selecionado"
 
 msgid "No preview"
 msgstr "Sem pré-visualização"
@@ -993,14 +995,14 @@ msgid "Send update"
 msgstr "Enviar atualização"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Deseja enviar uma actualização para todos os recipientes?"
 
 msgid "Send update to attendees"
 msgstr "Enviar atualização aos participantes"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Fez alterações à lista de participantes. Como deseja proceder?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1150,10 +1152,10 @@ msgid "Check names"
 msgstr "Conferir nomes"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Livro de endereços"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Abrir livro de endereços"
 
 msgid "Invite attendees"
 msgstr "Convidar participantes"
@@ -1365,7 +1367,7 @@ msgid "Duration must be between 1 and 120 minutes."
 msgstr "Duração tem que ser entre 1 e 120 minutos."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Estado por defeito para compromissos de dia inteiro"
 
 msgid "Working days"
 msgstr "Dias de trabalho"
@@ -1468,7 +1470,7 @@ msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Este compromisso foi movido ou eliminado. Quer continuar?"
 
 msgid "All Day"
-msgstr "Dia inteiro"
+msgstr "Todo o dia"
 
 msgid "Sort by: All Day"
 msgstr "Ordenar por: Dia inteiro"
@@ -1582,7 +1584,7 @@ msgid "Update recipients"
 msgstr "Atualizar destinatários"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "A hora da reunião foi alterada. Como deseja proceder?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Guardar alterações e enviar uma atualização a todos os destinatários"
@@ -2890,7 +2892,7 @@ msgid "d-m-Y"
 msgstr "d-m-Y"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Itens enviados"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
@@ -4365,16 +4367,16 @@ msgid "RE"
 msgstr "RE"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Lista de remetentes seguros vazia"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Por favor selecione um registo de um remetente seguro."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Apagar todos os remetentes seguros"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Tem a certeza que pretende apagar todos os remetentes seguros?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4444,7 +4446,7 @@ msgid "Close original message on reply or forward"
 msgstr "Fechar mensagem original ao responder ou reencaminhar"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Ativar vista de conversação"
 
 msgid "General mail settings"
 msgstr "Definições de E-mail gerais"
@@ -4483,16 +4485,19 @@ msgid ""
 msgstr "A data que inseriu é antes da data de \"fora de escritório\" definida."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Remetentes seguros"
 
 msgid ""
 "Manage safe sender list. To protect your privacy email addresses or domains "
 "can only be added via the \"Add to safe sender list\" functionality in an "
 "opened email."
 msgstr ""
+"Gerir lista de remetentes seguros. Para proteger a sua privacidade, "
+"endereços ou domínios de email, só podem ser adicionados através da opção \""
+"Adicionar à lista de remetentes seguros\" num email aberto."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Apagar todas"
 
 msgid "Signatures"
 msgstr "Assinaturas"
@@ -5036,10 +5041,10 @@ msgid "Create task"
 msgstr "Criar tarefa"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Próximas"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Em atraso"
 
 msgid "Mark Complete"
 msgstr "Assinalar Completa"
@@ -5202,17 +5207,17 @@ msgid "Connection with server has been restored"
 msgstr "A ligação com o servidor foi reposta"
 
 msgid "Please contact your administrator if this problem persists."
-msgstr ""
+msgstr "Por favor contacte o seu administrador se o problema persistir."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "Error HTTP {0}"
-msgstr ""
+msgstr "Erro HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr ""
+msgstr "Texto estado HTTP é: "
 
 msgid "Invalid data received from the server. HTTP status text is: "
-msgstr ""
+msgstr "Dados recebidos do servidor inválidos. O texto do estado HTTP é: "
 
 msgid "Missing store"
 msgstr "Caixa não encontrada"
@@ -5311,22 +5316,22 @@ msgid "Loading appointments..."
 msgstr "A carregar compromissos..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Por favor selecione um calendário através das definições do widget"
 
 msgid "Number of days"
 msgstr "Número de dias"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
 msgstr "Próximos compromissos"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Compromissos de {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Compromissos de {0} - {1}"
 
 msgid "No appointments"
 msgstr "Sem compromissos"
@@ -5533,6 +5538,8 @@ msgid ""
 "We encountered a problem. This might be caused by upgrading a plugin. Please "
 "re-login to resolve the issue."
 msgstr ""
+"Encontramos um problema. Isto pode ser provocado pela a actualização de um "
+"plugin. Por favor volte a iniciar sessão para resolver o problema."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -5647,7 +5654,7 @@ msgid "Action is not performed correctly."
 msgstr "Ação não foi executada corretamente."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "O pedido não está disponível."
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Não tem permissões suficientes para abrir este objeto."
