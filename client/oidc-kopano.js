@@ -10,11 +10,10 @@ const userManager = (function(){
 	{
 	    var uri = window.location.toString();
 	    if (uri.indexOf("#") > 0) {
-		var clean_uri = uri.substring(0, uri.indexOf("#"));
-		window.history.replaceState({}, document.title, clean_uri);
+			var clean_uri = uri.substring(0, uri.indexOf("#"));
+			window.history.replaceState({}, document.title, clean_uri);
 	    }
 	}
-
 
 	function onLoad() {
 		try {
@@ -43,9 +42,27 @@ const userManager = (function(){
 		http.send(data);
 	}
 
-	function logOut() {
-		window.onunload = function(){}; // eslint-disable-line no-empty-function
-		window.location = "?logout";
+	/**
+	 * Middleware function used to show the proper message box based on the action type.
+	 * 
+	 * @param {String} actionType The constant action type which used to show the message box.
+	 * @param {Function} handler The handler is callback function which called after the 
+	 * user confirmation.  
+	 */
+	function wrapperHandler(actionType, handler) {
+		if (window.Zarafa) {
+			if (actionType === "ACCESS_TOKEN_EXPIRED") {
+				var options = {
+					title: _('Access token expired'),
+					msg: _('You have been logged out.'),
+					cls: Ext.MessageBox.ERROR_CLS,
+					minWidth: 250,
+					fn: handler,
+					buttons: Ext.MessageBox.OK
+				};
+				window.Zarafa.core.Util.showMessageBox(options);
+			}
+		}
 	}
 
 	function init(oidcSettings, loginPage) {
@@ -61,20 +78,27 @@ const userManager = (function(){
 		mgr = new Oidc.UserManager(oidcSettings);
 		mgr.clearStaleState();
 
-		mgr.events.addAccessTokenExpired(function() {
-			console.warn("oidc token expired");
-      			mgr.removeUser();
-			logOut();
-		});
+		// Function which internally call the WrapperHandler
+		// with action type and callback function which 
+		// signout the webapp.
+		var accessTokenExpiredHandler = function(){
+			wrapperHandler("ACCESS_TOKEN_EXPIRED", function () {
+				mgr.signoutRedirect();
+			});
+		}
 
+		// Event handler triggered when access token get expired.
+		mgr.events.addAccessTokenExpired(accessTokenExpiredHandler);
+
+		// Event handler triggered when getting error
+		// while silently renewing access token.
 		mgr.events.addSilentRenewError(function (err) {
 			console.error("oidc silent renew error", err.error);
 			if (err) {
 				switch (err.error) {
 					case 'interaction_required':
 					case 'login_required':
-						mgr.removeUser();
-						logOut();
+						accessTokenExpiredHandler();
 						return;
 					default:
 						return;
@@ -86,14 +110,6 @@ const userManager = (function(){
 			mgr.getUser().then(function(user){
 				postToken(user);
 			});
-		});
-
-		mgr.events.addUserSignedOut(function() {
-			mgr.removeUser();
-		});
-
-		mgr.events.addUserUnloaded(function() {
-			logOut();
 		});
 
 		if (onLogonPage && window.location.hash.startsWith('#oidc-callback')) {

@@ -625,6 +625,18 @@ Zarafa.core.Util =
 	},
 
 	/**
+	 * Helper function which used to show the {@link Ext.MessageBox}
+	 * and {@link window.Zarafa.core.Util#disableLeaveRequester disable Leave Requester}
+	 * 
+	 * @param {Object} options The options object which used to construct the {@link Ext.MessageBox}.
+	 */
+	showMessageBox : function(options)
+	{
+		Zarafa.core.Util.disableLeaveRequester();
+		Ext.MessageBox.show(options);
+	},
+
+	/**
 	 * Helper function which add the given text into
 	 * browser clipboard data.
 	 *
