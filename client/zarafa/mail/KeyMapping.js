@@ -106,6 +106,19 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 				description : _('Toggle red/complete flag'),
 				category : _('Mail')
 			}
+		},{
+			key: Ext.EventObject.LEFT,
+			ctrl: false,
+			alt: false,
+			shift: false,
+			stopEvent: true,
+			handler: this.onConversationClose,
+			scope: this,
+			basic: true,
+			settingsCfg : {
+				description : _('Close a conversation'),
+				category : _('Mail')
+			}
 		}];
 
 		Zarafa.core.KeyMapMgr.register('global', newMailKeys);
@@ -117,6 +130,18 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 		Zarafa.core.KeyMapMgr.register('grid.mapimessage.mail', itemActionKeys);
 		Zarafa.core.KeyMapMgr.register('previewpanel.mail', itemActionKeys);
 		Zarafa.core.KeyMapMgr.register('contentpanel.record.message.showmail', itemActionKeys);
+	},
+
+	/**
+	 * Event handler for the keydown event of the {@link Zarafa.core.KeyMap KeyMap} when the user wants to 
+	 * close the conversation.
+	 * @param {Number} key Key code
+	 * @param {Ext.EventObject} event The event
+	 * @param {Ext.Component} component The component on which key event is fired.
+	 */
+	onConversationClose: function(key, event, component)
+	{
+		Zarafa.mail.Actions.closeSelectedConversation(component);
 	},
 
 	/**

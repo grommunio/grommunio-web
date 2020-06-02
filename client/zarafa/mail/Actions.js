@@ -87,6 +87,36 @@ Zarafa.mail.Actions = {
 	},
 
 	/**
+	 * Function will close a conversation when there's single record selected in mail grid
+	 * and that record is a part of that conversation. This will also select a row above this conversation 
+	 * and if there's no row above then it'll select a row below it.
+	 * 
+	 * @param {Zarafa.mail.ui.MailGrid} mailGrid The grid in which we need to close the conversation.
+	 */
+	closeSelectedConversation : function(mailGrid)
+	{
+		var selModel = mailGrid.getSelectionModel();
+		var selections = selModel.getSelections();
+
+		if (selections.length === 1 && selections[0].isConversationRecord()) {
+			var record = selections.pop();
+			var store = record.getStore();
+			var headerRecord = store.getHeaderRecordFromItem(record);
+			
+			if (headerRecord) {
+				store.toggleConversation(headerRecord);
+				
+				// Select previous row of this conversation headerRecord.
+				// If its not available then select Next row of it.
+				var rowIndex = store.indexOf(headerRecord);
+				if (!selModel.selectPrevious(false, rowIndex)) {
+					selModel.selectNext(false, rowIndex);
+				}
+			}
+		}
+	},
+
+	/**
 	 * Opens a {@link Zarafa.mail.ui.MailCreatePanel MailCreatePanel} for the
 	 * given {@link Zarafa.core.data.IPMRecord record} using the {@link Zarafa.mail.data.ActionTypes actionType}
 	 * to format the message.
