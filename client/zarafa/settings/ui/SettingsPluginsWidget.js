@@ -79,6 +79,7 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 		Ext.applyIf(config, {
 			title : _('Available plugins'),
 			layout : 'fit',
+			cls : 'k-settings-pluginpanel',
 			items : [{
 				xtype : 'panel',
 				border : false,
@@ -90,12 +91,6 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 					pack  : 'start'
 				},
 				items : [{
-					xtype : 'displayfield',
-					value : _('The following plugins are available in the WebApp. It is possible to select and/or deselect different plugins to indicate which plugins should be enabled. When any plugin is enabled or disabled, the WebApp must be reloaded in order for the changes to take effect.'),
-					fieldClass : 'zarafa-settings-widget-extrainfo',
-					ref : 'extrainfo',
-					height: 50
-				},{
 					xtype: 'grid',
 					border: true,
 					flex : 1,
@@ -137,21 +132,12 @@ Zarafa.settings.ui.SettingsPluginsWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
-	 * Event handler for the resize event of the plugins panel. Will calculate the correct size of the
-	 * extrainfo textfield and trigger a layout refresh.
-	 * @param {Ext.panel} pluginsPanel The panel that contains the extrainfo textfield and the grid
+	 * Event handler for the resize event of the plugins panel and trigger a layout refresh.
+	 * @param {Ext.panel} pluginsPanel The panel that contains the grid
 	 * with the plugins.
 	 */
 	onResizePluginsPanel : function(pluginsPanel)
 	{
-		// First set the size of the extrainfo field to auto, so we can calculate the auto height
-		// and then set that height on the component specifically
-		var el = pluginsPanel.extrainfo.getEl();
-		el.setHeight('auto');
-		var height = el.getHeight();
-		pluginsPanel.extrainfo.setHeight(height);
-		pluginsPanel.extrainfo.height = height;
-
 		// Now trigger a layout refresh to have the grid rendered with the correct height
 		pluginsPanel.doLayout();
 	},

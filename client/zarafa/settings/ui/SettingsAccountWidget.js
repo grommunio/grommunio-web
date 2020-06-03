@@ -93,7 +93,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 		});
 
 		Ext.applyIf(config, {
-			title : String.format(_('Account information - {0}'), user.getDisplayName()),
+			title : _('Account information'),
 			layout : 'form',
 			items : [{
 				xtype : 'displayfield',

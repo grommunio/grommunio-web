@@ -34,7 +34,7 @@ Zarafa.mail.settings.SettingsSafeSendersWidget = Ext.extend(Zarafa.settings.ui.S
 			},
 			items : [{
 				xtype: 'displayfield',
-				value: _('Manage safe sender list. To protect your privacy email addresses or domains can only be added via the "Add to safe sender list" functionality in an opened email.'),
+				value: _('To protect your privacy email addresses or domains can only be added via the "Add to safe sender list" functionality in an opened email.'),
 				fieldClass: 'x-form-display-field k-safesenders-extrainfo'
 			},{
 				xtype: 'spacer',

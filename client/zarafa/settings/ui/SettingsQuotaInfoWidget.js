@@ -32,7 +32,7 @@ Zarafa.settings.ui.SettingsQuotaInfoWidget = Ext.extend(Zarafa.settings.ui.Setti
 						hideLabel : true,
 						ref : 'unavailableQuotaInfo',
 						hidden: true,
-						value : _("Quota information is not set on the user's store.")
+						value : _("A quota is not set on your store.")
 					},{
 						xtype : 'displayfield',
 						hideLabel : true,

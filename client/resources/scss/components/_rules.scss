@@ -17,6 +17,10 @@
 	.x-btn-noicon .x-btn-small {
 		margin-right: $padding-medium;
 	}
+
+	.x-panel-body {
+		padding: $padding-medium*2 !important;
+	}
 }
 
 /* Rules edit panel (called "Inbox Rule" */
