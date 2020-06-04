@@ -402,6 +402,10 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	addCSSText : function(doc)
 	{
 		var head = doc.getElementsByTagName('head')[0];
+		if (head.childElementCount != 0) {
+			return;
+		}
+
 		var css = doc.createElement('style');
 		css.setAttribute('type', 'text/css');
 		css.appendChild(document.createTextNode('body { margin: 0; padding: 9px; } ' +
