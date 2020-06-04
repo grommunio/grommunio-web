@@ -257,6 +257,18 @@
 		busyStatusString: function(value)
 		{
 			return Zarafa.core.mapi.BusyStatus.getDisplayName(value);
+		},
+
+		/**
+		 * Function returns a formatted date string with the specified time format.
+		 *
+		 * @param {Ext.Date} value The Date object to be formatted
+		 * @param {String} formatString The time format string
+		 * @return {String} The formatted date/time string
+		 */
+		formatDefaultTimeString: function(value, formatString)
+		{
+			return value.formatDefaultTime(formatString);
 		}
 	});
 })();

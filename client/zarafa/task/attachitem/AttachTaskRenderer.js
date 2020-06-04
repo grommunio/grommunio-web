@@ -41,9 +41,9 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 		html += this.addHTMLRowGroup({
 			'subject' : '{subject:htmlEncode}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
+			'startdate' : '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
+			'duedate' : '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'importance' : '{importance:importanceString}',
 			'sensitivity' : '{sensitivity:sensitivityString}'
 		});
@@ -52,7 +52,7 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 			'status' : '{status:taskStatusString}',
 			'percent_complete' : '{percent_complete:percentage}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'datecompleted' : '{datecompleted:date("' + _("l jS F Y G:i") + '")}'
+			'datecompleted' : '{datecompleted:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}'
 		});
 
 		html += this.addHTMLRowGroup({
@@ -90,9 +90,9 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 		html += this.addPlainRowGroup({
 			'subject' : '{subject}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'startdate' : '{startdate:date("' + _("l jS F Y G:i") + '")}',
+			'startdate' : '{startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'duedate' : '{duedate:date("' + _("l jS F Y G:i") + '")}',
+			'duedate' : '{duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'importance' : '{importance:importanceString}',
 			'sensitivity' : '{sensitivity:sensitivityString}'
 		});
@@ -101,7 +101,7 @@ Zarafa.task.attachitem.AttachTaskRenderer = Ext.extend(Zarafa.common.attachment.
 			'status' : '{status:taskStatusString}',
 			'percent_complete' : '{percent_complete:percentage}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'datecompleted' : '{datecompleted:date("' + _("l jS F Y G:i") + '")}'
+			'datecompleted' : '{datecompleted:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}'
 		});
 
 		html += this.addPlainRowGroup({

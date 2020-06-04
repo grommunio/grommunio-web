@@ -76,10 +76,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			var showDate = start.getDayOfYear() !== end.getDayOfYear() || start.getYear() !== end.getYear();
 			if (showDate) {
 				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				timeformat = _('jS F Y G:i');
-			} else {
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-				timeformat = _('G:i');
+				timeformat = _('jS F Y {0}');
 			}
 
 			var showDays = Math.floor(Date.diff(Date.DAY, showEnd, showStart));
@@ -95,8 +92,8 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			var append = '<tr class="calendar-'+ (allday ? 'allday' : 'normal') + '">';
 			if (!allday) {
 				append += '<td class="nowrap" style="' + this.timeStyle + '">'
-					+ start.format(timeformat) + ' - ' + (showDate ? '<br>' : '')
-					+ end.format(timeformat) + '</td>';
+					+ start.formatDefaultTime(timeformat) + ' - ' + (showDate ? '<br>' : '')
+					+ end.formatDefaultTime() + '</td>';
 			}
 			append += '<td class="calendar-item" colspan='+ (allday ? '2' : '1') +'>'
 				+ Ext.util.Format.htmlEncode(subject) + Ext.util.Format.htmlEncode(location) + '</td></tr>';
@@ -176,7 +173,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			+ '<tr>'
 			+ '<td class="nowrap" align="left">{fullname}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td class="nowrap" align="right">{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';
 

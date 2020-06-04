@@ -19,7 +19,6 @@ describe('Extra information links', function() {
 			}
 		}
 	};	
-	container = new Zarafa.core.Container();
 
 	beforeEach(function() {
 		links = new Zarafa.common.ui.messagepanel.ExtraInfoLinks({renderTo: Ext.getBody()});
@@ -80,6 +79,10 @@ describe('Extra information links', function() {
   });
 
   describe('Normal record', function() {
+	beforeEach(function() {
+		container = new Zarafa.core.Container();
+		settingsModel = container.getSettingsModel();
+	});
 
     it('should not shown information about corrupt record', function() {
       const record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note', normalData, 1);
@@ -97,7 +100,7 @@ describe('Extra information links', function() {
 
       const extraInfoEl = Ext.query('div.preview-header-extrainfobox-item');
       expect(Ext.isEmpty(extraInfoEl)).toBeFalsy();
-      expect(extraInfoEl[0].textContent).toContain('You forwarded this message on ' + date.format('j-m-Y H:i'));
+      expect(extraInfoEl[0].textContent).toContain('You forwarded this message on ' + date.formatDefaultTime('j-m-Y {0}'));
     });
 
     it('should show reply information when message is a reply (102)', function() {
@@ -109,7 +112,7 @@ describe('Extra information links', function() {
 
       const extraInfoEl = Ext.query('div.preview-header-extrainfobox-item');
       expect(Ext.isEmpty(extraInfoEl)).toBeFalsy();
-      expect(extraInfoEl[0].textContent).toContain('You replied to this message on ' + date.format('j-m-Y H:i'));
+      expect(extraInfoEl[0].textContent).toContain('You replied to this message on ' + date.formatDefaultTime('j-m-Y {0}'));
     });
 
     it('should show reply information when message is a reply (103)', function() {
@@ -121,7 +124,7 @@ describe('Extra information links', function() {
 
       const extraInfoEl = Ext.query('div.preview-header-extrainfobox-item');
       expect(Ext.isEmpty(extraInfoEl)).toBeFalsy();
-      expect(extraInfoEl[0].textContent).toContain('You replied to this message on ' + date.format('j-m-Y H:i'));
+      expect(extraInfoEl[0].textContent).toContain('You replied to this message on ' + date.formatDefaultTime('j-m-Y {0}'));
     });
 
     it('should sensitivity information', function() {

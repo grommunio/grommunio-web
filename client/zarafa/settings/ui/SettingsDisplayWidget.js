@@ -41,15 +41,42 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					xtype : 'radio',
 					inputValue : 'short',
 					name: 'datetimeDisplayFormat',
-					boxLabel : _('Short') + '<span class="k-settings-label-minor">(' + new Date().format(_('D G:i')) + ')</span>'
+					boxLabel : _('Short') + '<span class="k-settings-label-minor">(' + new Date().formatDefaultTime(_('D {0}')) + ')</span>'
 				},{
 					xtype : 'radio',
 					name: 'datetimeDisplayFormat',
 					inputValue : 'long',
-					boxLabel : _('Long') + '<span class="k-settings-label-minor">(' + new Date().format(_('l d/m/Y G:i')) + ')</span>'
+					boxLabel : _('Long') + '<span class="k-settings-label-minor">(' + new Date().formatDefaultTime(_('l d/m/Y {0}')) + ')</span>'
 				}],
 				listeners : {
 					change : this.onRadioChange,
+					scope : this
+				}
+			},{
+				xtype : 'displayfield',
+				hideLabel : true,
+				value : _('Time format:')
+			},{
+				xtype : 'radiogroup',
+				name : 'zarafa/v1/main/datetime_time_format',
+				ref : 'datetimeTimeformat',
+				hideLabel : true,
+				width: 200,
+				columns : 2,
+				items: [{
+					xtype : 'radio',
+					inputValue : Zarafa.common.data.TimeFormat.TWELVEHOUR,
+					name : 'datetimeTimeformat',
+					boxLabel : _('12h clock')
+				},{
+					xtype : 'radio',
+					inputValue : Zarafa.common.data.TimeFormat.TWENTYFOURHOUR,
+					name : 'datetimeTimeformat',
+					boxLabel : _('24h clock'),
+					checked : true
+				}],
+				listeners : {
+					change : this.onRadioChangeTimeFormat,
 					scope : this
 				}
 			},{
@@ -110,6 +137,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 	{
 		this.model = settingsModel;
 		this.datetimeDisplayFormat.setValue(settingsModel.get(this.datetimeDisplayFormat.name));
+		this.datetimeTimeformat.setValue(settingsModel.get(this.datetimeTimeformat.name));
 		this.hideFavorites.setValue(settingsModel.get(this.hideFavorites.name));
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
@@ -124,8 +152,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 	updateSettings : function (settingsModel)
 	{
 		var datetimeDisplayFormat = this.datetimeDisplayFormat.getValue().inputValue;
-
+		var datetimeTimeFormat = settingsModel.get(this.datetimeTimeformat.name);
 		settingsModel.set(this.datetimeDisplayFormat.name, datetimeDisplayFormat);
+		settingsModel.set(this.datetimeTimeformat.name, datetimeTimeFormat);
 		settingsModel.set(this.hideFavorites.name, this.hideFavorites.getValue());
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
@@ -170,6 +199,25 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 	},
 
 	/**
+	 * Event handler which is fired when the value of the datetime time format radio button has been changed.
+	 * @param {Ext.form.Field} field The field which has fired the event
+	 * @param {Ext.form.Radio} radio The radio which was enabled
+	 */
+	onRadioChangeTimeFormat : function(field, radio)
+	{
+		if (this.model) {
+			var timeFormatString = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+			if (timeFormatString !== radio.inputValue) {
+				if (radio.inputValue === 'G:i') {
+					this.model.set(this.datetimeTimeformat.name, Zarafa.common.data.TimeFormat.TWENTYFOURHOUR);
+				} else {
+					this.model.set(this.datetimeTimeformat.name, Zarafa.common.data.TimeFormat.TWELVEHOUR);
+				}
+			}
+		}
+	},
+
+	/**
 	 * Event handler which is called when one of the textfields has been changed.
 	 * This will apply the new value to the settings.
 	 * @param {Ext.form.Field} field The field which has fired the event
@@ -186,7 +234,6 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 			}
 		}
 	}
-
 });
 
 Ext.reg('zarafa.settingsdisplaywidget', Zarafa.settings.ui.SettingsDisplayWidget);

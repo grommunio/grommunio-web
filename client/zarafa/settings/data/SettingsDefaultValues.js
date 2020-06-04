@@ -76,6 +76,15 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							'datetime_display_format' : 'short',
 
 							/**
+							 * zarafa/v1/main/datetime_time_format
+							 * Format to use when displaying time in a grid.
+							 * Can be 'g:i A' or 'G:i'
+							 * @property
+							 * @type String
+							 */
+							'datetime_time_format' : 'G:i',
+
+							/**
 							 * zarafa/v1/main/default_font
 							 * Default font for writing email
 							 * @property

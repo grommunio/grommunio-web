@@ -59,7 +59,7 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		+ '<tr>'
 		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
 		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-		+ '<td class="right">' + _('Printed on: ') + '{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+		+ '<td class="right">' + _('Printed on: ') + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 		+ '</tr>'
 		+ '</table>\n';
 		return html;

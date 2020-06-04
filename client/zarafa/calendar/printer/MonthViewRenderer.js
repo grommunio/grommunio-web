@@ -99,12 +99,13 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		var appointments = [];
 		var dateRange = new Zarafa.core.DateRange();
 		var records = model.getStore().getRange();
+
 		records.forEach(function (record) {
 			var startDate = record.get('startdate').clone();
 			var status = record.get('busystatus');
 
 			dateRange = dateRange.set( startDate,  record.get('duedate').clone(), true, true);
-			var text = dateRange.isAllDay() ? record.get("subject") : record.get('startdate').format( _('G:i')) + " " + record.get("subject");
+			var text = dateRange.isAllDay() ? record.get("subject") : record.get('startdate').formatDefaultTime() + " " + record.get("subject");
 
 			var location = record.get('location');
 			if (!Ext.isEmpty(location)) {
@@ -273,7 +274,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 			+ '<tr>'
 			+ '<td class="nowrap" align="left">{fullname}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td class="nowrap" align="right">{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td class="nowrap" align="right">{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';
 

@@ -31,6 +31,8 @@ Zarafa.common.ui.TimePeriodField = Ext.extend(Zarafa.common.ui.DateRangeField, {
 	constructor : function(config)
 	{
 		config = config || {};
+		
+		this.timeFormat = config.timeFormat || container.settingsModel.get('zarafa/v1/main/datetime_time_format');
 
 		config.startFieldConfig = config.startFieldConfig || {};
 		config.startFieldConfig.plugins = Ext.value(config.startFieldConfig.plugins, []);

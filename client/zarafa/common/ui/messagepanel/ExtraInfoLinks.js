@@ -298,13 +298,13 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 		// 104 is set in createmailitemmodule::setReplyForwardInfo when a message is forwarded.
 		if(lastVerbExecuted === 104) {
-			var text = lastVerbExecutionTime ? String.format(this.forwardStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+			var text = lastVerbExecutionTime ? String.format(this.forwardStringTime, lastVerbExecutionTime.formatDefaultTime('j-m-Y {0}')) :
 				this.forwardString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
 			isVisible = true;
 		} else if(lastVerbExecuted === 102 || lastVerbExecuted == 103) { // 102/103 is set when the message is a reply.
-			var text = lastVerbExecutionTime ? String.format(this.repliedStringTime, lastVerbExecutionTime.format('j-m-Y H:i')) :
+			var text = lastVerbExecutionTime ? String.format(this.repliedStringTime, lastVerbExecutionTime.formatDefaultTime('j-m-Y {0}')) :
 				this.repliedString;
 			el.createChild({tag: 'div', html: text, cls: this.itemCls});
 
@@ -454,6 +454,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		var delegateEntryid = this.record.get('sender_entryid');
 		var delegatorEntryid = this.record.get('sent_representing_entryid');
 		var assigneeName = '';
+
 		// check if sender and sent representing entryids are different
 		if(delegatorEntryid && !Zarafa.core.EntryId.compareABEntryIds(delegateEntryid, delegatorEntryid)) {
 			delegateResponse  = true;
@@ -463,7 +464,7 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		switch (taskHistory) {
 			case Zarafa.core.mapi.TaskHistory.ASSIGNED:
 				if (this.record.isTaskReceived()) {
-					infoMsg = String.format(this.receivedTaskRequest, this.record.get('tasklastuser'), this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.receivedTaskRequest, this.record.get('tasklastuser'), this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
 					infoMsg = this.sentTaskRequest;
 				}
@@ -471,25 +472,25 @@ Zarafa.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 				break;
 			case Zarafa.core.mapi.TaskHistory.ACCEPTED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.acceptDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.acceptDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
-					infoMsg = String.format(this.acceptedTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.acceptedTaskRequest, taskLastUser, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;
 			case Zarafa.core.mapi.TaskHistory.DECLINED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.declineDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.declineDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime('d-m-Y {0}'));
 				} else {
-					infoMsg = String.format(this.declineAssignerTaskRequest, taskLastUser, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.declineAssignerTaskRequest, taskLastUser, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;
 			case Zarafa.core.mapi.TaskHistory.UPDATED:
 				if (delegateResponse ) {
-					infoMsg = String.format(this.updateDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.updateDelegateTaskRequestInfoString, taskLastUser, assigneeName, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				} else {
-					infoMsg = String.format(this.updateTaskRequest, this.record.get('task_assigned_time').format(_('d-m-Y g:i a')));
+					infoMsg = String.format(this.updateTaskRequest, this.record.get('task_assigned_time').formatDefaultTime(_('d-m-Y {0}')));
 				}
 				isVisible = true;
 				break;

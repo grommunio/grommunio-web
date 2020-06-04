@@ -129,7 +129,7 @@ Zarafa.common.ui.grid.Renderers = {
 		p.css = value ? 'icon_reminder' : 'zarafa-grid-empty-cell';
 		if (Ext.isDefined(record) && !Ext.isEmpty(record.get('reminder_time'))) {
 			var reminderTime = record.get('reminder_time');
-			var tooltip = String.format(_('Reminder is set on: {0}, {1}'), reminderTime.format(_('d-m-Y')), reminderTime.format(_('G:i')));
+			var tooltip = String.format(_('Reminder is set on: {0}, {1}'), reminderTime.format(_('d-m-Y')), reminderTime.formatDefaultTime());
 			p.attr = 'ext:qtip=\"'+Ext.util.Format.htmlEncode(tooltip)+'\"';
 		}
 		return '';
@@ -455,7 +455,7 @@ Zarafa.common.ui.grid.Renderers = {
 
 			return value.getNiceFormat();
 		} else {
-			return value.format(_('l d/m/Y G:i'));
+			return value.formatDefaultTime(_('l d/m/Y {0}'));
 		}
 	},
 
@@ -481,9 +481,9 @@ Zarafa.common.ui.grid.Renderers = {
 			// Add one class that the tooltip can use to recognize a 'nice' date.
 			// Add one class so the tooltip can easily get the timestamp of the date.
 			p.css += ' k-date-nice k-ts-'+value.getTime();
-			return value.format(_('d-m-Y G:i'));
+			return value.formatDefaultTime(_('d-m-Y {0}'));
 		} else {
-			return value.format(_('l d/m/Y G:i'));
+			return value.formatDefaultTime(_('l d/m/Y {0}'));
 		}
 	},
 

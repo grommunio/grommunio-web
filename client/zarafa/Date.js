@@ -558,7 +558,7 @@ Ext.apply(Date.prototype, {
 		// Check for today. We'll only use time then.
 		if ( d.getTime() === now.getTime() ){
 			if ( includeTime ){
-				return this.format(_('G:i'));
+				return this.formatDefaultTime();
 			} else {
 				return _('Today');
 			}
@@ -567,7 +567,7 @@ Ext.apply(Date.prototype, {
 		// Check for tomorrow.
 		if ( d.add(Date.DAY, -1).getTime() === now.getTime() ){
 			if ( includeTime ){
-				return _('Tomorrow') + ' ' + this.format(_('G:i'));
+				return _('Tomorrow') + ' ' + this.formatDefaultTime();
 			} else {
 				return _('Tomorrow');
 			}
@@ -581,7 +581,7 @@ Ext.apply(Date.prototype, {
 		// Check for past week. We'll use day (name) + time then.
 		if ( d.add(Date.DAY, 6) >= now ){
 			if ( includeTime ){
-				return this.format(_('D G:i'));
+				return this.formatDefaultTime(_('D {0}'));
 			} else {
 				return this.format(_('D d-m'));
 			}
@@ -594,6 +594,25 @@ Ext.apply(Date.prototype, {
 
 		// For anything older than two weeks ago, we'll show the date
 		return this.format(_('d-m-Y'));
+	},
+
+	/**
+	* Function returns a formatted date string with the specified time format.
+	*
+	* @param {String} formatString The time format string
+	* @return {String} The formatted date/time string
+	*/
+	formatDefaultTime : function(formatString)
+	{
+		var timeFormat = container.settingsModel.get('zarafa/v1/main/datetime_time_format');
+		var newFormat;
+
+		if (Ext.isDefined(formatString)) {
+			newFormat = String.format(formatString, timeFormat);
+		} else {
+			newFormat = timeFormat;
+		}
+		return this.format(newFormat);
 	}
 });
 

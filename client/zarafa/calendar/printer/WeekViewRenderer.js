@@ -118,7 +118,7 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 			+ '<tr>'
 			+ '<td class="nowrap" align=left>{fullname}</td>'
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			+ '<td class="nowrap" align=right>{currenttime:date("' + _("l jS F Y G:i") + '")}</td>'
+			+ '<td class="nowrap" align=right>{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';
 

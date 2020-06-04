@@ -1027,7 +1027,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			if (!this.model.showOnlyWorkingHours() || (i >= startHour && i < endHour)) {
 				this.hoursEachDayMap[ this.hoursEachDayMap.length ] = {
 					// Run the hour through a formatter
-					label: Date.parseDate(i, 'G').format(_('G:i')),
+					label: Date.parseDate(i, 'G').formatDefaultTime(),
 					startDayOffset: i * this.slotDuration,
 					workingHour: (i >= startHour && i < endHour) ? true : false
 				};

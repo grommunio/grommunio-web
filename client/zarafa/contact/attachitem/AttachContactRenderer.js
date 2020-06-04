@@ -118,9 +118,9 @@ Zarafa.contact.attachitem.AttachContactRenderer = Ext.extend(Zarafa.common.attac
 
 		html += this.addHTMLRowGroup({
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'birthday' : '{birthday:date("' + _("l jS F Y G:i") + '")}',
+			'birthday' : '{birthday:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'wedding_anniversary' : '{wedding_anniversary:date("' + _("l jS F Y G:i") + '")}',
+			'wedding_anniversary' : '{wedding_anniversary:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'spouse_name' : '{spouse_name:htmlEncode}',
 			'profession' : '{profession:htmlEncode}',
 			'assistant' : '{assistant:htmlEncode}',
@@ -196,9 +196,9 @@ Zarafa.contact.attachitem.AttachContactRenderer = Ext.extend(Zarafa.common.attac
 
 		html += this.addPlainRowGroup({
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'birthday' : '{birthday:date("' + _("l jS F Y G:i") + '")}',
+			'birthday' : '{birthday:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-			'wedding_anniversary' : '{wedding_anniversary:date("' + _("l jS F Y G:i") + '")}',
+			'wedding_anniversary' : '{wedding_anniversary:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'spouse_name' : '{spouse_name}',
 			'profession' : '{profession}',
 			'assistant' : '{assistant}',
