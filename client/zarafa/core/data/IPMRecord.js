@@ -565,6 +565,19 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		}
 
 		return this.get('conversation_count') > 1 && this.get('depth') === 0;
+	},
+
+	/**
+	 * Checks if the passed record is part of a conversation.
+	 *
+	 * @return {Boolean} True if the passed record is part of a conversation, false otherwise
+	 */
+	isConversationRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('depth') > 0;
 	}
 });
 

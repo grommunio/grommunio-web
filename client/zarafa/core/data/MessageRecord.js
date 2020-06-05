@@ -49,19 +49,6 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	externalContent : false,
 
 	/**
-	 * Checks if the passed record is part of a conversation.
-	 *
-	 * @return {Boolean} True if the passed record is part of a conversation, false otherwise
-	 */
-	isConversationRecord: function() {
-		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
-			return false;
-		}
-
-		return this.get('depth') > 0;
-	},
-
-	/**
 	 * Finds the header record of the conversation of which this record is a part.
 	 * If it is not part of a conversation or if it is a header record itself, the
 	 * record itself will be returned.

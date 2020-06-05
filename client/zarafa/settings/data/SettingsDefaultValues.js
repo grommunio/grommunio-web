@@ -596,6 +596,13 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								'enable_conversation_view' : false,
 
 								/**
+								 * zarafa/v1/contexts/mail/expand_single_conversation
+								 * @property
+								 * @type Boolean
+								 */
+								'expand_single_conversation' : true,
+
+								/**
 								 * zarafa/v1/contexts/mail/enable_grouping
 								 * @property
 								 * @type Boolean

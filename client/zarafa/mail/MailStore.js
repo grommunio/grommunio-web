@@ -336,7 +336,14 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		}, this);
 	},
 
-	toggleConversation : function(headerRecord, expand) {
+	/**
+	 * Function toggles the conversation.
+	 * 
+	 * @param {Zarafa.core.IPMRecord} headerRecord The header record of conversation.
+	 * @param {Boolean} expand The expand is true if conversation needs to expand else false.
+	 */
+	toggleConversation : function(headerRecord, expand) 
+	{
 		if (!headerRecord.isConversationHeaderRecord()) {
 			return;
 		}
@@ -385,11 +392,31 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	},
 
 	/**
+	 * Function will collapse all the conversation except the given header record in parameter 
+	 * and if no header record is provided then it will collapse all the conversation.
+	 * 
+	 * @param {Zarafa.core.IPMRecord} headerRecord The header record of conversation.
+	 */
+	collapseAllConversation : function(headerRecord) 
+	{
+		var closeAll = !Ext.isDefined(headerRecord);
+
+		// TODO: create the copy of the openedConversationItems array and then used it.
+		this.openedConversationItems.forEach(function(entryId){
+			var item = this.getById(entryId);
+			if (item.isConversationHeaderRecord() && (closeAll === true || headerRecord.get("entryid") !== entryId)) {
+				this.toggleConversation(item);
+			}
+		}, this);
+	},
+
+	/**
 	 * Helper function to open (expand) a conversation
 	 *
 	 * @param {Zarafa.mail.MailRecord} headerRecord
 	 */
-	expandConversation: function(headerRecord) {
+	expandConversation: function(headerRecord) 
+	{
 		this.toggleConversation(headerRecord, true);
 	},
 

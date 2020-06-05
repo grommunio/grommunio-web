@@ -77,20 +77,6 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 				scope : this
 			}
 		}];
-		if (container.getServerConfig().isConversationViewEnabled()) {
-			items.push({
-				xtype : 'checkbox',
-				name : 'zarafa/v1/contexts/mail/enable_conversation_view',
-				ref : 'enableConversations',
-				boxLabel : _('Enable conversation view'),
-				hideLabel : true,
-				lazyInit : false,
-				listeners : {
-					check : this.onCheck,
-					scope : this
-				}
-			});
-		}
 
 		Ext.applyIf(config, {
 			title : _('General mail settings'),
@@ -149,9 +135,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 		this.previewCombo.setValue(previewLocation);
 		this.closeCheck.setValue(settingsModel.get(this.closeCheck.name));
 		this.englishAbb.setValue(settingsModel.get(this.englishAbb.name));
-		if (this.enableConversations) {
-			this.enableConversations.setValue(settingsModel.get(this.enableConversations.name));
-		}
+
 		if (Zarafa.supportsPopOut()) {
 			this.openingMailField.setValue(settingsModel.get(this.openingMailField.name));
 		}
@@ -167,9 +151,7 @@ Zarafa.mail.settings.SettingsMailWidget = Ext.extend(Zarafa.settings.ui.Settings
 	{
 		settingsModel.set(this.previewCombo.name, this.previewCombo.getValue());
 		settingsModel.set(this.closeCheck.name, this.closeCheck.getValue());
-		if (this.enableConversations) {
-			settingsModel.set(this.enableConversations.name, this.enableConversations.getValue());
-		}
+
 		if (Zarafa.supportsPopOut()) {
 			settingsModel.set(this.openingMailField.name, this.openingMailField.getValue().inputValue);
 		}

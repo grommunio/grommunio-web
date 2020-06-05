@@ -51,8 +51,8 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
-	 * @return {Boolean} True if it should be possible to set rules on the store
-	 * of other users.
+	 * @return {Boolean} True if it should be possible to enable the conversation view
+	 * by user else false.
 	 */
 	isConversationViewEnabled : function()
 	{
