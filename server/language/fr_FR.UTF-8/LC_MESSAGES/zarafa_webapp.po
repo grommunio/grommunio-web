@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2018-02-09 09:18+0000\n"
-"Last-Translator: jengelh <jengelh@inai.de>\n"
-"Language-Team: French (France) <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/fr/>\n"
+"PO-Revision-Date: 2020-06-08 11:38+0000\n"
+"Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
+"Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
+"webapp/fr/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
@@ -452,9 +452,8 @@ msgstr "Téléphone portable"
 msgid "Pager"
 msgstr "Pageur"
 
-#, fuzzy
 msgid "No user selected"
-msgstr "Aucune note sélectionnée"
+msgstr "Aucun utilisateur sélectionné"
 
 msgid "You must select one or more users."
 msgstr "Vous devez sélectionner un ou plusieurs utilisateurs."
@@ -469,21 +468,22 @@ msgid "Show Details"
 msgstr "Afficher les détails"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Copier le contact"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Copier les contacts"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Afficher seuelement les {0} premiers noms. Utiliser la recherche pour "
+"trouver plus de résultats."
 
 msgid "Use the search bar to get results"
 msgstr "Utilisez la barre de recherche pour obtenir des résultats"
 
-#, fuzzy
 msgid "There are no items to show in this list"
-msgstr "Il n'y a aucun élément à afficher dans cette fenêtre"
+msgstr "Il n'y a aucun élément à afficher dans cette liste"
 
 msgid "Show Names from the"
 msgstr "Afficher les noms de"
@@ -574,7 +574,7 @@ msgid "Sort by: Fax"
 msgstr "Trier par : Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Imprimer un seul élément"
 
 # 78%
 msgid "Print selected item"
@@ -584,7 +584,7 @@ msgid "Print"
 msgstr "Imprimer"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Aucun élément sélectionné"
 
 msgid "No preview"
 msgstr "Aucune prévisualisation"
@@ -618,34 +618,31 @@ msgid "Custom date"
 msgstr "Date personnalisée"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Ajouter aux favoris"
 
 msgid "Add"
 msgstr "Ajouter"
 
-#, fuzzy
 msgid "Empty folder name"
-msgstr "Vider le dossier"
+msgstr "Vider le nom du dossier"
 
 msgid "You must specify a name."
 msgstr "Vous devez spécifier un nom."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Ajouter un dossier aux favoris basé sur votre requête de recherche"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nom du dossier"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Définir la catégorie"
+msgstr "Sélectionnez la catégorie"
 
 msgid "Apply"
 msgstr "Appliquer"
 
-#, fuzzy
 msgid "All folders are selected"
-msgstr "Dossier '{0}' sélectionné."
+msgstr "Tous les dossiers sont sélectionnés"
 
 msgid "Reply"
 msgstr "Répondre"
@@ -668,17 +665,15 @@ msgstr "Outils de recherche"
 msgid "Folders"
 msgstr "Dossiers"
 
-#, fuzzy
 msgid "Include subfolders"
-msgstr "Créer des sous-répertoires"
+msgstr "Inclure les sous-répertoires"
 
 msgid "Show.."
 msgstr "Afficher.."
 
 msgid "Mails"
-msgstr "Courrier"
+msgstr "Mails"
 
-#, fuzzy
 msgid "Appointments"
 msgstr "Rendez-vous"
 
@@ -700,19 +695,16 @@ msgstr "Pièces jointes"
 msgid "Date"
 msgstr "Date"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "De"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "À"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "Filtrer.."
+msgstr "Filtrer la catégorie.."
 
 msgid "Search.."
 msgstr "Rechercher.."
@@ -733,25 +725,24 @@ msgid "Favorites"
 msgstr "Favoris"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Ajouter un dossier aux favoris basé sur une requête de recherche"
 
 # 76%
 msgid "Select Folder"
 msgstr "Sélectionner un Dossier"
 
 msgid "Delete search folder"
-msgstr ""
+msgstr "Supprimer le dossier de recherche"
 
 msgid "Sort by: Date"
 msgstr "Trier par : Date"
 
 # 76%
 msgid "Loading Search results"
-msgstr "Téléchargement des résultats de la recherche"
+msgstr "Chargement des résultats de la recherche"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Le tri n'est pas possible"
+msgstr "Astuce de tri"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -762,13 +753,13 @@ msgid "Did you mean"
 msgstr "Vouliez-vous dire"
 
 msgid "With"
-msgstr ""
+msgstr "Avec"
 
 msgid "To"
 msgstr "À"
 
 msgid "No date"
-msgstr ""
+msgstr "Aucune date"
 
 msgid "Error"
 msgstr "Erreur"
@@ -785,10 +776,10 @@ msgid ""
 "have been moved or deleted."
 msgstr ""
 "Impossible de consulter la proposition car cette réunion n'est pas "
-"disponible dans le calendrier; Ceci peut avoir été déplacé ou effacé."
+"disponible dans le calendrier; Celle-ci peut avoir été déplacée ou effacée."
 
 msgid "Required"
-msgstr "Participation obligatoire"
+msgstr "Requis"
 
 msgid "Optional"
 msgstr "Facultatif"
@@ -818,7 +809,7 @@ msgid "weeks"
 msgstr "semaines"
 
 msgid " on "
-msgstr " sur "
+msgstr " le "
 
 msgid "month"
 msgstr "mois"
