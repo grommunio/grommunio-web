@@ -5,7 +5,12 @@
 		border-right: 1px solid $grey;
 		padding-top: $padding-medium;
 		z-index: 1;
+		overflow: hidden !important;
 
+		&:hover {
+			overflow : auto !important;
+		}
+		
 		.zarafa-settings-category-tab {
 			padding: ($settings-category-tab-height - $font-default-line-height) $padding-medium;
 			padding-left: 4px;
