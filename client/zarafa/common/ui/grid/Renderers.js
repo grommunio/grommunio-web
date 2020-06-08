@@ -278,9 +278,17 @@ Zarafa.common.ui.grid.Renderers = {
 			// if value is empty then add extra css class for empty cell
 			p.css += ' zarafa-grid-empty-cell';
 		}
-
+	
+		// @Fixme: Find a better way to render body. Make a seprate body renderer.
+		// content shouyld be rendered as the column header suggests.
 		if (Ext.isDefined(record) && record.get('conversation_count') > 0){
 			value = record.get('normalized_subject');
+		} else if (Ext.isDefined(record) && record.get('depth') > 0) {
+			value = record.get('body');
+			var indexOfRepliedMail = value.indexOf("-----"+ _('Original message') +"-----");
+			if (indexOfRepliedMail > 0) {
+				value = value.substring(0, indexOfRepliedMail);
+			}
 		}
 
 		return Ext.util.Format.htmlEncode(value);
