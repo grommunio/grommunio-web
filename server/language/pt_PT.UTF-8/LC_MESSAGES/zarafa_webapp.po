@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-05-27 16:59+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -853,8 +853,8 @@ msgid "When"
 msgstr "Quando"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "l j F Y G:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "Onde"
@@ -912,6 +912,48 @@ msgstr "Evento dia inteiro"
 
 msgid "Add Shared Calendar"
 msgstr "Adicionar calendário partilhado"
+
+msgid "Remove From Calendar"
+msgstr "Remover do calendário"
+
+msgid "No Response Required"
+msgstr "Sem resposta necessária"
+
+msgid "Accept"
+msgstr "Aceitar"
+
+msgid "Accept Meeting Request"
+msgstr "Aceitar pedido de reunião"
+
+msgid "Tentative"
+msgstr "Tentativa"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Aceitar pedido de reunião em modo de tentativa"
+
+msgid "Decline"
+msgstr "Recusar"
+
+msgid "Decline Meeting Request"
+msgstr "Recusar pedido de reunião"
+
+msgid "Propose New Time"
+msgstr "Propor nova hora"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Propor nova hora para o pedido de reunião"
+
+msgid "View All Proposals"
+msgstr "Ver todas as propostas"
+
+msgid "Accept Proposal"
+msgstr "Aceitar proposta"
+
+msgid "Accept Proposed Time"
+msgstr "Aceitar hora proposta"
+
+msgid "View in calendar"
+msgstr "Ver no calendário"
 
 msgid "Day"
 msgstr "Dia"
@@ -1127,8 +1169,8 @@ msgid ""
 msgstr "Quer alterar a localização \"{0}\" pela nova localização \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
-msgstr "j F Y G:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 msgid "None"
 msgstr "Nenhum"
@@ -1201,9 +1243,6 @@ msgstr "Atual hora da reunião"
 
 msgid "Show only working hours"
 msgstr "Mostrar apenas horas de trabalho"
-
-msgid "Propose New Time"
-msgstr "Propor nova hora"
 
 msgid "Start time"
 msgstr "Hora de início"
@@ -1442,15 +1481,6 @@ msgstr "Abrir"
 msgid "Copy/Move"
 msgstr "Copiar/Mover"
 
-msgid "Accept"
-msgstr "Aceitar"
-
-msgid "Tentative"
-msgstr "Tentativa"
-
-msgid "Decline"
-msgstr "Recusar"
-
 msgid "Send to..."
 msgstr "Enviar para..."
 
@@ -1554,8 +1584,8 @@ msgid "Loading appointments"
 msgstr "A carregar compromissos"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F G:i"
-msgstr "j F G:i"
+msgid "jS F {0}"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1629,36 +1659,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Local"
 
-msgid "Remove From Calendar"
-msgstr "Remover do calendário"
-
-msgid "No Response Required"
-msgstr "Sem resposta necessária"
-
-msgid "Accept Meeting Request"
-msgstr "Aceitar pedido de reunião"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "Aceitar pedido de reunião em modo de tentativa"
-
-msgid "Decline Meeting Request"
-msgstr "Recusar pedido de reunião"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "Propor nova hora para o pedido de reunião"
-
-msgid "View All Proposals"
-msgstr "Ver todas as propostas"
-
-msgid "Accept Proposal"
-msgstr "Aceitar proposta"
-
-msgid "Accept Proposed Time"
-msgstr "Aceitar hora proposta"
-
-msgid "View in calendar"
-msgstr "Ver no calendário"
-
 msgid "No additional response required"
 msgstr "Nenhuma resposta adicional necessária"
 
@@ -1668,10 +1668,6 @@ msgid ""
 msgstr ""
 "O calendário foi atualizado automaticamente. Este pedido de reunião vai ser "
 "eliminado."
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "Imprimir múltiplos itens ainda não foi implementado."
@@ -2877,8 +2873,8 @@ msgstr "Página Web"
 msgid "IM Address"
 msgstr "Endereço IM (MSN, ICQ, Yahoo!Messenger)"
 
-msgid "D, d-m-Y, G:i"
-msgstr "D, d-m-Y, G:i"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -2894,11 +2890,11 @@ msgstr "d-m-Y"
 msgid "Sent Items"
 msgstr "Itens enviados"
 
-msgid "l d/m/Y G:i"
-msgstr "l d/m/Y G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-msgid "d-m-Y G:i"
-msgstr "d-m-Y"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -3089,9 +3085,6 @@ msgstr "Corrigir mensagem"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Vamos tentar corrigir a mensagem corrompida. Deseja continuar?"
-
-msgid "d-m-Y g:i a"
-msgstr "d-m-Y g:i a"
 
 msgid "The matching task was not found in your task list."
 msgstr "Não foi encontrada nenhuma tarefa correspondente na sua lista."
@@ -3858,8 +3851,8 @@ msgstr "Abrir painel de widgets"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "As alterações serão perdidas se sair desta página."
 
-msgid "D G:i"
-msgstr "j F G:i"
+msgid "D {0}"
+msgstr ""
 
 msgid "D d-m"
 msgstr "D d-m"
@@ -4237,9 +4230,6 @@ msgstr "A gravar..."
 msgid "Saved at {0}"
 msgstr "Gravada em {0}"
 
-msgid "g:i A"
-msgstr "g:i A"
-
 msgid "Saving failed"
 msgstr "Gravar falhou"
 
@@ -4407,6 +4397,15 @@ msgstr "Enviar sempre um pedido de recibo de leitura"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Gravar automaticamente E-mails por enviar a cada {B} minuto(s)"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr "Ativar vista de conversação"
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "Mensagem de entrada"
 
@@ -4445,9 +4444,6 @@ msgstr "Usar abreviações inglesas para reencaminhar (FW:) e responder (RE:)"
 msgid "Close original message on reply or forward"
 msgstr "Fechar mensagem original ao responder ou reencaminhar"
 
-msgid "Enable conversation view"
-msgstr "Ativar vista de conversação"
-
 msgid "General mail settings"
 msgstr "Definições de E-mail gerais"
 
@@ -4472,6 +4468,9 @@ msgstr "Estou ausente do escritório de"
 msgid "I will be back on"
 msgstr "Volto em"
 
+msgid "I am out of office"
+msgstr ""
+
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Responder automaticamente somente uma vez para cada remetente com o seguinte "
@@ -4488,13 +4487,9 @@ msgid "Safe Senders"
 msgstr "Remetentes seguros"
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
-"Gerir lista de remetentes seguros. Para proteger a sua privacidade, "
-"endereços ou domínios de email, só podem ser adicionados através da opção \""
-"Adicionar à lista de remetentes seguros\" num email aberto."
 
 msgid "Delete all"
 msgstr "Apagar todas"
@@ -4502,11 +4497,14 @@ msgstr "Apagar todas"
 msgid "Signatures"
 msgstr "Assinaturas"
 
-msgid "Signature for new messages"
-msgstr "Assinatura para novas mensagens"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "Assinatura para respostas e reencaminhamentos"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 msgid "Save Signature"
 msgstr "Assinaturas"
@@ -4647,8 +4645,8 @@ msgstr "Definições"
 msgid "Basic"
 msgstr "Básico"
 
-msgid "Account information - {0}"
-msgstr "Informação da conta - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "Idioma"
@@ -4691,6 +4689,15 @@ msgstr "Abreviada"
 
 msgid "Long"
 msgstr "Completa"
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
 
 msgid "Favorite settings"
 msgstr "Definições de favoritos"
@@ -4759,17 +4766,6 @@ msgstr "Plugins"
 msgid "Available plugins"
 msgstr "Plugins disponíveis"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"Os seguintes plugins estão disponíveis. É possível selecionar e "
-"desseleccionar vários plugins para os ativar/desativar. Quando um plugin é "
-"ativado/desativado, a WebApp tem que ser reiniciada para as alterações "
-"poderem ser aplicadas."
-
 msgid "No plugins available"
 msgstr "Nenhum plugin disponível"
 
@@ -4785,8 +4781,8 @@ msgstr "Este plugin não pode ser ativado"
 msgid "Mailbox Usage"
 msgstr "Ocupação da caixa de correio"
 
-msgid "Quota information is not set on the user's store."
-msgstr "A informação da quota não está definida na caixa do utilizador."
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} da caixa de correio usada."
@@ -5345,8 +5341,8 @@ msgstr "Hoje (todo dia)"
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
-msgid "d/m/y G:i"
-msgstr "d/m/Y G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr "{0} - {1} (todo dia)"
@@ -6195,6 +6191,9 @@ msgstr "O ficheiro não foi importado com sucesso"
 
 msgid "There is no contact found in this file."
 msgstr "Não foram encontrados contactos no ficheiro."
+
+msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

@@ -884,10 +884,9 @@ msgstr "Occurs every {0} {1} effective {2} until {3}."
 msgid "When"
 msgstr "Время"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "D j F Y H:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "Место"
@@ -951,6 +950,48 @@ msgstr "Событие на весь день"
 # 100%
 msgid "Add Shared Calendar"
 msgstr "Добавить общий календарь"
+
+msgid "Remove From Calendar"
+msgstr "Удалить из календаря"
+
+msgid "No Response Required"
+msgstr "Ответ не требуется"
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "Accept Meeting Request"
+msgstr "Принять приглашение на собрание"
+
+msgid "Tentative"
+msgstr "Предварит."
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Предварительно принять приглашение на собрание"
+
+msgid "Decline"
+msgstr "Отменить"
+
+msgid "Decline Meeting Request"
+msgstr "Отклонить приглашение на собрание"
+
+msgid "Propose New Time"
+msgstr "Предложить новое время"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Предложить новое время собрания"
+
+msgid "View All Proposals"
+msgstr "Просмотреть все предложения"
+
+msgid "Accept Proposal"
+msgstr "Принять предложение"
+
+msgid "Accept Proposed Time"
+msgstr "Принять предложенное время"
+
+msgid "View in calendar"
+msgstr "Посмотреть в календаре"
 
 msgid "Day"
 msgstr "День"
@@ -1172,11 +1213,9 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Вы хотите изменить место «{0}» на «{1}»?"
 
-# 75%
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
-msgstr "D j F Y H:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 msgid "None"
 msgstr "Нет"
@@ -1251,9 +1290,6 @@ msgstr "Текущее время встречи"
 
 msgid "Show only working hours"
 msgstr "Показывать только рабочие часы"
-
-msgid "Propose New Time"
-msgstr "Предложить новое время"
 
 msgid "Start time"
 msgstr "Начало"
@@ -1510,15 +1546,6 @@ msgstr "Открыть"
 msgid "Copy/Move"
 msgstr "Копировать/Переместить"
 
-msgid "Accept"
-msgstr "Принять"
-
-msgid "Tentative"
-msgstr "Предварит."
-
-msgid "Decline"
-msgstr "Отменить"
-
 # 75%
 # 100%
 #, fuzzy
@@ -1634,13 +1661,9 @@ msgstr "Сортировка по: Конфиденциальности"
 msgid "Loading appointments"
 msgstr "Загрузка встреч"
 
-# 75%
-# 83%
-# 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "jS F G:i"
-msgstr "D j F Y H:i"
+msgid "jS F {0}"
+msgstr ""
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -1713,36 +1736,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Место"
 
-msgid "Remove From Calendar"
-msgstr "Удалить из календаря"
-
-msgid "No Response Required"
-msgstr "Ответ не требуется"
-
-msgid "Accept Meeting Request"
-msgstr "Принять приглашение на собрание"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "Предварительно принять приглашение на собрание"
-
-msgid "Decline Meeting Request"
-msgstr "Отклонить приглашение на собрание"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "Предложить новое время собрания"
-
-msgid "View All Proposals"
-msgstr "Просмотреть все предложения"
-
-msgid "Accept Proposal"
-msgstr "Принять предложение"
-
-msgid "Accept Proposed Time"
-msgstr "Принять предложенное время"
-
-msgid "View in calendar"
-msgstr "Посмотреть в календаре"
-
 #, fuzzy
 msgid "No additional response required"
 msgstr "Ответ не требуется"
@@ -1753,10 +1746,6 @@ msgid ""
 msgstr ""
 "Ваш календарь был автоматически обновлён. Это приглашение на собрание будет "
 "удалено."
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "Печать нескольких элементов сразу пока не реализовано."
@@ -3044,8 +3033,8 @@ msgstr "Веб-страница"
 msgid "IM Address"
 msgstr "Адрес службы мгн. сообщений"
 
-msgid "D, d-m-Y, G:i"
-msgstr "D, d-m-Y, G:i"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3062,11 +3051,11 @@ msgstr "d-m-Y"
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
-msgstr "l d/m/Y G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-msgid "d-m-Y G:i"
-msgstr "d-m-Y G:i"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "Неизвестный"
@@ -3259,9 +3248,6 @@ msgstr "сообщение"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Будет произведена попытка исправления сообщения, продолжить?"
-
-msgid "d-m-Y g:i a"
-msgstr "d-m-Y g:i a"
 
 msgid "The matching task was not found in your task list."
 msgstr "Соответствующая задача не была найдена в вашем списке задач."
@@ -4065,12 +4051,8 @@ msgstr "Раскрыть панель виджетов"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Ваши изменения будут потеряны, если вы покинете страницу."
 
-# 75%
-# 83%
-# 80%
-#, fuzzy
-msgid "D G:i"
-msgstr "D j F Y H:i"
+msgid "D {0}"
+msgstr ""
 
 #, fuzzy
 msgid "D d-m"
@@ -4476,9 +4458,6 @@ msgstr "Сохранение..."
 msgid "Saved at {0}"
 msgstr "Письмо сохранено в {0}."
 
-msgid "g:i A"
-msgstr "g:i A"
-
 #, fuzzy
 msgid "Saving failed"
 msgstr "Операция не удалась"
@@ -4655,6 +4634,15 @@ msgstr "Всегда отправлять запрос на прочтение"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} автосохранение неотправленных писем каждые {B} минут(ы)"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "Входящая почта"
 
@@ -4695,9 +4683,6 @@ msgstr ""
 msgid "Close original message on reply or forward"
 msgstr "Закрывать текущее письмо при ответе или пересылке"
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr "Общие параметры письма"
 
@@ -4722,6 +4707,9 @@ msgstr "Статус «Нет в офисе» установлен"
 msgid "I will be back on"
 msgstr "Я вернусь"
 
+msgid "I am out of office"
+msgstr ""
+
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 "Автоматически отвечать раз в день каждому отправителю со следующим тектом"
@@ -4741,9 +4729,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4752,11 +4739,14 @@ msgstr ""
 msgid "Signatures"
 msgstr "Подписи"
 
-msgid "Signature for new messages"
-msgstr "Подпись для новых писем"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "Подпись для ответов и пересылки"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 msgid "Save Signature"
 msgstr "Сохранить подпись"
@@ -4908,8 +4898,8 @@ msgstr "Настройки"
 msgid "Basic"
 msgstr "Основные"
 
-msgid "Account information - {0}"
-msgstr "Информация об учётной записи - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "Язык"
@@ -4953,6 +4943,15 @@ msgstr "Коротко"
 
 msgid "Long"
 msgstr "Длинно"
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
 
 # 88%
 #, fuzzy
@@ -5022,16 +5021,6 @@ msgstr "Расширения"
 msgid "Available plugins"
 msgstr "Доступные расширения"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"Следующие расширены доступны в WebApp. Вы можете выбрать их в списке для "
-"включения или выключения, после чего вы должны перезагрузить WebApp для "
-"принятия изменений."
-
 msgid "No plugins available"
 msgstr "Расширений недоступны."
 
@@ -5047,8 +5036,8 @@ msgstr "Это плагин не может быть включен"
 msgid "Mailbox Usage"
 msgstr "Использование ящика"
 
-msgid "Quota information is not set on the user's store."
-msgstr "В хранилище пользователя не указаны данные квот."
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} места используется."
@@ -5645,9 +5634,8 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0} в {1}"
 
-#, fuzzy
-msgid "d/m/y G:i"
-msgstr "l d/m/Y G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr ""
@@ -6552,6 +6540,9 @@ msgid "File is not imported successfully"
 msgstr "Успешно отправлено"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format

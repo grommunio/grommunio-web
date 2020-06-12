@@ -899,10 +899,9 @@ msgstr "Findet jeden {0} {1} statt, beginnend am {2} bis {3}."
 msgid "When"
 msgstr "Wann"
 
-# 75%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "l j F Y H:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "Wo"
@@ -971,6 +970,49 @@ msgstr "Ganztägiges Ereignis"
 # 100%
 msgid "Add Shared Calendar"
 msgstr "Gemeinsame Kalender öffnen"
+
+msgid "Remove From Calendar"
+msgstr "Aus dem Kalender entfernen"
+
+msgid "No Response Required"
+msgstr "Keine Antwort erforderlich"
+
+msgid "Accept"
+msgstr "Akzeptieren"
+
+# 77%
+msgid "Accept Meeting Request"
+msgstr "Besprechungsanfrage akzeptieren"
+
+msgid "Tentative"
+msgstr "Mit Vorbehalt"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Besprechungsanfrage unter Vorbehalt akzeptieren"
+
+msgid "Decline"
+msgstr "Ablehnen"
+
+msgid "Decline Meeting Request"
+msgstr "Besprechungsanfrage ablehnen"
+
+msgid "Propose New Time"
+msgstr "Neue Zeit vorschlagen"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Neue Zeit für die Besprechungsanfrage vorschlagen"
+
+msgid "View All Proposals"
+msgstr "Alle Vorschläge anzeigen"
+
+msgid "Accept Proposal"
+msgstr "Vorschlag akzeptieren"
+
+msgid "Accept Proposed Time"
+msgstr "Vorgeschlagene Zeit akzeptieren"
+
+msgid "View in calendar"
+msgstr "Im Kalender anzeigen"
 
 msgid "Day"
 msgstr "Tag"
@@ -1190,11 +1232,9 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Wollen Sie den Ort \"{0}\" mit dem neuen Ort \"{1}\" aktualisieren?"
 
-# 75%
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
-msgstr "jS F Y G:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 # 75%
 msgid "None"
@@ -1271,9 +1311,6 @@ msgstr "Aktuelle Besprechungszeit"
 
 msgid "Show only working hours"
 msgstr "Nur Arbeitsstunden anzeigen"
-
-msgid "Propose New Time"
-msgstr "Neue Zeit vorschlagen"
 
 msgid "Start time"
 msgstr "Startzeit"
@@ -1528,15 +1565,6 @@ msgstr "Öffnen"
 msgid "Copy/Move"
 msgstr "Kopieren/Verschieben"
 
-msgid "Accept"
-msgstr "Akzeptieren"
-
-msgid "Tentative"
-msgstr "Mit Vorbehalt"
-
-msgid "Decline"
-msgstr "Ablehnen"
-
 # 75%
 msgid "Send to..."
 msgstr "Senden an..."
@@ -1653,12 +1681,9 @@ msgstr "Sortieren nach: Vertraulichkeit"
 msgid "Loading appointments"
 msgstr "Termine werden geladen"
 
-# 75%
-# 83%
-# 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F G:i"
-msgstr "D., j. F Y H:i"
+msgid "jS F {0}"
+msgstr ""
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -1729,37 +1754,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Ort"
 
-msgid "Remove From Calendar"
-msgstr "Aus dem Kalender entfernen"
-
-msgid "No Response Required"
-msgstr "Keine Antwort erforderlich"
-
-# 77%
-msgid "Accept Meeting Request"
-msgstr "Besprechungsanfrage akzeptieren"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "Besprechungsanfrage unter Vorbehalt akzeptieren"
-
-msgid "Decline Meeting Request"
-msgstr "Besprechungsanfrage ablehnen"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "Neue Zeit für die Besprechungsanfrage vorschlagen"
-
-msgid "View All Proposals"
-msgstr "Alle Vorschläge anzeigen"
-
-msgid "Accept Proposal"
-msgstr "Vorschlag akzeptieren"
-
-msgid "Accept Proposed Time"
-msgstr "Vorgeschlagene Zeit akzeptieren"
-
-msgid "View in calendar"
-msgstr "Im Kalender anzeigen"
-
 msgid "No additional response required"
 msgstr "Keine Antwort erforderlich"
 
@@ -1769,10 +1763,6 @@ msgid ""
 msgstr ""
 "Ihr Kalender wurde automatisch aktualisiert. Die Besprechungsanfrage wird "
 "jetzt gelöscht."
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "Das Drucken mehrerer Elemente ist noch nicht implementiert."
@@ -3050,8 +3040,8 @@ msgstr "Webseite"
 msgid "IM Address"
 msgstr "IM-Adresse"
 
-msgid "D, d-m-Y, G:i"
-msgstr "D, d.m.Y G:i"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3067,11 +3057,11 @@ msgstr "d.m.Y"
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
-msgstr "l d.m.Y G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-msgid "d-m-Y G:i"
-msgstr "d.m.Y G:i"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "<Unbekannt>"
@@ -3273,9 +3263,6 @@ msgid ""
 msgstr ""
 "Es wird nun versucht, eine beschädigte Nachricht zu reparieren. Möchten Sie "
 "fortfahren?"
-
-msgid "d-m-Y g:i a"
-msgstr "d.m.Y G:i"
 
 msgid "The matching task was not found in your task list."
 msgstr "Es wurde keine passende Aufgabe in Ihrer Aufgabenliste gefunden."
@@ -4105,11 +4092,8 @@ msgstr "Widgets anzeigen"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Ihre Änderungen werden beim Schliessen dieser Seite verloren gehen."
 
-# 75%
-# 83%
-# 80%
-msgid "D G:i"
-msgstr "D G:i"
+msgid "D {0}"
+msgstr ""
 
 msgid "D d-m"
 msgstr "D, d.m.Y"
@@ -4505,9 +4489,6 @@ msgstr "Speichern..."
 msgid "Saved at {0}"
 msgstr "Nachricht gespeichert unter {0}"
 
-msgid "g:i A"
-msgstr "G:i"
-
 # 81%
 # 100%
 msgid "Saving failed"
@@ -4691,6 +4672,15 @@ msgstr "Immer eine Empfangsbestätigung anfordern"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} Entwürfe alle {B} Minute(n) automatisch speichern"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "Eingehende E-Mail"
 
@@ -4734,9 +4724,6 @@ msgstr ""
 "Ursprüngliche Nachricht schliessen, wenn diese beantwortet oder "
 "weitergeleitet wird"
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr "Allgemeine E-Mail-Einstellungen"
 
@@ -4761,6 +4748,9 @@ msgstr "Ich bin nicht im Büro vom"
 msgid "I will be back on"
 msgstr "Ich werde zurück sein am"
 
+msgid "I am out of office"
+msgstr ""
+
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
 
@@ -4777,9 +4767,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4788,11 +4777,14 @@ msgstr ""
 msgid "Signatures"
 msgstr "Signaturen"
 
-msgid "Signature for new messages"
-msgstr "Signatur für neue Nachrichten"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "Signatur für Antworten und Weiterleitungen"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 msgid "Save Signature"
 msgstr "Signaturen speichern"
@@ -4952,8 +4944,8 @@ msgstr "Einstellungen"
 msgid "Basic"
 msgstr "Basis"
 
-msgid "Account information - {0}"
-msgstr "Kontoinformation - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "Sprache"
@@ -4996,6 +4988,15 @@ msgstr "Kurzform"
 
 msgid "Long"
 msgstr "Langform"
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
+msgstr ""
 
 # 88%
 msgid "Favorite settings"
@@ -5068,17 +5069,6 @@ msgstr "Plugins"
 msgid "Available plugins"
 msgstr "verfügbare Plugins"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"Folgende Plugins sind in WebApp verfügbar. Es ist möglich, einzelne Plugins "
-"zu aktivieren und/oder zu deaktivieren, um anzuzeigen, welche Plugins "
-"benutzt werden sollen. Wenn ein Plugin aktiviert oder deaktiviert wird, muss "
-"WebApp neu geladen werden, um die Änderungen zu aktivieren."
-
 msgid "No plugins available"
 msgstr "Keine Plugins vorhanden"
 
@@ -5094,8 +5084,8 @@ msgstr "Dieses Plugin kann nicht aktiviert werden"
 msgid "Mailbox Usage"
 msgstr "Postfachbelegung"
 
-msgid "Quota information is not set on the user's store."
-msgstr "Bei diesem Postfach sind keine Quotas gesetzt."
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} des Postfachs sind belegt."
@@ -5703,8 +5693,8 @@ msgstr "Heute (ganztägig)"
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
-msgid "d/m/y G:i"
-msgstr "d.m.Y G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr "{0} - {1} (ganztägig)"
@@ -6701,6 +6691,9 @@ msgid "File is not imported successfully"
 msgstr "Die Datei konnte nicht erfolgreich importiert werden"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format

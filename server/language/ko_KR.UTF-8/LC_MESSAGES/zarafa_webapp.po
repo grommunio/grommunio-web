@@ -830,7 +830,7 @@ msgid "When"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
+msgid "l jS F Y {0}"
 msgstr ""
 
 msgid "Where"
@@ -888,6 +888,48 @@ msgid "All Day Event"
 msgstr ""
 
 msgid "Add Shared Calendar"
+msgstr ""
+
+msgid "Remove From Calendar"
+msgstr ""
+
+msgid "No Response Required"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Accept Meeting Request"
+msgstr ""
+
+msgid "Tentative"
+msgstr ""
+
+msgid "Tentatively Accept Meeting Request"
+msgstr ""
+
+msgid "Decline"
+msgstr ""
+
+msgid "Decline Meeting Request"
+msgstr ""
+
+msgid "Propose New Time"
+msgstr ""
+
+msgid "Propose New Time for Meeting Request"
+msgstr ""
+
+msgid "View All Proposals"
+msgstr ""
+
+msgid "Accept Proposal"
+msgstr ""
+
+msgid "Accept Proposed Time"
+msgstr ""
+
+msgid "View in calendar"
 msgstr ""
 
 msgid "Day"
@@ -1096,7 +1138,7 @@ msgid ""
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
+msgid "jS F Y {0}"
 msgstr ""
 
 msgid "None"
@@ -1169,9 +1211,6 @@ msgid "Current Meeting Time"
 msgstr ""
 
 msgid "Show only working hours"
-msgstr ""
-
-msgid "Propose New Time"
 msgstr ""
 
 msgid "Start time"
@@ -1398,15 +1437,6 @@ msgstr ""
 msgid "Copy/Move"
 msgstr ""
 
-msgid "Accept"
-msgstr ""
-
-msgid "Tentative"
-msgstr ""
-
-msgid "Decline"
-msgstr ""
-
 msgid "Send to..."
 msgstr ""
 
@@ -1510,7 +1540,7 @@ msgid "Loading appointments"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F G:i"
+msgid "jS F {0}"
 msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
@@ -1577,46 +1607,12 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr ""
 
-msgid "Remove From Calendar"
-msgstr ""
-
-msgid "No Response Required"
-msgstr ""
-
-msgid "Accept Meeting Request"
-msgstr ""
-
-msgid "Tentatively Accept Meeting Request"
-msgstr ""
-
-msgid "Decline Meeting Request"
-msgstr ""
-
-msgid "Propose New Time for Meeting Request"
-msgstr ""
-
-msgid "View All Proposals"
-msgstr ""
-
-msgid "Accept Proposal"
-msgstr ""
-
-msgid "Accept Proposed Time"
-msgstr ""
-
-msgid "View in calendar"
-msgstr ""
-
 msgid "No additional response required"
 msgstr ""
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
-msgstr ""
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
 msgstr ""
 
 msgid "Printing of multiple items has not been implemented."
@@ -2766,7 +2762,7 @@ msgstr ""
 msgid "IM Address"
 msgstr ""
 
-msgid "D, d-m-Y, G:i"
+msgid "D, d-m-Y, {0}"
 msgstr ""
 
 msgid "{0} selected row"
@@ -2782,10 +2778,10 @@ msgstr ""
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
+msgid "l d/m/Y {0}"
 msgstr ""
 
-msgid "d-m-Y G:i"
+msgid "d-m-Y {0}"
 msgstr ""
 
 msgid "Unknown"
@@ -2967,9 +2963,6 @@ msgstr ""
 
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr ""
-
-msgid "d-m-Y g:i a"
 msgstr ""
 
 msgid "The matching task was not found in your task list."
@@ -3723,7 +3716,7 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
-msgid "D G:i"
+msgid "D {0}"
 msgstr ""
 
 msgid "D d-m"
@@ -4093,9 +4086,6 @@ msgstr ""
 msgid "Saved at {0}"
 msgstr ""
 
-msgid "g:i A"
-msgstr ""
-
 msgid "Saving failed"
 msgstr ""
 
@@ -4263,6 +4253,15 @@ msgstr ""
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr ""
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr ""
 
@@ -4301,9 +4300,6 @@ msgstr ""
 msgid "Close original message on reply or forward"
 msgstr ""
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr ""
 
@@ -4328,6 +4324,9 @@ msgstr ""
 msgid "I will be back on"
 msgstr ""
 
+msgid "I am out of office"
+msgstr ""
+
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 
@@ -4342,9 +4341,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4353,10 +4351,13 @@ msgstr ""
 msgid "Signatures"
 msgstr ""
 
-msgid "Signature for new messages"
+msgid "New messages"
 msgstr ""
 
-msgid "Signature for replies and forwards"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
 msgstr ""
 
 msgid "Save Signature"
@@ -4496,7 +4497,7 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-msgid "Account information - {0}"
+msgid "Account information"
 msgstr ""
 
 msgid "Language"
@@ -4539,6 +4540,15 @@ msgid "Short"
 msgstr ""
 
 msgid "Long"
+msgstr ""
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
 msgstr ""
 
 msgid "Favorite settings"
@@ -4606,13 +4616,6 @@ msgstr ""
 msgid "Available plugins"
 msgstr ""
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-
 msgid "No plugins available"
 msgstr ""
 
@@ -4628,7 +4631,7 @@ msgstr ""
 msgid "Mailbox Usage"
 msgstr ""
 
-msgid "Quota information is not set on the user's store."
+msgid "A quota is not set on your store."
 msgstr ""
 
 msgid "{0} of mailbox space is used."
@@ -5162,7 +5165,7 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr ""
 
-msgid "d/m/y G:i"
+msgid "d/m/y {0}"
 msgstr ""
 
 msgid "{0} - {1} (all day)"
@@ -5962,6 +5965,9 @@ msgid "File is not imported successfully"
 msgstr ""
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format

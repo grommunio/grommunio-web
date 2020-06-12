@@ -860,8 +860,8 @@ msgid "When"
 msgstr "Når"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "D j F Y H:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "Hvor"
@@ -919,6 +919,48 @@ msgstr "Heldags aftale"
 
 msgid "Add Shared Calendar"
 msgstr "Tilføj delt kalender"
+
+msgid "Remove From Calendar"
+msgstr "Fjern fra kalender"
+
+msgid "No Response Required"
+msgstr "Intet svar er krævet"
+
+msgid "Accept"
+msgstr "Accepter"
+
+msgid "Accept Meeting Request"
+msgstr "Accepter mødeindkaldelsen"
+
+msgid "Tentative"
+msgstr "Foreløbig "
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Foreløbig accepter mødeindkaldelsen"
+
+msgid "Decline"
+msgstr "Afvis"
+
+msgid "Decline Meeting Request"
+msgstr "Afvis mødeindkaldelsen"
+
+msgid "Propose New Time"
+msgstr "Foreslå ny tid"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Foreslå et nyt tidspunkt for mødeindkaldelsen"
+
+msgid "View All Proposals"
+msgstr "Vis alle forslag"
+
+msgid "Accept Proposal"
+msgstr "Accepter forslag"
+
+msgid "Accept Proposed Time"
+msgstr "Accepter foreslået tidspunkt"
+
+msgid "View in calendar"
+msgstr "Vis i kalender"
 
 msgid "Day"
 msgstr "Dag"
@@ -1142,8 +1184,8 @@ msgid ""
 msgstr "Vil du opdateret placeringen \"{0}\" med den nye placering \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
-msgstr "j F Y G:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 msgid "None"
 msgstr "Ingen"
@@ -1216,9 +1258,6 @@ msgstr "Nuværende møde tid"
 
 msgid "Show only working hours"
 msgstr "Vis kun arbejdstimer"
-
-msgid "Propose New Time"
-msgstr "Foreslå ny tid"
 
 msgid "Start time"
 msgstr "Starttid"
@@ -1468,15 +1507,6 @@ msgstr "Åben"
 msgid "Copy/Move"
 msgstr "Kopier/flyt"
 
-msgid "Accept"
-msgstr "Accepter"
-
-msgid "Tentative"
-msgstr "Foreløbig "
-
-msgid "Decline"
-msgstr "Afvis"
-
 #, fuzzy
 msgid "Send to..."
 msgstr "Send"
@@ -1582,8 +1612,8 @@ msgid "Loading appointments"
 msgstr "Henter aftaler"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F G:i"
-msgstr "j F G:i"
+msgid "jS F {0}"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1655,36 +1685,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Placering"
 
-msgid "Remove From Calendar"
-msgstr "Fjern fra kalender"
-
-msgid "No Response Required"
-msgstr "Intet svar er krævet"
-
-msgid "Accept Meeting Request"
-msgstr "Accepter mødeindkaldelsen"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "Foreløbig accepter mødeindkaldelsen"
-
-msgid "Decline Meeting Request"
-msgstr "Afvis mødeindkaldelsen"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "Foreslå et nyt tidspunkt for mødeindkaldelsen"
-
-msgid "View All Proposals"
-msgstr "Vis alle forslag"
-
-msgid "Accept Proposal"
-msgstr "Accepter forslag"
-
-msgid "Accept Proposed Time"
-msgstr "Accepter foreslået tidspunkt"
-
-msgid "View in calendar"
-msgstr "Vis i kalender"
-
 #, fuzzy
 msgid "No additional response required"
 msgstr "Intet svar er krævet"
@@ -1695,10 +1695,6 @@ msgid ""
 msgstr ""
 "Din kalender er blevet opdateret automatisk. Denne mødeindkaldelse vil nu "
 "blive slettet."
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "Udskrivning af flere elementer er ikke blevet implementeret."
@@ -2943,9 +2939,8 @@ msgstr "Hjemmeside"
 msgid "IM Address"
 msgstr "IM adresse"
 
-#, fuzzy
-msgid "D, d-m-Y, G:i"
-msgstr "D, d.m.Y"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -2961,12 +2956,11 @@ msgstr "d.m.Y"
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
-msgstr "I d.m.Y G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-#, fuzzy
-msgid "d-m-Y G:i"
-msgstr "d.m.Y G:i"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "Ukendt"
@@ -3158,9 +3152,6 @@ msgstr "besked"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Vi vil forsøge at reparere en ødelagt meddelelse, vil du fortsætte?"
-
-msgid "d-m-Y g:i a"
-msgstr "d.m.Y G:i"
 
 msgid "The matching task was not found in your task list."
 msgstr "Der findes ikke en tilsvarende opgave i opgavelisten."
@@ -3958,9 +3949,8 @@ msgstr "Udvid widget panel"
 msgid "Your changes will be lost if you leave this page now."
 msgstr "Dine ændringer vil gå tabt hvis du forlader siden nu."
 
-#, fuzzy
-msgid "D G:i"
-msgstr "j F G:i"
+msgid "D {0}"
+msgstr ""
 
 #, fuzzy
 msgid "D d-m"
@@ -4362,9 +4352,6 @@ msgstr "Gemmer..."
 msgid "Saved at {0}"
 msgstr "Meddelelsen er gemt på {0}."
 
-msgid "g:i A"
-msgstr "G:i"
-
 #, fuzzy
 msgid "Saving failed"
 msgstr "Operationen mislykkedes"
@@ -4540,6 +4527,15 @@ msgstr "Bed altid om kvittering for læsning"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Gem automatisk usendt email hvert {B} minut(ter)"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "Indkommende email"
 
@@ -4579,9 +4575,6 @@ msgid "Close original message on reply or forward"
 msgstr ""
 "Luk den oprindelige meddelelse efter du har svaret eller videresendt den"
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr "Generelle email indstillinger"
 
@@ -4606,6 +4599,9 @@ msgstr "Jeg er fraværende"
 msgid "I will be back on"
 msgstr "Jeg er tilbage på"
 
+msgid "I am out of office"
+msgstr ""
+
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Autosvar hver afsender en gang med denne tekst"
@@ -4623,9 +4619,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4634,11 +4629,14 @@ msgstr ""
 msgid "Signatures"
 msgstr "Signaturer"
 
-msgid "Signature for new messages"
-msgstr "Signaturer for nye meddelelser"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "Signatur for svar og videresendelser"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 #, fuzzy
 msgid "Save Signature"
@@ -4786,8 +4784,8 @@ msgstr "Indstillinger"
 msgid "Basic"
 msgstr "Basal"
 
-msgid "Account information - {0}"
-msgstr "Konto information - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "Sprog"
@@ -4830,6 +4828,15 @@ msgid "Short"
 msgstr ""
 
 msgid "Long"
+msgstr ""
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
 msgstr ""
 
 #, fuzzy
@@ -4899,16 +4906,6 @@ msgstr "Udvidelser"
 msgid "Available plugins"
 msgstr "Tilgængelige udvidelser"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"De følgende udvidelser er tilgængelige i  webbrugerfladen. Du kan til- eller "
-"fravælge hvilke udvidelser der skal være aktive. Hvis du ændrer på hvilke "
-"udvidelser der er aktive, skal du genindlæse websiden før det har effekt."
-
 msgid "No plugins available"
 msgstr "Ingen udvidelser er tilgængelige"
 
@@ -4924,8 +4921,8 @@ msgstr "Denne udvidelse kan ikke slås til"
 msgid "Mailbox Usage"
 msgstr "Postkasse forbrug"
 
-msgid "Quota information is not set on the user's store."
-msgstr "Kvoteinformation er ikke sat for brugerens postkasse."
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} af postkassen er brugt."
@@ -5494,9 +5491,8 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0} i {1}"
 
-#, fuzzy
-msgid "d/m/y G:i"
-msgstr "I d.m.Y G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr ""
@@ -6314,6 +6310,9 @@ msgid "File is not imported successfully"
 msgstr "ZIP filen kunne ikke dannes"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format
