@@ -880,8 +880,8 @@ msgid "When"
 msgstr "日時"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "Y年F月j日 l G:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "場所"
@@ -947,6 +947,49 @@ msgstr "終日イベント"
 # 100%
 msgid "Add Shared Calendar"
 msgstr "共有カレンダへ追加"
+
+msgid "Remove From Calendar"
+msgstr "カレンダーから削除する"
+
+msgid "No Response Required"
+msgstr "返信不要"
+
+msgid "Accept"
+msgstr "承諾"
+
+msgid "Accept Meeting Request"
+msgstr "会議出席依頼を承諾する"
+
+msgid "Tentative"
+msgstr "仮の予定"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "会議出席依頼を仮承諾する"
+
+# 87%
+msgid "Decline"
+msgstr "辞退する"
+
+msgid "Decline Meeting Request"
+msgstr "会議出席依頼を辞退する"
+
+msgid "Propose New Time"
+msgstr "新たに日時を送信する"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "会議出席依頼に新たな日時を提案する"
+
+msgid "View All Proposals"
+msgstr "全ての提案を表示"
+
+msgid "Accept Proposal"
+msgstr "提案の承諾"
+
+msgid "Accept Proposed Time"
+msgstr "提案の日時の承諾"
+
+msgid "View in calendar"
+msgstr "カレンダーを表示"
 
 msgid "Day"
 msgstr "日"
@@ -1166,8 +1209,8 @@ msgid ""
 msgstr "開催場所{0}を{1}に変更しますか？"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y G:i"
-msgstr "Y年Fj日 G:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 # 75%
 msgid "None"
@@ -1246,9 +1289,6 @@ msgstr "現在の会議日時"
 # 82%
 msgid "Show only working hours"
 msgstr "労働時間のみ表示する"
-
-msgid "Propose New Time"
-msgstr "新たに日時を送信する"
 
 msgid "Start time"
 msgstr "開始時間"
@@ -1497,16 +1537,6 @@ msgstr "開く"
 msgid "Copy/Move"
 msgstr "コピー/移動"
 
-msgid "Accept"
-msgstr "承諾"
-
-msgid "Tentative"
-msgstr "仮の予定"
-
-# 87%
-msgid "Decline"
-msgstr "辞退する"
-
 # 75%
 #, fuzzy
 msgid "Send to..."
@@ -1618,10 +1648,9 @@ msgstr "並べ替え：Sensitivity"
 msgid "Loading appointments"
 msgstr "予定を読み込み中"
 
-# 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F G:i"
-msgstr "Y年Fj日 G:i"
+msgid "jS F {0}"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1689,36 +1718,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "場所"
 
-msgid "Remove From Calendar"
-msgstr "カレンダーから削除する"
-
-msgid "No Response Required"
-msgstr "返信不要"
-
-msgid "Accept Meeting Request"
-msgstr "会議出席依頼を承諾する"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "会議出席依頼を仮承諾する"
-
-msgid "Decline Meeting Request"
-msgstr "会議出席依頼を辞退する"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "会議出席依頼に新たな日時を提案する"
-
-msgid "View All Proposals"
-msgstr "全ての提案を表示"
-
-msgid "Accept Proposal"
-msgstr "提案の承諾"
-
-msgid "Accept Proposed Time"
-msgstr "提案の日時の承諾"
-
-msgid "View in calendar"
-msgstr "カレンダーを表示"
-
 #, fuzzy
 msgid "No additional response required"
 msgstr "返信不要"
@@ -1727,10 +1726,6 @@ msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
 "be deleted."
 msgstr "カレンダーは自動的に更新されました。この会議出席依頼は削除されます。"
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "複数項目を印刷することはできません。"
@@ -3017,9 +3012,8 @@ msgstr "Webページ"
 msgid "IM Address"
 msgstr "IMアドレス"
 
-#, fuzzy
-msgid "D, d-m-Y, G:i"
-msgstr "Y/m/d"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 # 76%
 msgid "{0} selected row"
@@ -3035,12 +3029,11 @@ msgstr "Y/m/d"
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
-msgstr "Y/m/l d G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-#, fuzzy
-msgid "d-m-Y G:i"
-msgstr "Y/m/d"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "未定"
@@ -3240,10 +3233,6 @@ msgstr "オリジナル本文"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr ""
-
-#, fuzzy
-msgid "d-m-Y g:i a"
-msgstr "Y/m/d"
 
 msgid "The matching task was not found in your task list."
 msgstr ""
@@ -4065,10 +4054,8 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
-# 80%
-#, fuzzy
-msgid "D G:i"
-msgstr "Y年Fj日 G:i"
+msgid "D {0}"
+msgstr ""
 
 #, fuzzy
 msgid "D d-m"
@@ -4472,9 +4459,6 @@ msgstr "保存中..."
 msgid "Saved at {0}"
 msgstr "{0}にメッセージを保存しました。"
 
-msgid "g:i A"
-msgstr "g:i A"
-
 #, fuzzy
 msgid "Saving failed"
 msgstr "メッセージの保存に失敗しました。"
@@ -4658,6 +4642,15 @@ msgstr "常に開封確認の通知を要求をします。"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}自動保存　未送信メール　{B}分毎"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "受信箱"
 
@@ -4698,9 +4691,6 @@ msgstr ""
 msgid "Close original message on reply or forward"
 msgstr ""
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr "一般メール設定"
 
@@ -4725,6 +4715,9 @@ msgstr "次の時間より外出中"
 msgid "I will be back on"
 msgstr ""
 
+msgid "I am out of office"
+msgstr ""
+
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "送信者へ一度だけ下記のテキストを自動的に送信します。"
@@ -4740,9 +4733,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4751,11 +4743,14 @@ msgstr ""
 msgid "Signatures"
 msgstr "署名"
 
-msgid "Signature for new messages"
-msgstr "新しいメッセージの署名"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "返信と転送の署名"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 #, fuzzy
 msgid "Save Signature"
@@ -4913,8 +4908,8 @@ msgstr "設定"
 msgid "Basic"
 msgstr ""
 
-msgid "Account information - {0}"
-msgstr "アカウント情報 - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "言語"
@@ -4957,6 +4952,15 @@ msgid "Short"
 msgstr ""
 
 msgid "Long"
+msgstr ""
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
 msgstr ""
 
 # 88%
@@ -5028,15 +5032,6 @@ msgstr "プラグイン"
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"WebAppで次のプラグインの利用が可能です。変更を反映するにはWebAppの再読み込み"
-"が必要となります。"
-
 msgid "No plugins available"
 msgstr "利用可能なプラグインがありません。"
 
@@ -5052,8 +5047,8 @@ msgstr ""
 msgid "Mailbox Usage"
 msgstr "メールボックスの使用状況"
 
-msgid "Quota information is not set on the user's store."
-msgstr "ユーザーのデータ領域の割り当て情報が設定されていません。"
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0}のメールボックスのスペースが使用済み"
@@ -5652,9 +5647,8 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0}内の{1}"
 
-#, fuzzy
-msgid "d/m/y G:i"
-msgstr "Y/m/l d G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr ""
@@ -6555,6 +6549,9 @@ msgid "File is not imported successfully"
 msgstr "送信成功"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format

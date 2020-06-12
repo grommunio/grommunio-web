@@ -898,8 +898,8 @@ msgid "When"
 msgstr "Cuando"
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "l jS F Y G:i"
-msgstr "l jS F Y G:i"
+msgid "l jS F Y {0}"
+msgstr ""
 
 msgid "Where"
 msgstr "Donde"
@@ -966,6 +966,51 @@ msgstr "Evento para todo el día"
 # 100%
 msgid "Add Shared Calendar"
 msgstr "Agregar Calendarios Compartidos"
+
+msgid "Remove From Calendar"
+msgstr "Eliminar del calendario"
+
+msgid "No Response Required"
+msgstr "La respuesta no es requerida"
+
+# 75%
+msgid "Accept"
+msgstr "Aceptar"
+
+msgid "Accept Meeting Request"
+msgstr "Aceptar solicitud de Reunión"
+
+msgid "Tentative"
+msgstr "Tentativa"
+
+msgid "Tentatively Accept Meeting Request"
+msgstr "Tentativa de Solicitud de Reunión aceptada"
+
+# 87%
+msgid "Decline"
+msgstr "Rehusar"
+
+msgid "Decline Meeting Request"
+msgstr "Rechazar solicitud de reunión"
+
+msgid "Propose New Time"
+msgstr "Proponer nueva hora"
+
+msgid "Propose New Time for Meeting Request"
+msgstr "Proponer nueva hora para la solicitud de reunión"
+
+msgid "View All Proposals"
+msgstr "Ver todas las propuestas"
+
+msgid "Accept Proposal"
+msgstr "Aceptar la Propuesta"
+
+msgid "Accept Proposed Time"
+msgstr "Aceptar la hora propuesta"
+
+#, fuzzy
+msgid "View in calendar"
+msgstr "Ver varios calendarios en"
 
 msgid "Day"
 msgstr "Día"
@@ -1188,11 +1233,9 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "¿Desea actualizar la ubicación \"{0}\" con la nueva ubicación \"{1}\"?"
 
-# 83%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "jS F Y G:i"
-msgstr "l jS F Y G:i"
+msgid "jS F Y {0}"
+msgstr ""
 
 # 75%
 msgid "None"
@@ -1269,9 +1312,6 @@ msgstr "Hora de reunión actual"
 
 msgid "Show only working hours"
 msgstr "Solo mostrar horas de trabajo"
-
-msgid "Propose New Time"
-msgstr "Proponer nueva hora"
 
 msgid "Start time"
 msgstr "Hora de inicio"
@@ -1531,17 +1571,6 @@ msgid "Copy/Move"
 msgstr "Copiar/Mover"
 
 # 75%
-msgid "Accept"
-msgstr "Aceptar"
-
-msgid "Tentative"
-msgstr "Tentativa"
-
-# 87%
-msgid "Decline"
-msgstr "Rehusar"
-
-# 75%
 #, fuzzy
 msgid "Send to..."
 msgstr "Enviar"
@@ -1662,12 +1691,9 @@ msgstr "Ordenar por: Sensibilidad"
 msgid "Loading appointments"
 msgstr "Cargando citas"
 
-# 83%
-# 80%
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-#, fuzzy
-msgid "jS F G:i"
-msgstr "l jS F Y G:i"
+msgid "jS F {0}"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1736,37 +1762,6 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Ubicación"
 
-msgid "Remove From Calendar"
-msgstr "Eliminar del calendario"
-
-msgid "No Response Required"
-msgstr "La respuesta no es requerida"
-
-msgid "Accept Meeting Request"
-msgstr "Aceptar solicitud de Reunión"
-
-msgid "Tentatively Accept Meeting Request"
-msgstr "Tentativa de Solicitud de Reunión aceptada"
-
-msgid "Decline Meeting Request"
-msgstr "Rechazar solicitud de reunión"
-
-msgid "Propose New Time for Meeting Request"
-msgstr "Proponer nueva hora para la solicitud de reunión"
-
-msgid "View All Proposals"
-msgstr "Ver todas las propuestas"
-
-msgid "Accept Proposal"
-msgstr "Aceptar la Propuesta"
-
-msgid "Accept Proposed Time"
-msgstr "Aceptar la hora propuesta"
-
-#, fuzzy
-msgid "View in calendar"
-msgstr "Ver varios calendarios en"
-
 #, fuzzy
 msgid "No additional response required"
 msgstr "La respuesta no es requerida"
@@ -1777,10 +1772,6 @@ msgid ""
 msgstr ""
 "Su calendario ha sido actualizado automáticamente. Esta solicitud de reunión "
 "ahora se eliminará."
-
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
-msgid "G"
-msgstr "G"
 
 msgid "Printing of multiple items has not been implemented."
 msgstr "La impresión de múltiples elementos no esta soportada."
@@ -3087,9 +3078,8 @@ msgstr "Página web"
 msgid "IM Address"
 msgstr "Dirección IM"
 
-#, fuzzy
-msgid "D, d-m-Y, G:i"
-msgstr "d-m-A"
+msgid "D, d-m-Y, {0}"
+msgstr ""
 
 # 76%
 #, fuzzy
@@ -3107,12 +3097,11 @@ msgstr "d-m-A"
 msgid "Sent Items"
 msgstr ""
 
-msgid "l d/m/Y G:i"
-msgstr "I d/m/A G:i"
+msgid "l d/m/Y {0}"
+msgstr ""
 
-#, fuzzy
-msgid "d-m-Y G:i"
-msgstr "d-m-A"
+msgid "d-m-Y {0}"
+msgstr ""
 
 msgid "Unknown"
 msgstr "Desconocido"
@@ -3328,10 +3317,6 @@ msgstr "Mensaje original"
 msgid ""
 "We are going to try to fix a corrupted mail message, do you wish to continue?"
 msgstr "Trataremos de arreglar un mensaje corrupto. ¿ Desea continuar ?"
-
-#, fuzzy
-msgid "d-m-Y g:i a"
-msgstr "d-m-A"
 
 msgid "The matching task was not found in your task list."
 msgstr ""
@@ -4182,11 +4167,8 @@ msgstr ""
 msgid "Your changes will be lost if you leave this page now."
 msgstr ""
 
-# 83%
-# 80%
-#, fuzzy
-msgid "D G:i"
-msgstr "l jS F Y G:i"
+msgid "D {0}"
+msgstr ""
 
 #, fuzzy
 msgid "D d-m"
@@ -4600,9 +4582,6 @@ msgstr "Guardando ..."
 msgid "Saved at {0}"
 msgstr "Mensaje guardado a las {0}"
 
-msgid "g:i A"
-msgstr ""
-
 #, fuzzy
 msgid "Saving failed"
 msgstr "Falló guardado de mensaje."
@@ -4786,6 +4765,15 @@ msgstr "Solicitar siempre confirmación de lectura"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} AutoGuardar correo(s) no enviado(s) cada {B} minuto(s)"
 
+msgid "Conversation view settings"
+msgstr ""
+
+msgid "Enable conversation view"
+msgstr ""
+
+msgid "Collapse conversation when selecting a different email"
+msgstr ""
+
 msgid "Incoming mail"
 msgstr "Correo entrante"
 
@@ -4827,9 +4815,6 @@ msgstr ""
 msgid "Close original message on reply or forward"
 msgstr ""
 
-msgid "Enable conversation view"
-msgstr ""
-
 msgid "General mail settings"
 msgstr "Opciones generales de correo"
 
@@ -4857,6 +4842,9 @@ msgstr "Fuera de la oficina"
 msgid "I will be back on"
 msgstr ""
 
+msgid "I am out of office"
+msgstr ""
+
 #, fuzzy
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
@@ -4873,9 +4861,8 @@ msgid "Safe Senders"
 msgstr ""
 
 msgid ""
-"Manage safe sender list. To protect your privacy email addresses or domains "
-"can only be added via the \"Add to safe sender list\" functionality in an "
-"opened email."
+"To protect your privacy email addresses or domains can only be added via the "
+"\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
 
 msgid "Delete all"
@@ -4884,11 +4871,14 @@ msgstr ""
 msgid "Signatures"
 msgstr "Firmas"
 
-msgid "Signature for new messages"
-msgstr "Firma para nuevos mensajes"
+msgid "New messages"
+msgstr ""
 
-msgid "Signature for replies and forwards"
-msgstr "Firma para respuestas y reenvíos"
+msgid "Replies/forwards"
+msgstr ""
+
+msgid "Signature name:"
+msgstr ""
 
 #, fuzzy
 msgid "Save Signature"
@@ -5045,8 +5035,8 @@ msgstr "Configuración"
 msgid "Basic"
 msgstr ""
 
-msgid "Account information - {0}"
-msgstr "Información de la cuenta - {0}"
+msgid "Account information"
+msgstr ""
 
 msgid "Language"
 msgstr "Lenguaje"
@@ -5089,6 +5079,15 @@ msgid "Short"
 msgstr ""
 
 msgid "Long"
+msgstr ""
+
+msgid "Time format:"
+msgstr ""
+
+msgid "12h clock"
+msgstr ""
+
+msgid "24h clock"
 msgstr ""
 
 # 88%
@@ -5171,17 +5170,6 @@ msgstr "Módulos"
 msgid "Available plugins"
 msgstr "Modulos disponibles"
 
-msgid ""
-"The following plugins are available in the WebApp. It is possible to select "
-"and/or deselect different plugins to indicate which plugins should be "
-"enabled. When any plugin is enabled or disabled, the WebApp must be reloaded "
-"in order for the changes to take effect."
-msgstr ""
-"Los siguientes módulos están disponibles en la WebApp. Es posible "
-"seleccionar o anular la selección de diferentes módulos para indicar cuales "
-"deben ser habilitados. Cuando un módulo es habilitado o deshabilitado, la "
-"WebApp debe ser recargada para que los cambios surtan efecto."
-
 msgid "No plugins available"
 msgstr "Módulos no disponibles"
 
@@ -5197,8 +5185,8 @@ msgstr ""
 msgid "Mailbox Usage"
 msgstr "Uso del Buzón"
 
-msgid "Quota information is not set on the user's store."
-msgstr "Información de la Cuota no establecida en el buzón del usuario"
+msgid "A quota is not set on your store."
+msgstr ""
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} de espacio del buzón usado."
@@ -5805,9 +5793,8 @@ msgstr ""
 msgid "{0} - {1}"
 msgstr "{0} en {1}"
 
-#, fuzzy
-msgid "d/m/y G:i"
-msgstr "I d/m/A G:i"
+msgid "d/m/y {0}"
+msgstr ""
 
 msgid "{0} - {1} (all day)"
 msgstr ""
@@ -6756,6 +6743,9 @@ msgid "File is not imported successfully"
 msgstr "Envio finalizado"
 
 msgid "There is no contact found in this file."
+msgstr ""
+
+msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 
 #, php-format
