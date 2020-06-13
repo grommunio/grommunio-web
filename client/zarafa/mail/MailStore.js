@@ -399,12 +399,16 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 */
 	collapseAllConversation : function(headerRecord) 
 	{
-		var closeAll = !Ext.isDefined(headerRecord);
+		var closeAll = !Ext.isDefined(headerRecord) || !headerRecord;
 
 		// TODO: create the copy of the openedConversationItems array and then used it.
+		
+		// @FIXME : {@link #openedConversationItems} contains extra records.
+		// When some conversation items get deleted we only remove its conversation header from {@link #openedConversationItems}
+		// but some items will still be left in {@link #openedConversationItems} which also needed to be removed. 
 		this.openedConversationItems.forEach(function(entryId){
 			var item = this.getById(entryId);
-			if (item.isConversationHeaderRecord() && (closeAll === true || headerRecord.get("entryid") !== entryId)) {
+			if (item && item.isConversationHeaderRecord() && (closeAll === true || headerRecord.get("entryid") !== entryId)) {
 				this.toggleConversation(item);
 			}
 		}, this);
@@ -438,6 +442,36 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 		}
 
 		return retVal;
+	},
+
+	/**
+	 * Returns header record identified by the given record item which is part of that conversation.
+	 * Or it returns false if given record is not part of any conversation.
+	 * 
+	 * @param {Zarafa.core.data.MapiRecord} record The conversation item record whose header record needs to be found.
+	 * @return {Zarafa.core.data.MapiRecord} returns header record for the given conversation item
+	 * or false if given record is not part of any conversation.
+	 */
+	getHeaderRecordFromItem : function(record) {
+		if (!Ext.isDefined(record) || record.isNormalRecord()) {
+			return false;
+		} else if (record.isConversationHeaderRecord()) {
+			return record;
+		}
+
+		var items = this.snapshot || this.data;
+		var index = items.findIndex('id', record.id) - 1;
+		var headerRecord = false;
+		var item;
+		while ((item = items.get(index))) {
+			if (item.get('depth') === 0 && item.get('conversation_count') > 0) {
+				headerRecord = item;
+				break;
+			}
+			index--;
+		}
+
+		return headerRecord;
 	},
 
 	/**

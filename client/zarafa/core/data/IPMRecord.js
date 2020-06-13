@@ -578,6 +578,19 @@ Zarafa.core.data.IPMRecord = Ext.extend(Zarafa.core.data.MAPIRecord, {
 		}
 
 		return this.get('depth') > 0;
+	},
+
+	/**
+	 * Checks if the passed record is not part of a conversation and not header record.
+	 *
+	 * @return {Boolean} True if the passed record is normal record, false otherwise
+	 */
+	isNormalRecord: function() {
+		if (!Ext.isDefined(this.get('conversation_count')) || !Ext.isDefined(this.get('depth'))) {
+			return false;
+		}
+
+		return this.get('conversation_count') == 0 && this.get('depth') === 0;
 	}
 });
 
