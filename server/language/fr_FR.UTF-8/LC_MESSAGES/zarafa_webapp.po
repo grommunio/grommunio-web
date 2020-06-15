@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-06-08 11:38+0000\n"
+"PO-Revision-Date: 2020-06-15 11:04+0000\n"
 "Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
@@ -653,9 +653,8 @@ msgstr "Répondre à tous"
 msgid "Forward"
 msgstr "Transférer"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Modifier en tant que nouveau message"
+msgstr "Modifier en tant que nouveau"
 
 msgid "Search tools"
 msgstr "Outils de recherche"
@@ -704,7 +703,7 @@ msgid "To"
 msgstr "À"
 
 msgid "Filter category.."
-msgstr "Filtrer la catégorie.."
+msgstr "Filtre de catégorie.."
 
 msgid "Search.."
 msgstr "Rechercher.."
@@ -725,7 +724,7 @@ msgid "Favorites"
 msgstr "Favoris"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr "Ajouter un dossier aux favoris basé sur une requête de recherche"
+msgstr "Ajouter un dossier aux favoris basé sur cette requête de recherche"
 
 # 76%
 msgid "Select Folder"
@@ -1552,7 +1551,7 @@ msgid "New Meeting Request"
 msgstr "Nouvelle demande de rendez-vous"
 
 msgid "Open"
-msgstr "Ouverture"
+msgstr "Ouvrir"
 
 msgid "Copy/Move"
 msgstr "Copier/Déplacer"
@@ -2247,7 +2246,7 @@ msgid "You have insufficient privileges to move following items."
 msgstr ""
 
 msgid "Subject:"
-msgstr ""
+msgstr "Sujet :"
 
 msgid "Would you like to copy instead?"
 msgstr ""
@@ -3019,9 +3018,8 @@ msgid "Delegate settings"
 msgstr "Paramètres de délégation"
 
 # 80%
-#, fuzzy
 msgid "Rules"
-msgstr "Règle"
+msgstr "Règles"
 
 msgid "From Addresses"
 msgstr ""
@@ -3061,7 +3059,7 @@ msgid "d-m-Y"
 msgstr "d-m-Y"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Éléments envoyés"
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -6724,9 +6722,8 @@ msgstr ""
 msgid "Unable to import '%s'"
 msgstr ""
 
-#, fuzzy
 msgid "The EML is not valid"
-msgstr "{0} n'est pas une heure valide"
+msgstr "Le EML n'est pas valide"
 
 msgid "GB"
 msgstr "Go"
