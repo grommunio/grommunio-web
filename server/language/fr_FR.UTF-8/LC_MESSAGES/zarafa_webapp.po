@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-06-15 11:06+0000\n"
-"Last-Translator: C <c.maltot@synairgis.com>\n"
+"PO-Revision-Date: 2020-06-15 11:07+0000\n"
+"Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
 "Language: fr_FR\n"
@@ -5117,7 +5117,7 @@ msgstr ""
 "WebApp"
 
 msgid "Discard"
-msgstr "Annuler"
+msgstr "Rejeter"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5990,7 +5990,7 @@ msgstr ""
 
 # 83%
 msgid "Cannot connect to Kopano Core."
-msgstr "Impossible de se connecter au Système Central Kopano."
+msgstr "Ne peut pas se connecter à Kopano Core."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
