@@ -264,7 +264,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 				endIndex = this.prepareEndSelectionIndex(endIndex, up, add);
 			}
 			
-			var last = this.updatedLast;
+			last = this.updatedLast;
 			this.selectRange(last, endIndex, undefined, up);
 			this.grid.getView().focusRow(this.lastActive);
             if (last !== false){
