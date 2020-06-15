@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-06-15 11:04+0000\n"
-"Last-Translator: Raphaël <info@mathelpc.ch>\n"
+"PO-Revision-Date: 2020-06-15 11:05+0000\n"
+"Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
 "Language: fr_FR\n"
@@ -4887,7 +4887,7 @@ msgid "Older"
 msgstr "Dossiers"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Hier"
 
 #, fuzzy
 msgid "Last Week"
@@ -4994,7 +4994,7 @@ msgid "Settings"
 msgstr "Paramètres"
 
 msgid "Basic"
-msgstr ""
+msgstr "Basique"
 
 msgid "Account information"
 msgstr ""
