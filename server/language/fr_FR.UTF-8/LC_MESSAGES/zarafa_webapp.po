@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-06-15 11:04+0000\n"
-"Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
+"Last-Translator: Raphaël <info@mathelpc.ch>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
 "Language: fr_FR\n"
@@ -4070,7 +4070,7 @@ msgstr ""
 "vouloir quitter cette fenêtre ? "
 
 msgid "Kopano Content Panel"
-msgstr ""
+msgstr "Centre de contenu Kopano"
 
 #, fuzzy
 msgid "Delete item"
