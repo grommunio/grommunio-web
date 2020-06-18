@@ -1,3 +1,4 @@
+
 Ext.namespace('Zarafa.mail.ui');
 
 /**
@@ -102,7 +103,12 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 		this.on({
 			'cellclick': this.onCellClick,
-			'rowclick': this.onRowClick,
+			//'rowclick': this.onRowClick,
+			'rowclick': {
+				fn : this.onRowClick,
+				buffer : 1,
+				scope : this
+			},
 			'rowbodycontextmenu': this.onRowBodyContextMenu,
 			'rowdblclick': this.onRowDblClick,
 			scope : this
@@ -128,7 +134,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		store.filterByConversations();
 		this.mon(this.getStore(), 'load', store.manageOpenConversations, store);
 		this.mon(this.getStore(), 'add', store.filterByConversations, store);
-		this.mon(this.getStore(), 'remove', store.manageDeleteConversations, store);
+		this.mon(this.getStore(), 'remove', this.manageDeleteConversations, this);
 
 		this.mon(this.getView(), 'rowupdated', function(view, rowIndex, record) {
 			if (record.get('depth') === 0) {
@@ -602,10 +608,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 			if (selectionModel) {
 				selectionModel.selectRow(rowIndex+1, keepExisting);
 			}
-		}
-		if (this.expandSingleConversation && !keepExisting) {
-			var headerRecord = store.getHeaderRecordFromItem(record);
-			store.collapseAllConversation(headerRecord);
+			if (this.expandSingleConversation) {
+				store.collapseAllConversation(record);
+			}
 		}
 	},
 
@@ -716,6 +721,53 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	hasEnabledGrouping : function ()
 	{
 		return container.getSettingsModel().get('zarafa/v1/contexts/mail/enable_grouping');
+	},
+
+	/**
+	 * Function will Filter the store to not show items in conversations that have not been expanded
+	 * and will update {@link Zarafa.mail.data.ConversationManagers#getOpenedRecordManager openedConversationManager}
+	 * with deleted conversation Header.
+	 *
+	 * @param {Zarafa.mail.MailStore} store which contains message records
+	 * @param {Zarafa.mail.MailRecord} record which is deleted.
+	 */
+	manageDeleteConversations : function(store, record)
+	{
+		if(container.isEnabledConversation() === false) {
+			return;
+		}
+
+		var openedRecordManager = store.conversationManager.getOpenedRecordManager();
+
+		var deleteWholeConversation = [];
+		// Iterate over the each conversation and check deleted record is part of any opened
+		// conversation.
+		openedRecordManager.eachKey(function (key, items, record, store, deleteWholeConversation) {
+			var index = items.indexOf(record.get("entryid"));
+			if( index > -1) {
+				items.splice(index, 1);
+				if(items.length > 0) {
+					// Check conversation has inbox item.
+					var hasInboxItem = items.some(function (item) {
+						return store.getById(item).get('folder_name') === "inbox";
+					});
+					if (hasInboxItem === false) {
+						deleteWholeConversation.push(key);
+					}
+				}
+				return false;
+			}
+			return true;
+		}.createDelegate(this, [record, store, deleteWholeConversation], 2), this);
+
+		// Remove whole conversation when conversation doesn't contains
+		// any inbox item.
+		if (!Ext.isEmpty(deleteWholeConversation)) {
+			for (var conversation of deleteWholeConversation) {
+				openedRecordManager.removeKey(conversation);
+			}
+		}
+		store.filterByConversations();
 	}
 });
 
