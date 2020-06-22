@@ -130,7 +130,7 @@ const userManager = (function(){
 		}
 
 		mgr.getUser().then(function(user){
-			if (user) {
+			if (user && !user.expired) {
 				postToken(user);
 				return;
 			}
