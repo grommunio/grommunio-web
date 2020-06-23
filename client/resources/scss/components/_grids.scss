@@ -257,6 +257,11 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 				max-height: $font-line-height-mail-grid-compact; /* added 1px because letters get cut off at the bottom otherwise */
 				padding-bottom: 0px;
 				padding-top: $padding-small + 1px;
+				
+				// Styling for displaying elipsis for message body as subject
+				white-space: nowrap;
+  				overflow: hidden;
+  				text-overflow: ellipsis;
 			}
 
 			.grid_compact_left {

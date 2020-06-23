@@ -936,6 +936,7 @@
 				$properties["entryid"] = PR_ENTRYID;
 				$properties["store_entryid"] = PR_STORE_ENTRYID;
 				$properties["parent_entryid"] = PR_PARENT_ENTRYID;
+				$properties['body'] = PR_BODY;
 				$properties["access"] = PR_ACCESS;
 				$properties["message_class"] = PR_MESSAGE_CLASS;
 				$properties["object_type"] = PR_OBJECT_TYPE;
@@ -1050,7 +1051,7 @@
 		function getMailListProperties()
 		{
 			$properties = $this->getMailProperties();
-
+			
 			unset($properties['transport_message_headers']);
 			unset($properties['appointment_startdate']);
 			unset($properties['appointment_duedate']);
