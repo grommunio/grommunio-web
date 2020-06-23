@@ -262,15 +262,19 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	 * Function dismisses the reminder which are passed to the function.
 	 * @param {Zarafa.common.reminder.data.ReminderRecord[]} reminderRecords
 	 * reminder records which are going to be dismissed
+	 * @param {Boolean} openAfterDismiss true if the record is to be opened after dismissal
 	 */
-	dismissReminders : function(reminderRecords)
+	dismissReminders : function(reminderRecords, openAfterDismiss)
 	{
 		if(!Array.isArray(reminderRecords)){
 			reminderRecords = [reminderRecords];
 		}
 
 		Ext.each(reminderRecords, function(reminderRecord) {
-			reminderRecord.addMessageAction('action_type', 'dismiss');
+			reminderRecord.addMessageAction('action_type', 'dismiss'); 
+			if (openAfterDismiss) {
+				reminderRecord.addMessageAction('response_action', openAfterDismiss);
+			}
 		}, this);
 
 		this.remove(reminderRecords);
@@ -297,8 +301,11 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 	},
 
 	/**
-	 * Event handler which is raised when the {@link #write} event has been fired. This will
-	 * send list request for reminders and will reset reminder polling interval.
+	 * Event handler which is raised when the {@link #write} event has been fired. It will convert the 
+	 * {@link Zarafa.common.reminder.ReminderRecord ReminderRecord} to an 
+	 * {@link Zarafa.core.data.IPMRecord IPMRecord} based on its message_class property and then pass that
+	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to {@link Zarafa.core.ui.ContentPanel ContentPanel} to open it.
+	 * Also, it will send list request for reminders and will reset reminder polling interval.
 	 *
 	 * @param {Zarafa.core.data.MAPIStore} store The store which fired the event
 	 * @param {String} action [Ext.data.Api.actions.create|update|destroy]
@@ -312,8 +319,15 @@ Zarafa.common.reminder.data.ReminderStore = Ext.extend(Zarafa.core.data.ListModu
 		records = [].concat(records);
 
 		for (var i = 0, len = records.length; i < len; i++) {
-			if(records[i].getMessageAction("action_type") == "dismiss" || records[i].getMessageAction("action_type") == "snooze") {
+			var record = records[i];
+
+			if(record.getMessageAction("action_type") == "dismiss" || record.getMessageAction("action_type") == "snooze") {
 				if(this.refreshStore) {
+					// We convert the reminder record to IPMRecord and then open it
+					if (record.getMessageAction('response_action') === true) {
+						record = record.convertToIPMRecord();
+						Zarafa.core.data.UIFactory.openViewRecord(record, {});
+					}
 					// send request to get updated data
 					this.sendReminderRequest();
 

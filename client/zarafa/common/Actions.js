@@ -502,9 +502,7 @@ Zarafa.common.Actions = {
 	},
 
 	/**
-	 * Function will first convert the {@link Zarafa.common.reminder.ReminderRecord ReminderRecord} to an
-	 * {@link Zarafa.core.data.IPMRecord IPMRecord} based on its message_class property and then pass that
-	 * {@link Zarafa.core.data.IPMRecord IPMRecord} to {@link Zarafa.core.ui.ContentPanel ContentPanel} to open it.
+	 * Function will dismiss the record and open it.
 	 * @param {Zarafa.common.reminder.data.ReminderRecord|Zarafa.common.reminder.data.ReminderRecord[]} record
 	 * The reminder record/records which should be opened.
 	 * @param {Object} config configuration object.
@@ -513,12 +511,8 @@ Zarafa.common.Actions = {
 	{
 		config = config || {};
 		var store = record.getStore();
-		var dismissReminders = record;
-		// convert reminder record to proper ipmrecord
-		record = record.convertToIPMRecord();
 		if (record) {
-			Zarafa.core.data.UIFactory.openViewRecord(record, config);
-			store.dismissReminders(dismissReminders);
+			store.dismissReminders(record, true);
 		}
 
 		// Set the focus to the main window because the reminder panel
