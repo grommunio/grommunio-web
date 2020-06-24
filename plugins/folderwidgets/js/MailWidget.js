@@ -91,13 +91,13 @@ Zarafa.widgets.folderwidgets.MailWidget = Ext.extend(Zarafa.widgets.folderwidget
 
 	/**
 	 * Update the filter. This will filter the records using
-	 * {@link Zarafa.core.data.IPMRecord#isRead}.
+	 * {@link Zarafa.core.data.IPMRecord#isRead} and {@link Zarafa.core.data.IPMRecord#isConversationHeaderRecord}.
 	 * @private
 	 */
-        updateFilter : function()
+    updateFilter : function()
 	{
 		this.store.filterBy(function(record) {
-			return !record.isRead();
+			return !record.isRead() && !record.isConversationHeaderRecord();
 		}, this);
 	},
 
@@ -128,7 +128,7 @@ Zarafa.widgets.folderwidgets.MailWidget = Ext.extend(Zarafa.widgets.folderwidget
 
 		// Render the subject
 		meta = {};
-		value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
+		value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record, false);
 		rowParams.body += String.format('<td style="width: 100%"><div class="grid_compact grid_compact_left grid_compact_subject_cell {0}" style="height: 24px;">{1}</div></td>', meta.css, value);
 
 		// Render the attachment icon (always aligned to the right)
