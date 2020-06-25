@@ -268,9 +268,10 @@ Zarafa.common.ui.grid.Renderers = {
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @param {Boolean} showBodyAsSubject false if conversation items' body does not need to be shown as subject.
 	 * @return {String} The formatted string
 	 */
-	subject : function(value, p, record)
+	subject : function(value, p, record, showBodyAsSubject)
 	{
 		p.css = 'mail_subject';
 
@@ -283,7 +284,7 @@ Zarafa.common.ui.grid.Renderers = {
 		// content shouyld be rendered as the column header suggests.
 		if (Ext.isDefined(record) && record.get('conversation_count') > 0){
 			value = record.get('normalized_subject');
-		} else if (Ext.isDefined(record) && record.get('depth') > 0) {
+		} else if (showBodyAsSubject !== false && Ext.isDefined(record) && record.get('depth') > 0) {
 			value = record.get('body');
 			var indexOfRepliedMail = value.indexOf("-----"+ _('Original message') +"-----");
 			if (indexOfRepliedMail > 0) {
