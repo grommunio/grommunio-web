@@ -687,7 +687,7 @@
 		  	$props[PR_ATTACHMENT_HIDDEN] = true;
 		  	$props[PR_ATTACHMENT_LINKID] = 0;
 		  	$props[PR_ATTACH_FLAGS] = 0;
-		  	$props[PR_ATTACH_METHOD] = 5;
+		  	$props[PR_ATTACH_METHOD] = ATTACH_EMBEDDED_MSG;
 		  	$props[PR_DISPLAY_NAME] = "Exception";
 		  	$props[PR_EXCEPTION_STARTTIME] = $this->fromGMT($this->tz, $exception_props[$this->proptags["startdate"]]);
 		  	$props[PR_EXCEPTION_ENDTIME] = $this->fromGMT($this->tz, $exception_props[$this->proptags["duedate"]]);	
@@ -738,9 +738,17 @@
 		function deleteExceptionAttachment($base_date)
 		{
 			$attachments = mapi_message_getattachmenttable($this->message);
-			$attachTable = mapi_table_queryallrows($attachments, Array(PR_ATTACH_NUM));
+			// Retrieve only exceptions which are stored as embedded messages
+			$attach_res = Array(RES_PROPERTY,
+							Array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_ATTACH_METHOD,
+								VALUE => array(PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG)
+									)
+			);
+			$attachRows = mapi_table_queryallrows($attachments, Array(PR_ATTACH_NUM), $attach_res);
 			
-			foreach($attachTable as $attachRow)
+			foreach($attachRows as $attachRow)
 			{
 				$tempattach = mapi_message_openattach($this->message, $attachRow[PR_ATTACH_NUM]);
 				$exception = mapi_attach_openobj($tempattach);
@@ -775,17 +783,12 @@
 		function getExceptionAttachment($base_date)
 		{
 			// Retrieve only exceptions which are stored as embedded messages
-			$attach_res = Array(RES_AND,
-							Array(
-								Array(RES_PROPERTY,
-									Array(
-										RELOP => RELOP_EQ,
-										ULPROPTAG => PR_ATTACH_METHOD,
-										VALUE => array(PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG)
-									)
-								)
+			$attach_res = Array(RES_PROPERTY, Array(
+								RELOP => RELOP_EQ,
+								ULPROPTAG => PR_ATTACH_METHOD,
+								VALUE => array(PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG)
 							)
-						);
+			);
 			$attachments = mapi_message_getattachmenttable($this->message);
 			$attachRows = mapi_table_queryallrows($attachments, Array(PR_ATTACH_NUM), $attach_res);
 
