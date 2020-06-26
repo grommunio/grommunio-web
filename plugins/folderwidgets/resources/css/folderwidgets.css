@@ -83,3 +83,7 @@
     white-space: nowrap;
     font-weight: bold;
 }
+
+#unread-mail-widget .mail_subject {
+	overflow: hidden;
+}
