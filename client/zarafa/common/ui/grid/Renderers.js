@@ -268,10 +268,9 @@ Zarafa.common.ui.grid.Renderers = {
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
 	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
-	 * @param {Boolean} showBodyAsSubject false if conversation items' body does not need to be shown as subject.
 	 * @return {String} The formatted string
 	 */
-	subject : function(value, p, record, showBodyAsSubject)
+	subject : function(value, p, record)
 	{
 		p.css = 'mail_subject';
 
@@ -280,15 +279,44 @@ Zarafa.common.ui.grid.Renderers = {
 			p.css += ' zarafa-grid-empty-cell';
 		}
 	
-		// @Fixme: Find a better way to render body. Make a seprate body renderer.
-		// content shouyld be rendered as the column header suggests.
 		if (Ext.isDefined(record) && record.get('conversation_count') > 0){
 			value = record.get('normalized_subject');
-		} else if (showBodyAsSubject !== false && Ext.isDefined(record) && record.get('depth') > 0) {
-			value = record.get('body');
-			var indexOfRepliedMail = value.indexOf("-----"+ _('Original message') +"-----");
-			if (indexOfRepliedMail > 0) {
-				value = value.substring(0, indexOfRepliedMail);
+		} 
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as Body
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	body : function(value, p, record)
+	{
+		/**
+		 * @FIXME: value must always be record.get('body').
+		 * Currently we are getting subject as a value for mailGrid in non compact view
+		 * because the dataIndex will remain same for the 'subject' column.
+		 */
+		p.css = 'mail_body';	
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' zarafa-grid-empty-cell';
+		} 
+		
+		if (Ext.isDefined(record)) {
+			//  If header record then display normalized_subject
+			if (record.get('conversation_count') > 0) {
+				value = record.get('normalized_subject');
+			} else { 
+				value = record.get('body');
+				var indexOfRepliedMail = value.indexOf("-----" + _('Original message') + "-----");
+				if (indexOfRepliedMail > 0) {
+					value = value.substring(0, indexOfRepliedMail);
+				}
 			}
 		}
 

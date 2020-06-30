@@ -255,7 +255,13 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 
 			// Render the subject
 			var meta = {}; // Metadata object for Zarafa.common.ui.grid.Renderers.
-			var value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record); // The value which must be rendered
+			var value; // The value which must be rendered
+			if (record.isConversationHeaderRecord()) {
+				value = Zarafa.common.ui.grid.Renderers.subject(record.get('subject'), meta, record);
+			} else {
+				value = Zarafa.common.ui.grid.Renderers.body(record.get('body'), meta, record);
+			}
+			
 			rowParams.body += String.format('<div class="grid_compact grid_compact_left grid_compact_subject_cell {0}">{1}</div>', meta.css, value);
 
 			rowParams.body += '</div>';

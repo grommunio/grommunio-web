@@ -296,7 +296,22 @@ Zarafa.mail.ui.MailGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnMode
 
 			this.name = name;
 			this.setConfig(this.columns, false);
-		}
+			
+			if (!compact && isEnabledConversation) {
+                this.updateRenderer('subject', Zarafa.common.ui.grid.Renderers.body);
+            }
+        }
+	},
+	
+	/**
+	 * Function which will change a renderer for the given column dataIndex.
+	 * @param {String} dataIndex dataIndex of column whose renderer needs to be changed.
+	 * @param {Zarafa.common.ui.grid.Renderers} renderer which should be applied on column.
+	 */
+	updateRenderer: function (dataIndex, renderer)
+	{
+		var colIndex = this.findColumnIndex(dataIndex);
+		this.setRenderer(colIndex, renderer);
 	},
 
 	/**
