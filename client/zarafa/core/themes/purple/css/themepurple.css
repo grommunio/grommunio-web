@@ -33,8 +33,7 @@ body.theme-purple zarafa-welcome:after {
     margin: 0;
     padding: 0;
     z-index: -1;
-    background: url(../img/background_purple.svg);
-    background-size: cover;
+    background: url(../img/background_purple.svg) center/cover no-repeat;
 }
 
 /* The Sign in button of the login screen */
