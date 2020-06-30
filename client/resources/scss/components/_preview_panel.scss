@@ -7,6 +7,21 @@
 	padding-bottom: $padding-medium;
 }
 
+/******************************************************************************
+ * Message Loading Failure
+ ******************************************************************************/
+ #zarafa-main-content-mail-preview .x-mask-error {
+	border : none;
+	background-color : $white;
+
+	div {
+		border : none;
+		color: $grey6;
+		background-color : $white;
+		font-size : $font-size-large;
+	}
+} 
+
 /***************************************
  *  scrollbars for Webkit
  ***************************************/

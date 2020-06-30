@@ -312,6 +312,10 @@
 							$e->setDisplayMessage(_("You have insufficient privileges to open this message."));
 						} elseif($e->getCode() == MAPI_E_NOT_FOUND) {
 							$e->setDisplayMessage(_("Could not find message, either it has been moved or deleted or you don't have access to open this message."));
+							// Show error in console instead of a pop-up
+							if (isset($action["message_action"]['suppress_exception']) && $action["message_action"]['suppress_exception'] === true) {
+								$e->setNotificationType('console');
+							}
 						} else {
 							$e->setDisplayMessage(_("Could not open message."));
 							$e->allowToShowDetailsMessage = true;

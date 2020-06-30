@@ -24,7 +24,7 @@ Zarafa.common.ui.LoadMask = Ext.extend(Ext.LoadMask, {
 	 * @cfg {String} failureMsg message that will be displayed in {@link Zarafa.common.ui.LoadMask LoadMask}
 	 * when the {@link Zarafa.core.data.MAPIStore MAPIStore} has fired an exception.
 	 */
-	failureMsg : _('Failed'),
+	failureMsg : _('Message could not be loaded'),
 
 	/**
 	 * @cfg {String} failureMsgCls The CSS class to be applied on the {@link Zarafa.common.ui.LoadMask LoadMask}

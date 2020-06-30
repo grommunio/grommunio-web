@@ -1153,11 +1153,15 @@ Zarafa.common.Actions = {
 	 *
 	 * @param {Zarafa.core.data.IPMRecord} records The records to open
 	 * @param {Object} config (optional) Configuration object used to create
+	 * @param {Boolean} suppressException true to suppress popup of exception
 	 * the Content Panel.
 	 */
-	openMessageContent : function(records, config)
+	openMessageContent : function(records, config, suppressException)
 	{
 		Ext.each(records, function(record) {
+			if (suppressException) {
+				record.suppressException();
+			}
 			if (record.isUnsent() && !record.isFaultyMessage()) {
 				Zarafa.core.data.UIFactory.openCreateRecord(record, config);
 			} else {
