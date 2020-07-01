@@ -110,6 +110,7 @@ Zarafa.mail.KeyMapping = Ext.extend(Object, {
 			key: Ext.EventObject.LEFT,
 			ctrl: false,
 			alt: false,
+			enableGlobally: true,
 			shift: false,
 			stopEvent: true,
 			handler: this.onConversationClose,
