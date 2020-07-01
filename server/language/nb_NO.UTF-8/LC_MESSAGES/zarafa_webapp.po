@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-04-16 15:14+0000\n"
+"PO-Revision-Date: 2020-07-01 08:45+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
-"kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
+"/kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1686,7 +1686,7 @@ msgid "Update recipients"
 msgstr "Oppdater mottaker"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Tidspunktet for møtet har blitt endret, hva vil du gjøre?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Lagre endringer og send en oppdatering til alle mottakere"
@@ -2992,7 +2992,7 @@ msgid "d-m-Y"
 msgstr "d.m.Y"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Sendte elementer"
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -4625,7 +4625,7 @@ msgid "I will be back on"
 msgstr "Jeg er tilbake på"
 
 msgid "I am out of office"
-msgstr ""
+msgstr "Jeg er ikke på kontoret"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Autosvar hver sender, men bare en gang per dag, med denne teksten"
@@ -4654,10 +4654,10 @@ msgid "Signatures"
 msgstr "Signaturer"
 
 msgid "New messages"
-msgstr ""
+msgstr "Nye meldinger"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Svar/videresendinger"
 
 msgid "Signature name:"
 msgstr ""
@@ -4854,7 +4854,7 @@ msgid "Long"
 msgstr "Langt format"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Tidsformat:"
 
 msgid "12h clock"
 msgstr ""
@@ -4943,7 +4943,7 @@ msgid "Mailbox Usage"
 msgstr "E-postboksbruk"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Det er ikke satt noen kvote på din konto."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} av e-postboks er brukt."
@@ -5376,14 +5376,14 @@ msgid "Connection with server has been restored"
 msgstr "Forbindelse til server har blitt gjenopptatt"
 
 msgid "Please contact your administrator if this problem persists."
-msgstr ""
+msgstr "Kontakt systemansvarlig om dette problemet vedvarer."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "Error HTTP {0}"
-msgstr ""
+msgstr "Error HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr ""
+msgstr "HTTP status tekst er: "
 
 msgid "Invalid data received from the server. HTTP status text is: "
 msgstr ""
