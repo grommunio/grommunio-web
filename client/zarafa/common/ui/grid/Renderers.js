@@ -287,7 +287,8 @@ Zarafa.common.ui.grid.Renderers = {
 	},
 
 	/**
-	 * Render the cell as Body
+	 * Renders the cell as Body for conversation item and for header it will render 'normalized_subject'.
+	 * Apart from that it will render default value given in the param.
 	 *
 	 * @param {Object} value The data value for the cell.
 	 * @param {Object} p An object with metadata
@@ -300,6 +301,8 @@ Zarafa.common.ui.grid.Renderers = {
 		 * @FIXME: value must always be record.get('body').
 		 * Currently we are getting subject as a value for mailGrid in non compact view
 		 * because the dataIndex will remain same for the 'subject' column.
+		 * If the record is non-conversation item then this will return 
+		 * default value which is in param.
 		 */
 		p.css = 'mail_body';	
 		if(Ext.isEmpty(value)) {
@@ -311,7 +314,7 @@ Zarafa.common.ui.grid.Renderers = {
 			//  If header record then display normalized_subject
 			if (record.get('conversation_count') > 0) {
 				value = record.get('normalized_subject');
-			} else { 
+			} else if (record.get('depth') > 0) {
 				value = record.get('body');
 				var indexOfRepliedMail = value.indexOf("-----" + _('Original message') + "-----");
 				if (indexOfRepliedMail > 0) {
