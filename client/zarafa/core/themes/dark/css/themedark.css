@@ -185,6 +185,11 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maint
   color: #2b90d9;
 }
 
+/* Counters for conversation in the mail grid */
+.x-grid3-row .k-conversation-count {
+  color: #2b90d9;
+}
+
 /* Current day in the calendar */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
 /* border colors of the current day and month in the date pickers */

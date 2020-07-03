@@ -528,3 +528,7 @@ input.x-form-text.x-form-field.x-form-focus {
         border-left: 4px solid #e9ddf1 !important;
 }
 
+/* Counters for conversation in the mail grid */
+.x-grid3-row .k-conversation-count {
+	color: #702277;
+}

@@ -1,3 +1,9 @@
+/* Reset default css*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
 /* arrows that show where a column will be moved. Looks ugly. We don't want this. */
 .col-move-bottom, .col-move-top {
 	background-image: none !important;
@@ -185,37 +191,86 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	border-top: none;
 	border-left: none;
 	border-color: $grey;
+	background-clip: content-box !important;
 
-	.x-grid3-cell-inner {
-		line-height: 100%;
-		padding: $padding-large ($padding-medium + 1px);
-		position: relative;
-	}
-
-	&.line_vertical {
-		background-position: 14.5px top !important;
-		background-repeat: repeat-y !important;
-
-		&.k-depth-0 {
-			background-repeat: no-repeat !important;
-			background-position-y: 12px !important;
+	.x-grid3-cell {
+		&:first-child .x-grid3-cell-inner{
+			min-width: 25px;
+			padding-left: 5px;
 		}
 
-		&.k-last-conversation-item {
-			background-repeat: no-repeat !important;
-			background-position-y: -484px !important;
+		.x-grid3-cell-inner {
+			line-height: 100%;
+			padding: $padding-large ($padding-medium + 1px);
+			position: relative;
+		}
+
+		&.x-grid3-td-column_icon.k-conversation_header {
+			cursor: pointer;
+		}
+	}
+	
+	&.k-depth-1.line_circle_l {
+		background-position: 11px -23px !important;
+	}
+
+	&.line_circle_end.k-last-conversation-item.k-depth-1 {
+		background-position: 11px -34px !important;
+		background-origin: content-box;
+	}
+
+	// Styling for right preview mode.
+	.zarafa-grid-body-container {
+		.k-conversation-icon-container {
+			position: absolute;
+			padding-top: $padding-small;
+	
+			// Span for conversation arrow icon
+			.k-conversation-icon{
+				display: block;
+				padding: 0 1.5px;
+				width: 23px;
+				height: 15px;
+				cursor: pointer;
+			}
+		}
+	}
+	
+	&.k-conversation-header.k-depth-0 {
+		&.arrow_right_l {
+			background-position: 14px 34px !important;
+		}
+		&.line_arrow_down_l {
+			background-position: 11px 34px !important;	
+		}
+	}
+	
+	// Styling for bottom preview and no preview mode.
+	&.k-conversation-header.k-depth-0:not(.k-compact-row) { 
+		&.arrow_right_l, &.line_arrow_down_l {
+			background-position-y: 19px !important;
 		}
 	}
 
-	.k-conversation_header.line_arrow_down_l {
-		background-position: center 12px !important;
+	// Only lower the padding of counter cell for bottom preview and no preview mode.
+	.x-grid3-td-column_icon.k-conversation_header {
+		.x-grid3-cell-inner {
+			padding-top: $padding-small;
+		}
+	}
+
+	.k-conversation-count {
+		color: $kopano-blue;
+		font-weight: bold;
+		padding-left : 2px;
+
+		&.k-two-digit-counter {
+			position: relative;
+    		left: -4px;
+		}
 	}
 
 	&.k-depth-1 {
-		.arrow_right_l {
-			background-position: 12px 7px !important;
-		}
-
 		.x-grid3-cell-inner {
 			padding: $padding-small ($padding-medium + 1px);
 			line-height: 20px;
@@ -285,10 +340,6 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 			padding-top: ($font-default-size + 2*$padding-large - 15) / 2 !important; /* important is needed because Ext also added it */
 		}
 	}
-}
-
-.k-unreadborders .line_vertical {
-	background-position: 15.5px top !important;
 }
 
 .x-grid3-row.x-grid3-row-expanded {

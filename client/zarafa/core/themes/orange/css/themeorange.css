@@ -382,3 +382,8 @@ input.x-form-text.x-form-field.x-form-focus {
 .theme-orange .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
         border-left: 4px solid #fce8ce !important;
 }
+
+/* Counters for conversation in the mail grid */
+.x-grid3-row .k-conversation-count {
+	color: #dc7100;
+}

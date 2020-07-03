@@ -39,27 +39,30 @@ Zarafa.common.ui.grid.Renderers = {
 	{
 		var conversationCount = record.get('conversation_count');
 		var depth = record.get('depth');
+		var cssClass = '';
+		var counterCls = "k-conversation-count";
+		var result = '';
 
 		if (conversationCount > 0 && depth === 0) {
-			p.css = 'k-conversation_header';
-
-			if (record.store.openedConversationItems && record.store.isConversationOpened(record)) {
-				p.css += ' arrow_down_l';
-			} else if (record.store.openedConversationItems && !record.store.isConversationOpened(record)) {
-				p.css += ' arrow_right_l';
+			cssClass = 'k-conversation_header';
+			if (conversationCount > 9) { 
+				counterCls += " k-two-digit-counter";
+				if (conversationCount > 99) {
+					conversationCount = '99+';
+				}
 			}
+			result = '<span unselectable="on" class= "' + counterCls + '">' + conversationCount + '</span>';
+			
 		} else if (depth !== 1) {
-			p.css = Zarafa.common.ui.IconClass.getIconClass(record);
-		}
-
-		if (Ext.isNumber(depth) && depth > 0) {
-			p.css += ' arrow_right_l';
+			cssClass = Zarafa.common.ui.IconClass.getIconClass(record);
 		}
 
 		// add extra css class for empty cell
-		p.css += ' zarafa-grid-empty-cell';
-
-		return '';
+		cssClass += ' zarafa-grid-empty-cell';
+		
+		p.css = cssClass;
+	
+		return result;
 	},
 
 	/**
