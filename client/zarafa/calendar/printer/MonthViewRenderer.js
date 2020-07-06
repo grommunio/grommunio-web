@@ -240,7 +240,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 
 		html += '<table class="k-calendar-days">'
 			+ '<tr style="height:5px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+   '<tpl for="days"><th class="date-header-days">{values.day}</th></tpl>'
 			+ '</tr>'
 			+ '<tpl for="weeks">'
@@ -273,7 +273,7 @@ Zarafa.calendar.printer.MonthViewRenderer = Ext.extend(Zarafa.calendar.printer.A
 		html += '<table id="bottom">'
 			+ '<tr>'
 			+ '<td class="nowrap" align="left">{fullname}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '<td class="nowrap" align="right">{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';

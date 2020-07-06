@@ -610,27 +610,27 @@ Zarafa.core.DateRange = Ext.extend(Ext.util.Observable, {
 		// The startDate and duedate are in completely different years.
 		// Format the full date strings for both dates.
 		if (startDate.getYear() != dueDate.getYear()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1}', startDate.format(_('jS F Y')), dueDate.format(_('jS F Y')));
 		}
 
 		// The startDate and dueDate are in different months.
 		// Format the date strings with the year in common.
 		if (startDate.getMonth() != dueDate.getMonth()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1} {2}', startDate.format(_('jS F')), dueDate.format(_('jS F')), startDate.format(_('Y')));
 		}
 
 		// The startDate and dueDate are on different days.
 		// Format the date strings with the month and year in common.
 		if (startDate.getDate() != dueDate.getDate()) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			return String.format('{0} - {1} {2}', startDate.format(_('jS')), dueDate.format(_('jS')), startDate.format(_('F Y')));
 		}
 
 		// The startDate and dueDate are on the same day.
 		// Format the date string with everything in common.
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		return startDate.format(_('jS F Y'));
 	}
 });

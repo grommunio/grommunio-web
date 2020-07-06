@@ -131,10 +131,10 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			formatTime : function(start, due)
 			{		
 				if (start.clearTime(true).getTime() == due.clearTime(true).getTime()) {
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					return start.formatDefaultTime() + ' - ' + due.formatDefaultTime();
 				} else {
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					return start.formatDefaultTime(_('jS F {0}')) + ' - ' + due.formatDefaultTime(_('jS F {0}'));
 				}
 			},
@@ -144,10 +144,10 @@ Zarafa.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 			{
 				due = due.add(Date.HOUR, -1);
 				if (Date.diff(Date.DAY, due, start) <= 1) {
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					return start.format(_('jS F Y'));
 				} else {
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					return start.format(_('jS F Y')) + ' - ' + due.format(_('jS F Y'));
 				}
 			}

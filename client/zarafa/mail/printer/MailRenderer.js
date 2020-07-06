@@ -20,7 +20,7 @@ Zarafa.mail.printer.MailRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 		html += '<hr>\n';
 		html += '<table>\n';
 		html += this.addRow(_('From'), '{formatted_from}');
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += this.addRow(_('Sent'), '{message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}');
 		html += this.optionalRow(_('To'), 'display_to', '{formatted_to}');
 		html += this.optionalRow(_('Cc'), 'display_cc', '{formatted_Cc}');

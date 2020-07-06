@@ -12,7 +12,7 @@ Zarafa.calendar.ui.AppointmentView = Ext.extend(Zarafa.calendar.ui.AbstractDateR
 	 * @cfg {String} timeFormat The time format which must be applied to appointments
 	 * when displaying the time period (see {@link Date.format format}).
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 	timeFormat : _('G:i'),
 
 	/**

@@ -173,7 +173,7 @@ Zarafa.calendar.ui.TimeStripView = Ext.extend(Zarafa.core.ui.View, {
 		for (var i = 0, len = this.bodyElements.length; i < len; i++) {
 			var hour = (i + Math.floor(this.timeDifference) + 24) % 24;
 			var date = new Date(0, 0, 0, hour);
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			this.bodyElements[i].dom.innerHTML = String.format(this.textTemplate, date.formatDefaultTime()); 
 		}
 	},

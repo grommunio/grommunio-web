@@ -76,7 +76,7 @@ Zarafa.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 			/* # TRANSLATORS: This message is used as label for the field which indicates the date/time on which the given message was sent. */
 			'<span class="preview-timestamp-title">' + pgettext('mail.previewpanel', 'Sent') + ':</span>' +
 				'<tpl if="Ext.isDate(values.client_submit_time)">' +
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					'{client_submit_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 				'</tpl>' +
 				'<tpl if="!Ext.isDate(values.client_submit_time)">' +

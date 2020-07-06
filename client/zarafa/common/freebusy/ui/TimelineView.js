@@ -1062,7 +1062,7 @@ Zarafa.common.freebusy.ui.TimelineView = Ext.extend(Ext.BoxComponent,
 			if (!this.model.showOnlyWorkingHours() || workDay) {
 				this.daysMap.push({
 					// Run date through formatter
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					label: date.format(_('l jS F Y')),
 					currentDay: currDayCheck,
 					timestamp: date.getTime() / 1000,

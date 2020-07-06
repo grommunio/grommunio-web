@@ -32,7 +32,7 @@ Zarafa.common.ui.DateTimeField = Ext.extend(Zarafa.common.ui.CompositeField, {
 	 * @cfg {String} dateFormat The format in which the date appears in the
 	 * {@link Ext.form.DateField DateField}.
 	 */
-	// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+	// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 	dateFormat : _('d/m/Y'),
 	/**
 	 * @cfg {String} timeFormat The format in which the time appears in the

@@ -22,9 +22,9 @@ Zarafa.task.printer.TaskRenderer = Ext.extend(Zarafa.common.printer.renderers.Re
 		html += '<hr>\n';
 		html += '<table>\n';
 		html += this.addRow(_('Subject'), '{subject}');
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += this.optionalRow(_('Start'), 'startdate', '{startdate:date("' + _('l d/m/Y') + '")}');
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += this.optionalRow(_('Due'), 'duedate', '{duedate:date("' + _('l d/m/Y') + '")}');
 		html += this.optionalRow(_('Priority'), 'importance', '{importance:importanceString}');
 		html += this.addRow('', '');   // separator

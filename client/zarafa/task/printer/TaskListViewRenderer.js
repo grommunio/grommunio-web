@@ -47,7 +47,7 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 			+ '<td>{values.data.percent_complete:percentage(0)}</td>'
 			+ '<td>{values.data.subject:htmlEncode}</td>'
 			+ '<td>{values.data.owner:htmlEncode}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '<td>{values.data.duedate:date("' + _("l jS F Y") + '")}</td>'
 			+ '</tr>\n'
 			+ '</tpl>';
@@ -58,7 +58,7 @@ Zarafa.task.printer.TaskListViewRenderer = Ext.extend(Zarafa.common.printer.rend
 		html += '<table id="printlistbottom">'
 		+ '<tr>'
 		+ '<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>'
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		+ '<td class="right">' + _('Printed on: ') + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 		+ '</tr>'
 		+ '</table>\n';

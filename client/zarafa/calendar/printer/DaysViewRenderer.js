@@ -75,7 +75,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			var timeformat;
 			var showDate = start.getDayOfYear() !== end.getDayOfYear() || start.getYear() !== end.getYear();
 			if (showDate) {
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 				timeformat = _('jS F Y {0}');
 			}
 
@@ -153,14 +153,14 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 			 + '<td align="center" valign="top" width="20%" rowspan=3><div id="datepicker_left"></div></td></tr>'
 			 + '<tr><td align="left">' + _('Calendar') + ' : ' + '{fullname} </td></tr>\n';
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += '<tr><td align="left" width="80%">{startdate:date("' + _("l jS F Y") + '")}</td></tr>\n';
 		html += '</table></td></tr>\n';
 
 		// date format l jS F == Monday 1st January
 		html += ''
 			+ '<tr style="height:30px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header-center">{date1:date("' + _("l jS F") + '")}</th>'
 			+ '</tr>'
 			+ '<tr style="height:90%;">'
@@ -172,7 +172,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 		html += '<table id="bottom">'
 			+ '<tr>'
 			+ '<td class="nowrap" align="left">{fullname}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '<td class="nowrap" align="right">{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';

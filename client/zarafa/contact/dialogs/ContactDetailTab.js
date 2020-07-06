@@ -202,7 +202,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 				fieldLabel : _('Birthday'),
 				ref : '../birthdayField',
 				name : 'birthday',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 				format : ('d/m/Y'),
 				listeners : {
 					scope : this,
@@ -213,7 +213,7 @@ Zarafa.contact.dialogs.ContactDetailTab = Ext.extend(Ext.form.FormPanel, {
 				fieldLabel : _('Anniversary'),
 				ref : '../anniversaryField',
 				name : 'wedding_anniversary',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 				format : ('d/m/Y'),
 				listeners : {
 					scope : this,

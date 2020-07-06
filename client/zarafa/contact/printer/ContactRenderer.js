@@ -50,9 +50,9 @@ Zarafa.contact.printer.ContactRenderer = Ext.extend(Zarafa.common.printer.render
 		html += this.optionalRow(_('Email 3'), 'email_address_3', '{email_address_3}');
 		html += this.optionalRow(_('Email 3 Display As'), 'email_address_display_name_3', '{email_address_display_name_3}');
 		html += this.addRow('', '');   // separator
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += this.optionalRow(_('Birthday'), 'birthday', '{birthday:date("' + _("jS F Y") + '")}'); // 1st January 1912
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += this.optionalRow(_('Anniversary'), 'wedding_anniversary', '{wedding_anniversary:date("' + _("jS F Y") + '")}');
 		html += this.optionalRow(_('Spouse/Partner'), 'spouse_name', '{spouse_name}');
 		html += this.optionalRow(_('Profession'), 'profession', '{profession}');

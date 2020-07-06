@@ -197,7 +197,7 @@ Zarafa.util.Translations = {
 		todayTip : _('{0} (Spacebar)'),
 		minText : _('This date is before the minimum date'),
 		maxText : _('This date is after the maximum date'),
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		format : _('d/m/Y'),
 		disabledDaysText : _('Disabled'),
 		disabledDatesText : _('Disabled'),
@@ -252,7 +252,7 @@ Zarafa.util.Translations = {
 	});
 
 	Ext.override(Ext.form.DateField, {
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		format : _('d/m/Y'),
 		disabledDaysText : _('Disabled'),
 		disabledDatesText : _('Disabled'),
@@ -273,7 +273,7 @@ Zarafa.util.Translations = {
 		minText : _('The time in this field must be equal to or after {0}'),
 		maxText : _('The time in this field must be equal to or before {0}'),
 		invalidText : _('{0} is not a valid time'),
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		format : _('G:i')
 	});
 
@@ -286,7 +286,7 @@ Zarafa.util.Translations = {
 	Ext.override(Ext.grid.PropertyColumnModel, {
 		nameText : _('Name'),
 		valueText : _('Value'),
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		dateFormat : _('d/m/Y'),
 		trueText: _('true'),
 		falseText: _('false')
