@@ -31,12 +31,12 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'<td class="preview-proposed-title">' + pgettext('mail.previewpanel', 'Proposed') + ':</td>'+
 							'<td>'+
 								'<tpl if="!Ext.isEmpty(values.proposed_start_date)">' +
-									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+									// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 									'{proposed_start_date:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 									'<span>&nbsp;-&nbsp;</span>' +
 								'</tpl>'+
 								'<tpl if="!Ext.isEmpty(values.proposed_end_date)">' +
-									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+									// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 									'{proposed_end_date:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 								'</tpl>'+
 							'</td>'+
@@ -52,12 +52,12 @@ Zarafa.calendar.ui.MeetingInfo = Ext.extend(Ext.Container, {
 							'</tpl>' +
 							'<tpl if="values.appointment_recurring !== true">' +
 								'<tpl if="!Ext.isEmpty(values.appointment_startdate)">' +
-									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+									// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 									'{appointment_startdate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 									'<span>&nbsp;-&nbsp;</span>' +
 								'</tpl>' +
 								'<tpl if="!Ext.isEmpty(values.appointment_duedate)">' +
-									// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+									// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 									'{appointment_duedate:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
 								'</tpl>' +
 							'</tpl>' +

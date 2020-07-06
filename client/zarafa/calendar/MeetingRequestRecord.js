@@ -157,9 +157,9 @@ Zarafa.calendar.MeetingRequestRecord = Ext.extend(Zarafa.calendar.AppointmentRec
 		if (recurringPattern) {
 			meetingTimeInfo += recurringPattern + '\n';
 		} else {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			meetingTimeInfo += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			meetingTimeInfo += dueDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
 		}
 

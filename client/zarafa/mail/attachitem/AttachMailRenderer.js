@@ -31,7 +31,7 @@ Zarafa.mail.attachitem.AttachMailRenderer = Ext.extend(Zarafa.common.attachment.
 
 		html += this.addHTMLRowGroup({
 			'from' : '{from:htmlEncode}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			'message_delivery_time' : '{message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'display_to' : '{display_to:htmlEncode}',
 			'display_cc' : '{display_cc:htmlEncode}',
@@ -62,7 +62,7 @@ Zarafa.mail.attachitem.AttachMailRenderer = Ext.extend(Zarafa.common.attachment.
 
 		html += this.addPlainRowGroup({
 			'from' : '{from}',
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			'message_delivery_time' : '{message_delivery_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}',
 			'display_to' : '{display_to}',
 			'display_cc' : '{display_cc}',

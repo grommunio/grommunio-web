@@ -37,19 +37,19 @@ Zarafa.common.reminder.dialogs.ReminderPanel = Ext.extend(Ext.Panel, {
 					'<tpl if="Zarafa.core.ContainerClass.isClass(values.message_class, &quot;IPM.Task&quot;, true)">' +
 						'<tpl if="Ext.isDefined(values.task_duedate)">' +
 							_('Due') + ': {values.task_duedate:date("' +
-							// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+							// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 							_('l jS F Y') + '")}' +
 						'</tpl>' +
 						'<tpl if="Ext.isDefined(values.reminder_time) && !Ext.isDefined(values.task_duedate)">' +
 							_('Reminder time') + ': {values.reminder_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
-							// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+							// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 						'</tpl>' +
 					'</tpl>' +
 					// Use &quot; instead of " or \" as neither will be accepted by the XTemplate for creating a string
 					'<tpl if="!Zarafa.core.ContainerClass.isClass(values.message_class, &quot;IPM.Task&quot;, true)">' +
 						'<tpl if="Ext.isDefined(values.reminder_time)">' +
 							_('Start time') + ': {values.reminder_time:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}' +
-							// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+							// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 						'</tpl>' +
 					'</tpl>' +
 				'</span>'+

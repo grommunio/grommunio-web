@@ -73,7 +73,7 @@ Zarafa.task.dialogs.TaskDetailTab = Ext.extend(Ext.form.FormPanel, {
 			cls : 'k-datepanel',
 			items : [{
 				xtype : 'datefield',
-				// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+				// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 				format : ('d/m/Y'),
 				fieldLabel :_('Date Complete'),
 				anchor : '35%',

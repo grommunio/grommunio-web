@@ -204,7 +204,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					ref: '../../startDateField',
 					name: 'recurrence_start',
 					fieldLabel: _('Start'),
-					// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+					// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 					format : _('d/m/Y'),
 					listeners: {
 						select: this.onUTCFieldChange,
@@ -304,7 +304,7 @@ Zarafa.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 							name: 'recurrence_end',
 							width: 120,
 							labelSplitter: '{A}',
-							// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+							// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 							format : _('d/m/Y'),
 							listeners: {
 								select: this.onUTCFieldChange,

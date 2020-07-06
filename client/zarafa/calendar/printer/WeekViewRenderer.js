@@ -63,20 +63,20 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 		html += '<table class="print-calendar" cellpadding=0 cellspacing=0>\n';
 
 		html += '<tr style="height:10%;"><td colspan=2><table id="top">\n';
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += '<tr><td align="left" width="60%">{startdate:date("' + _("l d/m/Y") + '")} -</td>'
 			+ '<td align="center" valign="top" width="20%" rowspan=2><div id=datepicker_left></div></td>'
 			+ '<td align="center" valign="top" width="20%" rowspan=2><div id=datepicker_right></div></td></tr>';
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		html += '<tr><td align=left>{duedate:date("' + _("l jS F Y") + '")}</tr>';
 		html += '</table></td></tr>\n';
 
 		// date format l jS F == Monday 1st January
 		html += ''
 			+ '<tr style="height:40px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date1:date("' + _("l jS F") + '")}</th>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date4:date("' + _("l jS F") + '")}</th>'
 			+ '</tr>'
 			+ '<tr style="height:25%;">'
@@ -84,9 +84,9 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 			+ '  <td valign="top"><table id="date4">{date4_table_data}</table></td>'
 			+ '</tr>'
 			+ '<tr style="height:40px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date2:date("' + _("l jS F") + '")}</th>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date5:date("' + _("l jS F") + '")}</th>'
 			+ '</tr>'
 			+ '<tr style="height:25%;">'
@@ -94,9 +94,9 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 			+ '  <td valign="top"><table id="date5">{date5_table_data}</table></td>'
 			+ '</tr>'
 			+ '<tr style="height:40px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date3:date("' + _("l jS F") + '")}</th>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date6:date("' + _("l jS F") + '")}</th>'
 			+ '</tr>'
 			+ '<tr>'
@@ -104,7 +104,7 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 			+ '  <td valign="top" style="height:15%;"><table id="date6">{date6_table_data}</table></td>'
 			+ '</tr>'
 			+ '  <tr style="height:40px;">'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '  <th class="date-header">{date7:date("' + _("l jS F") + '")}</th>'
 			+ '</tr>'
 			+ '<tr>'
@@ -117,7 +117,7 @@ Zarafa.calendar.printer.WeekViewRenderer = Ext.extend(Zarafa.calendar.printer.Da
 		html += '<table id="bottom">'
 			+ '<tr>'
 			+ '<td class="nowrap" align=left>{fullname}</td>'
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			+ '<td class="nowrap" align=right>{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>'
 			+ '</tr>'
 			+ '</table>\n';

@@ -236,16 +236,16 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		var tmpStart = start.clone();
 		tmpStart.setHours(startocc / 60);
 		tmpStart.setMinutes(startocc % 60);
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		startocc = tmpStart.formatDefaultTime();
 		tmpStart.setHours(endocc / 60);
 		tmpStart.setMinutes(endocc % 60);
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		endocc = tmpStart.formatDefaultTime();
 
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		start = start.format(_('d/m/Y'));
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		end = end.format(_('d/m/Y'));
 
 		// Based on the properties, we need to generate the recurrence pattern string.
@@ -323,9 +323,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 		if (recurringPattern) {
 			meetingTimeInfo += recurringPattern + '\n';
 		} else {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			meetingTimeInfo += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			meetingTimeInfo += dueDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
 		}
 
@@ -405,9 +405,9 @@ Zarafa.calendar.AppointmentRecord = Ext.extend(Zarafa.core.data.MessageRecord, {
 	generateProposeNewTimeBody : function (comment, startDate, endDate)
 	{
 		var proposeNewTimeBody = comment + '\n\n\n-----------\n' + _('New Meeting Time Proposed') + ':\n';
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		proposeNewTimeBody += startDate.formatDefaultTime(_('l jS F Y {0}')) + ' - ';
-		// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 		proposeNewTimeBody += endDate.formatDefaultTime(_('l jS F Y {0}')) + '\n';
 
 		return proposeNewTimeBody;

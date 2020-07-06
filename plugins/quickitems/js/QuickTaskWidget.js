@@ -63,7 +63,7 @@ Zarafa.widgets.quickitems.QuickTaskWidget = Ext.extend(Zarafa.widgets.quickitems
 							flex: 1,
 							name: 'commonend',
 							utcname : 'duedate',
-							// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+							// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 							format : _('d/m/Y'),
 							minValue : new Date(),
 							listeners: {

@@ -1467,7 +1467,7 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		var dueDate = this.record.get('duedate');
 
 		if(responseStatus !== Zarafa.core.mapi.ResponseStatus.RESPONSE_NOT_RESPONDED) {
-			// # TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 			replyTime = Ext.isDate(replyTime) ? replyTime.formatDefaultTime(_('jS F Y {0}')) : _('None');
 
 			if(this.record.get('counter_proposal')) {
