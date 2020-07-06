@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-07-01 12:47+0000\n"
-"Last-Translator: Bob <b.huisman@kopano.com>\n"
+"PO-Revision-Date: 2020-07-06 12:11+0000\n"
+"Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
 "Language: nl_NL\n"
@@ -5038,10 +5038,10 @@ msgid "Time format:"
 msgstr ""
 
 msgid "12h clock"
-msgstr ""
+msgstr "12‑uursnotatie"
 
 msgid "24h clock"
-msgstr ""
+msgstr "24‑uursnotatie"
 
 # 88%
 msgid "Favorite settings"
