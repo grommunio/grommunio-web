@@ -198,7 +198,7 @@ msgstr "Þessi dagsetning er eldri en lágmarksdagsetning"
 msgid "This date is after the maximum date"
 msgstr "Þessi dagsetning er yngri en hámarksdagsetning"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d/m/Y"
 
@@ -289,7 +289,7 @@ msgstr "Tíminn í þessum reit verður að vera sá sami og eða fyrri en {0}"
 msgid "{0} is not a valid time"
 msgstr "{0} er ekki gildur tími"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -845,7 +845,7 @@ msgstr "Tíðni: {0} {1} með upphaf {2} þar til {3}."
 msgid "When"
 msgstr "Hvenær"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr ""
 
@@ -1003,7 +1003,7 @@ msgstr "Eigið dagatal"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1164,7 +1164,7 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Viltu uppfæra staðsetninguna \"{0}\" og nota í staðinn \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr ""
 
@@ -1324,29 +1324,29 @@ msgstr "Afrita valið atriði"
 msgid "Paste selected item"
 msgstr "Líma valið atriði"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Upphaf"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Lok"
 
 msgid "Printed by: "
 msgstr "Umbeiðandi prentunar: "
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
 msgstr "Prentunardagsetning: "
 
 msgid "Location: "
 msgstr "Staðsetning: "
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l jS F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l jS F"
 
@@ -1377,7 +1377,7 @@ msgstr "M j"
 msgid "j"
 msgstr "j"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
@@ -1455,7 +1455,7 @@ msgstr "Sjálfgefinn tími áminninga"
 msgid "Default all-day appointment reminder time"
 msgstr "Sjálfgefinn tími áminninga heilsdagsbókana"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "jS"
 
@@ -1578,11 +1578,11 @@ msgstr "Raða eftir öryggi"
 msgid "Loading appointments"
 msgstr "Hleð tímabókunum"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr ""
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "jS F Y"
 
@@ -2500,7 +2500,7 @@ msgstr "Það eru engar áminningar"
 msgid "Due In"
 msgstr "Lok eftir"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Lok"
 
@@ -2885,6 +2885,9 @@ msgstr "Áminning er stillt á: {0}, {1}"
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
+msgid "Original message"
+msgstr "Upprunaleg skilaboð"
+
 msgid "Sent Items"
 msgstr ""
 
@@ -3218,7 +3221,7 @@ msgstr "Þriðja tölvupóstfang"
 msgid "Email3 Display As"
 msgstr "Þriðja tölvupóstfang sýnt sem"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Afmælisdagur"
 
@@ -3321,7 +3324,7 @@ msgstr "Gælunafn"
 msgid "Suffix"
 msgstr "Ending"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Afmæli"
 
@@ -3612,7 +3615,7 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} fyrir hönd {1}"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "jS F"
 
@@ -4169,15 +4172,12 @@ msgstr "Raða eftir mikilvægi"
 msgid "Sort by: To"
 msgstr "Raða eftir móttakanda"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Send"
 
 msgid "Red"
 msgstr "Rautt"
-
-msgid "Original message"
-msgstr "Upprunaleg skilaboð"
 
 msgid "Schedule mail to be sent out"
 msgstr "Tímasetja sendingu pósts"
@@ -4336,6 +4336,9 @@ msgstr "Skipta milli lesið/ólesið"
 
 msgid "Toggle red/complete flag"
 msgstr "Skipta milli rautt/klárað merki"
+
+msgid "Close a conversation"
+msgstr ""
 
 msgid "Open Shared Mails"
 msgstr "Opna sameiginlega pósta"
