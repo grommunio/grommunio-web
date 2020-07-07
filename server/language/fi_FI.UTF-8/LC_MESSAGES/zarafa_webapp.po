@@ -203,7 +203,7 @@ msgstr "Päivä on ennen aikaisinta mahdollista päivää"
 msgid "This date is after the maximum date"
 msgstr "Päivä on myöhäisimmän mahdollisen päivän jälkeen"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "d.m.Y"
 
@@ -294,7 +294,7 @@ msgstr "Kentässä olevan ajan tulee olla {0} tai aiempi"
 msgid "{0} is not a valid time"
 msgstr "{0} ei ole saliittu aika"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -904,7 +904,7 @@ msgstr "Tapahtuu joka {0} {1} voimassa {2} {3} asti."
 msgid "When"
 msgstr "Milloin"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr ""
 
@@ -1076,7 +1076,7 @@ msgstr "Tarkastele useampia kalentereita kohteessa"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1239,7 +1239,7 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Haluatko päivittää sijainnin \"{0}\" uudella sijainnilla \"{1}\"?"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr ""
 
@@ -1412,11 +1412,11 @@ msgstr ""
 msgid "Paste selected item"
 msgstr ""
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Aloita"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Päättyminen"
 
@@ -1425,7 +1425,7 @@ msgstr "Päättyminen"
 msgid "Printed by: "
 msgstr "Järjestä: Vastaanottaja"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "Printed on: "
 msgstr "Tulosta tämä merkintä"
@@ -1434,12 +1434,12 @@ msgstr "Tulosta tämä merkintä"
 msgid "Location: "
 msgstr "Sijainti"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "l j F Y"
 
 # 75%
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "l jS F Y"
 
@@ -1474,7 +1474,7 @@ msgstr ""
 msgid "j"
 msgstr "j"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l d/m/Y"
 
@@ -1549,7 +1549,7 @@ msgstr "Muistutuksen oletusaika"
 msgid "Default all-day appointment reminder time"
 msgstr "Koko päivän kestävien tapaamisten muistutuksen oletusaika"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
@@ -1690,11 +1690,11 @@ msgstr "Järjestä: Herkkyys"
 msgid "Loading appointments"
 msgstr "Ladataan tapaamisia"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr ""
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "j F Y"
 
@@ -2638,7 +2638,7 @@ msgstr "{0} muistutus"
 msgid "Due In"
 msgstr "Eräpäivä"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Eräpäivä"
 
@@ -3073,6 +3073,9 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "d-m-Y"
 
+msgid "Original message"
+msgstr "Alkuperäinen viesti"
+
 msgid "Sent Items"
 msgstr ""
 
@@ -3434,7 +3437,7 @@ msgstr "Sähköposti 3"
 msgid "Email3 Display As"
 msgstr "S'hköpostin 3:n näyttö muodossa"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
@@ -3542,7 +3545,7 @@ msgstr "Lempinimi"
 msgid "Suffix"
 msgstr "Pääte"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Vuosipäivä"
 
@@ -3843,7 +3846,7 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0}, käyttäjän {1} puolesta"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "j F"
 
@@ -4449,15 +4452,12 @@ msgstr "Järjestä: Tärkeys"
 msgid "Sort by: To"
 msgstr "Järjestä: Vastaanottaja"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Lähetetty"
 
 msgid "Red"
 msgstr "Punainen"
-
-msgid "Original message"
-msgstr "Alkuperäinen viesti"
 
 msgid "Schedule mail to be sent out"
 msgstr ""
@@ -4625,6 +4625,9 @@ msgid "Toggle read/unread"
 msgstr ""
 
 msgid "Toggle red/complete flag"
+msgstr ""
+
+msgid "Close a conversation"
 msgstr ""
 
 # 82%

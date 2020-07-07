@@ -202,7 +202,7 @@ msgstr "A dátum a legkorábbi dátum előtt található"
 msgid "This date is after the maximum date"
 msgstr "A dátum a legkésőbbi dátum után található"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
 msgstr "Y/m/d"
 
@@ -297,7 +297,7 @@ msgstr ""
 msgid "{0} is not a valid time"
 msgstr "{0} nem érvényes idő"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "G:i"
 msgstr "G:i"
 
@@ -919,7 +919,7 @@ msgstr "Ismétlődés minden {0} {1} érvényes {2}-tól/től {3}-ig."
 msgid "When"
 msgstr "Mikor"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
 msgstr ""
 
@@ -1088,7 +1088,7 @@ msgstr "Megtekintés a naptárban"
 msgid "F Y"
 msgstr "F Y"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
 msgstr "l"
 
@@ -1255,7 +1255,7 @@ msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
 msgstr "Ki akarja cserélni a \"{0}\" helyszínt az új \"{1}\" helyszínnel?"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
 msgstr ""
 
@@ -1429,11 +1429,11 @@ msgstr "Kijelölt elem másolása"
 msgid "Paste selected item"
 msgstr "Kijelölt elem beillesztése"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
 msgstr "Indítás"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
 msgstr "Vége"
 
@@ -1442,7 +1442,7 @@ msgstr "Vége"
 msgid "Printed by: "
 msgstr "Rendezés: Címzett szerint"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "Printed on: "
 msgstr "Jegyzet nyomtatása"
@@ -1451,11 +1451,11 @@ msgstr "Jegyzet nyomtatása"
 msgid "Location: "
 msgstr "Helyszín"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
 msgstr "Y. F j. l, G:i"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
 msgstr "F j. l"
 
@@ -1494,7 +1494,7 @@ msgstr ""
 msgid "j"
 msgstr "j"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
 msgstr "l Y/m/d"
 
@@ -1573,7 +1573,7 @@ msgstr "Alapértelmezett emlékeztetési időpont"
 msgid "Default all-day appointment reminder time"
 msgstr "Egész napos események alapértelmezett emlékeztetési ideje"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
 msgstr "j"
 
@@ -1710,11 +1710,11 @@ msgstr "Rendezés: Érzékenység szerint"
 msgid "Loading appointments"
 msgstr "Találkozók betöltése"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
 msgstr ""
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
 msgstr "Y. F j"
 
@@ -2677,7 +2677,7 @@ msgstr "{0} emlékeztető van"
 msgid "Due In"
 msgstr "Esedékes -kor"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
 msgstr "Esedékesség"
 
@@ -3103,6 +3103,9 @@ msgstr ""
 msgid "d-m-Y"
 msgstr "Y-m-d"
 
+msgid "Original message"
+msgstr "Eredeti üzenet"
+
 msgid "Sent Items"
 msgstr ""
 
@@ -3453,7 +3456,7 @@ msgstr "E-mail 3"
 msgid "Email3 Display As"
 msgstr "Email 3 megjelenítés, mint"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
 msgstr "Születésnap"
 
@@ -3559,7 +3562,7 @@ msgstr "Becenév"
 msgid "Suffix"
 msgstr "Utótag"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Évforduló"
 
@@ -3870,7 +3873,7 @@ msgstr ""
 msgid "{0} on behalf of {1}"
 msgstr "{0} {1} nevében"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F"
 msgstr "F j."
 
@@ -4489,16 +4492,13 @@ msgstr "Rendezés: Fontosság szerint"
 msgid "Sort by: To"
 msgstr "Rendezés: Címzett szerint"
 
-#. TRANSLATORS: See http://docs.sencha.com/ext-js/3-4/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Sent"
 msgstr "Elküldött"
 
 # 75%
 msgid "Red"
 msgstr "Vörös"
-
-msgid "Original message"
-msgstr "Eredeti üzenet"
 
 msgid "Schedule mail to be sent out"
 msgstr "Küldendő levelek ütemezése"
@@ -4667,6 +4667,9 @@ msgstr "Megjelölés olvasottként/olvasatlanként"
 
 msgid "Toggle red/complete flag"
 msgstr "Megjelölés piros/elvégzett zászlóval"
+
+msgid "Close a conversation"
+msgstr ""
 
 # 82%
 msgid "Open Shared Mails"
