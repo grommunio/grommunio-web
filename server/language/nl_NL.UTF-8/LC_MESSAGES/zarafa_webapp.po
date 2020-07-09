@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-07-09 10:27+0000\n"
+"PO-Revision-Date: 2020-07-09 10:29+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1730,7 +1730,7 @@ msgid "Update recipients"
 msgstr "Update genodigden"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "De tijd van de afspraak is veranderd. Wat wil je doen?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Bewaar wijzigingen en verstuur een update naar alle genodigden"
@@ -3078,7 +3078,7 @@ msgid "Original message"
 msgstr "Oorspronkelijk bericht"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Verzonden items"
 
 msgid "l d/m/Y {0}"
 msgstr ""
@@ -4660,7 +4660,7 @@ msgid "Toggle red/complete flag"
 msgstr "Markering rood/voltooid wisselen"
 
 msgid "Close a conversation"
-msgstr ""
+msgstr "Sluit een gesprek"
 
 # 80%
 # 85%
