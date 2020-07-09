@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-07-06 12:11+0000\n"
+"PO-Revision-Date: 2020-07-09 10:27+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -478,14 +478,16 @@ msgid "Show Details"
 msgstr "Toon Details"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Contact kopiëren"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Contacten kopiëren"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"We laten alleen de eerste {0} namen zien. Gebruik de zoekfunctie voor "
+"concrete resultaten."
 
 msgid "Use the search bar to get results"
 msgstr "Gebruik het zoekveld om resultaten te krijgen"
@@ -598,7 +600,7 @@ msgid "Sort by: Fax"
 msgstr "Sorteer op: Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Print een losse item"
 
 # 78%
 msgid "Print selected item"
@@ -608,7 +610,7 @@ msgid "Print"
 msgstr "Afdrukken"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Geen item geselecteerd"
 
 msgid "No preview"
 msgstr "Geen voorbeeld"
@@ -1110,7 +1112,7 @@ msgid "Send update"
 msgstr "Verstuur een update"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Wil je een update sturen naar alle genodigden?"
 
 msgid "Send update to attendees"
 msgstr "Verstuur update naar genodigden"
@@ -1273,10 +1275,10 @@ msgid "Check names"
 msgstr "Namen controleren"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Adresboek"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Open adresboek"
 
 msgid "Invite attendees"
 msgstr "Nodig deelnemers uit"
@@ -1505,7 +1507,7 @@ msgid "Duration must be between 1 and 120 minutes."
 msgstr "Tijdsduur moet tussen 1 en 120 minuten liggen."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Standaard status voor hele dag afspraken"
 
 msgid "Working days"
 msgstr "Werkdagen"
