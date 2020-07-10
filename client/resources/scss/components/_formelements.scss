@@ -81,7 +81,7 @@ body.Safari input[type="radio"] {
 	border-color: #b6b6b6;
 }
 
-.x-combo-list-inner{
+.x-combo-list-inner {
 	padding: $padding-small 0;
 
 	.x-combo-list-item {
@@ -108,6 +108,10 @@ body.Safari input[type="radio"] {
 	background: transparent;
 	border-color: transparent !important;
 	cursor: default;
+}
+
+.k-addressbook-combo-list, .k-addressbook-combo-list .x-combo-list-inner {
+	max-width: 400px;
 }
 
 /* fieldsets */
