@@ -291,9 +291,10 @@ $calendar-tab-height: 30px;
 		max-width: 100%;
 		overflow: hidden;
 		text-overflow: ellipsis;
-		word-break: break-word;
+		word-break: break-all;
 		padding-right: $padding-small;
 		display: block;
+		white-space: nowrap;
 	}
 }
 
