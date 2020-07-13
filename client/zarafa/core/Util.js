@@ -62,6 +62,9 @@ Zarafa.core.Util =
 	 */
 	numericComparison : function(number1, number2)
 	{
+		if(!Ext.isDefined(number2) || !Ext.isDefined(number1)) {
+			return -1;
+		}
 		return number1 - number2;
 	},
 

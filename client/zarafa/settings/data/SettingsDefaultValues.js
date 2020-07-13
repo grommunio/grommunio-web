@@ -375,6 +375,16 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 									 */
 									'webapp' : '0'
 								}
+							},
+
+							/**
+							 * zarafa/v1/main/kdeveloper_tool
+							 */
+							'kdeveloper_tool' : {
+								/**
+								 * zarafa/v1/main/kdeveloper_tool/kdeveloper
+								 */
+								'kdeveloper': false
 							}
 						},
 

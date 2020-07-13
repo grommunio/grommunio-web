@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.zdeveloper');
+Ext.namespace('Zarafa.common.plugins');
 
 /**
- * @class Zarafa.plugins.zdeveloper.ZDeveloperPlugin
+ * @class Zarafa.common.plugins.ZDeveloperPlugin
  * @extends Zarafa.core.Plugin
  *
  * Shows possible insertion points inside application.
  */
-Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
+Zarafa.common.plugins.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Initialize the plugin by calling {@link #registerInsertionPoint}.
@@ -14,9 +14,11 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	initPlugin : function()
 	{
-		Zarafa.plugins.zdeveloper.ZDeveloperPlugin.superclass.initPlugin.apply(this, arguments);
+		Zarafa.common.plugins.ZDeveloperPlugin.superclass.initPlugin.apply(this, arguments);
 
-		this.registerInsertionPoint(/(.*?)/, this.putMessageBox, this);
+		if (container.getSettingsModel().get("zarafa/v1/main/kdeveloper_tool/kdeveloper") === true) {
+			this.registerInsertionPoint(/(.*?)/, this.putMessageBox, this);
+		}
 	},
 
 	/**
@@ -42,38 +44,38 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 				title : context,
 				listeners : {
 					'added' : function() {
-						Ext.get(this.tabEl.lastChild).addClass('zdeveloper-insertion-point');
+						Ext.get(this.tabEl.lastChild).addClass('k-developer-insertion-point');
 					},
 					delay : 1,
 					single : true
 				}
 			};
-		} else if (context == 'navigation.center') {
+		} else if (context === 'navigation.center') {
 			return {
 				xtype: 'zarafa.contextnavigation',
 				items : [{
 						xtype: 'box',
 						autoEl: {
-							tag: 'div',
+							tag: 'span',
 							html: context,
-							cls : 'zdeveloper-insertion-point'
+							cls : 'k-developer-insertion-point'
 						}
 					}
 				],
 				context : container.getCurrentContext()
 			};
-		} else if (context == 'context.settings.categories') {
+		} else if (context === 'context.settings.categories') {
 			return {
 				xtype : 'zarafa.settingscategory',
 				title : context,
-				iconCls : 'zdeveloper-insertion-point',
+				iconCls : 'k-developer-insertion-point',
 				items : []
 			};
 		} else if (context.match(/(.*?)toolbar(.*?)/) && context !== 'previewpanel.toolbar.detaillinks') {
 			return {
 				xtype : 'button',
 				text : context,
-				cls : 'zdeveloper-insertion-point',
+				cls : 'k-developer-insertion-point',
 				listeners : {
 					'render' : function() {
 						if (!this.text) {
@@ -84,11 +86,11 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 					}
 				}
 			};
-		} else if (context == 'context.mail.gridrow') {
-			return String.format('<td style="width: 112px"><div class="{0}">{1}</div></td>', 'grid_compact zdeveloper-insertion-point', 'context.mail.gridrow');
-		} else if (context == 'context.mail.griddefaultcolumn' || context == 'context.addressbook.gridpanel') {
+		} else if (context === 'context.mail.gridrow') {
+			return String.format('<td style="width: 112px"><div class="{0}">{1}</div></td>', 'grid_compact k-developer-insertion-point', 'context.mail.gridrow');
+		} else if (context === 'context.mail.griddefaultcolumn' || context === 'context.addressbook.gridpanel') {
 			return {
-				header : '<p class="zdeveloper-insertion-point">context.mail.griddefaultcolumn</p>',
+				header : '<p class="k-developer-insertion-point">context.mail.griddefaultcolumn</p>',
 				width : 200,
 				renderer : function(value, p, record) {
 					return 'context.mail.griddefaultcolumn';
@@ -96,13 +98,13 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 				tooltip : _('Sort by: context.mail.griddefaultcolumn')
 			};
 		}
-		else if(context != 'main.content') {
+		else if(context !== 'main.content') {
 			return {
 				xtype: 'box',
 				autoEl: {
 					tag: 'div',
 					html: context,
-					cls : 'zdeveloper-insertion-point'
+					cls : 'k-developer-insertion-point'
 				}
 			};
 		}
@@ -113,7 +115,9 @@ Zarafa.plugins.zdeveloper.ZDeveloperPlugin = Ext.extend(Zarafa.core.Plugin, {
 Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'zdeveloper',
+		allowUserDisable: false,
+		allowUserVisible: false,
 		displayName : _('ZDeveloper'),
-		pluginConstructor : Zarafa.plugins.zdeveloper.ZDeveloperPlugin
+		pluginConstructor : Zarafa.common.plugins.ZDeveloperPlugin
 	}));
 });

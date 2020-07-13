@@ -230,7 +230,7 @@ Zarafa.core.ui.NavigationPanel = Ext.extend(Zarafa.core.ui.MainViewSidebar, {
 		for (var i = 0, len = center.items.length; i < len; i++){
 			var item = center.items.itemAt(i);
 			if(!this.showFolderList || item.restrictToShowAllFolderList === true) {
-				if (item.getContext() == this.activeContext) {
+				if (item.getContext() === this.activeContext && item.plugin.getName() === item.getContext().getName()) {
 					// Switch to the panel belonging to the active Context
 					if (!Ext.isFunction(layout.setActiveItem)) {
 						center.activeItem = i;
