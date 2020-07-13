@@ -51,9 +51,10 @@ Zarafa.widgets.folderwidgets.DatepickerWidget = Ext.extend(Zarafa.widgets.folder
 		Zarafa.widgets.folderwidgets.DatepickerWidget.superclass.constructor.call(this, config);
 
 		// FIXME Workaround for KW-1812 (not rendering busy days bold when coming back to current month)
+		// We use the polling interval setting multiplied by 1000, because the interval is in seconds.
 		Ext.TaskMgr.start({
 			run: this.updateFilter,
-			interval: 2000, // every 2 seconds
+			interval: container.getSettingsModel().get('zarafa/v1/main/reminder/polling_interval') * 1000,
 			scope: this
 		});
 	},
