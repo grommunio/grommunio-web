@@ -50,6 +50,12 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	hideSearchFolders : false,
 
 	/**
+	  @cfg {String} store_entryid of {Zarafa.hierarchy.data.MAPIStoreRecord MAPIStoreRecord} which needs to be shown in hierarchy.
+	 * All stores except the Public store and the store which is given in this config will be hidden. 
+	 */
+	IPMSubTreeFilter: undefined,
+	
+	/**
 	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
 	 */
 	nodeConfig : undefined,
@@ -272,6 +278,27 @@ Zarafa.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		// Check if the search folder should be shown
 		if (!hide && this.hideSearchFolders) {
 			hide = folder.isSearchFolder();
+		}
+
+		return !hide;
+	},
+
+	/**
+	 * The filter which is applied for filtering IPMSubTree nodes from the
+	 * {@link Zarafa.hierarchy.ui.Tree HierarchyTree}.
+	 * @param {Object} folder the IPM_SUBTREE folder to filter
+	 * @return {Boolean} true to accept the folder
+	 */
+	IPMSubTreeNodeFilter : function(folder)
+	{
+		var hide = false;
+
+		// Chek if folder does not belong to public store or the given store then hide it.
+		if (Ext.isDefined(this.IPMSubTreeFilter)) {
+			var mapiStore = this.store.getById(this.IPMSubTreeFilter);
+			if (mapiStore) {
+				hide = !folder.getMAPIStore().isPublicStore() && !mapiStore.getFolder(folder.get('entryid'));
+			}
 		}
 
 		return !hide;
