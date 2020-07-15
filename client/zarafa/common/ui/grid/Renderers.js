@@ -52,7 +52,6 @@ Zarafa.common.ui.grid.Renderers = {
 				}
 			}
 			result = '<span unselectable="on" class= "' + counterCls + '">' + conversationCount + '</span>';
-			
 		} else if (depth !== 1) {
 			cssClass = Zarafa.common.ui.IconClass.getIconClass(record);
 		}

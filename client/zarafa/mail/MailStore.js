@@ -11,14 +11,6 @@ Ext.namespace('Zarafa.mail');
  * single specific folder only.
  */
 Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
-	openedConversationItems : [],
-
-	/**
-	 * This will contain updated opened conversation item after the deletion of any message from mail grid.
-	 * @property
-	 * @type Array
-	 */
-	updatedOpenedConversationItems : [],
 
 	/**
 	 * @constructor
@@ -34,7 +26,8 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 			defaultSortInfo : {
 				field : 'message_delivery_time',
 				direction : 'desc'
-			}
+			},
+			conversationManager : new Zarafa.mail.data.ConversationManagers()
 		});
 
 		Zarafa.mail.MailStore.superclass.constructor.call(this, config);
@@ -188,11 +181,13 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @return {Boolean} True is the record is part of an expanded conversation,
 	 * false otherwise
 	 */
-	isConversationOpened : function(record) {
-		return this.openedConversationItems.some(function(entryid) {
-			// TODO: use the entryid compare function
-			return record.get('entryid') === entryid;
-		});
+	isConversationOpened : function(record)
+	{
+		var openedRecordManager = this.conversationManager.getOpenedRecordManager();
+		var openedItems = Ext.flatten(openedRecordManager.getRange());
+
+		var entryId = record.get('entryid');
+		return openedRecordManager.containsKey(entryId) || openedItems.indexOf(entryId) !== -1;
 	},
 
 	/**
@@ -203,24 +198,27 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @param {Zarafa.mail.MailStore} store which contains message records
 	 * @param {Zarafa.mail.MailRecord[]} records array which holds all the records we received in load request.
 	 */
-	manageOpenConversations : function(store, records) {
+	manageOpenConversations : function(store, records)
+	{
 		if(container.isEnabledConversation() === false) {
 			return;
 		}
 
-		if (!Ext.isEmpty(this.updatedOpenedConversationItems)) {
-			this.openedConversationItems = this.updatedOpenedConversationItems.clone();
-			this.updatedOpenedConversationItems = [];
-		}
+		var openedRecordManager = this.conversationManager.getOpenedRecordManager();
+		var openedItems = Ext.flatten(openedRecordManager.getRange());
 
 		for (var i=0; i<records.length-1; i++) {
 			var currentRecord = records[i];
 			var currRecordConversationCount = currentRecord.get('conversation_count');
-			var isCurrentRecordOpened = this.isConversationOpened(currentRecord);
+
+			var isConversationOpened = function (item) {
+				var entryId = item.get("entryid");
+				return openedRecordManager.containsKey(entryId) || openedItems.indexOf(entryId) !== -1;
+			};
 
 			// Proceed only if currentRecord is Header record.
 			// We only need to alter the open/close state of currentRecord on the basis of its last conversation item's state.
-			// Because there can be newly added items which might not be in openedConversationItems.
+			// Because there can be newly added items which might not be in openedRecordManager.
 			if (currRecordConversationCount > 0) {
 				var isAnyItemOpened = false;
 				var unOpenedItems = [];
@@ -228,29 +226,25 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 				// Loop through all conversation items of the current conversation.
 				// If any opened item found that means a conversation was opened before.
 				// So, add all unopened items (i.e. newly received mail, restored mail, header record)
-				// into openedConversationItems.
+				// into openedRecordManager.
 				for (var j = i ; j <= i + currRecordConversationCount; j++) {
 					var conversationItem = records[j];
-					var isConversationItemOpened = this.isConversationOpened(conversationItem);
-					if (isConversationItemOpened) {
+					if (isConversationOpened(conversationItem)) {
 						isAnyItemOpened = true;
 						continue;
 					}
 					unOpenedItems.push(conversationItem.get('entryid'));
 				}
 
-				// If any conversation item is found open then add unopened items to openedConversationItems.
+				// If any conversation item is found open then add unopened items to openedRecordManager.
 				if (isAnyItemOpened) {
-					if (!isCurrentRecordOpened) {
-						this.openedConversationItems.push(currentRecord.get('entryid'));
+					var items = unOpenedItems;
+					if (isConversationOpened(currentRecord)) {
+						items = openedRecordManager.get(currentRecord.get('entryid')).concat(unOpenedItems);
 					}
-					this.openedConversationItems = this.openedConversationItems.concat(unOpenedItems);
-				} else if(!isAnyItemOpened && isCurrentRecordOpened) {
-					// If no item in conversation group is opened and conversation header is opened
-					// then remove conversation header from openedConversationItems.
-					this.openedConversationItems = this.openedConversationItems.filter(function(entryid){
-						return entryid !== currentRecord.get('entryid');
-					});
+					openedRecordManager.add(currentRecord.get('entryid'), items);
+				} else if(!isAnyItemOpened && isConversationOpened(currentRecord)) {
+					openedRecordManager.removeKey(currentRecord.get('entryid'));
 				}
 
 				// Jump to the next record after a conversation finished.
@@ -262,132 +256,45 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	},
 
 	/**
-	 * Function will Filter the store to not show items in conversations that have not been expanded
-	 * and will update {@link #updatedOpenedConversationItems} with deleted conversation Header.
-	 *
-	 * @param {Zarafa.mail.MailStore} store which contains message records
-	 * @param {Zarafa.mail.MailRecord} record which is deleted.
-	 */
-	manageDeleteConversations : function(store, record) {
-		if(container.isEnabledConversation() === false) {
-			return;
-		}
-		this.filterByConversations();
-		var deletedHeader = this.willConversationBeDeleted(record);
-		if (deletedHeader) {
-			var deletedHeaderEntryId = deletedHeader.get('entryid');
-			this.updatedOpenedConversationItems = this.openedConversationItems.filter(function(entryid){
-				return deletedHeaderEntryId !== entryid;
-			});
-		}
-	},
-
-	/**
-	 * Function will check if the whole conversation will be deleted on the deletion of given record.
-	 * If conversation is going to be deleted then this will return conversation header record.
-	 *
-	 * @param {Zarafa.mail.MailRecord} record which is deleted.
-	 * @return {Zarafa.mail.MailRecord} conversation header record if conversation is going to be deleted
-	 * else returns false.
-	 */
-	willConversationBeDeleted : function(record) {
-		var index = record.lastIndex;
-
-		// As of now we can not delete the whole conversation at once.
-		// If single item is getting deleted.
-		if (record.get('depth') === 0) {
-			return false;
-		}
-
-		var headerRecord;
-		// get Header record.
-		for (var i = index-1; i>=0; i--) {
-			var currRecord = this.getAt(i);
-			if (currRecord.get('conversation_count') > 0) {
-				headerRecord = currRecord;
-				break;
-			}
-		}
-
-		var leftConversationItems = this.getConversationItemsFromHeaderRecord(headerRecord);
-
-		// if 1 or less item is left means conversation header will be removed in next list request.
-		if (leftConversationItems.length > 1) {
-			for (var i = 0; i<leftConversationItems.length; i++) {
-				// If left item contains inbox item, then this cinversation won't be deleted.
-				if (leftConversationItems[i].get('folder_name') === "inbox") {
-					return false;
-				}
-			}
-		}
-
-		return headerRecord;
-	},
-
-	/**
 	 * Filters the store to not show items in conversations that have not been expanded
 	 */
-	filterByConversations : function() {
-		this.filterBy(function(record) {
-			return (
-				record.get('depth') === 0 ||
-				this.isConversationOpened(record)
-			);
-		}, this);
+	filterByConversations : function()
+	{
+		var openedRecordManager = this.conversationManager.getOpenedRecordManager();
+		var openedItems = Ext.flatten(openedRecordManager.getRange());
+
+		this.filterBy(function(openedItems, openedRecordManager, record, entryId) {
+			return record.get('depth') === 0 || openedRecordManager.containsKey(entryId) === true || openedItems.indexOf(entryId) !== -1;
+		}.bind(this, openedItems, openedRecordManager), this);
 	},
 
 	/**
 	 * Function toggles the conversation.
-	 * 
+	 *
 	 * @param {Zarafa.core.IPMRecord} headerRecord The header record of conversation.
 	 * @param {Boolean} expand The expand is true if conversation needs to expand else false.
 	 */
-	toggleConversation : function(headerRecord, expand) 
+	toggleConversation: function(headerRecord, expand)
 	{
 		if (!headerRecord.isConversationHeaderRecord()) {
 			return;
 		}
-
-		var headerRecordEntryid = headerRecord.get('entryid');
-
-		// User clicked on a 'conversation header'. Toggle the conversation items
-		if (Ext.isDefined(expand)) {
-			var hide = !expand;
-		} else {
-			hide = this.openedConversationItems.some(function(entryid) {
-				// TODO: use compareEntryId function
-				return headerRecordEntryid === entryid;
-			});
-		}
+		var headerRecordEntryId = headerRecord.get('entryid');
+		var openedRecordManager = this.conversationManager.getOpenedRecordManager();
+		var hide = Ext.isDefined(expand) ? !expand : openedRecordManager.containsKey(headerRecordEntryId);
 
 		if (hide) {
-			this.openedConversationItems = this.openedConversationItems.filter(function(entryid) {
-				return entryid !== headerRecordEntryid;
-			});
+			openedRecordManager.removeKey(headerRecordEntryId);
 		} else {
-			this.openedConversationItems.push(headerRecordEntryid);
+			this.clearFilter(true);
+			var rowIndex = this.indexOf(headerRecord);
+			var conversationCount = headerRecord.get('conversation_count');
+			var records = this.getRange(rowIndex + 1, rowIndex + conversationCount);
+
+			var recordIDs = Ext.pluck(records, "id");
+			openedRecordManager.add(headerRecordEntryId, recordIDs);
 		}
 
-		// Remove the filter to be able to simply access all records
-		this.clearFilter(true);
-		var rowIndex = this.indexOf(headerRecord);
-		var conversationCount = headerRecord.get('conversation_count');
-		var records = this.getRange(rowIndex + 1, rowIndex + conversationCount);
-
-		records.forEach(function(r) {
-			// Don't use r.set() because that would send events which would
-			// end up in trying to update a row that might not be rendered
-			if (hide) {
-				this.openedConversationItems = this.openedConversationItems.filter(function(entryid) {
-					// TODO: use compareEntryId function (or shouldn't we?)
-					return entryid !== r.get('entryid');
-				});
-			} else {
-				this.openedConversationItems.push(r.get('entryid'));
-			}
-		}, this);
-
-		// Set the filter again to show all expanded conversations and hide all collapsed conversations
 		this.filterByConversations();
 	},
 
@@ -399,19 +306,8 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 */
 	collapseAllConversation : function(headerRecord) 
 	{
-		var closeAll = !Ext.isDefined(headerRecord) || !headerRecord;
-
-		// TODO: create the copy of the openedConversationItems array and then used it.
-		
-		// @FIXME : {@link #openedConversationItems} contains extra records.
-		// When some conversation items get deleted we only remove its conversation header from {@link #openedConversationItems}
-		// but some items will still be left in {@link #openedConversationItems} which also needed to be removed. 
-		this.openedConversationItems.forEach(function(entryId){
-			var item = this.getById(entryId);
-			if (item && item.isConversationHeaderRecord() && (closeAll === true || headerRecord.get("entryid") !== entryId)) {
-				this.toggleConversation(item);
-			}
-		}, this);
+		this.conversationManager.closeAll(headerRecord);
+		this.filterByConversations();
 	},
 
 	/**
@@ -431,7 +327,8 @@ Zarafa.mail.MailStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
 	 * @param {Zarafa.core.data.MapiRecord} headerRecord The header record of the conversation
 	 * @return {Zarafa.core.data.MapiRecord[]} The records that belong to the requested conversation
 	 */
-	getConversationItemsFromHeaderRecord(headerRecord) {
+	getConversationItemsFromHeaderRecord(headerRecord)
+	{
 		var items = this.snapshot || this.data;
 		var index = items.findIndex('id', headerRecord.id) + 1;
 		var retVal = [];
