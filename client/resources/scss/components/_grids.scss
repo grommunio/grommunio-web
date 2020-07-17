@@ -541,3 +541,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 .k-grid-info.k-show {
 	display: block;
 }
+
+.k-developer-insertion-point {
+	color: $dark-grey2;
+	border: solid 1px;
+	background: $white;
+	font-size: $font-size-small;
+	padding: 2px 4px;
+	margin: 0px 4px;
+	width: auto;
+}
