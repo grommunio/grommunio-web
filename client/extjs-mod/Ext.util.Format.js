@@ -268,7 +268,9 @@
 		 */
 		formatDefaultTimeString: function(value, formatString)
 		{
-			return value.formatDefaultTime(formatString);
+			if (value) {
+				return value.formatDefaultTime(formatString);
+			}
 		}
 	});
 })();
