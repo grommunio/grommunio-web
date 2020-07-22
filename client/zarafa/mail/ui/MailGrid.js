@@ -733,12 +733,13 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 	 */
 	manageDeleteConversations : function(store, record)
 	{
-		if(container.isEnabledConversation() === false) {
+		if(container.isEnabledConversation() === false || !record.isConversationRecord()) {
 			return;
 		}
 
 		var openedRecordManager = store.conversationManager.getOpenedRecordManager();
-
+		var rowSelectionModel= this.getSelectionModel();
+		var lastIndex = rowSelectionModel.lastActive;
 		var deleteWholeConversation = [];
 		// Iterate over the each conversation and check deleted record is part of any opened
 		// conversation.
@@ -754,6 +755,9 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 					if (hasInboxItem === false) {
 						deleteWholeConversation.push(key);
 					}
+				} else {
+					// Remove the conversation header key when no item left in the conversation.
+					deleteWholeConversation.push(key);
 				}
 				return false;
 			}
@@ -765,9 +769,43 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		if (!Ext.isEmpty(deleteWholeConversation)) {
 			for (var conversation of deleteWholeConversation) {
 				openedRecordManager.removeKey(conversation);
+				var headerRecord = store.getById(conversation);
+				var headerRecordIndex = store.indexOf(headerRecord);
+
+				// Store the lastActive index value when a header of last selected Row is going to be removed.
+				if (headerRecordIndex === lastIndex-1) {
+					rowSelectionModel.updatedLast = headerRecordIndex;
+				}
+
+				// Also remove conversation header record from store.
+				// Note: As conversation header row can not be selected to perform deletion on it,
+				// there will not be save request from store for the header record.
+				store.remove(headerRecord);
 			}
 		}
 		store.filterByConversations();
+	},
+
+	/**
+	 * Called after a row has been removed for the GridView.
+	 * This will be called from {@link Zarafa.common.ui.grid.GridPanel#onWriteRecord onWriteRecord}.
+	 * Function will check whether the {@link Zarafa.mail.ui.MailRowSelectionModel#updatedLast updatedLast} config is available 
+	 * and will select row accordingly.
+	 * 
+	 * @param rowIndex {Number} rowIndex the index of row was deleted from grid.
+	 * @private
+	 */
+	onRowRemoved : function(rowIndex)
+	{
+		var rowSelectionModel= this.getSelectionModel();
+		var lastActiveIndex = rowSelectionModel.updatedLast;
+		
+		if (Ext.isDefined(lastActiveIndex)) {
+			rowIndex = lastActiveIndex;
+			rowSelectionModel.clearUpdatedLast();
+		}
+		
+		Zarafa.mail.ui.MailGrid.superclass.onRowRemoved.call(this, rowIndex);
 	}
 });
 
