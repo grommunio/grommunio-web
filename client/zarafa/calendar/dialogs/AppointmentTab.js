@@ -342,11 +342,11 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			cls: 'k-createin-panel',
-			hidden: (createInStore.data.length < 2),
 			layout: 'form',
 			labelWidth: 85,
 			labelAlign: 'left',
-			autoHeight: true,
+            ref: 'createInPanel',
+            autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'combo',
@@ -818,12 +818,20 @@ Zarafa.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 		}
 
-		if (contentReset && this.comboCreateIn.isVisible()) {
-			const folderToSelect = record.get('parent_entryid');
+		if (contentReset){
+            const folderToSelect = record.get('parent_entryid');
+            const folder = container.getHierarchyStore().getFolder(folderToSelect);
+            const hasCreateRight = folder.hasCreateRights();
+            // hide the createInPanel when calendar folder does not have
+            // create rights or only one calendar folder.
+			var store = this.comboCreateIn.getStore();
+            this.createInPanel.setVisible(store.getRange().length > 1 && hasCreateRight);
 
-			this.comboCreateIn.setValue(folderToSelect);
-			const folderColor = this.getFolderColor(folderToSelect);
-			this.comboCreateIn.el.setStyle('background-image', 'url(\'' + Zarafa.calendar.ui.IconCache.getCalendarSvgIcon(folderColor) + '\')');
+		    if(this.comboCreateIn.isVisible() && hasCreateRight) {
+                this.comboCreateIn.setValue(folderToSelect);
+                const folderColor = this.getFolderColor(folderToSelect);
+                this.comboCreateIn.el.setStyle('background-image', 'url(\'' + Zarafa.calendar.ui.IconCache.getCalendarSvgIcon(folderColor) + '\')');
+            }
 		}
 
 		this.updateExtraInfoPanel();
