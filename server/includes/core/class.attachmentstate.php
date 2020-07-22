@@ -117,8 +117,11 @@ class AttachmentState {
 	 * @return String The full path to the attachment file
 	 */
 	public function getAttachmentTmpPath($filename)
-	{
-		return tempnam($this->getAttachmentFolder(), mb_basename($filename));
+	{	
+		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
+
+		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
+		return mb_convert_encoding($attachmentPath, 'UTF-8');
 	}
 
 	/**
