@@ -43,7 +43,7 @@ if(!defined("DISABLE_HTMLBODY_FILTER")) define("DISABLE_HTMLBODY_FILTER", false)
 /**
  * When set to true this enable the fitlering of the HTML body using DOMPurify.
  */
-if(!defined("ENABLE_DOMPURIFY_FILTER")) define("ENABLE_DOMPURIFY_FILTER", false);
+if(!defined("ENABLE_DOMPURIFY_FILTER")) define("ENABLE_DOMPURIFY_FILTER", true);
 
 /**
  * Set to true to disable login with Single Sign-On (SSO) on SSO environments.

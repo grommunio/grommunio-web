@@ -55,7 +55,7 @@ class FilterTest extends KopanoTest {
 	protected function setUp()
 	{
 		parent::setUp();
-		$this->filter = new filter();
+		$this->filter = new filter(true);
 	}
 
 	/**
