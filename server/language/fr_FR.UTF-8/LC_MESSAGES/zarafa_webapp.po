@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-06-30 17:25+0000\n"
-"Last-Translator: Benoit <benoit.lorand@blorand.org>\n"
+"PO-Revision-Date: 2020-07-23 10:22+0000\n"
+"Last-Translator: Yoan Guillot <yoan.guillot@haute-saintonge.org>\n"
 "Language-Team: French <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/fr/>\n"
 "Language: fr_FR\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr "Semaine"
+msgstr "Sem"
 
 msgid "Now"
 msgstr "Maintenant"
@@ -327,11 +327,9 @@ msgid "This field should only contain letters, numbers and _"
 msgstr ""
 "Ce champ ne peut contenir que des lettres, des chiffres et le caractère _"
 
-#, fuzzy
 msgid "Email Addresses"
 msgstr "Adresses électroniques"
 
-#, fuzzy
 msgid "Email addresses"
 msgstr "Adresses électroniques"
 
@@ -747,6 +745,8 @@ msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Vous pouvez trier par date si vous voulez affiner vos résultats de "
+"recherche. Activez les filtres ou ajustez votre saisie."
 
 msgid "Did you mean"
 msgstr "Vouliez-vous dire"
@@ -1013,28 +1013,29 @@ msgstr "Aucun rendez-vous sélectionné"
 msgid "Print overview"
 msgstr "Imprimer l'aperçu"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Rendez-vous personnel"
+msgstr "Créer un Rendez-vous"
 
 msgid "Calendar"
 msgstr "Agenda"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Afficher dans le calendrier"
+msgstr "Créer dans un autre calendrier"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Le calendrier sélectionné est en \"lecture seule\". A la place, vous pouvez "
+"créer un élément dans votre propre calendrier."
 
+#, fuzzy
 msgid "What would you like?"
-msgstr ""
+msgstr "Qu'aimeriez-vous ?"
 
 #, fuzzy
 msgid "Own calendar"
-msgstr "Afficher dans le calendrier"
+msgstr "Mon calendrier"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1058,17 +1059,15 @@ msgstr "À ou Cc"
 msgid "Meeting"
 msgstr "Réunion"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Les ressources ont été planifiées."
+msgstr "Les ressources ont été planifiées"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Envoyer plus tard"
+msgstr "Envoyer la mise à jour"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Voulez vous envoyer une mise à jour à tous les destinataires ?"
 
 msgid "Send update to attendees"
 msgstr "Envoyer la mise à jour aux participants"
@@ -1076,6 +1075,8 @@ msgstr "Envoyer la mise à jour aux participants"
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
+"Vous avez effectué des modifications dans le liste des participants. Que "
+"souhaitez-vous faire ?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1084,15 +1085,13 @@ msgstr ""
 msgid "Send updates to all attendees."
 msgstr "Envoyer des mises à jour à tous les participants."
 
-#, fuzzy
 msgid "Busy attendees"
-msgstr "Inviter des participants"
+msgstr "Participants occupés"
 
-#, fuzzy
 msgid "One or more attendees are busy. Are you sure to invite?"
 msgstr ""
 "Un ou plus des participants que vous avez invités sont occupés. Êtes-vous "
-"certain de vouloir inviter ?"
+"certain de vouloir les inviter ?"
 
 msgid "Scheduling"
 msgstr "Planification"
@@ -1203,7 +1202,7 @@ msgstr "Inscrire votre message ici..."
 
 #, fuzzy
 msgid "Update location"
-msgstr "Actualiser la liste"
+msgstr "Mettre à jour l'emplacement"
 
 msgid ""
 "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
@@ -1238,10 +1237,10 @@ msgid "Check names"
 msgstr "Vérifier les noms"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Carnet d'adresses"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Ouvrir le carnet d'adresses"
 
 msgid "Invite attendees"
 msgstr "Inviter des participants"
@@ -1317,33 +1316,29 @@ msgstr "Envoyer l'annulation."
 msgid "Send Meeting Request Confirmation"
 msgstr "Envoyer une confirmation de demande de rendez-vous"
 
-#, fuzzy
 msgid ""
 "This meeting will be accepted and moved to your calendar. Do you want to "
 "include comments with your response?"
 msgstr ""
-"Cette réunion a été acceptée et sera placée sur votre agenda. Désirez-vous "
+"Cette réunion va être acceptée et placée dans votre agenda. Désirez-vous "
 "inclure un commentaire avec votre réponse ?"
 
-#, fuzzy
 msgid ""
 "This meeting will be tentatively accepted and moved to your calendar. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Cette réunion a été acceptée provisoirement et sera placée sur votre agenda. "
+"Cette réunion va être acceptée provisoirement et placée dans votre agenda. "
 "Désirez-vous inclure un commentaire avec votre réponse ?"
 
-#, fuzzy
 msgid ""
 "This meeting will be declined and moved to your Deleted Items folder. Do you "
 "want to include comments with your response?"
 msgstr ""
-"Cette réunion a été refusée et sera déplacée vers le répertoire 'Éléments "
+"Cette réunion va être refusée et déplacée vers le répertoire 'Éléments "
 "supprimés'. Désirez-vous inclure un commentaire avec votre réponse ?"
 
-#, fuzzy
 msgid "Edit the response before sending"
-msgstr "Modifier la réponse avant l'envoi."
+msgstr "Modifier la réponse avant l'envoi"
 
 msgid "Send the response now."
 msgstr "Envoyer la réponse."
@@ -1378,10 +1373,10 @@ msgid "Switch calendar range back and forth"
 msgstr "Basculer la plage calendrier d'avant en arrière"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Copier l'élément sélectionné"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Coller l'élément sélectionné"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1393,16 +1388,15 @@ msgstr "End"
 
 #, fuzzy
 msgid "Printed by: "
-msgstr "Trier par : À"
+msgstr "Imprimé par : "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #, fuzzy
 msgid "Printed on: "
-msgstr "Imprimer cette note"
+msgstr "Imprimé le : "
 
-#, fuzzy
 msgid "Location: "
-msgstr "Emplacement"
+msgstr "Emplacement : "
 
 # 87%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1442,9 +1436,8 @@ msgid "Importance"
 msgstr "Priorité"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
-#, fuzzy
 msgid "j"
 msgstr "j"
 
@@ -1469,15 +1462,13 @@ msgstr "Résolution de l'agenda"
 
 #, fuzzy
 msgid "Default appointment duration {A} minutes"
-msgstr ""
-"L'heure de rappel par défaut pour les événements couvrant une journée entière"
+msgstr "Durée par défaut d'un Rendez-Vous {A} minutes"
 
-#, fuzzy
 msgid "Duration must be between 1 and 120 minutes."
-msgstr "La valeur doit être comprise entre 0% et 100%"
+msgstr "La durée doit être comprise entre 1 et 120 minutes."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Statut par défaut pour les Rendez-Vous sur toute la journée"
 
 msgid "Working days"
 msgstr "Jours de travail"
@@ -1485,30 +1476,28 @@ msgstr "Jours de travail"
 msgid "Show busy dates as bold in the date picker"
 msgstr "Afficher les dates occupées en gras dans le sélectionneur de date"
 
-#, fuzzy
 msgid ""
 "Free/Busy information is used by people sending meeting requests, to "
 "determine when you are available for meetings."
 msgstr ""
-"Les informations de disponibilité sont utilisées par les personnes qui "
-"envoient des demandes de réunion, "
+"L'information de disponibilité est utilisé par les personnes qui envoient "
+"des demandes de réunion, afin de déterminer quand vous êtes disponible."
 
 #, fuzzy
 msgid "Free/Busy publishing"
-msgstr "Permissions du dossier"
+msgstr "Publication des disponibilités"
 
-#, fuzzy
 msgid "Publish {A} month(s) of Calendar Free/Busy information on the server."
 msgstr ""
 "Publier {A} mois(s) d'informations de disponibilité du calendrier sur le "
 "serveur."
 
-#, fuzzy
 msgid ""
 "You can only publish a Free/Busy period from 0 to 36 months. 0 means Free/"
 "Busy information is not published."
 msgstr ""
-"Vous pouvez uniquement publier une période de disponibilité de 1 à 36 mois."
+"Vous pouvez uniquement publier une période de disponibilité de 1 à 36 mois. "
+"0 indique qu'aucune information de disponibilité n'est publiée."
 
 msgid "Side-by-side mode"
 msgstr "Mode côte à côte"
@@ -1557,12 +1546,11 @@ msgid "Copy/Move"
 msgstr "Copier/Déplacer"
 
 # 75%
-#, fuzzy
 msgid "Send to..."
-msgstr "Envoyer"
+msgstr "Envoyer à..."
 
 msgid "Export as"
-msgstr ""
+msgstr "Exporter en tant que"
 
 msgid "Occurrence"
 msgstr "Périodicité"
@@ -1570,9 +1558,8 @@ msgstr "Périodicité"
 msgid "Series"
 msgstr "Séries"
 
-#, fuzzy
 msgid "Appointment not found"
-msgstr "Rendez-vous"
+msgstr "Rendez-vous introuvable"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ce rendez-vous a été déplacé ou supprimé, voulez-vous continuer?"
@@ -1670,7 +1657,7 @@ msgstr "Chargement des rendez-vous"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "jS F {0}"
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1681,21 +1668,26 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Vous ne possédez pas les autorisations suffisantes pour déplacer ou copier "
+"cet élément. Demandez une autorisation auprès du propriétaire du répertoire "
+"ou contactez votre administrateur système."
 
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Vous ne possédez pas les autorisations suffisantes pour copier cet élément. "
+"Demandez une autorisation auprès du propriétaire du répertoire ou contactez "
+"votre administrateur système."
 
 msgid "Insufficient privileges"
 msgstr "Vous ne disposez pas des droits nécessaires pour cette action"
 
-#, fuzzy
 msgid "Update recipients"
-msgstr "Modifier un destinataire"
+msgstr "Mettre à jour les destinataires"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "L'heure de la réunion a changé. Que souhaitez vous faire ?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr ""
@@ -1708,28 +1700,25 @@ msgstr "Demande de réunion en cours contenant des modifications"
 msgid "Copy"
 msgstr "Copier"
 
-#, fuzzy
 msgid "Kopano Webapp"
-msgstr "WebApp Kopano"
+msgstr "Kopano WebApp"
 
-#, fuzzy
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
 "request is updated by the organizer. Would you like to move this meeting?"
 msgstr ""
 "Veuillez noter que toutes les modifications que vous effectuez seront "
 "remplacées lorsque cette demande de réunion sera mise à jour par "
-"l'organisateur"
+"l'organisateur. Voulez vous déplacer cette réunion ?"
 
 msgid "Move"
 msgstr "Déplacer"
 
-#, fuzzy
 msgid "Don't move"
-msgstr "Ne pas envoyer"
+msgstr "Ne pas déplacer"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Basculer vers la vue journalière afin de voir tous les Rendez-Vous"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1746,9 +1735,8 @@ msgctxt "mail.previewpanel"
 msgid "Location"
 msgstr "Emplacement"
 
-#, fuzzy
 msgid "No additional response required"
-msgstr "Aucune réponse requise"
+msgstr "Aucune réponse additionnelle n'est requise"
 
 msgid ""
 "Your calendar has been updated automatically. This meeting request will now "
@@ -1815,28 +1803,31 @@ msgstr "Ouvrir cette occurrence"
 msgid "Open the series"
 msgstr "Ouvrir la série"
 
+#, fuzzy
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Coller la récurrence {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
 msgstr ""
+"Ceci est une récurrence {0}. Voulez-vous copier uniquement cette occurrence "
+"ou toute la série ?"
 
 msgid "message"
-msgstr ""
+msgstr "message"
 
 msgid "meeting request"
-msgstr ""
+msgstr "Demande de réunion"
 
 msgid "appointment"
-msgstr ""
+msgstr "Rendez-Vous"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Coller uniquement cette occurrence"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Coller la série..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1887,9 +1878,8 @@ msgstr "Supprimer et envoyer une réponse à l'organisateur de la réunion"
 msgid "Delete without sending"
 msgstr "Supprimer sans envoi"
 
-#, fuzzy
 msgid "Notify recipients"
-msgstr "Modifier un destinataire"
+msgstr "Notifier les destinataires"
 
 msgid ""
 "A cancellation message will be sent to all recipients, do you wish to "
@@ -1898,60 +1888,58 @@ msgstr ""
 "Un message d'annulation sera envoyé à tous les destinataires, désirez-vous "
 "vraiment continuer ?"
 
-#, fuzzy
 msgid "Delete Incomplete Task"
-msgstr "Tâches effectuées"
+msgstr "Supprimer la tâche incomplète"
 
 msgid "The task \"{0}\" has not been completed. What do you want to do?"
-msgstr ""
+msgstr "La tâche \"{0}\" n'a pas été complétée. Que souhaitez-vous faire ?"
 
-#, fuzzy
 msgid "Decline and delete"
-msgstr "Refuser la demande de rendez-vous"
+msgstr "Refuser et supprimer"
 
-#, fuzzy
 msgid "Mark complete and delete"
-msgstr "Marquer Non complété"
+msgstr "Marquer comme terminé et supprimer"
 
 # 77%
-#, fuzzy
 msgid "Notify sender"
-msgstr "Trier par : Rappel"
+msgstr "Notifier l'expéditeur"
 
-#, fuzzy
 msgid ""
 "The sender of this email has requested a read receipt. Do you wish to notify "
 "the sender?"
 msgstr ""
-"L'expéditeur de ce message a demandé à être informé lorsque vous le lirez. "
-"Souhaitez-vous informer l'expéditeur ?"
+"L'expéditeur de ce message a demandé à demandé une confirmation de lecture. "
+"Souhaitez-vous notifier l'expéditeur ?"
 
-#, fuzzy
 msgid "Import"
-msgstr "Important"
+msgstr "Importer"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
-
-msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Élément(s) importé(s) avec succès vers {0}"
 
 #, fuzzy
+msgid "Failed to import item(s) to {0}"
+msgstr "Échec de l'importation vers {0}"
+
 msgid "Import error"
-msgstr "Important"
+msgstr "erreur d'importation"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Impossible d'importer \"{0}\". Le fichier n'est pas valide"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Vos privilèges sont insuffisants pour déplacer ces éléments. Voulez-vous en "
+"faire une copie ?"
 
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Vos privilèges sont insuffisants pour déplacer cet élément. Voulez-vous en "
+"faire une copie ?"
 
 msgid "Cc"
 msgstr "Cc"
@@ -1981,9 +1969,8 @@ msgstr "Joindre l'élément"
 msgid "No message selected"
 msgstr "Aucun message sélectionné"
 
-#, fuzzy
 msgid "Import to"
-msgstr "Important"
+msgstr "Importer vers"
 
 # 90%
 # 100%
@@ -2027,19 +2014,22 @@ msgstr "Téléchargement"
 msgid "Download all as ZIP"
 msgstr "Télécharger tout dans un fichier ZIP"
 
-#, fuzzy
 msgid "Import to folder"
-msgstr "Vider le dossier"
+msgstr "Importer vers le répertoire"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Pour utiliser la fonctionnalité d'importation vCard, veuillez mettre à jour "
+"Kopano Core vers la version 8.3 ou supérieure."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Pour utiliser la fonctionnalité d'importation ICS / VCS, veuillez mettre à "
+"jour Kopano Core vers la version 8.3 ou supérieure."
 
 msgid "Attachment error"
 msgstr "Erreur de pièce jointe"
@@ -2050,7 +2040,7 @@ msgstr ""
 "Mo."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Téléchargement impossible"
 
 msgid "Picture format is not supported. "
 msgstr "Le format d'image n'est pas pris en charge. "
@@ -2064,63 +2054,72 @@ msgid "Attachment Error"
 msgstr "Erreur de pièce jointe"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gérer les catégories"
 
 msgid "New"
 msgstr "Nouveau"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "supprimer la catégorie"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
+"êtes-vous certain de vouloir supprimer la catégorie \"{0}\" ? Les éléments "
+"déjà assignés à cette catégorie ne sont pas affectés."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Renommer la catégorie"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Une catégorie nommée \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Créer une catégorie"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Épingler à l'accès rapide"
 
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Vous devez appliquer les changements que vous avez réalisés aux catégories "
+"avant de pouvoir créer cette catégorie."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Vous avez déjà une catégorie nommée '{0}'. Veuillez choisir un autre nom."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Vous avez déjà une catégorie nommée '{0}' dans vos modifications en cours. "
+"Veuillez choisir un autre nom."
 
 msgid "Rename"
-msgstr ""
+msgstr "Renommer"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "C'est la première fois que avez utilisé la catégorie \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Voulez vous la renommer ?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"La catégorie \"{0}\" existe déjà. Voulez vous fusionner les catégories \"{1}"
+"\" et \"{2}\" ?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Fusionner"
 
 msgid "Remove"
 msgstr "Supprimer"
@@ -2186,9 +2185,8 @@ msgstr ""
 msgid "Other"
 msgstr "Autre"
 
-#, fuzzy
 msgid "No delegates configured"
-msgstr "Aucune signature configurée"
+msgstr "Aucun délégué configuré"
 
 msgid "Loading delegates"
 msgstr "Chargement de délégués"
@@ -2197,20 +2195,22 @@ msgid "Please select a delegate."
 msgstr "Veuillez sélectionner un délégué."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Les délégués peuvent envoyer des éléments en votre nom."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Si vous souhaitez uniquement définir les permissions, cliquez avec le bouton "
+"droit pour ouvrir le menu contextuel et cliquez sur \"Partager le "
+"répertoire...\""
 
 # 90%
 msgid "Permission"
 msgstr "Permission"
 
-#, fuzzy
 msgid "Duplicate delegate"
-msgstr "Refuser la demande de rendez-vous"
+msgstr "Dupliquer le délégué"
 
 msgid "Delegate already exists in the list."
 msgstr "Ce délégué est déjà dans la liste."
