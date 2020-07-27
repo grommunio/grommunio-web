@@ -1,6 +1,6 @@
 /* Style Add Widget Panel */
 
-.zarafa-widget-item {
+.k-widget-item {
 	width:80px;
 	text-align:center;
 	display: block;
@@ -8,7 +8,7 @@
 	margin:5px;
 	cursor:pointer;
 }
-.zarafa-widget-item .thumb-wrap {
+.k-widget-item .thumb-wrap {
 	display: block;
 	width:80px;
 	height:80px;
@@ -17,23 +17,24 @@
 	position:relative;
 }
 
-.zarafa-widget-item > span {
+.k-widget-item > span {
 	height:2.75em;
 	display:block;
 	overflow:hidden;
 	padding-top:0.25em;
 }
 
-.zarafa-widgets-selectedwidget
+.k-widgets-selectedwidget
 {
 	color : #7f7f7f;
 }
-.zarafa-widgets-hoverwidget
+.k-widgets-hoverwidget
 {
 	color : #7f7f7f;
 	text-decoration : underline;
 }
-.zarafa-widget-item .thumb-wrap img {
+
+.k-widget-item .thumb-wrap img {
 	display:block;
 	margin:auto;
 }
@@ -113,4 +114,45 @@
 			border: 1px solid transparent; /* to align the text with the text in the combo */
 		}
 	}
+}
+
+#datepicker.k-widget-item, #tasks.k-widget-item,
+#mail.k-widget-item, #appointments.k-widget-item,
+#quickappt.k-widget-item {
+	background-size: 70px;
+	background-repeat: no-repeat !important;
+	background-position: 7px 10px !important;
+}
+
+#quicktask.k-widget-item, #quicknote.k-widget-item  {
+	background-size: 70px;
+	background-repeat: no-repeat !important;
+	background-position: 6px 10px !important;
+}
+
+#quickcontact.k-widget-item {
+	background-size: 70px;
+	background-repeat: no-repeat !important;
+	background-position: 10px 10px !important;
+}
+
+#quickmail.k-widget-item {
+	background-size: 70px;
+	background-repeat: no-repeat !important;
+	background-position: 6px 15px !important;
+}
+
+.k-configure-widget .x-form-cb-label {
+	padding: 3px 3px 3px 4px;
+	margin-left: 16px !important;
+}
+
+.k-folder-link {
+	text-decoration: underline;
+	padding: 4px 0px 0px 5px;
+	cursor:pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
 }

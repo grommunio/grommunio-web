@@ -24,8 +24,40 @@
 	".icon_columns": ".x-menu-item .x-cols-icon.x-menu-item-icon",
 
 	".icon_favorites": ".icon_folder_favorites",
+
+	".icon_new_email" : [
+		".icon_widget_email"
+	],
+
+	".icon_new_task" : [
+		".icon_widget_new_task"
+	],
+
+	".icon_calendar" : [
+		".zarafa-settings-category-calendar",
+		".icon_widget_calendar"
+	],
+
+	".icon_new_appointment" : [
+		".icon_widget_new_appointment"
+	],
+
+	".icon_new_note" : [
+		".icon_widget_new_note"
+	],
+
+	".icon_unread_mail" : [
+		".icon_widget_unread_mail",
+		".zarafa-settings-category-mail"
+	],
+
+	".icon_new_contact" : [
+		".icon_widget_new_contact"
+	],
+
 	".icon_folder_task": [
 		".icon_folder_default_task",
+		".icon_widget_task",
 		".icon_folder_default_todolist",
 		".icon_folder_shared_task"
 	],
@@ -96,13 +128,11 @@
 	],
 	".icon_task_assigned": ".icon_task_assignee",
 
-	".icon_unread_mail": ".zarafa-settings-category-mail",
 	".icon_oof": [
 		".zarafa-settings-category-oof",
 		".zarafa-settings-favorite-oof"
 	],
 	".icon_funnel": ".zarafa-settings-category-rules",
-	".icon_calendar": ".zarafa-settings-category-calendar",
 	".delegates_s": ".zarafa-settings-category-delegate",
 	".icon_sendas": ".zarafa-settings-category-sendas",
 	".icon_plug": ".zarafa-settings-category-plugins",
