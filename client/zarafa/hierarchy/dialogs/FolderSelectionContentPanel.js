@@ -49,6 +49,7 @@ Zarafa.hierarchy.dialogs.FolderSelectionContentPanel = Ext.extend(Zarafa.core.ui
 				xtype: 'zarafa.folderselectionpanel',
 				folder : config.folder,
 				hideTodoList: !!config.hideTodoList,
+				IPMSubTreeFilter: config.IPMSubTreeFilter,
 				IPMFilter: config.IPMFilter ? config.IPMFilter : undefined,
 				permissionFilter: config.permissionFilter ? config.permissionFilter : undefined,
 				buttonAlign: 'left',

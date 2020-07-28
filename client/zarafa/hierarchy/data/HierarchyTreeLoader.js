@@ -438,7 +438,7 @@ Zarafa.hierarchy.data.HierarchyTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 				var store = stores[i];
 				var folder = store.getSubtreeFolder();
 
-				if (folder) {
+				if (folder && this.tree.IPMSubTreeNodeFilter(folder)) {
 					// The IPM_SUBTREE of a shared stores doesn't need to be shown when
 					// a filter has been applied and the IPM_SUBTREE itself isn't a shared folder.
 					// This could be the case when we only loaded the Inbox or Calendar of the
