@@ -687,9 +687,7 @@ class UploadAttachment
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => Array(
 						'import' => Array(
 							'success'=> true,
-							'items' => Array(
-								$importStatus
-							)
+							'items' => $importStatus
 						)
 					)
 				),
