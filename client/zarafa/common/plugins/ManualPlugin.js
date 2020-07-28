@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.webappmanual');
+Ext.namespace('Zarafa.common.plugins');
 
 /**
- * @class Zarafa.plugins.webappmanual.ManualPlugin
+ * @class Zarafa.common.plugins.ManualPlugin
  * @extends Zarafa.core.Plugin
  *
  * The Manual Plugin, which inserts a 'Help' button in the Top Toolbar,
  * from where the user can open the Manual in a new page.
  */
-Zarafa.plugins.webappmanual.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
-
+Zarafa.common.plugins.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
+	
 	/**
 	 * List of Contexts name for which a shortcut exists inside the manual.
 	 * @property
@@ -30,9 +30,11 @@ Zarafa.plugins.webappmanual.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	initPlugin : function()
 	{
-		Zarafa.plugins.webappmanual.ManualPlugin.superclass.initPlugin.apply(this, arguments);
+		Zarafa.common.plugins.ManualPlugin.superclass.initPlugin.apply(this, arguments);
 
-		this.registerInsertionPoint('main.maintabbar.right', this.createManualMainTab, this);
+		if (container.getSettingsModel().get("zarafa/v1/main/help_manual/show") === true) { 
+			this.registerInsertionPoint('main.maintabbar.right', this.createManualMainTab, this);
+		}
 	},
 
 	/**
@@ -61,7 +63,7 @@ Zarafa.plugins.webappmanual.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var context = container.getCurrentContext();
 		var shortcut = this.manualShortcuts[context.getName()];
-		var url = container.getSettingsModel().get(this.getSettingsBase() + '/url');
+		var url = container.getServerConfig().getWebappManualUrl();
 
 		if (!Ext.isEmpty(shortcut)) {
 			url += '/' + shortcut;
@@ -75,6 +77,8 @@ Zarafa.onReady(function() {
 	container.registerPlugin(new Zarafa.core.PluginMetaData({
 		name : 'webappmanual',
 		displayName : _('WebApp Manual'),
-		pluginConstructor : Zarafa.plugins.webappmanual.ManualPlugin
+		allowUserDisable: false,
+		allowUserVisible: false,
+		pluginConstructor : Zarafa.common.plugins.ManualPlugin
 	}));
 });

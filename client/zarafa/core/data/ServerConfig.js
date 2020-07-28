@@ -118,6 +118,14 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} The base url for webapp help manual plugin.
+	 */
+	getWebappManualUrl : function()
+	{	
+		return this.meta.plugin_webappmanual_url;
+	},
+
+	/**
 	 * @return {Number} The maximum number of files that can be uploaded via a single request.
 	 */
 	getMaxFileUploads : function()

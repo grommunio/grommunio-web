@@ -104,6 +104,11 @@ if(!defined("ENABLE_DIRECT_BOOKING")) define("ENABLE_DIRECT_BOOKING", true);
 if(!defined("ENABLED_LANGUAGES")) define("ENABLED_LANGUAGES", "bg_BG;ca_ES;da_DK;el_GR;et_EE;fa_IR;gl_ES;hr_HR;ko_KR;lt_LT;pt_PT;si_SI;sv_SE;uk_UA;cs_CZ;de_DE;en_GB;en_US;es_ES;fr_FR;he_IL;it_IT;nl_NL;pt_BR;ru_RU;zh_CN;zh_TW;ja_JP;fi_FI;hu_HU;tr_TR;nb_NO;pl_PL");
 
 /**
+ * Defines the base URL where the User Manual for WebApp can be found
+ */
+if(!defined(PLUGIN_WEBAPPMANUAL_URL)) define("PLUGIN_WEBAPPMANUAL_URL", "https://documentation.kopano.io/user_manual_webapp/");
+
+/**
  * Defines the domains to which redirection after login is allowed. The redirect url will be read from
  * the GET-parameter 'continue'.
  */

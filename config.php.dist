@@ -105,6 +105,9 @@
 	// The title that will be shown in the title bar of the browser
 	define("WEBAPP_TITLE", "Kopano WebApp");
 
+	// The base URL where the User Manual for WebApp can be found
+	define("PLUGIN_WEBAPPMANUAL_URL", "https://documentation.kopano.io/user_manual_webapp/");
+
 	// Set addressbook for GAB not to show any users unless searching for a specific user
 	define("DISABLE_FULL_GAB", false);
 

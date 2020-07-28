@@ -385,6 +385,19 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * zarafa/v1/main/kdeveloper_tool/kdeveloper
 								 */
 								'kdeveloper': false
+							},
+
+							/**
+							 * zarafa/v1/main/help_manual
+							 */
+							'help_manual' : {
+								/**
+								 * zarafa/v1/main/help_manual/show
+								 * Whether or not the 'help' button in top-right corner should be shown
+								 * @property
+								 * @type Boolean 
+								 */
+								show : true
 							}
 						},
 
