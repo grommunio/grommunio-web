@@ -153,6 +153,7 @@ Zarafa.addressbook.ui.AddressBookMainPanel = Ext.extend(Ext.Panel, {
 					plugins: [ 'zarafa.fieldlabeler', 'zarafa.comboautowidth' ],
 					fieldLabel: _('Show Names from the'),
 					labelWidth : 150,
+					listClass: 'k-addressbook-combo-list',
 					editable : false,
 					mode : 'local',
 					triggerAction : 'all',
