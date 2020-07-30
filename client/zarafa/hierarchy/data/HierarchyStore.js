@@ -378,6 +378,9 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		// Add event handlers which are registered so we can listen for
 		// the add, remove and update events for the folders.
 		this.hookStoreRecord(records);
+
+		// Set title counter for webapp tab.
+		Zarafa.hierarchy.Actions.setTitleCounter(this);
 	},
 
 	/**
@@ -561,6 +564,9 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	onFolderUpdate : function(store, record, operation)
 	{
 		this.fireEvent('updateFolder', this, store.getParentRecord(), record, operation);
+
+		// Update title counter for webapp tab.
+		Zarafa.hierarchy.Actions.setTitleCounter(this);
 	},
 
 	/**

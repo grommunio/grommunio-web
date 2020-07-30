@@ -398,6 +398,19 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Boolean 
 								 */
 								show : true
+							},
+							
+							/**
+							 * zarafa/v1/main/title_counter
+							 */
+							'title_counter' : {
+								/**
+								 * zarafa/v1/main/title_counter/show
+								 * Whether or not the unread mail counter in application title should be shown
+								 * @property
+								 * @type Boolean 
+								 */
+								show : true
 							}
 						},
 
