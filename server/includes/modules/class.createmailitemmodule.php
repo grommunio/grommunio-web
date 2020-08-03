@@ -287,7 +287,10 @@
 			// Older version of the core does not support 
 			// mapi_createconversationindex function.
 			if(version_compare($serverVersion, '10.0.0') === -1) {
-				error_log(sprintf("Core '%s' version does not support mapi_createconversationindex function", $serverVersion));
+				// Log a message that KC does not support conversationindex function.
+				// Commented for now, since it spams admin as this version of core is not released yet. 
+				// We can enable it later if needed.
+				//error_log(sprintf("Core '%s' version does not support mapi_createconversationindex function", $serverVersion));
 				return;
 			}
 	
