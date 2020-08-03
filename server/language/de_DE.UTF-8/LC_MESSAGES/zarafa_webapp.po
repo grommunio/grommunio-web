@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-07-29 12:37+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2020-08-03 16:14+0000\n"
+"Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -469,17 +469,19 @@ msgid "Show Details"
 msgstr "Details anzeigen"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Kontakt kopieren"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kontakte kopieren"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Es werden nur die ersten {0} Namen angezeigt. Nutzen Sie die Suche für "
+"weitere Ergebnisse."
 
 msgid "Use the search bar to get results"
-msgstr "Nutzen Sie eine Suchanfrage, um Ergebniss zu erhalten"
+msgstr "Nutzen Sie die Suchfunktion um Ergebniss zu erhalten"
 
 msgid "There are no items to show in this list"
 msgstr "In dieser Liste gibt es keine Elemente anzuzeigen"
@@ -581,7 +583,7 @@ msgid "Sort by: Fax"
 msgstr "Sortieren nach: Fax"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Einzelnes Element drucken"
 
 # 78%
 msgid "Print selected item"
@@ -591,7 +593,7 @@ msgid "Print"
 msgstr "Drucken"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Kein Element ausgewählt"
 
 msgid "No preview"
 msgstr "Keine Vorschau"
@@ -905,7 +907,7 @@ msgstr "Wann"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l j. F Y {0}"
 
 msgid "Where"
 msgstr "Wo"
@@ -1100,7 +1102,7 @@ msgid "Send update"
 msgstr "Update verschicken"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Möchten Sie eine Aktualisierung an alle Teilnehmer senden?"
 
 msgid "Send update to attendees"
 msgstr "Aktualisierung an Teilnehmer versenden"
@@ -1108,6 +1110,8 @@ msgstr "Aktualisierung an Teilnehmer versenden"
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
+"Sie haben Änderungen an der Teilnehmerliste vorgenommen. Was würden Sie "
+"gerne tun?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr ""
@@ -1238,7 +1242,7 @@ msgstr "Wollen Sie den Ort \"{0}\" mit dem neuen Ort \"{1}\" aktualisieren?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "j. F Y {0}"
 
 # 75%
 msgid "None"
@@ -1264,10 +1268,10 @@ msgid "Check names"
 msgstr "Namen überprüfen"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Adressbuch"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Adressbuch öffnen"
 
 msgid "Invite attendees"
 msgstr "Teilnehmer einladen"
@@ -1496,7 +1500,7 @@ msgid "Duration must be between 1 and 120 minutes."
 msgstr "Der Wert muss zwischen 1 und 120 Minuten liegen."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Standardstatus für ganztägigen Termin"
 
 msgid "Working days"
 msgstr "Arbeitstage"
@@ -1687,7 +1691,7 @@ msgstr "Termine werden geladen"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "j. F {0}"
 
 # 83%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1717,7 +1721,7 @@ msgid "Update recipients"
 msgstr "Empfänger aktualisieren"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Die Zeit der Besprechung hat sich geändert. Was würden Sie gerne tun?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Änderungen speichern und die Aktualisierung an alle Teilnehmer senden"
@@ -3061,7 +3065,7 @@ msgid "IM Address"
 msgstr "IM-Adresse"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d. m. Y, {0}"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3072,25 +3076,25 @@ msgid "Reminder is set on: {0}, {1}"
 msgstr "Erinnerung ist auf {0}, {1} gesetzt"
 
 msgid "d-m-Y"
-msgstr "d.m.Y"
+msgstr "d. m. Y"
 
 msgid "Original message"
 msgstr "Ursprüngliche Nachricht"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Gesendete Objekte"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d. m. Y {0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d. m. Y {0}"
 
 msgid "Unknown"
-msgstr "<Unbekannt>"
+msgstr "Unbekannt"
 
 msgid "Meeting Organizer"
-msgstr "Organisator"
+msgstr "Besprechungsorganisator"
 
 msgid "{0} overdue"
 msgstr "{0} überfällig"
@@ -4116,7 +4120,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "Ihre Änderungen werden beim Schließen dieser Seite verloren gehen."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 msgid "D d-m"
 msgstr "D, d.m.Y"
@@ -4628,7 +4632,7 @@ msgid "Toggle red/complete flag"
 msgstr "Nachverfolgung ändern"
 
 msgid "Close a conversation"
-msgstr ""
+msgstr "Eine Unterhaltung schließen"
 
 # 81%
 # 86%
@@ -4654,16 +4658,16 @@ msgid "RE"
 msgstr "AW"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Liste sicherer Absender ist leer"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Bitte wählen Sie ein Eintrag."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Alle sicheren Absender löschen"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie alle sicheren Absender löschen wollen?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4696,13 +4700,13 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} Entwürfe alle {B} Minute(n) automatisch speichern"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Unterhaltungseinstellungen"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Nachrichten nach Unterhaltungen angeordnet anzeigen"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Unterhaltung reduzieren, wenn Sie eine andere E-Mail auswählen"
 
 msgid "Incoming mail"
 msgstr "Eingehende E-Mail"
@@ -4772,7 +4776,7 @@ msgid "I will be back on"
 msgstr "Ich werde zurück sein am"
 
 msgid "I am out of office"
-msgstr ""
+msgstr "Ich bin nicht im Büro"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr "Jedem Absender nur einmal automatisch mit dem folgenden Text antworten"
@@ -4787,27 +4791,30 @@ msgstr ""
 "eine spätere Zeit ein."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Sichere Absender"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Zum Schutz Ihrer Privatsphäre können E-Mail-Adressen oder Domains nur über "
+"die Funktion \"Zur Liste sicherer Absender hinzufügen\" in einer geöffneten "
+"E-Mail hinzugefügt werden."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Alle löschen"
 
 msgid "Signatures"
 msgstr "Signaturen"
 
 msgid "New messages"
-msgstr ""
+msgstr "Neue Nachrichten"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Antworten/weiterleiten"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Signatur Name:"
 
 msgid "Save Signature"
 msgstr "Signaturen speichern"
@@ -4968,7 +4975,7 @@ msgid "Basic"
 msgstr "Basis"
 
 msgid "Account information"
-msgstr ""
+msgstr "Kontoinformationen"
 
 msgid "Language"
 msgstr "Sprache"
@@ -5013,13 +5020,13 @@ msgid "Long"
 msgstr "Langform"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Zeit Format:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "12 Stunden"
 
 msgid "24h clock"
-msgstr ""
+msgstr "24 Stunden"
 
 # 88%
 msgid "Favorite settings"
@@ -5108,7 +5115,7 @@ msgid "Mailbox Usage"
 msgstr "Postfachbelegung"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Für Ihr Postfach ist kein Kontingent festgelegt."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} des Postfachs sind belegt."
@@ -5388,10 +5395,10 @@ msgid "Create task"
 msgstr "Aufgabe erstellen"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Bevorstehend"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Überfällig"
 
 msgid "Mark Complete"
 msgstr "Als fertig markieren"
@@ -5568,16 +5575,18 @@ msgstr "Die Verbindung zum Server wurde wiederhergestellt"
 
 msgid "Please contact your administrator if this problem persists."
 msgstr ""
+"Bitte wenden Sie sich an Ihren Administrator, wenn dieses Problem weiterhin "
+"besteht."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "Error HTTP {0}"
-msgstr ""
+msgstr "Fehler HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr ""
+msgstr "Der HTTP-Statustext lautet: "
 
 msgid "Invalid data received from the server. HTTP status text is: "
-msgstr ""
+msgstr "Ungültige Daten vom Server empfangen. Der HTTP-Statustext lautet: "
 
 msgid "Missing store"
 msgstr "Fehlender Store"
@@ -5684,7 +5693,7 @@ msgid "Loading appointments..."
 msgstr "Termine werden geladen..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Bitte wählen Sie einen Kalender über die Widget-Einstellungen"
 
 msgid "Number of days"
 msgstr "Anzahl Tage"
@@ -5696,10 +5705,10 @@ msgid "Upcoming Appointments"
 msgstr "Bevorstehende Termine"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Termine von {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Termine von {0} - {1}"
 
 # 93%
 # 100%
@@ -5717,7 +5726,7 @@ msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d.m.y {0}"
 
 msgid "{0} - {1} (all day)"
 msgstr "{0} - {1} (ganztägig)"
@@ -5911,6 +5920,9 @@ msgid ""
 "We encountered a problem. This might be caused by upgrading a plugin. Please "
 "re-login to resolve the issue."
 msgstr ""
+"Ein Problem ist aufgetreten. Dies kann durch ein Upgrade eines Plugins "
+"verursacht werden. Bitte melden Sie sich erneut an, um das Problem zu "
+"beheben."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6039,7 +6051,7 @@ msgid "Action is not performed correctly."
 msgstr "Aktion wurde nicht korrekt ausgeführt."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "Anfrage ist nicht verfügbar."
 
 # 94%
 # 90%
@@ -6717,6 +6729,7 @@ msgstr "In der Datei wurde kein Kontakt gefunden."
 
 msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
+"WebApp unterstützt das Importieren mehrerer VCF mit dieser Version nicht."
 
 #, php-format
 msgid "Unable to import '%s'"
