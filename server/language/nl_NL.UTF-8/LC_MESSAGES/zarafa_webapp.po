@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-07-09 10:29+0000\n"
+"PO-Revision-Date: 2020-08-03 08:10+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -1120,6 +1120,7 @@ msgstr "Verstuur update naar genodigden"
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
 msgstr ""
+"Je hebt aanpassingen gemaakt aan de lijst met genodigden. Wat wil je doen?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Verstuur updates alleen naar toegevoegde of verwijderde genodigden."
@@ -4684,16 +4685,16 @@ msgid "RE"
 msgstr "AW"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Lijst van veilige afzenders is leeg"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Selecteer een veilige afzender."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Verwijder alle veilige afzenders"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Weet je zeker dat je all veilige afzenders wilt verwijderen?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4725,16 +4726,16 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} niet verstuurde e-mail iedere {B} minuten opslaan"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Instellen voor gespreksweergave"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Gespreksweergave aanzetten"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Gesprek sluiten wanneer een andere mail geselecteerd wordt"
 
 msgid "Incoming mail"
-msgstr "Binnenkomende e-mail"
+msgstr "Binnenkomende email"
 
 msgid "How to respond to requests for read receipts"
 msgstr "Hoe te antwoorden op verzoeken voor leesbevestiging"
@@ -4799,7 +4800,7 @@ msgid "I will be back on"
 msgstr "Ik ben terug op"
 
 msgid "I am out of office"
-msgstr ""
+msgstr "Ik ben niet op kantoor"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
@@ -4813,27 +4814,29 @@ msgid ""
 msgstr "De ingevulde tijd ligt voor de afwezigheidstijd. Kies een andere tijd."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Veilige afzenders"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Om je privacy te waarborgen kunnen emailadressen en domeinen alleen worden "
+"toegevoegd via de 'Voeg veilige afzender toe' in een geopende email."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Verwijder alles"
 
 msgid "Signatures"
 msgstr "Handtekeningen"
 
 msgid "New messages"
-msgstr ""
+msgstr "Nieuwe berichten"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Beantwoorden/Doorsturen"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Naam handtekening:"
 
 msgid "Save Signature"
 msgstr "Handtekening opslaan"
@@ -4994,7 +4997,7 @@ msgid "Basic"
 msgstr "Basis"
 
 msgid "Account information"
-msgstr ""
+msgstr "Account informatie"
 
 msgid "Language"
 msgstr "Taal"
@@ -5040,7 +5043,7 @@ msgid "Long"
 msgstr "Lang"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Tijdsformaat:"
 
 msgid "12h clock"
 msgstr "12‑uursnotatie"
@@ -5134,7 +5137,7 @@ msgid "Mailbox Usage"
 msgstr "Gebruik Postvak"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Er is geen quota gezet op je store."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} van de postvakruimte is in gebruik."
@@ -5413,7 +5416,7 @@ msgid "Create task"
 msgstr "Taak aanmaken"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Aankomende"
 
 msgid "Overdue"
 msgstr ""
