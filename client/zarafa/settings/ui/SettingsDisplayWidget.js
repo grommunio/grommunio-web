@@ -117,6 +117,17 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change : this.onFieldChange,
 					scope : this
 				}
+			},{
+				xtype : 'checkbox',
+				name : 'zarafa/v1/main/help_manual/show',
+				ref : 'helpManual',
+				hideLabel : true,
+				requiresReload : true,
+				boxLabel : _('Show \'help\' button in top-right corner'),
+				listeners : {
+					change : this.onFieldChange,
+					scope : this
+				}
 			},
 
 			// Insertion point at the end of the display widget
@@ -141,6 +152,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.hideFavorites.setValue(settingsModel.get(this.hideFavorites.name));
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
+		this.helpManual.setValue(settingsModel.get(this.helpManual.name));
 	},
 
 	/**
@@ -158,7 +170,8 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		settingsModel.set(this.hideFavorites.name, this.hideFavorites.getValue());
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
-		
+		settingsModel.set(this.helpManual.name, this.helpManual.getValue());
+
 		// Hide favorites
 		if (this.hideFavorites.getValue() === true) {
 			Ext.getBody().addClass('hideFavorites');
@@ -224,13 +237,18 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @param {String} value The new value
 	 * @private
 	 */
-	onFieldChange : function(field, cb)
+	onFieldChange : function(field, value)
 	{
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
 			// a change was applied
-			if (this.model.get(field.name) !== cb.checked) {
-				this.model.set(field.name, cb.checked);
+			if (this.model.get(field.name) !== value) {
+				this.model.set(field.name, value);
+
+				// Reload only when this config has been set in the field component.
+				if (Ext.isDefined(field.requiresReload) && field.requiresReload) {
+					this.model.requiresReload = true;
+				}
 			}
 		}
 	}
