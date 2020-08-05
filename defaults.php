@@ -106,7 +106,7 @@ if(!defined("ENABLED_LANGUAGES")) define("ENABLED_LANGUAGES", "bg_BG;ca_ES;da_DK
 /**
  * Defines the base URL where the User Manual for WebApp can be found
  */
-if(!defined(PLUGIN_WEBAPPMANUAL_URL)) define("PLUGIN_WEBAPPMANUAL_URL", "https://documentation.kopano.io/user_manual_webapp/");
+if(!defined("PLUGIN_WEBAPPMANUAL_URL")) define("PLUGIN_WEBAPPMANUAL_URL", "https://documentation.kopano.io/user_manual_webapp/");
 
 /**
  * Defines the domains to which redirection after login is allowed. The redirect url will be read from
