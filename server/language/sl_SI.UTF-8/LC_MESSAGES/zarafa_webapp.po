@@ -2507,6 +2507,21 @@ msgstr "Naslednji prejemnik (ki) niso bili doseženi"
 msgid "Duplicate recipients"
 msgstr "Uredi prejemnika"
 
+msgid "Help"
+msgstr "Pomoč"
+
+msgid "WebApp Manual"
+msgstr "Navodila za Web aplikacijo"
+
+msgid "INSERT"
+msgstr "VSTAVI"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Razvrsti po: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZRazvijalec"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano Spletna aplikacija"
@@ -5068,6 +5083,12 @@ msgstr "Napredno"
 msgid "Advanced settings"
 msgstr "Napredne nastavitve"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Uredi nastavitve"
 
@@ -5115,6 +5136,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5868,21 +5892,6 @@ msgstr "Hitra naloga"
 
 msgid "Title Counter Plugin"
 msgstr "Števec neprebranih sporočil"
-
-msgid "Help"
-msgstr "Pomoč"
-
-msgid "WebApp Manual"
-msgstr "Navodila za Web aplikacijo"
-
-msgid "INSERT"
-msgstr "VSTAVI"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Razvrsti po: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZRazvijalec"
 
 msgid "Charm pink"
 msgstr ""

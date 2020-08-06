@@ -2499,6 +2499,21 @@ msgstr "Die folgenden Empfänger existieren bereits"
 msgid "Duplicate recipients"
 msgstr "Doppelte Empfänger"
 
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "WebApp Manual"
+msgstr "WebApp-Handbuch"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sortieren nach: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZEntwickler"
+
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp drucken"
 
@@ -4995,6 +5010,12 @@ msgstr "Erweitert"
 msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Einstellungen bearbeiten"
 
@@ -5040,6 +5061,9 @@ msgstr "Favoriten nicht oben anzeigen"
 
 msgid "Give unread items a colored border"
 msgstr "Zeige ungelesene Elemente mit einer farbigen Umrandung an"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
@@ -5800,21 +5824,6 @@ msgstr "Schnellaufgabe"
 
 msgid "Title Counter Plugin"
 msgstr "Zähler für ungelesene Nachrichten"
-
-msgid "Help"
-msgstr "Hilfe"
-
-msgid "WebApp Manual"
-msgstr "WebApp-Handbuch"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Sortieren nach: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZEntwickler"
 
 msgid "Charm pink"
 msgstr "Rosa"

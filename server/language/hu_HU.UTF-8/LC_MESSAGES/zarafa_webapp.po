@@ -2505,6 +2505,21 @@ msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
 msgid "Duplicate recipients"
 msgstr "Címzett szerkesztése"
 
+msgid "Help"
+msgstr "Súgó"
+
+msgid "WebApp Manual"
+msgstr "WebApp kézikönyv"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Rendezés: tartalom.levél.rácsalapértelmezettoszlop"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -5023,6 +5038,12 @@ msgstr "Haladó"
 msgid "Advanced settings"
 msgstr "Haladó beállítások"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Beállítás szerkesztése"
 
@@ -5070,6 +5091,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5814,21 +5838,6 @@ msgstr "Gyors feladat"
 
 msgid "Title Counter Plugin"
 msgstr "Címszámláló plugin"
-
-msgid "Help"
-msgstr "Súgó"
-
-msgid "WebApp Manual"
-msgstr "WebApp kézikönyv"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Rendezés: tartalom.levél.rácsalapértelmezettoszlop"
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr "Rózsaszín"

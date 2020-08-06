@@ -2456,6 +2456,21 @@ msgstr "Не удалось обнаружить следующих получа
 msgid "Duplicate recipients"
 msgstr "Изменить получателя"
 
+msgid "Help"
+msgstr "Помощь"
+
+msgid "WebApp Manual"
+msgstr "Руководство WebApp"
+
+msgid "INSERT"
+msgstr "ВВОД"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -4922,6 +4937,12 @@ msgstr "Расширенные"
 msgid "Advanced settings"
 msgstr "Расширенные настройки"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Изменить настройки"
 
@@ -4969,6 +4990,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5713,21 +5737,6 @@ msgid "Quick Task"
 msgstr "Быстрая задача"
 
 msgid "Title Counter Plugin"
-msgstr ""
-
-msgid "Help"
-msgstr "Помощь"
-
-msgid "WebApp Manual"
-msgstr "Руководство WebApp"
-
-msgid "INSERT"
-msgstr "ВВОД"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
 msgstr ""
 
 msgid "Charm pink"

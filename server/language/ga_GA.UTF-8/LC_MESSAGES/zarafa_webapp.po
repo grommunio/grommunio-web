@@ -2309,6 +2309,21 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
+msgid "Help"
+msgstr ""
+
+msgid "WebApp Manual"
+msgstr ""
+
+msgid "INSERT"
+msgstr ""
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
 msgid "Kopano WebApp print"
 msgstr ""
 
@@ -4605,6 +4620,12 @@ msgstr ""
 msgid "Advanced settings"
 msgstr ""
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr ""
 
@@ -4648,6 +4669,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5330,21 +5354,6 @@ msgid "Quick Task"
 msgstr ""
 
 msgid "Title Counter Plugin"
-msgstr ""
-
-msgid "Help"
-msgstr ""
-
-msgid "WebApp Manual"
-msgstr ""
-
-msgid "INSERT"
-msgstr ""
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
 msgstr ""
 
 msgid "Charm pink"

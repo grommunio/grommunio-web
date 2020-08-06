@@ -2448,6 +2448,21 @@ msgstr "De følgende mottakere finnes allerede"
 msgid "Duplicate recipients"
 msgstr "Duplikate mottakere"
 
+msgid "Help"
+msgstr "Hjelp"
+
+msgid "WebApp Manual"
+msgstr "WebApp håndbok"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sorter på: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp utskrift"
 
@@ -4831,6 +4846,12 @@ msgstr "Utvidet"
 msgid "Advanced settings"
 msgstr "Avanserte innstillinger"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Rediger innstillinger"
 
@@ -4876,6 +4897,9 @@ msgstr "Ta bort favoritter fra toppen"
 
 msgid "Give unread items a colored border"
 msgstr "Marker uleste meldinger med et farget omriss"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Navigasjon i Innboks"
@@ -5594,21 +5618,6 @@ msgstr "Hurtigoppgave"
 
 msgid "Title Counter Plugin"
 msgstr "Uleste e-post teller"
-
-msgid "Help"
-msgstr "Hjelp"
-
-msgid "WebApp Manual"
-msgstr "WebApp håndbok"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Sorter på: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr "Rosa"

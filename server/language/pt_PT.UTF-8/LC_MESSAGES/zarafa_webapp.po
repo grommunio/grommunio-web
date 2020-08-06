@@ -2350,6 +2350,21 @@ msgstr "O seguintes destinatários já existem"
 msgid "Duplicate recipients"
 msgstr "Destinatários duplicados"
 
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "WebApp Manual"
+msgstr "Manual WebApp"
+
+msgid "INSERT"
+msgstr "INSERIR"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Ordenar por: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 msgid "Kopano WebApp print"
 msgstr "Impressão Kopano WebApp"
 
@@ -4669,6 +4684,12 @@ msgstr "Avançadas"
 msgid "Advanced settings"
 msgstr "Definições avançadas"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Editar definições"
 
@@ -4713,6 +4734,9 @@ msgstr "Desprender os favoritos do topo"
 
 msgid "Give unread items a colored border"
 msgstr "Usar um rebordo colorido nos itens por ler"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Navegação na Caixa de Entrada"
@@ -5419,21 +5443,6 @@ msgstr "Tarefa rápida"
 
 msgid "Title Counter Plugin"
 msgstr "Título contador Plugin"
-
-msgid "Help"
-msgstr "Ajuda"
-
-msgid "WebApp Manual"
-msgstr "Manual WebApp"
-
-msgid "INSERT"
-msgstr "INSERIR"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Ordenar por: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr "Rosa charmoso"

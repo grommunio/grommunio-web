@@ -2486,6 +2486,21 @@ msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
 msgid "Duplicate recipients"
 msgstr "Alıcı düzenle"
 
+msgid "Help"
+msgstr "yardım"
+
+msgid "WebApp Manual"
+msgstr "WebApp kılavuzu"
+
+msgid "INSERT"
+msgstr "ekle"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sıralama: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "zdeveloper"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -5028,6 +5043,12 @@ msgstr "Gelişmiş"
 msgid "Advanced settings"
 msgstr "Gelişmiş ayarlar"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Ayar düzenle"
 
@@ -5075,6 +5096,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5837,21 +5861,6 @@ msgstr "Hızlı görev"
 
 msgid "Title Counter Plugin"
 msgstr "başlık sayaç eklentisi"
-
-msgid "Help"
-msgstr "yardım"
-
-msgid "WebApp Manual"
-msgstr "WebApp kılavuzu"
-
-msgid "INSERT"
-msgstr "ekle"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Sıralama: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "zdeveloper"
 
 msgid "Charm pink"
 msgstr "Cazibeli pembe"

@@ -2428,6 +2428,21 @@ msgstr "次の受信者に送信することができませんでした。"
 msgid "Duplicate recipients"
 msgstr "受信者を編集します。"
 
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "WebApp Manual"
+msgstr "WebAppマニュアル"
+
+msgid "INSERT"
+msgstr "挿入"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -4932,6 +4947,12 @@ msgstr "高度な"
 msgid "Advanced settings"
 msgstr "高度な設定"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "編集設定"
 
@@ -4979,6 +5000,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5726,21 +5750,6 @@ msgstr "クイック タスク"
 
 msgid "Title Counter Plugin"
 msgstr ""
-
-msgid "Help"
-msgstr "ヘルプ"
-
-msgid "WebApp Manual"
-msgstr "WebAppマニュアル"
-
-msgid "INSERT"
-msgstr "挿入"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr ""
