@@ -2491,6 +2491,21 @@ msgstr "Impossibile contattare i seguenti destinatari"
 msgid "Duplicate recipients"
 msgstr "Modifica destinatario"
 
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "WebApp Manual"
+msgstr "Manuale WebApp"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Ordina per: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "Sviluppatore Z"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -5034,6 +5049,12 @@ msgstr "Avanzate"
 msgid "Advanced settings"
 msgstr "Impostazioni avanzate"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Modifica impostazioni"
 
@@ -5081,6 +5102,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5846,21 +5870,6 @@ msgstr "Attività veloce"
 
 msgid "Title Counter Plugin"
 msgstr "Plugin titolo con contatore"
-
-msgid "Help"
-msgstr "Aiuto"
-
-msgid "WebApp Manual"
-msgstr "Manuale WebApp"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Ordina per: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "Sviluppatore Z"
 
 msgid "Charm pink"
 msgstr "Fascino rosa"

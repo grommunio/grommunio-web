@@ -2475,6 +2475,21 @@ msgstr "Seuraavia vastaanottajia ei tavoitettu"
 msgid "Duplicate recipients"
 msgstr "Muokkaa vastaanottajia"
 
+msgid "Help"
+msgstr "Ohje"
+
+msgid "WebApp Manual"
+msgstr "WebApp-opas"
+
+msgid "INSERT"
+msgstr "SYÖTÄ"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -4987,6 +5002,12 @@ msgstr "Edistynyt"
 msgid "Advanced settings"
 msgstr "Edistyneet asetukset"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Muokkaa asetusta"
 
@@ -5034,6 +5055,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5783,21 +5807,6 @@ msgstr "Pikatehtävä"
 
 msgid "Title Counter Plugin"
 msgstr ""
-
-msgid "Help"
-msgstr "Ohje"
-
-msgid "WebApp Manual"
-msgstr "WebApp-opas"
-
-msgid "INSERT"
-msgstr "SYÖTÄ"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr ""

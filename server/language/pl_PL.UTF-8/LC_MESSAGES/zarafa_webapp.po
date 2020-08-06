@@ -2396,6 +2396,21 @@ msgstr "Ten odbiorca nie jest dostępny"
 msgid "Duplicate recipients"
 msgstr "Edytuj odbiorcę"
 
+msgid "Help"
+msgstr "Pomoc"
+
+msgid "WebApp Manual"
+msgstr "Podręcznik aplikacji sieci Web"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sortuj według: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZProgramista"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -4834,6 +4849,12 @@ msgstr "Rozszerzony"
 msgid "Advanced settings"
 msgstr "Ustawienia rozszerzone"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Edytuj ustawienia"
 
@@ -4880,6 +4901,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5601,21 +5625,6 @@ msgstr "Szybkie zadanie"
 
 msgid "Title Counter Plugin"
 msgstr "Licznik nieprzeczytanych wiadomości"
-
-msgid "Help"
-msgstr "Pomoc"
-
-msgid "WebApp Manual"
-msgstr "Podręcznik aplikacji sieci Web"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Sortuj według: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZProgramista"
 
 msgid "Charm pink"
 msgstr "Różowy"

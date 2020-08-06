@@ -2348,6 +2348,21 @@ msgstr "Eftirfarandi viðtakendur eru nú þegar til"
 msgid "Duplicate recipients"
 msgstr "Fjölfalda viðtakendur"
 
+msgid "Help"
+msgstr "Hjálp"
+
+msgid "WebApp Manual"
+msgstr "Leiðbeiningar Kopano vefviðmóts"
+
+msgid "INSERT"
+msgstr "SETJA INN"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Raða eftir context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZForritari"
+
 msgid "Kopano WebApp print"
 msgstr "Útprentun úr Kopano vefviðmóti"
 
@@ -4670,6 +4685,12 @@ msgstr "Ítarlegt"
 msgid "Advanced settings"
 msgstr "Ítarlegar stillingar"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Breyta stillingu"
 
@@ -4714,6 +4735,9 @@ msgstr "Fjarlægja uppáhald af toppnum"
 
 msgid "Give unread items a colored border"
 msgstr "Gefa ólesnum atriðum litaðan ramma"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Innhólfsstiki"
@@ -5422,21 +5446,6 @@ msgstr "Skyndiverk"
 
 msgid "Title Counter Plugin"
 msgstr "Titilstalningaríbót"
-
-msgid "Help"
-msgstr "Hjálp"
-
-msgid "WebApp Manual"
-msgstr "Leiðbeiningar Kopano vefviðmóts"
-
-msgid "INSERT"
-msgstr "SETJA INN"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Raða eftir context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZForritari"
 
 msgid "Charm pink"
 msgstr "Sjarmerandi bleikt"

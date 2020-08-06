@@ -2399,6 +2399,21 @@ msgstr "The following recipient(s) could not be reached"
 msgid "Duplicate recipients"
 msgstr "編輯收件者"
 
+msgid "Help"
+msgstr "說明"
+
+msgid "WebApp Manual"
+msgstr "WebApp操作手冊"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp"
@@ -4862,6 +4877,12 @@ msgstr "進階"
 msgid "Advanced settings"
 msgstr "進階設定"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "編輯設定"
 
@@ -4909,6 +4930,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5645,21 +5669,6 @@ msgstr "新增任務"
 
 msgid "Title Counter Plugin"
 msgstr ""
-
-msgid "Help"
-msgstr "說明"
-
-msgid "WebApp Manual"
-msgstr "WebApp操作手冊"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr ""

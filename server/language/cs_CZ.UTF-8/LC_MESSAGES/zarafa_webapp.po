@@ -2484,6 +2484,21 @@ msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
 msgid "Duplicate recipients"
 msgstr "Upravit příjemce"
 
+msgid "Help"
+msgstr "Nápověda"
+
+msgid "WebApp Manual"
+msgstr ""
+
+msgid "INSERT"
+msgstr "VLOŽIT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr ""
+
 #, fuzzy
 msgid "Kopano WebApp print"
 msgstr "Vytisknout Kopano WebbApp"
@@ -5001,6 +5016,12 @@ msgstr "Pokročilé"
 msgid "Advanced settings"
 msgstr "Pokročilé nastavení"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Upravit nastavení"
 
@@ -5048,6 +5069,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5794,21 +5818,6 @@ msgid "Quick Task"
 msgstr "Rychlý úkol"
 
 msgid "Title Counter Plugin"
-msgstr ""
-
-msgid "Help"
-msgstr "Nápověda"
-
-msgid "WebApp Manual"
-msgstr ""
-
-msgid "INSERT"
-msgstr "VLOŽIT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
 msgstr ""
 
 msgid "Charm pink"

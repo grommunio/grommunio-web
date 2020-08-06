@@ -2115,8 +2115,8 @@ msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
-"La catégorie \"{0}\" existe déjà. Voulez vous fusionner les catégories \"{1}"
-"\" et \"{2}\" ?"
+"La catégorie \"{0}\" existe déjà. Voulez vous fusionner les catégories "
+"\"{1}\" et \"{2}\" ?"
 
 msgid "Merge"
 msgstr "Fusionner"
@@ -2463,6 +2463,21 @@ msgstr "Le(s) destinataire(s) suivant(s) n'a(ont) pas pu être contacté(s)"
 #, fuzzy
 msgid "Duplicate recipients"
 msgstr "Modifier un destinataire"
+
+msgid "Help"
+msgstr "Aide"
+
+msgid "WebApp Manual"
+msgstr "Manuel WebApp"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr ""
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
 
 #, fuzzy
 msgid "Kopano WebApp print"
@@ -5020,6 +5035,12 @@ msgstr "Avancé"
 msgid "Advanced settings"
 msgstr "Paramètres avancés"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Modifier la configuration"
 
@@ -5067,6 +5088,9 @@ msgid "Unpin favorites from top"
 msgstr ""
 
 msgid "Give unread items a colored border"
+msgstr ""
+
+msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Inbox navigation"
@@ -5838,21 +5862,6 @@ msgstr "Tâche rapide"
 
 msgid "Title Counter Plugin"
 msgstr "Plugin Title Counter"
-
-msgid "Help"
-msgstr "Aide"
-
-msgid "WebApp Manual"
-msgstr "Manuel WebApp"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr ""
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr "Charm pink"

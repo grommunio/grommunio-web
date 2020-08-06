@@ -2503,6 +2503,21 @@ msgstr "De volgende geadresseerden bestaan al"
 msgid "Duplicate recipients"
 msgstr "Ontvanger bestaat al"
 
+msgid "Help"
+msgstr "Hulp"
+
+msgid "WebApp Manual"
+msgstr "WebApp handleiding"
+
+msgid "INSERT"
+msgstr "INSERT"
+
+msgid "Sort by: context.mail.griddefaultcolumn"
+msgstr "Sorteren op: context.mail.griddefaultcolumn"
+
+msgid "ZDeveloper"
+msgstr "ZDeveloper"
+
 msgid "Kopano WebApp print"
 msgstr "Kopano WebApp printen"
 
@@ -5017,6 +5032,12 @@ msgstr "Geavanceerd"
 msgid "Advanced settings"
 msgstr "Geavanceerde instellingen"
 
+msgid "Developer tools"
+msgstr ""
+
+msgid "Show insertion points in WebApp"
+msgstr ""
+
 msgid "Edit setting"
 msgstr "Aanpassen instelling"
 
@@ -5063,6 +5084,9 @@ msgstr "Maak favorieten los van de bovenkant"
 
 msgid "Give unread items a colored border"
 msgstr "Geef ongelezen items een gekleurde rand"
+
+msgid "Show 'help' button in top-right corner"
+msgstr ""
 
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
@@ -5817,21 +5841,6 @@ msgstr "Vlugge Taak"
 
 msgid "Title Counter Plugin"
 msgstr "Title Counter Plugin"
-
-msgid "Help"
-msgstr "Hulp"
-
-msgid "WebApp Manual"
-msgstr "WebApp handleiding"
-
-msgid "INSERT"
-msgstr "INSERT"
-
-msgid "Sort by: context.mail.griddefaultcolumn"
-msgstr "Sorteren op: context.mail.griddefaultcolumn"
-
-msgid "ZDeveloper"
-msgstr "ZDeveloper"
 
 msgid "Charm pink"
 msgstr "Charm roze"
