@@ -28,5 +28,13 @@
 		".icon_folder_default_localfailures",
 		".icon_folder_default_serverfailures",
 		".icon_open"
+	],
+	".icon_calendar" : [
+		".zarafa-settings-category-calendar",
+		".icon_widget_calendar"
+	],
+	".icon_unread_mail" : [
+		".icon_widget_unread_mail",
+		".zarafa-settings-category-mail"
 	]
 }

@@ -24,7 +24,7 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 
 		var template = new Ext.XTemplate(
 			'<tpl for=".">',
-				'<div class="zarafa-widget-item" id="{name}">',
+				'<div class="k-widget-item {iconCls}" id="{name}">',
 					'<div class="thumb-wrap">',
 						'<img src="{icon}">',
 					'</div>',
@@ -37,12 +37,12 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 		var data = [];
 		var widgets = container.getWidgetsMetaData();
 		Ext.each(widgets, function(widget) {
-			data.push({ name : widget.getName(), display_name : widget.getDisplayName(), icon : widget.getIconPath() });
+			data.push({ name : widget.getName(), display_name : widget.getDisplayName(), icon : widget.getIconPath(), iconCls : widget.getIconCls() });
 		}, this);
 		
 		var store = {
 			xtype : 'jsonstore',
-			fields : [ 'name', 'display_name', 'icon' ],
+			fields : [ 'name', 'display_name', 'icon', 'iconCls' ],
 			data : data,
 			sortInfo : {
 				field : 'display_name',
@@ -64,9 +64,9 @@ Zarafa.core.ui.widget.WidgetContentPanel = Ext.extend(Zarafa.core.ui.ContentPane
 				autoScroll : true,
 				singleSelect : true,
 				multiSelect : false,
-				selectedClass : 'zarafa-widgets-selectedwidget',
-				overClass : 'zarafa-widgets-hoverwidget',
-				itemSelector : 'div.zarafa-widget-item',
+				selectedClass : 'k-widgets-selectedwidget',
+				overClass : 'k-widgets-hoverwidget',
+				itemSelector : 'div.k-widget-item',
 				deferEmptyText: false,
 				emptyText : _('No widgets installed.'),
 				listeners : {
