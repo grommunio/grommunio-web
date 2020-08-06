@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-08-03 08:10+0000\n"
+"PO-Revision-Date: 2020-08-06 08:41+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -5618,16 +5618,18 @@ msgstr "De verbinding met de server is terug"
 
 msgid "Please contact your administrator if this problem persists."
 msgstr ""
+"Neem contact op met je systeembeheerder als het probleem zich blijft "
+"voordoen."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "Error HTTP {0}"
-msgstr ""
+msgstr "Foutmelding HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr ""
+msgstr "HTTP status tekst is: "
 
 msgid "Invalid data received from the server. HTTP status text is: "
-msgstr ""
+msgstr "Invalide data gekregen van de server. HTTP status tekst is: "
 
 msgid "Missing store"
 msgstr "Ontbrekende store"
@@ -5733,7 +5735,7 @@ msgid "Loading appointments..."
 msgstr "Afspraken laden..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Selecteer een kalendar via widget instellingen"
 
 msgid "Number of days"
 msgstr "Aantal dagen"
@@ -5746,10 +5748,10 @@ msgid "Upcoming Appointments"
 msgstr "Aankomende afspraken"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Afspraken van {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Afspraken van {0} - {1}"
 
 # 93%
 # 100%
@@ -5946,6 +5948,8 @@ msgid ""
 "We encountered a problem. This might be caused by upgrading a plugin. Please "
 "re-login to resolve the issue."
 msgstr ""
+"Er is een fout opgetreden. Dit zou kunnen zijn doordat er een plugin is "
+"geüpgraded. Loguit en login om het probleem te verhelpen."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -6068,7 +6072,7 @@ msgid "Action is not performed correctly."
 msgstr "Handeling is verkeerd uitgevoerd."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "Request is niet beschikbaar."
 
 # 86%
 # 90%
@@ -6703,6 +6707,8 @@ msgstr "Geen contact gevonden in dit bestand."
 
 msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
+"WebApp ondersteunt het importeren van meerdere VCF bestanden niet in deze "
+"versie."
 
 #, php-format
 msgid "Unable to import '%s'"
