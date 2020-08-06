@@ -362,7 +362,7 @@ Zarafa.calendar.widget.AppointmentsWidget = Ext.extend(Zarafa.core.ui.widget.Abs
 		this.store.load({
 			folder: this.folder,
 			params: {
-				ignoreException: true,
+				suppress_exception: true,
 				restriction: {
 					startdate: startdate,
 					duedate: duedate

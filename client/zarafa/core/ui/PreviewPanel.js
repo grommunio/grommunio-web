@@ -234,6 +234,8 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 		}
 
 		if (Ext.isDefined(record)) {
+			// TODO: Find a proper way to suppress exception popup
+			record.suppressException();
 			panelConstructor = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.preview'], record);
 			if (panelConstructor && this.get(0) instanceof panelConstructor) {
 				if(this.isLoadMaskShown){
@@ -306,7 +308,7 @@ Zarafa.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 	 */
 	showLoadMask : function(errorMask)
 	{
-		if (this.isLoadMaskShown === true) {
+		if (this.isLoadMaskShown && !errorMask) {
 			return;
 		}
 		if (!this.loadMask) {

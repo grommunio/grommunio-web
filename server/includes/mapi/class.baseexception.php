@@ -146,7 +146,7 @@ class BaseException extends Exception
 	 * Function sets a type of notification by which exception needs to be shown at client side.
 	 * @param string $notificationType type of notification to show an exception.
 	 */
-	public function setNotifiactionType($notificationType)
+	public function setNotificationType($notificationType)
 	{
 		$this->notificationType = $notificationType;
 	}

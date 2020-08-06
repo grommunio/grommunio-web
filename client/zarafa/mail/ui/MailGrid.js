@@ -571,7 +571,7 @@ Zarafa.mail.ui.MailGrid = Ext.extend(Zarafa.common.ui.grid.MapiMessageGrid, {
 		if (browserWindow) {
 			browserWindow.focus();
 		} else {
-			Zarafa.common.Actions.openMessageContent(record);
+			Zarafa.common.Actions.openMessageContent(record, undefined, true);
 		}
 	},
 

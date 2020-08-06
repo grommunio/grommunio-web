@@ -668,6 +668,14 @@ Zarafa.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * Adds message action 'suppress_exception' which suppresses an exception pop-up.
+	 */
+	suppressException : function()
+	{
+		this.addMessageAction('suppress_exception', true);
+	},
+
+	/**
 	 * Checks if the SubStore with the given name is supported by this record.
 	 * @param {String} name The name of the subStore to check
 	 * @return {Boolean} True if the given SubStore is supported by this Record.
