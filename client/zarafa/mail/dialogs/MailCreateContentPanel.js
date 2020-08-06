@@ -44,6 +44,12 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 	sendLaterValidationQueue : undefined,
 
 	/**
+	 * @cfg {Zarafa.addressbook.dialogs.AddressBookContentPanel} ABDialog only available when
+	 * user select "Send email" address book context menu item.
+	 */
+	ABDialog : undefined,
+
+	/**
 	 * @constructor
 	 * @param config Configuration structure
 	 */
@@ -151,6 +157,24 @@ Zarafa.mail.dialogs.MailCreateContentPanel = Ext.extend(Zarafa.core.ui.MessageCo
 			});
 		} else {
 			Zarafa.mail.dialogs.MailCreateContentPanel.superclass.hideInfoMask.apply(this, arguments);
+		}
+	},
+
+	/**
+	 * Event which is fired when the {@link #record} has been completely loaded.
+	 * This will close the {@link Zarafa.addressbook.dialogs.AddressBookContentPanel AddressBookContentPanel} if
+	 * it is open.
+	 *
+	 * @param {Ext.Container} panel The panel to which the record was set
+	 * @param {Zarafa.core.data.MAPIRecord} record The record which was updated
+	 * @private
+	 */
+	onLoadRecord: function(panel, record)
+	{
+		Zarafa.mail.dialogs.MailCreateContentPanel.superclass.onLoadRecord.apply(this, arguments);
+
+		if (Ext.isDefined(this.ABDialog)) {
+			this.ABDialog.close();
 		}
 	},
 

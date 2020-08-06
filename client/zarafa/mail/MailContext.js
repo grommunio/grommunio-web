@@ -418,7 +418,11 @@ Zarafa.mail.MailContext = Ext.extend(Zarafa.core.Context, {
 			iconCls : 'icon_new_email',
 			scope : this,
 			handler : function(item) {
-				Zarafa.mail.Actions.openCreateMailContentForContacts(this.getModel(), item.parentMenu.records);
+				Zarafa.mail.Actions.openCreateMailContentForContacts(
+					this.getModel(),
+					item.parentMenu.records, {
+					ABDialog : item.parentMenu.dialog
+				});
 			},
 			beforeShow : function(item, records) {
 				var visible = false;
