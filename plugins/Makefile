@@ -1,4 +1,4 @@
-SUBDIRS = contactfax gmaps pimfolder titlecounter
+SUBDIRS = contactfax gmaps pimfolder
 
 .PHONY: subdirs $(SUBDIRS)
 

@@ -161,5 +161,25 @@ Zarafa.hierarchy.Actions = {
 		});
 
 		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
+	},
+
+	/**
+	 * Append and update the browser tab title based on the unread counter of Inbox folder in hierarchy.
+	 * This function will set and update title based on title_counter setting which resides
+	 * in {@link Zarafa.settings.ui.SettingsDisplayWidget SettingsDisplayWidget}.
+	 * 
+	 * @param {Zarafa.hierarchy.data.HierarchyStore} hierarchyStore to get unread mail count.
+	 */
+	setTitleCounter : function(hierarchyStore)
+	{
+		if (container.getSettingsModel().get("zarafa/v1/main/title_counter/show") === true) {
+            var title = container.getServerConfig().getWebappTitle();
+            var unreadCounter = hierarchyStore.getDefaultFolder('inbox').get('content_unread');
+            if (unreadCounter > 0) {
+                title = '(' + unreadCounter + ') ' + title;
+            }
+            
+            Ext.getDoc().dom.title = title;
+        }
 	}
 };

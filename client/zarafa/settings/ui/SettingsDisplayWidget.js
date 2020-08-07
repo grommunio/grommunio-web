@@ -128,6 +128,17 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 					change : this.onFieldChange,
 					scope : this
 				}
+			},{
+				xtype : 'checkbox',
+				name : 'zarafa/v1/main/title_counter/show',
+				ref : 'titleCounter',
+				hideLabel : true,
+				requiresReload : true,
+				boxLabel : _('Show unread mail counter in application title'),
+				listeners : {
+					change : this.onFieldChange,
+					scope : this
+				}
 			},
 
 			// Insertion point at the end of the display widget
@@ -153,6 +164,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
 		this.helpManual.setValue(settingsModel.get(this.helpManual.name));
+		this.titleCounter.setValue(settingsModel.get(this.titleCounter.name));
 	},
 
 	/**
@@ -171,6 +183,7 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
 		settingsModel.set(this.helpManual.name, this.helpManual.getValue());
+		settingsModel.set(this.titleCounter.name, this.titleCounter.getValue());
 
 		// Hide favorites
 		if (this.hideFavorites.getValue() === true) {
