@@ -1747,6 +1747,72 @@ msgstr ""
 "Ваш календарь был автоматически обновлён. Это приглашение на собрание будет "
 "удалено."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Загрузка встреч"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "день(дней)"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Загрузка встреч"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Новая встреча"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Сегодня: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} в {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Выбор..."
+
+msgid "Unnamed folder"
+msgstr "Безымянная папка"
+
+msgid "Discard"
+msgstr "Сброс"
+
+msgid "Quick Appointment"
+msgstr "Быстрая встреча"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Печать нескольких элементов сразу пока не реализовано."
 
@@ -2841,9 +2907,6 @@ msgstr "моё имя в поле Кому(To)"
 msgid "is received (all messages)"
 msgstr "получено (все сообщения)"
 
-msgid "Select one..."
-msgstr "Выбор..."
-
 msgid "Unknown condition"
 msgstr "Неизвестное условие"
 
@@ -2851,9 +2914,6 @@ msgstr "Неизвестное условие"
 # 100%
 msgid "This condition for the current rule is unknown"
 msgstr "Это условие  для текущего правила фильтрации неизвестно"
-
-msgid "Unnamed folder"
-msgstr "Безымянная папка"
 
 msgid "Add action"
 msgstr "Добавить действие"
@@ -3087,8 +3147,8 @@ msgstr "{0} просрочены"
 msgid "Loading..."
 msgstr "Загрузка..."
 
-msgid "Failed"
-msgstr "Неудачно"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3321,6 +3381,9 @@ msgstr "в"
 
 msgid "Root"
 msgstr "Корень"
+
+msgid "Datepicker"
+msgstr ""
 
 # 85%
 msgid "File As"
@@ -3771,6 +3834,9 @@ msgstr "Удалить изображение"
 msgid "VCF file(s)"
 msgstr "VCF файл(ы)"
 
+msgid "Quick Contact"
+msgstr "Быстрый контакт"
+
 msgid "Open in new browser window"
 msgstr "Открыть в новом окне браузера"
 
@@ -4035,14 +4101,31 @@ msgstr "Вы впервые используете WebApp. "
 msgid "Please check the following settings before continuing."
 msgstr "Перед продолжением проверьте настройки."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Добавить виджет"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Настройка виджета"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Открыть в новом окне браузера"
+
 msgid "Add widgets"
 msgstr "Добавить виджет"
 
 msgid "No widgets installed."
 msgstr "Виджеты не установлены."
-
-msgid "Configure widget"
-msgstr "Настройка виджета"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4437,9 +4520,6 @@ msgstr "Перейдите в Исходящие для редактирован
 
 msgid "hour(s)"
 msgstr "час(ов)"
-
-msgid "day(s)"
-msgstr "день(дней)"
 
 msgid "month(s)"
 msgstr "месяц(ов)"
@@ -4849,6 +4929,15 @@ msgstr "Отправить как вложение"
 msgid "Loading mail"
 msgstr "Загрузка почты"
 
+msgid "No unread mail."
+msgstr "Нет непрочитанных писем."
+
+msgid "Unread Mail"
+msgstr "Непрочитанные письма"
+
+msgid "Quick Mail"
+msgstr "Быстрое письмо"
+
 msgid "Print note"
 msgstr "Распечатать заметку"
 
@@ -4899,6 +4988,9 @@ msgstr "Загрузка заметок"
 
 msgid "Loading notes"
 msgstr "Загрузка заметок"
+
+msgid "Quick Note"
+msgstr "Быстрая заметка"
 
 #, fuzzy
 msgid ""
@@ -4995,6 +5087,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Отображение входящих"
 
@@ -5038,9 +5133,6 @@ msgstr "Включить все сочетания клавиш"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Перезагрузите Kopano WebApp для принятия этого изменения"
-
-msgid "Discard"
-msgstr "Сброс"
 
 msgid "Plugins"
 msgstr "Расширения"
@@ -5414,6 +5506,18 @@ msgstr "Список обновлений"
 msgid "D d-m-Y"
 msgstr "D d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Быстрая задача"
+
+msgid "No tasks."
+msgstr "Задач нет."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Ошибка импорта"
@@ -5607,85 +5711,6 @@ msgstr "Отправить факс"
 msgid "Contact Fax"
 msgstr "Факс"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Добавить виджет"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Загрузка встреч"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Загрузка встреч"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Новая встреча"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Сегодня: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} в {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Нет непрочитанных писем."
-
-msgid "Unread Mail"
-msgstr "Непрочитанные письма"
-
-msgid "No tasks."
-msgstr "Задач нет."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Карты Google"
 
@@ -5713,31 +5738,6 @@ msgstr "Выберите другой каталог"
 
 msgid "E-mails are moved to {0}"
 msgstr "Письма перемещены в {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Открыть в новом окне браузера"
-
-msgid "Quick Appointment"
-msgstr "Быстрая встреча"
-
-msgid "Quick Contact"
-msgstr "Быстрый контакт"
-
-msgid "Quick Mail"
-msgstr "Быстрое письмо"
-
-msgid "Quick Note"
-msgstr "Быстрая заметка"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Быстрая задача"
-
-msgid "Title Counter Plugin"
-msgstr ""
 
 msgid "Charm pink"
 msgstr ""

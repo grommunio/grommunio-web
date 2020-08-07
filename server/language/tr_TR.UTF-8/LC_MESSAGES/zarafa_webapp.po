@@ -1782,6 +1782,72 @@ msgid ""
 msgstr ""
 "Takviminiz otomatik olarak güncellendi. Bu toplantı isteği artık silinecek."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Randevular yükleniyor"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Randevular yükleniyor"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Yeni randevu"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Bugün: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "birini seç ..."
+
+msgid "Unnamed folder"
+msgstr "isimsiz klasör"
+
+msgid "Discard"
+msgstr "Geri al"
+
+msgid "Quick Appointment"
+msgstr "Hızlı randevu"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Birden fazla öğe baskı uygulamaya konmamıştır."
 
@@ -2877,17 +2943,11 @@ msgstr "alıcı alanında adım olan"
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "birini seç ..."
-
 msgid "Unknown condition"
 msgstr "bilinmeyen koşul"
 
 msgid "This condition for the current rule is unknown"
 msgstr "güncel kuralın bu koşulu bilinmiyor"
-
-msgid "Unnamed folder"
-msgstr "isimsiz klasör"
 
 msgid "Add action"
 msgstr "eylem ekle"
@@ -3130,8 +3190,8 @@ msgstr "{0} vadesi geçmiş"
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
-msgid "Failed"
-msgstr "Başarısız oldu"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3381,6 +3441,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Temel"
+
+msgid "Datepicker"
+msgstr ""
 
 # 85%
 msgid "File As"
@@ -3852,6 +3915,9 @@ msgstr "resmi kaldır"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Hızlı kişi yap"
+
 msgid "Open in new browser window"
 msgstr "Yeni tarayıcı penceresinde aç"
 
@@ -4125,14 +4191,31 @@ msgstr ""
 "WebApp'i ilk defa kullanıyorsunuz. <br /> Devam etmeden önce lütfen "
 "aşağıdaki ayarları kontrol edin."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Parçacık ekle"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Widget yapılandır"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Yeni tarayıcı penceresinde aç"
+
 msgid "Add widgets"
 msgstr "Parçacık ekle"
 
 msgid "No widgets installed."
 msgstr "Widget kurulmamış"
-
-msgid "Configure widget"
-msgstr "Widget yapılandır"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4533,9 +4616,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4955,6 +5035,15 @@ msgstr "Gönder"
 msgid "Loading mail"
 msgstr "Mesaj yükleniyor"
 
+msgid "No unread mail."
+msgstr "okunmamış e-posta yok."
+
+msgid "Unread Mail"
+msgstr "okunmamış e-posta"
+
+msgid "Quick Mail"
+msgstr "Hızlı mesaj"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Bu notu yazdır"
@@ -5005,6 +5094,9 @@ msgstr "Notlar yükleniyor"
 
 msgid "Loading notes"
 msgstr "Notlar yükleniyor"
+
+msgid "Quick Note"
+msgstr "Hızlı Not"
 
 #, fuzzy
 msgid ""
@@ -5101,6 +5193,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "gelen kutusu navigasyonu"
 
@@ -5146,9 +5241,6 @@ msgstr "Tüm klavye kısayolları açık"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Bu değişiklik WebApp yeniden açarsan etkili olur"
-
-msgid "Discard"
-msgstr "Geri al"
 
 msgid "Plugins"
 msgstr "Eklentiler"
@@ -5535,6 +5627,18 @@ msgstr "Listeyi Güncelle"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hızlı görev"
+
+msgid "No tasks."
+msgstr "Görev yok."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Önemli"
@@ -5730,85 +5834,6 @@ msgstr "faks gönder"
 msgid "Contact Fax"
 msgstr "kişi faksı"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Parçacık ekle"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Randevular yükleniyor"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Randevular yükleniyor"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Yeni randevu"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Bugün: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "okunmamış e-posta yok."
-
-msgid "Unread Mail"
-msgstr "okunmamış e-posta"
-
-msgid "No tasks."
-msgstr "Görev yok."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "google maps"
 
@@ -5836,31 +5861,6 @@ msgstr "Başka bir klasör seçin"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-postalar {0}'a taşınıyor"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Yeni tarayıcı penceresinde aç"
-
-msgid "Quick Appointment"
-msgstr "Hızlı randevu"
-
-msgid "Quick Contact"
-msgstr "Hızlı kişi yap"
-
-msgid "Quick Mail"
-msgstr "Hızlı mesaj"
-
-msgid "Quick Note"
-msgstr "Hızlı Not"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Hızlı görev"
-
-msgid "Title Counter Plugin"
-msgstr "başlık sayaç eklentisi"
 
 msgid "Charm pink"
 msgstr "Cazibeli pembe"

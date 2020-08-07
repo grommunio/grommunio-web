@@ -1794,6 +1794,71 @@ msgstr ""
 "Vaš koledar je bil avtomatsko posodobljen. Ta zahteva za sestanek bo sedaj "
 "izbrisana."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Nalagam sestanke"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Nalagam sestanke"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Novi sestanek"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Danes: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Izberi eno ..."
+
+msgid "Unnamed folder"
+msgstr "Neimenovana mapa"
+
+msgid "Discard"
+msgstr "Zavrži"
+
+msgid "Quick Appointment"
+msgstr "Hitri sestanek"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Tiskanje večih predmetov ni bilo implementirano."
 
@@ -2899,17 +2964,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "Izberi eno ..."
-
 msgid "Unknown condition"
 msgstr "Neznano stanje"
 
 msgid "This condition for the current rule is unknown"
 msgstr "To stanje za trenutno pravilo je neznano"
-
-msgid "Unnamed folder"
-msgstr "Neimenovana mapa"
 
 msgid "Add action"
 msgstr "Dodaj dejanje"
@@ -3151,8 +3210,8 @@ msgstr "{0} zapadlo"
 msgid "Loading..."
 msgstr "Nalaganje..."
 
-msgid "Failed"
-msgstr "Neuspešno"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3400,6 +3459,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Root"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Datoteka kot"
@@ -3885,6 +3947,9 @@ msgstr "Odstrani sliko"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Hitri kontakt"
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -4157,14 +4222,30 @@ msgstr ""
 "Prvič uporabljate WebApp. <br />Prosim, da preverite naslednje nastavitve "
 "preden nadaljujete."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Dodaj pripomočke"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Configure widget"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "Dodaj pripomočke"
 
 msgid "No widgets installed."
 msgstr "Ni naloženih pripomočkov."
-
-msgid "Configure widget"
-msgstr "Configure widget"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4568,9 +4649,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4994,6 +5072,15 @@ msgstr "Pošlji"
 msgid "Loading mail"
 msgstr "Nalaganje sporočila"
 
+msgid "No unread mail."
+msgstr "Ni neprebranih sporočil."
+
+msgid "Unread Mail"
+msgstr "Neprebrano sporočilo"
+
+msgid "Quick Mail"
+msgstr "Hitra pošta"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Natisni to opombo"
@@ -5046,6 +5133,9 @@ msgstr "Nalaganje zapiskov"
 
 msgid "Loading notes"
 msgstr "Nalagam zapiske"
+
+msgid "Quick Note"
+msgstr "Hitri zapisek"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5141,6 +5231,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5189,9 +5282,6 @@ msgstr "Bližnjice na tipkovnici"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Ta sprememba zahteva ponovno naložitev spletne aplikacije"
-
-msgid "Discard"
-msgstr "Zavrži"
 
 msgid "Plugins"
 msgstr "Vstavki"
@@ -5572,6 +5662,18 @@ msgstr "Posodobi listo"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hitra naloga"
+
+msgid "No tasks."
+msgstr "Ni nalog."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Pomembno"
@@ -5763,84 +5865,6 @@ msgstr "Pošlji faks"
 msgid "Contact Fax"
 msgstr "Kontakt faksa"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Dodaj pripomočke"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Nalagam sestanke"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Nalagam sestanke"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Novi sestanek"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Danes: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} v {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Ni neprebranih sporočil."
-
-msgid "Unread Mail"
-msgstr "Neprebrano sporočilo"
-
-msgid "No tasks."
-msgstr "Ni nalog."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5868,30 +5892,6 @@ msgstr "Izberi drugo mapo"
 
 msgid "E-mails are moved to {0}"
 msgstr "Elektronska sporočila so prestavljena v {0}"
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr "Hitri sestanek"
-
-msgid "Quick Contact"
-msgstr "Hitri kontakt"
-
-msgid "Quick Mail"
-msgstr "Hitra pošta"
-
-msgid "Quick Note"
-msgstr "Hitri zapisek"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Hitra naloga"
-
-msgid "Title Counter Plugin"
-msgstr "Števec neprebranih sporočil"
 
 msgid "Charm pink"
 msgstr ""

@@ -1795,6 +1795,73 @@ msgstr ""
 "A naptára automatikusan frissítésre került. A találkozási kérelem most "
 "törlésre kerül."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Találkozók betöltése"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "nap múlva"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Találkozók betöltése"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Új találkozó"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Ma: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 80%
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{1} - {0}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "Y/m/d"
+
+msgid "Select one..."
+msgstr "Válaszon egy..."
+
+msgid "Unnamed folder"
+msgstr "Névtelen mappa"
+
+msgid "Discard"
+msgstr "Elvet"
+
+msgid "Quick Appointment"
+msgstr "Gyors találkozó"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Nem sikerült a több elem nyomtatása."
 
@@ -2896,17 +2963,11 @@ msgstr "nekem lett címezve"
 msgid "is received (all messages)"
 msgstr "érkezett (minden üzenet)"
 
-msgid "Select one..."
-msgstr "Válaszon egy..."
-
 msgid "Unknown condition"
 msgstr "Ismeretlen feltétel"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Ebben a szabályban ez a feltétel ismeretlen"
-
-msgid "Unnamed folder"
-msgstr "Névtelen mappa"
 
 msgid "Add action"
 msgstr "Művelet hozzáadása"
@@ -3143,8 +3204,8 @@ msgstr "{0} lejárt"
 msgid "Loading..."
 msgstr "Betöltés..."
 
-msgid "Failed"
-msgstr "Sikertelen"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3382,6 +3443,9 @@ msgstr ""
 # Gyökééééér... :D
 msgid "Root"
 msgstr "Legfelső szint"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Fájl, mint"
@@ -3837,6 +3901,9 @@ msgstr "Kép eltávolítása"
 msgid "VCF file(s)"
 msgstr "EML fájl(ok)"
 
+msgid "Quick Contact"
+msgstr "Gyors kontakt"
+
 msgid "Open in new browser window"
 msgstr "Megnyitás új ablakban"
 
@@ -4120,14 +4187,33 @@ msgstr ""
 "az alábbiakat."
 
 # There's no synonim for Widget in Hungarian language.
+#, fuzzy
+msgid "Widget height"
+msgstr "Beépülő modul hozzáadása"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Widget beállítása"
+
+msgid "Reload interval"
+msgstr "Újratöltési intervallum"
+
+#, fuzzy
+msgid "seconds"
+msgstr "másodperc."
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Megnyitás új ablakban"
+
+# There's no synonim for Widget in Hungarian language.
 msgid "Add widgets"
 msgstr "Beépülő modul hozzáadása"
 
 msgid "No widgets installed."
 msgstr "Nincs beépülő modul telepítve."
-
-msgid "Configure widget"
-msgstr "Widget beállítása"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4530,9 +4616,6 @@ msgstr "A levél szerkesztéséhez nyisd meg a <b>Kimenő elemek</b> mappát."
 
 msgid "hour(s)"
 msgstr "óra múlva"
-
-msgid "day(s)"
-msgstr "nap múlva"
 
 msgid "month(s)"
 msgstr "hónap múlva"
@@ -4950,6 +5033,15 @@ msgstr "Továbbítás mellékletként"
 msgid "Loading mail"
 msgstr "Levél betöltése"
 
+msgid "No unread mail."
+msgstr "Nincs olvasatlan email."
+
+msgid "Unread Mail"
+msgstr "Olvasatlan üzenet"
+
+msgid "Quick Mail"
+msgstr "Gyors email"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Jegyzet nyomtatása"
@@ -5000,6 +5092,9 @@ msgstr "Jegyzetek betöltése"
 
 msgid "Loading notes"
 msgstr "Jegyzetek betöltése"
+
+msgid "Quick Note"
+msgstr "Gyors jegyzet"
 
 #, fuzzy
 msgid ""
@@ -5096,6 +5191,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Beérkező üzenetek közötti navigáció"
 
@@ -5140,9 +5238,6 @@ msgstr "Minden gyorsbillentyű engedélyezése"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "A változtatásokhoz a WebApp újratöltése szükséges"
-
-msgid "Discard"
-msgstr "Elvet"
 
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -5511,6 +5606,18 @@ msgstr "Lista frissítése"
 msgid "D d-m-Y"
 msgstr "Y-m-d D"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Gyors feladat"
+
+msgid "No tasks."
+msgstr "Nincsenek feladatok."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Importálás ebbe"
@@ -5704,88 +5811,6 @@ msgstr "Fax küldése"
 msgid "Contact Fax"
 msgstr "Fax címzett"
 
-# There's no synonim for Widget in Hungarian language.
-#, fuzzy
-msgid "Widget height"
-msgstr "Beépülő modul hozzáadása"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr "Újratöltési intervallum"
-
-#, fuzzy
-msgid "seconds"
-msgstr "másodperc."
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Találkozók betöltése"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Találkozók betöltése"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Új találkozó"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Ma: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 80%
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{1} - {0}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "Y/m/d"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Nincs olvasatlan email."
-
-msgid "Unread Mail"
-msgstr "Olvasatlan üzenet"
-
-msgid "No tasks."
-msgstr "Nincsenek feladatok."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google Térkép"
 
@@ -5813,31 +5838,6 @@ msgstr "Másik mappa kiválasztása"
 
 msgid "E-mails are moved to {0}"
 msgstr "Emailek átmozgatva ide: {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Megnyitás új ablakban"
-
-msgid "Quick Appointment"
-msgstr "Gyors találkozó"
-
-msgid "Quick Contact"
-msgstr "Gyors kontakt"
-
-msgid "Quick Mail"
-msgstr "Gyors email"
-
-msgid "Quick Note"
-msgstr "Gyors jegyzet"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Gyors feladat"
-
-msgid "Title Counter Plugin"
-msgstr "Címszámláló plugin"
 
 msgid "Charm pink"
 msgstr "Rózsaszín"

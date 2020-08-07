@@ -1727,6 +1727,71 @@ msgid ""
 "be deleted."
 msgstr "カレンダーは自動的に更新されました。この会議出席依頼は削除されます。"
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "予定を読み込み中"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "日"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "予定を読み込み中"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "新しい予定"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "今日: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0}内の{1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "Y/m/d"
+
+msgid "Select one..."
+msgstr "１つ選択"
+
+msgid "Unnamed folder"
+msgstr "名前の設定がないフォルダ"
+
+msgid "Discard"
+msgstr "廃棄"
+
+msgid "Quick Appointment"
+msgstr "クイック予約"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "複数項目を印刷することはできません。"
 
@@ -2816,17 +2881,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "１つ選択"
-
 msgid "Unknown condition"
 msgstr "不明な条件"
 
 msgid "This condition for the current rule is unknown"
 msgstr "現在の仕訳ルールのこの条件は不明です。"
-
-msgid "Unnamed folder"
-msgstr "名前の設定がないフォルダ"
 
 msgid "Add action"
 msgstr "アクションを追加"
@@ -3066,8 +3125,8 @@ msgstr "{0}期限切れ"
 msgid "Loading..."
 msgstr "読み込み中"
 
-msgid "Failed"
-msgstr "失敗しました。"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3313,6 +3372,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "ルート"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "ファイル"
@@ -3777,6 +3839,9 @@ msgstr ""
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "クイック コンタクト"
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -4038,14 +4103,30 @@ msgstr ""
 msgid "Please check the following settings before continuing."
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "ウィジェット追加"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "ウィジェットを設定する"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "ウィジェット追加"
 
 msgid "No widgets installed."
 msgstr "ウィジェットがインストールされていません。"
-
-msgid "Configure widget"
-msgstr "ウィジェットを設定する"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4439,9 +4520,6 @@ msgstr "<b>送信済みフォルダ</b> を開き、メールを編集してく�
 
 msgid "hour(s)"
 msgstr "時間"
-
-msgid "day(s)"
-msgstr "日"
 
 msgid "month(s)"
 msgstr "月"
@@ -4858,6 +4936,15 @@ msgstr "送信済"
 msgid "Loading mail"
 msgstr "メールの読み込み中"
 
+msgid "No unread mail."
+msgstr "未読メールはありません。"
+
+msgid "Unread Mail"
+msgstr "未読メール"
+
+msgid "Quick Mail"
+msgstr "クイック メール"
+
 # 80%
 #, fuzzy
 msgid "Print note"
@@ -4910,6 +4997,9 @@ msgstr "メモ読み込む"
 
 msgid "Loading notes"
 msgstr "メモ読み込み"
+
+msgid "Quick Note"
+msgstr "クイック メモ"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5005,6 +5095,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5049,9 +5142,6 @@ msgstr ""
 
 msgid "This change requires a reload of the WebApp"
 msgstr "この変更を反映するにはWebAppの再表示が必要となります。"
-
-msgid "Discard"
-msgstr "廃棄"
 
 msgid "Plugins"
 msgstr "プラグイン"
@@ -5429,6 +5519,18 @@ msgstr "更新リスト"
 msgid "D d-m-Y"
 msgstr "Y/m/d"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "クイック タスク"
+
+msgid "No tasks."
+msgstr "タスクがありません。"
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "重要"
@@ -5621,84 +5723,6 @@ msgstr "Fax送信"
 msgid "Contact Fax"
 msgstr "Fax"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "ウィジェット追加"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "予定を読み込み中"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "予定を読み込み中"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "新しい予定"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "今日: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0}内の{1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "Y/m/d"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "未読メールはありません。"
-
-msgid "Unread Mail"
-msgstr "未読メール"
-
-msgid "No tasks."
-msgstr "タスクがありません。"
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Googleマップ"
 
@@ -5726,30 +5750,6 @@ msgstr "他のフォルダを選択"
 
 msgid "E-mails are moved to {0}"
 msgstr "メールを{0}に移動しました。"
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr "クイック予約"
-
-msgid "Quick Contact"
-msgstr "クイック コンタクト"
-
-msgid "Quick Mail"
-msgstr "クイック メール"
-
-msgid "Quick Note"
-msgstr "クイック メモ"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "クイック タスク"
-
-msgid "Title Counter Plugin"
-msgstr ""
 
 msgid "Charm pink"
 msgstr ""

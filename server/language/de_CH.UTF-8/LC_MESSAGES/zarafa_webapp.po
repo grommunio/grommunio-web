@@ -1774,6 +1774,66 @@ msgstr ""
 "Ihr Kalender wurde automatisch aktualisiert. Die Besprechungsanfrage wird "
 "jetzt gelöscht."
 
+msgid "Loading appointments..."
+msgstr "Termine werden geladen..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "Bitte wählen Sie einen Kalender über die Widget-Einstellungen"
+
+msgid "Number of days"
+msgstr "Anzahl Tage"
+
+msgid "day(s)"
+msgstr "Tag(e)"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Bevorstehende Termine"
+
+msgid "Appointments of {0}"
+msgstr "Termine von {0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "Termine von {0} - {1}"
+
+# 93%
+# 100%
+msgid "No appointments"
+msgstr "Keine Termine"
+
+msgid "Today {0} - {1}"
+msgstr "Heute: {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "Heute (ganztägig)"
+
+# 100%
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr "d.m.y {0}"
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (ganztägig)"
+
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+msgid "Select one..."
+msgstr "Auswählen ..."
+
+msgid "Unnamed folder"
+msgstr "Unbenannter Ordner"
+
+msgid "Discard"
+msgstr "Verwerfen"
+
+msgid "Quick Appointment"
+msgstr "Schnelltermin"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Das Drucken mehrerer Elemente ist noch nicht implementiert."
 
@@ -2869,17 +2929,11 @@ msgstr "enthält meinen Namen im An-Feld"
 msgid "is received (all messages)"
 msgstr "wurde empfangen (alle Nachrichten)"
 
-msgid "Select one..."
-msgstr "Auswählen ..."
-
 msgid "Unknown condition"
 msgstr "Unbekannte Bedingung"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Die Bedingung für die ausgewhälte Regel ist unbekannt"
-
-msgid "Unnamed folder"
-msgstr "Unbenannter Ordner"
 
 msgid "Add action"
 msgstr "Aktion hinzufügen"
@@ -3114,8 +3168,8 @@ msgstr "{0} überfällig"
 msgid "Loading..."
 msgstr "Laden ..."
 
-msgid "Failed"
-msgstr "Fehlgeschlagen"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3362,6 +3416,9 @@ msgstr "in"
 
 msgid "Root"
 msgstr "Basisordner"
+
+msgid "Datepicker"
+msgstr "Datumsauswahl"
 
 # 85%
 msgid "File As"
@@ -3833,6 +3890,9 @@ msgstr "Bild entfernen"
 msgid "VCF file(s)"
 msgstr "VCF Datei(en)"
 
+msgid "Quick Contact"
+msgstr "Schnellkontakt"
+
 msgid "Open in new browser window"
 msgstr "In einem eigenen Fenster öffnen"
 
@@ -4101,14 +4161,29 @@ msgstr "Sie verwenden WebApp zum ersten Mal. "
 msgid "Please check the following settings before continuing."
 msgstr "Bitte überprüfen Sie die folgenden Einstellungen bevor Sie fortfahren."
 
+msgid "Widget height"
+msgstr "Höhe des Widget"
+
+msgid "pixels"
+msgstr "Pixel"
+
+msgid "Configure widget"
+msgstr "Widget konfigurieren"
+
+msgid "Reload interval"
+msgstr "Aktualisieren nach"
+
+msgid "seconds"
+msgstr "Sekunden"
+
+msgid "Open in new tab"
+msgstr "In neuem Tab öffnen"
+
 msgid "Add widgets"
 msgstr "Alle Widgets"
 
 msgid "No widgets installed."
 msgstr "Es sind keine Widgets installiert."
-
-msgid "Configure widget"
-msgstr "Widget konfigurieren"
 
 msgid "Remove widget"
 msgstr "Widget entfernen"
@@ -4489,9 +4564,6 @@ msgstr "Navigieren Sie zu Ihrem Postausgang um die E-Mail zu bearbeiten."
 
 msgid "hour(s)"
 msgstr "Stunde(n)"
-
-msgid "day(s)"
-msgstr "Tag(e)"
 
 msgid "month(s)"
 msgstr "Monat(e)"
@@ -4913,6 +4985,15 @@ msgstr "Senden an"
 msgid "Loading mail"
 msgstr "Lade E-Mail"
 
+msgid "No unread mail."
+msgstr "Keine ungelesene E-Mail."
+
+msgid "Unread Mail"
+msgstr "Ungelesene E-Mail"
+
+msgid "Quick Mail"
+msgstr "Schnell-E-Mail"
+
 msgid "Print note"
 msgstr "Diese Notiz drucken"
 
@@ -4968,6 +5049,9 @@ msgstr "Lade Notizen"
 
 msgid "Loading notes"
 msgstr "Lade Notizen"
+
+msgid "Quick Note"
+msgstr "Schnellnotiz"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5062,6 +5146,9 @@ msgstr "Zeige ungelesene Elemente mit einer farbigen Umrandung an"
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
 
@@ -5110,9 +5197,6 @@ msgstr "Alle Tastenkombinationen nutzen"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Diese Änderung erfordert ein Neuladen von WebApp"
-
-msgid "Discard"
-msgstr "Verwerfen"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5491,6 +5575,18 @@ msgstr "Liste aktualisieren"
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
+msgid "none"
+msgstr "keine"
+
+msgid "Quick Task"
+msgstr "Schnellaufgabe"
+
+msgid "No tasks."
+msgstr "Keine Aufgaben."
+
+msgid "Tasks / To-Do"
+msgstr "Aufgaben / To-Dos"
+
 msgid "Import / Export"
 msgstr "Import / Export"
 
@@ -5698,78 +5794,6 @@ msgstr "Fax senden"
 msgid "Contact Fax"
 msgstr "Fax kontaktieren"
 
-msgid "Widget height"
-msgstr "Höhe des Widget"
-
-msgid "pixels"
-msgstr "Pixel"
-
-msgid "Reload interval"
-msgstr "Aktualisieren nach"
-
-msgid "seconds"
-msgstr "Sekunden"
-
-msgid "Loading appointments..."
-msgstr "Termine werden geladen..."
-
-msgid "Please select a calendar via widget settings"
-msgstr "Bitte wählen Sie einen Kalender über die Widget-Einstellungen"
-
-msgid "Number of days"
-msgstr "Anzahl Tage"
-
-msgid "{0}"
-msgstr "{0}"
-
-msgid "Upcoming Appointments"
-msgstr "Bevorstehende Termine"
-
-msgid "Appointments of {0}"
-msgstr "Termine von {0}"
-
-msgid "Appointments of {0} - {1}"
-msgstr "Termine von {0} - {1}"
-
-# 93%
-# 100%
-msgid "No appointments"
-msgstr "Keine Termine"
-
-msgid "Today {0} - {1}"
-msgstr "Heute: {0} - {1}"
-
-msgid "Today (all day)"
-msgstr "Heute (ganztägig)"
-
-# 100%
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr "d.m.y {0}"
-
-msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (ganztägig)"
-
-msgid "d/m/y"
-msgstr "d.m.Y"
-
-msgid "Datepicker"
-msgstr "Datumsauswahl"
-
-msgid "No unread mail."
-msgstr "Keine ungelesene E-Mail."
-
-msgid "Unread Mail"
-msgstr "Ungelesene E-Mail"
-
-msgid "No tasks."
-msgstr "Keine Aufgaben."
-
-msgid "Tasks / To-Do"
-msgstr "Aufgaben / To-Dos"
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5797,30 +5821,6 @@ msgstr "Einen Ordner auswählen"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-Mails werden verschoben nach {0}"
-
-msgid "Open in new tab"
-msgstr "In neuem Tab öffnen"
-
-msgid "Quick Appointment"
-msgstr "Schnelltermin"
-
-msgid "Quick Contact"
-msgstr "Schnellkontakt"
-
-msgid "Quick Mail"
-msgstr "Schnell-E-Mail"
-
-msgid "Quick Note"
-msgstr "Schnellnotiz"
-
-msgid "none"
-msgstr "keine"
-
-msgid "Quick Task"
-msgstr "Schnellaufgabe"
-
-msgid "Title Counter Plugin"
-msgstr "Zähler für ungelesene Nachrichten"
 
 msgid "Charm pink"
 msgstr "Rosa"
