@@ -1770,6 +1770,71 @@ msgid ""
 "be deleted."
 msgstr "Kalenterisi on päivitetty automaattisesti. Kokouskutsu poistetaan."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Ladataan tapaamisia"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Ladataan tapaamisia"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Uusi tapaaminen"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Tänään: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+msgid "Select one..."
+msgstr "Valitse yksi..."
+
+msgid "Unnamed folder"
+msgstr "Nimeämätön kansio"
+
+msgid "Discard"
+msgstr "Hylkää"
+
+msgid "Quick Appointment"
+msgstr "Pikakokous"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Useampien kohteiden tulostus ei ole käytössä."
 
@@ -2866,17 +2931,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "Valitse yksi..."
-
 msgid "Unknown condition"
 msgstr "Tuntematon ehto"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Nykyisen säännön ehto on tuntematon"
-
-msgid "Unnamed folder"
-msgstr "Nimeämätön kansio"
 
 msgid "Add action"
 msgstr "Lisää toiminto"
@@ -3113,8 +3172,8 @@ msgstr "{0} erääntynyt"
 msgid "Loading..."
 msgstr "Ladataan..."
 
-msgid "Failed"
-msgstr "Epäonnistui"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3357,6 +3416,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Juuri"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Arkistoi"
@@ -3820,6 +3882,9 @@ msgstr ""
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Pikakontakti"
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -4081,14 +4146,30 @@ msgstr ""
 msgid "Please check the following settings before continuing."
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Lisää pienoisohjelmia"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Konfiguroi pienoisohjelma"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "Lisää pienoisohjelmia"
 
 msgid "No widgets installed."
 msgstr "Pienoisohjelmia ei ole asennettu."
-
-msgid "Configure widget"
-msgstr "Konfiguroi pienoisohjelma"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4487,9 +4568,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4913,6 +4991,15 @@ msgstr "Lähetä"
 msgid "Loading mail"
 msgstr "Ladataan postia"
 
+msgid "No unread mail."
+msgstr "Ei lukemattomia posteja."
+
+msgid "Unread Mail"
+msgstr "Lukemattomat postit"
+
+msgid "Quick Mail"
+msgstr "Pikaposti"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Tulosta tämä merkintä"
@@ -4965,6 +5052,9 @@ msgstr "Ladataan merkintöjä"
 
 msgid "Loading notes"
 msgstr "Ladataan merkintöjä"
+
+msgid "Quick Note"
+msgstr "Pikamerkintä"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5060,6 +5150,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5104,9 +5197,6 @@ msgstr ""
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Tämä muutos vaatii WebApp:n uudelleenlatauksen"
-
-msgid "Discard"
-msgstr "Hylkää"
 
 msgid "Plugins"
 msgstr "Pluginit"
@@ -5483,6 +5573,18 @@ msgstr "Päivitä lista"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Pikatehtävä"
+
+msgid "No tasks."
+msgstr "Ei tehtäviä."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Tärkeä"
@@ -5678,84 +5780,6 @@ msgstr "Lähetä faksi"
 msgid "Contact Fax"
 msgstr "Yhteystiedon faksi"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Lisää pienoisohjelmia"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Ladataan tapaamisia"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Ladataan tapaamisia"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Uusi tapaaminen"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Tänään: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d.m.Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Ei lukemattomia posteja."
-
-msgid "Unread Mail"
-msgstr "Lukemattomat postit"
-
-msgid "No tasks."
-msgstr "Ei tehtäviä."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5783,30 +5807,6 @@ msgstr "Valitse toinen kansio"
 
 msgid "E-mails are moved to {0}"
 msgstr "Sähköpostit siirretty kohteeseen {0}"
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr "Pikakokous"
-
-msgid "Quick Contact"
-msgstr "Pikakontakti"
-
-msgid "Quick Mail"
-msgstr "Pikaposti"
-
-msgid "Quick Note"
-msgstr "Pikamerkintä"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Pikatehtävä"
-
-msgid "Title Counter Plugin"
-msgstr ""
 
 msgid "Charm pink"
 msgstr ""

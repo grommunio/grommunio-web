@@ -1719,6 +1719,69 @@ msgstr ""
 "Twój kalendarz został automatycznie zaktualizowany. Wezwanie na spotkanie "
 "zostanie teraz usunięte."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Wczytywanie terminów"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "dzień(dni)"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Wczytywanie terminów"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+#, fuzzy
+msgid "No appointments"
+msgstr "Nowy termin"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Dzisiaj: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} w {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/r"
+
+msgid "Select one..."
+msgstr "Wybierz ..."
+
+msgid "Unnamed folder"
+msgstr "Folder bez nazwy"
+
+msgid "Discard"
+msgstr "Odrzuć"
+
+msgid "Quick Appointment"
+msgstr "Szybki temin"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Drukowanie wielu elementów nie zostało jeszcze wdrożone."
 
@@ -2777,17 +2840,11 @@ msgstr "zawiera moją nazwę w polu Do "
 msgid "is received (all messages)"
 msgstr "została odebrana (wszystkie wiadomości)"
 
-msgid "Select one..."
-msgstr "Wybierz ..."
-
 msgid "Unknown condition"
 msgstr "Nieznany warunek"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Warunek jest nieznany dla wybranej reguły"
-
-msgid "Unnamed folder"
-msgstr "Folder bez nazwy"
 
 msgid "Add action"
 msgstr "Dodaj akcję"
@@ -3016,8 +3073,8 @@ msgstr "{0} przedawniony"
 msgid "Loading..."
 msgstr "Ładowanie…"
 
-msgid "Failed"
-msgstr "Nie powiodło się"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3253,6 +3310,9 @@ msgstr "w"
 
 msgid "Root"
 msgstr "Katalog główny"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Zachowaj jako"
@@ -3686,6 +3746,9 @@ msgstr "Usuń obraz"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Szybki kontakt"
+
 msgid "Open in new browser window"
 msgstr "Otwórz w nowym oknie przglądarki"
 
@@ -3955,14 +4018,31 @@ msgstr ""
 "Jesteś użytkownikiem WebApp po raz pierwszy. <br />Sprawdź "
 "następująceustawienia, zanim przejdziesz dalej."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Wszystkie widżety"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Skonfiguruj widżet"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Otwórz w nowym oknie przglądarki"
+
 msgid "Add widgets"
 msgstr "Wszystkie widżety"
 
 msgid "No widgets installed."
 msgstr "Nie zainstalowano żadnych widżetów."
-
-msgid "Configure widget"
-msgstr "Skonfiguruj widżet"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4356,9 +4436,6 @@ msgstr "Twój e-mail może być edytowany w <b>Skrzynka nadawcza</b>."
 
 msgid "hour(s)"
 msgstr "godzina(y)"
-
-msgid "day(s)"
-msgstr "dzień(dni)"
 
 msgid "month(s)"
 msgstr "miesiąc(e)"
@@ -4765,6 +4842,15 @@ msgstr "Wysyłanie"
 msgid "Loading mail"
 msgstr "Wczytywanie e-maila"
 
+msgid "No unread mail."
+msgstr "Brak nieprzeczytanych wiadomości."
+
+msgid "Unread Mail"
+msgstr "Nieprzeczytane wiadomości"
+
+msgid "Quick Mail"
+msgstr "Szybki e-mail"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Drukuj tę notatkę"
@@ -4810,6 +4896,9 @@ msgstr "Wczytaj notatki"
 
 msgid "Loading notes"
 msgstr "Wczytaj notatki"
+
+msgid "Quick Note"
+msgstr "Szybka notatka"
 
 #, fuzzy
 msgid ""
@@ -4906,6 +4995,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Nawigacja w skrzynce odbiorczej"
 
@@ -4953,9 +5045,6 @@ msgstr "Używaj wszystkich skrótów klawiszowych"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Ta zmiana wymaga ponownego załadowania aplikacji sieci Web"
-
-msgid "Discard"
-msgstr "Odrzuć"
 
 msgid "Plugins"
 msgstr "Wtyczki"
@@ -5309,6 +5398,18 @@ msgstr "Aktualizuj listę"
 msgid "D d-m-Y"
 msgstr "D, d-m-r"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Szybkie zadanie"
+
+msgid "No tasks."
+msgstr "Brak zadań."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Ważne"
@@ -5497,82 +5598,6 @@ msgstr "Wyślij faks"
 msgid "Contact Fax"
 msgstr "Kontakt fax"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Wszystkie widżety"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Wczytywanie terminów"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Wczytywanie terminów"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-#, fuzzy
-msgid "No appointments"
-msgstr "Nowy termin"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Dzisiaj: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} w {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/r"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Brak nieprzeczytanych wiadomości."
-
-msgid "Unread Mail"
-msgstr "Nieprzeczytane wiadomości"
-
-msgid "No tasks."
-msgstr "Brak zadań."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5600,31 +5625,6 @@ msgstr "Wybierz folder"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-maile przeniesiono do {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Otwórz w nowym oknie przglądarki"
-
-msgid "Quick Appointment"
-msgstr "Szybki temin"
-
-msgid "Quick Contact"
-msgstr "Szybki kontakt"
-
-msgid "Quick Mail"
-msgstr "Szybki e-mail"
-
-msgid "Quick Note"
-msgstr "Szybka notatka"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Szybkie zadanie"
-
-msgid "Title Counter Plugin"
-msgstr "Licznik nieprzeczytanych wiadomości"
 
 msgid "Charm pink"
 msgstr "Różowy"

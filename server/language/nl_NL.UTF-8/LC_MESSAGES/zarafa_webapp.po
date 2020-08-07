@@ -1786,6 +1786,68 @@ msgid ""
 msgstr ""
 "Uw agenda is automatisch bijgewerkt. Dit vergaderverzoek wordt nu verwijderd."
 
+# 86%
+msgid "Loading appointments..."
+msgstr "Afspraken laden..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "Selecteer een kalendar via widget instellingen"
+
+msgid "Number of days"
+msgstr "Aantal dagen"
+
+msgid "day(s)"
+msgstr "dag(en)"
+
+msgid "{0}"
+msgstr "{0}"
+
+# 86%
+msgid "Upcoming Appointments"
+msgstr "Aankomende afspraken"
+
+msgid "Appointments of {0}"
+msgstr "Afspraken van {0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "Afspraken van {0} - {1}"
+
+# 93%
+# 100%
+msgid "No appointments"
+msgstr "Geen afspraken"
+
+msgid "Today {0} - {1}"
+msgstr "Vandaag: {1} - {0}"
+
+msgid "Today (all day)"
+msgstr "Vandaag (gehele dag)"
+
+# 100%
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (gehele dag)"
+
+msgid "d/m/y"
+msgstr "d-m-Y"
+
+msgid "Select one..."
+msgstr "Selecteer een..."
+
+msgid "Unnamed folder"
+msgstr "Map zonder naam"
+
+msgid "Discard"
+msgstr "Niet opslaan"
+
+msgid "Quick Appointment"
+msgstr "Vlugge Afspraak"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Meerdere items afdrukken is niet geïmplementeerd."
 
@@ -2868,17 +2930,11 @@ msgstr "bevat mijn naam in het Aan veld"
 msgid "is received (all messages)"
 msgstr "wordt ontvangen (alle berichten)"
 
-msgid "Select one..."
-msgstr "Selecteer een..."
-
 msgid "Unknown condition"
 msgstr "Onbekende voorwaarde"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Deze voorwaarde voor de huidige regel is onbekend"
-
-msgid "Unnamed folder"
-msgstr "Map zonder naam"
 
 msgid "Add action"
 msgstr "Actie toevoegen"
@@ -3115,8 +3171,8 @@ msgstr "{0} geleden verlopen"
 msgid "Loading..."
 msgstr "Laden..."
 
-msgid "Failed"
-msgstr "Gefaald"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3357,6 +3413,9 @@ msgstr "over"
 
 msgid "Root"
 msgstr "Root"
+
+msgid "Datepicker"
+msgstr "Datumkiezer"
 
 msgid "File As"
 msgstr "Opslaan Als"
@@ -3871,6 +3930,9 @@ msgstr "Verwijder Afbeelding"
 msgid "VCF file(s)"
 msgstr "VCF bestand(en)"
 
+msgid "Quick Contact"
+msgstr "Vlugge Contactpersoon"
+
 msgid "Open in new browser window"
 msgstr "Open in nieuw browser venster"
 
@@ -4138,14 +4200,29 @@ msgstr "Dit is de eerste keer dat je WebApp gebruikt. "
 msgid "Please check the following settings before continuing."
 msgstr "Controleer de volgende settings voordat je verder gaat."
 
+msgid "Widget height"
+msgstr "Widget hoogte"
+
+msgid "pixels"
+msgstr "pixels"
+
+msgid "Configure widget"
+msgstr "Configureer widget"
+
+msgid "Reload interval"
+msgstr "Herlaad interval"
+
+msgid "seconds"
+msgstr "seconden"
+
+msgid "Open in new tab"
+msgstr "Open in nieuwe tab"
+
 msgid "Add widgets"
 msgstr "Widgets toevoegen"
 
 msgid "No widgets installed."
 msgstr "Geen widgets geïnstalleerd."
-
-msgid "Configure widget"
-msgstr "Configureer widget"
 
 msgid "Remove widget"
 msgstr "Verwijder widget"
@@ -4527,9 +4604,6 @@ msgstr "Ga naar je Outbox om de e-mail te bewerken."
 
 msgid "hour(s)"
 msgstr "uur"
-
-msgid "day(s)"
-msgstr "dag(en)"
 
 msgid "month(s)"
 msgstr "maand(en)"
@@ -4938,6 +5012,15 @@ msgstr "Verzenden naar"
 msgid "Loading mail"
 msgstr "Bericht laden"
 
+msgid "No unread mail."
+msgstr "Geen ongelezen e-mail."
+
+msgid "Unread Mail"
+msgstr "Ongelezen E-mail"
+
+msgid "Quick Mail"
+msgstr "Vlugge E-mail"
+
 msgid "Print note"
 msgstr "Print notitie"
 
@@ -4993,6 +5076,9 @@ msgstr "Notities Laden"
 # 76%
 msgid "Loading notes"
 msgstr "Notities laden"
+
+msgid "Quick Note"
+msgstr "Vlugge Notitie"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5088,6 +5174,9 @@ msgstr "Geef ongelezen items een gekleurde rand"
 msgid "Show 'help' button in top-right corner"
 msgstr "Laat 'Help' knop zien in de rechterbovenhoek"
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
 
@@ -5135,9 +5224,6 @@ msgstr "Alle sneltoetsen ingeschakeld"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Deze wijziging wordt effectief door WebApp opnieuw te laden"
-
-msgid "Discard"
-msgstr "Niet opslaan"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5517,6 +5603,18 @@ msgstr "Lijst bijwerken"
 msgid "D d-m-Y"
 msgstr "D d-m-Y"
 
+msgid "none"
+msgstr "geen"
+
+msgid "Quick Task"
+msgstr "Vlugge Taak"
+
+msgid "No tasks."
+msgstr "Geen taken."
+
+msgid "Tasks / To-Do"
+msgstr "Taken / To-Do"
+
 msgid "Import / Export"
 msgstr "Importeren/Exporteren"
 
@@ -5718,80 +5816,6 @@ msgstr "Fax Verzenden"
 msgid "Contact Fax"
 msgstr "Contact Fax"
 
-msgid "Widget height"
-msgstr "Widget hoogte"
-
-msgid "pixels"
-msgstr "pixels"
-
-msgid "Reload interval"
-msgstr "Herlaad interval"
-
-msgid "seconds"
-msgstr "seconden"
-
-# 86%
-msgid "Loading appointments..."
-msgstr "Afspraken laden..."
-
-msgid "Please select a calendar via widget settings"
-msgstr "Selecteer een kalendar via widget instellingen"
-
-msgid "Number of days"
-msgstr "Aantal dagen"
-
-msgid "{0}"
-msgstr "{0}"
-
-# 86%
-msgid "Upcoming Appointments"
-msgstr "Aankomende afspraken"
-
-msgid "Appointments of {0}"
-msgstr "Afspraken van {0}"
-
-msgid "Appointments of {0} - {1}"
-msgstr "Afspraken van {0} - {1}"
-
-# 93%
-# 100%
-msgid "No appointments"
-msgstr "Geen afspraken"
-
-msgid "Today {0} - {1}"
-msgstr "Vandaag: {1} - {0}"
-
-msgid "Today (all day)"
-msgstr "Vandaag (gehele dag)"
-
-# 100%
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (gehele dag)"
-
-msgid "d/m/y"
-msgstr "d-m-Y"
-
-msgid "Datepicker"
-msgstr "Datumkiezer"
-
-msgid "No unread mail."
-msgstr "Geen ongelezen e-mail."
-
-msgid "Unread Mail"
-msgstr "Ongelezen E-mail"
-
-msgid "No tasks."
-msgstr "Geen taken."
-
-msgid "Tasks / To-Do"
-msgstr "Taken / To-Do"
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5819,30 +5843,6 @@ msgstr "Selecteer een andere folder"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-mails worden verplaatst naar {0}"
-
-msgid "Open in new tab"
-msgstr "Open in nieuwe tab"
-
-msgid "Quick Appointment"
-msgstr "Vlugge Afspraak"
-
-msgid "Quick Contact"
-msgstr "Vlugge Contactpersoon"
-
-msgid "Quick Mail"
-msgstr "Vlugge E-mail"
-
-msgid "Quick Note"
-msgstr "Vlugge Notitie"
-
-msgid "none"
-msgstr "geen"
-
-msgid "Quick Task"
-msgstr "Vlugge Taak"
-
-msgid "Title Counter Plugin"
-msgstr "Title Counter Plugin"
 
 msgid "Charm pink"
 msgstr "Charm roze"

@@ -1772,6 +1772,72 @@ msgstr ""
 "Il tuo calendario è stato aggiornato automaticamente. Questa richiesta di "
 "riunone verrà eliminata."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Caricamento appuntamenti"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "giorno/i"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Caricamento appuntamenti"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nuovo appuntamento"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Oggi: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} in {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Selezionare..."
+
+msgid "Unnamed folder"
+msgstr "Cartella senza nome"
+
+msgid "Discard"
+msgstr "Scarta"
+
+msgid "Quick Appointment"
+msgstr "Appuntamento veloce"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "La stampa di elementi multipli non è stata ancora implementata."
 
@@ -2882,17 +2948,11 @@ msgstr "ha il mio nome nel campo A"
 msgid "is received (all messages)"
 msgstr "e` ricevuto (tutti i messaggi)"
 
-msgid "Select one..."
-msgstr "Selezionare..."
-
 msgid "Unknown condition"
 msgstr "Condizione sconosciuta"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Condizione sconosciuta per la regola corrente"
-
-msgid "Unnamed folder"
-msgstr "Cartella senza nome"
 
 msgid "Add action"
 msgstr "Aggiungi azione"
@@ -3130,8 +3190,8 @@ msgstr "{0} in ritardo"
 msgid "Loading..."
 msgstr "Caricamento in corso..."
 
-msgid "Failed"
-msgstr "Fallito"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3386,6 +3446,9 @@ msgstr "in"
 
 msgid "Root"
 msgstr "Principale"
+
+msgid "Datepicker"
+msgstr ""
 
 # 85%
 msgid "File As"
@@ -3848,6 +3911,9 @@ msgstr "Rimuovi immagine"
 msgid "VCF file(s)"
 msgstr "file(s) VCF"
 
+msgid "Quick Contact"
+msgstr "Contatto veloce"
+
 msgid "Open in new browser window"
 msgstr "Apri in una nuova finestra del browser"
 
@@ -4126,14 +4192,31 @@ msgstr ""
 "Questa è la prima volta che utilizzi la WebApp.<br />Verifica le seguenti "
 "impostazioni prima di continuare."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Aggiungi widget"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Configura widget"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Apri in una nuova finestra del browser"
+
 msgid "Add widgets"
 msgstr "Aggiungi widget"
 
 msgid "No widgets installed."
 msgstr "Nessun widget installato."
-
-msgid "Configure widget"
-msgstr "Configura widget"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4534,9 +4617,6 @@ msgstr "Vai alla cartella <b>In uscita</b> per modificare l'email."
 
 msgid "hour(s)"
 msgstr "ora/e"
-
-msgid "day(s)"
-msgstr "giorno/i"
 
 msgid "month(s)"
 msgstr "mese/i"
@@ -4959,6 +5039,15 @@ msgstr "Invia"
 msgid "Loading mail"
 msgstr "Caricamento posta"
 
+msgid "No unread mail."
+msgstr "Nessun messaggio non letto."
+
+msgid "Unread Mail"
+msgstr "Messaggio non letto"
+
+msgid "Quick Mail"
+msgstr "E-Mail veloce"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Stampa nota"
@@ -5011,6 +5100,9 @@ msgstr "Caricamento note"
 
 msgid "Loading notes"
 msgstr "Caricamento note"
+
+msgid "Quick Note"
+msgstr "Nota veloce"
 
 #, fuzzy
 msgid ""
@@ -5107,6 +5199,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navigazione inbox"
 
@@ -5152,9 +5247,6 @@ msgstr "Tutte le scorciatoie da tastiera abilitate"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Questa modifica richiede il reload di Kopano WebApp"
-
-msgid "Discard"
-msgstr "Scarta"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5542,6 +5634,18 @@ msgstr "Aggiorna lista"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Attività veloce"
+
+msgid "No tasks."
+msgstr "Nessuna attività."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Importa in"
@@ -5739,85 +5843,6 @@ msgstr "Invia fax"
 msgid "Contact Fax"
 msgstr "Contatto fax"
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Aggiungi widget"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Caricamento appuntamenti"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Caricamento appuntamenti"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Nuovo appuntamento"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Oggi: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} in {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Nessun messaggio non letto."
-
-msgid "Unread Mail"
-msgstr "Messaggio non letto"
-
-msgid "No tasks."
-msgstr "Nessuna attività."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5845,31 +5870,6 @@ msgstr "Seleziona cartella differente"
 
 msgid "E-mails are moved to {0}"
 msgstr "I messaggi verranno spostati in {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Apri in una nuova finestra del browser"
-
-msgid "Quick Appointment"
-msgstr "Appuntamento veloce"
-
-msgid "Quick Contact"
-msgstr "Contatto veloce"
-
-msgid "Quick Mail"
-msgstr "E-Mail veloce"
-
-msgid "Quick Note"
-msgstr "Nota veloce"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Attività veloce"
-
-msgid "Title Counter Plugin"
-msgstr "Plugin titolo con contatore"
 
 msgid "Charm pink"
 msgstr "Fascino rosa"

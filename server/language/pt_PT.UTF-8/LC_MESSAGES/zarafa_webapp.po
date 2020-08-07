@@ -1669,6 +1669,63 @@ msgstr ""
 "O calendário foi atualizado automaticamente. Este pedido de reunião vai ser "
 "eliminado."
 
+msgid "Loading appointments..."
+msgstr "A carregar compromissos..."
+
+msgid "Please select a calendar via widget settings"
+msgstr "Por favor selecione um calendário através das definições do widget"
+
+msgid "Number of days"
+msgstr "Número de dias"
+
+msgid "day(s)"
+msgstr "dia(s)"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Próximos compromissos"
+
+msgid "Appointments of {0}"
+msgstr "Compromissos de {0}"
+
+msgid "Appointments of {0} - {1}"
+msgstr "Compromissos de {0} - {1}"
+
+msgid "No appointments"
+msgstr "Sem compromissos"
+
+msgid "Today {0} - {1}"
+msgstr "Hoje {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "Hoje (todo dia)"
+
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (todo dia)"
+
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Selecionar um..."
+
+msgid "Unnamed folder"
+msgstr "Pasta sem nome"
+
+msgid "Discard"
+msgstr "Ignorar"
+
+msgid "Quick Appointment"
+msgstr "Compromisso rápido"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Imprimir múltiplos itens ainda não foi implementado."
 
@@ -2691,17 +2748,11 @@ msgstr "tem o meu nome no campo Para"
 msgid "is received (all messages)"
 msgstr "recebida (todas as mensagens)"
 
-msgid "Select one..."
-msgstr "Selecionar um..."
-
 msgid "Unknown condition"
 msgstr "Condição desconhecida"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Esta condição para esta regra é desconhecida"
-
-msgid "Unnamed folder"
-msgstr "Pasta sem nome"
 
 msgid "Add action"
 msgstr "Adicionar ação"
@@ -2926,8 +2977,8 @@ msgstr "{0} atrasado"
 msgid "Loading..."
 msgstr "A carregar..."
 
-msgid "Failed"
-msgstr "Falhou"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3157,6 +3208,9 @@ msgstr "em"
 
 msgid "Root"
 msgstr "Raiz"
+
+msgid "Datepicker"
+msgstr "Escolha de data"
 
 msgid "File As"
 msgstr "Arquivar Como"
@@ -3583,6 +3637,9 @@ msgstr "Remover fotografia"
 msgid "VCF file(s)"
 msgstr "Ficheiros(s) VCF"
 
+msgid "Quick Contact"
+msgstr "Contacto rápido"
+
 msgid "Open in new browser window"
 msgstr "Abrir numa nova janela"
 
@@ -3839,14 +3896,29 @@ msgstr "Esta é a primeira vez que está a usar a WebApp. "
 msgid "Please check the following settings before continuing."
 msgstr "Por favor confira as seguintes definições antes de continuar."
 
+msgid "Widget height"
+msgstr "Altura do Widget"
+
+msgid "pixels"
+msgstr "pixeis"
+
+msgid "Configure widget"
+msgstr "Configurar widget"
+
+msgid "Reload interval"
+msgstr "Intervalo para refrescar (s)"
+
+msgid "seconds"
+msgstr "segundos"
+
+msgid "Open in new tab"
+msgstr "Abrir numa nova aba"
+
 msgid "Add widgets"
 msgstr "Adicionar widgets"
 
 msgid "No widgets installed."
 msgstr "Sem widgets instalados."
-
-msgid "Configure widget"
-msgstr "Configurar widget"
 
 msgid "Remove widget"
 msgstr "Remover widget"
@@ -4211,9 +4283,6 @@ msgstr "Vá à sua Caixa de Saída para editar a mensagem."
 
 msgid "hour(s)"
 msgstr "hora(s)"
-
-msgid "day(s)"
-msgstr "dia(s)"
 
 msgid "month(s)"
 msgstr "mês(es)"
@@ -4602,6 +4671,15 @@ msgstr "Enviar para"
 msgid "Loading mail"
 msgstr "A Carregar mensagens"
 
+msgid "No unread mail."
+msgstr "Sem mensagens por ler."
+
+msgid "Unread Mail"
+msgstr "Mensagens por ler"
+
+msgid "Quick Mail"
+msgstr "Mensagem rápida"
+
 msgid "Print note"
 msgstr "Imprimir esta nota"
 
@@ -4646,6 +4724,9 @@ msgstr "A carregar Notas"
 
 msgid "Loading notes"
 msgstr "A carregar notas"
+
+msgid "Quick Note"
+msgstr "Nota rápida"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -4738,6 +4819,9 @@ msgstr "Usar um rebordo colorido nos itens por ler"
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navegação na Caixa de Entrada"
 
@@ -4783,9 +4867,6 @@ msgstr "Todos atalhos teclado ligados"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Esta alteração requer reiniciar a WebApp"
-
-msgid "Discard"
-msgstr "Ignorar"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5133,6 +5214,18 @@ msgstr "Atualizar lista"
 msgid "D d-m-Y"
 msgstr "D d-m-Y"
 
+msgid "none"
+msgstr "nenhum"
+
+msgid "Quick Task"
+msgstr "Tarefa rápida"
+
+msgid "No tasks."
+msgstr "Sem tarefas."
+
+msgid "Tasks / To-Do"
+msgstr "Tarefas a fazer"
+
 msgid "Import / Export"
 msgstr "Importar / Exportar"
 
@@ -5323,75 +5416,6 @@ msgstr "Enviar Fax"
 msgid "Contact Fax"
 msgstr "Contacto Fax"
 
-msgid "Widget height"
-msgstr "Altura do Widget"
-
-msgid "pixels"
-msgstr "pixeis"
-
-msgid "Reload interval"
-msgstr "Intervalo para refrescar (s)"
-
-msgid "seconds"
-msgstr "segundos"
-
-msgid "Loading appointments..."
-msgstr "A carregar compromissos..."
-
-msgid "Please select a calendar via widget settings"
-msgstr "Por favor selecione um calendário através das definições do widget"
-
-msgid "Number of days"
-msgstr "Número de dias"
-
-msgid "{0}"
-msgstr "{0}"
-
-msgid "Upcoming Appointments"
-msgstr "Próximos compromissos"
-
-msgid "Appointments of {0}"
-msgstr "Compromissos de {0}"
-
-msgid "Appointments of {0} - {1}"
-msgstr "Compromissos de {0} - {1}"
-
-msgid "No appointments"
-msgstr "Sem compromissos"
-
-msgid "Today {0} - {1}"
-msgstr "Hoje {0} - {1}"
-
-msgid "Today (all day)"
-msgstr "Hoje (todo dia)"
-
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (todo dia)"
-
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr "Escolha de data"
-
-msgid "No unread mail."
-msgstr "Sem mensagens por ler."
-
-msgid "Unread Mail"
-msgstr "Mensagens por ler"
-
-msgid "No tasks."
-msgstr "Sem tarefas."
-
-msgid "Tasks / To-Do"
-msgstr "Tarefas a fazer"
-
 msgid "Google Maps"
 msgstr "Mapas Google"
 
@@ -5419,30 +5443,6 @@ msgstr "Selecionar outra pasta"
 
 msgid "E-mails are moved to {0}"
 msgstr "Emails são movidos para {0}"
-
-msgid "Open in new tab"
-msgstr "Abrir numa nova aba"
-
-msgid "Quick Appointment"
-msgstr "Compromisso rápido"
-
-msgid "Quick Contact"
-msgstr "Contacto rápido"
-
-msgid "Quick Mail"
-msgstr "Mensagem rápida"
-
-msgid "Quick Note"
-msgstr "Nota rápida"
-
-msgid "none"
-msgstr "nenhum"
-
-msgid "Quick Task"
-msgstr "Tarefa rápida"
-
-msgid "Title Counter Plugin"
-msgstr "Título contador Plugin"
 
 msgid "Charm pink"
 msgstr "Rosa charmoso"

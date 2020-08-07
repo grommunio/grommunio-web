@@ -1757,6 +1757,72 @@ msgstr ""
 "Váš kalendář bude automaticky aktualizován. Tato žádost o schůzku bude "
 "odstraněna."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Načítání schůzek"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Načítání schůzek"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nový termín"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Dnes: {A} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} v {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d. m. Y"
+
+msgid "Select one..."
+msgstr "Vybrat jednu..."
+
+msgid "Unnamed folder"
+msgstr "Nepojmenovaná složka"
+
+msgid "Discard"
+msgstr "Vyřadit"
+
+msgid "Quick Appointment"
+msgstr "Rychlá schůzka"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Tisk více položek nelze provádět."
 
@@ -2871,17 +2937,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "Vybrat jednu..."
-
 msgid "Unknown condition"
 msgstr "Neznámá podmínka"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Tato podmínka pro aktuální pravidlo je neznámá"
-
-msgid "Unnamed folder"
-msgstr "Nepojmenovaná složka"
 
 msgid "Add action"
 msgstr "Přidat akci"
@@ -3121,8 +3181,8 @@ msgstr "{0} zpožděný"
 msgid "Loading..."
 msgstr "Načítám..."
 
-msgid "Failed"
-msgstr "Selhalo"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3374,6 +3434,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Kořen"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Soubor jako"
@@ -3827,6 +3890,9 @@ msgstr "Odstranit obrázek"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Rychlý kontakt"
+
 msgid "Open in new browser window"
 msgstr "Otevřit v novém okně prohlížeče"
 
@@ -4093,14 +4159,31 @@ msgstr ""
 msgid "Please check the following settings before continuing."
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Přidat prvky"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Nastavit prvek"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Otevřit v novém okně prohlížeče"
+
 msgid "Add widgets"
 msgstr "Přidat prvky"
 
 msgid "No widgets installed."
 msgstr "Nejsou nainstalovány žádné prvky."
-
-msgid "Configure widget"
-msgstr "Nastavit prvek"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4501,9 +4584,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4927,6 +5007,15 @@ msgstr "Odeslat"
 msgid "Loading mail"
 msgstr "Načítání pošty"
 
+msgid "No unread mail."
+msgstr "Žádná nepřečtená pošta."
+
+msgid "Unread Mail"
+msgstr "Nepřečtená pošta"
+
+msgid "Quick Mail"
+msgstr "Rychlá pošta"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Vytisknout tuto poznámku"
@@ -4979,6 +5068,9 @@ msgstr "Načítání poznámek"
 
 msgid "Loading notes"
 msgstr "Načítání poznámek"
+
+msgid "Quick Note"
+msgstr "Rychlá poznámka"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -5074,6 +5166,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5118,9 +5213,6 @@ msgstr ""
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Tato změna vyžaduje nové načtení WebApp"
-
-msgid "Discard"
-msgstr "Vyřadit"
 
 msgid "Plugins"
 msgstr "Zásuvné moduly"
@@ -5498,6 +5590,18 @@ msgstr "Aktualizovat seznam"
 msgid "D d-m-Y"
 msgstr "d-m-r"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Rychlý úkol"
+
+msgid "No tasks."
+msgstr "Žádné úkoly."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Důležitý"
@@ -5688,85 +5792,6 @@ msgstr "Poslat fax"
 msgid "Contact Fax"
 msgstr ""
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Přidat prvky"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Načítání schůzek"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Načítání schůzek"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Nový termín"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Dnes: {A} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} v {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d. m. Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Žádná nepřečtená pošta."
-
-msgid "Unread Mail"
-msgstr "Nepřečtená pošta"
-
-msgid "No tasks."
-msgstr "Žádné úkoly."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr ""
 
@@ -5794,31 +5819,6 @@ msgstr "Vybrat jinou složku"
 
 msgid "E-mails are moved to {0}"
 msgstr "Zprávy byly přesunuty k {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Otevřit v novém okně prohlížeče"
-
-msgid "Quick Appointment"
-msgstr "Rychlá schůzka"
-
-msgid "Quick Contact"
-msgstr "Rychlý kontakt"
-
-msgid "Quick Mail"
-msgstr "Rychlá pošta"
-
-msgid "Quick Note"
-msgstr "Rychlá poznámka"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Rychlý úkol"
-
-msgid "Title Counter Plugin"
-msgstr ""
 
 msgid "Charm pink"
 msgstr ""

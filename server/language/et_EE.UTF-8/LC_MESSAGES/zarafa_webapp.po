@@ -1730,6 +1730,65 @@ msgid ""
 "be deleted."
 msgstr ""
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Kontaktide laadimine"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr ""
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr ""
+
+msgid "Today {0} - {1}"
+msgstr ""
+
+msgid "Today (all day)"
+msgstr ""
+
+msgid "{0} - {1}"
+msgstr ""
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr ""
+
+msgid "Unnamed folder"
+msgstr ""
+
+msgid "Discard"
+msgstr "Loobu"
+
+msgid "Quick Appointment"
+msgstr ""
+
 msgid "Printing of multiple items has not been implemented."
 msgstr ""
 
@@ -2772,16 +2831,10 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr ""
-
 msgid "Unknown condition"
 msgstr ""
 
 msgid "This condition for the current rule is unknown"
-msgstr ""
-
-msgid "Unnamed folder"
 msgstr ""
 
 msgid "Add action"
@@ -3029,7 +3082,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-msgid "Failed"
+msgid "Message could not be loaded"
 msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3252,6 +3305,9 @@ msgid "in"
 msgstr ""
 
 msgid "Root"
+msgstr ""
+
+msgid "Datepicker"
 msgstr ""
 
 msgid "File As"
@@ -3773,6 +3829,9 @@ msgstr ""
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr ""
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -4037,14 +4096,30 @@ msgstr ""
 msgid "Please check the following settings before continuing."
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Lisa vidinaid"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr ""
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "Lisa vidinaid"
 
 msgid "No widgets installed."
 msgstr "Vidinaid pole paigaldatud."
-
-msgid "Configure widget"
-msgstr ""
 
 msgid "Remove widget"
 msgstr ""
@@ -4419,9 +4494,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4843,6 +4915,15 @@ msgstr "Saadetud"
 msgid "Loading mail"
 msgstr "Laeb märkuseid"
 
+msgid "No unread mail."
+msgstr ""
+
+msgid "Unread Mail"
+msgstr ""
+
+msgid "Quick Mail"
+msgstr ""
+
 #, fuzzy
 msgid "Print note"
 msgstr "Trüki see märkus"
@@ -4893,6 +4974,9 @@ msgstr "Laeb märkuseid"
 
 msgid "Loading notes"
 msgstr "Laeb märkuseid"
+
+msgid "Quick Note"
+msgstr ""
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -4986,6 +5070,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -5030,9 +5117,6 @@ msgstr ""
 
 msgid "This change requires a reload of the WebApp"
 msgstr ""
-
-msgid "Discard"
-msgstr "Loobu"
 
 msgid "Plugins"
 msgstr ""
@@ -5401,6 +5485,18 @@ msgstr ""
 msgid "D d-m-Y"
 msgstr ""
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr ""
+
+msgid "No tasks."
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Oluline"
@@ -5590,78 +5686,6 @@ msgstr ""
 msgid "Contact Fax"
 msgstr ""
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Lisa vidinaid"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Kontaktide laadimine"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-msgid "Upcoming Appointments"
-msgstr ""
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-msgid "No appointments"
-msgstr ""
-
-msgid "Today {0} - {1}"
-msgstr ""
-
-msgid "Today (all day)"
-msgstr ""
-
-msgid "{0} - {1}"
-msgstr ""
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr ""
-
-msgid "Unread Mail"
-msgstr ""
-
-msgid "No tasks."
-msgstr ""
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr ""
 
@@ -5688,30 +5712,6 @@ msgid "Select another folder"
 msgstr ""
 
 msgid "E-mails are moved to {0}"
-msgstr ""
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr ""
-
-msgid "Quick Contact"
-msgstr ""
-
-msgid "Quick Mail"
-msgstr ""
-
-msgid "Quick Note"
-msgstr ""
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr ""
-
-msgid "Title Counter Plugin"
 msgstr ""
 
 msgid "Charm pink"

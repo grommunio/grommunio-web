@@ -1741,6 +1741,63 @@ msgstr ""
 "Din kalender har blitt automatisk oppdatert. Denne møteinvitasjonen vil bli "
 "slettet."
 
+msgid "Loading appointments..."
+msgstr "Laster inn avtaler..."
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr "Antall dager"
+
+msgid "day(s)"
+msgstr "dag(er)"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Upcoming Appointments"
+msgstr "Kommende avtaler"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr "Ingen avtaler"
+
+msgid "Today {0} - {1}"
+msgstr "I dag: {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "I dag (hele dagen)"
+
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (hele dagen)"
+
+msgid "d/m/y"
+msgstr "d.m.Y"
+
+msgid "Select one..."
+msgstr "Merk..."
+
+msgid "Unnamed folder"
+msgstr "Mappe uten navn"
+
+msgid "Discard"
+msgstr "Forkast"
+
+msgid "Quick Appointment"
+msgstr "Hurtigavtale"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Utskrift av flere elementer samtidig er ennå ikke implementert."
 
@@ -2794,17 +2851,11 @@ msgstr "har mitt navn i Til-feltet"
 msgid "is received (all messages)"
 msgstr "er mottatt (alle meldinger)"
 
-msgid "Select one..."
-msgstr "Merk..."
-
 msgid "Unknown condition"
 msgstr "Ukjent betingelse"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Betingelsen for gjeldende regel er ukjent"
-
-msgid "Unnamed folder"
-msgstr "Mappe uten navn"
 
 msgid "Add action"
 msgstr "Legg til handling"
@@ -3031,8 +3082,8 @@ msgstr "{0} forfall"
 msgid "Loading..."
 msgstr "Laster inn..."
 
-msgid "Failed"
-msgstr "Feilet"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3267,6 +3318,9 @@ msgstr "om"
 
 msgid "Root"
 msgstr "Basismappe"
+
+msgid "Datepicker"
+msgstr "Datovelger"
 
 # 85%
 msgid "File As"
@@ -3722,6 +3776,9 @@ msgstr "Fjern bilde"
 msgid "VCF file(s)"
 msgstr "VCF fil(er)"
 
+msgid "Quick Contact"
+msgstr "Hurtigkontakt"
+
 msgid "Open in new browser window"
 msgstr "Åpne i nytt nettleservindu"
 
@@ -3982,14 +4039,29 @@ msgstr "Dette er første gangen du bruker WebApp. "
 msgid "Please check the following settings before continuing."
 msgstr "Vennligst sjekk følgende innstillinger før du fortsetter."
 
+msgid "Widget height"
+msgstr "Høyde på miniprogram"
+
+msgid "pixels"
+msgstr "Pixel"
+
+msgid "Configure widget"
+msgstr "Konfigurer miniprogram"
+
+msgid "Reload interval"
+msgstr "Last inn på nytt etter"
+
+msgid "seconds"
+msgstr "sekunder"
+
+msgid "Open in new tab"
+msgstr "Åpne i ny nettleserfane"
+
 msgid "Add widgets"
 msgstr "Legg til miniprogram"
 
 msgid "No widgets installed."
 msgstr "Ingen miniprogram er installert."
-
-msgid "Configure widget"
-msgstr "Konfigurer miniprogram"
 
 msgid "Remove widget"
 msgstr "Fjern miniprogram"
@@ -4363,9 +4435,6 @@ msgstr "Gå til din Utboks for å redigerer din e-post."
 
 msgid "hour(s)"
 msgstr "time(r)"
-
-msgid "day(s)"
-msgstr "dag(er)"
 
 msgid "month(s)"
 msgstr "måned(er)"
@@ -4760,6 +4829,15 @@ msgstr "Send til"
 msgid "Loading mail"
 msgstr "Laster inn e-post"
 
+msgid "No unread mail."
+msgstr "Ingen uleste e-post."
+
+msgid "Unread Mail"
+msgstr "Uleste e-post"
+
+msgid "Quick Mail"
+msgstr "Hurtig e-post"
+
 msgid "Print note"
 msgstr "Skriv ut dette notatet"
 
@@ -4807,6 +4885,9 @@ msgstr "Laster inn notater"
 
 msgid "Loading notes"
 msgstr "Laster inn notater"
+
+msgid "Quick Note"
+msgstr "Hurtignotat"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -4901,6 +4982,9 @@ msgstr "Marker uleste meldinger med et farget omriss"
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navigasjon i Innboks"
 
@@ -4944,9 +5028,6 @@ msgstr "Alle hurtigtaster skrudd på"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Denne endringen krever at Kopano lastes inn på nytt"
-
-msgid "Discard"
-msgstr "Forkast"
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -5305,6 +5386,18 @@ msgstr "Oppdater liste"
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
+msgid "none"
+msgstr "ingen"
+
+msgid "Quick Task"
+msgstr "Hurtigoppgave"
+
+msgid "No tasks."
+msgstr "Ingen oppgave."
+
+msgid "Tasks / To-Do"
+msgstr "Oppgaver / To-Dos"
+
 msgid "Import / Export"
 msgstr "Import/eksport"
 
@@ -5498,75 +5591,6 @@ msgstr "Send faks"
 msgid "Contact Fax"
 msgstr "Kontaktfaks"
 
-msgid "Widget height"
-msgstr "Høyde på miniprogram"
-
-msgid "pixels"
-msgstr "Pixel"
-
-msgid "Reload interval"
-msgstr "Last inn på nytt etter"
-
-msgid "seconds"
-msgstr "sekunder"
-
-msgid "Loading appointments..."
-msgstr "Laster inn avtaler..."
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr "Antall dager"
-
-msgid "{0}"
-msgstr "{0}"
-
-msgid "Upcoming Appointments"
-msgstr "Kommende avtaler"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-msgid "No appointments"
-msgstr "Ingen avtaler"
-
-msgid "Today {0} - {1}"
-msgstr "I dag: {0} - {1}"
-
-msgid "Today (all day)"
-msgstr "I dag (hele dagen)"
-
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (hele dagen)"
-
-msgid "d/m/y"
-msgstr "d.m.Y"
-
-msgid "Datepicker"
-msgstr "Datovelger"
-
-msgid "No unread mail."
-msgstr "Ingen uleste e-post."
-
-msgid "Unread Mail"
-msgstr "Uleste e-post"
-
-msgid "No tasks."
-msgstr "Ingen oppgave."
-
-msgid "Tasks / To-Do"
-msgstr "Oppgaver / To-Dos"
-
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5594,30 +5618,6 @@ msgstr "Velg en annen mappe"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-post er flyttet til {0}"
-
-msgid "Open in new tab"
-msgstr "Åpne i ny nettleserfane"
-
-msgid "Quick Appointment"
-msgstr "Hurtigavtale"
-
-msgid "Quick Contact"
-msgstr "Hurtigkontakt"
-
-msgid "Quick Mail"
-msgstr "Hurtig e-post"
-
-msgid "Quick Note"
-msgstr "Hurtignotat"
-
-msgid "none"
-msgstr "ingen"
-
-msgid "Quick Task"
-msgstr "Hurtigoppgave"
-
-msgid "Title Counter Plugin"
-msgstr "Uleste e-post teller"
 
 msgid "Charm pink"
 msgstr "Rosa"

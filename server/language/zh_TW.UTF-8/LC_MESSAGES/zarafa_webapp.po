@@ -1712,6 +1712,72 @@ msgid ""
 "be deleted."
 msgstr "你的行事曆已自動更新。此會議邀請將會刪除"
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "載入會議中"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "載入會議中"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "新增約會"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "今日: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} 在 {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "選擇一個..."
+
+msgid "Unnamed folder"
+msgstr "未命名的資料夾"
+
+msgid "Discard"
+msgstr "丟棄"
+
+msgid "Quick Appointment"
+msgstr "新增約會"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "尚未執行的項目"
 
@@ -2783,17 +2849,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "選擇一個..."
-
 msgid "Unknown condition"
 msgstr "未知條件"
 
 msgid "This condition for the current rule is unknown"
 msgstr "現有規則未知此條件"
-
-msgid "Unnamed folder"
-msgstr "未命名的資料夾"
 
 msgid "Add action"
 msgstr "新增動作"
@@ -3027,8 +3087,8 @@ msgstr "{0} 過期"
 msgid "Loading..."
 msgstr "讀取中..."
 
-msgid "Failed"
-msgstr "失敗"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3267,6 +3327,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Root"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "檔案為"
@@ -3717,6 +3780,9 @@ msgstr ""
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "新增聯絡人"
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -3973,14 +4039,30 @@ msgstr ""
 msgid "Please check the following settings before continuing."
 msgstr ""
 
+#, fuzzy
+msgid "Widget height"
+msgstr "新增小工具"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "配置工具"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "新增小工具"
 
 msgid "No widgets installed."
 msgstr "沒有安裝小工具"
-
-msgid "Configure widget"
-msgstr "配置工具"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4369,9 +4451,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4788,6 +4867,15 @@ msgstr "傳送"
 msgid "Loading mail"
 msgstr "載入郵件中"
 
+msgid "No unread mail."
+msgstr "沒有未讀郵件"
+
+msgid "Unread Mail"
+msgstr "未讀郵件"
+
+msgid "Quick Mail"
+msgstr "新增郵件"
+
 #, fuzzy
 msgid "Print note"
 msgstr "列印此筆記"
@@ -4840,6 +4928,9 @@ msgstr "載入筆記中"
 
 msgid "Loading notes"
 msgstr "載入筆記"
+
+msgid "Quick Note"
+msgstr "新增筆記"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -4935,6 +5026,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr ""
 
@@ -4979,9 +5073,6 @@ msgstr ""
 
 msgid "This change requires a reload of the WebApp"
 msgstr "需要重新載入WebApp"
-
-msgid "Discard"
-msgstr "丟棄"
 
 msgid "Plugins"
 msgstr "模組"
@@ -5348,6 +5439,18 @@ msgstr "更新列表"
 msgid "D d-m-Y"
 msgstr "d-m-Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "新增任務"
+
+msgid "No tasks."
+msgstr "沒有任務"
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "重要的"
@@ -5539,85 +5642,6 @@ msgstr "傳送傳真"
 msgid "Contact Fax"
 msgstr ""
 
-#, fuzzy
-msgid "Widget height"
-msgstr "新增小工具"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "載入會議中"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "載入會議中"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "新增約會"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "今日: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} 在 {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "沒有未讀郵件"
-
-msgid "Unread Mail"
-msgstr "未讀郵件"
-
-msgid "No tasks."
-msgstr "沒有任務"
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr "Google地圖"
 
@@ -5645,30 +5669,6 @@ msgstr "選擇其他的資料夾"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-mails搬移到{0}"
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr "新增約會"
-
-msgid "Quick Contact"
-msgstr "新增聯絡人"
-
-msgid "Quick Mail"
-msgstr "新增郵件"
-
-msgid "Quick Note"
-msgstr "新增筆記"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "新增任務"
-
-msgid "Title Counter Plugin"
-msgstr ""
 
 msgid "Charm pink"
 msgstr ""

@@ -1696,6 +1696,69 @@ msgstr ""
 "Din kalender er blevet opdateret automatisk. Denne mødeindkaldelse vil nu "
 "blive slettet."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Henter aftaler"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr "dag(e)"
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Henter aftaler"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+#, fuzzy
+msgid "No appointments"
+msgstr "Ny aftale"
+
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "I dag: {1} {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} i {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/Y"
+
+msgid "Select one..."
+msgstr "Vælg en..."
+
+msgid "Unnamed folder"
+msgstr "Unavngivet folder"
+
+msgid "Discard"
+msgstr "Kasser"
+
+msgid "Quick Appointment"
+msgstr "Hurtigaftale"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Udskrivning af flere elementer er ikke blevet implementeret."
 
@@ -2755,17 +2818,11 @@ msgstr "har mit navn i Til-feltet"
 msgid "is received (all messages)"
 msgstr "er modtaget (alle meddelelser)"
 
-msgid "Select one..."
-msgstr "Vælg en..."
-
 msgid "Unknown condition"
 msgstr "Ukendt betingelse"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Denne betingelse for den valgte regel er ukendt"
-
-msgid "Unnamed folder"
-msgstr "Unavngivet folder"
 
 msgid "Add action"
 msgstr "Tilføj handling"
@@ -2992,8 +3049,8 @@ msgstr "{0} overskredet"
 msgid "Loading..."
 msgstr "Henter..."
 
-msgid "Failed"
-msgstr "Fejlet"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3227,6 +3284,9 @@ msgstr "om"
 
 msgid "Root"
 msgstr "Rod"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Gemt som"
@@ -3660,6 +3720,9 @@ msgstr "Fjern billede"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr "Hurtigkontakt"
+
 msgid "Open in new browser window"
 msgstr "Åbn i nyt browser vindue"
 
@@ -3933,14 +3996,32 @@ msgstr ""
 "Dette er den første gang du bruger WebApp. <br/>Tjek venligst de følgende "
 "indstillinger inden du fortsætter."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Tilføj widgets"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Konfigurer widget"
+
+msgid "Reload interval"
+msgstr "Genindlæsningsinterva"
+
+#, fuzzy
+msgid "seconds"
+msgstr "sekunder."
+
+#, fuzzy
+msgid "Open in new tab"
+msgstr "Åbn i nyt browser vindue"
+
 msgid "Add widgets"
 msgstr "Tilføj widgets"
 
 msgid "No widgets installed."
 msgstr "Ingen widgets er installeret"
-
-msgid "Configure widget"
-msgstr "Konfigurer widget"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4332,9 +4413,6 @@ msgstr "Gå til din <b>Udbakke</b> for at redigere din meddelelse."
 
 msgid "hour(s)"
 msgstr "time(r)"
-
-msgid "day(s)"
-msgstr "dag(e)"
 
 msgid "month(s)"
 msgstr "måned(er)"
@@ -4740,6 +4818,15 @@ msgstr "Send"
 msgid "Loading mail"
 msgstr "Henter mail"
 
+msgid "No unread mail."
+msgstr "Ingen ulæst post."
+
+msgid "Unread Mail"
+msgstr "Ulæst post"
+
+msgid "Quick Mail"
+msgstr "Hurtig email"
+
 #, fuzzy
 msgid "Print note"
 msgstr "Udskriv note"
@@ -4785,6 +4872,9 @@ msgstr "Henter noter"
 
 msgid "Loading notes"
 msgstr "Henter noter"
+
+msgid "Quick Note"
+msgstr "Hurtig note"
 
 #, fuzzy
 msgid ""
@@ -4880,6 +4970,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Indbakke navigation"
 
@@ -4923,9 +5016,6 @@ msgstr "Slå alle genvejstaster til"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Denne ændringer kræver en genindlæsning af WebApp"
-
-msgid "Discard"
-msgstr "Kasser"
 
 msgid "Plugins"
 msgstr "Udvidelser"
@@ -5279,6 +5369,18 @@ msgstr "Opdater liste"
 msgid "D d-m-Y"
 msgstr "D, d.m.Y"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr "Hurtig opgave"
+
+msgid "No tasks."
+msgstr "Ingen opgaver."
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Vigtigt"
@@ -5467,83 +5569,6 @@ msgid "Contact Fax"
 msgstr "Kontaktfax"
 
 #, fuzzy
-msgid "Widget height"
-msgstr "Tilføj widgets"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr "Genindlæsningsinterva"
-
-#, fuzzy
-msgid "seconds"
-msgstr "sekunder."
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Henter aftaler"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Henter aftaler"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-#, fuzzy
-msgid "No appointments"
-msgstr "Ny aftale"
-
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "I dag: {1} {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} i {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/Y"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr "Ingen ulæst post."
-
-msgid "Unread Mail"
-msgstr "Ulæst post"
-
-msgid "No tasks."
-msgstr "Ingen opgaver."
-
-msgid "Tasks / To-Do"
-msgstr ""
-
-#, fuzzy
 msgid "Google Maps"
 msgstr "Google Maps"
 
@@ -5571,31 +5596,6 @@ msgstr "Vælg anden mappe"
 
 msgid "E-mails are moved to {0}"
 msgstr "E-mails er flyttet til {0}"
-
-#, fuzzy
-msgid "Open in new tab"
-msgstr "Åbn i nyt browser vindue"
-
-msgid "Quick Appointment"
-msgstr "Hurtigaftale"
-
-msgid "Quick Contact"
-msgstr "Hurtigkontakt"
-
-msgid "Quick Mail"
-msgstr "Hurtig email"
-
-msgid "Quick Note"
-msgstr "Hurtig note"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr "Hurtig opgave"
-
-msgid "Title Counter Plugin"
-msgstr "Ulæst emails tæller"
 
 msgid "Charm pink"
 msgstr "Rosa"

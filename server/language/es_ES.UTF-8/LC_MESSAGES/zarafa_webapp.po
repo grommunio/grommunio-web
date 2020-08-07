@@ -1773,6 +1773,75 @@ msgstr ""
 "Su calendario ha sido actualizado automáticamente. Esta solicitud de reunión "
 "ahora se eliminará."
 
+#, fuzzy
+msgid "Loading appointments..."
+msgstr "Cargando citas"
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr ""
+
+msgid "day(s)"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+#, fuzzy
+msgid "Upcoming Appointments"
+msgstr "Cargando citas"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+# 93%
+# 100%
+#, fuzzy
+msgid "No appointments"
+msgstr "Nueva Cita"
+
+# 86%
+# 100%
+# 76%
+#, fuzzy
+msgid "Today {0} - {1}"
+msgstr "Página {A} de {0}"
+
+msgid "Today (all day)"
+msgstr ""
+
+# 100%
+#, fuzzy
+msgid "{0} - {1}"
+msgstr "{0} en {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr ""
+
+#, fuzzy
+msgid "d/m/y"
+msgstr "d/m/aa"
+
+msgid "Select one..."
+msgstr "Seleccionar uno ..."
+
+msgid "Unnamed folder"
+msgstr "Carpeta sin nombre"
+
+msgid "Discard"
+msgstr "Descartar"
+
+msgid "Quick Appointment"
+msgstr ""
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "La impresión de múltiples elementos no esta soportada."
 
@@ -2881,17 +2950,11 @@ msgstr ""
 msgid "is received (all messages)"
 msgstr ""
 
-msgid "Select one..."
-msgstr "Seleccionar uno ..."
-
 msgid "Unknown condition"
 msgstr "Condición desconocida"
 
 msgid "This condition for the current rule is unknown"
 msgstr "La condición para el regla actual es desconocida"
-
-msgid "Unnamed folder"
-msgstr "Carpeta sin nombre"
 
 msgid "Add action"
 msgstr "Agregar acción"
@@ -3135,8 +3198,8 @@ msgstr "{0} vencido(s)"
 msgid "Loading..."
 msgstr "Cargando…"
 
-msgid "Failed"
-msgstr "Fallo"
+msgid "Message could not be loaded"
+msgstr ""
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -3395,6 +3458,9 @@ msgstr ""
 
 msgid "Root"
 msgstr "Administrador"
+
+msgid "Datepicker"
+msgstr ""
 
 msgid "File As"
 msgstr "Guardar como"
@@ -3870,6 +3936,9 @@ msgstr "Remover Imagen"
 msgid "VCF file(s)"
 msgstr ""
 
+msgid "Quick Contact"
+msgstr ""
+
 msgid "Open in new browser window"
 msgstr ""
 
@@ -4151,14 +4220,30 @@ msgstr ""
 "Esta es la primera vez que utiliza WebApp. <br />Por favor, revise la "
 "configuración siguiente antes de continuar."
 
+#, fuzzy
+msgid "Widget height"
+msgstr "Añadir widgets"
+
+msgid "pixels"
+msgstr ""
+
+msgid "Configure widget"
+msgstr "Configurar widget"
+
+msgid "Reload interval"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
 msgid "Add widgets"
 msgstr "Añadir widgets"
 
 msgid "No widgets installed."
 msgstr "No hay widgets instalados"
-
-msgid "Configure widget"
-msgstr "Configurar widget"
 
 #, fuzzy
 msgid "Remove widget"
@@ -4561,9 +4646,6 @@ msgid "Go to your Outbox to edit your email."
 msgstr ""
 
 msgid "hour(s)"
-msgstr ""
-
-msgid "day(s)"
 msgstr ""
 
 msgid "month(s)"
@@ -4986,6 +5068,15 @@ msgstr "Enviar"
 msgid "Loading mail"
 msgstr "Cargando correo"
 
+msgid "No unread mail."
+msgstr ""
+
+msgid "Unread Mail"
+msgstr "Correo no leído"
+
+msgid "Quick Mail"
+msgstr ""
+
 #, fuzzy
 msgid "Print note"
 msgstr "Imprimir esta nota"
@@ -5036,6 +5127,9 @@ msgstr "Cargando notas"
 
 msgid "Loading notes"
 msgstr "Cargando notas"
+
+msgid "Quick Note"
+msgstr "Nota"
 
 #, fuzzy
 msgid ""
@@ -5132,6 +5226,9 @@ msgstr ""
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navegación en la Bandeja de Entrada"
 
@@ -5187,9 +5284,6 @@ msgstr "Atajos de Teclado"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Este cambio require recargar la WebApp"
-
-msgid "Discard"
-msgstr "Descartar"
 
 msgid "Plugins"
 msgstr "Módulos"
@@ -5566,6 +5660,18 @@ msgstr "Actualizar Lista"
 msgid "D d-m-Y"
 msgstr "d-m-A"
 
+msgid "none"
+msgstr ""
+
+msgid "Quick Task"
+msgstr ""
+
+msgid "No tasks."
+msgstr ""
+
+msgid "Tasks / To-Do"
+msgstr ""
+
 #, fuzzy
 msgid "Import / Export"
 msgstr "Importante"
@@ -5763,88 +5869,6 @@ msgstr "Enviar Fax"
 msgid "Contact Fax"
 msgstr ""
 
-#, fuzzy
-msgid "Widget height"
-msgstr "Añadir widgets"
-
-msgid "pixels"
-msgstr ""
-
-msgid "Reload interval"
-msgstr ""
-
-msgid "seconds"
-msgstr ""
-
-#, fuzzy
-msgid "Loading appointments..."
-msgstr "Cargando citas"
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr ""
-
-msgid "{0}"
-msgstr ""
-
-#, fuzzy
-msgid "Upcoming Appointments"
-msgstr "Cargando citas"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-# 93%
-# 100%
-#, fuzzy
-msgid "No appointments"
-msgstr "Nueva Cita"
-
-# 86%
-# 100%
-# 76%
-#, fuzzy
-msgid "Today {0} - {1}"
-msgstr "Página {A} de {0}"
-
-msgid "Today (all day)"
-msgstr ""
-
-# 100%
-#, fuzzy
-msgid "{0} - {1}"
-msgstr "{0} en {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr ""
-
-#, fuzzy
-msgid "d/m/y"
-msgstr "d/m/aa"
-
-msgid "Datepicker"
-msgstr ""
-
-msgid "No unread mail."
-msgstr ""
-
-msgid "Unread Mail"
-msgstr "Correo no leído"
-
-msgid "No tasks."
-msgstr ""
-
-msgid "Tasks / To-Do"
-msgstr ""
-
 msgid "Google Maps"
 msgstr ""
 
@@ -5871,30 +5895,6 @@ msgid "Select another folder"
 msgstr ""
 
 msgid "E-mails are moved to {0}"
-msgstr ""
-
-msgid "Open in new tab"
-msgstr ""
-
-msgid "Quick Appointment"
-msgstr ""
-
-msgid "Quick Contact"
-msgstr ""
-
-msgid "Quick Mail"
-msgstr ""
-
-msgid "Quick Note"
-msgstr "Nota"
-
-msgid "none"
-msgstr ""
-
-msgid "Quick Task"
-msgstr ""
-
-msgid "Title Counter Plugin"
 msgstr ""
 
 msgid "Charm pink"

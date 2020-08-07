@@ -1662,6 +1662,63 @@ msgstr ""
 "Dagatalið þitt hefur sjálfvirkt verið uppfært. Þessu fundarboði verður núna "
 "eytt."
 
+msgid "Loading appointments..."
+msgstr "Hleð tímabókunum..."
+
+msgid "Please select a calendar via widget settings"
+msgstr ""
+
+msgid "Number of days"
+msgstr "Fjöldi daga"
+
+msgid "day(s)"
+msgstr "dagur(dagar)"
+
+msgid "{0}"
+msgstr ""
+
+msgid "Upcoming Appointments"
+msgstr "Næstu tímabókanir"
+
+msgid "Appointments of {0}"
+msgstr ""
+
+msgid "Appointments of {0} - {1}"
+msgstr ""
+
+msgid "No appointments"
+msgstr "Engar tímabókanir"
+
+msgid "Today {0} - {1}"
+msgstr "Í dag {0} - {1}"
+
+msgid "Today (all day)"
+msgstr "Í dag (heill dagur)"
+
+msgid "{0} - {1}"
+msgstr "{0} - {1}"
+
+msgid "d/m/y {0}"
+msgstr ""
+
+msgid "{0} - {1} (all day)"
+msgstr "{0} - {1} (heill dagur)"
+
+msgid "d/m/y"
+msgstr "d/m/y"
+
+msgid "Select one..."
+msgstr "Veldu eitt..."
+
+msgid "Unnamed folder"
+msgstr "Mappa án titils"
+
+msgid "Discard"
+msgstr "Henda"
+
+msgid "Quick Appointment"
+msgstr "Skyndibókun"
+
 msgid "Printing of multiple items has not been implemented."
 msgstr "Útprentun fjölda atriða er ekki studd í augnablikinu."
 
@@ -2689,17 +2746,11 @@ msgstr "hefur nafnið mitt í tilreit (to)"
 msgid "is received (all messages)"
 msgstr "er móttekið (öll skilaboð)"
 
-msgid "Select one..."
-msgstr "Veldu eitt..."
-
 msgid "Unknown condition"
 msgstr "Óþekkt skilyrði"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Skilyrðin fyrir þessa reglu eru óþekkt"
-
-msgid "Unnamed folder"
-msgstr "Mappa án titils"
 
 msgid "Add action"
 msgstr "Bæta við aðgerð"
@@ -2924,8 +2975,8 @@ msgstr "{0} í vanskilum"
 msgid "Loading..."
 msgstr "Hleð..."
 
-msgid "Failed"
-msgstr "Mistókst"
+msgid "Message could not be loaded"
+msgstr ""
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3157,6 +3208,9 @@ msgstr "í"
 
 msgid "Root"
 msgstr "Rót"
+
+msgid "Datepicker"
+msgstr "Dagsetningarval"
 
 msgid "File As"
 msgstr "Skrá sem"
@@ -3583,6 +3637,9 @@ msgstr "Fjarlægja mynd"
 msgid "VCF file(s)"
 msgstr "VCF skrá(r)"
 
+msgid "Quick Contact"
+msgstr "Skynditengiliður"
+
 msgid "Open in new browser window"
 msgstr "Opna í nýjum vafraglugga"
 
@@ -3835,14 +3892,29 @@ msgstr "Þetta er í fyrsta skiptið sem þú notar Kopano vefviðmótið. "
 msgid "Please check the following settings before continuing."
 msgstr "Vinsamlegast athugaðu eftirfarandi stillingar áður en þú heldur áfram."
 
+msgid "Widget height"
+msgstr "Græjuhæð"
+
+msgid "pixels"
+msgstr "pixlar"
+
+msgid "Configure widget"
+msgstr "Stilla græju"
+
+msgid "Reload interval"
+msgstr "Endurhleðslutímabil"
+
+msgid "seconds"
+msgstr "sekúndur"
+
+msgid "Open in new tab"
+msgstr "Opna í nýjum flipa"
+
 msgid "Add widgets"
 msgstr "Bæta við græjum"
 
 msgid "No widgets installed."
 msgstr "Engar uppsettar græjur til."
-
-msgid "Configure widget"
-msgstr "Stilla græju"
 
 msgid "Remove widget"
 msgstr "Fjarlægja græju"
@@ -4208,9 +4280,6 @@ msgstr "Farðu í úthólfið til að breyta tölvupóstinum."
 
 msgid "hour(s)"
 msgstr "klukkustund(ir)"
-
-msgid "day(s)"
-msgstr "dagur(dagar)"
 
 msgid "month(s)"
 msgstr "mánuður(mánuðir)"
@@ -4603,6 +4672,15 @@ msgstr "Senda til"
 msgid "Loading mail"
 msgstr "Hleð pósti"
 
+msgid "No unread mail."
+msgstr "Enginn ólesinn póstur."
+
+msgid "Unread Mail"
+msgstr "Ólesinn póstur"
+
+msgid "Quick Mail"
+msgstr "Skyndipóstur"
+
 msgid "Print note"
 msgstr "Prenta minnisatriði"
 
@@ -4647,6 +4725,9 @@ msgstr "Hleð minnisatriðum"
 
 msgid "Loading notes"
 msgstr "Hleð minnisatriðum"
+
+msgid "Quick Note"
+msgstr "Skyndiminnisatriði"
 
 msgid ""
 "You must reload WebApp for the changes to take effect. Unsaved changes will "
@@ -4739,6 +4820,9 @@ msgstr "Gefa ólesnum atriðum litaðan ramma"
 msgid "Show 'help' button in top-right corner"
 msgstr ""
 
+msgid "Show unread mail counter in application title"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Innhólfsstiki"
 
@@ -4785,9 +4869,6 @@ msgstr "Allir flýtilyklar virkjaðir"
 
 msgid "This change requires a reload of the WebApp"
 msgstr "Þessi breyting krefst þess að þú endurhlaðir Kopano vefviðmótinu"
-
-msgid "Discard"
-msgstr "Henda"
 
 msgid "Plugins"
 msgstr "Íbætur"
@@ -5135,6 +5216,18 @@ msgstr "Uppfæra lista"
 msgid "D d-m-Y"
 msgstr "D d-m-Y"
 
+msgid "none"
+msgstr "ekkert"
+
+msgid "Quick Task"
+msgstr "Skyndiverk"
+
+msgid "No tasks."
+msgstr "Engin verk."
+
+msgid "Tasks / To-Do"
+msgstr "Verkskrá / Aðgerðalisti"
+
 msgid "Import / Export"
 msgstr "Flytja inn/út"
 
@@ -5326,75 +5419,6 @@ msgstr "Senda bréfsíma"
 msgid "Contact Fax"
 msgstr "Bréfsímanúmer tengiliðs"
 
-msgid "Widget height"
-msgstr "Græjuhæð"
-
-msgid "pixels"
-msgstr "pixlar"
-
-msgid "Reload interval"
-msgstr "Endurhleðslutímabil"
-
-msgid "seconds"
-msgstr "sekúndur"
-
-msgid "Loading appointments..."
-msgstr "Hleð tímabókunum..."
-
-msgid "Please select a calendar via widget settings"
-msgstr ""
-
-msgid "Number of days"
-msgstr "Fjöldi daga"
-
-msgid "{0}"
-msgstr ""
-
-msgid "Upcoming Appointments"
-msgstr "Næstu tímabókanir"
-
-msgid "Appointments of {0}"
-msgstr ""
-
-msgid "Appointments of {0} - {1}"
-msgstr ""
-
-msgid "No appointments"
-msgstr "Engar tímabókanir"
-
-msgid "Today {0} - {1}"
-msgstr "Í dag {0} - {1}"
-
-msgid "Today (all day)"
-msgstr "Í dag (heill dagur)"
-
-msgid "{0} - {1}"
-msgstr "{0} - {1}"
-
-msgid "d/m/y {0}"
-msgstr ""
-
-msgid "{0} - {1} (all day)"
-msgstr "{0} - {1} (heill dagur)"
-
-msgid "d/m/y"
-msgstr "d/m/y"
-
-msgid "Datepicker"
-msgstr "Dagsetningarval"
-
-msgid "No unread mail."
-msgstr "Enginn ólesinn póstur."
-
-msgid "Unread Mail"
-msgstr "Ólesinn póstur"
-
-msgid "No tasks."
-msgstr "Engin verk."
-
-msgid "Tasks / To-Do"
-msgstr "Verkskrá / Aðgerðalisti"
-
 msgid "Google Maps"
 msgstr "Kort frá Google"
 
@@ -5422,30 +5446,6 @@ msgstr "Velja aðra möppu"
 
 msgid "E-mails are moved to {0}"
 msgstr "Tölvupóstar eru færðir til {0}"
-
-msgid "Open in new tab"
-msgstr "Opna í nýjum flipa"
-
-msgid "Quick Appointment"
-msgstr "Skyndibókun"
-
-msgid "Quick Contact"
-msgstr "Skynditengiliður"
-
-msgid "Quick Mail"
-msgstr "Skyndipóstur"
-
-msgid "Quick Note"
-msgstr "Skyndiminnisatriði"
-
-msgid "none"
-msgstr "ekkert"
-
-msgid "Quick Task"
-msgstr "Skyndiverk"
-
-msgid "Title Counter Plugin"
-msgstr "Titilstalningaríbót"
 
 msgid "Charm pink"
 msgstr "Sjarmerandi bleikt"
