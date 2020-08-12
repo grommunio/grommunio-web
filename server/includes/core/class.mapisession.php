@@ -90,7 +90,7 @@
 			$flags |= 1; // Always disable notifications
 
 			try {
-				$webapp_version = 'WebApp-'.trim(file_get_contents(BASE_PATH . 'version'));
+				$webapp_version = 'WebApp-'.getWebappVersion();
 				$browser_version = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 				$this->session = mapi_logon_zarafa($username, $password, $server, $sslcert_file,
 								   $sslcert_pass, $flags, $webapp_version, $browser_version);

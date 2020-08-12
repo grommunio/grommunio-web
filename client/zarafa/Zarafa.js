@@ -896,6 +896,11 @@ Ext.apply(Zarafa, {
 		// Starts shared stores unread email poller.
 		this.startSharedStoresHierarchyChecker();
 
+		// Starts poller to ensure license if webapp is supported build.
+		if (IS_KUSTOMER_CHECK_ENABLED) {
+			container.getHierarchyStore().startEnsureLicense();
+		}
+
 		// Check if the Wingdings font is installed
 		this.wingdingsInstalled = window.checkfont.exists('Wingdings');
 	},

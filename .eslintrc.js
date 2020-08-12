@@ -268,19 +268,20 @@ module.exports = {
 	"prefer-const": "off"
     },
     "globals": {
-	    "Zarafa": true,
-	    "_": true,
-	    "container": true,
-	    "Ext": true,
-	    "pgettext": true,
-	    "ngettext": true,
-	    "npgettext": true,
-	    "urlActionData": true,
-	    "resizeLoginBox": true,
-	    "tinymce": true,
-	    "userManager": true,
-	    "Oidc": true,
+        "Zarafa": true,
+        "_": true,
+        "container": true,
+        "Ext": true,
+        "pgettext": true,
+        "ngettext": true,
+        "npgettext": true,
+        "urlActionData": true,
+        "resizeLoginBox": true,
+        "tinymce": true,
+        "userManager": true,
+        "Oidc": true,
         "DOMPurify": true,
-        "chrome": true
+        "chrome": true,
+        "IS_KUSTOMER_CHECK_ENABLED" : false
     }
 };

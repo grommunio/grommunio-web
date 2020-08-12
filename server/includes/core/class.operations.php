@@ -4091,7 +4091,7 @@
 			$html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
 					."<html>\n"
 					."<head>\n"
-					."  <meta name=\"Generator\" content=\"Kopano WebApp v".trim(file_get_contents('version'))."\">\n"
+					."  <meta name=\"Generator\" content=\"Kopano WebApp v-".getWebappVersion()."\">\n"
 					."  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n"
 					."  <title>".htmlspecialchars($title)."</title>\n";
 

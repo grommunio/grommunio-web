@@ -1,5 +1,6 @@
 <?php
-	/**
+
+/**
 	 * Hierarchy Module
 	 *
 	 * @todo
@@ -330,6 +331,9 @@
 								}
 
 								$this->sendFeedback(true);
+								break;
+							case "ensure":
+								$this->ensureLicense();
 								break;
 							default:
 								$this->handleUnknownActionType($actionType);
@@ -1253,6 +1257,64 @@
 				// Add all response data to Bus
 				$GLOBALS["bus"]->addData($this->getResponseData());
 			}
+		}
+
+		/**
+		 * Function used to ensure the license claims for supported(kopano one) webapp.
+		 */
+		function ensureLicense()
+		{
+			$stateData = EnsureLicense::retrieveCache();
+			$allowUpdate = $this->isRequiredUpdate($stateData);
+			$data = array();
+
+			// No need to update the cache just reuse the
+			// 'status' from cached data.
+			if ($allowUpdate === false) {
+				$data["status"] = $stateData["status"];
+
+				$this->addActionData("ensure", $data);
+				$GLOBALS["bus"]->addData($this->getResponseData());
+				return;
+			}
+
+			try {
+				EnsureLicense::ensureOK("groupware");
+				$data["status"] = 0;
+			} catch (KUSTOMER\NumericException $e) {
+				error_log($e->getMessage());
+				$data["status"] = $e->getCode();
+			}
+
+			EnsureLicense::updateCache(array(
+				"last_ensured_time"=>time(),
+				"status"=> $data["status"]
+			));
+			$this->addActionData("ensure", $data);
+			$GLOBALS["bus"]->addData($this->getResponseData());
+		}
+
+		/**
+		 * Function used to check ensure license cache data
+		 * needs to update or not.
+		 *
+		 * @param array $stateData The cached data of ensured license.
+		 * @return bool true to update the cache else false.
+		 */
+		function isRequiredUpdate($stateData)
+		{
+			if ($stateData === false) {
+				return true;
+			}
+
+			if (isset($stateData["last_ensured_time"])) {
+				$interval = time() - $stateData["last_ensured_time"];
+				// If interval is more then 10 minuet then update the
+				// ensure license cache.
+				return $interval >= 10 * 60;
+			}
+
+			return true;
 		}
 	}
 ?>

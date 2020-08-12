@@ -177,6 +177,16 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 										'value' : 'dropdown'
 									},
 
+									'license' : {
+										/**
+										 * zarafa/v1/main/notifier/eror/license/value
+										 * Default plugin for the "Expired or over used license" user notifications
+										 * @property
+										 * @type String
+										 */
+										'value' : 'dropdown'
+									},
+
 									'hierarchy' : {
 
 										'defaultfolder' : {
@@ -187,7 +197,7 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 											 * @type String
 											 */
 											'value' : 'dropdown'
-										}
+										},
 									},
 
 									'proxy': {

@@ -51,6 +51,8 @@
 	require_once(BASE_PATH . 'server/includes/core/class.conversion.php');
 	require_once(BASE_PATH . 'server/includes/core/class.mapisession.php');
 	require_once(BASE_PATH . 'server/includes/core/class.properties.php');
+	require_once(BASE_PATH . 'server/includes/core/class.ensurelicense.php');
+
 	require_once(BASE_PATH . 'server/includes/core/class.operations.php');
 	require_once(BASE_PATH . 'server/includes/core/class.entryid.php');
 

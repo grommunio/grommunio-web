@@ -763,4 +763,14 @@
 		// as it is nearly impossible to be altered.
 		return $_SERVER['REMOTE_ADDR'];
 	}
+
+	/**
+	 * Helper function which return the webapp version.
+	 *
+	 * @returns String webapp version.
+	 */
+	function getWebappVersion()
+	{
+		return trim(file_get_contents('version'));
+	}
 ?>

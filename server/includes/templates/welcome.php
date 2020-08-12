@@ -4,7 +4,7 @@ include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
 
-$versionInfo['webapp'] = $loader->getVersion();
+$versionInfo['webapp'] = getWebappVersion();
 $versionInfo['cachebuster'] = $loader->getCachebuster();
 $serverConfig = array(
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
@@ -23,7 +23,7 @@ $serverConfig = array(
 <html>
 
 	<head>
-		<meta name="Generator" content="Kopano WebApp v<?php echo $loader->getVersion()?>">
+		<meta name="Generator" content="Kopano WebApp v-<?php echo getWebappVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -62,7 +62,7 @@ $serverConfig = array(
 		<script type="text/javascript"><?php require(BASE_PATH . 'client/resize.js'); ?></script>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo getWebappVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected()?>"></script>
 		<!-- JS Files -->
 		<?php $loader->jsOrder(); ?>
 

@@ -31,6 +31,16 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	state : undefined,
 
 	/**
+	 * The lastEnsuredLicenseTime contains the last time of license ensured. It is used when
+	 * webapp is supported.
+	 *
+	 * @property
+	 * @private
+	 * @type Number
+	 */
+	lastEnsuredLicenseTime : undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -856,8 +866,9 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	 * Sends a request to the server with only an action type and no other parameters. It will also not
 	 * wait for / handle a response.
 	 * @param {Zarafa.core.Actions} action The action type that will be send to the server
+	 * @param {Function} callback call back function to call when the request has finished successfully.
 	 */
-	sendSimpleActionToServer : function(action)
+	sendSimpleActionToServer : function(action, callback)
 	{
 		var options = {
 			params : {},
@@ -865,7 +876,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		};
 
 		// fire request
-		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.emptyFn, this, options);
+		this.proxy.request(Ext.data.Api.actions['read'], null, options.params, this.reader, Ext.isFunction(callback) ? callback : Ext.emptyFn, this, options);
 	},
 
 	/**
@@ -1034,6 +1045,67 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		});
 
 		return finalResult;
+	},
+
+	/**
+	 * Start the ensuring license, It will check the license on server side
+	 * for supported builds.
+	 */
+	startEnsureLicense : function ()
+	{
+		this.ensureLicense();
+
+		this.lastEnsuredLicenseTime = new Date().getTime();
+		// Trigger callback function on interval of every 1 minute.
+		setInterval(function(scope) {
+			var interval = new Date().getTime() - scope.lastEnsuredLicenseTime;
+
+			// Ensure the license every 1 hour.
+			if (interval >= (60 * 60 * 1000)) {
+				scope.ensureLicense();
+				scope.lastEnsuredLicenseTime = new Date().getTime();
+			}
+
+		}, 6 * 1000, this);
+	},
+
+	/**
+	 * Send a <b>ensure</b> request to make the backend check the license is valid or not.
+	 */
+	ensureLicense : function ()
+	{
+		this.sendSimpleActionToServer(Zarafa.core.Actions['ensure'], this.ensureLicenseCallback);
+	},
+
+	/**
+	 * Call back function is called when the request has finished successfully.
+	 */
+	ensureLicenseCallback : function (response)
+	{
+		var status =  response.status;
+
+		if (Ext.isDefined(status) && status > 0) {
+			if (!Ext.isDefined(this.el)) {
+				this.el = container.getNotifier().notify('error.license',
+					_('License error'),
+					_('The installed license key(s) have expired or are being over used. Please contact your system administrator for further information.'),
+					{
+						persistent : true,
+						listeners : {
+							'click' : function (element){
+								container.getNotifier().notify('error.license', null, null, {
+									reference : element,
+									destroy : true
+								});
+
+								this.el = undefined;
+							},
+							'scope': this
+						}
+					}
+				);
+			}
+		}
 	}
 });
 

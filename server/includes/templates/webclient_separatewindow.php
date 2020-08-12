@@ -7,7 +7,7 @@ $loader = new FileLoader();
 <html>
 
 	<head>
-		<meta name="Generator" content="Kopano WebApp v<?php echo $loader->getVersion()?>">
+		<meta name="Generator" content="Kopano WebApp v<?php echo getWebappVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>

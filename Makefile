@@ -39,6 +39,7 @@ MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(shell find server/includes -name '*.php')
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
 SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
+IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files
 
@@ -76,7 +77,15 @@ deploy: server client plugins
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES) $(IS_SUPPORTED_BUILD)
+
+supported:
+	sed -i "s/IS_KUSTOMER_CHECK_ENABLED =.*/IS_KUSTOMER_CHECK_ENABLED = true;/" $(DESTDIR)/server/includes/templates/webclient.php
+	sed -i "s/$kustomerCheckEnabled =.*/$kustomerCheckEnabled = true;/" $(DESTDIR)/server/includes/core/class.ensurelicense.php
+
+validate-supported:
+	$(if $(filter true;, $(shell cat $(DESTDIR)/server/includes/templates/webclient.php | grep "IS_KUSTOMER_CHECK_ENABLED" | awk '{print $$4}')),,$(error Unable to set value for IS_KUSTOMER_CHECK_ENABLED ))
+	$(if $(filter true;, $(shell cat $(DESTDIR)/server/includes/core/class.ensurelicense.php | grep "kustomerCheckEnabled =" | awk '{print $$4}')),,$(error Unable to set value for $$kustomerCheckEnabled))
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(AUDIODEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/

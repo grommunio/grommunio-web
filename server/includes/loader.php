@@ -191,15 +191,6 @@ class FileLoader {
 	}
 
 	/**
-	 * Return WebApp version.
-	 * @return String returns WebApp version
-	 */
-	public function getVersion()
-	{
-		return trim(file_get_contents('version'));
-	}
-
-	/**
 	 * Return Cache busting version.
 	 * @return String returns WebApp version shasum'd for cache busting.
 	 */

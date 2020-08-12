@@ -239,5 +239,12 @@ Zarafa.core.Actions =
 	 * @property
 	 * @type String
 	 */
-	sharedstoreupdate: 'sharedstoreupdate'
+	sharedstoreupdate: 'sharedstoreupdate',
+
+	/**
+	 * Used for ensuring license for supported products.
+	 * @property
+	 * @type String
+	 */
+	ensure : 'ensure'
 };
