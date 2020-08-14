@@ -67,6 +67,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 
 				if (this.updatedLast) {
 					this.last = this.updatedLast;
+					this.clearUpdatedLast();
 				}
 
 				// Index of the last record might have changed.
@@ -238,6 +239,14 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 	},
 
 	/**
+	 * This function will reset the config {@link #updatedLast}
+	 */
+	clearUpdatedLast : function()
+	{
+		this.updatedLast = undefined;
+	},
+
+	/**
 	 * Handler for the key press event.
 	 * 
 	 * Note: we need to modify this function because on dynamically addintion of rows in grid
@@ -265,6 +274,7 @@ Zarafa.mail.ui.MailRowSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
 			}
 			
 			last = this.updatedLast;
+			this.clearUpdatedLast();
 			this.selectRange(last, endIndex, undefined, up);
 			this.grid.getView().focusRow(this.lastActive);
             if (last !== false){
