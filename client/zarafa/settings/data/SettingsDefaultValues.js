@@ -411,6 +411,35 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 * @type Boolean 
 								 */
 								show : true
+							},
+							
+							/**
+							 * zarafa/v1/main/desktop_notification
+							 */
+							'desktop_notification' : {
+								/**
+								 * zarafa/v1/main/desktop_notification/autohide_enable
+								 * Whether or not desktop notification should hide after some time.
+								 * @property
+								 * @type Boolean
+								 */
+								autohide_enable: false,
+								
+								/**
+								 * zarafa/v1/main/desktop_notification/autohide_time
+								 * Time after which desktop notification should be hidden.
+								 * @property
+								 * @type Number
+								 */
+								autohide_time: 5,
+								
+								/**
+								 * zarafa/v1/main/desktop_notification/disable_sound
+								 * Whether or not sound for the desktop notification should be disable.
+								 * @property
+								 * @type Boolean
+								 */
+								disable_sound: false
 							}
 						},
 
