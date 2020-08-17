@@ -7,7 +7,7 @@
 <script type="text/javascript"><?php require(BASE_PATH . 'client/oidc/oidc-client.js'); ?></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-        new Oidc.UserManager().signinSilentCallback()
+        new Oidc.UserManager({'response_mode': 'fragment'}).signinSilentCallback()
                 .catch((err) => {
                         console.log('silent refresh callback failed', err);
                 });

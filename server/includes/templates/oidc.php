@@ -24,7 +24,8 @@
 			$oidcSettings = Array(
 				'authority' => OIDC_ISS,
 				'client_id' => OIDC_CLIENT_ID,
-				'response_type' => 'id_token token',
+				'response_type' => 'code',
+				'response_mode' => 'fragment',
 				'scope' => OIDC_SCOPE,
 			);
 		?>
