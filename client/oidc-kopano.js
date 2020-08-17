@@ -4,7 +4,7 @@ const userManager = (function(){
 	var mgr;
 
 	Oidc.Log.logger = console;
-	Oidc.Log.level = Oidc.Log.DEBUG;
+	Oidc.Log.level = Oidc.Log.WARN;
 
 	function remove_hash_from_url()
 	{
