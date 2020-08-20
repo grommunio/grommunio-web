@@ -64,6 +64,7 @@ Zarafa.addressbook.dialogs.ABMultiUserSelectionContentPanel = Ext.extend(Zarafa.
 			xtype : 'zarafa.abmultiuserselectioncontentpanel',
 			layout : 'fit',
 			title : _('Address Book'),
+			stateful : Zarafa.core.BrowserWindowMgr.isMainWindowActive(),
 			items: [{
 				xtype: 'zarafa.abmultiuserselectionpanel',
 				hideContactsFolders : config.hideContactsFolders,
