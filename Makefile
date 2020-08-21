@@ -45,6 +45,8 @@ SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/.htaccess server/manifest.dtd)
 CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.* client/extjs/ux/css/ux-all.css client/extjs/resources/css/*.css)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
 IMAGEDIR = client/resources/images
+AUDIODIR = $(wildcard client/resources/audio/*.*)
+AUDIODEST = $(addprefix $(DESTDIR)/, $(AUDIODIR))
 APPICONS = $(wildcard $(IMAGEDIR)/app-icons/*.*)
 APPICONSSCSS = client/resources/scss/base/_icons.scss
 APPICONSEXTENSIONSFILE = client/resources/images/app-icons.extensions.json
@@ -76,7 +78,7 @@ test: jstest
 
 server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
 
-client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
+client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(AUDIODEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
 	cp -r client/zarafa/core/themes $(DESTDIR)/client/
 	rm -rf $(DESTDIR)/client/themes/*/js

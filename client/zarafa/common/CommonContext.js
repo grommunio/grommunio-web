@@ -24,6 +24,7 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		this.registerInsertionPoint('context.settings.categories', this.createDelegateSettingsCategory, this);
 		this.registerInsertionPoint('context.settings.categories', this.createSendAsSettingsCategory, this);
 		this.registerInsertionPoint('context.settings.categories', this.createRuleSettingsCategory, this);
+		this.registerInsertionPoint('context.settings.categories', this.createNotificationSettingsCategory, this);
 
 		// Register common specific dialog types
 		Zarafa.core.data.SharedComponentType.addProperty('common.dialog.copymoverecords');
@@ -325,6 +326,27 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			xtype : 'zarafa.settingsrulecategory',
 			settingsContext : settingsContext
 		};
+	},
+
+	/**
+	 * Create the Notification {@link Zarafa.settings.ui.SettingsCategory Settings Category}
+	 * to the {@link Zarafa.settings.SettingsContext}. This will create new
+	 * {@link Zarafa.settings.ui.SettingsCategoryTab tabs} for the
+	 * {@link Zarafa.common.settings.SettingsNotificationsCategory Notifications}
+	 * in the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel Widget Panel}.
+	 * @param {String} insertionName insertion point name that is currently populated
+	 * @param {Zarafa.settings.ui.SettingsMainPanel} settingsMainPanel settings main panel
+	 * which is populating this insertion point
+	 * @param {Zarafa.settings.SettingsContext} settingsContext settings context
+	 * @return {Array} configuration object for the categories to register
+	 * @private
+	 */
+	createNotificationSettingsCategory : function(insertionName, settingsMainPanel, settingsContext)
+	{
+		return {
+            xtype : 'zarafa.settingsnotificationscategory',
+            settingsContext : settingsContext
+        };
 	}
 });
 

@@ -1668,5 +1668,121 @@ Zarafa.common.Actions = {
 			}],
 			scope: Ext.isDefined(scope) ? scope : this
 		});
+	},
+
+	/**
+	 * Check if browser has permissions to show notifications
+	 * @return {Boolean} true if permissions are granted to show desktop notifications else false
+	 */
+	hasPermission: function ()
+	{
+		var PERMISSION =['granted', 'default', 'denied'];
+		if (!Ext.isDefined(window.Notification)) {
+			console.error('Browser doesn\'t support notifications');
+			return;
+		}
+
+		var permission = 'default';
+		if (Ext.isFunction(Notification.checkPermission)) {
+			permission = PERMISSION[Notification.checkPermission()];
+		} else if (Ext.isFunction(Notification.permissionLevel)) {
+			permission = Notification.permissionLevel();
+		} else if (Notification.permission) {
+			permission = Notification.permission;
+		}
+
+		if (permission === 'granted') {
+			return true;
+		}
+
+		return false;
+	},
+
+	/**
+	 * Ask for permissions to show notifications
+	 * In chrome this function will only work when you call it based on some user action
+	 * like click of a button
+	 * @param {Function} callback callback function that will be called after user has
+	 * granted/rejected permission request
+	 */
+	authorize: function (callback)
+	{
+		if (!Ext.isDefined(window.Notification)) {
+			console.error('Browser doesn\'t support notifications');
+			return;
+		}
+
+		if (Ext.isFunction(Notification.requestPermission)) {
+			var promise = Notification.requestPermission();
+			if (Ext.isFunction(callback)) {
+				promise.then(function(perm) {
+					// chrome doesn't give us current permission level, so default to granted if permission level is passed.
+					callback.apply(this, [perm ? perm : 'granted']);
+				});
+			}
+		}
+	},
+
+	/**
+	 * Function will show a desktop notification
+	 * @param {String} title title to use when showing desktop notifications
+	 * @param {Object} options object containing below key value pairs to provide extra information
+	 * for the desktop notifications
+	 * 		- icon : icon to show in desktop notifications
+	 * 		- body : message to display
+	 *		- tag : tag to group same type of notifications so multiple notifications
+	 *				will not be showed multiple times
+	 * @param {Object} handlers object containing handler function that can be registered on instance of
+	 * notification object
+	 * 		- possible handlers are click, show, error, close
+	 */
+	notify: function (title, options, handlers)
+	{
+		if (!Ext.isDefined(window.Notification)) {
+			console.error('Browser doesn\'t support notifications');
+			return;
+		}
+
+		if (!this.hasPermission()) {
+			console.error('Permission is denied to show desktop notifications');
+			return;
+		}
+
+		var notification = new Notification(title, {
+			icon: options.icon,
+			body: options.body,
+			requireInteraction: true
+		});
+
+		if (container.getSettingsModel().get('zarafa/v1/main/desktop_notification/autohide_enable')) {
+			var sleepTime = container.getSettingsModel().get('zarafa/v1/main/desktop_notification/autohide_time') * 1000;
+			notification.addEventListener("show", function () {
+				setTimeout(function () {
+					notification.close();
+				}, sleepTime);
+			});
+		}
+
+		if (handlers) {
+			for (var key in handlers) {
+				notification['on' + key] = handlers[key];
+			}
+		}
+
+		// Give audio feedback
+		if (!container.getSettingsModel().get('zarafa/v1/main/desktop_notification/disable_sound')) {
+			this.audioTag = Ext.getBody().createChild({
+				tag: 'audio',
+				type: 'audio/ogg',
+				src: 'client/resources/audio/desktop_notification_audio.ogg',
+				autoplay: true
+			});
+
+			// destroy audio element when playback is completed
+			this.audioTag.on('ended', function () {
+				Ext.destroy(this.audioTag);
+				delete this.audioTag;
+			}, this);
+		}
 	}
 };
