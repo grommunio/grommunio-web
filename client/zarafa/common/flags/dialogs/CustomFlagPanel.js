@@ -176,6 +176,7 @@ Zarafa.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, {
 	{
 		this.records.forEach(function (record) {
 			record.set(field.getName(), newValue);
+			record.set('flag_due_by', newValue);
 		},this);
 		this.getForm().loadRecord(this.records[0]);
 	},
