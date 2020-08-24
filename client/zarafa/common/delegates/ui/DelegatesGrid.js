@@ -149,21 +149,26 @@ Zarafa.common.delegates.ui.DelegatesGrid = Ext.extend(Ext.grid.GridPanel, {
 	{
 		var selectionModel = this.getSelectionModel();
 		var delegateRecord = selectionModel.getSelected();
+		var rowToSelect;
 
 		if(!delegateRecord) {
 			Ext.Msg.alert(_('Alert'), _('Please select a delegate.'));
 			return;
 		}
 
-		// before removing delegate we should select next available delegate,
+		// before removing delegate we should store row index of next available delegate,
 		// because deleting delegate will remove selection
 		if (selectionModel.hasNext()) {
-			selectionModel.selectNext();
+			rowToSelect = selectionModel.last;
 		} else if (selectionModel.hasPrevious()) {
-			selectionModel.selectPrevious();
+			rowToSelect = selectionModel.last-1;
 		}
 
 		this.store.remove(delegateRecord);
+		
+		if (Ext.isDefined(rowToSelect)) {
+			selectionModel.selectRow(rowToSelect);
+		}
 	}
 });
 
