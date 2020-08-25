@@ -369,7 +369,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				}
 			}
 			var folder = this.getFolder((records[0].get('default_folder_'+folder_type)));
-			if (Ext.isDefined(folder) && folder_type!=='calendar') {
+			if (Ext.isDefined(folder)) {
 				Zarafa.hierarchy.Actions.openFolder(folder);
 			}
 
