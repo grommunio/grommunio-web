@@ -1,0 +1,21 @@
+Changes to ViewerJS:
+
+- <div id = "documentName" style="display:none;"></div>     // hide the document name as it will be visible in the panel title
+
+- this.download = function () {
+          var documentUrl = url.split('#')[0];
+          documentUrl += '&contentDispositionType=attachment';
+          window.open(documentUrl, '_parent');
+      };
+
+  (in the compressed version it is: window.open(a+"&contentDispositionType=attachment","_parent"))
+
+  // change the download url... otherwise the file will be shown inline
+
+  Changes to pdf.js:
+- Adding "hidden" class to "Open File" and "Current view" buttons to hide them in pdfjs/web/viewer.html:
+
+  like :
+  <button id="openFile" class="toolbarButton hidden openFile hiddenLargeView" title="Open File" tabindex="32" data-l10n-id="open_file">
+  and
+  <a href="#" id="viewBookmark" class="toolbarButton bookmark hidden hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark">

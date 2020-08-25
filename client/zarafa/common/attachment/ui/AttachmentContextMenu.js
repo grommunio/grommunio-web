@@ -187,7 +187,7 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	{
 		//should already have a component that has won the bid
 		//invoke that component to open the preview
-		Zarafa.core.data.UIFactory.openViewRecord(this.records);
+		Zarafa.core.data.UIFactory.openViewRecord(this.records, {modal: true, autoResize: true});
 	},
 
 	/**

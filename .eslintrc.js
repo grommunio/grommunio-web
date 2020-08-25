@@ -280,6 +280,7 @@ module.exports = {
 	    "tinymce": true,
 	    "userManager": true,
 	    "Oidc": true,
-	    "DOMPurify": true,
+        "DOMPurify": true,
+        "chrome": true
     }
 };
