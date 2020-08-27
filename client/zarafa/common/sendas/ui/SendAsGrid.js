@@ -86,21 +86,26 @@ Zarafa.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 	{
 		var selectionModel = this.getSelectionModel();
 		var sendasRecord = this.getSelectionModel().getSelected();
+		var rowToSelect;
 
 		if(!sendasRecord) {
 			Ext.Msg.alert(_('Alert'), _('Please select a from address record.'));
 			return;
 		}
 
-		// before removing send as we should select next available send as,
+		// before removing send as we should store row index of next available send as,
 		// because deleting send as will remove selection
 		if (selectionModel.hasNext()) {
-			selectionModel.selectNext();
+			rowToSelect = selectionModel.last;
 		} else if (selectionModel.hasPrevious()) {
-			selectionModel.selectPrevious();
+			rowToSelect = selectionModel.last-1;
 		}
 
 		this.store.remove(sendasRecord);
+		
+		if (Ext.isDefined(rowToSelect)) {
+			selectionModel.selectRow(rowToSelect);
+		}
 	},
 	
 	/**

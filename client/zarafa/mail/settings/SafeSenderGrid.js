@@ -79,21 +79,26 @@ Zarafa.mail.settings.SafeSenderGrid = Ext.extend(Ext.grid.GridPanel, {
 		var selectionModel = this.getSelectionModel();
 		var safeSenderRecord = selectionModel.getSelections();
 		var store = this.getStore();
+		var rowToSelect;
 
 		if(Ext.isEmpty(safeSenderRecord)) {
 			Ext.Msg.alert(_('Alert'), _('Please select a safe sender record.'));
 			return;
 		}
 
-		// before removing safesenders we should select next available safesender,
+		// before removing safesenders we should store row index of next available safesender,
 		// because deleting a safesender will remove selection
 		if (selectionModel.hasNext()) {
-			selectionModel.selectNext();
+			rowToSelect = selectionModel.last;
 		} else if (selectionModel.hasPrevious()) {
-			selectionModel.selectPrevious();
+			rowToSelect = selectionModel.last-1;
 		}
 
 		store.remove(safeSenderRecord);
+		
+		if (Ext.isDefined(rowToSelect)) {
+			selectionModel.selectRow(rowToSelect);
+		}
 	},
 
 	/**
