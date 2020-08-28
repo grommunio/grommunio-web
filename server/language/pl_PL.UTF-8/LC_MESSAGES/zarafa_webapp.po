@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-08-26 07:43+0000\n"
-"Last-Translator: Pawel <p.debik@kopano.com>\n"
+"PO-Revision-Date: 2020-08-28 13:56+0000\n"
+"Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/pl/>\n"
 "Language: pl_PL\n"
@@ -68,13 +68,13 @@ msgstr[2] ""
 msgid "{0} minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} minuta"
-msgstr[1] "{0} minut"
+msgstr[1] "{0} minuty"
 msgstr[2] ""
 
 msgid "{0} hour"
 msgid_plural "{0} hours"
 msgstr[0] "{0} godzina"
-msgstr[1] "{0} godzin"
+msgstr[1] "{0} godziny"
 msgstr[2] ""
 
 msgid "{0} day"
@@ -86,11 +86,11 @@ msgstr[2] ""
 msgid "{0} week"
 msgid_plural "{0} weeks"
 msgstr[0] "{0} tydzień"
-msgstr[1] "{0} tygodni"
+msgstr[1] "{0} tygodnie"
 msgstr[2] ""
 
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr "Wójt dźgnął boży puch, sześć frań, milkę."
+msgstr "Wójt dźgnął boży puch, sześć frań, milkę"
 
 msgid "Sunday"
 msgstr "Niedziela"
@@ -200,7 +200,6 @@ msgstr "Dzisiaj"
 msgid "OK"
 msgstr "OK"
 
-#, fuzzy
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -301,7 +300,7 @@ msgid "The time in this field must be equal to or after {0}"
 msgstr ""
 
 msgid "The time in this field must be equal to or before {0}"
-msgstr "Czas w tym polu musi być identyczny lub wcześniejszy niż {0} "
+msgstr "Czas w tym polu musi być identyczny lub wcześniejszy niż {0}"
 
 msgid "{0} is not a valid time"
 msgstr "{0} nieprawidłowe podanie czasu"
@@ -324,18 +323,17 @@ msgstr "Niewłaściwy"
 
 msgid ""
 "This field should be an e-mail address in the format \"user@example.com\""
-msgstr "To pole powinno zawierać adres e-mail w formacie \"user@example.com\" "
+msgstr "To pole powinno zawierać adres e-mail w formacie \"user@example.com\""
 
 msgid "This field should be a URL in the format \"{0}\""
 msgstr "To pole powinno zawierać URL w formacie \"{0}\""
 
 msgid "This field should only contain letters and _"
-msgstr "To pole powinno zawierać tylko litery i  _ "
+msgstr "To pole powinno zawierać tylko litery i  _"
 
 msgid "This field should only contain letters, numbers and _"
-msgstr "To pole powinno zawierać tylko litery, cyfry i _ "
+msgstr "To pole powinno zawierać tylko litery, cyfry i _"
 
-#, fuzzy
 msgid "Email Addresses"
 msgstr "Adresy e-mail"
 
@@ -346,7 +344,7 @@ msgid "Group details"
 msgstr "Szczegóły grupy"
 
 msgid "General"
-msgstr "Ogólny"
+msgstr "Ogólne"
 
 msgid "Display Name"
 msgstr "Nazwa wyświetlana"
@@ -370,7 +368,7 @@ msgid "Account"
 msgstr "Konto"
 
 msgid "Member Of"
-msgstr "Członek grupy: "
+msgstr "Członek grupy"
 
 msgid "Group Membership"
 msgstr "Członkostwo grupy"
@@ -454,7 +452,7 @@ msgid "Home2"
 msgstr "Numer prywatny 2"
 
 msgid "Mobile"
-msgstr "Nr tel.kom."
+msgstr "Nr tel.kom"
 
 msgid "Pager"
 msgstr "Pager"
@@ -463,7 +461,7 @@ msgid "No user selected"
 msgstr "Nie wybrano notatki"
 
 msgid "You must select one or more users."
-msgstr "Należy wybrać jednego lub więcej użytkowników"
+msgstr "Należy wybrać jednego lub więcej użytkowników."
 
 msgid "You must select a user."
 msgstr "Należy wybrać użytkownika."
@@ -485,13 +483,13 @@ msgid ""
 msgstr ""
 
 msgid "Use the search bar to get results"
-msgstr "Użyj opcji wyszukiwania w celu uzyskania wyników."
+msgstr "Użyj opcji wyszukiwania w celu uzyskania wyników"
 
 msgid "There are no items to show in this list"
 msgstr "Nie znaleziono elementów w tym widoku"
 
 msgid "Show Names from the"
-msgstr "Pokaż nazwy z "
+msgstr "Pokaż nazwy z"
 
 msgid "Search..."
 msgstr "Szukaj ..."
@@ -628,9 +626,8 @@ msgstr ""
 msgid "Folder name"
 msgstr "Nazwa folderu"
 
-#, fuzzy
 msgid "Select Category"
-msgstr "Ustaw kategorię"
+msgstr "Wybierz kategorię"
 
 msgid "Apply"
 msgstr "Zastosuj"
@@ -647,9 +644,8 @@ msgstr "Odpowiedz wszystkim"
 msgid "Forward"
 msgstr "Prześlij dalej"
 
-#, fuzzy
 msgid "Edit as New"
-msgstr "Wyślij jako nową wiadomość"
+msgstr "Edytuj jako nowy"
 
 msgid "Search tools"
 msgstr "Narzędzia wyszukiwarki"
@@ -666,11 +662,9 @@ msgstr "Szukaj ..."
 msgid "Mails"
 msgstr "E-maile"
 
-#, fuzzy
 msgid "Appointments"
-msgstr "Termin spotkania"
+msgstr "Daty"
 
-#, fuzzy
 msgid "Contacts"
 msgstr "Kontakty"
 
@@ -689,19 +683,16 @@ msgstr "Załączniki"
 msgid "Date"
 msgstr "Data"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "Od"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "Do"
 
-#, fuzzy
 msgid "Filter category.."
-msgstr "Filtruj ..."
+msgstr "Kategoria filtru.."
 
 msgid "Search.."
 msgstr "Szukaj w ..."
@@ -736,9 +727,8 @@ msgstr "Sortuj według: Data"
 msgid "Loading Search results"
 msgstr "Ładowanie wyników wyszukiwania"
 
-#, fuzzy
 msgid "Sorting tip"
-msgstr "Sortowanie nie jest możliwe"
+msgstr "Sugestia dotycząca sortowania"
 
 msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
@@ -787,7 +777,7 @@ msgid "Could not open store."
 msgstr "Nie można otworzyć skrzynki."
 
 msgid "Could not open default calendar folder."
-msgstr "Nie można otworzyć domyślnego folderu kalendarza"
+msgstr "Nie można otworzyć domyślnego folderu kalendarza."
 
 msgid "workday"
 msgstr "dzień roboczy"
@@ -844,9 +834,10 @@ msgid "Occurs every {0} {1} effective {2} for {3} occurence from {4} to {5}."
 msgid_plural ""
 "Occurs every {0} {1} effective {2} for {3} occurences {4} to {5}."
 msgstr[0] ""
-"Wyustępuje co {0} {1} , zaczynając w {2} dla {3} powtórzenia od {4} do {5}."
+"Występuje co {0} {1} {\\i1}efektywne {\\i0} {\\i1}dla {3}występowania od {4} "
+"do {5}."
 msgstr[1] ""
-"Występuje co {0}{1} , zaczynając w {2} dla {3} powtórzeń od {4} do {5}."
+"{0} {1} Występuje co {0} {1} skuteczny {2} dla {3} występuje {4} do {5}."
 msgstr[2] ""
 
 msgid "Occurs every {0} effective {1} for {2} occurence."
@@ -943,7 +934,6 @@ msgstr "Usuń z kalendarza"
 msgid "No Response Required"
 msgstr "Odpowiedź nie jest wymagana"
 
-#, fuzzy
 msgid "Accept"
 msgstr "akceptuj"
 
@@ -1010,16 +1000,14 @@ msgstr "Nie wybrano teminu"
 msgid "Print overview"
 msgstr "Drukuj przegląd"
 
-#, fuzzy
 msgid "Create Appointment"
-msgstr "Termin prywatny"
+msgstr "Umówić się na spotkanie"
 
 msgid "Calendar"
 msgstr "Kalendarz"
 
-#, fuzzy
 msgid "Create in other calendar"
-msgstr "Pokaż w kalendarzu"
+msgstr "Stwórz w innym kalendarzu"
 
 msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
@@ -1029,9 +1017,8 @@ msgstr ""
 msgid "What would you like?"
 msgstr ""
 
-#, fuzzy
 msgid "Own calendar"
-msgstr "Pokaż w kalendarzu"
+msgstr "Własny kalendarz"
 
 msgid "F Y"
 msgstr "F Y"
@@ -1055,14 +1042,12 @@ msgstr "Do czy DW"
 msgid "Meeting"
 msgstr "Spotkanie"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Zasoby zostały zaplanowane."
+msgstr "Zasoby zostały zaplanowane"
 
-#, fuzzy
 msgid "Send update"
-msgstr "Wyślij później"
+msgstr "Wyślij aktualizację"
 
 msgid "Do you want to send an update to all recipients?"
 msgstr ""
@@ -1211,13 +1196,11 @@ msgid "Send"
 msgstr "Wysyłanie"
 
 msgid "Save"
-msgstr "Zapsz"
+msgstr "Zapisz"
 
-#, fuzzy
 msgid "Close"
 msgstr "Zamknij"
 
-#, fuzzy
 msgid "Delete"
 msgstr "Usuń"
 
@@ -1492,7 +1475,7 @@ msgid "Calendar view settings"
 msgstr "Kalendarz ustawienia widoku"
 
 msgid "View multiple calendars in"
-msgstr "Pokaż kilka kalendarzy w "
+msgstr "Pokaż kilka kalendarzy w"
 
 msgid "Reminder settings"
 msgstr "Ustawienia przypomnień"
@@ -1512,8 +1495,8 @@ msgstr "j."
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] "{0} wybrany element"
-msgstr[1] "{0} wybrane elementy"
+msgstr[0] "{0} wybraną pozycję"
+msgstr[1] "{0} wybrane pozycje"
 msgstr[2] ""
 
 msgid "New Appointment"
@@ -1523,7 +1506,7 @@ msgid "New Meeting Request"
 msgstr "Nowe zapytanie o termin"
 
 msgid "Open"
-msgstr "Otwórz"
+msgstr "Otwarte"
 
 msgid "Copy/Move"
 msgstr "Kopiuj/Przenieś"
@@ -1775,7 +1758,7 @@ msgid "Unnamed folder"
 msgstr "Folder bez nazwy"
 
 msgid "Discard"
-msgstr "Odrzuć"
+msgstr "Odrzucać"
 
 msgid "Quick Appointment"
 msgstr "Szybki temin"
@@ -2173,7 +2156,7 @@ msgid "Delegate Permissions"
 msgstr "Uprawnienia pełnomocnika"
 
 msgid "This delegate has the following permissions"
-msgstr "Pełnomocnik ma następujące uprawnienia"
+msgstr "Ten delegat posiada następujące zezwolenia"
 
 msgid "Delegate can see my private items."
 msgstr "Pełnomocnik może widzieć prywatne wpisy."
@@ -2218,7 +2201,7 @@ msgid "Copy/Move Folder"
 msgstr "Kopiuj/Przenieś Folder"
 
 msgid "Copy/Move Messages"
-msgstr "Kopiuj/Przenieś Wiadomości "
+msgstr "Kopiuj/Przenieś Wiadomości"
 
 msgid "Destination folder"
 msgstr "Folder docelowy"
@@ -2288,7 +2271,7 @@ msgid "Set reminder"
 msgstr "Przypomnienie"
 
 msgid "Complete"
-msgstr "Ukończono"
+msgstr "Kompletny"
 
 msgid "today"
 msgstr ""
@@ -2638,7 +2621,7 @@ msgid "There are no reminders"
 msgstr "Masz {0} przypomnienie"
 
 msgid "Due In"
-msgstr "Wymagalny w "
+msgstr "Wymagalny w"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
@@ -2666,7 +2649,7 @@ msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
 msgstr[0] "{0} Przypomnienie wybrane."
-msgstr[1] "{0} Przypomnienia wybrane."
+msgstr[1] "{0} Wybrano przypomnienia."
 msgstr[2] ""
 
 msgid "Restore Softdeleted Items"
@@ -2713,7 +2696,7 @@ msgstr[1] "Łącznie {0} przywróconych elementów"
 msgstr[2] ""
 
 msgid "Deleted On"
-msgstr "Usunięto w "
+msgstr "Usunięto w"
 
 msgid "Sort by: Deleted On"
 msgstr "Sortuj według: Usunięto w"
@@ -2833,7 +2816,7 @@ msgid "size is at most..."
 msgstr ""
 
 msgid "has my name in the To field"
-msgstr "zawiera moją nazwę w polu Do "
+msgstr "zawiera moją nazwę w polu Do"
 
 msgid "is received (all messages)"
 msgstr "została odebrana (wszystkie wiadomości)"
@@ -2958,7 +2941,7 @@ msgid "Apply changes"
 msgstr ""
 
 msgid "Do you wish to apply the changes?"
-msgstr "Czy chcesz zatwierdzić zmiany?"
+msgstr "Czy chcesz zastosować te zmiany?"
 
 msgid "All folders"
 msgstr "Wszystkie foldery"
@@ -3758,7 +3741,7 @@ msgstr ""
 "wyskakujących. Sprawdź ustawienia swojej przeglądarki."
 
 msgid "Untitled"
-msgstr "Bez nazwy"
+msgstr "Bez tytułu"
 
 msgid ""
 "Cannot upload attachment, only {0} attachments are allowed to be added to "
@@ -3860,10 +3843,10 @@ msgid "Not responded"
 msgstr "Nie odpowiedziano"
 
 msgid "Accepted"
-msgstr "Zaakceptowano"
+msgstr "Przyjęte"
 
 msgid "Declined"
-msgstr "Odmówiono"
+msgstr "Odrzucony"
 
 msgid "Confidential"
 msgstr "Poufne"
@@ -3875,16 +3858,16 @@ msgid "In Progress"
 msgstr "W trakcie realizacji"
 
 msgid "Wait for other person"
-msgstr "Poczekaj na inną osobę "
+msgstr "Poczekaj na drugą osobę"
 
 msgid "Deferred"
-msgstr "Przesunięte"
+msgstr "Odroczony"
 
 msgid "Dark"
 msgstr "Ciemny"
 
 msgid "High Contrast"
-msgstr "Wysoki kontarst "
+msgstr "Wysoki kontarst"
 
 msgid "Lime"
 msgstr "Limonka"
@@ -3977,7 +3960,7 @@ msgid "Saving"
 msgstr "Zapisywanie"
 
 msgid "Saved"
-msgstr "Zapisano"
+msgstr "Zapisane"
 
 msgid "Saved successfully"
 msgstr "Zapisywanie pomyślnie zakończone"
@@ -4133,7 +4116,7 @@ msgid "The files are not valid"
 msgstr "Załączniki nie zostały dodane całkowicie."
 
 msgid "Create New Folder"
-msgstr "Utwórz nowy folder "
+msgstr "Utwórz nowy folder"
 
 msgid "Folder contains"
 msgstr "Folder zawiera"
@@ -4423,7 +4406,7 @@ msgid "Schedule mail to be sent out"
 msgstr "E-maile zaplanowanie do wysłania"
 
 msgid "Scheduled Items"
-msgstr " E-maile zaplanowane"
+msgstr "E-maile zaplanowane"
 
 msgid "Your message will be sent at "
 msgstr "Twoja wiadomość zostanie wysłana o "
@@ -4499,7 +4482,7 @@ msgid "Set flag"
 msgstr "Zaznacz obserwuj"
 
 msgid "Set flag on this email"
-msgstr "Obserwuj  ten e-mail "
+msgstr "Obserwuj  ten e-mail"
 
 msgid "Mark this mail as high priority"
 msgstr "Oznacz tę wiadomość jako wysoki priortytet"
@@ -4908,7 +4891,6 @@ msgstr "Aby wdrożyć zmiany proszę ponownie załadować aplikację."
 msgid "Reload WebApp"
 msgstr "Kopano WebApp"
 
-#, fuzzy
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -4931,7 +4913,7 @@ msgid "Select Default Folder"
 msgstr "Wybierz folder domyślny"
 
 msgid "Advanced"
-msgstr "Rozszerzony"
+msgstr "Zaawansowane"
 
 msgid "Advanced settings"
 msgstr "Ustawienia rozszerzone"
@@ -5168,10 +5150,10 @@ msgid "Percent Complete"
 msgstr "Procent ukończono"
 
 msgid "Total Work"
-msgstr "Postęp całkowity"
+msgstr "Totalna praca"
 
 msgid "Actual Work"
-msgstr "Aktualny postęp"
+msgstr "Rzeczywista praca"
 
 msgid "Companies"
 msgstr "Firmy"
@@ -5180,7 +5162,7 @@ msgid "Billing Information"
 msgstr "Informacje bilingowe"
 
 msgid "Mileage"
-msgstr "Kilometraż"
+msgstr "Postępy"
 
 msgid "Accepting Task"
 msgstr "Zaakceptowanie zadania"
@@ -5362,7 +5344,7 @@ msgid "Assigned To"
 msgstr "Przydzielono"
 
 msgid "Sort by: Assignee"
-msgstr "Sortuj według: Pełnomocnik "
+msgstr "Sortuj według: Pełnomocnik"
 
 msgid "Sort by: Start Date"
 msgstr "Sortuj według: Data rozpoczęcia"
@@ -5517,11 +5499,11 @@ msgid "Missing store"
 msgstr "Brakująca poczta"
 
 msgid "The default store is missing from the hierarchy."
-msgstr "Brak poczty domyślnej w hierarchii"
+msgstr "Brak poczty domyślnej w hierarchii."
 
 msgid ""
 "Not all functionality of WebApp might be working properly because of this."
-msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo"
+msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5616,7 +5598,7 @@ msgid "Personal Inbox Manager"
 msgstr "Osobisty menadżer skrzynki odbiorczej"
 
 msgid "Personal Inbox Management Settings"
-msgstr "Ustawienia osobistego zarządzania skrzynką odbiorczą "
+msgstr "Ustawienia osobistego zarządzania skrzynką odbiorczą"
 
 msgid "Select another folder"
 msgstr "Wybierz folder"
@@ -5713,7 +5695,7 @@ msgstr ""
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
 "Nie można dodać danych do magistrali. Ten sam typ akcji istnieje jużw "
-"magistrali "
+"magistrali"
 
 msgid "Response data requested from bus but it doesn't have any data."
 msgstr "Zapytano o dane odpowiedzi z magistrali, ale brak w niej danych."
@@ -5759,7 +5741,7 @@ msgstr ""
 "ponownie."
 
 msgid "Cannot connect to Kopano Core."
-msgstr "Nie można połączyć się z serwerem Kopano."
+msgstr "Nie może się połączyć z Kopano Core."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -5850,7 +5832,7 @@ msgid "Request is not available."
 msgstr ""
 
 msgid "You have insufficient privileges to open this object."
-msgstr "Nie masz wystarczających uprawnień, aby otworzyć ten obiekt."
+msgstr "Nie masz wystarczających przywileje, aby otworzyć ten obiekt."
 
 msgid "Logon Failed. Please check your name/password."
 msgstr "Logowanie nie powiodło się. Sprawdź nazwę użytkownika i/lubhasło."
@@ -5859,10 +5841,10 @@ msgid "Can not connect to Kopano Core."
 msgstr "Nie można połączyć się z Kopano Core."
 
 msgid "Can not open object with provided id."
-msgstr "Nie można otworzyć elementu z podanym ID."
+msgstr "Nie można otworzyć obiektu z podanym identyfikatorem."
 
 msgid "There are no recipients in the message."
-msgstr "Nie podano odbiorców."
+msgstr "Nie ma żadnych odbiorców w wiadomości."
 
 msgid "Can not find object."
 msgstr "Nie można znaleźć elementu."
@@ -5875,70 +5857,70 @@ msgid "Unknown MAPI Error: %s"
 msgstr "Nieznany błąd MAPI: %s"
 
 msgid "Tentatively accepted"
-msgstr "Wstępnie zaakceptowano"
+msgstr ""
 
 msgid "New Time Proposed"
-msgstr "Zaproponowano nowy czas"
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr "Odbywa się co %s , zaczynając w  %s od %s do %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr "Występuje co %s %s, zaczynając w %s od %s do %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr "Występuje co  %s, zaczynając w %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr "Występuje co %s %s, zaczynając w %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] "Występuje co %s, zaczynając w %s dla %s powtórzenia od %s do %s."
-msgstr[1] "Występuje co %s, zaczynając w %s dla %s powtórzeń od %s do %s."
-msgstr[2] "Występuje co %s, zaczynając w %s dla %s powtórzeń od %s do %s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Występuje co %s %s, zaczynając w %s dla %s powtórzenia od %s do %s."
-msgstr[1] "Występuje co %s %s, zaczynając w %s dla %s powtórzeń od %s do %s."
-msgstr[2] "Występuje co %s %s, zaczynając w %s dla %s powtórzeń od %s do %s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] "Występuje co %s, zaczynając w %s dla %s powtórzenia."
-msgstr[1] "Występuje co %s, zaczynając w %s dla %s powtórzeń."
-msgstr[2] "Występuje co %s, zaczynając w %s dla %s powtórzeń."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] "Występuje co %s %s, począwszy w %s dla %s powtórzenia."
-msgstr[1] "Występuje co %s %s, począwszy w %s dla %s powtórzeń."
-msgstr[2] "Występuje co %s %s, począwszy w %s dla %s powtórzeń."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr "Występuje co  %s, zaczynając w %s do %s od %s do %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr "Występuje co  %s %s, zaczynając w %s do %s od %s do %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr "Występuje co  %s, zaczynając w %s do %s."
+msgstr ""
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr "Występuje co %s %s, zaczynając w %s do %s."
+msgstr ""
 
 msgid "Task Accepted:"
 msgstr "Zadanie zaakceptowane:"
@@ -6140,7 +6122,6 @@ msgstr ""
 "może je określić poprzez kartę 'Uprawnienia' wewłaściwościach folderu (prawy "
 "klawisz na folder %1$s > Właściwości > Uprawnienia)."
 
-#, fuzzy
 msgid "unknown"
 msgstr "Nieznany"
 
@@ -6379,17 +6360,14 @@ msgstr "Zapytanie o wykonanie zadania:"
 msgid "Welcome"
 msgstr "Witamy"
 
-#, fuzzy
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
-#, fuzzy
 msgid "Password"
 msgstr "Hasło"
 
-#, fuzzy
 msgid "Sign in"
-msgstr "Zaloguj"
+msgstr "Zaloguj się"
 
 #, fuzzy
 msgid "File is not imported successfully"
