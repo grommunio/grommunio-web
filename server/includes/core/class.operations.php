@@ -1471,7 +1471,7 @@
 		 * @param integer $rowcount Number of rows which should be read
 		 * @param array $restriction Table restriction to apply to the table (formatted as MAPI restriction)
 		 * @param array $folderProps reference to an array which will be filled with PR_ENTRYID and PR_STORE_ENTRYID of the folder
-		 * @return array XML array structure with row data
+		 * @return array array structure with row data
 		 */
 		function getTable($store, $entryid, $properties, $sort, $start, $rowcount = false, $restriction = false)
 		{
@@ -1480,107 +1480,127 @@
 
 			if($folder) {
 				$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
+				$data = $this->getTableContent($table, $properties, $sort, $start, $rowcount, $restriction);
+			}
 
-				if(!$rowcount) {
-					$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
-				}
+			return $data;
+		}
 
-				if(is_array($restriction)) {
-					mapi_table_restrict($table, $restriction, TBL_BATCH);
-				}
+		/**
+		 * Function which helps to retrieve the records from given table and return the
+		 * formatted data with meta data like start, rowcount and totalrowcount etc.
+		 *
+		 * @param object $table MAPI Table object.
+		 * @param array $properties The set of properties which will be read
+		 * @param array $sort The set properties which the table will be sort on (formatted as a MAPI sort order)
+		 * @param integer $start Starting row at which to start reading rows
+		 * @param integer $rowcount Number of rows which should be read
+		 * @param array $restriction Table restriction to apply to the table (formatted as MAPI restriction)
+		 * @return array array structure with row data
+		 */
+		function getTableContent($table, $properties, $sort, $start, $rowcount = false, $restriction = false)
+		{
+			$data = array();
 
-				if (is_array($sort) && !empty($sort)){
-					/**
-					 * If the sort array contains the PR_SUBJECT column we should change this to
-					 * PR_NORMALIZED_SUBJECT to make sure that when sorting on subjects: "sweet" and
-					 * "RE: sweet", the first one is displayed before the latter one. If the subject
-					 * is used for sorting the PR_MESSAGE_DELIVERY_TIME must be added as well as
-					 * Outlook behaves the same way in this case.
-					 */
-					if(isset($sort[PR_SUBJECT])){
-						$sortReplace = Array();
-						foreach($sort as $key => $value){
-							if($key == PR_SUBJECT){
-								$sortReplace[PR_NORMALIZED_SUBJECT] = $value;
-								$sortReplace[PR_MESSAGE_DELIVERY_TIME] = TABLE_SORT_DESCEND;
-							}else{
-								$sortReplace[$key] = $value;
-							}
+			if(!$rowcount) {
+				$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			}
+
+			if(is_array($restriction)) {
+				mapi_table_restrict($table, $restriction, TBL_BATCH);
+			}
+
+			if (is_array($sort) && !empty($sort)){
+				/**
+				 * If the sort array contains the PR_SUBJECT column we should change this to
+				 * PR_NORMALIZED_SUBJECT to make sure that when sorting on subjects: "sweet" and
+				 * "RE: sweet", the first one is displayed before the latter one. If the subject
+				 * is used for sorting the PR_MESSAGE_DELIVERY_TIME must be added as well as
+				 * Outlook behaves the same way in this case.
+				 */
+				if(isset($sort[PR_SUBJECT])){
+					$sortReplace = Array();
+					foreach($sort as $key => $value){
+						if($key == PR_SUBJECT){
+							$sortReplace[PR_NORMALIZED_SUBJECT] = $value;
+							$sortReplace[PR_MESSAGE_DELIVERY_TIME] = TABLE_SORT_DESCEND;
+						}else{
+							$sortReplace[$key] = $value;
 						}
-						$sort = $sortReplace;
+					}
+					$sort = $sortReplace;
+				}
+
+				mapi_table_sort($table, $sort, TBL_BATCH);
+			}
+
+			$data["item"] = array();
+
+			/**
+			 * Retrieving the entries should be done in batches to prevent large amounts of
+			 * items in one list clogging up the memory limit. This is especially important when
+			 * dealing with contactlists in the addressbook. Those lists can contain 10K items.
+			 */
+			$batchcount = 50;
+			$batchposition = $start;
+			$position = $start;
+			$end = $start + $rowcount;
+			$columns = $properties;
+
+			mapi_table_setcolumns($table, $columns);
+			$columns = null;
+
+			mapi_table_seekrow($table, BOOKMARK_BEGINNING, $position);
+			$position = 0;
+
+			do {
+				// When we open the last batch, make sure we end at the $end position,
+				// and don't add any additional items.
+				if (($batchposition + $batchcount) > $end) {
+					$batchcount = $end - $batchposition;
+				}
+
+				$rows = mapi_table_queryrows($table, $columns, $position, $batchcount);
+				foreach($rows as $row){
+					$itemData = Conversion::mapMAPI2XML($properties, $row);
+
+					// For ZARAFA type users the email_address properties are filled with the username
+					// Here we will copy that property to the *_username property for consistency with
+					// the getMessageProps() function
+					// We will not retrieve the real email address (like the getMessageProps function does)
+					// for all items because that would be a performance decrease!
+					if ( isset($itemData['props']["sent_representing_email_address"]) ){
+						$itemData['props']["sent_representing_username"] = $itemData['props']["sent_representing_email_address"];
+					}
+					if ( isset($itemData['props']["sender_email_address"]) ){
+						$itemData['props']["sender_username"] = $itemData['props']["sender_email_address"];
+					}
+					if ( isset($itemData['props']["received_by_email_address"]) ){
+						$itemData['props']["received_by_username"] = $itemData['props']["received_by_email_address"];
 					}
 
-					mapi_table_sort($table, $sort, TBL_BATCH);
+					array_push($data["item"], $itemData);
 				}
 
-				$data["item"] = array();
-
-				/**
-				 * Retrieving the entries should be done in batches to prevent large amounts of
-				 * items in one list clogging up the memory limit. This is especially important when
-				 * dealing with contactlists in the addressbook. Those lists can contain 10K items.
-				 */
-				$batchcount = 50;
-				$batchposition = $start;
-				$position = $start;
-				$end = $start + $rowcount;
-				$columns = $properties;
-
-				mapi_table_setcolumns($table, $columns);
-				$columns = null;
-
-				mapi_table_seekrow($table, BOOKMARK_BEGINNING, $position);
+				// Reset the $position to 0, we only need to perform
+				// a seekrow action once. (When mapi_table_seekrow exists, then $position
+				// would already have been 0, but for other cases it should still be
+				// reset here).
 				$position = 0;
 
-				do {
-					// When we open the last batch, make sure we end at the $end position,
-					// and don't add any additional items.
-					if (($batchposition + $batchcount) > $end) {
-						$batchcount = $end - $batchposition;
-					}
+				// Move the $batchposition to the next count, so we can determine the
+				// correct $batchcount for the final loop.
+				$batchposition += $batchcount;
 
-					$rows = mapi_table_queryrows($table, $columns, $position, $batchcount);
-					foreach($rows as $row){
-						$itemData = Conversion::mapMAPI2XML($properties, $row);
+			// When the server returned a different number of rows then was requested,
+			// we have reached the end of the table and we should exit the loop.
+			} while (count($rows) == $batchcount && $batchposition !== $end);
 
-						// For ZARAFA type users the email_address properties are filled with the username
-						// Here we will copy that property to the *_username property for consistency with
-						// the getMessageProps() function
-						// We will not retrieve the real email address (like the getMessageProps function does)
-						// for all items because that would be a performance decrease!
-						if ( isset($itemData['props']["sent_representing_email_address"]) ){
-							$itemData['props']["sent_representing_username"] = $itemData['props']["sent_representing_email_address"];
-						}
-						if ( isset($itemData['props']["sender_email_address"]) ){
-							$itemData['props']["sender_username"] = $itemData['props']["sender_email_address"];
-						}
-						if ( isset($itemData['props']["received_by_email_address"]) ){
-							$itemData['props']["received_by_username"] = $itemData['props']["received_by_email_address"];
-						}
-
-						array_push($data["item"], $itemData);
-					}
-
-					// Reset the $position to 0, we only need to perform
-					// a seekrow action once. (When mapi_table_seekrow exists, then $position
-					// would already have been 0, but for other cases it should still be
-					// reset here).
-					$position = 0;
-
-					// Move the $batchposition to the next count, so we can determine the
-					// correct $batchcount for the final loop.
-					$batchposition += $batchcount;
-
-				// When the server returned a different number of rows then was requested,
-				// we have reached the end of the table and we should exit the loop.
-				} while (count($rows) == $batchcount && $batchposition !== $end);
-
-				// Update the page information
-				$data["page"] = array();
-				$data["page"]["start"] = $start;
-				$data["page"]["rowcount"] = $rowcount;
-				$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
-			}
+			// Update the page information
+			$data["page"] = array();
+			$data["page"]["start"] = $start;
+			$data["page"]["rowcount"] = $rowcount;
+			$data["page"]["totalrowcount"] = mapi_table_getrowcount($table);
 
 			return $data;
 		}

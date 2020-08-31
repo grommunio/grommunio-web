@@ -58,7 +58,7 @@ Zarafa.core.ui.notifier.PaginationSliderPlugin = Ext.extend(Zarafa.core.ui.notif
 	notify : function(category, title, message, config)
 	{
 		if (!config.destroy) {
-			var total = config.model.getStore().totalLength;
+			var total = config.store.totalLength;
 			var pageSize = container.getSettingsModel().get('zarafa/v1/main/page_size');
 			var pages = total < pageSize ? 1 : Math.ceil(total / pageSize);
 			if (pages == 1) {
