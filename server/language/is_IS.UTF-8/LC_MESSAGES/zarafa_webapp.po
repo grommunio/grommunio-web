@@ -2913,6 +2913,30 @@ msgstr "Rétthafar"
 msgid "Delegate settings"
 msgstr "Stillingar rétthafa"
 
+msgid "Desktop Notifications Settings"
+msgstr ""
+
+msgid "We need permissions to enable desktop notifications."
+msgstr ""
+
+msgid "Request Permissions"
+msgstr ""
+
+msgid "Enable desktop notifications for new mail"
+msgstr ""
+
+msgid "Enable desktop notifications for reminders"
+msgstr ""
+
+msgid "{A} Auto hide desktop notification after second(s) {B}"
+msgstr ""
+
+msgid "Disable sound"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
 msgid "Rules"
 msgstr "Reglur"
 
