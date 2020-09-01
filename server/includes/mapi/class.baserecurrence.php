@@ -1186,7 +1186,7 @@
 			// to the 'next' occurrence; this makes sure that deleting the next ocurrence will correctly set the reminder to
 			// the occurrence after that. The 'next' occurrence is defined as being the first occurrence that starts at moment X (server time)
 			// with the reminder flag set.
-			$reminderprops = mapi_getprops($this->message, array($this->proptags["reminder_minutes"]) );
+			$reminderprops = mapi_getprops($this->message, array($this->proptags["reminder_minutes"], $this->proptags["flagdueby"]) );
 			if(isset($reminderprops[$this->proptags["reminder_minutes"]]) ) {
 			    $occ = false;
 			    $occurrences = $this->getItems(time(), 0x7ff00000, 3, true);
@@ -1205,7 +1205,11 @@
 			    }
 			    
 			    if($occ) {
-    				mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $occ[$this->proptags["startdate"]] - ($reminderprops[$this->proptags["reminder_minutes"]] * 60) ));
+					if (isset($reminderprops[$this->proptags["flagdueby"]])) {
+						mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $reminderprops[$this->proptags["flagdueby"]]));
+					} else {
+						mapi_setprops($this->message, Array($this->proptags["flagdueby"] => $occ[$this->proptags["startdate"]] - ($reminderprops[$this->proptags["reminder_minutes"]] * 60) ));
+					}	
                 } else {
                     // Last reminder passed, no reminders any more.
                     mapi_setprops($this->message, Array($this->proptags["reminder"] => false, $this->proptags["flagdueby"] => 0x7ff00000));
