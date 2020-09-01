@@ -68,8 +68,8 @@
 			var month = value[1];
 			var year = value[2];
 
-			newDate.setMonth(month ? (month - 1) : newDate.getMonth());
 			newDate.setDate(day ? day : newDate.getDate());
+			newDate.setMonth(month ? (month - 1) : newDate.getMonth());
 			newDate.setFullYear(year ? year : newDate.getFullYear());
 			
 			// Compare the new date value with the minimum and maximum value, defined for the current date field.
