@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-08-06 08:43+0000\n"
+"PO-Revision-Date: 2020-09-01 11:52+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -3100,28 +3100,28 @@ msgid "Delegate settings"
 msgstr "Gemachtigdeninstellingen"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Desktop notificaties instellingen"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "We hebben rechten nodig om desktop notificaties te laten zien."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Vraag machtiging"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Zet desktop notificaties aan voor nieuwe mail"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Zet desktop notificaties aan voor herinneringen"
 
 msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Laat desktop notificaties verdwijnen na seconde(n) {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Zet geluid uit"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Notificaties"
 
 # 80%
 msgid "Rules"
@@ -3196,7 +3196,7 @@ msgid "Loading..."
 msgstr "Laden..."
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Bericht kan niet geladen worden"
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -5199,7 +5199,7 @@ msgid "Show 'help' button in top-right corner"
 msgstr "Laat 'Help' knop zien in de rechterbovenhoek"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Laat ongelezen email teller zien in applicatie titel"
 
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
