@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-09-01 08:15+0000\n"
+"PO-Revision-Date: 2020-09-03 11:55+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/pl/>\n"
@@ -297,7 +297,7 @@ msgid "You must select one item in this group"
 msgstr "Należy wybrać jeden element z grupy"
 
 msgid "The time in this field must be equal to or after {0}"
-msgstr ""
+msgstr "Czas w tym polu musi być równy lub wyższy od {0}"
 
 msgid "The time in this field must be equal to or before {0}"
 msgstr "Czas w tym polu musi być identyczny lub wcześniejszy niż {0}"
@@ -473,14 +473,16 @@ msgid "Show Details"
 msgstr "Pokaż szczegóły"
 
 msgid "Copy contact"
-msgstr ""
+msgstr "Kontakt kopiujący"
 
 msgid "Copy contacts"
-msgstr ""
+msgstr "Kontakty kopiujące"
 
 msgid ""
 "Showing only the first {0} names. Use search to find more specific results."
 msgstr ""
+"Wyświetlane są tylko pierwsze {0} nazwy. Użyj wyszukiwania w celu uzyskania "
+"dalszych wyników."
 
 msgid "Use the search bar to get results"
 msgstr "Użyj opcji wyszukiwania w celu uzyskania wyników"
@@ -567,7 +569,7 @@ msgid "Sort by: Fax"
 msgstr "Sortuj według: Faks"
 
 msgid "Print single item"
-msgstr ""
+msgstr "Drukowanie jednego elementu"
 
 msgid "Print selected item"
 msgstr "Drukuj wybrany element"
@@ -576,7 +578,7 @@ msgid "Print"
 msgstr "Drukuj"
 
 msgid "No item selected"
-msgstr ""
+msgstr "Nie wybrano żadnej pozycji"
 
 msgid "No preview"
 msgstr "Brak podglądu"
@@ -609,7 +611,7 @@ msgid "Custom date"
 msgstr "Inna data"
 
 msgid "Add to favorites"
-msgstr ""
+msgstr "Dodaj do ulubionyc"
 
 msgid "Add"
 msgstr "Dodaj"
@@ -621,7 +623,7 @@ msgid "You must specify a name."
 msgstr "Musisz podać nazwę."
 
 msgid "Add a folder to favorites based on your search query"
-msgstr ""
+msgstr "Dodaj folder do ulubionych na podstawie zapytania wyszukiwania"
 
 msgid "Folder name"
 msgstr "Nazwa folderu"
@@ -713,7 +715,7 @@ msgid "Favorites"
 msgstr "Ulubione"
 
 msgid "Add a folder to favorites based on this search query"
-msgstr ""
+msgstr "Dodaj folder do ulubionych na podstawie tego zapytania wyszukiwania"
 
 msgid "Select Folder"
 msgstr "Wybierz folder"
@@ -734,6 +736,8 @@ msgid ""
 "You can sort by date if you narrow down your search results. Enable filters "
 "or adjust your input."
 msgstr ""
+"Możesz sortować według daty, jeśli zawęzisz wyniki wyszukiwania. Włącz "
+"filtry lub dostosuj swoje dane wejściowe."
 
 msgid "Did you mean"
 msgstr "Czy chodziło ci o"
@@ -869,7 +873,7 @@ msgstr "Kiedy"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y {0}"
-msgstr ""
+msgstr "l j. F Y {0}"
 
 msgid "Where"
 msgstr "Gdzie"
@@ -1013,9 +1017,11 @@ msgid ""
 "The selected calendar has \"read-only\" permissions. Instead you can create "
 "an item in your own calendar."
 msgstr ""
+"Der ausgewählte Kalender hat die Berechtigung \"Nur Lesen\". Stattdessen "
+"können Sie einen Eintrag in Ihrem eigenen Kalender erstellen."
 
 msgid "What would you like?"
-msgstr ""
+msgstr "Czego chcecie?"
 
 msgid "Own calendar"
 msgstr "Własny kalendarz"
@@ -1050,14 +1056,14 @@ msgid "Send update"
 msgstr "Wyślij aktualizację"
 
 msgid "Do you want to send an update to all recipients?"
-msgstr ""
+msgstr "Czy chcesz wysłać aktualizację do wszystkich odbiorców?"
 
 msgid "Send update to attendees"
 msgstr "Wyślij aktualizacje do uczestników"
 
 msgid ""
 "You have made changes to the list of attendees. What would you like to do?"
-msgstr ""
+msgstr "Wprowadziłeś zmiany na liście uczestników. Co chciałbyś zrobić?"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Wyślij aktualizacje tylko do dołączonych lub usuniętych uczestników."
@@ -1183,7 +1189,7 @@ msgstr "Czy chcesz zastąpić lokalizację \"{0}\" nową lokalizacją \"{1}\"?"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y {0}"
-msgstr ""
+msgstr "j. F Y {0}"
 
 msgid "None"
 msgstr "Nic"
@@ -1207,10 +1213,10 @@ msgid "Check names"
 msgstr "Sprawdź nazwy"
 
 msgid "Addressbook"
-msgstr ""
+msgstr "Książka adresowa"
 
 msgid "Open addressbook"
-msgstr ""
+msgstr "Otwarta książka adresowa"
 
 msgid "Invite attendees"
 msgstr "Zaproś uczestników"
@@ -1335,10 +1341,10 @@ msgid "Switch calendar range back and forth"
 msgstr "Przeglądaj strony kalendarza"
 
 msgid "Copy selected item"
-msgstr ""
+msgstr "Skopiuj wybraną pozycję"
 
 msgid "Paste selected item"
-msgstr ""
+msgstr "Wklej wybraną pozycję"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Start"
@@ -1389,7 +1395,7 @@ msgid "Importance"
 msgstr "Ważność"
 
 msgid "M j"
-msgstr ""
+msgstr "M j"
 
 msgid "j"
 msgstr "j"
@@ -1421,7 +1427,7 @@ msgid "Duration must be between 1 and 120 minutes."
 msgstr "Czas trwania musi wynosić od 1 do 120 minut."
 
 msgid "Default status for all day appointment"
-msgstr ""
+msgstr "Domyślny status dla wszystkich dni spotkań"
 
 msgid "Working days"
 msgstr "Dni robocze"
@@ -1501,7 +1507,7 @@ msgid "Send to..."
 msgstr "Wyślij do..."
 
 msgid "Export as"
-msgstr ""
+msgstr "Eksport jako"
 
 msgid "Occurrence"
 msgstr "Powtórzenie"
@@ -1601,7 +1607,7 @@ msgstr "Wczytywanie terminów"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F {0}"
-msgstr ""
+msgstr "j. F {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1611,11 +1617,17 @@ msgid ""
 "You have insufficient privileges to move and copy this item. Ask the folder "
 "owner to grant you permissions or contact your system administrator."
 msgstr ""
+"Nie masz wystarczających uprawnień do przenoszenia i kopiowania tego "
+"elementu. Poproś właściciela folderu o przyznanie Ci uprawnień lub "
+"skontaktuj się z administratorem systemu."
 
 msgid ""
 "You have insufficient privileges to copy this item. Ask the folder owner to "
 "grant you permissions or contact your system administrator."
 msgstr ""
+"Nie masz wystarczających uprawnień do kopiowania tego elementu. Poproś "
+"właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z "
+"administratorem systemu."
 
 msgid "Insufficient privileges"
 msgstr "Niewystarczające uprawnienia"
@@ -1624,7 +1636,7 @@ msgid "Update recipients"
 msgstr "Odbiorcy Aktualizacji"
 
 msgid "The time of the meeting has changed. What would you like to do?"
-msgstr ""
+msgstr "Czas posiedzenie się zmienił. Co chciałbyś zrobić?"
 
 msgid "Save changes and send an update to all recipients"
 msgstr "Zapisz zmiany i wyślij aktualizację do wszystkich uczestników"
@@ -1653,7 +1665,7 @@ msgid "Don't move"
 msgstr "Nie ruszać się"
 
 msgid "Switch to day view to see all appointments"
-msgstr ""
+msgstr "Przejdź do widoku dziennego, aby zobaczyć wszystkie spotkania"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1684,25 +1696,25 @@ msgid "Loading appointments..."
 msgstr "Ładowanie spotkań..."
 
 msgid "Please select a calendar via widget settings"
-msgstr ""
+msgstr "Proszę wybrać kalendarz za pomocą ustawień widżetu"
 
 msgid "Number of days"
-msgstr ""
+msgstr "Liczba dni"
 
 msgid "day(s)"
 msgstr "dzień(dni)"
 
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 msgid "Upcoming Appointments"
 msgstr "Nadchodzące nominacje"
 
 msgid "Appointments of {0}"
-msgstr ""
+msgstr "Mianowaniey o {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr ""
+msgstr "Mianowaniay o {0} - {1}"
 
 msgid "No appointments"
 msgstr "Nadchodzące nominacje"
@@ -1711,16 +1723,16 @@ msgid "Today {0} - {1}"
 msgstr "Dzisiaj {0} - {1}"
 
 msgid "Today (all day)"
-msgstr ""
+msgstr "Dzisiaj (cały dzień)"
 
 msgid "{0} - {1}"
 msgstr "{0} - {1}"
 
 msgid "d/m/y {0}"
-msgstr ""
+msgstr "d/m/r {0}"
 
 msgid "{0} - {1} (all day)"
-msgstr ""
+msgstr "{0} - {1} (cały dzień)"
 
 msgid "d/m/y"
 msgstr "d/m/r"
@@ -1791,27 +1803,27 @@ msgid "Open the series"
 msgstr "Otwórz serię"
 
 msgid "Paste Recurring {0}"
-msgstr ""
+msgstr "Włóż datę seryjną {0}"
 
 msgid ""
 "This is a recurring {0}. Do you want to paste only this occurrence or the "
 "series?"
-msgstr ""
+msgstr "To jest nawracające {0}. Chcesz wkleić tylko to zdarzenie czy serię?"
 
 msgid "message"
-msgstr ""
+msgstr "Wiadomość"
 
 msgid "meeting request"
-msgstr ""
+msgstr "wniosek o spotkanie"
 
 msgid "appointment"
-msgstr ""
+msgstr "spotkanie"
 
 msgid "Paste this occurrence only"
-msgstr ""
+msgstr "Wklej tylko to zdarzenie"
 
 msgid "Paste the series..."
-msgstr ""
+msgstr "Wklej serię..."
 
 msgid ""
 "This is a recurring message. Do you want to delete only this occurrence or "
@@ -1892,26 +1904,30 @@ msgid "Import"
 msgstr "Importuj"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr ""
+msgstr "Artikel erfolgreich nach {0} importiert"
 
 msgid "Failed to import item(s) to {0}"
-msgstr ""
+msgstr "Import nie powiódł się w {0}"
 
 msgid "Import error"
 msgstr "Błąd w przywozie"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr ""
+msgstr "Import {0} nie jest możliwy. Plik jest nieważny"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
 "instead?"
 msgstr ""
+"Nie masz wystarczających uprawnień do przenoszenia tych przedmiotów. Chcesz "
+"skopiować zamiast tego?"
 
 msgid ""
 "You have insufficient privileges to move this item. Would you like to copy "
 "instead?"
 msgstr ""
+"Nie masz wystarczających uprawnień, aby przenieść tę pozycję. Chcesz "
+"skopiować zamiast tego?"
 
 msgid "Cc"
 msgstr "DW"
@@ -1988,11 +2004,15 @@ msgid ""
 "In order to use the vCard import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Aby móc korzystać z funkcji importu karty vCard, należy zaktualizować Kopano "
+"Core do wersji 8.3 lub wyższej."
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
 "version 8.3 or higher."
 msgstr ""
+"Aby korzystać z funkcji vCard Import należy zaktualizować Kopano Core do "
+"wersji 8.3 lub nowszej."
 
 msgid "Attachment error"
 msgstr "Błąd załącznika"
@@ -2001,7 +2021,7 @@ msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Nie można stworzyć pliku ZIP. Dopuszczalna wielkość pliku 30MB."
 
 msgid "Unable to download"
-msgstr ""
+msgstr "Nie można pobrać"
 
 msgid "Picture format is not supported. "
 msgstr "Nie rozpoznano formatu obrazu. "
@@ -2013,63 +2033,72 @@ msgid "Attachment Error"
 msgstr "Wystąpił błąd podczas załączania"
 
 msgid "Manage Categories"
-msgstr ""
+msgstr "Zarządzanie Kategoriami"
 
 msgid "New"
 msgstr "Nowa"
 
 msgid "Delete Category"
-msgstr ""
+msgstr "Usuń Kategoria"
 
 msgid ""
 "Are you sure you want to delete the category \"{0}\"? Items already assigned "
 "this category won't be affected."
 msgstr ""
+"Jesteś pewien, że chcesz usunąć kategorię \"{0}\"? Pozycje już przypisane do "
+"tej kategorii nie zostaną naruszone."
 
 msgid "Rename Category"
-msgstr ""
+msgstr "Zmień nazwę kategorii"
 
 msgid "A category named \""
-msgstr ""
+msgstr "Kategoria o nazwie \""
 
 msgid "Create New Category"
-msgstr ""
+msgstr "Stwórz nową kategorię"
 
 msgid "Pin to quick access"
-msgstr ""
+msgstr "Pin do szybkiego dostępu"
 
 msgid "Create"
-msgstr ""
+msgstr "Stwórz"
 
 msgid ""
 "You must apply the changes you have made to the categories before you can "
 "create this category."
 msgstr ""
+"Musisz zastosować zmiany, których dokonałeś w kategoriach, zanim będziesz "
+"mógł utworzyć tę kategorię."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr ""
+"Sie haben bereits eine Kategorie mit dem Namen \"{0}\". Bitte verwenden Sie "
+"einen anderen Namen."
 
 msgid ""
 "You already have a category named '{0}' in your pending changes. Please use "
 "another name."
 msgstr ""
+"Masz już kategorię o nazwie \"{0}\" w oczekiwaniu na zmiany. Proszę użyć "
+"innej nazwy."
 
 msgid "Rename"
-msgstr ""
+msgstr "Zmień nazwę"
 
 msgid "This is the first time you have used \"{0}\" category."
-msgstr ""
+msgstr "Pierwszy raz używasz kategorii \"{0}\"."
 
 msgid "Do you want to rename it?"
-msgstr ""
+msgstr "Chcesz zmienić jego nazwę?"
 
 msgid ""
 "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and "
 "\"{2}\" categories?"
 msgstr ""
+"Kategoria \"{0}\" już istnieje. Chcesz połączyć kategorie \"{1}\" i \"{2}\"?"
 
 msgid "Merge"
-msgstr ""
+msgstr "Połączyć"
 
 msgid "Remove"
 msgstr "Usuń"
@@ -2146,12 +2175,14 @@ msgid "Please select a delegate."
 msgstr "Wybierz pełnomocnika."
 
 msgid "Delegates can send items on your behalf."
-msgstr ""
+msgstr "Delegaci mogą wysyłać przedmioty w Twoim imieniu."
 
 msgid ""
 "If you only want to set folder permissions, right-click on a folder to open "
 "the context menu and click on \"Share Folder...\""
 msgstr ""
+"Jeśli chcesz tworzyć tylko foldery akcji, możesz również zarządzać nimi w "
+"menu kontekstowym folderu w zakładce \"Share Folder\""
 
 msgid "Permission"
 msgstr "Pozwolenie"
@@ -2184,29 +2215,35 @@ msgid ""
 "You have insufficient privileges to move this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Nie masz wystarczających uprawnień, aby przenieść ten folder. Poproś "
+"właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z "
+"administratorem systemu."
 
 msgid ""
 "You have insufficient privileges to copy this folder. Ask the folder owner "
 "to grant you permissions or contact your system administrator."
 msgstr ""
+"Nie masz wystarczających uprawnień do kopiowania tego folderu. Poproś "
+"właściciela tego folderu o nadanie uprawnień lub skontaktuj się z "
+"administratorem systemu."
 
 msgid "You have insufficient privileges to move following items."
-msgstr ""
+msgstr "Nie masz wystarczających uprawnień do przenoszenia kolejnych elementów."
 
 msgid "Subject:"
-msgstr ""
+msgstr "Temat:"
 
 msgid "Would you like to copy instead?"
-msgstr ""
+msgstr "Chcesz skopiować zamiast tego?"
 
 msgid "Kopano WebApp"
 msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
-msgstr ""
+msgstr "Nie pokazuj tej wiadomości ponownie."
 
 msgid "ICS"
-msgstr ""
+msgstr "ICS"
 
 msgid "Set custom flag"
 msgstr "Oznaczenie do śledzenia"
@@ -2218,13 +2255,13 @@ msgid "End date"
 msgstr "Data zakończenia"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Jutro"
 
 msgid "This week"
-msgstr ""
+msgstr "W tym tygodniu"
 
 msgid "Next week"
-msgstr ""
+msgstr "W przyszłym tygodniu"
 
 msgid "Custom"
 msgstr "Niestandardowy"
@@ -2236,16 +2273,16 @@ msgid "Complete"
 msgstr "Kompletny"
 
 msgid "today"
-msgstr ""
+msgstr "Dziś"
 
 msgid "tomorrow"
-msgstr ""
+msgstr "Jutro"
 
 msgid "this week"
-msgstr ""
+msgstr "w tym tygodniu"
 
 msgid "next week"
-msgstr ""
+msgstr "w przyszłym tygodniu"
 
 msgid "Edit recipient"
 msgstr "Edytuj odbiorcę"
@@ -2381,6 +2418,8 @@ msgid ""
 "Cc recipients can be used to set a default Cc user in new mail, replies or "
 "both."
 msgstr ""
+"Odbiorcy Cc mogą zostać użyci do ustawienia domyślnego użytkownika Cc w "
+"nowej poczcie, odpowiedziach lub obu."
 
 msgid "Following recipients are already exists"
 msgstr "Istnieją już następujący odbiorcy"
@@ -2729,10 +2768,10 @@ msgid "is received before..."
 msgstr "otrzymano przed..."
 
 msgid "size is at least..."
-msgstr ""
+msgstr "jest co najmniej o następującej wielkości..."
 
 msgid "size is at most..."
-msgstr ""
+msgstr "rozmiar jest co najwyżej..."
 
 msgid "has my name in the To field"
 msgstr "zawiera moją nazwę w polu Do"
@@ -2780,7 +2819,7 @@ msgid "Exceptions"
 msgstr "Wyjątki"
 
 msgid "Apply only when Out of Office is active"
-msgstr ""
+msgstr "Nur verwenden, wenn Abwesenheit aktiv ist"
 
 msgid "Stop processing more rules"
 msgstr "Wstrzymaj opracowywanie kolejnych reguł"
