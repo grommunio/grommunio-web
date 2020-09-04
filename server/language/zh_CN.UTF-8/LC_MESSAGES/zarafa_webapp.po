@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-09-04 12:31+0000\n"
-"Last-Translator: martijn <m.alberts@zarafa.com>\n"
+"PO-Revision-Date: 2020-09-04 12:53+0000\n"
+"Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Chinese (China) <http://translate.kopano.io/projects/kopano"
 "/kopano-webapp/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -781,7 +781,7 @@ msgid "weeks"
 msgstr "周"
 
 msgid " on "
-msgstr "时间"
+msgstr " 时间 "
 
 msgid "month"
 msgstr "月"
@@ -851,7 +851,7 @@ msgid "New Meeting Time Proposed"
 msgstr "提议的新会议时间"
 
 msgid "and "
-msgstr "和"
+msgstr "和 "
 
 msgid "Sort by: Attachment"
 msgstr "排序方式：附件"
@@ -1330,14 +1330,14 @@ msgid "End"
 msgstr "结束"
 
 msgid "Printed by: "
-msgstr "打印机构："
+msgstr "\"打印机构： "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "打印日期："
+msgstr "打印日期： "
 
 msgid "Location: "
-msgstr "地点："
+msgstr "地点： "
 
 # 83%
 # 75%
@@ -1721,7 +1721,7 @@ msgid "Printing of this item is not yet available"
 msgstr "尚无法打印此项目"
 
 msgid "Item type: "
-msgstr "项目类型："
+msgstr "项目类型： "
 
 msgid "Printing of this view is not yet available"
 msgstr "尚无法打印此视图"
@@ -1869,7 +1869,7 @@ msgid "Import error"
 msgstr "导入错误"
 
 msgid "Unable to import \"{0}\". The file is not valid"
-msgstr "无法导入\"{0}\"。该文件无效。"
+msgstr "无法导入\\\"{0}\\\"。该文件无效。"
 
 msgid ""
 "You have insufficient privileges to move these items. Would you like to copy "
@@ -1970,7 +1970,7 @@ msgid "Unable to download"
 msgstr "无法下载"
 
 msgid "Picture format is not supported. "
-msgstr "不支持图片格式。"
+msgstr "不支持图片格式。 "
 
 msgid "Supported format for contact pictures are"
 msgstr "支持的联系人图片格式为"
@@ -3865,7 +3865,7 @@ msgid "Welcome to Kopano WebApp"
 msgstr "欢迎使用Kopano WebApp"
 
 msgid "This is the first time you are using WebApp. "
-msgstr "这是您首次使用WebApp。"
+msgstr "这是您首次使用WebApp。 "
 
 msgid "Please check the following settings before continuing."
 msgstr "在继续之前，请检查以下设置。"
@@ -4241,7 +4241,7 @@ msgid "Scheduled Items"
 msgstr "已安排的项目"
 
 msgid "Your message will be sent at "
-msgstr "将按下列条件发送您的消息"
+msgstr "将按下列条件发送您的消息 "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "进入您的发件箱，以编辑您的电子邮件。"
@@ -4259,13 +4259,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "您输入的时间是过去的时间。请重新安排您的邮件。"
 
 msgid "today  at "
-msgstr "今天的时间"
+msgstr "今天的时间 "
 
 msgid "tomorrow  at "
-msgstr "明天的时间"
+msgstr "明天的时间 "
 
 msgid "{0} at "
-msgstr "{0}的时间"
+msgstr "{0}的时间 "
 
 msgid "at {0}"
 msgstr "于{0}时"
@@ -4574,7 +4574,7 @@ msgid "ZIP file"
 msgstr "ZIP文件"
 
 msgid "max. "
-msgstr "最大"
+msgstr "最大 "
 
 msgid "Sort by: Sent"
 msgstr "排序方式：已发送"
@@ -5277,10 +5277,10 @@ msgid "Error HTTP {0}"
 msgstr "错误HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr "HTTP状态文本为："
+msgstr "HTTP状态文本为： "
 
 msgid "Invalid data received from the server. HTTP status text is: "
-msgstr "从服务器接收到无效数据。HTTP状态文本为："
+msgstr "从服务器接收到无效数据。HTTP状态文本为： "
 
 msgid "Missing store"
 msgstr "缺少存储器"
@@ -5555,7 +5555,7 @@ msgstr "未成功导入vcf附件"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "无法将‘%s’导入至‘%s’。"
+msgstr "无法将‘%s’导入至‘%s’。 "
 
 msgid "There is no appointment found in this file."
 msgstr "未能在此文件中找到任何预约。"
@@ -5568,7 +5568,7 @@ msgstr "该文件无效。"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "无法导入‘%s’。"
+msgstr "无法导入‘%s’。 "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr "如果该问题仍然存在，请联系您的系统管理员。"
@@ -5731,7 +5731,7 @@ msgid "an appointment"
 msgstr "一项预约"
 
 msgid "You have insufficient privileges to move "
-msgstr "您无足够的权限移动"
+msgstr "您无足够的权限移动 "
 
 msgid ""
 "Cannot set a reminder to appear before the previous occurrence. Reset "
