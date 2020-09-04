@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2017-10-05 20:36+0200\n"
+"PO-Revision-Date: 2016-10-14 07:27+0000\n"
 "Last-Translator: Björn <b.neumann@kopano.com>\n"
-"Language-Team: Chinese (Simplified) <https://translate.kopano.io/projects/"
-"kopano/kopano-webapp/zh_CN/>\n"
+"Language-Team: Chinese (China) "
+"<http://translate.kopano.io/projects/kopano/deskapp/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -181,7 +181,7 @@ msgid "Today"
 msgstr "今天"
 
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 msgid "Cancel"
 msgstr "取消"
@@ -325,7 +325,7 @@ msgid "Group details"
 msgstr ""
 
 msgid "General"
-msgstr ""
+msgstr "常规"
 
 msgid "Display Name"
 msgstr ""
@@ -608,7 +608,7 @@ msgid "Add to favorites"
 msgstr ""
 
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #, fuzzy
 msgid "Empty folder name"
@@ -1196,7 +1196,7 @@ msgid "Save"
 msgstr "保存"
 
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 msgid "Delete"
 msgstr "删除"
@@ -1756,7 +1756,7 @@ msgid "Unnamed folder"
 msgstr ""
 
 msgid "Discard"
-msgstr ""
+msgstr "丢弃"
 
 msgid "Quick Appointment"
 msgstr ""
@@ -1972,7 +1972,7 @@ msgid "Download as ZIP"
 msgstr ""
 
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 msgid ""
 "These attachments have an unsupported file type and can not be added to the "
@@ -2448,7 +2448,7 @@ msgid "Display name"
 msgstr ""
 
 msgid "Email address"
-msgstr ""
+msgstr "电子邮件地址"
 
 msgid "Expand distribution list"
 msgstr ""
@@ -2896,7 +2896,7 @@ msgid "Apply changes"
 msgstr ""
 
 msgid "Do you wish to apply the changes?"
-msgstr ""
+msgstr "您是否应用更改？"
 
 #, fuzzy
 msgid "All folders"
@@ -4132,7 +4132,7 @@ msgid "No permissions granted"
 msgstr ""
 
 msgid "Profile"
-msgstr ""
+msgstr "配置文件"
 
 msgid "Create items"
 msgstr ""
@@ -4830,7 +4830,7 @@ msgid "Reload WebApp"
 msgstr "Kopano WebApp"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Basic"
 msgstr ""
@@ -4839,7 +4839,7 @@ msgid "Account information"
 msgstr ""
 
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 msgid "Startup folder"
 msgstr ""
@@ -5672,7 +5672,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 
 msgid "Cannot connect to Kopano Core."
-msgstr ""
+msgstr "无法连接到Kopano Core。"
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -6035,9 +6035,8 @@ msgid ""
 msgstr ""
 
 # 85%
-#, fuzzy
 msgid "unknown"
-msgstr "未知的"
+msgstr "未知"
 
 msgid "Could not move folder"
 msgstr ""
@@ -6253,16 +6252,16 @@ msgid "Task Request:"
 msgstr ""
 
 msgid "Welcome"
-msgstr ""
+msgstr "欢迎"
 
 msgid "Username"
 msgstr "用户名"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Sign in"
-msgstr ""
+msgstr "登录"
 
 # 94%
 #, fuzzy
