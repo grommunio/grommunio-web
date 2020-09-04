@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-09-03 11:55+0000\n"
+"PO-Revision-Date: 2020-09-04 11:20+0000\n"
 "Last-Translator: Mark <rittinghaus.mark@lumberg.com>\n"
 "Language-Team: Polish <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/pl/>\n"
@@ -2874,16 +2874,16 @@ msgid "Rule already has lowest priority."
 msgstr "Ta reguła ma już najniższy priorytet."
 
 msgid "Always move messages from {0}"
-msgstr ""
+msgstr "Przesuń wiadomości z {0} zawsze"
 
 msgid "Always move messages that are sent to <recipients>"
-msgstr ""
+msgstr "aPrzenoszenie wiadomości, które zostały wysłane do <odbiorców>"
 
 msgid "Always move messages with this subject"
-msgstr ""
+msgstr "Nachrichten zum Thema verschieben"
 
 msgid "Create rule..."
-msgstr ""
+msgstr "Zrób zasadę..."
 
 msgid "myself"
 msgstr "mnie"
@@ -2892,7 +2892,7 @@ msgid "Update rules for"
 msgstr "Zmień reguły dla"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Zaakceptowanie zmian"
 
 msgid "Do you wish to apply the changes?"
 msgstr "Czy chcesz zastosować te zmiany?"
@@ -2913,23 +2913,24 @@ msgid ""
 "The folder you are searching through no longer exists. Please select another "
 "folder"
 msgstr ""
+"Folder, który przeszukujesz, już nie istnieje. Proszę wybrać inny folder"
 
 msgid "Add/Edit sender"
 msgstr "Dodaj/zmień nadawcę"
 
 msgid "No from addresses configured"
-msgstr ""
+msgstr "Nie z adresów skonfigurowanych"
 
 msgid "Loading from addresses"
-msgstr ""
+msgstr "Załadunek z adresów"
 
 msgid "Please select a from address record."
-msgstr ""
+msgstr "Proszę wybrać adres zwrotny."
 
 msgid ""
 "Manage the email addresses you can use as sender address when sending an "
 "email."
-msgstr ""
+msgstr "Zarządzaj adresem, za pomocą którego możesz wysyłać e-maile."
 
 msgid "View"
 msgstr "Widok"
@@ -2944,37 +2945,39 @@ msgid "Delegate settings"
 msgstr "Pełnomocnik ustawienia"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Ustawienia powiadomień na pulpicie"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr ""
+msgstr "Potrzebujemy uprawnień, aby włączyć powiadomienia na pulpicie."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Wnioskowanie o zezwolenia"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Włączanie powiadomień na pulpicie dla nowej poczty"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Włączanie powiadomień o przypomnieniach na pulpicie"
 
 msgid "{A} Auto hide desktop notification after second(s) {B}"
 msgstr ""
+"{A} Automatyczne ukrywanie powiadomienia z pulpitu po sekundzie (sekundach) "
+"{B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Wyłączyć dźwięk"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Powiadomienia"
 
 msgid "Rules"
 msgstr "Reguły"
 
 msgid "From Addresses"
-msgstr ""
+msgstr "Adresy nadawców"
 
 msgid "From Addresses settings"
-msgstr ""
+msgstr "Ustawienie dla adresów nadawców"
 
 msgid "Full name"
 msgstr "Pełna nazwa"
@@ -2992,7 +2995,7 @@ msgid "IM Address"
 msgstr "Adres IM"
 
 msgid "D, d-m-Y, {0}"
-msgstr ""
+msgstr "D, d-m-Y, {0}"
 
 msgid "{0} selected row"
 msgid_plural "{0} selected rows"
@@ -3001,7 +3004,7 @@ msgstr[1] "{0} wybrane wiersze"
 msgstr[2] ""
 
 msgid "Reminder is set on: {0}, {1}"
-msgstr ""
+msgstr "Przypomnienie jest ustawiona na {0}, {1}"
 
 msgid "d-m-Y"
 msgstr "d-m-r"
@@ -3010,13 +3013,13 @@ msgid "Original message"
 msgstr "Wiadomość oryginalna"
 
 msgid "Sent Items"
-msgstr ""
+msgstr "Wysłane przedmioty"
 
 msgid "l d/m/Y {0}"
-msgstr ""
+msgstr "l d/m/Y {0}"
 
 msgid "d-m-Y {0}"
-msgstr ""
+msgstr "d-m-Y {0}"
 
 msgid "Unknown"
 msgstr "Nieznany"
@@ -3031,7 +3034,7 @@ msgid "Loading..."
 msgstr "Ładowanie…"
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Wiadomość nie mogła zostać załadowana"
 
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
 msgctxt "mail.previewpanel"
@@ -3164,11 +3167,11 @@ msgstr "Otrzymano dla{0}."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
-msgstr ""
+msgstr "Odpowiedział pan na tę wiadomość."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr ""
+msgstr "Przekazali tę wiadomość."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -3227,7 +3230,7 @@ msgstr "UDW"
 
 msgctxt "mail.previewpanel"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorie"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -3265,7 +3268,7 @@ msgid "Root"
 msgstr "Katalog główny"
 
 msgid "Datepicker"
-msgstr ""
+msgstr "Datepicker"
 
 msgid "File As"
 msgstr "Zachowaj jako"
@@ -3690,7 +3693,7 @@ msgid "Remove Picture"
 msgstr "Usuń obraz"
 
 msgid "VCF file(s)"
-msgstr ""
+msgstr "Plik(i) VCF"
 
 msgid "Quick Contact"
 msgstr "Szybki kontakt"
@@ -3936,7 +3939,7 @@ msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr "Ten element został w międzyczasie zmieniony. Czy chcesz gousunąć?"
 
 msgid "Unsaved changes"
-msgstr ""
+msgstr "Nicht gespeicherte Änderungen"
 
 msgid "Welcome to Kopano WebApp"
 msgstr "Witamy w Kopano WebApp"
@@ -3951,16 +3954,16 @@ msgid "Widget height"
 msgstr "Wysokość widżetu"
 
 msgid "pixels"
-msgstr ""
+msgstr "piksele"
 
 msgid "Configure widget"
 msgstr "Skonfiguruj widżet"
 
 msgid "Reload interval"
-msgstr ""
+msgstr "Uaktualnienie po"
 
 msgid "seconds"
-msgstr ""
+msgstr "sekundy"
 
 msgid "Open in new tab"
 msgstr "Otwórz w nowym oknie przglądarki"
@@ -3993,7 +3996,7 @@ msgid "Your changes will be lost if you leave this page now."
 msgstr "Twoje zmiany po zamknięciu tej strony nie zostaną zapisane."
 
 msgid "D {0}"
-msgstr ""
+msgstr "D {0}"
 
 msgid "D d-m"
 msgstr "D, d-m-r"
@@ -4048,7 +4051,7 @@ msgid "No rights"
 msgstr "Brak praw"
 
 msgid "Unable to import:"
-msgstr ""
+msgstr "Nie można importować:"
 
 msgid "The files are not valid"
 msgstr "Pliki są nieważne"
@@ -4186,7 +4189,7 @@ msgid "Username '{0}' could not be resolved."
 msgstr "Nie można znaleźć nazwy użytkownika '{0}'."
 
 msgid "Invalid user"
-msgstr ""
+msgstr "Nieważny użytkownik"
 
 msgid "Username '{0}' is not a valid user."
 msgstr "Nazwa użytkownika '{0}' nie jest poprawna."
@@ -4204,7 +4207,7 @@ msgid "This shared folder is already open."
 msgstr "Dopuszczony folder jest otwarty."
 
 msgid "No user"
-msgstr ""
+msgstr "Żaden użytkownik"
 
 msgid "You must specify a user"
 msgstr "Musisz określić użytkownika"
@@ -4270,13 +4273,13 @@ msgid "Import appointments"
 msgstr "Spotkania w sprawie przywozu"
 
 msgid "Import contacts"
-msgstr ""
+msgstr "Kontakty importowe"
 
 msgid "Properties of {0}"
 msgstr "Właściwości {0}"
 
 msgid "Share {0} with..."
-msgstr ""
+msgstr "Dzielić się {0} z..."
 
 msgid "Properties of {0} - {1}"
 msgstr "Właściwości {0} - {1}"
@@ -4376,6 +4379,8 @@ msgstr "Opcje wiadomości"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr ""
+"Ta wiadomość zostanie oznaczona w celu podjęcia działań następczych po jej "
+"wysłaniu."
 
 msgid "Send Later"
 msgstr "Wyślij później"
@@ -4426,7 +4431,7 @@ msgid "No signatures configured"
 msgstr "Nie skonfigurowano sygnatur"
 
 msgid "Cannot save while attachment is being uploaded"
-msgstr ""
+msgstr "Nie można go zapisać podczas ładowania załącznika"
 
 msgid "Miscellaneous Options"
 msgstr "Różne opcje"
@@ -4435,7 +4440,7 @@ msgid "Internet Headers"
 msgstr "Nagłówki internetowe"
 
 msgid "EntryID"
-msgstr ""
+msgstr "EntryID"
 
 msgid "Message Settings"
 msgstr "Ustawienia wiadomości"
@@ -4477,7 +4482,7 @@ msgid "Toggle red/complete flag"
 msgstr "Zmień flage monitującą"
 
 msgid "Close a conversation"
-msgstr ""
+msgstr "Zamknięcie rozmowy"
 
 msgid "Open Shared Mails"
 msgstr "Otwórz wspólne e-maile"
@@ -4498,16 +4503,16 @@ msgid "RE"
 msgstr "RE"
 
 msgid "Safe Senders list is empty"
-msgstr ""
+msgstr "Lista bezpiecznych nadawców jest pusta"
 
 msgid "Please select a safe sender record."
-msgstr ""
+msgstr "Proszę wybrać pozycję."
 
 msgid "Delete all safe senders"
-msgstr ""
+msgstr "Usuń wszystkich bezpiecznych nadawców"
 
 msgid "Are you sure you want to delete all safe senders?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć wszystkich bezpiecznych nadawców?"
 
 msgid "HTML"
 msgstr "HTML"
@@ -4539,13 +4544,13 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} Wiadomości niewysłane zapisuj automatycznie co {B} minutę(minut)"
 
 msgid "Conversation view settings"
-msgstr ""
+msgstr "Ustawienia widoku rozmowy"
 
 msgid "Enable conversation view"
-msgstr ""
+msgstr "Włączanie widoku rozmowy"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr ""
+msgstr "Zwiń rozmowę przy wyborze innej wiadomości e-mail"
 
 msgid "Incoming mail"
 msgstr "E-maile przychodzące"
@@ -4580,7 +4585,7 @@ msgid "Location of preview pane"
 msgstr "Pozycja okna podglądu"
 
 msgid "Use English abbreviations for forward (FW:) and reply (RE:)"
-msgstr ""
+msgstr "Użyj angielskich skrótów do przesyłania dalej (FW:) i odpowiedzi (RE:)"
 
 msgid "Close original message on reply or forward"
 msgstr ""
@@ -4599,7 +4604,7 @@ msgid "Browser window"
 msgstr "Okno przeglądarki"
 
 msgid "Update Out of Office settings for"
-msgstr ""
+msgstr "Aktualizacja ustawień Out of Office dla"
 
 msgid "I am currently in the office"
 msgstr "Jestem teraz w biurze"
@@ -4611,7 +4616,7 @@ msgid "I will be back on"
 msgstr "Wracam dnia"
 
 msgid "I am out of office"
-msgstr ""
+msgstr "Jestem poza biurem"
 
 msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
@@ -4627,27 +4632,30 @@ msgstr ""
 "Podany czas jest czasem przed opuszczeniem biura. Podaj późniejszy czas."
 
 msgid "Safe Senders"
-msgstr ""
+msgstr "Nadawcy bezpieczni"
 
 msgid ""
 "To protect your privacy email addresses or domains can only be added via the "
 "\"Add to safe sender list\" functionality in an opened email."
 msgstr ""
+"Aby chronić swoje prywatne adresy e-mail lub domeny, można je dodawać tylko "
+"za pomocą funkcji \"Dodaj do bezpiecznej listy nadawców\" w otwartej "
+"wiadomości e-mail."
 
 msgid "Delete all"
-msgstr ""
+msgstr "Usuń wszystko"
 
 msgid "Signatures"
 msgstr "Sygnatury"
 
 msgid "New messages"
-msgstr ""
+msgstr "Nowe wiadomości"
 
 msgid "Replies/forwards"
-msgstr ""
+msgstr "Odpowiedź/ Naprzód"
 
 msgid "Signature name:"
-msgstr ""
+msgstr "Nazwisko podpisu:"
 
 msgid "Save Signature"
 msgstr "Zapisz podpis"
@@ -4659,7 +4667,7 @@ msgid "New signature"
 msgstr "Nowa sygnatura"
 
 msgid "EML file(s)"
-msgstr ""
+msgstr "Akta EML"
 
 msgid "ZIP file"
 msgstr "Plik ZIP"
@@ -4677,46 +4685,46 @@ msgid "Sort by: Modified"
 msgstr "Sotruj według: Zmienione"
 
 msgid "Flag"
-msgstr ""
+msgstr "Flaga"
 
 msgid "Sort by: flag"
-msgstr ""
+msgstr "Sortowanie według: flagi"
 
 msgid "Older"
 msgstr "Starsze"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Wczoraj"
 
 msgid "Last Week"
 msgstr "Ostatni tydzień"
 
 msgid "Two Weeks Ago"
-msgstr ""
+msgstr "Dwa tygodnie Ago"
 
 msgid "Three Weeks Ago"
-msgstr ""
+msgstr "Trzy tygodnie Ago"
 
 msgid "Last Month"
 msgstr "Ostatni miesiąc"
 
 msgid "Small"
-msgstr ""
+msgstr "Mały"
 
 msgid "Medium"
-msgstr ""
+msgstr "Medium"
 
 msgid "Large"
-msgstr ""
+msgstr "Duży"
 
 msgid "Very large"
-msgstr ""
+msgstr "Bardzo duży"
 
 msgid "Huge"
-msgstr ""
+msgstr "Ogromny"
 
 msgid "Follow up"
-msgstr ""
+msgstr "kontynuować"
 
 msgid "Move to Junk Folder"
 msgstr "Przenieś do folderu Poczta niechciana"
@@ -4801,7 +4809,7 @@ msgid "Basic"
 msgstr "Podstawowe"
 
 msgid "Account information"
-msgstr ""
+msgstr "Informacje o koncie"
 
 msgid "Language"
 msgstr "Język"
@@ -4822,10 +4830,10 @@ msgid "Advanced settings"
 msgstr "Ustawienia rozszerzone"
 
 msgid "Developer tools"
-msgstr ""
+msgstr "Narzędzia deweloperskie"
 
 msgid "Show insertion points in WebApp"
-msgstr ""
+msgstr "Pokaż punkty wstawiania w programie WebApp"
 
 msgid "Edit setting"
 msgstr "Edytuj ustawienia"
@@ -4843,22 +4851,22 @@ msgid "About"
 msgstr "O"
 
 msgid "I want to display date and time in this format:"
-msgstr ""
+msgstr "Chcę wyświetlić datę i godzinę w tym formacie:"
 
 msgid "Short"
-msgstr ""
+msgstr "Krótki"
 
 msgid "Long"
-msgstr ""
+msgstr "Długa"
 
 msgid "Time format:"
-msgstr ""
+msgstr "Format czasowy:"
 
 msgid "12h clock"
-msgstr ""
+msgstr "zegar 12-godzinny"
 
 msgid "24h clock"
-msgstr ""
+msgstr "zegar 24-godzinny"
 
 msgid "Favorite settings"
 msgstr "Ulubione ustawienia"
@@ -4867,16 +4875,16 @@ msgid "Hide favorites"
 msgstr "Ukrywanie ulubionych"
 
 msgid "Unpin favorites from top"
-msgstr ""
+msgstr "Nie pokazuj powyżej ulubionych"
 
 msgid "Give unread items a colored border"
-msgstr ""
+msgstr "Nadaj nieczytelnym przedmiotom kolorową obwódkę"
 
 msgid "Show 'help' button in top-right corner"
-msgstr ""
+msgstr "Pokaż przycisk 'pomoc' w prawym górnym rogu"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Pokaż nieprzeczytany licznik poczty w tytule aplikacji"
 
 msgid "Inbox navigation"
 msgstr "Nawigacja w skrzynce odbiorczej"
@@ -4948,7 +4956,7 @@ msgid "Mailbox Usage"
 msgstr "Używanie skrzynki pocztowej"
 
 msgid "A quota is not set on your store."
-msgstr ""
+msgstr "Limit nie jest ustalany w twoim sklepie."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} zajętego miejsca w skrzynce."
@@ -4982,6 +4990,8 @@ msgid ""
 "This will close all opened shared stores and resets all settings to the "
 "default value."
 msgstr ""
+"Spowoduje to zamknięcie wszystkich otwartych sklepów współdzielonych i "
+"przywrócenie wszystkich ustawień do wartości domyślnej."
 
 msgid ""
 "WebApp will automatically reload in order for these changes to take effect"
@@ -5010,13 +5020,15 @@ msgid "Kopano Core"
 msgstr "Kopano Core"
 
 msgid "Delete confirmation"
-msgstr ""
+msgstr "Usuń potwierdzenie"
 
 msgid "Deleting the item(s) will also delete the original item(s)."
 msgstr ""
+"Usunięcie elementu(ów) spowoduje również usunięcie oryginalnego(ych) "
+"elementu(ów)."
 
 msgid "Do you want to delete the item(s)?"
-msgstr ""
+msgstr "Czy chcesz usunąć element(y)?"
 
 msgid "Sort by: Priority"
 msgstr "Sortuj według: Priorytet"
@@ -5096,7 +5108,7 @@ msgid "copy"
 msgstr "Kopiuj"
 
 msgid "Unable to send task request"
-msgstr ""
+msgstr "Nie można wysłać żądania zadania"
 
 msgid "You cannot send a task request to yourself."
 msgstr "Nie możesz sam sobie przydzielić zadania."
@@ -5177,10 +5189,10 @@ msgid "Open Shared Tasks"
 msgstr "Otwórz wspólne zadania"
 
 msgid "Simple view"
-msgstr ""
+msgstr "Prosty widok"
 
 msgid "Detailed view"
-msgstr ""
+msgstr "Widok szczegółowy"
 
 msgid "Task request"
 msgstr "Delegowanie zadań"
@@ -5198,10 +5210,10 @@ msgid "Create task"
 msgstr "Stwórz zadanie"
 
 msgid "Upcoming"
-msgstr ""
+msgstr "Nadchodzące"
 
 msgid "Overdue"
-msgstr ""
+msgstr "Przeterminowany"
 
 msgid "Mark Complete"
 msgstr "Zaznacz jako gotowe"
@@ -5268,7 +5280,7 @@ msgid "D d-m-Y"
 msgstr "D, d-m-r"
 
 msgid "none"
-msgstr ""
+msgstr "Nie ma"
 
 msgid "Quick Task"
 msgstr "Szybkie zadanie"
@@ -5277,7 +5289,7 @@ msgid "No tasks."
 msgstr "Brak zadań."
 
 msgid "Tasks / To-Do"
-msgstr ""
+msgstr "Zadania / Zadania do wykonania"
 
 msgid "Import / Export"
 msgstr "Przywóz / wywóz"
@@ -5286,14 +5298,18 @@ msgid ""
 "Calendar, contact and mail items can be imported and exported from and to "
 "WebApp."
 msgstr ""
+"Pozycje kalendarza, kontaktów i poczty mogą być importowane i eksportowane z "
+"i do WebApp."
 
 msgid ""
 "Right-click a folder and select the import button. Additionally, items can "
 "be imported from the attachment context menu."
 msgstr ""
+"Kliknąć prawym przyciskiem myszy na folder i wybrać przycisk importu. "
+"Dodatkowo, pozycje można importować z menu kontekstowego załącznika."
 
 msgid "Exporting can be done from the context menu of an item."
-msgstr ""
+msgstr "Eksport można wykonać z menu kontekstowego danej pozycji."
 
 msgid "Icon packs"
 msgstr "Zestawy symboli"
@@ -5303,26 +5319,31 @@ msgid ""
 "are enabled, but if you prefer the classic icons you can change this in the "
 "settings."
 msgstr ""
+"Teraz możesz wybierać pomiędzy różnymi ikonami. Domyślnie nowe ikony Breeze "
+"są włączone, ale jeśli wolisz klasyczne ikony, możesz to zmienić w "
+"ustawieniach."
 
 msgid ""
 "Go to your settings, open the general tab and select an icon pack to your "
 "liking."
 msgstr ""
+"Przejdź do swoich ustawień, otwórz kartę ogólną i wybierz pakiet ikon "
+"odpowiadający Twoim potrzebom."
 
 msgid "Left: Breeze - Right: Classic"
-msgstr ""
+msgstr "W lewo: Breeze - Prawo: Klasyczny"
 
 msgid "What's new"
-msgstr ""
+msgstr "Co nowego"
 
 msgid "Don't show me new features again."
-msgstr ""
+msgstr "Nie pokazuj mi więcej nowych funkcji."
 
 msgid "Skip"
-msgstr ""
+msgstr "Pomiń"
 
 msgid "Previous"
-msgstr ""
+msgstr "Plecy"
 
 msgid "Next"
 msgstr "Następnie"
@@ -5370,16 +5391,17 @@ msgstr "Połączenie z serwerem zostało przywrócone"
 
 msgid "Please contact your administrator if this problem persists."
 msgstr ""
+"Jeśli ten problem się powtarza, należy skontaktować się z administratorem."
 
 #. TRANSLATORS: Example: HTTP 404
 msgid "Error HTTP {0}"
-msgstr ""
+msgstr "Błąd HTTP {0}"
 
 msgid "HTTP status text is: "
-msgstr ""
+msgstr "Tekst statusu HTTP jest: "
 
 msgid "Invalid data received from the server. HTTP status text is: "
-msgstr ""
+msgstr "Błędne dane otrzymane z serwera. Tekst statusu HTTP jest następujący "
 
 msgid "Missing store"
 msgstr "Brakująca poczta"
@@ -5575,6 +5597,8 @@ msgid ""
 "Sorry, access to WebApp is not available with this user account. Please "
 "contact your system administrator."
 msgstr ""
+"Przepraszamy, dostęp do WebApp nie jest dostępny przy użyciu tego konta "
+"użytkownika. Prosimy o kontakt z administratorem systemu."
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr ""
@@ -5592,6 +5616,8 @@ msgid ""
 "We encountered a problem. This might be caused by upgrading a plugin. Please "
 "re-login to resolve the issue."
 msgstr ""
+"Napotkaliśmy problem. Może to być spowodowane aktualizacją wtyczki. Prosimy "
+"o ponowne zalogowanie się w celu rozwiązania problemu."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -5615,7 +5641,7 @@ msgid "Error retrieving existing settings"
 msgstr "Nie można przyjąć ustawień"
 
 msgid "Error retrieving existing persistent settings"
-msgstr ""
+msgstr "Błąd w odzyskiwaniu istniejących trwałych ustaw"
 
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
@@ -5629,12 +5655,14 @@ msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
 "resolved, please log in again."
 msgstr ""
+"Logowanie nie działało z powodu podwójnej sesji. Problem został "
+"automatycznie rozwiązany, proszę się ponownie zalogować."
 
 msgid "Unknown MAPI Error"
 msgstr "Nieznany błąd MAPI"
 
 msgid "Click the link to open the URL in a new window."
-msgstr ""
+msgstr "Kliknij na link, aby otworzyć URL w nowym oknie."
 
 msgid "This external link will open in a new window"
 msgstr "Link zewnętrzny zostanie otwarty w nowym oknie"
@@ -5643,7 +5671,7 @@ msgid "Destination folder not found."
 msgstr "Folder docelowy nie odnaleziony."
 
 msgid "Eml is corrupted"
-msgstr ""
+msgstr "Eml jest zepsuty"
 
 msgid "The eml Attachment is not imported successfully"
 msgstr "Przystawka eml nie jest skutecznie importowana"
@@ -5653,23 +5681,25 @@ msgstr "Zaczep vcf nie jest skutecznie importowany"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr ""
+msgstr "Nie można importować \"%s\" do \"%s\". "
 
 msgid "There is no appointment found in this file."
 msgstr "W tych aktach nie ma żadnego spotkania."
 
 msgid "The file is corrupt."
-msgstr ""
+msgstr "Plik jest uszkodzony."
 
 msgid "The file is invalid."
 msgstr "Plik jest nieważny."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr ""
+msgstr "Nie można importować \"%s\". "
 
 msgid "Please contact your system administrator if the problem persists."
 msgstr ""
+"Jeśli problem się powtarza, należy skontaktować się z administratorem "
+"systemu."
 
 msgid "Attachment is not imported successfully"
 msgstr "Przystawka nie jest importowana pomyślnie"
@@ -5704,7 +5734,7 @@ msgid "Action is not performed correctly."
 msgstr "Akcja nie została wykonana poprawnie."
 
 msgid "Request is not available."
-msgstr ""
+msgstr "Wniosek nie jest dostępny."
 
 msgid "You have insufficient privileges to open this object."
 msgstr "Nie masz wystarczających przywileje, aby otworzyć ten obiekt."
@@ -5732,70 +5762,70 @@ msgid "Unknown MAPI Error: %s"
 msgstr "Nieznany błąd MAPI: %s"
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Wstępnie przyjęty"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Nowy czas zaproponowany"
 
 #, php-format
 msgid "Occurs every %s effective %s from %s to %s."
-msgstr ""
+msgstr "Ma miejsce co %s, począwszy od %s od %s do %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s from %s to %s."
-msgstr ""
+msgstr "Występuje co %s %s efektywny %s od %s do %s."
 
 #, php-format
 msgid "Occurs every %s effective %s."
-msgstr ""
+msgstr "Ma miejsce co %s, począwszy od %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s."
-msgstr ""
+msgstr "Ma miejsce co %s %s, zaczynając od %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s effective %s for %s occurences from %s to %s."
-msgstr[0] ""
+msgstr[0] "Ma miejsce co %s, zaczynając od %s dla %s powtórzenia od %s do %s."
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Odbywa się co %s, zaczynając od %s dla %s powtórzeń od %s do %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] ""
+msgstr[0] "Odbywa się co %s %s, zaczynając od %s dla %s powtarzanie od %s do %s."
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Odbywa się co %s %s, zaczynając od %s dla %s powtórzeń od %s do %s."
 
 #, php-format
 msgid "Occurs every %s effective %s for %s occurence."
 msgid_plural "Occurs every %s effective %s for %s occurences."
-msgstr[0] ""
+msgstr[0] "Odbywa się co %s, zaczynając od %s dla powtórzenia %s."
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Odbywa się co %s, zaczynając od %s dla powtórzeń %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence."
 msgid_plural "Occurs every %s %s effective %s for %s occurences."
-msgstr[0] ""
+msgstr[0] "Ma miejsce co %s %s, zaczynając od %s dla powtórzenia %s."
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Ma miejsce co %s %s, zaczynając od %s dla powtórzeń %s."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Ma miejsce co %s, zaczynając od %s do %s od %s do %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s from %s to %s."
-msgstr ""
+msgstr "Ma miejsce co %s %s, zaczynając od %s do %s od %s do %s."
 
 #, php-format
 msgid "Occurs every %s effective %s until %s."
-msgstr ""
+msgstr "Ma miejsce co %s, począwszy od %s do %s."
 
 #, php-format
 msgid "Occurs every %s %s effective %s until %s."
-msgstr ""
+msgstr "Ma miejsce co %s %s, zaczynając od %s do %s."
 
 msgid "Task Accepted:"
 msgstr "Zadanie zaakceptowane:"
@@ -5810,12 +5840,14 @@ msgid "Task Completed:"
 msgstr "Zadanie ukończone:"
 
 msgid "Contact not found"
-msgstr ""
+msgstr "Nie znaleziono kontaktu"
 
 msgid ""
 "Contact information could not be displayed because the server had trouble "
 "retrieving the information."
 msgstr ""
+"Dane kontaktowe nie mogły być wyświetlane, ponieważ serwer miał problemy z "
+"ich pobraniem."
 
 msgid "Could not handle this type of object."
 msgstr "Nie można edytować tego typu obiektu."
@@ -5954,7 +5986,7 @@ msgstr "Nie można wykonać akcji."
 
 msgid ""
 "A favorite folder with this name already exists, please use another name."
-msgstr ""
+msgstr "Ulubiony folder o tej nazwie już istnieje, proszę użyć innej nazwy."
 
 msgid "Could not add folder to favorites."
 msgstr "Nie można dołączyć folderu do ulubionych."
@@ -6046,6 +6078,8 @@ msgid ""
 "Message is no longer in the outgoing queue, typically because it has already "
 "been sent."
 msgstr ""
+"Wiadomość nie znajduje się już w kolejce wychodzącej, zazwyczaj dlatego, że "
+"została już wysłana."
 
 msgid "Message cannot be aborted"
 msgstr "Wiadomość nie może zostać przerwana"
@@ -6115,15 +6149,18 @@ msgstr "Błąd wyszukiwania, spróbuj ponownie"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr ""
+"Nie można przeprowadzić wyszukiwania, brak uprawnień do tworzenia folderu "
+"wyszukiwania."
 
 msgid "Unable to perform search query, search folder not found."
-msgstr ""
+msgstr "Nie można wykonać wyszukiwania, nie znaleziono folderu wyszukiwania."
 
 msgid "Unable to perform search query, store might not support searching."
 msgstr ""
+"Nie można przeprowadzić wyszukiwania, sklep może nie obsługiwać wyszukiwania."
 
 msgid "Error in creating search folder."
-msgstr ""
+msgstr "Błąd w utworzeniu folderu wyszukiwania."
 
 msgid ""
 "You have insufficient privileges to perform search operation in this folder."
@@ -6247,14 +6284,14 @@ msgid "File is not imported successfully"
 msgstr "Plik nie jest importowany pomyślnie"
 
 msgid "There is no contact found in this file."
-msgstr ""
+msgstr "W tym pliku nie ma żadnego kontaktu."
 
 msgid "WebApp does not support importing multiple VCF with this version."
-msgstr ""
+msgstr "WebApp nie obsługuje importowania wielu VCF w tej wersji."
 
 #, php-format
 msgid "Unable to import '%s'"
-msgstr ""
+msgstr "Nie można przywozić '%s'"
 
 msgid "The EML is not valid"
 msgstr "EML nie jest nieważny"
