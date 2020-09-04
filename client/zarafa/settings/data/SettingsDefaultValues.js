@@ -412,34 +412,52 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 								 */
 								show : true
 							},
-							
+
 							/**
 							 * zarafa/v1/main/desktop_notification
 							 */
 							'desktop_notification' : {
+									/**
+									 * zarafa/v1/main/desktop_notification/autohide_enable
+									 * Whether or not desktop notification should hide after some time.
+									 * @property
+									 * @type Boolean
+									 */
+								'autohide_enable': false,
+
+									/**
+									 * zarafa/v1/main/desktop_notification/autohide_time
+									 * Time after which desktop notification should be hidden.
+									 * @property
+									 * @type Number
+									 */
+								'autohide_time': 5,
+
+									/**
+									 * zarafa/v1/main/desktop_notification/disable_sound
+									 * Whether or not sound for the desktop notification should be disable.
+									 * @property
+									 * @type Boolean
+									 */
+								'disable_sound': false
+							},
+
+							/**
+							 * zarafa/v1/main/file_previewer
+							 * 
+							 */
+							'file_previewer' : {
 								/**
-								 * zarafa/v1/main/desktop_notification/autohide_enable
-								 * Whether or not desktop notification should hide after some time.
-								 * @property
-								 * @type Boolean
+								 * zarafa/v1/main/file_previewer/pdf_zoom
+								 * Default zoom mode for PDF documents. (default: page-width) [Allowed: "auto", "page-actual", "page-width"]
 								 */
-								autohide_enable: false,
-								
+								'pdf_zoom' : 'page-width',
+
 								/**
-								 * zarafa/v1/main/desktop_notification/autohide_time
-								 * Time after which desktop notification should be hidden.
-								 * @property
-								 * @type Number
+								 * zarafa/v1/main/file_previewer/odf_zoom
+								 * Default zoom mode for ODF documents. (default: auto) [Allowed: "auto", "page-actual", "page-width"]
 								 */
-								autohide_time: 5,
-								
-								/**
-								 * zarafa/v1/main/desktop_notification/disable_sound
-								 * Whether or not sound for the desktop notification should be disable.
-								 * @property
-								 * @type Boolean
-								 */
-								disable_sound: false
+								'odf_zoom' : 'auto'
 							}
 						},
 

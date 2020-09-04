@@ -1128,6 +1128,11 @@ Zarafa.common.Actions = {
 			record = record.convertToIPMRecord();
 		}
 
+		config = Ext.applyIf(config||{}, {
+			modal: Zarafa.common.Actions.isSupportedDocument(record.get("name")),
+			autoResize : true
+		});
+
 		if(record) {
 			Zarafa.core.data.UIFactory.openViewRecord(record, config);
 		}
@@ -1195,6 +1200,18 @@ Zarafa.common.Actions = {
 		return store.getRange().filter(function(item){
 			return item.get('recipient_type') === recipientType;
 		}, this);
+	},
+
+	/**
+	 * Check if the given file is either a PDF file or a ODF file.
+	 *
+	 * @param path
+	 * @returns {boolean}
+	 * @private
+	 */
+	isSupportedDocument: function (path) 
+	{
+		return path.match(/^.*\.(pdf|od[tps]|jpg|jpeg|png|bmp|gif|mp4|mp3|ogg|webm|wav)$/i) ? true : false;
 	},
 
 	/**

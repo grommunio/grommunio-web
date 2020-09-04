@@ -26,6 +26,15 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 		this.registerInsertionPoint('context.settings.categories', this.createRuleSettingsCategory, this);
 		this.registerInsertionPoint('context.settings.categories', this.createNotificationSettingsCategory, this);
 
+		// Copyrights text for the viewer and pdf js.
+		this.registerInsertionPoint('context.settings.category.copyright', function() {
+			return {
+				xtype : 'zarafa.settingscopyrightwidget',
+				title : "File previewer",
+				about : Zarafa.common.previewer.ui.ABOUT
+			};
+		});
+		
 		// Register common specific dialog types
 		Zarafa.core.data.SharedComponentType.addProperty('common.dialog.copymoverecords');
 		Zarafa.core.data.SharedComponentType.addProperty('common.dialog.recurrence');
@@ -199,8 +208,12 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.view']:
 				if (record instanceof Zarafa.core.data.IPMRecipientRecord) {
 					component = Zarafa.common.recipientfield.ui.ViewRecipientContentPanel;
-				} else if (record instanceof Zarafa.core.data.IPMAttachmentRecord){
-					component = this;
+				} else if (record instanceof Zarafa.core.data.IPMAttachmentRecord){		
+					if (Zarafa.common.Actions.isSupportedDocument(record.get('name'))) {
+						component = Zarafa.common.previewer.ui.ViewerContainer;
+					} else {
+						component = this;
+					}
 				}
 				break;
 			case Zarafa.core.data.SharedComponentType['common.contextmenu.previewpanel.extrainfo']:
