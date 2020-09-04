@@ -767,7 +767,7 @@ Zarafa.core.Util =
 					rawValue = rawValue.split(regExSpecialChar);
 					// Since the format is 'm/d/Y', we interchange the day with the month.
 					[result[0], result[1]] = [rawValue[1], rawValue[0]];
-					if (rawValue[0] >= 12) {
+					if (rawValue[0] > 12) {
 						result = rawValue.slice();
 					}
 					var year = rawValue[2];

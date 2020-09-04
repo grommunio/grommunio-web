@@ -68,9 +68,11 @@
 			var month = value[1];
 			var year = value[2];
 
-			newDate.setDate(day ? day : newDate.getDate());
-			newDate.setMonth(month ? (month - 1) : newDate.getMonth());
-			newDate.setFullYear(year ? year : newDate.getFullYear());
+			// Since we need to set the date according to the input values, we use the setFullYear to set the day, month and year 
+			// at once. Earlier we set it individually in newDate(current date) but that caused an issue with some cases.
+			// Example: 
+			// When the newDate's month contains 30 days, but we need to set the day as the 31st, it gets converted to 1st of next month.
+			newDate.setFullYear(year ? year : newDate.getFullYear(), month ? (month - 1) : newDate.getMonth(), day ? day : newDate.getDate());
 			
 			// Compare the new date value with the minimum and maximum value, defined for the current date field.
 			if (Ext.isDefined(newDate) && Ext.isDate(newDate)) {
