@@ -586,13 +586,13 @@
 				// Cache the store for later use
 				$this->stores[$entryid] = $store;
 			} catch (MAPIException $e) {
-				error_log('Failed to open store with entryid ' . $entryid . ($name ? " ($name)":''));
+				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)":''));
 				error_log($e);
 				return $e->getCode();
 			} catch (Exception $e ) {
 				// mapi_openmsgstore seems to throw another exception than MAPIException
 				// sometimes, so we add a safety net.
-				error_log('Failed to open store with entryid ' . $entryid . ($name ? " ($name)":''));
+				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)":''));
 				error_log($e);
 				return $e->getCode();
 			}
