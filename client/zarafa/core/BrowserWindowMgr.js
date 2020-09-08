@@ -508,7 +508,7 @@ Zarafa.core.BrowserWindowMgr = Ext.extend(Ext.util.Observable, {
 		var height = browserWindowObject.innerHeight || Ext.lib.Dom.getViewHeight();
 		mainContainer.setSize(width, height);
 
-		this.fireEvent('separatewindowresize', browserWindowObject, width. height);
+		this.fireEvent('separatewindowresize', browserWindowObject, width, height);
 	},
 
 	/**
