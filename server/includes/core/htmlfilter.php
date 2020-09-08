@@ -214,10 +214,10 @@ function sq_findnxstr($body, $offset, $needle){
 function sq_findnxreg($body, $offset, $reg){
     $matches = Array();
     preg_match("%(.*?)($reg)%si", $body, $matches, 0, $offset);
-    if (!isset($matches{0}) || !$matches{0}){
+    if (!isset($matches[0]) || !$matches[0]){
         return False;
     } else {
-    	return array(($offset + strlen($matches{1})), $matches{1}, $matches{2});
+	return array(($offset + strlen($matches[1])), $matches[1], $matches[2]);
     }
 }
 
@@ -372,7 +372,7 @@ function sq_getnxtag($body, $offset){
             /**
              * Yep. So we did.
              */
-            if ($matches{1} == "/>"){
+            if ($matches[1] == "/>"){
                 $tagtype = 3;
                 $pos++;
             }
@@ -429,7 +429,7 @@ function sq_getnxtag($body, $offset){
                     return $retary;
                 }
             case '>':
-                $attary{$attname} = '"yes"';
+                $attary[$attname] = '"yes"';
                 return Array($tagname, $attary, $tagtype, $lt, $pos);
                 break;
             default:
@@ -463,7 +463,7 @@ function sq_getnxtag($body, $offset){
                         }
                         list($pos, $attval, ) = $regary;
                         $pos++;
-                        $attary{$attname} = "'" . $attval . "'";
+                        $attary[$attname] = "'" . $attval . "'";
                     } else if ($quot == '"'){
                         $regary = sq_findnxreg($body, $pos+1, '\"');
                         if ($regary == false){
@@ -471,7 +471,7 @@ function sq_getnxtag($body, $offset){
                         }
                         list($pos, $attval,) = $regary;
                         $pos++;
-                        $attary{$attname} = '"' . $attval . '"';
+                        $attary[$attname] = '"' . $attval . '"';
                     } else {
                         /**
                          * These are hateful. Look for \s, or >.
@@ -485,13 +485,13 @@ function sq_getnxtag($body, $offset){
                          * If it's ">" it will be caught at the top.
                          */
                         $attval = preg_replace("/\"/s", "&quot;", $attval);
-                        $attary{$attname} = '"' . $attval . '"';
+                        $attary[$attname] = '"' . $attval . '"';
                     }
                 } else if (preg_match("|[\w/>]|", $char)) {
                     /**
                      * That was attribute type 4.
                      */
-                    $attary{$attname} = '"yes"';
+                    $attary[$attname] = '"yes"';
                 } else {
                     /**
                      * An illegal character. Find next '>' and return.
@@ -528,7 +528,7 @@ function sq_deent(&$attvalue, $regex, $hex=false){
             }
 			//checks for un-escaping non-ascii chars
             if($numval < 128)
-                $repl{$matches[0][$i]} = chr($numval);
+                $repl[$matches[0][$i]] = chr($numval);
         }
         if(count($repl) > 0) {
             $attvalue = strtr($attvalue, $repl);
@@ -565,7 +565,7 @@ function sq_fixatts($tagname,
             if (preg_match($matchtag, $tagname)){
                 foreach ($matchattrs as $matchattr){
                     if (preg_match($matchattr, $attname)){
-                        unset($attary{$attname});
+                        unset($attary[$attname]);
                         continue;
                     }
                 }
@@ -613,7 +613,7 @@ function sq_fixatts($tagname,
             // entities are used in the attribute value. In 99% of the cases it's there as XSS
             // i.e.<div style="{ left:exp&#x0280;essio&#x0274;( alert('XSS') ) }">
             $attvalue = "idiocy";
-            $attary{$attname} = $attvalue;
+            $attary[$attname] = $attvalue;
         }
         sq_unspace($attvalue);
 
@@ -636,7 +636,7 @@ function sq_fixatts($tagname,
                         $newvalue =
                             preg_replace($valmatch, $valrepl, $attvalue);
                         if ($newvalue != $attvalue){
-                            $attary{$attname} = $newvalue;
+                            $attary[$attname] = $newvalue;
                             $attvalue = $newvalue;
                         }
                     }
@@ -647,14 +647,14 @@ function sq_fixatts($tagname,
         if ($attname == 'style') {
             if (preg_match('/[\0-\37\200-\377]+/',$attvalue)) {
                 // 8bit and control characters in style attribute values can be used for XSS, remove them
-                $attary{$attname} = '"disallowed character"';
+                $attary[$attname] = '"disallowed character"';
             }
             preg_match_all("/url\s*\((.+)\)/si",$attvalue,$aMatch);
             if (count($aMatch)) {
                 foreach($aMatch[1] as $sMatch) {
                     // url value
                     $urlvalue = $sMatch;
-                    $attary{$attname} = str_replace($sMatch,$urlvalue,$attvalue);
+                    $attary[$attname] = str_replace($sMatch,$urlvalue,$attvalue);
                 }
             }
         }
@@ -662,7 +662,7 @@ function sq_fixatts($tagname,
          * Use white list based filtering on attributes which can contain url's
          */
         else if ($attname == 'href' || $attname == 'src' || $attname == 'background') {
-            $attary{$attname} = $attvalue;
+            $attary[$attname] = $attvalue;
         }
     }
     /**
@@ -694,7 +694,7 @@ function sq_fixstyle($body, $pos) {
     $bSucces = false;
     $bEndTag = false;
     for ($i=$pos,$iCount=strlen($body);$i<$iCount;++$i) {
-        $char = $body{$i};
+        $char = $body[$i];
         switch ($char) {
             case '<':
                 $sToken = $char;
@@ -725,7 +725,7 @@ function sq_fixstyle($body, $pos) {
             case '!':
                 if ($sToken == '<') {
                     // possible comment
-                    if (isset($body{$i + 2}) && substr($body, $i, 3) === '!--') {
+                    if (isset($body[$i + 2]) && substr($body, $i, 3) === '!--') {
                         $i = strpos($body,'-->', $i + 3);
                         if ($i === false) { // no end comment
                             $i = strlen($body);
@@ -849,7 +849,7 @@ function sq_body2div($attary){
             }
         }
         if (strlen($styledef) > 0){
-            $divattary{"style"} = "\"$styledef\"";
+            $divattary["style"] = "\"$styledef\"";
         }
     }
     return $divattary;
@@ -933,9 +933,9 @@ function sq_sanitize($body,
                         if ($tagname == "body"){
                             $tagname = "div";
                         }
-                        if (isset($open_tags{$tagname}) &&
-                                $open_tags{$tagname} > 0){
-                            $open_tags{$tagname}--;
+                        if (isset($open_tags[$tagname]) &&
+                                $open_tags[$tagname] > 0){
+                            $open_tags[$tagname]--;
                         } else {
                             $tagname = false;
                         }
@@ -976,10 +976,10 @@ function sq_sanitize($body,
 				$attary = sq_body2div($attary);
                             }
                             if ($tagtype == 1){
-                                if (isset($open_tags{$tagname})){
-                                    $open_tags{$tagname}++;
+                                if (isset($open_tags[$tagname])){
+                                    $open_tags[$tagname]++;
                                 } else {
-                                    $open_tags{$tagname}=1;
+                                    $open_tags[$tagname]=1;
                                 }
                             }
                             /**
