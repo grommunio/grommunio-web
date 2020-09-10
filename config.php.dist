@@ -131,6 +131,10 @@
 	// Set to false to hide the setting and disable conversation view for all users
 	define("ENABLE_CONVERSATION_VIEW", false);
 
+	// Set to true to give users the option to enable file previewer in their settings
+	// Set to false to hide the setting and disable file previewer for all users
+	define("ENABLE_FILE_PREVIEWER", true);
+
 	// Set to true to give users the possiblity to edit, create, and delete mail filters on the store
 	// of other users. The user needs owner permissions on the store of the other user.
 	define("ENABLE_SHARED_RULES", false);

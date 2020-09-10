@@ -373,5 +373,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getDOMPurifyEnabled : function ()
 	{
 		return this.meta.enable_dompurify;
+	},
+
+	/**
+	 * @returns {Boolean} True if file previewer is enabled by admin(from config.php) else false.
+	 */
+	isFilePreviewerEnabled : function ()
+	{
+		return this.meta.enable_file_previewer;
 	}
 });

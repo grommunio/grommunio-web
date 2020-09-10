@@ -448,6 +448,14 @@ Zarafa.settings.data.SettingsDefaultValue = function(){
 							 */
 							'file_previewer' : {
 								/**
+								 * zarafa/v1/main/file_previewer/enable
+								 *
+								 * @property
+								 * @type Boolean
+								 */
+								'enable' : true,
+
+								/**
 								 * zarafa/v1/main/file_previewer/pdf_zoom
 								 * Default zoom mode for PDF documents. (default: page-width) [Allowed: "auto", "page-actual", "page-width"]
 								 */

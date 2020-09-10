@@ -88,6 +88,11 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 	 */
 	onPreviewBeforeShow : function(item, record)
 	{
+		if (!Zarafa.common.Actions.isFilePreviewerEnabled()) {
+			item.setVisible(false);
+			return;
+		}
+
 		// get component that can preview the selected record
 		var comp = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.view'], record);
 

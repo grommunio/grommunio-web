@@ -21,6 +21,13 @@ if(!defined("ENABLE_PUBLIC_FOLDERS")) define("ENABLE_PUBLIC_FOLDERS", true);
  */
 if(!defined("ENABLE_CONVERSATION_VIEW")) define("ENABLE_CONVERSATION_VIEW", false);
 
+
+/**
+ * Set to true to give users the option to enable file previewer in their settings
+ * Set to false to hide the setting and disable file previewer for all users
+ */
+if(!defined("ENABLE_FILE_PREVIEWER")) define("ENABLE_FILE_PREVIEWER", true);
+
 /**
  * Set to true to give users the possiblity to edit and create mail filters on the store
  * of other users. The user needs owner permissions on the store and folder permissions on
