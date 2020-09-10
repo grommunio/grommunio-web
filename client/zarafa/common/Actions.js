@@ -1123,13 +1123,16 @@ Zarafa.common.Actions = {
 	 */
 	openAttachmentRecord: function(record, config)
 	{
+		var modal = false;
 		if(record.isEmbeddedMessage()) {
 			// if we are going to open embedded message then we need to first convert it into mail record
 			record = record.convertToIPMRecord();
+		} else {
+			modal = Zarafa.common.Actions.isSupportedDocument(record.get("name"));
 		}
 
 		config = Ext.applyIf(config||{}, {
-			modal: Zarafa.common.Actions.isSupportedDocument(record.get("name")),
+			modal: modal,
 			autoResize : true
 		});
 
