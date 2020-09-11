@@ -208,8 +208,8 @@ Zarafa.common.CommonContext = Ext.extend(Zarafa.core.Context, {
 			case Zarafa.core.data.SharedComponentType['common.view']:
 				if (record instanceof Zarafa.core.data.IPMRecipientRecord) {
 					component = Zarafa.common.recipientfield.ui.ViewRecipientContentPanel;
-				} else if (record instanceof Zarafa.core.data.IPMAttachmentRecord){		
-					if (Zarafa.common.Actions.isSupportedDocument(record.get('name'))) {
+				} else if (record instanceof Zarafa.core.data.IPMAttachmentRecord) {
+					if (Zarafa.common.Actions.isSupportedDocument(record.get('name')) && Zarafa.common.Actions.isFilePreviewerEnabled()) {
 						component = Zarafa.common.previewer.ui.ViewerContainer;
 					} else {
 						component = this;

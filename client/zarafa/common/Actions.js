@@ -1218,6 +1218,21 @@ Zarafa.common.Actions = {
 	},
 
 	/**
+	 * Helper function which check files previewer is enabled by
+	 * admin as well as by user.
+	 *
+	 * @return true to file previewer is enabled by the admin and user else false.
+	 */
+	isFilePreviewerEnabled : function ()
+	{
+		if (!container.getServerConfig().isFilePreviewerEnabled()) {
+			return false;
+		}
+
+		return container.getSettingsModel().get('zarafa/v1/main/file_previewer/enable');
+	},
+
+	/**
 	 * Copy email address(es) of the given recipient or type of recipient.
 	 *
 	 * @param {Zarafa.core.dat.IPMRecipientRecord} record The record is resolved

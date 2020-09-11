@@ -42,6 +42,7 @@ $serverConfig = array_merge($serverConfig, array(
 	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL,
 	'oidc_enabled' => OIDC_ISS,
 	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,
+	'enable_file_previewer' => ENABLE_FILE_PREVIEWER
 ));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);
