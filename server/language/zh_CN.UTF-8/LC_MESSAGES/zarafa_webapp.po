@@ -1,4 +1,4 @@
-# Kopano Webapp Chinese (Simplified) translation.
+# Grammm WebApp Chinese (Simplified) translation.
 # Copyright (C) 2019
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <yangsongyi@ee-post.com>, 2019.
@@ -1500,7 +1500,7 @@ msgstr "打开更改后的会议邀请"
 msgid "Copy"
 msgstr "复制"
 
-msgid "Kopano Webapp"
+msgid "Grammm WebApp"
 msgstr "晶格WebApp"
 
 msgid ""
@@ -1992,7 +1992,7 @@ msgstr[0] "选择了{0}封邮件"
 msgid "Folder '{0}' selected."
 msgstr "选择了文件夹“{0}”"
 
-msgid "Kopano WebApp"
+msgid "Grammm WebApp"
 msgstr "晶格WebApp"
 
 msgid "Do not show this message again."
@@ -2194,7 +2194,7 @@ msgstr "下列收件人已存在"
 msgid "Duplicate recipients"
 msgstr "重复收件人"
 
-msgid "Kopano WebApp print"
+msgid "Grammm WebApp print"
 msgstr "晶格WebApp打印"
 
 msgid "Display name"
@@ -3628,7 +3628,7 @@ msgstr "项目已被更改，是否继续删除？"
 msgid "Unsaved changes"
 msgstr "未保存更改"
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
 msgstr "欢迎光临晶格WebApp"
 
 msgid "This is the first time you are using WebApp. "

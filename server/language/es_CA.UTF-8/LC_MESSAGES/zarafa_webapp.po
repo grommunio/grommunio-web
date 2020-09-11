@@ -1658,8 +1658,8 @@ msgid "Copy"
 msgstr "Copiar"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2207,8 +2207,8 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2443,8 +2443,8 @@ msgid "Duplicate recipients"
 msgstr "Editar recipiente"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 # 91%
 msgid "Display name"
@@ -4041,8 +4041,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Bienvenido a Kopano Webapp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Bienvenido a Grammm WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4907,7 +4907,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Configuración"

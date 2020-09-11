@@ -1,10 +1,10 @@
-# Kopano Webapp Finnish (Finland) translation.
+# Grammm WebApp Finnish (Finland) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Finnish (Finland)\n"
+"Project-Id-Version: Grammm WebApp Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
@@ -1645,8 +1645,8 @@ msgid "Copy"
 msgstr "Kopioi"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2184,8 +2184,8 @@ msgstr[1] "{0} viestiä on valittu."
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2418,8 +2418,8 @@ msgid "Duplicate recipients"
 msgstr "Muokkaa vastaanottajia"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 # 91%
 msgid "Display name"
@@ -3996,7 +3996,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
 msgstr "Tervetuloa käyttämään Kopanon WebApp-sovellusta"
 
 msgid "This is the first time you are using WebApp. "
@@ -4859,7 +4859,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Asetukset"

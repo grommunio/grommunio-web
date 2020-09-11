@@ -1,10 +1,10 @@
-# Kopano Webapp Dutch translation.
+# Grammm WebApp Dutch translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Dutch\n"
+"Project-Id-Version: Grammm WebApp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:17+0000\n"
@@ -1656,8 +1656,8 @@ msgstr "Open het vergaderverzoek met wijzigingen"
 msgid "Copy"
 msgstr "Kopiëren"
 
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2211,8 +2211,8 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
@@ -2443,8 +2443,8 @@ msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 msgid "Duplicate recipients"
 msgstr "Update genodigden"
 
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp printen"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp printen"
 
 # 91%
 msgid "Display name"
@@ -4050,8 +4050,8 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Unsaved changes"
 msgstr "Niet-opgeslagen aanpassingen"
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Welkom bij Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Welkom bij Grammm WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Dit is de eerste keer dat je WebApp gebruikt. "

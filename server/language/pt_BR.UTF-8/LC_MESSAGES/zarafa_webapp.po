@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Portuguese (Brazil)\n"
+"Project-Id-Version: Grammm WebApp Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
@@ -1650,8 +1650,8 @@ msgid "Copy"
 msgstr "Copiar"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2190,8 +2190,8 @@ msgstr[1] "Tem {0} mensagens selecionadas."
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2425,8 +2425,8 @@ msgid "Duplicate recipients"
 msgstr "Editar destinatário"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 msgid "Display name"
 msgstr "Nome para exibição"
@@ -3982,8 +3982,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Bem vindo ao Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Bem vindo ao Grammm WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4847,7 +4847,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Configurações"

@@ -1,4 +1,4 @@
-Kopano Webapp Desktop Notifications Plugin
+Grammm WebApp Desktop Notifications Plugin
 Copyright (C) 2013  Saket Patel silentsakky@gmail.com
 Copyright (C) 2016 Kopano and its licensors
 

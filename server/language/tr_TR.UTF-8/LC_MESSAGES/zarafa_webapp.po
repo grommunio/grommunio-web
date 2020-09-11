@@ -1,10 +1,10 @@
-# Kopano Webapp Turkish translation.
+# Grammm WebApp Turkish translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Turkish\n"
+"Project-Id-Version: Grammm WebApp Turkish\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
@@ -1659,8 +1659,8 @@ msgid "Copy"
 msgstr "Kopyala"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 #, fuzzy
 msgid ""
@@ -2197,8 +2197,8 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2433,8 +2433,8 @@ msgid "Duplicate recipients"
 msgstr "Alıcı düzenle"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 # 91%
 msgid "Display name"
@@ -4038,8 +4038,8 @@ msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Kopano WebApp'e hoşgeldiniz"
+msgid "Welcome to Grammm WebApp"
+msgstr "Grammm WebApp'e hoşgeldiniz"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4904,7 +4904,7 @@ msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyi
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Ayarlar"

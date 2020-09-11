@@ -1,10 +1,10 @@
-# Kopano Webapp Spanish (Spain) translation.
+# Grammm WebApp Spanish (Spain) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
+"Project-Id-Version: Grammm WebApp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
@@ -1652,8 +1652,8 @@ msgid "Copy"
 msgstr "Copiar"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2203,8 +2203,8 @@ msgstr[1] "Hay {0} mensajes seleccionados."
 msgid "Folder '{0}' selected."
 msgstr "Carpeta '{0}' seleccionada."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2438,8 +2438,8 @@ msgid "Duplicate recipients"
 msgstr "Editar recipiente"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 # 91%
 msgid "Display name"
@@ -4066,8 +4066,8 @@ msgstr "Este elemento ha sido cambiado. ¿ Está seguro que desea eliminarlo ?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Bienvenido a Kopano Webapp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Bienvenido a Grammm WebApp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4937,7 +4937,7 @@ msgstr "Para que los cambios surtan efecto, por favor cargue de nuevo WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Configuración"

@@ -1,5 +1,5 @@
 {
-    "--title": "Kopano WebApp",
+    "--title": "Grammm WebApp",
     "--warnings": ["-link", "-no_doc"],
     "--external": "extjs",
     "--ext-namespace": "Ext",

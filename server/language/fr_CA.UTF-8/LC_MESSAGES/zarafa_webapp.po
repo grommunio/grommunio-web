@@ -1,10 +1,10 @@
-# Kopano Webapp Canadian French translation.
+# Grammm WebApp Canadian French translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp French (Canada)\n"
+"Project-Id-Version: Grammm WebApp French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: \n"
@@ -1506,7 +1506,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Kopano Webapp"
+msgid "Grammm WebApp"
 msgstr ""
 
 msgid ""
@@ -1999,7 +1999,7 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Kopano WebApp"
+msgid "Grammm WebApp"
 msgstr ""
 
 msgid "Do not show this message again."
@@ -2201,7 +2201,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Kopano WebApp print"
+msgid "Grammm WebApp print"
 msgstr ""
 
 msgid "Display name"
@@ -3630,7 +3630,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

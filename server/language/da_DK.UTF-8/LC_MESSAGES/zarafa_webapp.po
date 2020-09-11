@@ -1,10 +1,10 @@
-# Kopano Webapp Danish (Denmark) translation.
+# Grammm WebApp Danish (Denmark) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Danish (Denmark)\n"
+"Project-Id-Version: Grammm WebApp Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
@@ -1568,8 +1568,8 @@ msgid "Copy"
 msgstr "Kopier"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 #, fuzzy
 msgid ""
@@ -2104,8 +2104,8 @@ msgstr[1] "{0} meddelelser er valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappen '{0}' er valgt."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
@@ -2327,8 +2327,8 @@ msgid "Duplicate recipients"
 msgstr "Ret modtager"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp"
 
 msgid "Display name"
 msgstr "Vist navn"
@@ -3839,8 +3839,8 @@ msgstr "Elementet er blevet ændret. Er du sikker på du vil slette det?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Velkommen til Kopano Webapp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Velkommen til Grammm WebApp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4675,7 +4675,7 @@ msgstr "For at ændringerne skal træde i kræft, skal du genindlæse WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Settings"
 msgstr "Indstillinger"

@@ -1,10 +1,10 @@
-# Kopano Webapp Norwegian (Bokmål) translation.
+# Grammm WebApp Norwegian (Bokmål) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
+"Project-Id-Version: Grammm WebApp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-06-25 13:44+0000\n"
@@ -1604,8 +1604,8 @@ msgstr "Åpne møteinvitasjonen med endringene"
 msgid "Copy"
 msgstr "Kopier"
 
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2152,8 +2152,8 @@ msgstr[1] "Det er {0} meldinger valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappe '{0}' valgt."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
@@ -2382,8 +2382,8 @@ msgstr "De følgende mottakere kunne ikke nåes"
 msgid "Duplicate recipients"
 msgstr "Oppdater mottaker"
 
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp utskrift"
+msgid "Grammm WebApp print"
+msgstr "Grammm WebApp utskrift"
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -3907,8 +3907,8 @@ msgstr "Elementet har blitt endret. Er du sikker på at du vil slette det?"
 msgid "Unsaved changes"
 msgstr "Ulagrede endringer"
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Velkommen til Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
+msgstr "Velkommen til Grammm WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Dette er første gangen du bruker WebApp. "
