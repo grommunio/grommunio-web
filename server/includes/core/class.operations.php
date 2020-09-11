@@ -676,6 +676,10 @@
 			$rows = mapi_table_queryallrows($table, $GLOBALS["properties"]->getFavoritesFolderProperties(), $restriction);
 			$faultyLinkMsg = [];
 			foreach ($rows as $row) {
+				if (!isset($row[PR_WLINK_TYPE]))
+					continue;
+				if ($row[PR_WLINK_TYPE] > 2)
+					continue;
 				try {
 					if ($row[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
 						// Find faulty link messages which does not linked to any message. if link message
