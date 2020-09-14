@@ -349,7 +349,7 @@ class UploadAttachment
 		// but if it doesn't exist, we use the old function 'mapi_vcftomapi' for single vcf file.
 		if (function_exists('mapi_vcftomapi2')) {
 			$contacts = mapi_vcftomapi2($destinationFolder, $attachmentStream);
-		} else if ($_POST['is_single_vcf']) {
+		} else if ($_POST['is_single_import']) {
 			$newMessage = mapi_folder_createmessage($this->destinationFolder);
 			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
 			$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $store, $newMessage, $attachmentStream);
@@ -455,7 +455,7 @@ class UploadAttachment
      * Function reads content of the given file and convert the same into
      * a webapp appointment into respective destination folder.
 	 *
-     * @param String $attachTempName A temporary file name of server location where it actually saved/available.
+     * @param String $attachmentStream The attachment as a stream.
      * @param String $filename An actual file name.
      * @return Boolean true if the import is successful, false otherwise.
      */
@@ -463,23 +463,21 @@ class UploadAttachment
 	{
 		$this->destinationFolder = $this->getDestinationFolder();
 
-		$newMessage = mapi_folder_createmessage($this->destinationFolder);
-		$addrBook = $GLOBALS['mapisession']->getAddressbook();
-		$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
-
-		// FIXME: Same exact code is used in download_attachment.php in importAttachment function for ics/vcs.
-		// Find some way to reduce the code duplication.
 		try {
-			// Convert vCalendar 1.0 or iCalendar to a MAPI Appointment
-			$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $store, $addrBook, $newMessage, $attachmentStream, false);
+			$events = $this->convertICSToMapi($attachmentStream);
+		} catch (ZarafaException $e){
+			$e->setTitle(_("Import error"));
+			throw $e;
 		} catch(Exception $e) {
 			$destinationFolderProps = mapi_getprops($this->destinationFolder, array(PR_DISPLAY_NAME, PR_MDB_PROVIDER));
 			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
+			// Condition true if folder is belongs to Public store.
 			if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
 				$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
 				$publicStoreName = mapi_getprops($publicStore, array(PR_DISPLAY_NAME));
 				$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
 			} else if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
+				// Condition true if folder is belongs to delegate store.
 				$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
 				$sharedStoreOwnerName = mapi_getprops($otherStore, array(PR_MAILBOX_OWNER_NAME));
 				$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
@@ -500,23 +498,61 @@ class UploadAttachment
 			$e->setTitle(_("Import error"));
 			throw $e;
 		}
-		if($ok === true) {
-			mapi_message_savechanges($newMessage);
-			// Check that record is not appointment record(IPM.Schedule.Meeting.Request). we have to only convert the
-			// Meeting request record to appointment record.
-			$newMessageProps = mapi_getprops($newMessage, array(PR_MESSAGE_CLASS));
-			if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
-				// Convert the Meeting request record to proper appointment record so we can
-				// properly show the appointment in calendar.
-				$req = new Meetingrequest($store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
-				$req->doAccept(true, false, false, false,false,false, false, false,false, true);
-			}
 
-			$this->allowUpdateCounter = false;
-			return bin2hex(mapi_getprops($newMessage, array(PR_ENTRYID))[PR_ENTRYID]);
+		if (is_array($events) && !empty($events)) {
+			$newEvents = Array();
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			foreach ($events as $event) {
+				// Save newly imported event
+				mapi_message_savechanges($event);
+
+				$newMessageProps = mapi_getprops($event, array(PR_MESSAGE_CLASS));
+				if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
+					// Convert the Meeting request record to proper appointment record so we can
+					// properly show the appointment in calendar.
+					$req = new Meetingrequest($store, $event, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
+					$req->doAccept(true, false, false, false,false,false, false, false,false, true);
+				}
+
+				$this->allowUpdateCounter = false;
+				$entryid = bin2hex(mapi_getprops($event, array(PR_ENTRYID))[PR_ENTRYID]);
+				array_push($newEvents, $entryid);
+			}
+			return $newEvents;
 		}
 
 		return false;
+	}
+
+	/**
+	 * Function checks whether the file to be converted contains a single event ics
+	 * or multiple ics event entries.
+	 *
+	 * @param String $attachmentStream The attachment as a stream.
+	 * @return Array $events The array of calendar items to be imported.
+	 */
+	function convertICSToMapi($attachmentStream)
+	{
+		$events = array();
+		$addrBook = $GLOBALS['mapisession']->getAddressbook();
+
+		// If function 'mapi_icaltomapi2' exists, we can use that for both single and multiple ics files,
+		// but if it doesn't exist, we use the old function 'mapi_icaltomapi' for single ics file.
+		if (function_exists('mapi_icaltomapi2')) {
+			$events = mapi_icaltomapi2($addrBook, $this->destinationFolder, $attachmentStream);
+		} else if ($_POST['is_single_import']) {
+			$newMessage = mapi_folder_createmessage($this->destinationFolder);
+			$store = $GLOBALS["mapisession"]->getDefaultMessageStore();
+			$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $store, $addrBook, $newMessage, $attachmentStream, false);
+
+			if ($ok !== false) {
+				array_push($events, $newMessage);
+			}
+		} else {
+			// Throw error related to multiple ics as the function is not available for importing multiple ics file.
+			throw new ZarafaException(_("WebApp does not support importing multiple ICS with this version."));
+		}
+		return $events;
 	}
 
 	/**

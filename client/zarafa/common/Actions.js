@@ -37,11 +37,11 @@ Zarafa.common.Actions = {
 	showImported : false,
 
 	/**
-	 * Defines if the imported item is a single or multiple VCF file.
+	 * Defines if the imported item is a single or multiple ICS or VCF file.
 	 * @property
 	 * @type Boolean
 	 */
-	isSingleVCF : false,
+	isSingleImport : false,
 
 	/**
 	 * Open a {@link Zarafa.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for
@@ -1399,16 +1399,26 @@ Zarafa.common.Actions = {
 		if (Ext.isEmpty(rawHeaders) || invalidImportingFolder) {
 			this.brokenFiles.push(files[index]);
 		} else if (this.isICSFile(files[index])) {
-			this.isBrokenICSVCS(files[index], splittedContent, rawHeaders);
+			splittedContent = splittedContent.toUpperCase();
+
+			// Check if the file contains multiple events in single ics, if yes, validate each and every event.
+			splittedContent = splittedContent.trim().split(/^\n$/gm);
+			// If there is a single event in ics, we need to set the isSingleImport flag to true.
+			if (splittedContent.length === 1) {
+				this.isSingleImport = true;
+			}
+			splittedContent.forEach(function(contact) {
+				this.isBrokenICSVCS(files[index], contact, rawHeaders);
+			}, this);
 		} else if (this.isVCFFile(files[index])) {
 			splittedContent = splittedContent.toUpperCase();
 
 			// Check if the file contains multiple vCards, if yes, validate each and every vCard.
 			splittedContent = splittedContent.trim().split(/^\n$/gm);
 			
-			// If there is a single vCard, we need to set the isSingleVCF flag to true.
+			// If there is a single vCard, we need to set the isSingleImport flag to true.
 			if (splittedContent.length === 1) {
-				this.isSingleVCF = true;
+				this.isSingleImport = true;
 			}
 			splittedContent.forEach(function(contact) {
 				// We need to check for the rawHeaders in each and every vCard, for proper validation
@@ -1554,7 +1564,7 @@ Zarafa.common.Actions = {
 					// Need to pass 1 and 0 because on php side we get all formData in
 					// string so 'false' can break the import eml feature.
 					filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
-					filesData.append('is_single_vcf', this.isSingleVCF ? 1 : 0);
+					filesData.append('is_single_import', this.isSingleImport ? 1 : 0);
 				}
 			}
 
@@ -1563,7 +1573,7 @@ Zarafa.common.Actions = {
 			// Need to pass 1 and 0 because on php side we get all formData in
 			// string so 'false' can break the import eml feature.
 			filesData.append('has_icsvcs_file', this.isICSFile(files[i]) ? 1 : 0);
-			filesData.append('is_single_vcf', this.isSingleVCF ? 1 : 0);
+			filesData.append('is_single_import', this.isSingleImport ? 1 : 0);
 		}
 
 		var url = container.getBaseURL();
