@@ -1,10 +1,10 @@
-# Kopano Webapp Chinese (Taiwan) translation.
+# Grammm WebApp Chinese (Taiwan) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
+"Project-Id-Version: Grammm WebApp Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
@@ -1502,7 +1502,7 @@ msgstr "打開更改後的會議邀請"
 msgid "Copy"
 msgstr "複製"
 
-msgid "Kopano Webapp"
+msgid "Grammm WebApp"
 msgstr "晶格WebApp"
 
 msgid ""
@@ -1994,7 +1994,7 @@ msgstr[0] "選擇了{0}封郵件"
 msgid "Folder '{0}' selected."
 msgstr "選擇了資料夾”{0}“"
 
-msgid "Kopano WebApp"
+msgid "Grammm WebApp"
 msgstr "晶格WebApp"
 
 msgid "Do not show this message again."
@@ -2198,7 +2198,7 @@ msgstr "下列收件人已存在"
 msgid "Duplicate recipients"
 msgstr "重復收件人"
 
-msgid "Kopano WebApp print"
+msgid "Grammm WebApp print"
 msgstr "晶格WebApp列印"
 
 msgid "Display name"
@@ -3638,7 +3638,7 @@ msgstr "項目已被變更，是否繼續刪除？"
 msgid "Unsaved changes"
 msgstr "未儲存變更"
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm WebApp"
 msgstr "歡迎來到晶格WebApp"
 
 msgid "This is the first time you are using WebApp. "

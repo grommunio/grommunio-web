@@ -1,4 +1,4 @@
-# Kopano Webapp FileViewer Plugin
+# Grammm WebApp FileViewer Plugin
 
 This plugin will provide a preview panel for PDF and ODF files based on [ViewerJS].
 ViewerJS has been updated to support image, music and video files. Those files can only be previewed in the

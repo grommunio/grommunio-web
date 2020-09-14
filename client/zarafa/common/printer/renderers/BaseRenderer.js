@@ -76,7 +76,7 @@ Zarafa.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 				'<head>\n' +
 					'<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />\n' +
 					this.generateHeadTemplate(objectToPrint) +
-					'<title>' + _('Kopano WebApp print') + '</title>\n' +
+					'<title>' + _('Grammm WebApp print') + '</title>\n' +
 				'</head>\n' +
 				'<body>\n' +
 					'<div id="pagemargin">\n' +

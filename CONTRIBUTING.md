@@ -1,4 +1,4 @@
-# How to contribute to Kopano WebApp
+# How to contribute to Grammm WebApp
 
 If you have found an issue and want to report an issue, either reach out to us
 in our [forum](https://forum.kopano.io), or, if you have a subscription, open
