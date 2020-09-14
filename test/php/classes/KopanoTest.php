@@ -11,10 +11,10 @@ require("server/includes/mapi/mapicode.php");
 require("server/includes/mapi/mapidefs.php");
 require("server/includes/mapi/mapitags.php");
 require("server/includes/mapi/mapiguid.php");
-require("server/includes/mapi/class.baseexception.php");
-require("server/includes/mapi/class.mapiexception.php");
 require("server/includes/mapi/class.meetingrequest.php");
 
+require("server/includes/exceptions/class.baseexception.php");
+require("server/includes/exceptions/class.mapiexception.php");
 require("server/includes/exceptions/class.ZarafaException.php");
 require("server/includes/exceptions/class.ZarafaErrorException.php");
 

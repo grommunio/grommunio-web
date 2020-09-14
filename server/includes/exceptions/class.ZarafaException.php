@@ -1,6 +1,6 @@
 <?php
 
-require_once(BASE_PATH . 'server/includes/mapi/class.baseexception.php');
+require_once(BASE_PATH . 'server/includes/exceptions/class.baseexception.php');
 
 /**
  * Defines a base exception class for custom zarafa generated exceptions, these exceptions
