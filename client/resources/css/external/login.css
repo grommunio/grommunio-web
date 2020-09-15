@@ -58,6 +58,8 @@ body.login #form-container,
   z-index:20010;
   color:#222;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  min-height: 320px;
 }
 
 body.login #form-container #bg
@@ -67,13 +69,16 @@ body.login #form-container #bg
   top:0;
   -webkit-filter:blur(10px);
   filter:blur(10px);
+  width: 400px;
+  height: 320px;
 }
 
 body.login #form-container #content,
 #loading-mask #form-container #content {
   padding: 30px 25px;
   background:rgba(255, 255, 255, 0.5);
-  position:relative; 
+  position:relative;
+  min-width: 350px;
 }
 
 body.login #form-container #content:after,
@@ -85,12 +90,13 @@ body.login #form-container #content:after,
 
 body.login #form-container .left,
 #loading-mask #form-container .left {
-
 }
 
 body.login #form-container .right,
 #loading-mask #form-container .right {
-  margin: 40px 0px 0px 0px;
+  width: 300px;
+  min-height: 150px;
+  margin: 40px auto 0px;
 }
 
 body.login #form-container h1,
@@ -143,14 +149,14 @@ body.login>#form-container label {
 body.login>#form-container input[type="text"],
 body.login>#form-container input[type="password"] {
   display:block;
-  width:231px;
+  width:273px;
   padding: 5px !important;
   line-height: 1.5 !important;
   border-radius: 25px;
   border:1px solid #e6e6e6;
   padding:0 6px;
   padding-left: 20px !important;
-  margin-bottom:15px;height:24px
+  margin-bottom:15px;height:24px;
 }
 
 body.login>#form-container input:-webkit-autofill {
