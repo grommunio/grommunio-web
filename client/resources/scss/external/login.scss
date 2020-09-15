@@ -1,5 +1,5 @@
 /* import the base */
-@import 'base/_colors';
+@import './base/_colors';
 
 @import 'base/_sizes';
 
@@ -21,7 +21,7 @@ body.login,
 body.zarafa-welcome {
 	margin: 0;
 	padding: 0;
-	background: url(../../images/loginbg_daybreak.jpg) no-repeat center center;
+	background: url(../../images/bootback.svg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -45,7 +45,7 @@ body.theme-dark.zarafa-welcome:after {
 	right: 0;
 	margin: 0;
 	padding: 0;
-	background: url(../../images/background.svg);
+	/** background: url(../../images/background.svg); removed by ivar **/
 	background-size: cover;
 	z-index: -1;
 }
@@ -87,7 +87,7 @@ body.login,
 		}
 		/* clearfix */
 		#content:after {
-    		content: " ";
+				content: " ";
     		display: block;
 			clear: both;
 		}
