@@ -36,13 +36,9 @@
 					<?php } ?>
 				</div>
 				<div class="right">
-					<h1><?php echo Language::getstring("Welcome"); ?></h1>
 					<form action="<?php echo $url ?>" method="post">
-						<label for="username"><?php echo Language::getstring("Username"); ?></label>
-						<input type="text" name="username" id="username" value="<?php echo $user; ?>" required>
-
-						<label for="password"><?php echo Language::getstring("Password"); ?></label>
-						<input type="password" name="password" id="password" required>
+						<input type="text" name="username" id="username" value="<?php echo $user; ?>" placeholder="<?php echo Language::getstring("Username"); ?>" required>
+						<input type="password" name="password" id="password" placeholder="<?php echo Language::getstring("Password"); ?>" required>
 
 						<?php if ( isset($error) ) { ?>
 						<div id="error"><?php echo $error; ?></div>
