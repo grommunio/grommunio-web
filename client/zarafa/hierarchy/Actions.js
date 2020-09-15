@@ -172,7 +172,9 @@ Zarafa.hierarchy.Actions = {
 	 */
 	setTitleCounter : function(hierarchyStore)
 	{
-		if (container.getSettingsModel().get("zarafa/v1/main/title_counter/show") === true) {
+		// First of all check if title counter plugin's setting available else check main settings.
+		var titleCounterSetting = container.getSettingsModel().getOneOf('zarafa/v1/plugins/titlecounter/enable', 'zarafa/v1/main/title_counter/show');
+		if (titleCounterSetting === true) {
             var title = container.getServerConfig().getWebappTitle();
             var unreadCounter = hierarchyStore.getDefaultFolder('inbox').get('content_unread');
             if (unreadCounter > 0) {

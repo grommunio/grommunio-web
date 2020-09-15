@@ -123,6 +123,8 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				ref : 'helpManual',
 				hideLabel : true,
 				requiresReload : true,
+				appliedPluginSetting : false,
+				pluginSettingPath : 'zarafa/v1/plugins/webappmanual/enable',
 				boxLabel : _('Show \'help\' button in top-right corner'),
 				listeners : {
 					change : this.onFieldChange,
@@ -134,6 +136,8 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 				ref : 'titleCounter',
 				hideLabel : true,
 				requiresReload : true,
+				appliedPluginSetting : false,
+				pluginSettingPath : 'zarafa/v1/plugins/titlecounter/enable',
 				boxLabel : _('Show unread mail counter in application title'),
 				listeners : {
 					change : this.onFieldChange,
@@ -163,8 +167,16 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		this.hideFavorites.setValue(settingsModel.get(this.hideFavorites.name));
 		this.scrollFavorites.setValue(settingsModel.get(this.scrollFavorites.name));
 		this.unreadBorders.setValue(settingsModel.get(this.unreadBorders.name));
-		this.helpManual.setValue(settingsModel.get(this.helpManual.name));
-		this.titleCounter.setValue(settingsModel.get(this.titleCounter.name));
+
+		// Check if help manual plugin's settings available else check main settings.
+		var helpManualPluginSetting = settingsModel.get(this.helpManual.pluginSettingPath);
+		this.helpManual.appliedPluginSetting = Ext.isDefined(helpManualPluginSetting);
+		this.helpManual.setValue(this.helpManual.appliedPluginSetting ? helpManualPluginSetting : settingsModel.get(this.helpManual.name));
+
+		// Check if title counter plugin's settings available else check main settings.
+		var titleCounterPluginSetting = settingsModel.get(this.titleCounter.pluginSettingPath);
+		this.titleCounter.appliedPluginSetting = Ext.isDefined(titleCounterPluginSetting);
+		this.titleCounter.setValue(this.titleCounter.appliedPluginSetting ? titleCounterPluginSetting : settingsModel.get(this.titleCounter.name));
 	},
 
 	/**
@@ -182,7 +194,17 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		settingsModel.set(this.hideFavorites.name, this.hideFavorites.getValue());
 		settingsModel.set(this.scrollFavorites.name, this.scrollFavorites.getValue());
 		settingsModel.set(this.unreadBorders.name, this.unreadBorders.getValue());
+		
+		// Remove webapp manual plugin settings.
+		if (this.helpManual.appliedPluginSetting) {
+			settingsModel.remove('zarafa/v1/plugins/webappmanual', {type : 'deprecated'});
+		}
 		settingsModel.set(this.helpManual.name, this.helpManual.getValue());
+		
+		// Remove title counter plugin settings.
+		if (this.titleCounter.appliedPluginSetting) {
+			settingsModel.remove('zarafa/v1/plugins/titlecounter', {type : 'deprecated'});
+		}
 		settingsModel.set(this.titleCounter.name, this.titleCounter.getValue());
 
 		// Hide favorites
@@ -255,8 +277,9 @@ Zarafa.settings.ui.SettingsDisplayWidget = Ext.extend(Zarafa.settings.ui.Setting
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
 			// a change was applied
-			if (this.model.get(field.name) !== value) {
-				this.model.set(field.name, value);
+			var property = field.appliedPluginSetting === true && Ext.isDefined(field['pluginSettingPath']) ? 'pluginSettingPath': 'name';
+			if (this.model.get(field[property]) !== value) {
+				this.model.set(field[property], value);
 
 				// Reload only when this config has been set in the field component.
 				if (Ext.isDefined(field.requiresReload) && field.requiresReload) {

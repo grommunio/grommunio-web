@@ -620,8 +620,9 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	 * and a request is sent out to the server to delete the key remotely. If deleting
 	 * the setting from the server failed, the {@link #exception} event will be fired.
 	 * @param {String} path the key path of the value.
+	 * @param {Object} logInfo object containing information like type and message which needs to be printed in console.
 	 */
-	remove : function(path)
+	remove : function(path, logInfo)
 	{
 		path = this.getPath(path);
 
@@ -635,6 +636,14 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		// Otherwise wait for endEdit.
 		if (this.editing === false) {
 			this.afterEdit();
+		}
+
+		if (Ext.isObject(logInfo)) {
+			var prefixMsg = logInfo.message;
+			if (!Ext.isDefined(prefixMsg)) {
+				prefixMsg = logInfo.type === 'deprecated' ? 'Removed deprecated setting: ' : 'Removed setting: ';
+			}
+			console.info(prefixMsg, path);
 		}
 	},
 
@@ -706,5 +715,19 @@ Zarafa.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 		} else {
 			return value;
 		}
+	},
+
+	/**
+	 * This function will get a <b>local</b> copy of the setting for given path.
+	 * If primary path setting not available then it will return secondary path setting. 
+	 * 
+	 * @param {String} pathPrimary the key path of the value with higher preference.
+	 * @param {String} pathSecondary the key path of the value with lower preference.
+	 * @return {String} the value of the requested path, or undefined if it doesn't exist.
+	 */
+	getOneOf : function(pathPrimary, pathSecondary)
+	{
+		var value = this.get(pathPrimary);
+		return Ext.isDefined(value) ? value : this.get(pathSecondary);
 	}
 });
