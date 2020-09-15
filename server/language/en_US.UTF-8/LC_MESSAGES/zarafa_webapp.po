@@ -1520,7 +1520,7 @@ msgid "Copy"
 msgstr ""
 
 msgid "Grammm WebApp"
-msgstr "Steep Webapp"
+msgstr "Grammm Webapp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2013,7 +2013,7 @@ msgid "Folder '{0}' selected."
 msgstr ""
 
 msgid "Grammm WebApp"
-msgstr "Steep WebApp"
+msgstr "Grammm WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2216,7 +2216,7 @@ msgid "Duplicate recipients"
 msgstr ""
 
 msgid "Grammm WebApp print"
-msgstr "Steep WebApp print"
+msgstr "Grammm WebApp print"
 
 msgid "Display name"
 msgstr ""
@@ -3657,7 +3657,7 @@ msgid "Unsaved changes"
 msgstr ""
 
 msgid "Welcome to Grammm WebApp"
-msgstr "Welcome to Steep WebApp"
+msgstr "Welcome to Grammm WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
