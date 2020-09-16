@@ -28,7 +28,10 @@ $loader = new FileLoader();
 
 			if ($selectedEditor === 'quill') {
                 $extjsFiles[] = "plugins/htmleditor-quill/lib/quill.js";
-            } else {
+            } else if ($selectedEditor === 'jodit') {
+				// TODO: Change when minified jodit files are added
+				$extjsFiles[] = "plugins/htmleditor-jodit/lib/jodit.js";
+			} else {
                 if (DEBUG_LOADER === LOAD_RELEASE) {
                     $extjsFiles[] = "client/tinymce/tinymce.min.js";
                 } else {
