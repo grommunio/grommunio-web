@@ -76,7 +76,7 @@ deploy: server client plugins
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DESTDIR)/$(APACHECONF) $(DISTFILES) $(ROBOTS) $(HTACCESS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(AUDIODEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
@@ -125,6 +125,9 @@ $(DESTDIR)/%: %
 	cp $< $@
 
 $(DESTDIR)/version: version
+	cp $< $@
+
+$(DESTDIR)/cachebuster: cachebuster
 	cp $< $@
 
 $(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS)

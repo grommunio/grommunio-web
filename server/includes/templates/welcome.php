@@ -5,6 +5,7 @@ include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 $loader = new FileLoader();
 
 $versionInfo['webapp'] = $loader->getVersion();
+$versionInfo['cachebuster'] = $loader->getCachebuster();
 $serverConfig = array(
 	'enable_plugins'				=> ENABLE_PLUGINS ? true : false,
 	'enable_advanced_settings'		=> ENABLE_ADVANCED_SETTINGS ? true : false,

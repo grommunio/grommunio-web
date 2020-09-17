@@ -184,7 +184,7 @@ class FileLoader {
 		foreach($files as $file) {
 			$file = $base === true ? basename($file) : $file;
 			if($concatVersion) {
-				$file = $file."?version=".$this->getVersion();
+				$file = $file."?version=".$this->getCachebuster();
 			}
 			echo str_replace('{file}', $file, $template) . PHP_EOL;
 		}
@@ -197,6 +197,15 @@ class FileLoader {
 	public function getVersion()
 	{
 		return trim(file_get_contents('version'));
+	}
+
+	/**
+	 * Return Cache busting version.
+	 * @return String returns WebApp version shasum'd for cache busting.
+	 */
+	public function getCachebuster()
+	{
+		return trim(file_get_contents('cachebuster'));
 	}
 
 	/**

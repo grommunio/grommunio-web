@@ -5,6 +5,7 @@ include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 $loader = new FileLoader();
 
 $versionInfo['webapp'] = $loader->getVersion();
+$versionInfo['cachebuster'] = $loader->getCachebuster();
 $serverConfig = array_merge($serverConfig, array(
 	'base_url'						=> BASE_URL,
 	'webapp_title'					=> WEBAPP_TITLE,
