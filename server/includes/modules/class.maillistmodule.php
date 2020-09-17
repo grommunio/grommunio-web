@@ -261,13 +261,6 @@
 				$folderData["content_unread"] = $this->getInboxTotalUnread();
 			}
 
-			$searchFolder = $this->getConversationSearchFolder($store);
-			$totalRowCount = 0;
-			if ($searchFolder) {
-				$table = mapi_folder_getcontentstable($searchFolder, MAPI_DEFERRED_ERRORS);
-				$totalRowCount = mapi_table_getrowcount($table);
-			}
-
 			// Get the number of 'real' records that is sent back (i.e. without the conversation header records)
 			$itemCount = 0;
 			foreach ($items as $item) {
@@ -745,7 +738,7 @@
 
 			try {
 				// Try to create a new search folder for the conversations. If it fails, we'll assume it already exists.
-				$searchFolder = mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, NULL, FOLDER_SEARCH);
+				$searchFolder = mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, OPEN_IF_EXISTS, FOLDER_SEARCH);
 
 				// Find the entryids of the folders we want to search in
 				// For now we will use the inbox and send items folder. Later we could change this.
@@ -801,21 +794,12 @@
 
 				// TODO: Let the client know if the search has not finished, so it can choose to continue
 			} catch (MAPIException $e) {
-				// Folder already exists. Let's open it
-				try {
-					$searchFolder = mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, OPEN_IF_EXISTS, FOLDER_SEARCH);
-				} catch (MAPIException $e) {
-					// TODO: Improve error logging
-					error_log('Error creating search folder for conversation view: ' . $e->getMessage());
-
-					// don't propagate the event to higher level exception handlers
-					$e->setHandled();
-
-					return false;
-				}
+				error_log('Error creating search folder for conversation view: ' . $e->getMessage());
 
 				// don't propagate the event to higher level exception handlers
 				$e->setHandled();
+
+				return false;
 			}
 
 			return $searchFolder;
