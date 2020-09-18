@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-09-08 15:05+0000\n"
 "Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano"
-"/kopano-webapp/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"kopano-webapp/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5008,6 +5008,12 @@ msgid "Show 'help' button in top-right corner"
 msgstr ""
 
 msgid "Show unread mail counter in application title"
+msgstr ""
+
+msgid "File previewing"
+msgstr ""
+
+msgid "Attachment preview (PDF, Open formats and images)"
 msgstr ""
 
 msgid "Inbox navigation"
