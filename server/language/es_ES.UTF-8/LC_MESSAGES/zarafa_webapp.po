@@ -5253,6 +5253,12 @@ msgstr ""
 msgid "Show unread mail counter in application title"
 msgstr ""
 
+msgid "File previewing"
+msgstr ""
+
+msgid "Attachment preview (PDF, Open formats and images)"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Navegación en la Bandeja de Entrada"
 

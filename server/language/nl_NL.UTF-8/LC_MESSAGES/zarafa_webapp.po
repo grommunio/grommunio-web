@@ -5201,6 +5201,12 @@ msgstr "Laat 'Help' knop zien in de rechterbovenhoek"
 msgid "Show unread mail counter in application title"
 msgstr "Laat ongelezen email teller zien in applicatie titel"
 
+msgid "File previewing"
+msgstr ""
+
+msgid "Attachment preview (PDF, Open formats and images)"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
 

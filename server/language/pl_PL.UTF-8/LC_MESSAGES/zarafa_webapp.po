@@ -2228,7 +2228,8 @@ msgstr ""
 "administratorem systemu."
 
 msgid "You have insufficient privileges to move following items."
-msgstr "Nie masz wystarczających uprawnień do przenoszenia kolejnych elementów."
+msgstr ""
+"Nie masz wystarczających uprawnień do przenoszenia kolejnych elementów."
 
 msgid "Subject:"
 msgstr "Temat:"
@@ -4886,6 +4887,12 @@ msgstr "Pokaż przycisk 'pomoc' w prawym górnym rogu"
 msgid "Show unread mail counter in application title"
 msgstr "Pokaż nieprzeczytany licznik poczty w tytule aplikacji"
 
+msgid "File previewing"
+msgstr ""
+
+msgid "Attachment preview (PDF, Open formats and images)"
+msgstr ""
+
 msgid "Inbox navigation"
 msgstr "Nawigacja w skrzynce odbiorczej"
 
@@ -5793,7 +5800,8 @@ msgstr[2] "Odbywa się co %s, zaczynając od %s dla %s powtórzeń od %s do %s."
 #, php-format
 msgid "Occurs every %s %s effective %s for %s occurence from %s to %s."
 msgid_plural "Occurs every %s %s effective %s for %s occurences %s to %s."
-msgstr[0] "Odbywa się co %s %s, zaczynając od %s dla %s powtarzanie od %s do %s."
+msgstr[0] ""
+"Odbywa się co %s %s, zaczynając od %s dla %s powtarzanie od %s do %s."
 msgstr[1] ""
 msgstr[2] "Odbywa się co %s %s, zaczynając od %s dla %s powtórzeń od %s do %s."
 

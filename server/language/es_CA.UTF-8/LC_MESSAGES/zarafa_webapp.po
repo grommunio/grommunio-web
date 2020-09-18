@@ -5225,6 +5225,12 @@ msgstr ""
 msgid "Show unread mail counter in application title"
 msgstr ""
 
+msgid "File previewing"
+msgstr ""
+
+msgid "Attachment preview (PDF, Open formats and images)"
+msgstr ""
+
 #, fuzzy
 msgid "Inbox navigation"
 msgstr "Enviar invitación"
