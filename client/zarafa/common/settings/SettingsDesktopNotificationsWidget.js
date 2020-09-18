@@ -18,6 +18,13 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 	model : undefined,
 
 	/**
+	 * This property will only be true if desktop notifications plugin's settings has been applied on UI.
+	 * @property
+	 * @type Boolean
+	 */
+	pluginSettingsApplied : false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -92,6 +99,7 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 					xtype : 'checkbox',
 					labelSplitter: '{A}',
 					name : 'zarafa/v1/main/desktop_notification/autohide_enable',
+					pluginSettingName : 'zarafa/v1/plugins/desktopnotifications/autohide_enable',
 					ref : '../../autoHideBox',
 					boxLabel : '',
 					hideLabel : true,
@@ -105,6 +113,7 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 					labelSplitter: '{B}',
 					vtype: 'naturalInteger',
 					name : 'zarafa/v1/main/desktop_notification/autohide_time',
+					pluginSettingName : 'zarafa/v1/plugins/desktopnotifications/autohide_time',
 					ref : '../../autoHideTimeSpinner',
 					incrementValue: 1,
 					defaultValue: 1,
@@ -123,9 +132,12 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 				xtype: 'checkbox',
 				boxLabel: _('Disable sound'),
 				name: 'zarafa/v1/main/desktop_notification/disable_sound',
+				pluginSettingName : 'zarafa/v1/plugins/desktopnotifications/disable_sound',
 				ref: '../disableSound',
-				handler: this.onChangeCheckbox,
-				scope: this,
+				listeners: {
+					change: this.onFieldChange,
+					scope: this
+				},
 				hideLabel: true
 			}]
 		}];
@@ -166,21 +178,6 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 	},
 
 	/**
-	 * Function to enable/disable checkboxes in the desktop notification settings widget
-	 *
-	 * @param {Ext.form.Checkbox} checkbox The checkbox that will be checked/unchecked.
-	 * @param {Boolean} checked Check or uncheck checkbox 
-	 */
-	onChangeCheckbox : function(checkbox, checked)
-	{
-		if (!this.model) {
-			return;
-		}
-		
-		this.model.set(checkbox.name, checked);
-	},
-
-	/**
 	 * Update the view with the new values of the settings
 	 * model. Called when opening the settings widget or when a new
 	 * folder is selected.
@@ -216,12 +213,19 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 	
 		// Disable the items if there are no permissions granted
 		this.autoHideFieldLabel.setDisabled(!hasPermission);
+		
+		// Note: Desktop plugin settings needs to be applied in webapp main settings 
+		// due to desktop notification plugin has been included into webapp core.
+		// Fetch plugin settings if any and apply them.
+		this.pluginSettingsApplied = Ext.isDefined(settingsModel.get('zarafa/v1/plugins/desktopnotifications/enable'));
+		var name = this.pluginSettingsApplied ? "pluginSettingName" : "name";
+		var autoHideBoxEnabled = settingsModel.get(this.autoHideBox[name]);
+		var spinnerValue = settingsModel.get(this.autoHideTimeSpinner[name]);
+		var	soundCheckbox = settingsModel.get(this.disableSound[name]);
 
 		// Set values in autoSave checkbox and textfield.
-		var enabled = settingsModel.get(this.autoHideBox.name);
-		this.autoHideBox.setValue(enabled);
-
-		var spinnerValue = this.model.get(this.autoHideTimeSpinner.name);
+		this.autoHideBox.setValue(autoHideBoxEnabled);
+		
 		if (spinnerValue === 0 || !Ext.isDefined(spinnerValue))  {
 			this.autoHideTimeSpinner.setValue(5); // Default 5 seconds
 		} else {
@@ -231,14 +235,11 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 		/********
 		 * Sound
 		 ********/
-
 		// Disable sound checkbox
 		this.disableSound.setDisabled(!hasPermission);
-		var soundCheckbox = settingsModel.get(this.disableSound.name);
-
+		
 		// Show the correct value of the checkbox
 		this.disableSound.setValue(soundCheckbox);
-		
 	},
 
 	/**
@@ -256,6 +257,15 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 
 		settingsModel.beginEdit();
 		settingsModel.set(this.autoHideTimeSpinner.name, spinnerValue);
+		
+		// Note: Need to remove unnecessary plugin's settings and save the current settings in webapp main settings 
+		// so that there will not be any dependancy of plugin settings.
+		// And this will only run once to convert plugin's settings into main settings.
+		if (this.pluginSettingsApplied) {
+			settingsModel.remove('zarafa/v1/plugins/desktopnotifications', {type : 'deprecated'});
+			settingsModel.set(this.autoHideBox.name, this.autoHideBox.getValue());
+			settingsModel.set(this.disableSound.name, this.disableSound.getValue());
+		}
 		settingsModel.endEdit();
 	},
 
@@ -271,8 +281,9 @@ Zarafa.common.settings.SettingsDesktopNotificationsWidget = Ext.extend(Zarafa.se
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
 			// a change was applied
-			if (this.model.get(field.name) !== value) {
-				this.model.set(field.name, value);
+			var name =  this.pluginSettingsApplied && Ext.isDefined(field["pluginSettingName"]) ? "pluginSettingName" : "name";
+			if (this.model.get(field[name]) !== value) {
+				this.model.set(field[name], value);
 			}
 		}
 	}

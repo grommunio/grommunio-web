@@ -9,6 +9,13 @@ Ext.namespace('Zarafa.settings.ui');
  */
 Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
 	/**
+	 * This property will only be true if filepreviewer plugin's settings has been applied on UI.
+	 * @property
+	 * @type Boolean
+	 */
+	pluginSettingsApplied : false,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
 	 */
@@ -24,6 +31,7 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 			items:[{
 				xtype : 'checkbox',
 				name : 'zarafa/v1/main/file_previewer/enable',
+				pluginSettingPath : 'zarafa/v1/plugins/filepreviewer/enable',
 				ref : 'enableFilePreviewer',
 				boxLabel : _('Attachment preview (PDF, Open formats and images)'),
 				hideLabel : true,
@@ -46,7 +54,10 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	update : function (settingsModel)
 	{
 		this.model = settingsModel;
-		this.enableFilePreviewer.setValue(settingsModel.get(this.enableFilePreviewer.name));
+		// Check if filepreviewer plugion's setings are available then apply them on UI.
+		var pluginSetting = settingsModel.get('zarafa/v1/plugins/filepreviewer/enable');
+		this.pluginSettingsApplied = Ext.isDefined(pluginSetting);
+		this.enableFilePreviewer.setValue(this.pluginSettingsApplied ? pluginSetting : settingsModel.get(this.enableFilePreviewer.name));
 	},
 
 	/**
@@ -56,7 +67,12 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
 	 */
 	updateSettings : function (settingsModel)
-	{
+	{	
+		// Remove unnecessary plugin's settings as we have removed file previewer plugin. 
+		// And save current settings in webapp's main settings.
+		if (this.pluginSettingsApplied) {
+			settingsModel.remove('zarafa/v1/plugins/filepreviewer', {type : 'deprecated'});
+		}
 		settingsModel.set(this.enableFilePreviewer.name, this.enableFilePreviewer.getValue());
 	},
 
@@ -72,8 +88,9 @@ Zarafa.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Zarafa.settings.ui.S
 		if (this.model) {
 			// FIXME: The settings model should be able to detect if
 			// a change was applied
-			if (this.model.get(field.name) !== value) {
-				this.model.set(field.name, value);
+			var property = this.pluginSettingsApplied && Ext.isDefined(field['pluginSettingPath']) ? 'pluginSettingPath' : 'name'; 
+			if (this.model.get(field[property]) !== value) {
+				this.model.set(field[property], value);
 			}
 		}
 	}

@@ -1228,8 +1228,8 @@ Zarafa.common.Actions = {
 		if (!container.getServerConfig().isFilePreviewerEnabled()) {
 			return false;
 		}
-
-		return container.getSettingsModel().get('zarafa/v1/main/file_previewer/enable');
+		// First of all check if filepreviewer plugin settings available else check main settings.
+		return container.getSettingsModel().getOneOf('zarafa/v1/plugins/filepreviewer/enable', 'zarafa/v1/main/file_previewer/enable');
 	},
 
 	/**
@@ -1789,8 +1789,16 @@ Zarafa.common.Actions = {
 			requireInteraction: true
 		});
 
-		if (container.getSettingsModel().get('zarafa/v1/main/desktop_notification/autohide_enable')) {
-			var sleepTime = container.getSettingsModel().get('zarafa/v1/main/desktop_notification/autohide_time') * 1000;
+		// Note: Due to desktopnotifications has been moved into webapp core,
+		// we first need to check if user plugin settings are still available.
+		// Apply desktop notifications plugin settings if its available.
+		// Otherwise use webapp main settings.
+		var settingsModel = container.getSettingsModel();
+		var pluginBasePath = 'zarafa/v1/plugins/desktopnotifications/';
+		var isPlugInEnabled = Ext.isDefined(settingsModel.get(pluginBasePath+'enable'));
+		var baseSettingPath = isPlugInEnabled ? pluginBasePath : 'zarafa/v1/main/desktop_notification/';
+		if (settingsModel.get(baseSettingPath + 'autohide_enable')) {
+			var sleepTime = settingsModel.get(baseSettingPath + 'autohide_time') * 1000;
 			notification.addEventListener("show", function () {
 				setTimeout(function () {
 					notification.close();
@@ -1805,7 +1813,7 @@ Zarafa.common.Actions = {
 		}
 
 		// Give audio feedback
-		if (!container.getSettingsModel().get('zarafa/v1/main/desktop_notification/disable_sound')) {
+		if (!settingsModel.get(baseSettingPath + 'disable_sound')) {
 			this.audioTag = Ext.getBody().createChild({
 				tag: 'audio',
 				type: 'audio/ogg',

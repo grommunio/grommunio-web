@@ -32,7 +32,8 @@ Zarafa.common.plugins.ManualPlugin = Ext.extend(Zarafa.core.Plugin, {
 	{
 		Zarafa.common.plugins.ManualPlugin.superclass.initPlugin.apply(this, arguments);
 
-		if (container.getSettingsModel().get("zarafa/v1/main/help_manual/show") === true) { 
+		// First of all check if webapp manual plugin setting available else check main settings.
+		if (container.getSettingsModel().getOneOf('zarafa/v1/plugins/webappmanual/enable', 'zarafa/v1/main/help_manual/show') === true) { 
 			this.registerInsertionPoint('main.maintabbar.right', this.createManualMainTab, this);
 		}
 	},
