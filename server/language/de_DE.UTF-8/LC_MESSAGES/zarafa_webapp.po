@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-08-06 09:07+0000\n"
+"PO-Revision-Date: 2020-09-22 13:26+0000\n"
 "Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
@@ -3103,28 +3103,29 @@ msgid "Delegate settings"
 msgstr "Stellvertreter-Einstellungen"
 
 msgid "Desktop Notifications Settings"
-msgstr ""
+msgstr "Desktop Benachrichtigungseinstellungen"
 
 msgid "We need permissions to enable desktop notifications."
 msgstr ""
+"Zum aktivieren der Desktop Benachrichtigungen werden Berechtigen benötigt."
 
 msgid "Request Permissions"
-msgstr ""
+msgstr "Berechtigungen anfordern"
 
 msgid "Enable desktop notifications for new mail"
-msgstr ""
+msgstr "Desktop Benachrichtigung für neue E-Mail aktivieren"
 
 msgid "Enable desktop notifications for reminders"
-msgstr ""
+msgstr "Desktop Benachrichtigung für Erinnerungen aktivieren"
 
 msgid "{A} Auto hide desktop notification after second(s) {B}"
-msgstr ""
+msgstr "{A} Benachrichtigungen automatisch ausblenden nach Sekunden {B}"
 
 msgid "Disable sound"
-msgstr ""
+msgstr "Ton deaktivieren"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 # 80%
 msgid "Rules"
@@ -3196,7 +3197,7 @@ msgid "Loading..."
 msgstr "Laden ..."
 
 msgid "Message could not be loaded"
-msgstr ""
+msgstr "Nachricht kann nicht geladen werden"
 
 # 100%
 #. TRANSLATORS: This message is used as label for the field which indicates which attachments are inside the message
@@ -5174,13 +5175,13 @@ msgid "Show 'help' button in top-right corner"
 msgstr "Zeige \"Hilfe\" Button in der oberen rechten Ecke"
 
 msgid "Show unread mail counter in application title"
-msgstr ""
+msgstr "Zeigen Anazhl ungelesener Nachrichten im Titel"
 
 msgid "File previewing"
-msgstr ""
+msgstr "Dateivorschau"
 
 msgid "Attachment preview (PDF, Open formats and images)"
-msgstr ""
+msgstr "Vorschau der Anhänge (PDF, offene Formate und Bilder)"
 
 msgid "Inbox navigation"
 msgstr "Navigation im Posteingang"
