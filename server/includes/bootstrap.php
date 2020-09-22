@@ -40,9 +40,9 @@
 	require_once(BASE_PATH . 'server/includes/mapi/mapidefs.php');
 	require_once(BASE_PATH . 'server/includes/mapi/mapitags.php');
 	require_once(BASE_PATH . 'server/includes/mapi/mapiguid.php');
-	require_once(BASE_PATH . 'server/includes/mapi/class.baseexception.php');
-	require_once(BASE_PATH . 'server/includes/mapi/class.mapiexception.php');
 
+	require_once(BASE_PATH . 'server/includes/exceptions/class.baseexception.php');
+	require_once(BASE_PATH . 'server/includes/exceptions/class.mapiexception.php');
 	require_once(BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php');
 	require_once(BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php');
 	require_once(BASE_PATH . 'server/includes/util.php');
