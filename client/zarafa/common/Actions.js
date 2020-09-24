@@ -1523,7 +1523,7 @@ Zarafa.common.Actions = {
 				Zarafa.common.dialogs.MessageBox.addCustomButtons({
 					title: _('Import error'),
 					msg : String.format(_('Unable to import "{0}". The file is not valid'), this.brokenFiles[0].name),
-					icon : Ext.MessageBox.ERROR,
+					cls : Ext.MessageBox.ERROR_CLS,
 					fn : Ext.emptyFn,
 					customButton : [{
 						text : _('Close'),
