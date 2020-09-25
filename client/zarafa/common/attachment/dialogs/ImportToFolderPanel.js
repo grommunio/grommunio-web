@@ -100,7 +100,7 @@ Zarafa.common.attachment.dialogs.ImportToFolderPanel = Ext.extend(Zarafa.common.
 	 */
 	getIPMFilter : function(record)
 	{
-		let extension = record.get('extension');
+		let extension = record.get('extension').toLowerCase();
 
 		if(record.isEmbeddedMessage()) {
 			let messageClass = record.get('attach_message_class');

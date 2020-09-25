@@ -538,8 +538,8 @@ class DownloadAttachment extends DownloadBase
 		$attachment = $this->getAttachmentByAttachNum();
 		$attachmentProps = mapi_attach_getprops($attachment, array(PR_ATTACH_LONG_FILENAME));
 		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
-
-		switch(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION))
+		
+		switch(strtolower(pathinfo($attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION)))
 		{
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
