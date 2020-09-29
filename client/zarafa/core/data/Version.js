@@ -51,6 +51,14 @@ Zarafa.core.data.Version = Ext.extend(Object, {
 	{
 		return this.meta.git;
 	},
+
+	/**
+	 * @return {String} Return the cache buster string
+	 */
+	getCachebuster : function()
+	{
+		return this.meta.cachebuster;
+	},
 	
 	/**
 	 * Compares two version strings.
