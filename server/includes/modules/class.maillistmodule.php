@@ -737,8 +737,13 @@
 			$searchRoot = $this->getSearchFoldersRoot($store);
 
 			try {
-				// Try to create a new search folder for the conversations. If it fails, we'll assume it already exists.
-				$searchFolder = mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, OPEN_IF_EXISTS, FOLDER_SEARCH);
+				// Return the search folder if it exist.
+				if ($this->doesSearchFolderExist($searchRoot)) {
+					return mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, OPEN_IF_EXISTS, FOLDER_SEARCH);
+				}
+
+				// Try to create a new search folder for the conversations if it doesn't exist.
+				$searchFolder = mapi_folder_createfolder($searchRoot, 'Conversation view search (WebApp)', NULL, NULL, FOLDER_SEARCH);
 
 				// Find the entryids of the folders we want to search in
 				// For now we will use the inbox and send items folder. Later we could change this.
@@ -794,6 +799,7 @@
 
 				// TODO: Let the client know if the search has not finished, so it can choose to continue
 			} catch (MAPIException $e) {
+				// TODO: Improve error logging
 				error_log('Error creating search folder for conversation view: ' . $e->getMessage());
 
 				// don't propagate the event to higher level exception handlers
@@ -803,6 +809,43 @@
 			}
 
 			return $searchFolder;
+		}
+
+		/**
+		 * Helper function which determins whether the conversation search folder already exist.
+		 *
+		 * @param Resource $searchRoot FINDER_ROOT folder of the store in which we need to find conversation search folder.
+		 * @return Boolean true if conversation search folder already exist else false.
+		 */
+		function doesSearchFolderExist($searchRoot) {
+			$searchRootFolderTable = mapi_folder_gethierarchytable($searchRoot);
+			$restriction = array(
+				RES_AND,
+				array(
+					array(
+						RES_PROPERTY,
+						array(
+							RELOP => RELOP_EQ,
+							ULPROPTAG => PR_FOLDER_TYPE,
+							VALUE => array(PR_FOLDER_TYPE => FOLDER_SEARCH)
+						)
+					),
+					array(
+						RES_CONTENT,
+						array(
+							ULPROPTAG => PR_DISPLAY_NAME,
+							FUZZYLEVEL => FL_FULLSTRING,
+							VALUE => array(PR_DISPLAY_NAME => 'Conversation view search (WebApp)')
+						)
+					)
+				)
+			);
+
+			mapi_table_restrict($searchRootFolderTable, $restriction);
+			$folders = mapi_table_queryallrows($searchRootFolderTable, array(PR_DISPLAY_NAME));
+				
+			// If we get the data that means we already have the search folder.
+			return !empty($folders);
 		}
 
 		/**
