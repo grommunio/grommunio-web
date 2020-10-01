@@ -170,7 +170,8 @@ Zarafa.core.data.MessageRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 			// adds after the numbers and bullets of lists
 			var all = paragraphs[i].querySelectorAll('*');
 			for (let j=0; j<all.length; j++) {
-				if (all[j].innerText && all[j].innerText.trim() === '') {
+				// Prevent unnecessary innerHtml over writing when node has child nodes. 
+				if (all[j].innerText && all[j].innerText.trim() === '' && !all[j].hasChildNodes()) {
 					all[j].innerHTML = '&nbsp;';
 				}
 
