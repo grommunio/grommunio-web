@@ -59,5 +59,14 @@ Zarafa.hierarchy.data.HierarchyResponseHandler = Ext.extend(Zarafa.core.data.Pro
 	doUpdate : function(response)
 	{
 		this.receivedRecords = this.receivedRecords.concat(this.correlateRecordFromResponse({ item: response }));
+	},
+
+	/**
+	 * Handles the 'ensure' response.
+	 * @param {Object} response The response object belonging to the given command.
+	 */
+	doEnsure : function (response)
+	{
+		this.receivedRecords = response;
 	}
 });

@@ -4,8 +4,8 @@ include(BASE_PATH . 'server/includes/templates/serverinfo.php');
 
 $loader = new FileLoader();
 
-$versionInfo['webapp'] = $loader->getVersion();
 $versionInfo['cachebuster'] = $loader->getCachebuster();
+$versionInfo['webapp'] = getWebappVersion();
 $serverConfig = array_merge($serverConfig, array(
 	'base_url'						=> BASE_URL,
 	'webapp_title'					=> WEBAPP_TITLE,
@@ -62,7 +62,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 <html>
 
 	<head>
-		<meta name="Generator" content="Kopano WebApp v<?php echo $loader->getVersion()?>">
+		<meta name="Generator" content="Kopano WebApp v<?php echo getWebappVersion()?>">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title><?php echo $webappTitle; ?></title>
@@ -101,7 +101,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 		</div>
 
 		<!-- Translations -->
-		<script type="text/javascript" src="index.php?version=<?php echo $loader->getVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
+		<script type="text/javascript" src="index.php?version=<?php echo getWebappVersion() ?>&load=translations.js&lang=<?php echo $Language->getSelected() ?>"></script>
 		<!-- JS Files -->
 		<?php
 			$loader->jsOrder();
@@ -124,6 +124,7 @@ if ( defined('ADDITIONAL_CATEGORIES') ){
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 			urlActionData 		= <?php echo json_encode($urlActionData); ?>;
+			const IS_KUSTOMER_CHECK_ENABLED = false;
 
 			Ext.onReady(Zarafa.loadWebclient, Zarafa);
 		</script>
