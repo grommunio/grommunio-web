@@ -171,7 +171,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isICSAttachment : function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'ics' || fileExtension === 'vcs';
 		}
@@ -186,7 +186,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isEmlAttachment : function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'eml';
 		}
@@ -201,7 +201,7 @@ Zarafa.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	 */
 	isVCFAttachment : function()
 	{
-		var fileExtension = this.get('extension');
+		var fileExtension = this.get('extension').toLowerCase();
 		if (!Ext.isEmpty(fileExtension)) {
 			return fileExtension === 'vcf';
 		}
