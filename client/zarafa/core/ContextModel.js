@@ -986,8 +986,9 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	/**
 	 * Fire the {@link #livescrollstart} event and set {@link #isBusyScrolling} to true.
 	 * @param {Number} cursor the cursor contains the last index of record in grid.
+	 * @param {Ext.data.Store} store The store on which live scroll is going to perform.
 	 */
-	startLiveScroll : function(cursor)
+	startLiveScroll : function(cursor, store)
 	{
 		/*
 		 * don't do anything if live scroll is not enabled just simply return.
@@ -999,14 +1000,16 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 
 		if (this.fireEvent('beforelivescrollstart', this, cursor) !== false) {
 			this.isBusyScrolling = true;
-			this.store.on('exception', this.onLiveScrollException, this);
+			store = Ext.isDefined(store) ? store : this.store;
+			store.on('exception', this.onLiveScrollException, this);
 			if(this.fireEvent('livescrollstart', this, cursor) !== false) {
 				var options = {
-					restriction: {}
+					restriction: {
+						start : cursor,
+						limit : container.getSettingsModel().get('zarafa/v1/main/page_size')
+					}
 				};
-				options.restriction['start'] = cursor;
-				options.restriction['limit'] = container.getSettingsModel().get('zarafa/v1/main/page_size');
-				var store = this.store;
+
 				// If filter was applied already then set the
 				// filter restriction in params.
 				if (store.hasFilterApplied) {
@@ -1027,13 +1030,15 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	/**
 	 * Stop {@link Zarafa.core.data.ListModuleStore#stopLiveScroll stopLiveScroll} in the {@link #store}
 	 * and fire the {@link #livescrollstop} event.
+	 * @param {Ext.data.Store} store The store on which live scroll is performed.
 	 */
-	stopLiveScroll : function()
+	stopLiveScroll : function(store)
 	{
 		if (this.isBusyScrolling && this.fireEvent('beforelivescrollstop', this) !== false) {
-			this.store.stopLiveScroll();
+			store = Ext.isDefined(store) ? store : this.store;
+			store.stopLiveScroll();
 
-			this.store.un('exception', this.onLiveScrollException, this);
+			store.un('exception', this.onLiveScrollException, this);
 			this.isBusyScrolling = false;
 			this.fireEvent('livescrollstop', this);
 		}
@@ -1055,7 +1060,6 @@ Zarafa.core.ContextModel = Ext.extend(Zarafa.core.data.StatefulObservable, {
 	 */
 	onLiveScrollException : function(proxy, type, action, options, response, args)
 	{
-		this.store.un('exception', this.onLiveScrollException, this);
 		this.stopLiveScroll();
 	},
 

@@ -853,8 +853,18 @@ myStore.reload(lastOptions);
 	 * This will provide the restriction based on the given {@link Zarafa.common.data.Filters.UNREAD Filter} or
 	 * {@link Zarafa.task.data.DataModes datemode}.
 	 */
-	getFilterRestriction : Ext.emptyFn
+	getFilterRestriction : Ext.emptyFn,
 
+	/**
+	 * Helper function which used to get the total number of records are loaded
+	 * currently in Ext cache.
+	 *
+	 * @return {Number} The number of items in {@link Ext.data.Store Store}.
+	 */
+	getStoreLength : function()
+	{
+		return this.getRange().length;
+	}
 });
 
 Ext.reg('zarafa.listmodulestore', Zarafa.core.data.ListModuleStore);

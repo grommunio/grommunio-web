@@ -162,7 +162,8 @@ Zarafa.common.ui.DraggableDataView = Ext.extend(Ext.DataView, {
 	{
 		container.getNotifier().notify('pagination.paging', undefined, undefined,{
 			parentEl : !Ext.isEmpty(parentCt) ? parentCt : this.getEl(),
-			model : this.model
+			model : this.model,
+			store : this.store
 		});
 	},
 

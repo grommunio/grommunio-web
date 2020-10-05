@@ -114,7 +114,10 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			this.slider = this.getSlider();
 			if (!this.pagingEnabled) {
 				this.setSliderTimeOut();
-			} else {
+			} else if (Ext.isDefined(this.model)){
+				// This check we need to add because sometimes 
+				// grid does not have model info or we don't need to update the 
+				// pagination slide info on folder change.
 				this.model.on('folderchange', this.onFolderChange, this);
 			}
 		}
@@ -166,7 +169,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 			xtype: 'zarafa.paging',
 			renderTo : slider.dom,
 			pageSize : container.getSettingsModel().get('zarafa/v1/main/page_size'),
-			store : this.model.getStore(),
+			store : this.getStore(),
 			cursor : cursor
 		});
 	},
@@ -184,7 +187,7 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 		};
 
 		if (!this.pagingEnabled) {
-			var store = this.model.getStore();
+			var store = this.getStore();
 			sliderCfg.html = this.getUpdatedPaginationText(store);
 		}
 
@@ -230,7 +233,18 @@ Zarafa.core.ui.notifier.PagingSliderPlugin = Ext.extend(Zarafa.core.ui.notifier.
 	 */
 	getUpdatedPaginationText : function (store)
 	{
-		var sliderText = String.format(_('Loaded {0} of {1}'), store.getRealMailItemCount(), store.getTotalCount());
+		var sliderText = String.format(_('Loaded {0} of {1}'), store.getStoreLength(), store.getTotalCount());
 		return String.format('<div>{0}</div>', sliderText);
+	},
+
+	/**
+	 * Function is used to get the store from either store config or 
+	 * from give model.
+	 * 
+	 * @returns {Ext.data.store} store The data store attached with pagination plugin.
+	 */
+	getStore : function() 
+	{
+		return this.store || this.model.getStore();
 	}
 });

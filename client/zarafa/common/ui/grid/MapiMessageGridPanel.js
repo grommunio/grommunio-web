@@ -239,7 +239,8 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 		if (!this.isPagingEnabled()) {
 			container.getNotifier().notify('pagination.livescroll', undefined, undefined,{
 				parentEl : this.getEl(),
-				model : this.model
+				model : this.model,
+				store : this.getStore()
 			});
 		}
 	},
@@ -286,7 +287,8 @@ Zarafa.common.ui.grid.MapiMessageGrid = Ext.extend(Zarafa.common.ui.grid.GridPan
 
 		container.getNotifier().notify('pagination.paging', undefined, undefined,{
 			parentEl : this.getEl(),
-			model : this.model
+			model : this.model,
+			store : this.getStore()
 		});
 	},
 
