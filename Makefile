@@ -14,7 +14,8 @@ DESTDIR ?= deploy
 # Javascript compiler
 
 JSDEPLOY = $(DESTDIR)/client
-OIDCDEPLOY = $(JSDEPLOY)/oidc
+DEPLOYOIDC = $(JSDEPLOY)/oidc
+DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
 
@@ -63,6 +64,12 @@ ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
 THIRDPARTY = $(shell find client/third-party -name '*.js') client/third-party/tokenizr/tokenizr.js
 
+OIDCCLIENT = client/oidc/oidc-client.min.js
+DEPLOYOIDCCLIENT = $(DEPLOYOIDC)/oidc-client.js
+
+PURIFYJS = client/dompurify/purify.min.js
+DEPLOYPURIFYJS = $(DEPLOYPURIFY)/purify.js
+
 POFILES = $(wildcard server/language/*/*/*.po)
 JSFILES = $(shell find client/zarafa -name '*.js')
 
@@ -97,13 +104,11 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) $(AUDIODEST) js
 jsdebug: $(JSDEPLOY)/fingerprint-debug.js $(JSDEPLOY)/kopano-debug.js $(JSDEPLOY)/extjs-mod/extjs-mod-debug.js $(JSDEPLOY)/third-party/ux-thirdparty-debug.js
 	cp -r client/extjs $(DESTDIR)/client/
 
-js: jsdebug $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(JSDEPLOY)/oidc-kopano.js
+js: jsdebug $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(JSDEPLOY)/oidc-kopano.js $(DEPLOYOIDCCLIENT) $(DEPLOYPURIFYJS)
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
 	cp -r client/extjs $(DESTDIR)/client/
-	cp -r client/oidc $(DESTDIR)/client/
-	cp -r client/dompurify $(DESTDIR)/client/
 	cp -r client/filepreviewer $(DESTDIR)/client/
 	rm $(DESTDIR)/client/extjs/ext-base.js
 	rm $(DESTDIR)/client/extjs/ext-all.js
@@ -187,6 +192,14 @@ $(JSDEPLOY)/third-party/ux-thirdparty-debug.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
 	# concatenate using cat
 	cat $^ > $@
+
+$(DEPLOYOIDCCLIENT): $(OIDCCLIENT)
+	mkdir -p $(DEPLOYOIDC)
+	cp $^ $@
+
+$(DEPLOYPURIFYJS): $(PURIFYJS)
+	mkdir -p $(DEPLOYPURIFY)
+	cp $^ $@
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(JSDEPLOY)/third-party/ux-thirdparty-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
