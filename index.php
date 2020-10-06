@@ -222,6 +222,9 @@
 		$_SESSION[$key] = $value;
 	}
 
+	// close the PHP session, to not block other requests going through index.php
+	session_write_close();
+
 	// Get language from the request, or the session, or the user settings, or the config
 	if (isset($_REQUEST["language"]) && $Language->is_language($_REQUEST["language"])) {
 		$lang = $_REQUEST["language"];
