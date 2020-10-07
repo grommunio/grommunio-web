@@ -540,8 +540,8 @@ class FileLoader {
 		$jsTemplate = "\t\t<script type=\"text/javascript\" src=\"{file}\"></script>";
 		$this->printFiles($extjsFiles, $jsTemplate);
 		$this->printFiles($webappFiles, $jsTemplate);
-		$this->printFiles($pluginFiles, $jsTemplate);
-		$this->printFiles($remoteFiles, $jsTemplate);
+		$this->printFiles($pluginFiles, $jsTemplate, false, false);
+		$this->printFiles($remoteFiles, $jsTemplate, false, false);
 
 		if ($this->source) {
 			$contents = ob_get_contents();
@@ -582,10 +582,10 @@ class FileLoader {
 		$this->printFiles(array("client/resources/css/kopano.css"), $cssTemplate);
 
 		$pluginFiles = $this->getPluginCSSFiles(DEBUG_LOADER);
-		$this->printFiles($pluginFiles, $cssTemplate);
+		$this->printFiles($pluginFiles, $cssTemplate, false, false);
 
 		$remoteFiles = $this->getRemoteCSSFiles(DEBUG_LOADER);
-		$this->printFiles($remoteFiles, $cssTemplate);
+		$this->printFiles($remoteFiles, $cssTemplate, false, false);
 	}
 
 	/**
