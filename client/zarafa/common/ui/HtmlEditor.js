@@ -80,8 +80,8 @@ Zarafa.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				// Note: the path is relative to the path of tinymce
 				cache_suffix: "?version=" + cacheBuster,
 				external_plugins: {
-					link: "../tinymce-plugins/link/plugin.js?version=" + cacheBuster,
-					powerpaste: "../tinymce-plugins/powerpaste/plugin.min.js?version=" + cacheBuster,
+					link: "../tinymce-plugins/link/plugin.js",
+					powerpaste: "../tinymce-plugins/powerpaste/plugin.min.js",
 				},
 				link_assume_external_targets: true,
 				powerpaste_word_import: powerpasteConfig.powerpaste_word_import,
