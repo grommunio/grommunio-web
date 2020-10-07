@@ -1,3 +1,3 @@
 # DOMPurify library
 
-Taken from https://github.com/cure53/DOMPurify version 2.0.8.
+Taken from https://api.github.com/repos/cure53/DOMPurify/tarball/2.1.1
