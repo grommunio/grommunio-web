@@ -99,7 +99,13 @@ Zarafa.ABOUT = ""
 	+ "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY"
 	+ "CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,"
 	+ "TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE"
-	+ "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>";
+	+ "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>"
+
+	+ "<h1>DOMPurify</h1>"
+	+ "<p>Copyright 2015 Mario Heiderich. Licensed under the Apache License, version 2.0.</p>"
+
+	+ "<h1>oidc-client-js</h1>"
+	+ "<p>Copyright 2018, Brock Allen, Dominick Baier. Licensed under the Apache License, version 2.0.</p>";
 
 if (!Ext.isIE) {
 	Zarafa.ABOUT += "" 
