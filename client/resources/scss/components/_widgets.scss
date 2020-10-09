@@ -156,3 +156,28 @@
 	white-space: nowrap;
 	font-weight: bold;
 }
+
+/* do not load non visible gif's from ExtJS */
+.x-resizable-over .x-resizable-handle-east, .x-resizable-pinned .x-resizable-handle-east, .x-resizable-over .x-resizable-handle-west, .x-resizable-pinned .x-resizable-handle-west {
+	background-image: none !important;
+}
+
+.x-resizable-over .x-resizable-handle-south, .x-resizable-pinned .x-resizable-handle-south, .x-resizable-over .x-resizable-handle-north, .x-resizable-pinned .x-resizable-handle-north {
+	background-image: none !important;
+}
+
+.x-resizable-over .x-resizable-handle-northeast, .x-resizable-pinned .x-resizable-handle-northeast {
+	background-image: none !important;
+}
+
+.x-resizable-over .x-resizable-handle-northwest, .x-resizable-pinned .x-resizable-handle-northwest {
+	background-image: none !important;
+}
+
+.x-resizable-over .x-resizable-handle-southeast, .x-resizable-pinned .x-resizable-handle-southeast {
+	background-image: none !important;
+}
+
+.x-resizable-over .x-resizable-handle-southwest, .x-resizable-pinned .x-resizable-handle-southwest {
+	background-image: none !important;
+}
