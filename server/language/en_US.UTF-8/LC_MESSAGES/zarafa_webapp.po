@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-10-12 07:24+0000\n"
+"PO-Revision-Date: 2020-10-12 08:22+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: English (United States) "
 "<http://translate.kopano.io/projects/kopano/kopano-webapp/en_US/>\n"
@@ -20,10 +20,10 @@ msgstr ""
 
 #. TRANSLATORS: This message is used as label for the column which indicates the week number of the month in date picker. and 'Wk' stands for week
 msgid "Wk"
-msgstr "Wk"
+msgstr ""
 
 msgid "Now"
-msgstr "Now"
+msgstr ""
 
 msgid "Value must be between 0% to 100%"
 msgstr ""
@@ -191,7 +191,7 @@ msgid "OK"
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
 msgid "{0} (Spacebar)"
 msgstr ""
@@ -322,13 +322,11 @@ msgstr ""
 msgid "This field should only contain letters, numbers and _"
 msgstr ""
 
-#, fuzzy
 msgid "Email Addresses"
-msgstr "Email address"
+msgstr ""
 
-#, fuzzy
 msgid "Email addresses"
-msgstr "Email address"
+msgstr ""
 
 msgid "Group details"
 msgstr ""
@@ -620,7 +618,7 @@ msgid "Select Category"
 msgstr ""
 
 msgid "Apply"
-msgstr "Apply"
+msgstr ""
 
 msgid "All folders are selected"
 msgstr ""
@@ -998,11 +996,11 @@ msgid "Own calendar"
 msgstr ""
 
 msgid "F Y"
-msgstr "F Y"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr "l"
+msgstr ""
 
 msgid "All text fields"
 msgstr ""
@@ -1163,13 +1161,13 @@ msgid "Send"
 msgstr ""
 
 msgid "Save"
-msgstr "Save"
+msgstr ""
 
 msgid "Close"
 msgstr ""
 
 msgid "Delete"
-msgstr "Delete"
+msgstr ""
 
 msgid "Add attachment"
 msgstr ""
@@ -1327,13 +1325,13 @@ msgstr ""
 # 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "l F jS Y"
+msgstr "l, F j, Y"
 
 # 83%
 # 75%
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F"
-msgstr "l, F jS"
+msgstr "l, F j"
 
 msgid "Organiser"
 msgstr ""
@@ -1359,9 +1357,8 @@ msgstr ""
 msgid "M j"
 msgstr ""
 
-#, fuzzy
 msgid "j"
-msgstr "j"
+msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l d/m/Y"
@@ -1439,7 +1436,7 @@ msgstr ""
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
-msgstr "jS"
+msgstr ""
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
@@ -1679,9 +1676,8 @@ msgstr ""
 msgid "{0} - {1} (all day)"
 msgstr ""
 
-#, fuzzy
 msgid "d/m/y"
-msgstr "m/d/Y"
+msgstr "m/d/y"
 
 msgid "Select one..."
 msgstr ""
@@ -1690,7 +1686,7 @@ msgid "Unnamed folder"
 msgstr ""
 
 msgid "Discard"
-msgstr "Discard"
+msgstr ""
 
 msgid "Quick Appointment"
 msgstr ""
@@ -2194,9 +2190,8 @@ msgstr ""
 msgid "Edit recipient"
 msgstr ""
 
-#, fuzzy
 msgid "Copy email address"
-msgstr "Email address"
+msgstr ""
 
 msgid "Set as required"
 msgstr ""
@@ -2353,7 +2348,7 @@ msgid "Display name"
 msgstr ""
 
 msgid "Email address"
-msgstr "Email address"
+msgstr ""
 
 msgid "Expand distribution list"
 msgstr ""
@@ -2366,9 +2361,8 @@ msgstr ""
 msgid "Edit Recipient"
 msgstr ""
 
-#, fuzzy
 msgid "Copy email addresses"
-msgstr "Email address"
+msgstr ""
 
 msgid "Send email"
 msgstr ""
@@ -2785,7 +2779,7 @@ msgid "Apply changes"
 msgstr ""
 
 msgid "Do you wish to apply the changes?"
-msgstr "Do you wish to apply the changes?"
+msgstr ""
 
 msgid "All folders"
 msgstr ""
@@ -3396,9 +3390,8 @@ msgstr ""
 msgid "Mark this Distribution list as private"
 msgstr ""
 
-#, fuzzy
 msgid "New email address"
-msgstr "Email address"
+msgstr ""
 
 msgid "Please enter a valid email address"
 msgstr ""
@@ -3618,7 +3611,7 @@ msgid "jS F"
 msgstr "F j"
 
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 msgid "Important"
 msgstr ""
@@ -3773,9 +3766,8 @@ msgstr ""
 msgid "Folders List"
 msgstr ""
 
-#, fuzzy
 msgid "Copy Details"
-msgstr "Email address"
+msgstr ""
 
 msgid "Hide Details"
 msgstr ""
@@ -3787,7 +3779,7 @@ msgid "Saving"
 msgstr ""
 
 msgid "Saved"
-msgstr "Saved"
+msgstr ""
 
 msgid "Saved successfully"
 msgstr ""
@@ -3799,9 +3791,8 @@ msgstr ""
 msgid "Kopano Content Panel"
 msgstr ""
 
-#, fuzzy
 msgid "Delete item"
-msgstr "Delete"
+msgstr ""
 
 msgid "This item has been changed. Are you sure you want to delete it?"
 msgstr ""
@@ -3973,7 +3964,7 @@ msgid "No permissions granted"
 msgstr ""
 
 msgid "Profile"
-msgstr "Profile"
+msgstr ""
 
 msgid "Create items"
 msgstr ""
@@ -4156,9 +4147,8 @@ msgid ""
 "contents into the Deleted Items folder?"
 msgstr ""
 
-#, fuzzy
 msgid "Delete folder"
-msgstr "Delete"
+msgstr ""
 
 msgid "Are you sure you want to empty {0}?"
 msgstr ""
@@ -4520,7 +4510,7 @@ msgid "EML file(s)"
 msgstr ""
 
 msgid "ZIP file"
-msgstr "ZIP file"
+msgstr ""
 
 msgid "max. "
 msgstr ""
@@ -4651,7 +4641,7 @@ msgid "Reload WebApp"
 msgstr ""
 
 msgid "Settings"
-msgstr "Settings"
+msgstr ""
 
 msgid "Basic"
 msgstr ""
@@ -4828,9 +4818,8 @@ msgstr ""
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr ""
 
-#, fuzzy
 msgid "Reset settings"
-msgstr "Settings"
+msgstr ""
 
 msgid "Reset settings to their original defaults."
 msgstr ""
@@ -5007,9 +4996,8 @@ msgstr ""
 msgid "New task"
 msgstr ""
 
-#, fuzzy
 msgid "Completed"
-msgstr "Date completed"
+msgstr ""
 
 msgid "Percent complete"
 msgstr ""
@@ -5104,7 +5092,7 @@ msgid "Loading tasks"
 msgstr ""
 
 msgid "Date completed"
-msgstr "Date completed"
+msgstr ""
 
 msgid "hours"
 msgstr ""
@@ -6039,7 +6027,7 @@ msgid "Welcome"
 msgstr ""
 
 msgid "Username"
-msgstr "Username"
+msgstr ""
 
 msgid "Password"
 msgstr ""
