@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-09-22 13:26+0000\n"
-"Last-Translator: Mathias <m.kuemmerle@kopano.com>\n"
+"PO-Revision-Date: 2020-10-12 09:35+0000\n"
+"Last-Translator: Felix <f.bartels@kopano.com>\n"
 "Language-Team: German <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/de/>\n"
 "Language: de_DE\n"
@@ -4274,12 +4274,15 @@ msgstr[0] "Im Ordner {1} befindet sich {0} ungelesene Nachricht"
 msgstr[1] "Im Ordner {1} befinden sich {0} ungelesene Nachrichten"
 
 msgid "License error"
-msgstr ""
+msgstr "Lizenzfehler"
 
 msgid ""
 "The installed license key(s) have expired or are being over used. Please "
 "contact your system administrator for further information."
 msgstr ""
+"Die installierten Lizenzdateien sind entweder abgelaufen oder haben "
+"Nutzungslimits überschritten. Bitte wenden Sie sich an Ihren "
+"Systemadministrator für weitere Informationen."
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
@@ -6780,7 +6783,7 @@ msgstr ""
 "WebApp unterstützt das Importieren mehrerer VCF mit dieser Version nicht."
 
 msgid "WebApp does not support importing multiple ICS with this version."
-msgstr ""
+msgstr "WebApp unterstützt derzeit nicht den Import von mehreren ICS Dateien."
 
 #, php-format
 msgid "Unable to import '%s'"
