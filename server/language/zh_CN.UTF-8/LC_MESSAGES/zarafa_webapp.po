@@ -3963,6 +3963,14 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "文件夹{1}中有{0}条未读消息"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{1}中的{0}"
@@ -5629,9 +5637,6 @@ msgstr "任务请求"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "找不到消息，其已被移动或删除。"
 
-msgid "Action is not performed correctly."
-msgstr "操作不正确。"
-
 msgid "Request is not available."
 msgstr "请求不可用。"
 
@@ -5659,6 +5664,9 @@ msgstr "操作失败：服务器无足够内存。"
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "未知的邮件应用程序编程接口（MAPI）错误：%s"
+
+msgid "Action is not performed correctly."
+msgstr "操作不正确。"
 
 msgid "Tentatively accepted"
 msgstr "已暂时接受"
@@ -6148,6 +6156,9 @@ msgstr "未能在此文件中找到任何联系人。"
 
 msgid "WebApp does not support importing multiple VCF with this version."
 msgstr "WebApp不支持使用此版本导入多个VCF。"
+
+msgid "WebApp does not support importing multiple ICS with this version."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

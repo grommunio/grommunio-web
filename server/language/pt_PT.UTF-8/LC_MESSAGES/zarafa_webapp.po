@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
 "PO-Revision-Date: 2020-09-23 14:26+0000\n"
 "Last-Translator: Nuno Jerónimo <nuno.jeronimo@valsousa.pt>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://translate.kopano.io/projects/kopano/kopano-webapp/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.kopano.io/projects/"
+"kopano/kopano-webapp/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -4008,6 +4008,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Existem {0} mensagem por ler na pasta {1}"
 msgstr[1] "Existem {0} mensagens por ler na pasta {1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{0} em {1}"
@@ -5695,9 +5703,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 "Não foi possível encontrar a mensagem. Poderá ter sido movida ou apagada."
 
-msgid "Action is not performed correctly."
-msgstr "Ação não foi executada corretamente."
-
 msgid "Request is not available."
 msgstr "O pedido não está disponível."
 
@@ -5726,6 +5731,9 @@ msgstr "Operação falhou. O servidor não tem memória suficiente."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Erro MAPI desconhecido: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Ação não foi executada corretamente."
 
 msgid "Tentatively accepted"
 msgstr "Aceite em modo tentativa"
@@ -6243,6 +6251,9 @@ msgstr "Não foram encontrados contactos no ficheiro."
 
 msgid "WebApp does not support importing multiple VCF with this version."
 msgstr "A WebApp não suporta importar VCF múltiplos com esta versão."
+
+msgid "WebApp does not support importing multiple ICS with this version."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

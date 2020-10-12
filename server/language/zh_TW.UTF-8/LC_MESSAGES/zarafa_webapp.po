@@ -4150,6 +4150,14 @@ msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "有{0}未讀的郵件在資料夾中{1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -5921,9 +5929,6 @@ msgstr "任務要求:"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Action is not performed correctly."
-msgstr "Action is not performed correctly"
-
 msgid "Request is not available."
 msgstr ""
 
@@ -5952,6 +5957,9 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "不明的MAPI Error: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Action is not performed correctly"
 
 msgid "Tentatively accepted"
 msgstr "暫時接受"
@@ -6473,6 +6481,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format
