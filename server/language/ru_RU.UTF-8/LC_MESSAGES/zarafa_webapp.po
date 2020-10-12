@@ -4220,6 +4220,14 @@ msgstr[0] "{0} непрочитанное сообщение в каталоге
 msgstr[1] "{0} непрочитанных сообщения в каталоге {1}"
 msgstr[2] "{0} непрочитанных сообщений в каталоге {1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -5994,9 +6002,6 @@ msgstr "Поручение:"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Action is not performed correctly."
-msgstr "Операция выполнилась некорректно."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -6028,6 +6033,9 @@ msgstr "Операция не удалась: недостаточно памя�
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Неизвестная ошибка MAPI: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Операция выполнилась некорректно."
 
 msgid "Tentatively accepted"
 msgstr "Предварительно принято."
@@ -6585,6 +6593,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

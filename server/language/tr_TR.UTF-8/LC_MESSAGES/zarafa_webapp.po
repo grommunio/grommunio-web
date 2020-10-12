@@ -4308,6 +4308,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 msgstr[1] "Okunmamış {0} mesaj {1} klasörde bulunmaktadır"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -6114,9 +6122,6 @@ msgstr "Görev isteği"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "İleti bulunamadı, taşındı veya silindi."
 
-msgid "Action is not performed correctly."
-msgstr "Eylem doğru yapılmaz."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -6147,6 +6152,9 @@ msgstr "İşlem başarısız: Sunucuda yeterli bellek yok."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Bilinmeyen MAPI hatası: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Eylem doğru yapılmaz."
 
 msgid "Tentatively accepted"
 msgstr "Geçici olarak kabul edildi"
@@ -6737,6 +6745,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

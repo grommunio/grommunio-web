@@ -4308,6 +4308,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Er is {0} ongelezen bericht in de map {1}"
 msgstr[1] "Er zijn {0} ongelezen berichten in de map {1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -6098,9 +6106,6 @@ msgstr "Taakverzoek"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Bericht kon niet worden gevonden, het is verplaatst of verwijderd."
 
-msgid "Action is not performed correctly."
-msgstr "Handeling is verkeerd uitgevoerd."
-
 msgid "Request is not available."
 msgstr "Request is niet beschikbaar."
 
@@ -6133,6 +6138,9 @@ msgstr "Operatie mislukt: Server heeft onvoldoende beschikbaar geheugen."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Onbekende MAPI-Fout: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Handeling is verkeerd uitgevoerd."
 
 msgid "Tentatively accepted"
 msgstr "Voorlopig geaccepteerd"
@@ -6739,6 +6747,9 @@ msgid "WebApp does not support importing multiple VCF with this version."
 msgstr ""
 "WebApp ondersteunt het importeren van meerdere VCF bestanden niet in deze "
 "versie."
+
+msgid "WebApp does not support importing multiple ICS with this version."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

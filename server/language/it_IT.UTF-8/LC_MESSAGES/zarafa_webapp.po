@@ -4309,6 +4309,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "E' presente {0} messaggio non letto nella cartella {1}"
 msgstr[1] "Sono presenti {0} messaggi non letti nella cartella {1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -6119,9 +6127,6 @@ msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 "Impossibile trovare il messaggio. Potrebbe essere stato spostato o rimosso."
 
-msgid "Action is not performed correctly."
-msgstr "L'azione non è stata eseguita correttamente."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -6149,6 +6154,9 @@ msgstr "Operazione fallita: memoria server insufficiente."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Errore MAPI sconosciuto: %s"
+
+msgid "Action is not performed correctly."
+msgstr "L'azione non è stata eseguita correttamente."
 
 msgid "Tentatively accepted"
 msgstr "Accettato provvisoriamente"
@@ -6764,6 +6772,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

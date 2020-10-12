@@ -4308,6 +4308,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "{0} olvasatlan üzenete van a {1} mappában"
 msgstr[1] "{0} olvasatlan üzenete van a {1} mappában"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 80%
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
@@ -6090,9 +6098,6 @@ msgstr "Feladat kiosztás"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Nem található az üzenet, azt vagy áthelyezték, vagy törölték."
 
-msgid "Action is not performed correctly."
-msgstr "A művelet nem jól lett végrehajtva."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -6124,6 +6129,9 @@ msgstr "Művelet sikertelen: A kiszolgáló nem rendelkezik elegendő memóriáv
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Ismeretlen MAPI hiba: %s"
+
+msgid "Action is not performed correctly."
+msgstr "A művelet nem jól lett végrehajtva."
 
 msgid "Tentatively accepted"
 msgstr "Feltételesen elfogadta"
@@ -6724,6 +6732,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

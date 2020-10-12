@@ -4279,6 +4279,14 @@ msgstr[0] "Ve složce {1} je {0} nepřečtená zpráva"
 msgstr[1] "Ve složce {1} jsou {0} nepřečtené zprávy"
 msgstr[2] "Ve složce {1} je {0} nepřečtených zpráv"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
@@ -6073,9 +6081,6 @@ msgstr "Zadání úkolu:"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
-msgid "Action is not performed correctly."
-msgstr "Akce nebyla provedena správně."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -6104,6 +6109,9 @@ msgstr ""
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Neznámá MAPI chyba: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Akce nebyla provedena správně."
 
 msgid "Tentatively accepted"
 msgstr "Předběžně přijato"
@@ -6669,6 +6677,9 @@ msgid "There is no contact found in this file."
 msgstr ""
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

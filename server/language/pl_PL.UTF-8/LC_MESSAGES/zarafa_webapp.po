@@ -4037,6 +4037,14 @@ msgstr[0] "W folderze {1} znajduje się {0} nieprzeczytana wiadomość"
 msgstr[1] "W folderze {1} znajduje się {0} nieprzeczytanych wiadomości"
 msgstr[2] ""
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{0} w {1}"
@@ -5737,9 +5745,6 @@ msgstr ""
 "Nie można znaleźć wiadomości, w międzyczasie została onausunięta lub "
 "przeniesiona."
 
-msgid "Action is not performed correctly."
-msgstr "Akcja nie została wykonana poprawnie."
-
 msgid "Request is not available."
 msgstr "Wniosek nie jest dostępny."
 
@@ -5767,6 +5772,9 @@ msgstr "Operacja nie powiodła się: Za mało pamięci serwera."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Nieznany błąd MAPI: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Akcja nie została wykonana poprawnie."
 
 msgid "Tentatively accepted"
 msgstr "Wstępnie przyjęty"
@@ -6296,6 +6304,9 @@ msgstr "W tym pliku nie ma żadnego kontaktu."
 
 msgid "WebApp does not support importing multiple VCF with this version."
 msgstr "WebApp nie obsługuje importowania wielu VCF w tej wersji."
+
+msgid "WebApp does not support importing multiple ICS with this version."
+msgstr ""
 
 #, php-format
 msgid "Unable to import '%s'"

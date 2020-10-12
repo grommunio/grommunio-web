@@ -4000,6 +4000,14 @@ msgid_plural "There are {0} unread messages in the folder {1}"
 msgstr[0] "Það eru {0} ólesin skilaboð í möppunni {1}"
 msgstr[1] "Það eru {0} ólesin skilaboð í möppunni {1}"
 
+msgid "License error"
+msgstr ""
+
+msgid ""
+"The installed license key(s) have expired or are being over used. Please "
+"contact your system administrator for further information."
+msgstr ""
+
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
 msgid "{0} in {1}"
 msgstr "{0} í {1}"
@@ -5686,9 +5694,6 @@ msgstr "Verkbeiðni"
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Fann ekki skilaboð, þau hafa annaðhvort verið flutt eða þeim eytt."
 
-msgid "Action is not performed correctly."
-msgstr "Framkvæmdi aðgerðina ekki rétt."
-
 msgid "Request is not available."
 msgstr ""
 
@@ -5716,6 +5721,9 @@ msgstr "Aðgerð mistókst: Netþjónninn hefur ekki nægilegt minni."
 #, php-format
 msgid "Unknown MAPI Error: %s"
 msgstr "Óþekkt MAPI-villa: %s"
+
+msgid "Action is not performed correctly."
+msgstr "Framkvæmdi aðgerðina ekki rétt."
 
 msgid "Tentatively accepted"
 msgstr "Kannski"
@@ -6225,6 +6233,9 @@ msgid "There is no contact found in this file."
 msgstr "Það fannst enginn tengiliður í þessari skrá."
 
 msgid "WebApp does not support importing multiple VCF with this version."
+msgstr ""
+
+msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format
