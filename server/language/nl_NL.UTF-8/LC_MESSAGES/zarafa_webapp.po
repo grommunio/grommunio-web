@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-25 14:32+0200\n"
-"PO-Revision-Date: 2020-09-01 11:52+0000\n"
+"PO-Revision-Date: 2020-10-13 12:22+0000\n"
 "Last-Translator: martijn <m.alberts@zarafa.com>\n"
 "Language-Team: Dutch <http://translate.kopano.io/projects/kopano/kopano-"
 "webapp/nl/>\n"
@@ -4309,12 +4309,14 @@ msgstr[0] "Er is {0} ongelezen bericht in de map {1}"
 msgstr[1] "Er zijn {0} ongelezen berichten in de map {1}"
 
 msgid "License error"
-msgstr ""
+msgstr "Licentie fout"
 
 msgid ""
 "The installed license key(s) have expired or are being over used. Please "
 "contact your system administrator for further information."
 msgstr ""
+"De geïnstalleerde licentie sleutel(s) zijn verlopen of worden meerderen "
+"keren gebruikt. Neem contact op met de systeembeheerder voor meer informatie."
 
 # 100%
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME in STORENAME".
@@ -5210,10 +5212,10 @@ msgid "Show unread mail counter in application title"
 msgstr "Laat ongelezen email teller zien in applicatie titel"
 
 msgid "File previewing"
-msgstr ""
+msgstr "Voorbeeldweergave van bestanden"
 
 msgid "Attachment preview (PDF, Open formats and images)"
-msgstr ""
+msgstr "Voorbeeldweergave van bijlagen (PDF, Open formaten en foto's)"
 
 msgid "Inbox navigation"
 msgstr "Inbox navigatie"
@@ -6750,6 +6752,8 @@ msgstr ""
 
 msgid "WebApp does not support importing multiple ICS with this version."
 msgstr ""
+"WebApp ondersteunt het importeren van meerdere ICS in één bestand niet in "
+"deze versie."
 
 #, php-format
 msgid "Unable to import '%s'"
