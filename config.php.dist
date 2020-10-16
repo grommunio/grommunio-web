@@ -273,7 +273,7 @@
 	
 	//Define the default time zone
 	if(!ini_get('date.timezone')) {
-		date_default_timezone_set("Asia/Shanghai");
+		date_default_timezone_set("Europe/Vienna");
 	}
 	
 	/**************************************\
