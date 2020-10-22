@@ -1982,12 +1982,12 @@ msgid "Import to folder"
 msgstr "Tyhjennä kansio"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Kopano Core to "
+"In order to use the vCard import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
 
@@ -5066,7 +5066,7 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #, fuzzy
-msgid "Kopano Core"
+msgid "Gromoxb"
 msgstr "Kopano"
 
 msgid "Delete confirmation"
@@ -5808,7 +5808,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Sisäänkirjautuminen epäonnistui Tarkista nimesi/salasanasi."
 
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Gromoxb."
 msgstr "Yhteyttä Kopanon palvelimeen ei saada."
 
 msgid ""
@@ -5909,7 +5909,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Sisäänkirjautuminen epäonnistui Tarkista nimesi/salasanasi."
 
 #, fuzzy
-msgid "Can not connect to Kopano Core."
+msgid "Can not connect to Gromoxb."
 msgstr "Yhteyttä Kopanon palvelimeen ei saada."
 
 msgid "Can not open object with provided id."

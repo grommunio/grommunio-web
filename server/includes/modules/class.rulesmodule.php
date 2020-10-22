@@ -188,7 +188,7 @@
 		/**
 		 * Function will be used to create/update rule in user's rules table.
 		 * This function only usee ROW_MODIFY flag to save rules data, Which is correct when modifying existing rules
-		 * but for adding new rules Kopano Core automatically checks existence of rule id and if it si not then
+		 * but for adding new rules Gromoxb automatically checks existence of rule id and if it si not then
 		 * use ROW_ADD flag.
 		 * @param {MAPIStore} $store The store into which the rules must be saved.
 		 * @param {Array} $rulesData rules data that should be deleted.

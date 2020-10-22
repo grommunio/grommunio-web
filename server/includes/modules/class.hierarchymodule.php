@@ -608,7 +608,7 @@
 						"parent_entryid" => bin2hex($row[PR_PARENT_ENTRYID]),
 						"store_entryid" => bin2hex($row[PR_STORE_ENTRYID]),
 						"props" => array(
-							"folder_pathname" => $subpath, // This equals PR_FOLDER_PATHNAME, which is not supported by Kopano Core
+							"folder_pathname" => $subpath, // This equals PR_FOLDER_PATHNAME, which is not supported by Gromoxb
 							"display_name" => $row[PR_DISPLAY_NAME],
 							"object_type" => $row[PR_OBJECT_TYPE],
 							"message_size" => $info["size"],

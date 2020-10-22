@@ -17,7 +17,7 @@ class ConfigCheck
 		// here we check our settings, changes to the config and
 		// additional checks must be added/changed here
 		$this->checkPHP("5.4", "You must upgrade PHP");
-		$this->checkExtension("mapi", "steep-1.0", "If you have upgraded Kopano Core, please restart Apache");
+		$this->checkExtension("mapi", "steep-1.0", "If you have upgraded Gromoxb, please restart Apache");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
 		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grammm web will work correctly");

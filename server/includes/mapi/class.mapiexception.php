@@ -26,7 +26,7 @@
 				case MAPI_E_UNCONFIGURED:
 					return dgettext("zarafa","Logon Failed. Please check your name/password.");
 				case MAPI_E_NETWORK_ERROR:
-					return dgettext("zarafa","Can not connect to Kopano Core.");
+					return dgettext("zarafa","Can not connect to Gromoxb.");
 				case MAPI_E_UNKNOWN_ENTRYID:
 					return dgettext("zarafa","Can not open object with provided id.");
 				case MAPI_E_NO_RECIPIENTS:

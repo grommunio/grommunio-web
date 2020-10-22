@@ -30,7 +30,7 @@ Zarafa.settings.ui.SettingsVersionWidget = Ext.extend(Zarafa.settings.ui.Setting
 				fieldLabel : _('WebApp'),
 				value : version.getWebApp() + (!Ext.isEmpty(version.getGit()) ? ('-' + version.getGit()) : '')
 			},{
-				fieldLabel : _('Kopano Core'),
+				fieldLabel : _('Gromoxb'),
 				value : version.getZCP()
 			},
 				container.populateInsertionPoint('settings.versioninformation')

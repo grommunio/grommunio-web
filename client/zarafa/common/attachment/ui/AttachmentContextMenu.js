@@ -158,10 +158,10 @@ Zarafa.common.attachment.ui.AttachmentContextMenu = Ext.extend(Zarafa.core.ui.me
 		var serverConfig = container.getServerConfig();
 		var attachRecord = this.getRecords();
 		if (!serverConfig.isVCfImportSupported() && attachRecord.isVCFAttachment()) {
-			var tooltip = _('In order to use the vCard import feature, upgrade your Kopano Core to version 8.3 or higher.');
+			var tooltip = _('In order to use the vCard import feature, upgrade your Gromoxb to version 8.3 or higher.');
 			this.setTooltipOnImportButton(this.getEl(), tooltip);
 		} else if (!serverConfig.isICSImportSupported() && attachRecord.isICSAttachment()) {
-			var tooltip = _('In order to use the ICS / VCS import feature, upgrade your Kopano Core to version 8.3 or higher.');
+			var tooltip = _('In order to use the ICS / VCS import feature, upgrade your Gromoxb to version 8.3 or higher.');
 			this.setTooltipOnImportButton(this.getEl(), tooltip);
 		}
 	},

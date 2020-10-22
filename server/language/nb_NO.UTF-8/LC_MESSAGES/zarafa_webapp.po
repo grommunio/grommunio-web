@@ -1939,14 +1939,14 @@ msgid "Import to folder"
 msgstr "Importer til mappe"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Kopano Core to "
+"In order to use the vCard import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
-"For å kunne bruke vCard import funksjonen, så må du oppgradere Kopano Core "
+"For å kunne bruke vCard import funksjonen, så må du oppgradere Gromoxb "
 "til versjon 8.3 eller høyere."
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
 "For å kunne bruke ICS/VCS  import funksjonen, så må du oppgradere Kopano "
@@ -4914,8 +4914,8 @@ msgstr "Versjonsinformasjon"
 msgid "WebApp"
 msgstr "WebApp"
 
-msgid "Kopano Core"
-msgstr "Kopano Core"
+msgid "Gromoxb"
+msgstr "Gromoxb"
 
 msgid "Delete confirmation"
 msgstr "Slett bekreftelse"
@@ -5626,8 +5626,8 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
-msgid "Cannot connect to Kopano Core."
-msgstr "Kunne ikke koble til Kopano Core."
+msgid "Cannot connect to Gromoxb."
+msgstr "Kunne ikke koble til Gromoxb."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -5720,8 +5720,8 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
-msgid "Can not connect to Kopano Core."
-msgstr "Kunne ikke koble til Kopano Core."
+msgid "Can not connect to Gromoxb."
+msgstr "Kunne ikke koble til Gromoxb."
 
 msgid "Can not open object with provided id."
 msgstr "Kan ikke åpne objektet med den oppgitte id."

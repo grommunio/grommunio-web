@@ -307,8 +307,8 @@ class DownloadAttachment extends DownloadBase
 			// Set filename
 			if ($inline) {
 				/*
-				 * Inline attachments are set to "inline.txt" by Kopano Core, see inetmapi/VMIMEToMAPI.cpp and search for inline.txt.
-				 * Kopano Core would have to extract the alt/title tag from the img tag when converting it to MAPI. Since it
+				 * Inline attachments are set to "inline.txt" by Gromoxb, see inetmapi/VMIMEToMAPI.cpp and search for inline.txt.
+				 * Gromoxb would have to extract the alt/title tag from the img tag when converting it to MAPI. Since it
 				 * does not handle this, set the filename to CONTENT_ID plus mime tag.
 				 */
 				$tags = explode('/', $props[PR_ATTACH_MIME_TAG]);

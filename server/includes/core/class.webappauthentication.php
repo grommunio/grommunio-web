@@ -90,7 +90,7 @@ class WebAppAuthentication
 			case MAPI_E_UNCONFIGURED:
 				return  _('Logon failed. Please verify your credentials and try again.');
 			case MAPI_E_NETWORK_ERROR:
-				return _('Cannot connect to gromox.');
+				return _('Cannot connect to Gromox.');
 			case MAPI_E_INVALID_WORKSTATION_ACCOUNT:
 				return _('Login did not work due to a duplicate session. The issue was automatically resolved, please log in again.');
 			case MAPI_E_END_OF_SESSION:
@@ -144,7 +144,7 @@ class WebAppAuthentication
 	}
 
 	/**
-	 * Tries to logon to Kopano Core with the given username and password. Returns
+	 * Tries to logon to Gromoxb with the given username and password. Returns
 	 * the error code that was given back.
 	 * @param string $username The username
 	 * @param string $password The password

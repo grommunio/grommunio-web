@@ -1907,12 +1907,12 @@ msgid "Import to folder"
 msgstr "空的資料夾"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Kopano Core to "
+"In order to use the vCard import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Kopano Core to "
+"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
 "version 8.3 or higher."
 msgstr ""
 
@@ -4931,7 +4931,7 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #, fuzzy
-msgid "Kopano Core"
+msgid "Gromoxb"
 msgstr "Kopano"
 
 msgid "Delete confirmation"
@@ -5662,7 +5662,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Logon Failed. Please check your name/password"
 
 #, fuzzy
-msgid "Cannot connect to Kopano Core."
+msgid "Cannot connect to Gromoxb."
 msgstr "無法連線到Kopano server."
 
 msgid ""
@@ -5762,7 +5762,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Logon Failed. Please check your name/password"
 
 #, fuzzy
-msgid "Can not connect to Kopano Core."
+msgid "Can not connect to Gromoxb."
 msgstr "無法連線到Kopano server."
 
 msgid "Can not open object with provided id."
