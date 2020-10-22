@@ -1,10 +1,10 @@
-# Kopano Webapp Farsi (Iran) translation.
+# Grammm Web Farsi (Iran) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Farsi (Iran)\n"
+"Project-Id-Version: Grammm Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Kopano Webapp"
+msgid "Grammm Web"
 msgstr ""
 
 msgid ""
@@ -1992,7 +1992,7 @@ msgstr[0] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Kopano WebApp"
+msgid "Grammm Web"
 msgstr ""
 
 msgid "Do not show this message again."
@@ -2194,7 +2194,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Kopano WebApp print"
+msgid "Grammm Web print"
 msgstr ""
 
 msgid "Display name"
@@ -3622,7 +3622,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm Web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

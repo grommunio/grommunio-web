@@ -1528,7 +1528,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Kopano Webapp"
+msgid "Grammm Web"
 msgstr ""
 
 msgid ""
@@ -2021,7 +2021,7 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Kopano WebApp"
+msgid "Grammm Web"
 msgstr ""
 
 msgid "Do not show this message again."
@@ -2227,7 +2227,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr "Móttakendur"
 
-msgid "Kopano WebApp print"
+msgid "Grammm Web print"
 msgstr ""
 
 msgid "Display name"
@@ -3656,7 +3656,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm Web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

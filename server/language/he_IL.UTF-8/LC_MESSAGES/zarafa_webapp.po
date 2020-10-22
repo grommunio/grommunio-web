@@ -1,10 +1,10 @@
-# Kopano Webapp Hebrew (Israel) translation.
+# Grammm Web Hebrew (Israel) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
+"Project-Id-Version: Grammm Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
@@ -1673,7 +1673,7 @@ msgid "Copy"
 msgstr "העתק"
 
 #, fuzzy
-msgid "Kopano Webapp"
+msgid "Grammm Web"
 msgstr "הווב אפ של זראפה"
 
 msgid ""
@@ -2194,7 +2194,7 @@ msgstr[1] "{0} הודעות נבחרו."
 msgid "Folder '{0}' selected."
 msgstr "תיקיית '{0}' נבחרה."
 
-msgid "Kopano WebApp"
+msgid "Grammm Web"
 msgstr "הווב אפ של זראפה"
 
 msgid "Do not show this message again."
@@ -2430,7 +2430,7 @@ msgid "Duplicate recipients"
 msgstr "ערוך נמען"
 
 #, fuzzy
-msgid "Kopano WebApp print"
+msgid "Grammm Web print"
 msgstr "הווב אפ של זראפה"
 
 # 91%
@@ -4008,7 +4008,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm Web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

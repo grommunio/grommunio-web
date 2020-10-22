@@ -1671,8 +1671,8 @@ msgid "Copy"
 msgstr "Másolás"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 #, fuzzy
 msgid ""
@@ -2218,8 +2218,8 @@ msgstr[1] "{0} üzenet kiválasztva."
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
@@ -2452,8 +2452,8 @@ msgid "Duplicate recipients"
 msgstr "Címzett szerkesztése"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm Web print"
+msgstr "Grammm Web"
 
 # 91%
 msgid "Display name"
@@ -4032,8 +4032,8 @@ msgstr "Ez az elem megváltozott. Biztosan törölni akarja?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Köszönti a Kopano WebApp"
+msgid "Welcome to Grammm Web"
+msgstr "Köszönti a Grammm Web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4902,7 +4902,7 @@ msgstr "A beállítások frissítéséhez a WebAppot újra kell indítania."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm Web"
 
 msgid "Settings"
 msgstr "Beállítások"

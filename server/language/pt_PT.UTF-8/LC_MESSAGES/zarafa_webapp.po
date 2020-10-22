@@ -1,10 +1,10 @@
-# Kopano Webapp Portuguese (Portugal) translation.
+# Grammm Web Portuguese (Portugal) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Portuguese (Portugal)\n"
+"Project-Id-Version: Grammm Web Portuguese (Portugal)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-05-31 09:40+0000\n"
@@ -1539,8 +1539,8 @@ msgstr "Abrir pedido de reunião com alterações"
 msgid "Copy"
 msgstr "Copiar"
 
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2069,8 +2069,8 @@ msgstr[1] "Existem {0} mensagens selecionadas."
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Não mostrar esta mensagem outra vez."
@@ -2286,8 +2286,8 @@ msgstr "Não foi possível entregar aos seguintes destinatários"
 msgid "Duplicate recipients"
 msgstr "Atualizar destinatários"
 
-msgid "Kopano WebApp print"
-msgstr "Impressão Kopano WebApp"
+msgid "Grammm Web print"
+msgstr "Impressão Grammm Web"
 
 msgid "Display name"
 msgstr "Nome a mostrar"
@@ -3766,8 +3766,8 @@ msgstr "Este item foi alterado. Tem a certeza que o quer eliminar?"
 msgid "Unsaved changes"
 msgstr "Alterações por gravar"
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Bem-vindo à Kopano WebApp"
+msgid "Welcome to Grammm Web"
+msgstr "Bem-vindo à Grammm Web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Esta é a primeira vez que está a usar a WebApp. "

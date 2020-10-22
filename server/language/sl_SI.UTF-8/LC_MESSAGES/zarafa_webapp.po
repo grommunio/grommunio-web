@@ -1,10 +1,10 @@
-# Kopano Webapp Slovenian (Slovenia) translation.
+# Grammm Web Slovenian (Slovenia) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
+"Project-Id-Version: Grammm Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
@@ -1669,7 +1669,7 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #, fuzzy
-msgid "Kopano Webapp"
+msgid "Grammm Web"
 msgstr "Kopano Spletna aplikacija"
 
 msgid ""
@@ -2216,7 +2216,7 @@ msgstr[3] "Izbranih je {0} sporočil."
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
 
-msgid "Kopano WebApp"
+msgid "Grammm Web"
 msgstr "Kopano Spletna aplikacija"
 
 msgid "Do not show this message again."
@@ -2452,7 +2452,7 @@ msgid "Duplicate recipients"
 msgstr "Uredi prejemnika"
 
 #, fuzzy
-msgid "Kopano WebApp print"
+msgid "Grammm Web print"
 msgstr "Kopano Spletna aplikacija"
 
 # 91%
@@ -4068,7 +4068,7 @@ msgstr "Ta predmet je bil spremenjen. Ali ga želite izbrisati?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm Web"
 msgstr "Dobrodošli v spletni aplikaciji Kopano"
 
 #, fuzzy

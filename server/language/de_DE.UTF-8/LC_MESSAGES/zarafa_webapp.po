@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp German (Germany)\n"
+"Project-Id-Version: Grammm Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:21+0000\n"
@@ -1649,8 +1649,8 @@ msgstr "Besprechungsanfrage mit den Änderungen öffnen"
 msgid "Copy"
 msgstr "Kopieren"
 
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2204,8 +2204,8 @@ msgstr[1] "Es sind {0} Nachrichten ausgewählt."
 msgid "Folder '{0}' selected."
 msgstr "Ordner \"{0}\" ausgewählt."
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
@@ -2437,8 +2437,8 @@ msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
 msgid "Duplicate recipients"
 msgstr "Empfänger aktualisieren"
 
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp drucken"
+msgid "Grammm Web print"
+msgstr "Grammm Web drucken"
 
 # 91%
 msgid "Display name"
@@ -4013,8 +4013,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr "Ungespeicherte Änderungen"
 
-msgid "Welcome to Kopano WebApp"
-msgstr "Willkommen bei Kopano WebApp"
+msgid "Welcome to Grammm Web"
+msgstr "Willkommen bei Grammm Web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Sie verwenden WebApp zum ersten Mal. "

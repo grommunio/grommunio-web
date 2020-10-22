@@ -1,4 +1,4 @@
-# Kopano Webapp Chinese (Simplified) translation.
+# Grammm Web Chinese (Simplified) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -1573,8 +1573,8 @@ msgid "Copy"
 msgstr ""
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2080,8 +2080,8 @@ msgstr[0] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2298,8 +2298,8 @@ msgid "Duplicate recipients"
 msgstr "拒绝"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm Web print"
+msgstr "Grammm Web"
 
 msgid "Display name"
 msgstr ""
@@ -3796,7 +3796,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
+msgid "Welcome to Grammm Web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "
@@ -4589,7 +4589,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm Web"
 
 msgid "Settings"
 msgstr ""
@@ -4791,7 +4791,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Kopano Core"
-msgstr "Kopano WebApp"
+msgstr "Grammm Web"
 
 msgid "Delete confirmation"
 msgstr ""
@@ -5397,7 +5397,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Kopano blue"
-msgstr "Kopano WebApp"
+msgstr "Grammm Web"
 
 msgid "Baby blue"
 msgstr ""

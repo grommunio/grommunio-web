@@ -1,10 +1,10 @@
-# Kopano Webapp Chinese (Taiwan) translation.
+# Grammm Web Chinese (Taiwan) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kopano Webapp Chinese (Taiwan)\n"
+"Project-Id-Version: Grammm Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:40+0200\n"
@@ -1588,8 +1588,8 @@ msgid "Copy"
 msgstr "複製"
 
 #, fuzzy
-msgid "Kopano Webapp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2106,8 +2106,8 @@ msgstr[0] "選擇了{0} 封郵件"
 msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
 
-msgid "Kopano WebApp"
-msgstr "Kopano WebApp"
+msgid "Grammm Web"
+msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2342,8 +2342,8 @@ msgid "Duplicate recipients"
 msgstr "編輯收件者"
 
 #, fuzzy
-msgid "Kopano WebApp print"
-msgstr "Kopano WebApp"
+msgid "Grammm Web print"
+msgstr "Grammm Web"
 
 msgid "Display name"
 msgstr "顯示名稱"
@@ -3887,8 +3887,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Kopano WebApp"
-msgstr "歡迎來到Kopano WebApp"
+msgid "Welcome to Grammm Web"
+msgstr "歡迎來到Grammm Web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4732,7 +4732,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Kopano WebApp"
+msgstr "Grammm Web"
 
 msgid "Settings"
 msgstr "設定"
