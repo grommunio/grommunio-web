@@ -4,7 +4,7 @@ Ext.namespace('Zarafa.plugins.filepreviewer');
  * @class Zarafa.plugins.filepreviewer.ABOUT
  * @extends String
  *
- * The copyright string holding the copyright notice for the Grammm WebApp FileViewer Plugin.
+ * The copyright string holding the copyright notice for the grammm web FileViewer Plugin.
  */
 Zarafa.plugins.filepreviewer.ABOUT = ""
 + "<p>Copyright (C) 2016 Zarafa B.V. <info@zarafa.com></p>"

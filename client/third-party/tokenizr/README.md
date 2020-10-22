@@ -1,4 +1,4 @@
-# Tokenizr in Grammm WebApp
+# Tokenizr in grammm web
 
 The tokenizr library can be found at https://github.com/rse/tokenizr
 

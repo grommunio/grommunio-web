@@ -171,9 +171,9 @@ class WebAppAuthentication
 				if (isset($companyname)) {
 					 setcookie('webapp_title', $companyname, time()+31536000, '/');
 				}
-				error_log('Grammm WebApp user: ' . $username . ': authentication succesfull at MAPI');
+				error_log('grammm web user: ' . $username . ': authentication succesfull at MAPI');
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
-				error_log('Grammm WebApp user: ' . $username . ': authentication failure at MAPI');
+				error_log('grammm web user: ' . $username . ': authentication failure at MAPI');
 			}
 		}
 

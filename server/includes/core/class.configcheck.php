@@ -20,8 +20,8 @@ class ConfigCheck
 		$this->checkExtension("mapi", "steep-1.0", "If you have upgraded Kopano Core, please restart Apache");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
 		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
-		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the Grammm WebApp will work correctly");
-		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the Grammm WebApp will work correctly");
+		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grammm web will work correctly");
+		$this->checkPHPsetting("zlib.output_handler", "", "With this option set, it is unsure if the grammm web will work correctly");
 		$this->checkPHPsetting("zlib.output_compression", "off", "With this option set, it could occure that XMLHTTP-requests will fail");
 
 		if (CONFIG_CHECK_COOKIES_HTTP) {
@@ -39,7 +39,7 @@ class ConfigCheck
 		// check if there were *any* errors and we need to stop the WebApp
 		if (!$this->result && $this->haltOnError){
 			?>
-				<p style="font-weight: bold;">Grammm WebApp can't start because of incompatible configuration.</p>
+				<p style="font-weight: bold;">grammm web can't start because of incompatible configuration.</p>
 				<p>Please correct above errors, a good start is by checking your '<tt><?php echo $this->get_php_ini(); ?></tt>' file.</p>
 				<p>You can disable this configuration check by editing the file '<tt><?php echo dirname($_SERVER["SCRIPT_FILENAME"]) ?>/config.php</tt>', but this is not recommended.</p>
 			<?php

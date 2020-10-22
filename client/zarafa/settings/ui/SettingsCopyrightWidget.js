@@ -24,7 +24,7 @@ Zarafa.settings.ui.SettingsCopyrightWidget = Ext.extend(Zarafa.settings.ui.Setti
 		config = config || {};
 
 		Ext.applyIf(config, {
-			title : _('Grammm WebApp'),
+			title : _('grammm web'),
 			layout : 'form',
 			items : [{
 				xtype : 'displayfield',

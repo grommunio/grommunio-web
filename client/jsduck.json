@@ -1,5 +1,5 @@
 {
-    "--title": "Grammm WebApp",
+    "--title": "grammm web",
     "--warnings": ["-link", "-no_doc"],
     "--external": "extjs",
     "--ext-namespace": "Ext",

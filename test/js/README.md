@@ -1,4 +1,4 @@
-# Grammm WebApp JavaScript tests
+# grammm web JavaScript tests
 
 This document describes how to setup the JavaScript test system, run tests and
 writing new tests. The tests use Jasmine as testframework and Karma as test

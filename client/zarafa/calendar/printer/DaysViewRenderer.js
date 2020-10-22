@@ -122,7 +122,7 @@ Zarafa.calendar.printer.DaysViewRenderer = Ext.extend(Zarafa.calendar.printer.Ab
 		var html = '';
 
 		/* +--------------------------------------------+
-		 * | Grammm WebApp     |                        |
+		 * | grammm web     |                        |
 		 * | Calendar : [name] |      date pick         |
 		 * | start time        |      this month        |
 		 * |                   |                        |

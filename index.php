@@ -76,7 +76,7 @@
 	if (isset($_COOKIE['webapp_title'])) {
 		$webappTitle = $_COOKIE['webapp_title'];
 	} else {
-		$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'Grammm WebApp';
+		$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grammm web';
 	}
 
 	// If we could not authenticate the user, we will show the login page

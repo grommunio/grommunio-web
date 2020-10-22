@@ -80,7 +80,7 @@ https://kb.kopano.io/) is available for quick start guides, handy code
 snippets, and troubleshooting help.
 
 # Contributing
-The project is derived from Grammm WebApp, you can visit
+The project is derived from grammm web, you can visit
 https://stash.kopano.io/projects/KW/repos/kopano-webapp/browse
 for more information
 

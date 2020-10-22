@@ -781,7 +781,7 @@ Ext.apply(Zarafa, {
 
 			// Register if required
 			if (register) {
-				navigator.registerProtocolHandler('mailto', url, 'Grammm WebApp');
+				navigator.registerProtocolHandler('mailto', url, 'grammm web');
 			}
 		}
 	},
