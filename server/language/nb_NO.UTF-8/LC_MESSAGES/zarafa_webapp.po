@@ -2152,9 +2152,6 @@ msgstr[1] "Det er {0} meldinger valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappe '{0}' valgt."
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
-
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
 

@@ -2211,9 +2211,6 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
-
 msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
 

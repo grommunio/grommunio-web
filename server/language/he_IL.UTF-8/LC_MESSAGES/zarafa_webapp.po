@@ -1672,7 +1672,6 @@ msgstr ""
 msgid "Copy"
 msgstr "העתק"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "הווב אפ של זראפה"
 
@@ -2193,9 +2192,6 @@ msgstr[1] "{0} הודעות נבחרו."
 
 msgid "Folder '{0}' selected."
 msgstr "תיקיית '{0}' נבחרה."
-
-msgid "Grammm Web"
-msgstr "הווב אפ של זראפה"
 
 msgid "Do not show this message again."
 msgstr ""

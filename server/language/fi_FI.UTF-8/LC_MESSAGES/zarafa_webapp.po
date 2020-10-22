@@ -1644,7 +1644,6 @@ msgstr "Avaa kokouskutsu muutoksilla"
 msgid "Copy"
 msgstr "Kopioi"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2183,9 +2182,6 @@ msgstr[1] "{0} viestiä on valittu."
 
 msgid "Folder '{0}' selected."
 msgstr "Kansio '{0}' on valittu."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

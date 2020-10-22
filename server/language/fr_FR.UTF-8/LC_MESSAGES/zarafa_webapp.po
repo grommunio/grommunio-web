@@ -1645,7 +1645,6 @@ msgstr "Demande de réunion en cours contenant des modifications"
 msgid "Copy"
 msgstr "Copier"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "WebApp Kopano"
 
@@ -2192,9 +2191,6 @@ msgstr[1] "Il y a {0} messages sélectionnés."
 
 msgid "Folder '{0}' selected."
 msgstr "Dossier '{0}' sélectionné."
-
-msgid "Grammm Web"
-msgstr "WebApp Kopano"
 
 msgid "Do not show this message again."
 msgstr ""

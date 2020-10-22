@@ -1651,7 +1651,6 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2202,9 +2201,6 @@ msgstr[1] "Hay {0} mensajes seleccionados."
 
 msgid "Folder '{0}' selected."
 msgstr "Carpeta '{0}' seleccionada."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

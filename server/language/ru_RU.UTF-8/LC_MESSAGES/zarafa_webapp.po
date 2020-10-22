@@ -1623,7 +1623,6 @@ msgstr "Открыть измененное приглашение на собр
 msgid "Copy"
 msgstr "Копировать"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2174,9 +2173,6 @@ msgstr[2] "{0} сообщений выбрано."
 
 msgid "Folder '{0}' selected."
 msgstr "Выбрана папка «{0}»."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Больше не показывать это сообщение."

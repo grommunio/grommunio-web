@@ -1643,7 +1643,6 @@ msgstr "Apri richiesta di appuntamento modificata"
 msgid "Copy"
 msgstr "Copia"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2201,9 +2200,6 @@ msgstr[1] "{0} messaggi selezionati."
 
 msgid "Folder '{0}' selected."
 msgstr "Cartella '{0}' selezionata."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Non mostrare piu` questo messaggio."

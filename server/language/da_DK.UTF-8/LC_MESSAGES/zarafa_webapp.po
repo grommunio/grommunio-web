@@ -1567,7 +1567,6 @@ msgstr "Åben mødeindkaldelse med ændringer"
 msgid "Copy"
 msgstr "Kopier"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2103,9 +2102,6 @@ msgstr[1] "{0} meddelelser er valgt."
 
 msgid "Folder '{0}' selected."
 msgstr "Mappen '{0}' er valgt."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."

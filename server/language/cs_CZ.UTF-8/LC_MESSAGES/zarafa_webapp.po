@@ -1626,7 +1626,6 @@ msgstr "Otevřít změněnu žádost o schůzku"
 msgid "Copy"
 msgstr "Kopírovat"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Kopano WebbApp"
 
@@ -2191,9 +2190,6 @@ msgstr[2] "Je vybráno {0} zpráv."
 
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
-
-msgid "Grammm Web"
-msgstr "Kopano WebbApp"
 
 msgid "Do not show this message again."
 msgstr "Tuto zprávu již nezobrazovat."

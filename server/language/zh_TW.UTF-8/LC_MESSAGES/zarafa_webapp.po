@@ -1587,7 +1587,6 @@ msgstr ""
 msgid "Copy"
 msgstr "複製"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2105,9 +2104,6 @@ msgstr[0] "選擇了{0} 封郵件"
 
 msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

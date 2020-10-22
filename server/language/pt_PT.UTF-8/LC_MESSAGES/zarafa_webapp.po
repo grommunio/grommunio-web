@@ -2069,9 +2069,6 @@ msgstr[1] "Existem {0} mensagens selecionadas."
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
-
 msgid "Do not show this message again."
 msgstr "Não mostrar esta mensagem outra vez."
 

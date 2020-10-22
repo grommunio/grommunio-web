@@ -1588,7 +1588,6 @@ msgstr "Otwórz ze zmianami wezwanie na spotkanie"
 msgid "Copy"
 msgstr "Kopiuj"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2111,9 +2110,6 @@ msgstr[2] ""
 
 msgid "Folder '{0}' selected."
 msgstr "Wybrano '{0}' folderów."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

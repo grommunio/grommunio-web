@@ -1670,7 +1670,6 @@ msgstr "Értekezlet meghívó megnyitása a változásokkal"
 msgid "Copy"
 msgstr "Másolás"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2217,9 +2216,6 @@ msgstr[1] "{0} üzenet kiválasztva."
 
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."

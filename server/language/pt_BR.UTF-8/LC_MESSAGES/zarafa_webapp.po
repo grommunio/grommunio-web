@@ -1649,7 +1649,6 @@ msgstr "Abrir solicitação de reunião com modificações"
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2189,9 +2188,6 @@ msgstr[1] "Tem {0} mensagens selecionadas."
 
 msgid "Folder '{0}' selected."
 msgstr "Pasta '{0}' selecionada."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

@@ -1668,7 +1668,6 @@ msgstr "Odpri zahtevo za sestanek s spremembami"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Kopano Spletna aplikacija"
 
@@ -2215,9 +2214,6 @@ msgstr[3] "Izbranih je {0} sporočil."
 
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
-
-msgid "Grammm Web"
-msgstr "Kopano Spletna aplikacija"
 
 msgid "Do not show this message again."
 msgstr ""

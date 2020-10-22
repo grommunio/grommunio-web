@@ -1658,7 +1658,6 @@ msgstr "değişiklik yapılan toplantı isteğini aç"
 msgid "Copy"
 msgstr "Kopyala"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2196,9 +2195,6 @@ msgstr[1] "{0} mesaj seçilmiş bulunmaktadır"
 
 msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""

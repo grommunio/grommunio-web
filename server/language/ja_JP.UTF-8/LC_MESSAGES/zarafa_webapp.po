@@ -1602,7 +1602,6 @@ msgstr "会議の変更依頼を開く。"
 msgid "Copy"
 msgstr "コピー"
 
-#, fuzzy
 msgid "Grammm Web"
 msgstr "Grammm Web"
 
@@ -2138,9 +2137,6 @@ msgstr[0] "{0}メッセージが選択されています。"
 
 msgid "Folder '{0}' selected."
 msgstr "{0}フォルダが選択されています。"
-
-msgid "Grammm Web"
-msgstr "Grammm Web"
 
 msgid "Do not show this message again."
 msgstr ""
