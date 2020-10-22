@@ -1,10 +1,10 @@
-# Grammm WebApp Norwegian (Bokmål) translation.
+# Kopano Webapp Norwegian (Bokmål) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Norwegian (Bokmål)\n"
+"Project-Id-Version: Kopano Webapp Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-06-25 13:44+0000\n"
@@ -1604,8 +1604,8 @@ msgstr "Åpne møteinvitasjonen med endringene"
 msgid "Copy"
 msgstr "Kopier"
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2152,8 +2152,8 @@ msgstr[1] "Det er {0} meldinger valgt."
 msgid "Folder '{0}' selected."
 msgstr "Mappe '{0}' valgt."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr "Ikke vis denne meldingen igjen."
@@ -2382,8 +2382,8 @@ msgstr "De følgende mottakere kunne ikke nåes"
 msgid "Duplicate recipients"
 msgstr "Oppdater mottaker"
 
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp utskrift"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp utskrift"
 
 msgid "Display name"
 msgstr "Visningsnavn"
@@ -3907,8 +3907,8 @@ msgstr "Elementet har blitt endret. Er du sikker på at du vil slette det?"
 msgid "Unsaved changes"
 msgstr "Ulagrede endringer"
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Velkommen til Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Velkommen til Kopano WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Dette er første gangen du bruker WebApp. "
@@ -5629,7 +5629,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Pålogging mislyktes. Vennligst sjekk ditt brukernavn/passord."
 
 # 83%
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Kunne ikke koble til Kopano Core."
 
 msgid ""
@@ -6355,27 +6355,3 @@ msgstr "JSON feil: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Et problem oppstod ved omkoding/dekoding av JSON data."
-
-msgid "Desktop Notifications Plugin"
-msgstr "Plugin for varslinger på skrivebordet"
-
-msgid "Desktop Notifications"
-msgstr "Skrivebordsvarslinger"
-
-msgid "Desktop Notifications Settings"
-msgstr "Innstillinger for Skrivebordsvarslinger"
-
-msgid "We need permissions to enable desktop notifications."
-msgstr "Vi trenger din tillatelse til å vise meldinger på Skrivebordet."
-
-msgid "Request Permissions"
-msgstr "Be om tillatelser"
-
-msgid "Enable desktop notifications for new mail"
-msgstr "Aktiver Skrivebordsvarslinger for ny e-post"
-
-msgid "Enable desktop notifications for reminders"
-msgstr "Aktiver Skrivebordsvarslinger for påminnelser"
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Automatisk skjul Skrivebordsvarslinger etter {B} sekunder"

@@ -1,10 +1,10 @@
-# Grammm WebApp Polish (Poland) translation.
+# Kopano Webapp Polish (Poland) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Polish (Poland)\n"
+"Project-Id-Version: Kopano Webapp Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-05-15 09:38+0000\n"
@@ -1589,8 +1589,8 @@ msgid "Copy"
 msgstr "Kopiuj"
 
 #, fuzzy
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 #, fuzzy
 msgid ""
@@ -2112,8 +2112,8 @@ msgstr[2] ""
 msgid "Folder '{0}' selected."
 msgstr "Wybrano '{0}' folderów."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2336,8 +2336,8 @@ msgid "Duplicate recipients"
 msgstr "Edytuj odbiorcę"
 
 #, fuzzy
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
 
 msgid "Display name"
 msgstr "Wyświetl nazwę"
@@ -3858,8 +3858,8 @@ msgstr "Ten element został w międzyczasie zmieniony. Czy chcesz gousunąć?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Witamy w Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Witamy w Kopano WebApp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4696,7 +4696,7 @@ msgstr "Aby wdrożyć zmiany proszę ponownie załadować aplikację."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Ustawienia"
@@ -5616,7 +5616,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Logowanie nie powiodło się. Sprawdź nazwę użytkownika i/lubhasło."
 
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Nie można połączyć się z serwerem Kopano."
 
 msgid ""
@@ -6290,27 +6290,3 @@ msgstr "Błąd JSON: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Wystapiły problemy podczas kodowania/dekodowania danych JSON."
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""

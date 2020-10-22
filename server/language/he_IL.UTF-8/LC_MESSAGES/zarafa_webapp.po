@@ -1,10 +1,10 @@
-# Grammm WebApp Hebrew (Israel) translation.
+# Kopano Webapp Hebrew (Israel) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Hebrew (Israel)\n"
+"Project-Id-Version: Kopano Webapp Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
@@ -1673,7 +1673,7 @@ msgid "Copy"
 msgstr "העתק"
 
 #, fuzzy
-msgid "Grammm WebApp"
+msgid "Kopano Webapp"
 msgstr "הווב אפ של זראפה"
 
 msgid ""
@@ -2194,7 +2194,7 @@ msgstr[1] "{0} הודעות נבחרו."
 msgid "Folder '{0}' selected."
 msgstr "תיקיית '{0}' נבחרה."
 
-msgid "Grammm WebApp"
+msgid "Kopano WebApp"
 msgstr "הווב אפ של זראפה"
 
 msgid "Do not show this message again."
@@ -2430,7 +2430,7 @@ msgid "Duplicate recipients"
 msgstr "ערוך נמען"
 
 #, fuzzy
-msgid "Grammm WebApp print"
+msgid "Kopano WebApp print"
 msgstr "הווב אפ של זראפה"
 
 # 91%
@@ -4008,7 +4008,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "
@@ -5830,7 +5830,7 @@ msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא של�
 
 # 83%
 #, fuzzy
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "לא ניתן להתחבר לשרת של Kopano."
 
 msgid ""
@@ -6540,27 +6540,3 @@ msgstr "שגיאת JSON: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "התרחשו שגיאות מסוימות בעת ההצפנה/פיענוח של נתוני ה JSON."
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""

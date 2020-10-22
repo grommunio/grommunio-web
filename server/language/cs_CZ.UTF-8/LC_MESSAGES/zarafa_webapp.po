@@ -1,10 +1,10 @@
-# Grammm WebApp Czech translation.
+# Kopano Webapp Czech translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Czech\n"
+"Project-Id-Version: Kopano Webapp Czech\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
@@ -1627,7 +1627,7 @@ msgid "Copy"
 msgstr "Kopírovat"
 
 #, fuzzy
-msgid "Grammm WebApp"
+msgid "Kopano Webapp"
 msgstr "Kopano WebbApp"
 
 #, fuzzy
@@ -2192,7 +2192,7 @@ msgstr[2] "Je vybráno {0} zpráv."
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
-msgid "Grammm WebApp"
+msgid "Kopano WebApp"
 msgstr "Kopano WebbApp"
 
 msgid "Do not show this message again."
@@ -2425,7 +2425,7 @@ msgid "Duplicate recipients"
 msgstr "Upravit příjemce"
 
 #, fuzzy
-msgid "Grammm WebApp print"
+msgid "Kopano WebApp print"
 msgstr "Vytisknout Kopano WebbApp"
 
 # 91%
@@ -4006,7 +4006,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
 msgstr "Vítejte v Kopano WebAPP"
 
 msgid "This is the first time you are using WebApp. "
@@ -5816,7 +5816,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
 
 #, fuzzy
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Nelze se připojit k Kopano serveru."
 
 msgid ""

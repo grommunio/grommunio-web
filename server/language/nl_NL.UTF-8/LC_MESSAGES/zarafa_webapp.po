@@ -1,10 +1,10 @@
-# Grammm WebApp Dutch translation.
+# Kopano Webapp Dutch translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Dutch\n"
+"Project-Id-Version: Kopano Webapp Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:17+0000\n"
@@ -1656,8 +1656,8 @@ msgstr "Open het vergaderverzoek met wijzigingen"
 msgid "Copy"
 msgstr "Kopiëren"
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2211,8 +2211,8 @@ msgstr[1] "Er zijn {0} berichten geselecteerd."
 msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr "Toon dit bericht niet meer."
@@ -2443,8 +2443,8 @@ msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 msgid "Duplicate recipients"
 msgstr "Update genodigden"
 
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp printen"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp printen"
 
 # 91%
 msgid "Display name"
@@ -4050,8 +4050,8 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Unsaved changes"
 msgstr "Niet-opgeslagen aanpassingen"
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Welkom bij Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Welkom bij Kopano WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Dit is de eerste keer dat je WebApp gebruikt. "
@@ -5841,7 +5841,7 @@ msgstr "Inloggen mislukt. Controleer inloggegevens en probeer opnieuw."
 
 # 94%
 # 83%
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Kan niet verbinden met Kopano Core."
 
 msgid ""
@@ -6603,77 +6603,3 @@ msgstr "JSON-fout: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Bij het decoderen/coderen van JSON data zijn er enkele problemen voorgekomen."
-
-
-msgid "No data received."
-msgstr "Geen data ontvangen."
-
-msgid "Account is empty."
-msgstr "Gebruikersnaam is leeg."
-
-msgid "Current password is empty."
-msgstr "Huidig wachtwoord is leeg."
-
-msgid "New password is empty."
-msgstr "Nieuw wachtwoord is leeg."
-
-msgid "New passwords do not match."
-msgstr "Nieuwe wachtwoorden zijn niet gelijk."
-
-msgid "Password is changed successfully."
-msgstr "Wachtwoord succesvol gewijzigd."
-
-msgid "Password is not changed."
-msgstr "Wachtwoord is niet aangepast."
-
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"Wachtwoord is zwak. Een wachtwoord moet hoofdletters, kleine letters en "
-"cijfers bevatten. Een wachtwoord moet 8 tot 20 karakters bevatten."
-
-msgid "Current password does not match."
-msgstr "Huidig wachtwoord klopt niet."
-
-msgid "An unknown error occurred while changing password."
-msgstr "Er is een onbekende fout opgetreden tijdens de wachtwoord wijziging."
-
-msgid "Success"
-msgstr "Succes"
-
-msgid "Change Password"
-msgstr "Wijzig wachtwoord"
-
-msgid "Current password"
-msgstr "Huidig wachtwoord"
-
-msgid "New password"
-msgstr "Nieuw wachtwoord"
-
-msgid "Retype new password"
-msgstr "Herhaal nieuw wachtwoord"
-
-msgid "Desktop Notifications Plugin"
-msgstr "Desktop Notificaties Plugin"
-
-msgid "Desktop Notifications"
-msgstr "Desktop Notificaties"
-
-msgid "Desktop Notifications Settings"
-msgstr "Desktop Notificaties Opties"
-
-msgid "We need permissions to enable desktop notifications."
-msgstr "We hebben rechten nodig om desktop notificaties te activeren."
-
-msgid "Request Permissions"
-msgstr "Verzoek rechten"
-
-msgid "Enable desktop notifications for new mail"
-msgstr "Activeer desktop notificaties voor nieuwe emails"
-
-msgid "Enable desktop notifications for reminders"
-msgstr "Activeer desktop notificaties voor reminders"
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Verberg desktop notificaties na zoveel seconden {B}"

@@ -1,10 +1,10 @@
-# Grammm WebApp Lithuanian (Lithuania) translation.
+# Kopano Webapp Lithuanian (Lithuania) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Lithuanian (Lithuania)\n"
+"Project-Id-Version: Kopano Webapp Lithuanian (Lithuania)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:10+0200\n"
@@ -1522,7 +1522,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Grammm WebApp"
+msgid "Kopano Webapp"
 msgstr ""
 
 msgid ""
@@ -2016,7 +2016,7 @@ msgstr[2] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Grammm WebApp"
+msgid "Kopano WebApp"
 msgstr ""
 
 msgid "Do not show this message again."
@@ -2218,7 +2218,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Grammm WebApp print"
+msgid "Kopano WebApp print"
 msgstr ""
 
 msgid "Display name"
@@ -3651,7 +3651,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "
@@ -5296,7 +5296,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr ""
 
 msgid ""
@@ -5925,28 +5925,4 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""

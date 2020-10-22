@@ -1,10 +1,10 @@
-# Grammm WebApp English (United States) translation.
+# Kopano Webapp English (United States) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp English (United States)\n"
+"Project-Id-Version: Kopano Webapp English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-04-04 08:42+0000\n"
@@ -1519,8 +1519,8 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Grammm WebApp"
-msgstr "Grammm Webapp"
+msgid "Kopano Webapp"
+msgstr ""
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2012,8 +2012,8 @@ msgstr[1] ""
 msgid "Folder '{0}' selected."
 msgstr ""
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr ""
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2215,8 +2215,8 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp print"
+msgid "Kopano WebApp print"
+msgstr ""
 
 msgid "Display name"
 msgstr ""
@@ -2760,15 +2760,6 @@ msgid "Attachments"
 msgstr ""
 
 msgid "Download Pictures"
-msgstr ""
-
-msgid "Safe Sender List"
-msgstr ""
-
-msgid "Safe Senders"
-msgstr ""
-
-msgid "Safe Senders List Is Empty"
 msgstr ""
 
 msgid "Add Sender to Safe Senders List"
@@ -3644,7 +3635,7 @@ msgid ""
 msgstr ""
 
 msgid "Kopano Content Panel"
-msgstr "Steep Content Panel"
+msgstr ""
 
 #, fuzzy
 msgid "Delete item"
@@ -3656,8 +3647,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Welcome to Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr ""
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4278,28 +4269,13 @@ msgstr ""
 msgid "I am currently in the office"
 msgstr ""
 
-msgid "I am out of the office"
+msgid "I am out of the office from"
 msgstr ""
 
-msgid "only valid during this time range"
+msgid "I will be back on"
 msgstr ""
 
-msgid "Automatically reply once for each sender with the following messages"
-msgstr ""
-
-msgid "Inside My Orgnization"
-msgstr ""
-
-msgid "Outside My Orgnization"
-msgstr ""
-
-msgid "Auto-reply to people outside my orgnization"
-msgstr ""
-
-msgid "My contacts only"
-msgstr ""
-
-msgid "Anyone outside my orgnization"
+msgid "Automatically reply once per day, per sender with the following text"
 msgstr ""
 
 msgid "User is currently out of office."
@@ -4456,9 +4432,6 @@ msgid "Basic"
 msgstr ""
 
 msgid "Account information - {0}"
-msgstr ""
-
-msgid "Profile Picture"
 msgstr ""
 
 msgid "Language"
@@ -4648,7 +4621,7 @@ msgid "WebApp"
 msgstr ""
 
 msgid "Kopano Core"
-msgstr "Steep Zcore"
+msgstr ""
 
 msgid "Delete confirmation"
 msgstr ""
@@ -5323,8 +5296,8 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 
-msgid "Cannot connect to Steep Core."
-msgstr "Cannot connect to steep server"
+msgid "Cannot connect to Kopano Core."
+msgstr ""
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -5409,7 +5382,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr ""
 
 msgid "Can not connect to Kopano Core."
-msgstr "Can not connect to steep server"
+msgstr ""
 
 msgid "Can not open object with provided id."
 msgstr ""
@@ -5897,7 +5870,7 @@ msgid "Welcome"
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 msgid "Password"
 msgstr ""
@@ -5947,29 +5920,4 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""

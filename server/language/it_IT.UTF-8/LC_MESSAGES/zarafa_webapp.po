@@ -1,10 +1,10 @@
-# Grammm WebApp Italian (Italy) translation.
+# Kopano Webapp Italian (Italy) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Italian (Italy)\n"
+"Project-Id-Version: Kopano Webapp Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
@@ -1644,8 +1644,8 @@ msgid "Copy"
 msgstr "Copia"
 
 #, fuzzy
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 #, fuzzy
 msgid ""
@@ -2202,8 +2202,8 @@ msgstr[1] "{0} messaggi selezionati."
 msgid "Folder '{0}' selected."
 msgstr "Cartella '{0}' selezionata."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr "Non mostrare piu` questo messaggio."
@@ -2437,8 +2437,8 @@ msgid "Duplicate recipients"
 msgstr "Modifica destinatario"
 
 #, fuzzy
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
 
 msgid "Display name"
 msgstr "Nome visualizzato"
@@ -4036,8 +4036,8 @@ msgstr "Questo elemento è stato modificato. Sei sicuro di volerlo eliminare?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Benvenuto su Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Benvenuto su Kopano WebApp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4903,7 +4903,7 @@ msgstr "Per applicare le modifiche è necessario ricaricare la WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -5016,7 +5016,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Tutte le scorciatoie da tastiera abilitate"
 
 msgid "This change requires a reload of the WebApp"
-msgstr "Questa modifica richiede il reload di Grammm WebApp"
+msgstr "Questa modifica richiede il reload di Kopano WebApp"
 
 msgid "Discard"
 msgstr "Scarta"
@@ -5871,7 +5871,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Non e` possibile collegarsi con Kopano Core."
 
 msgid ""
@@ -6640,27 +6640,3 @@ msgstr "Errore JSON: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Rilevati errori di encoding/decoding dati JSON."
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""

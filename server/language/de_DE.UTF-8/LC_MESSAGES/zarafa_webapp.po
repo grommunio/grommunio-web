@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp German (Germany)\n"
+"Project-Id-Version: Kopano Webapp German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:21+0000\n"
@@ -1649,8 +1649,8 @@ msgstr "Besprechungsanfrage mit den Änderungen öffnen"
 msgid "Copy"
 msgstr "Kopieren"
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2204,8 +2204,8 @@ msgstr[1] "Es sind {0} Nachrichten ausgewählt."
 msgid "Folder '{0}' selected."
 msgstr "Ordner \"{0}\" ausgewählt."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr "Diese Nachricht nicht wieder anzeigen."
@@ -2437,8 +2437,8 @@ msgstr "Der/die folgenden Empfänger konnten nicht erreicht werden"
 msgid "Duplicate recipients"
 msgstr "Empfänger aktualisieren"
 
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp drucken"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp drucken"
 
 # 91%
 msgid "Display name"
@@ -4013,8 +4013,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr "Ungespeicherte Änderungen"
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Willkommen bei Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Willkommen bei Kopano WebApp"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Sie verwenden WebApp zum ersten Mal. "
@@ -5821,7 +5821,7 @@ msgstr ""
 "Passwort."
 
 # 83%
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Konnte keine Verbindung zum Kopano-Server aufbauen."
 
 msgid ""
@@ -6630,78 +6630,3 @@ msgstr "JSON Fehler: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Beim codieren/decodieren der JSON-Daten sind Probleme aufgetreten."
-
-msgid "No data received."
-msgstr "Keine Daten empfangen!"
-
-msgid "Account is empty."
-msgstr "Benutzername ist leer!"
-
-msgid "Current password is empty."
-msgstr "Aktuelles Passwort ist leer!"
-
-msgid "New password is empty."
-msgstr "Neues Passwort ist leer!"
-
-msgid "New passwords do not match."
-msgstr "Neue Passwörter stimmen nicht überein!"
-
-msgid "Password is changed successfully."
-msgstr "Passwort wurde erfolgreich geändert!"
-
-msgid "Password is not changed."
-msgstr "Passwort wurde nicht geändert!"
-
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"Das eingegebene Passwort ist schwach; es sollte große und kleine Buchstaben "
-"sowie Ziffern enthalten und zwischen 8 und 20 Zeichen lang sein!"
-
-msgid "Current password does not match."
-msgstr "Aktuelles Passwort ist falsch!"
-
-msgid "An unknown error occurred while changing password."
-msgstr "Beim Ändern des Passworts ist ein unbekannter Fehler aufgetreten!"
-
-msgid "Success"
-msgstr "Erfolg"
-
-msgid "Change Password"
-msgstr "Passwort ändern"
-
-msgid "Current password"
-msgstr "Aktuelles Passwort"
-
-msgid "New password"
-msgstr "Neues Passwort"
-
-msgid "Retype new password"
-msgstr "Wiederholung"
-
-msgid "Desktop Notifications Plugin"
-msgstr "Plugin für Desktop-Benachrichtigungen"
-
-msgid "Desktop Notifications"
-msgstr "Desktop-Benachrichtigungen"
-
-msgid "Desktop Notifications Settings"
-msgstr "Einstellungen für Desktop-Benachrichtigungen"
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-"Es werden Berechtigungen benötigt um Desktop Benachrichtigungen zu "
-"aktivieren."
-
-msgid "Request Permissions"
-msgstr "Berechtigungen anfordern"
-
-msgid "Enable desktop notifications for new mail"
-msgstr "Desktop-Benachrichtigungen für neue E-Mails aktivieren"
-
-msgid "Enable desktop notifications for reminders"
-msgstr "Desktop-Benachrichtigungen für Erinnerungen aktivieren"
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr "{A} Desktop-Benachrichtigungen nach {B} Sekunden verstecken"

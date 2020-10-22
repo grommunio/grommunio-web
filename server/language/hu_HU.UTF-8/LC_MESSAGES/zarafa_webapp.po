@@ -1671,8 +1671,8 @@ msgid "Copy"
 msgstr "Másolás"
 
 #, fuzzy
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 #, fuzzy
 msgid ""
@@ -2218,8 +2218,8 @@ msgstr[1] "{0} üzenet kiválasztva."
 msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr "Ne mutassa ezt az üzenetet többet."
@@ -2452,8 +2452,8 @@ msgid "Duplicate recipients"
 msgstr "Címzett szerkesztése"
 
 #, fuzzy
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
 
 # 91%
 msgid "Display name"
@@ -4032,8 +4032,8 @@ msgstr "Ez az elem megváltozott. Biztosan törölni akarja?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Köszönti a Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Köszönti a Kopano WebApp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4902,7 +4902,7 @@ msgstr "A beállítások frissítéséhez a WebAppot újra kell indítania."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Beállítások"
@@ -5848,7 +5848,7 @@ msgstr ""
 "Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jelszavát."
 
 # 83%
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Nem sikerült csatlakozni a Kopano szerverhez."
 
 msgid ""
@@ -6610,77 +6610,3 @@ msgstr "JSON hiba: - %s"
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr ""
 "Néhány probléma merült fel a JSON adatainak kódolása/dekódolása közben."
-
-
-msgid "No data received."
-msgstr "Nem érkezett adat."
-
-msgid "Account is empty."
-msgstr "Felhasználónév mező üres."
-
-msgid "Current password is empty."
-msgstr "Jelenlegi jelszó mező üres."
-
-msgid "New password is empty."
-msgstr "Új jelszó mező üres."
-
-msgid "New passwords do not match."
-msgstr "Az új jelszavak nem egyeznek."
-
-msgid "Password is changed successfully."
-msgstr "A jelszót sikeresen módosította."
-
-msgid "Password is not changed."
-msgstr "A jelszó nem módosult."
-
-msgid ""
-"Password is weak. Password should contain capital, non-capital letters and "
-"numbers. Password should have 8 to 20 characters."
-msgstr ""
-"A jelszó gyenge. Tartalmaznia kell számot, nagy- és kisbetűt. A jelszó "
-"minimum 8, maximum 20 karakter legyen."
-
-msgid "Current password does not match."
-msgstr "A jelenlegi jelszó nem megfelelő."
-
-msgid "An unknown error occurred while changing password."
-msgstr "Ismeretlen hiba történt a jelszó megváltoztatásakor."
-
-msgid "Success"
-msgstr "Sikeres"
-
-msgid "Change Password"
-msgstr "Jelszó megváltoztatása"
-
-msgid "Current password"
-msgstr "Jelenlegi jelszó"
-
-msgid "New password"
-msgstr "Új jelszó"
-
-msgid "Retype new password"
-msgstr "Új jelszó mégegyszer"
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""

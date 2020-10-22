@@ -1,10 +1,10 @@
-# Grammm WebApp Spanish (Spain) translation.
+# Kopano Webapp Spanish (Spain) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Spanish (Spain)\n"
+"Project-Id-Version: Kopano Webapp Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
@@ -1652,8 +1652,8 @@ msgid "Copy"
 msgstr "Copiar"
 
 #, fuzzy
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano Webapp"
+msgstr "Kopano WebApp"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2203,8 +2203,8 @@ msgstr[1] "Hay {0} mensajes seleccionados."
 msgid "Folder '{0}' selected."
 msgstr "Carpeta '{0}' seleccionada."
 
-msgid "Grammm WebApp"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -2438,8 +2438,8 @@ msgid "Duplicate recipients"
 msgstr "Editar recipiente"
 
 #, fuzzy
-msgid "Grammm WebApp print"
-msgstr "Grammm WebApp"
+msgid "Kopano WebApp print"
+msgstr "Kopano WebApp"
 
 # 91%
 msgid "Display name"
@@ -4066,8 +4066,8 @@ msgstr "Este elemento ha sido cambiado. ¿ Está seguro que desea eliminarlo ?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
-msgstr "Bienvenido a Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
+msgstr "Bienvenido a Kopano Webapp"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4937,7 +4937,7 @@ msgstr "Para que los cambios surtan efecto, por favor cargue de nuevo WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm WebApp"
+msgstr "Kopano WebApp"
 
 msgid "Settings"
 msgstr "Configuración"
@@ -5904,7 +5904,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Registro fallido. Por favor compruebe su nombre/contraseña."
 
 #, fuzzy
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "No se ha podido conectar con el servidor de Kopano."
 
 msgid ""
@@ -6670,28 +6670,4 @@ msgid "JSON Error: - %s"
 msgstr ""
 
 msgid "Some problem encountered when encoding/decoding JSON data."
-msgstr ""
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
 msgstr ""

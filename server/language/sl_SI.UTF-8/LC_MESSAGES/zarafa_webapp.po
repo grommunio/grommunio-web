@@ -1,10 +1,10 @@
-# Grammm WebApp Slovenian (Slovenia) translation.
+# Kopano Webapp Slovenian (Slovenia) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm WebApp Slovenian (Slovenia)\n"
+"Project-Id-Version: Kopano Webapp Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:30+0200\n"
@@ -1669,7 +1669,7 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #, fuzzy
-msgid "Grammm WebApp"
+msgid "Kopano Webapp"
 msgstr "Kopano Spletna aplikacija"
 
 msgid ""
@@ -2216,7 +2216,7 @@ msgstr[3] "Izbranih je {0} sporočil."
 msgid "Folder '{0}' selected."
 msgstr "Izbrana '{0}' mapa."
 
-msgid "Grammm WebApp"
+msgid "Kopano WebApp"
 msgstr "Kopano Spletna aplikacija"
 
 msgid "Do not show this message again."
@@ -2452,7 +2452,7 @@ msgid "Duplicate recipients"
 msgstr "Uredi prejemnika"
 
 #, fuzzy
-msgid "Grammm WebApp print"
+msgid "Kopano WebApp print"
 msgstr "Kopano Spletna aplikacija"
 
 # 91%
@@ -4068,7 +4068,7 @@ msgstr "Ta predmet je bil spremenjen. Ali ga želite izbrisati?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm WebApp"
+msgid "Welcome to Kopano WebApp"
 msgstr "Dobrodošli v spletni aplikaciji Kopano"
 
 #, fuzzy
@@ -5896,7 +5896,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Prijava neuspešna. Prosim preverite vaše ime/geslo."
 
 #, fuzzy
-msgid "Cannot connect to Steep Core."
+msgid "Cannot connect to Kopano Core."
 msgstr "Ne morem se povezati na Kopano server."
 
 msgid ""
@@ -6651,27 +6651,3 @@ msgstr "JSON napaka: - %s"
 
 msgid "Some problem encountered when encoding/decoding JSON data."
 msgstr "Pojavil se je problem pri kodiranju/dekodiranje JSON podatkov."
-
-msgid "Desktop Notifications Plugin"
-msgstr ""
-
-msgid "Desktop Notifications"
-msgstr ""
-
-msgid "Desktop Notifications Settings"
-msgstr ""
-
-msgid "We need permissions to enable desktop notifications."
-msgstr ""
-
-msgid "Request Permissions"
-msgstr ""
-
-msgid "Enable desktop notifications for new mail"
-msgstr ""
-
-msgid "Enable desktop notifications for reminders"
-msgstr ""
-
-msgid "{A} Autohide desktop notification after second(s) {B}"
-msgstr ""
