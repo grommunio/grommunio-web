@@ -235,11 +235,11 @@ class IndexSqlite extends SQLite3
 		mkdir(SQLITE_INDEX_PATH . '/' . $this->username);
 		chmod(SQLITE_INDEX_PATH . '/' . $this->username, 0777);
 		$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
-		$sql_string = "CREATE TABLE hierarchy(" .
+		$sql_string = "CREATE TABLE IF NOT EXISTS hierarchy(" .
 				"folder_id INTEGER PRIMARY KEY," .
 				"commit_max INTEGER NOT NULL," .
 				"max_cn INTEGER NOT NULL);\n" .
-				"CREATE VIRTUAL TABLE messages USING " .
+				"CREATE VIRTUAL TABLE IF NOT EXISTS messages USING " .
 				SQLITE_FTS_ENGINE .
 				"(sender, sending, recipients, " .
 				"subject, content, attachments," .
