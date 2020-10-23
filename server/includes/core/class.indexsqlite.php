@@ -235,6 +235,18 @@ class IndexSqlite extends SQLite3
 		mkdir(SQLITE_INDEX_PATH . '/' . $this->username);
 		chmod(SQLITE_INDEX_PATH . '/' . $this->username, 0777);
 		$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
+		chmod(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', 0666);
+		return true;
+	}
+
+	public function load() {
+		if (!is_file(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3')) {
+			if (false == $this->create()) {
+				return false;
+			}
+		} else {
+			$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
+		}
 		$sql_string = "CREATE TABLE IF NOT EXISTS hierarchy(" .
 				"folder_id INTEGER PRIMARY KEY," .
 				"commit_max INTEGER NOT NULL," .
@@ -254,18 +266,6 @@ class IndexSqlite extends SQLite3
 		if (false == $this->exec($sql_string)) {
 			error_log("fail to execute sqlite create table statemente, " . $this->lastErrorMsg());
 			return false;
-		}
-		chmod(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3', 0666);
-		return true;
-	}
-	
-	public function load() {
-		if (!is_file(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3')) {
-			if (false == $this->create()) {
-				return false;
-			}
-		} else {
-			$this->open(SQLITE_INDEX_PATH . '/' . $this->username . '/index.sqlite3');
 		}
 		//refresh the index sqlite database
 		return $this->refresh();
