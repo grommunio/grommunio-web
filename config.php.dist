@@ -86,7 +86,7 @@
 	
 	//define the tokenizer for sqlite full text search engine
 	//can be simple,unicode61,icu,ascii,porter ...
-	define("SQLITE_FTS_TOKENIZER", "icu");
+	define("SQLITE_FTS_TOKENIZER", "unicode61");
 	
 	//do not delete this!
 	define("CUSTOM_THEME_SUBDIR", "steep-webapp/theme");
