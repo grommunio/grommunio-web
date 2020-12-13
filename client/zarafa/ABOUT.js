@@ -8,8 +8,8 @@ Ext.namespace('Zarafa');
  */
 
 Zarafa.ABOUT = ""
-	+ "<p>Copyright (C) 2005 - 2016 Zarafa B.V. &lt;info@zarafa.com&gt; and its licensors<br>"
-	+ "Copyright (C) 2016 Kopano and its licensors</p>"
+	+ "<style>div.atxt h1{font-weight:inherit;font-style:italic;}</style><div class=\"atxt\">"
+	+ "<p>Copyright 2020 grammm GmbH</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
 	+ "it under the terms of the GNU Affero General Public License as "
@@ -26,12 +26,35 @@ Zarafa.ABOUT = ""
 
 	+ "<hr />"
 
-	+ "<p>WebApp contains the following third-party components:</p>"
+	+ "<p>grammm-web contains the following third-party components:</p>"
 
 	+ "<h1>Ext JS</h1>"
 
-	+ "<p>Copyright (C) Sencha, Inc.  Ext JS is distributed under the terms of the GNU General Public License: <a href=\"https://www.gnu.org/copyleft/gpl.html\" target=\"_blank\">https://www.gnu.org/copyleft/gpl.html</a></p>"
+	+ "<p>Copyright (c) 2011-2013 Sencha Inc</p>"
 
+	+ "<p>Ext JS is free software: you can redistribute it and/or modify "
+	+ "it under the terms of the GNU General Public License version 3.0 as "
+	+ "published by the Free Software Foundation."
+	+ "<a href=\"https://www.gnu.org/copyleft/gpl.html\" target=\"_blank\">https://www.gnu.org/copyleft/gpl.html</a></p>"
+
+	+ "<h1>kopano-webapp</h1>"
+
+	+ "<p>Copyright (C) 2005 - 2016 Zarafa B.V. and its licensors<br>"
+	+ "Copyright (C) 2016 Kopano B.V. and its licensors</p>"
+
+	+ "<p>WebApp is free software: you can redistribute it and/or modify "
+	+ "it under the terms of the GNU Affero General Public License as "
+	+ "published by the Free Software Foundation, either version 3 of the "
+	+ "License, or (at your option) any later version.</p>"
+
+	+ "<p>WebApp is distributed in the hope that it will be useful, "
+	+ "but WITHOUT ANY WARRANTY; without even the implied warranty of "
+	+ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the "
+	+ "GNU Affero General Public License for more details.</p>"
+
+	+ "<p>You should have received a copy of the GNU Affero General Public License "
+	+ "along with this program. "
+	+ "If not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>"
 
 	+ "<h1>Printer rendering</h1>"
 
@@ -58,8 +81,20 @@ Zarafa.ABOUT = ""
 
 	+ "<h1>TinyMCE</h1>"
 
-	+ "<p>Copyright, Moxiecode Systems AB. Released under LGPL License: <a href=\"https://www.tinymce.com/license\" target=\"_blank\">https://www.tinymce.com/license</a></p>"
+	+ "<p>Copyright, Moxiecode Systems AB.</p>"
 
+	+ "<p>TinyMCE is free software: you can redistribute it and/or modify "
+	+ "it under the terms of the GNU Lesser General Public License version 2.1 "
+	+ "as published by the Free Software Foundation.</p>"
+
+	+ "<p>TinyMCE is distributed in the hope that it will be useful, "
+	+ "but WITHOUT ANY WARRANTY; without even the implied warranty of "
+	+ "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU "
+	+ "Lesser General Public License for more details.</p>"
+
+	+ "<p>You should have received a copy of the GNU Lesser General Public "
+	+ "License along with this library; "
+	+ "if not, see <a href=\"https://www.gnu.org/licenses/\" target=\"_blank\">https://www.gnu.org/licenses/</a>.</p>"
 
 	+ "<h1>TinyMCE PowerPaste</h1>"
 
@@ -99,4 +134,4 @@ Zarafa.ABOUT = ""
 	+ "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY"
 	+ "CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,"
 	+ "TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE"
-	+ "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>";
+	+ "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></div>";
