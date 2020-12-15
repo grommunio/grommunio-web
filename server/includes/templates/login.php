@@ -7,7 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<title><?php echo $webappTitle; ?></title>
-		<meta name="description" content="grammm web is the ultimate frontend client for Grammm server. A rich collaboration platform utilizing e-mail, calendars, webmeetings, file sharing and more.">
+		<meta name="description" content="grammm-web is the ultimate frontend client for grammm. A rich collaboration platform utilizing e-mail, calendars, webmeetings, file sharing and more.">
 		<meta name="author" content="Kopano.io">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">

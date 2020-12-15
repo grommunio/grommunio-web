@@ -4072,11 +4072,11 @@
 		 * @param string $title  Optional, this string is placed in the <title>
 		 * @return string full HTML message
 		 */
-		function generateBodyHTML($body, $title = "grammm web"){
+		function generateBodyHTML($body, $title = "grammm-web"){
 			$html = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
 					."<html>\n"
 					."<head>\n"
-					."  <meta name=\"Generator\" content=\"grammm web v".trim(file_get_contents('version'))."\">\n"
+					."  <meta name=\"Generator\" content=\"grammm-web v".trim(file_get_contents('version'))."\">\n"
 					."  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n"
 					."  <title>".htmlspecialchars($title)."</title>\n";
 
