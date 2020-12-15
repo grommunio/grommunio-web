@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.core');
  * Class for decoding entryids and for comparison between two entryids
  * we have basically two types of entryids object and store entryids.
  *
- * object entryids uses structure EID for entryids created using Gromoxb > 6
+ * object entryids uses structure EID for entryids created using ZCP7/KC8/GX
  * and for older entryids it uses structure EID_V0. Store entryids are generally wrapped
  * with some extra information (like guid for provider, dll name) which should be removed
  * before comparing two store entryids, after removing this wrapping the unwrapped entryid
