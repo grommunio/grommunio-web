@@ -1986,17 +1986,17 @@ msgid "Import to folder"
 msgstr "Einfügen in Ordner"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
-"Um das vCard Import Feature zu verwenden müssen Sie Gromoxb auf die "
+"Um das vCard Import Feature zu verwenden müssen Sie Gromox auf die "
 "Version 8.3 oder neuer updaten."
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
-"Um das vCard Import Feature zu verwenden müssen Sie Gromoxb auf die "
+"Um das vCard Import Feature zu verwenden müssen Sie Gromox auf die "
 "Version 8.3 oder neuer updaten."
 
 msgid "Attachment error"
@@ -5070,8 +5070,8 @@ msgstr "Versionsinformationen"
 msgid "WebApp"
 msgstr "WebApp"
 
-msgid "Gromoxb"
-msgstr "Gromoxb"
+msgid "Gromox"
+msgstr "Gromox"
 
 msgid "Delete confirmation"
 msgstr "Bestätigung löschen"
@@ -5818,7 +5818,7 @@ msgstr ""
 "Passwort."
 
 # 83%
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr "Konnte keine Verbindung zum Kopano-Server aufbauen."
 
 msgid ""
@@ -5923,8 +5923,8 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Login fehlgeschlagen. Prüfen Sie Benutzernamen und Passwort."
 
 # 83%
-msgid "Can not connect to Gromoxb."
-msgstr "Konnte keine Verbindung mit Gromoxb aufbauen."
+msgid "Can not connect to Gromox."
+msgstr "Konnte keine Verbindung mit Gromox aufbauen."
 
 msgid "Can not open object with provided id."
 msgstr "Das Element mit der angegebenen ID kann nicht geöffnet werden."

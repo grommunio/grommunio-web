@@ -361,7 +361,7 @@
 					if(!empty($user_data[$this->properties['search_key']])) {
 						$item['search_key'] = bin2hex($user_data[$this->properties['search_key']]);
 					} else {
-						// contacts folders are not returning search keys, this should be fixed in Gromoxb
+						// contacts folders are not returning search keys, this should be fixed in Gromox
 						// meanwhile this is a workaround, check ZCP-10814
 						// if search key is not passed then we will generate it
 						$email_address = '';

@@ -1879,12 +1879,12 @@ msgid "Import to folder"
 msgstr ""
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
@@ -4724,7 +4724,7 @@ msgstr ""
 msgid "WebApp"
 msgstr ""
 
-msgid "Gromoxb"
+msgid "Gromox"
 msgstr ""
 
 msgid "Delete confirmation"
@@ -5407,7 +5407,7 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr ""
 
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr ""
 
 msgid ""
@@ -5494,7 +5494,7 @@ msgstr ""
 msgid "Logon Failed. Please check your name/password."
 msgstr ""
 
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr ""
 
 msgid "Can not open object with provided id."

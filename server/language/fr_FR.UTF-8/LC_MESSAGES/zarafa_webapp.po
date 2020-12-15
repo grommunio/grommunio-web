@@ -1992,12 +1992,12 @@ msgid "Import to folder"
 msgstr "Vider le dossier"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
@@ -5127,7 +5127,7 @@ msgstr "Information Version"
 msgid "WebApp"
 msgstr "WebApp"
 
-msgid "Gromoxb"
+msgid "Gromox"
 msgstr "Kopano Système Central"
 
 msgid "Delete confirmation"
@@ -5886,7 +5886,7 @@ msgstr ""
 "d'identification et réessayer à nouveau."
 
 # 83%
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr "Impossible de se connecter au Système Central Kopano."
 
 msgid ""
@@ -5991,7 +5991,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Échec de la session. Veuillez vérifier votre identifiant/mot de passe."
 
 # 83%
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr "Impossible de se connecter au Système Central Kopano."
 
 msgid "Can not open object with provided id."

@@ -1974,18 +1974,18 @@ msgstr "Importovat do složky"
 
 #, fuzzy
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
-"Chcete-li použít funkci importu vCard, upgradujte Gromoxb na verzi 8.3 "
+"Chcete-li použít funkci importu vCard, upgradujte Gromox na verzi 8.3 "
 "nebo vyšší."
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
-"Chcete-li použít funkci importu ICS/VCS, upgradujte Gromoxb na verzi 8.3 "
+"Chcete-li použít funkci importu ICS/VCS, upgradujte Gromox na verzi 8.3 "
 "nebo vyšší."
 
 msgid "Attachment error"
@@ -5071,7 +5071,7 @@ msgid "WebApp"
 msgstr "WebApp"
 
 #, fuzzy
-msgid "Gromoxb"
+msgid "Gromox"
 msgstr "Kopano"
 
 msgid "Delete confirmation"
@@ -5812,7 +5812,7 @@ msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
 
 #, fuzzy
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr "Nelze se připojit k Kopano serveru."
 
 msgid ""
@@ -5913,7 +5913,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Přihlášení selhalo. Zkontrolujte prosím vaše uživatelské jméno/heslo."
 
 #, fuzzy
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr "Nelze se připojit k Kopano serveru."
 
 msgid "Can not open object with provided id."

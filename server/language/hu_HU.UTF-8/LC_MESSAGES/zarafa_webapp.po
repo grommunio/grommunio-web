@@ -2011,12 +2011,12 @@ msgid "Import to folder"
 msgstr "Importálás mappába"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
@@ -5112,8 +5112,8 @@ msgstr "Verzió információ"
 msgid "WebApp"
 msgstr "WebApp"
 
-msgid "Gromoxb"
-msgstr "Gromoxb"
+msgid "Gromox"
+msgstr "Gromox"
 
 msgid "Delete confirmation"
 msgstr "Törlés megerősítése"
@@ -5844,7 +5844,7 @@ msgstr ""
 "Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jelszavát."
 
 # 83%
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr "Nem sikerült csatlakozni a Kopano szerverhez."
 
 msgid ""
@@ -5947,7 +5947,7 @@ msgid "Logon Failed. Please check your name/password."
 msgstr "Bejelentkezés nem sikerült. Ellenőrizze felhasználónevét/jelszavát."
 
 # 83%
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr "Nem lehet a Kopano kiszolgálóhoz csatlakozni."
 
 msgid "Can not open object with provided id."

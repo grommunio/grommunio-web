@@ -1991,12 +1991,12 @@ msgid "Import to folder"
 msgstr "תיקיה ריקה"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
 msgstr ""
 
@@ -5073,7 +5073,7 @@ msgid "WebApp"
 msgstr ""
 
 #, fuzzy
-msgid "Gromoxb"
+msgid "Gromox"
 msgstr "הווב אפ של זראפה"
 
 msgid "Delete confirmation"
@@ -5826,7 +5826,7 @@ msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא של�
 
 # 83%
 #, fuzzy
-msgid "Cannot connect to Gromoxb."
+msgid "Cannot connect to Gromox."
 msgstr "לא ניתן להתחבר לשרת של Kopano."
 
 msgid ""
@@ -5929,7 +5929,7 @@ msgstr "התחברות נכשלה , אנא בדוק את השם/סיסמא של�
 
 # 83%
 #, fuzzy
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr "לא ניתן להתחבר לשרת של Kopano."
 
 msgid "Can not open object with provided id."

@@ -1989,15 +1989,15 @@ msgstr "Importa nella cartella"
 
 #, fuzzy
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromoxb to "
+"In order to use the vCard import feature, upgrade your Gromox to "
 "version 0 or higher."
-msgstr "Per poter importare vCard, installare Gromoxb versione 8.3+"
+msgstr "Per poter importare vCard, installare Gromox versione 8.3+"
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
+"In order to use the ICS / VCS import feature, upgrade your Gromox to "
 "version 0 or higher."
-msgstr "Per poter importare vCard, installare Gromoxb versione 8.3+"
+msgstr "Per poter importare vCard, installare Gromox versione 8.3+"
 
 msgid "Attachment error"
 msgstr "Errore allegato"
@@ -5115,8 +5115,8 @@ msgstr "Versione"
 msgid "WebApp"
 msgstr "WebApp"
 
-msgid "Gromoxb"
-msgstr "Gromoxb"
+msgid "Gromox"
+msgstr "Gromox"
 
 msgid "Delete confirmation"
 msgstr ""
@@ -5867,8 +5867,8 @@ msgstr ""
 msgid "Logon failed. Please verify your credentials and try again."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
-msgid "Cannot connect to Gromoxb."
-msgstr "Non e` possibile collegarsi con Gromoxb."
+msgid "Cannot connect to Gromox."
+msgstr "Non e` possibile collegarsi con Gromox."
 
 msgid ""
 "Login did not work due to a duplicate session. The issue was automatically "
@@ -5963,7 +5963,7 @@ msgstr "Non hai permessi sufficienti per aprire questo elemento."
 msgid "Logon Failed. Please check your name/password."
 msgstr "Accesso non riuscito. Verifica le tue credenziali e prova di nuovo."
 
-msgid "Can not connect to Gromoxb."
+msgid "Can not connect to Gromox."
 msgstr "Impossibile connettersi al sistema Kopano."
 
 msgid "Can not open object with provided id."

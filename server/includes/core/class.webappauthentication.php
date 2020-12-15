@@ -144,7 +144,7 @@ class WebAppAuthentication
 	}
 
 	/**
-	 * Tries to logon to Gromoxb with the given username and password. Returns
+	 * Tries to logon to Gromox with the given username and password. Returns
 	 * the error code that was given back.
 	 * @param string $username The username
 	 * @param string $password The password
