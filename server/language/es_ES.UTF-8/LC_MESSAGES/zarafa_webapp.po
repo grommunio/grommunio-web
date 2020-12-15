@@ -1998,12 +1998,12 @@ msgstr "Vaciar Carpeta"
 
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromoxb to "
-"version 8.3 or higher."
+"version 0 or higher."
 msgstr ""
 
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
-"version 8.3 or higher."
+"version 0 or higher."
 msgstr ""
 
 msgid "Attachment error"

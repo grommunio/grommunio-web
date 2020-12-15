@@ -1966,13 +1966,13 @@ msgstr "Импортировать в папку"
 #, fuzzy
 msgid ""
 "In order to use the vCard import feature, upgrade your Gromoxb to "
-"version 8.3 or higher."
+"version 0 or higher."
 msgstr "Чтобы использовать импорт vCard, обновите Gromoxb до версии 8.3+"
 
 #, fuzzy
 msgid ""
 "In order to use the ICS / VCS import feature, upgrade your Gromoxb to "
-"version 8.3 or higher."
+"version 0 or higher."
 msgstr "Чтобы использовать импорт vCard, обновите Gromoxb до версии 8.3+"
 
 msgid "Attachment error"
