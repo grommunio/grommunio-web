@@ -1,10 +1,10 @@
-# Grammm Web Danish (Denmark) translation.
+# grammm-web Danish (Denmark) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Danish (Denmark)\n"
+"Project-Id-Version: grammm-web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-06 18:03+0000\n"
@@ -1567,8 +1567,8 @@ msgstr "Åben mødeindkaldelse med ændringer"
 msgid "Copy"
 msgstr "Kopier"
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
+msgid "grammm-web"
+msgstr "grammm-web"
 
 #, fuzzy
 msgid ""
@@ -2323,8 +2323,8 @@ msgid "Duplicate recipients"
 msgstr "Ret modtager"
 
 #, fuzzy
-msgid "Grammm Web print"
-msgstr "Grammm Web"
+msgid "grammm-web print"
+msgstr "grammm-web"
 
 msgid "Display name"
 msgstr "Vist navn"
@@ -3835,8 +3835,8 @@ msgstr "Elementet er blevet ændret. Er du sikker på du vil slette det?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
-msgstr "Velkommen til Grammm Web"
+msgid "Welcome to grammm-web"
+msgstr "Velkommen til grammm-web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4671,7 +4671,7 @@ msgstr "For at ændringerne skal træde i kræft, skal du genindlæse WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm Web"
+msgstr "grammm-web"
 
 msgid "Settings"
 msgstr "Indstillinger"

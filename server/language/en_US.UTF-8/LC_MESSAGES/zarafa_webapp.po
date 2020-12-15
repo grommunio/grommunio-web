@@ -1,10 +1,10 @@
-# Grammm Web English (United States) translation.
+# grammm-web English (United States) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web English (United States)\n"
+"Project-Id-Version: grammm-web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-04-04 08:42+0000\n"
@@ -1519,7 +1519,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Grammm Web"
+msgid "grammm-web"
 msgstr ""
 
 msgid ""
@@ -2212,7 +2212,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Grammm Web print"
+msgid "grammm-web print"
 msgstr ""
 
 msgid "Display name"
@@ -3644,7 +3644,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
+msgid "Welcome to grammm-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

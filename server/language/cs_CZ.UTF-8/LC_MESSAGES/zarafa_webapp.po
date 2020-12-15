@@ -1,10 +1,10 @@
-# Grammm Web Czech translation.
+# grammm-web Czech translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Czech\n"
+"Project-Id-Version: grammm-web Czech\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-01-16 14:37+0000\n"
@@ -1626,7 +1626,7 @@ msgstr "Otevřít změněnu žádost o schůzku"
 msgid "Copy"
 msgstr "Kopírovat"
 
-msgid "Grammm Web"
+msgid "grammm-web"
 msgstr "Kopano WebbApp"
 
 #, fuzzy
@@ -2421,7 +2421,7 @@ msgid "Duplicate recipients"
 msgstr "Upravit příjemce"
 
 #, fuzzy
-msgid "Grammm Web print"
+msgid "grammm-web print"
 msgstr "Vytisknout Kopano WebbApp"
 
 # 91%
@@ -4002,7 +4002,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
+msgid "Welcome to grammm-web"
 msgstr "Vítejte v Kopano WebAPP"
 
 msgid "This is the first time you are using WebApp. "

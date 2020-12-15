@@ -1,10 +1,10 @@
-# Grammm Web Arabic (Egypt) translation.
+# grammm-web Arabic (Egypt) translation.
 # Copyright (C) 2018
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Arabic (Egypt)\n"
+"Project-Id-Version: grammm-web Arabic (Egypt)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-08-24 21:01+0200\n"
@@ -1564,7 +1564,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Grammm Web"
+msgid "grammm-web"
 msgstr ""
 
 msgid ""
@@ -2260,7 +2260,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Grammm Web print"
+msgid "grammm-web print"
 msgstr ""
 
 msgid "Display name"
@@ -3705,7 +3705,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
+msgid "Welcome to grammm-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

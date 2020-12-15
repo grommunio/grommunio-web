@@ -1,10 +1,10 @@
-# Grammm Web French (France) translation.
+# grammm-web French (France) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web French (France)\n"
+"Project-Id-Version: grammm-web French (France)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-09 09:18+0000\n"
@@ -1645,7 +1645,7 @@ msgstr "Demande de réunion en cours contenant des modifications"
 msgid "Copy"
 msgstr "Copier"
 
-msgid "Grammm Web"
+msgid "grammm-web"
 msgstr "WebApp Kopano"
 
 #, fuzzy
@@ -2421,7 +2421,7 @@ msgid "Duplicate recipients"
 msgstr "Modifier un destinataire"
 
 #, fuzzy
-msgid "Grammm Web print"
+msgid "grammm-web print"
 msgstr "WebApp Kopano"
 
 msgid "Display name"
@@ -4039,19 +4039,19 @@ msgstr "Cet élément a été modifié. Etes-vous certain de vouloir le supprime
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
-msgstr "Bienvenue sur Grammm Web"
+msgid "Welcome to grammm-web"
+msgstr "Bienvenue sur grammm-web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
 msgstr ""
-"C'est la première fois que vous utilisez Grammm Web. <br /> Veuillez "
+"C'est la première fois que vous utilisez grammm-web. <br /> Veuillez "
 "vérifier les paramètres suivants avant de continuer."
 
 #, fuzzy
 msgid "Please check the following settings before continuing."
 msgstr ""
-"C'est la première fois que vous utilisez Grammm Web. <br /> Veuillez "
+"C'est la première fois que vous utilisez grammm-web. <br /> Veuillez "
 "vérifier les paramètres suivants avant de continuer."
 
 msgid "Add widgets"

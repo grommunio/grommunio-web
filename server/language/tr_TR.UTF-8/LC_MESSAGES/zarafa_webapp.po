@@ -1,10 +1,10 @@
-# Grammm Web Turkish translation.
+# grammm-web Turkish translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Turkish\n"
+"Project-Id-Version: grammm-web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 21:34+0200\n"
@@ -1658,8 +1658,8 @@ msgstr "değişiklik yapılan toplantı isteğini aç"
 msgid "Copy"
 msgstr "Kopyala"
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
+msgid "grammm-web"
+msgstr "grammm-web"
 
 #, fuzzy
 msgid ""
@@ -2429,8 +2429,8 @@ msgid "Duplicate recipients"
 msgstr "Alıcı düzenle"
 
 #, fuzzy
-msgid "Grammm Web print"
-msgstr "Grammm Web"
+msgid "grammm-web print"
+msgstr "grammm-web"
 
 # 91%
 msgid "Display name"
@@ -4034,8 +4034,8 @@ msgstr "Bu öğe değiştirildi. Silmek istediğinizden emin misiniz?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
-msgstr "Grammm Web'e hoşgeldiniz"
+msgid "Welcome to grammm-web"
+msgstr "grammm-web'e hoşgeldiniz"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4900,7 +4900,7 @@ msgstr "Değişikliklerin etkili olması için lütfen WebApp'i yeniden yükleyi
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm Web"
+msgstr "grammm-web"
 
 msgid "Settings"
 msgstr "Ayarlar"

@@ -1,10 +1,10 @@
-# Grammm Web Italian (Italy) translation.
+# grammm-web Italian (Italy) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Italian (Italy)\n"
+"Project-Id-Version: grammm-web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-05-08 15:53+0000\n"
@@ -1643,8 +1643,8 @@ msgstr "Apri richiesta di appuntamento modificata"
 msgid "Copy"
 msgstr "Copia"
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
+msgid "grammm-web"
+msgstr "grammm-web"
 
 #, fuzzy
 msgid ""
@@ -2433,8 +2433,8 @@ msgid "Duplicate recipients"
 msgstr "Modifica destinatario"
 
 #, fuzzy
-msgid "Grammm Web print"
-msgstr "Grammm Web"
+msgid "grammm-web print"
+msgstr "grammm-web"
 
 msgid "Display name"
 msgstr "Nome visualizzato"
@@ -4032,8 +4032,8 @@ msgstr "Questo elemento è stato modificato. Sei sicuro di volerlo eliminare?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
-msgstr "Benvenuto su Grammm Web"
+msgid "Welcome to grammm-web"
+msgstr "Benvenuto su grammm-web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4899,7 +4899,7 @@ msgstr "Per applicare le modifiche è necessario ricaricare la WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm Web"
+msgstr "grammm-web"
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -5012,7 +5012,7 @@ msgid "All keyboard shortcuts on"
 msgstr "Tutte le scorciatoie da tastiera abilitate"
 
 msgid "This change requires a reload of the WebApp"
-msgstr "Questa modifica richiede il reload di Grammm Web"
+msgstr "Questa modifica richiede il reload di grammm-web"
 
 msgid "Discard"
 msgstr "Scarta"

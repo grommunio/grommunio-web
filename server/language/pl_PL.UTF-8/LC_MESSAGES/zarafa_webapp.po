@@ -1,10 +1,10 @@
-# Grammm Web Polish (Poland) translation.
+# grammm-web Polish (Poland) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Polish (Poland)\n"
+"Project-Id-Version: grammm-web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-05-15 09:38+0000\n"
@@ -1588,8 +1588,8 @@ msgstr "Otwórz ze zmianami wezwanie na spotkanie"
 msgid "Copy"
 msgstr "Kopiuj"
 
-msgid "Grammm Web"
-msgstr "Grammm Web"
+msgid "grammm-web"
+msgstr "grammm-web"
 
 #, fuzzy
 msgid ""
@@ -2332,8 +2332,8 @@ msgid "Duplicate recipients"
 msgstr "Edytuj odbiorcę"
 
 #, fuzzy
-msgid "Grammm Web print"
-msgstr "Grammm Web"
+msgid "grammm-web print"
+msgstr "grammm-web"
 
 msgid "Display name"
 msgstr "Wyświetl nazwę"
@@ -3854,8 +3854,8 @@ msgstr "Ten element został w międzyczasie zmieniony. Czy chcesz gousunąć?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
-msgstr "Witamy w Grammm Web"
+msgid "Welcome to grammm-web"
+msgstr "Witamy w grammm-web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4692,7 +4692,7 @@ msgstr "Aby wdrożyć zmiany proszę ponownie załadować aplikację."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "Grammm Web"
+msgstr "grammm-web"
 
 msgid "Settings"
 msgstr "Ustawienia"

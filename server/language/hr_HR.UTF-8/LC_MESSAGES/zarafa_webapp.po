@@ -1,15 +1,15 @@
-# Grammm Web Croatian (Croatia) translation.
+# grammm-web Croatian (Croatia) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Grammm Web Croatian (Croatia)\n"
+"Project-Id-Version: grammm-web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 20:01+0200\n"
 "Last-Translator: Tomislav <tomislav.malnar@tzv-gredelj.hr>\n"
-"Language-Team: Grammm Web Croatian (Croatia) <https://translate.kopano.io/"
+"Language-Team: grammm-web Croatian (Croatia) <https://translate.kopano.io/"
 "projects/kopano/kopano-webapp/hr/>\n"
 "Language: hr_HR\n"
 "MIME-Version: 1.0\n"
@@ -1529,7 +1529,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "Grammm Web"
+msgid "grammm-web"
 msgstr ""
 
 msgid ""
@@ -2222,7 +2222,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "Grammm Web print"
+msgid "grammm-web print"
 msgstr ""
 
 msgid "Display name"
@@ -3658,7 +3658,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to Grammm Web"
+msgid "Welcome to grammm-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "
