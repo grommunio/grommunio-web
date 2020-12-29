@@ -57,30 +57,8 @@ make open-coverage
 ipcrm -M 0x950412de
 ```
 
-#compile and install webapp
-```
-make
-cp -R deploy /var/steep-webapp
-mkdir -p /var/lib/steep-webapp/tmp
-ln -s /app-data /var/steep-webapp/appdata
-```
-
 #custom the system-wide theme
 copy "plugins/themeexample" under source code to "plugins" directory under install path of webapp
 replace your own jpg and png files under "img" and "theme.css" under "css" folder
 find THEME in config.php and change it to blow
 define("THEME", 'themeexample');
-
-
-# Documentation
-In-depth documentation, such as administration and user manuals about our
-products can be found on our [Documentation Portal](
-https://documentation.kopano.io/). Additionally, a [Knowledge Base](
-https://kb.kopano.io/) is available for quick start guides, handy code
-snippets, and troubleshooting help.
-
-# Contributing
-The project is derived from grammm web, you can visit
-https://stash.kopano.io/projects/KW/repos/kopano-webapp/browse
-for more information
-
