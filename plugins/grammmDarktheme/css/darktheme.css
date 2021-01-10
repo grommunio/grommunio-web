@@ -1,0 +1,224 @@
+body * {
+  border-color: #e6e6e642 !important;
+}
+
+.x-panel-body *:not(.x-tree-selected *):not(.x-tree-selected):not(.x-form-textarea):not(.zarafa-calendar *) {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder .x-btn-small button {
+  background-color: #dddfe6 !important;
+  color: black !important;
+}
+
+.x-btns.x-btn-small button.x-btn-text {
+  background-color: #dddfe6 !important;
+  color: black !important;
+}
+
+.x-panel .x-panel-header {
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+}
+
+.x-border-layout-ct {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-tab-right .x-tab-strip-active {
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+}
+
+.x-toolbar {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body {
+  padding: 0;
+  margin: 6px 0;
+}
+
+/* Calendar */
+.zarafa-calendar-container-body .k-html-body-background > div {
+  border-color: rgb(160, 160, 160) !important;
+  background-color: rgb(75, 75, 75) !important;;
+  z-index: 10;
+}
+
+.zarafa-calendar-timestrip-element > div {
+  color: white;
+}
+
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber).x-date-selected:not(.x-date-today) {
+  background-color: #C5C9d2 !important;
+  border: 0px;
+}
+
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber).x-date-selected:not(.x-date-today) * {
+  background-color: #C5C9d2 !important;
+  border: 0px;
+}
+
+.x-date-active:not(.x-date-today):not(.x-date-selected):hover {
+  background-color: rgb(160, 160, 160) !important;
+  border: 0px;
+}
+
+.x-date-active:not(.x-date-today):not(.x-date-selected):hover * {
+  background-color: rgb(160, 160, 160) !important;
+  border: 0px;
+}
+
+.x-date-today {
+  background-color: #1E88E5 !important;
+}
+
+.x-date-today:hover {
+  background-color: #1E88E5 !important;
+}
+
+.x-date-today * {
+  background-color: #1E88E5 !important;
+}
+
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber).x-date-today * {
+  background-color: #1E88E5 !important;
+  border: 0px;
+}
+
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber).x-date-today {
+  background-color: #1E88E5 !important;
+}
+
+.x-date-today:hover * {
+  background-color: #1E88E5 !important;
+  font-weight: 700 !important;
+}
+
+.x-window * {
+  background-color: rgb(75, 75, 75) !important;
+  background: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-combo-list-inner {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-combo-list .x-combo-selected {
+  background-color: rgb(60, 60, 60) !important;
+}
+
+.x-panel-body.x-panel-body-noheader.x-panel-body-noborder > .preview-body > .preview-iframe {
+  background-color: white !important;
+}
+
+.x-tree-node-el.x-tree-node-leaf.x-unselectable.zarafa-hierarchy-node.zarafa-tree-node.x-tree-selected {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-node-el.x-tree-node-leaf.x-unselectable.zarafa-hierarchy-node.zarafa-tree-node.x-tree-selected * {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-node-ct > .x-tree-node.zarafa-tree-container > .x-tree-node-el.x-unselectable.zarafa-hierarchy-node.zarafa-tree-node.x-tree-node-expanded.x-tree-selected {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-node-ct > .x-tree-node.zarafa-tree-container > .x-tree-node-el.x-unselectable.zarafa-hierarchy-node.zarafa-tree-node.x-tree-node-expanded.x-tree-selected * {
+  background-color: #C5C9d2 !important;
+}
+
+.emptytext {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+  margin: 0;
+  padding-top: 80px;
+}
+
+.x-panel-header > .x-panel-header-text {
+  background-color: rgb(60, 60, 60) !important;
+  color: white !important;
+}
+
+.zarafa-settings-category-tab-active > .k-settings-category-icon {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-selected > .x-tree-node-anchor > span {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-selected > .x-tree-node-indent > .x-tree-elbow-line {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-selected > .x-tree-ec-icon {
+  background-color: #C5C9d2 !important;
+}
+
+.x-tree-selected > .x-tree-node-icon {
+  background-color: #C5C9d2 !important;
+}
+
+.x-grid3-hd-row td .x-grid3-hd-inner {
+  border: 1px solid rgb(75, 75, 75);
+}
+
+/* ICONS */
+tr.x-grid3-hd-row > td.x-grid3-hd.sort-asc > div {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+tr.x-grid3-hd-row > td.x-grid3-hd.sort-asc > div *{
+  background-color: rgb(160, 160, 160) !important;
+}
+
+tr.x-grid3-hd-row > td.x-grid3-hd.sort-desc > div {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+tr.x-grid3-hd-row > td.x-grid3-hd.sort-desc > div * {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-form-field-wrap > .x-form-trigger.x-form-arrow-trigger {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-btn.x-btn-icon .icon_magnifier:hover {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-grid3-sort-icon {
+  color: white !important;
+}
+
+
+
+.x-btn-text.x-tbar-page-prev {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-btn-text.x-tbar-page-next {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.zarafa-slide-notifier-info.zarafa-slide-notifier-info-saved {
+  background-color: green !important;
+}
+
+#zarafa-navigationpanel > div {
+  border: 0px;
+}
+
+/* TABLES */
+
+.x-grid3-hd-row td {
+  border: 0px;
+}

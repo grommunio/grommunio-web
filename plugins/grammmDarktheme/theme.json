@@ -1,0 +1,9 @@
+{
+  "display-name": "grammm dark",
+  "primary-color": "#2D323B",
+  "action-color": "#1E88E5",
+  "action-color:hover": "#1976D2",
+  "stylesheets": "css/darktheme.css",
+  "logo-small": "img/grammm_logo_light.png",
+  "background-image": "img/grammm_background-dark_1600x1200.png"
+}
