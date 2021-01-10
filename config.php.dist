@@ -91,7 +91,7 @@
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
-	define("THEME", '');
+	define("THEME", 'grammmLighttheme');
 
 	// General WebApp icon set. This will be loaded by default for every user.
 	// Users can override the iconset in the settings.
