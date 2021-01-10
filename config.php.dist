@@ -88,9 +88,6 @@
 	//can be simple,unicode61,icu,ascii,porter ...
 	define("SQLITE_FTS_TOKENIZER", "unicode61");
 	
-	//do not delete this!
-	define("CUSTOM_THEME_SUBDIR", "steep-webapp/theme");
-
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
