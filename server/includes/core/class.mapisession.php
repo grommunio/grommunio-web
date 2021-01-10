@@ -271,7 +271,7 @@
 		 * Get current session id
 		 * @deprecated 2.2.0 This function only exists for backward compatibility with
 		 * 		 older plugins that want to send the session id as a GET parameter with
-		 * 		 requests that they make to kopano.php. The script kopano.php does not
+		 * 		 requests that they make to grammm.php. The script grammm.php does not
 		 * 		 expect this parameter anymore, but plugins that are not updated might
 		 * 		 still call this function.
 		 * @return string Always empty

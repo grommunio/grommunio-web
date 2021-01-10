@@ -238,7 +238,7 @@ class WebAppAuthentication
 	 */
 	public static function isUsingLoginForm() {
 		// Login form is only found on index.php
-		// If we don't check it, then posting to kopano.php would
+		// If we don't check it, then posting to grammm.php would
 		// also make authenticating possible.
 		if ( basename($_SERVER['SCRIPT_NAME']) !== 'index.php' ){
 			return false;

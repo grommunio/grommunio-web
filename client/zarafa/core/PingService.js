@@ -12,9 +12,9 @@ Zarafa.core.PingService = Ext.extend(Ext.util.Observable, {
 
 	/**
 	 * @cfg {String} url
-	 * The url used to send the requests to. defaults to kopano.php.
+	 * The url used to send the requests to. defaults to grammm.php.
 	 */
-	url : 'kopano.php',
+	url : 'grammm.php',
 
 	/**
 	 * @cfg {String} cmd

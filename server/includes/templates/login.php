@@ -8,7 +8,7 @@
 
 		<title><?php echo $webappTitle; ?></title>
 		<meta name="description" content="grammm-web is the ultimate frontend client for grammm. A rich collaboration platform utilizing e-mail, calendars, webmeetings, file sharing and more.">
-		<meta name="author" content="Kopano.io">
+		<meta name="author" content="grammm.com">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 

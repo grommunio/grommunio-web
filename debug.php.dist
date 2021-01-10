@@ -5,7 +5,7 @@
 */
 
 /**
-* Set this to let kopano.php exports the JSON
+* Set this to let grammm.php export JSON
 * but please note that you must create the DEBUG_JSONOUT_DIR directory and that
 * it is writable by PHP
 */
@@ -101,7 +101,7 @@ function dump_props($variable,$title=""){
 $_debug_propList = false;
 
 /**
- * This function is used for the in/output by kopano.php to store the JSON to disk
+ * This function is used for the in/output by grammm.php to store the JSON to disk
  */
 function dump_json($json, $prefix){
 	global $debug_json_id;

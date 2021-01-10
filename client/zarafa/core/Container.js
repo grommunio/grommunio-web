@@ -247,7 +247,7 @@ Zarafa.core.Container = Ext.extend(Ext.util.Observable, {
 	 */
 	getRequest : function()
 	{
-		return this.request || (this.request = new Zarafa.core.Request({ url:"kopano.php" }));
+		return this.request || (this.request = new Zarafa.core.Request({ url:"grammm.php" }));
 	},
 
 	/**

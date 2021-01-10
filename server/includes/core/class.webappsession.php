@@ -42,8 +42,8 @@ class WebAppSession
 		// Start the session so we can use it for timeout checking
 		$this->start();
 		
-		if ( basename($_SERVER['PHP_SELF']) != 'kopano.php' ){
-			//We will only check for timeout in the kopano.php page
+		if ( basename($_SERVER['PHP_SELF']) != 'grammm.php' ){
+			//We will only check for timeout in the grammm.php page
 			$this->setStartTime();
 		}else{
 			$this->checkForTimeout();
