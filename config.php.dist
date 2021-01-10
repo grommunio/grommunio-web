@@ -25,7 +25,7 @@
 	define("PANDORA_ASESSION_PATH", "/var/pandora/token/asession");
 
 	// Name of the cookie that is used for the session
-	define("COOKIE_NAME", "STEEP_WEBAPP");
+	define("COOKIE_NAME", "GRAMMM_WEB");
 
 	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", true);
