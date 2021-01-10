@@ -4,7 +4,7 @@ This plugin shows you notifications of new emails / reminders on your desktop
 
 ## Installation
 
-Clone the plugin inside the WebApp plugin directory. By default this location is `/usr/share/kopano-webapp/plugins/`
+Clone the plugin inside the WebApp plugin directory.
 
 ## Supported browsers
 
