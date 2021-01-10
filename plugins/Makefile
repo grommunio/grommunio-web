@@ -1,4 +1,4 @@
-SUBDIRS = desktopnotifications filepreviewer intranet passwd safesenderssettings webappmanual
+SUBDIRS = grammmDarktheme grammmLighttheme desktopnotifications filepreviewer intranet passwd safesenderssettings webappmanual
 
 .PHONY: subdirs $(SUBDIRS)
 
