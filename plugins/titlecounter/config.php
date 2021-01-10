@@ -1,3 +1,0 @@
-<?php
-define('PLUGIN_TITLECOUNTER_USER_DEFAULT_ENABLE', true);
-?>
