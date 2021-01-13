@@ -1,9 +1,6 @@
 include ../shared.mk
 
-COPYFILES = favicon.ico theme.json \
-	$(wildcard img/*) \
-	$(wildcard css/*)
-
+COPYFILES = theme.json
 COPYFILESDEST = $(addprefix $(DESTDIR)/, $(COPYFILES))
 
 all: $(COPYFILESDEST)
