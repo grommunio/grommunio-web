@@ -52,7 +52,6 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 				items : [
 					this.createTopbarContainer(),
 					this.createNavigationPanel(),
-					this.createTodayPanel(),
 					this.createContentContainer()				]
 			}]
 		});
@@ -91,39 +90,6 @@ Zarafa.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 	getNavigationPanel: function()
 	{
 		return this.navigationPanel;
-	},
-
-	/**
-	 * Create the {@link Zarafa.core.ui.widget.WidgetPanel WidgetPanel} for
-	 * the east region of the client in which the Today view can be shown.
-	 * @return {Object} Configuration object for the WidgetPanel.
-	 * @private
-	 */
-	createTodayPanel : function()
-	{
-		this.widgetPanel = new Zarafa.core.ui.widget.WidgetPanel({
-			region : 'east',
-			title : _('Widgets'),
-			numColumns : 1,
-
-			stateful : true,
-			statefulName : 'todaybar',
-			statefulRelativeDimensions : false,
-			settingsPath : 'zarafa/v1/contexts/today/sidebar',
-
-			collapsed : true
-		});
-		return this.widgetPanel;
-	},
-
-	/**
-	 * Returns the {@link Zarafa.core.ui.widget.WidgetPanel WidgetPanel} for
-	 * the east region of the client in which the widgets can be shown.
-	 * @return {Zarafa.core.ui.widget.WidgetPanel} widgetPanel
-	 */
-	getWidgetPanel : function()
-	{
-		return this.widgetPanel;
 	},
 
 	/**
