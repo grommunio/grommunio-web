@@ -1891,7 +1891,7 @@ li.x-menu-item-active {
 
 /* line 25, ../scss/components/_mainmenubar.scss */
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-  background: #0f70bd;
+  background: #1e88e5;
   color: #ffffff;
   padding: 0;
   /* focused button */
@@ -2604,7 +2604,7 @@ Note: Does not work in IE11 */
 
 /* line 135, ../scss/components/_hierarchy.scss */
 .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
-  color: #0f70bd;
+  color: #1e88e5;
 }
 
 /* line 138, ../scss/components/_hierarchy.scss */
@@ -4039,7 +4039,7 @@ div.zarafa-contact-cardview-selected {
 /* line 70, ../scss/components/_popups.scss */
 .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text,
 .x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text {
-  color: #0f70bd;
+  color: #1e88e5;
   font-weight: normal;
   line-height: 36px;
   display: block;
@@ -4652,11 +4652,11 @@ div.zarafa-contact-cardview-selected {
 }
 /* line 227, ../scss/components/_scheduling.scss */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-tentative {
-  background: repeating-linear-gradient(-45deg, #0f70bd 0px, #0f70bd 2.8284px, white 2.8284px, white 5.65685px);
+  background: repeating-linear-gradient(-45deg, #1e88e5 0px, #1e88e5 2.8284px, white 2.8284px, white 5.65685px);
 }
 /* line 230, ../scss/components/_scheduling.scss */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-busy {
-  background-color: #0f70bd;
+  background-color: #1e88e5;
 }
 /* line 233, ../scss/components/_scheduling.scss */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-timeline-block-outofoffice {
@@ -4818,7 +4818,7 @@ div.zarafa-contact-cardview-selected {
 .zarafa-searchgrid .x-grid3-hd-row .zarafa-search-suggestion {
   font-style: italic;
   text-decoration: underline;
-  color: #0f70bd;
+  color: #1e88e5;
   cursor: pointer;
 }
 /* line 48, ../scss/components/_search.scss */
@@ -5223,7 +5223,7 @@ div.zarafa-contact-cardview-selected {
 }
 /* line 113, ../scss/components/_settings.scss */
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
-  background: #0f70bd;
+  background: #1e88e5;
   color: white;
   padding: 3px;
   text-decoration: none;
@@ -5660,14 +5660,14 @@ div.zarafa-contact-cardview-selected {
 }
 /* line 11, ../scss/components/_welcome.scss */
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-  background: #0f70bd;
+  background: #1e88e5;
   color: #ffffff;
   font-family: arial, tahoma, helvetica, sans-serif;
   font-size: 15px;
   line-height: 20px;
   padding: 8px 9px;
-  border-left: 1px solid #0f70bd;
-  border-right: 1px solid #0f70bd;
+  border-left: 1px solid #1e88e5;
+  border-right: 1px solid #1e88e5;
 }
 /* line 21, ../scss/components/_welcome.scss */
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-message {
