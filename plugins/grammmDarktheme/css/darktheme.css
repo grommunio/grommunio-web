@@ -7,6 +7,26 @@ body * {
   color: white !important;
 }
 
+.x-panel-body.x-panel-body-noheader.x-panel-body-noborder {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-grid3-scroller {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-grid3-header {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-panel-body.x-panel-body-noheader {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
 .zarafa-hierarchy-treepanel-bottombar table .x-btn.zarafa-hierarchy-treepanel-footer-opensharedfolder .x-btn-small button {
   background-color: #dddfe6 !important;
   color: black !important;
@@ -92,6 +112,26 @@ body * {
 
 .x-date-picker .x-date-inner td:not(.x-date-weeknumber).x-date-today {
   background-color: #1E88E5 !important;
+}
+
+.x-date-picker.x-unselectable.zarafa-navigationpanel-item.x-box-item {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-date-left {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-date-middle {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
+
+.x-date-right {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
 }
 
 .x-date-today:hover * {
@@ -199,6 +239,18 @@ tr.x-grid3-hd-row > td.x-grid3-hd.sort-desc > div * {
   color: white !important;
 }
 
+.x-grid3-hd-inner.x-grid3-hd-4 {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-grid3-hd-inner.x-grid3-hd-2 {
+  background-color: rgb(160, 160, 160) !important;
+}
+
+.x-grid3-hd-inner.x-grid3-hd-subject {
+  background-color: rgb(75, 75, 75) !important;
+  color: white !important;
+}
 
 
 .x-btn-text.x-tbar-page-prev {
