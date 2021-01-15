@@ -32,6 +32,11 @@ body #zarafa-mainmenu.zarafa-maintabbar .x-btn .x-btn-small .x-btn-text {
 	background-color: #1f1f1f !important;
 }
 
+#mainmenu-button-reminder > div.x-btn-small.x-btn-icon-small-left {
+	opacity: 0;
+}
+
+
 /* Top menubar, hovered button */
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over .x-btn-small .x-btn-text,
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over.zarafa-maintabbar-maintab-active .x-btn-small .x-btn-text {
@@ -777,8 +782,8 @@ Calendar content
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Calendar drag selection (selecting an new appointment) */
 .zarafa-calendar-selection-dragging {
-	background-color : #2d323b !important;
-	color: #808080;
+	background-color : #0d47a1 !important;
+	color: #fff;
 }
 
 /* Calendar month view, content */
@@ -1496,13 +1501,13 @@ Text input and text input area
 .x-window .ext-mb-text,
 .x-form-display-field,
 .x-form-item-label {
-	color: #b4b4e0 !important;
+	color: #ffffff !important;
 }
 
 /* Hovered labels */
 .zarafa-widget-item:hover,
 .x-form-item-label:hover {
-	color: #204060 !important;
+	color: #ffffff !important;
 }
 
 /* Normal text input/area */
@@ -1533,7 +1538,7 @@ textarea.x-form-field:focus {
 /* Normal checkbox */
 .x-form-check-wrap.x-form-item {
 	border-color: #2d323b !important;
-	background-color: #1c2d30 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -1755,7 +1760,10 @@ PNG images
 	filter: brightness(50%);
 }
 
-
+/* Reminder */
+.x-panel.zarafa-reminder-dialog-active-reminder.x-panel-noborder.x-box-item {
+	color: #ffffff
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------
