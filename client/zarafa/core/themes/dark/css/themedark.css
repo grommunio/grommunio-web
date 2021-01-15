@@ -1,467 +1,1798 @@
-/*********************************************************************************************
- *                                                                                           *
- * This is the css for the Dark theme for the grammm web.                                 *
- *                                                                                           *
- * (c) 2019 Kopano                                                                           *
- *                                                                                           *
- *********************************************************************************************/
 
-/*********************************************************************************************
- * The Login screen and the Welcome screen
- * =======================================
- ********************************************************************************************/
-/* Background image of the login screen */
-body.login,
-#loading-mask,
-#bg,
-/* Background image of the Welcome screen */
-body.zarafa-welcome {
-    background: url(../img/background.jpg) no-repeat center center;
-    background-size: cover;
-}
-/* The Sign in button of the login screen */
-body.login #form-container #submitbutton,
-#loading-mask #form-container #submitbutton {
-    background: #2b90d9;
-}
-/* Hover state and active state of the Sign in button */
-body.login #form-container #submitbutton:hover,
-#loading-mask #form-container #submitbutton:hover,
-body.login #form-container #submitbutton:active,
-#loading-mask #form-container #submitbutton:active {
-    background: #2587cb;
-}
-/* The top bar of the Welcome dialog */
-.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-    border-left: 1px solid #282c37;
-    border-right: 1px solid #282c37;
-    background: #282c37;
+
+/*----------------------------------------------------------------------------------------------------------------------
+Page
+----------------------------------------------------------------------------------------------------------------------*/
+/* Default background colour */
+.zarafa-webclient {
+	background-color: #000d1a !important;
 }
 
-/*********************************************************************************************
- * The top menu bar
- * ================================
- * We will define the background color of the bar and hover and active colors of the buttons
- * in the bar.
- ********************************************************************************************/
-/* The border line under the top menu bar */
-body #zarafa-mainmenu {
-    border-color: #282c37;
+/* Mask background, when showing dialogs */
+.ext-el-mask {
+	background-color: #2f2f2f !important;
 }
-/* The background color of the top menu bar */
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Top menubar
+----------------------------------------------------------------------------------------------------------------------*/
+/* Top menubar */
+body #zarafa-mainmenu,
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-    background-color: #282c37;
+	background-color: #1f4b61 !important;
+	color: #e6f2ff !important;
 }
-/* Background color of the hover state of the buttons in the top menu bar */
-body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over,
-/* Background color of the active state of the buttons (i.e. when the buttons get clicked) */
-body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over.x-btn-click,
-/* Background color of the selected button */
+
+/* Top menubar, button */
+body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn .x-btn-small,
+body #zarafa-mainmenu.zarafa-maintabbar .x-btn .x-btn-small .x-btn-text {
+	background-color: #1f4b61 !important;
+}
+
+/* Top menubar, hovered button */
+body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over .x-btn-small .x-btn-text,
+body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over.zarafa-maintabbar-maintab-active .x-btn-small .x-btn-text {
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Top menubar, clicked button */
+body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over.x-btn-click .x-btn-small .x-btn-text {
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Top menubar, selected button */
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active,
-/* Background color of the hover state of selected button */
-body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over,
-/* Background color of the active state of selected button */
-body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
-    background-color: #2b90d9 !important;
+body #zarafa-mainmenu.zarafa-maintabbar .x-btn.zarafa-maintabbar-maintab-active .x-btn-small .x-btn-text {
+    background-color: #3b5264 !important;
+	color: #f0f0f0 !important;
 }
 
-/****************************************************************************
- *  Action color
- * ===============
- * Some elements have a different color than the default color of these elements
- * to get extra attention, e.g. 'call-to-action' buttons, the current day
- * in the calendar, etc.
- ****************************************************************************/
 
-/* normal state */
-.x-btn.zarafa-action .x-btn-small,
-.x-btn.zarafa-action .x-btn-medium,
-.x-btn.zarafa-action .x-btn-large,
-/* active state */
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small,
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium,
-.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large,
-.x-btn.zarafa-action.x-btn-click .x-btn-small,
-.x-btn.zarafa-action.x-btn-click .x-btn-medium,
-.x-btn.zarafa-action.x-btn-click .x-btn-large,
-/* Special case: Popup, Windows, or Messageboxes (first button is by default styled as the action button) */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-/* Current day in the calendar */
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-active,
-.zarafa-calendar-container-header .zarafa-canvas-header-background .zarafa-styling-element-current-day,
-/* Current day in the calendar */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
-/* The date pickers */
-.x-date-picker .x-date-inner td.x-date-today a,
-.x-date-picker .x-date-mp table td.x-date-mp-sel a,
-.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok {
-	background: #2b90d9 !important;
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Top toolbar (does not include dropdown menu on split buttons)
+----------------------------------------------------------------------------------------------------------------------*/
+/* Toolbar */
+#zarafa-maintoolbar .x-toolbar {
+	background-color: #1c2030 !important;
 }
 
-/* focused action button */
-.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
-  background: #2b90d9 !important;
+/* Toolbar, button splitter-line colour */
+#zarafa-maintoolbar .x-btn em.x-btn-split button {
+	border-right-color: #3b5264;
+}
+/* Toolbar, selected button splitter-line colour */
+#zarafa-maintoolbar .x-btn.zarafa-action em.x-btn-split button {
+	border-right-color: #3b5264;
 }
 
-/* Active calendar tab stroke */
-.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
-    border-top-color: #2b90d9;
+/* Toolbar, normal button background colour */
+#zarafa-maintoolbar .x-btn .x-btn-small,
+#zarafa-maintoolbar .x-btn .x-btn-medium,
+#zarafa-maintoolbar .x-btn .x-btn-large,
+#zarafa-maintoolbar .x-btn .x-btn-small button,
+#zarafa-maintoolbar .x-btn .x-btn-medium button,
+#zarafa-maintoolbar .x-btn .x-btn-large button {
+	background-color: #132639 !important;
 }
 
-/* hover state */
-.x-btn.zarafa-action.x-btn-over .x-btn-small,
-.x-btn.zarafa-action.x-btn-over .x-btn-medium,
-.x-btn.zarafa-action.x-btn-over .x-btn-large,
-/* Special case: Popup, Windows, or Messageboxes */
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-/* The date pickers */
-.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
-	background: #2587cb !important;
+/* Toolbar, normal button text colour */
+#zarafa-maintoolbar .x-btn .x-btn-small button.x-btn-text,
+#zarafa-maintoolbar .x-btn .x-btn-medium button.x-btn-text,
+#zarafa-maintoolbar .x-btn .x-btn-large button.x-btn-text {
+	color: #f0f0f0 !important;
 }
 
-/* The borders of the current day in the scheduling panel of metting requests */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
- border-left-color: #2b90d9;
-}
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
-  border-right-color: #2b90d9;
-}
-
-/* Counters in the hierarchy */
-.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
-.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter,
-/* Font color of the week numbers in the date pickers */
-.x-date-picker .x-date-inner td.x-date-weeknumber a {
-  color: #2b90d9;
-}
-
-/* Current day in the calendar */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
-/* border colors of the current day and month in the date pickers */
-.x-date-picker .x-date-inner td.x-date-today a,
-.x-date-picker .x-date-mp table td.x-date-mp-sel a {
-  border-color: #2b90d9;
+/* Toolbar, hovered button background colour */
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-small,
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-medium,
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-large,
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-small button,
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.x-btn-over .x-btn-large button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-small,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-medium,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-large,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-small button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over .x-btn-large button {
+    background-color: #204060 !important;
 }
 
-/*********************************************************************
- * Tabs
- * ====
- * The background color of the inactive tabs of the main panel can be
- * changed to better suit the theme.
- *********************************************************************/
-/* The border of an inactive tab */
-#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active) {
-	border-color: #dddfe6 !important;
-}
-/* The background of an inactive tab */
-#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active) .x-tab-right {
-	background: #dddfe6;
-}
-/* The hover state of the border of an inactive tab */
-#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active):hover {
-	border-color: #d1d4dd !important;
-}
-/* The hover state of the background of an inactive tab */
-#zarafa-mainpanel > .x-tab-panel-header > .x-tab-strip-wrap > ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
-	background: #d1d4dd;
-}
-
-/*********************************************************************
- * Selected items in grids and trees
- * =================================
- * The background color of the selected items in grids and trees can
- * be changed to better suit the theme.
- *********************************************************************/
-/* selected item in grids */
-.x-grid3-row.x-grid3-row-selected,
-.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container,
-/* selected item in tree hierarchies */
-.x-tree-node .zarafa-hierarchy-node.x-tree-selected,
-/* selected items in boxfields (e.g. the recipient fields) */
-.x-zarafa-boxfield ul .x-zarafa-boxfield-item-focus,
-.x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,
-/* selected items in card view of Contacts context */
-div.zarafa-contact-cardview-selected,
-/* selected items in icon view of Notes context */
-.zarafa-note-iconview-selected,
-/* selected category in the Settings context */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,
-/* selected date in date pickers */
-.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a,
-.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
-	background-color: #b9dcf5 !important;
-	border-color: #b9dcf5;
+/* Toolbar, hovered and clicked button background colour */
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-small
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-medium,
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-large,
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-small button
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.x-btn-click .x-btn-large button,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-small,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-medium,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-large,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-small button,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.x-btn-over.x-btn-click .x-btn-large button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large button {
+    background-color: #204060 !important;
 }
 
-/*********************************************************************
- * Extra information about items
- * =================================
- * Sometimes extra information is shown in opened items. (e.g. 'You replied
- * to this message etc'). This can be styled with the following rules.
- *********************************************************************/
-.preview-header-extrainfobox,
-.preview-header-extrainfobox-item,
-.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
-.k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div {
-  background: #b9dcf5 !important;
-  color: #222222;
+/* Toolbar, selected button background colour */
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small,
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium,
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large,
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small button,
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium button,
+#zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button {
+    background-color: #3b5264 !important;
 }
 
-/*********************************************************************
- * Buttons
- * =================================
- *********************************************************************/
-/* Selected x-menu */
-.x-menu-item-selected {
-  background-color: #b9dcf5;
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Navigation panel (tree list)
+----------------------------------------------------------------------------------------------------------------------*/
+/* Navigation panel, area (the area where the navigation panel occupies from the top and down) */
+#zarafa-navigationpanel > div {
+	border-color: transparent !important;
+	background-color: transparent !important;
 }
 
-/*********************************************************************
- * Settings
- * =================================
- *********************************************************************/
-/* Links in the About text in Settings */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a {
-	background-color: #282c37;
-}
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-about-text a:hover {
-	background-color: #2b90d9;
+/* Navigation panel background colour */
+/* This sets the background colour of the entire x-panel, including item list and item preview */
+/* So it is set to the same background colour as the default background colour */
+#zarafa-navigationpanel .x-panel-body {
+	background-color: #000d1a !important;
 }
 
-/*************************************************************************
- * Lines
- * =================================
- *************************************************************************/
-/* Inputs of the login screen */
-body.login #form-container input[type="text"],
-body.login #form-container input[type="password"],
-#loading-mask #form-container input[type="text"],
-#loading-mask #form-container input[type="password"],
-/* Welcome panel */
-.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body > div,
-.zarafa-welcome-body > .x-panel-bwrap .x-panel-footer,
-/* Side panels */
-#zarafa-navigationpanel,
-.zarafa-widgetpanel,
-/* Panels general */
-.x-panel,
-.x-panel .x-panel-header,
-.x-panel .x-panel-body,
-/* Tab panels */
-.x-tab-panel-body,
-/* Mail panel with preview on the right */
-#zarafa-mainpanel-contentpanel-mail.zarafa-preview-right .zarafa-context-mainpanel,
-/* Mail preview panel on the right */
-#zarafa-mainpanel-contentpanel-mail.zarafa-preview-right #zarafa-main-content-mail-preview,
-/* Mail panel with preview on the bottom */
-#zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom .zarafa-context-mainpanel,
-/* Mail preview panel on the bottom */
-#zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom #zarafa-main-content-mail-preview,
-/* Preview header */
-.preview-header,
-/* Inputs and textareas */
-.x-form-text, textarea.x-form-field,
-/* Trigger buttons */
-.x-form-field-trigger-wrap .x-form-trigger,
-.x-form-field-trigger-wrap .x-form-spinner-trigger,
-.x-form-field-wrap .x-form-trigger,
-.x-form-field-wrap .x-form-spinner-trigger,
-/* Fieldset */
-.x-fieldset,
-/* Grids */
-.x-grid3-header,
-.x-grid3-hd-row td .x-grid3-hd-inner .x-grid3-hd-btn,
-.x-grid3-hd-row td.sort-desc .x-grid3-hd-inner,
-.x-grid3-hd-row td.sort-asc .x-grid3-hd-inner,
-.x-grid3-hd-row td.sort-desc .x-grid3-hd-inner .x-grid3-hd-btn,
-.x-grid3-hd-row td.sort-asc .x-grid3-hd-inner .x-grid3-hd-btn,
-.x-grid3-row,
-.x-grid3-row-over,
-.x-grid3-row.x-grid3-row-selected,
-/* Toolbars */
-.x-toolbar,
-.x-panel-noborder .x-panel-tbar-noborder .x-toolbar,
-.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar,
-.x-toolbar .x-btn .x-btn-small .x-btn-split button.x-btn-text,
-/* Menus */
-.x-menu .x-menu-item-active,
-/* Tab strip */
-ul.x-tab-strip,
-/* Hierarchy panel */
-.zarafa-hierarchy-treepanel-bottombar,
-/* Main panel */
-#zarafa-mainpanel #zarafa-mainpanel-content > .x-panel,
-#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,
-#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > div#zarafa-mainpanel-contentpanel-mail > .x-panel-bwrap > .x-panel-body > .x-panel,
-/* Boxfields */
-.x-zarafa-boxfield ul .x-zarafa-boxfield-item,
-/* Mail create panel */
-.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-field-subject,
-/* Appointment create panel */
-.zarafa-appointmentcreatetab .field-to,
-.zarafa-appointmentcreatetab .subject-panel,
-.zarafa-appointmentcreatetab .location-panel,
-.zarafa-appointmentcreatetab .datetime-panel table tr:nth-child(2),
-.zarafa-appointmentcreatetab .busystatus-panel,
-.zarafa-appointmentcreatetab .label-panel,
-.zarafa-appointmentcreatetab .attachments-panel,
-/* Contact create panel */
-.zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box,
-/* Calendar tooltip */
-.zarafa-canvas-quicktip,
-/* Dialogs */
-.x-window .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-header,
-.x-panel-ghost .x-window-bwrap .x-window-body > div > .x-panel > .x-panel-header,
-/* Folder properties dialog */
-.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-permissions .userlist-panel,
-.x-panel-ghost .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-permissions .userlist-panel,
-/* Scheduling panel */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table.x-freebusy-timeline-day-sum,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day,
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td,
-.zarafa-freebusy-panel .x-panel.suggestionlist .x-btn.zarafa-freebusy-suggestionrow .x-btn-small,
-/* Search toolbox */
-.zarafa-search-toolbox,
-/* Settings panel */
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel,
-#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-widget-panel .zarafa-settings-keyboard-shortcut-row,
-.zarafa-settings-signatures .x-grid3-row,
-/* Date picker */
-.x-date-picker,
-.x-date-picker .x-date-middle .x-btn-small em,
-.x-date-picker .x-date-middle .x-btn-small em button,
-.x-date-picker .x-date-inner th,
-.x-date-picker .x-date-bottom,
-.x-date-picker .x-date-mp table td.x-date-mp-sep,
-.x-date-picker .x-date-mp table tr.x-date-mp-btns td,
-#zarafa-navigationpanel .x-date-picker .x-date-inner th:first-child {
-	border-color: #dddfe6;
+/* Navigation panel, header */
+#zarafa-navigationpanel .x-panel-header {
+	background-color: #0d1a26 !important;
+}
+#zarafa-navigationpanel .x-panel-header-text {
+	color: #f0f0f0 !important;
 }
 
-/* Tab strip */
-ul.x-tab-strip li,
-ul.x-tab-strip li.x-tab-strip-active,
-/* Tiny MCE */
-.mce-panel {
-	border-color: #dddfe6 !important;
+/* Navigation panel, toolbar */
+#zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
+	background-color: #0d1a26;
+	color: #f0f0f0;
 }
 
-/* Date picker */
-.x-date-picker .x-date-inner td.x-date-weeknumber {
-	border-right-color: #dddfe6;
+/* Navigation panel, tree */
+#zarafa-navigationpanel .zarafa-hierarchy-treepanel {
+	background-color: #0d1a26;
 }
-
-/* Buttons */
-.x-btn .x-btn-small,
-.x-btn .x-btn-medium,
-.x-btn .x-btn-large,
-/* Panels general */
-.x-panel .x-panel-header,
-/* Menus */
-.x-menu .x-menu-scroller.x-menu-item-active:active,
-.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active:active a,
-.x-menu .x-menu-list li.x-menu-sep-li .x-menu-sep,
-/* Tab strip */
-ul.x-tab-strip li .x-tab-right,
-/* Scheduling panel */
-.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-day td,
-/* Date picker */
-.x-date-picker .x-date-mp table tr.x-date-mp-btns td button {
-  background-color: #dddfe6;
-}
-/* Buttons */
-.x-btn.x-btn-over.x-btn-click .x-btn-small,
-.x-btn.x-btn-over.x-btn-click .x-btn-medium,
-.x-btn.x-btn-over.x-btn-click .x-btn-large,
-.x-btn.x-btn-click .x-btn-small,
-.x-btn.x-btn-click .x-btn-medium,
-.x-btn.x-btn-click .x-btn-large {
-  background-color: #dddfe6 !important;
-}
-/* Fade block in titlebar of dialog header */
-.x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade,
-.x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .fade {
-  background: linear-gradient(to right, rgba(221, 223, 230, 0) 0%, #dddfe6 50%, #dddfe6 100%);
-}
-
 /*
- * Contact filter
- */
-.contact-characterstrip .x-btn-pressed .x-btn-small {
-  background-color: #b9dcf5;
+#zarafa-navigationpanel .x-tree-node a span:not(.zarafa-hierarchy-node-counter) {
+	color: #f0f0f0 !important;
+}
+*/
+#zarafa-navigationpanel .zarafa-hierarchy-node-counter {
+	color: #ffd700 !important;
 }
 
-.k-selection {
-    background-color: #b9dcf5 !important;
+/* Navigation panel, line between tree and toolbar/bottombar */
+#zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar,
+#zarafa-navigationpanel .zarafa-hierarchy-treepanel-bottombar {
+	border-color: #004080 !important;
 }
 
-/*****************************
- * Unread items border styling
- *****************************/
 
-/* Unread items */
-.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table,
-.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
-        border-left: 4px solid #2b90d9 !important;
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Main panel
+----------------------------------------------------------------------------------------------------------------------*/
+/* Main panel, empty */
+#zarafa-mainpanel .zarafa-note-iconview,
+#zarafa-mainpanel .x-border-panel,
+#zarafa-mainpanel .x-panel-body,
+#zarafa-mainpanel .x-grid3,
+#zarafa-mainpanel .x-grid3-body,
+#zarafa-mainpanel .x-grid3-scroller {
+	background-color: #0d1a26 !important;
+}
+#zarafa-mainpanel .emptytext {
+	color: #808080;
 }
 
-/* Selected mail item */
-.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
-        border-left: 4px solid #b9dcf5 !important;
+/* Main panel, border */
+/* This is set for the individual pages (e-mail, calendar, note etc.) */
+/* On e-mail, there is a border around the item list and the preview */
+/*#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,*/
+#zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel,
+#zarafa-mainpanel .k-appointmentcreatetab .k-datetime-panel table tr:nth-child(2),		/* It is crap that I have to set this */
+#zarafa-mainpanel .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2),			/* It is crap that I have to set this */
+#zarafa-mainpanel .x-panel .filler,														/* It is crap that I have to set this */
+#zarafa-mainpanel .x-panel,
+#zarafa-mainpanel .x-tab-strip.x-tab-strip-top,											/* Line below small tabs */
+#zarafa-mainpanel-contentpanel-today,
+#zarafa-mainpanel-contentpanel-mail .x-border-panel,
+#zarafa-mainpanel-contentpanel-calendar,
+#zarafa-mainpanel-contentpanel-contacts,
+#zarafa-mainpanel-contentpanel-tasks,
+#zarafa-mainpanel-contentpanel-notes,
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel,
+#zarafa-mainpanel-contentpanel-settings {
+	width: unset !important;									/* Prevents the right border from showing */
+	border-color: #004080 !important;
 }
 
-/* Hover selected item */
-.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table,
-.theme-dark.k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
-        border-left: 4px solid #b9dcf5 !important;
+/* Main panel, toolbar */
+#zarafa-mainpanel .zarafa-main-header.x-panel-header,			/* On the today page */
+#zarafa-mainpanel .x-toolbar {
+	background-color: #0d1a26 !important;
+	color: #f0f0f0 !important;
 }
 
+/* Main panel, toolbar */
+/* This also "hides" the resize lines */
+#zarafa-mainpanel .x-toolbar,
+#zarafa-mainpanel .x-grid3-cell {
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
+	border-bottom-color: #004080 !important;
+}
+
+/* Main panel, header */
+#zarafa-mainpanel .x-grid3-hd-row td,
+#zarafa-mainpanel .x-grid3-header {
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
+	border-bottom-color: #004080 !important;
+	background-color: #0d1a26 !important;
+}
+
+/* Main panel, bottom status slider ("7 items loaded" etc.) */
+.zarafa-notifier-eventdropdown-item,
+.zarafa-notifier-popup-item,
+.zarafa-notifier-dropdown-item,
+.ext-el-mask,
+#zarafa-mainpanel .k-slider {
+	border-color: #3b5264;
+	background-color: #3b5264;
+	color: #f0f0f0;
+}
+
+/* Main panel, space between message list and message preview */
+/* Actually it is the background colour of the entire panel (on top of ".x-panel-body"), but that is hidden by the list and the preview */
+#zarafa-mainpanel .x-panel {
+	background-color: #000d1a !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Main panel, tabs
+----------------------------------------------------------------------------------------------------------------------*/
+/* Main panel, tab panel background colour */
+#zarafa-mainpanel .x-tab-strip.x-tab-strip-top {
+	background-color: #000d1a !important;
+}
+
+/* Main panel, tab panel bottom border colour */
+#zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000d1a;
+}
+
+/* Main panel, normal tab */
+#zarafa-mainpanel .x-tab-strip .x-tab-right {
+	background-color: #132639 !important;
+}
+#zarafa-mainpanel .x-tab-strip li {
+	border-left-color: #000d1a !important;
+	border-top-color: #000d1a !important;
+	border-right-color: #000d1a !important;
+}
+#zarafa-mainpanel .x-tab-strip-text {
+	color: #f0f0f0;
+}
+
+/* Main panel, hovered tab */
+#zarafa-mainpanel .x-tab-strip-over .x-tab-right,
+#zarafa-mainpanel .x-tab-strip-active.x-tab-strip-over .x-tab-right {
+	background-color: #204060 !important;
+}
+#zarafa-mainpanel .x-tab-strip-over {
+	border-left-color: #000d1a !important;
+	border-top-color: #000d1a !important;
+	border-right-color: #000d1a !important;
+}
+#zarafa-mainpanel .x-tab-strip-over .x-tab-strip-text,
+#zarafa-mainpanel .x-tab-strip-active.x-tab-strip-over .x-tab-strip-text {
+	color: #f0f0f0;
+}
+
+/* Main panel, selected tab */
+#zarafa-mainpanel .x-tab-strip-active .x-tab-right {
+	background-color: #3b5264 !important;
+}
+#zarafa-mainpanel .x-tab-strip-active {
+	border-left-color: #000d1a !important;
+	border-top-color: #000d1a !important;
+	border-right-color: #000d1a !important;
+}
+#zarafa-mainpanel .x-tab-strip-active .x-tab-strip-text {
+	color: #f0f0f0;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Main panel, search
+----------------------------------------------------------------------------------------------------------------------*/
+/* Main panel, search panel */
+#zarafa-mainpanel .zarafa-search-toolbox {
+	background-color: #1c2030 !important;
+	color: #f0f0f0;
+}
+
+/* Main panel, search panel group text */
+#zarafa-mainpanel .x-fieldset-header-text {
+	color: #808080;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Main panel, content (lists etc.)
+----------------------------------------------------------------------------------------------------------------------*/
+/* Main panel content, group header */
+#zarafa-mainpanel, .x-grid-group-hd {
+	width: auto !important;
+	background-color: #132639 !important;
+}
+#zarafa-mainpanel .x-grid-group-hd div.x-grid-group-title {
+	color: #808080;
+}
+
+/* Main panel content, normal list item */
+#zarafa-mainpanel .x-grid3-row {
+	width: auto !important;
+	border-color: #132639 !important;
+	border-top-color: #004080 !important;
+	border-bottom-color: #004080 !important;
+	background-color: #132639 !important;
+}
+
+/* Main panel content, list item border (disable because default is left side only) */
+#zarafa-mainpanel .x-grid3-row table {
+	border-width: 0px !important;
+	border-color: inherit !important;
+}
+
+/* Main panel content, list items first line text colour */
+#zarafa-mainpanel .x-grid3-cell-inner {
+	color: #f0f0f0 !important;
+}
+
+/* Main panel content, list items second line text colour */
+#zarafa-mainpanel .grid_compact_subject_cell {
+	color: #f0f0f0 !important;
+}
+
+/* Main panel content, hovered list item */
+#zarafa-mainpanel .x-grid3-row.x-grid3-row-over,
+#zarafa-mainpanel .x-grid3-row.x-grid3-row-selected.x-grid3-row-over {
+	width: auto !important;
+	border-color: #204060 !important;
+	border-top-color: #004080 !important;
+	border-bottom-color: #004080 !important;
+	background-color: #204060 !important;
+}
+
+/* Main panel content, selected list */
+#zarafa-mainpanel .x-grid3-row.x-grid3-row-selected {
+	width: auto !important;
+	border-color: #3b5264;
+	border-top-color: #004080;
+	border-bottom-color: #004080;
+	background-color: #3b5264 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Main panel, message preview
+----------------------------------------------------------------------------------------------------------------------*/
+/* Darken the MCE editor */
+.mce-tinymce.mce-container.mce-panel {
+	filter: brightness(50%);
+}
+.mce-container.mce-panel.mce-floatpanel {
+	filter: brightness(70%);
+}
+
+/* Main panel, preview */
+#zarafa-mainpanel .x-panel.preview-header {
+	border-bottom-color: #004080 !important;
+	background-color: #29374b !important;
+}
+
+/* Main panel, preview content (iframe) */
+/* This colour is choosen because it is fairly dark, and can show white and black text */
+/* This colour is used when the message don't contain any HTML colouring */
+.mce-tinymce iframe,																				/* Mail editor */
+#zarafa-mainpanel .preview-iframe {
+	background-color: #808080 !important;
+}
+
+/* Main panel, preview extra information */
+/* Information like "click to download images" etc. */
+#zarafa-mainpanel .preview-header-extrainfobox,
+#zarafa-mainpanel .preview-header-extrainfobox-item {
+	background-color: #664d00 !important;
+	color: #f0f0f0;
+}
+
+/* Main panel, preview normal subject */
+#zarafa-mainpanel .preview-header-titlebox {
+	color: #f0f0f0;
+}
+
+/* Main panel, preview normal sender */
+#zarafa-mainpanel .preview-from,
+#zarafa-mainpanel .zarafa-sentinfo-link {
+	color: #f0f0f0;
+}
+
+/* Main panel, preview hovering sender */
+#zarafa-mainpanel .preview-from:hover,
+#zarafa-mainpanel .zarafa-sentinfo-link:hover {
+	color: #ffd700;
+}
+
+/* Main panel, preview normal timestamp label */
+#zarafa-mainpanel .preview-timestamp-title {
+	color: #808080;
+}
+
+/* Main panel, preview normal timestamp */
+#zarafa-mainpanel .preview-timestamp {
+	color: #f0f0f0;
+}
+
+/* Main panel, preview normal recipient label */
+#zarafa-mainpanel .preview-recipient-title {
+	color: #808080;
+}
+
+/* Main panel, preview normal recipient */
+#zarafa-mainpanel .preview-recipient-data,
+#zarafa-mainpanel .zarafa-recipient-link {
+	color: #f0f0f0;
+}
+
+/* Main panel, preview hovering recipient */
+#zarafa-mainpanel .preview-recipient-data:hover,
+#zarafa-mainpanel .zarafa-recipient-link-over {
+	color: #ffd700;
+}
+
+/* Main panel, preview normal attachment label */
+#zarafa-mainpanel .preview-attachment-title {
+	color: #808080;
+}
+
+/* Main panel, preview attachment area  background */
+#zarafa-mainpanel .preview-attachment-data {
+	background-color: #1c2030;
+}
+
+/* Main panel, preview normal attachment */
+#zarafa-mainpanel .zarafa-attachment-link {
+	box-shadow: 0 0 0 transparent;
+	border-color: transparent;
+	background-color: #1c2030;
+	color: #f0f0f0;
+}
+
+/* Main panel, preview hovered attachment */
+#zarafa-mainpanel .zarafa-attachment-link:hover,
+#zarafa-mainpanel .zarafa-attachment-link-over {
+	background-color: #1c2030;
+	color: #ffd700;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Message editor
+----------------------------------------------------------------------------------------------------------------------*/
+/* Normal recipient item in address field */
+.x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item {
+	border-color: #3b5264 !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0;
+}
+
+/* Hovered recipient item in address field */
+.x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-hover {
+	border-color: #004080 !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Calendar tabs
+----------------------------------------------------------------------------------------------------------------------*/
+/* Calendar tab panel, background colour */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea {
+	background-color: #0d1a26 !important;
+}
+
+/* Calendar tab panel, normal calendar indicator (above the calendar tab) */
+/* This indicator is hidden */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab,
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke {
+	border-top-color: transparent !important;
+	background-color: #0d1a26 !important;
+}
+
+/* Calendar tab panel, selected calendar indicator (above the calendar tab) */
+/* This indicator is hidden */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab-selected,
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke-selected {
+	border-top-color: transparent !important;
+	background-color: #0d1a26 !important;
+}
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-title {
+	color: inherit !important;
+}
+
+/* Calendar tab panel, normal tab */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab {
+	border-top-color: transparent !important;
+	background-color: #132639 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Calendar tab panel, hovered tab */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab:hover,
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected.zarafa-calendar-tab-selected:hover {
+	border-top-color: transparent !important;
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Calendar tab panel selected tab */
+/* Because the indicator is set with ".zarafa-calendar-tabarea-stroke-selected", the ".zarafa-with-close-icon" class is required here */
+#zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected {
+	border-top-color: transparent !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Calendar date picker
+----------------------------------------------------------------------------------------------------------------------*/
+/* Date picker background colour and top/bottom border (line) */
+.x-date-picker,
+.x-date-picker .x-date-left,
+.x-date-picker .x-date-middle,
+.x-date-picker .x-date-right {
+	background-color: #132639 !important;
+}
+.x-date-picker {
+	border-bottom-color: #004080;
+}
+.x-date-picker .x-date-bottom {
+	border-top-color: #004080;
+}
+
+/* Week days */
+.x-date-picker .x-date-inner th {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Week numbers */
+.x-date-picker .x-date-weeknumber {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td.x-date-weeknumber a {
+	color: #ff0000 !important;
+}
+
+/* Normal days from previous month */
+.x-date-picker .x-date-prevday {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td.x-date-prevday .x-date-date {
+	color: #808080 !important;
+}
+
+/* Normal days from this month */
+.x-date-picker .x-date-active {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber) a {
+	color: #f0f0f0 !important;
+}
+
+/* Normal days from next month */
+.x-date-picker .x-date-inner td.x-date-nextday {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td.x-date-nextday .x-date-date {
+	color: #808080 !important;
+}
+
+/* Disabled days */
+.x-date-picker .x-date-disabled a {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td.x-date-disabled .x-date-date {
+	color: #ff0000 !important;
+}
+.x-date-picker .x-date-inner td {
+	border-color: transparent !important;
+}
+
+/* Hovered day */
+.x-date-picker .x-date-inner td.x-date-prevday a:hover,
+.x-date-picker .x-date-inner td.x-date-active a:hover,
+.x-date-picker .x-date-inner td.x-date-nextday a:hover,
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
+	border-color: transparent !important;
+	background-color: #204060 !important;
+}
+.x-date-picker .x-date-inner .x-date-prevday:hover .x-date-date,
+.x-date-picker .x-date-inner td:not(.x-date-weeknumber):not(.x-date-disabled) a:hover,
+.x-date-picker .x-date-inner .x-date-nextday:hover .x-date-date,
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover.x-date-date {
+	color: #f0f0f0 !important;
+}
+
+/* Selected day */
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a {
+	border-color: transparent !important;
+	background-color: #3b5264 !important;
+}
+.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) .x-date-date {
+	color: #f0f0f0 !important;
+}
+
+/* Normal today */
+.x-date-picker .x-date-inner td.x-date-today a {
+	border-color: transparent !important;
+	background-color: #132639 !important;
+}
+.x-date-picker .x-date-inner td.x-date-today .x-date-date {
+	color: #ffd700 !important;
+}
+
+/* Hovered today */
+.x-date-picker .x-date-inner td.x-date-today a:hover {
+	border-color: transparent !important;
+	background-color: #204060 !important;
+}
+.x-date-picker .x-date-inner td.x-date-today a:hover.x-date-date {
+	color: #ffd700 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Calendar month and year picker
+----------------------------------------------------------------------------------------------------------------------*/
+/* Calendar dropdown from button (fix border colour) */
+/* This background colour forms a border around the month and year picker */
+.x-menu.x-date-menu.x-menu-plain {
+	background-color: #132639 !important;
+}
+
+/* Month and year picker - bottom panel */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td {
+	border-top-color: #004080;
+	border-bottom-color: #004080;
+}
+
+/* Month and year picker */
+.x-date-picker .x-date-mp-ybtn a.x-date-mp-prev,
+.x-date-picker .x-date-mp-ybtn a.x-date-mp-next,
+.x-date-picker .x-date-mp {
+	background-color: #1c2030 !important;
+	color: #f0f0f0;
+}
+
+/* Month and year picker - normal month */
+.x-date-picker .x-date-mp table td.x-date-mp-month a {
+	background-color: #1c2030 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Month and year picker - hovered month */
+.x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sel a:hover,
+.x-date-picker .x-date-mp table td.x-date-mp-month a:hover {
+	border-color: #204060 !important;
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Month and year picker - selected month */
+.x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sel a,
+.x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sel a {
+	border-color: #3b5264 !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Month and year picker - month with border to year */
+.x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sep {
+	border-right-color: #004080 !important;
+}
+
+/* Month and year picker - normal year */
+.x-date-picker table td.x-date-mp-year a {
+	background-color: #1c2030 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Month and year picker - hovered year */
+.x-date-picker .x-date-mp table td.x-date-mp-year.x-date-mp-sel a:hover,
+.x-date-picker .x-date-mp table td.x-date-mp-year a:hover {
+	border-color: #204060 !important;
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Month and year picker - selected year */
+.x-date-picker .x-date-mp table td.x-date-mp-year.x-date-mp-sel a {
+	border-color: #3b5264 !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Calendar content
+----------------------------------------------------------------------------------------------------------------------*/
+/* Calendar drag selection (selecting an new appointment) */
+.zarafa-calendar-selection-dragging {
+	background-color : #1c2030 !important;
+	color: #808080;
+}
+
+/* Calendar month view, content */
+.k-day-0.k-week-0, .k-day-1.k-week-0, .k-day-2.k-week-0, .k-day-3.k-week-0, .k-day-4.k-week-0, .k-day-5.k-week-0, .k-day-6.k-week-0,
+.k-day-0.k-week-1, .k-day-1.k-week-1, .k-day-2.k-week-1, .k-day-3.k-week-1, .k-day-4.k-week-1, .k-day-5.k-week-1, .k-day-6.k-week-1,
+.k-day-0.k-week-2, .k-day-1.k-week-2, .k-day-2.k-week-2, .k-day-3.k-week-2, .k-day-4.k-week-2, .k-day-5.k-week-2, .k-day-6.k-week-2,
+.k-day-0.k-week-3, .k-day-1.k-week-3, .k-day-2.k-week-3, .k-day-3.k-week-3, .k-day-4.k-week-3, .k-day-5.k-week-3, .k-day-6.k-week-3,
+.k-day-0.k-week-4, .k-day-1.k-week-4, .k-day-2.k-week-4, .k-day-3.k-week-4, .k-day-4.k-week-4, .k-day-5.k-week-4, .k-day-6.k-week-4,
+.k-day-0.k-week-5, .k-day-1.k-week-5, .k-day-2.k-week-5, .k-day-3.k-week-5, .k-day-4.k-week-5, .k-day-5.k-week-5, .k-day-6.k-week-5 {
+	background-color: #1c2030 !important;
+}
+.k-header {
+	background-color: #132639 !important;
+	color: #f0f0f0;
+}
+
+/* Calendar day/week view, content */
+.k-day-0.k-line-0, .k-day-0.k-line-1, .k-day-0.k-line-2, .k-day-0.k-line-3, .k-day-0.k-line-4, .k-day-0.k-line-5,
+.k-day-0.k-line-6, .k-day-0.k-line-7, .k-day-0.k-line-8, .k-day-0.k-line-9, .k-day-0.k-line-10, .k-day-0.k-line-11,
+.k-day-0.k-line-12, .k-day-0.k-line-13, .k-day-0.k-line-14, .k-day-0.k-line-15, .k-day-0.k-line-16, .k-day-0.k-line-17,
+.k-day-0.k-line-18, .k-day-0.k-line-19, .k-day-0.k-line-20, .k-day-0.k-line-21, .k-day-0.k-line-22, .k-day-0.k-line-23,
+.k-day-0.k-line-24, .k-day-0.k-line-25, .k-day-0.k-line-26, .k-day-0.k-line-27, .k-day-0.k-line-28, .k-day-0.k-line-29,
+.k-day-0.k-line-30, .k-day-0.k-line-31, .k-day-0.k-line-32, .k-day-0.k-line-33, .k-day-0.k-line-34, .k-day-0.k-line-35,
+.k-day-0.k-line-36, .k-day-0.k-line-37, .k-day-0.k-line-38, .k-day-0.k-line-39, .k-day-0.k-line-40, .k-day-0.k-line-41,
+.k-day-0.k-line-42, .k-day-0.k-line-43, .k-day-0.k-line-44, .k-day-0.k-line-45, .k-day-0.k-line-46, .k-day-0.k-line-47,
+.k-day-0.k-line-48, .k-day-0.k-line-49, .k-day-0.k-line-50, .k-day-0.k-line-51, .k-day-0.k-line-52, .k-day-0.k-line-53,
+.k-day-0.k-line-54, .k-day-0.k-line-55, .k-day-0.k-line-56, .k-day-0.k-line-57, .k-day-0.k-line-58, .k-day-0.k-line-59,
+
+.k-day-1.k-line-0, .k-day-1.k-line-1, .k-day-1.k-line-2, .k-day-1.k-line-3, .k-day-1.k-line-4, .k-day-1.k-line-5,
+.k-day-1.k-line-6, .k-day-1.k-line-7, .k-day-1.k-line-8, .k-day-1.k-line-9, .k-day-1.k-line-10, .k-day-1.k-line-11,
+.k-day-1.k-line-12, .k-day-1.k-line-13, .k-day-1.k-line-14, .k-day-1.k-line-15, .k-day-1.k-line-16, .k-day-1.k-line-17,
+.k-day-1.k-line-18, .k-day-1.k-line-19, .k-day-1.k-line-20, .k-day-1.k-line-21, .k-day-1.k-line-22, .k-day-1.k-line-23,
+.k-day-1.k-line-24, .k-day-1.k-line-25, .k-day-1.k-line-26, .k-day-1.k-line-27, .k-day-1.k-line-28, .k-day-1.k-line-29,
+.k-day-1.k-line-30, .k-day-1.k-line-31, .k-day-1.k-line-32, .k-day-1.k-line-33, .k-day-1.k-line-34, .k-day-1.k-line-35,
+.k-day-1.k-line-36, .k-day-1.k-line-37, .k-day-1.k-line-38, .k-day-1.k-line-39, .k-day-1.k-line-40, .k-day-1.k-line-41,
+.k-day-1.k-line-42, .k-day-1.k-line-43, .k-day-1.k-line-44, .k-day-1.k-line-45, .k-day-1.k-line-46, .k-day-1.k-line-47,
+.k-day-1.k-line-48, .k-day-1.k-line-49, .k-day-1.k-line-50, .k-day-1.k-line-51, .k-day-1.k-line-52, .k-day-1.k-line-53,
+.k-day-1.k-line-54, .k-day-1.k-line-55, .k-day-1.k-line-56, .k-day-1.k-line-57, .k-day-1.k-line-58, .k-day-1.k-line-59,
+
+.k-day-2.k-line-0, .k-day-2.k-line-1, .k-day-2.k-line-2, .k-day-2.k-line-3, .k-day-2.k-line-4, .k-day-2.k-line-5,
+.k-day-2.k-line-6, .k-day-2.k-line-7, .k-day-2.k-line-8, .k-day-2.k-line-9, .k-day-2.k-line-10, .k-day-2.k-line-11,
+.k-day-2.k-line-12, .k-day-2.k-line-13, .k-day-2.k-line-14, .k-day-2.k-line-15, .k-day-2.k-line-16, .k-day-2.k-line-17,
+.k-day-2.k-line-18, .k-day-2.k-line-19, .k-day-2.k-line-20, .k-day-2.k-line-21, .k-day-2.k-line-22, .k-day-2.k-line-23,
+.k-day-2.k-line-24, .k-day-2.k-line-25, .k-day-2.k-line-26, .k-day-2.k-line-27, .k-day-2.k-line-28, .k-day-2.k-line-29,
+.k-day-2.k-line-30, .k-day-2.k-line-31, .k-day-2.k-line-32, .k-day-2.k-line-33, .k-day-2.k-line-34, .k-day-2.k-line-35,
+.k-day-2.k-line-36, .k-day-2.k-line-37, .k-day-2.k-line-38, .k-day-2.k-line-39, .k-day-2.k-line-40, .k-day-2.k-line-41,
+.k-day-2.k-line-42, .k-day-2.k-line-43, .k-day-2.k-line-44, .k-day-2.k-line-45, .k-day-2.k-line-46, .k-day-2.k-line-47,
+.k-day-2.k-line-48, .k-day-2.k-line-49, .k-day-2.k-line-50, .k-day-2.k-line-51, .k-day-2.k-line-52, .k-day-2.k-line-53,
+.k-day-2.k-line-54, .k-day-2.k-line-55, .k-day-2.k-line-56, .k-day-2.k-line-57, .k-day-2.k-line-58, .k-day-2.k-line-59,
+
+.k-day-3.k-line-0, .k-day-3.k-line-1, .k-day-3.k-line-2, .k-day-3.k-line-3, .k-day-3.k-line-4, .k-day-3.k-line-5,
+.k-day-3.k-line-6, .k-day-3.k-line-7, .k-day-3.k-line-8, .k-day-3.k-line-9, .k-day-3.k-line-10, .k-day-3.k-line-11,
+.k-day-3.k-line-12, .k-day-3.k-line-13, .k-day-3.k-line-14, .k-day-3.k-line-15, .k-day-3.k-line-16, .k-day-3.k-line-17,
+.k-day-3.k-line-18, .k-day-3.k-line-19, .k-day-3.k-line-20, .k-day-3.k-line-21, .k-day-3.k-line-22, .k-day-3.k-line-23,
+.k-day-3.k-line-24, .k-day-3.k-line-25, .k-day-3.k-line-26, .k-day-3.k-line-27, .k-day-3.k-line-28, .k-day-3.k-line-29,
+.k-day-3.k-line-30, .k-day-3.k-line-31, .k-day-3.k-line-32, .k-day-3.k-line-33, .k-day-3.k-line-34, .k-day-3.k-line-35,
+.k-day-3.k-line-36, .k-day-3.k-line-37, .k-day-3.k-line-38, .k-day-3.k-line-39, .k-day-3.k-line-40, .k-day-3.k-line-41,
+.k-day-3.k-line-42, .k-day-3.k-line-43, .k-day-3.k-line-44, .k-day-3.k-line-45, .k-day-3.k-line-46, .k-day-3.k-line-47,
+.k-day-3.k-line-48, .k-day-3.k-line-49, .k-day-3.k-line-50, .k-day-3.k-line-51, .k-day-3.k-line-52, .k-day-3.k-line-53,
+.k-day-3.k-line-54, .k-day-3.k-line-55, .k-day-3.k-line-56, .k-day-3.k-line-57, .k-day-3.k-line-58, .k-day-3.k-line-59,
+
+.k-day-4.k-line-0, .k-day-4.k-line-1, .k-day-4.k-line-2, .k-day-4.k-line-3, .k-day-4.k-line-4, .k-day-4.k-line-5,
+.k-day-4.k-line-6, .k-day-4.k-line-7, .k-day-4.k-line-8, .k-day-4.k-line-9, .k-day-4.k-line-10, .k-day-4.k-line-11,
+.k-day-4.k-line-12, .k-day-4.k-line-13, .k-day-4.k-line-14, .k-day-4.k-line-15, .k-day-4.k-line-16, .k-day-4.k-line-17,
+.k-day-4.k-line-18, .k-day-4.k-line-19, .k-day-4.k-line-20, .k-day-4.k-line-21, .k-day-4.k-line-22, .k-day-4.k-line-23,
+.k-day-4.k-line-24, .k-day-4.k-line-25, .k-day-4.k-line-26, .k-day-4.k-line-27, .k-day-4.k-line-28, .k-day-4.k-line-29,
+.k-day-4.k-line-30, .k-day-4.k-line-31, .k-day-4.k-line-32, .k-day-4.k-line-33, .k-day-4.k-line-34, .k-day-4.k-line-35,
+.k-day-4.k-line-36, .k-day-4.k-line-37, .k-day-4.k-line-38, .k-day-4.k-line-39, .k-day-4.k-line-40, .k-day-4.k-line-41,
+.k-day-4.k-line-42, .k-day-4.k-line-43, .k-day-4.k-line-44, .k-day-4.k-line-45, .k-day-4.k-line-46, .k-day-4.k-line-47,
+.k-day-4.k-line-48, .k-day-4.k-line-49, .k-day-4.k-line-50, .k-day-4.k-line-51, .k-day-4.k-line-52, .k-day-4.k-line-53,
+.k-day-4.k-line-54, .k-day-4.k-line-55, .k-day-4.k-line-56, .k-day-4.k-line-57, .k-day-4.k-line-58, .k-day-4.k-line-59,
+
+.k-day-5.k-line-0, .k-day-5.k-line-1, .k-day-5.k-line-2, .k-day-5.k-line-3, .k-day-5.k-line-4, .k-day-5.k-line-5,
+.k-day-5.k-line-6, .k-day-5.k-line-7, .k-day-5.k-line-8, .k-day-5.k-line-9, .k-day-5.k-line-10, .k-day-5.k-line-11,
+.k-day-5.k-line-12, .k-day-5.k-line-13, .k-day-5.k-line-14, .k-day-5.k-line-15, .k-day-5.k-line-16, .k-day-5.k-line-17,
+.k-day-5.k-line-18, .k-day-5.k-line-19, .k-day-5.k-line-20, .k-day-5.k-line-21, .k-day-5.k-line-22, .k-day-5.k-line-23,
+.k-day-5.k-line-24, .k-day-5.k-line-25, .k-day-5.k-line-26, .k-day-5.k-line-27, .k-day-5.k-line-28, .k-day-5.k-line-29,
+.k-day-5.k-line-30, .k-day-5.k-line-31, .k-day-5.k-line-32, .k-day-5.k-line-33, .k-day-5.k-line-34, .k-day-5.k-line-35,
+.k-day-5.k-line-36, .k-day-5.k-line-37, .k-day-5.k-line-38, .k-day-5.k-line-39, .k-day-5.k-line-40, .k-day-5.k-line-41,
+.k-day-5.k-line-42, .k-day-5.k-line-43, .k-day-5.k-line-44, .k-day-5.k-line-45, .k-day-5.k-line-46, .k-day-5.k-line-47,
+.k-day-5.k-line-48, .k-day-5.k-line-49, .k-day-5.k-line-50, .k-day-5.k-line-51, .k-day-5.k-line-52, .k-day-5.k-line-53,
+.k-day-5.k-line-54, .k-day-5.k-line-55, .k-day-5.k-line-56, .k-day-5.k-line-57, .k-day-5.k-line-58, .k-day-5.k-line-59,
+
+.k-day-6.k-line-0, .k-day-6.k-line-1, .k-day-6.k-line-2, .k-day-6.k-line-3, .k-day-6.k-line-4, .k-day-6.k-line-5,
+.k-day-6.k-line-6, .k-day-6.k-line-7, .k-day-6.k-line-8, .k-day-6.k-line-9, .k-day-6.k-line-10, .k-day-6.k-line-11,
+.k-day-6.k-line-12, .k-day-6.k-line-13, .k-day-6.k-line-14, .k-day-6.k-line-15, .k-day-6.k-line-16, .k-day-6.k-line-17,
+.k-day-6.k-line-18, .k-day-6.k-line-19, .k-day-6.k-line-20, .k-day-6.k-line-21, .k-day-6.k-line-22, .k-day-6.k-line-23,
+.k-day-6.k-line-24, .k-day-6.k-line-25, .k-day-6.k-line-26, .k-day-6.k-line-27, .k-day-6.k-line-28, .k-day-6.k-line-29,
+.k-day-6.k-line-30, .k-day-6.k-line-31, .k-day-6.k-line-32, .k-day-6.k-line-33, .k-day-6.k-line-34, .k-day-6.k-line-35,
+.k-day-6.k-line-36, .k-day-6.k-line-37, .k-day-6.k-line-38, .k-day-6.k-line-39, .k-day-6.k-line-40, .k-day-6.k-line-41,
+.k-day-6.k-line-42, .k-day-6.k-line-43, .k-day-6.k-line-44, .k-day-6.k-line-45, .k-day-6.k-line-46, .k-day-6.k-line-47,
+.k-day-6.k-line-48, .k-day-6.k-line-49, .k-day-6.k-line-50, .k-day-6.k-line-51, .k-day-6.k-line-52, .k-day-6.k-line-53,
+.k-day-6.k-line-54, .k-day-6.k-line-55, .k-day-6.k-line-56, .k-day-6.k-line-57, .k-day-6.k-line-58, .k-day-6.k-line-59 {
+	border-color: #004080 !important;
+	background-color: #1c2030 !important;
+}
+
+/* Calendar day/week view, time */
+.zarafa-calendar-timestrip-line {
+	background-color: #f0f0f0 !important;
+}
+.zarafa-calendar-timestrip-element div {
+	color: #f0f0f0;
+}
+
+/* Calendar day/week view, current time line */
+/* This should be red, because it has a red clock from svg image */
+.k-calendar-timestrip-indicator-line {
+	background-color: #ffd700;
+}
+
+/* Calendar current day */
+.zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,					/* 7 view */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {		/* 31 view */
+	background-color: #3b5264 !important;
+}
+.zarafa-calendar-container-header .k-html-header-background .k-active-border,								/* 7 view */
+.zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {			/* 31 view */
+    border-color: #3b5264 !important;
+}
+
+/* Calendar border */
+/* Disable this extra border around the calender(s) */
+.zarafa-calendar.zarafa-calendar-border.zarafa-calendar-border-left,
+.zarafa-calendar.zarafa-calendar-border.zarafa-calendar-border-right {
+	border-color: transparent !important;
+}
+
+/* Calendar appointment */
+.k-appointment-box {
+	border-color: #808080 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Calendar editor extra information */
+.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div {
+	background-color: #664d00 !important;
+	color: #f0f0f0;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Calendar, free/busy panel
+----------------------------------------------------------------------------------------------------------------------*/
+/* Normal date header */
+.zarafa-freebusy-panel .x-freebusy-timeline-day {
+	background-color: #132639 !important;
+	color: #f0f0f0;
+}
+/* Normal date border (same colour as the header) */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-day td,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td {
+	border-color: #132639;
+	background-color: unset;
+}
+
+/* Today date header */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
+.zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+	background-color: #3b5264 !important;
+	color: #f0f0f0;
+}
+
+/* Today date border (same colour as the header) */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+	border-color: #3b5264;
+	background-color: unset;
+}
+
+/* Time header */
+.zarafa-freebusy-panel .x-freebusy-timeline-hour {
+	background-color: #1c2030 !important;
+	color: #f0f0f0;
+}
+
+/* Body */
+.zarafa-freebusy-panel .x-freebusy-timeline-day-sum {
+	background-color: #1c2030 !important;
+}
+
+/* Day devider colour */
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header,
+.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body {
+	border-color: transparent;
+	background-color: transparent;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Contacts
+----------------------------------------------------------------------------------------------------------------------*/
+/* Category in list (contact cagegory) */
+.k-category-block.zarafa-dark {
+	background-color: #132639 !important;
+	color: #f0f0f0;
+}
+
+/* Normal contact card */
+/* This background colour forms a border around the card */
+div.zarafa-contact-cardview-card {
+	border-color: transparent;
+	background-color: transparent !important;
+}
+
+/* Normal contact card header */
+#contact-cardview .x-panel-header {
+	background-color: #29374b !important;
+}
+#contact-cardview .x-panel-header-text {
+	color: #f0f0f0 !important;
+}
+
+/* Normal contact card body */
+#contact-cardview .x-panel-body {
+	background-color: #132639 !important;
+}
+#contact-cardview .zarafa-card-body {
+	color: #f0f0f0 !important;
+}
+#contact-cardview .contact-card-label {
+	color: #808080 !important;
+}
+
+/* Hovered contact card */
+/* This background colour forms a border around the card */
+div.zarafa-contact-cardview-selected:hover,
+div.zarafa-contact-cardview-card:hover {
+	border-color: transparent;
+	background-color: #0d1a26 !important;
+}
+
+/* Hovered contact card header */
+#contact-cardview .zarafa-contact-cardview-selected:hover .x-panel-header,
+#contact-cardview .zarafa-contact-cardview-card:hover .x-panel-header {
+	background-color: #204060 !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected:hover .x-panel-header-text,
+#contact-cardview .zarafa-contact-cardview-card:hover .x-panel-header-text {
+	color: #f0f0f0 !important;
+}
+
+/* Hovered contact card body */
+#contact-cardview .zarafa-contact-cardview-selected:hover .x-panel-body,
+#contact-cardview .zarafa-contact-cardview-card:hover .x-panel-body {
+	background-color: #204060 !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected:hover .zarafa-card-body,
+#contact-cardview .zarafa-contact-cardview-card:hover .zarafa-card-body {
+	color: #f0f0f0 !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected:hover .contact-card-label,
+#contact-cardview .zarafa-contact-cardview-card:hover .contact-card-label {
+	color: #808080 !important;
+}
+
+/* Selected contact card */
+/* This background colour forms a border around the card */
+div.zarafa-contact-cardview-selected {
+	border-color: transparent;
+	background-color: #0d1a26 !important;
+}
+
+/* Selected contact card header */
+#contact-cardview .zarafa-contact-cardview-selected .x-panel-header {
+	background-color: #29374b !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected .x-panel-header-text {
+	color: #f0f0f0 !important;
+}
+
+/* Selected contact card body */
+#contact-cardview .zarafa-contact-cardview-selected .x-panel-body {
+	background-color: #3b5264 !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected .zarafa-card-body {
+	color: #f0f0f0 !important;
+}
+#contact-cardview .zarafa-contact-cardview-selected .contact-card-label {
+	color: #808080 !important;
+}
+
+/* Contact photo border */
+.zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box_ct {
+	border-color:  #29374b;
+	box-shadow: inset 0px 0px 0px 3px #29374b;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Sticky notes
+----------------------------------------------------------------------------------------------------------------------*/
+/* Normal note icon */
+.zarafa-note-iconview-thumb {
+	border-color: #004080 !important;
+	background-color: #132639 !important;
+	color: #f0f0f0;
+}
+
+/* Hovered note icon */
+.zarafa-note-iconview-over,
+.zarafa-note-iconview-over.zarafa-note-iconview-selected {
+	border-color: #204060 !important;
+	background-color: #204060 !important;
+	color: #f0f0f0;
+}
+
+/* Selected note icon */
+.zarafa-note-iconview-selected {
+	border-color: #3b5264 !important;
+	background-color: #3b5264 !important;
+	color: #f0f0f0;
+}
+
+/* Editor blue note */
+.x-form-textarea.stickynote_dialog_blue,
+.x-form-textarea.stickynote_dialog_blue:hover,
+.x-form-textarea.stickynote_dialog_blue:focus {
+    background-color: #00233b !important;
+	color: #f0f0f0;
+}
+
+/* Editor green note */
+.x-form-textarea.stickynote_dialog_green,
+.x-form-textarea.stickynote_dialog_green:hover,
+.x-form-textarea.stickynote_dialog_green:focus {
+    background-color: #113a00 !important;
+	color: #f0f0f0;
+}
+
+/* Editor pink note */
+.x-form-textarea.stickynote_dialog_pink,
+.x-form-textarea.stickynote_dialog_pink:hover,
+.x-form-textarea.stickynote_dialog_pink:focus {
+    background-color: #684363 !important;
+	color: #f0f0f0;
+}
+
+/* Editor yellow note */
+.x-form-textarea.stickynote_dialog_yellow,
+.x-form-textarea.stickynote_dialog_yellow:hover,
+.x-form-textarea.stickynote_dialog_yellow:focus {
+    background-color: #4e4d00 !important;
+	color: #f0f0f0;
+}
+
+/* Editor white note */
+.x-form-textarea.stickynote_dialog_white,
+.x-form-textarea.stickynote_dialog_white:hover,
+.x-form-textarea.stickynote_dialog_white:focus {
+    background-color: #5c5c5c !important;
+	color: #f0f0f0;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Settings
+----------------------------------------------------------------------------------------------------------------------*/
+/* Ekstra information */
+.zarafa-settings-widget-extrainfo {
+	background-color: #664d00 !important;
+	color: #f0f0f0;
+}
+
+/* Normal about links */
+.zarafa-settings-about-text a,
+.zarafa-settings-about-text a:visited {
+	background-color: #1c2030 !important;
+	color: #f0f0f0;
+}
+
+/* Hovered about links */
+.zarafa-settings-about-text a:hover {
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Keyboard shortcut row */
+.zarafa-settings-keyboard-shortcut-row {
+	border-color: #132639 !important;
+	background-color: #132639 !important;
+}
+.zarafa-settings-keyboard-shortcut-row .x-form-item-label,
+.zarafa-settings-keyboard-shortcut-row .x-form-display-field {
+	color: #f0f0f0 !important;
+}
+
+/* Keyboard shortcut type box */
+.zarafa-settings-keyboard-shortcut-row .keyboard-type {
+	border-color: #132639 !important;
+	background-color: #132639 !important;
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Menus and buttons
+This includes dropdown menus, combobox menus, buttons everywhere below the top toolbar.
+
+NOTE that with the dropdown menu, the selected ".x-menu-item-selected" class is set on the "a" element, and not on the
+same element as the ".x-menu-item-active" class. Because of this, the colours are set on the "a" elements, to awoid
+different lengths of the covered background colour.
+----------------------------------------------------------------------------------------------------------------------*/
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus.x-btn-over.x-btn-click .x-btn-small,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:hover,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:active,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:focus,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:hover,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:active,
+.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:focus,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:hover,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:active,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small:focus,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:hover,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:active,
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small:focus {
+	border-color: transparent !important;
+	background-color: transparent !important;
+}
+
+
+
+/* Separator (note the background colour is used) */
+.k-search-combobox-menu-sep-parent .k-search-combobox-menu-sep,													/* Combolist */
+.x-menu .x-menu-list li.x-menu-sep-li .x-menu-sep {																/* Menu */
+	background-color: #004080 !important;
+}
+
+/* Separator */
+.x-btn .x-btn-large em.x-btn-arrow button,																		/* Button */
+.x-btn .x-btn-large em.x-btn-arrow button,																		/* Button */
+.x-btn .x-btn-large .x-btn-split button.x-btn-text,																/* Button */
+.x-btn .x-btn-medium em.x-btn-arrow button,																		/* Button */
+.x-btn .x-btn-medium .x-btn-split button.x-btn-text,															/* Button */
+.x-btn .x-btn-small em.x-btn-arrow button,																		/* Button */
+.x-btn .x-btn-small .x-btn-split button.x-btn-text {															/* Button */
+	border-right-color: #004080 !important;
+}
+
+/* Dark box */
+.x-combo-list,																									/* Combolist */
+.x-menu.x-menu-floating {																						/* Menu */
+	border-color: #004080 !important;
+}
+.x-combo-list,																									/* Combolist */
+.x-combo-list .x-combo-list-inner,																				/* Combolist */
+.x-menu.x-menu-floating {																						/* Menu */
+	background-color: #1c2030 !important;
+}
+
+/* Light box */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text,									/* Combobox text */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger,								/* Combobox button */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner,																		/* Toolbar button */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn,														/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok,										/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel,									/* Date picker button */
+.x-date-picker .x-date-middle .x-btn-small em,																	/* Date picker combolist */
+.x-btn.zarafa-action .x-btn-large,																				/* Action button */
+.x-btn.zarafa-action .x-btn-medium,																				/* Action button */
+.x-btn.zarafa-action .x-btn-small,																				/* Action button */
+.x-window .k-recipient-hover-card-button .x-btn-small,															/* Button in mail address popup */
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-action):not(.k-recipient-hover-card-button) .x-btn-small,
+.x-btn .x-btn-small button,																						/* Button */
+.x-btn .x-btn-noicon,																							/* Button */
+.x-btn .x-btn-large,																							/* Button */
+.x-btn .x-btn-medium,																							/* Button */
+.x-btn .x-btn-small {																							/* Button */
+	border-color: #004080 !important;
+}
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text,									/* Combobox text */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger,								/* Combobox button */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner,																		/* Toolbar button */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn,														/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok,										/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel,									/* Date picker button */
+.x-date-picker .x-date-middle .x-btn .x-btn-small em,															/* Date picker combolist */
+.x-date-picker .x-date-middle .x-btn .x-btn-small em button,													/* Date picker combolist */
+.x-btn.zarafa-action .x-btn-large,																				/* Action button */
+.x-btn.zarafa-action .x-btn-medium,																				/* Action button */
+.x-btn.zarafa-action .x-btn-small,																				/* Action button */
+.x-window .k-recipient-hover-card-button .x-btn-small,															/* Button in mail address popup */
+.x-btn .x-btn-small button,																						/* Button */
+.x-btn .x-btn-noicon,																							/* Button */
+.x-btn .x-btn-large,																							/* Button */
+.x-btn .x-btn-medium,																							/* Button */
+.x-btn .x-btn-small {																							/* Button */
+	background-color: #132639 !important;
+}
+
+/* Normal item */
+.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small button,
+.zarafa-settings-category-tab,																					/* Settings menu */
+.x-combo-list .x-combo-list-item,																				/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item:not(.x-menu-date-item) a {												/* Menu */
+	background-color: #132639 !important;
+}
+.zarafa-settings-category-tab,																					/* Settings menu */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner,																		/* Toolbar button */
+.x-grid3-hd.x-grid3-cell .x-grid3-hd-inner .x-grid3-hd-btn,														/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok,										/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel,									/* Date picker button */
+.x-btn.zarafa-action .x-btn-large .x-btn-text,																	/* Action button */
+.x-btn.zarafa-action .x-btn-medium .x-btn-text,																	/* Action button */
+.x-btn.zarafa-action .x-btn-small .x-btn-text,																	/* Action button */
+.x-window .k-recipient-hover-card-button .x-btn-small,															/* Button in mail address popup */
+.x-btn .x-btn-noicon .x-btn-text,																				/* Button */
+.x-btn .x-btn-large .x-btn-text,																				/* Button */
+.x-btn .x-btn-medium .x-btn-text,																				/* Button */
+.x-btn .x-btn-small .x-btn-text,																				/* Button */
+.x-date-picker .x-date-middle .x-btn .x-btn-small em button,													/* Date picker combolist */
+.x-combo-list .x-combo-list-item,																				/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item .x-menu-item-text {													/* Menu */
+	color: #f0f0f0 !important;
+}
+
+/* Hovered item */
+.zarafa-settings-category-tab.zarafa-settings-category-tab-over,												/* Settings menu */
+.x-form-field-wrap:hover:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text:not(.x-form-focus),			/* Combobox text */
+.x-form-field-wrap:hover:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text.x-trigger-noedit,			/* Combobox text */
+.x-form-field-wrap:hover:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger,							/* Combobox button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner,														/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner .x-grid3-hd-btn,										/* Toolbar button side */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):hover .x-grid3-hd-inner,											/* Toolbar button */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):hover .x-grid3-hd-inner .x-grid3-hd-btn,							/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover,									/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel:hover,								/* Date picker button */
+.x-btn.zarafa-action.x-btn-over .x-btn-large,																	/* Action button */
+.x-btn.zarafa-action.x-btn-over .x-btn-medium,																	/* Action button */
+.x-btn.zarafa-action.x-btn-over .x-btn-small,																	/* Action button */
+.x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small,											/* Button in mail address popup */
+.x-btn.x-btn-over .x-btn-small button,																			/* Button */
+.x-btn.x-btn-over .x-btn-noicon .x-btn-small button,															/* Button */
+.x-btn.x-btn-over .x-btn-large,																					/* Button */
+.x-btn.x-btn-over .x-btn-medium,																				/* Button */
+.x-btn.x-btn-over .x-btn-small,																					/* Button */
+.x-date-picker .x-date-middle .x-btn.x-btn-over .x-btn-small em,												/* Date picker combolist */
+.x-date-picker .x-date-middle .x-btn.x-btn-over .x-btn-small em button,											/* Date picker combolist */
+.x-combo-list .x-combo-list-item:hover,																			/* Combolist */
+.x-combo-list .x-combo-list-item.x-combo-selected:hover,														/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active a {													/* Menu */
+	border-color: #204060 !important;
+	background-color: #204060 !important;
+}
+.zarafa-settings-category-tab.zarafa-settings-category-tab-over,												/* Settings menu */
+.x-form-field-wrap:hover:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text:not(.x-form-focus),			/* Combobox text */
+.x-form-field-wrap:hover:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text.x-trigger-noedit,			/* Combobox text */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner,														/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner .x-grid3-hd-btn,										/* Toolbar button side */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):hover .x-grid3-hd-inner,											/* Toolbar button */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):hover .x-grid3-hd-inner .x-grid3-hd-btn,							/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover,									/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel:hover,								/* Date picker button */
+.x-btn.zarafa-action.x-btn-over .x-btn-large .x-btn-text,														/* Action button */
+.x-btn.zarafa-action.x-btn-over .x-btn-medium .x-btn-text,														/* Action button */
+.x-btn.zarafa-action.x-btn-over .x-btn-small .x-btn-text,														/* Action button */
+.x-window .k-recipient-hover-card-button.x-btn.x-btn-over .x-btn-small,											/* Button in mail address popup */
+.x-btn.x-btn-over .x-btn-noicon .x-btn-text,																	/* Button */
+.x-btn.x-btn-over .x-btn-large .x-btn-text,																		/* Button */
+.x-btn.x-btn-over .x-btn-medium .x-btn-text,																	/* Button */
+.x-btn.x-btn-over .x-btn-small .x-btn-text,																		/* Button */
+.x-date-picker .x-date-middle .x-btn.x-btn-over .x-btn-small em button,											/* Date picker combolist */
+.x-combo-list .x-combo-list-item:hover,																			/* Combolist */
+.x-combo-list .x-combo-list-item.x-combo-selected:hover,														/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active .x-menu-item-text {									/* Menu */
+	color: #f0f0f0 !important;
+}
+
+/* Clicked item */
+.zarafa-settings-category-tab.zarafa-settings-category-tab-over.zarafa-settings-category-tab-click,				/* Settings menu */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text:not(.x-form-focus),		/* Combobox text */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text.x-trigger-noedit,			/* Combobox text */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger,						/* Combobox button */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger.x-form-trigger-over.x-form-trigger-click,		/* Combobox button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner:active,												/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner:active .x-grid3-hd-btn,								/* Toolbar button side */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):active .x-grid3-hd-inner,										/* Toolbar button */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):active .x-grid3-hd-inner .x-grid3-hd-btn,						/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:active,								/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel:active,							/* Date picker button */
+.x-window .k-recipient-hover-card-button.x-btn.x-btn-over.x-btn-click .x-btn-small,								/* Button in mail address popup */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large,														/* Action button */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium,														/* Action button */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small,														/* Action button */
+.x-btn.x-btn-over .x-btn-noicon.x-btn-noicon-click,																/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-small button,																/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-large,																		/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-medium,																	/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-small,																		/* Button */
+.x-date-picker .x-date-middle .x-btn.x-btn-over.x-btn-click .x-btn-small em,									/* Date picker combolist */
+.x-date-picker .x-date-middle .x-btn.x-btn-over.x-btn-click .x-btn-small em button,								/* Date picker combolist */
+.x-combo-list .x-combo-list-item:active,																		/* Combolist */
+.x-combo-list .x-combo-list-item.x-combo-selected:active,														/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active:active a {											/* Menu */
+	/*background-color: #6699cc !important;*/
+	background-color: #f0f0f0 !important;
+}
+.zarafa-settings-category-tab.zarafa-settings-category-tab-over.zarafa-settings-category-tab-click,				/* Settings menu */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text:not(.x-form-focus),		/* Combobox text */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-text.x-trigger-noedit,			/* Combobox text */
+.x-form-field-wrap:active:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger,						/* Combobox button */
+.x-form-field-wrap:not(.x-zarafa-boxfield):not(.x-item-disabled) .x-form-trigger.x-form-trigger-over.x-form-trigger-click,		/* Combobox button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner:active,												/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-grid3-hd-over .x-grid3-hd-inner:active .x-grid3-hd-btn,								/* Toolbar button side */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):active .x-grid3-hd-inner,										/* Toolbar button */
+.x-grid3-hd.x-grid3-cell:not(.x-grid3-hd-over):active .x-grid3-hd-inner .x-grid3-hd-btn,						/* Toolbar button side */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:active,								/* Date picker button */
+.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-cancel:active,							/* Date picker button */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large .x-btn-text,											/* Action button */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium .x-btn-text,											/* Action button */
+.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small .x-btn-text,											/* Action button */
+.x-window .k-recipient-hover-card-button.x-btn.x-btn-over.x-btn-click .x-btn-small,								/* Button in mail address popup */
+.x-btn.x-btn-over .x-btn-noicon.x-btn-noicon-click .x-btn-text,													/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-large .x-btn-text,															/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-medium .x-btn-text,														/* Button */
+.x-btn.x-btn-over.x-btn-click .x-btn-small .x-btn-text,															/* Button */
+.x-date-picker .x-date-middle .x-btn.x-btn-over.x-btn-click .x-btn-small em button,								/* Date picker combolist */
+.x-combo-list .x-combo-list-item:active,																		/* Combolist */
+.x-combo-list .x-combo-list-item.x-combo-selected:active,														/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item.x-menu-item-active:active .x-menu-item-text {							/* Menu */
+	color: #6699cc !important;
+}
+
+/* Selected item */
+.x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,							/* Meeting recepient button */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,	/* Settings menu */
+.x-btn.zarafa-action.x-btn-selected .x-btn-large,																/* Action button */
+.x-btn.zarafa-action.x-btn-selected .x-btn-medium,																/* Action button */
+.x-btn.zarafa-action.x-btn-selected .x-btn-small,																/* Action button */
+.x-btn.x-btn-selected .x-btn-small button,																		/* Button */
+.x-btn .x-btn-noicon-selected,																					/* Button */
+.x-btn.x-btn-selected .x-btn-large,																				/* Button */
+.x-btn.x-btn-selected .x-btn-medium,																			/* Button */
+.x-btn.x-btn-selected .x-btn-small,																				/* Button */
+.x-combo-list .x-combo-list-item.x-combo-selected,																/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-selected {												/* Menu */
+	border-bottom-color: #3b5264 !important;
+	background-color: #3b5264 !important;
+}
+.x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,							/* Meeting recepient button */
+#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,	/* Settings menu */
+.x-btn.zarafa-action.x-btn-selected .x-btn-large .x-btn-text,													/* Action button */
+.x-btn.zarafa-action.x-btn-selected .x-btn-medium .x-btn-text,													/* Action button */
+.x-btn.zarafa-action.x-btn-selected .x-btn-small .x-btn-text,													/* Action button */
+.x-btn.x-btn-selected .x-btn-small button,																		/* Button */
+.x-btn .x-btn-noicon-selected .x-btn-text,																		/* Button */
+.x-btn.x-btn-selected .x-btn-large .x-btn-text,																	/* Button */
+.x-btn.x-btn-selected .x-btn-medium .x-btn-text,																/* Button */
+.x-btn.x-btn-selected .x-btn-small .x-btn-text,																	/* Button */
+.x-combo-list .x-combo-list-item.x-combo-selected,																/* Combolist */
+.x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-selected .x-menu-item-text {								/* Menu */
+	color: #f0f0f0 !important;
+}
+
+/* Disabled item */
+.zarafa-settings-category-tab.zarafa-settings-category-tab-disabled,											/* Settings menu */
+.x-grid3-hd.x-grid3-cell.x-item-disabled,																		/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-item-disabled .x-grid3-hd-btn,														/* Toolbar button side */
+.x-btn.zarafa-action.x-item-disabled .x-btn-large,																/* Action button */
+.x-btn.zarafa-action.x-item-disabled .x-btn-medium,																/* Action button */
+.x-btn.zarafa-action.x-item-disabled .x-btn-small,																/* Action button */
+.x-btn.x-item-disabled .x-btn-small button,																		/* Button */
+.x-btn.x-item-disabled .x-btn-large,																			/* Button */
+.x-btn.x-item-disabled .x-btn-medium,																			/* Button */
+.x-btn.x-item-disabled .x-btn-small,																			/* Button */
+.x-menu .x-menu-list li.x-menu-list-item.x-item-disabled a {													/* Menu */
+	background-color: #1c2030 !important;
+}
+.zarafa-settings-category-tab.zarafa-settings-category-tab-disabled,											/* Settings menu */
+.x-form-field-wrap.x-item-disabled .x-form-text,																/* Combobox text */
+.x-form-field-wrap.x-item-disabled .x-form-trigger,																/* Combobox button */
+.x-grid3-hd.x-grid3-cell.x-item-disabled,																		/* Toolbar button */
+.x-grid3-hd.x-grid3-cell.x-item-disabled .x-grid3-hd-btn,														/* Toolbar button side */
+.x-btn.zarafa-action.x-item-disabled .x-btn-large .x-btn-text,													/* Action button */
+.x-btn.zarafa-action.x-item-disabled .x-btn-medium .x-btn-text,													/* Action button */
+.x-btn.zarafa-action.x-item-disabled .x-btn-small .x-btn-text,													/* Action button */
+.x-btn.x-item-disabled .x-btn-large .x-btn-text,																/* Button */
+.x-btn.x-item-disabled .x-btn-medium .x-btn-text,																/* Button */
+.x-btn.x-item-disabled .x-btn-small .x-btn-text,																/* Button */
+.x-menu .x-menu-list li.x-menu-list-item.x-item-disabled .x-menu-item-text {									/* Menu */
+	color: #808080 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Text input and text input area
+----------------------------------------------------------------------------------------------------------------------*/
+/* Normal label */
+.zarafa-widget-item,
+.k-settings-label-minor,
+.x-fieldset legend,
+.x-window .ext-mb-text,
+.x-form-display-field,
+.x-form-item-label {
+	color: #b4b4e0 !important;
+}
+
+/* Hovered labels */
+.zarafa-widget-item:hover,
+.x-form-item-label:hover {
+	color: #204060 !important;
+}
+
+/* Normal text input/area */
+.x-form-text,
+textarea.x-form-field {
+	border-color: #004080 !important;
+	background-color: #1c2d30 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Hovered text input/area */
+.x-form-text:hover,
+textarea.x-form-field:hover {
+	border-color: #204060 !important;
+	background-color: #1c2d30 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Focused text input/area */
+.x-form-text:not(.x-trigger-noedit):focus,
+.x-form-text:not(.x-trigger-noedit).x-form-focus,
+textarea.x-form-field:focus {
+	border-color: #36447a !important;
+	background-color: #1c2d30 !important;
+	color: #ffff00 !important;
+}
+
+/* Normal checkbox */
+.x-form-check-wrap.x-form-item {
+	border-color: #132639 !important;
+	background-color: #1c2d30 !important;
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Panels, dialogs and windows
+----------------------------------------------------------------------------------------------------------------------*/
+/* Minimum height of "dialog" content */
+.x-window-mr,
+.x-window-body {
+	min-height: 80px;
+}
+
+/* Panel border */
+.x-fieldset,
+.x-panel .x-panel-body {
+	border-color: #004080;
+}
+
+/* Panel header */
+.x-grid3-hd-row td,
+.x-window .x-window-tl,
+.x-window-header,
+.x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text,
+.x-panel .x-panel-header {
+	border-color: #29374b;
+	background-color: #29374b !important;
+	color: #f0f0f0 !important;
+}
+
+/* Panel body */
+.x-grid3,
+.x-window .x-window-bwrap,
+.x-panel-body {
+	background-color: #1c2030 !important;
+}
+
+/* Panel footer */
+.x-window .x-window-bwrap .x-window-body > div .zarafa-folderproperties.x-panel.tabpanel-container .tab-permissions .userlist-panel,
+.k-recipient-card-view .x-window-footer,
+.x-window-footer,
+.x-panel .x-panel-footer {
+	border-color: #29374b !important;
+	background-color: #29374b !important;
+}
+
+/* Dragged panel */
+.x-panel-ghost,
+.x-panel-ghost .x-window-tl,
+.x-panel-ghost .x-window-tr,
+.x-panel-ghost .x-window-tc,
+.x-panel-ghost .zarafa-window-header .x-window-header .x-unselectable .x-window-draggable,
+.x-panel-ghost .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text {
+	background-color: #506a94 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Fix error: Not showing the right side of the border, because the element is too narrow */
+.x-grid3-col .x-grid3-cell .x-grid3-td-color {
+	width: 25px !important;			/* override "23px" */
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Widget panel and widgets
+----------------------------------------------------------------------------------------------------------------------*/
+/* Widget panel, remove unwanted border colour */
+.zarafa-widgetpanel > div {
+	border-color: transparent;
+}
+
+/* Widget, fix error with space before the bottom panel */
+.zarafa-widgetpanel .x-portlet .x-panel-bl {
+	padding-left: 0px;
+}
+
+/* Widget panel */
+.zarafa-widgetpanel .x-panel-body {
+	background-color: #000d1a !important;
+}
+
+/* Widget */
+.zarafa-widgetpanel .x-panel.x-portlet {
+	border-color: #004080;
+	background-color: #0d1a26 !important;
+}
+.zarafa-widgetpanel .x-panel .x-panel-mc,
+.zarafa-widgetpanel .x-panel.x-portlet .x-panel-body,
+#zarafa-mainpanel .zarafa-widgetpanel form.x-panel-body {			/* Widgets on the today page */
+	background-color: #0d1a26 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Tabs
+----------------------------------------------------------------------------------------------------------------------*/
+/**/
+ul.x-tab-strip li {
+	border-color: transparent !important;
+}
+
+/* Tab panel background colour */
+.x-tab-strip.x-tab-strip-top {
+	background-color: #000d1a !important;
+}
+
+/* Tab panel bottom border colour */
+.x-tab-panel-header ul.x-tab-strip-top {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000d1a;
+}
+
+/* Normal tab */
+.x-tab-strip .x-tab-right {
+	background-color: #132639 !important;
+}
+.x-tab-strip-text {
+	color: #f0f0f0 !important;
+}
+
+/* Hovered tab */
+.x-tab-strip-over .x-tab-right,
+.x-tab-strip-active.x-tab-strip-over .x-tab-right {
+	background-color: #204060 !important;
+}
+.x-tab-strip-over .x-tab-strip-text,
+.x-tab-strip-active.x-tab-strip-over .x-tab-strip-text {
+	color: #f0f0f0 !important;
+}
+
+/* Selected tab */
+.x-tab-strip-active .x-tab-right {
+	background-color: #3b5264 !important;
+}
+.x-tab-strip-active .x-tab-strip-text {
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+Tree
+Including the navigation panel tree
+----------------------------------------------------------------------------------------------------------------------*/
+/* Allow colours to be set elsewhere */
+.x-grid3 .x-grid3-row .zarafa-grid-button-container,
+.x-grid3 .x-grid3-row-over .zarafa-grid-button-container,
+.x-grid3 .x-grid3-row-over:active .zarafa-grid-button-container,
+.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container,
+.x-treegrid-text,
+.x-tree-node,
+.x-tree-node a,
+.x-tree-node a span {
+	background-color: inherit !important;
+	color: inherit !important;
+}
+
+/* Normal tree node */
+.x-grid3 .x-grid3-row,
+.x-tree-node .x-tree-node-collapsed,
+.x-tree-node .x-tree-node-expanded,
+.x-tree-node .x-tree-node-leaf {
+	background-color: #132639 !important;
+	color: #f0f0f0 !important;
+}
+.x-grid3 .x-grid3-row,
+.x-treegrid-col {
+	border-color: #132639 !important;
+}
+
+/* Hovered teee node */
+.x-grid3 .x-grid3-row-over,
+.x-tree-node .x-tree-node-collapsed.x-tree-node-over,
+.x-tree-node .x-tree-node-expanded.x-tree-node-over,
+.x-tree-node .x-tree-node-leaf.x-tree-node-over,
+.x-tree-node .x-tree-node-collapsed.x-tree-node-over.x-tree-selected,
+.x-tree-node .x-tree-node-expanded.x-tree-node-over.x-tree-selected,
+.x-tree-node .x-tree-node-leaf.x-tree-node-over.x-tree-selected {
+	background-color: #204060 !important;
+	color: #f0f0f0 !important;
+}
+
+/* Clicked teee node */
+.x-grid3 .x-grid3-row-over:active,
+.x-tree-node:active .x-tree-node-collapsed.x-tree-node-over,
+.x-tree-node:active .x-tree-node-expanded.x-tree-node-over,
+.x-tree-node:active .x-tree-node-leaf.x-tree-node-over {
+	background-color: #6699cc !important;
+	color: #204060 !important;
+}
+
+/* Selected teee node */
+.x-grid3 .x-grid3-row-selected,
+.x-tree-node .x-tree-node-collapsed.x-tree-selected,
+.x-tree-node .x-tree-node-expanded.x-tree-selected,
+.x-tree-node .x-tree-node-leaf.x-tree-selected {
+	background-color: #3b5264 !important;
+	color: #f0f0f0 !important;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+PNG images
+----------------------------------------------------------------------------------------------------------------------*/
+.icon_mdm_settings {
+	/* Rotate from #3e3e3f to blue #006699 approximately */
+	filter: brightness(90%) sepia(100) saturate(100) hue-rotate(195deg);
+}
+.default_contact_photo {
+	filter: brightness(50%);
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------
+_icons.scss
+----------------------------------------------------------------------------------------------------------------------*/
+.arrow_down_l, .x-panel-collapsed .x-tool.x-tool-toggle, td.sort-desc .x-grid3-sort-icon, .x-tree-lines .x-tree-elbow-end-minus, .x-tree-lines .x-tree-elbow-minus, .preview-header-collapse-plus, .zarafa-rules-sequence-down {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjUiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0iTSAwIDAgTCAyLjY5OTIxODggMyBMIDUuNDAwMzkwNiAwIEwgMCAwIHogIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_down_s, .x-btn .x-btn-split, .x-btn .x-btn-arrow, .x-form-trigger, .x-form-spinner-trigger {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjMiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0iTSAwIDAgTCAyLjY5OTIxODggMyBMIDUuNDAwMzkwNiAwIEwgMCAwIHogIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_down_s_white, .x-btn.x-btn.zarafa-action .x-btn-split, .x-btn.x-btn.zarafa-action .x-btn-arrow {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMyIgd2lkdGg9IjUiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0ibTAgMCAyLjY5OTIgMyAyLjcwMTItM2gtNS40MDA0eiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_left_l, .light-background .zarafa-calendar-tab-icon-merge, .x-date-left a, .x-date-mp-ybtn a.x-date-mp-prev, .x-tool.x-tool-toggle.x-tool-collapse-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-east, .x-panel-header .x-tool.x-tool-collapse-west, .x-layout-collapsed .x-tool.x-tool-expand-east, .x-tab-scroller-left {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gNSwwIDUsOSAwLDQuNSA1LDAgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_left_l_white, .zarafa-calendar-tab-icon-merge {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gNSwwIDUsOSAwLDQuNSA1LDAgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_menubar, .zarafa-maintabbar-maintab-active button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZD0iTSA2IDAgTCAwIDYgTCAxMiA2IEwgNiAwIHogIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-right a, .x-date-mp-ybtn a, .x-tree-lines .x-tree-elbow-plus, .x-tree-lines .x-tree-elbow-end-plus, .x-menu-item-arrow, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-panel-header .x-tool.x-tool-collapse-east, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-tab-scroller-right {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gMCAwIEwgMCA5IEwgNSA0LjUgTCAwIDAgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_right_l_white, .zarafa-calendar-tab-icon-separate {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gMCAwIEwgMCA5IEwgNSA0LjUgTCAwIDAgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_up_l, .x-tool.x-tool-toggle, td.sort-asc .x-grid3-sort-icon, .preview-header-collapse-minus, .zarafa-rules-sequence-up {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNSIgd2lkdGg9IjkiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0ibTAgMyAyLjY5OTItMyAyLjcwMTIgM2gtNS40MDA0eiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_updown, .x-form-field-wrap .x-form-spinner-trigger {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTQiIHdpZHRoPSI1IiB2aWV3Qm94PSIwIDAgNC45OTk5OTk4IDE0Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIC0xMDM4LjQpIj48cGF0aCBkPSJtMCAxMDQ5LjYgMi40OTkxIDIuNzc3NmwyLjUwMDktMi44aC01eiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PHBhdGggc3R5bGU9ImZpbGw6IzAwNjY5OSIgZD0ibTAgMTA0MS40IDIuNDk5MS0yLjc3NzYgMi41MDA5IDIuNzc3NmgtNXoiIC8+PC9nPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.icon_cross, .icon_remove, .x-zarafa-boxfield-item-close, .x-zarafa-boxfield-suggestion-cross, .light-background .zarafa-calendar-tab-icon-close, .x-freebusy-userrow-remove, .x-tab-strip .x-tab-strip-closable a.x-tab-strip-close {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjciIHZpZXdCb3g9IjAgMCA3IDciPjxwYXRoIGQ9Ik0gMC43MjA3MDMxMiAwLjAyMzQzNzUgTCAwLjAxNTYyNSAwLjczMDQ2ODc1IEwgMi43OTI5Njg4IDMuNSBMIDAuMDE1NjI1IDYuMjY5NTMxMiBMIDAuNzIwNzAzMTIgNi45NzY1NjI1IEwgMy41IDQuMjA1MDc4MSBMIDYuMjc5Mjk2OSA2Ljk3NjU2MjUgTCA2Ljk4NDM3NSA2LjI2OTUzMTIgTCA0LjIwNzAzMTIgMy41IEwgNi45ODQzNzUgMC43MzA0Njg3NSBMIDYuMjc5Mjk2OSAwLjAyMzQzNzUgTCAzLjUgMi43OTQ5MjE5IEwgMC43MjA3MDMxMiAwLjAyMzQzNzUgeiAiIHN0eWxlPSI7ZmlsbDojOTlkZGZmIiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.icon_cross_large, .x-tool-close {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj48cGF0aCBkPSJNIDAuNzA4OTg0MzggMCBMIDAgMC43MDg5ODQzOCBMIDQuMjkxMDE1NiA1IEwgMCA5LjI5MTAxNTYgTCAwLjcwODk4NDM4IDEwIEwgNSA1LjcwODk4NDQgTCA5LjI5MTAxNTYgMTAgTCAxMCA5LjI5MTAxNTYgTCA1LjcwODk4NDQgNSBMIDEwIDAuNzA4OTg0MzggTCA5LjI5MTAxNTYgMCBMIDUgNC4yOTEwMTU2IEwgMC43MDg5ODQzOCAwIHogIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.icon_cross_white, .zarafa-calendar-tab-icon-close, .k-category-close {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjciIHZpZXdCb3g9IjAgMCA3IDciPjxwYXRoIGQ9Ik0gMC43MjA3MDMxMiAwLjAyMzQzNzUgTCAwLjAxNTYyNSAwLjczMDQ2ODc1IEwgMi43OTI5Njg4IDMuNSBMIDAuMDE1NjI1IDYuMjY5NTMxMiBMIDAuNzIwNzAzMTIgNi45NzY1NjI1IEwgMy41IDQuMjA1MDc4MSBMIDYuMjc5Mjk2OSA2Ljk3NjU2MjUgTCA2Ljk4NDM3NSA2LjI2OTUzMTIgTCA0LjIwNzAzMTIgMy41IEwgNi45ODQzNzUgMC43MzA0Njg3NSBMIDYuMjc5Mjk2OSAwLjAyMzQzNzUgTCAzLjUgMi43OTQ5MjE5IEwgMC43MjA3MDMxMiAwLjAyMzQzNzUgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.icon_tools_cogwheel, .x-tool.x-tool-gear {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNIDYuMjUxOTUzMSAwLjk5ODA0Njg4IEwgNi4wOTc2NTYyIDIuODQxNzk2OSBBIDUuNSA1LjUgMCAwIDAgNC40OTAyMzQ0IDMuNzcxNDg0NCBMIDIuODE0NDUzMSAyLjk4MjQyMTkgTCAxLjA2NDQ1MzEgNi4wMTM2NzE5IEwgMi41ODU5Mzc1IDcuMDcwMzEyNSBBIDUuNSA1LjUgMCAwIDAgMi41MDE5NTMxIDcuOTk4MDQ2OSBBIDUuNSA1LjUgMCAwIDAgMi41ODIwMzEyIDguOTI5Njg3NSBMIDEuMDY0NDUzMSA5Ljk4MjQyMTkgTCAyLjgxNDQ1MzEgMTMuMDE1NjI1IEwgNC40ODYzMjgxIDEyLjIyODUxNiBBIDUuNSA1LjUgMCAwIDAgNi4wOTc2NTYyIDEzLjE1MjM0NCBMIDYuMjQ4MDQ2OSAxNS4wMDE5NTMgTCA5Ljc0ODA0NjkgMTUuMDAxOTUzIEwgOS45MDIzNDM4IDEzLjE1ODIwMyBBIDUuNSA1LjUgMCAwIDAgMTEuNTA5NzY2IDEyLjIyODUxNiBMIDEzLjE4NTU0NyAxMy4wMTc1NzggTCAxNC45MzU1NDcgOS45ODQzNzUgTCAxMy40MTQwNjIgOC45Mjc3MzQ0IEEgNS41IDUuNSAwIDAgMCAxMy40OTgwNDcgOCBBIDUuNSA1LjUgMCAwIDAgMTMuNDE3OTY5IDcuMDY4MzU5NCBMIDE0LjkzNTU0NyA2LjAxNTYyNSBMIDEzLjE4NTU0NyAyLjk4NDM3NSBMIDExLjUxMzY3MiAzLjc3MTQ4NDQgQSA1LjUgNS41IDAgMCAwIDkuOTAyMzQzOCAyLjg0NzY1NjIgTCA5Ljc1MTk1MzEgMC45OTgwNDY4OCBMIDYuMjUxOTUzMSAwLjk5ODA0Njg4IHogTSA4IDUgQSAzIDMgMCAwIDEgMTEgOCBBIDMgMyAwIDAgMSA4IDExIEEgMyAzIDAgMCAxIDUgOCBBIDMgMyAwIDAgMSA4IDUgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.icon_tools_minimize, .x-tool.x-tool-minimize {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBkPSJtLjUgMTBjLS4yNzcgMC0uNS4yMjMtLjUuNXMuMjIzLjUuNS41aDEyYy4yNzcgMCAuNS0uMjIzLjUtLjVzLS4yMjMtLjUtLjUtLjVoLTEyeiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.line_arrow_down_l {background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI0NS4wMTQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDIuMzgxMyAxMS45MSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMS4xOTEgMTEuOTF2LTExLjM0MyIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PHBhdGggZD0ibTAtLjAwMDI0OTg5IDEuMTkwMiAxLjMyMjggMS4xOTExLTEuMzIyOHoiIHN0eWxlPSJzdHJva2Utd2lkdGg6LjQ0MDk1O2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.line_arrow_right_l {background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOS45OTk5IiBoZWlnaHQ9IjkiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDIuNjQ1OCAyLjM4MTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibS0xLjY2NjdlLTUgMS4xOWgxLjU4NzUiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjxwYXRoIGQ9Im0xLjMyMjkgMHYyLjM4MTNsMS4zMjI5LTEuMTkwN3oiIHN0eWxlPSJzdHJva2Utd2lkdGg6LjI2NDU5O2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.line_vertical, .line_vertical.x-grid3-row-selected {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIwLjk5OTk5NjQyIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDAuMjY0NTc5MDUgMTMyLjI5MDQ4Ij48cGF0aCBkPSJNIDAuMTMyMjg5NTMsMCBWIDEzMi4yOTA0NyIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.minimize_button {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBkPSJNIDAuNSA2IEMgMC4yMjMgNiAwIDYuMjIzIDAgNi41IEMgMCA2Ljc3NyAwLjIyMyA3IDAuNSA3IEwgMTIuNSA3IEMgMTIuNzc3IDcgMTMgNi43NzcgMTMgNi41IEMgMTMgNi4yMjMgMTIuNzc3IDYgMTIuNSA2IEwgMC41IDYgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.plus, .x-tab-add, .x-tool.x-tool-plus, .zarafa-rules-add, .x-zarafa-boxfield-item-expand {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBkPSJNIDYuNSAwIEMgNi4yMjMgMCA2IDAuMjIzIDYgMC41IEwgNiA2IEwgMC41IDYgQyAwLjIyMyA2IDAgNi4yMjMgMCA2LjUgQyAwIDYuNzc3IDAuMjIzIDcgMC41IDcgTCA2IDcgTCA2IDEyLjUgQyA2IDEyLjc3NyA2LjIyMyAxMyA2LjUgMTMgQyA2Ljc3NyAxMyA3IDEyLjc3NyA3IDEyLjUgTCA3IDcgTCAxMi41IDcgQyAxMi43NzcgNyAxMyA2Ljc3NyAxMyA2LjUgQyAxMyA2LjIyMyAxMi43NzcgNiAxMi41IDYgTCA3IDYgTCA3IDAuNSBDIDcgMC4yMjMgNi43NzcgMCA2LjUgMCB6ICIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_left, .x-tbar-page-prev {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDExLjQ4NDM3NSwzIGMgLTAuMDkwMzIsMC4wMDMyNiAtMC4xNzgwNjIsMC4wMzA5MzEgLTAuMjUzOTA2LDAuMDgwMDc4IGwgLTcuMDAwMDAwMiw0LjUgYyAtMC4zMDQ3MjUxLDAuMTk3MDI0MSAtMC4zMDQ3MjUxLDAuNjQyODE5NyAwLDAuODM5ODQzOCBMIDExLjIzMDQ2OSwxMi45MTk5MjIgQyAxMS41NjI4MTcsMTMuMTMyNTQ1IDExLjk5ODk3MywxMi44OTQ1NDEgMTIsMTIuNSBsIDAsLTkgQyAxMi4wMDAxMDksMy4yMTc2NTExIDExLjc2NjU4NywyLjk5MTIwNTcgMTEuNDg0Mzc1LDMgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_left_outline, .x-item-disabled .x-tbar-page-prev {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDExLjQ4NDM3NSwzIGEgMC41LDAuNSAwIDAgMCAtMC4yNTM5MDYsMC4wODAwNzggbCAtNy4wMDAwMDAyLDQuNSBhIDAuNSwwLjUgMCAwIDAgMCwwLjgzOTg0MzggTCAxMS4yMzA0NjksMTIuOTE5OTIyIEEgMC41LDAuNSAwIDAgMCAxMiwxMi41IGwgMCwtOSBhIDAuNSwwLjUgMCAwIDAgLTAuNTE1NjI1LC0wLjUgeiBNIDExLDQuNDE0MDYyMSAxMSwxMS41ODU5MzggNS40MjE4NzUsOCAxMSw0LjQxNDA2MjEgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_left_stop, .x-tbar-page-first {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDQsMyBjIC0wLjU1NCwwIC0xLDAuNDQ2IC0xLDEgTCAzLDEyIGMgMCwwLjU1NCAwLjQ0NiwxIDEsMSBsIDEsMCBjIDAuNTU0LDAgMSwtMC40NDYgMSwtMSBMIDYsOC45MTQwNjIxIDEyLjIzMDQ2OSwxMi45MTk5MjIgQyAxMi41NjI4MTcsMTMuMTMyNTQ1IDEyLjk5ODk3MywxMi44OTQ1NDEgMTMsMTIuNSBsIDAsLTkgYyAxLjA5ZS00LC0wLjI4MjM0ODkgLTAuMjMzNDEzLC0wLjUwODc5NDMgLTAuNTE1NjI1LC0wLjUgLTAuMDkwMzIsMC4wMDMyNiAtMC4xNzgwNjIsMC4wMzA5MzEgLTAuMjUzOTA2LDAuMDgwMDc4IEwgNiw3LjA4NTkzNzEgNiw0IGMgMCwtMC41NTQgLTAuNDQ2LC0xIC0xLC0xIHoiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_left_stop_outline, .x-item-disabled .x-tbar-page-first {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNIDQgMyBDIDMuNDQ2IDMgMyAzLjQ0NiAzIDQgTCAzIDEyIEMgMyAxMi41NTQgMy40NDYgMTMgNCAxMyBMIDUgMTMgQyA1LjU1NCAxMyA2IDEyLjU1NCA2IDEyIEwgNiA4LjkxNDA2MjUgTCAxMi4yMzA0NjkgMTIuOTE5OTIyIEEgMC41MDAwNSAwLjUwMDA1IDAgMCAwIDEzIDEyLjUgTCAxMyAzLjUgQSAwLjUwMDA1IDAuNTAwMDUgMCAwIDAgMTIuNDg0Mzc1IDMgQSAwLjUwMDA1IDAuNTAwMDUgMCAwIDAgMTIuMjMwNDY5IDMuMDgwMDc4MSBMIDYgNy4wODU5Mzc1IEwgNiA0IEMgNiAzLjQ0NiA1LjU1NCAzIDUgMyBMIDQgMyB6IE0gNCAzLjgzMDA3ODEgTCA1IDMuODMwMDc4MSBMIDUgMTIgTCA0IDEyIEwgNCAzLjgzMDA3ODEgeiBNIDEyIDQuNDE0MDYyNSBMIDEyIDExLjU4NTkzOCBMIDYuNDIxODc1IDggTCAxMiA0LjQxNDA2MjUgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_right, .x-tbar-page-next {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDQuNTE3NTUsMyBjIDAuMDkwMzIsMC4wMDMyNiAwLjE3ODA2MiwwLjAzMDkzMSAwLjI1MzkwNiwwLjA4MDA3OCBsIDcsNC41IGMgMC4zMDQ3MjUsMC4xOTcwMjQxIDAuMzA0NzI1LDAuNjQyODE5NyAwLDAuODM5ODQzOCBsIC03LDQuNTAwMDAwMiBDIDQuNDM5MTA4LDEzLjEzMjU0NSA0LjAwMjk1MiwxMi44OTQ1NDEgNC4wMDE5MjUsMTIuNSBsIDAsLTkgQyA0LjAwMTgxNiwzLjIxNzY1MTEgNC4yMzUzMzgsMi45OTEyMDU3IDQuNTE3NTUsMyBaIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_right_outline, .x-item-disabled .x-tbar-page-next {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDQuNTE3NTA3OSwzIGEgMC41LDAuNSAwIDAgMSAwLjI1MzkwNiwwLjA4MDA3OCBsIDcuMDAwMDAwMSw0LjUgYSAwLjUsMC41IDAgMCAxIDAsMC44Mzk4NDM4IEwgNC43NzE0MTM5LDEyLjkxOTkyMiBBIDAuNSwwLjUgMCAwIDEgNC4wMDE4ODI5LDEyLjUgbCAwLC05IEEgMC41LDAuNSAwIDAgMSA0LjUxNzUwNzksMyBaIG0gMC40ODQzNzUsMS40MTQwNjIxIDAsNy4xNzE4NzU5IEwgMTAuNTgwMDA4LDggNS4wMDE4ODI5LDQuNDE0MDYyMSBaIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_right_stop, .x-tbar-page-last {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDEyLDMgYyAwLjU1NCwwIDEsMC40NDYgMSwxIGwgMCw4IGMgMCwwLjU1NCAtMC40NDYsMSAtMSwxIGwgLTEsMCBjIC0wLjU1NCwwIC0xLC0wLjQ0NiAtMSwtMSBMIDEwLDguOTE0MDYyMSAzLjc2OTUzMSwxMi45MTk5MjIgQyAzLjQzNzE4MywxMy4xMzI1NDUgMy4wMDEwMjcsMTIuODk0NTQxIDMsMTIuNSBsIDAsLTkgQyAyLjk5OTg5MSwzLjIxNzY1MTEgMy4yMzM0MTMsMi45OTEyMDU3IDMuNTE1NjI1LDMgMy42MDU5NDUsMy4wMDMyNiAzLjY5MzY4NywzLjAzMDkzMSAzLjc2OTUzMSwzLjA4MDA3OCBMIDEwLDcuMDg1OTM3MSAxMCw0IGMgMCwtMC41NTQgMC40NDYsLTEgMSwtMSB6IiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.triangle_right_stop_outline, .x-item-disabled .x-tbar-page-next {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJtIDEyLDMgYyAwLjU1NCwwIDEsMC40NDYgMSwxIGwgMCw4IGMgMCwwLjU1NCAtMC40NDYsMSAtMSwxIGwgLTEsMCBjIC0wLjU1NCwwIC0xLC0wLjQ0NiAtMSwtMSBMIDEwLDguOTE0MDYyNSAzLjc2OTUzMSwxMi45MTk5MjIgQSAwLjUwMDA1LDAuNTAwMDUgMCAwIDEgMywxMi41IGwgMCwtOSBBIDAuNTAwMDUsMC41MDAwNSAwIDAgMSAzLjUxNTYyNSwzIDAuNTAwMDUsMC41MDAwNSAwIDAgMSAzLjc2OTUzMSwzLjA4MDA3ODEgTCAxMCw3LjA4NTkzNzUgMTAsNCBjIDAsLTAuNTU0IDAuNDQ2LC0xIDEsLTEgbCAxLDAgeiBtIDAsMC44MzAwNzgxIC0xLDAgTCAxMSwxMiAxMiwxMiAxMiwzLjgzMDA3ODEgWiBNIDQsNC40MTQwNjI1IDQsMTEuNTg1OTM4IDkuNTc4MTI1LDggNCw0LjQxNDA2MjUgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
