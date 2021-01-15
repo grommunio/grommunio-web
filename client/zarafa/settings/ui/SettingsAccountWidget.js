@@ -22,7 +22,7 @@ Zarafa.settings.ui.SettingsAccountWidget = Ext.extend(Zarafa.settings.ui.Setting
 	 * @type String
 	 * @private
 	 */
-	defaultThemeName : _('Basic'),
+	defaultThemeName : _('Light'),
 
 	/**
 	 * @constructor
