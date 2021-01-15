@@ -143,6 +143,10 @@ Top toolbar (does not include dropdown menu on split buttons)
 }
 
 
+.zarafa-maintoolbar {
+	background: url(../img/grammm_logo_light.svg) no-repeat right 12px center;
+	background-size: 115px 26px;
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------
