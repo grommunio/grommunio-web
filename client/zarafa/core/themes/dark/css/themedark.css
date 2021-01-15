@@ -5,7 +5,7 @@ Page
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Default background colour */
 .zarafa-webclient {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 /* Mask background, when showing dialogs */
@@ -22,33 +22,33 @@ Top menubar
 /* Top menubar */
 body #zarafa-mainmenu,
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-	background-color: #1f4b61 !important;
+	background-color: #1f1f1f !important;
 	color: #e6f2ff !important;
 }
 
 /* Top menubar, button */
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn .x-btn-small,
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn .x-btn-small .x-btn-text {
-	background-color: #1f4b61 !important;
+	background-color: #1f1f1f !important;
 }
 
 /* Top menubar, hovered button */
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over .x-btn-small .x-btn-text,
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over.zarafa-maintabbar-maintab-active .x-btn-small .x-btn-text {
-	background-color: #204060 !important;
+	background-color: #1976d2 !important;
 	color: #f0f0f0 !important;
 }
 
 /* Top menubar, clicked button */
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.x-btn-over.x-btn-click .x-btn-small .x-btn-text {
-	background-color: #204060 !important;
+	background-color: #1976d2 !important;
 	color: #f0f0f0 !important;
 }
 
 /* Top menubar, selected button */
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active,
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn.zarafa-maintabbar-maintab-active .x-btn-small .x-btn-text {
-    background-color: #3b5264 !important;
+    background-color: #2196f3 !important;
 	color: #f0f0f0 !important;
 }
 
@@ -60,16 +60,16 @@ Top toolbar (does not include dropdown menu on split buttons)
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Toolbar */
 #zarafa-maintoolbar .x-toolbar {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 
 /* Toolbar, button splitter-line colour */
 #zarafa-maintoolbar .x-btn em.x-btn-split button {
-	border-right-color: #3b5264;
+	border-right-color: #0d47a1;
 }
 /* Toolbar, selected button splitter-line colour */
 #zarafa-maintoolbar .x-btn.zarafa-action em.x-btn-split button {
-	border-right-color: #3b5264;
+	border-right-color: #0d47a1;
 }
 
 /* Toolbar, normal button background colour */
@@ -79,7 +79,7 @@ Top toolbar (does not include dropdown menu on split buttons)
 #zarafa-maintoolbar .x-btn .x-btn-small button,
 #zarafa-maintoolbar .x-btn .x-btn-medium button,
 #zarafa-maintoolbar .x-btn .x-btn-large button {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 
 /* Toolbar, normal button text colour */
@@ -134,7 +134,7 @@ Top toolbar (does not include dropdown menu on split buttons)
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-small button,
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-medium button,
 #zarafa-maintoolbar .x-btn.zarafa-action .x-btn-large button {
-    background-color: #3b5264 !important;
+    background-color: #0d47a1 !important;
 }
 
 
@@ -153,12 +153,12 @@ Navigation panel (tree list)
 /* This sets the background colour of the entire x-panel, including item list and item preview */
 /* So it is set to the same background colour as the default background colour */
 #zarafa-navigationpanel .x-panel-body {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 /* Navigation panel, header */
 #zarafa-navigationpanel .x-panel-header {
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 #zarafa-navigationpanel .x-panel-header-text {
 	color: #f0f0f0 !important;
@@ -166,13 +166,13 @@ Navigation panel (tree list)
 
 /* Navigation panel, toolbar */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
-	background-color: #0d1a26;
+	background-color: #2d323b;
 	color: #f0f0f0;
 }
 
 /* Navigation panel, tree */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel {
-	background-color: #0d1a26;
+	background-color: #2d323b;
 }
 /*
 #zarafa-navigationpanel .x-tree-node a span:not(.zarafa-hierarchy-node-counter) {
@@ -202,10 +202,10 @@ Main panel
 #zarafa-mainpanel .x-grid3,
 #zarafa-mainpanel .x-grid3-body,
 #zarafa-mainpanel .x-grid3-scroller {
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 #zarafa-mainpanel .emptytext {
-	color: #808080;
+	color: #fff;
 }
 
 /* Main panel, border */
@@ -227,13 +227,13 @@ Main panel
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel,
 #zarafa-mainpanel-contentpanel-settings {
 	width: unset !important;									/* Prevents the right border from showing */
-	border-color: #004080 !important;
+	border-color: #2c2c2c !important;
 }
 
 /* Main panel, toolbar */
 #zarafa-mainpanel .zarafa-main-header.x-panel-header,			/* On the today page */
 #zarafa-mainpanel .x-toolbar {
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -252,7 +252,7 @@ Main panel
 	border-left-color: transparent !important;
 	border-right-color: transparent !important;
 	border-bottom-color: #004080 !important;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 /* Main panel, bottom status slider ("7 items loaded" etc.) */
@@ -261,15 +261,15 @@ Main panel
 .zarafa-notifier-dropdown-item,
 .ext-el-mask,
 #zarafa-mainpanel .k-slider {
-	border-color: #3b5264;
-	background-color: #3b5264;
+	border-color: #0d47a1;
+	background-color: #0d47a1;
 	color: #f0f0f0;
 }
 
 /* Main panel, space between message list and message preview */
 /* Actually it is the background colour of the entire panel (on top of ".x-panel-body"), but that is hidden by the list and the preview */
 #zarafa-mainpanel .x-panel {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 
@@ -280,24 +280,24 @@ Main panel, tabs
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Main panel, tab panel background colour */
 #zarafa-mainpanel .x-tab-strip.x-tab-strip-top {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 /* Main panel, tab panel bottom border colour */
 #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #000d1a;
+	border-bottom-color: #1c2025;
 }
 
 /* Main panel, normal tab */
 #zarafa-mainpanel .x-tab-strip .x-tab-right {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 #zarafa-mainpanel .x-tab-strip li {
-	border-left-color: #000d1a !important;
-	border-top-color: #000d1a !important;
-	border-right-color: #000d1a !important;
+	border-left-color: #1c2025 !important;
+	border-top-color: #1c2025 !important;
+	border-right-color: #1c2025 !important;
 }
 #zarafa-mainpanel .x-tab-strip-text {
 	color: #f0f0f0;
@@ -309,9 +309,9 @@ Main panel, tabs
 	background-color: #204060 !important;
 }
 #zarafa-mainpanel .x-tab-strip-over {
-	border-left-color: #000d1a !important;
-	border-top-color: #000d1a !important;
-	border-right-color: #000d1a !important;
+	border-left-color: #1c2025 !important;
+	border-top-color: #1c2025 !important;
+	border-right-color: #1c2025 !important;
 }
 #zarafa-mainpanel .x-tab-strip-over .x-tab-strip-text,
 #zarafa-mainpanel .x-tab-strip-active.x-tab-strip-over .x-tab-strip-text {
@@ -320,12 +320,12 @@ Main panel, tabs
 
 /* Main panel, selected tab */
 #zarafa-mainpanel .x-tab-strip-active .x-tab-right {
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 #zarafa-mainpanel .x-tab-strip-active {
-	border-left-color: #000d1a !important;
-	border-top-color: #000d1a !important;
-	border-right-color: #000d1a !important;
+	border-left-color: #1c2025 !important;
+	border-top-color: #1c2025 !important;
+	border-right-color: #1c2025 !important;
 }
 #zarafa-mainpanel .x-tab-strip-active .x-tab-strip-text {
 	color: #f0f0f0;
@@ -339,7 +339,7 @@ Main panel, search
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Main panel, search panel */
 #zarafa-mainpanel .zarafa-search-toolbox {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
@@ -357,7 +357,7 @@ Main panel, content (lists etc.)
 /* Main panel content, group header */
 #zarafa-mainpanel, .x-grid-group-hd {
 	width: auto !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 #zarafa-mainpanel .x-grid-group-hd div.x-grid-group-title {
 	color: #808080;
@@ -366,10 +366,10 @@ Main panel, content (lists etc.)
 /* Main panel content, normal list item */
 #zarafa-mainpanel .x-grid3-row {
 	width: auto !important;
-	border-color: #132639 !important;
+	border-color: #2d323b !important;
 	border-top-color: #004080 !important;
 	border-bottom-color: #004080 !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 
 /* Main panel content, list item border (disable because default is left side only) */
@@ -401,10 +401,10 @@ Main panel, content (lists etc.)
 /* Main panel content, selected list */
 #zarafa-mainpanel .x-grid3-row.x-grid3-row-selected {
 	width: auto !important;
-	border-color: #3b5264;
+	border-color: #0d47a1;
 	border-top-color: #004080;
 	border-bottom-color: #004080;
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 
 
@@ -413,18 +413,11 @@ Main panel, content (lists etc.)
 /*----------------------------------------------------------------------------------------------------------------------
 Main panel, message preview
 ----------------------------------------------------------------------------------------------------------------------*/
-/* Darken the MCE editor */
-.mce-tinymce.mce-container.mce-panel {
-	filter: brightness(50%);
-}
-.mce-container.mce-panel.mce-floatpanel {
-	filter: brightness(70%);
-}
 
 /* Main panel, preview */
 #zarafa-mainpanel .x-panel.preview-header {
 	border-bottom-color: #004080 !important;
-	background-color: #29374b !important;
+	background-color: #2d323b !important;
 }
 
 /* Main panel, preview content (iframe) */
@@ -432,7 +425,7 @@ Main panel, message preview
 /* This colour is used when the message don't contain any HTML colouring */
 .mce-tinymce iframe,																				/* Mail editor */
 #zarafa-mainpanel .preview-iframe {
-	background-color: #808080 !important;
+	background-color: #fff !important;
 }
 
 /* Main panel, preview extra information */
@@ -494,21 +487,21 @@ Main panel, message preview
 
 /* Main panel, preview attachment area  background */
 #zarafa-mainpanel .preview-attachment-data {
-	background-color: #1c2030;
+	background-color: #2d323b;
 }
 
 /* Main panel, preview normal attachment */
 #zarafa-mainpanel .zarafa-attachment-link {
 	box-shadow: 0 0 0 transparent;
 	border-color: transparent;
-	background-color: #1c2030;
+	background-color: #2d323b;
 	color: #f0f0f0;
 }
 
 /* Main panel, preview hovered attachment */
 #zarafa-mainpanel .zarafa-attachment-link:hover,
 #zarafa-mainpanel .zarafa-attachment-link-over {
-	background-color: #1c2030;
+	background-color: #2d323b;
 	color: #ffd700;
 }
 
@@ -520,15 +513,15 @@ Message editor
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Normal recipient item in address field */
 .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item {
-	border-color: #3b5264 !important;
-	background-color: #3b5264 !important;
+	border-color: #0d47a1 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0;
 }
 
 /* Hovered recipient item in address field */
 .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-hover {
 	border-color: #004080 !important;
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0;
 }
 
@@ -540,7 +533,7 @@ Calendar tabs
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Calendar tab panel, background colour */
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea {
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 /* Calendar tab panel, normal calendar indicator (above the calendar tab) */
@@ -548,7 +541,7 @@ Calendar tabs
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab,
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke {
 	border-top-color: transparent !important;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 /* Calendar tab panel, selected calendar indicator (above the calendar tab) */
@@ -556,7 +549,7 @@ Calendar tabs
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab-selected,
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke-selected {
 	border-top-color: transparent !important;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea .zarafa-calendar-tab-contents .zarafa-calendar-tab-title {
 	color: inherit !important;
@@ -565,7 +558,7 @@ Calendar tabs
 /* Calendar tab panel, normal tab */
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab {
 	border-top-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -581,7 +574,7 @@ Calendar tabs
 /* Because the indicator is set with ".zarafa-calendar-tabarea-stroke-selected", the ".zarafa-with-close-icon" class is required here */
 #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected {
 	border-top-color: transparent !important;
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0 !important;
 }
 
@@ -596,7 +589,7 @@ Calendar date picker
 .x-date-picker .x-date-left,
 .x-date-picker .x-date-middle,
 .x-date-picker .x-date-right {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker {
 	border-bottom-color: #004080;
@@ -608,14 +601,14 @@ Calendar date picker
 /* Week days */
 .x-date-picker .x-date-inner th {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
 /* Week numbers */
 .x-date-picker .x-date-weeknumber {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td.x-date-weeknumber a {
 	color: #ff0000 !important;
@@ -624,7 +617,7 @@ Calendar date picker
 /* Normal days from previous month */
 .x-date-picker .x-date-prevday {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td.x-date-prevday .x-date-date {
 	color: #808080 !important;
@@ -633,7 +626,7 @@ Calendar date picker
 /* Normal days from this month */
 .x-date-picker .x-date-active {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td:not(.x-date-weeknumber) a {
 	color: #f0f0f0 !important;
@@ -642,7 +635,7 @@ Calendar date picker
 /* Normal days from next month */
 .x-date-picker .x-date-inner td.x-date-nextday {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td.x-date-nextday .x-date-date {
 	color: #808080 !important;
@@ -651,7 +644,7 @@ Calendar date picker
 /* Disabled days */
 .x-date-picker .x-date-disabled a {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td.x-date-disabled .x-date-date {
 	color: #ff0000 !important;
@@ -678,7 +671,7 @@ Calendar date picker
 /* Selected day */
 .x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a {
 	border-color: transparent !important;
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 .x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) .x-date-date {
 	color: #f0f0f0 !important;
@@ -687,7 +680,7 @@ Calendar date picker
 /* Normal today */
 .x-date-picker .x-date-inner td.x-date-today a {
 	border-color: transparent !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-date-picker .x-date-inner td.x-date-today .x-date-date {
 	color: #ffd700 !important;
@@ -711,7 +704,7 @@ Calendar month and year picker
 /* Calendar dropdown from button (fix border colour) */
 /* This background colour forms a border around the month and year picker */
 .x-menu.x-date-menu.x-menu-plain {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 
 /* Month and year picker - bottom panel */
@@ -724,13 +717,13 @@ Calendar month and year picker
 .x-date-picker .x-date-mp-ybtn a.x-date-mp-prev,
 .x-date-picker .x-date-mp-ybtn a.x-date-mp-next,
 .x-date-picker .x-date-mp {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
 /* Month and year picker - normal month */
 .x-date-picker .x-date-mp table td.x-date-mp-month a {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -745,8 +738,8 @@ Calendar month and year picker
 /* Month and year picker - selected month */
 .x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sel a,
 .x-date-picker .x-date-mp table td.x-date-mp-month.x-date-mp-sel a {
-	border-color: #3b5264 !important;
-	background-color: #3b5264 !important;
+	border-color: #0d47a1 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0 !important;
 }
 
@@ -757,7 +750,7 @@ Calendar month and year picker
 
 /* Month and year picker - normal year */
 .x-date-picker table td.x-date-mp-year a {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -771,8 +764,8 @@ Calendar month and year picker
 
 /* Month and year picker - selected year */
 .x-date-picker .x-date-mp table td.x-date-mp-year.x-date-mp-sel a {
-	border-color: #3b5264 !important;
-	background-color: #3b5264 !important;
+	border-color: #0d47a1 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0 !important;
 }
 
@@ -784,7 +777,7 @@ Calendar content
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Calendar drag selection (selecting an new appointment) */
 .zarafa-calendar-selection-dragging {
-	background-color : #1c2030 !important;
+	background-color : #2d323b !important;
 	color: #808080;
 }
 
@@ -795,10 +788,10 @@ Calendar content
 .k-day-0.k-week-3, .k-day-1.k-week-3, .k-day-2.k-week-3, .k-day-3.k-week-3, .k-day-4.k-week-3, .k-day-5.k-week-3, .k-day-6.k-week-3,
 .k-day-0.k-week-4, .k-day-1.k-week-4, .k-day-2.k-week-4, .k-day-3.k-week-4, .k-day-4.k-week-4, .k-day-5.k-week-4, .k-day-6.k-week-4,
 .k-day-0.k-week-5, .k-day-1.k-week-5, .k-day-2.k-week-5, .k-day-3.k-week-5, .k-day-4.k-week-5, .k-day-5.k-week-5, .k-day-6.k-week-5 {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 .k-header {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
@@ -880,7 +873,7 @@ Calendar content
 .k-day-6.k-line-48, .k-day-6.k-line-49, .k-day-6.k-line-50, .k-day-6.k-line-51, .k-day-6.k-line-52, .k-day-6.k-line-53,
 .k-day-6.k-line-54, .k-day-6.k-line-55, .k-day-6.k-line-56, .k-day-6.k-line-57, .k-day-6.k-line-58, .k-day-6.k-line-59 {
 	border-color: #004080 !important;
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 
 /* Calendar day/week view, time */
@@ -900,11 +893,11 @@ Calendar content
 /* Calendar current day */
 .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,					/* 7 view */
 .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {		/* 31 view */
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 .zarafa-calendar-container-header .k-html-header-background .k-active-border,								/* 7 view */
 .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-action-border {			/* 31 view */
-    border-color: #3b5264 !important;
+    border-color: #0d47a1 !important;
 }
 
 /* Calendar border */
@@ -934,7 +927,7 @@ Calendar, free/busy panel
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Normal date header */
 .zarafa-freebusy-panel .x-freebusy-timeline-day {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 /* Normal date border (same colour as the header) */
@@ -943,14 +936,14 @@ Calendar, free/busy panel
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body div.x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td {
-	border-color: #132639;
+	border-color: #2d323b;
 	background-color: unset;
 }
 
 /* Today date header */
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
 .zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0;
 }
 
@@ -959,19 +952,19 @@ Calendar, free/busy panel
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child,
 .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
-	border-color: #3b5264;
+	border-color: #0d47a1;
 	background-color: unset;
 }
 
 /* Time header */
 .zarafa-freebusy-panel .x-freebusy-timeline-hour {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
 /* Body */
 .zarafa-freebusy-panel .x-freebusy-timeline-day-sum {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 
 /* Day devider colour */
@@ -990,7 +983,7 @@ Contacts
 ----------------------------------------------------------------------------------------------------------------------*/
 /* Category in list (contact cagegory) */
 .k-category-block.zarafa-dark {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
@@ -1003,7 +996,7 @@ div.zarafa-contact-cardview-card {
 
 /* Normal contact card header */
 #contact-cardview .x-panel-header {
-	background-color: #29374b !important;
+	background-color: #2d323b !important;
 }
 #contact-cardview .x-panel-header-text {
 	color: #f0f0f0 !important;
@@ -1011,7 +1004,7 @@ div.zarafa-contact-cardview-card {
 
 /* Normal contact card body */
 #contact-cardview .x-panel-body {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 #contact-cardview .zarafa-card-body {
 	color: #f0f0f0 !important;
@@ -1025,7 +1018,7 @@ div.zarafa-contact-cardview-card {
 div.zarafa-contact-cardview-selected:hover,
 div.zarafa-contact-cardview-card:hover {
 	border-color: transparent;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 /* Hovered contact card header */
@@ -1056,12 +1049,12 @@ div.zarafa-contact-cardview-card:hover {
 /* This background colour forms a border around the card */
 div.zarafa-contact-cardview-selected {
 	border-color: transparent;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 /* Selected contact card header */
 #contact-cardview .zarafa-contact-cardview-selected .x-panel-header {
-	background-color: #29374b !important;
+	background-color: #2d323b !important;
 }
 #contact-cardview .zarafa-contact-cardview-selected .x-panel-header-text {
 	color: #f0f0f0 !important;
@@ -1069,7 +1062,7 @@ div.zarafa-contact-cardview-selected {
 
 /* Selected contact card body */
 #contact-cardview .zarafa-contact-cardview-selected .x-panel-body {
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 #contact-cardview .zarafa-contact-cardview-selected .zarafa-card-body {
 	color: #f0f0f0 !important;
@@ -1080,8 +1073,8 @@ div.zarafa-contact-cardview-selected {
 
 /* Contact photo border */
 .zarafa-contactcreatepanel .zarafa-contactgeneraltab .contact_photo_box_ct {
-	border-color:  #29374b;
-	box-shadow: inset 0px 0px 0px 3px #29374b;
+	border-color:  #2d323b;
+	box-shadow: inset 0px 0px 0px 3px #2d323b;
 }
 
 
@@ -1093,7 +1086,7 @@ Sticky notes
 /* Normal note icon */
 .zarafa-note-iconview-thumb {
 	border-color: #004080 !important;
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
@@ -1107,8 +1100,8 @@ Sticky notes
 
 /* Selected note icon */
 .zarafa-note-iconview-selected {
-	border-color: #3b5264 !important;
-	background-color: #3b5264 !important;
+	border-color: #0d47a1 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0;
 }
 
@@ -1167,7 +1160,7 @@ Settings
 /* Normal about links */
 .zarafa-settings-about-text a,
 .zarafa-settings-about-text a:visited {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0;
 }
 
@@ -1179,8 +1172,8 @@ Settings
 
 /* Keyboard shortcut row */
 .zarafa-settings-keyboard-shortcut-row {
-	border-color: #132639 !important;
-	background-color: #132639 !important;
+	border-color: #2d323b !important;
+	background-color: #2d323b !important;
 }
 .zarafa-settings-keyboard-shortcut-row .x-form-item-label,
 .zarafa-settings-keyboard-shortcut-row .x-form-display-field {
@@ -1189,8 +1182,8 @@ Settings
 
 /* Keyboard shortcut type box */
 .zarafa-settings-keyboard-shortcut-row .keyboard-type {
-	border-color: #132639 !important;
-	background-color: #132639 !important;
+	border-color: #2d323b !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -1254,7 +1247,7 @@ different lengths of the covered background colour.
 .x-combo-list,																									/* Combolist */
 .x-combo-list .x-combo-list-inner,																				/* Combolist */
 .x-menu.x-menu-floating {																						/* Menu */
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 
 /* Light box */
@@ -1294,7 +1287,7 @@ different lengths of the covered background colour.
 .x-btn .x-btn-large,																							/* Button */
 .x-btn .x-btn-medium,																							/* Button */
 .x-btn .x-btn-small {																							/* Button */
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 
 /* Normal item */
@@ -1302,7 +1295,7 @@ different lengths of the covered background colour.
 .zarafa-settings-category-tab,																					/* Settings menu */
 .x-combo-list .x-combo-list-item,																				/* Combolist */
 .x-menu .x-menu-list li.x-menu-list-item:not(.x-menu-date-item) a {												/* Menu */
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .zarafa-settings-category-tab,																					/* Settings menu */
 .x-grid3-hd.x-grid3-cell .x-grid3-hd-inner,																		/* Toolbar button */
@@ -1443,8 +1436,8 @@ different lengths of the covered background colour.
 .x-btn.x-btn-selected .x-btn-small,																				/* Button */
 .x-combo-list .x-combo-list-item.x-combo-selected,																/* Combolist */
 .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-selected {												/* Menu */
-	border-bottom-color: #3b5264 !important;
-	background-color: #3b5264 !important;
+	border-bottom-color: #0d47a1 !important;
+	background-color: #0d47a1 !important;
 }
 .x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,							/* Meeting recepient button */
 #zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,	/* Settings menu */
@@ -1473,7 +1466,7 @@ different lengths of the covered background colour.
 .x-btn.x-item-disabled .x-btn-medium,																			/* Button */
 .x-btn.x-item-disabled .x-btn-small,																			/* Button */
 .x-menu .x-menu-list li.x-menu-list-item.x-item-disabled a {													/* Menu */
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 .zarafa-settings-category-tab.zarafa-settings-category-tab-disabled,											/* Settings menu */
 .x-form-field-wrap.x-item-disabled .x-form-text,																/* Combobox text */
@@ -1534,12 +1527,12 @@ textarea.x-form-field:hover {
 textarea.x-form-field:focus {
 	border-color: #36447a !important;
 	background-color: #1c2d30 !important;
-	color: #ffff00 !important;
+	color: #ffffff !important;
 }
 
 /* Normal checkbox */
 .x-form-check-wrap.x-form-item {
-	border-color: #132639 !important;
+	border-color: #2d323b !important;
 	background-color: #1c2d30 !important;
 	color: #f0f0f0 !important;
 }
@@ -1568,8 +1561,8 @@ Panels, dialogs and windows
 .x-window-header,
 .x-window .x-window-tl .x-window-tr .x-window-tc .x-window-header .x-window-header-text,
 .x-panel .x-panel-header {
-	border-color: #29374b;
-	background-color: #29374b !important;
+	border-color: #2d323b;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 
@@ -1577,7 +1570,7 @@ Panels, dialogs and windows
 .x-grid3,
 .x-window .x-window-bwrap,
 .x-panel-body {
-	background-color: #1c2030 !important;
+	background-color: #2d323b !important;
 }
 
 /* Panel footer */
@@ -1585,8 +1578,8 @@ Panels, dialogs and windows
 .k-recipient-card-view .x-window-footer,
 .x-window-footer,
 .x-panel .x-panel-footer {
-	border-color: #29374b !important;
-	background-color: #29374b !important;
+	border-color: #2d323b !important;
+	background-color: #2d323b !important;
 }
 
 /* Dragged panel */
@@ -1622,18 +1615,18 @@ Widget panel and widgets
 
 /* Widget panel */
 .zarafa-widgetpanel .x-panel-body {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 /* Widget */
 .zarafa-widgetpanel .x-panel.x-portlet {
 	border-color: #004080;
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 .zarafa-widgetpanel .x-panel .x-panel-mc,
 .zarafa-widgetpanel .x-panel.x-portlet .x-panel-body,
 #zarafa-mainpanel .zarafa-widgetpanel form.x-panel-body {			/* Widgets on the today page */
-	background-color: #0d1a26 !important;
+	background-color: #2d323b !important;
 }
 
 
@@ -1649,19 +1642,19 @@ ul.x-tab-strip li {
 
 /* Tab panel background colour */
 .x-tab-strip.x-tab-strip-top {
-	background-color: #000d1a !important;
+	background-color: #1c2025 !important;
 }
 
 /* Tab panel bottom border colour */
 .x-tab-panel-header ul.x-tab-strip-top {
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #000d1a;
+	border-bottom-color: #1c2025;
 }
 
 /* Normal tab */
 .x-tab-strip .x-tab-right {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 }
 .x-tab-strip-text {
 	color: #f0f0f0 !important;
@@ -1679,7 +1672,7 @@ ul.x-tab-strip li {
 
 /* Selected tab */
 .x-tab-strip-active .x-tab-right {
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 }
 .x-tab-strip-active .x-tab-strip-text {
 	color: #f0f0f0 !important;
@@ -1710,12 +1703,12 @@ Including the navigation panel tree
 .x-tree-node .x-tree-node-collapsed,
 .x-tree-node .x-tree-node-expanded,
 .x-tree-node .x-tree-node-leaf {
-	background-color: #132639 !important;
+	background-color: #2d323b !important;
 	color: #f0f0f0 !important;
 }
 .x-grid3 .x-grid3-row,
 .x-treegrid-col {
-	border-color: #132639 !important;
+	border-color: #2d323b !important;
 }
 
 /* Hovered teee node */
@@ -1744,7 +1737,7 @@ Including the navigation panel tree
 .x-tree-node .x-tree-node-collapsed.x-tree-selected,
 .x-tree-node .x-tree-node-expanded.x-tree-selected,
 .x-tree-node .x-tree-node-leaf.x-tree-selected {
-	background-color: #3b5264 !important;
+	background-color: #0d47a1 !important;
 	color: #f0f0f0 !important;
 }
 
