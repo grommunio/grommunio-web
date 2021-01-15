@@ -942,8 +942,8 @@ Ext.apply(Zarafa, {
 		var plugin = container.getContextByName(defaultContext);
 		if (!plugin) {
 			// If the defaultContext has an invalid name,
-			// we will default to the 'today' context
-			plugin = container.getContextByName('today');
+			// we will default to the 'mail' context
+			plugin = container.getContextByName('mail');
 		}
 		container.switchContext(plugin);
 	},
