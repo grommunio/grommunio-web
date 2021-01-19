@@ -281,7 +281,11 @@ Main panel
 	background-color: #1c2025 !important;
 }
 
-
+/* Main text panels */
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled{
+	background-color: white !important;
+	color: black !important;
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -1118,43 +1122,43 @@ Sticky notes
 }
 
 /* Editor blue note */
-.x-form-textarea.stickynote_dialog_blue,
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled.stickynote_dialog_blue,
 .x-form-textarea.stickynote_dialog_blue:hover,
 .x-form-textarea.stickynote_dialog_blue:focus {
     background-color: #00233b !important;
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 /* Editor green note */
-.x-form-textarea.stickynote_dialog_green,
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled.stickynote_dialog_green,
 .x-form-textarea.stickynote_dialog_green:hover,
 .x-form-textarea.stickynote_dialog_green:focus {
     background-color: #113a00 !important;
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 /* Editor pink note */
-.x-form-textarea.stickynote_dialog_pink,
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled.stickynote_dialog_pink,
 .x-form-textarea.stickynote_dialog_pink:hover,
 .x-form-textarea.stickynote_dialog_pink:focus {
     background-color: #684363 !important;
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 /* Editor yellow note */
-.x-form-textarea.stickynote_dialog_yellow,
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled.stickynote_dialog_yellow,
 .x-form-textarea.stickynote_dialog_yellow:hover,
 .x-form-textarea.stickynote_dialog_yellow:focus {
     background-color: #4e4d00 !important;
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 /* Editor white note */
-.x-form-textarea.stickynote_dialog_white,
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled.stickynote_dialog_white,
 .x-form-textarea.stickynote_dialog_white:hover,
 .x-form-textarea.stickynote_dialog_white:focus {
     background-color: #5c5c5c !important;
-	color: #f0f0f0;
+	color: #f0f0f0 !important;
 }
 
 
@@ -1788,11 +1792,7 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 	border-color: #2c2c2c !important;
 }
 
-/* Main text panels */
-.x-form-textarea.x-form-field.zarafa-contextmenu-enabled:not(.stickynote_dialog_yellow):not(.stickynote_dialog_green):not(.stickynote_dialog_pink):not(.stickynote_dialog_blue) {
-	background-color: white !important;
-	color: black !important;
-}
+
 
 /*----------------------------------------------------------------------------------------------------------------------
 _icons.scss
