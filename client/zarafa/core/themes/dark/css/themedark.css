@@ -1580,8 +1580,7 @@ Panels, dialogs and windows
 
 /* Panel body */
 .x-grid3,
-.x-window .x-window-bwrap,
-.x-panel-body {
+.x-window .x-window-bwrap {
 	background-color: #2d323b !important;
 }
 
@@ -1782,6 +1781,12 @@ PNG images
 
 .x-panel-noborder.x-panel-tbar-noborder.x-toolbar {
 	border-color: #2c2c2c !important;
+}
+
+/* Main text panels */
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled:not(.stickynote_dialog_yellow):not(.stickynote_dialog_green):not(.stickynote_dialog_pink):not(.stickynote_dialog_blue) {
+	background-color: white !important;
+	color: black !important;
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
