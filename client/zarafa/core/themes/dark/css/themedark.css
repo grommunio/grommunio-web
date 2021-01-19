@@ -1792,6 +1792,9 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 	border-color: #2c2c2c !important;
 }
 
+.x-combo-list-inner {
+	color: white !important;
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------
