@@ -436,7 +436,7 @@ Main panel, message preview
 #zarafa-mainpanel .preview-iframe {
 	background-color: #fff !important;
 }
-.preview-iframe {
+.preview-body > iframe.preview-iframe {
 	background-color: #fff !important;
 }
 
@@ -1775,6 +1775,11 @@ PNG images
 .x-panel-body.x-panel-body-noborder,
 .x-panel.preview-header.x-panel-noborder,
 .x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
+	background-color: #2d323b !important;
+	color: white !important;
+}
+
+div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 	background-color: #2d323b !important;
 	color: white !important;
 }
