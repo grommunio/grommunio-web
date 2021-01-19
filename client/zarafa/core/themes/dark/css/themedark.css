@@ -436,6 +436,9 @@ Main panel, message preview
 #zarafa-mainpanel .preview-iframe {
 	background-color: #fff !important;
 }
+.preview-iframe {
+	background-color: #fff !important;
+}
 
 /* Main panel, preview extra information */
 /* Information like "click to download images" etc. */
@@ -1774,6 +1777,7 @@ PNG images
 .x-panel.preview-header.x-panel-noborder,
 .x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 	background-color: #2d323b !important;
+	color: white !important;
 }
 
 .x-panel-noborder.x-panel-tbar-noborder.x-toolbar {
