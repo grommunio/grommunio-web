@@ -1769,6 +1769,16 @@ PNG images
 	color: #ffffff
 }
 
+/* Popout Window */
+.x-panel-body.x-panel-body-noborder,
+.x-panel.preview-header.x-panel-noborder,
+.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
+	background-color: #2d323b !important;
+}
+
+.x-panel-noborder.x-panel-tbar-noborder.x-toolbar {
+	border-color: #2c2c2c !important;
+}
 
 /*----------------------------------------------------------------------------------------------------------------------
 _icons.scss
