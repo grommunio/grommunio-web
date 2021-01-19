@@ -282,8 +282,8 @@ Main panel
 }
 
 /* Main text panels */
-.x-form-textarea.x-form-field.zarafa-contextmenu-enabled{
-	background-color: white !important;
+.x-form-textarea.x-form-field.zarafa-contextmenu-enabled[placeholder] {
+	background-color: white;
 	color: black !important;
 }
 
@@ -1525,7 +1525,7 @@ Text input and text input area
 .x-form-text,
 textarea.x-form-field {
 	border-color: #004080 !important;
-	background-color: #1c2d30 !important;
+	background-color: #1c2d30;
 	color: #f0f0f0 !important;
 }
 
@@ -1533,7 +1533,7 @@ textarea.x-form-field {
 .x-form-text:hover,
 textarea.x-form-field:hover {
 	border-color: #204060 !important;
-	background-color: #1c2d30 !important;
+	background-color: #1c2d30;
 	color: #f0f0f0 !important;
 }
 
@@ -1542,7 +1542,7 @@ textarea.x-form-field:hover {
 .x-form-text:not(.x-trigger-noedit).x-form-focus,
 textarea.x-form-field:focus {
 	border-color: #36447a !important;
-	background-color: #1c2d30 !important;
+	background-color: #1c2d30;
 	color: #ffffff !important;
 }
 
@@ -1584,6 +1584,7 @@ Panels, dialogs and windows
 
 /* Panel body */
 .x-grid3,
+.x-panel-body,
 .x-window .x-window-bwrap {
 	background-color: #2d323b !important;
 }
