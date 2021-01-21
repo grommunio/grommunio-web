@@ -1797,6 +1797,14 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 	color: white !important;
 }
 
+.x-grid3-header-inner {
+	background-color: #2d323b !important;
+}
+
+.x-panel.k-addressbookmainpanel-grid.x-panel-noborder.x-grid-panel.x-box-item {
+	background-color: #2d323b !important;
+}
+
 
 /*----------------------------------------------------------------------------------------------------------------------
 _icons.scss
