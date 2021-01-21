@@ -1298,12 +1298,16 @@ different lengths of the covered background colour.
 .x-btn.zarafa-action .x-btn-medium,																				/* Action button */
 .x-btn.zarafa-action .x-btn-small,																				/* Action button */
 .x-window .k-recipient-hover-card-button .x-btn-small,															/* Button in mail address popup */
-.x-btn .x-btn-small button,																						/* Button */
 .x-btn .x-btn-noicon,																							/* Button */
 .x-btn .x-btn-large,																							/* Button */
-.x-btn .x-btn-medium,																							/* Button */
-.x-btn .x-btn-small {																							/* Button */
+.x-btn .x-btn-medium{																							/* Button */
 	background-color: #2d323b !important;
+}
+
+/* Sepearted, so that big action buttons can be */
+.x-btn .x-btn-small button,																						/* Button */
+.x-btn .x-btn-small {
+	background-color: #2d323b;
 }
 
 /* Normal item */
@@ -1803,6 +1807,10 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 
 .x-panel.k-addressbookmainpanel-grid.x-panel-noborder.x-grid-panel.x-box-item {
 	background-color: #2d323b !important;
+}
+
+.zarafa-hierarchy-treepanel-footer-opensharedfolder > .x-btn-small .x-btn-text {
+	background-color: #0d47a1 !important;
 }
 
 
