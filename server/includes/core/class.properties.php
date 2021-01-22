@@ -724,7 +724,7 @@
 				$properties["surname"] = PR_SURNAME;
 				$properties["display_name"] = PR_DISPLAY_NAME;
 				$properties["account"] = PR_ACCOUNT;
-				$properties["street_address"] = PR_HOME_ADDRESS_STREET;
+				$properties["street_address"] = PR_STREET_ADDRESS;
 				$properties["locality"] = PR_LOCALITY;
 				$properties["state_or_province"] = PR_STATE_OR_PROVINCE;
 				$properties["postal_code"] = PR_POSTAL_CODE;
