@@ -495,7 +495,7 @@ Main panel, message preview
 /* Main panel, preview normal sender */
 #zarafa-mainpanel .preview-from,
 #zarafa-mainpanel .zarafa-sentinfo-link {
-	color: #f0f0f0;
+	color: var(--primary-color);
 }
 
 /* Main panel, preview hovering sender */
@@ -522,7 +522,7 @@ Main panel, message preview
 /* Main panel, preview normal recipient */
 #zarafa-mainpanel .preview-recipient-data,
 #zarafa-mainpanel .zarafa-recipient-link {
-	color: #f0f0f0;
+	color: var(--primary-color);
 }
 
 /* Main panel, preview hovering recipient */
@@ -544,7 +544,7 @@ Main panel, message preview
 /* Main panel, preview normal attachment */
 #zarafa-mainpanel .zarafa-attachment-link {
 	box-shadow: 0 0 0 transparent;
-	border-color: transparent;
+	border: 1px solid white;
 	background-color: var(--primary-paper-background);
 	color: #f0f0f0;
 }
@@ -1846,6 +1846,10 @@ div.x-toolbar.x-small-editor.zarafa-dialogtoolbar.x-toolbar-layout-ct {
 
 .zarafa-hierarchy-treepanel-footer-opensharedfolder > .x-btn-small .x-btn-text {
 	background-color: var(--primary-item-selected) !important;
+}
+
+.x-zarafa-boxfield-attachment-item-uploaded {
+	background-color: var(--primary-background-color) !important;
 }
 
 
