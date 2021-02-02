@@ -91,6 +91,7 @@ class PluginMDMModule extends Module
 
 					$devicedata = mapi_folder_createmessage($deviceStateFolder, MAPI_ASSOCIATED);
 					mapi_copyto($message, array(), array(), $devicedata);
+					mapi_setprops($devicedata, [PR_MESSAGE_CLASS => 'IPM.Note.GrommunioState']);
 					mapi_savechanges($devicedata);
 					return true;
 				}
