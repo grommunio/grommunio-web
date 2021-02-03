@@ -71,7 +71,7 @@ class PasswdModule extends Module
 			));
 		}
 	}
-	
+
 
 	/**
 	 * Function will try to change user's password via MAPI in SOAP connection.
@@ -98,26 +98,32 @@ class PasswdModule extends Module
 		}
 
 		if($data['current_password'] === $sessionPass) {
-			try {
-				$result = nsp_setuserpasswd($userName, $sessionPass, $newPassword);
-				// password changed successfully
-				if ($result) {
-					$this->sendFeedback(true, array(
+			$url = 'http://127.0.0.1:8080/api/v1/passwd?user='.$userName;
+			$result = file_get_contents($url, false, stream_context_create([
+				'http' => [
+						'header'  => [
+							'Content-type: application/json',
+						],
+						'method'  => 'PUT',
+						'content' => json_encode(["old" => $data['current_password'], "new" => $newPassword])
+				]
+			]));
+
+			if ($result === false) {
+				$errorMessage = Language::getstring('Error changing password. Please contact the system administrator.');
+			}
+			else {
+				$this->sendFeedback(true, array(
 						'info' => array(
-							'display_message' => Language::getstring('Password is changed successfully.')
+							'display_message' => Language::getstring('Password has been changed successfully.')
 						)
-					));
-					// write new password to session because we don't want user to re-authenticate
-					session_start();
-					$encryptionStore = EncryptionStore::getInstance();
-					$encryptionStore->add('password', $newPassword);
-					session_write_close();
-					return;
-				}
-			} catch (MAPIException $e) {
-				if (MAPI_E_NO_ACCESS == mapi_last_hresult()) {
-					$errorMessage = Language::getstring('Your password is wrong or you have insufficent permission to change password');
-				}
+				));
+				// write new password to session because we don't want user to re-authenticate
+				session_start();
+				$encryptionStore = EncryptionStore::getInstance();
+				$encryptionStore->add('password', $newPassword);
+				session_write_close();
+				return;
 			}
 			if (empty($errorMessage)) {
 				$errorMessage = Language::getstring('Password is not changed.');
@@ -136,5 +142,5 @@ class PasswdModule extends Module
 		}
 	}
 }
-	
+
 ?>
