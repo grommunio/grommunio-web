@@ -845,6 +845,10 @@
 					}
 				}
 			}
+
+			foreach ($this->userstores as $entryid) {
+				array_push($otherUsersStores, $this->stores[$entryid]);
+			}
 			return $otherUsersStores;
 		}
 

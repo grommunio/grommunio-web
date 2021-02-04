@@ -386,12 +386,24 @@ Zarafa.mail.settings.SettingsOofWidget = Ext.extend(Zarafa.settings.ui.SettingsW
 	createComboboxStore: function()
 	{
 		var hierarchyStore = container.getHierarchyStore();
-		var data = [{name: _('myself'), value: hierarchyStore.getDefaultStore().get('store_entryid') }];
-		var sharedStores = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/shared_stores', true);
+		var myStoreEntryId = hierarchyStore.getDefaultStore().get('store_entryid');
+		var data = [{name: _('myself'), value: myStoreEntryId }];
+		var processedStores = [];
 
+		hierarchyStore.getStores().forEach(function(store) {
+			var subtree = store.getSubtreeFolder();
+			var hasSufficientPermission = (subtree.get('rights') & Zarafa.core.mapi.Rights.RIGHTS_SECRETARY) === Zarafa.core.mapi.Rights.RIGHTS_SECRETARY;
+			var storeEntryId = store.get('store_entryid');
+			if (storeEntryId != myStoreEntryId && hasSufficientPermission) {
+				data = data.concat({ name: store.get('mailbox_owner_name'), value: storeEntryId });
+				processedStores.push(Zarafa.core.Util.bin2hex(store.get('user_name')));
+			}
+		});
+
+		var sharedStores = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/shared_stores', true);
 		for (var user in sharedStores) {
-			// Skip not fully opened stores
-			if (!sharedStores[user].hasOwnProperty("all")) {
+			// Skip not fully opened or already included stores
+			if (!sharedStores[user].hasOwnProperty("all") || processedStores.includes(user)) {
 				continue;
 			}
 
