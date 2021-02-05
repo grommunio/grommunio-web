@@ -98,14 +98,20 @@ class PasswdModule extends Module
 		}
 
 		if($data['current_password'] === $sessionPass) {
-			$url = 'http://127.0.0.1:8080/api/v1/passwd?user='.$userName;
+			$url = (defined('PLUGIN_PASSWD_ADMIN_API_ENDPOINT') && PLUGIN_PASSWD_ADMIN_API_ENDPOINT) ?
+				PLUGIN_PASSWD_ADMIN_API_ENDPOINT :
+				'http://[::1]:8080/api/v1/passwd';
 			$result = file_get_contents($url, false, stream_context_create([
 				'http' => [
 						'header'  => [
 							'Content-type: application/json',
 						],
 						'method'  => 'PUT',
-						'content' => json_encode(["old" => $data['current_password'], "new" => $newPassword])
+						'content' => json_encode([
+							"user" => $userName,
+							"old" => $data['current_password'],
+							"new" => $newPassword
+						])
 				]
 			]));
 
