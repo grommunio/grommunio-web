@@ -72,7 +72,7 @@
 
 	// Try to authenticate the user
 	WebAppAuthentication::authenticate();
-	
+
 	if (isset($_COOKIE['webapp_title'])) {
 		$webappTitle = $_COOKIE['webapp_title'];
 	} else {
@@ -146,6 +146,12 @@
 	// lose at least one GLOBAL (because globals suck)
 	$GLOBALS['mapisession'] = WebAppAuthentication::getMapiSession();
 
+	// check if it's DB or LDAP for the password plugin
+	$result = @json_decode(@file_get_contents(ADMIN_API_STATUS_ENDPOINT, false), true);
+	if (isset($result['ldap']) && $result['ldap']) {
+		$GLOBALS['usersinldap'] = true;
+	}
+
 	// Instantiate Plugin Manager and init the plugins (btw: globals suck)
 	$GLOBALS['PluginManager'] = new PluginManager(ENABLE_PLUGINS);
 	$GLOBALS['PluginManager']->detectPlugins(DISABLED_PLUGINS_LIST);
@@ -181,9 +187,9 @@
 		include(BASE_PATH . 'server/includes/templates/login.php');
 		die();
 	}
-	
+
 	$Language = new Language();
-	
+
 	// Set session settings (language & style)
 	foreach($GLOBALS["settings"]->getSessionSettings($Language) as $key=>$value){
 		$_SESSION[$key] = $value;
