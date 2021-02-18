@@ -177,6 +177,13 @@ class PluginManager
 			}
 		}
 
+		// Decide whether to show password plugin in settings:
+		// - show if the users are in a db
+		// - don't show if the users are in ldap
+		if (isset($this->plugindata['passwd']) && isset($GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
+			unset($this->plugindata['passwd']);
+		}
+
 		// Write the plugindata back to the state
 		if (!DEBUG_PLUGINS_DISABLE_CACHE) {
 			$pluginState->write("plugindata", $this->plugindata);
@@ -1076,6 +1083,13 @@ class PluginManager
 
 		// Remove duplicates
 		$pluginList = array_unique($pluginList);
+
+		// Decide whether to show password plugin in settings:
+		// - show if the users are in a db
+		// - don't show if the users are in ldap
+		if (($key = array_search('passwd', $pluginList)) !== false && isset($GLOBALS['usersinldap']) && $GLOBALS['usersinldap']) {
+			unset($pluginList[$key]);
+		}
 
 		return implode(';', $pluginList);
 	}
