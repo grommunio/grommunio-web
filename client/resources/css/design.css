@@ -5660,7 +5660,7 @@ div.zarafa-contact-cardview-selected {
 }
 /* line 11, ../scss/components/_welcome.scss */
 .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-  background: #1e88e5;
+  background: linear-gradient(150deg, #009FFD, #2a2a72);
   color: #ffffff;
   font-family: arial, tahoma, helvetica, sans-serif;
   font-size: 15px;

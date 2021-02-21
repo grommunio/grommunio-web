@@ -1368,7 +1368,7 @@ li.x-menu-item-active {
   border-width: 0; }
 
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-  background: #1e88e5;
+  background: linear-gradient(150deg, #009FFD, #2a2a72);
   color: #ffffff;
   padding: 0;
   /* focused button */ }
@@ -3900,7 +3900,7 @@ div.zarafa-contact-cardview-selected {
     border-left: 1px solid #e6e6e6;
     border-right: 1px solid #e6e6e6; }
   .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-    background: #1e88e5;
+    background: linear-gradient(150deg, #009FFD, #2a2a72);
     color: #ffffff;
     font-family: arial, tahoma, helvetica, sans-serif;
     font-size: 15px;
