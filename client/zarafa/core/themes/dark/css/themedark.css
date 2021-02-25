@@ -58,7 +58,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
 /* Top menubar, button */
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn .x-btn-small,
 body #zarafa-mainmenu.zarafa-maintabbar .x-btn .x-btn-small .x-btn-text {
-	background-color: var(--toolbar-color) !important;
+	background-color: transparent !important;
 }
 
 #mainmenu-button-reminder > div.x-btn-small.x-btn-icon-small-left {
@@ -1342,7 +1342,7 @@ different lengths of the covered background colour.
 /* Sepearted, so that big action buttons can be */
 .x-btn .x-btn-small button,																						/* Button */
 .x-btn .x-btn-small {
-	background-color: var(--primary-paper-background);
+	background-color: transparent;
 }
 
 /* Normal item */
@@ -1861,7 +1861,7 @@ _icons.scss
 .arrow_down_s_white, .x-btn.x-btn.zarafa-action .x-btn-split, .x-btn.x-btn.zarafa-action .x-btn-arrow {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMyIgd2lkdGg9IjUiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0ibTAgMCAyLjY5OTIgMyAyLjcwMTItM2gtNS40MDA0eiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
 .arrow_left_l, .light-background .zarafa-calendar-tab-icon-merge, .x-date-left a, .x-date-mp-ybtn a.x-date-mp-prev, .x-tool.x-tool-toggle.x-tool-collapse-west, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-east, .x-panel-header .x-tool.x-tool-collapse-west, .x-layout-collapsed .x-tool.x-tool-expand-east, .x-tab-scroller-left {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gNSwwIDUsOSAwLDQuNSA1LDAgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
 .arrow_left_l_white, .zarafa-calendar-tab-icon-merge {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gNSwwIDUsOSAwLDQuNSA1LDAgWiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
-.arrow_menubar, .zarafa-maintabbar-maintab-active button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZD0iTSA2IDAgTCAwIDYgTCAxMiA2IEwgNiAwIHogIiBzdHlsZT0iO2ZpbGw6IzAwNjY5OSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
+.arrow_menubar, .zarafa-maintabbar-maintab-active button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text, .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgMTIgNiI+PHBhdGggZD0iTSA2IDAgTCAwIDYgTCAxMiA2IEwgNiAwIHogIiBzdHlsZT0iO2ZpbGw6IzFjMjAyNSIgLz48L3N2Zz4=) !important; background-repeat: no-repeat !important; background-position: center center !important;}
 .arrow_right_l, .light-background .zarafa-calendar-tab-icon-separate, .x-date-right a, .x-date-mp-ybtn a, .x-tree-lines .x-tree-elbow-plus, .x-tree-lines .x-tree-elbow-end-plus, .x-menu-item-arrow, .x-tool.x-tool-toggle.x-tool-collapse-east, .x-layout-collapsed .x-tool.x-tool-toggle.x-tool-expand-west, .x-panel-header .x-tool.x-tool-collapse-east, .x-layout-collapsed .x-tool.x-tool-expand-west, .x-tab-scroller-right {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gMCAwIEwgMCA5IEwgNSA0LjUgTCAwIDAgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
 .arrow_right_l_white, .zarafa-calendar-tab-icon-separate {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjkiIHZpZXdCb3g9IjAgMCA1IDkiPjxwYXRoIGQ9Ik0gMCAwIEwgMCA5IEwgNSA0LjUgTCAwIDAgeiAiIHN0eWxlPSI7ZmlsbDojMDA2Njk5IiAvPjwvc3ZnPg==) !important; background-repeat: no-repeat !important; background-position: center center !important;}
 .arrow_up_l, .x-tool.x-tool-toggle, td.sort-asc .x-grid3-sort-icon, .preview-header-collapse-minus, .zarafa-rules-sequence-up {background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iNSIgd2lkdGg9IjkiIHZpZXdCb3g9IjAgMCA1LjQwMDM5MDYgMyI+PHBhdGggZD0ibTAgMyAyLjY5OTItMyAyLjcwMTIgM2gtNS40MDA0eiIgc3R5bGU9IjtmaWxsOiMwMDY2OTkiIC8+PC9zdmc+) !important; background-repeat: no-repeat !important; background-position: center center !important;}
