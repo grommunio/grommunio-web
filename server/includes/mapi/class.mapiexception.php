@@ -22,6 +22,7 @@
 			{
 				case MAPI_E_NO_ACCESS:
 					return dgettext("zarafa","You have insufficient privileges to open this object.");
+				case ecUnknownUser:
 				case MAPI_E_LOGON_FAILED:
 				case MAPI_E_UNCONFIGURED:
 					return dgettext("zarafa","Logon Failed. Please check your name/password.");
