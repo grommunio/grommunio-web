@@ -209,9 +209,13 @@ Zarafa.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			html = record.get('isHTML');
 			body = record.getBody(html);
 
+			if (html) {
+				body = DOMPurify.sanitize(body, {USE_PROFILES: {html: true}});
+			}
+
 			if (!body) {
 				body = '';
-			} else  if (html === false) {
+			} else if (html === false) {
 				body = this.plaintextTemplate.applyTemplate({ body: Ext.util.Format.htmlEncode(body) });
 			}
 		}

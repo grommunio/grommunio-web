@@ -179,7 +179,7 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	{
 		return this.meta.active_theme;
 	},
-	
+
 	/**
 	 * @return {Boolean} is custom theme available
 	 */
@@ -340,5 +340,13 @@ Zarafa.core.data.ServerConfig = Ext.extend(Object, {
 	getPrefetchInterval : function()
 	{
 		return this.meta.prefetch_email_interval * 1000;
+	},
+
+	/**
+	 * @returns {Boolean} True if DOMPurify is enabled by admin(from config.php) else false.
+	 */
+	getDOMPurifyEnabled: function ()
+	{
+		return this.meta.enable_dompurify;
 	}
 });

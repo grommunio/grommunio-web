@@ -13,6 +13,7 @@ DESTDIR ?= deploy
 # Javascript compiler
 
 JSDEPLOY = $(DESTDIR)/client
+DEPLOYPURIFY = $(JSDEPLOY)/dompurify
 
 JSCOMPILER ?= $(JAVA) -jar tools/lib/compiler.jar
 
@@ -56,6 +57,9 @@ ICONSETSCSSDEST = $(addprefix $(DESTDIR)/, $(ICONSETSCSS))
 EXTJS = client/extjs/ext-base.js client/extjs/ext-all.js
 THIRDPARTY = $(shell find client/third-party -name '*.js') client/third-party/tokenizr/tokenizr.js
 
+PURIFYJS = client/dompurify/purify.min.js
+DEPLOYPURIFYJS = $(DEPLOYPURIFY)/purify.js
+
 POFILES = $(wildcard server/language/*/*/*.po)
 JSFILES = $(shell find client/zarafa -name '*.js')
 
@@ -79,7 +83,7 @@ client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/scss $(DESTDIR)/client/resources/scss
 	# TODO use separate targets
 
-js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js
+js: $(JSDEPLOY)/fingerprint.js $(JSDEPLOY)/resize.js $(TEMPATEJSDEST) $(JSDEPLOY)/kopano.js $(JSDEPLOY)/extjs-mod/extjs-mod.js $(JSDEPLOY)/extjs/ext-base-all.js $(DESTDIR)/client/third-party/ux-thirdparty.js $(DEPLOYPURIFYJS)
 	cp -r client/tinymce $(DESTDIR)/client/
 	cp -r client/tinymce-languages $(DESTDIR)/client/
 	cp -r client/tinymce-plugins $(DESTDIR)/client/
@@ -137,6 +141,10 @@ $(JSDEPLOY)/resize.js: client/resize.js
 	mkdir -p $(JSDEPLOY)
 	cat client/resize.js > $(JSDEPLOY)/resize-debug.js
 	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@
+
+$(DEPLOYPURIFYJS): $(PURIFYJS)
+	mkdir -p $(DEPLOYPURIFY)
+	cp $^ $@
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
