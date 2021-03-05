@@ -201,6 +201,32 @@ Ext.apply(Zarafa, {
 		// Set the language object
 		container.setLanguages(languages);
 		delete languages;
+
+		// Set up DOMPurify
+		DOMPurify.setConfig({
+			FORBID_TAGS: ['iframe', 'webview', 'meta', 'html', 'head', 'link'],
+			WHOLE_DOCUMENT: false,
+			// Default regEx of DOMPurify for uri does not allow some protocols like file, smb, etc.
+			// So we need to whitelist them by this new regEx.
+			ALLOWED_URI_REGEXP: Object.seal(/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp|smb|file):|[^a-z]|[a-z]:|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i),
+			ALLOW_DATA_ATTR: false
+		});
+
+		DOMPurify.addHook('afterSanitizeAttributes', function(node) {
+			// Set all elements owning target to target=_blank.
+			if ('target' in node) {
+				node.setAttribute('target', '_blank');
+				// prevent https://www.owasp.org/index.php/Reverse_Tabnabbing
+				node.setAttribute('rel', 'noopener noreferrer external');
+
+				if (node.nodeName === "A" && !Ext.isEmpty(node.href)){
+					node.setAttribute('title', `${node.href} \n ${_("Click the link to open the URL in a new window.")}`);
+				}
+			} else if (!node.hasAttribute('target') && (node.hasAttribute('xlink:href') || node.hasAttribute('href'))) {
+				// set non-HTML/MathML links to xlink:show=new
+				node.setAttribute('xlink:show', 'new');
+			}
+		});
 	},
 
 	/**
@@ -1017,7 +1043,7 @@ Ext.apply(Zarafa, {
 	checkOof : function()
 	{
 		var oof = false;
-		
+
 		if (container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/set') !== 0) {
 			if (container.getSettingsModel().get('zarafa/v1/contexts/mail/outofoffice/timerange') === 0) {
 				oof = true;

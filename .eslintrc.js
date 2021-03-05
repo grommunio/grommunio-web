@@ -278,6 +278,7 @@ module.exports = {
 	    "urlActionData": true,
 	    "resizeLoginBox": true,
 	    "tinymce": true,
-	    "userManager": true
+	    "userManager": true,
+        "DOMPurify": true,
     }
 };

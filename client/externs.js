@@ -29,3 +29,4 @@ var onResize = function() {};
 var tinymce = {};
 var resizeLoginBox = function() {};
 var userManager = {};
+var DOMPurify = {};

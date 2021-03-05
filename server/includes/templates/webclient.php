@@ -37,7 +37,8 @@ $serverConfig = array_merge($serverConfig, array(
 										),
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 	'prefetch_email_count' => PREFETCH_EMAIL_COUNT,
-	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL
+	'prefetch_email_interval' => PREFETCH_EMAIL_INTERVAL,
+	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER
 ));
 if ( CONTACT_PREFIX ){
 	$serverConfig['contact_prefix'] = json_decode(CONTACT_PREFIX);

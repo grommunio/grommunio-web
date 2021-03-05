@@ -30,6 +30,10 @@
 	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", true);
 
+	// Use DOMPurify to filter HTML
+	// Caution: disabling DOMPurify is a potential security risk.
+	define("ENABLE_DOMPURIFY_FILTER", true);
+
 	// The timeout (in seconds) for the session. User will be logged out of WebApp
 	// when he has not actively used the WebApp for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
