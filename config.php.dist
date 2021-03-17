@@ -21,9 +21,6 @@
 	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock");
 	define("DEFAULT_SERVER", "default:");
 
-	//domain socket path of session agent
-	define("PANDORA_ASESSION_PATH", "/var/pandora/token/asession");
-
 	// Name of the cookie that is used for the session
 	define("COOKIE_NAME", "GRAMMM_WEB");
 

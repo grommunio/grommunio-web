@@ -76,8 +76,6 @@
 	require_once(BASE_PATH . 'server/includes/core/class.log.php');
 	require_once(BASE_PATH . 'server/includes/logger/class.baselogger.php');
 	require_once(BASE_PATH . 'server/includes/logger/class.filelog.php');
-	
-	require_once(BASE_PATH . 'server/includes/core/class.cmdagent.php');
 
 	ob_start();
 	setlocale(LC_CTYPE, Language::resolveLanguage(LANG));
