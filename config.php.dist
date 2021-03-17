@@ -1,5 +1,5 @@
 <?php
-	// The config file for the webapp.
+	// The config file for grammm web.
 	// All possible web client settings can be set in this file. Some settings
 	// (language) can also be set per user or logon.
 
@@ -14,11 +14,7 @@
 
 	// Depending on your setup, it might be advisable to change the lines below to one defined with your
 	// default socket location.
-	// Normally "default:" points to the default setting ("file:///var/run/kopano/server.sock")
 	// Examples: define("DEFAULT_SERVER", "default:");
-	//           define("DEFAULT_SERVER", "http://localhost:236/kopano");
-	//           define("DEFAULT_SERVER", "https://localhost:237/kopano");
-	//           define("DEFAULT_SERVER", "file:///var/run/kopano/server.sock");
 	define("DEFAULT_SERVER", "default:");
 
 	// Name of the cookie that is used for the session
@@ -247,7 +243,7 @@
 	define('LOG_USERS', '');
 
 	// Location to the log directory
-	// e.g /var/log/webapp-userslog/users/
+	// e.g /var/log/nginx/
 	define('LOG_FILE_DIR', '');
 
 	/**************************************\
@@ -269,7 +265,7 @@
 	// using <languagecode>_<regioncode>[.UTF-8], and separated with
 	// semicolon.  A list of available languages can be found in
 	// the manual or by looking at the list of directories in
-	// /usr/share/steep-webapp/server/language .
+	// /usr/share/grammm-web/server/language .
 	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;en_US;es_CA;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
 
 	//Define the default time zone
