@@ -83,7 +83,7 @@ class BaseException extends Exception
 	 */
 	public function setDisplayMessage($message)
 	{
-		$this->displayMessage = $message . " (" . sprintf("%xh", $this->getCode()) . ")";
+		$this->displayMessage = $message . " (" . mapi_strerror($this->getCode()) . ")";
 	}
 
 	/**
