@@ -199,7 +199,7 @@ body {
   background-color: white !important; }
 
 #zarafa-navigationpanel > div {
-  border-right: 1px solid #e6e6e6; }
+  border-right: none; }
 
 .zarafa-widgetpanel > div {
   border-left: 1px solid #e6e6e6; }
@@ -211,7 +211,8 @@ ul.x-tab-strip-top {
 /* set the width (and height) of the splitters, i.e. the space between panels */
 .x-layout-split {
   width: 3px;
-  height: 3px; }
+  height: 3px;
+  z-index: 9999; }
 
 /* Common emptytext for empty grids. Overwriting x-grid-empty in some cases */
 .emptytext {
@@ -673,7 +674,10 @@ div.x-btn-group-bc {
 .x-tab-panel-body {
   border-color: #e6e6e6; }
 
-/* remove and add some borders for specific panels so we don't get double borders */
+#zarafa-mainpanel {
+  margin-left: -3px; }
+
+/* Remove some borders for specific panels so we don't get double borders */
 #zarafa-mainpanel-contentpanel-mail .zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
   border: none; }
 #zarafa-mainpanel-contentpanel-mail #zarafa-main-content-mail-preview {
@@ -682,12 +686,17 @@ div.x-btn-group-bc {
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right .zarafa-context-mainpanel {
   border-right: 1px solid #e6e6e6; }
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-right #zarafa-main-content-mail-preview {
-  border-left: 1px solid #e6e6e6; }
+  border-left: none !important;
+  margin-left: -3px; }
 
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom .zarafa-context-mainpanel {
   border-bottom: 1px solid #e6e6e6; }
 #zarafa-mainpanel-contentpanel-mail.zarafa-preview-bottom #zarafa-main-content-mail-preview {
-  border-top: 1px solid #e6e6e6; }
+  border-top: none !important; }
+
+#zarafa-mainpanel-contentpanel-today .zarafa-main-header {
+  background: transparent;
+  border-left: 1px solid #e6e6e6; }
 
 /* Drag and drop (mainly visible in widgets) */
 .x-panel-dd-spacer {
@@ -845,6 +854,9 @@ body.Safari input[type="radio"] {
   border-bottom: 1px solid #e6e6e6;
   padding: 0; }
 
+#mail-grid .x-grid3-header {
+  padding-left: 3px; }
+
 td.x-grid3-hd-over .x-grid3-hd-inner,
 td.sort-desc .x-grid3-hd-inner,
 td.sort-asc .x-grid3-hd-inner,
@@ -967,8 +979,12 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid columns
  ******************************************************************************/
+.x-grid3-row.zarafa-calendar-grid-row {
+  border-left: 1px solid; }
+
 .x-grid3-row {
   border-top: none;
+  border-left: none;
   border-color: #e6e6e6;
   /*
    * exception for the categories column which has labels that will be truncated when too long
@@ -1023,9 +1039,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   background: #d5e8f7 !important;
   /* Ext uses important, so we also must do that */ }
 
-.x-grid3-row.x-grid3-row-selected {
-  border: 1px solid #d5e8f7;
-  border-top: 0px; }
+/* Flags */
+.x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag,
+.x-grid3-row.k-conversation-header .x-grid3-col.icon_flag {
+  background-image: none !important; }
 
 /* Mail grid */
 #mail-grid .x-grid3-row,
@@ -1034,7 +1051,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 #task-grid .x-grid3-row,
 #note-gridview .x-grid3-row,
 #unread-mail-widget .x-grid3-row {
-  border-left-color: white; }
+  border-left-color: transparent; }
 #mail-grid .mail_unread div,
 #calendar_grid .mail_unread div,
 #contact-gridview .mail_unread div,
@@ -1129,28 +1146,34 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
   height: 30px;
   line-height: 2.5; }
 
+/* Read items */
+.x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
+  border-left: 4px solid #ffffff !important; }
+
+/* x-grid-3 should have a little more padding */
+.x-grid3-row {
+  padding-right: 3px; }
+
+/* hover read item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
+  border-left: 4px solid #f2f2f2 !important; }
+
+/* Hover selected item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+  border-left: 4px solid #d5e8f7 !important; }
+
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+  border-left: 4px solid #d5e8f7 !important; }
+
+/* Unread items */
+.x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+  border-left: 4px solid transparent !important; }
+
 /* Unread borders */
 .k-unreadborders {
-  /* Header should be moved to the right for alignment */
-  /* x-grid-3 should have a little more padding */
-  /* Unread items */
-  /* Read items */
-  /* hover read item */
-  /* Hover selected item */ }
-  .k-unreadborders .x-grid3-header {
-    padding-left: 3px; }
-  .k-unreadborders .x-grid3-row {
-    padding-right: 3px; }
+  /* Unread items */ }
   .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
     border-left: 4px solid #1e88e5 !important; }
-  .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read > table, .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
-    border-left: 4px solid #ffffff !important; }
-  .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
-    border-left: 4px solid #d5e8f7 !important; }
-  .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
-    border-left: 4px solid #f2f2f2 !important; }
-  .k-unreadborders .x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table, .k-unreadborders .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
-    border-left: 4px solid #d5e8f7 !important; }
 
 .x-toolbar {
   background-image: none;
@@ -1368,7 +1391,7 @@ li.x-menu-item-active {
   border-width: 0; }
 
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-  background: linear-gradient(150deg, #009FFD, #2a2a72);
+  background: #1e88e5;
   color: #ffffff;
   padding: 0;
   /* focused button */ }
@@ -1392,6 +1415,7 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
       text-shadow: none;
       padding: 10px 12px 10px 12px;
       height: auto;
+      opacity: 0.7;
       width: auto;
       min-width: 0;
       border: none; }
@@ -1404,7 +1428,6 @@ body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
     body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over button.x-btn-text, body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over.x-btn-click button.x-btn-text {
       border: none;
       color: #ffffff;
-      opacity: 0.7;
       background-color: transparent; }
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active,
   body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over,
@@ -1523,6 +1546,9 @@ ul.x-tab-strip-bottom li {
       padding: 0 6px;
       display: block;
       cursor: pointer; }
+
+.x-panel.zarafa-widgetpanel {
+  border-left: none !important; }
 
 #zarafa-mainpanel #zarafa-mainpanel-content > .x-panel {
   border-top: 1px solid #e6e6e6; }
@@ -1756,7 +1782,7 @@ body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container, .x-window .za
 /* hierarchy toolbar (Show all folders panel) */
 #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar {
   /* Bottom has -1 pixel since we have a bottom-border of 1px */
-  padding: 8px 12px 7px 12px; }
+  padding: 9px 12px 7px 12px; }
   #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap input, #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar .x-form-check-wrap label {
     line-height: 20px;
     vertical-align: middle; }
@@ -3738,7 +3764,6 @@ div.zarafa-contact-cardview-selected {
       font-weight: bold;
       color: black;
       border-bottom: 1px solid #e6e6e6;
-      border-top: 1px solid #e6e6e6;
       height: 24px;
       vertical-align: middle; }
     .x-date-picker .x-date-inner td {
@@ -3899,7 +3924,7 @@ div.zarafa-contact-cardview-selected {
     border-left: 1px solid #e6e6e6;
     border-right: 1px solid #e6e6e6; }
   .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
-    background: linear-gradient(150deg, #009FFD, #2a2a72);
+    background: #1e88e5;
     color: #ffffff;
     font-family: arial, tahoma, helvetica, sans-serif;
     font-size: 15px;

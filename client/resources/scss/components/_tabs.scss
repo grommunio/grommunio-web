@@ -129,6 +129,11 @@ ul.x-tab-strip-bottom li {
 		}
 	}
 }
+
+.x-panel.zarafa-widgetpanel {
+	border-left: none !important;
+}
+
 #zarafa-mainpanel {
 	#zarafa-mainpanel-content {
 		> .x-panel {

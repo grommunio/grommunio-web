@@ -13,7 +13,7 @@ body.scrollFavorites .zarafa-tree-ipm-subtree-favorites-container, .x-window .za
 	
 	.x-toolbar{
 		/* Bottom has -1 pixel since we have a bottom-border of 1px */
-		padding: ($toolbar-height - $font-default-line-height)/2 $padding-extra-large (($toolbar-height - $font-default-line-height)/2 - 1) $padding-extra-large;
+		padding: ($toolbar-height - $font-default-line-height)/2 + 1 $padding-extra-large (($toolbar-height - $font-default-line-height)/2 - 1) $padding-extra-large;
 
 		.x-form-check-wrap{
 
