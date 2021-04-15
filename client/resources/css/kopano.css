@@ -1391,7 +1391,7 @@ li.x-menu-item-active {
   border-width: 0; }
 
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-  background: #1e88e5;
+  background: linear-gradient(150deg, #009FFD, #2a2a72);
   color: #ffffff;
   padding: 0;
   /* focused button */ }

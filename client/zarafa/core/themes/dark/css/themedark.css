@@ -57,7 +57,6 @@ Top menubar
 /* Top menubar */
 body #zarafa-mainmenu,
 body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
-	background-color: var(--toolbar-color) !important;
 	color: #e6f2ff !important;
 }
 
