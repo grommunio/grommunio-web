@@ -10,6 +10,10 @@
 	padding: 0;
 }
 
+#mail-grid .x-grid3-header {
+	padding-left: $padding-small;
+}
+
 td.x-grid3-hd-over .x-grid3-hd-inner,
 td.sort-desc .x-grid3-hd-inner,
 td.sort-asc .x-grid3-hd-inner,
@@ -173,8 +177,13 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 /******************************************************************************
  * Grid columns
  ******************************************************************************/
+.x-grid3-row.zarafa-calendar-grid-row {
+	border-left: 1px solid;
+}
+
 .x-grid3-row {
 	border-top: none;
+	border-left: none;
 	border-color: $grey;
 	.x-grid3-cell-inner {
 		line-height: 100%;
@@ -250,9 +259,10 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	background: $grid-active-color !important; /* Ext uses important, so we also must do that */
 }
 
-.x-grid3-row.x-grid3-row-selected {
-	border: 1px solid $grid-active-color;
-	border-top: 0px;
+/* Flags */
+.x-grid3-row:not(.x-grid3-row-over) .x-grid3-col.icon_flag,
+.x-grid3-row.k-conversation-header .x-grid3-col.icon_flag {
+		background-image: none !important;
 }
 
 /* Mail grid */
@@ -263,7 +273,7 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 #note-gridview,
 #unread-mail-widget {
 	.x-grid3-row {
-		border-left-color: white;
+		border-left-color: transparent;
 	}
 
 	.mail_unread {
@@ -375,40 +385,40 @@ td.x-grid3-hd-menu-open .x-grid3-hd-inner {
 	line-height: 2.5;
 }
 
+/* Read items */
+.x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
+	border-left: 4px solid $white !important;
+}
+
+/* x-grid-3 should have a little more padding */
+.x-grid3-row {
+	padding-right: $padding-small;
+}
+
+/* hover read item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
+	border-left: 4px solid $grid-hover-color !important;
+}
+
+/* Hover selected item */
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
+	border-left: 4px solid $grid-active-color !important;
+}
+
+.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
+	border-left: 4px solid $grid-active-color !important;
+}
+
+/* Unread items */
+.x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
+	border-left: 4px solid transparent !important;
+}
+
 /* Unread borders */
 .k-unreadborders {
-	
-	/* Header should be moved to the right for alignment */
-	.x-grid3-header {
-		padding-left: $padding-small;
-	}
-
-	/* x-grid-3 should have a little more padding */
-	.x-grid3-row {
-		padding-right: $padding-small;
-	}
 
 	/* Unread items */
 	.x-grid3-row.x-grid3-row-collapsed.mail_unread > table, .x-grid3-row.x-grid3-row-expanded.mail_unread > table {
 		border-left: 4px solid $kopano-blue !important;
-	}
-
-	/* Read items */
-	.x-grid3-row.x-grid3-row-expanded.mail_read > table, .x-grid3-row.x-grid3-row-collapsed.mail_read > table {
-		border-left: 4px solid $white !important;
-	}
-
-	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected > table {
-		border-left: 4px solid $grid-active-color !important;
-	}
-
-	/* hover read item */
-	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-over > table {
-		border-left: 4px solid $grid-hover-color !important;
-	}
-
-	/* Hover selected item */
-	.x-grid3-row.x-grid3-row-expanded.mail_read.x-grid3-row-selected.x-grid3-row-over > table, .x-grid3-row.x-grid3-row-collapsed.mail_read.x-grid3-row-selected > table {
-		border-left: 4px solid $grid-active-color !important;
 	}
 }

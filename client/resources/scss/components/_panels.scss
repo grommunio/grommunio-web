@@ -103,8 +103,12 @@
 	border-color: $grey;
 }
 
-/* remove and add some borders for specific panels so we don't get double borders */
-#zarafa-mainpanel-contentpanel-mail{
+#zarafa-mainpanel {
+	margin-left: -3px;
+}
+
+/* Remove some borders for specific panels so we don't get double borders */
+#zarafa-mainpanel-contentpanel-mail {
 	.zarafa-context-mainpanel > .x-panel-bwrap > .x-panel-body {
 		border: none;
 	}
@@ -120,7 +124,8 @@
 	}
 
 	#zarafa-main-content-mail-preview {
-		border-left: 1px solid $grey;
+		border-left: none !important;
+		margin-left: -3px;
 	}
 }
 
@@ -130,10 +135,17 @@
 	}
 
 	#zarafa-main-content-mail-preview {
-		border-top: 1px solid $grey;
+		border-top: none !important;
 	}
 }
 
+#zarafa-mainpanel-contentpanel-today {
+
+	.zarafa-main-header {
+		background: transparent;
+		border-left: 1px solid $grey;
+	}	
+}
 
 /* Drag and drop (mainly visible in widgets) */
 .x-panel-dd-spacer {
