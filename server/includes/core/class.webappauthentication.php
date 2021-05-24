@@ -86,6 +86,7 @@ class WebAppAuthentication
 		switch (WebAppAuthentication::getErrorCode()){
 			case NOERROR:
 				return '';
+			case ecUnknownUser:
 			case MAPI_E_LOGON_FAILED:
 			case MAPI_E_UNCONFIGURED:
 				return  _('Logon failed. Please verify your credentials and try again.');

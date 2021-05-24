@@ -20,6 +20,8 @@
 
 			switch($this->getCode()) 
 			{
+				/* see also class.webappauthentication.php:getErrorMessage for more instances */
+
 				case MAPI_E_NO_ACCESS:
 					return dgettext("zarafa","You have insufficient privileges to open this object.");
 				case ecUnknownUser:
