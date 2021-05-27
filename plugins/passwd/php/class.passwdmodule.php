@@ -97,7 +97,9 @@ class PasswdModule extends Module
 			$sessionPass = $encryptionStore->get("password");
 		}
 
-		if($data['current_password'] === $sessionPass) {
+		if ($data['current_password'] !== $sessionPass) {
+			$errorMessage = Language::getstring('Current password does not match.');
+		} else {
 			$url = (defined('PLUGIN_PASSWD_ADMIN_API_ENDPOINT') && PLUGIN_PASSWD_ADMIN_API_ENDPOINT) ?
 				PLUGIN_PASSWD_ADMIN_API_ENDPOINT :
 				'http://[::1]:8080/api/v1/passwd';
@@ -134,8 +136,6 @@ class PasswdModule extends Module
 			if (empty($errorMessage)) {
 				$errorMessage = Language::getstring('Password is not changed.');
 			}
-		} else {
-			$errorMessage = Language::getstring('Current password does not match.');
 		}
 
 		if(!empty($errorMessage)) {
