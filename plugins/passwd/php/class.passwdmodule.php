@@ -99,6 +99,31 @@ class PasswdModule extends Module
 
 		if ($data['current_password'] !== $sessionPass) {
 			$errorMessage = Language::getstring('Current password does not match.');
+		} else if (defined('PLUGIN_PASSWD_USE_ZCORE') && PLUGIN_PASSWD_USE_ZCORE) {
+			try {
+				$result = nsp_setuserpasswd($userName, $sessionPass, $newPassword);
+				// password changed successfully
+				if ($result) {
+					$this->sendFeedback(true, array(
+						'info' => array(
+							'display_message' => Language::getstring('Password is changed successfully.')
+						)
+					));
+					// write new password to session because we don't want user to re-authenticate
+					session_start();
+					$encryptionStore = EncryptionStore::getInstance();
+					$encryptionStore->add('password', $newPassword);
+					session_write_close();
+					return;
+				}
+			} catch (MAPIException $e) {
+				if (MAPI_E_NO_ACCESS == mapi_last_hresult()) {
+					$errorMessage = Language::getstring('Your password is wrong or you have insufficent permission to change password');
+				}
+			}
+			if (empty($errorMessage)) {
+				$errorMessage = Language::getstring('Password is not changed.');
+			}
 		} else {
 			$url = (defined('PLUGIN_PASSWD_ADMIN_API_ENDPOINT') && PLUGIN_PASSWD_ADMIN_API_ENDPOINT) ?
 				PLUGIN_PASSWD_ADMIN_API_ENDPOINT :
