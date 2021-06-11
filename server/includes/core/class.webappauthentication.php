@@ -255,7 +255,8 @@ class WebAppAuthentication
 	 */
 	public static function authenticateWithPostedCredentials() {
 
-		if (empty($_POST['username']) || empty($_POST['password'])) {
+		$email = appendDefaultDomain($_POST['username']);
+		if (empty($email) || empty($_POST['password'])) {
 			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
 			return WebAppAuthentication::getErrorCode();
 		}
@@ -266,7 +267,7 @@ class WebAppAuthentication
 		$password = $encryptionStore->get('password');
 
 		if ( !is_null($username) && !is_null($password) ){
-			if ( $username!=$_POST['username'] || $password!=$_POST['password'] ) {
+			if ( $username!=$email || $password!=$_POST['password'] ) {
 				WebAppAuthentication::$_errorCode = MAPI_E_INVALID_WORKSTATION_ACCOUNT;
 				WebAppAuthentication::$_phpSession->destroy();
 				return WebAppAuthentication::getErrorCode();
@@ -280,11 +281,11 @@ class WebAppAuthentication
 		// Give the session a new id
 		session_regenerate_id();
 
-		WebAppAuthentication::login($_POST['username'], $_POST['password']);
+		WebAppAuthentication::login($email, $_POST['password']);
 
 		// Store the credentials in the session if logging in was succesfull
 		if ( WebAppAuthentication::$_errorCode === NOERROR ){
-			WebAppAuthentication::_storeCredentialsInSession($_POST['username'], $_POST['password']);
+			WebAppAuthentication::_storeCredentialsInSession($email, $_POST['password']);
 		}
 
 		return WebAppAuthentication::getErrorCode();

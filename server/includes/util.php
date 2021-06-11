@@ -24,6 +24,22 @@
 		return $data;
 	}
 
+	/*
+     * Add in config specified default domain to email if no domain is set in form.
+     * If no default domain is set in config, the input string will be return without changes.
+     *
+     * @param string user the user to append domain to
+     * @return string email
+     */
+    function appendDefaultDomain($user)
+    {
+			if(empty($user)) return '';
+			if ( !defined('DEFAULT_DOMAIN') || strpos($user, '@') !== false) return $user;
+			$email = $user . "@" . DEFAULT_DOMAIN;
+
+			return $email;
+    }
+
 	/**
 	 * Function which is called every time the "session_start" method is called.
 	 * It unserializes the objects in the session. This function called by PHP.

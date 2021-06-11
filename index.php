@@ -116,7 +116,7 @@
 		// If a username was passed as GET parameter we will prefill the username input
 		// of the login form with it.
 		$user = isset($_GET['user']) ? htmlentities($_GET['user']) : '';
-
+		error_log($user);
 		// Lets add a header when login failed (DeskApp needs it to identify failed login attempts)
 		if ( WebAppAuthentication::getErrorCode() !== NOERROR ){
 			header("X-Zarafa-Hresult: " . get_mapi_error_name(WebAppAuthentication::getErrorCode()));
