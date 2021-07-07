@@ -6,7 +6,7 @@
 	 */
 	class Language {
 
-		private $languages =array("en_GB.UTF-8"=>"English");
+		private $languages =array("en_GB.UTF-8"=>"English (British)");
 		private $languagetable = array("en_GB"=>"eng_ENG");
 		private $lang;
 		private $loaded = false;
