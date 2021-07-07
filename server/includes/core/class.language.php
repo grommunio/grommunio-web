@@ -64,6 +64,8 @@
 					}
 				}
 			}
+			asort($this->languages, SORT_LOCALE_STRING);
+			asort($this->languagetable, SORT_LOCALE_STRING);
 			$this->loaded = true;		
 		}
 
