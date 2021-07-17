@@ -60,7 +60,7 @@
 
 	// Defines the temp path (absolute). Here uploaded attachments will be saved.
 	// The web client doesn't work without this directory.
-	define("TMP_PATH", "/var/lib/grammm-web/tmp");
+	define("TMP_PATH", "/var/lib/grommunio-web/tmp");
 
 	// Define the path to the plugin directory (No slash at the end)
 	define("PATH_PLUGIN_DIR", "plugins");
@@ -81,7 +81,7 @@
 	define("APPDATA_DIR", "appdata");
 
 	//this path is used for sqlite3 full text index for ervery user
-	define("SQLITE_INDEX_PATH", "/var/lib/grammm-web/sqlite-index");
+	define("SQLITE_INDEX_PATH", "/var/lib/grommunio-web/sqlite-index");
 
 	//define the type of full-text search engine in sqlite
 	define("SQLITE_FTS_ENGINE", "fts4");
@@ -270,7 +270,7 @@
 	// using <languagecode>_<regioncode>[.UTF-8], and separated with
 	// semicolon.  A list of available languages can be found in
 	// the manual or by looking at the list of directories in
-	// /usr/share/grammm-web/server/language .
+	// /usr/share/grommunio-web/server/language .
 	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;en_US;es_CA;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
 
 	//Define the default time zone
