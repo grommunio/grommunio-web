@@ -277,7 +277,7 @@ Zarafa.core.ResponseRouter = Ext.extend(Ext.util.Observable, {
 	 */
 	processResponse : function(jsonData)
 	{
-		// check for errors, these are global errors which can be generated from grammm.php
+		// check for errors, these are global errors which can be generated from grommunio.php
 		// file, module level errors will be handled by module callback functions.
 		if (!Ext.isEmpty(jsonData.zarafa.error)) {
 			// Fire the exception event on the DataProxy like this, as the response cannot be matched to a specific proxy.

@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Portuguese (Brazil)\n"
+"Project-Id-Version: grommunio-web Portuguese (Brazil)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 21:54+0200\n"
@@ -1649,8 +1649,8 @@ msgstr "Abrir solicitação de reunião com modificações"
 msgid "Copy"
 msgstr "Copiar"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2421,8 +2421,8 @@ msgid "Duplicate recipients"
 msgstr "Editar destinatário"
 
 #, fuzzy
-msgid "grammm-web print"
-msgstr "grammm-web"
+msgid "grommunio-web print"
+msgstr "grommunio-web"
 
 msgid "Display name"
 msgstr "Nome para exibição"
@@ -3978,8 +3978,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
-msgstr "Bem vindo ao grammm-web"
+msgid "Welcome to grommunio-web"
+msgstr "Bem vindo ao grommunio-web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4843,7 +4843,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "grammm-web"
+msgstr "grommunio-web"
 
 msgid "Settings"
 msgstr "Configurações"

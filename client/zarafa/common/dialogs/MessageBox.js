@@ -100,7 +100,7 @@ Zarafa.common.dialogs.MessageBox = Ext.apply({}, {
      */
 	show : function(config)
 	{
-		config.title = config.title || _('grammm web');
+		config.title = config.title || _('grommunio web');
 
 		if ( config.checkbox !== true ){
 			return Ext.MessageBox.show.call(this, config);

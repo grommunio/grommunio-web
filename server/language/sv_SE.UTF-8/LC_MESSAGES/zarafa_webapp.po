@@ -1,10 +1,10 @@
-# grammm-web Swedish translation.
+# grommunio-web Swedish translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Swedish\n"
+"Project-Id-Version: grommunio-web Swedish\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-07 12:19+0000\n"
@@ -1507,7 +1507,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "grammm-web"
+msgid "grommunio-web"
 msgstr ""
 
 msgid ""
@@ -2199,7 +2199,7 @@ msgstr ""
 msgid "Duplicate recipients"
 msgstr ""
 
-msgid "grammm-web print"
+msgid "grommunio-web print"
 msgstr ""
 
 msgid "Display name"
@@ -3628,7 +3628,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
+msgid "Welcome to grommunio-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

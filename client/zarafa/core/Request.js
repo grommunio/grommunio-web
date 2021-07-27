@@ -133,9 +133,9 @@ Zarafa.core.Request = Ext.extend(Ext.util.Observable, (function() {
 		// public variables
 		/**
 		 * @cfg {String} defaultUrl
-		 * The url used to send the requests to. defaults to grammm.php.
+		 * The url used to send the requests to. defaults to grommunio.php.
 		 */
-		defaultUrl : 'grammm.php',
+		defaultUrl : 'grommunio.php',
 
 		/**
 		 * @cfg {Object} defaultHeaders

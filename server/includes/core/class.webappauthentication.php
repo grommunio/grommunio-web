@@ -172,9 +172,9 @@ class WebAppAuthentication
 				if (isset($companyname)) {
 					 setcookie('webapp_title', $companyname, time()+31536000, '/');
 				}
-				error_log('grammm web user: ' . $username . ': authentication succesfull at MAPI');
+				error_log('grommunio web user: ' . $username . ': authentication succesfull at MAPI');
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
-				error_log('grammm web user: ' . $username . ': authentication failure at MAPI');
+				error_log('grommunio web user: ' . $username . ': authentication failure at MAPI');
 			}
 		}
 
@@ -239,7 +239,7 @@ class WebAppAuthentication
 	 */
 	public static function isUsingLoginForm() {
 		// Login form is only found on index.php
-		// If we don't check it, then posting to grammm.php would
+		// If we don't check it, then posting to grommunio.php would
 		// also make authenticating possible.
 		if ( basename($_SERVER['SCRIPT_NAME']) !== 'index.php' ){
 			return false;

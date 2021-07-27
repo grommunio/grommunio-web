@@ -2,14 +2,14 @@
 
 	/*************************************************************************************
 	 * 
-	 * This script contains all includes that are necessary for grammm.php
+	 * This script contains all includes that are necessary for grommunio.php
 	 * 
 	 *************************************************************************************/
 
 	 // First include all generally necessary classes
 	require_once('server/includes/bootstrap.php');
 
-	// Following classes are needed for grammm.php
+	// Following classes are needed for grommunio.php
 	require_once(BASE_PATH . 'server/includes/core/class.jsonrequest.php');
 	require_once(BASE_PATH . 'server/includes/notifiers/class.notifier.php');
 	require_once(BASE_PATH . 'server/includes/modules/class.module.php');

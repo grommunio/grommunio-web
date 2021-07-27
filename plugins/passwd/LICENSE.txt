@@ -1,6 +1,6 @@
-grammm web password change plugin
+grommunio web password change plugin
 Copyright (C) 2013 - 2017  Saket Patel <silentsakky@gmail.com>
-Copyright 2020 - grammm GmbH
+Copyright 2020 - grommunio GmbH
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by

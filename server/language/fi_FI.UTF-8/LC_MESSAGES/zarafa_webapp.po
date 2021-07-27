@@ -1,10 +1,10 @@
-# grammm-web Finnish (Finland) translation.
+# grommunio-web Finnish (Finland) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Finnish (Finland)\n"
+"Project-Id-Version: grommunio-web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-05 19:52+0200\n"
@@ -1644,8 +1644,8 @@ msgstr "Avaa kokouskutsu muutoksilla"
 msgid "Copy"
 msgstr "Kopioi"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2414,8 +2414,8 @@ msgid "Duplicate recipients"
 msgstr "Muokkaa vastaanottajia"
 
 #, fuzzy
-msgid "grammm-web print"
-msgstr "grammm-web"
+msgid "grommunio-web print"
+msgstr "grommunio-web"
 
 # 91%
 msgid "Display name"
@@ -3992,7 +3992,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
+msgid "Welcome to grommunio-web"
 msgstr "Tervetuloa käyttämään Kopanon WebApp-sovellusta"
 
 msgid "This is the first time you are using WebApp. "
@@ -4855,7 +4855,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "grammm-web"
+msgstr "grommunio-web"
 
 msgid "Settings"
 msgstr "Asetukset"

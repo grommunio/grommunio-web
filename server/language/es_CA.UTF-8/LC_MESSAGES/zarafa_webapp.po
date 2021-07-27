@@ -1657,8 +1657,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2439,8 +2439,8 @@ msgid "Duplicate recipients"
 msgstr "Editar recipiente"
 
 #, fuzzy
-msgid "grammm-web print"
-msgstr "grammm-web"
+msgid "grommunio-web print"
+msgstr "grommunio-web"
 
 # 91%
 msgid "Display name"
@@ -4037,8 +4037,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
-msgstr "Bienvenido a grammm-web"
+msgid "Welcome to grommunio-web"
+msgstr "Bienvenido a grommunio-web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4903,7 +4903,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "grammm-web"
+msgstr "grommunio-web"
 
 msgid "Settings"
 msgstr "Configuración"
