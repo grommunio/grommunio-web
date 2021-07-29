@@ -1,5 +1,5 @@
 <?php
-	// The config file for grammm web.
+	// The config file for grommunio web.
 	// All possible web client settings can be set in this file. Some settings
 	// (language) can also be set per user or logon.
 
@@ -23,7 +23,7 @@
 	define("DEFAULT_DOMAIN", "");
 
 	// Name of the cookie that is used for the session
-	define("COOKIE_NAME", "GRAMMM_WEB");
+	define("COOKIE_NAME", "GROMMUNIO_WEB");
 
 	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", true);
@@ -93,14 +93,14 @@
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
-	define("THEME", 'grammmLighttheme');
+	define("THEME", 'grommunioLighttheme');
 
 	// General WebApp icon set. This will be loaded by default for every user.
 	// Users can override the iconset in the settings.
 	define("ICONSET", 'breeze');
 
 	// The title that will be shown in the title bar of the browser
-	define("WEBAPP_TITLE", 'grammm web');
+	define("WEBAPP_TITLE", 'grommunio web');
 
 	// Set addressbook for GAB not to show any users unless searching for a specific user
 	define("DISABLE_FULL_GAB", false);
@@ -198,7 +198,7 @@
 	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
 	define('DISABLE_HTMLBODY_FILTER', true);
 
-	// The grammm admin API status endpoint
+	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 
 	/**************************************\

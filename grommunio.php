@@ -5,7 +5,7 @@
 	*/
 
 	// Bootstrap the script
-	require_once('server/includes/bootstrap.grammm.php');
+	require_once('server/includes/bootstrap.grommunio.php');
 
 	// Callback function for unserialize
 	// Notifier objects of the previous request are stored in the session. With this

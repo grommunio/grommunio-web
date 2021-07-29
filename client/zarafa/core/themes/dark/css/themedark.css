@@ -1,11 +1,11 @@
 /*-----------------------------
-you can find the grammm css overrides at the bottom of the file
+you can find the grommunio css overrides at the bottom of the file
 
-grammm: variables
+grommunio: variables
 ------------------------------*/
 
 :root {
-	/* grammm Primary Color */
+	/* grommunio Primary Color */
 	--primary-color: #2196f3;
 
 	/* Background Color */
@@ -184,7 +184,7 @@ Top toolbar (does not include dropdown menu on split buttons)
 
 
 .zarafa-maintoolbar {
-	background: url(../img/grammm_logo_light.svg) no-repeat right 12px center;
+	background: url(../img/grommunio_logo_light.svg) no-repeat right 12px center;
 	background-size: 115px 26px;
 }
 
@@ -1892,7 +1892,7 @@ _icons.scss
 
 
 /*------------------------------------------------------------------------------------------------------------------------------------
-grammm overrides
+grommunio overrides
 ------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Adress Book -> email adress list items hover*/

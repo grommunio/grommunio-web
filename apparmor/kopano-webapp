@@ -1,4 +1,4 @@
-# Author: Mike Williams <mike.williams@grammm.com>
+# Author: Mike Williams <mike.williams@grommunio.com>
 
   ^kopano-webapp {
     #include <abstractions/apache2-common>
@@ -9,17 +9,17 @@
     @{PROC}/@{pid}/task/@{tid}/comm rw,
     @{PROC}/@{pid}/cmdline r,
 
-    /etc/grammm/web/*.php r,
+    /etc/grommunio/web/*.php r,
 
-    /usr/share/grammm-web/** r,
+    /usr/share/grommunio-web/** r,
 
-    /var/lib/grammm-web/tmp/** rwk,
-    /var/lib/grammm-web/sqlite-index/** rwk,
+    /var/lib/grommunio-web/tmp/** rwk,
+    /var/lib/grommunio-web/sqlite-index/** rwk,
 
     /var/log/gromox/ r,
     # FIXME: we should use separate logfiles for kopano upfront
     /var/log/gromox/php-fpm-webapp.log rw,
 
     # Useful when in debugging mode
-    /usr/share/grammm-web/debug.txt rw,
+    /usr/share/grommunio-web/debug.txt rw,
   }

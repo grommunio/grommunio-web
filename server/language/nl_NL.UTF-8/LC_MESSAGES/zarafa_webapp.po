@@ -1,10 +1,10 @@
-# grammm-web Dutch translation.
+# grommunio-web Dutch translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp  package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Dutch\n"
+"Project-Id-Version: grommunio-web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2019-07-24 07:17+0000\n"
@@ -1656,8 +1656,8 @@ msgstr "Open het vergaderverzoek met wijzigingen"
 msgid "Copy"
 msgstr "Kopiëren"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2440,8 +2440,8 @@ msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 msgid "Duplicate recipients"
 msgstr "Update genodigden"
 
-msgid "grammm-web print"
-msgstr "grammm-web printen"
+msgid "grommunio-web print"
+msgstr "grommunio-web printen"
 
 # 91%
 msgid "Display name"
@@ -4047,8 +4047,8 @@ msgstr "Dit item is gewijzigd. Ben je zeker dat je het wil verwijderen?"
 msgid "Unsaved changes"
 msgstr "Niet-opgeslagen aanpassingen"
 
-msgid "Welcome to grammm-web"
-msgstr "Welkom bij grammm-web"
+msgid "Welcome to grommunio-web"
+msgstr "Welkom bij grommunio-web"
 
 msgid "This is the first time you are using WebApp. "
 msgstr "Dit is de eerste keer dat je WebApp gebruikt. "

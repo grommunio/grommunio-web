@@ -104,7 +104,7 @@ Zarafa.core.data.User = Ext.extend(Object, {
 	/**
 	 * @deprecated 2.2.0 This function only exists for backward compatibility with
 	 * 		 that want to send the session id as a GET parameter with requests that
-	 * 		 they make to grammm.php. Currently grammm.php does not expect this
+	 * 		 they make to grommunio.php. Currently grommunio.php does not expect this
 	 * 		 parameter anymore, but plugins that have not been updated might still 
 	 * 		 call this function.
 	 * @return {String} Always empty

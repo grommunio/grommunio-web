@@ -20,7 +20,7 @@ describe('Canvas', function() {
 
 	/*
 	 * Test if various shapes can be drawn using the utility functions
-	 * which are provided by grammm web. We can't really test if they
+	 * which are provided by grommunio web. We can't really test if they
 	 * work, so we can only test if no JS error occurs...
 	 */
 	describe('Define Shapes', function() {

@@ -420,6 +420,6 @@ if(!defined('LOG_USER_LEVEL')) define('LOG_USER_LEVEL', LOGLEVEL_OFF);
 if(!defined('LOG_USERS')) define('LOG_USERS', '');
 if(!defined('LOG_FILE_DIR')) define('LOG_FILE_DIR', '');
 
-// The grammm admin API status endpoint
+// The grommunio admin API status endpoint
 if (!defined('ADMIN_API_STATUS_ENDPOINT')) define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 ?>

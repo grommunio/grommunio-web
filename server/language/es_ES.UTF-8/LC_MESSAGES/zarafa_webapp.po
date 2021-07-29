@@ -1,10 +1,10 @@
-# grammm-web Spanish (Spain) translation.
+# grommunio-web Spanish (Spain) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Spanish (Spain)\n"
+"Project-Id-Version: grommunio-web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-06-12 15:20+0000\n"
@@ -1651,8 +1651,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2434,8 +2434,8 @@ msgid "Duplicate recipients"
 msgstr "Editar recipiente"
 
 #, fuzzy
-msgid "grammm-web print"
-msgstr "grammm-web"
+msgid "grommunio-web print"
+msgstr "grommunio-web"
 
 # 91%
 msgid "Display name"
@@ -4062,8 +4062,8 @@ msgstr "Este elemento ha sido cambiado. ¿ Está seguro que desea eliminarlo ?"
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
-msgstr "Bienvenido a grammm-web"
+msgid "Welcome to grommunio-web"
+msgstr "Bienvenido a grommunio-web"
 
 #, fuzzy
 msgid "This is the first time you are using WebApp. "
@@ -4933,7 +4933,7 @@ msgstr "Para que los cambios surtan efecto, por favor cargue de nuevo WebApp."
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "grammm-web"
+msgstr "grommunio-web"
 
 msgid "Settings"
 msgstr "Configuración"

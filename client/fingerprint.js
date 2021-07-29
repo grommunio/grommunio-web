@@ -183,7 +183,7 @@ const sendKeepAlive = (function(){
 	return function _sendKeepAlive(wait) {
 		setTimeout(function(){
 			const request = new XMLHttpRequest();
-			request.open('POST', 'grammm.php?service=fingerprint&type=keepalive');
+			request.open('POST', 'grommunio.php?service=fingerprint&type=keepalive');
 			request.onload = function() {
 				const phpGcMaxLifTime = request.response ? parseInt(request.response, 10) : 0;
 				if ( phpGcMaxLifTime > 1 ){
@@ -335,7 +335,7 @@ window.checkfont = (function() {
 // match, the session will be destroyed.
 window.addEventListener('load', function(){
 	var request = new XMLHttpRequest();
-	request.open('POST', 'grammm.php?service=fingerprint');
+	request.open('POST', 'grommunio.php?service=fingerprint');
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	// Add the fingerprint to the content body of the request
 	var params = 'fingerprint='+fingerprint.get();
