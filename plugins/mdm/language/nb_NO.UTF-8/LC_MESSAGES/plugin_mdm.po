@@ -1,0 +1,260 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-05 14:37+0200\n"
+"PO-Revision-Date: 2019-05-09 06:35+0000\n"
+"Last-Translator: Klaus <klaus@linuxavdelingen.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.kopano.io/projects/kopano/"
+"mdm/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Mobile Device Manager"
+msgstr "Mobile Device Manager"
+
+msgid "Wiping device"
+msgstr "Slett innhold på enhet"
+
+msgid "Password incorrect"
+msgstr "Feil passord"
+
+msgid "Full resync in progress"
+msgstr "Fullstendig synkronisering pågår"
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr "Gjelder ikke"
+
+msgid "Ok"
+msgstr "Greit"
+
+msgid "Wipe Pending"
+msgstr "Utvisking venter"
+
+msgid "Wipe Requested"
+msgstr "Utvisking forespurt"
+
+msgid "Wipe Executed"
+msgstr "Utvisking utført"
+
+msgid "Not Available"
+msgstr "Ikke tilgjengelig"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Operating System"
+msgstr "Operativsystem"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "User Agent"
+msgstr "Brukeragent"
+
+msgid "MDM Plugin"
+msgstr "MDM Plugin"
+
+msgid "Active Sync Version"
+msgstr "Active Sync Version"
+
+msgid "grommunio-sync Version"
+msgstr "grommunio-sync Version"
+
+msgid "Short folder Ids"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Kopano Outlook Extension"
+msgstr "Kopano Outlook Extension"
+
+msgid "Version"
+msgstr "Versjon"
+
+msgid "Build"
+msgstr "Build"
+
+msgid "Last updated"
+msgstr "Forrige oppdatering"
+
+msgid "d F Y, H:i"
+msgstr "d F Y, H:i"
+
+msgid "Connected since"
+msgstr "Tilkoblet siden"
+
+msgid "d F Y"
+msgstr "d F Y"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Synchronize"
+msgstr "Synkronisere"
+
+msgid "Folders"
+msgstr "Mapper"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Tasks"
+msgstr "Oppgaver"
+
+msgid "Manage Shared Folders"
+msgstr "Behandle delte mapper"
+
+msgid "General"
+msgstr "Generelt"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Apply"
+msgstr "Bruk"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr "grommunio-sync"
+
+msgid "Mobile device management"
+msgstr "Mobile device management"
+
+msgid "Mobile Devices"
+msgstr "Mobile enheter"
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr "Enheter"
+
+msgid "No devices connected to your account"
+msgstr "Ingen enheter er knyttet til din konto"
+
+msgid "Provisioning Status"
+msgstr "Klargjøringsstatus"
+
+msgid "Last Update"
+msgstr "Forrige oppdatering"
+
+msgid "Device ID"
+msgstr "Enhet ID"
+
+msgid "Device OS"
+msgstr "Enhet OS"
+
+msgid "Device Info"
+msgstr "Enhet info"
+
+msgid "First Sync time"
+msgstr "Tidspunkt for første synkronisering"
+
+msgid "Wipe Device"
+msgstr "Utvisk enhet"
+
+msgid "Full resync"
+msgstr "Full synkronisering"
+
+msgid "Remove device"
+msgstr "Fjern enhet"
+
+msgid "Refresh"
+msgstr "Oppdatere"
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Close"
+msgstr ""
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"Vil du virkelig utviske enheten?\n"
+" Oppgi ditt passord for bekreftelse."
+
+msgid "version not available"
+msgstr "Versjon ikke tilgjengelig"
+
+#, fuzzy
+msgid "Mobile device management plugin"
+msgstr "Mobile device management"
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid ""
+"Unauthorized to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to grommunio-sync server. Please contact your system administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Folder can not be added because there is already an additional folder with "
+"the same name"
+msgstr ""
+
+msgid ""
+"Folder can not be removed because there is no folder known with given folder "
+"id"
+msgstr ""
+
+msgid "Device ID could not be found"
+msgstr "Enhet ID ble ikke funnet"

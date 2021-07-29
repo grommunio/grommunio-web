@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-14 20:54+0000\n"
+"PO-Revision-Date: 2019-09-18 20:20+0000\n"
+"Last-Translator: Tryggvi Björgvinsson <ME@TRICKVI.IS>\n"
+"Language-Team: Icelandic <http://translate.kopano.io/projects/kopano/mdm/is/"
+">\n"
+"Language: is_IS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Mobile Device Manager"
+msgstr "Snjalltækjastjórn"
+
+msgid "Wiping device"
+msgstr "Hreinsa tæki"
+
+msgid "Password incorrect"
+msgstr "Lykilorð rangt"
+
+msgid "Full resync in progress"
+msgstr "Heildarendurspeglun í gangi"
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr "Á ekki við"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Wipe Pending"
+msgstr "Eyða í biðstöðu"
+
+msgid "Wipe Requested"
+msgstr "Eyða umbeðnu"
+
+msgid "Wipe Executed"
+msgstr "Eyða framkvæmdu"
+
+msgid "Not Available"
+msgstr "Ekki aðgengilegt"
+
+msgid "Device"
+msgstr "Tæki"
+
+msgid "Type"
+msgstr "Gerð"
+
+msgid "Operating System"
+msgstr "Stýrikerfi"
+
+msgid "ID"
+msgstr "Auðkenni"
+
+msgid "User Agent"
+msgstr "Notandabúnaður"
+
+msgid "MDM Plugin"
+msgstr "Snjalltækjaíbót"
+
+msgid "Active Sync Version"
+msgstr "Útgáfa Active Sync"
+
+msgid "grommunio-sync Version"
+msgstr "Útgáfa grommunio-sync"
+
+msgid "Short folder Ids"
+msgstr "Stutt möppuauðkenni"
+
+msgid "Policy name"
+msgstr "Nafn reglu"
+
+msgid "Kopano Outlook Extension"
+msgstr "Outlook viðbót Kopano"
+
+msgid "Version"
+msgstr "Útgáfa"
+
+msgid "Build"
+msgstr "Samsetning"
+
+msgid "Last updated"
+msgstr "Síðast uppfært"
+
+msgid "d F Y, H:i"
+msgstr "d F Y, H:i"
+
+msgid "Connected since"
+msgstr "Tengt síðan"
+
+msgid "d F Y"
+msgstr "d F Y"
+
+msgid "{0}"
+msgstr "{0}"
+
+msgid "Status"
+msgstr "Staða"
+
+msgid "Synchronize"
+msgstr "Samstilla"
+
+msgid "Folders"
+msgstr "Möppur"
+
+msgid "Email"
+msgstr "Tölvupóstur"
+
+msgid "Calendar"
+msgstr "Dagatal"
+
+msgid "Contacts"
+msgstr "Tengiliðir"
+
+msgid "Notes"
+msgstr "Minnisatriði"
+
+msgid "Tasks"
+msgstr "Verk"
+
+msgid "Manage Shared Folders"
+msgstr "Halda utan um sameiginlegar möppur"
+
+msgid "General"
+msgstr "Almennt"
+
+msgid "Details"
+msgstr "Nánari upplýsingar"
+
+msgid "Apply"
+msgstr "Nota"
+
+msgid "Cancel"
+msgstr "Hætta við"
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+"Veldu möppur til að spegla frá tækinu þínu í listann hér fyrir neðan. Til að "
+"bæta við öðrum pósthólfum í listann, opnaðu þau í Kopano vefviðmótinu fyrst."
+
+msgid "grommunio-sync"
+msgstr "grommunio-sync"
+
+msgid "Mobile device management"
+msgstr "Snjalltækjastjórn"
+
+msgid "Mobile Devices"
+msgstr "Snjalltæki"
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr "Tæki"
+
+msgid "No devices connected to your account"
+msgstr "Ekkert tæki tengt við aðganginn þinn"
+
+msgid "Provisioning Status"
+msgstr "Sæki stöðu"
+
+msgid "Last Update"
+msgstr "Síðast uppfært"
+
+msgid "Device ID"
+msgstr "Auðkenni tækis"
+
+msgid "Device OS"
+msgstr "Stýrikerfi tækis"
+
+msgid "Device Info"
+msgstr "Upplýsigar tækis"
+
+msgid "First Sync time"
+msgstr "Fyrsta samstilling"
+
+msgid "Wipe Device"
+msgstr "Eyða tæki"
+
+msgid "Full resync"
+msgstr "Heildarendurspeglun"
+
+msgid "Remove device"
+msgstr "Fjarlægja tæki"
+
+msgid "Refresh"
+msgstr "Glæða"
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Yes"
+msgstr "Já"
+
+msgid "Close"
+msgstr ""
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"Ertu viss um að þú viljir eyða út af tækinu þínu?\n"
+" Sláðu inn lykilorðið þitt til að staðfesta."
+
+msgid "version not available"
+msgstr "útgáfa ekki aðgengileg"
+
+msgid "Mobile device management plugin"
+msgstr "Íbót snjalltækjastjórnunar"
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr "Óviðbúin villa kom upp. Hafðu samband við kerfisstjórn. Villunúmer: %s"
+
+msgid ""
+"Unauthorized to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to grommunio-sync server. Please contact your system administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Folder can not be added because there is already an additional folder with "
+"the same name"
+msgstr "Gat ekki bætt við möppu því það er nú þegar mappa til með sama nafni"
+
+msgid ""
+"Folder can not be removed because there is no folder known with given folder "
+"id"
+msgstr ""
+"Mappa gat ekki verið fjarlægð því það er engin mappa með uppgefnu auðkenni "
+"möppu"
+
+msgid "Device ID could not be found"
+msgstr "Auðkenni tækis fannst ekki"

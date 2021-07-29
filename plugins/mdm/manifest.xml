@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>1.0</version>
+		<name>mdm</name>
+		<title>Mobile Device Management</title>
+		<author>Kopano</author>
+		<authorURL>http://www.kopano.com</authorURL>
+		<description>Mobile Device Management plugin</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.mdm.php</serverfile>
+					<serverfile type="module" module="pluginmdmmodule">php/class.pluginmdmmodule.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/mdm.js</clientfile>
+					<clientfile load="debug">js/mdm-debug.js</clientfile>
+
+					<clientfile load="source">js/MDM.js</clientfile>
+					<clientfile load="source">js/ABOUT.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceFolderStore.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceFolderRecord.js</clientfile>
+					<clientfile load="source">js/data/JsonDeviceFolderReader.js</clientfile>
+					<clientfile load="source">js/data/MDMResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceRecord.js</clientfile>
+					<clientfile load="source">js/data/JsonDeviceReader.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceFolderWriter.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceStore.js</clientfile>
+					<clientfile load="source">js/data/ProvisioningStatus.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceProxy.js</clientfile>
+					<clientfile load="source">js/data/MDMDeviceResponseHandler.js</clientfile>
+					<clientfile load="source">js/data/MDMHierarchyTreeLoader.js</clientfile>
+					<clientfile load="source">js/settings/MDMSettingsWidget.js</clientfile>
+					<clientfile load="source">js/settings/MDMSettingsCategory.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMDeviceContentPanel.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMDeviceGeneralTab.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMDevicePanel.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMDeviceDetailsTab.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMManageSharedFolderContentPanel.js</clientfile>
+					<clientfile load="source">js/dialogs/MDMManageSharedFolderPanel.js</clientfile>
+					<clientfile load="source">js/ui/Renderers.js</clientfile>
+					<clientfile load="source">js/ui/MDMFolderNodeUI.js</clientfile>
+					<clientfile load="source">js/ui/MDMHierarchyTreePanel.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/mdm.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>

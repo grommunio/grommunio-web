@@ -1,0 +1,238 @@
+<project default="all">
+	<property environment="env"/>
+	<property name="root-folder" value="${basedir}/../../"/>
+	<property name="tools-folder" value="${root-folder}/tools/"/>
+	<property name="target-folder" value="${root-folder}/deploy/plugins"/>
+	<property name="server-folder" value="${root-folder}/server"/>
+	<property name="language-folder" value="${basedir}/language"/>
+
+	<import file="${tools-folder}/antutil.xml"/>
+
+	<typedef file="${tools-folder}/antlib.xml">
+		<classpath>
+			<pathelement location="${tools-folder}/tools.jar"/>
+		</classpath>
+	</typedef>
+
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${tools-folder}/lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+
+	<!-- Determine plugin name -->
+	<basename file="${basedir}" property="plugin"/>
+
+	<!-- The Plugin distribution files -->
+	<property name="plugin-folder" value="${plugin}"/>
+	<property name="plugin-debugfile" value="${plugin}-debug.js"/>
+	<property name="plugin-file" value="${plugin}.js"/>
+
+	<!-- The Plugin CSS files -->
+	<property name="plugin-css-folder" value="resources/css"/>
+	<property name="plugin-css-file" value="${plugin}.css"/>
+
+	<!-- Meta target -->
+	<target name="all" depends="concat, compress"/>
+
+	<!-- Clean -->
+	<target name="clean">
+		<delete includeemptydirs="true" failonerror="false">
+			<!-- Delete the Plugin files -->
+			<fileset dir="${target-folder}/${plugin-folder}/js">
+				<include name="${plugin-file}"/>
+				<include name="${plugin-debugfile}"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<!-- Concatenates JavaScript files with automatic dependency generation -->
+	<target name="concat">
+		<!-- Concatenate plugin JS file -->
+		<if>
+			<available file="js" type="dir" />
+			<then>
+				<mkdir dir="${target-folder}/${plugin-folder}/js"/>
+				<echo message="Concatenating: ${plugin-debugfile}"/>
+				<zConcat outputFolder="${target-folder}/${plugin-folder}/js" outputFile="${plugin-debugfile}" prioritize="\w+">
+					<concatfiles>
+						<fileset dir="js" includes="**/*.js" />
+					</concatfiles>
+				</zConcat>
+			</then>
+		</if>
+
+		<!-- Concatenate plugin CSS files -->
+		<if>
+			<available file="${plugin-css-folder}" type="dir" />
+			<then>
+				<mkdir dir="${target-folder}/${plugin-folder}/${plugin-css-folder}"/>
+				<echo message="Concatenating: ${plugin-css-file}"/>
+				<zConcat outputFolder="${target-folder}/${plugin-folder}/${plugin-css-folder}" outputFile="${plugin-css-file}">
+					<concatfiles>
+						<fileset dir="${plugin-css-folder}" includes="**/*.css" />
+					</concatfiles>
+				</zConcat>
+			</then>
+		</if>
+	</target>
+
+	<!-- Preformat the Concatenated Javascript files to improve compilation -->
+	<target name="preformat" depends="concat">
+		<if>
+			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
+			<then>
+				<echo message="Preformatting: ${plugin-debugfile}"/>
+				<replaceregexp byline="true">
+					<regexp pattern="(^[ ,\t]*\*[ ,\t]@.*)\{(.*)\[\]\}"/>
+					<substitution expression="\1{\2\|Array}"/>
+					<fileset dir="${target-folder}/${plugin-folder}/js" includes="${plugin-debugfile}"/>
+				</replaceregexp>
+			</then>
+		</if>
+	</target>
+
+	<!-- Compress JavaScript -->
+	<target name="compress" depends="preformat">
+		<if>
+			<available file="${target-folder}/${plugin-folder}/js/${plugin-debugfile}" type="file" />
+			<then>
+				<echo message="Compiling: ${plugin-debugfile}" />
+				<zCompile inputFolder="${target-folder}/${plugin-folder}/js" inputFile="${plugin-debugfile}" outputFolder="${target-folder}/${plugin-folder}/js" outputFile="${plugin-file}">
+					<externs>
+						var Ext = {};
+						var Zarafa = {};
+						var container = {};
+						var _ = function(key, domain) {};
+						var dgettext = function(domain, msgid) {};
+						var dngettext = function(domain, msgid, msgid_plural, count) {};
+						var dnpgettext = function(domain, msgctxt, msgid, msgid_plural, count) {};
+						var dpgettext = function(domain, msgctxt, msgid) {};
+						var ngettext = function(msgid, msgid_plural, count) {};
+						var npgettext = function(msgctxt, msgid, msgid_plural, count) {};
+						var pgettext = function(msgctxt, msgid) {};
+					</externs>
+				</zCompile>
+			</then>
+		</if>
+	</target>
+
+	<!-- syntax check all PHP files -->
+	<target name="validate">
+		<if>
+			<available file="php" filepath="${env.PATH}" />
+			<then>
+				<if>
+					<available file="config.php" type="file" />
+					<then>
+						<antcall target="syntax-check">
+							<param name="file" value="config.php"/>
+						</antcall>
+					</then>
+				</if>
+				<if>
+					<available file="php" type="dir" />
+					<then>
+						<foreach target="syntax-check" param="file">
+							<path>
+								<fileset dir=".">
+									<include name="**/*.php"/>
+								</fileset>
+							</path>
+						</foreach>
+					</then>
+				</if>
+			</then>
+			<else>
+				<echo message="WARNING: PHP not available, not performing syntax-check on php files"/>
+			</else>
+		</if>
+	</target>
+
+	<target name="syntax-check">
+		<echo message="validating ${file}"/>
+		<exec executable="php" failonerror="true">
+			<arg value="-l"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Generate language files -->
+	<target name="language">
+		<if>
+			<available file="msgfmt" filepath="${env.PATH}" />
+			<then>
+				<foreach target="msgfmt" param="file">
+					<path>
+						<fileset dir="${language-folder}">
+							<include name="**/LC_MESSAGES/*.po"/>
+						</fileset>
+					</path>
+				</foreach>
+			</then>
+			<else>
+				<echo message="WARNING: msgfmt not available, not generating *.mo files for translations"/>
+				<!-- just copy files -->
+				<copy todir="${target-folder}/${plugin-folder}">
+					<fileset dir=".">
+						<include name="language/**/*.mo"/>
+						<include name="language/**/*.txt"/>
+					</fileset>
+				</copy>
+			</else>
+		</if>
+	</target>
+
+	<target name="msgfmt">
+		<propertyregex property="outfile" input="${file}" regexp=".*\/(language\/.*)\.po" replace="${target-folder}/${plugin-folder}/\1\.mo"/>
+		<echo message="Converting ${file} to ${outfile}"/>
+		<dirname property="outdir" file="${outfile}"/>
+		<mkdir dir="${outdir}"/>
+		<exec executable="msgfmt" failonerror="true" logError="true">
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="${outfile}"/>
+			<arg value="${file}"/>
+		</exec>
+	</target>
+
+	<!-- Install all files into the target folder -->
+	<target name="deploy" depends="compress, validate, language">
+		<mkdir dir="${target-folder}/${plugin-folder}"/>
+
+		<!-- Copy (and validate) manifest.xml -->
+		<if>
+			<available file="xmllint" filepath="${env.PATH}" />
+			<then>
+				<exec executable="xmllint" output="${target-folder}/${plugin-folder}/manifest.xml" failonerror="true" logError="true">
+					<arg value="--valid"/>
+					<arg value="--path"/>
+					<arg value="${server-folder}"/>
+					<arg value="manifest.xml"/>
+				</exec>
+			</then>
+			<else>
+				<echo message="WARNING: xmllint not available, not performing syntax-check on manifest.xml"/>
+				<!-- xmllint is not available, so we must copy the file manually -->
+				<copy todir="${target-folder}/${plugin-folder}">
+					<fileset dir=".">
+						<include name="manifest.xml"/>
+					</fileset>
+				</copy>
+			</else>
+		</if>
+
+		<!-- copy files -->
+		<copy todir="${target-folder}/${plugin-folder}">
+			<fileset dir=".">
+				<include name="resources/**/*.*"/>
+				<include name="php/**/*.php"/>
+				<include name="config.php"/>
+				<!-- exclude the ant script -->
+				<exclude name="build.xml"/>
+				<!-- CSS is generated during build -->
+				<exclude name="resources/css/*.*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>
