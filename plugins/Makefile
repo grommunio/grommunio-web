@@ -1,4 +1,4 @@
-SUBDIRS = desktopnotifications filepreviewer intranet passwd safesenderssettings webappmanual
+SUBDIRS = desktopnotifications filepreviewer intranet meet passwd safesenderssettings webappmanual
 
 .PHONY: subdirs $(SUBDIRS)
 
