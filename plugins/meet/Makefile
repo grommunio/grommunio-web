@@ -7,7 +7,7 @@ JSFILES = js/addmeetingdialog.js \
           js/settings.js \
           js/tabpanel.js
 
-COPYFILES = LICENSE.txt manifest.xml config.php \
+COPYFILES = LICENSE.txt manifest.xml \
 	$(wildcard resources/css/*.css) \
 	$(wildcard resources/icons/*.png) \
 	$(wildcard php/*.php)
