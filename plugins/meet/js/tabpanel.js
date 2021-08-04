@@ -153,7 +153,7 @@ Zarafa.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
   handleNewWindowRequests : function(e)
   {
     e.window.discard();
-    nw.Shell.openExternal(e.targetUrl);
+    //nw.Shell.openExternal(e.targetUrl);
   },
 
   /**
