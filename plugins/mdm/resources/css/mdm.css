@@ -1,0 +1,74 @@
+.icon_mdm_settings {
+	background-image:url(../icons/mdm_icon.png) !important;
+}
+
+.mdm-devicepanel.x-panel.tabpanel-container
+> .x-panel-bwrap
+> .x-panel-body {
+	padding: 0;
+}
+.mdm-devicepanel.x-panel.tabpanel-container
+> .x-panel-bwrap
+> .x-panel-body
+> .x-tab-panel
+> .x-tab-panel-bwrap
+> .x-tab-panel-body {
+	padding: 0!important;
+}
+
+.mdm-display-name {
+	font-weight: bold !important;
+	padding: 4px 0 2px 0;
+}
+
+.mdm-device-panel{
+	padding: 5px 0px 5px 10px;
+}
+
+.mdm-field-sep {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-color: #e6e6e6;
+}
+
+.mdm-synchronize-panel {
+	border: 0px;
+	margin-left: 10px;
+	padding: 9px 0 0 0;
+}
+
+.mdm-managesharedfolder-button {
+	padding-right: 10px;
+}
+
+.mdm-create-tree-panel-item {
+	margin: 0 0 5px 0;
+}
+
+.mdm-synchronize-shared-panel {
+	padding-top: 9px;
+}
+
+/* MDM authentication error styling */
+.mdm-autherror-bar .x-btn-small {
+        background: #af4236 !important;
+        width: 100%;
+        text-align: center;
+        box-shadow: none;
+}
+
+.mdm-autherror-bar button {
+        color: white !important;
+        font-size: 1.02em;
+}
+
+/* Hover and focus style */
+.mdm-autherror-bar .x-btn-small:hover,
+.mdm-autherror-bar.x-btn-over > .x-btn-small, 
+.mdm-autherror-bar.x-btn-over.x-btn-click > .x-btn-small, 
+.mdm-autherror-bar.x-btn-over.x-btn-focus > .x-btn-small, 
+.mdm-autherror-bar.x-btn-over.x-btn-click.x-btn-focus > .x-btn-small, 
+.mdm-autherror-bar.x-btn-click > .x-btn-small {
+        background : #b72b00 !important;
+        box-shadow: none;
+}

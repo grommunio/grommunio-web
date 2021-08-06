@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-05 14:37+0200\n"
+"PO-Revision-Date: 2018-05-08 15:24+0000\n"
+"Last-Translator: Marco <MARCO@COSTANTINO.CO.UK>\n"
+"Language-Team: Italian <http://translate.kopano.io/projects/kopano/mdm/it/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
+
+msgid "Mobile Device Manager"
+msgstr "Gestione dispositivi mobili"
+
+msgid "Wiping device"
+msgstr "Reinizializzazione dispositivo"
+
+msgid "Password incorrect"
+msgstr "Password non valida"
+
+msgid "Full resync in progress"
+msgstr "Resync completo in corso"
+
+msgid "Username or password incorrect"
+msgstr ""
+
+msgid "Not Applicable"
+msgstr "Non applicabile"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Wipe Pending"
+msgstr "Reinizializzazione pianificata"
+
+msgid "Wipe Requested"
+msgstr "Reinizializzazione richiesta"
+
+msgid "Wipe Executed"
+msgstr "Reinizializzazione eseguita"
+
+#, fuzzy
+msgid "Not Available"
+msgstr "Non applicabile"
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Type"
+msgstr ""
+
+msgid "Operating System"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "User Agent"
+msgstr "User agent"
+
+msgid "MDM Plugin"
+msgstr ""
+
+msgid "Active Sync Version"
+msgstr ""
+
+msgid "grommunio-sync Version"
+msgstr ""
+
+msgid "Short folder Ids"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Kopano Outlook Extension"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Build"
+msgstr ""
+
+#, fuzzy
+msgid "Last updated"
+msgstr "Ultimo aggiornamento"
+
+msgid "d F Y, H:i"
+msgstr ""
+
+msgid "Connected since"
+msgstr ""
+
+msgid "d F Y"
+msgstr ""
+
+msgid "{0}"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Folders"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Calendar"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "Manage Shared Folders"
+msgstr ""
+
+msgid "General"
+msgstr "Generale"
+
+msgid "Details"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid ""
+"Select folders to sync to your device from the list below. To add additional "
+"mailboxes to the list, open them in WebApp first."
+msgstr ""
+
+msgid "grommunio-sync"
+msgstr ""
+
+msgid "Mobile device management"
+msgstr "Gestione dispositivi mobili"
+
+msgid "Mobile Devices"
+msgstr "Dispositivi mobili"
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
+msgstr ""
+
+msgid "Devices"
+msgstr "Dispositivi"
+
+msgid "No devices connected to your account"
+msgstr "Nessun dispositivo connesso al tuo account"
+
+msgid "Provisioning Status"
+msgstr "Stato provisioning"
+
+msgid "Last Update"
+msgstr "Ultimo aggiornamento"
+
+msgid "Device ID"
+msgstr "ID dispositivo"
+
+msgid "Device OS"
+msgstr "S.O. dispositivo"
+
+msgid "Device Info"
+msgstr "Info dispositivo"
+
+msgid "First Sync time"
+msgstr "Data prima sincronizzazione"
+
+msgid "Wipe Device"
+msgstr "Reinizializza"
+
+msgid "Full resync"
+msgstr "Risincronizza"
+
+msgid "Remove device"
+msgstr "Rimuovi"
+
+msgid "Refresh"
+msgstr "Aggiorna"
+
+msgid "Please enter your username and password"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid ""
+"Do you really want to wipe your device?\n"
+" Enter your password to confirm."
+msgstr ""
+"Sei sicuro di voler reinizializzare il dispositvo selezionato?\n"
+"Inserisci la tua password per confermare."
+
+msgid "version not available"
+msgstr ""
+
+#, fuzzy
+msgid "Mobile device management plugin"
+msgstr "Gestione dispositivi mobili"
+
+#, php-format
+msgid ""
+"Unexpected error occurred. Please contact your system administrator. Error "
+"code: %s"
+msgstr ""
+
+msgid ""
+"Unauthorized to connect to grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to grommunio-sync server. Please contact your system administrator."
+msgstr ""
+
+msgid ""
+"Unable to connect to the grommunio-sync server. Please contact your system "
+"administrator."
+msgstr ""
+
+msgid ""
+"Folder can not be added because there is already an additional folder with "
+"the same name"
+msgstr ""
+
+msgid ""
+"Folder can not be removed because there is no folder known with given folder "
+"id"
+msgstr ""
+
+msgid "Device ID could not be found"
+msgstr "Impossibile trovare l'ID del dispositivo"
