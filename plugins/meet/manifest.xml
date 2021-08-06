@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+  <info>
+    <version>1.0</version>
+    <name>meet</name>
+    <title>grommunio Meet</title>
+    <author>grommunio</author>
+    <authorURL>https://grommunio.com</authorURL>
+    <description>Support for grommunio Meet</description>
+  </info>
+  <config>
+    <configfile>config.php</configfile>
+  </config>
+    <translations>
+    <translationsdir>language</translationsdir>
+  </translations>
+  <components>
+    <component>
+      <files>
+        <server>
+          <serverfile>php/settings.php</serverfile>
+        </server>
+        <client>
+          <clientfile>js/plugin.js</clientfile>
+          <clientfile>js/settings.js</clientfile>
+          <clientfile>js/tabpanel.js</clientfile>
+          <clientfile>js/addmeetingdialog.js</clientfile>
+        </client>
+        <resources>
+          <resourcefile>resources/css/meet.css</resourcefile>
+        </resources>
+      </files>
+    </component>
+  </components>
+</plugin>

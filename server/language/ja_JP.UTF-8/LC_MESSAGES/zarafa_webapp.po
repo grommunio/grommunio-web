@@ -1,10 +1,10 @@
-# grammm-web Japanese translation.
+# grommunio-web Japanese translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Japanese\n"
+"Project-Id-Version: grommunio-web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-02-06 18:06+0000\n"
@@ -1602,8 +1602,8 @@ msgstr "会議の変更依頼を開く。"
 msgid "Copy"
 msgstr "コピー"
 
-msgid "grammm-web"
-msgstr "grammm-web"
+msgid "grommunio-web"
+msgstr "grommunio-web"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2365,8 +2365,8 @@ msgid "Duplicate recipients"
 msgstr "受信者を編集します。"
 
 #, fuzzy
-msgid "grammm-web print"
-msgstr "grammm-web"
+msgid "grommunio-web print"
+msgstr "grommunio-web"
 
 # 91%
 msgid "Display name"
@@ -3947,8 +3947,8 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
-msgstr "grammm-webへようこそ"
+msgid "Welcome to grommunio-web"
+msgstr "grommunio-webへようこそ"
 
 msgid "This is the first time you are using WebApp. "
 msgstr ""
@@ -4797,7 +4797,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Reload WebApp"
-msgstr "grammm-web"
+msgstr "grommunio-web"
 
 msgid "Settings"
 msgstr "設定"

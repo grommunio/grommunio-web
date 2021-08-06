@@ -2,14 +2,14 @@
 
 	/*************************************************************************************
 	 *
-	 * This script bootstraps the entry scripts (index.php and grammm.php) by:
+	 * This script bootstraps the entry scripts (index.php and grommunio.php) by:
 	 * 	- including all classes that are used by both entry scripts
 	 * 	- check the correctness of the configuration file (if configured to do so)
 	 * 	- start buffering output (so we can add headers at any time)
 	 * 	- set the locale for character classification and conversion to en_US.UTF-8
 	 * 	- start a php session
 	 *
-	 * Note: Additional includes for grammm.php are added by bootstrap.grammm.php
+	 * Note: Additional includes for grommunio.php are added by bootstrap.grommunio.php
 	 *
 	 *************************************************************************************/
 

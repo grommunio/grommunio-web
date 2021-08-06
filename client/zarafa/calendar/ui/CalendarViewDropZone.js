@@ -377,7 +377,7 @@ Zarafa.calendar.ui.CalendarViewDropZone = Ext.extend(Ext.dd.DropZone, {
 		var dateRange = this.dateRange;
 		Zarafa.common.dialogs.MessageBox.addCustomButtons({
 			width: 400,
-			title: _('grammm web'),
+			title: _('grommunio web'),
 			msg : _('Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?'),
 			icon: Ext.MessageBox.WARNING,
 			fn : function(buttonName) {

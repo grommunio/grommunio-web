@@ -1,5 +1,5 @@
 <?php
-	// The config file for grammm web.
+	// The config file for grommunio web.
 	// All possible web client settings can be set in this file. Some settings
 	// (language) can also be set per user or logon.
 
@@ -23,7 +23,7 @@
 	define("DEFAULT_DOMAIN", "");
 
 	// Name of the cookie that is used for the session
-	define("COOKIE_NAME", "GRAMMM_WEB");
+	define("COOKIE_NAME", "GROMMUNIO_WEB");
 
 	// Set to 'true' to disable secure session cookies and to allow log-in without HTTPS.
 	define("INSECURE_COOKIES", true);
@@ -60,7 +60,7 @@
 
 	// Defines the temp path (absolute). Here uploaded attachments will be saved.
 	// The web client doesn't work without this directory.
-	define("TMP_PATH", "/var/lib/grammm-web/tmp");
+	define("TMP_PATH", "/var/lib/grommunio-web/tmp");
 
 	// Define the path to the plugin directory (No slash at the end)
 	define("PATH_PLUGIN_DIR", "plugins");
@@ -81,7 +81,7 @@
 	define("APPDATA_DIR", "appdata");
 
 	//this path is used for sqlite3 full text index for ervery user
-	define("SQLITE_INDEX_PATH", "/var/lib/grammm-web/sqlite-index");
+	define("SQLITE_INDEX_PATH", "/var/lib/grommunio-web/sqlite-index");
 
 	//define the type of full-text search engine in sqlite
 	define("SQLITE_FTS_ENGINE", "fts4");
@@ -93,14 +93,14 @@
 	// General WebApp theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
-	define("THEME", 'grammmLighttheme');
+	define("THEME", 'grommunioLighttheme');
 
 	// General WebApp icon set. This will be loaded by default for every user.
 	// Users can override the iconset in the settings.
 	define("ICONSET", 'breeze');
 
 	// The title that will be shown in the title bar of the browser
-	define("WEBAPP_TITLE", 'grammm web');
+	define("WEBAPP_TITLE", 'grommunio web');
 
 	// Set addressbook for GAB not to show any users unless searching for a specific user
 	define("DISABLE_FULL_GAB", false);
@@ -198,7 +198,7 @@
 	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
 	define('DISABLE_HTMLBODY_FILTER', true);
 
-	// The grammm admin API status endpoint
+	// The grommunio admin API status endpoint
 	define('ADMIN_API_STATUS_ENDPOINT', 'http://[::1]:8080/api/v1/status');
 
 	/**************************************\
@@ -270,7 +270,7 @@
 	// using <languagecode>_<regioncode>[.UTF-8], and separated with
 	// semicolon.  A list of available languages can be found in
 	// the manual or by looking at the list of directories in
-	// /usr/share/grammm-web/server/language .
+	// /usr/share/grommunio-web/server/language .
 	define("ENABLED_LANGUAGES", "cs_CZ;da_DK;de_DE;en_GB;en_US;es_CA;es_ES;fi_FI;fr_FR;hu_HU;it_IT;ja_JP;nb_NO;nl_NL;pl_PL;pt_BR;ru_RU;sl_SI;tr_TR;zh_CN;zh_TW");
 
 	//Define the default time zone

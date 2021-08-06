@@ -1,10 +1,10 @@
-# grammm-web Arabic (Algeria) translation.
+# grommunio-web Arabic (Algeria) translation.
 # Copyright (C) 2018
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Arabic (Algeria)\n"
+"Project-Id-Version: grommunio-web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
@@ -1577,7 +1577,7 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-msgid "grammm-web"
+msgid "grommunio-web"
 msgstr "كوبانو"
 
 msgid ""
@@ -2285,7 +2285,7 @@ msgid "Duplicate recipients"
 msgstr "المستلمين"
 
 #, fuzzy
-msgid "grammm-web print"
+msgid "grommunio-web print"
 msgstr "كوبانو"
 
 msgid "Display name"
@@ -3738,7 +3738,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
+msgid "Welcome to grommunio-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "

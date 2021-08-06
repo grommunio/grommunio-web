@@ -73,11 +73,9 @@
 	// Try to authenticate the user
 	WebAppAuthentication::authenticate();
 
-	if (isset($_COOKIE['webapp_title'])) {
-		$webappTitle = $_COOKIE['webapp_title'];
-	} else {
-		$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grammm web';
-	}
+	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio web';
+	if (isset($_COOKIE['webapp_title']))
+		$webappTitle .= " – ".$_COOKIE['webapp_title'];
 
 	// If we could not authenticate the user, we will show the login page
 	if ( !WebAppAuthentication::isAuthenticated() ){

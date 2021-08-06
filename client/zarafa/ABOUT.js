@@ -9,7 +9,7 @@ Ext.namespace('Zarafa');
 
 Zarafa.ABOUT = ""
 	+ "<style>div.atxt h1{font-weight:inherit;font-style:italic;}</style><div class=\"atxt\">"
-	+ "<p>Copyright 2020 grammm GmbH</p>"
+	+ "<p>Copyright 2020 grommunio GmbH</p>"
 
 	+ "<p>This program is free software: you can redistribute it and/or modify "
 	+ "it under the terms of the GNU Affero General Public License as "
@@ -26,7 +26,7 @@ Zarafa.ABOUT = ""
 
 	+ "<hr />"
 
-	+ "<p>grammm-web contains the following third-party components:</p>"
+	+ "<p>grommunio-web contains the following third-party components:</p>"
 
 	+ "<h1>Ext JS</h1>"
 

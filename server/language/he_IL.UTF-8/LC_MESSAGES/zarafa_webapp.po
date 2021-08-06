@@ -1,10 +1,10 @@
-# grammm-web Hebrew (Israel) translation.
+# grommunio-web Hebrew (Israel) translation.
 # Copyright (C) 2017
 # This file is distributed under the same license as the kopano-webapp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: grammm-web Hebrew (Israel)\n"
+"Project-Id-Version: grommunio-web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 17:06+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
@@ -1672,7 +1672,7 @@ msgstr ""
 msgid "Copy"
 msgstr "העתק"
 
-msgid "grammm-web"
+msgid "grommunio-web"
 msgstr "הווב אפ של זראפה"
 
 msgid ""
@@ -2426,7 +2426,7 @@ msgid "Duplicate recipients"
 msgstr "ערוך נמען"
 
 #, fuzzy
-msgid "grammm-web print"
+msgid "grommunio-web print"
 msgstr "הווב אפ של זראפה"
 
 # 91%
@@ -4004,7 +4004,7 @@ msgstr ""
 msgid "Unsaved changes"
 msgstr ""
 
-msgid "Welcome to grammm-web"
+msgid "Welcome to grommunio-web"
 msgstr ""
 
 msgid "This is the first time you are using WebApp. "
