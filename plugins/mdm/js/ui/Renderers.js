@@ -20,4 +20,4 @@ Zarafa.plugins.mdm.ui.Renderers = {
 	{
 		return Zarafa.plugins.mdm.data.ProvisioningStatus.getDisplayName(parseInt(value));
 	}
-}
+};
