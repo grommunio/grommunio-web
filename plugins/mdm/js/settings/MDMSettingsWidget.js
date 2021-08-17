@@ -210,7 +210,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			text: isAuthenticateAction ? _('Close') : _('No')
 		}];
 
-		customItems = [{
+		let customItems = [{
 			xtype: 'textfield',
 			allowBlank: false,
 			inputType: 'password',
@@ -219,7 +219,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			emptyText: _('Password'),
 			name: 'passwordField',
 			ref: 'passwordField'
-		}]
+		}];
 
 		// For 'authenticate' action username is required in messagebox.
 		if (isAuthenticateAction) {
