@@ -22,13 +22,17 @@
           <serverfile>php/settings.php</serverfile>
         </server>
         <client>
-          <clientfile>js/plugin.js</clientfile>
-          <clientfile>js/settings.js</clientfile>
-          <clientfile>js/tabpanel.js</clientfile>
-          <clientfile>js/addmeetingdialog.js</clientfile>
+          <clientfile load="release">js/meet.js</clientfile>
+          <clientfile load="debug">js/meet-debug.js</clientfile>
+          <clientfile load="source">js/plugin.js</clientfile>
+          <clientfile load="source">js/settings.js</clientfile>
+          <clientfile load="source">js/tabpanel.js</clientfile>
+          <clientfile load="source">js/addmeetingdialog.js</clientfile>
         </client>
         <resources>
-          <resourcefile>resources/css/meet.css</resourcefile>
+          <resourcefile load="release">resources/css/meet.css</resourcefile>
+          <resourcefile load="debug">resources/css/meet.css</resourcefile>
+          <resourcefile load="source">resources/css/meet.css</resourcefile>
         </resources>
       </files>
     </component>
