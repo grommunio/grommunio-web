@@ -27,7 +27,7 @@ define('MEET_DEFAULTS', Array(
 ________________________________________________________________________________
 grommunio Meet
 Join the created meeting with your browser or mobile app.
-Click here to join the meeting: %url%
+Click here to join the meeting: - %url% -
 ________________________________________________________________________________
 ',
 
