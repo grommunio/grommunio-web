@@ -1,4 +1,4 @@
-Copyright 2020 grommunio GmbH
+Copyright 2021 grommunio GmbH
 
 This program is free software: you can redistribute it and/or modify it under the terms of the
 GNU Affero General Public License as published by the Free Software Foundation, either version

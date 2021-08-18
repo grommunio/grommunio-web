@@ -1,14 +1,14 @@
 Tools directory
 ===============
 
-This directory contains the required tools to build the WebApp.
+This directory contains the required tools to build grommunio Web.
 
 Updating translations
 ---------------------
 
-The WebApp PHP and JavaScript translations can be updated using the
+The PHP and JavaScript translations can be updated using the
 update_translations script. Execute the scripts in the root directory of
-WebApp
+grommunio Web
 
 $ ./tools/update_translations -u
 

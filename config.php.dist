@@ -7,7 +7,7 @@
 	define("CONFIG_CHECK", TRUE);
 
 	// Use these options to optionally disable some PHP configuration checks.
-	// WARNING: these checks will disable checks regarding the security of the WebApp site configuration,
+	// WARNING: these checks will disable checks regarding the security of grommunio Web site configuration,
 	// only change them if you know the consequences - improper use will lead to an insecure installation!
 	define("CONFIG_CHECK_COOKIES_HTTP", FALSE);
 	define("CONFIG_CHECK_COOKIES_SSL", FALSE);
@@ -32,14 +32,14 @@
 	// Caution: disabling DOMPurify is a potential security risk.
 	define("ENABLE_DOMPURIFY_FILTER", true);
 
-	// The timeout (in seconds) for the session. User will be logged out of WebApp
-	// when he has not actively used the WebApp for this time.
+	// The timeout (in seconds) for the session. User will be logged out of grommunio Web
+	// when he has not actively used grommunio Web for this time.
 	// Set to 0 (or remove) for no timeout during browser session.
 	define('CLIENT_TIMEOUT', 0);
 
 	// Defines the domains from which cross domain authentication requests
 	// are allowed. E.g. if WebMeetings runs under a different domain than
-	// the WebApp then add this domain here. Add http(s):// to the domains
+	// the grommunio Web then add this domain here. Add http(s):// to the domains
 	// and separate domains with spaces.
 	// Set to empty string (default) to only allow authentication requests
 	// from within the same domain.
@@ -49,7 +49,7 @@
 
 	// Defines the domains to which redirection after login is allowed.
 	// Add http(s):// to the domains and separate domains with spaces.
-	// Note: The domain under which WebApp runs, is always allowed and does
+	// Note: The domain under which grommunio Web runs, is always allowed and does
 	// not need to be added here.
 	define('REDIRECT_ALLOWED_DOMAINS', '');
 
@@ -90,12 +90,12 @@
 	//can be simple,unicode61,icu,ascii,porter ...
 	define("SQLITE_FTS_TOKENIZER", "unicode61");
 
-	// General WebApp theme. This will be loaded by default for every user
+	// General grommunio Web theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
 	define("THEME", 'grommunioLighttheme');
 
-	// General WebApp icon set. This will be loaded by default for every user.
+	// General grommunio Web icon set. This will be loaded by default for every user.
 	// Users can override the iconset in the settings.
 	define("ICONSET", 'breeze');
 
