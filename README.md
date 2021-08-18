@@ -63,7 +63,7 @@ replace your own jpg and png files under "img" and "theme.css" under "css" folde
 find THEME in config.php and change it to blow
 define("THEME", 'themeexample');
 
-#Development
+# Development
 Checkout the repository into a new directory, e.g. "/opt". The new path of grommunio-web is now "/opt/grommunio-web/".
 
 If you want to use the existing grommunio-web config, point config.php to it: ```ln -s /etc/grommunio-web/config.php /opt/grommunio-web/config.php```. Or use the "debug.php.dist": ```cp -p /opt/grommunio-web/config.php.dist /opt/grommunio-web/config.php```.
