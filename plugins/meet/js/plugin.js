@@ -113,7 +113,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
       mname += (button.record.get('subject') || 'meet').replace(/[^a-zA-Z0-9\-]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, '') + '-';
     }
     if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_noorganizer')){
-      mname += container.getUser().getUserName() + '-';
+      mname += container.getUser().getUserName().replace(".", "") + '-';
     }
     button.record.meetCurrentUrl = container.getSettingsModel().get('zarafa/v1/plugins/meet/server') + mname + hash.toString(16);
     var edf = null;
