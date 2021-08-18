@@ -62,3 +62,13 @@ copy "plugins/themeexample" under source code to "plugins" directory under insta
 replace your own jpg and png files under "img" and "theme.css" under "css" folder
 find THEME in config.php and change it to blow
 define("THEME", 'themeexample');
+
+#Development
+Checkout the repository into a new directory, e.g. "/opt". The new path of grommunio-web is now "/opt/grommunio-web/".
+
+If you want to use the existing grommunio-web config, point config.php to it: ```ln -s /etc/grommunio-web/config.php /opt/grommunio-web/config.php```. Or use the "debug.php.dist": ```cp -p /opt/grommunio-web/config.php.dist /opt/grommunio-web/config.php```.
+
+Adjust "/opt/grommunio-web/defaults.php" to use sources instead of the release version. Search for ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_RELEASE);``` and replace it with ```if(!defined('DEBUG_LOADER')) define('DEBUG_LOADER', LOAD_SOURCE);```. 
+
+Adjust the nginx config file "/usr/share/grommunio-common/nginx/locations.d/grommunio-web.conf" by replacing ```alias /usr/share/grommunio-web/;``` with ```alias /opt/grommunio-web/;```. Reload nginx: ```systemctl reload nginx```.
+
