@@ -44,6 +44,14 @@ Zarafa.mail.dialogs.MailOptionsMiscPanel = Ext.extend(Ext.form.FormPanel, {
 				anchor: '100%',
 				autoScroll: true,
 				border: false
+			},{
+				xtype: 'textfield',
+				fieldLabel: _('Parent EID'),
+				name: 'parent_entryid',
+				readOnly: true,
+				anchor: '100%',
+				autoScroll: true,
+				border: false
 			}]
 		});
 
