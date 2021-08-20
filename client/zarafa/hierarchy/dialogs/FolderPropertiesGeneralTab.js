@@ -125,6 +125,14 @@ Zarafa.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.FormPa
 				fieldLabel : _('Size'),
 				renderer : Ext.util.Format.fileSize,
 				name : 'message_size'
+			},{
+				xtype : 'textfield',
+				fieldLabel : _('EntryID'),
+				name : 'entryid'
+			},{
+				xtype : 'textfield',
+				fieldLabel : _('Parent EID'),
+				name : 'parent_entryid'
 			}],
 			buttonAlign : 'left',
 			buttons : [{
