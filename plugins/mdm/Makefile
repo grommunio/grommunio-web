@@ -26,6 +26,7 @@ JSFILES = js/ABOUT.js js/MDM.js \
 	js/ui/MDMHierarchyTreePanel.js
 
 COPYFILES = LICENSE.txt manifest.xml config.php \
+	$(wildcard resources/icons/*.png) \
 	$(wildcard resources/css/*.css) \
 	$(wildcard php/*.php)
 
