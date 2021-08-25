@@ -5,8 +5,8 @@
 		<version>1.0</version>
 		<name>mdm</name>
 		<title>Mobile Device Management</title>
-		<author>Kopano</author>
-		<authorURL>http://www.kopano.com</authorURL>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
 		<description>Mobile Device Management plugin</description>
 	</info>
 	<config>
