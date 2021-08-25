@@ -1,6 +1,6 @@
 # Author: Mike Williams <mike.williams@grommunio.com>
 
-  ^kopano-webapp {
+  ^grommunio-web {
     #include <abstractions/apache2-common>
     #include <abstractions/base>
     #include <abstractions/nameservice>
@@ -17,7 +17,6 @@
     /var/lib/grommunio-web/sqlite-index/** rwk,
 
     /var/log/gromox/ r,
-    # FIXME: we should use separate logfiles for kopano upfront
     /var/log/gromox/php-fpm-webapp.log rw,
 
     # Useful when in debugging mode
