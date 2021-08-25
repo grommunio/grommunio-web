@@ -4,10 +4,10 @@
 	<info>
 		<version>0.1</version>
 		<name>intranet</name>
-		<title>Intranetr</title>
-		<author>Ronald Toussaint</author>
-		<authorURL>http://www.kopano.com</authorURL>
-		<description>The intranet plugin adds a button to the top menu bar that opens a webpage inside the WebApp</description>
+		<title>Intranet</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>The intranet plugin adds a button to the top menu bar that opens a webpage inside grommunio Web</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>

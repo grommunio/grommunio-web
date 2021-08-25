@@ -4,9 +4,9 @@
 	<info>
 		<version>0.2</version>
 		<name>webappmanual</name>
-		<title>WebApp Manual</title>
-		<author>Kopano</author>
-		<authorURL>https://www.kopano.com</authorURL>
+		<title>grommunio Web Manual</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
 		<description>Adds a button in the top menu bar, which directs the user to the user manual of the WebApp.</description>
 	</info>
 	<config>

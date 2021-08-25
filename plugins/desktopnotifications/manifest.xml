@@ -5,9 +5,9 @@
 		<version>1.1</version>
 		<name>desktopnotifications</name>
 		<title>Desktop Notifications Plugin</title>
-		<author>Kopano</author>
-		<authorURL>http://kopano.com</authorURL>
-		<description>Allow the user to Desktop Notifications for different type of actions.</description>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>Allow the user to Desktop Notifications for different type of actions</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>

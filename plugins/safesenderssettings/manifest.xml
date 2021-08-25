@@ -5,7 +5,8 @@
 		<version>1.2</version>
 		<name>safesenderssettings</name>
 		<title>Safe sender settingswidget</title>
-		<author>MartyBum, cloned from Jelle van der Waa</author>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
 		<description>Adds a settings category to configure your safe senders</description>
 	</info>
 	<components>
