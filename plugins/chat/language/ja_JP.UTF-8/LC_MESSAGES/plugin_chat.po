@@ -1,0 +1,3 @@
+#: js/settings/GeneralSettingsWidget.js:24
+msgid "Open Chat at start"
+msgstr "起動時にチャットを開く"

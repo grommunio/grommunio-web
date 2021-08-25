@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+	<info>
+		<version>0.1</version>
+		<name>chat</name>
+		<title>Chat</title>
+		<author>grommunio</author>
+		<authorURL>https://grommunio.com</authorURL>
+		<description>The chat plugin adds a button to the top menu bar that opens Chat inside grommunio Web</description>
+	</info>
+	<config>
+		<configfile>config.php</configfile>
+	</config>
+	<translations>
+		<translationsdir>language</translationsdir>
+	</translations>
+	<components>
+		<component>
+			<files>
+				<server>
+					<serverfile>php/plugin.chat.php</serverfile>
+				</server>
+				<client>
+					<clientfile load="release">js/chat.js</clientfile>
+					<clientfile load="debug">js/chat-debug.js</clientfile>
+					<clientfile load="source">js/ChatPlugin.js</clientfile>
+					<clientfile load="source">js/ui/ContentPanel.js</clientfile>
+					<clientfile load="source">js/ui/Panel.js</clientfile>
+					<clientfile load="source">js/settings/Category.js</clientfile>
+					<clientfile load="source">js/settings/GeneralSettingsWidget.js</clientfile>
+					<clientfile load="source">js/Notifications.js</clientfile>
+				</client>
+				<resources>
+					<resourcefile load="release">resources/css/chat.css</resourcefile>
+					<resourcefile load="debug">resources/css/chat.css</resourcefile>
+					<resourcefile load="source">resources/css/chat.css</resourcefile>
+				</resources>
+			</files>
+		</component>
+	</components>
+</plugin>
