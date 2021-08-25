@@ -4,14 +4,11 @@
 .x-tab-strip-text.icon_chat {
 	background-position: 0 10px !important;
 }
-
 .chat-iframe{
 	width: 100%;
 	height: 100%;
 	border: none;
 }
-
-/* settings */
 .k-chat-settings-category {
 	background-image: url(../img/icon_chat.png);
 	background-position: 5px center;
