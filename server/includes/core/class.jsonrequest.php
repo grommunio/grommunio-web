@@ -27,6 +27,9 @@
 		 */
 		function execute($json)
 		{
+			/* If json_encode produces an empty string, wa-js shows an absolutely
+			 * worthless "Invalid data received from the server" dialog. */
+			$jsonflags = JSON_THROW_ON_ERROR;
 			try {
 				// decode JSON data
 				$data = json_decode_data($json, true);
@@ -66,8 +69,7 @@
 				$GLOBALS["bus"]->notify(REQUEST_ENTRYID, REQUEST_END);
 
 				// Build the JSON and return it
-				return json_encode(array("zarafa" => $GLOBALS["bus"]->getData()));
-
+				return json_encode(array("zarafa" => $GLOBALS["bus"]->getData()), $jsonflags);
 			} catch (ZarafaException $e) {
 				if(!$e->isHandled) {
 					$data = array(
@@ -81,7 +83,7 @@
 						)
 					);
 
-					return json_encode(array("zarafa" => $data));
+					return json_encode(array("zarafa" => $data), $jsonflags);
 				}
 			} catch (ZarafaErrorException $e) {
 				if(!$e->isHandled) {
@@ -95,8 +97,7 @@
 							)
 						)
 					);
-
-					return json_encode(array("zarafa" => $data));
+					return json_encode(array("zarafa" => $data), $jsonflags);
 				}
 			} catch (Exception $e) {
 				// handle exceptions that are not handled by modules
@@ -112,8 +113,7 @@
 						)
 					)
 				);
-
-				return json_encode(array("zarafa" => $data));
+				return json_encode(array("zarafa" => $data), $jsonflags);
 			}
 		}
 	}
