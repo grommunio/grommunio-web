@@ -29,7 +29,7 @@
 		{
 			/* If json_encode produces an empty string, wa-js shows an absolutely
 			 * worthless "Invalid data received from the server" dialog. */
-			$jsonflags = JSON_THROW_ON_ERROR;
+			$jsonflags = JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE;
 			try {
 				// decode JSON data
 				$data = json_decode_data($json, true);
