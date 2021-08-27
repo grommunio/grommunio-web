@@ -76,6 +76,8 @@ Zarafa.settings.ui.SettingsInboxNavigationWidget = Ext.extend(Zarafa.settings.ui
 				'size' : 150
 			},{
 				'size' : 200
+			},{
+				'size' : 1000
 			}]
 		};
 
