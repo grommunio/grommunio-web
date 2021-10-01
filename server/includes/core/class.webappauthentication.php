@@ -174,7 +174,6 @@ class WebAppAuthentication
 					$wa_title .= " ($companyname)";
 				if (strlen($wa_title) != 0)
 					 setcookie('webapp_title', $wa_title, time() + 31536000, '/');
-				error_log('grommunio web user: ' . $username . ': authentication succesfull at MAPI');
 			} elseif ( WebAppAuthentication::$_errorCode == MAPI_E_LOGON_FAILED || WebAppAuthentication::$_errorCode == MAPI_E_UNCONFIGURED ) {
 				error_log('grommunio web user: ' . $username . ': authentication failure at MAPI');
 			}
