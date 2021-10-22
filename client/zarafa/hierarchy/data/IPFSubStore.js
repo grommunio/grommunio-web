@@ -46,7 +46,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	/**
 	 * Called when member is added on store. Should not be used directly.
 	 * It's called by Store#add automatically
-	 * @FIXME now IPFSubStore is not child of NoSyncStore, 
+	 * @FIXME now IPFSubStore is not child of NoSyncStore,
 	 * so we don't need to mark parentrecord dirty, remove this.
 	 * @param {Store} store
 	 * @param {Ext.data.Record/Ext.data.Record[]} record
@@ -123,7 +123,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 	},
 
 	/**
-	 * Checks whether any of the stores that were included in the parameters during the last load, 
+	 * Checks whether any of the stores that were included in the parameters during the last load,
 	 * matches the supplied entryid argument.
 	 *
 	 * @param {String|Array} entryidList Entryid of the folder
@@ -175,7 +175,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			records[i].setEventPropagation(false);
 			records[i].phantom = true;
 		}
-		
+
 		this.remove(records);
 	},
 
@@ -210,14 +210,14 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			record.setEventPropagation(false);
 
 			if (singleData instanceof Ext.data.Record) {
-				// Merge the changes into the record without using the JSONReader. 
+				// Merge the changes into the record without using the JSONReader.
 				record.applyData(singleData);
 			} else {
 				// Simply merge the record using the JsonReader, this will cause a 'update' event to be fired with
 				// a COMMIT action. Because it is a commit, this store will not mark the record as dirty.
 				this.reader.update(record, singleData);
 			}
-			
+
 			record.setEventPropagation(true);
 		}
 	},
@@ -336,7 +336,7 @@ Zarafa.hierarchy.data.IPFSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				// Remove this specific folder from the settings
 				// to prevent it from being loaded during the next
 				// reload.
-				settings.remove('zarafa/v1/contexts/hierarchy/shared_stores/' + user + '/' + type);
+				settings.remove('zarafa/v1/contexts/hierarchy/shared_stores/' + Zarafa.core.Util.bin2hex(user) + '/' + type);
 
 				// The server doesn't need the entryids to be sent,
 				// only the user_name and folder_type.

@@ -678,5 +678,27 @@ Zarafa.core.Util =
 			input = input / 1024;
 		}
 		return input;
+	},
+
+	/**
+	 * Function converts data into hexadecimal representation.
+	 * @param {String} str string to be converted into hexadecimal representation.
+	 * @return {String} An ASCII string containing the hexadecimal representation of string.
+	 */
+	bin2hex : function (str)
+	{
+		return str.split('').reduce((str, aChar) =>
+			str += `0${aChar.charCodeAt().toString(16)}`.slice(-2), '');
+	},
+
+	/**
+	 * Function decodes a hexadecimally encoded binary string.
+	 * @param {String} str Hexadecimal representation of data.
+	 * @return {String} Returns the binary representation of the given data.
+	 */
+	hex2bin : function (str)
+	{
+		return str.match(/.{1,2}/g).reduce((str, hex) =>
+			str += String.fromCharCode(parseInt(hex, 16)), '');
 	}
 };
