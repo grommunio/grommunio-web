@@ -187,7 +187,8 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 		// Check if the user is already present in the settings,
 		// if that is the case we have to check if we can actually open
 		// this new folder or not.
-		var settings = container.getSettingsModel().get('zarafa/v1/contexts/hierarchy/shared_stores/' + username, true);
+		var settings = container.getSettingsModel().get(
+			'zarafa/v1/contexts/hierarchy/shared_stores/' + Zarafa.core.Util.bin2hex(username), true);
 		if (settings && ((settings[foldertype] || settings['all']))) {
 			return false;
 		}
@@ -341,7 +342,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 			var folder_type = options['params']['folder_type'] || 'all';
 			var subfolders = options['params']['show_subfolders'] || false;
 
-			var settingsBase = 'zarafa/v1/contexts/hierarchy/shared_stores/' + user_name;
+			var settingsBase = 'zarafa/v1/contexts/hierarchy/shared_stores/' + Zarafa.core.Util.bin2hex(user_name);
 
 			var shared = settings.get(settingsBase, true);
 			if (shared && (shared[folder_type] || shared['all'])) {
@@ -453,7 +454,7 @@ Zarafa.hierarchy.data.HierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
 				// Both cases should be correctly removed using this
 				// function, so we just remove all shared_stores settings
 				// for the user rather then only the 'all' folder type.
-				settings.remove('zarafa/v1/contexts/hierarchy/shared_stores/' + username);
+				settings.remove('zarafa/v1/contexts/hierarchy/shared_stores/' + Zarafa.core.Util.bin2hex(username));
 
 				sharedstore.addIdProp('user_name');
 			}

@@ -149,7 +149,7 @@
 				$user_props = array(PR_DISPLAY_NAME, PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS, PR_SEARCH_KEY, PR_EMS_AB_THUMBNAIL_PHOTO,
 					PR_TITLE, PR_COMPANY_NAME, PR_DEPARTMENT_NAME, PR_OFFICE_LOCATION, PR_HOME_ADDRESS_STREET, PR_MOBILE_TELEPHONE_NUMBER,
 					PR_PRIMARY_TELEPHONE_NUMBER, PR_BUSINESS_TELEPHONE_NUMBER);
-				
+
 				$user_props = mapi_getprops($user, $user_props);
 
 				if (is_array($user_props) && isset($user_props[PR_DISPLAY_NAME]) && isset($user_props[PR_SMTP_ADDRESS])){
@@ -159,7 +159,7 @@
 					$this->session_info["emailaddress"] = $user_props[PR_EMAIL_ADDRESS];
 					$this->session_info["searchkey"] = $user_props[PR_SEARCH_KEY];
 					$this->session_info["userimage"] = isset($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) ? "data:image/jpeg;base64," . base64_encode($user_props[PR_EMS_AB_THUMBNAIL_PHOTO]) : "";
-					
+
 					$this->session_info["given_name"] = isset($user_props[PR_GIVEN_NAME]) ? $user_props[PR_GIVEN_NAME] : '';
 					$this->session_info["initials"] = isset($user_props[PR_INITIALS]) ? $user_props[PR_INITIALS] : '';
 					$this->session_info["surname"] = isset($user_props[PR_SURNAME]) ? $user_props[PR_SURNAME] : '';
@@ -345,146 +345,146 @@
 
 			return array_key_exists("userimage",$this->session_info)? $this->session_info["userimage"]:false;
 		}
-		
+
 		function setUserImage($user_image)
 		{
 			if ($this->userDataRetrieved && is_array($this->session_info)) {
 				$this->session_info["userimage"] = $user_image;
 			}
 		}
-		
+
 		function getGivenName()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getInitials()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getSurname()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getStreetAddress()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getLocality()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getStateOrProvince()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getPostalCode()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getCountry()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getTitle()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("title",$this->session_info)? $this->session_info["title"]:false;
 		}
-		
+
 		function getCompanyName()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("company_name",$this->session_info)? $this->session_info["company_name"]:false;
 		}
-		
+
 		function getDepartmentName()
 		{
 			$this->retrieveUserData();
 			return array_key_exists("department_name",$this->session_info)? $this->session_info["department_name"]:false;
 		}
-		
+
 		function getOfficeLocation()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getAssistant()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getAssistantTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getOfficeTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getBusinessTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getBusiness2TelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getPrimaryFaxNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getHomeTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getHome2TelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getMobileTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		function getPagerTelephoneNumber()
 		{
 			//TODO
 			return "";
 		}
-		
+
 		/**
 		 * Get currently disabled features for the user
 		 * @return array An disabled features list.
@@ -716,9 +716,12 @@
 
 			try {
 				$store = mapi_openmsgstore($this->session, $entryid);
+				$store_props = mapi_getprops($store, [PR_ENTRYID]);
+				$entryid = $store_props[PR_ENTRYID];
 
 				// Cache the store for later use
 				$this->stores[$entryid] = $store;
+				$this->userstores[$name] = $entryid;
 			} catch (MAPIException $e) {
 				error_log('Failed to open store with entryid ' . bin2hex($entryid) . ($name ? " ($name)":''));
 				error_log($e);
@@ -854,30 +857,7 @@
 		function retrieveOtherUsersFromSettings()
 		{
 			$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
-
-			$uppercaseUsers = array_filter(array_keys($other_users), function($string) {
-				return (bool) preg_match('/[A-Z]/', $string);
-			});
-
-			if ($uppercaseUsers) {
-				return $this->convertUpperCaseOtherUsersSettings($other_users);
-			}
-
-			return $other_users;
-		}
-
-
-		/*
-		 * Convert old settings to new settings format. Due to a
-		 * previous bug you were able to open folders from both user_a
-		 * and USER_A so we have to filter that here. We do that by
-		 * making everything lower-case
-		 * @param array $other_users the shared_stores settings
-		 * @return array Array of usernames of delegate stores
-		 */
-		private function convertUpperCaseOtherUsersSettings($other_users) {
 			$result = [];
-
 			foreach($other_users as $username=>$folders) {
 				// No folders are being shared, the store has probably been closed by the user,
 				// but the username is still lingering in the settings...
@@ -885,12 +865,12 @@
 					continue;
 				}
 
-				$username = strtolower($username);
+				$username = strtolower(hex2bin($username));
 				if(!isset($result[$username])) {
-					$result[$username] = Array();
+					$result[$username] = [];
 				}
 
-				foreach($folders as $type => $folder) {
+				foreach($folders as $folder) {
 					if(is_array($folder)) {
 						$result[$username][$folder["folder_type"]] = Array();
 						$result[$username][$folder["folder_type"]]["folder_type"] = $folder["folder_type"];
@@ -900,6 +880,7 @@
 			}
 
 			$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/shared_stores", $result);
+			return $result;
 		}
 
 		/**
@@ -913,7 +894,9 @@
 			$user_entryid = mapi_msgstore_createentryid($this->getDefaultMessageStore(), $username);
 
 			if($user_entryid) {
-				$this->userstores[$username] = $user_entryid;
+				// mapi_msgstore_createentryid and mapi_getprops(PR_ENTRYID) have different
+				// values for shared stores, so save the one from mapi_getprops(PR_ENTRYID)
+				// $this->userstores[$username] = $user_entryid;
 
 				return $this->openMessageStore($user_entryid, $username);
 			}
@@ -1021,7 +1004,7 @@
 
 						// Get settings of respective shared folder of given user
 						$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", null);
-						$sharedUserSetting = $sharedSetting[$username];
+						$sharedUserSetting = $sharedSetting[strtolower(hex2bin($username))];
 
 						// Only add opened shared folders into addressbook contacts provider.
 						// If entire inbox is opened then add each and every contact folders of that particular user.

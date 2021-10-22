@@ -32,7 +32,7 @@
 			$GLOBALS["bus"]->registerNotifier('hierarchynotifier', REQUEST_ENTRYID);
 			$GLOBALS["bus"]->registerNotifier('newmailnotifier', REQUEST_ENTRYID);
 		}
-		
+
 		/**
 		 * Function which returns a list of entryids, which is used to register this module. It
 		 * returns the ipm_subtree entryids of every message store.
@@ -46,10 +46,10 @@
 			foreach ($storelist as $entryid => $store) {
 				$entryids[] = bin2hex($entryid);
 			}
-			
+
 			return $entryids;
 		}
-		
+
 		/**
 		 * Executes all the actions in the $data variable.
 		 * @return boolean true on success or false on fialure.
@@ -252,13 +252,13 @@
 									}
 								}
 								break;
-							
+
 							case "closesharedfolder":
 								if (isset($action["folder_type"]) && $action["folder_type"] != "all") {
 									// We're closing a Shared folder, check if we still have other
 									// folders for the same user opened, if not we can safely close
 									// the usrstore.
-									$stores = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . strtolower($action["user_name"]));
+									$stores = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex($action["user_name"])));
 									if (!isset($stores) || empty($stores) || (count($stores) == 1 && isset($stores[$action["folder_type"]]))) {
 										$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 									} else {
@@ -281,7 +281,7 @@
 								$GLOBALS["bus"]->addData($this->getResponseData());
 								$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID,OBJECT_SAVE);
 								break;
-							
+
 							case "opensharedfolder":
 								$username = strtolower($action["user_name"]);
 								$store = $GLOBALS["mapisession"]->addUserStore($username);
@@ -326,7 +326,7 @@
 										continue;
 									}
 
-									$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, array($username, $folder_type));
+									$GLOBALS["bus"]->notify(REQUEST_ENTRYID, HIERARCHY_UPDATE, array(strtolower(hex2bin($username)), $folder_type));
 								}
 
 								$this->sendFeedback(true);
@@ -345,7 +345,7 @@
 		 * Function does customization of exception based on module data.
 		 * like, here it will generate display message based on actionType
 		 * for particular exception, and send feedback to the client.
-		 * 
+		 *
 		 * @param object $e Exception object
 		 * @param string $actionType the action type, sent by the client
 		 * @param MAPIobject $store Store object of the folder.
@@ -472,7 +472,7 @@
 
 			parent::handleException($e, $actionType, $store, $parententryid, $entryid, $action);
 		}
-		
+
 		/**
 		 * Generates the hierarchy list. All folders and subfolders are added to response data.
 		 */
@@ -498,7 +498,7 @@
 			$data = $GLOBALS["operations"]->setFolder($folderProps);
 			$this->addActionData($actionType, $data);
 		}
-		
+
 		/**
 		 * Adds a folder to the hierarchylist.
 		 * @param object $store Message Store Object.
@@ -523,10 +523,10 @@
 				$props[PR_ENTRYID] = $parententryid;
 				$GLOBALS["bus"]->notify(bin2hex($parententryid), OBJECT_SAVE, $props);
 			}
-			
+
 			return $result;
 		}
-		
+
 		/**
 		* returns properties of a folder, used by the properties dialog
 		*/
@@ -561,7 +561,7 @@
 			if (!isset($data["props"]["message_size"])){
 				$data["props"]["message_size"] = round($GLOBALS["operations"]->calcFolderMessageSize($folder, false));
 			}
-			
+
 			// retrieving folder permissions
 			$data["permissions"] = array(
 				"item" => $this->getFolderPermissions($folder)
@@ -641,7 +641,7 @@
 			if (isset($action["permissions"])){
 				$this->setFolderPermissions($folder, $action["permissions"]);
 			}
-			
+
 			mapi_savechanges($folder);
 		}
 
@@ -653,7 +653,7 @@
 
 			$store = $GLOBALS["mapisession"]->openMessageStore($folderProps[PR_STORE_ENTRYID]);
 			if ($folderProps[PR_DISPLAY_NAME] == "IPM_SUBTREE"){
-				$folder = $store; 
+				$folder = $store;
 			}
 
 			$grants = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
@@ -674,7 +674,7 @@
 			}
 
 			$result = $grants;
-			return $result;			
+			return $result;
 		}
 
 		function setFolderPermissions($folder, $permissions)
@@ -697,7 +697,7 @@
 				$folder = $store;
 			}
 
-			// first, get the current permissions because we need to delete all current acl's 
+			// first, get the current permissions because we need to delete all current acl's
 			$curAcls = mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT);
 
 			// First check which permissions should be removed from the existing list
@@ -741,7 +741,7 @@
 					);
 				}
 				unset($addAcl);
-			}			
+			}
 
 			if (!empty($curAcls)) {
 				mapi_zarafa_setpermissionrules($folder, $curAcls);
@@ -834,9 +834,13 @@
 			$finderHierarchyTables = array();
 			if (!empty($store)) {
 				$props = mapi_getprops($store, array(PR_FINDER_ENTRYID));
-				$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
-				$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
-				$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+				try {
+					$finderFolder = mapi_msgstore_openentry($store, $props[PR_FINDER_ENTRYID]);
+					$hierarchyTable = mapi_folder_gethierarchytable($finderFolder, MAPI_DEFERRED_ERRORS);
+					$finderHierarchyTables[$props[PR_FINDER_ENTRYID]] = $hierarchyTable;
+				}
+				catch(Exception $e) {
+				}
 			}
 
 			$messages = mapi_table_queryallrows($associatedTable, array(PR_ENTRYID, PR_MESSAGE_CLASS, PR_WB_SF_ID, PR_WLINK_ENTRYID, PR_WLINK_STORE_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID), $restriction);
@@ -1015,7 +1019,7 @@
 				$GLOBALS["bus"]->notify(bin2hex($props[PR_ENTRYID]), OBJECT_SAVE, $props);
 			}
 		}
-		
+
 		/**
 		 * Deletes a folder in the hierarchylist.
 		 * @param object $store Message Store Object.
@@ -1072,7 +1076,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Deletes all messages in a folder.
 		 * @param object $store Message Store Object.
@@ -1120,7 +1124,7 @@
 				$GLOBALS["bus"]->addData($this->getResponseData());
 			}
 		}
-		
+
 		/**
 		 * Copies of moves a folder in the hierarchylist.
 		 * @param object $store Message Store Object.
@@ -1204,7 +1208,7 @@
 
 				if (is_array($subfolders)) {
 					foreach($subfolders as $subfolder) {
-						$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]); 
+						$folderObject = mapi_msgstore_openentry($deststore, $subfolder[PR_ENTRYID]);
 						$folderProps = mapi_getprops($folderObject, array(PR_ENTRYID, PR_STORE_ENTRYID));
 						$GLOBALS["bus"]->notify(bin2hex($subfolder[PR_ENTRYID]), OBJECT_SAVE, $folderProps);
 					}
@@ -1222,7 +1226,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Set all messages read.
 		 * @param object $store Message Store Object.
