@@ -17,7 +17,7 @@ class ConfigCheck
 		// here we check our settings, changes to the config and
 		// additional checks must be added/changed here
 		$this->checkPHP("5.4", "You must upgrade PHP");
-		$this->checkExtension("mapi", null, "If you have upgraded Gromox, please restart Apache/php-fpm");
+		$this->checkExtension("mapi", null, "If you have upgraded Gromox, please restart nginx/php-fpm");
 		$this->checkExtension("gettext", null, "Install the gettext extension for PHP");
 		$this->checkPHPsetting("session.auto_start", "off", "Modify this setting in '%s'");
 		$this->checkPHPsetting("output_handler", "", "With this option set, it is unsure if the grommunio web will work correctly");
@@ -31,7 +31,7 @@ class ConfigCheck
 			$this->checkPHPsecurity("session.cookie_secure", "on", "Modify this setting in '%s'");
 		}
 
-		$this->checkDirectory(TMP_PATH, "rw", "Please make sure this directory exists and is writable for PHP/Apache");
+		$this->checkDirectory(TMP_PATH, "rw", "Please make sure this directory exists and is writable for nginx/php-fpm");
 		$this->checkFunction("iconv", "Install the 'iconv' module for PHP, or else you don't have euro-sign support.");
 		$this->checkFunction("gzencode", "You don't have zlib support: <a href=\"https://php.net/manual/en/ref.zlib.php#zlib.installation\">https://php.net/manual/en/ref.zlib.php#zlib.installation</a>");
 		$this->checkLoader(DEBUG_LOADER, "Your 'DEBUG_LOADER' configuration isn't valid for the current folder");
