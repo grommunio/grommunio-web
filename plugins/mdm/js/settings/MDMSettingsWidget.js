@@ -56,11 +56,11 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 						dataIndex : 'useragent',
 						header : _('User Agent', 'plugin_mdm'),
 						renderer : Ext.util.Format.htmlEncode
-					},/*{
+					},{
 						dataIndex : 'wipestatus',
 						header : _('Provisioning Status', 'plugin_mdm'),
 						renderer : Zarafa.plugins.mdm.ui.Renderers.provisioningStatus
-					},*/{
+					},{
 						dataIndex : 'lastupdatetime',
 						header : _('Last Update', 'plugin_mdm'),
 						renderer : Ext.util.Format.htmlEncode
@@ -84,12 +84,12 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 						hidden : true,
 						renderer : Ext.util.Format.htmlEncode
 					}],
-					buttons : [/*{
+					buttons : [{
 						text : _('Wipe Device', 'plugin_mdm'),
 						ref : '../../../wipeBtn',
 						handler : this.onWipeBtn,
 						scope : this
-					},*/{
+					},{
 						text : _('Full resync', 'plugin_mdm'),
 						ref : '../../../resyncBtn',
 						handler : this.onFullResync,

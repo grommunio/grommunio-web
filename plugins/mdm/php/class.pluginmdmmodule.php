@@ -51,10 +51,15 @@ class PluginMDMModule extends Module
 					if (mapi_table_getrowcount($deviceStateFolderContents) == 1) {
 						$rows = mapi_table_queryrows($deviceStateFolderContents, [PR_ENTRYID], 0, 1);
 						$message = mapi_msgstore_openentry($store, $rows[0][PR_ENTRYID]);
-						$props = mapi_getprops($message);
 						$state = base64_decode(streamProperty($message, PR_BODY));
 						$unserializedState = json_decode($state);
-						$devices[$unserializedState->data->devices->$username->data->deviceid] = $unserializedState->data->devices->$username->data;
+						// TODO: fallback - may be removed in the future
+						if (isset($unserializedState->data->devices->$username->data->deviceid)) {
+							$devices[$unserializedState->data->devices->$username->data->deviceid] = $unserializedState->data->devices->$username->data;
+						}
+						else {
+							$devices[$unserializedState->data->deviceid] = $unserializedState->data;
+						}
 					}
 				}
 			}
@@ -107,8 +112,23 @@ class PluginMDMModule extends Module
 	 */
 	function wipeDevice($deviceid, $password)
 	{
-		// TODO enter password
-		// request wipe
+		$opts = ['http' =>
+			[
+				'method' => 'POST',
+				'header' => 'Content-Type: application/json',
+				'ignore_errors' => true,
+				'content' => json_encode(
+					[
+						'password' => $password,
+						'remoteIP' => '[::1]',
+						'status' => SYNC_PROVISION_RWSTATUS_PENDING,
+						'time' => time()
+					]
+				)
+			]
+		];
+		$ret = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() ."?devices=". $deviceid, false, stream_context_create($opts));
+		return $ret;
 	}
 
 	/**
@@ -230,14 +250,14 @@ class PluginMDMModule extends Module
 	/**
 	 * Function which is use to get device properties.
 	 *
-	 * @param array $device array of device properties
+	 * @param object $device array of device properties
 	 * @return array
 	 */
 	function getDeviceProps($device)
 	{
 		$item = array();
 		$propsList = ['devicetype', 'deviceos', 'devicefriendlyname', 'useragent', 'asversion', 'firstsynctime',
-			'lastsynctime', 'lastupdatetime', 'wipestatus', 'policyname'];
+			'lastsynctime', 'lastupdatetime', 'policyname'];
 
 		$item['entryid'] = $device->deviceid;
 		$item['message_class'] = "IPM.MDM";
@@ -246,6 +266,7 @@ class PluginMDMModule extends Module
 				$item[$prop] = $device->$prop;
 			}
 		}
+		$item['wipestatus'] = $this->getProvisioningWipeStatus($device->deviceid);
 
 		$item = array_merge($item, $this->getSyncFoldersProps($device));
 		return $item;
@@ -883,5 +904,24 @@ class PluginMDMModule extends Module
 						],
 				]
 		]];
+	}
+
+	/**
+	 * Returns the status of the remote wipe policy.
+	 *
+	 * @access public
+	 * @return int          returns the current status of the device - SYNC_PROVISION_RWSTATUS_*
+	 */
+	function getProvisioningWipeStatus($deviceid)
+	{
+		// retrieve the WIPE STATUS from the Admin API
+		$api_response = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() ."?devices=". $deviceid);
+		if ($api_response) {
+			$data = json_decode($api_response, true);
+			if (isset($data['data'][$deviceid]["status"])) {
+				return $data['data'][$deviceid]["status"];
+			}
+		}
+		return SYNC_PROVISION_RWSTATUS_NA;
 	}
 };
