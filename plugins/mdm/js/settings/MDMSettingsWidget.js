@@ -97,7 +97,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					},{
 						text : _('Remove device', 'plugin_mdm'),
 						ref : '../../../removeBtn',
-						handler : this.onRemoveDevice,
+						handler : this.onRemoveBtn,
 						scope : this
 					},{
 						text : _('Refresh', 'plugin_mdm'),
@@ -334,25 +334,45 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			);
 		}
 	},
+	/**
+	 * Function which handles the click event on the "Wipe Device" button, displays
+	 * a MessageBox for the user to confirm the wipe action. The wipe action is
+	 * handled by the onWipeDevice function.
+	 */
+	onRemoveBtn : function()
+ {
+	 var message = _('Do you really want to remove your device?\n Enter your password to confirm.');
+	 this.showPasswordMessageBox(message, this.onRemoveDevice, 'remove');
+ },
 
 	/**
 	 * Remove all state data for a device, essentially resyncing it.
 	 */
-	onRemoveDevice : function()
+	onRemoveDevice : function(button)
 	{
-		var selectionModel = this.deviceGrid.getSelectionModel();
-		var record = selectionModel.getSelected();
-		if(record) {
-			container.getRequest().singleRequest(
-				'pluginmdmmodule',
-				'remove',
-				{ 'deviceid' : record.get('entryid') },
-				new Zarafa.plugins.mdm.data.MDMResponseHandler({
-					successCallback : this.removeDone.createDelegate(this, [record], true),
-					failureCallback : this.checkAuthentication,
-					mdmWidgetScope : this
-				})
-			);
+		if (button.name === 'yes') {
+			var inputForm = this.dlgItemContainer.inputForm.getForm();
+			if (!inputForm.isValid()) {
+				return;
+			}
+
+			var inputValues = inputForm.getValues();
+			var mdmWidgetScope = this.mdmWidgetScope;
+			var selectionModel = mdmWidgetScope.deviceGrid.getSelectionModel();
+			var record = selectionModel.getSelected();
+			if (record) {
+				container.getRequest().singleRequest(
+					'pluginmdmmodule',
+					'remove',
+					{ 'deviceid' : record.get('entryid'), 'password': inputValues.passwordField },
+					new Zarafa.plugins.mdm.data.MDMResponseHandler({
+						successCallback : mdmWidgetScope.removeDone.createDelegate(this, [record], true),
+						failureCallback : mdmWidgetScope.checkAuthentication,
+						mdmWidgetScope : mdmWidgetScope
+					})
+				);
+			}
+			this.close();
 		}
 	},
 
