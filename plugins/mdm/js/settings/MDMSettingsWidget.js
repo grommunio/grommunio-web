@@ -335,9 +335,9 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 		}
 	},
 	/**
-	 * Function which handles the click event on the "Wipe Device" button, displays
-	 * a MessageBox for the user to confirm the wipe action. The wipe action is
-	 * handled by the onWipeDevice function.
+	 * Function which handles the click event on the "Remove Device" button, displays
+	 * a MessageBox for the user to confirm the remove action. The remove action is
+	 * handled by the onRemoveDevice function.
 	 */
 	onRemoveBtn : function()
  {
@@ -346,7 +346,10 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
  },
 
 	/**
-	 * Remove all state data for a device, essentially resyncing it.
+	 * Remove all state data for a device, essentially resyncing it. Also resets
+	 * the wipe status of the device to 0.
+	 *
+	 * @param {Ext.Button} button button from the messagebox
 	 */
 	onRemoveDevice : function(button)
 	{
