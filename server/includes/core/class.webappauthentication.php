@@ -161,6 +161,11 @@ class WebAppAuthentication
 				DEFAULT_SERVER
 			);
 
+			// Include external login plugins to be loaded
+			if(file_exists(BASE_PATH .'extlogin.php')){
+				include(BASE_PATH .'extlogin.php');
+			}
+
 			if (WebAppAuthentication::$_errorCode === NOERROR ) {
 				WebAppAuthentication::$_authenticated = true;
 				WebAppAuthentication::_storeMAPISession(WebAppAuthentication::$_mapiSession->getSession());
