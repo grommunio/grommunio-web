@@ -59,7 +59,9 @@
 						$lang_title = fgets($fh);
 						$lang_table = fgets($fh);
 						fclose($fh);
-						$this->languages[$entry] = trim($lang_title);
+						$pos = strpos($entry, '.');
+						$locid = ($pos === false) ? $entry : substr($entry, 0, $pos);
+						$this->languages[$entry] = "$locid: ".trim($lang_title);
 						$this->languagetable[$entry] = trim($lang_table);
 					}
 				}
