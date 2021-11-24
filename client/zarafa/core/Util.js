@@ -744,7 +744,7 @@ Zarafa.core.Util =
 				// For format 'd.m.Y' and 'd. m. Y.'
 				formattedDate = this.getFormattedDate(rawValue, '.');
 				break;
-			case 'es_CA':
+			case 'ca_ES':
 			case 'es_ES':
 			case 'pl_PL':
 				// For format 'd/m/aa' and 'd/m/r'
