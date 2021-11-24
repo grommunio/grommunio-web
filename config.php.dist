@@ -210,6 +210,9 @@
 	// disables this feature.
 	define("PREFETCH_EMAIL_COUNT", 0);
 
+	// indicate whether not to use magicHTML as html filter, magicHTML is very slow, so by the default we disable it
+	define('DISABLE_HTMLBODY_FILTER', true);
+
 	// Define the interval between loading of new emails in the background.
 	define("PREFETCH_EMAIL_INTERVAL", 30);
 
