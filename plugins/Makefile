@@ -1,4 +1,4 @@
-SUBDIRS = chat desktopnotifications intranet mdm meet passwd safesenderssettings webappmanual 
+SUBDIRS = chat desktopnotifications intranet mdm meet passwd
 
 .PHONY: subdirs $(SUBDIRS)
 
