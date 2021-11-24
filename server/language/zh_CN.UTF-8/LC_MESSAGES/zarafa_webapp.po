@@ -1985,13 +1985,13 @@ msgid "Import to folder"
 msgstr "导入至文件夹"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr "为使用vCard导入功能，请将您的Gromox升级至8.3或更高版本。"
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr "为使用ICS/VCS导入功能，请将您的Gromox升级至8.3或更高版本。"
 
 msgid "Attachment error"
@@ -2202,9 +2202,6 @@ msgstr "主题："
 
 msgid "Would you like to copy instead?"
 msgstr "您是否欲复制这些项目？"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr "不再显示此消息。"
@@ -3030,8 +3027,8 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"点击此处下载图片。为帮助您保护您的隐私，grommunio Web禁止自动下载此消息中的某些图"
-"片。"
+"点击此处下载图片。为帮助您保护您的隐私，grommunio Web禁止自动下载此消息中的某"
+"些图片。"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4771,8 +4768,8 @@ msgid "Quick Note"
 msgstr "快速记事"
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr "您必须重新加载grommunio Web才能使更改生效。未保存的更改将丢失。"
 
 msgid "Reload grommunio Web"
@@ -4992,7 +4989,8 @@ msgid ""
 msgstr "将关闭所有打开的共享存储器，并将所有设置重置为默认值。"
 
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr "grommunio Web将自动重新加载以使这些更改生效"
 
 msgid "Reset"
@@ -5009,9 +5007,6 @@ msgstr "无法编辑设置'{0}'"
 
 msgid "Version information"
 msgstr "版本信息"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Gromox"
 msgstr "Gromox"
@@ -5406,7 +5401,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "层次结构中缺少默认的存储器。"
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr "因此，并非grommunio Web的所有功能均能正常运行。"
 
 # 100%
@@ -5593,8 +5589,8 @@ msgid "You have been automatically logged out"
 msgstr "您已自动登出"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr "抱歉，此用户账户无法访问grommunio Web。请与您的系统管理员联系。"
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6234,10 +6230,12 @@ msgstr "未能成功导入文件"
 msgid "There is no contact found in this file."
 msgstr "未能在此文件中找到任何联系人。"
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr "grommunio Web不支持使用此版本导入多个VCF。"
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

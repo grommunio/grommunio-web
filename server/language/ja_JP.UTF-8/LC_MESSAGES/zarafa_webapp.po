@@ -1684,7 +1684,6 @@ msgstr "会議の変更依頼を開く。"
 msgid "Copy"
 msgstr "コピー"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2087,13 +2086,13 @@ msgid "Import to folder"
 msgstr "フォルダを空にする"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2305,9 +2304,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -3211,8 +3207,8 @@ msgid ""
 "prevented automatic download of some pictures in this message."
 msgstr ""
 "写真をダウンロードするにはここをクリックして下さい。また、プライバシーを保護"
-"するために、grommunio Webではこのメッセージにより写真の自動ダウンロードをさせないよ"
-"うにしています。"
+"するために、grommunio Webではこのメッセージにより写真の自動ダウンロードをさせ"
+"ないようにしています。"
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5071,8 +5067,8 @@ msgid "Quick Note"
 msgstr "クイック メモ"
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr ""
 
 #, fuzzy
@@ -5300,7 +5296,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr "設定反映を行うためにgrommunio Webは自動的に再起動します"
 
 msgid "Reset"
@@ -5319,9 +5316,6 @@ msgstr "'{0}' の設定は編集できません。"
 
 msgid "Version information"
 msgstr "バージョン情報"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 #, fuzzy
 msgid "Gromox"
@@ -5756,7 +5750,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "デフォルトのデータストアがヒエラルキーにありません。"
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr "このため、grommunio Webの全ての機能が正常に動かないかもしれません。"
 
 # 100%
@@ -5946,8 +5941,8 @@ msgid "You have been automatically logged out"
 msgstr "自動的にログアウトしました。"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6666,10 +6661,12 @@ msgstr "送信成功"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

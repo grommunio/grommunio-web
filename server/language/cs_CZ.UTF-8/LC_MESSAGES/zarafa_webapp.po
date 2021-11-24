@@ -1716,7 +1716,11 @@ msgstr "Kopírovat"
 
 #, fuzzy
 msgid "grommunio Web"
-msgstr "grommunio WebbApp"
+msgstr ""
+"#-#-#-#-#  zarafa_webapp.po (grommunio Web Czech)  #-#-#-#-#\n"
+"grommunio WebbApp\n"
+"#-#-#-#-#  zarafa_webapp.po (grommunio Web Czech)  #-#-#-#-#\n"
+"grommunio Web"
 
 #, fuzzy
 msgid ""
@@ -2129,19 +2133,19 @@ msgstr "Importovat do složky"
 
 #, fuzzy
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
-"Chcete-li použít funkci importu vCard, upgradujte Gromox na verzi 8.3 "
-"nebo vyšší."
+"Chcete-li použít funkci importu vCard, upgradujte Gromox na verzi 8.3 nebo "
+"vyšší."
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
-"Chcete-li použít funkci importu ICS/VCS, upgradujte Gromox na verzi 8.3 "
-"nebo vyšší."
+"Chcete-li použít funkci importu ICS/VCS, upgradujte Gromox na verzi 8.3 nebo "
+"vyšší."
 
 msgid "Attachment error"
 msgstr "Chyba přílohy"
@@ -2361,9 +2365,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio WebbApp"
 
 msgid "Do not show this message again."
 msgstr "Tuto zprávu již nezobrazovat."
@@ -3275,8 +3276,8 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Kliknout zde pro stažení obrázků. grommunio Web blokuje automatické stahování "
-"některých obrázků pro vyšší ochranu soukromí."
+"Kliknout zde pro stažení obrázků. grommunio Web blokuje automatické "
+"stahování některých obrázků pro vyšší ochranu soukromí."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5142,8 +5143,8 @@ msgid "Quick Note"
 msgstr "Rychlá poznámka"
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr ""
 
 #, fuzzy
@@ -5370,7 +5371,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr ""
 
 msgid "Reset"
@@ -5387,9 +5389,6 @@ msgstr "Nastavení '{0}' nelze upravovat"
 
 msgid "Version information"
 msgstr "Informace o verzi"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 #, fuzzy
 msgid "Gromox"
@@ -5820,7 +5819,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr ""
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr ""
 
 # 100%
@@ -6012,8 +6012,8 @@ msgid "You have been automatically logged out"
 msgstr "Byli jste automaticky odhlášeni"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6738,10 +6738,12 @@ msgstr "Odesláno úspěšně"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

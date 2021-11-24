@@ -1657,7 +1657,6 @@ msgstr "Åben mødeindkaldelse med ændringer"
 msgid "Copy"
 msgstr "Kopier"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2061,13 +2060,13 @@ msgid "Import to folder"
 msgstr "Tøm mappe"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2275,9 +2274,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr "Vis ikke denne meddelelse igen."
@@ -4053,14 +4049,14 @@ msgstr "Velkommen til grommunio Web"
 #, fuzzy
 msgid "This is the first time you are using grommunio Web. "
 msgstr ""
-"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de følgende "
-"indstillinger inden du fortsætter."
+"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
+"følgende indstillinger inden du fortsætter."
 
 #, fuzzy
 msgid "Please check the following settings before continuing."
 msgstr ""
-"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de følgende "
-"indstillinger inden du fortsætter."
+"Dette er den første gang du bruger grommunio Web. <br/>Tjek venligst de "
+"følgende indstillinger inden du fortsætter."
 
 #, fuzzy
 msgid "Widget height"
@@ -4957,9 +4953,10 @@ msgstr "Hurtig note"
 
 #, fuzzy
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
-msgstr "For at ændringerne skal træde i kræft, skal du genindlæse grommunio Web."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"For at ændringerne skal træde i kræft, skal du genindlæse grommunio Web."
 
 #, fuzzy
 msgid "Reload grommunio Web"
@@ -5092,7 +5089,8 @@ msgid "Infinite Scroll"
 msgstr "Uendelig rulning"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "grommunio Web henter automatisk yderligere elementer når du scroller ned"
+msgstr ""
+"grommunio Web henter automatisk yderligere elementer når du scroller ned"
 
 msgid "Pagination"
 msgstr "Paginering"
@@ -5100,7 +5098,8 @@ msgstr "Paginering"
 msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
-msgstr "grommunio Web viser elementer på enkeltsider og du kan bladre igennem disse"
+msgstr ""
+"grommunio Web viser elementer på enkeltsider og du kan bladre igennem disse"
 
 msgid "Load items in blocks of {A}"
 msgstr "Hent elementer i blokke af {A}"
@@ -5185,9 +5184,11 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr ""
-"grommunio Web vil automatisk genindlæses for at disse ændringer kan træde i kraft"
+"grommunio Web vil automatisk genindlæses for at disse ændringer kan træde i "
+"kraft"
 
 msgid "Reset"
 msgstr "Nulstil"
@@ -5204,9 +5205,6 @@ msgstr "Indstillingen '{0}' kan ikke redigeres"
 
 msgid "Version information"
 msgstr "Versions information"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Gromox"
 msgstr "Gromox"
@@ -5608,7 +5606,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Standard postkassen mangler i hierarkiet."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr ""
 "På grund af dette er det ikke sikkert at alle dele af webbrugerfladen "
 "fungerer."
@@ -5796,8 +5795,8 @@ msgid "You have been automatically logged out"
 msgstr "Du er blevet logget ud automatisk"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6441,10 +6440,12 @@ msgstr "ZIP filen kunne ikke dannes"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

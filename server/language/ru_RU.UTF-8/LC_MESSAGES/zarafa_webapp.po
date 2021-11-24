@@ -1706,7 +1706,6 @@ msgstr "Открыть измененное приглашение на собр
 msgid "Copy"
 msgstr "Копировать"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2116,14 +2115,14 @@ msgstr "Импортировать в папку"
 
 #, fuzzy
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr "Чтобы использовать импорт vCard, обновите Gromox до версии 8.3+"
 
 #, fuzzy
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr "Чтобы использовать импорт vCard, обновите Gromox до версии 8.3+"
 
 msgid "Attachment error"
@@ -2341,9 +2340,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr "Больше не показывать это сообщение."
@@ -3238,8 +3234,8 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Нажмите для загрузки изображений. Для защиты ваших данных grommunio Web остановил "
-"автоматическую загрузку некоторых изображений в этом сообщении."
+"Нажмите для загрузки изображений. Для защиты ваших данных grommunio Web "
+"остановил автоматическую загрузку некоторых изображений в этом сообщении."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5068,9 +5064,10 @@ msgstr "Быстрая заметка"
 
 #, fuzzy
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
-msgstr "Чтобы изменения вступили в силу, необходимо перезагрузить grommunio Web."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"Чтобы изменения вступили в силу, необходимо перезагрузить grommunio Web."
 
 #, fuzzy
 msgid "Reload grommunio Web"
@@ -5204,7 +5201,8 @@ msgid "Infinite Scroll"
 msgstr "Бесконечная прокрутка"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "grommunio Web будет автоматически загружать новые элементы при прокрутке"
+msgstr ""
+"grommunio Web будет автоматически загружать новые элементы при прокрутке"
 
 msgid "Pagination"
 msgstr "Страничный режим"
@@ -5297,8 +5295,10 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "grommunio Web будет автоматически перезапущено для применения изменений"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"grommunio Web будет автоматически перезапущено для применения изменений"
 
 msgid "Reset"
 msgstr "Сброс"
@@ -5315,9 +5315,6 @@ msgstr "Настройку «{0}» невозможно изменить"
 
 msgid "Version information"
 msgstr "О версии"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Gromox"
 msgstr "Gromox"
@@ -5741,7 +5738,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Основное хранилище отсутствует."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr "Из-за этого grommunio Web могут не работать некоторые функции."
 
 # 100%
@@ -5934,8 +5932,8 @@ msgid "You have been automatically logged out"
 msgstr "Был выполнен автоматический выход"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6658,10 +6656,12 @@ msgstr "Успешно отправлено"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

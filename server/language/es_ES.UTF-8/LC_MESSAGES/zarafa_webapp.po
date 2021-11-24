@@ -1732,7 +1732,6 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2147,13 +2146,13 @@ msgid "Import to folder"
 msgstr "Vaciar Carpeta"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2370,9 +2369,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -3292,8 +3288,8 @@ msgid ""
 "prevented automatic download of some pictures in this message."
 msgstr ""
 "Haga click acá para descargar las imágenes. Para ayudar a mantener su "
-"privacidad, grommunio Web ha impedido la descarga automática de algunas imágenes en "
-"el mensaje."
+"privacidad, grommunio Web ha impedido la descarga automática de algunas "
+"imágenes en el mensaje."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5206,9 +5202,10 @@ msgstr "Nota"
 
 #, fuzzy
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
-msgstr "Para que los cambios surtan efecto, por favor cargue de nuevo grommunio Web."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"Para que los cambios surtan efecto, por favor cargue de nuevo grommunio Web."
 
 #, fuzzy
 msgid "Reload grommunio Web"
@@ -5345,8 +5342,8 @@ msgstr "Desplazamiento infinito"
 #, fuzzy
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr ""
-"(grommunio Web automáticamente carga elementos adicionales a medida que se desplaza "
-"hacia abajo)"
+"(grommunio Web automáticamente carga elementos adicionales a medida que se "
+"desplaza hacia abajo)"
 
 #, fuzzy
 msgid "Pagination"
@@ -5357,8 +5354,8 @@ msgid ""
 "grommunio Web displays items on pages and you can use navigation controls to "
 "navigate"
 msgstr ""
-"(grommunio Web muestra elementos en páginas y puede utilizar los controles de "
-"navegación para navegar)"
+"(grommunio Web muestra elementos en páginas y puede utilizar los controles "
+"de navegación para navegar)"
 
 msgid "Load items in blocks of {A}"
 msgstr ""
@@ -5440,7 +5437,8 @@ msgstr "Eliminar ajustes"
 
 #, fuzzy
 msgid "Reset settings to their original defaults."
-msgstr "Reinicializar la configuración de grommunio Web a sus valores originales"
+msgstr ""
+"Reinicializar la configuración de grommunio Web a sus valores originales"
 
 msgid ""
 "This will close all opened shared stores and resets all settings to the "
@@ -5449,7 +5447,8 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr "grommunio Web se reiniciará para que estos cambios sean aplicados"
 
 msgid "Reset"
@@ -5467,9 +5466,6 @@ msgstr "El ajuste '{0}' no puede ser editado"
 
 msgid "Version information"
 msgstr "Información de la Versión"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 #, fuzzy
 msgid "Gromox"
@@ -5896,7 +5892,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "El casillero de correo por omisión no se encuentra en la jerarquía"
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr ""
 "Algunas funcionalidades de grommunio Web podrían no estar funcionando "
 "apropiadamente por esto."
@@ -6091,8 +6088,8 @@ msgid "You have been automatically logged out"
 msgstr "Se ha cerrado la sesión automáticamente"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6864,10 +6861,12 @@ msgstr "Envio finalizado"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

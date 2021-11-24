@@ -1715,7 +1715,6 @@ msgstr "Abrir solicitação de reunião com modificações"
 msgid "Copy"
 msgstr "Copiar"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2122,13 +2121,13 @@ msgid "Import to folder"
 msgstr "Esvaziar pastas"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2340,9 +2339,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -3239,8 +3235,8 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Clique aqui para baixar as imagens. Para proteger sua privacidade, grommunio Web "
-"impediu que as imagens deste e-mail são carregados automaticamente."
+"Clique aqui para baixar as imagens. Para proteger sua privacidade, grommunio "
+"Web impediu que as imagens deste e-mail são carregados automaticamente."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5098,8 +5094,8 @@ msgid "Quick Note"
 msgstr "Nota Rápida"
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr ""
 
 #, fuzzy
@@ -5330,7 +5326,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr ""
 
 msgid "Reset"
@@ -5347,9 +5344,6 @@ msgstr "O parâmetro '{0}' não pode ser modificado"
 
 msgid "Version information"
 msgstr "Informações de versão"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 #, fuzzy
 msgid "Gromox"
@@ -5776,8 +5770,10 @@ msgid "The default store is missing from the hierarchy."
 msgstr "A caixa padrão não está disponível na hierarquia."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Assim, algumas funcionalidades do grommunio Web poderão ser comprometidas."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
+msgstr ""
+"Assim, algumas funcionalidades do grommunio Web poderão ser comprometidas."
 
 # 100%
 msgctxt "hierarchy.foldername"
@@ -5969,8 +5965,8 @@ msgid "You have been automatically logged out"
 msgstr "A sessão foi encerrada automaticamente"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6714,10 +6710,12 @@ msgstr "Enviado com sucesso"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

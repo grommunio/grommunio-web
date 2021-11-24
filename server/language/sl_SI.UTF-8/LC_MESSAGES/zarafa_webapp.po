@@ -1752,7 +1752,11 @@ msgstr "Kopiraj"
 
 #, fuzzy
 msgid "grommunio Web"
-msgstr "grommunio Spletna aplikacija"
+msgstr ""
+"#-#-#-#-#  zarafa_webapp.po (grommunio Web Slovenian (Slovenia))  #-#-#-#-#\n"
+"grommunio Spletna aplikacija\n"
+"#-#-#-#-#  zarafa_webapp.po (grommunio Web Slovenian (Slovenia))  #-#-#-#-#\n"
+"Spletna aplikacija"
 
 msgid ""
 "Please note that any changes you make will be overwritten when this meeting "
@@ -2158,13 +2162,13 @@ msgid "Import to folder"
 msgstr "Izprazni mapo"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2381,9 +2385,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Spletna aplikacija"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -3297,8 +3298,9 @@ msgid ""
 "Click here to download pictures. To help protect your privacy, grommunio Web "
 "prevented automatic download of some pictures in this message."
 msgstr ""
-"Kliknite tukaj za nalaganje slik. Zaradi zaščite vaše zasebnosti, je grommunio Web "
-"preprečila avtomatično nalaganje nekaterih slik v tem sporočilu."
+"Kliknite tukaj za nalaganje slik. Zaradi zaščite vaše zasebnosti, je "
+"grommunio Web preprečila avtomatično nalaganje nekaterih slik v tem "
+"sporočilu."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -4270,14 +4272,14 @@ msgstr "Dobrodošli v spletni aplikaciji grommunio"
 #, fuzzy
 msgid "This is the first time you are using grommunio Web. "
 msgstr ""
-"Prvič uporabljate grommunio Web. <br />Prosim, da preverite naslednje nastavitve "
-"preden nadaljujete."
+"Prvič uporabljate grommunio Web. <br />Prosim, da preverite naslednje "
+"nastavitve preden nadaljujete."
 
 #, fuzzy
 msgid "Please check the following settings before continuing."
 msgstr ""
-"Prvič uporabljate grommunio Web. <br />Prosim, da preverite naslednje nastavitve "
-"preden nadaljujete."
+"Prvič uporabljate grommunio Web. <br />Prosim, da preverite naslednje "
+"nastavitve preden nadaljujete."
 
 #, fuzzy
 msgid "Widget height"
@@ -5208,8 +5210,8 @@ msgid "Quick Note"
 msgstr "Hitri zapisek"
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr ""
 
 #, fuzzy
@@ -5443,8 +5445,10 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "grommunio Web se bo avtomacko ponovno zagnal, da se spremembe aktivirajo."
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
+msgstr ""
+"grommunio Web se bo avtomacko ponovno zagnal, da se spremembe aktivirajo."
 
 msgid "Reset"
 msgstr "resetirati"
@@ -5461,9 +5465,6 @@ msgstr "Nastavitev '{0}' ne more biti spremenjena"
 
 msgid "Version information"
 msgstr "Informacije o različici"
-
-msgid "grommunio Web"
-msgstr "Spletna aplikacija"
 
 #, fuzzy
 msgid "Gromox"
@@ -5895,7 +5896,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Privzeto shranjevanje manjka v hierarhiji."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr ""
 "Možnost je, da ne delujejo funkcije spletne aplikacije ne delujejo pravilno "
 "zaradi tega."
@@ -6084,8 +6086,8 @@ msgid "You have been automatically logged out"
 msgstr "Avtomatično ste bili odjavljeni"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6840,10 +6842,12 @@ msgstr "Pošiljanje uspešno"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

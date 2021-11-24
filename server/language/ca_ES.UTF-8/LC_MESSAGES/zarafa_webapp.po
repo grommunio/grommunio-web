@@ -1603,7 +1603,6 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -1958,13 +1957,13 @@ msgid "Import to folder"
 msgstr ""
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2168,9 +2167,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -4699,8 +4695,8 @@ msgid "Quick Note"
 msgstr ""
 
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
 msgstr ""
 
 #, fuzzy
@@ -4921,7 +4917,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr ""
 
 msgid "Reset"
@@ -4937,9 +4934,6 @@ msgid "The setting '{0}' can not be edited"
 msgstr ""
 
 msgid "Version information"
-msgstr ""
-
-msgid "grommunio Web"
 msgstr ""
 
 #, fuzzy
@@ -5332,7 +5326,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "El magatzem per defecte no es troba en la jerarquia."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr ""
 "No totes les funcionalitats de l'aplicació web poden estar funcionant "
 "correctament a causa d'això."
@@ -5518,8 +5513,8 @@ msgid "You have been automatically logged out"
 msgstr ""
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6152,10 +6147,12 @@ msgstr ""
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format

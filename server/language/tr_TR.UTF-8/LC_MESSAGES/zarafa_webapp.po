@@ -1732,7 +1732,6 @@ msgstr "değişiklik yapılan toplantı isteğini aç"
 msgid "Copy"
 msgstr "Kopyala"
 
-#, fuzzy
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
@@ -2139,13 +2138,13 @@ msgid "Import to folder"
 msgstr "Klasörü boşalt"
 
 msgid ""
-"In order to use the vCard import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the vCard import feature, upgrade your Gromox to version 8.3 "
+"or higher."
 msgstr ""
 
 msgid ""
-"In order to use the ICS / VCS import feature, upgrade your Gromox to "
-"version 8.3 or higher."
+"In order to use the ICS / VCS import feature, upgrade your Gromox to version "
+"8.3 or higher."
 msgstr ""
 
 msgid "Attachment error"
@@ -2356,9 +2355,6 @@ msgstr ""
 
 msgid "Would you like to copy instead?"
 msgstr ""
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Do not show this message again."
 msgstr ""
@@ -3275,8 +3271,8 @@ msgid ""
 "prevented automatic download of some pictures in this message."
 msgstr ""
 "Resimleri yüklemek için burayı tıklayınız. Gizliliğinizi korunmasına "
-"yardımcı olmak için, grommunio Web bu iletideki bazı resimlerin otomatik olarak "
-"yüklenmesini engelledi ."
+"yardımcı olmak için, grommunio Web bu iletideki bazı resimlerin otomatik "
+"olarak yüklenmesini engelledi ."
 
 msgctxt "mail.previewpanel"
 msgid ""
@@ -5164,9 +5160,10 @@ msgstr "Hızlı Not"
 
 #, fuzzy
 msgid ""
-"You must reload grommunio Web for the changes to take effect. Unsaved changes will "
-"be lost."
-msgstr "Değişikliklerin etkili olması için lütfen grommunio Web'i yeniden yükleyin."
+"You must reload grommunio Web for the changes to take effect. Unsaved "
+"changes will be lost."
+msgstr ""
+"Değişikliklerin etkili olması için lütfen grommunio Web'i yeniden yükleyin."
 
 #, fuzzy
 msgid "Reload grommunio Web"
@@ -5395,10 +5392,11 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"grommunio Web will automatically reload in order for these changes to take effect"
+"grommunio Web will automatically reload in order for these changes to take "
+"effect"
 msgstr ""
-"grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak yeniden "
-"başlar"
+"grommunio Web, bu değişikliklerin yürürlüğe girmesi için otomatik olarak "
+"yeniden başlar"
 
 msgid "Reset"
 msgstr "sıfırla"
@@ -5415,9 +5413,6 @@ msgstr "Bu ayar '{0}' düzenlenemez"
 
 msgid "Version information"
 msgstr "Sürüm bilgileri"
-
-msgid "grommunio Web"
-msgstr "grommunio Web"
 
 msgid "Gromox"
 msgstr "grommunio sunucusu"
@@ -5857,7 +5852,8 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Varsayılan mağaza hiyerarşide bulunmuyor."
 
 msgid ""
-"Not all functionality of grommunio Web might be working properly because of this."
+"Not all functionality of grommunio Web might be working properly because of "
+"this."
 msgstr "grommunio Web'in bazı işlevleri bu nedenle düzgün çalışmayabilir."
 
 # 100%
@@ -6049,8 +6045,8 @@ msgid "You have been automatically logged out"
 msgstr "Otomatik olarak çıkış yapıldı"
 
 msgid ""
-"Sorry, access to grommunio Web is not available with this user account. Please "
-"contact your system administrator."
+"Sorry, access to grommunio Web is not available with this user account. "
+"Please contact your system administrator."
 msgstr ""
 
 msgid "Can't add data to bus, same action type is present in bus"
@@ -6797,10 +6793,12 @@ msgstr "ZIP oluşturma başarısız"
 msgid "There is no contact found in this file."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple VCF with this version."
+msgid ""
+"grommunio Web does not support importing multiple VCF with this version."
 msgstr ""
 
-msgid "grommunio Web does not support importing multiple ICS with this version."
+msgid ""
+"grommunio Web does not support importing multiple ICS with this version."
 msgstr ""
 
 #, php-format
