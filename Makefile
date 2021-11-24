@@ -35,6 +35,7 @@ POS = $(wildcard server/language/*/LC_MESSAGES/zarafa_webapp.po)
 MOS = $(patsubst %.po,$(DESTDIR)/%.mo,$(POS))
 INCLUDES = $(shell find server/includes -name '*.php')
 PHPFILES = $(filter-out $(DESTDIR)/config.php, $(filter-out $(DESTDIR)/debug.php, $(patsubst %.php,$(DESTDIR)/%.php,$(wildcard *.php) $(INCLUDES))))
+SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd)
 IS_SUPPORTED_BUILD ?= $(if $(filter 1, $(SUPPORTED_BUILD)), supported validate-supported)
 
 # Client files
@@ -74,7 +75,7 @@ deploy: server client plugins
 build: node_modules deploy
 test: jstest
 
-server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(SERVERROOTFILES)
+server: $(MOS) $(LANGTXTDEST) $(PHPFILES) $(DISTFILES) $(ROBOTS) $(DESTDIR)/version $(DESTDIR)/cachebuster $(SERVERROOTFILES)
 
 client: $(CSSDEST) $(ICONSETSDEST) $(IMAGESDEST) js
 	cp -r client/resources/fonts $(DESTDIR)/client/resources/
