@@ -146,7 +146,13 @@ $(JSDEPLOY)/resize.js: client/resize.js
 
 $(DEPLOYPURIFYJS): $(PURIFYJS)
 	mkdir -p $(DEPLOYPURIFY)
-	cp $^ $@
+	# concatenate using cat
+	cat $^ > $(@:.js=-debug.js)
+	$(JSCOMPILER) --js $(@:.js=-debug.js) --js_output_file $@ \
+		--source_map_location_mapping=$(JSDEPLOY)/\| \
+		--output_wrapper="%output%//# sourceMappingURL=$(shell basename $@.map)" \
+		--create_source_map $@.map \
+		$(JSOPTIONS) --jscomp_off=checkVars
 
 $(JSDEPLOY)/third-party/ux-thirdparty.js: $(THIRDPARTY)
 	mkdir -p $(JSDEPLOY)/third-party
