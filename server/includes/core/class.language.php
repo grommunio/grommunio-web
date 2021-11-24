@@ -6,8 +6,8 @@
 	 */
 	class Language {
 
-		private $languages =array("en_GB.UTF-8"=>"English (British)");
-		private $languagetable = array("en_GB"=>"eng_ENG");
+		private $languages = array("en_US.UTF-8" => "English");
+		private $languagetable = array("en_US" => "eng_USA");
 		private $lang;
 		private $loaded = false;
 
@@ -59,9 +59,7 @@
 						$lang_title = fgets($fh);
 						$lang_table = fgets($fh);
 						fclose($fh);
-						$pos = strpos($entry, '.');
-						$locid = ($pos === false) ? $entry : substr($entry, 0, $pos);
-						$this->languages[$entry] = "$locid: ".trim($lang_title);
+						$this->languages[$entry] = "$langcode: ".trim($lang_title);
 						$this->languagetable[$entry] = trim($lang_table);
 					}
 				}
